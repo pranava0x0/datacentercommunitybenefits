@@ -49,6 +49,7 @@ const COMPANY_SLUGS = [
   "xai",
   "oracle",
   "wonder-valley",
+  "qts",
 ];
 
 const STANCE_LABELS = {
@@ -496,12 +497,16 @@ function renderClaimCard(c) {
 
   const meta = document.createElement("div");
   meta.className = "claim-meta";
+  // Prefer the source's own publication date when known; fall back to the
+  // curator's capture date. The visible date is "when was this said?",
+  // which is rarely the same day we recorded it.
+  const displayDate = c.published_at || c.captured_at;
   meta.innerHTML = `
     <span class="claim-company">${escapeHtml(co ? co.name : c.company_slug)}</span>
     <span class="claim-theme" style="--theme-color: var(--theme-${c.theme});">
       ${escapeHtml(THEME_LABELS[c.theme] || c.theme)}
     </span>
-    <span>${escapeHtml(c.captured_at)}</span>
+    <span title="${c.published_at ? 'Published' : 'Recorded'}: ${escapeHtml(displayDate)}">${escapeHtml(displayDate)}</span>
     ${c.metric ? renderMetricBadge(c.metric) : ""}
   `;
 
@@ -885,6 +890,7 @@ function selectProject(id) {
   const claimsCount = renderProjectClaims(p);
   const responsesCount = renderProjectResponses(p);
   updateDetailTabCounts(claimsCount, responsesCount);
+  renderAtAGlance(p);
   resetDetailTabs();
 
   detail.hidden = false;
@@ -959,6 +965,78 @@ function formatGpuCount(v) {
   if (v >= 1e6) return `${(v / 1e6).toFixed(1)}M`;
   if (v >= 1e3) return `${(v / 1e3).toFixed(0)}K`;
   return v.toLocaleString();
+}
+
+// --------------------------------------------------------------------------
+// At-a-glance: per-theme summary on the project Overview tab.
+// Curator-written `project.at_a_glance` (theme → string) wins; otherwise
+// auto-derive a one-liner from the project's project-tied claims.
+// --------------------------------------------------------------------------
+
+function renderAtAGlance(p) {
+  const section = document.getElementById("d-at-a-glance");
+  const list = document.getElementById("d-at-a-glance-list");
+  list.innerHTML = "";
+
+  const summaries = buildAtAGlanceSummaries(p);
+  if (summaries.length === 0) {
+    section.hidden = true;
+    return;
+  }
+  section.hidden = false;
+
+  for (const { theme, text, isCurated } of summaries) {
+    const li = document.createElement("li");
+    li.className = "at-a-glance-row";
+    li.innerHTML = `
+      <span class="at-a-glance-theme" style="--theme-color: var(--theme-${theme});">
+        ${escapeHtml(THEME_LABELS[theme] || theme)}
+      </span>
+      <span class="at-a-glance-text${isCurated ? " curator-override" : ""}">
+        ${escapeHtml(text)}
+      </span>
+    `;
+    list.appendChild(li);
+  }
+}
+
+function buildAtAGlanceSummaries(p) {
+  // 1. Group project-tied claims by theme.
+  const projectClaims = state.claimsByProject.get(p.id) || [];
+  const byTheme = new Map();
+  for (const c of projectClaims) {
+    if (!byTheme.has(c.theme)) byTheme.set(c.theme, []);
+    byTheme.get(c.theme).push(c);
+  }
+
+  // 2. For each canonical theme (in canonical order), build a one-liner.
+  // Curator override (project.at_a_glance) WINS over auto-derivation.
+  const curated = p.at_a_glance || {};
+  const out = [];
+  for (const theme of THEMES) {
+    if (curated[theme]) {
+      out.push({ theme, text: curated[theme], isCurated: true });
+      continue;
+    }
+    const claims = byTheme.get(theme);
+    if (!claims || claims.length === 0) continue;
+    out.push({ theme, text: autoSummarizeClaims(claims), isCurated: false });
+  }
+  return out;
+}
+
+function autoSummarizeClaims(claims) {
+  // Prefer the highest-signal metric across the theme's claims.
+  const withMetric = claims.filter((c) => c.metric);
+  if (withMetric.length > 0) {
+    // Show up to 2 metric strings joined by " · ".
+    const top = withMetric.slice(0, 2).map((c) => formatMetric(c.metric));
+    return top.join(" · ");
+  }
+  // Fall back to a truncated first claim's statement.
+  const stmt = claims[0].statement;
+  const max = 90;
+  return stmt.length > max ? stmt.slice(0, max).trim() + "…" : stmt;
 }
 
 function renderProjectClaims(p) {

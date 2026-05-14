@@ -59,6 +59,7 @@ COMPANY_SLUGS: tuple[str, ...] = (
     # Added when a non-hyperscaler announces a project at hyperscaler scale
     # AND publishes its own community-impact framing (the editorial gate).
     "wonder-valley",
+    "qts",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational")
@@ -95,6 +96,7 @@ CompanySlug = Literal[
     "xai",
     "oracle",
     "wonder-valley",
+    "qts",
 ]
 ProjectStatus = Literal["announced", "construction", "operational"]
 Stance = Literal["positive", "mixed", "negative"]
@@ -159,7 +161,23 @@ class Claim(_StrictBase):
     )
     source_url: HttpUrl
     source_title: str = Field(min_length=1)
-    captured_at: Date
+    captured_at: Date = Field(
+        description=(
+            "Date the curator recorded this claim. Distinct from `published_at` "
+            "(which is the source's own publication date when known). For "
+            "evergreen company pages without a clear publication date, this is "
+            "the only date available."
+        ),
+    )
+    published_at: Optional[Date] = Field(
+        default=None,
+        description=(
+            "Source publication date when known (press release date, blog post "
+            "date, news article date). Frontend displays this if present, "
+            "falling back to captured_at. Don't fabricate — only set when the "
+            "source has a clear, citable publication date."
+        ),
+    )
     metric: Optional[Metric] = None
     project_id: Optional[str] = Field(
         default=None,
@@ -169,6 +187,18 @@ class Claim(_StrictBase):
 
 class Project(_StrictBase):
     """An individual data center project."""
+
+    @field_validator("at_a_glance", check_fields=False)
+    @classmethod
+    def _at_a_glance_keys_in_themes(cls, v):
+        if v is None:
+            return v
+        unknown = set(v.keys()) - set(THEMES)
+        if unknown:
+            raise ValueError(
+                f"at_a_glance keys must be in THEMES; got unknown: {sorted(unknown)}"
+            )
+        return v
 
     id: str = Field(min_length=1, description="Format: '<company>-<city>-<short>'.")
     company_slug: CompanySlug
@@ -229,6 +259,19 @@ class Project(_StrictBase):
             "company itself (e.g. 'Meta'). For colocation arrangements like Stargate "
             "Abilene or Project Rainier, the AI tenant ('OpenAI', 'Anthropic') — "
             "this is the field that disambiguates 'who is the compute actually for?'"
+        ),
+    )
+    at_a_glance: Optional[dict[str, str]] = Field(
+        default=None,
+        description=(
+            "Curator-written one-line per-theme summaries shown on the project "
+            "Overview tab. Keys MUST be from the canonical THEMES vocabulary "
+            "(jobs, tax_revenue, energy, water, community_grants, infrastructure, "
+            "education, engagement). Values are 1-line plain-English phrases — "
+            "e.g. 'Air-cooled, ~0 water use' or '5,000 construction / 500 ops'. "
+            "Optional: when absent, the frontend auto-derives from the project's "
+            "claims. When present, this curator-written copy WINS — it's an "
+            "editorial override for the auto-derivation."
         ),
     )
 

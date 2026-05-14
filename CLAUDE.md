@@ -205,13 +205,42 @@ Dashboard surfacing what major hyperscalers publicly **claim** about community b
 
 The dashboard is **neither a hit piece nor a corporate puff piece**. Both company claims and community pushback are presented with full source attribution, dates, and clear visual distinction so users can evaluate the gap between promised and delivered benefits themselves. **Don't** let the framing slide either direction — that's the load-bearing editorial choice that makes this dashboard useful instead of partisan.
 
-### Companies in scope (v1.1)
+### Companies in scope (v1.4)
 
 **Eight original hyperscalers** (locked, `REQUIRED_HYPERSCALERS` in tests): Meta, Google, Microsoft, OpenAI, Anthropic, xAI, Oracle, Amazon (AWS).
 
-**Non-hyperscaler entities** added when both gates are met: (1) the entity has announced a project at hyperscaler scale (≥1 GW), and (2) the entity publishes its own community-impact framing (so we have first-party claims to quote). As of v1.1: Wonder Valley (O'Leary Digital, Box Elder County UT). The slug `wonder-valley` is in `COMPANY_SLUGS` + the `CompanySlug` Literal; `TestSeedCoverage.OPTIONAL_ENTITIES` is the test-side ledger.
+**Non-hyperscaler entities** added when both gates are met: (1) the entity has announced a project at hyperscaler scale (≥1 GW), and (2) the entity publishes its own community-impact framing (so we have first-party claims to quote). Tracked entities:
+- **Wonder Valley** (O'Leary Digital, Box Elder County UT) — added v1.1.
+- **QTS** (Blackstone subsidiary) — added v1.4. The Cedar Rapids IA campus is the canonical "Ratepayer Protection Pledge" reference site (QTS pays 100% of its energy costs so grid upgrades don't shift to existing utility ratepayers); the Richmond VA campus (RIC5) is the first-ever data center to receive FAST-41 federal-permitting coverage. Both are first-party-substantive enough to clear the gates; v1.0–v1.3 had QTS on the explicit "out of scope" list, but v1.4 reverses that based on the substance of QTS's published commitments.
 
-Hyperscaler-adjacent colocation operators (Equinix, Digital Realty, QTS, etc.) remain **out of scope** — they don't operate their own AI workloads at hyperscaler scale and don't publish comparable community-impact pages.
+The slugs (`wonder-valley`, `qts`) live in `COMPANY_SLUGS` + the `CompanySlug` Literal in [schema.py](schema.py); `TestSeedCoverage.OPTIONAL_ENTITIES` in [tests/test_seed_data.py](tests/test_seed_data.py) is the test-side ledger. When adding a new non-hyperscaler entity:
+1. Add the slug to all four locations above (schema Literal + COMPANY_SLUGS tuple, app.js COMPANY_SLUGS array, OPTIONAL_ENTITIES set).
+2. Add a `--co-<slug>` CSS color in both light and dark `:root` blocks.
+3. Add the company entry to `data/seed/companies.json` with a curated `summary`.
+
+Hyperscaler-adjacent colocation operators not yet tracked (Equinix, Digital Realty, CoreWeave) remain **out of scope** unless they meet the same two-gate test. The QTS addition is the precedent for evaluating future operators.
+
+### Source publication date vs capture date (v1.4)
+
+`Claim.captured_at` is the date the **curator** recorded the claim. `Claim.published_at` (Optional, added v1.4) is the **source's** own publication date — the day the press release went out, the news article was filed, the FERC order was issued. Frontend displays `published_at` if present, falling back to `captured_at`. The two often differ by days or years (e.g., a Dec 2024 Meta press release captured in May 2026).
+
+The merge script in `.agent_outputs/merge_v14.py` auto-extracts publication dates from URLs that include `/YYYY/MM/DD/` path segments — common shape for newsroom CMSes (news.microsoft.com, fox8live.com, bendbulletin.com, ppc.land, etc.). Agent-supplied `published_at` always wins over auto-extraction. **Don't** fabricate publication dates for evergreen company pages without one — leave `published_at` null and the curator's `captured_at` is what gets shown.
+
+`CommunityResponse.date` is already the publication / event date by convention — no schema change needed there.
+
+### `Project.at_a_glance` per-theme summary (v1.4)
+
+Optional `dict[str, str]` field on `Project` mapping canonical theme keys (jobs, tax_revenue, energy, water, community_grants, infrastructure, education, engagement) to one-line plain-English phrases — e.g., `{"water": "Air-cooled, low water use", "jobs": "5,000 construction / 500 ops"}`. Surfaced in the project Overview tab's "At a glance" section.
+
+When `at_a_glance` is **set** for a theme, the curator-written copy wins. When it's **not set**, the frontend auto-derives from the project's project-tied claims:
+- If any claim for the theme has a structured `metric`, format the top 1–2 metrics joined by ` · `.
+- Otherwise truncate the first claim's `statement` to ~90 chars.
+
+Field validator in [schema.py](schema.py) rejects unknown theme keys at refresh time. **Don't** invent themes here that aren't in the canonical 8 — adding a theme is still a deliberate schema migration (CLAUDE.md > "Theme taxonomy"). The auto-derivation path means most projects need no manual `at_a_glance` work; reach for the override only when the auto-summary buries something important (e.g., a notable air-cooling design that the metrics don't surface).
+
+### Draft banner (v1.4)
+
+A thin top strip (`.draft-banner` in [docs/styles.css](docs/styles.css), `<div class="draft-banner">` at the top of `<body>` in [docs/index.html](docs/index.html)) signals to readers that the dataset is under active curation. The banner says "Draft · Data collection in progress · Last refresh: YYYY-MM-DD". The date is a `<span id="draft-date">` so it can be wired to a build-time stamp later if we want — for now it's hardcoded to the current refresh date. **Don't** remove the banner without explicit user direction; it sets reader expectations about completeness ("if your favorite site isn't here, it's because we haven't gotten to it yet, not because it doesn't matter"). Test `test_draft_banner_present` guards visibility + content.
 
 ### Two views
 

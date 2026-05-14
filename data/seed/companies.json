@@ -48,7 +48,7 @@
       "name": "OpenAI",
       "hq": "San Francisco, CA",
       "dedicated_page_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "summary": "OpenAI does not currently publish a dedicated data-center community-impact framework. The January 2025 Stargate Project announcement framed expected impact in jobs and national-security terms ('over 100,000 American jobs'). Community engagement structure for individual sites — starting with Abilene, TX — has not been publicly established; on-the-ground engagement is being led by the City of Abilene and Texas state officials rather than OpenAI directly.",
+      "summary": "OpenAI does not currently publish a dedicated data-center community-impact framework. The January 2025 Stargate Project announcement framed expected impact in jobs and national-security terms ('over 100,000 American jobs'). Community engagement structure for individual sites \u2014 starting with Abilene, TX \u2014 has not been publicly established; on-the-ground engagement is being led by the City of Abilene and Texas state officials rather than OpenAI directly.",
       "last_reviewed": "2026-05-14"
     },
     {
@@ -56,7 +56,7 @@
       "name": "Anthropic",
       "hq": "San Francisco, CA",
       "dedicated_page_url": null,
-      "summary": "Anthropic does not operate its own data centers and has no published community-impact framework. The company's compute capacity comes via partnerships with AWS (Project Rainier in New Carlisle, IN, ~500K Trainium2 chips) and Google Cloud. Community impact at host sites flows through the operating partner's framework, not Anthropic's — a structural gap for any community advocate trying to engage Anthropic directly on local impact.",
+      "summary": "Anthropic does not operate its own data centers and has no published community-impact framework. The company's compute capacity comes via partnerships with AWS (Project Rainier in New Carlisle, IN, ~500K Trainium2 chips) and Google Cloud. Community impact at host sites flows through the operating partner's framework, not Anthropic's \u2014 a structural gap for any community advocate trying to engage Anthropic directly on local impact.",
       "last_reviewed": "2026-05-14"
     },
     {
@@ -81,6 +81,14 @@
       "hq": "Boston, MA (O'Leary Digital + West GenCo JV)",
       "dedicated_page_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
       "summary": "Wonder Valley / Stratos has no public community-impact page. Project framing comes via Kevin O'Leary's media appearances (Fox News, KUTV, Deseret News, CNN) and the Feb 2026 PR Newswire joint-venture announcement. The May 2026 development consent agreement with Box Elder County was approved without a completed environmental review; Gov. Cox subsequently announced a Phase 1 cap reducing the project from ~7.5 GW to ~1.5 GW following sustained public pushback from BEAR (Box Elder Accountability Referendum) and other resident groups.",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "qts",
+      "name": "QTS",
+      "hq": "Overland Park, KS",
+      "dedicated_page_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
+      "summary": "QTS Data Centers, a Blackstone portfolio company since its 2021 take-private acquisition (~$10B), publishes a community framework it calls 'five guarantees that guide how we build, operate and partner in the places we call home.' The framework's headline commitment is paying 100% of the energy costs for QTS facilities so that grid-upgrade and generation costs are not shifted to existing utility ratepayers; QTS publicly signed the White House's March 2026 Ratepayer Protection Pledge. Adjacent commitments include closed-loop water-free cooling at all greenfield builds since 2018, town-hall engagement with host communities, locally-funded scholarship and grant programs (notably a $50M Dane County, WI community commitment), and 'success-based giving' partnerships. QTS's annual sustainability report claims 100% carbon-free operational electricity in 2023 and a 5% annual portfolio Water Utilization Effectiveness reduction target.",
       "last_reviewed": "2026-05-14"
     }
   ]

@@ -246,6 +246,51 @@ class TestProject:
         p = Project(**_project_kwargs(offtaker="Anthropic"))
         assert p.offtaker == "Anthropic"
 
+    # ----- v1.4: at_a_glance per-theme summary -----
+
+    def test_at_a_glance_default_none(self):
+        p = Project(**_project_kwargs())
+        assert p.at_a_glance is None
+
+    def test_at_a_glance_accepts_canonical_themes(self):
+        p = Project(
+            **_project_kwargs(
+                at_a_glance={
+                    "energy": "100% renewable PPAs",
+                    "water": "Air-cooled, low water use",
+                    "jobs": "5,000 construction / 500 ops",
+                }
+            )
+        )
+        assert p.at_a_glance["water"] == "Air-cooled, low water use"
+
+    def test_at_a_glance_rejects_unknown_theme(self):
+        with pytest.raises(ValidationError) as excinfo:
+            Project(**_project_kwargs(at_a_glance={"cooling": "air-cooled"}))
+        assert "cooling" in str(excinfo.value)
+
+
+class TestClaimPublishedAt:
+    """v1.4: Claim.published_at — source's publication date when known."""
+
+    def test_published_at_optional(self):
+        c = Claim(**_claim_kwargs())
+        assert c.published_at is None
+
+    def test_published_at_round_trips(self):
+        c = Claim(**_claim_kwargs(published_at=date(2025, 8, 21)))
+        assert c.published_at == date(2025, 8, 21)
+
+    def test_published_at_excluded_when_none(self):
+        c = Claim(**_claim_kwargs())
+        s = c.model_dump_json(exclude_none=True)
+        assert '"published_at"' not in s
+
+    def test_published_at_serializes_when_set(self):
+        c = Claim(**_claim_kwargs(published_at=date(2025, 8, 21)))
+        s = c.model_dump_json(exclude_none=True)
+        assert '"published_at":"2025-08-21"' in s
+
 
 # ---------------------------------------------------------------------------
 # CommunityResponse

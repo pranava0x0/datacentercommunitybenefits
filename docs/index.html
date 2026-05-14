@@ -18,6 +18,12 @@
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
 
+    <div class="draft-banner" role="status" aria-live="polite">
+      <span class="draft-tag">Draft</span>
+      Data collection in progress — claims, projects, and community responses
+      land daily. Last refresh: <span id="draft-date">2026-05-14</span>.
+    </div>
+
     <header class="topbar" role="banner">
       <div class="topbar-inner">
         <div class="topbar-title">
@@ -270,6 +276,20 @@
               <dt>Notes</dt>
               <dd id="d-notes">—</dd>
             </dl>
+
+            <section
+              id="d-at-a-glance"
+              class="at-a-glance"
+              aria-labelledby="d-at-a-glance-heading"
+              hidden
+            >
+              <h4 id="d-at-a-glance-heading">At a glance</h4>
+              <p class="at-a-glance-sub">
+                Per-theme summary derived from this project's claims. See the
+                Claims tab for verbatim quotes and sources.
+              </p>
+              <ul id="d-at-a-glance-list" class="at-a-glance-list"></ul>
+            </section>
           </div>
 
           <div

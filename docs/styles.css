@@ -36,6 +36,7 @@
   --co-xai: #2c2c2c;
   --co-oracle: #6b3838;
   --co-wonder-valley: #6b4a8e;
+  --co-qts: #2f6e7a;
 
   /* Per-theme accent (used as left border on theme chips + matrix headers) */
   --theme-jobs: #2f5d8a;
@@ -90,6 +91,7 @@
   --co-xai: #888888;
   --co-oracle: #d68a8a;
   --co-wonder-valley: #b48ad8;
+  --co-qts: #7ec1cf;
 
   --theme-jobs: #7eb6e8;
   --theme-tax_revenue: #b48ad8;
@@ -194,6 +196,47 @@ select:focus-visible,
 .muted {
   color: var(--text-muted);
   font-style: italic;
+}
+
+/* ==========================================================================
+   Draft banner — thin strip above the topbar
+   ========================================================================== */
+
+.draft-banner {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  padding: 6px 16px;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.draft-tag {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1px 7px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+
+[data-theme="dark"] .draft-tag {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media (max-width: 640px) {
+  .draft-banner {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
 }
 
 /* ==========================================================================
@@ -877,6 +920,87 @@ main {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Project detail — At-a-glance per-theme summary block
+   ========================================================================== */
+
+.at-a-glance {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+}
+
+.at-a-glance h4 {
+  margin: 0 0 4px;
+}
+
+.at-a-glance-sub {
+  margin: 0 0 10px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.at-a-glance-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.at-a-glance-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+  font-size: 0.88rem;
+}
+
+.at-a-glance-row:last-child {
+  border-bottom: none;
+}
+
+.at-a-glance-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.at-a-glance-theme::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--theme-color, var(--accent));
+  flex-shrink: 0;
+}
+
+.at-a-glance-text {
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.at-a-glance-text.curator-override::after {
+  content: "";
+}
+
+@media (max-width: 640px) {
+  .at-a-glance-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 8px 0;
+  }
 }
 
 /* ==========================================================================

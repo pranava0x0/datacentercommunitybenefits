@@ -63,30 +63,42 @@ scanning one tab across multiple projects doesn't force a re-click.
 
 ---
 
-## What's in the dataset (as of v1.2)
+## What's in the dataset (as of v1.4)
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
-| Companies          | 9     | 8 hyperscalers + Wonder Valley (Kevin O'Leary's UT campus)              |
-| Claims             | 95    | Verbatim first-party quotes, mapped to one of 8 themes                  |
-| Projects           | 16    | Sites with location, status, investment, **acreage, power, GPUs, offtaker** |
-| Community responses| 20    | Reactions from residents / officials / NGOs / journalists / regulators  |
+| Companies          | 10    | 8 hyperscalers + Wonder Valley + QTS (Blackstone subsidiary, v1.4)      |
+| Claims             | 135   | Verbatim first-party quotes, mapped to one of 8 themes                  |
+| Projects           | 23    | Sites with location, status, investment, **acreage, power, GPUs, offtaker, at-a-glance** |
+| Community responses| 51    | Reactions from residents / officials / NGOs / journalists / regulators  |
 
-**First-paint payload:** `companies.json` (1.4 KB) + `claims.json`
-(~48 KB) preload on first paint. `projects.json` (~12 KB) +
-`responses.json` (~12 KB) lazy-load when the user opens the Project
+**First-paint payload:** `companies.json` (~7 KB) + `claims.json`
+(~70 KB) preload on first paint. `projects.json` (~20 KB) +
+`responses.json` (~34 KB) lazy-load when the user opens the Project
 Explorer tab. Map JS/CSS (Leaflet, ~150 KB) only loads on the Explorer
 view.
+
+**Date fields:** `Claim.captured_at` is when the curator recorded the
+record. `Claim.published_at` (optional, v1.4+) is the source's own
+publication date when known — frontend prefers it. `CommunityResponse.date`
+is always the publication / event date.
 
 ### Companies tracked
 
 **Eight hyperscalers (locked):** Meta, Google, Microsoft, Amazon (AWS),
 OpenAI, Anthropic, xAI, Oracle.
 
-**Non-hyperscaler entities (v1.1+):** Wonder Valley / O'Leary Digital
-(Box Elder County, UT). Added when both editorial gates are met —
-≥1 GW announced + first-party community-impact framing. See
-[CLAUDE.md](CLAUDE.md#companies-in-scope-v11) for the rule.
+**Non-hyperscaler entities (v1.1+):**
+- Wonder Valley / O'Leary Digital (Box Elder County, UT) — added v1.1.
+- QTS (Blackstone subsidiary) — added v1.4. Cedar Rapids IA is the
+  canonical Ratepayer Protection Pledge site; Richmond VA RIC5 is the
+  first-ever data center to receive FAST-41 federal-permitting
+  coverage.
+
+The two-gate rule for adding more: ≥1 GW announced + first-party
+community-impact framing. See
+[CLAUDE.md](CLAUDE.md#companies-in-scope-v14) for the rule + the slug-
+addition checklist.
 
 ---
 

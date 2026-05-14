@@ -178,6 +178,18 @@ class TestCompanyPopout:
         summary = page.locator("#cd-summary").text_content() or ""
         assert "O'Leary" in summary, f"Wonder Valley summary missing O'Leary ref: {summary!r}"
 
+    def test_qts_summary_mentions_ratepayer_pledge(
+        self, page: Page, base_url: str
+    ):
+        # v1.4: QTS's published framework is anchored by the Ratepayer
+        # Protection Pledge. The summary must reference it so a reader
+        # opening the QTS row immediately sees what's distinctive.
+        self._open(page, base_url, "qts")
+        summary = page.locator("#cd-summary").text_content() or ""
+        assert (
+            "Ratepayer" in summary or "ratepayer" in summary
+        ), f"QTS summary missing ratepayer reference: {summary!r}"
+
 
 # ---------------------------------------------------------------------------
 # Explorer view
@@ -303,6 +315,17 @@ class TestCrossCutting:
         page.goto(base_url + "/")
         skip = page.locator(".skip-link")
         expect(skip).to_have_count(1)
+
+    def test_draft_banner_present(self, page: Page, base_url: str):
+        # v1.4: thin top strip signals the dataset is under active curation.
+        page.goto(base_url + "/")
+        banner = page.locator(".draft-banner")
+        expect(banner).to_have_count(1)
+        expect(banner).to_be_visible()
+        expect(page.locator(".draft-tag")).to_be_visible()
+        text = banner.text_content() or ""
+        assert "Draft" in text or "draft" in text
+        assert "data collection" in text.lower()
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -627,6 +650,120 @@ class TestProjectPhysicalMetrics:
         # setKv() renders "Not disclosed" + .muted-cell class for null.
         text = cell.text_content() or ""
         assert "not disclosed" in text.lower(), f"Expected placeholder: {text!r}"
+
+
+class TestAtAGlance:
+    """v1.4: per-theme summary block on the project Overview tab."""
+
+    def _open(self, page: Page, base_url: str, project_id: str) -> None:
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate(f"window.__dcb.selectProject('{project_id}')")
+        expect(page.locator("#project-detail")).to_be_visible()
+
+    def test_at_a_glance_renders_for_project_with_claims(
+        self, page: Page, base_url: str
+    ):
+        # Meta Richland has many project-tied claims across multiple themes.
+        self._open(page, base_url, "meta-richland-la")
+        section = page.locator("#d-at-a-glance")
+        expect(section).to_be_visible()
+        rows = page.locator("#d-at-a-glance-list .at-a-glance-row")
+        n = rows.count()
+        assert n >= 3, f"Meta Richland should have several themes; got {n}"
+
+    def test_at_a_glance_hidden_when_no_project_claims(
+        self, page: Page, base_url: str
+    ):
+        # OpenAI Lordstown was newly added; check whether it has claims.
+        # If no project-tied claims exist, at-a-glance section must hide.
+        # (Lordstown actually has 3 claims; pick a project with none for this.)
+        self._open(page, base_url, "qts-manassas-va")
+        # qts-manassas-va has no project-tied claims in the merged seed.
+        bbox = page.locator("#d-at-a-glance").bounding_box()
+        assert bbox is None, "at-a-glance should hide when no project claims"
+
+    def test_at_a_glance_rows_show_theme_label(
+        self, page: Page, base_url: str
+    ):
+        self._open(page, base_url, "meta-richland-la")
+        themes = page.locator("#d-at-a-glance-list .at-a-glance-theme")
+        n = themes.count()
+        for i in range(n):
+            text = (themes.nth(i).text_content() or "").strip()
+            assert text, f"At-a-glance row {i} missing theme label"
+
+
+class TestPublishedAtRendering:
+    """v1.4: Claim cards display source publication date when known."""
+
+    def test_published_at_shows_when_set(self, page: Page, base_url: str):
+        # Meta Richland has multiple claims with published_at set
+        # (Dec 2024 / Dec 2025 from the deep-dive agent).
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('meta-richland-la')")
+        page.locator("#dtab-claims").click()
+        page.wait_for_selector(
+            "#d-claims .claim-card", state="attached", timeout=5_000
+        )
+        # At least one claim card should display a date that matches a
+        # published_at value (year 2024 or 2025), not just today's date.
+        cards = page.locator("#d-claims .claim-card")
+        n = cards.count()
+        any_pub = False
+        for i in range(n):
+            txt = cards.nth(i).text_content() or ""
+            if "2024-" in txt or "2025-" in txt:
+                any_pub = True
+                break
+        assert any_pub, "Expected at least one claim card showing a 2024/2025 published_at"
+
+
+class TestNewV14Sites:
+    """v1.4: smoke tests for the newly added sites and 10th company."""
+
+    def test_qts_company_appears_in_matrix(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        row = page.locator('#matrix-body tr[data-company="qts"]')
+        expect(row).to_have_count(1)
+
+    def test_qts_cedar_rapids_project_in_explorer(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.locator("#f-company").select_option("qts")
+        page.wait_for_timeout(150)
+        cards = page.locator("#project-list .project-card")
+        assert cards.count() >= 1
+        # Confirm Cedar Rapids appears.
+        page.evaluate("window.__dcb.selectProject('qts-cedar-rapids-ia')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        expect(page.locator("#d-name")).to_contain_text("Cedar Rapids")
+
+    def test_google_van_buren_mi_project(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('google-van-buren-mi')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        expect(page.locator("#d-location")).to_contain_text("MI")
+
+    def test_aws_loudoun_metrics_refreshed(self, page: Page, base_url: str):
+        # v1.4: investment refreshed to $91.5B, jobs to 20,700.
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('aws-loudoun-va')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        inv = page.locator("#d-investment").text_content() or ""
+        # $91.5B → "$91.5B" via formatUsd
+        assert "91.5B" in inv or "91,500" in inv, f"Loudoun investment not refreshed: {inv!r}"
 
 
 class TestSourceAttribution:
