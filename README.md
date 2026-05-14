@@ -1,69 +1,144 @@
 # Data Center Community Benefits & Pushback Dashboard
 
-A public-interest dashboard surfacing what the major hyperscalers — Meta,
-Google, Microsoft, OpenAI, Anthropic, xAI, Oracle, Amazon — publicly
-**claim** about community benefits from their data centers, alongside what
-local communities, journalists, and regulators actually **report** back.
+A public-interest dashboard surfacing what major hyperscalers (and their
+non-hyperscaler adjacent peers) **claim** about community benefits from
+their data centers — alongside what local communities, journalists, and
+regulators actually **report** back.
 
 The dashboard is **neither a hit piece nor a corporate puff piece**. Both
 company claims and community responses are presented with full source
 attribution, dates, and clear visual distinction so users can evaluate the
 gap between promised and delivered benefits themselves.
 
-## Two views
+→ **Live dashboard:** <https://pranava0x0.github.io/datacentercommunitybenefits/>
 
-1. **Company Comparison** — a thematic matrix of benefit claims across the
-   eight companies, mapped to eight themes (jobs, tax revenue, energy,
-   water, community grants, infrastructure, education, engagement). Click
-   any cell to filter the claim list.
-2. **Project Explorer** — individual data center sites with project info
-   (location, status, claimed investment, claimed jobs), the company's
-   claims, and any documented community responses (positive, mixed, or
-   negative) with constituency tags.
+---
+
+## What the dashboard shows
+
+### View 1 — Company Comparison
+A 9 × 8 thematic matrix. Rows are companies; columns are the eight
+benefit themes ([jobs, tax revenue, energy, water, community grants,
+infrastructure, education, engagement](DESIGN.md#theme-assignment)).
+
+- A `✓` in a cell means the company has one recorded claim against that
+  theme; a number (`2`, `3`, …) shows the volume.
+- Click any cell to filter the claims list below to just that
+  company × theme intersection.
+- Every claim card shows the verbatim quote, theme, capture date, an
+  optional structured metric (`$300M infrastructure`, `5,000 jobs`), and
+  a "Source" link to the company's own page.
+
+### View 2 — Project Explorer
+The 16 individual data center projects on a Leaflet map (lazy-loaded —
+the comparison view doesn't pull Leaflet at all).
+
+Filterable by company, status (announced / construction / operational),
+and community stance. Click any marker or list card to open the project
+pop-out, which has three tabs:
+
+- **Overview** — investment, jobs, location, project page link, record
+  source link, notes.
+- **Claims** — site-specific quotes for that project (with a count
+  badge on the tab).
+- **Community** — documented responses tagged
+  positive/mixed/negative with constituency
+  (residents / local government / NGO / academic / journalist / regulator).
+
+The active tab persists across project selections within a session so
+scanning one tab across multiple projects doesn't force a re-click.
+
+---
+
+## What's in the dataset (as of v1.1)
+
+| Record type        | Count | What it tracks                                                          |
+| ------------------ | ----- | ----------------------------------------------------------------------- |
+| Companies          | 9     | 8 hyperscalers + Wonder Valley (Kevin O'Leary's UT campus, v1.1 add)    |
+| Claims             | 93    | Verbatim first-party quotes, mapped to one of 8 themes                  |
+| Projects           | 16    | Individual data center sites with location, status, claimed numbers     |
+| Community responses| 16    | Reactions from residents / officials / NGOs / journalists / regulators  |
+
+**First-paint payload:** `companies.json` (1.4 KB) + `claims.json`
+(46.6 KB) preload on first paint. `projects.json` (11.3 KB) +
+`responses.json` (8.9 KB) lazy-load when the user opens the Project
+Explorer tab. Map JS/CSS (Leaflet, ~150 KB) only loads on the Explorer
+view.
+
+### Companies tracked
+
+**Eight hyperscalers (locked):** Meta, Google, Microsoft, Amazon (AWS),
+OpenAI, Anthropic, xAI, Oracle.
+
+**Non-hyperscaler entities (v1.1+):** Wonder Valley / O'Leary Digital
+(Box Elder County, UT). Added when both editorial gates are met —
+≥1 GW announced + first-party community-impact framing. See
+[CLAUDE.md](CLAUDE.md#companies-in-scope-v11) for the rule.
+
+---
 
 ## Architecture
 
-- **Static-first.** No runtime backend. `refresh.py` validates curated seed
-  data against a [Pydantic schema](schema.py) and emits four small JSON
-  payloads to `docs/data/`; the frontend (`docs/`) is plain HTML/CSS/JS
-  served by GitHub Pages.
-- **Curated, not scraped (v1).** Each company's claims and projects are
-  hand-seeded from publicly-known sources by a reviewer. v2 will introduce
-  per-company connectors under `connectors/` for the pages that publish
-  stable URLs. Community responses stay curated — no automated sentiment
-  classification.
-- **Single source of truth.** The theme vocabulary, company slugs, and
-  enums live in [`schema.py`](schema.py); the frontend mirrors them in
-  [`docs/app.js`](docs/app.js) and a test
-  ([`tests/test_themes_match_frontend.py`](tests/test_themes_match_frontend.py))
-  asserts they don't drift.
+- **Static-first.** No runtime backend, no database. `refresh.py`
+  validates the curated seed data against a [Pydantic schema](schema.py)
+  and emits four small JSON payloads to `docs/data/`. The frontend
+  (`docs/`) is plain HTML/CSS/JS served by GitHub Pages.
+- **Single source of truth.** Theme vocabulary, company slugs, project
+  statuses, stances, and constituencies live in [`schema.py`](schema.py).
+  The frontend mirrors the slugs/themes in [`docs/app.js`](docs/app.js);
+  [`tests/test_themes_match_frontend.py`](tests/test_themes_match_frontend.py)
+  asserts the two never drift.
+- **Curated, not scraped (v1).** Each claim, project, and response is
+  hand-seeded from publicly-known sources by a reviewer. The v1.1 data-
+  fill pass used four parallel research sub-agents to walk each
+  company's published material and pull verbatim quotes — but the
+  output went through human review, not directly to disk. Community
+  responses stay curated forever; no automated sentiment classification.
+- **Schema is the contract.** Pydantic `extra="forbid"` catches any
+  drift in seed JSON before write. Cross-references (`Claim.project_id`
+  → `Project.id`, `CommunityResponse.project_id` → `Project.id`,
+  `*.company_slug` → `Company.slug`) are checked in `refresh.py`.
+
+---
 
 ## Repo layout
 
 ```
 .
-├── schema.py                 # Pydantic models — single source of truth
-├── refresh.py                # Validate seed → emit docs/data/*.json
-├── connectors/               # Skeleton for v2 per-company scrapers
-│   └── base.py
-├── data/seed/                # Curator's working JSON
-│   ├── companies.json
-│   ├── claims.json
-│   ├── projects.json
-│   └── responses.json
-├── docs/                     # GitHub Pages root
-│   ├── index.html
-│   ├── styles.css
-│   ├── app.js
-│   └── data/                 # Built payloads (output of refresh.py)
-├── tests/                    # pytest unit + Playwright e2e
+├── schema.py                   # Pydantic models — single source of truth
+├── refresh.py                  # CLI: validate seed → emit docs/data/*.json
+├── connectors/                 # Skeleton for v2 per-company scrapers
+│   ├── __init__.py             # (v1: empty; v2: connector registry)
+│   └── base.py                 # Connector ABC for v2 fetchers
+├── data/seed/                  # Curator's working JSON (the source of truth)
+│   ├── companies.json          # 9 companies
+│   ├── claims.json             # 93 verbatim benefit claims
+│   ├── projects.json           # 16 data center sites
+│   └── responses.json          # 16 community responses
+├── docs/                       # GitHub Pages root
+│   ├── index.html              # Two-view shell + tab strip
+│   ├── styles.css              # CSS-var-driven palette + dark mode
+│   ├── app.js                  # View rendering + Leaflet code-split
+│   └── data/                   # Built JSON payloads (output of refresh.py)
+├── tests/
+│   ├── test_schema.py          # Schema-level invariants (30 tests)
+│   ├── test_seed_data.py       # Seed validation + cross-references (26 tests)
+│   ├── test_refresh.py         # refresh.py CLI behavior (8 tests)
+│   ├── test_themes_match_frontend.py   # Python ↔ JS parity (3 tests)
 │   └── e2e/
-├── CLAUDE.md                 # Project conventions (read first)
-├── AGENTS.md                 # How AI agents should work in this repo
-├── DESIGN.md                 # Design system + editorial rubric
-├── ISSUES.md                 # Open / fixed bugs
-└── BACKLOG.md                # Roadmap + ideas
+│       ├── conftest.py         # Spins up local server for Playwright
+│       └── test_views.py       # End-to-end browser tests (41 tests)
+├── requirements.txt            # pydantic, requests, pytest, playwright
+├── pytest.ini                  # Test config
+├── CLAUDE.md                   # Project conventions (read first)
+├── AGENTS.md                   # How AI agents should work in this repo
+├── DESIGN.md                   # Design system + editorial rubric
+├── ISSUES.md                   # Open / fixed bugs
+├── BACKLOG.md                  # Roadmap + done log
+└── README.md                   # ← you are here
 ```
+
+---
 
 ## Quick start
 
@@ -73,44 +148,124 @@ pip install -r requirements.txt
 playwright install chromium      # only needed for e2e tests
 
 # 2. Validate the curated seed and emit docs/data/*.json
-python refresh.py --pretty
+python refresh.py                # minified output (production)
+python refresh.py --pretty       # indented output (better for diffing)
+python refresh.py --check        # validate only; do NOT write outputs
 
 # 3. Serve the dashboard locally
 cd docs && python -m http.server 8000
 # → http://localhost:8000
 
 # 4. Run tests
-python -m pytest                 # unit + e2e (~15s)
-python -m pytest tests/ --ignore=tests/e2e   # unit only (~0.2s)
+python -m pytest                                # full suite (108 tests, ~15 s)
+python -m pytest tests/ --ignore=tests/e2e      # unit only (67 tests, ~0.2 s)
+python -m pytest tests/e2e/                     # Playwright e2e only (~13 s)
 ```
 
-## Adding a claim or project (curator workflow)
+---
 
-1. Open the relevant file in `data/seed/`.
-2. Append a record. Every record needs a real source URL, a verbatim quote
-   (for claims), and a capture date. See [DESIGN.md](DESIGN.md) for the
-   editorial rubric.
-3. Run `python refresh.py` — it validates against the schema (`extra="forbid"`)
-   and updates `docs/data/`.
-4. Run `pytest` — every record is exercised by `tests/test_seed_data.py`.
+## Curator workflow
+
+### Adding a claim
+
+1. Open `data/seed/claims.json`.
+2. Append a record. Required fields:
+   - `id` — `<company>-<theme>-<short>` for company-level claims, or
+     `<project_id>-<theme>-<short>` for project-tied claims.
+   - `company_slug` — must match a slug in `companies.json` (and the
+     `CompanySlug` Literal in `schema.py`).
+   - `theme` — one of the 8 themes (frozen vocabulary).
+   - `statement` — the **verbatim quote**. Don't paraphrase.
+     (`tests/test_seed_data.py` flags obvious paraphrase markers.)
+   - `source_url` — must be a real, resolving HTTPS URL.
+   - `source_title` — short, descriptive page title.
+   - `captured_at` — ISO date you (or the source) captured the claim.
+3. Optional: `project_id` if the claim is tied to a specific project.
+4. Optional: `metric` — `{"value": N, "unit": "usd"|"jobs"|…, "kind": "…"}`
+   when the quote contains a structured number.
+5. Run `python refresh.py` — Pydantic validates the schema, cross-refs
+   are checked, and `docs/data/*.json` is regenerated.
+6. Run `pytest` — every record is exercised.
+
+### Adding a project
+
+1. Open `data/seed/projects.json`.
+2. Required: `id`, `company_slug`, `name`, `city`, `state` (2-letter),
+   `lat`, `lon`, `status`, `announced_year`, `source_url`, `source_title`,
+   `captured_at`.
+3. Optional but valuable: `claimed_investment_usd`, `claimed_jobs`,
+   `notes`, `project_page_url` (the canonical page on the company's own
+   site, distinct from `source_url`).
+4. Once the project exists, you can add `Claim` records that reference
+   `project_id`, and `CommunityResponse` records that reference it too.
+
+### Adding a non-hyperscaler company
+
+Two editorial gates ([CLAUDE.md](CLAUDE.md#companies-in-scope-v11)):
+1. The entity has announced a project at hyperscaler scale (≥1 GW).
+2. The entity publishes its own community-impact framing — so we have
+   first-party material to quote.
+
+Then:
+1. Add the slug to `COMPANY_SLUGS` + the `CompanySlug` Literal in
+   [`schema.py`](schema.py).
+2. Mirror in [`docs/app.js`](docs/app.js)'s `COMPANY_SLUGS` array
+   (test `test_company_slugs_match` enforces parity).
+3. Add a `--co-<slug>` color token to both light + dark sections in
+   [`docs/styles.css`](docs/styles.css).
+4. Add to `TestSeedCoverage.OPTIONAL_ENTITIES` in
+   [`tests/test_seed_data.py`](tests/test_seed_data.py).
+5. Append the company entry to `data/seed/companies.json`, then add
+   claims / projects / responses as above.
+
+---
 
 ## Editorial principles (the load-bearing ones)
 
-- **Quote, don't paraphrase.** Claims field `statement` carries the
-  company's own wording. Tests catch paraphrase markers like "they claim
-  that".
+- **Quote, don't paraphrase.** The `statement` field carries the
+  company's own wording. Tests catch markers like "they claim that".
+  Restating a claim editorially is the fastest way to lose credibility
+  with a reader who clicks through to the source.
 - **Source attribution is non-negotiable.** Every record carries
-  `source_url` + `source_title`; schema rejects records without them, and
-  the frontend renders a "view source" link on every card.
-- **Stance is a human judgment call.** Don't try to LLM-classify community
-  responses; the rubric for `positive` / `mixed` / `negative` is in
-  [DESIGN.md](DESIGN.md).
-- **No "trust score."** The dashboard shows the data; it doesn't synthesize
-  a numeric "greenwashing index."
+  `source_url` + `source_title`; the schema rejects records without
+  them; the frontend renders a "view source" link on every card.
+- **Stance is a human judgment call.** The rubric for `positive` /
+  `mixed` / `negative` lives in [DESIGN.md](DESIGN.md). Don't try to
+  LLM-classify community responses — it's the most adversarial
+  editorial call in the project, and a wrong tag undermines the whole
+  frame. When in doubt, use `mixed`.
+- **Capture dates over "current" framing.** Company pages change. A
+  claim is always "as of YYYY-MM-DD"; the frontend surfaces the date
+  on every card so historical drift is visible.
+- **No "trust score."** The dashboard shows the data; it doesn't
+  synthesize a numeric "greenwashing index." Aggregating into a single
+  number would be both editorially indefensible and operationally
+  fragile.
 
-See [CLAUDE.md](CLAUDE.md) for the full project conventions.
+See [CLAUDE.md](CLAUDE.md) for the full project conventions and
+[DESIGN.md](DESIGN.md) for the design system + stance rubric.
+
+---
+
+## What's explicitly OUT of scope (v1)
+
+- Real-time scraping or alerts.
+- Social-media sentiment mining.
+- Predictive scoring of "trustworthy" vs "greenwashing" claims.
+- Non-US data centers (US sites have richer public-record coverage;
+  revisit in v2).
+- Hyperscaler-adjacent **colocation** operators (Equinix, Digital
+  Realty, QTS) — they don't run their own AI workloads at hyperscaler
+  scale.
+- Per-claim "delivered vs promised" verification.
+- Automated stance classification on community responses.
+
+See [BACKLOG.md](BACKLOG.md) for the v2+ roadmap.
+
+---
 
 ## License
 
-Code: MIT. Data: each record carries its own source attribution; refer to
-the source URL for terms.
+Code: MIT. Data: each record carries its own source attribution and
+links to the original publication; refer to the source URL for the
+publisher's terms.
