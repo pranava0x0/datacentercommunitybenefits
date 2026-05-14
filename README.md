@@ -22,14 +22,18 @@ benefit themes ([jobs, tax revenue, energy, water, community grants,
 infrastructure, education, engagement](DESIGN.md#theme-assignment)).
 
 - A `✓` in a cell means the company has at least one recorded claim
-  against that theme; an `—` means none recorded. Volume goes in the
-  claims list below — the matrix is for at-a-glance "does this company
-  speak to this theme at all?"
-- Click any cell to filter the claims list below to just that
-  company × theme intersection.
-- Every claim card shows the verbatim quote, theme, capture date, an
-  optional structured metric (`$300M infrastructure`, `5,000 jobs`), and
-  a "Source" link to the company's own page.
+  against that theme; an `—` means none recorded. The matrix answers a
+  binary question — "does this company speak to this theme at all?"
+- Click any company row (or populated cell) to open a per-company
+  summary pop-out with:
+  - A curated 1–2 paragraph synthesis of how the company frames data-
+    center community engagement (including honest "no published
+    framework" gaps where they exist).
+  - A link to the company's main community / engagement page on their
+    own site.
+  - Counts of recorded claims + tracked projects for that company.
+  - A "View this company's projects →" CTA that switches to the
+    Project Explorer with the company filter pre-set.
 
 ### View 2 — Project Explorer
 The 16 individual data center projects on a Leaflet map (lazy-loaded —

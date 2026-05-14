@@ -834,6 +834,52 @@ main {
 }
 
 /* ==========================================================================
+   Comparison view: matrix help line + company-detail pop-out
+   ========================================================================== */
+
+.matrix-help {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  max-width: 720px;
+}
+
+.company-detail {
+  margin-top: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--co-color, var(--accent));
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  position: relative;
+  box-shadow: var(--shadow);
+  animation: fadein 180ms ease-out;
+  max-width: 760px;
+}
+
+.company-summary {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.company-summary.muted {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.detail-cta {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
    Project detail
    ========================================================================== */
 

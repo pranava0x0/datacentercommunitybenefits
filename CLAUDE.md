@@ -301,6 +301,20 @@ The project pop-out in the Explorer view is split into three tabs — Overview /
 
 The Community pane is `[hidden]` by default (Overview is the landing tab). Tests that target elements inside that pane MUST pass `state="attached"` to `wait_for_selector`, e.g. `page.wait_for_selector("#d-responses .response-card", state="attached")`. Default `state="visible"` would time out because the parent's `display: none` removes children from the bounding box. Same lesson as adjacent projects — when you waited for visibility but the selector targets a `[hidden]`-conditional element, the wait races a CSS transition or an attribute toggle and flakes on slow runners. Locator `count()` and attribute reads work fine without the wait — they query the DOM, not the layout box.
 
+### Comparison view is summary-pop-out, not claims-list (v1.3)
+
+The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:
+
+- A curated 1–2 paragraph `summary` (new optional field on `Company`, see `schema.py`) describing how the company frames data-center community engagement.
+- A link to `dedicated_page_url` (the company's main community/engagement page on their own site).
+- Counts of recorded claims + tracked projects for that company.
+- Last-reviewed date.
+- A "View this company's projects →" CTA that switches to the Explorer view with the company filter pre-set (via `state.explorerFilters.company` + `syncExplorerFilterUIToState()`).
+
+**Don't** restore the global claims list. The user explicitly cut it because the matrix should answer "does this company speak to this theme at all?" + "what's their overall framing?", not "scroll a wall of every claim by every company". Claim-level browsing happens in the Project Explorer's per-project Claims tab. **Don't** make the company summary an aggregation of the per-company claims either — the summary's editorial value is meta-commentary on the company's framework / page structure / gaps (e.g. "Anthropic has no published framework — they don't operate their own data centers"), which is information that doesn't fall out of the claim records.
+
+The `summary` field is **Optional** in the schema. An empty summary surfaces a muted "No community-impact summary captured for this company yet" placeholder — that's editorially honest for a future entity we haven't researched yet. **Don't** lazy-fill summaries by templating from the claims; spend the curation time.
+
 ### Matrix is checkmark-only (v1.2)
 
 `renderMatrix()` in [docs/app.js](docs/app.js) emits `<span class="count check">✓</span>` for **every** populated cell, regardless of the underlying claim count. The matrix answers a binary question — "does this company speak to this theme at all?" — and volume goes in the claims list below, not the matrix itself. The `aria-label` still carries the precise integer (`"6 Meta Jobs claims — click to filter"`) so screen readers get the count even when the visual is a glyph. **Don't** restore the digit-count branch: the v1.1 implementation surfaced volume in the matrix and the user explicitly cut it because the matrix should read at a glance. **Don't** drop the `aria-label` numeric — the visual is intentionally lossy. Tests `test_all_populated_cells_render_check`, `test_no_digit_only_cells_remain`, and `test_check_cell_aria_label_carries_numeric_count` guard the contract.

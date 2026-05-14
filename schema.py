@@ -122,6 +122,15 @@ class Company(_StrictBase):
         default=None,
         description="The company's published community/economic-impact page, if one exists.",
     )
+    summary: Optional[str] = Field(
+        default=None,
+        description=(
+            "Curated 1–2 paragraph synthesis of how this company frames data center "
+            "community engagement. Surfaced in the Comparison view's company pop-out. "
+            "An honest 'no published framework' is editorially valuable — don't paper "
+            "over the gap with marketing language."
+        ),
+    )
     last_reviewed: Date = Field(
         description="Date a curator last reviewed this company's claims for staleness."
     )

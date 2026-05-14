@@ -77,6 +77,12 @@
           <ul id="theme-legend" class="theme-legend"></ul>
         </div>
 
+        <p class="matrix-help">
+          A check means the company has at least one published claim mapping to that
+          theme. Click any company row to open a summary of how that company frames
+          data-center community engagement, and a link to their main page.
+        </p>
+
         <div class="matrix-wrap" role="region" aria-label="Company × Theme matrix">
           <table id="comparison-matrix" class="matrix">
             <thead>
@@ -86,14 +92,49 @@
           </table>
         </div>
 
-        <section class="claims-section" aria-labelledby="claims-heading">
-          <h3 id="claims-heading">All claims</h3>
-          <p class="claims-help">
-            Click a matrix cell to filter, or browse the full list below. Every claim links to
-            the company's own source.
+        <section
+          id="company-detail"
+          class="company-detail"
+          aria-live="polite"
+          hidden
+        >
+          <button
+            id="company-detail-close"
+            class="detail-close"
+            type="button"
+            aria-label="Close company summary"
+          >
+            ×
+          </button>
+          <header class="detail-header">
+            <p class="eyebrow" id="cd-hq">—</p>
+            <h3 id="cd-name">—</h3>
+          </header>
+
+          <p id="cd-summary" class="company-summary muted">
+            Click a company row above to open its summary.
           </p>
-          <div id="claims-filter" class="chip-row" role="group" aria-label="Filter claims"></div>
-          <ol id="claims-list" class="claims-list"></ol>
+
+          <dl class="kv">
+            <dt>Official community page</dt>
+            <dd id="cd-page-link">—</dd>
+            <dt>Recorded claims</dt>
+            <dd id="cd-claim-count">—</dd>
+            <dt>Tracked projects</dt>
+            <dd id="cd-project-count">—</dd>
+            <dt>Last reviewed</dt>
+            <dd id="cd-last-reviewed">—</dd>
+          </dl>
+
+          <div class="detail-cta">
+            <button
+              id="cd-view-projects"
+              class="btn-ghost"
+              type="button"
+            >
+              View this company's projects →
+            </button>
+          </div>
         </section>
       </section>
 

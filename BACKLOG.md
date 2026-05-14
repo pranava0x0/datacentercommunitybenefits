@@ -134,6 +134,7 @@ instead.
 
 ## Done
 
+- **v1.3 — Comparison view restructured around company pop-outs.** Removed the global claims list + filter chip below the matrix. Click any company row (or populated cell) to open a per-company summary pop-out with: curated 1–2 paragraph framework summary, link to the company's official community/engagement page, claim + project counts, "View this company's projects →" CTA that pre-filters the Explorer view. Added optional `Company.summary` field to the schema and curated summaries for all 9 companies — including honest "no published framework" gaps for OpenAI / Anthropic / Oracle / Wonder Valley.
 - **v1.2 — Matrix simplified to checkmarks-only.** Every populated cell now renders `✓`; the digit branch from v1.1 was removed because volume belongs in the claims list, not the at-a-glance matrix. aria-label still carries the precise count.
 - **v1.2 — Project physical/operational metrics.** Added `acreage`, `power_mw`, `gpu_count`, `offtaker` fields to `Project`. Filled values for all 16 projects from canonical company pages + DCD/DCF/CNBC reporting. Frontend formatters auto-convert ≥1000 MW to GW.
 - **v1.2 — Wonder Valley deep dive.** +2 O'Leary interview claims (energy-mix, China-race rationale), +4 community responses: Elevate Utah policy brief, BEAR co-leads Brenna Williams and Farrah Pliley, Utah ROOTS coalition. Total Wonder Valley records now: 5 claims + 8 community responses.

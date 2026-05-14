@@ -85,7 +85,7 @@ const state = {
   claimsByProject: new Map(),
   companiesBySlug: new Map(),
   activeView: "comparison",
-  matrixFilter: null, // { companySlug?, theme? } | null
+  selectedCompanySlug: null,
   explorerFilters: { company: "", status: "", stance: "" },
   selectedProjectId: null,
   explorerLoaded: false,
@@ -248,8 +248,7 @@ function renderComparisonView() {
   renderMeta();
   renderThemeLegend();
   renderMatrix();
-  renderClaimsList();
-  renderClaimsFilterChips();
+  wireCompanyDetail();
 }
 
 function renderMeta() {
@@ -301,16 +300,34 @@ function renderMatrix() {
     const tr = document.createElement("tr");
     tr.dataset.company = co.slug;
 
+    // Whole-row click + keyboard activation opens the company pop-out.
+    // We also expose role=button on the company-name <th> so the row reads
+    // as a single interactive unit to assistive tech.
+    const openCompany = () => selectCompany(co.slug);
+
     const nameCell = document.createElement("th");
     nameCell.className = "col-company";
     nameCell.scope = "row";
     nameCell.style.setProperty("--co-color", `var(--co-${co.slug})`);
+    nameCell.setAttribute("role", "button");
+    nameCell.tabIndex = 0;
+    nameCell.setAttribute(
+      "aria-label",
+      `${co.name} — click to view community-engagement summary`
+    );
     nameCell.innerHTML = `
       <span class="company-name">
         <span class="company-dot" aria-hidden="true"></span>
         ${escapeHtml(co.name)}
       </span>
     `;
+    nameCell.addEventListener("click", openCompany);
+    nameCell.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openCompany();
+      }
+    });
     tr.appendChild(nameCell);
 
     for (const t of THEMES) {
@@ -324,22 +341,21 @@ function renderMatrix() {
         td.innerHTML = `<span aria-hidden="true">—</span><span class="visually-hidden">no claims</span>`;
       } else {
         td.className = "cell";
-        // Binary signal: any non-zero claim count renders as a checkmark.
-        // The matrix is for "does this company speak to this theme at all?"
-        // — volume goes in the claims list, not the matrix. The aria-label
-        // still carries the precise integer for screen readers.
+        // Binary checkmark — see CLAUDE.md > "Matrix is checkmark-only".
+        // Cells are also clickable as a richer affordance: clicking any
+        // populated cell opens the same company pop-out the row name does.
         td.innerHTML = `<span class="count check" aria-hidden="true">✓</span>`;
         td.setAttribute("role", "button");
         td.tabIndex = 0;
         td.setAttribute(
           "aria-label",
-          `${n} ${co.name} ${THEME_LABELS[t]} claim${n === 1 ? "" : "s"} — click to filter`
+          `${n} ${co.name} ${THEME_LABELS[t]} claim${n === 1 ? "" : "s"} — click to view ${co.name} summary`
         );
-        td.addEventListener("click", () => onMatrixCellClick(co.slug, t));
+        td.addEventListener("click", openCompany);
         td.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            onMatrixCellClick(co.slug, t);
+            openCompany();
           }
         });
       }
@@ -350,57 +366,125 @@ function renderMatrix() {
   }
 }
 
-function onMatrixCellClick(companySlug, theme) {
-  const cur = state.matrixFilter;
-  if (cur && cur.companySlug === companySlug && cur.theme === theme) {
-    state.matrixFilter = null;
+// --------------------------------------------------------------------------
+// Company pop-out (Comparison view) — opens on company-row / cell click
+// --------------------------------------------------------------------------
+
+function wireCompanyDetail() {
+  const closeBtn = document.getElementById("company-detail-close");
+  if (closeBtn && !closeBtn.dataset.wired) {
+    closeBtn.addEventListener("click", closeCompanyDetail);
+    closeBtn.dataset.wired = "1";
+  }
+
+  const viewProjectsBtn = document.getElementById("cd-view-projects");
+  if (viewProjectsBtn && !viewProjectsBtn.dataset.wired) {
+    viewProjectsBtn.addEventListener("click", () => {
+      const slug = state.selectedCompanySlug;
+      if (!slug) return;
+      // Pre-set the explorer company filter, switch view. If the explorer
+      // is already loaded (subsequent visit), sync the select UI + refresh
+      // the list/map. On first load, renderExplorerView() will pick up the
+      // pre-set state.explorerFilters.company itself.
+      state.explorerFilters.company = slug;
+      closeCompanyDetail();
+      activateView("explorer");
+      if (state.explorerLoaded) {
+        syncExplorerFilterUIToState();
+        refreshExplorer();
+      }
+    });
+    viewProjectsBtn.dataset.wired = "1";
+  }
+
+  // Esc closes the pop-out, but only when comparison is the active view
+  // (the explorer view has its own Esc binding for the project detail).
+  if (!document._dcbCompanyEscWired) {
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        state.activeView === "comparison" &&
+        state.selectedCompanySlug
+      ) {
+        closeCompanyDetail();
+      }
+    });
+    document._dcbCompanyEscWired = true;
+  }
+}
+
+function selectCompany(slug) {
+  const co = state.companiesBySlug.get(slug);
+  if (!co) return;
+  state.selectedCompanySlug = slug;
+
+  const panel = document.getElementById("company-detail");
+  panel.style.setProperty("--co-color", `var(--co-${slug})`);
+
+  document.getElementById("cd-hq").textContent = co.hq;
+  document.getElementById("cd-name").textContent = co.name;
+
+  const summaryEl = document.getElementById("cd-summary");
+  if (co.summary) {
+    summaryEl.textContent = co.summary;
+    summaryEl.classList.remove("muted");
   } else {
-    state.matrixFilter = { companySlug, theme };
+    summaryEl.textContent =
+      "No community-impact summary captured for this company yet.";
+    summaryEl.classList.add("muted");
   }
-  renderMatrix();
-  highlightActiveCell();
-  renderClaimsList();
-  renderClaimsFilterChips();
-  document
-    .getElementById("claims-heading")
-    .scrollIntoView({ behavior: "smooth", block: "start" });
-}
 
-function highlightActiveCell() {
-  document
-    .querySelectorAll("#comparison-matrix .cell.active")
-    .forEach((el) => el.classList.remove("active"));
-  if (!state.matrixFilter) return;
-  const { companySlug, theme } = state.matrixFilter;
-  const cell = document.querySelector(
-    `#comparison-matrix td[data-company="${companySlug}"][data-theme="${theme}"]`
+  setKvLink(
+    "cd-page-link",
+    co.dedicated_page_url,
+    co.dedicated_page_url ? "Open page →" : null
   );
-  if (cell) cell.classList.add("active");
+
+  const claimCount = state.claims.filter((c) => c.company_slug === slug).length;
+  setKv(
+    "cd-claim-count",
+    claimCount === 0 ? null : `${claimCount} claim${claimCount === 1 ? "" : "s"}`
+  );
+
+  // Project count requires the explorer payload, which may not be loaded yet.
+  // Populate optimistically; if not loaded, show "Open Project Explorer to view".
+  const projects = state.projects.filter((p) => p.company_slug === slug);
+  if (state.explorerLoaded) {
+    setKv(
+      "cd-project-count",
+      projects.length === 0
+        ? null
+        : `${projects.length} project${projects.length === 1 ? "" : "s"}`
+    );
+  } else {
+    setKv("cd-project-count", "Open Project Explorer to load");
+  }
+
+  setKv("cd-last-reviewed", co.last_reviewed);
+
+  panel.hidden = false;
+  document.getElementById("company-detail-close").focus({ preventScroll: true });
+  panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+  refreshActiveCompanyRow();
 }
 
-function renderClaimsList() {
-  const list = document.getElementById("claims-list");
-  list.innerHTML = "";
+function closeCompanyDetail() {
+  state.selectedCompanySlug = null;
+  const panel = document.getElementById("company-detail");
+  if (panel) panel.hidden = true;
+  refreshActiveCompanyRow();
+}
 
-  const filtered = state.claims.filter((c) => {
-    if (!state.matrixFilter) return true;
-    const f = state.matrixFilter;
-    if (f.companySlug && c.company_slug !== f.companySlug) return false;
-    if (f.theme && c.theme !== f.theme) return false;
-    return true;
-  });
-
-  if (filtered.length === 0) {
-    const li = document.createElement("li");
-    li.className = "muted";
-    li.textContent = "No claims match the current filter.";
-    list.appendChild(li);
-    return;
-  }
-
-  for (const c of filtered) {
-    list.appendChild(renderClaimCard(c));
-  }
+function refreshActiveCompanyRow() {
+  document
+    .querySelectorAll("#matrix-body tr.active")
+    .forEach((el) => el.classList.remove("active"));
+  if (!state.selectedCompanySlug) return;
+  const row = document.querySelector(
+    `#matrix-body tr[data-company="${state.selectedCompanySlug}"]`
+  );
+  if (row) row.classList.add("active");
 }
 
 function renderClaimCard(c) {
@@ -454,30 +538,6 @@ function formatMetric(m) {
   return `${v.toLocaleString()} ${m.unit}${m.kind ? ` (${m.kind})` : ""}`;
 }
 
-function renderClaimsFilterChips() {
-  const row = document.getElementById("claims-filter");
-  row.innerHTML = "";
-  if (!state.matrixFilter) return;
-
-  const f = state.matrixFilter;
-  const co = state.companiesBySlug.get(f.companySlug);
-  const chip = document.createElement("button");
-  chip.type = "button";
-  chip.className = "chip chip-clear";
-  chip.innerHTML = `Filter: ${escapeHtml(co ? co.name : f.companySlug)} × ${escapeHtml(
-    THEME_LABELS[f.theme] || f.theme
-  )} <span aria-hidden="true">×</span>`;
-  chip.setAttribute("aria-label", "Clear filter");
-  chip.addEventListener("click", () => {
-    state.matrixFilter = null;
-    renderMatrix();
-    highlightActiveCell();
-    renderClaimsList();
-    renderClaimsFilterChips();
-  });
-  row.appendChild(chip);
-}
-
 // --------------------------------------------------------------------------
 // Explorer view rendering
 // --------------------------------------------------------------------------
@@ -485,8 +545,19 @@ function renderClaimsFilterChips() {
 function renderExplorerView() {
   populateCompanyFilter();
   wireExplorerFilters();
+  syncExplorerFilterUIToState();
   renderProjectList();
   renderProjectMap();
+}
+
+function syncExplorerFilterUIToState() {
+  const f = state.explorerFilters;
+  const co = document.getElementById("f-company");
+  const st = document.getElementById("f-status");
+  const sn = document.getElementById("f-stance");
+  if (co) co.value = f.company || "";
+  if (st) st.value = f.status || "";
+  if (sn) sn.value = f.stance || "";
 }
 
 function populateCompanyFilter() {

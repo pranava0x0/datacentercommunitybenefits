@@ -40,43 +40,32 @@ class TestComparisonView:
         chips = page.locator("#theme-legend .theme-chip")
         expect(chips).to_have_count(8)
 
-    def test_claims_list_renders(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
-        page.wait_for_selector(".claim-card", timeout=10_000)
-        cards = page.locator(".claim-card")
-        # Seed has 25 claims.
-        assert cards.count() >= 20
-
-    def test_clicking_matrix_cell_filters_claims(self, page: Page, base_url: str):
+    def test_no_global_claims_list_on_comparison(self, page: Page, base_url: str):
+        # v1.3: the comparison view dropped the global claims list + filter
+        # chip. Claims live exclusively in the project-detail Claims tab.
         page.goto(base_url + "/")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        # Find a non-empty cell (Meta × energy is in seed).
+        assert page.locator("#claims-list").count() == 0
+        assert page.locator("#claims-filter").count() == 0
+        assert page.locator("#claims-section").count() == 0
+
+    def test_clicking_company_name_opens_popout(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        page.locator('#matrix-body tr[data-company="meta"] th.col-company').click()
+        expect(page.locator("#company-detail")).to_be_visible()
+        expect(page.locator("#cd-name")).to_have_text("Meta")
+
+    def test_clicking_populated_cell_opens_popout(self, page: Page, base_url: str):
+        # The cell is also a "tell me more about this company" affordance.
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator(
-            '#comparison-matrix td[data-company="meta"][data-theme="energy"]'
+            '#comparison-matrix td[data-company="google"][data-theme="energy"]'
         )
-        expect(cell).to_be_visible()
         cell.click()
-        # A filter chip should appear.
-        expect(page.locator("#claims-filter .chip-clear")).to_be_visible()
-        # The claims list should narrow.
-        cards = page.locator("#claims-list .claim-card")
-        # Should have at least 1, and far fewer than the unfiltered 25.
-        n = cards.count()
-        assert 1 <= n <= 5, f"Expected 1-5 cards after filter, got {n}"
-        # Active class on the cell.
-        expect(cell).to_have_class("cell active")
-
-    def test_filter_chip_clears(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
-        page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        page.locator(
-            '#comparison-matrix td[data-company="meta"][data-theme="energy"]'
-        ).click()
-        page.locator("#claims-filter .chip-clear").click()
-        expect(page.locator("#claims-filter .chip-clear")).to_have_count(0)
-        # Full list back.
-        cards = page.locator("#claims-list .claim-card")
-        assert cards.count() >= 20
+        expect(page.locator("#company-detail")).to_be_visible()
+        expect(page.locator("#cd-name")).to_have_text("Google")
 
     def test_empty_cell_not_clickable(self, page: Page, base_url: str):
         # Anthropic has no 'water' claim; that cell should be empty + non-button.
@@ -88,6 +77,106 @@ class TestComparisonView:
         expect(cell).to_have_class("cell empty")
         # Empty cells should NOT have role=button — confirms they're inert.
         assert cell.get_attribute("role") is None
+
+
+class TestCompanyPopout:
+    """v1.3: Comparison view's per-company summary pop-out."""
+
+    def _open(self, page: Page, base_url: str, slug: str) -> None:
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        page.locator(
+            f'#matrix-body tr[data-company="{slug}"] th.col-company'
+        ).click()
+        expect(page.locator("#company-detail")).to_be_visible()
+
+    def test_popout_starts_hidden(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        bbox = page.locator("#company-detail").bounding_box()
+        assert bbox is None, "company-detail should have no layout box on first paint"
+
+    def test_popout_shows_summary_text(self, page: Page, base_url: str):
+        self._open(page, base_url, "microsoft")
+        summary = page.locator("#cd-summary")
+        text = summary.text_content() or ""
+        assert "Datacenter Community Pledge" in text, (
+            f"Microsoft summary should reference the Pledge: {text!r}"
+        )
+        # Muted styling (placeholder text) shouldn't apply when real summary loads.
+        cls = summary.get_attribute("class") or ""
+        assert "muted" not in cls, f"Real summary shouldn't be muted: {cls!r}"
+
+    def test_popout_links_to_official_page(self, page: Page, base_url: str):
+        self._open(page, base_url, "google")
+        link = page.locator("#cd-page-link a")
+        expect(link).to_have_count(1)
+        href = link.get_attribute("href") or ""
+        assert href.startswith("http"), f"Bad official-page href: {href!r}"
+
+    def test_popout_handles_missing_official_page(
+        self, page: Page, base_url: str
+    ):
+        # Anthropic has dedicated_page_url=null in seed.
+        self._open(page, base_url, "anthropic")
+        # The dd renders the placeholder via setKvLink null branch.
+        dd = page.locator("#cd-page-link")
+        text = dd.text_content() or ""
+        assert "—" in text, f"Expected — placeholder for missing URL: {text!r}"
+
+    def test_popout_shows_claim_and_project_counts(
+        self, page: Page, base_url: str
+    ):
+        self._open(page, base_url, "meta")
+        claim_text = page.locator("#cd-claim-count").text_content() or ""
+        # Meta has many claims in seed.
+        import re
+        m = re.match(r"^(\d+)\s+claim", claim_text)
+        assert m and int(m.group(1)) >= 1, (
+            f"Expected numeric claim count for Meta: {claim_text!r}"
+        )
+
+    def test_popout_close_button_hides_panel(self, page: Page, base_url: str):
+        self._open(page, base_url, "amazon")
+        page.locator("#company-detail-close").click()
+        expect(page.locator("#company-detail")).to_be_hidden()
+
+    def test_escape_closes_popout(self, page: Page, base_url: str):
+        self._open(page, base_url, "amazon")
+        page.keyboard.press("Escape")
+        expect(page.locator("#company-detail")).to_be_hidden()
+
+    def test_active_row_class_tracks_selection(self, page: Page, base_url: str):
+        self._open(page, base_url, "xai")
+        row = page.locator('#matrix-body tr[data-company="xai"]')
+        expect(row).to_have_class("active")
+
+    def test_view_projects_button_switches_to_explorer_with_filter(
+        self, page: Page, base_url: str
+    ):
+        self._open(page, base_url, "microsoft")
+        page.locator("#cd-view-projects").click()
+        # Should land on Explorer view with company filter pre-set.
+        expect(page.locator("#view-explorer")).to_be_visible()
+        page.wait_for_selector(
+            "#project-list .project-card", timeout=15_000
+        )
+        # Filter dropdown should reflect the pre-set value.
+        assert page.locator("#f-company").input_value() == "microsoft"
+        # Project list should only contain Microsoft projects.
+        cards = page.locator("#project-list .project-card")
+        n = cards.count()
+        assert n >= 1
+        for i in range(n):
+            txt = cards.nth(i).text_content() or ""
+            assert "Microsoft" in txt, f"Card {i} not Microsoft: {txt!r}"
+
+    def test_wonder_valley_summary_mentions_oleary(
+        self, page: Page, base_url: str
+    ):
+        self._open(page, base_url, "wonder-valley")
+        summary = page.locator("#cd-summary").text_content() or ""
+        assert "O'Leary" in summary, f"Wonder Valley summary missing O'Leary ref: {summary!r}"
 
 
 # ---------------------------------------------------------------------------
@@ -543,11 +632,23 @@ class TestProjectPhysicalMetrics:
 class TestSourceAttribution:
     """Per CLAUDE.md > 'Source attribution is non-negotiable'."""
 
-    def test_every_claim_card_has_source_link(self, page: Page, base_url: str):
+    def test_every_claim_card_in_project_detail_has_source_link(
+        self, page: Page, base_url: str
+    ):
+        # v1.3: claim cards are exclusively in the project-detail Claims tab,
+        # since the comparison view's global claims list was removed.
         page.goto(base_url + "/")
-        page.wait_for_selector(".claim-card", timeout=10_000)
-        cards = page.locator(".claim-card")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        # meta-richland-la has many site-specific + company-level claims.
+        page.evaluate("window.__dcb.selectProject('meta-richland-la')")
+        page.locator("#dtab-claims").click()
+        page.wait_for_selector(
+            "#d-claims .claim-card", state="attached", timeout=5_000
+        )
+        cards = page.locator("#d-claims .claim-card")
         n = cards.count()
+        assert n >= 5, f"Expected several claims for Meta Richland: got {n}"
         for i in range(n):
             link = cards.nth(i).locator(".claim-source a")
             assert (
