@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#0d1116" />
+    <title>Data Center Community Benefits & Pushback</title>
+    <meta
+      name="description"
+      content="What hyperscalers say about data center community benefits — and what local communities, journalists, and regulators report back."
+    />
+    <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
+    <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="topbar-title">
+          <h1>Data Center Community Benefits</h1>
+          <p class="topbar-sub" id="meta">Loading…</p>
+        </div>
+        <nav class="topbar-controls" aria-label="Toolbar">
+          <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+            ◐
+          </button>
+        </nav>
+      </div>
+
+      <div class="tabbar" role="tablist" aria-label="Dashboard views">
+        <button
+          id="tab-comparison"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="true"
+          aria-controls="view-comparison"
+        >
+          Company Comparison
+        </button>
+        <button
+          id="tab-explorer"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-explorer"
+        >
+          Project Explorer
+        </button>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1" role="main">
+      <!-- ====================== COMPARISON VIEW ====================== -->
+      <section
+        id="view-comparison"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-comparison"
+      >
+        <div class="hero">
+          <p class="eyebrow">View 1</p>
+          <h2 class="hero-title">What each company promises</h2>
+          <p class="hero-dek">
+            A side-by-side matrix of the eight largest hyperscalers' published community-benefit
+            claims, mapped to eight themes. Each cell links to the source.
+          </p>
+        </div>
+
+        <div class="legend-row" aria-label="Theme legend">
+          <span class="legend-label">Themes:</span>
+          <ul id="theme-legend" class="theme-legend"></ul>
+        </div>
+
+        <div class="matrix-wrap" role="region" aria-label="Company × Theme matrix">
+          <table id="comparison-matrix" class="matrix">
+            <thead>
+              <tr id="matrix-head-row"></tr>
+            </thead>
+            <tbody id="matrix-body"></tbody>
+          </table>
+        </div>
+
+        <section class="claims-section" aria-labelledby="claims-heading">
+          <h3 id="claims-heading">All claims</h3>
+          <p class="claims-help">
+            Click a matrix cell to filter, or browse the full list below. Every claim links to
+            the company's own source.
+          </p>
+          <div id="claims-filter" class="chip-row" role="group" aria-label="Filter claims"></div>
+          <ol id="claims-list" class="claims-list"></ol>
+        </section>
+      </section>
+
+      <!-- ====================== EXPLORER VIEW ====================== -->
+      <section
+        id="view-explorer"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-explorer"
+        hidden
+      >
+        <div class="hero">
+          <p class="eyebrow">View 2</p>
+          <h2 class="hero-title">What's actually being built — and how communities respond</h2>
+          <p class="hero-dek">
+            Real data center sites with announced investment, claimed jobs, and documented
+            community responses (positive, mixed, or negative) from residents, local
+            government, NGOs, regulators, and journalists.
+          </p>
+        </div>
+
+        <div class="explorer-filters" role="group" aria-label="Filter projects">
+          <label class="filter">
+            <span>Company</span>
+            <select id="f-company">
+              <option value="">All companies</option>
+            </select>
+          </label>
+          <label class="filter">
+            <span>Status</span>
+            <select id="f-status">
+              <option value="">Any status</option>
+              <option value="announced">Announced</option>
+              <option value="construction">Under construction</option>
+              <option value="operational">Operational</option>
+            </select>
+          </label>
+          <label class="filter">
+            <span>Community stance</span>
+            <select id="f-stance">
+              <option value="">Any stance</option>
+              <option value="positive">Has positive responses</option>
+              <option value="mixed">Has mixed responses</option>
+              <option value="negative">Has negative responses</option>
+            </select>
+          </label>
+          <button id="f-reset" type="button" class="btn-ghost">Reset</button>
+        </div>
+
+        <div class="explorer-layout">
+          <div id="map" class="map" aria-label="Project map" role="img"></div>
+          <aside class="explorer-list" aria-label="Project list">
+            <p class="list-meta" id="explorer-meta">Loading projects…</p>
+            <ol id="project-list" class="project-list"></ol>
+          </aside>
+        </div>
+
+        <section
+          id="project-detail"
+          class="project-detail"
+          aria-live="polite"
+          hidden
+        >
+          <button id="detail-close" class="detail-close" type="button" aria-label="Close detail">
+            ×
+          </button>
+          <header class="detail-header">
+            <p class="eyebrow" id="d-company">—</p>
+            <h3 id="d-name">—</h3>
+            <p class="detail-sub">
+              <span id="d-location">—</span> ·
+              <span id="d-status">—</span> ·
+              announced <span id="d-year">—</span>
+            </p>
+          </header>
+
+          <dl class="kv">
+            <dt>Claimed investment</dt>
+            <dd id="d-investment">—</dd>
+            <dt>Claimed jobs</dt>
+            <dd id="d-jobs">—</dd>
+            <dt>Source</dt>
+            <dd id="d-source">—</dd>
+            <dt>Notes</dt>
+            <dd id="d-notes">—</dd>
+          </dl>
+
+          <section class="detail-block">
+            <h4>Company claims for this site</h4>
+            <ol id="d-claims" class="claims-list compact">
+              <li class="muted">No site-specific claims captured yet.</li>
+            </ol>
+          </section>
+
+          <section class="detail-block">
+            <h4>Community responses</h4>
+            <ol id="d-responses" class="response-list">
+              <li class="muted">No community responses captured yet.</li>
+            </ol>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Built as a public-interest dashboard. Company claims are quoted from each company's own
+        published material; community responses are summaries of reporting and public records.
+        See <a href="https://github.com/pranava0x0/datacentercommunitybenefits">source on GitHub</a>.
+      </p>
+    </footer>
+  </body>
+</html>

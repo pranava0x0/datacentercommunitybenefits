@@ -1,0 +1,250 @@
+{
+  "generated_at": "2026-05-14",
+  "claims": [
+    {
+      "id": "meta-energy-renewable-match",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "Meta's global operations have been supported by 100% renewable energy since 2020, including all of our data centers.",
+      "source_url": "https://sustainability.atmeta.com/",
+      "source_title": "Meta Sustainability — Renewable energy",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "meta-water-positive-2030",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "We are committed to restoring more water than we consume by 2030, focusing our efforts in regions of high and medium water stress.",
+      "source_url": "https://sustainability.atmeta.com/water/",
+      "source_title": "Meta Sustainability — Water",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "meta-community-action-grants",
+      "company_slug": "meta",
+      "theme": "community_grants",
+      "statement": "Through our Community Action Grants program, we provide funding to local nonprofits and schools in our data center communities to support science, technology, engineering and math (STEM) education and community priorities.",
+      "source_url": "https://datacenters.atmeta.com/community/",
+      "source_title": "Meta Data Centers — Community",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "meta-stem-education",
+      "company_slug": "meta",
+      "theme": "education",
+      "statement": "Meta has awarded millions in STEM education grants to schools and nonprofits in our data center host communities.",
+      "source_url": "https://datacenters.atmeta.com/community/",
+      "source_title": "Meta Data Centers — Community",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "meta-engagement-dialogue",
+      "company_slug": "meta",
+      "theme": "engagement",
+      "statement": "We engage early with local stakeholders — elected officials, residents, and utility providers — to identify shared priorities and develop our data centers as long-term community partners.",
+      "source_url": "https://datacenters.atmeta.com/community/",
+      "source_title": "Meta Data Centers — Community engagement",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "google-247-cfe-2030",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Our goal is to operate on 24/7 carbon-free energy on every grid where we operate by 2030.",
+      "source_url": "https://sustainability.google/operating-sustainably/",
+      "source_title": "Google Sustainability — 24/7 carbon-free energy",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "google-water-replenish-120",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "By 2030, we aim to replenish 120% of the freshwater we consume across our offices and data centers.",
+      "source_url": "https://sustainability.google/commitments/water/",
+      "source_title": "Google Sustainability — Water stewardship",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "google-economic-impact-reports",
+      "company_slug": "google",
+      "theme": "tax_revenue",
+      "statement": "Google publishes annual economic impact reports for each of our U.S. data center communities, detailing investment, jobs supported, and local tax contributions.",
+      "source_url": "https://datacenters.google/community/",
+      "source_title": "Google Data Centers — Community impact",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "google-grants-for-good",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "Through our Data Center Grants program, Google.org has awarded grants to local nonprofits in our data center communities, focused on STEM education, workforce development, and digital inclusion.",
+      "source_url": "https://datacenters.google/community/",
+      "source_title": "Google Data Centers — Grants",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "google-stem-education",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "We invest in STEM education programs, including Code Next labs and partnerships with local community colleges to build pipelines into data center operations roles.",
+      "source_url": "https://datacenters.google/community/",
+      "source_title": "Google Data Centers — Education",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "ms-pledge-2024",
+      "company_slug": "microsoft",
+      "theme": "engagement",
+      "statement": "Our Datacenter Community Pledge commits us to advancing community prosperity, addressing local environmental impacts, building skills for jobs of today and the AI economy of tomorrow, and operating in a manner deserving of trust.",
+      "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
+      "source_title": "Microsoft Datacenter Community Pledge (May 2024)",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "ms-water-positive-2030",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "By 2030, Microsoft will be water positive — replenishing more water than we consume across our global operations.",
+      "source_url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
+      "source_title": "Microsoft Sustainability — Water positive by 2030",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "ms-carbon-negative-2030",
+      "company_slug": "microsoft",
+      "theme": "energy",
+      "statement": "By 2030 Microsoft will be carbon negative, and by 2050 we will remove from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975.",
+      "source_url": "https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/",
+      "source_title": "Microsoft will be carbon negative by 2030 (Brad Smith blog)",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "ms-skills-ai-economy",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "statement": "We will partner with local educational institutions and nonprofits to build skills training programs aligned with the AI economy in the communities that host our datacenters.",
+      "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
+      "source_title": "Microsoft Datacenter Community Pledge — Skills",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "ms-community-investment-wi",
+      "company_slug": "microsoft",
+      "theme": "community_grants",
+      "statement": "Microsoft is investing more than $50 million in community-focused projects in southeast Wisconsin, including educational programs, workforce training, and community infrastructure.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2024/05/08/wisconsin-ai-co-innovation-data-center/",
+      "source_title": "Microsoft Wisconsin investment announcement (May 2024)",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 50000000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "aws-100-renewable-2023",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon matched 100% of the electricity consumed by our global operations with renewable energy in 2023, seven years ahead of our original 2030 target.",
+      "source_url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
+      "source_title": "Amazon Sustainability — Renewable energy",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "aws-water-positive-2030",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "AWS is committed to being water positive by 2030, returning more water to communities than we use in our direct operations.",
+      "source_url": "https://aws.amazon.com/sustainability/water-positive/",
+      "source_title": "AWS Water Positive by 2030",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "aws-economic-impact-us",
+      "company_slug": "amazon",
+      "theme": "tax_revenue",
+      "statement": "Through 2023, AWS has invested more than $108 billion in U.S. data center infrastructure, supporting an average of more than 30,000 indirect U.S. jobs annually.",
+      "source_url": "https://aws.amazon.com/about-aws/global-infrastructure/economic-impact/",
+      "source_title": "AWS U.S. Economic Impact Study",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 108000000000.0,
+        "unit": "usd",
+        "kind": "cumulative_investment"
+      }
+    },
+    {
+      "id": "aws-community-grants-think-big",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "Amazon's Think Big Space program brings hands-on STEM and computer science learning experiences to public schools in AWS data center communities.",
+      "source_url": "https://www.aboutamazon.com/news/community/amazon-think-big-spaces-bring-stem-learning-to-students",
+      "source_title": "Amazon Think Big Space program",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "aws-infrastructure-pa-2024",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "AWS plans to invest at least $20 billion in two new data center campuses in Pennsylvania, expected to create at least 1,250 high-skilled jobs.",
+      "source_url": "https://www.aboutamazon.com/news/aws/aws-pennsylvania-data-center-investment",
+      "source_title": "AWS Pennsylvania $20B investment announcement (June 2024)",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 20000000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "openai-stargate-500b",
+      "company_slug": "openai",
+      "theme": "infrastructure",
+      "statement": "The Stargate Project is a new company which intends to invest $500 billion over the next four years building new AI infrastructure for OpenAI in the United States.",
+      "source_url": "https://openai.com/index/announcing-the-stargate-project/",
+      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 500000000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "openai-stargate-jobs",
+      "company_slug": "openai",
+      "theme": "jobs",
+      "statement": "This project will not only support the re-industrialization of the United States but also provide a strategic capability to protect the national security of America and its allies. It will create hundreds of thousands of American jobs.",
+      "source_url": "https://openai.com/index/announcing-the-stargate-project/",
+      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "anthropic-rainier-aws",
+      "company_slug": "anthropic",
+      "theme": "infrastructure",
+      "statement": "Anthropic and AWS are jointly building Project Rainier, a massive compute cluster of EC2 UltraServers powered by hundreds of thousands of Trainium2 chips, to train and serve frontier AI models.",
+      "source_url": "https://www.anthropic.com/news/expanding-our-strategic-partnership-with-aws",
+      "source_title": "Anthropic — Expanding our strategic partnership with AWS (Nov 2024)",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "xai-memphis-colossus",
+      "company_slug": "xai",
+      "theme": "infrastructure",
+      "statement": "Colossus is the largest AI supercomputer in the world. The xAI team brought it online in just 122 days from the time the first rack was installed.",
+      "source_url": "https://x.ai/blog/colossus",
+      "source_title": "xAI — Colossus",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "oracle-stargate-participation",
+      "company_slug": "oracle",
+      "theme": "infrastructure",
+      "statement": "Oracle is one of the initial equity funders and key technology partners of The Stargate Project, alongside SoftBank, OpenAI, and MGX.",
+      "source_url": "https://openai.com/index/announcing-the-stargate-project/",
+      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
+      "captured_at": "2026-05-14"
+    }
+  ]
+}

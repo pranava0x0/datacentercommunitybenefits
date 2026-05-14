@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.pyc
+dist/
+build/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Secrets
+.env
+.env.local
+credentials.json
+secrets/
+
+# Local cache (HTTP responses, etc.)
+.cache/
+cache/
+
+# Test artifacts
+.coverage
+htmlcov/
+playwright-report/
+test-results/
+node_modules/
+
+# Local-only docs
+NOTES.local.md

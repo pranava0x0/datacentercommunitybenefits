@@ -1,0 +1,286 @@
+# CLAUDE.md — Universal Development Principles
+
+> Distilled from patterns across multiple projects. Apply universally; skip sections irrelevant to the current project type.
+
+---
+
+## Agent Workflow: Explore → Plan → Code → Verify
+
+Never blindly write code. Always follow this loop:
+
+1. **Explore** — Search the codebase. Find relevant files, understand existing patterns before touching anything.
+2. **Plan** — Assess the blast radius (how many files touched, how long it takes). For significant changes, present 2–3 high-level approaches with pros/cons and ask for human approval before writing code.
+3. **Code** — Implement following the rules below.
+4. **Verify** — Run tests. Fix all failures before declaring the task complete.
+
+**Read before edit:** Always read a file before editing it, even if it was read earlier in the conversation.
+
+**Ask for options first.** On non-trivial tasks, propose approaches before writing code. The human needs to evaluate options — don't assume the first plausible approach is the right one.
+
+---
+
+## Communication Style
+
+- **Concise output.** No filler, no apologies, no moralizing. Skip generic advice.
+- **Show your work.** Use short internal monologues to break down complex problems.
+- **Fail loud.** Never use catch-all exception handlers that silently swallow errors. Always raise or log explicitly.
+
+---
+
+## Architecture Principles
+
+- **No over-engineering.** Only make changes directly requested or clearly necessary. Keep solutions simple.
+- **Single source of truth.** Constants, configs, and shared types derive from one place.
+- **Modular design.** Separate concerns: data fetching, processing, storage, and presentation are distinct layers.
+- **Idempotent operations.** Re-running any operation should be safe and produce the same result. Use `INSERT OR IGNORE` patterns, cache checks, or deduplication by unique key.
+- **Static when possible.** Prefer baked-in data over runtime backends when the data update cycle allows it.
+- **Cost-optimized.** Stay on free tiers and use the cheapest resources that meet requirements.
+- **CLI-first.** Build CLI entry points before UI. Agents can invoke CLIs directly to self-validate output, closing the feedback loop without human intervention.
+- **Minimize page weight and request count.** Audit total payload size and number of requests. Content-focused sites should be lightweight — aim for fewest requests and smallest payload possible.
+- **Tree-shake and code-split.** Don't bundle every controller/feature for every page. Use code-splitting and lazy loading so pages only load the code they actually need.
+- **Benchmark against best-in-class.** Compare your site/app against well-optimized reference points. If the simplest site in your org is orders of magnitude lighter, your build process needs review.
+- **Document subsystems.** Maintain a `docs/` folder with notes on non-obvious subsystems, design decisions, and correct CLI invocations. One line of documentation prevents repeated mistakes.
+
+---
+
+## Error Resilience
+
+- **Never let a single item failure crash the pipeline.** Wrap individual record processing in try/except. Log and continue.
+- **Log aggressively.** Every request, parse, API call, cache hit/miss, and filter decision should be logged.
+- **Cache everything.** Re-runs should be fast and cheap. Multi-layer caching where appropriate.
+- **Validate everything.** Invalid responses from external services → log and skip, never crash.
+- **Track errors visibly.** Use an `issues.md` file or errors array — failures must be visible, not silent.
+
+---
+
+## Security & Credential Handling
+
+- **Never commit secrets.** API keys, tokens, and passwords must never appear in committed code.
+- Read credentials from environment variables only (e.g., `os.environ["API_KEY"]`). Halt with a clear error if missing.
+- Never log or print credential values.
+- Always `.gitignore`: `.env`, `.env.local`, `credentials.json`, `secrets/`, `node_modules/`, `__pycache__/`, `dist/`, `*.pyc`.
+- Before committing: `git diff --cached | grep -iE "apikey|password|token|secret"`.
+- **Respect user privacy choices.** Don't circumvent ad blockers or privacy tools by proxying tracking SDKs through your own domain. This erodes user trust.
+
+---
+
+## Testing & Validation
+
+- **Write tests alongside code, not as an afterthought.** Every new module or bug fix includes corresponding tests.
+- Write a regression test for every bug fix.
+- Validate output data against expected schemas before writing to disk.
+- **Cover edge cases, not just happy paths:**
+  - Empty input: `[]`, `{}`, `""`
+  - Null/undefined for every optional field
+  - Boundary values (first/last page, exact date boundaries, zero counts)
+  - Combined states (e.g., multiple filters active simultaneously)
+- Run the full test suite before committing to catch regressions.
+- **Never ship test files to production.** Ensure build pipelines exclude test files, dev fixtures, and debug artifacts from production bundles. Use build exclusions and CI checks to enforce this.
+
+---
+
+## Git Discipline
+
+- **Commit often** at natural checkpoints — small, focused commits over large monolithic ones.
+  - After each new module/feature is built
+  - After fixing a bug or resolving a failing test
+  - After updating documentation
+- Write descriptive commit messages explaining *what* and *why*.
+- Never commit large binary files, downloaded data, or API keys.
+
+---
+
+## Data Handling
+
+- **Append-only data.** Append new records rather than overwriting. Deduplicate via unique keys.
+- **Source attribution.** Every data record must include its origin (source URL, connector name, etc.). Users must be able to trace data back to its source.
+- **Defensive optional field handling.** Null-check every optional field before rendering or processing.
+- Null values show explicit placeholders ("N/A", "TBD", "Value TBD") — never blank UI elements or missing fields.
+
+---
+
+## Issue Tracking (`issues.md`)
+
+Maintain a living `issues.md` in the project root as an audit trail.
+
+- Log bugs with: date, module/area, description, root cause (**code bug** vs. **test bug**), and status (Open / Fixed).
+- Update entries when resolved: what the fix was + the commit that resolved it.
+- After every bug fix, check whether a new regression test is needed.
+
+---
+
+## Backlog (`backlog.md`)
+
+Maintain a `backlog.md` for ideas, features, and enhancements.
+
+- When ideas come up during development, add them immediately — don't lose them.
+- Each item: brief description + priority (low / medium / high).
+- Review and reprioritize periodically.
+
+---
+
+## Python Standards
+
+*(Apply when the project uses Python)*
+
+- Type hints on all functions.
+- Use `pathlib.Path` for file paths.
+- Use the `logging` module — no bare `print` for runtime output.
+- All constants in a single config module.
+- Pin dependencies in `requirements.txt`.
+- Use Pydantic for data validation.
+- Python 3.9+ compatible unless specified otherwise.
+
+---
+
+## Frontend Standards
+
+*(Apply when the project has a web frontend)*
+
+- Functional components + hooks only. No class components.
+- Colors, enums, and constants in a dedicated constants file — never hardcoded inline.
+- Data transforms belong in hooks or utility functions, not in components.
+- Proper loading, error, and empty states on every view.
+- All interactive elements must have visible focus indicators for accessibility.
+- **Mobile-first responsive design.** All features must work on both mobile and desktop.
+- Use TypeScript strict mode when the project uses TypeScript. No `any` types.
+- **Deduplicate image assets.** Serve each image exactly once. Use `<picture>` with `srcset` so the browser selects the best format (AVIF > WebP > PNG) rather than downloading all variants.
+- **Serve optimized image formats.** Always use an image CDN or optimization pipeline. Never serve uncompressed PNGs for content images in production.
+- **Only load libraries used on the page.** Don't let backend-only dependencies leak into read-only frontend pages.
+- **Write descriptive `alt` attributes.** Every content image needs meaningful alt text for accessibility — never leave `alt=""`.
+- **Use responsive CSS, not duplicate DOM trees.** Handle mobile/desktop layouts with CSS media queries — never render the same content twice in the DOM.
+- **The `[hidden]` trap.** Writing `display: inline-flex` / `display: block` on an element that uses the `hidden` HTML attribute makes the CSS rule win and the attribute become a no-op. Always pair `display: ...` overrides with an explicit `[hidden] { display: none }` rule.
+
+---
+
+## Network Ethics & Rate Limiting
+
+*(Apply when the project fetches from external sources)*
+
+- Minimum 1.5–2s delay between requests to any single host.
+- Set an informative `User-Agent` header.
+- Handle 429 responses with exponential backoff (start at 10s).
+- Cache all fetched content to disk. Re-runs should never re-download already-cached content.
+- If a service persistently blocks after retries, log to `issues.md` and gracefully skip. Never crash.
+- Start small when testing scrapers — validate against a handful of pages before scaling to full runs.
+- **Use an image CDN or optimization pipeline.** Never serve raw, uncompressed images directly from object storage. Compress and convert to modern formats (WebP/AVIF) before delivery.
+
+---
+
+## AI/API Cost Optimization
+
+*(Apply when the project uses LLM APIs)*
+
+- Use the cheapest model that meets quality requirements by default (e.g., Haiku before Opus).
+- Apply keyword pre-filtering to skip irrelevant content before sending to expensive APIs.
+- Truncate/excerpt input text to reduce token usage.
+- Cache API responses by content hash. Never re-classify identical content.
+- Log cost impact at each optimization layer. Print a cost summary at the end of each run.
+- `--dry-run` and `--fetch-only` modes must work without an API key.
+
+---
+
+## Working with AI Agents
+
+*Meta-principles for getting the most out of AI-assisted development.*
+
+- **Context engineering over prompt engineering.** Fill the context window with exactly what's needed — no more, no less. Watch for three failure modes: *context poisoning* (early errors that compound), *context distraction* (irrelevant content that buries what matters), and *context clash* (contradictory instructions).
+- **Start fresh on topic switches.** Use `/clear` when moving to an unrelated problem. Long mixed-topic contexts degrade quality. Break complex tasks into small steps and commit between them.
+- **AI has no taste.** Actively review output for: excessive try/catch blocks, unnecessary abstractions, code bloat instead of refactoring, and poor judgment on simplicity vs. structure. These are recurring failure modes that require human correction.
+- **AI is a tool, not a substitute for engineering discipline.** Always apply fundamentals to AI-generated code: performance auditing, bundle analysis, code review, and optimization passes. High LOC output is meaningless if the code is bloated, duplicated, and unoptimized. Shipping fast doesn't mean shipping well.
+- **Closed-loop validation.** Build projects so the agent can compile, lint, run tests, and verify its own output without human intervention. When the agent can close the loop itself, you can trust the result.
+- **Keep this file current.** When something unexpected happens — a pattern that failed, a correct CLI invocation, a library quirk — add a concise note here. This file should grow incrementally as organizational scar tissue, not be rewritten from scratch.
+- **Write big plans to files.** For large tasks, write the spec to a `docs/` markdown file and review it before executing. This persists context across sessions and allows a second-opinion review before building.
+- **Sweep for orphaned wrapper shells after every commit / push.** Bash `run_in_background` calls that wrap long-running data refreshes — especially polling-loop wrappers like `until ps -p $(pgrep -f "...") >/dev/null; do sleep N; done` — can outlive the process they were watching. Once the watched PID exits, `pgrep` returns empty, `$(pgrep)` is `""`, `ps -p ""` always fails, and the `until` loop can never resolve, so the wrapper shell sleeps forever. Run `pgrep -fl "<project-path>"` (or check `jobs -l`) before declaring a session done; `kill` any lingering wrappers. Two design fixes: (1) prefer the `Monitor` tool over inline `until`+`sleep` polling — `Monitor` cleans up when its body exits; (2) if you must use Bash, invert the test to `while pgrep -f "..."; do sleep N; done` so the loop exits *when* the process disappears, instead of the unsatisfiable `until ps -p $(pgrep)` shape.
+
+---
+
+## Project-specific notes (Data Center Community Benefits Dashboard)
+
+### Project intent
+
+Dashboard surfacing what major hyperscalers publicly **claim** about community benefits from their data centers, alongside what local communities, journalists, and public records actually **report**. Two stakeholders:
+- **Policymakers / community advocates** evaluating company claims before approving permits, tax abatements, or PPAs.
+- **Researchers / journalists** comparing themes and outcomes across companies.
+
+The dashboard is **neither a hit piece nor a corporate puff piece**. Both company claims and community pushback are presented with full source attribution, dates, and clear visual distinction so users can evaluate the gap between promised and delivered benefits themselves. **Don't** let the framing slide either direction — that's the load-bearing editorial choice that makes this dashboard useful instead of partisan.
+
+### Companies in scope (v1)
+
+Meta, Google, Microsoft, OpenAI, Anthropic, xAI, Oracle, Amazon (AWS). Hyperscaler-adjacent colocation operators (Equinix, Digital Realty, QTS, etc.) are intentionally **out of scope for v1** — they don't run their own AI workloads at the same scale, and including them would dilute the editorial frame. Revisit when one of them starts publishing community-impact pages comparable to the named eight.
+
+### Two views
+
+**Company Comparison view (default landing).** A thematic matrix of benefit claims across the eight companies. Rows = companies, columns = themes (see Theme Taxonomy below). Cell content shows claim count + a representative claim quote. Surfaces patterns at a glance: which companies have formalized pledges vs ad-hoc claims, which themes are universal vs niche, which companies surface community engagement as a theme at all.
+
+**Project Explorer view.** Individual data center sites. Each project carries: company, location (city/state, lat/lon), status (`announced` / `construction` / `operational`), claimed investment, claimed jobs, the company's stated benefits for that site, AND any documented community responses (positive, mixed, negative) with constituency tags. Geo-tagged on a map; filterable by company, theme, stance, status.
+
+### Theme taxonomy (frozen for v1)
+
+A small fixed vocabulary every claim gets mapped to so the comparison view is meaningful:
+
+1. **Jobs** — construction, operational, indirect/induced.
+2. **Tax revenue** — local property/sales tax contributions, abatement framing.
+3. **Energy** — renewable PPAs, efficiency claims, grid investment.
+4. **Water** — usage, recycling, watershed restoration.
+5. **Community grants** — direct philanthropy / community funds.
+6. **Infrastructure** — roads, fiber, utilities investment beyond the site fence.
+7. **Education** — STEM programs, scholarships, workforce training.
+8. **Engagement** — community input during siting, transparency commitments.
+
+Adding a 9th theme requires a [BACKLOG.md](BACKLOG.md) entry + migration of all existing claim records. **Don't** add a theme inline — the comparison view's value depends on a stable cross-company vocabulary; ad-hoc theme additions silently break the matrix narrative for older claims that pre-date the new theme.
+
+### Data model
+
+Four record types in [schema.py](schema.py), all with required `source_url` + `captured_at`:
+
+- **`Company`** — `slug` (e.g. `"meta"`), `name`, `hq`, `dedicated_page_url` (their published community-impact page if one exists), `last_reviewed`.
+- **`Claim`** — `id`, `company_slug`, `theme` (one of the 8 above), `statement` (the original quote, NOT paraphrased), `source_url`, `source_title`, `captured_at`, optional `metric` (e.g. `{"value": 1000, "unit": "jobs", "kind": "construction"}` for structured comparison).
+- **`Project`** — `id`, `company_slug`, `name`, `city`, `state`, `country`, `lat`, `lon`, `status` (`announced` / `construction` / `operational`), `announced_year`, `claimed_investment_usd`, `claimed_jobs`, `notes`, `source_url`.
+- **`CommunityResponse`** — `id`, `project_id`, `date`, `stance` (`positive` / `mixed` / `negative`), `constituency` (`residents` / `local_government` / `ngo` / `academic` / `journalist` / `regulator`), `summary` (1–2 sentences, neutral phrasing), `source_url`, `source_title`.
+
+All four payload types live in `data/seed/` (the curator's working copy) and are mirrored to `docs/data/` on `refresh.py` for the frontend to fetch. **Don't** edit the `docs/data/*.json` files directly — they're build outputs; edit the seed and re-run.
+
+### Editorial / sourcing rules
+
+- **Quote claims; don't paraphrase.** A company's "we will" matters; restating as "they claim X" loses the original wording that's often the most-quoted-by-critics part. The `statement` field is for the verbatim quote; the surrounding UI provides any framing.
+- **Every record carries a source URL and capture date.** No exceptions. If a claim has no source, it doesn't ship. Schema enforces this; the frontend renders a "view source" link on every card.
+- **Stance is editorial, not algorithmic.** Stance tagging on community responses is a human judgment call — the rubric is in [DESIGN.md](DESIGN.md). **Don't** try to LLM-classify stance; it's the most adversarial part of the editorial frame and a wrong tag undermines the whole dashboard.
+- **Constituency matters.** A negative stance from a state regulator is a different signal than a negative stance from a Twitter thread; the `constituency` field lets users weight accordingly.
+- **Capture dates over "current" framing.** Company pages change frequently; a claim is always presented as "as of YYYY-MM-DD" in the UI. Re-capture quarterly. Old captures stay in the dataset (append-only) so historical drift is visible.
+- **News-source diversity.** For each negative-stance project, prefer at least two independent sources from different outlets before flagging. Single-source claims get a `single_source: true` marker in the response record and a small badge in the UI.
+- **Don't aggregate to a "trust score."** Surfacing a numeric "greenwashing index" would be both editorially indefensible and operationally fragile. Show the data; let users judge.
+
+### Data acquisition strategy
+
+v1 is **curated**, not auto-scraped. Each company's claims and projects are seeded from publicly-known sources by a human reviewer, validated against the schema, and shipped as JSON. This trades coverage for accuracy — the dashboard's value is editorial selection, not exhaustiveness. ~10 claims and ~3 projects per company is the v1 target; not 100 of each.
+
+v2 will introduce **connector-based refresh** for the company pages that publish stable URLs (Meta's data centers page at `metadatacenters.com`, Google's data centers page, Microsoft's Datacenter Community Pledge). Connectors live under `connectors/` with the same base-class pattern as adjacent projects: rate-limited HTTP, disk cache, normalize to schema, idempotent re-runs. **Ad-hoc news / community-response sources stay curated** — no automated sentiment classification (see editorial rules above).
+
+### Architectural intent
+
+- **Static-first.** Connectors emit JSON to `docs/data/`; frontend is vanilla JS hosted on GitHub Pages; no runtime backend.
+- **Single source of truth in [schema.py](schema.py).** Pydantic models with `extra="forbid"` so any drift in the curated JSON fails fast at refresh time, not at runtime in the browser.
+- **Theme constants live in one place.** Currently `THEMES` in [schema.py](schema.py) (Python) + the `THEMES` constant in [docs/app.js](docs/app.js) (frontend). A test (`test_themes_match_frontend`) reads both and asserts they're identical so they can't drift silently. **Don't** add a theme to one without the other.
+- **Two payloads, not one.** `companies.json` + `claims.json` (small — preloads on first paint for the comparison view). `projects.json` + `responses.json` (lazy-loads when the user opens the Project Explorer tab). Keeps first paint snappy; the project view is heavier because of the map and per-project detail rendering.
+- **Map only on the project view.** **Don't** pull Leaflet's CSS/JS in on the comparison-only view. The frontend code-splits — the map module loads only when the Project Explorer tab is activated.
+- **Color tokens are CSS-var-driven.** Per-company brand-adjacent color (NOT exact brand colors — we're not affiliated and don't want to imply endorsement), per-stance color (positive / mixed / negative) — single palette in `:root`, dark-mode override in `[data-theme="dark"]`. **Don't** hard-code colors in JS; read via `getComputedStyle()`.
+- **No connector-side aggregation.** Connectors emit raw records; aggregation (claim counts per theme, project counts per company) happens at frontend ingest. Keeps the JSON close to source and lets the frontend re-aggregate as filters change.
+
+### What's explicitly OUT of scope (v1)
+
+- Real-time scraping or alerts.
+- Social-media sentiment mining (too noisy; constituency tagging would be meaningless).
+- Predictive scoring of "trustworthy" vs "greenwashing" claims.
+- Non-US data centers (US sites have richer public-record coverage; revisit in v2).
+- Hyperscaler-adjacent colocation operators (Equinix, Digital Realty, etc.).
+- Per-claim "delivered vs promised" verification (would need 5–10 years of historical claims to compare meaningfully).
+- Automated stance classification on community responses.
+
+### Cross-project lessons carried forward
+
+- **Source attribution is non-negotiable.** Every record must include its origin URL. If a record lacks a source, it doesn't ship.
+- **Defensive optional field handling.** Null values in the UI render as explicit placeholders ("N/A", "Not disclosed"), never blank cells.
+- **Schema is the contract.** Pydantic `extra="forbid"` catches drift before write; tests cover normalize/edge cases.
+- **The `[hidden]` trap.** See Frontend Standards above — pair every `display: ...` override with `[hidden] { display: none }`.
+- **Static-first deployment.** GitHub Pages serving `docs/` with no runtime backend; same pattern as adjacent projects in this org.

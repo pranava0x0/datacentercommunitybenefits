@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-05-14",
+  "themes": [
+    "jobs",
+    "tax_revenue",
+    "energy",
+    "water",
+    "community_grants",
+    "infrastructure",
+    "education",
+    "engagement"
+  ],
+  "companies": [
+    {
+      "slug": "meta",
+      "name": "Meta",
+      "hq": "Menlo Park, CA",
+      "dedicated_page_url": "https://sustainability.atmeta.com/",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "google",
+      "name": "Google",
+      "hq": "Mountain View, CA",
+      "dedicated_page_url": "https://datacenters.google/community/",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "microsoft",
+      "name": "Microsoft",
+      "hq": "Redmond, WA",
+      "dedicated_page_url": "https://datacenters.microsoft.com/",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "amazon",
+      "name": "Amazon (AWS)",
+      "hq": "Seattle, WA",
+      "dedicated_page_url": "https://aws.amazon.com/about-aws/global-infrastructure/economic-impact/",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "openai",
+      "name": "OpenAI",
+      "hq": "San Francisco, CA",
+      "dedicated_page_url": "https://openai.com/index/announcing-the-stargate-project/",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "anthropic",
+      "name": "Anthropic",
+      "hq": "San Francisco, CA",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "xai",
+      "name": "xAI",
+      "hq": "Palo Alto, CA",
+      "dedicated_page_url": "https://x.ai/",
+      "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "oracle",
+      "name": "Oracle",
+      "hq": "Austin, TX",
+      "dedicated_page_url": "https://www.oracle.com/cloud/",
+      "last_reviewed": "2026-05-14"
+    }
+  ]
+}
