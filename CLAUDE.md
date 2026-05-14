@@ -205,9 +205,13 @@ Dashboard surfacing what major hyperscalers publicly **claim** about community b
 
 The dashboard is **neither a hit piece nor a corporate puff piece**. Both company claims and community pushback are presented with full source attribution, dates, and clear visual distinction so users can evaluate the gap between promised and delivered benefits themselves. **Don't** let the framing slide either direction — that's the load-bearing editorial choice that makes this dashboard useful instead of partisan.
 
-### Companies in scope (v1)
+### Companies in scope (v1.1)
 
-Meta, Google, Microsoft, OpenAI, Anthropic, xAI, Oracle, Amazon (AWS). Hyperscaler-adjacent colocation operators (Equinix, Digital Realty, QTS, etc.) are intentionally **out of scope for v1** — they don't run their own AI workloads at the same scale, and including them would dilute the editorial frame. Revisit when one of them starts publishing community-impact pages comparable to the named eight.
+**Eight original hyperscalers** (locked, `REQUIRED_HYPERSCALERS` in tests): Meta, Google, Microsoft, OpenAI, Anthropic, xAI, Oracle, Amazon (AWS).
+
+**Non-hyperscaler entities** added when both gates are met: (1) the entity has announced a project at hyperscaler scale (≥1 GW), and (2) the entity publishes its own community-impact framing (so we have first-party claims to quote). As of v1.1: Wonder Valley (O'Leary Digital, Box Elder County UT). The slug `wonder-valley` is in `COMPANY_SLUGS` + the `CompanySlug` Literal; `TestSeedCoverage.OPTIONAL_ENTITIES` is the test-side ledger.
+
+Hyperscaler-adjacent colocation operators (Equinix, Digital Realty, QTS, etc.) remain **out of scope** — they don't operate their own AI workloads at hyperscaler scale and don't publish comparable community-impact pages.
 
 ### Two views
 
@@ -296,6 +300,14 @@ The project pop-out in the Explorer view is split into three tabs — Overview /
 ### Playwright `wait_for_selector` on hidden-by-default panes (v1.1)
 
 The Community pane is `[hidden]` by default (Overview is the landing tab). Tests that target elements inside that pane MUST pass `state="attached"` to `wait_for_selector`, e.g. `page.wait_for_selector("#d-responses .response-card", state="attached")`. Default `state="visible"` would time out because the parent's `display: none` removes children from the bounding box. Same lesson as adjacent projects — when you waited for visibility but the selector targets a `[hidden]`-conditional element, the wait races a CSS transition or an attribute toggle and flakes on slow runners. Locator `count()` and attribute reads work fine without the wait — they query the DOM, not the layout box.
+
+### Matrix glyph: checkmark for n=1, digit for n≥2 (v1.1)
+
+`renderMatrix()` in [docs/app.js](docs/app.js) emits `<span class="count check">✓</span>` when a company × theme cell has exactly one claim, and `<span class="count">N</span>` when there are 2+. The reasoning: a "1" is a binary present/absent signal; a higher number conveys volume. The `aria-label` always carries the precise integer (`"1 Meta Engagement claim — click to filter"`) so screen readers get the same info as sighted users. **Don't** drop the `aria-label` numeric — the visual glyph is intentionally lossy. Tests `test_check_glyph_is_check_mark` + `test_check_cell_aria_label_says_one_claim` guard the contract.
+
+### `project_page_url` is distinct from `source_url` (v1.1)
+
+`Project.project_page_url` (Optional[HttpUrl], schema.py) is the canonical project page on the company's official site (e.g. `https://datacenters.atmeta.com/2021/03/hello-georgia/` for `meta-newton-ga`). `Project.source_url` is where THIS RECORD was sourced — often a press release or news article. They overlap when the project page is also the announcement source (Meta does this); they diverge when the source is a Reuters / Bloomberg / company-blog post that links *out* to the project page. The detail panel's Overview tab renders both as separate KV rows ("Project page" + "Record source"). When adding a project, fill `project_page_url` if a canonical project page exists; leave null if not (e.g., Stargate Abilene has no public OpenAI page yet that returns 200 to scrapers).
 
 ### Compact claim card variant (v1.1)
 

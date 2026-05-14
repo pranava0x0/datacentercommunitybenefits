@@ -20,14 +20,16 @@ class TestComparisonView:
         # Meta line resolves once data loads.
         expect(page.locator("#meta")).to_contain_text("claims across", timeout=10_000)
 
-    def test_matrix_renders_eight_companies_eight_themes(
+    def test_matrix_renders_at_least_eight_companies_eight_themes(
         self, page: Page, base_url: str
     ):
+        # 8 hyperscalers + non-hyperscaler entities (e.g. Wonder Valley).
+        # Themes are still 8 (frozen vocabulary).
         page.goto(base_url + "/")
-        # Wait for matrix to populate.
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         rows = page.locator("#matrix-body tr")
-        expect(rows).to_have_count(8)
+        n = rows.count()
+        assert n >= 8, f"Matrix should have at least 8 company rows, got {n}"
 
         head_cells = page.locator("#matrix-head-row .col-theme-head")
         expect(head_cells).to_have_count(8)
@@ -250,8 +252,9 @@ class TestCrossCutting:
         page.set_viewport_size({"width": 375, "height": 720})
         page.goto(base_url + "/")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        # Matrix should still render even if it's compressed.
-        expect(page.locator("#matrix-body tr")).to_have_count(8)
+        # Matrix should still render every company row even if it's compressed.
+        n = page.locator("#matrix-body tr").count()
+        assert n >= 8, f"Mobile matrix should render >=8 rows, got {n}"
         # Tab to explorer still works.
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
@@ -375,6 +378,93 @@ class TestDetailTabs:
         assert (
             resp_badge.bounding_box() is None
         ), "Responses badge should hide when count is 0"
+
+
+class TestMatrixGlyphs:
+    """Cells with exactly 1 claim render a checkmark; multiple claims render the count."""
+
+    def test_count_cell_renders_digit_for_two_or_more(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        # Find any non-empty cell, inspect its glyph.
+        cells = page.locator("#comparison-matrix td.cell:not(.empty)")
+        n = cells.count()
+        assert n >= 1, "Seed should have at least one populated matrix cell"
+        # At least one cell must have a count >= 2 in the seed (Meta jobs has
+        # 2+ claims as of v1.1, so this is stable). Verify rendering shape.
+        digit_cells = page.locator("#comparison-matrix .count:not(.check)")
+        check_cells = page.locator("#comparison-matrix .count.check")
+        assert digit_cells.count() >= 1, "Expected at least one numeric-count cell"
+        assert check_cells.count() >= 1, "Expected at least one checkmark cell (single-claim)"
+
+    def test_check_glyph_is_check_mark(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        # Pick the first checkmark cell and verify its text is the U+2713 glyph.
+        first_check = page.locator("#comparison-matrix .count.check").first
+        text = first_check.text_content()
+        assert text and text.strip() == "✓", f"Expected ✓ in check cell, got {text!r}"
+
+    def test_check_cell_aria_label_says_one_claim(self, page: Page, base_url: str):
+        # Aria label must spell out the count even when the visual is a glyph,
+        # so screen readers convey the same info as sighted users.
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        check_cell_td = page.locator(
+            "#comparison-matrix td.cell:has(.count.check)"
+        ).first
+        label = check_cell_td.get_attribute("aria-label") or ""
+        assert "1 " in label, f"Aria-label should include numeric count: {label!r}"
+        assert "claim" in label.lower(), f"Aria-label should mention 'claim': {label!r}"
+
+
+class TestWonderValley:
+    """Wonder Valley (Kevin O'Leary) is the first non-hyperscaler entity tracked."""
+
+    def test_wonder_valley_row_in_matrix(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        row = page.locator('#matrix-body tr[data-company="wonder-valley"]')
+        expect(row).to_have_count(1)
+
+    def test_wonder_valley_project_in_explorer(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.locator("#f-company").select_option("wonder-valley")
+        page.wait_for_timeout(150)
+        cards = page.locator("#project-list .project-card")
+        assert cards.count() >= 1
+
+    def test_wonder_valley_negative_responses_present(
+        self, page: Page, base_url: str
+    ):
+        # Sierra Club + Utah Clean Energy responses are tagged negative.
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate(
+            "window.__dcb.selectProject('wonder-valley-box-elder-ut')"
+        )
+        expect(page.locator("#project-detail")).to_be_visible()
+        page.locator("#dtab-responses").click()
+        negs = page.locator("#d-responses .response-card.negative")
+        assert negs.count() >= 2, "Wonder Valley should have negative NGO responses"
+
+
+class TestProjectPageUrl:
+    """Each project carries an optional project_page_url surfaced in the detail Overview."""
+
+    def test_project_page_link_renders(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('meta-prineville-or')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        link = page.locator("#d-project-page a")
+        expect(link).to_have_count(1)
+        href = link.get_attribute("href")
+        assert href and href.startswith("http"), f"Bad project page href: {href!r}"
 
 
 class TestSourceAttribution:

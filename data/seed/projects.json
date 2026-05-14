@@ -16,8 +16,9 @@
       "claimed_jobs": 400,
       "notes": "Meta's first owned-and-operated data center; campus has expanded multiple times since launch.",
       "source_url": "https://datacenters.atmeta.com/location/prineville/",
-      "source_title": "Meta Data Centers — Prineville",
-      "captured_at": "2026-05-14"
+      "source_title": "Meta Data Centers \u2014 Prineville",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/"
     },
     {
       "id": "meta-newton-ga",
@@ -34,8 +35,9 @@
       "claimed_jobs": 200,
       "notes": "Drew local concern after large groundwater withdrawals were reported by local news outlets.",
       "source_url": "https://datacenters.atmeta.com/location/newton/",
-      "source_title": "Meta Data Centers — Newton",
-      "captured_at": "2026-05-14"
+      "source_title": "Meta Data Centers \u2014 Newton",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/"
     },
     {
       "id": "meta-richland-la",
@@ -52,8 +54,9 @@
       "claimed_jobs": 500,
       "notes": "Announced as Meta's largest data center campus; expected to drive significant new electricity demand on Entergy's Louisiana grid.",
       "source_url": "https://about.fb.com/news/2024/12/meta-richland-parish-louisiana-data-center/",
-      "source_title": "Meta — Investing $10 billion in Richland Parish, Louisiana (Dec 2024)",
-      "captured_at": "2026-05-14"
+      "source_title": "Meta \u2014 Investing $10 billion in Richland Parish, Louisiana (Dec 2024)",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://datacenters.atmeta.com/richland-parish-data-center/"
     },
     {
       "id": "google-the-dalles-or",
@@ -70,8 +73,9 @@
       "claimed_jobs": 200,
       "notes": "Google's first dedicated data center campus. Water usage volumes were disclosed only after a multi-year public-records lawsuit.",
       "source_url": "https://datacenters.google/locations/the-dalles/",
-      "source_title": "Google Data Centers — The Dalles",
-      "captured_at": "2026-05-14"
+      "source_title": "Google Data Centers \u2014 The Dalles",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://datacenters.google/locations/oregon/"
     },
     {
       "id": "google-council-bluffs-ia",
@@ -88,8 +92,9 @@
       "claimed_jobs": 400,
       "notes": "One of Google's largest U.S. campuses; cumulative investment exceeds $5B across multiple expansions.",
       "source_url": "https://datacenters.google/locations/council-bluffs/",
-      "source_title": "Google Data Centers — Council Bluffs",
-      "captured_at": "2026-05-14"
+      "source_title": "Google Data Centers \u2014 Council Bluffs",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://datacenters.google/locations/iowa/"
     },
     {
       "id": "google-mesa-az",
@@ -106,8 +111,9 @@
       "claimed_jobs": 100,
       "notes": "Sited in a high-water-stress region; Google has highlighted air-cooling and reclaimed-water investments.",
       "source_url": "https://datacenters.google/locations/mesa/",
-      "source_title": "Google Data Centers — Mesa",
-      "captured_at": "2026-05-14"
+      "source_title": "Google Data Centers \u2014 Mesa",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/"
     },
     {
       "id": "ms-quincy-wa",
@@ -124,8 +130,9 @@
       "claimed_jobs": 600,
       "notes": "Microsoft's flagship cloud campus; powered largely by Columbia River hydropower.",
       "source_url": "https://news.microsoft.com/source/topics/datacenters/",
-      "source_title": "Microsoft Datacenters — Quincy",
-      "captured_at": "2026-05-14"
+      "source_title": "Microsoft Datacenters \u2014 Quincy",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/"
     },
     {
       "id": "ms-mt-pleasant-wi",
@@ -143,7 +150,8 @@
       "notes": "Sited on land originally assembled for the canceled Foxconn project; paired with $50M+ in community investments.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2024/05/08/wisconsin-ai-co-innovation-data-center/",
       "source_title": "Microsoft expands Wisconsin investment to $3.3B (May 2024)",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/"
     },
     {
       "id": "ms-goodyear-az",
@@ -160,8 +168,9 @@
       "claimed_jobs": 250,
       "notes": "Located in metro Phoenix; community concerns have focused on aquifer use as Maricopa County faces ongoing water-supply scrutiny.",
       "source_url": "https://news.microsoft.com/source/topics/datacenters/",
-      "source_title": "Microsoft Datacenters — West region",
-      "captured_at": "2026-05-14"
+      "source_title": "Microsoft Datacenters \u2014 West region",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/"
     },
     {
       "id": "aws-loudoun-va",
@@ -178,8 +187,9 @@
       "claimed_jobs": 4500,
       "notes": "AWS's largest U.S. presence and the heart of 'Data Center Alley'; concentration has driven both substantial tax revenue and persistent local debate over land use, transmission corridors, and noise.",
       "source_url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
-      "source_title": "AWS Global Infrastructure — US East (N. Virginia)",
-      "captured_at": "2026-05-14"
+      "source_title": "AWS Global Infrastructure \u2014 US East (N. Virginia)",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia"
     },
     {
       "id": "aws-new-carlisle-in",
@@ -197,7 +207,8 @@
       "notes": "AWS-built compute cluster anchored by hundreds of thousands of AWS Trainium2 chips; primary tenant is Anthropic for frontier model training.",
       "source_url": "https://www.aboutamazon.com/news/aws/aws-investing-11-billion-indiana-data-centers",
       "source_title": "AWS to invest $11B in Indiana for new data center campus (Oct 2024)",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers"
     },
     {
       "id": "aws-cumberland-pa",
@@ -206,7 +217,7 @@
       "city": "Salem Township",
       "state": "PA",
       "country": "US",
-      "lat": 40.4630,
+      "lat": 40.463,
       "lon": -77.2398,
       "status": "construction",
       "announced_year": 2024,
@@ -214,8 +225,9 @@
       "claimed_jobs": 1250,
       "notes": "Two-campus build on land adjoining the Susquehanna nuclear plant, structured around a behind-the-meter PPA with Talen Energy.",
       "source_url": "https://www.aboutamazon.com/news/aws/aws-pennsylvania-data-center-investment",
-      "source_title": "AWS — $20B Pennsylvania investment (June 2024)",
-      "captured_at": "2026-05-14"
+      "source_title": "AWS \u2014 $20B Pennsylvania investment (June 2024)",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation"
     },
     {
       "id": "openai-abilene-tx",
@@ -230,10 +242,11 @@
       "announced_year": 2024,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "First Stargate site, developed by Crusoe and operated as Oracle Cloud Infrastructure capacity for OpenAI. Initial buildings underway in 2024–2025.",
+      "notes": "First Stargate site, developed by Crusoe and operated as Oracle Cloud Infrastructure capacity for OpenAI. Initial buildings underway in 2024\u20132025.",
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
-      "captured_at": "2026-05-14"
+      "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://openai.com/index/announcing-the-stargate-project/"
     },
     {
       "id": "oracle-abilene-tx",
@@ -251,7 +264,8 @@
       "notes": "Oracle Cloud Infrastructure capacity tenancy at the Stargate Abilene campus, contracted to OpenAI as the primary workload.",
       "source_url": "https://www.oracle.com/news/announcement/openai-selects-oracle-cloud-infrastructure-to-extend-microsoft-azure-ai-platform-2024-06-11/",
       "source_title": "Oracle and OpenAI extend cloud partnership (2024)",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://www.oracle.com/news/announcement/openai-selects-oracle-cloud-infrastructure-to-extend-microsoft-azure-ai-platform-2024-06-11/"
     },
     {
       "id": "xai-memphis-tn",
@@ -261,15 +275,35 @@
       "state": "TN",
       "country": "US",
       "lat": 35.0598,
-      "lon": -90.0490,
+      "lon": -90.049,
       "status": "operational",
       "announced_year": 2024,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
       "notes": "Built in roughly four months in a former Electrolux plant in southwest Memphis; on-site gas turbines drew air-quality complaints from neighbouring residents and the local NAACP chapter.",
       "source_url": "https://x.ai/blog/colossus",
-      "source_title": "xAI — Colossus",
-      "captured_at": "2026-05-14"
+      "source_title": "xAI \u2014 Colossus",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://memphischamber.com/economic-development/xai/"
+    },
+    {
+      "id": "wonder-valley-box-elder-ut",
+      "company_slug": "wonder-valley",
+      "name": "Wonder Valley Utah Data Center Campus",
+      "city": "Box Elder County",
+      "state": "UT",
+      "country": "US",
+      "lat": 41.71,
+      "lon": -112.85,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": 100000000000,
+      "claimed_jobs": 2000,
+      "notes": "Joint venture between O'Leary Digital Limited (Kevin O'Leary, chairman; Paul Palandjian, CEO) and West GenCo LLC, announced Feb 17, 2026. Located in the Golden Spike District of Box Elder County. Originally proposed at 40,000 acres and 7.5\u20139 GW; on May 4, 2026 the Box Elder County Commission approved a development consent agreement, and on May 8, 2026 Gov. Spencer Cox publicly committed to scaling the project down to ~2,000 acres and 1.5 GW. Project is also referred to in some coverage as the 'Stratos Project.'",
+      "source_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
+      "source_title": "O'Leary Digital Forms Joint Venture to Advance 7.5 GW Wonder Valley Utah Campus; Alberta Permitting Underway",
+      "captured_at": "2026-05-14",
+      "project_page_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html"
     }
   ]
 }

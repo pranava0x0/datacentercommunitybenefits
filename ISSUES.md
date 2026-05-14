@@ -21,6 +21,27 @@ Format:
 
 ## Open
 
+### [2026-05-14] data — Wonder Valley project_id slug names "box-elder" but original task brief said "beaver"
+**Status:** Open
+**Root cause:** data
+**Description:** Initial task asked for "Kevin O'Leary's Utah project" pointed at Beaver County. Web research found it's actually in Box Elder County (northern UT, near Great Salt Lake), not Beaver County (southwestern UT). The seed uses `wonder-valley-box-elder-ut` as the project id. No code break — flagged for awareness in case anyone references the old slug.
+**Fix:** None needed; the `wonder-valley-box-elder-ut` slug is the correct geography.
+**Regression test:** none.
+
+### [2026-05-14] data — Some project_page_url values fall back to third-party press releases
+**Status:** Open
+**Root cause:** data
+**Description:** Several projects don't have a dedicated company project page — the closest canonical URL is a third-party press release (e.g. `google-mesa-az` uses gpec.org because Google has no /locations/mesa page). Schema accepts any HttpUrl, so these load fine, but the "Project page" link is misleading when it isn't actually on the company's domain.
+**Fix:** TBD — over time, recheck each company's location index for new pages.
+**Regression test:** future test could flag project_page_url where the host doesn't match the company's known domains.
+
+### [2026-05-14] data — OpenAI/Oracle Stargate Abilene first-party quotes unverified
+**Status:** Open
+**Root cause:** data
+**Description:** `openai.com/index/announcing-the-stargate-project/` returns HTTP 403 to scrapers; `x.ai/blog/colossus` similar. v1 claims for these companies were captured manually; v1.1 sub-agent could not re-verify them. Quotes are still likely correct (browser-loadable), but the captured_at refresh + verbatim re-check is pending.
+**Fix:** Manual browser visit + verbatim re-capture.
+**Regression test:** none.
+
 ### [2026-05-14] data — Many community-response source URLs point to publication root, not specific articles
 **Status:** Open
 **Root cause:** data

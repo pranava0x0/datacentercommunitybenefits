@@ -39,3 +39,6 @@ node_modules/
 
 # Local-only docs
 NOTES.local.md
+
+# Working agent output (research notes from sub-agent runs)
+.agent_outputs/

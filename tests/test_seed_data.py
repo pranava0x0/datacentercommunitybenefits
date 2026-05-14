@@ -71,19 +71,30 @@ class TestSeedValidates:
 
 
 class TestSeedCoverage:
-    def test_all_eight_companies_present(self, companies):
+    # The eight original hyperscalers — these MUST be present.
+    REQUIRED_HYPERSCALERS = {
+        "meta", "google", "microsoft", "amazon",
+        "openai", "anthropic", "xai", "oracle",
+    }
+
+    # Non-hyperscaler entities tracked from v1.1 onward when they announce
+    # at hyperscaler scale + publish their own community-impact framing.
+    OPTIONAL_ENTITIES = {"wonder-valley"}
+
+    def test_all_required_hyperscalers_present(self, companies):
         slugs = {c.slug for c in companies.companies}
-        expected = {
-            "meta",
-            "google",
-            "microsoft",
-            "amazon",
-            "openai",
-            "anthropic",
-            "xai",
-            "oracle",
-        }
-        assert slugs == expected, f"Missing or extra companies: {slugs ^ expected}"
+        missing = self.REQUIRED_HYPERSCALERS - slugs
+        assert not missing, f"Missing required hyperscalers: {missing}"
+
+    def test_no_unrecognized_companies(self, companies):
+        # Guard against typos sneaking through the Literal narrow.
+        slugs = {c.slug for c in companies.companies}
+        recognized = self.REQUIRED_HYPERSCALERS | self.OPTIONAL_ENTITIES
+        unknown = slugs - recognized
+        assert not unknown, (
+            f"Unknown company slugs: {unknown}. Expand "
+            "TestSeedCoverage.OPTIONAL_ENTITIES if intentional."
+        )
 
     def test_each_major_hyperscaler_has_at_least_one_project(self, projects):
         # The four "big four" hyperscalers should each have at least one project.
@@ -226,10 +237,15 @@ class TestBuildOutputs:
         assert len(seed["claims"]) == len(built["claims"]), "Build is stale — re-run refresh.py"
 
     def test_payload_sizes_under_budget(self):
-        # Frontend perf budget: combined first-paint payloads (companies + claims)
-        # should stay well under 50KB so the matrix view renders instantly even
-        # on slow connections.
+        # Frontend perf budget: combined first-paint payloads (companies + claims).
+        # Headroom: the matrix view is the landing surface, so the budget should
+        # be tight. v1.1 raised the cap from 50KB to 100KB after the data fill
+        # took claims.json from ~25 records to ~93 records — minified is well
+        # under the cap, pretty mode goes over (don't ship pretty in production).
         first_paint = (OUT / "companies.json").stat().st_size + (
             OUT / "claims.json"
         ).stat().st_size
-        assert first_paint < 50 * 1024, f"First-paint payloads grew to {first_paint} bytes"
+        assert first_paint < 100 * 1024, (
+            f"First-paint payloads grew to {first_paint} bytes. "
+            "Re-run `python refresh.py` (without --pretty) before shipping."
+        )

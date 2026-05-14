@@ -55,6 +55,10 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "anthropic",
     "xai",
     "oracle",
+    # Non-hyperscaler developer/operator entities tracked from v1.1 onward.
+    # Added when a non-hyperscaler announces a project at hyperscaler scale
+    # AND publishes its own community-impact framing (the editorial gate).
+    "wonder-valley",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational")
@@ -82,7 +86,15 @@ Theme = Literal[
     "engagement",
 ]
 CompanySlug = Literal[
-    "meta", "google", "microsoft", "amazon", "openai", "anthropic", "xai", "oracle"
+    "meta",
+    "google",
+    "microsoft",
+    "amazon",
+    "openai",
+    "anthropic",
+    "xai",
+    "oracle",
+    "wonder-valley",
 ]
 ProjectStatus = Literal["announced", "construction", "operational"]
 Stance = Literal["positive", "mixed", "negative"]
@@ -173,6 +185,15 @@ class Project(_StrictBase):
     source_url: HttpUrl
     source_title: str = Field(min_length=1)
     captured_at: Date
+    project_page_url: Optional[HttpUrl] = Field(
+        default=None,
+        description=(
+            "The canonical project page on the company's official site, when one "
+            "exists (e.g. https://datacenters.atmeta.com/location/<slug>/). "
+            "Distinct from source_url, which is where THIS record was sourced — "
+            "they often differ when source_url is a news article or press release."
+        ),
+    )
 
 
 class CommunityResponse(_StrictBase):

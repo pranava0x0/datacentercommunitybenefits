@@ -48,6 +48,7 @@ const COMPANY_SLUGS = [
   "anthropic",
   "xai",
   "oracle",
+  "wonder-valley",
 ];
 
 const STANCE_LABELS = {
@@ -323,7 +324,14 @@ function renderMatrix() {
         td.innerHTML = `<span aria-hidden="true">—</span><span class="visually-hidden">no claims</span>`;
       } else {
         td.className = "cell";
-        td.innerHTML = `<span class="count">${n}</span>`;
+        // Single claim → checkmark glyph (binary "they have a claim" signal).
+        // Multiple claims → numeric count (volume signal). Either way the
+        // aria-label carries the precise count for screen readers.
+        if (n === 1) {
+          td.innerHTML = `<span class="count check" aria-hidden="true">✓</span>`;
+        } else {
+          td.innerHTML = `<span class="count">${n}</span>`;
+        }
         td.setAttribute("role", "button");
         td.tabIndex = 0;
         td.setAttribute(
@@ -794,6 +802,11 @@ function selectProject(id) {
 
   setKv("d-investment", formatUsd(p.claimed_investment_usd));
   setKv("d-jobs", p.claimed_jobs == null ? null : p.claimed_jobs.toLocaleString());
+  setKvLink(
+    "d-project-page",
+    p.project_page_url,
+    p.project_page_url ? `${p.name} (official)` : null
+  );
   setKvLink("d-source", p.source_url, p.source_title);
   setKv("d-notes", p.notes || null);
 

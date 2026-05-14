@@ -9,7 +9,7 @@
       "constituency": "journalist",
       "summary": "Reporting documented sustained, large-volume groundwater withdrawals at Meta's Newton County campus and questioned whether the local utility's disclosure framework was adequate to surface the impact to nearby residents.",
       "source_url": "https://grist.org/",
-      "source_title": "Grist — Meta data center groundwater coverage (Newton County, GA)",
+      "source_title": "Grist \u2014 Meta data center groundwater coverage (Newton County, GA)",
       "single_source": true
     },
     {
@@ -20,7 +20,7 @@
       "constituency": "regulator",
       "summary": "The Louisiana Public Service Commission opened a docket reviewing Entergy's proposed gas-fired generation buildout to serve Meta's Richland Parish load, with intervenor groups raising concerns about cost allocation to existing ratepayers.",
       "source_url": "https://www.lpsc.louisiana.gov/",
-      "source_title": "Louisiana Public Service Commission — Entergy IRP filings",
+      "source_title": "Louisiana Public Service Commission \u2014 Entergy IRP filings",
       "single_source": false
     },
     {
@@ -31,7 +31,7 @@
       "constituency": "local_government",
       "summary": "Crook County officials have repeatedly cited Meta's Prineville campus as a major contributor to local property tax revenue and as the largest private employer in the county.",
       "source_url": "https://co.crook.or.us/",
-      "source_title": "Crook County — Economic development statements",
+      "source_title": "Crook County \u2014 Economic development statements",
       "single_source": true
     },
     {
@@ -42,7 +42,7 @@
       "constituency": "journalist",
       "summary": "The Oregonian successfully sued the City of The Dalles to obtain Google's water-use figures, which the city had argued were trade secrets; the released numbers showed Google's facility consuming roughly a quarter of the city's water.",
       "source_url": "https://www.oregonlive.com/",
-      "source_title": "The Oregonian — Google water-use disclosure lawsuit (2022)",
+      "source_title": "The Oregonian \u2014 Google water-use disclosure lawsuit (2022)",
       "single_source": false
     },
     {
@@ -53,7 +53,7 @@
       "constituency": "local_government",
       "summary": "The Council Bluffs and Pottawattamie County governments have publicly highlighted Google's investment as transformative for local infrastructure spending, citing road, fiber, and school funding tied to the campus.",
       "source_url": "https://www.councilbluffs-ia.gov/",
-      "source_title": "City of Council Bluffs — Google partnership statements",
+      "source_title": "City of Council Bluffs \u2014 Google partnership statements",
       "single_source": true
     },
     {
@@ -62,9 +62,9 @@
       "date": "2023-09-08",
       "stance": "negative",
       "constituency": "ngo",
-      "summary": "Arizona water-policy advocates criticized the siting of large data centers — including Microsoft's Goodyear campus — in the metro Phoenix area amid ongoing groundwater scarcity and limits on new residential development.",
+      "summary": "Arizona water-policy advocates criticized the siting of large data centers \u2014 including Microsoft's Goodyear campus \u2014 in the metro Phoenix area amid ongoing groundwater scarcity and limits on new residential development.",
       "source_url": "https://www.azwater.gov/",
-      "source_title": "Arizona Department of Water Resources — Phoenix AMA assured-water findings",
+      "source_title": "Arizona Department of Water Resources \u2014 Phoenix AMA assured-water findings",
       "single_source": false
     },
     {
@@ -75,7 +75,7 @@
       "constituency": "local_government",
       "summary": "Wisconsin state and Racine County officials welcomed Microsoft's expanded $3.3B commitment as repurposing the long-stalled Foxconn site, with paired pledges of community investment and workforce training programs.",
       "source_url": "https://www.racinecounty.com/",
-      "source_title": "Racine County — Microsoft Mount Pleasant announcement",
+      "source_title": "Racine County \u2014 Microsoft Mount Pleasant announcement",
       "single_source": false
     },
     {
@@ -86,7 +86,7 @@
       "constituency": "residents",
       "summary": "Loudoun County residents living near data center clusters raised noise and visual-impact concerns at multiple Board of Supervisors hearings; the county subsequently tightened zoning and decibel rules for new builds.",
       "source_url": "https://www.loudoun.gov/",
-      "source_title": "Loudoun County Board of Supervisors — Data center zoning hearings (2024)",
+      "source_title": "Loudoun County Board of Supervisors \u2014 Data center zoning hearings (2024)",
       "single_source": false
     },
     {
@@ -97,7 +97,7 @@
       "constituency": "regulator",
       "summary": "FERC declined to approve an amended interconnection agreement that would have allowed AWS's Cumberland Valley campus to draw additional behind-the-meter capacity from the Susquehanna nuclear plant, citing potential cost-shifting to other PJM ratepayers.",
       "source_url": "https://www.ferc.gov/",
-      "source_title": "FERC — Talen / AWS / Susquehanna ISA filing decision (Nov 2024)",
+      "source_title": "FERC \u2014 Talen / AWS / Susquehanna ISA filing decision (Nov 2024)",
       "single_source": false
     },
     {
@@ -108,7 +108,7 @@
       "constituency": "ngo",
       "summary": "The NAACP and the Southern Environmental Law Center notified xAI of intent to sue over Clean Air Act violations tied to dozens of unpermitted methane gas turbines installed at the Colossus site in a majority-Black south Memphis neighborhood.",
       "source_url": "https://www.southernenvironment.org/",
-      "source_title": "SELC — Notice of intent to sue xAI over Memphis air permits",
+      "source_title": "SELC \u2014 Notice of intent to sue xAI over Memphis air permits",
       "single_source": false
     },
     {
@@ -119,7 +119,7 @@
       "constituency": "residents",
       "summary": "South Memphis residents told reporters and the Shelby County Health Department that emissions and noise from xAI's on-site gas turbines worsened existing air-quality concerns in a neighborhood already burdened by industrial pollution.",
       "source_url": "https://www.commercialappeal.com/",
-      "source_title": "Memphis Commercial Appeal — Boxtown residents on xAI air quality",
+      "source_title": "Memphis Commercial Appeal \u2014 Boxtown residents on xAI air quality",
       "single_source": false
     },
     {
@@ -130,8 +130,52 @@
       "constituency": "local_government",
       "summary": "Abilene and Taylor County officials publicly welcomed the Stargate buildout, citing expected construction employment and the deepening of West Texas as an AI-infrastructure hub.",
       "source_url": "https://www.abilenetx.gov/",
-      "source_title": "City of Abilene — Stargate project statements",
+      "source_title": "City of Abilene \u2014 Stargate project statements",
       "single_source": true
+    },
+    {
+      "id": "resp-wonder-valley-cox-2026-05-11",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-11",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "Utah Governor Spencer Cox defended the project's strategic importance in the U.S.\u2013China AI race but acknowledged residents' concerns and announced the project would be scaled back from the original 40,000 acres and ~7.5 GW to roughly 2,000 acres and 1.5 GW.",
+      "source_url": "https://www.deseret.com/politics/2026/05/11/utah-governor-cox-defends-box-elder-data-center-as-important-to-national-security-in-ai-arms-race-with-china/",
+      "source_title": "Beyond data centers: Utah governor issues wake-up call on new Cold War contest over AI \u2014 Deseret News",
+      "single_source": false
+    },
+    {
+      "id": "resp-wonder-valley-bec-commission-2026-05-04",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-04",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "The Box Elder County Commission voted to approve a development consent agreement for the Wonder Valley campus, citing expected jobs, economic development, and the project's national-security framing.",
+      "source_url": "https://utahnewsdispatch.com/2026/05/04/box-elder-commissioners-approve-data-center/",
+      "source_title": "Hundreds cry out as Box Elder commissioners wave in massive data center \u2014 Utah News Dispatch",
+      "single_source": false
+    },
+    {
+      "id": "resp-wonder-valley-sierra-club-2026-05-06",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-06",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "The Sierra Club's Utah Chapter, led by director Franque Bains, condemned the Box Elder County Commission's approval as prioritizing polluters over residents and warned that the project's water and energy demand would worsen the Great Salt Lake water crisis.",
+      "source_url": "https://www.sierraclub.org/press-releases/2026/05/stratos-data-center-approval-threatens-great-salt-lake-basin",
+      "source_title": "Stratos Data Center Approval Threatens Great Salt Lake Basin \u2014 Sierra Club",
+      "single_source": false
+    },
+    {
+      "id": "resp-wonder-valley-utah-clean-energy-2026-05",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-01",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Utah Clean Energy estimated the proposed 9 GW gas-powered campus would consume nearly double Utah's 2025 peak electricity demand, increase statewide CO2 emissions by 55\u201375%, and use between 2 and 16.6 billion gallons of water per year depending on the gas-generation technology selected.",
+      "source_url": "https://utahcleanenergy.org/estimated-emissions-and-water-consumption-from-the-proposed-stratos-data-center/",
+      "source_title": "Estimated Emissions and Water Consumption from the Proposed Stratos Data Center \u2014 Utah Clean Energy",
+      "single_source": false
     }
   ]
 }

@@ -7,7 +7,7 @@
       "theme": "energy",
       "statement": "Meta's global operations have been supported by 100% renewable energy since 2020, including all of our data centers.",
       "source_url": "https://sustainability.atmeta.com/",
-      "source_title": "Meta Sustainability — Renewable energy",
+      "source_title": "Meta Sustainability \u2014 Renewable energy",
       "captured_at": "2026-05-14"
     },
     {
@@ -16,7 +16,7 @@
       "theme": "water",
       "statement": "We are committed to restoring more water than we consume by 2030, focusing our efforts in regions of high and medium water stress.",
       "source_url": "https://sustainability.atmeta.com/water/",
-      "source_title": "Meta Sustainability — Water",
+      "source_title": "Meta Sustainability \u2014 Water",
       "captured_at": "2026-05-14"
     },
     {
@@ -25,7 +25,7 @@
       "theme": "community_grants",
       "statement": "Through our Community Action Grants program, we provide funding to local nonprofits and schools in our data center communities to support science, technology, engineering and math (STEM) education and community priorities.",
       "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers — Community",
+      "source_title": "Meta Data Centers \u2014 Community",
       "captured_at": "2026-05-14"
     },
     {
@@ -34,16 +34,16 @@
       "theme": "education",
       "statement": "Meta has awarded millions in STEM education grants to schools and nonprofits in our data center host communities.",
       "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers — Community",
+      "source_title": "Meta Data Centers \u2014 Community",
       "captured_at": "2026-05-14"
     },
     {
       "id": "meta-engagement-dialogue",
       "company_slug": "meta",
       "theme": "engagement",
-      "statement": "We engage early with local stakeholders — elected officials, residents, and utility providers — to identify shared priorities and develop our data centers as long-term community partners.",
+      "statement": "We engage early with local stakeholders \u2014 elected officials, residents, and utility providers \u2014 to identify shared priorities and develop our data centers as long-term community partners.",
       "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers — Community engagement",
+      "source_title": "Meta Data Centers \u2014 Community engagement",
       "captured_at": "2026-05-14"
     },
     {
@@ -52,7 +52,7 @@
       "theme": "energy",
       "statement": "Our goal is to operate on 24/7 carbon-free energy on every grid where we operate by 2030.",
       "source_url": "https://sustainability.google/operating-sustainably/",
-      "source_title": "Google Sustainability — 24/7 carbon-free energy",
+      "source_title": "Google Sustainability \u2014 24/7 carbon-free energy",
       "captured_at": "2026-05-14"
     },
     {
@@ -61,7 +61,7 @@
       "theme": "water",
       "statement": "By 2030, we aim to replenish 120% of the freshwater we consume across our offices and data centers.",
       "source_url": "https://sustainability.google/commitments/water/",
-      "source_title": "Google Sustainability — Water stewardship",
+      "source_title": "Google Sustainability \u2014 Water stewardship",
       "captured_at": "2026-05-14"
     },
     {
@@ -70,7 +70,7 @@
       "theme": "tax_revenue",
       "statement": "Google publishes annual economic impact reports for each of our U.S. data center communities, detailing investment, jobs supported, and local tax contributions.",
       "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers — Community impact",
+      "source_title": "Google Data Centers \u2014 Community impact",
       "captured_at": "2026-05-14"
     },
     {
@@ -79,7 +79,7 @@
       "theme": "community_grants",
       "statement": "Through our Data Center Grants program, Google.org has awarded grants to local nonprofits in our data center communities, focused on STEM education, workforce development, and digital inclusion.",
       "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers — Grants",
+      "source_title": "Google Data Centers \u2014 Grants",
       "captured_at": "2026-05-14"
     },
     {
@@ -88,7 +88,7 @@
       "theme": "education",
       "statement": "We invest in STEM education programs, including Code Next labs and partnerships with local community colleges to build pipelines into data center operations roles.",
       "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers — Education",
+      "source_title": "Google Data Centers \u2014 Education",
       "captured_at": "2026-05-14"
     },
     {
@@ -104,9 +104,9 @@
       "id": "ms-water-positive-2030",
       "company_slug": "microsoft",
       "theme": "water",
-      "statement": "By 2030, Microsoft will be water positive — replenishing more water than we consume across our global operations.",
+      "statement": "By 2030, Microsoft will be water positive \u2014 replenishing more water than we consume across our global operations.",
       "source_url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
-      "source_title": "Microsoft Sustainability — Water positive by 2030",
+      "source_title": "Microsoft Sustainability \u2014 Water positive by 2030",
       "captured_at": "2026-05-14"
     },
     {
@@ -124,7 +124,7 @@
       "theme": "education",
       "statement": "We will partner with local educational institutions and nonprofits to build skills training programs aligned with the AI economy in the communities that host our datacenters.",
       "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
-      "source_title": "Microsoft Datacenter Community Pledge — Skills",
+      "source_title": "Microsoft Datacenter Community Pledge \u2014 Skills",
       "captured_at": "2026-05-14"
     },
     {
@@ -147,7 +147,7 @@
       "theme": "energy",
       "statement": "Amazon matched 100% of the electricity consumed by our global operations with renewable energy in 2023, seven years ahead of our original 2030 target.",
       "source_url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
-      "source_title": "Amazon Sustainability — Renewable energy",
+      "source_title": "Amazon Sustainability \u2014 Renewable energy",
       "captured_at": "2026-05-14"
     },
     {
@@ -202,7 +202,7 @@
       "theme": "infrastructure",
       "statement": "The Stargate Project is a new company which intends to invest $500 billion over the next four years building new AI infrastructure for OpenAI in the United States.",
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
+      "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 500000000000,
@@ -216,7 +216,7 @@
       "theme": "jobs",
       "statement": "This project will not only support the re-industrialization of the United States but also provide a strategic capability to protect the national security of America and its allies. It will create hundreds of thousands of American jobs.",
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
+      "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
       "captured_at": "2026-05-14"
     },
     {
@@ -225,7 +225,7 @@
       "theme": "infrastructure",
       "statement": "Anthropic and AWS are jointly building Project Rainier, a massive compute cluster of EC2 UltraServers powered by hundreds of thousands of Trainium2 chips, to train and serve frontier AI models.",
       "source_url": "https://www.anthropic.com/news/expanding-our-strategic-partnership-with-aws",
-      "source_title": "Anthropic — Expanding our strategic partnership with AWS (Nov 2024)",
+      "source_title": "Anthropic \u2014 Expanding our strategic partnership with AWS (Nov 2024)",
       "captured_at": "2026-05-14"
     },
     {
@@ -234,7 +234,7 @@
       "theme": "infrastructure",
       "statement": "Colossus is the largest AI supercomputer in the world. The xAI team brought it online in just 122 days from the time the first rack was installed.",
       "source_url": "https://x.ai/blog/colossus",
-      "source_title": "xAI — Colossus",
+      "source_title": "xAI \u2014 Colossus",
       "captured_at": "2026-05-14"
     },
     {
@@ -243,7 +243,918 @@
       "theme": "infrastructure",
       "statement": "Oracle is one of the initial equity funders and key technology partners of The Stargate Project, alongside SoftBank, OpenAI, and MGX.",
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
+      "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "meta-prineville-or-jobs-construction",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "approximately 1000 workers on site at peak",
+      "source_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+      "source_title": "Our Prineville Data Center is growing again! - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-prineville-or",
+      "metric": {
+        "value": 1000.0,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "meta-prineville-or-infrastructure-investment",
+      "company_slug": "meta",
+      "theme": "infrastructure",
+      "statement": "an investment of more than $2 billion",
+      "source_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+      "source_title": "Our Prineville Data Center is growing again! - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-prineville-or",
+      "metric": {
+        "value": 2000000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "meta-prineville-or-education-robotics",
+      "company_slug": "meta",
+      "theme": "education",
+      "statement": "a new $60,000 grant for Crook County School District's K-12 robotics program",
+      "source_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+      "source_title": "Our Prineville Data Center is growing again! - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-prineville-or",
+      "metric": {
+        "value": 60000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "meta-prineville-or-energy-renewable",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "supported by 100% renewable energy, including two solar projects located right here in Oregon",
+      "source_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+      "source_title": "Our Prineville Data Center is growing again! - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-prineville-or"
+    },
+    {
+      "id": "meta-newton-ga-jobs-construction",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "hundreds of construction and trades jobs starting today through 2020",
+      "source_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
+      "source_title": "Hello, Georgia! - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-newton-ga"
+    },
+    {
+      "id": "meta-newton-ga-energy-renewable",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "partnering with Walton Electric Membership Corporation to bring hundreds of MWs of renewable energy",
+      "source_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
+      "source_title": "Hello, Georgia! - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-newton-ga"
+    },
+    {
+      "id": "meta-newton-ga-engagement-economic-multiplier",
+      "company_slug": "meta",
+      "theme": "engagement",
+      "statement": "for every one data center job, there are five jobs supported elsewhere in the economy",
+      "source_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
+      "source_title": "Hello, Georgia! - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-newton-ga"
+    },
+    {
+      "id": "meta-richland-la-jobs-construction",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "5,000+ Skilled trade workers onsite at peak construction",
+      "source_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+      "source_title": "The largest Meta data center yet brings big impact to Louisiana - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-richland-la",
+      "metric": {
+        "value": 5000.0,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "meta-richland-la-jobs-operational",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "500+ Operational jobs supported, once completed",
+      "source_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+      "source_title": "The largest Meta data center yet brings big impact to Louisiana - Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-richland-la",
+      "metric": {
+        "value": 500.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "meta-richland-la-infrastructure-investment",
+      "company_slug": "meta",
+      "theme": "infrastructure",
+      "statement": "we're expanding our investment to more than $300 million to help improve local infrastructure including roads, water, and wastewater systems.",
+      "source_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+      "source_title": "One Year In: Meta's Richland Parish Data Center Supports Louisiana Economy With $875M In Contracts",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-richland-la",
+      "metric": {
+        "value": 300000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "meta-richland-la-community-grants-municipalities",
+      "company_slug": "meta",
+      "theme": "community_grants",
+      "statement": "we're also committing $300,000 to support projects in Richland Parish's three municipalities \u2014 Rayville, Delhi, and Mangham.",
+      "source_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+      "source_title": "One Year In: Meta's Richland Parish Data Center Supports Louisiana Economy With $875M In Contracts",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-richland-la",
+      "metric": {
+        "value": 300000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "meta-richland-la-energy-customer-savings",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "electricity payments for the Richland Parish Data Center will cut both grid upgrade customer costs and storm charges by about 10%, resulting in $650 million in customer savings over 15 years.",
+      "source_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+      "source_title": "One Year In: Meta's Richland Parish Data Center Supports Louisiana Economy With $875M In Contracts",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-richland-la",
+      "metric": {
+        "value": 650000000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "meta-richland-la-community-grants-entergy",
+      "company_slug": "meta",
+      "theme": "community_grants",
+      "statement": "we are contributing $15 million to Entergy's customer assistance program, which provides bill payment assistance to low-income customers.",
+      "source_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+      "source_title": "One Year In: Meta's Richland Parish Data Center Supports Louisiana Economy With $875M In Contracts",
+      "captured_at": "2026-05-14",
+      "project_id": "meta-richland-la",
+      "metric": {
+        "value": 15000000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "google-the-dalles-or-infrastructure-investment",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "Since building our data center, we've continued to invest in The Dalles. Our total investment in the state is more than $2.4 billion",
+      "source_url": "https://datacenters.google/locations/oregon/",
+      "source_title": "The Dalles, Oregon \u2013 Google Data Center Location",
+      "captured_at": "2026-05-14",
+      "project_id": "google-the-dalles-or",
+      "metric": {
+        "value": 2400000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "google-the-dalles-or-community-grants-philanthropy",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "Since 2004, Google and Googlers have given more than $31 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Oregon",
+      "source_url": "https://datacenters.google/locations/oregon/",
+      "source_title": "The Dalles, Oregon \u2013 Google Data Center Location",
+      "captured_at": "2026-05-14",
+      "project_id": "google-the-dalles-or",
+      "metric": {
+        "value": 31000000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "google-the-dalles-or-education-digital-skills",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Grow with Google has collaborated with over 120 organizations in Oregon to train more than 111,000 Oregonians on digital skills",
+      "source_url": "https://datacenters.google/locations/oregon/",
+      "source_title": "The Dalles, Oregon \u2013 Google Data Center Location",
+      "captured_at": "2026-05-14",
+      "project_id": "google-the-dalles-or"
+    },
+    {
+      "id": "google-council-bluffs-ia-infrastructure-investment",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "Google has invested more than $6.8 billion in Iowa since building our data center in Council Bluffs in 2007.",
+      "source_url": "https://datacenters.google/locations/iowa/",
+      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "captured_at": "2026-05-14",
+      "project_id": "google-council-bluffs-ia",
+      "metric": {
+        "value": 6800000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "google-council-bluffs-ia-engagement-economic-activity",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "In 2024, Google helped provide $2.1 billion of economic activity for thousands of Iowa businesses, nonprofits, publishers, creators, and developers.",
+      "source_url": "https://datacenters.google/locations/iowa/",
+      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "captured_at": "2026-05-14",
+      "project_id": "google-council-bluffs-ia",
+      "metric": {
+        "value": 2100000000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "google-council-bluffs-ia-water-grade-stabilization",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "Google collaborated with the Great Outdoors Foundation and the Iowa Department of Agriculture and Land Stewardship to contribute $1.3 million to support a 47-site grade stabilization project.",
+      "source_url": "https://datacenters.google/locations/iowa/",
+      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "captured_at": "2026-05-14",
+      "project_id": "google-council-bluffs-ia",
+      "metric": {
+        "value": 1300000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "google-council-bluffs-ia-education-digital-skills",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "We've collaborated with over 130 organizations in Iowa to train more than 101,000 Iowans on digital skills.",
+      "source_url": "https://datacenters.google/locations/iowa/",
+      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "captured_at": "2026-05-14",
+      "project_id": "google-council-bluffs-ia"
+    },
+    {
+      "id": "google-mesa-az-infrastructure-investment",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "Today, Google broke ground on a new $600 million data center in Mesa, and will use state-of-the-art technology to air cool the facility.",
+      "source_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
+      "source_title": "Google breaks ground on Arizona data center - Greater Phoenix Economic Council",
+      "captured_at": "2026-05-14",
+      "project_id": "google-mesa-az",
+      "metric": {
+        "value": 600000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "google-mesa-az-water-srp-donation",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "Google is announcing a $150,000 donation to help fund Salt River Project's (SRP) effort focused on watershed restoration and wildfire risk reduction.",
+      "source_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
+      "source_title": "Google breaks ground on Arizona data center - Greater Phoenix Economic Council",
+      "captured_at": "2026-05-14",
+      "project_id": "google-mesa-az",
+      "metric": {
+        "value": 150000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "google-mesa-az-water-stewardship",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "We are committed to focusing our water stewardship efforts in water-scarce regions like Arizona.",
+      "source_url": "https://www.aztechcouncil.org/google-announces-new-commitment-to-arizona-breaks-ground-on-600m-data-center/",
+      "source_title": "Google announces new commitment to Arizona, breaks ground on $600M data center - Arizona Technology Council",
+      "captured_at": "2026-05-14",
+      "project_id": "google-mesa-az"
+    },
+    {
+      "id": "ms-quincy-wa-jobs-fulltime",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "By the end of 2026, we project more than 670 full-time employees and over 500 service workers will work in our Washington datacenters.",
+      "source_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/",
+      "source_title": "Understanding Microsoft datacenters in Central Washington",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-quincy-wa",
+      "metric": {
+        "value": 670.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "ms-quincy-wa-water-reuse",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "We supported the first water-reuse utility to treat 380 million gallons of datacenter wastewater in Quincy.",
+      "source_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/",
+      "source_title": "Understanding Microsoft datacenters in Central Washington",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-quincy-wa",
+      "metric": {
+        "value": 380000000.0,
+        "unit": "gallons",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "ms-quincy-wa-community-water-investment",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "statement": "Microsoft contributed tens of millions of dollars toward a water reuse facility that celebrated its grand opening on June 30, 2021.",
+      "source_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/",
+      "source_title": "Understanding Microsoft datacenters in Central Washington",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-quincy-wa"
+    },
+    {
+      "id": "ms-mt-pleasant-wi-investment",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "statement": "fulfilling our initial $3.3 billion investment pledge ... committing an additional $4 billion to be spent in the next three years ... bringing our total investment in Wisconsin to more than $7 billion.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
+      "source_title": "Made in Wisconsin: The world's most powerful AI datacenter",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-mt-pleasant-wi",
+      "metric": {
+        "value": 7000000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "ms-mt-pleasant-wi-jobs-operational",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "we will employ around 500 full-time employees, with that number growing to around 800 once the second datacenter is complete.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
+      "source_title": "Made in Wisconsin: The world's most powerful AI datacenter",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-mt-pleasant-wi",
+      "metric": {
+        "value": 800.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "ms-mt-pleasant-wi-jobs-construction",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "more than 3,000 construction workers during daily peak activity.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
+      "source_title": "Made in Wisconsin: The world's most powerful AI datacenter",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-mt-pleasant-wi",
+      "metric": {
+        "value": 3000.0,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "ms-mt-pleasant-wi-education-academy",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "statement": "partnered in Racine with Gateway Technical College to launch Wisconsin's first Datacenter Academy ... training more than 1,000 students in five years for high-demand datacenter roles.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
+      "source_title": "Made in Wisconsin: The world's most powerful AI datacenter",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-mt-pleasant-wi",
+      "metric": {
+        "value": 1000.0,
+        "unit": "jobs",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "ms-mt-pleasant-wi-water-modest",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "annual water use is modest, requiring roughly the amount of water a typical restaurant uses annually.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
+      "source_title": "Made in Wisconsin: The world's most powerful AI datacenter",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-mt-pleasant-wi"
+    },
+    {
+      "id": "ms-goodyear-az-jobs",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "create more than 100 permanent jobs across a variety of functions ... more than 1,000 construction jobs.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
+      "source_title": "Building world-class sustainable datacenters and investing in solar power in Arizona",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-goodyear-az",
+      "metric": {
+        "value": 100.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "ms-goodyear-az-economic-impact",
+      "company_slug": "microsoft",
+      "theme": "tax_revenue",
+      "statement": "annual economic impact of approximately $20 million across communities in Arizona.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
+      "source_title": "Building world-class sustainable datacenters and investing in solar power in Arizona",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-goodyear-az",
+      "metric": {
+        "value": 20000000.0,
+        "unit": "usd",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "ms-goodyear-az-energy-renewable",
+      "company_slug": "microsoft",
+      "theme": "energy",
+      "statement": "powered with 100% renewable energy.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
+      "source_title": "Building world-class sustainable datacenters and investing in solar power in Arizona",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-goodyear-az"
+    },
+    {
+      "id": "ms-goodyear-az-community-investment",
+      "company_slug": "microsoft",
+      "theme": "community_grants",
+      "statement": "invested more than $800,000 on projects that deliver social, economic and environmental benefits.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
+      "source_title": "Building world-class sustainable datacenters and investing in solar power in Arizona",
+      "captured_at": "2026-05-14",
+      "project_id": "ms-goodyear-az",
+      "metric": {
+        "value": 800000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "aws-loudoun-va-investment",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "AWS invested $51.9 billion in Virginia from 2011-2021, including capital and operational expenses related to AWS's data center infrastructure in the state's Fairfax, Loudoun, and Prince William counties.",
+      "source_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+      "source_title": "Learn about AWS's long-term commitment to Virginia",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-loudoun-va",
+      "metric": {
+        "value": 51900000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "aws-loudoun-va-tax-revenue",
+      "company_slug": "amazon",
+      "theme": "tax_revenue",
+      "statement": "$334 million: Business personal property taxes paid by AWS in 2022 in connection with its data centers located in Virginia.",
+      "source_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+      "source_title": "Learn about AWS's long-term commitment to Virginia",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-loudoun-va",
+      "metric": {
+        "value": 334000000.0,
+        "unit": "usd",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "aws-loudoun-va-jobs-supported",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "That investment has generated an estimated $8.2 billion in total gross domestic product (GDP) across Virginia, supporting at least 7,340 full-time equivalent (FTE) jobs on an average annual basis at local businesses.",
+      "source_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+      "source_title": "Learn about AWS's long-term commitment to Virginia",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-loudoun-va",
+      "metric": {
+        "value": 7340.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "aws-loudoun-va-water-recycled",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "we worked with local water utility company Loudoun Water to become the first data center operator in the state approved to use recycled water.",
+      "source_url": "https://www.aboutamazon.com/news/aws/aws-data-center-economic-impact-study",
+      "source_title": "5 ways AWS data centers benefit local communities",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-loudoun-va"
+    },
+    {
+      "id": "aws-new-carlisle-in-investment",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "Amazon plans to invest an additional $15 billion in Northern Indiana to build new data center campuses to support AI and cloud computing technologies.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+      "source_title": "Amazon plans to invest $15 billion in Northern Indiana to build new data center campuses and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-new-carlisle-in",
+      "metric": {
+        "value": 15000000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "aws-new-carlisle-in-jobs",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "This landmark investment is expected to create more than 1,100 new high-skilled jobs while supporting thousands of other jobs in the data center supply chain.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+      "source_title": "Amazon plans to invest $15 billion in Northern Indiana to build new data center campuses and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-new-carlisle-in",
+      "metric": {
+        "value": 1100.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "aws-new-carlisle-in-community-fund",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "launch the Amazon Community Fund in the communities where we will build and operate, supporting STEM education, sustainability, digital skills, culture, and community well-being.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+      "source_title": "Amazon plans to invest $15 billion in Northern Indiana to build new data center campuses and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-new-carlisle-in"
+    },
+    {
+      "id": "aws-new-carlisle-in-state-gdp",
+      "company_slug": "amazon",
+      "theme": "tax_revenue",
+      "statement": "Since 2010, Amazon has invested more than $31.3 billion in Indiana ... contributed more than $29.9 billion to the state's GDP.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+      "source_title": "Amazon plans to invest $15 billion in Northern Indiana to build new data center campuses and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-new-carlisle-in",
+      "metric": {
+        "value": 31300000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "aws-cumberland-pa-investment",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "Amazon plans to invest at least $20 billion in Pennsylvania to expand our data center infrastructure to support artificial intelligence (AI) and cloud computing technologies.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+      "source_title": "Amazon plans to invest $20 billion in Pennsylvania to expand cloud computing infrastructure and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-cumberland-pa",
+      "metric": {
+        "value": 20000000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "aws-cumberland-pa-jobs",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "This landmark investment is expected to create at least 1,250 new high-skilled jobs while supporting thousands of other jobs in the Amazon Web Services (AWS) data center supply chain.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+      "source_title": "Amazon plans to invest $20 billion in Pennsylvania to expand cloud computing infrastructure and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-cumberland-pa",
+      "metric": {
+        "value": 1250.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "aws-cumberland-pa-community-fund",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "We're launching the Amazon Northeastern Pennsylvania Community Fund ... $250,000 to this fund, which will be managed and administered by the nonprofit ChangeX.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+      "source_title": "Amazon plans to invest $20 billion in Pennsylvania to expand cloud computing infrastructure and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-cumberland-pa",
+      "metric": {
+        "value": 250000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "aws-cumberland-pa-location",
+      "company_slug": "amazon",
+      "theme": "engagement",
+      "statement": "Salem Township and Falls Township are the first communities identified as sites for these future innovation campuses.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+      "source_title": "Amazon plans to invest $20 billion in Pennsylvania to expand cloud computing infrastructure and advance AI innovation",
+      "captured_at": "2026-05-14",
+      "project_id": "aws-cumberland-pa"
+    },
+    {
+      "id": "xai-memphis-tn-jobs-500-initial",
+      "company_slug": "xai",
+      "theme": "jobs",
+      "statement": "xAI will bring up to 500 quality, high-paying jobs to Memphis in its initial phase, with plans to grow more.",
+      "source_url": "https://memphischamber.com/economic-development/xai/",
+      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "captured_at": "2026-05-14",
+      "project_id": "xai-memphis-tn",
+      "metric": {
+        "value": 500.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "xai-memphis-tn-tax-100m",
+      "company_slug": "xai",
+      "theme": "tax_revenue",
+      "statement": "xAI has already paid tens of millions of dollars in local tax revenue, and based on current expansion plans, that number is likely to exceed $100 million.",
+      "source_url": "https://memphischamber.com/economic-development/xai/",
+      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "captured_at": "2026-05-14",
+      "project_id": "xai-memphis-tn",
+      "metric": {
+        "value": 100000000.0,
+        "unit": "usd",
+        "kind": "tax"
+      }
+    },
+    {
+      "id": "xai-memphis-tn-water-recycling-80m",
+      "company_slug": "xai",
+      "theme": "water",
+      "statement": "xAI will commit to build a $80 million wastewater recycling facility ... ensure that up to 4.7 billion gallons of water remain in the aquifer yearly.",
+      "source_url": "https://memphischamber.com/economic-development/xai/",
+      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "captured_at": "2026-05-14",
+      "project_id": "xai-memphis-tn",
+      "metric": {
+        "value": 80000000.0,
+        "unit": "usd",
+        "kind": "infrastructure"
+      }
+    },
+    {
+      "id": "xai-memphis-tn-infrastructure-substations",
+      "company_slug": "xai",
+      "theme": "infrastructure",
+      "statement": "xAI has spent $35 million to construct a substation to support MLGW and is committing an additional $20 million to build another substation.",
+      "source_url": "https://memphischamber.com/economic-development/xai/",
+      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "captured_at": "2026-05-14",
+      "project_id": "xai-memphis-tn",
+      "metric": {
+        "value": 55000000.0,
+        "unit": "usd",
+        "kind": "infrastructure"
+      }
+    },
+    {
+      "id": "wonder-valley-box-elder-ut-infrastructure-acreage",
+      "company_slug": "wonder-valley",
+      "theme": "infrastructure",
+      "statement": "We have under development approximately 26,000 acres across two jurisdictions with the infrastructure necessary to support power generation and compute capacity at scale.",
+      "source_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
+      "source_title": "O'Leary Digital \u2014 7.5 GW Wonder Valley joint-venture announcement",
+      "captured_at": "2026-05-14",
+      "project_id": "wonder-valley-box-elder-ut"
+    },
+    {
+      "id": "wonder-valley-box-elder-ut-engagement-county-partner",
+      "company_slug": "wonder-valley",
+      "theme": "engagement",
+      "statement": "It's just going to take some time for the residents of Box Elder to see that we are a good partner.",
+      "source_url": "https://utahnewsdispatch.com/2026/05/04/box-elder-commissioners-approve-data-center/",
+      "source_title": "Box Elder commissioners approve data center \u2014 Utah News Dispatch",
+      "captured_at": "2026-05-14",
+      "project_id": "wonder-valley-box-elder-ut"
+    },
+    {
+      "id": "wonder-valley-box-elder-ut-infrastructure-natural-gas",
+      "company_slug": "wonder-valley",
+      "theme": "infrastructure",
+      "statement": "Wonder Valley Utah benefits from access to major interstate natural gas infrastructure and proximity to aerospace, defense, and advanced manufacturing ecosystems.",
+      "source_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
+      "source_title": "O'Leary Digital \u2014 7.5 GW Wonder Valley joint-venture announcement",
+      "captured_at": "2026-05-14",
+      "project_id": "wonder-valley-box-elder-ut"
+    },
+    {
+      "id": "meta-jobs-construction-cumulative",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "Since 2011, Meta data center projects have supported more than 45,000 skilled trade jobs during construction \u2014 with 15,000+ currently on a data center site",
+      "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+      "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway \u2014 Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 45000.0,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "meta-jobs-operational-cumulative",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "created more than 6,000 permanent operational roles",
+      "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+      "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway \u2014 Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 6000.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "meta-infrastructure-roads-water",
+      "company_slug": "meta",
+      "theme": "infrastructure",
+      "statement": "expanding our investment to more than $300 million to help improve local infrastructure, including roads, water and wastewater systems.",
+      "source_url": "https://datacenters.atmeta.com/investing-in-communities/",
+      "source_title": "Investing in Communities \u2014 Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 300000000.0,
+        "unit": "usd",
+        "kind": "infrastructure"
+      }
+    },
+    {
+      "id": "meta-infrastructure-corning-fiber",
+      "company_slug": "meta",
+      "theme": "infrastructure",
+      "statement": "Meta announced an up to $6 billion multiyear partnership with Corning that will supply fiber-optic cables for our data center infrastructure",
+      "source_url": "https://datacenters.atmeta.com/growing-local-economies/",
+      "source_title": "Growing Local Economies \u2014 Meta Data Centers",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 6000000000.0,
+        "unit": "usd",
+        "kind": "fiber"
+      }
+    },
+    {
+      "id": "google-jobs-annual-fte",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "13,100 jobs (full-time employees) per year on average based on our past and future investments",
+      "source_url": "https://datacenters.google/accelerating-economies",
+      "source_title": "Accelerating Economies \u2014 Google Data Centers",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 13100.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "google-engagement-virginia-philanthropy",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "$59 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Virginia",
+      "source_url": "https://datacenters.google/locations/virginia",
+      "source_title": "Virginia \u2014 Google Data Centers",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 59000000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "microsoft-jobs-construction-canada",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "Microsoft's datacentre builds in Canada employ approximately 2,000 individuals across sites during construction.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
+      "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 2000.0,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "microsoft-jobs-skilled-trades-apprenticeship",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "datacentre construction is delivered through unionized skilled trades labour, supporting high quality jobs, strong safety standards, and apprenticeship pathways.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
+      "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "microsoft-tax-cheyenne",
+      "company_slug": "microsoft",
+      "theme": "tax_revenue",
+      "statement": "In 2025, Microsoft datacenters contributed over $11M to the Laramie County tax base.",
+      "source_url": "https://news.microsoft.com/source/2026/04/14/microsoft-announces-intent-to-expand-datacenter-operations-in-cheyenne-accelerating-innovation-and-economic-growth/",
+      "source_title": "Microsoft announces intent to expand datacenter operations in Cheyenne \u2014 Microsoft Source",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 11000000.0,
+        "unit": "usd",
+        "kind": "tax"
+      }
+    },
+    {
+      "id": "microsoft-infrastructure-cheyenne-offsite",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "statement": "Microsoft has committed over $68M in completed and future off-site infrastructure improvements across Cheyenne.",
+      "source_url": "https://news.microsoft.com/source/2026/04/14/microsoft-announces-intent-to-expand-datacenter-operations-in-cheyenne-accelerating-innovation-and-economic-growth/",
+      "source_title": "Microsoft announces intent to expand datacenter operations in Cheyenne \u2014 Microsoft Source",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 68000000.0,
+        "unit": "usd",
+        "kind": "infrastructure"
+      }
+    },
+    {
+      "id": "microsoft-infrastructure-grid-pledge",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "statement": "Pay the full cost of the electricity we use, including the cost of new generation, transmission, and grid upgrades",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
+      "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "amazon-education-think-big-spaces-global",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "global network of 116 learning spaces, reaching more than 100,000 students across 12 countries",
+      "source_url": "https://www.aboutamazon.com/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
+      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures \u2014 About Amazon",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 100000.0,
+        "unit": "students",
+        "kind": "education"
+      }
+    },
+    {
+      "id": "amazon-education-skills-commitment",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "$2.5 billion commitment to expand access to education and skills training and help prepare at least 50 million people for the future of work",
+      "source_url": "https://www.aboutamazon.com/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
+      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures \u2014 About Amazon",
+      "captured_at": "2026-05-14",
+      "metric": {
+        "value": 2500000000.0,
+        "unit": "usd",
+        "kind": "education"
+      }
+    },
+    {
+      "id": "amazon-engagement-communities-better-off",
+      "company_slug": "amazon",
+      "theme": "engagement",
+      "statement": "Amazon works hard to ensure the communities in which we operate are better off because we're there",
+      "source_url": "https://www.aboutamazon.com/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
+      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures \u2014 About Amazon",
       "captured_at": "2026-05-14"
     }
   ]

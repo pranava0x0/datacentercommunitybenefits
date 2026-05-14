@@ -66,6 +66,13 @@
       "hq": "Austin, TX",
       "dedicated_page_url": "https://www.oracle.com/cloud/",
       "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "wonder-valley",
+      "name": "O'Leary Digital",
+      "hq": "Boston, MA",
+      "dedicated_page_url": null,
+      "last_reviewed": "2026-05-14"
     }
   ]
 }

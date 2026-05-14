@@ -35,6 +35,7 @@
   --co-anthropic: #8e6a4a;
   --co-xai: #2c2c2c;
   --co-oracle: #6b3838;
+  --co-wonder-valley: #6b4a8e;
 
   /* Per-theme accent (used as left border on theme chips + matrix headers) */
   --theme-jobs: #2f5d8a;
@@ -88,6 +89,7 @@
   --co-anthropic: #d6b08a;
   --co-xai: #888888;
   --co-oracle: #d68a8a;
+  --co-wonder-valley: #b48ad8;
 
   --theme-jobs: #7eb6e8;
   --theme-tax_revenue: #b48ad8;
@@ -483,6 +485,15 @@ main {
   min-width: 24px;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
+}
+
+/* Checkmark glyph used when a cell has exactly one claim. Rendered in the
+   same accent color the active-cell highlight uses, slightly larger than
+   the digit so the binary "yes, claim recorded" signal reads at a glance. */
+.matrix .count.check {
+  color: var(--accent);
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 .company-name {

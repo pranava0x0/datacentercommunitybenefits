@@ -17,6 +17,12 @@ URL in `data/seed/responses.json`, re-run `python refresh.py`. Add a
 follow-up test `test_response_urls_deep_link` that flags root-level
 publication URLs.
 
+### OpenAI / Oracle Stargate Abilene — first-party claims pending
+Sub-agent research found `openai.com/index/announcing-the-stargate-project/` returns HTTP 403 to scrapers, so the v1 OpenAI / Oracle claims could not be re-verified verbatim against the canonical announcement. Current v1.1 claims for those companies still cite the original announcement URL (which loads in browsers) but the agent could only re-read the Wikipedia paraphrase. Action: visit the URL in a browser, copy verbatim quotes for each claim, refresh `captured_at`. Same for `x.ai/blog/colossus`.
+
+### Many `project_page_url` values point to news articles, not project pages
+Several projects (e.g. `google-mesa-az`) didn't have a dedicated company project page — the canonical page is a third-party press release (gpec.org, etc.) instead. Mark these in ISSUES.md and find better URLs over time. The schema accepts any HttpUrl; the field is best-effort.
+
 ### Link checker — `refresh.py --check-links`
 Add a mode that HEADs every URL across all four seed payloads, reports
 4xx/5xx, and exits nonzero. Hook into a weekly GitHub Actions cron so
@@ -128,4 +134,9 @@ instead.
 
 ## Done
 
-*(none yet — initial release)*
+- **v1.1 — Project-detail tabs.** Overview / Claims / Community tab strip in the project pop-out, with count badges, in-session persistence, and reload reset.
+- **v1.1 — Slim claim cards.** Tighter padding, smaller font, smaller curly quotes; compact variant inside detail panel.
+- **v1.1 — Matrix checkmark glyph.** Single-claim cells render `✓`; multi-claim cells render the count.
+- **v1.1 — Wonder Valley scope expansion.** First non-hyperscaler entity (O'Leary Digital, Box Elder County UT). Added wonder-valley to `COMPANY_SLUGS` + `CompanySlug` Literal + CSS palette + 3 project-tied claims + 4 community responses (Sierra Club, Utah Clean Energy, Box Elder Commission, Gov. Cox).
+- **v1.1 — Data fill-in pass.** Claims grew from 25 → 93 (+68). Added project-specific claims (with `project_id` set) for all 15 hyperscaler projects + Wonder Valley, by web-scraping each project's canonical company page. Added company-level matrix-gap-fill claims for Meta jobs/infrastructure, Google jobs/engagement, Microsoft jobs/tax_revenue/infrastructure, Amazon education/engagement.
+- **v1.1 — `Project.project_page_url`.** New optional schema field; renders in detail panel Overview as "Project page" link, distinct from "Record source".
