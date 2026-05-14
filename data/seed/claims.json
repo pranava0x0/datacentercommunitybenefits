@@ -1688,6 +1688,56 @@
       "source_title": "Pa. Gov. Announces $20B Amazon Data Center Investment (David Zapolsky)",
       "captured_at": "2026-05-14",
       "project_id": "aws-cumberland-pa"
+    },
+    {
+      "id": "anthropic-tax-revenue-grid-upgrades",
+      "company_slug": "anthropic",
+      "theme": "tax_revenue",
+      "statement": "Cover grid infrastructure costs. We will pay for 100% of the grid upgrades needed to interconnect our data centers",
+      "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
+      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "captured_at": "2026-05-14",
+      "published_at": "2026-02-11"
+    },
+    {
+      "id": "anthropic-energy-net-new-generation",
+      "company_slug": "anthropic",
+      "theme": "energy",
+      "statement": "Procure new power and protect consumers from price increases. We will work to bring net-new power generation online to match our data centers' electricity needs",
+      "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
+      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "captured_at": "2026-05-14",
+      "published_at": "2026-02-11"
+    },
+    {
+      "id": "anthropic-energy-curtailment-peak",
+      "company_slug": "anthropic",
+      "theme": "energy",
+      "statement": "Reduce strain on the grid. We're investing in curtailment systems that cut our data centers' power usage during periods of peak demand",
+      "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
+      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "captured_at": "2026-05-14",
+      "published_at": "2026-02-11"
+    },
+    {
+      "id": "anthropic-jobs-permanent-construction",
+      "company_slug": "anthropic",
+      "theme": "jobs",
+      "statement": "Invest in local communities. Our current data center projects will create hundreds of permanent jobs and thousands of construction jobs",
+      "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
+      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "captured_at": "2026-05-14",
+      "published_at": "2026-02-11"
+    },
+    {
+      "id": "anthropic-engagement-local-partnerships",
+      "company_slug": "anthropic",
+      "theme": "engagement",
+      "statement": "Partnering with local leaders on initiatives that share AI's benefits broadly",
+      "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
+      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "captured_at": "2026-05-14",
+      "published_at": "2026-02-11"
     }
   ]
 }

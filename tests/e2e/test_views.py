@@ -117,8 +117,10 @@ class TestCompanyPopout:
     def test_popout_handles_missing_official_page(
         self, page: Page, base_url: str
     ):
-        # Anthropic has dedicated_page_url=null in seed.
-        self._open(page, base_url, "anthropic")
+        # Oracle still has dedicated_page_url=null in seed (no DC-specific
+        # community page). Pick Oracle deliberately because seed coverage
+        # drives this contract.
+        self._open(page, base_url, "oracle")
         # The dd renders the placeholder via setKvLink null branch.
         dd = page.locator("#cd-page-link")
         text = dd.text_content() or ""
@@ -189,6 +191,22 @@ class TestCompanyPopout:
         assert (
             "Ratepayer" in summary or "ratepayer" in summary
         ), f"QTS summary missing ratepayer reference: {summary!r}"
+
+    def test_anthropic_summary_mentions_feb_2026_framework(
+        self, page: Page, base_url: str
+    ):
+        # v1.5: Anthropic's Feb 2026 "covering electricity price increases"
+        # framework was their first published community-impact commitment.
+        # Summary must reference the date OR the grid-cost coverage
+        # commitment so a returning reader sees the policy shift.
+        self._open(page, base_url, "anthropic")
+        summary = page.locator("#cd-summary").text_content() or ""
+        assert (
+            "February 11, 2026" in summary
+            or "Feb 2026" in summary
+            or "grid-upgrade" in summary.lower()
+            or "100% of grid" in summary
+        ), f"Anthropic summary should reference the Feb 2026 framework: {summary!r}"
 
 
 # ---------------------------------------------------------------------------

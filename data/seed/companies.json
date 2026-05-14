@@ -55,8 +55,8 @@
       "slug": "anthropic",
       "name": "Anthropic",
       "hq": "San Francisco, CA",
-      "dedicated_page_url": null,
-      "summary": "Anthropic does not operate its own data centers and has no published community-impact framework. The company's compute capacity comes via partnerships with AWS (Project Rainier in New Carlisle, IN, ~500K Trainium2 chips) and Google Cloud. Community impact at host sites flows through the operating partner's framework, not Anthropic's \u2014 a structural gap for any community advocate trying to engage Anthropic directly on local impact.",
+      "dedicated_page_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
+      "summary": "Anthropic published its first significant data-center community-impact framework on February 11, 2026 \u2014 four standalone commitments covering electricity impacts at the sites where its compute capacity runs (chiefly AWS Project Rainier in New Carlisle, IN, plus Google Cloud capacity). The commitments: cover 100% of grid-upgrade costs to interconnect Anthropic data centers, procure net-new power generation to match its electricity needs, invest in curtailment systems that cut peak-demand draw, and invest in local communities through jobs creation, water-efficient cooling, and partnerships with local leaders. The framework has no umbrella program name and does not specify dollar amounts, named utility partners, or affected communities. Pre-Feb-2026, Anthropic had no published community-impact framework \u2014 community engagement at host sites flowed through the operating partner.",
       "last_reviewed": "2026-05-14"
     },
     {
