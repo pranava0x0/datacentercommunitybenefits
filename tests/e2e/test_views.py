@@ -258,6 +258,125 @@ class TestCrossCutting:
         expect(page.locator("#view-explorer")).to_be_visible()
 
 
+class TestDetailTabs:
+    """The project detail panel is split into Overview / Claims / Community tabs."""
+
+    def _open_first_project(self, page: Page, base_url: str) -> None:
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.locator("#project-list .project-card").first.click()
+        expect(page.locator("#project-detail")).to_be_visible()
+
+    def test_three_tabs_render(self, page: Page, base_url: str):
+        self._open_first_project(page, base_url)
+        for slug in ("overview", "claims", "responses"):
+            expect(page.locator(f"#dtab-{slug}")).to_be_visible()
+
+    def test_overview_active_by_default(self, page: Page, base_url: str):
+        self._open_first_project(page, base_url)
+        expect(page.locator("#dtab-overview")).to_have_attribute(
+            "aria-selected", "true"
+        )
+        expect(page.locator("#dpane-overview")).to_be_visible()
+        expect(page.locator("#dpane-claims")).to_be_hidden()
+        expect(page.locator("#dpane-responses")).to_be_hidden()
+
+    def test_clicking_claims_tab_swaps_panes(self, page: Page, base_url: str):
+        self._open_first_project(page, base_url)
+        page.locator("#dtab-claims").click()
+        expect(page.locator("#dtab-claims")).to_have_attribute(
+            "aria-selected", "true"
+        )
+        expect(page.locator("#dpane-claims")).to_be_visible()
+        expect(page.locator("#dpane-overview")).to_be_hidden()
+        expect(page.locator("#dpane-responses")).to_be_hidden()
+        # Claim cards are now visible.
+        expect(page.locator("#d-claims .claim-card").first).to_be_visible()
+
+    def test_clicking_responses_tab_swaps_panes(self, page: Page, base_url: str):
+        # Memphis xAI has known responses; pick it explicitly.
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        page.locator("#dtab-responses").click()
+        expect(page.locator("#dpane-responses")).to_be_visible()
+        expect(page.locator("#d-responses .response-card").first).to_be_visible()
+
+    def test_tab_counts_render_when_data_present(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        # Memphis has at least one claim (company-level) and at least 2 responses.
+        claims_badge = page.locator("#dtab-claims-count")
+        resp_badge = page.locator("#dtab-responses-count")
+        expect(claims_badge).to_be_visible()
+        expect(resp_badge).to_be_visible()
+        # Counts are stringified integers.
+        assert int(claims_badge.text_content()) >= 1
+        assert int(resp_badge.text_content()) >= 2
+
+    def test_active_tab_persists_across_project_selections(
+        self, page: Page, base_url: str
+    ):
+        # User explicitly switches to Claims, then opens a different project.
+        # Claims should remain active — they're scanning the same view across sites.
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.locator("#project-list .project-card").first.click()
+        page.locator("#dtab-claims").click()
+        expect(page.locator("#dpane-claims")).to_be_visible()
+        # Open a different project.
+        page.evaluate("window.__dcb.selectProject('aws-loudoun-va')")
+        expect(page.locator("#dpane-claims")).to_be_visible()
+        expect(page.locator("#dtab-claims")).to_have_attribute(
+            "aria-selected", "true"
+        )
+
+    def test_active_tab_resets_on_page_reload(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.locator("#project-list .project-card").first.click()
+        page.locator("#dtab-responses").click()
+        # Reload — module state resets.
+        page.reload()
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.locator("#project-list .project-card").first.click()
+        expect(page.locator("#dtab-overview")).to_have_attribute(
+            "aria-selected", "true"
+        )
+
+    def test_hidden_pane_truly_not_in_layout(self, page: Page, base_url: str):
+        # Regression for the [hidden] trap (CLAUDE.md). A hidden pane MUST
+        # have no bounding box — otherwise display:none is being overridden.
+        self._open_first_project(page, base_url)
+        bbox_claims = page.locator("#dpane-claims").bounding_box()
+        bbox_responses = page.locator("#dpane-responses").bounding_box()
+        assert bbox_claims is None, "Hidden claims pane should have no layout box"
+        assert bbox_responses is None, "Hidden responses pane should have no layout box"
+
+    def test_count_badges_hidden_when_no_data(self, page: Page, base_url: str):
+        # google-mesa-az has no community responses captured in seed.
+        # Pick a project deliberately because seed coverage drives this contract.
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('google-mesa-az')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        resp_badge = page.locator("#dtab-responses-count")
+        # Badge should be hidden (zero responses for this project).
+        assert (
+            resp_badge.bounding_box() is None
+        ), "Responses badge should hide when count is 0"
+
+
 class TestSourceAttribution:
     """Per CLAUDE.md > 'Source attribution is non-negotiable'."""
 
@@ -279,7 +398,9 @@ class TestSourceAttribution:
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
         page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
-        page.wait_for_selector("#d-responses .response-card", timeout=5_000)
+        # Cards are inside the Community tab pane, which is hidden by default.
+        # Wait for DOM presence (state="attached"), not visibility.
+        page.wait_for_selector("#d-responses .response-card", state="attached", timeout=5_000)
         cards = page.locator("#d-responses .response-card")
         n = cards.count()
         for i in range(n):

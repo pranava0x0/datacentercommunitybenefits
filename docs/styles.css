@@ -553,23 +553,33 @@ main {
   border: 1px solid var(--border);
   border-left: 3px solid var(--co-color, var(--accent));
   border-radius: var(--radius);
-  padding: 12px 16px;
+  padding: 10px 14px;
   box-shadow: var(--shadow-sm);
+  font-size: 0.92rem;
+}
+
+/* Compact variant — used inside the project detail pane (and anywhere
+   claim cards appear as supporting context rather than the headline read).
+   Reduces font, padding, and drops the box-shadow so density goes up. */
+.claims-list.compact {
+  gap: 6px;
 }
 
 .claims-list.compact .claim-card {
-  padding: 10px 12px;
-  font-size: 0.9rem;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  box-shadow: none;
 }
 
 .claim-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px 10px;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  line-height: 1.3;
 }
 
 .claim-company {
@@ -581,13 +591,14 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 1px 8px;
+  padding: 0 7px;
   background: var(--surface-2);
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--text-muted);
+  line-height: 1.6;
 }
 
 .claim-theme::before {
@@ -601,24 +612,36 @@ main {
 
 .claim-quote {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  line-height: 1.45;
-  margin: 0 0 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 0 4px;
   color: var(--text);
 }
 
 .claim-quote::before {
-  content: "“";
-  margin-right: 2px;
+  content: "\201C";
+  margin-right: 1px;
+  color: var(--text-muted);
 }
 
 .claim-quote::after {
-  content: "”";
-  margin-left: 2px;
+  content: "\201D";
+  margin-left: 1px;
+  color: var(--text-muted);
+}
+
+.claims-list.compact .claim-quote {
+  font-size: 0.88rem;
+  line-height: 1.35;
 }
 
 .claim-source {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  margin: 0;
+}
+
+.claims-list.compact .claim-source {
+  font-size: 0.7rem;
 }
 
 .claim-source a {
@@ -835,7 +858,7 @@ main {
 }
 
 .detail-header {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   padding-right: 36px;
 }
 
@@ -845,11 +868,66 @@ main {
   margin: 4px 0 0;
 }
 
+/* Detail-panel tab strip — same visual language as the top-level tabs but
+   one tier smaller. Per CLAUDE.md "[hidden] trap": .dpane[hidden] needs an
+   explicit display:none rule (we have a global one in the reset) plus the
+   transition is intentionally instant — content swaps, no fade competing
+   with the panel's own fade-in. */
+.detail-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin: 12px 0 16px;
+}
+
+.dtab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 14px 9px;
+  margin-bottom: -1px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dtab[aria-selected="true"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.dtab:hover {
+  color: var(--text);
+}
+
+.dtab-count {
+  display: inline-block;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 0 7px;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+}
+
+.dtab[aria-selected="true"] .dtab-count {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.dpane {
+  animation: fadein 150ms ease-out;
+}
+
 .kv {
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 6px 16px;
-  margin: 0 0 16px;
+  margin: 0;
   font-size: 0.9rem;
 }
 

@@ -528,6 +528,66 @@ function wireExplorerFilters() {
       closeDetail();
     }
   });
+  wireDetailTabs();
+}
+
+// --------------------------------------------------------------------------
+// Detail-panel tabs (Overview / Claims / Community)
+// --------------------------------------------------------------------------
+
+// The user's last explicitly-clicked detail tab persists *within session*.
+// Page reload resets to "overview". Per CLAUDE.md cross-project lesson —
+// hardcoded snap-back to Overview on every selectProject() forces users
+// browsing the same tab across projects to re-click on every selection.
+let _lastDetailTab = "overview";
+
+const DETAIL_TABS = ["overview", "claims", "responses"];
+
+function wireDetailTabs() {
+  for (const name of DETAIL_TABS) {
+    const btn = document.getElementById(`dtab-${name}`);
+    if (!btn) continue;
+    btn.addEventListener("click", () => {
+      _lastDetailTab = name;
+      setActiveDetailTab(name);
+    });
+  }
+}
+
+function setActiveDetailTab(name) {
+  if (!DETAIL_TABS.includes(name)) name = "overview";
+  for (const t of DETAIL_TABS) {
+    const btn = document.getElementById(`dtab-${t}`);
+    const pane = document.getElementById(`dpane-${t}`);
+    const active = t === name;
+    if (btn) btn.setAttribute("aria-selected", active ? "true" : "false");
+    if (pane) pane.hidden = !active;
+  }
+}
+
+function resetDetailTabs() {
+  setActiveDetailTab(_lastDetailTab);
+}
+
+function updateDetailTabCounts(claimsCount, responsesCount) {
+  const claimsBadge = document.getElementById("dtab-claims-count");
+  const respBadge = document.getElementById("dtab-responses-count");
+  if (claimsBadge) {
+    if (claimsCount > 0) {
+      claimsBadge.textContent = String(claimsCount);
+      claimsBadge.hidden = false;
+    } else {
+      claimsBadge.hidden = true;
+    }
+  }
+  if (respBadge) {
+    if (responsesCount > 0) {
+      respBadge.textContent = String(responsesCount);
+      respBadge.hidden = false;
+    } else {
+      respBadge.hidden = true;
+    }
+  }
 }
 
 function refreshExplorer() {
@@ -737,8 +797,10 @@ function selectProject(id) {
   setKvLink("d-source", p.source_url, p.source_title);
   setKv("d-notes", p.notes || null);
 
-  renderProjectClaims(p);
-  renderProjectResponses(p);
+  const claimsCount = renderProjectClaims(p);
+  const responsesCount = renderProjectResponses(p);
+  updateDetailTabCounts(claimsCount, responsesCount);
+  resetDetailTabs();
 
   detail.hidden = false;
   // Focus management: move focus to the close button so screen readers
@@ -808,10 +870,11 @@ function renderProjectClaims(p) {
     li.className = "muted";
     li.textContent = "No claims captured for this site or company.";
     ol.appendChild(li);
-    return;
+    return 0;
   }
 
   for (const c of all) ol.appendChild(renderClaimCard(c));
+  return all.length;
 }
 
 function renderProjectResponses(p) {
@@ -823,9 +886,10 @@ function renderProjectResponses(p) {
     li.className = "muted";
     li.textContent = "No community responses captured for this site yet.";
     ol.appendChild(li);
-    return;
+    return 0;
   }
   for (const r of items) ol.appendChild(renderResponseCard(r));
+  return items.length;
 }
 
 function renderResponseCard(r) {

@@ -284,3 +284,23 @@ v2 will introduce **connector-based refresh** for the company pages that publish
 - **Schema is the contract.** Pydantic `extra="forbid"` catches drift before write; tests cover normalize/edge cases.
 - **The `[hidden]` trap.** See Frontend Standards above — pair every `display: ...` override with `[hidden] { display: none }`.
 - **Static-first deployment.** GitHub Pages serving `docs/` with no runtime backend; same pattern as adjacent projects in this org.
+
+### Project-detail tab strip (v1.1)
+
+The project pop-out in the Explorer view is split into three tabs — Overview / Claims / Community — generated from `DETAIL_TABS = ["overview", "claims", "responses"]` in [docs/app.js](docs/app.js). Three drift-safe rules:
+
+- **Iterate `DETAIL_TABS` everywhere.** `setActiveDetailTab()`, `wireDetailTabs()`, and any future code that enumerates tabs MUST loop over the constant — same drift-safe iteration pattern as `THEMES`. When a 4th tab ships, drop it into the array and the wiring picks it up for free.
+- **Last-clicked tab persists within session, resets on reload.** Module-level `_lastDetailTab` (default `"overview"`) records the user's last explicit click; `resetDetailTabs()` restores it on every `selectProject()`. **Don't** snap back to Overview on every selection — a user scanning Claims across multiple projects shouldn't have to re-click on every project. **Don't** persist to `localStorage` either: a returning user reloading the page should land on the structured Overview, not whatever lighter pane they last visited.
+- **Tab-count badges hide via `[hidden]`.** `updateDetailTabCounts(claims, responses)` sets `badge.hidden = (count === 0)`. The `[hidden]` global rule has `!important` so the inline `display: inline-block` on `.dtab-count` doesn't override. Test `test_count_badges_hidden_when_no_data` guards against the trap regression.
+
+### Playwright `wait_for_selector` on hidden-by-default panes (v1.1)
+
+The Community pane is `[hidden]` by default (Overview is the landing tab). Tests that target elements inside that pane MUST pass `state="attached"` to `wait_for_selector`, e.g. `page.wait_for_selector("#d-responses .response-card", state="attached")`. Default `state="visible"` would time out because the parent's `display: none` removes children from the bounding box. Same lesson as adjacent projects — when you waited for visibility but the selector targets a `[hidden]`-conditional element, the wait races a CSS transition or an attribute toggle and flakes on slow runners. Locator `count()` and attribute reads work fine without the wait — they query the DOM, not the layout box.
+
+### Compact claim card variant (v1.1)
+
+Claim cards have two visual modes driven by an opt-in `.compact` class on the parent `<ol class="claims-list">`:
+- **Default** (Comparison view's main claims list) — full padding, 0.92rem font, box-shadow, large typographic curly quotes (`\201C` / `\201D`) wrapping the verbatim quote. The serif font on the quote is load-bearing — it signals "this is a quoted statement," not body copy.
+- **Compact** (Project detail's Claims tab) — tighter padding, 0.85rem font, no shadow, same serif quote treatment but at 0.88rem. The card is supporting context for a project, not the headline read; visual weight should drop accordingly.
+
+**Don't** drop the serif on `.claim-quote` in either mode — that's the editorial signal. **Don't** add the `compact` class to the comparison view's main list — that view IS the read.

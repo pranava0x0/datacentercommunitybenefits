@@ -170,30 +170,80 @@
             </p>
           </header>
 
-          <dl class="kv">
-            <dt>Claimed investment</dt>
-            <dd id="d-investment">—</dd>
-            <dt>Claimed jobs</dt>
-            <dd id="d-jobs">—</dd>
-            <dt>Source</dt>
-            <dd id="d-source">—</dd>
-            <dt>Notes</dt>
-            <dd id="d-notes">—</dd>
-          </dl>
+          <div class="detail-tabs" role="tablist" aria-label="Project detail sections">
+            <button
+              id="dtab-overview"
+              class="dtab"
+              role="tab"
+              type="button"
+              aria-selected="true"
+              aria-controls="dpane-overview"
+            >
+              Overview
+            </button>
+            <button
+              id="dtab-claims"
+              class="dtab"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="dpane-claims"
+            >
+              Claims <span class="dtab-count" id="dtab-claims-count" hidden></span>
+            </button>
+            <button
+              id="dtab-responses"
+              class="dtab"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="dpane-responses"
+            >
+              Community <span class="dtab-count" id="dtab-responses-count" hidden></span>
+            </button>
+          </div>
 
-          <section class="detail-block">
-            <h4>Company claims for this site</h4>
+          <div
+            id="dpane-overview"
+            class="dpane"
+            role="tabpanel"
+            aria-labelledby="dtab-overview"
+          >
+            <dl class="kv">
+              <dt>Claimed investment</dt>
+              <dd id="d-investment">—</dd>
+              <dt>Claimed jobs</dt>
+              <dd id="d-jobs">—</dd>
+              <dt>Source</dt>
+              <dd id="d-source">—</dd>
+              <dt>Notes</dt>
+              <dd id="d-notes">—</dd>
+            </dl>
+          </div>
+
+          <div
+            id="dpane-claims"
+            class="dpane"
+            role="tabpanel"
+            aria-labelledby="dtab-claims"
+            hidden
+          >
             <ol id="d-claims" class="claims-list compact">
               <li class="muted">No site-specific claims captured yet.</li>
             </ol>
-          </section>
+          </div>
 
-          <section class="detail-block">
-            <h4>Community responses</h4>
+          <div
+            id="dpane-responses"
+            class="dpane"
+            role="tabpanel"
+            aria-labelledby="dtab-responses"
+            hidden
+          >
             <ol id="d-responses" class="response-list">
               <li class="muted">No community responses captured yet.</li>
             </ol>
-          </section>
+          </div>
         </section>
       </section>
     </main>
