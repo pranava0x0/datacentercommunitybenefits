@@ -1156,6 +1156,26 @@
       "source_url": "https://www.aboutamazon.com/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
       "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures \u2014 About Amazon",
       "captured_at": "2026-05-14"
+    },
+    {
+      "id": "wonder-valley-box-elder-ut-energy-oleary-air-cooled-2026-05",
+      "company_slug": "wonder-valley",
+      "project_id": "wonder-valley-box-elder-ut",
+      "theme": "energy",
+      "statement": "We search for the best technology. There are air-cooled turbines now. There are so many different ways to generate power. We can also put a percentage of the power through solar, wind and batteries.",
+      "source_url": "https://www.deseret.com/utah/2026/05/12/everything-about-utah-stratos-project-data-center/",
+      "source_title": "Utah House speaker on data center controversy and Kevin O'Leary \u2014 Deseret News",
+      "captured_at": "2026-05-14"
+    },
+    {
+      "id": "wonder-valley-box-elder-ut-infrastructure-oleary-race-2026-05",
+      "company_slug": "wonder-valley",
+      "project_id": "wonder-valley-box-elder-ut",
+      "theme": "infrastructure",
+      "statement": "China built 400 gigawatts of new power over the last 24 months, much of it is powering AI data centers. We're in a race with them. We seem to have gone to sleep nationally about this. It's bad\u2026We have to fix it.",
+      "source_url": "https://kutv.com/news/local/kevin-oleary-rushing-data-center-because-of-competition",
+      "source_title": "Kevin O'Leary 'rushing' Utah data center because of competition \u2014 KUTV",
+      "captured_at": "2026-05-14"
     }
   ]
 }

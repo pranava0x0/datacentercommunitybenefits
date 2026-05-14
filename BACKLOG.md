@@ -134,6 +134,9 @@ instead.
 
 ## Done
 
+- **v1.2 — Matrix simplified to checkmarks-only.** Every populated cell now renders `✓`; the digit branch from v1.1 was removed because volume belongs in the claims list, not the at-a-glance matrix. aria-label still carries the precise count.
+- **v1.2 — Project physical/operational metrics.** Added `acreage`, `power_mw`, `gpu_count`, `offtaker` fields to `Project`. Filled values for all 16 projects from canonical company pages + DCD/DCF/CNBC reporting. Frontend formatters auto-convert ≥1000 MW to GW.
+- **v1.2 — Wonder Valley deep dive.** +2 O'Leary interview claims (energy-mix, China-race rationale), +4 community responses: Elevate Utah policy brief, BEAR co-leads Brenna Williams and Farrah Pliley, Utah ROOTS coalition. Total Wonder Valley records now: 5 claims + 8 community responses.
 - **v1.1 — Project-detail tabs.** Overview / Claims / Community tab strip in the project pop-out, with count badges, in-session persistence, and reload reset.
 - **v1.1 — Slim claim cards.** Tighter padding, smaller font, smaller curly quotes; compact variant inside detail panel.
 - **v1.1 — Matrix checkmark glyph.** Single-claim cells render `✓`; multi-claim cells render the count.

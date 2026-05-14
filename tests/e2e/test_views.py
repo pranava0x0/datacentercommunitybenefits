@@ -381,21 +381,29 @@ class TestDetailTabs:
 
 
 class TestMatrixGlyphs:
-    """Cells with exactly 1 claim render a checkmark; multiple claims render the count."""
+    """Every populated cell renders a checkmark — volume goes in the claims list."""
 
-    def test_count_cell_renders_digit_for_two_or_more(self, page: Page, base_url: str):
+    def test_all_populated_cells_render_check(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        # Find any non-empty cell, inspect its glyph.
-        cells = page.locator("#comparison-matrix td.cell:not(.empty)")
-        n = cells.count()
-        assert n >= 1, "Seed should have at least one populated matrix cell"
-        # At least one cell must have a count >= 2 in the seed (Meta jobs has
-        # 2+ claims as of v1.1, so this is stable). Verify rendering shape.
-        digit_cells = page.locator("#comparison-matrix .count:not(.check)")
-        check_cells = page.locator("#comparison-matrix .count.check")
-        assert digit_cells.count() >= 1, "Expected at least one numeric-count cell"
-        assert check_cells.count() >= 1, "Expected at least one checkmark cell (single-claim)"
+        non_empty = page.locator("#comparison-matrix td.cell:not(.empty)").count()
+        check_cells = page.locator("#comparison-matrix .count.check").count()
+        assert non_empty >= 1, "Seed should have at least one populated matrix cell"
+        assert (
+            check_cells == non_empty
+        ), f"Every non-empty cell should render a check; got {check_cells}/{non_empty}"
+
+    def test_no_digit_only_cells_remain(self, page: Page, base_url: str):
+        # Regression for the v1.2 simplification: there must be NO `.count`
+        # spans without the `.check` class — that was the digit branch and
+        # it's been removed.
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        digit_only = page.locator("#comparison-matrix .count:not(.check)").count()
+        assert digit_only == 0, (
+            f"Found {digit_only} digit-style cells; the matrix should be "
+            "checkmarks-only after v1.2."
+        )
 
     def test_check_glyph_is_check_mark(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -405,7 +413,9 @@ class TestMatrixGlyphs:
         text = first_check.text_content()
         assert text and text.strip() == "✓", f"Expected ✓ in check cell, got {text!r}"
 
-    def test_check_cell_aria_label_says_one_claim(self, page: Page, base_url: str):
+    def test_check_cell_aria_label_carries_numeric_count(
+        self, page: Page, base_url: str
+    ):
         # Aria label must spell out the count even when the visual is a glyph,
         # so screen readers convey the same info as sighted users.
         page.goto(base_url + "/")
@@ -414,7 +424,12 @@ class TestMatrixGlyphs:
             "#comparison-matrix td.cell:has(.count.check)"
         ).first
         label = check_cell_td.get_attribute("aria-label") or ""
-        assert "1 " in label, f"Aria-label should include numeric count: {label!r}"
+        # Label format: "<N> <Company> <Theme> claim(s) — click to filter"
+        import re
+
+        m = re.match(r"^(\d+)\s+\S", label)
+        assert m, f"Aria-label should start with a numeric count: {label!r}"
+        assert int(m.group(1)) >= 1, f"Numeric count should be >= 1: {label!r}"
         assert "claim" in label.lower(), f"Aria-label should mention 'claim': {label!r}"
 
 
@@ -465,6 +480,64 @@ class TestProjectPageUrl:
         expect(link).to_have_count(1)
         href = link.get_attribute("href")
         assert href and href.startswith("http"), f"Bad project page href: {href!r}"
+
+
+class TestProjectPhysicalMetrics:
+    """v1.2: acreage, power_mw, gpu_count, offtaker render in the Overview tab."""
+
+    def _open(self, page: Page, base_url: str, project_id: str) -> None:
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate(f"window.__dcb.selectProject('{project_id}')")
+        expect(page.locator("#project-detail")).to_be_visible()
+
+    def test_acreage_renders_with_unit(self, page: Page, base_url: str):
+        # meta-richland-la has acreage=2250 in seed.
+        self._open(page, base_url, "meta-richland-la")
+        text = page.locator("#d-acreage").text_content() or ""
+        assert "acres" in text.lower(), f"Expected 'acres' in {text!r}"
+        assert "2,250" in text or "2250" in text, f"Expected 2250 in {text!r}"
+
+    def test_power_renders_in_mw_or_gw(self, page: Page, base_url: str):
+        # xai-memphis-tn has power_mw=300 → "300 MW"
+        self._open(page, base_url, "xai-memphis-tn")
+        text = page.locator("#d-power").text_content() or ""
+        assert "MW" in text, f"Expected MW unit in {text!r}"
+
+    def test_power_renders_as_gw_at_1000_plus(self, page: Page, base_url: str):
+        # wonder-valley-box-elder-ut has power_mw=1500 → "1.5 GW"
+        self._open(page, base_url, "wonder-valley-box-elder-ut")
+        text = page.locator("#d-power").text_content() or ""
+        assert "GW" in text, f"Expected GW unit at >=1000 MW: {text!r}"
+        assert "1.5" in text, f"Expected 1.5 GW: {text!r}"
+
+    def test_gpu_count_renders_for_disclosed_sites(self, page: Page, base_url: str):
+        # openai-abilene-tx has gpu_count=450000 → "450K"
+        self._open(page, base_url, "openai-abilene-tx")
+        text = page.locator("#d-gpus").text_content() or ""
+        assert "450K" in text or "450,000" in text, f"Expected GPU count: {text!r}"
+
+    def test_offtaker_renders(self, page: Page, base_url: str):
+        # aws-new-carlisle-in has offtaker="Anthropic" (Project Rainier).
+        self._open(page, base_url, "aws-new-carlisle-in")
+        text = page.locator("#d-offtaker").text_content() or ""
+        assert "Anthropic" in text, f"Expected Anthropic offtaker: {text!r}"
+
+    def test_offtaker_disambiguates_stargate(self, page: Page, base_url: str):
+        # oracle-abilene-tx has offtaker="OpenAI" (Oracle hosts, OpenAI uses).
+        # This is the field that disambiguates "who is the compute for?"
+        self._open(page, base_url, "oracle-abilene-tx")
+        text = page.locator("#d-offtaker").text_content() or ""
+        assert "OpenAI" in text, f"Expected OpenAI offtaker: {text!r}"
+
+    def test_undisclosed_metrics_show_placeholder(self, page: Page, base_url: str):
+        # aws-loudoun-va has no acreage in seed (distributed across 50+ parcels).
+        self._open(page, base_url, "aws-loudoun-va")
+        cell = page.locator("#d-acreage")
+        # setKv() renders "Not disclosed" + .muted-cell class for null.
+        text = cell.text_content() or ""
+        assert "not disclosed" in text.lower(), f"Expected placeholder: {text!r}"
 
 
 class TestSourceAttribution:

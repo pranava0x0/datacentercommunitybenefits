@@ -194,6 +194,34 @@ class Project(_StrictBase):
             "they often differ when source_url is a news article or press release."
         ),
     )
+    acreage: Optional[float] = Field(
+        default=None,
+        ge=0,
+        description="Physical site size in acres. Cumulative across phases when expanded.",
+    )
+    power_mw: Optional[float] = Field(
+        default=None,
+        ge=0,
+        description="Total announced electrical capacity in megawatts. Latest known number.",
+    )
+    gpu_count: Optional[int] = Field(
+        default=None,
+        ge=0,
+        description=(
+            "Total announced AI accelerators (NVIDIA H100/H200/GB200, AMD MI300, "
+            "AWS Trainium 2, Google TPU, etc.). Only fill when publicly disclosed; "
+            "most owner-operator hyperscaler sites don't disclose this."
+        ),
+    )
+    offtaker: Optional[str] = Field(
+        default=None,
+        description=(
+            "The workload owner / tenant. For owner-operator sites, the operating "
+            "company itself (e.g. 'Meta'). For colocation arrangements like Stargate "
+            "Abilene or Project Rainier, the AI tenant ('OpenAI', 'Anthropic') — "
+            "this is the field that disambiguates 'who is the compute actually for?'"
+        ),
+    )
 
 
 class CommunityResponse(_StrictBase):

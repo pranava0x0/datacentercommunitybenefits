@@ -18,7 +18,9 @@
       "source_url": "https://datacenters.atmeta.com/location/prineville/",
       "source_title": "Meta Data Centers \u2014 Prineville",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/"
+      "project_page_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+      "acreage": 470,
+      "offtaker": "Meta"
     },
     {
       "id": "meta-newton-ga",
@@ -37,7 +39,10 @@
       "source_url": "https://datacenters.atmeta.com/location/newton/",
       "source_title": "Meta Data Centers \u2014 Newton",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/"
+      "project_page_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
+      "acreage": 416,
+      "power_mw": 1120,
+      "offtaker": "Meta"
     },
     {
       "id": "meta-richland-la",
@@ -56,7 +61,10 @@
       "source_url": "https://about.fb.com/news/2024/12/meta-richland-parish-louisiana-data-center/",
       "source_title": "Meta \u2014 Investing $10 billion in Richland Parish, Louisiana (Dec 2024)",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://datacenters.atmeta.com/richland-parish-data-center/"
+      "project_page_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+      "acreage": 2250,
+      "power_mw": 2000,
+      "offtaker": "Meta"
     },
     {
       "id": "google-the-dalles-or",
@@ -75,7 +83,9 @@
       "source_url": "https://datacenters.google/locations/the-dalles/",
       "source_title": "Google Data Centers \u2014 The Dalles",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://datacenters.google/locations/oregon/"
+      "project_page_url": "https://datacenters.google/locations/oregon/",
+      "acreage": 190,
+      "offtaker": "Google"
     },
     {
       "id": "google-council-bluffs-ia",
@@ -94,7 +104,9 @@
       "source_url": "https://datacenters.google/locations/council-bluffs/",
       "source_title": "Google Data Centers \u2014 Council Bluffs",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://datacenters.google/locations/iowa/"
+      "project_page_url": "https://datacenters.google/locations/iowa/",
+      "acreage": 1185,
+      "offtaker": "Google"
     },
     {
       "id": "google-mesa-az",
@@ -113,7 +125,10 @@
       "source_url": "https://datacenters.google/locations/mesa/",
       "source_title": "Google Data Centers \u2014 Mesa",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/"
+      "project_page_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
+      "acreage": 187,
+      "power_mw": 400,
+      "offtaker": "Google"
     },
     {
       "id": "ms-quincy-wa",
@@ -132,7 +147,9 @@
       "source_url": "https://news.microsoft.com/source/topics/datacenters/",
       "source_title": "Microsoft Datacenters \u2014 Quincy",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/"
+      "project_page_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/",
+      "acreage": 270,
+      "offtaker": "Microsoft"
     },
     {
       "id": "ms-mt-pleasant-wi",
@@ -151,7 +168,9 @@
       "source_url": "https://blogs.microsoft.com/on-the-issues/2024/05/08/wisconsin-ai-co-innovation-data-center/",
       "source_title": "Microsoft expands Wisconsin investment to $3.3B (May 2024)",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/"
+      "project_page_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
+      "acreage": 1300,
+      "offtaker": "Microsoft"
     },
     {
       "id": "ms-goodyear-az",
@@ -170,7 +189,10 @@
       "source_url": "https://news.microsoft.com/source/topics/datacenters/",
       "source_title": "Microsoft Datacenters \u2014 West region",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/"
+      "project_page_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
+      "acreage": 300,
+      "power_mw": 480,
+      "offtaker": "Microsoft"
     },
     {
       "id": "aws-loudoun-va",
@@ -189,7 +211,9 @@
       "source_url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
       "source_title": "AWS Global Infrastructure \u2014 US East (N. Virginia)",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia"
+      "project_page_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+      "power_mw": 1500,
+      "offtaker": "AWS"
     },
     {
       "id": "aws-new-carlisle-in",
@@ -208,7 +232,11 @@
       "source_url": "https://www.aboutamazon.com/news/aws/aws-investing-11-billion-indiana-data-centers",
       "source_title": "AWS to invest $11B in Indiana for new data center campus (Oct 2024)",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers"
+      "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+      "acreage": 1200,
+      "power_mw": 2200,
+      "gpu_count": 500000,
+      "offtaker": "Anthropic"
     },
     {
       "id": "aws-cumberland-pa",
@@ -227,7 +255,10 @@
       "source_url": "https://www.aboutamazon.com/news/aws/aws-pennsylvania-data-center-investment",
       "source_title": "AWS \u2014 $20B Pennsylvania investment (June 2024)",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation"
+      "project_page_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+      "acreage": 1200,
+      "power_mw": 960,
+      "offtaker": "AWS"
     },
     {
       "id": "openai-abilene-tx",
@@ -246,7 +277,11 @@
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
       "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://openai.com/index/announcing-the-stargate-project/"
+      "project_page_url": "https://openai.com/index/announcing-the-stargate-project/",
+      "acreage": 1100,
+      "power_mw": 1200,
+      "gpu_count": 450000,
+      "offtaker": "OpenAI"
     },
     {
       "id": "oracle-abilene-tx",
@@ -265,7 +300,11 @@
       "source_url": "https://www.oracle.com/news/announcement/openai-selects-oracle-cloud-infrastructure-to-extend-microsoft-azure-ai-platform-2024-06-11/",
       "source_title": "Oracle and OpenAI extend cloud partnership (2024)",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://www.oracle.com/news/announcement/openai-selects-oracle-cloud-infrastructure-to-extend-microsoft-azure-ai-platform-2024-06-11/"
+      "project_page_url": "https://www.oracle.com/news/announcement/openai-selects-oracle-cloud-infrastructure-to-extend-microsoft-azure-ai-platform-2024-06-11/",
+      "acreage": 1100,
+      "power_mw": 1200,
+      "gpu_count": 450000,
+      "offtaker": "OpenAI"
     },
     {
       "id": "xai-memphis-tn",
@@ -284,7 +323,11 @@
       "source_url": "https://x.ai/blog/colossus",
       "source_title": "xAI \u2014 Colossus",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://memphischamber.com/economic-development/xai/"
+      "project_page_url": "https://memphischamber.com/economic-development/xai/",
+      "acreage": 785,
+      "power_mw": 300,
+      "gpu_count": 230000,
+      "offtaker": "xAI"
     },
     {
       "id": "wonder-valley-box-elder-ut",
@@ -303,7 +346,9 @@
       "source_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
       "source_title": "O'Leary Digital Forms Joint Venture to Advance 7.5 GW Wonder Valley Utah Campus; Alberta Permitting Underway",
       "captured_at": "2026-05-14",
-      "project_page_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html"
+      "project_page_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
+      "acreage": 2000,
+      "power_mw": 1500
     }
   ]
 }

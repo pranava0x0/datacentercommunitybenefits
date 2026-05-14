@@ -21,8 +21,10 @@ A 9 × 8 thematic matrix. Rows are companies; columns are the eight
 benefit themes ([jobs, tax revenue, energy, water, community grants,
 infrastructure, education, engagement](DESIGN.md#theme-assignment)).
 
-- A `✓` in a cell means the company has one recorded claim against that
-  theme; a number (`2`, `3`, …) shows the volume.
+- A `✓` in a cell means the company has at least one recorded claim
+  against that theme; an `—` means none recorded. Volume goes in the
+  claims list below — the matrix is for at-a-glance "does this company
+  speak to this theme at all?"
 - Click any cell to filter the claims list below to just that
   company × theme intersection.
 - Every claim card shows the verbatim quote, theme, capture date, an
@@ -37,31 +39,38 @@ Filterable by company, status (announced / construction / operational),
 and community stance. Click any marker or list card to open the project
 pop-out, which has three tabs:
 
-- **Overview** — investment, jobs, location, project page link, record
-  source link, notes.
+- **Overview** — investment, jobs, **acreage, power capacity (MW/GW),
+  GPU/accelerator count, offtaker (workload owner)**, project page
+  link, record source link, notes.
 - **Claims** — site-specific quotes for that project (with a count
   badge on the tab).
 - **Community** — documented responses tagged
   positive/mixed/negative with constituency
   (residents / local government / NGO / academic / journalist / regulator).
 
+The **offtaker** field is what disambiguates colocation arrangements
+from owner-operator sites: Stargate Abilene's `oracle-abilene-tx`
+record carries `OpenAI` as offtaker (Oracle hosts, OpenAI uses); AWS
+New Carlisle (Project Rainier) carries `Anthropic`. For owner-operator
+campuses, offtaker equals the operating company.
+
 The active tab persists across project selections within a session so
 scanning one tab across multiple projects doesn't force a re-click.
 
 ---
 
-## What's in the dataset (as of v1.1)
+## What's in the dataset (as of v1.2)
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
-| Companies          | 9     | 8 hyperscalers + Wonder Valley (Kevin O'Leary's UT campus, v1.1 add)    |
-| Claims             | 93    | Verbatim first-party quotes, mapped to one of 8 themes                  |
-| Projects           | 16    | Individual data center sites with location, status, claimed numbers     |
-| Community responses| 16    | Reactions from residents / officials / NGOs / journalists / regulators  |
+| Companies          | 9     | 8 hyperscalers + Wonder Valley (Kevin O'Leary's UT campus)              |
+| Claims             | 95    | Verbatim first-party quotes, mapped to one of 8 themes                  |
+| Projects           | 16    | Sites with location, status, investment, **acreage, power, GPUs, offtaker** |
+| Community responses| 20    | Reactions from residents / officials / NGOs / journalists / regulators  |
 
 **First-paint payload:** `companies.json` (1.4 KB) + `claims.json`
-(46.6 KB) preload on first paint. `projects.json` (11.3 KB) +
-`responses.json` (8.9 KB) lazy-load when the user opens the Project
+(~48 KB) preload on first paint. `projects.json` (~12 KB) +
+`responses.json` (~12 KB) lazy-load when the user opens the Project
 Explorer tab. Map JS/CSS (Leaflet, ~150 KB) only loads on the Explorer
 view.
 

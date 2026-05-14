@@ -324,14 +324,11 @@ function renderMatrix() {
         td.innerHTML = `<span aria-hidden="true">—</span><span class="visually-hidden">no claims</span>`;
       } else {
         td.className = "cell";
-        // Single claim → checkmark glyph (binary "they have a claim" signal).
-        // Multiple claims → numeric count (volume signal). Either way the
-        // aria-label carries the precise count for screen readers.
-        if (n === 1) {
-          td.innerHTML = `<span class="count check" aria-hidden="true">✓</span>`;
-        } else {
-          td.innerHTML = `<span class="count">${n}</span>`;
-        }
+        // Binary signal: any non-zero claim count renders as a checkmark.
+        // The matrix is for "does this company speak to this theme at all?"
+        // — volume goes in the claims list, not the matrix. The aria-label
+        // still carries the precise integer for screen readers.
+        td.innerHTML = `<span class="count check" aria-hidden="true">✓</span>`;
         td.setAttribute("role", "button");
         td.tabIndex = 0;
         td.setAttribute(
@@ -802,6 +799,10 @@ function selectProject(id) {
 
   setKv("d-investment", formatUsd(p.claimed_investment_usd));
   setKv("d-jobs", p.claimed_jobs == null ? null : p.claimed_jobs.toLocaleString());
+  setKv("d-acreage", formatAcreage(p.acreage));
+  setKv("d-power", formatPower(p.power_mw));
+  setKv("d-gpus", formatGpuCount(p.gpu_count));
+  setKv("d-offtaker", p.offtaker || null);
   setKvLink(
     "d-project-page",
     p.project_page_url,
@@ -865,6 +866,28 @@ function formatUsd(v) {
   if (v >= 1e9) return `$${(v / 1e9).toFixed(1)}B`;
   if (v >= 1e6) return `$${(v / 1e6).toFixed(0)}M`;
   return `$${v.toLocaleString()}`;
+}
+
+function formatAcreage(v) {
+  if (v == null) return null;
+  // Round to whole acres for display; preserve decimals only below 10.
+  const rounded = v >= 10 ? Math.round(v) : Math.round(v * 10) / 10;
+  return `${rounded.toLocaleString()} acres`;
+}
+
+function formatPower(v) {
+  if (v == null) return null;
+  // Express ≥1000 MW as GW for legibility (Wonder Valley territory).
+  if (v >= 1000) return `${(v / 1000).toFixed(1)} GW`;
+  return `${v.toLocaleString()} MW`;
+}
+
+function formatGpuCount(v) {
+  if (v == null) return null;
+  // Round large counts: 450,000 → "450K", 1,200,000 → "1.2M".
+  if (v >= 1e6) return `${(v / 1e6).toFixed(1)}M`;
+  if (v >= 1e3) return `${(v / 1e3).toFixed(0)}K`;
+  return v.toLocaleString();
 }
 
 function renderProjectClaims(p) {

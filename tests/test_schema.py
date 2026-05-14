@@ -209,6 +209,43 @@ class TestProject:
         with pytest.raises(ValidationError):
             Project(**_project_kwargs(state="Oregon"))
 
+    # ----- v1.2: physical/operational fields -----
+
+    def test_optional_physical_fields_default_none(self):
+        p = Project(**_project_kwargs())
+        assert p.acreage is None
+        assert p.power_mw is None
+        assert p.gpu_count is None
+        assert p.offtaker is None
+
+    def test_acreage_accepts_float(self):
+        p = Project(**_project_kwargs(acreage=2250.5))
+        assert p.acreage == 2250.5
+
+    def test_negative_acreage_rejected(self):
+        with pytest.raises(ValidationError):
+            Project(**_project_kwargs(acreage=-1))
+
+    def test_power_mw_accepts_float(self):
+        p = Project(**_project_kwargs(power_mw=1500.0))
+        assert p.power_mw == 1500.0
+
+    def test_negative_power_rejected(self):
+        with pytest.raises(ValidationError):
+            Project(**_project_kwargs(power_mw=-1))
+
+    def test_gpu_count_accepts_int(self):
+        p = Project(**_project_kwargs(gpu_count=450000))
+        assert p.gpu_count == 450000
+
+    def test_negative_gpu_count_rejected(self):
+        with pytest.raises(ValidationError):
+            Project(**_project_kwargs(gpu_count=-1))
+
+    def test_offtaker_accepts_string(self):
+        p = Project(**_project_kwargs(offtaker="Anthropic"))
+        assert p.offtaker == "Anthropic"
+
 
 # ---------------------------------------------------------------------------
 # CommunityResponse

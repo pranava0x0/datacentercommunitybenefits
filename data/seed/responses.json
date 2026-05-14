@@ -176,6 +176,50 @@
       "source_url": "https://utahcleanenergy.org/estimated-emissions-and-water-consumption-from-the-proposed-stratos-data-center/",
       "source_title": "Estimated Emissions and Water Consumption from the Proposed Stratos Data Center \u2014 Utah Clean Energy",
       "single_source": false
+    },
+    {
+      "id": "resp-wonder-valley-elevate-utah-paper-2026-05-07",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-07",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Elevate Utah's policy brief argues the Stratos project rests on a 92% energy tax cut and an 80% property-tax rebate to the developer, would roughly double Utah's power demand on natural gas, and was approved with no completed environmental review or public vote on the Great Salt Lake watershed.",
+      "source_url": "https://www.elevateutah.news/p/the-little-data-center-on-the-prairie",
+      "source_title": "The Little* Data Center on the Prairie \u2014 Elevate Utah",
+      "single_source": false
+    },
+    {
+      "id": "resp-wonder-valley-bear-brenna-williams-2026-05-08",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-08",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Brigham City resident Brenna Williams, lead sponsor of the Box Elder Accountability Referendum (BEAR), filed two referendum applications and used the group's public organizing platform to argue that local residents \u2014 not an out-of-state billionaire \u2014 should decide whether the 9 GW campus moves forward.",
+      "source_url": "https://kutv.com/news/local/referendums-filed-to-challenge-stratos-mida-data-center-in-box-elder-county",
+      "source_title": "Referendums filed to challenge Stratos-MIDA Data Center in Box Elder County \u2014 KUTV",
+      "single_source": false
+    },
+    {
+      "id": "resp-wonder-valley-bear-farrah-pliley-2026-05-08",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-08",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Tremonton resident Farrah Pliley, who runs the social-media channels for the Box Elder Accountability Referendum, organized residents into a video and volunteer-recruiting campaign aimed at qualifying a county-wide vote to overturn the Stratos approval.",
+      "source_url": "https://www.fox13now.com/news/local-news/northern-utah/box-elder-accountability-referendum-seeks-to-gather-signatures-for-stratos-project-proposals",
+      "source_title": "Box Elder community group seeks to have voices heard in data center project \u2014 Fox 13 Now",
+      "single_source": true
+    },
+    {
+      "id": "resp-wonder-valley-utah-roots-devashrayee-2026-05-11",
+      "project_id": "wonder-valley-box-elder-ut",
+      "date": "2026-05-11",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Utah Residents Organized for Oversight, Transparency and Stewardship (Utah ROOTS), led publicly by Aubri Devashrayee, characterized opposition to the Stratos campus as a cross-partisan coalition objecting to the speed and opacity of the MIDA approval process.",
+      "source_url": "https://www.ksl.com/article/51496721/box-elder-county-data-center-debate-intensifies-as-foes-supporters-trade-barbs",
+      "source_title": "Box Elder County data center debate intensifies as foes, supporters trade barbs \u2014 KSL",
+      "single_source": true
     }
   ]
 }
