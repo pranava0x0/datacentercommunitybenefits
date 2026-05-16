@@ -1837,6 +1837,352 @@
       "source_title": "Oracle 100% renewable cloud commitment (Jon Chorley, Oracle Chief Sustainability Officer) \u2014 LEADERS Magazine",
       "captured_at": "2026-05-15",
       "published_at": "2021-04-01"
+    },
+    {
+      "id": "ms-energy-pay-way-2026",
+      "company_slug": "microsoft",
+      "theme": "energy",
+      "statement": "We'll pay our way to ensure our datacenters don't increase your electricity prices.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13"
+    },
+    {
+      "id": "ms-water-replenish-2026",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "We'll minimize our water use and replenish more of your water than we use.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13"
+    },
+    {
+      "id": "ms-jobs-residents-nabtu-2026",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "We'll create jobs for your residents.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13"
+    },
+    {
+      "id": "ms-tax-full-share-2026",
+      "company_slug": "microsoft",
+      "theme": "tax_revenue",
+      "statement": "We will add to the tax base for your local hospitals, schools, parks, and libraries.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13"
+    },
+    {
+      "id": "ms-tax-no-rate-reductions-2026",
+      "company_slug": "microsoft",
+      "theme": "tax_revenue",
+      "statement": "We won't ask local municipalities to reduce their local property tax rates",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13"
+    },
+    {
+      "id": "ms-community-ai-training-2026",
+      "company_slug": "microsoft",
+      "theme": "community_grants",
+      "statement": "We'll strengthen your community by investing in local AI training and nonprofits.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13"
+    },
+    {
+      "id": "ms-education-volunteer-match-2026",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "statement": "match every hour they spend volunteering for a nonprofit with a donation...of $25",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13",
+      "metric": {
+        "value": 25,
+        "unit": "usd",
+        "kind": "volunteer_hour_match"
+      }
+    },
+    {
+      "id": "ms-engagement-utility-coordination-2026",
+      "company_slug": "microsoft",
+      "theme": "engagement",
+      "statement": "We will work closely with utility companies that set electricity prices and state commissions",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-13"
+    },
+    {
+      "id": "google-tax-revenue-pay-own-way-2026",
+      "company_slug": "google",
+      "theme": "tax_revenue",
+      "statement": "We will pay our own way (and protect ratepayers).",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
+      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-04"
+    },
+    {
+      "id": "google-energy-22gw-new-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "We will bring new energy online.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
+      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-04",
+      "metric": {
+        "value": 22,
+        "unit": "gw",
+        "kind": "renewable_added_decade"
+      }
+    },
+    {
+      "id": "google-infrastructure-grid-resilience-2026",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "We will contribute to grid resilience.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
+      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-04"
+    },
+    {
+      "id": "google-jobs-9x-multiplier-2026",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "We will help create local and long-term jobs.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
+      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-04"
+    },
+    {
+      "id": "google-infrastructure-efficiency-pue-2026",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "We will invest in efficiency and reliability.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
+      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-04"
+    },
+    {
+      "id": "crusoe-jobs-abilene-construction",
+      "company_slug": "crusoe",
+      "theme": "jobs",
+      "statement": "This project is creating significant job opportunities for the Abilene region. Today, we have more than 5,600 construction workers on-site every day.",
+      "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "captured_at": "2026-05-15",
+      "project_id": "crusoe-abilene-tx",
+      "published_at": "2025-08-05",
+      "metric": {
+        "value": 5600.0,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "crusoe-jobs-abilene-local-hire",
+      "company_slug": "crusoe",
+      "theme": "jobs",
+      "statement": "We have prioritized local hiring, though the sheer volume of jobs and specialized roles do require bringing in specific expertise from across the nation.",
+      "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "captured_at": "2026-05-15",
+      "project_id": "crusoe-abilene-tx",
+      "published_at": "2025-08-05"
+    },
+    {
+      "id": "crusoe-tax-revenue-abilene-share",
+      "company_slug": "crusoe",
+      "theme": "tax_revenue",
+      "statement": "Once fully operational, the data center will deliver up to 32% of the City of Abilene's and up to 25% of Taylor County's current FY 2025 Budgeted Property Tax Revenue.",
+      "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "captured_at": "2026-05-15",
+      "project_id": "crusoe-abilene-tx",
+      "published_at": "2025-08-05"
+    },
+    {
+      "id": "crusoe-tax-revenue-abilene-economic-impact",
+      "company_slug": "crusoe",
+      "theme": "tax_revenue",
+      "statement": "The first two buildings of the project will generate approximately $1 billion in direct and indirect economic impact to the City of Abilene over the next 20 years.",
+      "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "captured_at": "2026-05-15",
+      "project_id": "crusoe-abilene-tx",
+      "published_at": "2025-08-05",
+      "metric": {
+        "value": 1000000000.0,
+        "unit": "usd",
+        "kind": "economic_impact_20yr"
+      }
+    },
+    {
+      "id": "crusoe-water-abilene-closed-loop",
+      "company_slug": "crusoe",
+      "theme": "water",
+      "statement": "We are building this project with closed-loop, non-evaporative liquid cooling systems, which are designed to significantly reduce our water footprint.",
+      "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "captured_at": "2026-05-15",
+      "project_id": "crusoe-abilene-tx",
+      "published_at": "2025-08-05"
+    },
+    {
+      "id": "crusoe-engagement-abilene-partnership",
+      "company_slug": "crusoe",
+      "theme": "engagement",
+      "statement": "Crusoe is deeply committed to partnering with the Abilene community. We've worked in close collaboration with state and local leadership throughout the project's development.",
+      "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "captured_at": "2026-05-15",
+      "project_id": "crusoe-abilene-tx",
+      "published_at": "2025-08-05"
+    },
+    {
+      "id": "crusoe-energy-abilene-behind-meter",
+      "company_slug": "crusoe",
+      "theme": "energy",
+      "statement": "900MW on-site power plant with MV BESS system designed to enhance operational reliability and grid resilience.",
+      "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure",
+      "source_title": "Crusoe \u2014 900 MW Abilene Campus for Microsoft AI Infrastructure",
+      "captured_at": "2026-05-15",
+      "project_id": "crusoe-abilene-tx",
+      "published_at": "2026-03-27",
+      "metric": {
+        "value": 900.0,
+        "unit": "mwh",
+        "kind": "behind_the_meter"
+      }
+    },
+    {
+      "id": "coreweave-community-grants-hammond-impact-payment",
+      "company_slug": "coreweave",
+      "theme": "community_grants",
+      "statement": "Hammond will receive an annual community impact payment of up to $4 million. The community impact payment could mean two decades of full funding for Hammond's College Bound program, which provides scholarships to eligible students living in owner-occupied homes.",
+      "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "captured_at": "2026-05-15",
+      "project_id": "coreweave-hammond-in",
+      "published_at": "2025-06-09",
+      "metric": {
+        "value": 4000000.0,
+        "unit": "usd",
+        "kind": "annual_community_impact"
+      }
+    },
+    {
+      "id": "coreweave-education-hammond-college-bound",
+      "company_slug": "coreweave",
+      "theme": "education",
+      "statement": "The Community Impact Payments the city will be receiving from CoreWeave as part of the Development Agreement will not only help with new city-wide infrastructure and quality of life initiatives, but also will help thousands of students in Hammond go to college, through our College Bound program.",
+      "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "captured_at": "2026-05-15",
+      "project_id": "coreweave-hammond-in",
+      "published_at": "2025-06-09"
+    },
+    {
+      "id": "coreweave-engagement-hammond-venturo",
+      "company_slug": "coreweave",
+      "theme": "engagement",
+      "statement": "Hammond has proven to be a forward-thinking partner, and we're excited to deepen our investment here.",
+      "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "captured_at": "2026-05-15",
+      "project_id": "coreweave-hammond-in",
+      "published_at": "2025-06-09"
+    },
+    {
+      "id": "coreweave-infrastructure-hammond-investment",
+      "company_slug": "coreweave",
+      "theme": "infrastructure",
+      "statement": "This 180-megawatt facility will enable us to deliver next-generation cloud solutions but also support economic and educational opportunities for the region.",
+      "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "captured_at": "2026-05-15",
+      "project_id": "coreweave-hammond-in",
+      "published_at": "2025-06-09"
+    },
+    {
+      "id": "coreweave-energy-polaris-forge-renewable",
+      "company_slug": "coreweave",
+      "theme": "energy",
+      "statement": "The Polaris Forge 1 Campus in North Dakota is designed to harness renewable power and leverage North Dakota's cool climate, intended to prioritize sustainability and optimize total cost of ownership, estimated to result in $2.7B in savings over a lifespan of 30 years.",
+      "source_url": "https://www.coreweave.com/blog/coreweave-2025-annual-report-shareholder-letter",
+      "source_title": "CoreWeave 2025 Annual Report Shareholder Letter",
+      "captured_at": "2026-05-15",
+      "project_id": "coreweave-ellendale-nd",
+      "published_at": "2025-12-31"
+    },
+    {
+      "id": "nebius-engagement-transparency-partner",
+      "company_slug": "nebius",
+      "theme": "engagement",
+      "statement": "Nebius is committed to transparency, listening to community needs, and serving as a long-term, trusted partner for the city.",
+      "source_url": "https://nebius.com/independencemo",
+      "source_title": "Nebius x Independence, Missouri",
+      "captured_at": "2026-05-15"
+    },
+    {
+      "id": "nebius-tax-revenue-residential-rates",
+      "company_slug": "nebius",
+      "theme": "tax_revenue",
+      "statement": "With new generation coming online, IPL's municipal structure, and our commitment to covering our full power needs, the project would not impact residential rates.",
+      "source_url": "https://nebius.com/independencemo",
+      "source_title": "Nebius x Independence, Missouri",
+      "captured_at": "2026-05-15"
+    },
+    {
+      "id": "nebius-energy-full-cost",
+      "company_slug": "nebius",
+      "theme": "energy",
+      "statement": "Nebius will pay the full cost for power and necessary infrastructure upgrades.",
+      "source_url": "https://nebius.com/independencemo",
+      "source_title": "Nebius x Independence, Missouri",
+      "captured_at": "2026-05-15"
+    },
+    {
+      "id": "nebius-water-closed-loop",
+      "company_slug": "nebius",
+      "theme": "water",
+      "statement": "Due to the innovative closed-loop water cooling design, the facility will require minimal annual water needs.",
+      "source_url": "https://nebius.com/independencemo",
+      "source_title": "Nebius x Independence, Missouri",
+      "captured_at": "2026-05-15"
+    },
+    {
+      "id": "nebius-jobs-local-trades",
+      "company_slug": "nebius",
+      "theme": "jobs",
+      "statement": "We are committed to working closely with local stakeholders to evaluate opportunities for local building trades labor and contracting.",
+      "source_url": "https://nebius.com/independencemo",
+      "source_title": "Nebius x Independence, Missouri",
+      "captured_at": "2026-05-15"
+    },
+    {
+      "id": "nebius-education-stem-k12",
+      "company_slug": "nebius",
+      "theme": "education",
+      "statement": "Offer STEM and AI literacy for students and teachers",
+      "source_url": "https://nebius.com/independencemo",
+      "source_title": "Nebius x Independence, Missouri",
+      "captured_at": "2026-05-15"
     }
   ]
 }

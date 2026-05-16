@@ -79,7 +79,7 @@ class TestSeedCoverage:
 
     # Non-hyperscaler entities tracked from v1.1 onward when they announce
     # at hyperscaler scale + publish their own community-impact framing.
-    OPTIONAL_ENTITIES = {"wonder-valley", "qts"}
+    OPTIONAL_ENTITIES = {"wonder-valley", "qts", "nebius", "crusoe", "coreweave"}
 
     def test_all_required_hyperscalers_present(self, companies):
         slugs = {c.slug for c in companies.companies}
@@ -238,14 +238,15 @@ class TestBuildOutputs:
 
     def test_payload_sizes_under_budget(self):
         # Frontend perf budget: combined first-paint payloads (companies + claims).
-        # Headroom: the matrix view is the landing surface, so the budget should
-        # be tight. v1.1 raised the cap from 50KB to 100KB after the data fill
-        # took claims.json from ~25 records to ~93 records — minified is well
-        # under the cap, pretty mode goes over (don't ship pretty in production).
+        # Cap history: 50KB (v1.0) → 100KB (v1.1, +68 claims) → 150KB (v1.6,
+        # +3 operators tracked, ~180 claims). The matrix view is the landing
+        # surface so the budget stays tight, but real growth (more companies,
+        # more claims, more verbatim quotes) justifies the bump. Minified
+        # output is the contract; pretty mode is debug-only.
         first_paint = (OUT / "companies.json").stat().st_size + (
             OUT / "claims.json"
         ).stat().st_size
-        assert first_paint < 100 * 1024, (
+        assert first_paint < 150 * 1024, (
             f"First-paint payloads grew to {first_paint} bytes. "
             "Re-run `python refresh.py` (without --pretty) before shipping."
         )

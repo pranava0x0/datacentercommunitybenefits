@@ -31,9 +31,9 @@
       "slug": "microsoft",
       "name": "Microsoft",
       "hq": "Redmond, WA",
-      "dedicated_page_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
-      "summary": "Microsoft's 2024 Datacenter Community Pledge formalizes four commitments: advancing community prosperity, addressing local environmental impacts, building skills for the AI economy, and operating in a manner deserving of trust. Per-region community-engagement reports; Datacenter Academy partnerships with community colleges (Wisconsin's Gateway Tech is the flagship). Carbon-negative and water-positive by 2030 commitments operate across the global data center portfolio.",
-      "last_reviewed": "2026-05-14"
+      "dedicated_page_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "summary": "Microsoft's January 2026 Building Community-First AI Infrastructure framework (by President Brad Smith) extends the May 2024 Datacenter Community Pledge with five concrete commitments: pay our own way for electricity so prices don't rise for residential customers, minimize and replenish water use (40% intensity improvement by 2030), create local jobs through NABTU and Datacenter Academy partnerships, contribute to local property tax bases without asking for rate reductions, and invest in local AI training and nonprofits (employee donation + volunteer-hour match programs). Per-region community-engagement reports continue; Datacenter Academy partnerships with community colleges (Wisconsin's Gateway Tech is the flagship). Carbon-negative and water-positive by 2030 commitments operate across the global data center portfolio.",
+      "last_reviewed": "2026-05-15"
     },
     {
       "slug": "amazon",
@@ -90,6 +90,30 @@
       "dedicated_page_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
       "summary": "QTS Data Centers, a Blackstone portfolio company since its 2021 take-private acquisition (~$10B), publishes a community framework it calls 'five guarantees that guide how we build, operate and partner in the places we call home.' The framework's headline commitment is paying 100% of the energy costs for QTS facilities so that grid-upgrade and generation costs are not shifted to existing utility ratepayers; QTS publicly signed the White House's March 2026 Ratepayer Protection Pledge. Adjacent commitments include closed-loop water-free cooling at all greenfield builds since 2018, town-hall engagement with host communities, locally-funded scholarship and grant programs (notably a $50M Dane County, WI community commitment), and 'success-based giving' partnerships. QTS's annual sustainability report claims 100% carbon-free operational electricity in 2023 and a 5% annual portfolio Water Utilization Effectiveness reduction target.",
       "last_reviewed": "2026-05-14"
+    },
+    {
+      "slug": "crusoe",
+      "name": "Crusoe",
+      "hq": "Denver, CO",
+      "dedicated_page_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+      "summary": "Crusoe (formerly Crusoe Energy) is the developer and operator of the Stargate Abilene AI factory campus in Taylor County, Texas \u2014 a 1.2 GW build-out across eight buildings on Lancium's Clean Campus that serves OpenAI, Oracle, and Microsoft AI workloads. Crusoe publishes site-specific community framing for the Abilene campus that quantifies first-party commitments on three of the dashboard's canonical themes: jobs (5,600+ daily construction workers with stated local-hire prioritization), tax revenue (up to 32% of City of Abilene and up to 25% of Taylor County FY 2025 budgeted property-tax revenue once fully operational), and water (closed-loop, non-evaporative liquid cooling). Crusoe also discloses behind-the-meter battery storage and solar pairing through the Lancium Clean Campus partnership. There is no dedicated /community or /sustainability landing page yet \u2014 the framework lives in the Abilene blog post and linked newsroom announcements.",
+      "last_reviewed": "2026-05-15"
+    },
+    {
+      "slug": "coreweave",
+      "name": "CoreWeave",
+      "hq": "Livingston, NJ",
+      "dedicated_page_url": "https://www.coreweave.com/newsroom",
+      "summary": "CoreWeave is an AI-native cloud provider targeting 8+ GW of active data-center power by 2030. CoreWeave does not yet publish a stand-alone community-impact framework on its corporate site, but it has executed a first-party site-specific community-benefits package for its 180 MW Hammond, Indiana data center: an annual Community Impact Payment of up to $4 million paid to the City of Hammond, with the city directing the proceeds toward the Hammond College Bound scholarship program and city-wide infrastructure and quality-of-life initiatives. CoreWeave also publishes data-center-specific sustainability framing for its Polaris Forge 1 campus in North Dakota (renewable power, cool-climate cooling). Treat the Hammond development agreement as the load-bearing first-party citation; expect richer corporate-level framing as the Hammond model is replicated.",
+      "last_reviewed": "2026-05-15"
+    },
+    {
+      "slug": "nebius",
+      "name": "Nebius",
+      "hq": "Amsterdam, Netherlands",
+      "dedicated_page_url": "https://nebius.com/independencemo",
+      "summary": "Nebius is a Yandex N.V. spinoff building out AI cloud infrastructure in the US, headlined by an ~800 MW campus in Independence, Missouri ($6.6B announced, ceremonial groundbreaking May 12, 2026 amid active local opposition over the project's tax-break package). Nebius published a dedicated 'Nebius x Independence, Missouri' site-specific page making first-party commitments across five themes: ratepayer protection (Nebius pays full cost of power and infrastructure upgrades on the Independence Power and Light municipal utility), water (closed-loop cooling with annual use 'comparable to an average restaurant'), workforce (local building trades labor and apprenticeships), education (STEM/AI literacy K-12, Metropolitan Community College + Independence and Fort Osage school districts), and engagement (transparency, watershed monitoring, volunteer days). Framework is comparable in shape to QTS's site-specific commitment pages.",
+      "last_reviewed": "2026-05-15"
     }
   ]
 }

@@ -64,14 +64,14 @@ scanning one tab across multiple projects doesn't force a re-click.
 
 ---
 
-## What's in the dataset (as of v1.4)
+## What's in the dataset (as of v1.6)
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
-| Companies          | 10    | 8 hyperscalers + Wonder Valley + QTS (Blackstone subsidiary, v1.4)      |
-| Claims             | 135   | Verbatim first-party quotes, mapped to one of 8 themes                  |
-| Projects           | 23    | Sites with location, status, investment, **acreage, power, GPUs, offtaker, at-a-glance** |
-| Community responses| 51    | Reactions from residents / officials / NGOs / journalists / regulators  |
+| Companies          | 13    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Nebius      |
+| Claims             | 180   | Verbatim first-party quotes, mapped to one of 8 themes                  |
+| Projects           | 27    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
+| On-the-ground feedback | 51 | Reactions from residents / officials / NGOs / journalists / regulators  |
 
 **First-paint payload:** `companies.json` (~7 KB) + `claims.json`
 (~70 KB) preload on first paint. `projects.json` (~20 KB) +
@@ -95,6 +95,14 @@ OpenAI, Anthropic, xAI, Oracle.
   canonical Ratepayer Protection Pledge site; Richmond VA RIC5 is the
   first-ever data center to receive FAST-41 federal-permitting
   coverage.
+- Crusoe — added v1.6. Operates the Stargate Abilene campus
+  (1.2 GW, OpenAI/Oracle/Microsoft offtake) with site-specific
+  community framing (5,600 daily construction workers, 32% of
+  Abilene FY25 property tax, closed-loop cooling).
+- CoreWeave — added v1.6. Hammond IN site has a $4M/yr Community
+  Impact Payment funding the College Bound scholarship program.
+- Nebius — added v1.6. Independence MO 800 MW campus with first-party
+  ratepayer-protection commitments via Independence Power and Light.
 
 The two-gate rule for adding more: ≥1 GW announced + first-party
 community-impact framing. See

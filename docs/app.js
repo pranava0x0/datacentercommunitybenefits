@@ -50,6 +50,9 @@ const COMPANY_SLUGS = [
   "oracle",
   "wonder-valley",
   "qts",
+  "nebius",
+  "crusoe",
+  "coreweave",
 ];
 
 const STANCE_LABELS = {

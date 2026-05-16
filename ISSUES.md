@@ -35,6 +35,13 @@ Format:
 **Fix:** TBD — over time, recheck each company's location index for new pages.
 **Regression test:** future test could flag project_page_url where the host doesn't match the company's known domains.
 
+### [2026-05-15] data — OpenAI Stargate Community page returns 403 to scrapers
+**Status:** Open
+**Root cause:** data
+**Description:** `https://openai.com/index/stargate-community/` returns HTTP 403 to WebFetch (and previously to sub-agent research, multiple passes). The page almost certainly contains first-party OpenAI commitments on water (closed-loop cooling), engagement (community plans), and education (OpenAI Academies) that secondary sources paraphrase but the dashboard cannot capture verbatim. Frontier OpenAI claims for those four themes (water, education, engagement, tax_revenue) currently sit empty.
+**Fix:** Manual browser visit by a curator to copy-paste verbatim quotes from the page; add as company-level OpenAI claims with `published_at` set to the page's visible publication date. Same workaround being used for x.ai/blog (also 403'd).
+**Regression test:** none. Could add a future test that verifies non-empty matrix coverage for OpenAI in those 4 themes once the data is captured.
+
 ### [2026-05-14] data — OpenAI/Oracle Stargate Abilene first-party quotes unverified
 **Status:** Open
 **Root cause:** data
