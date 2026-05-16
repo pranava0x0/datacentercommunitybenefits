@@ -76,6 +76,22 @@ const STATUS_LABELS = {
   operational: "Operational",
 };
 
+// Sort orders for the Explorer's project list. Each option is descending —
+// the question the dashboard answers is always "where is the most benefit
+// concentrated?" so the highest-scoring project belongs at the top.
+//
+// Composite is the default: equal-weight blend of normalized investment,
+// jobs, and claim-count. Single-metric options surface what each axis
+// looks like in isolation. Project name is the tie-breaker everywhere so
+// sort order is stable on every render.
+const SORT_OPTIONS = ["composite", "investment", "jobs", "claims"];
+const SORT_LABELS = {
+  composite: "Composite (most benefit)",
+  investment: "Claimed investment ($)",
+  jobs: "Claimed jobs",
+  claims: "First-party claims",
+};
+
 // --------------------------------------------------------------------------
 // State
 // --------------------------------------------------------------------------
@@ -91,6 +107,7 @@ const state = {
   activeView: "comparison",
   selectedCompanySlug: null,
   explorerFilters: { company: "", status: "", stance: "" },
+  explorerSort: "composite",
   selectedProjectId: null,
   explorerLoaded: false,
   leafletLoaded: false,
@@ -563,9 +580,11 @@ function syncExplorerFilterUIToState() {
   const co = document.getElementById("f-company");
   const st = document.getElementById("f-status");
   const sn = document.getElementById("f-stance");
+  const so = document.getElementById("f-sort");
   if (co) co.value = f.company || "";
   if (st) st.value = f.status || "";
   if (sn) sn.value = f.stance || "";
+  if (so) so.value = state.explorerSort || "composite";
 }
 
 function populateCompanyFilter() {
@@ -595,11 +614,21 @@ function wireExplorerFilters() {
     state.explorerFilters.stance = e.target.value;
     refreshExplorer();
   });
+  const sortSel = document.getElementById("f-sort");
+  if (sortSel) {
+    sortSel.addEventListener("change", (e) => {
+      const v = e.target.value;
+      state.explorerSort = SORT_OPTIONS.includes(v) ? v : "composite";
+      renderProjectList();
+    });
+  }
   document.getElementById("f-reset").addEventListener("click", () => {
     state.explorerFilters = { company: "", status: "", stance: "" };
+    state.explorerSort = "composite";
     document.getElementById("f-company").value = "";
     document.getElementById("f-status").value = "";
     document.getElementById("f-stance").value = "";
+    if (sortSel) sortSel.value = "composite";
     refreshExplorer();
   });
   document.getElementById("detail-close").addEventListener("click", closeDetail);
@@ -681,7 +710,7 @@ function refreshExplorer() {
 
 function filteredProjects() {
   const f = state.explorerFilters;
-  return state.projects.filter((p) => {
+  const items = state.projects.filter((p) => {
     if (f.company && p.company_slug !== f.company) return false;
     if (f.status && p.status !== f.status) return false;
     if (f.stance) {
@@ -690,6 +719,67 @@ function filteredProjects() {
     }
     return true;
   });
+  return sortProjects(items, state.explorerSort);
+}
+
+// Per-project benefit metric extractors. Null/undefined investment or jobs
+// counts as 0 — projects that haven't disclosed a number rank below ones
+// that have, which matches the "most benefit" framing (undisclosed = not
+// yet visible to the public).
+function projectInvestment(p) {
+  return p.claimed_investment_usd || 0;
+}
+function projectJobs(p) {
+  return p.claimed_jobs || 0;
+}
+function projectClaimsCount(p) {
+  const cs = state.claimsByProject.get(p.id);
+  return cs ? cs.length : 0;
+}
+
+// Composite score = equal-weight average of three normalized axes
+// (investment, jobs, claim count). Normalization is min-max against the
+// full dataset (not the filtered subset) so a project's score doesn't
+// shift as the user filters — the ranking represents the project's
+// standing in the catalog as a whole. Returns [0, 1].
+function buildCompositeScorer() {
+  const maxInv = Math.max(1, ...state.projects.map(projectInvestment));
+  const maxJobs = Math.max(1, ...state.projects.map(projectJobs));
+  const maxClaims = Math.max(1, ...state.projects.map(projectClaimsCount));
+  return (p) => {
+    const inv = projectInvestment(p) / maxInv;
+    const jobs = projectJobs(p) / maxJobs;
+    const claims = projectClaimsCount(p) / maxClaims;
+    return (inv + jobs + claims) / 3;
+  };
+}
+
+function sortProjects(items, sortKey) {
+  let scoreFn;
+  switch (sortKey) {
+    case "investment":
+      scoreFn = projectInvestment;
+      break;
+    case "jobs":
+      scoreFn = projectJobs;
+      break;
+    case "claims":
+      scoreFn = projectClaimsCount;
+      break;
+    case "composite":
+    default:
+      scoreFn = buildCompositeScorer();
+      break;
+  }
+  // Descending by score; stable tiebreaker on project name so
+  // re-renders don't reshuffle equal-scoring items.
+  return items
+    .map((p) => ({ p, score: scoreFn(p) }))
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.p.name.localeCompare(b.p.name);
+    })
+    .map((x) => x.p);
 }
 
 function renderProjectList() {
