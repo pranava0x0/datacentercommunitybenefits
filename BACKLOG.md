@@ -9,6 +9,46 @@ criterion.
 
 ## High priority
 
+### Resume session: matrix gap-fill (paused 2026-05-16 after v1.8)
+Eleven matrix cells still empty after three polling passes (DCD, UtilityDive,
+30-day news, framework pages). Each is an honest gap — every attempt has been
+made to find a verbatim first-party quote and failed. Recommended next attempts:
+
+- **Meta — tax_revenue.** Try `about.fb.com` press releases for site-specific
+  PILOT or property-tax quotes; the Beaver Dam WI announcement is the most
+  likely host. Mayor / governor quotes are NOT acceptable (not first-party).
+- **OpenAI — tax_revenue, water.** `openai.com/index/stargate-community/`
+  returned 403 throughout the session; tax_revenue gap requires fetching it
+  in a real browser (or via Wayback Machine) for verbatim copy. The water
+  paragraph there almost certainly contains a shippable quote.
+- **Anthropic — community_grants, education.** Needs an Anthropic statement
+  *tied to a data-center community* (the Workday/LISC Solopreneurship one
+  failed the site-tie test). May not exist; honest gap is acceptable.
+- **Oracle — tax_revenue, engagement.** `oracle.com/news/announcement/blog/oracle-ai-infrastructure-in-2026-and-our-commitment-to-local-communities-2026-01-26/`
+  is 403. We shipped community_grants + water via smallbiztrends third-party
+  verification; same approach may yield engagement + tax_revenue.
+- **Wonder Valley — community_grants, education.** Exhausted in May 2026
+  coverage. O'Leary doesn't talk about either in any captured interview.
+  Probably an honest permanent gap given Wonder Valley's framing.
+- **QTS — education.** Try `q.com/resources/` STEM/scholarship pages;
+  the Dane County WI $50M commitment likely has an education-tagged exec
+  quote in QTS's announcement materials.
+- **Crusoe — community_grants.** Sweetwater TX agreement reportedly has
+  $2.2M/yr charitable funding but only paraphrased in KTXS — try Nolan County
+  records for the verbatim development-agreement text.
+
+### Resume session: next polling cycle
+After ~30 days from 2026-05-16, re-run the parallel news poll. Focus on:
+- DCD + UtilityDive (proven productive sources — see v1.8)
+- Texas Tribune / Source NM / Wisconsin Watch / Cowboy State Daily for the
+  community-pushback angle on the high-controversy sites (Wonder Valley,
+  Cheyenne, Memphis, Saline Twp, Person Co NC, Kenilworth, Vineland)
+- Watch for: status changes (announced → construction → operational),
+  acreage/power expansions, regulator orders, NGO lawsuits, community
+  benefit-agreement signings
+- New sites to watch: Nebius PA campus (location TBD per May 13 disclosure);
+  DTE-served Google/Oracle Michigan sites (per UtilityDive Q1)
+
 ### Source URL deep-links — verify and replace publication-root URLs in responses
 v1 seed has ~10 `CommunityResponse` records linking to outlet homepages
 instead of specific articles (see [ISSUES.md](ISSUES.md)). For each:
@@ -134,6 +174,9 @@ instead.
 
 ## Done
 
+- **v1.8 — DCD + UtilityDive 30-day scan.** Parallel DataCenterDynamics + UtilityDive scan for Apr 16 – May 16 2026. +5 sites (4 Google: Michigan City IN / Lima OH / Franklin Furnace OH / Linn County IA + 1 OpenAI Stargate Milam County TX "Freebird"), +7 first-party claims (Nadella on Fairwater going operational, Google's per-site community/infrastructure/education commitments, Anthropic on Colossus 1 tenancy, Oracle Saline Twp jobs, Meta LevelUp education), +5 responses (4 xAI Memphis — NAACP suit Apr 15 + injunction May 6 + DOJ statement-of-interest May 15 + MS 41-turbine permit Apr 29; 1 Meta Richland — Entergy Q1 $2B customer-benefit confirmation), +2 project field updates (Meta Richland acreage 2,250→3,650 from Phase 2 land buy; MS Mt Pleasant status construction→operational per Nadella Apr 16). DCD blocks WebFetch — agent reconstructed article-level detail from Google snippets + canonical URLs as `source_url`.
+- **v1.7.1 — Community responses for new sites + OpenAI engagement gap-fill.** +41 community responses across 14 newly-added sites (21 negative, 11 mixed, 9 positive — distribution by constituency: local_government 15, residents 14, ngo 5, journalist 4, regulator 2, academic 1). Includes Wisconsin PSC "black box" critique of Meta+Alliant, Tulsa City Council moratorium pre-dating Meta Project Anthem reveal, Saline Township board 4-1 rejection → Related Digital lawsuit → $14M community-benefits settlement, Kenilworth NJ rallies (Apr 20 + May 7), Stillwater OK Park View Estates HOA suit against Google over pond sediment, Person County NC NDA controversy → Microsoft's March 2026 pledge to stop signing community-blinding NDAs, Vineland NJ rally → DataOne declines $6.2M city loan + project scaled from 2.4M to <718K sq ft. +1 OpenAI Stargate Community engagement claim verified verbatim via Sherwood News citation of openai.com/index/stargate-community/.
+- **v1.7 — 30-day news poll, +19 sites + 26 claims + 7 summary refreshes + Explorer sort.** Four parallel agents polled news for Apr 16 – May 16 2026 across all 13 companies. New sites: Meta (Tulsa OK, Beaver Dam WI), Google (LaGrange GA, Stillwater OK), Microsoft (Person County NC), Amazon (Canton MS, Clinton MS), OpenAI/Oracle (Saline Township MI Stargate, $16B financing close Apr 24), Oracle (Doña Ana NM Project Jupiter with Bloom Energy fuel cells Apr 27), QTS (Eagle Mountain UT, Fayetteville GA, York County SC, East Windsor NJ), Crusoe (Sweetwater TX, Cheyenne WY Project Jade, Springfield OH), CoreWeave (Kenilworth NJ, Lancaster PA), Nebius (Vineland NJ). 26 verbatim first-party claims fill 6 of 8 matrix gaps (Google, Microsoft, Amazon, xAI, CoreWeave, Nebius now complete). Summary refreshes: factual fix to Wonder Valley (Phase 1 = ~3 GW not 1.5 GW; ~40,000 acres not 2,000); major rewrites for OpenAI (Stargate Community framework Jan 21 2026 now exists) and Oracle (per-site Q1 2026 blog framework now exists); minor updates to Meta, Microsoft, Amazon, xAI, Anthropic. Plus Explorer "Sort by" dropdown with default Composite (most benefit) score = equal-weight average of normalized investment + jobs + claim count (min-max against full catalog so ranking is stable as filters change); single-metric options for investment / jobs / claims; project name as tiebreaker.
 - **v1.6.1 — Fallback gap-fill via news + executive statements.** Loosened editorial bar: news articles containing direct verbatim quotes from named executives are now acceptable as `Claim` records (paraphrases still rejected). Three parallel agents researched the 30 remaining empty matrix cells; +13 claims added (xAI 3 — Brent Mayo Memphis school upgrades / fabric of community / financial responsibility; Wonder Valley 3 — O'Leary Tucker Carlson + KUTV jobs/tax/water; Oracle 2 — Larry Ellison Stargate + Oracle Academy blog; OpenAI 1 — Lehane NABTU; Crusoe 1 — Lochmiller Wyoming workforce; CoreWeave 1 — Intrator UK closed-loop; Nebius 2 — Sutter KSHB Q&A on infrastructure cost-coverage + community grants engagement panel). Matrix coverage 71% → 83% (87/104). Kept Sam Altman's "completely untrue, totally insane" water quote OUT of the dataset — verbatim but a dismissal of critics, doesn't fit blueprint framing of solutions offered. Added "What counts as first-party" rule to CLAUDE.md.
 - **v1.6 — Three new operators (Crusoe, CoreWeave, Nebius) + two major frameworks (Microsoft Jan 2026, Google Mar 2026).** Companies tracked: 10 → 13. Projects: 23 → 27 (Crusoe Abilene, CoreWeave Hammond + Polaris Forge ND, Nebius Independence MO). Claims: 149 → 180 (+31). Microsoft's Jan 2026 "Building Community-First AI Infrastructure" framework adds 8 new claims spanning all 5 commitment areas (electricity-no-pass-through, water-replenish, jobs-NABTU, tax-full-share, AI-training + volunteer-hour match). Google's Mar 2026 Affordability Pledge adds 5 new claims (pay-our-own-way, 22 GW new energy, grid resilience, 9x jobs multiplier, PUE efficiency). Honest skips for Digital Realty + Equinix (both publish corporate ESG but no per-DC community framework) and FluidStack + Verrus (B2B-positioning phase, no community framework yet). OpenAI Stargate Community page (openai.com/index/stargate-community/) still 403'd to scrapers; logged in ISSUES.md as a curator follow-up.
 - **v1.5 — Editorial reframe to blueprint.** Hero copy on both views, README, CLAUDE.md project intent reframed as "blueprint of solutions / field guide" rather than "neither hit piece nor puff piece". Detail-panel "Community" tab renamed to "On the ground"; placeholder text updated. Critical responses retained — they're case-study evidence ("lessons learned") for what's working in practice. Editorial integrity rules (verbatim quotes, source attribution) unchanged.
