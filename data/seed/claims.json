@@ -2645,6 +2645,107 @@
       "source_title": "OpenAI — Stargate Community",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-21"
+    },
+    {
+      "id": "microsoft-fairwater-energy-nadella-2026",
+      "company_slug": "microsoft",
+      "theme": "energy",
+      "statement": "Our Fairwater datacenter in Wisconsin is going live, ahead of schedule. As the world's most powerful AI datacenter, it will bring together hundreds of thousands of GB200s into a single seamless cluster.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/microsoft-ceo-says-fairwater-data-center-site-is-going-live-ahead-of-schedule/",
+      "source_title": "Data Center Dynamics — Satya Nadella (Microsoft CEO) on Fairwater data center site going live",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-16",
+      "project_id": "ms-mt-pleasant-wi"
+    },
+    {
+      "id": "google-linn-county-community-grants-2026",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "Google offered yearly community betterment payments of $1 million for each of the buildings (between two and six) that would make up the Linn County, Iowa data center, with a 2% annual escalator.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-looks-to-build-up-to-six-data-centers-near-nuclear-power-site-in-linn-county-iowa/",
+      "source_title": "Data Center Dynamics — Google Linn County community-betterment payment commitment",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-30",
+      "project_id": "google-linn-county-ia",
+      "metric": {
+        "value": 1000000.0,
+        "unit": "usd_per_building_per_year",
+        "kind": "community_betterment"
+      }
+    },
+    {
+      "id": "google-lima-infrastructure-2026",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "$50 million will fund local infrastructure upgrades — roundabouts at Bluelick Road / N Cole Street and SR-115 / N Cole Street — plus a $13.6 million investment in local water infrastructure.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-confirmed-as-company-behind-500m-data-center-in-lima-ohio/",
+      "source_title": "Data Center Dynamics — Google Lima OH infrastructure commitment",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-05-01",
+      "project_id": "google-lima-oh",
+      "metric": {
+        "value": 63600000.0,
+        "unit": "usd",
+        "kind": "infrastructure_total"
+      }
+    },
+    {
+      "id": "google-lima-education-2026",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Google will provide $250,000 in annual funding to Elida Local Schools as part of a 15-year tax-abatement offset agreement at the Lima, Ohio site.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-confirmed-as-company-behind-500m-data-center-in-lima-ohio/",
+      "source_title": "Data Center Dynamics — Google Lima OH Elida Schools commitment",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-05-01",
+      "project_id": "google-lima-oh",
+      "metric": {
+        "value": 250000.0,
+        "unit": "usd_per_year",
+        "kind": "school_funding"
+      }
+    },
+    {
+      "id": "anthropic-colossus-1-infrastructure-2026",
+      "company_slug": "anthropic",
+      "theme": "infrastructure",
+      "statement": "Anthropic said the new compute allocation (xAI Colossus 1, over 300 MW, more than 220,000 NVIDIA GPUs) will directly improve capacity for Claude Pro and Claude Max subscribers.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/anthropic-to-use-all-of-spacex-xais-colossus-1-data-center-compute/",
+      "source_title": "Data Center Dynamics — Anthropic to use all of SpaceX-xAI's Colossus 1 compute (May 6 2026)",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-05-06",
+      "project_id": "xai-memphis-tn",
+      "metric": {
+        "value": 300.0,
+        "unit": "MW",
+        "kind": "compute_capacity_rented"
+      }
+    },
+    {
+      "id": "oracle-saline-twp-jobs-related-2026",
+      "company_slug": "oracle",
+      "theme": "jobs",
+      "statement": "The Saline Township project will create more than 2,500 union construction jobs, more than 450 jobs on site, and more than 1,500 jobs county-wide.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/related-digital-closes-in-on-16bn-financing-for-oracle-data-center-in-michigan-report/",
+      "source_title": "Data Center Dynamics — Related Digital on Oracle Saline Township jobs (Apr 24 2026)",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-24",
+      "project_id": "openai-saline-twp-mi",
+      "metric": {
+        "value": 2500.0,
+        "unit": "construction_jobs",
+        "kind": "union"
+      }
+    },
+    {
+      "id": "meta-levelup-education-cbre-2026",
+      "company_slug": "meta",
+      "theme": "education",
+      "statement": "Meta and CBRE announced LevelUp, a multi-year program to recruit and train thousands of US data center fiber technicians for free; a four-week paid program with no prior experience required and relocation costs covered.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/meta-partners-with-cbre-to-train-data-center-technicians-in-the-us-for-free/",
+      "source_title": "Data Center Dynamics — Meta and CBRE LevelUp Fiber Technician Pathway",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-20"
     }
   ]
 }

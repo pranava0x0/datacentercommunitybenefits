@@ -1012,6 +1012,61 @@
       "source_url": "https://capemaycountyherald.com/article/large-data-center-nears-completion-in-vineland/",
       "source_title": "Cape May County Herald — Large data center nears completion in Vineland",
       "single_source": true
+    },
+    {
+      "id": "resp-xai-memphis-naacp-suit-apr15",
+      "project_id": "xai-memphis-tn",
+      "date": "2026-04-15",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "NAACP (represented by Earthjustice and Southern Environmental Law Center) sued xAI and subsidiary MZX Tech LLC in federal district court (Northern District of Mississippi) over the operation of 27 unpermitted methane gas turbines powering Colossus 2 in South Memphis, alleging Clean Air Act violations.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/xai-facing-lawsuit-over-use-of-gas-turbines-at-memphis-supercomputer/",
+      "source_title": "Data Center Dynamics — xAI facing lawsuit over use of gas turbines at Memphis supercomputer",
+      "single_source": false
+    },
+    {
+      "id": "resp-xai-memphis-naacp-injunction-may6",
+      "project_id": "xai-memphis-tn",
+      "date": "2026-05-06",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "NAACP filed for a preliminary injunction alleging xAI/MZX Tech operates 46 gas turbines without an air permit at a Southaven MS site supporting the Memphis Colossus hub; turbine count grew from 27 to 46 between late March and early May per Mississippi DEQ emails.",
+      "source_url": "https://www.utilitydive.com/news/doj-may-intervene-in-naacp-lawsuit-over-xais-data-center-gas-turbines/820363/",
+      "source_title": "Utility Dive — DOJ may intervene in NAACP lawsuit over xAI's data center gas turbines",
+      "single_source": false
+    },
+    {
+      "id": "resp-xai-memphis-doj-intervention-may15",
+      "project_id": "xai-memphis-tn",
+      "date": "2026-05-15",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "DOJ (Principal Deputy AAG Adam Gustafson) filed a statement of interest signaling possible intervention on xAI's side in the NAACP suit, framing the case as touching on US policy to sustain and enhance America's global AI dominance.",
+      "source_url": "https://www.utilitydive.com/news/doj-may-intervene-in-naacp-lawsuit-over-xais-data-center-gas-turbines/820363/",
+      "source_title": "Utility Dive — DOJ may intervene in NAACP lawsuit over xAI's data center gas turbines",
+      "single_source": true
+    },
+    {
+      "id": "resp-xai-memphis-ms-turbine-permit-apr29",
+      "project_id": "xai-memphis-tn",
+      "date": "2026-04-29",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "Mississippi regulators gave xAI the green light to install 41 natural-gas turbines at a former Duke Energy site in Southaven to power Memphis Colossus 2 and the upcoming Colossus 3 facility in Mississippi.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/musks-xai-gets-go-ahead-for-41-natural-gas-turbines-in-mississippi-to-power-colossus-data-centers/",
+      "source_title": "Data Center Dynamics — xAI gets go-ahead for 41 natural-gas turbines in Mississippi",
+      "single_source": false
+    },
+    {
+      "id": "resp-meta-richland-entergy-q1-2026",
+      "project_id": "meta-richland-la",
+      "date": "2026-04-30",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "Entergy CEO Drew Marsh on Q1 earnings disclosed that Meta will cover the cost of the proposed Richland Parish gas units; the LPSC-approved order pairs the Meta capacity with ~$2B in customer-benefit commitments including $140M of energy-efficiency investment over 20 years and a $60M Power-to-Care bill-assistance match.",
+      "source_url": "https://www.utilitydive.com/news/new-generation-adds-12b-entergy-capital-plan/818790/",
+      "source_title": "Utility Dive — Meta deal adds to Entergy's $57B, 4-year capital plan (Apr 30 2026)",
+      "single_source": false
     }
   ]
 }
