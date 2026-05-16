@@ -239,14 +239,15 @@ class TestBuildOutputs:
     def test_payload_sizes_under_budget(self):
         # Frontend perf budget: combined first-paint payloads (companies + claims).
         # Cap history: 50KB (v1.0) → 100KB (v1.1, +68 claims) → 150KB (v1.6,
-        # +3 operators tracked, ~180 claims). The matrix view is the landing
+        # ~180 claims) → 200KB (v1.11, ~280 claims from comprehensive news
+        # polling across 13 companies). The matrix view is the landing
         # surface so the budget stays tight, but real growth (more companies,
         # more claims, more verbatim quotes) justifies the bump. Minified
         # output is the contract; pretty mode is debug-only.
         first_paint = (OUT / "companies.json").stat().st_size + (
             OUT / "claims.json"
         ).stat().st_size
-        assert first_paint < 150 * 1024, (
+        assert first_paint < 200 * 1024, (
             f"First-paint payloads grew to {first_paint} bytes. "
             "Re-run `python refresh.py` (without --pretty) before shipping."
         )

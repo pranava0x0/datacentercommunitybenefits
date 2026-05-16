@@ -9,45 +9,42 @@ criterion.
 
 ## High priority
 
-### Resume session: matrix gap-fill (paused 2026-05-16 after v1.8)
-Eleven matrix cells still empty after three polling passes (DCD, UtilityDive,
-30-day news, framework pages). Each is an honest gap — every attempt has been
-made to find a verbatim first-party quote and failed. Recommended next attempts:
+### Resume session: matrix gap-fill (last refreshed 2026-05-16 after v1.11)
+Six matrix cells still empty across 4 companies — all confirmed-honest gaps
+after 5 polling passes. Updated targets / next-attempt notes:
 
-- **Meta — tax_revenue.** Try `about.fb.com` press releases for site-specific
-  PILOT or property-tax quotes; the Beaver Dam WI announcement is the most
-  likely host. Mayor / governor quotes are NOT acceptable (not first-party).
-- **OpenAI — tax_revenue, water.** `openai.com/index/stargate-community/`
-  returned 403 throughout the session; tax_revenue gap requires fetching it
-  in a real browser (or via Wayback Machine) for verbatim copy. The water
-  paragraph there almost certainly contains a shippable quote.
-- **Anthropic — community_grants, education.** Needs an Anthropic statement
-  *tied to a data-center community* (the Workday/LISC Solopreneurship one
-  failed the site-tie test). May not exist; honest gap is acceptable.
-- **Oracle — tax_revenue, engagement.** `oracle.com/news/announcement/blog/oracle-ai-infrastructure-in-2026-and-our-commitment-to-local-communities-2026-01-26/`
-  is 403. We shipped community_grants + water via smallbiztrends third-party
-  verification; same approach may yield engagement + tax_revenue.
+- **Meta — tax_revenue.** Confirmed honest gap after the Lebanon IN, El Paso
+  TX, Beaver Dam WI, Tulsa OK, and Richland LA announcement-cycle research.
+  Meta executives speak about water/infrastructure/community grants; tax
+  dollar figures come from state/local officials. May be a permanent
+  editorial choice on Meta's part rather than a sourcing problem.
+- **OpenAI — tax_revenue.** `openai.com/index/stargate-community/` returned
+  403 throughout 5 passes; we shipped the water + engagement claims via
+  syndicated third-party verification (Sherwood, The Register). Tax-revenue
+  language requires a browser visit to openai.com — none of the third-party
+  outlets quote the page verbatim on local tax.
+- **Anthropic — community_grants, education.** Anthropic operates no data
+  centers; the Workday/LISC Solopreneurship and Anthropic Academy programs
+  exist but target nationally/globally, not data-center host communities.
+  Honest permanent gap consistent with Anthropic's no-owned-DC posture.
 - **Wonder Valley — community_grants, education.** Exhausted in May 2026
-  coverage. O'Leary doesn't talk about either in any captured interview.
-  Probably an honest permanent gap given Wonder Valley's framing.
-- **QTS — education.** Try `q.com/resources/` STEM/scholarship pages;
-  the Dane County WI $50M commitment likely has an education-tagged exec
-  quote in QTS's announcement materials.
-- **Crusoe — community_grants.** Sweetwater TX agreement reportedly has
-  $2.2M/yr charitable funding but only paraphrased in KTXS — try Nolan County
-  records for the verbatim development-agreement text.
+  coverage. Palandjian "AI-literacy courses" is reporter paraphrase. No
+  named O'Leary Digital exec verbatim on either theme. Likely permanent.
 
 ### Resume session: next polling cycle
 After ~30 days from 2026-05-16, re-run the parallel news poll. Focus on:
 - DCD + UtilityDive (proven productive sources — see v1.8)
-- Texas Tribune / Source NM / Wisconsin Watch / Cowboy State Daily for the
-  community-pushback angle on the high-controversy sites (Wonder Valley,
-  Cheyenne, Memphis, Saline Twp, Person Co NC, Kenilworth, Vineland)
+- Texas Tribune / Source NM / Wisconsin Watch / Cowboy State Daily / KSLA
+  / Mississippi Today for the community-pushback angle on the high-
+  controversy sites (Wonder Valley, Cheyenne, Memphis, Southaven MS,
+  Saline Twp, Person Co NC, Kenilworth, Vineland, Caddo Parish, Port
+  Washington WI, Putnam Co WV)
 - Watch for: status changes (announced → construction → operational),
   acreage/power expansions, regulator orders, NGO lawsuits, community
   benefit-agreement signings
 - New sites to watch: Nebius PA campus (location TBD per May 13 disclosure);
-  DTE-served Google/Oracle Michigan sites (per UtilityDive Q1)
+  DTE-served Google MI site beyond Van Buren Twp (Q1 disclosure flagged 1
+  GW Google contract)
 
 ### Source URL deep-links — verify and replace publication-root URLs in responses
 v1 seed has ~10 `CommunityResponse` records linking to outlet homepages
@@ -174,6 +171,9 @@ instead.
 
 ## Done
 
+- **v1.11 — Project-tied claims + responses for the 12 v1.9 sites.** +22 first-party verbatim claims (Meta Lebanon — Peterson energy/engagement/community, Meta El Paso — Davis infrastructure/energy + Davies jobs, Google Chesterfield — Porat engagement/infrastructure, Google Putnam Co — Allsop engagement, Oracle Port Washington — Altman energy + Hoeschele jobs, AWS Falls Twp — Zapolsky jobs, AWS Richmond Co NC — Zapolsky jobs/education, AWS Caddo — Zapolsky jobs + Wehner energy/education, AWS Bossier — Wehner infrastructure, AWS Vicksburg — Zapolsky community_grants, xAI Southaven — Musk energy + Mayo jobs/engagement). +38 community responses across the 12 sites (range from broad governor welcomes through specific resident lawsuits and NGO Clean Air Act suits). Notable: Port Washington WI voters passed an anti-data-center referendum (Apr 8 2026) requiring future TIFs over $10M to receive voter approval — first such national model. Skipped: QTS Salem Twp claims (only unnamed spokesperson available). First-paint payload budget bumped 150KB → 200KB to accommodate 276 claims.
+- **v1.10 — Final gap-fill residuals + URL deep-link fixes + at_a_glance + 5 summary refreshes.** Closed Oracle engagement gap (Jan 26 2026 blog: "Oracle recognizes that when we enter a community, we have an obligation to be a good citizen" — verified via 3 third-party mirrors) and Crusoe community_grants (Cully Cavness 2021 ND newsroom — first-party Crusoe domain, predates current tracked sites but acceptable). 12 source URL deep-link fixes — key correction: resp-meta-newton-water attribution updated from Grist to NYT (July 2025 investigation). 10 curator at_a_glance per-theme summaries for highest-profile sites (Meta Tulsa/Lebanon/El Paso, MS Cheyenne, OpenAI Saline Twp, Oracle Doña Ana / Port Washington, QTS Eagle Mountain, Nebius Independence, xAI Memphis). 5 company-summary refreshes (Meta, Google, Amazon, Oracle, QTS) reflecting v1.8/v1.9 site additions.
+- **v1.9 — Comprehensive 4-agent pass: +12 sites, +25 claims, +25 responses, +1 fix.** Four parallel research agents: matrix gap-fill, project-tied claims, community responses, and new-site discovery beyond the 30-day window. New sites: Meta Lebanon IN ($10B / 1 GW) + Meta El Paso TX ($10B expansion / 1 GW); Google Chesterfield VA (Project Peanut) + Google Putnam Co WV; Oracle Port Washington WI Stargate Lighthouse ($15B / 1.3 GW / 672 ac); AWS Falls Twp PA + Richmond Co NC ($10B / 800 ac) + Caddo Parish LA + Bossier Parish LA + Vicksburg MS ($3B); QTS Salem Twp PA (1,700 ac); xAI Southaven MS (Colossus 3 / MACROHARD). Project fix: aws-cumberland-pa lat/lon corrected (record had Cumberland Co PA coordinates but actual site is Salem Twp Luzerne Co adjacent to Talen Susquehanna nuclear plant). Matrix gap-fills (3): OpenAI water (Stargate Community framework via The Register), Oracle tax_revenue ($410M Pitcock Doña Ana commitment), QTS education (Dane Co WI $50M MATC + UW partnerships). 22 project-tied claims + 23 community responses across 8 previously-zero-response sites. Coverage 89% → 93%.
 - **v1.8 — DCD + UtilityDive 30-day scan.** Parallel DataCenterDynamics + UtilityDive scan for Apr 16 – May 16 2026. +5 sites (4 Google: Michigan City IN / Lima OH / Franklin Furnace OH / Linn County IA + 1 OpenAI Stargate Milam County TX "Freebird"), +7 first-party claims (Nadella on Fairwater going operational, Google's per-site community/infrastructure/education commitments, Anthropic on Colossus 1 tenancy, Oracle Saline Twp jobs, Meta LevelUp education), +5 responses (4 xAI Memphis — NAACP suit Apr 15 + injunction May 6 + DOJ statement-of-interest May 15 + MS 41-turbine permit Apr 29; 1 Meta Richland — Entergy Q1 $2B customer-benefit confirmation), +2 project field updates (Meta Richland acreage 2,250→3,650 from Phase 2 land buy; MS Mt Pleasant status construction→operational per Nadella Apr 16). DCD blocks WebFetch — agent reconstructed article-level detail from Google snippets + canonical URLs as `source_url`.
 - **v1.7.1 — Community responses for new sites + OpenAI engagement gap-fill.** +41 community responses across 14 newly-added sites (21 negative, 11 mixed, 9 positive — distribution by constituency: local_government 15, residents 14, ngo 5, journalist 4, regulator 2, academic 1). Includes Wisconsin PSC "black box" critique of Meta+Alliant, Tulsa City Council moratorium pre-dating Meta Project Anthem reveal, Saline Township board 4-1 rejection → Related Digital lawsuit → $14M community-benefits settlement, Kenilworth NJ rallies (Apr 20 + May 7), Stillwater OK Park View Estates HOA suit against Google over pond sediment, Person County NC NDA controversy → Microsoft's March 2026 pledge to stop signing community-blinding NDAs, Vineland NJ rally → DataOne declines $6.2M city loan + project scaled from 2.4M to <718K sq ft. +1 OpenAI Stargate Community engagement claim verified verbatim via Sherwood News citation of openai.com/index/stargate-community/.
 - **v1.7 — 30-day news poll, +19 sites + 26 claims + 7 summary refreshes + Explorer sort.** Four parallel agents polled news for Apr 16 – May 16 2026 across all 13 companies. New sites: Meta (Tulsa OK, Beaver Dam WI), Google (LaGrange GA, Stillwater OK), Microsoft (Person County NC), Amazon (Canton MS, Clinton MS), OpenAI/Oracle (Saline Township MI Stargate, $16B financing close Apr 24), Oracle (Doña Ana NM Project Jupiter with Bloom Energy fuel cells Apr 27), QTS (Eagle Mountain UT, Fayetteville GA, York County SC, East Windsor NJ), Crusoe (Sweetwater TX, Cheyenne WY Project Jade, Springfield OH), CoreWeave (Kenilworth NJ, Lancaster PA), Nebius (Vineland NJ). 26 verbatim first-party claims fill 6 of 8 matrix gaps (Google, Microsoft, Amazon, xAI, CoreWeave, Nebius now complete). Summary refreshes: factual fix to Wonder Valley (Phase 1 = ~3 GW not 1.5 GW; ~40,000 acres not 2,000); major rewrites for OpenAI (Stargate Community framework Jan 21 2026 now exists) and Oracle (per-site Q1 2026 blog framework now exists); minor updates to Meta, Microsoft, Amazon, xAI, Anthropic. Plus Explorer "Sort by" dropdown with default Composite (most benefit) score = equal-weight average of normalized investment + jobs + claim count (min-max against full catalog so ranking is stable as filters change); single-metric options for investment / jobs / claims; project name as tiebreaker.

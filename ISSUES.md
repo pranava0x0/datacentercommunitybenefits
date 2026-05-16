@@ -50,20 +50,26 @@ Format:
 **Regression test:** none.
 
 ### [2026-05-14] data — Many community-response source URLs point to publication root, not specific articles
-**Status:** Open
+**Status:** Fixed
 **Root cause:** data
-**Description:** v1 seed includes ~10 `CommunityResponse` records where
-`source_url` points to the outlet's homepage (e.g.
+**Description:** v1 seed included ~10 `CommunityResponse` records where
+`source_url` pointed to the outlet's homepage (e.g.
 `https://www.oregonlive.com/`) rather than the specific article. The
-schema accepts these as valid `HttpUrl`s, and `source_title` describes the
-article, but a user who clicks "view source" lands on the front page
-instead of the cited piece.
-**Fix:** TBD — curator needs to find the specific article URL for each
-record and update `data/seed/responses.json`. Tracked in
-[BACKLOG.md](BACKLOG.md) under "Source URL deep-links."
-**Regression test:** none yet — should add a future test
-`test_response_urls_deep_link` that flags root-level publication URLs
-once the data is corrected.
+schema accepted these as valid `HttpUrl`s, and `source_title` described the
+article, but a user who clicked "view source" landed on the front page.
+**Fix:** v1.10 (commit 71d668f) — 12 records updated with deep-link URLs.
+Key correction: `resp-meta-newton-water` was attributed to Grist but is
+actually a July 2025 NYT investigation ("Their Water Taps Ran Dry When
+Meta Built Next Door") — publisher attribution + URL + date all updated.
+Other fixes: resp-meta-richland-grid → Louisiana Illuminator; -prineville-
+positive → Crook County PR; -google-dalles-water-suit → Columbia Gorge
+News; -google-council-bluffs-positive → Google Blog; -ms-goodyear-water →
+ADWR groundwater page; -ms-mt-pleasant-positive → Racine County Eye;
+-aws-loudoun-noise → Loudoun.gov data-center page; -aws-cumberland-pa-pjm
+→ Utility Dive; -xai-memphis-naacp → SELC press release; -xai-memphis-
+residents → CNN; -openai-abilene-positive → Spectrum News.
+**Regression test:** none yet — future test `test_response_urls_deep_link`
+should flag root-level publication URLs (path == "/" after the host).
 
 ### [2026-05-14] data — Some company `dedicated_page_url` values may have shifted
 **Status:** Open

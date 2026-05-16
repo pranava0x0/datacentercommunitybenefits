@@ -3091,6 +3091,273 @@
       "source_title": "Crusoe newsroom — Cully Cavness (Crusoe President) on North Dakota community giving",
       "captured_at": "2026-05-16",
       "published_at": "2021-03-31"
+    },
+    {
+      "id": "meta-lebanon-energy-peterson-2026",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "At Meta, we're building the infrastructure that will power the next generation of AI technology, and Lebanon is now at the heart of that effort. This is one of our largest investments to date, and it marks an important milestone in our AI ambitions.",
+      "source_url": "https://commercialobserver.com/2026/02/meta-data-center-lebanon-indiana/",
+      "source_title": "Commercial Observer — Rachel Peterson (Meta VP Data Centers) on Lebanon IN groundbreaking",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-02-13",
+      "project_id": "meta-lebanon-in"
+    },
+    {
+      "id": "meta-lebanon-engagement-peterson-2026",
+      "company_slug": "meta",
+      "theme": "engagement",
+      "statement": "We've been proud to call Indiana home since 2024, and this project deepens that commitment, creating local jobs, supporting the community, and partnering with state and local leaders to drive real impact across the region.",
+      "source_url": "https://lebanon.in.gov/2026/02/11/meta-makes-lebanon-data-center-announcement-official/",
+      "source_title": "City of Lebanon — Rachel Peterson (Meta VP Data Centers) on Lebanon IN announcement",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-02-11",
+      "project_id": "meta-lebanon-in"
+    },
+    {
+      "id": "meta-lebanon-engagement-peterson-tenet-2026",
+      "company_slug": "meta",
+      "theme": "community_grants",
+      "statement": "This is our 27th data center here in the U.S. … a tenet of our data center program from day one has been to play a really strong, positive role in the communities that we're in.",
+      "source_url": "https://www.wfyi.org/news/articles/details-on-long-expected-meta-data-center-campus-unveiled",
+      "source_title": "WFYI — Rachel Peterson (Meta) on community engagement framing at Lebanon",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-02-12",
+      "project_id": "meta-lebanon-in"
+    },
+    {
+      "id": "meta-el-paso-infrastructure-davis-2026",
+      "company_slug": "meta",
+      "theme": "infrastructure",
+      "statement": "Data centers and this infrastructure is critical to everything we do on the internet. You think of the cloud, those are data centers.",
+      "source_url": "https://elpasomatters.org/2026/03/29/meta-data-center-el-paso-10-billion-expansion-water-gas-electricity-usage/",
+      "source_title": "El Paso Matters — Brad Davis (Meta Director Data Center Community & Economic Development) on El Paso campus",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-03-29",
+      "project_id": "meta-el-paso-tx"
+    },
+    {
+      "id": "meta-el-paso-energy-davis-2026",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "And when you have a global platform like ours and intentions of deploying that AI everywhere, it's going to require very large amounts of infrastructure similar to what we're talking about here in El Paso.",
+      "source_url": "https://elpasomatters.org/2026/03/29/meta-data-center-el-paso-10-billion-expansion-water-gas-electricity-usage/",
+      "source_title": "El Paso Matters — Brad Davis (Meta) on El Paso AI infrastructure scale",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-03-29",
+      "project_id": "meta-el-paso-tx"
+    },
+    {
+      "id": "meta-el-paso-jobs-davies-2026",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "We have 1,500 construction workers on site today. We are getting ready to pour foundations. We are moving forward.",
+      "source_url": "https://elpasomatters.org/2026/03/29/meta-data-center-el-paso-10-billion-expansion-water-gas-electricity-usage/",
+      "source_title": "El Paso Matters — Holli Davies (Meta Community Development Manager) on El Paso construction",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-03-29",
+      "project_id": "meta-el-paso-tx",
+      "metric": {
+        "value": 1500.0,
+        "unit": "construction_workers",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "google-chesterfield-engagement-porat-2025",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "With today's announcement, Google is deepening our roots in Virginia [and] extending our investments across the state to help position Virginia — and America — for the opportunities technology can deliver. Google's investments in technical infrastructure and AI skills development help to ensure that people across Virginia and across the United States have access to opportunity in this exciting era of American innovation.",
+      "source_url": "https://virginiabusiness.com/google-announces-chesterfield-data-center-as-part-of-9b-investment/",
+      "source_title": "Virginia Business — Ruth Porat (Alphabet/Google President & CIO) on Chesterfield announcement",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-08-27",
+      "project_id": "google-chesterfield-va"
+    },
+    {
+      "id": "google-chesterfield-infrastructure-porat-2025",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "Too often, as the governor has said to me, when people think of the digital economy, they only think of places like Northern Virginia or other tech hubs. And so today, all of us are demonstrating that cutting-edge technology comprises every corner of the commonwealth and every corner of the country.",
+      "source_url": "https://www.richmonder.org/google-announces-9-billion-investment-in-virginia-including-a-chesterfield-data-center/",
+      "source_title": "The Richmonder — Ruth Porat (Alphabet/Google President) on Chesterfield siting decision",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-08-27",
+      "project_id": "google-chesterfield-va"
+    },
+    {
+      "id": "google-putnam-engagement-allsop-2026",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "We're excited to share that Google has purchased land in Putnam County, West Virginia, for a new data center campus. We are early in the process, and substantial work remains, but we are appreciative of the strong business environment created by Governor Morrisey to provide a pathway for projects of this scale. We look forward to continued partnership with the Governor and local leaders in Putnam County on this opportunity here in West Virginia.",
+      "source_url": "https://governor.wv.gov/article/governor-morrisey-announces-google-data-center-project-putnam-county",
+      "source_title": "WV Governor's Office — Clay Allsop (Google Regional Head of Data Center Public Affairs) on Putnam County",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-03-27",
+      "project_id": "google-putnam-county-wv"
+    },
+    {
+      "id": "oracle-port-washington-energy-altman-2025",
+      "company_slug": "openai",
+      "theme": "energy",
+      "statement": "AI can only fulfill its promise if we build the compute to power it. That compute is the key to ensuring everyone can benefit from AI and to unlocking future breakthroughs. We're already making historic progress toward that goal through Stargate and moving quickly not just to meet its initial commitment, but to lay the foundation for what comes next.",
+      "source_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
+      "source_title": "Vantage Data Centers — Sam Altman (OpenAI CEO) on Wisconsin Stargate Lighthouse announcement",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-10-22",
+      "project_id": "oracle-port-washington-wi"
+    },
+    {
+      "id": "oracle-port-washington-jobs-hoeschele-2025",
+      "company_slug": "openai",
+      "theme": "jobs",
+      "statement": "Expanding Stargate to Wisconsin is another major step toward building the infrastructure that will help ensure everyone can benefit from AI.",
+      "source_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
+      "source_title": "Vantage Data Centers — Peter Hoeschele (OpenAI VP Industrial Compute) on Wisconsin Stargate",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-10-22",
+      "project_id": "oracle-port-washington-wi"
+    },
+    {
+      "id": "amazon-falls-twp-jobs-zapolsky-2025",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "Amazon's multi-billion-dollar investment in Pennsylvania reinforces our dedication to advancing AI innovation while creating lasting economic opportunities in the state.",
+      "source_url": "https://www.fallstwp.com/resources/news/article/?id=10070",
+      "source_title": "Falls Township — David Zapolsky (Amazon Chief Global Affairs & Legal Officer) on Falls Twp campus",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-06-09",
+      "project_id": "amazon-falls-twp-pa"
+    },
+    {
+      "id": "amazon-richmond-nc-jobs-zapolsky-2025",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "Amazon's $10 billion investment in North Carolina underscores our commitment to driving innovation and advancing the future of cloud computing and AI technologies.",
+      "source_url": "https://governor.nc.gov/news/press-releases/2025/06/04/governor-stein-announces-amazon-plans-invest-10-billion-north-carolina-ai-infrastructure",
+      "source_title": "NC Governor's Office — David Zapolsky (Amazon) on Richmond County NC",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-06-04",
+      "project_id": "amazon-richmond-county-nc",
+      "metric": {
+        "value": 10000000000.0,
+        "unit": "usd",
+        "kind": "investment"
+      }
+    },
+    {
+      "id": "amazon-richmond-nc-education-zapolsky-2025",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "This investment will position North Carolina as a hub for cutting-edge technology, create hundreds of high-skilled jobs, and drive significant economic growth. We look forward to partnering with state and local leaders, local suppliers, and educational institutions to nurture the next generation of talent.",
+      "source_url": "https://governor.nc.gov/news/press-releases/2025/06/04/governor-stein-announces-amazon-plans-invest-10-billion-north-carolina-ai-infrastructure",
+      "source_title": "NC Governor's Office — David Zapolsky (Amazon) on Richmond County NC workforce + education partnerships",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-06-04",
+      "project_id": "amazon-richmond-county-nc"
+    },
+    {
+      "id": "amazon-caddo-jobs-zapolsky-2026",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "Amazon's $12 billion investment in northwest Louisiana will build next-generation data center campuses to support AI and cloud computing, ensuring opportunities for local communities. We're creating hundreds of high-paying jobs and making substantial investments in local infrastructure.",
+      "source_url": "https://opportunitylouisiana.gov/news/amazon-selects-louisiana-for-12-billion-data-center-campuses-in-major-u-s-expansion",
+      "source_title": "Louisiana Economic Development — David Zapolsky (Amazon) on northwest LA campuses",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-02-23",
+      "project_id": "amazon-caddo-parish-la",
+      "metric": {
+        "value": 540.0,
+        "unit": "jobs",
+        "kind": "on_site_total"
+      }
+    },
+    {
+      "id": "amazon-caddo-energy-wehner-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "We have very deep commitments about water and energy. And we live up to those. We have high goals and we exceed them regularly. And we're 80% more efficient with water than the industry average.",
+      "source_url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
+      "source_title": "KSLA — Roger Wehner (AWS Director Economic Development) on Caddo/Bossier water + energy efficiency",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-02-24",
+      "project_id": "amazon-caddo-parish-la"
+    },
+    {
+      "id": "amazon-caddo-education-wehner-2026",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "The thing I'm most passionate about, quite honestly, is we love the fact that we go someplace, we immediately invest in the schools.",
+      "source_url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
+      "source_title": "KSLA — Roger Wehner (AWS) on Caddo/Bossier school investment",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-02-24",
+      "project_id": "amazon-caddo-parish-la"
+    },
+    {
+      "id": "amazon-bossier-infrastructure-wehner-2026",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "We don't want to pass cost on anything.",
+      "source_url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
+      "source_title": "KSLA — Roger Wehner (AWS Director Economic Development) on Bossier/Caddo infrastructure costs",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-02-24",
+      "project_id": "amazon-bossier-parish-la"
+    },
+    {
+      "id": "amazon-vicksburg-community-grants-zapolsky-2025",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "Amazon's $3 billion investment in Warren County will create lasting opportunities for Mississippi families and communities, building on our more-than-a-decade-long partnership with the Magnolia State. We're investing in the people and communities that make Mississippi strong, from training more than 6,500 Mississippians through our workforce development programs to launching our new Warren County Community Fund that will address community needs like STEM education. This is what responsible growth looks like—bringing cutting-edge technology infrastructure to America while ensuring local communities benefit directly from that investment.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-3-billion-mississippi-data-center-investment",
+      "source_title": "Amazon Newsroom — David Zapolsky on Warren County campus + Community Fund",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-11-20",
+      "project_id": "amazon-vicksburg-ms",
+      "metric": {
+        "value": 3000000000.0,
+        "unit": "usd",
+        "kind": "investment_warren_county"
+      }
+    },
+    {
+      "id": "xai-southaven-energy-musk-2026",
+      "company_slug": "xai",
+      "theme": "energy",
+      "statement": "xAI is scaling at an immeasurable pace — we are building our third massive data center in the greater Memphis area. MACROHARDRR pushes our Colossus training compute to ~2GW – by far the most powerful AI system on Earth. This is insane execution speed by xAI and the state of Mississippi. We are grateful to Governor Reeves for his support of building xAI at warp speed.",
+      "source_url": "https://governorreeves.ms.gov/tech-leader-xai-investing-more-than-20-billion-in-southaven/",
+      "source_title": "MS Governor's Office — Elon Musk (xAI CEO) on Southaven MACROHARD/Colossus 3 announcement",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-08",
+      "project_id": "xai-southaven-ms",
+      "metric": {
+        "value": 2000.0,
+        "unit": "MW",
+        "kind": "total_colossus_compute"
+      }
+    },
+    {
+      "id": "xai-southaven-jobs-mayo-2026",
+      "company_slug": "xai",
+      "theme": "jobs",
+      "statement": "Approving this permit today will unlock the power needed for the next era of AI innovation in America, while also securing lasting economic growth, job creation and technology leadership in Mississippi.",
+      "source_url": "https://mississippitoday.org/2026/03/10/xai-permit-approved-southaven/",
+      "source_title": "Mississippi Today — Brent Mayo (xAI VP Operations) at MS Environmental Quality Permit Board hearing",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-03-10",
+      "project_id": "xai-southaven-ms"
+    },
+    {
+      "id": "xai-southaven-engagement-mayo-2026",
+      "company_slug": "xai",
+      "theme": "engagement",
+      "statement": "xAI believes in always doing right when no one is looking.",
+      "source_url": "https://mississippitoday.org/2026/03/10/xai-permit-approved-southaven/",
+      "source_title": "Mississippi Today — Brent Mayo (xAI VP Operations) at Southaven permit hearing",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-03-10",
+      "project_id": "xai-southaven-ms"
     }
   ]
 }
