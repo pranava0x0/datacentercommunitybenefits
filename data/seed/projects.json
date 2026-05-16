@@ -20,7 +20,12 @@
       "captured_at": "2026-05-14",
       "project_page_url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
       "acreage": 470,
-      "offtaker": "Meta"
+      "offtaker": "Meta",
+      "at_a_glance": {
+        "jobs": "$2B / 350 ops jobs",
+        "community_grants": "Community Action Grants — annual local giving program",
+        "education": "STEM programs partnered with Crook County schools"
+      }
     },
     {
       "id": "meta-newton-ga",
@@ -42,7 +47,12 @@
       "project_page_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
       "acreage": 416,
       "power_mw": 1120,
-      "offtaker": "Meta"
+      "offtaker": "Meta",
+      "at_a_glance": {
+        "jobs": "$1.5B / 400 ops jobs",
+        "water": "Groundwater concerns — NYT documented neighbor well failures Jul 2025",
+        "energy": "1,120 MW campus, 416 ac"
+      }
     },
     {
       "id": "meta-richland-la",
@@ -64,7 +74,12 @@
       "project_page_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
       "acreage": 3650,
       "power_mw": 2000,
-      "offtaker": "Meta"
+      "offtaker": "Meta",
+      "at_a_glance": {
+        "jobs": "$10B+ / 500 ops jobs",
+        "energy": "2 GW campus, 3,650 ac (Phase 2 +1,400 ac May 2026)",
+        "infrastructure": "Major site expansion under construction in Richland Parish"
+      }
     },
     {
       "id": "google-the-dalles-or",
@@ -85,7 +100,11 @@
       "captured_at": "2026-05-14",
       "project_page_url": "https://datacenters.google/locations/oregon/",
       "acreage": 190,
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "at_a_glance": {
+        "jobs": "$1.8B / 200 ops jobs",
+        "water": "Water-use disclosure lawsuit settled Dec 2022"
+      }
     },
     {
       "id": "google-council-bluffs-ia",
@@ -106,7 +125,11 @@
       "captured_at": "2026-05-14",
       "project_page_url": "https://datacenters.google/locations/iowa/",
       "acreage": 1185,
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "at_a_glance": {
+        "community_grants": "City-wide WiFi service funded; mayor praise on record",
+        "infrastructure": "Funded municipal WiFi deployment"
+      }
     },
     {
       "id": "google-mesa-az",
@@ -128,7 +151,12 @@
       "project_page_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
       "acreage": 187,
       "power_mw": 400,
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "at_a_glance": {
+        "water": "Air-cooled (not evaporative) — low water use",
+        "community_grants": "$150K Salt River Project watershed donation",
+        "engagement": "Vice Mayor Duff publicly dissented on water rights tradeoffs"
+      }
     },
     {
       "id": "ms-quincy-wa",
@@ -149,7 +177,11 @@
       "captured_at": "2026-05-14",
       "project_page_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/",
       "acreage": 270,
-      "offtaker": "Microsoft"
+      "offtaker": "Microsoft",
+      "at_a_glance": {
+        "energy": "95+ diesel generators across MS Quincy complex",
+        "engagement": "PCHB ordered annual generator emissions testing post-NYT coverage"
+      }
     },
     {
       "id": "ms-mt-pleasant-wi",
@@ -170,7 +202,11 @@
       "captured_at": "2026-05-14",
       "project_page_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
       "acreage": 1300,
-      "offtaker": "Microsoft"
+      "offtaker": "Microsoft",
+      "at_a_glance": {
+        "jobs": "375 FTEs at Fairwater (operational Apr 16 2026)",
+        "infrastructure": "Hundreds of thousands of NVIDIA GB200s in single AI cluster"
+      }
     },
     {
       "id": "ms-goodyear-az",
@@ -192,7 +228,10 @@
       "project_page_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
       "acreage": 300,
       "power_mw": 480,
-      "offtaker": "Microsoft"
+      "offtaker": "Microsoft",
+      "at_a_glance": {
+        "water": "Switched to air cooling due to AZ groundwater constraints"
+      }
     },
     {
       "id": "aws-loudoun-va",
@@ -213,7 +252,12 @@
       "captured_at": "2026-05-14",
       "project_page_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
       "power_mw": 1500,
-      "offtaker": "AWS"
+      "offtaker": "AWS",
+      "at_a_glance": {
+        "jobs": "$91.5B / 20,700 jobs — largest tracked site",
+        "tax_revenue": "Anchor of Loudoun's data-center tax base (US-East-1)",
+        "engagement": "Noise + zoning pushback; Loudoun tightened DC standards post-2024"
+      }
     },
     {
       "id": "aws-new-carlisle-in",
@@ -236,7 +280,12 @@
       "acreage": 1200,
       "power_mw": 2200,
       "gpu_count": 500000,
-      "offtaker": "Anthropic"
+      "offtaker": "Anthropic",
+      "at_a_glance": {
+        "jobs": "$11B / 1,000 jobs (Project Rainier, operational Oct 2025)",
+        "water": "Residential well failures reported locally; IDEM wetland citations",
+        "infrastructure": "Anthropic primary tenant"
+      }
     },
     {
       "id": "aws-cumberland-pa",
@@ -258,7 +307,12 @@
       "project_page_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
       "acreage": 1200,
       "power_mw": 1920,
-      "offtaker": "AWS"
+      "offtaker": "AWS",
+      "at_a_glance": {
+        "jobs": "$20B / 1,250 jobs",
+        "energy": "1,920 MW behind-the-meter PPA with Talen (Susquehanna nuclear)",
+        "engagement": "FERC rejected amended ISA Nov 2024 — regulatory uncertainty"
+      }
     },
     {
       "id": "openai-abilene-tx",
@@ -281,7 +335,12 @@
       "acreage": 1100,
       "power_mw": 1200,
       "gpu_count": 450000,
-      "offtaker": "OpenAI"
+      "offtaker": "OpenAI",
+      "at_a_glance": {
+        "jobs": "6,000+ daily construction workers (Stargate)",
+        "energy": "1.2 GW campus — OpenAI workload, Crusoe operates",
+        "infrastructure": "Downstream housing crisis + local electrician shortage"
+      }
     },
     {
       "id": "oracle-abilene-tx",
@@ -355,7 +414,12 @@
       "captured_at": "2026-05-14",
       "project_page_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
       "acreage": 40000,
-      "power_mw": 3000
+      "power_mw": 3000,
+      "at_a_glance": {
+        "jobs": "40,000 ac private + 1,200 ac military/state",
+        "energy": "Phase 1 ~3 GW scaling to 7.5-9 GW; on-site gas via Ruby Pipeline",
+        "engagement": "Construction slipped to 2028 (announced May 4 2026)"
+      }
     },
     {
       "id": "qts-cedar-rapids-ia",
@@ -378,7 +442,12 @@
       "acreage": 612,
       "power_mw": 1050,
       "gpu_count": null,
-      "offtaker": null
+      "offtaker": null,
+      "at_a_glance": {
+        "jobs": "$1.75B / 612 ac / 1.05 GW",
+        "energy": "Ratepayer Protection Pledge — QTS pays 100% of grid upgrade costs",
+        "engagement": "Alliant CEO support; Iowa advocate skepticism on record"
+      }
     },
     {
       "id": "qts-richmond-va",
@@ -401,7 +470,11 @@
       "acreage": 622,
       "power_mw": null,
       "gpu_count": null,
-      "offtaker": null
+      "offtaker": null,
+      "at_a_glance": {
+        "infrastructure": "622 ac — first-ever FAST-41 federal permitting designation for a DC",
+        "engagement": "FAST-41 streamlined federal-agency review"
+      }
     },
     {
       "id": "qts-dane-county-wi",
@@ -424,7 +497,12 @@
       "acreage": null,
       "power_mw": 750,
       "gpu_count": null,
-      "offtaker": null
+      "offtaker": null,
+      "at_a_glance": {
+        "jobs": "$12B / 615 ac / 750 MW",
+        "community_grants": "$50M community fund (Madison Area Technical College + UW)",
+        "engagement": "WI DOA Jan 2026 found annexation not in public interest; 4,000+ opposed"
+      }
     },
     {
       "id": "qts-manassas-va",
@@ -470,7 +548,10 @@
       "acreage": 282,
       "power_mw": 1000,
       "gpu_count": null,
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "at_a_glance": {
+        "energy": "1 GW DTE contract — announced 2025"
+      }
     },
     {
       "id": "microsoft-cheyenne-wy",
@@ -522,7 +603,11 @@
       "acreage": null,
       "power_mw": null,
       "gpu_count": null,
-      "offtaker": "OpenAI"
+      "offtaker": "OpenAI",
+      "at_a_glance": {
+        "jobs": "$3B SoftBank-financed — former GM/Foxconn plant reuse",
+        "infrastructure": "Brownfield redevelopment of legacy auto-manufacturing site"
+      }
     },
     {
       "id": "crusoe-abilene-tx",
@@ -545,7 +630,11 @@
       "acreage": null,
       "power_mw": 1200,
       "gpu_count": null,
-      "offtaker": "OpenAI / Oracle / Microsoft"
+      "offtaker": "OpenAI / Oracle / Microsoft",
+      "at_a_glance": {
+        "energy": "1.2 GW — Crusoe operates Stargate Abilene for OpenAI",
+        "engagement": "Lochmiller publicly framing project as data-center 'blueprint'"
+      }
     },
     {
       "id": "coreweave-hammond-in",
@@ -568,7 +657,11 @@
       "acreage": 25,
       "power_mw": 180,
       "gpu_count": null,
-      "offtaker": null
+      "offtaker": null,
+      "at_a_glance": {
+        "education": "$4M/yr for 20 yrs ($80M) to Hammond College Bound scholarships",
+        "engagement": "City Council 8-0 approval on Community Impact Payment"
+      }
     },
     {
       "id": "coreweave-ellendale-nd",
@@ -689,7 +782,12 @@
       "captured_at": "2026-05-16",
       "acreage": 420,
       "power_mw": 400,
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "at_a_glance": {
+        "jobs": "$8B / 420 ac / 400 MW",
+        "community_grants": "$1M Groundswell SOUL energy-efficiency grant",
+        "water": "Trust for Public Land — Chattahoochee restoration partnership"
+      }
     },
     {
       "id": "google-stillwater-ok",
@@ -710,7 +808,13 @@
       "captured_at": "2026-05-16",
       "project_page_url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
       "acreage": 400,
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "at_a_glance": {
+        "jobs": "Part of $9B OK expansion / 400 ac",
+        "education": "$600K to Stillwater Public Schools",
+        "water": "Park View Estates HOA sediment-runoff lawsuit pending",
+        "engagement": "HOA litigation underway over construction runoff"
+      }
     },
     {
       "id": "microsoft-person-county-nc",
@@ -751,7 +855,12 @@
       "source_title": "Amazon — $25 billion Mississippi data center expansion (Apr 9 2026)",
       "captured_at": "2026-05-16",
       "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
-      "offtaker": "AWS"
+      "offtaker": "AWS",
+      "at_a_glance": {
+        "jobs": "$21B / 1,700 jobs",
+        "water": "100% recycled-wastewater cooling target by 2027",
+        "energy": "240 tons/yr NOx from 300+ diesel backups; resident health concerns"
+      }
     },
     {
       "id": "amazon-clinton-ms",
@@ -1383,6 +1492,226 @@
       "source_title": "Data Center Dynamics — xAI confirms new Mississippi data center, Musk pledges $20bn",
       "captured_at": "2026-05-16",
       "offtaker": "xAI"
+    },
+    {
+      "id": "openai-shackelford-tx",
+      "company_slug": "openai",
+      "name": "Stargate Frontier (Shackelford County)",
+      "city": "Albany",
+      "state": "TX",
+      "country": "US",
+      "lat": 32.7268,
+      "lon": -99.2911,
+      "status": "construction",
+      "announced_year": 2025,
+      "claimed_investment_usd": 25000000000,
+      "claimed_jobs": 5000,
+      "notes": "Vantage Data Centers 'Frontier' campus — 10 single-story buildings totaling ~3.7M sq ft across 1,200 acres near Albany / Moran TX. Air- and liquid-cooled at >250kW/rack densities. One of three new Oracle-partnership sites from the September 2025 five-site Stargate expansion. First building H2 2026.",
+      "source_url": "https://vantage-dc.com/news/vantage-data-centers-unveils-plans-for-frontier-a-25b-mega-campus-in-texas-to-meet-unprecedented-ai-demand/",
+      "source_title": "Vantage Data Centers — Frontier $25B mega-campus in Texas",
+      "captured_at": "2026-05-16",
+      "acreage": 1200,
+      "power_mw": 1400,
+      "offtaker": "OpenAI"
+    },
+    {
+      "id": "microsoft-new-albany-oh",
+      "company_slug": "microsoft",
+      "name": "New Albany Data Center Campus",
+      "city": "New Albany",
+      "state": "OH",
+      "country": "US",
+      "lat": 40.0814,
+      "lon": -82.8088,
+      "status": "construction",
+      "announced_year": 2024,
+      "claimed_investment_usd": 1000000000,
+      "claimed_jobs": null,
+      "notes": "One of three Microsoft Central Ohio campuses (with Heath and Hebron) totaling ~$1B initial investment. 245,000 sq ft site on ~200 acres at the Licking-Franklin county boundary.",
+      "source_url": "https://columbusregion.com/press-release/new-data-center-investment-by-microsoft/",
+      "source_title": "One Columbus — Microsoft Data Center Investment in Columbus Region",
+      "captured_at": "2026-05-16",
+      "acreage": 200,
+      "offtaker": "Microsoft"
+    },
+    {
+      "id": "microsoft-heath-oh",
+      "company_slug": "microsoft",
+      "name": "Heath Data Center Campus",
+      "city": "Heath",
+      "state": "OH",
+      "country": "US",
+      "lat": 40.0245,
+      "lon": -82.4435,
+      "status": "construction",
+      "announced_year": 2024,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Five data-center buildings planned, completion early 2028. AMES Construction general contractor; mass grading Feb–Nov 2026. Site off Thornwood Drive in Licking County.",
+      "source_url": "https://local.microsoft.com/blog/heath-datacenter-construction-updates/",
+      "source_title": "Microsoft Local — Heath datacenter construction updates",
+      "captured_at": "2026-05-16",
+      "project_page_url": "https://local.microsoft.com/blog/heath-datacenter-construction-updates/",
+      "offtaker": "Microsoft"
+    },
+    {
+      "id": "microsoft-hebron-oh",
+      "company_slug": "microsoft",
+      "name": "Hebron Data Center Campus",
+      "city": "Hebron",
+      "state": "OH",
+      "country": "US",
+      "lat": 39.9622,
+      "lon": -82.481,
+      "status": "construction",
+      "announced_year": 2024,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Six data center buildings planned. Construction began February 2026. Site off High Street, ~30 miles east of Columbus in Licking County.",
+      "source_url": "https://www.10tv.com/article/news/local/microsoft-data-center-construction-update-hebron-licking-county-ohio/530-b589156b-b647-48c9-9b56-781737ea66b6",
+      "source_title": "NBC4 — Microsoft begins construction on Hebron data center",
+      "captured_at": "2026-05-16",
+      "offtaker": "Microsoft"
+    },
+    {
+      "id": "microsoft-union-city-ga",
+      "company_slug": "microsoft",
+      "name": "Union City Campus (East US 3 anchor)",
+      "city": "Union City",
+      "state": "GA",
+      "country": "US",
+      "lat": 33.587,
+      "lon": -84.5436,
+      "status": "construction",
+      "announced_year": 2024,
+      "claimed_investment_usd": 1800000000,
+      "claimed_jobs": null,
+      "notes": "Three buildings ~612,000 sq ft each (2.1M sq ft total) at 4810 Stonewall Tell Road, Fulton County. Fulton County approved a $75M tax break. Phase 1 online by 2026; additional phases through 2032. Anchors Microsoft's 'East US 3' Azure region (Fulton + Douglas Counties).",
+      "source_url": "https://azure.microsoft.com/en-us/blog/microsoft-will-establish-its-next-us-datacenter-region-in-georgia-s-fulton-and-douglas-counties/",
+      "source_title": "Microsoft Azure — Next US datacenter region in Georgia's Fulton and Douglas Counties",
+      "captured_at": "2026-05-16",
+      "project_page_url": "https://azure.microsoft.com/en-us/blog/microsoft-will-establish-its-next-us-datacenter-region-in-georgia-s-fulton-and-douglas-counties/",
+      "acreage": 90,
+      "offtaker": "Microsoft"
+    },
+    {
+      "id": "microsoft-west-des-moines-ia",
+      "company_slug": "microsoft",
+      "name": "West Des Moines Campus (5 operational + 6th in construction)",
+      "city": "West Des Moines",
+      "state": "IA",
+      "country": "US",
+      "lat": 41.5772,
+      "lon": -93.7115,
+      "status": "operational",
+      "announced_year": 2008,
+      "claimed_investment_usd": 6000000000,
+      "claimed_jobs": 600,
+      "notes": "Microsoft's largest US data-center deployment (per company statement re Project Osmium). Includes Projects Mountain, Alluvion, Osmium; 6th site 'Ruthenium' on Veterans Pkwy at Woodland Ave (Madison County). ~70M gallons/year water from West Des Moines Water Works in 2024. Spans Dallas/Polk/Warren/Madison counties.",
+      "source_url": "https://www.businessrecord.com/west-des-moines-approves-agreement-with-microsoft-for-6th-data-center/",
+      "source_title": "Business Record — West Des Moines approves agreement with Microsoft for 6th data center",
+      "captured_at": "2026-05-16",
+      "offtaker": "Microsoft"
+    },
+    {
+      "id": "google-west-memphis-ar",
+      "company_slug": "google",
+      "name": "West Memphis Campus (Project Pyramid)",
+      "city": "West Memphis",
+      "state": "AR",
+      "country": "US",
+      "lat": 35.1465,
+      "lon": -90.1845,
+      "status": "construction",
+      "announced_year": 2025,
+      "claimed_investment_usd": 4000000000,
+      "claimed_jobs": null,
+      "notes": "Five-building campus on 1,178 acres south of Bollinger Road in Crittenden County. Google's first Arkansas data center; broke ground October 2025. 600 MW solar via Entergy. Google covers full energy costs. $25M Crittenden County community fund. Construction 18-24 months.",
+      "source_url": "https://blog.google/company-news/inside-google/company-announcements/google-american-innovation-arkansas/",
+      "source_title": "Google Blog — American Innovation: Arkansas (West Memphis Project Pyramid)",
+      "captured_at": "2026-05-16",
+      "project_page_url": "https://blog.google/company-news/inside-google/company-announcements/google-american-innovation-arkansas/",
+      "acreage": 1178,
+      "power_mw": 600,
+      "offtaker": "Google"
+    },
+    {
+      "id": "google-little-rock-ar",
+      "company_slug": "google",
+      "name": "Port of Little Rock Data Center",
+      "city": "Little Rock",
+      "state": "AR",
+      "country": "US",
+      "lat": 34.7465,
+      "lon": -92.2896,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": 1000000000,
+      "claimed_jobs": null,
+      "notes": "1.43M sq ft across 5 industrial buildings + 2 office buildings + a substation, off Zueber Road in Sweet Home (Pulaski County). Reveal Jan 2026; site plan in progress. Active community opposition centered on water draw and ratepayer impact.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-behind-1bn-data-center-in-little-rock-arkansas-report/",
+      "source_title": "Data Center Dynamics — Google behind $1bn data center in Little Rock, Arkansas",
+      "captured_at": "2026-05-16",
+      "offtaker": "Google"
+    },
+    {
+      "id": "amazon-boardman-or",
+      "company_slug": "amazon",
+      "name": "AWS Boardman / Columbia River Land Acquisition",
+      "city": "Boardman",
+      "state": "OR",
+      "country": "US",
+      "lat": 45.8398,
+      "lon": -119.7006,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "1,300 acres on the Oregon side of the Columbia River (Morrow County) acquired 2026; potential for up to 20 data-center buildings. Adjacent to the AWS Hermiston regional office opened March 2026. Formal project approval pending.",
+      "source_url": "https://www.geekwire.com/2026/report-amazon-buys-1300-acres-near-columbia-river-that-could-become-a-giant-data-center/",
+      "source_title": "GeekWire — Amazon buys 1,300 acres near Columbia River for potential data center",
+      "captured_at": "2026-05-16",
+      "acreage": 1300,
+      "offtaker": "AWS"
+    },
+    {
+      "id": "qts-blakely-ga",
+      "company_slug": "qts",
+      "name": "Project Blue Hole (Blakely Campus)",
+      "city": "Blakely",
+      "state": "GA",
+      "country": "US",
+      "lat": 31.3777,
+      "lon": -84.9341,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "12M sq ft mega-campus in southwest Georgia near the Alabama border (Early County). ~9 buildings planned, closed-loop cooling, construction July 2026 → first phase Sept 2027; full build-out targeted Q4 2035. DRI filing March 2026.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/qts-targets-two-data-center-campuses-in-georgia/",
+      "source_title": "Data Center Dynamics — QTS targets two Georgia campuses (Blakely + Fayetteville)",
+      "captured_at": "2026-05-16",
+      "offtaker": "QTS"
+    },
+    {
+      "id": "qts-wilmer-tx",
+      "company_slug": "qts",
+      "name": "DFW2 Campus (Wilmer)",
+      "city": "Wilmer",
+      "state": "TX",
+      "country": "US",
+      "lat": 32.5882,
+      "lon": -96.6764,
+      "status": "construction",
+      "announced_year": 2025,
+      "claimed_investment_usd": 650000000,
+      "claimed_jobs": null,
+      "notes": "303 Mason Rd at the Wilmer/Lancaster border (Dallas County). DC2 470,000 sq ft (June 2026 completion); DC3 560,000 sq ft (Jan 2027 completion). Combined DC1+DC2 critical load 75.2 MW. $300M (DC2) + $350M (DC3) capex.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/qts-files-to-expand-upcoming-data-center-campus-in-dallas-texas/",
+      "source_title": "Data Center Dynamics — QTS files to expand Dallas DFW2 campus",
+      "captured_at": "2026-05-16",
+      "power_mw": 75.2,
+      "offtaker": "QTS"
     }
   ]
 }
