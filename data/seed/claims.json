@@ -1738,6 +1738,105 @@
       "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
       "captured_at": "2026-05-14",
       "published_at": "2026-02-11"
+    },
+    {
+      "id": "anthropic-water-cooling-framework",
+      "company_slug": "anthropic",
+      "theme": "water",
+      "statement": "deploying water-efficient cooling technologies",
+      "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
+      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-02-11"
+    },
+    {
+      "id": "qts-jobs-40k-portfolio",
+      "company_slug": "qts",
+      "theme": "jobs",
+      "statement": "We will create more than 40,000 jobs this year in the U.S. with $150,000 average annual pay.",
+      "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
+      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities \u2014 QTS",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-05",
+      "metric": {
+        "value": 40000.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "qts-energy-blackstone-generation",
+      "company_slug": "qts",
+      "theme": "energy",
+      "statement": "We and Blackstone plan to build more power generation capacity than QTS data centers use.",
+      "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
+      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities \u2014 QTS",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-05"
+    },
+    {
+      "id": "qts-energy-carbon-free-sourcing",
+      "company_slug": "qts",
+      "theme": "energy",
+      "statement": "Carbon-Free Energy Sourcing: We work to supply energy from carbon-free sources.",
+      "source_url": "https://q.com/sustainability/",
+      "source_title": "QTS Sustainability",
+      "captured_at": "2026-05-15"
+    },
+    {
+      "id": "qts-engagement-town-halls",
+      "company_slug": "qts",
+      "theme": "engagement",
+      "statement": "We hold town halls and maintain open and consistent dialogue with the community.",
+      "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
+      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities \u2014 QTS",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-05"
+    },
+    {
+      "id": "xai-energy-no-grid-power-emergencies",
+      "company_slug": "xai",
+      "theme": "energy",
+      "statement": "xAI will take no power from the grid during emergencies or when the grid is strained so that all available power is going to the community.",
+      "source_url": "https://memphischamber.com/economic-development/xai/",
+      "source_title": "xAI in Memphis \u2014 Greater Memphis Chamber",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-01-12"
+    },
+    {
+      "id": "openai-energy-zero-emission-wisconsin",
+      "company_slug": "openai",
+      "theme": "energy",
+      "statement": "This project will create good jobs, advance zero-emission energy and boost the local economy.",
+      "source_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
+      "source_title": "Stargate Wisconsin announcement (Peter Hoeschele, OpenAI VP Industrial Compute) \u2014 Vantage Data Centers",
+      "captured_at": "2026-05-15",
+      "published_at": "2025-10-22"
+    },
+    {
+      "id": "openai-grants-pw-saukville",
+      "company_slug": "openai",
+      "theme": "community_grants",
+      "statement": "At OpenAI, we believe helping students build the skills to thrive in the Intelligence Age starts with strong local schools and expanded access to great learning opportunities. The Port Washington-Saukville community is investing in its future, and we're proud to support educators and students as they prepare for the jobs, industries and opportunities of tomorrow.",
+      "source_url": "https://www.ozaukeepress.com/content/pw-s-school-foundation-gets-big-boost-tech-giants",
+      "source_title": "PW-S school foundation gets big boost from tech giants (Chris Lehane, OpenAI Chief Global Affairs Officer; $75K OpenAI donation)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-04-29",
+      "metric": {
+        "value": 75000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "oracle-energy-100-renewable",
+      "company_slug": "oracle",
+      "theme": "energy",
+      "statement": "One of these goals includes powering Oracle Cloud with 100 percent renewable energy.",
+      "source_url": "https://www.leadersmag.com/issues/2021.2_Apr/Purpose/LEADERS-Jon-Chorley-Oracle.html",
+      "source_title": "Oracle 100% renewable cloud commitment (Jon Chorley, Oracle Chief Sustainability Officer) \u2014 LEADERS Magazine",
+      "captured_at": "2026-05-15",
+      "published_at": "2021-04-01"
     }
   ]
 }

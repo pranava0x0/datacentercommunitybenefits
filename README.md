@@ -1,14 +1,15 @@
-# Data Center Community Benefits & Pushback Dashboard
+# Data Center Community Benefits — A Blueprint
 
-A public-interest dashboard surfacing what major hyperscalers (and their
-non-hyperscaler adjacent peers) **claim** about community benefits from
-their data centers — alongside what local communities, journalists, and
-regulators actually **report** back.
+A public-interest dashboard cataloguing the **community-benefit
+commitments** major data-center operators have published — and how those
+commitments are playing out on the ground at real sites.
 
-The dashboard is **neither a hit piece nor a corporate puff piece**. Both
-company claims and community responses are presented with full source
-attribution, dates, and clear visual distinction so users can evaluate the
-gap between promised and delivered benefits themselves.
+The framing as of v1.5 is **positive / blueprint-oriented**: this is meant
+as a starting menu of what's possible to ask for in future data-center
+projects, with on-the-ground feedback (positive, mixed, and the lessons
+learned) as case-study evidence for what's working and where the gaps
+still are. Every commitment links to its first-party source. Every
+on-the-ground response cites who said it and where.
 
 → **Live dashboard:** <https://pranava0x0.github.io/datacentercommunitybenefits/>
 

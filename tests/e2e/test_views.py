@@ -68,11 +68,12 @@ class TestComparisonView:
         expect(page.locator("#cd-name")).to_have_text("Google")
 
     def test_empty_cell_not_clickable(self, page: Page, base_url: str):
-        # Anthropic has no 'water' claim; that cell should be empty + non-button.
+        # Wonder Valley has no 'water' claim (the JV announcement is silent
+        # on water — confirmed honest skip across multiple research passes).
         page.goto(base_url + "/")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator(
-            '#comparison-matrix td[data-company="anthropic"][data-theme="water"]'
+            '#comparison-matrix td[data-company="wonder-valley"][data-theme="water"]'
         )
         expect(cell).to_have_class("cell empty")
         # Empty cells should NOT have role=button — confirms they're inert.
@@ -345,6 +346,17 @@ class TestCrossCutting:
         assert "Draft" in text or "draft" in text
         assert "data collection" in text.lower()
 
+    def test_blueprint_framing_in_hero(self, page: Page, base_url: str):
+        # v1.5: hero copy reframed toward 'blueprint of solutions'.
+        # Comparison view's hero should signal the blueprint orientation.
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        hero = page.locator("#view-comparison .hero")
+        text = hero.text_content() or ""
+        assert (
+            "Blueprint" in text or "blueprint" in text or "starting menu" in text.lower()
+        ), f"Hero should reflect blueprint framing: {text!r}"
+
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
@@ -405,6 +417,16 @@ class TestDetailTabs:
         self._open_first_project(page, base_url)
         for slug in ("overview", "claims", "responses"):
             expect(page.locator(f"#dtab-{slug}")).to_be_visible()
+
+    def test_responses_tab_labelled_on_the_ground(
+        self, page: Page, base_url: str
+    ):
+        # v1.5: tab renamed from "Community" to "On the ground" as part of
+        # the blueprint framing. The slug stays `responses` for backward
+        # compat with existing selectors and ARIA wiring.
+        self._open_first_project(page, base_url)
+        text = (page.locator("#dtab-responses").text_content() or "").strip()
+        assert "On the ground" in text, f"Expected 'On the ground' tab label: {text!r}"
 
     def test_overview_active_by_default(self, page: Page, base_url: str):
         self._open_first_project(page, base_url)

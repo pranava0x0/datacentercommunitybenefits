@@ -197,13 +197,17 @@ Maintain a `backlog.md` for ideas, features, and enhancements.
 
 ## Project-specific notes (Data Center Community Benefits Dashboard)
 
-### Project intent
+### Project intent (v1.5+: blueprint framing)
 
-Dashboard surfacing what major hyperscalers publicly **claim** about community benefits from their data centers, alongside what local communities, journalists, and public records actually **report**. Two stakeholders:
-- **Policymakers / community advocates** evaluating company claims before approving permits, tax abatements, or PPAs.
-- **Researchers / journalists** comparing themes and outcomes across companies.
+Dashboard surfacing the **community-benefit commitments** major data-center operators have published — and how those commitments are playing out on the ground at real sites. Use it as a **blueprint of solutions** for future data-center projects: what's possible to ask for, what's working in practice, and where the gaps still are.
 
-The dashboard is **neither a hit piece nor a corporate puff piece**. Both company claims and community pushback are presented with full source attribution, dates, and clear visual distinction so users can evaluate the gap between promised and delivered benefits themselves. **Don't** let the framing slide either direction — that's the load-bearing editorial choice that makes this dashboard useful instead of partisan.
+Two stakeholders:
+- **Policymakers / community advocates** evaluating what to ask for in permit, tax-abatement, or PPA negotiations.
+- **Researchers / journalists / project developers** comparing what's been offered + delivered across companies, looking for the playbook patterns to replicate.
+
+**Editorial frame (v1.5).** Reframed from prior "neither hit piece nor puff piece" framing to a positive blueprint orientation: lead with the solutions/commitments being offered, treat on-the-ground feedback as case-study evidence ("here's what happened when X tried Y"), not as adversarial pushback. **Keep** all data including critical responses — they're load-bearing for "lessons learned" and showing where commitments fell short. **Don't** delete or hide negative-stance feedback; it's the field-evidence that makes the blueprint usable rather than aspirational. **Don't** soften verbatim quotes to make them sound nicer — quote-as-published is still the rule.
+
+The earlier "neither hit piece nor puff piece" framing was load-bearing in v1.0–v1.4; v1.5 deliberately lets the framing slide toward solutions/blueprint while preserving the underlying data integrity. If a future contributor wants to revert to the strict balanced framing, the dataset supports it — only the hero copy + tab labels + summary verbiage need to change.
 
 ### Companies in scope (v1.4)
 
