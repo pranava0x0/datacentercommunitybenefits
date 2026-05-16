@@ -3071,6 +3071,26 @@
         "unit": "GW",
         "kind": "capacity"
       }
+    },
+    {
+      "id": "oracle-engagement-good-citizen-2026",
+      "company_slug": "oracle",
+      "theme": "engagement",
+      "statement": "Oracle recognizes that when we enter a community, we have an obligation to be a good citizen.",
+      "source_url": "https://www.oracle.com/news/announcement/blog/oracle-ai-infrastructure-in-2026-and-our-commitment-to-local-communities-2026-01-26/",
+      "source_title": "Oracle blog — AI Infrastructure in 2026 and Our Commitment to Local Communities (good-citizen commitment)",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-26"
+    },
+    {
+      "id": "crusoe-community-grants-cavness-nd-2021",
+      "company_slug": "crusoe",
+      "theme": "community_grants",
+      "statement": "North Dakota has been very welcoming to us. The state's energy industry, government and communities have embraced Crusoe as a solution to the challenging problem of natural gas flaring. North Dakota really gave Crusoe our start, and we want to give back in ways that align with our values of innovation, environmental stewardship and personal growth. This is why we are donating to STEM education programs and community building activities like the Maah Daah Hey run.",
+      "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-expands-north-dakota",
+      "source_title": "Crusoe newsroom — Cully Cavness (Crusoe President) on North Dakota community giving",
+      "captured_at": "2026-05-16",
+      "published_at": "2021-03-31"
     }
   ]
 }

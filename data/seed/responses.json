@@ -4,12 +4,12 @@
     {
       "id": "resp-meta-newton-water",
       "project_id": "meta-newton-ga",
-      "date": "2024-08-15",
+      "date": "2025-07-14",
       "stance": "negative",
       "constituency": "journalist",
       "summary": "Reporting documented sustained, large-volume groundwater withdrawals at Meta's Newton County campus and questioned whether the local utility's disclosure framework was adequate to surface the impact to nearby residents.",
-      "source_url": "https://grist.org/",
-      "source_title": "Grist — Meta data center groundwater coverage (Newton County, GA)",
+      "source_url": "https://www.nytimes.com/2025/07/14/technology/meta-data-center-water.html",
+      "source_title": "The New York Times — 'Their Water Taps Ran Dry When Meta Built Next Door' (Newton County GA)",
       "single_source": true
     },
     {
@@ -19,8 +19,8 @@
       "stance": "mixed",
       "constituency": "regulator",
       "summary": "The Louisiana Public Service Commission opened a docket reviewing Entergy's proposed gas-fired generation buildout to serve Meta's Richland Parish load, with intervenor groups raising concerns about cost allocation to existing ratepayers.",
-      "source_url": "https://www.lpsc.louisiana.gov/",
-      "source_title": "Louisiana Public Service Commission — Entergy IRP filings",
+      "source_url": "https://lailluminator.com/2025/08/20/entergy-meta/",
+      "source_title": "Louisiana Illuminator — LPSC approves Entergy Meta Richland docket 4-1 (Aug 20 2025)",
       "single_source": false
     },
     {
@@ -30,8 +30,8 @@
       "stance": "positive",
       "constituency": "local_government",
       "summary": "Crook County officials have repeatedly cited Meta's Prineville campus as a major contributor to local property tax revenue and as the largest private employer in the county.",
-      "source_url": "https://co.crook.or.us/",
-      "source_title": "Crook County — Economic development statements",
+      "source_url": "https://co.crook.or.us/county-admin/page/press-release-county-commissioner-highlights-community-grant-opportunity-and",
+      "source_title": "Crook County — Commissioner press release on Meta community grants and continued local support",
       "single_source": true
     },
     {
@@ -41,8 +41,8 @@
       "stance": "negative",
       "constituency": "journalist",
       "summary": "The Oregonian successfully sued the City of The Dalles to obtain Google's water-use figures, which the city had argued were trade secrets; the released numbers showed Google's facility consuming roughly a quarter of the city's water.",
-      "source_url": "https://www.oregonlive.com/",
-      "source_title": "The Oregonian — Google water-use disclosure lawsuit (2022)",
+      "source_url": "https://www.columbiagorgenews.com/news/the-dalles-settles-oregonian-lawsuit-releases-google-water-records/article_d3c0cb0a-7c34-11ed-8683-9713468ff834.html",
+      "source_title": "Columbia Gorge News — The Dalles settles Oregonian lawsuit, releases Google water records (Dec 2022)",
       "single_source": false
     },
     {
@@ -52,8 +52,8 @@
       "stance": "positive",
       "constituency": "local_government",
       "summary": "The Council Bluffs and Pottawattamie County governments have publicly highlighted Google's investment as transformative for local infrastructure spending, citing road, fiber, and school funding tied to the campus.",
-      "source_url": "https://www.councilbluffs-ia.gov/",
-      "source_title": "City of Council Bluffs — Google partnership statements",
+      "source_url": "https://blog.google/feed/new-7-billion-investment-iowa/",
+      "source_title": "Google Blog — Mayor Matt Walsh praises Council Bluffs Google school donations + city-wide wifi",
       "single_source": true
     },
     {
@@ -63,8 +63,8 @@
       "stance": "negative",
       "constituency": "ngo",
       "summary": "Arizona water-policy advocates criticized the siting of large data centers — including Microsoft's Goodyear campus — in the metro Phoenix area amid ongoing groundwater scarcity and limits on new residential development.",
-      "source_url": "https://www.azwater.gov/",
-      "source_title": "Arizona Department of Water Resources — Phoenix AMA assured-water findings",
+      "source_url": "https://www.azwater.gov/phoenix-ama-groundwater-supply-updates",
+      "source_title": "Arizona Department of Water Resources — Phoenix AMA Groundwater Supply Updates",
       "single_source": false
     },
     {
@@ -74,8 +74,8 @@
       "stance": "positive",
       "constituency": "local_government",
       "summary": "Wisconsin state and Racine County officials welcomed Microsoft's expanded $3.3B commitment as repurposing the long-stalled Foxconn site, with paired pledges of community investment and workforce training programs.",
-      "source_url": "https://www.racinecounty.com/",
-      "source_title": "Racine County — Microsoft Mount Pleasant announcement",
+      "source_url": "https://racinecountyeye.com/2024/05/08/microsoft-3-3-billion-in-wisconsin/",
+      "source_title": "Racine County Eye — Microsoft $3.3B Wisconsin announcement (May 8 2024) with local-official welcome",
       "single_source": false
     },
     {
@@ -85,8 +85,8 @@
       "stance": "mixed",
       "constituency": "residents",
       "summary": "Loudoun County residents living near data center clusters raised noise and visual-impact concerns at multiple Board of Supervisors hearings; the county subsequently tightened zoning and decibel rules for new builds.",
-      "source_url": "https://www.loudoun.gov/",
-      "source_title": "Loudoun County Board of Supervisors — Data center zoning hearings (2024)",
+      "source_url": "https://www.loudoun.gov/5990/Data-Center-Standards-Locations",
+      "source_title": "Loudoun County — Data Center Standards and Locations landing page (post-2024 zoning tightening)",
       "single_source": false
     },
     {
@@ -96,8 +96,8 @@
       "stance": "mixed",
       "constituency": "regulator",
       "summary": "FERC declined to approve an amended interconnection agreement that would have allowed AWS's Cumberland Valley campus to draw additional behind-the-meter capacity from the Susquehanna nuclear plant, citing potential cost-shifting to other PJM ratepayers.",
-      "source_url": "https://www.ferc.gov/",
-      "source_title": "FERC — Talen / AWS / Susquehanna ISA filing decision (Nov 2024)",
+      "source_url": "https://www.utilitydive.com/news/ferc-interconnection-isa-talen-amazon-data-center-susquehanna-exelon/731841/",
+      "source_title": "Utility Dive — FERC 2-1 rejects amended Talen/AWS Susquehanna ISA (Nov 1 2024)",
       "single_source": false
     },
     {
@@ -107,8 +107,8 @@
       "stance": "negative",
       "constituency": "ngo",
       "summary": "The NAACP and the Southern Environmental Law Center notified xAI of intent to sue over Clean Air Act violations tied to dozens of unpermitted methane gas turbines installed at the Colossus site in a majority-Black south Memphis neighborhood.",
-      "source_url": "https://www.southernenvironment.org/",
-      "source_title": "SELC — Notice of intent to sue xAI over Memphis air permits",
+      "source_url": "https://www.selc.org/press-release/elon-musks-xai-threatened-with-lawsuit-over-air-pollution-from-memphis-data-center/",
+      "source_title": "Southern Environmental Law Center — NAACP / SELC notice of intent to sue xAI over Memphis air permits",
       "single_source": false
     },
     {
@@ -118,8 +118,8 @@
       "stance": "negative",
       "constituency": "residents",
       "summary": "South Memphis residents told reporters and the Shelby County Health Department that emissions and noise from xAI's on-site gas turbines worsened existing air-quality concerns in a neighborhood already burdened by industrial pollution.",
-      "source_url": "https://www.commercialappeal.com/",
-      "source_title": "Memphis Commercial Appeal — Boxtown residents on xAI air quality",
+      "source_url": "https://www.cnn.com/2025/05/19/climate/xai-musk-memphis-turbines-pollution",
+      "source_title": "CNN — Boxtown residents on xAI Memphis gas-turbine air-quality impact (May 19 2025)",
       "single_source": false
     },
     {
@@ -129,8 +129,8 @@
       "stance": "positive",
       "constituency": "local_government",
       "summary": "Abilene and Taylor County officials publicly welcomed the Stargate buildout, citing expected construction employment and the deepening of West Texas as an AI-infrastructure hub.",
-      "source_url": "https://www.abilenetx.gov/",
-      "source_title": "City of Abilene — Stargate project statements",
+      "source_url": "https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2025/09/23/openai-and-oracle-show-off-stargate-ai-data-center-in-texas-and-plan-five-more-elsewhere",
+      "source_title": "Spectrum News — Mayor Weldon Hurt welcomes Stargate at OpenAI/Oracle Abilene showcase",
       "single_source": true
     },
     {

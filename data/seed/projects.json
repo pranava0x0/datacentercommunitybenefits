@@ -327,7 +327,14 @@
       "acreage": 785,
       "power_mw": 300,
       "gpu_count": 230000,
-      "offtaker": "xAI"
+      "offtaker": "xAI",
+      "at_a_glance": {
+        "jobs": "500 initial jobs at Memphis Colossus",
+        "tax_revenue": "$100M+ projected local tax revenue",
+        "energy": "27→46 unpermitted gas turbines; NAACP/SELC Clean Air Act lawsuit pending",
+        "water": "$80M water-recycling plant paused Apr 2026 then recommitted",
+        "infrastructure": "$55M for new electrical substations"
+      }
     },
     {
       "id": "wonder-valley-box-elder-ut",
@@ -486,7 +493,13 @@
       "acreage": 3200,
       "power_mw": null,
       "gpu_count": null,
-      "offtaker": "Microsoft"
+      "offtaker": "Microsoft",
+      "at_a_glance": {
+        "jobs": "3,200-acre expansion (Apr 2026) tripling MS Cheyenne footprint",
+        "tax_revenue": "$11M+ to Laramie County tax base 2025; no local abatements",
+        "energy": "Black Hills LPCS tariff: MS pays its own grid upgrades directly",
+        "community_grants": "$4.7M to 56 local nonprofit projects since 2018"
+      }
     },
     {
       "id": "openai-lordstown-oh",
@@ -601,7 +614,13 @@
       "acreage": 45,
       "power_mw": 800,
       "gpu_count": null,
-      "offtaker": null
+      "offtaker": null,
+      "at_a_glance": {
+        "tax_revenue": "$650M projected 20-yr tax payments to local schools",
+        "energy": "Pays full power + infrastructure costs on IPL municipal utility",
+        "water": "Closed-loop cooling, water use ~comparable to an average restaurant",
+        "education": "K-12 STEM/AI literacy + Metropolitan Community College partnership"
+      }
     },
     {
       "id": "meta-tulsa-ok",
@@ -622,7 +641,13 @@
       "captured_at": "2026-05-16",
       "project_page_url": "https://datacenters.atmeta.com/2026/04/hello-tulsa/",
       "acreage": 340,
-      "offtaker": "Meta"
+      "offtaker": "Meta",
+      "at_a_glance": {
+        "jobs": "1,000 peak construction / 100 ops",
+        "tax_revenue": "85% property-tax abatement + $62.5M PILOT over 25 yr",
+        "infrastructure": "$25M+ for local roads + water upgrades",
+        "community_grants": "$3M community grant fund"
+      }
     },
     {
       "id": "meta-beaver-dam-wi",
@@ -768,7 +793,13 @@
       "project_page_url": "https://www.oracle.com/data-centers/saline-township/",
       "acreage": 1000,
       "power_mw": 1400,
-      "offtaker": "OpenAI"
+      "offtaker": "OpenAI",
+      "at_a_glance": {
+        "jobs": "2,500 union construction + 450 on-site + 1,500 in-county",
+        "tax_revenue": "$8M/yr schools + $1.6M/yr township direct revenue",
+        "community_grants": "$14M direct community benefits package",
+        "infrastructure": "$16B Oracle-operated build; OpenAI workload"
+      }
     },
     {
       "id": "oracle-dona-ana-nm",
@@ -790,7 +821,13 @@
       "project_page_url": "https://www.oracle.com/data-centers/",
       "acreage": 1400,
       "power_mw": 2400,
-      "offtaker": "OpenAI"
+      "offtaker": "OpenAI",
+      "at_a_glance": {
+        "jobs": "4,000 construction + 1,500 ongoing ops",
+        "tax_revenue": "$360M direct payments to Doña Ana County",
+        "energy": "Bloom Energy fuel cells; ~92% NOx reduction vs gas turbines",
+        "water": "Closed-loop non-evaporative cooling; $50M for local water systems"
+      }
     },
     {
       "id": "qts-eagle-mountain-ut",
@@ -811,7 +848,12 @@
       "captured_at": "2026-05-16",
       "project_page_url": "https://qtsdatacenters.com/data-centers/eagle-mountain/",
       "acreage": 193,
-      "offtaker": "QTS"
+      "offtaker": "QTS",
+      "at_a_glance": {
+        "jobs": "$6B / 193 ac / 3-building campus",
+        "energy": "Ratepayer Protection Pledge: no impact on local utility rates",
+        "water": "Zero-water closed-loop cooling"
+      }
     },
     {
       "id": "qts-fayetteville-ga",
@@ -1110,7 +1152,12 @@
       "captured_at": "2026-05-16",
       "project_page_url": "https://about.fb.com/news/2026/02/metas-new-data-center-lebanon-indiana-marks-milestone-ai-investment/",
       "power_mw": 1000,
-      "offtaker": "Meta"
+      "offtaker": "Meta",
+      "at_a_glance": {
+        "jobs": "~4,300 combined construction + ops; online 2027-2028",
+        "water": "$120M dedicated to local water infrastructure",
+        "infrastructure": "$45M for public road upgrades"
+      }
     },
     {
       "id": "meta-el-paso-tx",
@@ -1131,7 +1178,12 @@
       "captured_at": "2026-05-16",
       "project_page_url": "https://datacenters.atmeta.com/2026/03/big-things-are-happening-el-paso/",
       "power_mw": 1000,
-      "offtaker": "Meta"
+      "offtaker": "Meta",
+      "at_a_glance": {
+        "jobs": "$10B expansion; 1 GW campus",
+        "energy": "366 MW backup via 813 gas generators (CO/NOx concerns)",
+        "water": "Closed-loop liquid cooling; 200% water restoration pledge"
+      }
     },
     {
       "id": "google-chesterfield-va",
@@ -1191,7 +1243,11 @@
       "captured_at": "2026-05-16",
       "acreage": 672,
       "power_mw": 1300,
-      "offtaker": "OpenAI"
+      "offtaker": "OpenAI",
+      "at_a_glance": {
+        "jobs": "4,000 union construction + 700 OpenAI/Oracle + 330 Vantage ops",
+        "infrastructure": "$15B Stargate Lighthouse campus; 1.3 GW / 672 ac"
+      }
     },
     {
       "id": "amazon-falls-twp-pa",
