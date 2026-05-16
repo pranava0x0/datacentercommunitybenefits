@@ -2635,6 +2635,16 @@
         "unit": "MW",
         "kind": "on_site_generation"
       }
+    },
+    {
+      "id": "openai-stargate-community-engagement-2026",
+      "company_slug": "openai",
+      "theme": "engagement",
+      "statement": "Going forward, every Stargate site will have its own locally tailored Stargate Community plan, driven by community input and local concerns. They will all rest on this same core premise: Stargate is a partnership with communities, and we can only achieve our mission by being good neighbors.",
+      "source_url": "https://openai.com/index/stargate-community/",
+      "source_title": "OpenAI — Stargate Community",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-21"
     }
   ]
 }

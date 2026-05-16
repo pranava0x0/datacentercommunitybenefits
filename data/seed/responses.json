@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-14",
+  "generated_at": "2026-05-16",
   "responses": [
     {
       "id": "resp-meta-newton-water",
@@ -9,7 +9,7 @@
       "constituency": "journalist",
       "summary": "Reporting documented sustained, large-volume groundwater withdrawals at Meta's Newton County campus and questioned whether the local utility's disclosure framework was adequate to surface the impact to nearby residents.",
       "source_url": "https://grist.org/",
-      "source_title": "Grist \u2014 Meta data center groundwater coverage (Newton County, GA)",
+      "source_title": "Grist — Meta data center groundwater coverage (Newton County, GA)",
       "single_source": true
     },
     {
@@ -20,7 +20,7 @@
       "constituency": "regulator",
       "summary": "The Louisiana Public Service Commission opened a docket reviewing Entergy's proposed gas-fired generation buildout to serve Meta's Richland Parish load, with intervenor groups raising concerns about cost allocation to existing ratepayers.",
       "source_url": "https://www.lpsc.louisiana.gov/",
-      "source_title": "Louisiana Public Service Commission \u2014 Entergy IRP filings",
+      "source_title": "Louisiana Public Service Commission — Entergy IRP filings",
       "single_source": false
     },
     {
@@ -31,7 +31,7 @@
       "constituency": "local_government",
       "summary": "Crook County officials have repeatedly cited Meta's Prineville campus as a major contributor to local property tax revenue and as the largest private employer in the county.",
       "source_url": "https://co.crook.or.us/",
-      "source_title": "Crook County \u2014 Economic development statements",
+      "source_title": "Crook County — Economic development statements",
       "single_source": true
     },
     {
@@ -42,7 +42,7 @@
       "constituency": "journalist",
       "summary": "The Oregonian successfully sued the City of The Dalles to obtain Google's water-use figures, which the city had argued were trade secrets; the released numbers showed Google's facility consuming roughly a quarter of the city's water.",
       "source_url": "https://www.oregonlive.com/",
-      "source_title": "The Oregonian \u2014 Google water-use disclosure lawsuit (2022)",
+      "source_title": "The Oregonian — Google water-use disclosure lawsuit (2022)",
       "single_source": false
     },
     {
@@ -53,7 +53,7 @@
       "constituency": "local_government",
       "summary": "The Council Bluffs and Pottawattamie County governments have publicly highlighted Google's investment as transformative for local infrastructure spending, citing road, fiber, and school funding tied to the campus.",
       "source_url": "https://www.councilbluffs-ia.gov/",
-      "source_title": "City of Council Bluffs \u2014 Google partnership statements",
+      "source_title": "City of Council Bluffs — Google partnership statements",
       "single_source": true
     },
     {
@@ -62,9 +62,9 @@
       "date": "2023-09-08",
       "stance": "negative",
       "constituency": "ngo",
-      "summary": "Arizona water-policy advocates criticized the siting of large data centers \u2014 including Microsoft's Goodyear campus \u2014 in the metro Phoenix area amid ongoing groundwater scarcity and limits on new residential development.",
+      "summary": "Arizona water-policy advocates criticized the siting of large data centers — including Microsoft's Goodyear campus — in the metro Phoenix area amid ongoing groundwater scarcity and limits on new residential development.",
       "source_url": "https://www.azwater.gov/",
-      "source_title": "Arizona Department of Water Resources \u2014 Phoenix AMA assured-water findings",
+      "source_title": "Arizona Department of Water Resources — Phoenix AMA assured-water findings",
       "single_source": false
     },
     {
@@ -75,7 +75,7 @@
       "constituency": "local_government",
       "summary": "Wisconsin state and Racine County officials welcomed Microsoft's expanded $3.3B commitment as repurposing the long-stalled Foxconn site, with paired pledges of community investment and workforce training programs.",
       "source_url": "https://www.racinecounty.com/",
-      "source_title": "Racine County \u2014 Microsoft Mount Pleasant announcement",
+      "source_title": "Racine County — Microsoft Mount Pleasant announcement",
       "single_source": false
     },
     {
@@ -86,7 +86,7 @@
       "constituency": "residents",
       "summary": "Loudoun County residents living near data center clusters raised noise and visual-impact concerns at multiple Board of Supervisors hearings; the county subsequently tightened zoning and decibel rules for new builds.",
       "source_url": "https://www.loudoun.gov/",
-      "source_title": "Loudoun County Board of Supervisors \u2014 Data center zoning hearings (2024)",
+      "source_title": "Loudoun County Board of Supervisors — Data center zoning hearings (2024)",
       "single_source": false
     },
     {
@@ -97,7 +97,7 @@
       "constituency": "regulator",
       "summary": "FERC declined to approve an amended interconnection agreement that would have allowed AWS's Cumberland Valley campus to draw additional behind-the-meter capacity from the Susquehanna nuclear plant, citing potential cost-shifting to other PJM ratepayers.",
       "source_url": "https://www.ferc.gov/",
-      "source_title": "FERC \u2014 Talen / AWS / Susquehanna ISA filing decision (Nov 2024)",
+      "source_title": "FERC — Talen / AWS / Susquehanna ISA filing decision (Nov 2024)",
       "single_source": false
     },
     {
@@ -108,7 +108,7 @@
       "constituency": "ngo",
       "summary": "The NAACP and the Southern Environmental Law Center notified xAI of intent to sue over Clean Air Act violations tied to dozens of unpermitted methane gas turbines installed at the Colossus site in a majority-Black south Memphis neighborhood.",
       "source_url": "https://www.southernenvironment.org/",
-      "source_title": "SELC \u2014 Notice of intent to sue xAI over Memphis air permits",
+      "source_title": "SELC — Notice of intent to sue xAI over Memphis air permits",
       "single_source": false
     },
     {
@@ -119,7 +119,7 @@
       "constituency": "residents",
       "summary": "South Memphis residents told reporters and the Shelby County Health Department that emissions and noise from xAI's on-site gas turbines worsened existing air-quality concerns in a neighborhood already burdened by industrial pollution.",
       "source_url": "https://www.commercialappeal.com/",
-      "source_title": "Memphis Commercial Appeal \u2014 Boxtown residents on xAI air quality",
+      "source_title": "Memphis Commercial Appeal — Boxtown residents on xAI air quality",
       "single_source": false
     },
     {
@@ -130,7 +130,7 @@
       "constituency": "local_government",
       "summary": "Abilene and Taylor County officials publicly welcomed the Stargate buildout, citing expected construction employment and the deepening of West Texas as an AI-infrastructure hub.",
       "source_url": "https://www.abilenetx.gov/",
-      "source_title": "City of Abilene \u2014 Stargate project statements",
+      "source_title": "City of Abilene — Stargate project statements",
       "single_source": true
     },
     {
@@ -139,9 +139,9 @@
       "date": "2026-05-11",
       "stance": "mixed",
       "constituency": "local_government",
-      "summary": "Utah Governor Spencer Cox defended the project's strategic importance in the U.S.\u2013China AI race but acknowledged residents' concerns and announced the project would be scaled back from the original 40,000 acres and ~7.5 GW to roughly 2,000 acres and 1.5 GW.",
+      "summary": "Utah Governor Spencer Cox defended the project's strategic importance in the U.S.–China AI race but acknowledged residents' concerns and announced the project would be scaled back from the original 40,000 acres and ~7.5 GW to roughly 2,000 acres and 1.5 GW.",
       "source_url": "https://www.deseret.com/politics/2026/05/11/utah-governor-cox-defends-box-elder-data-center-as-important-to-national-security-in-ai-arms-race-with-china/",
-      "source_title": "Beyond data centers: Utah governor issues wake-up call on new Cold War contest over AI \u2014 Deseret News",
+      "source_title": "Beyond data centers: Utah governor issues wake-up call on new Cold War contest over AI — Deseret News",
       "single_source": false
     },
     {
@@ -152,7 +152,7 @@
       "constituency": "local_government",
       "summary": "The Box Elder County Commission voted to approve a development consent agreement for the Wonder Valley campus, citing expected jobs, economic development, and the project's national-security framing.",
       "source_url": "https://utahnewsdispatch.com/2026/05/04/box-elder-commissioners-approve-data-center/",
-      "source_title": "Hundreds cry out as Box Elder commissioners wave in massive data center \u2014 Utah News Dispatch",
+      "source_title": "Hundreds cry out as Box Elder commissioners wave in massive data center — Utah News Dispatch",
       "single_source": false
     },
     {
@@ -163,7 +163,7 @@
       "constituency": "ngo",
       "summary": "The Sierra Club's Utah Chapter, led by director Franque Bains, condemned the Box Elder County Commission's approval as prioritizing polluters over residents and warned that the project's water and energy demand would worsen the Great Salt Lake water crisis.",
       "source_url": "https://www.sierraclub.org/press-releases/2026/05/stratos-data-center-approval-threatens-great-salt-lake-basin",
-      "source_title": "Stratos Data Center Approval Threatens Great Salt Lake Basin \u2014 Sierra Club",
+      "source_title": "Stratos Data Center Approval Threatens Great Salt Lake Basin — Sierra Club",
       "single_source": false
     },
     {
@@ -172,9 +172,9 @@
       "date": "2026-05-01",
       "stance": "negative",
       "constituency": "ngo",
-      "summary": "Utah Clean Energy estimated the proposed 9 GW gas-powered campus would consume nearly double Utah's 2025 peak electricity demand, increase statewide CO2 emissions by 55\u201375%, and use between 2 and 16.6 billion gallons of water per year depending on the gas-generation technology selected.",
+      "summary": "Utah Clean Energy estimated the proposed 9 GW gas-powered campus would consume nearly double Utah's 2025 peak electricity demand, increase statewide CO2 emissions by 55–75%, and use between 2 and 16.6 billion gallons of water per year depending on the gas-generation technology selected.",
       "source_url": "https://utahcleanenergy.org/estimated-emissions-and-water-consumption-from-the-proposed-stratos-data-center/",
-      "source_title": "Estimated Emissions and Water Consumption from the Proposed Stratos Data Center \u2014 Utah Clean Energy",
+      "source_title": "Estimated Emissions and Water Consumption from the Proposed Stratos Data Center — Utah Clean Energy",
       "single_source": false
     },
     {
@@ -185,7 +185,7 @@
       "constituency": "ngo",
       "summary": "Elevate Utah's policy brief argues the Stratos project rests on a 92% energy tax cut and an 80% property-tax rebate to the developer, would roughly double Utah's power demand on natural gas, and was approved with no completed environmental review or public vote on the Great Salt Lake watershed.",
       "source_url": "https://www.elevateutah.news/p/the-little-data-center-on-the-prairie",
-      "source_title": "The Little* Data Center on the Prairie \u2014 Elevate Utah",
+      "source_title": "The Little* Data Center on the Prairie — Elevate Utah",
       "single_source": false
     },
     {
@@ -194,9 +194,9 @@
       "date": "2026-05-08",
       "stance": "negative",
       "constituency": "residents",
-      "summary": "Brigham City resident Brenna Williams, lead sponsor of the Box Elder Accountability Referendum (BEAR), filed two referendum applications and used the group's public organizing platform to argue that local residents \u2014 not an out-of-state billionaire \u2014 should decide whether the 9 GW campus moves forward.",
+      "summary": "Brigham City resident Brenna Williams, lead sponsor of the Box Elder Accountability Referendum (BEAR), filed two referendum applications and used the group's public organizing platform to argue that local residents — not an out-of-state billionaire — should decide whether the 9 GW campus moves forward.",
       "source_url": "https://kutv.com/news/local/referendums-filed-to-challenge-stratos-mida-data-center-in-box-elder-county",
-      "source_title": "Referendums filed to challenge Stratos-MIDA Data Center in Box Elder County \u2014 KUTV",
+      "source_title": "Referendums filed to challenge Stratos-MIDA Data Center in Box Elder County — KUTV",
       "single_source": false
     },
     {
@@ -207,7 +207,7 @@
       "constituency": "residents",
       "summary": "Tremonton resident Farrah Pliley, who runs the social-media channels for the Box Elder Accountability Referendum, organized residents into a video and volunteer-recruiting campaign aimed at qualifying a county-wide vote to overturn the Stratos approval.",
       "source_url": "https://www.fox13now.com/news/local-news/northern-utah/box-elder-accountability-referendum-seeks-to-gather-signatures-for-stratos-project-proposals",
-      "source_title": "Box Elder community group seeks to have voices heard in data center project \u2014 Fox 13 Now",
+      "source_title": "Box Elder community group seeks to have voices heard in data center project — Fox 13 Now",
       "single_source": true
     },
     {
@@ -218,7 +218,7 @@
       "constituency": "ngo",
       "summary": "Utah Residents Organized for Oversight, Transparency and Stewardship (Utah ROOTS), led publicly by Aubri Devashrayee, characterized opposition to the Stratos campus as a cross-partisan coalition objecting to the speed and opacity of the MIDA approval process.",
       "source_url": "https://www.ksl.com/article/51496721/box-elder-county-data-center-debate-intensifies-as-foes-supporters-trade-barbs",
-      "source_title": "Box Elder County data center debate intensifies as foes, supporters trade barbs \u2014 KSL",
+      "source_title": "Box Elder County data center debate intensifies as foes, supporters trade barbs — KSL",
       "single_source": true
     },
     {
@@ -229,7 +229,7 @@
       "constituency": "regulator",
       "summary": "Alliant Energy president and CEO Lisa Barton publicly committed to a five-year, zero-percent rate freeze for existing Iowa residential, farm, and small-business customers, framing the QTS load as additive rather than rate-base-shifted, and citing affordability protection as the company's rationale for backing the QTS Ratepayer Protection Pledge.",
       "source_url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
-      "source_title": "U.S. Energy Secretary tours Cedar Rapids QTS data center campus \u2014 The Gazette",
+      "source_title": "U.S. Energy Secretary tours Cedar Rapids QTS data center campus — The Gazette",
       "single_source": false
     },
     {
@@ -240,7 +240,7 @@
       "constituency": "ngo",
       "summary": "Iowa energy and consumer advocates told The Daily Iowan that the demand spike from QTS and other Cedar Rapids data centers could ultimately raise residential utility bills if Alliant Energy passes infrastructure-build costs through to households despite QTS's pledge to fund its own energy needs. Advocates are watching to see whether the pledge translates into binding tariff structures at the Iowa Utilities Commission.",
       "source_url": "https://dailyiowan.com/2025/12/09/cedar-rapids-data-centers-ignite-concern-from-energy-advocates-excitement-from-officials/",
-      "source_title": "Cedar Rapids data centers ignite concern from energy advocates, excitement from officials \u2014 The Daily Iowan",
+      "source_title": "Cedar Rapids data centers ignite concern from energy advocates, excitement from officials — The Daily Iowan",
       "single_source": true
     },
     {
@@ -251,7 +251,7 @@
       "constituency": "local_government",
       "summary": "Cedar Rapids Mayor Tiffany O'Donnell publicly endorsed the QTS project during the U.S. Energy Secretary's site tour, citing land-stewardship safeguards and downstream interest from companies wanting proximity to the data-center campus.",
       "source_url": "https://www.kcrg.com/2026/04/24/us-energy-secretary-tours-qts-data-center-addresses-utility-water-concerns/",
-      "source_title": "U.S. Energy Secretary tours QTS data center, addresses utility, water concerns \u2014 KCRG",
+      "source_title": "U.S. Energy Secretary tours QTS data center, addresses utility, water concerns — KCRG",
       "single_source": false
     },
     {
@@ -262,7 +262,7 @@
       "constituency": "residents",
       "summary": "New Market Village residents in Henrico County's Varina district have raised concerns about water consumption, noise, power demand, environmental degradation, and what they describe as opaque deal-making around data-center development including QTS facilities. Henrico supervisors responded by tightening data-center oversight rules.",
       "source_url": "https://www.henricocitizen.com/data-center-detour-inside-henrico-countys-shifting-mindset-one-developers-attempt-to-overcome-it-and-a-community-fighting-back/",
-      "source_title": "DATA CENTER DETOUR: Inside Henrico County's shifting mindset \u2014 Henrico Citizen",
+      "source_title": "DATA CENTER DETOUR: Inside Henrico County's shifting mindset — Henrico Citizen",
       "single_source": true
     },
     {
@@ -273,7 +273,7 @@
       "constituency": "regulator",
       "summary": "The Federal Permitting Improvement Steering Council designated QTS Richmond Technology Park Data Center 5 as the first-ever data-center project to receive FAST-41 coverage, naming the U.S. Army Corps of Engineers as federal lead. The Council framed the designation as implementing the President's Executive Order to streamline federal review for AI infrastructure.",
       "source_url": "https://www.permitting.gov/newsroom/press-releases/first-data-center-project-gains-permitting-councils-fast-41-coverage",
-      "source_title": "First Data Center Project Gains Permitting Council's FAST-41 Coverage \u2014 permitting.gov",
+      "source_title": "First Data Center Project Gains Permitting Council's FAST-41 Coverage — permitting.gov",
       "single_source": false
     },
     {
@@ -284,7 +284,7 @@
       "constituency": "ngo",
       "summary": "The American Battlefield Trust and the Oak Valley Homeowners Association sued Prince William County over the rezoning approval for QTS's ~2,139-acre Prince William Digital Gateway, arguing the project encroaches on Manassas-area battlefield land and rural residential character. The Virginia Court of Appeals ruled in plaintiffs' favor; QTS filed an 11th-hour appeal.",
       "source_url": "https://www.princewilliamtimes.com/news/qts-files-11th-hour-appeal-to-keep-the-prince-william-digital-gateway-alive/article_25d14ef1-e12d-4079-977b-5b52e3c8b166.html",
-      "source_title": "QTS files 11th hour appeal to keep the Prince William Digital Gateway alive \u2014 Prince William Times",
+      "source_title": "QTS files 11th hour appeal to keep the Prince William Digital Gateway alive — Prince William Times",
       "single_source": false
     },
     {
@@ -350,7 +350,7 @@
       "constituency": "local_government",
       "summary": "Prineville's public works director and Crook County commissioner publicly endorsed Meta's $1M-$3.2M funding of a second aquifer storage and recovery injection well, projected to double the city's annual storage capacity to 300 million gallons. An Oregon Department of Fish and Wildlife biologist noted long-term groundwater development will eventually reduce surface flows.",
       "source_url": "https://bendbulletin.com/2024/05/09/prineville-doubles-down-on-water-conservation-with-tech-giant-backed-project/",
-      "source_title": "The Bulletin \u2014 Prineville doubles down on water conservation with tech giant-backed project",
+      "source_title": "The Bulletin — Prineville doubles down on water conservation with tech giant-backed project",
       "single_source": false
     },
     {
@@ -361,7 +361,7 @@
       "constituency": "ngo",
       "summary": "A Good Jobs First study found Crook County School District's foregone revenue from data-center property tax abatements rose from $10M in 2019 to $29M in 2024, even as Meta has donated more than $2M to the district over a decade. The district's CFO acknowledged the trade-off but said enrollment has grown with new data-center jobs.",
       "source_url": "https://bendbulletin.com/2025/08/21/oregon-business-property-tax-breaks-cost-schools-275-million-last-year-study-finds/",
-      "source_title": "The Bulletin \u2014 Oregon business property tax breaks cost schools $275 million last year",
+      "source_title": "The Bulletin — Oregon business property tax breaks cost schools $275 million last year",
       "single_source": false
     },
     {
@@ -372,7 +372,7 @@
       "constituency": "ngo",
       "summary": "A Central Oregon angling and watershed-advocacy blog argued Meta's data-center groundwater pumping has dropped Facebook's Prineville well by 53 feet from 2010 to 2020 and that mitigation water released in winter does not address summer low-flow conditions on the Crooked River.",
       "source_url": "https://coinformedangler.org/2021/12/26/prineville-data-centers-and-water-there-is-a-cost/",
-      "source_title": "Central Oregon Informed Angler \u2014 Prineville, Data Centers, and Water: There is a Cost",
+      "source_title": "Central Oregon Informed Angler — Prineville, Data Centers, and Water: There is a Cost",
       "single_source": true
     },
     {
@@ -383,7 +383,7 @@
       "constituency": "local_government",
       "summary": "The Joint Development Authority of Jasper, Morgan, Newton and Walton counties unanimously approved disbursing a $3 million PILOT payment from Meta, with Newton County's 37.5% share ($1.125M) directed to schools, the county commission and fire services. The disbursement was part of an FY23 record-high $10.5M JDA return.",
       "source_url": "https://www.covnews.com/news/county/newton-county-receive-1125-million-meta-pilot-payment/",
-      "source_title": "The Covington News \u2014 Newton County to receive $1.125 million from Meta PILOT payment",
+      "source_title": "The Covington News — Newton County to receive $1.125 million from Meta PILOT payment",
       "single_source": false
     },
     {
@@ -394,7 +394,7 @@
       "constituency": "residents",
       "summary": "Beverly and Jeff Morris, plus at least three neighboring households roughly 1,000 feet from Meta's Stanton Springs site, reported well failures, sediment, and discolored water beginning during data-center construction. Newton County Water and Sewerage Authority director Mike Hopkins said the area's community water budget cannot accommodate further data-center demand.",
       "source_url": "https://ppc.land/meta-data-center-impacts-local-water-supply-in-newton-county/",
-      "source_title": "ppc.land \u2014 Meta data center impacts local water supply in Newton County",
+      "source_title": "ppc.land — Meta data center impacts local water supply in Newton County",
       "single_source": false
     },
     {
@@ -403,9 +403,9 @@
       "date": "2025-07-21",
       "stance": "mixed",
       "constituency": "local_government",
-      "summary": "Mansfield Mayor Blair Northen cited a 33% local water-rate increase over two years \u2014 well above the typical ~2% annual adjustment \u2014 and Chattahoochee Riverkeeper documented that subsequent data-center applicants have requested up to 9 million gallons per day, raising questions about whether the existing tariff and disclosure framework can keep up with demand.",
+      "summary": "Mansfield Mayor Blair Northen cited a 33% local water-rate increase over two years — well above the typical ~2% annual adjustment — and Chattahoochee Riverkeeper documented that subsequent data-center applicants have requested up to 9 million gallons per day, raising questions about whether the existing tariff and disclosure framework can keep up with demand.",
       "source_url": "https://ppc.land/meta-data-center-impacts-local-water-supply-in-newton-county/",
-      "source_title": "ppc.land \u2014 Meta data center impacts local water supply in Newton County",
+      "source_title": "ppc.land — Meta data center impacts local water supply in Newton County",
       "single_source": false
     },
     {
@@ -416,7 +416,7 @@
       "constituency": "regulator",
       "summary": "The Louisiana Public Service Commission approved Entergy's plan to build three gas plants (2,262 MW) and a $550M transmission line to serve Meta's Richland Parish load. Commissioner Davante Lewis cast the lone dissenting vote, citing nondisclosure agreements that prevent the public from seeing how much Meta is paying versus what existing ratepayers will bear.",
       "source_url": "https://www.fox8live.com/2025/09/25/louisianas-3b-power-upgrade-meta-project-raises-questions-about-who-should-foot-bill/",
-      "source_title": "Fox 8 \u2014 Louisiana's $3B power upgrade for Meta project raises questions about who should foot the bill",
+      "source_title": "Fox 8 — Louisiana's $3B power upgrade for Meta project raises questions about who should foot the bill",
       "single_source": false
     },
     {
@@ -425,9 +425,9 @@
       "date": "2025-10-30",
       "stance": "negative",
       "constituency": "ngo",
-      "summary": "Sierra Club's reporting characterized the Richland Parish project as straining Louisiana's grid (twice New Orleans peak demand), adding three new gas plants likely to worsen regional air quality, and using ~5 million gallons of water daily \u2014 concerns echoed by an Alliance for Affordable Energy advocate that ratepayers will be left exposed to long-run costs Meta has not contractually committed to cover.",
+      "summary": "Sierra Club's reporting characterized the Richland Parish project as straining Louisiana's grid (twice New Orleans peak demand), adding three new gas plants likely to worsen regional air quality, and using ~5 million gallons of water daily — concerns echoed by an Alliance for Affordable Energy advocate that ratepayers will be left exposed to long-run costs Meta has not contractually committed to cover.",
       "source_url": "https://www.sierraclub.org/sierra/rural-louisiana-meta-s-new-data-center-promises-growth-what-cost",
-      "source_title": "Sierra \u2014 In Rural Louisiana, Meta's New Data Center Promises Growth \u2014 But at What Cost?",
+      "source_title": "Sierra — In Rural Louisiana, Meta's New Data Center Promises Growth — But at What Cost?",
       "single_source": false
     },
     {
@@ -438,7 +438,7 @@
       "constituency": "local_government",
       "summary": "Richland Parish Tax Assessor Emmett 'Lee' Brown described rents jumping from roughly $600-$700/month to $2,500/month with the influx of about 4,000 construction-related residents, and longtime resident Joyce Piercy described traffic and affordability strain even as local businesses report record sales. Officials project >$2B in property tax revenue over the project's life.",
       "source_url": "https://www.fox8live.com/2026/05/12/metas-27-billion-ai-data-center-is-transforming-rural-louisiana/",
-      "source_title": "Fox 8 \u2014 Meta's $27 billion AI data center is transforming rural Louisiana",
+      "source_title": "Fox 8 — Meta's $27 billion AI data center is transforming rural Louisiana",
       "single_source": false
     },
     {
@@ -447,9 +447,9 @@
       "date": "2026-05-13",
       "stance": "positive",
       "constituency": "local_government",
-      "summary": "The Northeast Federation of Teachers & School Employees said Richland Parish's sales-tax-funded annual teacher 'clean-out check' is set to grow sharply \u2014 by union president Sandie Lollie's account, sales-tax collections supporting the bonus have grown nearly 2,000% \u2014 driven by Meta-related construction spending across Monroe-area restaurants, hotels and services.",
+      "summary": "The Northeast Federation of Teachers & School Employees said Richland Parish's sales-tax-funded annual teacher 'clean-out check' is set to grow sharply — by union president Sandie Lollie's account, sales-tax collections supporting the bonus have grown nearly 2,000% — driven by Meta-related construction spending across Monroe-area restaurants, hotels and services.",
       "source_url": "https://www.knoe.com/2026/05/13/richland-parish-teachers-could-see-bigger-end-of-year-checks/",
-      "source_title": "KNOE \u2014 Richland Parish teachers could see bigger end-of-year checks",
+      "source_title": "KNOE — Richland Parish teachers could see bigger end-of-year checks",
       "single_source": true
     },
     {
@@ -482,7 +482,7 @@
       "constituency": "ngo",
       "summary": "The Loudoun Climate Project, part of the Virginia Data Center Reform Coalition, advocated for the 2025 zoning rollback and is pushing 'Five Pillars of Data Center Reform' for 2026 state legislation, citing power grid strain, transmission line conflicts in residential areas, and ratepayer cost-shifting.",
       "source_url": "https://loudounclimate.org/data-centers/",
-      "source_title": "The Dark Side of Data Centers \u2014 Loudoun Climate Project",
+      "source_title": "The Dark Side of Data Centers — Loudoun Climate Project",
       "single_source": true
     },
     {
@@ -515,7 +515,7 @@
       "constituency": "ngo",
       "summary": "The Hoosier Environmental Council formally opposed Amazon's wetland-fill permit, calling proposed off-site mitigation insufficient and citing failures of Indiana's wetland mitigation credit program; the group argued the wetlands a mile from Bendix Woods Nature Preserve should be preserved on site.",
       "source_url": "https://www.hecweb.org/2025/05/08/wetland-loss-and-data-center-clash-at-idem-public-hearing/",
-      "source_title": "Wetland loss and data center clash at IDEM public hearing \u2014 Hoosier Environmental Council",
+      "source_title": "Wetland loss and data center clash at IDEM public hearing — Hoosier Environmental Council",
       "single_source": false
     },
     {
@@ -561,6 +561,457 @@
       "source_url": "https://www.ferc.gov/news-events/news/ferc-directs-nations-largest-grid-operator-create-new-rules-embrace-innovation-and",
       "source_title": "FERC Directs Nation's Largest Grid Operator to Create New Rules to Embrace Innovation and Protect Consumers",
       "single_source": false
+    },
+    {
+      "id": "resp-meta-tulsa-protest-ngo",
+      "project_id": "meta-tulsa-ok",
+      "date": "2026-04-22",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Stop Data Colonialism led a small protest at the Project Anthem reveal event, disputing Meta's water-management claims and citing environmental, electricity-rate, noise, and infrastructure-strain concerns.",
+      "source_url": "https://nativenewsonline.net/environment/tribal-advocates-residents-protest-secrecy-around-meta-backed-tulsa-data-center/",
+      "source_title": "Native News Online — Tribal advocates, residents protest secrecy around Meta-backed Tulsa data center",
+      "single_source": false
+    },
+    {
+      "id": "resp-meta-tulsa-moratorium-council",
+      "project_id": "meta-tulsa-ok",
+      "date": "2026-04-22",
+      "stance": "negative",
+      "constituency": "local_government",
+      "summary": "Tulsa City Council had unanimously approved a citywide moratorium on new data-center developments through end of 2026 prior to the Project Anthem announcement; a city councilor publicly criticized the project while the mayor remained silent.",
+      "source_url": "https://www.publicradiotulsa.org/local-regional/2026-04-22/meta-confirms-its-behind-project-anthem-data-center-in-east-tulsa",
+      "source_title": "Public Radio Tulsa — Meta confirms it's behind Project Anthem data center in east Tulsa",
+      "single_source": false
+    },
+    {
+      "id": "resp-meta-tulsa-stitt-positive",
+      "project_id": "meta-tulsa-ok",
+      "date": "2026-04-22",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Governor Kevin Stitt championed the announcement, emphasizing Meta's commitment to cover its own electricity and water costs so Oklahoma ratepayers would not bear the burden.",
+      "source_url": "https://www.newson6.com/tulsa-oklahoma-news/tulsa-meta-data-center-project-announcement",
+      "source_title": "News on 6 — Gov. Stitt announces Meta behind Tulsa data center 'Project Anthem'",
+      "single_source": false
+    },
+    {
+      "id": "resp-meta-beaver-dam-psc-mixed",
+      "project_id": "meta-beaver-dam-wi",
+      "date": "2026-05-07",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "The Wisconsin Public Service Commission approved Alliant Energy's modified rate contract for the Beaver Dam campus but ordered Alliant to develop a standardized payment structure for all future data-center customers and report regularly on costs to protect other ratepayers.",
+      "source_url": "https://wisconsinwatch.org/2026/05/psc-approves-alliant-meta-data-center-power-deal-while-criticizing-black-box-approach/",
+      "source_title": "Wisconsin Watch — PSC approves Alliant-Meta power deal while criticizing 'black box' approach",
+      "single_source": false
+    },
+    {
+      "id": "resp-meta-beaver-dam-psc-transparency",
+      "project_id": "meta-beaver-dam-wi",
+      "date": "2026-05-07",
+      "stance": "negative",
+      "constituency": "regulator",
+      "summary": "PSC Chair Summer Strand publicly criticized Meta and Alliant's use of nondisclosure agreements, heavily redacted filings, corporate pseudonyms ('Degas LLC'), and 'black box' negotiations, calling transparency 'non-negotiable.'",
+      "source_url": "https://wisconsinexaminer.com/2026/05/07/public-service-commission-criticizes-meta-lack-of-transparency-while-approving-contract-with-utility/",
+      "source_title": "Wisconsin Examiner — PSC criticizes Meta lack of transparency while approving contract",
+      "single_source": false
+    },
+    {
+      "id": "resp-meta-beaver-dam-residents-secrecy",
+      "project_id": "meta-beaver-dam-wi",
+      "date": "2026-04-09",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Beaver Dam residents publicly complained about the project's secrecy, scale of energy use, and potential community impact; coverage characterizes the opposition as part of a broader pattern across Wisconsin data-center sites.",
+      "source_url": "https://wtmj.com/news/2026/04/09/hyperscale-ai-data-centers-are-uncharted-waters-for-wisconsin/",
+      "source_title": "WTMJ — Hyperscale: AI data centers are uncharted waters for Wisconsin",
+      "single_source": true
+    },
+    {
+      "id": "resp-google-lagrange-city-manager-positive",
+      "project_id": "google-lagrange-ga",
+      "date": "2026-04-21",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "LaGrange City Manager Patrick Bowie welcomed Google, framing the project as filling a utility-system gap left by a major industrial customer's closure and as a partnership that will exert downward pressure on local utility rates.",
+      "source_url": "https://www.cbsnews.com/atlanta/news/google-announces-new-lagrange-data-center-partnership-with-local-organizations/",
+      "source_title": "CBS Atlanta — Google announces new LaGrange data center, partnership with local organizations",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-lagrange-residents-mixed",
+      "project_id": "google-lagrange-ga",
+      "date": "2026-04-29",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "Residents expressed concern about exclusion from decision-making and questioned whether the $1M Groundswell investment was sufficient given that Google reportedly committed $25M to a comparable West Memphis AR site; daily water use estimated at 2 million gallons drew specific objection.",
+      "source_url": "https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/",
+      "source_title": "WTVM — Google data center coming to LaGrange draws mixed reactions",
+      "single_source": true
+    },
+    {
+      "id": "resp-google-lagrange-drought-ngo",
+      "project_id": "google-lagrange-ga",
+      "date": "2026-05-15",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Georgia conservation groups raised drought-period concerns about data-center water draws including the LaGrange project, calling for greater transparency on water usage and environmental impacts during dry seasons.",
+      "source_url": "https://www.wctv.tv/2026/05/15/drought-concerns-fuel-new-debate-over-data-centers-georgia/",
+      "source_title": "WCTV — Drought concerns fuel new debate over data centers in Georgia",
+      "single_source": true
+    },
+    {
+      "id": "resp-google-stillwater-hoa-lawsuit",
+      "project_id": "google-stillwater-ok",
+      "date": "2025-08-22",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Park View Estates HOA sued Google, Manhattan Construction, Olsson Inc., Kipper LLC, and Emery Supp & Sons alleging that failed erosion control during data-center site clearing caused brown/red sediment runoff that contaminated their neighborhood pond and killed fish.",
+      "source_url": "https://okcfox.com/news/local/stillwater-hoa-sues-google-over-data-center-citing-pond-pollution-and-wildlife-loss",
+      "source_title": "OKC Fox — Stillwater HOA sues Google over data center, citing pond pollution and wildlife loss",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-stillwater-markum-water",
+      "project_id": "google-stillwater-ok",
+      "date": "2025-10-21",
+      "stance": "negative",
+      "constituency": "local_government",
+      "summary": "Payne County Commissioner Rhonda Markum testified before the Oklahoma House Utilities Committee citing water concerns (2.7M gal/day for two buildings, potentially 8.1M gal/day at full buildout), criticized the 25-year tax incentive vs. 5-year deferment for Google's Pryor site, and flagged that NDA requirements conflict with state open-government statutes.",
+      "source_url": "https://www.thestillwegian.news/local-officials-offer-contrasting-views-on-stillwater-data-center-at-state-study/",
+      "source_title": "The Stillwegian — Local officials clash over Google data center at state study",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-stillwater-moore-positive",
+      "project_id": "google-stillwater-ok",
+      "date": "2025-10-21",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Stillwater City Manager Brady Moore defended the project before the state legislature, citing 74% voter approval of the OG&E franchise agreement, Google's $600,000 donation to Stillwater Public Schools, and 3.2 million gallons/day of available water capacity in the relevant zone.",
+      "source_url": "https://www.thestillwegian.news/local-officials-offer-contrasting-views-on-stillwater-data-center-at-state-study/",
+      "source_title": "The Stillwegian — Local officials clash over Google data center at state study",
+      "single_source": true
+    },
+    {
+      "id": "resp-ms-person-cwfnc-meeting",
+      "project_id": "microsoft-person-county-nc",
+      "date": "2025-11-19",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Clean Water for North Carolina, Appalachian Voices, and the Sierra Club organized a Roxboro community meeting where residents voiced frustration over the lack of disclosure of project plans and submitted a formal letter of questions to Microsoft.",
+      "source_url": "https://cwfnc.org/person/",
+      "source_title": "Clean Water for North Carolina — Person County residents demand answers from Microsoft",
+      "single_source": false
+    },
+    {
+      "id": "resp-ms-person-assembly-nda",
+      "project_id": "microsoft-person-county-nc",
+      "date": "2025-09-15",
+      "stance": "mixed",
+      "constituency": "journalist",
+      "summary": "An investigative piece detailed how Person County's NDA-bound officials concealed Microsoft's 1,350-acre purchase from residents for over a year, framing the secrecy as a case study in how economic-development exemptions undermine local accountability.",
+      "source_url": "https://www.theassemblync.com/news/business/person-county-microsoft-data-center-nondisclosure-agreements/",
+      "source_title": "The Assembly NC — This data center was hidden from Person County",
+      "single_source": true
+    },
+    {
+      "id": "resp-ms-person-nda-pledge-praise",
+      "project_id": "microsoft-person-county-nc",
+      "date": "2026-03-18",
+      "stance": "positive",
+      "constituency": "ngo",
+      "summary": "Open-government and data-center transparency advocates publicly praised Microsoft's March 2026 commitment to stop using NDAs with local governments and to terminate existing ones, while noting skepticism over the 'limited circumstances' carve-out.",
+      "source_url": "https://wisconsinwatch.org/2026/03/local-data-center-critics-praise-microsofts-pledge-to-stop-using-ndas-but-remain-skeptical/",
+      "source_title": "Wisconsin Watch — Microsoft drops NDAs for data centers as critics seek transparency",
+      "single_source": false
+    },
+    {
+      "id": "resp-ms-person-utilities-hearing",
+      "project_id": "microsoft-person-county-nc",
+      "date": "2026-04-13",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Residents mobilized to attend an NC Utilities Commission electricity rate-hike hearing in Roxboro to oppose paying higher rates for fuel and new gas generation needed to serve Microsoft and other large industrial loads.",
+      "source_url": "https://cwfnc.org/person/",
+      "source_title": "Clean Water for North Carolina — Person County residents demand answers from Microsoft",
+      "single_source": true
+    },
+    {
+      "id": "resp-amazon-canton-residents-health",
+      "project_id": "amazon-canton-ms",
+      "date": "2026-04-09",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Residents living adjacent to the Canton campus reported dust accumulation triggering asthma-related ER visits, traffic bottlenecks, noise, declining property values, and an inability to relocate; a sitting Canton alderwoman said she had requested but never received a buyout discussion from the Madison County Economic Development Authority.",
+      "source_url": "https://www.mississippifreepress.org/amazons-canton-data-center-promises-prosperity-for-neighbors-its-bringing-dust-noise-and-pollution-fears/",
+      "source_title": "Mississippi Free Press — Amazon's Canton data center promises prosperity; for neighbors, it's bringing dust, noise and pollution fears",
+      "single_source": false
+    },
+    {
+      "id": "resp-amazon-canton-generators-ngo",
+      "project_id": "amazon-canton-ms",
+      "date": "2026-04-09",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Environmental advocates flagged that Amazon's two Madison County campuses are permitted for 700+ diesel backup generators (300+ at Canton alone), with estimated NOx emissions ~9x the local Nissan plant — raising concerns about air-quality exceedances during emergency operations.",
+      "source_url": "https://www.mississippifreepress.org/amazons-canton-data-center-promises-prosperity-for-neighbors-its-bringing-dust-noise-and-pollution-fears/",
+      "source_title": "Mississippi Free Press — Amazon's Canton data center promises prosperity...",
+      "single_source": true
+    },
+    {
+      "id": "resp-amazon-canton-reeves-positive",
+      "project_id": "amazon-canton-ms",
+      "date": "2026-04-09",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Governor Tate Reeves and Mississippi Development Authority leadership characterized the additional $12B investment as transformative for central Mississippi, citing 700 new Madison County jobs (1,000+ total) and Amazon's commitment to transition the Canton campus to 100% recycled wastewater cooling by 2027.",
+      "source_url": "https://governorreeves.ms.gov/amazon-continues-mississippi-expansion-announcing-plans-to-invest-a-total-of-25-billion-across-the-magnolia-state/",
+      "source_title": "Governor Reeves — Amazon continues Mississippi expansion, $25 billion total commitment",
+      "single_source": false
+    },
+    {
+      "id": "resp-openai-saline-board-rejection",
+      "project_id": "openai-saline-twp-mi",
+      "date": "2025-09-10",
+      "stance": "negative",
+      "constituency": "local_government",
+      "summary": "The Saline Township board voted 4-1 to deny rezoning of 575 acres of farmland for the OpenAI-Oracle data center after the planning commission also rejected the application, citing farmland-preservation concerns; Clerk Kelly Marion cast the lone supporting vote.",
+      "source_url": "https://fortune.com/2026/05/06/ai-data-center-michigan-saline-politics-farmland/",
+      "source_title": "Fortune — A Michigan farm town voted down plans for a giant OpenAI-Oracle data center",
+      "single_source": false
+    },
+    {
+      "id": "resp-openai-saline-lawsuit-settlement",
+      "project_id": "openai-saline-twp-mi",
+      "date": "2025-09-12",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "Two days after rejecting rezoning, the township was sued by Related Digital alleging exclusionary zoning under Michigan law; within weeks the township settled, agreeing to ~$14M in community benefits (farmland preservation, fire-department support, water-use limits, noise caps, expansion limits).",
+      "source_url": "https://fortune.com/2026/05/06/ai-data-center-michigan-saline-politics-farmland/",
+      "source_title": "Fortune — A Michigan farm town voted down plans for a giant OpenAI-Oracle data center",
+      "single_source": false
+    },
+    {
+      "id": "resp-openai-saline-michigan-towns-ban",
+      "project_id": "openai-saline-twp-mi",
+      "date": "2026-05-06",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Resident-led legal appeals continued into 2026 with opposition organizers describing the rapid post-settlement construction as engineered to foreclose further challenges; surrounding Michigan towns are now rushing to pass preemptive data-center zoning bans.",
+      "source_url": "https://www.tomshardware.com/tech-industry/michigan-towns-rush-to-block-ai-data-centers-after-16-billion-stargate-project-overrode-local-opposition",
+      "source_title": "Tom's Hardware — Michigan towns rush to block AI data centers after $16B Stargate project overrode local opposition",
+      "single_source": false
+    },
+    {
+      "id": "resp-oracle-dona-ana-bloom-positive",
+      "project_id": "oracle-dona-ana-nm",
+      "date": "2026-04-27",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Project Jupiter announced a switch from gas turbines and diesel generators to a fully Bloom Energy fuel-cell microgrid (up to 2.45 GW), framed as reducing NOx emissions by ~92% and consuming negligible water; included commitments of $50M for local water systems, $360M for schools/infrastructure, and 4,000 construction + 1,500 ongoing jobs.",
+      "source_url": "https://www.oracle.com/news/announcement/oracle-borderplex-and-bloom-energy-to-power-project-jupiter-with-fuel-cell-technology-2026-04-27/",
+      "source_title": "Oracle — Project Jupiter powered by Bloom Energy fuel cells",
+      "single_source": false
+    },
+    {
+      "id": "resp-oracle-dona-ana-source-nm-mixed",
+      "project_id": "oracle-dona-ana-nm",
+      "date": "2026-04-27",
+      "stance": "mixed",
+      "constituency": "journalist",
+      "summary": "Source NM coverage acknowledged the fuel-cell shift as a meaningful environmental improvement over the gas-turbine plan but raised continuing questions about emissions, methane sourcing, and how the microgrid would interact with grid resilience in Doña Ana County.",
+      "source_url": "https://sourcenm.com/2026/04/27/nm-project-jupiter-data-center-developers-announce-new-plans-for-generating-power/",
+      "source_title": "Source NM — Project Jupiter developers announce new power plans",
+      "single_source": true
+    },
+    {
+      "id": "resp-qts-eagle-mountain-mayor-positive",
+      "project_id": "qts-eagle-mountain-ut",
+      "date": "2026-04-18",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Eagle Mountain Mayor Jared Gray celebrated the topping-out of QTS's third building at the SLC1 campus, citing ~2,000 construction jobs on site and characterizing QTS as a long-term, high-quality community partner.",
+      "source_url": "https://www.utahbusiness.com/press-releases/2026/04/20/layton-construction-qts-data-centers-campus-eagle-mountain/",
+      "source_title": "Utah Business — Layton Construction and QTS topping out in Eagle Mountain",
+      "single_source": false
+    },
+    {
+      "id": "resp-qts-eagle-mountain-academic-water",
+      "project_id": "qts-eagle-mountain-ut",
+      "date": "2026-04-17",
+      "stance": "mixed",
+      "constituency": "academic",
+      "summary": "Utah Valley University researchers and Grow the Flow initiative leaders noted that on-site cooling-water claims should be examined alongside indirect water use for power generation; HB 76 sponsor Rep. Jill Koford highlighted that existing facilities don't yet report water consumption.",
+      "source_url": "https://utahnewsdispatch.com/2026/04/17/eagle-mountain-193-acre-data-center-campus-is-set-to-be-done-this-year-with-big-water-promises/",
+      "source_title": "Utah News Dispatch — Eagle Mountain 193-acre data center campus set to finish this year with big water promises",
+      "single_source": false
+    },
+    {
+      "id": "resp-qts-york-residents-qa",
+      "project_id": "qts-york-county-sc",
+      "date": "2026-05-12",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "Dozens of residents attended a panel discussion at Oakridge Elementary in Clover, submitting 50+ questions on data-center obsolescence, water use, electricity demand, and long-term economic impact; QTS responded with details on closed-loop cooling (600,000-gallon initial fill, then recirculated) and an estimated $40M in school tax revenue plus $16M to York County.",
+      "source_url": "https://www.wbtv.com/2026/05/13/york-county-residents-meet-with-qts-data-leaders-get-questions-answered/",
+      "source_title": "WBTV — York County residents meet with QTS Data leaders to get questions answered",
+      "single_source": false
+    },
+    {
+      "id": "resp-qts-york-residents-concerns",
+      "project_id": "qts-york-county-sc",
+      "date": "2026-02-11",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Lake Wylie-area residents raised renewed concerns about the QTS project's potential impacts on local small businesses, water use, and zoning ahead of the May community Q&A.",
+      "source_url": "https://www.wcnc.com/article/tech/science/environment/data-center-concerns-york-county-sc-2-11-2026/275-1d5a7101-2b38-43fe-b5ef-9032464e5f8b",
+      "source_title": "WCNC — Renewed concerns over QTS Data Center project in York County",
+      "single_source": false
+    },
+    {
+      "id": "resp-crusoe-sweetwater-commissioners-positive",
+      "project_id": "crusoe-sweetwater-tx",
+      "date": "2026-04-14",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Nolan County commissioners approved a 10-year tax abatement for Crusoe's $7B, 200 MW project, citing more than $3M in annual payments to the county and approximately $2M in yearly charitable funding from the developer.",
+      "source_url": "https://ktxs.com/news/local/it-will-change-our-rural-town-tax-abatement-for-7-billion-texas-data-center-approved",
+      "source_title": "KTXS — 'It will change our rural town': Tax abatement for $7 billion Texas data center approved",
+      "single_source": false
+    },
+    {
+      "id": "resp-crusoe-sweetwater-residents-mixed",
+      "project_id": "crusoe-sweetwater-tx",
+      "date": "2026-04-11",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "Sweetwater residents expressed mixed views: local business owners welcomed the growth and ~2,000 construction-phase workers, while others worried about how the project would alter the rural character of the community.",
+      "source_url": "https://ktxs.com/news/local/i-might-want-to-move-out-new-7-billion-texas-data-center-sparks-mixed-reactions",
+      "source_title": "KTXS — 'I might want to move out': New $7 billion Texas data center sparks mixed reactions",
+      "single_source": true
+    },
+    {
+      "id": "resp-crusoe-sweetwater-texas-tribune",
+      "project_id": "crusoe-sweetwater-tx",
+      "date": "2026-04-08",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "Texas Tribune analysis flagged that the state's data-center sales-tax break costs Texas over $1 billion per year — running alongside coverage of the Sweetwater abatement and other rural Texas projects.",
+      "source_url": "https://www.texastribune.org/2026/04/08/texas-data-centers-sales-tax-break-billion-dollars/",
+      "source_title": "Texas Tribune — Texas losing a billion dollars a year on data center tax break",
+      "single_source": false
+    },
+    {
+      "id": "resp-crusoe-cheyenne-petition",
+      "project_id": "crusoe-cheyenne-wy",
+      "date": "2026-05-04",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Organizer Heather Madrid launched a petition (targeting 7,000 signatures) calling for a Laramie County moratorium on new data-center approvals, citing pace of approvals, transparency gaps, and inadequate planning framework — explicitly not opposing already-approved projects like Project Jade.",
+      "source_url": "https://cowboystatedaily.com/2026/05/04/with-up-to-70-cheyenne-area-data-centers-in-the-works-petition-calls-for-pause/",
+      "source_title": "Cowboy State Daily — With up to 70 Cheyenne-area data centers in the works, petition calls for pause",
+      "single_source": false
+    },
+    {
+      "id": "resp-crusoe-cheyenne-councilor-planning",
+      "project_id": "crusoe-cheyenne-wy",
+      "date": "2026-05-04",
+      "stance": "negative",
+      "constituency": "local_government",
+      "summary": "A Cheyenne city councilor stated that data-center development had moved so quickly it had completely outstripped the ability of the county and the city to plan, echoing the petition's planning-capacity concerns.",
+      "source_url": "https://cowboystatedaily.com/2026/05/04/with-up-to-70-cheyenne-area-data-centers-in-the-works-petition-calls-for-pause/",
+      "source_title": "Cowboy State Daily — Petition calls for pause on Cheyenne data centers",
+      "single_source": true
+    },
+    {
+      "id": "resp-crusoe-cheyenne-water-question",
+      "project_id": "crusoe-cheyenne-wy",
+      "date": "2026-05-08",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Wyoming residents pressed regulators and developers for disclosure of water sourcing for Project Jade and other Cheyenne-area data centers, citing the projected 2.7 GW combined demand and limited groundwater inventory.",
+      "source_url": "https://cowboystatedaily.com/2026/05/08/as-data-centers-boom-wyomingites-want-to-know-where-the-waters-coming-from/",
+      "source_title": "Cowboy State Daily — As data centers boom, Wyomingites want to know where the water's coming from",
+      "single_source": false
+    },
+    {
+      "id": "resp-coreweave-kenilworth-rally-1",
+      "project_id": "coreweave-kenilworth-nj",
+      "date": "2026-04-20",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Residents gathered outside Kenilworth Borough Hall with cowbells and whistles to protest construction, citing water/energy impact (cited as ~200,000 homes' worth of demand), flood risk, lack of public notice, and possible utility-bill increases; petitions reached 1,500+ local signatures and 4,300+ on Change.org.",
+      "source_url": "https://abc7ny.com/post/community-rallies-giant-data-center-being-built-kenilworth-new-jersey/19053270/",
+      "source_title": "ABC7 NY — Community rallies against giant data center being built in Kenilworth, New Jersey",
+      "single_source": false
+    },
+    {
+      "id": "resp-coreweave-kenilworth-planning-mixed",
+      "project_id": "coreweave-kenilworth-nj",
+      "date": "2026-04-28",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "The Kenilworth Planning Board approved a four-lot subdivision of the 35-acre former Merck site over extended public objection on utilities, noise, water, and concerns that the split would enable piecemeal review of the broader AI data-center project.",
+      "source_url": "https://www.msn.com/en-us/news/other/kenilworth-data-center-land-split-approved-despite-public-concerns/gm-GM10CB25DC",
+      "source_title": "MSN — Kenilworth data center land split approved despite public concerns",
+      "single_source": true
+    },
+    {
+      "id": "resp-coreweave-kenilworth-karlovitch-positive",
+      "project_id": "coreweave-kenilworth-nj",
+      "date": "2026-04-20",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Kenilworth Mayor Linda Karlovitch defended the project as filling a tax-revenue and jobs gap left by Merck's departure, citing 140+ jobs and ongoing economic benefits.",
+      "source_url": "https://newjersey.news12.com/ai-data-center-under-construction-in-kenilworth-draws-mixed-reactions-from-residents",
+      "source_title": "News 12 NJ — AI data center under construction in Kenilworth draws mixed reactions",
+      "single_source": false
+    },
+    {
+      "id": "resp-coreweave-kenilworth-rally-2",
+      "project_id": "coreweave-kenilworth-nj",
+      "date": "2026-05-07",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "A second protest brought Union County residents to Kenilworth Borough Hall to demand the project be stopped, focused on environmental impact, public health, and what attendees described as inadequate community notice.",
+      "source_url": "https://newjersey.news12.com/2026/05/07/union-county-residents-protest-proposed-ai-data-center-in-kenilworth/23Tni8ixRsZOgmXwIv3Cl3",
+      "source_title": "News 12 NJ — Union County residents protest proposed AI data center in Kenilworth",
+      "single_source": false
+    },
+    {
+      "id": "resp-nebius-vineland-rally",
+      "project_id": "nebius-vineland-nj",
+      "date": "2026-03-22",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "About 100 residents rallied at a Vineland park to oppose the AI data center, citing air emissions and asthma concerns, construction noise, and risk to the Kirkwood-Cohansey aquifer in the Pinelands National Reserve; a local farmer publicly questioned whether he would need to drill a new or deeper well.",
+      "source_url": "https://whyy.org/articles/data-center-artificial-intelligence-vineland-new-jersey/",
+      "source_title": "WHYY — Vineland residents push back against AI data center",
+      "single_source": false
+    },
+    {
+      "id": "resp-nebius-vineland-loan-declined",
+      "project_id": "nebius-vineland-nj",
+      "date": "2025-12-01",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "After resident backlash to a proposed $6.2M city loan to the developer, DataOne ultimately declined the loan; the controversy elevated public awareness and contributed to the project being scaled back from a proposed 2.4M sq ft footprint to under 718,000 sq ft.",
+      "source_url": "https://whyy.org/articles/data-center-artificial-intelligence-vineland-new-jersey/",
+      "source_title": "WHYY — Vineland residents push back against AI data center",
+      "single_source": true
+    },
+    {
+      "id": "resp-nebius-vineland-scaledown-coverage",
+      "project_id": "nebius-vineland-nj",
+      "date": "2026-04-15",
+      "stance": "mixed",
+      "constituency": "journalist",
+      "summary": "Regional reporting framed the scale-down from 2.4M to <718,000 sq ft as a partial response to community pressure while noting that construction is now active with November 2026 completion target — a notable contrast to nearby Williamstown and Logan Township proposals that were blocked outright.",
+      "source_url": "https://capemaycountyherald.com/article/large-data-center-nears-completion-in-vineland/",
+      "source_title": "Cape May County Herald — Large data center nears completion in Vineland",
+      "single_source": true
     }
   ]
 }
