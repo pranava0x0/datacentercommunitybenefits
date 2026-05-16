@@ -2746,6 +2746,331 @@
       "source_title": "Data Center Dynamics — Meta and CBRE LevelUp Fiber Technician Pathway",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-20"
+    },
+    {
+      "id": "openai-water-stargate-community-2026",
+      "company_slug": "openai",
+      "theme": "water",
+      "statement": "minimize water use by prioritizing closed-loop or low-water cooling systems",
+      "source_url": "https://openai.com/index/stargate-community/",
+      "source_title": "OpenAI — Stargate Community (water-cooling commitment, verified verbatim via The Register Jan 21 2026 citation)",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-21",
+      "project_id": "openai-abilene-tx"
+    },
+    {
+      "id": "oracle-dona-ana-tax-pitcock-2026",
+      "company_slug": "oracle",
+      "theme": "tax_revenue",
+      "statement": "Additionally, our investments include $360 million in direct payments to Doña Ana County to improve schools, infrastructure, and local services, and an additional $50 million to help the county fix, build and repair its water systems.",
+      "source_url": "https://www.oracle.com/news/announcement/blog/oracle-advances-american-ai-innovation-in-new-mexico-2026-01-23/",
+      "source_title": "Oracle — Josh Pitcock (SVP) on Project Jupiter community payments",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-23",
+      "project_id": "oracle-dona-ana-nm",
+      "metric": {
+        "value": 410000000.0,
+        "unit": "usd",
+        "kind": "direct_county_payments_total"
+      }
+    },
+    {
+      "id": "qts-dane-county-education-2025",
+      "company_slug": "qts",
+      "theme": "education",
+      "statement": "QTS will fund scholarships and workforce partnerships with Madison Area Technical College and develop research partnerships with the University of Wisconsin.",
+      "source_url": "https://qtsdatacenters.com/data-centers/dane-county-wi/",
+      "source_title": "QTS — Dane County WI $50M community-commitment package (Nov 2025)",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-11-07",
+      "project_id": "qts-dane-county-wi"
+    },
+    {
+      "id": "openai-abilene-academy-education-2026",
+      "company_slug": "openai",
+      "theme": "education",
+      "statement": "OpenAI will launch its first Stargate community OpenAI Academy in Abilene, Texas this spring.",
+      "source_url": "https://openai.com/index/stargate-community/",
+      "source_title": "OpenAI — Stargate Community (Abilene Academy commitment, verified via syndicated coverage)",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-21",
+      "project_id": "openai-abilene-tx"
+    },
+    {
+      "id": "crusoe-abilene-jobs-lochmiller-2024",
+      "company_slug": "crusoe",
+      "theme": "jobs",
+      "statement": "Abilene will host one of the largest clusters of GPUs in the world, bringing thousands of jobs to the local community while delivering tens of billions of dollars in value to the economy.",
+      "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-200mw-ai-data-center",
+      "source_title": "Crusoe newsroom — Chase Lochmiller (CEO) on Abilene 200 MW AI data center",
+      "captured_at": "2026-05-16",
+      "published_at": "2024-07-18",
+      "project_id": "crusoe-abilene-tx"
+    },
+    {
+      "id": "crusoe-abilene-blueprint-lochmiller-2025",
+      "company_slug": "crusoe",
+      "theme": "infrastructure",
+      "statement": "What you see in Abilene is the new blueprint for large-scale data center development.",
+      "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live",
+      "source_title": "Crusoe newsroom — Lochmiller on Abilene flagship live (Sep 30 2025)",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-09-30",
+      "project_id": "crusoe-abilene-tx"
+    },
+    {
+      "id": "oracle-abilene-water-magouyrk-2025",
+      "company_slug": "oracle",
+      "theme": "water",
+      "statement": "These data centers are designed to not use water. All of the data centers that we're building (in) this part of Stargate are designed to not use water. The reason we do that is because it turns out that's harmful for the environment and this is a better solution.",
+      "source_url": "https://www.cnbc.com/2025/09/23/openai-first-data-center-in-500-billion-stargate-project-up-in-texas.html",
+      "source_title": "CNBC — Clay Magouyrk (Oracle Co-CEO) on Abilene Stargate water design",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-09-23",
+      "project_id": "oracle-abilene-tx"
+    },
+    {
+      "id": "oracle-abilene-energy-ellison-2025",
+      "company_slug": "oracle",
+      "theme": "energy",
+      "statement": "Enough power for one million four-bedroom homes in the United States.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/openai-and-oracle-to-deploy-450000-gb200-gpus-at-stargate-abilene-data-center/",
+      "source_title": "Data Center Dynamics — Larry Ellison (Oracle CTO) on Stargate Abilene power consumption (Oracle AI World, Oct 15 2025)",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-10-15",
+      "project_id": "oracle-abilene-tx",
+      "metric": {
+        "value": 1.2,
+        "unit": "GW",
+        "kind": "load_equivalent"
+      }
+    },
+    {
+      "id": "qts-manassas-community-grants-murray-2024",
+      "company_slug": "qts",
+      "theme": "community_grants",
+      "statement": "We were proud to cheer on the Greater Manassas Baseball League team in the World Series last year and were excited to support them again this year. We value our relationships with the Northern Virginia community and were pleased to be able to help these players and their families make the trip.",
+      "source_url": "https://qtsdatacenters.com/news/qts-data-centers-announces-support-of-the-greater-manassas-baseball-league-for-the-second-year-in-a-row/",
+      "source_title": "QTS — Dave Murray (SVP Community Impact) on Greater Manassas Baseball League sponsorship",
+      "captured_at": "2026-05-16",
+      "published_at": "2024-08-19",
+      "project_id": "qts-manassas-va",
+      "metric": {
+        "value": 15000.0,
+        "unit": "usd",
+        "kind": "community_sponsorship"
+      }
+    },
+    {
+      "id": "meta-beaver-dam-engagement-davis-2025",
+      "company_slug": "meta",
+      "theme": "engagement",
+      "statement": "This is the perfect home for Meta for several reasons, including great local talent, strong community partnerships, and reliable infrastructure. We are excited to become part of the Beaver Dam community, and we look forward to a strong partnership with the city and the state for years to come.",
+      "source_url": "https://wedc.org/meta-state-and-local-officials-announce-1-billion-data-center-investment-in-beaver-dam-project/",
+      "source_title": "WEDC — Brad Davis (Meta Director of Data Center Community and Economic Development) on Beaver Dam",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-11-12",
+      "project_id": "meta-beaver-dam-wi"
+    },
+    {
+      "id": "meta-beaver-dam-water-davis-2025",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "In Beaver Dam we will restore 100% of the water consumed in our data center operations to local watersheds.",
+      "source_url": "https://dailydodge.com/meta-pledges-water-stewardship-surrounding-ai-data-center/",
+      "source_title": "Daily Dodge — Brad Davis (Meta) on Beaver Dam water restoration",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-11-13",
+      "project_id": "meta-beaver-dam-wi",
+      "metric": {
+        "value": 100.0,
+        "unit": "percent",
+        "kind": "water_restored"
+      }
+    },
+    {
+      "id": "microsoft-person-county-engagement-2026",
+      "company_slug": "microsoft",
+      "theme": "engagement",
+      "statement": "Microsoft is committed to being a good neighbor and active community member anywhere we build, own, or operate facilities. We look forward to sharing more detailed plans with the community as we have them and move through the years-long development process.",
+      "source_url": "https://www.theassemblync.com/news/business/person-county-microsoft-data-center-nondisclosure-agreements/",
+      "source_title": "The Assembly NC — Microsoft spokesperson on Person County data center",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-15",
+      "project_id": "microsoft-person-county-nc"
+    },
+    {
+      "id": "microsoft-person-county-energy-2026",
+      "company_slug": "microsoft",
+      "theme": "energy",
+      "statement": "While [Microsoft is] at the earliest stage of the development process, in any future datacenter project, the community can expect that we will: pay our way to ensure our development doesn't increase residents' electricity prices, minimize our water use and replenish more water than we use, create jobs for community residents, add to the tax base, and strengthen the community by investing in local IT training and nonprofits.",
+      "source_url": "https://www.theassemblync.com/news/business/person-county-microsoft-data-center-nondisclosure-agreements/",
+      "source_title": "The Assembly NC — Microsoft spokesperson on Person County five commitments",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-15",
+      "project_id": "microsoft-person-county-nc"
+    },
+    {
+      "id": "amazon-clinton-water-wehner-2026",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "We have a water-positive goal. In Clinton, we will actually use no water.",
+      "source_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+      "source_title": "SuperTalk MS — Roger Wehner (AWS VP Economic Development) on Clinton water use",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-09",
+      "project_id": "amazon-clinton-ms",
+      "metric": {
+        "value": 0.0,
+        "unit": "gallons",
+        "kind": "water_use_design"
+      }
+    },
+    {
+      "id": "amazon-clinton-jobs-wehner-2026",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "A super unique opportunity to take a pre-existing building that needed a little love — we're retrofitting that building and reinventing it as part of this broader story that we're creating here in Mississippi.",
+      "source_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+      "source_title": "SuperTalk MS — Wehner (AWS) on Clinton Delphi retrofit",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-09",
+      "project_id": "amazon-clinton-ms",
+      "metric": {
+        "value": 100.0,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "oracle-dona-ana-energy-thiagarajan-2026",
+      "company_slug": "oracle",
+      "theme": "energy",
+      "statement": "We are excited to move forward with this updated energy solution, which reflects our commitment to both the latest innovation and community priorities as we advance the next generation of AI infrastructure.",
+      "source_url": "https://www.prnewswire.com/news-releases/oracle-borderplex-and-bloom-energy-to-power-project-jupiter-with-cleaner-water-efficient-fuel-cell-technology-302754698.html",
+      "source_title": "PR Newswire — Mahesh Thiagarajan (Oracle EVP OCI) on Project Jupiter fuel-cell pivot",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-27",
+      "project_id": "oracle-dona-ana-nm"
+    },
+    {
+      "id": "oracle-dona-ana-infrastructure-napier-2026",
+      "company_slug": "oracle",
+      "theme": "infrastructure",
+      "statement": "Project Jupiter started with a belief that Doña Ana County could become a Tier 1 industrial engine for New Mexico. We said we could help bring cleaner energy, stronger infrastructure, more jobs and new investment to southern New Mexico, and that vision is becoming reality. With this announcement, Project Jupiter is becoming a platform for better jobs, stronger infrastructure, and generational opportunity in a region with the talent, work ethic, and ambition to help lead New Mexico's next chapter of growth.",
+      "source_url": "https://www.prnewswire.com/news-releases/oracle-borderplex-and-bloom-energy-to-power-project-jupiter-with-cleaner-water-efficient-fuel-cell-technology-302754698.html",
+      "source_title": "PR Newswire — Lanham Napier (Chairman, BorderPlex Digital Assets — Oracle JV partner) on Project Jupiter",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-27",
+      "project_id": "oracle-dona-ana-nm",
+      "metric": {
+        "value": 4000.0,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "qts-fayetteville-engagement-greason-2025",
+      "company_slug": "qts",
+      "theme": "engagement",
+      "statement": "When we go into a community and spend time and energy and build relationships, it sometimes culminates in cool events like this. We do not want this to be a burden to the community. All the sections that we have that are adjacent to our properties, we will continue to maintain. This is on our property that we have donated to the project that ultimately allows people to enjoy this path for many, many years to come. The Fayetteville project has been one of the most successful projects that we've had.",
+      "source_url": "https://thecitizen.com/2025/11/15/qts-unveils-new-multi-use-path-as-part-of-expanding-community-partnership-in-fayetteville/",
+      "source_title": "The Citizen — Tag Greason (QTS co-CEO) on Fayetteville community partnership",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-11-15",
+      "project_id": "qts-fayetteville-ga"
+    },
+    {
+      "id": "qts-fayetteville-grants-robey-2025",
+      "company_slug": "qts",
+      "theme": "community_grants",
+      "statement": "Our mission statement is to love each other, serve our communities and connect the world. It is a privilege to be here, be part of this community. We hope that this serves as one of many great moments in the future to come.",
+      "source_url": "https://thecitizen.com/2025/11/15/qts-unveils-new-multi-use-path-as-part-of-expanding-community-partnership-in-fayetteville/",
+      "source_title": "The Citizen — David Robey (QTS co-CEO) on Fayetteville community",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-11-15",
+      "project_id": "qts-fayetteville-ga"
+    },
+    {
+      "id": "qts-york-county-engagement-williams-2023",
+      "company_slug": "qts",
+      "theme": "engagement",
+      "statement": "QTS is pleased to announce our expansion in York County, SC with a new campus that supports growth for QTS and its partners. Our investment in York County is consistent with QTS' strategy of securing access to infrastructure at scale in strategic markets to support accelerating demand from our hyperscale, enterprise, and government customer base. We look forward to partnering with the community along with local and state leadership, further enhancing South Carolina as a leading technology center.",
+      "source_url": "https://governor.sc.gov/news/2023-09/qts-data-centers-establishing-first-south-carolina-operations-york-county",
+      "source_title": "SC Governor's Office — Chad Williams (QTS CEO) on York County data center",
+      "captured_at": "2026-05-16",
+      "published_at": "2023-09-21",
+      "project_id": "qts-york-county-sc"
+    },
+    {
+      "id": "crusoe-cheyenne-energy-lochmiller-2025",
+      "company_slug": "crusoe",
+      "theme": "energy",
+      "statement": "Building an American AI factory that can scale to 10 gigawatts of capacity illustrates Crusoe's commitment to delivering infrastructure at the scale needed for the U.S. to win the global AI race.",
+      "source_url": "https://tallgrass.com/newsroom/press-releases/Crusoe",
+      "source_title": "Tallgrass newsroom — Chase Lochmiller (Crusoe co-founder & CEO) on Wyoming AI data center",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-07-24",
+      "project_id": "crusoe-cheyenne-wy",
+      "metric": {
+        "value": 10.0,
+        "unit": "GW",
+        "kind": "ultimate_capacity"
+      }
+    },
+    {
+      "id": "nebius-vineland-infrastructure-korolenko-2025",
+      "company_slug": "nebius",
+      "theme": "infrastructure",
+      "statement": "By combining Nebius' expertise in AI-native cloud computing with DataOne's deep knowledge of data center infrastructure, we are accelerating deployment timelines without compromising on performance or sustainability. This facility will be a major step in expanding our footprint in the US market, reinforcing Nebius' position as a leader in next-generation AI cloud infrastructure.",
+      "source_url": "https://datacentremagazine.com/articles/dataone-and-nebius-partner-for-new-300mw-ai-data-centre",
+      "source_title": "Data Centre Magazine — Andrey Korolenko (Nebius co-founder & CPIO) on Vineland NJ 300 MW facility",
+      "captured_at": "2026-05-16",
+      "published_at": "2025-05-29",
+      "project_id": "nebius-vineland-nj",
+      "metric": {
+        "value": 300.0,
+        "unit": "MW",
+        "kind": "capacity"
+      }
+    },
+    {
+      "id": "google-michigan-city-engagement-2026",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "We don't just build data centers; we become part of the community. That's why we're committed to a sustainable, long-term presence that benefits the entire community. This includes paying for 100% of the cost of power for the site and any infrastructure needs driven by our operations.",
+      "source_url": "https://wsbt.com/news/local/breaking-google-confirms-data-center-in-michigan-city-project-oyal-road-project-maize-underway-challenges-site-statement-michigan-city-laporte-county-indiana",
+      "source_title": "WSBT 22 — Google statement on Project Maize, Michigan City Indiana",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-04-16",
+      "project_id": "google-michigan-city-in"
+    },
+    {
+      "id": "google-franklin-furnace-engagement-2026",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "Google is considering a potential data center project in Scioto County, Ohio. We are still very early in the process, working closely with the local leadership.",
+      "source_url": "https://sciotocountydailynews.com/google-speaks-out-on-scioto-county-data-center/",
+      "source_title": "Scioto County Daily News — Molly Kocour Boyle (Google Head of Midwest DC Public Affairs) on Franklin Furnace",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-22",
+      "project_id": "google-franklin-furnace-oh"
+    },
+    {
+      "id": "openai-milam-county-energy-brockman-2026",
+      "company_slug": "openai",
+      "theme": "energy",
+      "statement": "Partnering with SB Energy brings together their strength in data center infrastructure and energy development, and OpenAI's deep domain expertise in data center engineering. The result is a fast, reliable way to scale compute through large, highly optimized AI data centers.",
+      "source_url": "https://openai.com/index/stargate-sb-energy-partnership/",
+      "source_title": "OpenAI — Greg Brockman (President) on SB Energy / Milam County 1.2 GW site",
+      "captured_at": "2026-05-16",
+      "published_at": "2026-01-09",
+      "project_id": "openai-milam-county-tx",
+      "metric": {
+        "value": 1.2,
+        "unit": "GW",
+        "kind": "capacity"
+      }
     }
   ]
 }
