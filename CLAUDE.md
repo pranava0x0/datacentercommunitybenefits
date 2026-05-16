@@ -282,6 +282,12 @@ All four payload types live in `data/seed/` (the curator's working copy) and are
 
 - **Quote claims; don't paraphrase.** A company's "we will" matters; restating as "they claim X" loses the original wording that's often the most-quoted-by-critics part. The `statement` field is for the verbatim quote; the surrounding UI provides any framing.
 - **Every record carries a source URL and capture date.** No exceptions. If a claim has no source, it doesn't ship. Schema enforces this; the frontend renders a "view source" link on every card.
+- **What counts as "first-party" (v1.6.1 expansion).** First-party means the statement comes from the company or a named executive — not the venue.
+  - **Always first-party:** company-published material (sustainability page, blog post, press release, regulatory filing, S-1 / annual report).
+  - **Acceptable as first-party:** a news article that contains a direct verbatim quote from a named company executive (e.g., *"'We will pay our way for electricity,' Brad Smith told Bloomberg."*). The quote is first-party even if the venue is a third-party outlet — the `source_title` should name both the speaker and the outlet (e.g., `"Bloomberg — Smith on Microsoft's Cheyenne pledge"`).
+  - **NOT acceptable:** a news article paraphrasing the company without quotation marks. ("Microsoft says it will pay…" without a quote attached.) Skip rather than paraphrase.
+  - **NOT acceptable:** an analyst report or NGO summary describing the company's commitment. Those are `CommunityResponse` records, not `Claim` records.
+  - **NOT acceptable:** something an executive said in a context where they were not speaking for the company (a personal podcast take that wasn't picked up as a corporate position).
 - **Stance is editorial, not algorithmic.** Stance tagging on community responses is a human judgment call — the rubric is in [DESIGN.md](DESIGN.md). **Don't** try to LLM-classify stance; it's the most adversarial part of the editorial frame and a wrong tag undermines the whole dashboard.
 - **Constituency matters.** A negative stance from a state regulator is a different signal than a negative stance from a Twitter thread; the `constituency` field lets users weight accordingly.
 - **Capture dates over "current" framing.** Company pages change frequently; a claim is always presented as "as of YYYY-MM-DD" in the UI. Re-capture quarterly. Old captures stay in the dataset (append-only) so historical drift is visible.

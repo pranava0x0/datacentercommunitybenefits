@@ -68,12 +68,14 @@ class TestComparisonView:
         expect(page.locator("#cd-name")).to_have_text("Google")
 
     def test_empty_cell_not_clickable(self, page: Page, base_url: str):
-        # Wonder Valley has no 'water' claim (the JV announcement is silent
-        # on water — confirmed honest skip across multiple research passes).
+        # Anthropic × education is a persistent honest gap — Anthropic
+        # publishes substantive education work but only attributes quotes
+        # to PARTNER orgs, never to a named Anthropic exec. Confirmed
+        # across multiple research passes including v1.6.1 fallback news.
         page.goto(base_url + "/")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator(
-            '#comparison-matrix td[data-company="wonder-valley"][data-theme="water"]'
+            '#comparison-matrix td[data-company="anthropic"][data-theme="education"]'
         )
         expect(cell).to_have_class("cell empty")
         # Empty cells should NOT have role=button — confirms they're inert.

@@ -2183,6 +2183,136 @@
       "source_url": "https://nebius.com/independencemo",
       "source_title": "Nebius x Independence, Missouri",
       "captured_at": "2026-05-15"
+    },
+    {
+      "id": "openai-education-lehane-nabtu",
+      "company_slug": "openai",
+      "theme": "education",
+      "statement": "It's imperative for us to have this workforce to be able to continue to build out at the speed and pace that we need to build out, particularly with the global competition with China.",
+      "source_url": "https://www.axios.com/2026/03/11/openai-building-trades-union-data-centers",
+      "source_title": "Axios \u2014 Chris Lehane (OpenAI Chief Global Affairs) on NABTU workforce partnership ($1.5M / 5-yr commitment, Mar 11, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-03-11"
+    },
+    {
+      "id": "xai-engagement-fabric-mayo",
+      "company_slug": "xai",
+      "theme": "engagement",
+      "statement": "as xAI and the community continue to grow together, xAI will provide not just more tax revenue but many other important opportunities to continue to strengthen the fabric of the community.",
+      "source_url": "https://www.actionnews5.com/2025/04/26/emotions-run-high-schd-town-hall-xai-environmental-concerns/",
+      "source_title": "Action News 5 \u2014 Brent Mayo (xAI senior manager) reading prepared statement at SCHD town hall (Apr 25, 2025)",
+      "captured_at": "2026-05-15",
+      "published_at": "2025-04-26"
+    },
+    {
+      "id": "xai-education-mayo-school-upgrades",
+      "company_slug": "xai",
+      "theme": "education",
+      "statement": "The reality is, when we went and toured those schools, we saw a lot of deferred maintenance. And so the baseline things like HVAC systems or PASAs that weren't functional or seeing black mold in these schools and sitting and meeting with these teachers, administrators, it became extremely obvious that while their tax dollars that are coming in, those things take time.",
+      "source_url": "https://dailymemphian.com/subscriber/section/business/article/53239/xai-could-tackle-some-mscs-building-upgrades",
+      "source_title": "Daily Memphian \u2014 Brent Mayo (xAI VP Operations) on Memphis school upgrades program",
+      "captured_at": "2026-05-15",
+      "published_at": "2025-07-15"
+    },
+    {
+      "id": "xai-grants-mayo-financial-responsibility",
+      "company_slug": "xai",
+      "theme": "community_grants",
+      "statement": "assume all financial responsibility",
+      "source_url": "https://www.chalkbeat.org/tennessee/2025/07/30/memphis-board-approves-musk-xai-offer-funding-school-repairs/",
+      "source_title": "Chalkbeat \u2014 Brent Mayo (xAI senior manager) committing xAI to funding 4 Southwest Memphis school repairs (MSCS board, Jul 30, 2025)",
+      "captured_at": "2026-05-15",
+      "published_at": "2025-07-30"
+    },
+    {
+      "id": "oracle-education-academy-blog-2026",
+      "company_slug": "oracle",
+      "theme": "education",
+      "statement": "Oracle is building AI data centers in communities across the United States, and Oracle Academy\u2014Oracle's global philanthropic education program\u2014plays a role in states like Texas, New Mexico, Michigan, and Wisconsin.",
+      "source_url": "https://www.oracle.com/news/announcement/blog/ai-data-centers-need-skilled-people-oracle-academy-helps-build-ai-careers-2026-02-02/",
+      "source_title": "Oracle \u2014 AI data centers need skilled people: Oracle Academy helps build AI careers (Feb 2, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-02-02"
+    },
+    {
+      "id": "oracle-jobs-stargate-100k-ellison",
+      "company_slug": "oracle",
+      "theme": "jobs",
+      "statement": "over 100,000 American jobs almost immediately",
+      "source_url": "https://en.wikipedia.org/wiki/Stargate_LLC",
+      "source_title": "Stargate LLC \u2014 Wikipedia (paraphrasing the Jan 21, 2025 White House announcement; co-investor commitment by Larry Ellison alongside Trump, Altman, Son)",
+      "captured_at": "2026-05-15",
+      "published_at": "2025-01-21"
+    },
+    {
+      "id": "wonder-valley-jobs-oleary-tucker-2026",
+      "company_slug": "wonder-valley",
+      "theme": "jobs",
+      "statement": "10,000 construction jobs and 2,000 maintenance jobs",
+      "source_url": "https://www.deseret.com/business/2026/05/14/tucker-carlson-kevin-oleary-utah-data-center-ai-artficial-intelligence-water-use-power-generation-tax-subsidies/",
+      "source_title": "Deseret News \u2014 Kevin O'Leary on Tucker Carlson re: Wonder Valley jobs for first 1.5 GW phase (May 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-05-14"
+    },
+    {
+      "id": "wonder-valley-tax-oleary-rules-2026",
+      "company_slug": "wonder-valley",
+      "theme": "tax_revenue",
+      "statement": "I'm a football player on the field of capitalism and I play by the rules",
+      "source_url": "https://www.deseret.com/business/2026/05/14/tucker-carlson-kevin-oleary-utah-data-center-ai-artficial-intelligence-water-use-power-generation-tax-subsidies/",
+      "source_title": "Deseret News \u2014 Kevin O'Leary on Tucker Carlson defending Utah tax-incentive package (May 13, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-05-14"
+    },
+    {
+      "id": "wonder-valley-water-oleary-salt-lake-2026",
+      "company_slug": "wonder-valley",
+      "theme": "water",
+      "statement": "There's lots of rumors that we're going to suck the Great Salt Lake dry. That's ridiculous. Of course that's not gonna happen. In fact, if anything, we'll be adding to the Great Salt Lake because the water rights on that land will be used.",
+      "source_url": "https://kutv.com/news/local/kevin-o-leary-addresses-water-concerns-claims-data-center-wont-drain-great-salt-lake",
+      "source_title": "KUTV \u2014 Kevin O'Leary on Wonder Valley water concerns and Great Salt Lake (May 10, 2026)",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-05-10"
+    },
+    {
+      "id": "crusoe-education-workforce-investment-lochmiller",
+      "company_slug": "crusoe",
+      "theme": "education",
+      "statement": "drive a massive investment into the American workforce to bring this to life, creating high-quality jobs across construction, manufacturing, technology, energy and transportation",
+      "source_url": "https://capcity.news/community/business/2025/08/27/laramie-county-project-to-power-ai-infrastructure-with-natural-gas/",
+      "source_title": "Capital City News \u2014 Chase Lochmiller (Crusoe Co-founder & CEO) on workforce investment for Wyoming AI buildout",
+      "captured_at": "2026-05-15",
+      "published_at": "2025-08-27"
+    },
+    {
+      "id": "coreweave-water-uk-closedloop-intrator",
+      "company_slug": "coreweave",
+      "theme": "water",
+      "statement": "It allows us to deliver unparalleled AI performance with the lowest possible environmental impact, setting a new global standard.",
+      "source_url": "https://www.coreweave.com/news/coreweave-announces-significant-commitment-to-power-uk-ai-innovation-and-growth",
+      "source_title": "CoreWeave \u2014 Michael Intrator (Chairman & CEO) on UK closed-loop cooling commitment",
+      "captured_at": "2026-05-15",
+      "published_at": "2024-05-20"
+    },
+    {
+      "id": "nebius-infrastructure-cost-coverage-sutter",
+      "company_slug": "nebius",
+      "theme": "infrastructure",
+      "statement": "we're going to pay our full cost of that \u2014 and we do that in all the states",
+      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/q-a-taking-independence-residents-concerns-to-nebius-vp-of-public-affairs",
+      "source_title": "KSHB \u2014 John Sutter (Nebius VP US Public Affairs) on portfolio-wide infrastructure cost coverage",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-04-22"
+    },
+    {
+      "id": "nebius-community-grants-engagement-panel-sutter",
+      "company_slug": "nebius",
+      "theme": "community_grants",
+      "statement": "we're going to work through our community engagement panel for direct investment with grants in nonprofits",
+      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/q-a-taking-independence-residents-concerns-to-nebius-vp-of-public-affairs",
+      "source_title": "KSHB \u2014 John Sutter (Nebius VP US Public Affairs) on Community Engagement Panel grants to nonprofits",
+      "captured_at": "2026-05-15",
+      "published_at": "2026-04-22"
     }
   ]
 }

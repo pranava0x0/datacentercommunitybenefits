@@ -64,14 +64,15 @@ scanning one tab across multiple projects doesn't force a re-click.
 
 ---
 
-## What's in the dataset (as of v1.6)
+## What's in the dataset (as of v1.6.1)
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
 | Companies          | 13    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Nebius      |
-| Claims             | 180   | Verbatim first-party quotes, mapped to one of 8 themes                  |
+| Claims             | 193   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
 | Projects           | 27    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
 | On-the-ground feedback | 51 | Reactions from residents / officials / NGOs / journalists / regulators  |
+| **Matrix coverage** | **87/104 (83%)** | 6 of 13 companies have full 8-theme coverage                |
 
 **First-paint payload:** `companies.json` (~7 KB) + `claims.json`
 (~70 KB) preload on first paint. `projects.json` (~20 KB) +
