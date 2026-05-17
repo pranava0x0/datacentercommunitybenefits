@@ -10,6 +10,8 @@ from pydantic import ValidationError
 from schema import (
     COMPANY_SLUGS,
     CONSTITUENCIES,
+    DELIVERED_LABELS,
+    DELIVERED_STATUSES,
     PROJECT_STATUSES,
     STANCES,
     THEME_LABELS,
@@ -18,6 +20,7 @@ from schema import (
     ClaimsPayload,
     CommunityResponse,
     Company,
+    Delivered,
     Metric,
     Project,
     ProjectsPayload,
@@ -268,6 +271,72 @@ class TestProject:
         with pytest.raises(ValidationError) as excinfo:
             Project(**_project_kwargs(at_a_glance={"cooling": "air-cooled"}))
         assert "cooling" in str(excinfo.value)
+
+
+class TestClaimDelivered:
+    """v1.13: Claim.delivered — curator assessment of whether the claim was met.
+
+    Honest gap-by-default (`None`) is the editorial bar; populated records
+    must validate against the four-status vocabulary and carry corroborating
+    evidence (source_url + summary + assessed_at).
+    """
+
+    def _delivered_kwargs(self, **over):
+        base = dict(
+            status="delivered",
+            summary="Site opened on schedule per company announcement.",
+            source_url="https://example.com/article",
+            source_title="Outlet — Site live coverage",
+            assessed_at=date(2026, 5, 17),
+        )
+        base.update(over)
+        return base
+
+    def test_delivered_optional(self):
+        c = Claim(**_claim_kwargs())
+        assert c.delivered is None
+
+    def test_delivered_round_trips(self):
+        d = Delivered(**self._delivered_kwargs())
+        c = Claim(**_claim_kwargs(delivered=d))
+        assert c.delivered is not None
+        assert c.delivered.status == "delivered"
+        assert c.delivered.assessed_at == date(2026, 5, 17)
+
+    def test_delivered_excluded_when_none(self):
+        c = Claim(**_claim_kwargs())
+        s = c.model_dump_json(exclude_none=True)
+        assert '"delivered"' not in s
+
+    def test_delivered_serializes_when_set(self):
+        d = Delivered(**self._delivered_kwargs(status="shortfall"))
+        c = Claim(**_claim_kwargs(delivered=d))
+        s = c.model_dump_json(exclude_none=True)
+        assert '"delivered"' in s
+        assert '"status":"shortfall"' in s
+
+    def test_delivered_rejects_unknown_status(self):
+        with pytest.raises(ValidationError):
+            Delivered(**self._delivered_kwargs(status="unknown"))
+
+    def test_delivered_requires_summary(self):
+        with pytest.raises(ValidationError):
+            Delivered(**self._delivered_kwargs(summary=""))
+
+    def test_delivered_requires_source(self):
+        with pytest.raises(ValidationError):
+            Delivered(**self._delivered_kwargs(source_url=None))
+
+    def test_delivered_statuses_match_labels(self):
+        # Drift-safe: every status has a label; every label has a status.
+        assert set(DELIVERED_STATUSES) == set(DELIVERED_LABELS)
+        assert len(DELIVERED_STATUSES) == 4  # frozen vocabulary
+
+    def test_delivered_status_vocabulary_frozen(self):
+        # If a 5th status is added, this test must be updated AND the frontend
+        # mirror (DELIVERED_STATUSES in app.js) AND the per-status color tokens
+        # AND docs/data must all be migrated. Don't loosen this casually.
+        assert DELIVERED_STATUSES == ("delivered", "partial", "contested", "shortfall")
 
 
 class TestClaimPublishedAt:

@@ -48,7 +48,12 @@ pop-out, which has three tabs:
   GPU/accelerator count, offtaker (workload owner)**, project page
   link, record source link, notes.
 - **Claims** — site-specific quotes for that project (with a count
-  badge on the tab).
+  badge on the tab). Claims that the curator has assessed against
+  independent reporting carry a **Delivered-vs-promised** panel
+  (v1.13+) — one of `Delivered` / `Partial` / `Contested` / `Shortfall`
+  with the evidence link and a short neutral synthesis. Absence of the
+  panel means no assessment has been captured yet (treated as honest
+  gap, not implied success).
 - **Community** — documented responses tagged
   positive/mixed/negative with constituency
   (residents / local government / NGO / academic / journalist / regulator).
@@ -64,15 +69,16 @@ scanning one tab across multiple projects doesn't force a re-click.
 
 ---
 
-## What's in the dataset (as of v1.6.1)
+## What's in the dataset (as of v1.13)
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
 | Companies          | 13    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Nebius      |
-| Claims             | 193   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
-| Projects           | 27    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
-| On-the-ground feedback | 51 | Reactions from residents / officials / NGOs / journalists / regulators  |
-| **Matrix coverage** | **87/104 (83%)** | 6 of 13 companies have full 8-theme coverage                |
+| Claims             | 276   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
+| Projects           | 74    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
+| On-the-ground feedback | 194 | Reactions from residents / officials / NGOs / journalists / regulators  |
+| Delivered-vs-promised assessments | 12  | Curator judgment on whether the claim was actually met (4 status types) |
+| **Matrix coverage** | **98/104 (94%)** | 7 of 13 companies have full 8-theme coverage; 6 honest gaps remain |
 
 **First-paint payload:** `companies.json` (~7 KB) + `claims.json`
 (~70 KB) preload on first paint. `projects.json` (~20 KB) +

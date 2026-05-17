@@ -25,6 +25,18 @@
   --stance-negative: #a3372f;
   --stance-negative-soft: #f0d4d1;
 
+  /* Delivered-vs-promised palette (v1.13). Mirrors stance hues so that
+     "delivered ↔ positive", "shortfall ↔ negative", "partial / contested ↔
+     mixed" read consistently across the dashboard. */
+  --delivered-delivered: #2f7a4d;
+  --delivered-delivered-soft: #e2f0e7;
+  --delivered-partial: #5a7a90;
+  --delivered-partial-soft: #e0e8ee;
+  --delivered-contested: #b07024;
+  --delivered-contested-soft: #f0e2c9;
+  --delivered-shortfall: #a3372f;
+  --delivered-shortfall-soft: #f0d4d1;
+
   /* Per-company subtle accent (NOT brand colors — neutral palette so we
      don't imply endorsement). Used for left borders / chips, not fills. */
   --co-meta: #4a6b8e;
@@ -84,6 +96,15 @@
   --stance-mixed-soft: #3a2e15;
   --stance-negative: #e07a72;
   --stance-negative-soft: #3a1f1c;
+
+  --delivered-delivered: #6cc18a;
+  --delivered-delivered-soft: #1d3a28;
+  --delivered-partial: #9bb4cc;
+  --delivered-partial-soft: #1f2a36;
+  --delivered-contested: #d6a44c;
+  --delivered-contested-soft: #3a2e15;
+  --delivered-shortfall: #e07a72;
+  --delivered-shortfall-soft: #3a1f1c;
 
   --co-meta: #7eb6e8;
   --co-google: #d6b86a;
@@ -721,6 +742,105 @@ main {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text);
+}
+
+/* Delivered-vs-promised panel attached to claim cards (v1.13). The panel
+   uses CSS-var-driven hues so dark mode and per-status palettes stay in
+   sync with the existing stance palette. */
+.claim-delivered {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid currentColor;
+  background: var(--surface-2);
+  font-size: 0.78rem;
+  color: var(--text);
+}
+
+.claims-list.compact .claim-delivered {
+  font-size: 0.74rem;
+  padding: 6px 8px;
+  margin-top: 8px;
+}
+
+.claim-delivered.delivered-delivered {
+  color: var(--delivered-delivered);
+  background: var(--delivered-delivered-soft);
+}
+.claim-delivered.delivered-partial {
+  color: var(--delivered-partial);
+  background: var(--delivered-partial-soft);
+}
+.claim-delivered.delivered-contested {
+  color: var(--delivered-contested);
+  background: var(--delivered-contested-soft);
+}
+.claim-delivered.delivered-shortfall {
+  color: var(--delivered-shortfall);
+  background: var(--delivered-shortfall-soft);
+}
+
+.delivered-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.delivered-badge {
+  display: inline-block;
+  padding: 1px 8px;
+  background: currentColor;
+  color: var(--surface);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  /* Dark-mode bump: when currentColor is a light token (delivered/positive
+     etc), the contrast against --surface needs the surface to be the *light*
+     surface variant; matching what the soft backgrounds already do. */
+}
+
+[data-theme="dark"] .delivered-badge {
+  color: var(--bg);
+}
+
+.delivered-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.delivered-date {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.delivered-summary {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.delivered-source {
+  margin: 6px 0 0;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.delivered-source a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+.delivered-source a:hover {
+  color: var(--link);
 }
 
 /* ==========================================================================

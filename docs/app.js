@@ -76,6 +76,24 @@ const STATUS_LABELS = {
   operational: "Operational",
 };
 
+// v1.13: Delivered-vs-promised vocabulary. Must mirror schema.DELIVERED_STATUSES.
+// Frontend test `test_themes_match_frontend.py` enforces parity.
+const DELIVERED_STATUSES = ["delivered", "partial", "contested", "shortfall"];
+const DELIVERED_LABELS = {
+  delivered: "Delivered",
+  partial: "Partial",
+  contested: "Contested",
+  shortfall: "Shortfall",
+};
+// One-line tooltip explanations of each status — surfaced as the title=
+// attribute on the badge.
+const DELIVERED_DESCRIPTIONS = {
+  delivered: "Independent reporting confirms the commitment was met.",
+  partial: "Meaningful progress but short of the stated scope.",
+  contested: "Company maintains delivery; another party documents shortfall.",
+  shortfall: "Independent reporting documents the commitment was not delivered.",
+};
+
 // Sort orders for the Explorer's project list. Each option is descending —
 // the question the dashboard answers is always "where is the most benefit
 // concentrated?" so the highest-scoring project belongs at the top.
@@ -543,7 +561,29 @@ function renderClaimCard(c) {
   li.appendChild(meta);
   li.appendChild(quote);
   li.appendChild(source);
+  if (c.delivered) li.appendChild(renderDeliveredPanel(c.delivered));
   return li;
+}
+
+// Render the delivery-assessment panel attached to a claim. Status is
+// surfaced as a badge with a CSS-var-driven color (per stance palette
+// precedent — see CLAUDE.md "Color tokens are CSS-var-driven").
+function renderDeliveredPanel(d) {
+  const div = document.createElement("div");
+  div.className = `claim-delivered delivered-${d.status}`;
+  const label = DELIVERED_LABELS[d.status] || d.status;
+  const tip = DELIVERED_DESCRIPTIONS[d.status] || "";
+  const assessed = d.assessed_at || "";
+  div.innerHTML = `
+    <div class="delivered-header">
+      <span class="delivered-badge" title="${escapeAttr(tip)}">${escapeHtml(label)}</span>
+      <span class="delivered-label">Delivered vs promised</span>
+      ${assessed ? `<span class="delivered-date" title="Curator assessed on">${escapeHtml(assessed)}</span>` : ""}
+    </div>
+    <p class="delivered-summary">${escapeHtml(d.summary)}</p>
+    <p class="delivered-source">Evidence: <a href="${escapeAttr(d.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(d.source_title)}</a></p>
+  `;
+  return div;
 }
 
 function renderMetricBadge(m) {

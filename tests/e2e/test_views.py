@@ -520,12 +520,14 @@ class TestDetailTabs:
         assert bbox_responses is None, "Hidden responses pane should have no layout box"
 
     def test_count_badges_hidden_when_no_data(self, page: Page, base_url: str):
-        # google-mesa-az has no community responses captured in seed.
-        # Pick a project deliberately because seed coverage drives this contract.
+        # Pick a project that has no responses AND no claims so both badges hide.
+        # Seed coverage drives this contract — fixture target updated to
+        # microsoft-hebron-oh (added v1.12) which has neither claims nor
+        # responses. Update this target if hebron later gets data.
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
-        page.evaluate("window.__dcb.selectProject('google-mesa-az')")
+        page.evaluate("window.__dcb.selectProject('microsoft-hebron-oh')")
         expect(page.locator("#project-detail")).to_be_visible()
         resp_badge = page.locator("#dtab-responses-count")
         # Badge should be hidden (zero responses for this project).
@@ -647,11 +649,12 @@ class TestProjectPhysicalMetrics:
         expect(page.locator("#project-detail")).to_be_visible()
 
     def test_acreage_renders_with_unit(self, page: Page, base_url: str):
-        # meta-richland-la has acreage=2250 in seed.
+        # meta-richland-la has acreage=3650 in seed (Phase 2 land buy May 2026
+        # added 1,400 ac to the original 2,250 ac Hyperion footprint).
         self._open(page, base_url, "meta-richland-la")
         text = page.locator("#d-acreage").text_content() or ""
         assert "acres" in text.lower(), f"Expected 'acres' in {text!r}"
-        assert "2,250" in text or "2250" in text, f"Expected 2250 in {text!r}"
+        assert "3,650" in text or "3650" in text, f"Expected 3650 in {text!r}"
 
     def test_power_renders_in_mw_or_gw(self, page: Page, base_url: str):
         # xai-memphis-tn has power_mw=300 → "300 MW"
@@ -660,11 +663,13 @@ class TestProjectPhysicalMetrics:
         assert "MW" in text, f"Expected MW unit in {text!r}"
 
     def test_power_renders_as_gw_at_1000_plus(self, page: Page, base_url: str):
-        # wonder-valley-box-elder-ut has power_mw=1500 → "1.5 GW"
+        # wonder-valley-box-elder-ut has power_mw=3000 → "3.0 GW"
+        # (Phase 1 capacity per Box Elder Co commission May 4 2026 approval;
+        # full buildout targets 7.5-9 GW.)
         self._open(page, base_url, "wonder-valley-box-elder-ut")
         text = page.locator("#d-power").text_content() or ""
         assert "GW" in text, f"Expected GW unit at >=1000 MW: {text!r}"
-        assert "1.5" in text, f"Expected 1.5 GW: {text!r}"
+        assert "3.0" in text, f"Expected 3.0 GW Phase 1: {text!r}"
 
     def test_gpu_count_renders_for_disclosed_sites(self, page: Page, base_url: str):
         # openai-abilene-tx has gpu_count=450000 → "450K"
@@ -718,11 +723,11 @@ class TestAtAGlance:
     def test_at_a_glance_hidden_when_no_project_claims(
         self, page: Page, base_url: str
     ):
-        # OpenAI Lordstown was newly added; check whether it has claims.
-        # If no project-tied claims exist, at-a-glance section must hide.
-        # (Lordstown actually has 3 claims; pick a project with none for this.)
-        self._open(page, base_url, "qts-manassas-va")
-        # qts-manassas-va has no project-tied claims in the merged seed.
+        # If no project-tied claims exist AND no curator at_a_glance override
+        # is set, the section must hide. Fixture target: microsoft-hebron-oh
+        # (added v1.12) — no claims, no at_a_glance. Update target if hebron
+        # later gets data.
+        self._open(page, base_url, "microsoft-hebron-oh")
         bbox = page.locator("#d-at-a-glance").bounding_box()
         assert bbox is None, "at-a-glance should hide when no project claims"
 
@@ -851,3 +856,47 @@ class TestSourceAttribution:
             assert (
                 link.count() == 1
             ), f"Response card {i} missing source link"
+
+
+class TestDeliveredAssessmentRendering:
+    """v1.13: Claim cards with a `delivered` field render the assessment panel."""
+
+    def test_delivered_panel_renders_for_assessed_claim(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        # xai-memphis-tn has the xai-memphis-tn-water-recycling-80m claim
+        # which carries a "contested" Delivered assessment.
+        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.locator("#dtab-claims").click()
+        page.wait_for_selector("#d-claims .claim-card", state="attached", timeout=5_000)
+        # At least one card has a delivered panel.
+        panels = page.locator("#d-claims .claim-delivered")
+        assert panels.count() >= 1, "Expected at least one delivered-assessment panel"
+
+    def test_delivered_panel_has_evidence_link(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.locator("#dtab-claims").click()
+        page.wait_for_selector("#d-claims .claim-delivered", state="attached", timeout=5_000)
+        panel = page.locator("#d-claims .claim-delivered").first
+        link = panel.locator(".delivered-source a")
+        assert link.count() == 1, "Delivered panel missing evidence link"
+        href = link.get_attribute("href")
+        assert href and href.startswith("http"), f"Delivered evidence href invalid: {href!r}"
+
+    def test_delivered_status_class_applied(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.locator("#dtab-claims").click()
+        page.wait_for_selector("#d-claims .claim-delivered", state="attached", timeout=5_000)
+        panel = page.locator("#d-claims .claim-delivered").first
+        cls = panel.get_attribute("class") or ""
+        # One of the four status modifier classes must be present so the
+        # CSS-var-driven color reads correctly.
+        statuses = ["delivered-delivered", "delivered-partial", "delivered-contested", "delivered-shortfall"]
+        assert any(s in cls for s in statuses), f"Delivered panel missing status modifier: {cls}"

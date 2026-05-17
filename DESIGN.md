@@ -175,12 +175,50 @@ source" badge so users can weight accordingly.
   that company's published page. If a company hasn't been reviewed in
   >180 days, [BACKLOG.md](BACKLOG.md) should carry an entry.
 
+### Delivered-vs-promised assessments (v1.13)
+
+Each `Claim` can optionally carry a curator `Delivered` assessment with
+one of four statuses, scored against independent reporting:
+
+- **`delivered`** — independent reporting confirms the commitment was
+  met. Requires either a first-party company milestone announcement
+  corroborated by a third party, or a regulator/court finding.
+- **`partial`** — meaningful progress but short of the stated scope. Use
+  when the company is demonstrably tracking toward the goal but the
+  goal hasn't been hit and the pace makes the original target
+  uncertain.
+- **`contested`** — the company maintains it's delivering; another
+  party (resident group, regulator, lawsuit, investigative
+  reporting) documents a shortfall. Surface both — don't pick a side.
+- **`shortfall`** — independent reporting documents the commitment was
+  not delivered. Use only with strong corroboration (≥2 independent
+  sources or a citable regulator/court finding). A wrongly-tagged
+  `shortfall` is worse than a `contested` that should have been
+  `shortfall`.
+
+**Absence is editorially valuable.** A claim WITHOUT an assessment means
+"the curator hasn't done the work yet," NOT "implied delivery." The
+dashboard surfaces no badge in this case. **Don't** invent a fifth
+"unknown" status to fill rows.
+
+The `summary` field on `Delivered` is a NEUTRAL synthesis — not a quote,
+not adversarial framing. The `source_url` cites the underlying evidence
+(distinct from `claim.source_url`, which cites the original commitment).
+
+A seed-data test (`test_at_least_one_of_each_delivered_status`) requires
+that the shipped dataset has at least one example of each of the four
+statuses so the legend reads with real records behind every color.
+
 ### Things the dashboard explicitly does NOT do
 
 - Aggregate claims into a numeric "credibility score."
 - LLM-classify stance.
+- LLM-classify delivered-vs-promised (this is exactly as adversarial as
+  stance — a wrong call is editorially indefensible).
 - Track social-media sentiment.
-- Predict outcomes ("will this project deliver on its promises?").
+- Predict outcomes ("will this project deliver on its promises?"). The
+  `Delivered` field is **retrospective only** — it scores what already
+  happened, not what's expected.
 
 These are all editorially indefensible at the dashboard's scale and
 operationally fragile.

@@ -110,6 +110,22 @@ Constituency = Literal[
     "residents", "local_government", "ngo", "academic", "journalist", "regulator"
 ]
 
+# Delivered-vs-promised assessment (v1.13). One of four states:
+#   delivered  — independent reporting confirms the commitment was met
+#   partial    — partly delivered; meaningful progress but short of the stated scope
+#   contested  — the company maintains it's delivering; another party documents shortfall
+#   shortfall  — independent reporting documents the commitment was not delivered
+# Honest curatorial gap (no assessment yet) is represented by `delivered = None`,
+# not by adding a fifth "unknown" status — the absence is editorially valuable.
+DELIVERED_STATUSES: tuple[str, ...] = ("delivered", "partial", "contested", "shortfall")
+DeliveredStatus = Literal["delivered", "partial", "contested", "shortfall"]
+DELIVERED_LABELS: dict[str, str] = {
+    "delivered": "Delivered",
+    "partial": "Partial",
+    "contested": "Contested",
+    "shortfall": "Shortfall",
+}
+
 
 # ---------------------------------------------------------------------------
 # Core record types
@@ -155,6 +171,36 @@ class Metric(_StrictBase):
     )
 
 
+class Delivered(_StrictBase):
+    """Curator assessment of whether the company's claim was actually delivered.
+
+    The dashboard's blueprint framing implicitly assumes commitments translate
+    to delivery, but for operational sites we have years of independent
+    reporting to compare. This field surfaces that comparison.
+
+    Editorial rules:
+    - `summary` is a NEUTRAL 1-2 sentence synthesis — not adversarial framing,
+      not a quote. Cite the source for the underlying evidence in `source_url`.
+    - `status` is a curator judgment call (per Stance precedent — explicitly
+      NOT algorithmic). Use `shortfall` only with strong corroboration.
+    - `assessed_at` is when the curator made the call, distinct from the
+      source's publication date.
+    - Absent = no assessment yet. Don't fabricate a status to fill a row.
+    """
+
+    status: DeliveredStatus
+    summary: str = Field(
+        min_length=1,
+        description=(
+            "1-2 sentence neutral synthesis of the delivery evidence. "
+            "NOT a quote, NOT adversarial — factual description."
+        ),
+    )
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+    assessed_at: Date
+
+
 class Claim(_StrictBase):
     """A specific benefit claim made by a company. Quote verbatim — don't paraphrase."""
 
@@ -188,6 +234,15 @@ class Claim(_StrictBase):
     project_id: Optional[str] = Field(
         default=None,
         description="If this claim is tied to a specific project, the project id.",
+    )
+    delivered: Optional[Delivered] = Field(
+        default=None,
+        description=(
+            "Optional delivery assessment when independent reporting allows it. "
+            "See Delivered docstring for editorial rules. Absent = no assessment "
+            "captured yet (the dashboard treats this honestly as a gap, not as "
+            "implied success)."
+        ),
     )
 
 
@@ -362,13 +417,17 @@ __all__ = [
     "PROJECT_STATUSES",
     "STANCES",
     "CONSTITUENCIES",
+    "DELIVERED_STATUSES",
+    "DELIVERED_LABELS",
     "Theme",
     "CompanySlug",
     "ProjectStatus",
     "Stance",
     "Constituency",
+    "DeliveredStatus",
     "Company",
     "Metric",
+    "Delivered",
     "Claim",
     "Project",
     "CommunityResponse",

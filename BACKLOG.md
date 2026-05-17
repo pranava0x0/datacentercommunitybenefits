@@ -9,6 +9,57 @@ criterion.
 
 ## High priority
 
+### Aggregate / rollup views (next big front-end move)
+Every existing view is record-level. The dataset can answer "how much is
+collectively committed to Louisiana?" but only by reading 5 project cards.
+Add a State-rollup card AND a Company-rollup card with: total claimed
+capex, total claimed jobs, total GW, count of projects by status, count
+of responses by stance. Surface as a third tab ("Aggregate") OR as
+collapsible header chips on the existing Comparison/Explorer views. The
+right home is probably a new tab — keeps the existing views' editorial
+focus intact. *Estimated half day of front-end work; the data is all in
+the seed payloads already.*
+
+### Time dimension / framework-evolution timeline
+Every `Claim` has `published_at`. Build a timeline view showing how each
+company's published framework evolved (e.g., Microsoft Datacenter
+Community Pledge May 2024 → Building Community-First AI Infrastructure
+Jan 2026 → NDA pledge Mar 2026; OpenAI no framework → Stargate Community
+Jan 2026). Useful for tracing whether commitments emerged before vs
+after community opposition. *Modest front-end work; reuses existing data
+without new fields.*
+
+### Outstanding site leads — geographic detail needed
+Six site leads remain unresolved as of v1.12:
+- **Nebius PA campus** (Q1 2026 earnings disclosed 1.2 GW; city TBD)
+- **AWS Northern IN +2.4 GW expansion** beyond New Carlisle
+- **Microsoft Caledonia WI** (third Racine County site; Oct 2025 rezoning
+  withdrawn — confirm Microsoft advances or abandons)
+- **AWS Calvert County MD** (Calvert Cliffs nuclear-adjacent; formal
+  proposal status)
+- **Stargate "Midwest" 5th site** (one of Sept 2025 expansion's five)
+- **Crusoe additional 1+ GW campus** referenced in Project Jade coverage
+A targeted polling pass in 2-4 weeks should resolve most.
+
+### Pattern synthesis report ("lessons-learned overlay")
+Across the 194 community responses we have ~10 recurring themes:
+NDA / blinding secrecy, ratepayer cost-shifting, water-draw concerns,
+on-site gas turbines, brownfield reuse, construction-period housing
+crisis, electrician labor shortage, racial-justice / environmental-
+justice litigation, post-approval annexation maneuvers, opaque shell-
+entity LLCs. A "patterns observed" overlay would crystallize the
+blueprint's lessons-learned narrative without editorializing — pure
+aggregation of constituency × stance × theme tags with a per-pattern
+"sites where this surfaced" list. *Editorial work to define the
+patterns; modest front-end to render.*
+
+### at_a_glance fill — remaining 40 projects
+34 of 74 projects have curator at_a_glance summaries; auto-derivation
+covers the rest, but a few high-profile sites benefit from a curator
+override (e.g. ms-mt-pleasant-wi got one in v1.12 but most older AWS /
+Microsoft / OpenAI sites haven't). Mechanical pass through the
+remaining 40 projects, ~1 hour.
+
 ### Resume session: matrix gap-fill (last refreshed 2026-05-16 after v1.11)
 Six matrix cells still empty across 4 companies — all confirmed-honest gaps
 after 5 polling passes. Updated targets / next-attempt notes:
@@ -171,6 +222,7 @@ instead.
 
 ## Done
 
+- **v1.13 — Delivered-vs-promised assessments on Claims.** New optional `Delivered` sub-object on `Claim` with four-status vocabulary (`delivered` / `partial` / `contested` / `shortfall`). Each assessment carries: `status`, neutral 1-2 sentence `summary`, `source_url` + `source_title` for the independent-reporting evidence, and `assessed_at` curator date. Schema in [schema.py](schema.py) with `Delivered` Pydantic model + `DELIVERED_STATUSES` Literal; frontend mirror is `DELIVERED_STATUSES` + `DELIVERED_LABELS` in [docs/app.js](docs/app.js), with parity guarded by two new `test_themes_match_frontend.py` tests. Render lives in `renderDeliveredPanel()` — appended to the existing claim card only when the field is set, so cards without an assessment look identical to pre-v1.13. CSS palette mirrors stance hues (delivered↔positive, shortfall↔negative). Seeded with 12 demonstrative records covering all four statuses across 7 companies: DELIVERED (Microsoft Fairwater operational + 375 FTEs hired + Crusoe Abilene live + QTS Eagle Mountain topping out); PARTIAL (Meta + MS + Google water-replenishment commitments on track but tested by AI growth); CONTESTED (xAI Memphis water-recycling plant paused; xAI "no grid power" pledge + NAACP unpermitted-turbines suit; Microsoft "no abatements" national pledge vs site PILOTs); SHORTFALL (QTS "water-free design" vs Fayetteville 29M unmetered-gallon draw; xAI Memphis tax-revenue projection unverified). Editorial rules: absence is honest gap (no implied delivery); status is curator judgment NOT algorithmic; summary is NEUTRAL synthesis; `shortfall` requires ≥2 independent sources or a citable regulator/court finding. 17 new tests (8 schema, 4 seed-data, 2 parity, 3 e2e); CLAUDE.md + DESIGN.md + README all updated.
 - **v1.12 — +11 new sites + 24 at_a_glance + 34 responses (third 4-agent pass).** Three parallel agents surfaced 11 additional 2025-2026 US data-center sites that prior polling missed: OpenAI Stargate Frontier (Shackelford TX, Vantage developer, $25B / 1.4 GW / 1,200 ac — one of the Sept 2025 five-site expansion), Microsoft long-running undertracked sites (New Albany OH, Heath OH, Hebron OH — Licking County triple; Union City GA / East US 3 anchor; West Des Moines IA 5 operational + 6th in construction, ~$6B total), Google Arkansas debut (West Memphis AR Project Pyramid $4B / 1,178 ac broke ground Oct 2025; Little Rock AR Port $1B), AWS Boardman OR Columbia River 1,300-ac land buy, QTS Project Blue Hole (Blakely GA 12M sq ft mega-campus) + DFW2 Wilmer TX expansion. 24 at_a_glance per-theme summaries added to projects from v1.0-v1.4 era that previously had only auto-derivation. 34 community responses across the 10 v1.7/v1.8 sites that previously had zero — notable patterns: QTS Fayetteville unmetered 29M-gallon water draw discovered May 11 2026; Fayetteville council banned new data centers Mar 5 2026; Google Linn County IA annexation maneuver to bypass county zoning (Supervisor Scheetz "race to the bottom"); CoreWeave Lancaster PA city council voted to draft new zoning use class; Google Lima OH + Franklin Furnace OH NDA / shell-entity (Bistrozzi LLC, Tilted Gate LLC) transparency complaints. Totals: 13 co / 276 claims / 74 projects / 194 responses.
 - **v1.11 — Project-tied claims + responses for the 12 v1.9 sites.** +22 first-party verbatim claims (Meta Lebanon — Peterson energy/engagement/community, Meta El Paso — Davis infrastructure/energy + Davies jobs, Google Chesterfield — Porat engagement/infrastructure, Google Putnam Co — Allsop engagement, Oracle Port Washington — Altman energy + Hoeschele jobs, AWS Falls Twp — Zapolsky jobs, AWS Richmond Co NC — Zapolsky jobs/education, AWS Caddo — Zapolsky jobs + Wehner energy/education, AWS Bossier — Wehner infrastructure, AWS Vicksburg — Zapolsky community_grants, xAI Southaven — Musk energy + Mayo jobs/engagement). +38 community responses across the 12 sites (range from broad governor welcomes through specific resident lawsuits and NGO Clean Air Act suits). Notable: Port Washington WI voters passed an anti-data-center referendum (Apr 8 2026) requiring future TIFs over $10M to receive voter approval — first such national model. Skipped: QTS Salem Twp claims (only unnamed spokesperson available). First-paint payload budget bumped 150KB → 200KB to accommodate 276 claims.
 - **v1.10 — Final gap-fill residuals + URL deep-link fixes + at_a_glance + 5 summary refreshes.** Closed Oracle engagement gap (Jan 26 2026 blog: "Oracle recognizes that when we enter a community, we have an obligation to be a good citizen" — verified via 3 third-party mirrors) and Crusoe community_grants (Cully Cavness 2021 ND newsroom — first-party Crusoe domain, predates current tracked sites but acceptable). 12 source URL deep-link fixes — key correction: resp-meta-newton-water attribution updated from Grist to NYT (July 2025 investigation). 10 curator at_a_glance per-theme summaries for highest-profile sites (Meta Tulsa/Lebanon/El Paso, MS Cheyenne, OpenAI Saline Twp, Oracle Doña Ana / Port Washington, QTS Eagle Mountain, Nebius Independence, xAI Memphis). 5 company-summary refreshes (Meta, Google, Amazon, Oracle, QTS) reflecting v1.8/v1.9 site additions.

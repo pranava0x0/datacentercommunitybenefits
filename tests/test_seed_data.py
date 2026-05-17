@@ -14,6 +14,7 @@ from pathlib import Path
 import pytest
 
 from schema import (
+    DELIVERED_STATUSES,
     THEMES,
     ClaimsPayload,
     CompaniesPayload,
@@ -200,6 +201,49 @@ class TestRecordSanity:
                 assert (
                     marker not in s
                 ), f"Claim {c.id} appears to be a paraphrase, not a verbatim quote: {marker!r}"
+
+
+class TestDeliveredAssessments:
+    """v1.13: Delivered-vs-promised assessments on Claim records.
+
+    The Delivered field is optional and absent by default — only the subset
+    of claims that the curator has assessed will have it. These tests guard
+    the assessment quality bar: every assessed claim has corroborating
+    evidence and a valid status; the dashboard ships with at least one of
+    each of the four statuses so the legend reads.
+    """
+
+    def test_every_assessed_claim_has_valid_status(self, claims):
+        for c in claims.claims:
+            if c.delivered is None:
+                continue
+            assert c.delivered.status in DELIVERED_STATUSES, c.id
+
+    def test_every_assessed_claim_has_evidence_url(self, claims):
+        for c in claims.claims:
+            if c.delivered is None:
+                continue
+            assert str(c.delivered.source_url).startswith("http"), c.id
+            assert c.delivered.source_title, c.id
+
+    def test_assessed_at_not_in_future(self, claims):
+        today = date.today()
+        for c in claims.claims:
+            if c.delivered is None:
+                continue
+            assert c.delivered.assessed_at <= today, c.id
+
+    def test_at_least_one_of_each_delivered_status(self, claims):
+        # Demonstrative seed: ensure the legend reads with all four colors.
+        # If a curator deletes all examples of a status, the dashboard's
+        # legend still renders the chip but with no real examples behind
+        # it — which is editorially dishonest. Block that.
+        seen = {c.delivered.status for c in claims.claims if c.delivered}
+        missing = set(DELIVERED_STATUSES) - seen
+        assert not missing, (
+            f"Delivered statuses with no example: {sorted(missing)}. "
+            "Either add an example or document why this status is unused."
+        )
 
 
 # ---------------------------------------------------------------------------

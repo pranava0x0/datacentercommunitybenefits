@@ -340,6 +340,21 @@ The project pop-out in the Explorer view is split into three tabs — Overview /
 
 The Community pane is `[hidden]` by default (Overview is the landing tab). Tests that target elements inside that pane MUST pass `state="attached"` to `wait_for_selector`, e.g. `page.wait_for_selector("#d-responses .response-card", state="attached")`. Default `state="visible"` would time out because the parent's `display: none` removes children from the bounding box. Same lesson as adjacent projects — when you waited for visibility but the selector targets a `[hidden]`-conditional element, the wait races a CSS transition or an attribute toggle and flakes on slow runners. Locator `count()` and attribute reads work fine without the wait — they query the DOM, not the layout box.
 
+### Delivered-vs-promised assessments on Claims (v1.13)
+
+The dashboard's blueprint framing implicitly assumed commitments translate to delivery; v1.13 adds a `delivered` Optional sub-object on `Claim` so the curator can attach independent-reporting evidence of how a commitment actually played out. Four-status vocabulary, frozen for v1: `delivered` / `partial` / `contested` / `shortfall`. Schema in [schema.py](schema.py) (`Delivered` class + `DELIVERED_STATUSES` Literal); frontend mirror is `DELIVERED_STATUSES` + `DELIVERED_LABELS` in [docs/app.js](docs/app.js), guarded by `test_delivered_statuses_match` parity tests. Render lives in `renderDeliveredPanel()`, appended to `renderClaimCard()` only when `c.delivered` is set.
+
+Four drift-safe rules:
+
+- **Absence is editorially valuable.** A claim WITHOUT a delivered assessment means "the curator hasn't done the work yet," NOT "implied delivery." **Don't** auto-fill any default status; **don't** add a 5th "unknown" status to fill rows. Leave the panel off and the claim card reads exactly as it did pre-v1.13.
+- **Status is a curator judgment call**, exactly like `Stance` on `CommunityResponse`. **Don't** try to LLM-classify it. Use `shortfall` only with strong corroboration (≥2 independent sources or a clear, citable regulator/court finding). `contested` is the right choice when the company maintains delivery and a credible third party documents shortfall — surface both, don't pick a side.
+- **Summary is NEUTRAL synthesis** — not a quote, not adversarial framing. Cite the underlying evidence in `source_url`. Existing `claim.source_url` is the company's quote source; `claim.delivered.source_url` is the assessment source — they will almost always differ.
+- **Adding a 5th status requires a BACKLOG entry + migration**, exactly like adding a theme. Add to `DELIVERED_STATUSES` tuple + `DeliveredStatus` Literal + `DELIVERED_LABELS` dict (Python), then the same three constants in `app.js`, then per-status color tokens in `:root` and `[data-theme="dark"]` blocks. The `test_delivered_status_vocabulary_frozen` test guards the four-status assumption.
+
+A test (`test_at_least_one_of_each_delivered_status`) asserts the seed dataset ships with at least one example of each of the four statuses so the legend reads with all four colors backed by real records. **Don't** silently delete all examples of a status — the legend would render an empty chip.
+
+The CSS palette mirrors stance hues (delivered ↔ positive, shortfall ↔ negative, partial / contested ↔ mixed-adjacent) so reading the dashboard's color signal stays consistent across the Claims tab and the Community tab.
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:

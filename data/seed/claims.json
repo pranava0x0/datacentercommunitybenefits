@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16",
+  "generated_at": "2026-05-17",
   "claims": [
     {
       "id": "meta-energy-renewable-match",
@@ -17,7 +17,14 @@
       "statement": "We are committed to restoring more water than we consume by 2030, focusing our efforts in regions of high and medium water stress.",
       "source_url": "https://sustainability.atmeta.com/water/",
       "source_title": "Meta Sustainability — Water",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "delivered": {
+        "status": "partial",
+        "summary": "Meta reports 60+ active water-restoration projects across 12 watersheds, projected to restore ~6B gallons/year at full implementation (1.6B gallons in 2024). On track but not yet at the stated 'restoring more than we consume' threshold; pace will need to accelerate as AI campuses (El Paso, Lebanon, Tulsa, Beaver Dam) come online.",
+        "source_url": "https://datacenters.atmeta.com/2026/04/restoring-water-in-our-data-center-communities/",
+        "source_title": "Meta Data Centers — Restoring Water in Our Data Center Communities (Apr 2026)",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "meta-community-action-grants",
@@ -62,7 +69,14 @@
       "statement": "By 2030, we aim to replenish 120% of the freshwater we consume across our offices and data centers.",
       "source_url": "https://sustainability.google/commitments/water/",
       "source_title": "Google Sustainability — Water stewardship",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "delivered": {
+        "status": "partial",
+        "summary": "Google continues to expand water-replenishment partnerships (Chattahoochee Trust for Public Land at LaGrange; regenerative-agriculture program in Oklahoma); however reported emissions grew 48% year-over-year as AI demand scaled, casting doubt on whether the 120% 2030 target's underlying intensity assumptions hold.",
+        "source_url": "https://www.wric.com/news/local-news/chesterfield-county/google-advancing-project-peanut/",
+        "source_title": "WRIC 8News — Google's 48% YoY emissions increase referenced in Chesterfield coverage",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "google-economic-impact-reports",
@@ -107,7 +121,14 @@
       "statement": "By 2030, Microsoft will be water positive — replenishing more water than we consume across our global operations.",
       "source_url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
       "source_title": "Microsoft Sustainability — Water positive by 2030",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "delivered": {
+        "status": "partial",
+        "summary": "Microsoft reports continued investment in water-replenishment projects, but Bloomberg reported May 6 2026 that the hourly-matched 2030 clean-power target is under internal review as AI growth strains 100/100/0 commitments; water-positive 2030 target remains official but contested internally.",
+        "source_url": "https://www.bloomberg.com/news/articles/2026-05-06/microsoft-clean-power-target-on-chopping-block-over-data-center-boom",
+        "source_title": "Bloomberg — Microsoft clean-power target on chopping block over data-center boom (May 6 2026)",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "ms-carbon-negative-2030",
@@ -914,6 +935,13 @@
         "value": 100000000.0,
         "unit": "usd",
         "kind": "tax"
+      },
+      "delivered": {
+        "status": "partial",
+        "summary": "xAI's local tax contribution to date is real but the projected '$100M+' figure has not been independently verified; Greater Memphis Chamber framing is forward-looking. Anthropic's May 6 2026 rental of 100% of Colossus 1 (~300 MW / 220K+ GPUs) may shift the tax-revenue trajectory but no updated public commitment has been published.",
+        "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musks-spacex-has-rented-out-access-to-its-supercomputers-220-000-nvidia-gpus-and-300-megawatts-of-ai-compute-power-to-rival-anthropic",
+        "source_title": "Tom's Hardware — Anthropic rents 100% of Colossus 1 compute (May 6 2026)",
+        "assessed_at": "2026-05-17"
       }
     },
     {
@@ -929,6 +957,13 @@
         "value": 80000000.0,
         "unit": "usd",
         "kind": "infrastructure"
+      },
+      "delivered": {
+        "status": "contested",
+        "summary": "xAI publicly paused construction of the $80M water-recycling plant in April 2026 to prioritize finishing Colossus 2; both xAI and Elon Musk later publicly recommitted to the project but no construction restart has been confirmed as of May 2026. Memphis Mayor Paul Young continues to press for completion.",
+        "source_url": "https://www.actionnews5.com/2026/04/09/xai-pauses-plans-build-water-recycling-plant-memphis/",
+        "source_title": "Action News 5 — xAI pauses then recommits to Memphis water-recycling plant (Apr 9 2026)",
+        "assessed_at": "2026-05-17"
       }
     },
     {
@@ -1213,7 +1248,14 @@
       "statement": "Our innovative standard data center design uses no water for cooling, saving billions of gallons of water per year.",
       "source_url": "https://q.com/sustainability/",
       "source_title": "Sustainability — QTS Data Centers",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "delivered": {
+        "status": "shortfall",
+        "summary": "May 2026 reporting found QTS's Fayetteville GA campus drew approximately 29 million gallons through two unmetered industrial-scale water connections over 15 months, contradicting the 'no water for cooling' design claim at that specific site. QTS paid ~$147K in retroactive charges; Fayette County declined to fine the company.",
+        "source_url": "https://thecitizen.com/2026/05/11/behind-fayettes-qts-water-controversy-a-missed-meter-8000-workers-and-a-massive-construction-project/",
+        "source_title": "The Citizen — Behind Fayette's QTS Water Controversy (29M unmetered gallons, May 11 2026)",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "qts-tax-revenue-local-funding",
@@ -1801,7 +1843,14 @@
       "source_url": "https://memphischamber.com/economic-development/xai/",
       "source_title": "xAI in Memphis — Greater Memphis Chamber",
       "captured_at": "2026-05-15",
-      "published_at": "2026-01-12"
+      "published_at": "2026-01-12",
+      "delivered": {
+        "status": "contested",
+        "summary": "NAACP / SELC / Earthjustice litigation (filed Apr 15 2026) alleges xAI operated 27 — and later up to 46 — unpermitted methane gas turbines at Memphis-area facilities, including at the new Southaven MS site; xAI's pledge to take no grid power during emergencies sits alongside an on-site fossil-generation footprint that bypassed Clean Air Act permitting per the suit.",
+        "source_url": "https://earthjustice.org/case/xai-illegal-gas-power-plant-data-center-colossus",
+        "source_title": "Earthjustice — NAACP/SELC Clean Air Act suit against xAI Memphis/Southaven turbines",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "openai-energy-zero-emission-wisconsin",
@@ -2404,7 +2453,14 @@
       "source_title": "Oil City News — Rima Alaily on Microsoft Cheyenne tax-base commitment",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-14",
-      "project_id": "microsoft-cheyenne-wy"
+      "project_id": "microsoft-cheyenne-wy",
+      "delivered": {
+        "status": "contested",
+        "summary": "Microsoft's national 'no local abatements or incentives' commitment (Rima Alaily, Apr 14 2026) coexists with site-by-site PILOT and TIF arrangements (Mt Pleasant WI village-board approvals; Goodyear AZ data-center sales-tax exemptions). The framework distinguishes 'abatements' from 'incentives'; outside observers contest whether the practical effect differs.",
+        "source_url": "https://www.theassemblync.com/news/business/person-county-microsoft-data-center-nondisclosure-agreements/",
+        "source_title": "The Assembly NC — Person County Microsoft NDA + incentive arrangements coverage",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "microsoft-cheyenne-engagement-wallace-strengthen-2026",
@@ -2431,6 +2487,13 @@
         "value": 375.0,
         "unit": "FTEs",
         "kind": "operational"
+      },
+      "delivered": {
+        "status": "delivered",
+        "summary": "Microsoft confirmed 375 FTEs hired as of May 7 2026 against a stated ~500-FTE operational target; on-track delivery confirmed by the same RCEDC Impact 2026 event where Bowen Wallace was quoted.",
+        "source_url": "https://www.jtirregulars.com/2026/05/microsofts-mount-pleasant-data-center.html",
+        "source_title": "JT Irregulars — Microsoft Mount Pleasant 375 FTEs hired (May 7 2026)",
+        "assessed_at": "2026-05-17"
       }
     },
     {
@@ -2533,7 +2596,14 @@
       "source_title": "Utah Business — Ryan Hunter (QTS COO) on Eagle Mountain topping-out",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-20",
-      "project_id": "qts-eagle-mountain-ut"
+      "project_id": "qts-eagle-mountain-ut",
+      "delivered": {
+        "status": "delivered",
+        "summary": "Topping-out ceremony took place April 18 2026 with approximately 2,000 construction workers on site; Eagle Mountain Mayor Jared Gray publicly characterized the partnership as following through on QTS's commitments.",
+        "source_url": "https://www.utahbusiness.com/press-releases/2026/04/20/layton-construction-qts-data-centers-campus-eagle-mountain/",
+        "source_title": "Utah Business — Layton Construction + QTS Eagle Mountain topping-out (Apr 20 2026)",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "nebius-independence-engagement-boynton-transparency-2026",
@@ -2655,7 +2725,14 @@
       "source_title": "Data Center Dynamics — Satya Nadella (Microsoft CEO) on Fairwater data center site going live",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-16",
-      "project_id": "ms-mt-pleasant-wi"
+      "project_id": "ms-mt-pleasant-wi",
+      "delivered": {
+        "status": "delivered",
+        "summary": "Microsoft confirmed Fairwater went operational on schedule per Nadella's Apr 16 2026 announcement; Mt Pleasant operational milestone separately reported May 7 2026 (375 FTEs hired at the Impact 2026 event).",
+        "source_url": "https://www.jtirregulars.com/2026/05/microsofts-mount-pleasant-data-center.html",
+        "source_title": "JT Irregulars — Bowen Wallace on Mount Pleasant 375 FTEs and Fairwater operational status (May 7 2026)",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "google-linn-county-community-grants-2026",
@@ -2816,7 +2893,14 @@
       "source_title": "Crusoe newsroom — Lochmiller on Abilene flagship live (Sep 30 2025)",
       "captured_at": "2026-05-16",
       "published_at": "2025-09-30",
-      "project_id": "crusoe-abilene-tx"
+      "project_id": "crusoe-abilene-tx",
+      "delivered": {
+        "status": "delivered",
+        "summary": "Crusoe announced the Abilene flagship was live on Sept 30 2025 — the Lochmiller 'blueprint' framing was paired with an operational milestone confirmed via Crusoe's own newsroom and corroborated by DCD coverage.",
+        "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live",
+        "source_title": "Crusoe newsroom — Flagship Abilene data center is live (Sep 30 2025)",
+        "assessed_at": "2026-05-17"
+      }
     },
     {
       "id": "oracle-abilene-water-magouyrk-2025",
