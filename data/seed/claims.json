@@ -3523,6 +3523,64 @@
       "captured_at": "2026-05-31",
       "published_at": "2026-05-20",
       "project_id": "google-new-florence-mo"
+    },
+    {
+      "id": "prologis-coweta-engagement-process-2025",
+      "company_slug": "prologis",
+      "theme": "engagement",
+      "statement": "Our conversations with Coweta County followed standard, transparent processes that are open to all stakeholders. Prologis's involvement was consistent with customary public engagement in land-use and policy discussions.",
+      "source_url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
+      "source_title": "DeSmog — Prologis spokesperson on Project Sail engagement (Dec 2025)",
+      "captured_at": "2026-05-17",
+      "published_at": "2025-12-15",
+      "project_id": "prologis-coweta-ga",
+      "delivered": {
+        "status": "contested",
+        "summary": "Prologis described its Coweta County engagement as 'standard, transparent processes,' but DeSmog's December 2025 investigation documented that the county's data-center rules were rewritten in closed-door working sessions before public hearings on Project Sail, and Citizens for Rural Coweta filed a 17-plaintiff lawsuit in May 2026 alleging due-process and zoning violations during the rezoning. The contested status reflects that both descriptions of the same process appear on the public record.",
+        "source_url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
+        "source_title": "DeSmog — Behind Closed Doors, Georgia County Rewrote Data Center Rules (Dec 2025)",
+        "assessed_at": "2026-05-17"
+      }
+    },
+    {
+      "id": "prologis-coweta-engagement-witt-codes-2025",
+      "company_slug": "prologis",
+      "theme": "engagement",
+      "statement": "A lot of communities don't have any sort of codes or regulations around how these are being constructed. They're doing the right thing by spending the time and research to make sure that (data centers) are brought into their code in a prudent manner.",
+      "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+      "source_title": "AJC — JC Witt (Prologis SVP Data Center Investments) on Coweta County's data-center code work",
+      "captured_at": "2026-05-17",
+      "published_at": "2025-05-27",
+      "project_id": "prologis-coweta-ga"
+    },
+    {
+      "id": "prologis-coweta-engagement-witt-execute-2025",
+      "company_slug": "prologis",
+      "theme": "engagement",
+      "statement": "Nine hundred megawatts is nothing to take lightly. It's something that we really want to execute on for the community and for the company.",
+      "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+      "source_title": "AJC — JC Witt (Prologis SVP Data Center Investments) on Project Sail",
+      "captured_at": "2026-05-17",
+      "published_at": "2025-05-27",
+      "project_id": "prologis-coweta-ga"
+    },
+    {
+      "id": "prologis-coweta-infrastructure-mason-lines-2025",
+      "company_slug": "prologis",
+      "theme": "infrastructure",
+      "statement": "What we like, as a company with a conscience, is that there's already this massive Georgia Power generating station and the lines are there.",
+      "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+      "source_title": "AJC — Kent Mason (Prologis Atlanta market officer) on Project Sail siting",
+      "captured_at": "2026-05-17",
+      "published_at": "2025-05-27",
+      "project_id": "prologis-coweta-ga",
+      "delivered": {
+        "status": "contested",
+        "summary": "Prologis framed the Plant Yates siting as relying on transmission infrastructure that's 'already there,' but Georgia Power has confirmed the load actually requires the new Ashley Park-Wansley 500 kV line — a ~35-mile build for which the utility expects 'roughly 20 to 30 homes' to be removed, with documented eminent-domain disputes in Fayette and Coweta counties (the Maszk family, Ansley Brown) as of May 2026. Both can be true: existing infrastructure proximity was a real siting factor; the actual load also requires new construction with material residential displacement.",
+        "source_url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
+        "source_title": "AJC — Georgia Power's data center build-out raises fears of eminent domain (May 2026)",
+        "assessed_at": "2026-05-17"
+      }
     }
   ]
 }

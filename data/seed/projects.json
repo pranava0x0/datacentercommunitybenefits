@@ -1817,6 +1817,33 @@
       "source_title": "Clinton City Council considering data center moratorium (Clinton Herald)",
       "captured_at": "2026-05-31",
       "offtaker": "QTS"
+    },
+    {
+      "id": "prologis-coweta-ga",
+      "company_slug": "prologis",
+      "name": "Project Sail (Coweta Campus)",
+      "city": "Newnan",
+      "state": "GA",
+      "country": "US",
+      "lat": 33.3621,
+      "lon": -84.7997,
+      "status": "announced",
+      "announced_year": 2025,
+      "claimed_investment_usd": 17000000000,
+      "claimed_jobs": null,
+      "notes": "832-acre, 9-building, 4.34M sq ft data-center campus ~45 miles south of Atlanta. Sited deliberately near Georgia Power's Plant Yates; load to be served via the DOE-loan-funded Plant Wansley + new Ashley Park-Wansley 500 kV transmission line (the same line at issue in the May 2026 eminent-domain disputes against Fayette and Coweta County homeowners). Coweta County rezoning approved 3-2 on 2026-04-10; 17-plaintiff residents lawsuit (Citizens for Rural Coweta) filed 2026-05-05 in Coweta County Superior Court. Tenant not yet publicly disclosed. Up to 9 million gallons/day projected water draw. Prologis estimates $100M tax revenue over 10 years.",
+      "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+      "source_title": "AJC — A new group steps in to develop $17B Project Sail data center near Atlanta",
+      "captured_at": "2026-05-17",
+      "acreage": 832,
+      "power_mw": 900,
+      "offtaker": null,
+      "at_a_glance": {
+        "energy": "900 MW; sited at Plant Yates / Plant Wansley corridor",
+        "water": "Up to 9M gal/day projected",
+        "tax_revenue": "$100M est. over 10 years (Prologis)",
+        "engagement": "Approved 3-2; residents lawsuit filed May 2026"
+      }
     }
   ]
 }

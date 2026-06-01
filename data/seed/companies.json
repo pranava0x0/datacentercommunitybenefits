@@ -127,6 +127,13 @@
       "summary": "Nebius is a Yandex N.V. spinoff building out AI cloud infrastructure in the US, headlined by an ~800 MW campus in Independence, Missouri ($6.6B announced, ceremonial groundbreaking May 12, 2026 amid active local opposition over the project's tax-break package). Nebius published a dedicated 'Nebius x Independence, Missouri' site-specific page making first-party commitments across five themes: ratepayer protection (Nebius pays full cost of power and infrastructure upgrades on the Independence Power and Light municipal utility), water (closed-loop cooling with annual use 'comparable to an average restaurant'), workforce (local building trades labor and apprenticeships), education (STEM/AI literacy K-12, Metropolitan Community College + Independence and Fort Osage school districts), and engagement (transparency, watershed monitoring, volunteer days). Framework is comparable in shape to QTS's site-specific commitment pages.",
       "last_reviewed": "2026-05-15",
       "ratepayer_pledge_signatory": false
+    },
+    {
+      "slug": "prologis",
+      "name": "Prologis",
+      "hq": "San Francisco, CA",
+      "summary": "Prologis is the world's largest industrial REIT (~1.2 billion sq ft logistics portfolio globally) that entered hyperscale data-center development in 2024-2025 via partnership with developer Atlas. The first major US project tracked here is Project Sail — a $17B, 832-acre, 9-building, ~900 MW campus near Newnan, GA (Coweta County), approved 3-2 in an April 2026 rezoning vote and sited deliberately to lean on Georgia Power's Plant Yates and the Ashley Park-Wansley 500 kV transmission build-out. Prologis does NOT publish a community-impact framework comparable to QTS's Ratepayer Protection Pledge or Nebius's Independence MO commitments — public statements are project-by-project rather than a portfolio doctrine. The most-quoted Prologis posture on Project Sail is JC Witt (SVP Data Center Investments) framing the 900 MW campus as something 'we really want to execute on for the community and for the company,' combined with Atlanta market officer Kent Mason's siting rationale that 'the lines are there' — the same Georgia Power transmission corridor whose extension is now subject to active eminent-domain disputes by Coweta and Fayette County residents. Tracked from v1.14 onward because Project Sail meets the non-hyperscaler scale gate via $17B and 900 MW; the no-published-framework status is the editorially honest summary, not a research gap.",
+      "last_reviewed": "2026-05-17"
     }
   ]
 }

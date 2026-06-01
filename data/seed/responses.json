@@ -2189,6 +2189,83 @@
       "source_url": "https://www.clintonherald.com/news/local_news/clinton-city-council-considering-data-center-moratorium/article_525da494-9a5c-4940-8456-dec2e25a4b4a.html",
       "source_title": "Clinton City Council considering data center moratorium (Clinton Herald)",
       "single_source": false
+    },
+    {
+      "id": "resp-prologis-coweta-commission-split-2026",
+      "project_id": "prologis-coweta-ga",
+      "date": "2026-04-10",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "The Coweta County Board of Commissioners approved Project Sail's rezoning in a narrow 3-2 vote on April 10, 2026 after multiple deferrals and contentious public testimony. The split outcome reflected internal disagreement on the body itself, even as the project ultimately cleared the procedural gate.",
+      "source_url": "https://www.times-herald.com/news/full-sail-ahead-commissioners-approve-project-sail-data-center-in-split-3-2-vote/article_479686a7-f485-47bd-9db1-7624cec24351.html",
+      "source_title": "Times-Herald (Newnan) — Full Sail Ahead: Commissioners approve Project Sail in split 3-2 vote (Apr 2026)",
+      "single_source": false
+    },
+    {
+      "id": "resp-prologis-coweta-desmog-investigation",
+      "project_id": "prologis-coweta-ga",
+      "date": "2025-12-15",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "A DeSmog investigative series (Aug 2025 lobbyist analysis; Sept 2025 'charm offensive' piece; Dec 2025 documentation of closed-door rule rewrites; April 2026 follow-up) traced how data-center developers, including Prologis, helped shape Coweta County's data-center rezoning framework before the public Project Sail hearings, and how local lobbyists smoothed the political path.",
+      "source_url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
+      "source_title": "DeSmog — Behind Closed Doors, Georgia County Rewrote Data Center Rules (Dec 2025)",
+      "single_source": false
+    },
+    {
+      "id": "resp-prologis-coweta-eminent-domain-2026",
+      "project_id": "prologis-coweta-ga",
+      "date": "2026-05-13",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Coweta and Fayette County families, including Ansley Brown (Coweta) and the Maszk family (Fayette), publicly disputed Georgia Power's eminent-domain offers for the new Ashley Park-Wansley 500 kV transmission line that connects Plant Wansley to the data-center load corridor including Project Sail. Georgia Power confirmed 'roughly 20 to 30 homes' would be removed; counsel David Needham of the Georgia Eminent Domain Law Firm is representing affected residents.",
+      "source_url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
+      "source_title": "AJC — Georgia Power's data center build-out raises fears of eminent domain (May 2026)",
+      "single_source": false
+    },
+    {
+      "id": "resp-prologis-coweta-lawsuit-may-2026",
+      "project_id": "prologis-coweta-ga",
+      "date": "2026-05-05",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Seventeen Coweta County residents, organized as Citizens for Rural Coweta, filed suit in Coweta County Superior Court on May 5, 2026 alleging the April 10 rezoning of the 832-acre Project Sail site violated zoning rules, state law, due-process protections for affected homeowners, and the county comprehensive plan. Co-founder Steve Swope summarized the position: 'This isn't about rejecting technology. It's about where industrial-scale development belongs.'",
+      "source_url": "https://atlantafi.com/coweta-county-data-center-proposal-backlash/",
+      "source_title": "AtlantaFi — Coweta County data center proposal backlash; residents file lawsuit (May 2026)",
+      "single_source": false
+    },
+    {
+      "id": "resp-prologis-coweta-petition-2025",
+      "project_id": "prologis-coweta-ga",
+      "date": "2025-08-22",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Citizens for Rural Coweta circulated a petition that gathered roughly 8,000 signatures opposing Project Sail, citing the 832-acre footprint among family farms, the projected 9 million gallons/day water draw, and noise and air-quality concerns. The stopsail.com organizing site became the coordination hub for hearings, testimony, and the eventual lawsuit.",
+      "source_url": "https://www.theregister.com/2025/08/22/georgia_datacenter_pushback/",
+      "source_title": "The Register — Georgia residents up in arms over mega datacenter project (Aug 2025)",
+      "single_source": false
+    },
+    {
+      "id": "resp-prologis-coweta-selc-psc-2025",
+      "project_id": "prologis-coweta-ga",
+      "date": "2025-12-19",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "The Southern Environmental Law Center publicly criticized the Georgia Public Service Commission for unanimously approving Georgia Power's December 2025 data-center-driven expansion plan 'without sufficient customer protections,' arguing the build-out — which underwrites the Plant Wansley capacity Project Sail relies on — shifts cost and infrastructure risk onto existing ratepayers.",
+      "source_url": "https://www.selc.org/press-release/psc-unanimously-votes-to-approve-georgia-powers-data-center-plan-without-sufficient-customer-protections/",
+      "source_title": "SELC — PSC unanimously votes to approve Georgia Power's data center plan without sufficient customer protections (Dec 2025)",
+      "single_source": false
+    },
+    {
+      "id": "resp-qts-fayetteville-eminent-domain-2026",
+      "project_id": "qts-fayetteville-ga",
+      "date": "2026-05-13",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "The Maszk family and other Fayette County residents publicly disputed Georgia Power's eminent-domain offers for the new Ashley Park-Wansley 500 kV transmission line, which runs through the same county as QTS's ATL2 East / Fayetteville expansion. Georgia Power's own number is 'roughly 20 to 30 homes' removed across the project; affected residents are represented by David Needham of the Georgia Eminent Domain Law Firm.",
+      "source_url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
+      "source_title": "AJC — Georgia Power's data center build-out raises fears of eminent domain (May 2026)",
+      "single_source": false
     }
   ]
 }

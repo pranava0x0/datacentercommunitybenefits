@@ -63,6 +63,7 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "nebius",
     "crusoe",
     "coreweave",
+    "prologis",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational")
@@ -103,6 +104,7 @@ CompanySlug = Literal[
     "nebius",
     "crusoe",
     "coreweave",
+    "prologis",
 ]
 ProjectStatus = Literal["announced", "construction", "operational"]
 Stance = Literal["positive", "mixed", "negative"]

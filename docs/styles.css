@@ -62,6 +62,7 @@
   --co-nebius: #4a8e6b;
   --co-crusoe: #8e6b4a;
   --co-coreweave: #5b4a8e;
+  --co-prologis: #7a5a3a;
 
   /* Per-theme accent (used as left border on theme chips + matrix headers) */
   --theme-jobs: #2f5d8a;
@@ -136,6 +137,7 @@
   --co-nebius: #8acfb0;
   --co-crusoe: #d6b08a;
   --co-coreweave: #a896d8;
+  --co-prologis: #c89a6a;
 
   --theme-jobs: #7eb6e8;
   --theme-tax_revenue: #b48ad8;

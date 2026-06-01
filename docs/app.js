@@ -53,6 +53,7 @@ const COMPANY_SLUGS = [
   "nebius",
   "crusoe",
   "coreweave",
+  "prologis",
 ];
 
 const STANCE_LABELS = {
