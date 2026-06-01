@@ -3581,6 +3581,115 @@
         "source_title": "AJC — Georgia Power's data center build-out raises fears of eminent domain (May 2026)",
         "assessed_at": "2026-05-17"
       }
+    },
+    {
+      "id": "google-van-buren-mi-energy-pay-costs-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "We've agreed to finance the entire 2.7 gigawatts of new power supply through an agreement with DTE to help ensure any costs associated with our data center project come to us (Google).",
+      "source_url": "https://michiganadvance.com/2026/03/17/google-and-dte-announce-van-buren-township-data-center-agreement-commit-to-contested-case-hearing/",
+      "source_title": "Michigan Advance — Google and DTE: Van Buren Township data center agreement and contested case hearing",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-03-17",
+      "project_id": "google-van-buren-mi"
+    },
+    {
+      "id": "google-franklin-furnace-energy-pay-100pct-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Google in Ohio will pay 100% of the electric required to run the campus along with paying AEP to provide infrastructure locally.",
+      "source_url": "https://www.wsaz.com/2026/05/15/google-hosts-data-center-information-fair/",
+      "source_title": "WSAZ — Google hosts Scioto County data center information fair (May 2026)",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-05-15",
+      "project_id": "google-franklin-furnace-oh"
+    },
+    {
+      "id": "meta-lebanon-energy-pay-full-costs-2026",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "We pay the full costs for energy used by our data centers and work closely with utilities to plan for our energy needs years in advance to ensure residents aren't negatively impacted.",
+      "source_url": "https://datacenters.atmeta.com/2026/02/hello-lebanon/",
+      "source_title": "Meta Data Centers — Hello, Lebanon! (Feb 2026)",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-02-11",
+      "project_id": "meta-lebanon-in"
+    },
+    {
+      "id": "amazon-caddo-energy-pay-100pct-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon has worked with the local utility, Southwestern Electric Power Company (SWEPCO), to ensure we pay 100% of the costs associated with our new data center campus in Louisiana. This includes covering all expenses for new energy infrastructure and upgrades required to serve the data centers.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-louisiana-new-jobs",
+      "source_title": "Amazon — Caddo and Bossier parishes Louisiana data center announcement (Feb 2026)",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-02-23",
+      "project_id": "amazon-caddo-parish-la"
+    },
+    {
+      "id": "amazon-bossier-energy-pay-100pct-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon has worked with the local utility, Southwestern Electric Power Company (SWEPCO), to ensure we pay 100% of the costs associated with our new data center campus in Louisiana. This includes covering all expenses for new energy infrastructure and upgrades required to serve the data centers.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-louisiana-new-jobs",
+      "source_title": "Amazon — Caddo and Bossier parishes Louisiana data center announcement (Feb 2026)",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-02-23",
+      "project_id": "amazon-bossier-parish-la"
+    },
+    {
+      "id": "amazon-vicksburg-energy-pay-100pct-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon has worked with Entergy Mississippi to ensure we pay 100% of the costs associated with our new data center campuses, covering all expenses for new energy infrastructure and upgrades.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
+      "source_title": "Amazon — $25 billion Mississippi data centers announcement (Apr 2026)",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-04-09",
+      "project_id": "amazon-vicksburg-ms"
+    },
+    {
+      "id": "amazon-clinton-ms-energy-pay-100pct-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon has worked with Entergy Mississippi to ensure we pay 100% of the costs associated with our new data center campuses, covering all expenses for new energy infrastructure and upgrades.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
+      "source_title": "Amazon — $25 billion Mississippi data centers announcement (Apr 2026)",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-04-09",
+      "project_id": "amazon-clinton-ms"
+    },
+    {
+      "id": "amazon-ridgeland-energy-pay-100pct-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon has worked with Entergy Mississippi to ensure we pay 100% of the costs associated with our new data center campuses, covering all expenses for new energy infrastructure and upgrades.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
+      "source_title": "Amazon — $25 billion Mississippi data centers announcement (Apr 2026)",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-04-09",
+      "project_id": "aws-ridgeland-ms"
+    },
+    {
+      "id": "google-pine-island-energy-pay-grid-costs-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Google will cover 100% of the costs for new grid infrastructure required to serve the facility. That protects Minnesota ratepayers.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
+      "source_title": "Google Blog — Pine Island, Minnesota data center announcement",
+      "captured_at": "2026-06-01",
+      "published_at": "2026-02-24",
+      "project_id": "google-pine-island-mn"
+    },
+    {
+      "id": "google-hermantown-energy-grid-partnership-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Google and Minnesota Power are partnering to bring 700 megawatts of new clean energy — including 300 megawatts of wind and 400 megawatts of battery storage — to the Arrowhead region, with no cost increases to existing Minnesota Power customers.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-confirms-it-is-behind-403-acre-data-center-campus-in-hermantown-minnesota/",
+      "source_title": "Data Center Dynamics — Google confirms 403-acre Hermantown, Minnesota campus",
+      "captured_at": "2026-06-01",
+      "project_id": "google-hermantown-mn"
     }
   ]
 }
