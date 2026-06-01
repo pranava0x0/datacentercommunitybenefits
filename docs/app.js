@@ -1109,13 +1109,11 @@ function renderRatepayerStats() {
   const signatories = ratepayerSignatories();
   const assessed = ratepayerAssessedProjects();
   const affirmed = assessed.filter((p) => p.ratepayer.status === "affirmed");
-  // Non-signatory companies that nonetheless publish a ratepayer-type claim.
-  const nonSignatoryCommitments = countNonSignatoryRatepayerCompanies();
 
   const tiles = [
     {
-      value: `${signatories.length} of ${state.companies.length}`,
-      label: "tracked companies signed the pledge",
+      value: String(signatories.length),
+      label: "companies signed the pledge",
     },
     {
       value: String(assessed.length),
@@ -1125,10 +1123,6 @@ function renderRatepayerStats() {
       value: String(affirmed.length),
       label: "carry a site-specific ratepayer commitment",
       accent: "affirmed",
-    },
-    {
-      value: String(nonSignatoryCommitments),
-      label: "non-signatories with their own ratepayer pledge",
     },
   ];
 
@@ -1172,12 +1166,6 @@ function companyHasRatepayerClaim(slug) {
       c.company_slug === slug &&
       RATEPAYER_CLAIM_KEYWORDS.some((k) => c.statement.toLowerCase().includes(k))
   );
-}
-
-function countNonSignatoryRatepayerCompanies() {
-  return state.companies.filter(
-    (c) => !c.ratepayer_pledge_signatory && companyHasRatepayerClaim(c.slug)
-  ).length;
 }
 
 function renderRatepayerRoster() {

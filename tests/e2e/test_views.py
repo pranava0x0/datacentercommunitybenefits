@@ -918,18 +918,21 @@ class TestRatepayerView:
             "aria-selected", "true"
         )
 
-    def test_stats_render_four_tiles(self, page: Page, base_url: str):
+    def test_stats_render_three_tiles(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
-        assert page.locator("#rp-stats .rp-stat").count() == 4
+        assert page.locator("#rp-stats .rp-stat").count() == 3
 
     def test_first_stat_reports_seven_signatories(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         first = page.locator("#rp-stats .rp-stat").first
-        expect(first).to_contain_text("7 of")
+        expect(first).to_contain_text("7")
+        expect(first).to_contain_text("companies signed the pledge")
+        # The "of 13" framing was removed — assert it's gone.
+        expect(first).not_to_contain_text("of 13")
 
     def test_roster_marks_signatories_and_nonsignatories(
         self, page: Page, base_url: str
