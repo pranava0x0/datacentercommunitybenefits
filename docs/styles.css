@@ -1518,22 +1518,32 @@ main {
   line-height: 1.35;
 }
 
-/* Commitments box */
+/* Commitments box — a collapsible <details> (reference material, collapsed
+   by default to keep the scorecard near the top). */
 .rp-commitments {
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.1rem 1.35rem;
+  padding: 0.85rem 1.35rem;
   margin-bottom: 1.75rem;
 }
 
-.rp-commitments h3 {
-  margin: 0 0 0.6rem;
+.rp-commitments > summary {
+  cursor: pointer;
   font-size: 1rem;
+  font-weight: 650;
+  list-style-position: inside;
+  padding: 0.15rem 0;
+}
+
+.rp-commitments > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .rp-commitment-list {
-  margin: 0;
+  margin: 0.85rem 0 0;
   padding-left: 1.1rem;
   display: grid;
   gap: 0.4rem;
@@ -1643,13 +1653,17 @@ main {
   background: transparent;
 }
 
-/* Scorecard */
+/* Scorecard — multi-column so 11 sites don't become a tall single stack.
+   Cards hold short content, so a ~340px min keeps two (often three) per row
+   on desktop and collapses to one column on mobile. */
 .rp-scorecard {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 0.85rem;
+  align-items: start;
 }
 
 .rp-card {

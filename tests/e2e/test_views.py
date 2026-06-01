@@ -972,3 +972,40 @@ class TestRatepayerView:
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
         expect(page.locator("#view-ratepayer")).to_be_visible()
+
+    def test_scorecard_lays_out_multiple_columns_on_desktop(
+        self, page: Page, base_url: str
+    ):
+        # The scroll-reduction fix: at desktop width the 11 cards must flow into
+        # a multi-column grid (not one tall stack). We detect columns by the
+        # number of distinct left offsets among the cards.
+        page.set_viewport_size({"width": 1200, "height": 800})
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        lefts = page.eval_on_selector_all(
+            "#rp-scorecard .rp-card",
+            "els => new Set(els.map(e => Math.round(e.getBoundingClientRect().left))).size",
+        )
+        assert lefts >= 2, f"Scorecard should be multi-column at 1200px, got {lefts} column(s)"
+
+    def test_scorecard_single_column_on_mobile(self, page: Page, base_url: str):
+        # Mobile must stay one column (cards full width, readable).
+        page.set_viewport_size({"width": 390, "height": 844})
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        lefts = page.eval_on_selector_all(
+            "#rp-scorecard .rp-card",
+            "els => new Set(els.map(e => Math.round(e.getBoundingClientRect().left))).size",
+        )
+        assert lefts == 1, f"Scorecard should be single-column on mobile, got {lefts}"
+
+    def test_commitments_collapsed_by_default(self, page: Page, base_url: str):
+        # The commitments reference is a <details> collapsed by default so the
+        # scorecard stays near the top.
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        details = page.locator(".rp-commitments")
+        assert details.evaluate("el => el.tagName.toLowerCase()") == "details"
+        assert details.evaluate("el => el.open") is False
+        # The five commitment items still exist in the DOM (just hidden).
+        assert page.locator(".rp-commitment-list li").count() == 5

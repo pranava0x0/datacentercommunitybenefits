@@ -372,11 +372,12 @@
         <!-- Top-level stats -->
         <ul id="rp-stats" class="rp-stats" aria-label="Pledge summary statistics"></ul>
 
-        <!-- What the pledge commits signatories to. The five elements + their
-             headings are taken verbatim from the White House proclamation
-             (rp-commitments-source links it). -->
-        <section class="rp-commitments" aria-labelledby="rp-commitments-heading">
-          <h3 id="rp-commitments-heading">What signatories committed to</h3>
+        <!-- What the pledge commits signatories to. Reference material — the
+             five elements + their headings are taken verbatim from the White
+             House proclamation (rp-commitments-source links it). Collapsed by
+             default so the scorecard stays above the fold. -->
+        <details class="rp-commitments">
+          <summary id="rp-commitments-heading">What signatories committed to (the 5 pledge elements)</summary>
           <ul class="rp-commitment-list">
             <li>
               <strong>Building, bringing, or buying new power supply</strong> —
@@ -411,7 +412,7 @@
             <a id="rp-commitments-link" href="#" target="_blank" rel="noopener noreferrer">White House Ratepayer Protection Pledge</a>
             (March 4, 2026).
           </p>
-        </section>
+        </details>
 
         <!-- Signatory roster -->
         <section class="rp-section" aria-labelledby="rp-roster-heading">
