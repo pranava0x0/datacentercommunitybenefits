@@ -98,13 +98,13 @@ Lazy-loads the project payload (no Leaflet). Deep-linkable at `#ratepayer`.
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
-| Companies          | 13    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Nebius      |
-| Claims             | 282   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
-| Projects           | 76    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
-| On-the-ground feedback | 199 | Reactions from residents / officials / NGOs / journalists / regulators  |
-| Delivered-vs-promised assessments | 12  | Curator judgment on whether the claim was actually met (4 status types) |
+| Companies          | 14    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Nebius + Prologis |
+| Claims             | 286   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
+| Projects           | 77    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
+| On-the-ground feedback | 206 | Reactions from residents / officials / NGOs / journalists / regulators  |
+| Delivered-vs-promised assessments | 14  | Curator judgment on whether the claim was actually met (4 status types) |
 | Ratepayer pledge assessments | 11  | Signatory data centers since the pledge, tagged site-specific vs national-pledge-only |
-| **Matrix coverage** | **98/104 (94%)** | 7 of 13 companies have full 8-theme coverage; 6 honest gaps remain |
+| **Matrix coverage** | **~99/112** | full-8-theme coverage for the established companies; honest gaps remain for newer entities |
 
 **First-paint payload:** `companies.json` (~7 KB) + `claims.json`
 (~70 KB) preload on first paint. `projects.json` (~20 KB) +

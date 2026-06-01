@@ -37,6 +37,39 @@
         </nav>
       </div>
 
+      <div
+        class="summary-stats"
+        id="summary-stats"
+        role="region"
+        aria-label="Dataset summary"
+      >
+        <div class="stat-group">
+          <span class="stat-num" id="ss-companies">—</span>
+          <span class="stat-label">companies</span>
+        </div>
+        <div class="stat-group">
+          <span class="stat-num" id="ss-projects">—</span>
+          <span class="stat-label">projects</span>
+        </div>
+        <div class="stat-group">
+          <span class="stat-num" id="ss-power">—</span>
+          <span class="stat-label">GW announced</span>
+        </div>
+        <div class="stat-group">
+          <span class="stat-num" id="ss-investment">—</span>
+          <span class="stat-label">claimed investment</span>
+        </div>
+        <div class="stat-group">
+          <span class="stat-num" id="ss-claims">—</span>
+          <span class="stat-label">first-party claims</span>
+        </div>
+        <div class="stat-group stat-group-responses">
+          <span class="stat-num" id="ss-responses">—</span>
+          <span class="stat-label">community responses</span>
+          <span class="stance-breakdown" id="ss-stance-breakdown" hidden></span>
+        </div>
+      </div>
+
       <div class="tabbar" role="tablist" aria-label="Dashboard views">
         <button
           id="tab-comparison"
@@ -96,11 +129,21 @@
           <ul id="theme-legend" class="theme-legend"></ul>
         </div>
 
-        <p class="matrix-help">
-          A check means the company has at least one published claim mapping to that
-          theme. Click any company row to open a summary of how that company frames
-          data-center community engagement, and a link to their main page.
-        </p>
+        <div class="matrix-toolbar">
+          <p class="matrix-help">
+            A check means the company has at least one published claim mapping to that
+            theme. Click any company row to open a summary of how that company frames
+            data-center community engagement, and a link to their main page.
+          </p>
+          <button
+            id="matrix-csv"
+            type="button"
+            class="btn-ghost matrix-csv"
+            aria-label="Download the company-by-theme matrix as a CSV file"
+          >
+            ⤓ Download CSV
+          </button>
+        </div>
 
         <div class="matrix-wrap" role="region" aria-label="Company × Theme matrix">
           <table id="comparison-matrix" class="matrix">
@@ -177,11 +220,45 @@
           </p>
         </div>
 
+        <section
+          class="hot-rail"
+          id="hot-rail"
+          aria-label="Recently contested sites"
+          hidden
+        >
+          <div class="hot-rail-head">
+            <h3 class="hot-rail-title">Recently contested</h3>
+            <p class="hot-rail-sub">
+              Sites with active legal action, eminent-domain disputes, or
+              contested delivery as of the last six months. Click any card to
+              open the full record.
+            </p>
+          </div>
+          <ol
+            class="hot-rail-list"
+            id="hot-rail-list"
+            role="list"
+          ></ol>
+        </section>
+
+        <div
+          class="theme-filter-row"
+          id="theme-filter-row"
+          role="group"
+          aria-label="Filter projects by theme"
+        ></div>
+
         <div class="explorer-filters" role="group" aria-label="Filter projects">
           <label class="filter">
             <span>Company</span>
             <select id="f-company">
               <option value="">All companies</option>
+            </select>
+          </label>
+          <label class="filter">
+            <span>State</span>
+            <select id="f-state">
+              <option value="">All states</option>
             </select>
           </label>
           <label class="filter">
@@ -200,6 +277,18 @@
               <option value="positive">Has positive responses</option>
               <option value="mixed">Has mixed responses</option>
               <option value="negative">Has negative responses</option>
+            </select>
+          </label>
+          <label class="filter">
+            <span>Constituency</span>
+            <select id="f-constituency">
+              <option value="">Any constituency</option>
+              <option value="residents">Residents</option>
+              <option value="local_government">Local government</option>
+              <option value="ngo">NGO</option>
+              <option value="regulator">Regulator</option>
+              <option value="journalist">Journalist</option>
+              <option value="academic">Academic</option>
             </select>
           </label>
           <label class="filter">

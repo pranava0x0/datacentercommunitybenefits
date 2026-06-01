@@ -154,14 +154,33 @@ const state = {
   companiesBySlug: new Map(),
   activeView: "comparison",
   selectedCompanySlug: null,
-  explorerFilters: { company: "", status: "", stance: "" },
+  explorerFilters: {
+    company: "",
+    status: "",
+    stance: "",
+    state: "",
+    theme: "",
+    constituency: "",
+  },
   explorerSort: "composite",
   selectedProjectId: null,
+  pendingProjectId: null,
   explorerLoaded: false,
   ratepayerLoaded: false,
   leafletLoaded: false,
   map: null,
   markers: new Map(),
+};
+
+// Default Explorer filter shape — single source of truth for init + reset so
+// the six dimensions stay in sync everywhere.
+const EMPTY_EXPLORER_FILTERS = {
+  company: "",
+  status: "",
+  stance: "",
+  state: "",
+  theme: "",
+  constituency: "",
 };
 
 // --------------------------------------------------------------------------
@@ -171,12 +190,33 @@ const state = {
 document.addEventListener("DOMContentLoaded", () => {
   applyStoredTheme();
   wireThemeToggle();
+  readFiltersFromUrl();
   wireTabs();
-  loadComparisonData().catch((err) => {
-    console.error("Failed to load comparison data:", err);
-    document.getElementById("meta").textContent =
-      "Failed to load data. Check the console.";
-  });
+  loadComparisonData()
+    .then(() => {
+      // Idle-preload projects + responses JSON (NOT Leaflet) so the
+      // summary-stats bar can fill in projects / GW / investment / responses
+      // without waiting for the user to open the Explorer tab. Runs after the
+      // Comparison view has rendered and uses loadProjectData (data-only), so
+      // the two-payload first-paint strategy is preserved.
+      if (state.explorerLoaded || state.projects.length) return;
+      const preload = () =>
+        loadProjectData()
+          .then(renderSummaryStats)
+          .catch((err) =>
+            console.error("Idle preload of project data failed:", err)
+          );
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(preload, { timeout: 2000 });
+      } else {
+        setTimeout(preload, 800);
+      }
+    })
+    .catch((err) => {
+      console.error("Failed to load comparison data:", err);
+      document.getElementById("meta").textContent =
+        "Failed to load data. Check the console.";
+    });
 });
 
 // --------------------------------------------------------------------------
@@ -225,9 +265,72 @@ function wireTabs() {
       .addEventListener("click", () => activateView(v.name));
   }
 
-  // Allow URL hash to deep-link to a non-default view on load.
+  // Allow URL hash to deep-link to a non-default view on load. Also activate
+  // the Explorer when filter query params are present (even without the
+  // #explorer hash) so a deep-linked filtered Explorer round-trips.
   const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
-  if (fromHash) activateView(fromHash.name);
+  if (fromHash) {
+    activateView(fromHash.name);
+  } else if (anyExplorerFilterSet() || state.pendingProjectId) {
+    activateView("explorer");
+  }
+}
+
+// True when any of the six Explorer filter dimensions is set.
+function anyExplorerFilterSet() {
+  const f = state.explorerFilters;
+  return Boolean(
+    f.company || f.state || f.status || f.stance || f.theme || f.constituency
+  );
+}
+
+const URL_FILTER_KEYS = [
+  "company",
+  "state",
+  "status",
+  "stance",
+  "theme",
+  "constituency",
+];
+
+// Parse window.location.search into state.explorerFilters + pendingProjectId.
+// Called once on boot, before any render, so the Explorer paints with the
+// URL-encoded filters already applied. Unknown keys are ignored.
+function readFiltersFromUrl() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    for (const k of URL_FILTER_KEYS) {
+      const v = params.get(k);
+      if (v) state.explorerFilters[k] = v;
+    }
+    const pid = params.get("project");
+    if (pid) state.pendingProjectId = pid;
+  } catch (err) {
+    console.warn("Could not parse URL filter state:", err);
+  }
+}
+
+// Serialize Explorer filters + open project back to the URL via
+// history.replaceState (not pushState — no new history entry per change).
+// Keeps the #explorer hash while the Explorer is active so deep-links
+// round-trip cleanly. Only writes when the Explorer is the active view, so
+// it doesn't clobber the #ratepayer hash.
+function writeFiltersToUrl() {
+  if (state.activeView !== "explorer") return;
+  try {
+    const params = new URLSearchParams();
+    const f = state.explorerFilters;
+    for (const k of URL_FILTER_KEYS) {
+      if (f[k]) params.set(k, f[k]);
+    }
+    const pid = state.selectedProjectId || state.pendingProjectId;
+    if (pid) params.set("project", pid);
+    const qs = params.toString();
+    const url = window.location.pathname + (qs ? "?" + qs : "") + "#explorer";
+    history.replaceState(null, "", url);
+  } catch (err) {
+    console.warn("Could not write URL filter state:", err);
+  }
 }
 
 function activateView(name) {
@@ -240,10 +343,14 @@ function activateView(name) {
     document.getElementById(v.section).hidden = !isActive;
   }
 
-  // Keep the URL hash in sync so views are deep-linkable / back-button friendly.
-  if (target.hash) {
+  // Keep the URL in sync so views are deep-linkable / back-button friendly.
+  // The Explorer serializes its full filter state (via writeFiltersToUrl);
+  // the other views use a bare hash and drop any stale query string.
+  if (target.name === "explorer") {
+    writeFiltersToUrl();
+  } else if (target.hash) {
     history.replaceState(null, "", target.hash);
-  } else if (window.location.hash) {
+  } else if (window.location.hash || window.location.search) {
     history.replaceState(null, "", window.location.pathname);
   }
 
@@ -274,6 +381,7 @@ async function loadComparisonData() {
   state.claims = claims.claims;
   state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
   renderComparisonView();
+  renderSummaryStats();
 }
 
 // Fetch + index the projects/responses payload. Shared by the Explorer and
@@ -306,6 +414,9 @@ function loadProjectData() {
         }
         state.claimsByProject.get(c.project_id).push(c);
       }
+      // Fill in the projects / GW / investment / responses tiles now that the
+      // lazy payload is in hand (companies + claims tiles already showed).
+      renderSummaryStats();
     })();
   }
   return _projectDataPromise;
@@ -347,12 +458,114 @@ function renderComparisonView() {
   renderThemeLegend();
   renderMatrix();
   wireCompanyDetail();
+  wireMatrixCsvExport();
 }
 
 function renderMeta() {
   const c = state.claims.length;
   const co = state.companies.length;
   document.getElementById("meta").textContent = `${c} claims across ${co} companies · v0 curated`;
+}
+
+// Aggregate dataset stats shown in the topbar strip. Progressively enhances:
+// called after companies+claims load (companies / claims tiles), and again
+// after the lazy projects/responses payload lands (projects / GW / investment
+// / responses). Never blocks first paint on the lazy payload.
+function renderSummaryStats() {
+  const setNum = (id, txt) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = txt;
+  };
+
+  if (state.companies.length) setNum("ss-companies", state.companies.length);
+  if (state.claims.length) setNum("ss-claims", state.claims.length);
+
+  if (state.projects.length) {
+    setNum("ss-projects", state.projects.length);
+    const mw = state.projects.reduce((s, p) => s + (p.power_mw || 0), 0);
+    setNum("ss-power", formatSummaryGW(mw));
+    const usd = state.projects.reduce(
+      (s, p) => s + (p.claimed_investment_usd || 0),
+      0
+    );
+    setNum("ss-investment", formatSummaryUsd(usd));
+  }
+
+  if (state.responses.length) {
+    setNum("ss-responses", state.responses.length);
+    const byStance = { positive: 0, mixed: 0, negative: 0 };
+    for (const r of state.responses) {
+      if (byStance[r.stance] !== undefined) byStance[r.stance] += 1;
+    }
+    const breakdown = document.getElementById("ss-stance-breakdown");
+    if (breakdown) {
+      breakdown.innerHTML =
+        `<span class="stance-dot positive"></span>${byStance.positive}` +
+        `<span class="stance-dot mixed"></span>${byStance.mixed}` +
+        `<span class="stance-dot negative"></span>${byStance.negative}`;
+      breakdown.hidden = false;
+    }
+  }
+}
+
+function formatSummaryGW(mw) {
+  if (!mw) return "—";
+  const gw = mw / 1000;
+  if (gw >= 100) return `${Math.round(gw)} GW`;
+  if (gw >= 10) return `${gw.toFixed(1)} GW`;
+  return `${gw.toFixed(2)} GW`;
+}
+
+function formatSummaryUsd(usd) {
+  if (!usd) return "—";
+  if (usd >= 1e12) return `$${(usd / 1e12).toFixed(2)} T`;
+  if (usd >= 1e9) return `$${(usd / 1e9).toFixed(usd >= 100e9 ? 0 : 1)} B`;
+  if (usd >= 1e6) return `$${(usd / 1e6).toFixed(0)} M`;
+  return `$${usd}`;
+}
+
+// Download CSV button on the Comparison view. Long format: one row per
+// company × theme (slug, name, theme key, theme label, claim count).
+function wireMatrixCsvExport() {
+  const btn = document.getElementById("matrix-csv");
+  if (!btn || btn.dataset.wired === "1") return;
+  btn.dataset.wired = "1";
+  btn.addEventListener("click", downloadMatrixCsv);
+}
+
+function downloadMatrixCsv() {
+  const counts = new Map();
+  for (const c of state.claims) {
+    const key = `${c.company_slug}|${c.theme}`;
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  const rows = [
+    ["company_slug", "company_name", "theme", "theme_label", "claim_count"],
+  ];
+  for (const co of state.companies) {
+    for (const t of THEMES) {
+      const n = counts.get(`${co.slug}|${t}`) || 0;
+      rows.push([co.slug, co.name, t, THEME_LABELS[t] || t, String(n)]);
+    }
+  }
+  const csv = rows.map((r) => r.map(csvCell).join(",")).join("\r\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const today = new Date().toISOString().slice(0, 10);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `dcb-matrix-${today}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// Minimal RFC-4180 cell quoter.
+function csvCell(v) {
+  const s = String(v == null ? "" : v);
+  if (/[",\r\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+  return s;
 }
 
 function renderThemeLegend() {
@@ -668,22 +881,86 @@ function formatMetric(m) {
 
 function renderExplorerView() {
   populateCompanyFilter();
+  populateStateFilter();
+  renderThemeFilterChips();
+  renderHotRail();
   wireExplorerFilters();
   syncExplorerFilterUIToState();
   renderProjectList();
   renderProjectMap();
+
+  // If the page loaded with ?project=<id>, open that project's detail panel
+  // now that data + DOM are ready. selectProject is a no-op for unknown ids.
+  if (state.pendingProjectId) {
+    const pid = state.pendingProjectId;
+    state.pendingProjectId = null;
+    selectProject(pid);
+  }
 }
 
 function syncExplorerFilterUIToState() {
   const f = state.explorerFilters;
   const co = document.getElementById("f-company");
+  const stt = document.getElementById("f-state");
   const st = document.getElementById("f-status");
   const sn = document.getElementById("f-stance");
+  const cn = document.getElementById("f-constituency");
   const so = document.getElementById("f-sort");
   if (co) co.value = f.company || "";
+  if (stt) stt.value = f.state || "";
   if (st) st.value = f.status || "";
   if (sn) sn.value = f.stance || "";
+  if (cn) cn.value = f.constituency || "";
   if (so) so.value = state.explorerSort || "composite";
+  // Reflect the active theme into the chip row.
+  const row = document.getElementById("theme-filter-row");
+  if (row) {
+    for (const btn of row.querySelectorAll(".theme-filter-chip")) {
+      const active = btn.dataset.theme === (f.theme || "");
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    }
+  }
+}
+
+function populateStateFilter() {
+  const sel = document.getElementById("f-state");
+  if (!sel || sel.options.length > 1) return;
+  const states = Array.from(
+    new Set(state.projects.map((p) => p.state).filter(Boolean))
+  ).sort();
+  for (const s of states) {
+    const opt = document.createElement("option");
+    opt.value = s;
+    opt.textContent = s;
+    sel.appendChild(opt);
+  }
+}
+
+// Theme-filter chip row. Click a chip to narrow the Explorer to projects with
+// ≥1 claim under that theme; click the active chip again to clear. Reads the
+// canonical THEMES vocab so a new theme auto-gets a chip.
+function renderThemeFilterChips() {
+  const row = document.getElementById("theme-filter-row");
+  if (!row || row.childElementCount > 0) return;
+  for (const t of THEMES) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "theme-filter-chip";
+    btn.dataset.theme = t;
+    btn.setAttribute("aria-pressed", "false");
+    btn.style.setProperty("--theme-color", `var(--theme-${t})`);
+    btn.innerHTML = `<span class="theme-filter-dot" aria-hidden="true"></span>${escapeHtml(
+      THEME_LABELS[t] || t
+    )}`;
+    btn.addEventListener("click", () => {
+      const cur = state.explorerFilters.theme || "";
+      state.explorerFilters.theme = cur === t ? "" : t;
+      syncExplorerFilterUIToState();
+      refreshExplorer();
+    });
+    row.appendChild(btn);
+  }
 }
 
 function populateCompanyFilter() {
@@ -700,11 +977,143 @@ function populateCompanyFilter() {
   }
 }
 
+// --------------------------------------------------------------------------
+// Recently-contested rail (auto-derived, no curator featured flag)
+// --------------------------------------------------------------------------
+// A project belongs on the rail when it has (a) negative/mixed-stance
+// responses in the last ~180 days, or (b) claims with delivered status
+// "contested" / "shortfall". Score = weighted sum; the most-actively
+// contested sites surface first.
+const HOT_RAIL_WINDOW_DAYS = 180;
+const HOT_RAIL_MAX_CARDS = 6;
+
+function renderHotRail() {
+  const rail = document.getElementById("hot-rail");
+  const list = document.getElementById("hot-rail-list");
+  if (!rail || !list) return;
+  list.innerHTML = "";
+
+  const now = Date.now();
+  const windowMs = HOT_RAIL_WINDOW_DAYS * 24 * 60 * 60 * 1000;
+
+  const scored = [];
+  for (const p of state.projects) {
+    const responses = state.responsesByProject.get(p.id) || [];
+    const claims = state.claimsByProject.get(p.id) || [];
+
+    let recentNeg = 0;
+    let recentMixed = 0;
+    let latestNeg = null;
+    for (const r of responses) {
+      const t = Date.parse(r.date);
+      if (Number.isNaN(t) || now - t > windowMs) continue;
+      if (r.stance === "negative") {
+        recentNeg += 1;
+        if (!latestNeg || Date.parse(r.date) > Date.parse(latestNeg.date)) {
+          latestNeg = r;
+        }
+      } else if (r.stance === "mixed") {
+        recentMixed += 1;
+      }
+    }
+
+    const contestedClaims = claims.filter(
+      (c) =>
+        c.delivered &&
+        (c.delivered.status === "contested" ||
+          c.delivered.status === "shortfall")
+    );
+
+    const score =
+      recentNeg * 2 + recentMixed * 0.5 + contestedClaims.length * 1.5;
+    if (score <= 0) continue;
+
+    let hint;
+    if (latestNeg) {
+      hint = latestNeg.summary;
+    } else if (contestedClaims.length) {
+      hint = contestedClaims[0].delivered.summary;
+    } else if (recentMixed) {
+      hint = "Recent mixed community response on the record.";
+    } else {
+      hint = "Contested delivery on the record.";
+    }
+
+    scored.push({ project: p, score, hint, latestNeg });
+  }
+
+  if (!scored.length) {
+    rail.hidden = true;
+    return;
+  }
+
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    const aT = a.latestNeg ? Date.parse(a.latestNeg.date) : 0;
+    const bT = b.latestNeg ? Date.parse(b.latestNeg.date) : 0;
+    return bT - aT;
+  });
+
+  for (const item of scored.slice(0, HOT_RAIL_MAX_CARDS)) {
+    list.appendChild(renderHotRailCard(item));
+  }
+  rail.hidden = false;
+}
+
+function renderHotRailCard({ project: p, hint }) {
+  const co = state.companiesBySlug
+    ? state.companiesBySlug.get(p.company_slug)
+    : null;
+  const coName = co ? co.name : p.company_slug;
+  const li = document.createElement("li");
+  li.className = "hot-card";
+  li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
+  li.tabIndex = 0;
+  li.setAttribute("role", "button");
+  li.setAttribute("aria-label", `Open ${p.name} — recently contested case`);
+
+  const statusLabel = STATUS_LABELS[p.status] || p.status;
+  li.innerHTML = `
+    <p class="hot-card-eyebrow">${escapeHtml(coName)} · ${escapeHtml(statusLabel)}</p>
+    <h4 class="hot-card-title">${escapeHtml(p.name)}</h4>
+    <p class="hot-card-loc">${escapeHtml(p.city)}, ${escapeHtml(p.state)}</p>
+    <p class="hot-card-hint">${escapeHtml(truncate(hint, 180))}</p>
+    <p class="hot-card-cta" aria-hidden="true">View record →</p>
+  `;
+
+  const open = () => selectProject(p.id);
+  li.addEventListener("click", open);
+  li.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      open();
+    }
+  });
+  return li;
+}
+
+function truncate(s, n) {
+  if (!s) return "";
+  return s.length <= n ? s : s.slice(0, n - 1).trimEnd() + "…";
+}
+
 function wireExplorerFilters() {
+  // Guard against double-wiring on Explorer re-render.
+  const root = document.querySelector(".explorer-filters");
+  if (root && root.dataset.wired === "1") return;
+  if (root) root.dataset.wired = "1";
+
   document.getElementById("f-company").addEventListener("change", (e) => {
     state.explorerFilters.company = e.target.value;
     refreshExplorer();
   });
+  const stateSel = document.getElementById("f-state");
+  if (stateSel) {
+    stateSel.addEventListener("change", (e) => {
+      state.explorerFilters.state = e.target.value;
+      refreshExplorer();
+    });
+  }
   document.getElementById("f-status").addEventListener("change", (e) => {
     state.explorerFilters.status = e.target.value;
     refreshExplorer();
@@ -713,6 +1122,13 @@ function wireExplorerFilters() {
     state.explorerFilters.stance = e.target.value;
     refreshExplorer();
   });
+  const constituencySel = document.getElementById("f-constituency");
+  if (constituencySel) {
+    constituencySel.addEventListener("change", (e) => {
+      state.explorerFilters.constituency = e.target.value;
+      refreshExplorer();
+    });
+  }
   const sortSel = document.getElementById("f-sort");
   if (sortSel) {
     sortSel.addEventListener("change", (e) => {
@@ -722,12 +1138,10 @@ function wireExplorerFilters() {
     });
   }
   document.getElementById("f-reset").addEventListener("click", () => {
-    state.explorerFilters = { company: "", status: "", stance: "" };
+    state.explorerFilters = { ...EMPTY_EXPLORER_FILTERS };
     state.explorerSort = "composite";
-    document.getElementById("f-company").value = "";
-    document.getElementById("f-status").value = "";
-    document.getElementById("f-stance").value = "";
     if (sortSel) sortSel.value = "composite";
+    syncExplorerFilterUIToState();
     refreshExplorer();
   });
   document.getElementById("detail-close").addEventListener("click", closeDetail);
@@ -805,16 +1219,26 @@ function updateDetailTabCounts(claimsCount, responsesCount) {
 function refreshExplorer() {
   renderProjectList();
   refreshMapMarkers();
+  writeFiltersToUrl();
 }
 
 function filteredProjects() {
   const f = state.explorerFilters;
   const items = state.projects.filter((p) => {
     if (f.company && p.company_slug !== f.company) return false;
+    if (f.state && p.state !== f.state) return false;
     if (f.status && p.status !== f.status) return false;
+    if (f.theme) {
+      const cs = state.claimsByProject.get(p.id) || [];
+      if (!cs.some((c) => c.theme === f.theme)) return false;
+    }
     if (f.stance) {
       const rs = state.responsesByProject.get(p.id) || [];
       if (!rs.some((r) => r.stance === f.stance)) return false;
+    }
+    if (f.constituency) {
+      const rs = state.responsesByProject.get(p.id) || [];
+      if (!rs.some((r) => r.constituency === f.constituency)) return false;
     }
     return true;
   });
@@ -1350,6 +1774,7 @@ function selectProject(id) {
   document.getElementById("detail-close").focus({ preventScroll: true });
 
   refreshProjectListSelection();
+  writeFiltersToUrl();
 
   detail.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -1560,8 +1985,10 @@ function renderResponseCard(r) {
 
 function closeDetail() {
   state.selectedProjectId = null;
+  state.pendingProjectId = null;
   document.getElementById("project-detail").hidden = true;
   refreshProjectListSelection();
+  writeFiltersToUrl();
 }
 
 // --------------------------------------------------------------------------

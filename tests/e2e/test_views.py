@@ -1012,3 +1012,128 @@ class TestRatepayerView:
         assert details.evaluate("el => el.open") is False
         # The five commitment items still exist in the DOM (just hidden).
         assert page.locator(".rp-commitment-list li").count() == 5
+
+
+# ---------------------------------------------------------------------------
+# v1.18 ported features: summary stats, theme/state/constituency filters,
+# Recently-Contested rail, CSV export, URL-state round-trip
+# ---------------------------------------------------------------------------
+
+
+class TestSummaryStats:
+    def test_stats_bar_companies_and_claims_on_first_paint(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/")
+        # companies + claims fill from the first-paint payload (no tab switch).
+        page.wait_for_function(
+            "document.getElementById('ss-companies').textContent !== '—'",
+            timeout=10_000,
+        )
+        companies = page.locator("#ss-companies").text_content()
+        claims = page.locator("#ss-claims").text_content()
+        assert int(companies) >= 14
+        assert int(claims) >= 280
+
+    def test_stats_bar_fills_projects_after_idle_preload(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/")
+        # The idle preload (or opening Explorer) fills projects / GW / responses.
+        page.locator("#tab-explorer").click()
+        page.wait_for_function(
+            "document.getElementById('ss-projects').textContent !== '—'",
+            timeout=15_000,
+        )
+        assert int(page.locator("#ss-projects").text_content()) >= 77
+        assert "GW" in page.locator("#ss-power").text_content()
+        assert "$" in page.locator("#ss-investment").text_content()
+
+
+class TestExplorerFiltersPorted:
+    def test_state_filter_narrows(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        full = page.locator("#project-list .project-card").count()
+        page.locator("#f-state").select_option("GA")
+        page.wait_for_function(
+            "document.querySelectorAll('#project-list .project-card').length < "
+            + str(full),
+            timeout=5_000,
+        )
+        assert page.locator("#project-list .project-card").count() >= 1
+
+    def test_theme_chip_filters(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#theme-filter-row .theme-filter-chip", timeout=15_000)
+        chips = page.locator("#theme-filter-row .theme-filter-chip")
+        assert chips.count() == 8
+        full = page.locator("#project-list .project-card").count()
+        page.locator("#theme-filter-row .theme-filter-chip[data-theme='water']").click()
+        page.wait_for_function(
+            "document.querySelectorAll('#project-list .project-card').length <= "
+            + str(full),
+            timeout=5_000,
+        )
+        # The clicked chip reads as pressed.
+        pressed = page.locator(
+            "#theme-filter-row .theme-filter-chip[data-theme='water']"
+        ).get_attribute("aria-pressed")
+        assert pressed == "true"
+
+    def test_constituency_filter_present(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#f-constituency", timeout=15_000)
+        opts = page.locator("#f-constituency option").count()
+        assert opts == 7  # "Any" + 6 constituencies
+
+
+class TestHotRail:
+    def test_hot_rail_renders_cards(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#hot-rail .hot-card", timeout=15_000)
+        cards = page.locator("#hot-rail .hot-card")
+        assert 1 <= cards.count() <= 6
+
+    def test_hot_card_opens_project(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#hot-rail .hot-card", timeout=15_000)
+        page.locator("#hot-rail .hot-card").first.click()
+        page.wait_for_selector("#project-detail:not([hidden])", timeout=5_000)
+        expect(page.locator("#project-detail")).to_be_visible()
+
+
+class TestUrlState:
+    def test_filters_serialize_to_url(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.locator("#f-company").select_option("prologis")
+        page.wait_for_function(
+            "window.location.search.includes('company=prologis')", timeout=5_000
+        )
+        assert "company=prologis" in page.url
+
+    def test_deep_link_restores_filter(self, page: Page, base_url: str):
+        page.goto(base_url + "/?company=prologis#explorer")
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        # Only Prologis projects show, and the select reflects the URL.
+        assert page.locator("#f-company").input_value() == "prologis"
+        cards = page.locator("#project-list .project-card")
+        assert cards.count() >= 1
+
+
+class TestMatrixCsv:
+    def test_csv_button_downloads(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-csv", timeout=10_000)
+        with page.expect_download(timeout=5_000) as dl_info:
+            page.locator("#matrix-csv").click()
+        download = dl_info.value
+        assert download.suggested_filename.startswith("dcb-matrix-")
+        assert download.suggested_filename.endswith(".csv")
