@@ -1712,6 +1712,34 @@
       "captured_at": "2026-05-16",
       "power_mw": 75.2,
       "offtaker": "QTS"
+    },
+    {
+      "id": "google-new-florence-mo",
+      "company_slug": "google",
+      "name": "Google New Florence Data Center",
+      "city": "New Florence",
+      "state": "MO",
+      "country": "US",
+      "lat": 38.911,
+      "lon": -91.452,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": 15000000000,
+      "claimed_jobs": 2200,
+      "notes": "$15B campus (developer codename 'Project Spade', developed by Related Digital) on a ~934-acre site in the southeast quadrant of the I-70 / Missouri-19 interchange near New Florence, Montgomery County — announced May 20, 2026 as the largest single investment in Missouri history. Two buildings, ~800,000 sq ft, closed-loop air-cooled, targeting ~1.2 GW. Construction expected to begin 2026 (~2,000 construction jobs over 2–3 years; ~200 long-term operational roles). Sits next to a separately developed AWS campus. Google also operates a Kansas City, MO data center referenced in the same announcement.",
+      "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
+      "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
+      "captured_at": "2026-05-31",
+      "project_page_url": null,
+      "acreage": 934,
+      "power_mw": 1200,
+      "offtaker": "Google",
+      "at_a_glance": {
+        "jobs": "~2,000 construction / ~200 ops",
+        "energy": "1.2 GW target; 1 GW+ new MO capacity contracted",
+        "water": "Air-cooled; water limited to domestic use",
+        "community_grants": "$20M Energy Impact Fund"
+      }
     }
   ]
 }

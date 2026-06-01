@@ -2134,6 +2134,39 @@
       "source_url": "https://www.texastribune.org/2026/05/12/texas-hill-county-approves-data-center-construction-pause-ai/",
       "source_title": "Texas Tribune — Texas county pauses data center construction in rural areas",
       "single_source": false
+    },
+    {
+      "id": "resp-google-new-florence-kehoe-positive",
+      "project_id": "google-new-florence-mo",
+      "date": "2026-05-20",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Missouri Gov. Mike Kehoe celebrated the project as the largest single investment in state history, framing it as an investment in Missouri families, communities, and long-term opportunity and crediting Google's local partnerships, grants, and support for area businesses.",
+      "source_url": "https://governor.mo.gov/press-releases/archive/missouri-secures-15-billion-investment-google-montgomery-county",
+      "source_title": "Missouri Secures $15 Billion Investment from Google in Montgomery County (Office of Gov. Mike Kehoe)",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-new-florence-preserve-lawsuit",
+      "project_id": "google-new-florence-mo",
+      "date": "2026-05-22",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "A resident group, Preserve Montgomery County, sued the county commission in February 2026 alleging Missouri Sunshine Law violations—insufficient meeting notice, undisclosed closed sessions, and withheld data-center water-use details—and sought to halt the projects pending disclosure, with a hearing set for June 1, 2026.",
+      "source_url": "https://missouriindependent.com/2026/05/22/google-data-center-plan-raises-tax-transparency-questions-in-rural-missouri/",
+      "source_title": "Google data center plan raises tax, transparency questions in rural Missouri (Missouri Independent)",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-new-florence-showme-academic",
+      "project_id": "google-new-florence-mo",
+      "date": "2026-05-22",
+      "stance": "mixed",
+      "constituency": "academic",
+      "summary": "An analyst at the Show-Me Institute, a Missouri free-market think tank, observed that tax revenue rather than jobs is the primary local benefit of data centers and cautioned that communities should support such projects only where tax incentives do not erode the net fiscal gain.",
+      "source_url": "https://missouriindependent.com/2026/05/22/google-data-center-plan-raises-tax-transparency-questions-in-rural-missouri/",
+      "source_title": "Google data center plan raises tax, transparency questions in rural Missouri (Missouri Independent)",
+      "single_source": true
     }
   ]
 }

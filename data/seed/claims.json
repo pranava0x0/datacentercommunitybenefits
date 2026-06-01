@@ -3442,6 +3442,87 @@
       "captured_at": "2026-05-16",
       "published_at": "2026-03-10",
       "project_id": "xai-southaven-ms"
+    },
+    {
+      "id": "google-new-florence-jobs-porat-2026",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "We look forward to expanding Google's investments in Missouri and helping Missourians benefit from the next wave of American innovation. To deliver the upside of technology, we are investing in workforce development and energy affordability, both directly and through our partnerships with local organizations. This commitment will provide thousands of Missourians with valuable technical and trade skills, while supporting energy affordability for residents in Montgomery County and across the state.",
+      "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
+      "source_title": "Google Deepens Missouri Roots — Ruth Porat on the Missouri investment (PR Newswire)",
+      "captured_at": "2026-05-31",
+      "published_at": "2026-05-20",
+      "project_id": "google-new-florence-mo"
+    },
+    {
+      "id": "google-new-florence-community-grants-energy-fund-2026",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "To further address energy affordability, Google today also announced a $20 million Energy Impact Fund to support programs that drive down monthly energy bills for households in Missouri—focused on Montgomery, Clay, Platte, and other counties surrounding Google's planned data centers in Kansas City and New Florence.",
+      "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
+      "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
+      "captured_at": "2026-05-31",
+      "published_at": "2026-05-20",
+      "project_id": "google-new-florence-mo",
+      "metric": {
+        "value": 20000000,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "google-new-florence-energy-ameren-capacity-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "To date, Google has contracted to bring more than one gigawatt (GW) of new generation capacity to Missouri, and—through its partnership with Ameren—Google is supporting the development of more than 500 megawatts (MW) of additional capacity.",
+      "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
+      "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
+      "captured_at": "2026-05-31",
+      "published_at": "2026-05-20",
+      "project_id": "google-new-florence-mo",
+      "metric": {
+        "value": 1000,
+        "unit": "mw",
+        "kind": "new_generation_contracted"
+      }
+    },
+    {
+      "id": "google-new-florence-water-air-cooling-2026",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "The Montgomery County data center will use advanced air-cooling technology, limiting water consumption to uses like kitchens.",
+      "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
+      "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
+      "captured_at": "2026-05-31",
+      "published_at": "2026-05-20",
+      "project_id": "google-new-florence-mo"
+    },
+    {
+      "id": "google-new-florence-education-apprentices-2026",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "This project will enable the center to train more than 2,300 construction laborers, including 1,500 apprentices, over the next two years.",
+      "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
+      "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
+      "captured_at": "2026-05-31",
+      "published_at": "2026-05-20",
+      "project_id": "google-new-florence-mo",
+      "metric": {
+        "value": 2300,
+        "unit": "workers",
+        "kind": "training"
+      }
+    },
+    {
+      "id": "google-new-florence-infrastructure-pay-100pct-2026",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "When Google builds data centers, the company pays for 100% of the power it uses, and it will cover the infrastructure costs directly driven by its operations.",
+      "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
+      "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
+      "captured_at": "2026-05-31",
+      "published_at": "2026-05-20",
+      "project_id": "google-new-florence-mo"
     }
   ]
 }
