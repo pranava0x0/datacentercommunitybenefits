@@ -566,12 +566,12 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "April 14, 2026 announcement of intent to purchase ~3,200 acres south of Cheyenne (200 acres in Bison Business Park on Wapiti Trail east of S Greeley Highway, plus 3,000 acres in Southeast Cheyenne) to triple Microsoft's existing Cheyenne footprint. Microsoft has been operating in Cheyenne since 2012 and was the No. 1 taxpayer in the city in 2025. Cumulative community investments include $68M in off-site infrastructure improvements and 56 community projects with 28 local organizations since 2018.",
+      "notes": "April 14, 2026 announcement of intent to purchase ~3,200 acres south of Cheyenne (200 acres in Bison Business Park on Wapiti Trail east of S Greeley Highway, plus 3,000 acres in Southeast Cheyenne) to triple Microsoft's existing Cheyenne footprint. Microsoft has been operating in Cheyenne since 2012 and was the No. 1 taxpayer in the city in 2025. Cumulative community investments include $68M in off-site infrastructure improvements and 56 community projects with 28 local organizations since 2018. On ~May 28, 2026 Microsoft added two more parcels — a 385-acre tract near the 3,200-acre site (close to Laramie County Community College) and ~35 acres near North Range Business Park — bringing the cumulative announced footprint to ~3,620 acres.",
       "source_url": "https://news.microsoft.com/source/2026/04/14/microsoft-announces-intent-to-expand-datacenter-operations-in-cheyenne-accelerating-innovation-and-economic-growth/",
       "source_title": "Microsoft announces intent to expand datacenter operations in Cheyenne",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-05-31",
       "project_page_url": "https://news.microsoft.com/source/2026/04/14/microsoft-announces-intent-to-expand-datacenter-operations-in-cheyenne-accelerating-innovation-and-economic-growth/",
-      "acreage": 3200,
+      "acreage": 3620,
       "power_mw": null,
       "gpu_count": null,
       "offtaker": "Microsoft",
@@ -1798,6 +1798,25 @@
         "evidence_claim_id": "google-new-florence-infrastructure-pay-100pct-2026",
         "assessed_at": "2026-05-31"
       }
+    },
+    {
+      "id": "qts-clinton-ia",
+      "company_slug": "qts",
+      "name": "Clinton Data Center Campus (proposed)",
+      "city": "Clinton",
+      "state": "IA",
+      "country": "US",
+      "lat": 41.83,
+      "lon": -90.27,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": 1500000000,
+      "claimed_jobs": null,
+      "notes": "Proposed QTS campus on ~3,400 acres zoned M5 Industrial, west of Valley Oaks Golf Course and east of South 34th Street — ten ~50,000 sq ft buildings, ~$1.5B. Proposed May 2026; not yet approved. A packed May 26 city council meeting drew resident concern over water, electricity, health, and transparency, and the council agreed to place a 120-day data-center moratorium on its June 3, 2026 agenda. No verbatim first-party QTS quote has been published yet (coverage paraphrases QTS), so no Claim is recorded for this site.",
+      "source_url": "https://www.clintonherald.com/news/local_news/clinton-city-council-considering-data-center-moratorium/article_525da494-9a5c-4940-8456-dec2e25a4b4a.html",
+      "source_title": "Clinton City Council considering data center moratorium (Clinton Herald)",
+      "captured_at": "2026-05-31",
+      "offtaker": "QTS"
     }
   ]
 }

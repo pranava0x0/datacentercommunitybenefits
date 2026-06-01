@@ -2178,6 +2178,17 @@
       "source_url": "https://www.cbsnews.com/atlanta/news/aoc-presses-epa-over-morgan-county-drinking-water-concerns-tied-to-georgia-data-center-development/",
       "source_title": "AOC presses EPA over Morgan County drinking water concerns tied to Georgia data center development (CBS Atlanta)",
       "single_source": false
+    },
+    {
+      "id": "resp-qts-clinton-moratorium-2026",
+      "project_id": "qts-clinton-ia",
+      "date": "2026-05-26",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "Residents packed a late-May 2026 Clinton city council meeting urging a moratorium on the proposed QTS data center over water, electricity, health, and transparency concerns; the council agreed to place a 120-day moratorium on its June 3, 2026 agenda for formal consideration.",
+      "source_url": "https://www.clintonherald.com/news/local_news/clinton-city-council-considering-data-center-moratorium/article_525da494-9a5c-4940-8456-dec2e25a4b4a.html",
+      "source_title": "Clinton City Council considering data center moratorium (Clinton Herald)",
+      "single_source": false
     }
   ]
 }
