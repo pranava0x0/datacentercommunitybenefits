@@ -580,6 +580,11 @@
         "tax_revenue": "$11M+ to Laramie County tax base 2025; no local abatements",
         "energy": "Black Hills LPCS tariff: MS pays its own grid upgrades directly",
         "community_grants": "$4.7M to 56 local nonprofit projects since 2018"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Microsoft's national pledge signature and its broader 'pay our way' commitment; the Cheyenne expansion details tax base, off-site infrastructure, and a no-abatements stance, but no Cheyenne-specific power-cost pledge was captured.",
+        "assessed_at": "2026-05-31"
       }
     },
     {
@@ -740,6 +745,12 @@
         "tax_revenue": "85% property-tax abatement + $62.5M PILOT over 25 yr",
         "infrastructure": "$25M+ for local roads + water upgrades",
         "community_grants": "$3M community grant fund"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Meta said it pays the full costs of the Tulsa data center's energy, water, and wastewater service so that consumers are not paying its costs.",
+        "evidence_claim_id": "meta-tulsa-energy-pay-full-costs-2026",
+        "assessed_at": "2026-05-31"
       }
     },
     {
@@ -787,6 +798,11 @@
         "jobs": "$8B / 420 ac / 400 MW",
         "community_grants": "$1M Groundswell SOUL energy-efficiency grant",
         "water": "Trust for Public Land — Chattahoochee restoration partnership"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Google's national pledge signature; the LaGrange announcement focused on being a good neighbor and local investment, with no site-specific ratepayer commitment captured.",
+        "assessed_at": "2026-05-31"
       }
     },
     {
@@ -814,6 +830,11 @@
         "education": "$600K to Stillwater Public Schools",
         "water": "Park View Estates HOA sediment-runoff lawsuit pending",
         "engagement": "HOA litigation underway over construction runoff"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Google's national pledge signature; the Oklahoma announcement highlighted long-standing presence and innovation rather than a site-specific ratepayer commitment.",
+        "assessed_at": "2026-05-31"
       }
     },
     {
@@ -880,7 +901,12 @@
       "source_title": "Amazon — $25 billion Mississippi data center expansion (Apr 9 2026)",
       "captured_at": "2026-05-16",
       "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
-      "offtaker": "AWS"
+      "offtaker": "AWS",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Amazon's national pledge signature; the Clinton announcement emphasized zero water use and jobs, with no site-specific ratepayer commitment captured.",
+        "assessed_at": "2026-05-31"
+      }
     },
     {
       "id": "openai-saline-twp-mi",
@@ -1162,7 +1188,13 @@
       "source_url": "https://www.datacenterdynamics.com/en/news/google-takes-over-project-maize-data-center-campus-in-michigan-city-indiana/",
       "source_title": "Data Center Dynamics — Google takes over Project Maize data center campus in Michigan City, Indiana",
       "captured_at": "2026-05-16",
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Google committed to paying 100% of the cost of power for the Michigan City site and any infrastructure needs driven by its operations.",
+        "evidence_claim_id": "google-michigan-city-engagement-2026",
+        "assessed_at": "2026-05-31"
+      }
     },
     {
       "id": "google-lima-oh",
@@ -1182,7 +1214,12 @@
       "source_title": "Data Center Dynamics — Google confirmed as company behind $500m data center in Lima, Ohio",
       "captured_at": "2026-05-16",
       "acreage": 170,
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Google's national pledge signature; Lima commitments cover roads, water infrastructure, and school funding rather than a site-specific power-cost / ratepayer pledge.",
+        "assessed_at": "2026-05-31"
+      }
     },
     {
       "id": "google-franklin-furnace-oh",
@@ -1220,7 +1257,12 @@
       "source_url": "https://www.datacenterdynamics.com/en/news/google-looks-to-build-up-to-six-data-centers-near-nuclear-power-site-in-linn-county-iowa/",
       "source_title": "Data Center Dynamics — Google looks to build up to six data centers near nuclear power site in Linn County, Iowa",
       "captured_at": "2026-05-16",
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Google's national pledge signature; Linn County terms center on community betterment payments rather than a site-specific ratepayer commitment.",
+        "assessed_at": "2026-05-31"
+      }
     },
     {
       "id": "openai-milam-county-tx",
@@ -1331,7 +1373,12 @@
       "source_url": "https://governor.wv.gov/article/governor-morrisey-announces-google-data-center-project-putnam-county",
       "source_title": "WV Governor's Office — Google Data Center Project Putnam County announcement (Mar 27 2026)",
       "captured_at": "2026-05-16",
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Google's national pledge signature; the Putnam County announcement is early-stage (land purchase) with no site-specific ratepayer commitment captured yet.",
+        "assessed_at": "2026-05-31"
+      }
     },
     {
       "id": "oracle-port-washington-wi",
@@ -1491,7 +1538,12 @@
       "source_url": "https://www.datacenterdynamics.com/en/news/xai-confirms-new-data-center-in-mississippi-elon-musk-pledges-20bn-investment-in-state/",
       "source_title": "Data Center Dynamics — xAI confirms new Mississippi data center, Musk pledges $20bn",
       "captured_at": "2026-05-16",
-      "offtaker": "xAI"
+      "offtaker": "xAI",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by xAI's national pledge signature; the Southaven permitting announcements emphasized speed, capacity, and jobs, with no site-specific ratepayer commitment captured.",
+        "assessed_at": "2026-05-31"
+      }
     },
     {
       "id": "openai-shackelford-tx",
@@ -1739,6 +1791,12 @@
         "energy": "1.2 GW target; 1 GW+ new MO capacity contracted",
         "water": "Air-cooled; water limited to domestic use",
         "community_grants": "$20M Energy Impact Fund"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Google's New Florence announcement states the company pays for 100% of the power it uses and covers infrastructure costs its operations drive — a site-specific echo of the pledge.",
+        "evidence_claim_id": "google-new-florence-infrastructure-pay-100pct-2026",
+        "assessed_at": "2026-05-31"
       }
     }
   ]

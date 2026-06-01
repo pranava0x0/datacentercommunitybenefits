@@ -900,3 +900,75 @@ class TestDeliveredAssessmentRendering:
         # CSS-var-driven color reads correctly.
         statuses = ["delivered-delivered", "delivered-partial", "delivered-contested", "delivered-shortfall"]
         assert any(s in cls for s in statuses), f"Delivered panel missing status modifier: {cls}"
+
+
+# ---------------------------------------------------------------------------
+# Ratepayer Protection Pledge view (v1.15)
+# ---------------------------------------------------------------------------
+
+
+class TestRatepayerView:
+    def test_tab_switches_to_ratepayer(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        page.locator("#tab-ratepayer").click()
+        expect(page.locator("#view-ratepayer")).to_be_visible()
+        expect(page.locator("#view-comparison")).to_be_hidden()
+        expect(page.locator("#tab-ratepayer")).to_have_attribute(
+            "aria-selected", "true"
+        )
+
+    def test_stats_render_four_tiles(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
+        assert page.locator("#rp-stats .rp-stat").count() == 4
+
+    def test_first_stat_reports_seven_signatories(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
+        first = page.locator("#rp-stats .rp-stat").first
+        expect(first).to_contain_text("7 of")
+
+    def test_roster_marks_signatories_and_nonsignatories(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-roster .rp-roster-item", timeout=10_000)
+        signed = page.locator("#rp-roster .rp-roster-item.signed")
+        unsigned = page.locator("#rp-roster .rp-roster-item.unsigned")
+        # Seven signed; at least one non-signatory commitment (QTS) flagged.
+        assert signed.count() == 7
+        assert unsigned.count() >= 1
+
+    def test_scorecard_has_cards_with_status_badges(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        cards = page.locator("#rp-scorecard .rp-card")
+        assert cards.count() >= 5
+        # Every card carries a status modifier dataset value.
+        first = cards.first
+        status = first.get_attribute("data-status")
+        assert status in ("affirmed", "pledge_only", "contested"), status
+
+    def test_affirmed_card_shows_evidence_quote(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        affirmed = page.locator("#rp-scorecard .rp-card[data-status='affirmed']").first
+        # Affirmed cards must surface a verbatim evidence quote + source link.
+        expect(affirmed.locator(".rp-evidence")).to_have_count(1)
+        link = affirmed.locator(".rp-evidence-src a")
+        assert link.count() == 1
+        href = link.get_attribute("href")
+        assert href and href.startswith("http"), f"bad evidence href: {href!r}"
+
+    def test_deep_link_hash_opens_ratepayer(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        expect(page.locator("#view-ratepayer")).to_be_visible()

@@ -126,6 +126,46 @@ DELIVERED_LABELS: dict[str, str] = {
     "shortfall": "Shortfall",
 }
 
+# ---------------------------------------------------------------------------
+# White House Ratepayer Protection Pledge (v1.15)
+# ---------------------------------------------------------------------------
+# On 2026-03-04 seven hyperscalers signed a (non-binding) pledge at the White
+# House to independently fund the generation + grid-infrastructure costs of
+# their data centers so those costs don't shift onto existing utility
+# ratepayers. This is the real-world anchor for the "Ratepayer Protection
+# Pledge" view. Facts (date + signatory roster) are fixed history, not a
+# curator judgment call — see WH fact sheet + DCD coverage.
+#
+# Signatory membership lives on Company.ratepayer_pledge_signatory (bool).
+# The constants below are the single source of truth for the pledge metadata;
+# the frontend mirrors RATEPAYER_PLEDGE_* and the status vocab (a test asserts
+# parity, same pattern as THEMES / DELIVERED_STATUSES).
+RATEPAYER_PLEDGE_DATE: str = "2026-03-04"
+RATEPAYER_PLEDGE_NAME: str = "White House Ratepayer Protection Pledge"
+RATEPAYER_PLEDGE_URL: str = (
+    "https://www.whitehouse.gov/fact-sheets/2026/03/fact-sheet-president-donald-j-trump-"
+    "advances-energy-affordability-with-the-ratepayer-protection-pledge/"
+)
+
+# Per-project assessment of how a specific data center reflects the pledge.
+# Deliberately NOT a pass/fail score (the dashboard doesn't do trust scores):
+#   affirmed     — the company has published a SITE-SPECIFIC ratepayer/
+#                  pay-our-own-way commitment for THIS data center (a verbatim
+#                  claim, cited in evidence_claim_id).
+#   pledge_only  — covered by the company's national pledge signature, but no
+#                  site-specific affirmation has been captured for this site.
+#   contested    — a credible third party (regulator/reporting) documents the
+#                  site shifting costs to ratepayers despite the pledge.
+# Absent = not assessed / out of cohort (e.g. announced before the pledge, or a
+# non-signatory). Absence is honest — don't fabricate a status to fill a row.
+RATEPAYER_STATUSES: tuple[str, ...] = ("affirmed", "pledge_only", "contested")
+RatepayerStatus = Literal["affirmed", "pledge_only", "contested"]
+RATEPAYER_LABELS: dict[str, str] = {
+    "affirmed": "Site-specific commitment",
+    "pledge_only": "National pledge only",
+    "contested": "Contested",
+}
+
 
 # ---------------------------------------------------------------------------
 # Core record types
@@ -157,6 +197,18 @@ class Company(_StrictBase):
     )
     last_reviewed: Date = Field(
         description="Date a curator last reviewed this company's claims for staleness."
+    )
+    ratepayer_pledge_signatory: bool = Field(
+        default=False,
+        description=(
+            "True if this company signed the White House Ratepayer Protection "
+            "Pledge (2026-03-04). Fixed historical fact, not a curator judgment: "
+            "the seven signatories are Amazon, Google, Meta, Microsoft, OpenAI, "
+            "Oracle, xAI. Non-signatories (incl. Anthropic and the tracked "
+            "non-hyperscalers) stay False even when they publish their own "
+            "ratepayer commitments — the flag means 'signed THE pledge', and the "
+            "Ratepayer view surfaces non-signatory commitments separately."
+        ),
     )
 
 
@@ -198,6 +250,43 @@ class Delivered(_StrictBase):
     )
     source_url: HttpUrl
     source_title: str = Field(min_length=1)
+    assessed_at: Date
+
+
+class Ratepayer(_StrictBase):
+    """Curator assessment of how a data center reflects the Ratepayer Protection Pledge.
+
+    Attached to a Project (not a Claim) because the unit of analysis in the
+    Ratepayer view is the SITE: "for this data center announced since the
+    pledge, is there a ratepayer-protection commitment, and how strong is it?"
+
+    Editorial rules:
+    - Only meaningful for projects whose company is a pledge signatory and that
+      were announced on/after RATEPAYER_PLEDGE_DATE. Don't attach it to
+      pre-pledge or non-signatory sites — absence is the honest signal there.
+    - `status` is a curator judgment call (per Delivered/Stance precedent —
+      explicitly NOT algorithmic).
+    - Use `affirmed` only when a SITE-SPECIFIC first-party commitment exists;
+      point `evidence_claim_id` at the backing verbatim Claim.
+    - `pledge_only` is the honest default for a signatory site with no
+      site-specific affirmation captured — it is NOT a failing grade, just
+      "covered by the national signature, nothing site-specific yet."
+    - `summary` is a NEUTRAL 1-sentence synthesis, not adversarial, not a quote.
+    """
+
+    status: RatepayerStatus
+    summary: str = Field(
+        min_length=1,
+        description="1-sentence neutral synthesis of how this site reflects the pledge.",
+    )
+    evidence_claim_id: Optional[str] = Field(
+        default=None,
+        description=(
+            "For `affirmed`: the id of the site-specific first-party Claim that "
+            "backs the assessment. Required for `affirmed`; omit for "
+            "`pledge_only`. Validated against claims.json in refresh.py."
+        ),
+    )
     assessed_at: Date
 
 
@@ -335,6 +424,15 @@ class Project(_StrictBase):
             "editorial override for the auto-derivation."
         ),
     )
+    ratepayer: Optional[Ratepayer] = Field(
+        default=None,
+        description=(
+            "Optional Ratepayer Protection Pledge assessment for this site. Set "
+            "only for pledge-signatory projects announced on/after the pledge "
+            "date (see Ratepayer docstring). Absent = out of cohort or not yet "
+            "assessed; the Ratepayer view treats absence honestly, not as a fail."
+        ),
+    )
 
 
 class CommunityResponse(_StrictBase):
@@ -419,15 +517,22 @@ __all__ = [
     "CONSTITUENCIES",
     "DELIVERED_STATUSES",
     "DELIVERED_LABELS",
+    "RATEPAYER_PLEDGE_DATE",
+    "RATEPAYER_PLEDGE_NAME",
+    "RATEPAYER_PLEDGE_URL",
+    "RATEPAYER_STATUSES",
+    "RATEPAYER_LABELS",
     "Theme",
     "CompanySlug",
     "ProjectStatus",
     "Stance",
     "Constituency",
     "DeliveredStatus",
+    "RatepayerStatus",
     "Company",
     "Metric",
     "Delivered",
+    "Ratepayer",
     "Claim",
     "Project",
     "CommunityResponse",

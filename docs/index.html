@@ -21,7 +21,7 @@
     <div class="draft-banner" role="status" aria-live="polite">
       <span class="draft-tag">Draft</span>
       Data collection in progress — claims, projects, and community responses
-      land daily. Last refresh: <span id="draft-date">2026-05-31 (v1.14)</span>.
+      land daily. Last refresh: <span id="draft-date">2026-05-31 (v1.15)</span>.
     </div>
 
     <header class="topbar" role="banner">
@@ -57,6 +57,16 @@
           aria-controls="view-explorer"
         >
           Project Explorer
+        </button>
+        <button
+          id="tab-ratepayer"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-ratepayer"
+        >
+          Ratepayer Protection Pledge
         </button>
       </div>
     </header>
@@ -335,6 +345,74 @@
             </ol>
           </div>
         </section>
+      </section>
+
+      <!-- ================= RATEPAYER PROTECTION PLEDGE VIEW ================= -->
+      <section
+        id="view-ratepayer"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-ratepayer"
+        hidden
+      >
+        <div class="hero">
+          <p class="eyebrow">View 3 · Accountability</p>
+          <h2 class="hero-title">Who signed the Ratepayer Protection Pledge — and is it showing up on the ground?</h2>
+          <p class="hero-dek">
+            On <span id="rp-pledge-date">March 4, 2026</span>, seven hyperscalers
+            pledged at the White House to fund the power generation and grid
+            upgrades their data centers need — so those costs don't land on
+            existing utility ratepayers. This view tracks which tracked companies
+            signed, and whether data centers announced since then carry a
+            site-specific commitment or rely on the national pledge alone.
+            <a id="rp-pledge-link" href="#" target="_blank" rel="noopener noreferrer">Read the pledge →</a>
+          </p>
+        </div>
+
+        <!-- Top-level stats -->
+        <ul id="rp-stats" class="rp-stats" aria-label="Pledge summary statistics"></ul>
+
+        <!-- What the pledge commits signatories to -->
+        <section class="rp-commitments" aria-labelledby="rp-commitments-heading">
+          <h3 id="rp-commitments-heading">What signatories committed to</h3>
+          <ul class="rp-commitment-list">
+            <li>Build, bring, or buy new generation and cover all power-delivery infrastructure upgrades their data centers require.</li>
+            <li>Negotiate separate rate structures with utilities and states, and pay them whether or not they use the power.</li>
+            <li>Coordinate with grid operators on backup generation to support reliability.</li>
+            <li>Hire and train talent from the communities where they build.</li>
+          </ul>
+        </section>
+
+        <!-- Signatory roster -->
+        <section class="rp-section" aria-labelledby="rp-roster-heading">
+          <h3 id="rp-roster-heading">Who's signed</h3>
+          <p class="rp-section-sub">
+            Of the companies this dashboard tracks. Non-signatories who publish
+            their own ratepayer commitments are flagged — the pledge is one path,
+            not the only one.
+          </p>
+          <ul id="rp-roster" class="rp-roster"></ul>
+        </section>
+
+        <!-- Per-data-center scorecard -->
+        <section class="rp-section" aria-labelledby="rp-scorecard-heading">
+          <h3 id="rp-scorecard-heading">Data centers announced since the pledge</h3>
+          <p class="rp-section-sub">
+            Each signatory site announced on or after the pledge date. A
+            <strong>site-specific commitment</strong> means the company published
+            a ratepayer / pay-our-own-way pledge for that exact data center;
+            <strong>national pledge only</strong> means it's covered by the
+            signature but no site-specific commitment was captured.
+          </p>
+          <div class="rp-legend" id="rp-legend" aria-label="Scorecard legend"></div>
+          <ul id="rp-scorecard" class="rp-scorecard"></ul>
+        </section>
+
+        <p class="rp-footnote">
+          Assessment is editorial, not a pass/fail score. Absence of a
+          site-specific commitment is not a failing grade — it means the company
+          hasn't published one for that site yet. Sources are linked on every card.
+        </p>
       </section>
     </main>
 

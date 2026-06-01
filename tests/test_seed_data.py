@@ -246,6 +246,96 @@ class TestDeliveredAssessments:
         )
 
 
+class TestRatepayerPledge:
+    """v1.15: White House Ratepayer Protection Pledge view.
+
+    Guards the two data changes backing the new view: the seven signatory
+    flags (fixed historical fact) and the per-project ratepayer assessments
+    (curated, honest about the pledge-only vs site-specific distinction).
+    """
+
+    # The seven hyperscalers that signed on 2026-03-04 — fixed history.
+    EXPECTED_SIGNATORIES = {
+        "amazon", "google", "meta", "microsoft", "openai", "oracle", "xai",
+    }
+
+    def test_exactly_the_seven_signatories_flagged(self, companies):
+        flagged = {
+            c.slug for c in companies.companies if c.ratepayer_pledge_signatory
+        }
+        assert flagged == self.EXPECTED_SIGNATORIES, (
+            f"Signatory roster drift: extra={flagged - self.EXPECTED_SIGNATORIES}, "
+            f"missing={self.EXPECTED_SIGNATORIES - flagged}"
+        )
+
+    def test_anthropic_is_not_a_signatory(self, companies):
+        # Anthropic publishes its own ratepayer commitment but did NOT sign the
+        # pledge — the flag must not blur that distinction.
+        anthropic = next(c for c in companies.companies if c.slug == "anthropic")
+        assert anthropic.ratepayer_pledge_signatory is False
+
+    def test_assessed_projects_belong_to_signatories(self, projects, companies):
+        signatories = {
+            c.slug for c in companies.companies if c.ratepayer_pledge_signatory
+        }
+        for p in projects.projects:
+            if p.ratepayer is None:
+                continue
+            assert p.company_slug in signatories, (
+                f"Project {p.id!r} has a ratepayer assessment but its company "
+                f"{p.company_slug!r} is not a pledge signatory."
+            )
+
+    def test_assessed_projects_announced_on_or_after_pledge(self, projects):
+        # The cohort is "data centers announced since the pledge" — an
+        # assessment on a pre-2026 site would misrepresent the view.
+        for p in projects.projects:
+            if p.ratepayer is None:
+                continue
+            assert p.announced_year >= 2026, (
+                f"Project {p.id!r} announced {p.announced_year} predates the "
+                "2026 pledge but carries a ratepayer assessment."
+            )
+
+    def test_affirmed_assessments_cite_a_real_owned_claim(self, projects, claims):
+        by_id = {c.id: c for c in claims.claims}
+        for p in projects.projects:
+            rp = p.ratepayer
+            if rp is None:
+                continue
+            if rp.status == "affirmed":
+                assert rp.evidence_claim_id is not None, (
+                    f"Project {p.id!r} 'affirmed' but cites no evidence_claim_id"
+                )
+                assert rp.evidence_claim_id in by_id, (
+                    f"Project {p.id!r} evidence_claim_id {rp.evidence_claim_id!r} "
+                    "not found in claims.json"
+                )
+                assert by_id[rp.evidence_claim_id].project_id == p.id, (
+                    f"Project {p.id!r} evidence claim belongs to a different project"
+                )
+
+    def test_pledge_only_assessments_have_no_evidence_claim(self, projects):
+        # `pledge_only` means "no site-specific commitment captured" — it must
+        # not carry an evidence claim (that would contradict the status).
+        for p in projects.projects:
+            rp = p.ratepayer
+            if rp is None:
+                continue
+            if rp.status == "pledge_only":
+                assert rp.evidence_claim_id is None, (
+                    f"Project {p.id!r} is 'pledge_only' but cites an evidence "
+                    "claim — use 'affirmed' if a site-specific commitment exists."
+                )
+
+    def test_at_least_one_affirmed_and_one_pledge_only(self, projects):
+        # The view's value is the contrast; ship with both populated so the
+        # legend reads. (No `contested` requirement — absence is honest.)
+        seen = {p.ratepayer.status for p in projects.projects if p.ratepayer}
+        assert "affirmed" in seen, "No 'affirmed' ratepayer assessment in seed"
+        assert "pledge_only" in seen, "No 'pledge_only' ratepayer assessment in seed"
+
+
 # ---------------------------------------------------------------------------
 # Build-output parity (docs/data/*.json must match validated seed)
 # ---------------------------------------------------------------------------

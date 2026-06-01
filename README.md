@@ -67,9 +67,34 @@ campuses, offtaker equals the operating company.
 The active tab persists across project selections within a session so
 scanning one tab across multiple projects doesn't force a re-click.
 
+### View 3 — Ratepayer Protection Pledge
+A focused accountability view built around the **White House Ratepayer
+Protection Pledge** (signed 2026-03-04 by Amazon, Google, Meta,
+Microsoft, OpenAI, Oracle, and xAI), under which signatories commit to
+funding the generation and grid upgrades their data centers need so the
+costs don't shift onto existing utility ratepayers.
+
+- **Top-level stats** — how many tracked companies signed, how many data
+  centers have been announced since the pledge, how many carry a
+  site-specific ratepayer commitment, and how many non-signatories
+  publish their own ratepayer commitment.
+- **Signatory roster** — the seven signatories (`Company.ratepayer_pledge_signatory`),
+  plus non-signatories who publish their own commitment flagged
+  separately (the pledge is one path, not the only one — QTS and Nebius
+  surface here).
+- **Per-site scorecard** — every signatory data center announced on or
+  after the pledge date, each tagged `affirmed` (a published
+  site-specific pay-our-own-way commitment, shown with the verbatim
+  quote + source) or `pledge_only` (covered by the national signature,
+  no site-specific commitment captured). The assessment lives on
+  `Project.ratepayer` and is editorial, not a pass/fail score — absence
+  of a site-specific commitment is an honest gap, not a failing grade.
+
+Lazy-loads the project payload (no Leaflet). Deep-linkable at `#ratepayer`.
+
 ---
 
-## What's in the dataset (as of v1.13)
+## What's in the dataset (as of v1.15)
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
@@ -78,6 +103,7 @@ scanning one tab across multiple projects doesn't force a re-click.
 | Projects           | 75    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
 | On-the-ground feedback | 197 | Reactions from residents / officials / NGOs / journalists / regulators  |
 | Delivered-vs-promised assessments | 12  | Curator judgment on whether the claim was actually met (4 status types) |
+| Ratepayer pledge assessments | 11  | Signatory data centers since the pledge, tagged site-specific vs national-pledge-only |
 | **Matrix coverage** | **98/104 (94%)** | 7 of 13 companies have full 8-theme coverage; 6 honest gaps remain |
 
 **First-paint payload:** `companies.json` (~7 KB) + `claims.json`

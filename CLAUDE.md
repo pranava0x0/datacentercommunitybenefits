@@ -355,6 +355,23 @@ A test (`test_at_least_one_of_each_delivered_status`) asserts the seed dataset s
 
 The CSS palette mirrors stance hues (delivered ↔ positive, shortfall ↔ negative, partial / contested ↔ mixed-adjacent) so reading the dashboard's color signal stays consistent across the Claims tab and the Community tab.
 
+### Ratepayer Protection Pledge view (v1.15)
+
+A **third top-level tab** (`view-ratepayer`) built around a real-world anchor: the White House Ratepayer Protection Pledge, signed 2026-03-04 by seven hyperscalers (Amazon, Google, Meta, Microsoft, OpenAI, Oracle, xAI). The view answers "who signed, and is it showing up at the data centers they've announced since?" — top-level stat tiles, a signatory roster, and a per-site scorecard. Lazy-loads the projects/responses payload (NOT Leaflet — that stays Explorer-only) via the shared `loadProjectData()` extracted from `loadExplorerData()`. Deep-linkable at `#ratepayer`.
+
+Two data structures back it, both in [schema.py](schema.py):
+- **`Company.ratepayer_pledge_signatory`** (bool, default False) — the seven signatories. This is **fixed historical fact, not a curator judgment** — don't flip it for companies that publish their own ratepayer commitment but didn't sign (Anthropic, QTS, Nebius stay False). `test_exactly_the_seven_signatories_flagged` guards the roster.
+- **`Project.ratepayer`** (Optional `Ratepayer` sub-object) — a curated per-site assessment with a 3-status vocab: `affirmed` (site-specific pay-our-own-way commitment exists; `evidence_claim_id` points at the backing verbatim Claim) / `pledge_only` (signatory + post-pledge, no site-specific commitment captured) / `contested` (third party documents the site shifting costs despite the pledge). Frozen for v1.
+
+Drift-safe rules (same spirit as the delivered block):
+- **Only attach `ratepayer` to signatory projects announced on/after 2026-03-04.** Pre-pledge or non-signatory sites get nothing — `test_assessed_projects_belong_to_signatories` and `test_assessed_projects_announced_on_or_after_pledge` enforce the cohort boundary. Absence is honest.
+- **`pledge_only` is NOT a failing grade.** It means "covered by the national signature, nothing site-specific captured." Don't write it as criticism; don't attach an `evidence_claim_id` to it (`test_pledge_only_assessments_have_no_evidence_claim`).
+- **`affirmed` MUST cite a real, project-owned claim** in `evidence_claim_id`. refresh.py's cross-ref pass validates the id exists AND belongs to the same project; `test_affirmed_assessments_cite_a_real_owned_claim` mirrors it.
+- **No forced one-of-each-status.** Unlike delivered, the seed ships `affirmed` + `pledge_only` only (`test_at_least_one_affirmed_and_one_pledge_only`). There is intentionally NO `contested` example — we have no corroborated post-pledge cost-shift, and fabricating one to fill the legend would violate the honest-absence principle. The frontend legend (`renderRatepayerLegend`) only renders chips for statuses actually present in the cohort.
+- **Status vocab mirrors to `app.js`** as `RATEPAYER_STATUSES` + `RATEPAYER_LABELS`, guarded by `test_ratepayer_statuses_match` / `test_ratepayer_labels_keys_match`. Adding a status = BACKLOG entry + the Python/JS constants + `--ratepayer-<status>` color tokens in both `:root` blocks, same drill as delivered/themes.
+
+The roster's non-signatory flagging (QTS, Nebius surface as "own commitment, not a signatory") is **frontend-derived** via a keyword scan (`RATEPAYER_CLAIM_KEYWORDS` in app.js) over each company's claims — it's a discovery affordance, not a stored field, so it stays in sync as claims land. Anthropic's "pay for 100% of the grid upgrades" doesn't match the current keyword set; that's acceptable (the flag surfaces the *clearest* non-signatory commitments, it isn't a census). The CSS palette reuses the delivered hues: `affirmed ↔ delivered green`, `pledge_only ↔ partial blue-grey`, `contested ↔ amber`.
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:

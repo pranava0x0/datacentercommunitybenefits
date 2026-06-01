@@ -94,6 +94,35 @@ const DELIVERED_DESCRIPTIONS = {
   shortfall: "Independent reporting documents the commitment was not delivered.",
 };
 
+// v1.15: Ratepayer Protection Pledge vocabulary. Must mirror
+// schema.RATEPAYER_STATUSES / RATEPAYER_LABELS (parity test enforces it).
+const RATEPAYER_STATUSES = ["affirmed", "pledge_only", "contested"];
+const RATEPAYER_LABELS = {
+  affirmed: "Site-specific commitment",
+  pledge_only: "National pledge only",
+  contested: "Contested",
+};
+const RATEPAYER_DESCRIPTIONS = {
+  affirmed:
+    "Company published a ratepayer / pay-our-own-way commitment for this exact site.",
+  pledge_only:
+    "Covered by the national pledge signature; no site-specific commitment captured.",
+  contested:
+    "A credible third party documents this site shifting costs to ratepayers despite the pledge.",
+};
+// The seven White House pledge signatories (2026-03-04). Mirrors the
+// ratepayer_pledge_signatory=true rows in companies.json; used only as a
+// fallback ordering hint — the live truth is read from the company records.
+const RATEPAYER_PLEDGE_SIGNATORIES = [
+  "amazon",
+  "google",
+  "meta",
+  "microsoft",
+  "openai",
+  "oracle",
+  "xai",
+];
+
 // Sort orders for the Explorer's project list. Each option is descending —
 // the question the dashboard answers is always "where is the most benefit
 // concentrated?" so the highest-scoring project belongs at the top.
@@ -128,6 +157,7 @@ const state = {
   explorerSort: "composite",
   selectedProjectId: null,
   explorerLoaded: false,
+  ratepayerLoaded: false,
   leafletLoaded: false,
   map: null,
   markers: new Map(),
@@ -178,48 +208,55 @@ function wireThemeToggle() {
 // Tabs
 // --------------------------------------------------------------------------
 
+// The three views, each backed by a tab button + a <section>. The hash maps
+// 1:1 to the view name; comparison is the default (no hash). Iterate this
+// table everywhere so adding a 4th view stays a one-line change.
+const VIEWS = [
+  { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "" },
+  { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
+  { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
+];
+
 function wireTabs() {
-  const tabComparison = document.getElementById("tab-comparison");
-  const tabExplorer = document.getElementById("tab-explorer");
-
-  tabComparison.addEventListener("click", () => activateView("comparison"));
-  tabExplorer.addEventListener("click", () => activateView("explorer"));
-
-  // Allow URL hash to deep-link to explorer view.
-  if (window.location.hash === "#explorer") {
-    activateView("explorer");
+  for (const v of VIEWS) {
+    document
+      .getElementById(v.tab)
+      .addEventListener("click", () => activateView(v.name));
   }
+
+  // Allow URL hash to deep-link to a non-default view on load.
+  const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
+  if (fromHash) activateView(fromHash.name);
 }
 
 function activateView(name) {
-  state.activeView = name;
+  const target = VIEWS.find((v) => v.name === name) || VIEWS[0];
+  state.activeView = target.name;
 
-  const tabComp = document.getElementById("tab-comparison");
-  const tabExpl = document.getElementById("tab-explorer");
-  const viewComp = document.getElementById("view-comparison");
-  const viewExpl = document.getElementById("view-explorer");
+  for (const v of VIEWS) {
+    const isActive = v.name === target.name;
+    document.getElementById(v.tab).setAttribute("aria-selected", String(isActive));
+    document.getElementById(v.section).hidden = !isActive;
+  }
 
-  if (name === "comparison") {
-    tabComp.setAttribute("aria-selected", "true");
-    tabExpl.setAttribute("aria-selected", "false");
-    viewComp.hidden = false;
-    viewExpl.hidden = true;
-    if (window.location.hash === "#explorer") {
-      history.replaceState(null, "", window.location.pathname);
-    }
-  } else {
-    tabComp.setAttribute("aria-selected", "false");
-    tabExpl.setAttribute("aria-selected", "true");
-    viewComp.hidden = true;
-    viewExpl.hidden = false;
-    history.replaceState(null, "", "#explorer");
-    if (!state.explorerLoaded) {
-      loadExplorerData().catch((err) => {
-        console.error("Failed to load explorer data:", err);
-        document.getElementById("explorer-meta").textContent =
-          "Failed to load projects.";
-      });
-    }
+  // Keep the URL hash in sync so views are deep-linkable / back-button friendly.
+  if (target.hash) {
+    history.replaceState(null, "", target.hash);
+  } else if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname);
+  }
+
+  // The Explorer and Ratepayer views both need the projects/responses payload.
+  if (target.name === "explorer" && !state.explorerLoaded) {
+    loadExplorerData().catch((err) => {
+      console.error("Failed to load explorer data:", err);
+      document.getElementById("explorer-meta").textContent =
+        "Failed to load projects.";
+    });
+  } else if (target.name === "ratepayer") {
+    loadRatepayerView().catch((err) => {
+      console.error("Failed to load ratepayer view:", err);
+    });
   }
 }
 
@@ -238,32 +275,44 @@ async function loadComparisonData() {
   renderComparisonView();
 }
 
+// Fetch + index the projects/responses payload. Shared by the Explorer and
+// Ratepayer views; safe to call repeatedly (fetches at most once). Does NOT
+// touch Leaflet — that's the Explorer's concern alone.
+let _projectDataPromise = null;
+function loadProjectData() {
+  if (!_projectDataPromise) {
+    _projectDataPromise = (async () => {
+      const [projects, responses] = await Promise.all([
+        fetchJson("data/projects.json"),
+        fetchJson("data/responses.json"),
+      ]);
+      state.projects = projects.projects;
+      state.responses = responses.responses;
+
+      state.responsesByProject = new Map();
+      for (const r of state.responses) {
+        if (!state.responsesByProject.has(r.project_id)) {
+          state.responsesByProject.set(r.project_id, []);
+        }
+        state.responsesByProject.get(r.project_id).push(r);
+      }
+
+      state.claimsByProject = new Map();
+      for (const c of state.claims) {
+        if (!c.project_id) continue;
+        if (!state.claimsByProject.has(c.project_id)) {
+          state.claimsByProject.set(c.project_id, []);
+        }
+        state.claimsByProject.get(c.project_id).push(c);
+      }
+    })();
+  }
+  return _projectDataPromise;
+}
+
 async function loadExplorerData() {
   document.getElementById("explorer-meta").textContent = "Loading projects…";
-  const [projects, responses] = await Promise.all([
-    fetchJson("data/projects.json"),
-    fetchJson("data/responses.json"),
-  ]);
-  state.projects = projects.projects;
-  state.responses = responses.responses;
-
-  state.responsesByProject = new Map();
-  for (const r of state.responses) {
-    if (!state.responsesByProject.has(r.project_id)) {
-      state.responsesByProject.set(r.project_id, []);
-    }
-    state.responsesByProject.get(r.project_id).push(r);
-  }
-
-  state.claimsByProject = new Map();
-  for (const c of state.claims) {
-    if (!c.project_id) continue;
-    if (!state.claimsByProject.has(c.project_id)) {
-      state.claimsByProject.set(c.project_id, []);
-    }
-    state.claimsByProject.get(c.project_id).push(c);
-  }
-
+  await loadProjectData();
   await ensureLeaflet();
   state.explorerLoaded = true;
   renderExplorerView();
@@ -271,6 +320,15 @@ async function loadExplorerData() {
   // Expose for e2e/debugging.
   window.__dcb = { state, THEMES, selectProject };
   document.dispatchEvent(new CustomEvent("dcb:explorer-ready"));
+}
+
+// Ratepayer view: needs the project payload (for the scorecard) but not
+// Leaflet. Renders once data is in hand.
+async function loadRatepayerView() {
+  await loadProjectData();
+  state.ratepayerLoaded = true;
+  renderRatepayerView();
+  document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
 }
 
 async function fetchJson(url) {
@@ -988,6 +1046,271 @@ function cssVar(name) {
 }
 
 // --------------------------------------------------------------------------
+// Ratepayer Protection Pledge view (v1.15)
+//
+// Three blocks, all derived from data already in state:
+//   1. Stat tiles — signatories, post-pledge sites, site-specific commitments.
+//   2. Signatory roster — who signed; non-signatory ratepayer commitments flagged.
+//   3. Per-site scorecard — every signatory site announced since the pledge,
+//      with its curated `project.ratepayer` assessment + evidence quote.
+//
+// The pledge date is read from the data (the assessed sites + a fallback const)
+// rather than hard-coded in two places.
+// --------------------------------------------------------------------------
+
+const RATEPAYER_PLEDGE_DATE = "2026-03-04";
+const RATEPAYER_PLEDGE_URL =
+  "https://www.whitehouse.gov/fact-sheets/2026/03/fact-sheet-president-donald-j-trump-advances-energy-affordability-with-the-ratepayer-protection-pledge/";
+
+function renderRatepayerView() {
+  // Pledge date + source link in the hero.
+  const dateEl = document.getElementById("rp-pledge-date");
+  if (dateEl) dateEl.textContent = formatLongDate(RATEPAYER_PLEDGE_DATE);
+  const linkEl = document.getElementById("rp-pledge-link");
+  if (linkEl) linkEl.href = RATEPAYER_PLEDGE_URL;
+
+  renderRatepayerStats();
+  renderRatepayerRoster();
+  renderRatepayerLegend();
+  renderRatepayerScorecard();
+}
+
+// Signatory companies, in roster order (signatories first, by claim presence).
+function ratepayerSignatories() {
+  return state.companies.filter((c) => c.ratepayer_pledge_signatory);
+}
+
+// Projects that carry a curated ratepayer assessment (the post-pledge cohort).
+function ratepayerAssessedProjects() {
+  return state.projects
+    .filter((p) => p.ratepayer)
+    .sort((a, b) => {
+      // affirmed first, then by company, then name — stable, scannable order.
+      const rank = (s) => RATEPAYER_STATUSES.indexOf(s);
+      const d = rank(a.ratepayer.status) - rank(b.ratepayer.status);
+      if (d !== 0) return d;
+      if (a.company_slug !== b.company_slug)
+        return a.company_slug.localeCompare(b.company_slug);
+      return a.name.localeCompare(b.name);
+    });
+}
+
+function renderRatepayerStats() {
+  const ul = document.getElementById("rp-stats");
+  if (!ul) return;
+  ul.innerHTML = "";
+
+  const signatories = ratepayerSignatories();
+  const assessed = ratepayerAssessedProjects();
+  const affirmed = assessed.filter((p) => p.ratepayer.status === "affirmed");
+  // Non-signatory companies that nonetheless publish a ratepayer-type claim.
+  const nonSignatoryCommitments = countNonSignatoryRatepayerCompanies();
+
+  const tiles = [
+    {
+      value: `${signatories.length} of ${state.companies.length}`,
+      label: "tracked companies signed the pledge",
+    },
+    {
+      value: String(assessed.length),
+      label: "data centers announced since the pledge",
+    },
+    {
+      value: String(affirmed.length),
+      label: "carry a site-specific ratepayer commitment",
+      accent: "affirmed",
+    },
+    {
+      value: String(nonSignatoryCommitments),
+      label: "non-signatories with their own ratepayer pledge",
+    },
+  ];
+
+  for (const t of tiles) {
+    const li = document.createElement("li");
+    li.className = "rp-stat";
+    if (t.accent) li.style.setProperty("--rp-color", `var(--ratepayer-${t.accent})`);
+    li.innerHTML = `
+      <span class="rp-stat-value">${escapeHtml(t.value)}</span>
+      <span class="rp-stat-label">${escapeHtml(t.label)}</span>
+    `;
+    ul.appendChild(li);
+  }
+}
+
+// Companies that did NOT sign the pledge but have at least one claim using
+// ratepayer / pay-our-own-way language (e.g. QTS, Anthropic). Surfaced as a
+// stat + flagged in the roster so the view doesn't imply the pledge is the
+// only path to ratepayer protection.
+const RATEPAYER_CLAIM_KEYWORDS = [
+  "ratepayer",
+  "pay our own way",
+  "pay our way",
+  "100% of the power",
+  "100% of the cost of power",
+  "100% of the energy",
+  "fund 100%",
+  "pay the full cost",
+  "pay the full costs",
+  "full costs of",
+  "cover the infrastructure",
+  "without raising power costs",
+  "don't increase",
+  "do not increase",
+  "electricity prices",
+];
+
+function companyHasRatepayerClaim(slug) {
+  return state.claims.some(
+    (c) =>
+      c.company_slug === slug &&
+      RATEPAYER_CLAIM_KEYWORDS.some((k) => c.statement.toLowerCase().includes(k))
+  );
+}
+
+function countNonSignatoryRatepayerCompanies() {
+  return state.companies.filter(
+    (c) => !c.ratepayer_pledge_signatory && companyHasRatepayerClaim(c.slug)
+  ).length;
+}
+
+function renderRatepayerRoster() {
+  const ul = document.getElementById("rp-roster");
+  if (!ul) return;
+  ul.innerHTML = "";
+
+  // Signatories first, then non-signatories who have their own commitment,
+  // then the rest. Within each group, alphabetical by name.
+  const signatories = ratepayerSignatories();
+  const nonSigWithClaim = state.companies.filter(
+    (c) => !c.ratepayer_pledge_signatory && companyHasRatepayerClaim(c.slug)
+  );
+
+  const byName = (a, b) => a.name.localeCompare(b.name);
+  const ordered = [
+    ...signatories.slice().sort(byName),
+    ...nonSigWithClaim.slice().sort(byName),
+  ];
+
+  for (const co of ordered) {
+    const signed = !!co.ratepayer_pledge_signatory;
+    const li = document.createElement("li");
+    li.className = `rp-roster-item${signed ? " signed" : " unsigned"}`;
+    li.style.setProperty("--co-color", `var(--co-${co.slug})`);
+
+    const note = signed
+      ? "Signed the pledge"
+      : "Own ratepayer commitment (not a pledge signatory)";
+    const mark = signed ? "✓" : "○";
+
+    li.innerHTML = `
+      <span class="rp-roster-mark" aria-hidden="true">${mark}</span>
+      <span class="rp-roster-name">${escapeHtml(co.name)}</span>
+      <span class="rp-roster-note">${escapeHtml(note)}</span>
+    `;
+    ul.appendChild(li);
+  }
+}
+
+function renderRatepayerLegend() {
+  const wrap = document.getElementById("rp-legend");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  // Only show statuses that actually appear in the cohort, so the legend
+  // doesn't promise a "contested" chip with no backing card (honest-absence
+  // principle, same as the delivered legend).
+  const present = new Set(
+    ratepayerAssessedProjects().map((p) => p.ratepayer.status)
+  );
+  for (const status of RATEPAYER_STATUSES) {
+    if (!present.has(status)) continue;
+    const chip = document.createElement("span");
+    chip.className = "rp-legend-chip";
+    chip.style.setProperty("--rp-color", `var(--ratepayer-${status})`);
+    chip.title = RATEPAYER_DESCRIPTIONS[status];
+    chip.textContent = RATEPAYER_LABELS[status];
+    wrap.appendChild(chip);
+  }
+}
+
+function renderRatepayerScorecard() {
+  const ul = document.getElementById("rp-scorecard");
+  if (!ul) return;
+  ul.innerHTML = "";
+
+  const projects = ratepayerAssessedProjects();
+  if (projects.length === 0) {
+    const li = document.createElement("li");
+    li.className = "muted";
+    li.textContent = "No assessed data centers yet.";
+    ul.appendChild(li);
+    return;
+  }
+
+  for (const p of projects) {
+    ul.appendChild(renderRatepayerCard(p));
+  }
+}
+
+function renderRatepayerCard(p) {
+  const co = state.companiesBySlug.get(p.company_slug);
+  const rp = p.ratepayer;
+  const li = document.createElement("li");
+  li.className = "rp-card";
+  li.dataset.status = rp.status;
+  li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
+  li.style.setProperty("--rp-color", `var(--ratepayer-${rp.status})`);
+
+  // Evidence quote (for `affirmed`): pull the cited claim's verbatim statement.
+  let evidenceHtml = "";
+  if (rp.evidence_claim_id) {
+    const claim = state.claims.find((c) => c.id === rp.evidence_claim_id);
+    if (claim) {
+      evidenceHtml = `
+        <blockquote class="rp-evidence">${escapeHtml(claim.statement)}</blockquote>
+        <p class="rp-evidence-src">
+          <a href="${escapeAttr(String(claim.source_url))}" target="_blank" rel="noopener noreferrer">
+            ${escapeHtml(claim.source_title)} →
+          </a>
+        </p>
+      `;
+    }
+  }
+
+  const loc = `${escapeHtml(p.city)}, ${escapeHtml(p.state)}`;
+  const statusLabel = RATEPAYER_LABELS[rp.status] || rp.status;
+
+  li.innerHTML = `
+    <div class="rp-card-head">
+      <div class="rp-card-title">
+        <span class="rp-card-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
+        <span class="rp-card-name">${escapeHtml(p.name)}</span>
+        <span class="rp-card-loc">${loc} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+      </div>
+      <span class="rp-status-badge" title="${escapeAttr(RATEPAYER_DESCRIPTIONS[rp.status] || "")}">
+        ${escapeHtml(statusLabel)}
+      </span>
+    </div>
+    <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
+    ${evidenceHtml}
+  `;
+  return li;
+}
+
+// "2026-03-04" -> "March 4, 2026". Parsed as UTC to avoid TZ off-by-one.
+function formatLongDate(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!m) return iso;
+  const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+// --------------------------------------------------------------------------
 // Project detail
 // --------------------------------------------------------------------------
 
@@ -1294,4 +1617,18 @@ window.__DCB_CONST = {
   STANCE_LABELS,
   CONSTITUENCY_LABELS,
   STATUS_LABELS,
+  DELIVERED_STATUSES,
+  DELIVERED_LABELS,
+  RATEPAYER_STATUSES,
+  RATEPAYER_LABELS,
 };
+
+// Resolve a second readiness promise once the Ratepayer view has rendered, so
+// e2e tests can await it the same way they await the Explorer.
+window.__dcb_ratepayer_ready = new Promise((resolve) => {
+  document.addEventListener(
+    "dcb:ratepayer-ready",
+    () => resolve({ state, ratepayerAssessedProjects, ratepayerSignatories }),
+    { once: true }
+  );
+});

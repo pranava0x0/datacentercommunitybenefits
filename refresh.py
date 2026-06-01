@@ -75,6 +75,7 @@ def _check_cross_refs(
 
     company_slugs = {c.slug for c in companies.companies}
     project_ids = {p.id for p in projects.projects}
+    claim_ids = {c.id for c in claims.claims}
 
     for c in claims.claims:
         if c.company_slug not in company_slugs:
@@ -95,6 +96,29 @@ def _check_cross_refs(
             errors.append(
                 f"projects.json: project {p.id!r} references unknown company_slug {p.company_slug!r}"
             )
+        # Ratepayer assessment integrity (v1.15): `affirmed` must cite a backing
+        # claim; the cited claim must exist and belong to this project.
+        rp = p.ratepayer
+        if rp is not None:
+            if rp.status == "affirmed":
+                if rp.evidence_claim_id is None:
+                    errors.append(
+                        f"projects.json: project {p.id!r} ratepayer status 'affirmed' "
+                        "requires evidence_claim_id"
+                    )
+                elif rp.evidence_claim_id not in claim_ids:
+                    errors.append(
+                        f"projects.json: project {p.id!r} ratepayer.evidence_claim_id "
+                        f"{rp.evidence_claim_id!r} not found in claims.json"
+                    )
+            if rp.evidence_claim_id is not None and rp.evidence_claim_id in claim_ids:
+                claim = next(c for c in claims.claims if c.id == rp.evidence_claim_id)
+                if claim.project_id != p.id:
+                    errors.append(
+                        f"projects.json: project {p.id!r} ratepayer.evidence_claim_id "
+                        f"{rp.evidence_claim_id!r} belongs to project "
+                        f"{claim.project_id!r}, not this one"
+                    )
 
     for r in responses.responses:
         if r.project_id not in project_ids:

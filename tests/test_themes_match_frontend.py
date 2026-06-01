@@ -12,7 +12,15 @@ from pathlib import Path
 
 import pytest
 
-from schema import COMPANY_SLUGS, DELIVERED_LABELS, DELIVERED_STATUSES, THEME_LABELS, THEMES
+from schema import (
+    COMPANY_SLUGS,
+    DELIVERED_LABELS,
+    DELIVERED_STATUSES,
+    RATEPAYER_LABELS,
+    RATEPAYER_STATUSES,
+    THEME_LABELS,
+    THEMES,
+)
 
 ROOT = Path(__file__).resolve().parent.parent
 APP_JS = ROOT / "docs" / "app.js"
@@ -82,4 +90,21 @@ def test_delivered_labels_keys_match(js: str) -> None:
         "DELIVERED_LABELS keys differ between schema.py and app.js: "
         f"py-only={set(DELIVERED_LABELS.keys()) - js_keys}, "
         f"js-only={js_keys - set(DELIVERED_LABELS.keys())}"
+    )
+
+
+def test_ratepayer_statuses_match(js: str) -> None:
+    js_statuses = _extract_array(js, "RATEPAYER_STATUSES")
+    assert tuple(js_statuses) == RATEPAYER_STATUSES, (
+        f"RATEPAYER_STATUSES drift between schema.py {RATEPAYER_STATUSES} and "
+        f"app.js {tuple(js_statuses)}. Update both files together."
+    )
+
+
+def test_ratepayer_labels_keys_match(js: str) -> None:
+    js_keys = _extract_object_keys(js, "RATEPAYER_LABELS")
+    assert js_keys == set(RATEPAYER_LABELS.keys()), (
+        "RATEPAYER_LABELS keys differ between schema.py and app.js: "
+        f"py-only={set(RATEPAYER_LABELS.keys()) - js_keys}, "
+        f"js-only={js_keys - set(RATEPAYER_LABELS.keys())}"
     )
