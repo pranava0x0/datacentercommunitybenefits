@@ -84,6 +84,63 @@ every URL in seed and reports non-200s. See BACKLOG.md.
 
 ---
 
+## UAT — Mobile (375px) — 2026-06-01
+
+### [UAT-001] ui — Draft banner version string stale (shows v1.15, app is v1.20)
+**Severity:** low
+**Page/Section:** Global — draft banner strip at top of every view
+**Discovered:** 2026-06-01
+**Status:** open
+**Description:** The draft banner reads "Last refresh: 2026-05-31 (v1.15)" but the codebase is at v1.20 after the ratepayer expansion commit. The version string is hardcoded in `docs/index.html` inside `<span id="draft-date">`.
+**Steps to Reproduce:** Load any view on mobile; see top banner strip.
+**Fix:** Update `<span id="draft-date">` in `docs/index.html` to `2026-06-01 (v1.20)`.
+
+---
+
+### [UAT-002] ui — "Sort by" filter dropdown label truncated on mobile
+**Severity:** low
+**Page/Section:** Project Explorer — filter panel
+**Discovered:** 2026-06-01
+**Status:** open
+**Description:** On 375px viewport, the "Sort by" select renders as "Composite (most b…" because the `<select>` element is only ~165px wide (half the 2-column filter grid). The option label "Composite (most buzz)" overflows and is truncated by the OS select widget.
+**Steps to Reproduce:** Open Project Explorer on 375px mobile; scroll to filter panel; observe Sort by dropdown.
+**Fix:** Either shorten the option text (e.g. "Composite" or "Most active") or set `min-width` / `width: 100%` on `#f-sort` for small viewports so the label has room to render.
+
+---
+
+### [UAT-003] ui — "Ratepayer Protection Pledge" tab label wraps to 3 lines on mobile
+**Severity:** low
+**Page/Section:** Global — top navigation tab bar
+**Discovered:** 2026-06-01
+**Status:** open
+**Description:** At 375px the third tab ("Ratepayer Protection Pledge") wraps across 3 lines ("Ratepayer / Protection / Pledge"), making the tab bar ~80px tall and visually noisy. The other two tabs are shorter ("Company Comparison" wraps to 2 lines, "Project Explorer" to 2 lines) so the bar height is dominated by the third tab.
+**Steps to Reproduce:** Load the page on 375px mobile; inspect the tab strip.
+**Fix:** Consider shortening the label to "Ratepayer Pledge" (saves one word, fits 2 lines) or use an abbreviation on narrow viewports via CSS `font-size` reduction or a `<span class="mobile-label">` / `<span class="desktop-label">` pattern.
+
+---
+
+### [UAT-004] ui — Project detail "On the ground" tab wraps to 2 lines on mobile
+**Severity:** low
+**Page/Section:** Project Explorer — project detail panel, third tab
+**Discovered:** 2026-06-01
+**Status:** open
+**Description:** Inside the project detail pop-out, the three-tab strip (Overview / Claims / On the ground) renders the third tab as "On the / ground" across 2 lines at 375px. Measured bounding box: 78px wide × 42px tall at 14px font — two lines. The two-line height makes the tab strip taller than expected and the label harder to read at a glance.
+**Steps to Reproduce:** Open Project Explorer on 375px; click any project card to open the detail panel; observe the third tab label.
+**Fix:** Shorten to "Community" or "Ground truth" (shorter), or add `white-space: nowrap` with a smaller font size for `.dtab` on mobile so all three labels fit on one line.
+
+---
+
+### [UAT-005] ui — Company matrix table has no horizontal scroll indicator on mobile
+**Severity:** low
+**Page/Section:** Company Comparison — matrix table
+**Discovered:** 2026-06-01
+**Status:** open
+**Description:** The 8-column matrix table has `scrollWidth: 793px` inside a 375px viewport. The `.matrix-wrap` container correctly uses `overflow-x: auto`, so the table IS scrollable, but there is no visual cue (scroll shadow, fade gradient at edge, "← scroll →" hint, or scrollbar) that more columns exist off-screen. Users on mobile see only 4–5 columns and may not realize the remaining themes are accessible by scrolling right.
+**Steps to Reproduce:** Open Company Comparison on 375px mobile; scroll to the matrix; observe no right-edge scroll indicator.
+**Fix:** Add a right-side fade gradient on `.matrix-wrap::after` that appears when `scrollLeft < scrollWidth - clientWidth`, or a simple CSS `background: linear-gradient(to right, transparent 80%, rgba(0,0,0,0.08))` overlay clipped to the right edge. A one-time "Scroll to see all themes →" note beneath the matrix would also work.
+
+---
+
 ## Fixed
 
 *(none yet — initial release)*
