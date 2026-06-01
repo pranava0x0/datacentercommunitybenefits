@@ -1059,15 +1059,21 @@ function cssVar(name) {
 // --------------------------------------------------------------------------
 
 const RATEPAYER_PLEDGE_DATE = "2026-03-04";
+// Canonical source: the White House proclamation. The five commitments quoted
+// in index.html are pulled verbatim from this page.
 const RATEPAYER_PLEDGE_URL =
-  "https://www.whitehouse.gov/fact-sheets/2026/03/fact-sheet-president-donald-j-trump-advances-energy-affordability-with-the-ratepayer-protection-pledge/";
+  "https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/";
 
 function renderRatepayerView() {
   // Pledge date + source link in the hero.
   const dateEl = document.getElementById("rp-pledge-date");
   if (dateEl) dateEl.textContent = formatLongDate(RATEPAYER_PLEDGE_DATE);
-  const linkEl = document.getElementById("rp-pledge-link");
-  if (linkEl) linkEl.href = RATEPAYER_PLEDGE_URL;
+  // Both the hero link and the commitments-source link point at the canonical
+  // White House proclamation.
+  for (const id of ["rp-pledge-link", "rp-commitments-link"]) {
+    const el = document.getElementById(id);
+    if (el) el.href = RATEPAYER_PLEDGE_URL;
+  }
 
   renderRatepayerStats();
   renderRatepayerRoster();

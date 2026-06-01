@@ -1542,7 +1542,13 @@ main {
 }
 
 .rp-commitment-list li {
-  line-height: 1.4;
+  line-height: 1.45;
+}
+
+.rp-commitments-source {
+  margin: 0.85rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 /* Generic section heading inside the view */

@@ -134,7 +134,11 @@ DELIVERED_LABELS: dict[str, str] = {
 # their data centers so those costs don't shift onto existing utility
 # ratepayers. This is the real-world anchor for the "Ratepayer Protection
 # Pledge" view. Facts (date + signatory roster) are fixed history, not a
-# curator judgment call — see WH fact sheet + DCD coverage.
+# curator judgment call.
+#
+# RATEPAYER_PLEDGE_URL is the canonical White House proclamation, which lists
+# the five commitments verbatim (quoted in docs/index.html). The signatory
+# roster is corroborated by the WH fact sheet + DCD coverage.
 #
 # Signatory membership lives on Company.ratepayer_pledge_signatory (bool).
 # The constants below are the single source of truth for the pledge metadata;
@@ -143,8 +147,7 @@ DELIVERED_LABELS: dict[str, str] = {
 RATEPAYER_PLEDGE_DATE: str = "2026-03-04"
 RATEPAYER_PLEDGE_NAME: str = "White House Ratepayer Protection Pledge"
 RATEPAYER_PLEDGE_URL: str = (
-    "https://www.whitehouse.gov/fact-sheets/2026/03/fact-sheet-president-donald-j-trump-"
-    "advances-energy-affordability-with-the-ratepayer-protection-pledge/"
+    "https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/"
 )
 
 # Per-project assessment of how a specific data center reflects the pledge.
