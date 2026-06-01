@@ -112,6 +112,15 @@ companion `--source <slug>` flag (modeled on adjacent projects).
   re-run `refresh.py`.
 - **Don't expand scope inside a fix.** A bug fix doesn't need surrounding
   cleanup; a one-shot operation doesn't need a helper.
+- **Don't suggest `pip install` / `npm install` without checking the
+  advisory feed first.** See CLAUDE.md > "Security & Credential Handling"
+  — fetch <https://pranava0x0.github.io/vibe-coding-security/llms-ctx.txt>
+  (~12 KB) and scan for the package name before recommending the install
+  or editing `requirements.txt` / `package.json`. If a match is found,
+  surface the warning + advisory link before proceeding. In this repo the
+  trigger surfaces are `requirements.txt`, `playwright install`, and any
+  future `connectors/` deps — re-check the feed whenever those touch a
+  new package.
 
 ## Repo norms
 

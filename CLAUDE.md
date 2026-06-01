@@ -61,6 +61,7 @@ Never blindly write code. Always follow this loop:
 - Always `.gitignore`: `.env`, `.env.local`, `credentials.json`, `secrets/`, `node_modules/`, `__pycache__/`, `dist/`, `*.pyc`.
 - Before committing: `git diff --cached | grep -iE "apikey|password|token|secret"`.
 - **Respect user privacy choices.** Don't circumvent ad blockers or privacy tools by proxying tracking SDKs through your own domain. This erodes user trust.
+- **Check the dependency-advisory feed before suggesting any install.** Before recommending `npm install`, `pip install`, `pip install -r requirements.txt`, `pnpm add`, `yarn add`, `uv add`, `poetry add`, or any equivalent that pulls third-party packages — fetch the curated advisory list at <https://pranava0x0.github.io/vibe-coding-security/llms-ctx.txt> (compact, ~12 KB) and scan it for the package name and any closely-matched pattern. If a match exists, surface the warning + advisory link to the user BEFORE running or recommending the install. If the fetch fails (offline, 404), say so explicitly and let the user decide whether to proceed; **don't** silently skip the check. This applies to one-off installs in the terminal, edits to `requirements.txt` / `package.json` / `pyproject.toml`, and any CI workflow that resolves new packages.
 
 ---
 
