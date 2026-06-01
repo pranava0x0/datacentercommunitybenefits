@@ -2167,6 +2167,17 @@
       "source_url": "https://missouriindependent.com/2026/05/22/google-data-center-plan-raises-tax-transparency-questions-in-rural-missouri/",
       "source_title": "Google data center plan raises tax, transparency questions in rural Missouri (Missouri Independent)",
       "single_source": true
+    },
+    {
+      "id": "resp-meta-newton-aoc-epa-hearing-2026",
+      "project_id": "meta-newton-ga",
+      "date": "2026-05-20",
+      "stance": "negative",
+      "constituency": "regulator",
+      "summary": "At a May 20, 2026 House Energy and Commerce Oversight Subcommittee hearing, Rep. Alexandria Ocasio-Cortez held up jars of discolored well water from Morgan County residents near Meta's Stanton Springs campus and pressed EPA Assistant Administrator Jessica Kramer on data-center water impacts; the EPA noted private wells fall outside the Safe Drinking Water Act, and Meta said an independent groundwater study it commissioned found its operations had no impact on the residents' wells.",
+      "source_url": "https://www.cbsnews.com/atlanta/news/aoc-presses-epa-over-morgan-county-drinking-water-concerns-tied-to-georgia-data-center-development/",
+      "source_title": "AOC presses EPA over Morgan County drinking water concerns tied to Georgia data center development (CBS Atlanta)",
+      "single_source": false
     }
   ]
 }

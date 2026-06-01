@@ -101,7 +101,7 @@ Lazy-loads the project payload (no Leaflet). Deep-linkable at `#ratepayer`.
 | Companies          | 13    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Nebius      |
 | Claims             | 282   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
 | Projects           | 75    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
-| On-the-ground feedback | 197 | Reactions from residents / officials / NGOs / journalists / regulators  |
+| On-the-ground feedback | 198 | Reactions from residents / officials / NGOs / journalists / regulators  |
 | Delivered-vs-promised assessments | 12  | Curator judgment on whether the claim was actually met (4 status types) |
 | Ratepayer pledge assessments | 11  | Signatory data centers since the pledge, tagged site-specific vs national-pledge-only |
 | **Matrix coverage** | **98/104 (94%)** | 7 of 13 companies have full 8-theme coverage; 6 honest gaps remain |
