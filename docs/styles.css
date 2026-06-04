@@ -1615,8 +1615,12 @@ main {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 0.6rem;
+}
+
+@media (max-width: 480px) {
+  .rp-roster { grid-template-columns: 1fr; }
 }
 
 .rp-roster-item {
@@ -1648,7 +1652,7 @@ main {
 }
 
 .rp-roster-item.unsigned .rp-roster-mark {
-  color: var(--text-muted);
+  color: var(--ratepayer-contested); /* amber — own/DOE commitment, not the White House pledge */
 }
 
 .rp-roster-name {
