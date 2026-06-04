@@ -1667,23 +1667,11 @@ main {
 /* Scorecard toolbar: legend chips + export button on the same row */
 .rp-scorecard-toolbar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-/* Legend */
-.rp-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
 }
 
 .rp-export-btn {
-  flex-shrink: 0;
   font-size: 0.78rem;
   font-weight: 600;
   padding: 0.28rem 0.75rem;
@@ -1698,17 +1686,6 @@ main {
 .rp-export-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
-}
-
-.rp-legend-chip {
-  --rp-color: var(--accent);
-  font-size: 0.76rem;
-  font-weight: 600;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  color: var(--rp-color);
-  border: 1px solid var(--rp-color);
-  background: transparent;
 }
 
 /* Scorecard — multi-column so 11 sites don't become a tall single stack.
@@ -1988,15 +1965,6 @@ main {
     margin-top: -1.2rem; /* pull up beside the last note line */
   }
 
-  /* Export button full-width on very small screens */
-  .rp-scorecard-toolbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .rp-export-btn {
-    align-self: flex-end;
-  }
 
   /* Roster items: tighter */
   .rp-roster-item {
