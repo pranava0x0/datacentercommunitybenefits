@@ -37,38 +37,6 @@
         </nav>
       </div>
 
-      <div
-        class="summary-stats"
-        id="summary-stats"
-        role="region"
-        aria-label="Dataset summary"
-      >
-        <div class="stat-group">
-          <span class="stat-num" id="ss-companies">—</span>
-          <span class="stat-label">companies</span>
-        </div>
-        <div class="stat-group">
-          <span class="stat-num" id="ss-projects">—</span>
-          <span class="stat-label">projects</span>
-        </div>
-        <div class="stat-group">
-          <span class="stat-num" id="ss-power">—</span>
-          <span class="stat-label">GW announced</span>
-        </div>
-        <div class="stat-group">
-          <span class="stat-num" id="ss-investment">—</span>
-          <span class="stat-label">claimed investment</span>
-        </div>
-        <div class="stat-group">
-          <span class="stat-num" id="ss-claims">—</span>
-          <span class="stat-label">first-party claims</span>
-        </div>
-        <div class="stat-group stat-group-responses">
-          <span class="stat-num" id="ss-responses">—</span>
-          <span class="stat-label">community responses</span>
-          <span class="stance-breakdown" id="ss-stance-breakdown" hidden></span>
-        </div>
-      </div>
 
       <div class="tabbar" role="tablist" aria-label="Dashboard views">
         <button
@@ -524,7 +492,12 @@
             <strong>national pledge only</strong> means it's covered by the
             signature but no site-specific commitment was captured.
           </p>
-          <div class="rp-legend" id="rp-legend" aria-label="Scorecard legend"></div>
+          <div class="rp-scorecard-toolbar">
+            <div class="rp-legend" id="rp-legend" aria-label="Scorecard legend"></div>
+            <button id="rp-export-csv" class="rp-export-btn" type="button">
+              Export CSV
+            </button>
+          </div>
           <ul id="rp-scorecard" class="rp-scorecard"></ul>
         </section>
 

@@ -361,6 +361,13 @@ select:focus-visible,
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+
+.tabbar::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
@@ -1490,8 +1497,26 @@ main {
   margin: 0 0 1.75rem;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .rp-stats {
+    gap: 0.5rem;
+  }
+
+  .rp-stat {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .rp-stat-value {
+    font-size: 1.45rem;
+  }
+
+  .rp-stat-label {
+    font-size: 0.72rem;
+  }
 }
 
 .rp-stat {
@@ -1636,12 +1661,40 @@ main {
   line-height: 1.3;
 }
 
+/* Scorecard toolbar: legend chips + export button on the same row */
+.rp-scorecard-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 /* Legend */
 .rp-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+.rp-export-btn {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.rp-export-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .rp-legend-chip {
@@ -1711,16 +1764,46 @@ main {
   color: var(--text-muted);
 }
 
-.rp-status-badge {
+/* Collapsible card */
+.rp-card-details {
+  /* reset browser default triangle marker */
+}
+.rp-card-details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.rp-card-details > summary::-webkit-details-marker { display: none; }
+
+.rp-card-body {
+  padding-top: 0.6rem;
+}
+
+/* X/5 met pill */
+.rp-met-pill {
   flex: none;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
-  color: var(--rp-color);
-  background: color-mix(in srgb, var(--rp-color) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--rp-color) 45%, transparent);
   white-space: nowrap;
+}
+
+.rp-met-pill--met {
+  color: var(--ratepayer-affirmed);
+  background: color-mix(in srgb, var(--ratepayer-affirmed) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ratepayer-affirmed) 45%, transparent);
+}
+
+.rp-met-pill--partial {
+  color: var(--ratepayer-pledge_only);
+  background: color-mix(in srgb, var(--ratepayer-pledge_only) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ratepayer-pledge_only) 45%, transparent);
+}
+
+.rp-met-pill--low {
+  color: var(--ratepayer-contested);
+  background: color-mix(in srgb, var(--ratepayer-contested) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ratepayer-contested) 45%, transparent);
 }
 
 .rp-card-summary {
@@ -1730,8 +1813,120 @@ main {
   color: var(--text);
 }
 
+.rp-principles {
+  list-style: none;
+  margin: 0.65rem 0 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.pp-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  border-left: 3px solid;
+  cursor: default;
+}
+
+.pp-row + .pp-row {
+  border-top: 1px solid var(--border);
+}
+
+.pp-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.pp-row-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pp-row-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.pp-row-status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 0.05rem;
+}
+
+.pp-row--met {
+  border-left-color: var(--ratepayer-affirmed);
+  background: color-mix(in srgb, var(--ratepayer-affirmed) 6%, transparent);
+}
+.pp-row--met .pp-row-status { color: var(--ratepayer-affirmed); }
+
+.pp-row--partial {
+  border-left-color: var(--ratepayer-pledge_only);
+  background: color-mix(in srgb, var(--ratepayer-pledge_only) 6%, transparent);
+}
+.pp-row--partial .pp-row-status { color: var(--ratepayer-pledge_only); }
+
+.pp-row--not_met {
+  border-left-color: var(--ratepayer-contested);
+  background: color-mix(in srgb, var(--ratepayer-contested) 6%, transparent);
+}
+.pp-row--not_met .pp-row-status { color: var(--ratepayer-contested); }
+
+.pp-row--unknown {
+  border-left-color: var(--border);
+  background: transparent;
+}
+.pp-row--unknown .pp-row-status { color: var(--text-muted); }
+
+.rp-evidence-details {
+  margin: 0.65rem 0 0;
+}
+
+.rp-evidence-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.rp-evidence-summary::-webkit-details-marker { display: none; }
+
+.rp-evidence-summary::before {
+  content: "▶";
+  font-size: 0.6rem;
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.rp-evidence-details[open] .rp-evidence-summary::before {
+  transform: rotate(90deg);
+}
+
+.rp-evidence-src-link {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.rp-evidence-src-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .rp-evidence {
-  margin: 0.7rem 0 0;
+  margin: 0.5rem 0 0;
   padding: 0.55rem 0.85rem;
   border-left: 3px solid var(--rp-color);
   background: var(--surface-2);
@@ -1750,11 +1945,6 @@ main {
   content: "\201D";
 }
 
-.rp-evidence-src {
-  margin: 0.4rem 0 0;
-  font-size: 0.8rem;
-}
-
 .rp-footnote {
   margin: 1.5rem 0 0;
   font-size: 0.82rem;
@@ -1763,11 +1953,51 @@ main {
   line-height: 1.45;
 }
 
-/* Mobile: stack the badge under the title so long labels don't crush it. */
+/* ── Ratepayer: tablet ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .rp-scorecard {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* ── Ratepayer: mobile ──────────────────────────────────────────────── */
 @media (max-width: 560px) {
+  /* Single column, full-width cards */
+  .rp-scorecard {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack badge under the title */
   .rp-card-head {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  /* Stack each principle row: label+note above, status below-right */
+  .pp-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .pp-row-status {
+    align-self: flex-end;
+    margin-top: -1.2rem; /* pull up beside the last note line */
+  }
+
+  /* Export button full-width on very small screens */
+  .rp-scorecard-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rp-export-btn {
+    align-self: flex-end;
+  }
+
+  /* Roster items: tighter */
+  .rp-roster-item {
+    padding: 0.5rem 0.6rem;
   }
 }
 

@@ -966,7 +966,8 @@ class TestRatepayerView:
         affirmed = page.locator("#rp-scorecard .rp-card[data-status='affirmed']").first
         # Affirmed cards must surface a verbatim evidence quote + source link.
         expect(affirmed.locator(".rp-evidence")).to_have_count(1)
-        link = affirmed.locator(".rp-evidence-src a")
+        # Source link is now inside the collapsed <details> summary.
+        link = affirmed.locator(".rp-evidence-src-link")
         assert link.count() == 1
         href = link.get_attribute("href")
         assert href and href.startswith("http"), f"bad evidence href: {href!r}"
@@ -1021,33 +1022,7 @@ class TestRatepayerView:
 
 
 class TestSummaryStats:
-    def test_stats_bar_companies_and_claims_on_first_paint(
-        self, page: Page, base_url: str
-    ):
-        page.goto(base_url + "/")
-        # companies + claims fill from the first-paint payload (no tab switch).
-        page.wait_for_function(
-            "document.getElementById('ss-companies').textContent !== '—'",
-            timeout=10_000,
-        )
-        companies = page.locator("#ss-companies").text_content()
-        claims = page.locator("#ss-claims").text_content()
-        assert int(companies) >= 14
-        assert int(claims) >= 280
-
-    def test_stats_bar_fills_projects_after_idle_preload(
-        self, page: Page, base_url: str
-    ):
-        page.goto(base_url + "/")
-        # The idle preload (or opening Explorer) fills projects / GW / responses.
-        page.locator("#tab-explorer").click()
-        page.wait_for_function(
-            "document.getElementById('ss-projects').textContent !== '—'",
-            timeout=15_000,
-        )
-        assert int(page.locator("#ss-projects").text_content()) >= 77
-        assert "GW" in page.locator("#ss-power").text_content()
-        assert "$" in page.locator("#ss-investment").text_content()
+    pass  # stats bar removed in v1.24
 
 
 class TestExplorerFiltersPorted:

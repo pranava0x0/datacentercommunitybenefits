@@ -111,6 +111,42 @@ const RATEPAYER_DESCRIPTIONS = {
   contested:
     "A credible third party documents this site shifting costs to ratepayers despite the pledge.",
 };
+
+// v1.XX: Per-pledge-principle fulfillment breakdown. Must mirror
+// schema.PLEDGE_PRINCIPLES / PLEDGE_PRINCIPLE_STATUSES.
+const PLEDGE_PRINCIPLES = [
+  "new_generation",
+  "delivery_infra",
+  "separate_rate",
+  "local_jobs",
+  "grid_resilience",
+];
+const PLEDGE_PRINCIPLE_LABELS = {
+  new_generation: "Building, bringing, or buying new power supply",
+  delivery_infra: "Paying for new power delivery infrastructure upgrades",
+  separate_rate:  "Paying whether they use the power or not",
+  local_jobs:     "Investing in local job creation and workforce development",
+  grid_resilience:"Contributing to electric and community resilience",
+};
+const PLEDGE_PRINCIPLE_DESCRIPTIONS = {
+  new_generation:
+    "Building, bringing, or buying new generation — paying the full cost of the new generation and electricity needed to meet their demand.",
+  delivery_infra:
+    "Paying for all transmission and distribution infrastructure upgrades needed to serve their data centers so the expense isn't passed to ordinary households.",
+  separate_rate:
+    "Negotiating separate rate structures with utilities and states and paying those rates for the power and infrastructure brought online, used or not.",
+  local_jobs:
+    "Hiring from the local community and building skills-development programs where they operate.",
+  grid_resilience:
+    "Coordinating with grid operators and making backup generation available at times of scarcity to help prevent blackouts.",
+};
+const PLEDGE_PRINCIPLE_STATUSES = ["met", "partial", "not_met", "unknown"];
+const PLEDGE_PRINCIPLE_STATUS_LABELS = {
+  met: "Met",
+  partial: "Partial / Pledge only",
+  not_met: "Not met",
+  unknown: "Not assessed",
+};
 // The seven White House pledge signatories (2026-03-04). Mirrors the
 // ratepayer_pledge_signatory=true rows in companies.json; used only as a
 // fallback ordering hint — the live truth is read from the company records.
@@ -1546,7 +1582,7 @@ function renderRatepayerStats() {
     },
     {
       value: String(affirmed.length),
-      label: "carry a site-specific ratepayer commitment",
+      label: "sites with a site-specific commitment",
       accent: "affirmed",
     },
   ];
@@ -1652,6 +1688,120 @@ function renderRatepayerLegend() {
   }
 }
 
+// --------------------------------------------------------------------------
+// CSV export
+// --------------------------------------------------------------------------
+
+function escapeCSV(val) {
+  if (val == null) return "";
+  const s = String(val);
+  if (s.includes(",") || s.includes('"') || s.includes("\n")) {
+    return '"' + s.replace(/"/g, '""') + '"';
+  }
+  return s;
+}
+
+function buildRatepayerCSV() {
+  const PRINCIPLE_KEYS = [
+    "new_generation",
+    "delivery_infra",
+    "separate_rate",
+    "local_jobs",
+    "grid_resilience",
+  ];
+
+  const headers = [
+    "Company",
+    "Project Name",
+    "City",
+    "State",
+    "Project Status",
+    "Announced Date",
+    "Claimed Investment (USD)",
+    "Claimed Power (MW)",
+    "Acreage",
+    "Claimed Jobs",
+    "Water / Cooling Type",
+    "Pledge Assessment",
+    "Assessment Summary",
+    "Evidence Source Title",
+    "Evidence Source URL",
+    "Assessment Date",
+    "Building, bringing, or buying new power supply",
+    "Paying for new power delivery infrastructure upgrades",
+    "Paying whether they use the power or not",
+    "Investing in local job creation and workforce development",
+    "Contributing to electric and community resilience",
+  ];
+
+  const rows = [headers.map(escapeCSV).join(",")];
+
+  for (const p of ratepayerAssessedProjects()) {
+    const co = state.companiesBySlug.get(p.company_slug);
+    const rp = p.ratepayer;
+
+    // Evidence source (affirmed only)
+    let evidenceTitle = "";
+    let evidenceUrl = "";
+    if (rp.evidence_claim_id) {
+      const claim = state.claims.find((c) => c.id === rp.evidence_claim_id);
+      if (claim) {
+        evidenceTitle = claim.source_title;
+        evidenceUrl = String(claim.source_url);
+      }
+    }
+
+    // Water/cooling from at_a_glance
+    const waterNote = p.at_a_glance?.water || "";
+
+    // Announced date: prefer announced_date, fall back to announced_year
+    const announcedDate = p.announced_date || String(p.announced_year);
+
+    // Per-principle: met → note text; anything else → N/A
+    const principleVals = PRINCIPLE_KEYS.map((key) => {
+      const assessment = rp.principles?.[key];
+      if (assessment?.status === "met") return assessment.note;
+      return "N/A";
+    });
+
+    const row = [
+      co ? co.name : p.company_slug,
+      p.name,
+      p.city,
+      p.state,
+      p.status,
+      announcedDate,
+      p.claimed_investment_usd,
+      p.power_mw,
+      p.acreage,
+      p.claimed_jobs,
+      waterNote,
+      rp.status,
+      rp.summary,
+      evidenceTitle,
+      evidenceUrl,
+      rp.assessed_at,
+      ...principleVals,
+    ];
+    rows.push(row.map(escapeCSV).join(","));
+  }
+
+  return rows.join("\r\n");
+}
+
+function downloadRatepayerCSV() {
+  const csv = buildRatepayerCSV();
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "ratepayer-pledge-scorecard.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function renderRatepayerScorecard() {
   const ul = document.getElementById("rp-scorecard");
   if (!ul) return;
@@ -1664,6 +1814,12 @@ function renderRatepayerScorecard() {
     li.textContent = "No assessed data centers yet.";
     ul.appendChild(li);
     return;
+  }
+
+  // Wire export button
+  const exportBtn = document.getElementById("rp-export-csv");
+  if (exportBtn) {
+    exportBtn.onclick = downloadRatepayerCSV;
   }
 
   for (const p of projects) {
@@ -1680,38 +1836,74 @@ function renderRatepayerCard(p) {
   li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
   li.style.setProperty("--rp-color", `var(--ratepayer-${rp.status})`);
 
-  // Evidence quote (for `affirmed`): pull the cited claim's verbatim statement.
+  // Evidence quote (for `affirmed`): collapsed into a <details> so cards stay
+  // compact. The summary line shows the source title as the disclosure label.
   let evidenceHtml = "";
   if (rp.evidence_claim_id) {
     const claim = state.claims.find((c) => c.id === rp.evidence_claim_id);
     if (claim) {
       evidenceHtml = `
-        <blockquote class="rp-evidence">${escapeHtml(claim.statement)}</blockquote>
-        <p class="rp-evidence-src">
-          <a href="${escapeAttr(String(claim.source_url))}" target="_blank" rel="noopener noreferrer">
-            ${escapeHtml(claim.source_title)} →
-          </a>
-        </p>
+        <details class="rp-evidence-details">
+          <summary class="rp-evidence-summary">
+            <a href="${escapeAttr(String(claim.source_url))}" target="_blank" rel="noopener noreferrer" class="rp-evidence-src-link">
+              ${escapeHtml(claim.source_title)} →
+            </a>
+          </summary>
+          <blockquote class="rp-evidence">${escapeHtml(claim.statement)}</blockquote>
+        </details>
       `;
     }
   }
 
   const loc = `${escapeHtml(p.city)}, ${escapeHtml(p.state)}`;
-  const statusLabel = RATEPAYER_LABELS[rp.status] || rp.status;
 
+  // X/5 met pill — count principles with status === 'met'
+  const metCount = PLEDGE_PRINCIPLES.filter(
+    (key) => rp.principles?.[key]?.status === "met"
+  ).length;
+  const metClass =
+    metCount === 5 ? "met" : metCount >= 3 ? "partial" : "low";
+
+  // Per-principle rows — one row per pledge commitment, only when data present.
+  let principlesHtml = "";
+  if (rp.principles && Object.keys(rp.principles).length > 0) {
+    const rows = PLEDGE_PRINCIPLES.map((key) => {
+      const assessment = rp.principles[key] || {};
+      const status = assessment.status || "unknown";
+      const note = assessment.note || "";
+      const label = PLEDGE_PRINCIPLE_LABELS[key];
+      const statusLabel = PLEDGE_PRINCIPLE_STATUS_LABELS[status] || status;
+      const noteHtml = note
+        ? `<span class="pp-row-note">${escapeHtml(note)}</span>`
+        : "";
+      return `<li class="pp-row pp-row--${escapeAttr(status)}">
+        <div class="pp-row-body">
+          <span class="pp-row-label">${escapeHtml(label)}</span>
+          ${noteHtml}
+        </div>
+        <span class="pp-row-status">${escapeHtml(statusLabel)}</span>
+      </li>`;
+    }).join("");
+    principlesHtml = `<ul class="rp-principles" aria-label="Pledge principles fulfillment">${rows}</ul>`;
+  }
+
+  // Collapsible card — header is always visible; body expands on click.
   li.innerHTML = `
-    <div class="rp-card-head">
-      <div class="rp-card-title">
-        <span class="rp-card-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
-        <span class="rp-card-name">${escapeHtml(p.name)}</span>
-        <span class="rp-card-loc">${loc} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+    <details class="rp-card-details">
+      <summary class="rp-card-head">
+        <div class="rp-card-title">
+          <span class="rp-card-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
+          <span class="rp-card-name">${escapeHtml(p.name)}</span>
+          <span class="rp-card-loc">${loc} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+        </div>
+        <span class="rp-met-pill rp-met-pill--${escapeAttr(metClass)}">${metCount}/5 met</span>
+      </summary>
+      <div class="rp-card-body">
+        <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
+        ${principlesHtml}
+        ${evidenceHtml}
       </div>
-      <span class="rp-status-badge" title="${escapeAttr(RATEPAYER_DESCRIPTIONS[rp.status] || "")}">
-        ${escapeHtml(statusLabel)}
-      </span>
-    </div>
-    <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
-    ${evidenceHtml}
+    </details>
   `;
   return li;
 }

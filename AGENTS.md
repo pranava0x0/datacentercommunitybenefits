@@ -94,6 +94,38 @@ Not yet — v1 is curated. When v2 starts: subclass
 implement `fetch_claims()`. The driver in `refresh.py` will need a
 companion `--source <slug>` flag (modeled on adjacent projects).
 
+## Token economy — be judicious
+
+This project is curated (small dataset, no auto-scrapers) so most tasks are
+achieved with direct file reads and targeted searches, not large-scale agent
+dispatch.
+
+**Do directly (no sub-agent, no WebFetch loop):**
+- Reading schema, seed files, app.js, styles.css — just use Read/grep.
+- Finding a project or claim by id — `python3 -c "import json; ..."`.
+- Adding or editing a single record — Edit the seed file directly.
+- Running tests — `pytest` in the shell.
+
+**Use WebFetch sparingly:**
+- Fetch a known URL for a specific verbatim quote you need as a claim.
+- Fetch a company newsroom to find the exact publication date of an
+  announcement you already know happened.
+- Stop after 2–3 failed fetches on the same topic and surface what you
+  have; don't loop trying URL variations.
+- Never paginate DCD news sequentially just to "sweep" — if the user
+  asks for research, aim for ≤6 page fetches total. Summarise what
+  wasn't found honestly; don't burn tokens confirming absences.
+
+**Never spawn a deep-research agent for:**
+- Adding a single new project or claim (do it directly).
+- Checking if a project is already in the seed (run a python one-liner).
+- Fixing a CSS/JS bug (read the file, edit it).
+
+**Prefer python one-liners over agents for data queries:**
+```bash
+python3 -c "import json; d=json.load(open('data/seed/projects.json')); ..."
+```
+
 ## What NOT to do
 
 - **Don't paraphrase company claims into the `statement` field.** Quote
