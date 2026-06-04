@@ -1856,7 +1856,13 @@ function renderRatepayerCard(p) {
   }
 
   const loc = `${escapeHtml(p.city)}, ${escapeHtml(p.state)}`;
-  const statusLabel = RATEPAYER_LABELS[rp.status] || rp.status;
+
+  // X/5 met pill — count principles with status === 'met'
+  const metCount = PLEDGE_PRINCIPLES.filter(
+    (key) => rp.principles?.[key]?.status === "met"
+  ).length;
+  const metClass =
+    metCount === 5 ? "met" : metCount >= 3 ? "partial" : "low";
 
   // Per-principle rows — one row per pledge commitment, only when data present.
   let principlesHtml = "";
@@ -1881,20 +1887,23 @@ function renderRatepayerCard(p) {
     principlesHtml = `<ul class="rp-principles" aria-label="Pledge principles fulfillment">${rows}</ul>`;
   }
 
+  // Collapsible card — header is always visible; body expands on click.
   li.innerHTML = `
-    <div class="rp-card-head">
-      <div class="rp-card-title">
-        <span class="rp-card-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
-        <span class="rp-card-name">${escapeHtml(p.name)}</span>
-        <span class="rp-card-loc">${loc} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+    <details class="rp-card-details">
+      <summary class="rp-card-head">
+        <div class="rp-card-title">
+          <span class="rp-card-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
+          <span class="rp-card-name">${escapeHtml(p.name)}</span>
+          <span class="rp-card-loc">${loc} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+        </div>
+        <span class="rp-met-pill rp-met-pill--${escapeAttr(metClass)}">${metCount}/5 met</span>
+      </summary>
+      <div class="rp-card-body">
+        <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
+        ${principlesHtml}
+        ${evidenceHtml}
       </div>
-      <span class="rp-status-badge" title="${escapeAttr(RATEPAYER_DESCRIPTIONS[rp.status] || "")}">
-        ${escapeHtml(statusLabel)}
-      </span>
-    </div>
-    <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
-    ${principlesHtml}
-    ${evidenceHtml}
+    </details>
   `;
   return li;
 }

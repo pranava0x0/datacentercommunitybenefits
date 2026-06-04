@@ -1746,16 +1746,46 @@ main {
   color: var(--text-muted);
 }
 
-.rp-status-badge {
+/* Collapsible card */
+.rp-card-details {
+  /* reset browser default triangle marker */
+}
+.rp-card-details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.rp-card-details > summary::-webkit-details-marker { display: none; }
+
+.rp-card-body {
+  padding-top: 0.6rem;
+}
+
+/* X/5 met pill */
+.rp-met-pill {
   flex: none;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
-  color: var(--rp-color);
-  background: color-mix(in srgb, var(--rp-color) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--rp-color) 45%, transparent);
   white-space: nowrap;
+}
+
+.rp-met-pill--met {
+  color: var(--ratepayer-affirmed);
+  background: color-mix(in srgb, var(--ratepayer-affirmed) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ratepayer-affirmed) 45%, transparent);
+}
+
+.rp-met-pill--partial {
+  color: var(--ratepayer-pledge_only);
+  background: color-mix(in srgb, var(--ratepayer-pledge_only) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ratepayer-pledge_only) 45%, transparent);
+}
+
+.rp-met-pill--low {
+  color: var(--ratepayer-contested);
+  background: color-mix(in srgb, var(--ratepayer-contested) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ratepayer-contested) 45%, transparent);
 }
 
 .rp-card-summary {
