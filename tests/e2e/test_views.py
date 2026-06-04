@@ -930,7 +930,7 @@ class TestRatepayerView:
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         first = page.locator("#rp-stats .rp-stat").first
         expect(first).to_contain_text("7")
-        expect(first).to_contain_text("companies signed the pledge")
+        expect(first).to_contain_text("signatories")
         # The "of 13" framing was removed — assert it's gone.
         expect(first).not_to_contain_text("of 13")
 
