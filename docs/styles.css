@@ -1731,46 +1731,62 @@ main {
 }
 
 .rp-principles {
+  list-style: none;
+  margin: 0.65rem 0 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.pp-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-  margin: 0.6rem 0 0;
-}
-
-.pp-chip {
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.16rem 0.45rem;
-  border-radius: 999px;
-  border: 1px solid;
-  white-space: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.28rem 0.6rem;
+  border-left: 3px solid;
   cursor: default;
-  line-height: 1.5;
 }
 
-.pp-chip--met {
-  color: var(--ratepayer-affirmed);
-  background: var(--ratepayer-affirmed-soft);
-  border-color: color-mix(in srgb, var(--ratepayer-affirmed) 40%, transparent);
+.pp-row + .pp-row {
+  border-top: 1px solid var(--border);
 }
 
-.pp-chip--partial {
-  color: var(--ratepayer-pledge_only);
-  background: var(--ratepayer-pledge_only-soft);
-  border-color: color-mix(in srgb, var(--ratepayer-pledge_only) 40%, transparent);
+.pp-row-label {
+  font-size: 0.78rem;
+  color: var(--text);
 }
 
-.pp-chip--not_met {
-  color: var(--ratepayer-contested);
-  background: var(--ratepayer-contested-soft);
-  border-color: color-mix(in srgb, var(--ratepayer-contested) 40%, transparent);
+.pp-row-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.pp-chip--unknown {
-  color: var(--text-muted);
-  background: var(--surface-2);
-  border-color: var(--border);
+.pp-row--met {
+  border-left-color: var(--ratepayer-affirmed);
+  background: color-mix(in srgb, var(--ratepayer-affirmed) 6%, transparent);
 }
+.pp-row--met .pp-row-status { color: var(--ratepayer-affirmed); }
+
+.pp-row--partial {
+  border-left-color: var(--ratepayer-pledge_only);
+  background: color-mix(in srgb, var(--ratepayer-pledge_only) 6%, transparent);
+}
+.pp-row--partial .pp-row-status { color: var(--ratepayer-pledge_only); }
+
+.pp-row--not_met {
+  border-left-color: var(--ratepayer-contested);
+  background: color-mix(in srgb, var(--ratepayer-contested) 6%, transparent);
+}
+.pp-row--not_met .pp-row-status { color: var(--ratepayer-contested); }
+
+.pp-row--unknown {
+  border-left-color: var(--border);
+  background: transparent;
+}
+.pp-row--unknown .pp-row-status { color: var(--text-muted); }
 
 .rp-evidence {
   margin: 0.7rem 0 0;

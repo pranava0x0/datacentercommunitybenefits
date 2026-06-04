@@ -1735,18 +1735,21 @@ function renderRatepayerCard(p) {
   const loc = `${escapeHtml(p.city)}, ${escapeHtml(p.state)}`;
   const statusLabel = RATEPAYER_LABELS[rp.status] || rp.status;
 
-  // Per-principle chips — only rendered when principles data is present.
+  // Per-principle rows — one row per pledge commitment, only when data present.
   let principlesHtml = "";
   if (rp.principles && Object.keys(rp.principles).length > 0) {
-    const chips = PLEDGE_PRINCIPLES.map((key) => {
+    const rows = PLEDGE_PRINCIPLES.map((key) => {
       const status = rp.principles[key] || "unknown";
       const label = PLEDGE_PRINCIPLE_LABELS[key];
       const statusLabel = PLEDGE_PRINCIPLE_STATUS_LABELS[status] || status;
       const principleDesc = PLEDGE_PRINCIPLE_DESCRIPTIONS[key] || "";
-      const tooltip = `${label}: ${statusLabel} — ${principleDesc}`;
-      return `<span class="pp-chip pp-chip--${escapeAttr(status)}" title="${escapeAttr(tooltip)}">${escapeHtml(label)}</span>`;
+      const tooltip = escapeAttr(`${principleDesc}`);
+      return `<li class="pp-row pp-row--${escapeAttr(status)}" title="${tooltip}">
+        <span class="pp-row-label">${escapeHtml(label)}</span>
+        <span class="pp-row-status">${escapeHtml(statusLabel)}</span>
+      </li>`;
     }).join("");
-    principlesHtml = `<div class="rp-principles" aria-label="Pledge principles fulfillment">${chips}</div>`;
+    principlesHtml = `<ul class="rp-principles" aria-label="Pledge principles fulfillment">${rows}</ul>`;
   }
 
   li.innerHTML = `
