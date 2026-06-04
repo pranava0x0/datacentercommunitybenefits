@@ -1574,15 +1574,15 @@ function renderRatepayerStats() {
   const tiles = [
     {
       value: String(signatories.length),
-      label: "companies signed the pledge",
+      label: "signatories",
     },
     {
       value: String(assessed.length),
-      label: "data centers announced since the pledge",
+      label: "sites tracked",
     },
     {
       value: String(affirmed.length),
-      label: "sites with a site-specific commitment",
+      label: "site-specific commitments",
       accent: "affirmed",
     },
   ];
