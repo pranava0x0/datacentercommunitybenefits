@@ -444,6 +444,13 @@ class Project(_StrictBase):
     lon: float = Field(ge=-180, le=180)
     status: ProjectStatus
     announced_year: int = Field(ge=2000, le=2100)
+    announced_date: Optional[Date] = Field(
+        default=None,
+        description=(
+            "Exact announcement date when known. More precise than announced_year; "
+            "used in the CSV export. Leave null when only the year is confirmed."
+        ),
+    )
     claimed_investment_usd: Optional[int] = Field(
         default=None, ge=0, description="Total announced capex, USD. Null if undisclosed."
     )

@@ -1688,6 +1688,120 @@ function renderRatepayerLegend() {
   }
 }
 
+// --------------------------------------------------------------------------
+// CSV export
+// --------------------------------------------------------------------------
+
+function escapeCSV(val) {
+  if (val == null) return "";
+  const s = String(val);
+  if (s.includes(",") || s.includes('"') || s.includes("\n")) {
+    return '"' + s.replace(/"/g, '""') + '"';
+  }
+  return s;
+}
+
+function buildRatepayerCSV() {
+  const PRINCIPLE_KEYS = [
+    "new_generation",
+    "delivery_infra",
+    "separate_rate",
+    "local_jobs",
+    "grid_resilience",
+  ];
+
+  const headers = [
+    "Company",
+    "Project Name",
+    "City",
+    "State",
+    "Project Status",
+    "Announced Date",
+    "Claimed Investment (USD)",
+    "Claimed Power (MW)",
+    "Acreage",
+    "Claimed Jobs",
+    "Water / Cooling Type",
+    "Pledge Assessment",
+    "Assessment Summary",
+    "Evidence Source Title",
+    "Evidence Source URL",
+    "Assessment Date",
+    "Building, bringing, or buying new power supply",
+    "Paying for new power delivery infrastructure upgrades",
+    "Paying whether they use the power or not",
+    "Investing in local job creation and workforce development",
+    "Contributing to electric and community resilience",
+  ];
+
+  const rows = [headers.map(escapeCSV).join(",")];
+
+  for (const p of ratepayerAssessedProjects()) {
+    const co = state.companiesBySlug.get(p.company_slug);
+    const rp = p.ratepayer;
+
+    // Evidence source (affirmed only)
+    let evidenceTitle = "";
+    let evidenceUrl = "";
+    if (rp.evidence_claim_id) {
+      const claim = state.claims.find((c) => c.id === rp.evidence_claim_id);
+      if (claim) {
+        evidenceTitle = claim.source_title;
+        evidenceUrl = String(claim.source_url);
+      }
+    }
+
+    // Water/cooling from at_a_glance
+    const waterNote = p.at_a_glance?.water || "";
+
+    // Announced date: prefer announced_date, fall back to announced_year
+    const announcedDate = p.announced_date || String(p.announced_year);
+
+    // Per-principle: met → note text; anything else → N/A
+    const principleVals = PRINCIPLE_KEYS.map((key) => {
+      const assessment = rp.principles?.[key];
+      if (assessment?.status === "met") return assessment.note;
+      return "N/A";
+    });
+
+    const row = [
+      co ? co.name : p.company_slug,
+      p.name,
+      p.city,
+      p.state,
+      p.status,
+      announcedDate,
+      p.claimed_investment_usd,
+      p.power_mw,
+      p.acreage,
+      p.claimed_jobs,
+      waterNote,
+      rp.status,
+      rp.summary,
+      evidenceTitle,
+      evidenceUrl,
+      rp.assessed_at,
+      ...principleVals,
+    ];
+    rows.push(row.map(escapeCSV).join(","));
+  }
+
+  return rows.join("\r\n");
+}
+
+function downloadRatepayerCSV() {
+  const csv = buildRatepayerCSV();
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "ratepayer-pledge-scorecard.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function renderRatepayerScorecard() {
   const ul = document.getElementById("rp-scorecard");
   if (!ul) return;
@@ -1700,6 +1814,12 @@ function renderRatepayerScorecard() {
     li.textContent = "No assessed data centers yet.";
     ul.appendChild(li);
     return;
+  }
+
+  // Wire export button
+  const exportBtn = document.getElementById("rp-export-csv");
+  if (exportBtn) {
+    exportBtn.onclick = downloadRatepayerCSV;
   }
 
   for (const p of projects) {

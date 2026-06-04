@@ -361,6 +361,13 @@ select:focus-visible,
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+
+.tabbar::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
@@ -1636,12 +1643,40 @@ main {
   line-height: 1.3;
 }
 
+/* Scorecard toolbar: legend chips + export button on the same row */
+.rp-scorecard-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 /* Legend */
 .rp-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+.rp-export-btn {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.rp-export-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .rp-legend-chip {
@@ -1870,11 +1905,56 @@ main {
   line-height: 1.45;
 }
 
-/* Mobile: stack the badge under the title so long labels don't crush it. */
+/* ── Ratepayer: tablet ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .rp-scorecard {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* ── Ratepayer: mobile ──────────────────────────────────────────────── */
 @media (max-width: 560px) {
+  /* Single column, full-width cards */
+  .rp-scorecard {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack badge under the title */
   .rp-card-head {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  /* Stack each principle row: label+note above, status below-right */
+  .pp-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .pp-row-status {
+    align-self: flex-end;
+    margin-top: -1.2rem; /* pull up beside the last note line */
+  }
+
+  /* Stat tiles: 2 per row on small screens */
+  .rp-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Export button full-width on very small screens */
+  .rp-scorecard-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rp-export-btn {
+    align-self: flex-end;
+  }
+
+  /* Roster items: tighter */
+  .rp-roster-item {
+    padding: 0.5rem 0.6rem;
   }
 }
 

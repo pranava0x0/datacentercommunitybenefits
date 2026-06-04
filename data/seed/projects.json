@@ -579,7 +579,8 @@
             "note": "Project integrates with DTE and MISO grid reliability plans; battery storage is included in the 2.7 GW build."
           }
         }
-      }
+      },
+      "announced_date": "2026-03-17"
     },
     {
       "id": "microsoft-cheyenne-wy",
@@ -635,7 +636,8 @@
             "note": "Covered by Microsoft's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-04-14"
     },
     {
       "id": "openai-lordstown-oh",
@@ -850,7 +852,8 @@
             "note": "Covered by Meta's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-04-21"
     },
     {
       "id": "meta-beaver-dam-wi",
@@ -978,7 +981,8 @@
             "note": "Covered by Google's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-04-29"
     },
     {
       "id": "microsoft-person-county-nc",
@@ -1099,7 +1103,8 @@
             "note": "Covered by Amazon's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-03-06"
     },
     {
       "id": "openai-saline-twp-mi",
@@ -1623,7 +1628,8 @@
             "note": "Covered by Meta's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-02-11"
     },
     {
       "id": "meta-el-paso-tx",
@@ -1696,7 +1702,8 @@
             "note": "Covered by Google's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-03-17"
     },
     {
       "id": "google-putnam-county-wv",
@@ -1742,7 +1749,8 @@
             "note": "Covered by Google's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-03-27"
     },
     {
       "id": "oracle-port-washington-wi",
@@ -1853,7 +1861,8 @@
             "note": "SWEPCO coordination is noted in the joint announcement; no formal grid resilience or backup generation agreement has been published for Caddo Parish."
           }
         }
-      }
+      },
+      "announced_date": "2026-02-23"
     },
     {
       "id": "amazon-bossier-parish-la",
@@ -1900,7 +1909,8 @@
             "note": "SWEPCO coordination is noted in the joint announcement; no formal grid resilience agreement has been published for Bossier Parish."
           }
         }
-      }
+      },
+      "announced_date": "2026-02-23"
     },
     {
       "id": "amazon-vicksburg-ms",
@@ -1947,7 +1957,8 @@
             "note": "Covered by Amazon's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-04-09"
     },
     {
       "id": "qts-salem-twp-pa",
@@ -2436,7 +2447,8 @@
             "note": "Covered by Amazon's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-04-09"
     },
     {
       "id": "aws-wilmington-oh",
@@ -2601,7 +2613,8 @@
             "note": "Covered by Microsoft's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-04-14"
     },
     {
       "id": "openai-saline-mi",
@@ -2655,7 +2668,8 @@
             "note": "Covered by OpenAI's national pledge; no site-specific grid coordination agreement has been captured for the Saline campus."
           }
         }
-      }
+      },
+      "announced_date": "2026-06-01"
     },
     {
       "id": "amazon-wheatfield-in",
@@ -2704,7 +2718,8 @@
             "note": "Covered by Amazon's national pledge; no site-specific grid coordination or backup commitment captured."
           }
         }
-      }
+      },
+      "announced_date": "2026-06-03"
     }
   ]
 }
