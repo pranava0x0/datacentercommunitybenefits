@@ -122,23 +122,23 @@ const PLEDGE_PRINCIPLES = [
   "grid_resilience",
 ];
 const PLEDGE_PRINCIPLE_LABELS = {
-  new_generation: "New power supply",
-  delivery_infra: "Grid upgrade costs",
-  separate_rate: "Pay-whether-used",
-  local_jobs: "Local jobs & workforce",
-  grid_resilience: "Grid resilience",
+  new_generation: "Pay the full cost of all new generation and electricity",
+  delivery_infra: "Cover all grid/network upgrade costs (not passed to households)",
+  separate_rate:  "Negotiate a separate rate structure; pay whether used or not",
+  local_jobs:     "Hire locally and build workforce development programs",
+  grid_resilience:"Coordinate with grid operators; provide backup generation",
 };
 const PLEDGE_PRINCIPLE_DESCRIPTIONS = {
   new_generation:
-    "Building, bringing, or buying new generation — paying the full cost of new power needed.",
+    "Building, bringing, or buying new generation — paying the full cost of the new generation and electricity needed to meet their demand.",
   delivery_infra:
-    "Paying for all transmission and distribution infrastructure upgrades.",
+    "Paying for all transmission and distribution infrastructure upgrades needed to serve their data centers so the expense isn't passed to ordinary households.",
   separate_rate:
-    "Negotiating separate rate structures and paying those rates, used or not.",
+    "Negotiating separate rate structures with utilities and states and paying those rates for the power and infrastructure brought online, used or not.",
   local_jobs:
-    "Hiring locally and building skills-development programs in the community.",
+    "Hiring from the local community and building skills-development programs where they operate.",
   grid_resilience:
-    "Coordinating with grid operators; making backup power available during scarcity.",
+    "Coordinating with grid operators and making backup generation available at times of scarcity to help prevent blackouts.",
 };
 const PLEDGE_PRINCIPLE_STATUSES = ["met", "partial", "not_met", "unknown"];
 const PLEDGE_PRINCIPLE_STATUS_LABELS = {
