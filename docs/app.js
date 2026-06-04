@@ -1582,7 +1582,7 @@ function renderRatepayerStats() {
     },
     {
       value: String(affirmed.length),
-      label: "carry a site-specific ratepayer commitment",
+      label: "sites with a site-specific commitment",
       accent: "affirmed",
     },
   ];

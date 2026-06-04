@@ -1497,8 +1497,26 @@ main {
   margin: 0 0 1.75rem;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .rp-stats {
+    gap: 0.5rem;
+  }
+
+  .rp-stat {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .rp-stat-value {
+    font-size: 1.45rem;
+  }
+
+  .rp-stat-label {
+    font-size: 0.72rem;
+  }
 }
 
 .rp-stat {
@@ -1965,11 +1983,6 @@ main {
   .pp-row-status {
     align-self: flex-end;
     margin-top: -1.2rem; /* pull up beside the last note line */
-  }
-
-  /* Stat tiles: 2 per row on small screens */
-  .rp-stats {
-    grid-template-columns: 1fr 1fr;
   }
 
   /* Export button full-width on very small screens */
