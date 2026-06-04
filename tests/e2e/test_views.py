@@ -1008,7 +1008,8 @@ class TestRatepayerView:
         # scorecard stays near the top.
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
-        details = page.locator(".rp-commitments")
+        # The pledge-elements box is the first .rp-commitments and starts closed.
+        details = page.locator(".rp-commitments").first
         assert details.evaluate("el => el.tagName.toLowerCase()") == "details"
         assert details.evaluate("el => el.open") is False
         # The five commitment items still exist in the DOM (just hidden).
