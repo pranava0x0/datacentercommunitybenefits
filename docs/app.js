@@ -122,11 +122,11 @@ const PLEDGE_PRINCIPLES = [
   "grid_resilience",
 ];
 const PLEDGE_PRINCIPLE_LABELS = {
-  new_generation: "Pay the full cost of all new generation and electricity",
-  delivery_infra: "Cover all grid/network upgrade costs (not passed to households)",
-  separate_rate:  "Negotiate a separate rate structure; pay whether used or not",
-  local_jobs:     "Hire locally and build workforce development programs",
-  grid_resilience:"Coordinate with grid operators; provide backup generation",
+  new_generation: "Building, bringing, or buying new power supply",
+  delivery_infra: "Paying for new power delivery infrastructure upgrades",
+  separate_rate:  "Paying whether they use the power or not",
+  local_jobs:     "Investing in local job creation and workforce development",
+  grid_resilience:"Contributing to electric and community resilience",
 };
 const PLEDGE_PRINCIPLE_DESCRIPTIONS = {
   new_generation:

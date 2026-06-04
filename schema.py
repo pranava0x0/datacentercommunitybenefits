@@ -189,11 +189,11 @@ PLEDGE_PRINCIPLES: tuple[str, ...] = (
     "grid_resilience",
 )
 PLEDGE_PRINCIPLE_LABELS: dict[str, str] = {
-    "new_generation": "New power supply",
-    "delivery_infra": "Grid upgrade costs",
-    "separate_rate": "Pay-whether-used",
-    "local_jobs": "Local jobs & workforce",
-    "grid_resilience": "Grid resilience",
+    "new_generation": "Building, bringing, or buying new power supply",
+    "delivery_infra": "Paying for new power delivery infrastructure upgrades",
+    "separate_rate": "Paying whether they use the power or not",
+    "local_jobs": "Investing in local job creation and workforce development",
+    "grid_resilience": "Contributing to electric and community resilience",
 }
 
 # Per-principle fulfillment status for a given site:
