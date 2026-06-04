@@ -1730,6 +1730,48 @@ main {
   color: var(--text);
 }
 
+.rp-principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.6rem 0 0;
+}
+
+.pp-chip {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.16rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+  cursor: default;
+  line-height: 1.5;
+}
+
+.pp-chip--met {
+  color: var(--ratepayer-affirmed);
+  background: var(--ratepayer-affirmed-soft);
+  border-color: color-mix(in srgb, var(--ratepayer-affirmed) 40%, transparent);
+}
+
+.pp-chip--partial {
+  color: var(--ratepayer-pledge_only);
+  background: var(--ratepayer-pledge_only-soft);
+  border-color: color-mix(in srgb, var(--ratepayer-pledge_only) 40%, transparent);
+}
+
+.pp-chip--not_met {
+  color: var(--ratepayer-contested);
+  background: var(--ratepayer-contested-soft);
+  border-color: color-mix(in srgb, var(--ratepayer-contested) 40%, transparent);
+}
+
+.pp-chip--unknown {
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
 .rp-evidence {
   margin: 0.7rem 0 0;
   padding: 0.55rem 0.85rem;

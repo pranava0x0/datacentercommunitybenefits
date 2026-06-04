@@ -556,7 +556,14 @@
         "status": "affirmed",
         "summary": "Google and DTE filed contracts with the Michigan Public Service Commission confirming Google finances all 2.7 GW of new power supply needed, ensuring no costs associated with the Van Buren Township campus shift to existing ratepayers.",
         "evidence_claim_id": "google-van-buren-mi-energy-pay-costs-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "met",
+          "local_jobs": "met",
+          "grid_resilience": "met"
+        }
       }
     },
     {
@@ -590,7 +597,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Microsoft's national pledge signature and its broader 'pay our way' commitment; the Cheyenne expansion details tax base, off-site infrastructure, and a no-abatements stance, but no Cheyenne-specific power-cost pledge was captured.",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -622,7 +636,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by OpenAI's Stargate Community pledge ('pay our own way on energy'); no Lordstown-specific utility agreement or named-executive commitment for this site has been published.",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -761,7 +782,14 @@
         "status": "affirmed",
         "summary": "Meta said it pays the full costs of the Tulsa data center's energy, water, and wastewater service so that consumers are not paying its costs.",
         "evidence_claim_id": "meta-tulsa-energy-pay-full-costs-2026",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "met",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -813,7 +841,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Google's national pledge signature; the LaGrange announcement focused on being a good neighbor and local investment, with no site-specific ratepayer commitment captured.",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -845,7 +880,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Google's national pledge signature; the Oklahoma announcement highlighted long-standing presence and innovation rather than a site-specific ratepayer commitment.",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -871,7 +913,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Microsoft's national 'pay our own way' commitment and Duke Energy's standard data center contract language; no Person County-specific ratepayer filing or named executive quote tied to this site has been captured.",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -922,7 +971,14 @@
         "status": "affirmed",
         "summary": "Amazon's April 2026 Mississippi-wide announcement covers the Clinton/Hinds County campus: Amazon pays 100% of all new energy infrastructure costs under its Entergy Mississippi agreement, with no costs passed through to existing ratepayers.",
         "evidence_claim_id": "amazon-clinton-ms-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1210,7 +1266,14 @@
         "status": "affirmed",
         "summary": "Google committed to paying 100% of the cost of power for the Michigan City site and any infrastructure needs driven by its operations.",
         "evidence_claim_id": "google-michigan-city-engagement-2026",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "unknown"
+        }
       }
     },
     {
@@ -1235,7 +1298,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Google's national pledge signature; Lima commitments cover roads, water infrastructure, and school funding rather than a site-specific power-cost / ratepayer pledge.",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1260,7 +1330,14 @@
         "status": "affirmed",
         "summary": "Google Area Operations Manager Timothy Chadwick stated publicly at a May 2026 community information fair that Google will pay 100% of its electricity costs and all AEP infrastructure for the Scioto County campus.",
         "evidence_claim_id": "google-franklin-furnace-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "unknown"
+        }
       }
     },
     {
@@ -1284,7 +1361,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Google's national pledge signature; Linn County terms center on community betterment payments rather than a site-specific ratepayer commitment.",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1336,7 +1420,14 @@
         "status": "affirmed",
         "summary": "Meta's own newsroom and the City of Lebanon both confirmed Meta pays the full costs for energy at the Lebanon campus, with Boone REMC and Wabash Valley Power Alliance covering service at no added cost to existing customers.",
         "evidence_claim_id": "meta-lebanon-energy-pay-full-costs-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "met",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1387,7 +1478,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Virginia's SCC-approved GS-5 rate class requires Dominion Energy data center customers to cover their own grid upgrade costs; no Project Peanut-specific Google commitment letter or site-level filing has been published.",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "met",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1411,7 +1509,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Google's national pledge signature; the Putnam County announcement is early-stage (land purchase) with no site-specific ratepayer commitment captured yet.",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1500,7 +1605,14 @@
         "status": "affirmed",
         "summary": "Amazon and SWEPCO President Brett Mattison jointly confirmed at the February 2026 announcement that Amazon pays 100% of all project-specific infrastructure costs, with zero pass-through to residential or business customers.",
         "evidence_claim_id": "amazon-caddo-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1525,7 +1637,14 @@
         "status": "affirmed",
         "summary": "Part of the same joint Caddo/Bossier announcement: Amazon and SWEPCO confirmed Amazon pays 100% of all new energy infrastructure costs for both Louisiana campuses, with no costs passed through to residential or business customers.",
         "evidence_claim_id": "amazon-bossier-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1550,7 +1669,14 @@
         "status": "affirmed",
         "summary": "Amazon's April 2026 Mississippi announcement explicitly states it pays 100% of all grid infrastructure and upgrade costs for its Mississippi campuses, including Warren County/Vicksburg, under its Entergy Mississippi agreement.",
         "evidence_claim_id": "amazon-vicksburg-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1594,7 +1720,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by xAI's national pledge signature; the Southaven permitting announcements emphasized speed, capacity, and jobs, with no site-specific ratepayer commitment captured.",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1760,7 +1893,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Entergy Arkansas VP Ventrell Thompson told the Little Rock City Board that Google is required to pay its full infrastructure costs; however, as of June 2026 no final rate agreement for the Port of Little Rock site has been signed or published.",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1785,7 +1925,14 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Oregon's POWER Act (HB 3546, 2025) statutorily requires new large energy users to pay 100% of distribution infrastructure costs; Amazon's 1,300-acre Morrow County site is pre-development with no site-specific commitment yet filed.",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "met",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1858,7 +2005,14 @@
         "status": "affirmed",
         "summary": "Google's New Florence announcement states the company pays for 100% of the power it uses and covers infrastructure costs its operations drive — a site-specific echo of the pledge.",
         "evidence_claim_id": "google-new-florence-infrastructure-pay-100pct-2026",
-        "assessed_at": "2026-05-31"
+        "assessed_at": "2026-05-31",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -1929,7 +2083,14 @@
         "status": "affirmed",
         "summary": "Amazon's April 2026 Mississippi announcement explicitly covers all new campuses including Ridgeland/Madison County: pays 100% of grid infrastructure costs via its Entergy Mississippi agreement.",
         "evidence_claim_id": "amazon-ridgeland-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "met",
+          "delivery_infra": "met",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
       }
     },
     {
@@ -2072,7 +2233,53 @@
       "ratepayer": {
         "status": "pledge_only",
         "summary": "Covered by Microsoft's national pledge signature; the May 2026 La Porte expansion approval focused on annexation and zoning with no site-specific ratepayer commitment captured for this campus.",
-        "assessed_at": "2026-06-01"
+        "assessed_at": "2026-06-01",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
+      }
+    },
+    {
+      "id": "openai-saline-mi",
+      "company_slug": "openai",
+      "name": "Stargate Michigan",
+      "city": "Saline Township",
+      "state": "MI",
+      "country": "US",
+      "lat": 42.162,
+      "lon": -83.789,
+      "status": "construction",
+      "announced_year": 2026,
+      "claimed_investment_usd": 16000000000,
+      "claimed_jobs": 2500,
+      "notes": "250-acre Stargate campus in Washtenaw County. Three 550,000-sq-ft buildings powered by DTE Energy at 1,400 MW. Site selected by Related Digital / OpenAI in October 2025; formal Stargate groundbreaking June 1, 2026. Project includes a $10 million investment in the Saline Recreation Center.",
+      "source_url": "https://openai.com/index/stargate-michigan-data-center/",
+      "source_title": "OpenAI — Stargate Michigan",
+      "captured_at": "2026-06-04",
+      "project_page_url": "https://openai.com/index/stargate-michigan-data-center/",
+      "acreage": 250,
+      "power_mw": 1400,
+      "gpu_count": null,
+      "offtaker": "OpenAI",
+      "at_a_glance": {
+        "jobs": "2,500+ union construction / 450+ permanent",
+        "energy": "1,400 MW DTE-served; company pays its own way"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by OpenAI's Stargate 'pay our own way on electricity' commitment and the national pledge signature; no site-specific rate contract filed with Michigan regulators has been captured for the Saline Township campus.",
+        "assessed_at": "2026-06-04",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "unknown",
+          "local_jobs": "met",
+          "grid_resilience": "partial"
+        }
       }
     }
   ]

@@ -171,6 +171,39 @@ RATEPAYER_LABELS: dict[str, str] = {
     "contested": "Contested",
 }
 
+# The five commitments listed verbatim in the White House Ratepayer Protection
+# Pledge proclamation. Used as sub-keys in Ratepayer.principles so curators
+# can record how each individual site addresses each specific commitment.
+#
+# Key vocabulary (frozen for v1):
+#   new_generation  — "Building, bringing, or buying new power supply"
+#   delivery_infra  — "Paying for new power delivery infrastructure upgrades"
+#   separate_rate   — "Paying whether they use the power or not" (separate rate structures)
+#   local_jobs      — "Investing in local job creation and workforce development"
+#   grid_resilience — "Contributing to electric and community resilience"
+PLEDGE_PRINCIPLES: tuple[str, ...] = (
+    "new_generation",
+    "delivery_infra",
+    "separate_rate",
+    "local_jobs",
+    "grid_resilience",
+)
+PLEDGE_PRINCIPLE_LABELS: dict[str, str] = {
+    "new_generation": "New power supply",
+    "delivery_infra": "Grid upgrade costs",
+    "separate_rate": "Pay-whether-used",
+    "local_jobs": "Local jobs & workforce",
+    "grid_resilience": "Grid resilience",
+}
+
+# Per-principle fulfillment status for a given site:
+#   met       — first-party statement or regulatory filing confirms compliance
+#   partial   — covered by national pledge signature only (no site-specific evidence)
+#   not_met   — credible independent evidence of non-compliance
+#   unknown   — insufficient information captured
+PLEDGE_PRINCIPLE_STATUSES: tuple[str, ...] = ("met", "partial", "not_met", "unknown")
+PledgePrincipleStatus = Literal["met", "partial", "not_met", "unknown"]
+
 
 # ---------------------------------------------------------------------------
 # Core record types
@@ -293,6 +326,35 @@ class Ratepayer(_StrictBase):
         ),
     )
     assessed_at: Date
+    principles: Optional[dict[str, str]] = Field(
+        default=None,
+        description=(
+            "Optional per-principle fulfillment map keyed on PLEDGE_PRINCIPLES slugs "
+            "(new_generation, delivery_infra, separate_rate, local_jobs, grid_resilience). "
+            "Values are PledgePrincipleStatus strings: met / partial / not_met / unknown. "
+            "Absent key = same as 'unknown'. Absent field = principles not yet assessed. "
+            "For pledge_only sites: 'partial' is the honest default (covered by national "
+            "pledge but no site-specific evidence). For affirmed sites: key commitments "
+            "addressed in the evidence_claim should be 'met'."
+        ),
+    )
+
+    @field_validator("principles", check_fields=False)
+    @classmethod
+    def _principles_keys_valid(cls, v: Optional[dict]) -> Optional[dict]:
+        if v is None:
+            return v
+        unknown_keys = set(v.keys()) - set(PLEDGE_PRINCIPLES)
+        if unknown_keys:
+            raise ValueError(
+                f"principles keys must be in PLEDGE_PRINCIPLES; unknown: {sorted(unknown_keys)}"
+            )
+        unknown_vals = {val for val in v.values() if val not in PLEDGE_PRINCIPLE_STATUSES}
+        if unknown_vals:
+            raise ValueError(
+                f"principles values must be in PLEDGE_PRINCIPLE_STATUSES; unknown: {sorted(unknown_vals)}"
+            )
+        return v
 
 
 class Claim(_StrictBase):
@@ -527,6 +589,9 @@ __all__ = [
     "RATEPAYER_PLEDGE_URL",
     "RATEPAYER_STATUSES",
     "RATEPAYER_LABELS",
+    "PLEDGE_PRINCIPLES",
+    "PLEDGE_PRINCIPLE_LABELS",
+    "PLEDGE_PRINCIPLE_STATUSES",
     "Theme",
     "CompanySlug",
     "ProjectStatus",
@@ -534,6 +599,7 @@ __all__ = [
     "Constituency",
     "DeliveredStatus",
     "RatepayerStatus",
+    "PledgePrincipleStatus",
     "Company",
     "Metric",
     "Delivered",

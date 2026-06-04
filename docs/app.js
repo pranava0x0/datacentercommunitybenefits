@@ -111,6 +111,42 @@ const RATEPAYER_DESCRIPTIONS = {
   contested:
     "A credible third party documents this site shifting costs to ratepayers despite the pledge.",
 };
+
+// v1.XX: Per-pledge-principle fulfillment breakdown. Must mirror
+// schema.PLEDGE_PRINCIPLES / PLEDGE_PRINCIPLE_STATUSES.
+const PLEDGE_PRINCIPLES = [
+  "new_generation",
+  "delivery_infra",
+  "separate_rate",
+  "local_jobs",
+  "grid_resilience",
+];
+const PLEDGE_PRINCIPLE_LABELS = {
+  new_generation: "New power supply",
+  delivery_infra: "Grid upgrade costs",
+  separate_rate: "Pay-whether-used",
+  local_jobs: "Local jobs & workforce",
+  grid_resilience: "Grid resilience",
+};
+const PLEDGE_PRINCIPLE_DESCRIPTIONS = {
+  new_generation:
+    "Building, bringing, or buying new generation — paying the full cost of new power needed.",
+  delivery_infra:
+    "Paying for all transmission and distribution infrastructure upgrades.",
+  separate_rate:
+    "Negotiating separate rate structures and paying those rates, used or not.",
+  local_jobs:
+    "Hiring locally and building skills-development programs in the community.",
+  grid_resilience:
+    "Coordinating with grid operators; making backup power available during scarcity.",
+};
+const PLEDGE_PRINCIPLE_STATUSES = ["met", "partial", "not_met", "unknown"];
+const PLEDGE_PRINCIPLE_STATUS_LABELS = {
+  met: "Met",
+  partial: "Partial / Pledge only",
+  not_met: "Not met",
+  unknown: "Not assessed",
+};
 // The seven White House pledge signatories (2026-03-04). Mirrors the
 // ratepayer_pledge_signatory=true rows in companies.json; used only as a
 // fallback ordering hint — the live truth is read from the company records.
@@ -1699,6 +1735,20 @@ function renderRatepayerCard(p) {
   const loc = `${escapeHtml(p.city)}, ${escapeHtml(p.state)}`;
   const statusLabel = RATEPAYER_LABELS[rp.status] || rp.status;
 
+  // Per-principle chips — only rendered when principles data is present.
+  let principlesHtml = "";
+  if (rp.principles && Object.keys(rp.principles).length > 0) {
+    const chips = PLEDGE_PRINCIPLES.map((key) => {
+      const status = rp.principles[key] || "unknown";
+      const label = PLEDGE_PRINCIPLE_LABELS[key];
+      const statusLabel = PLEDGE_PRINCIPLE_STATUS_LABELS[status] || status;
+      const principleDesc = PLEDGE_PRINCIPLE_DESCRIPTIONS[key] || "";
+      const tooltip = `${label}: ${statusLabel} — ${principleDesc}`;
+      return `<span class="pp-chip pp-chip--${escapeAttr(status)}" title="${escapeAttr(tooltip)}">${escapeHtml(label)}</span>`;
+    }).join("");
+    principlesHtml = `<div class="rp-principles" aria-label="Pledge principles fulfillment">${chips}</div>`;
+  }
+
   li.innerHTML = `
     <div class="rp-card-head">
       <div class="rp-card-title">
@@ -1711,6 +1761,7 @@ function renderRatepayerCard(p) {
       </span>
     </div>
     <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
+    ${principlesHtml}
     ${evidenceHtml}
   `;
   return li;
