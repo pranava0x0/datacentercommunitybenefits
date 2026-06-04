@@ -171,6 +171,39 @@ RATEPAYER_LABELS: dict[str, str] = {
     "contested": "Contested",
 }
 
+# The five commitments listed verbatim in the White House Ratepayer Protection
+# Pledge proclamation. Used as sub-keys in Ratepayer.principles so curators
+# can record how each individual site addresses each specific commitment.
+#
+# Key vocabulary (frozen for v1):
+#   new_generation  — "Building, bringing, or buying new power supply"
+#   delivery_infra  — "Paying for new power delivery infrastructure upgrades"
+#   separate_rate   — "Paying whether they use the power or not" (separate rate structures)
+#   local_jobs      — "Investing in local job creation and workforce development"
+#   grid_resilience — "Contributing to electric and community resilience"
+PLEDGE_PRINCIPLES: tuple[str, ...] = (
+    "new_generation",
+    "delivery_infra",
+    "separate_rate",
+    "local_jobs",
+    "grid_resilience",
+)
+PLEDGE_PRINCIPLE_LABELS: dict[str, str] = {
+    "new_generation": "Building, bringing, or buying new power supply",
+    "delivery_infra": "Paying for new power delivery infrastructure upgrades",
+    "separate_rate": "Paying whether they use the power or not",
+    "local_jobs": "Investing in local job creation and workforce development",
+    "grid_resilience": "Contributing to electric and community resilience",
+}
+
+# Per-principle fulfillment status for a given site:
+#   met       — first-party statement or regulatory filing confirms compliance
+#   partial   — covered by national pledge signature only (no site-specific evidence)
+#   not_met   — credible independent evidence of non-compliance
+#   unknown   — insufficient information captured
+PLEDGE_PRINCIPLE_STATUSES: tuple[str, ...] = ("met", "partial", "not_met", "unknown")
+PledgePrincipleStatus = Literal["met", "partial", "not_met", "unknown"]
+
 
 # ---------------------------------------------------------------------------
 # Core record types
@@ -179,6 +212,25 @@ RATEPAYER_LABELS: dict[str, str] = {
 
 class _StrictBase(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+
+class PledgePrincipleAssessment(_StrictBase):
+    """Per-principle fulfillment assessment for a single pledge commitment at a single site.
+
+    `status` is the editorial judgment; `note` is a 1-sentence plain-English
+    explanation of WHY that status applies to THIS site specifically — the
+    site-specific evidence or honest acknowledgement of a gap.
+    """
+
+    status: PledgePrincipleStatus
+    note: str = Field(
+        min_length=1,
+        description=(
+            "1-sentence site-specific explanation: what evidence backs 'met', "
+            "what the gap is for 'partial'/'unknown', what the evidence is for "
+            "'not_met'. NOT generic — every note must be specific to this site."
+        ),
+    )
 
 
 class Company(_StrictBase):
@@ -293,6 +345,31 @@ class Ratepayer(_StrictBase):
         ),
     )
     assessed_at: Date
+    principles: Optional[dict[str, PledgePrincipleAssessment]] = Field(
+        default=None,
+        description=(
+            "Optional per-principle assessment keyed on PLEDGE_PRINCIPLES slugs "
+            "(new_generation, delivery_infra, separate_rate, local_jobs, grid_resilience). "
+            "Each value is a PledgePrincipleAssessment with a status + site-specific note. "
+            "Absent field = principles not yet assessed. "
+            "For pledge_only sites: status='partial', note explains the gap. "
+            "For affirmed sites: status='met' for principles backed by the evidence_claim."
+        ),
+    )
+
+    @field_validator("principles", check_fields=False)
+    @classmethod
+    def _principles_keys_valid(
+        cls, v: Optional[dict]
+    ) -> Optional[dict]:
+        if v is None:
+            return v
+        unknown_keys = set(v.keys()) - set(PLEDGE_PRINCIPLES)
+        if unknown_keys:
+            raise ValueError(
+                f"principles keys must be in PLEDGE_PRINCIPLES; unknown: {sorted(unknown_keys)}"
+            )
+        return v
 
 
 class Claim(_StrictBase):
@@ -367,6 +444,13 @@ class Project(_StrictBase):
     lon: float = Field(ge=-180, le=180)
     status: ProjectStatus
     announced_year: int = Field(ge=2000, le=2100)
+    announced_date: Optional[Date] = Field(
+        default=None,
+        description=(
+            "Exact announcement date when known. More precise than announced_year; "
+            "used in the CSV export. Leave null when only the year is confirmed."
+        ),
+    )
     claimed_investment_usd: Optional[int] = Field(
         default=None, ge=0, description="Total announced capex, USD. Null if undisclosed."
     )
@@ -527,6 +611,9 @@ __all__ = [
     "RATEPAYER_PLEDGE_URL",
     "RATEPAYER_STATUSES",
     "RATEPAYER_LABELS",
+    "PLEDGE_PRINCIPLES",
+    "PLEDGE_PRINCIPLE_LABELS",
+    "PLEDGE_PRINCIPLE_STATUSES",
     "Theme",
     "CompanySlug",
     "ProjectStatus",
@@ -534,6 +621,8 @@ __all__ = [
     "Constituency",
     "DeliveredStatus",
     "RatepayerStatus",
+    "PledgePrincipleStatus",
+    "PledgePrincipleAssessment",
     "Company",
     "Metric",
     "Delivered",

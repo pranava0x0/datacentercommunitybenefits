@@ -3690,6 +3690,54 @@
       "source_title": "Data Center Dynamics — Google confirms 403-acre Hermantown, Minnesota campus",
       "captured_at": "2026-06-01",
       "project_id": "google-hermantown-mn"
+    },
+    {
+      "id": "openai-saline-mi-jobs-2500",
+      "company_slug": "openai",
+      "theme": "jobs",
+      "statement": "The Stargate Michigan data center will create more than 2,500 union construction jobs and 450 permanent on-site jobs, with an additional 1,500 jobs expected across Washtenaw County.",
+      "source_url": "https://openai.com/index/stargate-michigan-data-center/",
+      "source_title": "OpenAI — Stargate Michigan groundbreaking",
+      "captured_at": "2026-06-04",
+      "published_at": "2026-06-01",
+      "project_id": "openai-saline-mi",
+      "metric": {
+        "value": 450,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "openai-saline-mi-community-grant-10m",
+      "company_slug": "openai",
+      "theme": "community_grants",
+      "statement": "The Stargate Michigan project includes a $10 million investment in the Saline Recreation Center, a community benefit commitment made by all consortium partners at the June 2026 groundbreaking.",
+      "source_url": "https://openai.com/index/stargate-michigan-data-center/",
+      "source_title": "OpenAI — Stargate Michigan groundbreaking",
+      "captured_at": "2026-06-04",
+      "published_at": "2026-06-01",
+      "project_id": "openai-saline-mi",
+      "metric": {
+        "value": 10000000,
+        "unit": "usd",
+        "kind": "community_grant"
+      }
+    },
+    {
+      "id": "openai-saline-mi-energy-1400mw",
+      "company_slug": "openai",
+      "theme": "energy",
+      "statement": "The Stargate Michigan campus will operate at 1,400 megawatts of DTE Energy-served capacity, using 100% existing DTE resources supplemented with new battery storage to power the three-building data center campus.",
+      "source_url": "https://openai.com/index/stargate-michigan-data-center/",
+      "source_title": "OpenAI — Stargate Michigan groundbreaking",
+      "captured_at": "2026-06-04",
+      "published_at": "2026-06-01",
+      "project_id": "openai-saline-mi",
+      "metric": {
+        "value": 1400,
+        "unit": "mw",
+        "kind": "capacity"
+      }
     }
   ]
 }
