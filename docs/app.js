@@ -1652,10 +1652,14 @@ function renderRatepayerRoster() {
     li.className = `rp-roster-item${signed ? " signed" : " unsigned"}`;
     li.style.setProperty("--co-color", `var(--co-${co.slug})`);
 
+    const noteMap = {
+      qts: "Signed (DOE track)",
+      anthropic: "Own commitment",
+    };
     const note = signed
       ? "Signed the pledge"
-      : "Own commitment (not a signatory)";
-    const mark = signed ? "✓" : "○";
+      : (noteMap[co.slug] || "Own commitment");
+    const mark = "✓";
 
     li.innerHTML = `
       <span class="rp-roster-mark" aria-hidden="true">${mark}</span>
