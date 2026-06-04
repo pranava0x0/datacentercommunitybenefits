@@ -1538,7 +1538,6 @@ function renderRatepayerView() {
 
   renderRatepayerStats();
   renderRatepayerRoster();
-  renderRatepayerLegend();
   renderRatepayerScorecard();
 }
 
@@ -1655,7 +1654,7 @@ function renderRatepayerRoster() {
 
     const note = signed
       ? "Signed the pledge"
-      : "Own ratepayer commitment (not a pledge signatory)";
+      : "Own commitment (not a signatory)";
     const mark = signed ? "✓" : "○";
 
     li.innerHTML = `
