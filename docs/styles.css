@@ -1741,10 +1741,10 @@ main {
 
 .pp-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.28rem 0.6rem;
+  gap: 0.6rem;
+  padding: 0.35rem 0.6rem;
   border-left: 3px solid;
   cursor: default;
 }
@@ -1753,15 +1753,31 @@ main {
   border-top: 1px solid var(--border);
 }
 
+.pp-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
 .pp-row-label {
   font-size: 0.78rem;
+  font-weight: 600;
   color: var(--text);
 }
 
-.pp-row-status {
+.pp-row-note {
   font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.pp-row-status {
+  font-size: 0.7rem;
   font-weight: 700;
   white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 0.05rem;
 }
 
 .pp-row--met {

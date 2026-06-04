@@ -1742,13 +1742,19 @@ function renderRatepayerCard(p) {
   let principlesHtml = "";
   if (rp.principles && Object.keys(rp.principles).length > 0) {
     const rows = PLEDGE_PRINCIPLES.map((key) => {
-      const status = rp.principles[key] || "unknown";
+      const assessment = rp.principles[key] || {};
+      const status = assessment.status || "unknown";
+      const note = assessment.note || "";
       const label = PLEDGE_PRINCIPLE_LABELS[key];
       const statusLabel = PLEDGE_PRINCIPLE_STATUS_LABELS[status] || status;
-      const principleDesc = PLEDGE_PRINCIPLE_DESCRIPTIONS[key] || "";
-      const tooltip = escapeAttr(`${principleDesc}`);
-      return `<li class="pp-row pp-row--${escapeAttr(status)}" title="${tooltip}">
-        <span class="pp-row-label">${escapeHtml(label)}</span>
+      const noteHtml = note
+        ? `<span class="pp-row-note">${escapeHtml(note)}</span>`
+        : "";
+      return `<li class="pp-row pp-row--${escapeAttr(status)}">
+        <div class="pp-row-body">
+          <span class="pp-row-label">${escapeHtml(label)}</span>
+          ${noteHtml}
+        </div>
         <span class="pp-row-status">${escapeHtml(statusLabel)}</span>
       </li>`;
     }).join("");

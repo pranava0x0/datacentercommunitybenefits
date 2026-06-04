@@ -214,6 +214,25 @@ class _StrictBase(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
 
+class PledgePrincipleAssessment(_StrictBase):
+    """Per-principle fulfillment assessment for a single pledge commitment at a single site.
+
+    `status` is the editorial judgment; `note` is a 1-sentence plain-English
+    explanation of WHY that status applies to THIS site specifically — the
+    site-specific evidence or honest acknowledgement of a gap.
+    """
+
+    status: PledgePrincipleStatus
+    note: str = Field(
+        min_length=1,
+        description=(
+            "1-sentence site-specific explanation: what evidence backs 'met', "
+            "what the gap is for 'partial'/'unknown', what the evidence is for "
+            "'not_met'. NOT generic — every note must be specific to this site."
+        ),
+    )
+
+
 class Company(_StrictBase):
     """A hyperscaler operating data centers."""
 
@@ -326,33 +345,29 @@ class Ratepayer(_StrictBase):
         ),
     )
     assessed_at: Date
-    principles: Optional[dict[str, str]] = Field(
+    principles: Optional[dict[str, PledgePrincipleAssessment]] = Field(
         default=None,
         description=(
-            "Optional per-principle fulfillment map keyed on PLEDGE_PRINCIPLES slugs "
+            "Optional per-principle assessment keyed on PLEDGE_PRINCIPLES slugs "
             "(new_generation, delivery_infra, separate_rate, local_jobs, grid_resilience). "
-            "Values are PledgePrincipleStatus strings: met / partial / not_met / unknown. "
-            "Absent key = same as 'unknown'. Absent field = principles not yet assessed. "
-            "For pledge_only sites: 'partial' is the honest default (covered by national "
-            "pledge but no site-specific evidence). For affirmed sites: key commitments "
-            "addressed in the evidence_claim should be 'met'."
+            "Each value is a PledgePrincipleAssessment with a status + site-specific note. "
+            "Absent field = principles not yet assessed. "
+            "For pledge_only sites: status='partial', note explains the gap. "
+            "For affirmed sites: status='met' for principles backed by the evidence_claim."
         ),
     )
 
     @field_validator("principles", check_fields=False)
     @classmethod
-    def _principles_keys_valid(cls, v: Optional[dict]) -> Optional[dict]:
+    def _principles_keys_valid(
+        cls, v: Optional[dict]
+    ) -> Optional[dict]:
         if v is None:
             return v
         unknown_keys = set(v.keys()) - set(PLEDGE_PRINCIPLES)
         if unknown_keys:
             raise ValueError(
                 f"principles keys must be in PLEDGE_PRINCIPLES; unknown: {sorted(unknown_keys)}"
-            )
-        unknown_vals = {val for val in v.values() if val not in PLEDGE_PRINCIPLE_STATUSES}
-        if unknown_vals:
-            raise ValueError(
-                f"principles values must be in PLEDGE_PRINCIPLE_STATUSES; unknown: {sorted(unknown_vals)}"
             )
         return v
 
@@ -600,6 +615,7 @@ __all__ = [
     "DeliveredStatus",
     "RatepayerStatus",
     "PledgePrincipleStatus",
+    "PledgePrincipleAssessment",
     "Company",
     "Metric",
     "Delivered",
