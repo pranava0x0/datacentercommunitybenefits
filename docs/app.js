@@ -1716,18 +1716,21 @@ function renderRatepayerCard(p) {
   li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
   li.style.setProperty("--rp-color", `var(--ratepayer-${rp.status})`);
 
-  // Evidence quote (for `affirmed`): pull the cited claim's verbatim statement.
+  // Evidence quote (for `affirmed`): collapsed into a <details> so cards stay
+  // compact. The summary line shows the source title as the disclosure label.
   let evidenceHtml = "";
   if (rp.evidence_claim_id) {
     const claim = state.claims.find((c) => c.id === rp.evidence_claim_id);
     if (claim) {
       evidenceHtml = `
-        <blockquote class="rp-evidence">${escapeHtml(claim.statement)}</blockquote>
-        <p class="rp-evidence-src">
-          <a href="${escapeAttr(String(claim.source_url))}" target="_blank" rel="noopener noreferrer">
-            ${escapeHtml(claim.source_title)} →
-          </a>
-        </p>
+        <details class="rp-evidence-details">
+          <summary class="rp-evidence-summary">
+            <a href="${escapeAttr(String(claim.source_url))}" target="_blank" rel="noopener noreferrer" class="rp-evidence-src-link">
+              ${escapeHtml(claim.source_title)} →
+            </a>
+          </summary>
+          <blockquote class="rp-evidence">${escapeHtml(claim.statement)}</blockquote>
+        </details>
       `;
     }
   }

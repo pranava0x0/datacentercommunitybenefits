@@ -1788,8 +1788,46 @@ main {
 }
 .pp-row--unknown .pp-row-status { color: var(--text-muted); }
 
+.rp-evidence-details {
+  margin: 0.65rem 0 0;
+}
+
+.rp-evidence-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.rp-evidence-summary::-webkit-details-marker { display: none; }
+
+.rp-evidence-summary::before {
+  content: "▶";
+  font-size: 0.6rem;
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.rp-evidence-details[open] .rp-evidence-summary::before {
+  transform: rotate(90deg);
+}
+
+.rp-evidence-src-link {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.rp-evidence-src-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .rp-evidence {
-  margin: 0.7rem 0 0;
+  margin: 0.5rem 0 0;
   padding: 0.55rem 0.85rem;
   border-left: 3px solid var(--rp-color);
   background: var(--surface-2);
@@ -1806,11 +1844,6 @@ main {
 
 .rp-evidence::after {
   content: "\201D";
-}
-
-.rp-evidence-src {
-  margin: 0.4rem 0 0;
-  font-size: 0.8rem;
 }
 
 .rp-footnote {

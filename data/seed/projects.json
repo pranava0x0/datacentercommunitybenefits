@@ -2281,6 +2281,40 @@
           "grid_resilience": "partial"
         }
       }
+    },
+    {
+      "id": "amazon-wheatfield-in",
+      "company_slug": "amazon",
+      "name": "AWS Wheatfield Data Center Campus",
+      "city": "Wheatfield",
+      "state": "IN",
+      "country": "US",
+      "lat": 41.194,
+      "lon": -87.062,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Nine-building data center campus in Jasper County, Indiana. Reported by Data Center Dynamics June 3, 2026. No investment, MW, or jobs figures disclosed at announcement.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/amazon-plans-nine-building-data-center-campus-in-wheatfield-indiana/",
+      "source_title": "Data Center Dynamics — Amazon plans nine-building data center campus in Wheatfield, Indiana",
+      "captured_at": "2026-06-04",
+      "acreage": null,
+      "power_mw": null,
+      "gpu_count": null,
+      "offtaker": "AWS",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Covered by Amazon's national Ratepayer Protection Pledge signature; no site-specific commitment or utility agreement has been filed for the Wheatfield campus.",
+        "assessed_at": "2026-06-04",
+        "principles": {
+          "new_generation": "partial",
+          "delivery_infra": "partial",
+          "separate_rate": "partial",
+          "local_jobs": "partial",
+          "grid_resilience": "partial"
+        }
+      }
     }
   ]
 }

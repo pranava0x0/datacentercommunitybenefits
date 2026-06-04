@@ -966,7 +966,8 @@ class TestRatepayerView:
         affirmed = page.locator("#rp-scorecard .rp-card[data-status='affirmed']").first
         # Affirmed cards must surface a verbatim evidence quote + source link.
         expect(affirmed.locator(".rp-evidence")).to_have_count(1)
-        link = affirmed.locator(".rp-evidence-src a")
+        # Source link is now inside the collapsed <details> summary.
+        link = affirmed.locator(".rp-evidence-src-link")
         assert link.count() == 1
         href = link.get_attribute("href")
         assert href and href.startswith("http"), f"bad evidence href: {href!r}"
