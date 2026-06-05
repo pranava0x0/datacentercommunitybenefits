@@ -71,6 +71,30 @@ residents → CNN; -openai-abilene-positive → Spectrum News.
 **Regression test:** none yet — future test `test_response_urls_deep_link`
 should flag root-level publication URLs (path == "/" after the host).
 
+### [2026-06-05] data — Three `dedicated_page_url` values return 404 (URLs have moved)
+**Status:** Open
+**Root cause:** data
+**Description:** Jun 5 2026 research pass confirmed three company `dedicated_page_url` entries in `data/seed/companies.json` now return HTTP 404:
+- Meta: `https://datacenters.atmeta.com/community/` → 404. Accessible via `https://datacenters.atmeta.com/` (homepage) which still works.
+- Google: `https://datacenters.google/community/` → 404. Try `https://datacenters.google/` (homepage).
+- Amazon: `https://aws.amazon.com/about-aws/global-infrastructure/economic-impact/` → 404. Current Amazon community URL unknown — needs manual check.
+**Fix:** Update three `dedicated_page_url` fields in companies.json to working alternatives and re-run refresh.py.
+**Regression test:** Add to existing `--check-links` backlog item — HEAD each `dedicated_page_url` and fail if non-200.
+
+### [2026-06-05] data — Oracle and xAI community announcement pages return 403 to scrapers
+**Status:** Open
+**Root cause:** data
+**Description:** `https://www.oracle.com/news/announcement/oracle-ai-infrastructure-local-communities-2026-01-26/` returns HTTP 403 to WebFetch. Combined with the existing entries for OpenAI (`openai.com/index/stargate-community/`) and xAI (`x.ai/blog/colossus`), we now have four high-value first-party pages that cannot be refreshed programmatically. Oracle's Jan 26 2026 community commitment blog is the primary source for several oracle-* claims; inability to re-verify poses a long-term data-integrity risk.
+**Fix:** Manual browser visit + verbatim re-capture for each. For Oracle specifically, try fetching the blog post via `blogs.oracle.com` as an alternative path.
+**Regression test:** none.
+
+### [2026-06-05] data — Meta homepage mentions Huntsville AL — not in project dataset
+**Status:** Open
+**Root cause:** data
+**Description:** `datacenters.atmeta.com/` (the working root URL) references Alabama/Huntsville as a current or upcoming location. No `meta-huntsville-al` (or similar) project record exists in `data/seed/projects.json`. May be an announced site that wasn't captured during v1 seeding.
+**Fix:** Curator should verify via `https://datacenters.atmeta.com/location/huntsville/` (or equivalent) and add a project record if the site is confirmed.
+**Regression test:** none.
+
 ### [2026-05-14] data — Some company `dedicated_page_url` values may have shifted
 **Status:** Open
 **Root cause:** data
