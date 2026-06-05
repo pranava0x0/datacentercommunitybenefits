@@ -416,6 +416,7 @@ async function loadComparisonData() {
   state.companies = companies.companies;
   state.claims = claims.claims;
   state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
+  updateDraftBanner(companies.generated_at);
   renderComparisonView();
   renderSummaryStats();
 }
@@ -500,7 +501,12 @@ function renderComparisonView() {
 function renderMeta() {
   const c = state.claims.length;
   const co = state.companies.length;
-  document.getElementById("meta").textContent = `${c} claims across ${co} companies · v0 curated`;
+  document.getElementById("meta").textContent = `${c} claims across ${co} companies · curated`;
+}
+
+function updateDraftBanner(generatedAt) {
+  const el = document.getElementById("draft-date");
+  if (el && generatedAt) el.textContent = generatedAt;
 }
 
 // Aggregate dataset stats shown in the topbar strip. Progressively enhances:
