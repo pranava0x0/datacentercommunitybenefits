@@ -449,15 +449,25 @@
         </div>
 
         <!-- Per-data-center scorecard -->
+        <!-- Assessed sites: announced on/after pledge date, or pre-pledge with post-pledge commitment -->
         <section class="rp-section" aria-labelledby="rp-scorecard-heading">
-          <h3 id="rp-scorecard-heading">Data centers announced since the pledge</h3>
+          <h3 id="rp-scorecard-heading">Assessed sites</h3>
           <p class="rp-section-sub">
-            Each signatory site announced on or after the pledge date. Expand a card to see per-principle breakdown.
+            Sites announced on or after the pledge date, or pre-pledge sites where post-pledge reporting confirms adherence. Each card shows the announcement date and first pledge reference. Expand to see per-principle breakdown.
           </p>
           <div class="rp-scorecard-toolbar">
             <button id="rp-export-csv" class="rp-export-btn" type="button">Export CSV</button>
           </div>
           <ul id="rp-scorecard" class="rp-scorecard"></ul>
+        </section>
+
+        <!-- Pre-pledge sites: signatory sites announced before the pledge with no post-pledge commitment captured -->
+        <section class="rp-section" aria-labelledby="rp-pre-pledge-heading">
+          <h3 id="rp-pre-pledge-heading">Sites announced before the pledge</h3>
+          <p class="rp-section-sub">
+            Signatory sites announced before March 4, 2026 with no post-pledge site-specific commitment captured. Covered by the national pledge but not yet assessed per-site.
+          </p>
+          <ul id="rp-pre-pledge" class="rp-pre-pledge-list"></ul>
         </section>
 
         <p class="rp-footnote">
