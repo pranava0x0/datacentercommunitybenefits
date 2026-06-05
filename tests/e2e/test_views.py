@@ -930,7 +930,7 @@ class TestRatepayerView:
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         first = page.locator("#rp-stats .rp-stat").first
         expect(first).to_contain_text("7")
-        expect(first).to_contain_text("companies signed the pledge")
+        expect(first).to_contain_text("signatories")
         # The "of 13" framing was removed — assert it's gone.
         expect(first).not_to_contain_text("of 13")
 
@@ -1008,7 +1008,8 @@ class TestRatepayerView:
         # scorecard stays near the top.
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
-        details = page.locator(".rp-commitments")
+        # The pledge-elements box is the first .rp-commitments and starts closed.
+        details = page.locator(".rp-commitments").first
         assert details.evaluate("el => el.tagName.toLowerCase()") == "details"
         assert details.evaluate("el => el.open") is False
         # The five commitment items still exist in the DOM (just hidden).

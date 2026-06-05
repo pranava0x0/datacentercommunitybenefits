@@ -80,7 +80,7 @@ class TestSeedCoverage:
 
     # Non-hyperscaler entities tracked from v1.1 onward when they announce
     # at hyperscaler scale + publish their own community-impact framing.
-    OPTIONAL_ENTITIES = {"wonder-valley", "qts", "nebius", "crusoe", "coreweave", "prologis"}
+    OPTIONAL_ENTITIES = {"wonder-valley", "qts", "crusoe", "coreweave", "prologis"}
 
     def test_all_required_hyperscalers_present(self, companies):
         slugs = {c.slug for c in companies.companies}

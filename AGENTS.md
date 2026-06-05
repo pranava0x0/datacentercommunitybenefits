@@ -100,13 +100,53 @@ This project is curated (small dataset, no auto-scrapers) so most tasks are
 achieved with direct file reads and targeted searches, not large-scale agent
 dispatch.
 
-**Do directly (no sub-agent, no WebFetch loop):**
+### The escalation ladder — always start at step 1
+
+Before spawning any sub-agent or starting a WebFetch loop, ask: "Can I
+answer this with a one-liner?" Escalate only when the step above genuinely
+can't answer the question.
+
+1. **Python one-liner or grep on local seed files** — free, instant.
+   Check what's already in the seed *before* going to the web.
+   ```bash
+   python3 -c "import json; d=json.load(open('data/seed/projects.json'))['projects']; [print(p['id']) for p in d if p['company_slug']=='google']"
+   ```
+2. **`Read` on a known file path** — free, no network.
+3. **A single targeted WebFetch** on a specific URL you already know.
+4. **A sub-agent for multi-step research** — only when steps 1–3 can't do
+   it: many URLs to fetch in parallel, cross-repo synthesis, or the
+   question genuinely requires crawling unknown pages.
+
+**The failure pattern to avoid:** a "find new sites to add" task that
+immediately spawns a general-purpose research agent without first checking
+what's already in the seed. That agent ran 59 tool calls and consumed ~92K
+tokens in seconds — most of it confirming absences that a python one-liner
+on the existing 83 projects would have surfaced instantly. When the work
+does require a sub-agent, hand it the already-known-IDs list so it doesn't
+re-confirm what's already there.
+
+### Token gate at 50K
+
+If mid-task the turn has consumed >50K tokens, or you estimate the
+remaining work will push past that, **stop and present options** before
+continuing:
+
+- **Option A:** proceed as planned (full depth)
+- **Option B:** scope down — do the highest-value subset now, log the rest
+  in BACKLOG.md
+- **Option C:** switch to a lighter approach
+
+Never silently burn a large token budget. The user deserves the choice.
+
+### Do directly (no sub-agent, no WebFetch loop)
+
 - Reading schema, seed files, app.js, styles.css — just use Read/grep.
 - Finding a project or claim by id — `python3 -c "import json; ..."`.
 - Adding or editing a single record — Edit the seed file directly.
 - Running tests — `pytest` in the shell.
 
-**Use WebFetch sparingly:**
+### Use WebFetch sparingly
+
 - Fetch a known URL for a specific verbatim quote you need as a claim.
 - Fetch a company newsroom to find the exact publication date of an
   announcement you already know happened.
@@ -116,10 +156,12 @@ dispatch.
   asks for research, aim for ≤6 page fetches total. Summarise what
   wasn't found honestly; don't burn tokens confirming absences.
 
-**Never spawn a deep-research agent for:**
+### Never spawn a deep-research agent for
+
 - Adding a single new project or claim (do it directly).
 - Checking if a project is already in the seed (run a python one-liner).
 - Fixing a CSS/JS bug (read the file, edit it).
+- Any task solvable with grep + Read + a short Bash command.
 
 **Prefer python one-liners over agents for data queries:**
 ```bash

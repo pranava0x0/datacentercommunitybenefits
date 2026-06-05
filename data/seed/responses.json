@@ -981,39 +981,6 @@
       "single_source": false
     },
     {
-      "id": "resp-nebius-vineland-rally",
-      "project_id": "nebius-vineland-nj",
-      "date": "2026-03-22",
-      "stance": "negative",
-      "constituency": "residents",
-      "summary": "About 100 residents rallied at a Vineland park to oppose the AI data center, citing air emissions and asthma concerns, construction noise, and risk to the Kirkwood-Cohansey aquifer in the Pinelands National Reserve; a local farmer publicly questioned whether he would need to drill a new or deeper well.",
-      "source_url": "https://whyy.org/articles/data-center-artificial-intelligence-vineland-new-jersey/",
-      "source_title": "WHYY — Vineland residents push back against AI data center",
-      "single_source": false
-    },
-    {
-      "id": "resp-nebius-vineland-loan-declined",
-      "project_id": "nebius-vineland-nj",
-      "date": "2025-12-01",
-      "stance": "mixed",
-      "constituency": "local_government",
-      "summary": "After resident backlash to a proposed $6.2M city loan to the developer, DataOne ultimately declined the loan; the controversy elevated public awareness and contributed to the project being scaled back from a proposed 2.4M sq ft footprint to under 718,000 sq ft.",
-      "source_url": "https://whyy.org/articles/data-center-artificial-intelligence-vineland-new-jersey/",
-      "source_title": "WHYY — Vineland residents push back against AI data center",
-      "single_source": true
-    },
-    {
-      "id": "resp-nebius-vineland-scaledown-coverage",
-      "project_id": "nebius-vineland-nj",
-      "date": "2026-04-15",
-      "stance": "mixed",
-      "constituency": "journalist",
-      "summary": "Regional reporting framed the scale-down from 2.4M to <718,000 sq ft as a partial response to community pressure while noting that construction is now active with November 2026 completion target — a notable contrast to nearby Williamstown and Logan Township proposals that were blocked outright.",
-      "source_url": "https://capemaycountyherald.com/article/large-data-center-nears-completion-in-vineland/",
-      "source_title": "Cape May County Herald — Large data center nears completion in Vineland",
-      "single_source": true
-    },
-    {
       "id": "resp-xai-memphis-naacp-suit-apr15",
       "project_id": "xai-memphis-tn",
       "date": "2026-04-15",
@@ -1297,50 +1264,6 @@
       "summary": "Northern Sentry reported on an R-WISH-funded housing build in Ellendale (20 homes + 38-unit apartment complex) as a public-private partnership between Applied Digital, Headwaters Development, and the Bank of North Dakota — the first project to use the state's Rural-Workforce Initiative to Support Housing program; cited by local officials as evidence the operator was investing in long-term community capacity.",
       "source_url": "https://northernsentry.com/2024/12/19/a-shot-in-the-arm-for-ellendale/",
       "source_title": "Northern Sentry — A shot in the arm for Ellendale (Applied Digital + R-WISH housing)",
-      "single_source": false
-    },
-    {
-      "id": "resp-nebius-independence-residents-protest-2026",
-      "project_id": "nebius-independence-mo",
-      "date": "2026-05-12",
-      "stance": "negative",
-      "constituency": "residents",
-      "summary": "At the May 12 groundbreaking, 'Stop the AI Data Center in Independence' organizer Rachel Gonzalez led a protest accusing the city of celebrating the project instead of listening to public concern; named residents Mary and Howard Hoff (Bly Road, two doors from the site) cited water, electricity rates, and wildlife impacts.",
-      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/nebius-breaks-ground-on-45-acre-ai-data-center-in-independence-amid-community-opposition",
-      "source_title": "KSHB — Nebius breaks ground on 45-acre Independence AI data center amid community opposition",
-      "single_source": false
-    },
-    {
-      "id": "resp-nebius-independence-council-5-2-2026",
-      "project_id": "nebius-independence-mo",
-      "date": "2026-03-02",
-      "stance": "mixed",
-      "constituency": "local_government",
-      "summary": "Independence City Council voted 5-2 to approve $150.6M in Chapter 100 industrial-development revenue bonds plus a 98% real-property / 90% personal-property tax abatement for 20 years, after a nearly four-hour public hearing with 60+ speakers; Mayor Rory Rowland and Councilmember Brice Stewart voted against.",
-      "source_url": "https://www.datacenterdynamics.com/en/news/150bn-in-industrial-development-revenue-bonds-tax-breaks-approved-for-800mw-nebius-data-center-in-missouri/",
-      "source_title": "Data Center Dynamics — Independence MO approves $150M IRBs / 20-yr tax abatement for Nebius",
-      "single_source": false
-    },
-    {
-      "id": "resp-nebius-independence-lawsuit-2026",
-      "project_id": "nebius-independence-mo",
-      "date": "2026-04-15",
-      "stance": "negative",
-      "constituency": "residents",
-      "summary": "Residents filed a lawsuit attempting to force a city-wide referendum on the Nebius approvals; a judge dismissed the petition, ruling in favor of the city, with organizers vowing to continue pressing for transparency and independent oversight of the gigawatt-scale build.",
-      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/court-rules-in-favor-of-independence-nebius-data-center-project-wont-go-to-vote",
-      "source_title": "KSHB — Court rules for Independence, Nebius project won't go to vote",
-      "single_source": true
-    },
-    {
-      "id": "resp-nebius-independence-governor-positive-2026",
-      "project_id": "nebius-independence-mo",
-      "date": "2026-05-12",
-      "stance": "positive",
-      "constituency": "local_government",
-      "summary": "At the May 12 groundbreaking, Missouri Governor Mike Kehoe publicly endorsed the project as evidence of statewide momentum in innovation, infrastructure, and investment; Nebius Board Chairman John Boynton emphasized long-term local commitment, citing the $650M projected 20-year tax-jurisdiction payments, school-meal-debt elimination donation, and the Metropolitan Community College AI-literacy partnership.",
-      "source_url": "https://nebius.com/newsroom/nebius-breaks-ground-on-gigawatt-scale-ai-factory-in-independence-missouri",
-      "source_title": "Nebius newsroom — Nebius breaks ground on gigawatt-scale AI factory in Independence MO",
       "single_source": false
     },
     {
