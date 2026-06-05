@@ -50,7 +50,6 @@ const COMPANY_SLUGS = [
   "oracle",
   "wonder-valley",
   "qts",
-  "nebius",
   "crusoe",
   "coreweave",
   "prologis",
