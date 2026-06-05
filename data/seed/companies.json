@@ -120,15 +120,6 @@
       "ratepayer_pledge_signatory": false
     },
     {
-      "slug": "nebius",
-      "name": "Nebius",
-      "hq": "Amsterdam, Netherlands",
-      "dedicated_page_url": "https://nebius.com/independencemo",
-      "summary": "Nebius is a Yandex N.V. spinoff building out AI cloud infrastructure in the US, headlined by an ~800 MW campus in Independence, Missouri ($6.6B announced, ceremonial groundbreaking May 12, 2026 amid active local opposition over the project's tax-break package). Nebius published a dedicated 'Nebius x Independence, Missouri' site-specific page making first-party commitments across five themes: ratepayer protection (Nebius pays full cost of power and infrastructure upgrades on the Independence Power and Light municipal utility), water (closed-loop cooling with annual use 'comparable to an average restaurant'), workforce (local building trades labor and apprenticeships), education (STEM/AI literacy K-12, Metropolitan Community College + Independence and Fort Osage school districts), and engagement (transparency, watershed monitoring, volunteer days). Framework is comparable in shape to QTS's site-specific commitment pages.",
-      "last_reviewed": "2026-05-15",
-      "ratepayer_pledge_signatory": false
-    },
-    {
       "slug": "prologis",
       "name": "Prologis",
       "hq": "San Francisco, CA",

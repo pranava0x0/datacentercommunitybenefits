@@ -60,7 +60,6 @@ COMPANY_SLUGS: tuple[str, ...] = (
     # AND publishes its own community-impact framing (the editorial gate).
     "wonder-valley",
     "qts",
-    "nebius",
     "crusoe",
     "coreweave",
     "prologis",
@@ -101,7 +100,6 @@ CompanySlug = Literal[
     "oracle",
     "wonder-valley",
     "qts",
-    "nebius",
     "crusoe",
     "coreweave",
     "prologis",
