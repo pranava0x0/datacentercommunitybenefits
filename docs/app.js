@@ -1566,6 +1566,26 @@ function ratepayerAssessedProjects() {
     });
 }
 
+// Signatory sites announced before the pledge with no post-pledge commitment
+// captured. Shown in a separate section beneath the assessed cohort.
+function ratepayerPrePledgeProjects() {
+  const signatorySlugs = new Set(ratepayerSignatories().map((c) => c.slug));
+  return state.projects
+    .filter((p) => signatorySlugs.has(p.company_slug) && !p.ratepayer)
+    .sort((a, b) => {
+      if (a.company_slug !== b.company_slug)
+        return a.company_slug.localeCompare(b.company_slug);
+      return a.name.localeCompare(b.name);
+    });
+}
+
+// Format an announced date for display. Uses announced_date (ISO) when
+// present, falling back to announced_year as a plain string.
+function formatAnnouncedDate(p) {
+  if (p.announced_date) return formatLongDate(p.announced_date);
+  return String(p.announced_year);
+}
+
 function renderRatepayerStats() {
   const ul = document.getElementById("rp-stats");
   if (!ul) return;
@@ -1725,6 +1745,7 @@ function buildRatepayerCSV() {
     "State",
     "Project Status",
     "Announced Date",
+    "First Pledge Reference",
     "Claimed Investment (USD)",
     "Claimed Power (MW)",
     "Acreage",
@@ -1744,6 +1765,7 @@ function buildRatepayerCSV() {
 
   const rows = [headers.map(escapeCSV).join(",")];
 
+  // Assessed projects (post-pledge or pre-pledge with confirmed adherence).
   for (const p of ratepayerAssessedProjects()) {
     const co = state.companiesBySlug.get(p.company_slug);
     const rp = p.ratepayer;
@@ -1779,6 +1801,7 @@ function buildRatepayerCSV() {
       p.state,
       p.status,
       announcedDate,
+      rp.assessed_at || "",
       p.claimed_investment_usd,
       p.power_mw,
       p.acreage,
@@ -1790,6 +1813,31 @@ function buildRatepayerCSV() {
       evidenceUrl,
       rp.assessed_at,
       ...principleVals,
+    ];
+    rows.push(row.map(escapeCSV).join(","));
+  }
+
+  // Pre-pledge signatory sites (no assessment captured).
+  for (const p of ratepayerPrePledgeProjects()) {
+    const co = state.companiesBySlug.get(p.company_slug);
+    const announcedDate = p.announced_date || String(p.announced_year);
+    const row = [
+      co ? co.name : p.company_slug,
+      p.name,
+      p.city,
+      p.state,
+      p.status,
+      announcedDate,
+      "", // First Pledge Reference — not captured
+      p.claimed_investment_usd,
+      p.power_mw,
+      p.acreage,
+      p.claimed_jobs,
+      p.at_a_glance?.water || "",
+      "pre-pledge", // Pledge Assessment
+      "Announced before the pledge; no site-specific commitment captured.",
+      "", "", "", // Evidence Title, URL, Assessment Date
+      ...PRINCIPLE_KEYS.map(() => "N/A"),
     ];
     rows.push(row.map(escapeCSV).join(","));
   }
@@ -1812,26 +1860,42 @@ function downloadRatepayerCSV() {
 
 function renderRatepayerScorecard() {
   const ul = document.getElementById("rp-scorecard");
-  if (!ul) return;
-  ul.innerHTML = "";
-
-  const projects = ratepayerAssessedProjects();
-  if (projects.length === 0) {
-    const li = document.createElement("li");
-    li.className = "muted";
-    li.textContent = "No assessed data centers yet.";
-    ul.appendChild(li);
-    return;
+  if (ul) {
+    ul.innerHTML = "";
+    const assessed = ratepayerAssessedProjects();
+    if (assessed.length === 0) {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = "No assessed data centers yet.";
+      ul.appendChild(li);
+    } else {
+      for (const p of assessed) {
+        ul.appendChild(renderRatepayerCard(p));
+      }
+    }
   }
 
-  // Wire export button
+  // Wire export button (includes both assessed + pre-pledge rows).
   const exportBtn = document.getElementById("rp-export-csv");
   if (exportBtn) {
     exportBtn.onclick = downloadRatepayerCSV;
   }
 
-  for (const p of projects) {
-    ul.appendChild(renderRatepayerCard(p));
+  // Pre-pledge section.
+  const prePledgeUl = document.getElementById("rp-pre-pledge");
+  if (prePledgeUl) {
+    prePledgeUl.innerHTML = "";
+    const prePledge = ratepayerPrePledgeProjects();
+    if (prePledge.length === 0) {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = "No pre-pledge sites found.";
+      prePledgeUl.appendChild(li);
+    } else {
+      for (const p of prePledge) {
+        prePledgeUl.appendChild(renderPrePledgeCard(p));
+      }
+    }
   }
 }
 
@@ -1895,6 +1959,11 @@ function renderRatepayerCard(p) {
     principlesHtml = `<ul class="rp-principles" aria-label="Pledge principles fulfillment">${rows}</ul>`;
   }
 
+  // Date metadata row: announced date + first pledge reference.
+  const announcedStr = formatAnnouncedDate(p);
+  const pledgeRefStr = rp.assessed_at ? formatLongDate(rp.assessed_at) : "";
+  const datesHtml = `<span class="rp-card-dates">Announced: ${escapeHtml(announcedStr)}${pledgeRefStr ? ` · First pledge ref: ${escapeHtml(pledgeRefStr)}` : ""}</span>`;
+
   // Collapsible card — header is always visible; body expands on click.
   li.innerHTML = `
     <details class="rp-card-details">
@@ -1903,6 +1972,7 @@ function renderRatepayerCard(p) {
           <span class="rp-card-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
           <span class="rp-card-name">${escapeHtml(p.name)}</span>
           <span class="rp-card-loc">${loc} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+          ${datesHtml}
         </div>
         <span class="rp-met-pill rp-met-pill--${escapeAttr(metClass)}">${metCount}/5 met</span>
       </summary>
@@ -1912,6 +1982,22 @@ function renderRatepayerCard(p) {
         ${evidenceHtml}
       </div>
     </details>
+  `;
+  return li;
+}
+
+// Compact card for pre-pledge signatory sites (no ratepayer assessment).
+function renderPrePledgeCard(p) {
+  const co = state.companiesBySlug.get(p.company_slug);
+  const li = document.createElement("li");
+  li.className = "rp-pre-card";
+  li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
+  const announcedStr = formatAnnouncedDate(p);
+  li.innerHTML = `
+    <span class="rp-pre-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
+    <span class="rp-pre-name">${escapeHtml(p.name)}</span>
+    <span class="rp-pre-loc">${escapeHtml(p.city)}, ${escapeHtml(p.state)} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+    <span class="rp-pre-dates">Announced: ${escapeHtml(announcedStr)} · National pledge — no site assessment</span>
   `;
   return li;
 }

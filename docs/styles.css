@@ -1752,6 +1752,80 @@ main {
   color: var(--text-muted);
 }
 
+.rp-card-dates {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+/* Pre-pledge section — compact one-line rows, not full scorecards */
+.rp-pre-pledge-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rp-pre-card {
+  --co-color: var(--accent);
+  display: grid;
+  grid-template-columns: 9rem 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.75rem;
+  align-items: baseline;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--co-color);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  opacity: 0.85;
+}
+
+.rp-pre-company {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--co-color);
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.rp-pre-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.rp-pre-loc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.rp-pre-dates {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+  grid-column: 2 / -1;
+  grid-row: 2;
+}
+
+@media (max-width: 640px) {
+  .rp-pre-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+  .rp-pre-company { grid-column: 1; grid-row: 1; }
+  .rp-pre-name    { grid-column: 1; grid-row: 2; }
+  .rp-pre-loc     { grid-column: 1; grid-row: 3; }
+  .rp-pre-dates   { grid-column: 1; grid-row: 4; }
+}
+
 /* Collapsible card */
 .rp-card-details {
   /* reset browser default triangle marker */
