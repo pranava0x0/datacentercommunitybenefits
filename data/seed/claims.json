@@ -2180,60 +2180,6 @@
       "published_at": "2025-12-31"
     },
     {
-      "id": "nebius-engagement-transparency-partner",
-      "company_slug": "nebius",
-      "theme": "engagement",
-      "statement": "Nebius is committed to transparency, listening to community needs, and serving as a long-term, trusted partner for the city.",
-      "source_url": "https://nebius.com/independencemo",
-      "source_title": "Nebius x Independence, Missouri",
-      "captured_at": "2026-05-15"
-    },
-    {
-      "id": "nebius-tax-revenue-residential-rates",
-      "company_slug": "nebius",
-      "theme": "tax_revenue",
-      "statement": "With new generation coming online, IPL's municipal structure, and our commitment to covering our full power needs, the project would not impact residential rates.",
-      "source_url": "https://nebius.com/independencemo",
-      "source_title": "Nebius x Independence, Missouri",
-      "captured_at": "2026-05-15"
-    },
-    {
-      "id": "nebius-energy-full-cost",
-      "company_slug": "nebius",
-      "theme": "energy",
-      "statement": "Nebius will pay the full cost for power and necessary infrastructure upgrades.",
-      "source_url": "https://nebius.com/independencemo",
-      "source_title": "Nebius x Independence, Missouri",
-      "captured_at": "2026-05-15"
-    },
-    {
-      "id": "nebius-water-closed-loop",
-      "company_slug": "nebius",
-      "theme": "water",
-      "statement": "Due to the innovative closed-loop water cooling design, the facility will require minimal annual water needs.",
-      "source_url": "https://nebius.com/independencemo",
-      "source_title": "Nebius x Independence, Missouri",
-      "captured_at": "2026-05-15"
-    },
-    {
-      "id": "nebius-jobs-local-trades",
-      "company_slug": "nebius",
-      "theme": "jobs",
-      "statement": "We are committed to working closely with local stakeholders to evaluate opportunities for local building trades labor and contracting.",
-      "source_url": "https://nebius.com/independencemo",
-      "source_title": "Nebius x Independence, Missouri",
-      "captured_at": "2026-05-15"
-    },
-    {
-      "id": "nebius-education-stem-k12",
-      "company_slug": "nebius",
-      "theme": "education",
-      "statement": "Offer STEM and AI literacy for students and teachers",
-      "source_url": "https://nebius.com/independencemo",
-      "source_title": "Nebius x Independence, Missouri",
-      "captured_at": "2026-05-15"
-    },
-    {
       "id": "openai-education-lehane-nabtu",
       "company_slug": "openai",
       "theme": "education",
@@ -2342,26 +2288,6 @@
       "source_title": "CoreWeave — Michael Intrator (Chairman & CEO) on UK closed-loop cooling commitment",
       "captured_at": "2026-05-15",
       "published_at": "2024-05-20"
-    },
-    {
-      "id": "nebius-infrastructure-cost-coverage-sutter",
-      "company_slug": "nebius",
-      "theme": "infrastructure",
-      "statement": "we're going to pay our full cost of that — and we do that in all the states",
-      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/q-a-taking-independence-residents-concerns-to-nebius-vp-of-public-affairs",
-      "source_title": "KSHB — John Sutter (Nebius VP US Public Affairs) on portfolio-wide infrastructure cost coverage",
-      "captured_at": "2026-05-15",
-      "published_at": "2026-04-22"
-    },
-    {
-      "id": "nebius-community-grants-engagement-panel-sutter",
-      "company_slug": "nebius",
-      "theme": "community_grants",
-      "statement": "we're going to work through our community engagement panel for direct investment with grants in nonprofits",
-      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/q-a-taking-independence-residents-concerns-to-nebius-vp-of-public-affairs",
-      "source_title": "KSHB — John Sutter (Nebius VP US Public Affairs) on Community Engagement Panel grants to nonprofits",
-      "captured_at": "2026-05-15",
-      "published_at": "2026-04-22"
     },
     {
       "id": "meta-tulsa-energy-pay-full-costs-2026",
@@ -2604,28 +2530,6 @@
         "source_title": "Utah Business — Layton Construction + QTS Eagle Mountain topping-out (Apr 20 2026)",
         "assessed_at": "2026-05-17"
       }
-    },
-    {
-      "id": "nebius-independence-engagement-boynton-transparency-2026",
-      "company_slug": "nebius",
-      "theme": "engagement",
-      "statement": "We are a company that believes in transparency and keeping our promises.",
-      "source_url": "https://www.kctv5.com/2026/05/12/controversial-data-center-moves-forward-independence-construction-expected-create-1300-jobs/",
-      "source_title": "KCTV5 — John Boynton on Nebius transparency commitment at Independence groundbreaking",
-      "captured_at": "2026-05-16",
-      "published_at": "2026-05-12",
-      "project_id": "nebius-independence-mo"
-    },
-    {
-      "id": "nebius-independence-education-boynton-utility-2026",
-      "company_slug": "nebius",
-      "theme": "education",
-      "statement": "We view AI as the next utility.",
-      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/nebius-breaks-ground-on-45-acre-ai-data-center-in-independence-amid-community-opposition",
-      "source_title": "KSHB — John Boynton on Nebius vision at Independence groundbreaking",
-      "captured_at": "2026-05-16",
-      "published_at": "2026-05-12",
-      "project_id": "nebius-independence-mo"
     },
     {
       "id": "coreweave-lancaster-jobs-intrator-2025",
@@ -3100,22 +3004,6 @@
         "value": 10.0,
         "unit": "GW",
         "kind": "ultimate_capacity"
-      }
-    },
-    {
-      "id": "nebius-vineland-infrastructure-korolenko-2025",
-      "company_slug": "nebius",
-      "theme": "infrastructure",
-      "statement": "By combining Nebius' expertise in AI-native cloud computing with DataOne's deep knowledge of data center infrastructure, we are accelerating deployment timelines without compromising on performance or sustainability. This facility will be a major step in expanding our footprint in the US market, reinforcing Nebius' position as a leader in next-generation AI cloud infrastructure.",
-      "source_url": "https://datacentremagazine.com/articles/dataone-and-nebius-partner-for-new-300mw-ai-data-centre",
-      "source_title": "Data Centre Magazine — Andrey Korolenko (Nebius co-founder & CPIO) on Vineland NJ 300 MW facility",
-      "captured_at": "2026-05-16",
-      "published_at": "2025-05-29",
-      "project_id": "nebius-vineland-nj",
-      "metric": {
-        "value": 300.0,
-        "unit": "MW",
-        "kind": "capacity"
       }
     },
     {

@@ -21,7 +21,7 @@
     <div class="draft-banner" role="status" aria-live="polite">
       <span class="draft-tag">Draft</span>
       Data collection in progress — claims, projects, and community responses
-      land daily. Last refresh: <span id="draft-date">2026-05-31 (v1.15)</span>.
+      land daily. Last refresh: <span id="draft-date">2026-06-05</span>.
     </div>
 
     <header class="topbar" role="banner">
@@ -413,15 +413,11 @@
         hidden
       >
         <div class="hero">
-          <p class="eyebrow">View 3 · Accountability</p>
-          <h2 class="hero-title">Who signed the Ratepayer Protection Pledge — and is it showing up on the ground?</h2>
+          <h2 class="hero-title">The Ratepayer Protection Pledge</h2>
           <p class="hero-dek">
-            On <span id="rp-pledge-date">March 4, 2026</span>, seven hyperscalers
-            pledged at the White House to fund the power generation and grid
-            upgrades their data centers need — so those costs don't land on
-            existing utility ratepayers. This view tracks which tracked companies
-            signed, and whether data centers announced since then carry a
-            site-specific commitment or rely on the national pledge alone.
+            On <span id="rp-pledge-date">March 4, 2026</span>, seven hyperscalers pledged
+            to pay for their own power and grid upgrades — not ratepayers.
+            Tracks who signed and whether it's showing up site by site.
             <a id="rp-pledge-link" href="#" target="_blank" rel="noopener noreferrer">Read the pledge →</a>
           </p>
         </div>
@@ -429,76 +425,49 @@
         <!-- Top-level stats -->
         <ul id="rp-stats" class="rp-stats" aria-label="Pledge summary statistics"></ul>
 
-        <!-- What the pledge commits signatories to. Reference material — the
-             five elements + their headings are taken verbatim from the White
-             House proclamation (rp-commitments-source links it). Collapsed by
-             default so the scorecard stays above the fold. -->
-        <details class="rp-commitments">
-          <summary id="rp-commitments-heading">What signatories committed to (the 5 pledge elements)</summary>
-          <ul class="rp-commitment-list">
-            <li>
-              <strong>Building, bringing, or buying new power supply</strong> —
-              paying the full cost of the new generation and electricity needed to
-              meet their demand, and adding capacity that serves the broader public
-              where possible.
-            </li>
-            <li>
-              <strong>Paying for new power delivery infrastructure upgrades</strong>
-              — covering all network upgrade costs needed to serve their data
-              centers so the expense isn't passed to ordinary households.
-            </li>
-            <li>
-              <strong>Paying whether they use the power or not</strong> —
-              negotiating separate rate structures with utilities and states and
-              paying those rates for the power and infrastructure brought online,
-              used or not.
-            </li>
-            <li>
-              <strong>Investing in local job creation and workforce development</strong>
-              — hiring from the local community and building skills-development
-              programs where they operate.
-            </li>
-            <li>
-              <strong>Contributing to electric and community resilience</strong> —
-              coordinating with grid operators and making backup generation
-              available at times of scarcity to help prevent blackouts.
-            </li>
-          </ul>
-          <p class="rp-commitments-source">
-            The five commitments, verbatim, from the
-            <a id="rp-commitments-link" href="#" target="_blank" rel="noopener noreferrer">White House Ratepayer Protection Pledge</a>
-            (March 4, 2026).
-          </p>
-        </details>
+        <!-- Two-column: pledge elements left, roster right (stacks on mobile) -->
+        <div class="rp-two-col">
+          <details class="rp-commitments">
+            <summary id="rp-commitments-heading">The 5 pledge elements</summary>
+            <ul class="rp-commitment-list">
+              <li><strong>Building, bringing, or buying new power supply</strong> — pay the full cost of new generation.</li>
+              <li><strong>Paying for new power delivery infrastructure upgrades</strong> — cover all network upgrade costs.</li>
+              <li><strong>Paying whether they use the power or not</strong> — negotiate separate rate structures; pay used or not.</li>
+              <li><strong>Investing in local job creation and workforce development</strong> — hire locally; build skills programs.</li>
+              <li><strong>Contributing to electric and community resilience</strong> — coordinate with grid operators; provide backup generation.</li>
+            </ul>
+            <p class="rp-commitments-source">
+              Verbatim from the
+              <a id="rp-commitments-link" href="#" target="_blank" rel="noopener noreferrer">White House Ratepayer Protection Pledge</a>, March 4, 2026.
+            </p>
+          </details>
 
-        <!-- Signatory roster -->
-        <section class="rp-section" aria-labelledby="rp-roster-heading">
-          <h3 id="rp-roster-heading">Who's signed</h3>
-          <p class="rp-section-sub">
-            Of the companies this dashboard tracks. Non-signatories who publish
-            their own ratepayer commitments are flagged — the pledge is one path,
-            not the only one.
-          </p>
-          <ul id="rp-roster" class="rp-roster"></ul>
-        </section>
+          <details class="rp-commitments" open>
+            <summary id="rp-roster-heading">Who's signed</summary>
+            <ul id="rp-roster" class="rp-roster"></ul>
+          </details>
+        </div>
 
         <!-- Per-data-center scorecard -->
+        <!-- Assessed sites: announced on/after pledge date, or pre-pledge with post-pledge commitment -->
         <section class="rp-section" aria-labelledby="rp-scorecard-heading">
-          <h3 id="rp-scorecard-heading">Data centers announced since the pledge</h3>
+          <h3 id="rp-scorecard-heading">Assessed sites</h3>
           <p class="rp-section-sub">
-            Each signatory site announced on or after the pledge date. A
-            <strong>site-specific commitment</strong> means the company published
-            a ratepayer / pay-our-own-way pledge for that exact data center;
-            <strong>national pledge only</strong> means it's covered by the
-            signature but no site-specific commitment was captured.
+            Sites announced on or after the pledge date, or pre-pledge sites where post-pledge reporting confirms adherence. Each card shows the announcement date and first pledge reference. Expand to see per-principle breakdown.
           </p>
           <div class="rp-scorecard-toolbar">
-            <div class="rp-legend" id="rp-legend" aria-label="Scorecard legend"></div>
-            <button id="rp-export-csv" class="rp-export-btn" type="button">
-              Export CSV
-            </button>
+            <button id="rp-export-csv" class="rp-export-btn" type="button">Export CSV</button>
           </div>
           <ul id="rp-scorecard" class="rp-scorecard"></ul>
+        </section>
+
+        <!-- Pre-pledge sites: signatory sites announced before the pledge with no post-pledge commitment captured -->
+        <section class="rp-section" aria-labelledby="rp-pre-pledge-heading">
+          <h3 id="rp-pre-pledge-heading">Sites announced before the pledge</h3>
+          <p class="rp-section-sub">
+            Signatory sites announced before March 4, 2026 with no post-pledge site-specific commitment captured. Covered by the national pledge but not yet assessed per-site.
+          </p>
+          <ul id="rp-pre-pledge" class="rp-pre-pledge-list"></ul>
         </section>
 
         <p class="rp-footnote">
