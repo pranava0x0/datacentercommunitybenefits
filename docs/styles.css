@@ -376,6 +376,8 @@ select:focus-visible,
   color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tab[aria-selected="true"] {

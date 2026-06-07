@@ -295,6 +295,21 @@ const VIEWS = [
   { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
 ];
 
+// Scroll a tab button into the visible portion of the tabbar. Called both
+// synchronously (on tab click) and deferred (on page-load) so the active tab
+// is always visible on mobile where the bar overflows horizontally.
+function scrollTabIntoView(tabEl) {
+  const bar = tabEl.closest(".tabbar");
+  if (!bar) return;
+  const tabLeft = tabEl.offsetLeft - bar.offsetLeft;
+  const tabRight = tabLeft + tabEl.offsetWidth;
+  if (tabLeft < bar.scrollLeft) {
+    bar.scrollLeft = tabLeft - 12;
+  } else if (tabRight > bar.scrollLeft + bar.clientWidth) {
+    bar.scrollLeft = tabRight - bar.clientWidth + 12;
+  }
+}
+
 function wireTabs() {
   for (const v of VIEWS) {
     document
@@ -376,8 +391,20 @@ function activateView(name) {
 
   for (const v of VIEWS) {
     const isActive = v.name === target.name;
-    document.getElementById(v.tab).setAttribute("aria-selected", String(isActive));
+    const tabEl = document.getElementById(v.tab);
+    tabEl.setAttribute("aria-selected", String(isActive));
     document.getElementById(v.section).hidden = !isActive;
+    // Scroll the active tab into view within the tabbar (important on mobile
+    // where the bar overflows horizontally). scrollIntoView scrolls the page;
+    // instead manually adjust the tabbar container's scrollLeft.
+    // Use a helper so it can be called both immediately (tab click) and
+    // deferred (page-load, when layout isn't ready yet during DOMContentLoaded).
+    if (isActive) {
+      scrollTabIntoView(tabEl);
+      // Deferred pass covers page-load: offsetLeft is often 0 during the
+      // first synchronous DOMContentLoaded run; a macrotask fires after paint.
+      setTimeout(() => scrollTabIntoView(tabEl), 0);
+    }
   }
 
   // Keep the URL in sync so views are deep-linkable / back-button friendly.
