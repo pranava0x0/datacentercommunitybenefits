@@ -540,15 +540,10 @@ function renderComparisonView() {
 
 function renderMeta() {
   // Sub-heading shows last refresh date (set when companies.json loads).
-  // Falls back to claims count if date hasn't arrived yet.
   const el = document.getElementById("meta");
   if (!el) return;
   if (el.dataset.refreshDate) {
     el.textContent = `Last refreshed: ${el.dataset.refreshDate}`;
-  } else {
-    const c = state.claims.length;
-    const co = state.companies.length;
-    el.textContent = `${c} claims across ${co} companies`;
   }
 }
 

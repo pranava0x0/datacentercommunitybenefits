@@ -17,8 +17,8 @@ class TestComparisonView:
     def test_page_loads_with_meta(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         expect(page.locator("h1")).to_have_text("Data Center Community Benefits")
-        # Meta line resolves once data loads.
-        expect(page.locator("#meta")).to_contain_text("claims across", timeout=10_000)
+        # Sub-heading shows last refresh date once data loads.
+        expect(page.locator("#meta")).to_contain_text("Last refreshed:", timeout=10_000)
 
     def test_matrix_renders_at_least_eight_companies_eight_themes(
         self, page: Page, base_url: str
