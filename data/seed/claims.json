@@ -112,7 +112,8 @@
       "statement": "Our Datacenter Community Pledge commits us to advancing community prosperity, addressing local environmental impacts, building skills for jobs of today and the AI economy of tomorrow, and operating in a manner deserving of trust.",
       "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
       "source_title": "Microsoft Datacenter Community Pledge (May 2024)",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "formal_agreement": true
     },
     {
       "id": "ms-water-positive-2030",
@@ -254,7 +255,7 @@
       "company_slug": "xai",
       "theme": "infrastructure",
       "statement": "Colossus is the largest AI supercomputer in the world. The xAI team brought it online in just 122 days from the time the first rack was installed.",
-      "source_url": "https://x.ai/blog/colossus",
+      "source_url": "https://x.ai/colossus",
       "source_title": "xAI \u2014 Colossus",
       "captured_at": "2026-05-14"
     },
@@ -1153,7 +1154,8 @@
       "statement": "Pay the full cost of the electricity we use, including the cost of new generation, transmission, and grid upgrades",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
       "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "formal_agreement": true
     },
     {
       "id": "amazon-education-think-big-spaces-global",
@@ -1220,7 +1222,8 @@
       "source_url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
       "source_title": "U.S. Energy Secretary tours Cedar Rapids QTS data center campus (Tag Greason, QTS Co-CEO, quoted) \u2014 The Gazette",
       "captured_at": "2026-05-14",
-      "project_id": "qts-cedar-rapids-ia"
+      "project_id": "qts-cedar-rapids-ia",
+      "formal_agreement": true
     },
     {
       "id": "qts-cedar-rapids-ia-infrastructure-pay-our-own-way",
@@ -1366,7 +1369,8 @@
         "value": 68000000.0,
         "unit": "usd",
         "kind": "infrastructure"
-      }
+      },
+      "formal_agreement": true
     },
     {
       "id": "microsoft-cheyenne-wy-community-projects",
@@ -3665,6 +3669,73 @@
       "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center (Aug 2025)",
       "captured_at": "2026-06-05",
       "published_at": "2025-08-01"
+    },
+    {
+      "id": "meta-huntsville-al-jobs",
+      "company_slug": "meta",
+      "project_id": "meta-huntsville-al",
+      "theme": "jobs",
+      "statement": "$1.5 billion+ investment. 2018 break ground. 1,200 skilled trade workers on site at peak construction. 300+ operational jobs supported once completed.",
+      "source_url": "https://datacenters.atmeta.com/us-locations/",
+      "source_title": "Meta Data Centers \u2014 United States",
+      "captured_at": "2026-06-07",
+      "published_at": null
+    },
+    {
+      "id": "meta-huntsville-al-community-grants",
+      "company_slug": "meta",
+      "project_id": "meta-huntsville-al",
+      "theme": "community_grants",
+      "statement": "$3.9M+ grants and sponsorships provided locally since 2019. We support the community through our annual Data Center Community Action Grants program and other direct funding for projects that put the power of technology to use for community benefit, give people the power to build strong, sustainable communities, and improve STEAM education. We proudly support all three public school systems in Madison County.",
+      "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+      "source_title": "Meta's Huntsville Data Center \u2014 Info Sheet",
+      "captured_at": "2026-06-07",
+      "published_at": "2025-02-01"
+    },
+    {
+      "id": "meta-huntsville-al-energy-tva",
+      "company_slug": "meta",
+      "project_id": "meta-huntsville-al",
+      "theme": "energy",
+      "statement": "Meta's supported projects are adding 227 megawatts of new renewable energy in Alabama. In Alabama, we worked with Tennessee Valley Authority to meet our 100% clean and renewable energy goal for the Huntsville Data Center. Our operational data center buildings achieve LEED\u00ae Gold certification by focusing on efficiency, sustainability and innovation.",
+      "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+      "source_title": "Meta's Huntsville Data Center \u2014 Info Sheet",
+      "captured_at": "2026-06-07",
+      "published_at": "2025-02-01"
+    },
+    {
+      "id": "meta-huntsville-al-education",
+      "company_slug": "meta",
+      "project_id": "meta-huntsville-al",
+      "theme": "education",
+      "statement": "We proudly support all three public school systems in Madison County. We're proud to support community projects led by: 100 Black Men of Greater Huntsville, Alabama School of Cyber Technology & Engineering, Boys & Girls Clubs of North Alabama, Drake State Community & Technical College, Girls Inc. of Huntsville, Huntsville City Schools, Huntsville Schools Foundation, Madison City Schools, Madison County Schools, U.S. Space and Rocket Center.",
+      "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+      "source_title": "Meta's Huntsville Data Center \u2014 Info Sheet",
+      "captured_at": "2026-06-07",
+      "published_at": "2025-02-01"
+    },
+    {
+      "id": "openai-energy-pay-own-way-2026",
+      "company_slug": "openai",
+      "project_id": null,
+      "theme": "energy",
+      "statement": "Across all of our Stargate Community plans, we commit to paying our own way on energy, so that our operations don't increase your electricity prices.",
+      "source_url": "https://openai.com/index/stargate-community/",
+      "source_title": "Stargate Community | OpenAI",
+      "captured_at": "2026-06-07",
+      "published_at": "2026-01-20"
+    },
+    {
+      "id": "openai-port-washington-wi-infra-175m-2026",
+      "company_slug": "openai",
+      "project_id": "openai-port-washington-wi",
+      "theme": "infrastructure",
+      "statement": "in Wisconsin our partners will invest a minimum of $175M in local infrastructure upgrades and water restoration projects.",
+      "source_url": "https://openai.com/index/stargate-community/",
+      "source_title": "Stargate Community | OpenAI",
+      "captured_at": "2026-06-07",
+      "published_at": "2026-01-20",
+      "formal_agreement": true
     }
   ]
 }
