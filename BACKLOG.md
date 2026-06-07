@@ -9,6 +9,35 @@ criterion.
 
 ## High priority
 
+### [MANUAL] Verify Meta Huntsville AL — possible project missing from dataset
+The `datacenters.atmeta.com/` homepage references Alabama/Huntsville as a location
+distinct from the already-tracked `meta-montgomery-al`. Needs a curator to visit
+`https://datacenters.atmeta.com/location/huntsville/` (or equivalent) and confirm
+whether a Huntsville site exists. If so, add a project record with investment, jobs,
+MW, acreage, and source URL. *Priority: high — may be a gap in company coverage.*
+
+### [MANUAL] Capture verbatim quotes from 4 bot-blocked pages
+These pages 403 all automated fetchers; verbatim first-party commitments are missing:
+- **OpenAI Stargate Community** — `https://openai.com/index/stargate-community/`
+  Missing: water (closed-loop cooling), education (OpenAI Academies), engagement
+  (community plans), tax_revenue themes for OpenAI. Key gap in matrix coverage.
+- **xAI Colossus blog** — `https://x.ai/blog/colossus`
+  Existing xAI claims need verbatim re-verification; page may have updated content.
+- **Oracle Jan 26 2026 community commitment** — `https://www.oracle.com/news/announcement/oracle-ai-infrastructure-local-communities-2026-01-26/`
+  Primary source for several oracle-* claims; cannot be re-verified programmatically.
+- **OpenAI Stargate announcement** — `https://openai.com/index/announcing-the-stargate-project/`
+  Original Stargate project page; 403 to scrapers since v1.0.
+Workaround: manual browser visit → copy-paste verbatim quotes → add as claims with
+`published_at` set to the page's visible date. *Priority: high — four themes partially
+empty for OpenAI; oracle claims unverifiable.*
+
+### [MANUAL] Fix 3 broken dedicated_page_url entries in companies.json
+Three `dedicated_page_url` values now return HTTP 404 and need updated URLs:
+- Meta: `https://datacenters.atmeta.com/community/` → try `https://datacenters.atmeta.com/`
+- Google: `https://datacenters.google/community/` → try `https://datacenters.google/`
+- Amazon: `https://aws.amazon.com/about-aws/global-infrastructure/economic-impact/` → find current URL manually
+*Priority: high — these are the "View community page" links shown to dashboard users.*
+
 ### Aggregate / rollup views (next big front-end move)
 Every existing view is record-level. The dataset can answer "how much is
 collectively committed to Louisiana?" but only by reading 5 project cards.
