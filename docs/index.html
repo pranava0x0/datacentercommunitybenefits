@@ -12,17 +12,11 @@
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="styles.css?v=20260607c" />
+    <script defer src="app.js?v=20260607c"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-
-    <div class="draft-banner" role="status" aria-live="polite">
-      <span class="draft-tag">Draft</span>
-      Data collection in progress — claims, projects, and community responses
-      land daily. Last refresh: <span id="draft-date">2026-06-05</span>.
-    </div>
 
     <header class="topbar" role="banner">
       <div class="topbar-inner">
@@ -69,6 +63,16 @@
         >
           Ratepayer Protection Pledge
         </button>
+        <button
+          id="tab-aggregate"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-aggregate"
+        >
+          Aggregate
+        </button>
       </div>
     </header>
 
@@ -81,7 +85,6 @@
         aria-labelledby="tab-comparison"
       >
         <div class="hero">
-          <p class="eyebrow">View 1 · Blueprint</p>
           <h2 class="hero-title">What's being offered to host communities</h2>
           <p class="hero-dek">
             A matrix of the community-benefit commitments major data-center operators
@@ -120,6 +123,7 @@
             </thead>
             <tbody id="matrix-body"></tbody>
           </table>
+          <div id="matrix-tooltip" class="matrix-tooltip" hidden role="tooltip" aria-live="off"></div>
         </div>
 
         <section
@@ -156,6 +160,11 @@
             <dd id="cd-last-reviewed">—</dd>
           </dl>
 
+          <section id="cd-responses-breakdown" class="cd-responses-breakdown" hidden aria-label="Community response breakdown">
+            <h4 class="cd-breakdown-heading">Community responses</h4>
+            <div id="cd-breakdown-body"></div>
+          </section>
+
           <div class="detail-cta">
             <button
               id="cd-view-projects"
@@ -177,7 +186,6 @@
         hidden
       >
         <div class="hero">
-          <p class="eyebrow">View 2 · Field guide</p>
           <h2 class="hero-title">What's actually being built — and how it's playing out</h2>
           <p class="hero-dek">
             Real data center sites with the community benefits being offered, plus
@@ -475,6 +483,68 @@
           site-specific commitment is not a failing grade — it means the company
           hasn't published one for that site yet. Sources are linked on every card.
         </p>
+      </section>
+
+      <!-- ====================== AGGREGATE VIEW ====================== -->
+      <section
+        id="view-aggregate"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-aggregate"
+        hidden
+      >
+        <div class="hero">
+          <h2 class="hero-title">Aggregate Totals</h2>
+          <p class="hero-dek">
+            Claimed figures rolled up by company and by state. All numbers are
+            company-disclosed — independently verified delivery is sparse.
+            Null values are omitted from totals.
+          </p>
+        </div>
+
+        <ul id="agg-stats" class="rp-stats" aria-label="Aggregate statistics"></ul>
+
+        <section class="agg-section">
+          <h3 class="agg-section-heading">By company</h3>
+          <div class="table-scroll">
+            <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
+              <thead>
+                <tr>
+                  <th scope="col" data-sort-key="name" data-sort-table="company" class="sortable">Company <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="company">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="company">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="company">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="company">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="claims" data-sort-table="company">Claims <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="company" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
+                </tr>
+              </thead>
+              <tbody id="agg-company-tbody"></tbody>
+              <tfoot id="agg-company-tfoot"></tfoot>
+            </table>
+          </div>
+        </section>
+
+        <section class="agg-section">
+          <h3 class="agg-section-heading">By state</h3>
+          <div class="table-scroll">
+            <table class="agg-table" id="agg-state-table" aria-label="State rollup">
+              <thead>
+                <tr>
+                  <th scope="col" data-sort-key="state" data-sort-table="state" class="sortable">State <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="companies" data-sort-table="state">Companies <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="state">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="state">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="state">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="state">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="state" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
+                </tr>
+              </thead>
+              <tbody id="agg-state-tbody"></tbody>
+              <tfoot id="agg-state-tfoot"></tfoot>
+            </table>
+          </div>
+        </section>
       </section>
     </main>
 
