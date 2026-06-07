@@ -112,7 +112,8 @@
       "statement": "Our Datacenter Community Pledge commits us to advancing community prosperity, addressing local environmental impacts, building skills for jobs of today and the AI economy of tomorrow, and operating in a manner deserving of trust.",
       "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
       "source_title": "Microsoft Datacenter Community Pledge (May 2024)",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "formal_agreement": true
     },
     {
       "id": "ms-water-positive-2030",
@@ -1153,7 +1154,8 @@
       "statement": "Pay the full cost of the electricity we use, including the cost of new generation, transmission, and grid upgrades",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
       "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "formal_agreement": true
     },
     {
       "id": "amazon-education-think-big-spaces-global",
@@ -1220,7 +1222,8 @@
       "source_url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
       "source_title": "U.S. Energy Secretary tours Cedar Rapids QTS data center campus (Tag Greason, QTS Co-CEO, quoted) \u2014 The Gazette",
       "captured_at": "2026-05-14",
-      "project_id": "qts-cedar-rapids-ia"
+      "project_id": "qts-cedar-rapids-ia",
+      "formal_agreement": true
     },
     {
       "id": "qts-cedar-rapids-ia-infrastructure-pay-our-own-way",
@@ -1366,7 +1369,8 @@
         "value": 68000000.0,
         "unit": "usd",
         "kind": "infrastructure"
-      }
+      },
+      "formal_agreement": true
     },
     {
       "id": "microsoft-cheyenne-wy-community-projects",
@@ -3730,7 +3734,8 @@
       "source_url": "https://openai.com/index/stargate-community/",
       "source_title": "Stargate Community | OpenAI",
       "captured_at": "2026-06-07",
-      "published_at": "2026-01-20"
+      "published_at": "2026-01-20",
+      "formal_agreement": true
     }
   ]
 }

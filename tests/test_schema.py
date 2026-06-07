@@ -180,6 +180,30 @@ class TestClaim:
         assert c.metric is not None
         assert c.metric.value == 1000
 
+    def test_formal_agreement_defaults_false(self):
+        c = Claim(**_claim_kwargs())
+        assert c.formal_agreement is False
+
+    def test_formal_agreement_accepts_true(self):
+        c = Claim(**_claim_kwargs(formal_agreement=True))
+        assert c.formal_agreement is True
+
+    def test_wayback_url_defaults_none(self):
+        c = Claim(**_claim_kwargs())
+        assert c.wayback_url is None
+
+    def test_wayback_url_accepts_valid_url(self):
+        c = Claim(
+            **_claim_kwargs(
+                wayback_url="https://web.archive.org/web/20260101000000/https://example.com"
+            )
+        )
+        assert c.wayback_url is not None
+
+    def test_wayback_url_rejects_invalid(self):
+        with pytest.raises(ValidationError):
+            Claim(**_claim_kwargs(wayback_url="not-a-url"))
+
 
 # ---------------------------------------------------------------------------
 # Project

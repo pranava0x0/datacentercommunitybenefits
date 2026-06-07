@@ -233,6 +233,22 @@ class TestDeliveredAssessments:
                 continue
             assert c.delivered.assessed_at <= today, c.id
 
+    def test_at_least_one_formal_agreement_claim_in_seed(self, claims):
+        # v1.17: CBA / formal agreement badge. At least one claim must carry
+        # formal_agreement=True so the badge is demonstrably wired up.
+        formal = [c for c in claims.claims if c.formal_agreement]
+        assert len(formal) >= 1, (
+            "No claims with formal_agreement=True in seed data. "
+            "Flag at least one published pledge or signed CBA."
+        )
+
+    def test_formal_agreement_claims_have_source_url(self, claims):
+        # Formal agreements must always cite a source — they are defined by
+        # being documented in a named external document.
+        for c in claims.claims:
+            if c.formal_agreement:
+                assert c.source_url, f"Claim {c.id} has formal_agreement=True but no source_url"
+
     def test_at_least_one_of_each_delivered_status(self, claims):
         # Demonstrative seed: ensure the legend reads with all four colors.
         # If a curator deletes all examples of a status, the dashboard's

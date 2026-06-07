@@ -12,8 +12,8 @@
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20260607b" />
-    <script defer src="app.js?v=20260607b"></script>
+    <link rel="stylesheet" href="styles.css?v=20260607c" />
+    <script defer src="app.js?v=20260607c"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -123,6 +123,7 @@
             </thead>
             <tbody id="matrix-body"></tbody>
           </table>
+          <div id="matrix-tooltip" class="matrix-tooltip" hidden role="tooltip" aria-live="off"></div>
         </div>
 
         <section
@@ -158,6 +159,11 @@
             <dt>Last reviewed</dt>
             <dd id="cd-last-reviewed">—</dd>
           </dl>
+
+          <section id="cd-responses-breakdown" class="cd-responses-breakdown" hidden aria-label="Community response breakdown">
+            <h4 class="cd-breakdown-heading">Community responses</h4>
+            <div id="cd-breakdown-body"></div>
+          </section>
 
           <div class="detail-cta">
             <button
@@ -504,13 +510,13 @@
             <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
               <thead>
                 <tr>
-                  <th scope="col">Company</th>
-                  <th scope="col" class="num">Projects</th>
-                  <th scope="col" class="num">Power</th>
-                  <th scope="col" class="num">Investment</th>
-                  <th scope="col" class="num">Jobs</th>
-                  <th scope="col" class="num">Claims</th>
-                  <th scope="col" class="num responses-col" title="Community responses by stance">Responses</th>
+                  <th scope="col" data-sort-key="name" data-sort-table="company" class="sortable">Company <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="company">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="company">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="company">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="company">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="claims" data-sort-table="company">Claims <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="company" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
                 </tr>
               </thead>
               <tbody id="agg-company-tbody"></tbody>
@@ -525,13 +531,13 @@
             <table class="agg-table" id="agg-state-table" aria-label="State rollup">
               <thead>
                 <tr>
-                  <th scope="col">State</th>
-                  <th scope="col" class="num">Companies</th>
-                  <th scope="col" class="num">Projects</th>
-                  <th scope="col" class="num">Power</th>
-                  <th scope="col" class="num">Investment</th>
-                  <th scope="col" class="num">Jobs</th>
-                  <th scope="col" class="num responses-col" title="Community responses by stance">Responses</th>
+                  <th scope="col" data-sort-key="state" data-sort-table="state" class="sortable">State <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="companies" data-sort-table="state">Companies <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="state">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="state">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="state">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="state">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="state" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
                 </tr>
               </thead>
               <tbody id="agg-state-tbody"></tbody>

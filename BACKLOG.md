@@ -182,6 +182,59 @@ so deep-links share a specific filtered state.
 
 ## Low priority / ideas
 
+### "What's new" indicator for returning visitors
+`?since=YYYY-MM-DD` (or localStorage last-visit date) puts a small NEW badge
+on projects/claims added after that date. Journalists and repeat users have
+no way to see what changed between visits. *No schema change needed.*
+
+### `?project=<id>` deep link (standalone)
+The most common journalist sharing pattern. Part of the larger URL-state
+backlog item but worth breaking out as a quick win on its own.
+
+### ~~Aggregate / rollup table column sorting~~ **DONE (v1.17)**
+Click any `<th>` in the company or state rollup tables to sort by that column.
+Default sort is investment descending; click again to reverse; alpha sort for
+name/state columns. Sort indicators (▲/▼) in headers; `aria-sort` for AT.
+
+### ~~Response constituency breakdown in company pop-out~~ **DONE (v1.17)**
+Compact stacked bar (positive/mixed/negative) per constituency in the
+company detail pop-out. Lazy-loads the project payload if not yet loaded;
+shows total response count across all the company's projects.
+
+### ~~Tooltip preview on matrix cells~~ **DONE (v1.17)**
+Hover or focus a ✓ cell → tooltip shows the first claim statement (truncated
+to 160 chars) + theme label + "click to view all X claims" hint. Positioned
+below the cell, clamped inside the matrix-wrap, hidden on leave/blur.
+
+### ~~CBA / benefit agreement tracking~~ **DONE (v1.17)**
+`formal_agreement: bool = False` on `Claim`. Five seed claims flagged:
+Microsoft Datacenter Community Pledge, Microsoft grid-pledge, QTS Ratepayer
+Protection Pledge, Microsoft Cheyenne $68M offsite pledge, OpenAI Port
+Washington $175M infra commitment. Badge renders on claim cards. Two new
+seed tests guard: ≥1 formal_agreement exists, all have a source_url.
+
+### ~~Print-optimized CSS~~ **DONE (v1.17)**
+`@media print` block hides chrome (nav, buttons, map, filters), shows only
+the comparison view, linearizes the matrix, and appends href after links.
+Replaces the minimal stub from v1.4.
+
+### ~~Embed widget~~ **DONE (v1.17)**
+`docs/embed.html?company=<slug>` renders a self-contained iframe card:
+company name/HQ, 8-theme coverage grid (✓/—), claim count, formal-agreement
+count, link back to full dashboard. Respects `?theme=dark|light` override
+and `prefers-color-scheme`. Zero dependencies beyond companies.json + claims.json.
+
+### ~~Wayback Machine fallback for dead links~~ **DONE (v1.17)**
+`check_links.py` HEADs every source_url/dedicated_page_url/project_page_url
+across all seed files (rate-limited 2 s/host), queries Wayback Machine CDX
+API for each 4xx, writes `dead_links_report.json`, appends entries to
+ISSUES.md. `--fix` flag writes `wayback_url` directly into seed JSON.
+`wayback_url` optional field added to `Claim` and `CommunityResponse` in
+schema; frontend uses it as fallback on source links and shows "(archived)"
+label. Run: `python check_links.py` (read-only) or `python check_links.py --fix`.
+
+
+
 ### 9th theme: noise / land use
 Several recent community responses (Loudoun County hearings, Mt Pleasant
 WI) center on noise from cooling fans and visual / land-use impact.

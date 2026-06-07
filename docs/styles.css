@@ -2408,24 +2408,248 @@ main {
    Print
    ========================================================================== */
 
+/* ==========================================================================
+   Matrix cell tooltip (v1.17)
+   ========================================================================== */
+
+.matrix-tooltip {
+  position: absolute;
+  z-index: 200;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 10px 12px;
+  max-width: 320px;
+  pointer-events: none;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.mtt-theme {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--theme-color, var(--text-muted));
+  margin-bottom: 6px;
+}
+
+.mtt-quote {
+  margin: 0 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.mtt-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+[data-theme="dark"] .matrix-tooltip {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* ==========================================================================
+   CBA / Formal agreement badge on claim cards (v1.17)
+   ========================================================================== */
+
+.claim-cba-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--stance-positive-soft);
+  color: var(--stance-positive);
+  border: 1px solid color-mix(in srgb, var(--stance-positive) 30%, transparent);
+  vertical-align: 1px;
+  cursor: default;
+}
+
+[data-theme="dark"] .claim-cba-badge {
+  background: color-mix(in srgb, var(--stance-positive) 18%, transparent);
+  color: var(--stance-positive);
+  border-color: color-mix(in srgb, var(--stance-positive) 35%, transparent);
+}
+
+/* ==========================================================================
+   Constituency response breakdown in company pop-out (v1.17)
+   ========================================================================== */
+
+.cd-responses-breakdown {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.cd-breakdown-heading {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+
+.cb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+}
+
+.cb-label {
+  flex: 0 0 120px;
+  color: var(--text);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cb-bars {
+  flex: 1;
+  display: flex;
+  height: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 40px;
+  gap: 1px;
+}
+
+.cb-seg {
+  min-width: 4px;
+  border-radius: 2px;
+}
+
+.cb-seg.positive { background: var(--stance-positive); }
+.cb-seg.mixed    { background: var(--stance-mixed); }
+.cb-seg.negative { background: var(--stance-negative); }
+
+.cb-total {
+  flex: 0 0 20px;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.cb-summary {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 8px 0 0;
+}
+
+/* ==========================================================================
+   Aggregate table sort indicators (v1.17)
+   ========================================================================== */
+
+.agg-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.agg-table th.sortable:hover {
+  background: var(--surface-2);
+}
+
+.sort-ind {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  letter-spacing: 0;
+}
+
+/* ==========================================================================
+   Print styles (v1.17 — expanded from v1.4 stub)
+   ========================================================================== */
+
 @media print {
-  .topbar,
+  /* ---- Hide chrome ---- */
+  .topbar-controls,
   .tabbar,
   .summary-stats,
   .hot-rail,
   .theme-filter-row,
-  .matrix-csv,
+  .matrix-toolbar .matrix-csv,
   #theme-toggle,
+  .skip-link,
   .explorer-filters,
   .detail-close,
-  .map {
-    display: none;
+  .map-container,
+  .map,
+  #rp-export-csv,
+  .rp-export-btn,
+  .cd-responses-breakdown,
+  .detail-cta,
+  .matrix-tooltip,
+  button,
+  nav {
+    display: none !important;
   }
-  main {
-    padding: 0;
-    max-width: 100%;
+
+  /* ---- Page setup ---- */
+  @page {
+    margin: 1.5cm 2cm;
   }
-  .view {
-    animation: none;
+
+  body {
+    font-size: 10pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  /* ---- Topbar: show site name and refresh date, strip nav ---- */
+  .topbar {
+    display: block;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 12pt;
+    margin-bottom: 12pt;
+    border-bottom: 1pt solid #ccc;
+  }
+  .topbar-inner { padding: 0; }
+  .topbar h1 { font-size: 14pt; margin: 0; }
+  .topbar-sub { font-size: 9pt; color: #555; margin: 2pt 0 0; }
+
+  /* ---- Show only the active (comparison) view for print ---- */
+  /* All views hidden by default; unhide the comparison one */
+  .view[hidden] { display: none !important; }
+  #view-comparison { display: block !important; }
+
+  /* ---- Matrix ---- */
+  .matrix-wrap { overflow: visible; }
+  .matrix { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  .matrix th, .matrix td { border: 0.5pt solid #ccc; padding: 4pt 6pt; }
+  .matrix .cell .count.check { color: #2f7a4d; font-weight: bold; }
+  .matrix .cell.empty { color: #999; }
+  .col-company { font-weight: 600; text-align: left; }
+
+  /* ---- Company detail pop-out: hide if visible ---- */
+  .company-detail { display: none !important; }
+
+  /* ---- Claim cards ---- */
+  .claim-card { break-inside: avoid; box-shadow: none; border: 0.5pt solid #ddd; }
+  .claim-quote { font-size: 9pt; }
+
+  /* ---- Links: show href after anchor text ---- */
+  a[href]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
+
+  /* ---- Suppress animations ---- */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
