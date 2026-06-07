@@ -413,6 +413,29 @@ class Claim(_StrictBase):
             "implied success)."
         ),
     )
+    formal_agreement: bool = Field(
+        default=False,
+        description=(
+            "True when this claim is backed by a formally published pledge, "
+            "signed community benefit agreement (CBA), or binding regulatory "
+            "commitment — not just an aspirational executive statement. "
+            "Examples: Microsoft Datacenter Community Pledge (named document), "
+            "QTS Ratepayer Protection Pledge (signed pledge), a CBA between "
+            "developer and municipal authority. NOT for verbal commitments or "
+            "press-release aspirations. Surfaced as a 'Formal agreement' badge "
+            "on the claim card."
+        ),
+    )
+    wayback_url: Optional[HttpUrl] = Field(
+        default=None,
+        description=(
+            "If the original source_url is dead (4xx/5xx), a Wayback Machine "
+            "archived URL preserving the original content. Set by the "
+            "check_links.py curator tool. The frontend falls back to this URL "
+            "on the 'view source' link when present. Absence means the link "
+            "hasn't been checked or is still live."
+        ),
+    )
 
 
 class Project(_StrictBase):
@@ -539,6 +562,13 @@ class CommunityResponse(_StrictBase):
     single_source: bool = Field(
         default=False,
         description="True when this response is corroborated by only this one source.",
+    )
+    wayback_url: Optional[HttpUrl] = Field(
+        default=None,
+        description=(
+            "Wayback Machine fallback URL if the original source_url is dead. "
+            "Set by the check_links.py curator tool."
+        ),
     )
 
 

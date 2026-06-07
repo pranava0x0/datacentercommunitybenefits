@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Data Center Community Benefits — Embed</title>
+    <!--
+      Embed widget — Data Center Community Benefits Dashboard (v1.17)
+
+      Usage:
+        <iframe src="https://<host>/embed.html?company=microsoft" width="360" height="260"
+                frameborder="0" style="border:none;border-radius:8px"></iframe>
+
+      Params:
+        company=<slug>   — required. One of: meta, google, microsoft, amazon, openai,
+                           anthropic, xai, oracle, wonder-valley, qts, crusoe, coreweave, prologis
+        theme=light|dark — optional; defaults to the viewer's system preference.
+
+      The widget displays:
+        - Company name + HQ
+        - Theme coverage matrix (8 themes, ✓ or —)
+        - Claim count + link back to the full dashboard
+        - "Formal agreement" count if any
+
+      No Leaflet, no map, no runtime backend. Just companies.json + claims.json.
+    -->
+    <style>
+      :root {
+        --bg: #fafaf7;
+        --surface: #fff;
+        --text: #14181f;
+        --text-muted: #5b6471;
+        --border: #d9d6cc;
+        --accent: #2f5d8a;
+        --positive: #2f7a4d;
+        --positive-soft: #d8eadd;
+        --embed-radius: 8px;
+      }
+
+      [data-theme="dark"] {
+        --bg: #0d1116;
+        --surface: #171c24;
+        --text: #e8eaed;
+        --text-muted: #8c95a2;
+        --border: #2e3540;
+        --accent: #5b8fc7;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 13px;
+        line-height: 1.4;
+        padding: 14px 16px 12px;
+        min-height: 200px;
+      }
+
+      .embed-header {
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 10px;
+      }
+
+      .embed-company {
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--text);
+      }
+
+      .embed-hq {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+
+      .theme-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+        margin: 10px 0;
+      }
+
+      .theme-cell {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 5px 6px;
+        font-size: 10px;
+        text-align: center;
+      }
+
+      .theme-cell.has-claim {
+        border-color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+      }
+
+      .theme-label {
+        display: block;
+        color: var(--text-muted);
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .theme-check {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--positive);
+      }
+
+      .theme-empty {
+        font-size: 11px;
+        color: var(--border);
+      }
+
+      .embed-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid var(--border);
+        gap: 8px;
+      }
+
+      .embed-cba-badge {
+        display: inline-block;
+        background: var(--positive-soft);
+        color: var(--positive);
+        font-size: 9px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 2px 6px;
+        border-radius: 3px;
+        white-space: nowrap;
+      }
+
+      .embed-link {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 10px;
+        white-space: nowrap;
+      }
+
+      .embed-link:hover { text-decoration: underline; }
+
+      .embed-error {
+        color: var(--text-muted);
+        font-size: 12px;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div id="embed-content">
+      <p class="embed-error">Loading…</p>
+    </div>
+
+    <script>
+    "use strict";
+
+    const THEMES = ["jobs","tax_revenue","energy","water","community_grants","infrastructure","education","engagement"];
+    const THEME_LABELS = {
+      jobs:"Jobs", tax_revenue:"Tax revenue", energy:"Energy", water:"Water",
+      community_grants:"Grants", infrastructure:"Infrastructure",
+      education:"Education", engagement:"Engagement",
+    };
+    // Canonical dashboard URL — update if hosting changes
+    const DASHBOARD_URL = "./index.html";
+
+    function getParam(name) {
+      return new URLSearchParams(location.search).get(name);
+    }
+
+    // Honour explicit ?theme= override; else system preference
+    const themePref = getParam("theme");
+    if (themePref === "dark" || themePref === "light") {
+      document.documentElement.setAttribute("data-theme", themePref);
+    } else {
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mq.matches) document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    async function init() {
+      const slug = getParam("company");
+      const root = document.getElementById("embed-content");
+
+      if (!slug) {
+        root.innerHTML = `<p class="embed-error">No company specified. Add <code>?company=microsoft</code> to the URL.</p>`;
+        return;
+      }
+
+      let companies, claims;
+      try {
+        [companies, claims] = await Promise.all([
+          fetch("data/companies.json").then(r => r.json()),
+          fetch("data/claims.json").then(r => r.json()),
+        ]);
+      } catch (e) {
+        root.innerHTML = `<p class="embed-error">Could not load data.</p>`;
+        return;
+      }
+
+      const company = companies.companies.find(c => c.slug === slug);
+      if (!company) {
+        root.innerHTML = `<p class="embed-error">Unknown company: <code>${slug}</code></p>`;
+        return;
+      }
+
+      const coClaims = claims.claims.filter(c => c.company_slug === slug);
+      const coveredThemes = new Set(coClaims.map(c => c.theme));
+      const formalCount = coClaims.filter(c => c.formal_agreement).length;
+      const claimCount = coClaims.length;
+      const dashUrl = `${DASHBOARD_URL}#comparison`;
+
+      root.innerHTML = `
+        <div class="embed-header">
+          <div class="embed-company">${esc(company.name)}</div>
+          <div class="embed-hq">${esc(company.hq)}</div>
+        </div>
+        <div class="theme-grid">
+          ${THEMES.map(t => `
+            <div class="theme-cell ${coveredThemes.has(t) ? 'has-claim' : ''}">
+              <span class="theme-label">${esc(THEME_LABELS[t])}</span>
+              ${coveredThemes.has(t)
+                ? `<span class="theme-check" aria-label="covered">✓</span>`
+                : `<span class="theme-empty" aria-label="not covered">—</span>`}
+            </div>
+          `).join("")}
+        </div>
+        <div class="embed-footer">
+          <span>
+            ${claimCount} claim${claimCount === 1 ? "" : "s"}
+            ${formalCount ? `&nbsp;<span class="embed-cba-badge">${formalCount} formal agreement${formalCount === 1 ? "" : "s"}</span>` : ""}
+          </span>
+          <a class="embed-link" href="${esc(dashUrl)}" target="_blank" rel="noopener noreferrer">
+            Full dashboard →
+          </a>
+        </div>
+      `;
+    }
+
+    function esc(s) {
+      return String(s ?? "")
+        .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    init();
+    </script>
+  </body>
+</html>

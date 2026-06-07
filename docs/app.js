@@ -159,6 +159,18 @@ const RATEPAYER_PLEDGE_SIGNATORIES = [
   "xai",
 ];
 
+// --------------------------------------------------------------------------
+// Aggregate table sort state (v1.17)
+// --------------------------------------------------------------------------
+// Per-table sort: { key: string, dir: 1 | -1 }
+// Default sort is by capex descending (highest investment first).
+// 'responses' sorts by total (positive+mixed+negative).
+// 'name' / 'state' sorts alphabetically.
+const _aggSort = {
+  company: { key: "capex", dir: -1 },
+  state: { key: "capex", dir: -1 },
+};
+
 // Sort orders for the Explorer's project list. Each option is descending —
 // the question the dashboard answers is always "where is the most benefit
 // concentrated?" so the highest-scoring project belongs at the top.
@@ -758,12 +770,67 @@ function renderMatrix() {
             openCompany();
           }
         });
+        // Hover tooltip: show first claim statement for this company×theme.
+        td.addEventListener("mouseenter", (e) => showMatrixTooltip(e.currentTarget, co.slug, t));
+        td.addEventListener("mouseleave", hideMatrixTooltip);
+        td.addEventListener("focus", (e) => showMatrixTooltip(e.currentTarget, co.slug, t));
+        td.addEventListener("blur", hideMatrixTooltip);
       }
       tr.appendChild(td);
     }
 
     body.appendChild(tr);
   }
+}
+
+// --------------------------------------------------------------------------
+// Matrix cell tooltip (v1.17)
+// --------------------------------------------------------------------------
+// Shows the first claim statement for a company × theme cell on hover/focus.
+// A single #matrix-tooltip div is reused (created lazily, never duplicated).
+
+function _getMatrixTooltipEl() {
+  return document.getElementById("matrix-tooltip");
+}
+
+function showMatrixTooltip(cellEl, slug, theme) {
+  const tooltip = _getMatrixTooltipEl();
+  if (!tooltip) return;
+
+  // Find the first claim for this company/theme
+  const claim = state.claims.find((c) => c.company_slug === slug && c.theme === theme);
+  if (!claim) return;
+
+  const MAX = 160;
+  const stmt = claim.statement.length > MAX
+    ? claim.statement.slice(0, MAX).trimEnd() + "…"
+    : claim.statement;
+
+  tooltip.innerHTML = `
+    <span class="mtt-theme" style="--theme-color:var(--theme-${escapeAttr(theme)})">${escapeHtml(THEME_LABELS[theme] || theme)}</span>
+    <p class="mtt-quote">${escapeHtml(stmt)}</p>
+    <span class="mtt-hint">Click to view all ${escapeHtml(THEME_LABELS[theme] || theme)} claims</span>
+  `;
+  tooltip.hidden = false;
+
+  // Position below the cell, clamped inside the matrix-wrap
+  const wrap = cellEl.closest(".matrix-wrap") || cellEl.offsetParent;
+  const wrapRect = wrap ? wrap.getBoundingClientRect() : { left: 0, top: 0 };
+  const cellRect = cellEl.getBoundingClientRect();
+
+  const left = Math.min(
+    cellRect.left - wrapRect.left,
+    (wrap ? wrap.clientWidth : 600) - tooltip.offsetWidth - 8
+  );
+  const top = cellRect.bottom - wrapRect.top + 6;
+
+  tooltip.style.left = `${Math.max(4, left)}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+function hideMatrixTooltip() {
+  const tooltip = _getMatrixTooltipEl();
+  if (tooltip) tooltip.hidden = true;
 }
 
 // --------------------------------------------------------------------------
@@ -862,6 +929,18 @@ function selectCompany(slug) {
 
   setKv("cd-last-reviewed", co.last_reviewed);
 
+  // Constituency breakdown — populate if project data is already loaded;
+  // otherwise lazy-load and update once it arrives.
+  const breakdownSection = document.getElementById("cd-responses-breakdown");
+  if (state.projects.length > 0) {
+    renderConstituencyBreakdown(slug);
+  } else {
+    if (breakdownSection) breakdownSection.hidden = true;
+    loadProjectData().then(() => {
+      if (state.selectedCompanySlug === slug) renderConstituencyBreakdown(slug);
+    });
+  }
+
   panel.hidden = false;
   document.getElementById("company-detail-close").focus({ preventScroll: true });
   panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -874,6 +953,62 @@ function closeCompanyDetail() {
   const panel = document.getElementById("company-detail");
   if (panel) panel.hidden = true;
   refreshActiveCompanyRow();
+}
+
+// Build and render the constituency × stance breakdown for a company in
+// the company detail pop-out. Shows how different groups have responded
+// to this company's projects. Requires project + responses data to be loaded.
+function renderConstituencyBreakdown(slug) {
+  const section = document.getElementById("cd-responses-breakdown");
+  const body = document.getElementById("cd-breakdown-body");
+  if (!section || !body) return;
+
+  // Collect all responses for projects owned by this company
+  const coProjects = new Set(
+    state.projects.filter((p) => p.company_slug === slug).map((p) => p.id)
+  );
+  const resps = state.responses.filter((r) => coProjects.has(r.project_id));
+
+  if (resps.length === 0) {
+    section.hidden = true;
+    return;
+  }
+
+  // Tally by constituency
+  const tally = {};
+  for (const r of resps) {
+    if (!tally[r.constituency]) tally[r.constituency] = { positive: 0, mixed: 0, negative: 0 };
+    tally[r.constituency][r.stance]++;
+  }
+
+  // Sort by total responses desc
+  const sorted = Object.entries(tally).sort(
+    (a, b) => (b[1].positive + b[1].mixed + b[1].negative) - (a[1].positive + a[1].mixed + a[1].negative)
+  );
+
+  body.innerHTML = sorted
+    .map(([constituency, counts]) => {
+      const total = counts.positive + counts.mixed + counts.negative;
+      const label = CONSTITUENCY_LABELS[constituency] || constituency;
+      return `<div class="cb-row">
+        <span class="cb-label">${escapeHtml(label)}</span>
+        <span class="cb-bars">
+          ${counts.positive ? `<span class="cb-seg positive" style="flex:${counts.positive}" title="${counts.positive} positive"></span>` : ""}
+          ${counts.mixed ? `<span class="cb-seg mixed" style="flex:${counts.mixed}" title="${counts.mixed} mixed"></span>` : ""}
+          ${counts.negative ? `<span class="cb-seg negative" style="flex:${counts.negative}" title="${counts.negative} negative"></span>` : ""}
+        </span>
+        <span class="cb-total">${total}</span>
+      </div>`;
+    })
+    .join("");
+
+  const totalAll = resps.length;
+  body.insertAdjacentHTML(
+    "beforeend",
+    `<p class="cb-summary">${totalAll} total response${totalAll === 1 ? "" : "s"} across ${coProjects.size} project${coProjects.size === 1 ? "" : "s"}</p>`
+  );
+
+  section.hidden = false;
 }
 
 function refreshActiveCompanyRow() {
@@ -907,17 +1042,21 @@ function renderClaimCard(c) {
     </span>
     <span title="${c.published_at ? 'Published' : 'Recorded'}: ${escapeHtml(displayDate)}">${escapeHtml(displayDate)}</span>
     ${c.metric ? renderMetricBadge(c.metric) : ""}
+    ${c.formal_agreement ? `<span class="claim-cba-badge" title="Backed by a formally published pledge or signed community benefit agreement">Formal agreement</span>` : ""}
   `;
 
   const quote = document.createElement("p");
   quote.className = "claim-quote";
   quote.textContent = c.statement;
 
+  // Use wayback_url as fallback when the original source is known-dead.
+  const sourceHref = escapeAttr(c.wayback_url || c.source_url);
+  const sourceLabel = c.wayback_url
+    ? `${escapeHtml(c.source_title)} (archived)`
+    : escapeHtml(c.source_title);
   const source = document.createElement("p");
   source.className = "claim-source";
-  source.innerHTML = `Source: <a href="${escapeAttr(c.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
-    c.source_title
-  )}</a>`;
+  source.innerHTML = `Source: <a href="${sourceHref}" target="_blank" rel="noopener noreferrer">${sourceLabel}</a>`;
 
   li.appendChild(meta);
   li.appendChild(quote);
@@ -2071,6 +2210,58 @@ function renderAggregateView() {
   renderAggregateStats();
   renderCompanyRollup();
   renderStateRollup();
+  wireAggSort();
+}
+
+// Wire click-to-sort on all [data-sort-key] <th> in both aggregate tables.
+// Called once after first render; handlers re-render the relevant tbody only.
+function wireAggSort() {
+  document.querySelectorAll(".agg-table th[data-sort-key]").forEach((th) => {
+    if (th.dataset.sortWired) return;
+    th.dataset.sortWired = "1";
+    th.style.cursor = "pointer";
+    th.setAttribute("role", "columnheader");
+    th.addEventListener("click", () => {
+      const table = th.dataset.sortTable; // "company" | "state"
+      const key = th.dataset.sortKey;
+      if (_aggSort[table].key === key) {
+        _aggSort[table].dir *= -1; // flip direction
+      } else {
+        _aggSort[table].key = key;
+        _aggSort[table].dir = key === "name" || key === "state" ? 1 : -1;
+      }
+      if (table === "company") renderCompanyRollup();
+      else renderStateRollup();
+      updateAggSortIndicators();
+    });
+  });
+  updateAggSortIndicators();
+}
+
+function updateAggSortIndicators() {
+  document.querySelectorAll(".agg-table th[data-sort-key]").forEach((th) => {
+    const table = th.dataset.sortTable;
+    const key = th.dataset.sortKey;
+    const ind = th.querySelector(".sort-ind");
+    if (!ind) return;
+    const isCurrent = _aggSort[table].key === key;
+    ind.textContent = isCurrent ? (_aggSort[table].dir === 1 ? " ▲" : " ▼") : "";
+    th.setAttribute("aria-sort", isCurrent ? (_aggSort[table].dir === 1 ? "ascending" : "descending") : "none");
+  });
+}
+
+function sortAggRows(rows, tableKey) {
+  const { key, dir } = _aggSort[tableKey];
+  return [...rows].sort((a, b) => {
+    let av = key === "responses" ? (a.positive + a.mixed + a.negative) : (a[key] ?? null);
+    let bv = key === "responses" ? (b.positive + b.mixed + b.negative) : (b[key] ?? null);
+    // Nulls always sort last regardless of direction
+    if (av === null && bv === null) return 0;
+    if (av === null) return 1;
+    if (bv === null) return -1;
+    if (typeof av === "string") return dir * av.localeCompare(bv);
+    return dir * (av - bv);
+  });
 }
 
 // Build per-company rollup from state.projects + state.responses + state.claims.
@@ -2224,7 +2415,7 @@ function renderCompanyRollup() {
   const tfoot = document.getElementById("agg-company-tfoot");
   if (!tbody || !tfoot) return;
 
-  const rows = buildCompanyRollups();
+  const rows = sortAggRows(buildCompanyRollups(), "company");
   const tot = aggTotals(rows);
 
   tbody.innerHTML = rows
@@ -2267,7 +2458,7 @@ function renderStateRollup() {
   const tfoot = document.getElementById("agg-state-tfoot");
   if (!tbody || !tfoot) return;
 
-  const rows = buildStateRollups();
+  const rows = sortAggRows(buildStateRollups(), "state");
   const tot = aggTotals(rows);
 
   tbody.innerHTML = rows
@@ -2546,9 +2737,11 @@ function renderResponseCard(r) {
 
   const src = document.createElement("p");
   src.className = "response-source";
-  src.innerHTML = `Source: <a href="${escapeAttr(r.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
-    r.source_title
-  )}</a>`;
+  const respHref = escapeAttr(r.wayback_url || r.source_url);
+  const respLabel = r.wayback_url
+    ? `${escapeHtml(r.source_title)} (archived)`
+    : escapeHtml(r.source_title);
+  src.innerHTML = `Source: <a href="${respHref}" target="_blank" rel="noopener noreferrer">${respLabel}</a>`;
 
   li.appendChild(meta);
   li.appendChild(summary);
