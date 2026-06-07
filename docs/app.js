@@ -539,14 +539,26 @@ function renderComparisonView() {
 }
 
 function renderMeta() {
-  const c = state.claims.length;
-  const co = state.companies.length;
-  document.getElementById("meta").textContent = `${c} claims across ${co} companies · curated`;
+  // Sub-heading shows last refresh date (set when companies.json loads).
+  // Falls back to claims count if date hasn't arrived yet.
+  const el = document.getElementById("meta");
+  if (!el) return;
+  if (el.dataset.refreshDate) {
+    el.textContent = `Last refreshed: ${el.dataset.refreshDate}`;
+  } else {
+    const c = state.claims.length;
+    const co = state.companies.length;
+    el.textContent = `${c} claims across ${co} companies`;
+  }
 }
 
 function updateDraftBanner(generatedAt) {
-  const el = document.getElementById("draft-date");
-  if (el && generatedAt) el.textContent = generatedAt;
+  // Banner removed (v1.16). Wire the date into the topbar sub-heading instead.
+  const el = document.getElementById("meta");
+  if (el && generatedAt) {
+    el.dataset.refreshDate = generatedAt;
+    el.textContent = `Last refreshed: ${generatedAt}`;
+  }
 }
 
 // Aggregate dataset stats shown in the topbar strip. Progressively enhances:

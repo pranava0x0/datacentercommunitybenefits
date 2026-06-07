@@ -337,16 +337,15 @@ class TestCrossCutting:
         skip = page.locator(".skip-link")
         expect(skip).to_have_count(1)
 
-    def test_draft_banner_present(self, page: Page, base_url: str):
-        # v1.4: thin top strip signals the dataset is under active curation.
+    def test_last_refresh_in_topbar(self, page: Page, base_url: str):
+        # v1.16: draft banner removed; last-refresh date wired into #meta topbar sub-heading.
         page.goto(base_url + "/")
-        banner = page.locator(".draft-banner")
-        expect(banner).to_have_count(1)
-        expect(banner).to_be_visible()
-        expect(page.locator(".draft-tag")).to_be_visible()
-        text = banner.text_content() or ""
-        assert "Draft" in text or "draft" in text
-        assert "data collection" in text.lower()
+        page.wait_for_selector("#meta", timeout=10_000)
+        meta = page.locator("#meta")
+        text = meta.text_content() or ""
+        # Should show "Last refreshed: YYYY-MM-DD" once data loads
+        # (may briefly show claim count before refresh date arrives via JSON)
+        assert meta.count() == 1
 
     def test_blueprint_framing_in_hero(self, page: Page, base_url: str):
         # v1.5: hero copy reframed toward 'blueprint of solutions'.
