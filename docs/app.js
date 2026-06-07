@@ -813,14 +813,17 @@ function showMatrixTooltip(cellEl, slug, theme) {
   `;
   tooltip.hidden = false;
 
-  // Position below the cell, clamped inside the matrix-wrap
+  // Position below the cell, clamped inside the matrix-wrap.
+  // Use getBoundingClientRect() AFTER making the tooltip visible so the
+  // browser has done a layout pass and we get correct dimensions (not 0).
   const wrap = cellEl.closest(".matrix-wrap") || cellEl.offsetParent;
   const wrapRect = wrap ? wrap.getBoundingClientRect() : { left: 0, top: 0 };
   const cellRect = cellEl.getBoundingClientRect();
+  const tooltipRect = tooltip.getBoundingClientRect();
 
   const left = Math.min(
     cellRect.left - wrapRect.left,
-    (wrap ? wrap.clientWidth : 600) - tooltip.offsetWidth - 8
+    (wrap ? wrap.clientWidth : 600) - tooltipRect.width - 8
   );
   const top = cellRect.bottom - wrapRect.top + 6;
 
