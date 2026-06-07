@@ -9,27 +9,15 @@ criterion.
 
 ## High priority
 
-### [MANUAL] Verify Meta Huntsville AL — possible project missing from dataset
-The `datacenters.atmeta.com/` homepage references Alabama/Huntsville as a location
-distinct from the already-tracked `meta-montgomery-al`. Needs a curator to visit
-`https://datacenters.atmeta.com/location/huntsville/` (or equivalent) and confirm
-whether a Huntsville site exists. If so, add a project record with investment, jobs,
-MW, acreage, and source URL. *Priority: high — may be a gap in company coverage.*
-
-### [MANUAL] Capture verbatim quotes from 4 bot-blocked pages
-These pages 403 all automated fetchers; verbatim first-party commitments are missing:
-- **OpenAI Stargate Community** — `https://openai.com/index/stargate-community/`
-  Missing: water (closed-loop cooling), education (OpenAI Academies), engagement
-  (community plans), tax_revenue themes for OpenAI. Key gap in matrix coverage.
-- **xAI Colossus blog** — `https://x.ai/blog/colossus`
-  Existing xAI claims need verbatim re-verification; page may have updated content.
-- **Oracle Jan 26 2026 community commitment** — `https://www.oracle.com/news/announcement/oracle-ai-infrastructure-local-communities-2026-01-26/`
-  Primary source for several oracle-* claims; cannot be re-verified programmatically.
-- **OpenAI Stargate announcement** — `https://openai.com/index/announcing-the-stargate-project/`
-  Original Stargate project page; 403 to scrapers since v1.0.
-Workaround: manual browser visit → copy-paste verbatim quotes → add as claims with
-`published_at` set to the page's visible date. *Priority: high — four themes partially
-empty for OpenAI; oracle claims unverifiable.*
+### [MANUAL] Re-verify Oracle community commitment — permanent 404
+`https://www.oracle.com/news/announcement/oracle-ai-infrastructure-local-communities-2026-01-26/`
+is 404 with no Wayback Machine archive. Oracle's newsroom has been re-organized.
+The existing oracle claims were verified via 3 third-party mirrors in v1.10; those
+remain valid. Action: find whether Oracle republished the Jan 26 2026 content at a
+new URL (search oracle.com/news/announcement/ for "local communities"). If no new
+URL is found, mark existing oracle claims' source_url with a `dead_link: true`
+annotation or update to the closest alternative oracle.com page.
+*Priority: medium — claims are still supported by 3rd-party mirrors.*
 
 
 ### Aggregate / rollup views (next big front-end move)
@@ -246,6 +234,7 @@ instead.
 
 ## Done
 
+- **Jun 2026 — Chrome-session source verification + Meta Huntsville + OpenAI energy gap-fill.** Browser session visited all 4 previously bot-blocked pages. Results: (1) `meta-huntsville-al` confirmed as a real, operational data center distinct from `meta-montgomery-al` — added as project 96 ($1.5B / 2018 groundbreak / 300+ ops jobs / 1,200 peak construction / Madison County / TVA 100% renewable / LEED Gold / $3.9M+ grants since 2019) with 4 project-tied claims (jobs, community_grants, energy, education) sourced from the Huntsville info sheet PDF. (2) OpenAI Stargate Community page loaded cleanly — added missing company-level energy claim (`openai-energy-pay-own-way-2026`: "we commit to paying our own way on energy, so that our operations don't increase your electricity prices") and a project-tied Wisconsin infrastructure claim (`openai-port-washington-wi-infra-175m-2026`: "$175M in local infrastructure upgrades and water restoration projects"). OpenAI tax_revenue confirmed as honest permanent gap (no specific tax language on the page). (3) xAI `x.ai/blog/colossus` now permanently redirects → `x.ai/colossus`; updated source URL on `xai-memphis-colossus` claim. (4) Oracle Jan 26 2026 page permanently 404 with no Wayback archive — moved to open backlog item for curator follow-up. Totals: 13 co / 298 claims / 96 projects / 199 responses.
 - **Jun 2026 — dedicated_page_url fixes.** Three broken company links (404) replaced with verified working URLs: Meta `datacenters.atmeta.com/community/` → `datacenters.atmeta.com/`; Google `datacenters.google/community/` → `datacenters.google/`; Amazon `aws.amazon.com/about-aws/global-infrastructure/economic-impact/` → `www.aboutamazon.com/impact/economy/growth`. All three verified 200 via WebFetch before update; refresh.py clean.
 - **Jun 2026 — at_a_glance fill (87/95 projects).** Mechanical pass added curator at_a_glance overrides to 51 previously-empty projects (from 36 → 87). Covers all projects with disclosable investment, jobs, MW, acreage, or notable facts; 8 minimal-data projects remain correctly served by auto-derivation.
 - **v1.13 — Delivered-vs-promised assessments on Claims.** New optional `Delivered` sub-object on `Claim` with four-status vocabulary (`delivered` / `partial` / `contested` / `shortfall`). Each assessment carries: `status`, neutral 1-2 sentence `summary`, `source_url` + `source_title` for the independent-reporting evidence, and `assessed_at` curator date. Schema in [schema.py](schema.py) with `Delivered` Pydantic model + `DELIVERED_STATUSES` Literal; frontend mirror is `DELIVERED_STATUSES` + `DELIVERED_LABELS` in [docs/app.js](docs/app.js), with parity guarded by two new `test_themes_match_frontend.py` tests. Render lives in `renderDeliveredPanel()` — appended to the existing claim card only when the field is set, so cards without an assessment look identical to pre-v1.13. CSS palette mirrors stance hues (delivered↔positive, shortfall↔negative). Seeded with 12 demonstrative records covering all four statuses across 7 companies: DELIVERED (Microsoft Fairwater operational + 375 FTEs hired + Crusoe Abilene live + QTS Eagle Mountain topping out); PARTIAL (Meta + MS + Google water-replenishment commitments on track but tested by AI growth); CONTESTED (xAI Memphis water-recycling plant paused; xAI "no grid power" pledge + NAACP unpermitted-turbines suit; Microsoft "no abatements" national pledge vs site PILOTs); SHORTFALL (QTS "water-free design" vs Fayetteville 29M unmetered-gallon draw; xAI Memphis tax-revenue projection unverified). Editorial rules: absence is honest gap (no implied delivery); status is curator judgment NOT algorithmic; summary is NEUTRAL synthesis; `shortfall` requires ≥2 independent sources or a citable regulator/court finding. 17 new tests (8 schema, 4 seed-data, 2 parity, 3 e2e); CLAUDE.md + DESIGN.md + README all updated.

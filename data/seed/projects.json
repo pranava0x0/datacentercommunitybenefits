@@ -3093,6 +3093,34 @@
         "jobs": "$15B / 5,030 jobs (Oracle/Vantage developer)",
         "energy": "1,300 MW / 672 ac \u2014 Stargate Wisconsin Lighthouse"
       }
+    },
+    {
+      "id": "meta-huntsville-al",
+      "company_slug": "meta",
+      "name": "Huntsville Data Center",
+      "city": "Huntsville",
+      "state": "AL",
+      "country": "US",
+      "lat": 34.7553,
+      "lon": -86.805,
+      "status": "operational",
+      "announced_year": 2018,
+      "claimed_investment_usd": 1500000000,
+      "claimed_jobs": 300,
+      "acreage": null,
+      "power_mw": null,
+      "gpu_count": null,
+      "offtaker": "Meta",
+      "notes": "Madison County campus; 1,200 construction jobs at peak; broke ground 2018; LEED Gold certified; TVA 100% clean energy partnership; $3.9M+ grants to local schools/nonprofits since 2019.",
+      "source_url": "https://datacenters.atmeta.com/us-locations/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/huntsville-data-center-info-sheet/",
+      "captured_at": "2026-06-07",
+      "at_a_glance": {
+        "jobs": "$1.5B / 300+ ops jobs / 1,200 peak construction",
+        "community_grants": "$3.9M+ to Madison County schools and nonprofits since 2019",
+        "energy": "227 MW new renewable energy in AL via TVA partnership; LEED Gold"
+      },
+      "source_title": "Meta Data Centers \u2014 United States"
     }
   ]
 }
