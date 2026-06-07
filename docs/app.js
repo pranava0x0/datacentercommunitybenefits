@@ -202,6 +202,7 @@ const state = {
   pendingProjectId: null,
   explorerLoaded: false,
   ratepayerLoaded: false,
+  aggregateLoaded: false,
   leafletLoaded: false,
   map: null,
   markers: new Map(),
@@ -291,6 +292,7 @@ const VIEWS = [
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
+  { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
 ];
 
 function wireTabs() {
@@ -400,6 +402,10 @@ function activateView(name) {
     loadRatepayerView().catch((err) => {
       console.error("Failed to load ratepayer view:", err);
     });
+  } else if (target.name === "aggregate") {
+    loadAggregateView().catch((err) => {
+      console.error("Failed to load aggregate view:", err);
+    });
   }
 }
 
@@ -477,6 +483,14 @@ async function loadRatepayerView() {
   state.ratepayerLoaded = true;
   renderRatepayerView();
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
+}
+
+// Aggregate view: needs the project payload but not Leaflet.
+async function loadAggregateView() {
+  if (state.aggregateLoaded) return;
+  await loadProjectData();
+  state.aggregateLoaded = true;
+  renderAggregateView();
 }
 
 async function fetchJson(url) {
@@ -2013,6 +2027,245 @@ function formatLongDate(iso) {
     day: "numeric",
     timeZone: "UTC",
   });
+}
+
+// --------------------------------------------------------------------------
+// Aggregate view
+// --------------------------------------------------------------------------
+
+function renderAggregateView() {
+  renderAggregateStats();
+  renderCompanyRollup();
+  renderStateRollup();
+}
+
+// Build per-company rollup from state.projects + state.responses + state.claims.
+function buildCompanyRollups() {
+  const map = new Map();
+  for (const co of state.companies) {
+    map.set(co.slug, {
+      slug: co.slug,
+      name: co.name,
+      projects: 0,
+      announced: 0,
+      construction: 0,
+      operational: 0,
+      capex: 0,
+      jobs: 0,
+      power_mw: 0,
+      claims: 0,
+      positive: 0,
+      mixed: 0,
+      negative: 0,
+    });
+  }
+  for (const p of state.projects) {
+    const r = map.get(p.company_slug);
+    if (!r) continue;
+    r.projects++;
+    if (p.status === "announced") r.announced++;
+    else if (p.status === "construction") r.construction++;
+    else if (p.status === "operational") r.operational++;
+    if (p.claimed_investment_usd) r.capex += p.claimed_investment_usd;
+    if (p.claimed_jobs) r.jobs += p.claimed_jobs;
+    if (p.power_mw) r.power_mw += p.power_mw;
+  }
+  for (const c of state.claims) {
+    const r = map.get(c.company_slug);
+    if (r) r.claims++;
+  }
+  for (const resp of state.responses) {
+    const proj = state.projects.find((p) => p.id === resp.project_id);
+    if (!proj) continue;
+    const r = map.get(proj.company_slug);
+    if (!r) continue;
+    if (resp.stance === "positive") r.positive++;
+    else if (resp.stance === "mixed") r.mixed++;
+    else if (resp.stance === "negative") r.negative++;
+  }
+  return [...map.values()].filter((r) => r.projects > 0).sort((a, b) => b.capex - a.capex);
+}
+
+// Build per-state rollup.
+function buildStateRollups() {
+  const map = new Map();
+  for (const p of state.projects) {
+    if (!p.state) continue;
+    if (!map.has(p.state)) {
+      map.set(p.state, {
+        state: p.state,
+        companySlugs: new Set(),
+        projects: 0,
+        announced: 0,
+        construction: 0,
+        operational: 0,
+        capex: 0,
+        jobs: 0,
+        power_mw: 0,
+        positive: 0,
+        mixed: 0,
+        negative: 0,
+      });
+    }
+    const r = map.get(p.state);
+    r.companySlugs.add(p.company_slug);
+    r.projects++;
+    if (p.status === "announced") r.announced++;
+    else if (p.status === "construction") r.construction++;
+    else if (p.status === "operational") r.operational++;
+    if (p.claimed_investment_usd) r.capex += p.claimed_investment_usd;
+    if (p.claimed_jobs) r.jobs += p.claimed_jobs;
+    if (p.power_mw) r.power_mw += p.power_mw;
+  }
+  for (const resp of state.responses) {
+    const proj = state.projects.find((p) => p.id === resp.project_id);
+    if (!proj || !proj.state) continue;
+    const r = map.get(proj.state);
+    if (!r) continue;
+    if (resp.stance === "positive") r.positive++;
+    else if (resp.stance === "mixed") r.mixed++;
+    else if (resp.stance === "negative") r.negative++;
+  }
+  return [...map.values()]
+    .map((r) => ({ ...r, companies: r.companySlugs.size }))
+    .sort((a, b) => b.capex - a.capex);
+}
+
+function aggTotals(rows) {
+  return rows.reduce(
+    (t, r) => {
+      t.capex += r.capex;
+      t.jobs += r.jobs;
+      t.power_mw += r.power_mw;
+      t.positive += r.positive;
+      t.mixed += r.mixed;
+      t.negative += r.negative;
+      return t;
+    },
+    { capex: 0, jobs: 0, power_mw: 0, positive: 0, mixed: 0, negative: 0 }
+  );
+}
+
+function renderAggregateStats() {
+  const ul = document.getElementById("agg-stats");
+  if (!ul) return;
+  ul.innerHTML = "";
+
+  const coRows = buildCompanyRollups();
+  const stRows = buildStateRollups();
+  const tot = aggTotals(coRows);
+
+  const tiles = [
+    { value: formatSummaryUsd(tot.capex), label: "total claimed investment" },
+    { value: tot.jobs.toLocaleString(), label: "total claimed jobs" },
+    { value: formatSummaryGW(tot.power_mw), label: "total announced power" },
+    { value: String(stRows.length), label: "states with projects" },
+  ];
+
+  for (const t of tiles) {
+    const li = document.createElement("li");
+    li.className = "rp-stat";
+    li.innerHTML = `
+      <span class="rp-stat-value">${escapeHtml(t.value)}</span>
+      <span class="rp-stat-label">${escapeHtml(t.label)}</span>
+    `;
+    ul.appendChild(li);
+  }
+}
+
+function stanceSpan(pos, mix, neg) {
+  return (
+    `<span class="stance-dot positive" title="Positive"></span>${pos} ` +
+    `<span class="stance-dot mixed" title="Mixed"></span>${mix} ` +
+    `<span class="stance-dot negative" title="Negative"></span>${neg}`
+  );
+}
+
+function fmtJobs(n) {
+  return n ? n.toLocaleString() : "—";
+}
+
+function renderCompanyRollup() {
+  const tbody = document.getElementById("agg-company-tbody");
+  const tfoot = document.getElementById("agg-company-tfoot");
+  if (!tbody || !tfoot) return;
+
+  const rows = buildCompanyRollups();
+  const tot = aggTotals(rows);
+
+  tbody.innerHTML = rows
+    .map(
+      (r) => `<tr>
+      <td class="name-col">
+        <span class="co-dot" style="background:var(--co-${escapeAttr(r.slug)})"></span>
+        ${escapeHtml(r.name)}
+      </td>
+      <td class="num">
+        ${r.projects}
+        <span class="agg-status-pills">
+          ${r.announced ? `<span class="agg-pill announced">${r.announced}A</span>` : ""}
+          ${r.construction ? `<span class="agg-pill construction">${r.construction}C</span>` : ""}
+          ${r.operational ? `<span class="agg-pill operational">${r.operational}O</span>` : ""}
+        </span>
+      </td>
+      <td class="num">${r.power_mw ? formatSummaryGW(r.power_mw) : "—"}</td>
+      <td class="num">${r.capex ? formatSummaryUsd(r.capex) : "—"}</td>
+      <td class="num">${fmtJobs(r.jobs)}</td>
+      <td class="num">${r.claims}</td>
+      <td class="num responses-col">${stanceSpan(r.positive, r.mixed, r.negative)}</td>
+    </tr>`
+    )
+    .join("");
+
+  tfoot.innerHTML = `<tr class="agg-total-row">
+    <td class="name-col"><strong>Total</strong></td>
+    <td class="num"><strong>${rows.reduce((s, r) => s + r.projects, 0)}</strong></td>
+    <td class="num"><strong>${formatSummaryGW(tot.power_mw)}</strong></td>
+    <td class="num"><strong>${formatSummaryUsd(tot.capex)}</strong></td>
+    <td class="num"><strong>${tot.jobs.toLocaleString()}</strong></td>
+    <td class="num"><strong>${rows.reduce((s, r) => s + r.claims, 0)}</strong></td>
+    <td class="num responses-col">${stanceSpan(tot.positive, tot.mixed, tot.negative)}</td>
+  </tr>`;
+}
+
+function renderStateRollup() {
+  const tbody = document.getElementById("agg-state-tbody");
+  const tfoot = document.getElementById("agg-state-tfoot");
+  if (!tbody || !tfoot) return;
+
+  const rows = buildStateRollups();
+  const tot = aggTotals(rows);
+
+  tbody.innerHTML = rows
+    .map(
+      (r) => `<tr>
+      <td class="name-col">${escapeHtml(r.state)}</td>
+      <td class="num">${r.companies}</td>
+      <td class="num">
+        ${r.projects}
+        <span class="agg-status-pills">
+          ${r.announced ? `<span class="agg-pill announced">${r.announced}A</span>` : ""}
+          ${r.construction ? `<span class="agg-pill construction">${r.construction}C</span>` : ""}
+          ${r.operational ? `<span class="agg-pill operational">${r.operational}O</span>` : ""}
+        </span>
+      </td>
+      <td class="num">${r.power_mw ? formatSummaryGW(r.power_mw) : "—"}</td>
+      <td class="num">${r.capex ? formatSummaryUsd(r.capex) : "—"}</td>
+      <td class="num">${fmtJobs(r.jobs)}</td>
+      <td class="num responses-col">${stanceSpan(r.positive, r.mixed, r.negative)}</td>
+    </tr>`
+    )
+    .join("");
+
+  tfoot.innerHTML = `<tr class="agg-total-row">
+    <td class="name-col"><strong>Total</strong></td>
+    <td class="num"><strong>${new Set(state.projects.map((p) => p.company_slug)).size}</strong></td>
+    <td class="num"><strong>${rows.reduce((s, r) => s + r.projects, 0)}</strong></td>
+    <td class="num"><strong>${formatSummaryGW(tot.power_mw)}</strong></td>
+    <td class="num"><strong>${formatSummaryUsd(tot.capex)}</strong></td>
+    <td class="num"><strong>${tot.jobs.toLocaleString()}</strong></td>
+    <td class="num responses-col">${stanceSpan(tot.positive, tot.mixed, tot.negative)}</td>
+  </tr>`;
 }
 
 // --------------------------------------------------------------------------

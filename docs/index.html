@@ -69,6 +69,16 @@
         >
           Ratepayer Protection Pledge
         </button>
+        <button
+          id="tab-aggregate"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-aggregate"
+        >
+          Aggregate
+        </button>
       </div>
     </header>
 
@@ -475,6 +485,68 @@
           site-specific commitment is not a failing grade — it means the company
           hasn't published one for that site yet. Sources are linked on every card.
         </p>
+      </section>
+
+      <!-- ====================== AGGREGATE VIEW ====================== -->
+      <section
+        id="view-aggregate"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-aggregate"
+        hidden
+      >
+        <div class="hero">
+          <h2 class="hero-title">Aggregate Totals</h2>
+          <p class="hero-dek">
+            Claimed figures rolled up by company and by state. All numbers are
+            company-disclosed — independently verified delivery is sparse.
+            Null values are omitted from totals.
+          </p>
+        </div>
+
+        <ul id="agg-stats" class="rp-stats" aria-label="Aggregate statistics"></ul>
+
+        <section class="agg-section">
+          <h3 class="agg-section-heading">By company</h3>
+          <div class="table-scroll">
+            <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
+              <thead>
+                <tr>
+                  <th scope="col">Company</th>
+                  <th scope="col" class="num">Projects</th>
+                  <th scope="col" class="num">Power</th>
+                  <th scope="col" class="num">Investment</th>
+                  <th scope="col" class="num">Jobs</th>
+                  <th scope="col" class="num">Claims</th>
+                  <th scope="col" class="num responses-col" title="Community responses by stance">Responses</th>
+                </tr>
+              </thead>
+              <tbody id="agg-company-tbody"></tbody>
+              <tfoot id="agg-company-tfoot"></tfoot>
+            </table>
+          </div>
+        </section>
+
+        <section class="agg-section">
+          <h3 class="agg-section-heading">By state</h3>
+          <div class="table-scroll">
+            <table class="agg-table" id="agg-state-table" aria-label="State rollup">
+              <thead>
+                <tr>
+                  <th scope="col">State</th>
+                  <th scope="col" class="num">Companies</th>
+                  <th scope="col" class="num">Projects</th>
+                  <th scope="col" class="num">Power</th>
+                  <th scope="col" class="num">Investment</th>
+                  <th scope="col" class="num">Jobs</th>
+                  <th scope="col" class="num responses-col" title="Community responses by stance">Responses</th>
+                </tr>
+              </thead>
+              <tbody id="agg-state-tbody"></tbody>
+              <tfoot id="agg-state-tfoot"></tfoot>
+            </table>
+          </div>
+        </section>
       </section>
     </main>
 

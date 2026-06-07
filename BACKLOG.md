@@ -20,16 +20,12 @@ annotation or update to the closest alternative oracle.com page.
 *Priority: medium — claims are still supported by 3rd-party mirrors.*
 
 
-### Aggregate / rollup views (next big front-end move)
-Every existing view is record-level. The dataset can answer "how much is
-collectively committed to Louisiana?" but only by reading 5 project cards.
-Add a State-rollup card AND a Company-rollup card with: total claimed
-capex, total claimed jobs, total GW, count of projects by status, count
-of responses by stance. Surface as a third tab ("Aggregate") OR as
-collapsible header chips on the existing Comparison/Explorer views. The
-right home is probably a new tab — keeps the existing views' editorial
-focus intact. *Estimated half day of front-end work; the data is all in
-the seed payloads already.*
+### ~~Aggregate / rollup views~~ **DONE** (Jun 2026)
+4th tab (`#aggregate`) ships: 4 stat tiles ($789B investment, 98K jobs,
+41.2 GW, 28 states) + company rollup table + state rollup table. Each
+row shows project count with A/C/O status pills, power, investment, jobs,
+claims, and stance-dot response breakdown. Deep-linkable at `#aggregate`.
+Lazy-loads project payload (no Leaflet).
 
 ### Time dimension / framework-evolution timeline
 Every `Claim` has `published_at`. Build a timeline view showing how each
