@@ -1,14 +1,15 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-06-01_
+_Last run: 2026-06-07_
 
 ## Project Info
 - **Stack:** Vanilla HTML/CSS/JS, static site — no build step
 - **Dev server:** `python3 -m http.server 8013 --directory docs` (via `.claude/launch.json` name `docs`)
 - **Entry point:** `docs/index.html`
-- **Key views:** Company Comparison (tab 1), Project Explorer (tab 2), Ratepayer Protection Pledge (tab 3)
+- **Key views:** Company Comparison (tab 1), Project Explorer (tab 2), Ratepayer Protection Pledge (tab 3), Aggregate (tab 4)
 - **Data:** `docs/data/` — companies.json, claims.json, projects.json, responses.json
+- **Embed widget:** `docs/embed.html?company=<slug>`
 
 ## Critical Flows (run every time)
 
@@ -20,38 +21,45 @@ _Last run: 2026-06-01_
 6. **Explorer — project detail:** Click any project card; confirm the detail panel opens with Overview/Claims/On the ground tabs, investment and jobs KV rows, and source link.
 7. **Explorer — new Google projects:** Filter to Google; confirm 20 projects including pine-island-mn, hermantown-mn, wilbarger-tx, armstrong-tx, haskell-tx.
 8. **Comparison matrix:** Switch to Company Comparison; scroll to matrix; confirm all 14 company rows render and checkmarks appear for populated cells.
-9. **Dark mode:** Toggle dark mode; confirm header, cards, badges, and quote blocks all remain readable.
-10. **Console clean:** After full walkthrough, check `preview_console_logs` — expect zero errors or warnings.
+9. **Matrix tooltip:** Hover a non-empty matrix cell — confirm tooltip appears with theme label, quote snippet, and hint text; move mouse away and confirm tooltip hides.
+10. **CBA badge:** Open microsoft-cheyenne-wy in Explorer → Claims tab; confirm at least one "Formal agreement" badge renders.
+11. **Aggregate tab:** Click tab 4; confirm stat tiles (4), company table (≥8 rows), state table, and sort arrows work on Investment header click.
+12. **Constituency breakdown:** Open Microsoft company pop-out; confirm constituency breakdown stacked-bar renders with at least 1 row after project data loads.
+13. **Embed widget:** Navigate to `/embed.html?company=meta`; confirm company name, theme grid, claim count render. Test `/embed.html?company=fakecompany` shows "Unknown" error. Test `/embed.html` (no param) shows "No company" hint.
+14. **Dark mode:** Toggle dark mode; confirm header, cards, badges, and quote blocks all remain readable.
+15. **Console clean:** After full walkthrough, check `preview_console_logs` — expect zero errors or warnings.
 
 ## Sections & Last Tested
 
 | Section | Last Tested | Notes |
 |---|---|---|
-| Draft banner | 2026-06-01 | Shows stale v1.15 — UAT-001 open |
-| Stats bar | 2026-06-01 | Stable — 14 co / 85 proj / 296 claims / 206 responses |
-| Tab navigation | 2026-06-01 | Ratepayer tab wraps 3 lines on mobile — UAT-003 open |
-| Company Comparison matrix | 2026-06-01 | Works; no horizontal scroll indicator — UAT-005 open |
-| Company pop-out | 2026-06-01 | Not tested this run; test next pass |
-| Project Explorer — hot rail | 2026-06-01 | Stable |
-| Project Explorer — filter panel | 2026-06-01 | Sort-by truncated on mobile — UAT-002 open |
-| Project Explorer — map | 2026-06-01 | Stable; Amazon filter shows 13 dots |
-| Project Explorer — project list | 2026-06-01 | Stable; all 8 new projects confirmed present |
-| Project detail — Overview tab | 2026-06-01 | Stable; KV grid renders correctly |
-| Project detail — Claims tab | 2026-06-01 | Stable; evidence claims appear first |
-| Project detail — On the ground tab | 2026-06-01 | Tab label wraps to 2 lines on mobile — UAT-004 open |
-| Ratepayer tab — stat tiles | 2026-06-01 | Stable; "11 site-specific commitments" correct |
-| Ratepayer tab — pledge elements accordion | 2026-06-01 | Renders; not expanded this run |
-| Ratepayer tab — signatory roster | 2026-06-01 | Stable; all 7 signatories + 2 own-commitment entries |
-| Ratepayer tab — site scorecard | 2026-06-01 | Stable; affirmed + pledge_only badges render correctly |
-| Dark mode | 2026-06-01 | Stable; ratepayer badges correct in dark |
+| Stats bar | 2026-06-07 | Stable — counts match seed |
+| Tab navigation | 2026-06-07 | 4 tabs; mobile wrapping cosmetic |
+| Company Comparison matrix | 2026-06-07 | Works; checkmarks only (v1.2) |
+| Matrix tooltip | 2026-06-07 | v1.17 — renders on hover, hides on leave; getBoundingClientRect fix applied |
+| Company pop-out | 2026-06-07 | v1.17 — constituency breakdown renders after project data loads |
+| Project Explorer — hot rail | 2026-06-07 | Stable |
+| Project Explorer — filter panel | 2026-06-07 | Stable |
+| Project Explorer — map | 2026-06-07 | Stable |
+| Project Explorer — project list | 2026-06-07 | Stable |
+| Project detail — Overview tab | 2026-06-07 | Stable; KV grid renders correctly |
+| Project detail — Claims tab | 2026-06-07 | v1.17 — CBA badge renders on formal_agreement=true claims |
+| Project detail — On the ground tab | 2026-06-07 | Stable |
+| Ratepayer tab — stat tiles | 2026-06-07 | Stable; 3 tiles |
+| Ratepayer tab — pledge elements accordion | 2026-06-07 | Renders; collapsed by default |
+| Ratepayer tab — signatory roster | 2026-06-07 | Stable; all 7 signatories + own-commitment entries |
+| Ratepayer tab — site scorecard | 2026-06-07 | Stable; affirmed + pledge_only badges render |
+| Aggregate tab | 2026-06-07 | v1.17 — 4 stat tiles, company + state tables, sort indicators |
+| Embed widget | 2026-06-07 | v1.17 — loads company theme grid; CSP meta tag added; error states work |
+| Dark mode | 2026-06-07 | Stable |
 
 ## Known Stable Areas
 - Console: zero errors across full session
-- Data counts match seed (85 projects, 296 claims, 206 responses)
 - Ratepayer affirmed/pledge_only badge rendering (light + dark)
 - Evidence quote blockquote rendering in ratepayer scorecard
 - Project detail KV grid (investment, jobs, offtaker, source link)
 - Explorer company filter count accuracy
+- Aggregate rollup build (cached: built once per renderAggregateView call)
 
 ## Known Flaky / Unstable Areas
 - **Ratepayer tab label** (UAT-003): wraps to 3 lines at 375px — cosmetic, stable to reproduce
@@ -65,3 +73,6 @@ _Last run: 2026-06-01_
 - Matrix `overflow-x: auto` is on `.matrix-wrap`; the `<table>` itself has `overflow: visible`.
 - All 8 new v1.20 projects confirmed present and opening correctly in detail view.
 - No ratepayer block shown for pre-pledge projects (Wilmington OH — announced 2025 ✓).
+- Matrix tooltip uses `getBoundingClientRect()` post-show for correct clamping (v1.17 fix).
+- Aggregate sort click calls `renderAggregateView()` to ensure `_aggSort` state picked up correctly; rollup data is rebuilt (O(n), n≤100) on each sort.
+- Constituency breakdown lazy-loads via `loadProjectData()` if project data isn't already present; never visible with 0 rows.
