@@ -1112,3 +1112,222 @@ class TestMatrixCsv:
         download = dl_info.value
         assert download.suggested_filename.startswith("dcb-matrix-")
         assert download.suggested_filename.endswith(".csv")
+
+
+# ---------------------------------------------------------------------------
+# v1.17: Aggregate view
+# ---------------------------------------------------------------------------
+
+
+class TestAggregateView:
+    def _goto_aggregate(self, page: Page, base_url: str) -> None:
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", timeout=15_000)
+
+    def test_aggregate_tab_loads(self, page: Page, base_url: str):
+        self._goto_aggregate(page, base_url)
+        rows = page.locator("#agg-company-tbody tr")
+        assert rows.count() >= 8, f"Expected >=8 company rows, got {rows.count()}"
+
+    def test_aggregate_stat_tiles_render_four(self, page: Page, base_url: str):
+        self._goto_aggregate(page, base_url)
+        tiles = page.locator("#agg-stats .rp-stat")
+        assert tiles.count() == 4, f"Expected 4 stat tiles, got {tiles.count()}"
+
+    def test_aggregate_company_sort_header_click(self, page: Page, base_url: str):
+        self._goto_aggregate(page, base_url)
+        th = page.locator("[data-sort-key='capex'][data-sort-table='company']")
+        th.click()
+        page.wait_for_timeout(200)
+        ind = th.locator(".sort-ind")
+        text = ind.text_content() or ""
+        assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
+
+    def test_aggregate_state_sort_header_click(self, page: Page, base_url: str):
+        self._goto_aggregate(page, base_url)
+        th = page.locator("[data-sort-key='capex'][data-sort-table='state']")
+        th.click()
+        page.wait_for_timeout(200)
+        ind = th.locator(".sort-ind")
+        text = ind.text_content() or ""
+        assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
+
+    def test_aggregate_company_tfoot_has_total_row(self, page: Page, base_url: str):
+        self._goto_aggregate(page, base_url)
+        total_row = page.locator("#agg-company-tfoot .agg-total-row")
+        assert total_row.count() == 1, "Expected a total row in company tfoot"
+
+
+# ---------------------------------------------------------------------------
+# v1.17: Matrix tooltip
+# ---------------------------------------------------------------------------
+
+
+class TestMatrixTooltip:
+    def test_tooltip_hidden_on_load(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        assert page.locator("#matrix-tooltip").is_hidden(), \
+            "#matrix-tooltip should be hidden on initial load"
+
+    def test_tooltip_appears_on_cell_hover(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        # Hover over the first non-empty matrix cell.
+        cell = page.locator("#comparison-matrix td.cell:not(.empty)").first
+        cell.hover()
+        # Give the browser time to trigger mouseenter and layout the tooltip.
+        page.wait_for_function(
+            "!document.getElementById('matrix-tooltip').hidden",
+            timeout=5_000,
+        )
+        assert not page.locator("#matrix-tooltip").is_hidden(), \
+            "#matrix-tooltip should be visible after hovering a non-empty cell"
+
+    def test_tooltip_hides_on_leave(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        cell = page.locator("#comparison-matrix td.cell:not(.empty)").first
+        cell.hover()
+        page.wait_for_function(
+            "!document.getElementById('matrix-tooltip').hidden",
+            timeout=5_000,
+        )
+        # Move the mouse to a point far outside the matrix (top-left corner),
+        # which reliably triggers mouseleave on the cell.
+        page.mouse.move(5, 5)
+        page.wait_for_function(
+            "document.getElementById('matrix-tooltip').hidden",
+            timeout=5_000,
+        )
+        assert page.locator("#matrix-tooltip").is_hidden(), \
+            "#matrix-tooltip should be hidden after mouse leaves the cell"
+
+
+# ---------------------------------------------------------------------------
+# v1.17: Constituency breakdown in company pop-out
+# ---------------------------------------------------------------------------
+
+
+class TestConstituencyBreakdown:
+    def test_breakdown_hidden_before_project_data_loaded(
+        self, page: Page, base_url: str
+    ):
+        # The app lazy-loads project data when the company pop-out opens.
+        # The breakdown section starts hidden while data is in-flight, then
+        # reveals once the data arrives. We verify that the section element
+        # exists in the DOM (not erroring out) and is either hidden initially
+        # OR has properly rendered rows once the data arrives — never an
+        # inconsistent "visible but empty" state.
+        page.goto(base_url + "/")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        page.locator('#matrix-body tr[data-company="microsoft"] th.col-company').click()
+        expect(page.locator("#company-detail")).to_be_visible()
+        # The breakdown element must be present in the DOM.
+        breakdown = page.locator("#cd-responses-breakdown")
+        assert breakdown.count() == 1, "cd-responses-breakdown must be in the DOM"
+        # Give data a moment to load, then check: either hidden (no responses
+        # for this company) OR has cb-row children (responses rendered).
+        page.wait_for_timeout(500)
+        is_hidden = breakdown.is_hidden()
+        row_count = breakdown.locator(".cb-row").count()
+        # The section must never be visible with 0 rows — that's the invalid state.
+        if not is_hidden:
+            assert row_count >= 1, (
+                f"Breakdown is visible but has no rows — invalid state; "
+                f"hidden={is_hidden}, rows={row_count}"
+            )
+
+    def test_breakdown_renders_after_explorer_loaded(
+        self, page: Page, base_url: str
+    ):
+        # Navigate to Explorer first so project data (including responses) is fetched.
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        # Switch back to Comparison and open the Microsoft pop-out.
+        page.locator("#tab-comparison").click()
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        page.locator('#matrix-body tr[data-company="microsoft"] th.col-company').click()
+        expect(page.locator("#company-detail")).to_be_visible()
+        # Wait for the breakdown to appear (async data may already be ready).
+        breakdown = page.locator("#cd-responses-breakdown")
+        try:
+            breakdown.wait_for(state="visible", timeout=5_000)
+        except Exception:
+            pass  # If it doesn't become visible, the row-count check below will fail meaningfully
+        rows = breakdown.locator(".cb-row")
+        assert rows.count() >= 1, (
+            f"Expected at least 1 constituency row after project data is loaded, got {rows.count()}"
+        )
+
+
+# ---------------------------------------------------------------------------
+# v1.17: Formal agreement (CBA) badge on claim cards
+# ---------------------------------------------------------------------------
+
+
+class TestFormalAgreementBadge:
+    def _open_claims(self, page: Page, base_url: str, project_id: str) -> None:
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        page.evaluate(f"window.__dcb.selectProject('{project_id}')")
+        expect(page.locator("#project-detail")).to_be_visible()
+        page.locator("#dtab-claims").click()
+        page.wait_for_selector("#d-claims .claim-card", state="attached", timeout=10_000)
+
+    def test_cba_badge_present_in_project_claims(self, page: Page, base_url: str):
+        # microsoft-cheyenne-wy has microsoft-cheyenne-wy-infrastructure-offsite
+        # which has formal_agreement=true.
+        self._open_claims(page, base_url, "microsoft-cheyenne-wy")
+        # Badges may be inside hidden-parent pane — use wait_for_selector with attached.
+        page.wait_for_selector("#d-claims .claim-cba-badge", state="attached", timeout=5_000)
+        assert page.locator("#d-claims .claim-cba-badge").count() >= 1, \
+            "Expected at least one CBA badge in microsoft-cheyenne-wy claims"
+
+    def test_cba_badge_text_says_formal_agreement(self, page: Page, base_url: str):
+        self._open_claims(page, base_url, "microsoft-cheyenne-wy")
+        badge = page.locator("#d-claims .claim-cba-badge").first
+        text = (badge.text_content() or "").lower()
+        assert "formal" in text, f"CBA badge text should contain 'formal': {text!r}"
+
+    def test_project_tied_cba_claim_has_badge(self, page: Page, base_url: str):
+        # openai-port-washington-wi has openai-port-washington-wi-infra-175m-2026
+        # with formal_agreement=true — it IS project-tied so it appears in the Claims tab.
+        self._open_claims(page, base_url, "openai-port-washington-wi")
+        badges = page.locator("#d-claims .claim-cba-badge")
+        assert badges.count() >= 1, \
+            "Expected at least one CBA badge in openai-port-washington-wi claims"
+
+
+# ---------------------------------------------------------------------------
+# v1.17: Embed widget
+# ---------------------------------------------------------------------------
+
+
+class TestEmbedWidget:
+    def test_embed_loads_company(self, page: Page, base_url: str):
+        page.goto(base_url + "/embed.html?company=microsoft")
+        page.wait_for_selector(".theme-grid", timeout=10_000)
+        cells = page.locator(".theme-cell.has-claim")
+        assert cells.count() >= 4, \
+            f"Expected >=4 covered theme cells for Microsoft, got {cells.count()}"
+
+    def test_embed_shows_company_name(self, page: Page, base_url: str):
+        page.goto(base_url + "/embed.html?company=microsoft")
+        page.wait_for_selector(".embed-company", timeout=10_000)
+        text = (page.locator(".embed-company").text_content() or "").strip()
+        assert "Microsoft" in text, f"Embed should show company name: {text!r}"
+
+    def test_embed_unknown_company_shows_error(self, page: Page, base_url: str):
+        page.goto(base_url + "/embed.html?company=fakecompany")
+        page.wait_for_selector(".embed-error", timeout=10_000)
+        text = (page.locator(".embed-error").text_content() or "").lower()
+        assert "unknown" in text, f"Expected 'unknown' in error message: {text!r}"
+
+    def test_embed_no_company_param_shows_hint(self, page: Page, base_url: str):
+        page.goto(base_url + "/embed.html")
+        page.wait_for_selector(".embed-error", timeout=10_000)
+        text = (page.locator(".embed-error").text_content() or "").lower()
+        assert "no company" in text, f"Expected 'no company' hint: {text!r}"
