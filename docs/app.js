@@ -2210,9 +2210,12 @@ function formatLongDate(iso) {
 // --------------------------------------------------------------------------
 
 function renderAggregateView() {
-  renderAggregateStats();
-  renderCompanyRollup();
-  renderStateRollup();
+  // Build rollups once and pass to each renderer to avoid triple iteration.
+  const coRows = buildCompanyRollups();
+  const stRows = buildStateRollups();
+  renderAggregateStats(coRows, stRows);
+  renderCompanyRollup(coRows);
+  renderStateRollup(stRows);
   wireAggSort();
 }
 
@@ -2233,9 +2236,10 @@ function wireAggSort() {
         _aggSort[table].key = key;
         _aggSort[table].dir = key === "name" || key === "state" ? 1 : -1;
       }
-      if (table === "company") renderCompanyRollup();
-      else renderStateRollup();
-      updateAggSortIndicators();
+      // Re-render the whole view so _aggSort state is picked up correctly.
+      // renderAggregateView() is cheap (O(n) with n<=100) and keeps the
+      // sort indicators, stats, and both tables in sync.
+      renderAggregateView();
     });
   });
   updateAggSortIndicators();
@@ -2374,13 +2378,13 @@ function aggTotals(rows) {
   );
 }
 
-function renderAggregateStats() {
+function renderAggregateStats(preCoRows, preStRows) {
   const ul = document.getElementById("agg-stats");
   if (!ul) return;
   ul.innerHTML = "";
 
-  const coRows = buildCompanyRollups();
-  const stRows = buildStateRollups();
+  const coRows = preCoRows || buildCompanyRollups();
+  const stRows = preStRows || buildStateRollups();
   const tot = aggTotals(coRows);
 
   const tiles = [
@@ -2413,12 +2417,12 @@ function fmtJobs(n) {
   return n ? n.toLocaleString() : "—";
 }
 
-function renderCompanyRollup() {
+function renderCompanyRollup(preRows) {
   const tbody = document.getElementById("agg-company-tbody");
   const tfoot = document.getElementById("agg-company-tfoot");
   if (!tbody || !tfoot) return;
 
-  const rows = sortAggRows(buildCompanyRollups(), "company");
+  const rows = sortAggRows(preRows || buildCompanyRollups(), "company");
   const tot = aggTotals(rows);
 
   tbody.innerHTML = rows
@@ -2456,12 +2460,12 @@ function renderCompanyRollup() {
   </tr>`;
 }
 
-function renderStateRollup() {
+function renderStateRollup(preRows) {
   const tbody = document.getElementById("agg-state-tbody");
   const tfoot = document.getElementById("agg-state-tfoot");
   if (!tbody || !tfoot) return;
 
-  const rows = sortAggRows(buildStateRollups(), "state");
+  const rows = sortAggRows(preRows || buildStateRollups(), "state");
   const tot = aggTotals(rows);
 
   tbody.innerHTML = rows
