@@ -15,7 +15,7 @@
       "slug": "meta",
       "name": "Meta",
       "hq": "Menlo Park, CA",
-      "dedicated_page_url": "https://datacenters.atmeta.com/community/",
+      "dedicated_page_url": "https://datacenters.atmeta.com/",
       "summary": "Meta publishes per-site community-impact updates through datacenters.atmeta.com, anchored by the Data Center Community Action Grants program (funding for local nonprofits and schools) and per-site 'Hello, [city]!' launch posts. Each new campus announcement — Tulsa OK ($1B / 340 ac), Lebanon IN ($10B / 1 GW, Feb 2026), El Paso TX ($10B 2026 expansion / 1 GW with 200% water restoration), Beaver Dam WI, and Richland LA (Hyperion now 3,650 ac after May 9 Phase 2 land buy) — includes paired commitments around STEM education, infrastructure investment paid 100% by Meta, renewable-energy purchases, and water restoration. The April 2026 LevelUp Fiber Technician Pathway adds a national 4-week free training pipeline for data-center construction work. Long-term framing: data centers as 'long-term community partners' with annual reporting cadence per location.",
       "last_reviewed": "2026-05-16",
       "ratepayer_pledge_signatory": true
@@ -24,7 +24,7 @@
       "slug": "google",
       "name": "Google",
       "hq": "Mountain View, CA",
-      "dedicated_page_url": "https://datacenters.google/community/",
+      "dedicated_page_url": "https://datacenters.google/",
       "summary": "Google's data-center community framework lives at datacenters.google, with per-state location pages and detailed economic-impact reports. The state-level 'American Innovation' blog post template (used for the $9B Oklahoma April 2026 + $9B Virginia March 2026 announcements, plus per-state posts for South Carolina, Arkansas, Missouri, and West Virginia) is now Google's primary community-impact channel. Recent additions include Project Maize (Michigan City IN), Project Pegasus (LaGrange GA $8B), Project BOSC (Lima OH $500M with $63.6M infrastructure + $250K/yr Elida Schools), Scioto County OH ($1B), Stillwater OK ($3B), Linn County IA (Duane Arnold nuclear restart with $1M/building/yr community-betterment), Chesterfield VA (Project Peanut), and Putnam County WV. Per-site commitments include paying 100% of power + grid-upgrade costs and the STAR community-college workforce partnership. Portfolio-level commitments: 24/7 carbon-free energy by 2030 and 120% water replenishment by 2030.",
       "last_reviewed": "2026-05-16",
       "ratepayer_pledge_signatory": true
@@ -42,7 +42,7 @@
       "slug": "amazon",
       "name": "Amazon (AWS)",
       "hq": "Seattle, WA",
-      "dedicated_page_url": "https://aws.amazon.com/about-aws/global-infrastructure/economic-impact/",
+      "dedicated_page_url": "https://www.aboutamazon.com/impact/economy/growth",
       "summary": "AWS publishes per-state economic-impact studies (Virginia, Pennsylvania, Indiana, Ohio, Mississippi, Louisiana, North Carolina, Maryland-pending) detailing investment, jobs supported, tax revenue, and infrastructure. 2026 expansion announcements: $25B / 2,000+ jobs across Mississippi (Madison/Hinds/Warren counties, Canton 100% recycled-wastewater cooling by 2027); $12B / 540 direct jobs / $400M water infrastructure across Louisiana (Caddo and Bossier parishes); $10B / 800-ac campus in Richmond County NC (largest single capex in NC history); additional PA site at Falls Township (Bucks Co, NorthPoint Development). AWS signed the White House March 2026 Ratepayer Protection Pledge operationalizing 'pay our own way' across all sites. Community programs include Think Big Spaces (STEM in 116 schools across 12 countries) and Amazon Community Funds; AWS InCommunities is the umbrella for local engagement.",
       "last_reviewed": "2026-05-16",
       "ratepayer_pledge_signatory": true
