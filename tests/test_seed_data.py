@@ -15,6 +15,7 @@ import pytest
 
 from schema import (
     DELIVERED_STATUSES,
+    RATEPAYER_PLEDGE_DATE,
     THEMES,
     ClaimsPayload,
     CompaniesPayload,
@@ -304,7 +305,12 @@ class TestRatepayerPledge:
 
     def test_assessed_projects_announced_on_or_after_pledge(self, projects):
         # The cohort is "data centers announced since the pledge" — an
-        # assessment on a pre-2026 site would misrepresent the view.
+        # assessment on a pre-pledge site would misrepresent the view.
+        # Enforce the documented RATEPAYER_PLEDGE_DATE (2026-03-04) boundary:
+        # when an exact announced_date is known, it must be on/after the pledge;
+        # when only announced_year is known, fall back to year >= 2026 (the
+        # most precise check the data supports).
+        pledge = date.fromisoformat(RATEPAYER_PLEDGE_DATE)
         for p in projects.projects:
             if p.ratepayer is None:
                 continue
@@ -312,6 +318,13 @@ class TestRatepayerPledge:
                 f"Project {p.id!r} announced {p.announced_year} predates the "
                 "2026 pledge but carries a ratepayer assessment."
             )
+            if p.announced_date is not None:
+                assert p.announced_date >= pledge, (
+                    f"Project {p.id!r} announced {p.announced_date.isoformat()} "
+                    f"predates the Ratepayer Protection Pledge "
+                    f"({RATEPAYER_PLEDGE_DATE}) but carries a ratepayer "
+                    "assessment — pre-pledge sites are out of cohort."
+                )
 
     def test_affirmed_assessments_cite_a_real_owned_claim(self, projects, claims):
         by_id = {c.id: c for c in claims.claims}

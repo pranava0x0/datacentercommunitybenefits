@@ -37,16 +37,33 @@ after community opposition. *Modest front-end work; reuses existing data
 without new fields.*
 
 ### Outstanding site leads — geographic detail needed
-Six site leads remain unresolved as of v1.12:
-- **Nebius PA campus** (Q1 2026 earnings disclosed 1.2 GW; city TBD)
-- **AWS Northern IN +2.4 GW expansion** beyond New Carlisle
-- **Microsoft Caledonia WI** (third Racine County site; Oct 2025 rezoning
-  withdrawn — confirm Microsoft advances or abandons)
-- **AWS Calvert County MD** (Calvert Cliffs nuclear-adjacent; formal
-  proposal status)
-- **Stargate "Midwest" 5th site** (one of Sept 2025 expansion's five)
-- **Crusoe additional 1+ GW campus** referenced in Project Jade coverage
-A targeted polling pass in 2-4 weeks should resolve most.
+Polling pass 2026-06-08 resolved four of six leads:
+- **Nebius PA campus** (Q1 2026 earnings disclosed 1.2 GW; city TBD) — still
+  open; would also require adding a new `nebius` company slug across
+  schema/app.js/tests before a project record can land.
+- ~~**AWS Northern IN +2.4 GW expansion** beyond New Carlisle~~ — **RESOLVED
+  (no addable site).** The $15B/2.4 GW announcement names only "new sites
+  across Indiana," no specific city/county. Existing `amazon-wheatfield-in`
+  (near the NIPSCO Schahfer plant) likely already covers part of it. Strong
+  first-party content available if we want a *company-level* AWS claim: David
+  Zapolsky on "job creation, skills training… community engagement," and a
+  NIPSCO-disclosed ~$1B/15yr ratepayer cost-saving — but no new project record
+  until a campus is geographically named.
+- ~~**Microsoft Caledonia WI**~~ — **RESOLVED: ABANDONED.** Microsoft pulled the
+  244-acre Caledonia site in Oct 2025 after a 2,000-signature petition; not a
+  project to add. (Mt. Pleasant / former Foxconn site is already in the seed.)
+- ~~**AWS Calvert County MD**~~ — **RESOLVED: ADDED** as `aws-calvert-cliffs-md`
+  (v1.18, 2026-06-08). Calvert Technology Center, Lusby MD, ~2,050 ac adjacent
+  to Constellation's Calvert Cliffs nuclear plant; concept site plan filed May
+  2026. Added with two verbatim AWS claims (water + energy) and a `pledge_only`
+  ratepayer block.
+- ~~**Stargate "Midwest" 5th site**~~ — **RESOLVED: already in seed.** Revealed
+  Oct 2025 as Saline Township, MI — present as `openai-saline-twp-mi`. ⚠️ Note:
+  `openai-saline-mi` appears to be a **duplicate** of the same site (same
+  township, lat/lon within ~0.01°) — dedupe candidate.
+- **Crusoe additional 1+ GW campus** — still open. "Project Jade" is already in
+  the seed as `crusoe-cheyenne-wy`; no distinct additional Crusoe campus
+  surfaced in this pass beyond Abilene/Sweetwater/Springfield/Jade (all present).
 
 ### Pattern synthesis report ("lessons-learned overlay")
 Across the 194 community responses we have ~10 recurring themes:

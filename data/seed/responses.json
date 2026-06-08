@@ -773,7 +773,7 @@
     },
     {
       "id": "resp-openai-saline-board-rejection",
-      "project_id": "openai-saline-twp-mi",
+      "project_id": "openai-saline-mi",
       "date": "2025-09-10",
       "stance": "negative",
       "constituency": "local_government",
@@ -784,7 +784,7 @@
     },
     {
       "id": "resp-openai-saline-lawsuit-settlement",
-      "project_id": "openai-saline-twp-mi",
+      "project_id": "openai-saline-mi",
       "date": "2025-09-12",
       "stance": "mixed",
       "constituency": "local_government",
@@ -795,7 +795,7 @@
     },
     {
       "id": "resp-openai-saline-michigan-towns-ban",
-      "project_id": "openai-saline-twp-mi",
+      "project_id": "openai-saline-mi",
       "date": "2026-05-06",
       "stance": "negative",
       "constituency": "residents",

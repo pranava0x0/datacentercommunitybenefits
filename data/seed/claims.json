@@ -7,7 +7,7 @@
       "theme": "energy",
       "statement": "Meta's global operations have been supported by 100% renewable energy since 2020, including all of our data centers.",
       "source_url": "https://sustainability.atmeta.com/",
-      "source_title": "Meta Sustainability \u2014 Renewable energy",
+      "source_title": "Meta Sustainability — Renewable energy",
       "captured_at": "2026-05-14"
     },
     {
@@ -16,13 +16,13 @@
       "theme": "water",
       "statement": "We are committed to restoring more water than we consume by 2030, focusing our efforts in regions of high and medium water stress.",
       "source_url": "https://sustainability.atmeta.com/water/",
-      "source_title": "Meta Sustainability \u2014 Water",
+      "source_title": "Meta Sustainability — Water",
       "captured_at": "2026-05-14",
       "delivered": {
         "status": "partial",
         "summary": "Meta reports 60+ active water-restoration projects across 12 watersheds, projected to restore ~6B gallons/year at full implementation (1.6B gallons in 2024). On track but not yet at the stated 'restoring more than we consume' threshold; pace will need to accelerate as AI campuses (El Paso, Lebanon, Tulsa, Beaver Dam) come online.",
         "source_url": "https://datacenters.atmeta.com/2026/04/restoring-water-in-our-data-center-communities/",
-        "source_title": "Meta Data Centers \u2014 Restoring Water in Our Data Center Communities (Apr 2026)",
+        "source_title": "Meta Data Centers — Restoring Water in Our Data Center Communities (Apr 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -32,7 +32,7 @@
       "theme": "community_grants",
       "statement": "Through our Community Action Grants program, we provide funding to local nonprofits and schools in our data center communities to support science, technology, engineering and math (STEM) education and community priorities.",
       "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers \u2014 Community",
+      "source_title": "Meta Data Centers — Community",
       "captured_at": "2026-05-14"
     },
     {
@@ -41,16 +41,16 @@
       "theme": "education",
       "statement": "Meta has awarded millions in STEM education grants to schools and nonprofits in our data center host communities.",
       "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers \u2014 Community",
+      "source_title": "Meta Data Centers — Community",
       "captured_at": "2026-05-14"
     },
     {
       "id": "meta-engagement-dialogue",
       "company_slug": "meta",
       "theme": "engagement",
-      "statement": "We engage early with local stakeholders \u2014 elected officials, residents, and utility providers \u2014 to identify shared priorities and develop our data centers as long-term community partners.",
+      "statement": "We engage early with local stakeholders — elected officials, residents, and utility providers — to identify shared priorities and develop our data centers as long-term community partners.",
       "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers \u2014 Community engagement",
+      "source_title": "Meta Data Centers — Community engagement",
       "captured_at": "2026-05-14"
     },
     {
@@ -59,7 +59,7 @@
       "theme": "energy",
       "statement": "Our goal is to operate on 24/7 carbon-free energy on every grid where we operate by 2030.",
       "source_url": "https://sustainability.google/operating-sustainably/",
-      "source_title": "Google Sustainability \u2014 24/7 carbon-free energy",
+      "source_title": "Google Sustainability — 24/7 carbon-free energy",
       "captured_at": "2026-05-14"
     },
     {
@@ -68,13 +68,13 @@
       "theme": "water",
       "statement": "By 2030, we aim to replenish 120% of the freshwater we consume across our offices and data centers.",
       "source_url": "https://sustainability.google/commitments/water/",
-      "source_title": "Google Sustainability \u2014 Water stewardship",
+      "source_title": "Google Sustainability — Water stewardship",
       "captured_at": "2026-05-14",
       "delivered": {
         "status": "partial",
         "summary": "Google continues to expand water-replenishment partnerships (Chattahoochee Trust for Public Land at LaGrange; regenerative-agriculture program in Oklahoma); however reported emissions grew 48% year-over-year as AI demand scaled, casting doubt on whether the 120% 2030 target's underlying intensity assumptions hold.",
         "source_url": "https://www.wric.com/news/local-news/chesterfield-county/google-advancing-project-peanut/",
-        "source_title": "WRIC 8News \u2014 Google's 48% YoY emissions increase referenced in Chesterfield coverage",
+        "source_title": "WRIC 8News — Google's 48% YoY emissions increase referenced in Chesterfield coverage",
         "assessed_at": "2026-05-17"
       }
     },
@@ -84,7 +84,7 @@
       "theme": "tax_revenue",
       "statement": "Google publishes annual economic impact reports for each of our U.S. data center communities, detailing investment, jobs supported, and local tax contributions.",
       "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers \u2014 Community impact",
+      "source_title": "Google Data Centers — Community impact",
       "captured_at": "2026-05-14"
     },
     {
@@ -93,7 +93,7 @@
       "theme": "community_grants",
       "statement": "Through our Data Center Grants program, Google.org has awarded grants to local nonprofits in our data center communities, focused on STEM education, workforce development, and digital inclusion.",
       "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers \u2014 Grants",
+      "source_title": "Google Data Centers — Grants",
       "captured_at": "2026-05-14"
     },
     {
@@ -102,7 +102,7 @@
       "theme": "education",
       "statement": "We invest in STEM education programs, including Code Next labs and partnerships with local community colleges to build pipelines into data center operations roles.",
       "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers \u2014 Education",
+      "source_title": "Google Data Centers — Education",
       "captured_at": "2026-05-14"
     },
     {
@@ -119,15 +119,15 @@
       "id": "ms-water-positive-2030",
       "company_slug": "microsoft",
       "theme": "water",
-      "statement": "By 2030, Microsoft will be water positive \u2014 replenishing more water than we consume across our global operations.",
+      "statement": "By 2030, Microsoft will be water positive — replenishing more water than we consume across our global operations.",
       "source_url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
-      "source_title": "Microsoft Sustainability \u2014 Water positive by 2030",
+      "source_title": "Microsoft Sustainability — Water positive by 2030",
       "captured_at": "2026-05-14",
       "delivered": {
         "status": "partial",
         "summary": "Microsoft reports continued investment in water-replenishment projects, but Bloomberg reported May 6 2026 that the hourly-matched 2030 clean-power target is under internal review as AI growth strains 100/100/0 commitments; water-positive 2030 target remains official but contested internally.",
         "source_url": "https://www.bloomberg.com/news/articles/2026-05-06/microsoft-clean-power-target-on-chopping-block-over-data-center-boom",
-        "source_title": "Bloomberg \u2014 Microsoft clean-power target on chopping block over data-center boom (May 6 2026)",
+        "source_title": "Bloomberg — Microsoft clean-power target on chopping block over data-center boom (May 6 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -146,7 +146,7 @@
       "theme": "education",
       "statement": "We will partner with local educational institutions and nonprofits to build skills training programs aligned with the AI economy in the communities that host our datacenters.",
       "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
-      "source_title": "Microsoft Datacenter Community Pledge \u2014 Skills",
+      "source_title": "Microsoft Datacenter Community Pledge — Skills",
       "captured_at": "2026-05-14"
     },
     {
@@ -169,7 +169,7 @@
       "theme": "energy",
       "statement": "Amazon matched 100% of the electricity consumed by our global operations with renewable energy in 2023, seven years ahead of our original 2030 target.",
       "source_url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
-      "source_title": "Amazon Sustainability \u2014 Renewable energy",
+      "source_title": "Amazon Sustainability — Renewable energy",
       "captured_at": "2026-05-14"
     },
     {
@@ -224,7 +224,7 @@
       "theme": "infrastructure",
       "statement": "The Stargate Project is a new company which intends to invest $500 billion over the next four years building new AI infrastructure for OpenAI in the United States.",
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
+      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 500000000000,
@@ -238,7 +238,7 @@
       "theme": "jobs",
       "statement": "This project will not only support the re-industrialization of the United States but also provide a strategic capability to protect the national security of America and its allies. It will create hundreds of thousands of American jobs.",
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
+      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
       "captured_at": "2026-05-14"
     },
     {
@@ -247,7 +247,7 @@
       "theme": "infrastructure",
       "statement": "Anthropic and AWS are jointly building Project Rainier, a massive compute cluster of EC2 UltraServers powered by hundreds of thousands of Trainium2 chips, to train and serve frontier AI models.",
       "source_url": "https://www.anthropic.com/news/expanding-our-strategic-partnership-with-aws",
-      "source_title": "Anthropic \u2014 Expanding our strategic partnership with AWS (Nov 2024)",
+      "source_title": "Anthropic — Expanding our strategic partnership with AWS (Nov 2024)",
       "captured_at": "2026-05-14"
     },
     {
@@ -256,7 +256,7 @@
       "theme": "infrastructure",
       "statement": "Colossus is the largest AI supercomputer in the world. The xAI team brought it online in just 122 days from the time the first rack was installed.",
       "source_url": "https://x.ai/colossus",
-      "source_title": "xAI \u2014 Colossus",
+      "source_title": "xAI — Colossus",
       "captured_at": "2026-05-14"
     },
     {
@@ -265,7 +265,7 @@
       "theme": "infrastructure",
       "statement": "Oracle is one of the initial equity funders and key technology partners of The Stargate Project, alongside SoftBank, OpenAI, and MGX.",
       "source_url": "https://openai.com/index/announcing-the-stargate-project/",
-      "source_title": "OpenAI \u2014 Announcing the Stargate Project (Jan 2025)",
+      "source_title": "OpenAI — Announcing the Stargate Project (Jan 2025)",
       "captured_at": "2026-05-14"
     },
     {
@@ -402,7 +402,7 @@
       "id": "meta-richland-la-community-grants-municipalities",
       "company_slug": "meta",
       "theme": "community_grants",
-      "statement": "we're also committing $300,000 to support projects in Richland Parish's three municipalities \u2014 Rayville, Delhi, and Mangham.",
+      "statement": "we're also committing $300,000 to support projects in Richland Parish's three municipalities — Rayville, Delhi, and Mangham.",
       "source_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
       "source_title": "One Year In: Meta's Richland Parish Data Center Supports Louisiana Economy With $875M In Contracts",
       "captured_at": "2026-05-14",
@@ -449,7 +449,7 @@
       "theme": "infrastructure",
       "statement": "Since building our data center, we've continued to invest in The Dalles. Our total investment in the state is more than $2.4 billion",
       "source_url": "https://datacenters.google/locations/oregon/",
-      "source_title": "The Dalles, Oregon \u2013 Google Data Center Location",
+      "source_title": "The Dalles, Oregon – Google Data Center Location",
       "captured_at": "2026-05-14",
       "project_id": "google-the-dalles-or",
       "metric": {
@@ -464,7 +464,7 @@
       "theme": "community_grants",
       "statement": "Since 2004, Google and Googlers have given more than $31 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Oregon",
       "source_url": "https://datacenters.google/locations/oregon/",
-      "source_title": "The Dalles, Oregon \u2013 Google Data Center Location",
+      "source_title": "The Dalles, Oregon – Google Data Center Location",
       "captured_at": "2026-05-14",
       "project_id": "google-the-dalles-or",
       "metric": {
@@ -479,7 +479,7 @@
       "theme": "education",
       "statement": "Grow with Google has collaborated with over 120 organizations in Oregon to train more than 111,000 Oregonians on digital skills",
       "source_url": "https://datacenters.google/locations/oregon/",
-      "source_title": "The Dalles, Oregon \u2013 Google Data Center Location",
+      "source_title": "The Dalles, Oregon – Google Data Center Location",
       "captured_at": "2026-05-14",
       "project_id": "google-the-dalles-or"
     },
@@ -489,7 +489,7 @@
       "theme": "infrastructure",
       "statement": "Google has invested more than $6.8 billion in Iowa since building our data center in Council Bluffs in 2007.",
       "source_url": "https://datacenters.google/locations/iowa/",
-      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "source_title": "Council Bluffs, Iowa – Google Data Center Location",
       "captured_at": "2026-05-14",
       "project_id": "google-council-bluffs-ia",
       "metric": {
@@ -504,7 +504,7 @@
       "theme": "engagement",
       "statement": "In 2024, Google helped provide $2.1 billion of economic activity for thousands of Iowa businesses, nonprofits, publishers, creators, and developers.",
       "source_url": "https://datacenters.google/locations/iowa/",
-      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "source_title": "Council Bluffs, Iowa – Google Data Center Location",
       "captured_at": "2026-05-14",
       "project_id": "google-council-bluffs-ia",
       "metric": {
@@ -519,7 +519,7 @@
       "theme": "water",
       "statement": "Google collaborated with the Great Outdoors Foundation and the Iowa Department of Agriculture and Land Stewardship to contribute $1.3 million to support a 47-site grade stabilization project.",
       "source_url": "https://datacenters.google/locations/iowa/",
-      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "source_title": "Council Bluffs, Iowa – Google Data Center Location",
       "captured_at": "2026-05-14",
       "project_id": "google-council-bluffs-ia",
       "metric": {
@@ -534,7 +534,7 @@
       "theme": "education",
       "statement": "We've collaborated with over 130 organizations in Iowa to train more than 101,000 Iowans on digital skills.",
       "source_url": "https://datacenters.google/locations/iowa/",
-      "source_title": "Council Bluffs, Iowa \u2013 Google Data Center Location",
+      "source_title": "Council Bluffs, Iowa – Google Data Center Location",
       "captured_at": "2026-05-14",
       "project_id": "google-council-bluffs-ia"
     },
@@ -914,7 +914,7 @@
       "theme": "jobs",
       "statement": "xAI will bring up to 500 quality, high-paying jobs to Memphis in its initial phase, with plans to grow more.",
       "source_url": "https://memphischamber.com/economic-development/xai/",
-      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "source_title": "xAI — Greater Memphis Chamber",
       "captured_at": "2026-05-14",
       "project_id": "xai-memphis-tn",
       "metric": {
@@ -929,7 +929,7 @@
       "theme": "tax_revenue",
       "statement": "xAI has already paid tens of millions of dollars in local tax revenue, and based on current expansion plans, that number is likely to exceed $100 million.",
       "source_url": "https://memphischamber.com/economic-development/xai/",
-      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "source_title": "xAI — Greater Memphis Chamber",
       "captured_at": "2026-05-14",
       "project_id": "xai-memphis-tn",
       "metric": {
@@ -941,7 +941,7 @@
         "status": "partial",
         "summary": "xAI's local tax contribution to date is real but the projected '$100M+' figure has not been independently verified; Greater Memphis Chamber framing is forward-looking. Anthropic's May 6 2026 rental of 100% of Colossus 1 (~300 MW / 220K+ GPUs) may shift the tax-revenue trajectory but no updated public commitment has been published.",
         "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musks-spacex-has-rented-out-access-to-its-supercomputers-220-000-nvidia-gpus-and-300-megawatts-of-ai-compute-power-to-rival-anthropic",
-        "source_title": "Tom's Hardware \u2014 Anthropic rents 100% of Colossus 1 compute (May 6 2026)",
+        "source_title": "Tom's Hardware — Anthropic rents 100% of Colossus 1 compute (May 6 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -951,7 +951,7 @@
       "theme": "water",
       "statement": "xAI will commit to build a $80 million wastewater recycling facility ... ensure that up to 4.7 billion gallons of water remain in the aquifer yearly.",
       "source_url": "https://memphischamber.com/economic-development/xai/",
-      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "source_title": "xAI — Greater Memphis Chamber",
       "captured_at": "2026-05-14",
       "project_id": "xai-memphis-tn",
       "metric": {
@@ -963,7 +963,7 @@
         "status": "contested",
         "summary": "xAI publicly paused construction of the $80M water-recycling plant in April 2026 to prioritize finishing Colossus 2; both xAI and Elon Musk later publicly recommitted to the project but no construction restart has been confirmed as of May 2026. Memphis Mayor Paul Young continues to press for completion.",
         "source_url": "https://www.actionnews5.com/2026/04/09/xai-pauses-plans-build-water-recycling-plant-memphis/",
-        "source_title": "Action News 5 \u2014 xAI pauses then recommits to Memphis water-recycling plant (Apr 9 2026)",
+        "source_title": "Action News 5 — xAI pauses then recommits to Memphis water-recycling plant (Apr 9 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -973,7 +973,7 @@
       "theme": "infrastructure",
       "statement": "xAI has spent $35 million to construct a substation to support MLGW and is committing an additional $20 million to build another substation.",
       "source_url": "https://memphischamber.com/economic-development/xai/",
-      "source_title": "xAI \u2014 Greater Memphis Chamber",
+      "source_title": "xAI — Greater Memphis Chamber",
       "captured_at": "2026-05-14",
       "project_id": "xai-memphis-tn",
       "metric": {
@@ -988,7 +988,7 @@
       "theme": "infrastructure",
       "statement": "We have under development approximately 26,000 acres across two jurisdictions with the infrastructure necessary to support power generation and compute capacity at scale.",
       "source_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
-      "source_title": "O'Leary Digital \u2014 7.5 GW Wonder Valley joint-venture announcement",
+      "source_title": "O'Leary Digital — 7.5 GW Wonder Valley joint-venture announcement",
       "captured_at": "2026-05-14",
       "project_id": "wonder-valley-box-elder-ut"
     },
@@ -998,7 +998,7 @@
       "theme": "engagement",
       "statement": "It's just going to take some time for the residents of Box Elder to see that we are a good partner.",
       "source_url": "https://utahnewsdispatch.com/2026/05/04/box-elder-commissioners-approve-data-center/",
-      "source_title": "Box Elder commissioners approve data center \u2014 Utah News Dispatch",
+      "source_title": "Box Elder commissioners approve data center — Utah News Dispatch",
       "captured_at": "2026-05-14",
       "project_id": "wonder-valley-box-elder-ut"
     },
@@ -1008,7 +1008,7 @@
       "theme": "infrastructure",
       "statement": "Wonder Valley Utah benefits from access to major interstate natural gas infrastructure and proximity to aerospace, defense, and advanced manufacturing ecosystems.",
       "source_url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
-      "source_title": "O'Leary Digital \u2014 7.5 GW Wonder Valley joint-venture announcement",
+      "source_title": "O'Leary Digital — 7.5 GW Wonder Valley joint-venture announcement",
       "captured_at": "2026-05-14",
       "project_id": "wonder-valley-box-elder-ut"
     },
@@ -1016,9 +1016,9 @@
       "id": "meta-jobs-construction-cumulative",
       "company_slug": "meta",
       "theme": "jobs",
-      "statement": "Since 2011, Meta data center projects have supported more than 45,000 skilled trade jobs during construction \u2014 with 15,000+ currently on a data center site",
+      "statement": "Since 2011, Meta data center projects have supported more than 45,000 skilled trade jobs during construction — with 15,000+ currently on a data center site",
       "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
-      "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway \u2014 Meta Data Centers",
+      "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway — Meta Data Centers",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 45000.0,
@@ -1032,7 +1032,7 @@
       "theme": "jobs",
       "statement": "created more than 6,000 permanent operational roles",
       "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
-      "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway \u2014 Meta Data Centers",
+      "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway — Meta Data Centers",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 6000.0,
@@ -1046,7 +1046,7 @@
       "theme": "infrastructure",
       "statement": "expanding our investment to more than $300 million to help improve local infrastructure, including roads, water and wastewater systems.",
       "source_url": "https://datacenters.atmeta.com/investing-in-communities/",
-      "source_title": "Investing in Communities \u2014 Meta Data Centers",
+      "source_title": "Investing in Communities — Meta Data Centers",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 300000000.0,
@@ -1060,7 +1060,7 @@
       "theme": "infrastructure",
       "statement": "Meta announced an up to $6 billion multiyear partnership with Corning that will supply fiber-optic cables for our data center infrastructure",
       "source_url": "https://datacenters.atmeta.com/growing-local-economies/",
-      "source_title": "Growing Local Economies \u2014 Meta Data Centers",
+      "source_title": "Growing Local Economies — Meta Data Centers",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 6000000000.0,
@@ -1074,7 +1074,7 @@
       "theme": "jobs",
       "statement": "13,100 jobs (full-time employees) per year on average based on our past and future investments",
       "source_url": "https://datacenters.google/accelerating-economies",
-      "source_title": "Accelerating Economies \u2014 Google Data Centers",
+      "source_title": "Accelerating Economies — Google Data Centers",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 13100.0,
@@ -1088,7 +1088,7 @@
       "theme": "engagement",
       "statement": "$59 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Virginia",
       "source_url": "https://datacenters.google/locations/virginia",
-      "source_title": "Virginia \u2014 Google Data Centers",
+      "source_title": "Virginia — Google Data Centers",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 59000000.0,
@@ -1102,7 +1102,7 @@
       "theme": "jobs",
       "statement": "Microsoft's datacentre builds in Canada employ approximately 2,000 individuals across sites during construction.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
-      "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
+      "source_title": "Building AI infrastructure the Community-First way in Canada — Microsoft On the Issues",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 2000.0,
@@ -1116,7 +1116,7 @@
       "theme": "jobs",
       "statement": "datacentre construction is delivered through unionized skilled trades labour, supporting high quality jobs, strong safety standards, and apprenticeship pathways.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
-      "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
+      "source_title": "Building AI infrastructure the Community-First way in Canada — Microsoft On the Issues",
       "captured_at": "2026-05-14"
     },
     {
@@ -1125,7 +1125,7 @@
       "theme": "tax_revenue",
       "statement": "In 2025, Microsoft datacenters contributed over $11M to the Laramie County tax base.",
       "source_url": "https://news.microsoft.com/source/2026/04/14/microsoft-announces-intent-to-expand-datacenter-operations-in-cheyenne-accelerating-innovation-and-economic-growth/",
-      "source_title": "Microsoft announces intent to expand datacenter operations in Cheyenne \u2014 Microsoft Source",
+      "source_title": "Microsoft announces intent to expand datacenter operations in Cheyenne — Microsoft Source",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 11000000.0,
@@ -1139,7 +1139,7 @@
       "theme": "infrastructure",
       "statement": "Microsoft has committed over $68M in completed and future off-site infrastructure improvements across Cheyenne.",
       "source_url": "https://news.microsoft.com/source/2026/04/14/microsoft-announces-intent-to-expand-datacenter-operations-in-cheyenne-accelerating-innovation-and-economic-growth/",
-      "source_title": "Microsoft announces intent to expand datacenter operations in Cheyenne \u2014 Microsoft Source",
+      "source_title": "Microsoft announces intent to expand datacenter operations in Cheyenne — Microsoft Source",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 68000000.0,
@@ -1153,7 +1153,7 @@
       "theme": "infrastructure",
       "statement": "Pay the full cost of the electricity we use, including the cost of new generation, transmission, and grid upgrades",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/04/07/building-ai-infrastructure-the-community-first-way-in-canada/",
-      "source_title": "Building AI infrastructure the Community-First way in Canada \u2014 Microsoft On the Issues",
+      "source_title": "Building AI infrastructure the Community-First way in Canada — Microsoft On the Issues",
       "captured_at": "2026-05-14",
       "formal_agreement": true
     },
@@ -1163,7 +1163,7 @@
       "theme": "education",
       "statement": "global network of 116 learning spaces, reaching more than 100,000 students across 12 countries",
       "source_url": "https://www.aboutamazon.com/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
-      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures \u2014 About Amazon",
+      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures — About Amazon",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 100000.0,
@@ -1177,7 +1177,7 @@
       "theme": "education",
       "statement": "$2.5 billion commitment to expand access to education and skills training and help prepare at least 50 million people for the future of work",
       "source_url": "https://www.aboutamazon.com/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
-      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures \u2014 About Amazon",
+      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures — About Amazon",
       "captured_at": "2026-05-14",
       "metric": {
         "value": 2500000000.0,
@@ -1191,7 +1191,7 @@
       "theme": "engagement",
       "statement": "Amazon works hard to ensure the communities in which we operate are better off because we're there",
       "source_url": "https://www.aboutamazon.com/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
-      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures \u2014 About Amazon",
+      "source_title": "How AWS Think Big Spaces help kids around the world see their own far-reaching futures — About Amazon",
       "captured_at": "2026-05-14"
     },
     {
@@ -1201,7 +1201,7 @@
       "theme": "energy",
       "statement": "We search for the best technology. There are air-cooled turbines now. There are so many different ways to generate power. We can also put a percentage of the power through solar, wind and batteries.",
       "source_url": "https://www.deseret.com/utah/2026/05/12/everything-about-utah-stratos-project-data-center/",
-      "source_title": "Utah House speaker on data center controversy and Kevin O'Leary \u2014 Deseret News",
+      "source_title": "Utah House speaker on data center controversy and Kevin O'Leary — Deseret News",
       "captured_at": "2026-05-14"
     },
     {
@@ -1209,18 +1209,18 @@
       "company_slug": "wonder-valley",
       "project_id": "wonder-valley-box-elder-ut",
       "theme": "infrastructure",
-      "statement": "China built 400 gigawatts of new power over the last 24 months, much of it is powering AI data centers. We're in a race with them. We seem to have gone to sleep nationally about this. It's bad\u2026We have to fix it.",
+      "statement": "China built 400 gigawatts of new power over the last 24 months, much of it is powering AI data centers. We're in a race with them. We seem to have gone to sleep nationally about this. It's bad…We have to fix it.",
       "source_url": "https://kutv.com/news/local/kevin-oleary-rushing-data-center-because-of-competition",
-      "source_title": "Kevin O'Leary 'rushing' Utah data center because of competition \u2014 KUTV",
+      "source_title": "Kevin O'Leary 'rushing' Utah data center because of competition — KUTV",
       "captured_at": "2026-05-14"
     },
     {
       "id": "qts-cedar-rapids-ia-tax-revenue-ratepayer-pledge",
       "company_slug": "qts",
       "theme": "tax_revenue",
-      "statement": "When we started this project, we had one goal in mind \u2026 'How do you build big, meaningful infrastructure without burdening the taxpayers, the ratepayers and our communities?' We can pay our own way. We can invest in generation.",
+      "statement": "When we started this project, we had one goal in mind … 'How do you build big, meaningful infrastructure without burdening the taxpayers, the ratepayers and our communities?' We can pay our own way. We can invest in generation.",
       "source_url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
-      "source_title": "U.S. Energy Secretary tours Cedar Rapids QTS data center campus (Tag Greason, QTS Co-CEO, quoted) \u2014 The Gazette",
+      "source_title": "U.S. Energy Secretary tours Cedar Rapids QTS data center campus (Tag Greason, QTS Co-CEO, quoted) — The Gazette",
       "captured_at": "2026-05-14",
       "project_id": "qts-cedar-rapids-ia",
       "formal_agreement": true
@@ -1231,7 +1231,7 @@
       "theme": "infrastructure",
       "statement": "We don't need to build infrastructure and put the burden on ratepayers. We can pay our own way.",
       "source_url": "https://corridorbusiness.com/qts-data-center-project-will-put-cedar-rapids-on-cutting-edge-leaders-say-after-site-tour/",
-      "source_title": "QTS data center project will put Cedar Rapids on 'cutting edge' (Tag Greason, Co-CEO) \u2014 Corridor Business",
+      "source_title": "QTS data center project will put Cedar Rapids on 'cutting edge' (Tag Greason, Co-CEO) — Corridor Business",
       "captured_at": "2026-05-14",
       "project_id": "qts-cedar-rapids-ia"
     },
@@ -1241,7 +1241,7 @@
       "theme": "infrastructure",
       "statement": "We fund 100% of the energy costs for our data centers and partner with utilities to help build and modernize American infrastructure without raising power costs for the community.",
       "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
-      "source_title": "Building the right way, every day: Our commitment to communities \u2014 QTS",
+      "source_title": "Building the right way, every day: Our commitment to communities — QTS",
       "captured_at": "2026-05-14"
     },
     {
@@ -1250,13 +1250,13 @@
       "theme": "water",
       "statement": "Our innovative standard data center design uses no water for cooling, saving billions of gallons of water per year.",
       "source_url": "https://q.com/sustainability/",
-      "source_title": "Sustainability \u2014 QTS Data Centers",
+      "source_title": "Sustainability — QTS Data Centers",
       "captured_at": "2026-05-14",
       "delivered": {
         "status": "shortfall",
         "summary": "May 2026 reporting found QTS's Fayetteville GA campus drew approximately 29 million gallons through two unmetered industrial-scale water connections over 15 months, contradicting the 'no water for cooling' design claim at that specific site. QTS paid ~$147K in retroactive charges; Fayette County declined to fine the company.",
         "source_url": "https://thecitizen.com/2026/05/11/behind-fayettes-qts-water-controversy-a-missed-meter-8000-workers-and-a-massive-construction-project/",
-        "source_title": "The Citizen \u2014 Behind Fayette's QTS Water Controversy (29M unmetered gallons, May 11 2026)",
+        "source_title": "The Citizen — Behind Fayette's QTS Water Controversy (29M unmetered gallons, May 11 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -1266,7 +1266,7 @@
       "theme": "tax_revenue",
       "statement": "QTS data centers generate tax revenues and help fund local programs. We support community priorities with resources for new parks, hospitals, schools, roads and first responders.",
       "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
-      "source_title": "Building the right way, every day: Our commitment to communities \u2014 QTS",
+      "source_title": "Building the right way, every day: Our commitment to communities — QTS",
       "captured_at": "2026-05-14"
     },
     {
@@ -1573,7 +1573,7 @@
       "id": "meta-richland-la-engagement-revitalization-board",
       "company_slug": "meta",
       "theme": "engagement",
-      "statement": "In partnership with the Richland Revitalization Board, we're also committing $300,000 to support projects in Richland Parish's three municipalities \u2014 Rayville, Delhi, and Mangham \u2014 that are focused on improving public parks and restoring the parish's most iconic establishments.",
+      "statement": "In partnership with the Richland Revitalization Board, we're also committing $300,000 to support projects in Richland Parish's three municipalities — Rayville, Delhi, and Mangham — that are focused on improving public parks and restoring the parish's most iconic establishments.",
       "source_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
       "source_title": "One Year In: Meta's Richland Parish Data Center Supports Louisiana Economy With $875M In Contracts",
       "captured_at": "2026-05-14",
@@ -1639,7 +1639,7 @@
       "id": "aws-new-carlisle-in-energy-cost-coverage",
       "company_slug": "amazon",
       "theme": "energy",
-      "statement": "Amazon will pay fees to use existing power lines and cover the costs for any new power plants, power lines, or equipment needed to serve the data center project\u2014without additional cost to local residents and businesses.",
+      "statement": "Amazon will pay fees to use existing power lines and cover the costs for any new power plants, power lines, or equipment needed to serve the data center project—without additional cost to local residents and businesses.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
       "source_title": "Amazon plans to invest $15 billion in Northern Indiana to build new data center campuses",
       "captured_at": "2026-05-14",
@@ -1699,7 +1699,7 @@
       "id": "aws-cumberland-pa-jobs-shapiro",
       "company_slug": "amazon",
       "theme": "jobs",
-      "statement": "We're making the largest private sector investment in state history \u2013 $20 billion \u2013 to bring 1,250 high-skilled jobs.",
+      "statement": "We're making the largest private sector investment in state history – $20 billion – to bring 1,250 high-skilled jobs.",
       "source_url": "https://www.powermag.com/talen-amazon-launch-18b-nuclear-ppa-a-grid-connected-ipp-model-for-the-data-center-era/",
       "source_title": "Talen, Amazon Launch $18B Nuclear PPA (Kevin Miller, AWS VP)",
       "captured_at": "2026-05-14",
@@ -1741,7 +1741,7 @@
       "theme": "tax_revenue",
       "statement": "Cover grid infrastructure costs. We will pay for 100% of the grid upgrades needed to interconnect our data centers",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
-      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "source_title": "Anthropic — Covering electricity price increases from our data centers (Feb 2026)",
       "captured_at": "2026-05-14",
       "published_at": "2026-02-11"
     },
@@ -1751,7 +1751,7 @@
       "theme": "energy",
       "statement": "Procure new power and protect consumers from price increases. We will work to bring net-new power generation online to match our data centers' electricity needs",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
-      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "source_title": "Anthropic — Covering electricity price increases from our data centers (Feb 2026)",
       "captured_at": "2026-05-14",
       "published_at": "2026-02-11"
     },
@@ -1761,7 +1761,7 @@
       "theme": "energy",
       "statement": "Reduce strain on the grid. We're investing in curtailment systems that cut our data centers' power usage during periods of peak demand",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
-      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "source_title": "Anthropic — Covering electricity price increases from our data centers (Feb 2026)",
       "captured_at": "2026-05-14",
       "published_at": "2026-02-11"
     },
@@ -1771,7 +1771,7 @@
       "theme": "jobs",
       "statement": "Invest in local communities. Our current data center projects will create hundreds of permanent jobs and thousands of construction jobs",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
-      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "source_title": "Anthropic — Covering electricity price increases from our data centers (Feb 2026)",
       "captured_at": "2026-05-14",
       "published_at": "2026-02-11"
     },
@@ -1781,7 +1781,7 @@
       "theme": "engagement",
       "statement": "Partnering with local leaders on initiatives that share AI's benefits broadly",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
-      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "source_title": "Anthropic — Covering electricity price increases from our data centers (Feb 2026)",
       "captured_at": "2026-05-14",
       "published_at": "2026-02-11"
     },
@@ -1791,7 +1791,7 @@
       "theme": "water",
       "statement": "deploying water-efficient cooling technologies",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
-      "source_title": "Anthropic \u2014 Covering electricity price increases from our data centers (Feb 2026)",
+      "source_title": "Anthropic — Covering electricity price increases from our data centers (Feb 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-02-11"
     },
@@ -1801,7 +1801,7 @@
       "theme": "jobs",
       "statement": "We will create more than 40,000 jobs this year in the U.S. with $150,000 average annual pay.",
       "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
-      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities \u2014 QTS",
+      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities — QTS",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-05",
       "metric": {
@@ -1816,7 +1816,7 @@
       "theme": "energy",
       "statement": "We and Blackstone plan to build more power generation capacity than QTS data centers use.",
       "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
-      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities \u2014 QTS",
+      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities — QTS",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-05"
     },
@@ -1835,7 +1835,7 @@
       "theme": "engagement",
       "statement": "We hold town halls and maintain open and consistent dialogue with the community.",
       "source_url": "https://q.com/resources/building-the-right-way-every-day-our-commitment-to-communities/",
-      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities \u2014 QTS",
+      "source_title": "Building the Right Way, Every Day: Our Commitment to Communities — QTS",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-05"
     },
@@ -1845,14 +1845,14 @@
       "theme": "energy",
       "statement": "xAI will take no power from the grid during emergencies or when the grid is strained so that all available power is going to the community.",
       "source_url": "https://memphischamber.com/economic-development/xai/",
-      "source_title": "xAI in Memphis \u2014 Greater Memphis Chamber",
+      "source_title": "xAI in Memphis — Greater Memphis Chamber",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-12",
       "delivered": {
         "status": "contested",
-        "summary": "NAACP / SELC / Earthjustice litigation (filed Apr 15 2026) alleges xAI operated 27 \u2014 and later up to 46 \u2014 unpermitted methane gas turbines at Memphis-area facilities, including at the new Southaven MS site; xAI's pledge to take no grid power during emergencies sits alongside an on-site fossil-generation footprint that bypassed Clean Air Act permitting per the suit.",
+        "summary": "NAACP / SELC / Earthjustice litigation (filed Apr 15 2026) alleges xAI operated 27 — and later up to 46 — unpermitted methane gas turbines at Memphis-area facilities, including at the new Southaven MS site; xAI's pledge to take no grid power during emergencies sits alongside an on-site fossil-generation footprint that bypassed Clean Air Act permitting per the suit.",
         "source_url": "https://earthjustice.org/case/xai-illegal-gas-power-plant-data-center-colossus",
-        "source_title": "Earthjustice \u2014 NAACP/SELC Clean Air Act suit against xAI Memphis/Southaven turbines",
+        "source_title": "Earthjustice — NAACP/SELC Clean Air Act suit against xAI Memphis/Southaven turbines",
         "assessed_at": "2026-05-17"
       }
     },
@@ -1862,7 +1862,7 @@
       "theme": "energy",
       "statement": "This project will create good jobs, advance zero-emission energy and boost the local economy.",
       "source_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
-      "source_title": "Stargate Wisconsin announcement (Peter Hoeschele, OpenAI VP Industrial Compute) \u2014 Vantage Data Centers",
+      "source_title": "Stargate Wisconsin announcement (Peter Hoeschele, OpenAI VP Industrial Compute) — Vantage Data Centers",
       "captured_at": "2026-05-15",
       "published_at": "2025-10-22"
     },
@@ -1887,7 +1887,7 @@
       "theme": "energy",
       "statement": "One of these goals includes powering Oracle Cloud with 100 percent renewable energy.",
       "source_url": "https://www.leadersmag.com/issues/2021.2_Apr/Purpose/LEADERS-Jon-Chorley-Oracle.html",
-      "source_title": "Oracle 100% renewable cloud commitment (Jon Chorley, Oracle Chief Sustainability Officer) \u2014 LEADERS Magazine",
+      "source_title": "Oracle 100% renewable cloud commitment (Jon Chorley, Oracle Chief Sustainability Officer) — LEADERS Magazine",
       "captured_at": "2026-05-15",
       "published_at": "2021-04-01"
     },
@@ -1897,7 +1897,7 @@
       "theme": "energy",
       "statement": "We'll pay our way to ensure our datacenters don't increase your electricity prices.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13"
     },
@@ -1907,7 +1907,7 @@
       "theme": "water",
       "statement": "We'll minimize our water use and replenish more of your water than we use.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13"
     },
@@ -1917,7 +1917,7 @@
       "theme": "jobs",
       "statement": "We'll create jobs for your residents.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13"
     },
@@ -1927,7 +1927,7 @@
       "theme": "tax_revenue",
       "statement": "We will add to the tax base for your local hospitals, schools, parks, and libraries.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13"
     },
@@ -1937,7 +1937,7 @@
       "theme": "tax_revenue",
       "statement": "We won't ask local municipalities to reduce their local property tax rates",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13"
     },
@@ -1947,7 +1947,7 @@
       "theme": "community_grants",
       "statement": "We'll strengthen your community by investing in local AI training and nonprofits.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13"
     },
@@ -1957,7 +1957,7 @@
       "theme": "education",
       "statement": "match every hour they spend volunteering for a nonprofit with a donation...of $25",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13",
       "metric": {
@@ -1972,7 +1972,7 @@
       "theme": "engagement",
       "statement": "We will work closely with utility companies that set electricity prices and state commissions",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-01-13"
     },
@@ -1982,7 +1982,7 @@
       "theme": "tax_revenue",
       "statement": "We will pay our own way (and protect ratepayers).",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
-      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "source_title": "Google — Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-04"
     },
@@ -1992,7 +1992,7 @@
       "theme": "energy",
       "statement": "We will bring new energy online.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
-      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "source_title": "Google — Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-04",
       "metric": {
@@ -2007,7 +2007,7 @@
       "theme": "infrastructure",
       "statement": "We will contribute to grid resilience.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
-      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "source_title": "Google — Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-04"
     },
@@ -2017,7 +2017,7 @@
       "theme": "jobs",
       "statement": "We will help create local and long-term jobs.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
-      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "source_title": "Google — Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-04"
     },
@@ -2027,7 +2027,7 @@
       "theme": "infrastructure",
       "statement": "We will invest in efficiency and reliability.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/affordability-pledge-responsible-energy-growth/",
-      "source_title": "Google \u2014 Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
+      "source_title": "Google — Supporting the White House Ratepayer Protection Pledge (Amanda Peterson Corio, Mar 4, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-04"
     },
@@ -2037,7 +2037,7 @@
       "theme": "jobs",
       "statement": "This project is creating significant job opportunities for the Abilene region. Today, we have more than 5,600 construction workers on-site every day.",
       "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
-      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "source_title": "Crusoe — An inside look at the Abilene AI data center",
       "captured_at": "2026-05-15",
       "project_id": "crusoe-abilene-tx",
       "published_at": "2025-08-05",
@@ -2053,7 +2053,7 @@
       "theme": "jobs",
       "statement": "We have prioritized local hiring, though the sheer volume of jobs and specialized roles do require bringing in specific expertise from across the nation.",
       "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
-      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "source_title": "Crusoe — An inside look at the Abilene AI data center",
       "captured_at": "2026-05-15",
       "project_id": "crusoe-abilene-tx",
       "published_at": "2025-08-05"
@@ -2064,7 +2064,7 @@
       "theme": "tax_revenue",
       "statement": "Once fully operational, the data center will deliver up to 32% of the City of Abilene's and up to 25% of Taylor County's current FY 2025 Budgeted Property Tax Revenue.",
       "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
-      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "source_title": "Crusoe — An inside look at the Abilene AI data center",
       "captured_at": "2026-05-15",
       "project_id": "crusoe-abilene-tx",
       "published_at": "2025-08-05"
@@ -2075,7 +2075,7 @@
       "theme": "tax_revenue",
       "statement": "The first two buildings of the project will generate approximately $1 billion in direct and indirect economic impact to the City of Abilene over the next 20 years.",
       "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
-      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "source_title": "Crusoe — An inside look at the Abilene AI data center",
       "captured_at": "2026-05-15",
       "project_id": "crusoe-abilene-tx",
       "published_at": "2025-08-05",
@@ -2091,7 +2091,7 @@
       "theme": "water",
       "statement": "We are building this project with closed-loop, non-evaporative liquid cooling systems, which are designed to significantly reduce our water footprint.",
       "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
-      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "source_title": "Crusoe — An inside look at the Abilene AI data center",
       "captured_at": "2026-05-15",
       "project_id": "crusoe-abilene-tx",
       "published_at": "2025-08-05"
@@ -2102,7 +2102,7 @@
       "theme": "engagement",
       "statement": "Crusoe is deeply committed to partnering with the Abilene community. We've worked in close collaboration with state and local leadership throughout the project's development.",
       "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
-      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center",
+      "source_title": "Crusoe — An inside look at the Abilene AI data center",
       "captured_at": "2026-05-15",
       "project_id": "crusoe-abilene-tx",
       "published_at": "2025-08-05"
@@ -2113,7 +2113,7 @@
       "theme": "energy",
       "statement": "900MW on-site power plant with MV BESS system designed to enhance operational reliability and grid resilience.",
       "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure",
-      "source_title": "Crusoe \u2014 900 MW Abilene Campus for Microsoft AI Infrastructure",
+      "source_title": "Crusoe — 900 MW Abilene Campus for Microsoft AI Infrastructure",
       "captured_at": "2026-05-15",
       "project_id": "crusoe-abilene-tx",
       "published_at": "2026-03-27",
@@ -2129,7 +2129,7 @@
       "theme": "community_grants",
       "statement": "Hammond will receive an annual community impact payment of up to $4 million. The community impact payment could mean two decades of full funding for Hammond's College Bound program, which provides scholarships to eligible students living in owner-occupied homes.",
       "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
-      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "source_title": "City of Hammond — CoreWeave Development Agreement (Jun 9, 2025)",
       "captured_at": "2026-05-15",
       "project_id": "coreweave-hammond-in",
       "published_at": "2025-06-09",
@@ -2145,7 +2145,7 @@
       "theme": "education",
       "statement": "The Community Impact Payments the city will be receiving from CoreWeave as part of the Development Agreement will not only help with new city-wide infrastructure and quality of life initiatives, but also will help thousands of students in Hammond go to college, through our College Bound program.",
       "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
-      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "source_title": "City of Hammond — CoreWeave Development Agreement (Jun 9, 2025)",
       "captured_at": "2026-05-15",
       "project_id": "coreweave-hammond-in",
       "published_at": "2025-06-09"
@@ -2156,7 +2156,7 @@
       "theme": "engagement",
       "statement": "Hammond has proven to be a forward-thinking partner, and we're excited to deepen our investment here.",
       "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
-      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "source_title": "City of Hammond — CoreWeave Development Agreement (Jun 9, 2025)",
       "captured_at": "2026-05-15",
       "project_id": "coreweave-hammond-in",
       "published_at": "2025-06-09"
@@ -2167,7 +2167,7 @@
       "theme": "infrastructure",
       "statement": "This 180-megawatt facility will enable us to deliver next-generation cloud solutions but also support economic and educational opportunities for the region.",
       "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
-      "source_title": "City of Hammond \u2014 CoreWeave Development Agreement (Jun 9, 2025)",
+      "source_title": "City of Hammond — CoreWeave Development Agreement (Jun 9, 2025)",
       "captured_at": "2026-05-15",
       "project_id": "coreweave-hammond-in",
       "published_at": "2025-06-09"
@@ -2189,7 +2189,7 @@
       "theme": "education",
       "statement": "It's imperative for us to have this workforce to be able to continue to build out at the speed and pace that we need to build out, particularly with the global competition with China.",
       "source_url": "https://www.axios.com/2026/03/11/openai-building-trades-union-data-centers",
-      "source_title": "Axios \u2014 Chris Lehane (OpenAI Chief Global Affairs) on NABTU workforce partnership ($1.5M / 5-yr commitment, Mar 11, 2026)",
+      "source_title": "Axios — Chris Lehane (OpenAI Chief Global Affairs) on NABTU workforce partnership ($1.5M / 5-yr commitment, Mar 11, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-03-11"
     },
@@ -2199,7 +2199,7 @@
       "theme": "engagement",
       "statement": "as xAI and the community continue to grow together, xAI will provide not just more tax revenue but many other important opportunities to continue to strengthen the fabric of the community.",
       "source_url": "https://www.actionnews5.com/2025/04/26/emotions-run-high-schd-town-hall-xai-environmental-concerns/",
-      "source_title": "Action News 5 \u2014 Brent Mayo (xAI senior manager) reading prepared statement at SCHD town hall (Apr 25, 2025)",
+      "source_title": "Action News 5 — Brent Mayo (xAI senior manager) reading prepared statement at SCHD town hall (Apr 25, 2025)",
       "captured_at": "2026-05-15",
       "published_at": "2025-04-26"
     },
@@ -2209,7 +2209,7 @@
       "theme": "education",
       "statement": "The reality is, when we went and toured those schools, we saw a lot of deferred maintenance. And so the baseline things like HVAC systems or PASAs that weren't functional or seeing black mold in these schools and sitting and meeting with these teachers, administrators, it became extremely obvious that while their tax dollars that are coming in, those things take time.",
       "source_url": "https://dailymemphian.com/subscriber/section/business/article/53239/xai-could-tackle-some-mscs-building-upgrades",
-      "source_title": "Daily Memphian \u2014 Brent Mayo (xAI VP Operations) on Memphis school upgrades program",
+      "source_title": "Daily Memphian — Brent Mayo (xAI VP Operations) on Memphis school upgrades program",
       "captured_at": "2026-05-15",
       "published_at": "2025-07-15"
     },
@@ -2219,7 +2219,7 @@
       "theme": "community_grants",
       "statement": "assume all financial responsibility",
       "source_url": "https://www.chalkbeat.org/tennessee/2025/07/30/memphis-board-approves-musk-xai-offer-funding-school-repairs/",
-      "source_title": "Chalkbeat \u2014 Brent Mayo (xAI senior manager) committing xAI to funding 4 Southwest Memphis school repairs (MSCS board, Jul 30, 2025)",
+      "source_title": "Chalkbeat — Brent Mayo (xAI senior manager) committing xAI to funding 4 Southwest Memphis school repairs (MSCS board, Jul 30, 2025)",
       "captured_at": "2026-05-15",
       "published_at": "2025-07-30"
     },
@@ -2227,9 +2227,9 @@
       "id": "oracle-education-academy-blog-2026",
       "company_slug": "oracle",
       "theme": "education",
-      "statement": "Oracle is building AI data centers in communities across the United States, and Oracle Academy\u2014Oracle's global philanthropic education program\u2014plays a role in states like Texas, New Mexico, Michigan, and Wisconsin.",
+      "statement": "Oracle is building AI data centers in communities across the United States, and Oracle Academy—Oracle's global philanthropic education program—plays a role in states like Texas, New Mexico, Michigan, and Wisconsin.",
       "source_url": "https://www.oracle.com/news/announcement/blog/ai-data-centers-need-skilled-people-oracle-academy-helps-build-ai-careers-2026-02-02/",
-      "source_title": "Oracle \u2014 AI data centers need skilled people: Oracle Academy helps build AI careers (Feb 2, 2026)",
+      "source_title": "Oracle — AI data centers need skilled people: Oracle Academy helps build AI careers (Feb 2, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-02-02"
     },
@@ -2239,7 +2239,7 @@
       "theme": "jobs",
       "statement": "over 100,000 American jobs almost immediately",
       "source_url": "https://en.wikipedia.org/wiki/Stargate_LLC",
-      "source_title": "Stargate LLC \u2014 Wikipedia (paraphrasing the Jan 21, 2025 White House announcement; co-investor commitment by Larry Ellison alongside Trump, Altman, Son)",
+      "source_title": "Stargate LLC — Wikipedia (paraphrasing the Jan 21, 2025 White House announcement; co-investor commitment by Larry Ellison alongside Trump, Altman, Son)",
       "captured_at": "2026-05-15",
       "published_at": "2025-01-21"
     },
@@ -2249,7 +2249,7 @@
       "theme": "jobs",
       "statement": "10,000 construction jobs and 2,000 maintenance jobs",
       "source_url": "https://www.deseret.com/business/2026/05/14/tucker-carlson-kevin-oleary-utah-data-center-ai-artficial-intelligence-water-use-power-generation-tax-subsidies/",
-      "source_title": "Deseret News \u2014 Kevin O'Leary on Tucker Carlson re: Wonder Valley jobs for first 1.5 GW phase (May 13, 2026)",
+      "source_title": "Deseret News — Kevin O'Leary on Tucker Carlson re: Wonder Valley jobs for first 1.5 GW phase (May 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-05-14"
     },
@@ -2259,7 +2259,7 @@
       "theme": "tax_revenue",
       "statement": "I'm a football player on the field of capitalism and I play by the rules",
       "source_url": "https://www.deseret.com/business/2026/05/14/tucker-carlson-kevin-oleary-utah-data-center-ai-artficial-intelligence-water-use-power-generation-tax-subsidies/",
-      "source_title": "Deseret News \u2014 Kevin O'Leary on Tucker Carlson defending Utah tax-incentive package (May 13, 2026)",
+      "source_title": "Deseret News — Kevin O'Leary on Tucker Carlson defending Utah tax-incentive package (May 13, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-05-14"
     },
@@ -2269,7 +2269,7 @@
       "theme": "water",
       "statement": "There's lots of rumors that we're going to suck the Great Salt Lake dry. That's ridiculous. Of course that's not gonna happen. In fact, if anything, we'll be adding to the Great Salt Lake because the water rights on that land will be used.",
       "source_url": "https://kutv.com/news/local/kevin-o-leary-addresses-water-concerns-claims-data-center-wont-drain-great-salt-lake",
-      "source_title": "KUTV \u2014 Kevin O'Leary on Wonder Valley water concerns and Great Salt Lake (May 10, 2026)",
+      "source_title": "KUTV — Kevin O'Leary on Wonder Valley water concerns and Great Salt Lake (May 10, 2026)",
       "captured_at": "2026-05-15",
       "published_at": "2026-05-10"
     },
@@ -2279,7 +2279,7 @@
       "theme": "education",
       "statement": "drive a massive investment into the American workforce to bring this to life, creating high-quality jobs across construction, manufacturing, technology, energy and transportation",
       "source_url": "https://capcity.news/community/business/2025/08/27/laramie-county-project-to-power-ai-infrastructure-with-natural-gas/",
-      "source_title": "Capital City News \u2014 Chase Lochmiller (Crusoe Co-founder & CEO) on workforce investment for Wyoming AI buildout",
+      "source_title": "Capital City News — Chase Lochmiller (Crusoe Co-founder & CEO) on workforce investment for Wyoming AI buildout",
       "captured_at": "2026-05-15",
       "published_at": "2025-08-27"
     },
@@ -2289,7 +2289,7 @@
       "theme": "water",
       "statement": "It allows us to deliver unparalleled AI performance with the lowest possible environmental impact, setting a new global standard.",
       "source_url": "https://www.coreweave.com/news/coreweave-announces-significant-commitment-to-power-uk-ai-innovation-and-growth",
-      "source_title": "CoreWeave \u2014 Michael Intrator (Chairman & CEO) on UK closed-loop cooling commitment",
+      "source_title": "CoreWeave — Michael Intrator (Chairman & CEO) on UK closed-loop cooling commitment",
       "captured_at": "2026-05-15",
       "published_at": "2024-05-20"
     },
@@ -2299,7 +2299,7 @@
       "theme": "energy",
       "statement": "We pay the full costs of our data centers' energy use, and water and wastewater service so that consumers are not paying our costs.",
       "source_url": "https://datacenters.atmeta.com/2026/04/hello-tulsa/",
-      "source_title": "Meta Data Centers \u2014 Hello, Tulsa!",
+      "source_title": "Meta Data Centers — Hello, Tulsa!",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-21",
       "project_id": "meta-tulsa-ok"
@@ -2310,7 +2310,7 @@
       "theme": "infrastructure",
       "statement": "We get very detailed about what those improvements look like, and we pay for them 100%.",
       "source_url": "https://tulsaflyer.org/2026/04/22/news/post/meta-east-tulsa-data-center/",
-      "source_title": "Tulsa Flyer \u2014 Gary Demasi on Meta's infrastructure-cost commitment",
+      "source_title": "Tulsa Flyer — Gary Demasi on Meta's infrastructure-cost commitment",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-22",
       "project_id": "meta-tulsa-ok"
@@ -2321,7 +2321,7 @@
       "theme": "engagement",
       "statement": "We're proud to call Tulsa home as we announce Meta's first data center in Oklahoma. The region offers great access to infrastructure and energy, a talented workforce, and outstanding local partners.",
       "source_url": "https://siteselection.com/project-bulletin-april-27-2026-lagrange-georgia-durham-north-carolina-tulsa-oklahoma/",
-      "source_title": "Site Selection \u2014 Gary Demasi on Meta's Tulsa data center",
+      "source_title": "Site Selection — Gary Demasi on Meta's Tulsa data center",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-27",
       "project_id": "meta-tulsa-ok"
@@ -2330,9 +2330,9 @@
       "id": "meta-levelup-fiber-workforce-2026",
       "company_slug": "meta",
       "theme": "jobs",
-      "statement": "We know that the future of AI infrastructure depends on a highly skilled workforce \u2014 one that rises to the challenge of building and maintaining the complex systems that power American innovation.",
+      "statement": "We know that the future of AI infrastructure depends on a highly skilled workforce — one that rises to the challenge of building and maintaining the complex systems that power American innovation.",
       "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
-      "source_title": "Meta Data Centers \u2014 LevelUp Fiber Technician Pathway launch (Apr 2026)",
+      "source_title": "Meta Data Centers — LevelUp Fiber Technician Pathway launch (Apr 2026)",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-20"
     },
@@ -2340,9 +2340,9 @@
       "id": "google-lagrange-engagement-ryan-2026",
       "company_slug": "google",
       "theme": "engagement",
-      "statement": "Our newest investment in LaGrange represents another chapter in our deep partnership with Georgia \u2014 a state that continues to lead with innovation and vision. We are excited to become a part of the LaGrange community. More than just building a data center, our goal is to be a good neighbor, and that starts on day one by investing in local priorities, creating opportunities, and working with residents to build a strong future together.",
+      "statement": "Our newest investment in LaGrange represents another chapter in our deep partnership with Georgia — a state that continues to lead with innovation and vision. We are excited to become a part of the LaGrange community. More than just building a data center, our goal is to be a good neighbor, and that starts on day one by investing in local priorities, creating opportunities, and working with residents to build a strong future together.",
       "source_url": "https://www.atlantanewsfirst.com/2026/04/21/google-build-new-data-center-lagrange/",
-      "source_title": "Atlanta News First \u2014 Jen Ryan on Google's LaGrange data center",
+      "source_title": "Atlanta News First — Jen Ryan on Google's LaGrange data center",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-21",
       "project_id": "google-lagrange-ga"
@@ -2353,7 +2353,7 @@
       "theme": "engagement",
       "statement": "For nearly two decades, Google has proudly called Oklahoma home, starting with our data center in Mayes County, our second largest in the world.",
       "source_url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
-      "source_title": "Google \u2014 Ruth Porat on $9B Oklahoma investment",
+      "source_title": "Google — Ruth Porat on $9B Oklahoma investment",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-29",
       "project_id": "google-stillwater-ok"
@@ -2364,7 +2364,7 @@
       "theme": "energy",
       "statement": "Google is helping to power a new era of American innovation with our investments in Oklahoma.",
       "source_url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
-      "source_title": "Google \u2014 Ruth Porat on Oklahoma AI investment",
+      "source_title": "Google — Ruth Porat on Oklahoma AI investment",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-29",
       "project_id": "google-stillwater-ok",
@@ -2380,7 +2380,7 @@
       "theme": "tax_revenue",
       "statement": "We've made a commitment nationally that we will not rely on local abatements or incentives.",
       "source_url": "https://oilcity.news/community/wyoming-community-2/2026/04/14/microsoft-plans-massive-3200-acre-expansion-of-cheyenne-data-centers/",
-      "source_title": "Oil City News \u2014 Rima Alaily on Microsoft Cheyenne tax-base commitment",
+      "source_title": "Oil City News — Rima Alaily on Microsoft Cheyenne tax-base commitment",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-14",
       "project_id": "microsoft-cheyenne-wy",
@@ -2388,7 +2388,7 @@
         "status": "contested",
         "summary": "Microsoft's national 'no local abatements or incentives' commitment (Rima Alaily, Apr 14 2026) coexists with site-by-site PILOT and TIF arrangements (Mt Pleasant WI village-board approvals; Goodyear AZ data-center sales-tax exemptions). The framework distinguishes 'abatements' from 'incentives'; outside observers contest whether the practical effect differs.",
         "source_url": "https://www.theassemblync.com/news/business/person-county-microsoft-data-center-nondisclosure-agreements/",
-        "source_title": "The Assembly NC \u2014 Person County Microsoft NDA + incentive arrangements coverage",
+        "source_title": "The Assembly NC — Person County Microsoft NDA + incentive arrangements coverage",
         "assessed_at": "2026-05-17"
       }
     },
@@ -2398,7 +2398,7 @@
       "theme": "engagement",
       "statement": "Since the development of our first datacenter in 2012, Microsoft has been working to strengthen, not strain, the community of Cheyenne.",
       "source_url": "https://news.microsoft.com/source/2026/04/14/microsoft-announces-intent-to-expand-datacenter-operations-in-cheyenne-accelerating-innovation-and-economic-growth/",
-      "source_title": "Microsoft Source \u2014 Bowen Wallace on Cheyenne expansion intent",
+      "source_title": "Microsoft Source — Bowen Wallace on Cheyenne expansion intent",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-14",
       "project_id": "microsoft-cheyenne-wy"
@@ -2409,7 +2409,7 @@
       "theme": "jobs",
       "statement": "We've hired over 375 full-time Microsoft employees.",
       "source_url": "https://www.jtirregulars.com/2026/05/microsofts-mount-pleasant-data-center.html",
-      "source_title": "JT Irregulars \u2014 Bowen Wallace on Microsoft Mount Pleasant hiring (Impact 2026, May 7)",
+      "source_title": "JT Irregulars — Bowen Wallace on Microsoft Mount Pleasant hiring (Impact 2026, May 7)",
       "captured_at": "2026-05-16",
       "published_at": "2026-05-08",
       "project_id": "ms-mt-pleasant-wi",
@@ -2422,7 +2422,7 @@
         "status": "delivered",
         "summary": "Microsoft confirmed 375 FTEs hired as of May 7 2026 against a stated ~500-FTE operational target; on-track delivery confirmed by the same RCEDC Impact 2026 event where Bowen Wallace was quoted.",
         "source_url": "https://www.jtirregulars.com/2026/05/microsofts-mount-pleasant-data-center.html",
-        "source_title": "JT Irregulars \u2014 Microsoft Mount Pleasant 375 FTEs hired (May 7 2026)",
+        "source_title": "JT Irregulars — Microsoft Mount Pleasant 375 FTEs hired (May 7 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -2432,7 +2432,7 @@
       "theme": "jobs",
       "statement": "These two projects will create 800 jobs and build infrastructure that serves Mississippi for generations.",
       "source_url": "https://governorreeves.ms.gov/amazon-continues-mississippi-expansion-announcing-plans-to-invest-a-total-of-25-billion-across-the-magnolia-state/",
-      "source_title": "Mississippi Governor's Office \u2014 David Zapolsky on AWS $25B Mississippi expansion",
+      "source_title": "Mississippi Governor's Office — David Zapolsky on AWS $25B Mississippi expansion",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-09",
       "project_id": "amazon-canton-ms",
@@ -2446,9 +2446,9 @@
       "id": "amazon-mississippi-infrastructure-zapolsky-2026",
       "company_slug": "amazon",
       "theme": "infrastructure",
-      "statement": "We're covering all our energy expenses, increasing our investment in Madison County, expanding into Warren County, and transforming a former manufacturing plant in Hinds County\u2014producing reliable infrastructure that will serve Mississippi for generations.",
+      "statement": "We're covering all our energy expenses, increasing our investment in Madison County, expanding into Warren County, and transforming a former manufacturing plant in Hinds County—producing reliable infrastructure that will serve Mississippi for generations.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
-      "source_title": "Amazon Newsroom \u2014 David Zapolsky on AWS Mississippi $25B commitment",
+      "source_title": "Amazon Newsroom — David Zapolsky on AWS Mississippi $25B commitment",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-09",
       "project_id": "amazon-canton-ms"
@@ -2457,12 +2457,12 @@
       "id": "oracle-saline-twp-jobs-thiagarajan-2026",
       "company_slug": "oracle",
       "theme": "jobs",
-      "statement": "Together with our partners, we are not just building a data center\u2014we are creating high-quality jobs.",
+      "statement": "Together with our partners, we are not just building a data center—we are creating high-quality jobs.",
       "source_url": "https://www.blackstone.com/news/press/related-digital-announces-financing-for-16-billion-oracle-data-center-project-in-saline-township-michigan/",
-      "source_title": "Blackstone \u2014 Mahesh Thiagarajan (Oracle EVP, OCI) on Saline Township jobs",
+      "source_title": "Blackstone — Mahesh Thiagarajan (Oracle EVP, OCI) on Saline Township jobs",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-24",
-      "project_id": "openai-saline-twp-mi",
+      "project_id": "openai-saline-mi",
       "metric": {
         "value": 450.0,
         "unit": "permanent_jobs",
@@ -2475,7 +2475,7 @@
       "theme": "water",
       "statement": "xAI is committed to building a state-of-the-art water recycling plant in Memphis.",
       "source_url": "https://www.actionnews5.com/2026/04/09/xai-pauses-plans-build-water-recycling-plant-memphis/",
-      "source_title": "Action News 5 \u2014 xAI statement on Memphis water recycling plant",
+      "source_title": "Action News 5 — xAI statement on Memphis water recycling plant",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-09",
       "project_id": "xai-memphis-tn"
@@ -2486,7 +2486,7 @@
       "theme": "water",
       "statement": "We need to focus on finishing Colossus 2 and ensuring it is extremely stable, then will build the water recycling plant.",
       "source_url": "https://www.actionnews5.com/2026/04/09/xai-pauses-plans-build-water-recycling-plant-memphis/",
-      "source_title": "Action News 5 \u2014 Elon Musk on water-plant sequencing",
+      "source_title": "Action News 5 — Elon Musk on water-plant sequencing",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-09",
       "project_id": "xai-memphis-tn"
@@ -2497,7 +2497,7 @@
       "theme": "water",
       "statement": "I'm the only developer of data centers on Earth that graduated from environmental studies. I'm pretty aware of what these concerns are. They are around air, water use, heat, noise pollution. So sustainability is at the heart of what we do in terms of all these proposals.",
       "source_url": "https://www.kpcw.org/state-regional/2026-05-11/box-elder-residents-organize-against-stratos-data-center",
-      "source_title": "KPCW \u2014 Kevin O'Leary on Stratos sustainability concerns",
+      "source_title": "KPCW — Kevin O'Leary on Stratos sustainability concerns",
       "captured_at": "2026-05-16",
       "published_at": "2026-05-11",
       "project_id": "wonder-valley-box-elder-ut"
@@ -2508,7 +2508,7 @@
       "theme": "infrastructure",
       "statement": "This groundbreaking partnership with Google and Broadcom is a continuation of our disciplined approach to scaling infrastructure.",
       "source_url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
-      "source_title": "Anthropic \u2014 Krishna Rao (CFO) on Google/Broadcom scale-up",
+      "source_title": "Anthropic — Krishna Rao (CFO) on Google/Broadcom scale-up",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-07",
       "metric": {
@@ -2523,7 +2523,7 @@
       "theme": "engagement",
       "statement": "This milestone reflects the strength of our partnership with Layton Construction and our shared commitment to being a responsible, long-term partner in Eagle Mountain.",
       "source_url": "https://www.utahbusiness.com/press-releases/2026/04/20/layton-construction-qts-data-centers-campus-eagle-mountain/",
-      "source_title": "Utah Business \u2014 Ryan Hunter (QTS COO) on Eagle Mountain topping-out",
+      "source_title": "Utah Business — Ryan Hunter (QTS COO) on Eagle Mountain topping-out",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-20",
       "project_id": "qts-eagle-mountain-ut",
@@ -2531,7 +2531,7 @@
         "status": "delivered",
         "summary": "Topping-out ceremony took place April 18 2026 with approximately 2,000 construction workers on site; Eagle Mountain Mayor Jared Gray publicly characterized the partnership as following through on QTS's commitments.",
         "source_url": "https://www.utahbusiness.com/press-releases/2026/04/20/layton-construction-qts-data-centers-campus-eagle-mountain/",
-        "source_title": "Utah Business \u2014 Layton Construction + QTS Eagle Mountain topping-out (Apr 20 2026)",
+        "source_title": "Utah Business — Layton Construction + QTS Eagle Mountain topping-out (Apr 20 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -2541,7 +2541,7 @@
       "theme": "jobs",
       "statement": "This project will create over 600 local construction jobs and at least 75 operational jobs once it's live, with the expectation for headcount to increase to upwards of 175 as we expand.",
       "source_url": "https://www.coreweave.com/blog/building-pennsylvania-into-the-mid-atlantic-ai-hub",
-      "source_title": "CoreWeave Blog \u2014 Michael Intrator on Lancaster jobs",
+      "source_title": "CoreWeave Blog — Michael Intrator on Lancaster jobs",
       "captured_at": "2026-05-16",
       "published_at": "2025-07-15",
       "project_id": "coreweave-lancaster-pa",
@@ -2557,7 +2557,7 @@
       "theme": "engagement",
       "statement": "We are incredibly excited to open a next-generation data center in CoreWeave's home state of New Jersey.",
       "source_url": "https://re-nj.com/coreweave-begins-1-8-billion-data-center-project-in-kenilworth-landing-first-award-under-new-eda-tax-credit-program/",
-      "source_title": "Real Estate NJ \u2014 Michael Intrator on Kenilworth groundbreaking",
+      "source_title": "Real Estate NJ — Michael Intrator on Kenilworth groundbreaking",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-25",
       "project_id": "coreweave-kenilworth-nj"
@@ -2568,7 +2568,7 @@
       "theme": "tax_revenue",
       "statement": "The signing of this bill is definitive proof that New Jersey is open for AI business.",
       "source_url": "https://re-nj.com/coreweave-begins-1-8-billion-data-center-project-in-kenilworth-landing-first-award-under-new-eda-tax-credit-program/",
-      "source_title": "Real Estate NJ \u2014 Brian Venturo (CoreWeave CSO) on NJ EDA AI tax credit",
+      "source_title": "Real Estate NJ — Brian Venturo (CoreWeave CSO) on NJ EDA AI tax credit",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-25",
       "project_id": "coreweave-kenilworth-nj",
@@ -2584,7 +2584,7 @@
       "theme": "community_grants",
       "statement": "Providing technical skills training and workforce development, supporting local charities, and engaging in the life of the community are all commitments we make and take seriously.",
       "source_url": "https://www.oracle.com/news/announcement/blog/oracle-ai-infrastructure-in-2026-and-our-commitment-to-local-communities-2026-01-26/",
-      "source_title": "Oracle blog \u2014 AI Infrastructure in 2026 and Our Commitment to Local Communities",
+      "source_title": "Oracle blog — AI Infrastructure in 2026 and Our Commitment to Local Communities",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-26"
     },
@@ -2594,7 +2594,7 @@
       "theme": "water",
       "statement": "Water is valuable, and we should engineer accordingly.",
       "source_url": "https://www.oracle.com/news/announcement/blog/closed-loop-cooling-in-oracle-ai-data-centers-2026-02-09/",
-      "source_title": "Oracle blog \u2014 Closed-loop cooling in Oracle AI data centers",
+      "source_title": "Oracle blog — Closed-loop cooling in Oracle AI data centers",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-09"
     },
@@ -2602,9 +2602,9 @@
       "id": "crusoe-abilene-infrastructure-lochmiller-900mw-2026",
       "company_slug": "crusoe",
       "theme": "infrastructure",
-      "statement": "Crusoe is building a new AI factory campus in Abilene, purpose-built for the demands of next-generation AI. By integrating 900 megawatts of new on-site power generation, we will continue building the industrial foundation for American AI \u2013 at a velocity the industry has never seen.",
+      "statement": "Crusoe is building a new AI factory campus in Abilene, purpose-built for the demands of next-generation AI. By integrating 900 megawatts of new on-site power generation, we will continue building the industrial foundation for American AI – at a velocity the industry has never seen.",
       "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure",
-      "source_title": "Crusoe newsroom \u2014 Chase Lochmiller on 900 MW Abilene AI factory campus",
+      "source_title": "Crusoe newsroom — Chase Lochmiller on 900 MW Abilene AI factory campus",
       "captured_at": "2026-05-16",
       "published_at": "2026-03-27",
       "project_id": "crusoe-abilene-tx",
@@ -2620,7 +2620,7 @@
       "theme": "engagement",
       "statement": "Going forward, every Stargate site will have its own locally tailored Stargate Community plan, driven by community input and local concerns. They will all rest on this same core premise: Stargate is a partnership with communities, and we can only achieve our mission by being good neighbors.",
       "source_url": "https://openai.com/index/stargate-community/",
-      "source_title": "OpenAI \u2014 Stargate Community",
+      "source_title": "OpenAI — Stargate Community",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-21"
     },
@@ -2630,7 +2630,7 @@
       "theme": "energy",
       "statement": "Our Fairwater datacenter in Wisconsin is going live, ahead of schedule. As the world's most powerful AI datacenter, it will bring together hundreds of thousands of GB200s into a single seamless cluster.",
       "source_url": "https://www.datacenterdynamics.com/en/news/microsoft-ceo-says-fairwater-data-center-site-is-going-live-ahead-of-schedule/",
-      "source_title": "Data Center Dynamics \u2014 Satya Nadella (Microsoft CEO) on Fairwater data center site going live",
+      "source_title": "Data Center Dynamics — Satya Nadella (Microsoft CEO) on Fairwater data center site going live",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-16",
       "project_id": "ms-mt-pleasant-wi",
@@ -2638,7 +2638,7 @@
         "status": "delivered",
         "summary": "Microsoft confirmed Fairwater went operational on schedule per Nadella's Apr 16 2026 announcement; Mt Pleasant operational milestone separately reported May 7 2026 (375 FTEs hired at the Impact 2026 event).",
         "source_url": "https://www.jtirregulars.com/2026/05/microsofts-mount-pleasant-data-center.html",
-        "source_title": "JT Irregulars \u2014 Bowen Wallace on Mount Pleasant 375 FTEs and Fairwater operational status (May 7 2026)",
+        "source_title": "JT Irregulars — Bowen Wallace on Mount Pleasant 375 FTEs and Fairwater operational status (May 7 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -2648,7 +2648,7 @@
       "theme": "community_grants",
       "statement": "Google offered yearly community betterment payments of $1 million for each of the buildings (between two and six) that would make up the Linn County, Iowa data center, with a 2% annual escalator.",
       "source_url": "https://www.datacenterdynamics.com/en/news/google-looks-to-build-up-to-six-data-centers-near-nuclear-power-site-in-linn-county-iowa/",
-      "source_title": "Data Center Dynamics \u2014 Google Linn County community-betterment payment commitment",
+      "source_title": "Data Center Dynamics — Google Linn County community-betterment payment commitment",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-30",
       "project_id": "google-linn-county-ia",
@@ -2662,9 +2662,9 @@
       "id": "google-lima-infrastructure-2026",
       "company_slug": "google",
       "theme": "infrastructure",
-      "statement": "$50 million will fund local infrastructure upgrades \u2014 roundabouts at Bluelick Road / N Cole Street and SR-115 / N Cole Street \u2014 plus a $13.6 million investment in local water infrastructure.",
+      "statement": "$50 million will fund local infrastructure upgrades — roundabouts at Bluelick Road / N Cole Street and SR-115 / N Cole Street — plus a $13.6 million investment in local water infrastructure.",
       "source_url": "https://www.datacenterdynamics.com/en/news/google-confirmed-as-company-behind-500m-data-center-in-lima-ohio/",
-      "source_title": "Data Center Dynamics \u2014 Google Lima OH infrastructure commitment",
+      "source_title": "Data Center Dynamics — Google Lima OH infrastructure commitment",
       "captured_at": "2026-05-16",
       "published_at": "2026-05-01",
       "project_id": "google-lima-oh",
@@ -2680,7 +2680,7 @@
       "theme": "education",
       "statement": "Google will provide $250,000 in annual funding to Elida Local Schools as part of a 15-year tax-abatement offset agreement at the Lima, Ohio site.",
       "source_url": "https://www.datacenterdynamics.com/en/news/google-confirmed-as-company-behind-500m-data-center-in-lima-ohio/",
-      "source_title": "Data Center Dynamics \u2014 Google Lima OH Elida Schools commitment",
+      "source_title": "Data Center Dynamics — Google Lima OH Elida Schools commitment",
       "captured_at": "2026-05-16",
       "published_at": "2026-05-01",
       "project_id": "google-lima-oh",
@@ -2696,7 +2696,7 @@
       "theme": "infrastructure",
       "statement": "Anthropic said the new compute allocation (xAI Colossus 1, over 300 MW, more than 220,000 NVIDIA GPUs) will directly improve capacity for Claude Pro and Claude Max subscribers.",
       "source_url": "https://www.datacenterdynamics.com/en/news/anthropic-to-use-all-of-spacex-xais-colossus-1-data-center-compute/",
-      "source_title": "Data Center Dynamics \u2014 Anthropic to use all of SpaceX-xAI's Colossus 1 compute (May 6 2026)",
+      "source_title": "Data Center Dynamics — Anthropic to use all of SpaceX-xAI's Colossus 1 compute (May 6 2026)",
       "captured_at": "2026-05-16",
       "published_at": "2026-05-06",
       "project_id": "xai-memphis-tn",
@@ -2712,10 +2712,10 @@
       "theme": "jobs",
       "statement": "The Saline Township project will create more than 2,500 union construction jobs, more than 450 jobs on site, and more than 1,500 jobs county-wide.",
       "source_url": "https://www.datacenterdynamics.com/en/news/related-digital-closes-in-on-16bn-financing-for-oracle-data-center-in-michigan-report/",
-      "source_title": "Data Center Dynamics \u2014 Related Digital on Oracle Saline Township jobs (Apr 24 2026)",
+      "source_title": "Data Center Dynamics — Related Digital on Oracle Saline Township jobs (Apr 24 2026)",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-24",
-      "project_id": "openai-saline-twp-mi",
+      "project_id": "openai-saline-mi",
       "metric": {
         "value": 2500.0,
         "unit": "construction_jobs",
@@ -2728,7 +2728,7 @@
       "theme": "education",
       "statement": "Meta and CBRE announced LevelUp, a multi-year program to recruit and train thousands of US data center fiber technicians for free; a four-week paid program with no prior experience required and relocation costs covered.",
       "source_url": "https://www.datacenterdynamics.com/en/news/meta-partners-with-cbre-to-train-data-center-technicians-in-the-us-for-free/",
-      "source_title": "Data Center Dynamics \u2014 Meta and CBRE LevelUp Fiber Technician Pathway",
+      "source_title": "Data Center Dynamics — Meta and CBRE LevelUp Fiber Technician Pathway",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-20"
     },
@@ -2738,7 +2738,7 @@
       "theme": "water",
       "statement": "minimize water use by prioritizing closed-loop or low-water cooling systems",
       "source_url": "https://openai.com/index/stargate-community/",
-      "source_title": "OpenAI \u2014 Stargate Community (water-cooling commitment, verified verbatim via The Register Jan 21 2026 citation)",
+      "source_title": "OpenAI — Stargate Community (water-cooling commitment, verified verbatim via The Register Jan 21 2026 citation)",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-21",
       "project_id": "openai-abilene-tx"
@@ -2747,9 +2747,9 @@
       "id": "oracle-dona-ana-tax-pitcock-2026",
       "company_slug": "oracle",
       "theme": "tax_revenue",
-      "statement": "Additionally, our investments include $360 million in direct payments to Do\u00f1a Ana County to improve schools, infrastructure, and local services, and an additional $50 million to help the county fix, build and repair its water systems.",
+      "statement": "Additionally, our investments include $360 million in direct payments to Doña Ana County to improve schools, infrastructure, and local services, and an additional $50 million to help the county fix, build and repair its water systems.",
       "source_url": "https://www.oracle.com/news/announcement/blog/oracle-advances-american-ai-innovation-in-new-mexico-2026-01-23/",
-      "source_title": "Oracle \u2014 Josh Pitcock (SVP) on Project Jupiter community payments",
+      "source_title": "Oracle — Josh Pitcock (SVP) on Project Jupiter community payments",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-23",
       "project_id": "oracle-dona-ana-nm",
@@ -2765,7 +2765,7 @@
       "theme": "education",
       "statement": "QTS will fund scholarships and workforce partnerships with Madison Area Technical College and develop research partnerships with the University of Wisconsin.",
       "source_url": "https://qtsdatacenters.com/data-centers/dane-county-wi/",
-      "source_title": "QTS \u2014 Dane County WI $50M community-commitment package (Nov 2025)",
+      "source_title": "QTS — Dane County WI $50M community-commitment package (Nov 2025)",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-07",
       "project_id": "qts-dane-county-wi"
@@ -2776,7 +2776,7 @@
       "theme": "education",
       "statement": "OpenAI will launch its first Stargate community OpenAI Academy in Abilene, Texas this spring.",
       "source_url": "https://openai.com/index/stargate-community/",
-      "source_title": "OpenAI \u2014 Stargate Community (Abilene Academy commitment, verified via syndicated coverage)",
+      "source_title": "OpenAI — Stargate Community (Abilene Academy commitment, verified via syndicated coverage)",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-21",
       "project_id": "openai-abilene-tx"
@@ -2787,7 +2787,7 @@
       "theme": "jobs",
       "statement": "Abilene will host one of the largest clusters of GPUs in the world, bringing thousands of jobs to the local community while delivering tens of billions of dollars in value to the economy.",
       "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-200mw-ai-data-center",
-      "source_title": "Crusoe newsroom \u2014 Chase Lochmiller (CEO) on Abilene 200 MW AI data center",
+      "source_title": "Crusoe newsroom — Chase Lochmiller (CEO) on Abilene 200 MW AI data center",
       "captured_at": "2026-05-16",
       "published_at": "2024-07-18",
       "project_id": "crusoe-abilene-tx"
@@ -2798,15 +2798,15 @@
       "theme": "infrastructure",
       "statement": "What you see in Abilene is the new blueprint for large-scale data center development.",
       "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live",
-      "source_title": "Crusoe newsroom \u2014 Lochmiller on Abilene flagship live (Sep 30 2025)",
+      "source_title": "Crusoe newsroom — Lochmiller on Abilene flagship live (Sep 30 2025)",
       "captured_at": "2026-05-16",
       "published_at": "2025-09-30",
       "project_id": "crusoe-abilene-tx",
       "delivered": {
         "status": "delivered",
-        "summary": "Crusoe announced the Abilene flagship was live on Sept 30 2025 \u2014 the Lochmiller 'blueprint' framing was paired with an operational milestone confirmed via Crusoe's own newsroom and corroborated by DCD coverage.",
+        "summary": "Crusoe announced the Abilene flagship was live on Sept 30 2025 — the Lochmiller 'blueprint' framing was paired with an operational milestone confirmed via Crusoe's own newsroom and corroborated by DCD coverage.",
         "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live",
-        "source_title": "Crusoe newsroom \u2014 Flagship Abilene data center is live (Sep 30 2025)",
+        "source_title": "Crusoe newsroom — Flagship Abilene data center is live (Sep 30 2025)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -2816,7 +2816,7 @@
       "theme": "water",
       "statement": "These data centers are designed to not use water. All of the data centers that we're building (in) this part of Stargate are designed to not use water. The reason we do that is because it turns out that's harmful for the environment and this is a better solution.",
       "source_url": "https://www.cnbc.com/2025/09/23/openai-first-data-center-in-500-billion-stargate-project-up-in-texas.html",
-      "source_title": "CNBC \u2014 Clay Magouyrk (Oracle Co-CEO) on Abilene Stargate water design",
+      "source_title": "CNBC — Clay Magouyrk (Oracle Co-CEO) on Abilene Stargate water design",
       "captured_at": "2026-05-16",
       "published_at": "2025-09-23",
       "project_id": "oracle-abilene-tx"
@@ -2827,7 +2827,7 @@
       "theme": "energy",
       "statement": "Enough power for one million four-bedroom homes in the United States.",
       "source_url": "https://www.datacenterdynamics.com/en/news/openai-and-oracle-to-deploy-450000-gb200-gpus-at-stargate-abilene-data-center/",
-      "source_title": "Data Center Dynamics \u2014 Larry Ellison (Oracle CTO) on Stargate Abilene power consumption (Oracle AI World, Oct 15 2025)",
+      "source_title": "Data Center Dynamics — Larry Ellison (Oracle CTO) on Stargate Abilene power consumption (Oracle AI World, Oct 15 2025)",
       "captured_at": "2026-05-16",
       "published_at": "2025-10-15",
       "project_id": "oracle-abilene-tx",
@@ -2843,7 +2843,7 @@
       "theme": "community_grants",
       "statement": "We were proud to cheer on the Greater Manassas Baseball League team in the World Series last year and were excited to support them again this year. We value our relationships with the Northern Virginia community and were pleased to be able to help these players and their families make the trip.",
       "source_url": "https://qtsdatacenters.com/news/qts-data-centers-announces-support-of-the-greater-manassas-baseball-league-for-the-second-year-in-a-row/",
-      "source_title": "QTS \u2014 Dave Murray (SVP Community Impact) on Greater Manassas Baseball League sponsorship",
+      "source_title": "QTS — Dave Murray (SVP Community Impact) on Greater Manassas Baseball League sponsorship",
       "captured_at": "2026-05-16",
       "published_at": "2024-08-19",
       "project_id": "qts-manassas-va",
@@ -2859,7 +2859,7 @@
       "theme": "engagement",
       "statement": "This is the perfect home for Meta for several reasons, including great local talent, strong community partnerships, and reliable infrastructure. We are excited to become part of the Beaver Dam community, and we look forward to a strong partnership with the city and the state for years to come.",
       "source_url": "https://wedc.org/meta-state-and-local-officials-announce-1-billion-data-center-investment-in-beaver-dam-project/",
-      "source_title": "WEDC \u2014 Brad Davis (Meta Director of Data Center Community and Economic Development) on Beaver Dam",
+      "source_title": "WEDC — Brad Davis (Meta Director of Data Center Community and Economic Development) on Beaver Dam",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-12",
       "project_id": "meta-beaver-dam-wi"
@@ -2870,7 +2870,7 @@
       "theme": "water",
       "statement": "In Beaver Dam we will restore 100% of the water consumed in our data center operations to local watersheds.",
       "source_url": "https://dailydodge.com/meta-pledges-water-stewardship-surrounding-ai-data-center/",
-      "source_title": "Daily Dodge \u2014 Brad Davis (Meta) on Beaver Dam water restoration",
+      "source_title": "Daily Dodge — Brad Davis (Meta) on Beaver Dam water restoration",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-13",
       "project_id": "meta-beaver-dam-wi",
@@ -2886,7 +2886,7 @@
       "theme": "engagement",
       "statement": "Microsoft is committed to being a good neighbor and active community member anywhere we build, own, or operate facilities. We look forward to sharing more detailed plans with the community as we have them and move through the years-long development process.",
       "source_url": "https://www.theassemblync.com/news/business/person-county-microsoft-data-center-nondisclosure-agreements/",
-      "source_title": "The Assembly NC \u2014 Microsoft spokesperson on Person County data center",
+      "source_title": "The Assembly NC — Microsoft spokesperson on Person County data center",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-15",
       "project_id": "microsoft-person-county-nc"
@@ -2897,7 +2897,7 @@
       "theme": "energy",
       "statement": "While [Microsoft is] at the earliest stage of the development process, in any future datacenter project, the community can expect that we will: pay our way to ensure our development doesn't increase residents' electricity prices, minimize our water use and replenish more water than we use, create jobs for community residents, add to the tax base, and strengthen the community by investing in local IT training and nonprofits.",
       "source_url": "https://www.theassemblync.com/news/business/person-county-microsoft-data-center-nondisclosure-agreements/",
-      "source_title": "The Assembly NC \u2014 Microsoft spokesperson on Person County five commitments",
+      "source_title": "The Assembly NC — Microsoft spokesperson on Person County five commitments",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-15",
       "project_id": "microsoft-person-county-nc"
@@ -2908,7 +2908,7 @@
       "theme": "water",
       "statement": "We have a water-positive goal. In Clinton, we will actually use no water.",
       "source_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
-      "source_title": "SuperTalk MS \u2014 Roger Wehner (AWS VP Economic Development) on Clinton water use",
+      "source_title": "SuperTalk MS — Roger Wehner (AWS VP Economic Development) on Clinton water use",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-09",
       "project_id": "amazon-clinton-ms",
@@ -2922,9 +2922,9 @@
       "id": "amazon-clinton-jobs-wehner-2026",
       "company_slug": "amazon",
       "theme": "jobs",
-      "statement": "A super unique opportunity to take a pre-existing building that needed a little love \u2014 we're retrofitting that building and reinventing it as part of this broader story that we're creating here in Mississippi.",
+      "statement": "A super unique opportunity to take a pre-existing building that needed a little love — we're retrofitting that building and reinventing it as part of this broader story that we're creating here in Mississippi.",
       "source_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
-      "source_title": "SuperTalk MS \u2014 Wehner (AWS) on Clinton Delphi retrofit",
+      "source_title": "SuperTalk MS — Wehner (AWS) on Clinton Delphi retrofit",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-09",
       "project_id": "amazon-clinton-ms",
@@ -2940,7 +2940,7 @@
       "theme": "energy",
       "statement": "We are excited to move forward with this updated energy solution, which reflects our commitment to both the latest innovation and community priorities as we advance the next generation of AI infrastructure.",
       "source_url": "https://www.prnewswire.com/news-releases/oracle-borderplex-and-bloom-energy-to-power-project-jupiter-with-cleaner-water-efficient-fuel-cell-technology-302754698.html",
-      "source_title": "PR Newswire \u2014 Mahesh Thiagarajan (Oracle EVP OCI) on Project Jupiter fuel-cell pivot",
+      "source_title": "PR Newswire — Mahesh Thiagarajan (Oracle EVP OCI) on Project Jupiter fuel-cell pivot",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-27",
       "project_id": "oracle-dona-ana-nm"
@@ -2949,9 +2949,9 @@
       "id": "oracle-dona-ana-infrastructure-napier-2026",
       "company_slug": "oracle",
       "theme": "infrastructure",
-      "statement": "Project Jupiter started with a belief that Do\u00f1a Ana County could become a Tier 1 industrial engine for New Mexico. We said we could help bring cleaner energy, stronger infrastructure, more jobs and new investment to southern New Mexico, and that vision is becoming reality. With this announcement, Project Jupiter is becoming a platform for better jobs, stronger infrastructure, and generational opportunity in a region with the talent, work ethic, and ambition to help lead New Mexico's next chapter of growth.",
+      "statement": "Project Jupiter started with a belief that Doña Ana County could become a Tier 1 industrial engine for New Mexico. We said we could help bring cleaner energy, stronger infrastructure, more jobs and new investment to southern New Mexico, and that vision is becoming reality. With this announcement, Project Jupiter is becoming a platform for better jobs, stronger infrastructure, and generational opportunity in a region with the talent, work ethic, and ambition to help lead New Mexico's next chapter of growth.",
       "source_url": "https://www.prnewswire.com/news-releases/oracle-borderplex-and-bloom-energy-to-power-project-jupiter-with-cleaner-water-efficient-fuel-cell-technology-302754698.html",
-      "source_title": "PR Newswire \u2014 Lanham Napier (Chairman, BorderPlex Digital Assets \u2014 Oracle JV partner) on Project Jupiter",
+      "source_title": "PR Newswire — Lanham Napier (Chairman, BorderPlex Digital Assets — Oracle JV partner) on Project Jupiter",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-27",
       "project_id": "oracle-dona-ana-nm",
@@ -2967,7 +2967,7 @@
       "theme": "engagement",
       "statement": "When we go into a community and spend time and energy and build relationships, it sometimes culminates in cool events like this. We do not want this to be a burden to the community. All the sections that we have that are adjacent to our properties, we will continue to maintain. This is on our property that we have donated to the project that ultimately allows people to enjoy this path for many, many years to come. The Fayetteville project has been one of the most successful projects that we've had.",
       "source_url": "https://thecitizen.com/2025/11/15/qts-unveils-new-multi-use-path-as-part-of-expanding-community-partnership-in-fayetteville/",
-      "source_title": "The Citizen \u2014 Tag Greason (QTS co-CEO) on Fayetteville community partnership",
+      "source_title": "The Citizen — Tag Greason (QTS co-CEO) on Fayetteville community partnership",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-15",
       "project_id": "qts-fayetteville-ga"
@@ -2978,7 +2978,7 @@
       "theme": "community_grants",
       "statement": "Our mission statement is to love each other, serve our communities and connect the world. It is a privilege to be here, be part of this community. We hope that this serves as one of many great moments in the future to come.",
       "source_url": "https://thecitizen.com/2025/11/15/qts-unveils-new-multi-use-path-as-part-of-expanding-community-partnership-in-fayetteville/",
-      "source_title": "The Citizen \u2014 David Robey (QTS co-CEO) on Fayetteville community",
+      "source_title": "The Citizen — David Robey (QTS co-CEO) on Fayetteville community",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-15",
       "project_id": "qts-fayetteville-ga"
@@ -2989,7 +2989,7 @@
       "theme": "engagement",
       "statement": "QTS is pleased to announce our expansion in York County, SC with a new campus that supports growth for QTS and its partners. Our investment in York County is consistent with QTS' strategy of securing access to infrastructure at scale in strategic markets to support accelerating demand from our hyperscale, enterprise, and government customer base. We look forward to partnering with the community along with local and state leadership, further enhancing South Carolina as a leading technology center.",
       "source_url": "https://governor.sc.gov/news/2023-09/qts-data-centers-establishing-first-south-carolina-operations-york-county",
-      "source_title": "SC Governor's Office \u2014 Chad Williams (QTS CEO) on York County data center",
+      "source_title": "SC Governor's Office — Chad Williams (QTS CEO) on York County data center",
       "captured_at": "2026-05-16",
       "published_at": "2023-09-21",
       "project_id": "qts-york-county-sc"
@@ -3000,7 +3000,7 @@
       "theme": "energy",
       "statement": "Building an American AI factory that can scale to 10 gigawatts of capacity illustrates Crusoe's commitment to delivering infrastructure at the scale needed for the U.S. to win the global AI race.",
       "source_url": "https://tallgrass.com/newsroom/press-releases/Crusoe",
-      "source_title": "Tallgrass newsroom \u2014 Chase Lochmiller (Crusoe co-founder & CEO) on Wyoming AI data center",
+      "source_title": "Tallgrass newsroom — Chase Lochmiller (Crusoe co-founder & CEO) on Wyoming AI data center",
       "captured_at": "2026-05-16",
       "published_at": "2025-07-24",
       "project_id": "crusoe-cheyenne-wy",
@@ -3016,7 +3016,7 @@
       "theme": "engagement",
       "statement": "We don't just build data centers; we become part of the community. That's why we're committed to a sustainable, long-term presence that benefits the entire community. This includes paying for 100% of the cost of power for the site and any infrastructure needs driven by our operations.",
       "source_url": "https://wsbt.com/news/local/breaking-google-confirms-data-center-in-michigan-city-project-oyal-road-project-maize-underway-challenges-site-statement-michigan-city-laporte-county-indiana",
-      "source_title": "WSBT 22 \u2014 Google statement on Project Maize, Michigan City Indiana",
+      "source_title": "WSBT 22 — Google statement on Project Maize, Michigan City Indiana",
       "captured_at": "2026-05-16",
       "published_at": "2026-04-16",
       "project_id": "google-michigan-city-in"
@@ -3027,7 +3027,7 @@
       "theme": "engagement",
       "statement": "Google is considering a potential data center project in Scioto County, Ohio. We are still very early in the process, working closely with the local leadership.",
       "source_url": "https://sciotocountydailynews.com/google-speaks-out-on-scioto-county-data-center/",
-      "source_title": "Scioto County Daily News \u2014 Molly Kocour Boyle (Google Head of Midwest DC Public Affairs) on Franklin Furnace",
+      "source_title": "Scioto County Daily News — Molly Kocour Boyle (Google Head of Midwest DC Public Affairs) on Franklin Furnace",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-22",
       "project_id": "google-franklin-furnace-oh"
@@ -3038,7 +3038,7 @@
       "theme": "energy",
       "statement": "Partnering with SB Energy brings together their strength in data center infrastructure and energy development, and OpenAI's deep domain expertise in data center engineering. The result is a fast, reliable way to scale compute through large, highly optimized AI data centers.",
       "source_url": "https://openai.com/index/stargate-sb-energy-partnership/",
-      "source_title": "OpenAI \u2014 Greg Brockman (President) on SB Energy / Milam County 1.2 GW site",
+      "source_title": "OpenAI — Greg Brockman (President) on SB Energy / Milam County 1.2 GW site",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-09",
       "project_id": "openai-milam-county-tx",
@@ -3054,7 +3054,7 @@
       "theme": "engagement",
       "statement": "Oracle recognizes that when we enter a community, we have an obligation to be a good citizen.",
       "source_url": "https://www.oracle.com/news/announcement/blog/oracle-ai-infrastructure-in-2026-and-our-commitment-to-local-communities-2026-01-26/",
-      "source_title": "Oracle blog \u2014 AI Infrastructure in 2026 and Our Commitment to Local Communities (good-citizen commitment)",
+      "source_title": "Oracle blog — AI Infrastructure in 2026 and Our Commitment to Local Communities (good-citizen commitment)",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-26"
     },
@@ -3064,7 +3064,7 @@
       "theme": "community_grants",
       "statement": "North Dakota has been very welcoming to us. The state's energy industry, government and communities have embraced Crusoe as a solution to the challenging problem of natural gas flaring. North Dakota really gave Crusoe our start, and we want to give back in ways that align with our values of innovation, environmental stewardship and personal growth. This is why we are donating to STEM education programs and community building activities like the Maah Daah Hey run.",
       "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-expands-north-dakota",
-      "source_title": "Crusoe newsroom \u2014 Cully Cavness (Crusoe President) on North Dakota community giving",
+      "source_title": "Crusoe newsroom — Cully Cavness (Crusoe President) on North Dakota community giving",
       "captured_at": "2026-05-16",
       "published_at": "2021-03-31"
     },
@@ -3074,7 +3074,7 @@
       "theme": "energy",
       "statement": "At Meta, we're building the infrastructure that will power the next generation of AI technology, and Lebanon is now at the heart of that effort. This is one of our largest investments to date, and it marks an important milestone in our AI ambitions.",
       "source_url": "https://commercialobserver.com/2026/02/meta-data-center-lebanon-indiana/",
-      "source_title": "Commercial Observer \u2014 Rachel Peterson (Meta VP Data Centers) on Lebanon IN groundbreaking",
+      "source_title": "Commercial Observer — Rachel Peterson (Meta VP Data Centers) on Lebanon IN groundbreaking",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-13",
       "project_id": "meta-lebanon-in"
@@ -3085,7 +3085,7 @@
       "theme": "engagement",
       "statement": "We've been proud to call Indiana home since 2024, and this project deepens that commitment, creating local jobs, supporting the community, and partnering with state and local leaders to drive real impact across the region.",
       "source_url": "https://lebanon.in.gov/2026/02/11/meta-makes-lebanon-data-center-announcement-official/",
-      "source_title": "City of Lebanon \u2014 Rachel Peterson (Meta VP Data Centers) on Lebanon IN announcement",
+      "source_title": "City of Lebanon — Rachel Peterson (Meta VP Data Centers) on Lebanon IN announcement",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-11",
       "project_id": "meta-lebanon-in"
@@ -3094,9 +3094,9 @@
       "id": "meta-lebanon-engagement-peterson-tenet-2026",
       "company_slug": "meta",
       "theme": "community_grants",
-      "statement": "This is our 27th data center here in the U.S. \u2026 a tenet of our data center program from day one has been to play a really strong, positive role in the communities that we're in.",
+      "statement": "This is our 27th data center here in the U.S. … a tenet of our data center program from day one has been to play a really strong, positive role in the communities that we're in.",
       "source_url": "https://www.wfyi.org/news/articles/details-on-long-expected-meta-data-center-campus-unveiled",
-      "source_title": "WFYI \u2014 Rachel Peterson (Meta) on community engagement framing at Lebanon",
+      "source_title": "WFYI — Rachel Peterson (Meta) on community engagement framing at Lebanon",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-12",
       "project_id": "meta-lebanon-in"
@@ -3107,7 +3107,7 @@
       "theme": "infrastructure",
       "statement": "Data centers and this infrastructure is critical to everything we do on the internet. You think of the cloud, those are data centers.",
       "source_url": "https://elpasomatters.org/2026/03/29/meta-data-center-el-paso-10-billion-expansion-water-gas-electricity-usage/",
-      "source_title": "El Paso Matters \u2014 Brad Davis (Meta Director Data Center Community & Economic Development) on El Paso campus",
+      "source_title": "El Paso Matters — Brad Davis (Meta Director Data Center Community & Economic Development) on El Paso campus",
       "captured_at": "2026-05-16",
       "published_at": "2026-03-29",
       "project_id": "meta-el-paso-tx"
@@ -3118,7 +3118,7 @@
       "theme": "energy",
       "statement": "And when you have a global platform like ours and intentions of deploying that AI everywhere, it's going to require very large amounts of infrastructure similar to what we're talking about here in El Paso.",
       "source_url": "https://elpasomatters.org/2026/03/29/meta-data-center-el-paso-10-billion-expansion-water-gas-electricity-usage/",
-      "source_title": "El Paso Matters \u2014 Brad Davis (Meta) on El Paso AI infrastructure scale",
+      "source_title": "El Paso Matters — Brad Davis (Meta) on El Paso AI infrastructure scale",
       "captured_at": "2026-05-16",
       "published_at": "2026-03-29",
       "project_id": "meta-el-paso-tx"
@@ -3129,7 +3129,7 @@
       "theme": "jobs",
       "statement": "We have 1,500 construction workers on site today. We are getting ready to pour foundations. We are moving forward.",
       "source_url": "https://elpasomatters.org/2026/03/29/meta-data-center-el-paso-10-billion-expansion-water-gas-electricity-usage/",
-      "source_title": "El Paso Matters \u2014 Holli Davies (Meta Community Development Manager) on El Paso construction",
+      "source_title": "El Paso Matters — Holli Davies (Meta Community Development Manager) on El Paso construction",
       "captured_at": "2026-05-16",
       "published_at": "2026-03-29",
       "project_id": "meta-el-paso-tx",
@@ -3143,9 +3143,9 @@
       "id": "google-chesterfield-engagement-porat-2025",
       "company_slug": "google",
       "theme": "engagement",
-      "statement": "With today's announcement, Google is deepening our roots in Virginia [and] extending our investments across the state to help position Virginia \u2014 and America \u2014 for the opportunities technology can deliver. Google's investments in technical infrastructure and AI skills development help to ensure that people across Virginia and across the United States have access to opportunity in this exciting era of American innovation.",
+      "statement": "With today's announcement, Google is deepening our roots in Virginia [and] extending our investments across the state to help position Virginia — and America — for the opportunities technology can deliver. Google's investments in technical infrastructure and AI skills development help to ensure that people across Virginia and across the United States have access to opportunity in this exciting era of American innovation.",
       "source_url": "https://virginiabusiness.com/google-announces-chesterfield-data-center-as-part-of-9b-investment/",
-      "source_title": "Virginia Business \u2014 Ruth Porat (Alphabet/Google President & CIO) on Chesterfield announcement",
+      "source_title": "Virginia Business — Ruth Porat (Alphabet/Google President & CIO) on Chesterfield announcement",
       "captured_at": "2026-05-16",
       "published_at": "2025-08-27",
       "project_id": "google-chesterfield-va"
@@ -3156,7 +3156,7 @@
       "theme": "infrastructure",
       "statement": "Too often, as the governor has said to me, when people think of the digital economy, they only think of places like Northern Virginia or other tech hubs. And so today, all of us are demonstrating that cutting-edge technology comprises every corner of the commonwealth and every corner of the country.",
       "source_url": "https://www.richmonder.org/google-announces-9-billion-investment-in-virginia-including-a-chesterfield-data-center/",
-      "source_title": "The Richmonder \u2014 Ruth Porat (Alphabet/Google President) on Chesterfield siting decision",
+      "source_title": "The Richmonder — Ruth Porat (Alphabet/Google President) on Chesterfield siting decision",
       "captured_at": "2026-05-16",
       "published_at": "2025-08-27",
       "project_id": "google-chesterfield-va"
@@ -3167,7 +3167,7 @@
       "theme": "engagement",
       "statement": "We're excited to share that Google has purchased land in Putnam County, West Virginia, for a new data center campus. We are early in the process, and substantial work remains, but we are appreciative of the strong business environment created by Governor Morrisey to provide a pathway for projects of this scale. We look forward to continued partnership with the Governor and local leaders in Putnam County on this opportunity here in West Virginia.",
       "source_url": "https://governor.wv.gov/article/governor-morrisey-announces-google-data-center-project-putnam-county",
-      "source_title": "WV Governor's Office \u2014 Clay Allsop (Google Regional Head of Data Center Public Affairs) on Putnam County",
+      "source_title": "WV Governor's Office — Clay Allsop (Google Regional Head of Data Center Public Affairs) on Putnam County",
       "captured_at": "2026-05-16",
       "published_at": "2026-03-27",
       "project_id": "google-putnam-county-wv"
@@ -3178,7 +3178,7 @@
       "theme": "energy",
       "statement": "AI can only fulfill its promise if we build the compute to power it. That compute is the key to ensuring everyone can benefit from AI and to unlocking future breakthroughs. We're already making historic progress toward that goal through Stargate and moving quickly not just to meet its initial commitment, but to lay the foundation for what comes next.",
       "source_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
-      "source_title": "Vantage Data Centers \u2014 Sam Altman (OpenAI CEO) on Wisconsin Stargate Lighthouse announcement",
+      "source_title": "Vantage Data Centers — Sam Altman (OpenAI CEO) on Wisconsin Stargate Lighthouse announcement",
       "captured_at": "2026-05-16",
       "published_at": "2025-10-22",
       "project_id": "oracle-port-washington-wi"
@@ -3189,7 +3189,7 @@
       "theme": "jobs",
       "statement": "Expanding Stargate to Wisconsin is another major step toward building the infrastructure that will help ensure everyone can benefit from AI.",
       "source_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
-      "source_title": "Vantage Data Centers \u2014 Peter Hoeschele (OpenAI VP Industrial Compute) on Wisconsin Stargate",
+      "source_title": "Vantage Data Centers — Peter Hoeschele (OpenAI VP Industrial Compute) on Wisconsin Stargate",
       "captured_at": "2026-05-16",
       "published_at": "2025-10-22",
       "project_id": "oracle-port-washington-wi"
@@ -3200,7 +3200,7 @@
       "theme": "jobs",
       "statement": "Amazon's multi-billion-dollar investment in Pennsylvania reinforces our dedication to advancing AI innovation while creating lasting economic opportunities in the state.",
       "source_url": "https://www.fallstwp.com/resources/news/article/?id=10070",
-      "source_title": "Falls Township \u2014 David Zapolsky (Amazon Chief Global Affairs & Legal Officer) on Falls Twp campus",
+      "source_title": "Falls Township — David Zapolsky (Amazon Chief Global Affairs & Legal Officer) on Falls Twp campus",
       "captured_at": "2026-05-16",
       "published_at": "2025-06-09",
       "project_id": "amazon-falls-twp-pa"
@@ -3211,7 +3211,7 @@
       "theme": "jobs",
       "statement": "Amazon's $10 billion investment in North Carolina underscores our commitment to driving innovation and advancing the future of cloud computing and AI technologies.",
       "source_url": "https://governor.nc.gov/news/press-releases/2025/06/04/governor-stein-announces-amazon-plans-invest-10-billion-north-carolina-ai-infrastructure",
-      "source_title": "NC Governor's Office \u2014 David Zapolsky (Amazon) on Richmond County NC",
+      "source_title": "NC Governor's Office — David Zapolsky (Amazon) on Richmond County NC",
       "captured_at": "2026-05-16",
       "published_at": "2025-06-04",
       "project_id": "amazon-richmond-county-nc",
@@ -3227,7 +3227,7 @@
       "theme": "education",
       "statement": "This investment will position North Carolina as a hub for cutting-edge technology, create hundreds of high-skilled jobs, and drive significant economic growth. We look forward to partnering with state and local leaders, local suppliers, and educational institutions to nurture the next generation of talent.",
       "source_url": "https://governor.nc.gov/news/press-releases/2025/06/04/governor-stein-announces-amazon-plans-invest-10-billion-north-carolina-ai-infrastructure",
-      "source_title": "NC Governor's Office \u2014 David Zapolsky (Amazon) on Richmond County NC workforce + education partnerships",
+      "source_title": "NC Governor's Office — David Zapolsky (Amazon) on Richmond County NC workforce + education partnerships",
       "captured_at": "2026-05-16",
       "published_at": "2025-06-04",
       "project_id": "amazon-richmond-county-nc"
@@ -3238,7 +3238,7 @@
       "theme": "jobs",
       "statement": "Amazon's $12 billion investment in northwest Louisiana will build next-generation data center campuses to support AI and cloud computing, ensuring opportunities for local communities. We're creating hundreds of high-paying jobs and making substantial investments in local infrastructure.",
       "source_url": "https://opportunitylouisiana.gov/news/amazon-selects-louisiana-for-12-billion-data-center-campuses-in-major-u-s-expansion",
-      "source_title": "Louisiana Economic Development \u2014 David Zapolsky (Amazon) on northwest LA campuses",
+      "source_title": "Louisiana Economic Development — David Zapolsky (Amazon) on northwest LA campuses",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-23",
       "project_id": "amazon-caddo-parish-la",
@@ -3254,7 +3254,7 @@
       "theme": "energy",
       "statement": "We have very deep commitments about water and energy. And we live up to those. We have high goals and we exceed them regularly. And we're 80% more efficient with water than the industry average.",
       "source_url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
-      "source_title": "KSLA \u2014 Roger Wehner (AWS Director Economic Development) on Caddo/Bossier water + energy efficiency",
+      "source_title": "KSLA — Roger Wehner (AWS Director Economic Development) on Caddo/Bossier water + energy efficiency",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-24",
       "project_id": "amazon-caddo-parish-la"
@@ -3265,7 +3265,7 @@
       "theme": "education",
       "statement": "The thing I'm most passionate about, quite honestly, is we love the fact that we go someplace, we immediately invest in the schools.",
       "source_url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
-      "source_title": "KSLA \u2014 Roger Wehner (AWS) on Caddo/Bossier school investment",
+      "source_title": "KSLA — Roger Wehner (AWS) on Caddo/Bossier school investment",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-24",
       "project_id": "amazon-caddo-parish-la"
@@ -3276,7 +3276,7 @@
       "theme": "infrastructure",
       "statement": "We don't want to pass cost on anything.",
       "source_url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
-      "source_title": "KSLA \u2014 Roger Wehner (AWS Director Economic Development) on Bossier/Caddo infrastructure costs",
+      "source_title": "KSLA — Roger Wehner (AWS Director Economic Development) on Bossier/Caddo infrastructure costs",
       "captured_at": "2026-05-16",
       "published_at": "2026-02-24",
       "project_id": "amazon-bossier-parish-la"
@@ -3285,9 +3285,9 @@
       "id": "amazon-vicksburg-community-grants-zapolsky-2025",
       "company_slug": "amazon",
       "theme": "community_grants",
-      "statement": "Amazon's $3 billion investment in Warren County will create lasting opportunities for Mississippi families and communities, building on our more-than-a-decade-long partnership with the Magnolia State. We're investing in the people and communities that make Mississippi strong, from training more than 6,500 Mississippians through our workforce development programs to launching our new Warren County Community Fund that will address community needs like STEM education. This is what responsible growth looks like\u2014bringing cutting-edge technology infrastructure to America while ensuring local communities benefit directly from that investment.",
+      "statement": "Amazon's $3 billion investment in Warren County will create lasting opportunities for Mississippi families and communities, building on our more-than-a-decade-long partnership with the Magnolia State. We're investing in the people and communities that make Mississippi strong, from training more than 6,500 Mississippians through our workforce development programs to launching our new Warren County Community Fund that will address community needs like STEM education. This is what responsible growth looks like—bringing cutting-edge technology infrastructure to America while ensuring local communities benefit directly from that investment.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-3-billion-mississippi-data-center-investment",
-      "source_title": "Amazon Newsroom \u2014 David Zapolsky on Warren County campus + Community Fund",
+      "source_title": "Amazon Newsroom — David Zapolsky on Warren County campus + Community Fund",
       "captured_at": "2026-05-16",
       "published_at": "2025-11-20",
       "project_id": "amazon-vicksburg-ms",
@@ -3301,9 +3301,9 @@
       "id": "xai-southaven-energy-musk-2026",
       "company_slug": "xai",
       "theme": "energy",
-      "statement": "xAI is scaling at an immeasurable pace \u2014 we are building our third massive data center in the greater Memphis area. MACROHARDRR pushes our Colossus training compute to ~2GW \u2013 by far the most powerful AI system on Earth. This is insane execution speed by xAI and the state of Mississippi. We are grateful to Governor Reeves for his support of building xAI at warp speed.",
+      "statement": "xAI is scaling at an immeasurable pace — we are building our third massive data center in the greater Memphis area. MACROHARDRR pushes our Colossus training compute to ~2GW – by far the most powerful AI system on Earth. This is insane execution speed by xAI and the state of Mississippi. We are grateful to Governor Reeves for his support of building xAI at warp speed.",
       "source_url": "https://governorreeves.ms.gov/tech-leader-xai-investing-more-than-20-billion-in-southaven/",
-      "source_title": "MS Governor's Office \u2014 Elon Musk (xAI CEO) on Southaven MACROHARD/Colossus 3 announcement",
+      "source_title": "MS Governor's Office — Elon Musk (xAI CEO) on Southaven MACROHARD/Colossus 3 announcement",
       "captured_at": "2026-05-16",
       "published_at": "2026-01-08",
       "project_id": "xai-southaven-ms",
@@ -3319,7 +3319,7 @@
       "theme": "jobs",
       "statement": "Approving this permit today will unlock the power needed for the next era of AI innovation in America, while also securing lasting economic growth, job creation and technology leadership in Mississippi.",
       "source_url": "https://mississippitoday.org/2026/03/10/xai-permit-approved-southaven/",
-      "source_title": "Mississippi Today \u2014 Brent Mayo (xAI VP Operations) at MS Environmental Quality Permit Board hearing",
+      "source_title": "Mississippi Today — Brent Mayo (xAI VP Operations) at MS Environmental Quality Permit Board hearing",
       "captured_at": "2026-05-16",
       "published_at": "2026-03-10",
       "project_id": "xai-southaven-ms"
@@ -3330,7 +3330,7 @@
       "theme": "engagement",
       "statement": "xAI believes in always doing right when no one is looking.",
       "source_url": "https://mississippitoday.org/2026/03/10/xai-permit-approved-southaven/",
-      "source_title": "Mississippi Today \u2014 Brent Mayo (xAI VP Operations) at Southaven permit hearing",
+      "source_title": "Mississippi Today — Brent Mayo (xAI VP Operations) at Southaven permit hearing",
       "captured_at": "2026-05-16",
       "published_at": "2026-03-10",
       "project_id": "xai-southaven-ms"
@@ -3341,7 +3341,7 @@
       "theme": "jobs",
       "statement": "We look forward to expanding Google's investments in Missouri and helping Missourians benefit from the next wave of American innovation. To deliver the upside of technology, we are investing in workforce development and energy affordability, both directly and through our partnerships with local organizations. This commitment will provide thousands of Missourians with valuable technical and trade skills, while supporting energy affordability for residents in Montgomery County and across the state.",
       "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
-      "source_title": "Google Deepens Missouri Roots \u2014 Ruth Porat on the Missouri investment (PR Newswire)",
+      "source_title": "Google Deepens Missouri Roots — Ruth Porat on the Missouri investment (PR Newswire)",
       "captured_at": "2026-05-31",
       "published_at": "2026-05-20",
       "project_id": "google-new-florence-mo"
@@ -3350,7 +3350,7 @@
       "id": "google-new-florence-community-grants-energy-fund-2026",
       "company_slug": "google",
       "theme": "community_grants",
-      "statement": "To further address energy affordability, Google today also announced a $20 million Energy Impact Fund to support programs that drive down monthly energy bills for households in Missouri\u2014focused on Montgomery, Clay, Platte, and other counties surrounding Google's planned data centers in Kansas City and New Florence.",
+      "statement": "To further address energy affordability, Google today also announced a $20 million Energy Impact Fund to support programs that drive down monthly energy bills for households in Missouri—focused on Montgomery, Clay, Platte, and other counties surrounding Google's planned data centers in Kansas City and New Florence.",
       "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
       "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
       "captured_at": "2026-05-31",
@@ -3366,7 +3366,7 @@
       "id": "google-new-florence-energy-ameren-capacity-2026",
       "company_slug": "google",
       "theme": "energy",
-      "statement": "To date, Google has contracted to bring more than one gigawatt (GW) of new generation capacity to Missouri, and\u2014through its partnership with Ameren\u2014Google is supporting the development of more than 500 megawatts (MW) of additional capacity.",
+      "statement": "To date, Google has contracted to bring more than one gigawatt (GW) of new generation capacity to Missouri, and—through its partnership with Ameren—Google is supporting the development of more than 500 megawatts (MW) of additional capacity.",
       "source_url": "https://www.prnewswire.com/news-releases/google-deepens-missouri-roots-with-new-data-center-energy-and-community-investments-302778322.html",
       "source_title": "Google Deepens Missouri Roots with New Data Center, Energy, and Community Investments (PR Newswire)",
       "captured_at": "2026-05-31",
@@ -3422,7 +3422,7 @@
       "theme": "engagement",
       "statement": "Our conversations with Coweta County followed standard, transparent processes that are open to all stakeholders. Prologis's involvement was consistent with customary public engagement in land-use and policy discussions.",
       "source_url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
-      "source_title": "DeSmog \u2014 Prologis spokesperson on Project Sail engagement (Dec 2025)",
+      "source_title": "DeSmog — Prologis spokesperson on Project Sail engagement (Dec 2025)",
       "captured_at": "2026-05-17",
       "published_at": "2025-12-15",
       "project_id": "prologis-coweta-ga",
@@ -3430,7 +3430,7 @@
         "status": "contested",
         "summary": "Prologis described its Coweta County engagement as 'standard, transparent processes,' but DeSmog's December 2025 investigation documented that the county's data-center rules were rewritten in closed-door working sessions before public hearings on Project Sail, and Citizens for Rural Coweta filed a 17-plaintiff lawsuit in May 2026 alleging due-process and zoning violations during the rezoning. The contested status reflects that both descriptions of the same process appear on the public record.",
         "source_url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
-        "source_title": "DeSmog \u2014 Behind Closed Doors, Georgia County Rewrote Data Center Rules (Dec 2025)",
+        "source_title": "DeSmog — Behind Closed Doors, Georgia County Rewrote Data Center Rules (Dec 2025)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -3440,7 +3440,7 @@
       "theme": "engagement",
       "statement": "A lot of communities don't have any sort of codes or regulations around how these are being constructed. They're doing the right thing by spending the time and research to make sure that (data centers) are brought into their code in a prudent manner.",
       "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
-      "source_title": "AJC \u2014 JC Witt (Prologis SVP Data Center Investments) on Coweta County's data-center code work",
+      "source_title": "AJC — JC Witt (Prologis SVP Data Center Investments) on Coweta County's data-center code work",
       "captured_at": "2026-05-17",
       "published_at": "2025-05-27",
       "project_id": "prologis-coweta-ga"
@@ -3451,7 +3451,7 @@
       "theme": "engagement",
       "statement": "Nine hundred megawatts is nothing to take lightly. It's something that we really want to execute on for the community and for the company.",
       "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
-      "source_title": "AJC \u2014 JC Witt (Prologis SVP Data Center Investments) on Project Sail",
+      "source_title": "AJC — JC Witt (Prologis SVP Data Center Investments) on Project Sail",
       "captured_at": "2026-05-17",
       "published_at": "2025-05-27",
       "project_id": "prologis-coweta-ga"
@@ -3462,15 +3462,15 @@
       "theme": "infrastructure",
       "statement": "What we like, as a company with a conscience, is that there's already this massive Georgia Power generating station and the lines are there.",
       "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
-      "source_title": "AJC \u2014 Kent Mason (Prologis Atlanta market officer) on Project Sail siting",
+      "source_title": "AJC — Kent Mason (Prologis Atlanta market officer) on Project Sail siting",
       "captured_at": "2026-05-17",
       "published_at": "2025-05-27",
       "project_id": "prologis-coweta-ga",
       "delivered": {
         "status": "contested",
-        "summary": "Prologis framed the Plant Yates siting as relying on transmission infrastructure that's 'already there,' but Georgia Power has confirmed the load actually requires the new Ashley Park-Wansley 500 kV line \u2014 a ~35-mile build for which the utility expects 'roughly 20 to 30 homes' to be removed, with documented eminent-domain disputes in Fayette and Coweta counties (the Maszk family, Ansley Brown) as of May 2026. Both can be true: existing infrastructure proximity was a real siting factor; the actual load also requires new construction with material residential displacement.",
+        "summary": "Prologis framed the Plant Yates siting as relying on transmission infrastructure that's 'already there,' but Georgia Power has confirmed the load actually requires the new Ashley Park-Wansley 500 kV line — a ~35-mile build for which the utility expects 'roughly 20 to 30 homes' to be removed, with documented eminent-domain disputes in Fayette and Coweta counties (the Maszk family, Ansley Brown) as of May 2026. Both can be true: existing infrastructure proximity was a real siting factor; the actual load also requires new construction with material residential displacement.",
         "source_url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
-        "source_title": "AJC \u2014 Georgia Power's data center build-out raises fears of eminent domain (May 2026)",
+        "source_title": "AJC — Georgia Power's data center build-out raises fears of eminent domain (May 2026)",
         "assessed_at": "2026-05-17"
       }
     },
@@ -3480,7 +3480,7 @@
       "theme": "energy",
       "statement": "We've agreed to finance the entire 2.7 gigawatts of new power supply through an agreement with DTE to help ensure any costs associated with our data center project come to us (Google).",
       "source_url": "https://michiganadvance.com/2026/03/17/google-and-dte-announce-van-buren-township-data-center-agreement-commit-to-contested-case-hearing/",
-      "source_title": "Michigan Advance \u2014 Google and DTE: Van Buren Township data center agreement and contested case hearing",
+      "source_title": "Michigan Advance — Google and DTE: Van Buren Township data center agreement and contested case hearing",
       "captured_at": "2026-06-01",
       "published_at": "2026-03-17",
       "project_id": "google-van-buren-mi"
@@ -3491,7 +3491,7 @@
       "theme": "energy",
       "statement": "Google in Ohio will pay 100% of the electric required to run the campus along with paying AEP to provide infrastructure locally.",
       "source_url": "https://www.wsaz.com/2026/05/15/google-hosts-data-center-information-fair/",
-      "source_title": "WSAZ \u2014 Google hosts Scioto County data center information fair (May 2026)",
+      "source_title": "WSAZ — Google hosts Scioto County data center information fair (May 2026)",
       "captured_at": "2026-06-01",
       "published_at": "2026-05-15",
       "project_id": "google-franklin-furnace-oh"
@@ -3502,7 +3502,7 @@
       "theme": "energy",
       "statement": "We pay the full costs for energy used by our data centers and work closely with utilities to plan for our energy needs years in advance to ensure residents aren't negatively impacted.",
       "source_url": "https://datacenters.atmeta.com/2026/02/hello-lebanon/",
-      "source_title": "Meta Data Centers \u2014 Hello, Lebanon! (Feb 2026)",
+      "source_title": "Meta Data Centers — Hello, Lebanon! (Feb 2026)",
       "captured_at": "2026-06-01",
       "published_at": "2026-02-11",
       "project_id": "meta-lebanon-in"
@@ -3513,7 +3513,7 @@
       "theme": "energy",
       "statement": "Amazon has worked with the local utility, Southwestern Electric Power Company (SWEPCO), to ensure we pay 100% of the costs associated with our new data center campus in Louisiana. This includes covering all expenses for new energy infrastructure and upgrades required to serve the data centers.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-louisiana-new-jobs",
-      "source_title": "Amazon \u2014 Caddo and Bossier parishes Louisiana data center announcement (Feb 2026)",
+      "source_title": "Amazon — Caddo and Bossier parishes Louisiana data center announcement (Feb 2026)",
       "captured_at": "2026-06-01",
       "published_at": "2026-02-23",
       "project_id": "amazon-caddo-parish-la"
@@ -3524,7 +3524,7 @@
       "theme": "energy",
       "statement": "Amazon has worked with the local utility, Southwestern Electric Power Company (SWEPCO), to ensure we pay 100% of the costs associated with our new data center campus in Louisiana. This includes covering all expenses for new energy infrastructure and upgrades required to serve the data centers.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-louisiana-new-jobs",
-      "source_title": "Amazon \u2014 Caddo and Bossier parishes Louisiana data center announcement (Feb 2026)",
+      "source_title": "Amazon — Caddo and Bossier parishes Louisiana data center announcement (Feb 2026)",
       "captured_at": "2026-06-01",
       "published_at": "2026-02-23",
       "project_id": "amazon-bossier-parish-la"
@@ -3535,7 +3535,7 @@
       "theme": "energy",
       "statement": "Amazon has worked with Entergy Mississippi to ensure we pay 100% of the costs associated with our new data center campuses, covering all expenses for new energy infrastructure and upgrades.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
-      "source_title": "Amazon \u2014 $25 billion Mississippi data centers announcement (Apr 2026)",
+      "source_title": "Amazon — $25 billion Mississippi data centers announcement (Apr 2026)",
       "captured_at": "2026-06-01",
       "published_at": "2026-04-09",
       "project_id": "amazon-vicksburg-ms"
@@ -3546,7 +3546,7 @@
       "theme": "energy",
       "statement": "Amazon has worked with Entergy Mississippi to ensure we pay 100% of the costs associated with our new data center campuses, covering all expenses for new energy infrastructure and upgrades.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
-      "source_title": "Amazon \u2014 $25 billion Mississippi data centers announcement (Apr 2026)",
+      "source_title": "Amazon — $25 billion Mississippi data centers announcement (Apr 2026)",
       "captured_at": "2026-06-01",
       "published_at": "2026-04-09",
       "project_id": "amazon-clinton-ms"
@@ -3557,7 +3557,7 @@
       "theme": "energy",
       "statement": "Amazon has worked with Entergy Mississippi to ensure we pay 100% of the costs associated with our new data center campuses, covering all expenses for new energy infrastructure and upgrades.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
-      "source_title": "Amazon \u2014 $25 billion Mississippi data centers announcement (Apr 2026)",
+      "source_title": "Amazon — $25 billion Mississippi data centers announcement (Apr 2026)",
       "captured_at": "2026-06-01",
       "published_at": "2026-04-09",
       "project_id": "aws-ridgeland-ms"
@@ -3568,7 +3568,7 @@
       "theme": "energy",
       "statement": "Google will cover 100% of the costs for new grid infrastructure required to serve the facility. That protects Minnesota ratepayers.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
-      "source_title": "Google Blog \u2014 Pine Island, Minnesota data center announcement",
+      "source_title": "Google Blog — Pine Island, Minnesota data center announcement",
       "captured_at": "2026-06-01",
       "published_at": "2026-02-24",
       "project_id": "google-pine-island-mn"
@@ -3577,9 +3577,9 @@
       "id": "google-hermantown-energy-grid-partnership-2026",
       "company_slug": "google",
       "theme": "energy",
-      "statement": "Google and Minnesota Power are partnering to bring 700 megawatts of new clean energy \u2014 including 300 megawatts of wind and 400 megawatts of battery storage \u2014 to the Arrowhead region, with no cost increases to existing Minnesota Power customers.",
+      "statement": "Google and Minnesota Power are partnering to bring 700 megawatts of new clean energy — including 300 megawatts of wind and 400 megawatts of battery storage — to the Arrowhead region, with no cost increases to existing Minnesota Power customers.",
       "source_url": "https://www.datacenterdynamics.com/en/news/google-confirms-it-is-behind-403-acre-data-center-campus-in-hermantown-minnesota/",
-      "source_title": "Data Center Dynamics \u2014 Google confirms 403-acre Hermantown, Minnesota campus",
+      "source_title": "Data Center Dynamics — Google confirms 403-acre Hermantown, Minnesota campus",
       "captured_at": "2026-06-01",
       "project_id": "google-hermantown-mn"
     },
@@ -3589,7 +3589,7 @@
       "theme": "jobs",
       "statement": "The Stargate Michigan data center will create more than 2,500 union construction jobs and 450 permanent on-site jobs, with an additional 1,500 jobs expected across Washtenaw County.",
       "source_url": "https://openai.com/index/stargate-michigan-data-center/",
-      "source_title": "OpenAI \u2014 Stargate Michigan groundbreaking",
+      "source_title": "OpenAI — Stargate Michigan groundbreaking",
       "captured_at": "2026-06-04",
       "published_at": "2026-06-01",
       "project_id": "openai-saline-mi",
@@ -3605,7 +3605,7 @@
       "theme": "community_grants",
       "statement": "The Stargate Michigan project includes a $10 million investment in the Saline Recreation Center, a community benefit commitment made by all consortium partners at the June 2026 groundbreaking.",
       "source_url": "https://openai.com/index/stargate-michigan-data-center/",
-      "source_title": "OpenAI \u2014 Stargate Michigan groundbreaking",
+      "source_title": "OpenAI — Stargate Michigan groundbreaking",
       "captured_at": "2026-06-04",
       "published_at": "2026-06-01",
       "project_id": "openai-saline-mi",
@@ -3621,7 +3621,7 @@
       "theme": "energy",
       "statement": "The Stargate Michigan campus will operate at 1,400 megawatts of DTE Energy-served capacity, using 100% existing DTE resources supplemented with new battery storage to power the three-building data center campus.",
       "source_url": "https://openai.com/index/stargate-michigan-data-center/",
-      "source_title": "OpenAI \u2014 Stargate Michigan groundbreaking",
+      "source_title": "OpenAI — Stargate Michigan groundbreaking",
       "captured_at": "2026-06-04",
       "published_at": "2026-06-01",
       "project_id": "openai-saline-mi",
@@ -3637,7 +3637,7 @@
       "theme": "water",
       "statement": "Microsoft will achieve a 40 percent improvement in datacenter water-use intensity by 2030.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13 2026)",
       "captured_at": "2026-06-05",
       "published_at": "2026-01-13"
     },
@@ -3647,7 +3647,7 @@
       "theme": "infrastructure",
       "statement": "Microsoft is funding more than $25 million of water and sewer improvements near its Leesburg, Virginia datacenter.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
-      "source_title": "Microsoft \u2014 Building Community-First AI Infrastructure (Brad Smith, Jan 13 2026)",
+      "source_title": "Microsoft — Building Community-First AI Infrastructure (Brad Smith, Jan 13 2026)",
       "captured_at": "2026-06-05",
       "published_at": "2026-01-13"
     },
@@ -3657,7 +3657,7 @@
       "theme": "energy",
       "statement": "We operate with a focus on being good stewards in the community through ensuring we're paying our costs for energy, adding new energy to grids, minimizing water use, preserving local habitats and supporting water restoration projects.",
       "source_url": "https://datacenters.atmeta.com/",
-      "source_title": "Meta Data Centers \u2014 datacenters.atmeta.com",
+      "source_title": "Meta Data Centers — datacenters.atmeta.com",
       "captured_at": "2026-06-05"
     },
     {
@@ -3666,7 +3666,7 @@
       "theme": "energy",
       "statement": "Crusoe uses GE Vernova natural gas turbines with SCR technology for the Abilene campus power plant, with approximately 90% lower emissions than traditional gas turbine alternatives.",
       "source_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
-      "source_title": "Crusoe \u2014 An inside look at the Abilene AI data center (Aug 2025)",
+      "source_title": "Crusoe — An inside look at the Abilene AI data center (Aug 2025)",
       "captured_at": "2026-06-05",
       "published_at": "2025-08-01"
     },
@@ -3677,7 +3677,7 @@
       "theme": "jobs",
       "statement": "$1.5 billion+ investment. 2018 break ground. 1,200 skilled trade workers on site at peak construction. 300+ operational jobs supported once completed.",
       "source_url": "https://datacenters.atmeta.com/us-locations/",
-      "source_title": "Meta Data Centers \u2014 United States",
+      "source_title": "Meta Data Centers — United States",
       "captured_at": "2026-06-07",
       "published_at": null
     },
@@ -3688,7 +3688,7 @@
       "theme": "community_grants",
       "statement": "$3.9M+ grants and sponsorships provided locally since 2019. We support the community through our annual Data Center Community Action Grants program and other direct funding for projects that put the power of technology to use for community benefit, give people the power to build strong, sustainable communities, and improve STEAM education. We proudly support all three public school systems in Madison County.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
-      "source_title": "Meta's Huntsville Data Center \u2014 Info Sheet",
+      "source_title": "Meta's Huntsville Data Center — Info Sheet",
       "captured_at": "2026-06-07",
       "published_at": "2025-02-01"
     },
@@ -3697,9 +3697,9 @@
       "company_slug": "meta",
       "project_id": "meta-huntsville-al",
       "theme": "energy",
-      "statement": "Meta's supported projects are adding 227 megawatts of new renewable energy in Alabama. In Alabama, we worked with Tennessee Valley Authority to meet our 100% clean and renewable energy goal for the Huntsville Data Center. Our operational data center buildings achieve LEED\u00ae Gold certification by focusing on efficiency, sustainability and innovation.",
+      "statement": "Meta's supported projects are adding 227 megawatts of new renewable energy in Alabama. In Alabama, we worked with Tennessee Valley Authority to meet our 100% clean and renewable energy goal for the Huntsville Data Center. Our operational data center buildings achieve LEED® Gold certification by focusing on efficiency, sustainability and innovation.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
-      "source_title": "Meta's Huntsville Data Center \u2014 Info Sheet",
+      "source_title": "Meta's Huntsville Data Center — Info Sheet",
       "captured_at": "2026-06-07",
       "published_at": "2025-02-01"
     },
@@ -3710,7 +3710,7 @@
       "theme": "education",
       "statement": "We proudly support all three public school systems in Madison County. We're proud to support community projects led by: 100 Black Men of Greater Huntsville, Alabama School of Cyber Technology & Engineering, Boys & Girls Clubs of North Alabama, Drake State Community & Technical College, Girls Inc. of Huntsville, Huntsville City Schools, Huntsville Schools Foundation, Madison City Schools, Madison County Schools, U.S. Space and Rocket Center.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
-      "source_title": "Meta's Huntsville Data Center \u2014 Info Sheet",
+      "source_title": "Meta's Huntsville Data Center — Info Sheet",
       "captured_at": "2026-06-07",
       "published_at": "2025-02-01"
     },
@@ -3736,6 +3736,28 @@
       "captured_at": "2026-06-07",
       "published_at": "2026-01-20",
       "formal_agreement": true
+    },
+    {
+      "id": "aws-calvert-cliffs-md-water",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "In this particular case, one of the biggest benefits of this project is that there is no new water required to cool our data centers",
+      "source_url": "https://thebaynet.com/amazon-introduces-potential-calvert-county-data-center-emphasizes-infrastructure-workforce-and-growth/",
+      "source_title": "The BayNet - Becky Ford (AWS Economic Development) on the Calvert County campus",
+      "captured_at": "2026-06-08",
+      "published_at": "2026-03-31",
+      "project_id": "aws-calvert-cliffs-md"
+    },
+    {
+      "id": "aws-calvert-cliffs-md-energy",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon pays its full electricity costs while making substantial investments in building new energy infrastructure",
+      "source_url": "https://thebaynet.com/amazon-introduces-potential-calvert-county-data-center-emphasizes-infrastructure-workforce-and-growth/",
+      "source_title": "The BayNet - Amazon spokesperson Nicole Morales on the Calvert County campus",
+      "captured_at": "2026-06-08",
+      "published_at": "2026-03-31",
+      "project_id": "aws-calvert-cliffs-md"
     }
   ]
 }
