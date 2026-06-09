@@ -3046,6 +3046,62 @@
         "evidence_claim_id": null,
         "assessed_at": "2026-06-08"
       }
+    },
+    {
+      "id": "google-spacex-gpu-partnership",
+      "company_slug": "google",
+      "name": "Google-SpaceX GPU Capacity Partnership",
+      "city": "Virtual",
+      "state": "XX",
+      "country": "US",
+      "lat": null,
+      "lon": null,
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-06-05",
+      "claimed_investment_usd": 11040000000,
+      "claimed_jobs": null,
+      "notes": "Infrastructure partnership: Google committed to pay SpaceX $920 million per month for AI compute capacity, leasing 110,000 GPUs (H100/H200/GB200 equivalent). Announced June 5-8, 2026. This is a compute-rental partnership rather than a physical owned/operated data center site — Google outsources significant AI infrastructure workloads to SpaceX-xAI. Reflects broader hyperscaler strategy of diversifying compute sourcing beyond owned campuses.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-spacex-gpu-lease",
+      "source_title": "Data Center Dynamics — Google-SpaceX GPU partnership",
+      "captured_at": "2026-06-09",
+      "project_page_url": null,
+      "acreage": null,
+      "power_mw": null,
+      "gpu_count": 110000,
+      "offtaker": "Google",
+      "at_a_glance": {
+        "energy": "Outsourced AI compute infrastructure partnership",
+        "engagement": "Not a traditional data center — compute lease model"
+      }
+    },
+    {
+      "id": "anthropic-xai-infrastructure-partnership",
+      "company_slug": "anthropic",
+      "name": "Anthropic-xAI/SpaceX Infrastructure Partnership",
+      "city": "Virtual",
+      "state": "XX",
+      "country": "US",
+      "lat": null,
+      "lon": null,
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-05-21",
+      "claimed_investment_usd": 15000000000,
+      "claimed_jobs": null,
+      "notes": "Infrastructure partnership: Anthropic committed to pay xAI/SpaceX $1.25 billion per month for data center space rental and compute capacity. Announced May 21, 2026 via Anthropic's IPO S-1 filing. This is the largest single infrastructure expense for Anthropic and represents a strategic decision to outsource frontier model training compute to xAI rather than building owned-and-operated data center capacity. Anthropic operates no data centers of its own; this partnership is a key component of its AI infrastructure strategy.",
+      "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001870995&type=S-1&dateb=&owner=exclude&count=100",
+      "source_title": "SEC EDGAR — Anthropic Inc. Form S-1 Registration Statement (May 2026)",
+      "captured_at": "2026-06-09",
+      "project_page_url": null,
+      "acreage": null,
+      "power_mw": null,
+      "gpu_count": null,
+      "offtaker": "Anthropic",
+      "at_a_glance": {
+        "energy": "Outsourced frontier model training infrastructure",
+        "engagement": "Not a traditional data center — Anthropic infrastructure lease model"
+      }
     }
   ]
 }
