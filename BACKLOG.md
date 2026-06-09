@@ -9,6 +9,18 @@ criterion.
 
 ## High priority
 
+### Infrastructure partnership UX exploration
+v1.18 added two non-traditional "infrastructure partnership" projects: Google-SpaceX GPU lease ($920M/month, 110K GPUs) and Anthropic-xAI compute rental ($1.25B/month). These don't fit the traditional "physical data center site" model — they have no lat/lon, no community, no local jobs/tax/engagement commitments. Current schema accepts them (acreage/power_mw/gpu_count all optional, city/state can be "Virtual"/"N/A") but the UX doesn't surface them meaningfully. 
+
+**Scope:** Determine whether these belong in the dashboard at all, and if yes, design a distinct visual treatment:
+- Option A: Exclude entirely. Keep scope to owned/operated or co-located physical sites with actual community presence.
+- Option B: Include but surface separately (new tab or sub-section). "Infrastructure partnerships" as a distinct lens showing how hyperscalers diversify compute sourcing (useful for researchers/policymakers understanding the hyperscaler supply-chain ecosystem).
+- Option C: Fold into the company-detail pop-out as "Infrastructure partnerships" alongside the owned-site count. Surfaces at a glance without cluttering the main Explorer view.
+
+Editorial question: does the blueprint framing include infrastructure *sourcing* decisions (Anthropic outsourcing to xAI, Google outsourcing to SpaceX)? Or is the blueprint only about *deployed* commitments at sites with actual community touchpoints?
+
+*Priority: medium — affects v1.19 scope decision.*
+
 ### [MANUAL] Re-verify Oracle community commitment — permanent 404
 `https://www.oracle.com/news/announcement/oracle-ai-infrastructure-local-communities-2026-01-26/`
 is 404 with no Wayback Machine archive. Oracle's newsroom has been re-organized.
