@@ -180,7 +180,10 @@ class TestRecordSanity:
 
     def test_lat_lon_in_us_or_neighbors(self, projects):
         # v1 is US-only; allow a wide margin for CONUS + AK/HI/PR.
+        # v1.18: infrastructure partnerships (virtual) have null lat/lon, skip them.
         for p in projects.projects:
+            if p.lat is None or p.lon is None:
+                continue  # Infrastructure partnerships don't have physical coordinates
             assert -180 <= p.lon <= -60, f"Project {p.id} lon {p.lon} outside US range"
             assert 18 <= p.lat <= 72, f"Project {p.id} lat {p.lat} outside US range"
 
