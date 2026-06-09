@@ -8,6 +8,7 @@ Usage:
     python refresh.py                 # validate + emit all four payloads
     python refresh.py --check         # validate only; do NOT write outputs
     python refresh.py --pretty        # emit pretty-printed JSON (default: minified)
+    python refresh.py --audit         # flag projects missing key commitment details
 
 Per CLAUDE.md:
 - Schema enforces `extra="forbid"` so any seed drift fails fast here.
@@ -15,6 +16,7 @@ Per CLAUDE.md:
 - Cross-record references (claim.project_id, response.project_id, claim.company_slug)
   are checked here as a post-validation pass — Pydantic doesn't know about
   cross-payload joins.
+- Commitment audit (--audit) identifies projects missing key fields based on status.
 """
 
 from __future__ import annotations
@@ -129,6 +131,96 @@ def _check_cross_refs(
     return errors
 
 
+def _audit_missing_commitments(projects: ProjectsPayload) -> tuple[dict, dict]:
+    """Audit projects for missing key commitment details.
+
+    Returns: (critical_missing, medium_missing) dicts keyed by severity.
+    """
+    # Key commitment fields to check
+    EXPECTATIONS = {
+        "operational": {
+            "required": ["claimed_investment_usd", "power_mw"],
+            "important": ["claimed_jobs", "at_a_glance", "ratepayer"],
+        },
+        "construction": {
+            "required": ["claimed_investment_usd"],
+            "important": ["claimed_jobs", "power_mw", "at_a_glance", "ratepayer"],
+        },
+        "announced": {
+            "required": [],
+            "important": ["claimed_investment_usd", "claimed_jobs", "power_mw", "at_a_glance"],
+        },
+    }
+
+    critical = {}
+    medium = {}
+
+    for p in projects.projects:
+        status = p.status
+        expectations = EXPECTATIONS.get(status, {})
+        required = expectations.get("required", [])
+        important = expectations.get("important", [])
+
+        missing_critical = []
+        missing_medium = []
+
+        for field in required:
+            if getattr(p, field, None) is None:
+                missing_critical.append(field)
+
+        for field in important:
+            if getattr(p, field, None) is None:
+                missing_medium.append(field)
+
+        if missing_critical:
+            critical[p.id] = {
+                "company": p.company_slug,
+                "name": p.name,
+                "status": status,
+                "missing": missing_critical,
+            }
+        elif missing_medium:
+            medium[p.id] = {
+                "company": p.company_slug,
+                "name": p.name,
+                "status": status,
+                "missing": missing_medium,
+            }
+
+    return critical, medium
+
+
+def _write_audit_report(critical: dict, medium: dict) -> None:
+    """Write audit report to ISSUES.md."""
+    audit_file = ROOT / "ISSUES.md"
+
+    report_lines = [
+        "# ISSUES.md — Data Audit Report\n",
+        f"Generated: {date.today()}\n",
+        f"Total projects needing attention: {len(critical) + len(medium)}\n",
+        "\n## Critical Missing Commitment Details\n",
+        f"({len(critical)} projects)\n",
+        "\nProjects missing required fields based on status:\n",
+    ]
+
+    for proj_id in sorted(critical.keys()):
+        p = critical[proj_id]
+        report_lines.append(f"- **{proj_id}** ({p['status']}): {', '.join(p['missing'])}\n")
+
+    report_lines.extend([
+        "\n## Medium Priority Missing Details\n",
+        f"({len(medium)} projects)\n",
+        "\nProjects with important gaps:\n",
+    ])
+
+    for proj_id in sorted(medium.keys()):
+        p = medium[proj_id]
+        report_lines.append(f"- **{proj_id}** ({p['status']}): {', '.join(p['missing'])}\n")
+
+    audit_file.write_text("".join(report_lines), encoding="utf-8")
+    logger.info("Wrote audit report to ISSUES.md")
+
+
 def _write_payload(name: str, model_obj, *, pretty: bool) -> int:
     """Emit one payload to docs/data/<name>.json. Returns bytes written."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -141,7 +233,7 @@ def _write_payload(name: str, model_obj, *, pretty: bool) -> int:
     return len(text.encode("utf-8"))
 
 
-def refresh(*, check_only: bool = False, pretty: bool = False) -> int:
+def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = False) -> int:
     """Validate seed and (optionally) write payloads. Returns exit code."""
     logging.basicConfig(
         level=logging.INFO,
@@ -173,6 +265,18 @@ def refresh(*, check_only: bool = False, pretty: bool = False) -> int:
         len(payloads["responses"].responses),
     )
 
+    # Audit missing commitment details if requested
+    if audit:
+        critical, medium = _audit_missing_commitments(payloads["projects"])
+        logger.warning(
+            "Audit found %d critical + %d medium gaps in project commitment details",
+            len(critical),
+            len(medium),
+        )
+        _write_audit_report(critical, medium)
+        if check_only:
+            return 0
+
     # Stamp generated_at on the emitted payloads (always today).
     today = date.today()
     for p in payloads.values():
@@ -203,12 +307,17 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
         action="store_true",
         help="Emit indented JSON (default: minified).",
     )
+    p.add_argument(
+        "--audit",
+        action="store_true",
+        help="Audit projects for missing key commitment details (generates ISSUES.md).",
+    )
     return p.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv if argv is not None else sys.argv[1:])
-    return refresh(check_only=args.check, pretty=args.pretty)
+    return refresh(check_only=args.check, pretty=args.pretty, audit=args.audit)
 
 
 if __name__ == "__main__":

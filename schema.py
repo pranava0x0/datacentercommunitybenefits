@@ -461,8 +461,18 @@ class Project(_StrictBase):
         min_length=2, max_length=2, description="Two-letter US state code (or country code)."
     )
     country: str = Field(default="US", min_length=2, max_length=2)
-    lat: float = Field(ge=-90, le=90)
-    lon: float = Field(ge=-180, le=180)
+    lat: Optional[float] = Field(
+        default=None,
+        ge=-90,
+        le=90,
+        description="Latitude. Null for infrastructure partnerships without a physical site.",
+    )
+    lon: Optional[float] = Field(
+        default=None,
+        ge=-180,
+        le=180,
+        description="Longitude. Null for infrastructure partnerships without a physical site.",
+    )
     status: ProjectStatus
     announced_year: int = Field(ge=2000, le=2100)
     announced_date: Optional[Date] = Field(
