@@ -1067,18 +1067,18 @@
       "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
       "offtaker": "AWS",
       "ratepayer": {
-        "status": "affirmed",
-        "summary": "Amazon's April 2026 Mississippi-wide announcement covers the Clinton/Hinds County campus: Amazon pays 100% of all new energy infrastructure costs under its Entergy Mississippi agreement, with no costs passed through to existing ratepayers.",
+        "status": "contested",
+        "summary": "Amazon affirms it pays 100% of energy infrastructure costs for the Clinton campus under its Entergy Mississippi agreement, but a May 2026 Synapse Energy Economics report (commissioned by Earthjustice and Environmental Advocates Mississippi) estimates Entergy Mississippi residential customers have already paid roughly $38M (about $10.60/month) toward investments serving Amazon's Mississippi data centers; Entergy and Amazon dispute the finding and project customer bills roughly 16% lower by 2030.",
         "evidence_claim_id": "amazon-clinton-ms-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01",
+        "assessed_at": "2026-06-11",
         "principles": {
           "new_generation": {
             "status": "met",
             "note": "Amazon and Entergy Mississippi confirmed Amazon pays 100% of all new energy infrastructure costs for the Clinton campus."
           },
           "delivery_infra": {
-            "status": "met",
-            "note": "Amazon's April 2026 Mississippi announcement covers all grid upgrade costs with zero pass-through to ratepayers."
+            "status": "not_met",
+            "note": "Synapse Energy Economics (May 2026) estimates ~$38M in data-center-related infrastructure costs already charged to Entergy Mississippi residential customers across Amazon's Mississippi campuses including this site; Amazon maintains it pays the full cost of the power and infrastructure it uses."
           },
           "separate_rate": {
             "status": "partial",
@@ -1098,7 +1098,7 @@
       "at_a_glance": {
         "jobs": "$1B / 100 direct jobs",
         "water": "Water-free — no water cooling; recycled wastewater supply planned",
-        "energy": "100% electricity cost coverage (Entergy Mississippi)"
+        "energy": "100% electricity cost coverage claimed (Entergy Mississippi) — contested by May 2026 Synapse ratepayer report"
       }
     },
     {
@@ -1859,18 +1859,18 @@
       "captured_at": "2026-05-16",
       "offtaker": "AWS",
       "ratepayer": {
-        "status": "affirmed",
-        "summary": "Amazon's April 2026 Mississippi announcement explicitly states it pays 100% of all grid infrastructure and upgrade costs for its Mississippi campuses, including Warren County/Vicksburg, under its Entergy Mississippi agreement.",
+        "status": "contested",
+        "summary": "Amazon affirms it pays 100% of grid infrastructure costs for the Warren County/Vicksburg campus under its Entergy Mississippi agreement, but a May 2026 Synapse Energy Economics report (commissioned by Earthjustice and Environmental Advocates Mississippi) estimates Entergy Mississippi residential customers have already paid roughly $38M (about $10.60/month) toward investments serving Amazon's Mississippi data centers; Entergy and Amazon dispute the finding and project customer bills roughly 16% lower by 2030.",
         "evidence_claim_id": "amazon-vicksburg-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01",
+        "assessed_at": "2026-06-11",
         "principles": {
           "new_generation": {
             "status": "met",
             "note": "Amazon's April 2026 Mississippi announcement explicitly states it pays 100% of all energy infrastructure costs at the Vicksburg campus."
           },
           "delivery_infra": {
-            "status": "met",
-            "note": "Amazon's Mississippi announcement covers all grid upgrade costs for Vicksburg with zero pass-through to existing utility customers."
+            "status": "not_met",
+            "note": "Synapse Energy Economics (May 2026) estimates ~$38M in data-center-related infrastructure costs already charged to Entergy Mississippi residential customers across Amazon's Mississippi campuses including this site; Amazon maintains it pays the full cost of the power and infrastructure it uses."
           },
           "separate_rate": {
             "status": "partial",
@@ -1889,7 +1889,7 @@
       "announced_date": "2026-04-09",
       "at_a_glance": {
         "community_grants": "$3B Warren County investment — lasting community opportunities",
-        "energy": "100% electricity cost coverage (Entergy Mississippi)"
+        "energy": "100% electricity cost coverage claimed (Entergy Mississippi) — contested by May 2026 Synapse ratepayer report"
       }
     },
     {
@@ -2393,18 +2393,18 @@
       "captured_at": "2026-06-01",
       "offtaker": "Amazon",
       "ratepayer": {
-        "status": "affirmed",
-        "summary": "Amazon's April 2026 Mississippi announcement explicitly covers all new campuses including Ridgeland/Madison County: pays 100% of grid infrastructure costs via its Entergy Mississippi agreement.",
+        "status": "contested",
+        "summary": "Amazon affirms it pays 100% of grid infrastructure costs for the Ridgeland/Madison County expansion under its Entergy Mississippi agreement, but a May 2026 Synapse Energy Economics report (commissioned by Earthjustice and Environmental Advocates Mississippi) estimates Entergy Mississippi residential customers have already paid roughly $38M (about $10.60/month) toward investments serving Amazon's Mississippi data centers; Entergy and Amazon dispute the finding and project customer bills roughly 16% lower by 2030.",
         "evidence_claim_id": "amazon-ridgeland-energy-pay-100pct-2026",
-        "assessed_at": "2026-06-01",
+        "assessed_at": "2026-06-11",
         "principles": {
           "new_generation": {
             "status": "met",
             "note": "Amazon's April 2026 Mississippi announcement covers all Ridgeland/Madison campuses; Amazon pays 100% of energy infrastructure costs."
           },
           "delivery_infra": {
-            "status": "met",
-            "note": "Amazon's Mississippi-wide announcement covers all grid upgrade costs for Ridgeland with zero ratepayer pass-through."
+            "status": "not_met",
+            "note": "Synapse Energy Economics (May 2026) estimates ~$38M in data-center-related infrastructure costs already charged to Entergy Mississippi residential customers across Amazon's Mississippi campuses including this site; Amazon maintains it pays the full cost of the power and infrastructure it uses."
           },
           "separate_rate": {
             "status": "partial",
@@ -2423,7 +2423,7 @@
       "announced_date": "2026-04-09",
       "at_a_glance": {
         "jobs": "$11B / 700 direct jobs — Madison County expansion",
-        "energy": "100% electricity cost coverage (Entergy Mississippi)"
+        "energy": "100% electricity cost coverage claimed (Entergy Mississippi) — contested by May 2026 Synapse ratepayer report"
       }
     },
     {

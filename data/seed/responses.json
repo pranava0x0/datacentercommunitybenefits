@@ -2189,6 +2189,39 @@
       "source_url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
       "source_title": "AJC — Georgia Power's data center build-out raises fears of eminent domain (May 2026)",
       "single_source": false
+    },
+    {
+      "id": "resp-amazon-clinton-synapse-ratepayer-2026",
+      "project_id": "amazon-clinton-ms",
+      "date": "2026-05-28",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A Synapse Energy Economics report commissioned by Earthjustice and Environmental Advocates Mississippi estimates Amazon's Mississippi data center projects have already raised Entergy Mississippi residential bills by about $10.60 per month (roughly $38M charged through March 2026), despite Amazon's commitment to pay the full cost of its power and infrastructure; Entergy and Amazon dispute the finding, projecting customer bills about 16% lower by 2030 because of the investment.",
+      "source_url": "https://desotocountynews.com/mississippi-news/data-centers-likely-increasing-mississippi-power-rates-new-report-claims/",
+      "source_title": "DeSoto County News (via Mississippi Today) — Data centers likely increasing Mississippi power rates, new report claims (May 28 2026)",
+      "single_source": false
+    },
+    {
+      "id": "resp-amazon-vicksburg-synapse-ratepayer-2026",
+      "project_id": "amazon-vicksburg-ms",
+      "date": "2026-05-29",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A Synapse Energy Economics report commissioned by Earthjustice and Environmental Advocates Mississippi estimates Amazon's Mississippi data center projects have already raised Entergy Mississippi residential bills by about $10.60 per month (roughly $38M charged through March 2026), despite Amazon's commitment to pay the full cost of its power and infrastructure; Entergy and Amazon dispute the finding, projecting customer bills about 16% lower by 2030 because of the investment.",
+      "source_url": "https://vicksburgnews.com/study-finds-data-centers-increase-energy-costs/",
+      "source_title": "Vicksburg Daily News — Study finds data centers increase energy costs (May 29 2026)",
+      "single_source": false
+    },
+    {
+      "id": "resp-aws-ridgeland-synapse-ratepayer-2026",
+      "project_id": "aws-ridgeland-ms",
+      "date": "2026-05-28",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A Synapse Energy Economics report commissioned by Earthjustice and Environmental Advocates Mississippi estimates Amazon's Mississippi data center projects have already raised Entergy Mississippi residential bills by about $10.60 per month (roughly $38M charged through March 2026), despite Amazon's commitment to pay the full cost of its power and infrastructure; Entergy and Amazon dispute the finding, projecting customer bills about 16% lower by 2030 because of the investment.",
+      "source_url": "https://desotocountynews.com/mississippi-news/data-centers-likely-increasing-mississippi-power-rates-new-report-claims/",
+      "source_title": "DeSoto County News (via Mississippi Today) — Data centers likely increasing Mississippi power rates, new report claims (May 28 2026)",
+      "single_source": false
     }
   ]
 }

@@ -917,11 +917,18 @@ class TestRatepayerView:
             "aria-selected", "true"
         )
 
-    def test_stats_render_three_tiles(self, page: Page, base_url: str):
+    def test_stats_render_expected_tiles(self, page: Page, base_url: str):
+        # Three base tiles (signatories / sites tracked / site-specific
+        # commitments) plus a conditional "contested" tile that only renders
+        # when the cohort actually contains contested sites (honest-absence —
+        # no zero tile). The seed ships contested examples (the Amazon
+        # Mississippi trio, v1.19), so all four render.
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
-        assert page.locator("#rp-stats .rp-stat").count() == 3
+        assert page.locator("#rp-stats .rp-stat").count() == 4
+        last = page.locator("#rp-stats .rp-stat").last
+        expect(last).to_contain_text("contested")
 
     def test_first_stat_reports_seven_signatories(self, page: Page, base_url: str):
         page.goto(base_url + "/")

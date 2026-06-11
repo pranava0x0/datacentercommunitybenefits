@@ -1733,6 +1733,7 @@ function renderRatepayerView() {
 
   renderRatepayerStats();
   renderRatepayerRoster();
+  renderRatepayerLegend();
   renderRatepayerScorecard();
 }
 
@@ -1784,6 +1785,7 @@ function renderRatepayerStats() {
   const signatories = ratepayerSignatories();
   const assessed = ratepayerAssessedProjects();
   const affirmed = assessed.filter((p) => p.ratepayer.status === "affirmed");
+  const contested = assessed.filter((p) => p.ratepayer.status === "contested");
 
   const tiles = [
     {
@@ -1800,6 +1802,15 @@ function renderRatepayerStats() {
       accent: "affirmed",
     },
   ];
+  // Honest-absence: the contested tile only appears once a documented
+  // cost-shift dispute exists in the cohort — don't render a zero.
+  if (contested.length > 0) {
+    tiles.push({
+      value: String(contested.length),
+      label: "contested",
+      accent: "contested",
+    });
+  }
 
   for (const t of tiles) {
     const li = document.createElement("li");

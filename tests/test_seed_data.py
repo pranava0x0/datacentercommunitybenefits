@@ -367,6 +367,39 @@ class TestRatepayerPledge:
         assert "affirmed" in seen, "No 'affirmed' ratepayer assessment in seed"
         assert "pledge_only" in seen, "No 'pledge_only' ratepayer assessment in seed"
 
+    def test_contested_assessments_carry_their_evidence(self, projects, responses):
+        # `contested` requires documented cost-shifting, not vibes: every
+        # contested site must (a) flip at least one pledge principle to
+        # `not_met` (the documented gap), and (b) carry a paired negative
+        # CommunityResponse dated on/after the pledge (the third-party report
+        # backing the status). First examples: the Amazon Mississippi trio +
+        # the May 2026 Synapse Energy Economics report (v1.19).
+        pledge = date.fromisoformat(RATEPAYER_PLEDGE_DATE)
+        for p in projects.projects:
+            rp = p.ratepayer
+            if rp is None or rp.status != "contested":
+                continue
+            assert rp.principles, (
+                f"Project {p.id!r} is 'contested' but has no per-principle "
+                "assessment — the disputed principle must be visible."
+            )
+            statuses = {a.status for a in rp.principles.values()}
+            assert "not_met" in statuses, (
+                f"Project {p.id!r} is 'contested' but no principle is "
+                "'not_met' — name the documented gap."
+            )
+            backing = [
+                r
+                for r in responses.responses
+                if r.project_id == p.id
+                and r.stance == "negative"
+                and r.date >= pledge
+            ]
+            assert backing, (
+                f"Project {p.id!r} is 'contested' but has no post-pledge "
+                "negative CommunityResponse documenting the cost-shift report."
+            )
+
 
 # ---------------------------------------------------------------------------
 # Build-output parity (docs/data/*.json must match validated seed)
