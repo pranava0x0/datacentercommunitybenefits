@@ -269,17 +269,19 @@ class TestDeliveredAssessments:
 class TestRatepayerPledge:
     """v1.15: White House Ratepayer Protection Pledge view.
 
-    Guards the two data changes backing the new view: the seven signatory
-    flags (fixed historical fact) and the per-project ratepayer assessments
+    Guards the two data changes backing the new view: the signatory flags
+    (fixed historical fact) and the per-project ratepayer assessments
     (curated, honest about the pledge-only vs site-specific distinction).
     """
 
-    # The seven hyperscalers that signed on 2026-03-04 — fixed history.
+    # Fixed history: seven hyperscalers signed at the White House on
+    # 2026-03-04; QTS signed via the DOE companion track on 2026-04-24
+    # (RATEPAYER_PLEDGE_DOE_DATE) — eight signatories total.
     EXPECTED_SIGNATORIES = {
-        "amazon", "google", "meta", "microsoft", "openai", "oracle", "xai",
+        "amazon", "google", "meta", "microsoft", "openai", "oracle", "qts", "xai",
     }
 
-    def test_exactly_the_seven_signatories_flagged(self, companies):
+    def test_exactly_the_eight_signatories_flagged(self, companies):
         flagged = {
             c.slug for c in companies.companies if c.ratepayer_pledge_signatory
         }
