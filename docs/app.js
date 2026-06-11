@@ -146,7 +146,8 @@ const PLEDGE_PRINCIPLE_STATUS_LABELS = {
   not_met: "Not met",
   unknown: "Not assessed",
 };
-// The seven White House pledge signatories (2026-03-04). Mirrors the
+// The eight pledge signatories: seven signed at the White House (2026-03-04),
+// QTS signed via the DOE companion track (2026-04-24). Mirrors the
 // ratepayer_pledge_signatory=true rows in companies.json; used only as a
 // fallback ordering hint — the live truth is read from the company records.
 const RATEPAYER_PLEDGE_SIGNATORIES = [
@@ -156,8 +157,14 @@ const RATEPAYER_PLEDGE_SIGNATORIES = [
   "microsoft",
   "openai",
   "oracle",
+  "qts",
   "xai",
 ];
+// Signatories who signed via the DOE companion track rather than at the
+// White House event — drives the per-track roster note. Mirrors
+// schema.RATEPAYER_PLEDGE_DOE_DATE.
+const RATEPAYER_DOE_TRACK_SIGNATORIES = new Set(["qts"]);
+const RATEPAYER_PLEDGE_DOE_DATE = "2026-04-24";
 
 // --------------------------------------------------------------------------
 // Aggregate table sort state (v1.17)
@@ -1835,6 +1842,7 @@ const RATEPAYER_CLAIM_KEYWORDS = [
   "100% of the power",
   "100% of the cost of power",
   "100% of the energy",
+  "100% of the grid",
   "fund 100%",
   "pay the full cost",
   "pay the full costs",
@@ -1878,13 +1886,11 @@ function renderRatepayerRoster() {
     li.className = `rp-roster-item${signed ? " signed" : " unsigned"}`;
     li.style.setProperty("--co-color", `var(--co-${co.slug})`);
 
-    const noteMap = {
-      qts: "Signed (DOE track)",
-      anthropic: "Own commitment",
-    };
     const note = signed
-      ? "Signed the pledge"
-      : (noteMap[co.slug] || "Own commitment");
+      ? RATEPAYER_DOE_TRACK_SIGNATORIES.has(co.slug)
+        ? `Signed with DOE on ${formatLongDate(RATEPAYER_PLEDGE_DOE_DATE)}`
+        : `Signed at White House on ${formatLongDate(RATEPAYER_PLEDGE_DATE)}`
+      : "Own commitment";
     const mark = "✓";
 
     li.innerHTML = `

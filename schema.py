@@ -132,9 +132,11 @@ DELIVERED_LABELS: dict[str, str] = {
 # On 2026-03-04 seven hyperscalers signed a (non-binding) pledge at the White
 # House to independently fund the generation + grid-infrastructure costs of
 # their data centers so those costs don't shift onto existing utility
-# ratepayers. This is the real-world anchor for the "Ratepayer Protection
-# Pledge" view. Facts (date + signatory roster) are fixed history, not a
-# curator judgment call.
+# ratepayers. QTS became the eighth signatory via the DOE companion track on
+# 2026-04-24 (Energy Secretary Chris Wright's Cedar Rapids tour; KCRG / The
+# Gazette coverage) — the first colocation operator to sign. This is the
+# real-world anchor for the "Ratepayer Protection Pledge" view. Facts (dates +
+# signatory roster) are fixed history, not a curator judgment call.
 #
 # RATEPAYER_PLEDGE_URL is the canonical White House proclamation, which lists
 # the five commitments verbatim (quoted in docs/index.html). The signatory
@@ -149,6 +151,9 @@ RATEPAYER_PLEDGE_NAME: str = "White House Ratepayer Protection Pledge"
 RATEPAYER_PLEDGE_URL: str = (
     "https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/"
 )
+# Date QTS signed the DOE companion commitment (the eighth signatory). The
+# frontend mirrors this for the roster note ("Signed with DOE on …").
+RATEPAYER_PLEDGE_DOE_DATE: str = "2026-04-24"
 
 # Per-project assessment of how a specific data center reflects the pledge.
 # Deliberately NOT a pass/fail score (the dashboard doesn't do trust scores):
@@ -256,13 +261,15 @@ class Company(_StrictBase):
     ratepayer_pledge_signatory: bool = Field(
         default=False,
         description=(
-            "True if this company signed the White House Ratepayer Protection "
-            "Pledge (2026-03-04). Fixed historical fact, not a curator judgment: "
-            "the seven signatories are Amazon, Google, Meta, Microsoft, OpenAI, "
-            "Oracle, xAI. Non-signatories (incl. Anthropic and the tracked "
-            "non-hyperscalers) stay False even when they publish their own "
-            "ratepayer commitments — the flag means 'signed THE pledge', and the "
-            "Ratepayer view surfaces non-signatory commitments separately."
+            "True if this company signed the Ratepayer Protection Pledge. "
+            "Fixed historical fact, not a curator judgment: seven signed at the "
+            "White House on 2026-03-04 (Amazon, Google, Meta, Microsoft, OpenAI, "
+            "Oracle, xAI) and QTS signed via the DOE companion track on "
+            "2026-04-24 (RATEPAYER_PLEDGE_DOE_DATE) — eight signatories total. "
+            "Non-signatories (incl. Anthropic) stay False even when they publish "
+            "their own ratepayer commitments — the flag means 'signed THE "
+            "pledge', and the Ratepayer view surfaces non-signatory commitments "
+            "separately."
         ),
     )
 
@@ -645,6 +652,7 @@ __all__ = [
     "DELIVERED_STATUSES",
     "DELIVERED_LABELS",
     "RATEPAYER_PLEDGE_DATE",
+    "RATEPAYER_PLEDGE_DOE_DATE",
     "RATEPAYER_PLEDGE_NAME",
     "RATEPAYER_PLEDGE_URL",
     "RATEPAYER_STATUSES",
