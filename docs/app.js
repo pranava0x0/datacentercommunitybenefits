@@ -146,7 +146,8 @@ const PLEDGE_PRINCIPLE_STATUS_LABELS = {
   not_met: "Not met",
   unknown: "Not assessed",
 };
-// The seven White House pledge signatories (2026-03-04). Mirrors the
+// The eight pledge signatories: seven signed at the White House (2026-03-04),
+// QTS signed via the DOE companion track (2026-04-24). Mirrors the
 // ratepayer_pledge_signatory=true rows in companies.json; used only as a
 // fallback ordering hint — the live truth is read from the company records.
 const RATEPAYER_PLEDGE_SIGNATORIES = [
@@ -156,8 +157,14 @@ const RATEPAYER_PLEDGE_SIGNATORIES = [
   "microsoft",
   "openai",
   "oracle",
+  "qts",
   "xai",
 ];
+// Signatories who signed via the DOE companion track rather than at the
+// White House event — drives the per-track roster note. Mirrors
+// schema.RATEPAYER_PLEDGE_DOE_DATE.
+const RATEPAYER_DOE_TRACK_SIGNATORIES = new Set(["qts"]);
+const RATEPAYER_PLEDGE_DOE_DATE = "2026-04-24";
 
 // --------------------------------------------------------------------------
 // Aggregate table sort state (v1.17)
@@ -1733,6 +1740,7 @@ function renderRatepayerView() {
 
   renderRatepayerStats();
   renderRatepayerRoster();
+  renderRatepayerLegend();
   renderRatepayerScorecard();
 }
 
@@ -1756,17 +1764,54 @@ function ratepayerAssessedProjects() {
     });
 }
 
+// True when the project predates the pledge. Dated announcements compare
+// directly against RATEPAYER_PLEDGE_DATE; year-only announcements are
+// pre-pledge only when the year is earlier than the pledge year — a bare
+// "2026" can't be placed either side of March 4, so it stays in the
+// pledge-era bucket (awaiting assessment) rather than being mislabeled
+// pre-pledge. Bucketing is company-agnostic (the White House date), even
+// though QTS signed via the DOE track on 2026-04-24 — no dated QTS site
+// currently lands in the Mar 4 – Apr 24 window; revisit if one does.
+const RATEPAYER_PLEDGE_YEAR = Number(RATEPAYER_PLEDGE_DATE.slice(0, 4));
+function isPrePledgeProject(p) {
+  if (p.announced_date) return p.announced_date < RATEPAYER_PLEDGE_DATE;
+  return p.announced_year < RATEPAYER_PLEDGE_YEAR;
+}
+
+function rosterSort(a, b) {
+  if (a.company_slug !== b.company_slug)
+    return a.company_slug.localeCompare(b.company_slug);
+  return a.name.localeCompare(b.name);
+}
+
 // Signatory sites announced before the pledge with no post-pledge commitment
 // captured. Shown in a separate section beneath the assessed cohort.
 function ratepayerPrePledgeProjects() {
   const signatorySlugs = new Set(ratepayerSignatories().map((c) => c.slug));
   return state.projects
-    .filter((p) => signatorySlugs.has(p.company_slug) && !p.ratepayer)
-    .sort((a, b) => {
-      if (a.company_slug !== b.company_slug)
-        return a.company_slug.localeCompare(b.company_slug);
-      return a.name.localeCompare(b.name);
-    });
+    .filter(
+      (p) =>
+        signatorySlugs.has(p.company_slug) &&
+        !p.ratepayer &&
+        isPrePledgeProject(p)
+    )
+    .sort(rosterSort);
+}
+
+// Signatory sites announced in the pledge era (on/after the pledge, or a
+// year-only 2026 announcement) with no assessment captured yet. Shown in
+// their own section so they aren't mislabeled "pre-pledge" — absence of an
+// assessment means the curation work is pending, not implied compliance.
+function ratepayerUnassessedPledgeEraProjects() {
+  const signatorySlugs = new Set(ratepayerSignatories().map((c) => c.slug));
+  return state.projects
+    .filter(
+      (p) =>
+        signatorySlugs.has(p.company_slug) &&
+        !p.ratepayer &&
+        !isPrePledgeProject(p)
+    )
+    .sort(rosterSort);
 }
 
 // Format an announced date for display. Uses announced_date (ISO) when
@@ -1784,6 +1829,7 @@ function renderRatepayerStats() {
   const signatories = ratepayerSignatories();
   const assessed = ratepayerAssessedProjects();
   const affirmed = assessed.filter((p) => p.ratepayer.status === "affirmed");
+  const contested = assessed.filter((p) => p.ratepayer.status === "contested");
 
   const tiles = [
     {
@@ -1800,6 +1846,15 @@ function renderRatepayerStats() {
       accent: "affirmed",
     },
   ];
+  // Honest-absence: the contested tile only appears once a documented
+  // cost-shift dispute exists in the cohort — don't render a zero.
+  if (contested.length > 0) {
+    tiles.push({
+      value: String(contested.length),
+      label: "contested",
+      accent: "contested",
+    });
+  }
 
   for (const t of tiles) {
     const li = document.createElement("li");
@@ -1824,6 +1879,7 @@ const RATEPAYER_CLAIM_KEYWORDS = [
   "100% of the power",
   "100% of the cost of power",
   "100% of the energy",
+  "100% of the grid",
   "fund 100%",
   "pay the full cost",
   "pay the full costs",
@@ -1867,13 +1923,11 @@ function renderRatepayerRoster() {
     li.className = `rp-roster-item${signed ? " signed" : " unsigned"}`;
     li.style.setProperty("--co-color", `var(--co-${co.slug})`);
 
-    const noteMap = {
-      qts: "Signed (DOE track)",
-      anthropic: "Own commitment",
-    };
     const note = signed
-      ? "Signed the pledge"
-      : (noteMap[co.slug] || "Own commitment");
+      ? RATEPAYER_DOE_TRACK_SIGNATORIES.has(co.slug)
+        ? `Signed with DOE on ${formatLongDate(RATEPAYER_PLEDGE_DOE_DATE)}`
+        : `Signed at White House on ${formatLongDate(RATEPAYER_PLEDGE_DATE)}`
+      : "Own commitment";
     const mark = "✓";
 
     li.innerHTML = `
@@ -2007,29 +2061,44 @@ function buildRatepayerCSV() {
     rows.push(row.map(escapeCSV).join(","));
   }
 
-  // Pre-pledge signatory sites (no assessment captured).
-  for (const p of ratepayerPrePledgeProjects()) {
-    const co = state.companiesBySlug.get(p.company_slug);
-    const announcedDate = p.announced_date || String(p.announced_year);
-    const row = [
-      co ? co.name : p.company_slug,
-      p.name,
-      p.city,
-      p.state,
-      p.status,
-      announcedDate,
-      "", // First Pledge Reference — not captured
-      p.claimed_investment_usd,
-      p.power_mw,
-      p.acreage,
-      p.claimed_jobs,
-      p.at_a_glance?.water || "",
-      "pre-pledge", // Pledge Assessment
+  // Unassessed signatory sites: pledge-era (assessment pending) and
+  // pre-pledge (out of cohort), each labeled honestly.
+  const unassessedBuckets = [
+    [
+      ratepayerUnassessedPledgeEraProjects(),
+      "not-yet-assessed",
+      "Announced during the pledge era; per-site assessment pending.",
+    ],
+    [
+      ratepayerPrePledgeProjects(),
+      "pre-pledge",
       "Announced before the pledge; no site-specific commitment captured.",
-      "", "", "", // Evidence Title, URL, Assessment Date
-      ...PRINCIPLE_KEYS.map(() => "N/A"),
-    ];
-    rows.push(row.map(escapeCSV).join(","));
+    ],
+  ];
+  for (const [bucket, assessment, summary] of unassessedBuckets) {
+    for (const p of bucket) {
+      const co = state.companiesBySlug.get(p.company_slug);
+      const announcedDate = p.announced_date || String(p.announced_year);
+      const row = [
+        co ? co.name : p.company_slug,
+        p.name,
+        p.city,
+        p.state,
+        p.status,
+        announcedDate,
+        "", // First Pledge Reference — not captured
+        p.claimed_investment_usd,
+        p.power_mw,
+        p.acreage,
+        p.claimed_jobs,
+        p.at_a_glance?.water || "",
+        assessment, // Pledge Assessment
+        summary,
+        "", "", "", // Evidence Title, URL, Assessment Date
+        ...PRINCIPLE_KEYS.map(() => "N/A"),
+      ];
+      rows.push(row.map(escapeCSV).join(","));
+    }
   }
 
   return rows.join("\r\n");
@@ -2069,6 +2138,26 @@ function renderRatepayerScorecard() {
   const exportBtn = document.getElementById("rp-export-csv");
   if (exportBtn) {
     exportBtn.onclick = downloadRatepayerCSV;
+  }
+
+  // Pledge-era sites awaiting assessment (post-pledge or year-only 2026,
+  // no assessment captured yet).
+  const unassessedUl = document.getElementById("rp-unassessed");
+  if (unassessedUl) {
+    unassessedUl.innerHTML = "";
+    const unassessed = ratepayerUnassessedPledgeEraProjects();
+    if (unassessed.length === 0) {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = "No pledge-era sites awaiting assessment.";
+      unassessedUl.appendChild(li);
+    } else {
+      for (const p of unassessed) {
+        unassessedUl.appendChild(
+          renderPrePledgeCard(p, "Pledge era — assessment pending")
+        );
+      }
+    }
   }
 
   // Pre-pledge section.
@@ -2176,8 +2265,10 @@ function renderRatepayerCard(p) {
   return li;
 }
 
-// Compact card for pre-pledge signatory sites (no ratepayer assessment).
-function renderPrePledgeCard(p) {
+// Compact card for unassessed signatory sites (no ratepayer assessment).
+// Used by both the pre-pledge section (default note) and the pledge-era
+// awaiting-assessment section (caller passes a note).
+function renderPrePledgeCard(p, note = "National pledge — no site assessment") {
   const co = state.companiesBySlug.get(p.company_slug);
   const li = document.createElement("li");
   li.className = "rp-pre-card";
@@ -2187,7 +2278,7 @@ function renderPrePledgeCard(p) {
     <span class="rp-pre-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
     <span class="rp-pre-name">${escapeHtml(p.name)}</span>
     <span class="rp-pre-loc">${escapeHtml(p.city)}, ${escapeHtml(p.state)} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
-    <span class="rp-pre-dates">Announced: ${escapeHtml(announcedStr)} · National pledge — no site assessment</span>
+    <span class="rp-pre-dates">Announced: ${escapeHtml(announcedStr)} · ${escapeHtml(note)}</span>
   `;
   return li;
 }
