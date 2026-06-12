@@ -917,18 +917,27 @@ class TestRatepayerView:
             "aria-selected", "true"
         )
 
-    def test_stats_render_three_tiles(self, page: Page, base_url: str):
+    def test_stats_render_expected_tiles(self, page: Page, base_url: str):
+        # Three base tiles (signatories / sites tracked / site-specific
+        # commitments) plus a conditional "contested" tile that only renders
+        # when the cohort actually contains contested sites (honest-absence —
+        # no zero tile). The seed ships contested examples (the Amazon
+        # Mississippi trio, v1.19), so all four render.
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
-        assert page.locator("#rp-stats .rp-stat").count() == 3
+        assert page.locator("#rp-stats .rp-stat").count() == 4
+        last = page.locator("#rp-stats .rp-stat").last
+        expect(last).to_contain_text("contested")
 
-    def test_first_stat_reports_seven_signatories(self, page: Page, base_url: str):
+    def test_first_stat_reports_eight_signatories(self, page: Page, base_url: str):
+        # Seven White House signatories (2026-03-04) + QTS via the DOE
+        # companion track (2026-04-24).
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         first = page.locator("#rp-stats .rp-stat").first
-        expect(first).to_contain_text("7")
+        expect(first).to_contain_text("8")
         expect(first).to_contain_text("signatories")
         # The "of 13" framing was removed — assert it's gone.
         expect(first).not_to_contain_text("of 13")
@@ -941,9 +950,44 @@ class TestRatepayerView:
         page.wait_for_selector("#rp-roster .rp-roster-item", timeout=10_000)
         signed = page.locator("#rp-roster .rp-roster-item.signed")
         unsigned = page.locator("#rp-roster .rp-roster-item.unsigned")
-        # Seven signed; at least one non-signatory commitment (QTS) flagged.
-        assert signed.count() == 7
+        # Eight signed; at least one non-signatory commitment (Anthropic)
+        # flagged via the keyword scan.
+        assert signed.count() == 8
         assert unsigned.count() >= 1
+
+    def test_pledge_era_unassessed_split_from_pre_pledge(
+        self, page: Page, base_url: str
+    ):
+        # Unassessed signatory sites are bucketed by announcement date:
+        # genuinely pre-pledge sites stay under "Sites announced before the
+        # pledge"; post-pledge (or year-only 2026) sites land in "Pledge-era
+        # sites awaiting assessment" instead of being mislabeled pre-pledge.
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-pre-pledge .rp-pre-card", timeout=10_000)
+        unassessed = page.locator("#rp-unassessed .rp-pre-card")
+        pre = page.locator("#rp-pre-pledge .rp-pre-card")
+        assert unassessed.count() >= 1
+        assert pre.count() >= 1
+        # qts-van-wert-oh (announced 2026-05-29) is pledge-era, not pre-pledge.
+        assert "Van Wert" in page.locator("#rp-unassessed").inner_text()
+        assert "Van Wert" not in page.locator("#rp-pre-pledge").inner_text()
+        # ms-quincy-wa (announced 2006) stays pre-pledge.
+        assert "Quincy" in page.locator("#rp-pre-pledge").inner_text()
+        assert "Quincy" not in page.locator("#rp-unassessed").inner_text()
+
+    def test_roster_notes_carry_signing_track_and_date(
+        self, page: Page, base_url: str
+    ):
+        # Per-track notes: White House signatories show the March 4 date,
+        # the DOE-track signatory (QTS) shows the April 24 date.
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-roster .rp-roster-item", timeout=10_000)
+        notes = page.locator("#rp-roster .rp-roster-item.signed .rp-roster-note")
+        texts = notes.all_inner_texts()
+        assert texts.count("Signed at White House on March 4, 2026") == 7
+        assert texts.count("Signed with DOE on April 24, 2026") == 1
 
     def test_scorecard_has_cards_with_status_badges(
         self, page: Page, base_url: str
