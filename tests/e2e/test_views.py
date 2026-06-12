@@ -955,6 +955,27 @@ class TestRatepayerView:
         assert signed.count() == 8
         assert unsigned.count() >= 1
 
+    def test_pledge_era_unassessed_split_from_pre_pledge(
+        self, page: Page, base_url: str
+    ):
+        # Unassessed signatory sites are bucketed by announcement date:
+        # genuinely pre-pledge sites stay under "Sites announced before the
+        # pledge"; post-pledge (or year-only 2026) sites land in "Pledge-era
+        # sites awaiting assessment" instead of being mislabeled pre-pledge.
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-pre-pledge .rp-pre-card", timeout=10_000)
+        unassessed = page.locator("#rp-unassessed .rp-pre-card")
+        pre = page.locator("#rp-pre-pledge .rp-pre-card")
+        assert unassessed.count() >= 1
+        assert pre.count() >= 1
+        # qts-van-wert-oh (announced 2026-05-29) is pledge-era, not pre-pledge.
+        assert "Van Wert" in page.locator("#rp-unassessed").inner_text()
+        assert "Van Wert" not in page.locator("#rp-pre-pledge").inner_text()
+        # ms-quincy-wa (announced 2006) stays pre-pledge.
+        assert "Quincy" in page.locator("#rp-pre-pledge").inner_text()
+        assert "Quincy" not in page.locator("#rp-unassessed").inner_text()
+
     def test_roster_notes_carry_signing_track_and_date(
         self, page: Page, base_url: str
     ):
