@@ -698,10 +698,24 @@ function renderMoratoriumStats(moratoriums) {
   if (!statsList) return;
 
   statsList.innerHTML = `
-    <li><strong>${total}</strong> <span>Total Moratoriums</span></li>
-    <li><strong>${enacted}</strong> <span>Enacted</span></li>
-    <li><strong>${proposed}</strong> <span>Proposed</span></li>
-    ${failed > 0 ? `<li><strong>${failed}</strong> <span>Failed/Rejected</span></li>` : ""}
+    <li class="rp-stat">
+      <span class="rp-stat-value">${total}</span>
+      <span class="rp-stat-label">Total Moratoriums</span>
+    </li>
+    <li class="rp-stat">
+      <span class="rp-stat-value">${enacted}</span>
+      <span class="rp-stat-label">Enacted</span>
+    </li>
+    <li class="rp-stat">
+      <span class="rp-stat-value">${proposed}</span>
+      <span class="rp-stat-label">Proposed</span>
+    </li>
+    ${failed > 0 ? `
+    <li class="rp-stat">
+      <span class="rp-stat-value">${failed}</span>
+      <span class="rp-stat-label">Failed/Rejected</span>
+    </li>
+    ` : ""}
   `;
 }
 
