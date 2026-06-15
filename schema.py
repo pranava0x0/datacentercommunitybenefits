@@ -704,6 +704,7 @@ class Moratorium(_StrictBase):
 class MoratoriumsPayload(_StrictBase):
     generated_at: Date
     moratoriums: list[Moratorium]
+    china_national_security_context: dict | None = None
 
     @field_validator("moratoriums")
     @classmethod

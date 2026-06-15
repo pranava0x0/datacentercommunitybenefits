@@ -617,6 +617,7 @@ async function loadMoratoriumsData() {
   if (state.moratoriumsLoaded) return;
   const payload = await fetchJson("data/moratoriums.json");
   state.moratoriums = payload.moratoriums;
+  state.chinaContext = payload.china_national_security_context;
   state.moratoriumsLoaded = true;
   renderMoratoriumsView();
   document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
@@ -637,6 +638,7 @@ function renderMoratoriumsView() {
   // Render stats and themes at the top (using ALL moratoriums, not filtered)
   renderMoratoriumStats(state.moratoriums);
   renderReasonBreakdown(state.moratoriums);
+  renderChinaContext();
 
   const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
   const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
@@ -753,6 +755,83 @@ function renderReasonBreakdown(moratoriums) {
       container.appendChild(card);
     }
   });
+}
+
+function renderChinaContext() {
+  const container = document.getElementById("china-context-content");
+  if (!container || !state.chinaContext) return;
+
+  const ctx = state.chinaContext;
+  let html = `<p><strong>${escapeHtml(ctx.overview || "")}</strong></p>`;
+  html += `<p><em>${escapeHtml(ctx.key_finding || "")}</em></p>`;
+
+  // Federal enforcement section
+  if (ctx.federal_enforcement) {
+    html += `<h4>Federal Enforcement & Controls</h4>`;
+    html += `<ul>`;
+
+    if (ctx.federal_enforcement.cfius && ctx.federal_enforcement.cfius.key_actions) {
+      ctx.federal_enforcement.cfius.key_actions.forEach(action => {
+        html += `<li><strong>${escapeHtml(action.action)}</strong> — ${escapeHtml(action.status)}</li>`;
+      });
+    }
+
+    if (ctx.federal_enforcement.entity_list && ctx.federal_enforcement.entity_list.key_entities_banned) {
+      ctx.federal_enforcement.entity_list.key_entities_banned.forEach(entity => {
+        html += `<li><strong>${escapeHtml(entity.entity)}</strong> (${escapeHtml(entity.reason)}) — Added ${escapeHtml(entity.date_added)}</li>`;
+      });
+    }
+
+    html += `</ul>`;
+  }
+
+  // Congressional statements
+  if (ctx.congressional_statements && ctx.congressional_statements.key_voices) {
+    html += `<h4>Congressional Leadership</h4>`;
+    html += `<ul>`;
+    ctx.congressional_statements.key_voices.slice(0, 3).forEach(voice => {
+      html += `<li><strong>${escapeHtml(voice.speaker)}</strong>: "${escapeHtml(voice.statement.substring(0, 120))}..." (${escapeHtml(voice.date)})</li>`;
+    });
+    html += `</ul>`;
+  }
+
+  // Intelligence operations
+  if (ctx.intelligence_operations && ctx.intelligence_operations.documented_operations) {
+    html += `<h4>Documented Intelligence Concerns</h4>`;
+    html += `<ul>`;
+    ctx.intelligence_operations.documented_operations.forEach(op => {
+      html += `<li><strong>${escapeHtml(op.operation_name)}</strong>: ${escapeHtml(op.targets)}</li>`;
+    });
+    html += `</ul>`;
+  }
+
+  // Investment patterns
+  if (ctx.investment_patterns && ctx.investment_patterns.cases) {
+    html += `<h4>Chinese Investment Attempts & Status</h4>`;
+    html += `<ul>`;
+    ctx.investment_patterns.cases.forEach(cas => {
+      html += `<li><strong>${escapeHtml(cas.company)}</strong>: ${escapeHtml(cas.status)} — ${escapeHtml(cas.rationale)}</li>`;
+    });
+    html += `</ul>`;
+  }
+
+  // Supply chain concerns
+  if (ctx.supply_chain_concerns && ctx.supply_chain_concerns.concerns) {
+    html += `<h4>Supply Chain Concerns</h4>`;
+    html += `<ul>`;
+    ctx.supply_chain_concerns.concerns.forEach(concern => {
+      html += `<li><strong>${escapeHtml(concern.concern)}</strong>: ${escapeHtml(concern.mitigation)}</li>`;
+    });
+    html += `</ul>`;
+  }
+
+  // Why not in moratoriums
+  if (ctx.why_not_in_state_moratoriums) {
+    html += `<h4>Why China Is Not in State Moratoriums</h4>`;
+    html += `<p>${escapeHtml(ctx.why_not_in_state_moratoriums.explanation)}</p>`;
+  }
+
+  container.innerHTML = html;
 }
 
 function showMoratoriumDetail(m) {
@@ -1737,6 +1816,99 @@ function wireMoratoriumDetail() {
   };
 
   document.addEventListener("keydown", checkEscape);
+
+  // Wire PDF export button
+  const pdfBtn = document.getElementById("moratoriums-pdf-btn");
+  if (pdfBtn && !pdfBtn.dataset.wired) {
+    pdfBtn.dataset.wired = "1";
+    pdfBtn.addEventListener("click", exportMoratoriumsToPDF);
+  }
+}
+
+function exportMoratoriumsToPDF() {
+  if (!state.moratoriums || state.moratoriums.length === 0) {
+    alert("No moratoriums to export");
+    return;
+  }
+
+  // Get current filters
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
+
+  let filtered = [...state.moratoriums];
+  if (statusFilter) {
+    filtered = filtered.filter((m) => m.status === statusFilter);
+  }
+  if (typeFilter) {
+    filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
+  }
+
+  // Create HTML content for PDF
+  let htmlContent = `
+    <h1>Data Center Policy Moratoriums</h1>
+    <p>Exported: ${new Date().toLocaleDateString()}</p>
+    <p>Total moratoriums: ${filtered.length}</p>
+  `;
+
+  // Create detailed table
+  htmlContent += `<table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
+    <thead style="background-color: #f0f0f0;">
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Jurisdiction</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Status</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Duration</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Effective Date</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Key Reasons</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+  `;
+
+  filtered.forEach((m) => {
+    const reasons = (m.key_reasons || []).join(", ");
+    htmlContent += `
+      <tr style="border-bottom: 1px solid #ddd;">
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.jurisdiction)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.jurisdiction_type)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.status)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.duration_description)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${m.effective_date || "N/A"}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(reasons)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px; font-size: 0.9em;">${escapeHtml(m.summary?.substring(0, 200) || "")}</td>
+      </tr>
+    `;
+  });
+
+  htmlContent += `</tbody></table>`;
+
+  // Add resources section
+  htmlContent += `<h2 style="margin-top: 2rem; page-break-before: always;">Resources & Links</h2>`;
+  filtered.forEach((m) => {
+    htmlContent += `<h3>${escapeHtml(m.jurisdiction)} (${escapeHtml(m.status)})</h3>`;
+    htmlContent += `<ul style="font-size: 0.9em;">`;
+    if (m.resources && Array.isArray(m.resources)) {
+      m.resources.forEach((r) => {
+        htmlContent += `<li><a href="${r.url}">${escapeHtml(r.title)}</a><br/>${escapeHtml(r.url.substring(0, 80))}</li>`;
+      });
+    }
+    htmlContent += `</ul>`;
+  });
+
+  // Export using html2pdf
+  const element = document.createElement("div");
+  element.innerHTML = htmlContent;
+
+  const opt = {
+    margin: 10,
+    filename: `moratoriums-${new Date().toISOString().split("T")[0]}.pdf`,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { orientation: "landscape", unit: "mm", format: "a4" },
+  };
+
+  html2pdf().set(opt).from(element).save();
 }
 
 function setActiveDetailTab(name) {

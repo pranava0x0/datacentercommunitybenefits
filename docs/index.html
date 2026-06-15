@@ -13,6 +13,7 @@
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
     <link rel="stylesheet" href="styles.css?v=20260607c" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5PhEf7slx+6o5N+tymGQjqZ19Jw4Ak9gbc67vxQwayo3z1P8B3BgeC5e0RvgwLFoe3ChQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="app.js?v=20260607c"></script>
   </head>
   <body>
@@ -488,7 +489,7 @@
 
         <!-- Two-column: pledge elements left, roster right (stacks on mobile) -->
         <div class="rp-two-col">
-          <details class="rp-commitments">
+          <details class="rp-commitments" open>
             <summary id="rp-commitments-heading">The 5 pledge elements</summary>
             <ul class="rp-commitment-list">
               <li><strong>Building, bringing, or buying new power supply</strong> — pay the full cost of new generation.</li>
@@ -572,40 +573,57 @@
           </div>
         </div>
 
-        <!-- Filters and Table -->
-        <div id="moratorium-filters" class="filters">
-          <label>Status:
-            <select id="moratorium-status-filter">
-              <option value="">All</option>
-              <option value="enacted">Enacted</option>
-              <option value="proposed">Proposed</option>
-              <option value="failed">Failed</option>
-            </select>
-          </label>
-          <label>Type:
-            <select id="moratorium-type-filter">
-              <option value="">All</option>
-              <option value="federal">Federal</option>
-              <option value="state">State</option>
-              <option value="county">County</option>
-              <option value="city">City</option>
-            </select>
-          </label>
-        </div>
-        <table id="moratoriums-table" class="data-table">
-          <thead>
-            <tr>
-              <th role="columnheader" aria-sort="none">Jurisdiction</th>
-              <th role="columnheader" aria-sort="none">Type</th>
-              <th role="columnheader" aria-sort="none">Status</th>
-              <th role="columnheader" aria-sort="none">Duration</th>
-              <th role="columnheader" aria-sort="none">Key Reasons</th>
-            </tr>
-          </thead>
-          <tbody id="moratoriums-tbody">
+        <!-- China National Security Context -->
+        <details class="china-context-section">
+          <summary id="china-context-heading">China & National Security Context</summary>
+          <div id="china-context-content" class="china-context-detail">
             <!-- Populated by app.js -->
-          </tbody>
-        </table>
+          </div>
+        </details>
+
+        <!-- Filters and Table (Collapsible) -->
+        <details class="moratoriums-table-section" open>
+          <summary id="moratoriums-table-heading">
+            Moratoriums Directory
+            <span class="table-controls">
+              <button id="moratoriums-pdf-btn" class="btn-secondary" title="Export to PDF">📄 PDF Export</button>
+            </span>
+          </summary>
+
+          <div id="moratorium-filters" class="filters">
+            <label>Status:
+              <select id="moratorium-status-filter">
+                <option value="">All</option>
+                <option value="enacted">Enacted</option>
+                <option value="proposed">Proposed</option>
+                <option value="failed">Failed</option>
+              </select>
+            </label>
+            <label>Type:
+              <select id="moratorium-type-filter">
+                <option value="">All</option>
+                <option value="federal">Federal</option>
+                <option value="state">State</option>
+                <option value="county">County</option>
+                <option value="city">City</option>
+              </select>
+            </label>
+          </div>
+          <table id="moratoriums-table" class="data-table">
+            <thead>
+              <tr>
+                <th role="columnheader" aria-sort="none">Jurisdiction</th>
+                <th role="columnheader" aria-sort="none">Type</th>
+                <th role="columnheader" aria-sort="none">Status</th>
+                <th role="columnheader" aria-sort="none">Duration</th>
+                <th role="columnheader" aria-sort="none">Key Reasons</th>
+              </tr>
+            </thead>
+            <tbody id="moratoriums-tbody">
+              <!-- Populated by app.js -->
+            </tbody>
+          </table>
+        </details>
       </section>
 
       <!-- ====================== AGGREGATE VIEW ====================== -->

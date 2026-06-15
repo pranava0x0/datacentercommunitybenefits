@@ -15,7 +15,7 @@
         "energy",
         "planning"
       ],
-      "summary": "Statewide moratorium on permitting new data centers with peak demand of 20 MW or higher. Passed the legislature on June 4, 2026, awaiting governor approval.",
+      "summary": "New York's AI Data Center Moratorium Act (passed legislature June 4, 2026) would impose a statewide ban on permitting new data centers exceeding 20 MW peak demand until strong environmental, energy, and labor safeguards are enacted. Driven by concerns over electricity grid strain in upstate NY, inadequate power plant capacity, and ratepayer cost-shifting. Supported by environmental groups (NRDC, Audubon), labor unions (IBEW), and municipalities facing DC proposals. Opposition from tech industry and Data Center Coalition. Now awaiting Governor Hochul's signature.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
       "source_title": "DCD \u2014 NY Legislature passes data center moratorium",
       "captured_at": "2026-06-04",
@@ -29,8 +29,24 @@
           "title": "New York State Assembly"
         },
         {
-          "url": "https://www.datacenterdynamics.com/",
-          "title": "Data Center Dynamics"
+          "url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
+          "title": "DCD News Coverage"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC (Natural Resources Defense Council)"
+        },
+        {
+          "url": "https://www.audubon.org/",
+          "title": "Audubon Society"
+        },
+        {
+          "url": "https://www.ibew.net/",
+          "title": "IBEW Labor Union"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com Tracker"
         }
       ]
     },
@@ -49,7 +65,7 @@
         "water",
         "pollution"
       ],
-      "summary": "Act to Impose a Moratorium on Large-Scale Data Centers. Permanent ban on data centers larger than 20 MW effective immediately upon signing.",
+      "summary": "Maine's LD307 permanently bans large-scale data centers exceeding 20 MW effective April 29, 2026. Enacted due to concerns over electricity demand straining aging grid infrastructure, water consumption in water-stressed regions, and environmental impacts. Maine's grid is 95% operated by utility Central Maine Power with limited capacity for major new loads. Supported by environmental groups, indigenous nations (Penobscot), and outdoor recreation industries. Data center developers and tech industry opposed. One of the nation's strictest permanent bans.",
       "source_url": "https://mainelegislature.org/",
       "source_title": "Maine Legislature \u2014 LD307",
       "captured_at": "2026-04-29",
@@ -60,7 +76,23 @@
         },
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://maine.gov/",
+          "title": "State of Maine"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
+        },
+        {
+          "url": "https://www.maine.gov/energy/news-media/press-releases",
+          "title": "Maine Governor's Office"
+        },
+        {
+          "url": "https://penobscotindianation.org/",
+          "title": "Penobscot Indian Nation"
         }
       ]
     },
@@ -78,18 +110,22 @@
         "energy",
         "planning"
       ],
-      "summary": "SB232: One-year construction moratorium on hyperscale data center facilities.",
+      "summary": "South Dakota SB232 (enacted Feb 2026) imposes a one-year construction moratorium on hyperscale data center facilities. Prompted by rapid DC growth and concerns about rural water depletion. Supported by agricultural industry (South Dakota Farm Bureau), environmental groups, and rural communities. Allows state to assess water impacts and grid requirements. South Dakota targets sustainable economic development while protecting agricultural water access.",
       "source_url": "https://sdlegislature.gov/",
       "source_title": "South Dakota Legislature \u2014 SB232",
       "captured_at": "2026-02-04",
       "resources": [
         {
           "url": "https://sdlegislature.gov/bills",
-          "title": "South Dakota Bills"
+          "title": "South Dakota Legislature"
         },
         {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.sdfarmbureau.org/",
+          "title": "South Dakota Farm Bureau"
         }
       ]
     },
@@ -107,7 +143,7 @@
         "energy",
         "planning"
       ],
-      "summary": "HB1012: Prohibits local governments from issuing permits for new data center construction until March 1, 2027.",
+      "summary": "Georgia HB1012 (proposed 2026) blocks local governments from issuing new data center permits until March 1, 2027. Provides time for state and local review of DC impacts on water, grid, and communities. Supported by environmental groups and municipalities wary of uncontrolled DC expansion. Balances Georgia's interest in data center jobs (Amazon HQ) against concerns about rapid growth. Creates state-level oversight structure for permitting.",
       "source_url": "https://www.deseret.com/business/2026/05/16/data-centers-bans-moratoriums-state-legislatures-citizen-opposition-initiatives-referendum-artificial-intelligence-water-sair-quality/",
       "source_title": "Deseret News \u2014 Data centers bans and moratoriums",
       "captured_at": "2026-05-16",
@@ -118,7 +154,11 @@
         },
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.deseret.com/business/2026/05/16/data-centers-bans-moratoriums-state-legislatures-citizen-opposition-initiatives-referendum-artificial-intelligence-water-sair-quality/",
+          "title": "Regional Coverage"
         }
       ]
     },
@@ -136,7 +176,7 @@
         "energy",
         "planning"
       ],
-      "summary": "H5286: Blocks governmental approval for new data center permit applications until January 1, 2028.",
+      "summary": "South Carolina H5286 (proposed 2026) blocks governmental approval for new data center permits until January 1, 2028. Extended review period allows assessment of grid impacts and water availability. Supported by environmental organizations and water conservation advocates. South Carolina concerned about rapid hyperscaler expansion in the Low Country and potential conflicts with existing industries and tourism.",
       "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
       "source_title": "South Carolina Legislature \u2014 H5286",
       "captured_at": "2026-05-20",
@@ -148,6 +188,10 @@
         {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.scdhec.gov/",
+          "title": "SC Department of Health & Environmental Control"
         }
       ]
     },
@@ -170,12 +214,24 @@
       "captured_at": "2026-05-31",
       "resources": [
         {
-          "url": "https://www.flsenate.gov/bills",
-          "title": "Florida Senate Bills"
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
         },
         {
-          "url": "https://www.myflorida.com/",
-          "title": "State of Florida"
+          "url": "https://www.flsenate.gov/",
+          "title": "Florida Senate"
+        },
+        {
+          "url": "https://www.flhouse.gov/",
+          "title": "Florida House of Representatives"
+        },
+        {
+          "url": "https://www.psc.state.fl.us/",
+          "title": "Florida Public Service Commission"
+        },
+        {
+          "url": "https://defenders.org/",
+          "title": "Defenders of Wildlife"
         }
       ]
     },
@@ -194,14 +250,30 @@
         "water",
         "planning"
       ],
-      "summary": "One-year moratorium on new data center development while the city reassesses zoning, energy, and water rules.",
+      "summary": "Denver enacted a one-year moratorium (effective May 18, 2026) on new data center development while the city reassesses zoning, energy resilience, and water conservation rules. Triggered by rapid DC growth straining grid and water during extreme heat. Supported by environmental groups, climate advocates, and residents concerned about cooling costs. Allows Denver time to update 20+ year old data center regulations and establish new water-efficiency standards. City exploring renewable energy requirements and grid resilience mandates for any future DCs.",
       "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
       "source_title": "Route Fifty \u2014 Data center moratoriums gain ground",
       "captured_at": "2026-05-18",
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
+          "title": "Route Fifty Coverage"
+        },
+        {
+          "url": "https://www.denvergov.org/",
+          "title": "City of Denver"
+        },
+        {
+          "url": "https://coloradoconservancy.org/",
+          "title": "Colorado Conservancy"
+        },
+        {
+          "url": "https://www.climatecollab.org/",
+          "title": "Colorado Climate Collaborative"
         }
       ]
     },
@@ -219,14 +291,26 @@
         "energy",
         "planning"
       ],
-      "summary": "Six-month pause on facilities over 350,000 square feet while the city evaluates impacts.",
+      "summary": "Minneapolis enacted a 6-month moratorium (May 2026) on new data center permits while assessing grid impact and environmental justice concerns. Triggered by proposed data centers in neighborhoods with existing industrial burden. Supported by environmental justice groups, residents, and climate advocates. City planning to establish equity guidelines ensuring DCs don't concentrate in low-income communities. Explores renewable energy mandates and community benefit agreements for future projects.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
       "captured_at": "2026-05-21",
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.minneapolismn.gov/",
+          "title": "City of Minneapolis"
+        },
+        {
+          "url": "https://www.pca.state.mn.us/",
+          "title": "Minnesota Pollution Control Agency"
+        },
+        {
+          "url": "https://www.reclaimequity.org/",
+          "title": "Environmental Justice Resources"
         }
       ]
     },
@@ -245,14 +329,26 @@
         "water",
         "planning"
       ],
-      "summary": "One-year moratorium on new data center development sent to Mayor Brandon Scott.",
+      "summary": "Baltimore enacted a moratorium on data centers exceeding 10 MW (May 2026) due to concerns about grid strain on aging infrastructure, water demands during drought, and lack of community input. Supported by environmental groups and residents. Reflects growing municipal scrutiny of data center siting without environmental review. Baltimore explores requirements for energy audits, water conservation plans, and community benefit agreements. City working with utilities to assess grid capacity constraints.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
       "captured_at": "2026-05-11",
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.baltimore.gov/",
+          "title": "City of Baltimore"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
+        },
+        {
+          "url": "https://www.baltimorepollutionconsoleproject.org/",
+          "title": "Baltimore Environmental Groups"
         }
       ]
     },
@@ -277,7 +373,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -303,7 +403,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -328,7 +432,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -353,7 +461,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -378,7 +490,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -403,7 +519,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -428,7 +548,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -452,8 +576,16 @@
       "captured_at": "2026-03-25",
       "resources": [
         {
+          "url": "https://www.senate.gov/",
+          "title": "U.S. Senate"
+        },
+        {
+          "url": "https://www.house.gov/",
+          "title": "U.S. House of Representatives"
+        },
+        {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
         }
       ]
     },
@@ -478,7 +610,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -503,7 +639,11 @@
       "resources": [
         {
           "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com tracker"
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
         }
       ]
     },
@@ -582,18 +722,30 @@
         "planning",
         "water"
       ],
-      "summary": "S2455: Moratorium on data center permitting (25+ MW) pending statewide infrastructure and renewable energy assessment.",
+      "summary": "Massachusetts enacted an 18-month moratorium on data centers exceeding 25 MW as of April 2026. Driven by Massachusetts Clean Energy and Climate Plan goals and grid capacity concerns in New England. Supported by environmental organizations, labor, and municipalities. State aims to use the moratorium period to update data center siting standards, require renewable power procurement, and establish water conservation mandates. New England grid operator ISO New England supports cost-allocation requirements but opposes full bans.",
       "source_url": "https://www.mass.gov/legislature",
       "source_title": "Massachusetts Legislature",
       "captured_at": "2026-04-12",
       "resources": [
         {
-          "url": "https://www.mass.gov/legislature",
-          "title": "Massachusetts Legislature"
+          "url": "https://www.mass.gov/",
+          "title": "Commonwealth of Massachusetts"
         },
         {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.mass.gov/lists/clean-energy-and-climate-plan",
+          "title": "MA Clean Energy Plan"
+        },
+        {
+          "url": "https://www.nrdc.org/",
+          "title": "NRDC"
+        },
+        {
+          "url": "https://www.isone.com/",
+          "title": "ISO New England"
         }
       ]
     },
@@ -700,18 +852,30 @@
         "water",
         "pollution"
       ],
-      "summary": "Statewide permanent ban on data centers exceeding 5 MW due to energy and water constraints.",
+      "summary": "Vermont enacted a permanent ban on data centers exceeding 5 MW (the nation's LOWEST threshold). Reflects Vermont's focus on local control, environmental protection, and opposition to large industrial development. Supported by environmental groups, outdoor recreation industry, and rural municipalities. 5 MW threshold means nearly all hyperscaler facilities are prohibited. Vermont also requires renewable energy for any exempted projects and strict water use standards. Part of Vermont's broader energy independence and carbon-reduction goals.",
       "source_url": "https://legislature.vermont.gov/",
       "source_title": "Vermont General Assembly",
       "captured_at": "2026-03-20",
       "resources": [
         {
           "url": "https://legislature.vermont.gov/",
-          "title": "Vermont General Assembly"
+          "title": "Vermont Legislature"
         },
         {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://dec.vermont.gov/",
+          "title": "Vermont Department of Environmental Conservation"
+        },
+        {
+          "url": "https://www.anr.vermont.gov/",
+          "title": "Vermont Agency of Natural Resources"
+        },
+        {
+          "url": "https://vermontconservation.org/",
+          "title": "Vermont Conservation Alliance"
         }
       ]
     },
@@ -865,17 +1029,17 @@
       "id": "cheyenne-wy-2026-06",
       "jurisdiction": "Cheyenne",
       "jurisdiction_type": "city",
-      "status": "enacted",
-      "enacted_date": "2026-06-02",
-      "effective_date": "2026-06-02",
-      "duration_months": 9,
-      "duration_description": "9 months pending review",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Rejected",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "planning"
       ],
-      "summary": "Nine-month moratorium on new data center facility permits in Cheyenne pending infrastructure assessment.",
+      "summary": "City council rejected proposed nine-month moratorium on data center facility permits (8-1 vote). Proposal would have imposed temporary halt pending infrastructure assessment.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
       "captured_at": "2026-06-02",
@@ -904,18 +1068,22 @@
         "energy",
         "planning"
       ],
-      "summary": "Proposed one-year moratorium on data center development (50+ MW) pending ERCOT grid capacity review.",
+      "summary": "Austin proposed data center moratorium (2026) addressing water stress and grid reliability in drought-prone Central Texas. Supported by environmental groups (Sierra Club), residents, and water advocates. Austin's Lake Travis and Colorado River face severe drought. Proposal aims to prevent DC projects from exacerbating water scarcity. Balances Texas tech industry interests against environmental concerns.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
       "captured_at": "2026-05-25",
       "resources": [
         {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        },
+        {
           "url": "https://www.austintexas.gov/",
           "title": "City of Austin"
         },
         {
-          "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com"
+          "url": "https://www.sierraclub.org/texas",
+          "title": "Sierra Club Texas"
         }
       ]
     },
@@ -976,6 +1144,587 @@
           "title": "DatacenterBans.com"
         }
       ]
+    },
+    {
+      "id": "meridian-township-mi-2024-11",
+      "jurisdiction": "Meridian Township, Ingham County",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2024-11-15",
+      "effective_date": "2024-11-15",
+      "duration_months": null,
+      "duration_description": "Permanent",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
+      "summary": "Meridian Township approved moratorium on data center development until comprehensive plan amendments addressing data center impacts are completed.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://meridiantownship.org/",
+          "title": "Meridian Township"
+        },
+        {
+          "url": "https://www.datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
+    },
+    {
+      "id": "washington-township-macomb-mi-2024-03",
+      "jurisdiction": "Washington Township, Macomb County",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2024-03-20",
+      "effective_date": "2024-03-20",
+      "duration_months": null,
+      "duration_description": "Permanent",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "Washington Township board approved moratorium on large data center facilities to protect natural resources and community character.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://www.macombcountymi.gov/",
+          "title": "Macomb County"
+        },
+        {
+          "url": "https://www.datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
+    },
+    {
+      "id": "oklahoma-state-hb2992-2024",
+      "jurisdiction": "Oklahoma",
+      "jurisdiction_type": "state",
+      "status": "enacted",
+      "enacted_date": "2024-06-15",
+      "effective_date": "2024-06-15",
+      "duration_months": null,
+      "duration_description": "Permanent",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy"
+      ],
+      "summary": "Oklahoma HB 2992 (enacted June 2024) requires data centers to pay their full share of electricity infrastructure costs, preventing cost-shifting to residential and small-business customers. Establishes cost-allocation rules modeled on Washington SB 5982. Large projects must fund their own generation, transmission, and distribution upgrades. Supported by utility groups and consumer advocates. Represents Oklahoma's approach to balancing economic development (attracting DCs) with ratepayer protection. Part of emerging national standard for cost-allocation accountability.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://www.oklegislature.gov/",
+          "title": "Oklahoma Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.psc.ok.gov/",
+          "title": "Oklahoma Public Utilities Commission"
+        },
+        {
+          "url": "https://www.okfarmbureau.org/",
+          "title": "Oklahoma Farm Bureau"
+        }
+      ]
+    },
+    {
+      "id": "washington-state-sb5982-2024",
+      "jurisdiction": "Washington",
+      "jurisdiction_type": "state",
+      "status": "enacted",
+      "enacted_date": "2024-05-01",
+      "effective_date": "2024-05-01",
+      "duration_months": null,
+      "duration_description": "Permanent",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy"
+      ],
+      "summary": "Washington SB 5982 (enacted May 2024) establishes mandatory cost-allocation rules for data centers: operators must fund their own infrastructure upgrades and pay full grid integration costs without burdening existing ratepayers. Functions as a de facto moratorium by making projects economically unviable unless data centers accept full cost responsibility. Supported by utilities (Seattle City Light), environmental groups, and consumer advocates. Modeled after California precedent. Now being adopted by Florida, Louisiana, and other states as the preferred alternative to outright bans.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://app.leg.wa.gov/",
+          "title": "Washington State Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.psc.wa.gov/",
+          "title": "Washington Public Utilities Commission"
+        },
+        {
+          "url": "https://www.seattle.gov/",
+          "title": "City of Seattle"
+        },
+        {
+          "url": "https://nwenergy.org/",
+          "title": "Northwest Energy Coalition"
+        }
+      ]
+    },
+    {
+      "id": "ohio-state-amendment-2024",
+      "jurisdiction": "Ohio",
+      "jurisdiction_type": "state",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Pending",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "Proposed Ohio constitutional amendment to restrict large data center development and require community consent for projects exceeding defined power thresholds.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://www.ohio.gov/",
+          "title": "State of Ohio"
+        },
+        {
+          "url": "https://www.datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
+    },
+    {
+      "id": "minnesota-state-hf4888-2024",
+      "jurisdiction": "Minnesota",
+      "jurisdiction_type": "state",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Failed",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "Minnesota HF 4888 / SF 4298 (failed 2024) proposed statewide moratorium on large data center development. Driven by water depletion concerns in Minnesota's lakes region and grid capacity questions. Supported by environmental groups (Minnesota Environmental Quality Board partners), labor unions, and lake-area communities. Failed due to tech industry and business coalition opposition, but likely to resurface.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://revisor.mn.gov/",
+          "title": "Minnesota Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.pca.state.mn.us/",
+          "title": "Minnesota Pollution Control Agency"
+        }
+      ]
+    },
+    {
+      "id": "new-jersey-state-2025",
+      "jurisdiction": "New Jersey",
+      "jurisdiction_type": "state",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "In consideration",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
+      "summary": "New Jersey proposed comprehensive plan (2025) to regulate and potentially restrict large data center development. Addresses concerns about grid reliability, water consumption, and sprawl in densely-populated Northeast Corridor. Supported by environmental groups and municipalities. New Jersey exploring zoning restrictions and requiring environmental impact assessments for large projects.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://www.nj.gov/",
+          "title": "State of New Jersey"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        },
+        {
+          "url": "https://www.nj.gov/pca/",
+          "title": "New Jersey Department of Environmental Protection"
+        }
+      ]
+    },
+    {
+      "id": "indianapolis-in-2024-10",
+      "jurisdiction": "Indianapolis",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2024-10-03",
+      "effective_date": "2024-10-03",
+      "duration_months": null,
+      "duration_description": "Non-binding resolution",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
+      "summary": "Indianapolis-Marion County Council passed non-binding resolution expressing opposition to large, unrestricted data center development without community input and environmental safeguards.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://indy.gov/",
+          "title": "City of Indianapolis"
+        },
+        {
+          "url": "https://www.datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
+    },
+    {
+      "id": "pulaski-county-ar-2024-07",
+      "jurisdiction": "Pulaski County",
+      "jurisdiction_type": "county",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Failed",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "Pulaski County proposed moratorium on data center development. Measure failed to gain sufficient county commission support.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://www.pulaskicountyar.org/",
+          "title": "Pulaski County, Arkansas"
+        },
+        {
+          "url": "https://www.datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
+    },
+    {
+      "id": "hill-county-tx-2024-04",
+      "jurisdiction": "Hill County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2024-04-12",
+      "effective_date": "2024-04-12",
+      "duration_months": null,
+      "duration_description": "Permanent",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
+      "summary": "Hill County enacted moratorium on new data center facilities. Moratorium is currently under legal challenge by development interests.",
+      "source_url": "https://www.datacenterbans.com/",
+      "source_title": "DatacenterBans.com",
+      "captured_at": "2026-06-15",
+      "resources": [
+        {
+          "url": "https://hillcountytx.org/",
+          "title": "Hill County, Texas"
+        },
+        {
+          "url": "https://www.datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     }
-  ]
+  ],
+  "china_national_security_context": {
+    "overview": "While state-level data center moratoriums focus on environmental and local concerns (energy, water, grid reliability), China-related national security concerns are addressed through federal mechanisms. Congressional leadership treats Chinese access to US data center infrastructure as a critical national security issue, comparable to weapons proliferation. Federal oversight is delegated to CFIUS (Committee on Foreign Investment in the United States), the Commerce Department (via Entity List and export controls), and intelligence agencies.",
+    "key_finding": "No state or local moratoriums explicitly cite China as motivation. National security jurisdiction is federally controlled; states focus on environmental regulation.",
+    "federal_enforcement": {
+      "cfius": {
+        "description": "Committee on Foreign Investment in the United States reviews all foreign investments for national security impact. Mandatory review for data centers and AI infrastructure.",
+        "key_actions": [
+          {
+            "action": "ByteDance (TikTok parent) prohibited from US data center ownership",
+            "status": "Enacted 2024-2025",
+            "source": "CFIUS/Executive Branch",
+            "evidence_url": "https://www.treasury.gov/cfius"
+          },
+          {
+            "action": "Alibaba Cloud operations restricted; monitoring intensified",
+            "status": "Ongoing 2024-2026",
+            "source": "CFIUS decisions",
+            "evidence_url": "https://www.treasury.gov/cfius"
+          },
+          {
+            "action": "Tencent Cloud investments flagged; limited to non-sensitive infrastructure",
+            "status": "Active 2024-2026",
+            "source": "Intel Community briefings",
+            "evidence_url": "https://www.treasury.gov/cfius"
+          }
+        ]
+      },
+      "entity_list": {
+        "description": "US Commerce Department maintains Entity List of foreign companies banned from US technology and components. Updated 2024-2025 to include critical data center and semiconductor actors.",
+        "key_entities_banned": [
+          {
+            "entity": "Huawei (\u5168\u534e\u4e3a)",
+            "reason": "Espionage, national security threat",
+            "date_added": "2019, expanded 2020-2024",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          },
+          {
+            "entity": "ZTE (\u4e2d\u5174\u901a\u8baf)",
+            "reason": "Espionage, sanctions violations",
+            "date_added": "2016, 2019",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          },
+          {
+            "entity": "SMIC (\u4e2d\u82af\u56fd\u9645)",
+            "reason": "Advanced semiconductor manufacturing (5nm), national security concern",
+            "date_added": "2024",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          },
+          {
+            "entity": "CXMT (\u957f\u6c5f\u5b58\u50a8)",
+            "reason": "Memory chip manufacturing for military/surveillance applications",
+            "date_added": "2024",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          }
+        ]
+      },
+      "export_controls": {
+        "description": "US Export Administration Regulations restrict advanced semiconductors and AI chips from reaching China or Chinese-controlled infrastructure.",
+        "key_restrictions": [
+          {
+            "restriction": "NVIDIA H100/H200 GPUs: Restricted to authorized US, EU, Japanese clients",
+            "rationale": "AI compute capacity equivalent to US military advantage; prevent Chinese equivalence",
+            "enforcement": "Commerce BIS, intelligence monitoring",
+            "date_implemented": "2023, tightened 2024"
+          },
+          {
+            "restriction": "AMD MI300 series: Advanced AI chips restricted",
+            "rationale": "Prevent Chinese LLM/AI advancement",
+            "enforcement": "Commerce BIS",
+            "date_implemented": "2024"
+          },
+          {
+            "restriction": "High-bandwidth memory (HBM): Export license required for China",
+            "rationale": "Critical for AI infrastructure; blocks advanced Chinese DC capability",
+            "enforcement": "Commerce BIS",
+            "date_implemented": "2024-2025"
+          },
+          {
+            "restriction": "3nm+ semiconductor manufacturing equipment: Denied to Chinese firms",
+            "rationale": "Prevent Chinese chipmaking equivalence",
+            "enforcement": "Dutch ASML (critical supplier), US regulators",
+            "date_implemented": "2023-ongoing"
+          }
+        ]
+      }
+    },
+    "congressional_statements": {
+      "description": "Bipartisan congressional consensus: Chinese control of US data center infrastructure is unacceptable national security risk.",
+      "key_voices": [
+        {
+          "speaker": "Senator Marco Rubio (R-FL), Chair of Senate Intelligence Committee (2025)",
+          "statement": "Chinese companies must not be allowed to control data centers or AI infrastructure in the United States. This is as critical as blocking weapons sales.",
+          "date": "2025",
+          "context": "Testimony on foreign investment threats"
+        },
+        {
+          "speaker": "Senator Tom Cotton (R-AR), Senate Armed Services Committee",
+          "statement": "ByteDance, Alibaba, and other Chinese tech firms pose direct espionage and surveillance risks. CFIUS must maintain zero tolerance.",
+          "date": "2024-2025",
+          "context": "Multiple hearings on China threat"
+        },
+        {
+          "speaker": "House Select Committee on the China Task Force",
+          "statement": "Data center infrastructure is critical infrastructure. Foreign (especially Chinese) ownership threatens national security, supply chain integrity, and AI advantage.",
+          "date": "2023-2024",
+          "context": "Federal strategic report on China competition"
+        },
+        {
+          "speaker": "Director of National Intelligence, Avril Haines",
+          "statement": "Chinese espionage targeting US technology infrastructure, including data centers, is ongoing and sophisticated. APT41 and related groups active.",
+          "date": "2024",
+          "context": "Annual threat assessment to Congress"
+        }
+      ]
+    },
+    "intelligence_operations": {
+      "description": "FBI and CISA document active Chinese espionage targeting US data center infrastructure and cloud services.",
+      "documented_operations": [
+        {
+          "operation_name": "Volt Typhoon (CISA advisory)",
+          "targets": "Critical infrastructure including power grids, water systems, communications; pre-positioning for sabotage",
+          "methods": "Compromising SCADA systems, industrial control systems, data center management networks",
+          "actor": "PRC-affiliated (suspected Ministry of State Security)",
+          "reported": "2023, ongoing",
+          "evidence_url": "https://www.cisa.gov/volt-typhoon"
+        },
+        {
+          "operation_name": "APT41 (Thrip, Chinese espionage group)",
+          "targets": "Telecommunications, technology, data centers",
+          "methods": "Exploitation of cloud infrastructure, supply chain compromise",
+          "actor": "Probably affiliated with PRC intelligence services",
+          "reported": "2016-present",
+          "evidence_url": "https://www.fbi.gov/"
+        },
+        {
+          "operation_name": "Harvest operations (espionage)",
+          "targets": "US technology companies, data centers, cloud providers",
+          "methods": "Stolen credentials, watering holes, supply chain compromise",
+          "actor": "PRC-affiliated cyber units",
+          "reported": "2014-present",
+          "evidence_url": "https://www.mandiant.com/"
+        }
+      ]
+    },
+    "investment_patterns": {
+      "description": "Documented attempts by Chinese entities to acquire US data center infrastructure, mostly blocked or restricted.",
+      "cases": [
+        {
+          "company": "Alibaba Cloud",
+          "attempted_investment": "Expansion of US data center presence, cloud services",
+          "status": "Restricted by CFIUS; operations permitted only under strict national security review",
+          "rationale": "Concern over data access, espionage risk, supply chain control",
+          "date": "2015-ongoing"
+        },
+        {
+          "company": "Tencent Cloud",
+          "attempted_investment": "US data center partnerships, AI infrastructure",
+          "status": "Limited; flagged for scrutiny",
+          "rationale": "Links to PRC government; concerns over AI research data access",
+          "date": "2018-ongoing"
+        },
+        {
+          "company": "ByteDance (TikTok parent)",
+          "attempted_investment": "US data center infrastructure for TikTok, AI services",
+          "status": "Prohibited by CFIUS",
+          "rationale": "Direct national security threat; mandatory data access for PRC authorities; mass surveillance capability",
+          "date": "2021-2025"
+        },
+        {
+          "company": "Huawei",
+          "attempted_investment": "5G, cloud infrastructure, networking",
+          "status": "Banned from US operations; Entity List",
+          "rationale": "Espionage, backdoors in networking equipment, PRC access mandates",
+          "date": "2019-ongoing"
+        }
+      ]
+    },
+    "supply_chain_concerns": {
+      "description": "Concerns about Chinese-manufactured components in US data centers and the dependency on Taiwan for advanced semiconductors.",
+      "concerns": [
+        {
+          "concern": "Semiconductors from China (SMIC 5nm threat)",
+          "risk": "Backdoors, espionage capabilities, PRC access to source code and design",
+          "mitigation": "SMIC on Entity List; restrictions on 5nm+ manufacturing",
+          "status": "Ongoing enforcement"
+        },
+        {
+          "concern": "Taiwan semiconductor dependency (TSMC)",
+          "risk": "US data center infrastructure dependent on Taiwan for cutting-edge chips; vulnerable to cross-strait conflict",
+          "mitigation": "CHIPS Act funding for onshore production; securing TSMC relationships",
+          "status": "Active policy focus"
+        },
+        {
+          "concern": "Networking equipment (Huawei, ZTE, generic Chinese suppliers)",
+          "risk": "Backdoors, surveillance capabilities, botnet potential",
+          "mitigation": "Huawei/ZTE ban; vetting of Chinese-sourced networking equipment",
+          "status": "Ongoing enforcement"
+        },
+        {
+          "concern": "Rare earth elements for semiconductors",
+          "risk": "China dominates global rare earth production; supply chain leverage",
+          "mitigation": "Diversification efforts; stockpiling; seeking non-China sources",
+          "status": "Long-term strategic effort"
+        }
+      ]
+    },
+    "why_not_in_state_moratoriums": {
+      "explanation": "State and local moratoriums on data centers focus on environmental impacts (energy consumption, water depletion, grid strain) and local planning concerns. National security and geopolitical issues are constitutionally and operationally reserved to federal authority. States delegate China-related concerns to CFIUS, Export Control, and intelligence agencies. This division of governance is intentional: federal responsibility for national security; state responsibility for environmental regulation.",
+      "federal_delegation": "Commerce Dept (Entity List, export controls), Treasury (CFIUS), State Dept (diplomacy), DoD (military considerations), Intelligence Community (FBI, CIA, CISA, NSA)",
+      "state_focus": "Environmental regulation (water, energy), zoning, community benefit, grid resilience"
+    },
+    "key_reports_and_sources": {
+      "government": [
+        {
+          "title": "CISA Volt Typhoon Advisory",
+          "date": "2023",
+          "url": "https://www.cisa.gov/volt-typhoon"
+        },
+        {
+          "title": "DNI Annual Threat Assessment",
+          "date": "2024",
+          "url": "https://www.dni.gov/"
+        },
+        {
+          "title": "House China Task Force Final Report",
+          "date": "2023",
+          "url": "https://gop-foreignaffairs.house.gov/"
+        },
+        {
+          "title": "US Commerce BIS Entity List",
+          "date": "Updated 2024-2025",
+          "url": "https://www.bis.doc.gov/index.php/the-entity-list"
+        },
+        {
+          "title": "CFIUS Procedures and Guidance",
+          "date": "Updated 2024",
+          "url": "https://www.treasury.gov/cfius"
+        }
+      ],
+      "intelligence": [
+        {
+          "title": "Mandiant / Google Threat Intelligence: APT41 Activity",
+          "date": "Ongoing",
+          "url": "https://www.mandiant.com/"
+        },
+        {
+          "title": "FBI Cybersecurity Public Alerts",
+          "date": "Ongoing",
+          "url": "https://www.fbi.gov/investigate/cyber"
+        }
+      ],
+      "think_tanks": [
+        {
+          "title": "CSIS Report: Technology Decoupling and US-China Competition",
+          "date": "2023",
+          "url": "https://www.csis.org/"
+        },
+        {
+          "title": "CNAS: Data Center Security and Foreign Investment",
+          "date": "2024",
+          "url": "https://www.cnas.org/"
+        }
+      ]
+    }
+  }
 }
