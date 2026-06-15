@@ -2888,6 +2888,151 @@ main {
   color: var(--text);
 }
 
+/* China national security context */
+.china-context-section {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.china-context-section summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  user-select: none;
+}
+
+.china-context-section summary:hover {
+  text-decoration: underline;
+}
+
+.china-context-detail {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.china-context-detail h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 0.4rem;
+}
+
+.china-context-detail h4:first-child {
+  margin-top: 0;
+}
+
+.china-context-detail ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.china-context-detail li {
+  margin-bottom: 0.5rem;
+}
+
+.china-context-detail a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.china-context-detail a:hover {
+  text-decoration: underline;
+}
+
+.china-context-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+
+.china-context-detail table thead {
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border-strong);
+}
+
+.china-context-detail table th,
+.china-context-detail table td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.china-context-detail table tr:hover {
+  background-color: var(--surface);
+}
+
+[data-theme="dark"] .china-context-section {
+  background-color: var(--surface-2);
+  border-left-color: var(--accent);
+}
+
+[data-theme="dark"] .china-context-detail table tr:hover {
+  background-color: var(--surface);
+}
+
+/* Moratoriums table section (collapsible) */
+.moratoriums-table-section {
+  margin: 2rem 0;
+}
+
+.moratoriums-table-section summary {
+  cursor: pointer;
+  padding: 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.moratoriums-table-section summary:hover {
+  background-color: var(--surface-2);
+}
+
+.table-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-secondary {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-secondary:hover {
+  opacity: 0.85;
+}
+
+.btn-secondary:active {
+  opacity: 0.7;
+}
+
 @media print {
   /* ---- Hide chrome ---- */
   .topbar-controls,
