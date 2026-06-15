@@ -701,10 +701,25 @@ class Moratorium(_StrictBase):
     )
 
 
+class ThemeRecommendation(BaseModel):
+    """Proposed actions and recommendations for addressing a moratorium theme."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    label: str = Field(description="User-friendly label for the theme")
+    proposals: list[str] = Field(
+        description="List of policy proposals addressing this theme (e.g., permitting requirements, standards)"
+    )
+    actions: list[str] = Field(
+        description="List of concrete actions developers/operators can take to address this theme"
+    )
+
+
 class MoratoriumsPayload(_StrictBase):
     generated_at: Date
     moratoriums: list[Moratorium]
     china_national_security_context: dict | None = None
+    theme_recommendations: dict[str, ThemeRecommendation] | None = None
 
     @field_validator("moratoriums")
     @classmethod
