@@ -221,6 +221,7 @@ const state = {
   projects: [],
   responses: [],
   moratoriums: [],
+  themeRecommendations: {},
   responsesByProject: new Map(),
   claimsByProject: new Map(),
   companiesBySlug: new Map(),
@@ -245,6 +246,7 @@ const state = {
   leafletLoaded: false,
   map: null,
   markers: new Map(),
+  chinaContext: null,
 };
 
 // Default Explorer filter shape — single source of truth for init + reset so
@@ -618,6 +620,7 @@ async function loadMoratoriumsData() {
   const payload = await fetchJson("data/moratoriums.json");
   state.moratoriums = payload.moratoriums;
   state.chinaContext = payload.china_national_security_context;
+  state.themeRecommendations = payload.theme_recommendations || {};
   state.moratoriumsLoaded = true;
   renderMoratoriumsView();
   document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
@@ -726,7 +729,7 @@ function renderReasonBreakdown(moratoriums) {
   if (!moratoriums || !Array.isArray(moratoriums) || moratoriums.length === 0) {
     return;
   }
-  
+
   const reasonCounts = {};
   MORATORIUM_REASON_TYPES.forEach((r) => {
     reasonCounts[r] = 0;
@@ -746,12 +749,56 @@ function renderReasonBreakdown(moratoriums) {
 
   Object.entries(reasonCounts).forEach(([reason, count]) => {
     if (count > 0) {
+      const rec = state.themeRecommendations?.[reason];
       const card = document.createElement("div");
       card.className = "reason-card";
-      card.innerHTML = `
-        <strong>${escapeHtml(MORATORIUM_REASON_LABELS[reason] || reason)}</strong>
-        <span class="count">${count} moratoriums</span>
+
+      let html = `
+        <div class="reason-header">
+          <strong>${escapeHtml(MORATORIUM_REASON_LABELS[reason] || reason)}</strong>
+          <span class="count">${count} moratoriums</span>
+        </div>
       `;
+
+      if (rec) {
+        html += `
+          <details class="reason-details">
+            <summary>View proposals & actions</summary>
+            <div class="reason-detail-content">
+              <div class="reason-section">
+                <h5>Policy Proposals</h5>
+                <ul>
+        `;
+
+        if (rec.proposals && Array.isArray(rec.proposals)) {
+          rec.proposals.forEach((p) => {
+            html += `<li>${escapeHtml(p)}</li>`;
+          });
+        }
+
+        html += `
+                </ul>
+              </div>
+              <div class="reason-section">
+                <h5>Recommended Actions</h5>
+                <ul>
+        `;
+
+        if (rec.actions && Array.isArray(rec.actions)) {
+          rec.actions.forEach((a) => {
+            html += `<li>${escapeHtml(a)}</li>`;
+          });
+        }
+
+        html += `
+                </ul>
+              </div>
+            </div>
+          </details>
+        `;
+      }
+
+      card.innerHTML = html;
       container.appendChild(card);
     }
   });
