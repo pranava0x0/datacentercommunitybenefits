@@ -624,10 +624,19 @@ async function loadMoratoriumsData() {
 
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
+  
+  const tbody = document.getElementById("moratoriums-tbody");
+  if (!tbody) return;
+  
+  if (!state.moratoriums || !Array.isArray(state.moratoriums) || state.moratoriums.length === 0) {
+    tbody.innerHTML = "<tr><td colspan='5'>No moratoriums loaded</td></tr>";
+    return;
+  }
+  
   const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
   const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
 
-  let filtered = state.moratoriums;
+  let filtered = [...state.moratoriums];
   if (statusFilter) {
     filtered = filtered.filter((m) => m.status === statusFilter);
   }
@@ -648,8 +657,6 @@ function renderMoratoriumsView() {
   });
 
   // Render table rows
-  const tbody = document.getElementById("moratoriums-tbody");
-  if (!tbody) return;
   tbody.innerHTML = "";
 
   filtered.forEach((m) => {
@@ -671,7 +678,6 @@ function renderMoratoriumsView() {
     tr.addEventListener("click", () => {
       showMoratoriumDetail(m);
     });
-
     tbody.appendChild(tr);
   });
 
@@ -680,15 +686,21 @@ function renderMoratoriumsView() {
 }
 
 function renderReasonBreakdown(moratoriums) {
+  if (!moratoriums || !Array.isArray(moratoriums) || moratoriums.length === 0) {
+    return;
+  }
+  
   const reasonCounts = {};
   MORATORIUM_REASON_TYPES.forEach((r) => {
     reasonCounts[r] = 0;
   });
 
   moratoriums.forEach((m) => {
-    m.key_reasons.forEach((r) => {
-      if (reasonCounts[r] !== undefined) reasonCounts[r]++;
-    });
+    if (m.key_reasons && Array.isArray(m.key_reasons)) {
+      m.key_reasons.forEach((r) => {
+        if (reasonCounts[r] !== undefined) reasonCounts[r]++;
+      });
+    }
   });
 
   const container = document.getElementById("reason-breakdown");
@@ -1599,12 +1611,15 @@ function wireDetailTabs() {
 function wireMoratoriumsFilters() {
   const statusFilter = document.getElementById("moratorium-status-filter");
   const typeFilter = document.getElementById("moratorium-type-filter");
-  if (statusFilter) {
+  
+  if (statusFilter && !statusFilter.dataset.wired) {
+    statusFilter.dataset.wired = "1";
     statusFilter.addEventListener("change", () => {
       renderMoratoriumsView();
     });
   }
-  if (typeFilter) {
+  if (typeFilter && !typeFilter.dataset.wired) {
+    typeFilter.dataset.wired = "1";
     typeFilter.addEventListener("change", () => {
       renderMoratoriumsView();
     });
