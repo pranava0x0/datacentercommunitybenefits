@@ -74,16 +74,18 @@ const MORATORIUM_STATUSES = ["enacted", "proposed", "failed"];
 const MORATORIUM_REASON_TYPES = [
   "energy",
   "water",
-  "pollution",
-  "planning",
+  "air_quality",
+  "noise",
+  "transparency",
   "equity",
 ];
 const MORATORIUM_REASON_LABELS = {
-  energy: "Grid strain / power demand",
-  water: "Water usage / depletion",
-  pollution: "Air / noise pollution",
-  planning: "Insufficient environmental review",
-  equity: "Ratepayer burden / cost-shifting",
+  energy: "Grid & Power",
+  water: "Water & Depletion",
+  air_quality: "Air Quality",
+  noise: "Noise & Turbines",
+  transparency: "Community Process & Transparency",
+  equity: "Ratepayer Protection",
 };
 
 

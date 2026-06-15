@@ -605,20 +605,22 @@ MORATORIUM_STATUSES: tuple[str, ...] = ("enacted", "proposed", "failed")
 MoratoriumStatus = Literal["enacted", "proposed", "failed"]
 
 MORATORIUM_REASON_TYPES: tuple[str, ...] = (
-    "energy",        # Grid strain, power demand concerns
-    "water",         # Water usage, aquifer depletion
-    "pollution",     # Air/noise pollution, emissions
-    "planning",      # Lack of environmental review / impact assessment
-    "equity",        # Ratepayer burden, cost-shifting to residents
+    "energy",           # Grid strain, power demand concerns
+    "water",            # Water usage, aquifer depletion
+    "air_quality",      # Air pollution, emissions, air quality impacts
+    "noise",            # Noise from cooling fans, turbines, operations
+    "transparency",     # NDA concerns, lack of community input, secrecy
+    "equity",           # Ratepayer burden, cost-shifting to residents
 )
-MoratoriumReasonType = Literal["energy", "water", "pollution", "planning", "equity"]
+MoratoriumReasonType = Literal["energy", "water", "air_quality", "noise", "transparency", "equity"]
 
 MORATORIUM_REASON_LABELS: dict[str, str] = {
-    "energy": "Grid strain / power demand",
-    "water": "Water usage / depletion",
-    "pollution": "Air / noise pollution",
-    "planning": "Insufficient environmental review",
-    "equity": "Ratepayer burden / cost-shifting",
+    "energy": "Grid & Power",
+    "water": "Water & Depletion",
+    "air_quality": "Air Quality",
+    "noise": "Noise & Turbines",
+    "transparency": "Community Process & Transparency",
+    "equity": "Ratepayer Protection",
 }
 
 
