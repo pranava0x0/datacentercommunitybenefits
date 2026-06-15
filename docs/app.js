@@ -624,6 +624,7 @@ async function loadMoratoriumsData() {
 
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
+  wireMoratoriumDetail();
 
   const tbody = document.getElementById("moratoriums-tbody");
   if (!tbody) return;
@@ -755,10 +756,68 @@ function renderReasonBreakdown(moratoriums) {
 }
 
 function showMoratoriumDetail(m) {
-  // Simple modal or detail pane showing the moratorium summary and sources
-  alert(
-    `${m.jurisdiction} (${m.jurisdiction_type})\n\n${m.summary}\n\nStatus: ${m.status}\nDuration: ${m.duration_description}\n\nSource: ${m.source_title}\n${m.source_url}`
-  );
+  const modal = document.getElementById("moratorium-detail");
+  if (!modal) return;
+
+  // Set header
+  document.getElementById("md-jurisdiction-type").textContent = m.jurisdiction_type.charAt(0).toUpperCase() + m.jurisdiction_type.slice(1);
+  document.getElementById("md-jurisdiction").textContent = m.jurisdiction;
+
+  // Status badge
+  const statusEl = document.getElementById("md-status");
+  statusEl.textContent = m.status;
+  statusEl.className = `badge badge-moratorium-status-${m.status}`;
+
+  document.getElementById("md-duration").textContent = m.duration_description;
+
+  // Detail fields
+  document.getElementById("md-status-detail").textContent = m.status;
+  document.getElementById("md-enacted").textContent = m.enacted_date || "Not yet enacted";
+  document.getElementById("md-duration-detail").textContent = m.duration_description;
+  document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "No threshold (all sizes)";
+
+  // Reasons
+  if (m.key_reasons && m.key_reasons.length > 0) {
+    const reasonBadges = m.key_reasons
+      .map((r) => `<span class="badge badge-reason-${r}">${escapeHtml(MORATORIUM_REASON_LABELS[r] || r)}</span>`)
+      .join("");
+    document.getElementById("md-reasons").innerHTML = reasonBadges;
+  } else {
+    document.getElementById("md-reasons").textContent = "Not specified";
+  }
+
+  // Summary
+  document.getElementById("md-summary").innerHTML = `<p>${escapeHtml(m.summary)}</p>`;
+
+  // Resources list
+  const resourcesList = document.getElementById("md-resources-list");
+  resourcesList.innerHTML = "";
+
+  // Primary source
+  const primaryLi = document.createElement("li");
+  primaryLi.innerHTML = `<a href="${escapeAttr(m.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(m.source_title)} ↗</a>`;
+  resourcesList.appendChild(primaryLi);
+
+  // Additional resources
+  if (m.resources && Array.isArray(m.resources)) {
+    m.resources.forEach((res) => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${escapeAttr(res.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(res.title)} ↗</a>`;
+      resourcesList.appendChild(li);
+    });
+  }
+
+  // Captured date
+  document.getElementById("md-captured").textContent = `Verified: ${m.captured_at}`;
+
+  // Show modal
+  modal.hidden = false;
+  modal.scrollTop = 0;
+}
+
+function closeMoratoriumDetail() {
+  const modal = document.getElementById("moratorium-detail");
+  if (modal) modal.hidden = true;
 }
 
 async function fetchJson(url) {
@@ -1645,7 +1704,7 @@ function wireDetailTabs() {
 function wireMoratoriumsFilters() {
   const statusFilter = document.getElementById("moratorium-status-filter");
   const typeFilter = document.getElementById("moratorium-type-filter");
-  
+
   if (statusFilter && !statusFilter.dataset.wired) {
     statusFilter.dataset.wired = "1";
     statusFilter.addEventListener("change", () => {
@@ -1658,6 +1717,26 @@ function wireMoratoriumsFilters() {
       renderMoratoriumsView();
     });
   }
+}
+
+function wireMoratoriumDetail() {
+  const closeBtn = document.getElementById("moratorium-detail-close");
+  if (closeBtn && !closeBtn.dataset.wired) {
+    closeBtn.dataset.wired = "1";
+    closeBtn.addEventListener("click", closeMoratoriumDetail);
+  }
+
+  // Close on escape key
+  const checkEscape = (e) => {
+    if (e.key === "Escape" && state.activeView === "moratoriums") {
+      const modal = document.getElementById("moratorium-detail");
+      if (modal && !modal.hidden) {
+        closeMoratoriumDetail();
+      }
+    }
+  };
+
+  document.addEventListener("keydown", checkEscape);
 }
 
 function setActiveDetailTab(name) {
