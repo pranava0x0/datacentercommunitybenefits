@@ -11,11 +11,28 @@
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": 20,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Statewide moratorium on permitting new data centers with peak demand of 20 MW or higher. Passed the legislature on June 4, 2026, awaiting governor approval.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
-      "source_title": "DCD — NY Legislature passes data center moratorium",
-      "captured_at": "2026-06-04"
+      "source_title": "DCD \u2014 NY Legislature passes data center moratorium",
+      "captured_at": "2026-06-04",
+      "resources": [
+        {
+          "url": "https://www.nysenate.gov/",
+          "title": "New York State Senate"
+        },
+        {
+          "url": "https://assembly.state.ny.us/",
+          "title": "New York State Assembly"
+        },
+        {
+          "url": "https://www.datacenterdynamics.com/",
+          "title": "Data Center Dynamics"
+        }
+      ]
     },
     {
       "id": "maine-state-2026-04",
@@ -27,11 +44,25 @@
       "duration_months": null,
       "duration_description": "Permanent",
       "power_threshold_mw": 20,
-      "key_reasons": ["energy", "water", "pollution"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "pollution"
+      ],
       "summary": "Act to Impose a Moratorium on Large-Scale Data Centers. Permanent ban on data centers larger than 20 MW effective immediately upon signing.",
       "source_url": "https://mainelegislature.org/",
-      "source_title": "Maine Legislature — LD307",
-      "captured_at": "2026-04-29"
+      "source_title": "Maine Legislature \u2014 LD307",
+      "captured_at": "2026-04-29",
+      "resources": [
+        {
+          "url": "https://mainelegislature.org/legislation",
+          "title": "Maine Legislative Database"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "south-dakota-state-2026-02",
@@ -43,11 +74,24 @@
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "SB232: One-year construction moratorium on hyperscale data center facilities.",
       "source_url": "https://sdlegislature.gov/",
-      "source_title": "South Dakota Legislature — SB232",
-      "captured_at": "2026-02-04"
+      "source_title": "South Dakota Legislature \u2014 SB232",
+      "captured_at": "2026-02-04",
+      "resources": [
+        {
+          "url": "https://sdlegislature.gov/bills",
+          "title": "South Dakota Bills"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "georgia-state-2026-01",
@@ -59,11 +103,24 @@
       "duration_months": 14,
       "duration_description": "Until March 1, 2027",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "HB1012: Prohibits local governments from issuing permits for new data center construction until March 1, 2027.",
       "source_url": "https://www.deseret.com/business/2026/05/16/data-centers-bans-moratoriums-state-legislatures-citizen-opposition-initiatives-referendum-artificial-intelligence-water-sair-quality/",
-      "source_title": "Deseret News — Data centers bans and moratoriums",
-      "captured_at": "2026-05-16"
+      "source_title": "Deseret News \u2014 Data centers bans and moratoriums",
+      "captured_at": "2026-05-16",
+      "resources": [
+        {
+          "url": "https://www.legis.ga.gov/",
+          "title": "Georgia General Assembly"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "south-carolina-state-2026-01",
@@ -75,11 +132,24 @@
       "duration_months": 24,
       "duration_description": "Until January 1, 2028",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "H5286: Blocks governmental approval for new data center permit applications until January 1, 2028.",
       "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
-      "source_title": "South Carolina Legislature — H5286",
-      "captured_at": "2026-05-20"
+      "source_title": "South Carolina Legislature \u2014 H5286",
+      "captured_at": "2026-05-20",
+      "resources": [
+        {
+          "url": "https://www.scstatehouse.gov/",
+          "title": "South Carolina Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "florida-state-2026-07",
@@ -91,11 +161,23 @@
       "duration_months": null,
       "duration_description": "Permanent cost-allocation rule",
       "power_threshold_mw": 50,
-      "key_reasons": ["equity"],
+      "key_reasons": [
+        "equity"
+      ],
       "summary": "SB484: Prevents utilities from passing data center costs to residential/small-business customers. Requires large users (50+ MW) to pay full service costs. Tightens aquifer permitting.",
       "source_url": "https://www.flsenate.gov/",
-      "source_title": "Florida Senate — SB484",
-      "captured_at": "2026-05-31"
+      "source_title": "Florida Senate \u2014 SB484",
+      "captured_at": "2026-05-31",
+      "resources": [
+        {
+          "url": "https://www.flsenate.gov/bills",
+          "title": "Florida Senate Bills"
+        },
+        {
+          "url": "https://www.myflorida.com/",
+          "title": "State of Florida"
+        }
+      ]
     },
     {
       "id": "denver-city-2026-05",
@@ -107,11 +189,21 @@
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water", "planning"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "planning"
+      ],
       "summary": "One-year moratorium on new data center development while the city reassesses zoning, energy, and water rules.",
       "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
-      "source_title": "Route Fifty — Data center moratoriums gain ground",
-      "captured_at": "2026-05-18"
+      "source_title": "Route Fifty \u2014 Data center moratoriums gain ground",
+      "captured_at": "2026-05-18",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "minneapolis-city-2026-05",
@@ -123,11 +215,20 @@
       "duration_months": 6,
       "duration_description": "6 months",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Six-month pause on facilities over 350,000 square feet while the city evaluates impacts.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-21"
+      "captured_at": "2026-05-21",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "baltimore-city-2026-05",
@@ -139,11 +240,21 @@
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water", "planning"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "planning"
+      ],
       "summary": "One-year moratorium on new data center development sent to Mayor Brandon Scott.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-11"
+      "captured_at": "2026-05-11",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "reno-city-2026-05",
@@ -155,11 +266,20 @@
       "duration_months": null,
       "duration_description": "Temporary pause",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water"],
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
       "summary": "First Nevada local government to pause new data center development. Temporary pause status as of May 2026.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-14"
+      "captured_at": "2026-05-14",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "smithfield-town-2026-05",
@@ -171,11 +291,21 @@
       "duration_months": null,
       "duration_description": "Permanent ban",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water", "pollution"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "pollution"
+      ],
       "summary": "Permanent outright ban on data center development in Smithfield, Rhode Island.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-15"
+      "captured_at": "2026-05-15",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "manitowoc-county-wi-2026-06",
@@ -187,11 +317,20 @@
       "duration_months": 18,
       "duration_description": "18 months",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water"],
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
       "summary": "18-month moratorium on data center development in Manitowoc County, Wisconsin.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-06-01"
+      "captured_at": "2026-06-01",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "dubuque-county-ia-2026-06",
@@ -203,11 +342,20 @@
       "duration_months": null,
       "duration_description": "Temporary pause",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water"],
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
       "summary": "Moratorium on data center development in Dubuque County, Iowa.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-20"
+      "captured_at": "2026-05-20",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "iron-county-ut-2026-06",
@@ -219,11 +367,20 @@
       "duration_months": null,
       "duration_description": "Temporary pause",
       "power_threshold_mw": null,
-      "key_reasons": ["water", "energy"],
+      "key_reasons": [
+        "water",
+        "energy"
+      ],
       "summary": "Moratorium on data center development in Iron County, Utah.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-06-01"
+      "captured_at": "2026-06-01",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "bloomington-normal-il-2026-06",
@@ -235,11 +392,20 @@
       "duration_months": null,
       "duration_description": "Temporary pause",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Joint moratorium on data center development in Bloomington and Normal, Illinois.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-25"
+      "captured_at": "2026-05-25",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "seattle-city-2026-06",
@@ -251,11 +417,20 @@
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": 10,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Proposed one-year moratorium on data centers with 10+ MW capacity. Vote scheduled for June 3, 2026.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-20"
+      "captured_at": "2026-05-20",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "federal-sanders-ocasio-cortez-2026-03",
@@ -267,11 +442,20 @@
       "duration_months": null,
       "duration_description": "Indefinite moratorium pending safeguards",
       "power_threshold_mw": 20,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "The AI Data Center Moratorium Act of 2026, announced by Sen. Bernie Sanders (I-VT) and Rep. Alexandria Ocasio-Cortez (D-NY) on March 25, 2026. Would impose a nationwide halt on constructing or upgrading new or existing data centers with 20 MW or higher power demand until strong national safeguards are in place. Unlikely to advance.",
       "source_url": "https://www.sanders.senate.gov/press-releases/news-sanders-ocasio-cortez-announce-ai-data-center-moratorium-act/",
-      "source_title": "Senator Bernie Sanders — AI Data Center Moratorium Act",
-      "captured_at": "2026-03-25"
+      "source_title": "Senator Bernie Sanders \u2014 AI Data Center Moratorium Act",
+      "captured_at": "2026-03-25",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "monterey-park-ca-2026-05",
@@ -283,11 +467,20 @@
       "duration_months": null,
       "duration_description": "Permanent ban",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Voter-approved (90%) ban on data center development in Monterey Park, California. Appears to be the first voter-approved data center ban in the US.",
       "source_url": "https://truthout.org/articles/as-towns-and-cities-fight-off-data-centers-calls-grow-for-a-national-moratorium/",
-      "source_title": "Truthout — Towns and cities fight off data centers",
-      "captured_at": "2026-05-01"
+      "source_title": "Truthout \u2014 Towns and cities fight off data centers",
+      "captured_at": "2026-05-01",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "socorro-county-nm-2026-05",
@@ -299,11 +492,20 @@
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water"],
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
       "summary": "One-year moratorium on data centers and related infrastructure projects in Socorro County, New Mexico.",
       "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
-      "source_title": "Route Fifty — Data center moratoriums gain ground",
-      "captured_at": "2026-05-10"
+      "source_title": "Route Fifty \u2014 Data center moratoriums gain ground",
+      "captured_at": "2026-05-10",
+      "resources": [
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com tracker"
+        }
+      ]
     },
     {
       "id": "connecticut-state-2026-02",
@@ -315,11 +517,25 @@
       "duration_months": 24,
       "duration_description": "2 years pending comprehensive review",
       "power_threshold_mw": 15,
-      "key_reasons": ["energy", "water", "planning"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "planning"
+      ],
       "summary": "HB6829: Two-year moratorium on large data center facilities (15+ MW) while the state conducts energy and water impact assessments.",
       "source_url": "https://www.cga.ct.gov/",
       "source_title": "Connecticut General Assembly",
-      "captured_at": "2026-02-15"
+      "captured_at": "2026-02-15",
+      "resources": [
+        {
+          "url": "https://www.cga.ct.gov/current_session/",
+          "title": "Connecticut General Assembly"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "loudoun-county-va-2026-03",
@@ -331,11 +547,25 @@
       "duration_months": null,
       "duration_description": "Permanent ban on new facilities",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water", "planning"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "planning"
+      ],
       "summary": "Ban on new data center development to protect remaining capacity on strained electrical grid. Existing facilities can expand but new facilities prohibited.",
       "source_url": "https://www.loudouncount.gov/",
       "source_title": "Loudoun County Government",
-      "captured_at": "2026-03-08"
+      "captured_at": "2026-03-08",
+      "resources": [
+        {
+          "url": "https://www.loudouncount.gov/government",
+          "title": "Loudoun County Government"
+        },
+        {
+          "url": "https://www.loudountimes.com/",
+          "title": "Loudoun Times"
+        }
+      ]
     },
     {
       "id": "massachusetts-state-2026-04",
@@ -347,11 +577,25 @@
       "duration_months": 18,
       "duration_description": "18 months with renewable extension",
       "power_threshold_mw": 25,
-      "key_reasons": ["energy", "planning", "water"],
+      "key_reasons": [
+        "energy",
+        "planning",
+        "water"
+      ],
       "summary": "S2455: Moratorium on data center permitting (25+ MW) pending statewide infrastructure and renewable energy assessment.",
       "source_url": "https://www.mass.gov/legislature",
       "source_title": "Massachusetts Legislature",
-      "captured_at": "2026-04-12"
+      "captured_at": "2026-04-12",
+      "resources": [
+        {
+          "url": "https://www.mass.gov/legislature",
+          "title": "Massachusetts Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "oregon-state-2026-05",
@@ -363,11 +607,25 @@
       "duration_months": 12,
       "duration_description": "1 year pending environmental review",
       "power_threshold_mw": 20,
-      "key_reasons": ["energy", "water", "planning"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "planning"
+      ],
       "summary": "HB4016: Proposed one-year construction moratorium on hyperscale data centers (20+ MW). Vote expected in June 2026.",
       "source_url": "https://www.oregonlegislature.gov/",
       "source_title": "Oregon Legislative Assembly",
-      "captured_at": "2026-05-01"
+      "captured_at": "2026-05-01",
+      "resources": [
+        {
+          "url": "https://www.oregonlegislature.gov/",
+          "title": "Oregon Legislative Assembly"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "loudoun-county-leesburg-va-2026-06",
@@ -379,11 +637,24 @@
       "duration_months": null,
       "duration_description": "Indefinite pending grid capacity study",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Leesburg halts new data center permits while conducting electrical grid capacity and reliability study.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-28"
+      "captured_at": "2026-05-28",
+      "resources": [
+        {
+          "url": "https://www.leesburgva.gov/",
+          "title": "Leesburg, Virginia"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "new-hampshire-state-2026-04",
@@ -395,11 +666,24 @@
       "duration_months": 24,
       "duration_description": "2 years pending grid modernization",
       "power_threshold_mw": 10,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "HB1524: Proposed two-year moratorium on data center construction (10+ MW) while the state modernizes electrical grid infrastructure.",
       "source_url": "https://www.gencourt.state.nh.us/",
       "source_title": "New Hampshire Legislature",
-      "captured_at": "2026-04-20"
+      "captured_at": "2026-04-20",
+      "resources": [
+        {
+          "url": "https://www.gencourt.state.nh.us/",
+          "title": "New Hampshire Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "vermont-state-2026-03",
@@ -411,11 +695,25 @@
       "duration_months": null,
       "duration_description": "Permanent",
       "power_threshold_mw": 5,
-      "key_reasons": ["energy", "water", "pollution"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "pollution"
+      ],
       "summary": "Statewide permanent ban on data centers exceeding 5 MW due to energy and water constraints.",
       "source_url": "https://legislature.vermont.gov/",
       "source_title": "Vermont General Assembly",
-      "captured_at": "2026-03-20"
+      "captured_at": "2026-03-20",
+      "resources": [
+        {
+          "url": "https://legislature.vermont.gov/",
+          "title": "Vermont General Assembly"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "philadelphia-pa-2026-05",
@@ -427,11 +725,24 @@
       "duration_months": 12,
       "duration_description": "1 year with extension possible",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "One-year moratorium on data center development permits pending infrastructure impact review.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-23"
+      "captured_at": "2026-05-23",
+      "resources": [
+        {
+          "url": "https://www.phila.gov/city-hall/",
+          "title": "City of Philadelphia"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "seattle-county-wa-2026-06",
@@ -443,11 +754,24 @@
       "duration_months": 12,
       "duration_description": "1 year pending clean energy assessment",
       "power_threshold_mw": 30,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "SB6289: Proposed statewide moratorium on data centers exceeding 30 MW capacity. Bill pending committee review.",
       "source_url": "https://www.leg.wa.gov/",
       "source_title": "Washington State Legislature",
-      "captured_at": "2026-05-15"
+      "captured_at": "2026-05-15",
+      "resources": [
+        {
+          "url": "https://www.leg.wa.gov/",
+          "title": "Washington State Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "boise-id-2026-05",
@@ -459,11 +783,24 @@
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water"],
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
       "summary": "One-year moratorium on data center development in Boise while the city reviews energy and water impacts.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-19"
+      "captured_at": "2026-05-19",
+      "resources": [
+        {
+          "url": "https://www.boise.org/",
+          "title": "City of Boise"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "las-vegas-nv-2026-06",
@@ -475,11 +812,24 @@
       "duration_months": 18,
       "duration_description": "18 months pending water study",
       "power_threshold_mw": null,
-      "key_reasons": ["water", "energy"],
+      "key_reasons": [
+        "water",
+        "energy"
+      ],
       "summary": "Proposed 18-month moratorium on large data center development due to Lake Mead water level concerns.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-30"
+      "captured_at": "2026-05-30",
+      "resources": [
+        {
+          "url": "https://www.lasvegasnevada.gov/",
+          "title": "City of Las Vegas"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "hawaii-state-2026-01",
@@ -491,11 +841,25 @@
       "duration_months": null,
       "duration_description": "Permanent unless exemptions granted",
       "power_threshold_mw": 10,
-      "key_reasons": ["energy", "water", "pollution"],
+      "key_reasons": [
+        "energy",
+        "water",
+        "pollution"
+      ],
       "summary": "HB2087: Restricts new data center development to 10 MW maximum due to island energy and water limitations.",
       "source_url": "https://www.capitol.hawaii.gov/",
       "source_title": "Hawaii State Legislature",
-      "captured_at": "2026-01-15"
+      "captured_at": "2026-01-15",
+      "resources": [
+        {
+          "url": "https://www.capitol.hawaii.gov/",
+          "title": "Hawaii State Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "cheyenne-wy-2026-06",
@@ -507,11 +871,24 @@
       "duration_months": 9,
       "duration_description": "9 months pending review",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Nine-month moratorium on new data center facility permits in Cheyenne pending infrastructure assessment.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-06-02"
+      "captured_at": "2026-06-02",
+      "resources": [
+        {
+          "url": "https://www.cheyennewyo.gov/",
+          "title": "City of Cheyenne"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "austin-tx-2026-05",
@@ -523,11 +900,24 @@
       "duration_months": 12,
       "duration_description": "1 year pending grid study",
       "power_threshold_mw": 50,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "Proposed one-year moratorium on data center development (50+ MW) pending ERCOT grid capacity review.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-25"
+      "captured_at": "2026-05-25",
+      "resources": [
+        {
+          "url": "https://www.austintexas.gov/",
+          "title": "City of Austin"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "oklahoma-county-ok-2026-04",
@@ -539,11 +929,24 @@
       "duration_months": null,
       "duration_description": "Temporary pause",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "water"],
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
       "summary": "Moratorium on new data center development in Oklahoma County pending energy infrastructure assessment.",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-04-05"
+      "captured_at": "2026-04-05",
+      "resources": [
+        {
+          "url": "https://www.oklahomacounty.org/",
+          "title": "Oklahoma County"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     },
     {
       "id": "idaho-state-2026-03",
@@ -555,11 +958,24 @@
       "duration_months": null,
       "duration_description": "Bill failed in committee",
       "power_threshold_mw": null,
-      "key_reasons": ["energy", "planning"],
+      "key_reasons": [
+        "energy",
+        "planning"
+      ],
       "summary": "HB620: Proposed statewide moratorium on large data center development failed to advance from committee in March 2026.",
       "source_url": "https://legislature.idaho.gov/",
       "source_title": "Idaho Legislature",
-      "captured_at": "2026-03-15"
+      "captured_at": "2026-03-15",
+      "resources": [
+        {
+          "url": "https://legislature.idaho.gov/bills/",
+          "title": "Idaho Legislature"
+        },
+        {
+          "url": "https://datacenterbans.com/",
+          "title": "DatacenterBans.com"
+        }
+      ]
     }
   ]
 }
