@@ -624,15 +624,19 @@ async function loadMoratoriumsData() {
 
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
-  
+
   const tbody = document.getElementById("moratoriums-tbody");
   if (!tbody) return;
-  
+
   if (!state.moratoriums || !Array.isArray(state.moratoriums) || state.moratoriums.length === 0) {
     tbody.innerHTML = "<tr><td colspan='5'>No moratoriums loaded</td></tr>";
     return;
   }
-  
+
+  // Render stats and themes at the top (using ALL moratoriums, not filtered)
+  renderMoratoriumStats(state.moratoriums);
+  renderReasonBreakdown(state.moratoriums);
+
   const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
   const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
 
@@ -680,9 +684,25 @@ function renderMoratoriumsView() {
     });
     tbody.appendChild(tr);
   });
+}
 
-  // Render reason summary
-  renderReasonBreakdown(filtered);
+function renderMoratoriumStats(moratoriums) {
+  if (!moratoriums || !Array.isArray(moratoriums)) return;
+
+  const total = moratoriums.length;
+  const enacted = moratoriums.filter((m) => m.status === "enacted").length;
+  const proposed = moratoriums.filter((m) => m.status === "proposed").length;
+  const failed = moratoriums.filter((m) => m.status === "failed").length;
+
+  const statsList = document.getElementById("moratorium-stats");
+  if (!statsList) return;
+
+  statsList.innerHTML = `
+    <li><strong>${total}</strong> <span>Total Moratoriums</span></li>
+    <li><strong>${enacted}</strong> <span>Enacted</span></li>
+    <li><strong>${proposed}</strong> <span>Proposed</span></li>
+    ${failed > 0 ? `<li><strong>${failed}</strong> <span>Failed/Rejected</span></li>` : ""}
+  `;
 }
 
 function renderReasonBreakdown(moratoriums) {
