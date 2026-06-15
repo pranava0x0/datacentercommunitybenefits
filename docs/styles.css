@@ -1124,7 +1124,8 @@ main {
    Project detail
    ========================================================================== */
 
-.project-detail {
+.project-detail,
+.moratorium-detail {
   margin-top: 16px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -2831,6 +2832,54 @@ main {
   font-weight: 700;
   line-height: 1;
   color: var(--accent);
+}
+
+/* Moratorium detail resources list */
+.moratorium-resources {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.moratorium-resources h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+  color: var(--text);
+}
+
+.resources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.resources-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.resources-list a {
+  color: var(--link);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.resources-list a:hover {
+  text-decoration: underline;
+}
+
+.moratorium-summary {
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
 }
 
 @media print {

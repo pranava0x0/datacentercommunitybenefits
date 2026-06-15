@@ -420,6 +420,48 @@
             </ol>
           </div>
         </section>
+
+        <!-- ================= MORATORIUM DETAIL MODAL ================= -->
+        <aside
+          id="moratorium-detail"
+          class="moratorium-detail"
+          aria-live="polite"
+          hidden
+        >
+          <button id="moratorium-detail-close" class="detail-close" type="button" aria-label="Close moratorium details">
+            ×
+          </button>
+          <header class="detail-header">
+            <p class="eyebrow" id="md-jurisdiction-type">—</p>
+            <h3 id="md-jurisdiction">—</h3>
+            <p class="detail-sub">
+              <span id="md-status" class="badge">—</span> ·
+              <span id="md-duration">—</span>
+            </p>
+          </header>
+
+          <dl class="kv">
+            <dt>Status</dt>
+            <dd id="md-status-detail">—</dd>
+            <dt>Enacted date</dt>
+            <dd id="md-enacted">—</dd>
+            <dt>Duration</dt>
+            <dd id="md-duration-detail">—</dd>
+            <dt>Power threshold</dt>
+            <dd id="md-threshold">—</dd>
+            <dt>Key reasons</dt>
+            <dd id="md-reasons">—</dd>
+          </dl>
+
+          <div id="md-summary" class="moratorium-summary"></div>
+
+          <section id="md-resources" class="moratorium-resources" aria-labelledby="md-resources-heading">
+            <h4 id="md-resources-heading">Sources & Resources</h4>
+            <ul id="md-resources-list" class="resources-list"></ul>
+          </section>
+
+          <p id="md-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
+        </aside>
       </section>
 
       <!-- ================= RATEPAYER PROTECTION PLEDGE VIEW ================= -->

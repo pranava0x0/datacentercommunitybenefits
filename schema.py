@@ -688,6 +688,14 @@ class Moratorium(_StrictBase):
         min_length=1,
         description="e.g., 'Denver City Council Bill #...' or 'New York S09144'.",
     )
+    resources: Optional[list[dict]] = Field(
+        default=None,
+        description=(
+            "Optional list of additional reputable sources. "
+            "Each item: {'url': 'https://...', 'title': 'Source name'}. "
+            "Prioritize government links, then major news outlets."
+        ),
+    )
     captured_at: Date = Field(
         description="Date this record was curated / moratorium status was verified."
     )
