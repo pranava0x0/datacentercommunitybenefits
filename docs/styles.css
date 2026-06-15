@@ -2888,6 +2888,102 @@ main {
   color: var(--text);
 }
 
+/* China national security context */
+.china-context-section {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.china-context-section summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  user-select: none;
+}
+
+.china-context-section summary:hover {
+  text-decoration: underline;
+}
+
+.china-context-detail {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.china-context-detail h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 0.4rem;
+}
+
+.china-context-detail h4:first-child {
+  margin-top: 0;
+}
+
+.china-context-detail ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.china-context-detail li {
+  margin-bottom: 0.5rem;
+}
+
+.china-context-detail a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.china-context-detail a:hover {
+  text-decoration: underline;
+}
+
+.china-context-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+
+.china-context-detail table thead {
+  background-color: var(--surface);
+  border-bottom: 2px solid var(--border-strong);
+}
+
+.china-context-detail table th,
+.china-context-detail table td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.china-context-detail table tr:hover {
+  background-color: var(--surface);
+}
+
+[data-theme="dark"] .china-context-section {
+  background-color: var(--surface-2);
+  border-left-color: var(--accent);
+}
+
+[data-theme="dark"] .china-context-detail table tr:hover {
+  background-color: var(--surface);
+}
+
 @media print {
   /* ---- Hide chrome ---- */
   .topbar-controls,
