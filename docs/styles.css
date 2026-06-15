@@ -2435,6 +2435,46 @@ main {
   }
 }
 
+/* Moratoriums table - aligned with aggregate table styling */
+.moratorium-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  background: var(--surface);
+}
+
+.moratorium-table th {
+  background: var(--surface-2, var(--surface));
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+  text-align: left;
+}
+
+.moratorium-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--text);
+}
+
+.moratorium-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.moratorium-table tbody tr:hover td {
+  background: var(--hover-bg, rgba(0,0,0,0.03));
+}
+
+[data-theme="dark"] .moratorium-table tbody tr:hover td {
+  background: rgba(255,255,255,0.05);
+}
+
 /* ==========================================================================
    Print
    ========================================================================== */
