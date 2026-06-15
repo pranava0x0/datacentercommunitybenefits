@@ -64,6 +64,16 @@
           Ratepayer Protection Pledge
         </button>
         <button
+          id="tab-moratoriums"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-moratoriums"
+        >
+          Policy Moratoriums
+        </button>
+        <button
           id="tab-aggregate"
           class="tab"
           role="tab"
@@ -494,6 +504,59 @@
           site-specific commitment is not a failing grade — it means the company
           hasn't published one for that site yet. Sources are linked on every card.
         </p>
+      </section>
+
+      <!-- ====================== MORATORIUMS VIEW ====================== -->
+      <section
+        id="view-moratoriums"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-moratoriums"
+        hidden
+      >
+        <h2>Data Center Policy Moratoriums</h2>
+        <p class="view-description">
+          Tracking enacted and proposed city, county, state, and federal moratoriums on data center development.
+        </p>
+        <div id="moratorium-filters" class="filters">
+          <label>Status:
+            <select id="moratorium-status-filter">
+              <option value="">All</option>
+              <option value="enacted">Enacted</option>
+              <option value="proposed">Proposed</option>
+              <option value="failed">Failed</option>
+            </select>
+          </label>
+          <label>Type:
+            <select id="moratorium-type-filter">
+              <option value="">All</option>
+              <option value="federal">Federal</option>
+              <option value="state">State</option>
+              <option value="county">County</option>
+              <option value="city">City</option>
+            </select>
+          </label>
+        </div>
+        <table id="moratoriums-table" class="data-table">
+          <thead>
+            <tr>
+              <th role="columnheader" aria-sort="none">Jurisdiction</th>
+              <th role="columnheader" aria-sort="none">Type</th>
+              <th role="columnheader" aria-sort="none">Status</th>
+              <th role="columnheader" aria-sort="none">Duration</th>
+              <th role="columnheader" aria-sort="none">Key Reasons</th>
+            </tr>
+          </thead>
+          <tbody id="moratoriums-tbody">
+            <!-- Populated by app.js -->
+          </tbody>
+        </table>
+        <div id="moratorium-summary" class="summary-section">
+          <h3>Key Themes Across Moratoriums</h3>
+          <div id="reason-breakdown" class="reason-grid">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
       </section>
 
       <!-- ====================== AGGREGATE VIEW ====================== -->

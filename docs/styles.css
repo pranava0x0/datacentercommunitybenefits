@@ -2597,6 +2597,234 @@ main {
    Print styles (v1.17 — expanded from v1.4 stub)
    ========================================================================== */
 
+/* ---- Project Moratorium Badges ---- */
+
+.project-moratoriums-row {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge-moratorium {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-moratorium-enacted {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-left: 3px solid #059669;
+}
+
+.badge-moratorium-proposed {
+  background-color: #fef3c7;
+  color: #78350f;
+  border-left: 3px solid #d97706;
+}
+
+.badge-moratorium-failed {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+  border-left: 3px solid #dc2626;
+}
+
+/* ===================== Moratoriums View ===================== */
+
+#view-moratoriums .view-description {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+#moratorium-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#moratorium-filters label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+#moratorium-filters select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+#moratoriums-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+#moratoriums-table thead {
+  background-color: var(--bg-header);
+}
+
+#moratoriums-table th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  cursor: pointer;
+}
+
+#moratoriums-table th:hover {
+  background-color: var(--bg-secondary);
+}
+
+#moratoriums-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+#moratoriums-table tbody tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+#moratoriums-table td {
+  padding: 0.75rem;
+}
+
+/* Status badge colors */
+.moratorium-status-enacted {
+  --status-color: #2f7a4d;
+}
+
+.moratorium-status-proposed {
+  --status-color: #f59e0b;
+}
+
+.moratorium-status-failed {
+  --status-color: #dc2626;
+}
+
+.badge-moratorium-status-enacted {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.badge-moratorium-status-proposed {
+  background-color: #fef3c7;
+  color: #78350f;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.badge-moratorium-status-failed {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Reason badges */
+.badge-jurisdiction-type {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+.badge-reason-energy {
+  background-color: #fef3c7;
+  color: #78350f;
+}
+
+.badge-reason-water {
+  background-color: #dbeafe;
+  color: #0c2d6b;
+}
+
+.badge-reason-pollution {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+}
+
+.badge-reason-planning {
+  background-color: #f3e8ff;
+  color: #4c1d95;
+}
+
+.badge-reason-equity {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-reason-energy,
+.badge-reason-water,
+.badge-reason-pollution,
+.badge-reason-planning,
+.badge-reason-equity {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-block;
+  margin: 0 0.25rem 0 0;
+}
+
+/* Reason breakdown / summary */
+#moratorium-summary {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-color);
+}
+
+#moratorium-summary h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.reason-card {
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--border-color);
+}
+
+.reason-card strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.reason-card .count {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
 @media print {
   /* ---- Hide chrome ---- */
   .topbar-controls,
