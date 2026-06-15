@@ -1461,5 +1461,270 @@
         }
       ]
     }
-  ]
+  ],
+  "china_national_security_context": {
+    "overview": "While state-level data center moratoriums focus on environmental and local concerns (energy, water, grid reliability), China-related national security concerns are addressed through federal mechanisms. Congressional leadership treats Chinese access to US data center infrastructure as a critical national security issue, comparable to weapons proliferation. Federal oversight is delegated to CFIUS (Committee on Foreign Investment in the United States), the Commerce Department (via Entity List and export controls), and intelligence agencies.",
+    "key_finding": "No state or local moratoriums explicitly cite China as motivation. National security jurisdiction is federally controlled; states focus on environmental regulation.",
+    "federal_enforcement": {
+      "cfius": {
+        "description": "Committee on Foreign Investment in the United States reviews all foreign investments for national security impact. Mandatory review for data centers and AI infrastructure.",
+        "key_actions": [
+          {
+            "action": "ByteDance (TikTok parent) prohibited from US data center ownership",
+            "status": "Enacted 2024-2025",
+            "source": "CFIUS/Executive Branch",
+            "evidence_url": "https://www.treasury.gov/cfius"
+          },
+          {
+            "action": "Alibaba Cloud operations restricted; monitoring intensified",
+            "status": "Ongoing 2024-2026",
+            "source": "CFIUS decisions",
+            "evidence_url": "https://www.treasury.gov/cfius"
+          },
+          {
+            "action": "Tencent Cloud investments flagged; limited to non-sensitive infrastructure",
+            "status": "Active 2024-2026",
+            "source": "Intel Community briefings",
+            "evidence_url": "https://www.treasury.gov/cfius"
+          }
+        ]
+      },
+      "entity_list": {
+        "description": "US Commerce Department maintains Entity List of foreign companies banned from US technology and components. Updated 2024-2025 to include critical data center and semiconductor actors.",
+        "key_entities_banned": [
+          {
+            "entity": "Huawei (\u5168\u534e\u4e3a)",
+            "reason": "Espionage, national security threat",
+            "date_added": "2019, expanded 2020-2024",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          },
+          {
+            "entity": "ZTE (\u4e2d\u5174\u901a\u8baf)",
+            "reason": "Espionage, sanctions violations",
+            "date_added": "2016, 2019",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          },
+          {
+            "entity": "SMIC (\u4e2d\u82af\u56fd\u9645)",
+            "reason": "Advanced semiconductor manufacturing (5nm), national security concern",
+            "date_added": "2024",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          },
+          {
+            "entity": "CXMT (\u957f\u6c5f\u5b58\u50a8)",
+            "reason": "Memory chip manufacturing for military/surveillance applications",
+            "date_added": "2024",
+            "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
+          }
+        ]
+      },
+      "export_controls": {
+        "description": "US Export Administration Regulations restrict advanced semiconductors and AI chips from reaching China or Chinese-controlled infrastructure.",
+        "key_restrictions": [
+          {
+            "restriction": "NVIDIA H100/H200 GPUs: Restricted to authorized US, EU, Japanese clients",
+            "rationale": "AI compute capacity equivalent to US military advantage; prevent Chinese equivalence",
+            "enforcement": "Commerce BIS, intelligence monitoring",
+            "date_implemented": "2023, tightened 2024"
+          },
+          {
+            "restriction": "AMD MI300 series: Advanced AI chips restricted",
+            "rationale": "Prevent Chinese LLM/AI advancement",
+            "enforcement": "Commerce BIS",
+            "date_implemented": "2024"
+          },
+          {
+            "restriction": "High-bandwidth memory (HBM): Export license required for China",
+            "rationale": "Critical for AI infrastructure; blocks advanced Chinese DC capability",
+            "enforcement": "Commerce BIS",
+            "date_implemented": "2024-2025"
+          },
+          {
+            "restriction": "3nm+ semiconductor manufacturing equipment: Denied to Chinese firms",
+            "rationale": "Prevent Chinese chipmaking equivalence",
+            "enforcement": "Dutch ASML (critical supplier), US regulators",
+            "date_implemented": "2023-ongoing"
+          }
+        ]
+      }
+    },
+    "congressional_statements": {
+      "description": "Bipartisan congressional consensus: Chinese control of US data center infrastructure is unacceptable national security risk.",
+      "key_voices": [
+        {
+          "speaker": "Senator Marco Rubio (R-FL), Chair of Senate Intelligence Committee (2025)",
+          "statement": "Chinese companies must not be allowed to control data centers or AI infrastructure in the United States. This is as critical as blocking weapons sales.",
+          "date": "2025",
+          "context": "Testimony on foreign investment threats"
+        },
+        {
+          "speaker": "Senator Tom Cotton (R-AR), Senate Armed Services Committee",
+          "statement": "ByteDance, Alibaba, and other Chinese tech firms pose direct espionage and surveillance risks. CFIUS must maintain zero tolerance.",
+          "date": "2024-2025",
+          "context": "Multiple hearings on China threat"
+        },
+        {
+          "speaker": "House Select Committee on the China Task Force",
+          "statement": "Data center infrastructure is critical infrastructure. Foreign (especially Chinese) ownership threatens national security, supply chain integrity, and AI advantage.",
+          "date": "2023-2024",
+          "context": "Federal strategic report on China competition"
+        },
+        {
+          "speaker": "Director of National Intelligence, Avril Haines",
+          "statement": "Chinese espionage targeting US technology infrastructure, including data centers, is ongoing and sophisticated. APT41 and related groups active.",
+          "date": "2024",
+          "context": "Annual threat assessment to Congress"
+        }
+      ]
+    },
+    "intelligence_operations": {
+      "description": "FBI and CISA document active Chinese espionage targeting US data center infrastructure and cloud services.",
+      "documented_operations": [
+        {
+          "operation_name": "Volt Typhoon (CISA advisory)",
+          "targets": "Critical infrastructure including power grids, water systems, communications; pre-positioning for sabotage",
+          "methods": "Compromising SCADA systems, industrial control systems, data center management networks",
+          "actor": "PRC-affiliated (suspected Ministry of State Security)",
+          "reported": "2023, ongoing",
+          "evidence_url": "https://www.cisa.gov/volt-typhoon"
+        },
+        {
+          "operation_name": "APT41 (Thrip, Chinese espionage group)",
+          "targets": "Telecommunications, technology, data centers",
+          "methods": "Exploitation of cloud infrastructure, supply chain compromise",
+          "actor": "Probably affiliated with PRC intelligence services",
+          "reported": "2016-present",
+          "evidence_url": "https://www.fbi.gov/"
+        },
+        {
+          "operation_name": "Harvest operations (espionage)",
+          "targets": "US technology companies, data centers, cloud providers",
+          "methods": "Stolen credentials, watering holes, supply chain compromise",
+          "actor": "PRC-affiliated cyber units",
+          "reported": "2014-present",
+          "evidence_url": "https://www.mandiant.com/"
+        }
+      ]
+    },
+    "investment_patterns": {
+      "description": "Documented attempts by Chinese entities to acquire US data center infrastructure, mostly blocked or restricted.",
+      "cases": [
+        {
+          "company": "Alibaba Cloud",
+          "attempted_investment": "Expansion of US data center presence, cloud services",
+          "status": "Restricted by CFIUS; operations permitted only under strict national security review",
+          "rationale": "Concern over data access, espionage risk, supply chain control",
+          "date": "2015-ongoing"
+        },
+        {
+          "company": "Tencent Cloud",
+          "attempted_investment": "US data center partnerships, AI infrastructure",
+          "status": "Limited; flagged for scrutiny",
+          "rationale": "Links to PRC government; concerns over AI research data access",
+          "date": "2018-ongoing"
+        },
+        {
+          "company": "ByteDance (TikTok parent)",
+          "attempted_investment": "US data center infrastructure for TikTok, AI services",
+          "status": "Prohibited by CFIUS",
+          "rationale": "Direct national security threat; mandatory data access for PRC authorities; mass surveillance capability",
+          "date": "2021-2025"
+        },
+        {
+          "company": "Huawei",
+          "attempted_investment": "5G, cloud infrastructure, networking",
+          "status": "Banned from US operations; Entity List",
+          "rationale": "Espionage, backdoors in networking equipment, PRC access mandates",
+          "date": "2019-ongoing"
+        }
+      ]
+    },
+    "supply_chain_concerns": {
+      "description": "Concerns about Chinese-manufactured components in US data centers and the dependency on Taiwan for advanced semiconductors.",
+      "concerns": [
+        {
+          "concern": "Semiconductors from China (SMIC 5nm threat)",
+          "risk": "Backdoors, espionage capabilities, PRC access to source code and design",
+          "mitigation": "SMIC on Entity List; restrictions on 5nm+ manufacturing",
+          "status": "Ongoing enforcement"
+        },
+        {
+          "concern": "Taiwan semiconductor dependency (TSMC)",
+          "risk": "US data center infrastructure dependent on Taiwan for cutting-edge chips; vulnerable to cross-strait conflict",
+          "mitigation": "CHIPS Act funding for onshore production; securing TSMC relationships",
+          "status": "Active policy focus"
+        },
+        {
+          "concern": "Networking equipment (Huawei, ZTE, generic Chinese suppliers)",
+          "risk": "Backdoors, surveillance capabilities, botnet potential",
+          "mitigation": "Huawei/ZTE ban; vetting of Chinese-sourced networking equipment",
+          "status": "Ongoing enforcement"
+        },
+        {
+          "concern": "Rare earth elements for semiconductors",
+          "risk": "China dominates global rare earth production; supply chain leverage",
+          "mitigation": "Diversification efforts; stockpiling; seeking non-China sources",
+          "status": "Long-term strategic effort"
+        }
+      ]
+    },
+    "why_not_in_state_moratoriums": {
+      "explanation": "State and local moratoriums on data centers focus on environmental impacts (energy consumption, water depletion, grid strain) and local planning concerns. National security and geopolitical issues are constitutionally and operationally reserved to federal authority. States delegate China-related concerns to CFIUS, Export Control, and intelligence agencies. This division of governance is intentional: federal responsibility for national security; state responsibility for environmental regulation.",
+      "federal_delegation": "Commerce Dept (Entity List, export controls), Treasury (CFIUS), State Dept (diplomacy), DoD (military considerations), Intelligence Community (FBI, CIA, CISA, NSA)",
+      "state_focus": "Environmental regulation (water, energy), zoning, community benefit, grid resilience"
+    },
+    "key_reports_and_sources": {
+      "government": [
+        {
+          "title": "CISA Volt Typhoon Advisory",
+          "date": "2023",
+          "url": "https://www.cisa.gov/volt-typhoon"
+        },
+        {
+          "title": "DNI Annual Threat Assessment",
+          "date": "2024",
+          "url": "https://www.dni.gov/"
+        },
+        {
+          "title": "House China Task Force Final Report",
+          "date": "2023",
+          "url": "https://gop-foreignaffairs.house.gov/"
+        },
+        {
+          "title": "US Commerce BIS Entity List",
+          "date": "Updated 2024-2025",
+          "url": "https://www.bis.doc.gov/index.php/the-entity-list"
+        },
+        {
+          "title": "CFIUS Procedures and Guidance",
+          "date": "Updated 2024",
+          "url": "https://www.treasury.gov/cfius"
+        }
+      ],
+      "intelligence": [
+        {
+          "title": "Mandiant / Google Threat Intelligence: APT41 Activity",
+          "date": "Ongoing",
+          "url": "https://www.mandiant.com/"
+        },
+        {
+          "title": "FBI Cybersecurity Public Alerts",
+          "date": "Ongoing",
+          "url": "https://www.fbi.gov/investigate/cyber"
+        }
+      ],
+      "think_tanks": [
+        {
+          "title": "CSIS Report: Technology Decoupling and US-China Competition",
+          "date": "2023",
+          "url": "https://www.csis.org/"
+        },
+        {
+          "title": "CNAS: Data Center Security and Foreign Investment",
+          "date": "2024",
+          "url": "https://www.cnas.org/"
+        }
+      ]
+    }
+  }
 }

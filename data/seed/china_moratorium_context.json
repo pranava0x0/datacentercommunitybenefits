@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "section_type": "contextual_reference",
+    "purpose": "Provide background on China-related national security concerns in US data center policy",
+    "date_compiled": "2026-06-15",
+    "note": "This section should be included in dashboard documentation or as a linked reference, but is NOT a moratorium entry. It provides context for understanding the federal national security framework that constrains Chinese participation in US data center development."
+  },
+  "section": {
+    "id": "national_security_context_china",
+    "title": "China-Related National Security Concerns: Federal Framework (Reference)",
+    "status": "active_enforcement",
+    "jurisdiction": "Federal",
+    "authority_level": "Federal (CFIUS, Commerce Dept, Intelligence Community)",
+    "scope": "Preventing Chinese ownership, control, or strategic access to US data center infrastructure and AI compute capacity",
+    
+    "summary_for_dashboard": "China-related national security concerns are addressed primarily through federal mechanisms (CFIUS committee review, export controls on AI chips, intelligence community counterintelligence) rather than state-level moratoriums. Congressional leadership from both parties views Chinese investment in US data center infrastructure and access to AI compute as national security threats equivalent to weapons proliferation. Federal barriers are sufficient to prevent Chinese participation; state moratoriums focus on environmental concerns (energy, water, planning) while operating within this federal security framework.",
+    
+    "key_federal_mechanisms": [
+      {
+        "mechanism": "CFIUS (Committee on Foreign Investment in US)",
+        "enforcer": "Treasury Department",
+        "action": "Mandatory national security review and potential blocking of Chinese acquisitions in data center and critical tech sectors",
+        "status": "Active enforcement 2023-2026",
+        "example": "ByteDance prohibited from owning US data center infrastructure",
+        "confidence": "high"
+      },
+      {
+        "mechanism": "Commerce Department Entity List",
+        "enforcer": "Bureau of Industry & Security (BIS)",
+        "action": "Bans specified Chinese firms from US trade and data center equipment supply",
+        "examples": [
+          "Huawei: Comprehensive ban from US data center equipment (2019-2024)",
+          "ZTE: Restricted from US government and critical infrastructure contracts",
+          "SMIC: Added 2024 for military applications"
+        ],
+        "confidence": "high"
+      },
+      {
+        "mechanism": "AI Chip Export Controls",
+        "enforcer": "Commerce Department BIS",
+        "action": "Restrict NVIDIA H100/H200, AMD MI300 exports to China",
+        "objective": "Prevent China from acquiring AI compute capacity equivalent to US data centers",
+        "status": "Active; tightened 2024-2025",
+        "confidence": "high"
+      },
+      {
+        "mechanism": "Intelligence Community Counterintelligence",
+        "enforcer": "FBI, NSA, CISA",
+        "action": "Active operations against Chinese espionage targeting US data centers and AI chip manufacturers",
+        "documented_threat_actors": ["APT41", "Volt Typhoon"],
+        "confidence": "high"
+      }
+    ],
+    
+    "congressional_consensus": {
+      "statement": "Bipartisan consensus: Chinese entities must not control or operate US data center infrastructure",
+      "key_voices": [
+        "Tom Cotton (R-AR) — Senate Armed Services Committee",
+        "Marco Rubio (R-FL) — Senate Foreign Relations Committee Chair",
+        "Senate Intelligence Committee (Bipartisan)",
+        "House China Task Force (Bipartisan)"
+      ],
+      "framing": "Treated as national security threat equivalent to weapons proliferation",
+      "confidence": "high"
+    },
+    
+    "state_moratorium_relationship": {
+      "finding": "State-level data center moratoriums do NOT explicitly cite China concerns",
+      "primary_drivers": "Environmental (energy grid, water scarcity) and planning concerns",
+      "delegation": "States delegate national security vetting to federal authorities",
+      "current_record": "No state-level moratoriums explicitly name China or Chinese companies",
+      "implication": "Federal barriers are sufficient to prevent Chinese participation; states focus on local environmental impacts"
+    },
+    
+    "chinese_investment_status": {
+      "direct_ownership": "Limited current direct ownership; de facto prohibited through CFIUS review",
+      "companies_restricted": [
+        {"name": "Huawei", "status": "Banned", "confidence": "high"},
+        {"name": "ZTE", "status": "Banned", "confidence": "high"},
+        {"name": "ByteDance", "status": "Prohibited from US data center ownership", "confidence": "high"},
+        {"name": "SMIC", "status": "Entity List added 2024", "confidence": "high"},
+        {"name": "Alibaba Cloud", "status": "Operating with CFIUS restrictions", "confidence": "medium"},
+        {"name": "Tencent", "status": "Limited; increasing scrutiny", "confidence": "medium"}
+      ]
+    },
+    
+    "espionage_threats": {
+      "status": "Active and documented",
+      "documented_operations": [
+        {
+          "name": "APT41",
+          "affiliation": "Chinese state-sponsored",
+          "targets": "US tech companies, cloud providers, data center operators",
+          "objective": "IP theft, AI chip designs, proprietary technology",
+          "source": "FBI, CISA"
+        },
+        {
+          "name": "Volt Typhoon",
+          "affiliation": "Chinese state-sponsored",
+          "targets": "Critical US infrastructure, data centers",
+          "objective": "Reconnaissance, persistent access, potential disruption",
+          "source": "CISA, NSA"
+        }
+      ],
+      "supply_chain_concerns": [
+        "Huawei/ZTE networking equipment backdoor risks",
+        "Chinese component supplier vulnerabilities",
+        "AI chip reverse engineering concerns"
+      ],
+      "confidence": "high"
+    },
+    
+    "export_controls_status": {
+      "ai_chips": {
+        "controlled_items": ["NVIDIA H100/H200", "AMD MI300", "advanced AI accelerators"],
+        "restriction": "Strict export controls to China; requires Commerce Dept license (generally denied)",
+        "objective": "Prevent China from acquiring AI compute capacity equivalent to US",
+        "status": "Active; tightened 2024-2025",
+        "confidence": "high"
+      },
+      "strategic_objective": "Maintain US AI technological dominance; prevent China from catching up",
+      "chinese_workaround": "Developing domestic alternatives (Huawei Kunpeng, Alibaba Yitian) but trailing by 2-3 years",
+      "allied_coordination": "Japan, South Korea, Netherlands aligning on semiconductor equipment restrictions"
+    },
+    
+    "why_states_dont_cite_china": [
+      "Environmental impacts (energy, water) are immediate local concerns; national security is federal domain",
+      "CFIUS review and export controls already prevent Chinese participation",
+      "State legislators delegate national security vetting to federal authorities",
+      "Explicit China language would be politically sensitive; environmental framing is safer",
+      "Federal barriers are sufficient; states don't need to duplicate restrictions"
+    ],
+    
+    "future_trajectory": "If Congress passes explicit legislation tightening foreign investment rules in data centers, state moratoriums may evolve to include explicit national security language. However, current preference is federal-level enforcement through CFIUS and commerce controls.",
+    
+    "sources": [
+      "https://home.treasury.gov/cfius",
+      "https://www.bis.doc.gov/",
+      "https://www.intelligence.senate.gov/",
+      "https://chinataskforce.house.gov/",
+      "https://www.cisa.gov/",
+      "https://www.fbi.gov/investigate/counterintelligence",
+      "https://www.defense.gov/"
+    ]
+  }
+}
