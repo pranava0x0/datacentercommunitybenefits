@@ -619,7 +619,7 @@ async function loadMoratoriumsData() {
   if (state.moratoriumsLoaded) return;
   const payload = await fetchJson("data/moratoriums.json");
   state.moratoriums = payload.moratoriums;
-  state.chinaContext = payload.china_national_security_context;
+  state.chinaContext = payload.china_anti_datacenter_messaging;
   state.themeRecommendations = payload.theme_recommendations || {};
   state.moratoriumsLoaded = true;
   renderMoratoriumsView();
@@ -810,72 +810,55 @@ function renderChinaContext() {
 
   const ctx = state.chinaContext;
   let html = `<p><strong>${escapeHtml(ctx.overview || "")}</strong></p>`;
-  html += `<p><em>${escapeHtml(ctx.key_finding || "")}</em></p>`;
+  html += `<p><em>${escapeHtml(ctx.key_claim || "")}</em></p>`;
 
-  // Federal enforcement section
-  if (ctx.federal_enforcement) {
-    html += `<h4>Federal Enforcement & Controls</h4>`;
+  // Industry claims section
+  if (ctx.industry_claims) {
+    const ic = ctx.industry_claims;
+
+    if (ic.kevin_oleary_claim) {
+      const ko = ic.kevin_oleary_claim;
+      html += `<h4>The Kevin O'Leary Claim</h4>`;
+      html += `<p><strong>Claimant:</strong> ${escapeHtml(ko.claimant)}</p>`;
+      html += `<p><strong>Claim:</strong> "${escapeHtml(ko.claim)}"</p>`;
+      html += `<p><strong>Context:</strong> ${escapeHtml(ko.context)}</p>`;
+      html += `<p><strong>Evidence:</strong> <em>${escapeHtml(ko.evidence_of_campaign)}</em></p>`;
+    }
+
+    if (ic.competing_explanations) {
+      const ce = ic.competing_explanations;
+      html += `<h4>Alternative Explanations</h4>`;
+      html += `<ul>`;
+      html += `<li><strong>Documented Drivers:</strong> ${escapeHtml(ce.documented_drivers)}</li>`;
+      html += `<li><strong>Local Opposition:</strong> ${escapeHtml(ce.local_opposition)}</li>`;
+      html += `<li><strong>Timing:</strong> ${escapeHtml(ce.timing)}</li>`;
+      html += `</ul>`;
+    }
+  }
+
+  // Assessment section
+  if (ctx.assessment) {
+    const a = ctx.assessment;
+    html += `<h4>Assessment</h4>`;
     html += `<ul>`;
+    html += `<li><strong>Claim Plausibility:</strong> ${escapeHtml(a.claim_plausibility)}</li>`;
+    html += `<li><strong>What Is True:</strong> ${escapeHtml(a.what_is_true)}</li>`;
+    html += `<li><strong>What Is Unproven:</strong> ${escapeHtml(a.what_is_unproven)}</li>`;
+    html += `<li><strong>Intelligence Assessment:</strong> ${escapeHtml(a.intelligence_assessment)}</li>`;
+    html += `</ul>`;
+  }
 
-    if (ctx.federal_enforcement.cfius && ctx.federal_enforcement.cfius.key_actions) {
+  // Federal enforcement (CFIUS) — included for completeness
+  if (ctx.federal_enforcement && ctx.federal_enforcement.cfius) {
+    html += `<h4>Federal Enforcement: CFIUS Reviews</h4>`;
+    html += `<p>${escapeHtml(ctx.federal_enforcement.cfius.description)}</p>`;
+    if (ctx.federal_enforcement.cfius.key_actions) {
+      html += `<ul>`;
       ctx.federal_enforcement.cfius.key_actions.forEach(action => {
         html += `<li><strong>${escapeHtml(action.action)}</strong> — ${escapeHtml(action.status)}</li>`;
       });
+      html += `</ul>`;
     }
-
-    if (ctx.federal_enforcement.entity_list && ctx.federal_enforcement.entity_list.key_entities_banned) {
-      ctx.federal_enforcement.entity_list.key_entities_banned.forEach(entity => {
-        html += `<li><strong>${escapeHtml(entity.entity)}</strong> (${escapeHtml(entity.reason)}) — Added ${escapeHtml(entity.date_added)}</li>`;
-      });
-    }
-
-    html += `</ul>`;
-  }
-
-  // Congressional statements
-  if (ctx.congressional_statements && ctx.congressional_statements.key_voices) {
-    html += `<h4>Congressional Leadership</h4>`;
-    html += `<ul>`;
-    ctx.congressional_statements.key_voices.slice(0, 3).forEach(voice => {
-      html += `<li><strong>${escapeHtml(voice.speaker)}</strong>: "${escapeHtml(voice.statement.substring(0, 120))}..." (${escapeHtml(voice.date)})</li>`;
-    });
-    html += `</ul>`;
-  }
-
-  // Intelligence operations
-  if (ctx.intelligence_operations && ctx.intelligence_operations.documented_operations) {
-    html += `<h4>Documented Intelligence Concerns</h4>`;
-    html += `<ul>`;
-    ctx.intelligence_operations.documented_operations.forEach(op => {
-      html += `<li><strong>${escapeHtml(op.operation_name)}</strong>: ${escapeHtml(op.targets)}</li>`;
-    });
-    html += `</ul>`;
-  }
-
-  // Investment patterns
-  if (ctx.investment_patterns && ctx.investment_patterns.cases) {
-    html += `<h4>Chinese Investment Attempts & Status</h4>`;
-    html += `<ul>`;
-    ctx.investment_patterns.cases.forEach(cas => {
-      html += `<li><strong>${escapeHtml(cas.company)}</strong>: ${escapeHtml(cas.status)} — ${escapeHtml(cas.rationale)}</li>`;
-    });
-    html += `</ul>`;
-  }
-
-  // Supply chain concerns
-  if (ctx.supply_chain_concerns && ctx.supply_chain_concerns.concerns) {
-    html += `<h4>Supply Chain Concerns</h4>`;
-    html += `<ul>`;
-    ctx.supply_chain_concerns.concerns.forEach(concern => {
-      html += `<li><strong>${escapeHtml(concern.concern)}</strong>: ${escapeHtml(concern.mitigation)}</li>`;
-    });
-    html += `</ul>`;
-  }
-
-  // Why not in moratoriums
-  if (ctx.why_not_in_state_moratoriums) {
-    html += `<h4>Why China Is Not in State Moratoriums</h4>`;
-    html += `<p>${escapeHtml(ctx.why_not_in_state_moratoriums.explanation)}</p>`;
   }
 
   container.innerHTML = html;
