@@ -747,61 +747,88 @@ function renderReasonBreakdown(moratoriums) {
   if (!container) return;
   container.innerHTML = "";
 
+  const grid = document.createElement("div");
+  grid.className = "reason-grid";
+
   Object.entries(reasonCounts).forEach(([reason, count]) => {
     if (count > 0) {
-      const rec = state.themeRecommendations?.[reason];
       const card = document.createElement("div");
       card.className = "reason-card";
-
-      let html = `
-        <div class="reason-header">
-          <strong>${escapeHtml(MORATORIUM_REASON_LABELS[reason] || reason)}</strong>
-          <span class="count">${count} moratoriums</span>
-        </div>
+      card.dataset.theme = reason;
+      card.innerHTML = `
+        <strong>${escapeHtml(MORATORIUM_REASON_LABELS[reason] || reason)}</strong>
+        <span class="count">${count}</span>
       `;
 
-      if (rec) {
-        html += `
-          <details class="reason-details">
-            <summary>View proposals & actions</summary>
-            <div class="reason-detail-content">
-              <div class="reason-section">
-                <h5>Policy Proposals</h5>
-                <ul>
-        `;
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".reason-card").forEach((c) => {
+          c.classList.remove("active");
+        });
+        card.classList.add("active");
+        renderThemePopout(reason);
+      });
 
-        if (rec.proposals && Array.isArray(rec.proposals)) {
-          rec.proposals.forEach((p) => {
-            html += `<li>${escapeHtml(p)}</li>`;
-          });
-        }
-
-        html += `
-                </ul>
-              </div>
-              <div class="reason-section">
-                <h5>Recommended Actions</h5>
-                <ul>
-        `;
-
-        if (rec.actions && Array.isArray(rec.actions)) {
-          rec.actions.forEach((a) => {
-            html += `<li>${escapeHtml(a)}</li>`;
-          });
-        }
-
-        html += `
-                </ul>
-              </div>
-            </div>
-          </details>
-        `;
-      }
-
-      card.innerHTML = html;
-      container.appendChild(card);
+      grid.appendChild(card);
     }
   });
+
+  container.appendChild(grid);
+
+  // Create popout container
+  const popoutContainer = document.createElement("div");
+  popoutContainer.id = "theme-popout-container";
+  container.appendChild(popoutContainer);
+
+  // Auto-click first theme
+  const firstCard = grid.querySelector(".reason-card");
+  if (firstCard) {
+    firstCard.click();
+  }
+}
+
+function renderThemePopout(themeKey) {
+  const rec = state.themeRecommendations?.[themeKey];
+  const container = document.getElementById("theme-popout-container");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  if (!rec) return;
+
+  const popout = document.createElement("div");
+  popout.className = "theme-popout active";
+
+  let html = `
+    <div class="theme-popout-header">
+      <h3 class="theme-popout-title">${escapeHtml(rec.label)}</h3>
+      <p class="theme-popout-desc">${escapeHtml(rec.description)}</p>
+    </div>
+    <div class="theme-evidence">
+  `;
+
+  if (rec.evidence && Array.isArray(rec.evidence)) {
+    rec.evidence.forEach((ev) => {
+      html += `
+        <div class="evidence-item">
+          <div class="evidence-moratorium">${escapeHtml(ev.moratorium)}</div>
+          <p class="evidence-text">"${escapeHtml(ev.text)}"</p>
+      `;
+
+      if (ev.proposals && Array.isArray(ev.proposals)) {
+        html += `<ul class="evidence-proposals">`;
+        ev.proposals.forEach((p) => {
+          html += `<li>${escapeHtml(p)}</li>`;
+        });
+        html += `</ul>`;
+      }
+
+      html += `</div>`;
+    });
+  }
+
+  html += `</div>`;
+  popout.innerHTML = html;
+  container.appendChild(popout);
 }
 
 function renderChinaContext() {

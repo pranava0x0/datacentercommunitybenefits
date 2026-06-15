@@ -702,16 +702,14 @@ class Moratorium(_StrictBase):
 
 
 class ThemeRecommendation(BaseModel):
-    """Proposed actions and recommendations for addressing a moratorium theme."""
+    """Evidence-based recommendations for addressing a moratorium theme, backed by actual moratorium text."""
 
     model_config = ConfigDict(extra="forbid")
 
-    label: str = Field(description="User-friendly label for the theme")
-    proposals: list[str] = Field(
-        description="List of policy proposals addressing this theme (e.g., permitting requirements, standards)"
-    )
-    actions: list[str] = Field(
-        description="List of concrete actions developers/operators can take to address this theme"
+    label: str = Field(description="Short label for the theme (e.g., 'Grid & Power')")
+    description: str = Field(description="One-line description of the theme")
+    evidence: list[dict] = Field(
+        description="List of moratorium-backed examples with text excerpts and proposals, keyed by moratorium name, text excerpt, and proposals list"
     )
 
 
