@@ -12,8 +12,8 @@
       "duration_description": "1 year",
       "power_threshold_mw": 20,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "New York's AI Data Center Moratorium Act (passed legislature June 4, 2026) would impose a statewide ban on permitting new data centers exceeding 20 MW peak demand until strong environmental, energy, and labor safeguards are enacted. Driven by concerns over electricity grid strain in upstate NY, inadequate power plant capacity, and ratepayer cost-shifting. Supported by environmental groups (NRDC, Audubon), labor unions (IBEW), and municipalities facing DC proposals. Opposition from tech industry and Data Center Coalition. Now awaiting Governor Hochul's signature.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
@@ -61,9 +61,9 @@
       "duration_description": "Permanent",
       "power_threshold_mw": 20,
       "key_reasons": [
+        "air_quality",
         "energy",
-        "water",
-        "pollution"
+        "water"
       ],
       "summary": "Maine's LD307 permanently bans large-scale data centers exceeding 20 MW effective April 29, 2026. Enacted due to concerns over electricity demand straining aging grid infrastructure, water consumption in water-stressed regions, and environmental impacts. Maine's grid is 95% operated by utility Central Maine Power with limited capacity for major new loads. Supported by environmental groups, indigenous nations (Penobscot), and outdoor recreation industries. Data center developers and tech industry opposed. One of the nation's strictest permanent bans.",
       "source_url": "https://mainelegislature.org/",
@@ -107,8 +107,8 @@
       "duration_description": "1 year",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "South Dakota SB232 (enacted Feb 2026) imposes a one-year construction moratorium on hyperscale data center facilities. Prompted by rapid DC growth and concerns about rural water depletion. Supported by agricultural industry (South Dakota Farm Bureau), environmental groups, and rural communities. Allows state to assess water impacts and grid requirements. South Dakota targets sustainable economic development while protecting agricultural water access.",
       "source_url": "https://sdlegislature.gov/",
@@ -140,8 +140,8 @@
       "duration_description": "Until March 1, 2027",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Georgia HB1012 (proposed 2026) blocks local governments from issuing new data center permits until March 1, 2027. Provides time for state and local review of DC impacts on water, grid, and communities. Supported by environmental groups and municipalities wary of uncontrolled DC expansion. Balances Georgia's interest in data center jobs (Amazon HQ) against concerns about rapid growth. Creates state-level oversight structure for permitting.",
       "source_url": "https://www.deseret.com/business/2026/05/16/data-centers-bans-moratoriums-state-legislatures-citizen-opposition-initiatives-referendum-artificial-intelligence-water-sair-quality/",
@@ -173,8 +173,8 @@
       "duration_description": "Until January 1, 2028",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "South Carolina H5286 (proposed 2026) blocks governmental approval for new data center permits until January 1, 2028. Extended review period allows assessment of grid impacts and water availability. Supported by environmental organizations and water conservation advocates. South Carolina concerned about rapid hyperscaler expansion in the Low Country and potential conflicts with existing industries and tourism.",
       "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
@@ -246,9 +246,9 @@
       "duration_description": "1 year",
       "power_threshold_mw": null,
       "key_reasons": [
+        "transparency",
         "energy",
-        "water",
-        "planning"
+        "water"
       ],
       "summary": "Denver enacted a one-year moratorium (effective May 18, 2026) on new data center development while the city reassesses zoning, energy resilience, and water conservation rules. Triggered by rapid DC growth straining grid and water during extreme heat. Supported by environmental groups, climate advocates, and residents concerned about cooling costs. Allows Denver time to update 20+ year old data center regulations and establish new water-efficiency standards. City exploring renewable energy requirements and grid resilience mandates for any future DCs.",
       "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
@@ -288,8 +288,8 @@
       "duration_description": "6 months",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Minneapolis enacted a 6-month moratorium (May 2026) on new data center permits while assessing grid impact and environmental justice concerns. Triggered by proposed data centers in neighborhoods with existing industrial burden. Supported by environmental justice groups, residents, and climate advocates. City planning to establish equity guidelines ensuring DCs don't concentrate in low-income communities. Explores renewable energy mandates and community benefit agreements for future projects.",
       "source_url": "https://www.datacenterbans.com/",
@@ -325,9 +325,9 @@
       "duration_description": "1 year",
       "power_threshold_mw": null,
       "key_reasons": [
+        "transparency",
         "energy",
-        "water",
-        "planning"
+        "water"
       ],
       "summary": "Baltimore enacted a moratorium on data centers exceeding 10 MW (May 2026) due to concerns about grid strain on aging infrastructure, water demands during drought, and lack of community input. Supported by environmental groups and residents. Reflects growing municipal scrutiny of data center siting without environmental review. Baltimore explores requirements for energy audits, water conservation plans, and community benefit agreements. City working with utilities to assess grid capacity constraints.",
       "source_url": "https://www.datacenterbans.com/",
@@ -392,9 +392,9 @@
       "duration_description": "Permanent ban",
       "power_threshold_mw": null,
       "key_reasons": [
+        "air_quality",
         "energy",
-        "water",
-        "pollution"
+        "water"
       ],
       "summary": "Permanent outright ban on data center development in Smithfield, Rhode Island.",
       "source_url": "https://www.datacenterbans.com/",
@@ -480,8 +480,8 @@
       "duration_description": "Temporary pause",
       "power_threshold_mw": null,
       "key_reasons": [
-        "water",
-        "energy"
+        "energy",
+        "water"
       ],
       "summary": "Moratorium on data center development in Iron County, Utah.",
       "source_url": "https://www.datacenterbans.com/",
@@ -509,8 +509,8 @@
       "duration_description": "Temporary pause",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Joint moratorium on data center development in Bloomington and Normal, Illinois.",
       "source_url": "https://www.datacenterbans.com/",
@@ -538,8 +538,8 @@
       "duration_description": "1 year",
       "power_threshold_mw": 10,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Proposed one-year moratorium on data centers with 10+ MW capacity. Vote scheduled for June 3, 2026.",
       "source_url": "https://www.datacenterbans.com/",
@@ -567,8 +567,8 @@
       "duration_description": "Indefinite moratorium pending safeguards",
       "power_threshold_mw": 20,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "The AI Data Center Moratorium Act of 2026, announced by Sen. Bernie Sanders (I-VT) and Rep. Alexandria Ocasio-Cortez (D-NY) on March 25, 2026. Would impose a nationwide halt on constructing or upgrading new or existing data centers with 20 MW or higher power demand until strong national safeguards are in place. Unlikely to advance.",
       "source_url": "https://www.sanders.senate.gov/press-releases/news-sanders-ocasio-cortez-announce-ai-data-center-moratorium-act/",
@@ -600,8 +600,8 @@
       "duration_description": "Permanent ban",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Voter-approved (90%) ban on data center development in Monterey Park, California. Appears to be the first voter-approved data center ban in the US.",
       "source_url": "https://truthout.org/articles/as-towns-and-cities-fight-off-data-centers-calls-grow-for-a-national-moratorium/",
@@ -658,9 +658,9 @@
       "duration_description": "2 years pending comprehensive review",
       "power_threshold_mw": 15,
       "key_reasons": [
+        "transparency",
         "energy",
-        "water",
-        "planning"
+        "water"
       ],
       "summary": "HB6829: Two-year moratorium on large data center facilities (15+ MW) while the state conducts energy and water impact assessments.",
       "source_url": "https://www.cga.ct.gov/",
@@ -688,9 +688,9 @@
       "duration_description": "Permanent ban on new facilities",
       "power_threshold_mw": null,
       "key_reasons": [
+        "transparency",
         "energy",
-        "water",
-        "planning"
+        "water"
       ],
       "summary": "Ban on new data center development to protect remaining capacity on strained electrical grid. Existing facilities can expand but new facilities prohibited.",
       "source_url": "https://www.loudouncount.gov/",
@@ -718,8 +718,8 @@
       "duration_description": "18 months with renewable extension",
       "power_threshold_mw": 25,
       "key_reasons": [
+        "transparency",
         "energy",
-        "planning",
         "water"
       ],
       "summary": "Massachusetts enacted an 18-month moratorium on data centers exceeding 25 MW as of April 2026. Driven by Massachusetts Clean Energy and Climate Plan goals and grid capacity concerns in New England. Supported by environmental organizations, labor, and municipalities. State aims to use the moratorium period to update data center siting standards, require renewable power procurement, and establish water conservation mandates. New England grid operator ISO New England supports cost-allocation requirements but opposes full bans.",
@@ -760,9 +760,9 @@
       "duration_description": "1 year pending environmental review",
       "power_threshold_mw": 20,
       "key_reasons": [
+        "transparency",
         "energy",
-        "water",
-        "planning"
+        "water"
       ],
       "summary": "HB4016: Proposed one-year construction moratorium on hyperscale data centers (20+ MW). Vote expected in June 2026.",
       "source_url": "https://www.oregonlegislature.gov/",
@@ -790,8 +790,8 @@
       "duration_description": "Indefinite pending grid capacity study",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Leesburg halts new data center permits while conducting electrical grid capacity and reliability study.",
       "source_url": "https://www.datacenterbans.com/",
@@ -819,8 +819,8 @@
       "duration_description": "2 years pending grid modernization",
       "power_threshold_mw": 10,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "HB1524: Proposed two-year moratorium on data center construction (10+ MW) while the state modernizes electrical grid infrastructure.",
       "source_url": "https://www.gencourt.state.nh.us/",
@@ -848,9 +848,9 @@
       "duration_description": "Permanent",
       "power_threshold_mw": 5,
       "key_reasons": [
+        "air_quality",
         "energy",
-        "water",
-        "pollution"
+        "water"
       ],
       "summary": "Vermont enacted a permanent ban on data centers exceeding 5 MW (the nation's LOWEST threshold). Reflects Vermont's focus on local control, environmental protection, and opposition to large industrial development. Supported by environmental groups, outdoor recreation industry, and rural municipalities. 5 MW threshold means nearly all hyperscaler facilities are prohibited. Vermont also requires renewable energy for any exempted projects and strict water use standards. Part of Vermont's broader energy independence and carbon-reduction goals.",
       "source_url": "https://legislature.vermont.gov/",
@@ -890,8 +890,8 @@
       "duration_description": "1 year with extension possible",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "One-year moratorium on data center development permits pending infrastructure impact review.",
       "source_url": "https://www.datacenterbans.com/",
@@ -919,8 +919,8 @@
       "duration_description": "1 year pending clean energy assessment",
       "power_threshold_mw": 30,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "SB6289: Proposed statewide moratorium on data centers exceeding 30 MW capacity. Bill pending committee review.",
       "source_url": "https://www.leg.wa.gov/",
@@ -977,8 +977,8 @@
       "duration_description": "18 months pending water study",
       "power_threshold_mw": null,
       "key_reasons": [
-        "water",
-        "energy"
+        "energy",
+        "water"
       ],
       "summary": "Proposed 18-month moratorium on large data center development due to Lake Mead water level concerns.",
       "source_url": "https://www.datacenterbans.com/",
@@ -1006,9 +1006,9 @@
       "duration_description": "Permanent unless exemptions granted",
       "power_threshold_mw": 10,
       "key_reasons": [
+        "air_quality",
         "energy",
-        "water",
-        "pollution"
+        "water"
       ],
       "summary": "HB2087: Restricts new data center development to 10 MW maximum due to island energy and water limitations.",
       "source_url": "https://www.capitol.hawaii.gov/",
@@ -1036,8 +1036,8 @@
       "duration_description": "Rejected",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "City council rejected proposed nine-month moratorium on data center facility permits (8-1 vote). Proposal would have imposed temporary halt pending infrastructure assessment.",
       "source_url": "https://www.datacenterbans.com/",
@@ -1065,8 +1065,8 @@
       "duration_description": "1 year pending grid study",
       "power_threshold_mw": 50,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Austin proposed data center moratorium (2026) addressing water stress and grid reliability in drought-prone Central Texas. Supported by environmental groups (Sierra Club), residents, and water advocates. Austin's Lake Travis and Colorado River face severe drought. Proposal aims to prevent DC projects from exacerbating water scarcity. Balances Texas tech industry interests against environmental concerns.",
       "source_url": "https://www.datacenterbans.com/",
@@ -1127,8 +1127,8 @@
       "duration_description": "Bill failed in committee",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "HB620: Proposed statewide moratorium on large data center development failed to advance from committee in March 2026.",
       "source_url": "https://legislature.idaho.gov/",
@@ -1156,8 +1156,8 @@
       "duration_description": "Permanent",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Meridian Township approved moratorium on data center development until comprehensive plan amendments addressing data center impacts are completed.",
       "source_url": "https://www.datacenterbans.com/",
@@ -1352,8 +1352,8 @@
       "duration_description": "In consideration",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "New Jersey proposed comprehensive plan (2025) to regulate and potentially restrict large data center development. Addresses concerns about grid reliability, water consumption, and sprawl in densely-populated Northeast Corridor. Supported by environmental groups and municipalities. New Jersey exploring zoning restrictions and requiring environmental impact assessments for large projects.",
       "source_url": "https://www.datacenterbans.com/",
@@ -1385,8 +1385,8 @@
       "duration_description": "Non-binding resolution",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Indianapolis-Marion County Council passed non-binding resolution expressing opposition to large, unrestricted data center development without community input and environmental safeguards.",
       "source_url": "https://www.datacenterbans.com/",
@@ -1443,8 +1443,8 @@
       "duration_description": "Permanent",
       "power_threshold_mw": null,
       "key_reasons": [
-        "energy",
-        "planning"
+        "transparency",
+        "energy"
       ],
       "summary": "Hill County enacted moratorium on new data center facilities. Moratorium is currently under legal challenge by development interests.",
       "source_url": "https://www.datacenterbans.com/",
@@ -1464,7 +1464,7 @@
   ],
   "china_anti_datacenter_messaging": {
     "overview": "Some tech industry figures claim that China is deliberately promoting anti-data-center messaging and environmental opposition to slow US AI infrastructure expansion. These claims suggest coordinated messaging campaigns to stoke opposition at the local level. However, documented evidence of such campaigns remains sparse, and moratoriums are driven by documented local environmental and planning concerns, not foreign propaganda.",
-    "key_claim": "Kevin O'Leary and other venture capitalists claim China is stoking data center opposition to slow US AI development. Environmental moratoriums are driven by grid strain, water depletion, and local zoning concerns—not foreign influence.",
+    "key_claim": "Kevin O'Leary and other venture capitalists claim China is stoking data center opposition to slow US AI development. Environmental moratoriums are driven by grid strain, water depletion, and local zoning concerns\u2014not foreign influence.",
     "industry_claims": {
       "kevin_oleary_claim": {
         "claimant": "Kevin O'Leary (venture capitalist, Shark Tank investor)",
@@ -1475,9 +1475,9 @@
         "evidence_of_campaign": "No documented evidence of coordinated Chinese propaganda campaign; claim remains speculation"
       },
       "competing_explanations": {
-        "documented_drivers": "Moratoriums are demonstrably driven by measurable environmental concerns: electricity grid strain (Maine, New York face real capacity constraints), water depletion in arid regions (Arizona, Utah), and local planning concerns—not foreign messaging.",
-        "local_opposition": "Opposition comes from: utility ratepayers (Entergy Mississippi), local governments (Maine legislature voted 108-39), environmental NGOs (NRDC, Audubon), indigenous nations (Penobscot), and community residents—no Chinese connection documented",
-        "timing": "Moratoriums accelerated 2024-2026 as electricity demand from AI exceeded grid capacity—causation is physics and energy markets, not propaganda"
+        "documented_drivers": "Moratoriums are demonstrably driven by measurable environmental concerns: electricity grid strain (Maine, New York face real capacity constraints), water depletion in arid regions (Arizona, Utah), and local planning concerns\u2014not foreign messaging.",
+        "local_opposition": "Opposition comes from: utility ratepayers (Entergy Mississippi), local governments (Maine legislature voted 108-39), environmental NGOs (NRDC, Audubon), indigenous nations (Penobscot), and community residents\u2014no Chinese connection documented",
+        "timing": "Moratoriums accelerated 2024-2026 as electricity demand from AI exceeded grid capacity\u2014causation is physics and energy markets, not propaganda"
       }
     },
     "assessment": {
@@ -1809,9 +1809,9 @@
         }
       ]
     },
-    "pollution": {
-      "label": "Air & Pollution",
-      "description": "Air quality impacts and environmental health concerns",
+    "air_quality": {
+      "label": "Air Quality",
+      "description": "Air pollution, emissions, and air quality impacts",
       "evidence": [
         {
           "moratorium": "Maine LD307",
@@ -1823,9 +1823,9 @@
         }
       ]
     },
-    "planning": {
-      "label": "Planning & Zoning",
-      "description": "Community planning concerns and rapid uncontrolled expansion",
+    "transparency": {
+      "label": "Community Process & Transparency",
+      "description": "NDAs, community input concerns, and transparency in siting decisions",
       "evidence": [
         {
           "moratorium": "New York Moratorium Act",
@@ -1852,6 +1852,16 @@
           ]
         }
       ]
+    },
+    "noise": {
+      "label": "Noise & Turbines",
+      "description": "Noise from cooling fans, on-site turbines, and operational impacts",
+      "evidence": []
+    },
+    "equity": {
+      "label": "Ratepayer Protection",
+      "description": "Cost-shifting to residential ratepayers and equity concerns",
+      "evidence": []
     }
   }
 }
