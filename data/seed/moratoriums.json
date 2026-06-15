@@ -1726,5 +1726,82 @@
         }
       ]
     }
+  },
+  "theme_recommendations": {
+    "energy": {
+      "label": "Energy Resilience & Grid Capacity",
+      "proposals": [
+        "Require pre-construction grid capacity studies and infrastructure upgrades at developer expense",
+        "Mandate renewable energy PPAs (Power Purchase Agreements) for 100% of facility power demand",
+        "Establish minimum renewable energy percentage thresholds (50-100%) for new data center permits",
+        "Require demand management agreements to reduce peak load during grid stress events"
+      ],
+      "actions": [
+        "Deploy advanced battery storage systems to minimize grid demand during peak hours",
+        "Phase deployment over time with grid upgrade timelines rather than instant-on",
+        "Establish regional power pooling arrangements to distribute load across multiple utilities",
+        "Implement on-site renewable generation (solar/wind) to offset grid dependency"
+      ]
+    },
+    "water": {
+      "label": "Water Conservation & Watershed Protection",
+      "proposals": [
+        "Implement strict water consumption caps (gallons per MW-hour) in permits",
+        "Require 100% water recycling and closed-loop cooling systems for new facilities",
+        "Establish water offset funds to support local watershed restoration projects",
+        "Mandate independent water quality and aquifer impact monitoring"
+      ],
+      "actions": [
+        "Use air-cooled systems instead of water-intensive cooling where feasible",
+        "Invest in advanced water treatment and reclamation technologies",
+        "Contribute to regional water conservation projects (e.g., drought-resistant landscaping)",
+        "Support groundwater recharge and protection initiatives in water-stressed regions"
+      ]
+    },
+    "pollution": {
+      "label": "Air Quality & Environmental Protection",
+      "proposals": [
+        "Conduct comprehensive environmental impact assessments (EIAs) before permitting",
+        "Establish binding emissions reduction targets and monitoring protocols",
+        "Create air quality offset programs if emissions standards cannot be met",
+        "Require environmental health equity assessments in communities with existing pollution burdens"
+      ],
+      "actions": [
+        "Transition to zero-emissions backup generators (renewable + storage instead of diesel)",
+        "Implement green infrastructure (trees, wetlands) to improve air quality",
+        "Support community air quality monitoring networks and transparency",
+        "Partner with health departments on environmental justice assessments"
+      ]
+    },
+    "planning": {
+      "label": "Community Planning & Land Use",
+      "proposals": [
+        "Extend local zoning review timelines to allow adequate community input periods",
+        "Require community benefit agreements negotiated with elected representatives",
+        "Establish impact fees for infrastructure needs (roads, water, utilities)",
+        "Mandate architectural review and landscape design standards"
+      ],
+      "actions": [
+        "Develop long-term community plans that integrate data center sites with local development goals",
+        "Create local advisory boards with community representation for ongoing facility oversight",
+        "Establish public disclosure requirements for facility expansion plans",
+        "Support affordable housing and economic development in host communities"
+      ]
+    },
+    "equity": {
+      "label": "Economic & Social Equity",
+      "proposals": [
+        "Require local workforce hiring commitments with skills training programs",
+        "Establish community benefits agreements ensuring long-term local economic gains",
+        "Create equity funds for small businesses and disadvantaged community enterprises",
+        "Mandate affordable housing preservation in areas at risk of displacement"
+      ],
+      "actions": [
+        "Fund apprenticeships and technical training in STEM fields for local residents",
+        "Partner with local economic development organizations to ensure local hiring pipelines",
+        "Create small business procurement preferences for facility operations and maintenance",
+        "Invest in community economic development projects beyond the facility footprint"
+      ]
+    }
   }
 }

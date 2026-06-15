@@ -2863,7 +2863,14 @@ main {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
+}
+
+.reason-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .reason-card strong {
@@ -2878,6 +2885,74 @@ main {
   font-weight: 700;
   line-height: 1;
   color: var(--accent);
+  white-space: nowrap;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.reason-details {
+  margin: 0;
+}
+
+.reason-details summary {
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--link);
+  outline: none;
+  user-select: none;
+}
+
+.reason-details summary:hover {
+  text-decoration: underline;
+}
+
+.reason-details summary::-webkit-details-marker {
+  margin-right: 0.3rem;
+}
+
+.reason-detail-content {
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.reason-section h5 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem 0;
+}
+
+.reason-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.reason-section li {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.reason-section li:before {
+  content: "•";
+  position: absolute;
+  left: 0.3rem;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* Moratorium detail resources list */
