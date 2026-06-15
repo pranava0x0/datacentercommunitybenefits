@@ -718,7 +718,7 @@ class ThemeRecommendation(BaseModel):
 class MoratoriumsPayload(_StrictBase):
     generated_at: Date
     moratoriums: list[Moratorium]
-    china_national_security_context: dict | None = None
+    china_anti_datacenter_messaging: dict | None = None
     theme_recommendations: dict[str, ThemeRecommendation] | None = None
 
     @field_validator("moratoriums")

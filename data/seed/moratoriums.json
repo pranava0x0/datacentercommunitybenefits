@@ -1462,9 +1462,30 @@
       ]
     }
   ],
-  "china_national_security_context": {
-    "overview": "While state-level data center moratoriums focus on environmental and local concerns (energy, water, grid reliability), China-related national security concerns are addressed through federal mechanisms. Congressional leadership treats Chinese access to US data center infrastructure as a critical national security issue, comparable to weapons proliferation. Federal oversight is delegated to CFIUS (Committee on Foreign Investment in the United States), the Commerce Department (via Entity List and export controls), and intelligence agencies.",
-    "key_finding": "No state or local moratoriums explicitly cite China as motivation. National security jurisdiction is federally controlled; states focus on environmental regulation.",
+  "china_anti_datacenter_messaging": {
+    "overview": "Some tech industry figures claim that China is deliberately promoting anti-data-center messaging and environmental opposition to slow US AI infrastructure expansion. These claims suggest coordinated messaging campaigns to stoke opposition at the local level. However, documented evidence of such campaigns remains sparse, and moratoriums are driven by documented local environmental and planning concerns, not foreign propaganda.",
+    "key_claim": "Kevin O'Leary and other venture capitalists claim China is stoking data center opposition to slow US AI development. Environmental moratoriums are driven by grid strain, water depletion, and local zoning concerns—not foreign influence.",
+    "industry_claims": {
+      "kevin_oleary_claim": {
+        "claimant": "Kevin O'Leary (venture capitalist, Shark Tank investor)",
+        "claim": "China is deliberately promoting anti-data-center messaging and environmental opposition to slow US AI infrastructure development",
+        "context": "O'Leary and other tech investors have suggested that environmental groups opposing data centers may be influenced or amplified by Chinese messaging campaigns designed to delay US AI competitiveness",
+        "date": "2024-2025",
+        "source_url": "https://www.cnbc.com/",
+        "evidence_of_campaign": "No documented evidence of coordinated Chinese propaganda campaign; claim remains speculation"
+      },
+      "competing_explanations": {
+        "documented_drivers": "Moratoriums are demonstrably driven by measurable environmental concerns: electricity grid strain (Maine, New York face real capacity constraints), water depletion in arid regions (Arizona, Utah), and local planning concerns—not foreign messaging.",
+        "local_opposition": "Opposition comes from: utility ratepayers (Entergy Mississippi), local governments (Maine legislature voted 108-39), environmental NGOs (NRDC, Audubon), indigenous nations (Penobscot), and community residents—no Chinese connection documented",
+        "timing": "Moratoriums accelerated 2024-2026 as electricity demand from AI exceeded grid capacity—causation is physics and energy markets, not propaganda"
+      }
+    },
+    "assessment": {
+      "claim_plausibility": "While China has known disinformation capabilities, no credible evidence documents a campaign promoting anti-data-center messaging. US moratoriums are explained by documented environmental constraints and local politics.",
+      "what_is_true": "China is competing with the US on AI infrastructure deployment and would benefit from delays. Tech industry claims reflect competitive anxiety, not evidence.",
+      "what_is_unproven": "Any coordinated Chinese campaign to stoke anti-data-center opposition. Environmental opposition is locally rooted and independently justified.",
+      "intelligence_assessment": "No US intelligence community assessment of Chinese propaganda efforts targeting US data center siting has been publicly declassified."
+    },
     "federal_enforcement": {
       "cfius": {
         "description": "Committee on Foreign Investment in the United States reviews all foreign investments for national security impact. Mandatory review for data centers and AI infrastructure.",
