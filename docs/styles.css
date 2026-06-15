@@ -1463,14 +1463,20 @@ main {
   margin: 0 0 1.75rem;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.85rem;
+}
+
+@media (max-width: 800px) {
+  .rp-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 560px) {
   .rp-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: 1fr;
   }
 }
 
