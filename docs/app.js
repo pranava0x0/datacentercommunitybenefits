@@ -1816,6 +1816,99 @@ function wireMoratoriumDetail() {
   };
 
   document.addEventListener("keydown", checkEscape);
+
+  // Wire PDF export button
+  const pdfBtn = document.getElementById("moratoriums-pdf-btn");
+  if (pdfBtn && !pdfBtn.dataset.wired) {
+    pdfBtn.dataset.wired = "1";
+    pdfBtn.addEventListener("click", exportMoratoriumsToPDF);
+  }
+}
+
+function exportMoratoriumsToPDF() {
+  if (!state.moratoriums || state.moratoriums.length === 0) {
+    alert("No moratoriums to export");
+    return;
+  }
+
+  // Get current filters
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
+
+  let filtered = [...state.moratoriums];
+  if (statusFilter) {
+    filtered = filtered.filter((m) => m.status === statusFilter);
+  }
+  if (typeFilter) {
+    filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
+  }
+
+  // Create HTML content for PDF
+  let htmlContent = `
+    <h1>Data Center Policy Moratoriums</h1>
+    <p>Exported: ${new Date().toLocaleDateString()}</p>
+    <p>Total moratoriums: ${filtered.length}</p>
+  `;
+
+  // Create detailed table
+  htmlContent += `<table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
+    <thead style="background-color: #f0f0f0;">
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Jurisdiction</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Status</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Duration</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Effective Date</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Key Reasons</th>
+        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+  `;
+
+  filtered.forEach((m) => {
+    const reasons = (m.key_reasons || []).join(", ");
+    htmlContent += `
+      <tr style="border-bottom: 1px solid #ddd;">
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.jurisdiction)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.jurisdiction_type)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.status)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.duration_description)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${m.effective_date || "N/A"}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(reasons)}</td>
+        <td style="border: 1px solid #ddd; padding: 8px; font-size: 0.9em;">${escapeHtml(m.summary?.substring(0, 200) || "")}</td>
+      </tr>
+    `;
+  });
+
+  htmlContent += `</tbody></table>`;
+
+  // Add resources section
+  htmlContent += `<h2 style="margin-top: 2rem; page-break-before: always;">Resources & Links</h2>`;
+  filtered.forEach((m) => {
+    htmlContent += `<h3>${escapeHtml(m.jurisdiction)} (${escapeHtml(m.status)})</h3>`;
+    htmlContent += `<ul style="font-size: 0.9em;">`;
+    if (m.resources && Array.isArray(m.resources)) {
+      m.resources.forEach((r) => {
+        htmlContent += `<li><a href="${r.url}">${escapeHtml(r.title)}</a><br/>${escapeHtml(r.url.substring(0, 80))}</li>`;
+      });
+    }
+    htmlContent += `</ul>`;
+  });
+
+  // Export using html2pdf
+  const element = document.createElement("div");
+  element.innerHTML = htmlContent;
+
+  const opt = {
+    margin: 10,
+    filename: `moratoriums-${new Date().toISOString().split("T")[0]}.pdf`,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { orientation: "landscape", unit: "mm", format: "a4" },
+  };
+
+  html2pdf().set(opt).from(element).save();
 }
 
 function setActiveDetailTab(name) {
