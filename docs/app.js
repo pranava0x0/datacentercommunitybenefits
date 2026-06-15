@@ -711,7 +711,7 @@ function renderReasonBreakdown(moratoriums) {
 function showMoratoriumDetail(m) {
   // Simple modal or detail pane showing the moratorium summary and sources
   alert(
-    \`\${m.jurisdiction} (\${m.jurisdiction_type})\n\n\${m.summary}\n\nStatus: \${m.status}\nDuration: \${m.duration_description}\n\nSource: \${m.source_title}\n\${m.source_url}\`
+    `${m.jurisdiction} (${m.jurisdiction_type})\n\n${m.summary}\n\nStatus: ${m.status}\nDuration: ${m.duration_description}\n\nSource: ${m.source_title}\n${m.source_url}`
   );
 }
 
