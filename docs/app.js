@@ -70,6 +70,23 @@ const CONSTITUENCY_LABELS = {
   regulator: "Regulator",
 };
 
+const MORATORIUM_STATUSES = ["enacted", "proposed", "failed"];
+const MORATORIUM_REASON_TYPES = [
+  "energy",
+  "water",
+  "pollution",
+  "planning",
+  "equity",
+];
+const MORATORIUM_REASON_LABELS = {
+  energy: "Grid strain / power demand",
+  water: "Water usage / depletion",
+  pollution: "Air / noise pollution",
+  planning: "Insufficient environmental review",
+  equity: "Ratepayer burden / cost-shifting",
+};
+
+
 const STATUS_LABELS = {
   announced: "Announced",
   construction: "Under construction",
@@ -203,9 +220,11 @@ const state = {
   claims: [],
   projects: [],
   responses: [],
+  moratoriums: [],
   responsesByProject: new Map(),
   claimsByProject: new Map(),
   companiesBySlug: new Map(),
+  projectMoratoriums: new Map(),
   activeView: "comparison",
   selectedCompanySlug: null,
   explorerFilters: {
@@ -221,6 +240,7 @@ const state = {
   pendingProjectId: null,
   explorerLoaded: false,
   ratepayerLoaded: false,
+  moratoriumsLoaded: false,
   aggregateLoaded: false,
   leafletLoaded: false,
   map: null,
@@ -312,6 +332,7 @@ const VIEWS = [
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
   { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
+  { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
 ];
 
 // Scroll a tab button into the visible portion of the tabbar. Called both
@@ -452,6 +473,10 @@ function activateView(name) {
     loadAggregateView().catch((err) => {
       console.error("Failed to load aggregate view:", err);
     });
+  } else if (target.name === "moratoriums") {
+    loadMoratoriumsData().catch((err) => {
+      console.error("Failed to load moratoriums data:", err);
+    });
   }
 }
 
@@ -510,6 +535,53 @@ function loadProjectData() {
   return _projectDataPromise;
 }
 
+
+// Build a map of which projects are affected by which moratoriums.
+// Projects match moratoriums by: (1) state-level moratoriums match by state,
+// (2) city/county-level match by city name + state code.
+function buildMoratoriumAffectanceMap() {
+  state.projectMoratoriums = new Map();
+
+  if (!state.moratoriums || !state.projects) return;
+
+  state.projects.forEach((project) => {
+    const affected = [];
+
+    state.moratoriums.forEach((moratorium) => {
+      let matches = false;
+
+      if (moratorium.jurisdiction_type === "state") {
+        // State moratorium: match by state code
+        matches = project.state === moratorium.jurisdiction.split(",")[0].trim();
+      } else if (moratorium.jurisdiction_type === "city" || moratorium.jurisdiction_type === "county") {
+        // City/county moratorium: match by city name (fuzzy) + state
+        // Extract state abbreviation if present (e.g., "Denver, CO" -> "CO")
+        const jurisdParts = moratorium.jurisdiction.split(",").map((s) => s.trim());
+        const moratoriumCity = jurisdParts[0];
+        const moratoriumState = jurisdParts[1];
+
+        // Match if city names are similar (case-insensitive) and states match
+        if (
+          moratoriumCity.toLowerCase().includes(project.city.toLowerCase()) ||
+          project.city.toLowerCase().includes(moratoriumCity.toLowerCase())
+        ) {
+          if (!moratoriumState || moratoriumState === project.state) {
+            matches = true;
+          }
+        }
+      }
+
+      if (matches) {
+        affected.push(moratorium);
+      }
+    });
+
+    if (affected.length > 0) {
+      state.projectMoratoriums.set(project.id, affected);
+    }
+  });
+}
+
 async function loadExplorerData() {
   document.getElementById("explorer-meta").textContent = "Loading projects…";
   await loadProjectData();
@@ -537,6 +609,110 @@ async function loadAggregateView() {
   await loadProjectData();
   state.aggregateLoaded = true;
   renderAggregateView();
+}
+
+
+// Moratoriums view: fetch and render moratorium data with filtering
+async function loadMoratoriumsData() {
+  if (state.moratoriumsLoaded) return;
+  const payload = await fetchJson("data/moratoriums.json");
+  state.moratoriums = payload.moratoriums;
+  state.moratoriumsLoaded = true;
+  renderMoratoriumsView();
+  document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
+}
+
+function renderMoratoriumsView() {
+  wireMoratoriumsFilters();
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
+
+  let filtered = state.moratoriums;
+  if (statusFilter) {
+    filtered = filtered.filter((m) => m.status === statusFilter);
+  }
+  if (typeFilter) {
+    filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
+  }
+
+  // Sort: enacted first (by date desc), then proposed, then failed
+  filtered.sort((a, b) => {
+    const statusOrder = { enacted: 0, proposed: 1, failed: 2 };
+    if (statusOrder[a.status] !== statusOrder[b.status]) {
+      return statusOrder[a.status] - statusOrder[b.status];
+    }
+    if (a.enacted_date && b.enacted_date) {
+      return new Date(b.enacted_date) - new Date(a.enacted_date);
+    }
+    return a.jurisdiction.localeCompare(b.jurisdiction);
+  });
+
+  // Render table rows
+  const tbody = document.getElementById("moratoriums-tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+
+  filtered.forEach((m) => {
+    const tr = document.createElement("tr");
+    tr.className = `moratorium-status-${m.status}`;
+
+    const reasonBadges = m.key_reasons
+      .map((r) => `<span class="badge badge-reason-${r}" title="${escapeAttr(MORATORIUM_REASON_LABELS[r] || r)}">${escapeHtml(MORATORIUM_REASON_LABELS[r] || r)}</span>`)
+      .join("");
+
+    tr.innerHTML = `
+      <td>${escapeHtml(m.jurisdiction)}</td>
+      <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
+      <td><span class="badge badge-moratorium-status-${m.status}">${escapeHtml(m.status)}</span></td>
+      <td>${escapeHtml(m.duration_description)}</td>
+      <td>${reasonBadges}</td>
+    `;
+
+    tr.addEventListener("click", () => {
+      showMoratoriumDetail(m);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  // Render reason summary
+  renderReasonBreakdown(filtered);
+}
+
+function renderReasonBreakdown(moratoriums) {
+  const reasonCounts = {};
+  MORATORIUM_REASON_TYPES.forEach((r) => {
+    reasonCounts[r] = 0;
+  });
+
+  moratoriums.forEach((m) => {
+    m.key_reasons.forEach((r) => {
+      if (reasonCounts[r] !== undefined) reasonCounts[r]++;
+    });
+  });
+
+  const container = document.getElementById("reason-breakdown");
+  if (!container) return;
+  container.innerHTML = "";
+
+  Object.entries(reasonCounts).forEach(([reason, count]) => {
+    if (count > 0) {
+      const card = document.createElement("div");
+      card.className = "reason-card";
+      card.innerHTML = `
+        <strong>${escapeHtml(MORATORIUM_REASON_LABELS[reason] || reason)}</strong>
+        <span class="count">${count} moratoriums</span>
+      `;
+      container.appendChild(card);
+    }
+  });
+}
+
+function showMoratoriumDetail(m) {
+  // Simple modal or detail pane showing the moratorium summary and sources
+  alert(
+    \`\${m.jurisdiction} (\${m.jurisdiction_type})\n\n\${m.summary}\n\nStatus: \${m.status}\nDuration: \${m.duration_description}\n\nSource: \${m.source_title}\n\${m.source_url}\`
+  );
 }
 
 async function fetchJson(url) {
@@ -1418,6 +1594,23 @@ function wireDetailTabs() {
   }
 }
 
+
+// Wire up moratoriums view filter controls
+function wireMoratoriumsFilters() {
+  const statusFilter = document.getElementById("moratorium-status-filter");
+  const typeFilter = document.getElementById("moratorium-type-filter");
+  if (statusFilter) {
+    statusFilter.addEventListener("change", () => {
+      renderMoratoriumsView();
+    });
+  }
+  if (typeFilter) {
+    typeFilter.addEventListener("change", () => {
+      renderMoratoriumsView();
+    });
+  }
+}
+
 function setActiveDetailTab(name) {
   if (!DETAIL_TABS.includes(name)) name = "overview";
   for (const t of DETAIL_TABS) {
@@ -1567,6 +1760,7 @@ function renderProjectCard(p) {
   const co = state.companiesBySlug.get(p.company_slug);
   const responses = state.responsesByProject.get(p.id) || [];
   const stances = new Set(responses.map((r) => r.stance));
+  const moratoriums = state.projectMoratoriums?.get(p.id) || [];
 
   const li = document.createElement("li");
   li.className = "project-card";
@@ -1583,6 +1777,10 @@ function renderProjectCard(p) {
     .map((s) => `<span class="stance-dot ${s}" title="${STANCE_LABELS[s]} response"></span>`)
     .join("");
 
+  const moratoriumBadges = moratoriums
+    .map((m) => `<span class="badge badge-moratorium badge-moratorium-${m.status}" title="Affected by ${m.jurisdiction} ${m.status} moratorium">${escapeHtml(m.jurisdiction)}</span>`)
+    .join("");
+
   li.innerHTML = `
     <p class="project-name">${escapeHtml(p.name)}</p>
     <div class="project-meta">
@@ -1591,6 +1789,7 @@ function renderProjectCard(p) {
       <span>${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
     </div>
     ${stanceDots ? `<div class="project-stance-row">${stanceDots}</div>` : ""}
+    ${moratoriumBadges ? `<div class="project-moratoriums-row">${moratoriumBadges}</div>` : ""}
   `;
 
   li.addEventListener("click", () => selectProject(p.id));

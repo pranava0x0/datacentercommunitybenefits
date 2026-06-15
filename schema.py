@@ -590,6 +590,123 @@ class CommunityResponse(_StrictBase):
 
 
 # ---------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------
+# Data center moratoriums (v1.16)
+# ---------------------------------------------------------------------------
+# Tracks city, county, state, and federal moratoriums on data center development.
+# Status: enacted (in effect), proposed (introduced), failed (voted down/died).
+#
+# Captured timestamps show when a moratorium's status was verified; recurring
+# quarterly refreshes will show policy momentum over time.
+
+MORATORIUM_STATUSES: tuple[str, ...] = ("enacted", "proposed", "failed")
+MoratoriumStatus = Literal["enacted", "proposed", "failed"]
+
+MORATORIUM_REASON_TYPES: tuple[str, ...] = (
+    "energy",        # Grid strain, power demand concerns
+    "water",         # Water usage, aquifer depletion
+    "pollution",     # Air/noise pollution, emissions
+    "planning",      # Lack of environmental review / impact assessment
+    "equity",        # Ratepayer burden, cost-shifting to residents
+)
+MoratoriumReasonType = Literal["energy", "water", "pollution", "planning", "equity"]
+
+MORATORIUM_REASON_LABELS: dict[str, str] = {
+    "energy": "Grid strain / power demand",
+    "water": "Water usage / depletion",
+    "pollution": "Air / noise pollution",
+    "planning": "Insufficient environmental review",
+    "equity": "Ratepayer burden / cost-shifting",
+}
+
+
+class Moratorium(_StrictBase):
+    """A data center moratorium or ban enacted or proposed by a jurisdiction."""
+
+    id: str = Field(min_length=1)
+    jurisdiction: str = Field(
+        min_length=1,
+        description="City, County, State, or 'Federal' — the level at which the moratorium is set.",
+    )
+    jurisdiction_type: Literal["city", "county", "state", "federal"] = Field(
+        description="Geographic scope of the moratorium.",
+    )
+    status: MoratoriumStatus = Field(
+        description=(
+            "enacted = law/regulation in effect as of capture date. "
+            "proposed = bill introduced but not yet passed. "
+            "failed = voted down or died in committee."
+        ),
+    )
+    enacted_date: Optional[Date] = Field(
+        default=None,
+        description=(
+            "Date the moratorium was signed/enacted. Null if proposed or failed. "
+            "Used to sort the timeline."
+        ),
+    )
+    effective_date: Optional[Date] = Field(
+        default=None,
+        description="Date the moratorium takes effect (may be after enacted_date).",
+    )
+    duration_months: Optional[int] = Field(
+        default=None,
+        ge=1,
+        description="Length of the moratorium in months. Null for permanent bans or unknown durations.",
+    )
+    duration_description: str = Field(
+        min_length=1,
+        description="Human-readable duration: '6 months', '1 year', '18 months', 'Permanent ban', etc.",
+    )
+    power_threshold_mw: Optional[float] = Field(
+        default=None,
+        ge=0,
+        description=(
+            "If the moratorium applies only to data centers above a certain power threshold, "
+            "set that threshold in megawatts (e.g., 20 for a '20 MW or higher' threshold). "
+            "Null if no threshold / all sizes covered."
+        ),
+    )
+    key_reasons: list[MoratoriumReasonType] = Field(
+        default_factory=list,
+        description=(
+            "Documented reasons behind the moratorium. Curators identify these from the "
+            "bill text, legislative debate, or news. Order by prominence."
+        ),
+    )
+    summary: str = Field(
+        min_length=1,
+        description=(
+            "1–2 sentence plain-English summary of what the moratorium does. "
+            "Neutral phrasing — not advocacy language."
+        ),
+    )
+    source_url: HttpUrl
+    source_title: str = Field(
+        min_length=1,
+        description="e.g., 'Denver City Council Bill #...' or 'New York S09144'.",
+    )
+    captured_at: Date = Field(
+        description="Date this record was curated / moratorium status was verified."
+    )
+
+
+class MoratoriumsPayload(_StrictBase):
+    generated_at: Date
+    moratoriums: list[Moratorium]
+
+    @field_validator("moratoriums")
+    @classmethod
+    def _ids_unique(cls, v: list[Moratorium]) -> list[Moratorium]:
+        ids = [m.id for m in v]
+        if len(ids) != len(set(ids)):
+            dup = [i for i in ids if ids.count(i) > 1]
+            raise ValueError(f"Duplicate moratorium ids: {sorted(set(dup))}")
+        return v
+
+
 # Top-level payloads (what refresh.py emits, what the frontend reads)
 # ---------------------------------------------------------------------------
 
@@ -660,6 +777,9 @@ __all__ = [
     "PLEDGE_PRINCIPLES",
     "PLEDGE_PRINCIPLE_LABELS",
     "PLEDGE_PRINCIPLE_STATUSES",
+    "MORATORIUM_STATUSES",
+    "MORATORIUM_REASON_TYPES",
+    "MORATORIUM_REASON_LABELS",
     "Theme",
     "CompanySlug",
     "ProjectStatus",
@@ -667,12 +787,15 @@ __all__ = [
     "Constituency",
     "DeliveredStatus",
     "RatepayerStatus",
+    "MoratoriumStatus",
+    "MoratoriumReasonType",
     "PledgePrincipleStatus",
     "PledgePrincipleAssessment",
     "Company",
     "Metric",
     "Delivered",
     "Ratepayer",
+    "Moratorium",
     "Claim",
     "Project",
     "CommunityResponse",
@@ -680,4 +803,5 @@ __all__ = [
     "ClaimsPayload",
     "ProjectsPayload",
     "ResponsesPayload",
+    "MoratoriumsPayload",
 ]
