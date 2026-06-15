@@ -518,6 +518,19 @@
         <p class="view-description">
           Tracking enacted and proposed city, county, state, and federal moratoriums on data center development.
         </p>
+
+        <!-- Status Overview Stats -->
+        <ul id="moratorium-stats" class="rp-stats" aria-label="Moratorium statistics"></ul>
+
+        <!-- Key Themes Section -->
+        <div id="moratorium-themes" class="summary-section">
+          <h3>Key Themes Driving Moratoriums</h3>
+          <div id="reason-breakdown" class="reason-grid">
+            <!-- Populated by app.js -->
+          </div>
+        </div>
+
+        <!-- Filters and Table -->
         <div id="moratorium-filters" class="filters">
           <label>Status:
             <select id="moratorium-status-filter">
@@ -551,12 +564,6 @@
             <!-- Populated by app.js -->
           </tbody>
         </table>
-        <div id="moratorium-summary" class="summary-section">
-          <h3>Key Themes Across Moratoriums</h3>
-          <div id="reason-breakdown" class="reason-grid">
-            <!-- Populated by app.js -->
-          </div>
-        </div>
       </section>
 
       <!-- ====================== AGGREGATE VIEW ====================== -->
