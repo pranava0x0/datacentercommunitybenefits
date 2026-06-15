@@ -2848,89 +2848,144 @@ main {
   margin-bottom: 1rem;
 }
 
+/* Theme cards grid — clickable theme pills */
 .reason-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
 }
 
 .reason-card {
-  padding: 0.9rem 1rem;
+  padding: 0.7rem 1rem;
   background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
 }
 
-.reason-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
+.reason-card:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.reason-card.active {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }
 
 .reason-card strong {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.3;
 }
 
 .reason-card .count {
-  font-size: 1.45rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--accent);
-  white-space: nowrap;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
 }
 
-.reason-details {
+.reason-card.active .count {
+  opacity: 1;
+}
+
+/* Theme detail pop-out — wide horizontal below grid */
+.theme-popout {
+  display: none;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  animation: slideDown 0.3s ease;
+}
+
+.theme-popout.active {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-popout-header {
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.8rem;
+}
+
+.theme-popout-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.3rem 0;
+}
+
+.theme-popout-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
   margin: 0;
 }
 
-.reason-details summary {
-  cursor: pointer;
-  padding: 0.5rem 0;
+.theme-evidence {
+  display: grid;
+  gap: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .theme-evidence {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .theme-evidence {
+    grid-template-columns: 1fr;
+  }
+}
+
+.evidence-item {
+  padding: 1rem;
+  background-color: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+}
+
+.evidence-moratorium {
   font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--link);
-  outline: none;
-  user-select: none;
-}
-
-.reason-details summary:hover {
-  text-decoration: underline;
-}
-
-.reason-details summary::-webkit-details-marker {
-  margin-right: 0.3rem;
-}
-
-.reason-detail-content {
-  margin-top: 0.7rem;
-  padding-top: 0.7rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.reason-section h5 {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted);
+  color: var(--accent);
   margin: 0 0 0.5rem 0;
 }
 
-.reason-section ul {
+.evidence-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0 0 0.8rem 0;
+  font-style: italic;
+}
+
+.evidence-proposals {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -2939,19 +2994,19 @@ main {
   gap: 0.4rem;
 }
 
-.reason-section li {
-  font-size: 0.8rem;
+.evidence-proposals li {
+  font-size: 0.85rem;
   line-height: 1.4;
   color: var(--text);
   padding-left: 1.2rem;
   position: relative;
 }
 
-.reason-section li:before {
-  content: "•";
+.evidence-proposals li:before {
+  content: "✓";
   position: absolute;
-  left: 0.3rem;
-  color: var(--accent);
+  left: 0;
+  color: var(--stance-positive);
   font-weight: bold;
 }
 
