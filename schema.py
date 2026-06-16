@@ -698,6 +698,46 @@ class Moratorium(_StrictBase):
             "Prioritize government links, then major news outlets."
         ),
     )
+    bill_number: Optional[str] = Field(
+        default=None,
+        description="Legislative bill designation (e.g., 'HB620', 'LD307', 'SB5982'). Optional, for enhanced entries.",
+    )
+    sponsors: Optional[list[str]] = Field(
+        default=None,
+        description="Named legislative sponsors. Optional, for enhanced entries.",
+    )
+    key_stakeholders: Optional[dict] = Field(
+        default=None,
+        description=(
+            "Optional breakdown of stakeholder positions by category. "
+            "Keys: 'environmental', 'utility', 'community', 'labor', 'opposed', etc. "
+            "Values: lists of organization names."
+        ),
+    )
+    policy_type: Optional[str] = Field(
+        default=None,
+        description="Type of policy (e.g., 'traditional moratorium', 'cost-allocation rule'). Optional.",
+    )
+    enacted_by: Optional[str] = Field(
+        default=None,
+        description="Who enacted the moratorium (e.g., 'Governor Janet Mills', 'City Council'). Optional.",
+    )
+    legislative_votes: Optional[str] = Field(
+        default=None,
+        description="Vote counts if available (e.g., 'Senate 26-23, House 57-41'). Optional.",
+    )
+    city_council_vote: Optional[str] = Field(
+        default=None,
+        description="City council vote count if applicable (e.g., '11-2 in favor'). Optional.",
+    )
+    failure_reason: Optional[str] = Field(
+        default=None,
+        description="If status is 'failed', the reason (e.g., 'Died in House Energy Committee'). Optional.",
+    )
+    session: Optional[str] = Field(
+        default=None,
+        description="Legislative session year (e.g., '2024', '2026'). Optional.",
+    )
     captured_at: Date = Field(
         description="Date this record was curated / moratorium status was verified."
     )
