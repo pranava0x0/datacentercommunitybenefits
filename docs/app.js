@@ -2238,6 +2238,11 @@ function refreshMapMarkers() {
 
   const items = filteredProjects();
   for (const p of items) {
+    // Skip projects without coordinates
+    if (p.lat === undefined || p.lon === undefined || p.lat === null || p.lon === null) {
+      continue;
+    }
+
     const color = cssVar(`--co-${p.company_slug}`) || cssVar("--accent");
 
     // Scale marker radius by power capacity (5–20 MW = size 6, 1000+ MW = size 14)
@@ -2275,8 +2280,10 @@ function refreshMapMarkers() {
     state.markers.set(p.id, marker);
   }
 
-  if (items.length > 0) {
-    const bounds = L.latLngBounds(items.map((p) => [p.lat, p.lon]));
+  // Calculate bounds only for projects with valid coordinates
+  const validItems = items.filter((p) => p.lat !== undefined && p.lon !== undefined && p.lat !== null && p.lon !== null);
+  if (validItems.length > 0) {
+    const bounds = L.latLngBounds(validItems.map((p) => [p.lat, p.lon]));
     state.map.fitBounds(bounds, { padding: [40, 40], maxZoom: 7 });
   }
 
