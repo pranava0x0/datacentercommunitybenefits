@@ -605,20 +605,22 @@ MORATORIUM_STATUSES: tuple[str, ...] = ("enacted", "proposed", "failed")
 MoratoriumStatus = Literal["enacted", "proposed", "failed"]
 
 MORATORIUM_REASON_TYPES: tuple[str, ...] = (
-    "energy",        # Grid strain, power demand concerns
-    "water",         # Water usage, aquifer depletion
-    "pollution",     # Air/noise pollution, emissions
-    "planning",      # Lack of environmental review / impact assessment
-    "equity",        # Ratepayer burden, cost-shifting to residents
+    "energy",           # Grid strain, power demand concerns
+    "water",            # Water usage, aquifer depletion
+    "air_quality",      # Air pollution, emissions, air quality impacts
+    "noise",            # Noise from cooling fans, turbines, operations
+    "transparency",     # NDA concerns, lack of community input, secrecy
+    "equity",           # Ratepayer burden, cost-shifting to residents
 )
-MoratoriumReasonType = Literal["energy", "water", "pollution", "planning", "equity"]
+MoratoriumReasonType = Literal["energy", "water", "air_quality", "noise", "transparency", "equity"]
 
 MORATORIUM_REASON_LABELS: dict[str, str] = {
-    "energy": "Grid strain / power demand",
-    "water": "Water usage / depletion",
-    "pollution": "Air / noise pollution",
-    "planning": "Insufficient environmental review",
-    "equity": "Ratepayer burden / cost-shifting",
+    "energy": "Grid & Power",
+    "water": "Water & Depletion",
+    "air_quality": "Air Quality",
+    "noise": "Noise & Turbines",
+    "transparency": "Community Process & Transparency",
+    "equity": "Ratepayer Protection",
 }
 
 
@@ -695,6 +697,46 @@ class Moratorium(_StrictBase):
             "Each item: {'url': 'https://...', 'title': 'Source name'}. "
             "Prioritize government links, then major news outlets."
         ),
+    )
+    bill_number: Optional[str] = Field(
+        default=None,
+        description="Legislative bill designation (e.g., 'HB620', 'LD307', 'SB5982'). Optional, for enhanced entries.",
+    )
+    sponsors: Optional[list[str]] = Field(
+        default=None,
+        description="Named legislative sponsors. Optional, for enhanced entries.",
+    )
+    key_stakeholders: Optional[dict] = Field(
+        default=None,
+        description=(
+            "Optional breakdown of stakeholder positions by category. "
+            "Keys: 'environmental', 'utility', 'community', 'labor', 'opposed', etc. "
+            "Values: lists of organization names."
+        ),
+    )
+    policy_type: Optional[str] = Field(
+        default=None,
+        description="Type of policy (e.g., 'traditional moratorium', 'cost-allocation rule'). Optional.",
+    )
+    enacted_by: Optional[str] = Field(
+        default=None,
+        description="Who enacted the moratorium (e.g., 'Governor Janet Mills', 'City Council'). Optional.",
+    )
+    legislative_votes: Optional[str] = Field(
+        default=None,
+        description="Vote counts if available (e.g., 'Senate 26-23, House 57-41'). Optional.",
+    )
+    city_council_vote: Optional[str] = Field(
+        default=None,
+        description="City council vote count if applicable (e.g., '11-2 in favor'). Optional.",
+    )
+    failure_reason: Optional[str] = Field(
+        default=None,
+        description="If status is 'failed', the reason (e.g., 'Died in House Energy Committee'). Optional.",
+    )
+    session: Optional[str] = Field(
+        default=None,
+        description="Legislative session year (e.g., '2024', '2026'). Optional.",
     )
     captured_at: Date = Field(
         description="Date this record was curated / moratorium status was verified."
