@@ -74,16 +74,18 @@ const MORATORIUM_STATUSES = ["enacted", "proposed", "failed"];
 const MORATORIUM_REASON_TYPES = [
   "energy",
   "water",
-  "pollution",
-  "planning",
+  "air_quality",
+  "noise",
+  "transparency",
   "equity",
 ];
 const MORATORIUM_REASON_LABELS = {
-  energy: "Grid strain / power demand",
-  water: "Water usage / depletion",
-  pollution: "Air / noise pollution",
-  planning: "Insufficient environmental review",
-  equity: "Ratepayer burden / cost-shifting",
+  energy: "Grid & Power",
+  water: "Water & Depletion",
+  air_quality: "Air Quality",
+  noise: "Noise & Turbines",
+  transparency: "Community Process & Transparency",
+  equity: "Ratepayer Protection",
 };
 
 
@@ -2236,26 +2238,91 @@ function refreshMapMarkers() {
 
   const items = filteredProjects();
   for (const p of items) {
+    // Skip projects without coordinates
+    if (p.lat === undefined || p.lon === undefined || p.lat === null || p.lon === null) {
+      continue;
+    }
+
     const color = cssVar(`--co-${p.company_slug}`) || cssVar("--accent");
+
+    // Scale marker radius by power capacity (5–20 MW = size 6, 1000+ MW = size 14)
+    let radius = 8;
+    if (p.power_mw) {
+      radius = Math.min(14, Math.max(6, 6 + (p.power_mw / 100)));
+    }
+
+    // Opacity reflects status: announced=0.4, construction=0.65, operational=0.9
+    const opacityMap = { announced: 0.4, construction: 0.65, operational: 0.9 };
+    const fillOpacity = opacityMap[p.status] || 0.65;
+
+    // Border weight reflects status: more prominent for operational
+    const weight = p.status === 'operational' ? 3 : 2;
+
     const marker = L.circleMarker([p.lat, p.lon], {
-      radius: 8,
-      color: color,
+      radius,
+      color,
       fillColor: color,
-      fillOpacity: 0.65,
-      weight: 2,
+      fillOpacity,
+      weight,
+      className: `marker-${p.status}`,
     });
-    marker.bindTooltip(`${p.name}<br><small>${p.city}, ${p.state}</small>`, {
-      direction: "top",
-    });
+
+    // Rich tooltip with key metrics
+    let tooltip = `<strong>${p.name}</strong><br>`;
+    tooltip += `<small>${p.city}, ${p.state} · ${p.status}</small>`;
+    if (p.power_mw) tooltip += `<br>⚡ ${p.power_mw} MW`;
+    if (p.claimed_jobs) tooltip += `<br>👥 ${p.claimed_jobs} jobs`;
+    if (p.claimed_investment_usd) tooltip += `<br>💰 $${(p.claimed_investment_usd / 1e9).toFixed(1)}B`;
+
+    marker.bindTooltip(tooltip, { direction: "top" });
     marker.on("click", () => selectProject(p.id));
     marker.addTo(state.map);
     state.markers.set(p.id, marker);
   }
 
-  if (items.length > 0) {
-    const bounds = L.latLngBounds(items.map((p) => [p.lat, p.lon]));
+  // Calculate bounds only for projects with valid coordinates
+  const validItems = items.filter((p) => p.lat !== undefined && p.lon !== undefined && p.lat !== null && p.lon !== null);
+  if (validItems.length > 0) {
+    const bounds = L.latLngBounds(validItems.map((p) => [p.lat, p.lon]));
     state.map.fitBounds(bounds, { padding: [40, 40], maxZoom: 7 });
   }
+
+  // Add map legend
+  renderMapLegend();
+}
+
+function renderMapLegend() {
+  if (!state.map || !window.L) return;
+
+  // Remove existing legend
+  const existing = document.querySelector(".map-legend");
+  if (existing) existing.remove();
+
+  // Create legend container
+  const legend = L.control({ position: "bottomright" });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create("div", "map-legend");
+    div.innerHTML = `
+      <div class="legend-content">
+        <h4>Map Legend</h4>
+        <div class="legend-section">
+          <strong>Marker Size</strong>
+          <div class="legend-item"><span class="legend-dot" style="width: 8px; height: 8px;"></span> &lt;100 MW</div>
+          <div class="legend-item"><span class="legend-dot" style="width: 11px; height: 11px;"></span> 100–500 MW</div>
+          <div class="legend-item"><span class="legend-dot" style="width: 14px; height: 14px;"></span> 1000+ MW</div>
+        </div>
+        <div class="legend-section">
+          <strong>Status</strong>
+          <div class="legend-item"><span class="legend-item-opacity-40">●</span> Announced</div>
+          <div class="legend-item"><span class="legend-item-opacity-65">●</span> Under Construction</div>
+          <div class="legend-item"><span class="legend-item-opacity-90">●</span> Operational</div>
+        </div>
+      </div>
+    `;
+    L.DomEvent.disableClickPropagation(div);
+    return div;
+  };
+  legend.addTo(state.map);
 }
 
 function cssVar(name) {
