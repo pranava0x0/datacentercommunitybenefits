@@ -9,6 +9,21 @@ criterion.
 
 ## High priority
 
+### Drive coverage to comprehensive via the research connectors
+`connectors/research.py` (added this session) automates collection: `status`
+reports gaps, `queries` emits per-site search strings, `harvest` fetches URLs
+and auto-extracts publication dates (the slow manual step) + verbatim quote
+candidates; the Chrome-MCP bridge (`--html-file` / `--as-url`) handles
+JS-rendered SPA pages like `datacenters.google`. As of this session **42/111
+projects still have no community feedback and 34 have no project-tied claim**
+(run `python -m connectors.research status --list`). **Priority: high.**
+Work it in batches: `queries --missing-feedback --limit 10` → run searches →
+`harvest` the results → curate stance/constituency (never machine-set) →
+merge into `data/seed/`. Output stays in `data/candidates/` (gitignored) until
+a human fills the editorial fields. Most older Meta/Google/QTS owner-operator
+sites are net-positive community stories; prefer ≥2 independent outlets for any
+negative stance (single-source → `single_source: true`).
+
 ### Infrastructure partnership UX exploration
 v1.18 added two non-traditional "infrastructure partnership" projects: Google-SpaceX GPU lease ($920M/month, 110K GPUs) and Anthropic-xAI compute rental ($1.25B/month). These don't fit the traditional "physical data center site" model — they have no lat/lon, no community, no local jobs/tax/engagement commitments. Current schema accepts them (acreage/power_mw/gpu_count all optional, city/state can be "Virtual"/"N/A") but the UX doesn't surface them meaningfully. 
 
