@@ -1026,10 +1026,13 @@ function renderSummaryStats() {
     }
     const breakdown = document.getElementById("ss-stance-breakdown");
     if (breakdown) {
+      const label = `${byStance.positive} positive, ${byStance.mixed} mixed, ${byStance.negative} negative`;
       breakdown.innerHTML =
         `<span class="stance-dot positive"></span>${byStance.positive}` +
         `<span class="stance-dot mixed"></span>${byStance.mixed}` +
         `<span class="stance-dot negative"></span>${byStance.negative}`;
+      breakdown.setAttribute("aria-label", `Community responses by stance: ${label}`);
+      breakdown.setAttribute("title", label);
       breakdown.hidden = false;
     }
   }

@@ -3758,6 +3758,255 @@
       "captured_at": "2026-06-08",
       "published_at": "2026-03-31",
       "project_id": "aws-calvert-cliffs-md"
+    },
+    {
+      "id": "meta-kuna-energy-2022",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "Meta worked closely with Idaho Power to develop and implement a new green tariff that will allow companies like us to support their operations with 100% renewable energy.",
+      "source_url": "https://datacenters.atmeta.com/2022/02/hello-kuna/",
+      "source_title": "Meta Data Centers — Hello Kuna! (Feb 16 2022)",
+      "captured_at": "2026-06-18",
+      "published_at": "2022-02-16",
+      "project_id": "meta-kuna-id"
+    },
+    {
+      "id": "meta-eagle-mountain-energy-2021",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "In Utah, we are working with Rocky Mountain Power to bring over 800MW of new solar energy to the grid.",
+      "source_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
+      "source_title": "Meta Data Centers — Utah County, We Are Online! (Jul 2021)",
+      "captured_at": "2026-06-18",
+      "project_id": "meta-eagle-mountain-ut"
+    },
+    {
+      "id": "meta-eagle-mountain-water-2021",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "In 2020, we partnered with Trout Unlimited to invest in the Provo River water restoration project in Utah.",
+      "source_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
+      "source_title": "Meta Data Centers — Utah County, We Are Online! (Jul 2021)",
+      "captured_at": "2026-06-18",
+      "project_id": "meta-eagle-mountain-ut"
+    },
+    {
+      "id": "meta-los-lunas-grants-2021",
+      "company_slug": "meta",
+      "theme": "community_grants",
+      "statement": "Our $225,000 grant will be used to deploy and install hardware in homes throughout eastern Valencia County.",
+      "source_url": "https://datacenters.atmeta.com/2021/10/hello-again-los-lunas/",
+      "source_title": "Meta Data Centers — Hello Again, Los Lunas! (Oct 27 2021)",
+      "captured_at": "2026-06-18",
+      "published_at": "2021-10-27",
+      "project_id": "meta-los-lunas-nm"
+    },
+    {
+      "id": "meta-los-lunas-water-2021",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "We will restore 200% of the water our data center consumes into the New Mexico watersheds.",
+      "source_url": "https://datacenters.atmeta.com/2021/10/hello-again-los-lunas/",
+      "source_title": "Meta Data Centers — Hello Again, Los Lunas! (Oct 27 2021)",
+      "captured_at": "2026-06-18",
+      "published_at": "2021-10-27",
+      "project_id": "meta-los-lunas-nm"
+    },
+    {
+      "id": "meta-los-lunas-energy-2021",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "We are adding two new solar projects to our portfolio—a 190MW project in Valencia County and a 50MW project in Sandoval County.",
+      "source_url": "https://datacenters.atmeta.com/2021/10/hello-again-los-lunas/",
+      "source_title": "Meta Data Centers — Hello Again, Los Lunas! (Oct 27 2021)",
+      "captured_at": "2026-06-18",
+      "published_at": "2021-10-27",
+      "project_id": "meta-los-lunas-nm"
+    },
+    {
+      "id": "google-lenoir-education-2026",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Grow with Google has collaborated with hundreds of organizations in North Carolina to train more than 512,000 North Carolinians on digital skills.",
+      "source_url": "https://datacenters.google/locations/north-carolina/",
+      "source_title": "Google Data Centers — North Carolina (Lenoir) location page",
+      "captured_at": "2026-06-18",
+      "project_id": "google-lenoir-nc"
+    },
+    {
+      "id": "google-lenoir-engagement-2026",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "Since 2007, we've been building up our neighbors in the Lenoir, North Carolina, data center community.",
+      "source_url": "https://datacenters.google/locations/north-carolina/",
+      "source_title": "Google Data Centers — North Carolina (Lenoir) location page",
+      "captured_at": "2026-06-18",
+      "project_id": "google-lenoir-nc"
+    },
+    {
+      "id": "google-berkeley-education-2026",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Our Skilled Trades and Readiness (STAR) Program works alongside organizations like Trident Tech, Palmetto Goodwill, and others to prepare new-to-industry talent for entry-level careers in construction and skilled trades.",
+      "source_url": "https://datacenters.google/locations/berkeley-county-south-carolina/",
+      "source_title": "Google Data Centers — Berkeley County, South Carolina location page",
+      "captured_at": "2026-06-18",
+      "project_id": "google-berkeley-county-sc"
+    },
+    {
+      "id": "google-mayes-grants-2026",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "Since 2008, Google and Googlers have given more than $12 million in funding.",
+      "source_url": "https://datacenters.google/locations/oklahoma/",
+      "source_title": "Google Data Centers — Oklahoma (Mayes County / Pryor) location page",
+      "captured_at": "2026-06-18",
+      "project_id": "google-mayes-county-ok"
+    },
+    {
+      "id": "google-mayes-water-2026",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "We're supporting regenerative agriculture to improve watershed health in Oklahoma.",
+      "source_url": "https://datacenters.google/locations/oklahoma/",
+      "source_title": "Google Data Centers — Oklahoma (Mayes County / Pryor) location page",
+      "captured_at": "2026-06-18",
+      "project_id": "google-mayes-county-ok"
+    },
+    {
+      "id": "ms-san-antonio-water-2024",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "We'll minimize our water use and replenish more of your water than we use.",
+      "source_url": "https://local.microsoft.com/communities/americas/greater-san-antonio/",
+      "source_title": "Microsoft Local — Greater San Antonio (Datacenter Community Pledge)",
+      "captured_at": "2026-06-18",
+      "project_id": "microsoft-san-antonio-tx",
+      "formal_agreement": true
+    },
+    {
+      "id": "ms-san-antonio-energy-2024",
+      "company_slug": "microsoft",
+      "theme": "energy",
+      "statement": "We'll pay our way to ensure our datacenters don't increase your electricity prices.",
+      "source_url": "https://local.microsoft.com/communities/americas/greater-san-antonio/",
+      "source_title": "Microsoft Local — Greater San Antonio (Datacenter Community Pledge)",
+      "captured_at": "2026-06-18",
+      "project_id": "microsoft-san-antonio-tx",
+      "formal_agreement": true
+    },
+    {
+      "id": "ms-san-antonio-tax-2024",
+      "company_slug": "microsoft",
+      "theme": "tax_revenue",
+      "statement": "We'll add to the tax base that funds your local hospitals, schools, parks, and libraries.",
+      "source_url": "https://local.microsoft.com/communities/americas/greater-san-antonio/",
+      "source_title": "Microsoft Local — Greater San Antonio (Datacenter Community Pledge)",
+      "captured_at": "2026-06-18",
+      "project_id": "microsoft-san-antonio-tx",
+      "formal_agreement": true
+    },
+    {
+      "id": "ms-san-antonio-education-2024",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "statement": "We'll strengthen your community by investing in local AI training and nonprofits.",
+      "source_url": "https://local.microsoft.com/communities/americas/greater-san-antonio/",
+      "source_title": "Microsoft Local — Greater San Antonio (Datacenter Community Pledge)",
+      "captured_at": "2026-06-18",
+      "project_id": "microsoft-san-antonio-tx",
+      "formal_agreement": true
+    },
+    {
+      "id": "ms-boydton-grants-2026",
+      "company_slug": "microsoft",
+      "theme": "community_grants",
+      "statement": "More than 55 projects have been supported across local community organizations.",
+      "source_url": "https://local.microsoft.com/blog/celebrating-10-years-in-boydton/",
+      "source_title": "Microsoft Local — Celebrating 10 years in Boydton, Virginia",
+      "captured_at": "2026-06-18",
+      "project_id": "microsoft-boydton-va"
+    },
+    {
+      "id": "ms-boydton-education-2026",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "statement": "Workforce Development collaboration with the Southern Virginia Higher Education Center and Southside Virginia Community College, including the donation of more than a million dollars in hardware and hundreds of thousands of dollars in scholarships.",
+      "source_url": "https://local.microsoft.com/blog/celebrating-10-years-in-boydton/",
+      "source_title": "Microsoft Local — Celebrating 10 years in Boydton, Virginia",
+      "captured_at": "2026-06-18",
+      "project_id": "microsoft-boydton-va"
+    },
+    {
+      "id": "google-henderson-water-2026",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "Google supports the Colorado River Indian Tribes (CRIT) System Conservation and Canal Lining Projects.",
+      "source_url": "https://datacenters.google/locations/henderson-nevada/",
+      "source_title": "Google Data Centers — Henderson, Nevada location page",
+      "captured_at": "2026-06-19",
+      "project_id": "google-henderson-nv"
+    },
+    {
+      "id": "google-henderson-education-2026",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Grow with Google has collaborated with tens of organizations in Nevada to train more than 141,000 Nevadans on digital skills.",
+      "source_url": "https://datacenters.google/locations/henderson-nevada/",
+      "source_title": "Google Data Centers — Henderson, Nevada location page",
+      "captured_at": "2026-06-19",
+      "project_id": "google-henderson-nv"
+    },
+    {
+      "id": "google-ellis-education-2026",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Grow with Google has partnered with hundreds of organizations in Texas to train more than 1,191,000 Texans on digital skills.",
+      "source_url": "https://datacenters.google/locations/ellis-county-texas/",
+      "source_title": "Google Data Centers — Ellis County, Texas location page",
+      "captured_at": "2026-06-19",
+      "project_id": "google-ellis-county-tx"
+    },
+    {
+      "id": "google-ellis-grants-2026",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "Since 2005, Google and Googlers have given more than $112 million in philanthropic giving (cash grants, social impact funding, employee donations, and gift match) to organizations and nonprofits in Texas.",
+      "source_url": "https://datacenters.google/locations/ellis-county-texas/",
+      "source_title": "Google Data Centers — Ellis County, Texas location page",
+      "captured_at": "2026-06-19",
+      "project_id": "google-ellis-county-tx"
+    },
+    {
+      "id": "aws-umatilla-tax-2026",
+      "company_slug": "amazon",
+      "theme": "tax_revenue",
+      "statement": "AWS contributes the most tax dollars in both Morrow and Umatilla counties.",
+      "source_url": "https://www.aboutamazon.com/news/aws/committed-to-our-communities-the-economic-impact-of-awss-15-6-billion-investment-in-oregon",
+      "source_title": "About Amazon — Economic impact of AWS's $15.6B investment in Oregon",
+      "captured_at": "2026-06-19",
+      "project_id": "aws-umatilla-or"
+    },
+    {
+      "id": "aws-umatilla-education-2026",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "AWS collaborated locally with Blue Mountain Community College (BMCC) to establish the Data Center Technician Training program.",
+      "source_url": "https://www.aboutamazon.com/news/aws/committed-to-our-communities-the-economic-impact-of-awss-15-6-billion-investment-in-oregon",
+      "source_title": "About Amazon — Economic impact of AWS's $15.6B investment in Oregon",
+      "captured_at": "2026-06-19",
+      "project_id": "aws-umatilla-or"
+    },
+    {
+      "id": "ms-el-mirage-water-2024",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "We'll minimize our water use and replenish more of your water than we use.",
+      "source_url": "https://local.microsoft.com/communities/americas/greater-phoenix/",
+      "source_title": "Microsoft Local — Greater Phoenix (Datacenter Community Pledge)",
+      "captured_at": "2026-06-19",
+      "project_id": "microsoft-el-mirage-az",
+      "formal_agreement": true
     }
   ]
 }
