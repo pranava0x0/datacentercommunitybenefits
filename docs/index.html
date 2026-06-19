@@ -12,9 +12,9 @@
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20260607c" />
+    <link rel="stylesheet" href="styles.css?v=20260619a" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5PhEf7slx+6o5N+tymGQjqZ19Jw4Ak9gbc67vxQwayo3z1P8B3BgeC5e0RvgwLFoe3ChQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer src="app.js?v=20260607c"></script>
+    <script defer src="app.js?v=20260619a"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -104,6 +104,34 @@
             what's possible to ask for in future projects. Click any company to see
             their framework and link out to the source.
           </p>
+        </div>
+
+        <div class="summary-stats" aria-label="Dataset scope at a glance">
+          <div class="stat-group">
+            <span class="stat-num" id="ss-companies">—</span>
+            <span class="stat-label">companies</span>
+          </div>
+          <div class="stat-group">
+            <span class="stat-num" id="ss-projects">—</span>
+            <span class="stat-label">data center sites</span>
+          </div>
+          <div class="stat-group">
+            <span class="stat-num" id="ss-claims">—</span>
+            <span class="stat-label">commitments tracked</span>
+          </div>
+          <div class="stat-group">
+            <span class="stat-num" id="ss-power">—</span>
+            <span class="stat-label">announced capacity</span>
+          </div>
+          <div class="stat-group">
+            <span class="stat-num" id="ss-investment">—</span>
+            <span class="stat-label">announced investment</span>
+          </div>
+          <div class="stat-group">
+            <span class="stat-num" id="ss-responses">—</span>
+            <span class="stat-label">community responses</span>
+            <span class="stance-breakdown" id="ss-stance-breakdown" hidden></span>
+          </div>
         </div>
 
         <div class="legend-row" aria-label="Theme legend">
