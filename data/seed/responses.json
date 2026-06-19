@@ -2222,6 +2222,116 @@
       "source_url": "https://desotocountynews.com/mississippi-news/data-centers-likely-increasing-mississippi-power-rates-new-report-claims/",
       "source_title": "DeSoto County News (via Mississippi Today) — Data centers likely increasing Mississippi power rates, new report claims (May 28 2026)",
       "single_source": false
+    },
+    {
+      "id": "resp-aws-umatilla-nitrate",
+      "project_id": "aws-umatilla-or",
+      "date": "2025-11-24",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "A Rolling Stone investigation linked AWS data-center cooling in Morrow and Umatilla counties to worsening groundwater nitrate contamination, reporting that evaporated wastewater sprayed on farmland raised nitrate concentrations in wells serving thousands of residents.",
+      "source_url": "https://www.rollingstone.com/culture/culture-features/data-center-water-pollution-amazon-oregon-1235466613/",
+      "source_title": "Rolling Stone — 'The Precedent Is Flint': How Oregon's Data Center Boom Is Supercharging a Water Crisis",
+      "single_source": false
+    },
+    {
+      "id": "resp-ms-san-antonio-water",
+      "project_id": "microsoft-san-antonio-tx",
+      "date": "2025-07-30",
+      "stance": "mixed",
+      "constituency": "journalist",
+      "summary": "Reporting found San Antonio data centers, including Microsoft's, consumed roughly 463 million gallons of water across 2023–2024 while the region was under Stage 3 drought restrictions; Microsoft points to direct-air cooling and AI thermal management to limit on-site use.",
+      "source_url": "https://www.sacurrent.com/news/san-antonio-data-centers-guzzled-463-million-gallons-of-water-as-area-faced-drought-38116670/",
+      "source_title": "San Antonio Current — Data centers guzzled 463 million gallons as area faced drought",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-henderson-water",
+      "project_id": "google-henderson-nv",
+      "date": "2025-12-05",
+      "stance": "mixed",
+      "constituency": "journalist",
+      "summary": "Records obtained by the Las Vegas Review-Journal showed Google's Henderson campus was Southern Nevada's heaviest data-center water user at 352 million gallons in 2024; UNLV engineering students proposed an aquifer-based alternative, while Google cites 2023 Colorado River Basin replenishment work.",
+      "source_url": "https://www.reviewjournal.com/news/environment/google-runs-southern-nevadas-thirstiest-data-center-unlv-students-have-a-solution-3591015/",
+      "source_title": "Las Vegas Review-Journal — Google runs Southern Nevada's thirstiest data center; UNLV students have a solution",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-berkeley-water",
+      "project_id": "google-berkeley-county-sc",
+      "date": "2026-02-13",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "After a resident lawsuit forced disclosure, records showed Google's Berkeley County campus withdrew 853.8 million gallons of drinking water in 2024 (about 5.2 golf courses' annual irrigation), fueling resident and advocate concerns over water-use transparency; Google says it reuses cooling water multiple times.",
+      "source_url": "https://www.govtech.com/artificial-intelligence/south-carolina-considers-water-needs-of-thirsty-data-centers",
+      "source_title": "GovTech — South Carolina Considers Water Needs of Thirsty Data Centers",
+      "single_source": false
+    },
+    {
+      "id": "resp-ms-new-albany-pause",
+      "project_id": "microsoft-new-albany-oh",
+      "date": "2025-04-08",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "Amid central-Ohio scrutiny of data-center water and power demand, Microsoft paused its broader $1B three-campus Licking County plan in April 2025 but kept the New Albany site moving, retaining ownership and its commitments to fund roadway and utility upgrades.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/microsoft-backs-away-from-1bn-data-center-plans-in-licking-county-ohio/",
+      "source_title": "Data Center Dynamics — Microsoft pauses $1bn data center plans in Licking County, Ohio",
+      "single_source": false
+    },
+    {
+      "id": "resp-ms-heath-pause",
+      "project_id": "microsoft-heath-oh",
+      "date": "2025-04-08",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "Microsoft paused its planned Heath data center (227 acres on Thornwood Drive) in April 2025, saying it would keep the land usable for farming for now while retaining ownership; the pullback followed regional concern over data centers' resource use.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/microsoft-backs-away-from-1bn-data-center-plans-in-licking-county-ohio/",
+      "source_title": "Data Center Dynamics — Microsoft pauses $1bn data center plans in Licking County, Ohio",
+      "single_source": false
+    },
+    {
+      "id": "resp-ms-hebron-pause",
+      "project_id": "microsoft-hebron-oh",
+      "date": "2025-04-08",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "Microsoft paused its planned Hebron data center (223 acres on High Street) in April 2025, keeping the land available for farming in the interim; the company retained ownership and its roadway/utility agreements amid local resource-use scrutiny.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/microsoft-backs-away-from-1bn-data-center-plans-in-licking-county-ohio/",
+      "source_title": "Data Center Dynamics — Microsoft pauses $1bn data center plans in Licking County, Ohio",
+      "single_source": false
+    },
+    {
+      "id": "resp-ms-castroville-water-deal",
+      "project_id": "microsoft-castroville-tx",
+      "date": "2026-04-07",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "In water-stressed Medina County, local officials negotiated a closed-loop cooling arrangement that Microsoft accepted for its Castroville site, projected to use less water than a comparable subdivision; the local electric co-op said data-center energy costs would not shift onto existing ratepayers.",
+      "source_url": "https://www.texasmonthly.com/news-politics/data-center-water-shortage-medina-county/",
+      "source_title": "Texas Monthly — How One Texas County Struck a Deal With Its Data Centers",
+      "single_source": false
+    },
+    {
+      "id": "resp-amazon-boardman-nitrate-settlement",
+      "project_id": "amazon-boardman-or",
+      "date": "2026-03-31",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Amazon agreed to a $20.5M class-action settlement over nitrate groundwater contamination in Morrow County, home to its Boardman-area data centers, funding new residential wells and water-treatment projects while denying that its data centers worsened the pollution.",
+      "source_url": "https://oregoncapitalchronicle.com/2026/03/31/amazon-to-pay-20-5-million-settlement-over-northeast-oregon-nitrate-pollution/",
+      "source_title": "Oregon Capital Chronicle — Amazon to pay $20.5 million settlement over northeast Oregon nitrate pollution",
+      "single_source": false
+    },
+    {
+      "id": "resp-meta-montgomery-positive",
+      "project_id": "meta-montgomery-al",
+      "date": "2025-09-23",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Montgomery officials welcomed Meta's September 2025 expansion of its data center to a $1.5B local commitment (roughly $3B statewide), with the mayor and county commission framing it as a long-term economic boost; Meta paired the expansion with STEM and robotics donations to Montgomery Public Schools.",
+      "source_url": "https://alabamanewscenter.com/2025/09/23/meta-to-expand-montgomery-alabama-data-hub-pushing-total-investment-to-1-5-billion/",
+      "source_title": "Alabama News Center — Meta to expand Montgomery data hub to $1.5 billion",
+      "single_source": false
     }
   ]
 }
