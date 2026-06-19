@@ -520,13 +520,14 @@ class TestDetailTabs:
 
     def test_count_badges_hidden_when_no_data(self, page: Page, base_url: str):
         # Pick a project that has no responses AND no claims so both badges hide.
-        # Seed coverage drives this contract — fixture target updated to
-        # microsoft-hebron-oh (added v1.12) which has neither claims nor
-        # responses. Update this target if hebron later gets data.
+        # Seed coverage drives this contract — fixture target is qts-blakely-ga,
+        # which has neither claims nor responses. (Previously microsoft-hebron-oh,
+        # but that gained a community response.) Update this target if Blakely
+        # later gets data.
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
-        page.evaluate("window.__dcb.selectProject('microsoft-hebron-oh')")
+        page.evaluate("window.__dcb.selectProject('qts-blakely-ga')")
         expect(page.locator("#project-detail")).to_be_visible()
         resp_badge = page.locator("#dtab-responses-count")
         # Badge should be hidden (zero responses for this project).
