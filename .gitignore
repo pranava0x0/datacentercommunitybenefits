@@ -42,3 +42,6 @@ NOTES.local.md
 
 # Working agent output (research notes from sub-agent runs)
 .agent_outputs/
+
+# Curator working output from connectors/research.py harvest
+data/candidates/
