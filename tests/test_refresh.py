@@ -15,10 +15,21 @@ SEED = ROOT / "data" / "seed"
 
 
 def _copy_seed(tmp_path: Path) -> Path:
-    """Copy the real seed into a tmp dir so we can mutate it without affecting the repo."""
+    """Copy the real seed into a tmp dir so we can mutate it without affecting the repo.
+
+    Must mirror every payload refresh.py validates (refresh.PAYLOAD_FILES) — the
+    driver iterates all of them and raises FileNotFoundError on any missing seed.
+    Kept in sync as new payloads land (moratoriums v1.16, tariffs v1.17)."""
     dst = tmp_path / "data" / "seed"
     dst.mkdir(parents=True)
-    for name in ("companies.json", "claims.json", "projects.json", "responses.json"):
+    for name in (
+        "companies.json",
+        "claims.json",
+        "projects.json",
+        "responses.json",
+        "moratoriums.json",
+        "tariffs.json",
+    ):
         shutil.copyfile(SEED / name, dst / name)
     return dst
 

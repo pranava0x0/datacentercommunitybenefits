@@ -771,6 +771,324 @@ class MoratoriumsPayload(_StrictBase):
         return v
 
 
+# ---------------------------------------------------------------------------
+# State large-load utility tariffs (v1.17)
+# ---------------------------------------------------------------------------
+# Tracks state-regulated electricity tariffs / rate designs that utilities have
+# proposed, that regulators have approved, or that were rejected/withdrawn, for
+# large-load customers (primarily data centers). Each tariff is scored against
+# the design-element taxonomy from the DOE / Berkeley Lab (LBL) technical brief
+# "Electricity Rate Designs for Large Loads: Evolving Practices and
+# Opportunities" (January 2025), plus any additional terms OUTSIDE that study,
+# plus the state legislation that authorizes or influenced it.
+#
+# The parameter taxonomy (TARIFF_PARAMETERS) is FROZEN for v1 and mirrors the
+# LBL brief's five element groups. Adding a parameter requires a BACKLOG entry +
+# the JS mirror (TARIFF_PARAMETERS in docs/app.js) — same drift-safe discipline
+# as THEMES / DELIVERED_STATUSES. A test asserts Python/JS parity.
+
+# Regulatory status. Maps the user-facing "passed / proposed / rejected" to the
+# regulator's vocabulary: approved = order issued / in effect; proposed = filed
+# or settlement pending a decision; rejected = denied, withdrawn, or died.
+TARIFF_STATUSES: tuple[str, ...] = ("approved", "proposed", "rejected")
+TariffStatus = Literal["approved", "proposed", "rejected"]
+TARIFF_STATUS_LABELS: dict[str, str] = {
+    "approved": "Approved",
+    "proposed": "Proposed",
+    "rejected": "Rejected / Withdrawn",
+}
+
+# Regulatory level. 'state' = state PUC/PSC tariff (the dataset's focus);
+# 'federal' = a FERC co-location / interconnection case, included for context
+# but kept out of the state-tariff stat counts (see Tariff.jurisdiction_level).
+TARIFF_JURISDICTION_LEVELS: tuple[str, ...] = ("state", "federal")
+TariffJurisdictionLevel = Literal["state", "federal"]
+
+# The five LBL element groups, in the brief's order. (group_key, label).
+TARIFF_PARAMETER_GROUPS: tuple[tuple[str, str], ...] = (
+    ("eligibility", "Eligibility & Applicability"),
+    ("contract_size", "Contract Size"),
+    ("duration", "Contract Duration & Exit"),
+    ("energy_source", "Energy Source"),
+    ("other", "Other Elements"),
+)
+
+# The 17 large-load tariff design elements from the LBL brief, in the brief's
+# order, grouped by the categories above. Keys are stable identifiers; labels
+# are display text. FROZEN for v1.
+TARIFF_PARAMETERS: tuple[str, ...] = (
+    # Eligibility & applicability
+    "min_load",
+    "monthly_demand_charge",
+    "customer_type",
+    "study_cost_recovery",
+    "credit_collateral",
+    # Contract size
+    "contracted_capacity",
+    "resize_reassign",
+    "btm_backup",
+    "load_factor",
+    # Contract duration & exit
+    "contract_duration",
+    "ramp_times",
+    "duration_flexibility",
+    "exit_fee",
+    # Energy source
+    "clean_energy",
+    "specific_generation",
+    # Other elements
+    "marginal_pricing",
+    "econ_dev_payments",
+)
+
+TARIFF_PARAMETER_LABELS: dict[str, str] = {
+    "min_load": "Minimum load requirement",
+    "monthly_demand_charge": "Minimum demand charge",
+    "customer_type": "Customer-type applicability",
+    "study_cost_recovery": "Study-cost recovery",
+    "credit_collateral": "Credit rating / collateral",
+    "contracted_capacity": "Contracted capacity & energy",
+    "resize_reassign": "Resizing / reassignment",
+    "btm_backup": "Behind-the-meter backup",
+    "load_factor": "Minimum load factor",
+    "contract_duration": "Contract duration",
+    "ramp_times": "Ramp times",
+    "duration_flexibility": "Duration flexibility",
+    "exit_fee": "Exit fee",
+    "clean_energy": "Clean-energy requirements",
+    "specific_generation": "Specific generation technologies",
+    "marginal_pricing": "Marginal pricing / cost-sharing",
+    "econ_dev_payments": "Economic-development payments",
+}
+
+# One-line plain-English description of each LBL element (for tooltips / detail).
+TARIFF_PARAMETER_DESCRIPTIONS: dict[str, str] = {
+    "min_load": "A lower-bound MW load threshold to qualify for the tariff.",
+    "monthly_demand_charge": "Minimum charge tied to a percentage of forecasted maximum demand.",
+    "customer_type": "Tariff scoped to a specific large-load customer type (e.g., data centers).",
+    "study_cost_recovery": "Customer pays for interconnection / system-impact studies.",
+    "credit_collateral": "Minimum credit rating and/or collateral / deposit requirements.",
+    "contracted_capacity": "Defined MW / MWh the customer is obligated to buy.",
+    "resize_reassign": "Terms to resize, reassign, or sell unused contracted capacity / energy.",
+    "btm_backup": "Treatment of behind-the-meter generation / storage as backup or supplemental power.",
+    "load_factor": "A minimum average-to-peak load ratio the customer must maintain.",
+    "contract_duration": "Minimum contract term to back long-lived utility investment.",
+    "ramp_times": "An extended period to reach full contracted load.",
+    "duration_flexibility": "Modifications / renewals to the contract term.",
+    "exit_fee": "Charge for exiting the tariff or terminating service early.",
+    "clean_energy": "Requirements / options to serve the load with clean or renewable energy.",
+    "specific_generation": "Utility procures specific named generation on the customer's behalf.",
+    "marginal_pricing": "Marginal-cost pricing / cost-sharing to limit cross-subsidization.",
+    "econ_dev_payments": "Direct payments for workforce, community, or low-income programs.",
+}
+
+# Maps each parameter key to its group key (for grouped rendering / parity test).
+TARIFF_PARAMETER_GROUP_OF: dict[str, str] = {
+    "min_load": "eligibility",
+    "monthly_demand_charge": "eligibility",
+    "customer_type": "eligibility",
+    "study_cost_recovery": "eligibility",
+    "credit_collateral": "eligibility",
+    "contracted_capacity": "contract_size",
+    "resize_reassign": "contract_size",
+    "btm_backup": "contract_size",
+    "load_factor": "contract_size",
+    "contract_duration": "duration",
+    "ramp_times": "duration",
+    "duration_flexibility": "duration",
+    "exit_fee": "duration",
+    "clean_energy": "energy_source",
+    "specific_generation": "energy_source",
+    "marginal_pricing": "other",
+    "econ_dev_payments": "other",
+}
+
+# Per-parameter coverage status. "included" = the tariff addresses this element;
+# "partial" = addresses it in a limited / conditional way. A parameter the
+# tariff does NOT address is simply OMITTED from Tariff.parameters (sparse) — the
+# frontend iterates the full TARIFF_PARAMETERS list and renders the gap, so
+# "not met" is shown to the reader without storing a row for it.
+TARIFF_COVERAGE_STATUSES: tuple[str, ...] = ("included", "partial")
+TariffCoverageStatus = Literal["included", "partial"]
+
+
+class TariffParameter(_StrictBase):
+    """How a single tariff addresses one LBL design element.
+
+    `detail` must be concrete and specific to THIS tariff — the value, threshold,
+    or mechanism, not a restatement of the generic element. Cite a specific
+    `source_url` only when it differs from the tariff's main source.
+    """
+
+    status: TariffCoverageStatus = "included"
+    detail: str = Field(
+        min_length=1,
+        description="What the tariff specifies for this element (1 sentence, concrete).",
+    )
+    source_url: Optional[HttpUrl] = Field(
+        default=None,
+        description="Source for THIS element if different from the tariff's main source_url.",
+    )
+
+
+class TariffLegislation(_StrictBase):
+    """A state law / bill that authorizes or influenced this tariff."""
+
+    title: str = Field(
+        min_length=1, description="e.g., 'Ohio HB 15 (2025)' or 'Texas SB 6 (2025)'."
+    )
+    url: HttpUrl
+    citation: Optional[str] = Field(
+        default=None, description="Bill number / statutory citation."
+    )
+    status: Optional[str] = Field(
+        default=None, description="e.g., 'Enacted 2025', 'Pending in committee'."
+    )
+    summary: Optional[str] = Field(
+        default=None,
+        description="1 sentence on how the legislation relates to the tariff.",
+    )
+
+
+class TariffAdditionalTerm(_StrictBase):
+    """A material term in the tariff that is NOT one of the LBL design elements."""
+
+    term: str = Field(min_length=1, description="Short label for the term.")
+    detail: str = Field(min_length=1, description="1 sentence describing it.")
+    source_url: Optional[HttpUrl] = None
+
+
+class SourceResource(_StrictBase):
+    """A typed {url, title} source link.
+
+    Replaces the loose `list[dict]` shape so refresh.py fails fast on a missing
+    URL/title or a non-HTTP value — the frontend's detail renderer assumes both
+    fields exist, and a broken source link is exactly the traceability failure
+    this dataset must not ship.
+    """
+
+    url: HttpUrl
+    title: str = Field(min_length=1)
+
+
+class Tariff(_StrictBase):
+    """A state-regulated large-load / data-center electricity tariff or rate design."""
+
+    id: str = Field(min_length=1)
+    utility: str = Field(min_length=1, description="Utility filing / holding the tariff.")
+    state: str = Field(
+        min_length=2,
+        max_length=2,
+        description="Two-letter US state / 'federal' code where the tariff is filed (primary).",
+    )
+    jurisdiction_level: TariffJurisdictionLevel = Field(
+        default="state",
+        description=(
+            "'state' for a state-regulated (PUC/PSC) tariff; 'federal' for a FERC "
+            "co-location / interconnection case. Federal cases are included for "
+            "context (the LBL brief covers co-location) but are EXCLUDED from the "
+            "state-tariff stat counts and badged separately so they don't read as "
+            "a state tariff. Almost always 'state'."
+        ),
+    )
+    tariff_name: str = Field(
+        min_length=1, description="Official tariff / rider / service-agreement name."
+    )
+    tariff_type: Optional[str] = Field(
+        default=None,
+        description=(
+            "e.g., 'Data center tariff', 'Clean transition tariff', "
+            "'Special contract / ESA', 'Large-load rider'."
+        ),
+    )
+    status: TariffStatus
+    status_detail: Optional[str] = Field(
+        default=None,
+        description="Nuance, e.g. 'Settlement pending PUCO approval' or 'Withdrawn 2025'.",
+    )
+    regulator: str = Field(
+        min_length=1, description="The approving PUC / PSC / commission (with acronym)."
+    )
+    docket_number: Optional[str] = Field(
+        default=None, description="PUC docket / case number, e.g. '24-508-EL-ATA'."
+    )
+    filed_date: Optional[Date] = None
+    decision_date: Optional[Date] = Field(
+        default=None,
+        description="Date approved / rejected. Null while still proposed.",
+    )
+    min_load_mw: Optional[float] = Field(
+        default=None,
+        ge=0,
+        description="Headline minimum-load threshold (MW), surfaced in the directory row.",
+    )
+    customers: Optional[list[str]] = Field(
+        default=None,
+        description="Named large-load customers served under the tariff (e.g., 'Google').",
+    )
+    summary: str = Field(
+        min_length=1,
+        description="1–2 sentence neutral description of what the tariff does.",
+    )
+    parameters: dict[str, TariffParameter] = Field(
+        default_factory=dict,
+        description=(
+            "LBL design elements the tariff addresses, keyed by TARIFF_PARAMETERS "
+            "key. Sparse: omit elements the tariff does not address."
+        ),
+    )
+    additional_terms: list[TariffAdditionalTerm] = Field(
+        default_factory=list,
+        description="Material terms not covered by the LBL element taxonomy.",
+    )
+    legislation: list[TariffLegislation] = Field(
+        default_factory=list,
+        description="State legislation that authorizes or influenced the tariff.",
+    )
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+    resources: Optional[list[SourceResource]] = Field(
+        default=None,
+        description=(
+            "Additional reputable {url, title} sources. Prioritize government "
+            "(PUC / legislature) links, then major trade press."
+        ),
+    )
+    captured_at: Date = Field(
+        description="Date this record was curated / the tariff status was verified."
+    )
+
+    @field_validator("state")
+    @classmethod
+    def _state_upper(cls, v: str) -> str:
+        return v.upper()
+
+    @field_validator("parameters")
+    @classmethod
+    def _params_known(cls, v: dict) -> dict:
+        unknown = [k for k in v if k not in TARIFF_PARAMETERS]
+        if unknown:
+            raise ValueError(
+                f"Unknown tariff parameter key(s): {sorted(unknown)}. "
+                f"Valid keys: {list(TARIFF_PARAMETERS)}"
+            )
+        return v
+
+
+class TariffsPayload(_StrictBase):
+    generated_at: Date
+    tariffs: list[Tariff]
+
+    @field_validator("tariffs")
+    @classmethod
+    def _ids_unique(cls, v: list[Tariff]) -> list[Tariff]:
+        ids = [t.id for t in v]
+        if len(ids) != len(set(ids)):
+            dup = [i for i in ids if ids.count(i) > 1]
+            raise ValueError(f"Duplicate tariff ids: {sorted(set(dup))}")
+        return v
+
+
 # Top-level payloads (what refresh.py emits, what the frontend reads)
 # ---------------------------------------------------------------------------
 
@@ -844,6 +1162,15 @@ __all__ = [
     "MORATORIUM_STATUSES",
     "MORATORIUM_REASON_TYPES",
     "MORATORIUM_REASON_LABELS",
+    "TARIFF_STATUSES",
+    "TARIFF_STATUS_LABELS",
+    "TARIFF_JURISDICTION_LEVELS",
+    "TARIFF_PARAMETERS",
+    "TARIFF_PARAMETER_LABELS",
+    "TARIFF_PARAMETER_DESCRIPTIONS",
+    "TARIFF_PARAMETER_GROUPS",
+    "TARIFF_PARAMETER_GROUP_OF",
+    "TARIFF_COVERAGE_STATUSES",
     "Theme",
     "CompanySlug",
     "ProjectStatus",
@@ -853,6 +1180,9 @@ __all__ = [
     "RatepayerStatus",
     "MoratoriumStatus",
     "MoratoriumReasonType",
+    "TariffStatus",
+    "TariffCoverageStatus",
+    "TariffJurisdictionLevel",
     "PledgePrincipleStatus",
     "PledgePrincipleAssessment",
     "Company",
@@ -860,6 +1190,11 @@ __all__ = [
     "Delivered",
     "Ratepayer",
     "Moratorium",
+    "TariffParameter",
+    "TariffLegislation",
+    "TariffAdditionalTerm",
+    "SourceResource",
+    "Tariff",
     "Claim",
     "Project",
     "CommunityResponse",
@@ -868,4 +1203,5 @@ __all__ = [
     "ProjectsPayload",
     "ResponsesPayload",
     "MoratoriumsPayload",
+    "TariffsPayload",
 ]

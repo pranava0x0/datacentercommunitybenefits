@@ -1059,6 +1059,81 @@ class TestRatepayerView:
         # The five commitment items still exist in the DOM (just hidden).
         assert page.locator(".rp-commitment-list li").count() == 5
 
+    def test_every_card_surfaces_a_source_link(self, page: Page, base_url: str):
+        # v1.17 fix (behavioral guard, not a string check): EVERY ratepayer site
+        # card -- assessed, pledge-era unassessed, and pre-pledge -- must render a
+        # visible source link, including pledge_only sites that have no evidence
+        # claim. Renders against #ratepayer and asserts on the live DOM.
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.wait_for_selector(
+            "#rp-pre-pledge .rp-pre-card", state="attached", timeout=10_000
+        )
+        counts = page.evaluate(
+            """() => {
+              const q = (sel) => [...document.querySelectorAll(sel)];
+              const hasSrc = (el) => !!el.querySelector('.rp-card-sources a[href^="http"]');
+              const assessed = q('#rp-scorecard .rp-card');
+              const pre = q('#rp-pre-pledge .rp-pre-card, #rp-unassessed .rp-pre-card');
+              const pledgeOnly = assessed.filter((c) => c.dataset.status === 'pledge_only');
+              return {
+                assessed: assessed.length,
+                assessedWithSrc: assessed.filter(hasSrc).length,
+                pre: pre.length,
+                preWithSrc: pre.filter(hasSrc).length,
+                pledgeOnly: pledgeOnly.length,
+                pledgeOnlyWithSrc: pledgeOnly.filter(hasSrc).length,
+              };
+            }"""
+        )
+        assert counts["assessed"] >= 5, counts
+        assert counts["assessedWithSrc"] == counts["assessed"], counts
+        assert counts["pre"] >= 1, counts
+        assert counts["preWithSrc"] == counts["pre"], counts
+        # The class of sites the original bug hid: pledge_only (no evidence claim)
+        # must still get a project/pledge source link.
+        assert counts["pledgeOnly"] >= 1, counts
+        assert counts["pledgeOnlyWithSrc"] == counts["pledgeOnly"], counts
+
+
+class TestTariffsView:
+    """Utility Tariffs tab: rendering, keyboard access, federal segregation."""
+
+    def _open(self, page: Page, base_url: str) -> None:
+        page.goto(base_url + "/#tariffs")
+        page.wait_for_selector("#tariffs-tbody tr", timeout=10_000)
+
+    def test_tab_renders_directory_and_coverage(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert page.locator("#tariffs-tbody tr").count() >= 10
+        # All 17 LBL elements appear as coverage cards.
+        assert page.locator("#tariff-coverage-grid .tariff-coverage-card").count() == 17
+
+    def test_row_opens_detail_via_keyboard(self, page: Page, base_url: str):
+        # Accessibility: rows are focusable buttons that open on Enter (not
+        # mouse-only). Guards the keyboard path the reviewer flagged.
+        self._open(page, base_url)
+        first = page.locator("#tariffs-tbody tr").first
+        assert first.get_attribute("role") == "button"
+        assert first.get_attribute("tabindex") == "0"
+        first.focus()
+        page.keyboard.press("Enter")
+        expect(page.locator("#tariff-detail")).to_be_visible()
+        # The detail pop-out shows the full 17-element checklist.
+        assert page.locator("#td-params-body .tparam-row").count() == 17
+
+    def test_federal_case_is_badged_and_excluded_from_state_count(
+        self, page: Page, base_url: str
+    ):
+        self._open(page, base_url)
+        # The FERC co-location case carries a FED badge so it doesn't read as a
+        # state tariff, and a "Federal cases" stat tile surfaces it separately.
+        assert page.locator("#tariffs-tbody .badge-tariff-federal").count() >= 1
+        stat_labels = page.eval_on_selector_all(
+            "#tariff-stats .rp-stat-label", "els => els.map(e => e.textContent)"
+        )
+        assert "Federal cases" in stat_labels, stat_labels
+
 
 # ---------------------------------------------------------------------------
 # v1.18 ported features: summary stats, theme/state/constituency filters,
