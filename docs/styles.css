@@ -1708,6 +1708,19 @@ main {
   color: var(--text-muted);
   line-height: 1.3;
 }
+/* When the note is a source link, show a ↗ affordance via CSS so the link
+   text stays exactly the signing-track string (inner_text ignores ::after). */
+a.rp-roster-note {
+  color: var(--accent);
+  text-decoration: none;
+}
+a.rp-roster-note::after {
+  content: " ↗";
+  color: var(--text-muted);
+}
+a.rp-roster-note:hover {
+  text-decoration: underline;
+}
 
 /* Scorecard toolbar: legend chips + export button on the same row */
 .rp-scorecard-toolbar {
@@ -2073,6 +2086,38 @@ main {
 
 .rp-evidence::after {
   content: "\201D";
+}
+
+/* Always-visible sources footer on every ratepayer site card (v1.17 fix) */
+.rp-card-sources {
+  margin-top: 0.7rem;
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.rp-card-sources .rp-sources-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  margin-right: 0.3rem;
+}
+.rp-card-sources a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.rp-card-sources a:hover {
+  text-decoration: underline;
+}
+.rp-card-sources .rp-src-sep {
+  color: var(--border-strong, var(--text-muted));
+}
+/* The pre-pledge / unassessed card is a grid; let the sources span full width */
+.rp-pre-card .rp-card-sources {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
 }
 
 .rp-footnote {
@@ -2541,6 +2586,313 @@ main {
 
 [data-theme="dark"] .moratorium-table tbody tr:hover td {
   background: rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   Utility Tariffs view (v1.17)
+   ========================================================================== */
+
+.tariff-table tbody tr {
+  cursor: pointer;
+}
+.tariff-table th.num,
+.tariff-table td.num {
+  text-align: right;
+  white-space: nowrap;
+}
+.tariff-row-name {
+  font-weight: 600;
+}
+.tariff-row-type {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+.tariff-elem-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Status badges + row accent (approved↔green, proposed↔amber, rejected↔red) */
+.badge-tariff-status-approved {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.badge-tariff-status-proposed {
+  background-color: #fef3c7;
+  color: #78350f;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.badge-tariff-status-rejected {
+  background-color: #fee2e2;
+  color: #7f1d1d;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.tariff-status-approved td:first-child {
+  box-shadow: inset 3px 0 0 #2f7a4d;
+}
+.tariff-status-proposed td:first-child {
+  box-shadow: inset 3px 0 0 #f59e0b;
+}
+.tariff-status-rejected td:first-child {
+  box-shadow: inset 3px 0 0 #dc2626;
+}
+
+/* LBL element coverage grid */
+.tariff-coverage-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.tariff-coverage-group-title {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+.tariff-coverage-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tariff-coverage-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.7rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--text);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.tariff-coverage-card:hover {
+  border-color: var(--border-strong, #888);
+}
+.tariff-coverage-card.active {
+  border-color: #2f6feb;
+  background: rgba(47, 111, 235, 0.08);
+}
+.tariff-coverage-card:focus-visible {
+  outline: 2px solid #2f6feb;
+  outline-offset: 2px;
+}
+.tariff-coverage-card.empty {
+  opacity: 0.5;
+}
+.tariff-coverage-card .tcc-count {
+  min-width: 1.4rem;
+  height: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2, rgba(0,0,0,0.06));
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.tariff-coverage-card.active .tcc-count {
+  background: #2f6feb;
+  color: #fff;
+}
+
+/* Coverage popout (which tariffs address an element) */
+.tariff-coverage-popout {
+  margin-top: 1rem;
+}
+.tariff-popout {
+  border: 1px solid var(--border);
+  border-left: 4px solid #2f6feb;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+}
+.tariff-popout-title {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+.tariff-popout-n {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 0.4rem;
+}
+.tariff-popout-desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.tariff-popout-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.tariff-popout-item {
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.tariff-popout-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.tpi-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+}
+.tpi-state {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+.tpi-detail {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.tariff-partial-tag {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #92600a;
+  background: #fef3c7;
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+}
+
+/* Detail pop-out: per-element checklist */
+.tariff-detail .tariff-params {
+  margin-top: 1.25rem;
+}
+.tparam-group {
+  margin-bottom: 1rem;
+}
+.tparam-group-title {
+  margin: 0 0 0.4rem;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+}
+.tparam-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.tparam-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+.tparam-icon {
+  flex: 0 0 auto;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.05rem;
+}
+.tparam-included .tparam-icon {
+  background: #d1fae5;
+  color: #065f46;
+}
+.tparam-partial .tparam-icon {
+  background: #fef3c7;
+  color: #92600a;
+}
+.tparam-absent .tparam-icon {
+  background: var(--surface-2, rgba(0,0,0,0.06));
+  color: var(--text-muted);
+}
+.tparam-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.tparam-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.tparam-status {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.tparam-absent .tparam-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.tparam-detail {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.tparam-src {
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+/* Additional terms + legislation lists */
+.tariff-additional-list,
+.tariff-legislation-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.tariff-additional-list li,
+.tariff-legislation-list li {
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+.tleg-meta {
+  display: inline-block;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-left: 0.4rem;
+}
+.tleg-summary {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
 }
 
 /* ==========================================================================

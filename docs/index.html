@@ -13,7 +13,7 @@
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
     <link rel="stylesheet" href="styles.css?v=20260619a" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5PhEf7slx+6o5N+tymGQjqZ19Jw4Ak9gbc67vxQwayo3z1P8B3BgeC5e0RvgwLFoe3ChQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="app.js?v=20260619a"></script>
   </head>
   <body>
@@ -73,6 +73,16 @@
           aria-controls="view-moratoriums"
         >
           Policy Moratoriums
+        </button>
+        <button
+          id="tab-tariffs"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-tariffs"
+        >
+          Utility Tariffs
         </button>
         <button
           id="tab-aggregate"
@@ -654,6 +664,156 @@
             </table>
           </div>
         </details>
+      </section>
+
+      <!-- ====================== UTILITY TARIFFS VIEW ====================== -->
+      <section
+        id="view-tariffs"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-tariffs"
+        hidden
+      >
+        <div class="hero">
+          <h2 class="hero-title">State Utility Tariff Designs for Large Loads</h2>
+          <p class="hero-dek">
+            How states are re-pricing electricity for data centers. Each tariff is
+            scored against the 17 large-load rate-design elements catalogued in the
+            DOE / Berkeley Lab brief
+            <a
+              id="tariff-lbl-link"
+              href="https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >“Electricity Rate Designs for Large Loads” (Jan 2025) ↗</a
+            >, plus terms outside that study and the state legislation behind them.
+            Every cell links to a government or authoritative source.
+          </p>
+        </div>
+
+        <!-- Status overview stats -->
+        <ul id="tariff-stats" class="rp-stats" aria-label="Tariff statistics"></ul>
+
+        <!-- LBL element coverage: how many tracked tariffs address each element -->
+        <div id="tariff-coverage-section" class="summary-section">
+          <h3>LBL rate-design elements — how often each appears</h3>
+          <p class="view-description">
+            Count of tracked tariffs that include each design element from the LBL
+            study. Click an element to see which tariffs address it. Elements with
+            no coverage are shown muted — a gap in current practice, not an error.
+          </p>
+          <div id="tariff-coverage-grid" class="tariff-coverage-grid">
+            <!-- Populated by app.js -->
+          </div>
+          <div id="tariff-coverage-popout" class="tariff-coverage-popout"></div>
+        </div>
+
+        <!-- Filters and directory table -->
+        <details class="moratoriums-table-section" open>
+          <summary id="tariffs-table-heading">
+            Tariff Directory
+            <span class="table-controls">
+              <button id="tariffs-csv-btn" class="btn-secondary" title="Export to CSV">⬇ CSV Export</button>
+            </span>
+          </summary>
+
+          <div id="tariff-filters" class="filters">
+            <label>Status:
+              <select id="tariff-status-filter">
+                <option value="">All</option>
+                <option value="approved">Approved</option>
+                <option value="proposed">Proposed</option>
+                <option value="rejected">Rejected / Withdrawn</option>
+              </select>
+            </label>
+            <label>State:
+              <select id="tariff-state-filter">
+                <option value="">All states</option>
+              </select>
+            </label>
+          </div>
+          <div class="table-scroll">
+            <table id="tariffs-table" class="moratorium-table tariff-table">
+              <thead>
+                <tr>
+                  <th role="columnheader">Utility</th>
+                  <th role="columnheader">State</th>
+                  <th role="columnheader">Tariff</th>
+                  <th role="columnheader">Status</th>
+                  <th role="columnheader" class="num">Min load</th>
+                  <th role="columnheader" class="num" title="LBL rate-design elements addressed out of 17">LBL elements</th>
+                </tr>
+              </thead>
+              <tbody id="tariffs-tbody">
+                <!-- Populated by app.js -->
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <p class="rp-footnote">
+          Coverage is curated, not exhaustive: it tracks states with a documented
+          large-load tariff, rate class, or rule. Many states have no
+          data-center-specific tariff yet — an absence that is itself a finding.
+          “LBL elements” counts how many of the 17 study elements a tariff
+          addresses; it is a coverage measure, not a quality score.
+        </p>
+
+        <!-- ================= TARIFF DETAIL MODAL ================= -->
+        <aside id="tariff-detail" class="moratorium-detail tariff-detail" aria-live="polite" hidden>
+          <button id="tariff-detail-close" class="detail-close" type="button" aria-label="Close tariff details">
+            ×
+          </button>
+          <header class="detail-header">
+            <p class="eyebrow" id="td-utility">—</p>
+            <h3 id="td-name">—</h3>
+            <p class="detail-sub">
+              <span id="td-status" class="badge">—</span> ·
+              <span id="td-state">—</span>
+            </p>
+          </header>
+
+          <dl class="kv">
+            <dt>Utility</dt>
+            <dd id="td-utility-detail">—</dd>
+            <dt>Regulator</dt>
+            <dd id="td-regulator">—</dd>
+            <dt>Docket / case</dt>
+            <dd id="td-docket">—</dd>
+            <dt>Status</dt>
+            <dd id="td-status-detail">—</dd>
+            <dt>Decision date</dt>
+            <dd id="td-decision">—</dd>
+            <dt>Minimum load</dt>
+            <dd id="td-minload">—</dd>
+            <dt>Large-load customers</dt>
+            <dd id="td-customers">—</dd>
+          </dl>
+
+          <div id="td-summary" class="moratorium-summary"></div>
+
+          <section id="td-params" class="tariff-params" aria-labelledby="td-params-heading">
+            <h4 id="td-params-heading">LBL rate-design elements — met or not</h4>
+            <div id="td-params-body"><!-- Populated by app.js --></div>
+          </section>
+
+          <section id="td-additional" class="tariff-additional" aria-labelledby="td-additional-heading" hidden>
+            <h4 id="td-additional-heading">Additional terms (outside the LBL study)</h4>
+            <ul id="td-additional-list" class="tariff-additional-list"></ul>
+          </section>
+
+          <section id="td-legislation" class="tariff-legislation" aria-labelledby="td-legislation-heading" hidden>
+            <h4 id="td-legislation-heading">State legislation behind this tariff</h4>
+            <ul id="td-legislation-list" class="tariff-legislation-list"></ul>
+          </section>
+
+          <section id="td-resources" class="moratorium-resources" aria-labelledby="td-resources-heading">
+            <h4 id="td-resources-heading">Sources & Resources</h4>
+            <ul id="td-resources-list" class="resources-list"></ul>
+          </section>
+
+          <p id="td-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
+        </aside>
       </section>
 
       <!-- ====================== AGGREGATE VIEW ====================== -->

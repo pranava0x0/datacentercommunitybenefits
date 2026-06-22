@@ -88,6 +88,102 @@ const MORATORIUM_REASON_LABELS = {
   equity: "Ratepayer Protection",
 };
 
+// v1.17: State large-load utility tariff vocabulary. Must mirror
+// schema.TARIFF_STATUSES / TARIFF_PARAMETERS / TARIFF_PARAMETER_* exactly;
+// `test_tariff_constants_match_frontend` enforces parity.
+const TARIFF_STATUSES = ["approved", "proposed", "rejected"];
+const TARIFF_STATUS_LABELS = {
+  approved: "Approved",
+  proposed: "Proposed",
+  rejected: "Rejected / Withdrawn",
+};
+// The five LBL element groups, in the brief's order: [group_key, label].
+const TARIFF_PARAMETER_GROUPS = [
+  ["eligibility", "Eligibility & Applicability"],
+  ["contract_size", "Contract Size"],
+  ["duration", "Contract Duration & Exit"],
+  ["energy_source", "Energy Source"],
+  ["other", "Other Elements"],
+];
+// The 17 large-load rate-design elements from the LBL brief, in order.
+const TARIFF_PARAMETERS = [
+  "min_load",
+  "monthly_demand_charge",
+  "customer_type",
+  "study_cost_recovery",
+  "credit_collateral",
+  "contracted_capacity",
+  "resize_reassign",
+  "btm_backup",
+  "load_factor",
+  "contract_duration",
+  "ramp_times",
+  "duration_flexibility",
+  "exit_fee",
+  "clean_energy",
+  "specific_generation",
+  "marginal_pricing",
+  "econ_dev_payments",
+];
+const TARIFF_PARAMETER_LABELS = {
+  min_load: "Minimum load requirement",
+  monthly_demand_charge: "Minimum demand charge",
+  customer_type: "Customer-type applicability",
+  study_cost_recovery: "Study-cost recovery",
+  credit_collateral: "Credit rating / collateral",
+  contracted_capacity: "Contracted capacity & energy",
+  resize_reassign: "Resizing / reassignment",
+  btm_backup: "Behind-the-meter backup",
+  load_factor: "Minimum load factor",
+  contract_duration: "Contract duration",
+  ramp_times: "Ramp times",
+  duration_flexibility: "Duration flexibility",
+  exit_fee: "Exit fee",
+  clean_energy: "Clean-energy requirements",
+  specific_generation: "Specific generation technologies",
+  marginal_pricing: "Marginal pricing / cost-sharing",
+  econ_dev_payments: "Economic-development payments",
+};
+const TARIFF_PARAMETER_DESCRIPTIONS = {
+  min_load: "A lower-bound MW load threshold to qualify for the tariff.",
+  monthly_demand_charge: "Minimum charge tied to a percentage of forecasted maximum demand.",
+  customer_type: "Tariff scoped to a specific large-load customer type (e.g., data centers).",
+  study_cost_recovery: "Customer pays for interconnection / system-impact studies.",
+  credit_collateral: "Minimum credit rating and/or collateral / deposit requirements.",
+  contracted_capacity: "Defined MW / MWh the customer is obligated to buy.",
+  resize_reassign: "Terms to resize, reassign, or sell unused contracted capacity / energy.",
+  btm_backup: "Treatment of behind-the-meter generation / storage as backup or supplemental power.",
+  load_factor: "A minimum average-to-peak load ratio the customer must maintain.",
+  contract_duration: "Minimum contract term to back long-lived utility investment.",
+  ramp_times: "An extended period to reach full contracted load.",
+  duration_flexibility: "Modifications / renewals to the contract term.",
+  exit_fee: "Charge for exiting the tariff or terminating service early.",
+  clean_energy: "Requirements / options to serve the load with clean or renewable energy.",
+  specific_generation: "Utility procures specific named generation on the customer's behalf.",
+  marginal_pricing: "Marginal-cost pricing / cost-sharing to limit cross-subsidization.",
+  econ_dev_payments: "Direct payments for workforce, community, or low-income programs.",
+};
+// Maps each parameter key to its group key (for grouped rendering).
+const TARIFF_PARAMETER_GROUP_OF = {
+  min_load: "eligibility",
+  monthly_demand_charge: "eligibility",
+  customer_type: "eligibility",
+  study_cost_recovery: "eligibility",
+  credit_collateral: "eligibility",
+  contracted_capacity: "contract_size",
+  resize_reassign: "contract_size",
+  btm_backup: "contract_size",
+  load_factor: "contract_size",
+  contract_duration: "duration",
+  ramp_times: "duration",
+  duration_flexibility: "duration",
+  exit_fee: "duration",
+  clean_energy: "energy_source",
+  specific_generation: "energy_source",
+  marginal_pricing: "other",
+  econ_dev_payments: "other",
+};
+
 
 const STATUS_LABELS = {
   announced: "Announced",
@@ -223,6 +319,7 @@ const state = {
   projects: [],
   responses: [],
   moratoriums: [],
+  tariffs: [],
   themeRecommendations: {},
   responsesByProject: new Map(),
   claimsByProject: new Map(),
@@ -244,6 +341,7 @@ const state = {
   explorerLoaded: false,
   ratepayerLoaded: false,
   moratoriumsLoaded: false,
+  tariffsLoaded: false,
   aggregateLoaded: false,
   leafletLoaded: false,
   map: null,
@@ -337,6 +435,7 @@ const VIEWS = [
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
   { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
+  { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
 ];
 
 // Scroll a tab button into the visible portion of the tabbar. Called both
@@ -480,6 +579,10 @@ function activateView(name) {
   } else if (target.name === "moratoriums") {
     loadMoratoriumsData().catch((err) => {
       console.error("Failed to load moratoriums data:", err);
+    });
+  } else if (target.name === "tariffs") {
+    loadTariffsData().catch((err) => {
+      console.error("Failed to load tariffs data:", err);
     });
   }
 }
@@ -956,6 +1059,452 @@ function showMoratoriumDetail(m) {
 function closeMoratoriumDetail() {
   const modal = document.getElementById("moratorium-detail");
   if (modal) modal.hidden = true;
+}
+
+// --------------------------------------------------------------------------
+// Utility Tariffs view (v1.17)
+// --------------------------------------------------------------------------
+// State large-load tariff designs scored against the DOE/LBL rate-design
+// element taxonomy. Lazy-loads its own payload (data/tariffs.json); no Leaflet.
+
+async function loadTariffsData() {
+  if (state.tariffsLoaded) return;
+  const payload = await fetchJson("data/tariffs.json");
+  state.tariffs = payload.tariffs || [];
+  state.tariffsLoaded = true;
+  renderTariffsView();
+}
+
+// Number of LBL design elements a tariff addresses (included OR partial).
+function tariffElementCount(t) {
+  return Object.keys(t.parameters || {}).length;
+}
+
+function renderTariffsView() {
+  wireTariffsFilters();
+  wireTariffDetail();
+  populateTariffStateFilter();
+
+  const tbody = document.getElementById("tariffs-tbody");
+  if (!tbody) return;
+  if (!Array.isArray(state.tariffs) || state.tariffs.length === 0) {
+    tbody.innerHTML = "<tr><td colspan='6'>No tariffs loaded</td></tr>";
+    return;
+  }
+
+  // Stats + LBL coverage use the FULL set (not the filtered table).
+  renderTariffStats(state.tariffs);
+  renderTariffCoverage(state.tariffs);
+  renderTariffsTable();
+}
+
+function renderTariffStats(tariffs) {
+  const ul = document.getElementById("tariff-stats");
+  if (!ul) return;
+  const by = (s) => tariffs.filter((t) => t.status === s).length;
+  const states = new Set(tariffs.map((t) => t.state)).size;
+  const tiles = [
+    [tariffs.length, "Tariffs tracked"],
+    [by("approved"), "Approved"],
+    [by("proposed"), "Proposed"],
+    [by("rejected"), "Rejected / Withdrawn"],
+    [states, "States covered"],
+  ];
+  ul.innerHTML = tiles
+    .filter(([n]) => n > 0 || true)
+    .map(
+      ([n, label]) => `
+      <li class="rp-stat">
+        <span class="rp-stat-value">${n}</span>
+        <span class="rp-stat-label">${escapeHtml(label)}</span>
+      </li>`
+    )
+    .join("");
+}
+
+// Fill the state filter dropdown from the states present in the data.
+function populateTariffStateFilter() {
+  const sel = document.getElementById("tariff-state-filter");
+  if (!sel || sel.dataset.populated) return;
+  const states = [...new Set(state.tariffs.map((t) => t.state))].sort();
+  for (const st of states) {
+    const opt = document.createElement("option");
+    opt.value = st;
+    opt.textContent = st;
+    sel.appendChild(opt);
+  }
+  sel.dataset.populated = "1";
+}
+
+// LBL element coverage grid: one card per design element, grouped by the five
+// LBL categories, showing how many tracked tariffs address it. Click → popout
+// listing the tariffs. Mirrors the moratorium "reason breakdown" pattern.
+function renderTariffCoverage(tariffs) {
+  const grid = document.getElementById("tariff-coverage-grid");
+  if (!grid) return;
+  grid.innerHTML = "";
+
+  const counts = {};
+  for (const k of TARIFF_PARAMETERS) counts[k] = 0;
+  for (const t of tariffs) {
+    for (const k of Object.keys(t.parameters || {})) {
+      if (counts[k] !== undefined) counts[k]++;
+    }
+  }
+
+  for (const [groupKey, groupLabel] of TARIFF_PARAMETER_GROUPS) {
+    const group = document.createElement("div");
+    group.className = "tariff-coverage-group";
+    group.innerHTML = `<h4 class="tariff-coverage-group-title">${escapeHtml(groupLabel)}</h4>`;
+    const row = document.createElement("div");
+    row.className = "tariff-coverage-row";
+    for (const key of TARIFF_PARAMETERS) {
+      if (TARIFF_PARAMETER_GROUP_OF[key] !== groupKey) continue;
+      const count = counts[key];
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "tariff-coverage-card" + (count === 0 ? " empty" : "");
+      card.dataset.param = key;
+      card.title = TARIFF_PARAMETER_DESCRIPTIONS[key] || "";
+      card.innerHTML = `
+        <span class="tcc-label">${escapeHtml(TARIFF_PARAMETER_LABELS[key])}</span>
+        <span class="tcc-count">${count}</span>
+      `;
+      card.addEventListener("click", () => {
+        document
+          .querySelectorAll(".tariff-coverage-card")
+          .forEach((c) => c.classList.remove("active"));
+        card.classList.add("active");
+        renderTariffCoveragePopout(key);
+      });
+      row.appendChild(card);
+    }
+    group.appendChild(row);
+    grid.appendChild(group);
+  }
+}
+
+function renderTariffCoveragePopout(paramKey) {
+  const wrap = document.getElementById("tariff-coverage-popout");
+  if (!wrap) return;
+  const matches = state.tariffs.filter((t) => t.parameters && t.parameters[paramKey]);
+  const label = TARIFF_PARAMETER_LABELS[paramKey];
+  const desc = TARIFF_PARAMETER_DESCRIPTIONS[paramKey] || "";
+
+  if (matches.length === 0) {
+    wrap.innerHTML = `
+      <div class="tariff-popout active">
+        <h4 class="tariff-popout-title">${escapeHtml(label)}</h4>
+        <p class="tariff-popout-desc">${escapeHtml(desc)}</p>
+        <p class="muted">No tracked tariff currently addresses this element — a gap in current practice.</p>
+      </div>`;
+    return;
+  }
+
+  const items = matches
+    .map((t) => {
+      const pc = t.parameters[paramKey];
+      const partial = pc.status === "partial" ? ' <span class="tariff-partial-tag">partial</span>' : "";
+      const url = pc.source_url || t.source_url;
+      return `
+        <li class="tariff-popout-item">
+          <div class="tpi-head">
+            <a href="${escapeAttr(String(url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(t.utility)} — ${escapeHtml(t.tariff_name)} ↗</a>
+            <span class="tpi-state">${escapeHtml(t.state)}</span>${partial}
+          </div>
+          <p class="tpi-detail">${escapeHtml(pc.detail)}</p>
+        </li>`;
+    })
+    .join("");
+
+  wrap.innerHTML = `
+    <div class="tariff-popout active">
+      <h4 class="tariff-popout-title">${escapeHtml(label)} <span class="tariff-popout-n">${matches.length} tariff${matches.length === 1 ? "" : "s"}</span></h4>
+      <p class="tariff-popout-desc">${escapeHtml(desc)}</p>
+      <ul class="tariff-popout-list">${items}</ul>
+    </div>`;
+}
+
+// Sort: approved first (by decision date desc), then proposed, then rejected.
+function tariffSort(a, b) {
+  const order = { approved: 0, proposed: 1, rejected: 2 };
+  if (order[a.status] !== order[b.status]) return order[a.status] - order[b.status];
+  const ad = a.decision_date || "";
+  const bd = b.decision_date || "";
+  if (ad && bd && ad !== bd) return bd.localeCompare(ad);
+  return a.utility.localeCompare(b.utility);
+}
+
+function filteredTariffs() {
+  const statusF = document.getElementById("tariff-status-filter")?.value || "";
+  const stateF = document.getElementById("tariff-state-filter")?.value || "";
+  return state.tariffs
+    .filter((t) => (statusF ? t.status === statusF : true))
+    .filter((t) => (stateF ? t.state === stateF : true))
+    .sort(tariffSort);
+}
+
+function renderTariffsTable() {
+  const tbody = document.getElementById("tariffs-tbody");
+  if (!tbody) return;
+  const rows = filteredTariffs();
+  tbody.innerHTML = "";
+
+  if (rows.length === 0) {
+    tbody.innerHTML = "<tr><td colspan='6' class='muted'>No tariffs match the current filters.</td></tr>";
+    return;
+  }
+
+  for (const t of rows) {
+    const tr = document.createElement("tr");
+    tr.className = `tariff-status-${t.status}`;
+    const minLoad = t.min_load_mw != null ? `${t.min_load_mw.toLocaleString()} MW` : "—";
+    const n = tariffElementCount(t);
+    const typeLine = t.tariff_type
+      ? `<span class="tariff-row-type">${escapeHtml(t.tariff_type)}</span>`
+      : "";
+    tr.innerHTML = `
+      <td>${escapeHtml(t.utility)}</td>
+      <td><span class="badge badge-jurisdiction-type">${escapeHtml(t.state)}</span></td>
+      <td><span class="tariff-row-name">${escapeHtml(t.tariff_name)}</span>${typeLine}</td>
+      <td><span class="badge badge-tariff-status-${t.status}">${escapeHtml(TARIFF_STATUS_LABELS[t.status] || t.status)}</span></td>
+      <td class="num">${minLoad}</td>
+      <td class="num"><span class="tariff-elem-count" title="${n} of 17 LBL design elements">${n} / 17</span></td>
+    `;
+    tr.addEventListener("click", () => showTariffDetail(t));
+    tbody.appendChild(tr);
+  }
+}
+
+// Detail pop-out: the full per-element "met or not met" checklist + additional
+// terms + legislation + sources. This is where the LBL mapping lives in full.
+function showTariffDetail(t) {
+  const modal = document.getElementById("tariff-detail");
+  if (!modal) return;
+
+  const setText = (id, txt) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = txt;
+  };
+
+  setText("td-utility", t.tariff_type || "Large-load tariff");
+  setText("td-name", `${t.utility} — ${t.tariff_name}`);
+
+  const statusEl = document.getElementById("td-status");
+  statusEl.textContent = TARIFF_STATUS_LABELS[t.status] || t.status;
+  statusEl.className = `badge badge-tariff-status-${t.status}`;
+  setText("td-state", t.state);
+
+  setText("td-utility-detail", t.utility);
+  setText("td-regulator", t.regulator || "—");
+  setText("td-docket", t.docket_number || "Not assigned");
+  setText("td-status-detail", t.status_detail || (TARIFF_STATUS_LABELS[t.status] || t.status));
+  setText("td-decision", t.decision_date || (t.status === "proposed" ? "Pending" : "—"));
+  setText("td-minload", t.min_load_mw != null ? `${t.min_load_mw.toLocaleString()} MW` : "Not specified");
+  setText("td-customers", t.customers && t.customers.length ? t.customers.join(", ") : "Not disclosed");
+
+  document.getElementById("td-summary").innerHTML = `<p>${escapeHtml(t.summary)}</p>`;
+
+  // LBL element checklist — iterate the full taxonomy so "not addressed" shows.
+  const body = document.getElementById("td-params-body");
+  body.innerHTML = "";
+  for (const [groupKey, groupLabel] of TARIFF_PARAMETER_GROUPS) {
+    const groupParams = TARIFF_PARAMETERS.filter(
+      (k) => TARIFF_PARAMETER_GROUP_OF[k] === groupKey
+    );
+    const rows = groupParams
+      .map((key) => {
+        const pc = (t.parameters || {})[key];
+        const status = pc ? pc.status || "included" : "absent";
+        const icon = status === "included" ? "✓" : status === "partial" ? "◐" : "✕";
+        const statusLabel =
+          status === "included" ? "Included" : status === "partial" ? "Partial" : "Not addressed";
+        const detail = pc
+          ? `<span class="tparam-detail">${escapeHtml(pc.detail)}</span>`
+          : `<span class="tparam-detail muted">Not addressed in this tariff.</span>`;
+        const srcLink =
+          pc && pc.source_url
+            ? ` <a class="tparam-src" href="${escapeAttr(String(pc.source_url))}" target="_blank" rel="noopener noreferrer" title="Source for this element">↗</a>`
+            : "";
+        return `
+          <li class="tparam-row tparam-${status}">
+            <span class="tparam-icon" aria-hidden="true">${icon}</span>
+            <div class="tparam-body">
+              <span class="tparam-label">${escapeHtml(TARIFF_PARAMETER_LABELS[key])}<span class="tparam-status"> · ${statusLabel}</span>${srcLink}</span>
+              ${detail}
+            </div>
+          </li>`;
+      })
+      .join("");
+    body.insertAdjacentHTML(
+      "beforeend",
+      `<div class="tparam-group">
+        <h5 class="tparam-group-title">${escapeHtml(groupLabel)}</h5>
+        <ul class="tparam-list">${rows}</ul>
+      </div>`
+    );
+  }
+
+  // Additional terms (outside the LBL study).
+  const addWrap = document.getElementById("td-additional");
+  const addList = document.getElementById("td-additional-list");
+  if (t.additional_terms && t.additional_terms.length) {
+    addList.innerHTML = t.additional_terms
+      .map((a) => {
+        const link = a.source_url
+          ? ` <a href="${escapeAttr(String(a.source_url))}" target="_blank" rel="noopener noreferrer">↗</a>`
+          : "";
+        return `<li><strong>${escapeHtml(a.term)}:</strong> ${escapeHtml(a.detail)}${link}</li>`;
+      })
+      .join("");
+    addWrap.hidden = false;
+  } else {
+    addList.innerHTML = "";
+    addWrap.hidden = true;
+  }
+
+  // State legislation behind the tariff.
+  const legWrap = document.getElementById("td-legislation");
+  const legList = document.getElementById("td-legislation-list");
+  if (t.legislation && t.legislation.length) {
+    legList.innerHTML = t.legislation
+      .map((l) => {
+        const meta = [l.citation, l.status].filter(Boolean).join(" · ");
+        const sub = l.summary ? `<span class="tleg-summary">${escapeHtml(l.summary)}</span>` : "";
+        return `<li>
+          <a href="${escapeAttr(String(l.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.title)} ↗</a>
+          ${meta ? `<span class="tleg-meta">${escapeHtml(meta)}</span>` : ""}
+          ${sub}
+        </li>`;
+      })
+      .join("");
+    legWrap.hidden = false;
+  } else {
+    legList.innerHTML = "";
+    legWrap.hidden = true;
+  }
+
+  // Sources: primary source first, then any additional resources.
+  const resList = document.getElementById("td-resources-list");
+  resList.innerHTML = "";
+  const primary = document.createElement("li");
+  primary.innerHTML = `<a href="${escapeAttr(String(t.source_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(t.source_title)} ↗</a>`;
+  resList.appendChild(primary);
+  if (Array.isArray(t.resources)) {
+    for (const r of t.resources) {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${escapeAttr(String(r.url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title)} ↗</a>`;
+      resList.appendChild(li);
+    }
+  }
+
+  setText("td-captured", `Verified: ${t.captured_at}`);
+
+  modal.hidden = false;
+  modal.scrollTop = 0;
+}
+
+function closeTariffDetail() {
+  const modal = document.getElementById("tariff-detail");
+  if (modal) modal.hidden = true;
+}
+
+function wireTariffsFilters() {
+  for (const id of ["tariff-status-filter", "tariff-state-filter"]) {
+    const el = document.getElementById(id);
+    if (el && !el.dataset.wired) {
+      el.addEventListener("change", renderTariffsTable);
+      el.dataset.wired = "1";
+    }
+  }
+  const csvBtn = document.getElementById("tariffs-csv-btn");
+  if (csvBtn && !csvBtn.dataset.wired) {
+    csvBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      downloadTariffCSV();
+    });
+    csvBtn.dataset.wired = "1";
+  }
+}
+
+function wireTariffDetail() {
+  const closeBtn = document.getElementById("tariff-detail-close");
+  if (closeBtn && !closeBtn.dataset.wired) {
+    closeBtn.addEventListener("click", closeTariffDetail);
+    closeBtn.dataset.wired = "1";
+  }
+  if (!document._tariffEscWired) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeTariffDetail();
+    });
+    document._tariffEscWired = true;
+  }
+}
+
+// CSV export: one row per tariff with status + per-element coverage flags.
+function buildTariffCSV() {
+  const headers = [
+    "Utility",
+    "State",
+    "Tariff",
+    "Type",
+    "Status",
+    "Regulator",
+    "Docket",
+    "Decision date",
+    "Min load (MW)",
+    "Customers",
+    "LBL elements addressed",
+    "Summary",
+    "Source title",
+    "Source URL",
+    "Legislation",
+    ...TARIFF_PARAMETERS.map((k) => TARIFF_PARAMETER_LABELS[k]),
+  ];
+  const lines = [headers.map(escapeCSV).join(",")];
+  for (const t of filteredTariffs()) {
+    const legis = (t.legislation || [])
+      .map((l) => `${l.title} (${l.url})`)
+      .join(" | ");
+    const elemFlags = TARIFF_PARAMETERS.map((k) => {
+      const pc = (t.parameters || {})[k];
+      if (!pc) return "";
+      return pc.status === "partial" ? "partial" : "yes";
+    });
+    const row = [
+      t.utility,
+      t.state,
+      t.tariff_name,
+      t.tariff_type || "",
+      TARIFF_STATUS_LABELS[t.status] || t.status,
+      t.regulator || "",
+      t.docket_number || "",
+      t.decision_date || "",
+      t.min_load_mw != null ? t.min_load_mw : "",
+      (t.customers || []).join("; "),
+      tariffElementCount(t),
+      t.summary,
+      t.source_title,
+      String(t.source_url),
+      legis,
+      ...elemFlags,
+    ];
+    lines.push(row.map(escapeCSV).join(","));
+  }
+  return lines.join("\r\n");
+}
+
+function downloadTariffCSV() {
+  const csv = buildTariffCSV();
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "state-utility-tariffs.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 async function fetchJson(url) {
@@ -2556,10 +3105,25 @@ function renderRatepayerRoster() {
       : "Own commitment";
     const mark = "✓";
 
+    // Link the note to a source: signatories → the pledge proclamation;
+    // own-commitment companies → their published page when one exists. Keeps a
+    // traceable link on every roster row.
+    const noteUrl = signed
+      ? RATEPAYER_PLEDGE_URL
+      : co.dedicated_page_url
+        ? String(co.dedicated_page_url)
+        : null;
+    // Keep the note's text EXACTLY the signing-track string (an e2e test counts
+    // it verbatim); the "↗" link affordance is added via CSS ::after so it
+    // doesn't leak into inner_text.
+    const noteHtml = noteUrl
+      ? `<a class="rp-roster-note" href="${escapeAttr(noteUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(note)}</a>`
+      : `<span class="rp-roster-note">${escapeHtml(note)}</span>`;
+
     li.innerHTML = `
       <span class="rp-roster-mark" aria-hidden="true">${mark}</span>
       <span class="rp-roster-name">${escapeHtml(co.name)}</span>
-      <span class="rp-roster-note">${escapeHtml(note)}</span>
+      ${noteHtml}
     `;
     ul.appendChild(li);
   }
@@ -2804,6 +3368,40 @@ function renderRatepayerScorecard() {
   }
 }
 
+// Build an always-visible "Sources" footer for a ratepayer site. Guarantees
+// EVERY card — including pledge_only and unassessed sites with no evidence
+// claim — links to a traceable source, fixing the "no links for evidence"
+// gap. Order: site-specific evidence claim (affirmed/contested) → company
+// project page → record source → the pledge proclamation. Deduped by URL and
+// robust to claims not being loaded yet (the project's own source_url is
+// always present and required by the schema).
+function rpCardSourcesHtml(p) {
+  const rp = p.ratepayer;
+  const links = [];
+  const seen = new Set();
+  const add = (url, label) => {
+    if (!url) return;
+    const u = String(url);
+    if (seen.has(u)) return;
+    seen.add(u);
+    links.push([u, label]);
+  };
+  if (rp && rp.evidence_claim_id) {
+    const claim = state.claims.find((c) => c.id === rp.evidence_claim_id);
+    if (claim) add(claim.source_url, claim.source_title || "Site commitment source");
+  }
+  add(p.project_page_url, "Company project page");
+  add(p.source_url, p.source_title || "Record source");
+  add(RATEPAYER_PLEDGE_URL, "The pledge");
+  const anchors = links
+    .map(
+      ([u, label]) =>
+        `<a href="${escapeAttr(u)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)} ↗</a>`
+    )
+    .join('<span class="rp-src-sep"> · </span>');
+  return `<div class="rp-card-sources"><span class="rp-sources-label">Sources:</span> ${anchors}</div>`;
+}
+
 function renderRatepayerCard(p) {
   const co = state.companiesBySlug.get(p.company_slug);
   const rp = p.ratepayer;
@@ -2885,6 +3483,7 @@ function renderRatepayerCard(p) {
         <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
         ${principlesHtml}
         ${evidenceHtml}
+        ${rpCardSourcesHtml(p)}
       </div>
     </details>
   `;
@@ -2905,6 +3504,7 @@ function renderPrePledgeCard(p, note = "National pledge — no site assessment")
     <span class="rp-pre-name">${escapeHtml(p.name)}</span>
     <span class="rp-pre-loc">${escapeHtml(p.city)}, ${escapeHtml(p.state)} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
     <span class="rp-pre-dates">Announced: ${escapeHtml(announcedStr)} · ${escapeHtml(note)}</span>
+    ${rpCardSourcesHtml(p)}
   `;
   return li;
 }
