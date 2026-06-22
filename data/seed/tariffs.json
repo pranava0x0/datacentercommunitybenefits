@@ -710,6 +710,7 @@
       "id": "ferc-talen-amazon-susquehanna-isa",
       "utility": "Talen Energy / PPL / PJM (Amazon co-location)",
       "state": "PA",
+      "jurisdiction_level": "federal",
       "tariff_name": "Amended Interconnection Service Agreement \u2014 Susquehanna co-location",
       "tariff_type": "Co-location interconnection agreement (federal)",
       "status": "rejected",

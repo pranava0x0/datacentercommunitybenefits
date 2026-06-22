@@ -47,6 +47,24 @@
   --ratepayer-contested: #b07024;
   --ratepayer-contested-soft: #f0e2c9;
 
+  /* Tariff status + coverage colors (v1.17). Light values here; dark overrides
+     in the [data-theme="dark"] block below — same pattern as --stance /
+     --delivered (DESIGN.md: colors live in tokens with dark-mode overrides, not
+     hard-coded per rule). approved↔positive, proposed↔mixed, rejected↔negative;
+     included↔positive, partial↔mixed. */
+  --tariff-approved: #2f7a4d;
+  --tariff-approved-soft: #d8eadd;
+  --tariff-proposed: #b07024;
+  --tariff-proposed-soft: #f0e2c9;
+  --tariff-rejected: #a3372f;
+  --tariff-rejected-soft: #f0d4d1;
+  --tariff-included: #2f7a4d;
+  --tariff-included-soft: #d8eadd;
+  --tariff-partial: #b07024;
+  --tariff-partial-soft: #f0e2c9;
+  --tariff-federal: #2f5d8a;
+  --tariff-federal-soft: #f1f0ea;
+
   /* Per-company subtle accent (NOT brand colors — neutral palette so we
      don't imply endorsement). Used for left borders / chips, not fills. */
   --co-meta: #4a6b8e;
@@ -122,6 +140,20 @@
   --ratepayer-pledge_only-soft: #1f2a36;
   --ratepayer-contested: #d6a44c;
   --ratepayer-contested-soft: #3a2e15;
+
+  /* Tariff status + coverage colors — dark overrides (mirror --stance dark). */
+  --tariff-approved: #6cc18a;
+  --tariff-approved-soft: #1d3a28;
+  --tariff-proposed: #d6a44c;
+  --tariff-proposed-soft: #3a2e15;
+  --tariff-rejected: #e07a72;
+  --tariff-rejected-soft: #3a1f1c;
+  --tariff-included: #6cc18a;
+  --tariff-included-soft: #1d3a28;
+  --tariff-partial: #d6a44c;
+  --tariff-partial-soft: #3a2e15;
+  --tariff-federal: #7eb6e8;
+  --tariff-federal-soft: #1f2630;
 
   --co-meta: #7eb6e8;
   --co-google: #d6b86a;
@@ -2616,38 +2648,48 @@ a.rp-roster-note:hover {
 }
 
 /* Status badges + row accent (approved↔green, proposed↔amber, rejected↔red) */
-.badge-tariff-status-approved {
-  background-color: #d1fae5;
-  color: #065f46;
+.badge-tariff-status-approved,
+.badge-tariff-status-proposed,
+.badge-tariff-status-rejected,
+.badge-tariff-federal {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.85rem;
   font-weight: 500;
+}
+.badge-tariff-status-approved {
+  background-color: var(--tariff-approved-soft);
+  color: var(--tariff-approved);
 }
 .badge-tariff-status-proposed {
-  background-color: #fef3c7;
-  color: #78350f;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  background-color: var(--tariff-proposed-soft);
+  color: var(--tariff-proposed);
 }
 .badge-tariff-status-rejected {
-  background-color: #fee2e2;
-  color: #7f1d1d;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  background-color: var(--tariff-rejected-soft);
+  color: var(--tariff-rejected);
+}
+.badge-tariff-federal {
+  background-color: var(--tariff-federal-soft);
+  color: var(--tariff-federal);
+  border: 1px solid var(--border);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-left: 0.3rem;
 }
 .tariff-status-approved td:first-child {
-  box-shadow: inset 3px 0 0 #2f7a4d;
+  box-shadow: inset 3px 0 0 var(--tariff-approved);
 }
 .tariff-status-proposed td:first-child {
-  box-shadow: inset 3px 0 0 #f59e0b;
+  box-shadow: inset 3px 0 0 var(--tariff-proposed);
 }
 .tariff-status-rejected td:first-child {
-  box-shadow: inset 3px 0 0 #dc2626;
+  box-shadow: inset 3px 0 0 var(--tariff-rejected);
+}
+.tariff-table tbody tr:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 /* LBL element coverage grid */
@@ -2687,11 +2729,11 @@ a.rp-roster-note:hover {
   border-color: var(--border-strong, #888);
 }
 .tariff-coverage-card.active {
-  border-color: #2f6feb;
-  background: rgba(47, 111, 235, 0.08);
+  border-color: var(--accent);
+  background: var(--tariff-included-soft);
 }
 .tariff-coverage-card:focus-visible {
-  outline: 2px solid #2f6feb;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 .tariff-coverage-card.empty {
@@ -2710,8 +2752,8 @@ a.rp-roster-note:hover {
   font-variant-numeric: tabular-nums;
 }
 .tariff-coverage-card.active .tcc-count {
-  background: #2f6feb;
-  color: #fff;
+  background: var(--accent);
+  color: var(--surface);
 }
 
 /* Coverage popout (which tariffs address an element) */
@@ -2720,7 +2762,7 @@ a.rp-roster-note:hover {
 }
 .tariff-popout {
   border: 1px solid var(--border);
-  border-left: 4px solid #2f6feb;
+  border-left: 4px solid var(--accent);
   border-radius: 8px;
   padding: 1rem 1.1rem;
   background: var(--surface);
@@ -2781,8 +2823,8 @@ a.rp-roster-note:hover {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #92600a;
-  background: #fef3c7;
+  color: var(--tariff-partial);
+  background: var(--tariff-partial-soft);
   border-radius: 4px;
   padding: 0.05rem 0.35rem;
 }
@@ -2829,12 +2871,12 @@ a.rp-roster-note:hover {
   margin-top: 0.05rem;
 }
 .tparam-included .tparam-icon {
-  background: #d1fae5;
-  color: #065f46;
+  background: var(--tariff-included-soft);
+  color: var(--tariff-included);
 }
 .tparam-partial .tparam-icon {
-  background: #fef3c7;
-  color: #92600a;
+  background: var(--tariff-partial-soft);
+  color: var(--tariff-partial);
 }
 .tparam-absent .tparam-icon {
   background: var(--surface-2, rgba(0,0,0,0.06));

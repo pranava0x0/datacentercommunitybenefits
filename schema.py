@@ -798,6 +798,12 @@ TARIFF_STATUS_LABELS: dict[str, str] = {
     "rejected": "Rejected / Withdrawn",
 }
 
+# Regulatory level. 'state' = state PUC/PSC tariff (the dataset's focus);
+# 'federal' = a FERC co-location / interconnection case, included for context
+# but kept out of the state-tariff stat counts (see Tariff.jurisdiction_level).
+TARIFF_JURISDICTION_LEVELS: tuple[str, ...] = ("state", "federal")
+TariffJurisdictionLevel = Literal["state", "federal"]
+
 # The five LBL element groups, in the brief's order. (group_key, label).
 TARIFF_PARAMETER_GROUPS: tuple[tuple[str, str], ...] = (
     ("eligibility", "Eligibility & Applicability"),
@@ -952,6 +958,19 @@ class TariffAdditionalTerm(_StrictBase):
     source_url: Optional[HttpUrl] = None
 
 
+class SourceResource(_StrictBase):
+    """A typed {url, title} source link.
+
+    Replaces the loose `list[dict]` shape so refresh.py fails fast on a missing
+    URL/title or a non-HTTP value — the frontend's detail renderer assumes both
+    fields exist, and a broken source link is exactly the traceability failure
+    this dataset must not ship.
+    """
+
+    url: HttpUrl
+    title: str = Field(min_length=1)
+
+
 class Tariff(_StrictBase):
     """A state-regulated large-load / data-center electricity tariff or rate design."""
 
@@ -960,7 +979,17 @@ class Tariff(_StrictBase):
     state: str = Field(
         min_length=2,
         max_length=2,
-        description="Two-letter US state code where the tariff is filed (primary state).",
+        description="Two-letter US state / 'federal' code where the tariff is filed (primary).",
+    )
+    jurisdiction_level: TariffJurisdictionLevel = Field(
+        default="state",
+        description=(
+            "'state' for a state-regulated (PUC/PSC) tariff; 'federal' for a FERC "
+            "co-location / interconnection case. Federal cases are included for "
+            "context (the LBL brief covers co-location) but are EXCLUDED from the "
+            "state-tariff stat counts and badged separately so they don't read as "
+            "a state tariff. Almost always 'state'."
+        ),
     )
     tariff_name: str = Field(
         min_length=1, description="Official tariff / rider / service-agreement name."
@@ -1018,11 +1047,11 @@ class Tariff(_StrictBase):
     )
     source_url: HttpUrl
     source_title: str = Field(min_length=1)
-    resources: Optional[list[dict]] = Field(
+    resources: Optional[list[SourceResource]] = Field(
         default=None,
         description=(
-            "Additional reputable sources. Each item: {'url': '...', 'title': '...'}. "
-            "Prioritize government (PUC / legislature) links, then major trade press."
+            "Additional reputable {url, title} sources. Prioritize government "
+            "(PUC / legislature) links, then major trade press."
         ),
     )
     captured_at: Date = Field(
@@ -1135,6 +1164,7 @@ __all__ = [
     "MORATORIUM_REASON_LABELS",
     "TARIFF_STATUSES",
     "TARIFF_STATUS_LABELS",
+    "TARIFF_JURISDICTION_LEVELS",
     "TARIFF_PARAMETERS",
     "TARIFF_PARAMETER_LABELS",
     "TARIFF_PARAMETER_DESCRIPTIONS",
@@ -1152,6 +1182,7 @@ __all__ = [
     "MoratoriumReasonType",
     "TariffStatus",
     "TariffCoverageStatus",
+    "TariffJurisdictionLevel",
     "PledgePrincipleStatus",
     "PledgePrincipleAssessment",
     "Company",
@@ -1162,6 +1193,7 @@ __all__ = [
     "TariffParameter",
     "TariffLegislation",
     "TariffAdditionalTerm",
+    "SourceResource",
     "Tariff",
     "Claim",
     "Project",
