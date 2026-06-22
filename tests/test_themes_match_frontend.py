@@ -18,6 +18,11 @@ from schema import (
     DELIVERED_STATUSES,
     RATEPAYER_LABELS,
     RATEPAYER_STATUSES,
+    TARIFF_PARAMETER_GROUP_OF,
+    TARIFF_PARAMETER_LABELS,
+    TARIFF_PARAMETERS,
+    TARIFF_STATUS_LABELS,
+    TARIFF_STATUSES,
     THEME_LABELS,
     THEMES,
 )
@@ -107,4 +112,51 @@ def test_ratepayer_labels_keys_match(js: str) -> None:
         "RATEPAYER_LABELS keys differ between schema.py and app.js: "
         f"py-only={set(RATEPAYER_LABELS.keys()) - js_keys}, "
         f"js-only={js_keys - set(RATEPAYER_LABELS.keys())}"
+    )
+
+
+# --- Utility tariff vocabulary parity (v1.17) ---------------------------------
+
+
+def test_tariff_statuses_match(js: str) -> None:
+    js_statuses = _extract_array(js, "TARIFF_STATUSES")
+    assert tuple(js_statuses) == TARIFF_STATUSES, (
+        f"TARIFF_STATUSES drift between schema.py {TARIFF_STATUSES} and "
+        f"app.js {tuple(js_statuses)}. Update both files together."
+    )
+
+
+def test_tariff_parameters_match(js: str) -> None:
+    js_params = _extract_array(js, "TARIFF_PARAMETERS")
+    assert tuple(js_params) == TARIFF_PARAMETERS, (
+        f"TARIFF_PARAMETERS drift between schema.py {TARIFF_PARAMETERS} and "
+        f"app.js {tuple(js_params)}. The LBL element taxonomy is frozen — update "
+        "both files together (and add a BACKLOG entry)."
+    )
+
+
+def test_tariff_status_labels_keys_match(js: str) -> None:
+    js_keys = _extract_object_keys(js, "TARIFF_STATUS_LABELS")
+    assert js_keys == set(TARIFF_STATUS_LABELS.keys()), (
+        "TARIFF_STATUS_LABELS keys differ between schema.py and app.js: "
+        f"py-only={set(TARIFF_STATUS_LABELS.keys()) - js_keys}, "
+        f"js-only={js_keys - set(TARIFF_STATUS_LABELS.keys())}"
+    )
+
+
+def test_tariff_parameter_labels_keys_match(js: str) -> None:
+    js_keys = _extract_object_keys(js, "TARIFF_PARAMETER_LABELS")
+    assert js_keys == set(TARIFF_PARAMETER_LABELS.keys()), (
+        "TARIFF_PARAMETER_LABELS keys differ between schema.py and app.js: "
+        f"py-only={set(TARIFF_PARAMETER_LABELS.keys()) - js_keys}, "
+        f"js-only={js_keys - set(TARIFF_PARAMETER_LABELS.keys())}"
+    )
+
+
+def test_tariff_parameter_group_of_keys_match(js: str) -> None:
+    js_keys = _extract_object_keys(js, "TARIFF_PARAMETER_GROUP_OF")
+    assert js_keys == set(TARIFF_PARAMETER_GROUP_OF.keys()), (
+        "TARIFF_PARAMETER_GROUP_OF keys differ between schema.py and app.js: "
+        f"py-only={set(TARIFF_PARAMETER_GROUP_OF.keys()) - js_keys}, "
+        f"js-only={js_keys - set(TARIFF_PARAMETER_GROUP_OF.keys())}"
     )
