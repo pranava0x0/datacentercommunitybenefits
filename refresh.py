@@ -37,6 +37,7 @@ from schema import (
     MoratoriumsPayload,
     ProjectsPayload,
     ResponsesPayload,
+    TariffsPayload,
 )
 
 ROOT = Path(__file__).parent
@@ -49,6 +50,7 @@ PAYLOAD_FILES: dict[str, type] = {
     "projects": ProjectsPayload,
     "responses": ResponsesPayload,
     "moratoriums": MoratoriumsPayload,
+    "tariffs": TariffsPayload,
 }
 
 
