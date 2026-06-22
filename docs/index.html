@@ -12,9 +12,10 @@
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20260619a" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer src="app.js?v=20260619a"></script>
+    <link rel="stylesheet" href="styles.css?v=20260622a" />
+    <!-- html2pdf is lazy-loaded on demand by the moratorium PDF export (see
+         loadHtml2Pdf in app.js) so it doesn't block first paint or tests. -->
+    <script defer src="app.js?v=20260622a"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -527,7 +528,7 @@
 
         <!-- Two-column: pledge elements left, roster right (stacks on mobile) -->
         <div class="rp-two-col">
-          <details class="rp-commitments" open>
+          <details class="rp-commitments">
             <summary id="rp-commitments-heading">The 5 pledge elements</summary>
             <ul class="rp-commitment-list">
               <li><strong>Building, bringing, or buying new power supply</strong> — pay the full cost of new generation.</li>
@@ -756,7 +757,11 @@
           large-load tariff, rate class, or rule. Many states have no
           data-center-specific tariff yet — an absence that is itself a finding.
           “LBL elements” counts how many of the 17 study elements a tariff
-          addresses; it is a coverage measure, not a quality score.
+          addresses; it is a coverage measure, not a quality score. One
+          <strong>federal</strong> FERC co-location case (badged
+          <span class="badge badge-tariff-federal">FED</span>) is included for
+          context because the LBL brief covers co-location; it is excluded from
+          the state status counts and the states-covered tally.
         </p>
 
         <!-- ================= TARIFF DETAIL MODAL ================= -->

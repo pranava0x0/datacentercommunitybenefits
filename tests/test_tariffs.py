@@ -18,11 +18,13 @@ import pytest
 
 from schema import (
     TARIFF_COVERAGE_STATUSES,
+    TARIFF_JURISDICTION_LEVELS,
     TARIFF_PARAMETER_GROUP_OF,
     TARIFF_PARAMETER_GROUPS,
     TARIFF_PARAMETER_LABELS,
     TARIFF_PARAMETERS,
     TARIFF_STATUSES,
+    SourceResource,
     TariffsPayload,
 )
 
@@ -148,6 +150,46 @@ def test_additional_terms_have_detail(tariffs: TariffsPayload) -> None:
             )
 
 
+def test_resources_are_typed_with_url_and_title(tariffs: TariffsPayload) -> None:
+    # resources is now a typed SourceResource list — a missing url/title or a
+    # non-HTTP value fails validation, so the detail renderer can rely on both.
+    for t in tariffs.tariffs:
+        for r in t.resources or []:
+            assert isinstance(r, SourceResource)
+            assert str(r.url).startswith("http")
+            assert r.title.strip()
+
+
+# --- Federal (FERC) jurisdiction segregation ---------------------------------
+
+
+def test_jurisdiction_levels_valid(tariffs: TariffsPayload) -> None:
+    for t in tariffs.tariffs:
+        assert t.jurisdiction_level in TARIFF_JURISDICTION_LEVELS, (
+            f"{t.id!r} has bad jurisdiction_level {t.jurisdiction_level!r}"
+        )
+
+
+def test_dataset_is_predominantly_state_level(tariffs: TariffsPayload) -> None:
+    # The tab is about STATE tariffs; federal (FERC co-location) cases are a
+    # small contextual minority, not the bulk of the dataset.
+    state = [t for t in tariffs.tariffs if t.jurisdiction_level == "state"]
+    federal = [t for t in tariffs.tariffs if t.jurisdiction_level == "federal"]
+    assert len(state) >= 10
+    assert len(federal) <= 2, "Federal cases should stay a small contextual minority."
+
+
+def test_federal_cases_are_clearly_federal(tariffs: TariffsPayload) -> None:
+    # Any federal record must be a FERC case (regulator names FERC) so the FED
+    # badge + 'Federal cases' tile never mislabels a state tariff.
+    for t in tariffs.tariffs:
+        if t.jurisdiction_level == "federal":
+            assert "FERC" in t.regulator or "Federal" in t.regulator, (
+                f"{t.id!r} is jurisdiction_level=federal but regulator is "
+                f"{t.regulator!r}"
+            )
+
+
 def test_prioritizes_gov_sources(tariffs: TariffsPayload) -> None:
     """Most primary sources should be government (.gov) or the DOE/LBL brief —
     the editorial rule is to prefer authoritative sources."""
@@ -203,9 +245,11 @@ def test_app_js_wires_tariffs_view() -> None:
 
 
 def test_ratepayer_cards_have_sources_helper() -> None:
-    """The fix adds rpCardSourcesHtml and calls it from BOTH card renderers so
-    every site (incl. pledge_only / pre-pledge with no evidence claim) links to
-    a source. Guards against silent regression of that fix."""
+    """Fast static pre-check that the fix is wired: rpCardSourcesHtml exists and
+    is called from BOTH card renderers. The PRIMARY, behavioral guard is the
+    DOM-level e2e `TestRatepayerView::test_every_card_surfaces_a_source_link`
+    (asserts every rendered card actually shows a visible source link); this one
+    just fails faster/cheaper if the wiring is removed."""
     js = APP_JS.read_text(encoding="utf-8")
     assert "function rpCardSourcesHtml(" in js, "rpCardSourcesHtml helper missing"
     # Must be invoked in the assessed card and the pre-pledge/unassessed card.

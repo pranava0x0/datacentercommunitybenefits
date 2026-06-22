@@ -1098,20 +1098,33 @@ function renderTariffsView() {
   renderTariffsTable();
 }
 
+// Federal (FERC co-location) cases are tracked for context but kept OUT of the
+// state-tariff status counts + state tally so they don't read as a state tariff
+// being approved/rejected. They surface in their own "Federal cases" tile and a
+// FED badge in the directory.
+function isFederalTariff(t) {
+  return t.jurisdiction_level === "federal";
+}
+
 function renderTariffStats(tariffs) {
   const ul = document.getElementById("tariff-stats");
   if (!ul) return;
-  const by = (s) => tariffs.filter((t) => t.status === s).length;
-  const states = new Set(tariffs.map((t) => t.state)).size;
+  const stateTariffs = tariffs.filter((t) => !isFederalTariff(t));
+  const federal = tariffs.filter(isFederalTariff);
+  const by = (s) => stateTariffs.filter((t) => t.status === s).length;
+  const statesCovered = new Set(stateTariffs.map((t) => t.state)).size;
+  // [value, label, showWhenZero]. Status counts are STATE-only; federal cases
+  // get their own tile; zero-count status tiles are hidden.
   const tiles = [
-    [tariffs.length, "Tariffs tracked"],
-    [by("approved"), "Approved"],
-    [by("proposed"), "Proposed"],
-    [by("rejected"), "Rejected / Withdrawn"],
-    [states, "States covered"],
+    [tariffs.length, "Tariffs tracked", true],
+    [by("approved"), "Approved", false],
+    [by("proposed"), "Proposed", false],
+    [by("rejected"), "Rejected / Withdrawn", false],
+    [federal.length, "Federal cases", false],
+    [statesCovered, "States covered", true],
   ];
   ul.innerHTML = tiles
-    .filter(([n]) => n > 0 || true)
+    .filter(([n, , showZero]) => showZero || n > 0)
     .map(
       ([n, label]) => `
       <li class="rp-stat">
@@ -1263,15 +1276,34 @@ function renderTariffsTable() {
     const typeLine = t.tariff_type
       ? `<span class="tariff-row-type">${escapeHtml(t.tariff_type)}</span>`
       : "";
+    // Federal (FERC) cases carry a FED tag so they're never mistaken for a
+    // state tariff, even though they share the directory + status filter.
+    const fedTag = isFederalTariff(t)
+      ? ` <span class="badge badge-tariff-federal" title="Federal FERC case — not a state tariff">FED</span>`
+      : "";
     tr.innerHTML = `
       <td>${escapeHtml(t.utility)}</td>
-      <td><span class="badge badge-jurisdiction-type">${escapeHtml(t.state)}</span></td>
+      <td><span class="badge badge-jurisdiction-type">${escapeHtml(t.state)}</span>${fedTag}</td>
       <td><span class="tariff-row-name">${escapeHtml(t.tariff_name)}</span>${typeLine}</td>
       <td><span class="badge badge-tariff-status-${t.status}">${escapeHtml(TARIFF_STATUS_LABELS[t.status] || t.status)}</span></td>
       <td class="num">${minLoad}</td>
       <td class="num"><span class="tariff-elem-count" title="${n} of 17 LBL design elements">${n} / 17</span></td>
     `;
-    tr.addEventListener("click", () => showTariffDetail(t));
+    // Keyboard + screen-reader accessible: the row acts as a button.
+    tr.tabIndex = 0;
+    tr.setAttribute("role", "button");
+    tr.setAttribute(
+      "aria-label",
+      `${t.utility} — ${t.tariff_name}, ${TARIFF_STATUS_LABELS[t.status] || t.status}. Open details.`
+    );
+    const open = () => showTariffDetail(t);
+    tr.addEventListener("click", open);
+    tr.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        open();
+      }
+    });
     tbody.appendChild(tr);
   }
 }
@@ -1293,7 +1325,7 @@ function showTariffDetail(t) {
   const statusEl = document.getElementById("td-status");
   statusEl.textContent = TARIFF_STATUS_LABELS[t.status] || t.status;
   statusEl.className = `badge badge-tariff-status-${t.status}`;
-  setText("td-state", t.state);
+  setText("td-state", isFederalTariff(t) ? `${t.state} · Federal (FERC)` : t.state);
 
   setText("td-utility-detail", t.utility);
   setText("td-regulator", t.regulator || "—");
@@ -2436,7 +2468,35 @@ function wireMoratoriumDetail() {
   }
 }
 
-function exportMoratoriumsToPDF() {
+// Lazy-load html2pdf from cdnjs on first use (the moratorium PDF export) rather
+// than blocking first paint — and every Playwright `page.goto(..., "load")` — on
+// an external CDN script in <head>. Cached so repeat clicks don't re-inject; the
+// SRI hash is the official cdnjs value so the loaded bundle is still verified.
+const HTML2PDF_SRC =
+  "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js";
+const HTML2PDF_SRI =
+  "sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==";
+let _html2pdfPromise = null;
+function loadHtml2Pdf() {
+  if (window.html2pdf) return Promise.resolve(window.html2pdf);
+  if (_html2pdfPromise) return _html2pdfPromise;
+  _html2pdfPromise = new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = HTML2PDF_SRC;
+    s.integrity = HTML2PDF_SRI;
+    s.crossOrigin = "anonymous";
+    s.referrerPolicy = "no-referrer";
+    s.onload = () => resolve(window.html2pdf);
+    s.onerror = () => {
+      _html2pdfPromise = null; // allow a retry on the next click
+      reject(new Error("Failed to load html2pdf"));
+    };
+    document.head.appendChild(s);
+  });
+  return _html2pdfPromise;
+}
+
+async function exportMoratoriumsToPDF() {
   if (!state.moratoriums || state.moratoriums.length === 0) {
     alert("No moratoriums to export");
     return;
@@ -2507,7 +2567,7 @@ function exportMoratoriumsToPDF() {
     htmlContent += `</ul>`;
   });
 
-  // Export using html2pdf
+  // Export using html2pdf (lazy-loaded on demand).
   const element = document.createElement("div");
   element.innerHTML = htmlContent;
 
@@ -2519,7 +2579,15 @@ function exportMoratoriumsToPDF() {
     jsPDF: { orientation: "landscape", unit: "mm", format: "a4" },
   };
 
-  html2pdf().set(opt).from(element).save();
+  let lib;
+  try {
+    lib = await loadHtml2Pdf();
+  } catch (err) {
+    console.error(err);
+    alert("Could not load the PDF library. Check your connection and try again.");
+    return;
+  }
+  lib().set(opt).from(element).save();
 }
 
 function setActiveDetailTab(name) {
