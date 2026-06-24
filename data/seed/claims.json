@@ -4007,6 +4007,18 @@
       "captured_at": "2026-06-19",
       "project_id": "microsoft-el-mirage-az",
       "formal_agreement": true
+    },
+    {
+      "id": "google-jackson-al-energy-pay-costs-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Google is funding 100% of its own power and infrastructure costs.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
+      "source_title": "Google — Expanding our Alabama data center campus (June 2026)",
+      "captured_at": "2026-06-24",
+      "published_at": "2026-06-15",
+      "project_id": "google-jackson-county-al",
+      "formal_agreement": false
     }
   ]
 }
