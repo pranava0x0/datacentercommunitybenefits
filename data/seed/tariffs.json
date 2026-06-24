@@ -762,6 +762,295 @@
         }
       ],
       "captured_at": "2026-06-22"
+    },
+    {
+      "id": "pa-puc-large-load-model-tariff",
+      "utility": "Pennsylvania electric distribution companies (statewide model framework)",
+      "state": "PA",
+      "jurisdiction_level": "state",
+      "tariff_name": "Large Load Model Tariff Framework",
+      "tariff_type": "Statewide model tariff / large-load framework",
+      "status": "approved",
+      "status_detail": "Final order entered May 13, 2026 (adopted 5-0 on April 30, 2026). A model framework Pennsylvania EDCs may incorporate into utility-specific tariff filings, subject to Commission review.",
+      "regulator": "Pennsylvania Public Utility Commission (PA PUC)",
+      "docket_number": "M-2025-3054271",
+      "decision_date": "2026-05-13",
+      "min_load_mw": 50,
+      "summary": "First-of-its-kind statewide model tariff framework giving Pennsylvania's electric distribution companies consistent guidance for serving large loads \u2014 customers above 50 MW individually or 100 MW in aggregate \u2014 with cost-causation, financial-assurance, and interconnection-study standards to protect existing ratepayers from stranded costs.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to large load customers exceeding 50 MW individually or 100 MW in aggregate."
+        },
+        "customer_type": {
+          "status": "included",
+          "detail": "Scoped to large load customers, including data centers, across all PA electric distribution companies."
+        },
+        "study_cost_recovery": {
+          "status": "included",
+          "detail": "Utilities must complete interconnection studies within six months; customers bear cost-causation responsibility for studies and upgrades."
+        },
+        "credit_collateral": {
+          "status": "included",
+          "detail": "Requires deposits, collateral, and other financial assurances sufficient to mitigate stranded-cost risk from delayed or abandoned projects."
+        },
+        "contracted_capacity": {
+          "status": "included",
+          "detail": "Reinforces cost causation: customers driving new infrastructure are responsible for the associated costs to limit cross-subsidization."
+        },
+        "contract_duration": {
+          "status": "partial",
+          "detail": "Provides guidance on minimum contract terms to back long-lived utility investment; specific term length is set in utility-specific filings."
+        },
+        "ramp_times": {
+          "status": "included",
+          "detail": "Provides guidance on load-ramping schedules as part of the large-load contract terms."
+        },
+        "exit_fee": {
+          "status": "included",
+          "detail": "Provides guidance on customer exit provisions tied to unrecovered utility investment."
+        },
+        "marginal_pricing": {
+          "status": "included",
+          "detail": "Incorporates enhanced guidance on Contributions in Aid of Construction (CIAC) and cost allocation to limit cross-subsidization."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Six-month study deadline",
+          "detail": "Utilities must complete large-load interconnection studies within six months to improve development predictability.",
+          "source_url": "https://www.puc.pa.gov/press-release/2026/puc-releases-final-order-establishing-first-of-its-kind-large-load-model-tariff-framework-05132026"
+        },
+        {
+          "term": "Self-construction option",
+          "detail": "Large load customers may self-construct certain infrastructure upgrades, subject to utility, safety, reliability, and regulatory standards.",
+          "source_url": "https://www.puc.pa.gov/press-release/2026/puc-releases-final-order-establishing-first-of-its-kind-large-load-model-tariff-framework-05132026"
+        },
+        {
+          "term": "Transparency requirement",
+          "detail": "Utilities must maintain public-facing information on large-load interconnection requests and study status.",
+          "source_url": "https://www.puc.pa.gov/press-release/2026/puc-releases-final-order-establishing-first-of-its-kind-large-load-model-tariff-framework-05132026"
+        }
+      ],
+      "legislation": [],
+      "source_url": "https://www.puc.pa.gov/press-release/2026/puc-releases-final-order-establishing-first-of-its-kind-large-load-model-tariff-framework-05132026",
+      "source_title": "PA PUC \u2014 Final Order establishing first-of-its-kind Large Load Model Tariff Framework",
+      "resources": [
+        {
+          "url": "https://www.puc.pa.gov/press-release/2026/puc-acts-to-protect-ratepayers-guide-data-center-growth-with-new-large-load-tariff-framework-4-30-26",
+          "title": "PA PUC \u2014 April 30, 2026 vote adopting the large load tariff framework"
+        },
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+        }
+      ],
+      "captured_at": "2026-06-24"
+    },
+    {
+      "id": "pge-oregon-schedule-96-large-load",
+      "utility": "Portland General Electric (PGE)",
+      "state": "OR",
+      "jurisdiction_level": "state",
+      "tariff_name": "Schedule 96 \u2014 Large Load Direct Access / large energy use facility rate class",
+      "tariff_type": "Data center / large-load rate class",
+      "status": "approved",
+      "status_detail": "Approved by Oregon PUC Order No. 26-154 on May 7, 2026; revised tariffs filed June 3, schedules effective June 10, 2026.",
+      "regulator": "Public Utility Commission of Oregon (OPUC)",
+      "docket_number": "Order No. 26-154",
+      "decision_date": "2026-05-07",
+      "min_load_mw": 20,
+      "summary": "Oregon's first dedicated large-load rate class, requiring PGE data center and other large customers above 20 MW to cover 100% of distribution upgrades and pay minimum demand charges at 90% of contracted capacity, with contract terms that lengthen with project size \u2014 implementing 2025's HB 3546 so growth costs don't shift to residential ratepayers.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to large loads exceeding 20 MW in PGE territory."
+        },
+        "customer_type": {
+          "status": "included",
+          "detail": "Creates a dedicated large-load rate class (Schedule 96) for large energy use facilities, including data centers."
+        },
+        "contracted_capacity": {
+          "status": "included",
+          "detail": "Minimum generation and transmission demand charges set at 90% of contracted system capacity, even if the customer uses less."
+        },
+        "contract_duration": {
+          "status": "included",
+          "detail": "Contract terms escalate with size: 10 years for smaller loads up to 30 years for projects of 220 MW or more."
+        },
+        "exit_fee": {
+          "status": "included",
+          "detail": "Early-termination penalties tied to remaining demand obligations and the unspent value of new distribution investment."
+        },
+        "marginal_pricing": {
+          "status": "included",
+          "detail": "Large loads cover 100% of the distribution network upgrades needed to serve them, preventing cost-shift to other ratepayers."
+        },
+        "clean_energy": {
+          "status": "included",
+          "detail": "Large-load interconnection approvals are tied to clean-energy availability and Oregon emissions targets (Schedule 96 climate-linked review)."
+        },
+        "econ_dev_payments": {
+          "status": "included",
+          "detail": "Loads over 100 MW pay a 1\u00a2/kWh surcharge directed to offset residential customer costs and low-income energy burden."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Rate impact",
+          "detail": "Large-load data center rates rise ~29%, while residential rates fall ~1.3% and small-business rates ~3.7%.",
+          "source_url": "https://www.utilitydive.com/news/oregon-puc-approves-pges-large-load-tariff-framework-for-data-centers/821361/"
+        }
+      ],
+      "legislation": [
+        {
+          "title": "Oregon HB 3546 (2025) \u2014 large energy use facilities",
+          "url": "https://olis.oregonlegislature.gov/liz/2025R1/Measures/Overview/HB3546",
+          "citation": "HB 3546, Chapter 323 (2025)",
+          "status": "Enacted as Chapter 323 (2025), emergency clause; sunsets Jan 2, 2035",
+          "summary": "Directs the Oregon PUC to create a new service classification for large energy use facilities that allocates serving costs to those facilities and mitigates risk to other customer classes \u2014 the basis for PGE's Schedule 96. Widely referred to as the POWER Act."
+        }
+      ],
+      "source_url": "https://www.utilitydive.com/news/oregon-puc-approves-pges-large-load-tariff-framework-for-data-centers/821361/",
+      "source_title": "Utility Dive \u2014 Oregon PUC approves PGE's large-load tariff framework for data centers",
+      "resources": [
+        {
+          "url": "https://www.oregon.gov/puc/utilities/pages/large-load.aspx",
+          "title": "Oregon PUC \u2014 Large Customer Demand / large-load rulemaking page"
+        },
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+        }
+      ],
+      "captured_at": "2026-06-24"
+    },
+    {
+      "id": "xcel-colorado-large-load-tariff",
+      "utility": "Public Service Company of Colorado (Xcel Energy)",
+      "state": "CO",
+      "jurisdiction_level": "state",
+      "tariff_name": "Large Load Tariff",
+      "tariff_type": "Large-load / data center tariff",
+      "status": "proposed",
+      "status_detail": "Filed with the Colorado PUC on April 2, 2026; pending review.",
+      "regulator": "Colorado Public Utilities Commission (COPUC)",
+      "filed_date": "2026-04-02",
+      "min_load_mw": 50,
+      "summary": "Proposed Xcel/Public Service Company of Colorado tariff requiring customers above 50 MW (and some 20\u201350 MW) to cover the transmission, substation, interconnection, and new-generation costs needed to serve them, with 15-year-plus contracts and financial security, so existing customers don't subsidize large new loads such as data centers.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to customers using 50+ MW at peak; new customers between 20 and 50 MW may also be subject."
+        },
+        "customer_type": {
+          "status": "included",
+          "detail": "Large-load tariff aimed at high-demand users such as data centers."
+        },
+        "marginal_pricing": {
+          "status": "included",
+          "detail": "Large customers pay for the transmission lines, substations, interconnection upgrades, and new electric generation needed to serve them."
+        },
+        "contract_duration": {
+          "status": "included",
+          "detail": "Minimum contract term of 15 years or more."
+        },
+        "contracted_capacity": {
+          "status": "included",
+          "detail": "Customers owe a minimum monthly payment toward infrastructure costs even if their load ramps up gradually."
+        },
+        "credit_collateral": {
+          "status": "included",
+          "detail": "Financial security requirements add protection if a project is delayed, scaled back, or not completed."
+        },
+        "exit_fee": {
+          "status": "included",
+          "detail": "If a large customer exits service early, termination charges recover the remaining cost of project-specific upgrades built, avoiding stranded costs."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Service agreements required",
+          "detail": "Large customers must execute Interconnection Agreements and Energy Service Agreements before receiving electric service.",
+          "source_url": "https://newsroom.xcelenergy.com/news/xcel-energy-proposal-protects-customers-from-higher-bills-as-data-center-demand-grows"
+        },
+        {
+          "term": "Demand context",
+          "detail": "Public Service Company of Colorado projects large-load customers will make up two-thirds of new demand, needing ~950 MW of new generation over five years.",
+          "source_url": "https://newsroom.xcelenergy.com/news/xcel-energy-proposal-protects-customers-from-higher-bills-as-data-center-demand-grows"
+        }
+      ],
+      "legislation": [],
+      "source_url": "https://newsroom.xcelenergy.com/news/xcel-energy-proposal-protects-customers-from-higher-bills-as-data-center-demand-grows",
+      "source_title": "Xcel Energy \u2014 Proposal protects customers from higher bills as data center demand grows",
+      "resources": [
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+        }
+      ],
+      "captured_at": "2026-06-24"
+    },
+    {
+      "id": "nv-microsoft-ratepayer-protection-tariff",
+      "utility": "NV Energy (tariff proposed by Microsoft)",
+      "state": "NV",
+      "jurisdiction_level": "state",
+      "tariff_name": "Ratepayer Protection Tariff (large-load cost allocation framework)",
+      "tariff_type": "Ratepayer-protection / large-load cost allocation",
+      "status": "proposed",
+      "status_detail": "Filed by Microsoft with the PUCN in May 2026 under Docket No. 20-08014; proposed framework pending commission review.",
+      "regulator": "Public Utilities Commission of Nevada (PUCN)",
+      "docket_number": "20-08014",
+      "min_load_mw": null,
+      "summary": "A statewide framework Microsoft proposed to Nevada regulators that would have NV Energy track the substations, generation, and transmission dedicated to each large-load customer and split costs into a customer-paid project share and a grid-benefit share \u2014 turning Microsoft's 'paying our way' pledge into an enforceable rate mechanism that shields residential and small-business ratepayers.",
+      "parameters": {
+        "customer_type": {
+          "status": "included",
+          "detail": "Statewide framework for allocating costs of large-load (high-load-factor) customers such as AI data centers."
+        },
+        "marginal_pricing": {
+          "status": "included",
+          "detail": "Splits costs into a Customer Contributed Share (project-specific infrastructure paid by the customer) and a System Benefit Share (grid-wide benefit reviewed for rate base)."
+        },
+        "study_cost_recovery": {
+          "status": "included",
+          "detail": "NV Energy maintains a customer-specific asset schedule tracking the substations, generation, and transmission serving each large-load customer."
+        },
+        "contracted_capacity": {
+          "status": "included",
+          "detail": "Customers either provide upfront contributions or make ongoing facility payments for the dedicated infrastructure."
+        },
+        "exit_fee": {
+          "status": "included",
+          "detail": "A final exit charge applies if a customer departs before cost recovery is complete."
+        },
+        "btm_backup": {
+          "status": "included",
+          "detail": "A 'Bring Your Own Power' option lets customers source generation from third parties, reducing overbuild risk."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Expedited review",
+          "detail": "Projects funded fully upfront may receive PUCN approval within 60 days where no system-benefit cost recovery is sought.",
+          "source_url": "https://www.utilitydive.com/news/microsoft-seeks-nevada-tariff-to-shield-ratepayers-from-data-center-costs/822250/"
+        }
+      ],
+      "legislation": [],
+      "source_url": "https://www.utilitydive.com/news/microsoft-seeks-nevada-tariff-to-shield-ratepayers-from-data-center-costs/822250/",
+      "source_title": "Utility Dive \u2014 Microsoft seeks Nevada tariff to shield ratepayers from data center costs",
+      "resources": [
+        {
+          "url": "https://www.datacenterdynamics.com/en/news/microsoft-proposes-ratepayer-protection-tariff-in-nevada/",
+          "title": "DCD \u2014 Microsoft proposes ratepayer-protection tariff in Nevada"
+        },
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+        }
+      ],
+      "captured_at": "2026-06-24"
     }
   ]
 }

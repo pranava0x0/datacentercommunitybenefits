@@ -1095,6 +1095,42 @@ class TestRatepayerView:
         assert counts["pledgeOnly"] >= 1, counts
         assert counts["pledgeOnlyWithSrc"] == counts["pledgeOnly"], counts
 
+    def test_every_claim_has_its_own_source_link(self, page: Page, base_url: str):
+        # Audit trail (v1.20): under each site, EVERY project-tied claim is listed
+        # with its own source link (repetition is fine). Rendered on a COLD
+        # #ratepayer deep-link, which also guards the claims-load race — if
+        # claimsByProject were built before claims.json landed, these lists would
+        # be empty and the counts would be zero. Cards are collapsed <details>,
+        # so the rows are queried by DOM (attached), not visibility.
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector(
+            "#view-ratepayer .rp-card-claims .rp-claim-src",
+            state="attached",
+            timeout=10_000,
+        )
+        stats = page.evaluate(
+            """() => {
+              const rows = [...document.querySelectorAll('#view-ratepayer .rp-claim-src')];
+              const linked = rows.filter((r) => {
+                const a = r.querySelector('a.rp-claim-link');
+                return a && /^https?:/.test(a.getAttribute('href') || '');
+              });
+              return {
+                rows: rows.length,
+                linked: linked.length,
+                blocks: document.querySelectorAll('#view-ratepayer .rp-card-claims').length,
+                evidenceFlags: document.querySelectorAll('#view-ratepayer .rp-claim-flag').length,
+              };
+            }"""
+        )
+        # The audit trail populated on a cold deep-link (race-fix guard).
+        assert stats["rows"] >= 30, stats
+        assert stats["blocks"] >= 5, stats
+        # EVERY claim row carries its own source link.
+        assert stats["linked"] == stats["rows"], stats
+        # At least one affirmed site flags its cited evidence claim (★ evidence).
+        assert stats["evidenceFlags"] >= 1, stats
+
 
 class TestTariffsView:
     """Utility Tariffs tab: rendering, keyboard access, federal segregation."""
@@ -1121,6 +1157,51 @@ class TestTariffsView:
         expect(page.locator("#tariff-detail")).to_be_visible()
         # The detail pop-out shows the full 17-element checklist.
         assert page.locator("#td-params-body .tparam-row").count() == 17
+
+    def test_detail_opens_as_modal_overlay(self, page: Page, base_url: str):
+        # v1.19: the detail promotes from an inline pop-out to a centered modal
+        # overlay — fixed-position with a dismissable backdrop, dialog semantics,
+        # a body scroll-lock, and the LBL element-coverage tally in the heading.
+        self._open(page, base_url)
+        page.locator("#tariffs-tbody tr").first.click()
+
+        modal = page.locator("#tariff-modal")
+        expect(modal).to_be_visible()
+        # A real overlay, not an inline block under the table.
+        assert (
+            page.eval_on_selector("#tariff-modal", "el => getComputedStyle(el).position")
+            == "fixed"
+        )
+        # Dialog semantics for assistive tech.
+        dialog = page.locator("#tariff-detail")
+        assert dialog.get_attribute("role") == "dialog"
+        assert dialog.get_attribute("aria-modal") == "true"
+        # The page behind is scroll-locked and a backdrop is present.
+        assert page.evaluate("document.body.classList.contains('tariff-modal-open')") is True
+        assert page.locator("#tariff-modal .tariff-modal__backdrop").count() == 1
+        # Coverage tally surfaced in the params heading ("N of 17 addressed").
+        expect(page.locator(".td-elem-tally")).to_be_visible()
+
+        # Escape closes the modal and releases the scroll lock.
+        page.keyboard.press("Escape")
+        expect(modal).to_be_hidden()
+        assert (
+            page.evaluate("document.body.classList.contains('tariff-modal-open')") is False
+        )
+
+    def test_modal_closes_on_backdrop_click(self, page: Page, base_url: str):
+        # Clicking the dimmed backdrop (a corner not covered by the centered
+        # dialog) dismisses the modal; clicking inside the dialog does not.
+        self._open(page, base_url)
+        page.locator("#tariffs-tbody tr").first.click()
+        modal = page.locator("#tariff-modal")
+        expect(modal).to_be_visible()
+        # Clicking dialog content keeps it open.
+        page.locator("#td-name").click()
+        expect(modal).to_be_visible()
+        # Clicking the backdrop near a corner closes it.
+        page.locator("#tariff-modal .tariff-modal__backdrop").click(position={"x": 6, "y": 6})
+        expect(modal).to_be_hidden()
 
     def test_federal_case_is_badged_and_excluded_from_state_count(
         self, page: Page, base_url: str

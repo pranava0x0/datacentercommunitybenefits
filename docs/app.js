@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
   wireThemeToggle();
   readFiltersFromUrl();
   wireTabs();
-  loadComparisonData()
+  ensureComparisonData()
     .then(() => {
       // Idle-preload projects + responses JSON (NOT Leaflet) so the
       // summary-stats bar can fill in projects / GW / investment / responses
@@ -604,6 +604,18 @@ async function loadComparisonData() {
   renderSummaryStats();
 }
 
+// Memoized handle on the companies + claims payload. loadProjectData awaits
+// this before indexing claimsByProject, so a cold deep-link to a claim-
+// dependent view (#ratepayer / #explorer) never races claims.json — without
+// it, wireTabs activates the deep-linked view (and starts loadProjectData)
+// before boot's loadComparisonData has even been called, leaving claimsByProject
+// empty. Returns the same promise on repeat calls; never double-fetches.
+let _comparisonDataPromise = null;
+function ensureComparisonData() {
+  if (!_comparisonDataPromise) _comparisonDataPromise = loadComparisonData();
+  return _comparisonDataPromise;
+}
+
 // Fetch + index the projects/responses payload. Shared by the Explorer and
 // Ratepayer views; safe to call repeatedly (fetches at most once). Does NOT
 // touch Leaflet — that's the Explorer's concern alone.
@@ -611,7 +623,10 @@ let _projectDataPromise = null;
 function loadProjectData() {
   if (!_projectDataPromise) {
     _projectDataPromise = (async () => {
-      const [projects, responses] = await Promise.all([
+      // Guarantee state.claims is populated before we index claimsByProject —
+      // otherwise a cold #ratepayer/#explorer deep-link builds an empty index.
+      const [, projects, responses] = await Promise.all([
+        ensureComparisonData(),
         fetchJson("data/projects.json"),
         fetchJson("data/responses.json"),
       ]);
@@ -1311,8 +1326,9 @@ function renderTariffsTable() {
 // Detail pop-out: the full per-element "met or not met" checklist + additional
 // terms + legislation + sources. This is where the LBL mapping lives in full.
 function showTariffDetail(t) {
+  const overlay = document.getElementById("tariff-modal");
   const modal = document.getElementById("tariff-detail");
-  if (!modal) return;
+  if (!overlay || !modal) return;
 
   const setText = (id, txt) => {
     const el = document.getElementById(id);
@@ -1336,6 +1352,15 @@ function showTariffDetail(t) {
   setText("td-customers", t.customers && t.customers.length ? t.customers.join(", ") : "Not disclosed");
 
   document.getElementById("td-summary").innerHTML = `<p>${escapeHtml(t.summary)}</p>`;
+
+  // Surface the coverage tally in the params heading ("9 of 17 addressed").
+  const paramsHeading = document.getElementById("td-params-heading");
+  if (paramsHeading) {
+    const n = tariffElementCount(t);
+    paramsHeading.innerHTML =
+      `LBL rate-design elements — met or not ` +
+      `<span class="td-elem-tally">${n} of ${TARIFF_PARAMETERS.length} addressed</span>`;
+  }
 
   // LBL element checklist — iterate the full taxonomy so "not addressed" shows.
   const body = document.getElementById("td-params-body");
@@ -1432,13 +1457,25 @@ function showTariffDetail(t) {
 
   setText("td-captured", `Verified: ${t.captured_at}`);
 
-  modal.hidden = false;
+  // Remember the trigger so focus returns to it on close, then open the modal.
+  state._tariffReturnFocus =
+    document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  overlay.hidden = false;
+  document.body.classList.add("tariff-modal-open");
   modal.scrollTop = 0;
+  overlay.scrollTop = 0;
+  const closeBtn = document.getElementById("tariff-detail-close");
+  if (closeBtn) closeBtn.focus();
 }
 
 function closeTariffDetail() {
-  const modal = document.getElementById("tariff-detail");
-  if (modal) modal.hidden = true;
+  const overlay = document.getElementById("tariff-modal");
+  if (!overlay || overlay.hidden) return;
+  overlay.hidden = true;
+  document.body.classList.remove("tariff-modal-open");
+  const ret = state._tariffReturnFocus;
+  state._tariffReturnFocus = null;
+  if (ret && typeof ret.focus === "function") ret.focus();
 }
 
 function wireTariffsFilters() {
@@ -1460,16 +1497,47 @@ function wireTariffsFilters() {
 }
 
 function wireTariffDetail() {
+  const overlay = document.getElementById("tariff-modal");
   const closeBtn = document.getElementById("tariff-detail-close");
   if (closeBtn && !closeBtn.dataset.wired) {
     closeBtn.addEventListener("click", closeTariffDetail);
     closeBtn.dataset.wired = "1";
+  }
+  if (overlay && !overlay.dataset.wired) {
+    // Click on the backdrop (or the overlay area outside the dialog) closes.
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay || e.target.closest("[data-tariff-close]")) {
+        closeTariffDetail();
+      }
+    });
+    // Keep Tab focus inside the dialog while the modal is open.
+    overlay.addEventListener("keydown", (e) => {
+      if (e.key === "Tab" && !overlay.hidden) trapTariffModalFocus(e, overlay);
+    });
+    overlay.dataset.wired = "1";
   }
   if (!document._tariffEscWired) {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeTariffDetail();
     });
     document._tariffEscWired = true;
+  }
+}
+
+// Simple focus trap: cycle Tab / Shift+Tab within the modal's focusables.
+function trapTariffModalFocus(e, overlay) {
+  const focusables = [...overlay.querySelectorAll(
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )].filter((el) => el.offsetParent !== null);
+  if (!focusables.length) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
   }
 }
 
@@ -3470,6 +3538,38 @@ function rpCardSourcesHtml(p) {
   return `<div class="rp-card-sources"><span class="rp-sources-label">Sources:</span> ${anchors}</div>`;
 }
 
+// Per-claim audit trail: every claim tied to this site, each linked to its own
+// source. Intentionally NOT deduped — repetition across claims (or a shared URL)
+// is fine; the point is that every claim backing a site is individually
+// traceable to a citation. The claim cited as the ratepayer evidence is flagged
+// so this list and the evidence quote line up. Depends on state.claimsByProject,
+// which loadProjectData now builds only after claims.json is in hand.
+function rpCardClaimsHtml(p) {
+  const claims = (state.claimsByProject && state.claimsByProject.get(p.id)) || [];
+  if (!claims.length) return "";
+  const evidenceId = p.ratepayer && p.ratepayer.evidence_claim_id;
+  const items = claims
+    .map((c) => {
+      const label = THEME_LABELS[c.theme] || c.theme;
+      const date = c.published_at || c.captured_at || "";
+      const isEvidence = evidenceId && c.id === evidenceId;
+      const flag = isEvidence
+        ? `<span class="rp-claim-flag" title="Cited as this site's ratepayer evidence">★ evidence</span>`
+        : "";
+      return `<li class="rp-claim-src">
+        <span class="rp-claim-theme" style="--theme-color: var(--theme-${escapeAttr(c.theme)});">${escapeHtml(label)}</span>
+        <a href="${escapeAttr(String(c.source_url))}" target="_blank" rel="noopener noreferrer" class="rp-claim-link">${escapeHtml(c.source_title || "Source")} ↗</a>
+        ${date ? `<span class="rp-claim-date">${escapeHtml(date)}</span>` : ""}
+        ${flag}
+      </li>`;
+    })
+    .join("");
+  return `<div class="rp-card-claims">
+    <span class="rp-claims-label">Claim sources (${claims.length}) — every claim, individually cited:</span>
+    <ul class="rp-claims-list">${items}</ul>
+  </div>`;
+}
+
 function renderRatepayerCard(p) {
   const co = state.companiesBySlug.get(p.company_slug);
   const rp = p.ratepayer;
@@ -3551,6 +3651,7 @@ function renderRatepayerCard(p) {
         <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
         ${principlesHtml}
         ${evidenceHtml}
+        ${rpCardClaimsHtml(p)}
         ${rpCardSourcesHtml(p)}
       </div>
     </details>
@@ -3572,6 +3673,7 @@ function renderPrePledgeCard(p, note = "National pledge — no site assessment")
     <span class="rp-pre-name">${escapeHtml(p.name)}</span>
     <span class="rp-pre-loc">${escapeHtml(p.city)}, ${escapeHtml(p.state)} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
     <span class="rp-pre-dates">Announced: ${escapeHtml(announcedStr)} · ${escapeHtml(note)}</span>
+    ${rpCardClaimsHtml(p)}
     ${rpCardSourcesHtml(p)}
   `;
   return li;
