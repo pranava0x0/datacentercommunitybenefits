@@ -196,15 +196,15 @@
       "announced_year": 2023,
       "claimed_investment_usd": 3300000000,
       "claimed_jobs": 2300,
-      "notes": "Microsoft's first Wisconsin data center, branded 'Fairwater.' Per Satya Nadella's April 16 2026 statement the site is 'going live ahead of schedule,' combining hundreds of thousands of NVIDIA GB200 GPUs into a single seamless cluster. Mount Pleasant Village Board approved 15 additional buildings across two new lots on May 11 2026 (~$13B+ incremental taxable value). 375 FTEs hired as of May 8 2026 per Bowen Wallace at the RCEDC Impact 2026 event.",
+      "notes": "Microsoft's first Wisconsin data center, branded 'Fairwater.' Per Satya Nadella's April 16 2026 statement the site is 'going live ahead of schedule,' combining hundreds of thousands of NVIDIA GB200 GPUs into a single seamless cluster. Mount Pleasant Village Board approved 15 additional buildings across two new lots on May 11 2026 (~$13B+ incremental taxable value). 375 FTEs hired as of May 8 2026 per Bowen Wallace at the RCEDC Impact 2026 event. On June 23, 2026 Microsoft announced the first Fairwater facility is fully operational (equipment brought online in April 2026), with roughly 550 on-site full-time employees — expected to reach about 800 once the second facility opens — and about $4.7 billion in projected 2024–2028 Wisconsin hyperscale construction spending, including direct purchases from 29 Wisconsin businesses across 11 counties.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2024/05/08/wisconsin-ai-co-innovation-data-center/",
       "source_title": "Microsoft expands Wisconsin investment to $3.3B (May 2024)",
-      "captured_at": "2026-05-14",
-      "project_page_url": "https://blogs.microsoft.com/on-the-issues/2025/09/18/made-in-wisconsin-the-worlds-most-powerful-ai-datacenter/",
+      "captured_at": "2026-06-24",
+      "project_page_url": "https://news.microsoft.com/source/2026/06/23/microsoft-completes-construction-on-first-datacenter-facility-in-mount-pleasant-wisconsin/",
       "acreage": 1300,
       "offtaker": "Microsoft",
       "at_a_glance": {
-        "jobs": "375 FTEs at Fairwater (operational Apr 16 2026)",
+        "jobs": "~550 FTEs; first Fairwater facility fully operational Jun 23, 2026",
         "infrastructure": "Hundreds of thousands of NVIDIA GB200s in single AI cluster"
       }
     },
@@ -3432,6 +3432,63 @@
         "jobs": "~763 AZ FTE projected by end 2026",
         "water": "Pledge: replenish more water than used; Lake Mead conservation",
         "education": "Datacenter Academy workforce program (West Valley)"
+      }
+    },
+    {
+      "id": "google-jackson-county-al",
+      "company_slug": "google",
+      "name": "Google Jackson County Data Center Campus (2026 Expansion)",
+      "city": "Bridgeport",
+      "state": "AL",
+      "country": "US",
+      "lat": 34.8836,
+      "lon": -85.7561,
+      "status": "construction",
+      "announced_year": 2026,
+      "announced_date": "2026-06-15",
+      "claimed_investment_usd": 1500000000,
+      "claimed_jobs": null,
+      "notes": "June 15, 2026 announcement of a $1.5 billion investment across 2026 and 2027 to expand Google's Jackson County data center campus, which has operated since 2019 on the site of the Tennessee Valley Authority's retired Widows Creek coal plant near Bridgeport. Over 1,000 contract workers are expected across construction phases, supporting hundreds of full-time operational jobs. Google funds 100% of its own power and infrastructure costs, and the campus is contracted to draw roughly 300 MW. Community commitments include a $2 million Energy Impact Fund with the TVA and CAANEAL for local energy-efficiency and weatherization programs, a $550,000 donation of STEM kits for local 4th–8th graders, water stewardship in the Paint Rock River Watershed, and digital-skills training that has reached more than 130,000 Alabamians.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
+      "source_title": "Google — Expanding our Alabama data center campus (June 2026)",
+      "captured_at": "2026-06-24",
+      "project_page_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
+      "power_mw": 300,
+      "offtaker": "Google",
+      "at_a_glance": {
+        "energy": "Google funds 100% of own power + infrastructure; ~300 MW contracted",
+        "community_grants": "$2M Energy Impact Fund (TVA/CAANEAL) for efficiency + weatherization",
+        "education": "$550K STEM kits for 4th–8th graders; 130K+ Alabamians trained in digital skills",
+        "water": "Paint Rock River Watershed stewardship",
+        "jobs": "1,000+ construction workers; hundreds of operational jobs"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Google states it is funding 100% of its own power and infrastructure costs for the Jackson County campus expansion, keeping the cost of new supply off existing TVA-served ratepayers.",
+        "evidence_claim_id": "google-jackson-al-energy-pay-costs-2026",
+        "assessed_at": "2026-06-24",
+        "principles": {
+          "new_generation": {
+            "status": "met",
+            "note": "Google funds 100% of its own power; the campus repurposes the retired Widows Creek coal site and adds clean power to the regional grid."
+          },
+          "delivery_infra": {
+            "status": "met",
+            "note": "Google funds 100% of its own infrastructure costs, keeping grid-upgrade costs off existing ratepayers."
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "Power is supplied through the TVA; no separate site-specific rate filing was captured for this campus."
+          },
+          "local_jobs": {
+            "status": "met",
+            "note": "Over 1,000 construction workers and hundreds of operational jobs, plus digital-skills training reaching 130,000+ Alabamians."
+          },
+          "grid_resilience": {
+            "status": "met",
+            "note": "Reuses the retired Widows Creek plant's existing transmission interconnection, easing new grid build-out."
+          }
+        }
       }
     }
   ]

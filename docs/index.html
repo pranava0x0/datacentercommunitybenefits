@@ -765,7 +765,9 @@
         </p>
 
         <!-- ================= TARIFF DETAIL MODAL ================= -->
-        <aside id="tariff-detail" class="moratorium-detail tariff-detail" aria-live="polite" hidden>
+        <div id="tariff-modal" class="tariff-modal" hidden>
+          <div class="tariff-modal__backdrop" data-tariff-close aria-hidden="true"></div>
+          <aside id="tariff-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="td-name" aria-live="polite">
           <button id="tariff-detail-close" class="detail-close" type="button" aria-label="Close tariff details">
             ×
           </button>
@@ -818,7 +820,8 @@
           </section>
 
           <p id="td-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
-        </aside>
+          </aside>
+        </div>
       </section>
 
       <!-- ====================== AGGREGATE VIEW ====================== -->
