@@ -1051,6 +1051,129 @@
         }
       ],
       "captured_at": "2026-06-24"
+    },
+    {
+      "id": "comed-il-large-load-deposit-2026",
+      "utility": "Commonwealth Edison (ComEd)",
+      "state": "IL",
+      "tariff_name": "Large-Load Security Deposit Tariff (Docket P2025-0677)",
+      "tariff_type": "Large-load deposit / interconnection surety rule",
+      "status": "approved",
+      "status_detail": "Illinois Commerce Commission approved March 20, 2026; effective immediately.",
+      "regulator": "Illinois Commerce Commission (ICC)",
+      "docket_number": "P2025-0677",
+      "filed_date": "2025-01-01",
+      "decision_date": "2026-03-20",
+      "min_load_mw": 50,
+      "customers": null,
+      "summary": "ICC approved ComEd's revised tariff requiring security deposits from large-load applicants requesting 50 MW or more: $1M for 50–200 MW, plus $500K per additional 100 MW above that. Deposits apply toward development costs on completed projects and are refunded (minus incurred costs) on cancellations. Simultaneously, ICC opened a separate investigation (staff report due ~late 2026) into additional consumer-protection mechanisms for data-center-driven distribution upgrades. First approved large-load surety tariff in Illinois.",
+      "parameters": {
+        "credit_collateral": {
+          "status": "included",
+          "detail": "$1M deposit for 50–200 MW requests; +$500K per additional 100 MW. Refundable on cancellation minus incurred costs."
+        },
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to load interconnection requests of 50 MW and above."
+        }
+      },
+      "additional_terms": [],
+      "legislation": [],
+      "source_url": "https://capitolnewsillinois.com/news/regulators-ok-comeds-plan-to-increase-deposit-costs-for-large-load-projects-like-data-centers/",
+      "source_title": "Capitol News Illinois — Regulators OK ComEd's plan to increase deposit costs for large-load projects like data centers",
+      "resources": [
+        {
+          "url": "https://capitolnewsillinois.com/news/regulators-ok-comeds-plan-to-increase-deposit-costs-for-large-load-projects-like-data-centers/",
+          "title": "Capitol News Illinois — ComEd large-load deposit tariff approved (March 2026)"
+        },
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        }
+      ],
+      "captured_at": "2026-06-25"
+    },
+    {
+      "id": "aps-arizona-large-load-rate-case-2025",
+      "utility": "Arizona Public Service (APS)",
+      "state": "AZ",
+      "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0134)",
+      "tariff_type": "Large-load cost-of-service rate case",
+      "status": "proposed",
+      "status_detail": "Filed with Arizona Corporation Commission in 2025; ACC decision expected by end of 2026.",
+      "regulator": "Arizona Corporation Commission (ACC)",
+      "docket_number": "E-01345A-25-0134",
+      "filed_date": "2025-06-01",
+      "decision_date": null,
+      "min_load_mw": null,
+      "customers": null,
+      "summary": "APS proposed a 45% rate increase for extra-large energy users (data centers) versus ~15% for households, explicitly structuring rates so data centers pay their own cost of service rather than shifting grid-upgrade costs onto residential ratepayers. Includes formula rates tying infrastructure costs directly to the large-load customers who cause them. The ACC hosted a large-load / data-center workshop April 20, 2026 to gather stakeholder input; final order expected late 2026.",
+      "parameters": {
+        "customer_type": {
+          "status": "included",
+          "detail": "Rate case explicitly targets extra-large energy users including data centers; formula rates link infrastructure costs to the causative customer."
+        }
+      },
+      "additional_terms": [],
+      "legislation": [],
+      "source_url": "https://www.aps.com/en/Utility/Company-wide-Events-and-Messages/Data_Centers_How_Were_Protecting_Customers_While_Planning-for_Big_Energy_Needs",
+      "source_title": "APS — Data Centers: How We're Protecting Customers While Planning for Big Energy Needs",
+      "resources": [
+        {
+          "url": "https://www.aps.com/en/Utility/Company-wide-Events-and-Messages/Data_Centers_How_Were_Protecting_Customers_While_Planning-for_Big_Energy_Needs",
+          "title": "APS — Data Center customer protection explainer"
+        },
+        {
+          "url": "https://www.azcc.gov/news/home/2026/04/20/acc-large-load-data-center-workshop-highlights",
+          "title": "ACC — Large-Load / Data Center Workshop Highlights (April 20, 2026)"
+        },
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        }
+      ],
+      "captured_at": "2026-06-25"
+    },
+    {
+      "id": "duke-nc-large-load-rate-case-2025",
+      "utility": "Duke Energy Carolinas / Duke Energy Progress",
+      "state": "NC",
+      "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1300)",
+      "tariff_type": "Large-load rate case — cost-of-service and class design",
+      "status": "proposed",
+      "status_detail": "Filed November 20, 2025; NCUC evidentiary hearings summer 2026; decision expected late 2026, new rates effective January 1, 2027.",
+      "regulator": "North Carolina Utilities Commission (NCUC)",
+      "docket_number": "E-7, Sub 1300",
+      "filed_date": "2025-11-20",
+      "decision_date": null,
+      "min_load_mw": 50,
+      "customers": null,
+      "summary": "Duke Energy's 2025 rate case is the arena for a major fight over large-load tariff design in North Carolina. The NC Attorney General, NCUC Public Staff, and advocacy groups have independently proposed creating a new large-load customer class (50+ MW) with special rules and rates for data centers, ensuring they pay their own cost of service. Duke has approximately 6 GW of data center demand in its queue. A final order is expected late 2026 with new rates effective January 1, 2027.",
+      "parameters": {
+        "customer_type": {
+          "status": "partial",
+          "detail": "Proposed new 50+ MW customer class embedded in the broader rate case; not yet formally designated but supported by the AG, Public Staff, and intervening parties."
+        },
+        "min_load": {
+          "status": "partial",
+          "detail": "50 MW threshold proposed by multiple parties for the new large-load class."
+        }
+      },
+      "additional_terms": [],
+      "legislation": [],
+      "source_url": "https://www.duke-energy.com/home/billing/dec-nc-rate-case",
+      "source_title": "Duke Energy — 2025 Duke Energy Carolinas and Duke Energy Progress Rate Request",
+      "resources": [
+        {
+          "url": "https://www.duke-energy.com/home/billing/dec-nc-rate-case",
+          "title": "Duke Energy — 2025 NC Rate Case page"
+        },
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        }
+      ],
+      "captured_at": "2026-06-25"
     }
   ]
 }

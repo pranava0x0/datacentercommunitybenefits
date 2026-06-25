@@ -3539,20 +3539,35 @@ function rpCardSourcesHtml(p) {
 }
 
 // Per-claim audit trail: every claim tied to this site, each linked to its own
-// source. Intentionally NOT deduped — repetition across claims (or a shared URL)
-// is fine; the point is that every claim backing a site is individually
-// traceable to a citation. The claim cited as the ratepayer evidence is flagged
-// so this list and the evidence quote line up. Depends on state.claimsByProject,
-// which loadProjectData now builds only after claims.json is in hand.
+// source. Falls back to company-level ratepayer pledge claims (up to 3) when no
+// project-specific claims exist, labeled distinctly so readers know the scope.
+// Depends on state.claimsByProject (populated after claims.json loads).
 function rpCardClaimsHtml(p) {
-  const claims = (state.claimsByProject && state.claimsByProject.get(p.id)) || [];
-  if (!claims.length) return "";
+  const projectClaims = (state.claimsByProject && state.claimsByProject.get(p.id)) || [];
   const evidenceId = p.ratepayer && p.ratepayer.evidence_claim_id;
+
+  // Fall back to company-wide ratepayer pledge claims when no site-specific ones.
+  let claims = projectClaims;
+  let isCompanyFallback = false;
+  if (!claims.length && state.claims) {
+    claims = state.claims
+      .filter(
+        (c) =>
+          c.company_slug === p.company_slug &&
+          !c.project_id &&
+          RATEPAYER_CLAIM_KEYWORDS.some((k) => c.statement.toLowerCase().includes(k))
+      )
+      .slice(0, 3);
+    isCompanyFallback = claims.length > 0;
+  }
+
+  if (!claims.length) return "";
+
   const items = claims
     .map((c) => {
       const label = THEME_LABELS[c.theme] || c.theme;
       const date = c.published_at || c.captured_at || "";
-      const isEvidence = evidenceId && c.id === evidenceId;
+      const isEvidence = !isCompanyFallback && evidenceId && c.id === evidenceId;
       const flag = isEvidence
         ? `<span class="rp-claim-flag" title="Cited as this site's ratepayer evidence">★ evidence</span>`
         : "";
@@ -3564,8 +3579,13 @@ function rpCardClaimsHtml(p) {
       </li>`;
     })
     .join("");
+
+  const sectionLabel = isCompanyFallback
+    ? `Company-wide pledge sources (${claims.length}) — no site-specific claims on file:`
+    : `Claim sources (${claims.length}) — every claim, individually cited:`;
+
   return `<div class="rp-card-claims">
-    <span class="rp-claims-label">Claim sources (${claims.length}) — every claim, individually cited:</span>
+    <span class="rp-claims-label">${sectionLabel}</span>
     <ul class="rp-claims-list">${items}</ul>
   </div>`;
 }
@@ -3579,24 +3599,10 @@ function renderRatepayerCard(p) {
   li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
   li.style.setProperty("--rp-color", `var(--ratepayer-${rp.status})`);
 
-  // Evidence quote (for `affirmed`): collapsed into a <details> so cards stay
-  // compact. The summary line shows the source title as the disclosure label.
-  let evidenceHtml = "";
-  if (rp.evidence_claim_id) {
-    const claim = state.claims.find((c) => c.id === rp.evidence_claim_id);
-    if (claim) {
-      evidenceHtml = `
-        <details class="rp-evidence-details">
-          <summary class="rp-evidence-summary">
-            <a href="${escapeAttr(String(claim.source_url))}" target="_blank" rel="noopener noreferrer" class="rp-evidence-src-link">
-              ${escapeHtml(claim.source_title)} →
-            </a>
-          </summary>
-          <blockquote class="rp-evidence">${escapeHtml(claim.statement)}</blockquote>
-        </details>
-      `;
-    }
-  }
+  // Resolve evidence claim once — used for "met" principle source links.
+  const evidenceClaim = rp.evidence_claim_id
+    ? state.claims.find((c) => c.id === rp.evidence_claim_id)
+    : null;
 
   const loc = `${escapeHtml(p.city)}, ${escapeHtml(p.state)}`;
 
@@ -3607,7 +3613,9 @@ function renderRatepayerCard(p) {
   const metClass =
     metCount === 5 ? "met" : metCount >= 3 ? "partial" : "low";
 
-  // Per-principle rows — one row per pledge commitment, only when data present.
+  // Per-principle rows. Each row carries an inline source link so readers can
+  // immediately verify how each element is assessed — no separate evidence
+  // blockquote or per-claim audit trail needed.
   let principlesHtml = "";
   if (rp.principles && Object.keys(rp.principles).length > 0) {
     const rows = PLEDGE_PRINCIPLES.map((key) => {
@@ -3616,6 +3624,28 @@ function renderRatepayerCard(p) {
       const note = assessment.note || "";
       const label = PLEDGE_PRINCIPLE_LABELS[key];
       const statusLabel = PLEDGE_PRINCIPLE_STATUS_LABELS[status] || status;
+
+      // Derive per-principle source link:
+      //   met      → evidence claim (the site-specific backing claim)
+      //   partial  → the national pledge proclamation
+      //   not_met  → the project's source (contested-evidence article)
+      //   unknown  → no link
+      let srcUrl = null;
+      let srcTitle = null;
+      if (status === "met" && evidenceClaim) {
+        srcUrl = String(evidenceClaim.source_url);
+        srcTitle = evidenceClaim.source_title;
+      } else if (status === "partial") {
+        srcUrl = RATEPAYER_PLEDGE_URL;
+        srcTitle = "Ratepayer Protection Pledge";
+      } else if (status === "not_met") {
+        srcUrl = String(p.source_url);
+        srcTitle = p.source_title || "Project source";
+      }
+      const srcHtml = srcUrl
+        ? ` <a href="${escapeAttr(srcUrl)}" target="_blank" rel="noopener noreferrer" class="pp-row-src" title="${escapeAttr(srcTitle || "")}">↗</a>`
+        : "";
+
       const noteHtml = note
         ? `<span class="pp-row-note">${escapeHtml(note)}</span>`
         : "";
@@ -3624,7 +3654,7 @@ function renderRatepayerCard(p) {
           <span class="pp-row-label">${escapeHtml(label)}</span>
           ${noteHtml}
         </div>
-        <span class="pp-row-status">${escapeHtml(statusLabel)}</span>
+        <span class="pp-row-status">${escapeHtml(statusLabel)}${srcHtml}</span>
       </li>`;
     }).join("");
     principlesHtml = `<ul class="rp-principles" aria-label="Pledge principles fulfillment">${rows}</ul>`;
@@ -3636,6 +3666,8 @@ function renderRatepayerCard(p) {
   const datesHtml = `<span class="rp-card-dates">Announced: ${escapeHtml(announcedStr)}${pledgeRefStr ? ` · First pledge ref: ${escapeHtml(pledgeRefStr)}` : ""}</span>`;
 
   // Collapsible card — header is always visible; body expands on click.
+  // Sources footer is the single consolidated reference list; the separate
+  // evidence blockquote and per-claim audit trail have been removed.
   li.innerHTML = `
     <details class="rp-card-details">
       <summary class="rp-card-head">
@@ -3650,8 +3682,6 @@ function renderRatepayerCard(p) {
       <div class="rp-card-body">
         <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
         ${principlesHtml}
-        ${evidenceHtml}
-        ${rpCardClaimsHtml(p)}
         ${rpCardSourcesHtml(p)}
       </div>
     </details>
