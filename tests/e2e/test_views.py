@@ -948,6 +948,8 @@ class TestRatepayerView:
     ):
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
+        # Roster is collapsed by default — open it first.
+        page.locator("#rp-roster-heading").click()
         page.wait_for_selector("#rp-roster .rp-roster-item", timeout=10_000)
         signed = page.locator("#rp-roster .rp-roster-item.signed")
         unsigned = page.locator("#rp-roster .rp-roster-item.unsigned")
@@ -984,6 +986,8 @@ class TestRatepayerView:
         # the DOE-track signatory (QTS) shows the April 24 date.
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
+        # Roster is collapsed by default — open it first.
+        page.locator("#rp-roster-heading").click()
         page.wait_for_selector("#rp-roster .rp-roster-item", timeout=10_000)
         notes = page.locator("#rp-roster .rp-roster-item.signed .rp-roster-note")
         texts = notes.all_inner_texts()
@@ -1003,18 +1007,25 @@ class TestRatepayerView:
         status = first.get_attribute("data-status")
         assert status in ("affirmed", "pledge_only", "contested"), status
 
-    def test_affirmed_card_shows_evidence_quote(self, page: Page, base_url: str):
+    def test_affirmed_card_shows_principle_source_links(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        # Expand first affirmed card to inspect principles.
         affirmed = page.locator("#rp-scorecard .rp-card[data-status='affirmed']").first
-        # Affirmed cards must surface a verbatim evidence quote + source link.
-        expect(affirmed.locator(".rp-evidence")).to_have_count(1)
-        # Source link is now inside the collapsed <details> summary.
-        link = affirmed.locator(".rp-evidence-src-link")
-        assert link.count() == 1
-        href = link.get_attribute("href")
-        assert href and href.startswith("http"), f"bad evidence href: {href!r}"
+        affirmed.locator("summary").click()
+        page.wait_for_selector(
+            "#rp-scorecard .rp-card[data-status='affirmed'] .pp-row--met",
+            state="attached",
+        )
+        # Each "met" principle row must carry an inline ↗ source link.
+        met_rows = affirmed.locator(".pp-row--met")
+        assert met_rows.count() >= 1
+        for i in range(met_rows.count()):
+            src = met_rows.nth(i).locator(".pp-row-src")
+            assert src.count() == 1, f"met row {i} missing .pp-row-src"
+            href = src.get_attribute("href")
+            assert href and href.startswith("http"), f"bad pp-row-src href: {href!r}"
 
     def test_deep_link_hash_opens_ratepayer(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
@@ -1048,14 +1059,16 @@ class TestRatepayerView:
         assert lefts == 1, f"Scorecard should be single-column on mobile, got {lefts}"
 
     def test_commitments_collapsed_by_default(self, page: Page, base_url: str):
-        # The commitments reference is a <details> collapsed by default so the
-        # scorecard stays near the top.
+        # Both the pledge-elements box and the roster start collapsed so the
+        # scorecard is immediately visible without scrolling.
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
-        # The pledge-elements box is the first .rp-commitments and starts closed.
-        details = page.locator(".rp-commitments").first
-        assert details.evaluate("el => el.tagName.toLowerCase()") == "details"
-        assert details.evaluate("el => el.open") is False
+        boxes = page.locator(".rp-commitments")
+        # Both boxes are <details> elements, both start closed.
+        for i in range(boxes.count()):
+            box = boxes.nth(i)
+            assert box.evaluate("el => el.tagName.toLowerCase()") == "details"
+            assert box.evaluate("el => el.open") is False
         # The five commitment items still exist in the DOM (just hidden).
         assert page.locator(".rp-commitment-list li").count() == 5
 
@@ -1096,12 +1109,10 @@ class TestRatepayerView:
         assert counts["pledgeOnlyWithSrc"] == counts["pledgeOnly"], counts
 
     def test_every_claim_has_its_own_source_link(self, page: Page, base_url: str):
-        # Audit trail (v1.20): under each site, EVERY project-tied claim is listed
-        # with its own source link (repetition is fine). Rendered on a COLD
-        # #ratepayer deep-link, which also guards the claims-load race — if
-        # claimsByProject were built before claims.json landed, these lists would
-        # be empty and the counts would be zero. Cards are collapsed <details>,
-        # so the rows are queried by DOM (attached), not visibility.
+        # Audit trail: pre-pledge/unassessed cards list company-wide pledge claims,
+        # each with its own source link. Assessed cards surface evidence via
+        # per-principle ↗ links instead (checked in test_affirmed_card_shows_principle_source_links).
+        # Rendered on a COLD #ratepayer deep-link to guard the claims-load race.
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector(
             "#view-ratepayer .rp-card-claims .rp-claim-src",
@@ -1119,7 +1130,6 @@ class TestRatepayerView:
                 rows: rows.length,
                 linked: linked.length,
                 blocks: document.querySelectorAll('#view-ratepayer .rp-card-claims').length,
-                evidenceFlags: document.querySelectorAll('#view-ratepayer .rp-claim-flag').length,
               };
             }"""
         )
@@ -1128,8 +1138,6 @@ class TestRatepayerView:
         assert stats["blocks"] >= 5, stats
         # EVERY claim row carries its own source link.
         assert stats["linked"] == stats["rows"], stats
-        # At least one affirmed site flags its cited evidence claim (★ evidence).
-        assert stats["evidenceFlags"] >= 1, stats
 
 
 class TestTariffsView:
