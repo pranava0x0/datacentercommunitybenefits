@@ -102,3 +102,20 @@ Projects with important gaps:
 - **qts-wilmer-tx** (construction): claimed_jobs, ratepayer
 - **qts-york-county-sc** (construction): power_mw, ratepayer
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
+
+## Moratorium source audit
+
+| Date | Record | Issue | Recommended action | Status |
+|------|--------|-------|-------------------|--------|
+| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: bill_number='LD307' | Verify against https://mainelegislature.org/ | Open |
+| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: sponsors="['Rep. Victoria Foley (D-Orrington)', 'Sen. Rebecca Milliken" | Verify against https://mainelegislature.org/ | Open |
+| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: enacted_by='Governor Janet Mills' | Verify against https://mainelegislature.org/ | Open |
+| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: bill_number='LD307' | Verify against https://mainelegislature.org/ | Open |
+| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: sponsors="['Rep. Victoria Foley (D-Orrington)', 'Sen. Rebecca Milliken" | Verify against https://mainelegislature.org/ | Open |
+| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: enacted_by='Governor Janet Mills' | Verify against https://mainelegislature.org/ | Open |
+| 2026-06-25 | moratoriums:florida-state-2026-07 | Claim unverified in source: vote='Senate 37-0, House 92-16, Senate concurrence 31-6' | Verify against https://www.flsenate.gov/Session/Bill/2026/484 | Open |
+| 2026-06-25 | moratoriums:florida-state-2026-07 | Claim unverified in source: enacted_by='Governor Ron DeSantis' | Verify against https://www.flsenate.gov/Session/Bill/2026/484 | Open |
+| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: bill_number='SB232' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
+| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
+| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: bill_number='SB232' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
+| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |

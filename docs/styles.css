@@ -1606,6 +1606,14 @@ main {
   line-height: 1.3;
 }
 
+.rp-stat-breakdown {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  opacity: 0.75;
+  line-height: 1.3;
+  margin-top: 0.1rem;
+}
+
 /* Two-column: pledge elements on left, who's signed on right */
 .rp-two-col {
   display: grid;
@@ -3682,6 +3690,44 @@ body.tariff-modal-open {
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--text);
+}
+
+/* Bill number chip shown in the jurisdiction table cell */
+.moratorium-bill-id {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: monospace;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+/* Sponsor name shown under bill number in table cell */
+.moratorium-sponsor {
+  display: block;
+  font-size: 0.78rem;
+  font-style: italic;
+  margin-top: 1px;
+}
+
+/* .gov badge on official government links in the resources list */
+.badge-gov {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--stance-positive, #1a7a4a);
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 4px;
+  vertical-align: middle;
+  margin-right: 2px;
 }
 
 /* China national security context */
