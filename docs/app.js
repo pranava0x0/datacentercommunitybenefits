@@ -797,8 +797,11 @@ function renderMoratoriumsView() {
       .map((r) => `<span class="badge badge-reason-${r}" title="${escapeAttr(MORATORIUM_REASON_LABELS[r] || r)}">${escapeHtml(MORATORIUM_REASON_LABELS[r] || r)}</span>`)
       .join("");
 
+    const billHtml = m.bill_number ? `<br><span class="moratorium-bill-id">${escapeHtml(m.bill_number)}</span>` : "";
+    const sponsorHtml = m.sponsors && m.sponsors.length ? `<br><span class="moratorium-sponsor muted">${escapeHtml(m.sponsors[0])}</span>` : "";
+
     tr.innerHTML = `
-      <td>${escapeHtml(m.jurisdiction)}</td>
+      <td>${escapeHtml(m.jurisdiction)}${billHtml}${sponsorHtml}</td>
       <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
       <td><span class="badge badge-moratorium-status-${m.status}">${escapeHtml(m.status)}</span></td>
       <td>${escapeHtml(m.duration_description)}</td>
@@ -812,13 +815,22 @@ function renderMoratoriumsView() {
   });
 }
 
+function _jurtypeBreakdown(moratoriums) {
+  const counts = { state: 0, county: 0, city: 0, federal: 0 };
+  moratoriums.forEach((m) => { if (m.jurisdiction_type in counts) counts[m.jurisdiction_type]++; });
+  return ["city", "county", "state", "federal"]
+    .filter((t) => counts[t] > 0)
+    .map((t) => `${counts[t]} ${t}`)
+    .join(" · ");
+}
+
 function renderMoratoriumStats(moratoriums) {
   if (!moratoriums || !Array.isArray(moratoriums)) return;
 
   const total = moratoriums.length;
-  const enacted = moratoriums.filter((m) => m.status === "enacted").length;
-  const proposed = moratoriums.filter((m) => m.status === "proposed").length;
-  const failed = moratoriums.filter((m) => m.status === "failed").length;
+  const enacted = moratoriums.filter((m) => m.status === "enacted");
+  const proposed = moratoriums.filter((m) => m.status === "proposed");
+  const failed = moratoriums.filter((m) => m.status === "failed");
 
   const statsList = document.getElementById("moratorium-stats");
   if (!statsList) return;
@@ -827,19 +839,23 @@ function renderMoratoriumStats(moratoriums) {
     <li class="rp-stat">
       <span class="rp-stat-value">${total}</span>
       <span class="rp-stat-label">Total Moratoriums</span>
+      <span class="rp-stat-breakdown">${_jurtypeBreakdown(moratoriums)}</span>
     </li>
     <li class="rp-stat">
-      <span class="rp-stat-value">${enacted}</span>
+      <span class="rp-stat-value">${enacted.length}</span>
       <span class="rp-stat-label">Enacted</span>
+      <span class="rp-stat-breakdown">${_jurtypeBreakdown(enacted)}</span>
     </li>
     <li class="rp-stat">
-      <span class="rp-stat-value">${proposed}</span>
+      <span class="rp-stat-value">${proposed.length}</span>
       <span class="rp-stat-label">Proposed</span>
+      <span class="rp-stat-breakdown">${_jurtypeBreakdown(proposed)}</span>
     </li>
-    ${failed > 0 ? `
+    ${failed.length > 0 ? `
     <li class="rp-stat">
-      <span class="rp-stat-value">${failed}</span>
+      <span class="rp-stat-value">${failed.length}</span>
       <span class="rp-stat-label">Failed/Rejected</span>
+      <span class="rp-stat-breakdown">${_jurtypeBreakdown(failed)}</span>
     </li>
     ` : ""}
   `;
@@ -1011,6 +1027,21 @@ function renderChinaContext() {
   container.innerHTML = html;
 }
 
+// Show/hide an optional dt+dd pair in the moratorium modal.
+function setMdKv(dtId, ddId, value) {
+  const dt = document.getElementById(dtId);
+  const dd = document.getElementById(ddId);
+  if (!dt || !dd) return;
+  if (value) {
+    dd.textContent = value;
+    dt.hidden = false;
+    dd.hidden = false;
+  } else {
+    dt.hidden = true;
+    dd.hidden = true;
+  }
+}
+
 function showMoratoriumDetail(m) {
   const modal = document.getElementById("moratorium-detail");
   if (!modal) return;
@@ -1026,7 +1057,7 @@ function showMoratoriumDetail(m) {
 
   document.getElementById("md-duration").textContent = m.duration_description;
 
-  // Detail fields
+  // Core detail fields
   document.getElementById("md-status-detail").textContent = m.status;
   document.getElementById("md-enacted").textContent = m.enacted_date || "Not yet enacted";
   document.getElementById("md-duration-detail").textContent = m.duration_description;
@@ -1042,25 +1073,36 @@ function showMoratoriumDetail(m) {
     document.getElementById("md-reasons").textContent = "Not specified";
   }
 
+  // Optional legislative metadata
+  setMdKv("md-bill-dt", "md-bill-number", m.bill_number || null);
+  setMdKv("md-sponsors-dt", "md-sponsors", m.sponsors && m.sponsors.length ? m.sponsors.join("; ") : null);
+  setMdKv("md-enacted-by-dt", "md-enacted-by", m.enacted_by || null);
+  setMdKv("md-votes-dt", "md-votes", m.legislative_votes || m.city_council_vote || null);
+  setMdKv("md-session-dt", "md-session", m.session || null);
+  setMdKv("md-failure-reason-dt", "md-failure-reason", m.failure_reason || null);
+
   // Summary
   document.getElementById("md-summary").innerHTML = `<p>${escapeHtml(m.summary)}</p>`;
 
-  // Resources list
+  // Resources list — primary source first, then deduplicated additional resources
   const resourcesList = document.getElementById("md-resources-list");
   resourcesList.innerHTML = "";
 
-  // Primary source
-  const primaryLi = document.createElement("li");
-  primaryLi.innerHTML = `<a href="${escapeAttr(m.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(m.source_title)} ↗</a>`;
-  resourcesList.appendChild(primaryLi);
+  const seenUrls = new Set();
 
-  // Additional resources
+  function addResource(url, title, isPrimary) {
+    if (!url || seenUrls.has(url)) return;
+    seenUrls.add(url);
+    const li = document.createElement("li");
+    const isGov = /\.(gov|legislature\.|legis\.|capitol\.|assembly\.|senate\.|house\.|state\.[a-z]{2}\.us)/i.test(url);
+    const govBadge = isGov ? `<span class="badge badge-gov" title="Official government source">gov</span> ` : "";
+    li.innerHTML = `${govBadge}<a href="${escapeAttr(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}${isPrimary ? " (primary)" : ""} ↗</a>`;
+    resourcesList.appendChild(li);
+  }
+
+  addResource(m.source_url, m.source_title, true);
   if (m.resources && Array.isArray(m.resources)) {
-    m.resources.forEach((res) => {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="${escapeAttr(res.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(res.title)} ↗</a>`;
-      resourcesList.appendChild(li);
-    });
+    m.resources.forEach((res) => addResource(res.url, res.title, false));
   }
 
   // Captured date

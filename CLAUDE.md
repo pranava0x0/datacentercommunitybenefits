@@ -394,6 +394,31 @@ A **fifth top-level tab** (`view-tariffs`, `#tariffs`) tracking state-regulated 
 - **Directory rows are keyboard-accessible** (`role="button"`, `tabIndex=0`, Enter/Space → `showTariffDetail`), not mouse-only. `test_row_opens_detail_via_keyboard` guards it.
 - **html2pdf (moratorium PDF export) is lazy-loaded** via `loadHtml2Pdf()` in app.js on first export click, NOT a blocking `<script>` in `<head>`. The blocking CDN script made every `page.goto(..., "load")` in the e2e suite wait on cdnjs (a flakiness + SRI-failure source). **Don't** move it back to `<head>`. The SRI hash lives in the `HTML2PDF_SRI` constant.
 
+### Moratorium stat tiles — jurisdiction breakdown (v1.18)
+
+The four stat tiles (Total / Enacted / Proposed / Failed) each show a secondary breakdown line (`<span class="rp-stat-breakdown">`) listing counts by `jurisdiction_type` in order: **city → county → state → federal**. The helper `_jurtypeBreakdown(moratoriums)` in [docs/app.js](docs/app.js) filters out zero-count types so only populated levels appear. Order is hardcoded; change the array literal in `_jurtypeBreakdown` if the order preference changes.
+
+### Moratorium source audit script (v1.18)
+
+`scripts/validate_moratoriums.py` — audit trail validator for `data/seed/moratoriums.json`. For each record it fetches the `source_url` and up to three resource URLs (gov/official URLs fetched first), then searches the page text for seven verifiable claims: `bill_number`, `sponsors`, `vote`, `enacted_date`, `enacted_by`, `failure_reason`, `session`. Each found claim includes a **verbatim snippet** from the source page — the audit trail linking the record field to the source document.
+
+Usage:
+```
+python scripts/validate_moratoriums.py                        # all 59 records
+python scripts/validate_moratoriums.py --id maine-state-2026-04  # single record
+python scripts/validate_moratoriums.py --cached               # offline, use cache only
+python scripts/validate_moratoriums.py --dry-run              # schema check, no fetches
+python scripts/validate_moratoriums.py --fail-on-unverified   # CI gate (exit 1)
+```
+
+Outputs `moratorium_audit_report.json` (per-record JSON trail) and appends to `ISSUES.md` for records missing a `.gov` source or with unverified critical claims. Both output files are `.gitignore`d — they're run artifacts, not source. Fetched pages are cached in `.moratorium_cache/` (also `.gitignore`d); delete the directory to force a re-fetch.
+
+**Data quality rules enforced by `tests/test_validate_moratoriums.py`** (offline, no network):
+- All `failed` records must have a `failure_reason`
+- All `enacted` records must have an `enacted_date`
+- No duplicate IDs
+- All records have the required schema fields
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:

@@ -45,3 +45,7 @@ NOTES.local.md
 
 # Curator working output from connectors/research.py harvest
 data/candidates/
+
+# Moratorium source audit — fetched page cache + report output
+.moratorium_cache/
+moratorium_audit_report.json
