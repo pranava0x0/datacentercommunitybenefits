@@ -3539,20 +3539,35 @@ function rpCardSourcesHtml(p) {
 }
 
 // Per-claim audit trail: every claim tied to this site, each linked to its own
-// source. Intentionally NOT deduped — repetition across claims (or a shared URL)
-// is fine; the point is that every claim backing a site is individually
-// traceable to a citation. The claim cited as the ratepayer evidence is flagged
-// so this list and the evidence quote line up. Depends on state.claimsByProject,
-// which loadProjectData now builds only after claims.json is in hand.
+// source. Falls back to company-level ratepayer pledge claims (up to 3) when no
+// project-specific claims exist, labeled distinctly so readers know the scope.
+// Depends on state.claimsByProject (populated after claims.json loads).
 function rpCardClaimsHtml(p) {
-  const claims = (state.claimsByProject && state.claimsByProject.get(p.id)) || [];
-  if (!claims.length) return "";
+  const projectClaims = (state.claimsByProject && state.claimsByProject.get(p.id)) || [];
   const evidenceId = p.ratepayer && p.ratepayer.evidence_claim_id;
+
+  // Fall back to company-wide ratepayer pledge claims when no site-specific ones.
+  let claims = projectClaims;
+  let isCompanyFallback = false;
+  if (!claims.length && state.claims) {
+    claims = state.claims
+      .filter(
+        (c) =>
+          c.company_slug === p.company_slug &&
+          !c.project_id &&
+          RATEPAYER_CLAIM_KEYWORDS.some((k) => c.statement.toLowerCase().includes(k))
+      )
+      .slice(0, 3);
+    isCompanyFallback = claims.length > 0;
+  }
+
+  if (!claims.length) return "";
+
   const items = claims
     .map((c) => {
       const label = THEME_LABELS[c.theme] || c.theme;
       const date = c.published_at || c.captured_at || "";
-      const isEvidence = evidenceId && c.id === evidenceId;
+      const isEvidence = !isCompanyFallback && evidenceId && c.id === evidenceId;
       const flag = isEvidence
         ? `<span class="rp-claim-flag" title="Cited as this site's ratepayer evidence">★ evidence</span>`
         : "";
@@ -3564,8 +3579,13 @@ function rpCardClaimsHtml(p) {
       </li>`;
     })
     .join("");
+
+  const sectionLabel = isCompanyFallback
+    ? `Company-wide pledge sources (${claims.length}) — no site-specific claims on file:`
+    : `Claim sources (${claims.length}) — every claim, individually cited:`;
+
   return `<div class="rp-card-claims">
-    <span class="rp-claims-label">Claim sources (${claims.length}) — every claim, individually cited:</span>
+    <span class="rp-claims-label">${sectionLabel}</span>
     <ul class="rp-claims-list">${items}</ul>
   </div>`;
 }

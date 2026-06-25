@@ -2012,6 +2012,7 @@ a.rp-roster-note:hover {
 }
 
 .pp-row-body {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 0.18rem;
@@ -2256,19 +2257,6 @@ a.rp-roster-note:hover {
     flex-direction: column;
     gap: 0.5rem;
   }
-
-  /* Stack each principle row: label+note above, status below-right */
-  .pp-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  .pp-row-status {
-    align-self: flex-end;
-    margin-top: -1.2rem; /* pull up beside the last note line */
-  }
-
 
   /* Roster items: tighter */
   .rp-roster-item {
