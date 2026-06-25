@@ -1792,22 +1792,6 @@ a.rp-roster-note:hover {
   white-space: nowrap;
 }
 
-.rp-export-btn {
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.28rem 0.75rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-  color: var(--text);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.rp-export-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
 
 /* Scorecard — multi-column so 11 sites don't become a tall single stack.
    Cards hold short content, so a ~340px min keeps two (often three) per row
@@ -2722,9 +2706,117 @@ a.rp-roster-note:hover {
 }
 
 /* --------------------------------------------------------------------------
+   Moratorium detail modal — same overlay pattern as the tariff modal.
+   -------------------------------------------------------------------------- */
+.moratorium-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(16px, 6vh, 72px) 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.moratorium-modal[hidden] {
+  display: none;
+}
+.moratorium-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+/* Override .moratorium-detail's inline layout so it becomes the centered dialog. */
+.moratorium-modal__dialog.moratorium-detail {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  width: min(760px, 100%);
+  max-height: calc(100vh - clamp(32px, 12vh, 144px));
+  overflow-y: auto;
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.38);
+  animation: moratorium-modal-in 160ms ease-out;
+}
+@keyframes moratorium-modal-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .moratorium-modal__dialog.moratorium-detail { animation: none; }
+}
+.moratorium-modal__dialog .detail-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  margin: -6px -10px 0 0;
+  background: var(--surface);
+  z-index: 2;
+}
+body.moratorium-modal-open {
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .moratorium-modal { padding: 0; }
+  .moratorium-modal__dialog.moratorium-detail {
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
+
+/* Stakeholders section inside the moratorium modal */
+.moratorium-stakeholders {
+  margin-top: 20px;
+}
+.moratorium-stakeholders h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+.mstakeholder-group {
+  margin-bottom: 10px;
+}
+.mstakeholder-category {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  margin: 0 0 4px;
+}
+.mstakeholder-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mstakeholder-list li {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+/* Opposed group gets a subtle red tint */
+.mstakeholder-group[data-category="opposed"] .mstakeholder-list li {
+  background: color-mix(in srgb, var(--stance-negative) 8%, var(--surface-2));
+  border-color: color-mix(in srgb, var(--stance-negative) 20%, var(--border));
+}
+
+/* --------------------------------------------------------------------------
    Tariff detail modal (v1.19) — promotes the inline pop-out to a centered
    overlay so the full LBL element checklist + sources read as a real modal.
-   Scoped to #tariff-modal so the moratorium inline pop-out is untouched.
    -------------------------------------------------------------------------- */
 .tariff-modal {
   position: fixed;
@@ -2911,7 +3003,8 @@ body.tariff-modal-open {
 .tariff-coverage-card.empty {
   opacity: 0.5;
 }
-.tariff-coverage-card .tcc-count {
+.tariff-coverage-card .tcc-count,
+.reason-card .tcc-count {
   min-width: 1.4rem;
   height: 1.4rem;
   display: inline-flex;
@@ -3492,45 +3585,38 @@ body.tariff-modal-open {
 }
 
 .reason-card {
-  padding: 0.7rem 1rem;
-  background-color: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+  padding: 0.45rem 0.7rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
   color: var(--text);
+  transition: border-color 0.15s ease, background 0.15s ease;
   white-space: nowrap;
 }
 
 .reason-card:hover {
-  border-color: var(--accent);
-  background-color: var(--accent-soft);
+  border-color: var(--border-strong, #888);
 }
 
 .reason-card.active {
-  background-color: var(--accent);
-  color: white;
   border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
-.reason-card strong {
-  font-size: 0.9rem;
-  font-weight: 600;
+.reason-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
-.reason-card .count {
-  font-size: 0.75rem;
-  font-weight: 600;
-  opacity: 0.8;
-}
-
-.reason-card.active .count {
-  opacity: 1;
+.reason-card.active .tcc-count {
+  background: var(--accent);
+  color: var(--surface);
 }
 
 /* Theme detail pop-out — wide horizontal below grid */
@@ -3827,11 +3913,11 @@ body.tariff-modal-open {
 }
 
 /* Moratoriums table section (collapsible) */
-.moratoriums-table-section {
+.directory-section {
   margin: 2rem 0;
 }
 
-.moratoriums-table-section summary {
+.directory-section summary {
   cursor: pointer;
   padding: 1rem;
   background-color: var(--surface);
@@ -3847,7 +3933,7 @@ body.tariff-modal-open {
   transition: background-color 0.2s ease;
 }
 
-.moratoriums-table-section summary:hover {
+.directory-section summary:hover {
   background-color: var(--surface-2);
 }
 
@@ -3890,7 +3976,6 @@ body.tariff-modal-open {
   .map-container,
   .map,
   #rp-export-csv,
-  .rp-export-btn,
   .cd-responses-breakdown,
   .detail-cta,
   .matrix-tooltip,

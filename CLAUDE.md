@@ -419,6 +419,52 @@ Outputs `moratorium_audit_report.json` (per-record JSON trail) and appends to `I
 - No duplicate IDs
 - All records have the required schema fields
 
+### Moratorium detail modal (v1.19)
+
+The moratorium detail was converted from an inline `<aside>` (toggled with `hidden`) to a full modal overlay — same pattern as the tariff detail modal. Structure:
+
+```html
+<div id="moratorium-modal" class="moratorium-modal" hidden>
+  <div class="moratorium-modal__backdrop" data-moratorium-close aria-hidden="true"></div>
+  <aside id="moratorium-detail" class="moratorium-detail moratorium-modal__dialog" role="dialog" aria-modal="true" …>
+    …
+  </aside>
+</div>
+```
+
+CSS class `.moratorium-modal` mirrors `.tariff-modal` (fixed overlay, backdrop blur, scroll lock via `body.moratorium-modal-open`). The dialog uses `.moratorium-modal__dialog.moratorium-detail` to override the inline card layout. Animation, focus trap, backdrop-click-to-close, Escape-to-close, and return-focus-on-close all follow the tariff modal pattern exactly — copy that pattern for any future detail panel that needs full-screen treatment.
+
+The modal also surfaces three previously unused fields: `effective_date` (shown when present and distinct from `enacted_date`), `policy_type` (shown when present), and `key_stakeholders` (a grouped chip section; hidden when absent). The "Opposed" stakeholder group gets a subtle red tint via `[data-category="opposed"]` CSS.
+
+### Shared export helpers in app.js (v1.19)
+
+All PDF exports across all six tabs use three shared helpers in `docs/app.js`:
+
+- **`_exportToPDF(title, bodyHtml, filename)`** — wraps content in a styled div and calls the lazy-loaded `html2pdf` lib.
+- **`_pdfTable(headers, rows)`** — builds an inline-styled HTML table string for use in `_exportToPDF`.
+- **`_triggerDownload(csv, filename)`** — creates a Blob, fires `<a>.click()`, and revokes the URL. Filename accepts `"TODAY"` as a literal substring, which is NOT replaced — callers must supply the dated filename directly.
+
+Per-tab export functions:
+- `exportComparisonToPDF()` / `downloadMatrixCsv()` (Comparison)
+- `downloadExplorerCSV()` / `exportExplorerToPDF()` (Explorer — respects current filters via `_filteredProjects()`)
+- `downloadRatepayerCSV()` / `exportRatepayerToPDF()` (Ratepayer)
+- `downloadMoratoriumsCSV()` / `exportMoratoriumsToPDF()` (Moratoriums — respects status + type filters)
+- `downloadTariffCSV()` / `exportTariffsToPDF()` (Tariffs — respects status + state filters)
+- `downloadAggregateCSV()` / `exportAggregateToPDF()` (Aggregate — uses `buildCompanyRollups()` + `buildStateRollups()`)
+
+### `wireBtn` helper (v1.19)
+
+```js
+function wireBtn(id, handler) {
+  const btn = document.getElementById(id);
+  if (!btn || btn.dataset.wired === "1") return;
+  btn.dataset.wired = "1";
+  btn.addEventListener("click", handler);
+}
+```
+
+One-liner for wiring a button by id with double-wiring guard. Use this for all new export or action buttons; don't inline the guard repeatedly.
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:

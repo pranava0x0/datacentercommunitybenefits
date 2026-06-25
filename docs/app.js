@@ -347,6 +347,7 @@ const state = {
   map: null,
   markers: new Map(),
   chinaContext: null,
+  _moratoriumReturnFocus: null,
 };
 
 // Default Explorer filter shape — single source of truth for init + reset so
@@ -888,12 +889,13 @@ function renderReasonBreakdown(moratoriums) {
 
   Object.entries(reasonCounts).forEach(([reason, count]) => {
     if (count > 0) {
-      const card = document.createElement("div");
+      const card = document.createElement("button");
+      card.type = "button";
       card.className = "reason-card";
       card.dataset.theme = reason;
       card.innerHTML = `
-        <strong>${escapeHtml(MORATORIUM_REASON_LABELS[reason] || reason)}</strong>
-        <span class="count">${count}</span>
+        <span class="tcc-label">${escapeHtml(MORATORIUM_REASON_LABELS[reason] || reason)}</span>
+        <span class="tcc-count">${count}</span>
       `;
 
       card.addEventListener("click", () => {
@@ -1043,10 +1045,11 @@ function setMdKv(dtId, ddId, value) {
 }
 
 function showMoratoriumDetail(m) {
+  const overlay = document.getElementById("moratorium-modal");
   const modal = document.getElementById("moratorium-detail");
-  if (!modal) return;
+  if (!overlay || !modal) return;
 
-  // Set header
+  // Header
   document.getElementById("md-jurisdiction-type").textContent = m.jurisdiction_type.charAt(0).toUpperCase() + m.jurisdiction_type.slice(1);
   document.getElementById("md-jurisdiction").textContent = m.jurisdiction;
 
@@ -1063,6 +1066,9 @@ function showMoratoriumDetail(m) {
   document.getElementById("md-duration-detail").textContent = m.duration_description;
   document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "No threshold (all sizes)";
 
+  // Effective date — show only when present and distinct from enacted_date
+  setMdKv("md-effective-dt", "md-effective", m.effective_date && m.effective_date !== m.enacted_date ? m.effective_date : null);
+
   // Reasons
   if (m.key_reasons && m.key_reasons.length > 0) {
     const reasonBadges = m.key_reasons
@@ -1074,6 +1080,7 @@ function showMoratoriumDetail(m) {
   }
 
   // Optional legislative metadata
+  setMdKv("md-policy-type-dt", "md-policy-type", m.policy_type || null);
   setMdKv("md-bill-dt", "md-bill-number", m.bill_number || null);
   setMdKv("md-sponsors-dt", "md-sponsors", m.sponsors && m.sponsors.length ? m.sponsors.join("; ") : null);
   setMdKv("md-enacted-by-dt", "md-enacted-by", m.enacted_by || null);
@@ -1083,6 +1090,37 @@ function showMoratoriumDetail(m) {
 
   // Summary
   document.getElementById("md-summary").innerHTML = `<p>${escapeHtml(m.summary)}</p>`;
+
+  // Key stakeholders section
+  const stakeholdersWrap = document.getElementById("md-stakeholders");
+  const stakeholdersBody = document.getElementById("md-stakeholders-body");
+  if (m.key_stakeholders && typeof m.key_stakeholders === "object" && Object.keys(m.key_stakeholders).length > 0) {
+    const CATEGORY_LABELS = {
+      environmental: "Environmental",
+      utility: "Utility / Grid",
+      community: "Community",
+      labor: "Labor",
+      opposed: "Opposed",
+      government: "Government",
+      academic: "Academic",
+      industry: "Industry",
+    };
+    stakeholdersBody.innerHTML = Object.entries(m.key_stakeholders)
+      .map(([cat, orgs]) => {
+        if (!Array.isArray(orgs) || orgs.length === 0) return "";
+        const label = CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+        const items = orgs.map((o) => `<li>${escapeHtml(o)}</li>`).join("");
+        return `<div class="mstakeholder-group" data-category="${escapeAttr(cat)}">
+          <p class="mstakeholder-category">${escapeHtml(label)}</p>
+          <ul class="mstakeholder-list">${items}</ul>
+        </div>`;
+      })
+      .join("");
+    stakeholdersWrap.hidden = false;
+  } else {
+    stakeholdersBody.innerHTML = "";
+    stakeholdersWrap.hidden = true;
+  }
 
   // Resources list — primary source first, then deduplicated additional resources
   const resourcesList = document.getElementById("md-resources-list");
@@ -1108,14 +1146,25 @@ function showMoratoriumDetail(m) {
   // Captured date
   document.getElementById("md-captured").textContent = `Verified: ${m.captured_at}`;
 
-  // Show modal
-  modal.hidden = false;
+  // Remember trigger for focus return, then open
+  state._moratoriumReturnFocus =
+    document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  overlay.hidden = false;
+  document.body.classList.add("moratorium-modal-open");
   modal.scrollTop = 0;
+  overlay.scrollTop = 0;
+  const closeBtn = document.getElementById("moratorium-detail-close");
+  if (closeBtn) closeBtn.focus();
 }
 
 function closeMoratoriumDetail() {
-  const modal = document.getElementById("moratorium-detail");
-  if (modal) modal.hidden = true;
+  const overlay = document.getElementById("moratorium-modal");
+  if (!overlay || overlay.hidden) return;
+  overlay.hidden = true;
+  document.body.classList.remove("moratorium-modal-open");
+  const ret = state._moratoriumReturnFocus;
+  state._moratoriumReturnFocus = null;
+  if (ret && typeof ret.focus === "function") ret.focus();
 }
 
 // --------------------------------------------------------------------------
@@ -1530,12 +1579,10 @@ function wireTariffsFilters() {
   }
   const csvBtn = document.getElementById("tariffs-csv-btn");
   if (csvBtn && !csvBtn.dataset.wired) {
-    csvBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      downloadTariffCSV();
-    });
+    csvBtn.addEventListener("click", (e) => { e.preventDefault(); downloadTariffCSV(); });
     csvBtn.dataset.wired = "1";
   }
+  wireBtn("tariffs-pdf-btn", exportTariffsToPDF);
 }
 
 function wireTariffDetail() {
@@ -1665,6 +1712,7 @@ function renderComparisonView() {
   renderMatrix();
   wireCompanyDetail();
   wireMatrixCsvExport();
+  wireBtn("comparison-pdf-btn", exportComparisonToPDF);
 }
 
 function renderMeta() {
@@ -1754,6 +1802,14 @@ function wireMatrixCsvExport() {
   btn.addEventListener("click", downloadMatrixCsv);
 }
 
+// One-liner to wire a button by id — guards against double-wiring and missing elements.
+function wireBtn(id, handler) {
+  const btn = document.getElementById(id);
+  if (!btn || btn.dataset.wired === "1") return;
+  btn.dataset.wired = "1";
+  btn.addEventListener("click", handler);
+}
+
 function downloadMatrixCsv() {
   const counts = new Map();
   for (const c of state.claims) {
@@ -1787,6 +1843,265 @@ function csvCell(v) {
   const s = String(v == null ? "" : v);
   if (/[",\r\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
   return s;
+}
+
+// --------------------------------------------------------------------------
+// Shared PDF export helper — builds a styled HTML document and saves via
+// html2pdf (same lazy-loader used by moratoriums).
+// --------------------------------------------------------------------------
+async function _exportToPDF(title, bodyHtml, filename) {
+  const element = document.createElement("div");
+  element.style.cssText = "font-family: Arial, sans-serif; font-size: 12px; color: #111;";
+  element.innerHTML = `
+    <h1 style="font-size:18px; margin-bottom:4px;">${escapeHtml(title)}</h1>
+    <p style="color:#666; font-size:11px; margin-bottom:16px;">Exported: ${new Date().toLocaleDateString()} · datacenterbenefits.org</p>
+    ${bodyHtml}
+  `;
+  const opt = {
+    margin: 10,
+    filename,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { orientation: "landscape", unit: "mm", format: "a4" },
+  };
+  let lib;
+  try { lib = await loadHtml2Pdf(); }
+  catch (err) {
+    console.error(err);
+    alert("Could not load the PDF library. Check your connection and try again.");
+    return;
+  }
+  lib().set(opt).from(element).save();
+}
+
+function _pdfTable(headers, rows) {
+  const th = headers.map((h) => `<th style="background:#f0f0f0;border:1px solid #ddd;padding:6px;text-align:left;">${escapeHtml(h)}</th>`).join("");
+  const trs = rows.map((r) =>
+    `<tr>${r.map((c) => `<td style="border:1px solid #ddd;padding:5px;font-size:10px;">${escapeHtml(String(c ?? ""))}</td>`).join("")}</tr>`
+  ).join("");
+  return `<table style="width:100%;border-collapse:collapse;margin-top:8px;"><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table>`;
+}
+
+function _triggerDownload(csv, filename) {
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const today = new Date().toISOString().slice(0, 10);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename.replace("TODAY", today);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// --------------------------------------------------------------------------
+// Comparison view PDF export
+// --------------------------------------------------------------------------
+async function exportComparisonToPDF() {
+  if (!state.companies.length || !state.claims.length) {
+    alert("No data loaded yet."); return;
+  }
+  const counts = new Map();
+  for (const c of state.claims) counts.set(`${c.company_slug}|${c.theme}`, (counts.get(`${c.company_slug}|${c.theme}`) || 0) + 1);
+  const headers = ["Company", ...THEMES.map((t) => THEME_LABELS[t] || t)];
+  const rows = state.companies.map((co) => [
+    co.name,
+    ...THEMES.map((t) => counts.get(`${co.slug}|${t}`) || 0),
+  ]);
+  const today = new Date().toISOString().slice(0, 10);
+  await _exportToPDF(
+    "Company × Theme Commitment Matrix",
+    _pdfTable(headers, rows),
+    `dcb-matrix-${today}.pdf`
+  );
+}
+
+// --------------------------------------------------------------------------
+// Explorer CSV + PDF export (projects list, respects current filters)
+// --------------------------------------------------------------------------
+function _filteredProjects() {
+  const { company, status, stance, state: stateFilter, theme, constituency } = state.explorerFilters;
+  let list = [...state.projects];
+  if (company) list = list.filter((p) => p.company_slug === company);
+  if (stateFilter) list = list.filter((p) => p.state === stateFilter);
+  if (status) list = list.filter((p) => p.status === status);
+  if (stance || constituency) {
+    list = list.filter((p) => {
+      const responses = state.responsesByProject.get(p.id) || [];
+      if (stance && !responses.some((r) => r.stance === stance)) return false;
+      if (constituency && !responses.some((r) => r.constituency === constituency)) return false;
+      return true;
+    });
+  }
+  return list;
+}
+
+function downloadExplorerCSV() {
+  const projects = _filteredProjects();
+  if (!projects.length) { alert("No projects match the current filters."); return; }
+  const headers = ["company", "project_name", "city", "state", "status", "announced_year",
+    "investment_usd", "power_mw", "jobs", "acreage", "claims_count",
+    "positive_responses", "mixed_responses", "negative_responses", "source_url"];
+  const rows = [headers.map(csvCell).join(",")];
+  for (const p of projects) {
+    const co = state.companiesBySlug.get(p.company_slug);
+    const resp = state.responsesByProject.get(p.id) || [];
+    const claims = state.claimsByProject.get(p.id) || [];
+    rows.push([
+      co ? co.name : p.company_slug,
+      p.name, p.city, p.state, p.status,
+      p.announced_year, p.claimed_investment_usd ?? "",
+      p.power_mw ?? "", p.claimed_jobs ?? "", p.acreage ?? "",
+      claims.length,
+      resp.filter((r) => r.stance === "positive").length,
+      resp.filter((r) => r.stance === "mixed").length,
+      resp.filter((r) => r.stance === "negative").length,
+      String(p.source_url),
+    ].map(csvCell).join(","));
+  }
+  _triggerDownload(rows.join("\r\n"), "dcb-projects-TODAY.csv");
+}
+
+async function exportExplorerToPDF() {
+  const projects = _filteredProjects();
+  if (!projects.length) { alert("No projects match the current filters."); return; }
+  const headers = ["Company", "Project", "City", "State", "Status", "Investment", "Power", "Jobs", "Responses"];
+  const rows = projects.map((p) => {
+    const co = state.companiesBySlug.get(p.company_slug);
+    const resp = state.responsesByProject.get(p.id) || [];
+    return [
+      co ? co.name : p.company_slug, p.name, p.city, p.state, p.status,
+      p.claimed_investment_usd ? formatInvestment(p.claimed_investment_usd) : "—",
+      p.power_mw != null ? formatPower(p.power_mw) : "—",
+      p.claimed_jobs ?? "—",
+      `+${resp.filter(r=>r.stance==="positive").length} ±${resp.filter(r=>r.stance==="mixed").length} -${resp.filter(r=>r.stance==="negative").length}`,
+    ];
+  });
+  const today = new Date().toISOString().slice(0, 10);
+  await _exportToPDF("Project Explorer", _pdfTable(headers, rows), `dcb-projects-${today}.pdf`);
+}
+
+// --------------------------------------------------------------------------
+// Ratepayer PDF export
+// --------------------------------------------------------------------------
+async function exportRatepayerToPDF() {
+  if (!state.projects.length) { alert("No data loaded yet."); return; }
+  const assessed = ratepayerAssessedProjects();
+  if (!assessed.length) { alert("No assessed projects to export."); return; }
+  const headers = ["Company", "Project", "City", "State", "Status", "Assessment", "Source"];
+  const rows = assessed.map((p) => {
+    const co = state.companiesBySlug.get(p.company_slug);
+    const rp = p.ratepayer;
+    return [
+      co ? co.name : p.company_slug, p.name, p.city, p.state, p.status,
+      RATEPAYER_LABELS[rp.status] || rp.status,
+      rp.summary || "",
+    ];
+  });
+  const today = new Date().toISOString().slice(0, 10);
+  await _exportToPDF("Ratepayer Protection Pledge Scorecard", _pdfTable(headers, rows), `ratepayer-pledge-${today}.pdf`);
+}
+
+// --------------------------------------------------------------------------
+// Moratoriums CSV export
+// --------------------------------------------------------------------------
+function downloadMoratoriumsCSV() {
+  if (!state.moratoriums || !state.moratoriums.length) { alert("No moratoriums loaded."); return; }
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
+  let list = [...state.moratoriums];
+  if (statusFilter) list = list.filter((m) => m.status === statusFilter);
+  if (typeFilter) list = list.filter((m) => m.jurisdiction_type === typeFilter);
+  const headers = ["id", "jurisdiction", "jurisdiction_type", "status", "enacted_date",
+    "effective_date", "duration_description", "power_threshold_mw",
+    "key_reasons", "bill_number", "sponsors", "enacted_by",
+    "legislative_votes", "failure_reason", "summary", "source_url", "captured_at"];
+  const rows = [headers.map(csvCell).join(",")];
+  for (const m of list) {
+    rows.push([
+      m.id, m.jurisdiction, m.jurisdiction_type, m.status,
+      m.enacted_date || "", m.effective_date || "",
+      m.duration_description, m.power_threshold_mw ?? "",
+      (m.key_reasons || []).join("; "),
+      m.bill_number || "", m.sponsors ? m.sponsors.join("; ") : "",
+      m.enacted_by || "", m.legislative_votes || m.city_council_vote || "",
+      m.failure_reason || "", m.summary, String(m.source_url), m.captured_at,
+    ].map(csvCell).join(","));
+  }
+  _triggerDownload(rows.join("\r\n"), "moratoriums-TODAY.csv");
+}
+
+// --------------------------------------------------------------------------
+// Tariffs PDF export
+// --------------------------------------------------------------------------
+async function exportTariffsToPDF() {
+  if (!state.tariffs || !state.tariffs.length) { alert("No tariffs loaded."); return; }
+  const statusFilter = document.getElementById("tariff-status-filter")?.value || "";
+  const stateFilter = document.getElementById("tariff-state-filter")?.value || "";
+  let list = [...state.tariffs];
+  if (statusFilter) list = list.filter((t) => t.status === statusFilter);
+  if (stateFilter) list = list.filter((t) => t.state === stateFilter);
+  const headers = ["Utility", "State", "Tariff", "Status", "Docket", "Min Load (MW)", "LBL Elements", "Summary"];
+  const rows = list.map((t) => [
+    t.utility, t.state, t.tariff_name,
+    TARIFF_STATUS_LABELS[t.status] || t.status,
+    t.docket_number || "—", t.min_load_mw ?? "—",
+    `${tariffElementCount(t)} of ${TARIFF_PARAMETERS.length}`,
+    (t.summary || "").substring(0, 150),
+  ]);
+  const today = new Date().toISOString().slice(0, 10);
+  await _exportToPDF("State Utility Tariff Designs for Large Loads", _pdfTable(headers, rows), `utility-tariffs-${today}.pdf`);
+}
+
+// --------------------------------------------------------------------------
+// Aggregate CSV + PDF export
+// --------------------------------------------------------------------------
+function downloadAggregateCSV() {
+  if (!state.projects.length) { alert("No data loaded yet."); return; }
+  const coRows = buildCompanyRollups();
+  const stRows = buildStateRollups();
+  let csv = "BY COMPANY\r\n";
+  const coHeaders = ["company", "projects", "power_mw", "investment_usd", "jobs", "claims", "positive", "mixed", "negative"];
+  csv += coHeaders.map(csvCell).join(",") + "\r\n";
+  for (const r of coRows) {
+    csv += [r.name, r.projects, r.power_mw ?? "", r.capex ?? "", r.jobs ?? "",
+      r.claims, r.positive, r.mixed, r.negative].map(csvCell).join(",") + "\r\n";
+  }
+  csv += "\r\nBY STATE\r\n";
+  const stHeaders = ["state", "companies", "projects", "power_mw", "investment_usd", "jobs", "positive", "mixed", "negative"];
+  csv += stHeaders.map(csvCell).join(",") + "\r\n";
+  for (const r of stRows) {
+    csv += [r.state, r.companies, r.projects, r.power_mw ?? "", r.capex ?? "",
+      r.jobs ?? "", r.positive, r.mixed, r.negative].map(csvCell).join(",") + "\r\n";
+  }
+  _triggerDownload(csv, "dcb-aggregate-TODAY.csv");
+}
+
+async function exportAggregateToPDF() {
+  if (!state.projects.length) { alert("No data loaded yet."); return; }
+  const coRows = buildCompanyRollups();
+  const stRows = buildStateRollups();
+  const coHtml = _pdfTable(
+    ["Company", "Projects", "Power", "Investment", "Jobs", "Claims", "+", "±", "−"],
+    coRows.map((r) => [r.name, r.projects,
+      r.power_mw != null ? formatPower(r.power_mw) : "—",
+      r.capex != null ? formatInvestment(r.capex) : "—",
+      r.jobs ?? "—", r.claims, r.positive, r.mixed, r.negative])
+  );
+  const stHtml = _pdfTable(
+    ["State", "Companies", "Projects", "Power", "Investment", "Jobs", "+", "±", "−"],
+    stRows.map((r) => [r.state, r.companies, r.projects,
+      r.power_mw != null ? formatPower(r.power_mw) : "—",
+      r.capex != null ? formatInvestment(r.capex) : "—",
+      r.jobs ?? "—", r.positive, r.mixed, r.negative])
+  );
+  const today = new Date().toISOString().slice(0, 10);
+  await _exportToPDF(
+    "Aggregate Totals",
+    `<h2 style="font-size:14px;margin-top:0;">By Company</h2>${coHtml}<h2 style="font-size:14px;margin-top:16px;">By State</h2>${stHtml}`,
+    `dcb-aggregate-${today}.pdf`
+  );
 }
 
 function renderThemeLegend() {
@@ -2506,6 +2821,8 @@ function wireExplorerFilters() {
     }
   });
   wireDetailTabs();
+  wireBtn("explorer-csv-btn", downloadExplorerCSV);
+  wireBtn("explorer-pdf-btn", exportExplorerToPDF);
 }
 
 // --------------------------------------------------------------------------
@@ -2552,30 +2869,44 @@ function wireMoratoriumsFilters() {
 }
 
 function wireMoratoriumDetail() {
+  const overlay = document.getElementById("moratorium-modal");
   const closeBtn = document.getElementById("moratorium-detail-close");
   if (closeBtn && !closeBtn.dataset.wired) {
     closeBtn.dataset.wired = "1";
     closeBtn.addEventListener("click", closeMoratoriumDetail);
   }
-
-  // Close on escape key
-  const checkEscape = (e) => {
-    if (e.key === "Escape" && state.activeView === "moratoriums") {
-      const modal = document.getElementById("moratorium-detail");
-      if (modal && !modal.hidden) {
+  if (overlay && !overlay.dataset.wired) {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay || e.target.closest("[data-moratorium-close]")) {
         closeMoratoriumDetail();
       }
-    }
-  };
-
-  document.addEventListener("keydown", checkEscape);
-
-  // Wire PDF export button
-  const pdfBtn = document.getElementById("moratoriums-pdf-btn");
-  if (pdfBtn && !pdfBtn.dataset.wired) {
-    pdfBtn.dataset.wired = "1";
-    pdfBtn.addEventListener("click", exportMoratoriumsToPDF);
+    });
+    overlay.addEventListener("keydown", (e) => {
+      if (e.key === "Tab" && !overlay.hidden) {
+        const focusables = [...overlay.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )].filter((el) => el.offsetParent !== null);
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
+        }
+      }
+    });
+    overlay.dataset.wired = "1";
   }
+  if (!document._moratoriumEscWired) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMoratoriumDetail();
+    });
+    document._moratoriumEscWired = true;
+  }
+
+  wireBtn("moratoriums-csv-btn", downloadMoratoriumsCSV);
+  wireBtn("moratoriums-pdf-btn", exportMoratoriumsToPDF);
 }
 
 // Lazy-load html2pdf from cdnjs on first use (the moratorium PDF export) rather
@@ -3502,11 +3833,10 @@ function renderRatepayerScorecard() {
     }
   }
 
-  // Wire export button (includes both assessed + pre-pledge rows).
+  // Wire export buttons (includes both assessed + pre-pledge rows).
   const exportBtn = document.getElementById("rp-export-csv");
-  if (exportBtn) {
-    exportBtn.onclick = downloadRatepayerCSV;
-  }
+  if (exportBtn) exportBtn.onclick = downloadRatepayerCSV;
+  wireBtn("rp-export-pdf", exportRatepayerToPDF);
 
   // Pledge-era sites awaiting assessment (post-pledge or year-only 2026,
   // no assessment captured yet).
@@ -3776,6 +4106,8 @@ function renderAggregateView() {
   renderCompanyRollup(coRows);
   renderStateRollup(stRows);
   wireAggSort();
+  wireBtn("agg-csv-btn", downloadAggregateCSV);
+  wireBtn("agg-pdf-btn", exportAggregateToPDF);
 }
 
 // Wire click-to-sort on all [data-sort-key] <th> in both aggregate tables.

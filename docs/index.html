@@ -156,14 +156,20 @@
             theme. Click any company row to open a summary of how that company frames
             data-center community engagement, and a link to their main page.
           </p>
-          <button
-            id="matrix-csv"
-            type="button"
-            class="btn-ghost matrix-csv"
-            aria-label="Download the company-by-theme matrix as a CSV file"
-          >
-            ⤓ Download CSV
-          </button>
+          <span class="export-btns">
+            <button
+              id="matrix-csv"
+              type="button"
+              class="btn-ghost matrix-csv"
+              aria-label="Download the company-by-theme matrix as a CSV file"
+            >⤓ CSV</button>
+            <button
+              id="comparison-pdf-btn"
+              type="button"
+              class="btn-ghost"
+              aria-label="Export comparison view as PDF"
+            >⤓ PDF</button>
+          </span>
         </div>
 
         <div class="matrix-wrap" role="region" aria-label="Company × Theme matrix">
@@ -327,6 +333,10 @@
             </select>
           </label>
           <button id="f-reset" type="button" class="btn-ghost">Reset</button>
+          <span class="export-btns">
+            <button id="explorer-csv-btn" type="button" class="btn-ghost">⤓ CSV</button>
+            <button id="explorer-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
+          </span>
         </div>
 
         <div class="explorer-layout">
@@ -517,7 +527,10 @@
           </p>
           <div class="rp-scorecard-toolbar">
             <div id="rp-legend" class="rp-legend" aria-label="Assessment status legend"></div>
-            <button id="rp-export-csv" class="rp-export-btn" type="button">Export CSV</button>
+            <span class="export-btns">
+              <button id="rp-export-csv" class="btn-ghost" type="button">⤓ CSV</button>
+              <button id="rp-export-pdf" class="btn-ghost" type="button">⤓ PDF</button>
+            </span>
           </div>
           <ul id="rp-scorecard" class="rp-scorecard"></ul>
         </section>
@@ -555,17 +568,25 @@
         aria-labelledby="tab-moratoriums"
         hidden
       >
-        <h2>Data Center Policy Moratoriums</h2>
-        <p class="view-description">
-          Tracking enacted and proposed city, county, state, and federal moratoriums on data center development.
-        </p>
+        <div class="hero">
+          <h2 class="hero-title">Data Center Policy Moratoriums</h2>
+          <p class="hero-dek">
+            Tracking enacted, proposed, and failed city, county, state, and federal
+            restrictions on data center development. Each record links to the primary
+            government or authoritative source. Click any row to open the full detail.
+          </p>
+        </div>
 
         <!-- Status Overview Stats -->
         <ul id="moratorium-stats" class="rp-stats" aria-label="Moratorium statistics"></ul>
 
         <!-- Key Themes Section -->
         <div id="moratorium-themes" class="summary-section">
-          <h3>Key Themes Driving Moratoriums</h3>
+          <h3>Key themes driving moratoriums</h3>
+          <p class="view-description">
+            Count of moratoriums that cite each concern. Click a theme to see which
+            jurisdictions raised it and what their legislation says.
+          </p>
           <div id="reason-breakdown" class="reason-grid">
             <!-- Populated by app.js -->
           </div>
@@ -580,11 +601,12 @@
         </details>
 
         <!-- Filters and Table (Collapsible) -->
-        <details class="moratoriums-table-section" open>
+        <details class="directory-section" open>
           <summary id="moratoriums-table-heading">
             Moratoriums Directory
             <span class="table-controls">
-              <button id="moratoriums-pdf-btn" class="btn-secondary" title="Export to PDF">📄 PDF Export</button>
+              <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+              <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
             </span>
           </summary>
 
@@ -625,13 +647,10 @@
           </div>
         </details>
 
-        <!-- ================= MORATORIUM DETAIL PANEL ================= -->
-        <aside
-          id="moratorium-detail"
-          class="moratorium-detail"
-          aria-live="polite"
-          hidden
-        >
+        <!-- ================= MORATORIUM DETAIL MODAL ================= -->
+        <div id="moratorium-modal" class="moratorium-modal" hidden>
+          <div class="moratorium-modal__backdrop" data-moratorium-close aria-hidden="true"></div>
+          <aside id="moratorium-detail" class="moratorium-detail moratorium-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="md-jurisdiction" aria-live="polite">
           <button id="moratorium-detail-close" class="detail-close" type="button" aria-label="Close moratorium details">
             ×
           </button>
@@ -647,14 +666,18 @@
           <dl class="kv">
             <dt>Status</dt>
             <dd id="md-status-detail">—</dd>
-            <dt>Enacted date</dt>
+            <dt id="md-enacted-dt">Enacted date</dt>
             <dd id="md-enacted">—</dd>
+            <dt id="md-effective-dt" hidden>Effective date</dt>
+            <dd id="md-effective" hidden>—</dd>
             <dt>Duration</dt>
             <dd id="md-duration-detail">—</dd>
             <dt>Power threshold</dt>
             <dd id="md-threshold">—</dd>
             <dt>Key reasons</dt>
             <dd id="md-reasons">—</dd>
+            <dt id="md-policy-type-dt" hidden>Policy type</dt>
+            <dd id="md-policy-type" hidden>—</dd>
             <dt id="md-bill-dt" hidden>Bill / Resolution</dt>
             <dd id="md-bill-number" hidden>—</dd>
             <dt id="md-sponsors-dt" hidden>Introduced by</dt>
@@ -671,13 +694,19 @@
 
           <div id="md-summary" class="moratorium-summary"></div>
 
+          <section id="md-stakeholders" class="moratorium-stakeholders" aria-labelledby="md-stakeholders-heading" hidden>
+            <h4 id="md-stakeholders-heading">Key stakeholders</h4>
+            <div id="md-stakeholders-body"></div>
+          </section>
+
           <section id="md-resources" class="moratorium-resources" aria-labelledby="md-resources-heading">
             <h4 id="md-resources-heading">Sources &amp; Resources</h4>
             <ul id="md-resources-list" class="resources-list"></ul>
           </section>
 
           <p id="md-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
-        </aside>
+          </aside>
+        </div>
       </section>
 
       <!-- ====================== UTILITY TARIFFS VIEW ====================== -->
@@ -723,11 +752,12 @@
         </div>
 
         <!-- Filters and directory table -->
-        <details class="moratoriums-table-section" open>
+        <details class="directory-section" open>
           <summary id="tariffs-table-heading">
             Tariff Directory
             <span class="table-controls">
-              <button id="tariffs-csv-btn" class="btn-secondary" title="Export to CSV">⬇ CSV Export</button>
+              <button id="tariffs-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+              <button id="tariffs-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
             </span>
           </summary>
 
@@ -855,6 +885,11 @@
         </div>
 
         <ul id="agg-stats" class="rp-stats" aria-label="Aggregate statistics"></ul>
+
+        <div class="export-btns" style="margin-bottom: 12px;">
+          <button id="agg-csv-btn" type="button" class="btn-ghost">⤓ CSV</button>
+          <button id="agg-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
+        </div>
 
         <section class="agg-section">
           <h3 class="agg-section-heading">By company</h3>
