@@ -2012,6 +2012,7 @@ a.rp-roster-note:hover {
 }
 
 .pp-row-body {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 0.18rem;
@@ -2025,9 +2026,9 @@ a.rp-roster-note:hover {
 }
 
 .pp-row-note {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  line-height: 1.4;
+  font-size: 0.76rem;
+  color: var(--text);
+  line-height: 1.45;
 }
 
 .pp-row-status {
@@ -2036,6 +2037,22 @@ a.rp-roster-note:hover {
   white-space: nowrap;
   flex-shrink: 0;
   padding-top: 0.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.pp-row-src {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: inherit;
+  opacity: 0.7;
+  text-decoration: none;
+  line-height: 1;
+}
+.pp-row-src:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .pp-row--met {
@@ -2256,19 +2273,6 @@ a.rp-roster-note:hover {
     flex-direction: column;
     gap: 0.5rem;
   }
-
-  /* Stack each principle row: label+note above, status below-right */
-  .pp-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  .pp-row-status {
-    align-self: flex-end;
-    margin-top: -1.2rem; /* pull up beside the last note line */
-  }
-
 
   /* Roster items: tighter */
   .rp-roster-item {

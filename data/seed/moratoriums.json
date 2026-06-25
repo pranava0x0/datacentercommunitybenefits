@@ -15,7 +15,7 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed; awaiting executive decision as of mid-June 2026.",
+      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed; Governor Hochul has not signed or vetoed as of June 24, 2026 — she has until December 2026 under New York law to act.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
       "source_title": "Data Center Dynamics \u2014 NY Legislature passes data center moratorium",
       "captured_at": "2026-06-04",
@@ -1825,6 +1825,105 @@
         {
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
+        }
+      ]
+    },
+    {
+      "id": "oregon-state-hb4084-2026-06",
+      "jurisdiction": "Oregon",
+      "jurisdiction_type": "state",
+      "status": "enacted",
+      "enacted_date": "2026-06-05",
+      "effective_date": "2026-06-05",
+      "duration_months": null,
+      "duration_description": "Until 90 days after 2027 Oregon legislative session adjourns (est. fall 2027)",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "transparency"
+      ],
+      "summary": "Oregon HB 4084 (enacted June 5, 2026) bars newly developed data centers from the state's Enterprise Zone property tax incentive program — the largest such program in Oregon — until 90 days after the 2027 legislative session ends. Does not ban construction; it is a tax-break moratorium rather than a permit ban. Existing data centers and facilities with pre-approved agreements are exempt. The Strategic Investment Program tax incentive is unaffected. Distinct from HB4016 (proposed permit moratorium, not enacted).",
+      "source_url": "https://www.dwt.com/blogs/energy--environmental-law-blog/2026/06/oregon-data-center-tax-break-moratorium",
+      "source_title": "Davis Wright Tremaine — New Oregon Law Impacts Data Center Development Statewide (June 2026)",
+      "captured_at": "2026-06-25",
+      "bill_number": "HB 4084",
+      "sponsors": null,
+      "key_stakeholders": null,
+      "resources": [
+        {
+          "url": "https://www.dwt.com/blogs/energy--environmental-law-blog/2026/06/oregon-data-center-tax-break-moratorium",
+          "title": "DWT — New Oregon Law Impacts Data Center Development Statewide"
+        },
+        {
+          "url": "https://www.oregonlegislature.gov/",
+          "title": "Oregon Legislative Assembly"
+        }
+      ]
+    },
+    {
+      "id": "henderson-nv-2026-06",
+      "jurisdiction": "Henderson",
+      "jurisdiction_type": "city",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 6,
+      "duration_description": "180 days (with early-lift option if review completes sooner)",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "air_quality",
+        "transparency"
+      ],
+      "summary": "Henderson, Nevada (pop. ~330K, Las Vegas suburb) introduced Bill No. 3927 at City Council: a 180-day ban on conditional use permit applications for new data centers. City staff may amend it to allow the Council to lift the moratorium early once their comprehensive review is complete. The review covers energy demand, water use, heat output, air quality, and proximity impacts to residential areas. A final vote is scheduled for July 21, 2026. Distinct from a Las Vegas city or Clark County action — no county-level moratorium has been enacted.",
+      "source_url": "https://www.reviewjournal.com/local/henderson/henderson-city-council-introduces-moratorium-on-new-data-centers-3839299/",
+      "source_title": "Las Vegas Review-Journal — Las Vegas suburb Henderson to mull moratorium on new data centers",
+      "captured_at": "2026-06-25",
+      "bill_number": "Bill No. 3927",
+      "sponsors": null,
+      "key_stakeholders": null,
+      "resources": [
+        {
+          "url": "https://www.reviewjournal.com/local/henderson/henderson-city-council-introduces-moratorium-on-new-data-centers-3839299/",
+          "title": "Las Vegas Review-Journal — Henderson data center moratorium article"
+        },
+        {
+          "url": "https://www.cityofhenderson.com/",
+          "title": "City of Henderson, Nevada"
+        }
+      ]
+    },
+    {
+      "id": "michigan-state-2026-06",
+      "jurisdiction": "Michigan",
+      "jurisdiction_type": "state",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Until April 1, 2027 (as proposed)",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "equity"
+      ],
+      "summary": "Michigan SB 1018–1020 / HB 5594–5596 (bipartisan package, introduced 2026) would halt new data center development until April 1, 2027. A separate Senate Democratic package includes water usage caps and energy cost requirements. Companion bills HB 5396–5398 would repeal data center tax exemptions. The moratorium bills sit in the Senate Government Operations Committee — a historically hostile venue in the Michigan Legislature. Legislative prospects are uncertain despite bipartisan co-sponsorship.",
+      "source_url": "https://www.route-fifty.com/infrastructure/2026/06/michigan-lawmakers-local-officials-and-residents-renew-push-statewide-data-center-moratorium/414379/",
+      "source_title": "Route Fifty — Michigan lawmakers, local officials and residents renew push for statewide data center moratorium (June 2026)",
+      "captured_at": "2026-06-25",
+      "bill_number": "SB 1018-1020 / HB 5594-5596",
+      "sponsors": null,
+      "key_stakeholders": null,
+      "resources": [
+        {
+          "url": "https://www.route-fifty.com/infrastructure/2026/06/michigan-lawmakers-local-officials-and-residents-renew-push-statewide-data-center-moratorium/414379/",
+          "title": "Route Fifty — Michigan data center moratorium push (June 2026)"
+        },
+        {
+          "url": "https://www.legislature.mi.gov/",
+          "title": "Michigan Legislature"
         }
       ]
     }
