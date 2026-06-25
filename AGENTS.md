@@ -125,6 +125,15 @@ on the existing 83 projects would have surfaced instantly. When the work
 does require a sub-agent, hand it the already-known-IDs list so it doesn't
 re-confirm what's already there.
 
+**Second failure pattern (caught in session, June 2026):** using an Explore
+agent to audit "what export buttons exist per tab" when two `grep` commands
+in the main context had already surfaced the complete answer. The agent was
+spawned before checking whether the answer was already in context. Rule: if
+you just ran a grep and have the output in front of you, derive the answer
+from it — don't spawn an agent to re-derive it. The tell is a prompt like
+"based on the grep output above, also check X" — that's a Read or another
+grep, not an agent.
+
 ### Token gate at 50K
 
 If mid-task the turn has consumed >50K tokens, or you estimate the
