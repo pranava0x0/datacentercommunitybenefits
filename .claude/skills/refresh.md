@@ -14,25 +14,19 @@ Runs `python3 refresh.py` to validate seed data and write `docs/data/*.json`.
 
 ## Steps
 
-1. Run the command from the project root (the active `.claude/worktrees/` path).
+1. Run from the project root (the active `.claude/worktrees/` path or the main project checkout).
 2. Report: record counts per type, total payload size, and any validation errors.
-3. If validation fails, read the error message, identify the offending seed file in `data/seed/`, fix it, and re-run until clean.
+3. If validation fails, read the error, identify the offending record in `data/seed/`, fix it, and re-run until clean.
 
-## Command
+## Commands
 
 ```bash
-python3 refresh.py
+python3 refresh.py                  # validate + write docs/data/*.json (production)
+python3 refresh.py --check          # validate only — no output written
+python3 refresh.py --audit          # validate + write outputs + generate ISSUES.md
+python3 refresh.py --audit --check  # validate + generate ISSUES.md only (no docs/data write)
+python3 refresh.py --pretty         # validate + write pretty-printed JSON (human review)
 ```
-
-No flags needed for standard production output. Useful flags:
-
-| Flag | Effect |
-|------|--------|
-| *(none)* | Validate + write `docs/data/*.json` (minified) |
-| `--check` | Validate only — no output written |
-| `--pretty` | Validate + write pretty-printed JSON (for human review) |
-| `--audit` | Include data-gap audit; also writes `ISSUES.md` |
-| `--audit --check` | Audit only, no output |
 
 ## What a clean run looks like
 
@@ -44,18 +38,26 @@ INFO refresh: Validating responses.json …
 INFO refresh: Validating moratoriums.json …
 INFO refresh: Validating tariffs.json …
 INFO refresh: Loaded: N companies, N claims, N projects, N responses
-INFO refresh: Wrote companies.json (N bytes)
+INFO refresh: Wrote companies.json …
 …
 INFO refresh: Total payload size: N KB
 ```
 
-Any line starting with `ERROR` means a validation failure — fix the seed file and re-run.
+Any `ERROR` line means validation failed — fix the seed file and re-run.
+A `WARNING` line from `--audit` means data gaps exist — review ISSUES.md.
 
 ## After a successful refresh
 
-If seed data changed (not just a no-op re-run), commit both the seed edits and the generated `docs/data/` files together:
+If seed data changed (not a no-op timestamp bump), commit both seed edits and generated outputs:
 
 ```bash
-git add data/seed/ docs/data/
+git add data/seed/ docs/data/ ISSUES.md
 git commit -m "chore(data): refresh payloads — bump generated_at to $(date +%Y-%m-%d)"
 ```
+
+## Known audit state (2026-06-30)
+
+Running `python3 refresh.py --audit` currently reports **34 critical + 71 medium gaps**.
+Most gaps require web research to fill (power_mw for older operational sites, site-level
+investment figures for Stargate/AWS state-commitment sites). See `data-refresh.md` skill
+for the full curation workflow including how to find and fill these gaps.
