@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import json
 import shutil
+from datetime import date, timedelta
 from pathlib import Path
 
 import pytest
 
 import refresh
+from schema import Moratorium, MoratoriumsPayload, Tariff, TariffsPayload
 
 ROOT = Path(__file__).resolve().parent.parent
 SEED = ROOT / "data" / "seed"
@@ -128,3 +130,83 @@ class TestValidationErrors:
         _redirect_paths(monkeypatch, seed, tmp_path / "out")
         with pytest.raises(FileNotFoundError):
             refresh.refresh(check_only=True)
+
+
+def _moratorium(id_: str, status: str, captured_at: date) -> Moratorium:
+    return Moratorium(
+        id=id_,
+        jurisdiction="Test Jurisdiction",
+        jurisdiction_type="state",
+        status=status,
+        duration_description="1 year",
+        summary="Test summary.",
+        source_url="https://example.com/bill",
+        source_title="Test Source",
+        captured_at=captured_at,
+    )
+
+
+def _tariff(id_: str, status: str, captured_at: date) -> Tariff:
+    return Tariff(
+        id=id_,
+        utility="Test Utility",
+        state="OH",
+        tariff_name="Test Tariff",
+        status=status,
+        regulator="Test PUC",
+        summary="Test summary.",
+        source_url="https://example.com/docket",
+        source_title="Test Source",
+        captured_at=captured_at,
+    )
+
+
+class TestStalePendingAudit:
+    """`--audit` should flag `proposed` moratoriums/tariffs that have gone stale.
+
+    A pending bill/docket is a moving target; `enacted`/`approved`/`rejected`/
+    `failed` records are stable once captured and must never be flagged.
+    """
+
+    def test_stale_proposed_moratorium_flagged(self):
+        old = date.today() - timedelta(days=refresh.STALE_PENDING_DAYS + 1)
+        moratoriums = MoratoriumsPayload(
+            generated_at=date.today(),
+            moratoriums=[_moratorium("stale-mor", "proposed", old)],
+        )
+        tariffs = TariffsPayload(generated_at=date.today(), tariffs=[])
+        stale = refresh._audit_stale_pending(moratoriums, tariffs)
+        assert [r["id"] for r in stale] == ["stale-mor"]
+        assert stale[0]["kind"] == "moratorium"
+        assert stale[0]["age_days"] == refresh.STALE_PENDING_DAYS + 1
+
+    def test_stale_proposed_tariff_flagged(self):
+        old = date.today() - timedelta(days=refresh.STALE_PENDING_DAYS + 5)
+        moratoriums = MoratoriumsPayload(generated_at=date.today(), moratoriums=[])
+        tariffs = TariffsPayload(
+            generated_at=date.today(), tariffs=[_tariff("stale-tar", "proposed", old)]
+        )
+        stale = refresh._audit_stale_pending(moratoriums, tariffs)
+        assert [r["id"] for r in stale] == ["stale-tar"]
+        assert stale[0]["kind"] == "tariff"
+
+    def test_recent_proposed_not_flagged(self):
+        recent = date.today() - timedelta(days=refresh.STALE_PENDING_DAYS - 1)
+        moratoriums = MoratoriumsPayload(
+            generated_at=date.today(),
+            moratoriums=[_moratorium("fresh-mor", "proposed", recent)],
+        )
+        tariffs = TariffsPayload(generated_at=date.today(), tariffs=[])
+        assert refresh._audit_stale_pending(moratoriums, tariffs) == []
+
+    def test_stale_enacted_not_flagged(self):
+        """Enacted/approved records are stable — never flagged, no matter how old."""
+        ancient = date.today() - timedelta(days=999)
+        moratoriums = MoratoriumsPayload(
+            generated_at=date.today(),
+            moratoriums=[_moratorium("old-enacted", "enacted", ancient)],
+        )
+        tariffs = TariffsPayload(
+            generated_at=date.today(), tariffs=[_tariff("old-approved", "approved", ancient)]
+        )
+        assert refresh._audit_stale_pending(moratoriums, tariffs) == []

@@ -2326,6 +2326,34 @@
       }
     },
     {
+      "id": "amazon-montgomery-city-mo",
+      "company_slug": "amazon",
+      "name": "Amazon Montgomery City Data Center Campus",
+      "city": "Montgomery City",
+      "state": "MO",
+      "country": "US",
+      "lat": 38.9728,
+      "lon": -91.503,
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-06-15",
+      "claimed_investment_usd": 10000000000,
+      "claimed_jobs": 400,
+      "notes": "$10B AWS data center campus on ~1,000 acres north of I-70 and east of New Florence in Montgomery County, near the Missouri 19 interchange — announced June 15, 2026 alongside Gov. Mike Kehoe and County Presiding Commissioner Ryan Poston. 400 full-time operational jobs plus thousands of construction jobs (electricians, pipefitters). Sits near the separately developed Google New Florence campus (google-new-florence-mo) in the same county. Amazon says it worked with Ameren Missouri so infrastructure costs are not passed to other ratepayers, and is partnering with Arable Labs on farm irrigation efficiency projected to reduce regional water use by ~100 million gallons. A lawsuit filed February 2026 challenges the county approval process; a Missouri Rural Crisis Center voter survey (June 2026) found ~85% of respondents opposed the project (see amazon-montgomery-city-mo community response).",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-missouri-new-jobs",
+      "source_title": "Amazon — Amazon announces multibillion-dollar data center investment in Missouri",
+      "captured_at": "2026-07-05",
+      "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-missouri-new-jobs",
+      "acreage": 1000,
+      "offtaker": "AWS",
+      "at_a_glance": {
+        "jobs": "400 ops / thousands construction",
+        "community_grants": "$7M+ incl. $3M emergency dispatch, $150K community fund",
+        "water": "Arable Labs irrigation partnership targets ~100M gal/yr reduction",
+        "energy": "Amazon says infrastructure costs covered so as not to shift to other ratepayers"
+      }
+    },
+    {
       "id": "qts-clinton-ia",
       "company_slug": "qts",
       "name": "Clinton Data Center Campus (proposed)",
