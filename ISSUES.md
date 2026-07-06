@@ -1,24 +1,37 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-06-09
-Total projects needing attention: 91
+Generated: 2026-07-05
+Total projects needing attention: 106
 
 ## Critical Missing Commitment Details
-(21 projects)
+(34 projects)
 
 Projects missing required fields based on status:
 - **amazon-bossier-parish-la** (construction): claimed_investment_usd
 - **aws-caroline-va** (construction): claimed_investment_usd
+- **aws-umatilla-or** (operational): power_mw
 - **coreweave-ellendale-nd** (construction): claimed_investment_usd
 - **google-armstrong-tx** (construction): claimed_investment_usd
+- **google-berkeley-county-sc** (operational): power_mw
 - **google-council-bluffs-ia** (operational): power_mw
+- **google-ellis-county-tx** (operational): claimed_investment_usd, power_mw
 - **google-gray-county-tx** (construction): claimed_investment_usd
 - **google-haskell-tx** (construction): claimed_investment_usd
+- **google-henderson-nv** (operational): power_mw
+- **google-lenoir-nc** (operational): power_mw
+- **google-mayes-county-ok** (operational): power_mw
 - **google-the-dalles-or** (operational): power_mw
+- **meta-eagle-mountain-ut** (operational): power_mw
 - **meta-huntsville-al** (operational): power_mw
+- **meta-kuna-id** (operational): power_mw
+- **meta-los-lunas-nm** (operational): power_mw
 - **meta-prineville-or** (operational): power_mw
+- **meta-sarpy-ne** (operational): power_mw
+- **microsoft-boydton-va** (operational): power_mw
 - **microsoft-douglasville-ga** (construction): claimed_investment_usd
+- **microsoft-el-mirage-az** (operational): claimed_investment_usd, power_mw
 - **microsoft-heath-oh** (construction): claimed_investment_usd
 - **microsoft-hebron-oh** (construction): claimed_investment_usd
+- **microsoft-san-antonio-tx** (operational): power_mw
 - **microsoft-west-des-moines-ia** (operational): power_mw
 - **ms-mt-pleasant-wi** (operational): power_mw
 - **ms-quincy-wa** (operational): power_mw
@@ -29,7 +42,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(70 projects)
+(72 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -37,6 +50,7 @@ Projects with important gaps:
 - **amazon-canton-ms** (construction): power_mw, ratepayer
 - **amazon-clinton-ms** (announced): power_mw
 - **amazon-falls-twp-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **amazon-montgomery-city-mo** (announced): power_mw
 - **amazon-richmond-county-nc** (construction): power_mw, ratepayer
 - **amazon-vicksburg-ms** (announced): claimed_jobs, power_mw
 - **amazon-wheatfield-in** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
@@ -56,6 +70,7 @@ Projects with important gaps:
 - **google-clay-county-mo** (construction): claimed_jobs, ratepayer
 - **google-franklin-furnace-oh** (announced): claimed_jobs, power_mw
 - **google-hermantown-mn** (announced): claimed_jobs, power_mw
+- **google-jackson-county-al** (construction): claimed_jobs
 - **google-lagrange-ga** (construction): claimed_jobs
 - **google-lima-oh** (announced): claimed_jobs, power_mw
 - **google-linn-county-ia** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -102,20 +117,3 @@ Projects with important gaps:
 - **qts-wilmer-tx** (construction): claimed_jobs, ratepayer
 - **qts-york-county-sc** (construction): power_mw, ratepayer
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
-
-## Moratorium source audit
-
-| Date | Record | Issue | Recommended action | Status |
-|------|--------|-------|-------------------|--------|
-| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: bill_number='LD307' | Verify against https://mainelegislature.org/ | Open |
-| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: sponsors="['Rep. Victoria Foley (D-Orrington)', 'Sen. Rebecca Milliken" | Verify against https://mainelegislature.org/ | Open |
-| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: enacted_by='Governor Janet Mills' | Verify against https://mainelegislature.org/ | Open |
-| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: bill_number='LD307' | Verify against https://mainelegislature.org/ | Open |
-| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: sponsors="['Rep. Victoria Foley (D-Orrington)', 'Sen. Rebecca Milliken" | Verify against https://mainelegislature.org/ | Open |
-| 2026-06-25 | moratoriums:maine-state-2026-04 | Claim unverified in source: enacted_by='Governor Janet Mills' | Verify against https://mainelegislature.org/ | Open |
-| 2026-06-25 | moratoriums:florida-state-2026-07 | Claim unverified in source: vote='Senate 37-0, House 92-16, Senate concurrence 31-6' | Verify against https://www.flsenate.gov/Session/Bill/2026/484 | Open |
-| 2026-06-25 | moratoriums:florida-state-2026-07 | Claim unverified in source: enacted_by='Governor Ron DeSantis' | Verify against https://www.flsenate.gov/Session/Bill/2026/484 | Open |
-| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: bill_number='SB232' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
-| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
-| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: bill_number='SB232' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
-| 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
