@@ -3417,6 +3417,17 @@
       "project_id": "google-new-florence-mo"
     },
     {
+      "id": "amazon-montgomery-city-mo-jobs-community-2026",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "We're building data centers that will create hundreds of new jobs, support educators and students, and strengthen local infrastructure. Our investment matters most when the community is better for it.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-missouri-new-jobs",
+      "source_title": "Amazon — Amazon announces multibillion-dollar data center investment in Missouri (David Zapolsky, Chief Global Affairs and Legal Officer)",
+      "captured_at": "2026-07-05",
+      "published_at": "2026-06-15",
+      "project_id": "amazon-montgomery-city-mo"
+    },
+    {
       "id": "prologis-coweta-engagement-process-2025",
       "company_slug": "prologis",
       "theme": "engagement",

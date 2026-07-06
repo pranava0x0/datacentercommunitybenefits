@@ -15,14 +15,13 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed; Governor Hochul has not signed or vetoed as of June 24, 2026 — she has until December 2026 under New York law to act.",
+      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed (Senate approved the final Assembly-substituted version A11560 on June 4, 2026); as of July 5, 2026 the bill has not yet been delivered to the Governor, and Hochul has not signed or vetoed — she has until December 2026 under New York law to act.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
       "source_title": "Data Center Dynamics \u2014 NY Legislature passes data center moratorium",
-      "captured_at": "2026-06-04",
-      "bill_number": "SB7992/AB7234",
+      "captured_at": "2026-07-05",
+      "bill_number": "S10642/A11560",
       "sponsors": [
-        "State Senate Environmental Conservation Committee",
-        "Assembly Subcommittee on Energy"
+        "Sen. Kristen Gonzalez (D-WF, 59th District)"
       ],
       "key_stakeholders": {
         "environmental": [
@@ -50,12 +49,12 @@
       },
       "resources": [
         {
-          "url": "https://www.nysenate.gov/legislation/bills/2025/S7992",
-          "title": "New York Senate Bill S7992 (Full Text)"
+          "url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
+          "title": "New York Senate Bill S10642 (Full Text)"
         },
         {
-          "url": "https://assembly.state.ny.us/leg/?default_fld=0&bn=A07234",
-          "title": "New York Assembly Bill A7234 (Full Text)"
+          "url": "https://www.nysenate.gov/legislation/bills/2025/A11560",
+          "title": "New York Assembly Bill A11560 (Full Text)"
         },
         {
           "url": "https://www.ny1.com/nyc/all-boroughs/news/2026/06/data-center-moratorium",
@@ -197,28 +196,30 @@
       "id": "georgia-state-2026-01",
       "jurisdiction": "Georgia",
       "jurisdiction_type": "state",
-      "status": "proposed",
+      "status": "failed",
       "enacted_date": null,
       "effective_date": null,
       "duration_months": 14,
-      "duration_description": "Until March 1, 2027",
+      "duration_description": "Until March 1, 2027 (as proposed; bill died in session)",
       "power_threshold_mw": null,
       "key_reasons": [
         "transparency",
         "energy"
       ],
-      "summary": "Georgia HB1012 (proposed 2026) blocks local governments from issuing new data center permits until March 1, 2027. Provides time for state and local review of DC impacts on water, grid, and communities. Supported by environmental groups and municipalities wary of uncontrolled DC expansion. Balances Georgia's interest in data center jobs (Amazon HQ) against concerns about rapid growth. Creates state-level oversight structure for permitting.",
-      "source_url": "https://www.deseret.com/business/2026/05/16/data-centers-bans-moratoriums-state-legislatures-citizen-opposition-initiatives-referendum-artificial-intelligence-water-sair-quality/",
-      "source_title": "Deseret News \u2014 Data centers bans and moratoriums",
-      "captured_at": "2026-05-16",
+      "summary": "Georgia HB1012, sponsored by Rep. Ruwa Romman (D-Duluth), would have blocked local governments from issuing new data center permits until March 1, 2027. A companion bill, HB1059 (the Data Center Impact Assessment and Development Moratorium Act, Rep. Derrick Jackson), paired a moratorium with a new impact-assessment commission. Neither bill passed the Georgia General Assembly's 2026 regular session, which adjourned sine die April 3, 2026, without a floor vote on either measure.",
+      "source_url": "https://georgiarecorder.com/2026/04/03/thats-a-wrap-what-did-and-didnt-happen-on-the-final-day-of-georgias-2026-legislative-session/",
+      "source_title": "Georgia Recorder \u2014 What did and didn't happen on the final day of Georgia's 2026 legislative session",
+      "failure_reason": "Session adjourned sine die (April 3, 2026) without a floor vote on HB1012 or HB1059; both bills died at the end of the 2026 regular session.",
+      "session": "2026",
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://www.legis.ga.gov/",
           "title": "Georgia General Assembly"
         },
         {
-          "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com"
+          "url": "https://legiscan.com/GA/bill/HB1012/2025",
+          "title": "LegiScan \u2014 Georgia HB1012"
         },
         {
           "url": "https://www.deseret.com/business/2026/05/16/data-centers-bans-moratoriums-state-legislatures-citizen-opposition-initiatives-referendum-artificial-intelligence-water-sair-quality/",
@@ -240,10 +241,10 @@
         "transparency",
         "energy"
       ],
-      "summary": "South Carolina H5286 (proposed 2026) blocks governmental approval for new data center permits until January 1, 2028. Extended review period allows assessment of grid impacts and water availability. Supported by environmental organizations and water conservation advocates. South Carolina concerned about rapid hyperscaler expansion in the Low Country and potential conflicts with existing industries and tourism.",
+      "summary": "South Carolina H5286 (proposed 2026) blocks governmental approval for new data center permits until January 1, 2028. Extended review period allows assessment of grid impacts and water availability. Supported by environmental organizations and water conservation advocates. South Carolina concerned about rapid hyperscaler expansion in the Low Country and potential conflicts with existing industries and tourism. Re-verified July 2026: still referred to House Ways and Means (no floor vote yet); a companion bill, H5526 (introduced April 14, 2026), proposes a comprehensive oversight process instead of a fixed moratorium date.",
       "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
       "source_title": "South Carolina Legislature \u2014 H5286",
-      "captured_at": "2026-05-20",
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://www.scstatehouse.gov/",
@@ -639,20 +640,24 @@
       "id": "seattle-city-2026-06",
       "jurisdiction": "Seattle",
       "jurisdiction_type": "city",
-      "status": "proposed",
-      "enacted_date": null,
-      "effective_date": null,
+      "status": "enacted",
+      "enacted_date": "2026-06-09",
+      "effective_date": "2026-06-09",
       "duration_months": 12,
-      "duration_description": "1 year",
-      "power_threshold_mw": 10,
+      "duration_description": "1 year, with a possible 6-month extension",
+      "power_threshold_mw": null,
       "key_reasons": [
         "transparency",
         "energy"
       ],
-      "summary": "Proposed one-year moratorium on data centers with 10+ MW capacity. Vote scheduled for June 3, 2026.",
-      "source_url": "https://www.datacenterbans.com/",
-      "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-20",
+      "summary": "Seattle City Council unanimously passed Council Bill 121214, an emergency ordinance halting new data center siting applications for facilities with power capacity over 20 megavolt-amperes, effective immediately upon passage on June 9, 2026. A companion resolution commits the city to studying grid, water, land-use, employment, and public-health impacts ahead of permanent regulations; the freeze may be extended up to six months.",
+      "source_url": "https://council.seattle.gov/2026/06/09/city-council-passes-emergency-data-center-moratorium-and-policy-framework/",
+      "source_title": "Seattle City Council — City Council passes emergency data center moratorium and policy framework",
+      "legislative_votes": "City Council 9-0 (unanimous)",
+      "city_council_vote": "9-0 (unanimous)",
+      "enacted_by": "Seattle City Council",
+      "bill_number": "CB 121214",
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://datacenterbans.com/",
@@ -678,10 +683,10 @@
         "transparency",
         "energy"
       ],
-      "summary": "The AI Data Center Moratorium Act of 2026, announced by Sen. Bernie Sanders (I-VT) and Rep. Alexandria Ocasio-Cortez (D-NY) on March 25, 2026. Would impose a nationwide halt on constructing or upgrading new or existing data centers with 20 MW or higher power demand until strong national safeguards are in place. Unlikely to advance.",
-      "source_url": "https://www.sanders.senate.gov/press-releases/news-sanders-ocasio-cortez-announce-ai-data-center-moratorium-act/",
-      "source_title": "Senator Bernie Sanders \u2014 AI Data Center Moratorium Act",
-      "captured_at": "2026-03-25",
+      "summary": "The AI Data Center Moratorium Act of 2026 (Senate: S.4214), announced by Sen. Bernie Sanders (I-VT) and Rep. Alexandria Ocasio-Cortez (D-NY) on March 25, 2026. Would impose a nationwide halt on constructing or upgrading new or existing data centers with 20 MW or higher power demand until strong national safeguards are in place. The House companion is cosponsored by Reps. Carson, Cohen, Garcia, Goldman, Grijalva, McGovern, Sewell, Tlaib, and Watson Coleman. Re-verified July 2026: no committee action beyond introduction/referral; unlikely to advance.",
+      "source_url": "https://www.congress.gov/bill/119th-congress/senate-bill/4214",
+      "source_title": "Congress.gov \u2014 S.4214, Artificial Intelligence Data Center Moratorium Act",
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://www.senate.gov/",
@@ -912,21 +917,22 @@
       "id": "oregon-state-2026-05",
       "jurisdiction": "Oregon",
       "jurisdiction_type": "state",
-      "status": "proposed",
-      "enacted_date": null,
-      "effective_date": null,
-      "duration_months": 12,
-      "duration_description": "1 year pending environmental review",
-      "power_threshold_mw": 20,
+      "status": "enacted",
+      "enacted_date": "2026-06-05",
+      "effective_date": "2026-06-05",
+      "duration_months": null,
+      "duration_description": "Until 90 days after the 2027 Oregon legislative session adjourns sine die",
+      "power_threshold_mw": null,
       "key_reasons": [
-        "water",
         "transparency",
         "energy"
       ],
-      "summary": "HB4016: Proposed one-year construction moratorium on hyperscale data centers (20+ MW). Vote expected in June 2026.",
-      "source_url": "https://www.oregonlegislature.gov/",
-      "source_title": "Oregon Legislative Assembly",
-      "captured_at": "2026-05-01",
+      "summary": "HB4084 (corrected bill number — not HB4016, which was a public-contractor tax-compliance bill unrelated to data centers) bars new data centers from Oregon's Enterprise Zone property tax exemption program, effective June 5, 2026, until 90 days after the 2027 legislative session adjourns. This is a tax-incentive moratorium, not a construction ban: data centers already receiving Enterprise Zone breaks, and those already approved but still in planning/construction, keep their exemptions, and data centers remain eligible for the separate Strategic Investment Program tax break. Intended to give Gov. Kotek's Oregon Data Center Advisory Committee time to study impacts before the 2027 session.",
+      "source_url": "https://www.dwt.com/blogs/energy--environmental-law-blog/2026/06/oregon-data-center-tax-break-moratorium",
+      "source_title": "Davis Wright Tremaine — New Oregon Law Impacts Data Center Development Statewide",
+      "policy_type": "cost-allocation rule",
+      "bill_number": "HB4084",
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://www.oregonlegislature.gov/",
@@ -971,20 +977,24 @@
       "id": "new-hampshire-state-2026-04",
       "jurisdiction": "New Hampshire",
       "jurisdiction_type": "state",
-      "status": "proposed",
+      "status": "failed",
       "enacted_date": null,
       "effective_date": null,
-      "duration_months": 24,
-      "duration_description": "2 years pending grid modernization",
-      "power_threshold_mw": 10,
+      "duration_months": 12,
+      "duration_description": "1 year from effective date (as proposed; bill died)",
+      "power_threshold_mw": null,
       "key_reasons": [
         "transparency",
         "energy"
       ],
-      "summary": "HB1524: Proposed two-year moratorium on data center construction (10+ MW) while the state modernizes electrical grid infrastructure.",
-      "source_url": "https://www.gencourt.state.nh.us/",
-      "source_title": "New Hampshire Legislature",
-      "captured_at": "2026-04-20",
+      "summary": "HB1265 (not HB1524 — corrected bill number), sponsored by Rep. Peter Schmidt (D-Dover), would have prohibited construction of new data centers statewide for one year from the act's effective date and created a legislative committee to study environmental impacts. The House Commerce and Consumer Affairs Committee returned an unfavorable report, and the full House adopted an 'Inexpedient to Legislate' motion by voice vote on March 11, 2026, killing the bill.",
+      "source_url": "https://newhampshirebulletin.com/2026/03/13/right-to-compute-bill-passes-house-while-proposed-data-center-precautions-flop/",
+      "source_title": "New Hampshire Bulletin — 'Right to Compute' bill passes House, while proposed data center precautions flop",
+      "failure_reason": "Adopted 'Inexpedient to Legislate' by voice vote in the House, March 11, 2026, after an unfavorable committee report from House Commerce and Consumer Affairs.",
+      "session": "2026",
+      "bill_number": "HB1265",
+      "sponsors": ["Rep. Peter Schmidt (D-Dover)"],
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://www.gencourt.state.nh.us/",
@@ -1111,22 +1121,26 @@
     },
     {
       "id": "seattle-county-wa-2026-06",
-      "jurisdiction": "Washington State (proposed)",
+      "jurisdiction": "Washington State",
       "jurisdiction_type": "state",
-      "status": "proposed",
+      "status": "failed",
       "enacted_date": null,
       "effective_date": null,
-      "duration_months": 12,
-      "duration_description": "1 year pending clean energy assessment",
-      "power_threshold_mw": 30,
+      "duration_months": null,
+      "duration_description": "N/A — bill died before enactment",
+      "power_threshold_mw": 20,
       "key_reasons": [
-        "transparency",
+        "equity",
         "energy"
       ],
-      "summary": "SB6289: Proposed statewide moratorium on data centers exceeding 30 MW capacity. Bill pending committee review.",
-      "source_url": "https://www.leg.wa.gov/",
-      "source_title": "Washington State Legislature",
-      "captured_at": "2026-05-15",
+      "summary": "Correction: 'SB6289' (the bill number originally recorded here) is an unrelated economic-development bill, not a data center measure — no such statewide moratorium bill exists under that number. The actual statewide measure was HB2515 ('Addressing Emerging Large Energy Use Facilities'), which would have required utilities serving large data centers (20+ MW) to file tariffs preventing cost-shifting onto other ratepayers. It passed the House 51-41 but died in the Senate when the 2026 session adjourned in March. A narrower measure, SB5982 (clean-energy compliance deadlines for large loads), was enacted separately.",
+      "source_url": "https://www.dwt.com/blogs/energy--environmental-law-blog/2026/03/washington-legislature-delays-data-center-bill",
+      "source_title": "Davis Wright Tremaine — Washington Legislature Punts Comprehensive Data Center Legislation to Next Year",
+      "failure_reason": "Passed the House 51-41 but died in the Senate without a vote when the Legislature adjourned in March 2026.",
+      "legislative_votes": "House 51-41 (passed); died in Senate without a vote",
+      "session": "2026",
+      "bill_number": "HB2515",
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://www.leg.wa.gov/",
@@ -1169,26 +1183,30 @@
     },
     {
       "id": "las-vegas-nv-2026-06",
-      "jurisdiction": "Las Vegas",
+      "jurisdiction": "Henderson",
       "jurisdiction_type": "city",
       "status": "proposed",
       "enacted_date": null,
       "effective_date": null,
-      "duration_months": 18,
-      "duration_description": "18 months pending water study",
+      "duration_months": 6,
+      "duration_description": "180 days (council may lift sooner)",
       "power_threshold_mw": null,
       "key_reasons": [
         "water",
-        "energy"
+        "energy",
+        "air_quality",
+        "noise"
       ],
-      "summary": "Proposed 18-month moratorium on large data center development due to Lake Mead water level concerns.",
-      "source_url": "https://www.datacenterbans.com/",
-      "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-30",
+      "summary": "Correction: no 'City of Las Vegas' moratorium proposal was found — the verifiable Southern Nevada action is Henderson's Bill No. 3927, introduced June 16, 2026, which would impose a 180-day pause on conditional-use-permit applications for data centers so the city can update municipal code covering energy demand, water consumption, air quality, heat generation, and residential proximity. City Council vote scheduled for July 21, 2026 (after this record's capture date).",
+      "source_url": "https://www.reviewjournal.com/local/henderson/henderson-city-council-introduces-moratorium-on-new-data-centers-3839299/",
+      "source_title": "Las Vegas Review-Journal — Henderson city council introduces moratorium on new data centers",
+      "bill_number": "Bill No. 3927",
+      "session": "2026",
+      "captured_at": "2026-07-05",
       "resources": [
         {
-          "url": "https://www.lasvegasnevada.gov/",
-          "title": "City of Las Vegas"
+          "url": "https://www.hendersonnv.gov/",
+          "title": "City of Henderson"
         },
         {
           "url": "https://datacenterbans.com/",
@@ -1263,17 +1281,19 @@
       "status": "proposed",
       "enacted_date": null,
       "effective_date": null,
-      "duration_months": 12,
-      "duration_description": "1 year pending grid study",
-      "power_threshold_mw": 50,
+      "duration_months": null,
+      "duration_description": "No moratorium bill filed — city manager policy review due July 2026",
+      "power_threshold_mw": null,
       "key_reasons": [
         "transparency",
-        "energy"
+        "energy",
+        "water"
       ],
-      "summary": "Austin proposed data center moratorium (2026) addressing water stress and grid reliability in drought-prone Central Texas. Supported by environmental groups (Sierra Club), residents, and water advocates. Austin's Lake Travis and Colorado River face severe drought. Proposal aims to prevent DC projects from exacerbating water scarcity. Balances Texas tech industry interests against environmental concerns.",
-      "source_url": "https://www.datacenterbans.com/",
-      "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-25",
+      "summary": "Correction: no formal moratorium ordinance has been filed in Austin. Mayor Kirk Watson and four City Council members directed the city manager, in a May 2026 memo, to evaluate whether new large-scale data centers should be allowed in city limits and, if so, under what conditions (water-use restrictions, higher electricity rates, or zoning limits) — a policy review, not a construction pause, with findings due to Council in July 2026.",
+      "source_url": "https://austincurrent.org/2026/05/19/data-centers-austin-water-electricity/",
+      "source_title": "Austin Current — Austin weighs new data center restrictions",
+      "policy_type": "policy review directive (no moratorium bill filed)",
+      "captured_at": "2026-07-05",
       "resources": [
         {
           "url": "https://datacenterbans.com/",

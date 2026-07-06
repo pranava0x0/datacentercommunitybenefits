@@ -1,6 +1,6 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-06-30
-Total projects needing attention: 105
+Generated: 2026-07-05
+Total projects needing attention: 106
 
 ## Critical Missing Commitment Details
 (34 projects)
@@ -42,7 +42,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(71 projects)
+(72 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -50,6 +50,7 @@ Projects with important gaps:
 - **amazon-canton-ms** (construction): power_mw, ratepayer
 - **amazon-clinton-ms** (announced): power_mw
 - **amazon-falls-twp-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **amazon-montgomery-city-mo** (announced): power_mw
 - **amazon-richmond-county-nc** (construction): power_mw, ratepayer
 - **amazon-vicksburg-ms** (announced): claimed_jobs, power_mw
 - **amazon-wheatfield-in** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
