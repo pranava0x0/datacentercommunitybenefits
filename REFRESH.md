@@ -1,4 +1,7 @@
-# Data Refresh Skill — Data Center Community Benefits Dashboard
+# REFRESH.md — Data Center Community Benefits data refresh playbook
+
+> Project refresh playbook, read by the generic `data-refresh` skill (~/.claude/skills/data-refresh). Keep current: every refresh run appends learned patterns; structural pipeline changes get edited into the body.
+
 
 **Purpose:** Systematically refresh and audit the dashboard's curated data (companies, projects, claims, community responses) to keep it current with recent announcements, regulatory filings, and community feedback.
 
@@ -12,7 +15,7 @@ Every refresh operation follows this pipeline:
 
 ### 1. **Validate Seed Data**
 ```bash
-python refresh.py --check
+python3 refresh.py --check
 ```
 - Checks `data/seed/*.json` files against `schema.py`
 - Validates schema constraints (required fields, field types, value ranges)
@@ -21,7 +24,7 @@ python refresh.py --check
 
 ### 2. **Audit Missing Commitment Details** (NEW — v1.18)
 ```bash
-python refresh.py --audit --check
+python3 refresh.py --audit --check
 ```
 - Identifies projects with missing key fields based on status:
   - **Operational sites:** must have `claimed_investment_usd` and `power_mw`
@@ -31,18 +34,20 @@ python refresh.py --audit --check
   - **Critical:** missing required fields
   - **Medium:** missing important/commitment fields
 - Report format: per-project lists with missing field names
+- **Note:** `--audit --check` writes ISSUES.md but does NOT write `docs/data/*.json`. Use without `--check` to also regenerate outputs.
 - Use to prioritize curation work and flag data gaps
 
 ### 3. **Generate Output JSON**
 ```bash
-python refresh.py --pretty      # pretty-printed (for review)
-python refresh.py               # minified (for production)
+python3 refresh.py --pretty     # pretty-printed (for review)
+python3 refresh.py              # minified (for production)
+python3 refresh.py --audit      # minified + generates ISSUES.md
 ```
-- Emits `docs/data/*.json` (companies, claims, projects, responses)
+- Emits `docs/data/*.json` (companies, claims, projects, responses, moratoriums, tariffs)
 - Validates against schema one final time before write
 - Excludes null values from JSON (clean frontend data)
 - Stamps `generated_at` with today's date
-- Total payload ~532 KB (includes 13 companies, 300 claims, 98 projects, 199 responses)
+- Total payload ~647 KB (13 companies, 325 claims, 112 projects, 212 responses, as of 2026-06-30)
 
 ---
 
@@ -119,7 +124,7 @@ Target the most productive news sources per CLAUDE.md backlog + v1.8 experience:
 
 5. **Run validation**
    ```bash
-   python refresh.py --check
+   python3 refresh.py --check
    ```
 
 ### Common Data Gaps (Use ISSUES.md to Prioritize)
@@ -174,7 +179,7 @@ Example: Meta Richland Parish Phase 2 (May 2026)
    - Theme: `infrastructure` or `energy` (if grid cost-share updates)
 
 3. **Audit + ratepayer update**
-   - Run `python refresh.py --audit` to surface any now-missing fields
+   - Run `python3 refresh.py --audit` to surface any now-missing fields
    - If the company is a pledge signatory + the expansion is post-pledge, add `ratepayer` assessment
 
 ### Regulatory Approvals / Permitting Milestones
@@ -203,7 +208,7 @@ To keep the dashboard current without full audits every week:
 git diff <last-refresh-commit>..HEAD data/seed/
 
 # Validate only (no write, no audit)
-python refresh.py --check
+python3 refresh.py --check
 
 # If clean, snapshot the current state
 git log --oneline -n 1
@@ -215,7 +220,7 @@ git log --oneline -n 1
 git log --since="2 weeks ago" --oneline -- data/seed/projects.json
 
 # Run full validation + audit + output
-python refresh.py --audit
+python3 refresh.py --audit
 git status  # shows updated docs/data/*.json + ISSUES.md
 git add -A
 git commit -m "data: refresh $(date +%Y-%m-%d) — audit + new projects"
@@ -252,13 +257,18 @@ See ISSUES.md for full audit report.
 - 40+ projects missing ratepayer assessment — high priority for next refresh
 
 ### 3. Missing Commitment Details (AUTOMATED AUDITING)
-- 91 projects need attention (21 critical, 70 medium)
+- As of 2026-06-30 audit: **34 critical + 71 medium gaps** across 105 projects
 - Common gaps by company:
-  - **Google:** power_mw (many announced sites)
-  - **Microsoft:** power_mw, ratepayer (Cheyenne, Person County)
-  - **Amazon:** ratepayer (Loudoun, New Carlisle, Cumberland)
-  - **Meta/OpenAI/Oracle:** ratepayer (post-pledge sites)
+  - **Google:** power_mw (most operational sites — not publicly disclosed per project)
+  - **Meta:** power_mw (older operational campuses), ratepayer (post-pledge construction sites)
+  - **Microsoft:** power_mw (most operational + construction), ratepayer (several post-pledge sites)
+  - **Amazon/AWS:** claimed_investment_usd (site-level figures rolled into state commitments), ratepayer
+  - **OpenAI/Oracle/xAI/CoreWeave:** claimed_investment_usd (Stargate/partner sites), ratepayer
+  - **QTS:** claimed_investment_usd + power_mw (both Manassas VA and Richmond VA)
+- Most `power_mw` gaps require web research (sites don't publish per-campus capacity)
+- Most `claimed_investment_usd` gaps are site-level slices of larger state-level commitments (can't safely attribute without a first-party site-level figure)
 - ISSUES.md auto-generated; prioritize critical projects first
+- Run `python3 refresh.py --audit` (not `--audit --check`) to regenerate docs/data/ AND ISSUES.md together
 
 ### 4. Recent Announcements Pipeline
 - 25 projects captured May 19–June 8 shows the refresh cadence is working
@@ -280,9 +290,9 @@ See ISSUES.md for full audit report.
 - [ ] Create/update project records in `data/seed/projects.json`
 - [ ] Create project-tied claims in `data/seed/claims.json`
 - [ ] Create community response records (if applicable)
-- [ ] Validate: `python refresh.py --check`
-- [ ] Audit: `python refresh.py --audit --check` → review ISSUES.md
-- [ ] Generate output: `python refresh.py --pretty`
+- [ ] Validate: `python3 refresh.py --check`
+- [ ] Audit: `python3 refresh.py --audit --check` → review ISSUES.md
+- [ ] Generate output: `python3 refresh.py --pretty`
 - [ ] Review `docs/data/*.json` diffs for correctness
 - [ ] Commit with descriptive message (include ISSUES.md changes)
 - [ ] Push to remote if ready for frontend deployment
@@ -302,4 +312,48 @@ See ISSUES.md for full audit report.
 
 ## Contact / Questions
 
-This skill encodes the learnings from the v1.18 session (June 9, 2026). If gaps emerge during the next refresh cycle, update this file with the new pattern so future curators have the benefit of the discovery.
+This playbook encodes the learnings from the v1.18 session (June 9, 2026). If gaps emerge during the next refresh cycle, update this file with the new pattern so future curators have the benefit of the discovery.
+
+---
+
+## Research connectors accelerator (`connectors/`)
+
+The manual search strategy above has a CLI accelerator — use it to find gaps and turn URLs
+into candidate records (it never auto-publishes; curation stays editorial):
+
+1. **Load state.** Read `ISSUES.md`, `BACKLOG.md`, and run:
+   ```bash
+   python -m connectors.research status --list
+   ```
+   This reports projects with no claims / no community feedback — the gap list. The
+   recurring ask is **new data centers and new utility tariffs**; prioritize those unless
+   told otherwise.
+
+2. **Search.** Generate queries and run them with WebSearch (or Chrome MCP for JS-rendered
+   first-party pages like `datacenters.google`):
+   ```bash
+   python -m connectors.research queries --missing-feedback --limit 5
+   python -m connectors.research queries --missing-claims --json
+   ```
+
+3. **Harvest** promising URLs into candidate records (cached, ≥1.5s/host, 429-backoff):
+   ```bash
+   python -m connectors.research harvest --project <slug> <url> [<url>...]
+   ```
+   First-party domains → `claim_candidates` with **verbatim quote candidates**; everything
+   else → `response_candidate` with auto-extracted publication date. `stance` /
+   `constituency` / `single_source` come out null with a TODO — fill them editorially,
+   never let the tool infer them.
+
+4. **Curate** candidates from `data/candidates/` into `data/seed/*.json` by hand: pick the
+   verbatim quote, write the neutral summary, set editorial fields, carry source URL +
+   capture date. Contested items get both sides, per CLAUDE.md.
+
+Full detail: `connectors/README.md`.
+
+## Learned patterns (append-only, dated)
+
+- 2026-07-07: consolidated the flat `.claude/skills/data-refresh.md` skill into this
+  playbook per the one-generic-skill convention (base CLAUDE.md); added the connectors
+  accelerator section. Flat skill files in `.claude/skills/` never registered with Claude
+  Code anyway (directory + SKILL.md format required).
