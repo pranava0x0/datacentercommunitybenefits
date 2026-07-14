@@ -1093,6 +1093,22 @@ function renderMoratoriumCharts(moratoriums) {
     jurisdiction +
     "</div>";
   container.innerHTML = html;
+
+  // Two bars per quarter doubles the axis width, so a narrow viewport overflows.
+  // Park the scroll on the most RECENT quarters: whatever gets clipped must be the
+  // near-empty 2024/25 past, never the current surge. (A silently-clipped chart
+  // reads as "the data is missing" — it did.)
+  const plot = container.querySelector(".mtl-plot");
+  if (plot) {
+    const parkOnRecent = () => {
+      plot.scrollLeft = plot.scrollWidth; // clamps to max scroll
+    };
+    parkOnRecent(); // when the view is already laid out
+    // ...and again after layout, in case the charts rendered while the tab was
+    // still hidden (a display:none plot has zero scrollWidth, so the first call
+    // would be a silent no-op and the surge would clip off-screen again).
+    requestAnimationFrame(parkOnRecent);
+  }
 }
 
 function renderReasonBreakdown(moratoriums) {

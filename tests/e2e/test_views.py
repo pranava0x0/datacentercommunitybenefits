@@ -1622,6 +1622,31 @@ class TestMoratoriumCharts:
         assert groups.count() >= 3
         assert groups.first.locator(".mtl-barwrap").count() == 2
 
+    _LAST_QUARTER_VISIBLE = """() => {
+      const el = document.querySelector('.mtl-plot');
+      const pr = el.getBoundingClientRect();
+      const cols = [...document.querySelectorAll('.mtl-col')];
+      const last = cols[cols.length - 1].getBoundingClientRect();
+      return last.left >= pr.left - 1 && last.right <= pr.right + 1;
+    }"""
+
+    def test_full_axis_fits_on_desktop(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert page.evaluate(self._LAST_QUARTER_VISIBLE)
+
+    def test_recent_quarters_never_clipped_on_narrow_viewport(
+        self, page: Page, base_url: str
+    ):
+        # Regression: two bars per quarter doubled the axis width and silently
+        # scrolled the current surge off-screen ("the data is missing"). The plot
+        # must park on the most RECENT quarter — clip the empty past, never the surge.
+        page.set_viewport_size({"width": 390, "height": 900})
+        self._open(page, base_url)
+        page.wait_for_timeout(300)
+        assert page.evaluate(self._LAST_QUARTER_VISIBLE), (
+            "the most recent quarter scrolled out of view on a narrow viewport"
+        )
+
 
 class TestMoratoriumTable:
     """Directory table consistency (UX fix: no sponsor clutter, short durations)."""

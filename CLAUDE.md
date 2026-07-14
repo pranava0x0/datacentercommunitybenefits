@@ -520,8 +520,24 @@ across state/county/city), ratepayer scorecard **26 → 37 assessed sites**.
   internally stacked by status. Stacking the levels hid the comparison — grouped
   bars let you read "Q2'26 = 24 city vs 34 county/state" directly. Two consequences:
   scale to the tallest **single bar** (`maxBar`), NOT the quarter total; and keep the
-  gap *between* quarters (`0.65rem`) wider than the gap *within* a pair (`4px`) or
-  the pairing stops reading as a group.
+  gap *between* quarters wider than the gap *within* a pair, or the pairing stops
+  reading as a group.
+- **`overflow-x: auto` on a time-series chart silently eats the newest data.**
+  Doubling the bars per quarter pushed the axis past the container; the plot scrolled
+  and **clipped the 2026 surge off-screen with no affordance** — it read as "the data
+  is missing," and it shipped that way. Three-part fix, all of which you want:
+  (1) size so the full axis **fits** (now down to a 420px viewport; a `max-width:560px`
+  media query squeezes the pair further); (2) keep the **scrollbar visible**
+  (`scrollbar-width: thin` + a styled `::-webkit-scrollbar`) — a hidden scrollbar is
+  how data disappears quietly; (3) **park `scrollLeft` on the most RECENT** column
+  after render, so whatever clips is the near-empty past, never the current surge.
+  Do the park twice — once inline and once in `requestAnimationFrame` — because a
+  chart rendered while its tab is still `display:none` has **zero `scrollWidth`**, so
+  the inline call is a silent no-op. Guarded by
+  `test_recent_quarters_never_clipped_on_narrow_viewport`.
+  Measure clipping with `getBoundingClientRect` against the plot's rect —
+  **not** `offsetLeft`, which is relative to the nearest *positioned* ancestor (the
+  plot isn't one) and will lie to you.
 
 ### New York: an executive order and a bill are SEPARATE records (v1.20)
 
