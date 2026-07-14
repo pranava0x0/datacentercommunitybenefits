@@ -28,6 +28,8 @@ from validate_moratoriums import (
     _check_sponsors,
     _classify_error,
     audit_record,
+    check_completeness,
+    _completeness_gaps,
     classify_liveness,
     GOV_PATTERN,
 )
@@ -342,9 +344,62 @@ class TestGovPattern:
         assert GOV_PATTERN.search("https://denver.granicus.com/clip/9834")
         assert GOV_PATTERN.search("https://cityofx.legistar.com/foo")
 
+    def test_matches_non_dot_gov_official_local_sites(self):
+        # Official county/city sites frequently aren't on .gov.
+        assert GOV_PATTERN.search("https://www.taylorcountygov.com/government/x")
+        assert GOV_PATTERN.search("https://www.cityofmadison.com/x")
+        assert GOV_PATTERN.search("https://pgccouncil.us/m/newsflash/2073")
+        assert GOV_PATTERN.search("https://council.nola.gov/x")  # already .gov
+
     def test_does_not_match_plain_news(self):
         assert not GOV_PATTERN.search("https://www.datacenterdynamics.com/en/news/x")
         assert not GOV_PATTERN.search("https://ctmirror.org/2026/05/11/x")
+        assert not GOV_PATTERN.search("https://roughdraftatlanta.com/2026/07/08/x")
+
+
+class TestCompleteness:
+    """The --completeness audit flags records missing key detail fields."""
+
+    FULL = {
+        "id": "x", "jurisdiction_type": "state", "status": "enacted",
+        "bill_number": "HB1", "source_url": "https://leg.state.mn.us/x",
+        "legislative_votes": "50-0", "sponsors": ["Rep. Y"],
+        "enacted_date": "2026-01-01",
+    }
+
+    def test_full_record_has_no_gaps(self):
+        rows = check_completeness([self.FULL])
+        assert _completeness_gaps(rows[0]) == []
+
+    def test_missing_bill_flagged(self):
+        rec = {**self.FULL}
+        rec.pop("bill_number")
+        gaps = _completeness_gaps(check_completeness([rec])[0])
+        assert "bill/ordinance #" in gaps
+
+    def test_missing_gov_link_flagged(self):
+        rec = {**self.FULL, "source_url": "https://localnews.com/story"}
+        gaps = _completeness_gaps(check_completeness([rec])[0])
+        assert "gov link" in gaps
+
+    def test_gov_link_via_resource_counts(self):
+        rec = {**self.FULL, "source_url": "https://news.com/x",
+               "resources": [{"url": "https://county.legistar.com/agenda", "title": "z"}]}
+        row = check_completeness([rec])[0]
+        assert row["gov_link"] is True
+
+    def test_city_council_vote_counts_as_vote(self):
+        rec = {**self.FULL, "jurisdiction_type": "city"}
+        rec.pop("legislative_votes")
+        rec["city_council_vote"] = "6-1"
+        assert check_completeness([rec])[0]["vote"] is True
+
+    def test_enacted_without_date_flags_enacted_date_only_when_enacted(self):
+        enacted = {**self.FULL}
+        enacted.pop("enacted_date")
+        assert "enacted date" in _completeness_gaps(check_completeness([enacted])[0])
+        proposed = {**enacted, "status": "proposed"}
+        assert "enacted date" not in _completeness_gaps(check_completeness([proposed])[0])
 
 
 class TestDryRunSmoke:

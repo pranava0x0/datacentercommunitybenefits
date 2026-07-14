@@ -139,3 +139,22 @@ fixed what it surfaced. Every record now resolves to a **live** source
 Note: the older `## Moratorium source audit` rows below are stale false-negatives
 from the pre-hardening urllib fetcher (many gov pages bot-blocked it / are
 JS-rendered). Re-run the full audit with the new fetcher before acting on them.
+
+## Moratorium completeness fill (2026-07-14)
+
+Added `--completeness` to the validator (flags records missing a bill/ordinance #,
+gov link, vote, or sponsors) and ran a Sonnet fill agent (scope-limited, verified-
+only) over the 13 new records. Applied to 8: **2 ordinance numbers** (PG County
+CR-066-2026, Oneida County OA-02-2026), **7 curl-verified-200 gov links**, **2
+sponsor lists**. Votes were already present on 11/13.
+
+Remaining, documented gaps (not defects):
+- **67 records still lack a bill/ordinance number** — most local moratoria are bare
+  board motions/resolutions with no formal numbering (the fill agent confirmed this
+  for the 13; only 2 had a verifiable number). `--completeness` flags them for review;
+  a null here is often honest, not fillable.
+- **washington-county-md-2026-06** links to its official site `washco-md.net`, which
+  `GOV_PATTERN` doesn't credit (a county abbreviation on `.net`) — an accepted
+  heuristic miss; the link is official and live.
+- **marshall-county-in-2026-04** — no fetchable source (co.marshall.in.us + local news
+  all 403); left as-is with its news source. Genuine dead end.

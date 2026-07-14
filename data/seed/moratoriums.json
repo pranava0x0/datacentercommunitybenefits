@@ -2301,7 +2301,13 @@
       "city_council_vote": "Unanimous (Board of Commissioners); Area Plan Commission recommended 6-0 on May 6, 2026 and again 6-0 on June 3, 2026",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "resources": [
+        {
+          "url": "https://boonecounty.in.gov/2026/06/15/19190/",
+          "title": "Boone County Commissioners Approve Moratorium on Data Centers"
+        }
+      ]
     },
     {
       "id": "santa-fe-county-nm-2026-07",
@@ -2332,7 +2338,13 @@
       "city_council_vote": "Unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "resources": [
+        {
+          "url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers",
+          "title": "Santa Fe County approves 18-month moratorium on data centers"
+        }
+      ]
     },
     {
       "id": "imperial-county-ca-2026-06",
@@ -2414,13 +2426,21 @@
       "source_url": "https://www.kcrg.com/2026/07/01/despite-putting-ordinance-place-linn-county-passes-data-center-moratorium/",
       "source_title": "KCRG — Despite putting ordinance in place, Linn County passes data center moratorium",
       "bill_number": null,
-      "sponsors": null,
+      "sponsors": [
+        "Supervisor Brandy Meisheid"
+      ],
       "key_stakeholders": null,
       "enacted_by": "Linn County Board of Supervisors",
       "city_council_vote": "2-1 (Meisheid and Running-Marquardt for; Scheetz against)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "resources": [
+        {
+          "url": "https://www.linncountyiowa.gov/ArchiveCenter/ViewFile/Item/455",
+          "title": "Linn County Board of Supervisors — data center moratorium resolution (ArchiveCenter Item 455)"
+        }
+      ]
     },
     {
       "id": "harvey-county-ks-2026-01",
@@ -2473,11 +2493,15 @@
       "source_title": "WTOP — Two-year moratorium on data center development passes in Prince George's Co.",
       "resources": [
         {
+          "url": "https://pgccouncil.us/m/newsflash/home/detail/2073",
+          "title": "Chair Oriadha Announces Two-Year Moratorium to Prevent New Data Centers from Operating in the County"
+        },
+        {
           "url": "https://content.govdelivery.com/accounts/MDPGCLEG/bulletins/410bbbc",
           "title": "Prince George's County Council Connection bulletin (official) — CB-19-2026, related data center review legislation introduced March 17, 2026"
         }
       ],
-      "bill_number": null,
+      "bill_number": "CR-066-2026",
       "sponsors": null,
       "key_stakeholders": {
         "opposed": [
@@ -2520,7 +2544,13 @@
       "city_council_vote": "4-1 (Wagner, Leatherman, Cline, Barr for; Parrott against)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "resources": [
+        {
+          "url": "https://www.washco-md.net/wp-content/uploads/Draft-Ordinance-Data-Center-Memoratorium.pdf",
+          "title": "Washington County — Draft Ordinance: A Moratorium Concerning Data Centers"
+        }
+      ]
     },
     {
       "id": "orion-township-mi-2026-06",
@@ -2540,7 +2570,9 @@
       "source_url": "https://lakeorionreview.com/articles/news/orion-twp-board-passes-six-month-moratorium-on-data-centers/",
       "source_title": "The Lake Orion Review — Orion Twp. board passes six-month moratorium on data centers",
       "bill_number": null,
-      "sponsors": null,
+      "sponsors": [
+        "Trustee Jack Lovat"
+      ],
       "key_stakeholders": null,
       "enacted_by": "Orion Township Board of Trustees",
       "city_council_vote": "7-0 (unanimous)",
@@ -2567,14 +2599,20 @@
       "summary": "The Oneida County (Wisconsin) Planning and Development Committee unanimously passed an interim data center moratorium ordinance amendment that would bar the county from accepting, processing, or approving new data center developments for at least one year while it develops regulations. It still requires full County Board approval, expected on the August 2026 agenda; it excludes un-zoned towns and the City of Rhinelander. Concerns cited: water and electricity consumption, noise, and potential pollution. Proposed.",
       "source_url": "https://www.wxpr.org/energy-environment/2026-07-10/oneida-county-data-center-moratorium-advances-to-county-board",
       "source_title": "WXPR — Oneida County data center moratorium advances to county board",
-      "bill_number": null,
+      "bill_number": "OA-02-2026",
       "sponsors": null,
       "key_stakeholders": null,
       "enacted_by": null,
       "city_council_vote": "Passed the Planning & Development Committee unanimously; awaiting full County Board vote",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "resources": [
+        {
+          "url": "https://www.oneidacountywi.gov/wp-content/uploads/meetings/7.8.26-NPH-Dilley-Waterhouse-Jones-OA-02-2026.pdf",
+          "title": "Oneida County — Notice of Public Hearing, Ordinance Amendment OA-02-2026 (data center moratorium)"
+        }
+      ]
     },
     {
       "id": "lincoln-county-ne-2026-07",
@@ -2656,7 +2694,13 @@
       "city_council_vote": null,
       "failure_reason": "Motion failed for lack of support; Commissioner Michael Newman cited insufficient information. A data center workshop was scheduled for Aug 25, 2026.",
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "resources": [
+        {
+          "url": "https://www.taylorcountygov.com/government/board_agendas.php",
+          "title": "Taylor County Board of County Commissioners — Meeting Agendas"
+        }
+      ]
     },
     {
       "id": "charlotte-city-2026-06",

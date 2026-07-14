@@ -102,6 +102,9 @@ GOV_PATTERN = re.compile(
     r"|legislature\.|legis\.|capitol\.|assembly\.|senate\.|house\."
     r"|\.state\.[a-z]{2}\.us|\.[a-z]{2}\.us(?:[:/]|$)"
     r"|granicus\.com|legistar\.com|municode\.com|civicclerk\.com|primegov\.com"
+    # Official local-gov sites often DON'T use .gov: county/city sites and
+    # council portals on .com/.net/.us. These markers are low-false-positive.
+    r"|countygov|cityof|council\.us|\.council\."
     r")",
     re.IGNORECASE,
 )
@@ -838,6 +841,101 @@ def run_links_only(moratoriums: list[dict], *, cached_only: bool,
 
 
 # ---------------------------------------------------------------------------
+# Completeness audit — flags records MISSING the artifacts an auditable record
+# should carry: a bill/ordinance number, a live gov/official source link, a
+# recorded vote, named sponsors, and (for enacted) an enacted date. Distinct
+# from --links-only (liveness) and the full audit (claim-text verification):
+# this answers "which records still need a bill #, a gov link, or the specific
+# legislative language captured?" — the gaps a curator fills before shipping.
+# Pure-schema (no network); use --links-only to also confirm the gov link is live.
+# ---------------------------------------------------------------------------
+
+def check_completeness(moratoriums: list[dict]) -> list[dict]:
+    rows = []
+    for m in moratoriums:
+        urls = [str(m.get("source_url", "") or "")] + [
+            str(r.get("url", "")) for r in (m.get("resources") or []) if r.get("url")
+        ]
+        has_gov = any(GOV_PATTERN.search(u) for u in urls if u)
+        vote = m.get("legislative_votes") or m.get("city_council_vote")
+        rows.append({
+            "id": m["id"],
+            "jurisdiction_type": m.get("jurisdiction_type"),
+            "status": m.get("status"),
+            "bill_number": bool(m.get("bill_number")),
+            "gov_link": has_gov,
+            "vote": bool(vote),
+            "sponsors": bool(m.get("sponsors")),
+            "enacted_date": bool(m.get("enacted_date")),
+        })
+    return rows
+
+
+def _completeness_gaps(row: dict) -> list[str]:
+    gaps = []
+    if not row["bill_number"]:
+        gaps.append("bill/ordinance #")
+    if not row["gov_link"]:
+        gaps.append("gov link")
+    if not row["vote"]:
+        gaps.append("vote")
+    if not row["sponsors"]:
+        gaps.append("sponsors")
+    if row["status"] == "enacted" and not row["enacted_date"]:
+        gaps.append("enacted date")
+    return gaps
+
+
+def print_completeness_report(rows: list[dict]) -> None:
+    print(f"\n{'ID':<40} {'BILL#':<6} {'GOV':<4} {'VOTE':<5} {'SPON':<5}  MISSING")
+    print("-" * 96)
+    counts = defaultdict(int)
+    incomplete = 0
+    mark = lambda b: "✓" if b else "·"
+    for r in sorted(rows, key=lambda x: len(_completeness_gaps(x)), reverse=True):
+        gaps = _completeness_gaps(r)
+        if gaps:
+            incomplete += 1
+        for g in gaps:
+            counts[g] += 1
+        print(f"{r['id']:<40} {mark(r['bill_number']):<6} {mark(r['gov_link']):<4} "
+              f"{mark(r['vote']):<5} {mark(r['sponsors']):<5}  {', '.join(gaps)}")
+    print("-" * 96)
+    total = len(rows)
+    print(f"Records: {total}  |  incomplete: {incomplete}  |  fully complete: {total - incomplete}")
+    for field in ("bill/ordinance #", "gov link", "vote", "sponsors", "enacted date"):
+        if counts[field]:
+            print(f"  missing {field}: {counts[field]}")
+
+
+def _completeness_issues(rows: list[dict]) -> list[str]:
+    today = str(date.today())
+    lines = []
+    for r in rows:
+        gaps = _completeness_gaps(r)
+        if gaps:
+            lines.append(
+                f"| {today} | moratoriums:{r['id']} | Missing: {', '.join(gaps)} | "
+                f"Capture from the primary/gov source | Open |\n"
+            )
+    return lines
+
+
+def run_completeness(moratoriums: list[dict], *, write_issues: bool) -> int:
+    """Report per-record completeness. Returns the count of incomplete records."""
+    rows = check_completeness(moratoriums)
+    path = ROOT / "moratorium_completeness_report.json"
+    path.write_text(json.dumps(rows, indent=2, ensure_ascii=False), encoding="utf-8")
+    logger.info("Wrote completeness report → %s", path)
+    print_completeness_report(rows)
+    if write_issues:
+        lines = _completeness_issues(rows)
+        if lines:
+            _append_issues(lines, header="## Moratorium completeness audit")
+    return sum(1 for r in rows if _completeness_gaps(r))
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -882,6 +980,20 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
         help="Exit with code 1 if any record's PRIMARY source_url is dead.",
     )
     p.add_argument(
+        "--completeness",
+        action="store_true",
+        help=(
+            "Report which records are MISSING a bill/ordinance number, a gov "
+            "link, a recorded vote, sponsors, or (for enacted) an enacted date — "
+            "the gaps a curator fills before shipping. Pure-schema, no network."
+        ),
+    )
+    p.add_argument(
+        "--fail-on-incomplete",
+        action="store_true",
+        help="Exit 1 if any record is missing a completeness field.",
+    )
+    p.add_argument(
         "--no-issues",
         action="store_true",
         help="Do not append to ISSUES.md.",
@@ -915,6 +1027,15 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.dry_run:
         logger.info("--dry-run: schema loaded OK, skipping fetches.")
+        return 0
+
+    # Fast path: completeness audit only (pure-schema, no network).
+    if args.completeness:
+        n_incomplete = run_completeness(moratoriums, write_issues=not args.no_issues)
+        if args.fail_on_incomplete and n_incomplete > 0:
+            logger.error("%d record(s) are missing a completeness field — exiting 1.",
+                         n_incomplete)
+            return 1
         return 0
 
     # Fast path: link-liveness audit only.

@@ -477,8 +477,11 @@ across state/county/city), ratepayer scorecard **26 → 37 assessed sites**.
   **dead** (404/410/DNS/refused). Only `dead` is actionable; this stops the
   urllib fetcher's 403/SSL false-negatives from reading as broken links.
   `--fail-on-dead-link` is the CI gate; writes `moratorium_link_report.json`
-  (git-ignored). Wrapped in the **`validate-moratoriums` skill**
-  (`.claude/skills/validate-moratoriums/`). **The audit's job is link liveness +
+  (git-ignored). A companion **`--completeness`** mode (pure-schema, no network)
+  flags records **missing a bill/ordinance #, gov link, vote, or sponsors** — the
+  "still missing bill #s / links / specific language" gaps a curator fills before
+  shipping (`--fail-on-incomplete` gate). Wrapped in the **`validate-moratoriums`
+  skill** (`.claude/skills/validate-moratoriums/`). **The audit's job is link liveness +
   gov-source presence — deterministic and repeatable. Claim-text verification
   stays best-effort** (JS-rendered gov pages defeat any plain fetcher). Use
   WebFetch (gets through bot-walls) to actually fix links; the script can't.

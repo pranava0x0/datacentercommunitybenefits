@@ -17,9 +17,15 @@ carry a **live** source URL, and — per the project's "active links only, lean 
 accuracy" rule — ideally an official **.gov / legislative** primary source. This
 skill checks that and surfaces records that need a human fix.
 
-## The two checks
+## The three checks
 
-1. **Link liveness (`--links-only`)** — fast, deterministic, the primary check.
+0. **Completeness (`--completeness`)** — pure-schema, no network, instant. Flags
+   which records are **missing a bill/ordinance number, a gov link, a recorded
+   vote, named sponsors, or (for enacted) an enacted date** — the "I'm still
+   missing bill #s / links / specific language" gaps a curator fills before
+   shipping. Writes `moratorium_completeness_report.json`. This is the fastest way
+   to see what's incomplete; run it first.
+1. **Link liveness (`--links-only`)** — fast, deterministic, the primary link check.
    Probes every `source_url` + `resources[].url`, follows redirects with a
    browser User-Agent, and classifies each as:
    - **live** — 2xx/3xx. Good.
@@ -38,6 +44,10 @@ skill checks that and surfaces records that need a human fix.
 ## Commands
 
 ```bash
+# What's still missing a bill #, gov link, vote, or sponsors? (no network)
+python scripts/validate_moratoriums.py --completeness
+python scripts/validate_moratoriums.py --completeness --fail-on-incomplete --no-issues  # CI gate
+
 # Fast liveness audit of every record (writes moratorium_link_report.json)
 python scripts/validate_moratoriums.py --links-only
 
