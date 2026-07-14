@@ -511,10 +511,34 @@ across state/county/city), ratepayer scorecard **26 → 37 assessed sites**.
   `.mtl-seg--city` / `.mtl-seg--other` and a `--seg` custom property holding the
   status hue). The hatch is a `repeating-linear-gradient` in the *same* hue, so
   the status colour survives the texture. Segment heights use
-  `Math.max(2, …)` so a 1-record sliver stays visible against a 58-record quarter.
+  `Math.max(2, …)` so a 1-record sliver stays visible against a 34-record bar.
   The legend renders both scales (status dots + neutral-grey texture swatches, so
   the reader reads the *texture* there, not the hue). If a third level split is
   ever needed, add a texture — **don't** add a second colour ramp.
+- **The two levels are PARALLEL bars, not stacked.** Each quarter is a
+  `.mtl-group` holding two `.mtl-barwrap`s (city | county/state/federal), each
+  internally stacked by status. Stacking the levels hid the comparison — grouped
+  bars let you read "Q2'26 = 24 city vs 34 county/state" directly. Two consequences:
+  scale to the tallest **single bar** (`maxBar`), NOT the quarter total; and keep the
+  gap *between* quarters (`0.65rem`) wider than the gap *within* a pair (`4px`) or
+  the pairing stops reading as a group.
+
+### New York: an executive order and a bill are SEPARATE records (v1.20)
+
+NY carries **two** moratorium records and they must not be conflated:
+- `ny-state-eo62-2026-07` — **Executive Order No. 62**, signed 2026-07-14: the
+  nation's **first statewide data center moratorium**. DEC holds pending discretionary
+  permits in abeyance for data centers **≥ 50 MW**, until DPS delivers a final Generic
+  Environmental Impact Statement. State environmental permitting only — **local permits
+  are not covered**. Exempts manufacturing, research (incl. quantum), accredited
+  education (incl. Empire AI) and medical care. Empire State Development must post a
+  "Community Investment Framework" within 60 days. Primary source is the `.gov` EO text.
+- `ny-state-2026-06` — the **legislature's bill** (S7992/A7234, **20 MW**, 1 year),
+  passed 2026-06-04 and **still unsigned**; Hochul issued the EO instead. Stays `proposed`.
+
+Lesson: an executive order and a bill are different instruments with different
+thresholds and different fates. When a governor "acts," check *which* instrument —
+don't flip the bill record to `enacted` because an EO landed the same day.
 - **PDF export redesign.** `exportMoratoriumsToPDF` builds a typographed document
   (`.mpdf-*` scoped `<style>`): serif display cover + kicker/dek, color-topped stat
   tiles, mini-bar summaries, a zebra directory table with status pills, and

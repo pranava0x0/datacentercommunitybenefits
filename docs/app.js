@@ -960,37 +960,46 @@ function _morTimelineChart(moratoriums) {
   const min = Math.min(...keys);
   const max = Math.max(...keys);
   const cols = [];
-  let maxTotal = 1;
+  // Bars are PARALLEL (grouped), not stacked by level — so scale to the tallest
+  // single bar, not the quarter total.
+  let maxBar = 1;
   for (let k = min; k <= max; k++) {
     const b = buckets.get(k) || _emptyStatusLevels();
-    const total = MORATORIUM_STATUSES.reduce((sum, s) => sum + b[s].city + b[s].other, 0);
-    maxTotal = Math.max(maxTotal, total);
-    cols.push({ key: k, b, total });
+    const totals = {};
+    MOR_LEVEL_GROUPS.forEach(([g]) => {
+      totals[g] = MORATORIUM_STATUSES.reduce((sum, s) => sum + b[s][g], 0);
+      maxBar = Math.max(maxBar, totals[g]);
+    });
+    cols.push({ key: k, b, totals });
   }
 
   const PLOT_H = 150; // px
   const colsHtml = cols
     .map((c) => {
-      // Bottom→top: enacted, proposed, failed; within each, city then non-city.
-      const segs = MORATORIUM_STATUSES.flatMap((s) =>
-        MOR_LEVEL_GROUPS.map(([g, gLabel]) => {
+      // Two side-by-side bars per quarter (city | county/state/federal); each is
+      // stacked bottom→top by status (enacted, proposed, failed).
+      const bars = MOR_LEVEL_GROUPS.map(([g, gLabel]) => {
+        const segs = MORATORIUM_STATUSES.map((s) => {
           const n = c.b[s][g];
           if (!n) return "";
-          const h = Math.max(2, Math.round((n / maxTotal) * PLOT_H)); // keep 1-record slivers visible
+          const h = Math.max(2, Math.round((n / maxBar) * PLOT_H)); // keep 1-record slivers visible
           return `<div class="mtl-seg mtl-seg--${g}" style="height:${h}px;--seg:var(--moratorium-${s})" title="${n} ${MOR_STATUS_LABELS[s]} · ${gLabel} · ${_morQuarterLabel(c.key)}"></div>`;
-        })
-      ).join("");
+        }).join("");
+        return `<div class="mtl-barwrap">
+          <span class="mtl-total">${c.totals[g] || ""}</span>
+          <div class="mtl-bar mtl-bar--${g}" title="${c.totals[g]} ${gLabel} · ${_morQuarterLabel(c.key)}">${segs}</div>
+        </div>`;
+      }).join("");
       return `<div class="mtl-col">
-        <span class="mtl-total">${c.total || ""}</span>
-        <div class="mtl-bar">${segs}</div>
+        <div class="mtl-group">${bars}</div>
         <span class="mtl-label">${_morQuarterLabel(c.key)}</span>
       </div>`;
     })
     .join("");
 
   return `<figure class="mor-chart mor-chart--timeline">
-    <figcaption class="mor-chart-title">The moratorium wave <span class="mor-chart-sub">records by quarter · colour = status, fill = jurisdiction level</span></figcaption>
-    <div class="mtl-plot" style="--plot-h:${PLOT_H}px" role="img" aria-label="Timeline of data center moratorium activity by quarter, coloured by status and split by jurisdiction level (city solid, county/state/federal hatched)">${colsHtml}</div>
+    <figcaption class="mor-chart-title">The moratorium wave <span class="mor-chart-sub">by quarter · parallel bars: city vs. county/state/federal · colour = status</span></figcaption>
+    <div class="mtl-plot" style="--plot-h:${PLOT_H}px" role="img" aria-label="Timeline of data center moratorium activity by quarter. Each quarter shows two parallel bars — city (solid) and county/state/federal (hatched) — each stacked by status.">${colsHtml}</div>
     ${_morStatusLegend({ withLevels: true })}
   </figure>`;
 }

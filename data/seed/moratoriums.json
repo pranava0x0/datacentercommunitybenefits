@@ -15,7 +15,7 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed (Senate approved the final Assembly-substituted version A11560 on June 4, 2026); as of July 5, 2026 the bill has not yet been delivered to the Governor, and Hochul has not signed or vetoed — she has until December 2026 under New York law to act.",
+      "summary": "New York's legislative data center moratorium (S7992/A7234) passed both chambers on June 4, 2026, imposing a 1-year statewide pause on permits for data centers above 20 MW peak demand while the state completes an energy-planning and grid modernization review. Primary driver: strain on the state's electrical grid, particularly in capacity-constrained downstate markets. Supported by environmental groups (Sierra Club, NRDC New York), IBEW Local 3 and community coalitions; opposed by tech industry and real estate developers. As of July 14, 2026 Governor Hochul has NOT signed the bill — she instead issued Executive Order No. 62 the same day, a separate instrument applying a higher 50 MW threshold and pausing state environmental permitting until a Generic Environmental Impact Statement is complete.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
       "source_title": "Data Center Dynamics — NY Legislature passes data center moratorium",
       "captured_at": "2026-07-05",
@@ -3113,6 +3113,43 @@
       "enacted_by": null,
       "city_council_vote": "unanimous rejection",
       "failure_reason": "Council members opposed the moratorium on economic-development grounds, preferring to address data centers through new zoning regulations, case-by-case negotiations, and a wastewater-management plan rather than a blanket pause.",
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "ny-state-eo62-2026-07",
+      "jurisdiction": "New York",
+      "jurisdiction_type": "state",
+      "status": "enacted",
+      "enacted_date": "2026-07-14",
+      "effective_date": "2026-07-14",
+      "duration_months": 12,
+      "duration_description": "Up to 1 year (runs until DPS submits the final Generic Environmental Impact Statement and findings statement — no fixed end date in the order)",
+      "power_threshold_mw": 50,
+      "key_reasons": [
+        "energy",
+        "water",
+        "air_quality",
+        "equity",
+        "noise",
+        "transparency"
+      ],
+      "summary": "The nation's first statewide data center moratorium. Executive Order No. 62, signed July 14, 2026, directs the Department of Environmental Conservation to hold in abeyance all pending applications for any discretionary permit, approval or license for constructing or expanding a data center of 50 MW or more (applications deemed complete before the order are excluded). It suspends state environmental permitting only — local government permits are not covered. The pause runs until the Department of Public Service delivers a final Generic Environmental Impact Statement assessing energy demand, water use and quality, air quality, disproportionate community impacts and noise; press reporting describes it as up to a year. Facilities primarily used for manufacturing, research (including quantum computing), accredited education (including the Empire AI consortium) or medical care are exempt. Empire State Development must post a 'Community Investment Framework' within 60 days covering community investment funds, local infrastructure, labor frameworks and transparency reporting. The order is a separate instrument from the one-year moratorium bill (S7992/A7234) passed by the legislature, which Hochul has not signed.",
+      "source_url": "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
+      "source_title": "NY Executive Order No. 62 — Establishing a Temporary Moratorium on Data Centers (governor.ny.gov)",
+      "resources": [
+        {
+          "url": "https://www.governor.ny.gov/executiveorders",
+          "title": "Governor Kathy Hochul — Executive Orders (official index)"
+        },
+        {
+          "url": "https://ny1.com/nyc/all-boroughs/politics/2026/07/14/hochul-enacts-first-statewide-data-center-moratorium",
+          "title": "NY1 — Hochul enacts first statewide data center moratorium"
+        }
+      ],
+      "bill_number": "Executive Order No. 62",
+      "enacted_by": "Governor Kathy Hochul",
+      "policy_type": "executive order",
       "session": "2026",
       "captured_at": "2026-07-14"
     }

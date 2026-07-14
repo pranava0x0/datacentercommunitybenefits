@@ -1702,7 +1702,9 @@ main {
 .mtl-plot {
   display: flex;
   align-items: flex-end;
-  gap: 0.35rem;
+  /* Gap BETWEEN quarters is wider than the gap within a pair, so the two
+     parallel bars read as one group. */
+  gap: 0.65rem;
   min-height: calc(var(--plot-h, 150px) + 34px);
   padding-top: 4px;
   overflow-x: auto;
@@ -1710,7 +1712,26 @@ main {
 
 .mtl-col {
   flex: 1 1 0;
-  min-width: 26px;
+  min-width: 46px; /* two parallel bars per quarter */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The two parallel bars for one quarter: city | county/state/federal */
+.mtl-group {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: var(--plot-h, 150px);
+}
+
+.mtl-barwrap {
+  flex: 1 1 0;
+  max-width: 20px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1728,8 +1749,7 @@ main {
 }
 
 .mtl-bar {
-  width: 68%;
-  min-width: 14px;
+  width: 100%;
   display: flex;
   flex-direction: column-reverse; /* first child (enacted) sits at the base */
   border-radius: 3px 3px 0 0;

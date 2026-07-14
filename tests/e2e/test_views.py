@@ -1614,6 +1614,14 @@ class TestMoratoriumCharts:
         title = page.locator(".mor-chart--timeline .mtl-seg--other").first.get_attribute("title")
         assert "County / State / Federal" in title
 
+    def test_timeline_bars_are_parallel_not_stacked(self, page: Page, base_url: str):
+        # Each quarter renders a group of TWO side-by-side bars (city |
+        # county/state/federal), not one column stacking both levels.
+        self._open(page, base_url)
+        groups = page.locator(".mor-chart--timeline .mtl-group")
+        assert groups.count() >= 3
+        assert groups.first.locator(".mtl-barwrap").count() == 2
+
 
 class TestMoratoriumTable:
     """Directory table consistency (UX fix: no sponsor clutter, short durations)."""
