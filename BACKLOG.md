@@ -397,3 +397,33 @@ Granicus/Legistar/Municode), promote it to `source_url` or add to `resources`.
 - **Brookings enforcement-gap** (2026-07-09) — national context, not per-site.
   Consider a "national context" panel on the Ratepayer tab rather than attaching
   it to one project.
+
+---
+
+## Performance + preview + restyle notes (2026-07-14)
+
+### Performance — currently good; optimizations if it grows — **low/medium**
+Baseline (live Pages, gzipped/CDN): first paint FCP ~340 ms · 6 reqs · ~202 KB;
+lazy-load per tab works; no images/web fonts. If it needs tightening later:
+- **Code-split `app.js`** (~52 KB gz, monolithic — all views in one file). First
+  paint only needs the Comparison logic; the moratorium/ratepayer/tariff/explorer
+  renderers could load per-tab. It's vanilla JS (no bundler), so this is a manual
+  module split — defer until app.js is materially bigger. **low.**
+- **Ship a lightweight claims index for first paint.** `claims.json` (43 KB gz)
+  preloads on the landing view, but the Comparison matrix only needs claim *counts*
+  per company/theme, not full verbatim statements. A `claims-index.json` (counts +
+  ids) for first paint + lazy full claims on company pop-out would cut ~35 KB off
+  first paint. **medium.**
+- Watch the regression signal: first paint > ~500 KB or > ~12 requests = something
+  got un-split (e.g. a heavy payload accidentally preloaded, or a web font added).
+
+### Restyle notes — the design system is solid; minor polish only — **low**
+- **Long Ratepayer scorecard** (37 cards and growing) — add a sticky filter/search
+  or status-grouping (affirmed / pledge_only / contested) so users don't scroll the
+  whole list. The "⚠ Ratepayer concern" cards especially are worth surfacing to the top.
+- **Moratorium timeline x-axis on mobile** — the quarter labels (`Q1'24` … `Q3'26`,
+  11 columns) can get cramped under ~380 px; verify and, if tight, show every other
+  label or enable horizontal scroll on the plot (`.mtl-plot` already has `overflow-x`).
+- Optional **density toggle** for the long directory + scorecard lists.
+- No larger restyle warranted — palette, type scale, and tokens (DESIGN.md) are
+  consistent and both themes are handled.

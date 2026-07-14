@@ -546,6 +546,30 @@ and "has any report come out that conflicts with meeting the pledge?"
   affirmed) + 3 conflict responses (Louisiana/Meta-Hyperion→meta-richland-la,
   Georgia-PSC→google-lagrange-ga, Dominion/JLARC→google-chesterfield-va).
 
+### Launch / preview ritual + performance (v1.20)
+
+The in-app **browser pane renders at a 0×0 viewport in some environments** (blank
+no matter what; `navigate` often denied). Don't rely on it. To launch/preview:
+
+- **Interactive, shareable:** `python3 tools/build_preview.py --verify` bundles the
+  whole SPA into a self-contained `.preview/dashboard.html` (inlines styles.css,
+  embeds every `data/*.json`, patches `fetchJson` to read the embedded data), then
+  **publish that file as an Artifact**. Runs fully client-side; only the lazy Leaflet
+  map (Explorer) + html2pdf export break under the artifact CSP — every other tab works.
+- **Quick visual check:** headless Playwright — self-serve `docs/` with `http.server`,
+  click a tab, `screenshot`, `SendUserFile`.
+- **Do this on every new commit / PR.** `.githooks/post-commit` auto-rebuilds the
+  bundle (needs `git config core.hooksPath .githooks` per clone; `.preview/` is
+  git-ignored). The Artifact *publish* is a manual (Claude) step — a git hook can't do it.
+
+**Performance baseline (GitHub Pages, gzipped/CDN):** first paint FCP ~340 ms · 6
+requests · ~202 KB. Code-splitting works — first paint loads only index + styles +
+app.js + the preloaded `companies.json`/`claims.json`; `projects`/`responses`/
+`moratoriums`/`tariffs` lazy-load per tab. No images or web fonts (system stack).
+**Keep it that way:** no web fonts, no un-optimized images, keep new heavy data
+lazy-per-tab (never preload it). Regression signal: first paint > ~500 KB or > ~12
+requests. Optimization ideas in [BACKLOG.md](BACKLOG.md).
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:
