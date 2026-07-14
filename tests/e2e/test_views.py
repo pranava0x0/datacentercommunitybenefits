@@ -1589,3 +1589,30 @@ class TestMoratoriumCharts:
         self._open(page, base_url)
         legend = page.locator("#moratorium-charts .mor-legend").first.inner_text()
         assert "Enacted" in legend and "Proposed" in legend
+
+
+class TestMoratoriumTable:
+    """Directory table consistency (UX fix: no sponsor clutter, short durations)."""
+
+    def _open(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-moratoriums").click()
+        page.wait_for_selector("#moratoriums-tbody tr", timeout=10_000)
+
+    def test_no_sponsor_in_jurisdiction_column(self, page: Page, base_url: str):
+        # Sponsors are detail-level (modal "Introduced by"), not in the directory.
+        self._open(page, base_url)
+        assert page.locator("#moratoriums-tbody .moratorium-sponsor").count() == 0
+
+    def test_duration_cells_are_scannably_short(self, page: Page, base_url: str):
+        # duration_description can be paragraph-length; the table truncates it.
+        self._open(page, base_url)
+        max_len = page.evaluate(
+            "Math.max(...[...document.querySelectorAll('#moratoriums-tbody tr')]"
+            ".map(r => r.children[3].textContent.trim().length))"
+        )
+        assert max_len <= 60, f"a duration cell rendered {max_len} chars (should truncate)"
+
+    def test_bill_number_chip_still_shows(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert page.locator("#moratoriums-tbody .moratorium-bill-id").count() >= 1

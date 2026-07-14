@@ -747,6 +747,25 @@ async function loadMoratoriumsData() {
   document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
 }
 
+// The directory shows a scannable short duration; the full `duration_description`
+// (which some records carry at paragraph length) stays in the detail modal + the
+// cell's title tooltip. Take the leading clause up to the first sentence break /
+// parenthetical / semicolon, then word-boundary cap.
+function shortDuration(d) {
+  if (!d) return "—";
+  const full = String(d).trim();
+  let s = full;
+  const b = s.search(/[;(]|\.\s/);
+  if (b > 0) s = s.slice(0, b);
+  s = s.replace(/[\s,;:–—-]+$/, "").trim();
+  if (s.length > 46) {
+    const cut = s.slice(0, 46);
+    const sp = cut.lastIndexOf(" ");
+    s = (sp > 20 ? cut.slice(0, sp) : cut).replace(/[,;:]$/, "").trim();
+  }
+  return s.length < full.length ? s + "…" : s;
+}
+
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
   wireMoratoriumDetail();
@@ -799,14 +818,17 @@ function renderMoratoriumsView() {
       .map((r) => `<span class="badge badge-reason-${r}" title="${escapeAttr(MORATORIUM_REASON_LABELS[r] || r)}">${escapeHtml(MORATORIUM_REASON_LABELS[r] || r)}</span>`)
       .join("");
 
+    // Jurisdiction cell carries only the bill/ordinance number (a consistent
+    // identifier). Sponsors are detail-level — they render in the modal as
+    // "Introduced by", not here (mixing names + bill#s in one column reads as
+    // inconsistent and the name looks like part of the jurisdiction).
     const billHtml = m.bill_number ? `<br><span class="moratorium-bill-id">${escapeHtml(m.bill_number)}</span>` : "";
-    const sponsorHtml = m.sponsors && m.sponsors.length ? `<br><span class="moratorium-sponsor muted">${escapeHtml(m.sponsors[0])}</span>` : "";
 
     tr.innerHTML = `
-      <td>${escapeHtml(m.jurisdiction)}${billHtml}${sponsorHtml}</td>
+      <td>${escapeHtml(m.jurisdiction)}${billHtml}</td>
       <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
       <td><span class="badge badge-moratorium-status-${m.status}">${escapeHtml(m.status)}</span></td>
-      <td>${escapeHtml(m.duration_description)}</td>
+      <td title="${escapeAttr(m.duration_description || "")}">${escapeHtml(shortDuration(m.duration_description))}</td>
       <td>${reasonBadges}</td>
     `;
 

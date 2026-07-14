@@ -427,3 +427,12 @@ lazy-load per tab works; no images/web fonts. If it needs tightening later:
 - Optional **density toggle** for the long directory + scorecard lists.
 - No larger restyle warranted — palette, type scale, and tokens (DESIGN.md) are
   consistent and both themes are handled.
+
+### Moratorium `duration_description` phrasing — optional polish — **low**
+The v1.20 UX fix truncates the directory cell (`shortDuration()`) and moved sponsors to
+the modal, so the table is consistent + scannable and the full text stays in the modal +
+tooltip. The underlying field still varies in *phrasing* ("1 year" vs "One year" vs "12
+months"; "Permanent" vs "Permanent ban" vs "Permanent prohibition"). Not wrong (each quotes
+the jurisdiction's own framing) but a light normalization pass to canonical labels would make
+the raw data tidier. Alternatively split into `duration_label` (short, required) + keep the
+detail in `summary`. Defer unless the raw field is consumed elsewhere.
