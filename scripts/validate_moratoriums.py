@@ -12,8 +12,19 @@ unverified. Unverified claims are not automatically wrong — the source page
 may not contain the text, or the fetch may have failed — but they surface
 records that need a second look before publishing.
 
+Two modes:
+    * --links-only : fast, deterministic link-liveness audit (the primary
+      "are the gov links accurate?" check). Classifies every URL as live /
+      blocked / dead and flags records with a dead primary link or no gov
+      source. Uses a browser User-Agent + redirect-following (requests when
+      available) so a 403 more reliably means "really blocked" than "blocked
+      because we look like a bot".
+    * (default) : the full claim-verification audit described above.
+
 Usage:
-    python scripts/validate_moratoriums.py              # all records, fetch + cache
+    python scripts/validate_moratoriums.py --links-only          # fast liveness audit
+    python scripts/validate_moratoriums.py --links-only --fail-on-dead-link  # CI gate
+    python scripts/validate_moratoriums.py                       # full audit, fetch + cache
     python scripts/validate_moratoriums.py --id maine-state-2026-04
     python scripts/validate_moratoriums.py --cached     # offline: use cached pages only
     python scripts/validate_moratoriums.py --dry-run    # schema checks only, no fetches
@@ -21,9 +32,10 @@ Usage:
     python scripts/validate_moratoriums.py --fail-on-unverified  # exit 1 if any unverified
 
 Outputs:
-    moratorium_audit_report.json  — full per-record audit trail (always written)
-    ISSUES.md                     — new entries for records missing a gov source
-                                    and for critical unverified claims
+    moratorium_link_report.json   — per-record link-liveness (--links-only)
+    moratorium_audit_report.json  — full per-record claim trail (full audit)
+    ISSUES.md                     — new entries for dead links, records missing a
+                                    gov source, and critical unverified claims
 
 Cache:
     .moratorium_cache/<url_hash>.json  — {url, fetched_at, status, text}
@@ -58,20 +70,46 @@ DELAY = 2.0       # seconds between requests to the same host
 TIMEOUT = 14      # HTTP timeout per request
 SNIPPET_RADIUS = 80  # characters around a match to include as context
 
-USER_AGENT = (
-    "DataCenterCommunityBenefits/1.0 "
-    "(moratorium-auditor; +https://github.com/pranava0x0/datacentercommunitybenefits)"
+# A realistic desktop-browser User-Agent. Many state legislature and municipal
+# sites reject the default urllib/python UA (403) or a custom bot UA; a browser
+# UA clears most of those false negatives so a 403 more reliably means "really
+# blocked" rather than "blocked because we announced ourselves as a script".
+BROWSER_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 )
+USER_AGENT = BROWSER_UA  # kept as an alias for backwards compatibility
 
-# Regex for detecting official government / legislative URLs
+# Prefer `requests` (better redirect handling, connection reuse, and TLS) when
+# it is installed; fall back to urllib so the script still runs with only the
+# standard library.
+try:  # pragma: no cover - import guard
+    import requests as _requests
+
+    _HAVE_REQUESTS = True
+except ImportError:  # pragma: no cover
+    _requests = None
+    _HAVE_REQUESTS = False
+
+# Regex for detecting official government / legislative URLs. Broadened to catch
+# state legislature portals, `.state.xx.us` domains, and the common vendor-hosted
+# civic-record platforms (Granicus / Legistar / Municode) that ARE the official
+# public record for many city and county governments.
 GOV_PATTERN = re.compile(
-    r"\.(gov|legislature\.|legis\.|capitol\.|assembly\."
-    r"|senate\.|house\.|state\.[a-z]{2}\.us|scstatehouse\.gov"
-    r"|sdlegislature\.gov|cga\.ct\.gov|flsenate\.gov|flhouse\.gov"
-    r"|leg\.wa\.gov|legislature\.mi\.gov|maine\.gov|nysenate\.gov"
-    r"|leg\.colorado\.gov|oregonlegislature\.gov|njleg\.gov)",
+    r"("
+    r"\.gov(?:[:/]|$)"                    # any .gov (federal/state/local)
+    r"|\.mil(?:[:/]|$)"
+    r"|legislature\.|legis\.|capitol\.|assembly\.|senate\.|house\."
+    r"|\.state\.[a-z]{2}\.us|\.[a-z]{2}\.us(?:[:/]|$)"
+    r"|granicus\.com|legistar\.com|municode\.com|civicclerk\.com|primegov\.com"
+    r")",
     re.IGNORECASE,
 )
+
+# HTTP statuses that mean "the resource exists but our fetcher was blocked or
+# rate-limited" — NOT a dead link. Distinguished from 404/410 (truly dead).
+BLOCKED_STATUSES = frozenset({401, 402, 403, 406, 409, 429, 451, 500, 503, 999})
+DEAD_STATUSES = frozenset({404, 410})
 
 logger = logging.getLogger("validate_moratoriums")
 
@@ -112,11 +150,103 @@ def _cache_save(url: str, entry: dict) -> None:
     path.write_text(json.dumps(entry, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _classify_error(err: str) -> str:
+    """Map a network-error string to a liveness class.
+
+    DNS-resolution failures and refused connections mean the host/path is gone
+    (dead). SSL negotiation failures and timeouts usually mean the site exists
+    but our client couldn't complete the handshake (blocked, needs a browser).
+    """
+    e = (err or "").lower()
+    if any(s in e for s in (
+        "nodename nor servname", "name or service not known", "getaddrinfo",
+        "no address associated", "connection refused", "certificate is not valid",
+        "hostname mismatch", "name resolution",
+    )):
+        return "dead"
+    if any(s in e for s in ("ssl", "timed out", "timeout", "connection reset")):
+        return "blocked"
+    return "dead"  # unknown network error → treat as dead so it surfaces
+
+
+def classify_liveness(status: int, error: Optional[str] = None) -> str:
+    """Return 'live' | 'blocked' | 'dead' for an HTTP status + optional error."""
+    if error:
+        return _classify_error(error)
+    if status == 0:
+        return "dead"
+    if 200 <= status < 400:
+        return "live"
+    if status in DEAD_STATUSES:
+        return "dead"
+    if status in BLOCKED_STATUSES:
+        return "blocked"
+    if 400 <= status < 500:
+        return "dead"      # other 4xx (e.g. 400) → treat as dead/broken
+    return "blocked"       # any other 5xx → transient / blocked
+
+
+def _http_get(url: str) -> dict:
+    """Single HTTP GET with a browser UA, following redirects.
+
+    Returns {status, text, final_url, error}. `requests` is used when available
+    (better TLS + redirect handling); otherwise urllib. 429 triggers one
+    exponential back-off retry. Never raises — network failures become
+    {status: 0, error: <message>}.
+    """
+    host = urlparse(url).netloc
+    headers = {
+        "User-Agent": BROWSER_UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    backoff = 10.0
+    for attempt in range(3):
+        _rate_limit(host)
+        try:
+            if _HAVE_REQUESTS:
+                resp = _requests.get(
+                    url, headers=headers, timeout=TIMEOUT, allow_redirects=True
+                )
+                status = resp.status_code
+                if status == 429 and attempt < 2:
+                    logger.warning("429 on %s — sleeping %ss", url[:60], backoff)
+                    time.sleep(backoff)
+                    backoff *= 3
+                    continue
+                text = _strip_html(resp.text) if resp.text else ""
+                return {"status": status, "text": text,
+                        "final_url": resp.url, "error": None}
+            # urllib fallback
+            req = Request(url, headers=headers)
+            with urlopen(req, timeout=TIMEOUT) as resp:
+                raw = resp.read()
+                charset = resp.headers.get_content_charset("utf-8")
+                text = _strip_html(raw.decode(charset, errors="replace"))
+                return {"status": resp.status, "text": text,
+                        "final_url": resp.geturl(), "error": None}
+        except HTTPError as e:
+            if e.code == 429 and attempt < 2:
+                logger.warning("429 on %s — sleeping %ss", url[:60], backoff)
+                time.sleep(backoff)
+                backoff *= 3
+                continue
+            return {"status": e.code, "text": "", "final_url": url, "error": None}
+        except URLError as e:
+            logger.warning("Network error %s: %s", url[:60], e.reason)
+            return {"status": 0, "text": "", "final_url": url, "error": str(e.reason)}
+        except Exception as e:  # includes requests.exceptions.*
+            logger.warning("Fetch error %s: %s", url[:60], e)
+            return {"status": 0, "text": "", "final_url": url, "error": str(e)}
+    return {"status": 0, "text": "", "final_url": url, "error": "max retries"}
+
+
 def fetch_text(url: str, *, cached_only: bool = False) -> tuple[int, str]:
     """Return (http_status, page_text).  Uses cache when available.
 
     Returns (0, '') on network errors.  Caches both successes and failures
-    so re-runs don't re-fetch dead links.
+    (including the final redirect URL + any error string) so re-runs don't
+    re-fetch dead links and the liveness probe can reuse the same cache.
     """
     cached = _cache_load(url)
     if cached is not None:
@@ -125,47 +255,44 @@ def fetch_text(url: str, *, cached_only: bool = False) -> tuple[int, str]:
     if cached_only:
         return 0, ""
 
-    host = urlparse(url).netloc
-    _rate_limit(host)
+    result = _http_get(url)
+    entry = {
+        "url": url,
+        "fetched_at": str(date.today()),
+        "status": result["status"],
+        "text": result["text"],
+        "final_url": result.get("final_url", url),
+        "error": result.get("error"),
+    }
+    _cache_save(url, entry)
+    logger.debug("Fetched %s → %d (%d chars)", url[:80], result["status"], len(result["text"]))
+    return result["status"], result["text"]
 
-    req = Request(url)
-    req.add_header("User-Agent", USER_AGENT)
-    req.add_header("Accept", "text/html,application/xhtml+xml,*/*")
-    req.add_header("Accept-Language", "en-US,en;q=0.9")
 
-    backoff = 10.0
-    for attempt in range(3):
-        try:
-            with urlopen(req, timeout=TIMEOUT) as resp:
-                raw = resp.read()
-                # Strip HTML tags for plain-text search
-                charset = resp.headers.get_content_charset("utf-8")
-                text = _strip_html(raw.decode(charset, errors="replace"))
-                entry = {"url": url, "fetched_at": str(date.today()), "status": resp.status, "text": text}
-                _cache_save(url, entry)
-                logger.debug("Fetched %s → %d (%d chars)", url[:80], resp.status, len(text))
-                return resp.status, text
-        except HTTPError as e:
-            if e.code == 429 and attempt < 2:
-                logger.warning("429 on %s — sleeping %ss", url[:60], backoff)
-                time.sleep(backoff)
-                backoff *= 3
-                continue
-            entry = {"url": url, "fetched_at": str(date.today()), "status": e.code, "text": ""}
-            _cache_save(url, entry)
-            return e.code, ""
-        except URLError as e:
-            # Connection refused / DNS failure: no point retrying multiple times
-            logger.warning("Network error %s: %s", url[:60], e)
-            entry = {"url": url, "fetched_at": str(date.today()), "status": 0, "text": ""}
-            _cache_save(url, entry)
-            return 0, ""
-        except Exception as e:
-            logger.warning("Unexpected error %s: %s", url[:60], e)
-            entry = {"url": url, "fetched_at": str(date.today()), "status": 0, "text": ""}
-            _cache_save(url, entry)
-            return 0, ""
-    return 0, ""
+def probe_url(url: str, *, cached_only: bool = False) -> dict:
+    """Check a single URL's liveness. Reuses the shared fetch cache.
+
+    Returns {url, status, liveness, final_url, redirected, error}.
+    """
+    cached = _cache_load(url)
+    if cached is None and not cached_only:
+        fetch_text(url)  # populates the cache
+        cached = _cache_load(url)
+    if cached is None:
+        return {"url": url, "status": 0, "liveness": "unknown",
+                "final_url": url, "redirected": False, "error": "not cached"}
+    status = cached.get("status", 0)
+    error = cached.get("error")
+    final_url = cached.get("final_url", url)
+    redirected = bool(final_url) and urlparse(final_url).netloc != urlparse(url).netloc
+    return {
+        "url": url,
+        "status": status,
+        "liveness": classify_liveness(status, error),
+        "final_url": final_url,
+        "redirected": redirected,
+        "error": error,
+    }
 
 
 def _strip_html(html: str) -> str:
@@ -543,25 +670,27 @@ def write_report(audits: list[dict]) -> None:
     logger.info("Wrote audit report → %s (%d records)", REPORT_PATH, len(audits))
 
 
+def _append_issues(lines: list[str], *, header: str) -> None:
+    """Append issue rows to ISSUES.md under `header`, creating the table once."""
+    if not lines:
+        logger.info("No issues to append to ISSUES.md.")
+        return
+    existing = ISSUES_PATH.read_text(encoding="utf-8") if ISSUES_PATH.exists() else ""
+    if header not in existing:
+        existing += (
+            f"\n{header}\n\n"
+            "| Date | Record | Issue | Recommended action | Status |\n"
+            "|------|--------|-------|-------------------|--------|\n"
+        )
+    ISSUES_PATH.write_text(existing + "".join(lines), encoding="utf-8")
+    logger.info("Appended %d issues to ISSUES.md", len(lines))
+
+
 def update_issues(audits: list[dict]) -> None:
     all_issues = []
     for a in audits:
         all_issues.extend(_issues_for_record(a))
-
-    if not all_issues:
-        logger.info("No issues to append to ISSUES.md.")
-        return
-
-    existing = ISSUES_PATH.read_text(encoding="utf-8") if ISSUES_PATH.exists() else ""
-    if "## Moratorium source audit" not in existing:
-        header = (
-            "\n## Moratorium source audit\n\n"
-            "| Date | Record | Issue | Recommended action | Status |\n"
-            "|------|--------|-------|-------------------|--------|\n"
-        )
-        existing += header
-    ISSUES_PATH.write_text(existing + "".join(all_issues), encoding="utf-8")
-    logger.info("Appended %d issues to ISSUES.md", len(all_issues))
+    _append_issues(all_issues, header="## Moratorium source audit")
 
 
 def print_summary(audits: list[dict]) -> None:
@@ -597,6 +726,118 @@ def print_summary(audits: list[dict]) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Link-liveness audit — the fast, deterministic "are the gov links accurate?"
+# check. Classifies every source_url + resource URL as live / blocked / dead so
+# broken links (DNS typos, 404 bill paths, fabricated .gov URLs) surface
+# separately from real sites that merely bot-block our fetcher.
+# ---------------------------------------------------------------------------
+
+def check_links(moratoriums: list[dict], *, cached_only: bool = False) -> list[dict]:
+    """Probe every source_url + resource URL for each record; classify liveness."""
+    reports = []
+    total = len(moratoriums)
+    for i, m in enumerate(moratoriums, 1):
+        rid = m["id"]
+        source_url = str(m.get("source_url", "") or "")
+        resources = m.get("resources") or []
+        resource_urls = [str(r.get("url", "")) for r in resources if r.get("url")]
+        all_urls = list(dict.fromkeys(u for u in [source_url] + resource_urls if u))
+
+        probes = []
+        for u in all_urls:
+            p = probe_url(u, cached_only=cached_only)
+            p["is_primary"] = (u == source_url)
+            p["is_gov"] = bool(GOV_PATTERN.search(u))
+            probes.append(p)
+            logger.info("[%d/%d] %s  %s → %s (%s)", i, total, rid,
+                        u[:58], p["status"], p["liveness"])
+
+        primary = next((p for p in probes if p["is_primary"]), None)
+        dead = [p for p in probes if p["liveness"] == "dead"]
+        gov_present = any(p["is_gov"] for p in probes)
+        gov_live = any(p["is_gov"] and p["liveness"] == "live" for p in probes)
+
+        reports.append({
+            "id": rid,
+            "jurisdiction": m.get("jurisdiction"),
+            "status": m.get("status"),
+            "primary": primary,
+            "primary_dead": bool(primary) and primary["liveness"] == "dead",
+            "probes": probes,
+            "dead_links": dead,
+            "gov_present": gov_present,
+            "gov_live": gov_live,
+        })
+    return reports
+
+
+def print_links_report(reports: list[dict]) -> None:
+    print(f"\n{'ID':<40} {'PRIMARY':<8} {'GOV':<5} {'DEAD':>4}  ISSUE")
+    print("-" * 92)
+    n_primary_dead = n_no_gov = n_dead = 0
+    for r in sorted(reports, key=lambda x: (not x["primary_dead"], x["gov_live"], -len(x["dead_links"]))):
+        prim = r["primary"]["liveness"] if r["primary"] else "none"
+        gov = "live" if r["gov_live"] else ("dead" if r["gov_present"] else "—")
+        nd = len(r["dead_links"])
+        n_dead += nd
+        issue = ""
+        if r["primary_dead"]:
+            issue = "⚠ PRIMARY DEAD"; n_primary_dead += 1
+        elif not r["gov_present"]:
+            issue = "no gov source"; n_no_gov += 1
+        elif not r["gov_live"]:
+            issue = "gov link not confirmed live"
+        print(f"{r['id']:<40} {prim:<8} {gov:<5} {nd:>4}  {issue}")
+    print("-" * 92)
+    print(f"Records: {len(reports)}  |  primary-source dead: {n_primary_dead}  |  "
+          f"no-gov-source: {n_no_gov}  |  total dead links: {n_dead}")
+    print("(blocked = site exists but bot-walls our fetcher; verify those in a browser)")
+
+
+def _dead_link_issues(reports: list[dict]) -> list[str]:
+    today = str(date.today())
+    lines = []
+    for r in reports:
+        rid = r["id"]
+        if r["primary_dead"]:
+            u = r["primary"]["url"]
+            lines.append(
+                f"| {today} | moratoriums:{rid} | PRIMARY source_url dead "
+                f"({r['primary']['status']}): {u[:56]} | Replace with a live gov/authoritative URL | Open |\n"
+            )
+        for p in r["dead_links"]:
+            if r["primary"] and p["url"] == r["primary"]["url"]:
+                continue
+            lines.append(
+                f"| {today} | moratoriums:{rid} | Dead resource link "
+                f"({p['status']}): {p['url'][:56]} | Fix or remove | Open |\n"
+            )
+        if not r["gov_present"]:
+            lines.append(
+                f"| {today} | moratoriums:{rid} | No gov/official source URL | "
+                f"Add a .gov or official legislative link | Open |\n"
+            )
+    return lines
+
+
+def run_links_only(moratoriums: list[dict], *, cached_only: bool,
+                   write_issues: bool) -> int:
+    """Run the liveness-only audit. Returns count of records with a dead PRIMARY link."""
+    reports = check_links(moratoriums, cached_only=cached_only)
+    LINKS_REPORT_PATH = ROOT / "moratorium_link_report.json"
+    LINKS_REPORT_PATH.write_text(
+        json.dumps(reports, indent=2, ensure_ascii=False, default=str), encoding="utf-8"
+    )
+    logger.info("Wrote link report → %s", LINKS_REPORT_PATH)
+    print_links_report(reports)
+    if write_issues:
+        lines = _dead_link_issues(reports)
+        if lines:
+            _append_issues(lines, header="## Moratorium link-liveness audit")
+    return sum(1 for r in reports if r["primary_dead"])
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -625,6 +866,20 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
         "--fail-on-unverified",
         action="store_true",
         help="Exit with code 1 if any verifiable claim is not_found.",
+    )
+    p.add_argument(
+        "--links-only",
+        action="store_true",
+        help=(
+            "Fast link-liveness audit only: probe every source_url + resource "
+            "URL, classify live/blocked/dead, and flag records with a dead "
+            "primary link or no gov source. Skips the slower claim-text checks."
+        ),
+    )
+    p.add_argument(
+        "--fail-on-dead-link",
+        action="store_true",
+        help="Exit with code 1 if any record's PRIMARY source_url is dead.",
     )
     p.add_argument(
         "--no-issues",
@@ -660,6 +915,17 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.dry_run:
         logger.info("--dry-run: schema loaded OK, skipping fetches.")
+        return 0
+
+    # Fast path: link-liveness audit only.
+    if args.links_only:
+        n_primary_dead = run_links_only(
+            moratoriums, cached_only=args.cached, write_issues=not args.no_issues
+        )
+        if args.fail_on_dead_link and n_primary_dead > 0:
+            logger.error("%d record(s) have a dead PRIMARY source_url — exiting 1.",
+                         n_primary_dead)
+            return 1
         return 0
 
     # Run audits
@@ -705,6 +971,17 @@ def main(argv: list[str] | None = None) -> int:
             total_not_found,
         )
         return 1
+
+    if args.fail_on_dead_link:
+        # Reuse the cache the full audit just populated — probe primaries offline.
+        dead_primaries = [
+            m["id"] for m in moratoriums
+            if probe_url(str(m.get("source_url", "")), cached_only=True)["liveness"] == "dead"
+        ]
+        if dead_primaries:
+            logger.error("%d record(s) have a dead PRIMARY source_url — exiting 1: %s",
+                         len(dead_primaries), ", ".join(dead_primaries[:10]))
+            return 1
 
     return 0
 

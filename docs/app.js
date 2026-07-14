@@ -761,6 +761,7 @@ function renderMoratoriumsView() {
 
   // Render stats and themes at the top (using ALL moratoriums, not filtered)
   renderMoratoriumStats(state.moratoriums);
+  renderMoratoriumCharts(state.moratoriums);
   renderReasonBreakdown(state.moratoriums);
   renderChinaContext();
 
@@ -860,6 +861,180 @@ function renderMoratoriumStats(moratoriums) {
     </li>
     ` : ""}
   `;
+}
+
+// ---- Summary charts (above the directory table) -------------------------
+// All charts are pure DOM + CSS custom properties so they re-theme on the
+// light/dark swap without JS and carry no chart-library weight (DESIGN.md §10).
+// Every interpolated value below is a numeric count, a hardcoded label
+// constant, or escapeHtml()'d — no untrusted content reaches innerHTML.
+const MOR_STATUS_LABELS = { enacted: "Enacted", proposed: "Proposed", failed: "Failed" };
+
+function _morRefDate(m) {
+  // Best available date for placing a record on the activity timeline.
+  const s = m.enacted_date || m.effective_date || m.captured_at;
+  if (!s) return null;
+  const d = new Date(s);
+  return isNaN(d.getTime()) ? null : d;
+}
+
+function _morQuarterKey(d) {
+  return d.getFullYear() * 4 + Math.floor(d.getMonth() / 3); // sortable integer
+}
+
+function _morQuarterLabel(key) {
+  const year = Math.floor(key / 4);
+  const q = (key % 4) + 1;
+  return `Q${q}'${String(year).slice(2)}`;
+}
+
+function _morStatusLegend() {
+  return `<div class="mor-legend" aria-hidden="true">${MORATORIUM_STATUSES.map(
+    (s) =>
+      `<span class="mor-legend-item"><span class="mor-legend-dot" style="background:var(--moratorium-${s})"></span>${MOR_STATUS_LABELS[s]}</span>`
+  ).join("")}</div>`;
+}
+
+function _morTimelineChart(moratoriums) {
+  // Bucket by quarter of the record's reference date, stacked by status.
+  const buckets = new Map();
+  let anyDated = false;
+  moratoriums.forEach((m) => {
+    const d = _morRefDate(m);
+    if (!d) return;
+    anyDated = true;
+    const key = _morQuarterKey(d);
+    if (!buckets.has(key)) buckets.set(key, { enacted: 0, proposed: 0, failed: 0 });
+    const b = buckets.get(key);
+    if (b[m.status] !== undefined) b[m.status] += 1;
+  });
+  if (!anyDated) return "";
+
+  // Fill gaps so the x-axis is continuous.
+  const keys = [...buckets.keys()];
+  const min = Math.min(...keys);
+  const max = Math.max(...keys);
+  const cols = [];
+  let maxTotal = 1;
+  for (let k = min; k <= max; k++) {
+    const b = buckets.get(k) || { enacted: 0, proposed: 0, failed: 0 };
+    const total = b.enacted + b.proposed + b.failed;
+    maxTotal = Math.max(maxTotal, total);
+    cols.push({ key: k, ...b, total });
+  }
+
+  const PLOT_H = 150; // px
+  const colsHtml = cols
+    .map((c) => {
+      const segs = MORATORIUM_STATUSES.map((s) => {
+        if (!c[s]) return "";
+        const h = Math.round((c[s] / maxTotal) * PLOT_H);
+        return `<div class="mtl-seg" style="height:${h}px;background:var(--moratorium-${s})" title="${c[s]} ${MOR_STATUS_LABELS[s]} · ${_morQuarterLabel(c.key)}"></div>`;
+      }).join("");
+      return `<div class="mtl-col">
+        <span class="mtl-total">${c.total || ""}</span>
+        <div class="mtl-bar">${segs}</div>
+        <span class="mtl-label">${_morQuarterLabel(c.key)}</span>
+      </div>`;
+    })
+    .join("");
+
+  return `<figure class="mor-chart mor-chart--timeline">
+    <figcaption class="mor-chart-title">The moratorium wave <span class="mor-chart-sub">records by quarter, stacked by status</span></figcaption>
+    <div class="mtl-plot" style="--plot-h:${PLOT_H}px" role="img" aria-label="Timeline of data center moratorium activity by quarter">${colsHtml}</div>
+    ${_morStatusLegend()}
+  </figure>`;
+}
+
+function _morHbars(rows, { colorVar, stacked } = {}) {
+  // rows: [{label, value, segments?}]  segments: [{status,value}]
+  const max = Math.max(1, ...rows.map((r) => r.value));
+  return rows
+    .map((r) => {
+      let fill;
+      if (stacked && r.segments) {
+        fill = r.segments
+          .filter((s) => s.value > 0)
+          .map(
+            (s) =>
+              `<span class="mhb-fill" style="width:${(s.value / max) * 100}%;background:var(--moratorium-${s.status})" title="${s.value} ${MOR_STATUS_LABELS[s.status]}"></span>`
+          )
+          .join("");
+      } else {
+        fill = `<span class="mhb-fill" style="width:${(r.value / max) * 100}%;background:${colorVar || "var(--accent)"}"></span>`;
+      }
+      return `<div class="mhb-row">
+        <span class="mhb-label">${escapeHtml(r.label)}</span>
+        <span class="mhb-track">${fill}</span>
+        <span class="mhb-val">${r.value}</span>
+      </div>`;
+    })
+    .join("");
+}
+
+function _morConcernsChart(moratoriums) {
+  const counts = {};
+  MORATORIUM_REASON_TYPES.forEach((r) => (counts[r] = 0));
+  moratoriums.forEach((m) =>
+    (m.key_reasons || []).forEach((r) => {
+      if (counts[r] !== undefined) counts[r] += 1;
+    })
+  );
+  const rows = MORATORIUM_REASON_TYPES.map((r) => ({
+    label: MORATORIUM_REASON_LABELS[r] || r,
+    value: counts[r],
+  }))
+    .filter((r) => r.value > 0)
+    .sort((a, b) => b.value - a.value);
+  if (!rows.length) return "";
+  return `<figure class="mor-chart">
+    <figcaption class="mor-chart-title">Concerns cited <span class="mor-chart-sub">records naming each issue</span></figcaption>
+    <div class="mor-hbar-set">${_morHbars(rows, { colorVar: "var(--accent)" })}</div>
+  </figure>`;
+}
+
+function _morJurisdictionChart(moratoriums) {
+  const order = ["state", "county", "city", "federal"];
+  const labels = { state: "State", county: "County", city: "City", federal: "Federal" };
+  const rows = order
+    .map((level) => {
+      const inLevel = moratoriums.filter((m) => m.jurisdiction_type === level);
+      return {
+        label: labels[level],
+        value: inLevel.length,
+        segments: MORATORIUM_STATUSES.map((s) => ({
+          status: s,
+          value: inLevel.filter((m) => m.status === s).length,
+        })),
+      };
+    })
+    .filter((r) => r.value > 0)
+    .sort((a, b) => b.value - a.value);
+  if (!rows.length) return "";
+  return `<figure class="mor-chart">
+    <figcaption class="mor-chart-title">By jurisdiction level <span class="mor-chart-sub">split by status</span></figcaption>
+    <div class="mor-hbar-set">${_morHbars(rows, { stacked: true })}</div>
+    ${_morStatusLegend()}
+  </figure>`;
+}
+
+function renderMoratoriumCharts(moratoriums) {
+  const container = document.getElementById("moratorium-charts");
+  if (!container) return;
+  if (!moratoriums || !moratoriums.length) {
+    container.replaceChildren();
+    return;
+  }
+  const timeline = _morTimelineChart(moratoriums);
+  const concerns = _morConcernsChart(moratoriums);
+  const jurisdiction = _morJurisdictionChart(moratoriums);
+  const html =
+    timeline +
+    '<div class="mor-chart-row">' +
+    concerns +
+    jurisdiction +
+    "</div>";
+  container.innerHTML = html;
 }
 
 function renderReasonBreakdown(moratoriums) {
@@ -2937,87 +3112,240 @@ function loadHtml2Pdf() {
   return _html2pdfPromise;
 }
 
+// Hardcoded status palette for the standalone PDF artifact. html2canvas
+// rasterizes a snapshot and won't reliably resolve the app's CSS custom
+// properties, so the export carries its own (light-theme) colors.
+const MPDF_STATUS = {
+  enacted: { ink: "#2f7a4d", soft: "#e8f2ec", label: "Enacted" },
+  proposed: { ink: "#b07024", soft: "#f6edda", label: "Proposed" },
+  failed: { ink: "#a3372f", soft: "#f6e1de", label: "Failed" },
+};
+
+function _mpdfPill(status) {
+  const s = MPDF_STATUS[status] || { ink: "#555", soft: "#eee", label: status };
+  return `<span class="mpdf-pill" style="color:${s.ink};background:${s.soft}">${escapeHtml(s.label)}</span>`;
+}
+
+function _mpdfMiniBars(rows, accent) {
+  const max = Math.max(1, ...rows.map((r) => r.value));
+  return rows
+    .map(
+      (r) => `<div class="mpdf-bar-row">
+        <span class="mpdf-bar-label">${escapeHtml(r.label)}</span>
+        <span class="mpdf-bar-track"><span class="mpdf-bar-fill" style="width:${(r.value / max) * 100}%;background:${r.color || accent}"></span></span>
+        <span class="mpdf-bar-val">${r.value}</span>
+      </div>`
+    )
+    .join("");
+}
+
+function _mpdfSourcesList(m) {
+  const items = [];
+  if (m.source_url) {
+    items.push({ url: String(m.source_url), title: m.source_title || "Primary source", primary: true });
+  }
+  (m.resources || []).forEach((r) => {
+    if (r && r.url) items.push({ url: String(r.url), title: r.title || "Source", primary: false });
+  });
+  if (!items.length) return "";
+  const seen = new Set();
+  const lis = items
+    .filter((i) => (seen.has(i.url) ? false : seen.add(i.url)))
+    .map(
+      (i) => `<li>${i.primary ? '<span class="mpdf-src-tag">primary</span>' : ""}<a href="${escapeAttr(i.url)}">${escapeHtml(i.title)}</a><span class="mpdf-src-url">${escapeHtml(i.url)}</span></li>`
+    )
+    .join("");
+  return `<ul class="mpdf-src">${lis}</ul>`;
+}
+
 async function exportMoratoriumsToPDF() {
   if (!state.moratoriums || state.moratoriums.length === 0) {
     alert("No moratoriums to export");
     return;
   }
 
-  // Get current filters
   const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
   const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
 
   let filtered = [...state.moratoriums];
-  if (statusFilter) {
-    filtered = filtered.filter((m) => m.status === statusFilter);
-  }
-  if (typeFilter) {
-    filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
-  }
+  if (statusFilter) filtered = filtered.filter((m) => m.status === statusFilter);
+  if (typeFilter) filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
 
-  // Create HTML content for PDF
-  let htmlContent = `
-    <h1>Data Center Policy Moratoriums</h1>
-    <p>Exported: ${new Date().toLocaleDateString()}</p>
-    <p>Total moratoriums: ${filtered.length}</p>
-  `;
-
-  // Create detailed table
-  htmlContent += `<table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
-    <thead style="background-color: #f0f0f0;">
-      <tr>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Jurisdiction</th>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type</th>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Status</th>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Duration</th>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Effective Date</th>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Key Reasons</th>
-        <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Summary</th>
-      </tr>
-    </thead>
-    <tbody>
-  `;
-
-  filtered.forEach((m) => {
-    const reasons = (m.key_reasons || []).join(", ");
-    htmlContent += `
-      <tr style="border-bottom: 1px solid #ddd;">
-        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.jurisdiction)}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.jurisdiction_type)}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.status)}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(m.duration_description)}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">${m.effective_date || "N/A"}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">${escapeHtml(reasons)}</td>
-        <td style="border: 1px solid #ddd; padding: 8px; font-size: 0.9em;">${escapeHtml(m.summary?.substring(0, 200) || "")}</td>
-      </tr>
-    `;
+  // Sort: enacted (date desc) → proposed → failed, matching the on-screen table.
+  filtered.sort((a, b) => {
+    const order = { enacted: 0, proposed: 1, failed: 2 };
+    if (order[a.status] !== order[b.status]) return order[a.status] - order[b.status];
+    if (a.enacted_date && b.enacted_date) return new Date(b.enacted_date) - new Date(a.enacted_date);
+    return a.jurisdiction.localeCompare(b.jurisdiction);
   });
 
-  htmlContent += `</tbody></table>`;
+  // ---- Aggregates for the summary page ----
+  const count = (fn) => filtered.filter(fn).length;
+  const statusRows = MORATORIUM_STATUSES.map((s) => ({
+    label: MOR_STATUS_LABELS[s],
+    value: count((m) => m.status === s),
+    color: MPDF_STATUS[s].ink,
+  })).filter((r) => r.value > 0);
+  const jurOrder = ["state", "county", "city", "federal"];
+  const jurLabels = { state: "State", county: "County", city: "City", federal: "Federal" };
+  const jurRows = jurOrder
+    .map((t) => ({ label: jurLabels[t], value: count((m) => m.jurisdiction_type === t) }))
+    .filter((r) => r.value > 0);
+  const reasonCounts = {};
+  MORATORIUM_REASON_TYPES.forEach((r) => (reasonCounts[r] = 0));
+  filtered.forEach((m) => (m.key_reasons || []).forEach((r) => {
+    if (reasonCounts[r] !== undefined) reasonCounts[r]++;
+  }));
+  const reasonRows = MORATORIUM_REASON_TYPES.map((r) => ({
+    label: MORATORIUM_REASON_LABELS[r] || r,
+    value: reasonCounts[r],
+  })).filter((r) => r.value > 0).sort((a, b) => b.value - a.value);
 
-  // Add resources section
-  htmlContent += `<h2 style="margin-top: 2rem; page-break-before: always;">Resources & Links</h2>`;
-  filtered.forEach((m) => {
-    htmlContent += `<h3>${escapeHtml(m.jurisdiction)} (${escapeHtml(m.status)})</h3>`;
-    htmlContent += `<ul style="font-size: 0.9em;">`;
-    if (m.resources && Array.isArray(m.resources)) {
-      m.resources.forEach((r) => {
-        htmlContent += `<li><a href="${r.url}">${escapeHtml(r.title)}</a><br/>${escapeHtml(r.url.substring(0, 80))}</li>`;
-      });
-    }
-    htmlContent += `</ul>`;
-  });
+  const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  const filterBits = [];
+  if (statusFilter) filterBits.push(`status: ${MOR_STATUS_LABELS[statusFilter] || statusFilter}`);
+  if (typeFilter) filterBits.push(`level: ${jurLabels[typeFilter] || typeFilter}`);
+  const filterNote = filterBits.length ? ` · filtered by ${filterBits.join(", ")}` : "";
 
-  // Export using html2pdf (lazy-loaded on demand).
+  // ---- Directory table rows ----
+  const tableRows = filtered
+    .map((m, i) => {
+      const reasons = (m.key_reasons || []).map((r) => MORATORIUM_REASON_LABELS[r] || r).join(", ");
+      const dur = escapeHtml(m.duration_description || "—");
+      const eff = m.enacted_date || m.effective_date || "—";
+      return `<tr class="${i % 2 ? "alt" : ""}">
+        <td class="jur">${escapeHtml(m.jurisdiction)}${m.bill_number ? `<span class="billid">${escapeHtml(m.bill_number)}</span>` : ""}</td>
+        <td>${escapeHtml(m.jurisdiction_type)}</td>
+        <td>${_mpdfPill(m.status)}</td>
+        <td>${dur}</td>
+        <td class="num">${escapeHtml(eff)}</td>
+        <td class="reasons">${escapeHtml(reasons || "—")}</td>
+      </tr>`;
+    })
+    .join("");
+
+  // ---- Per-record detail cards (grouped by status) ----
+  const cards = filtered
+    .map((m) => {
+      const meta = [];
+      meta.push(`${escapeHtml(m.jurisdiction_type)}`);
+      if (m.duration_description) meta.push(escapeHtml(m.duration_description));
+      if (m.enacted_date) meta.push(`enacted ${escapeHtml(m.enacted_date)}`);
+      else if (m.effective_date) meta.push(`effective ${escapeHtml(m.effective_date)}`);
+      if (m.power_threshold_mw) meta.push(`≥ ${m.power_threshold_mw} MW`);
+      if (m.bill_number) meta.push(escapeHtml(m.bill_number));
+      const vote = m.legislative_votes || m.city_council_vote;
+      if (vote) meta.push(`vote ${escapeHtml(vote)}`);
+      const reasonChips = (m.key_reasons || [])
+        .map((r) => `<span class="mpdf-chip">${escapeHtml(MORATORIUM_REASON_LABELS[r] || r)}</span>`)
+        .join("");
+      const failNote = m.status === "failed" && m.failure_reason
+        ? `<p class="mpdf-note">Why it failed: ${escapeHtml(m.failure_reason)}</p>` : "";
+      return `<div class="mpdf-card">
+        <div class="mpdf-card-head">
+          <h3>${escapeHtml(m.jurisdiction)}</h3>
+          ${_mpdfPill(m.status)}
+        </div>
+        <div class="mpdf-card-meta">${meta.join(" &nbsp;·&nbsp; ")}</div>
+        ${reasonChips ? `<div class="mpdf-chips">${reasonChips}</div>` : ""}
+        <p class="mpdf-card-summary">${escapeHtml(m.summary || "")}</p>
+        ${failNote}
+        ${_mpdfSourcesList(m)}
+      </div>`;
+    })
+    .join("");
+
+  const style = `<style>
+    .mpdf { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #1a1a1a; font-size: 11px; line-height: 1.45; -webkit-font-feature-settings: "tnum" 1; font-feature-settings: "tnum" 1; }
+    .mpdf h1, .mpdf h2, .mpdf h3 { font-family: Georgia, "Times New Roman", serif; }
+    .mpdf-cover { border-bottom: 2px solid #1a1a1a; padding-bottom: 14px; margin-bottom: 18px; }
+    .mpdf-kicker { text-transform: uppercase; letter-spacing: 0.09em; font-size: 9.5px; color: #6b6b6b; font-weight: 600; }
+    .mpdf-cover h1 { font-size: 27px; margin: 5px 0 6px; line-height: 1.1; color: #111; }
+    .mpdf-dek { font-size: 12.5px; color: #3a3a3a; max-width: 34em; margin: 0 0 9px; line-height: 1.4; }
+    .mpdf-meta { font-size: 10px; color: #6b6b6b; }
+    .mpdf-stats { display: flex; gap: 9px; margin: 16px 0 14px; }
+    .mpdf-stat { flex: 1; border: 1px solid #e2e2e2; border-radius: 7px; padding: 9px 11px; border-top: 3px solid #999; }
+    .mpdf-stat .n { display: block; font-family: Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1; }
+    .mpdf-stat .l { display: block; font-size: 9.5px; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
+    .mpdf-summary { display: flex; gap: 22px; margin: 4px 0 8px; }
+    .mpdf-summary > div { flex: 1; }
+    .mpdf-summary h2 { font-size: 12px; margin: 0 0 7px; color: #333; }
+    .mpdf-bar-row { display: grid; grid-template-columns: 82px 1fr 20px; align-items: center; gap: 6px; margin-bottom: 4px; }
+    .mpdf-bar-label { font-size: 9.5px; text-align: right; color: #333; }
+    .mpdf-bar-track { background: #eee; border-radius: 3px; height: 11px; overflow: hidden; }
+    .mpdf-bar-fill { display: block; height: 100%; }
+    .mpdf-bar-val { font-size: 9.5px; font-weight: 700; }
+    .mpdf-pill { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+    h2.mpdf-h2 { font-size: 15px; margin: 20px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #ddd; color: #111; }
+    table.mpdf-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+    table.mpdf-table th { text-align: left; font-family: Georgia, serif; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.04em; color: #555; border-bottom: 1.5px solid #333; padding: 5px 6px; }
+    table.mpdf-table td { padding: 5px 6px; border-bottom: 1px solid #eee; vertical-align: top; }
+    table.mpdf-table tr.alt td { background: #fafafa; }
+    table.mpdf-table td.jur { font-weight: 600; }
+    table.mpdf-table td .billid { display: block; font-size: 8.5px; color: #888; font-weight: 400; }
+    table.mpdf-table td.reasons { color: #555; font-size: 9px; }
+    .mpdf-cards { margin-top: 6px; }
+    .mpdf-card { border: 1px solid #e5e5e5; border-left: 3px solid #bbb; border-radius: 6px; padding: 9px 12px; margin-bottom: 9px; page-break-inside: avoid; }
+    .mpdf-card-head { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+    .mpdf-card-head h3 { font-size: 13.5px; margin: 0; color: #111; }
+    .mpdf-card-meta { font-size: 9.5px; color: #666; margin: 3px 0 5px; }
+    .mpdf-chips { margin-bottom: 5px; }
+    .mpdf-chip { display: inline-block; background: #eef1f4; color: #34506b; font-size: 8.5px; padding: 1px 6px; border-radius: 4px; margin: 0 3px 3px 0; }
+    .mpdf-card-summary { margin: 0 0 5px; font-size: 10.5px; color: #2a2a2a; line-height: 1.45; }
+    .mpdf-note { margin: 0 0 5px; font-size: 9.5px; color: #a3372f; }
+    ul.mpdf-src { list-style: none; margin: 4px 0 0; padding: 6px 0 0; border-top: 1px dashed #e0e0e0; }
+    ul.mpdf-src li { font-size: 9px; margin-bottom: 3px; line-height: 1.35; }
+    ul.mpdf-src a { color: #2f5d8a; text-decoration: none; font-weight: 600; }
+    .mpdf-src-tag { display: inline-block; background: #2f5d8a; color: #fff; font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.04em; padding: 0 4px; border-radius: 3px; margin-right: 5px; vertical-align: middle; }
+    .mpdf-src-url { display: block; color: #999; font-size: 8px; word-break: break-all; }
+    .mpdf-section { page-break-before: always; }
+    .mpdf-foot { margin-top: 8px; font-size: 8.5px; color: #999; border-top: 1px solid #eee; padding-top: 6px; }
+  </style>`;
+
+  const html = `${style}<div class="mpdf">
+    <div class="mpdf-cover">
+      <div class="mpdf-kicker">Data Center Community Benefits · Policy Tracker</div>
+      <h1>Data Center Moratoriums &amp; Restrictions</h1>
+      <p class="mpdf-dek">A field guide to enacted, proposed, and failed limits on data center development across U.S. city, county, state, and federal jurisdictions.</p>
+      <div class="mpdf-meta">As of ${today} · ${filtered.length} record${filtered.length === 1 ? "" : "s"}${filterNote}</div>
+    </div>
+
+    <div class="mpdf-stats">
+      <div class="mpdf-stat" style="border-top-color:#333"><span class="n">${filtered.length}</span><span class="l">Total</span></div>
+      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.enacted.ink}"><span class="n">${count((m) => m.status === "enacted")}</span><span class="l">Enacted</span></div>
+      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.proposed.ink}"><span class="n">${count((m) => m.status === "proposed")}</span><span class="l">Proposed</span></div>
+      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.failed.ink}"><span class="n">${count((m) => m.status === "failed")}</span><span class="l">Failed</span></div>
+    </div>
+
+    <div class="mpdf-summary">
+      <div><h2>By jurisdiction level</h2>${_mpdfMiniBars(jurRows, "#2f5d8a")}</div>
+      <div><h2>Concerns cited</h2>${_mpdfMiniBars(reasonRows, "#2f5d8a")}</div>
+    </div>
+
+    <h2 class="mpdf-h2">Directory</h2>
+    <table class="mpdf-table">
+      <thead><tr><th>Jurisdiction</th><th>Level</th><th>Status</th><th>Duration</th><th>Effective</th><th>Concerns</th></tr></thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+
+    <h2 class="mpdf-h2 mpdf-section">Record details &amp; sources</h2>
+    <div class="mpdf-cards">${cards}</div>
+
+    <div class="mpdf-foot">Generated from the Data Center Community Benefits dashboard. Every record links to its primary government or authoritative source. Stance and status reflect the capture date; policies change — verify against the linked source before relying on any record.</div>
+  </div>`;
+
   const element = document.createElement("div");
-  element.innerHTML = htmlContent;
+  element.innerHTML = html;
 
   const opt = {
-    margin: 10,
+    margin: [12, 12, 14, 12],
     filename: `moratoriums-${new Date().toISOString().split("T")[0]}.pdf`,
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { orientation: "landscape", unit: "mm", format: "a4" },
+    // scale 1.6 + jpeg 0.9 keeps 10px table text crisp while roughly halving the
+    // file vs scale:2 (a 90-record export with per-record cards runs ~30 pages).
+    image: { type: "jpeg", quality: 0.9 },
+    html2canvas: { scale: 1.6, useCORS: true, letterRendering: true },
+    jsPDF: { orientation: "portrait", unit: "mm", format: "a4", compress: true },
+    pagebreak: { mode: ["css", "legacy"], avoid: ".mpdf-card" },
   };
 
   let lib;
@@ -3962,6 +4290,88 @@ function rpCardClaimsHtml(p) {
   </div>`;
 }
 
+// "Did the company claim this exact site, or only sign the national pledge?"
+// Basis is derived from whether a site-specific evidence claim backs the record:
+//   individual  → an explicit, site-specific first-party commitment exists
+//   company-wide → covered only by the company's national pledge signature
+function rpClaimBasis(p) {
+  const rp = p.ratepayer;
+  if (rp && rp.evidence_claim_id) return "individual";
+  return "company-wide";
+}
+
+const RP_BASIS_LABELS = {
+  individual: "Claimed individually",
+  "company-wide": "Company-wide pledge only",
+};
+
+function rpBasisBadgeHtml(p) {
+  const basis = rpClaimBasis(p);
+  const title =
+    basis === "individual"
+      ? "The company published a ratepayer commitment for this exact site."
+      : "This site is covered only by the company's national pledge signature — no site-specific commitment captured.";
+  return `<span class="rp-basis rp-basis--${basis}" title="${escapeAttr(title)}">${RP_BASIS_LABELS[basis]}</span>`;
+}
+
+// Independent reports that conflict with the claim of meeting the pledge:
+// negative-stance community responses for this site whose summary touches
+// ratepayer / cost-shift / rate / bill / utility. Surfaced on every card
+// (affirmed, pledge_only, contested) so a reader sees the counter-evidence.
+const RP_CONFLICT_KEYWORDS = [
+  "ratepayer", "rate payer", "cost-shift", "cost shift", "cost shifting",
+  "shift cost", "shifting cost", "cost onto", "onto residential",
+  "rate increase", "rate hike", "electricity bill", "utility bill", "energy bill",
+  "subsidiz", "subsidy", "grid cost", "grid-cost", "monthly bill", "residential rate",
+  "residential customer", "residential bill", "rate class", "pass the cost",
+  "passing the cost", "raise rates", "higher rates",
+];
+
+function rpConflictingReports(p) {
+  const responses = (state.responsesByProject && state.responsesByProject.get(p.id)) || [];
+  return responses.filter((r) => {
+    if (r.stance !== "negative") return false;
+    // Curated ratepayer-conflict responses carry "ratepayer" in their id — the
+    // reliable signal (the Synapse contested-site responses and the added
+    // regulator/report conflicts both use it), independent of summary wording.
+    if ((r.id || "").toLowerCase().includes("ratepayer")) return true;
+    const s = (r.summary || "").toLowerCase();
+    return RP_CONFLICT_KEYWORDS.some((k) => s.includes(k));
+  });
+}
+
+function rpConflictsHtml(p) {
+  const reports = rpConflictingReports(p);
+  if (!reports.length) return "";
+  const items = reports
+    .map((r) => {
+      const date = r.date ? `<span class="rp-conflict-date">${escapeHtml(r.date)}</span>` : "";
+      const who = r.constituency
+        ? `<span class="rp-conflict-who">${escapeHtml(CONSTITUENCY_LABELS[r.constituency] || r.constituency)}</span>`
+        : "";
+      const single = r.single_source
+        ? `<span class="rp-conflict-single" title="Single-source claim">single source</span>`
+        : "";
+      return `<li class="rp-conflict-item">
+        <p class="rp-conflict-summary">${escapeHtml(r.summary)}</p>
+        <div class="rp-conflict-meta">${who}${date}${single}
+          <a href="${escapeAttr(String(r.source_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.source_title || "Source")} ↗</a>
+        </div>
+      </li>`;
+    })
+    .join("");
+  return `<div class="rp-conflicts">
+    <div class="rp-conflicts-head">⚠ Ratepayer cost-shift concerns (${reports.length}) — independent findings affecting this site or its utility system</div>
+    <ul class="rp-conflicts-list">${items}</ul>
+  </div>`;
+}
+
+function rpConflictFlagHtml(p) {
+  // Small always-visible header flag when independent reports raise a ratepayer
+  // cost-shift concern for this site or the utility system it sits on.
+  return rpConflictingReports(p).length ? `<span class="rp-conflict-flag" title="Independent reports raise a ratepayer cost-shift concern for this site or its utility">⚠ Ratepayer concern</span>` : "";
+}
+
 function renderRatepayerCard(p) {
   const co = state.companiesBySlug.get(p.company_slug);
   const rp = p.ratepayer;
@@ -4047,6 +4457,7 @@ function renderRatepayerCard(p) {
           <span class="rp-card-company">${escapeHtml(co ? co.name : p.company_slug)}</span>
           <span class="rp-card-name">${escapeHtml(p.name)}</span>
           <span class="rp-card-loc">${loc} · ${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+          <span class="rp-card-badges">${rpBasisBadgeHtml(p)}${rpConflictFlagHtml(p)}</span>
           ${datesHtml}
         </div>
         <span class="rp-met-pill rp-met-pill--${escapeAttr(metClass)}">${metCount}/5 met</span>
@@ -4054,6 +4465,7 @@ function renderRatepayerCard(p) {
       <div class="rp-card-body">
         <p class="rp-card-summary">${escapeHtml(rp.summary)}</p>
         ${principlesHtml}
+        ${rpConflictsHtml(p)}
         ${rpCardSourcesHtml(p)}
       </div>
     </details>

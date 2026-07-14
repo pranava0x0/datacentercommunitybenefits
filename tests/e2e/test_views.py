@@ -972,9 +972,10 @@ class TestRatepayerView:
         pre = page.locator("#rp-pre-pledge .rp-pre-card")
         assert unassessed.count() >= 1
         assert pre.count() >= 1
-        # qts-van-wert-oh (announced 2026-05-29) is pledge-era, not pre-pledge.
-        assert "Van Wert" in page.locator("#rp-unassessed").inner_text()
-        assert "Van Wert" not in page.locator("#rp-pre-pledge").inner_text()
+        # google-spacex-gpu-partnership (announced 2026-06-05) is a dated
+        # post-pledge site with no site assessment → pledge-era, not pre-pledge.
+        assert "Google-SpaceX" in page.locator("#rp-unassessed").inner_text()
+        assert "Google-SpaceX" not in page.locator("#rp-pre-pledge").inner_text()
         # ms-quincy-wa (announced 2006) stays pre-pledge.
         assert "Quincy" in page.locator("#rp-pre-pledge").inner_text()
         assert "Quincy" not in page.locator("#rp-unassessed").inner_text()
@@ -1138,6 +1139,28 @@ class TestRatepayerView:
         assert stats["blocks"] >= 5, stats
         # EVERY claim row carries its own source link.
         assert stats["linked"] == stats["rows"], stats
+
+
+    def test_basis_badge_makes_individual_vs_company_wide_explicit(
+        self, page: Page, base_url: str
+    ):
+        # Every assessed card labels whether the site was claimed individually
+        # (a site-specific commitment) or only under the company-wide pledge.
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        text = page.locator("#rp-scorecard").inner_text()
+        assert "Claimed individually" in text
+        assert "Company-wide pledge only" in text
+
+    def test_conflicting_reports_surface_on_cards(self, page: Page, base_url: str):
+        # Sites with an independent ratepayer cost-shift report carry a header
+        # flag (visible) and an expandable conflicts block (in the DOM).
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        assert page.locator("#rp-scorecard .rp-conflict-flag").count() >= 1
+        assert page.locator("#rp-scorecard .rp-conflicts").count() >= 1
 
 
 class TestTariffsView:
@@ -1540,3 +1563,29 @@ class TestEmbedWidget:
         page.wait_for_selector(".embed-error", timeout=10_000)
         text = (page.locator(".embed-error").text_content() or "").lower()
         assert "no company" in text, f"Expected 'no company' hint: {text!r}"
+
+
+class TestMoratoriumCharts:
+    """Summary charts above the moratorium directory table."""
+
+    def _open(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-moratoriums").click()
+        page.wait_for_selector("#moratorium-charts .mor-chart", timeout=10_000)
+
+    def test_timeline_and_bars_render(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        # Timeline (stacked columns) + at least a few quarters.
+        assert page.locator(".mor-chart--timeline").count() == 1
+        assert page.locator(".mtl-col").count() >= 3
+        # Horizontal bar sets (concerns + jurisdiction) with multiple rows.
+        assert page.locator(".mor-hbar-set .mhb-row").count() >= 3
+
+    def test_timeline_segments_present(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert page.locator(".mtl-seg").count() >= 1
+
+    def test_status_legend_renders(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        legend = page.locator("#moratorium-charts .mor-legend").first.inner_text()
+        assert "Enacted" in legend and "Proposed" in legend

@@ -1178,6 +1178,17 @@
       "at_a_glance": {
         "water": "29M gal/yr unmetered draw discovered May 2026; corrective plan underway",
         "engagement": "City council banned new data centers Mar 5 2026 after water draw discovery"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "QTS is a pledge signatory, but its published Fayetteville campus page carries no site-specific ratepayer or energy-cost commitment (only closed-loop cooling), so the site is covered by the national signature alone.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "unknown",
+            "note": "The QTS Fayetteville site page makes no statement about funding energy infrastructure or shielding the local utility's existing customers."
+          }
+        }
       }
     },
     {
@@ -1221,7 +1232,19 @@
       "source_title": "Data Center Dynamics — QTS East Windsor expansion vote postponed (Apr 2026)",
       "captured_at": "2026-05-16",
       "acreage": 52,
-      "offtaker": "QTS"
+      "offtaker": "QTS",
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "QTS's published East Windsor page commits, site-specifically, to pay for all project energy infrastructure with no cost impact to existing JCP&L customers.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "met",
+            "note": "QTS commits to fund all project energy infrastructure so existing JCP&L (FirstEnergy) customers bear no cost."
+          }
+        },
+        "evidence_claim_id": "qts-east-windsor-nj-ratepayer-pledge"
+      }
     },
     {
       "id": "crusoe-sweetwater-tx",
@@ -1913,6 +1936,17 @@
       "offtaker": "QTS",
       "at_a_glance": {
         "energy": "1,700 ac — nuclear-adjacent power supply (Talen Susquehanna)"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "QTS is a pledge signatory, but its published Salem Township page carries no site-specific ratepayer or energy-cost commitment (closed-loop cooling and backup generators only), so the site is covered by the national signature alone.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "unknown",
+            "note": "The QTS Salem Township site page makes no statement about funding energy infrastructure or shielding PPL's existing customers."
+          }
+        }
       }
     },
     {
@@ -2244,6 +2278,18 @@
       "offtaker": "QTS",
       "at_a_glance": {
         "energy": "Project Blue Hole — planned 12M sq ft mega-campus (Blakely GA)"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "QTS's published Blakely (Project Blue Hole) page commits, site-specifically, to pay for all needed energy infrastructure with no cost impact to existing MEAG Power System customers.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "met",
+            "note": "QTS commits to fund all needed energy infrastructure so existing MEAG Power System (municipal) customers bear no cost."
+          }
+        },
+        "evidence_claim_id": "qts-blakely-ga-ratepayer-pledge"
       }
     },
     {
@@ -2345,6 +2391,18 @@
       "offtaker": "QTS",
       "at_a_glance": {
         "energy": "$1.5B proposed campus — annexation approval pending"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "QTS's published Clinton page commits, site-specifically, to pay for all project energy infrastructure with no cost impact to existing Alliant Energy customers; the campus remains a proposal under a local moratorium.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "met",
+            "note": "QTS commits to fund all project energy infrastructure so existing Alliant Energy customers bear no cost; Alliant CEO Lisa Barton separately said existing customers 'will not pay for new large energy user growth' and cited a five-year rate freeze."
+          }
+        },
+        "evidence_claim_id": "qts-clinton-ia-ratepayer-pledge"
       }
     },
     {
@@ -2471,6 +2529,26 @@
       "at_a_glance": {
         "jobs": "100 direct jobs / 480 ac",
         "energy": "100% grid infrastructure cost coverage"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Google's own Pine Island announcement commits to pay all costs of its electric service, and its Xcel Clean Energy Accelerator Charge is structured to add clean energy without shifting costs to local customers.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "met",
+            "note": "Google covers 100% of the costs of new grid infrastructure required to serve the facility (per the Xcel Energy agreement)."
+          },
+          "new_generation": {
+            "status": "met",
+            "note": "Clean Energy Accelerator Charge adds 1,400 MW wind, 200 MW solar, 300 MW iron-air storage plus a $50M investment in Xcel's Capacity*Connect program."
+          },
+          "separate_rate": {
+            "status": "met",
+            "note": "Serves under Minnesota's 2025 'very large customer' rate class, which must cover full cost of electric service and system upgrades and avoid burdening other customers."
+          }
+        },
+        "evidence_claim_id": "google-pine-island-mn-ratepayer-pledge"
       }
     },
     {
@@ -2494,6 +2572,17 @@
       "offtaker": "Google",
       "at_a_glance": {
         "energy": "$650M / 700 MW new clean energy — Minnesota Power partnership"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Google is a pledge signatory, and Minnesota Power's site-specific Electric Service Agreement for the Hermantown campus provides that existing customers do not pay to connect the new load — but that commitment is the utility's, not a Google-published site-specific pledge, so this site is recorded as covered by the national signature.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "partial",
+            "note": "Minnesota Power's ESA (the utility's statement) says existing customers do not pay to connect the new load; no Google-published site-specific commitment captured."
+          }
+        }
       }
     },
     {
@@ -2513,7 +2602,27 @@
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-wilbarger-county/",
       "source_title": "Google Blog — Wilbarger County, Texas data center announcement (Feb 2026)",
       "captured_at": "2026-06-01",
-      "offtaker": "Google"
+      "offtaker": "Google",
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "A named Google executive states the Wilbarger campus is served by co-located AES clean generation built to minimize local grid impact and protect energy affordability, with AES building the shared electricity infrastructure.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "new_generation": {
+            "status": "met",
+            "note": "Data center is co-located with new clean power plants developed and operated by AES under 20-year PPAs."
+          },
+          "delivery_infra": {
+            "status": "met",
+            "note": "AES secured land + interconnection and 'will build the necessary shared electricity infrastructure'; co-location is said to 'reduce the need for new infrastructure and optimize existing grid utilization.'"
+          },
+          "grid_resilience": {
+            "status": "met",
+            "note": "Named Google exec frames the co-located self-supply as minimizing local grid impact and protecting energy affordability."
+          }
+        },
+        "evidence_claim_id": "google-wilbarger-tx-ratepayer-pledge"
+      }
     },
     {
       "id": "google-armstrong-tx",
@@ -2789,6 +2898,22 @@
       "offtaker": "Google",
       "at_a_glance": {
         "energy": "827 ac — Project Spring (Sand Springs / Tulsa metro)"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Google commits to pay for the dedicated substation and transmission lines and cites a PSO electric service agreement with minimum-bill guarantees ensuring PSO and residents do not incur costs from the Sand Springs (Project Spring) data center.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "met",
+            "note": "Google will pay for all required new infrastructure, including a dedicated substation and transmission lines."
+          },
+          "separate_rate": {
+            "status": "met",
+            "note": "The PSO electric service agreement includes long-term minimum-bill commitments and financial guarantees so PSO and residents do not incur costs from the project demand."
+          }
+        },
+        "evidence_claim_id": "google-sand-springs-ok-ratepayer-pledge"
       }
     },
     {
@@ -2956,6 +3081,22 @@
       "at_a_glance": {
         "jobs": "$10B / 1,700 direct jobs",
         "energy": "500 MW / 902 ac campus"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "QTS's published Van Wert page commits, site-specifically, to pay for all project energy infrastructure with no cost impact to existing AEP Ohio customers, backed by AEP Ohio's PUCO-approved large-load tariff.",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "delivery_infra": {
+            "status": "met",
+            "note": "QTS commits to fund all project energy infrastructure so existing AEP Ohio customers bear no cost."
+          },
+          "separate_rate": {
+            "status": "met",
+            "note": "Van Wert sits under AEP Ohio's PUCO-approved data-center tariff requiring large new loads to pay for a minimum of ~85% of subscribed usage for up to 12 years, regardless of actual consumption."
+          }
+        },
+        "evidence_claim_id": "qts-van-wert-oh-ratepayer-pledge"
       }
     },
     {
@@ -3487,6 +3628,42 @@
           "grid_resilience": {
             "status": "met",
             "note": "Reuses the retired Widows Creek plant's existing transmission interconnection, easing new grid build-out."
+          }
+        }
+      }
+    },
+    {
+      "id": "microsoft-pecos-tx",
+      "company_slug": "microsoft",
+      "name": "Microsoft Pecos AI Data Center (Reeves County)",
+      "city": "Pecos",
+      "state": "TX",
+      "country": "US",
+      "lat": 31.4229,
+      "lon": -103.4933,
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-06-22",
+      "claimed_investment_usd": null,
+      "power_mw": 2000.0,
+      "offtaker": "Microsoft",
+      "notes": "2 GW AI campus powered by a co-located, behind-the-meter natural gas plant (Chevron's Project Kilby, first power expected 2028, scaling to ~2.67 GW), with Microsoft funding the generation and supporting infrastructure itself.",
+      "source_url": "https://www.theenergymag.com/news/2026-06-22/microsoft-2-gigawatt-ai-data-center-west-texas-onsite-gas",
+      "source_title": "TheEnergyMag — Microsoft to build 2GW AI data center in West Texas with onsite gas",
+      "captured_at": "2026-07-13",
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Microsoft says it is funding the new generation and supporting infrastructure for the 2 GW Pecos campus itself — a co-located, behind-the-meter natural gas plant (Chevron's Project Kilby) — so power costs are not shifted onto ERCOT ratepayers.",
+        "evidence_claim_id": "microsoft-pecos-tx-ratepayer-pledge",
+        "assessed_at": "2026-07-13",
+        "principles": {
+          "new_generation": {
+            "status": "met",
+            "note": "Co-located behind-the-meter natural gas plant (Project Kilby, with Chevron/Engine No. 1/GE Vernova) built to serve the campus; first power expected 2028."
+          },
+          "delivery_infra": {
+            "status": "met",
+            "note": "Microsoft states it is funding the new generation and supporting infrastructure to serve its own operations, keeping costs off ERCOT ratepayers."
           }
         }
       }

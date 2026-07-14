@@ -26,7 +26,10 @@ from validate_moratoriums import (
     _vote_variants,
     _check,
     _check_sponsors,
+    _classify_error,
     audit_record,
+    classify_liveness,
+    GOV_PATTERN,
 )
 
 SEED_PATH = ROOT / "data" / "seed" / "moratoriums.json"
@@ -293,10 +296,68 @@ class TestAuditRecordOffline:
 # Smoke test: --dry-run against live seed
 # ---------------------------------------------------------------------------
 
+class TestLivenessClassifier:
+    """The --links-only mode's dead/blocked/live classification."""
+
+    def test_2xx_is_live(self):
+        assert classify_liveness(200) == "live"
+        assert classify_liveness(301) == "live"  # redirect followed
+
+    def test_404_and_410_are_dead(self):
+        assert classify_liveness(404) == "dead"
+        assert classify_liveness(410) == "dead"
+
+    def test_403_and_429_are_blocked_not_dead(self):
+        # Real sites that bot-wall our fetcher must NOT read as dead links.
+        assert classify_liveness(403) == "blocked"
+        assert classify_liveness(429) == "blocked"
+        assert classify_liveness(503) == "blocked"
+
+    def test_zero_status_is_dead(self):
+        assert classify_liveness(0) == "dead"
+
+    def test_dns_failure_is_dead(self):
+        assert classify_liveness(0, "nodename nor servname provided") == "dead"
+        assert classify_liveness(0, "getaddrinfo failed") == "dead"
+
+    def test_connection_refused_is_dead(self):
+        assert classify_liveness(0, "Connection refused") == "dead"
+
+    def test_ssl_and_timeout_are_blocked(self):
+        # SSL negotiation / timeout usually means the host exists.
+        assert classify_liveness(0, "SSL: TLSV1_ALERT_PROTOCOL_VERSION") == "blocked"
+        assert classify_liveness(0, "timed out") == "blocked"
+
+    def test_classify_error_direct(self):
+        assert _classify_error("Name or service not known") == "dead"
+        assert _classify_error("ssl handshake failed") == "blocked"
+
+
+class TestGovPattern:
+    def test_matches_dot_gov(self):
+        assert GOV_PATTERN.search("https://www.flsenate.gov/Session/Bill/2026/484")
+        assert GOV_PATTERN.search("https://legislature.maine.gov/bills/x")
+
+    def test_matches_state_us_and_vendor_civic_platforms(self):
+        assert GOV_PATTERN.search("https://denver.granicus.com/clip/9834")
+        assert GOV_PATTERN.search("https://cityofx.legistar.com/foo")
+
+    def test_does_not_match_plain_news(self):
+        assert not GOV_PATTERN.search("https://www.datacenterdynamics.com/en/news/x")
+        assert not GOV_PATTERN.search("https://ctmirror.org/2026/05/11/x")
+
+
 class TestDryRunSmoke:
     def test_dry_run_exits_zero(self):
         from validate_moratoriums import main
         rc = main(["--dry-run"])
+        assert rc == 0
+
+    def test_links_only_dry_smoke(self):
+        # --links-only --cached against an empty cache should still exit 0 and
+        # not touch the network (cached_only) or ISSUES.md (--no-issues).
+        from validate_moratoriums import main
+        rc = main(["--links-only", "--cached", "--no-issues", "--id", "florida-state-2026-07"])
         assert rc == 0
 
     def test_all_records_have_required_schema_fields(self):

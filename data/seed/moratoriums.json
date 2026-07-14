@@ -17,7 +17,7 @@
       ],
       "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed; Governor Hochul has not signed or vetoed as of June 24, 2026 — she has until December 2026 under New York law to act.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
-      "source_title": "Data Center Dynamics \u2014 NY Legislature passes data center moratorium",
+      "source_title": "Data Center Dynamics — NY Legislature passes data center moratorium",
       "captured_at": "2026-06-04",
       "bill_number": "SB7992/AB7234",
       "sponsors": [
@@ -56,26 +56,6 @@
         {
           "url": "https://assembly.state.ny.us/leg/?default_fld=0&bn=A07234",
           "title": "New York Assembly Bill A7234 (Full Text)"
-        },
-        {
-          "url": "https://www.ny1.com/nyc/all-boroughs/news/2026/06/data-center-moratorium",
-          "title": "NY1 \u2014 Hochul Weighs Data Center Moratorium"
-        },
-        {
-          "url": "https://gothamist.com/news/albany-passes-data-center-moratorium-hochul",
-          "title": "Gothamist \u2014 Albany Passes Data Center Moratorium"
-        },
-        {
-          "url": "https://www.sierraclub.org/new-york/news/2026/06-data-center-moratorium",
-          "title": "Sierra Club New York \u2014 Statement on Data Center Moratorium"
-        },
-        {
-          "url": "https://www.dec.ny.gov/energy/data-center-impact-study",
-          "title": "NY DEC \u2014 Data Center Energy Impact Assessment (2025)"
-        },
-        {
-          "url": "https://www.coned.com/en/about-us/energy-infrastructure/data-center-analysis",
-          "title": "Con Edison \u2014 2025 Grid Capacity Study"
         }
       ]
     },
@@ -94,9 +74,9 @@
         "energy",
         "air_quality"
       ],
-      "summary": "Maine's LD307 (An Act to Impose a Moratorium on Large-Scale Data Centers), signed by Governor Janet Mills on April 29, 2026, enacts a permanent statewide ban on new data center construction exceeding 20 MW. Largest triggers: (1) water sustainability concerns \u2014 Maine's grid-balancing reliance on hydroelectric dams sensitive to drought; (2) energy grid reliability in rural areas with aging infrastructure; (3) pollution risks from cooling water discharge and wastewater contamination. The ban reflects Maine's 'small state, finite resources' principle endorsed by environmental groups and community organizations. Grandfathered exemptions: expansions of existing facilities <10% annual increase, research institutions with <5 MW. Supported by Conservation Law Foundation, Maine Audubon, League of Conservation Voters Maine, and rural selectboards concerned about aquifer depletion and cooling water impacts. Heavily opposed by development interests and Microsoft (which had explored Rumford site pre-ban). Unanimous legislative passage. Positioned as national model for permanent bans; Janet Mills framed it as precedent-setting environmental protection.",
+      "summary": "Maine's LD307 (An Act to Impose a Moratorium on Large-Scale Data Centers), signed by Governor Janet Mills on April 29, 2026, enacts a permanent statewide ban on new data center construction exceeding 20 MW. Largest triggers: (1) water sustainability concerns — Maine's grid-balancing reliance on hydroelectric dams sensitive to drought; (2) energy grid reliability in rural areas with aging infrastructure; (3) pollution risks from cooling water discharge and wastewater contamination. The ban reflects Maine's 'small state, finite resources' principle endorsed by environmental groups and community organizations. Grandfathered exemptions: expansions of existing facilities <10% annual increase, research institutions with <5 MW. Supported by Conservation Law Foundation, Maine Audubon, League of Conservation Voters Maine, and rural selectboards concerned about aquifer depletion and cooling water impacts. Heavily opposed by development interests and Microsoft (which had explored Rumford site pre-ban). Unanimous legislative passage. Positioned as national model for permanent bans; Janet Mills framed it as precedent-setting environmental protection.",
       "source_url": "https://mainelegislature.org/",
-      "source_title": "Maine Legislature \u2014 LD307",
+      "source_title": "Maine Legislature — LD307",
       "captured_at": "2026-04-29",
       "bill_number": "LD307",
       "enacted_by": "Governor Janet Mills",
@@ -125,37 +105,7 @@
           "Northeast Economic Development Association",
           "Maine Technology Council"
         ]
-      },
-      "resources": [
-        {
-          "url": "https://legislature.maine.gov/bills/getFullText?id=LD307_20260429.pdf",
-          "title": "Maine LD307 Full Legislative Text"
-        },
-        {
-          "url": "https://mainepublic.org/post/maine-enacts-permanent-data-center-ban",
-          "title": "Maine Public \u2014 Maine Enacts Permanent Data Center Ban"
-        },
-        {
-          "url": "https://www.mainepublic.org/environmental-issues/2026-04-28/maine-data-center-moratorium-becomes-law",
-          "title": "Maine Public \u2014 Environmental Analysis (April 2026)"
-        },
-        {
-          "url": "https://bangordailynews.com/2026/04/data-center-ban-signed",
-          "title": "Bangor Daily News \u2014 Mills Signs Data Center Ban"
-        },
-        {
-          "url": "https://www.clf.org/news/maine-data-center-ban-victory",
-          "title": "Conservation Law Foundation \u2014 LD307 Victory Statement"
-        },
-        {
-          "url": "https://www.maine.gov/dep/water/drinking-water-quality.html",
-          "title": "Maine DEP \u2014 Drinking Water Quality Concerns (Data Center Impact Report)"
-        },
-        {
-          "url": "https://www.mainelegislature.org/bills/getFullText?id=LD307_20260429.pdf",
-          "title": "Maine Legislature Database - Full Bill Text and Vote Record"
-        }
-      ]
+      }
     },
     {
       "id": "south-dakota-state-2026-02",
@@ -171,9 +121,9 @@
         "transparency",
         "energy"
       ],
-      "summary": "South Dakota SB232 (introduced February 4, 2026) would have imposed a one-year construction moratorium on hyperscale data centers. The bill was tabled in the Senate State Affairs Committee on February 18, 2026 by a 5-3 vote \u2014 effectively killing the moratorium. Legislators instead passed SB135, which prohibits the state from limiting local governments' authority to regulate or ban data centers, leaving local control intact but imposing no statewide moratorium. Supported by the South Dakota Farm Bureau and rural communities; opposed by data center industry.",
+      "summary": "South Dakota SB232 (introduced February 4, 2026) would have imposed a one-year construction moratorium on hyperscale data centers. The bill was tabled in the Senate State Affairs Committee on February 18, 2026 by a 5-3 vote — effectively killing the moratorium. Legislators instead passed SB135, which prohibits the state from limiting local governments' authority to regulate or ban data centers, leaving local control intact but imposing no statewide moratorium. Supported by the South Dakota Farm Bureau and rural communities; opposed by data center industry.",
       "source_url": "https://sdlegislature.gov/Session/Bill/27269/301228",
-      "source_title": "South Dakota Legislature \u2014 SB232 (2026 Regular Session)",
+      "source_title": "South Dakota Legislature — SB232 (2026 Regular Session)",
       "captured_at": "2026-06-25",
       "bill_number": "SB232",
       "session": "2026",
@@ -181,15 +131,15 @@
       "resources": [
         {
           "url": "https://sdlegislature.gov/Session/Bill/27269/301228",
-          "title": "South Dakota Legislature \u2014 SB232 Full Bill Text"
+          "title": "South Dakota Legislature — SB232 Full Bill Text"
         },
         {
           "url": "https://southdakotasearchlight.com/briefs/data-center-restrictions-signed-into-south-dakota-law-after-push-for-incentives-failed/",
-          "title": "South Dakota Searchlight \u2014 Data center restrictions signed into law (SB135)"
+          "title": "South Dakota Searchlight — Data center restrictions signed into law (SB135)"
         },
         {
           "url": "https://www.sdpb.org/politics/2026-02-18/senate-committee-approves-bill-keeping-door-open-on-data-centers",
-          "title": "SDPB \u2014 Senate committee approves bill keeping door open on data centers"
+          "title": "SDPB — Senate committee approves bill keeping door open on data centers"
         }
       ]
     },
@@ -209,7 +159,7 @@
       ],
       "summary": "Georgia HB1012 (proposed 2026) blocks local governments from issuing new data center permits until March 1, 2027. Provides time for state and local review of DC impacts on water, grid, and communities. Supported by environmental groups and municipalities wary of uncontrolled DC expansion. Balances Georgia's interest in data center jobs (Amazon HQ) against concerns about rapid growth. Creates state-level oversight structure for permitting.",
       "source_url": "https://www.deseret.com/business/2026/05/16/data-centers-bans-moratoriums-state-legislatures-citizen-opposition-initiatives-referendum-artificial-intelligence-water-sair-quality/",
-      "source_title": "Deseret News \u2014 Data centers bans and moratoriums",
+      "source_title": "Deseret News — Data centers bans and moratoriums",
       "captured_at": "2026-05-16",
       "resources": [
         {
@@ -242,7 +192,7 @@
       ],
       "summary": "South Carolina H5286 (proposed 2026) blocks governmental approval for new data center permits until January 1, 2028. Extended review period allows assessment of grid impacts and water availability. Supported by environmental organizations and water conservation advocates. South Carolina concerned about rapid hyperscaler expansion in the Low Country and potential conflicts with existing industries and tourism.",
       "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
-      "source_title": "South Carolina Legislature \u2014 H5286",
+      "source_title": "South Carolina Legislature — H5286",
       "captured_at": "2026-05-20",
       "resources": [
         {
@@ -275,17 +225,21 @@
       ],
       "summary": "Florida SB484 (Ratepayer Protection and Aquifer Conservation Act): Prevents utilities from passing data center grid costs to residential/small-business customers. Requires large data center users (50+ MW) to pay full service costs for transmission and distribution upgrades. Tightens aquifer permitting requirements near Floridan Aquifer system. Also restricts local governments from permanently banning data centers (they may impose moratoria up to 1 year), which is why subsequent Florida county actions took the moratorium form rather than outright bans. Passed Senate 37-0, House 92-16, Senate concurrence 31-6; signed by Governor Ron DeSantis on May 7, 2026.",
       "source_url": "https://www.flsenate.gov/Session/Bill/2026/484",
-      "source_title": "Florida Senate \u2014 SB484 (2026 Session)",
+      "source_title": "Florida Senate — SB484 (2026 Session)",
       "captured_at": "2026-06-25",
       "bill_number": "SB484",
       "session": "2026",
-      "sponsors": ["Sen. Avila (primary)", "Sen. Yarborough (co-introducer)", "Rep. Gaetz (co-introducer)"],
+      "sponsors": [
+        "Sen. Avila (primary)",
+        "Sen. Yarborough (co-introducer)",
+        "Rep. Gaetz (co-introducer)"
+      ],
       "enacted_by": "Governor Ron DeSantis",
       "legislative_votes": "Senate 37-0, House 92-16, Senate concurrence 31-6",
       "resources": [
         {
           "url": "https://www.flsenate.gov/Session/Bill/2026/484",
-          "title": "Florida Senate \u2014 SB484 Full Bill Text & History"
+          "title": "Florida Senate — SB484 Full Bill Text & History"
         },
         {
           "url": "https://www.flsenate.gov/",
@@ -316,9 +270,9 @@
         "energy",
         "transparency"
       ],
-      "summary": "Denver City Council enacted a 1-year moratorium on May 18, 2026, pausing all new data center facility permits and zoning approvals while the city conducts comprehensive zoning, energy, and water impact assessments. Triggered by: (1) Colorado River Compact water-sharing pressures and acute shortages in the South Platte watershed (Denver's primary source); (2) strains on the Rocky Mountain Power grid during peak summer demand; (3) city's Climate Action Plan goals \u2014 Council concerns that unmanaged data center growth could undermine 2040 carbon-neutrality targets. Moratorium covers all facilities, no MW threshold specified. Denver's Office of Energy & Environmental Planning charged with 12-month review of: data center energy consumption projections, renewable energy allocation, water recycling standards, and zoning district revisions. Supported by local environmental groups (Colorado Environmental Law Center, Sierra Club Rocky Mountain Group), labor unions (IBEW Local 68), and water conservation coalitions. Denver International Airport and downtown development interests opposed. Council vote: 11-2 in favor (only two pro-development votes). Industry framed as 'anti-growth'; proponents framed as 'resource stewardship.'",
+      "summary": "Denver City Council enacted a 1-year moratorium on May 18, 2026, pausing all new data center facility permits and zoning approvals while the city conducts comprehensive zoning, energy, and water impact assessments. Triggered by: (1) Colorado River Compact water-sharing pressures and acute shortages in the South Platte watershed (Denver's primary source); (2) strains on the Rocky Mountain Power grid during peak summer demand; (3) city's Climate Action Plan goals — Council concerns that unmanaged data center growth could undermine 2040 carbon-neutrality targets. Moratorium covers all facilities, no MW threshold specified. Denver's Office of Energy & Environmental Planning charged with 12-month review of: data center energy consumption projections, renewable energy allocation, water recycling standards, and zoning district revisions. Supported by local environmental groups (Colorado Environmental Law Center, Sierra Club Rocky Mountain Group), labor unions (IBEW Local 68), and water conservation coalitions. Denver International Airport and downtown development interests opposed. Council vote: 11-2 in favor (only two pro-development votes). Industry framed as 'anti-growth'; proponents framed as 'resource stewardship.'",
       "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
-      "source_title": "Route Fifty \u2014 Data center moratoriums gain ground",
+      "source_title": "Route Fifty — Data center moratoriums gain ground",
       "captured_at": "2026-05-18",
       "city_council_vote": "11-2 in favor",
       "sponsors": [
@@ -356,32 +310,8 @@
       },
       "resources": [
         {
-          "url": "https://denver.granicus.com/MetaVieweraspx?view_id=5&clip_id=9834&meta_id=456789",
-          "title": "Denver City Council Meeting Record (May 18, 2026)"
-        },
-        {
-          "url": "https://www.denvergov.org/pocketgov/documents/data-center-moratorium-resolution-2026-05",
-          "title": "Denver Resolution on Data Center Moratorium (Full Text)"
-        },
-        {
-          "url": "https://www.denvergov.org/content/dam/denvergov/Portals/921/documents/plans/2040-climate-action-plan.pdf",
-          "title": "Denver 2040 Climate Action Plan (References Data Centers)"
-        },
-        {
-          "url": "https://www.denverpost.com/2026/05/18/data-center-moratorium-denver",
-          "title": "Denver Post \u2014 City Council Pauses Data Center Growth"
-        },
-        {
           "url": "https://coloradosun.com/energy/2026/05/denver-data-center-moratorium",
-          "title": "Colorado Sun \u2014 Energy & Water Concerns Drive Moratorium"
-        },
-        {
-          "url": "https://southplatte.org/data-center-impacts-study-2026",
-          "title": "South Platte Riverkeeper Foundation \u2014 Data Center Water Impact Study"
-        },
-        {
-          "url": "https://www.cde.state.co.us/water/south-platte-shortage-2026",
-          "title": "Colorado Division of Water Resources \u2014 South Platte Basin Shortage Report"
+          "title": "Colorado Sun — Energy & Water Concerns Drive Moratorium"
         }
       ]
     },
@@ -415,10 +345,6 @@
         {
           "url": "https://www.pca.state.mn.us/",
           "title": "Minnesota Pollution Control Agency"
-        },
-        {
-          "url": "https://www.reclaimequity.org/",
-          "title": "Environmental Justice Resources"
         }
       ]
     },
@@ -447,16 +373,8 @@
           "title": "DatacenterBans.com"
         },
         {
-          "url": "https://www.baltimore.gov/",
-          "title": "City of Baltimore"
-        },
-        {
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
-        },
-        {
-          "url": "https://www.baltimorepollutionconsoleproject.org/",
-          "title": "Baltimore Environmental Groups"
         }
       ]
     },
@@ -680,7 +598,7 @@
       ],
       "summary": "The AI Data Center Moratorium Act of 2026, announced by Sen. Bernie Sanders (I-VT) and Rep. Alexandria Ocasio-Cortez (D-NY) on March 25, 2026. Would impose a nationwide halt on constructing or upgrading new or existing data centers with 20 MW or higher power demand until strong national safeguards are in place. Unlikely to advance.",
       "source_url": "https://www.sanders.senate.gov/press-releases/news-sanders-ocasio-cortez-announce-ai-data-center-moratorium-act/",
-      "source_title": "Senator Bernie Sanders \u2014 AI Data Center Moratorium Act",
+      "source_title": "Senator Bernie Sanders — AI Data Center Moratorium Act",
       "captured_at": "2026-03-25",
       "resources": [
         {
@@ -713,7 +631,7 @@
       ],
       "summary": "Voter-approved (90%) ban on data center development in Monterey Park, California. Appears to be the first voter-approved data center ban in the US.",
       "source_url": "https://truthout.org/articles/as-towns-and-cities-fight-off-data-centers-calls-grow-for-a-national-moratorium/",
-      "source_title": "Truthout \u2014 Towns and cities fight off data centers",
+      "source_title": "Truthout — Towns and cities fight off data centers",
       "captured_at": "2026-05-01",
       "resources": [
         {
@@ -742,7 +660,7 @@
       ],
       "summary": "One-year moratorium on data centers and related infrastructure projects in Socorro County, New Mexico.",
       "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
-      "source_title": "Route Fifty \u2014 Data center moratoriums gain ground",
+      "source_title": "Route Fifty — Data center moratoriums gain ground",
       "captured_at": "2026-05-10",
       "resources": [
         {
@@ -770,55 +688,17 @@
         "transparency",
         "energy"
       ],
-      "summary": "Connecticut considered multiple data center moratorium bills in the 2026 legislative session — SB245 (Senate Bill 245) and HB5469 (House Bill 5469) — both proposing a two-year moratorium on large data center facilities over 15 MW while the state conducted energy and water impact assessments. Both bills failed to advance; the session ended without enacting a moratorium. The state's legislature instead focused on data center siting guidelines and grid-impact reporting requirements. Note: Bill number HB6829 cited in earlier versions of this record could not be verified in Connecticut's bill tracking system.",
-      "source_url": "https://www.cga.ct.gov/2026/SB245.htm",
-      "source_title": "Connecticut General Assembly — SB245 (2026 Session)",
+      "summary": "Connecticut's 2026 session considered two data center bills, both of which died without a floor vote: SB 245 would have repealed the state's data-center tax incentives, and HB 5469 would have set rules for data centers co-located with and drawing power from an existing plant such as Millstone Nuclear. Lawmakers said interest faded as the state's high electricity costs already deterred data-center developers.",
+      "source_url": "https://ctmirror.org/2026/05/11/ct-2026-bills-that-didnt-pass/",
+      "source_title": "CT Mirror — CT bills that didn't pass in 2026 (data centers)",
       "captured_at": "2026-06-25",
       "bill_number": "SB245 / HB5469",
       "session": "2026",
-      "failure_reason": "Both SB245 and HB5469 failed to advance from committee; the 2026 legislative session ended without enacting a data center moratorium",
+      "failure_reason": "Both bills died without a floor vote in the 2026 session.",
       "resources": [
-        {
-          "url": "https://www.cga.ct.gov/2026/SB245.htm",
-          "title": "CT General Assembly — SB245 (2026 Session)"
-        },
         {
           "url": "https://www.cga.ct.gov/",
-          "title": "Connecticut General Assembly"
-        },
-        {
-          "url": "https://ctmirror.org/2026/04/30/connecticut-data-center-moratorium-fails/",
-          "title": "CT Mirror — Connecticut data center moratorium bills fail"
-        }
-      ]
-    },
-    {
-      "id": "loudoun-county-va-2026-03",
-      "jurisdiction": "Loudoun County",
-      "jurisdiction_type": "county",
-      "status": "enacted",
-      "enacted_date": "2026-03-08",
-      "effective_date": "2026-03-08",
-      "duration_months": null,
-      "duration_description": "Permanent ban on new facilities",
-      "power_threshold_mw": null,
-      "key_reasons": [
-        "water",
-        "transparency",
-        "energy"
-      ],
-      "summary": "Ban on new data center development to protect remaining capacity on strained electrical grid. Existing facilities can expand but new facilities prohibited.",
-      "source_url": "https://www.loudouncount.gov/",
-      "source_title": "Loudoun County Government",
-      "captured_at": "2026-03-08",
-      "resources": [
-        {
-          "url": "https://www.loudouncount.gov/government",
-          "title": "Loudoun County Government"
-        },
-        {
-          "url": "https://www.loudountimes.com/",
-          "title": "Loudoun Times"
+          "title": "Connecticut General Assembly (official)"
         }
       ]
     },
@@ -837,7 +717,7 @@
         "energy",
         "transparency"
       ],
-      "summary": "Massachusetts S2455 (Data Center Moratorium Act), signed April 12, 2026, imposes an 18-month moratorium on permits for data center facilities exceeding 25 MW, renewable by one additional 18-month extension if infrastructure assessments are incomplete. Governor Maura Healey (D) signed with emphasis on ensuring 'comprehensive energy resilience review.' Primary triggers: (1) renewable energy constraints \u2014 Massachusetts Clean Energy Standard mandates 100% clean electricity by 2035; large data center loads could strain renewable supply or necessitate grid imports; (2) grid infrastructure strain in Eastern Massachusetts where many potential sites cluster; (3) wastewater and cooling-water discharge concerns (Merrimack River ecosystem impacts). The moratorium funds two parallel studies: state energy office assessment of renewable energy availability, and Department of Environmental Protection water discharge impact study. Supported by Massachusetts Sierra Club, Conservation Law Foundation, New England Rivers Alliance, and labor unions (United Steelworkers Local 8751 backing 'just transition' language). Utility statements mixed: Eversource initially resisted, later agreed to participate in infrastructure working group. Tech industry and commercial real estate opposed. Legislative passage: Senate 27-12, House 105-51. Positioned as model for 'infrastructure-first' approach to large tech development.",
+      "summary": "Massachusetts S2455 (Data Center Moratorium Act), signed April 12, 2026, imposes an 18-month moratorium on permits for data center facilities exceeding 25 MW, renewable by one additional 18-month extension if infrastructure assessments are incomplete. Governor Maura Healey (D) signed with emphasis on ensuring 'comprehensive energy resilience review.' Primary triggers: (1) renewable energy constraints — Massachusetts Clean Energy Standard mandates 100% clean electricity by 2035; large data center loads could strain renewable supply or necessitate grid imports; (2) grid infrastructure strain in Eastern Massachusetts where many potential sites cluster; (3) wastewater and cooling-water discharge concerns (Merrimack River ecosystem impacts). The moratorium funds two parallel studies: state energy office assessment of renewable energy availability, and Department of Environmental Protection water discharge impact study. Supported by Massachusetts Sierra Club, Conservation Law Foundation, New England Rivers Alliance, and labor unions (United Steelworkers Local 8751 backing 'just transition' language). Utility statements mixed: Eversource initially resisted, later agreed to participate in infrastructure working group. Tech industry and commercial real estate opposed. Legislative passage: Senate 27-12, House 105-51. Positioned as model for 'infrastructure-first' approach to large tech development.",
       "source_url": "https://www.mass.gov/legislature",
       "source_title": "Massachusetts Legislature",
       "captured_at": "2026-04-12",
@@ -884,27 +764,15 @@
         },
         {
           "url": "https://www.mass.gov/energy/data-center-energy-assessment",
-          "title": "Massachusetts State Energy Office \u2014 Data Center Impact Assessment (2026)"
+          "title": "Massachusetts State Energy Office — Data Center Impact Assessment (2026)"
         },
         {
           "url": "https://www.mass.gov/service/water-discharge-permits",
-          "title": "Massachusetts DEP \u2014 Water Discharge Impact Study Framework"
-        },
-        {
-          "url": "https://www.bostonglobe.com/metro/2026/04/healey-signs-data-center-moratorium/",
-          "title": "Boston Globe \u2014 Healey Signs Data Center Moratorium"
+          "title": "Massachusetts DEP — Water Discharge Impact Study Framework"
         },
         {
           "url": "https://commonwealthmagazine.org/articles/2026-04-green-groups-praise-data-center-moratorium/",
-          "title": "Commonwealth Magazine \u2014 Environmental Groups Praise Moratorium"
-        },
-        {
-          "url": "https://www.sierraclub.org/massachusetts/news/2026/04-data-center-moratorium",
-          "title": "Sierra Club Massachusetts \u2014 Statement on S2455"
-        },
-        {
-          "url": "https://www.iso-ne.com/power-grid/grid-operations/grid-data",
-          "title": "ISO New England \u2014 Electric Grid Capacity Outlook Report"
+          "title": "Commonwealth Magazine — Environmental Groups Praise Moratorium"
         }
       ]
     },
@@ -1011,7 +879,7 @@
         "energy",
         "air_quality"
       ],
-      "summary": "Vermont's permanent data center ban (enacted March 20, 2026) is the most restrictive in the United States, prohibiting any new data center facility exceeding 5 MW in statewide jurisdiction. Reflects Vermont's distinctive positioning: small population (645K), finite electrical grid capacity, and water-dependent economy (dairy, tourism). Primary triggers: (1) Vermont's grid is 60% hydro, 30% nuclear (Vermont Yankee closure 2015 reduced capacity), making large new loads impossible to serve reliably; (2) Lakes Champlain and other surface water bodies already stressed by pollution and warming \u2014 cooling demands incompatible with ecosystem and drinking water protection; (3) precedent concern: if large data center were built, would cascade pressure on water quality, property taxes, and community character. Supported unanimously by Vermont Legislature (House 105-1, Senate 28-2). Backers: Vermont Natural Resources Council, Conservation Law Foundation, Green Mountain Club, Vermont Farm Bureau (water concerns), and labor unions (IBEW Local 300). No meaningful opposition (tech industry largely absent in Vermont). Governor signed without ceremony, positioning as common-sense resource protection. Positioned as national exemplar of 'precautionary' environmental governance. Technically allows small facilities (<5 MW), but practical threshold prevents any 'hyperscale' development by definition.",
+      "summary": "Vermont's permanent data center ban (enacted March 20, 2026) is the most restrictive in the United States, prohibiting any new data center facility exceeding 5 MW in statewide jurisdiction. Reflects Vermont's distinctive positioning: small population (645K), finite electrical grid capacity, and water-dependent economy (dairy, tourism). Primary triggers: (1) Vermont's grid is 60% hydro, 30% nuclear (Vermont Yankee closure 2015 reduced capacity), making large new loads impossible to serve reliably; (2) Lakes Champlain and other surface water bodies already stressed by pollution and warming — cooling demands incompatible with ecosystem and drinking water protection; (3) precedent concern: if large data center were built, would cascade pressure on water quality, property taxes, and community character. Supported unanimously by Vermont Legislature (House 105-1, Senate 28-2). Backers: Vermont Natural Resources Council, Conservation Law Foundation, Green Mountain Club, Vermont Farm Bureau (water concerns), and labor unions (IBEW Local 300). No meaningful opposition (tech industry largely absent in Vermont). Governor signed without ceremony, positioning as common-sense resource protection. Positioned as national exemplar of 'precautionary' environmental governance. Technically allows small facilities (<5 MW), but practical threshold prevents any 'hyperscale' development by definition.",
       "source_url": "https://legislature.vermont.gov/",
       "source_title": "Vermont General Assembly",
       "captured_at": "2026-03-20",
@@ -1053,30 +921,6 @@
         {
           "url": "https://legislature.vermont.gov/bill/status/2026/H0149",
           "title": "Vermont H.149 Full Legislative Text"
-        },
-        {
-          "url": "https://dec.vermont.gov/energy/data-center-impact-2026",
-          "title": "Vermont DEC \u2014 Data Center Energy Impact Assessment"
-        },
-        {
-          "url": "https://dec.vermont.gov/water/drinking-water-quality-report-2026",
-          "title": "Vermont DEC \u2014 Water Quality Protection Framework"
-        },
-        {
-          "url": "https://www.vtdigger.org/2026/03/vermont-bans-data-centers",
-          "title": "VT Digger \u2014 Vermont Enacts Nation's Strictest Data Center Ban"
-        },
-        {
-          "url": "https://www.vermontpublic.org/post/scott-signs-data-center-ban",
-          "title": "Vermont Public Radio \u2014 Governor Scott Signs Data Center Ban"
-        },
-        {
-          "url": "https://vnrc.org/news/2026-03-vermont-data-center-ban",
-          "title": "Vermont Natural Resources Council \u2014 H.149 Victory Statement"
-        },
-        {
-          "url": "https://www.iso-ne.com/market-monitor/electric/vermont-grid-capacity",
-          "title": "ISO-NE Grid Capacity Report (Vermont Section)"
         }
       ]
     },
@@ -1099,10 +943,6 @@
       "source_title": "DatacenterBans.com",
       "captured_at": "2026-05-23",
       "resources": [
-        {
-          "url": "https://www.phila.gov/city-hall/",
-          "title": "City of Philadelphia"
-        },
         {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
@@ -1247,10 +1087,6 @@
       "captured_at": "2026-06-02",
       "resources": [
         {
-          "url": "https://www.cheyennewyo.gov/",
-          "title": "City of Cheyenne"
-        },
-        {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
@@ -1367,28 +1203,12 @@
       },
       "resources": [
         {
-          "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/HB620/",
-          "title": "Idaho HB620 Legislative Database"
-        },
-        {
           "url": "https://ipower.com/about-us/energy-outlook/data-center-demand",
-          "title": "Idaho Power \u2014 Grid Capacity Analysis (2025)"
-        },
-        {
-          "url": "https://www.idahostatejournal.com/news/local/legislature/2026/03/hb620-data-center-moratorium",
-          "title": "Idaho State Journal \u2014 Data Center Moratorium Dies in Committee"
-        },
-        {
-          "url": "https://www.spokesman.com/stories/2026/03/idaho-legislature-rejects-data-center",
-          "title": "Spokesman Review \u2014 Idaho Legislature Rejects Data Center Moratorium"
-        },
-        {
-          "url": "https://www.icl.org/news/2026/03/hb620-hearing",
-          "title": "Idaho Conservation League \u2014 Statement on HB620"
+          "title": "Idaho Power — Grid Capacity Analysis (2025)"
         },
         {
           "url": "https://www.idahochamber.com/policy-positions/data-centers",
-          "title": "Idaho Chamber of Commerce \u2014 Data Center Economic Impact Statement"
+          "title": "Idaho Chamber of Commerce — Data Center Economic Impact Statement"
         }
       ]
     },
@@ -1411,10 +1231,6 @@
       "source_title": "DatacenterBans.com",
       "captured_at": "2026-06-15",
       "resources": [
-        {
-          "url": "https://meridiantownship.org/",
-          "title": "Meridian Township"
-        },
         {
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
@@ -1496,37 +1312,7 @@
           "Data Center Coalition",
           "Oklahoma Technology Council"
         ]
-      },
-      "resources": [
-        {
-          "url": "https://www.oklegislature.gov/bills/hb2992.html",
-          "title": "Oklahoma HB 2992 Legislative Database"
-        },
-        {
-          "url": "https://www.occ.ok.gov/divisions/utilities/data-center-cost-rules",
-          "title": "Oklahoma Corporation Commission \u2014 Data Center Cost-Allocation Rules (Nov 2024)"
-        },
-        {
-          "url": "https://tulsaworld.com/business/energy/2024/06/stitt-signs-data-center-bill/",
-          "title": "Tulsa World \u2014 Stitt Signs Data Center Infrastructure Bill"
-        },
-        {
-          "url": "https://oklahomawatch.org/2024/06/data-center-protection-bill-signed",
-          "title": "Oklahoma Watch \u2014 Ratepayer Protection Bill Passes"
-        },
-        {
-          "url": "https://www.okenergycoalition.org/news/hb-2992-ratepayer-protection",
-          "title": "Oklahoma Coalition for Responsible Energy \u2014 Statement on HB 2992"
-        },
-        {
-          "url": "https://www.oge.com/about-oge/news/2024-06-data-center-cost-allocation",
-          "title": "OGE \u2014 Statement Supporting HB 2992"
-        },
-        {
-          "url": "https://www.swepco.com/business/data-center-cost-analysis",
-          "title": "SWEPCO (affiliate) \u2014 Data Center Infrastructure Cost Analysis"
-        }
-      ]
+      }
     },
     {
       "id": "washington-state-sb5982-2024",
@@ -1582,28 +1368,12 @@
           "title": "Washington SB 5982 Legislative Database"
         },
         {
-          "url": "https://docket.psc.wa.gov/topics/data-center-cost-allocation",
-          "title": "Washington Public Utilities Commission \u2014 Data Center Cost Rules (Implementation)"
-        },
-        {
-          "url": "https://www.seattletimes.com/business/2024/05/washington-data-center-bill-signed/",
-          "title": "Seattle Times \u2014 Washington Enacts Data Center Ratepayer Protection"
-        },
-        {
-          "url": "https://crosscut.com/environment/2024/05/washington-inslee-signs-bill-data-center-cost-shifting",
-          "title": "Crosscut \u2014 Environmental Analysis of SB 5982"
-        },
-        {
-          "url": "https://www.sierraclub.org/washington/news/2024/05-data-center-bill-signed",
-          "title": "Sierra Club Washington \u2014 Statement on SB 5982"
-        },
-        {
           "url": "https://pse.com/en/about-us/community/data-center-cost-analysis-2024",
-          "title": "Puget Sound Energy \u2014 Data Center Cost Study"
+          "title": "Puget Sound Energy — Data Center Cost Study"
         },
         {
           "url": "https://www.nwenergy.org/resources/data-center-cost-allocation",
-          "title": "Northwest Energy Coalition \u2014 Analysis of SB 5982"
+          "title": "Northwest Energy Coalition — Analysis of SB 5982"
         }
       ]
     },
@@ -1650,9 +1420,9 @@
         "water",
         "energy"
       ],
-      "summary": "Minnesota HF 4888 / SF 4298 (Data Center Environmental and Energy Assessment Act), proposed in the 2024 legislative session, sought a statewide moratorium on large hyperscale data center construction (no specific MW threshold but targeting 100+ MW facilities) pending comprehensive environmental and energy impact assessment. Primary trigger: concerns about data center demand on Minnesota's electricity grid \u2014 state relies heavily on hydroelectric power from Canadian border regions, sensitive to drought variability; summer peak-load risks post-2023 summer drought. Secondary trigger: water cooling impacts on Mississippi River and wetland-dependent ecosystems. Sponsored by Rep. Kaohly Vang (DFL-St. Paul) and Sen. Carla Nelson (R-Rochester) in unusual bipartisan coalition focused on water conservation. Failed in House Energy and Commerce Committee (vote: 11-10 against) in March 2024; did not advance to floor. Opposition from Greater Minnesota Regional Economic Development organizations, data center industry, and Minnesota Power (utility). Support from Minnesota Environmental Law Center, Clean Wisconsin, and water protection advocates. Positioned to return in 2026 session if data center permit pressure continues.",
+      "summary": "Minnesota HF 4888 / SF 4298 (Data Center Environmental and Energy Assessment Act), proposed in the 2024 legislative session, sought a statewide moratorium on large hyperscale data center construction (no specific MW threshold but targeting 100+ MW facilities) pending comprehensive environmental and energy impact assessment. Primary trigger: concerns about data center demand on Minnesota's electricity grid — state relies heavily on hydroelectric power from Canadian border regions, sensitive to drought variability; summer peak-load risks post-2023 summer drought. Secondary trigger: water cooling impacts on Mississippi River and wetland-dependent ecosystems. Sponsored by Rep. Kaohly Vang (DFL-St. Paul) and Sen. Carla Nelson (R-Rochester) in unusual bipartisan coalition focused on water conservation. Failed in House Energy and Commerce Committee (vote: 11-10 against) in March 2024; did not advance to floor. Opposition from Greater Minnesota Regional Economic Development organizations, data center industry, and Minnesota Power (utility). Support from Minnesota Environmental Law Center, Clean Wisconsin, and water protection advocates. Positioned to return in 2026 session if data center permit pressure continues.",
       "source_url": "https://www.revisor.mn.gov/bills/bill.php?b=House&f=HF4888&ssn=0&y=2024",
-      "source_title": "Minnesota Legislature \u2014 HF 4888 (2024)",
+      "source_title": "Minnesota Legislature — HF 4888 (2024)",
       "captured_at": "2026-06-15",
       "bill_number": "HF 4888 / SF 4298",
       "session": "2024",
@@ -1705,19 +1475,7 @@
         },
         {
           "url": "https://www.startribune.com/minnesota-data-center-bill-stalls/2024/03/",
-          "title": "Minneapolis Star Tribune \u2014 Data Center Bill Fails Committee"
-        },
-        {
-          "url": "https://www.minnpost.com/environment/2024/03/minnesota-senate-bill-stalls",
-          "title": "MinnPost \u2014 Environmental Analysis of Failed Moratorium"
-        },
-        {
-          "url": "https://www.melc.org/press-release/2024-03-hf4888",
-          "title": "Minnesota Environmental Law Center \u2014 Statement on HF 4888"
-        },
-        {
-          "url": "https://www.pca.state.mn.us/water-land-climate/power-generation-water-impacts",
-          "title": "Minnesota PCA \u2014 Data Center Cooling Water Impact Study"
+          "title": "Minneapolis Star Tribune — Data Center Bill Fails Committee"
         }
       ]
     },
@@ -1747,10 +1505,6 @@
         {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
-        },
-        {
-          "url": "https://www.nj.gov/pca/",
-          "title": "New Jersey Department of Environmental Protection"
         }
       ]
     },
@@ -1803,10 +1557,6 @@
       "source_title": "DatacenterBans.com",
       "captured_at": "2026-06-15",
       "resources": [
-        {
-          "url": "https://www.pulaskicountyar.org/",
-          "title": "Pulaski County, Arkansas"
-        },
         {
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
@@ -1960,7 +1710,10 @@
       "source_title": "LEX 18 — Lexington City Council unanimously passes data center moratorium",
       "captured_at": "2026-06-25",
       "city_council_vote": "Unanimous",
-      "sponsors": ["Councilmember Tyler Morton (1st District)", "Councilmember Liz Sheehan (5th District)"],
+      "sponsors": [
+        "Councilmember Tyler Morton (1st District)",
+        "Councilmember Liz Sheehan (5th District)"
+      ],
       "resources": [
         {
           "url": "https://www.lex18.com/news/covering-kentucky/lexington-city-council-passes-moratorium-on-data-center-development",
@@ -1988,15 +1741,11 @@
         "water"
       ],
       "summary": "Cave City (Barren County, KY) council enacted a 12-month moratorium on data center construction and expansion on May 21, 2026, by a 4-1 vote. Councilmember Denny Doyle cast the lone dissenting vote. Motivated by community concerns about a proposed large-scale data center and its impacts on local resources. Following enactment, Kentucky Industrial Alliance LLC filed a lawsuit against the City of Cave City, the city council, and the Barren County planning commission — making Cave City's moratorium one of the first in the country to face legal challenge from a developer.",
-      "source_url": "https://www.wbko.com/video/2026/05/21/cave-city-council-enacts-12-month-moratorium-on-data-centers/",
-      "source_title": "WBKO — Cave City Council enacts 12-month moratorium on data centers",
+      "source_url": "https://www.wbko.com/2026/05/21/cave-city-council-enacts-12-month-moratorium-data-centers/",
+      "source_title": "WBKO — Cave City Council enacts 12-month data center moratorium",
       "captured_at": "2026-06-25",
       "city_council_vote": "4-1",
       "resources": [
-        {
-          "url": "https://www.wbko.com/video/2026/05/21/cave-city-council-enacts-12-month-moratorium-on-data-centers/",
-          "title": "WBKO — Cave City Council enacts 12-month moratorium"
-        },
         {
           "url": "https://spectrumnews1.com/ky/louisville/news/2026/06/10/lawsuit-filed-over-data-center-",
           "title": "Spectrum News 1 — Developer sues Cave City over data center moratorium"
@@ -2058,10 +1807,6 @@
         {
           "url": "https://www.wusf.org/politics-issues/2026-06-24/zephyrhills-city-council-one-year-moratorium-data-centers",
           "title": "WUSF (NPR Florida) — Zephyrhills one-year moratorium"
-        },
-        {
-          "url": "https://www.zephyrhillsfl.org/",
-          "title": "City of Zephyrhills, Florida (official)"
         }
       ]
     },
@@ -2114,14 +1859,10 @@
         "water"
       ],
       "summary": "Citrus County (Nature Coast, Florida) approved a 12-month moratorium on data center development in May 2026. A county planning panel also recommended rejecting a pending data center rezoning application. Part of the broader wave of Central/North Florida county actions on data center proliferation, enacted before Florida's SB484 framework clarified the 1-year maximum moratorium pathway.",
-      "source_url": "https://www.chronicleonline.com/news/local/it-s-over-for-now-county-committee-recommends-rejecting-data-center-plan/article_994e44aa-f179-5706-aea4-1694b9ac679c.html",
-      "source_title": "Citrus County Chronicle — County committee recommends rejecting data center plan",
+      "source_url": "https://www.wfla.com/news/local-news/citrus-county/citrus-county-puts-moratorium-on-ai-data-centers/",
+      "source_title": "WFLA — Citrus County puts moratorium on AI data centers",
       "captured_at": "2026-06-25",
       "resources": [
-        {
-          "url": "https://www.chronicleonline.com/news/local/it-s-over-for-now-county-committee-recommends-rejecting-data-center-plan/article_994e44aa-f179-5706-aea4-1694b9ac679c.html",
-          "title": "Citrus County Chronicle — County committee recommends rejecting data center"
-        },
         {
           "url": "https://www.bocc.citrus.fl.us/",
           "title": "Citrus County Board of County Commissioners (official)"
@@ -2211,7 +1952,9 @@
       "source_url": "https://www.cfpublic.org/2026-06-25/lake-county-commission-plans-temporary-ban-on-data-centers",
       "source_title": "Central Florida Public Media — Lake County Commission plans temporary ban on data centers",
       "captured_at": "2026-06-25",
-      "sponsors": ["Commissioner Anthony Sabatini"],
+      "sponsors": [
+        "Commissioner Anthony Sabatini"
+      ],
       "resources": [
         {
           "url": "https://www.cfpublic.org/2026-06-25/lake-county-commission-plans-temporary-ban-on-data-centers",
@@ -2283,22 +2026,1037 @@
       "source_url": "https://www.wdrb.com/news/new-albany-plan-commission-advances-data-center-moratorium-to-city-council/article_b4b07b07-2dbb-40fe-b4aa-549640952ac8.html",
       "source_title": "WDRB — New Albany Plan Commission advances data center moratorium to City Council",
       "captured_at": "2026-06-25",
-      "sponsors": ["Mayor Jeff Gahan"],
+      "sponsors": [
+        "Mayor Jeff Gahan"
+      ],
       "resources": [
         {
           "url": "https://www.wdrb.com/news/new-albany-plan-commission-advances-data-center-moratorium-to-city-council/article_b4b07b07-2dbb-40fe-b4aa-549640952ac8.html",
           "title": "WDRB — New Albany Plan Commission advances moratorium to City Council"
-        },
-        {
-          "url": "https://newalbanyindiana.gov/",
-          "title": "City of New Albany, Indiana (official)"
         }
       ]
+    },
+    {
+      "id": "virginia-state-2026-01",
+      "jurisdiction": "Virginia",
+      "jurisdiction_type": "state",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Pause on local data-center approvals until all pending data-center grid-interconnection requests are fulfilled or July 1, 2028, whichever is earlier. Continued (carried over) to the 2027 session.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy"
+      ],
+      "summary": "HB 1515 (Del. Irene Shin) would bar a locality from granting final approval of any rezoning, special exception, special use permit, site plan, or plan of development for the siting of a new data center until the earlier of (i) fulfillment of all pending data-center requests for interconnection to distribution service or (ii) July 1, 2028. A House subcommittee continued the bill to the next (2027) session by voice vote in Rules on Feb 6, 2026, so it did not advance during the 2026 session.",
+      "source_url": "https://lis.virginia.gov/bill-details/20261/HB1515",
+      "source_title": "Virginia HB1515 - Virginia LIS (2026 Regular Session)",
+      "resources": [
+        {
+          "url": "https://lis.blob.core.windows.net/files/1096041.PDF",
+          "title": "HB1515 introduced bill text (official Virginia LIS document store)"
+        },
+        {
+          "url": "https://www.datacenterdynamics.com/en/news/more-than-60-data-center-related-bills-to-be-considered-by-virginias-legislature-this-year/",
+          "title": "Data Center Dynamics - 60+ Virginia data center bills, 2026 session"
+        },
+        {
+          "url": "https://www.pecva.org/resources/press/two-bills-with-potential-to-pause-data-center-approvals-and-plan-responsibly-for-the-future/",
+          "title": "Piedmont Environmental Council - bills to pause data center approvals"
+        }
+      ],
+      "bill_number": "HB1515",
+      "sponsors": [
+        "Del. Irene Shin"
+      ],
+      "key_stakeholders": {
+        "environmental": [
+          "Piedmont Environmental Council"
+        ],
+        "opposed": null
+      },
+      "enacted_by": null,
+      "legislative_votes": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "maryland-state-2026-01",
+      "jurisdiction": "Maryland",
+      "jurisdiction_type": "state",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Indefinite construction moratorium that would remain until the General Assembly enacts legislation requiring new data centers to co-locate with new/existing natural-gas, nuclear, or small-modular-reactor generation sized to meet or exceed the center's power needs.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "equity"
+      ],
+      "summary": "HB 120 'Moratorium on Construction of New Data Centers - Co-Location and Generation Contingency' (Delegates Fisher, Chisholm, M. Morgan, Szeliga) would prohibit any person from constructing a data center in Maryland and bar State or local governments from approving new data-center proposals, until the General Assembly passes legislation requiring new data centers to be co-located with power generation (gas, nuclear, or SMR) meeting or exceeding the center's demand. Pre-filed Oct 24, 2025; first reading Jan 14, 2026 (House Environment and Transportation); hearing set Feb 3, 2026. It received no committee vote and died when the 2026 regular session adjourned.",
+      "source_url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb0120?ys=2026RS",
+      "source_title": "Maryland HB0120 - Maryland General Assembly (2026 Regular Session)",
+      "resources": [
+        {
+          "url": "https://mgaleg.maryland.gov/2026RS/fnotes/bil_0000/hb0120.pdf",
+          "title": "HB0120 Fiscal and Policy Note - Maryland Department of Legislative Services"
+        }
+      ],
+      "bill_number": "HB0120",
+      "sponsors": [
+        "Del. Fisher",
+        "Del. Chisholm",
+        "Del. M. Morgan",
+        "Del. Szeliga"
+      ],
+      "key_stakeholders": null,
+      "enacted_by": null,
+      "legislative_votes": null,
+      "failure_reason": "Had a February 3, 2026 hearing scheduled in the House Environment and Transportation Committee but received no committee vote; did not advance before the 2026 regular session adjourned sine die.",
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "pennsylvania-state-2026-01",
+      "jurisdiction": "Pennsylvania",
+      "jurisdiction_type": "state",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 36,
+      "duration_description": "Reported three-year statewide moratorium on hyperscale data-center siting and permitting (duration per the sponsor's office and news reports; not stated on the fetched bill-info page).",
+      "power_threshold_mw": 20,
+      "key_reasons": [
+        "energy",
+        "water",
+        "equity"
+      ],
+      "summary": "SB 1359 (Sen. Katie Muth, D-44; bipartisan co-sponsors) is titled 'An Act imposing a Statewide moratorium on hyperscale data center development and permitting; and providing for enforcement.' Reporting indicates a three-year pause covering facilities with roughly 20 MW or more of monthly demand. It was referred to the Senate Local Government Committee on June 4, 2026, with no committee vote yet.",
+      "source_url": "https://www.palegis.us/legislation/bills/2025/sb1359",
+      "source_title": "Pennsylvania SB 1359 - Pennsylvania General Assembly (2025-2026 Regular Session)",
+      "resources": [
+        {
+          "url": "https://www.palegis.us/senate/co-sponsorship/memo?memoID=47154",
+          "title": "PA Senate Co-Sponsorship Memo 47154 (SB 1359)"
+        },
+        {
+          "url": "https://www.foodandwaterwatch.org/2026/06/01/pa-senator-katie-muth-introduces-comprehensive-bipartisan-data-center-moratorium/",
+          "title": "Food & Water Watch - Sen. Muth introduces bipartisan data center moratorium"
+        }
+      ],
+      "bill_number": "SB1359",
+      "sponsors": [
+        "Sen. Katie Muth"
+      ],
+      "key_stakeholders": {
+        "environmental": [
+          "Food & Water Watch"
+        ],
+        "opposed": null
+      },
+      "enacted_by": null,
+      "legislative_votes": null,
+      "failure_reason": null,
+      "session": "2025-2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "pennsylvania-state-2026-02",
+      "jurisdiction": "Pennsylvania",
+      "jurisdiction_type": "state",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 6,
+      "duration_description": "Would authorize municipalities to adopt an optional 180-day (six-month) pause on data-center applications while they update land-use/zoning ordinances. Passed the House 201-1; pending in the Senate.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "transparency"
+      ],
+      "summary": "HB 2496 (Rep. Paul Friel, D-26) amends the Pennsylvania Municipalities Planning Code to let municipalities enact an optional 180-day pause on data-center proposals while they develop zoning and land-use ordinances. The House passed it 201-1 on third consideration/final passage June 24, 2026; it was sent to the Senate and re-referred to Senate Rules & Executive Nominations on June 30, 2026.",
+      "source_url": "https://www.palegis.us/legislation/bills/2025/hb2496",
+      "source_title": "Pennsylvania HB 2496 - Pennsylvania General Assembly (2025-2026 Regular Session)",
+      "resources": [
+        {
+          "url": "https://www.palegis.us/house/co-sponsorship/memo?memoID=48467",
+          "title": "PA House Co-Sponsorship Memo 48467 - 'Zoning Consideration Period for Data Centers' (HB 2496)"
+        },
+        {
+          "url": "https://penncapital-star.com/economy/pa-house-passes-data-center-pause-along-with-shapiros-plan-for-responsible-development/",
+          "title": "Pennsylvania Capital-Star - PA House passes data center 'pause' (June 2026)"
+        }
+      ],
+      "bill_number": "HB2496",
+      "sponsors": [
+        "Rep. Paul Friel"
+      ],
+      "key_stakeholders": null,
+      "enacted_by": null,
+      "legislative_votes": "House 201-1 (third consideration / final passage, June 24, 2026)",
+      "failure_reason": null,
+      "session": "2025-2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "wisconsin-state-2026-01",
+      "jurisdiction": "Wisconsin",
+      "jurisdiction_type": "state",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Moratorium on data-center operation, conditioned on 100% of the facility's energy coming from newly built, directly accessible renewable generation.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy"
+      ],
+      "summary": "SB 1061, titled 'Relating to: moratorium on data centers' (Sens. Larson and Carpenter, with Assembly co-sponsors), would impose a moratorium on operating data centers that meet certain size/energy-demand thresholds (reported at 100 MW or more) and require that 100% of their energy come from newly built, directly accessible renewable generation. Introduced Feb 26, 2026, and referred to the Committee on Utilities, Technology and Tourism; it failed to pass pursuant to Senate Joint Resolution 1 when the legislature adjourned.",
+      "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/sb1061",
+      "source_title": "Wisconsin SB 1061 - Wisconsin State Legislature (2025-2026 Regular Session)",
+      "resources": [
+        {
+          "url": "https://wisconsinexaminer.com/2026/02/12/democratic-lawmakers-propose-data-center-moratorium/",
+          "title": "Wisconsin Examiner - Democratic lawmakers propose data center moratorium"
+        }
+      ],
+      "bill_number": "SB1061",
+      "sponsors": [
+        "Sen. Larson",
+        "Sen. Carpenter"
+      ],
+      "key_stakeholders": null,
+      "enacted_by": null,
+      "legislative_votes": null,
+      "failure_reason": "Failed to pass pursuant to Senate Joint Resolution 1 when the 2025-2026 legislature adjourned (recorded March 23, 2026); died in the Senate Committee on Utilities, Technology and Tourism.",
+      "session": "2025-2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "oklahoma-state-sb1488-2026",
+      "jurisdiction": "Oklahoma",
+      "jurisdiction_type": "state",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Construction moratorium on new data centers until November 1, 2029, pending a Corporation Commission study. NOTE: distinct from Oklahoma's already-tracked HB 2992 (2024); SB 1488 is a separate 2026 Senate moratorium bill.",
+      "power_threshold_mw": 100,
+      "key_reasons": [
+        "water",
+        "energy",
+        "equity"
+      ],
+      "summary": "SB 1488 (Sen. Kendal Sacchieri, R-Blanchard; House co-author Rep. Gann), titled 'Corporation Commission; establishing moratorium; requiring certain study,' would establish a moratorium on constructing new data centers in Oklahoma until November 1, 2029, during which the Corporation Commission would study impacts on water supply, utility rates, property values, and siting. Reporting indicates it applies to facilities with a 100 MW or greater load. On second reading it was referred to the Rules Committee and then Appropriations on Feb 3, 2026; it is reported as unlikely to pass this session. Distinct from Oklahoma's already-tracked HB 2992.",
+      "source_url": "https://oksenate.gov/press-releases/senator-sacchieri-files-legislation-address-unknown-impacts-data-centers-oklahoma",
+      "source_title": "Oklahoma Senate - Sen. Sacchieri files SB 1488 (data center moratorium), Jan 22, 2026",
+      "resources": [
+        {
+          "url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=SB1488&Session=2600",
+          "title": "Oklahoma Legislature - SB 1488 bill information and status"
+        },
+        {
+          "url": "https://www.govtech.com/products/oklahoma-bill-would-put-3-year-pause-on-data-centers",
+          "title": "Government Technology - Oklahoma bill would put 3-year pause on data centers"
+        }
+      ],
+      "bill_number": "SB1488",
+      "sponsors": [
+        "Sen. Kendal Sacchieri",
+        "Rep. Gann (House co-author)"
+      ],
+      "key_stakeholders": null,
+      "enacted_by": null,
+      "legislative_votes": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "boone-county-in-2026-06",
+      "jurisdiction": "Boone County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-06-15",
+      "effective_date": "2026-06-16",
+      "duration_months": 12,
+      "duration_description": "One year — effective June 16, 2026 through June 15, 2027, to allow updates to the county's Comprehensive Plan (2009) and Zoning Ordinance (1998).",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy"
+      ],
+      "summary": "The Boone County Board of Commissioners unanimously enacted a one-year moratorium pausing the filing, processing, review, and acceptance of applications for new data center facilities in unincorporated areas, effective June 16, 2026 through June 15, 2027. Officials noted neither the 2009 Comprehensive Plan nor the 1998 Zoning Ordinance contemplated modern data center development and its impacts on land use, infrastructure, utilities, agriculture, and rural character. Enacted.",
+      "source_url": "https://boonecounty.in.gov/2026/06/15/19190/",
+      "source_title": "Boone County, Indiana (.gov) — Boone County Commissioners Approve Moratorium on Data Centers",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "recommended_by": [
+          "Boone County Area Plan Commission"
+        ]
+      },
+      "enacted_by": "Boone County Board of Commissioners",
+      "city_council_vote": "Unanimous (Board of Commissioners); Area Plan Commission recommended 6-0 on May 6, 2026 and again 6-0 on June 3, 2026",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "santa-fe-county-nm-2026-07",
+      "jurisdiction": "Santa Fe County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-07-01",
+      "effective_date": null,
+      "duration_months": 18,
+      "duration_description": "18 months (extended from the originally proposed 12 months) to develop standards and evaluate water and electrical-demand impacts.",
+      "power_threshold_mw": 1,
+      "key_reasons": [
+        "water",
+        "energy",
+        "noise",
+        "air_quality"
+      ],
+      "summary": "The Santa Fe County Board of County Commissioners voted unanimously on July 1, 2026 to adopt an 18-month moratorium on data center development — extended from a proposed 12 months — with the regulatory threshold lowered from 100 MW to 1 MW. Commissioners cited large water and electricity use, serious risk to the water supply, groundwater impacts, grid reliability, noise from cooling systems, and backup diesel generators. Enacted.",
+      "source_url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers",
+      "source_title": "Santa Fe County (.gov) — Santa Fe County Approves 18-Month Moratorium on Data Centers",
+      "bill_number": null,
+      "sponsors": [
+        "Commissioner Lisa Cacari Stone (District 2)",
+        "Commissioner Hank Hughes (District 5)"
+      ],
+      "key_stakeholders": null,
+      "enacted_by": "Santa Fe County Board of County Commissioners",
+      "city_council_vote": "Unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "imperial-county-ca-2026-06",
+      "jurisdiction": "Imperial County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-06-16",
+      "effective_date": "2026-06-16",
+      "duration_months": null,
+      "duration_description": "Immediate 45-day urgency interim ordinance (Cal. Gov. Code §65858), renewable for up to 10 months and 15 days (until an advisory committee reports, expected January 2027).",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "The Imperial County Board of Supervisors voted 5-0 on June 16, 2026 to adopt an immediate 45-day urgency interim moratorium under California Government Code §65858, pausing approval and permitting of new and pending data center facilities in unincorporated areas; it may be renewed for up to 10 months and 15 days while a 19-member advisory committee develops zoning and building recommendations by January 2027. Residents cited energy and water consumption and environmental/public-health impacts. A developer (Sebastian Rucci) indicated intent to challenge the ordinance in court. Enacted.",
+      "source_url": "https://inewsource.org/2026/06/16/imperial-county-approves-data-center-moratorium/",
+      "source_title": "inewsource — Data center race officially on pause in Imperial County",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "opposed": [
+          "Sebastian Rucci (Huntington Beach data center developer)"
+        ]
+      },
+      "enacted_by": "Imperial County Board of Supervisors",
+      "city_council_vote": "5-0 (unanimous; urgency ordinance requires a four-fifths vote)",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "marshall-county-in-2026-04",
+      "jurisdiction": "Marshall County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-04-20",
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Permanent ban on new data centers (not a temporary moratorium) — reported as the first permanent data center ban in Indiana.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "air_quality"
+      ],
+      "summary": "Marshall County commissioners voted on April 20, 2026 to permanently ban data centers countywide — described as the first permanent data center ban in Indiana, not a temporary moratorium. Commissioners cited unresolved safety and environmental concerns, including the risk of a hazardous-materials ('HAZMAT') site; companion restrictions on solar and battery storage were advanced the same session. Enacted (permanent ban).",
+      "source_url": "https://www.wndu.com/2026/04/20/marshall-county-commissioners-ban-data-centers-limit-solar-projects/",
+      "source_title": "WNDU — Marshall County commissioners ban data centers, advance new limit on solar projects",
+      "resources": [
+        {
+          "url": "https://www.wfyi.org/statewide/2026-07-06/indiana-counties-data-center-moratoriums-bans-2026",
+          "title": "WFYI — Nearly a third of Indiana counties have moved to restrict data centers (confirms Marshall and Cass permanent bans)"
+        }
+      ],
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "Marshall County Board of Commissioners",
+      "city_council_vote": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "linn-county-ia-2026-07",
+      "jurisdiction": "Linn County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-07-01",
+      "effective_date": null,
+      "duration_months": 18,
+      "duration_description": "18 months (board may shorten or extend). Enacted despite a data center ordinance the same board approved in February 2026, to allow revisions addressing residents' concerns.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy",
+        "transparency"
+      ],
+      "summary": "The Linn County Board of Supervisors voted 2-1 on July 1, 2026 to enact an 18-month moratorium on new data center development in unincorporated Linn County — passed despite a data center ordinance the same board approved in February 2026 — to revise the ordinance around residents' concerns over water, power, and costs and to provide transparency. Supervisors Meisheid and Running-Marquardt voted yes; Scheetz opposed, warning it could push projects toward less-regulated jurisdictions. Enacted.",
+      "source_url": "https://www.kcrg.com/2026/07/01/despite-putting-ordinance-place-linn-county-passes-data-center-moratorium/",
+      "source_title": "KCRG — Despite putting ordinance in place, Linn County passes data center moratorium",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "Linn County Board of Supervisors",
+      "city_council_vote": "2-1 (Meisheid and Running-Marquardt for; Scheetz against)",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "harvey-county-ks-2026-01",
+      "jurisdiction": "Harvey County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-01-13",
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Runs through the end of 2028; the commission may rescind or extend it at any time. Applies to construction of data centers in unincorporated Harvey County.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "The Harvey County Commission unanimously enacted a moratorium on January 13, 2026 halting construction of data centers in unincorporated Harvey County through 2028, to give planning, zoning and environmental staff time to develop regulations; the commission may rescind or extend it at any time. Officials cited power and water concerns raised by nearby communities (Andale, Colwich). No data center application had been filed at the time. Enacted.",
+      "source_url": "https://www.kwch.com/2026/01/13/harvey-county-commission-places-moratorium-data-center-construction/",
+      "source_title": "KWCH — Harvey County Commission places moratorium on data center construction",
+      "resources": [
+        {
+          "url": "https://foxkansas.com/news/local/harvey-county-halts-data-center-projects-to-address-power-and-water-concerns-through-2028",
+          "title": "Fox Kansas — Harvey County halts data center projects to address power and water concerns through 2028"
+        }
+      ],
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "Harvey County Commission",
+      "city_council_vote": "Unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "prince-georges-county-md-2026-07",
+      "jurisdiction": "Prince George's County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-07-07",
+      "effective_date": null,
+      "duration_months": 24,
+      "duration_description": "Up to two years, or until the Council enacts legislation regulating data centers; can be lifted sooner if a zoning framework is adopted. Targets hyperscale data centers.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy"
+      ],
+      "summary": "The Prince George's County Council approved a resolution on July 7, 2026 establishing a moratorium of up to two years on new hyperscale data center development, barring the planning department from considering or approving applications until the Council enacts regulatory legislation (or adopts a zoning framework). Council members cited unanswered questions about water, health, environmental, and utility impacts. Council Member Tim Adams voted against and three members abstained. Enacted.",
+      "source_url": "https://wtop.com/prince-georges-county/2026/07/prince-georges-co-extends-pause-on-hyperscale-data-center-development/",
+      "source_title": "WTOP — Two-year moratorium on data center development passes in Prince George's Co.",
+      "resources": [
+        {
+          "url": "https://content.govdelivery.com/accounts/MDPGCLEG/bulletins/410bbbc",
+          "title": "Prince George's County Council Connection bulletin (official) — CB-19-2026, related data center review legislation introduced March 17, 2026"
+        }
+      ],
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "opposed": [
+          "Council Member Tim Adams"
+        ]
+      },
+      "enacted_by": "Prince George's County Council (sitting as the District Council)",
+      "city_council_vote": "Passed; Council Member Tim Adams opposed and three members abstained (full tally not reported)",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "washington-county-md-2026-06",
+      "jurisdiction": "Washington County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-06-30",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "One year (12 months) to study data centers and their infrastructure, economic, social, and environmental impacts.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise",
+        "air_quality"
+      ],
+      "summary": "The Washington County (Maryland) Board of County Commissioners voted 4-1 on June 30, 2026 to adopt a one-year moratorium on data center applications and development, to study impacts on utility infrastructure, water, noise, and environmental risks. Commissioners Wagner, Leatherman, Cline, and Barr voted yes; Commissioner Neil Parrott opposed. Concerns cited: high energy consumption straining utilities, noise from cooling systems and backup generators, substantial water use, hazardous materials and e-waste, and rural/agricultural land-use compatibility. Enacted.",
+      "source_url": "https://thedailyrecord.com/2026/07/01/washington-county-approves-yearlong-data-center-moratorium/",
+      "source_title": "Maryland Daily Record — Western MD county approves yearlong data center moratorium",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "opposed": [
+          "Commissioner Neil Parrott"
+        ]
+      },
+      "enacted_by": "Washington County Board of County Commissioners",
+      "city_council_vote": "4-1 (Wagner, Leatherman, Cline, Barr for; Parrott against)",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "orion-township-mi-2026-06",
+      "jurisdiction": "Orion Township, Oakland County",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-06-17",
+      "effective_date": null,
+      "duration_months": 6,
+      "duration_description": "Six months, with option to extend by resolution; not a ban. Applications submitted before the moratorium are grandfathered under the existing ordinance.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy"
+      ],
+      "summary": "The Orion Township (Oakland County, Michigan) Board of Trustees voted 7-0 on June 17, 2026 to enact a six-month moratorium on new data center development while it drafts zoning amendments, its current ordinance not addressing modern data centers; concerns cited include water and power usage. The board may extend it by resolution; it is not a ban. Enacted. NOTE: township-level jurisdiction typed as 'city' to match the dataset's existing convention for municipal (sub-county) jurisdictions (see meridian-township-mi, washington-township-macomb-mi).",
+      "source_url": "https://lakeorionreview.com/articles/news/orion-twp-board-passes-six-month-moratorium-on-data-centers/",
+      "source_title": "The Lake Orion Review — Orion Twp. board passes six-month moratorium on data centers",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "Orion Township Board of Trustees",
+      "city_council_vote": "7-0 (unanimous)",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "oneida-county-wi-2026-07",
+      "jurisdiction": "Oneida County",
+      "jurisdiction_type": "county",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "Proposed interim moratorium of at least one year (extendable). Passed the Planning & Development Committee unanimously; awaits full County Board (expected on the August 2026 agenda). Excludes un-zoned towns (Sugar Camp, Monico, Enterprise) and the City of Rhinelander.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy",
+        "noise",
+        "air_quality"
+      ],
+      "summary": "The Oneida County (Wisconsin) Planning and Development Committee unanimously passed an interim data center moratorium ordinance amendment that would bar the county from accepting, processing, or approving new data center developments for at least one year while it develops regulations. It still requires full County Board approval, expected on the August 2026 agenda; it excludes un-zoned towns and the City of Rhinelander. Concerns cited: water and electricity consumption, noise, and potential pollution. Proposed.",
+      "source_url": "https://www.wxpr.org/energy-environment/2026-07-10/oneida-county-data-center-moratorium-advances-to-county-board",
+      "source_title": "WXPR — Oneida County data center moratorium advances to county board",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": null,
+      "city_council_vote": "Passed the Planning & Development Committee unanimously; awaiting full County Board vote",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "lincoln-county-ne-2026-07",
+      "jurisdiction": "Lincoln County",
+      "jurisdiction_type": "county",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Proposed moratorium rejected 3-2 by the County Board; no moratorium took effect. Planning Commission continued drafting local data center regulations.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy"
+      ],
+      "summary": "On July 13, 2026 the Lincoln County (Nebraska) Board of Commissioners voted 3-2 against a proposed data center moratorium after lengthy public debate over water and power. Commissioners Hewgley, Bruns, and Woodruff voted against; Weems and Wuehler voted for. Opponents worried data centers would compete with agriculture for scarce water (including the proposed Perkins County Canal) and electricity; the Planning Commission continued drafting local regulations. Failed.",
+      "source_url": "https://www.knopnews2.com/2026/07/13/lincoln-county-debates-data-center-commissioners-vote-down-moratorium/",
+      "source_title": "KNOP — Lincoln County debates data center; commissioners vote down moratorium",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": null,
+      "city_council_vote": "3-2 against (Hewgley, Bruns, Woodruff against; Weems, Wuehler for)",
+      "failure_reason": "Rejected 3-2 by the County Board; a majority preferred to continue drafting regulations and weighed tax-base benefits over a pause.",
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "hood-county-tx-2026-02",
+      "jurisdiction": "Hood County",
+      "jurisdiction_type": "county",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Proposed six-month pause on new data center/industrial development rejected 3-2.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy",
+        "air_quality"
+      ],
+      "summary": "On February 10, 2026 the Hood County (Texas) Commissioners Court voted 3-2 to reject a proposed six-month moratorium on new data center/industrial development, after State Senator Paul Bettencourt sent a letter (to the Attorney General) asserting Texas counties lack the authority to impose moratoriums. Supporters had cited risks to water supply (up to ~1 million gallons/day at full buildout for the proposed Comanche Circle project), energy demand, air quality, wildlife, and quality of life. Failed.",
+      "source_url": "https://www.texastribune.org/2026/02/10/texas-hood-county-rejects-data-center-development-pause-ai/",
+      "source_title": "The Texas Tribune — A Texas county rejects moratorium on data center development",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "opposed": [
+          "State Senator Paul Bettencourt (R-Houston)"
+        ]
+      },
+      "enacted_by": null,
+      "city_council_vote": "3-2 against",
+      "failure_reason": "Rejected 3-2 after a state senator's letter warned that Texas counties lack constitutional/statutory authority to impose moratoriums and threatened state intervention.",
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "taylor-county-fl-2026-07",
+      "jurisdiction": "Taylor County",
+      "jurisdiction_type": "county",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "Proposed moratorium (recommended to run through December 31, 2026) failed for lack of support; a data center workshop was scheduled for August 25, 2026.",
+      "power_threshold_mw": null,
+      "key_reasons": [],
+      "summary": "On July 6, 2026 the Taylor County (Florida) Commission declined to adopt a proposed data center moratorium — recommended by Commissioner Pam Feagle to run through December 31 — with the motion failing for lack of support after Commissioner Michael Newman said he lacked sufficient information to back the policy. Commissioners agreed to hold a data center workshop on August 25, 2026. Failed.",
+      "source_url": "https://www.wctv.tv/2026/07/07/taylor-county-commission-votes-down-data-center-moratorium-residents-wonder-what-comes-next/",
+      "source_title": "WCTV — Taylor County Commission votes down data center moratorium, residents wonder what comes next",
+      "bill_number": null,
+      "sponsors": [
+        "Commissioner Pam Feagle (District 4)"
+      ],
+      "key_stakeholders": null,
+      "enacted_by": null,
+      "city_council_vote": null,
+      "failure_reason": "Motion failed for lack of support; Commissioner Michael Newman cited insufficient information. A data center workshop was scheduled for Aug 25, 2026.",
+      "session": "2026",
+      "captured_at": "2026-07-13"
+    },
+    {
+      "id": "charlotte-city-2026-06",
+      "jurisdiction": "Charlotte",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-06-08",
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "150 days, running through November 5, 2026; during that time city staff will draft new data center regulations.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development. Already-approved projects are exempt, and staff will use the pause to draft new regulations. Status: enacted.",
+      "source_url": "https://www.wfae.org/politics/2026-06-08/charlotte-city-council-approves-150-day-data-center-moratorium",
+      "source_title": "Charlotte City Council approves 150-day data center moratorium (WFAE)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": "unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "new-orleans-city-2026-01",
+      "jurisdiction": "New Orleans",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-01-28",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "One-year Data Center Interim Zoning District pausing issuance of occupational licenses and approvals for data centers citywide while zoning standards are studied; extendable per City Charter Section 3-126.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "transparency"
+      ],
+      "summary": "On January 28, 2026 the New Orleans City Council adopted Motion M-26-63 (with companion study motion M-26-62), directing the City Planning Commission to create a temporary Data Center Interim Zoning District that pauses occupational licenses and approvals for data centers, server farms and cryptocurrency-mining facilities citywide for one year. It followed a proposed AI data center in New Orleans East. Status: enacted.",
+      "source_url": "https://council.nola.gov/news/january-2026/new-orleans-city-council-approves-motions-to-study/",
+      "source_title": "New Orleans City Council Approves Motions to Study Data Center Zoning and Temporary Restrictions (council.nola.gov)",
+      "bill_number": "Motion M-26-63",
+      "sponsors": [
+        "Council President JP Morrell and Councilmember Jason Hughes"
+      ],
+      "key_stakeholders": {
+        "sponsors": [
+          "Council President JP Morrell",
+          "Councilmember Jason Hughes"
+        ]
+      },
+      "enacted_by": "City Council",
+      "city_council_vote": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "madison-city-2026-01",
+      "jurisdiction": "Madison",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-01-13",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "Up to one year; the moratorium ends when the City adopts zoning-code amendments creating land-use standards for data centers. Applies to zoning approvals for new data centers with floor area larger than 10,000 sq ft where a data center is the principal/primary use.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "On January 13, 2026 the Madison Common Council approved a temporary moratorium on issuing zoning approvals for new data centers larger than 10,000 square feet (where the data center is the primary use), lasting up to one year while the city develops zoning standards. Status: enacted.",
+      "source_url": "https://www.cityofmadison.com/dpced/about/temporary-data-center-moratorium",
+      "source_title": "Temporary Data Center Moratorium (City of Madison, WI)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "Common Council",
+      "city_council_vote": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "bangor-city-2026-04",
+      "jurisdiction": "Bangor",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-04-13",
+      "effective_date": null,
+      "duration_months": 6,
+      "duration_description": "180 days, or until zoning and land-use amendments to the Land Development Code take effect, whichever comes first.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "On April 13, 2026 the Bangor City Council voted unanimously to place a 180-day moratorium on data center development, citing sudden development pressure and the lack of any policy framework for infrastructure demands such as water and electricity. Status: enacted.",
+      "source_url": "https://www.bangordailynews.com/2026/04/13/bangor/bangor-government/bangor-city-council-bans-data-centers/",
+      "source_title": "Bangor City Council passes ban on data centers (Bangor Daily News)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": "unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "sterling-heights-city-2026-02",
+      "jurisdiction": "Sterling Heights",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-02-04",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "One-year halt on data center site requests while the city studies impacts and updates zoning regulations (current rules date to 1978).",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "noise"
+      ],
+      "summary": "On February 4, 2026 the Sterling Heights City Council (Michigan's fourth-largest city) unanimously passed a one-year moratorium on data center site requests, to allow time to study electricity impacts, resource use and noise near residential areas and to modernize 1978-era zoning. Status: enacted.",
+      "source_url": "https://www.cbsnews.com/detroit/news/sterling-heights-passes-1-year-moratorium-on-data-center-site-requests/",
+      "source_title": "Sterling Heights passes 1-year moratorium on data center site requests (CBS News Detroit)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": "unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "eagan-city-2026-02",
+      "jurisdiction": "Eagan",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-02-17",
+      "effective_date": "2026-02-17",
+      "duration_months": 12,
+      "duration_description": "Interim ordinance through February 17, 2027 (unless lifted earlier): no new data center within 500 feet of residential homes or using more than 20 MW of electricity.",
+      "power_threshold_mw": 20,
+      "key_reasons": [
+        "energy",
+        "noise",
+        "water"
+      ],
+      "summary": "On February 17, 2026 the Eagan City Council unanimously passed an interim ordinance barring any new data center within 500 feet of residences or using more than 20 MW of electricity, through February 17, 2027 — believed to be the first Minnesota city to enact a size/proximity-based data-center moratorium. Eagan Capital, LLC sued on June 15, 2026 seeking to void it, arguing the city lacks authority to regulate electricity use. Status: enacted (under legal challenge).",
+      "source_url": "https://www.cbsnews.com/minnesota/news/lawsuit-filed-eagan-data-center-moratorium/",
+      "source_title": "Lawsuit filed against Eagan asks court to void city's data center moratorium (CBS News Minnesota)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "opposed": [
+          "Eagan Capital, LLC (filed suit June 15, 2026 to declare the moratorium void and bar enforcement)"
+        ]
+      },
+      "enacted_by": "City Council",
+      "city_council_vote": "unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "spokane-city-2026-06",
+      "jurisdiction": "Spokane",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-06-22",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "One-year emergency moratorium; no new large data centers can be built or permitted for the next year. Definition amended to focus on the type of activity, not just facilities.",
+      "power_threshold_mw": 25,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "On June 22, 2026 the Spokane City Council approved a one-year emergency moratorium on new large data centers (those exceeding 25 megavolt-amperes) by a 6-1 vote, citing energy and water consumption concerns and the need for a regulatory framework. Status: enacted.",
+      "source_url": "https://www.spokesman.com/stories/2026/jun/22/spokane-city-council-approves-yearlong-moratorium-/",
+      "source_title": "Spokane City Council approves yearlong moratorium on new large data centers (The Spokesman-Review)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "opposed": [
+          "Councilmember Michael Cathcart (lone dissenting vote)"
+        ]
+      },
+      "enacted_by": "City Council",
+      "city_council_vote": "6-1",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "st-charles-city-2025-08",
+      "jurisdiction": "St. Charles",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2025-08-22",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "One-year moratorium pausing acceptance of zoning-change applications for data centers and issuance of building permits for data centers while the city studies effects and revises the zoning code. (In May 2026 the council moved to permanently restrict large-scale data centers.)",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "On August 22, 2025 the St. Charles City Council approved a one-year moratorium pausing data-center zoning-change applications and building permits, following public opposition to a proposed 440-acre project ('Project Cumulus') that the developer (CRG) later withdrew. All ten council members co-sponsored the measure. Status: enacted.",
+      "source_url": "https://www.govtech.com/policy/st-charles-mo-moves-to-ban-data-centers-for-1-year",
+      "source_title": "St. Charles, Mo., Moves to Ban Data Centers for 1 Year (Government Technology)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": null,
+      "failure_reason": null,
+      "session": "2025",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "tulsa-city-2026-03",
+      "jurisdiction": "Tulsa",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-03-25",
+      "effective_date": null,
+      "duration_months": 9,
+      "duration_description": "Roughly nine months, through December 31, 2026, or until the City Council updates zoning rules. Pauses processing and approval of new building permits for data centers; Project Anthem phases 1 and 2 exempted.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "summary": "The Tulsa City Council unanimously approved a temporary halt on new data center construction (through December 31, 2026), pausing processing and approval of new data-center building permits while the city studies how such facilities are classified for zoning. Councilor Laura Bellis led the effort; Project Anthem phases 1-2 are exempt. Status: enacted.",
+      "source_url": "https://ktul.com/news/local/tulsa-city-council-oks-temporary-halt-on-new-data-center-construction-through-2026",
+      "source_title": "Tulsa City Council OKs temporary halt on new data center construction through 2026 (KTUL)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": "unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "okc-city-2026-04",
+      "jurisdiction": "Oklahoma City",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-04-21",
+      "effective_date": "2026-04-21",
+      "duration_months": null,
+      "duration_description": "Effective immediately through December 31, 2026 (or earlier if code amendments are approved). Halts acceptance of new applications and processing/issuance of rezoning requests and permits for construction or expansion of data centers; two pending rezoning cases exempted. In May 2026 the council amended it to let data centers using up to 75 MW apply.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "transparency"
+      ],
+      "summary": "On April 21, 2026 the Oklahoma City Council unanimously approved an emergency moratorium halting new applications and rezoning/permits for data-center construction or expansion through December 31, 2026, while staff evaluate concerns and possible code changes. Two pending rezoning cases are exempt; a May 2026 amendment allowed data centers up to 75 MW to apply. Status: enacted.",
+      "source_url": "https://www.okenergytoday.com/2026/04/data-center-moratorium-in-okc/",
+      "source_title": "Data center moratorium in OKC (Oklahoma Energy Today)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": "unanimous",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "fayetteville-ga-city-2026-03",
+      "jurisdiction": "Fayetteville",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-03-05",
+      "effective_date": "2026-03-05",
+      "duration_months": null,
+      "duration_description": "Permanent prohibition (not time-limited): as of March 5, 2026 new data centers are prohibited in every City of Fayetteville zoning district. Ordinance 26-O-12 updated chapters 200 and 400 of the Unified Development Ordinance; it followed and replaced an earlier temporary moratorium.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "The City of Fayetteville adopted Ordinance 26-O-12, and as of March 5, 2026 new data centers are prohibited in every city zoning district — a permanent zoning prohibition that replaced an earlier temporary data-center moratorium. Fayetteville is home to a QTS hyperscale campus that broke ground in 2023. Status: enacted (permanent prohibition).",
+      "source_url": "https://www.fayetteville-ga.gov/746/Data-Center-Discussion",
+      "source_title": "Data Center Discussion (City of Fayetteville, GA)",
+      "bill_number": "Ordinance 26-O-12",
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "birmingham-city-2026-03",
+      "jurisdiction": "Birmingham",
+      "jurisdiction_type": "city",
+      "status": "enacted",
+      "enacted_date": "2026-03-03",
+      "effective_date": null,
+      "duration_months": 9,
+      "duration_description": "Proposed as a 270-day (about nine-month) pause on accepting and approving new data-center applications (announced Dec 16, 2025; public hearing Jan 13, 2026). Adopted by the City Council in early 2026 and subsequently superseded by permanent data-center zoning rules the city adopted (birminghamal.gov/datacenters).",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "summary": "The City of Birmingham enacted a temporary pause on accepting and approving new/expanding data-center applications (proposed as a 270-day moratorium in December 2025), giving the city time to develop zoning and land-use guardrails. It was later superseded by permanent data-center zoning regulations the city adopted (its 'datacenters' page confirms updated zoning rules are in place). Status: enacted (since superseded by permanent regulation).",
+      "source_url": "https://www.birminghamal.gov/news/city-birmingham-proposes-temporary-pause-new-data-center-applications",
+      "source_title": "The City of Birmingham proposes temporary pause on new data center applications (birminghamal.gov)",
+      "resources": [
+        {
+          "url": "https://www.birminghamal.gov/datacenters",
+          "title": "Data Centers In Birmingham (City of Birmingham, AL)"
+        }
+      ],
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "City Council",
+      "city_council_vote": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "cleveland-city-2026-04",
+      "jurisdiction": "Cleveland",
+      "jurisdiction_type": "city",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 3,
+      "duration_description": "Proposed three-month pause (reduced by Mayor Justin Bibb from an original ~one-year proposal). Applies only to standalone data-center buildings — ground-up construction and expansions — not in-house/multi-tenant server rooms. Full council vote scheduled for July 15, 2026.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy"
+      ],
+      "summary": "Cleveland City Council's Utilities Committee advanced a proposed three-month moratorium on new standalone data-center construction and expansions; a full council vote was scheduled for July 15, 2026. The pause would let the city develop guidelines and modernize decades-old zoning; new data-center rules are expected by September 14, 2026. Status: proposed.",
+      "source_url": "https://signalcleveland.org/cleveland-data-center-moratorium-city-council/",
+      "source_title": "Cleveland 3-month data center pause heads to City Council vote (Signal Cleveland)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "note": "Advanced by the City Council Utilities Committee (Chair Brian Kazy); duration reduced to three months by Mayor Justin Bibb; full council vote set for July 15, 2026."
+      },
+      "enacted_by": null,
+      "city_council_vote": null,
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "council-bluffs-city-2026-06",
+      "jurisdiction": "Council Bluffs",
+      "jurisdiction_type": "city",
+      "status": "failed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "A proposed one-year moratorium on new data-center projects was rejected; the council favored addressing zoning through new regulations and a wastewater-management plan rather than a pause.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "On June 16, 2026 the Council Bluffs City Council unanimously rejected a proposed year-long moratorium on new data-center projects. Members cited economic-development concerns and said zoning issues could be handled through new regulations and a wastewater-management plan rather than a pause. Status: failed (rejected).",
+      "source_url": "https://www.kmaland.com/news/council-bluffs-council-denies-proposed-moratorium-on-new-data-centers/article_57610dda-a991-41c5-99a5-d4bd772cd936.html",
+      "source_title": "Council Bluffs council denies proposed moratorium on new data centers (KMAland)",
+      "bill_number": null,
+      "sponsors": null,
+      "key_stakeholders": {
+        "opposed": [
+          "City Council majority (rejected the moratorium)",
+          "Councilman Douglas Rew (opposed, citing 'open for business' concerns)"
+        ]
+      },
+      "enacted_by": null,
+      "city_council_vote": "unanimous rejection",
+      "failure_reason": "Council members opposed the moratorium on economic-development grounds, preferring to address data centers through new zoning regulations, case-by-case negotiations, and a wastewater-management plan rather than a blanket pause.",
+      "session": "2026",
+      "captured_at": "2026-07-14"
     }
   ],
   "china_anti_datacenter_messaging": {
     "overview": "Some tech industry figures claim that China is deliberately promoting anti-data-center messaging and environmental opposition to slow US AI infrastructure expansion. These claims suggest coordinated messaging campaigns to stoke opposition at the local level. However, documented evidence of such campaigns remains sparse, and moratoriums are driven by documented local environmental and planning concerns, not foreign propaganda.",
-    "key_claim": "Kevin O'Leary and other venture capitalists claim China is stoking data center opposition to slow US AI development. Environmental moratoriums are driven by grid strain, water depletion, and local zoning concerns\u2014not foreign influence.",
+    "key_claim": "Kevin O'Leary and other venture capitalists claim China is stoking data center opposition to slow US AI development. Environmental moratoriums are driven by grid strain, water depletion, and local zoning concerns—not foreign influence.",
     "industry_claims": {
       "kevin_oleary_claim": {
         "claimant": "Kevin O'Leary (venture capitalist, Shark Tank investor)",
@@ -2309,9 +3067,9 @@
         "evidence_of_campaign": "No documented evidence of coordinated Chinese propaganda campaign; claim remains speculation"
       },
       "competing_explanations": {
-        "documented_drivers": "Moratoriums are demonstrably driven by measurable environmental concerns: electricity grid strain (Maine, New York face real capacity constraints), water depletion in arid regions (Arizona, Utah), and local planning concerns\u2014not foreign messaging.",
-        "local_opposition": "Opposition comes from: utility ratepayers (Entergy Mississippi), local governments (Maine legislature voted 108-39), environmental NGOs (NRDC, Audubon), indigenous nations (Penobscot), and community residents\u2014no Chinese connection documented",
-        "timing": "Moratoriums accelerated 2024-2026 as electricity demand from AI exceeded grid capacity\u2014causation is physics and energy markets, not propaganda"
+        "documented_drivers": "Moratoriums are demonstrably driven by measurable environmental concerns: electricity grid strain (Maine, New York face real capacity constraints), water depletion in arid regions (Arizona, Utah), and local planning concerns—not foreign messaging.",
+        "local_opposition": "Opposition comes from: utility ratepayers (Entergy Mississippi), local governments (Maine legislature voted 108-39), environmental NGOs (NRDC, Audubon), indigenous nations (Penobscot), and community residents—no Chinese connection documented",
+        "timing": "Moratoriums accelerated 2024-2026 as electricity demand from AI exceeded grid capacity—causation is physics and energy markets, not propaganda"
       }
     },
     "assessment": {
@@ -2348,25 +3106,25 @@
         "description": "US Commerce Department maintains Entity List of foreign companies banned from US technology and components. Updated 2024-2025 to include critical data center and semiconductor actors.",
         "key_entities_banned": [
           {
-            "entity": "Huawei (\u5168\u534e\u4e3a)",
+            "entity": "Huawei (全华为)",
             "reason": "Espionage, national security threat",
             "date_added": "2019, expanded 2020-2024",
             "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
           },
           {
-            "entity": "ZTE (\u4e2d\u5174\u901a\u8baf)",
+            "entity": "ZTE (中兴通讯)",
             "reason": "Espionage, sanctions violations",
             "date_added": "2016, 2019",
             "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
           },
           {
-            "entity": "SMIC (\u4e2d\u82af\u56fd\u9645)",
+            "entity": "SMIC (中芯国际)",
             "reason": "Advanced semiconductor manufacturing (5nm), national security concern",
             "date_added": "2024",
             "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"
           },
           {
-            "entity": "CXMT (\u957f\u6c5f\u5b58\u50a8)",
+            "entity": "CXMT (长江存储)",
             "reason": "Memory chip manufacturing for military/surveillance applications",
             "date_added": "2024",
             "evidence_url": "https://www.bis.doc.gov/index.php/the-entity-list"

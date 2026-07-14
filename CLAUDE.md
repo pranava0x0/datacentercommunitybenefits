@@ -465,6 +465,84 @@ function wireBtn(id, handler) {
 
 One-liner for wiring a button by id with double-wiring guard. Use this for all new export or action buttons; don't inline the guard repeatedly.
 
+### Moratorium comprehensiveness + accuracy pass (v1.20)
+
+Big expansion + integrity pass. Moratoriums **59 → 91** (33 verified new records
+across state/county/city), ratepayer scorecard **26 → 37 assessed sites**.
+
+- **Validator v2 (`--links-only`).** `scripts/validate_moratoriums.py` now has a
+  fast, deterministic link-liveness mode: a browser-UA `requests` fetcher
+  (falls back to urllib) that follows redirects and classifies every URL as
+  **live** (2xx) / **blocked** (403/429/SSL/timeout — real site, bot-walls us) /
+  **dead** (404/410/DNS/refused). Only `dead` is actionable; this stops the
+  urllib fetcher's 403/SSL false-negatives from reading as broken links.
+  `--fail-on-dead-link` is the CI gate; writes `moratorium_link_report.json`
+  (git-ignored). Wrapped in the **`validate-moratoriums` skill**
+  (`.claude/skills/validate-moratoriums/`). **The audit's job is link liveness +
+  gov-source presence — deterministic and repeatable. Claim-text verification
+  stays best-effort** (JS-rendered gov pages defeat any plain fetcher). Use
+  WebFetch (gets through bot-walls) to actually fix links; the script can't.
+- **Accuracy is a curation act, not just a link check.** The audit surfaced two
+  records whose central claim was *false*, not just dead-linked: a Loudoun County
+  "ban" (the county only moved data centers by-right→special-exception; no
+  moratorium — **removed**) and a Connecticut "2-year >15 MW moratorium" (the real
+  bills were a tax-incentive repeal + a co-location rule — **summary corrected**).
+  When a source contradicts the record, fix/remove the record, don't just swap the
+  URL. Also stripped **55 fabricated/dead `.gov` "resource" links** (a prior gen
+  pass hallucinated plausible `.gov` paths). Net honest tradeoff: no-gov-source
+  count *rose* (47) because fake gov links were removed — surfaced for future
+  curation, not hidden. **Don't fabricate a `.gov` URL to satisfy the gov check.**
+- **Moratorium Nation CSV** (`mjbommar.github.io/moratorium-data-2026`) is the
+  richest lead source (222 rows) but carries **no per-row source URL** — mine it as
+  a work-list, verify a live primary per row, never bulk-import (see BACKLOG).
+- **Summary charts (`renderMoratoriumCharts`).** Pure DOM+CSS (no chart lib), so
+  they re-theme on the dark swap via CSS vars — no `getComputedStyle` snapshot.
+  Three charts above the table: a stacked-column **timeline** (`_morTimelineChart`,
+  quarter buckets by `enacted_date||effective_date||captured_at`), and horizontal
+  bar sets for **concerns** and **jurisdiction level**. New `--moratorium-{enacted,
+  proposed,failed}` tokens (literal in BOTH `:root` blocks per DESIGN.md 12.12),
+  reusing the tariff/stance green/amber/red language.
+- **PDF export redesign.** `exportMoratoriumsToPDF` builds a typographed document
+  (`.mpdf-*` scoped `<style>`): serif display cover + kicker/dek, color-topped stat
+  tiles, mini-bar summaries, a zebra directory table with status pills, and
+  per-record detail cards each with a **sources list** (primary + resources, full
+  URLs). html2canvas rasterizes, so colors are **hardcoded light-theme hex** (it
+  won't resolve app CSS vars) and `scale: 1.6` + `jpeg 0.9` + `jsPDF compress`
+  keeps a ~90-record export near ~9 MB instead of ~18 MB at scale 2.
+
+### Ratepayer: individual-vs-general basis + conflict surfacing (v1.20)
+
+Answers the two questions "was this site claimed individually or only company-wide?"
+and "has any report come out that conflicts with meeting the pledge?"
+
+- **Claim-basis badge (`rpClaimBasis`/`rpBasisBadgeHtml`).** Derived from whether a
+  site-specific `evidence_claim_id` backs the record: **individual** ("Claimed
+  individually") vs **company-wide** ("Company-wide pledge only"). Rendered in the
+  always-visible card header. `affirmed` and `contested`-with-evidence read as
+  individual; `pledge_only` reads as company-wide.
+- **Conflicting reports (`rpConflictingReports`/`rpConflictsHtml`).** Surfaces
+  negative `CommunityResponse`s about ratepayer cost-shift on **any** card
+  (affirmed / pledge_only / contested) — a header **"⚠ Ratepayer concern"** flag +
+  an expandable block listing each finding with its source. **Matching is
+  id-based-first: a response whose id contains `ratepayer` is a curated conflict**
+  (both the Synapse contested-site responses and the added regulator/report
+  conflicts use that convention), with a keyword fallback (`RP_CONFLICT_KEYWORDS`).
+  Keyword-only matching missed the Georgia PSC conflict ("shift costs onto
+  residential customers" has no exact keyword) — the id tag is the reliable signal.
+  Summaries note when a finding is **system/utility-wide** (Georgia Power fleet,
+  Dominion cluster) rather than pinned to the one site — don't overclaim
+  site-specific dispute.
+- **Strict first-party bar for `affirmed`.** An `affirmed` Claim must be the
+  *company's* words. A utility ESA quote (Minnesota Power's COO on the Google
+  Hermantown site) is **not** first-party to the company → recorded as
+  `pledge_only`, not `affirmed`. A named-company-exec quote in a trade outlet, or a
+  quote attributed to the company itself, **is** first-party (Google's Wilbarger
+  exec quote; Microsoft's Pecos statement) → `affirmed`.
+- **New assessments:** 10 previously-unassessed pledge-era sites (7 affirmed w/
+  backing Claims + 3 pledge_only) + one new post-pledge site (`microsoft-pecos-tx`,
+  affirmed) + 3 conflict responses (Louisiana/Meta-Hyperion→meta-richland-la,
+  Georgia-PSC→google-lagrange-ga, Dominion/JLARC→google-chesterfield-va).
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:

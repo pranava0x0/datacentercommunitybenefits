@@ -119,3 +119,23 @@ Projects with important gaps:
 | 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
 | 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: bill_number='SB232' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
 | 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
+
+## Moratorium accuracy + link pass (2026-07-14)
+
+Ran the hardened `scripts/validate_moratoriums.py --links-only` (browser-UA
+`requests` fetcher, dead/blocked/live classification) over all records, then
+fixed what it surfaced. Every record now resolves to a **live** source
+(`primary-source dead: 0`, `total dead links: 0`).
+
+| Date | Record | Finding | Action | Status |
+|------|--------|---------|--------|--------|
+| 2026-07-14 | moratoriums:loudoun-county-va-2026-03 | "Ban on new data center development" unsubstantiated — loudoun.gov shows only a by-right→special-exception rezoning process, no moratorium | Removed the record; re-add with a reliable primary source if a 6-month ≥50 MW pause is confirmed | Fixed (removed) |
+| 2026-07-14 | moratoriums:connecticut-state-2026-02 | Described as a "2-year moratorium on >15 MW"; the actual bills (SB245 tax-incentive repeal, HB5469 co-location rule) are not a moratorium | Corrected summary to the real bills; repointed to live CT Mirror source | Fixed |
+| 2026-07-14 | moratoriums:cave-city-ky-2026-05 | Primary WBKO `/video/` URL 404 | Repointed to the live WBKO article (facts confirmed) | Fixed |
+| 2026-07-14 | moratoriums:citrus-county-fl-2026-05 | Primary chronicleonline URL 404 | Repointed to the live WFLA article | Fixed |
+| 2026-07-14 | moratoriums (55 links across records) | Fabricated / dead `.gov` "resource" links (e.g. a Colorado water-shortage page cited for a Denver moratorium) | Stripped all verified-dead resource links | Fixed |
+| 2026-07-14 | moratoriums (47 records) | No live `.gov`/official source link (worse than the pre-fix count because fabricated `.gov` links were removed) | Backlog: add real gov links via `--links-only` audit; live news source is acceptable interim | Open |
+
+Note: the older `## Moratorium source audit` rows below are stale false-negatives
+from the pre-hardening urllib fetcher (many gov pages bot-blocked it / are
+JS-rendered). Re-run the full audit with the new fetcher before acting on them.
