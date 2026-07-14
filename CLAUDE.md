@@ -465,6 +465,164 @@ function wireBtn(id, handler) {
 
 One-liner for wiring a button by id with double-wiring guard. Use this for all new export or action buttons; don't inline the guard repeatedly.
 
+### Moratorium comprehensiveness + accuracy pass (v1.20)
+
+Big expansion + integrity pass. Moratoriums **59 → 91** (33 verified new records
+across state/county/city), ratepayer scorecard **26 → 37 assessed sites**.
+
+- **Validator v2 (`--links-only`).** `scripts/validate_moratoriums.py` now has a
+  fast, deterministic link-liveness mode: a browser-UA `requests` fetcher
+  (falls back to urllib) that follows redirects and classifies every URL as
+  **live** (2xx) / **blocked** (403/429/SSL/timeout — real site, bot-walls us) /
+  **dead** (404/410/DNS/refused). Only `dead` is actionable; this stops the
+  urllib fetcher's 403/SSL false-negatives from reading as broken links.
+  `--fail-on-dead-link` is the CI gate; writes `moratorium_link_report.json`
+  (git-ignored). A companion **`--completeness`** mode (pure-schema, no network)
+  flags records **missing a bill/ordinance #, gov link, vote, or sponsors** — the
+  "still missing bill #s / links / specific language" gaps a curator fills before
+  shipping (`--fail-on-incomplete` gate). Wrapped in the **`validate-moratoriums`
+  skill** (`.claude/skills/validate-moratoriums/`). **The audit's job is link liveness +
+  gov-source presence — deterministic and repeatable. Claim-text verification
+  stays best-effort** (JS-rendered gov pages defeat any plain fetcher). Use
+  WebFetch (gets through bot-walls) to actually fix links; the script can't.
+- **Accuracy is a curation act, not just a link check.** The audit surfaced two
+  records whose central claim was *false*, not just dead-linked: a Loudoun County
+  "ban" (the county only moved data centers by-right→special-exception; no
+  moratorium — **removed**) and a Connecticut "2-year >15 MW moratorium" (the real
+  bills were a tax-incentive repeal + a co-location rule — **summary corrected**).
+  When a source contradicts the record, fix/remove the record, don't just swap the
+  URL. Also stripped **55 fabricated/dead `.gov` "resource" links** (a prior gen
+  pass hallucinated plausible `.gov` paths). Net honest tradeoff: no-gov-source
+  count *rose* (47) because fake gov links were removed — surfaced for future
+  curation, not hidden. **Don't fabricate a `.gov` URL to satisfy the gov check.**
+- **Moratorium Nation CSV** (`mjbommar.github.io/moratorium-data-2026`) is the
+  richest lead source (222 rows) but carries **no per-row source URL** — mine it as
+  a work-list, verify a live primary per row, never bulk-import (see BACKLOG).
+- **Summary charts (`renderMoratoriumCharts`).** Pure DOM+CSS (no chart lib), so
+  they re-theme on the dark swap via CSS vars — no `getComputedStyle` snapshot.
+  Three charts above the table: a stacked-column **timeline** (`_morTimelineChart`,
+  quarter buckets by `enacted_date||effective_date||captured_at`), and horizontal
+  bar sets for **concerns** and **jurisdiction level**. New `--moratorium-{enacted,
+  proposed,failed}` tokens (literal in BOTH `:root` blocks per DESIGN.md 12.12),
+  reusing the tariff/stance green/amber/red language.
+- **Timeline: one combined bar per quarter; jurisdiction level is a FILTER, not a
+  second visual encoding.** `colour = status` is the only visual scale. Level lives in
+  a segmented toggle (`.mor-toggle`, `MOR_TIMELINE_LEVELS`): **All / City-County /
+  State / Federal**, each showing its record count. We tried encoding level as fill
+  texture (city solid vs. hatched) and then as parallel bars — both made a small
+  chart carry too much, and the parallel version doubled the axis width (see the
+  clipping bug below). A toggle is the cheaper answer: one bar, one scale, level on
+  demand. If a level split is ever needed *inside* a bar again, add a texture —
+  **never** a second colour ramp.
+- **The axis range AND y-scale derive from the FULL dataset, never the filtered
+  subset.** This is what makes the toggle honest: quarters don't shift when you
+  filter (it reads as filtering *in place*), and bar heights stay comparable between
+  levels. Rescaling per filter would render Federal's **single** record as a
+  full-height bar — as tall as a 58-record quarter. It must read as the sliver it is
+  (`test_shared_yscale_keeps_federal_a_sliver`). Segment heights use `Math.max(2, …)`
+  so slivers stay visible rather than rounding to nothing.
+  What the toggle actually surfaces: **cities enact, states propose and fail** — the
+  State view is mostly amber/red where the City/County view is green.
+- **`overflow-x: auto` on a time-series chart silently eats the newest data.**
+  (Learned when the levels were parallel bars: doubling the bars per quarter pushed
+  the axis past the container.) The plot scrolled and **clipped the 2026 surge
+  off-screen with no affordance** — it read as "the data is missing," and it shipped
+  that way. The safeguards below stay in place regardless of bar count, because a
+  long-enough axis will always outgrow a narrow viewport:
+  (1) size so the full axis **fits** (a `max-width:560px` media query narrows the
+  columns); (2) keep the **scrollbar visible**
+  (`scrollbar-width: thin` + a styled `::-webkit-scrollbar`) — a hidden scrollbar is
+  how data disappears quietly; (3) **park `scrollLeft` on the most RECENT** column
+  after render, so whatever clips is the near-empty past, never the current surge.
+  Do the park twice — once inline and once in `requestAnimationFrame` — because a
+  chart rendered while its tab is still `display:none` has **zero `scrollWidth`**, so
+  the inline call is a silent no-op. Guarded by
+  `test_recent_quarters_never_clipped_on_narrow_viewport`.
+  Measure clipping with `getBoundingClientRect` against the plot's rect —
+  **not** `offsetLeft`, which is relative to the nearest *positioned* ancestor (the
+  plot isn't one) and will lie to you.
+
+### New York: an executive order and a bill are SEPARATE records (v1.20)
+
+NY carries **two** moratorium records and they must not be conflated:
+- `ny-state-eo62-2026-07` — **Executive Order No. 62**, signed 2026-07-14: the
+  nation's **first statewide data center moratorium**. DEC holds pending discretionary
+  permits in abeyance for data centers **≥ 50 MW**, until DPS delivers a final Generic
+  Environmental Impact Statement. State environmental permitting only — **local permits
+  are not covered**. Exempts manufacturing, research (incl. quantum), accredited
+  education (incl. Empire AI) and medical care. Empire State Development must post a
+  "Community Investment Framework" within 60 days. Primary source is the `.gov` EO text.
+- `ny-state-2026-06` — the **legislature's bill** (S7992/A7234, **20 MW**, 1 year),
+  passed 2026-06-04 and **still unsigned**; Hochul issued the EO instead. Stays `proposed`.
+
+Lesson: an executive order and a bill are different instruments with different
+thresholds and different fates. When a governor "acts," check *which* instrument —
+don't flip the bill record to `enacted` because an EO landed the same day.
+- **PDF export redesign.** `exportMoratoriumsToPDF` builds a typographed document
+  (`.mpdf-*` scoped `<style>`): serif display cover + kicker/dek, color-topped stat
+  tiles, mini-bar summaries, a zebra directory table with status pills, and
+  per-record detail cards each with a **sources list** (primary + resources, full
+  URLs). html2canvas rasterizes, so colors are **hardcoded light-theme hex** (it
+  won't resolve app CSS vars) and `scale: 1.6` + `jpeg 0.9` + `jsPDF compress`
+  keeps a ~90-record export near ~9 MB instead of ~18 MB at scale 2.
+
+### Ratepayer: individual-vs-general basis + conflict surfacing (v1.20)
+
+Answers the two questions "was this site claimed individually or only company-wide?"
+and "has any report come out that conflicts with meeting the pledge?"
+
+- **Claim-basis badge (`rpClaimBasis`/`rpBasisBadgeHtml`).** Derived from whether a
+  site-specific `evidence_claim_id` backs the record: **individual** ("Claimed
+  individually") vs **company-wide** ("Company-wide pledge only"). Rendered in the
+  always-visible card header. `affirmed` and `contested`-with-evidence read as
+  individual; `pledge_only` reads as company-wide.
+- **Conflicting reports (`rpConflictingReports`/`rpConflictsHtml`).** Surfaces
+  negative `CommunityResponse`s about ratepayer cost-shift on **any** card
+  (affirmed / pledge_only / contested) — a header **"⚠ Ratepayer concern"** flag +
+  an expandable block listing each finding with its source. **Matching is
+  id-based-first: a response whose id contains `ratepayer` is a curated conflict**
+  (both the Synapse contested-site responses and the added regulator/report
+  conflicts use that convention), with a keyword fallback (`RP_CONFLICT_KEYWORDS`).
+  Keyword-only matching missed the Georgia PSC conflict ("shift costs onto
+  residential customers" has no exact keyword) — the id tag is the reliable signal.
+  Summaries note when a finding is **system/utility-wide** (Georgia Power fleet,
+  Dominion cluster) rather than pinned to the one site — don't overclaim
+  site-specific dispute.
+- **Strict first-party bar for `affirmed`.** An `affirmed` Claim must be the
+  *company's* words. A utility ESA quote (Minnesota Power's COO on the Google
+  Hermantown site) is **not** first-party to the company → recorded as
+  `pledge_only`, not `affirmed`. A named-company-exec quote in a trade outlet, or a
+  quote attributed to the company itself, **is** first-party (Google's Wilbarger
+  exec quote; Microsoft's Pecos statement) → `affirmed`.
+- **New assessments:** 10 previously-unassessed pledge-era sites (7 affirmed w/
+  backing Claims + 3 pledge_only) + one new post-pledge site (`microsoft-pecos-tx`,
+  affirmed) + 3 conflict responses (Louisiana/Meta-Hyperion→meta-richland-la,
+  Georgia-PSC→google-lagrange-ga, Dominion/JLARC→google-chesterfield-va).
+
+### Launch / preview ritual + performance (v1.20)
+
+The in-app **browser pane renders at a 0×0 viewport in some environments** (blank
+no matter what; `navigate` often denied). Don't rely on it. To launch/preview:
+
+- **Interactive, shareable:** `python3 tools/build_preview.py --verify` bundles the
+  whole SPA into a self-contained `.preview/dashboard.html` (inlines styles.css,
+  embeds every `data/*.json`, patches `fetchJson` to read the embedded data), then
+  **publish that file as an Artifact**. Runs fully client-side; only the lazy Leaflet
+  map (Explorer) + html2pdf export break under the artifact CSP — every other tab works.
+- **Quick visual check:** headless Playwright — self-serve `docs/` with `http.server`,
+  click a tab, `screenshot`, `SendUserFile`.
+- **Do this on every new commit / PR.** `.githooks/post-commit` auto-rebuilds the
+  bundle (needs `git config core.hooksPath .githooks` per clone; `.preview/` is
+  git-ignored). The Artifact *publish* is a manual (Claude) step — a git hook can't do it.
+
+**Performance baseline (GitHub Pages, gzipped/CDN):** first paint FCP ~340 ms · 6
+requests · ~202 KB. Code-splitting works — first paint loads only index + styles +
+app.js + the preloaded `companies.json`/`claims.json`; `projects`/`responses`/
+`moratoriums`/`tariffs` lazy-load per tab. No images or web fonts (system stack).
+**Keep it that way:** no web fonts, no un-optimized images, keep new heavy data
+lazy-per-tab (never preload it). Regression signal: first paint > ~500 KB or > ~12
+requests. Optimization ideas in [BACKLOG.md](BACKLOG.md).
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:

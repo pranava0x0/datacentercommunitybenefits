@@ -2334,6 +2334,39 @@
       "single_source": false
     },
     {
+      "id": "resp-meta-richland-ratepayer-aae",
+      "project_id": "meta-richland-la",
+      "date": "2026-05-26",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A May 2026 Alliance for Affordable Energy report warns a December 2025 LPSC rule lets data-center developers cover only half of new power-infrastructure costs, and that Meta's Entergy Louisiana lease allows exit as early as 2033 — potentially leaving residential ratepayers to pay for the gas plants, transmission and substations built for the Hyperion campus. Entergy and Meta say ratepayers are protected and will save $2.65B over two decades.",
+      "source_url": "https://www.all4energy.org/watchdog/report-finds-ratepayers-could-be-left-with-data-center-costs/",
+      "source_title": "Alliance for Affordable Energy — Louisiana ratepayers could be left with data-center costs",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-lagrange-ratepayer-gapsc",
+      "project_id": "google-lagrange-ga",
+      "date": "2026-07-08",
+      "stance": "negative",
+      "constituency": "regulator",
+      "summary": "On July 8, 2026 the Georgia PSC voted to open an investigation into whether Georgia Power's large data-center loads shift costs onto residential customers; commission staff warned the large-load pricing structure could raise the average residential bill by up to 11% per month by 2028. The concern is system-wide across Georgia Power's data-center fleet, which includes this site; findings are due by end of 2026.",
+      "source_url": "https://roughdraftatlanta.com/2026/07/08/georgia-power-data-center-costs/",
+      "source_title": "Rough Draft Atlanta — Georgia regulators greenlight probe into data-center costs",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-chesterfield-ratepayer-jlarc",
+      "project_id": "google-chesterfield-va",
+      "date": "2026-07-01",
+      "stance": "negative",
+      "constituency": "academic",
+      "summary": "Virginia's legislative analysts (JLARC) project data-center-driven grid growth could add $14–$37 a month to a typical residential Dominion bill by 2040, with residential customers already allocated 53–55% of transmission cost while using ~35% of the energy. The concern is system-wide across Dominion's Virginia data-center cluster, which includes this site; the SCC's new GS-5 rate class (effective Jan 2027) is designed to curb the shift.",
+      "source_url": "https://gridflexibility.fyi/case-studies/dominion-virginia",
+      "source_title": "Grid Flexibility — why Dominion bills are rising (citing JLARC & the Virginia SCC)",
+      "single_source": true
+    },
+    {
       "id": "resp-amazon-montgomery-city-mo-negative",
       "project_id": "amazon-montgomery-city-mo",
       "date": "2026-06-23",

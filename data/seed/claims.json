@@ -4030,6 +4030,90 @@
       "published_at": "2026-06-15",
       "project_id": "google-jackson-county-al",
       "formal_agreement": false
+    },
+    {
+      "id": "qts-east-windsor-nj-ratepayer-pledge",
+      "company_slug": "qts",
+      "theme": "energy",
+      "statement": "QTS will pay for all project energy infrastructure and there will be no cost impact to existing JCP&L customers as a result.",
+      "source_url": "https://q.com/data-centers/east-windsor/",
+      "source_title": "QTS Data Centers — East Windsor, New Jersey campus page",
+      "captured_at": "2026-07-13",
+      "project_id": "qts-east-windsor-nj"
+    },
+    {
+      "id": "qts-blakely-ga-ratepayer-pledge",
+      "company_slug": "qts",
+      "theme": "energy",
+      "statement": "QTS will pay for all the needed energy infrastructure for the project, and there will be no cost impact on existing customers of the MEAG Power System as a result.",
+      "source_url": "https://q.com/data-centers/blakely/",
+      "source_title": "QTS Data Centers — Blakely, Georgia (Project Blue Hole) campus page",
+      "captured_at": "2026-07-13",
+      "project_id": "qts-blakely-ga"
+    },
+    {
+      "id": "qts-clinton-ia-ratepayer-pledge",
+      "company_slug": "qts",
+      "theme": "energy",
+      "statement": "QTS will pay for all project energy infrastructure and there will be no cost impact to existing Alliant Energy customers as a result.",
+      "source_url": "https://q.com/data-centers/clinton/",
+      "source_title": "QTS Data Centers — Clinton, Iowa campus page",
+      "captured_at": "2026-07-13",
+      "project_id": "qts-clinton-ia"
+    },
+    {
+      "id": "qts-van-wert-oh-ratepayer-pledge",
+      "company_slug": "qts",
+      "theme": "energy",
+      "statement": "QTS will pay for all project energy infrastructure and there will be no cost impact to existing AEP Ohio customers as a result.",
+      "source_url": "https://q.com/data-centers/van-wert/",
+      "source_title": "QTS Data Centers — Van Wert, Ohio campus page",
+      "captured_at": "2026-07-13",
+      "project_id": "qts-van-wert-oh"
+    },
+    {
+      "id": "google-pine-island-mn-ratepayer-pledge",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Google will pay all costs associated with our electric service.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
+      "source_title": "Google — Pine Island, Minnesota data center announcement",
+      "captured_at": "2026-07-13",
+      "project_id": "google-pine-island-mn",
+      "published_at": "2026-02-24"
+    },
+    {
+      "id": "google-wilbarger-tx-ratepayer-pledge",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "In partnership with AES, we are bringing new clean generation online directly alongside the data center to minimize local grid impact and protect energy affordability.",
+      "source_url": "https://www.prnewswire.com/news-releases/aes-announces-landmark-agreements-with-google-in-texas-302695111.html",
+      "source_title": "AES announces landmark agreements with Google in Texas (Wilbarger County)",
+      "captured_at": "2026-07-13",
+      "project_id": "google-wilbarger-tx",
+      "published_at": "2026-02-24"
+    },
+    {
+      "id": "google-sand-springs-ok-ratepayer-pledge",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Additional safeguards are put in place through the contractual requirements in the electric service agreement with PSO, which include long-term commitments to minimum bills and other financial guarantees that ensure PSO and residents do not incur costs as a result of the new project demand.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-gets-greenlight-for-data-center-in-tulsa-oklahoma/",
+      "source_title": "DataCenterDynamics — Google gets greenlight for Sand Springs (Project Spring) data center, Oklahoma",
+      "captured_at": "2026-07-13",
+      "project_id": "google-sand-springs-ok",
+      "published_at": "2026-02-05"
+    },
+    {
+      "id": "microsoft-pecos-tx-ratepayer-pledge",
+      "company_slug": "microsoft",
+      "theme": "energy",
+      "statement": "Critically, the energy infrastructure required to power this datacenter is being funded by Microsoft.",
+      "source_url": "https://www.theenergymag.com/news/2026-06-22/microsoft-2-gigawatt-ai-data-center-west-texas-onsite-gas",
+      "source_title": "TheEnergyMag — Microsoft to build 2GW AI data center in West Texas with onsite gas",
+      "captured_at": "2026-07-13",
+      "published_at": "2026-06-22",
+      "project_id": "microsoft-pecos-tx"
     }
   ]
 }

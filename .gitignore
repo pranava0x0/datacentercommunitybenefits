@@ -49,3 +49,6 @@ data/candidates/
 # Moratorium source audit — fetched page cache + report output
 .moratorium_cache/
 moratorium_audit_report.json
+moratorium_link_report.json
+moratorium_completeness_report.json
+.preview/

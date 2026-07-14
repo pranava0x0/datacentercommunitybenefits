@@ -134,6 +134,33 @@ from it — don't spawn an agent to re-derive it. The tell is a prompt like
 "based on the grep output above, also check X" — that's a Read or another
 grep, not an agent.
 
+### Multi-agent fan-out discipline (when step 4 is genuinely warranted)
+
+When a task truly needs research agents (comprehensive data expansion, cross-source
+synthesis), keep the run cheap and clean:
+
+- **Cap concurrent fan-out at 2–3, never a wide burst.** A 5+-wide parallel launch
+  triggers server-side hiccups that look like task failures. **Caught July 2026:** a
+  5-agent burst returned one agent with **0 tool uses** (misfired), forcing a
+  relaunch — ~61K tokens burned for nothing. Prefer 2–3 large **breadth-batched**
+  agents (one covers all states, one all counties, one all cities) over one-agent-
+  per-item. Confirm an agent is truly dead (not just slow) before relaunching, or you
+  pay for the same work twice.
+- **Model-select every spawn.** Simple gathering (grep/list/schema) → `model: "haiku"`.
+  Web-research synthesis → `model: "sonnet"`. Reserve the inherited Opus for genuinely
+  open-ended judgement. **Caught July 2026:** all research agents inherited Opus when
+  Sonnet was the right tier — same quality, far cheaper.
+- **Every spawn prompt carries a scope limiter + writes to disk.** "≤2 fetches per
+  record, skip a field after 2 tries"; write JSON to the scratchpad and return only
+  path + count + 2–3 surprises (<120 words). Never let an agent return a giant JSON
+  blob — it bloats the orchestrator and isn't auditable.
+- **Seed the JSON contract inline first**, hand each agent an "already tracked, skip"
+  partition list, and strip agent-only fields (`_evidence`) + validate against
+  `schema.py` at merge.
+- **Log every run in [docs/agent-runs.md](docs/agent-runs.md)** — one row: what it did,
+  worked?, quality, ~tokens, better-in-hindsight. A retrospective kept only in the
+  reply is invisible next session; that's how the same mistake gets re-paid for.
+
 ### Token gate at 50K
 
 If mid-task the turn has consumed >50K tokens, or you estimate the

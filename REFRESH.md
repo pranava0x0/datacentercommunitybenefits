@@ -1,4 +1,7 @@
-# Data Refresh Skill — Data Center Community Benefits Dashboard
+# REFRESH.md — Data Center Community Benefits data refresh playbook
+
+> Project refresh playbook, read by the generic `data-refresh` skill (~/.claude/skills/data-refresh). Keep current: every refresh run appends learned patterns; structural pipeline changes get edited into the body.
+
 
 **Purpose:** Systematically refresh and audit the dashboard's curated data (companies, projects, claims, community responses, moratoriums, tariffs) to keep it current with recent announcements, regulatory filings, and community feedback.
 
@@ -59,7 +62,7 @@ python3 refresh.py --audit       # minified + generates ISSUES.md
 - Validates against schema one final time before write
 - Excludes null values from JSON (clean frontend data)
 - Stamps `generated_at` with today's date
-- Total payload ~650 KB (13 companies, 326 claims, 113 projects, 213 responses, as of 2026-07-05)
+- Total payload ~700 KB (13 companies, 334 claims, 113 projects, 216 responses, 91 moratoriums, as of 2026-07-14)
 
 ---
 
@@ -329,13 +332,18 @@ See ISSUES.md for full audit report.
 - 40+ projects missing ratepayer assessment — high priority for next refresh
 
 ### 3. Missing Commitment Details (AUTOMATED AUDITING)
-- 91 projects need attention (21 critical, 70 medium)
+- As of 2026-06-30 audit: **34 critical + 71 medium gaps** across 105 projects
 - Common gaps by company:
-  - **Google:** power_mw (many announced sites)
-  - **Microsoft:** power_mw, ratepayer (Cheyenne, Person County)
-  - **Amazon:** ratepayer (Loudoun, New Carlisle, Cumberland)
-  - **Meta/OpenAI/Oracle:** ratepayer (post-pledge sites)
+  - **Google:** power_mw (most operational sites — not publicly disclosed per project)
+  - **Meta:** power_mw (older operational campuses), ratepayer (post-pledge construction sites)
+  - **Microsoft:** power_mw (most operational + construction), ratepayer (several post-pledge sites)
+  - **Amazon/AWS:** claimed_investment_usd (site-level figures rolled into state commitments), ratepayer
+  - **OpenAI/Oracle/xAI/CoreWeave:** claimed_investment_usd (Stargate/partner sites), ratepayer
+  - **QTS:** claimed_investment_usd + power_mw (both Manassas VA and Richmond VA)
+- Most `power_mw` gaps require web research (sites don't publish per-campus capacity)
+- Most `claimed_investment_usd` gaps are site-level slices of larger state-level commitments (can't safely attribute without a first-party site-level figure)
 - ISSUES.md auto-generated; prioritize critical projects first
+- Run `python3 refresh.py --audit` (not `--audit --check`) to regenerate docs/data/ AND ISSUES.md together
 
 ### 4. Recent Announcements Pipeline
 - 25 projects captured May 19–June 8 shows the refresh cadence is working
@@ -379,4 +387,48 @@ See ISSUES.md for full audit report.
 
 ## Contact / Questions
 
-This skill encodes the learnings from the v1.18 session (June 9, 2026). If gaps emerge during the next refresh cycle, update this file with the new pattern so future curators have the benefit of the discovery.
+This playbook encodes the learnings from the v1.18 session (June 9, 2026). If gaps emerge during the next refresh cycle, update this file with the new pattern so future curators have the benefit of the discovery.
+
+---
+
+## Research connectors accelerator (`connectors/`)
+
+The manual search strategy above has a CLI accelerator — use it to find gaps and turn URLs
+into candidate records (it never auto-publishes; curation stays editorial):
+
+1. **Load state.** Read `ISSUES.md`, `BACKLOG.md`, and run:
+   ```bash
+   python -m connectors.research status --list
+   ```
+   This reports projects with no claims / no community feedback — the gap list. The
+   recurring ask is **new data centers and new utility tariffs**; prioritize those unless
+   told otherwise.
+
+2. **Search.** Generate queries and run them with WebSearch (or Chrome MCP for JS-rendered
+   first-party pages like `datacenters.google`):
+   ```bash
+   python -m connectors.research queries --missing-feedback --limit 5
+   python -m connectors.research queries --missing-claims --json
+   ```
+
+3. **Harvest** promising URLs into candidate records (cached, ≥1.5s/host, 429-backoff):
+   ```bash
+   python -m connectors.research harvest --project <slug> <url> [<url>...]
+   ```
+   First-party domains → `claim_candidates` with **verbatim quote candidates**; everything
+   else → `response_candidate` with auto-extracted publication date. `stance` /
+   `constituency` / `single_source` come out null with a TODO — fill them editorially,
+   never let the tool infer them.
+
+4. **Curate** candidates from `data/candidates/` into `data/seed/*.json` by hand: pick the
+   verbatim quote, write the neutral summary, set editorial fields, carry source URL +
+   capture date. Contested items get both sides, per CLAUDE.md.
+
+Full detail: `connectors/README.md`.
+
+## Learned patterns (append-only, dated)
+
+- 2026-07-07: consolidated the flat `.claude/skills/data-refresh.md` skill into this
+  playbook per the one-generic-skill convention (base CLAUDE.md); added the connectors
+  accelerator section. Flat skill files in `.claude/skills/` never registered with Claude
+  Code anyway (directory + SKILL.md format required).

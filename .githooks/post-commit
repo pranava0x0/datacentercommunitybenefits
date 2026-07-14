@@ -1,0 +1,5 @@
+#!/bin/sh
+# Rebuild the self-contained preview bundle on every commit so it's always
+# current for launch/preview (see CLAUDE.md → "Launch / preview ritual").
+# Non-blocking: never fails a commit. Publishing the Artifact is a manual step.
+python3 "$(git rev-parse --show-toplevel)/tools/build_preview.py" >/dev/null 2>&1 || true

@@ -358,3 +358,81 @@ instead.
 - **v1.1 — Wonder Valley scope expansion.** First non-hyperscaler entity (O'Leary Digital, Box Elder County UT). Added wonder-valley to `COMPANY_SLUGS` + `CompanySlug` Literal + CSS palette + 3 project-tied claims + 4 community responses (Sierra Club, Utah Clean Energy, Box Elder Commission, Gov. Cox).
 - **v1.1 — Data fill-in pass.** Claims grew from 25 → 93 (+68). Added project-specific claims (with `project_id` set) for all 15 hyperscaler projects + Wonder Valley, by web-scraping each project's canonical company page. Added company-level matrix-gap-fill claims for Meta jobs/infrastructure, Google jobs/engagement, Microsoft jobs/tax_revenue/infrastructure, Amazon education/engagement.
 - **v1.1 — `Project.project_page_url`.** New optional schema field; renders in detail panel Overview as "Project page" link, distinct from "Record source".
+
+---
+
+## Deferred research leads (from the 2026-07-14 comprehensive pass)
+
+### Mine the "Moratorium Nation" tracker for the next moratorium batch — **high**
+`https://mjbommar.github.io/moratorium-data-2026/data/moratorium_inventory.csv`
+is a 222-row structured inventory (lat/lon, `date_enacted_iso`, `legal_basis`,
+ordinance refs) — **but it carries no per-row source URL**, so records can't ship
+straight from it (active-links rule). ~110 city/township candidates remain
+unverified, concentrated in **Ohio (30+: Findlay, Avon, Massillon, Maumee, Kent,
+Ravenna, Tallmadge, Tiffin, Vermilion, Norton)** and **Michigan (25+: Pontiac,
+Saginaw, Saline, Northville, Taylor)**. Also GA cities (AJC: 23 cities), the NC
+wave (Hillsborough, Durham, Apex, Boone, Canton, Wendell, Kings Mountain), and
+named singles (Inver Grove Heights MN, Cincinnati OH, El Monte CA). Workflow: use
+the CSV as a work-list, find + verify a live primary source per row, then merge.
+
+### Upgrade the 47 no-gov-source moratorium records to real `.gov` links — **medium**
+`validate_moratoriums.py --links-only` lists them. Many local actions genuinely
+have only news coverage; where a live council/board ordinance page exists (often
+Granicus/Legistar/Municode), promote it to `source_url` or add to `resources`.
+
+### Ratepayer conflict/site leads not yet added — **medium**
+- **meta-el-paso-tx (contested)** — EPE's filing plans to move a $500M/366 MW
+  plant into general retail rates after a 1–5 yr bridge (documented cost shift).
+  Held back on cohort eligibility: the site was first announced ~2024 (pre-pledge);
+  the $10B is a 2026-03-29 expansion. Decide whether the post-pledge expansion
+  qualifies it for a `contested` assessment (source: elpasomatters.org, 2026-03-29).
+- **Indiana ratepayer conflict** (Mirror Indy, 2026-06-25) — bills up to ~27% with
+  data centers cited as a driver. Held back per CLAUDE.md's caution: rate-structure
+  criticism with multiple drivers ≠ documented site cost-shift. Needs a source that
+  pins a shift to a specific IN site (google-michigan-city / microsoft-la-porte /
+  amazon-wheatfield) before surfacing.
+- **PJM capacity-market finding** (Monitoring Analytics: data centers = 40% of the
+  Dec 2025 capacity auction) — strong, but the best fetchable source is pre-pledge
+  (2026-01-07). Source a post-3/4/2026 version (State of the Market ~Mar 2026).
+- **Brookings enforcement-gap** (2026-07-09) — national context, not per-site.
+  Consider a "national context" panel on the Ratepayer tab rather than attaching
+  it to one project.
+
+---
+
+## Performance + preview + restyle notes (2026-07-14)
+
+### Performance — currently good; optimizations if it grows — **low/medium**
+Baseline (live Pages, gzipped/CDN): first paint FCP ~340 ms · 6 reqs · ~202 KB;
+lazy-load per tab works; no images/web fonts. If it needs tightening later:
+- **Code-split `app.js`** (~52 KB gz, monolithic — all views in one file). First
+  paint only needs the Comparison logic; the moratorium/ratepayer/tariff/explorer
+  renderers could load per-tab. It's vanilla JS (no bundler), so this is a manual
+  module split — defer until app.js is materially bigger. **low.**
+- **Ship a lightweight claims index for first paint.** `claims.json` (43 KB gz)
+  preloads on the landing view, but the Comparison matrix only needs claim *counts*
+  per company/theme, not full verbatim statements. A `claims-index.json` (counts +
+  ids) for first paint + lazy full claims on company pop-out would cut ~35 KB off
+  first paint. **medium.**
+- Watch the regression signal: first paint > ~500 KB or > ~12 requests = something
+  got un-split (e.g. a heavy payload accidentally preloaded, or a web font added).
+
+### Restyle notes — the design system is solid; minor polish only — **low**
+- **Long Ratepayer scorecard** (37 cards and growing) — add a sticky filter/search
+  or status-grouping (affirmed / pledge_only / contested) so users don't scroll the
+  whole list. The "⚠ Ratepayer concern" cards especially are worth surfacing to the top.
+- **Moratorium timeline x-axis on mobile** — the quarter labels (`Q1'24` … `Q3'26`,
+  11 columns) can get cramped under ~380 px; verify and, if tight, show every other
+  label or enable horizontal scroll on the plot (`.mtl-plot` already has `overflow-x`).
+- Optional **density toggle** for the long directory + scorecard lists.
+- No larger restyle warranted — palette, type scale, and tokens (DESIGN.md) are
+  consistent and both themes are handled.
+
+### Moratorium `duration_description` phrasing — optional polish — **low**
+The v1.20 UX fix truncates the directory cell (`shortDuration()`) and moved sponsors to
+the modal, so the table is consistent + scannable and the full text stays in the modal +
+tooltip. The underlying field still varies in *phrasing* ("1 year" vs "One year" vs "12
+months"; "Permanent" vs "Permanent ban" vs "Permanent prohibition"). Not wrong (each quotes
+the jurisdiction's own framing) but a light normalization pass to canonical labels would make
+the raw data tidier. Alternatively split into `duration_label` (short, required) + keep the
+detail in `summary`. Defer unless the raw field is consumed elsewhere.
