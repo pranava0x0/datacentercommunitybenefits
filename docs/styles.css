@@ -1726,45 +1726,19 @@ main {
 
 .mtl-col {
   flex: 1 1 0;
-  min-width: 34px; /* two parallel bars per quarter */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* The two parallel bars for one quarter: city | county/state/federal */
-.mtl-group {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 3px;
-  width: 100%;
-  height: var(--plot-h, 150px);
-}
-
-.mtl-barwrap {
-  flex: 1 1 0;
-  max-width: 16px;
-  height: 100%;
+  min-width: 26px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
 }
 
-/* Mobile: squeeze the pair so the full quarterly axis still fits. */
 @media (max-width: 560px) {
   .mtl-plot {
-    gap: 0.2rem;
+    gap: 0.25rem;
   }
   .mtl-col {
-    min-width: 24px;
-  }
-  .mtl-group {
-    gap: 2px;
-  }
-  .mtl-barwrap {
-    max-width: 10px;
+    min-width: 20px;
   }
   .mtl-label {
     font-size: 0.58rem;
@@ -1782,7 +1756,8 @@ main {
 }
 
 .mtl-bar {
-  width: 100%;
+  width: 68%;
+  min-width: 14px;
   display: flex;
   flex-direction: column-reverse; /* first child (enacted) sits at the base */
   border-radius: 3px 3px 0 0;
@@ -1794,37 +1769,67 @@ main {
   transition: height 200ms ease;
 }
 
-/* Fill encodes jurisdiction level (colour still encodes status — never two
-   colour scales). City = solid; county/state/federal = hatched + transparent,
-   in the SAME hue so the status colour survives the texture. */
-.mtl-seg--city {
-  background: var(--seg);
+/* Chart header: title on the left, level toggle on the right. */
+.mor-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
 }
 
-.mtl-seg--other {
-  background-color: color-mix(in srgb, var(--seg) 20%, transparent);
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--seg) 0 2px,
-    transparent 2px 5px
-  );
+.mor-chart-head .mor-chart-title {
+  margin-bottom: 0;
 }
 
-/* Neutral texture swatches in the legend (hue is carried by the dots). */
-.mor-legend-swatch {
-  width: 15px;
-  height: 11px;
-  border-radius: 2px;
-  flex-shrink: 0;
+/* Segmented control — jurisdiction level is a FILTER, not a visual encoding. */
+.mor-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  background: var(--surface-2);
   border: 1px solid var(--border);
+  border-radius: 999px;
 }
 
-.mor-legend-sep {
-  width: 1px;
-  height: 12px;
-  background: var(--border);
-  margin: 0 0.1rem;
-  flex-shrink: 0;
+.mor-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.mor-toggle-btn:hover {
+  color: var(--text);
+}
+
+.mor-toggle-btn.is-active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.mor-toggle-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.mor-toggle-count {
+  font-weight: 500;
+  opacity: 0.65;
+  font-feature-settings: "tnum" 1;
 }
 
 .mtl-label {

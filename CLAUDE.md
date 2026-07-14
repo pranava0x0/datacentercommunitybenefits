@@ -505,29 +505,32 @@ across state/county/city), ratepayer scorecard **26 → 37 assessed sites**.
   bar sets for **concerns** and **jurisdiction level**. New `--moratorium-{enacted,
   proposed,failed}` tokens (literal in BOTH `:root` blocks per DESIGN.md 12.12),
   reusing the tariff/stance green/amber/red language.
-- **Timeline carries TWO orthogonal encodings — never two colour scales.**
-  `colour = status` (enacted/proposed/failed) and `fill = jurisdiction level`
-  (**city = solid**, **county/state/federal = hatched + transparent**, via
-  `.mtl-seg--city` / `.mtl-seg--other` and a `--seg` custom property holding the
-  status hue). The hatch is a `repeating-linear-gradient` in the *same* hue, so
-  the status colour survives the texture. Segment heights use
-  `Math.max(2, …)` so a 1-record sliver stays visible against a 34-record bar.
-  The legend renders both scales (status dots + neutral-grey texture swatches, so
-  the reader reads the *texture* there, not the hue). If a third level split is
-  ever needed, add a texture — **don't** add a second colour ramp.
-- **The two levels are PARALLEL bars, not stacked.** Each quarter is a
-  `.mtl-group` holding two `.mtl-barwrap`s (city | county/state/federal), each
-  internally stacked by status. Stacking the levels hid the comparison — grouped
-  bars let you read "Q2'26 = 24 city vs 34 county/state" directly. Two consequences:
-  scale to the tallest **single bar** (`maxBar`), NOT the quarter total; and keep the
-  gap *between* quarters wider than the gap *within* a pair, or the pairing stops
-  reading as a group.
+- **Timeline: one combined bar per quarter; jurisdiction level is a FILTER, not a
+  second visual encoding.** `colour = status` is the only visual scale. Level lives in
+  a segmented toggle (`.mor-toggle`, `MOR_TIMELINE_LEVELS`): **All / City-County /
+  State / Federal**, each showing its record count. We tried encoding level as fill
+  texture (city solid vs. hatched) and then as parallel bars — both made a small
+  chart carry too much, and the parallel version doubled the axis width (see the
+  clipping bug below). A toggle is the cheaper answer: one bar, one scale, level on
+  demand. If a level split is ever needed *inside* a bar again, add a texture —
+  **never** a second colour ramp.
+- **The axis range AND y-scale derive from the FULL dataset, never the filtered
+  subset.** This is what makes the toggle honest: quarters don't shift when you
+  filter (it reads as filtering *in place*), and bar heights stay comparable between
+  levels. Rescaling per filter would render Federal's **single** record as a
+  full-height bar — as tall as a 58-record quarter. It must read as the sliver it is
+  (`test_shared_yscale_keeps_federal_a_sliver`). Segment heights use `Math.max(2, …)`
+  so slivers stay visible rather than rounding to nothing.
+  What the toggle actually surfaces: **cities enact, states propose and fail** — the
+  State view is mostly amber/red where the City/County view is green.
 - **`overflow-x: auto` on a time-series chart silently eats the newest data.**
-  Doubling the bars per quarter pushed the axis past the container; the plot scrolled
-  and **clipped the 2026 surge off-screen with no affordance** — it read as "the data
-  is missing," and it shipped that way. Three-part fix, all of which you want:
-  (1) size so the full axis **fits** (now down to a 420px viewport; a `max-width:560px`
-  media query squeezes the pair further); (2) keep the **scrollbar visible**
+  (Learned when the levels were parallel bars: doubling the bars per quarter pushed
+  the axis past the container.) The plot scrolled and **clipped the 2026 surge
+  off-screen with no affordance** — it read as "the data is missing," and it shipped
+  that way. The safeguards below stay in place regardless of bar count, because a
+  long-enough axis will always outgrow a narrow viewport:
+  (1) size so the full axis **fits** (a `max-width:560px` media query narrows the
+  columns); (2) keep the **scrollbar visible**
   (`scrollbar-width: thin` + a styled `::-webkit-scrollbar`) — a hidden scrollbar is
   how data disappears quietly; (3) **park `scrollLeft` on the most RECENT** column
   after render, so whatever clips is the near-empty past, never the current surge.

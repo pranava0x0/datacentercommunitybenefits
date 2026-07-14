@@ -1590,37 +1590,68 @@ class TestMoratoriumCharts:
         legend = page.locator("#moratorium-charts .mor-legend").first.inner_text()
         assert "Enacted" in legend and "Proposed" in legend
 
-    def test_timeline_encodes_jurisdiction_level_by_fill(
+    _PLOTTED_TOTAL = (
+        "[...document.querySelectorAll('.mtl-total')]"
+        ".reduce((s, e) => s + (parseInt(e.textContent) || 0), 0)"
+    )
+
+    def test_level_toggle_renders_four_options(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        btns = page.locator(".mor-toggle-btn")
+        assert btns.count() == 4
+        joined = " ".join(btns.all_inner_texts())
+        for label in ("All", "City / County", "State", "Federal"):
+            assert label in joined
+
+    def test_toggle_filters_timeline_and_keeps_axis_stable(
         self, page: Page, base_url: str
     ):
-        # Two orthogonal encodings: colour = status, fill = level.
-        # City segments are solid; county/state/federal are hatched.
         self._open(page, base_url)
-        assert page.locator(".mor-chart--timeline .mtl-seg--city").count() >= 1
-        assert page.locator(".mor-chart--timeline .mtl-seg--other").count() >= 1
+        quarters_all = page.locator(".mtl-col").count()
+        total_all = page.evaluate(self._PLOTTED_TOTAL)
 
-    def test_timeline_legend_explains_both_encodings(
-        self, page: Page, base_url: str
-    ):
-        self._open(page, base_url)
-        legend = page.locator(".mor-chart--timeline .mor-legend").inner_text()
-        assert "City" in legend
-        assert "County / State / Federal" in legend
-        # texture swatches (one per level group), distinct from the status dots
-        assert page.locator(".mor-chart--timeline .mor-legend-swatch").count() == 2
+        page.locator('.mor-toggle-btn[data-level="state"]').click()
+        page.wait_for_timeout(200)
 
-    def test_timeline_segment_titles_name_the_level(self, page: Page, base_url: str):
-        self._open(page, base_url)
-        title = page.locator(".mor-chart--timeline .mtl-seg--other").first.get_attribute("title")
-        assert "County / State / Federal" in title
+        # Axis derives from the FULL dataset, so filtering happens in place.
+        assert page.locator(".mtl-col").count() == quarters_all
+        total_state = page.evaluate(self._PLOTTED_TOTAL)
+        assert 0 < total_state < total_all
+        # what's plotted matches the count on the active toggle
+        shown = page.locator('.mor-toggle-btn[data-level="state"] .mor-toggle-count')
+        assert total_state == int(shown.inner_text())
 
-    def test_timeline_bars_are_parallel_not_stacked(self, page: Page, base_url: str):
-        # Each quarter renders a group of TWO side-by-side bars (city |
-        # county/state/federal), not one column stacking both levels.
+    def test_shared_yscale_keeps_federal_a_sliver(self, page: Page, base_url: str):
+        # Federal has ~1 record. The y-scale is shared across levels, so it must
+        # render as a sliver — rescaling per filter would make 1 record look as
+        # tall as a 58-record quarter.
         self._open(page, base_url)
-        groups = page.locator(".mor-chart--timeline .mtl-group")
-        assert groups.count() >= 3
-        assert groups.first.locator(".mtl-barwrap").count() == 2
+        page.locator('.mor-toggle-btn[data-level="federal"]').click()
+        page.wait_for_timeout(200)
+        tallest = page.evaluate(
+            "Math.max(0, ...[...document.querySelectorAll('.mtl-bar')]"
+            ".map(b => b.getBoundingClientRect().height))"
+        )
+        assert tallest < 150 * 0.25, (
+            f"federal bar should stay a sliver on the shared scale, got {tallest}px"
+        )
+
+    def test_toggle_active_state_updates(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert (
+            page.locator('.mor-toggle-btn[data-level="all"]').get_attribute("aria-pressed")
+            == "true"
+        )
+        page.locator('.mor-toggle-btn[data-level="local"]').click()
+        page.wait_for_timeout(150)
+        assert (
+            page.locator('.mor-toggle-btn[data-level="local"]').get_attribute("aria-pressed")
+            == "true"
+        )
+        assert (
+            page.locator('.mor-toggle-btn[data-level="all"]').get_attribute("aria-pressed")
+            == "false"
+        )
 
     _LAST_QUARTER_VISIBLE = """() => {
       const el = document.querySelector('.mtl-plot');

@@ -910,97 +910,106 @@ function _morQuarterLabel(key) {
   return `Q${q}'${String(year).slice(2)}`;
 }
 
-// Two encodings on the timeline, deliberately orthogonal (never two colour scales):
-//   colour  = status  (enacted / proposed / failed)
-//   fill    = level   (city = solid, county/state/federal = hatched + transparent)
-const MOR_LEVEL_GROUPS = [
-  ["city", "City"],
-  ["other", "County / State / Federal"],
+// One combined bar per quarter (colour = status). Jurisdiction level is a FILTER,
+// not a second visual encoding — a segmented toggle above the chart.
+const MOR_TIMELINE_LEVELS = [
+  ["all", "All"],
+  ["local", "City / County"],
+  ["state", "State"],
+  ["federal", "Federal"],
 ];
+const MOR_LEVEL_LABEL = Object.fromEntries(MOR_TIMELINE_LEVELS);
 
-function _morLevelGroup(m) {
-  return m.jurisdiction_type === "city" ? "city" : "other";
+// Selected level persists within the session, resets on reload (same rule as the
+// project-detail tabs — don't localStorage a transient view filter).
+let _morTimelineLevel = "all";
+
+function _morMatchesLevel(m, level) {
+  if (level === "all") return true;
+  if (level === "local") {
+    return m.jurisdiction_type === "city" || m.jurisdiction_type === "county";
+  }
+  return m.jurisdiction_type === level;
 }
 
-function _emptyStatusLevels() {
-  return Object.fromEntries(MORATORIUM_STATUSES.map((s) => [s, { city: 0, other: 0 }]));
-}
-
-function _morStatusLegend({ withLevels = false } = {}) {
-  const status = MORATORIUM_STATUSES.map(
+function _morStatusLegend() {
+  return `<div class="mor-legend" aria-hidden="true">${MORATORIUM_STATUSES.map(
     (s) =>
       `<span class="mor-legend-item"><span class="mor-legend-dot" style="background:var(--moratorium-${s})"></span>${MOR_STATUS_LABELS[s]}</span>`
-  ).join("");
-  if (!withLevels) return `<div class="mor-legend" aria-hidden="true">${status}</div>`;
-  // Neutral swatches so the reader reads the TEXTURE here, not the hue.
-  const levels = MOR_LEVEL_GROUPS.map(
-    ([g, label]) =>
-      `<span class="mor-legend-item"><span class="mor-legend-swatch mtl-seg--${g}" style="--seg:var(--text-muted)"></span>${label}</span>`
-  ).join("");
-  return `<div class="mor-legend" aria-hidden="true">${status}<span class="mor-legend-sep"></span>${levels}</div>`;
+  ).join("")}</div>`;
 }
 
 function _morTimelineChart(moratoriums) {
-  // Bucket by quarter, stacked by status, each status split city vs. non-city.
-  const buckets = new Map();
-  let anyDated = false;
+  // The x-axis range AND the y-scale are derived from the FULL dataset, never the
+  // filtered subset. So the toggle filters *in place*: quarters don't shift and bar
+  // heights stay comparable between levels. (Rescaling per filter would render
+  // Federal's single record as a full-height bar — a lie. It should read as the
+  // sliver it is.)
+  const allTotals = new Map();
   moratoriums.forEach((m) => {
     const d = _morRefDate(m);
     if (!d) return;
-    anyDated = true;
-    const key = _morQuarterKey(d);
-    if (!buckets.has(key)) buckets.set(key, _emptyStatusLevels());
-    const b = buckets.get(key);
-    if (b[m.status]) b[m.status][_morLevelGroup(m)] += 1;
+    const k = _morQuarterKey(d);
+    allTotals.set(k, (allTotals.get(k) || 0) + 1);
   });
-  if (!anyDated) return "";
-
-  // Fill gaps so the x-axis is continuous.
-  const keys = [...buckets.keys()];
+  if (!allTotals.size) return "";
+  const keys = [...allTotals.keys()];
   const min = Math.min(...keys);
   const max = Math.max(...keys);
-  const cols = [];
-  // Bars are PARALLEL (grouped), not stacked by level — so scale to the tallest
-  // single bar, not the quarter total.
-  let maxBar = 1;
-  for (let k = min; k <= max; k++) {
-    const b = buckets.get(k) || _emptyStatusLevels();
-    const totals = {};
-    MOR_LEVEL_GROUPS.forEach(([g]) => {
-      totals[g] = MORATORIUM_STATUSES.reduce((sum, s) => sum + b[s][g], 0);
-      maxBar = Math.max(maxBar, totals[g]);
+  const scaleMax = Math.max(1, ...allTotals.values());
+
+  const level = _morTimelineLevel;
+  const buckets = new Map();
+  moratoriums
+    .filter((m) => _morMatchesLevel(m, level))
+    .forEach((m) => {
+      const d = _morRefDate(m);
+      if (!d) return;
+      const k = _morQuarterKey(d);
+      if (!buckets.has(k)) buckets.set(k, { enacted: 0, proposed: 0, failed: 0 });
+      const b = buckets.get(k);
+      if (b[m.status] !== undefined) b[m.status] += 1;
     });
-    cols.push({ key: k, b, totals });
-  }
 
   const PLOT_H = 150; // px
+  const cols = [];
+  for (let k = min; k <= max; k++) {
+    const b = buckets.get(k) || { enacted: 0, proposed: 0, failed: 0 };
+    cols.push({
+      key: k,
+      b,
+      total: MORATORIUM_STATUSES.reduce((sum, s) => sum + b[s], 0),
+    });
+  }
+
   const colsHtml = cols
     .map((c) => {
-      // Two side-by-side bars per quarter (city | county/state/federal); each is
-      // stacked bottom→top by status (enacted, proposed, failed).
-      const bars = MOR_LEVEL_GROUPS.map(([g, gLabel]) => {
-        const segs = MORATORIUM_STATUSES.map((s) => {
-          const n = c.b[s][g];
-          if (!n) return "";
-          const h = Math.max(2, Math.round((n / maxBar) * PLOT_H)); // keep 1-record slivers visible
-          return `<div class="mtl-seg mtl-seg--${g}" style="height:${h}px;--seg:var(--moratorium-${s})" title="${n} ${MOR_STATUS_LABELS[s]} · ${gLabel} · ${_morQuarterLabel(c.key)}"></div>`;
-        }).join("");
-        return `<div class="mtl-barwrap">
-          <span class="mtl-total">${c.totals[g] || ""}</span>
-          <div class="mtl-bar mtl-bar--${g}" title="${c.totals[g]} ${gLabel} · ${_morQuarterLabel(c.key)}">${segs}</div>
-        </div>`;
+      const segs = MORATORIUM_STATUSES.map((s) => {
+        if (!c.b[s]) return "";
+        const h = Math.max(2, Math.round((c.b[s] / scaleMax) * PLOT_H)); // keep slivers visible
+        return `<div class="mtl-seg" style="height:${h}px;background:var(--moratorium-${s})" title="${c.b[s]} ${MOR_STATUS_LABELS[s]} · ${_morQuarterLabel(c.key)}"></div>`;
       }).join("");
       return `<div class="mtl-col">
-        <div class="mtl-group">${bars}</div>
+        <span class="mtl-total">${c.total || ""}</span>
+        <div class="mtl-bar">${segs}</div>
         <span class="mtl-label">${_morQuarterLabel(c.key)}</span>
       </div>`;
     })
     .join("");
 
+  const toggle = MOR_TIMELINE_LEVELS.map(([lv, label]) => {
+    const n = moratoriums.filter((m) => _morMatchesLevel(m, lv)).length;
+    const active = lv === level;
+    return `<button type="button" class="mor-toggle-btn${active ? " is-active" : ""}" data-level="${lv}" aria-pressed="${active}">${escapeHtml(label)}<span class="mor-toggle-count">${n}</span></button>`;
+  }).join("");
+
   return `<figure class="mor-chart mor-chart--timeline">
-    <figcaption class="mor-chart-title">The moratorium wave <span class="mor-chart-sub">by quarter · parallel bars: city vs. county/state/federal · colour = status</span></figcaption>
-    <div class="mtl-plot" style="--plot-h:${PLOT_H}px" role="img" aria-label="Timeline of data center moratorium activity by quarter. Each quarter shows two parallel bars — city (solid) and county/state/federal (hatched) — each stacked by status.">${colsHtml}</div>
-    ${_morStatusLegend({ withLevels: true })}
+    <div class="mor-chart-head">
+      <figcaption class="mor-chart-title">The moratorium wave <span class="mor-chart-sub">by quarter, stacked by status · y-scale shared across levels</span></figcaption>
+      <div class="mor-toggle" role="group" aria-label="Filter the timeline by jurisdiction level">${toggle}</div>
+    </div>
+    <div class="mtl-plot" style="--plot-h:${PLOT_H}px" role="img" aria-label="Timeline of ${escapeHtml(MOR_LEVEL_LABEL[level])} data center moratorium activity by quarter, stacked by status">${colsHtml}</div>
+    ${_morStatusLegend()}
   </figure>`;
 }
 
@@ -1094,7 +1103,16 @@ function renderMoratoriumCharts(moratoriums) {
     "</div>";
   container.innerHTML = html;
 
-  // Two bars per quarter doubles the axis width, so a narrow viewport overflows.
+  // Level toggle re-renders the charts in place (the axis + y-scale are derived
+  // from the full dataset, so only the bars change).
+  container.querySelectorAll(".mor-toggle-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      _morTimelineLevel = btn.dataset.level;
+      renderMoratoriumCharts(moratoriums);
+    });
+  });
+
+  // A long quarterly axis can still overflow a narrow viewport.
   // Park the scroll on the most RECENT quarters: whatever gets clipped must be the
   // near-empty 2024/25 past, never the current surge. (A silently-clipped chart
   // reads as "the data is missing" — it did.)
