@@ -1590,6 +1590,30 @@ class TestMoratoriumCharts:
         legend = page.locator("#moratorium-charts .mor-legend").first.inner_text()
         assert "Enacted" in legend and "Proposed" in legend
 
+    def test_timeline_encodes_jurisdiction_level_by_fill(
+        self, page: Page, base_url: str
+    ):
+        # Two orthogonal encodings: colour = status, fill = level.
+        # City segments are solid; county/state/federal are hatched.
+        self._open(page, base_url)
+        assert page.locator(".mor-chart--timeline .mtl-seg--city").count() >= 1
+        assert page.locator(".mor-chart--timeline .mtl-seg--other").count() >= 1
+
+    def test_timeline_legend_explains_both_encodings(
+        self, page: Page, base_url: str
+    ):
+        self._open(page, base_url)
+        legend = page.locator(".mor-chart--timeline .mor-legend").inner_text()
+        assert "City" in legend
+        assert "County / State / Federal" in legend
+        # texture swatches (one per level group), distinct from the status dots
+        assert page.locator(".mor-chart--timeline .mor-legend-swatch").count() == 2
+
+    def test_timeline_segment_titles_name_the_level(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        title = page.locator(".mor-chart--timeline .mtl-seg--other").first.get_attribute("title")
+        assert "County / State / Federal" in title
+
 
 class TestMoratoriumTable:
     """Directory table consistency (UX fix: no sponsor clutter, short durations)."""

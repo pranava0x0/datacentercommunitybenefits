@@ -505,6 +505,16 @@ across state/county/city), ratepayer scorecard **26 → 37 assessed sites**.
   bar sets for **concerns** and **jurisdiction level**. New `--moratorium-{enacted,
   proposed,failed}` tokens (literal in BOTH `:root` blocks per DESIGN.md 12.12),
   reusing the tariff/stance green/amber/red language.
+- **Timeline carries TWO orthogonal encodings — never two colour scales.**
+  `colour = status` (enacted/proposed/failed) and `fill = jurisdiction level`
+  (**city = solid**, **county/state/federal = hatched + transparent**, via
+  `.mtl-seg--city` / `.mtl-seg--other` and a `--seg` custom property holding the
+  status hue). The hatch is a `repeating-linear-gradient` in the *same* hue, so
+  the status colour survives the texture. Segment heights use
+  `Math.max(2, …)` so a 1-record sliver stays visible against a 58-record quarter.
+  The legend renders both scales (status dots + neutral-grey texture swatches, so
+  the reader reads the *texture* there, not the hue). If a third level split is
+  ever needed, add a texture — **don't** add a second colour ramp.
 - **PDF export redesign.** `exportMoratoriumsToPDF` builds a typographed document
   (`.mpdf-*` scoped `<style>`): serif display cover + kicker/dek, color-topped stat
   tiles, mini-bar summaries, a zebra directory table with status pills, and
