@@ -1174,6 +1174,77 @@
         }
       ],
       "captured_at": "2026-06-25"
+    },
+    {
+      "id": "nj-large-load-tariff-2026",
+      "utility": "All New Jersey electric public utilities (statewide framework)",
+      "state": "NJ",
+      "tariff_name": "Large Load / Data Center Tariff Standards (A796/S731)",
+      "tariff_type": "Data center tariff",
+      "status": "proposed",
+      "status_detail": "Passed both chambers of the NJ Legislature June 30, 2026; sent to Gov. Mikie Sherrill's desk. Not yet signed as of this record's capture date (Assemblyman Bailey has expressed optimism she will sign it).",
+      "regulator": "New Jersey Board of Public Utilities (NJBPU)",
+      "docket_number": null,
+      "filed_date": null,
+      "decision_date": null,
+      "min_load_mw": 50,
+      "customers": null,
+      "summary": "Bill A796/S731, sponsored by Assemblyman Dave Bailey Jr. (D), directs the NJ Board of Public Utilities to establish tariff standards for new and existing data centers of 50 MW or more (lowered from an original 100 MW threshold), requiring them to pay for at least 85% of their contracted electric service for a minimum of 10 years so costs don't shift to other ratepayers. A predecessor bill was pocket-vetoed by then-Gov. Phil Murphy in 2025.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to data centers of 50 MW or greater; aggregates facilities under common ownership or on contiguous sites to prevent splitting a large load into smaller nominal facilities."
+        },
+        "contracted_capacity": {
+          "status": "included",
+          "detail": "Requires a financial guarantee to take-or-pay for at least 85% of requested electric service."
+        },
+        "contract_duration": {
+          "status": "included",
+          "detail": "Minimum 10-year contract term backing the take-or-pay commitment."
+        },
+        "credit_collateral": {
+          "status": "partial",
+          "detail": "Requires developers to demonstrate the project is not being speculatively proposed at multiple sites simultaneously."
+        },
+        "clean_energy": {
+          "status": "partial",
+          "detail": "Prioritizes interconnection queue position for facilities that commit to bringing their own clean generation or storage."
+        },
+        "marginal_pricing": {
+          "status": "included",
+          "detail": "Requires demand-response and load-flexibility program participation, with large data-center load curtailed ahead of residential customers during grid emergencies."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Priority curtailment order",
+          "detail": "During system emergencies, large data-center customers must be curtailed before residential customers — an explicit ratepayer-protection ordering rule not itself one of the 17 LBL elements.",
+          "source_url": "https://www.utilitydive.com/news/new-jersey-lawmakers-send-data-center-tariff-bill-to-governor/824191/"
+        }
+      ],
+      "legislation": [
+        {
+          "title": "New Jersey A796/S731 (2026)",
+          "url": "https://njleg.gov/bill-search/2024/A5564/bill-text?f=A6000&n=5564_I1",
+          "citation": "A796/S731",
+          "status": "Passed both chambers June 30, 2026; awaiting governor's signature",
+          "summary": "Directs the NJ Board of Public Utilities to establish large-load data center tariff standards; part of a broader 2026 NJ legislative package on data centers (tax-incentive scale-back, siting transparency)."
+        }
+      ],
+      "source_url": "https://www.datacenterdynamics.com/en/news/new-jersey-lawmakers-pass-bill-to-establish-large-load-data-center-tariff/",
+      "source_title": "Data Center Dynamics — New Jersey lawmakers pass bill to establish large load data center tariff",
+      "resources": [
+        {
+          "url": "https://www.utilitydive.com/news/new-jersey-lawmakers-send-data-center-tariff-bill-to-governor/824191/",
+          "title": "Utility Dive — New Jersey lawmakers send data center tariff bill to governor"
+        },
+        {
+          "url": "https://www.nrdc.org/press-releases/new-jersey-passes-trailblazing-data-center-legislation-governor-sherrill-expected",
+          "title": "NRDC — New Jersey Passes Trailblazing Data Center Legislation"
+        }
+      ],
+      "captured_at": "2026-07-05"
     }
   ]
 }

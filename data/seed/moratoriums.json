@@ -15,14 +15,13 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed; Governor Hochul has not signed or vetoed as of June 24, 2026 — she has until December 2026 under New York law to act.",
+      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed (Senate approved the final Assembly-substituted version A11560 on June 4, 2026); as of July 5, 2026 the bill has not yet been delivered to the Governor, and Hochul has not signed or vetoed — she has until December 2026 under New York law to act.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
       "source_title": "Data Center Dynamics — NY Legislature passes data center moratorium",
-      "captured_at": "2026-06-04",
-      "bill_number": "SB7992/AB7234",
+      "captured_at": "2026-07-05",
+      "bill_number": "S10642/A11560",
       "sponsors": [
-        "State Senate Environmental Conservation Committee",
-        "Assembly Subcommittee on Energy"
+        "Sen. Kristen Gonzalez (D-WF, 59th District)"
       ],
       "key_stakeholders": {
         "environmental": [
@@ -50,12 +49,32 @@
       },
       "resources": [
         {
-          "url": "https://www.nysenate.gov/legislation/bills/2025/S7992",
-          "title": "New York Senate Bill S7992 (Full Text)"
+          "url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
+          "title": "New York Senate Bill S10642 (Full Text)"
         },
         {
-          "url": "https://assembly.state.ny.us/leg/?default_fld=0&bn=A07234",
-          "title": "New York Assembly Bill A7234 (Full Text)"
+          "url": "https://www.nysenate.gov/legislation/bills/2025/A11560",
+          "title": "New York Assembly Bill A11560 (Full Text)"
+        },
+        {
+          "url": "https://www.ny1.com/nyc/all-boroughs/news/2026/06/data-center-moratorium",
+          "title": "NY1 — Hochul Weighs Data Center Moratorium"
+        },
+        {
+          "url": "https://gothamist.com/news/albany-passes-data-center-moratorium-hochul",
+          "title": "Gothamist — Albany Passes Data Center Moratorium"
+        },
+        {
+          "url": "https://www.sierraclub.org/new-york/news/2026/06-data-center-moratorium",
+          "title": "Sierra Club New York — Statement on Data Center Moratorium"
+        },
+        {
+          "url": "https://www.dec.ny.gov/energy/data-center-impact-study",
+          "title": "NY DEC — Data Center Energy Impact Assessment (2025)"
+        },
+        {
+          "url": "https://www.coned.com/en/about-us/energy-infrastructure/data-center-analysis",
+          "title": "Con Edison — 2025 Grid Capacity Study"
         }
       ]
     },

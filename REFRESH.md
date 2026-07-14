@@ -3,9 +3,19 @@
 > Project refresh playbook, read by the generic `data-refresh` skill (~/.claude/skills/data-refresh). Keep current: every refresh run appends learned patterns; structural pipeline changes get edited into the body.
 
 
-**Purpose:** Systematically refresh and audit the dashboard's curated data (companies, projects, claims, community responses) to keep it current with recent announcements, regulatory filings, and community feedback.
+**Purpose:** Systematically refresh and audit the dashboard's curated data (companies, projects, claims, community responses, moratoriums, tariffs) to keep it current with recent announcements, regulatory filings, and community feedback.
 
 **Scope:** US data centers operated by or under lease to: Meta, Google, Microsoft, AWS/Amazon, OpenAI, Anthropic, xAI, Oracle, Wonder Valley, QTS, CoreWeave, Crusoe, and others meeting the two-gate editorial criteria.
+
+## Three refresh dimensions
+
+Every refresh session should consider all three — they have independent cadences and independent tooling:
+
+1. **New sites/projects** — new data center announcements from the 8 hyperscalers + tracked non-hyperscaler entities. See "Finding New Announcements" below.
+2. **New bills/dockets** — new or updated moratorium bills (city/county/state/federal) and utility large-load tariffs. See "Moratoriums & Tariffs Refresh" below.
+3. **Gap-filling existing records** — missing fields on records already in the seed (power_mw, ratepayer assessments, claims/feedback coverage). See "Filling Gaps" below.
+
+Don't treat this as one undifferentiated "go find stuff" pass — each dimension has a different staleness signal and a different verification bar (a new moratorium bill needs a live gov source; a gap-fill on an existing project just needs one more first-party field).
 
 ---
 
@@ -22,7 +32,7 @@ python3 refresh.py --check
 - Checks cross-references (company slugs, project IDs, claim IDs)
 - Halts on any validation error (no partial commits)
 
-### 2. **Audit Missing Commitment Details** (NEW — v1.18)
+### 2. **Audit Missing Commitment Details + Stale Pending Bills**
 ```bash
 python3 refresh.py --audit --check
 ```
@@ -30,24 +40,29 @@ python3 refresh.py --audit --check
   - **Operational sites:** must have `claimed_investment_usd` and `power_mw`
   - **Construction sites:** must have `claimed_investment_usd`
   - **Announced sites:** important fields are investment, jobs, power, at_a_glance
+- **Flags stale `proposed` moratoriums/tariffs** (v1.20): any `proposed` record whose
+  `captured_at` is `STALE_PENDING_DAYS` (21) or older gets listed — a pending bill
+  or docket is a moving target and needs a re-check, unlike `enacted`/`approved`/
+  `failed`/`rejected` records, which are stable once captured and are never flagged.
 - Generates `ISSUES.md` with prioritized gaps:
   - **Critical:** missing required fields
   - **Medium:** missing important/commitment fields
-- Report format: per-project lists with missing field names
-- **Note:** `--audit --check` writes ISSUES.md but does NOT write `docs/data/*.json`. Use without `--check` to also regenerate outputs.
-- Use to prioritize curation work and flag data gaps
+  - **Stale Pending Bills / Tariffs:** `proposed` records due for a status re-check
+- Report format: per-project / per-bill lists with missing fields or staleness age
+- Use to prioritize curation work and flag data gaps across all three refresh dimensions
+- **Note:** `--audit --check` writes ISSUES.md but does NOT write `docs/data/*.json`. Run without `--check` to regenerate outputs AND ISSUES.md together.
 
 ### 3. **Generate Output JSON**
 ```bash
-python3 refresh.py --pretty     # pretty-printed (for review)
-python3 refresh.py              # minified (for production)
-python3 refresh.py --audit      # minified + generates ISSUES.md
+python3 refresh.py --pretty      # pretty-printed (for review)
+python3 refresh.py               # minified (for production)
+python3 refresh.py --audit       # minified + generates ISSUES.md
 ```
 - Emits `docs/data/*.json` (companies, claims, projects, responses, moratoriums, tariffs)
 - Validates against schema one final time before write
 - Excludes null values from JSON (clean frontend data)
 - Stamps `generated_at` with today's date
-- Total payload ~647 KB (13 companies, 325 claims, 112 projects, 212 responses, as of 2026-06-30)
+- Total payload ~700 KB (13 companies, 334 claims, 113 projects, 216 responses, 91 moratoriums, as of 2026-07-14)
 
 ---
 
@@ -77,6 +92,66 @@ Target the most productive news sources per CLAUDE.md backlog + v1.8 experience:
 - "Stargate" + site name (for OpenAI/Oracle/SoftBank)
 - Regional keywords: "data center" + city/county name + state
 - Regulatory filings: state PSC dockets, FERC orders, local planning dept records
+
+---
+
+## Moratoriums & Tariffs Refresh
+
+Run `python3 refresh.py --audit --check` first — the "Stale Pending Bills / Tariffs"
+section of `ISSUES.md` tells you exactly which `proposed` records need a status
+re-check before you go looking for anything new.
+
+### Sources
+- **Trackers (aggregators, verify before trusting):** `datacenterbans.com`,
+  `interconnectedcapital.com/research/data-center-moratoriums`, MultiState's
+  `multistate.us/insider` state-legislation roundups, Good Jobs First
+  (`goodjobsfirst.org`).
+- **Primary/gov (always the final source for a record):** state legislature bill
+  trackers (`nysenate.gov`, `<state>legislature.gov`, etc.), state PUC/PSC docket
+  search, city/county council agendas and minutes.
+- **News for context/community reaction:** DataCenterDynamics, UtilityDive,
+  regional outlets (same list as project research).
+
+### Status re-check checklist (for anything flagged stale)
+1. Search `<jurisdiction> data center moratorium <bill number or name>` for the
+   most recent coverage.
+2. If status changed (e.g. `proposed` → `enacted`/`failed`), update `status`,
+   `enacted_date`/`failure_reason` as applicable, and bump `captured_at`.
+3. If status is unchanged, just bump `captured_at` to today so it doesn't
+   re-flag until the next `STALE_PENDING_DAYS` window — but only if you
+   actually re-verified it; don't bump the date on a record you didn't check.
+4. Watch for **bill renumbering** — a bill can be substituted/renumbered
+   between chambers mid-session (e.g. NY's S7992 was superseded by S10642 after
+   an Assembly substitution). Cross-check the bill number against the current
+   legislature site, not just the original announcement.
+5. New moratorium/tariff candidates found along the way: verify against a
+   primary/gov source before adding (per "Data quality rules" in CLAUDE.md);
+   run `python scripts/validate_moratoriums.py --id <new-id>` after adding a
+   moratorium to confirm the audit trail resolves.
+
+---
+
+## Filling Gaps in Existing Records
+
+The `--audit` critical/medium sections of `ISSUES.md`, plus
+`python -m connectors.research status`, are the two entry points for this
+dimension — no new site to discover, just missing fields on records already
+in the seed.
+
+```bash
+python -m connectors.research status                       # coverage gaps: N projects w/o claims, M w/o feedback
+python -m connectors.research queries --missing-feedback --limit 10   # emit search queries for a batch
+python -m connectors.research queries --missing-claims --limit 10
+```
+- `queries` prints ready-to-run search strings per project; run them (WebSearch
+  or the Chrome MCP bridge for JS-rendered pages).
+- `harvest` fetches the resulting URLs, auto-extracts publication dates and
+  verbatim quote candidates, and writes to `data/candidates/` (gitignored) —
+  it never auto-merges into `data/seed/` and never infers stance/constituency.
+- A human still curates: pick the right quote, set stance/constituency, and
+  merge the reviewed candidate into `data/seed/`.
+- See `BACKLOG.md` → "Drive coverage to comprehensive via the research
+  connectors" for the current gap count and priority order.
 
 ---
 

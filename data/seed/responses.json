@@ -2365,6 +2365,17 @@
       "source_url": "https://gridflexibility.fyi/case-studies/dominion-virginia",
       "source_title": "Grid Flexibility — why Dominion bills are rising (citing JLARC & the Virginia SCC)",
       "single_source": true
+    },
+    {
+      "id": "resp-amazon-montgomery-city-mo-negative",
+      "project_id": "amazon-montgomery-city-mo",
+      "date": "2026-06-23",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "A Missouri Rural Crisis Center survey mailed to Montgomery County's registered voters drew about 1,461 responses (of 5,000-6,000 sent), with roughly 85% opposed to the Amazon and Google data center projects; residents cited concerns about electric and water bills, farmland loss, and the pace of the approval process. A lawsuit filed in February 2026 separately challenges the county's approval process.",
+      "source_url": "https://www.kbia.org/kbia-news/2026-06-23/survey-montgomery-co-voters-overwhelmingly-oppose-data-centers",
+      "source_title": "KBIA — Survey: Montgomery Co. voters overwhelmingly oppose data centers",
+      "single_source": false
     }
   ]
 }
