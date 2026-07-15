@@ -66,8 +66,8 @@
       "status": "construction",
       "announced_year": 2024,
       "claimed_investment_usd": 50000000000,
-      "claimed_jobs": 1000,
-      "notes": "Announced as Meta's largest data center campus; expected to drive significant new electricity demand on Entergy's Louisiana grid. May 9 2026: Meta quietly acquired an additional ~1,400 acres adjacent to the original 2,250-acre Hyperion site for Phase 2 expansion (purchase from George B. Franklin & Sons); cumulative footprint now ~3,650 acres. Entergy's Apr 30 Q1 disclosure attributes ~$15B of its $57B 4-year capital plan to the Meta deal; LPSC-approved order includes $2B in customer-benefit commitments ($140M energy efficiency over 20 years; $60M Power-to-Care bill assistance match). UPDATE (2026-07-13): Meta committed more than $50 billion total (from $10B), expanding the campus to nearly 10 million sq ft and 5 GW of IT capacity — among the largest data centers in the world. Jobs: ~7,500 peak construction, ~1,000 operational, ~1,900 estimated indirect. Meta cites $1.6B already contracted with local Louisiana businesses, $1M+ in direct Richland Parish community investment, a $300K contribution to the Richland Revitalization Board, and $215M toward Entergy's customer bill-assistance programs. Grid buildout for the expansion includes 7 new natural-gas generating plants, 3 grid-scale batteries, and potential nuclear development / Waterford 3 expansion, which Entergy projects will save Entergy Louisiana customers more than $2B. Meta VP Rachel Peterson: 'With more than $1.6 billion already contracted with local companies and thousands of jobs being supported, we're delivering real economic impact.'",
+      "claimed_jobs": 8500,
+      "notes": "Announced as Meta's largest data center campus; expected to drive significant new electricity demand on Entergy's Louisiana grid. May 9 2026: Meta quietly acquired an additional ~1,400 acres adjacent to the original 2,250-acre Hyperion site for Phase 2 expansion (purchase from George B. Franklin & Sons); cumulative footprint now ~3,650 acres. Entergy's Apr 30 Q1 disclosure attributes ~$15B of its $57B 4-year capital plan to the Meta deal; LPSC-approved order includes $2B in customer-benefit commitments ($140M energy efficiency over 20 years; $60M Power-to-Care bill assistance match). UPDATE (2026-07-13): Meta committed more than $50 billion total (from $10B), expanding the campus to nearly 10 million sq ft and 5 GW of IT capacity — among the largest data centers in the world. Jobs: ~7,500 peak construction, ~1,000 operational, ~1,900 estimated indirect. Meta cites $1.6B already contracted with local Louisiana businesses, $1M+ in direct Richland Parish community investment, a $300K contribution to the Richland Revitalization Board, and $215M toward Entergy's customer bill-assistance programs. Grid buildout for the expansion includes 7 new natural-gas generating plants, 3 grid-scale batteries, and potential nuclear development / Waterford 3 expansion, which Entergy projects will save Entergy Louisiana customers more than $2B. Meta VP Rachel Peterson: 'With more than $1.6 billion already contracted with local companies and thousands of jobs being supported, we're delivering real economic impact alongside the AI infrastructure that will power the future.'",
       "source_url": "https://www.opportunitylouisiana.gov/news/meta-commits-more-than-50-billion-for-north-louisiana-project-becoming-one-of-the-largest-data-centers-in-history",
       "source_title": "Louisiana Economic Development — Meta commits more than $50 billion for North Louisiana project (July 13, 2026)",
       "captured_at": "2026-07-14",
@@ -1260,9 +1260,9 @@
       "announced_year": 2025,
       "claimed_investment_usd": 50000000000,
       "claimed_jobs": 5000,
-      "notes": "1.8 GW initial scaling toward 10 GW campus in Laramie County WY. Gas-fired generation via Tallgrass BFC Power / Cheyenne Power Hub ($7B power-infrastructure tranche). ~5,000 peak construction. Q2 2027 target for first-building energization. UPDATE (2026-07-14): Crusoe exited/paused its data-center-development role around April 2026 — 'At the request of our customer, Crusoe has paused its development activities' (Crusoe statement via Bloomberg) — and demobilized from the site. Project Jade itself is not cancelled: Tallgrass Energy (Blackstone-backed) continues the power-generation component ('full steam ahead' per a Tallgrass spokesperson), and Cheyenne Mayor Patrick Collins confirmed Tallgrass is seeking a replacement data-center operator, not yet announced as of this capture. Figures above (investment/jobs/power) reflect Crusoe's original announcement and may not hold once a new operator is named.",
-      "source_url": "https://www.datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/",
-      "source_title": "Data Center Dynamics — Crusoe 1.8 GW Cheyenne campus + power plant",
+      "notes": "1.8 GW initial scaling toward 10 GW campus in Laramie County WY. Gas-fired generation via Tallgrass BFC Power / Cheyenne Power Hub ($7B power-infrastructure tranche). ~5,000 peak construction. Q2 2027 target for first-building energization (per the original announcement, Data Center Dynamics, Jan 2026: datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/). UPDATE (2026-07-14, this record's current source_url): Crusoe exited/paused its data-center-development role around April 2026 — 'At the request of our customer, Crusoe has paused its development activities' (Crusoe statement via Bloomberg) — and demobilized from the site. Project Jade itself is not cancelled: Tallgrass Energy (Blackstone-backed) continues the power-generation component ('full steam ahead' per a Tallgrass spokesperson), and Cheyenne Mayor Patrick Collins confirmed Tallgrass is seeking a replacement data-center operator, not yet announced as of this capture. Figures above (investment/jobs/power) reflect Crusoe's original announcement and may not hold once a new operator is named.",
+      "source_url": "https://www.wyomingnews.com/news/local_news/crusoe-pulls-out-of-project-jade-data-center/article_b9a8bde9-21c0-4e8a-9051-9154b91bf0eb.html",
+      "source_title": "Wyoming Tribune Eagle — Crusoe pulls out of Project Jade data center (June 2026)",
       "captured_at": "2026-07-14",
       "power_mw": 1800,
       "offtaker": null,
@@ -3505,15 +3505,15 @@
       "status": "announced",
       "announced_year": 2026,
       "announced_date": "2026-07-06",
-      "claimed_investment_usd": 19000000000,
+      "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "20-year, $19B compute lease on a 790-acre former aluminum smelting site TeraWulf acquired (the 'Justified Data' campus). TeraWulf is separately investing $3-4B to develop the facility. Initial capacity targeted H2 2027, full 401 MW operational in 2028. Uses closed-loop cooling (propylene glycol-water mixture, recycled rather than drawn from local water sources). TeraWulf CEO Paul Prager: 'When we announced the Justified Data campus acquisition in February, we told investors that we expected to secure a major customer commitment by around the end of the second quarter of 2026.' Same week, TeraWulf sold its 50.1% stake in a separate Abernathy, TX facility to Fluidstack for $450M.",
+      "notes": "20-year, $19B compute LEASE (not capex) on a 790-acre former aluminum smelting site TeraWulf acquired (the 'Justified Data' campus). claimed_investment_usd left null: the $19B is Anthropic's lease-payment commitment, not capex, and TeraWulf's own capex ($3-4B, undisclosed precisely as a single figure) isn't a tracked-company field here since TeraWulf isn't one of the companies this dashboard tracks as an operator (same pattern as oracle-abilene-tx leaving investment null when the operator's capex isn't disclosed). Initial capacity targeted H2 2027, full 401 MW operational in 2028. Uses closed-loop cooling (propylene glycol-water mixture, recycled rather than drawn from local water sources). TeraWulf CEO Paul Prager: 'When we announced the Justified Data campus acquisition in February, we told investors that we expected to secure a major customer commitment by around the end of the second quarter of 2026.' Same week, TeraWulf sold its 50.1% stake in a separate Abernathy, TX facility to Fluidstack for $450M.",
       "source_url": "https://siliconangle.com/2026/07/06/anthropic-inks-19b-ai-data-center-lease-terawulf/",
       "source_title": "SiliconANGLE — Anthropic inks $19B AI data center lease with TeraWulf",
       "captured_at": "2026-07-14",
       "acreage": 790,
       "power_mw": 401,
-      "offtaker": "Anthropic",
+      "offtaker": null,
       "at_a_glance": {
         "energy": "$19B, 20-year lease — 401 MW by 2028; closed-loop cooling, no local water draw",
         "infrastructure": "TeraWulf develops/owns ($3-4B); Anthropic is sole compute tenant"
@@ -3545,12 +3545,12 @@
       },
       "ratepayer": {
         "status": "pledge_only",
-        "summary": "Covered by Microsoft's national pledge signature; the June 2026 Pecos announcement includes a Microsoft-funded dedicated onsite energy supply but no explicit site-specific ratepayer-protection commitment was captured.",
+        "summary": "Covered by Microsoft's national pledge signature; the site-specific Microsoft-funded dedicated onsite generation supports the new_generation principle, but no other explicit site-specific ratepayer-protection commitment was captured.",
         "assessed_at": "2026-07-14",
         "principles": {
           "new_generation": {
-            "status": "partial",
-            "note": "Covered by Microsoft's national pledge; Microsoft is funding dedicated onsite (behind-the-meter) generation for this site, but no explicit pledge-framed commitment was captured."
+            "status": "met",
+            "note": "Microsoft is funding a dedicated onsite (behind-the-meter) natural gas generation supply for the Pecos site itself, rather than relying solely on existing grid capacity."
           },
           "delivery_infra": {
             "status": "partial",
@@ -3584,7 +3584,7 @@
       "announced_year": 2026,
       "claimed_investment_usd": 1200000000,
       "claimed_jobs": null,
-      "notes": "Four-building, ~2,700-acre campus in Wharton County (near FM 1301/FM 442, southwest of Houston), filed with the Texas Department of Licensing and Regulation. ~756,240 sq ft total (189,060 sq ft / ~$300M per building). Construction on all four buildings set to start Aug 1, 2026; first three targeted for completion around January 2027, the fourth around August 2027. If built as proposed, expected to become the largest data center campus in Texas. Part of AWS's broader commitment to invest $4B+ in Texas data center infrastructure through 2029.",
+      "notes": "Four-building, ~2,700-acre campus in Wharton County (near FM 1301/FM 442, southwest of Houston), filed with the Texas Department of Licensing and Regulation. ~756,240 sq ft total (189,060 sq ft / ~$300M per building). Construction on all four buildings set to start Aug 1, 2026; first three targeted for completion around January 2027, the fourth around August 2027. Wharton County sits near Houston, described by the source as Texas' third-largest data center market.",
       "source_url": "https://www.datacenterdynamics.com/en/news/aws-files-for-12bn-data-center-campus-outside-houston-texas/",
       "source_title": "Data Center Dynamics — AWS files for $1.2bn data center campus outside Houston, Texas",
       "captured_at": "2026-07-14",
@@ -3625,17 +3625,17 @@
       "id": "aws-montgomery-county-mo",
       "company_slug": "amazon",
       "name": "AWS Montgomery County Data Center Campus",
-      "city": "New Florence",
+      "city": "Montgomery County",
       "state": "MO",
       "country": "US",
-      "lat": 38.87,
-      "lon": -91.42,
+      "lat": null,
+      "lon": null,
       "status": "announced",
       "announced_year": 2026,
       "announced_date": "2026-06-15",
       "claimed_investment_usd": 10000000000,
       "claimed_jobs": 400,
-      "notes": "Announced June 15, 2026. Amazon says the campus will create 400+ full-time jobs plus thousands of construction positions; Montgomery County estimates hundreds of millions of dollars in new property tax revenue over 25 years. Community commitments: $3M toward local emergency dispatch services, $1M+ for a gathering space at the Montgomery County Fairgrounds, and $3M more for STEM education / skills development / local nonprofit support. No construction timeline specified. Coverage frames this alongside Google's separate ~$15B commitment in the same county (see google-new-florence-mo) as a combined ~$25B wave of investment; exact town/site within the county wasn't specified beyond 'Montgomery County' in the sources reviewed — placed near New Florence given the adjacency described in Google's announcement.",
+      "notes": "Announced June 15, 2026. Amazon says the campus will create 400+ full-time jobs plus thousands of construction positions; Montgomery County estimates hundreds of millions of dollars in new property tax revenue over 25 years. Community commitments: $3M toward local emergency dispatch services, $1M+ for a gathering space at the Montgomery County Fairgrounds, and $3M more for STEM education / skills development / local nonprofit support. No construction timeline specified. Coverage frames this alongside Google's separate ~$15B commitment in the same county (see google-new-florence-mo) as a combined ~$25B wave of investment. The Amazon press release names only 'Montgomery County, Mo.' — no specific town or exact coordinates — so lat/lon are deliberately left null rather than guessed; it likely sits near New Florence given the adjacency described in Google's announcement, but that's an inference, not a confirmed site.",
       "source_url": "https://www.prnewswire.com/news-releases/amazon-selects-missouri-for-10-billion-data-center-campus-302800859.html",
       "source_title": "PR Newswire — Amazon Selects Missouri for $10 Billion Data Center Campus",
       "captured_at": "2026-07-14",
@@ -3646,7 +3646,7 @@
       },
       "ratepayer": {
         "status": "pledge_only",
-        "summary": "Covered by Amazon's national pledge signature; the June 2026 announcement includes community and workforce commitments but no explicit site-specific ratepayer-protection commitment was captured.",
+        "summary": "Covered by Amazon's national pledge signature; the site-specific 400+ jobs plus $3M STEM/workforce commitment supports the local_jobs principle, but no other explicit site-specific ratepayer-protection commitment was captured.",
         "assessed_at": "2026-07-14",
         "principles": {
           "new_generation": {
@@ -3662,8 +3662,8 @@
             "note": "Covered by Amazon's national pledge; no separate rate filing or utility agreement captured for this site."
           },
           "local_jobs": {
-            "status": "partial",
-            "note": "Covered by Amazon's national pledge; $3M in STEM/workforce and nonprofit support committed, but no explicit pledge-framed local-hiring commitment was captured."
+            "status": "met",
+            "note": "Amazon committed 400+ named full-time jobs for this site plus $3M toward local STEM education, skills development, and nonprofit workforce support."
           },
           "grid_resilience": {
             "status": "partial",
@@ -3685,16 +3685,16 @@
       "announced_year": 2023,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "65-80 acre campus near the I-70/C-470 interchange on Aurora's eastern edge, south of Denver International Airport. Planned 4 buildings; one complete, a second nearly finished, and site work underway on a third as of July 2026. At full build-out will draw at least 160-177 MW peak — about 4x DIA's own peak capacity — making it one of Xcel Energy's largest individual customers. Aurora and Arapahoe County offered tax incentives; the larger draw was a competitive electricity rate, which Colorado PUC staff and the state utility consumer advocate challenged as excessive (recommending a more reasonable ~15% discount). $28M was invested in dedicated high-voltage transmission lines. July 2026: QTS filed a permit to add 98 more diesel backup generators to the 40 already on-site, drawing renewed attention; Aurora councilmember Amy Wiles is pursuing targeted regulations (neighborhood buffers, dropping water-intensive landscaping requirements) rather than a moratorium — 'I personally think we need a neighborhood buffer to make sure they're not being built right next to neighborhoods.' No organized resident opposition group identified in sources reviewed; not enough to source a CommunityResponse record yet.",
-      "source_url": "https://coloradosun.com/2023/10/11/aurora-data-center-to-become-one-of-xcels-biggest-customers-rivaling-mines-and-steel-mills/",
-      "source_title": "Colorado Sun — Aurora data center to become one of Xcel's biggest customers, rivaling mines and steel mills",
+      "notes": "65-80 acre campus near the I-70/C-470 interchange on Aurora's eastern edge, south of Denver International Airport. Planned 4 buildings; one complete, a second nearly finished, and site work underway on a third as of July 2026. At full build-out will draw at least 160-177 MW peak — about 4x DIA's own peak capacity — making it one of Xcel Energy's largest individual customers (per the original announcement, Colorado Sun, Oct 2023: coloradosun.com/2023/10/11/aurora-data-center-to-become-one-of-xcels-biggest-customers-rivaling-mines-and-steel-mills/). Aurora and Arapahoe County offered tax incentives; the larger draw was a competitive electricity rate, which Colorado PUC staff and the state utility consumer advocate challenged as excessive, recommending a smaller ~15% discount instead. $28M was invested in dedicated high-voltage transmission lines. July 2026 (this record's current source_url): amid reporting that QTS is seeking to expand its on-site diesel backup generator fleet (exact permit figures not independently confirmed — the specific-count source was inaccessible to re-verify directly, so left out here), Aurora councilmember Amy Wiles is pursuing targeted regulations (neighborhood buffers, dropping water-intensive landscaping requirements) rather than a moratorium — 'I personally think we need a neighborhood buffer to make sure they're not being built right next to neighborhoods.' Data centers' diesel generators are subject to Colorado Air Quality Control Commission reporting requirements per the same report. No organized resident opposition group identified in sources reviewed; not enough to source a CommunityResponse record yet.",
+      "source_url": "https://sentinelcolorado.com/metro/aurora-considers-targeted-regulations-for-new-data-centers-amidst-growing-concerns/",
+      "source_title": "Sentinel Colorado — Aurora considers targeted regulations for new data centers amidst growing concerns (July 2026)",
       "captured_at": "2026-07-14",
       "acreage": 80,
       "power_mw": 160,
       "offtaker": "QTS",
       "at_a_glance": {
         "energy": "160-177 MW at build-out — ~4x DIA's peak capacity",
-        "engagement": "Diesel-generator permit (98 more) prompted Aurora to weigh siting regulations, not a moratorium"
+        "engagement": "Diesel-generator expansion reporting prompted Aurora to weigh siting regulations, not a moratorium"
       }
     }
   ]

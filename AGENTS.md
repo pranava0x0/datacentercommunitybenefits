@@ -178,6 +178,25 @@ before consuming the result:
   correction applies to the next run, it doesn't belong only in the
   transcript.
 
+**Persist the retrospective, don't just perform it.** This repo's `docs/`
+is the deployed site (GitHub Pages), not a notes folder — keep the running
+scorecard at **[AGENT_RUNS.md](AGENT_RUNS.md)** instead. Append one row per
+agent/workflow run: what it did, worked (y/n), ~tokens, and the best-ROI
+alternative in hindsight. A retrospective that only lives in the chat reply
+is invisible to the next session and the same mistake gets re-paid for —
+see the 2026-07-14 entry (4-agent PR review fan-out, ~509K tokens for a
+~940-line diff) for exactly the failure mode this guards against.
+
+**Default fan-out for a code review is 1-2 agents, not "one per lens."**
+Combine correctness + domain-accuracy + editorial checks into a single
+well-scoped prompt when the diff is small-to-medium; only split into
+parallel agents when a lens genuinely needs a different model, different
+tool access, or the diff is large enough that one agent's context would be
+overwhelmed. Point each agent at exact files/record-ids instead of "read
+the whole diff + CLAUDE.md + schema.py" — most of this diff's size was
+generated JSON (already schema-validated by `refresh.py --check` and
+`pytest`), not code that needed a fresh code-quality pass.
+
 A solo turn with no spawn has nothing to evaluate. Say so rather than
 invent analysis.
 

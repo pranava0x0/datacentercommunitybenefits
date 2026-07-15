@@ -178,6 +178,36 @@ to validate the connector framework end-to-end before tackling the others.
 
 ## Medium priority
 
+### Tariff schema needs a tax-vs-rate-design distinction
+`virginia-data-center-electricity-consumption-tax` (added 2026-07-14) is a
+state budget-enacted excise tax, not a utility-filed rate design — but the
+`Tariff` schema has no equivalent to `jurisdiction_level: "federal"`'s
+carve-out from the Approved/Proposed/Rejected and "tariffs tracked" stat
+tiles (see `docs/app.js` `renderTariffStats`/`isFederalTariff`). Right now
+this one record silently inflates those counts alongside genuine
+PUC-approved rate designs, and it's scored against the 17-element LBL
+rate-design taxonomy that structurally can't apply to a flat tax (2/17
+elements, both "partial," is the ceiling for an instrument like this).
+`regulator` ("Virginia Department of Taxation") and `docket_number`
+("HB30, Item 3-5.24", duplicating `legislation[0].citation`) are both
+values that don't cleanly fit fields documented for a PUC/PSC docket.
+Needs a real migration (a new `instrument_type` field, or an `excluded_
+from_stats` flag mirroring the federal carve-out) rather than a field
+game — flagging here per CLAUDE.md's "don't add a status/field inline"
+convention. Revisit if more tax-type (as opposed to rate-design) records
+get added.
+
+### Moratorium.resources should use the same typed model as Tariff.resources
+`Moratorium.resources: Optional[list[dict]]` (schema.py) is untyped,
+unlike `Tariff.resources: Optional[list[SourceResource]]`, which enforces
+required `url`/`title` at validation time. `docs/app.js` (`m.resources.
+forEach((res) => addResource(res.url, res.title, false))`, both call
+sites) doesn't null-check `res.url`/`res.title` before using them, so a
+malformed hand-entered resource (missing either key) would pass schema
+validation and throw at render time. Not an active bug — the current
+dataset has zero malformed entries — but worth hardening the same way
+Tariff already is, given both types serve the same purpose.
+
 ### Add OpenAI Stargate site list as it expands
 Stargate has only one announced site (Abilene, TX) as of 2025-01. Track
 new site announcements and add them as `openai-*` projects with cross-

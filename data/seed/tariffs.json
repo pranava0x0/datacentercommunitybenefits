@@ -698,7 +698,7 @@
       "additional_terms": [
         {
           "term": "Credit-security requirement (litigated)",
-          "detail": "The PSC's April 2026 order requires very-large-load customers to carry an A- (S&P) or A3 (Moody's) credit rating, or post equivalent financial security, and removed We Energies' ability to waive it. Oracle argues compliance could cost $100M+/year and require $7B+ in collateral for its Port Washington campus, and sued to have the requirement set aside; the PSC declined to reconsider and will defend it in Ozaukee County Circuit Court."
+          "detail": "The PSC's April 2026 order requires very-large-load customers to carry an A- (S&P) or A3 (Moody's) credit rating, or post equivalent financial security, and removed We Energies' ability to waive it. The PSC-approved rate structure would require Oracle's Port Washington subsidiary to provide more than $100M/year in cash deposits or letters of credit; Oracle sued to have the requirement set aside, and the PSC declined to reconsider and will defend it in Ozaukee County Circuit Court."
         }
       ],
       "legislation": [],
@@ -1192,7 +1192,7 @@
       "tariff_name": "Data Center Fair Share Act (S731 / A796) — dedicated data-center rate class",
       "tariff_type": "Data center rate class / large-load rider",
       "status": "approved",
-      "status_detail": "Signed into law by Governor Mikie Sherrill on July 7, 2026, as part of a broader energy-affordability package; directs the NJ Board of Public Utilities to establish the rate class by rulemaking. An earlier version had passed the legislature but was pocket-vetoed by outgoing Governor Phil Murphy.",
+      "status_detail": "Signed into law by Governor Mikie Sherrill on July 7, 2026, as part of a broader energy-affordability package; directs the NJ Board of Public Utilities to establish the rate class by rulemaking. An earlier, differently-numbered version (A5462, 2024-2025 session) had passed the legislature but was pocket-vetoed by outgoing Governor Phil Murphy; it was reintroduced in the current session as S731/A796, which is what was actually signed. Some press coverage still refers to it by the original A5462 number.",
       "regulator": "New Jersey Board of Public Utilities (BPU)",
       "decision_date": "2026-07-07",
       "min_load_mw": 50,
@@ -1201,7 +1201,8 @@
       "parameters": {
         "min_load": {
           "status": "included",
-          "detail": "Applies to data centers consuming 50 MW or more."
+          "detail": "Applies to data centers with peak electricity demand of 50 MW or more, or a lower threshold the BPU deems necessary.",
+          "source_url": "https://www.assemblydems.com/m/newsflash/Home/Detail/13131"
         },
         "customer_type": {
           "status": "included",
@@ -1210,6 +1211,16 @@
         "clean_energy": {
           "status": "included",
           "detail": "Incentivizes data centers to bring their own low-cost, clean generation onto the grid."
+        },
+        "contracted_capacity": {
+          "status": "included",
+          "detail": "Data centers must provide financial guarantees to pay for at least 85% of the electrical service they request.",
+          "source_url": "https://www.assemblydems.com/m/newsflash/Home/Detail/13131"
+        },
+        "contract_duration": {
+          "status": "included",
+          "detail": "The 85% minimum-payment commitment applies for a minimum term of 10 years.",
+          "source_url": "https://www.assemblydems.com/m/newsflash/Home/Detail/13131"
         }
       },
       "additional_terms": [
@@ -1237,6 +1248,10 @@
         {
           "url": "https://nj1015.com/nj-data-center-fair-share-law/",
           "title": "NJ 1015 — New Jersey becomes first state to put AI data centers in their own ratepayer class"
+        },
+        {
+          "url": "https://www.assemblydems.com/m/newsflash/Home/Detail/13131",
+          "title": "NJ Assembly Democrats — Bill to Protect Ratepayers from Data Center Energy Costs Signed Into Law (85%/10-year and 50 MW detail)"
         }
       ],
       "captured_at": "2026-07-14"
