@@ -1018,9 +1018,10 @@ class TestRatepayerView:
         pre = page.locator("#rp-pre-pledge .rp-pre-card")
         assert unassessed.count() >= 1
         assert pre.count() >= 1
-        # qts-van-wert-oh (announced 2026-05-29) is pledge-era, not pre-pledge.
-        assert "Van Wert" in page.locator("#rp-unassessed").inner_text()
-        assert "Van Wert" not in page.locator("#rp-pre-pledge").inner_text()
+        # google-spacex-gpu-partnership (announced 2026-06-05) is a dated
+        # post-pledge site with no site assessment → pledge-era, not pre-pledge.
+        assert "Google-SpaceX" in page.locator("#rp-unassessed").inner_text()
+        assert "Google-SpaceX" not in page.locator("#rp-pre-pledge").inner_text()
         # ms-quincy-wa (announced 2006) stays pre-pledge.
         assert "Quincy" in page.locator("#rp-pre-pledge").inner_text()
         assert "Quincy" not in page.locator("#rp-unassessed").inner_text()
@@ -1184,6 +1185,28 @@ class TestRatepayerView:
         assert stats["blocks"] >= 5, stats
         # EVERY claim row carries its own source link.
         assert stats["linked"] == stats["rows"], stats
+
+
+    def test_basis_badge_makes_individual_vs_company_wide_explicit(
+        self, page: Page, base_url: str
+    ):
+        # Every assessed card labels whether the site was claimed individually
+        # (a site-specific commitment) or only under the company-wide pledge.
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        text = page.locator("#rp-scorecard").inner_text()
+        assert "Claimed individually" in text
+        assert "Company-wide pledge only" in text
+
+    def test_conflicting_reports_surface_on_cards(self, page: Page, base_url: str):
+        # Sites with an independent ratepayer cost-shift report carry a header
+        # flag (visible) and an expandable conflicts block (in the DOM).
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        assert page.locator("#rp-scorecard .rp-conflict-flag").count() >= 1
+        assert page.locator("#rp-scorecard .rp-conflicts").count() >= 1
 
 
 class TestTariffsView:
@@ -1599,3 +1622,144 @@ class TestEmbedWidget:
         page.wait_for_selector(".embed-error", timeout=10_000)
         text = (page.locator(".embed-error").text_content() or "").lower()
         assert "no company" in text, f"Expected 'no company' hint: {text!r}"
+
+
+class TestMoratoriumCharts:
+    """Summary charts above the moratorium directory table."""
+
+    def _open(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-moratoriums").click()
+        page.wait_for_selector("#moratorium-charts .mor-chart", timeout=10_000)
+
+    def test_timeline_and_bars_render(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        # Timeline (stacked columns) + at least a few quarters.
+        assert page.locator(".mor-chart--timeline").count() == 1
+        assert page.locator(".mtl-col").count() >= 3
+        # Horizontal bar sets (concerns + jurisdiction) with multiple rows.
+        assert page.locator(".mor-hbar-set .mhb-row").count() >= 3
+
+    def test_timeline_segments_present(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert page.locator(".mtl-seg").count() >= 1
+
+    def test_status_legend_renders(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        legend = page.locator("#moratorium-charts .mor-legend").first.inner_text()
+        assert "Enacted" in legend and "Proposed" in legend
+
+    _PLOTTED_TOTAL = (
+        "[...document.querySelectorAll('.mtl-total')]"
+        ".reduce((s, e) => s + (parseInt(e.textContent) || 0), 0)"
+    )
+
+    def test_level_toggle_renders_four_options(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        btns = page.locator(".mor-toggle-btn")
+        assert btns.count() == 4
+        joined = " ".join(btns.all_inner_texts())
+        for label in ("All", "City / County", "State", "Federal"):
+            assert label in joined
+
+    def test_toggle_filters_timeline_and_keeps_axis_stable(
+        self, page: Page, base_url: str
+    ):
+        self._open(page, base_url)
+        quarters_all = page.locator(".mtl-col").count()
+        total_all = page.evaluate(self._PLOTTED_TOTAL)
+
+        page.locator('.mor-toggle-btn[data-level="state"]').click()
+        page.wait_for_timeout(200)
+
+        # Axis derives from the FULL dataset, so filtering happens in place.
+        assert page.locator(".mtl-col").count() == quarters_all
+        total_state = page.evaluate(self._PLOTTED_TOTAL)
+        assert 0 < total_state < total_all
+        # what's plotted matches the count on the active toggle
+        shown = page.locator('.mor-toggle-btn[data-level="state"] .mor-toggle-count')
+        assert total_state == int(shown.inner_text())
+
+    def test_shared_yscale_keeps_federal_a_sliver(self, page: Page, base_url: str):
+        # Federal has ~1 record. The y-scale is shared across levels, so it must
+        # render as a sliver — rescaling per filter would make 1 record look as
+        # tall as a 58-record quarter.
+        self._open(page, base_url)
+        page.locator('.mor-toggle-btn[data-level="federal"]').click()
+        page.wait_for_timeout(200)
+        tallest = page.evaluate(
+            "Math.max(0, ...[...document.querySelectorAll('.mtl-bar')]"
+            ".map(b => b.getBoundingClientRect().height))"
+        )
+        assert tallest < 150 * 0.25, (
+            f"federal bar should stay a sliver on the shared scale, got {tallest}px"
+        )
+
+    def test_toggle_active_state_updates(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert (
+            page.locator('.mor-toggle-btn[data-level="all"]').get_attribute("aria-pressed")
+            == "true"
+        )
+        page.locator('.mor-toggle-btn[data-level="local"]').click()
+        page.wait_for_timeout(150)
+        assert (
+            page.locator('.mor-toggle-btn[data-level="local"]').get_attribute("aria-pressed")
+            == "true"
+        )
+        assert (
+            page.locator('.mor-toggle-btn[data-level="all"]').get_attribute("aria-pressed")
+            == "false"
+        )
+
+    _LAST_QUARTER_VISIBLE = """() => {
+      const el = document.querySelector('.mtl-plot');
+      const pr = el.getBoundingClientRect();
+      const cols = [...document.querySelectorAll('.mtl-col')];
+      const last = cols[cols.length - 1].getBoundingClientRect();
+      return last.left >= pr.left - 1 && last.right <= pr.right + 1;
+    }"""
+
+    def test_full_axis_fits_on_desktop(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert page.evaluate(self._LAST_QUARTER_VISIBLE)
+
+    def test_recent_quarters_never_clipped_on_narrow_viewport(
+        self, page: Page, base_url: str
+    ):
+        # Regression: two bars per quarter doubled the axis width and silently
+        # scrolled the current surge off-screen ("the data is missing"). The plot
+        # must park on the most RECENT quarter — clip the empty past, never the surge.
+        page.set_viewport_size({"width": 390, "height": 900})
+        self._open(page, base_url)
+        page.wait_for_timeout(300)
+        assert page.evaluate(self._LAST_QUARTER_VISIBLE), (
+            "the most recent quarter scrolled out of view on a narrow viewport"
+        )
+
+
+class TestMoratoriumTable:
+    """Directory table consistency (UX fix: no sponsor clutter, short durations)."""
+
+    def _open(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-moratoriums").click()
+        page.wait_for_selector("#moratoriums-tbody tr", timeout=10_000)
+
+    def test_no_sponsor_in_jurisdiction_column(self, page: Page, base_url: str):
+        # Sponsors are detail-level (modal "Introduced by"), not in the directory.
+        self._open(page, base_url)
+        assert page.locator("#moratoriums-tbody .moratorium-sponsor").count() == 0
+
+    def test_duration_cells_are_scannably_short(self, page: Page, base_url: str):
+        # duration_description can be paragraph-length; the table truncates it.
+        self._open(page, base_url)
+        max_len = page.evaluate(
+            "Math.max(...[...document.querySelectorAll('#moratoriums-tbody tr')]"
+            ".map(r => r.children[3].textContent.trim().length))"
+        )
+        assert max_len <= 60, f"a duration cell rendered {max_len} chars (should truncate)"
+
+    def test_bill_number_chip_still_shows(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        assert page.locator("#moratoriums-tbody .moratorium-bill-id").count() >= 1

@@ -660,7 +660,13 @@ class Moratorium(_StrictBase):
     )
     duration_description: str = Field(
         min_length=1,
-        description="Human-readable duration: '6 months', '1 year', '18 months', 'Permanent ban', etc.",
+        description=(
+            "Human-readable duration. Prefer a short label ('6 months', '1 year', "
+            "'18 months', 'Permanent ban'); a brief qualifier is fine ('Up to 2 years, "
+            "until zoning adopted'). Keep the lede the actual duration — the directory "
+            "table shows a truncated form (shortDuration() in app.js) and the full "
+            "text renders in the detail modal + cell tooltip."
+        ),
     )
     power_threshold_mw: Optional[float] = Field(
         default=None,

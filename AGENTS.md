@@ -355,6 +355,53 @@ A PR in **"COMMENTED"** state means action required, not FYI. Fetch full
 review bodies (not just the summary line), extract a checklist of each
 distinct issue, and verify the specific flow each names.
 
+### Multi-agent fan-out discipline (when a sub-agent is genuinely warranted)
+
+When a task truly needs research agents (comprehensive data expansion, cross-source
+synthesis), keep the run cheap and clean:
+
+- **Cap concurrent fan-out at 2–3, never a wide burst.** A 5+-wide parallel launch
+  triggers server-side hiccups that look like task failures. **Caught July 2026:** a
+  5-agent burst returned one agent with **0 tool uses** (misfired), forcing a
+  relaunch — ~61K tokens burned for nothing. Prefer 2–3 large **breadth-batched**
+  agents (one covers all states, one all counties, one all cities) over one-agent-
+  per-item. Confirm an agent is truly dead (not just slow) before relaunching, or you
+  pay for the same work twice. **Also caught July 2026 (separate incident):** a
+  4-agent PR-review fan-out (one per review lens) cost ~610K tokens on a diff most of
+  which was already schema-validated — see [AGENT_RUNS.md](AGENT_RUNS.md) for the
+  full retrospective. Default a code review to 1-2 combined-lens agents instead of
+  one per lens.
+- **Model-select every spawn.** Simple gathering (grep/list/schema) → cheapest tier.
+  Web-research synthesis → standard tier. Reserve the inherited top-tier model for
+  genuinely open-ended judgement. **Caught July 2026:** all research agents inherited
+  the main-loop's top-tier model when a cheaper tier was the right fit for the task —
+  same quality, far cheaper.
+- **Every spawn prompt carries a scope limiter + writes to disk.** "≤2 fetches per
+  record, skip a field after 2 tries"; write JSON to the scratchpad and return only
+  path + count + 2–3 surprises (<120 words). Never let an agent return a giant JSON
+  blob — it bloats the orchestrator and isn't auditable. Note: a soft prompt-level cap
+  is advisory, not enforced — one fill agent given "≤2 fetches/record" still averaged
+  ~4/record when a field was findable-but-slow. Size the batch expecting some overrun,
+  and pre-flight the premise so the agent isn't chasing a field that mostly doesn't
+  exist (e.g., local county/city moratoria rarely carry a formal bill number).
+- **Seed the JSON contract inline first**, hand each agent an "already tracked, skip"
+  partition list, and strip agent-only fields (`_evidence`) + validate against
+  `schema.py` at merge.
+- **Log every run in [AGENT_RUNS.md](AGENT_RUNS.md)** — one row: what it did,
+  worked?, quality, ~tokens, better-in-hindsight. A retrospective kept only in the
+  reply is invisible next session; that's how the same mistake gets re-paid for.
+- **Spend the running total down out loud, not just at the end.** A comprehensive
+  multi-agent pass that crosses ~500K tokens without a checkpoint has already made
+  the user's choice for them — surface the spend and offer to scope down *while it's
+  still running*, not in the post-hoc retrospective.
+
+### Never spawn a deep-research agent for
+
+- Adding a single new project or claim (do it directly).
+- Checking if a project is already in the seed (run a python one-liner).
+- Fixing a CSS/JS bug (read the file, edit it).
+- Any task solvable with grep + Read + a short Bash command.
+
 ## What NOT to do
 
 - **Don't paraphrase company claims into the `statement` field.** Quote

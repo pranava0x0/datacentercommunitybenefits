@@ -1,6 +1,6 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-06-09
-Total projects needing attention: 91
+Generated: 2026-07-05
+Total projects needing attention: 106
 
 ## Code bugs
 
@@ -9,22 +9,35 @@ Total projects needing attention: 91
 | 2026-07-14 | tests/e2e/test_views.py | The 2 new `test_pdf_export_downloads` regression tests (added in the same PR they were meant to guard) hard-depended on the cdnjs CDN for html2pdf, reintroducing exactly the network dependency CLAUDE.md's Tariffs v1.17 note documents as a flakiness/SRI-failure source this suite was redesigned to avoid. | Test bug — the tests correctly caught the underlying `formatInvestment` regression, but were written to exercise the full `.save()` path (post-CDN-load) instead of stopping at the point the original bug actually threw (pre-CDN-load). | Fixed (commit `131a7f4`) — stubbed `window.html2pdf` via `page.add_init_script` so `loadHtml2Pdf()`'s existing `if (window.html2pdf) return ...` short-circuit skips the CDN entirely. |
 
 ## Critical Missing Commitment Details
-(21 projects)
+(34 projects)
 
 Projects missing required fields based on status:
 - **amazon-bossier-parish-la** (construction): claimed_investment_usd
 - **aws-caroline-va** (construction): claimed_investment_usd
+- **aws-umatilla-or** (operational): power_mw
 - **coreweave-ellendale-nd** (construction): claimed_investment_usd
 - **google-armstrong-tx** (construction): claimed_investment_usd
+- **google-berkeley-county-sc** (operational): power_mw
 - **google-council-bluffs-ia** (operational): power_mw
+- **google-ellis-county-tx** (operational): claimed_investment_usd, power_mw
 - **google-gray-county-tx** (construction): claimed_investment_usd
 - **google-haskell-tx** (construction): claimed_investment_usd
+- **google-henderson-nv** (operational): power_mw
+- **google-lenoir-nc** (operational): power_mw
+- **google-mayes-county-ok** (operational): power_mw
 - **google-the-dalles-or** (operational): power_mw
+- **meta-eagle-mountain-ut** (operational): power_mw
 - **meta-huntsville-al** (operational): power_mw
+- **meta-kuna-id** (operational): power_mw
+- **meta-los-lunas-nm** (operational): power_mw
 - **meta-prineville-or** (operational): power_mw
+- **meta-sarpy-ne** (operational): power_mw
+- **microsoft-boydton-va** (operational): power_mw
 - **microsoft-douglasville-ga** (construction): claimed_investment_usd
+- **microsoft-el-mirage-az** (operational): claimed_investment_usd, power_mw
 - **microsoft-heath-oh** (construction): claimed_investment_usd
 - **microsoft-hebron-oh** (construction): claimed_investment_usd
+- **microsoft-san-antonio-tx** (operational): power_mw
 - **microsoft-west-des-moines-ia** (operational): power_mw
 - **ms-mt-pleasant-wi** (operational): power_mw
 - **ms-quincy-wa** (operational): power_mw
@@ -35,7 +48,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(70 projects)
+(72 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -43,6 +56,7 @@ Projects with important gaps:
 - **amazon-canton-ms** (construction): power_mw, ratepayer
 - **amazon-clinton-ms** (announced): power_mw
 - **amazon-falls-twp-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **amazon-montgomery-city-mo** (announced): power_mw
 - **amazon-richmond-county-nc** (construction): power_mw, ratepayer
 - **amazon-vicksburg-ms** (announced): claimed_jobs, power_mw
 - **amazon-wheatfield-in** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
@@ -62,6 +76,7 @@ Projects with important gaps:
 - **google-clay-county-mo** (construction): claimed_jobs, ratepayer
 - **google-franklin-furnace-oh** (announced): claimed_jobs, power_mw
 - **google-hermantown-mn** (announced): claimed_jobs, power_mw
+- **google-jackson-county-al** (construction): claimed_jobs
 - **google-lagrange-ga** (construction): claimed_jobs
 - **google-lima-oh** (announced): claimed_jobs, power_mw
 - **google-linn-county-ia** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -131,3 +146,53 @@ Projects with important gaps:
 | 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
 | 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: bill_number='SB232' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
 | 2026-06-25 | moratoriums:south-dakota-state-2026-02 | Claim unverified in source: failure_reason='Tabled in Senate State Affairs Committee (5-3 vote), Februar' | Verify against https://sdlegislature.gov/Session/Bill/27269/301228 | Open |
+
+## Moratorium accuracy + link pass (2026-07-14)
+
+Ran the hardened `scripts/validate_moratoriums.py --links-only` (browser-UA
+`requests` fetcher, dead/blocked/live classification) over all records, then
+fixed what it surfaced. Every record now resolves to a **live** source
+(`primary-source dead: 0`, `total dead links: 0`).
+
+| Date | Record | Finding | Action | Status |
+|------|--------|---------|--------|--------|
+| 2026-07-14 | moratoriums:loudoun-county-va-2026-03 | "Ban on new data center development" unsubstantiated — loudoun.gov shows only a by-right→special-exception rezoning process, no moratorium | Removed the record; re-add with a reliable primary source if a 6-month ≥50 MW pause is confirmed | Fixed (removed) |
+| 2026-07-14 | moratoriums:connecticut-state-2026-02 | Described as a "2-year moratorium on >15 MW"; the actual bills (SB245 tax-incentive repeal, HB5469 co-location rule) are not a moratorium | Corrected summary to the real bills; repointed to live CT Mirror source | Fixed |
+| 2026-07-14 | moratoriums:cave-city-ky-2026-05 | Primary WBKO `/video/` URL 404 | Repointed to the live WBKO article (facts confirmed) | Fixed |
+| 2026-07-14 | moratoriums:citrus-county-fl-2026-05 | Primary chronicleonline URL 404 | Repointed to the live WFLA article | Fixed |
+| 2026-07-14 | moratoriums (55 links across records) | Fabricated / dead `.gov` "resource" links (e.g. a Colorado water-shortage page cited for a Denver moratorium) | Stripped all verified-dead resource links | Fixed |
+| 2026-07-14 | moratoriums (47 records) | No live `.gov`/official source link (worse than the pre-fix count because fabricated `.gov` links were removed) | Backlog: add real gov links via `--links-only` audit; live news source is acceptable interim | Open |
+
+Note: the older `## Moratorium source audit` rows below are stale false-negatives
+from the pre-hardening urllib fetcher (many gov pages bot-blocked it / are
+JS-rendered). Re-run the full audit with the new fetcher before acting on them.
+
+## Moratorium completeness fill (2026-07-14)
+
+Added `--completeness` to the validator (flags records missing a bill/ordinance #,
+gov link, vote, or sponsors) and ran a Sonnet fill agent (scope-limited, verified-
+only) over the 13 new records. Applied to 8: **2 ordinance numbers** (PG County
+CR-066-2026, Oneida County OA-02-2026), **7 curl-verified-200 gov links**, **2
+sponsor lists**. Votes were already present on 11/13.
+
+Remaining, documented gaps (not defects):
+- **67 records still lack a bill/ordinance number** — most local moratoria are bare
+  board motions/resolutions with no formal numbering (the fill agent confirmed this
+  for the 13; only 2 had a verifiable number). `--completeness` flags them for review;
+  a null here is often honest, not fillable.
+- **washington-county-md-2026-06** links to its official site `washco-md.net`, which
+  `GOV_PATTERN` doesn't credit (a county abbreviation on `.net`) — an accepted
+  heuristic miss; the link is official and live.
+- **marshall-county-in-2026-04** — no fetchable source (co.marshall.in.us + local news
+  all 403); left as-is with its news source. Genuine dead end.
+
+## Frontend bugs found + fixed (2026-07-14, moratorium charts/table)
+
+| Date | Area | Bug | Root cause | Fix | Status |
+|------|------|-----|-----------|-----|--------|
+| 2026-07-14 | charts | The timeline silently clipped the newest quarters — the 2026 surge (the entire point of the chart) scrolled off-screen with no affordance. Reported by the user as "data is missing." | **Code bug.** `overflow-x: auto` + a scroll container starting at `scrollLeft: 0`, i.e. parked on the *oldest* end. Triggered by making the bars parallel, which doubled the axis width in one edit. | Fit the axis at real breakpoints; keep the scrollbar visible; park `scrollLeft` on the most recent column (twice — inline + rAF). +2 e2e tests. | Fixed |
+| 2026-07-14 | charts | While diagnosing the above, my own measurement reported "2026 CLIPPED" even at 1280px where the chart demonstrably fit. | **Diagnostic bug** (never shipped). `offsetLeft` is relative to the nearest *positioned* ancestor — the scroll container isn't one — so comparing it to `scrollLeft`/`clientWidth` is meaningless. | Measure clipping with `getBoundingClientRect()` on both child and scroller and compare rects. | Fixed |
+| 2026-07-14 | charts | A chart rendered while its tab is still `display:none` has **zero `scrollWidth`**, so the scroll-park above is a silent no-op and the clipping bug returns. | **Code bug** (latent). Layout doesn't exist for a hidden subtree. | Park twice: inline, then again in `requestAnimationFrame`. Idempotent. | Fixed |
+| 2026-07-14 | table | Directory's Jurisdiction column showed a bill# chip on some rows and a **sponsor's name** on others — inconsistent, and the name read like part of the jurisdiction. | **Code bug** (render): the cell appended `bill_number` *and* `sponsors[0]`, so the sub-line differed by whichever field happened to exist. | Sponsors are detail-level → modal only ("Introduced by"). Column keeps just the bill/ordinance chip. | Fixed |
+| 2026-07-14 | table / data | DURATION cells rendered paragraph-tall (up to **351 chars**), dwarfing the "1 year" rows. | **Data drift**, surfaced as a UX bug: agents stuffed explanatory sentences into `duration_description`, which the schema intends as a short label. | Non-destructive: `shortDuration()` truncates for the table (max cell 46 chars); full text stays in the modal + a cell tooltip. Schema docstring aligned. Raw-field phrasing normalization deferred to BACKLOG. | Fixed |
+| 2026-07-14 | tests | `test_pledge_era_unassessed_split_from_pre_pledge` broke when Van Wert was assessed. | **Test bug.** The assertion named a specific record as an example of an *unassessed* site — coupling a test to mutable curated data. | Repointed to a still-unassessed dated site. Lesson: example-based e2e assertions over curated data need an example that the work itself won't invalidate. | Fixed |

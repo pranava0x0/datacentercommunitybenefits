@@ -26,7 +26,12 @@ from validate_moratoriums import (
     _vote_variants,
     _check,
     _check_sponsors,
+    _classify_error,
     audit_record,
+    check_completeness,
+    _completeness_gaps,
+    classify_liveness,
+    GOV_PATTERN,
 )
 
 SEED_PATH = ROOT / "data" / "seed" / "moratoriums.json"
@@ -293,10 +298,121 @@ class TestAuditRecordOffline:
 # Smoke test: --dry-run against live seed
 # ---------------------------------------------------------------------------
 
+class TestLivenessClassifier:
+    """The --links-only mode's dead/blocked/live classification."""
+
+    def test_2xx_is_live(self):
+        assert classify_liveness(200) == "live"
+        assert classify_liveness(301) == "live"  # redirect followed
+
+    def test_404_and_410_are_dead(self):
+        assert classify_liveness(404) == "dead"
+        assert classify_liveness(410) == "dead"
+
+    def test_403_and_429_are_blocked_not_dead(self):
+        # Real sites that bot-wall our fetcher must NOT read as dead links.
+        assert classify_liveness(403) == "blocked"
+        assert classify_liveness(429) == "blocked"
+        assert classify_liveness(503) == "blocked"
+
+    def test_zero_status_is_dead(self):
+        assert classify_liveness(0) == "dead"
+
+    def test_dns_failure_is_dead(self):
+        assert classify_liveness(0, "nodename nor servname provided") == "dead"
+        assert classify_liveness(0, "getaddrinfo failed") == "dead"
+
+    def test_connection_refused_is_dead(self):
+        assert classify_liveness(0, "Connection refused") == "dead"
+
+    def test_ssl_and_timeout_are_blocked(self):
+        # SSL negotiation / timeout usually means the host exists.
+        assert classify_liveness(0, "SSL: TLSV1_ALERT_PROTOCOL_VERSION") == "blocked"
+        assert classify_liveness(0, "timed out") == "blocked"
+
+    def test_classify_error_direct(self):
+        assert _classify_error("Name or service not known") == "dead"
+        assert _classify_error("ssl handshake failed") == "blocked"
+
+
+class TestGovPattern:
+    def test_matches_dot_gov(self):
+        assert GOV_PATTERN.search("https://www.flsenate.gov/Session/Bill/2026/484")
+        assert GOV_PATTERN.search("https://legislature.maine.gov/bills/x")
+
+    def test_matches_state_us_and_vendor_civic_platforms(self):
+        assert GOV_PATTERN.search("https://denver.granicus.com/clip/9834")
+        assert GOV_PATTERN.search("https://cityofx.legistar.com/foo")
+
+    def test_matches_non_dot_gov_official_local_sites(self):
+        # Official county/city sites frequently aren't on .gov.
+        assert GOV_PATTERN.search("https://www.taylorcountygov.com/government/x")
+        assert GOV_PATTERN.search("https://www.cityofmadison.com/x")
+        assert GOV_PATTERN.search("https://pgccouncil.us/m/newsflash/2073")
+        assert GOV_PATTERN.search("https://council.nola.gov/x")  # already .gov
+
+    def test_does_not_match_plain_news(self):
+        assert not GOV_PATTERN.search("https://www.datacenterdynamics.com/en/news/x")
+        assert not GOV_PATTERN.search("https://ctmirror.org/2026/05/11/x")
+        assert not GOV_PATTERN.search("https://roughdraftatlanta.com/2026/07/08/x")
+
+
+class TestCompleteness:
+    """The --completeness audit flags records missing key detail fields."""
+
+    FULL = {
+        "id": "x", "jurisdiction_type": "state", "status": "enacted",
+        "bill_number": "HB1", "source_url": "https://leg.state.mn.us/x",
+        "legislative_votes": "50-0", "sponsors": ["Rep. Y"],
+        "enacted_date": "2026-01-01",
+    }
+
+    def test_full_record_has_no_gaps(self):
+        rows = check_completeness([self.FULL])
+        assert _completeness_gaps(rows[0]) == []
+
+    def test_missing_bill_flagged(self):
+        rec = {**self.FULL}
+        rec.pop("bill_number")
+        gaps = _completeness_gaps(check_completeness([rec])[0])
+        assert "bill/ordinance #" in gaps
+
+    def test_missing_gov_link_flagged(self):
+        rec = {**self.FULL, "source_url": "https://localnews.com/story"}
+        gaps = _completeness_gaps(check_completeness([rec])[0])
+        assert "gov link" in gaps
+
+    def test_gov_link_via_resource_counts(self):
+        rec = {**self.FULL, "source_url": "https://news.com/x",
+               "resources": [{"url": "https://county.legistar.com/agenda", "title": "z"}]}
+        row = check_completeness([rec])[0]
+        assert row["gov_link"] is True
+
+    def test_city_council_vote_counts_as_vote(self):
+        rec = {**self.FULL, "jurisdiction_type": "city"}
+        rec.pop("legislative_votes")
+        rec["city_council_vote"] = "6-1"
+        assert check_completeness([rec])[0]["vote"] is True
+
+    def test_enacted_without_date_flags_enacted_date_only_when_enacted(self):
+        enacted = {**self.FULL}
+        enacted.pop("enacted_date")
+        assert "enacted date" in _completeness_gaps(check_completeness([enacted])[0])
+        proposed = {**enacted, "status": "proposed"}
+        assert "enacted date" not in _completeness_gaps(check_completeness([proposed])[0])
+
+
 class TestDryRunSmoke:
     def test_dry_run_exits_zero(self):
         from validate_moratoriums import main
         rc = main(["--dry-run"])
+        assert rc == 0
+
+    def test_links_only_dry_smoke(self):
+        # --links-only --cached against an empty cache should still exit 0 and
+        # not touch the network (cached_only) or ISSUES.md (--no-issues).
+        from validate_moratoriums import main
+        rc = main(["--links-only", "--cached", "--no-issues", "--id", "florida-state-2026-07"])
         assert rc == 0
 
     def test_all_records_have_required_schema_fields(self):

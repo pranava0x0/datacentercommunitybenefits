@@ -194,7 +194,55 @@ def _audit_missing_commitments(projects: ProjectsPayload) -> tuple[dict, dict]:
     return critical, medium
 
 
-def _write_audit_report(critical: dict, medium: dict) -> None:
+STALE_PENDING_DAYS = 21  # matches the skill's "3-week research window" cadence
+
+
+def _audit_stale_pending(
+    moratoriums: MoratoriumsPayload, tariffs: TariffsPayload
+) -> list[dict]:
+    """Flag proposed moratoriums/tariffs not re-checked in STALE_PENDING_DAYS.
+
+    A `proposed` bill or docket is a moving target (it can be signed, vetoed,
+    or fail in committee at any time) — unlike an `enacted`/`approved` record,
+    which is stable once captured. Don't flag those; only pending ones go stale.
+    """
+    today = date.today()
+    stale: list[dict] = []
+
+    for m in moratoriums.moratoriums:
+        if m.status == "proposed":
+            age = (today - m.captured_at).days
+            if age >= STALE_PENDING_DAYS:
+                stale.append(
+                    {
+                        "kind": "moratorium",
+                        "id": m.id,
+                        "jurisdiction": m.jurisdiction,
+                        "captured_at": str(m.captured_at),
+                        "age_days": age,
+                    }
+                )
+
+    for t in tariffs.tariffs:
+        if t.status == "proposed":
+            age = (today - t.captured_at).days
+            if age >= STALE_PENDING_DAYS:
+                stale.append(
+                    {
+                        "kind": "tariff",
+                        "id": t.id,
+                        "jurisdiction": t.state,
+                        "captured_at": str(t.captured_at),
+                        "age_days": age,
+                    }
+                )
+
+    return stale
+
+
+def _write_audit_report(
+    critical: dict, medium: dict, stale_pending: list[dict] | None = None
+) -> None:
     """Write audit report to ISSUES.md."""
     audit_file = ROOT / "ISSUES.md"
 
@@ -220,6 +268,20 @@ def _write_audit_report(critical: dict, medium: dict) -> None:
     for proj_id in sorted(medium.keys()):
         p = medium[proj_id]
         report_lines.append(f"- **{proj_id}** ({p['status']}): {', '.join(p['missing'])}\n")
+
+    if stale_pending:
+        report_lines.extend([
+            "\n## Stale Pending Bills / Tariffs\n",
+            f"({len(stale_pending)} records)\n",
+            f"\n`proposed` moratoriums/tariffs not re-verified in "
+            f"{STALE_PENDING_DAYS}+ days — status may have changed "
+            "(signed/vetoed/enacted/rejected). Re-check source and update:\n",
+        ])
+        for rec in sorted(stale_pending, key=lambda r: -r["age_days"]):
+            report_lines.append(
+                f"- **{rec['id']}** ({rec['kind']}, {rec['jurisdiction']}): "
+                f"captured {rec['captured_at']}, {rec['age_days']} days ago\n"
+            )
 
     audit_file.write_text("".join(report_lines), encoding="utf-8")
     logger.info("Wrote audit report to ISSUES.md")
@@ -272,12 +334,15 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
     # Audit missing commitment details if requested
     if audit:
         critical, medium = _audit_missing_commitments(payloads["projects"])
+        stale_pending = _audit_stale_pending(payloads["moratoriums"], payloads["tariffs"])
         logger.warning(
-            "Audit found %d critical + %d medium gaps in project commitment details",
+            "Audit found %d critical + %d medium gaps in project commitment details; "
+            "%d stale pending bills/tariffs",
             len(critical),
             len(medium),
+            len(stale_pending),
         )
-        _write_audit_report(critical, medium)
+        _write_audit_report(critical, medium, stale_pending)
         if check_only:
             return 0
 
