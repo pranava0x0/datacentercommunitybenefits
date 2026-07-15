@@ -233,6 +233,21 @@ regression tests `TestExplorerView.test_pdf_export_downloads` and
 `TestAggregateView.test_pdf_export_downloads` in tests/e2e/test_views.py
 (121 e2e + 326 full-suite, all green) so this can't silently regress again.
 
+### ~~Moratorium bill_number formatting consistency~~ **DONE (2026-07-14)**
+14 of 59 moratorium records carry a `bill_number`; 6 had drifted from the
+schema's documented no-space convention (`'SB 5982'`, `'HB 2992'`,
+`'HB 4084'`, `'HF 4888 / SF 4298'`, `'SB7992/AB7234'`,
+`'SB 1018-1020 / HB 5594-5596'`). Normalized to `PREFIX000` with no internal
+space and a uniform `' / '` separator for companion bills. Deliberately left
+two records unchanged — Vermont's `'H.149'` (period-separated is VT's own
+official convention) and Henderson NV's `'Bill No. 3927'` (verified verbatim
+against the source article — city ordinances cite differently than state
+bills). Also left natural-language mentions of bill numbers inside
+`summary`/`resources[].title` prose untouched (e.g. "HB 2992" read naturally
+in a sentence) — only the structured `bill_number` field needed normalizing.
+Strengthened the field's schema.py docstring so the convention doesn't drift
+again. Verified in-browser: table renders cleanly, tab order intact.
+
 ---
 
 ## Low priority / ideas
