@@ -2578,8 +2578,8 @@
       "offtaker": "Microsoft",
       "ratepayer": {
         "status": "pledge_only",
-        "summary": "Covered by Microsoft's national pledge signature; the May 2026 La Porte expansion approval focused on annexation and zoning with no site-specific ratepayer commitment captured for this campus.",
-        "assessed_at": "2026-06-01",
+        "summary": "Covered by Microsoft's national pledge signature; the June 2026 groundbreaking's 600+ named jobs plus the Ivy Tech Datacenter Academy workforce partnership support the local_jobs principle, but no other explicit site-specific ratepayer-protection commitment was captured.",
+        "assessed_at": "2026-07-14",
         "principles": {
           "new_generation": {
             "status": "partial",
@@ -2594,8 +2594,8 @@
             "note": "Covered by Microsoft's national pledge; no separate rate filing or utility agreement captured for this site."
           },
           "local_jobs": {
-            "status": "partial",
-            "note": "Covered by Microsoft's national pledge; no site-specific local hiring or workforce commitment captured."
+            "status": "met",
+            "note": "600+ named permanent jobs from the June 2026 groundbreaking, plus a dedicated Ivy Tech Community College partnership (Indiana's first Microsoft Datacenter Academy) training people specifically for this site's workforce."
           },
           "grid_resilience": {
             "status": "partial",
