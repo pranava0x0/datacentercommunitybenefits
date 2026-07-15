@@ -386,3 +386,27 @@ Full detail: `connectors/README.md`.
   different mechanism (50 MW threshold vs. the bill's 20 MW) that coexists with the
   still-pending bill. Added as a separate record rather than overwriting the bill's status;
   cross-referenced both records so a reader lands on the right one either way.
+- 2026-07-14 (caught by post-hoc review, not caught while curating): **WebSearch's
+  synthesized "answer" text pulls from every result in that search, not just the one URL
+  you pick as `source_url`.** Two facts (a "largest data center campus in Texas" claim, a
+  "$7B+ collateral" figure) landed in records because they were in a WebSearch tool's
+  cross-result summary — when the specific cited article was fetched directly afterward,
+  neither fact was actually in it. Also happened in reverse: a "98 diesel generators"
+  figure came from a headline glimpsed in search results for a URL that was never
+  successfully fetched (CPR.org 403'd every attempt, curl included) — shipped as if
+  confirmed. Fix going forward: after using WebSearch to find candidate facts, fetch the
+  *specific* URL you're about to cite as `source_url` and confirm the fact is actually
+  there before writing it into a record — don't treat the search tool's synthesis as
+  equivalent to having read the source. See CLAUDE.md's "Editorial / sourcing rules" for
+  the general version of this rule.
+- 2026-07-14: several outlets (datacenterdynamics.com on a full GET rather than a
+  status-only check, cpr.org, enr.com) return 200 to a quick `curl -o /dev/null` liveness
+  probe but 403 to both WebFetch and a full-body `curl` with a browser User-Agent. A
+  "confirmed live" liveness check is not the same as "confirmed fetchable" — if a fact
+  needs verifying and the primary source 403s on every attempt, find a second outlet
+  that covers the same fact rather than trusting the blocked source's headline/snippet.
+- 2026-07-14: `njleg.state.nj.us/bill-search/<year>/<bill>` returns 200 but is a
+  JS-rendered search form, not a bill-content page — fetching it gets you the site nav,
+  not the bill text. Confirmed-live doesn't mean confirmed-useful-as-a-citation; for gov
+  bill-tracker sites, prefer a direct bill-text/status page over a search-form URL when
+  one exists, or verify the search-form URL actually resolves to content before citing it.
