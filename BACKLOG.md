@@ -178,18 +178,46 @@ to validate the connector framework end-to-end before tackling the others.
 
 ## Medium priority
 
+### Tariff schema needs a tax-vs-rate-design distinction
+`virginia-data-center-electricity-consumption-tax` (added 2026-07-14) is a
+state budget-enacted excise tax, not a utility-filed rate design — but the
+`Tariff` schema has no equivalent to `jurisdiction_level: "federal"`'s
+carve-out from the Approved/Proposed/Rejected and "tariffs tracked" stat
+tiles (see `docs/app.js` `renderTariffStats`/`isFederalTariff`). Right now
+this one record silently inflates those counts alongside genuine
+PUC-approved rate designs, and it's scored against the 17-element LBL
+rate-design taxonomy that structurally can't apply to a flat tax (2/17
+elements, both "partial," is the ceiling for an instrument like this).
+`regulator` ("Virginia Department of Taxation") and `docket_number`
+("HB30, Item 3-5.24", duplicating `legislation[0].citation`) are both
+values that don't cleanly fit fields documented for a PUC/PSC docket.
+Needs a real migration (a new `instrument_type` field, or an `excluded_
+from_stats` flag mirroring the federal carve-out) rather than a field
+game — flagging here per CLAUDE.md's "don't add a status/field inline"
+convention. Revisit if more tax-type (as opposed to rate-design) records
+get added.
+
+### Moratorium.resources should use the same typed model as Tariff.resources
+`Moratorium.resources: Optional[list[dict]]` (schema.py) is untyped,
+unlike `Tariff.resources: Optional[list[SourceResource]]`, which enforces
+required `url`/`title` at validation time. `docs/app.js` (`m.resources.
+forEach((res) => addResource(res.url, res.title, false))`, both call
+sites) doesn't null-check `res.url`/`res.title` before using them, so a
+malformed hand-entered resource (missing either key) would pass schema
+validation and throw at render time. Not an active bug — the current
+dataset has zero malformed entries — but worth hardening the same way
+Tariff already is, given both types serve the same purpose.
+
 ### Add OpenAI Stargate site list as it expands
 Stargate has only one announced site (Abilene, TX) as of 2025-01. Track
 new site announcements and add them as `openai-*` projects with cross-
 referenced `oracle-*` capacity-tenancy projects.
 
-### Add per-claim "delivered vs promised" callouts where evidence exists
-For claims where actual outcomes have been independently reported (e.g.,
-Google's water-use disclosure showing actual consumption against earlier
-implied claims), add an optional `delivered_vs_promised` field to `Claim`
-and surface it as an inline note in the claim card. Editorial care
-required — this is the closest the dashboard would get to an evaluative
-judgment.
+### ~~Add per-claim "delivered vs promised" callouts where evidence exists~~ **DONE (v1.13)**
+Shipped as the `Delivered` sub-object on `Claim` (schema.py) with a
+four-status vocabulary (`delivered`/`partial`/`contested`/`shortfall`),
+rendered via `renderDeliveredPanel()` in docs/app.js. See the v1.13 entry
+in the Done log below for the full writeup.
 
 ### Project status auto-update workflow
 When a project moves from `announced` → `construction` → `operational`,
@@ -201,26 +229,54 @@ operational date.
 Northern Virginia "Data Center Alley" has multiple AWS sites within ~10
 miles; on the map at low zoom they overlap and a click can grab the wrong
 one. Consider Leaflet.markercluster, OR a custom decimation a la the
-Brownfield project's hash-based decimation. Skip if v1 stays at <50
-projects (current: 15).
+Brownfield project's hash-based decimation. **Re-checked 2026-07-14: the
+original "skip if v1 stays at <50 projects" condition no longer holds —
+the seed now has 112 projects** — worth picking up.
 
-### Theme-level filters in the Explorer view
-Right now Explorer filters by company / status / stance. Add a theme
-filter that surfaces only projects whose company has at least one claim
-in the selected theme.
+### ~~Theme-level filters in the Explorer view~~ **DONE**
+Shipped as a clickable theme-chip row (`renderThemeFilterChips()` /
+`#theme-filter-row` in docs/app.js) rather than the originally-envisioned
+dropdown — narrows to projects whose company has ≥1 claim in the selected
+theme. Covered by `TestExplorerFiltersPorted` in tests/e2e/test_views.py.
 
-### Constituency filter in the Explorer view
-Same shape as theme filter — let users narrow to projects where
-regulators (or NGOs, or residents) have weighed in.
+### ~~Constituency filter in the Explorer view~~ **DONE**
+Shipped as the `#f-constituency` dropdown, same shape as the other
+Explorer filters.
 
-### CSV export of the comparison matrix
-A "Download as CSV" button on the matrix view. Useful for journalists /
-researchers who want to do their own analysis.
+### ~~CSV export of the comparison matrix~~ **DONE**
+Shipped as the `#matrix-csv` button (`downloadMatrixCsv()` in docs/app.js).
 
-### URL state for filters
-Currently only the `#explorer` hash is round-tripped. Add `?company=`,
-`?status=`, `?stance=`, `?project=<id>`, `?company_x_theme=meta:energy`
-so deep-links share a specific filtered state.
+### URL state for filters — mostly done, one piece remains
+Company / state / status / stance / theme / constituency / open-project
+already round-trip through the `#explorer` URL (`URL_FILTER_KEYS` in
+docs/app.js, covered by `TestUrlState`). Still missing: a
+`?company_x_theme=meta:energy`-style deep link for a specific
+**Comparison-matrix cell** (not an Explorer filter) so a matrix-cell click
+can be shared as a URL.
+
+### ~~Fix broken PDF export on Explorer + Aggregate tabs~~ **DONE (2026-07-14)**
+Root cause was a 3-call-site typo — `exportExplorerToPDF` and
+`exportAggregateToPDF` called an undefined `formatInvestment` instead of the
+existing `formatUsd`. Renamed all three call sites; re-ran the full 12-button
+click-through (all 6 tabs × CSV/PDF) with zero console errors. Added
+regression tests `TestExplorerView.test_pdf_export_downloads` and
+`TestAggregateView.test_pdf_export_downloads` in tests/e2e/test_views.py
+(121 e2e + 326 full-suite, all green) so this can't silently regress again.
+
+### ~~Moratorium bill_number formatting consistency~~ **DONE (2026-07-14)**
+14 of 59 moratorium records carry a `bill_number`; 6 had drifted from the
+schema's documented no-space convention (`'SB 5982'`, `'HB 2992'`,
+`'HB 4084'`, `'HF 4888 / SF 4298'`, `'SB7992/AB7234'`,
+`'SB 1018-1020 / HB 5594-5596'`). Normalized to `PREFIX000` with no internal
+space and a uniform `' / '` separator for companion bills. Deliberately left
+two records unchanged — Vermont's `'H.149'` (period-separated is VT's own
+official convention) and Henderson NV's `'Bill No. 3927'` (verified verbatim
+against the source article — city ordinances cite differently than state
+bills). Also left natural-language mentions of bill numbers inside
+`summary`/`resources[].title` prose untouched (e.g. "HB 2992" read naturally
+in a sentence) — only the structured `bill_number` field needed normalizing.
+Strengthened the field's schema.py docstring so the convention doesn't drift
+again. Verified in-browser: table renders cleanly, tab order intact.
 
 ---
 

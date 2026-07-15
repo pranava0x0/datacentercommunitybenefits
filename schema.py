@@ -706,7 +706,15 @@ class Moratorium(_StrictBase):
     )
     bill_number: Optional[str] = Field(
         default=None,
-        description="Legislative bill designation (e.g., 'HB620', 'LD307', 'SB5982'). Optional, for enhanced entries.",
+        description=(
+            "Legislative bill designation. Convention: no space between chamber "
+            "prefix and number (e.g., 'HB620', 'LD307', 'SB5982', not 'SB 5982'); "
+            "companion bills joined with ' / ' (e.g., 'HF4888 / SF4298'). Exception: "
+            "preserve a jurisdiction's own citation style verbatim when it differs "
+            "structurally, not just by spacing — e.g. Vermont's period-separated "
+            "'H.149', or a city ordinance's 'Bill No. 3927'. Optional, for enhanced "
+            "entries."
+        ),
     )
     sponsors: Optional[list[str]] = Field(
         default=None,

@@ -2,6 +2,12 @@
 Generated: 2026-07-05
 Total projects needing attention: 106
 
+## Code bugs
+
+| Date | Module | Description | Root cause | Status |
+|------|--------|--------------|------------|--------|
+| 2026-07-14 | tests/e2e/test_views.py | The 2 new `test_pdf_export_downloads` regression tests (added in the same PR they were meant to guard) hard-depended on the cdnjs CDN for html2pdf, reintroducing exactly the network dependency CLAUDE.md's Tariffs v1.17 note documents as a flakiness/SRI-failure source this suite was redesigned to avoid. | Test bug — the tests correctly caught the underlying `formatInvestment` regression, but were written to exercise the full `.save()` path (post-CDN-load) instead of stopping at the point the original bug actually threw (pre-CDN-load). | Fixed (commit `131a7f4`) — stubbed `window.html2pdf` via `page.add_init_script` so `loadHtml2Pdf()`'s existing `if (window.html2pdf) return ...` short-circuit skips the CDN entirely. |
+
 ## Critical Missing Commitment Details
 (34 projects)
 
@@ -117,6 +123,12 @@ Projects with important gaps:
 - **qts-wilmer-tx** (construction): claimed_jobs, ratepayer
 - **qts-york-county-sc** (construction): power_mw, ratepayer
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
+
+## Dead source links
+
+| Date | Record | Issue | Recommended action | Status |
+|------|--------|-------|-------------------|--------|
+| 2026-07-14 | claims:ms-community-investment-wi | source_url `blogs.microsoft.com/on-the-issues/2024/05/08/wisconsin-ai-co-innovation-data-center/` now 404s. The live May-8-2024 replacement (`news.microsoft.com/source/2024/05/08/microsoft-announces-3-3-billion-investment-in-wisconsin...`) does NOT contain the claim's "$50 million in community-focused projects" figure — it cites a different $20M National Grid Renewables community fund instead. The project record's own source_url (same dead URL) was safely swapped since it wasn't backing one specific quote; this claim's source needs a human to re-find or re-verify the $50M figure before its link can be fixed the same way. | Find a live source that verifies the $50M figure, or correct/retire the claim if it doesn't hold up | Open |
 
 ## Moratorium source audit
 

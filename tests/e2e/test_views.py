@@ -7,6 +7,35 @@ from playwright.sync_api import Page, expect
 
 pytestmark = pytest.mark.e2e
 
+# Stubs window.html2pdf before app.js loads, so loadHtml2Pdf()'s
+# `if (window.html2pdf) return Promise.resolve(...)` short-circuits and the
+# cdnjs <script> tag is never injected. Exercises the same builder chain
+# (.set().from().save()) the real library exposes, including a real browser
+# download so page.expect_download() still has something to catch. See
+# CLAUDE.md's note on why html2pdf is lazy-loaded and kept off the e2e
+# suite's network dependencies.
+STUB_HTML2PDF_JS = """
+window.html2pdf = function () {
+  let filename = "export.pdf";
+  const api = {
+    set(opt) { if (opt && opt.filename) filename = opt.filename; return api; },
+    from() { return api; },
+    save() {
+      const blob = new Blob(["stub"], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    },
+  };
+  return api;
+};
+"""
+
 
 # ---------------------------------------------------------------------------
 # Comparison view
@@ -324,6 +353,23 @@ class TestExplorerView:
         expect(page.locator("#project-detail")).to_be_visible()
         negs = page.locator("#d-responses .response-card.negative")
         assert negs.count() >= 2
+
+    def test_pdf_export_downloads(self, page: Page, base_url: str):
+        # Regression test: exportExplorerToPDF used to call an undefined
+        # formatInvestment(), throwing before html2pdf ever loaded. Stub
+        # window.html2pdf via an init script so this exercises the pre-CDN
+        # code path (where the original bug lived) without depending on
+        # cdnjs — see CLAUDE.md's note on why html2pdf is lazy-loaded and
+        # kept out of the e2e suite's network dependencies.
+        page.add_init_script(STUB_HTML2PDF_JS)
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        with page.expect_download(timeout=15_000) as dl_info:
+            page.locator("#explorer-pdf-btn").click()
+        download = dl_info.value
+        assert download.suggested_filename.startswith("dcb-projects-")
+        assert download.suggested_filename.endswith(".pdf")
 
 
 # ---------------------------------------------------------------------------
@@ -1388,6 +1434,19 @@ class TestAggregateView:
         self._goto_aggregate(page, base_url)
         total_row = page.locator("#agg-company-tfoot .agg-total-row")
         assert total_row.count() == 1, "Expected a total row in company tfoot"
+
+    def test_pdf_export_downloads(self, page: Page, base_url: str):
+        # Regression test: exportAggregateToPDF used to call an undefined
+        # formatInvestment(), throwing before html2pdf ever loaded. Stubbed
+        # html2pdf (see the Explorer test above) to avoid the cdnjs
+        # dependency this suite otherwise avoids.
+        page.add_init_script(STUB_HTML2PDF_JS)
+        self._goto_aggregate(page, base_url)
+        with page.expect_download(timeout=15_000) as dl_info:
+            page.locator("#agg-pdf-btn").click()
+        download = dl_info.value
+        assert download.suggested_filename.startswith("dcb-aggregate-")
+        assert download.suggested_filename.endswith(".pdf")
 
 
 # ---------------------------------------------------------------------------
