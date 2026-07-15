@@ -432,11 +432,11 @@ function wireThemeToggle() {
 // table everywhere so adding a 4th view stays a one-line change.
 const VIEWS = [
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "" },
-  { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
-  { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
+  { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
+  { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
 ];
 
 // Scroll a tab button into the visible portion of the tabbar. Called both
@@ -1972,7 +1972,7 @@ async function exportExplorerToPDF() {
     const resp = state.responsesByProject.get(p.id) || [];
     return [
       co ? co.name : p.company_slug, p.name, p.city, p.state, p.status,
-      p.claimed_investment_usd ? formatInvestment(p.claimed_investment_usd) : "—",
+      p.claimed_investment_usd ? formatUsd(p.claimed_investment_usd) : "—",
       p.power_mw != null ? formatPower(p.power_mw) : "—",
       p.claimed_jobs ?? "—",
       `+${resp.filter(r=>r.stance==="positive").length} ±${resp.filter(r=>r.stance==="mixed").length} -${resp.filter(r=>r.stance==="negative").length}`,
@@ -2086,14 +2086,14 @@ async function exportAggregateToPDF() {
     ["Company", "Projects", "Power", "Investment", "Jobs", "Claims", "+", "±", "−"],
     coRows.map((r) => [r.name, r.projects,
       r.power_mw != null ? formatPower(r.power_mw) : "—",
-      r.capex != null ? formatInvestment(r.capex) : "—",
+      r.capex != null ? formatUsd(r.capex) : "—",
       r.jobs ?? "—", r.claims, r.positive, r.mixed, r.negative])
   );
   const stHtml = _pdfTable(
     ["State", "Companies", "Projects", "Power", "Investment", "Jobs", "+", "±", "−"],
     stRows.map((r) => [r.state, r.companies, r.projects,
       r.power_mw != null ? formatPower(r.power_mw) : "—",
-      r.capex != null ? formatInvestment(r.capex) : "—",
+      r.capex != null ? formatUsd(r.capex) : "—",
       r.jobs ?? "—", r.positive, r.mixed, r.negative])
   );
   const today = new Date().toISOString().slice(0, 10);

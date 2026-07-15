@@ -325,6 +325,18 @@ class TestExplorerView:
         negs = page.locator("#d-responses .response-card.negative")
         assert negs.count() >= 2
 
+    def test_pdf_export_downloads(self, page: Page, base_url: str):
+        # Regression test: exportExplorerToPDF used to call an undefined
+        # formatInvestment(), throwing before html2pdf ever loaded.
+        page.goto(base_url + "/")
+        page.locator("#tab-explorer").click()
+        page.wait_for_selector("#project-list .project-card", timeout=15_000)
+        with page.expect_download(timeout=15_000) as dl_info:
+            page.locator("#explorer-pdf-btn").click()
+        download = dl_info.value
+        assert download.suggested_filename.startswith("dcb-projects-")
+        assert download.suggested_filename.endswith(".pdf")
+
 
 # ---------------------------------------------------------------------------
 # Cross-cutting / accessibility
@@ -1365,6 +1377,16 @@ class TestAggregateView:
         self._goto_aggregate(page, base_url)
         total_row = page.locator("#agg-company-tfoot .agg-total-row")
         assert total_row.count() == 1, "Expected a total row in company tfoot"
+
+    def test_pdf_export_downloads(self, page: Page, base_url: str):
+        # Regression test: exportAggregateToPDF used to call an undefined
+        # formatInvestment(), throwing before html2pdf ever loaded.
+        self._goto_aggregate(page, base_url)
+        with page.expect_download(timeout=15_000) as dl_info:
+            page.locator("#agg-pdf-btn").click()
+        download = dl_info.value
+        assert download.suggested_filename.startswith("dcb-aggregate-")
+        assert download.suggested_filename.endswith(".pdf")
 
 
 # ---------------------------------------------------------------------------
