@@ -103,6 +103,12 @@ Projects with important gaps:
 - **qts-york-county-sc** (construction): power_mw, ratepayer
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
+## Dead source links
+
+| Date | Record | Issue | Recommended action | Status |
+|------|--------|-------|-------------------|--------|
+| 2026-07-14 | claims:ms-community-investment-wi | source_url `blogs.microsoft.com/on-the-issues/2024/05/08/wisconsin-ai-co-innovation-data-center/` now 404s. The live May-8-2024 replacement (`news.microsoft.com/source/2024/05/08/microsoft-announces-3-3-billion-investment-in-wisconsin...`) does NOT contain the claim's "$50 million in community-focused projects" figure — it cites a different $20M National Grid Renewables community fund instead. The project record's own source_url (same dead URL) was safely swapped since it wasn't backing one specific quote; this claim's source needs a human to re-find or re-verify the $50M figure before its link can be fixed the same way. | Find a live source that verifies the $50M figure, or correct/retire the claim if it doesn't hold up | Open |
+
 ## Moratorium source audit
 
 | Date | Record | Issue | Recommended action | Status |

@@ -357,3 +357,32 @@ Full detail: `connectors/README.md`.
   playbook per the one-generic-skill convention (base CLAUDE.md); added the connectors
   accelerator section. Flat skill files in `.claude/skills/` never registered with Claude
   Code anyway (directory + SKILL.md format required).
+- 2026-07-14: a generic "New Data Center Developments" roundup blog claimed Crusoe broke
+  ground on Cheyenne WY in July — false. Named-source reporting (Bloomberg, WyoFile,
+  wyomingnews.com "Crusoe pulls out of Project Jade") showed Crusoe actually exited/paused
+  around April 2026; Tallgrass Energy continues the power-generation half and is seeking a
+  replacement data-center tenant. Lesson: weight generic aggregator/listicle roundups below
+  named-source reporting, especially for anything framed as a positive status update —
+  they're often stale or conflate an old announcement with the current month.
+- 2026-07-14: pre-flight checking against local seed data by substring-matching company/
+  state ("missouri", "aurora") missed an exact-duplicate — `google-new-florence-mo`
+  already existed under a name that doesn't contain "missouri" (state field is "MO", id
+  uses the town name). Caught only at `refresh.py --check` (duplicate-id validation), not
+  before doing the research. Lesson: when pre-flighting a lead, also grep the specific
+  place name from the headline, not just company+state — and treat schema validation as a
+  backstop, not the primary duplicate-detection mechanism.
+- 2026-07-14: a company blog post can move (dead link) even when its content is still
+  accurate — `blogs.microsoft.com/on-the-issues/2024/05/08/...` 404s but the same-day
+  announcement is live at `news.microsoft.com/source/2024/05/08/...` (blogs → news
+  subdomain migration). A moved-URL replacement is only safe when the new page actually
+  verifies the specific claim it's sourcing — one swap was safe (project-level citation,
+  not tied to one quote) and one wasn't (a claim's specific "$50M community projects"
+  figure didn't appear on the replacement page); logged the latter to ISSUES.md rather
+  than guessing.
+- 2026-07-14: a state moratorium bill passing the legislature and a governor separately
+  signing an executive order on the same general topic are NOT the same event, even when
+  headlines conflate them ("Hochul enacts...moratorium" read, on a skim, like she'd finally
+  signed the already-tracked SB7992/AB7234 bill). She hadn't — EO 62 is a structurally
+  different mechanism (50 MW threshold vs. the bill's 20 MW) that coexists with the
+  still-pending bill. Added as a separate record rather than overwriting the bill's status;
+  cross-referenced both records so a reader lands on the right one either way.

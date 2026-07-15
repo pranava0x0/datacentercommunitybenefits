@@ -15,7 +15,7 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed; Governor Hochul has not signed or vetoed as of June 24, 2026 — she has until December 2026 under New York law to act.",
+      "summary": "New York's data center moratorium proposal (passed legislature June 4, 2026, awaiting gubernatorial approval) imposes a 1-year statewide pause on permits for data centers exceeding 20 MW peak demand. Primary driver: concerns over strains on the state's electrical grid infrastructure, particularly in downstate markets already experiencing capacity constraints. The moratorium allows time for state energy planning review and grid modernization studies. Supported by environmental groups (Sierra Club, NRDC New York), labor unions (International Brotherhood of Electrical Workers Local 3), and community coalitions concerned about energy costs and grid reliability. Tech industry and real estate developers strongly opposed, citing economic benefits and job creation. Introduced as response to surging AI data center demand post-2024. Governor Hochul's office indicated conditional support pending modifications to carve-outs for AI research facilities. Both chambers passed; Governor Hochul has not signed or vetoed as of June 24, 2026 — she has until December 2026 under New York law to act. Update: on July 14, 2026 Hochul separately signed Executive Order No. 62, a distinct 50 MW-threshold permit pause (see ny-state-eo62-2026-07) — this bill remains unsigned.",
       "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
       "source_title": "Data Center Dynamics \u2014 NY Legislature passes data center moratorium",
       "captured_at": "2026-06-04",
@@ -76,6 +76,41 @@
         {
           "url": "https://www.coned.com/en/about-us/energy-infrastructure/data-center-analysis",
           "title": "Con Edison \u2014 2025 Grid Capacity Study"
+        }
+      ]
+    },
+    {
+      "id": "ny-state-eo62-2026-07",
+      "jurisdiction": "New York",
+      "jurisdiction_type": "state",
+      "status": "enacted",
+      "enacted_date": "2026-07-14",
+      "effective_date": "2026-07-14",
+      "duration_months": 12,
+      "duration_description": "Up to 1 year",
+      "power_threshold_mw": 50,
+      "key_reasons": [
+        "energy",
+        "equity",
+        "water",
+        "transparency"
+      ],
+      "summary": "Governor Kathy Hochul signed Executive Order No. 62, pausing state environmental permits for new hyperscale data centers of 50 MW or more for up to one year while New York develops a Generic Environmental Impact Statement (assessing energy demand, water use/quality, and air quality) and, within 60 days, guidance for local communities to negotiate benefits agreements (infrastructure, child care investment, direct financial support, labor standards) with developers. Distinct from the still-pending SB7992 / AB7234 legislative moratorium (20 MW threshold, see ny-state-2026-06), which Hochul has not yet signed or vetoed as of this capture.",
+      "source_url": "https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul",
+      "source_title": "Governor Kathy Hochul \u2014 Executive Order No. 62 announcement",
+      "captured_at": "2026-07-14",
+      "key_stakeholders": {
+        "community": [
+          "State Senator Kristen Gonzalez (supportive statement)",
+          "Assemblymember Didi Barrett (supportive statement)"
+        ]
+      },
+      "policy_type": "Executive order \u2014 environmental permit pause",
+      "enacted_by": "Governor Kathy Hochul (Executive Order No. 62)",
+      "resources": [
+        {
+          "url": "https://ny1.com/nyc/all-boroughs/politics/2026/07/14/hochul-enacts-first-statewide-data-center-moratorium",
+          "title": "NY1 \u2014 Hochul enacts first statewide data center moratorium"
         }
       ]
     },

@@ -663,13 +663,14 @@
       "tariff_name": "Very Large Customer (VLC) tariff",
       "tariff_type": "Data center tariff",
       "status": "approved",
-      "status_detail": "Wisconsin PSC approved, with modifications, April 24, 2026.",
+      "status_detail": "Wisconsin PSC approved, with modifications, April 24, 2026. Oracle (tenant/operator at the Stargate Lighthouse campus, see oracle-port-washington-wi) sued the PSC in Ozaukee County Circuit Court in June 2026 to overturn the credit-rating requirement below; the PSC declined to reconsider and will defend the rule in court (as of July 10, 2026) — see the credit-security additional term.",
       "regulator": "Public Service Commission of Wisconsin (PSCW)",
       "docket_number": "6630-TE-113",
       "decision_date": "2026-04-24",
       "min_load_mw": 100,
       "customers": [
-        "Microsoft"
+        "Microsoft",
+        "Oracle"
       ],
       "summary": "A special rate plan for data-center-scale customers in We Energies' territory; the PSC lowered the eligibility threshold from 500 MW to 100 MW and extended the minimum term to 15 years to prevent cost-shifting to existing customers (relevant to Microsoft's Mount Pleasant campus).",
       "parameters": {
@@ -694,7 +695,12 @@
           "detail": "PSC modifications target protection of existing ratepayers from data-center cost-shifting."
         }
       },
-      "additional_terms": [],
+      "additional_terms": [
+        {
+          "term": "Credit-security requirement (litigated)",
+          "detail": "The PSC's April 2026 order requires very-large-load customers to carry an A- (S&P) or A3 (Moody's) credit rating, or post equivalent financial security, and removed We Energies' ability to waive it. Oracle argues compliance could cost $100M+/year and require $7B+ in collateral for its Port Washington campus, and sued to have the requirement set aside; the PSC declined to reconsider and will defend it in Ozaukee County Circuit Court."
+        }
+      ],
       "legislation": [],
       "source_url": "https://psc.wi.gov/Documents/PressReleases/04.24.2026PressRelease.PDF",
       "source_title": "Wisconsin PSC \u2014 Press release on We Energies Very Large Customer tariff decision",
@@ -702,9 +708,13 @@
         {
           "url": "https://www.we-energies.com/pdfs/etariffs/wisconsin/elecrateswi.pdf",
           "title": "We Energies \u2014 Wisconsin electric rate schedules"
+        },
+        {
+          "url": "https://wisconsinwatch.org/2026/07/wisconsin-regulators-refuse-to-loosen-data-center-credit-rules-setting-up-oracle-court-fight/",
+          "title": "Wisconsin Watch \u2014 Regulators refuse to loosen data center credit rules, setting up Oracle court fight"
         }
       ],
-      "captured_at": "2026-06-22"
+      "captured_at": "2026-07-14"
     },
     {
       "id": "ferc-talen-amazon-susquehanna-isa",
@@ -1174,6 +1184,119 @@
         }
       ],
       "captured_at": "2026-06-25"
+    },
+    {
+      "id": "nj-data-center-fair-share-act",
+      "utility": "New Jersey electric distribution utilities (statewide, via BPU rulemaking)",
+      "state": "NJ",
+      "tariff_name": "Data Center Fair Share Act (S731 / A796) — dedicated data-center rate class",
+      "tariff_type": "Data center rate class / large-load rider",
+      "status": "approved",
+      "status_detail": "Signed into law by Governor Mikie Sherrill on July 7, 2026, as part of a broader energy-affordability package; directs the NJ Board of Public Utilities to establish the rate class by rulemaking. An earlier version had passed the legislature but was pocket-vetoed by outgoing Governor Phil Murphy.",
+      "regulator": "New Jersey Board of Public Utilities (BPU)",
+      "decision_date": "2026-07-07",
+      "min_load_mw": 50,
+      "customers": null,
+      "summary": "New Jersey's Data Center Fair Share Act creates a dedicated ratepayer class and rate structure for data centers using 50 MW or more, requiring them to pay for their own energy use and associated grid infrastructure so costs are not shifted to residential and small-business ratepayers.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to data centers consuming 50 MW or more."
+        },
+        "customer_type": {
+          "status": "included",
+          "detail": "Creates a new dedicated ratepayer class specifically for data centers, separate from general commercial/industrial rates."
+        },
+        "clean_energy": {
+          "status": "included",
+          "detail": "Incentivizes data centers to bring their own low-cost, clean generation onto the grid."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Curtailment priority",
+          "detail": "During grid capacity strain, data centers must cut back load before residential ratepayers are impacted."
+        },
+        {
+          "term": "Demand-reduction offset program",
+          "detail": "Establishes a retail program outside the PJM capacity market letting large loads offset their capacity obligations by funding demand reduction elsewhere on the system — state officials described it as a first-of-its-kind mechanism."
+        }
+      ],
+      "legislation": [
+        {
+          "title": "New Jersey S731 / A796 (2026)",
+          "url": "https://www.njleg.state.nj.us/bill-search/2026/S731",
+          "citation": "S731 / A796",
+          "status": "Enacted 2026-07-07",
+          "summary": "The enabling legislation — creates the data-center rate class directly and directs BPU implementation."
+        }
+      ],
+      "source_url": "https://www.nj.gov/governor/news/2026/20260707a.shtml",
+      "source_title": "Office of Governor Sherrill — Ratepayer Relief energy legislation signing announcement",
+      "resources": [
+        {
+          "url": "https://nj1015.com/nj-data-center-fair-share-law/",
+          "title": "NJ 1015 — New Jersey becomes first state to put AI data centers in their own ratepayer class"
+        }
+      ],
+      "captured_at": "2026-07-14"
+    },
+    {
+      "id": "virginia-data-center-electricity-consumption-tax",
+      "utility": "Virginia electric utilities and self-supplying data centers (statewide, via state budget)",
+      "state": "VA",
+      "tariff_name": "Data Center Electricity Consumption Tax (HB30, Item 3-5.24)",
+      "tariff_type": "Data center electricity consumption tax (state budget-enacted, not a utility-filed rate design)",
+      "status": "approved",
+      "status_detail": "Enacted as part of the FY2026–2028 state budget, signed by Governor Abigail Spanberger; took effect July 1, 2026. Distinct from the Dominion GS-5 rate class (see dominion-virginia-gs5-rate-class) — this is a statewide tax collected alongside utility bills, not an SCC-approved utility rate design.",
+      "regulator": "Virginia Department of Taxation (State Corporation Commission administers collection/remittance)",
+      "docket_number": "HB30, Item 3-5.24",
+      "decision_date": null,
+      "min_load_mw": null,
+      "customers": null,
+      "summary": "Virginia's FY2026–2028 state budget imposes a $0.011/kWh consumption tax on all electricity used by data centers statewide — utility-supplied, from a competitive retail provider, or self-generated on-site — effective July 1, 2026 and sunsetting July 1, 2028, with annual revenue above $600 million refunded pro rata to operators.",
+      "parameters": {
+        "min_load": {
+          "status": "partial",
+          "detail": "No minimum-load threshold or exemption — applies to all data-center electricity consumption regardless of size, unlike most large-load tariffs (e.g. the GS-5 rate class's 25 MW floor)."
+        },
+        "customer_type": {
+          "status": "partial",
+          "detail": "Scoped to 'data centers' by statutory definition; facilities whose primary function is providing internet access or communication services are explicitly excluded from that definition."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Consumption tax rate",
+          "detail": "$0.011 per kWh on all electricity consumed at a data center per month; no minimum-load exemption documented — applies broadly, unlike the GS-5 rate class's 25 MW threshold."
+        },
+        {
+          "term": "Revenue cap + refund",
+          "detail": "Annual collections above $600 million (net of SCC administrative costs) go to a non-reverting special fund and are refunded pro rata to data center operators, rather than kept by the general fund."
+        },
+        {
+          "term": "Sunset",
+          "detail": "The tax expires July 1, 2028 absent legislative extension."
+        }
+      ],
+      "legislation": [
+        {
+          "title": "Virginia HB30 (2026 budget), Item 3-5.24",
+          "url": "https://budget.lis.virginia.gov/amendment/2026/2/HB30/Introduced/CR/3-5.24/1c",
+          "citation": "HB30, Item 3-5.24",
+          "status": "Enacted, effective 2026-07-01",
+          "summary": "The budget item that creates the consumption tax directly."
+        }
+      ],
+      "source_url": "https://budget.lis.virginia.gov/amendment/2026/2/HB30/Introduced/CR/3-5.24/1c",
+      "source_title": "Virginia General Assembly — HB30 Conference Report, Item 3-5.24 (Data Center Electricity Consumption Tax)",
+      "resources": [
+        {
+          "url": "https://www.datacenterknowledge.com/regulations/virginia-approves-first-ever-data-center-power-tax",
+          "title": "Data Center Knowledge — Virginia Approves First-Ever Data Center Power Tax"
+        }
+      ],
+      "captured_at": "2026-07-14"
     }
   ]
 }

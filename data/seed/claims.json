@@ -1581,6 +1581,22 @@
       "published_at": "2025-12-01"
     },
     {
+      "id": "meta-richland-la-jobs-50b-expansion-2026",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "With more than $1.6 billion already contracted with local companies and thousands of jobs being supported, we're delivering real economic impact.",
+      "source_url": "https://www.opportunitylouisiana.gov/news/meta-commits-more-than-50-billion-for-north-louisiana-project-becoming-one-of-the-largest-data-centers-in-history",
+      "source_title": "Louisiana Economic Development — Rachel Peterson (Meta VP) on the $50B Richland Parish expansion",
+      "captured_at": "2026-07-14",
+      "project_id": "meta-richland-la",
+      "published_at": "2026-07-13",
+      "metric": {
+        "value": 1600000000.0,
+        "unit": "usd",
+        "kind": "local_contracts"
+      }
+    },
+    {
       "id": "aws-loudoun-va-investment-2024-update",
       "company_slug": "amazon",
       "theme": "infrastructure",
@@ -4019,6 +4035,28 @@
       "published_at": "2026-06-15",
       "project_id": "google-jackson-county-al",
       "formal_agreement": false
+    },
+    {
+      "id": "microsoft-la-porte-in-education-ivy-tech-academy",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "statement": "AI infrastructure is driving demand for skilled trades nationwide. We're committed to helping fill these jobs with people in the communities where we operate.",
+      "source_url": "https://local.microsoft.com/blog/microsoft-breaks-ground-on-la-porte-datacenter-project/",
+      "source_title": "Microsoft Local — Microsoft breaks ground on La Porte datacenter project (Brad Smith, Vice Chair and President)",
+      "captured_at": "2026-07-14",
+      "published_at": "2026-06-18",
+      "project_id": "microsoft-la-porte-in"
+    },
+    {
+      "id": "microsoft-pecos-tx-infrastructure-walsh-2026",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "statement": "we build where our customers need us, and we build for the long term",
+      "source_url": "https://blogs.microsoft.com/blog/2026/06/22/powering-the-next-wave-of-ai-expanding-capacity-with-our-new-datacenter-in-pecos/",
+      "source_title": "Microsoft — Noelle Walsh (President, Cloud Operations and Innovation) on the Pecos, TX datacenter",
+      "captured_at": "2026-07-14",
+      "published_at": "2026-06-22",
+      "project_id": "microsoft-pecos-tx"
     }
   ]
 }
