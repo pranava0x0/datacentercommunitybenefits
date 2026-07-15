@@ -485,3 +485,57 @@ Full detail: `connectors/README.md`.
   not the bill text. Confirmed-live doesn't mean confirmed-useful-as-a-citation; for gov
   bill-tracker sites, prefer a direct bill-text/status page over a search-form URL when
   one exists, or verify the search-form URL actually resolves to content before citing it.
+- 2026-07-15: full three-dimension refresh (stale bills, new scouting, gap-filling) run
+  in one session. Key results: 16 stale moratorium/tariff records re-checked found 3 with
+  wrong bill numbers (records were seeded from a synthesized/aggregated source that got
+  the bill number wrong at creation — worth extra scrutiny on any record whose only
+  resource is a generic tracker like datacenterbans.com), 1 exact duplicate (two records
+  for the same Seattle ordinance under different jurisdiction labels), and one moratorium
+  vs. governor's-executive-order conflation resolved cleanly by keeping both as separate
+  records (same lesson as the NY EO62/bill case, generalized). 8 new enactments landed in
+  a single week (2026-07-13/14) — a reminder that even a ~3-week research cadence can miss
+  a fast-moving week; consider a lighter, more frequent "just check for anything this
+  week" pass between full cycles.
+- 2026-07-15: **gap-filling has a real, low ceiling.** Across critical (36) + medium (57)
+  fields researched this session — mostly `power_mw` and `claimed_investment_usd` on
+  operational/construction sites — only ~17 total came back with a clean, attributable,
+  site-specific figure (roughly 18%). The other ~82% were genuine "not found," not research
+  failures: hyperscalers routinely don't publish per-campus power capacity, and several
+  companies (QTS on multiple sites) explicitly state on their own project pages that they
+  won't disclose it "for security and confidentiality reasons." Don't re-research a
+  confirmed-non-disclosed field without a new lead (a utility interconnection filing, a
+  tax-abatement filing that discloses power draw for tax-calc purposes, etc.) — BACKLOG.md
+  logs the specific confirmed-non-disclosed records from this pass.
+- 2026-07-15: the most common failure mode in gap research is a **regional/combined figure
+  masquerading as a site-specific one** — a company's own page states "$9B Texas
+  investment" or "616 MW statewide" and it's tempting to attribute it to the one site in a
+  record, but the same page usually also states (sometimes in the very next sentence) that
+  the site-specific breakdown "has not been shared." Always check whether the number's own
+  sentence scopes it to one site or to a state/region before using it — this bit multiple
+  agents this session across Amazon, Google, and Microsoft records, and citing the
+  regional total would have been a real (if plausible-looking) error, not just a citation
+  weakness.
+- 2026-07-15: a persistent per-field distinction worth remembering — a company's *renewable
+  energy procurement* MW (grid supply added via a PPA/solar deal, framed as "adding N MW of
+  clean energy") is a different number from the site's own *power draw/capacity*
+  (`power_mw` in this schema). Meta, Google, and Microsoft info sheets consistently lead with
+  the renewable-supply figure, and it's the wrong field — don't map it to `power_mw` even
+  when it's the only MW figure on the page.
+- 2026-07-15: **audit script bug found and fixed** — `refresh.py`'s `_audit_missing_commitments`
+  flagged "missing ratepayer" for every operational/construction project regardless of
+  whether the company is a pledge signatory, over-flagging ~18 CoreWeave/Crusoe records
+  that should never get a ratepayer assessment per the frozen CLAUDE.md rule ("only
+  signatory projects announced on/after the pledge date"). Fixed by mirroring app.js's
+  `isPrePledgeProject` signatory + date-eligibility check in `_audit_missing_commitments`
+  (see `_is_ratepayer_eligible`) before generating ISSUES.md. If a future refresh sees the
+  medium-gap count for ratepayer spike again, check whether a new non-signatory company was
+  added without this filter accounting for it.
+- 2026-07-15: **agent-dispatch discipline.** Splitting one coherent research batch across
+  multiple small parallel subagents (e.g. 2 agents for a single 13-record AWS/Amazon batch)
+  pays the fixed per-agent overhead (observed ~80-120K tokens each) twice for no real
+  benefit when the work is backgrounded, not wall-clock-sensitive. Default to fewer, larger
+  agents (one per company family, roughly 15-20 records) unless the combined prompt would
+  be unreasonably long. See the `feedback_agent_parallelism_discipline` memory for the full
+  rule. Separately: a genuinely stalled agent (zero output growth for far longer than
+  sibling agents doing comparable work — 83 min vs. 5-10 min this session) is fine to kill
+  and relaunch; that's error recovery, not over-parallelization.

@@ -9,6 +9,127 @@ criterion.
 
 ## High priority
 
+### Medium-gap research side-findings from 2026-07-15 refresh
+A 57-project pass (10 agents, one per company grouping) confirmed 13 clean
+fills (applied) out of ~85 requested fields — the rest are genuinely
+undisclosed at every source checked, consistent with the pattern already
+established in the critical-gap pass. A few things surfaced worth a curator's
+attention beyond the plain "not found" gaps:
+- **`google-michigan-city-in` jobs discrepancy** — the record already shows
+  500 jobs, but a directly-fetched DCD article states "30+ jobs." Worth a
+  second look to see which is right before the next refresh cycle.
+- **`amazon-richmond-county-nc` has a real 1,600 MW figure**, but it's
+  diesel-backup generation capacity ("21 buildings supported by 1,600
+  megawatts of diesel generation" per the site's own permit application), not
+  grid/IT electrical capacity like `power_mw` means elsewhere in this
+  dataset. Deliberately left `power_mw` null rather than populate it with a
+  category-mismatched number — flagging in case a future schema wants a
+  distinct `diesel_backup_mw` field.
+- **`qts-clinton-ia`, `qts-eagle-mountain-ut`, `qts-york-county-sc`** all
+  have an explicit QTS non-disclosure statement on their own project pages
+  ("we don't disclose specific power capacity for security and
+  confidentiality reasons") — these are confirmed-never-coming gaps, not
+  research misses. Don't re-research `power_mw` for these three next cycle
+  without a new lead (e.g. a utility interconnection filing).
+- **`aws-calvert-cliffs-md`'s widely-repeated "~1.5 GW" figure is
+  unconfirmed** — traces only to a third-party tracker (dcpulse.com) that
+  itself labels it an internal estimate with no source citation. Don't use it
+  without a primary source.
+- **`aws-wilmington-oh` has been tabled twice** by the Wilmington Planning
+  Commission (Nov 2025, then Jan 7 2026) over incomplete traffic/lighting
+  studies and Amazon reportedly dodging a question about PFAS in facility
+  water discharge — a plausible `CommunityResponse` (negative/local_government)
+  candidate not yet captured.
+- **`qts-dane-county-wi` claimed_jobs left unresolved** — two conflicting
+  figures exist (an early filing-stage article's "450 permanent jobs," vs.
+  "up to 5,000 trade jobs" from the later formal $12B announcement); the
+  jobs figure wasn't populated pending a curator call on which one is current.
+
+### Citation-audit follow-ups from 2026-07-15 refresh (partial matches)
+A 35-record spot-check (source_url fetched directly, not search-synthesis) found
+5 "partial" cases: the recorded figure is plausible and likely correct, but isn't
+actually stated on the record's own cited page. Not urgent (no reason to believe
+the numbers are wrong), but each needs a better citation or a softened figure:
+- `amazon-montgomery-city-mo` — $10B investment not on the cited aboutamazon.com
+  page (only "several billion dollars, unspecified").
+- `google-mayes-county-ok` — 800 jobs not stated on datacenters.google page.
+- `google-henderson-nv` — $6B is Google's combined Henderson+Storey County NV
+  figure per the source; misattributed solely to the Henderson site.
+- `google-lenoir-nc` — 400 jobs not stated on the cited page.
+- `microsoft-boydton-va` — $2B investment / 250 jobs not stated on the cited
+  local.microsoft.com page (which only backs the "55 projects" claim).
+- `ms-mt-pleasant-wi` — `claimed_investment_usd` ($7B) is a curator-computed
+  combined total (documented transparently in `notes`), but the cited
+  `source_url` only states the original $3.3B tranche. Needs a citable URL for
+  the Sept-2025 $4B second-facility announcement, not a guessed one.
+- `qts-aurora-co` — the 65-80 acre / 4-building specifics in `notes` aren't on
+  the cited sentinelcolorado.com article; needs a primary source that actually
+  states them, or the specifics should be softened.
+- Two records (`google-spacex-gpu-partnership`, `microsoft-la-porte-in`) cite
+  datacenterdynamics.com, which hard-blocks WebFetch/curl (403, no Wayback
+  snapshot) — needs a manual browser spot-check, tooling can't verify these.
+
+### UX inconsistency: two different detail-view interaction patterns
+Found via a 2026-07-15 Playwright walkthrough of all 6 tabs. Company Comparison
+and Project Explorer open detail records as an **inline pop-out panel** pushed
+into the page flow (page scrolls to it, no backdrop). Moratoriums and Tariffs
+open detail records as a **full-screen modal overlay** (dimmed backdrop,
+centered dialog, Escape/backdrop-click to close) — the v1.19 "Moratorium detail
+modal" conversion documented in CLAUDE.md was applied to those two tabs only.
+Net effect: clicking a row means something different depending which tab
+you're on. Worth a deliberate decision — convert Comparison/Explorer to the
+modal pattern for consistency (or intentionally keep the split, e.g. "modal for
+list-item drill-down, inline for a persistent map+list layout" — Explorer's
+map context might genuinely want to stay on-screen). Not fixed in this session
+since it's a real design call, not a bug. *Priority: medium.*
+
+### UX quality: at_a_glance auto-derivation can surface raw promotional quotes
+`wonder-valley-box-elder-ut`'s auto-derived (no manual `at_a_glance` override)
+Water and Infrastructure fields truncate a first-person marketing quote
+mid-sentence: "I'm the only developer of data centers on Earth that graduated
+from environmental studies…". Technically working as designed (v1.4: falls
+back to truncating the first claim's `statement` at ~90 chars when no curator
+override exists), but the result reads oddly next to the neutral phrasing used
+everywhere else. Needs a manual `at_a_glance` override for this project, and
+worth checking other auto-derived fields for the same pattern. *Priority: low.*
+
+### Leads from 2026-07-15 refresh needing a follow-up verification pass
+Surfaced by scouting agents this session; not yet shippable because the key
+fact came from WebSearch synthesis or a paywalled/403'd source rather than a
+confirmed direct fetch (per the v1.19 "don't trust search synthesis" lesson).
+- ~~Google Montgomery County MO (New Florence)~~ — **false lead, already
+  tracked.** The scouting agent flagged this as a possible new project, but
+  it's already fully captured as `google-new-florence-mo` (captured
+  2026-05-31, $15B / 934ac / 1.2GW, ratepayer-affirmed) — same "different
+  name, same site" trap the 2026-07-14 learned-pattern entry above already
+  warns about (id uses the town name, not "montgomery"/"missouri"). No
+  action needed; noting the near-miss so a future scout doesn't re-flag it.
+- **CoreWeave / Prime Data Centers, Elk Grove Village, IL** — $850M bond
+  financing confirmed live (phemex.com), but the oft-repeated "$2.2B
+  contracted revenue" and "15-year lease" figures trace only to low-tier
+  aggregators (timothysykes.com, stockstotrade.com) — re-verify against a
+  primary filing before using.
+- **Crusoe pauses Cheyenne, WY (Tallgrass/Blackstone JV, 1.8 GW)** — reported
+  by Bloomberg 2026-06-09 (paywalled, not fetched). Find a non-paywalled
+  pickup (Blockspace Media reportedly covered it) before adding as a status
+  change.
+- **QTS Prince William Digital Gateway, VA — project cancelled** — QTS
+  withdrew its final VA Supreme Court appeal 2026-07-02 (confirmed via direct
+  fetch, thecooldown.com) after the county's rezoning approval was voided.
+  This is a strong "community pushback prevailed" case study, but the
+  `Project.status` enum (`announced`/`construction`/`operational`) has no
+  "abandoned/cancelled" value and this site was never added as a tracked
+  project. **Needs a schema decision** before curating: add a 4th status, or
+  represent it as a standalone `CommunityResponse`-style narrative instead of
+  a `Project`. See DESIGN.md for precedent (delivered/ratepayer additions
+  both required a frozen-vocabulary decision first).
+- **`nv-energy-callisto-esa` tariff (docket 24-06014)** — likely `approved`
+  per two CitizenPortal.ai regulatory-tracking articles, but both 403'd on
+  direct fetch; only WebSearch's synthesized snippet is available, which is
+  exactly the failure mode this project's sourcing rules warn against. Left
+  `status: proposed` unchanged in the 2026-07-15 refresh. Needs a
+  browser-driven (not WebFetch) pass against `puc.nv.gov`'s docket search UI.
+
 ### Drive coverage to comprehensive via the research connectors
 `connectors/research.py` (added this session) automates collection: `status`
 reports gaps, `queries` emits per-site search strings, `harvest` fetches URLs

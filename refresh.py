@@ -31,6 +31,7 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from schema import (
+    RATEPAYER_PLEDGE_DATE,
     THEMES,
     ClaimsPayload,
     CompaniesPayload,
@@ -39,6 +40,9 @@ from schema import (
     ResponsesPayload,
     TariffsPayload,
 )
+
+RATEPAYER_PLEDGE_YEAR = int(RATEPAYER_PLEDGE_DATE[:4])
+RATEPAYER_PLEDGE_DATE_OBJ = date.fromisoformat(RATEPAYER_PLEDGE_DATE)
 
 ROOT = Path(__file__).parent
 SEED_DIR = ROOT / "data" / "seed"
@@ -135,11 +139,31 @@ def _check_cross_refs(
     return errors
 
 
-def _audit_missing_commitments(projects: ProjectsPayload) -> tuple[dict, dict]:
+def _is_ratepayer_eligible(p, signatory_slugs: set[str]) -> bool:
+    """Mirror docs/app.js's isPrePledgeProject: only signatory companies with a
+    pledge-era (on/after RATEPAYER_PLEDGE_DATE, or year-only 2026) announcement
+    are ever expected to carry a ratepayer assessment. A bare year can't be
+    placed either side of March 4, so a year-only 2026 record counts as
+    pledge-era here too, matching the frontend.
+    """
+    if p.company_slug not in signatory_slugs:
+        return False
+    if p.announced_date:
+        return p.announced_date >= RATEPAYER_PLEDGE_DATE_OBJ
+    return p.announced_year >= RATEPAYER_PLEDGE_YEAR
+
+
+def _audit_missing_commitments(
+    projects: ProjectsPayload, companies: CompaniesPayload
+) -> tuple[dict, dict]:
     """Audit projects for missing key commitment details.
 
     Returns: (critical_missing, medium_missing) dicts keyed by severity.
     """
+    signatory_slugs = {
+        c.slug for c in companies.companies if c.ratepayer_pledge_signatory
+    }
+
     # Key commitment fields to check
     EXPECTATIONS = {
         "operational": {
@@ -173,6 +197,8 @@ def _audit_missing_commitments(projects: ProjectsPayload) -> tuple[dict, dict]:
                 missing_critical.append(field)
 
         for field in important:
+            if field == "ratepayer" and not _is_ratepayer_eligible(p, signatory_slugs):
+                continue
             if getattr(p, field, None) is None:
                 missing_medium.append(field)
 
@@ -333,7 +359,9 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
 
     # Audit missing commitment details if requested
     if audit:
-        critical, medium = _audit_missing_commitments(payloads["projects"])
+        critical, medium = _audit_missing_commitments(
+            payloads["projects"], payloads["companies"]
+        )
         stale_pending = _audit_stale_pending(payloads["moratoriums"], payloads["tariffs"])
         logger.warning(
             "Audit found %d critical + %d medium gaps in project commitment details; "
