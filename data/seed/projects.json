@@ -91,11 +91,11 @@
       "status": "announced",
       "announced_year": 2026,
       "claimed_investment_usd": null,
-      "claimed_jobs": null,
-      "notes": "827-acre, three-phase campus near the Tulsa County / Creek County border, ~8 miles west of downtown Tulsa. City of Sand Springs approved rezoning in February 2026; construction targeted for 2027. Up to ~$3B total across phases. Google pays 100% of new grid infrastructure costs (dedicated substation + transmission upgrades) so no costs shift to existing utility customers. 25-year PILOT tax agreement: $1.3M\u2013$3.9M per facility per year. Separate site from google-stillwater-ok.",
+      "claimed_jobs": 1000,
+      "notes": "827-acre, three-phase campus near the Tulsa County / Creek County border, ~8 miles west of downtown Tulsa. City of Sand Springs approved rezoning in February 2026; construction targeted for 2027. Up to ~$3B total across phases. Google pays 100% of new grid infrastructure costs (dedicated substation + transmission upgrades) so no costs shift to existing utility customers. 25-year PILOT tax agreement: $1.3M\u2013$3.9M per facility per year. Separate site from google-stillwater-ok. Up to 1,000 temporary construction jobs at peak, per the project's own site (projectspringok.com) \u2014 construction jobs specifically, not a permanent-ops figure.",
       "source_url": "https://www.datacenterdynamics.com/en/news/google-gets-greenlight-for-data-center-in-tulsa-oklahoma/",
       "source_title": "Data Center Dynamics \u2014 Google gets greenlight for data center near Tulsa, Oklahoma",
-      "captured_at": "2026-06-05",
+      "captured_at": "2026-07-15",
       "project_page_url": null,
       "acreage": 827,
       "power_mw": null,
@@ -137,7 +137,7 @@
       "notes": "Part of Google's $40B Texas investment package announced February 24, 2026. Air-cooled campus in Wilbarger County, Texas Panhandle. Co-located with AES clean energy generation under a 20-year power purchase agreement. On ERCOT grid.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-wilbarger-county/",
       "source_title": "Google Blog \u2014 Wilbarger County, Texas data center announcement (Feb 2026)",
-      "captured_at": "2026-06-01",
+      "captured_at": "2026-07-15",
       "offtaker": "Google",
       "ratepayer": {
         "status": "affirmed",
@@ -158,6 +158,9 @@
           }
         },
         "evidence_claim_id": "google-wilbarger-tx-ratepayer-pledge"
+      },
+      "at_a_glance": {
+        "water": "Air-cooled, water limited to critical ops only"
       }
     },
     {
@@ -171,12 +174,12 @@
       "lon": -84.9341,
       "status": "announced",
       "announced_year": 2026,
-      "claimed_investment_usd": null,
+      "claimed_investment_usd": 700000000,
       "claimed_jobs": null,
-      "notes": "12M sq ft mega-campus in southwest Georgia near the Alabama border (Early County). ~9 buildings planned, closed-loop cooling, construction July 2026 \u2192 first phase Sept 2027; full build-out targeted Q4 2035. DRI filing March 2026.",
+      "notes": "12M sq ft mega-campus in southwest Georgia near the Alabama border (Early County). ~9 buildings planned, closed-loop cooling, construction July 2026 \u2192 first phase Sept 2027; full build-out targeted Q4 2035. DRI filing March 2026. $700M investment and 1,400 MW gross capacity per QTS's own project page (q.com/data-centers/blakely/) \u2014 power figure explicitly labeled \"concept stage,\" not firm. QTS estimates 1,000+ construction jobs and \"hundreds\" of permanent jobs (no single integer disclosed).",
       "source_url": "https://www.datacenterdynamics.com/en/news/qts-targets-two-data-center-campuses-in-georgia/",
       "source_title": "Data Center Dynamics \u2014 QTS targets two Georgia campuses (Blakely + Fayetteville)",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-07-15",
       "offtaker": "QTS",
       "at_a_glance": {
         "energy": "Project Blue Hole \u2014 planned 12M sq ft mega-campus (Blakely GA)"
@@ -192,7 +195,8 @@
           }
         },
         "evidence_claim_id": "qts-blakely-ga-ratepayer-pledge"
-      }
+      },
+      "power_mw": 1400
     },
     {
       "id": "qts-clinton-ia",
@@ -239,12 +243,12 @@
       "lon": -74.541,
       "status": "announced",
       "announced_year": 2026,
-      "claimed_investment_usd": null,
-      "claimed_jobs": null,
-      "notes": "Proposed 272,000 sq ft, two-story, 77-foot data center on 52-acre existing site at 159 Princeton-Hightstown Rd. Existing facility has >70 MW with on-site substation. April 27, 2026 planning board meeting postponed due to incomplete public testimony \u2014 a signal of NJ's more constrained data-center permitting environment.",
+      "claimed_investment_usd": 600000000,
+      "claimed_jobs": 400,
+      "notes": "Proposed 272,000 sq ft, two-story, 77-foot data center on 52-acre existing site at 159 Princeton-Hightstown Rd. Existing facility has >70 MW with on-site substation. April 27, 2026 planning board meeting postponed due to incomplete public testimony \u2014 a signal of NJ's more constrained data-center permitting environment. Figures per QTS's own project page (q.com/data-centers/east-windsor/): $600M investment, 400 construction jobs + 5-8 permanent positions, 70 MW+ critical power capacity, 52-acre campus.",
       "source_url": "https://www.datacenterdynamics.com/en/news/decision-on-qts-planned-expansion-of-data-center-in-east-windsor-new-jersey-postponed/",
       "source_title": "Data Center Dynamics \u2014 QTS East Windsor expansion vote postponed (Apr 2026)",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-07-15",
       "acreage": 52,
       "offtaker": "QTS",
       "ratepayer": {
@@ -258,6 +262,12 @@
           }
         },
         "evidence_claim_id": "qts-east-windsor-nj-ratepayer-pledge"
+      },
+      "power_mw": 70,
+      "at_a_glance": {
+        "jobs": "400 construction jobs + 5-8 permanent positions",
+        "energy": "70 MW+ critical power capacity",
+        "infrastructure": "$600M expansion, 52-acre campus"
       }
     },
     {
@@ -272,11 +282,11 @@
       "status": "announced",
       "announced_year": 2026,
       "claimed_investment_usd": null,
-      "claimed_jobs": null,
-      "notes": "313-acre expansion site west of Veterans Parkway, adjacent to QTS's existing Fayetteville campus. 2 million sq ft data center planned; targeted completion 2029. Broader Fayetteville campus envelope (615 acres) targets 800-1,000 permanent jobs. QTS filed DRI application with GA Dept of Community Affairs in 2026.",
+      "claimed_jobs": 800,
+      "notes": "313-acre expansion site west of Veterans Parkway, adjacent to QTS's existing Fayetteville campus. 2 million sq ft data center planned; targeted completion 2029. Broader Fayetteville campus envelope (615 acres) targets 800-1,000 permanent jobs. QTS filed DRI application with GA Dept of Community Affairs in 2026. \"800 to 1,000 permanent jobs\" per WBRC (2026-02-22, post-dates the March 2026 city moratorium); recorded as the conservative low end.",
       "source_url": "https://www.datacenterdynamics.com/en/news/qts-files-to-expand-fayetteville-data-center-campus-in-georgia/",
       "source_title": "Data Center Dynamics \u2014 QTS files to expand Fayetteville campus",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-07-15",
       "project_page_url": "https://q.com/data-centers/fayetteville/",
       "acreage": 313,
       "offtaker": "QTS",
@@ -385,8 +395,8 @@
       "lon": -104.8202,
       "status": "announced",
       "announced_year": 2025,
-      "claimed_investment_usd": 50000000000,
-      "claimed_jobs": 5000,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
       "notes": "1.8 GW initial scaling toward 10 GW campus in Laramie County WY. Gas-fired generation via Tallgrass BFC Power / Cheyenne Power Hub ($7B power-infrastructure tranche). ~5,000 peak construction. Q2 2027 target for first-building energization (per the original announcement, Data Center Dynamics, Jan 2026: datacenterdynamics.com/en/news/crusoe-gets-go-ahead-for-18gw-data-center-campus-and-power-plant-in-cheyenne-wyoming/). UPDATE (2026-07-14, this record's current source_url): Crusoe exited/paused its data-center-development role around April 2026 \u2014 'At the request of our customer, Crusoe has paused its development activities' (Crusoe statement via Bloomberg) \u2014 and demobilized from the site. Project Jade itself is not cancelled: Tallgrass Energy (Blackstone-backed) continues the power-generation component ('full steam ahead' per a Tallgrass spokesperson), and Cheyenne Mayor Patrick Collins confirmed Tallgrass is seeking a replacement data-center operator, not yet announced as of this capture. Figures above (investment/jobs/power) reflect Crusoe's original announcement and may not hold once a new operator is named.",
       "source_url": "https://www.wyomingnews.com/news/local_news/crusoe-pulls-out-of-project-jade-data-center/article_b9a8bde9-21c0-4e8a-9051-9154b91bf0eb.html",
       "source_title": "Wyoming Tribune Eagle \u2014 Crusoe pulls out of Project Jade data center (June 2026)",
@@ -394,7 +404,7 @@
       "power_mw": 1800,
       "offtaker": null,
       "at_a_glance": {
-        "jobs": "$50B / 5,000 jobs (Project Jade, Switchgrass Industrial Park)",
+        "jobs": "Original Crusoe estimate: $50B / 5,000 jobs \u2014 superseded, Crusoe exited Apr 2026, no confirmed operator",
         "energy": "1,800 MW Phase 1 planned \u2014 Crusoe exited as operator Apr 2026, replacement unannounced"
       }
     },
@@ -521,7 +531,7 @@
       "notes": "2 GW AI campus powered by a co-located, behind-the-meter natural gas plant (Chevron's Project Kilby, first power expected 2028, scaling to ~2.67 GW), with Microsoft funding the generation and supporting infrastructure itself. Additional detail (Microsoft's own June 22, 2026 blog post): 6,000+ construction jobs at peak, hundreds of permanent operational jobs; Selective Catalytic Reduction emissions controls; closed-loop cooling to minimize water use; workforce development modeled on the existing San Antonio Datacenter Academy. Microsoft's Noelle Walsh (President, Cloud Operations and Innovation): 'we build where our customers need us, and we build for the long term.' Microsoft's broader Texas giving: $11M cash + $103.3M software/cloud donations to Texas nonprofits (FY2024).",
       "source_url": "https://www.theenergymag.com/news/2026-06-22/microsoft-2-gigawatt-ai-data-center-west-texas-onsite-gas",
       "source_title": "TheEnergyMag \u2014 Microsoft to build 2GW AI data center in West Texas with onsite gas",
-      "captured_at": "2026-07-14",
+      "captured_at": "2026-07-15",
       "ratepayer": {
         "status": "affirmed",
         "summary": "Microsoft says it is funding the new generation and supporting infrastructure for the 2 GW Pecos campus itself \u2014 a co-located, behind-the-meter natural gas plant (Chevron's Project Kilby) \u2014 so power costs are not shifted onto ERCOT ratepayers.",
@@ -538,7 +548,11 @@
           }
         }
       },
-      "claimed_jobs": 6000
+      "claimed_jobs": 6000,
+      "at_a_glance": {
+        "energy": "On-site natural gas plant, behind the meter (Chevron)",
+        "water": "Closed-loop cooling \u2014 no ongoing water draw after initial fill"
+      }
     },
     {
       "id": "amazon-montgomery-city-mo",
@@ -895,12 +909,12 @@
       "lon": -99.7331,
       "status": "construction",
       "announced_year": 2024,
-      "claimed_investment_usd": null,
+      "claimed_investment_usd": 40000000000,
       "claimed_jobs": null,
-      "notes": "Oracle Cloud Infrastructure capacity tenancy at the Stargate Abilene campus, contracted to OpenAI as the primary workload.",
-      "source_url": "https://www.oracle.com/news/announcement/openai-selects-oracle-cloud-infrastructure-to-extend-microsoft-azure-ai-platform-2024-06-11/",
-      "source_title": "Oracle and OpenAI extend cloud partnership (2024)",
-      "captured_at": "2026-05-14",
+      "notes": "Oracle Cloud Infrastructure capacity tenancy at the Stargate Abilene campus, contracted to OpenAI as the primary workload. Investment figure is Oracle's reported ~$40B spend on ~400,000 Nvidia GB200 GPUs for this site, leased to OpenAI under a 15-year agreement \u2014 chip procurement, not a separate construction-capex figure (Network World / PYMNTS, 2026).",
+      "source_url": "https://www.networkworld.com/article/3995015/oracle-to-spend-40b-on-nvidia-chips-for-openai-data-center-in-texas.html",
+      "source_title": "Network World \u2014 Oracle to spend $40B on Nvidia chips for OpenAI data center in Texas",
+      "captured_at": "2026-07-15",
       "project_page_url": "https://www.oracle.com/news/announcement/openai-selects-oracle-cloud-infrastructure-to-extend-microsoft-azure-ai-platform-2024-06-11/",
       "acreage": 1100,
       "power_mw": 1200,
@@ -1033,12 +1047,12 @@
       "lon": -89.345,
       "status": "announced",
       "announced_year": 2024,
-      "claimed_investment_usd": null,
+      "claimed_investment_usd": 12000000000,
       "claimed_jobs": null,
-      "notes": "Spans DeForest and Vienna in Dane County, Wisconsin. QTS announced a $50 million community commitment alongside the project \u2014 scholarships and workforce partnerships with Madison Area Technical College, research partnerships with the University of Wisconsin, contribution to the Wisconsin Frontier Technology Platform, nonprofit and first-responder support. 750 MW renewable-energy procurement agreement with Alliant Energy and 40 acres of wetland habitat preservation. Water-free cooling design.",
-      "source_url": "https://q.com/news/qts-advances-plans-for-state-of-the-art-data-center-campus-and-announces-50-million-community-commitment-for-dane-county/",
-      "source_title": "QTS Advances Plans for State-of-the-Art Data Center Campus and Announces $50 Million Community Commitment for Dane County",
-      "captured_at": "2026-05-14",
+      "notes": "Spans DeForest and Vienna in Dane County, Wisconsin. QTS announced a $50 million community commitment alongside the project \u2014 scholarships and workforce partnerships with Madison Area Technical College, research partnerships with the University of Wisconsin, contribution to the Wisconsin Frontier Technology Platform, nonprofit and first-responder support. 750 MW renewable-energy procurement agreement with Alliant Energy and 40 acres of wetland habitat preservation. Water-free cooling design. $12B figure confirmed via dailyreporter.com (2025-11-18): \"QTS Data Centers ... will partner with the Building Trades Council of South Central Wisconsin to build a $12 billion data center campus in Dane County ... up to 5,000 trade jobs.\" An earlier, likely-superseded filing-stage article cited a $3B/450-permanent-jobs figure \u2014 not used here as it predates the formal $12B announcement.",
+      "source_url": "https://dailyreporter.com/2025/11/18/qts-12b-union-data-center-dane-county/",
+      "source_title": "Daily Reporter \u2014 QTS $12B union data center, Dane County",
+      "captured_at": "2026-07-15",
       "project_page_url": null,
       "acreage": null,
       "power_mw": 750,
@@ -1066,10 +1080,10 @@
       "notes": "100+ acre campus at 10680 University Blvd, Prince William County, adjacent to existing QTS Manassas data centers. QTS is also the named developer behind the controversial Prince William Digital Gateway (PWDG) \u2014 a ~2,139-acre rezoning approved by Prince William supervisors November 2022 after a 27-hour debate. PWDG faces ongoing litigation; the Virginia Court of Appeals ruled in favor of plaintiffs (Oak Valley HOA, American Battlefield Trust); QTS filed an 11th-hour appeal.",
       "source_url": "https://qtsdatacenters.com/data-centers/pwdg",
       "source_title": "Prince William Digital Gateway - QTS Data Centers",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-07-15",
       "project_page_url": "https://qtsdatacenters.com/data-centers/manassas/",
       "acreage": 100,
-      "power_mw": null,
+      "power_mw": 190,
       "gpu_count": null,
       "offtaker": null,
       "at_a_glance": {
@@ -1760,8 +1774,11 @@
       "notes": "Smaller-scale Crusoe deployment, 20 permanent jobs at $1.5M annual payroll per state announcement. Crusoe declined comment to local outlets at time of state disclosure.",
       "source_url": "https://www.springfieldnewssun.com/news/crusoe-data-center-to-come-to-springfield-expected-to-create-20-jobs/ZAS2OKPL6BABJN65B4R2V46IDA/",
       "source_title": "Springfield News-Sun \u2014 Crusoe Springfield data center, 20 jobs",
-      "captured_at": "2026-05-16",
-      "offtaker": "Crusoe"
+      "captured_at": "2026-07-15",
+      "offtaker": "Crusoe",
+      "at_a_glance": {
+        "tax_revenue": "50%, 10-year Data Center Sales Tax Exemption (Ohio Tax Credit Authority)"
+      }
     },
     {
       "id": "coreweave-kenilworth-nj",
@@ -2325,11 +2342,11 @@
       "status": "announced",
       "announced_year": 2026,
       "claimed_investment_usd": 3000000000,
-      "claimed_jobs": null,
-      "notes": "Part of April 9 2026 $12B central Mississippi expansion announcement, alongside Madison County ($11B) and Hinds County / Clinton ($1B). Brings AWS Mississippi total commitment to $25B / 2,000+ jobs.",
+      "claimed_jobs": 200,
+      "notes": "Part of April 9 2026 $12B central Mississippi expansion announcement, alongside Madison County ($11B) and Hinds County / Clinton ($1B). Brings AWS Mississippi total commitment to $25B / 2,000+ jobs. Per a dedicated Amazon Newsroom release (aboutamazon.com/news/company-news/amazon-3-billion-mississippi-data-center-investment): at least 200 new jobs at the data center campus, plus 300+ additional FTE positions in the Warren County community overall.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers",
       "source_title": "Amazon Newsroom \u2014 $25 billion Mississippi data centers (Apr 9 2026)",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-07-15",
       "offtaker": "AWS",
       "ratepayer": {
         "status": "contested",
@@ -2561,11 +2578,11 @@
       "status": "construction",
       "announced_year": 2025,
       "claimed_investment_usd": 4000000000,
-      "claimed_jobs": null,
-      "notes": "Five-building campus on 1,178 acres south of Bollinger Road in Crittenden County. Google's first Arkansas data center; broke ground October 2025. 600 MW solar via Entergy. Google covers full energy costs. $25M Crittenden County community fund. Construction 18-24 months.",
+      "claimed_jobs": 300,
+      "notes": "Five-building campus on 1,178 acres south of Bollinger Road in Crittenden County. Google's first Arkansas data center; broke ground October 2025. 600 MW solar via Entergy. Google covers full energy costs. $25M Crittenden County community fund. Construction 18-24 months. Up to 300 permanent jobs / 5,000+ construction jobs per Construction Review Online (third-party reporting, not a first-party Google quote) \u2014 constructionreviewonline.com/google-plans-10-billion-data-center-campus-in-west-memphis-arkansas/.",
       "source_url": "https://blog.google/company-news/inside-google/company-announcements/google-american-innovation-arkansas/",
       "source_title": "Google Blog \u2014 American Innovation: Arkansas (West Memphis Project Pyramid)",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-07-15",
       "project_page_url": "https://blog.google/company-news/inside-google/company-announcements/google-american-innovation-arkansas/",
       "acreage": 1178,
       "power_mw": 600,
@@ -2844,11 +2861,11 @@
       "status": "announced",
       "announced_year": 2025,
       "claimed_investment_usd": 4000000000,
-      "claimed_jobs": null,
-      "notes": "AWS acquired ~590 acres in Jefferson Township, Clinton County in August 2025. Proposed $4B campus on 471 acres off US-68. As of May 2026, twice tabled by Clinton County planning commission due to community opposition and unresolved approval questions. Legal action filed by neighbors. Port authority negotiating with Wilmington City Schools on a community benefit deal.",
+      "claimed_jobs": 100,
+      "notes": "AWS acquired ~590 acres in Jefferson Township, Clinton County in August 2025. Proposed $4B campus on 471 acres off US-68. As of May 2026, twice tabled by Clinton County planning commission due to community opposition and unresolved approval questions. Legal action filed by neighbors. Port authority negotiating with Wilmington City Schools on a community benefit deal. At least 100 permanent jobs (DataCenterDynamics). Project has been tabled twice by the Wilmington Planning Commission (Nov 2025, then again Jan 7 2026) over incomplete traffic/lighting studies and unanswered questions about PFAS in facility water discharge \u2014 worth a CommunityResponse record if a curator wants to capture the local-government friction.",
       "source_url": "https://www.datacenterdynamics.com/en/news/aws-data-center-project-tabled-in-wilmington-ohio/",
       "source_title": "Data Center Dynamics \u2014 AWS Wilmington Ohio project tabled (2026)",
-      "captured_at": "2026-06-01",
+      "captured_at": "2026-07-15",
       "acreage": 590.0,
       "offtaker": "Amazon",
       "at_a_glance": {
@@ -2966,12 +2983,12 @@
       "lon": -87.062,
       "status": "announced",
       "announced_year": 2026,
-      "claimed_investment_usd": null,
+      "claimed_investment_usd": 7000000000,
       "claimed_jobs": null,
       "notes": "Nine-building data center campus in Jasper County, Indiana. Reported by Data Center Dynamics June 3, 2026. No investment, MW, or jobs figures disclosed at announcement.",
       "source_url": "https://www.datacenterdynamics.com/en/news/amazon-plans-nine-building-data-center-campus-in-wheatfield-indiana/",
       "source_title": "Data Center Dynamics \u2014 Amazon plans nine-building data center campus in Wheatfield, Indiana",
-      "captured_at": "2026-06-04",
+      "captured_at": "2026-07-15",
       "acreage": null,
       "power_mw": null,
       "gpu_count": null,
@@ -3003,7 +3020,12 @@
           }
         }
       },
-      "announced_date": "2026-06-03"
+      "announced_date": "2026-06-03",
+      "at_a_glance": {
+        "water": "Natural air cooling ~98% of year, minimizing water use",
+        "tax_revenue": "Jasper County tax revenue: $1.2M \u2192 $420M+ over 15 years",
+        "energy": "$1.25B committed to offset ratepayer cost impact"
+      }
     },
     {
       "id": "meta-montgomery-al",
@@ -3321,20 +3343,20 @@
       "lon": null,
       "status": "announced",
       "announced_year": 2026,
-      "announced_date": "2026-05-21",
-      "claimed_investment_usd": 15000000000,
+      "announced_date": "2026-05-20",
+      "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "Infrastructure partnership: Anthropic committed to pay xAI/SpaceX $1.25 billion per month for data center space rental and compute capacity. Announced May 21, 2026 via Anthropic's IPO S-1 filing. This is the largest single infrastructure expense for Anthropic and represents a strategic decision to outsource frontier model training compute to xAI rather than building owned-and-operated data center capacity. Anthropic operates no data centers of its own; this partnership is a key component of its AI infrastructure strategy.",
-      "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001870995&type=S-1&dateb=&owner=exclude&count=100",
-      "source_title": "SEC EDGAR \u2014 Anthropic Inc. Form S-1 Registration Statement (May 2026)",
-      "captured_at": "2026-06-09",
+      "notes": "Infrastructure partnership: Anthropic committed to pay xAI $1.25 billion per month (through May 2029) for compute capacity \u2014 access to 300 MW / 220,000+ Nvidia GPUs at xAI's Colossus 1 data center near Memphis, TN. Terms were disclosed via SpaceX's S-1 filing (SpaceX being closely tied to/an investor in xAI), not an Anthropic IPO filing as earlier recorded here \u2014 Anthropic itself separately submitted a confidential draft S-1 on June 1, 2026, an unrelated event. claimed_investment_usd left null: no single total-commitment figure is confirmed (the monthly rate through a multi-year term implies a large range depending on renewal/termination, and no company has stated one lump figure). Anthropic operates no data centers of its own; this partnership is a key component of its AI infrastructure strategy.",
+      "source_url": "https://techcrunch.com/2026/05/20/anthropic-will-pay-xai-1-25-billion-per-month-for-compute/",
+      "source_title": "TechCrunch \u2014 Anthropic will pay xAI $1.25 billion per month for compute",
+      "captured_at": "2026-07-15",
       "project_page_url": null,
       "acreage": null,
       "power_mw": null,
       "gpu_count": null,
       "offtaker": "Anthropic",
       "at_a_glance": {
-        "energy": "Outsourced frontier model training infrastructure",
+        "energy": "$1.25B/month for compute at xAI's Colossus 1 (Memphis) \u2014 300 MW / 220K+ GPUs",
         "engagement": "Not a traditional data center \u2014 Anthropic infrastructure lease model"
       }
     },
@@ -3428,12 +3450,12 @@
       "lon": -96.0422,
       "status": "operational",
       "announced_year": 2017,
-      "claimed_investment_usd": 1500000000,
+      "claimed_investment_usd": 2500000000,
       "claimed_jobs": 300,
-      "notes": "First announced 2017 as the Papillion Data Center; expanded to a nine-building, ~4M sq ft campus, online since 2019. Total investment $1.5B+; ~300 permanent jobs at full build-out. Powered with 100% clean energy under a new OPPD rate structure (wind from Enel's Rattlesnake Creek Wind Project, Dixon County). 2022 expansion added ~1M sq ft / ~$400M and acquired 500+ acres in Springfield.",
-      "source_url": "https://nebraskaexaminer.com/2022/07/28/facebook-parent-company-meta-continues-growth-in-nebraskas-sarpy-county/",
-      "source_title": "Nebraska Examiner \u2014 Meta continues growth in Nebraska's Sarpy County (Jul 28 2022)",
-      "captured_at": "2026-06-18",
+      "notes": "First announced 2017 as the Papillion Data Center; expanded to a nine-building, ~4M sq ft campus, online since 2019. Total investment $1.5B+; ~300 permanent jobs at full build-out. Powered with 100% clean energy under a new OPPD rate structure (wind from Enel's Rattlesnake Creek Wind Project, Dixon County). 2022 expansion added ~1M sq ft / ~$400M and acquired 500+ acres in Springfield. Investment figure updated 2026-07-15 to $2.5B+ per Meta's own info sheet (\"A Meta-supported project is adding 320 megawatts of new renewable energy in Nebraska\" / $2.5B+ Data center investment in Nebraska\"), superseding the 2022 news article's $1.5B figure.",
+      "source_url": "https://datacenters.atmeta.com/asset/sarpy-data-center-info-sheet/",
+      "source_title": "Meta \u2014 Sarpy Data Center info sheet",
+      "captured_at": "2026-07-15",
       "project_page_url": "https://datacenters.atmeta.com/asset/sarpy-data-center-info-sheet/",
       "offtaker": "Meta",
       "at_a_glance": {
@@ -3481,17 +3503,18 @@
       "announced_year": 2007,
       "claimed_investment_usd": 1300000000,
       "claimed_jobs": 900,
-      "notes": "Mount Holly Commerce Park campus, online since 2008; ~900 workers. Cumulative Google South Carolina investment $13B+ since 2007. 2024 expansion added $1.3B at Berkeley County (part of a $3.3B Lowcountry announcement including Dorchester County). STAR skilled-trades program partners with Trident Tech and Palmetto Goodwill. Berkeley site used ~2M gallons/day for cooling in 2023.",
+      "notes": "Mount Holly Commerce Park campus, online since 2008; ~900 workers. Cumulative Google South Carolina investment $13B+ since 2007. 2024 expansion added $1.3B at Berkeley County (part of a $3.3B Lowcountry announcement including Dorchester County). STAR skilled-trades program partners with Trident Tech and Palmetto Goodwill. Berkeley site used ~2M gallons/day for cooling in 2023. Power capacity per Santee Cooper's own rate-dispute testimony: the site \"consumes more power than all other industrial businesses on its system combined, at more than 380 megawatts\" \u2014 a floor, not an exact nameplate figure (Post and Courier, 2026).",
       "source_url": "https://datacenters.google/locations/berkeley-county-south-carolina/",
       "source_title": "Google Data Centers \u2014 Berkeley County, South Carolina location page",
-      "captured_at": "2026-06-18",
+      "captured_at": "2026-07-15",
       "project_page_url": "https://datacenters.google/locations/berkeley-county-south-carolina/",
       "offtaker": "Google",
       "at_a_glance": {
         "jobs": "~900 workers",
         "education": "STAR skilled-trades program (Trident Tech, Palmetto Goodwill)",
         "water": "Google 120% water-replenishment pledge (company-wide)"
-      }
+      },
+      "power_mw": 380
     },
     {
       "id": "google-mayes-county-ok",

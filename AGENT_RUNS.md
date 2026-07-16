@@ -10,6 +10,53 @@
 |------|--------------|--------|---------|-----------------------------------|
 | 2026-07-14 | 4-agent parallel PR review (code-quality, silent-failure, energy/regulatory-domain, editorial/sourcing) on PR #33 (~940-line diff, mostly generated JSON already `refresh.py --check`-validated) | ~610K (122K + 157K + 188K + ~143K, one agent hit a session-limit failure partway through) | Partially — see detail below | 1-2 agents with tighter file/record scoping; see detail |
 | 2026-07-14 | (Independent parallel session, merged in via reconciling PR #33 with main) 7-agent moratorium + ratepayer comprehensive pass — see "Detail: 2026-07-14 moratorium + ratepayer comprehensive pass" below | ~996K across 7 runs (~61K pure waste on one misfired relaunch) | Mostly yes | Cap fan-out at 2-3 not 5; model-select (Sonnet not Opus) for research agents; surface the running spend around ~500K instead of only at the end |
+| 2026-07-15 | Full three-dimension data refresh: 6-agent wave (stale-bill re-checks + scouting), 6-agent wave (critical-gap fill, incl. 1 stalled-agent relaunch), 3-agent wave (citation audit + 2 verification checks), 10-agent wave (medium-gap fill) — see "Detail: 2026-07-15 refresh fan-out" below | ~2.3-2.5M (approximate — each of ~24 completed agents fell in the 83K-121K range; the AWS/Amazon medium-gap batch alone was split into 2 agents for 13 records) | Mostly yes, at a bad price | See detail — this is the **third** recorded instance of the 2-3-agent cap being violated in this file |
+
+## Detail: 2026-07-15 refresh fan-out
+
+**What happened:** a data-refresh request expanded into all four REFRESH.md
+dimensions (stale bills, new scouting, critical gaps, medium gaps) plus a
+citation audit and a UX pass, dispatched as four separate waves of parallel
+agents rather than being scoped as 2-3 large batches per wave. The medium-gap
+wave alone was 10 concurrent agents for 57 records — e.g. a single 13-record
+AWS/Amazon batch got split into 2 agents ("AMZN-A" 7 records, "AMZN-B" 6
+records) for no reason beyond "one email full of tasks, split it in half."
+The user flagged this live, twice: once after a legitimate stalled-agent
+relaunch got read as part of the same pattern, and again after the 10-agent
+medium-gap wave landed — "why did you do it again? ... You have 2 agents for
+AWS, huge waste." This despite AGENTS.md § "Multi-agent fan-out discipline"
+already stating the 2-3 cap in bold, with two prior dated incidents in this
+exact file.
+
+**Was it worth it?** The research itself was genuine and largely well-done —
+agents correctly declined to misattribute regional/statewide figures to
+single sites, caught real citation errors (a project sourced to an unrelated
+company's SEC filing, a superseded investment figure), and honestly reported
+"not found" rather than guessing on the ~80% of fields that are genuinely
+undisclosed. The *quality* of individual agent runs wasn't the problem — the
+*count* was. Splitting AMZN-A/AMZN-B, or the 3-way Google medium-gap split,
+paid the ~80-120K fixed per-agent overhead (system prompt, tool schemas,
+framing) a second and third time for zero added research capability, on
+fully-backgrounded work where the user wasn't waiting on wall-clock time.
+
+**One improvement, concretely:** before dispatching a wave of >3 agents,
+re-read this file's last entry and AGENTS.md § "Multi-agent fan-out
+discipline" first — the rule already existed in writing twice; the miss was
+not consulting it, not not knowing it. A mechanical trip-wire beats a prose
+reminder: **if a single Agent tool_call block is about to contain more than
+3 invocations, stop and consolidate batches before sending it**, the same
+way `TaskStop`+relaunch is now the default response to a stalled (not just
+slow) agent — checked via `stat`/`wc -l` on the transcript file's mtime/size
+without reading its content, compared against sibling agents' actual
+completion times, not a fixed timeout.
+
+**What went right (keep doing):** legitimate stalled-agent recovery — the
+original Meta critical-gap agent had zero transcript growth for 83 minutes
+while 4 sibling agents in the same wave finished in 5-10 minutes each;
+`TaskStop` + a tighter-capped relaunch was the correct call, not more
+waste. Every agent this session also correctly flagged its own "not found"
+results instead of fabricating a plausible-looking figure — the honesty
+held up even under the volume problem.
 
 ## Detail: 2026-07-14 4-agent PR review
 

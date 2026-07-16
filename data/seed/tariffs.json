@@ -241,8 +241,8 @@
       "state": "NV",
       "tariff_name": "Clean Transition Tariff (CTT)",
       "tariff_type": "Clean transition tariff",
-      "status": "proposed",
-      "status_detail": "Filed 2024; pending before the PUCN as of the LBL brief.",
+      "status": "approved",
+      "status_detail": "Approved by the Nevada PUC (docket 24-05022/24-05023), March 11, 2025.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "24-05022 / 24-05023",
       "min_load_mw": 5,
@@ -281,7 +281,8 @@
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
       "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 NV Energy Clean Transition Tariff (PUCN 24-05022/23)",
       "resources": null,
-      "captured_at": "2026-06-22"
+      "captured_at": "2026-07-15",
+      "decision_date": "2025-03-11"
     },
     {
       "id": "nv-energy-callisto-esa",
@@ -747,8 +748,8 @@
       "state": "TX",
       "tariff_name": "Large-load interconnection standards (SB 6 implementation)",
       "tariff_type": "Interconnection rule / statute",
-      "status": "proposed",
-      "status_detail": "SB 6 signed June 20, 2025; PUCT rulemaking on interconnection standards underway 2025\u20132026.",
+      "status": "approved",
+      "status_detail": "Signed by Governor Abbott June 20, 2025, effective immediately (Acts 2025, 89th R.S., ch. 953). The implementing PUCT rule (16 TAC \u00a725.194) remains in rulemaking: draft published March 12, 2026, comments closed April 17, 2026, final adoption not yet confirmed.",
       "regulator": "Public Utility Commission of Texas (PUCT) / ERCOT",
       "summary": "Texas Senate Bill 6 directs the PUCT to create interconnection standards for new loads of 75 MW or greater, imposing interconnection fees, financial security, full cost responsibility and emergency curtailment obligations on data centers and other large loads.",
       "parameters": {
@@ -792,15 +793,16 @@
           "summary": "Overhauls large-load interconnection, transmission cost allocation and co-location rules in ERCOT."
         }
       ],
-      "source_url": "https://capitol.texas.gov/tlodocs/89R/billtext/pdf/SB00006H.pdf",
-      "source_title": "Texas Legislature \u2014 Senate Bill 6 (89R) enrolled text",
+      "source_url": "https://www.lrl.texas.gov/legis/billsearch/BillDetails.cfm?legSession=89-0&billTypeDetail=SB&billnumberDetail=6",
+      "source_title": "Texas Legislative Reference Library \u2014 SB 6 (89th R.S.) bill history",
       "resources": [
         {
           "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6",
           "title": "Texas Legislature \u2014 SB 6 bill history"
         }
       ],
-      "captured_at": "2026-06-22"
+      "captured_at": "2026-07-15",
+      "decision_date": "2025-06-20"
     },
     {
       "id": "ferc-talen-amazon-susquehanna-isa",
@@ -1029,7 +1031,7 @@
       "tariff_name": "Large Load Tariff",
       "tariff_type": "Large-load / data center tariff",
       "status": "proposed",
-      "status_detail": "Filed with the Colorado PUC on April 2, 2026; pending review.",
+      "status_detail": "Suspended for 120 days by Colorado PUC Decision No. C26-0280 (April 30, 2026); intervention/comment period closed June 1, 2026; evidentiary proceedings ongoing.",
       "regulator": "Colorado Public Utilities Commission (COPUC)",
       "filed_date": "2026-04-02",
       "min_load_mw": 50,
@@ -1085,7 +1087,8 @@
           "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-06-24"
+      "captured_at": "2026-07-15",
+      "docket_number": "26AL-0137E"
     },
     {
       "id": "nv-microsoft-ratepayer-protection-tariff",
@@ -1095,7 +1098,7 @@
       "tariff_name": "Ratepayer Protection Tariff (large-load cost allocation framework)",
       "tariff_type": "Ratepayer-protection / large-load cost allocation",
       "status": "proposed",
-      "status_detail": "Filed by Microsoft with the PUCN in May 2026 under Docket No. 20-08014; proposed framework pending commission review.",
+      "status_detail": "Filed May 2026 under PUCN Docket 20-08014 (reusing a docket opened August 2020). Public comment open through October 2026; evidentiary hearings scheduled January 2027; final decision expected mid-2027.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "20-08014",
       "min_load_mw": null,
@@ -1146,7 +1149,7 @@
           "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-06-24"
+      "captured_at": "2026-07-15"
     },
     {
       "id": "comed-il-large-load-deposit-2026",

@@ -448,6 +448,30 @@ main {
   line-height: 1.5;
 }
 
+.rp-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+.rp-toggle:hover {
+  border-color: var(--text-muted);
+}
+
+.rp-toggle input[type="checkbox"] {
+  cursor: pointer;
+}
+
 /* ==========================================================================
    Theme legend
    ========================================================================== */
@@ -3916,14 +3940,19 @@ body.tariff-modal-open {
   color: #0c2d6b;
 }
 
-.badge-reason-pollution {
+.badge-reason-air_quality {
   background-color: #fee2e2;
   color: #7f1d1d;
 }
 
-.badge-reason-planning {
+.badge-reason-transparency {
   background-color: #f3e8ff;
   color: #4c1d95;
+}
+
+.badge-reason-noise {
+  background-color: #e2e8f0;
+  color: #1e293b;
 }
 
 .badge-reason-equity {
@@ -3933,15 +3962,16 @@ body.tariff-modal-open {
 
 .badge-reason-energy,
 .badge-reason-water,
-.badge-reason-pollution,
-.badge-reason-planning,
+.badge-reason-air_quality,
+.badge-reason-transparency,
+.badge-reason-noise,
 .badge-reason-equity {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 500;
   display: inline-block;
-  margin: 0 0.25rem 0 0;
+  margin: 0 0.25rem 0.25rem 0;
 }
 
 /* Reason breakdown / summary */

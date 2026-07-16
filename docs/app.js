@@ -3918,6 +3918,18 @@ function ratepayerUnassessedPledgeEraProjects() {
     .sort(rosterSort);
 }
 
+// Sites from companies that never signed the pledge at all (CoreWeave, Crusoe,
+// Anthropic, Wonder Valley, Prologis, ...). Not part of the assessed cohort —
+// there's no pledge to have complied with — shown only when the reader
+// explicitly opts in via the "Show non-signatory companies" toggle, so the
+// default view stays scoped to what the pledge actually covers.
+function ratepayerNonSignatoryProjects() {
+  const signatorySlugs = new Set(ratepayerSignatories().map((c) => c.slug));
+  return state.projects
+    .filter((p) => !signatorySlugs.has(p.company_slug))
+    .sort(rosterSort);
+}
+
 // Format an announced date for display. Uses announced_date (ISO) when
 // present, falling back to announced_year as a plain string.
 function formatAnnouncedDate(p) {
@@ -4294,15 +4306,54 @@ function renderRatepayerScorecard() {
       }
     }
   }
+
+  // Non-signatory section: rendered once regardless of toggle state (cheap —
+  // same card renderer as the other sections), visibility is toggle-only.
+  const nonSigUl = document.getElementById("rp-non-signatory");
+  if (nonSigUl) {
+    nonSigUl.replaceChildren();
+    const nonSig = ratepayerNonSignatoryProjects();
+    if (nonSig.length === 0) {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = "No non-signatory sites tracked.";
+      nonSigUl.appendChild(li);
+    } else {
+      for (const p of nonSig) {
+        nonSigUl.appendChild(renderPrePledgeCard(p, "Not a pledge signatory"));
+      }
+    }
+  }
+  wireRatepayerNonSignatoryToggle();
+}
+
+function wireRatepayerNonSignatoryToggle() {
+  const checkbox = document.getElementById("rp-show-non-signatory");
+  const section = document.getElementById("rp-non-signatory-section");
+  if (!checkbox || !section || checkbox.dataset.wired === "1") return;
+  checkbox.dataset.wired = "1";
+  checkbox.addEventListener("change", () => {
+    section.hidden = !checkbox.checked;
+  });
+}
+
+// True when the project's company is a pledge signatory at all (regardless of
+// whether this specific site has been assessed) — used to keep non-signatory
+// cards (the "Show non-signatory companies" toggle) from citing or labeling
+// content as pledge-related when the company never signed it.
+function isRatepayerSignatoryCompany(companySlug) {
+  const signatorySlugs = new Set(ratepayerSignatories().map((c) => c.slug));
+  return signatorySlugs.has(companySlug);
 }
 
 // Build an always-visible "Sources" footer for a ratepayer site. Guarantees
 // EVERY card — including pledge_only and unassessed sites with no evidence
 // claim — links to a traceable source, fixing the "no links for evidence"
 // gap. Order: site-specific evidence claim (affirmed/contested) → company
-// project page → record source → the pledge proclamation. Deduped by URL and
-// robust to claims not being loaded yet (the project's own source_url is
-// always present and required by the schema).
+// project page → record source → the pledge proclamation (signatory
+// companies only — a non-signatory's card must not cite the pledge as one of
+// its sources). Deduped by URL and robust to claims not being loaded yet (the
+// project's own source_url is always present and required by the schema).
 function rpCardSourcesHtml(p) {
   const rp = p.ratepayer;
   const links = [];
@@ -4320,7 +4371,9 @@ function rpCardSourcesHtml(p) {
   }
   add(p.project_page_url, "Company project page");
   add(p.source_url, p.source_title || "Record source");
-  add(RATEPAYER_PLEDGE_URL, "The pledge");
+  if (isRatepayerSignatoryCompany(p.company_slug)) {
+    add(RATEPAYER_PLEDGE_URL, "The pledge");
+  }
   const anchors = links
     .map(
       ([u, label]) =>
@@ -4373,7 +4426,9 @@ function rpCardClaimsHtml(p) {
     .join("");
 
   const sectionLabel = isCompanyFallback
-    ? `Company-wide pledge sources (${claims.length}) — no site-specific claims on file:`
+    ? isRatepayerSignatoryCompany(p.company_slug)
+      ? `Company-wide pledge sources (${claims.length}) — no site-specific claims on file:`
+      : `Company's own related claims (${claims.length}) — not pledge-affiliated, no site-specific claims on file:`
     : `Claim sources (${claims.length}) — every claim, individually cited:`;
 
   return `<div class="rp-card-claims">

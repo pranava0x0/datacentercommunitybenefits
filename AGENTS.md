@@ -177,6 +177,15 @@ before consuming the result:
   patterns" section or this file — not just the chat reply. If the
   correction applies to the next run, it doesn't belong only in the
   transcript.
+- **Detecting a stalled (not just slow) background agent**: check its
+  transcript file's mtime and line count (`stat -f "%Sm" <file>`,
+  `wc -l <file>`) — never `Read`/`cat` the full JSONL, it's the raw
+  transcript and will overflow context. Compare against sibling agents
+  from the same dispatch that have already completed: if a sibling
+  finished in 5-10 minutes and this one shows zero growth for far
+  longer, it's dead, not thorough. `TaskStop` it and relaunch with a
+  tighter fetch cap rather than waiting indefinitely or leaving it
+  running unattended.
 
 **Persist the retrospective, don't just perform it.** This repo's `docs/`
 is the deployed site (GitHub Pages), not a notes folder — keep the running
@@ -356,6 +365,17 @@ review bodies (not just the summary line), extract a checklist of each
 distinct issue, and verify the specific flow each names.
 
 ### Multi-agent fan-out discipline (when a sub-agent is genuinely warranted)
+
+**This rule has been violated three times now (2026-07-14 ×2, 2026-07-15) despite
+being written down each time.** The miss was never not knowing the rule — it was
+not re-reading this section or [AGENT_RUNS.md](AGENT_RUNS.md)'s last entry before
+sending the dispatch. **Mechanical trip-wire: if a single tool-call message is
+about to contain more than 3 `Agent` invocations, stop and consolidate batches
+before sending it.** "One batch per company/topic, ~15-20 records each" beats
+"one batch per sub-chunk of a company" every time on backgrounded work — see the
+2026-07-15 entry in AGENT_RUNS.md for a concrete case (a single 13-record
+AWS/Amazon lookup split into 2 agents for no research benefit, just because it
+was easier to type as two prompts).
 
 When a task truly needs research agents (comprehensive data expansion, cross-source
 synthesis), keep the run cheap and clean:

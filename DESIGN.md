@@ -237,6 +237,20 @@ operationally fragile.
 - **Theme persists.** Light/dark choice is stored in `localStorage`.
 - **Focus indicators visible.** Every interactive element has a focus
   ring; never `outline: none` without a visible replacement.
+- **Detail-view pattern is currently split, not yet reconciled (found
+  2026-07-15).** Moratoriums and Tariffs open detail records as a
+  full-screen modal overlay (v1.19 conversion); Company Comparison and
+  Project Explorer still open theirs as an inline pop-out pushed into the
+  page flow. Not a bug, but a real inconsistency — see BACKLOG.md for the
+  open design decision. Don't "fix" one side without deciding the pattern
+  for all four first.
+- **Opt-in reveal for adjacent-but-out-of-scope data: hidden by default,
+  a labeled checkbox toggle, not a new tab.** Established 2026-07-15 for
+  the Ratepayer view's non-signatory companies (CoreWeave, Crusoe, etc. —
+  real sites, but outside the pledge cohort the view is scoped to).
+  Reuse this pattern before adding scope-creep sections that are shown
+  by default: keep the primary view answering its one question, let the
+  reader explicitly ask for the adjacent comparison.
 
 ---
 
