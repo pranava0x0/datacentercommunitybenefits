@@ -9,6 +9,18 @@ criterion.
 
 ## High priority
 
+### Add a `key_reasons` ↔ CSS parity test
+Found 2026-07-15: `docs/styles.css`'s `.badge-reason-*` classes had drifted
+from `MoratoriumReasonType` (schema.py) — two dead class names, one missing
+value, silently unstyled/unspaced badges, caught only by eyeballing a
+screenshot, not by `pytest`. THEMES / DELIVERED_STATUSES / RATEPAYER_STATUSES
+all have an explicit Python↔JS parity test (`test_X_match`); `key_reasons`
+doesn't have an equivalent CSS-class check. Add one: assert every value in
+`MORATORIUM_REASON_LABELS` (or the schema Literal) has a corresponding
+`.badge-reason-<value>` rule in styles.css, so a future enum rename fails
+`pytest` instead of shipping an unreadable badge. *Priority: medium — cheap
+to add, prevents a recurring silent-drift class of bug.*
+
 ### Medium-gap research side-findings from 2026-07-15 refresh
 A 57-project pass (10 agents, one per company grouping) confirmed 13 clean
 fills (applied) out of ~85 requested fields — the rest are genuinely

@@ -446,6 +446,15 @@ Full detail: `connectors/README.md`.
   before doing the research. Lesson: when pre-flighting a lead, also grep the specific
   place name from the headline, not just company+state — and treat schema validation as a
   backstop, not the primary duplicate-detection mechanism.
+  **Recurred 2026-07-15, same record**, one week later — a scouting agent independently
+  re-flagged "Google Montgomery County MO" as a possible new project; it was
+  `google-new-florence-mo` all along. Prose reminders aren't sticking across sessions.
+  Before curating any "new site" lead, run a mechanical check, not a remembered habit —
+  e.g. `python3 -c "import json; [print(r['id'],r['city'],r['state']) for r in
+  json.load(open('data/seed/projects.json'))['projects'] if r['state']=='<ST>']"` and
+  eyeball every row in that state, not just a grep for the headline's place name (the
+  headline said "Montgomery County," the record's `city` field says "New Florence" —
+  neither substring matches the other).
 - 2026-07-14: a company blog post can move (dead link) even when its content is still
   accurate — `blogs.microsoft.com/on-the-issues/2024/05/08/...` 404s but the same-day
   announcement is live at `news.microsoft.com/source/2024/05/08/...` (blogs → news
