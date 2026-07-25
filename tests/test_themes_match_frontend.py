@@ -14,6 +14,10 @@ import pytest
 
 from schema import (
     COMPANY_SLUGS,
+    SIGNATORY_CATEGORIES,
+    SIGNATORY_CATEGORY_LABELS,
+    SIGNATORY_TRACK_LABELS,
+    SIGNATORY_TRACKS,
     DELIVERED_LABELS,
     DELIVERED_STATUSES,
     RATEPAYER_LABELS,
@@ -159,4 +163,67 @@ def test_tariff_parameter_group_of_keys_match(js: str) -> None:
         "TARIFF_PARAMETER_GROUP_OF keys differ between schema.py and app.js: "
         f"py-only={set(TARIFF_PARAMETER_GROUP_OF.keys()) - js_keys}, "
         f"js-only={js_keys - set(TARIFF_PARAMETER_GROUP_OF.keys())}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Pledge roster vocabulary (v2)
+# ---------------------------------------------------------------------------
+# SIGNATORY_TRACK_LABELS is keyed on dashed strings ("white-house-2026-03-04"),
+# which JS must quote — _extract_object_keys only matches bare identifiers, so
+# these need their own extractor rather than a shared one.
+
+
+def _extract_quoted_or_bare_keys(js_text: str, name: str) -> set[str]:
+    """Extract keys from `const NAME = {...}`, quoted or bare."""
+    pattern = rf"const\s+{re.escape(name)}\s*=\s*\{{(.*?)\n\}}\s*;"
+    m = re.search(pattern, js_text, re.DOTALL)
+    if not m:
+        raise AssertionError(f"Could not find `const {name} = {{...}}` in app.js")
+    body = m.group(1)
+    return set(
+        re.findall(r'^\s*"([^"]+)"\s*:', body, re.MULTILINE)
+    ) | set(re.findall(r"^\s*([A-Za-z_][A-Za-z_0-9]*)\s*:", body, re.MULTILINE))
+
+
+def test_signatory_categories_match(js: str) -> None:
+    js_cats = _extract_array(js, "SIGNATORY_CATEGORIES")
+    assert tuple(js_cats) == SIGNATORY_CATEGORIES, (
+        f"SIGNATORY_CATEGORIES drift between schema.py {SIGNATORY_CATEGORIES} "
+        f"and app.js {tuple(js_cats)}. Update both files together."
+    )
+
+
+def test_signatory_tracks_match(js: str) -> None:
+    js_tracks = _extract_array(js, "SIGNATORY_TRACKS")
+    assert tuple(js_tracks) == SIGNATORY_TRACKS, (
+        f"SIGNATORY_TRACKS drift between schema.py {SIGNATORY_TRACKS} "
+        f"and app.js {tuple(js_tracks)}. Update both files together."
+    )
+
+
+def test_signatory_category_labels_keys_match(js: str) -> None:
+    js_keys = _extract_quoted_or_bare_keys(js, "SIGNATORY_CATEGORY_LABELS")
+    assert js_keys == set(SIGNATORY_CATEGORY_LABELS.keys()), (
+        "SIGNATORY_CATEGORY_LABELS keys differ between schema.py and app.js: "
+        f"py-only={set(SIGNATORY_CATEGORY_LABELS.keys()) - js_keys}, "
+        f"js-only={js_keys - set(SIGNATORY_CATEGORY_LABELS.keys())}"
+    )
+
+
+def test_signatory_track_labels_keys_match(js: str) -> None:
+    js_keys = _extract_quoted_or_bare_keys(js, "SIGNATORY_TRACK_LABELS")
+    assert js_keys == set(SIGNATORY_TRACK_LABELS.keys()), (
+        "SIGNATORY_TRACK_LABELS keys differ between schema.py and app.js: "
+        f"py-only={set(SIGNATORY_TRACK_LABELS.keys()) - js_keys}, "
+        f"js-only={js_keys - set(SIGNATORY_TRACK_LABELS.keys())}"
+    )
+
+
+def test_every_category_has_a_short_label(js: str) -> None:
+    """Filter chips use the short form; a missing one renders `undefined`."""
+    js_keys = _extract_quoted_or_bare_keys(js, "SIGNATORY_CATEGORY_SHORT")
+    assert js_keys == set(SIGNATORY_CATEGORIES), (
+        "SIGNATORY_CATEGORY_SHORT must cover every category: "
+        f"missing={set(SIGNATORY_CATEGORIES) - js_keys}, extra={js_keys - set(SIGNATORY_CATEGORIES)}"
     )

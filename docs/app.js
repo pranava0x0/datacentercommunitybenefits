@@ -282,6 +282,48 @@ const RATEPAYER_DOE_TRACK_SIGNATORIES = new Set(["qts"]);
 const RATEPAYER_PLEDGE_DOE_DATE = "2026-04-24";
 
 // --------------------------------------------------------------------------
+// Pledge roster (v2 — the 2026-07-23 expansion)
+// --------------------------------------------------------------------------
+// Mirrors SIGNATORY_CATEGORIES / SIGNATORY_TRACKS in schema.py; parity is
+// asserted by test_signatory_categories_match + test_signatory_tracks_match,
+// same drill as THEMES and every other frozen vocabulary here.
+const SIGNATORY_CATEGORIES = [
+  "hyperscaler",
+  "utility",
+  "cooperative",
+  "developer",
+  "governor",
+];
+const SIGNATORY_CATEGORY_LABELS = {
+  hyperscaler: "Hyperscaler / AI company",
+  utility: "Utility",
+  cooperative: "Cooperative",
+  developer: "Data-center developer",
+  governor: "Governor",
+};
+// Short forms for filter chips, where the full label is too wide on mobile.
+const SIGNATORY_CATEGORY_SHORT = {
+  hyperscaler: "Hyperscalers",
+  utility: "Utilities",
+  cooperative: "Cooperatives",
+  developer: "Developers",
+  governor: "Governors",
+};
+const SIGNATORY_TRACKS = [
+  "white-house-2026-03-04",
+  "doe-2026-04-24",
+  "expansion-2026-07-23",
+  "rolling",
+];
+const SIGNATORY_TRACK_LABELS = {
+  "white-house-2026-03-04": "White House, March 4, 2026",
+  "doe-2026-04-24": "DOE companion track, April 24, 2026",
+  "expansion-2026-07-23": "Expansion, July 23, 2026",
+  rolling: "Added to the roster after July 23, 2026",
+};
+const RATEPAYER_PLEDGE_EXPANSION_DATE = "2026-07-23";
+
+// --------------------------------------------------------------------------
 // Aggregate table sort state (v1.17)
 // --------------------------------------------------------------------------
 // Per-table sort: { key: string, dir: 1 | -1 }
@@ -320,6 +362,15 @@ const state = {
   responses: [],
   moratoriums: [],
   tariffs: [],
+  signatories: [],
+  rosterAsOf: null,
+  rosterCountsStated: {},
+  rosterDriftNote: null,
+  pledgePdfUrl: null,
+  signatoriesById: new Map(),
+  signatoryByCompany: new Map(),
+  governorByState: new Map(),
+  signatoryByUtilityAlias: new Map(),
   themeRecommendations: {},
   responsesByProject: new Map(),
   claimsByProject: new Map(),
@@ -340,6 +391,7 @@ const state = {
   pendingProjectId: null,
   explorerLoaded: false,
   ratepayerLoaded: false,
+  signatoriesLoaded: false,
   moratoriumsLoaded: false,
   tariffsLoaded: false,
   aggregateLoaded: false,
@@ -717,10 +769,68 @@ async function loadExplorerData() {
   document.dispatchEvent(new CustomEvent("dcb:explorer-ready"));
 }
 
-// Ratepayer view: needs the project payload (for the scorecard) but not
-// Leaflet. Renders once data is in hand.
+// Fetch + index the pledge roster (~120 KB — the largest single payload, and
+// the reason it is lazy). Only the Ratepayer view needs it, so it never
+// touches first paint. Safe to call repeatedly; fetches at most once.
+let _signatoryDataPromise = null;
+function loadSignatoryData() {
+  if (!_signatoryDataPromise) {
+    _signatoryDataPromise = (async () => {
+      const payload = await fetchJson("data/signatories.json");
+      state.signatories = payload.signatories;
+      state.rosterAsOf = payload.roster_as_of;
+      state.rosterCountsStated = payload.roster_counts_stated || {};
+      state.rosterDriftNote = payload.drift_note || null;
+      state.pledgePdfUrl = payload.pledge_pdf_url || null;
+
+      state.signatoriesById = new Map(state.signatories.map((s) => [s.id, s]));
+      // company slug -> roster record, for signatory-date-aware eligibility.
+      state.signatoryByCompany = new Map();
+      // governor state code -> roster record, for the state panel.
+      state.governorByState = new Map();
+      // tariff `utility` string -> roster record, exact-match joins only.
+      state.signatoryByUtilityAlias = new Map();
+      for (const s of state.signatories) {
+        if (s.matched_company_slug) state.signatoryByCompany.set(s.matched_company_slug, s);
+        if (s.category === "governor" && s.state) state.governorByState.set(s.state, s);
+        for (const alias of s.utility_aliases || []) {
+          state.signatoryByUtilityAlias.set(alias, s);
+        }
+      }
+      state.signatoriesLoaded = true;
+    })();
+  }
+  return _signatoryDataPromise;
+}
+
+// Roster counts derived from the list we actually hold — never from the
+// source page's advertised chip numbers, which drift from its own list.
+function signatoryCounts() {
+  const out = {};
+  for (const cat of SIGNATORY_CATEGORIES) out[cat] = 0;
+  for (const s of state.signatories || []) {
+    if (out[s.category] !== undefined) out[s.category] += 1;
+  }
+  out.organizations = (state.signatories || []).filter(
+    (s) => s.category !== "governor"
+  ).length;
+  out.total = (state.signatories || []).length;
+  return out;
+}
+
+// The date a company's operator joined the pledge, or null if it never did.
+// This is what makes eligibility roster-driven rather than hardcoded to the
+// original eight: CoreWeave signed on 2026-07-23, so its sites announced
+// before that date are "pre-their-pledge", not "not a signatory".
+function signatorySignedDate(companySlug) {
+  const rec = state.signatoryByCompany && state.signatoryByCompany.get(companySlug);
+  return rec && rec.signed_date ? rec.signed_date : null;
+}
+
+// Ratepayer view: needs the project payload (for the scorecard) and the pledge
+// roster (for the coverage + roster sections). Renders once data is in hand.
 async function loadRatepayerView() {
-  await loadProjectData();
+  await Promise.all([loadProjectData(), loadSignatoryData()]);
   state.ratepayerLoaded = true;
   renderRatepayerView();
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));

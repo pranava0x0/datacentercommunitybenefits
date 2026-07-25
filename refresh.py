@@ -38,6 +38,7 @@ from schema import (
     MoratoriumsPayload,
     ProjectsPayload,
     ResponsesPayload,
+    SignatoriesPayload,
     TariffsPayload,
 )
 
@@ -55,6 +56,7 @@ PAYLOAD_FILES: dict[str, type] = {
     "responses": ResponsesPayload,
     "moratoriums": MoratoriumsPayload,
     "tariffs": TariffsPayload,
+    "signatories": SignatoriesPayload,
 }
 
 
