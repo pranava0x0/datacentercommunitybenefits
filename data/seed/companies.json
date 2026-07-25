@@ -108,7 +108,7 @@
       "dedicated_page_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
       "summary": "Crusoe (formerly Crusoe Energy) is the developer and operator of the Stargate Abilene AI factory campus in Taylor County, Texas — a 1.2 GW build-out across eight buildings on Lancium's Clean Campus that serves OpenAI, Oracle, and Microsoft AI workloads. Crusoe publishes site-specific community framing for the Abilene campus that quantifies first-party commitments on three of the dashboard's canonical themes: jobs (5,600+ daily construction workers with stated local-hire prioritization), tax revenue (up to 32% of City of Abilene and up to 25% of Taylor County FY 2025 budgeted property-tax revenue once fully operational), and water (closed-loop, non-evaporative liquid cooling). Crusoe also discloses behind-the-meter battery storage and solar pairing through the Lancium Clean Campus partnership. There is no dedicated /community or /sustainability landing page yet — the framework lives in the Abilene blog post and linked newsroom announcements.",
       "last_reviewed": "2026-05-15",
-      "ratepayer_pledge_signatory": false
+      "ratepayer_pledge_signatory": true
     },
     {
       "slug": "coreweave",
@@ -117,14 +117,15 @@
       "dedicated_page_url": "https://www.coreweave.com/newsroom",
       "summary": "CoreWeave is an AI-native cloud provider targeting 8+ GW of active data-center power by 2030. CoreWeave does not yet publish a stand-alone community-impact framework on its corporate site, but it has executed a first-party site-specific community-benefits package for its 180 MW Hammond, Indiana data center: an annual Community Impact Payment of up to $4 million paid to the City of Hammond, with the city directing the proceeds toward the Hammond College Bound scholarship program and city-wide infrastructure and quality-of-life initiatives. CoreWeave also publishes data-center-specific sustainability framing for its Polaris Forge 1 campus in North Dakota (renewable power, cool-climate cooling). Treat the Hammond development agreement as the load-bearing first-party citation; expect richer corporate-level framing as the Hammond model is replicated.",
       "last_reviewed": "2026-05-15",
-      "ratepayer_pledge_signatory": false
+      "ratepayer_pledge_signatory": true
     },
     {
       "slug": "prologis",
       "name": "Prologis",
       "hq": "San Francisco, CA",
       "summary": "Prologis is the world's largest industrial REIT (~1.2 billion sq ft logistics portfolio globally) that entered hyperscale data-center development in 2024-2025 via partnership with developer Atlas. The first major US project tracked here is Project Sail — a $17B, 832-acre, 9-building, ~900 MW campus near Newnan, GA (Coweta County), approved 3-2 in an April 2026 rezoning vote and sited deliberately to lean on Georgia Power's Plant Yates and the Ashley Park-Wansley 500 kV transmission build-out. Prologis does NOT publish a community-impact framework comparable to QTS's Ratepayer Protection Pledge or Nebius's Independence MO commitments — public statements are project-by-project rather than a portfolio doctrine. The most-quoted Prologis posture on Project Sail is JC Witt (SVP Data Center Investments) framing the 900 MW campus as something 'we really want to execute on for the community and for the company,' combined with Atlanta market officer Kent Mason's siting rationale that 'the lines are there' — the same Georgia Power transmission corridor whose extension is now subject to active eminent-domain disputes by Coweta and Fayette County residents. Tracked from v1.14 onward because Project Sail meets the non-hyperscaler scale gate via $17B and 900 MW; the no-published-framework status is the editorially honest summary, not a research gap.",
-      "last_reviewed": "2026-05-17"
+      "last_reviewed": "2026-05-17",
+      "ratepayer_pledge_signatory": true
     }
   ]
 }

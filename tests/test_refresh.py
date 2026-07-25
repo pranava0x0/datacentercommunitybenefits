@@ -132,6 +132,7 @@ def _moratorium(id_: str, status: str, captured_at: date) -> Moratorium:
         id=id_,
         jurisdiction="Test Jurisdiction",
         jurisdiction_type="state",
+        state_code="OH",
         status=status,
         duration_description="1 year",
         summary="Test summary.",

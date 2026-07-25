@@ -18,7 +18,8 @@
       "source_url": "https://www.kcrg.com/2026/07/15/data-center-freeze-approved-unanimously-by-asbury-city-council/",
       "source_title": "KCRG — Data center freeze approved unanimously by Asbury City Council",
       "captured_at": "2026-07-15",
-      "city_council_vote": "unanimous"
+      "city_council_vote": "unanimous",
+      "state_code": "IA"
     },
     {
       "id": "baltimore-city-2026-05",
@@ -48,7 +49,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "MD"
     },
     {
       "id": "bangor-city-2026-04",
@@ -74,7 +76,8 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "ME"
     },
     {
       "id": "birmingham-city-2026-03",
@@ -107,7 +110,8 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "AL"
     },
     {
       "id": "bloomington-normal-il-2026-06",
@@ -136,7 +140,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "IL"
     },
     {
       "id": "boise-id-2026-05",
@@ -165,7 +170,8 @@
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "ID"
     },
     {
       "id": "boone-county-in-2026-06",
@@ -200,7 +206,8 @@
           "url": "https://boonecounty.in.gov/2026/06/15/19190/",
           "title": "Boone County Commissioners Approve Moratorium on Data Centers"
         }
-      ]
+      ],
+      "state_code": "IN"
     },
     {
       "id": "cave-city-ky-2026-05",
@@ -231,7 +238,8 @@
           "url": "https://www.cavecityky.gov/",
           "title": "City of Cave City, Kentucky (official)"
         }
-      ]
+      ],
+      "state_code": "KY"
     },
     {
       "id": "charlotte-city-2026-06",
@@ -258,7 +266,8 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "NC"
     },
     {
       "id": "chesterfield-county-sc-2026-05",
@@ -290,7 +299,8 @@
           "url": "https://www.golaurens.com/news/sc-counties-enacting-data-center-moratoriums/article_e7888ad9-9d73-56a0-9cc2-ca9263c1b5dd.html",
           "title": "Go Laurens — SC counties enacting data center moratoriums"
         }
-      ]
+      ],
+      "state_code": "SC"
     },
     {
       "id": "cheyenne-wy-2026-06",
@@ -316,7 +326,8 @@
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "WY"
     },
     {
       "id": "citrus-county-fl-2026-05",
@@ -341,7 +352,8 @@
           "url": "https://www.bocc.citrus.fl.us/",
           "title": "Citrus County Board of County Commissioners (official)"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "clay-county-fl-2026-06",
@@ -371,7 +383,8 @@
           "url": "https://www.claycountygov.com/",
           "title": "Clay County, Florida (official)"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "cleveland-city-2026-04",
@@ -398,7 +411,8 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "OH"
     },
     {
       "id": "colleton-county-sc-2026-05",
@@ -428,7 +442,8 @@
           "url": "https://www.wsav.com/news/local-news/colleton-county-delegation-resolved-to-stop-data-center-construction/",
           "title": "WSAV — Colleton County delegation resolved to stop data center construction"
         }
-      ]
+      ],
+      "state_code": "SC"
     },
     {
       "id": "connecticut-state-2026-02",
@@ -457,7 +472,8 @@
           "url": "https://www.cga.ct.gov/",
           "title": "Connecticut General Assembly (official)"
         }
-      ]
+      ],
+      "state_code": "CT"
     },
     {
       "id": "council-bluffs-city-2026-06",
@@ -488,7 +504,8 @@
       "city_council_vote": "unanimous rejection",
       "failure_reason": "Council members opposed the moratorium on economic-development grounds, preferring to address data centers through new zoning regulations, case-by-case negotiations, and a wastewater-management plan rather than a blanket pause.",
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "IA"
     },
     {
       "id": "denver-city-2026-05",
@@ -548,7 +565,8 @@
           "url": "https://coloradosun.com/energy/2026/05/denver-data-center-moratorium",
           "title": "Colorado Sun — Energy & Water Concerns Drive Moratorium"
         }
-      ]
+      ],
+      "state_code": "CO"
     },
     {
       "id": "dubuque-county-ia-2026-06",
@@ -577,7 +595,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "IA"
     },
     {
       "id": "eagan-city-2026-02",
@@ -608,7 +627,8 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "MN"
     },
     {
       "id": "fayetteville-ga-city-2026-03",
@@ -634,7 +654,8 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "GA"
     },
     {
       "id": "federal-sanders-ocasio-cortez-2026-03",
@@ -663,7 +684,8 @@
           "url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9442.xml",
           "title": "GovInfo — H.R.9442 (House companion, status)"
         }
-      ]
+      ],
+      "state_code": null
     },
     {
       "id": "florida-state-2026-07",
@@ -709,7 +731,8 @@
           "url": "https://www.psc.state.fl.us/",
           "title": "Florida Public Service Commission"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "georgia-state-2026-01",
@@ -743,7 +766,8 @@
           "title": "Regional Coverage"
         }
       ],
-      "failure_reason": "Did not pass the House by Crossover Day (March 6, 2026); died at Sine Die adjournment of the 2025-2026 Georgia General Assembly biennium on April 2, 2026, having stalled at House Second Readers (last action January 28, 2026)."
+      "failure_reason": "Did not pass the House by Crossover Day (March 6, 2026); died at Sine Die adjournment of the 2025-2026 Georgia General Assembly biennium on April 2, 2026, having stalled at House Second Readers (last action January 28, 2026).",
+      "state_code": "GA"
     },
     {
       "id": "greenfield-ma-2026-07",
@@ -761,7 +785,8 @@
       "summary": "A Greenfield city councilor is proposing a one-year data-center moratorium as an ordinance (rather than a slower zoning amendment). No data centers have been proposed in Greenfield yet — a proactive measure, not a response to a pending project.",
       "source_url": "https://recorder.com/2026/07/06/greenfield-data-center-moratorium/",
       "source_title": "Greenfield Recorder — Greenfield data center moratorium to continue as proposed ordinance rather than zoning amendment",
-      "captured_at": "2026-07-15"
+      "captured_at": "2026-07-15",
+      "state_code": "MA"
     },
     {
       "id": "greenwood-county-sc-2026-06",
@@ -797,7 +822,8 @@
           "url": "https://www.golaurens.com/news/sc-counties-enacting-data-center-moratoriums/article_e7888ad9-9d73-56a0-9cc2-ca9263c1b5dd.html",
           "title": "Go Laurens — SC counties enacting data center moratoriums"
         }
-      ]
+      ],
+      "state_code": "SC"
     },
     {
       "id": "harvey-county-ks-2026-01",
@@ -829,7 +855,8 @@
       "city_council_vote": "Unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "state_code": "KS"
     },
     {
       "id": "hawaii-state-2026-01",
@@ -859,7 +886,8 @@
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "HI"
     },
     {
       "id": "henderson-nv-2026-06",
@@ -893,7 +921,8 @@
           "url": "https://www.cityofhenderson.com/",
           "title": "City of Henderson, Nevada"
         }
-      ]
+      ],
+      "state_code": "NV"
     },
     {
       "id": "henderson-nv-2026-07",
@@ -918,7 +947,8 @@
           "url": "https://www.hendersonnv.gov/",
           "title": "City of Henderson"
         }
-      ]
+      ],
+      "state_code": "NV"
     },
     {
       "id": "hernando-county-fl-2026-06",
@@ -952,7 +982,8 @@
           "url": "https://www.hernandocounty.us/",
           "title": "Hernando County, Florida (official)"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "hill-county-tx-2024-04",
@@ -981,7 +1012,8 @@
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "TX"
     },
     {
       "id": "hood-county-tx-2026-02",
@@ -1012,7 +1044,8 @@
       "city_council_vote": "3-2 against",
       "failure_reason": "Rejected 3-2 after a state senator's letter warned that Texas counties lack constitutional/statutory authority to impose moratoriums and threatened state intervention.",
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "state_code": "TX"
     },
     {
       "id": "idaho-state-2026-03",
@@ -1070,7 +1103,8 @@
           "url": "https://www.idahochamber.com/policy-positions/data-centers",
           "title": "Idaho Chamber of Commerce — Data Center Economic Impact Statement"
         }
-      ]
+      ],
+      "state_code": "ID"
     },
     {
       "id": "imperial-county-ca-2026-06",
@@ -1100,7 +1134,8 @@
       "city_council_vote": "5-0 (unanimous; urgency ordinance requires a four-fifths vote)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "state_code": "CA"
     },
     {
       "id": "indianapolis-in-2024-10",
@@ -1129,7 +1164,8 @@
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "IN"
     },
     {
       "id": "indianapolis-in-2026-07",
@@ -1148,7 +1184,8 @@
       "summary": "A new binding data-center moratorium ordinance — distinct from the non-binding 2024 council resolution — advanced 10-3 out of the Metropolitan & Economic Development Committee on July 13, 2026. A full City-County Council vote is scheduled for August 10, 2026; if adopted it would run through December 31, 2027. A companion special-use zoning class (SU-47) for data centers is advancing alongside it.",
       "source_url": "https://www.wfyi.org/wfyi-news/2026-07-13/data-center-moratorium-advances-for-indianapolis",
       "source_title": "WFYI — Data center moratorium advances for Indianapolis",
-      "captured_at": "2026-07-15"
+      "captured_at": "2026-07-15",
+      "state_code": "IN"
     },
     {
       "id": "indio-ca-2026-06",
@@ -1167,7 +1204,8 @@
       "source_url": "https://kesq.com/news/2026/07/14/indio-city-council-to-consider-extending-data-center-moratorium-weigh-permanent-ban/",
       "source_title": "KESQ — Indio City Council to consider extending data center moratorium, weigh permanent ban",
       "captured_at": "2026-07-15",
-      "city_council_vote": "unanimous"
+      "city_council_vote": "unanimous",
+      "state_code": "CA"
     },
     {
       "id": "iron-county-ut-2026-06",
@@ -1196,7 +1234,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "UT"
     },
     {
       "id": "jackson-county-fl-2026-06",
@@ -1230,7 +1269,8 @@
           "url": "https://jacksoncountyfl.gov/",
           "title": "Jackson County, Florida (official)"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "jackson-ms-2026-07",
@@ -1249,7 +1289,8 @@
       "source_url": "https://www.wlbt.com/2026/07/14/not-ready-data-center-jackson-city-council-approves-moratorium-data-centers/",
       "source_title": "WLBT — 'Not ready for a data center': Jackson City Council approves moratorium on data centers",
       "captured_at": "2026-07-15",
-      "city_council_vote": "5-2"
+      "city_council_vote": "5-2",
+      "state_code": "MS"
     },
     {
       "id": "lake-county-fl-2026-06",
@@ -1286,7 +1327,8 @@
           "url": "https://www.lakecountyfl.gov/",
           "title": "Lake County, Florida (official)"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "lansing-mi-2026-07",
@@ -1305,7 +1347,8 @@
       "source_url": "https://www.wcmu.org/local-regional-news/2026-07-14/lansing-passes-6-month-data-center-moratorium",
       "source_title": "WCMU Public Media — Lansing passes 6-month data center moratorium",
       "captured_at": "2026-07-15",
-      "city_council_vote": "7-1"
+      "city_council_vote": "7-1",
+      "state_code": "MI"
     },
     {
       "id": "lexington-ky-2026-06",
@@ -1339,7 +1382,8 @@
           "url": "https://www.lexingtonky.gov/",
           "title": "City of Lexington, Kentucky (official)"
         }
-      ]
+      ],
+      "state_code": "KY"
     },
     {
       "id": "lincoln-county-ne-2026-07",
@@ -1365,7 +1409,8 @@
       "city_council_vote": "3-2 against (Hewgley, Bruns, Woodruff against; Weems, Wuehler for)",
       "failure_reason": "Rejected 3-2 by the County Board; a majority preferred to continue drafting regulations and weighed tax-base benefits over a pause.",
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "state_code": "NE"
     },
     {
       "id": "linn-county-ia-2026-07",
@@ -1400,7 +1445,8 @@
           "url": "https://www.linncountyiowa.gov/ArchiveCenter/ViewFile/Item/455",
           "title": "Linn County Board of Supervisors — data center moratorium resolution (ArchiveCenter Item 455)"
         }
-      ]
+      ],
+      "state_code": "IA"
     },
     {
       "id": "loudoun-county-leesburg-va-2026-06",
@@ -1429,7 +1475,8 @@
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "VA"
     },
     {
       "id": "loudoun-county-va-2026-03",
@@ -1459,7 +1506,8 @@
           "url": "https://www.loudountimes.com/",
           "title": "Loudoun Times"
         }
-      ]
+      ],
+      "state_code": "VA"
     },
     {
       "id": "madison-city-2026-01",
@@ -1485,7 +1533,8 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "WI"
     },
     {
       "id": "maine-state-2026-04",
@@ -1533,7 +1582,8 @@
           "Northeast Economic Development Association",
           "Maine Technology Council"
         ]
-      }
+      },
+      "state_code": "ME"
     },
     {
       "id": "manitowoc-county-wi-2026-06",
@@ -1562,7 +1612,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "WI"
     },
     {
       "id": "mankato-mn-2026-07",
@@ -1582,7 +1633,8 @@
       "summary": "Mankato City Council passed a one-year moratorium on data centers and other high-impact utility consumers, citing agricultural, water-depletion, and health/climate concerns, plus transparency concerns about companies declining to sign public NDAs.",
       "source_url": "https://www.keyc.com/2026/07/14/mankato-city-council-passes-one-year-moratorium-data-centers/",
       "source_title": "KEYC — Mankato City Council Passes One Year Moratorium on Data Centers",
-      "captured_at": "2026-07-15"
+      "captured_at": "2026-07-15",
+      "state_code": "MN"
     },
     {
       "id": "marshall-county-in-2026-04",
@@ -1613,7 +1665,8 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "state_code": "IN"
     },
     {
       "id": "maryland-state-2026-01",
@@ -1650,7 +1703,8 @@
       "legislative_votes": null,
       "failure_reason": "Had a February 3, 2026 hearing scheduled in the House Environment and Transportation Committee but received no committee vote; did not advance before the 2026 regular session adjourned sine die.",
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "MD"
     },
     {
       "id": "massachusetts-state-2026-04",
@@ -1724,7 +1778,8 @@
           "url": "https://commonwealthmagazine.org/articles/2026-04-green-groups-praise-data-center-moratorium/",
           "title": "Commonwealth Magazine — Environmental Groups Praise Moratorium"
         }
-      ]
+      ],
+      "state_code": "MA"
     },
     {
       "id": "meridian-township-mi-2024-11",
@@ -1749,7 +1804,8 @@
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "MI"
     },
     {
       "id": "michigan-state-2026-06",
@@ -1782,7 +1838,8 @@
           "url": "https://www.legislature.mi.gov/",
           "title": "Michigan Legislature"
         }
-      ]
+      ],
+      "state_code": "MI"
     },
     {
       "id": "minneapolis-city-2026-05",
@@ -1815,7 +1872,8 @@
           "url": "https://www.pca.state.mn.us/",
           "title": "Minnesota Pollution Control Agency"
         }
-      ]
+      ],
+      "state_code": "MN"
     },
     {
       "id": "minnesota-state-hf4888-2024",
@@ -1888,7 +1946,8 @@
           "url": "https://www.startribune.com/minnesota-data-center-bill-stalls/2024/03/",
           "title": "Minneapolis Star Tribune — Data Center Bill Fails Committee"
         }
-      ]
+      ],
+      "state_code": "MN"
     },
     {
       "id": "monterey-park-ca-2026-05",
@@ -1917,7 +1976,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "CA"
     },
     {
       "id": "new-albany-in-2026-06",
@@ -1945,7 +2005,8 @@
           "url": "https://www.wdrb.com/news/new-albany-plan-commission-advances-data-center-moratorium-to-city-council/article_b4b07b07-2dbb-40fe-b4aa-549640952ac8.html",
           "title": "WDRB — New Albany Plan Commission advances moratorium to City Council"
         }
-      ]
+      ],
+      "state_code": "IN"
     },
     {
       "id": "new-hampshire-state-2026-04",
@@ -1976,7 +2037,8 @@
         }
       ],
       "bill_number": "HB1265",
-      "failure_reason": "Voted \"Inexpedient to Legislate\" (ITL) by voice vote on the House floor, March 11, 2026."
+      "failure_reason": "Voted \"Inexpedient to Legislate\" (ITL) by voice vote on the House floor, March 11, 2026.",
+      "state_code": "NH"
     },
     {
       "id": "new-orleans-city-2026-01",
@@ -2009,7 +2071,8 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "LA"
     },
     {
       "id": "newberry-county-sc-2026-06",
@@ -2041,7 +2104,8 @@
           "url": "https://www.newberrycounty.gov/news/newberry-county-governments-statement-data-centers",
           "title": "Newberry County Government — Statement on Data Centers"
         }
-      ]
+      ],
+      "state_code": "SC"
     },
     {
       "id": "ny-state-2026-06",
@@ -2118,7 +2182,8 @@
           "url": "https://www.coned.com/en/about-us/energy-infrastructure/data-center-analysis",
           "title": "Con Edison — 2025 Grid Capacity Study"
         }
-      ]
+      ],
+      "state_code": "NY"
     },
     {
       "id": "ny-state-eo62-2026-07",
@@ -2155,7 +2220,8 @@
       "enacted_by": "Governor Kathy Hochul",
       "policy_type": "executive order",
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "NY"
     },
     {
       "id": "ohio-state-amendment-2024",
@@ -2184,7 +2250,8 @@
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "OH"
     },
     {
       "id": "okc-city-2026-04",
@@ -2210,7 +2277,8 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "OK"
     },
     {
       "id": "oklahoma-county-ok-2026-04",
@@ -2239,7 +2307,8 @@
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "OK"
     },
     {
       "id": "oklahoma-state-hb2992-2024",
@@ -2287,7 +2356,8 @@
           "Data Center Coalition",
           "Oklahoma Technology Council"
         ]
-      }
+      },
+      "state_code": "OK"
     },
     {
       "id": "oklahoma-state-sb1488-2026",
@@ -2327,7 +2397,8 @@
       "legislative_votes": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "OK"
     },
     {
       "id": "oneida-county-wi-2026-07",
@@ -2361,7 +2432,8 @@
           "url": "https://www.oneidacountywi.gov/wp-content/uploads/meetings/7.8.26-NPH-Dilley-Waterhouse-Jones-OA-02-2026.pdf",
           "title": "Oneida County — Notice of Public Hearing, Ordinance Amendment OA-02-2026 (data center moratorium)"
         }
-      ]
+      ],
+      "state_code": "WI"
     },
     {
       "id": "oregon-state-hb4084-2026-06",
@@ -2393,7 +2465,8 @@
           "url": "https://www.oregonlegislature.gov/",
           "title": "Oregon Legislative Assembly"
         }
-      ]
+      ],
+      "state_code": "OR"
     },
     {
       "id": "orion-township-mi-2026-06",
@@ -2421,7 +2494,8 @@
       "city_council_vote": "7-0 (unanimous)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "state_code": "MI"
     },
     {
       "id": "pasco-county-fl-2026-06",
@@ -2450,7 +2524,8 @@
           "url": "https://pascogov.com/",
           "title": "Pasco County, Florida (official)"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "pennsylvania-state-2026-01",
@@ -2494,7 +2569,8 @@
       "legislative_votes": null,
       "failure_reason": null,
       "session": "2025-2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "PA"
     },
     {
       "id": "pennsylvania-state-2026-02",
@@ -2531,7 +2607,8 @@
       "legislative_votes": "House 201-1 (third consideration / final passage, June 24, 2026)",
       "failure_reason": null,
       "session": "2025-2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "PA"
     },
     {
       "id": "philadelphia-pa-2026-05",
@@ -2556,7 +2633,8 @@
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "PA"
     },
     {
       "id": "prince-georges-county-md-2026-07",
@@ -2596,7 +2674,8 @@
       "city_council_vote": "Passed; Council Member Tim Adams opposed and three members abstained (full tally not reported)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13"
+      "captured_at": "2026-07-13",
+      "state_code": "MD"
     },
     {
       "id": "pulaski-county-ar-2024-07",
@@ -2622,7 +2701,8 @@
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "AR"
     },
     {
       "id": "reno-city-2026-05",
@@ -2651,7 +2731,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "NV"
     },
     {
       "id": "santa-fe-county-nm-2026-07",
@@ -2688,7 +2769,8 @@
           "url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers",
           "title": "Santa Fe County approves 18-month moratorium on data centers"
         }
-      ]
+      ],
+      "state_code": "NM"
     },
     {
       "id": "seattle-city-2026-06",
@@ -2719,7 +2801,8 @@
         }
       ],
       "enacted_by": "Seattle City Council (Council Bill 121214), unanimous 9-0, emergency ordinance",
-      "bill_number": "CB121214"
+      "bill_number": "CB121214",
+      "state_code": "WA"
     },
     {
       "id": "smithfield-town-2026-05",
@@ -2749,7 +2832,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "RI"
     },
     {
       "id": "socorro-county-nm-2026-05",
@@ -2778,7 +2862,8 @@
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
         }
-      ]
+      ],
+      "state_code": "NM"
     },
     {
       "id": "south-carolina-state-2026-01",
@@ -2811,7 +2896,8 @@
           "url": "https://www.scdhec.gov/",
           "title": "SC Department of Health & Environmental Control"
         }
-      ]
+      ],
+      "state_code": "SC"
     },
     {
       "id": "south-dakota-state-2026-02",
@@ -2847,7 +2933,8 @@
           "url": "https://www.sdpb.org/politics/2026-02-18/senate-committee-approves-bill-keeping-door-open-on-data-centers",
           "title": "SDPB — Senate committee approves bill keeping door open on data centers"
         }
-      ]
+      ],
+      "state_code": "SD"
     },
     {
       "id": "spartanburg-county-sc-2026-06",
@@ -2885,7 +2972,8 @@
           "url": "https://www.spartanburgcounty.org/",
           "title": "Spartanburg County, South Carolina (official)"
         }
-      ]
+      ],
+      "state_code": "SC"
     },
     {
       "id": "spokane-city-2026-06",
@@ -2915,7 +3003,8 @@
       "city_council_vote": "6-1",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "WA"
     },
     {
       "id": "st-charles-city-2025-08",
@@ -2941,7 +3030,8 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2025",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "MO"
     },
     {
       "id": "st-charles-county-mo-2026-07",
@@ -2962,7 +3052,8 @@
       "source_url": "https://www.stlpr.org/government-politics-issues/2026-07-14/st-charles-county-officials-approve-half-year-ban-on-data-center-projects-alter-senior-tax-freeze",
       "source_title": "St. Louis Public Radio — St. Charles County officials approve half-year ban on data center projects",
       "captured_at": "2026-07-15",
-      "city_council_vote": "unanimous"
+      "city_council_vote": "unanimous",
+      "state_code": "MO"
     },
     {
       "id": "sterling-heights-city-2026-02",
@@ -2988,7 +3079,8 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "MI"
     },
     {
       "id": "taylor-county-fl-2026-07",
@@ -3019,7 +3111,8 @@
           "url": "https://www.taylorcountygov.com/government/board_agendas.php",
           "title": "Taylor County Board of County Commissioners — Meeting Agendas"
         }
-      ]
+      ],
+      "state_code": "FL"
     },
     {
       "id": "tulsa-city-2026-03",
@@ -3046,7 +3139,8 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "OK"
     },
     {
       "id": "vermont-state-2026-03",
@@ -3106,7 +3200,8 @@
           "url": "https://legislature.vermont.gov/bill/status/2026/H0149",
           "title": "Vermont H.149 Full Legislative Text"
         }
-      ]
+      ],
+      "state_code": "VT"
     },
     {
       "id": "virginia-state-2026-01",
@@ -3152,7 +3247,8 @@
       "legislative_votes": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "VA"
     },
     {
       "id": "washington-county-md-2026-06",
@@ -3190,11 +3286,12 @@
           "url": "https://www.washco-md.net/wp-content/uploads/Draft-Ordinance-Data-Center-Memoratorium.pdf",
           "title": "Washington County — Draft Ordinance: A Moratorium Concerning Data Centers"
         }
-      ]
+      ],
+      "state_code": "MD"
     },
     {
       "id": "washington-state-hb2515-2026",
-      "jurisdiction": "Washington State",
+      "jurisdiction": "Washington",
       "jurisdiction_type": "state",
       "status": "failed",
       "enacted_date": null,
@@ -3225,7 +3322,8 @@
           "url": "https://www.geekwire.com/2026/washington-states-data-center-regulation-bill-stalls-following-pushback-from-tech-industry/",
           "title": "GeekWire — Washington state's data center regulation bill stalls"
         }
-      ]
+      ],
+      "state_code": "WA"
     },
     {
       "id": "washington-state-sb5982-2024",
@@ -3288,7 +3386,8 @@
           "url": "https://www.nwenergy.org/resources/data-center-cost-allocation",
           "title": "Northwest Energy Coalition — Analysis of SB 5982"
         }
-      ]
+      ],
+      "state_code": "WA"
     },
     {
       "id": "washington-township-macomb-mi-2024-03",
@@ -3317,7 +3416,8 @@
           "url": "https://www.datacenterbans.com/",
           "title": "DatacenterBans.com"
         }
-      ]
+      ],
+      "state_code": "MI"
     },
     {
       "id": "wisconsin-state-2026-01",
@@ -3351,7 +3451,8 @@
       "legislative_votes": null,
       "failure_reason": "Failed to pass pursuant to Senate Joint Resolution 1 when the 2025-2026 legislature adjourned (recorded March 23, 2026); died in the Senate Committee on Utilities, Technology and Tourism.",
       "session": "2025-2026",
-      "captured_at": "2026-07-14"
+      "captured_at": "2026-07-14",
+      "state_code": "WI"
     },
     {
       "id": "zephyrhills-fl-2026-06",
@@ -3376,7 +3477,8 @@
           "url": "https://www.wusf.org/politics-issues/2026-06-24/zephyrhills-city-council-one-year-moratorium-data-centers",
           "title": "WUSF (NPR Florida) — Zephyrhills one-year moratorium"
         }
-      ]
+      ],
+      "state_code": "FL"
     }
   ]
 }

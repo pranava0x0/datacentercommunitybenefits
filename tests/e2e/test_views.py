@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 from playwright.sync_api import Page, expect
 
 pytestmark = pytest.mark.e2e
+
+ROOT = Path(__file__).resolve().parents[2]
 
 # Stubs window.html2pdf before app.js loads, so loadHtml2Pdf()'s
 # `if (window.html2pdf) return Promise.resolve(...)` short-circuits and the
@@ -54,7 +58,7 @@ class TestComparisonView:
     ):
         # 8 hyperscalers + non-hyperscaler entities (e.g. Wonder Valley).
         # Themes are still 8 (frozen vocabulary).
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         rows = page.locator("#matrix-body tr")
         n = rows.count()
@@ -64,7 +68,7 @@ class TestComparisonView:
         expect(head_cells).to_have_count(8)
 
     def test_theme_legend_renders_eight_chips(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#theme-legend .theme-chip", timeout=10_000)
         chips = page.locator("#theme-legend .theme-chip")
         expect(chips).to_have_count(8)
@@ -72,14 +76,14 @@ class TestComparisonView:
     def test_no_global_claims_list_on_comparison(self, page: Page, base_url: str):
         # v1.3: the comparison view dropped the global claims list + filter
         # chip. Claims live exclusively in the project-detail Claims tab.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         assert page.locator("#claims-list").count() == 0
         assert page.locator("#claims-filter").count() == 0
         assert page.locator("#claims-section").count() == 0
 
     def test_clicking_company_name_opens_popout(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator('#matrix-body tr[data-company="meta"] th.col-company').click()
         expect(page.locator("#company-detail")).to_be_visible()
@@ -87,7 +91,7 @@ class TestComparisonView:
 
     def test_clicking_populated_cell_opens_popout(self, page: Page, base_url: str):
         # The cell is also a "tell me more about this company" affordance.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator(
             '#comparison-matrix td[data-company="google"][data-theme="energy"]'
@@ -101,7 +105,7 @@ class TestComparisonView:
         # publishes substantive education work but only attributes quotes
         # to PARTNER orgs, never to a named Anthropic exec. Confirmed
         # across multiple research passes including v1.6.1 fallback news.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator(
             '#comparison-matrix td[data-company="anthropic"][data-theme="education"]'
@@ -115,7 +119,7 @@ class TestCompanyPopout:
     """v1.3: Comparison view's per-company summary pop-out."""
 
     def _open(self, page: Page, base_url: str, slug: str) -> None:
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator(
             f'#matrix-body tr[data-company="{slug}"] th.col-company'
@@ -123,7 +127,7 @@ class TestCompanyPopout:
         expect(page.locator("#company-detail")).to_be_visible()
 
     def test_popout_starts_hidden(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         bbox = page.locator("#company-detail").bounding_box()
         assert bbox is None, "company-detail should have no layout box on first paint"
@@ -248,7 +252,7 @@ class TestCompanyPopout:
 
 class TestExplorerView:
     def test_tab_switches_to_explorer(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator("#tab-explorer").click()
         expect(page.locator("#view-explorer")).to_be_visible()
@@ -396,7 +400,7 @@ class TestCrossCutting:
     def test_blueprint_framing_in_hero(self, page: Page, base_url: str):
         # v1.5: hero copy reframed toward 'blueprint of solutions'.
         # Comparison view's hero should signal the blueprint orientation.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         hero = page.locator("#view-comparison .hero")
         text = hero.text_content() or ""
@@ -405,7 +409,7 @@ class TestCrossCutting:
         ), f"Hero should reflect blueprint framing: {text!r}"
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         before = page.evaluate("document.documentElement.getAttribute('data-theme')")
         page.locator("#theme-toggle").click()
@@ -423,7 +427,7 @@ class TestCrossCutting:
         assert bbox is None, "project-detail should have no layout box while hidden"
 
     def test_explorer_view_starts_hidden(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         bbox = page.locator("#view-explorer").bounding_box()
         assert bbox is None, "Explorer view should be display:none on first paint"
@@ -431,7 +435,7 @@ class TestCrossCutting:
     def test_no_console_errors_on_first_paint(self, page: Page, base_url: str):
         errors: list[str] = []
         page.on("console", lambda msg: errors.append(msg.text) if msg.type == "error" else None)
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         # Filter known noise (resource hints from external CDNs aren't errors here).
         relevant = [e for e in errors if "favicon" not in e.lower()]
@@ -439,7 +443,7 @@ class TestCrossCutting:
 
     def test_mobile_layout_does_not_break(self, page: Page, base_url: str):
         page.set_viewport_size({"width": 375, "height": 720})
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         # Matrix should still render every company row even if it's compressed.
         n = page.locator("#matrix-body tr").count()
@@ -454,7 +458,7 @@ class TestDetailTabs:
     """The project detail panel is split into Overview / Claims / Community tabs."""
 
     def _open_first_project(self, page: Page, base_url: str) -> None:
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
         page.locator("#project-list .project-card").first.click()
@@ -586,7 +590,7 @@ class TestMatrixGlyphs:
     """Every populated cell renders a checkmark — volume goes in the claims list."""
 
     def test_all_populated_cells_render_check(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         non_empty = page.locator("#comparison-matrix td.cell:not(.empty)").count()
         check_cells = page.locator("#comparison-matrix .count.check").count()
@@ -599,7 +603,7 @@ class TestMatrixGlyphs:
         # Regression for the v1.2 simplification: there must be NO `.count`
         # spans without the `.check` class — that was the digit branch and
         # it's been removed.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         digit_only = page.locator("#comparison-matrix .count:not(.check)").count()
         assert digit_only == 0, (
@@ -608,7 +612,7 @@ class TestMatrixGlyphs:
         )
 
     def test_check_glyph_is_check_mark(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         # Pick the first checkmark cell and verify its text is the U+2713 glyph.
         first_check = page.locator("#comparison-matrix .count.check").first
@@ -620,7 +624,7 @@ class TestMatrixGlyphs:
     ):
         # Aria label must spell out the count even when the visual is a glyph,
         # so screen readers convey the same info as sighted users.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         check_cell_td = page.locator(
             "#comparison-matrix td.cell:has(.count.check)"
@@ -639,7 +643,7 @@ class TestWonderValley:
     """Wonder Valley (Kevin O'Leary) is the first non-hyperscaler entity tracked."""
 
     def test_wonder_valley_row_in_matrix(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         row = page.locator('#matrix-body tr[data-company="wonder-valley"]')
         expect(row).to_have_count(1)
@@ -819,7 +823,7 @@ class TestNewV14Sites:
     """v1.4: smoke tests for the newly added sites and 10th company."""
 
     def test_qts_company_appears_in_matrix(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         row = page.locator('#matrix-body tr[data-company="qts"]')
         expect(row).to_have_count(1)
@@ -955,7 +959,7 @@ class TestDeliveredAssessmentRendering:
 
 class TestRatepayerView:
     def test_tab_switches_to_ratepayer(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator("#tab-ratepayer").click()
         expect(page.locator("#view-ratepayer")).to_be_visible()
@@ -965,43 +969,52 @@ class TestRatepayerView:
         )
 
     def test_stats_render_expected_tiles(self, page: Page, base_url: str):
-        # Three base tiles (signatories / sites tracked / site-specific
-        # commitments) plus a conditional "contested" tile that only renders
-        # when the cohort actually contains contested sites (honest-absence —
-        # no zero tile). The seed ships contested examples (the Amazon
-        # Mississippi trio, v1.19), so all four render.
+        # Three base tiles (signatories tracked in depth / sites assessed /
+        # site-specific commitments) plus a conditional "contested" tile that
+        # only renders when the cohort actually contains contested sites
+        # (honest-absence — no zero tile). The seed ships contested examples
+        # (the Amazon Mississippi trio, v1.19), so all four render.
         page.goto(base_url + "/")
-        page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         assert page.locator("#rp-stats .rp-stat").count() == 4
         last = page.locator("#rp-stats .rp-stat").last
         expect(last).to_contain_text("contested")
 
-    def test_first_stat_reports_eight_signatories(self, page: Page, base_url: str):
-        # Seven White House signatories (2026-03-04) + QTS via the DOE
-        # companion track (2026-04-24).
+    def test_first_stat_scopes_itself_to_tracked_companies(
+        self, page: Page, base_url: str
+    ):
+        # Before the 2026-07-23 expansion this tile read "8 signatories" and
+        # that was also the whole roster. It is not any more, so the tile says
+        # what it is counting: the companies followed site by site. The
+        # roster-wide count lives in the landing band above.
         page.goto(base_url + "/")
-        page.locator("#tab-ratepayer").click()
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         first = page.locator("#rp-stats .rp-stat").first
-        expect(first).to_contain_text("8")
-        expect(first).to_contain_text("signatories")
-        # The "of 13" framing was removed — assert it's gone.
-        expect(first).not_to_contain_text("of 13")
+        expect(first).to_contain_text("tracked in depth")
+        assert int(first.locator(".rp-stat-value").inner_text()) == 11
+
+    def test_landing_band_reports_the_whole_roster(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=10_000)
+        first = page.locator("#pledge-stats .pledge-stat").first
+        expect(first).to_contain_text("Organizations signed")
+        value = int(first.locator(".pledge-stat-num").inner_text())
+        assert value >= 200, f"landing tile shows {value}; expected the full roster"
 
     def test_roster_marks_signatories_and_nonsignatories(
         self, page: Page, base_url: str
     ):
         page.goto(base_url + "/")
-        page.locator("#tab-ratepayer").click()
-        # Roster is collapsed by default — open it first.
-        page.locator("#rp-roster-heading").click()
-        page.wait_for_selector("#rp-roster .rp-roster-item", timeout=10_000)
-        signed = page.locator("#rp-roster .rp-roster-item.signed")
-        unsigned = page.locator("#rp-roster .rp-roster-item.unsigned")
-        # Eight signed; at least one non-signatory commitment (Anthropic)
-        # flagged via the keyword scan.
-        assert signed.count() == 8
+        # The tracked-company roster now renders inline under Coverage rather
+        # than behind a disclosure; the full 300-row published roster is the
+        # thing that collapses (see TestSignatoryRoster).
+        page.wait_for_selector("#rp-tracked-roster .rp-roster-item", timeout=10_000)
+        signed = page.locator("#rp-tracked-roster .rp-roster-item.signed")
+        unsigned = page.locator("#rp-tracked-roster .rp-roster-item.unsigned")
+        # Eleven tracked companies signed once CoreWeave, Crusoe and Prologis
+        # joined in the July expansion; at least one non-signatory commitment
+        # (Anthropic) is still flagged via the keyword scan.
+        assert signed.count() == 11
         assert unsigned.count() >= 1
 
     def test_pledge_era_unassessed_split_from_pre_pledge(
@@ -1029,14 +1042,14 @@ class TestRatepayerView:
     def test_roster_notes_carry_signing_track_and_date(
         self, page: Page, base_url: str
     ):
-        # Per-track notes: White House signatories show the March 4 date,
-        # the DOE-track signatory (QTS) shows the April 24 date.
+        # Per-track notes: White House signatories show the March 4 date, the
+        # DOE-track signatory (QTS) shows April 24. The July expansion cohort
+        # (CoreWeave, Crusoe, Prologis) must NOT be relabelled as March
+        # signatories — that conflation is the whole reason join dates are now
+        # read per-company off the roster.
         page.goto(base_url + "/")
-        page.locator("#tab-ratepayer").click()
-        # Roster is collapsed by default — open it first.
-        page.locator("#rp-roster-heading").click()
-        page.wait_for_selector("#rp-roster .rp-roster-item", timeout=10_000)
-        notes = page.locator("#rp-roster .rp-roster-item.signed .rp-roster-note")
+        page.wait_for_selector("#rp-tracked-roster .rp-roster-item", timeout=10_000)
+        notes = page.locator("#rp-tracked-roster .rp-roster-item.signed .rp-roster-note")
         texts = notes.all_inner_texts()
         assert texts.count("Signed at White House on March 4, 2026") == 7
         assert texts.count("Signed with DOE on April 24, 2026") == 1
@@ -1105,19 +1118,33 @@ class TestRatepayerView:
         )
         assert lefts == 1, f"Scorecard should be single-column on mobile, got {lefts}"
 
-    def test_commitments_collapsed_by_default(self, page: Page, base_url: str):
-        # Both the pledge-elements box and the roster start collapsed so the
-        # scorecard is immediately visible without scrolling.
+    def test_commitments_render_as_the_pages_spine(self, page: Page, base_url: str):
+        # v2 inverts the v1 arrangement. The five commitments used to be a
+        # collapsed <details> box so the scorecard sat higher; they are now the
+        # section the page is organised around, rendered open with a live
+        # met/partial/not-met count per commitment. The thing that collapses
+        # now is the 300-row published roster, which genuinely should not
+        # render unasked.
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
-        boxes = page.locator(".rp-commitments")
-        # Both boxes are <details> elements, both start closed.
-        for i in range(boxes.count()):
-            box = boxes.nth(i)
-            assert box.evaluate("el => el.tagName.toLowerCase()") == "details"
-            assert box.evaluate("el => el.open") is False
-        # The five commitment items still exist in the DOM (just hidden).
-        assert page.locator(".rp-commitment-list li").count() == 5
+        page.wait_for_selector("#rp-commitments .rp-commit", timeout=10_000)
+        assert page.locator("#rp-commitments .rp-commit").count() == 5
+        # Roman numerals, in order, so the band reads as the pledge does.
+        numerals = page.locator("#rp-commitments .rp-commit-num").all_inner_texts()
+        assert [n.strip() for n in numerals] == ["I", "II", "III", "IV", "V"]
+        # Every commitment carries either live counts or an explicit
+        # not-yet-assessed note — never a silent blank.
+        for i in range(5):
+            meter = page.locator("#rp-commitments .rp-commit-meter").nth(i)
+            assert meter.inner_text().strip(), f"commitment {i} has an empty meter"
+
+    def test_published_roster_is_collapsed_by_default(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-roster-details", timeout=10_000)
+        details = page.locator("#rp-roster-details")
+        assert details.evaluate("el => el.tagName.toLowerCase()") == "details"
+        assert details.evaluate("el => el.open") is False
 
     def test_every_card_surfaces_a_source_link(self, page: Page, base_url: str):
         # v1.17 fix (behavioral guard, not a string check): EVERY ratepayer site
@@ -1383,7 +1410,7 @@ class TestUrlState:
 
 class TestMatrixCsv:
     def test_csv_button_downloads(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-csv", timeout=10_000)
         with page.expect_download(timeout=5_000) as dl_info:
             page.locator("#matrix-csv").click()
@@ -1456,13 +1483,13 @@ class TestAggregateView:
 
 class TestMatrixTooltip:
     def test_tooltip_hidden_on_load(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         assert page.locator("#matrix-tooltip").is_hidden(), \
             "#matrix-tooltip should be hidden on initial load"
 
     def test_tooltip_appears_on_cell_hover(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         # Hover over the first non-empty matrix cell.
         cell = page.locator("#comparison-matrix td.cell:not(.empty)").first
@@ -1476,7 +1503,7 @@ class TestMatrixTooltip:
             "#matrix-tooltip should be visible after hovering a non-empty cell"
 
     def test_tooltip_hides_on_leave(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator("#comparison-matrix td.cell:not(.empty)").first
         cell.hover()
@@ -1510,7 +1537,7 @@ class TestConstituencyBreakdown:
         # exists in the DOM (not erroring out) and is either hidden initially
         # OR has properly rendered rows once the data arrives — never an
         # inconsistent "visible but empty" state.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator('#matrix-body tr[data-company="microsoft"] th.col-company').click()
         expect(page.locator("#company-detail")).to_be_visible()
@@ -1533,7 +1560,7 @@ class TestConstituencyBreakdown:
         self, page: Page, base_url: str
     ):
         # Navigate to Explorer first so project data (including responses) is fetched.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
         # Switch back to Comparison and open the Microsoft pop-out.
@@ -1560,7 +1587,7 @@ class TestConstituencyBreakdown:
 
 class TestFormalAgreementBadge:
     def _open_claims(self, page: Page, base_url: str, project_id: str) -> None:
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#comparison")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
         page.evaluate(f"window.__dcb.selectProject('{project_id}')")
@@ -1763,3 +1790,180 @@ class TestMoratoriumTable:
     def test_bill_number_chip_still_shows(self, page: Page, base_url: str):
         self._open(page, base_url)
         assert page.locator("#moratoriums-tbody .moratorium-bill-id").count() >= 1
+
+
+class TestPledgeLanding:
+    """The v2 landing band — the site's front door.
+
+    Its job is time-to-first-insight: who signed / is it working / what about
+    my state, each answerable without first learning this dashboard's
+    information architecture. These tests assert the band renders from DATA
+    (never hardcoded numbers) and that each surface deep-links.
+    """
+
+    def test_ratepayer_is_the_default_landing_view(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
+        expect(page.locator("#view-ratepayer")).to_be_visible()
+        expect(page.locator("#view-comparison")).to_be_hidden()
+        expect(page.locator("#tab-ratepayer")).to_have_attribute("aria-selected", "true")
+
+    def test_comparison_is_still_deep_linkable(self, page: Page, base_url: str):
+        """Demoting the matrix must not make it unreachable by URL."""
+        page.goto(base_url + "/#comparison")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        expect(page.locator("#view-comparison")).to_be_visible()
+        expect(page.locator("#tab-comparison")).to_have_attribute("aria-selected", "true")
+
+    def test_three_landing_questions_are_answered_above_the_fold(
+        self, page: Page, base_url: str
+    ):
+        """The north-star metric, made falsifiable.
+
+        Who signed / is it working / what about my state must all render inside
+        the first viewport at desktop size. If the hero grows, this fails
+        before a reader has to scroll to learn what the site is.
+        """
+        page.set_viewport_size({"width": 1440, "height": 900})
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-coverage-bar .pledge-bar-seg", timeout=10_000)
+        page.wait_for_selector("#pledge-meters .pledge-meter", timeout=10_000)
+        for sel in ("#pledge-coverage-bar", "#pledge-meters", "#pledge-state-strip"):
+            box = page.locator(sel).bounding_box()
+            assert box is not None, f"{sel} did not render"
+            assert box["y"] < 900, f"{sel} starts at y={box['y']:.0f}, below the fold"
+
+    def test_landing_numbers_come_from_data_not_markup(
+        self, page: Page, base_url: str
+    ):
+        """The roster is a moving target; a baked-in count would go stale."""
+        html = (ROOT / "docs" / "index.html").read_text()
+        assert "279" not in html, "roster count hardcoded in index.html"
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=10_000)
+        nums = page.locator("#pledge-stats .pledge-stat-num").all_inner_texts()
+        assert all(n.strip().isdigit() for n in nums), nums
+
+    def test_coverage_bar_covers_every_populated_category(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-coverage-bar .pledge-bar-seg", timeout=10_000)
+        # Five categories, all populated in the shipped roster.
+        assert page.locator("#pledge-coverage-bar .pledge-bar-seg").count() == 5
+        assert page.locator("#pledge-coverage-key .pledge-bar-key-item").count() == 5
+        # The bar is decorative markup; screen readers get the numbers.
+        label = page.locator("#pledge-coverage-bar").get_attribute("aria-label")
+        assert label and "Cooperatives" in label
+
+    def test_state_strip_shows_all_fifty_states(self, page: Page, base_url: str):
+        """Including the ones we hold nothing for — omitting them would imply
+        national coverage the dataset does not have."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
+        cells = page.locator("#pledge-state-strip .pledge-state-cell")
+        assert cells.count() == 50
+        # Governor-signed states are marked, and there are exactly 23.
+        assert page.locator("#pledge-state-strip .pledge-state-cell.is-gov").count() == 23
+        # At least one honest-empty cell.
+        assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() >= 1
+
+    def test_pathway_card_jumps_to_its_section(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#path-researcher").click()
+        page.wait_for_timeout(600)
+        expect(page.locator("#rp-scorecard-section")).to_be_visible()
+
+    def test_activity_feed_renders_dated_entries(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-activity .pledge-activity-item", timeout=10_000)
+        items = page.locator("#pledge-activity .pledge-activity-item")
+        assert items.count() >= 1
+        for i in range(items.count()):
+            assert items.nth(i).locator(".pledge-activity-date").inner_text().strip()
+            assert items.nth(i).locator(".pledge-activity-text").inner_text().strip()
+
+
+class TestSignatoryRoster:
+    def test_roster_renders_the_full_published_list(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-roster-summary", timeout=10_000)
+        page.locator("#rp-roster-summary").click()
+        page.wait_for_selector("#rp-roster .rp-sig-row", timeout=10_000)
+        assert page.locator("#rp-roster .rp-sig-row").count() >= 250
+
+    def test_search_and_category_filter_narrow_the_roster(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-roster-summary").click()
+        page.wait_for_selector("#rp-roster .rp-sig-row", timeout=10_000)
+        total = page.locator("#rp-roster .rp-sig-row").count()
+
+        page.locator("#rp-roster-q").fill("entergy")
+        page.wait_for_timeout(250)
+        narrowed = page.locator("#rp-roster .rp-sig-row").count()
+        assert 0 < narrowed < total
+
+        page.locator("#rp-roster-q").fill("")
+        page.locator('.rp-roster-chip[data-category="governor"]').click()
+        page.wait_for_timeout(250)
+        assert page.locator("#rp-roster .rp-sig-row").count() == 23
+
+    def test_count_drift_is_surfaced_not_hidden(self, page: Page, base_url: str):
+        """The source page disagrees with its own list; say so rather than
+        quietly picking a number."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-category-stats .rp-cat-stat", timeout=10_000)
+        note = page.locator("#rp-drift-note")
+        if not note.is_hidden():
+            assert "advertised" in note.inner_text().lower()
+
+
+class TestStatePanel:
+    def test_state_chip_opens_panel_with_records(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
+        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.wait_for_timeout(2500)
+        expect(page.locator("#sd-name")).to_have_text("Texas")
+        # Four sections always render — an empty one shows an honest placeholder
+        # rather than disappearing.
+        assert page.locator("#sd-body .sd-section").count() == 4
+        assert "Abbott" in page.locator("#sd-governor").inner_text()
+
+    def test_panel_is_deep_linkable(self, page: Page, base_url: str):
+        page.goto(base_url + "/#state/GA")
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.wait_for_timeout(2000)
+        expect(page.locator("#sd-name")).to_have_text("Georgia")
+
+    def test_escape_closes_and_restores_hash(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
+        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.keyboard.press("Escape")
+        page.wait_for_timeout(400)
+        expect(page.locator("#state-modal")).to_be_hidden()
+        assert page.evaluate("location.hash") == "#ratepayer"
+
+    def test_backdrop_click_closes(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
+        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.locator(".state-modal__backdrop").click(position={"x": 5, "y": 5})
+        page.wait_for_timeout(400)
+        expect(page.locator("#state-modal")).to_be_hidden()
+
+    def test_state_with_no_records_says_so(self, page: Page, base_url: str):
+        """AK/MT/SD have a governor signature and nothing else. That is the
+        answer, and it must be stated rather than rendered as blank."""
+        page.goto(base_url + "/#state/AK")
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.wait_for_timeout(2500)
+        assert page.locator("#sd-body .sd-empty").count() >= 1
+        assert page.locator("#sd-body .sd-section").count() == 4

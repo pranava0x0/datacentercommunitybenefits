@@ -9,7 +9,7 @@
   },
   "pledge_url": "https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/",
   "pledge_pdf_url": "https://www.whitehouse.gov/wp-content/uploads/2026/07/Ratepayer-Protection-Pledge-Signed.pdf",
-  "drift_note": "The White House page advertised 281 organizations on 2026-07-25 but listed 279. Counts shown here are derived from the list itself; the page's own figures are kept in `roster_counts_stated`.",
+  "drift_note": "The White House page advertised 281 organizations when this roster was captured, but the list it published held 279. The counts shown here are taken from the list itself; the page's own figures are recorded alongside them rather than reconciled away.",
   "signatories": [
     {
       "id": "1803-electric-cooperative-inc",

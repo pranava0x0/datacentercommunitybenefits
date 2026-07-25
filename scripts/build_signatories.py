@@ -321,10 +321,10 @@ def main() -> int:
     stated_all = stated.get("all")
     if stated_all is not None and stated_all != org_total:
         drift = (
-            f"The White House page advertised {stated_all} organizations on "
-            f"{args.as_of} but listed {org_total}. Counts shown here are derived "
-            "from the list itself; the page's own figures are kept in "
-            "`roster_counts_stated`."
+            f"The White House page advertised {stated_all} organizations when this "
+            f"roster was captured, but the list it published held {org_total}. The "
+            "counts shown here are taken from the list itself; the page's own "
+            "figures are recorded alongside them rather than reconciled away."
         )
 
     payload = {

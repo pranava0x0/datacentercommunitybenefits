@@ -681,6 +681,18 @@ class Moratorium(_StrictBase):
     jurisdiction_type: Literal["city", "county", "state", "federal"] = Field(
         description="Geographic scope of the moratorium.",
     )
+    state_code: Optional[str] = Field(
+        default=None,
+        min_length=2,
+        max_length=2,
+        description=(
+            "Two-letter state code, for state rollups. Stored rather than parsed "
+            "at render time: `jurisdiction` holds a bare place name ('Baltimore', "
+            "'Cave City') with no state in it, and the id only sometimes carries "
+            "one, so there is nothing reliable to derive from. Required for every "
+            "record except `federal` ones, which legitimately have no state."
+        ),
+    )
     status: MoratoriumStatus = Field(
         description=(
             "enacted = law/regulation in effect as of capture date. "
@@ -820,6 +832,25 @@ class MoratoriumsPayload(_StrictBase):
     moratoriums: list[Moratorium]
     china_anti_datacenter_messaging: dict | None = None
     theme_recommendations: dict[str, ThemeRecommendation] | None = None
+
+    @field_validator("moratoriums")
+    @classmethod
+    def _non_federal_records_have_a_state(cls, v: list[Moratorium]) -> list[Moratorium]:
+        """Fail the refresh rather than silently dropping a record from state rollups.
+
+        A missing state_code doesn't error anywhere at render time — the record
+        just quietly stops appearing in its state's panel, which looks like "no
+        moratoriums here" instead of a data gap.
+        """
+        missing = [
+            m.id for m in v if m.jurisdiction_type != "federal" and not m.state_code
+        ]
+        if missing:
+            raise ValueError(
+                "Moratoriums missing `state_code` (required for everything except "
+                f"federal records): {sorted(missing)}"
+            )
+        return v
 
     @field_validator("moratoriums")
     @classmethod

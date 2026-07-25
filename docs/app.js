@@ -254,6 +254,16 @@ const PLEDGE_PRINCIPLE_DESCRIPTIONS = {
   grid_resilience:
     "Coordinating with grid operators and making backup generation available at times of scarcity to help prevent blackouts.",
 };
+// Short forms for the landing-page meters, where the full label wraps to three
+// lines and stops being scannable. Purely presentational — the full label is
+// what renders anywhere the commitment is actually being quoted.
+const PLEDGE_PRINCIPLE_SHORT = {
+  new_generation: "New power supply",
+  delivery_infra: "Delivery infrastructure",
+  separate_rate: "Pay used or not",
+  local_jobs: "Local jobs",
+  grid_resilience: "Grid resilience",
+};
 const PLEDGE_PRINCIPLE_STATUSES = ["met", "partial", "not_met", "unknown"];
 const PLEDGE_PRINCIPLE_STATUS_LABELS = {
   met: "Met",
@@ -355,6 +365,12 @@ const SORT_LABELS = {
 // State
 // --------------------------------------------------------------------------
 
+// Declared here rather than alongside VIEWS because `state` initializes from
+// it and is defined first — referencing the VIEWS-adjacent const would hit the
+// temporal dead zone. VIEWS resolves DEFAULT_VIEW from this name, so the two
+// cannot disagree.
+const DEFAULT_VIEW_NAME = "ratepayer";
+
 const state = {
   companies: [],
   claims: [],
@@ -376,7 +392,7 @@ const state = {
   claimsByProject: new Map(),
   companiesBySlug: new Map(),
   projectMoratoriums: new Map(),
-  activeView: "comparison",
+  activeView: DEFAULT_VIEW_NAME,
   selectedCompanySlug: null,
   explorerFilters: {
     company: "",
@@ -422,6 +438,10 @@ document.addEventListener("DOMContentLoaded", () => {
   wireThemeToggle();
   readFiltersFromUrl();
   wireTabs();
+  // The hero's pathway cards are static markup, so they wire once on boot;
+  // the stat tiles are re-rendered from data and re-wire themselves.
+  wirePledgeTargets(document.getElementById("pledge-hero"));
+  wireStatePanel();
   ensureComparisonData()
     .then(() => {
       // Idle-preload projects + responses JSON (NOT Leaflet) so the
@@ -432,7 +452,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (state.explorerLoaded || state.projects.length) return;
       const preload = () =>
         loadProjectData()
-          .then(renderSummaryStats)
+          .then(() => {
+            renderSummaryStats();
+            renderPledgeHero();
+          })
           .catch((err) =>
             console.error("Idle preload of project data failed:", err)
           );
@@ -479,17 +502,31 @@ function wireThemeToggle() {
 // Tabs
 // --------------------------------------------------------------------------
 
-// The three views, each backed by a tab button + a <section>. The hash maps
-// 1:1 to the view name; comparison is the default (no hash). Iterate this
-// table everywhere so adding a 4th view stays a one-line change.
+// Every view, each backed by a tab button + a <section>. The hash maps 1:1 to
+// the view name. Iterate this table everywhere so adding a view stays a
+// one-line change.
+//
+// Ratepayer is the default landing view as of v2 (DEFAULT_VIEW_NAME), not
+// Comparison.
+// The pledge became the organizing frame for the whole "who pays for data
+// center power" question, so it is the front door. Comparison keeps its full
+// behaviour one click away and gained an explicit `#comparison` hash — it had
+// been the bare-root view, and demoting it without giving it a hash would have
+// left it un-linkable.
 const VIEWS = [
-  { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
+  { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
   { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
 ];
+
+const DEFAULT_VIEW =
+  VIEWS.find((v) => v.name === DEFAULT_VIEW_NAME) || VIEWS[0];
+
+// #state/TX deep-links straight to a state panel over the Ratepayer view.
+const STATE_DEEP_LINK = /^#state\/[A-Za-z]{2}$/;
 
 // Scroll a tab button into the visible portion of the tabbar. Called both
 // synchronously (on tab click) and deferred (on page-load) so the active tab
@@ -521,6 +558,17 @@ function wireTabs() {
     activateView(fromHash.name);
   } else if (anyExplorerFilterSet() || state.pendingProjectId) {
     activateView("explorer");
+  } else if (STATE_DEEP_LINK.test(window.location.hash)) {
+    // #state/TX — open the Ratepayer view, then the panel on top of it.
+    // Read the code BEFORE activating: activateView rewrites the hash to
+    // "#ratepayer", so reading it afterwards yields "yer" instead of "TX".
+    const code = window.location.hash.slice("#state/".length).toUpperCase();
+    activateView("ratepayer");
+    openStatePanel(code);
+  } else {
+    // No hash and no filters: land on the pledge, not on whatever section
+    // happens to be first in the DOM.
+    activateView(DEFAULT_VIEW.name);
   }
 }
 
@@ -582,7 +630,7 @@ function writeFiltersToUrl() {
 }
 
 function activateView(name) {
-  const target = VIEWS.find((v) => v.name === name) || VIEWS[0];
+  const target = VIEWS.find((v) => v.name === name) || DEFAULT_VIEW;
   state.activeView = target.name;
 
   for (const v of VIEWS) {
@@ -655,6 +703,7 @@ async function loadComparisonData() {
   updateDraftBanner(companies.generated_at);
   renderComparisonView();
   renderSummaryStats();
+  renderPledgeHero();
 }
 
 // Memoized handle on the companies + claims payload. loadProjectData awaits
@@ -833,6 +882,7 @@ async function loadRatepayerView() {
   await Promise.all([loadProjectData(), loadSignatoryData()]);
   state.ratepayerLoaded = true;
   renderRatepayerView();
+  renderPledgeHero();
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
 }
 
@@ -2185,6 +2235,375 @@ function wireBtn(id, handler) {
   if (!btn || btn.dataset.wired === "1") return;
   btn.dataset.wired = "1";
   btn.addEventListener("click", handler);
+}
+
+// --------------------------------------------------------------------------
+// Pledge landing band (v2)
+// --------------------------------------------------------------------------
+
+// Format a date as "Jul 25, 2026". Roster counts are always shown with the day
+// they were captured — the roster is a living list, and an undated count reads
+// as a permanent fact.
+function formatAsOf(iso) {
+  if (!iso) return "";
+  const d = new Date(`${iso}T00:00:00`);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+// Small DOM builder: el("span", "cls", "text"). Used instead of innerHTML for
+// the hero because these tiles interleave data-derived strings with markup,
+// and building nodes keeps that categorically un-injectable rather than
+// correct-as-long-as-every-interpolation-stays-escaped.
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text != null) node.textContent = text;
+  return node;
+}
+
+// Render the hero's stat row from whatever data has actually loaded.
+//
+// Called at three moments — after companies+claims, after projects/responses,
+// and after the roster — so it must degrade rather than wait: a tile whose
+// payload has not landed shows an em dash instead of blocking the row. That
+// keeps the pledge stats visible on first paint without pulling the 124 KB
+// roster into it.
+function renderPledgeHero() {
+  const list = document.getElementById("pledge-stats");
+  if (!list) return;
+
+  const counts = state.signatoriesLoaded ? signatoryCounts() : null;
+  const assessed = (state.projects || []).filter((p) => p.ratepayer);
+  const byStatus = {};
+  for (const s of RATEPAYER_STATUSES) byStatus[s] = 0;
+  for (const p of assessed) {
+    if (byStatus[p.ratepayer.status] !== undefined) byStatus[p.ratepayer.status] += 1;
+  }
+
+  const tiles = [
+    {
+      num: counts ? String(counts.organizations) : "—",
+      label: "Organizations signed",
+      note: state.rosterAsOf ? `As of ${formatAsOf(state.rosterAsOf)}` : "",
+      target: "roster",
+    },
+    {
+      num: counts ? String(counts.governor) : "—",
+      label: "Governors signed an addendum",
+      note: counts ? "A separate instrument" : "",
+      target: "coverage",
+    },
+    {
+      num: state.projects.length ? String(assessed.length) : "—",
+      label: "Sites assessed against the pledge",
+      note: assessed.length
+        ? `${byStatus.affirmed} site-specific · ${byStatus.contested} contested`
+        : "",
+      target: "scorecard",
+    },
+    {
+      num: String(PLEDGE_PRINCIPLES.length),
+      label: "Commitments in the pledge",
+      note: "What each site is measured against",
+      target: "commitments",
+    },
+  ];
+
+  list.replaceChildren(
+    ...tiles.map((t) => {
+      const li = el("li", "pledge-stat");
+      const btn = el("button", null);
+      btn.type = "button";
+      btn.dataset.pathTarget = t.target;
+      btn.append(
+        el("span", "pledge-stat-num", t.num),
+        el("span", "pledge-stat-lbl", t.label)
+      );
+      if (t.note) btn.append(el("span", "pledge-stat-note", t.note));
+      li.append(btn);
+      return li;
+    })
+  );
+
+  wirePledgeTargets(list);
+  renderPledgeCoverageBar();
+  renderPledgeMeters();
+  renderPledgeStateStrip();
+  renderPledgeActivity();
+  wirePledgeTargets(document.getElementById("pledge-hero"));
+}
+
+// --- who signed: one proportional bar ------------------------------------
+//
+// A single number ("279") says nothing about the shape of the coalition. The
+// bar shows that it is overwhelmingly rural cooperatives, which is the actual
+// story of the July expansion and is invisible in a stat tile.
+function renderPledgeCoverageBar() {
+  const bar = document.getElementById("pledge-coverage-bar");
+  const key = document.getElementById("pledge-coverage-key");
+  if (!bar || !key) return;
+  if (!state.signatoriesLoaded) {
+    bar.replaceChildren();
+    key.replaceChildren(el("li", "pledge-bar-loading", "Loading roster…"));
+    return;
+  }
+
+  const counts = signatoryCounts();
+  const segments = SIGNATORY_CATEGORIES.map((cat) => ({
+    cat,
+    n: counts[cat] || 0,
+  })).filter((s) => s.n > 0);
+
+  bar.replaceChildren(
+    ...segments.map((s) => {
+      const seg = el("span", `pledge-bar-seg cat-${s.cat}`);
+      seg.style.flexGrow = String(s.n);
+      seg.title = `${s.n} ${SIGNATORY_CATEGORY_SHORT[s.cat]}`;
+      return seg;
+    })
+  );
+  bar.setAttribute("role", "img");
+  bar.setAttribute(
+    "aria-label",
+    segments
+      .map((s) => `${s.n} ${SIGNATORY_CATEGORY_SHORT[s.cat]}`)
+      .join(", ")
+  );
+
+  key.replaceChildren(
+    ...segments.map((s) => {
+      const li = el("li", `pledge-bar-key-item cat-${s.cat}`);
+      li.append(
+        el("span", "pledge-bar-swatch"),
+        el("span", "pledge-bar-key-n", String(s.n)),
+        el("span", "pledge-bar-key-lbl", SIGNATORY_CATEGORY_SHORT[s.cat] || s.cat)
+      );
+      return li;
+    })
+  );
+  // Share of ORGANIZATIONS, not of the whole roster — governors are not
+  // organizations, and counting them in the denominator understates it.
+  const pct = Math.round(((counts.cooperative || 0) / (counts.organizations || 1)) * 100);
+  key.append(
+    el(
+      "li",
+      "pledge-bar-note",
+      `${pct}% of the organizations that signed are rural electric cooperatives.`
+    )
+  );
+}
+
+// --- is it showing up: per-commitment meters ------------------------------
+function renderPledgeMeters() {
+  const ul = document.getElementById("pledge-meters");
+  if (!ul) return;
+  if (!state.projects.length) {
+    ul.replaceChildren(el("li", "pledge-bar-loading", "Loading site assessments…"));
+    return;
+  }
+
+  const tallies = principleTallies();
+  ul.replaceChildren(
+    ...PLEDGE_PRINCIPLES.map((keyName, i) => {
+      const t = tallies[keyName];
+      const li = el("li", "pledge-meter");
+      li.append(el("span", "pledge-meter-num", ROMAN[i] || String(i + 1)));
+
+      const body = el("div", "pledge-meter-body");
+      body.append(
+        el("span", "pledge-meter-lbl", PLEDGE_PRINCIPLE_SHORT[keyName] || keyName)
+      );
+
+      const track = el("span", "pledge-meter-track");
+      if (t.assessed === 0) {
+        track.append(el("span", "pledge-meter-seg is-none"));
+      } else {
+        for (const status of PLEDGE_PRINCIPLE_STATUSES) {
+          if (!t[status]) continue;
+          const seg = el("span", `pledge-meter-seg is-${status}`);
+          seg.style.flexGrow = String(t[status]);
+          track.append(seg);
+        }
+      }
+      body.append(track);
+      body.append(
+        el(
+          "span",
+          "pledge-meter-count",
+          t.assessed === 0
+            ? "not yet assessed"
+            : `${t.met} met · ${t.partial} partial${t.not_met ? ` · ${t.not_met} not met` : ""}`
+        )
+      );
+      li.append(body);
+      li.setAttribute(
+        "aria-label",
+        `${PLEDGE_PRINCIPLE_LABELS[keyName]}: ${t.met} met, ${t.partial} partial, ${t.not_met} not met`
+      );
+      return li;
+    })
+  );
+}
+
+// --- what about my state: the 50-state strip ------------------------------
+//
+// Every state gets a cell, including the ones we hold nothing for. A grid that
+// only showed states with data would quietly imply national coverage we do not
+// have.
+const STATE_STRIP_ORDER = [
+  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+  "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+  "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+  "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
+];
+
+function renderPledgeStateStrip() {
+  const wrap = document.getElementById("pledge-state-strip");
+  const keyEl = document.getElementById("pledge-strip-key");
+  if (!wrap) return;
+
+  const byCode = new Map(coverageStates().map((s) => [s.code, s]));
+  let withRecords = 0;
+  let governors = 0;
+
+  wrap.replaceChildren(
+    ...STATE_STRIP_ORDER.map((code) => {
+      const s = byCode.get(code);
+      const records = s ? s.projects + s.tariffs + s.moratoriums : 0;
+      const gov = Boolean(s && s.governor);
+      if (records) withRecords += 1;
+      if (gov) governors += 1;
+
+      // Four density steps, not a continuous ramp — the underlying counts are
+      // small and a smooth scale would imply precision we don't have.
+      const level = records === 0 ? 0 : records <= 2 ? 1 : records <= 6 ? 2 : 3;
+      const cell = el("button", `pledge-state-cell lvl-${level}${gov ? " is-gov" : ""}`);
+      cell.type = "button";
+      cell.dataset.stateCode = code;
+      cell.append(el("span", "pledge-state-abbr", code));
+      cell.setAttribute(
+        "aria-label",
+        `${STATE_NAMES[code] || code}: ${records ? `${records} tracked records` : "no tracked records"}` +
+          (gov ? ", governor signed the addendum" : "")
+      );
+      cell.title = cell.getAttribute("aria-label");
+      cell.addEventListener("click", () => openStatePanel(code));
+      return cell;
+    })
+  );
+
+  if (keyEl) {
+    keyEl.textContent =
+      `${withRecords} of 50 states have tracked records · ` +
+      `${governors} governors signed (marked ★) · select a state for detail`;
+  }
+}
+
+// --- what changed: a short dated feed -------------------------------------
+//
+// Derived from the data rather than hand-maintained, so it cannot go stale
+// while the dataset moves underneath it.
+function renderPledgeActivity() {
+  const ol = document.getElementById("pledge-activity");
+  if (!ol) return;
+
+  const items = [];
+
+  if (state.signatoriesLoaded) {
+    const counts = signatoryCounts();
+    const joined = (state.signatories || []).filter(
+      (s) => s.signed_track === "expansion-2026-07-23"
+    );
+    const joinedOrgs = joined.filter((s) => s.category !== "governor").length;
+    const joinedGovs = joined.length - joinedOrgs;
+    if (joined.length) {
+      items.push({
+        date: RATEPAYER_PLEDGE_EXPANSION_DATE,
+        text:
+          `${joinedOrgs} organizations and ${joinedGovs} governors joined, taking ` +
+          `the roster from 8 signatories to ${counts.organizations}.`,
+      });
+    }
+  }
+
+  // Newest contested findings — the sharpest signal the dataset carries.
+  const contested = (state.projects || [])
+    .filter((p) => p.ratepayer && p.ratepayer.status === "contested")
+    .slice(0, 3);
+  if (contested.length) {
+    items.push({
+      date: contested[0].ratepayer.captured_at || contested[0].captured_at || null,
+      text:
+        `${contested.length} site${contested.length === 1 ? "" : "s"} marked contested — ` +
+        "a third party documents costs reaching ratepayers despite the pledge.",
+    });
+  }
+
+  // Most recently captured site assessment.
+  const assessed = (state.projects || [])
+    .filter((p) => p.ratepayer && p.ratepayer.captured_at)
+    .sort((a, b) => b.ratepayer.captured_at.localeCompare(a.ratepayer.captured_at));
+  if (assessed.length) {
+    items.push({
+      date: assessed[0].ratepayer.captured_at,
+      text: `Latest site assessment: ${assessed[0].name}.`,
+    });
+  }
+
+  if (!items.length) {
+    ol.replaceChildren(el("li", "pledge-bar-loading", "Loading recent activity…"));
+    return;
+  }
+
+  ol.replaceChildren(
+    ...items.slice(0, 4).map((it) => {
+      const li = el("li", "pledge-activity-item");
+      li.append(
+        el("span", "pledge-activity-date", it.date ? formatAsOf(it.date) : "—"),
+        el("span", "pledge-activity-text", it.text)
+      );
+      return li;
+    })
+  );
+}
+
+// Every hero affordance (stat tiles + pathway cards) routes through one place,
+// so a new entry point only has to name a target rather than know how views
+// and anchors work.
+const PLEDGE_TARGETS = {
+  roster: { view: "ratepayer", anchor: "rp-roster-section" },
+  coverage: { view: "ratepayer", anchor: "rp-coverage-section" },
+  commitments: { view: "ratepayer", anchor: "rp-commitments-section" },
+  scorecard: { view: "ratepayer", anchor: "rp-scorecard-section" },
+  states: { view: "ratepayer", anchor: "rp-coverage-section" },
+  explorer: { view: "explorer", anchor: null },
+};
+
+function goToPledgeTarget(name) {
+  const target = PLEDGE_TARGETS[name];
+  if (!target) return;
+  activateView(target.view);
+  if (!target.anchor) return;
+  // The Ratepayer view renders asynchronously; wait a frame so the anchor
+  // exists before scrolling, and fail quietly if it never appears.
+  requestAnimationFrame(() => {
+    const anchor = document.getElementById(target.anchor);
+    if (anchor) anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+function wirePledgeTargets(root) {
+  for (const btn of (root || document).querySelectorAll("[data-path-target]")) {
+    if (btn.dataset.wired === "1") continue;
+    btn.dataset.wired = "1";
+    btn.addEventListener("click", () => goToPledgeTarget(btn.dataset.pathTarget));
+  }
 }
 
 function downloadMatrixCsv() {
@@ -3953,9 +4372,559 @@ function renderRatepayerView() {
   }
 
   renderRatepayerStats();
+  renderPledgeCommitments();
+  renderCoverageStats();
+  renderStateChips();
   renderRatepayerRoster();
+  renderSignatoryRoster();
   renderRatepayerLegend();
   renderRatepayerScorecard();
+}
+
+// --------------------------------------------------------------------------
+// 1. The pledge — five commitments as the page's spine
+// --------------------------------------------------------------------------
+
+// Tally how the assessed sites score on each of the five principles.
+// Sites without a per-principle assessment are counted in NOTHING — an
+// unassessed site is a gap in our work, not a passing or failing grade, and
+// rolling it into "unknown" would make the gap look like a finding.
+function principleTallies() {
+  const tallies = {};
+  for (const key of PLEDGE_PRINCIPLES) {
+    tallies[key] = { met: 0, partial: 0, not_met: 0, unknown: 0, assessed: 0 };
+  }
+  for (const p of state.projects || []) {
+    const principles = p.ratepayer && p.ratepayer.principles;
+    if (!principles) continue;
+    for (const key of PLEDGE_PRINCIPLES) {
+      const entry = principles[key];
+      if (!entry || !entry.status) continue;
+      const bucket = tallies[key];
+      if (bucket[entry.status] === undefined) continue;
+      bucket[entry.status] += 1;
+      bucket.assessed += 1;
+    }
+  }
+  return tallies;
+}
+
+const ROMAN = ["I", "II", "III", "IV", "V"];
+
+function renderPledgeCommitments() {
+  const ol = document.getElementById("rp-commitments");
+  if (!ol) return;
+  const tallies = principleTallies();
+
+  ol.replaceChildren(
+    ...PLEDGE_PRINCIPLES.map((key, i) => {
+      const t = tallies[key];
+      const li = el("li", "rp-commit");
+      li.append(el("span", "rp-commit-num", ROMAN[i] || String(i + 1)));
+
+      const body = el("div", "rp-commit-body");
+      body.append(
+        el("h4", "rp-commit-title", PLEDGE_PRINCIPLE_LABELS[key] || key),
+        el("p", "rp-commit-dek", PLEDGE_PRINCIPLE_DESCRIPTIONS[key] || "")
+      );
+
+      const meter = el("div", "rp-commit-meter");
+      if (t.assessed === 0) {
+        meter.append(el("span", "rp-commit-empty", "No sites assessed on this commitment yet"));
+      } else {
+        for (const status of PLEDGE_PRINCIPLE_STATUSES) {
+          if (!t[status]) continue;
+          const chip = el("span", `rp-commit-chip is-${status}`);
+          chip.append(
+            el("span", "rp-commit-chip-num", String(t[status])),
+            el(
+              "span",
+              "rp-commit-chip-lbl",
+              PLEDGE_PRINCIPLE_STATUS_LABELS[status] || status
+            )
+          );
+          meter.append(chip);
+        }
+      }
+      body.append(meter);
+      li.append(body);
+      return li;
+    })
+  );
+}
+
+// --------------------------------------------------------------------------
+// 2. Coverage — categories + states
+// --------------------------------------------------------------------------
+
+function renderCoverageStats() {
+  const ul = document.getElementById("rp-category-stats");
+  if (!ul) return;
+
+  if (!state.signatoriesLoaded) {
+    ul.replaceChildren(el("li", "rp-cat-stat", "Loading roster…"));
+    return;
+  }
+
+  const counts = signatoryCounts();
+  ul.replaceChildren(
+    ...SIGNATORY_CATEGORIES.map((cat) => {
+      const li = el("li", `rp-cat-stat cat-${cat}`);
+      li.append(
+        el("span", "rp-cat-num", String(counts[cat] || 0)),
+        el("span", "rp-cat-lbl", SIGNATORY_CATEGORY_SHORT[cat] || cat)
+      );
+      return li;
+    })
+  );
+
+  const sub = document.getElementById("rp-roster-sub");
+  if (sub && state.rosterAsOf) {
+    sub.textContent =
+      `${counts.organizations} organizations and ${counts.governor} governors, ` +
+      `as captured from the White House page on ${formatAsOf(state.rosterAsOf)}.`;
+  }
+
+  // Surface the source page's self-disagreement rather than quietly picking a
+  // number. See SignatoriesPayload.drift_note.
+  const note = document.getElementById("rp-drift-note");
+  if (note) {
+    if (state.rosterDriftNote) {
+      note.textContent = state.rosterDriftNote;
+      note.hidden = false;
+    } else {
+      note.hidden = true;
+    }
+  }
+}
+
+// Every state we can say something about: a governor signature, a tracked
+// site, a tariff, or a moratorium. Governor states with no records still get
+// a chip — an honest empty is more useful than an absent one, because "my
+// governor signed and nothing is on file" is itself the answer.
+// "XX" is the sentinel a few records use for virtual / multi-site partnerships
+// with no physical location (city "Virtual", null lat/lon). It is not a place,
+// so it must never become a chip.
+const NON_GEOGRAPHIC_STATE = "XX";
+
+function coverageStates() {
+  const states = new Map();
+  const touch = (code) => {
+    if (!code) return null;
+    const key = String(code).toUpperCase();
+    if (key === NON_GEOGRAPHIC_STATE) return null;
+    if (!states.has(key)) {
+      states.set(key, { code: key, governor: null, projects: 0, tariffs: 0, moratoriums: 0 });
+    }
+    return states.get(key);
+  };
+
+  for (const [code, rec] of state.governorByState || []) {
+    const entry = touch(code);
+    if (entry) entry.governor = rec;
+  }
+  for (const p of state.projects || []) {
+    const entry = touch(p.state);
+    if (entry) entry.projects += 1;
+  }
+  for (const t of state.tariffs || []) {
+    const entry = touch(t.state);
+    if (entry) entry.tariffs += 1;
+  }
+  for (const m of state.moratoriums || []) {
+    const entry = touch(moratoriumStateCode(m));
+    if (entry) entry.moratoriums += 1;
+  }
+
+  return [...states.values()].sort((a, b) => {
+    // Governor states first (that is the pledge-relevant cohort), then by how
+    // much we can actually show, then alphabetically.
+    if (!!b.governor !== !!a.governor) return b.governor ? 1 : -1;
+    const load = (s) => s.projects + s.tariffs + s.moratoriums;
+    const d = load(b) - load(a);
+    if (d !== 0) return d;
+    return a.code.localeCompare(b.code);
+  });
+}
+
+function renderStateChips() {
+  const wrap = document.getElementById("rp-state-chips");
+  if (!wrap) return;
+  const entries = coverageStates();
+
+  wrap.replaceChildren(
+    ...entries.map((s) => {
+      const records = s.projects + s.tariffs + s.moratoriums;
+      const btn = el("button", `rp-state-chip${records ? "" : " is-empty"}`);
+      btn.type = "button";
+      btn.dataset.stateCode = s.code;
+      btn.append(el("span", "rp-state-code", s.code));
+      if (s.governor) {
+        const mark = el("span", "rp-state-gov", "★");
+        mark.setAttribute("aria-hidden", "true");
+        btn.append(mark);
+      }
+      const parts = [];
+      if (s.projects) parts.push(`${s.projects} site${s.projects === 1 ? "" : "s"}`);
+      if (s.tariffs) parts.push(`${s.tariffs} tariff${s.tariffs === 1 ? "" : "s"}`);
+      if (s.moratoriums) parts.push(`${s.moratoriums} moratorium${s.moratoriums === 1 ? "" : "s"}`);
+      btn.append(el("span", "rp-state-meta", parts.length ? parts.join(" · ") : "No records yet"));
+      btn.setAttribute(
+        "aria-label",
+        `${s.code}${s.governor ? ", governor signed" : ""} — ` +
+          (parts.length ? parts.join(", ") : "no tracked records yet")
+      );
+      btn.addEventListener("click", () => openStatePanel(s.code));
+      return btn;
+    })
+  );
+}
+
+// --------------------------------------------------------------------------
+// 3. Signatory roster — the full published list
+// --------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------
+// State panel (deep-linkable at #state/XX)
+// --------------------------------------------------------------------------
+
+const STATE_NAMES = {
+  AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California",
+  CO: "Colorado", CT: "Connecticut", DE: "Delaware", FL: "Florida", GA: "Georgia",
+  HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa",
+  KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland",
+  MA: "Massachusetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi",
+  MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire",
+  NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina",
+  ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania",
+  RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee",
+  TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington",
+  WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming", DC: "District of Columbia",
+};
+
+// Moratoriums carry an explicit `state_code` (backfilled in v2) rather than a
+// parsed one — `jurisdiction` is a bare place name with no state in it.
+function moratoriumStateCode(m) {
+  return m && m.state_code ? String(m.state_code).toUpperCase() : null;
+}
+
+// Utility signatories operating in a state, resolved through the curated alias
+// map on the tariffs filed there. Exact joins only — no name fuzzing.
+function stateUtilitySignatories(code) {
+  const found = new Map();
+  for (const t of state.tariffs || []) {
+    if (String(t.state || "").toUpperCase() !== code) continue;
+    const sig = state.signatoryByUtilityAlias.get(t.utility);
+    if (sig) found.set(sig.id, sig);
+  }
+  return [...found.values()];
+}
+
+// Open the panel for a state. Loads whatever payloads are still missing first,
+// because a visitor can reach this from the landing page without ever having
+// opened the Tariffs or Moratoriums tabs — and a panel that silently showed
+// "no tariffs" because the payload had not loaded would be a lie.
+async function openStatePanel(code) {
+  const key = String(code || "").toUpperCase();
+  if (!STATE_NAMES[key]) return;
+
+  const overlay = document.getElementById("state-modal");
+  const body = document.getElementById("sd-body");
+  if (!overlay || !body) return;
+
+  state._stateReturnFocus =
+    document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  overlay.hidden = false;
+  document.body.classList.add("state-modal-open");
+  document.getElementById("sd-name").textContent = STATE_NAMES[key];
+  body.replaceChildren(el("p", "state-loading", "Loading records…"));
+  const closeBtn = document.getElementById("state-detail-close");
+  if (closeBtn) closeBtn.focus();
+  history.replaceState(null, "", `#state/${key}`);
+
+  await Promise.all([
+    loadProjectData(),
+    loadSignatoryData(),
+    state.moratoriumsLoaded ? Promise.resolve() : loadMoratoriumsData(),
+    state.tariffsLoaded ? Promise.resolve() : loadTariffsData(),
+  ]).catch((err) => console.error("State panel data load failed:", err));
+
+  // Bail if the user closed the panel (or opened another state) while loading.
+  if (overlay.hidden || !window.location.hash.endsWith(`/${key}`)) return;
+  renderStatePanel(key);
+}
+
+function renderStatePanel(code) {
+  const body = document.getElementById("sd-body");
+  if (!body) return;
+
+  const gov = state.governorByState.get(code);
+  const govLine = document.getElementById("sd-governor");
+  if (govLine) {
+    govLine.replaceChildren();
+    if (gov) {
+      govLine.append(
+        el("span", "sd-gov-name", `${gov.name} signed the governors' addendum`)
+      );
+      const a = document.createElement("a");
+      a.href = String(gov.source_url);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.className = "sd-gov-link";
+      a.textContent = "Source ↗";
+      govLine.append(a);
+    } else {
+      govLine.append(
+        el(
+          "span",
+          "sd-gov-none",
+          "No governor signature on the addendum — records below are shown for context."
+        )
+      );
+    }
+  }
+
+  const projects = (state.projects || []).filter(
+    (p) => String(p.state || "").toUpperCase() === code
+  );
+  const tariffs = (state.tariffs || []).filter(
+    (t) => String(t.state || "").toUpperCase() === code
+  );
+  const moratoriums = (state.moratoriums || []).filter(
+    (m) => moratoriumStateCode(m) === code
+  );
+  const utilities = stateUtilitySignatories(code);
+
+  const sections = [
+    {
+      title: "Data-center sites",
+      empty: "No tracked sites in this state yet.",
+      items: projects.map((p) => ({
+        label: p.name,
+        meta: [
+          (state.companiesBySlug.get(p.company_slug) || {}).name || p.company_slug,
+          STATUS_LABELS[p.status] || p.status,
+          p.ratepayer ? RATEPAYER_LABELS[p.ratepayer.status] : null,
+        ]
+          .filter(Boolean)
+          .join(" · "),
+        onClick: () => {
+          closeStatePanel();
+          activateView("explorer");
+          selectProject(p.id);
+        },
+      })),
+    },
+    {
+      title: "Utility tariffs",
+      empty: "No large-load tariff on file for this state yet.",
+      items: tariffs.map((t) => ({
+        label: t.name,
+        meta: [t.utility, TARIFF_STATUS_LABELS[t.status] || t.status]
+          .filter(Boolean)
+          .join(" · "),
+        onClick: () => {
+          closeStatePanel();
+          activateView("tariffs");
+          requestAnimationFrame(() => showTariffDetail(t));
+        },
+      })),
+    },
+    {
+      title: "Moratoriums",
+      empty: "No moratorium records for this state yet.",
+      items: moratoriums.map((m) => ({
+        label: m.jurisdiction,
+        meta: [
+          m.jurisdiction_type,
+          MOR_STATUS_LABELS[m.status] || m.status,
+          m.duration_description,
+        ]
+          .filter(Boolean)
+          .join(" · "),
+        onClick: () => {
+          closeStatePanel();
+          activateView("moratoriums");
+          requestAnimationFrame(() => showMoratoriumDetail(m));
+        },
+      })),
+    },
+    {
+      title: "Utility signatories",
+      empty:
+        "No pledge signatory matched to a tariff in this state. Absence here means " +
+        "no exact match in the roster, not that no local utility signed.",
+      items: utilities.map((u) => ({
+        label: u.name,
+        meta: SIGNATORY_TRACK_LABELS[u.signed_track] || u.signed_track,
+        onClick: null,
+      })),
+    },
+  ];
+
+  body.replaceChildren(
+    ...sections.map((sec) => {
+      const wrap = el("section", "sd-section");
+      const h = el("h4", "sd-section-title", sec.title);
+      const n = el("span", "sd-section-count", String(sec.items.length));
+      h.append(n);
+      wrap.append(h);
+
+      if (!sec.items.length) {
+        wrap.append(el("p", "sd-empty", sec.empty));
+        return wrap;
+      }
+
+      const ul = el("ul", "sd-list");
+      for (const item of sec.items) {
+        const li = el("li", "sd-item");
+        if (item.onClick) {
+          const btn = el("button", "sd-item-btn");
+          btn.type = "button";
+          btn.append(el("span", "sd-item-label", item.label));
+          if (item.meta) btn.append(el("span", "sd-item-meta", item.meta));
+          btn.addEventListener("click", item.onClick);
+          li.append(btn);
+        } else {
+          li.append(el("span", "sd-item-label", item.label));
+          if (item.meta) li.append(el("span", "sd-item-meta", item.meta));
+        }
+        ul.append(li);
+      }
+      wrap.append(ul);
+      return wrap;
+    })
+  );
+}
+
+function closeStatePanel() {
+  const overlay = document.getElementById("state-modal");
+  if (!overlay || overlay.hidden) return;
+  overlay.hidden = true;
+  document.body.classList.remove("state-modal-open");
+  if (window.location.hash.startsWith("#state/")) {
+    history.replaceState(null, "", "#ratepayer");
+  }
+  const ret = state._stateReturnFocus;
+  state._stateReturnFocus = null;
+  if (ret && typeof ret.focus === "function") ret.focus();
+}
+
+function wireStatePanel() {
+  const overlay = document.getElementById("state-modal");
+  const closeBtn = document.getElementById("state-detail-close");
+  if (closeBtn && !closeBtn.dataset.wired) {
+    closeBtn.dataset.wired = "1";
+    closeBtn.addEventListener("click", closeStatePanel);
+  }
+  if (overlay && !overlay.dataset.wired) {
+    overlay.dataset.wired = "1";
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay || e.target.closest("[data-state-close]")) {
+        closeStatePanel();
+      }
+    });
+  }
+  if (!document.body.dataset.stateEscWired) {
+    document.body.dataset.stateEscWired = "1";
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeStatePanel();
+    });
+  }
+}
+
+const _rosterFilter = { q: "", category: "" };
+
+function renderSignatoryRoster() {
+  const ul = document.getElementById("rp-roster");
+  if (!ul) return;
+
+  renderRosterFilters();
+
+  const q = _rosterFilter.q.trim().toLowerCase();
+  const rows = (state.signatories || []).filter((s) => {
+    if (_rosterFilter.category && s.category !== _rosterFilter.category) return false;
+    if (!q) return true;
+    return (
+      s.name.toLowerCase().includes(q) ||
+      (s.website_domain || "").toLowerCase().includes(q)
+    );
+  });
+
+  const count = document.getElementById("rp-roster-count");
+  if (count) {
+    count.textContent = `Showing ${rows.length} of ${(state.signatories || []).length}`;
+  }
+
+  ul.replaceChildren(
+    ...rows.map((s) => {
+      const li = el("li", `rp-sig-row cat-${s.category}`);
+      li.append(el("span", "rp-sig-name", s.name));
+      li.append(
+        el("span", `rp-sig-cat cat-${s.category}`, SIGNATORY_CATEGORY_LABELS[s.category] || s.category)
+      );
+      li.append(
+        el("span", "rp-sig-track", SIGNATORY_TRACK_LABELS[s.signed_track] || s.signed_track)
+      );
+      if (s.website_domain) {
+        const a = document.createElement("a");
+        a.className = "rp-sig-domain";
+        a.href = `https://${s.website_domain}`;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = s.website_domain;
+        li.append(a);
+      }
+      if (s.matched_company_slug) {
+        const tag = el("span", "rp-sig-tracked", "Tracked here");
+        li.append(tag);
+      }
+      return li;
+    })
+  );
+}
+
+function renderRosterFilters() {
+  const wrap = document.getElementById("rp-roster-filters");
+  if (!wrap || wrap.dataset.built === "1") return;
+  wrap.dataset.built = "1";
+
+  const counts = signatoryCounts();
+  const options = [
+    { key: "", label: "All", n: counts.total },
+    ...SIGNATORY_CATEGORIES.map((c) => ({
+      key: c,
+      label: SIGNATORY_CATEGORY_SHORT[c] || c,
+      n: counts[c] || 0,
+    })),
+  ];
+
+  wrap.replaceChildren(
+    ...options.map((o) => {
+      const btn = el("button", "rp-roster-chip");
+      btn.type = "button";
+      btn.dataset.category = o.key;
+      btn.setAttribute("aria-pressed", String(_rosterFilter.category === o.key));
+      btn.append(el("span", null, o.label), el("span", "rp-roster-chip-n", String(o.n)));
+      btn.addEventListener("click", () => {
+        _rosterFilter.category = o.key;
+        for (const other of wrap.querySelectorAll(".rp-roster-chip")) {
+          other.setAttribute("aria-pressed", String(other.dataset.category === o.key));
+        }
+        renderSignatoryRoster();
+      });
+      return btn;
+    })
+  );
+
+  const input = document.getElementById("rp-roster-q");
+  if (input && input.dataset.wired !== "1") {
+    input.dataset.wired = "1";
+    input.addEventListener("input", () => {
+      _rosterFilter.q = input.value;
+      renderSignatoryRoster();
+    });
+  }
 }
 
 // Signatory companies, in roster order (signatories first, by claim presence).
@@ -3987,9 +4956,32 @@ function ratepayerAssessedProjects() {
 // though QTS signed via the DOE track on 2026-04-24 — no dated QTS site
 // currently lands in the Mar 4 – Apr 24 window; revisit if one does.
 const RATEPAYER_PLEDGE_YEAR = Number(RATEPAYER_PLEDGE_DATE.slice(0, 4));
+
+// The date THIS project's operator joined the pledge — not the pledge's own
+// date. Since the July 2026 expansion the two differ: CoreWeave, Crusoe and
+// Prologis signed on 2026-07-23, so a CoreWeave site announced in May 2026 is
+// pre-*their*-pledge even though it postdates the White House event.
+//
+// Falls back to the White House date while the roster payload is still in
+// flight, which keeps the original seven bucketed correctly on a cold
+// deep-link instead of briefly showing every site as non-signatory.
+function projectPledgeDate(p) {
+  const fromRoster = signatorySignedDate(p.company_slug);
+  if (fromRoster) return fromRoster;
+  const co = state.companiesBySlug.get(p.company_slug);
+  return co && co.ratepayer_pledge_signatory ? RATEPAYER_PLEDGE_DATE : null;
+}
+
+// True when the project predates its operator's signature. Year-only
+// announcements are pre-pledge only when the year is earlier than the signing
+// year — a bare "2026" can't be placed either side of a specific day, so it
+// stays in the pledge-era (awaiting assessment) bucket rather than being
+// mislabeled.
 function isPrePledgeProject(p) {
-  if (p.announced_date) return p.announced_date < RATEPAYER_PLEDGE_DATE;
-  return p.announced_year < RATEPAYER_PLEDGE_YEAR;
+  const signed = projectPledgeDate(p);
+  if (!signed) return false;
+  if (p.announced_date) return p.announced_date < signed;
+  return p.announced_year < Number(signed.slice(0, 4));
 }
 
 function rosterSort(a, b) {
@@ -4052,19 +5044,21 @@ function renderRatepayerStats() {
   if (!ul) return;
   ul.innerHTML = "";
 
-  const signatories = ratepayerSignatories();
   const assessed = ratepayerAssessedProjects();
   const affirmed = assessed.filter((p) => p.ratepayer.status === "affirmed");
   const contested = assessed.filter((p) => p.ratepayer.status === "contested");
 
+  // The landing band above already reports the roster-wide count; this row is
+  // about the scorecard cohort, so it starts from the companies we actually
+  // track site by site.
   const tiles = [
     {
-      value: String(signatories.length),
-      label: "signatories",
+      value: String(ratepayerSignatories().length),
+      label: "signatories tracked in depth",
     },
     {
       value: String(assessed.length),
-      label: "sites tracked",
+      label: "sites assessed",
     },
     {
       value: String(affirmed.length),
@@ -4126,7 +5120,7 @@ function companyHasRatepayerClaim(slug) {
 }
 
 function renderRatepayerRoster() {
-  const ul = document.getElementById("rp-roster");
+  const ul = document.getElementById("rp-tracked-roster");
   if (!ul) return;
   ul.innerHTML = "";
 
@@ -4149,11 +5143,25 @@ function renderRatepayerRoster() {
     li.className = `rp-roster-item${signed ? " signed" : " unsigned"}`;
     li.style.setProperty("--co-color", `var(--co-${co.slug})`);
 
-    const note = signed
-      ? RATEPAYER_DOE_TRACK_SIGNATORIES.has(co.slug)
-        ? `Signed with DOE on ${formatLongDate(RATEPAYER_PLEDGE_DOE_DATE)}`
-        : `Signed at White House on ${formatLongDate(RATEPAYER_PLEDGE_DATE)}`
-      : "Own commitment";
+    // Which track a company signed on is read from the roster, not assumed.
+    // Labelling the July cohort with the March date would claim they committed
+    // four months before they did.
+    const rosterRec = state.signatoryByCompany && state.signatoryByCompany.get(co.slug);
+    let note;
+    if (!signed) {
+      note = "Own commitment";
+    } else if (rosterRec && rosterRec.signed_track === "expansion-2026-07-23") {
+      note = `Signed in the expansion on ${formatLongDate(
+        rosterRec.signed_date || RATEPAYER_PLEDGE_EXPANSION_DATE
+      )}`;
+    } else if (
+      (rosterRec && rosterRec.signed_track === "doe-2026-04-24") ||
+      RATEPAYER_DOE_TRACK_SIGNATORIES.has(co.slug)
+    ) {
+      note = `Signed with DOE on ${formatLongDate(RATEPAYER_PLEDGE_DOE_DATE)}`;
+    } else {
+      note = `Signed at White House on ${formatLongDate(RATEPAYER_PLEDGE_DATE)}`;
+    }
     const mark = "✓";
 
     // Link the note to a source: signatories → the pledge proclamation;
@@ -4412,7 +5420,7 @@ function renderRatepayerScorecard() {
       prePledgeUl.appendChild(li);
     } else {
       for (const p of prePledge) {
-        prePledgeUl.appendChild(renderPrePledgeCard(p));
+        prePledgeUl.appendChild(renderPrePledgeCard(p, prePledgeNote(p)));
       }
     }
   }
@@ -4733,6 +5741,20 @@ function renderRatepayerCard(p) {
 // Compact card for unassessed signatory sites (no ratepayer assessment).
 // Used by both the pre-pledge section (default note) and the pledge-era
 // awaiting-assessment section (caller passes a note).
+// Why a given site sits in the pre-pledge bucket. Since the July expansion
+// there are two distinct reasons, and collapsing them would misread the July
+// cohort: a Meta site from 2024 predates a pledge that already existed by the
+// time we started tracking, whereas a CoreWeave site from May 2026 predates
+// CoreWeave's own signature by two months. The second is not a gap in the
+// company's follow-through; it is simply outside the window.
+function prePledgeNote(p) {
+  const signed = projectPledgeDate(p);
+  if (signed && signed !== RATEPAYER_PLEDGE_DATE) {
+    return `Announced before this operator signed (${formatLongDate(signed)})`;
+  }
+  return "National pledge — no site assessment";
+}
+
 function renderPrePledgeCard(p, note = "National pledge — no site assessment") {
   const co = state.companiesBySlug.get(p.company_slug);
   const li = document.createElement("li");

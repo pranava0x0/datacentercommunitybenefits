@@ -141,30 +141,51 @@ def _check_cross_refs(
     return errors
 
 
-def _is_ratepayer_eligible(p, signatory_slugs: set[str]) -> bool:
-    """Mirror docs/app.js's isPrePledgeProject: only signatory companies with a
-    pledge-era (on/after RATEPAYER_PLEDGE_DATE, or year-only 2026) announcement
-    are ever expected to carry a ratepayer assessment. A bare year can't be
-    placed either side of March 4, so a year-only 2026 record counts as
-    pledge-era here too, matching the frontend.
+def _signatory_dates(signatories) -> dict[str, date]:
+    """company slug -> the date that company joined the pledge.
+
+    Read from the roster rather than assumed, because the July 2026 expansion
+    made the join date vary by company: the original seven signed 2026-03-04,
+    QTS 2026-04-24, and CoreWeave / Crusoe / Prologis 2026-07-23.
     """
-    if p.company_slug not in signatory_slugs:
+    out: dict[str, date] = {}
+    for s in signatories.signatories:
+        if s.matched_company_slug and s.signed_date:
+            out[s.matched_company_slug] = s.signed_date
+    return out
+
+
+def _is_ratepayer_eligible(p, signed_dates: dict[str, date]) -> bool:
+    """Mirror docs/app.js's isPrePledgeProject.
+
+    A site is expected to carry a ratepayer assessment only when its operator
+    had ALREADY SIGNED when the site was announced. Before v2 this compared
+    every project against the single White House date; that silently mislabeled
+    the July cohort, whose sites announced in (say) May 2026 predate their own
+    operator's signature by two months and cannot reasonably be assessed
+    against a pledge that company had not yet made.
+
+    A year-only announcement is treated as pledge-era when the year is at or
+    after the signing year: a bare "2026" cannot be placed either side of a
+    specific day, so it stays in the awaiting-assessment bucket rather than
+    being confidently mislabeled pre-pledge.
+    """
+    signed = signed_dates.get(p.company_slug)
+    if signed is None:
         return False
     if p.announced_date:
-        return p.announced_date >= RATEPAYER_PLEDGE_DATE_OBJ
-    return p.announced_year >= RATEPAYER_PLEDGE_YEAR
+        return p.announced_date >= signed
+    return p.announced_year >= signed.year
 
 
 def _audit_missing_commitments(
-    projects: ProjectsPayload, companies: CompaniesPayload
+    projects: ProjectsPayload, signatories
 ) -> tuple[dict, dict]:
     """Audit projects for missing key commitment details.
 
     Returns: (critical_missing, medium_missing) dicts keyed by severity.
     """
-    signatory_slugs = {
-        c.slug for c in companies.companies if c.ratepayer_pledge_signatory
-    }
+    signed_dates = _signatory_dates(signatories)
 
     # Key commitment fields to check
     EXPECTATIONS = {
@@ -199,7 +220,7 @@ def _audit_missing_commitments(
                 missing_critical.append(field)
 
         for field in important:
-            if field == "ratepayer" and not _is_ratepayer_eligible(p, signatory_slugs):
+            if field == "ratepayer" and not _is_ratepayer_eligible(p, signed_dates):
                 continue
             if getattr(p, field, None) is None:
                 missing_medium.append(field)
@@ -362,7 +383,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
     # Audit missing commitment details if requested
     if audit:
         critical, medium = _audit_missing_commitments(
-            payloads["projects"], payloads["companies"]
+            payloads["projects"], payloads["signatories"]
         )
         stale_pending = _audit_stale_pending(payloads["moratoriums"], payloads["tariffs"])
         logger.warning(
