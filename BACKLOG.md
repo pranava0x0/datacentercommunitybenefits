@@ -309,6 +309,41 @@ to validate the connector framework end-to-end before tackling the others.
 
 ---
 
+### Ratepayer v2 — remaining spec phases (P5 roster lenses, P6 site refresh)
+`SPEC_RPP_V2.md` P0–P4 landed. Two phases remain:
+
+- **P5 utility layer — partially done.** The alias map shipped with the roster
+  (P1) and already meets the spec's ≥80% bar: 20 of 25 tariffs resolve to a
+  roster signatory. The 5 unmatched are four statewide frameworks ("All New
+  Jersey electric public utilities", ERCOT/PA/VA equivalents) and one federal
+  FERC co-location case — genuinely unmatchable, correctly reported rather than
+  forced. **Not done:** the roster-row *lenses* (§7.4 — expanding a utility row
+  to show its tariffs and the sites it serves) and the Aggregate "by signatory
+  category" rollup. Both are additive; the joins they need already exist
+  (`state.signatoryByUtilityAlias`). *Priority: medium.*
+- **P6 site-list refresh — not started.** The site list is stale (newest
+  `captured_at` 2026-07-15) and the roster's 28 developers are an unmined lead
+  list. Also wants `Project.serving_utility` backfilled for the top ~20
+  pledge-era sites — it is already implicit in several claims (Ameren, Entergy,
+  NIPSCO). This is a data-refresh session (REFRESH.md / the `data-refresh`
+  skill), not a code session, and will blow past the 10-URL fetch gate, so it
+  needs its own run with explicit approval. *Priority: medium.*
+
+### Chesterfield County SC — enacted_date disputed between two outlets
+`chesterfield-county-sc-2026-05` carries a sourcing note in its summary: the
+Progressive Journal (its primary source) places the unanimous second reading in
+early May 2026; a later Go Laurens roundup describes the ordinance as enacted in
+early June. The May date from the primary source is used. Re-check against the
+county council minutes and drop the note once resolved. *Priority: low.*
+
+### Governor addendum text is summarized, not quoted verbatim
+The 23 governor records cite the RGA release and carry a `notes` line describing
+the addendum, but we never captured the addendum's own language verbatim the way
+the five commitments are quoted. If the signed PDF
+(`Ratepayer-Protection-Pledge-Signed.pdf`, linked in the payload) contains the
+governors' text, quoting it would let the state panel show what a governor
+actually committed to rather than our paraphrase. *Priority: low.*
+
 ## Medium priority
 
 ### Tariff schema needs a tax-vs-rate-design distinction
@@ -591,9 +626,16 @@ Granicus/Legistar/Municode), promote it to `source_url` or add to `resources`.
 
 ## Performance + preview + restyle notes (2026-07-14)
 
-### Performance — currently good; optimizations if it grows — **low/medium**
-Baseline (live Pages, gzipped/CDN): first paint FCP ~340 ms · 6 reqs · ~202 KB;
-lazy-load per tab works; no images/web fonts. If it needs tightening later:
+### Performance — baseline moved in v2; now CI-gated — **medium**
+**The ~202 KB / 6-request baseline below described the Comparison landing and no
+longer applies.** v2 makes Ratepayer the landing view, which pulls projects +
+responses + the signatory roster into first paint: **~237 KB gzipped across 8
+requests**, inside the 250 KB / 8 guardrail but with almost no headroom.
+`tests/test_perf_budget.py` now fails CI on a regression and says in its failure
+message that the fix is to make the new payload lazy, not to raise the ceiling.
+
+Because headroom is thin, the two optimizations below moved from "if it grows"
+to the next thing worth doing:
 - **Code-split `app.js`** (~52 KB gz, monolithic — all views in one file). First
   paint only needs the Comparison logic; the moratorium/ratepayer/tariff/explorer
   renderers could load per-tab. It's vanilla JS (no bundler), so this is a manual
@@ -607,9 +649,12 @@ lazy-load per tab works; no images/web fonts. If it needs tightening later:
   got un-split (e.g. a heavy payload accidentally preloaded, or a web font added).
 
 ### Restyle notes — the design system is solid; minor polish only — **low**
-- **Long Ratepayer scorecard** (37 cards and growing) — add a sticky filter/search
-  or status-grouping (affirmed / pledge_only / contested) so users don't scroll the
-  whole list. The "⚠ Ratepayer concern" cards especially are worth surfacing to the top.
+- ~~**Long Ratepayer scorecard** — sticky filter/search + concern-first ordering~~
+  **DONE (v2).** `.rp-filterbar` sticks under the tab bar: search (matches site,
+  company, city, state code AND spelled-out state name), status chips that only
+  render for statuses actually present, and an "only sites with a ratepayer
+  concern" toggle. Concern cards sort first — a documented cost-shift is the most
+  consequential thing on the page and was buried alphabetically among 39 cards.
 - **Moratorium timeline x-axis on mobile** — the quarter labels (`Q1'24` … `Q3'26`,
   11 columns) can get cramped under ~380 px; verify and, if tight, show every other
   label or enable horizontal scroll on the plot (`.mtl-plot` already has `overflow-x`).

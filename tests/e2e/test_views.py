@@ -1967,3 +1967,82 @@ class TestStatePanel:
         page.wait_for_timeout(2500)
         assert page.locator("#sd-body .sd-empty").count() >= 1
         assert page.locator("#sd-body .sd-section").count() == 4
+
+
+class TestScorecardFilterBar:
+    """The scorecard runs to 39 cards and grows with every refresh. Before the
+    filter bar the only way to reach a site was to scroll past all of them."""
+
+    def test_filter_bar_renders_only_populated_statuses(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-status-filter .rp-filter-chip", timeout=10_000)
+        chips = page.locator("#rp-status-filter .rp-filter-chip")
+        # "All" plus one chip per status actually present — never a zero chip.
+        assert chips.count() >= 2
+        for i in range(chips.count()):
+            n = chips.nth(i).locator(".rp-filter-chip-n").inner_text()
+            assert int(n) > 0, "a filter chip promises results it cannot deliver"
+
+    def test_concern_cards_sort_first(self, page: Page, base_url: str):
+        """A documented cost-shift is the most consequential thing on the page
+        and must not sit buried alphabetically among 39 cards."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        flags = page.evaluate(
+            "() => [...document.querySelectorAll('#rp-scorecard .rp-card')]"
+            ".map(c => c.innerText.includes('Ratepayer concern'))"
+        )
+        assert any(flags), "no concern cards in the cohort to order"
+        first_false = flags.index(False)
+        assert not any(flags[first_false:]), "a concern card sorted below a clean one"
+
+    def test_status_filter_narrows_the_list(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        total = page.locator("#rp-scorecard .rp-card").count()
+        page.locator('.rp-filter-chip[data-status="contested"]').click()
+        page.wait_for_timeout(300)
+        narrowed = page.locator("#rp-scorecard .rp-card").count()
+        assert 0 < narrowed < total
+        expect(page.locator("#rp-filter-count")).to_contain_text(f"of {total}")
+
+    def test_search_matches_the_spelled_out_state(self, page: Page, base_url: str):
+        """Records store 'GA'; readers type 'Georgia'. A search that silently
+        returns nothing reads as 'no sites here', not 'wrong query'."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#rp-q").fill("georgia")
+        page.wait_for_timeout(300)
+        assert page.locator("#rp-scorecard .rp-card").count() >= 1
+
+    def test_concerns_only_toggle(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        total = page.locator("#rp-scorecard .rp-card").count()
+        page.locator("#rp-only-concerns").check()
+        page.wait_for_timeout(300)
+        shown = page.locator("#rp-scorecard .rp-card").count()
+        assert 0 < shown < total
+        for i in range(shown):
+            assert "Ratepayer concern" in page.locator("#rp-scorecard .rp-card").nth(i).inner_text()
+
+    def test_empty_filter_result_says_so(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#rp-q").fill("zzzzznotasite")
+        page.wait_for_timeout(300)
+        assert page.locator("#rp-scorecard .rp-card").count() == 0
+        assert "match" in page.locator("#rp-scorecard").inner_text().lower()
+
+    def test_csv_carries_the_signing_track(self, page: Page, base_url: str):
+        """A scorecard row is not interpretable without knowing WHICH pledge
+        round the operator signed in — there are three."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        header = page.evaluate("() => buildRatepayerCSV().split('\\n')[0]")
+        assert "Signing Track" in header
+        assert "Company Signed Date" in header
+        row = page.evaluate("() => buildRatepayerCSV().split('\\n')[1]")
+        assert "2026" in row

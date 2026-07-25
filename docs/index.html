@@ -729,6 +729,31 @@
               <button id="rp-export-pdf" class="btn-ghost" type="button">⤓ PDF</button>
             </span>
           </div>
+          <!-- Sticky filter bar. The scorecard is 39 cards and growing; before
+               this the only way to find a site was to scroll all of them. -->
+          <div class="rp-filterbar" id="rp-filterbar">
+            <label class="rp-filter-search" for="rp-q">
+              <span class="visually-hidden">Search assessed sites</span>
+              <input
+                id="rp-q"
+                type="search"
+                placeholder="Search site, company, or state…"
+                autocomplete="off"
+              />
+            </label>
+            <div
+              class="rp-filter-chips"
+              id="rp-status-filter"
+              role="group"
+              aria-label="Filter by assessment status"
+            ></div>
+            <label class="rp-filter-flag">
+              <input type="checkbox" id="rp-only-concerns" />
+              Only sites with a ratepayer concern
+            </label>
+            <p class="rp-filter-count" id="rp-filter-count" role="status"></p>
+          </div>
+
           <label class="rp-toggle">
             <input type="checkbox" id="rp-show-non-signatory" />
             Show sites from companies that never signed

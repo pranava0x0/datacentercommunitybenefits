@@ -5233,6 +5233,8 @@ function buildRatepayerCSV() {
 
   const headers = [
     "Company",
+    "Signing Track",
+    "Company Signed Date",
     "Project Name",
     "City",
     "State",
@@ -5287,8 +5289,15 @@ function buildRatepayerCSV() {
       return "N/A";
     });
 
+    // Which pledge round the operator signed in. Since the July expansion the
+    // cohort spans three tracks, and a scorecard row is not interpretable
+    // without knowing which pledge the site is being measured against.
+    const sig = state.signatoryByCompany && state.signatoryByCompany.get(p.company_slug);
+
     const row = [
       co ? co.name : p.company_slug,
+      sig ? SIGNATORY_TRACK_LABELS[sig.signed_track] || sig.signed_track : "Not a signatory",
+      sig && sig.signed_date ? sig.signed_date : "",
       p.name,
       p.city,
       p.state,
@@ -5366,15 +5375,120 @@ function downloadRatepayerCSV() {
   URL.revokeObjectURL(url);
 }
 
+// Scorecard filter state. Deliberately module-level and NOT persisted: a
+// returning reader should see the whole cohort, not whatever slice they left
+// behind — same reasoning as _lastDetailTab not going to localStorage.
+const _rpFilter = { q: "", status: "", concernsOnly: false };
+
+// Sites matching the current filter, concern-first.
+//
+// Ordering is the point of the sort: a site where someone has documented costs
+// reaching ratepayers is the most consequential thing on the page, and it was
+// previously buried alphabetically among 39 cards.
+function filteredAssessedProjects() {
+  const q = _rpFilter.q.trim().toLowerCase();
+  const rows = ratepayerAssessedProjects().filter((p) => {
+    if (_rpFilter.status && p.ratepayer.status !== _rpFilter.status) return false;
+    if (_rpFilter.concernsOnly && !rpConflictingReports(p).length) return false;
+    if (!q) return true;
+    const co = state.companiesBySlug.get(p.company_slug);
+    // Match the spelled-out state too — records store "GA", but people type
+    // "Georgia", and a search that silently returns nothing reads as "no sites
+    // here" rather than "wrong query".
+    const stateName = STATE_NAMES[String(p.state || "").toUpperCase()] || "";
+    return (
+      p.name.toLowerCase().includes(q) ||
+      (co ? co.name : p.company_slug).toLowerCase().includes(q) ||
+      String(p.state || "").toLowerCase().includes(q) ||
+      stateName.toLowerCase().includes(q) ||
+      String(p.city || "").toLowerCase().includes(q)
+    );
+  });
+
+  return rows.sort((a, b) => {
+    const concern = (p) => (rpConflictingReports(p).length ? 0 : 1);
+    const d = concern(a) - concern(b);
+    if (d !== 0) return d;
+    return 0; // ratepayerAssessedProjects already sorts within the group
+  });
+}
+
+function renderRatepayerFilterBar() {
+  const wrap = document.getElementById("rp-status-filter");
+  if (!wrap) return;
+
+  if (wrap.dataset.built !== "1") {
+    wrap.dataset.built = "1";
+    const all = ratepayerAssessedProjects();
+    const options = [
+      { key: "", label: "All", n: all.length },
+      ...RATEPAYER_STATUSES.map((s) => ({
+        key: s,
+        label: RATEPAYER_LABELS[s] || s,
+        n: all.filter((p) => p.ratepayer.status === s).length,
+      })).filter((o) => o.n > 0), // honest-absence: no zero chips
+    ];
+    wrap.replaceChildren(
+      ...options.map((o) => {
+        const btn = el("button", `rp-filter-chip is-${o.key || "all"}`);
+        btn.type = "button";
+        btn.dataset.status = o.key;
+        btn.setAttribute("aria-pressed", String(_rpFilter.status === o.key));
+        btn.append(el("span", null, o.label), el("span", "rp-filter-chip-n", String(o.n)));
+        btn.addEventListener("click", () => {
+          _rpFilter.status = o.key;
+          for (const other of wrap.querySelectorAll(".rp-filter-chip")) {
+            other.setAttribute("aria-pressed", String(other.dataset.status === o.key));
+          }
+          renderRatepayerScorecard();
+        });
+        return btn;
+      })
+    );
+  }
+
+  const input = document.getElementById("rp-q");
+  if (input && input.dataset.wired !== "1") {
+    input.dataset.wired = "1";
+    input.addEventListener("input", () => {
+      _rpFilter.q = input.value;
+      renderRatepayerScorecard();
+    });
+  }
+  const only = document.getElementById("rp-only-concerns");
+  if (only && only.dataset.wired !== "1") {
+    only.dataset.wired = "1";
+    only.addEventListener("change", () => {
+      _rpFilter.concernsOnly = only.checked;
+      renderRatepayerScorecard();
+    });
+  }
+}
+
 function renderRatepayerScorecard() {
+  renderRatepayerFilterBar();
+
   const ul = document.getElementById("rp-scorecard");
   if (ul) {
     ul.innerHTML = "";
-    const assessed = ratepayerAssessedProjects();
-    if (assessed.length === 0) {
+    const total = ratepayerAssessedProjects().length;
+    const assessed = filteredAssessedProjects();
+    const count = document.getElementById("rp-filter-count");
+    if (count) {
+      count.textContent =
+        assessed.length === total
+          ? `${total} assessed site${total === 1 ? "" : "s"}`
+          : `Showing ${assessed.length} of ${total} assessed sites`;
+    }
+    if (total === 0) {
       const li = document.createElement("li");
       li.className = "muted";
       li.textContent = "No assessed data centers yet.";
+      ul.appendChild(li);
+    } else if (assessed.length === 0) {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = "No assessed sites match these filters.";
       ul.appendChild(li);
     } else {
       for (const p of assessed) {

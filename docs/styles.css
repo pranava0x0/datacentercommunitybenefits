@@ -5579,3 +5579,100 @@ body.state-modal-open {
   .pledge-meter-lbl { white-space: normal; }
   .pledge-activity-item { grid-template-columns: 1fr; gap: 1px; }
 }
+
+/* --- Scorecard filter bar (v2) --------------------------------------------
+   Sticky under the tab bar. The scorecard runs to 39 cards and growing, and
+   before this the only way to reach a site was to scroll past all of them
+   (BACKLOG: "Long Ratepayer scorecard"). Sticky offset matches the tab bar's
+   height so the two never overlap. */
+
+.rp-filterbar {
+  position: sticky;
+  top: 41px;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 10px 0 12px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.rp-filter-search input {
+  min-width: 220px;
+  padding: 6px 10px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.rp-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rp-filter-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 11px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.rp-filter-chip[aria-pressed="true"] {
+  border-color: var(--accent-mark);
+  color: var(--text);
+  background: var(--accent-soft);
+}
+
+/* Status chips carry the same hue language as the cards they filter. */
+.rp-filter-chip.is-affirmed[aria-pressed="true"] {
+  border-color: var(--ratepayer-affirmed);
+}
+.rp-filter-chip.is-pledge_only[aria-pressed="true"] {
+  border-color: var(--ratepayer-pledge_only);
+}
+.rp-filter-chip.is-contested[aria-pressed="true"] {
+  border-color: var(--ratepayer-contested);
+}
+
+.rp-filter-chip-n {
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+
+.rp-filter-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.rp-filter-count {
+  margin: 0 0 0 auto;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 700px) {
+  .rp-filterbar {
+    position: static;
+  }
+  .rp-filter-count {
+    margin-left: 0;
+  }
+}

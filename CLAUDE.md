@@ -360,16 +360,16 @@ A test (`test_at_least_one_of_each_delivered_status`) asserts the seed dataset s
 
 The CSS palette mirrors stance hues (delivered ↔ positive, shortfall ↔ negative, partial / contested ↔ mixed-adjacent) so reading the dashboard's color signal stays consistent across the Claims tab and the Community tab.
 
-### Ratepayer Protection Pledge view (v1.15)
+### Ratepayer Protection Pledge view (v1.15, substantially revised in v2 — read the v2 section below first)
 
 A **third top-level tab** (`view-ratepayer`) built around a real-world anchor: the White House Ratepayer Protection Pledge, signed 2026-03-04 at the White House by seven hyperscalers (Amazon, Google, Meta, Microsoft, OpenAI, Oracle, xAI); QTS became the eighth signatory via the DOE companion track on 2026-04-24 (`RATEPAYER_PLEDGE_DOE_DATE`). The view answers "who signed, and is it showing up at the data centers they've announced since?" — top-level stat tiles, a signatory roster, and a per-site scorecard. Unassessed signatory sites are split date-aware by `isPrePledgeProject()` in app.js into two sections: "Pledge-era sites awaiting assessment" (`#rp-unassessed`: announced on/after the pledge, or year-only 2026 — a bare year can't be placed either side of March 4, so it stays pledge-era rather than being mislabeled) and "Sites announced before the pledge" (`#rp-pre-pledge`). The CSV export labels the buckets `not-yet-assessed` / `pre-pledge`. Bucketing is company-agnostic (White House date) — no dated QTS site currently lands in the Mar 4 – Apr 24 DOE-track window; revisit if one does. Lazy-loads the projects/responses payload (NOT Leaflet — that stays Explorer-only) via the shared `loadProjectData()` extracted from `loadExplorerData()`. Deep-linkable at `#ratepayer`.
 
 Two data structures back it, both in [schema.py](schema.py):
-- **`Company.ratepayer_pledge_signatory`** (bool, default False) — the eight signatories (seven White House 2026-03-04 + QTS via DOE track 2026-04-24). This is **fixed historical fact, not a curator judgment** — don't flip it for companies that publish their own ratepayer commitment but didn't sign (Anthropic stays False). The roster note distinguishes tracks ("Signed at White House on March 4, 2026" vs "Signed with DOE on April 24, 2026", driven by `RATEPAYER_DOE_TRACK_SIGNATORIES` in app.js). `test_exactly_the_eight_signatories_flagged` guards the roster.
+- **`Company.ratepayer_pledge_signatory`** (bool, default False) — **v2: now a MIRROR of `signatories.json`, not a hand-maintained list.** Eleven tracked companies are signatories as of 2026-07-23 (the original seven, QTS via DOE, plus CoreWeave / Crusoe / Prologis from the expansion). Still **fixed historical fact, not a curator judgment** — don't flip it for companies that publish their own commitment but didn't sign (Anthropic stays False). Flip it only when the roster says so. `test_signatory_flags_match_the_roster` asserts the two agree; `test_the_original_eight_are_still_signatories` keeps the March/DOE cohort from being dropped. The old `test_exactly_the_eight_signatories_flagged` hardcoded the set, which is exactly what let the flag sit stale through an expansion that tripled it — **don't reintroduce a hardcoded roster in a test.**
 - **`Project.ratepayer`** (Optional `Ratepayer` sub-object) — a curated per-site assessment with a 3-status vocab: `affirmed` (site-specific pay-our-own-way commitment exists; `evidence_claim_id` points at the backing verbatim Claim) / `pledge_only` (signatory + post-pledge, no site-specific commitment captured) / `contested` (third party documents the site shifting costs despite the pledge). Frozen for v1.
 
 Drift-safe rules (same spirit as the delivered block):
-- **Only attach `ratepayer` to signatory projects announced on/after 2026-03-04.** Pre-pledge or non-signatory sites get nothing — `test_assessed_projects_belong_to_signatories` and `test_assessed_projects_announced_on_or_after_pledge` enforce the cohort boundary. Absence is honest.
+- **Only attach `ratepayer` to signatory projects announced on/after THEIR OPERATOR'S signing date** (v2; it was a flat 2026-03-04 before). Pre-pledge or non-signatory sites get nothing — `test_assessed_projects_belong_to_signatories` and `test_assessed_projects_announced_on_or_after_pledge` enforce the cohort boundary. Absence is honest.
 - **`pledge_only` is NOT a failing grade.** It means "covered by the national signature, nothing site-specific captured." Don't write it as criticism; don't attach an `evidence_claim_id` to it (`test_pledge_only_assessments_have_no_evidence_claim`).
 - **`affirmed` MUST cite a real, project-owned claim** in `evidence_claim_id`. refresh.py's cross-ref pass validates the id exists AND belongs to the same project; `test_affirmed_assessments_cite_a_real_owned_claim` mirrors it.
 - **No forced one-of-each-status.** Unlike delivered, only `affirmed` + `pledge_only` are required (`test_at_least_one_affirmed_and_one_pledge_only`); the frontend legend (`renderRatepayerLegend`) only renders chips for statuses actually present in the cohort. The first `contested` examples landed 2026-06-11: the three post-pledge Amazon Mississippi sites (`amazon-clinton-ms`, `amazon-vicksburg-ms`, `aws-ridgeland-ms`), based on the May 2026 Synapse Energy Economics report (commissioned by Earthjustice / Environmental Advocates Mississippi; covered by Mississippi Today and independently by Vicksburg Daily News) estimating ~$38M in data-center-related costs already charged to Entergy Mississippi residential ratepayers — while Amazon/Entergy maintain full-cost payment and invoke the pledge. That's the canonical `contested` shape: surface both sides, don't pick one. Each contested site keeps its `evidence_claim_id` (the company's affirmation is the other half of the dispute), flips the `delivery_infra` principle to `not_met` with a dispute-aware note, and carries a paired negative `CommunityResponse` (constituency `ngo`) citing the report coverage. **Don't** mark `contested` from criticism of a rate *structure* alone (e.g. NIPSCO GenCo skepticism in Indiana) — it requires documented cost-shifting at/serving the site.
@@ -381,11 +381,13 @@ The roster's non-signatory flagging (Anthropic surfaces as "Own commitment") is 
 
 Every ratepayer card (assessed, pledge-era unassessed, and pre-pledge) renders an always-visible **"Sources:" footer** via `rpCardSourcesHtml(p)` in app.js. Before v1.17, only `affirmed`/`contested` sites surfaced a link — and only after expanding two nested `<details>` — so the 18 `pledge_only` sites and all pre-pledge sites read as having *no* evidence at all. The helper dedupes by URL and links, in order: the site-specific evidence claim's `source_url` (when present) → the project's `project_page_url` → the project's `source_url` (always present, schema-required) → the pledge proclamation (`RATEPAYER_PLEDGE_URL`). Because the project's own `source_url` is always present, the footer is **robust to the claims payload not being loaded yet** (the deep-link race), unlike the evidence blockquote which needs `state.claims`. The roster also links each row (signatories → the pledge; "Own commitment" companies → their `dedicated_page_url`). `test_ratepayer_cards_have_sources_helper` guards that the helper exists and is called in both card renderers. **Don't** bury the source links back inside the collapsible evidence `<details>` — the always-visible footer is the fix.
 
-### Non-signatory companies toggle (v1.21)
+### Non-signatory companies toggle (v1.21; roster changed in v2)
 
-The Ratepayer view has a **"Show non-signatory companies" checkbox** (hidden `#rp-non-signatory-section`, unchecked by default) that reveals sites from companies that never signed the pledge at all (CoreWeave, Crusoe, Anthropic, Wonder Valley, Prologis) — `ratepayerNonSignatoryProjects()` in app.js, the inverse filter of `ratepayerSignatories()`. These sites reuse `renderPrePledgeCard()` (same card, same source-footer helper) labeled "Not a pledge signatory" instead of getting their own render path. **Don't** attach a `ratepayer` assessment to any of these sites — the frozen rule (`_is_ratepayer_eligible` in refresh.py, `isPrePledgeProject` in app.js) is signatory + post-pledge-date only; this toggle is a comparison affordance, not a scope change to what gets assessed. See DESIGN.md's "Opt-in reveal" pattern — reuse this shape (hidden section + labeled checkbox) rather than a new tab for future adjacent-but-out-of-scope data asks.
+**v2 note:** CoreWeave, Crusoe and Prologis signed on 2026-07-23 and are no longer covered by this toggle. Only **Anthropic and Wonder Valley** remain genuine non-signatories. The membership is derived from the roster, so it corrects itself — but any prose naming the non-signatories will not, so check it after an expansion.
 
-**`refresh.py`'s audit had a signatory-blind bug (fixed 2026-07-15):** `_audit_missing_commitments` flagged "missing ratepayer" for every operational/construction project regardless of company, over-flagging ~18 non-signatory records (CoreWeave, Crusoe) that should never carry an assessment. Fixed by mirroring `isPrePledgeProject`'s signatory + date check in a new `_is_ratepayer_eligible` helper before generating `ISSUES.md`. If the medium-gap ratepayer count spikes again after adding a new company, check whether `_is_ratepayer_eligible` needs to account for it.
+The Ratepayer view has a **"Show non-signatory companies" checkbox** (hidden `#rp-non-signatory-section`, unchecked by default) that reveals sites from companies that never signed the pledge at all — `ratepayerNonSignatoryProjects()` in app.js, the inverse filter of `ratepayerSignatories()`. These sites reuse `renderPrePledgeCard()` (same card, same source-footer helper) labeled "Not a pledge signatory" instead of getting their own render path. **Don't** attach a `ratepayer` assessment to any of these sites — the frozen rule (`_is_ratepayer_eligible` in refresh.py, `isPrePledgeProject` in app.js) is signatory + post-pledge-date only; this toggle is a comparison affordance, not a scope change to what gets assessed. See DESIGN.md's "Opt-in reveal" pattern — reuse this shape (hidden section + labeled checkbox) rather than a new tab for future adjacent-but-out-of-scope data asks.
+
+**`refresh.py`'s audit had a signatory-blind bug (fixed 2026-07-15):** `_audit_missing_commitments` flagged "missing ratepayer" for every operational/construction project regardless of company, over-flagging ~18 non-signatory records (CoreWeave, Crusoe) that should never carry an assessment. Fixed by mirroring `isPrePledgeProject`'s signatory + date check in a new `_is_ratepayer_eligible` helper before generating `ISSUES.md`. If the medium-gap ratepayer count spikes again after adding a new company, check whether `_is_ratepayer_eligible` needs to account for it. **In v2 that helper takes a `{slug: signed_date}` map built from `signatories.json` (`_signatory_dates`) rather than a set of slugs** — see "Roster-driven eligibility" below.
 
 ### State utility tariffs view (v1.17)
 
@@ -631,6 +633,176 @@ app.js + the preloaded `companies.json`/`claims.json`; `projects`/`responses`/
 **Keep it that way:** no web fonts, no un-optimized images, keep new heavy data
 lazy-per-tab (never preload it). Regression signal: first paint > ~500 KB or > ~12
 requests. Optimization ideas in [BACKLOG.md](BACKLOG.md).
+
+### Signatory registry — the breadth tier (v2)
+
+On 2026-07-23 the pledge went from 8 organizations to 200+. `Signatory` +
+`signatories.json` track them. **Two tiers, deliberately:**
+
+- **`Company`** — depth. 13 slugs, each with curated claims, projects, a written
+  summary. Adding one still requires the two-gate editorial test.
+- **`Signatory`** — breadth. Every roster row, carrying only what the roster
+  publishes (name, category, domain, track, date). `matched_company_slug`
+  bridges the two.
+
+**Don't** expand `companies.json` to hold the roster. It breaks the company
+rule, explodes `COMPANY_SLUGS`, and implies we have researched 279
+cooperatives. The thin record is the honest shape.
+
+`scripts/build_signatories.py` builds the seed from the White House page
+(`--cached` to parse the cache, `--diff` to preview adds/removals). Idempotent:
+an unchanged page produces a byte-identical file, so any diff means the roster
+actually moved. **It never auto-deletes** — a removal is news; `--diff` surfaces
+it for a curator.
+
+Two integrity lessons from building it:
+
+- **The source page disagrees with itself.** On 2026-07-25 its filter chips
+  advertised 281 organizations / 69 utilities while the list underneath held
+  279 / 68. Both are stored — ours derived from the list, theirs verbatim in
+  `roster_counts_stated` — and `drift_note` states the gap in reader-facing
+  words, surfaced in the UI (`#rp-drift-note`). **Don't** silently pick one;
+  reconciling a source's self-contradiction is inventing a fact.
+- **Two distinct co-ops share a name.** "Southeastern Electric Cooperative"
+  appears twice on different domains. The first parser deduped by slug and
+  silently dropped one. It now disambiguates by domain and *raises* rather than
+  dropping a row it cannot tell apart. Any dedupe over an external list needs
+  the same shape: disambiguate or fail, never drop.
+
+Governors are signatory records too (`category: "governor"`, `state` required,
+sourced to the RGA release) so the state panel gets its governor row for free —
+but their `notes` must record that they signed an **addendum**, not the
+corporate pledge, and `test_governors_are_not_conflated_with_corporate_signatories`
+enforces it.
+
+`utility_aliases` maps tariff `utility` strings onto roster rows. **Exact
+matches only, hand-curated** — AEP Ohio and AEP Texas are different companies
+and no fuzzy matcher is trusted to know that. Where a holding company signed
+and the tariff names its subsidiary (Berkshire → NV Energy, Exelon → ComEd,
+WEC → We Energies, MDU → Montana-Dakota), the record's `notes` says so rather
+than flattening the two. Coverage is 20/25 tariffs; the 5 unmatched are four
+statewide frameworks and one federal FERC case — genuinely unmatchable, and
+reported rather than forced.
+
+Vocab mirrors to app.js as `SIGNATORY_CATEGORIES` / `SIGNATORY_TRACKS` (+ label
+maps), parity-tested. Note the deliberate split from the source page: it files
+all data-center companies under one "DATA CENTER" chip; we re-tag the seven
+March-round buyers as `hyperscaler` because a company buying power and a
+developer building the shell answer different questions here.
+
+### Roster-driven eligibility (v2 — supersedes the flat pledge date)
+
+**A site is assessable only if its operator had already signed when the site was
+announced.** Before v2 this compared every project against the single White
+House date, which mislabels the July cohort: a CoreWeave site announced in May
+2026 predates CoreWeave's own signature by two months and cannot be measured
+against a pledge that company had not yet made.
+
+Both sides read per-company join dates from the roster:
+- `refresh.py` — `_signatory_dates(signatories)` → `_is_ratepayer_eligible(p, signed_dates)`
+- `app.js` — `projectPledgeDate(p)` → `isPrePledgeProject(p)`
+
+`projectPledgeDate` falls back to the White House date while the roster payload
+is still in flight, so a cold deep-link doesn't briefly render every site as
+non-signatory.
+
+The pre-pledge bucket now carries **two** reasons, and `prePledgeNote()` says
+which: a 2024 Meta site predates a pledge that existed before we tracked it; a
+May 2026 CoreWeave site predates *its own operator's* signature. The second is
+not a gap in follow-through — it is outside the window. **Don't** collapse them
+back into one label.
+
+### Pledge-first landing + civic palette (v2)
+
+`#ratepayer` is the **default view** (`DEFAULT_VIEW_NAME` in app.js, hoisted
+above `state` because `state` initializes from it and would otherwise hit the
+temporal dead zone). Comparison gained an explicit `#comparison` hash — it had
+been the bare-root view, and demoting it without one would have left it
+un-linkable.
+
+The landing band sits **above the tab bar**, inside `<header>`. `.topbar` is no
+longer `position: sticky` (a hero-sized sticky band eats the viewport); the new
+`.tabbar-sticky` wrapper sticks instead.
+
+**It is not four stat tiles.** An early cut was, and four numbers said nothing
+about shape. It now carries a proportional roster bar (the coalition is 63%
+rural co-ops), per-commitment meters (how thin the site evidence still is), a
+50-state strip (how partial coverage is), and a dated activity feed. Every
+figure renders from data — `test_landing_numbers_come_from_data_not_markup`
+asserts no roster count is baked into `index.html`, because the roster moves.
+
+**Palette: cool paper / near-black ink / one deep signal blue.** The first cut
+adopted the source page's cream-and-gold and read as a consumer AI product;
+this is a public record. What carries the reference is the *structure* — Roman
+numeral commitments, letterspaced kickers, display serif. Token names changed:
+`--accent-gold` / `--accent-gold-bright` / `--band-gold` are gone, replaced by
+`--accent-mark` (text-safe) / `--accent-rule` / `--band-accent`.
+
+**Compute contrast, don't eyeball it.** The source page's ochre is 2.96:1 on its
+own cream — below both the 4.5:1 small-text and 3:1 large-text floors. It was
+in the spec as `--accent-gold` and would have shipped unusable. Every token in
+the current palette was checked before landing.
+
+`--font-display` is a **system serif stack**; the no-web-fonts guardrail is now
+enforced by `tests/test_perf_budget.py`, not just documented.
+
+The global `h4` rule sets `text-transform: uppercase` + sans + muted. Any new
+display heading using `<h4>` must override all three (`.rp-commit-title`,
+`.rp-subhead` do) or it renders as an eyebrow label.
+
+### First-paint budget is now a test (v2)
+
+Making Ratepayer the landing view pulled projects + responses + the roster into
+first paint: **~141 KB → ~237 KB gzipped across 8 requests**, inside the 250 KB
+/ 8 guardrail but with little headroom. The old ~202 KB / 6 baseline in this
+file described the Comparison landing and no longer applies.
+
+`tests/test_perf_budget.py` gates it. **When it fails, make the new payload lazy
+— don't raise the ceiling.** Sizes are measured gzipped because that is how
+Pages serves them, and raw bytes flatter JSON enormously (signatories.json is
+121 KB raw, 8 KB gzipped).
+
+### `Moratorium.state_code` (v2)
+
+Explicit field, backfilled for all 102 records. The spec expected to parse a
+`", TX"` suffix off `jurisdiction`; **no record has one** — `jurisdiction` is a
+bare place name ("Baltimore", "Cave City") and the id only sometimes carries a
+code. 81 were derivable from the id or a state-name lookup; **20 needed hand
+verification against each record's own source**, because city names are
+ambiguous (Madison, Smithfield and St. Charles each exist in several states).
+
+A payload validator rejects any non-federal record without one. That matters
+because the failure mode is silent: a missing code doesn't error anywhere, the
+record just stops appearing in its state's panel, which reads as "no
+moratoriums here" rather than as a data gap.
+
+### State panel (v2)
+
+Deep-linkable at `#state/XX`, following the tariff-modal pattern exactly
+(backdrop, Escape, focus trap, return-focus). Assembled entirely from records
+collected for other views — no new record type backs it.
+
+- It **lazy-loads moratoriums + tariffs on open**, because a visitor can arrive
+  from the landing band without ever having opened those tabs, and a panel
+  showing "no tariffs" because the payload had not loaded would be a lie.
+- **Every section renders even when empty.** AK / MT / SD have a governor
+  signature and nothing else; that *is* the answer and is stated, not hidden.
+- **Read the state code from the hash BEFORE calling `activateView`** — it
+  rewrites the hash to `#ratepayer`, so reading afterwards yields `"yer"`. This
+  cost a debugging cycle.
+- `"XX"` is the sentinel a few records use for virtual / multi-site
+  partnerships with no physical location. It must never become a state chip
+  (`NON_GEOGRAPHIC_STATE` in app.js).
+
+### e2e: the comparison pane is hidden by default now (v2)
+
+28 tests broke at once on `wait_for_selector("#matrix-body tr")` — the rows are
+in the DOM but the pane is `hidden`, so the default `state="visible"` wait times
+out. This is the same trap CLAUDE.md already documents for the Community pane.
+Those tests now navigate to `/#comparison`, which is also what a real reader
+does. **When you change which view is default, every test that `goto("/")` and
+then waits on another view's DOM will fail — route them through the hash rather
+than loosening the wait.**
 
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
