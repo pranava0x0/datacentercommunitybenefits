@@ -5058,6 +5058,7 @@ body.tariff-modal-open {
 
 .rp-sig-row {
   display: grid;
+  grid-template-areas: "name cat track domain";
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 10px;
   align-items: baseline;
@@ -5067,9 +5068,14 @@ body.tariff-modal-open {
 }
 
 .rp-sig-name {
+  grid-area: name;
   color: var(--text);
   font-weight: 500;
 }
+
+.rp-sig-cat { grid-area: cat; }
+.rp-sig-track { grid-area: track; }
+.rp-sig-domain { grid-area: domain; }
 
 .rp-sig-cat,
 .rp-sig-track,
@@ -5090,9 +5096,14 @@ body.tariff-modal-open {
 }
 
 @media (max-width: 700px) {
-  .rp-sig-row {
+  .rp-sig-row,
+  .rp-sig-row.has-lens {
+    grid-template-areas: none;
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+  .rp-sig-row > * {
+    grid-area: auto;
   }
 }
 
@@ -5675,4 +5686,92 @@ body.state-modal-open {
   .rp-filter-count {
     margin-left: 0;
   }
+}
+
+/* --- Signatory roster lens (v2, P5) ---------------------------------------
+   The roster row IS the lens — no per-signatory pages for 300 organizations.
+   A row only becomes expandable when we can say something concrete about it;
+   most cooperatives stay flat, which is the honest state. */
+
+.rp-sig-row.has-lens {
+  grid-template-areas:
+    "name cat track domain"
+    "expand expand expand expand"
+    "lens lens lens lens";
+}
+
+.rp-sig-expand {
+  grid-area: expand;
+  justify-self: start;
+  margin-top: 2px;
+  padding: 2px 0;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 0.72rem;
+  color: var(--accent-mark);
+  cursor: pointer;
+}
+
+.rp-sig-expand:hover {
+  text-decoration: underline;
+}
+
+.rp-sig-lens {
+  grid-area: lens;
+  margin: 6px 0 4px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border-left: 2px solid var(--accent-rule);
+  border-radius: var(--radius-sm);
+}
+
+/* [hidden] trap: the block display above would beat the attribute. */
+.rp-sig-lens[hidden] {
+  display: none;
+}
+
+.rp-sig-lens-h {
+  /* Overrides the global uppercase h4/h5 treatment. */
+  margin: 0 0 4px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rp-sig-lens-h + .rp-sig-lens-list {
+  margin-bottom: 8px;
+}
+
+.rp-sig-lens-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rp-sig-lens-link {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--link);
+  text-align: left;
+  cursor: pointer;
+}
+
+.rp-sig-lens-link:hover {
+  text-decoration: underline;
+}
+
+.rp-sig-lens-note,
+.rp-sig-lens-loading {
+  margin: 4px 0 0;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  font-style: italic;
 }

@@ -889,7 +889,9 @@ async function loadRatepayerView() {
 // Aggregate view: needs the project payload but not Leaflet.
 async function loadAggregateView() {
   if (state.aggregateLoaded) return;
-  await loadProjectData();
+  // The by-signatory-category rollup needs the roster; without it every
+  // company would fall into "Did not sign".
+  await Promise.all([loadProjectData(), loadSignatoryData()]);
   state.aggregateLoaded = true;
   renderAggregateView();
 }
@@ -4719,7 +4721,7 @@ function renderStatePanel(code) {
       title: "Utility tariffs",
       empty: "No large-load tariff on file for this state yet.",
       items: tariffs.map((t) => ({
-        label: t.name,
+        label: t.tariff_name,
         meta: [t.utility, TARIFF_STATUS_LABELS[t.status] || t.status]
           .filter(Boolean)
           .join(" · "),
@@ -4879,9 +4881,137 @@ function renderSignatoryRoster() {
         const tag = el("span", "rp-sig-tracked", "Tracked here");
         li.append(tag);
       }
+
+      // The row IS the lens (spec 7.4): no per-signatory pages for 300 orgs,
+      // but a row we can say something concrete about expands to say it.
+      const lens = signatoryLensSummary(s);
+      if (lens) {
+        li.classList.add("has-lens");
+        const btn = el("button", "rp-sig-expand");
+        btn.type = "button";
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = lens;
+        const panel = el("div", "rp-sig-lens");
+        panel.hidden = true;
+        btn.addEventListener("click", async () => {
+          const open = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!open));
+          panel.hidden = open;
+          if (!open && panel.dataset.filled !== "1") {
+            panel.dataset.filled = "1";
+            await renderSignatoryLens(s, panel);
+          }
+        });
+        li.append(btn, panel);
+      }
       return li;
     })
   );
+}
+
+// What we can show for a roster row, or null when the honest answer is
+// "nothing beyond what the roster itself publishes".
+//
+// Counts come from data already loaded on this view (projects) plus tariffs,
+// which may not be loaded yet — so the label reports only what it can count
+// without a fetch, and the panel fills in the rest on expand.
+function signatoryLensSummary(s) {
+  const parts = [];
+  if (s.matched_company_slug) {
+    const n = (state.projects || []).filter(
+      (p) => p.company_slug === s.matched_company_slug
+    ).length;
+    if (n) parts.push(`${n} tracked site${n === 1 ? "" : "s"}`);
+  }
+  const served = (state.projects || []).filter(
+    (p) => p.serving_utility_signatory_id === s.id
+  ).length;
+  if (served) parts.push(`serves ${served} tracked site${served === 1 ? "" : "s"}`);
+  if ((s.utility_aliases || []).length) parts.push("tariffs on file");
+  if (!parts.length) return null;
+  return `${parts.join(" · ")} ▾`;
+}
+
+async function renderSignatoryLens(s, panel) {
+  panel.replaceChildren(el("p", "rp-sig-lens-loading", "Loading…"));
+  // Tariffs live behind their own tab; a reader can reach this row without
+  // having opened it.
+  if (!state.tariffsLoaded) {
+    await loadTariffsData().catch((err) =>
+      console.error("Tariff load for signatory lens failed:", err)
+    );
+  }
+
+  const sections = [];
+
+  if (s.matched_company_slug) {
+    const own = (state.projects || []).filter(
+      (p) => p.company_slug === s.matched_company_slug
+    );
+    if (own.length) {
+      sections.push({ title: "Sites it operates", items: own });
+    }
+  }
+
+  const served = (state.projects || []).filter(
+    (p) => p.serving_utility_signatory_id === s.id
+  );
+  if (served.length) sections.push({ title: "Sites it serves", items: served });
+
+  const aliases = new Set(s.utility_aliases || []);
+  const tariffs = (state.tariffs || []).filter((t) => aliases.has(t.utility));
+
+  const frag = document.createDocumentFragment();
+
+  for (const sec of sections) {
+    frag.append(el("h5", "rp-sig-lens-h", sec.title));
+    const ul = el("ul", "rp-sig-lens-list");
+    for (const p of sec.items) {
+      const li = el("li");
+      const btn = el("button", "rp-sig-lens-link");
+      btn.type = "button";
+      btn.textContent = `${p.name} — ${p.city}, ${p.state}`;
+      btn.addEventListener("click", () => {
+        activateView("explorer");
+        selectProject(p.id);
+      });
+      li.append(btn);
+      ul.append(li);
+    }
+    frag.append(ul);
+  }
+
+  if (tariffs.length) {
+    frag.append(el("h5", "rp-sig-lens-h", "Large-load tariffs"));
+    const ul = el("ul", "rp-sig-lens-list");
+    for (const t of tariffs) {
+      const li = el("li");
+      const btn = el("button", "rp-sig-lens-link");
+      btn.type = "button";
+      btn.textContent = `${t.tariff_name} (${t.state}) — ${
+        TARIFF_STATUS_LABELS[t.status] || t.status
+      }`;
+      btn.addEventListener("click", () => {
+        activateView("tariffs");
+        requestAnimationFrame(() => showTariffDetail(t));
+      });
+      li.append(btn);
+      ul.append(li);
+    }
+    frag.append(ul);
+    if (s.notes) frag.append(el("p", "rp-sig-lens-note", s.notes));
+  }
+
+  if (!frag.childNodes.length) {
+    frag.append(
+      el(
+        "p",
+        "rp-sig-lens-note",
+        "Nothing tracked for this signatory beyond the roster entry itself."
+      )
+    );
+  }
+  panel.replaceChildren(frag);
 }
 
 function renderRosterFilters() {
@@ -5909,6 +6039,7 @@ function renderAggregateView() {
   const stRows = buildStateRollups();
   renderAggregateStats(coRows, stRows);
   renderCompanyRollup(coRows);
+  renderSignatoryCategoryRollup();
   renderStateRollup(stRows);
   wireAggSort();
   wireBtn("agg-csv-btn", downloadAggregateCSV);
@@ -6111,6 +6242,91 @@ function stanceSpan(pos, mix, neg) {
 
 function fmtJobs(n) {
   return n ? n.toLocaleString() : "—";
+}
+
+// Roll the tracked sites up by the pledge cohort their operator belongs to.
+//
+// Only covers the 13 deeply-tracked companies — the other 268 roster rows have
+// no sites here, and inventing a row for them would imply coverage we don't
+// have. Companies with no roster match land in a "Did not sign" row, which is
+// the comparison the table exists to make.
+function buildSignatoryCategoryRollups() {
+  const rows = new Map();
+  const touch = (key, label) => {
+    if (!rows.has(key)) {
+      rows.set(key, {
+        key,
+        label,
+        companies: new Set(),
+        projects: 0,
+        power_mw: 0,
+        capex: 0,
+        assessed: 0,
+        contested: 0,
+      });
+    }
+    return rows.get(key);
+  };
+
+  for (const p of state.projects || []) {
+    const sig = state.signatoryByCompany && state.signatoryByCompany.get(p.company_slug);
+    const key = sig ? sig.category : "none";
+    const label = sig
+      ? SIGNATORY_CATEGORY_LABELS[sig.category] || sig.category
+      : "Did not sign";
+    const r = touch(key, label);
+    r.companies.add(p.company_slug);
+    r.projects += 1;
+    if (p.power_mw) r.power_mw += p.power_mw;
+    if (p.claimed_investment_usd) r.capex += p.claimed_investment_usd;
+    if (p.ratepayer) {
+      r.assessed += 1;
+      if (p.ratepayer.status === "contested") r.contested += 1;
+    }
+  }
+
+  // Signatory categories in vocabulary order, non-signatories last.
+  const order = [...SIGNATORY_CATEGORIES, "none"];
+  return [...rows.values()].sort(
+    (a, b) => order.indexOf(a.key) - order.indexOf(b.key)
+  );
+}
+
+function renderSignatoryCategoryRollup() {
+  const tbody = document.getElementById("agg-signatory-tbody");
+  if (!tbody) return;
+  const rows = buildSignatoryCategoryRollups();
+
+  tbody.replaceChildren(
+    ...rows.map((r) => {
+      const tr = document.createElement("tr");
+      const cells = [
+        r.label,
+        String(r.companies.size),
+        String(r.projects),
+        r.power_mw ? formatSummaryGW(r.power_mw) : "—",
+        r.capex ? formatSummaryUsd(r.capex) : "—",
+        String(r.assessed),
+        r.contested ? String(r.contested) : "—",
+      ];
+      cells.forEach((v, i) => {
+        const td = document.createElement("td");
+        if (i > 0) td.className = "num";
+        td.textContent = v;
+        tr.append(td);
+      });
+      return tr;
+    })
+  );
+
+  const sub = document.getElementById("agg-signatory-sub");
+  if (sub) {
+    const tracked = new Set((state.projects || []).map((p) => p.company_slug)).size;
+    sub.textContent =
+      `Covers the ${tracked} companies tracked site by site — not the full ` +
+      `roster. "Assessed" counts sites carrying a per-site pledge assessment; ` +
+      `a site with none is counted in neither Assessed nor Contested.`;
+  }
 }
 
 function renderCompanyRollup(preRows) {

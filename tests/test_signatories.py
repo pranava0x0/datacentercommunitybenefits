@@ -267,3 +267,50 @@ def test_roster_is_lazy_loaded_not_preloaded() -> None:
         "signatories.json must not be preloaded in index.html — it is lazy-loaded "
         "by the Ratepayer view (perf baseline: first paint stays under the budget)"
     )
+
+
+# ---------------------------------------------------------------------------
+# Serving-utility joins (P5)
+# ---------------------------------------------------------------------------
+
+
+def test_serving_utility_ids_resolve_to_the_roster(roster: SignatoriesPayload) -> None:
+    """A typo here fails silently in the browser: the utility lens just shows
+    no sites, which reads as 'this utility serves nothing we track'."""
+    ids = {s.id for s in roster.signatories}
+    projects = json.loads((SEED / "projects.json").read_text())["projects"]
+    for p in projects:
+        sid = p.get("serving_utility_signatory_id")
+        if sid:
+            assert sid in ids, f"{p['id']} points at unknown signatory {sid!r}"
+
+
+def test_serving_utility_id_always_has_a_display_name() -> None:
+    """The id is the join key; the name is what a reader sees."""
+    projects = json.loads((SEED / "projects.json").read_text())["projects"]
+    for p in projects:
+        if p.get("serving_utility_signatory_id"):
+            assert p.get("serving_utility"), (
+                f"{p['id']} sets a serving-utility id with no display name"
+            )
+
+
+def test_serving_utility_points_at_a_utility(roster: SignatoriesPayload) -> None:
+    """A data center is not served by a governor or a hyperscaler."""
+    by_id = {s.id: s for s in roster.signatories}
+    projects = json.loads((SEED / "projects.json").read_text())["projects"]
+    for p in projects:
+        sid = p.get("serving_utility_signatory_id")
+        if sid:
+            cat = by_id[sid].category
+            assert cat in ("utility", "cooperative"), (
+                f"{p['id']} is 'served by' {sid} which is a {cat}"
+            )
+
+
+def test_serving_utility_backfill_is_not_empty() -> None:
+    """Guards against the field silently reverting to all-null, which would
+    make the utility lens look broken rather than unpopulated."""
+    projects = json.loads((SEED / "projects.json").read_text())["projects"]
+    filled = [p for p in projects if p.get("serving_utility")]
+    assert len(filled) >= 10, f"only {len(filled)} projects name a serving utility"

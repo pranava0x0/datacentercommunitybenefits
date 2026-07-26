@@ -309,18 +309,36 @@ to validate the connector framework end-to-end before tackling the others.
 
 ---
 
-### Ratepayer v2 — remaining spec phases (P5 roster lenses, P6 site refresh)
-`SPEC_RPP_V2.md` P0–P4 landed. Two phases remain:
+### First paint is at 246.5 / 250 KB — the next payload MUST be lazy — **high**
+P5 pushed first paint to **246.5 KB gzipped across 8 requests**, against the
+250 KB / 8 budget in `tests/test_perf_budget.py`. That is 3.5 KB of headroom;
+the next non-trivial addition to `app.js`, `styles.css` or any landing payload
+fails the build. **Do not raise the ceiling** — pick one of:
 
-- **P5 utility layer — partially done.** The alias map shipped with the roster
-  (P1) and already meets the spec's ≥80% bar: 20 of 25 tariffs resolve to a
-  roster signatory. The 5 unmatched are four statewide frameworks ("All New
-  Jersey electric public utilities", ERCOT/PA/VA equivalents) and one federal
-  FERC co-location case — genuinely unmatchable, correctly reported rather than
-  forced. **Not done:** the roster-row *lenses* (§7.4 — expanding a utility row
-  to show its tariffs and the sites it serves) and the Aggregate "by signatory
-  category" rollup. Both are additive; the joins they need already exist
-  (`state.signatoryByUtilityAlias`). *Priority: medium.*
+- **Defer `responses.json` (43 KB gz) past first paint.** It is needed only for
+  the ⚠ concern flags on scorecard cards, which are below the fold. Load it on
+  idle and re-render the scorecard when it lands. Cheapest real win; the cost is
+  a concern flag that appears a beat late.
+- **Ship `claims-index.json` for first paint** (counts + ids, full verbatim
+  claims lazy on demand) — the pre-existing idea below, worth ~35 KB.
+- **Code-split `app.js`** (~61 KB gz and now the single largest asset) so the
+  landing loads only the Ratepayer + shared renderers. Biggest win, most work,
+  and it is vanilla JS with no bundler.
+
+### Ratepayer v2 — P6 site refresh remains (P0–P5 landed)
+`SPEC_RPP_V2.md` P0–P5 are done. P5's utility layer: the alias map meets the
+spec's ≥80% bar (20 of 25 tariffs resolve to a roster signatory; the 5 unmatched
+are four statewide frameworks and one federal FERC case — genuinely unmatchable,
+reported rather than forced). Roster-row lenses and the Aggregate
+by-signatory-category rollup shipped.
+
+`Project.serving_utility` is backfilled for **18** sites — only where a source
+states the serving relationship verbatim. Six candidates were rejected on
+review: a *nearby* Duke plant, a *former* Duke site, an SRP donation, a business
+park name, a contingent NIPSCO agreement, and a renewable procurement deal. The
+remaining ~99 sites need P6 research; **don't infer a serving utility from
+geography** — half the automated candidates were wrong.
+
 - **P6 site-list refresh — not started.** The site list is stale (newest
   `captured_at` 2026-07-15) and the roster's 28 developers are an unmined lead
   list. Also wants `Project.serving_utility` backfilled for the top ~20

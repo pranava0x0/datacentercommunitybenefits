@@ -81,9 +81,28 @@ def _check_cross_refs(
     claims: ClaimsPayload,
     projects: ProjectsPayload,
     responses: ResponsesPayload,
+    signatories=None,
 ) -> list[str]:
     """Cross-payload reference checks. Returns list of error messages (empty = OK)."""
     errors: list[str] = []
+
+    # serving_utility_signatory_id must resolve to a real roster row. A typo
+    # here fails silently in the browser — the utility lens simply shows no
+    # sites, which reads as "this utility serves nothing we track".
+    if signatories is not None:
+        roster_ids = {s.id for s in signatories.signatories}
+        for p in projects.projects:
+            sid = p.serving_utility_signatory_id
+            if sid and sid not in roster_ids:
+                errors.append(
+                    f"projects.json: project {p.id!r} serving_utility_signatory_id "
+                    f"{sid!r} not found in signatories.json"
+                )
+            if sid and not p.serving_utility:
+                errors.append(
+                    f"projects.json: project {p.id!r} sets serving_utility_signatory_id "
+                    "without serving_utility — the display name is what readers see"
+                )
 
     company_slugs = {c.slug for c in companies.companies}
     project_ids = {p.id for p in projects.projects}
@@ -365,6 +384,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         payloads["claims"],
         payloads["projects"],
         payloads["responses"],
+        payloads.get("signatories"),
     )
     if cross_errors:
         for err in cross_errors:

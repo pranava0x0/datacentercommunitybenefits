@@ -2046,3 +2046,94 @@ class TestScorecardFilterBar:
         assert "Company Signed Date" in header
         row = page.evaluate("() => buildRatepayerCSV().split('\\n')[1]")
         assert "2026" in row
+
+
+class TestSignatoryLens:
+    """Spec 7.4: the roster row IS the lens. No per-signatory pages for 300
+    organizations — a row expands only when we can say something concrete."""
+
+    def _open_roster(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-roster-summary", timeout=10_000)
+        page.locator("#rp-roster-summary").click()
+        page.wait_for_selector("#rp-roster .rp-sig-row", timeout=10_000)
+
+    def test_only_rows_with_something_to_show_expand(self, page: Page, base_url: str):
+        """Most cooperatives stay flat. An expander on every row would promise
+        detail we do not have for 268 of them."""
+        self._open_roster(page, base_url)
+        total = page.locator("#rp-roster .rp-sig-row").count()
+        with_lens = page.locator("#rp-roster .rp-sig-row.has-lens").count()
+        assert 0 < with_lens < total
+
+    def test_utility_lens_lists_served_sites_and_tariffs(
+        self, page: Page, base_url: str
+    ):
+        self._open_roster(page, base_url)
+        page.locator("#rp-roster-q").fill("entergy")
+        page.wait_for_timeout(300)
+        row = page.locator("#rp-roster .rp-sig-row").first
+        row.locator(".rp-sig-expand").click()
+        page.wait_for_timeout(2500)
+        # inner_text() returns the CSS-uppercased heading, so compare folded.
+        text = row.locator(".rp-sig-lens").inner_text().lower()
+        assert "sites it serves" in text
+        assert "large-load tariffs" in text
+        # Tariffs render their name, not "undefined" (the field is tariff_name,
+        # and both this lens and the state panel read `t.name` at first).
+        assert "undefined" not in text
+
+    def test_operator_lens_lists_its_own_sites(self, page: Page, base_url: str):
+        self._open_roster(page, base_url)
+        page.locator("#rp-roster-q").fill("google")
+        page.wait_for_timeout(300)
+        row = page.locator("#rp-roster .rp-sig-row").first
+        row.locator(".rp-sig-expand").click()
+        page.wait_for_timeout(2000)
+        assert "sites it operates" in row.locator(".rp-sig-lens").inner_text().lower()
+
+    def test_expander_toggles_and_reports_state(self, page: Page, base_url: str):
+        self._open_roster(page, base_url)
+        page.locator("#rp-roster-q").fill("entergy")
+        page.wait_for_timeout(300)
+        btn = page.locator("#rp-roster .rp-sig-row").first.locator(".rp-sig-expand")
+        expect(btn).to_have_attribute("aria-expanded", "false")
+        btn.click()
+        page.wait_for_timeout(1500)
+        expect(btn).to_have_attribute("aria-expanded", "true")
+        btn.click()
+        page.wait_for_timeout(300)
+        expect(btn).to_have_attribute("aria-expanded", "false")
+        expect(page.locator("#rp-roster .rp-sig-row").first.locator(".rp-sig-lens")).to_be_hidden()
+
+
+class TestAggregateSignatoryRollup:
+    def test_rollup_groups_sites_by_signing_cohort(self, page: Page, base_url: str):
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-signatory-tbody tr", timeout=10_000)
+        rows = page.locator("#agg-signatory-tbody tr")
+        assert rows.count() >= 2
+        text = page.locator("#agg-signatory-tbody").inner_text()
+        # Non-signatories get their own row — that comparison is the point.
+        assert "Did not sign" in text
+
+    def test_rollup_states_its_own_scope(self, page: Page, base_url: str):
+        """It covers the tracked companies, not the 279-row roster, and must
+        not be read as roster-wide."""
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-signatory-sub", timeout=10_000)
+        sub = page.locator("#agg-signatory-sub").inner_text()
+        assert "not the full" in sub.lower()
+
+    def test_assessed_and_contested_columns_are_consistent(
+        self, page: Page, base_url: str
+    ):
+        """Contested sites are a subset of assessed ones."""
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-signatory-tbody tr", timeout=10_000)
+        rows = page.locator("#agg-signatory-tbody tr")
+        for i in range(rows.count()):
+            cells = rows.nth(i).locator("td").all_inner_texts()
+            assessed = int(cells[5])
+            contested = 0 if cells[6].strip() == "—" else int(cells[6])
+            assert contested <= assessed, f"row {i}: {contested} contested > {assessed} assessed"

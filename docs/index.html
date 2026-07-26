@@ -1187,6 +1187,35 @@
           </div>
         </section>
 
+        <!-- Rolls the tracked sites up by which pledge cohort their operator
+             belongs to. Answers "does signing correlate with anything we can
+             see?" — which the by-company table cannot, because it has no
+             notion of the roster. -->
+        <section class="agg-section" id="agg-signatory-section">
+          <h3 class="agg-section-heading">By signatory category</h3>
+          <p class="agg-section-sub" id="agg-signatory-sub"></p>
+          <div class="table-scroll">
+            <table
+              class="agg-table"
+              id="agg-signatory-table"
+              aria-label="Rollup by pledge signatory category"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col" class="num">Companies</th>
+                  <th scope="col" class="num">Sites</th>
+                  <th scope="col" class="num">Power</th>
+                  <th scope="col" class="num">Investment</th>
+                  <th scope="col" class="num">Assessed</th>
+                  <th scope="col" class="num">Contested</th>
+                </tr>
+              </thead>
+              <tbody id="agg-signatory-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
         <section class="agg-section">
           <h3 class="agg-section-heading">By state</h3>
           <div class="table-scroll">

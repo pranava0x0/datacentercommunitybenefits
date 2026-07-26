@@ -584,6 +584,29 @@ class Project(_StrictBase):
             "this is the field that disambiguates 'who is the compute actually for?'"
         ),
     )
+    serving_utility: Optional[str] = Field(
+        default=None,
+        description=(
+            "The electric utility that serves this site, as the SOURCE names it — "
+            "usually the operating company ('Entergy Mississippi', 'Ameren "
+            "Missouri'), not the holding company. Set this ONLY when a source "
+            "states the serving relationship: 'served by X', 'X-served capacity', "
+            "'the local utility, X'. Do NOT infer it from geography. Half the "
+            "candidates found by scanning for utility names in project text were "
+            "false positives — a *nearby* Duke Energy plant, a *former* Duke "
+            "Energy site — and a wrong utility here would misattribute a tariff "
+            "and a signatory to a data center."
+        ),
+    )
+    serving_utility_signatory_id: Optional[str] = Field(
+        default=None,
+        description=(
+            "The `Signatory.id` of the serving utility, when it is on the pledge "
+            "roster. Often the PARENT of `serving_utility` (Entergy Mississippi -> "
+            "`entergy-corporation`), because the roster lists holding companies. "
+            "Validated against signatories.json at refresh time."
+        ),
+    )
     at_a_glance: Optional[dict[str, str]] = Field(
         default=None,
         description=(
