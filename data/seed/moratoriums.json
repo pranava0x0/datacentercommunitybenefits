@@ -1307,10 +1307,10 @@
         "water",
         "transparency"
       ],
-      "summary": "Lake County (central Florida) commissioners proposed a 12-month moratorium on new data center development on June 24, 2026, with a final adoption vote scheduled within two weeks. Led by Commissioner Anthony Sabatini, who cited 12 data center applications filed in Florida in the past year and concerns about water usage and electricity grid impacts. Sabatini framed the moratorium as necessary because Florida's SB484 (signed May 7) restricts outright permanent bans, leaving moratoria of up to one year as the available tool.",
+      "summary": "Lake County (central Florida) commissioners proposed a 12-month moratorium on new data center development on June 24, 2026, with a final adoption vote scheduled within two weeks. Led by Commissioner Anthony Sabatini, who cited 12 data center applications filed in Florida in the past year and concerns about water usage and electricity grid impacts. Sabatini framed the moratorium as necessary because Florida's SB484 (signed May 7) restricts outright permanent bans, leaving moratoria of up to one year as the available tool. Status re-check 2026-07-26: the commission unanimously agreed to pursue an ordinance, but no ordinance has been drafted and no adoption vote has been scheduled. This is a direction to staff, not yet a moratorium.",
       "source_url": "https://www.cfpublic.org/2026-06-25/lake-county-commission-plans-temporary-ban-on-data-centers",
       "source_title": "Central Florida Public Media — Lake County Commission plans temporary ban on data centers",
-      "captured_at": "2026-06-25",
+      "captured_at": "2026-07-26",
       "sponsors": [
         "Commissioner Anthony Sabatini"
       ],
@@ -1825,7 +1825,7 @@
       "summary": "Michigan SB 1018–1020 / HB 5594–5596 (bipartisan package, introduced 2026) would halt new data center development until April 1, 2027. A separate Senate Democratic package includes water usage caps and energy cost requirements. Companion bills HB 5396–5398 would repeal data center tax exemptions. The moratorium bills sit in the Senate Government Operations Committee — a historically hostile venue in the Michigan Legislature. Legislative prospects are uncertain despite bipartisan co-sponsorship.",
       "source_url": "https://www.route-fifty.com/infrastructure/2026/06/michigan-lawmakers-local-officials-and-residents-renew-push-statewide-data-center-moratorium/414379/",
       "source_title": "Route Fifty — Michigan lawmakers, local officials and residents renew push for statewide data center moratorium (June 2026)",
-      "captured_at": "2026-06-25",
+      "captured_at": "2026-07-26",
       "bill_number": "SB1018-1020 / HB5594-5596",
       "sponsors": null,
       "key_stakeholders": null,
@@ -2121,10 +2121,10 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's legislative data center moratorium (S7992/A7234) passed both chambers on June 4, 2026, imposing a 1-year statewide pause on permits for data centers above 20 MW peak demand while the state completes an energy-planning and grid modernization review. Primary driver: strain on the state's electrical grid, particularly in capacity-constrained downstate markets. Supported by environmental groups (Sierra Club, NRDC New York), IBEW Local 3 and community coalitions; opposed by tech industry and real estate developers. As of July 14, 2026 Governor Hochul has NOT signed the bill — she instead issued Executive Order No. 62 the same day, a separate instrument applying a higher 50 MW threshold and pausing state environmental permitting until a Generic Environmental Impact Statement is complete.",
-      "source_url": "https://www.datacenterdynamics.com/en/news/new-york-state-legislature-passes-data-center-moratorium-awaits-governor-hochuls-approval",
-      "source_title": "Data Center Dynamics — NY Legislature passes data center moratorium",
-      "captured_at": "2026-07-05",
+      "summary": "New York's legislative data center moratorium — the Responsible Data Center Development Act, S10642 / A11560 — passed both chambers on June 4, 2026, imposing a one-year statewide moratorium on permits for data centers above a 20 MW threshold while the state completes an energy-planning and grid modernization review. The act also requires a separate utility rate classification for large data centers, sets a 90%-renewable-by-2040 goal, and mandates community benefits and construction labor standards. As of 2026-07-26 the bill has passed both chambers but has NOT been delivered to or signed by Governor Hochul, who instead issued Executive Order No. 62 on July 14, 2026 (see ny-state-eo62-2026-07) — a separate instrument with a 50 MW threshold covering state environmental permitting only. Correction (2026-07-26): this record's summary previously cited S7992/A7234. S7992 is an unrelated New York labor-relations bill; the data-center act is S10642/A11560, which matches this record's bill_number field.",
+      "source_url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
+      "source_title": "New York State Senate — S10642, Responsible Data Center Development Act",
+      "captured_at": "2026-07-26",
       "bill_number": "S10642/A11560",
       "sponsors": [
         "Sen. Kristen Gonzalez (D-WF, 59th District)"
@@ -2954,7 +2954,7 @@
       "summary": "Spartanburg County Council (South Carolina) approved the first reading of a 12-month data center moratorium on June 22, 2026, with no dissenting votes. Two additional readings are required before full enactment. Council immediately invoked the pending ordinance doctrine, allowing the county to halt new data center permit applications after first reading — the protective effect begins at first reading even before final passage. Triggered by a company filing a land development permit for a data center at 300 Jones Road without local tax incentives. A separate state bill (SC H.5526) proposing a statewide data center moratorium is also before the legislature.",
       "source_url": "https://www.foxcarolina.com/2026/06/22/spartanburg-county-votes-pause-data-center-applications-one-year/",
       "source_title": "Fox Carolina — Spartanburg County votes to pause data center applications for one year",
-      "captured_at": "2026-06-25",
+      "captured_at": "2026-07-26",
       "resources": [
         {
           "url": "https://www.foxcarolina.com/2026/06/22/spartanburg-county-votes-pause-data-center-applications-one-year/",

@@ -563,8 +563,18 @@ NY carries **two** moratorium records and they must not be conflated:
   are not covered**. Exempts manufacturing, research (incl. quantum), accredited
   education (incl. Empire AI) and medical care. Empire State Development must post a
   "Community Investment Framework" within 60 days. Primary source is the `.gov` EO text.
-- `ny-state-2026-06` — the **legislature's bill** (S7992/A7234, **20 MW**, 1 year),
-  passed 2026-06-04 and **still unsigned**; Hochul issued the EO instead. Stays `proposed`.
+- `ny-state-2026-06` — the **legislature's bill**: the Responsible Data Center
+  Development Act, **S10642 / A11560** (**20 MW**, 1 year), passed both chambers
+  2026-06-04 and **still unsigned** as of 2026-07-26; Hochul issued the EO instead.
+  Stays `proposed`.
+  **Corrected 2026-07-26:** this section, and the record's own summary, previously
+  cited "S7992/A7234". **S7992 is an unrelated New York labor-relations bill** —
+  same failure shape as the Oregon HB4016 record (a real bill number attached to
+  the wrong subject). REFRESH.md's status-re-check checklist already carried the
+  fix ("NY's S7992 was superseded by S10642 after an Assembly substitution") but
+  neither the data nor this file was updated to match. When a checklist records a
+  renumbering, **grep the seed and the docs for the old number in the same pass** —
+  a learning that only lands in the playbook doesn't correct the record.
 
 Lesson: an executive order and a bill are different instruments with different
 thresholds and different fates. When a governor "acts," check *which* instrument —

@@ -325,6 +325,27 @@ the budget test says so in its failure message:
   loads only the Ratepayer + shared renderers. Biggest win, most work, and it is
   vanilla JS with no bundler.
 
+### Stale status re-checks still open after the 2026-07-26 pass — **high**
+Four of the ten flagged records were re-verified and updated (NY, Michigan,
+Spartanburg, Lake County FL). Six remain, and their `captured_at` was
+deliberately NOT bumped so they stay flagged — bumping a date on a record you
+could not actually confirm is how a stale record becomes an invisible one:
+
+- **henderson-nv-2026-06** — the source (Review-Journal, June 16) says Bill No.
+  3927 was referred to the **July 21, 2026 council meeting for potential
+  adoption**, but no source consulted reports the outcome. Needs Henderson city
+  council minutes or agenda results for 2026-07-21. This is the closest to a
+  real status change of the six.
+- **hernando-county-fl-2026-06** — wfla.com returns 403 to fetchers. Needs a
+  different outlet or the county's own agenda.
+- **new-albany-in-2026-06** — wdrb.com returned 429. Retry later.
+- **nv-energy-callisto-esa**, **aps-arizona-large-load-rate-case-2025**,
+  **duke-nc-large-load-rate-case-2025** — the three stale tariffs. Not attempted
+  this pass. Each needs its PUC docket checked (PUCN 24-06014, ACC
+  E-01345A-25-0134, NCUC E-7 Sub 1300); `nv-energy-callisto-esa`'s `source_url`
+  is the LBL brief, which will never report a status change — repoint it at the
+  docket.
+
 ### Ratepayer v2 — P6 site refresh remains (P0–P5 landed)
 `SPEC_RPP_V2.md` P0–P5 are done. P5's utility layer: the alias map meets the
 spec's ≥80% bar (20 of 25 tariffs resolve to a roster signatory; the 5 unmatched
