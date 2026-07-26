@@ -758,7 +758,14 @@ first paint: **~141 KB → ~237 KB gzipped across 8 requests**, inside the 250 K
 file described the Comparison landing and no longer applies.
 
 `tests/test_perf_budget.py` gates it. **When it fails, make the new payload lazy
-— don't raise the ceiling.** Sizes are measured gzipped because that is how
+— don't raise the ceiling.** This has already been exercised once: P5 took it to
+246.5 KB, and the fix was splitting `responses.json` out of `loadProjectData`
+into its own `loadResponseData` (**back to 203.9 KB / 7 requests**). Responses
+only decorate below-the-fold concern flags, so the Ratepayer view paints from
+projects and re-renders the scorecard when they land; Explorer and Aggregate,
+which render response *content*, await both. `loadRatepayerView` **awaits** the
+late fetch before firing `dcb:ratepayer-ready` — several e2e tests and the
+concern-first sort treat that event as "the view is complete". Sizes are measured gzipped because that is how
 Pages serves them, and raw bytes flatter JSON enormously (signatories.json is
 121 KB raw, 8 KB gzipped).
 

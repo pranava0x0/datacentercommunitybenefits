@@ -34,9 +34,13 @@ FIRST_PAINT = [
     "data/companies.json",  # preloaded
     "data/claims.json",  # preloaded
     "data/projects.json",  # Ratepayer scorecard + principle tallies
-    "data/responses.json",  # conflict surfacing on the scorecard cards
     "data/signatories.json",  # roster counts + coverage
 ]
+
+# Fetched immediately AFTER first paint, not as part of it. responses.json only
+# decorates below-the-fold cards (the concern flags), so it is split out of
+# loadProjectData deliberately — see loadResponseData in app.js.
+DEFERRED = ["data/responses.json"]
 
 # Payloads that must NOT be part of first paint — they belong to a tab the
 # visitor has not opened yet.
@@ -64,6 +68,17 @@ def test_first_paint_stays_within_budget() -> None:
 
 def test_first_paint_request_count() -> None:
     assert len(FIRST_PAINT) <= MAX_FIRST_PAINT_REQUESTS
+
+
+def test_deferred_payloads_are_not_in_the_first_paint_set() -> None:
+    """Guards the split: folding responses.json back into loadProjectData would
+    silently put 43 KB back into first paint."""
+    for rel in DEFERRED:
+        assert rel not in FIRST_PAINT
+    app = (DOCS / "app.js").read_text()
+    assert "function loadResponseData()" in app, (
+        "responses.json must load via its own function, separate from projects"
+    )
 
 
 def test_heavy_tab_payloads_are_not_preloaded() -> None:

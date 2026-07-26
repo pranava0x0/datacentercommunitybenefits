@@ -408,6 +408,7 @@ const state = {
   explorerLoaded: false,
   ratepayerLoaded: false,
   signatoriesLoaded: false,
+  responsesLoaded: false,
   moratoriumsLoaded: false,
   tariffsLoaded: false,
   aggregateLoaded: false,
@@ -451,7 +452,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // the two-payload first-paint strategy is preserved.
       if (state.explorerLoaded || state.projects.length) return;
       const preload = () =>
-        loadProjectData()
+        Promise.all([loadProjectData(), loadResponseData()])
           .then(() => {
             renderSummaryStats();
             renderPledgeHero();
@@ -727,21 +728,11 @@ function loadProjectData() {
     _projectDataPromise = (async () => {
       // Guarantee state.claims is populated before we index claimsByProject —
       // otherwise a cold #ratepayer/#explorer deep-link builds an empty index.
-      const [, projects, responses] = await Promise.all([
+      const [, projects] = await Promise.all([
         ensureComparisonData(),
         fetchJson("data/projects.json"),
-        fetchJson("data/responses.json"),
       ]);
       state.projects = projects.projects;
-      state.responses = responses.responses;
-
-      state.responsesByProject = new Map();
-      for (const r of state.responses) {
-        if (!state.responsesByProject.has(r.project_id)) {
-          state.responsesByProject.set(r.project_id, []);
-        }
-        state.responsesByProject.get(r.project_id).push(r);
-      }
 
       state.claimsByProject = new Map();
       for (const c of state.claims) {
@@ -751,12 +742,42 @@ function loadProjectData() {
         }
         state.claimsByProject.get(c.project_id).push(c);
       }
-      // Fill in the projects / GW / investment / responses tiles now that the
-      // lazy payload is in hand (companies + claims tiles already showed).
+      // Fill in the projects / GW / investment tiles now that the lazy payload
+      // is in hand (companies + claims tiles already showed).
       renderSummaryStats();
     })();
   }
   return _projectDataPromise;
+}
+
+// Community responses are a SEPARATE fetch from projects (43 KB gzipped).
+//
+// The landing view needs projects for the scorecard and the principle tallies,
+// but responses only decorate cards that are below the fold — the ⚠ concern
+// flags. Bundling the two put first paint at 246.5 KB against a 250 KB budget.
+// Splitting them buys back ~43 KB, at the cost of a concern flag that appears a
+// beat after the card it belongs to.
+//
+// Views that actually render response CONTENT (Explorer, Aggregate, the project
+// detail pane) await this; the Ratepayer view kicks it off and re-renders.
+let _responseDataPromise = null;
+function loadResponseData() {
+  if (!_responseDataPromise) {
+    _responseDataPromise = (async () => {
+      const responses = await fetchJson("data/responses.json");
+      state.responses = responses.responses;
+      state.responsesByProject = new Map();
+      for (const r of state.responses) {
+        if (!state.responsesByProject.has(r.project_id)) {
+          state.responsesByProject.set(r.project_id, []);
+        }
+        state.responsesByProject.get(r.project_id).push(r);
+      }
+      state.responsesLoaded = true;
+      renderSummaryStats();
+    })();
+  }
+  return _responseDataPromise;
 }
 
 
@@ -808,7 +829,7 @@ function buildMoratoriumAffectanceMap() {
 
 async function loadExplorerData() {
   document.getElementById("explorer-meta").textContent = "Loading projects…";
-  await loadProjectData();
+  await Promise.all([loadProjectData(), loadResponseData()]);
   await ensureLeaflet();
   state.explorerLoaded = true;
   renderExplorerView();
@@ -883,6 +904,17 @@ async function loadRatepayerView() {
   state.ratepayerLoaded = true;
   renderRatepayerView();
   renderPledgeHero();
+
+  // Concern flags need responses, which are deliberately not part of first
+  // paint. Fetch them straight after and re-render the scorecard in place.
+  // Awaited (not fire-and-forget) so `dcb:ratepayer-ready` still means the view
+  // is complete — several e2e tests and the concern-first sort depend on that.
+  if (!state.responsesLoaded) {
+    await loadResponseData().catch((err) =>
+      console.error("Failed to load community responses:", err)
+    );
+    renderRatepayerScorecard();
+  }
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
 }
 
@@ -890,8 +922,9 @@ async function loadRatepayerView() {
 async function loadAggregateView() {
   if (state.aggregateLoaded) return;
   // The by-signatory-category rollup needs the roster; without it every
-  // company would fall into "Did not sign".
-  await Promise.all([loadProjectData(), loadSignatoryData()]);
+  // company would fall into "Did not sign". The responses-by-stance column
+  // needs the response payload.
+  await Promise.all([loadProjectData(), loadSignatoryData(), loadResponseData()]);
   state.aggregateLoaded = true;
   renderAggregateView();
 }

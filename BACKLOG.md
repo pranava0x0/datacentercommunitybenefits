@@ -309,21 +309,21 @@ to validate the connector framework end-to-end before tackling the others.
 
 ---
 
-### First paint is at 246.5 / 250 KB — the next payload MUST be lazy — **high**
-P5 pushed first paint to **246.5 KB gzipped across 8 requests**, against the
-250 KB / 8 budget in `tests/test_perf_budget.py`. That is 3.5 KB of headroom;
-the next non-trivial addition to `app.js`, `styles.css` or any landing payload
-fails the build. **Do not raise the ceiling** — pick one of:
+### First-paint headroom — reclaimed once, will need it again — **medium**
+P5 pushed first paint to 246.5 KB against the 250 KB budget (3.5 KB of
+headroom). Fixed by splitting `responses.json` out of `loadProjectData` into its
+own `loadResponseData`: **first paint is now 203.9 KB across 7 requests.**
+Responses only decorate below-the-fold concern flags, so the Ratepayer view
+paints from projects and re-renders the scorecard when responses land; Explorer
+and Aggregate, which render response content, await both.
 
-- **Defer `responses.json` (43 KB gz) past first paint.** It is needed only for
-  the ⚠ concern flags on scorecard cards, which are below the fold. Load it on
-  idle and re-render the scorecard when it lands. Cheapest real win; the cost is
-  a concern flag that appears a beat late.
+Two options remain for the next time it tightens. **Do not raise the ceiling** —
+the budget test says so in its failure message:
 - **Ship `claims-index.json` for first paint** (counts + ids, full verbatim
   claims lazy on demand) — the pre-existing idea below, worth ~35 KB.
-- **Code-split `app.js`** (~61 KB gz and now the single largest asset) so the
-  landing loads only the Ratepayer + shared renderers. Biggest win, most work,
-  and it is vanilla JS with no bundler.
+- **Code-split `app.js`** (~61 KB gz and the single largest asset) so the landing
+  loads only the Ratepayer + shared renderers. Biggest win, most work, and it is
+  vanilla JS with no bundler.
 
 ### Ratepayer v2 — P6 site refresh remains (P0–P5 landed)
 `SPEC_RPP_V2.md` P0–P5 are done. P5's utility layer: the alias map meets the
