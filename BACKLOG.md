@@ -309,6 +309,36 @@ to validate the connector framework end-to-end before tackling the others.
 
 ---
 
+### Bugs found and fixed in the v2 build (2026-07-25/26) — reference, no action
+Recorded here because ISSUES.md is refresh-generated and cannot hold them. All
+fixed; listed because each has a repeatable shape.
+
+1. **Hardcoded list vs. registry — three separate instances, all passing while
+   wrong.** The refresh test's seed-copy list, `tools/build_preview.py`'s
+   `DATA_FILES`, and `test_exactly_the_eight_signatories_flagged`. The preview
+   one is the worst: it shipped a bundle whose landing view rendered zero cards
+   *and reported PASS*. Root cause: literal beside the thing it enumerates.
+   Fixed by deriving all three. Promoted to the base CLAUDE.md.
+2. **Roster labelled all 11 tracked signatories with the March 4 date** — four
+   months early for the July cohort. Caught by an e2e test written for exactly
+   that conflation. *Code bug.*
+3. **Stat tile read "8 signatories" beside a 279-row roster.** *Code bug*, same
+   root cause as #2 — company-derived where it should be roster-derived.
+4. **`t.name` on tariffs is `undefined`** — the field is `tariff_name`. Hit both
+   the new roster lens and the state panel. Found by reading rendered output,
+   not by a test. *Code bug.*
+5. **State code read from the hash after `activateView` had rewritten it**, so
+   `#state/GA` yielded `"yer"` and never opened the panel. *Code bug.*
+6. **`XX` (the virtual-partnership sentinel) rendered as a state chip.** *Data
+   sentinel leaking into UI.*
+7. **Two distinct co-ops share a name**; the first parser deduped by slug and
+   silently dropped one. Now disambiguates by domain or raises. *Code bug.*
+8. **`ny-state-2026-06` cited S7992** — an unrelated NY labor bill. *Data bug*,
+   and REFRESH.md already knew the correct number. See the refresh log.
+9. **Spec's proposed accent measured 2.96:1** on its own background, below both
+   contrast floors. *Spec bug*, caught before shipping. Promoted to base
+   DESIGN.md.
+
 ### First-paint headroom — reclaimed once, will need it again — **medium**
 P5 pushed first paint to 246.5 KB against the 250 KB budget (3.5 KB of
 headroom). Fixed by splitting `responses.json` out of `loadProjectData` into its

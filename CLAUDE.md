@@ -30,7 +30,7 @@ Never blindly write code. Always follow this loop:
 ## Architecture Principles
 
 - **No over-engineering.** Only make changes directly requested or clearly necessary. Keep solutions simple.
-- **Single source of truth.** Constants, configs, and shared types derive from one place.
+- **Single source of truth.** Constants, configs, and shared types derive from one place. **A hand-written list that mirrors a registry rots silently, and it rots worst inside the code meant to catch drift.** This session hit it three times: the refresh test's seed-copy list (a literal instead of `refresh.PAYLOAD_FILES`, so `signatories.json` broke every refresh test), `tools/build_preview.py`'s `DATA_FILES` (it shipped a bundle whose Ratepayer landing rendered **zero** cards *while reporting PASS*), and `test_exactly_the_eight_signatories_flagged` (hardcoded, so it stayed green through an expansion that tripled the roster). All three passed while wrong. The tell is a literal sitting beside the thing it enumerates. Derive it — `for name in refresh.PAYLOAD_FILES`, `sorted((DOCS/"data").glob("*.json"))`, `assert flagged == on_roster` — and the check cannot go stale.
 - **Modular design.** Separate concerns: data fetching, processing, storage, and presentation are distinct layers.
 - **Idempotent operations.** Re-running any operation should be safe and produce the same result. Use `INSERT OR IGNORE` patterns, cache checks, or deduplication by unique key.
 - **Static when possible.** Prefer baked-in data over runtime backends when the data update cycle allows it.
@@ -643,6 +643,19 @@ app.js + the preloaded `companies.json`/`claims.json`; `projects`/`responses`/
 **Keep it that way:** no web fonts, no un-optimized images, keep new heavy data
 lazy-per-tab (never preload it). Regression signal: first paint > ~500 KB or > ~12
 requests. Optimization ideas in [BACKLOG.md](BACKLOG.md).
+
+### ISSUES.md is GENERATED — bugs do not go there
+
+`ISSUES.md` is a **refresh.py output** (`--audit`), regenerated on every run: a
+prioritized list of *data* gaps (missing `power_mw`, stale `proposed` bills).
+The universal convention at the top of this file — "maintain a living issues.md
+as an audit trail" — does **not** apply to this project's copy: anything
+hand-written there is erased on the next refresh.
+
+Code bugs, root causes and fixes go in the **commit message** (which is where
+this project's real bug history lives) and, when they carry a reusable lesson,
+in this file. Deferred work and leads go in `BACKLOG.md`. Don't hand-edit
+ISSUES.md.
 
 ### Signatory registry — the breadth tier (v2)
 

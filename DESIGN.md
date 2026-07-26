@@ -35,7 +35,7 @@ consumer AI product rather than a public record. The pledge reference is carried
 by *structure* — Roman numeral commitments, letterspaced kickers, a display
 serif — not by colour.
 
-**Compute contrast before adopting a colour; don't eyeball it.** The pledge
+**Compute contrast before adopting a colour; don't eyeball it — a colour annotated "AA" in a doc is a claim, not a measurement, including a doc you wrote.** The pledge
 page's ochre measures 2.96:1 on its own cream, below both the 4.5:1 small-text
 and 3:1 large-text floors. It was written into the v2 spec as a token and would
 have shipped unusable. Every token in the current palette was checked first.

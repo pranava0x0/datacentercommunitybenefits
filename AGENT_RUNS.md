@@ -11,6 +11,7 @@
 | 2026-07-14 | 4-agent parallel PR review (code-quality, silent-failure, energy/regulatory-domain, editorial/sourcing) on PR #33 (~940-line diff, mostly generated JSON already `refresh.py --check`-validated) | ~610K (122K + 157K + 188K + ~143K, one agent hit a session-limit failure partway through) | Partially — see detail below | 1-2 agents with tighter file/record scoping; see detail |
 | 2026-07-14 | (Independent parallel session, merged in via reconciling PR #33 with main) 7-agent moratorium + ratepayer comprehensive pass — see "Detail: 2026-07-14 moratorium + ratepayer comprehensive pass" below | ~996K across 7 runs (~61K pure waste on one misfired relaunch) | Mostly yes | Cap fan-out at 2-3 not 5; model-select (Sonnet not Opus) for research agents; surface the running spend around ~500K instead of only at the end |
 | 2026-07-15 | Full three-dimension data refresh: 6-agent wave (stale-bill re-checks + scouting), 6-agent wave (critical-gap fill, incl. 1 stalled-agent relaunch), 3-agent wave (citation audit + 2 verification checks), 10-agent wave (medium-gap fill) — see "Detail: 2026-07-15 refresh fan-out" below | ~2.3-2.5M (approximate — each of ~24 completed agents fell in the 83K-121K range; the AWS/Amazon medium-gap batch alone was split into 2 agents for 13 records) | Mostly yes, at a bad price | See detail — this is the **third** recorded instance of the 2-3-agent cap being violated in this file |
+| 2026-07-25/26 | **Ratepayer Pledge v2 implementation (SPEC_RPP_V2 P0–P5) — zero agents spawned** | ~0 agent tokens (all inline) | Yes | Nothing; the no-agent call was right. See detail below |
 
 ## Detail: 2026-07-15 refresh fan-out
 
@@ -165,3 +166,43 @@ noted it crossing ~500K and offered a scope checkpoint.
   schema-retry loops on integration (only a `sponsors` string→list coercion + a
   Project `captured_at` field, both caught at validate time).
 - Stripped agent-only `_evidence` fields and validated against `schema.py` at merge.
+
+
+### Detail: 2026-07-25/26 Ratepayer Pledge v2 (P0–P5) — a deliberate no-agent session
+
+**Nothing was delegated.** Six phases of a 381-line spec — schema work, a roster
+importer, a sitewide re-theme, a new modal, an eligibility rewrite, ~90 new
+tests — ran inline. The spec itself budgeted "1–2 Sonnet agents max" for the
+research-shaped phases (P1 roster verification, P6 site sweep) and explicitly
+said code phases run inline. That held.
+
+**Why no agent was the right call for the research parts too.** P1's roster
+looked like the classic fan-out task: 281 organizations to verify. It was one
+`urllib` fetch of the White House page plus a 20-line regex — the roster is
+clean server-rendered HTML with `data-cat` / `data-domain` attributes on every
+row. **An agent would have re-derived by reading what a `re.findall` returns in
+one call**, and would probably have paraphrased the names instead of copying
+them. Cost: ~4 fetches + local parsing for the whole 302-record registry.
+
+The same shape held in P0: the spec described "~471 lines of uncommitted seed
+edits" needing reconciliation and implied a substantial merge. A single
+`python3 -c` structural diff (id-set comparison across five payloads) collapsed
+it to *six genuinely new records* in one call, because main was far behind the
+branch. **A research agent pointed at "reconcile this diff" would have burned
+six figures of tokens rediscovering that.**
+
+**Where the tokens actually went:** reading existing code before editing it
+(app.js is 5.3K lines and every change had to fit its conventions), and the
+Playwright verification loop — screenshot, read, fix, re-shoot. That loop caught
+things no test would have been written for: an em-dash accent rendering as a
+gold rule, meter labels ellipsising to "New power su…", an `undefined` tariff
+name, a bogus `XX` state chip. **Cheap and irreplaceable; keep it.**
+
+**The rule this reinforces:** exhaust `curl` + `re` + `python3 -c` before
+reaching for an agent. Three of this session's most expensive-looking subtasks
+(reconcile the diff, import 281 signatories, backfill serving utilities) each
+reduced to one local command plus a judgement call that a human-in-the-loop
+reviewer — not an agent — had to make. The judgement was the *only* part that
+couldn't be automated: 6 of 24 automated `serving_utility` candidates were
+false positives, and no agent prompt would have reliably caught "a *former*
+Duke Energy site" as not-a-serving-utility.
