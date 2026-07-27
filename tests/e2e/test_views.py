@@ -2137,3 +2137,55 @@ class TestAggregateSignatoryRollup:
             assessed = int(cells[5])
             contested = 0 if cells[6].strip() == "—" else int(cells[6])
             assert contested <= assessed, f"row {i}: {contested} contested > {assessed} assessed"
+
+
+class TestReviewFixes:
+    """Regressions from the PR #35 review. Each of these shipped once."""
+
+    def test_state_strip_counts_regulatory_only_states(
+        self, page: Page, base_url: str
+    ):
+        """The strip totalled projects + tariffs + moratoriums but only projects
+        were loaded, so CA / NY / FL — which have moratoriums and no tracked
+        site — rendered as "No records yet" and the key under-reported the
+        covered-state count."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
+        page.wait_for_timeout(1500)
+        for code in ("CA", "NY", "FL"):
+            label = page.locator(
+                f'#pledge-state-strip .pledge-state-cell[data-state-code="{code}"]'
+            ).get_attribute("aria-label")
+            assert "no tracked records" not in label, f"{code}: {label}"
+        key = page.locator("#pledge-strip-key").inner_text()
+        covered = int(key.split(" of 50")[0].split()[-1])
+        assert covered >= 45, f"only {covered} of 50 states reported as covered"
+
+    def test_every_csv_row_has_the_same_column_count(self, page: Page, base_url: str):
+        """Two headers were added to the assessed rows only, shifting every
+        value in the 75 unassessed rows two columns left."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.wait_for_timeout(1500)
+        widths = page.evaluate(
+            "() => buildRatepayerCSV().split('\\r\\n').filter(Boolean).map(l => {"
+            " let n=1,q=false; for (const c of l) { if (c==='\\\"') q=!q;"
+            " else if (c===',' && !q) n++; } return n; })"
+        )
+        assert len(set(widths)) == 1, (
+            f"ragged CSV: column counts {sorted(set(widths))} across {len(widths)} rows"
+        )
+        assert len(widths) > 50, "expected assessed + unassessed rows in the export"
+
+    def test_state_modal_traps_tab_focus(self, page: Page, base_url: str):
+        """Tab used to walk straight out of an aria-modal dialog into the page
+        behind it."""
+        page.goto(base_url + "/#state/TX")
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.wait_for_timeout(2500)
+        for _ in range(40):
+            page.keyboard.press("Tab")
+        inside = page.evaluate(
+            "() => !!document.activeElement.closest('#state-modal')"
+        )
+        assert inside, "focus escaped the state dialog"

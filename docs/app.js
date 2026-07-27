@@ -379,6 +379,8 @@ const state = {
   moratoriums: [],
   tariffs: [],
   signatories: [],
+  coverage: {},
+  coverageLoaded: false,
   rosterAsOf: null,
   rosterCountsStated: {},
   rosterDriftNote: null,
@@ -873,6 +875,28 @@ function loadSignatoryData() {
   return _signatoryDataPromise;
 }
 
+// Per-state record counts, precomputed by refresh.py (~2 KB). Without this the
+// landing would have to download moratoriums.json + tariffs.json (~50 KB gz)
+// just to draw a state grid, and until it did it reported site counts only —
+// so CA, NY and FL, which have moratoriums but no tracked site, rendered as
+// "No records yet".
+let _coverageDataPromise = null;
+function loadCoverageData() {
+  if (!_coverageDataPromise) {
+    _coverageDataPromise = fetchJson("data/coverage.json")
+      .then((payload) => {
+        state.coverage = payload.states || {};
+        state.coverageLoaded = true;
+      })
+      .catch((err) => {
+        // Non-fatal: coverageStates() falls back to whatever live arrays are
+        // loaded, which is the pre-v2 behaviour rather than a broken grid.
+        console.error("Failed to load coverage rollup:", err);
+      });
+  }
+  return _coverageDataPromise;
+}
+
 // Roster counts derived from the list we actually hold — never from the
 // source page's advertised chip numbers, which drift from its own list.
 function signatoryCounts() {
@@ -900,7 +924,7 @@ function signatorySignedDate(companySlug) {
 // Ratepayer view: needs the project payload (for the scorecard) and the pledge
 // roster (for the coverage + roster sections). Renders once data is in hand.
 async function loadRatepayerView() {
-  await Promise.all([loadProjectData(), loadSignatoryData()]);
+  await Promise.all([loadProjectData(), loadSignatoryData(), loadCoverageData()]);
   state.ratepayerLoaded = true;
   renderRatepayerView();
   renderPledgeHero();
@@ -2063,7 +2087,7 @@ function wireTariffDetail() {
     });
     // Keep Tab focus inside the dialog while the modal is open.
     overlay.addEventListener("keydown", (e) => {
-      if (e.key === "Tab" && !overlay.hidden) trapTariffModalFocus(e, overlay);
+      if (e.key === "Tab" && !overlay.hidden) trapModalFocus(e, overlay);
     });
     overlay.dataset.wired = "1";
   }
@@ -2076,7 +2100,10 @@ function wireTariffDetail() {
 }
 
 // Simple focus trap: cycle Tab / Shift+Tab within the modal's focusables.
-function trapTariffModalFocus(e, overlay) {
+// Shared by every `aria-modal` dialog (tariff, moratorium, state). The logic was
+// always generic — only the name was tariff-specific, which is why the
+// moratorium modal ended up re-inlining a copy of it.
+function trapModalFocus(e, overlay) {
   const focusables = [...overlay.querySelectorAll(
     'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
   )].filter((el) => el.offsetParent !== null);
@@ -3713,19 +3740,7 @@ function wireMoratoriumDetail() {
       }
     });
     overlay.addEventListener("keydown", (e) => {
-      if (e.key === "Tab" && !overlay.hidden) {
-        const focusables = [...overlay.querySelectorAll(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        )].filter((el) => el.offsetParent !== null);
-        if (!focusables.length) return;
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault(); last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault(); first.focus();
-        }
-      }
+      if (e.key === "Tab" && !overlay.hidden) trapModalFocus(e, overlay);
     });
     overlay.dataset.wired = "1";
   }
@@ -4558,17 +4573,31 @@ function coverageStates() {
     const entry = touch(code);
     if (entry) entry.governor = rec;
   }
-  for (const p of state.projects || []) {
-    const entry = touch(p.state);
-    if (entry) entry.projects += 1;
-  }
-  for (const t of state.tariffs || []) {
-    const entry = touch(t.state);
-    if (entry) entry.tariffs += 1;
-  }
-  for (const m of state.moratoriums || []) {
-    const entry = touch(moratoriumStateCode(m));
-    if (entry) entry.moratoriums += 1;
+
+  // Prefer the precomputed rollup: it covers all three record types, whereas
+  // the live arrays only hold whatever the visitor's tab history happens to
+  // have loaded. Falls back to live counts when the rollup is unavailable.
+  if (state.coverageLoaded) {
+    for (const [code, counts] of Object.entries(state.coverage || {})) {
+      const entry = touch(code);
+      if (!entry) continue;
+      entry.projects = counts.projects || 0;
+      entry.tariffs = counts.tariffs || 0;
+      entry.moratoriums = counts.moratoriums || 0;
+    }
+  } else {
+    for (const p of state.projects || []) {
+      const entry = touch(p.state);
+      if (entry) entry.projects += 1;
+    }
+    for (const t of state.tariffs || []) {
+      const entry = touch(t.state);
+      if (entry) entry.tariffs += 1;
+    }
+    for (const m of state.moratoriums || []) {
+      const entry = touch(moratoriumStateCode(m));
+      if (entry) entry.moratoriums += 1;
+    }
   }
 
   return [...states.values()].sort((a, b) => {
@@ -4858,6 +4887,11 @@ function wireStatePanel() {
       if (e.target === overlay || e.target.closest("[data-state-close]")) {
         closeStatePanel();
       }
+    });
+    // Without this, Tab walks straight out of an aria-modal dialog into the
+    // page behind it — the other two modals already guard against that.
+    overlay.addEventListener("keydown", (e) => {
+      if (e.key === "Tab" && !overlay.hidden) trapModalFocus(e, overlay);
     });
   }
   if (!document.body.dataset.stateEscWired) {
@@ -5500,8 +5534,13 @@ function buildRatepayerCSV() {
     for (const p of bucket) {
       const co = state.companiesBySlug.get(p.company_slug);
       const announcedDate = p.announced_date || String(p.announced_year);
+      // Must stay column-for-column identical to the assessed row above —
+      // adding a header without touching this block shifts every later value.
+      const sig = state.signatoryByCompany && state.signatoryByCompany.get(p.company_slug);
       const row = [
         co ? co.name : p.company_slug,
+        sig ? SIGNATORY_TRACK_LABELS[sig.signed_track] || sig.signed_track : "Not a signatory",
+        sig && sig.signed_date ? sig.signed_date : "",
         p.name,
         p.city,
         p.state,

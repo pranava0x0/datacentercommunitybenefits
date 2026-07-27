@@ -355,6 +355,61 @@ def _write_audit_report(
     logger.info("Wrote audit report to ISSUES.md")
 
 
+# "XX" is the sentinel for virtual / multi-site partnerships with no physical
+# location. It is not a place and must never become a state.
+NON_GEOGRAPHIC_STATE = "XX"
+
+
+def _build_coverage(projects, tariffs, moratoriums) -> dict:
+    """Per-state record counts for the landing page's coverage surfaces.
+
+    Precomputed here rather than derived in the browser because the landing view
+    would otherwise have to download moratoriums.json + tariffs.json (~50 KB
+    gzipped) just to draw a state grid. Without this, the strip silently reported
+    site counts only: a state with a moratorium and no tracked site rendered as
+    "No records yet", which is precisely the opposite of what that chip is for.
+
+    ~2 KB, so it can join first paint without troubling the budget.
+    """
+    states: dict[str, dict[str, int]] = {}
+
+    def bucket(code):
+        if not code:
+            return None
+        key = str(code).upper()
+        if key == NON_GEOGRAPHIC_STATE:
+            return None
+        return states.setdefault(key, {"projects": 0, "tariffs": 0, "moratoriums": 0})
+
+    for p in projects.projects:
+        b = bucket(p.state)
+        if b is not None:
+            b["projects"] += 1
+    for t in tariffs.tariffs:
+        b = bucket(t.state)
+        if b is not None:
+            b["tariffs"] += 1
+    for m in moratoriums.moratoriums:
+        b = bucket(m.state_code)
+        if b is not None:
+            b["moratoriums"] += 1
+
+    return {"states": dict(sorted(states.items()))}
+
+
+def _write_coverage(payloads, *, pretty: bool) -> int:
+    """Emit the derived coverage rollup alongside the validated payloads."""
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    data = _build_coverage(
+        payloads["projects"], payloads["tariffs"], payloads["moratoriums"]
+    )
+    data["generated_at"] = payloads["projects"].generated_at.isoformat()
+    out = OUT_DIR / "coverage.json"
+    text = json.dumps(data, indent=2) + "\n" if pretty else json.dumps(data, separators=(",", ":"))
+    out.write_text(text, encoding="utf-8")
+    return len(text.encode("utf-8"))
+
+
 def _write_payload(name: str, model_obj, *, pretty: bool) -> int:
     """Emit one payload to docs/data/<name>.json. Returns bytes written."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -431,6 +486,9 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         nbytes = _write_payload(name, payload, pretty=pretty)
         total += nbytes
         logger.info("Wrote %s.json (%d bytes)", name, nbytes)
+    nbytes = _write_coverage(payloads, pretty=pretty)
+    total += nbytes
+    logger.info("Wrote coverage.json (%d bytes)", nbytes)
     logger.info("Total payload size: %.1f KB", total / 1024)
     return 0
 

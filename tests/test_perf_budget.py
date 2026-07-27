@@ -35,6 +35,7 @@ FIRST_PAINT = [
     "data/claims.json",  # preloaded
     "data/projects.json",  # Ratepayer scorecard + principle tallies
     "data/signatories.json",  # roster counts + coverage
+    "data/coverage.json",  # per-state rollup (~2 KB) so the grid needn't pull 50 KB
 ]
 
 # Fetched immediately AFTER first paint, not as part of it. responses.json only

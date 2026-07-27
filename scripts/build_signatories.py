@@ -188,9 +188,17 @@ def slugify(name: str) -> str:
 
 
 def fetch(url: str, *, cached_only: bool = False) -> str:
+    """Fetch the roster, using the on-disk cache ONLY when --cached is given.
+
+    This used to read the cache whenever the file existed, which meant the first
+    successful run poisoned every run after it: `build_signatories.py` and
+    `--diff` kept replaying the original snapshot no matter what the living
+    roster did. A roster importer that cannot see the roster change is worse
+    than no importer, because it reports "no adds, no removals" with confidence.
+    """
     CACHE.mkdir(exist_ok=True)
     path = CACHE / (slugify(url) + ".html")
-    if cached_only or path.exists():
+    if cached_only:
         if not path.exists():
             raise SystemExit(f"--cached given but no cache at {path}")
         return path.read_text()
@@ -300,6 +308,15 @@ def build_governors(captured: str) -> list[dict]:
     ]
 
 
+# Fields that change on every run without the roster having changed.
+SNAPSHOT_FIELDS = ("captured_at",)
+
+
+def _substance(rec: dict) -> dict:
+    """A record minus its snapshot timestamps — what --diff should compare."""
+    return {k: v for k, v in rec.items() if k not in SNAPSHOT_FIELDS}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--diff", action="store_true", help="report adds/removals, write nothing")
@@ -345,7 +362,13 @@ def main() -> int:
         new = {s["id"]: s for s in records}
         added = sorted(set(new) - set(old))
         removed = sorted(set(old) - set(new))
-        changed = sorted(i for i in set(old) & set(new) if old[i] != new[i])
+        # Compare on substance only. `captured_at` is restamped to --as-of on
+        # every parse, so a whole-record comparison flags all 302 signatories as
+        # "changed" on any later date and buries the real renames it exists to
+        # surface.
+        changed = sorted(
+            i for i in set(old) & set(new) if _substance(old[i]) != _substance(new[i])
+        )
         print(f"adds ({len(added)}): {added}")
         print(f"REMOVALS ({len(removed)}): {removed}   <- review before accepting")
         print(f"changed ({len(changed)}): {changed}")

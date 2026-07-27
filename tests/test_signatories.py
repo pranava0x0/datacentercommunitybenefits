@@ -314,3 +314,75 @@ def test_serving_utility_backfill_is_not_empty() -> None:
     projects = json.loads((SEED / "projects.json").read_text())["projects"]
     filled = [p for p in projects if p.get("serving_utility")]
     assert len(filled) >= 10, f"only {len(filled)} projects name a serving utility"
+
+
+# ---------------------------------------------------------------------------
+# Coverage rollup + importer behaviour (PR #35 review fixes)
+# ---------------------------------------------------------------------------
+
+
+def test_coverage_rollup_counts_all_three_record_types() -> None:
+    """The landing's state grid reads this instead of downloading ~50 KB of
+    moratoriums + tariffs. If it only counted projects, states with a
+    moratorium and no tracked site (CA, NY, FL) would render "No records yet" —
+    the exact opposite of what that chip is for.
+    """
+    cov = json.loads((OUT / "coverage.json").read_text())["states"]
+    projects = json.loads((SEED / "projects.json").read_text())["projects"]
+    tariffs = json.loads((SEED / "tariffs.json").read_text())["tariffs"]
+    moratoriums = json.loads((SEED / "moratoriums.json").read_text())["moratoriums"]
+
+    def tally(records, key):
+        out: dict[str, int] = {}
+        for r in records:
+            code = (r.get(key) or "").upper()
+            if code and code != "XX":
+                out[code] = out.get(code, 0) + 1
+        return out
+
+    for name, expected in (
+        ("projects", tally(projects, "state")),
+        ("tariffs", tally(tariffs, "state")),
+        ("moratoriums", tally(moratoriums, "state_code")),
+    ):
+        for code, n in expected.items():
+            assert cov.get(code, {}).get(name) == n, (
+                f"coverage.json {code}.{name} = {cov.get(code, {}).get(name)}, expected {n}"
+            )
+
+
+def test_coverage_includes_states_with_no_projects() -> None:
+    """The regression this rollup exists to prevent."""
+    cov = json.loads((OUT / "coverage.json").read_text())["states"]
+    only_regulatory = [
+        c for c, v in cov.items()
+        if v["projects"] == 0 and (v["tariffs"] or v["moratoriums"])
+    ]
+    assert len(only_regulatory) >= 5, (
+        "expected several states tracked only through moratoriums/tariffs; "
+        f"got {only_regulatory}"
+    )
+
+
+def test_coverage_excludes_the_non_geographic_sentinel() -> None:
+    cov = json.loads((OUT / "coverage.json").read_text())["states"]
+    assert "XX" not in cov
+
+
+def test_importer_only_reuses_the_cache_when_asked() -> None:
+    """The cache branch used to trigger on `path.exists()`, so the first
+    successful run poisoned every run after it — the importer kept replaying
+    one snapshot and reporting "no adds, no removals" with confidence."""
+    src = (ROOT / "scripts" / "build_signatories.py").read_text()
+    assert "if cached_only:" in src, (
+        "fetch() must gate cache reuse on --cached alone, not on the file existing"
+    )
+    assert "if cached_only or path.exists():" not in src
+
+
+def test_diff_ignores_snapshot_timestamps() -> None:
+    """`captured_at` is restamped every parse; comparing whole records made
+    --diff report all 302 signatories as changed on any later date."""
+    src = (ROOT / "scripts" / "build_signatories.py").read_text()
+    assert "_substance(" in src and "SNAPSHOT_FIELDS" in src
+    assert "captured_at" in src.split("SNAPSHOT_FIELDS")[1][:120]
