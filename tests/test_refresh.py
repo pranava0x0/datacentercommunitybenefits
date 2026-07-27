@@ -19,20 +19,15 @@ SEED = ROOT / "data" / "seed"
 def _copy_seed(tmp_path: Path) -> Path:
     """Copy the real seed into a tmp dir so we can mutate it without affecting the repo.
 
-    Must mirror every payload refresh.py validates (refresh.PAYLOAD_FILES) — the
-    driver iterates all of them and raises FileNotFoundError on any missing seed.
-    Kept in sync as new payloads land (moratoriums v1.16, tariffs v1.17)."""
+    Derived from refresh.PAYLOAD_FILES rather than a hardcoded list: the driver
+    iterates all of them and raises FileNotFoundError on any missing seed, so a
+    literal copy here silently rots every time a payload lands (it did, when
+    signatories.json arrived in v2). Reading the same dict the driver reads
+    means a new payload is copied automatically."""
     dst = tmp_path / "data" / "seed"
     dst.mkdir(parents=True)
-    for name in (
-        "companies.json",
-        "claims.json",
-        "projects.json",
-        "responses.json",
-        "moratoriums.json",
-        "tariffs.json",
-    ):
-        shutil.copyfile(SEED / name, dst / name)
+    for name in refresh.PAYLOAD_FILES:
+        shutil.copyfile(SEED / f"{name}.json", dst / f"{name}.json")
     return dst
 
 
@@ -137,6 +132,7 @@ def _moratorium(id_: str, status: str, captured_at: date) -> Moratorium:
         id=id_,
         jurisdiction="Test Jurisdiction",
         jurisdiction_type="state",
+        state_code="OH",
         status=status,
         duration_description="1 year",
         summary="Test summary.",

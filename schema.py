@@ -184,6 +184,52 @@ RATEPAYER_LABELS: dict[str, str] = {
 #   separate_rate   — "Paying whether they use the power or not" (separate rate structures)
 #   local_jobs      — "Investing in local job creation and workforce development"
 #   grid_resilience — "Contributing to electric and community resilience"
+# The Ratepayer Protection Pledge roster (v2, from the 2026-07-23 expansion).
+#
+# Categories mirror the stakeholder groups the White House page itself uses,
+# with one deliberate split: the page lumps the 7 hyperscalers in with the
+# data-center developers under a single "DATA CENTER" chip, but the two behave
+# very differently for our purposes (hyperscalers are electricity BUYERS who
+# signed in the March round; developers are builders who signed in July). The
+# builder re-tags a roster row as `hyperscaler` when it resolves to a tracked
+# Company that was already a March signatory.
+#
+# Frozen for v2 — adding a category = BACKLOG entry + the app.js mirror +
+# a `--sig-<category>` color token in BOTH `:root` blocks, same drill as
+# THEMES / DELIVERED_STATUSES / RATEPAYER_STATUSES.
+SIGNATORY_CATEGORIES: tuple[str, ...] = (
+    "hyperscaler",
+    "utility",
+    "cooperative",
+    "developer",
+    "governor",
+)
+SIGNATORY_CATEGORY_LABELS: dict[str, str] = {
+    "hyperscaler": "Hyperscaler / AI company",
+    "utility": "Utility",
+    "cooperative": "Cooperative",
+    "developer": "Data-center developer",
+    "governor": "Governor",
+}
+
+# Which signing event a roster row belongs to. `signed_date` carries the exact
+# day; the track is what makes the cohort legible ("March round" vs "July
+# expansion") and drives pledge-era eligibility in the scorecard.
+SIGNATORY_TRACKS: tuple[str, ...] = (
+    "white-house-2026-03-04",  # the original 7 hyperscalers
+    "doe-2026-04-24",  # QTS, via the DOE companion track
+    "expansion-2026-07-23",  # the EPA-HQ event cohort + governors' addendum
+    "rolling",  # added to the roster after 7/23 (e.g. TVA-style adds)
+)
+SIGNATORY_TRACK_LABELS: dict[str, str] = {
+    "white-house-2026-03-04": "White House, March 4, 2026",
+    "doe-2026-04-24": "DOE companion track, April 24, 2026",
+    "expansion-2026-07-23": "Expansion, July 23, 2026",
+    "rolling": "Added to the roster after July 23, 2026",
+}
+# The day the pledge expanded from 8 organizations to 200+.
+RATEPAYER_PLEDGE_EXPANSION_DATE: str = "2026-07-23"
+
 PLEDGE_PRINCIPLES: tuple[str, ...] = (
     "new_generation",
     "delivery_infra",
@@ -538,6 +584,29 @@ class Project(_StrictBase):
             "this is the field that disambiguates 'who is the compute actually for?'"
         ),
     )
+    serving_utility: Optional[str] = Field(
+        default=None,
+        description=(
+            "The electric utility that serves this site, as the SOURCE names it — "
+            "usually the operating company ('Entergy Mississippi', 'Ameren "
+            "Missouri'), not the holding company. Set this ONLY when a source "
+            "states the serving relationship: 'served by X', 'X-served capacity', "
+            "'the local utility, X'. Do NOT infer it from geography. Half the "
+            "candidates found by scanning for utility names in project text were "
+            "false positives — a *nearby* Duke Energy plant, a *former* Duke "
+            "Energy site — and a wrong utility here would misattribute a tariff "
+            "and a signatory to a data center."
+        ),
+    )
+    serving_utility_signatory_id: Optional[str] = Field(
+        default=None,
+        description=(
+            "The `Signatory.id` of the serving utility, when it is on the pledge "
+            "roster. Often the PARENT of `serving_utility` (Entergy Mississippi -> "
+            "`entergy-corporation`), because the roster lists holding companies. "
+            "Validated against signatories.json at refresh time."
+        ),
+    )
     at_a_glance: Optional[dict[str, str]] = Field(
         default=None,
         description=(
@@ -634,6 +703,18 @@ class Moratorium(_StrictBase):
     )
     jurisdiction_type: Literal["city", "county", "state", "federal"] = Field(
         description="Geographic scope of the moratorium.",
+    )
+    state_code: Optional[str] = Field(
+        default=None,
+        min_length=2,
+        max_length=2,
+        description=(
+            "Two-letter state code, for state rollups. Stored rather than parsed "
+            "at render time: `jurisdiction` holds a bare place name ('Baltimore', "
+            "'Cave City') with no state in it, and the id only sometimes carries "
+            "one, so there is nothing reliable to derive from. Required for every "
+            "record except `federal` ones, which legitimately have no state."
+        ),
     )
     status: MoratoriumStatus = Field(
         description=(
@@ -777,6 +858,25 @@ class MoratoriumsPayload(_StrictBase):
 
     @field_validator("moratoriums")
     @classmethod
+    def _non_federal_records_have_a_state(cls, v: list[Moratorium]) -> list[Moratorium]:
+        """Fail the refresh rather than silently dropping a record from state rollups.
+
+        A missing state_code doesn't error anywhere at render time — the record
+        just quietly stops appearing in its state's panel, which looks like "no
+        moratoriums here" instead of a data gap.
+        """
+        missing = [
+            m.id for m in v if m.jurisdiction_type != "federal" and not m.state_code
+        ]
+        if missing:
+            raise ValueError(
+                "Moratoriums missing `state_code` (required for everything except "
+                f"federal records): {sorted(missing)}"
+            )
+        return v
+
+    @field_validator("moratoriums")
+    @classmethod
     def _ids_unique(cls, v: list[Moratorium]) -> list[Moratorium]:
         ids = [m.id for m in v]
         if len(ids) != len(set(ids)):
@@ -817,6 +917,20 @@ TARIFF_STATUS_LABELS: dict[str, str] = {
 # but kept out of the state-tariff stat counts (see Tariff.jurisdiction_level).
 TARIFF_JURISDICTION_LEVELS: tuple[str, ...] = ("state", "federal")
 TariffJurisdictionLevel = Literal["state", "federal"]
+
+SignatoryCategory = Literal[
+    "hyperscaler",
+    "utility",
+    "cooperative",
+    "developer",
+    "governor",
+]
+SignatoryTrack = Literal[
+    "white-house-2026-03-04",
+    "doe-2026-04-24",
+    "expansion-2026-07-23",
+    "rolling",
+]
 
 # The five LBL element groups, in the brief's order. (group_key, label).
 TARIFF_PARAMETER_GROUPS: tuple[tuple[str, str], ...] = (
@@ -1103,6 +1217,161 @@ class TariffsPayload(_StrictBase):
         return v
 
 
+class Signatory(_StrictBase):
+    """One organization (or governor) on the Ratepayer Protection Pledge roster.
+
+    Deliberately a THIN record, unlike Company. The dashboard has two tiers:
+
+      Company    — deep coverage. 13 slugs, each with curated claims, projects,
+                   a hand-written summary. Adding one requires the two-gate
+                   editorial test (CLAUDE.md > "Companies in scope").
+      Signatory  — breadth. Every name on the White House roster, carrying only
+                   what the roster itself publishes (name, category, domain)
+                   plus who signed when.
+
+    `matched_company_slug` is the bridge: the handful of signatories we also
+    track deeply point at their Company record. Everything else is roster-only,
+    and that is the honest state — we are not implying we have researched 279
+    cooperatives because we listed them.
+
+    Editorial rules:
+    - The roster is a SNAPSHOT, not a live mirror. Counts are always rendered
+      "as of <roster_as_of>". The White House page's own header chips disagree
+      with its own list (it advertised 281/69 while listing 279/68 on
+      2026-07-25) — store what the LIST shows and record the advertised numbers
+      separately in `roster_counts_stated`. Never silently reconcile the two.
+    - Governors are signatory records too (category "governor", `state`
+      required, sourced to the RGA release). One vocabulary, one payload — the
+      state panel then gets its governor row for free.
+    - Signing a pledge is a fact, not an assessment. Nothing here is a curator
+      judgment call, and no per-signatory compliance is scored: for the vast
+      majority we have no site data at all, and absence stays honest.
+    """
+
+    id: str = Field(
+        min_length=1,
+        description="Stable slug: 'aep-ohio', 'gov-tx', 'tva'. Governors use 'gov-<state>'.",
+    )
+    name: str = Field(
+        min_length=1,
+        description="Exact spelling as it appears on the roster ('AEP Ohio', not 'AEP-Ohio').",
+    )
+    category: SignatoryCategory
+    signed_track: SignatoryTrack
+    signed_date: Optional[Date] = Field(
+        default=None,
+        description=(
+            "Date this signatory joined. Null ONLY for `rolling` adds whose date "
+            "the roster does not publish — never guessed."
+        ),
+    )
+    state: Optional[str] = Field(
+        default=None,
+        min_length=2,
+        max_length=2,
+        description="Two-letter state code. REQUIRED for governors; optional HQ state otherwise.",
+    )
+    website_domain: Optional[str] = Field(
+        default=None,
+        description="Bare domain as published on the roster ('aepohio.com'), no scheme.",
+    )
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+    captured_at: Date
+    matched_company_slug: Optional[CompanySlug] = Field(
+        default=None,
+        description="Bridges a roster row to a deeply-tracked Company record.",
+    )
+    utility_aliases: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Other spellings this organization appears under in tariffs.json "
+            "`utility` — e.g. 'AEP Ohio (Ohio Power Company)'. Used for exact-id "
+            "joins ONLY; never fuzzy-match utility names (AEP Ohio vs AEP Texas)."
+        ),
+    )
+    notes: Optional[str] = None
+
+    @field_validator("state")
+    @classmethod
+    def _state_upper(cls, v: Optional[str]) -> Optional[str]:
+        return v.upper() if v else v
+
+    @field_validator("website_domain")
+    @classmethod
+    def _domain_is_bare(cls, v: Optional[str]) -> Optional[str]:
+        if v and ("://" in v or v.startswith("www.")):
+            raise ValueError(f"website_domain must be a bare domain, got {v!r}")
+        return v
+
+
+class SignatoriesPayload(_StrictBase):
+    """The pledge roster as captured on a given day."""
+
+    generated_at: Date
+    roster_as_of: Date = Field(
+        description="The day the White House roster was captured. Displayed with every count.",
+    )
+    roster_counts_stated: dict[str, int] = Field(
+        default_factory=dict,
+        description=(
+            "Counts as ADVERTISED by the source page's own filter chips on "
+            "`roster_as_of`. Kept alongside the derived counts precisely because "
+            "the two drift; the UI shows ours and footnotes theirs."
+        ),
+    )
+    pledge_url: str
+    pledge_pdf_url: Optional[str] = None
+    drift_note: Optional[str] = Field(
+        default=None,
+        description="Plain-English description of any stated-vs-listed count mismatch.",
+    )
+    signatories: list[Signatory]
+
+    @field_validator("signatories")
+    @classmethod
+    def _ids_unique(cls, v: list[Signatory]) -> list[Signatory]:
+        ids = [s.id for s in v]
+        if len(ids) != len(set(ids)):
+            dup = [i for i in ids if ids.count(i) > 1]
+            raise ValueError(f"Duplicate signatory ids: {sorted(set(dup))}")
+        return v
+
+    @field_validator("signatories")
+    @classmethod
+    def _governors_have_state(cls, v: list[Signatory]) -> list[Signatory]:
+        bad = [s.id for s in v if s.category == "governor" and not s.state]
+        if bad:
+            raise ValueError(f"Governor signatories missing `state`: {sorted(bad)}")
+        return v
+
+    @field_validator("signatories")
+    @classmethod
+    def _import_not_truncated(cls, v: list[Signatory]) -> list[Signatory]:
+        """Fail loudly on a half-parsed roster rather than shipping a short list."""
+        counts: dict[str, int] = {}
+        for s in v:
+            counts[s.category] = counts.get(s.category, 0) + 1
+        floors = {
+            "hyperscaler": 1,
+            "utility": 1,
+            "cooperative": 1,
+            "developer": 1,
+            "governor": 23,
+        }
+        short = {
+            cat: (counts.get(cat, 0), floor)
+            for cat, floor in floors.items()
+            if counts.get(cat, 0) < floor
+        }
+        if short:
+            raise ValueError(
+                "Signatory roster looks truncated — "
+                + ", ".join(f"{c}: {got} < {want}" for c, (got, want) in sorted(short.items()))
+            )
+        return v
+
+
 # Top-level payloads (what refresh.py emits, what the frontend reads)
 # ---------------------------------------------------------------------------
 
@@ -1185,6 +1454,11 @@ __all__ = [
     "TARIFF_PARAMETER_GROUPS",
     "TARIFF_PARAMETER_GROUP_OF",
     "TARIFF_COVERAGE_STATUSES",
+    "SIGNATORY_CATEGORIES",
+    "SIGNATORY_CATEGORY_LABELS",
+    "SIGNATORY_TRACKS",
+    "SIGNATORY_TRACK_LABELS",
+    "RATEPAYER_PLEDGE_EXPANSION_DATE",
     "Theme",
     "CompanySlug",
     "ProjectStatus",
@@ -1197,6 +1471,8 @@ __all__ = [
     "TariffStatus",
     "TariffCoverageStatus",
     "TariffJurisdictionLevel",
+    "SignatoryCategory",
+    "SignatoryTrack",
     "PledgePrincipleStatus",
     "PledgePrincipleAssessment",
     "Company",
@@ -1218,4 +1494,6 @@ __all__ = [
     "ResponsesPayload",
     "MoratoriumsPayload",
     "TariffsPayload",
+    "Signatory",
+    "SignatoriesPayload",
 ]

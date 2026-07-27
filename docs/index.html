@@ -33,27 +33,140 @@
         </nav>
       </div>
 
+      <!-- Pledge-first landing band (v2). Sits above the tab bar so the three
+           questions a first-time visitor actually arrives with — who signed,
+           is it working, what about my state — are answerable without first
+           learning this dashboard's information architecture. Stats are
+           computed from the loaded data by renderPledgeHero(); nothing here is
+           a hardcoded number. -->
+      <section class="pledge-hero" id="pledge-hero" aria-labelledby="pledge-hero-title">
+        <div class="pledge-hero-inner">
+          <p class="pledge-kicker">
+            Ratepayer Protection Pledge <span aria-hidden="true">—</span>
+            <span class="pledge-kicker-strong">Independent tracker</span>
+          </p>
+          <h2 class="pledge-hero-title" id="pledge-hero-title">
+            Who signed <em>&mdash;</em> and is it showing up on the ground?
+          </h2>
+          <p class="pledge-hero-dek">
+            An independent record of the White House Ratepayer Protection Pledge: the
+            organizations that signed it, the five commitments they made, and what the
+            evidence looks like at real data-center sites. Not affiliated with the
+            White House or any signatory.
+          </p>
 
+          <ul class="pledge-stats" id="pledge-stats" aria-label="Pledge at a glance">
+            <li class="pledge-stat is-loading">
+              <span class="pledge-stat-num">&mdash;</span>
+              <span class="pledge-stat-lbl">Loading roster…</span>
+            </li>
+          </ul>
+
+          <!-- Three read-at-a-glance panels. Each answers one of the landing
+               questions with shape rather than a single number: who signed
+               (proportional roster bar), is it working (per-commitment
+               meters), what about my state (the 50-state strip). All three
+               render from loaded data — see renderPledgeHero(). -->
+          <div class="pledge-panels">
+            <section class="pledge-panel" aria-labelledby="pp-roster-h">
+              <h3 class="pledge-panel-h" id="pp-roster-h">Who signed</h3>
+              <div id="pledge-coverage-bar" class="pledge-bar"></div>
+              <ul id="pledge-coverage-key" class="pledge-bar-key"></ul>
+            </section>
+
+            <section class="pledge-panel" aria-labelledby="pp-commit-h">
+              <h3 class="pledge-panel-h" id="pp-commit-h">
+                Is it showing up?
+                <button
+                  class="pledge-panel-more"
+                  type="button"
+                  data-path-target="commitments"
+                >
+                  All five commitments &rarr;
+                </button>
+              </h3>
+              <ul id="pledge-meters" class="pledge-meters"></ul>
+            </section>
+
+            <section class="pledge-panel pledge-panel--wide" aria-labelledby="pp-states-h">
+              <h3 class="pledge-panel-h" id="pp-states-h">
+                What about my state?
+                <button class="pledge-panel-more" type="button" data-path-target="states">
+                  Full coverage &rarr;
+                </button>
+              </h3>
+              <div id="pledge-state-strip" class="pledge-state-strip"></div>
+              <p class="pledge-strip-key" id="pledge-strip-key"></p>
+            </section>
+          </div>
+
+          <section class="pledge-activity" aria-labelledby="pp-activity-h">
+            <h3 class="pledge-panel-h" id="pp-activity-h">What changed</h3>
+            <ol id="pledge-activity" class="pledge-activity-list"></ol>
+          </section>
+
+          <nav class="pledge-paths" aria-label="Where to start">
+            <button
+              class="pledge-path"
+              type="button"
+              id="path-policymaker"
+              data-path-target="states"
+            >
+              <span class="pledge-path-tag">For policymakers</span>
+              <span class="pledge-path-title">What did my state sign up for?</span>
+              <span class="pledge-path-dek">
+                Governor signatures, tariffs, moratoriums, and sites — by state.
+              </span>
+            </button>
+            <button
+              class="pledge-path"
+              type="button"
+              id="path-researcher"
+              data-path-target="scorecard"
+            >
+              <span class="pledge-path-tag">For researchers</span>
+              <span class="pledge-path-title">Which sites have real evidence?</span>
+              <span class="pledge-path-dek">
+                Site-by-site scorecard against the pledge's five commitments.
+              </span>
+            </button>
+            <button
+              class="pledge-path"
+              type="button"
+              id="path-community"
+              data-path-target="explorer"
+            >
+              <span class="pledge-path-tag">For communities</span>
+              <span class="pledge-path-title">What's being built near me?</span>
+              <span class="pledge-path-dek">
+                Every tracked site, who operates it, and what's on the record.
+              </span>
+            </button>
+          </nav>
+        </div>
+      </section>
+
+      <div class="tabbar-sticky">
       <div class="tabbar" role="tablist" aria-label="Dashboard views">
-        <button
-          id="tab-comparison"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="true"
-          aria-controls="view-comparison"
-        >
-          Company Comparison
-        </button>
         <button
           id="tab-ratepayer"
           class="tab"
           role="tab"
           type="button"
-          aria-selected="false"
+          aria-selected="true"
           aria-controls="view-ratepayer"
         >
           Ratepayer Protection Pledge
+        </button>
+        <button
+          id="tab-comparison"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-comparison"
+        >
+          Company Comparison
         </button>
         <button
           id="tab-moratoriums"
@@ -96,6 +209,7 @@
           Aggregate
         </button>
       </div>
+      </div>
     </header>
 
     <main id="main" tabindex="-1" role="main">
@@ -105,6 +219,7 @@
         class="view"
         role="tabpanel"
         aria-labelledby="tab-comparison"
+        hidden
       >
         <div class="hero">
           <h2 class="hero-title">What's being offered to host communities</h2>
@@ -479,55 +594,133 @@
         class="view"
         role="tabpanel"
         aria-labelledby="tab-ratepayer"
-        hidden
       >
         <div class="hero">
           <h2 class="hero-title">The Ratepayer Protection Pledge</h2>
           <p class="hero-dek">
-            On <span id="rp-pledge-date">March 4, 2026</span>, seven hyperscalers pledged
-            at the White House to pay for their own power and grid upgrades — not
-            ratepayers; QTS became the eighth signatory via the DOE companion track
-            on April 24, 2026. Tracks who signed and whether it's showing up site by site.
+            Signed at the White House on <span id="rp-pledge-date">March 4, 2026</span> by
+            seven hyperscalers, extended to QTS via the DOE companion track that April, and
+            expanded on July 23, 2026 to utilities, cooperatives, data-center developers, and
+            23 governors. This page tracks who signed and whether it is showing up site by site.
             <a id="rp-pledge-link" href="#" target="_blank" rel="noopener noreferrer">Read the pledge →</a>
           </p>
-          <label class="rp-toggle">
-            <input type="checkbox" id="rp-show-non-signatory" />
-            Show non-signatory companies (CoreWeave, Crusoe, etc.)
-          </label>
         </div>
 
         <!-- Top-level stats -->
         <ul id="rp-stats" class="rp-stats" aria-label="Pledge summary statistics"></ul>
 
-        <!-- Two-column: pledge elements left, roster right (stacks on mobile) -->
-        <div class="rp-two-col">
-          <details class="rp-commitments">
-            <summary id="rp-commitments-heading">The 5 pledge elements</summary>
-            <ul class="rp-commitment-list">
-              <li><strong>Building, bringing, or buying new power supply</strong> — pay the full cost of new generation.</li>
-              <li><strong>Paying for new power delivery infrastructure upgrades</strong> — cover all network upgrade costs.</li>
-              <li><strong>Paying whether they use the power or not</strong> — negotiate separate rate structures; pay used or not.</li>
-              <li><strong>Investing in local job creation and workforce development</strong> — hire locally; build skills programs.</li>
-              <li><strong>Contributing to electric and community resilience</strong> — coordinate with grid operators; provide backup generation.</li>
-            </ul>
-            <p class="rp-commitments-source">
-              Verbatim from the
-              <a id="rp-commitments-link" href="#" target="_blank" rel="noopener noreferrer">White House Ratepayer Protection Pledge</a>, March 4, 2026.
+        <!-- ---------------------------------------------------------------
+             1. THE PLEDGE — the five commitments, rendered as the page's
+             spine. Each carries a live count of how the assessed sites score
+             on that principle, which turns the existing per-principle rubric
+             into the thing the page is organized around.
+             --------------------------------------------------------------- -->
+        <section
+          class="rp-band"
+          id="rp-commitments-section"
+          aria-labelledby="rp-commitments-heading"
+        >
+          <div class="rp-band-inner">
+            <p class="rp-band-kicker">The pledge</p>
+            <h3 id="rp-commitments-heading" class="rp-band-title">
+              Five commitments, and how the tracked sites measure up.
+            </h3>
+            <ol id="rp-commitments" class="rp-commit-list"></ol>
+            <p class="rp-band-source">
+              Commitment titles quoted verbatim from the
+              <a
+                id="rp-commitments-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                >White House Ratepayer Protection Pledge</a
+              >. Counts are of assessed sites only — a site with no assessment is
+              counted in none of them.
             </p>
-          </details>
+          </div>
+        </section>
 
-          <details class="rp-commitments">
-            <summary id="rp-roster-heading">Who's signed</summary>
+        <!-- ---------------------------------------------------------------
+             2. COVERAGE — who signed, by category, plus the state grid.
+             --------------------------------------------------------------- -->
+        <section
+          class="rp-section"
+          id="rp-coverage-section"
+          aria-labelledby="rp-coverage-heading"
+        >
+          <h3 id="rp-coverage-heading">Coverage</h3>
+          <p class="rp-section-sub" id="rp-coverage-sub">
+            Every stakeholder group in the power system — the companies buying the
+            power, the utilities and cooperatives selling it, the developers building
+            the sites, and the governors who regulate them.
+          </p>
+          <ul id="rp-category-stats" class="rp-cat-stats" aria-label="Signatories by category"></ul>
+          <p class="rp-drift-note" id="rp-drift-note" hidden></p>
+
+          <h4 class="rp-subhead" id="rp-tracked-heading">Companies tracked in depth</h4>
+          <p class="rp-section-sub">
+            The operators this dashboard follows site by site. Most signed; those that
+            did not are shown here too when they publish a ratepayer commitment of
+            their own, so the absence of a signature is visible rather than implied.
+          </p>
+          <ul id="rp-tracked-roster" class="rp-roster" aria-labelledby="rp-tracked-heading"></ul>
+
+          <h4 class="rp-subhead" id="rp-states-heading">By state</h4>
+          <p class="rp-section-sub">
+            Filled chips have tracked records; hollow chips are states where a governor
+            signed but we have nothing on file yet. Select a state to see its sites,
+            tariffs, moratoriums, and utility signatories.
+          </p>
+          <div id="rp-state-chips" class="rp-state-chips" aria-labelledby="rp-states-heading"></div>
+        </section>
+
+        <!-- ---------------------------------------------------------------
+             3. SIGNATORY ROSTER — searchable, category-filterable. Rendered
+             on first expand (300+ rows), not on view load.
+             --------------------------------------------------------------- -->
+        <section
+          class="rp-section"
+          id="rp-roster-section"
+          aria-labelledby="rp-roster-heading"
+        >
+          <h3 id="rp-roster-heading">Signatory roster</h3>
+          <p class="rp-section-sub" id="rp-roster-sub">
+            The full published roster, as captured from the White House page.
+          </p>
+          <details class="rp-roster-details" id="rp-roster-details">
+            <summary id="rp-roster-summary">Browse the roster</summary>
+            <div class="rp-roster-controls">
+              <label class="rp-roster-search" for="rp-roster-q">
+                <span class="visually-hidden">Search signatories by name or domain</span>
+                <input
+                  id="rp-roster-q"
+                  type="search"
+                  placeholder="Search by name or domain…"
+                  autocomplete="off"
+                />
+              </label>
+              <div
+                id="rp-roster-filters"
+                class="rp-roster-filters"
+                role="group"
+                aria-label="Filter roster by category"
+              ></div>
+            </div>
+            <p class="rp-roster-count" id="rp-roster-count" role="status"></p>
             <ul id="rp-roster" class="rp-roster"></ul>
           </details>
-        </div>
+        </section>
 
         <!-- Per-data-center scorecard -->
         <!-- Assessed sites: announced on/after pledge date, or pre-pledge with post-pledge commitment -->
-        <section class="rp-section" aria-labelledby="rp-scorecard-heading">
+        <section
+          class="rp-section"
+          id="rp-scorecard-section"
+          aria-labelledby="rp-scorecard-heading"
+        >
           <h3 id="rp-scorecard-heading">Assessed sites</h3>
           <p class="rp-section-sub">
-            Sites announced on or after the pledge date, or pre-pledge sites where post-pledge reporting confirms adherence. Each card shows the announcement date and first pledge reference. Expand to see per-principle breakdown.
+            Sites announced on or after their operator signed, or pre-pledge sites where post-pledge reporting confirms adherence. Each card shows the announcement date and first pledge reference. Expand to see per-principle breakdown.
           </p>
           <div class="rp-scorecard-toolbar">
             <div id="rp-legend" class="rp-legend" aria-label="Assessment status legend"></div>
@@ -536,6 +729,35 @@
               <button id="rp-export-pdf" class="btn-ghost" type="button">⤓ PDF</button>
             </span>
           </div>
+          <!-- Sticky filter bar. The scorecard is 39 cards and growing; before
+               this the only way to find a site was to scroll all of them. -->
+          <div class="rp-filterbar" id="rp-filterbar">
+            <label class="rp-filter-search" for="rp-q">
+              <span class="visually-hidden">Search assessed sites</span>
+              <input
+                id="rp-q"
+                type="search"
+                placeholder="Search site, company, or state…"
+                autocomplete="off"
+              />
+            </label>
+            <div
+              class="rp-filter-chips"
+              id="rp-status-filter"
+              role="group"
+              aria-label="Filter by assessment status"
+            ></div>
+            <label class="rp-filter-flag">
+              <input type="checkbox" id="rp-only-concerns" />
+              Only sites with a ratepayer concern
+            </label>
+            <p class="rp-filter-count" id="rp-filter-count" role="status"></p>
+          </div>
+
+          <label class="rp-toggle">
+            <input type="checkbox" id="rp-show-non-signatory" />
+            Show sites from companies that never signed
+          </label>
           <ul id="rp-scorecard" class="rp-scorecard"></ul>
         </section>
 
@@ -571,6 +793,37 @@
           site-specific commitment is not a failing grade — it means the company
           hasn't published one for that site yet. Sources are linked on every card.
         </p>
+
+        <!-- ================= STATE PANEL MODAL =================
+             Follows the tariff/moratorium modal pattern exactly: backdrop
+             click, Escape, focus trap, return-focus on close. Deep-linkable
+             at #state/TX. Contents are assembled from data already collected
+             for other views — no new records back this panel. -->
+        <div id="state-modal" class="state-modal" hidden>
+          <div class="state-modal__backdrop" data-state-close aria-hidden="true"></div>
+          <aside
+            id="state-detail"
+            class="state-detail state-modal__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="sd-name"
+          >
+            <button
+              id="state-detail-close"
+              class="detail-close"
+              type="button"
+              aria-label="Close state details"
+            >
+              ×
+            </button>
+            <header class="detail-header">
+              <p class="eyebrow" id="sd-eyebrow">State</p>
+              <h3 id="sd-name">—</h3>
+              <p class="detail-sub" id="sd-governor">—</p>
+            </header>
+            <div id="sd-body" class="state-detail-body"></div>
+          </aside>
+        </div>
       </section>
 
       <!-- ====================== MORATORIUMS VIEW ====================== -->
@@ -930,6 +1183,35 @@
               </thead>
               <tbody id="agg-company-tbody"></tbody>
               <tfoot id="agg-company-tfoot"></tfoot>
+            </table>
+          </div>
+        </section>
+
+        <!-- Rolls the tracked sites up by which pledge cohort their operator
+             belongs to. Answers "does signing correlate with anything we can
+             see?" — which the by-company table cannot, because it has no
+             notion of the roster. -->
+        <section class="agg-section" id="agg-signatory-section">
+          <h3 class="agg-section-heading">By signatory category</h3>
+          <p class="agg-section-sub" id="agg-signatory-sub"></p>
+          <div class="table-scroll">
+            <table
+              class="agg-table"
+              id="agg-signatory-table"
+              aria-label="Rollup by pledge signatory category"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col" class="num">Companies</th>
+                  <th scope="col" class="num">Sites</th>
+                  <th scope="col" class="num">Power</th>
+                  <th scope="col" class="num">Investment</th>
+                  <th scope="col" class="num">Assessed</th>
+                  <th scope="col" class="num">Contested</th>
+                </tr>
+              </thead>
+              <tbody id="agg-signatory-tbody"></tbody>
             </table>
           </div>
         </section>

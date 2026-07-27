@@ -22,7 +22,11 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 OUT_DIR = ROOT / ".preview"
 OUT = OUT_DIR / "dashboard.html"
-DATA_FILES = ["companies", "claims", "projects", "responses", "moratoriums", "tariffs"]
+# Derived from the emitted payloads rather than listed by hand. A literal list
+# here silently rots every time a payload lands: signatories.json arrived in v2
+# and the bundle shipped without it, so the Ratepayer view — the landing view —
+# rendered zero cards while the build still reported success.
+DATA_FILES = sorted(f.stem for f in (DOCS / "data").glob("*.json"))
 
 OLD_FETCH = '''async function fetchJson(url) {
   const res = await fetch(url, { cache: "no-cache" });

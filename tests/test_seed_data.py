@@ -276,18 +276,42 @@ class TestRatepayerPledge:
 
     # Fixed history: seven hyperscalers signed at the White House on
     # 2026-03-04; QTS signed via the DOE companion track on 2026-04-24
-    # (RATEPAYER_PLEDGE_DOE_DATE) — eight signatories total.
-    EXPECTED_SIGNATORIES = {
+    # (RATEPAYER_PLEDGE_DOE_DATE). CoreWeave, Crusoe and Prologis joined in the
+    # 2026-07-23 expansion, taking the tracked-company count from eight to
+    # eleven.
+    #
+    # Membership is no longer asserted against a hardcoded set. It is asserted
+    # against signatories.json, which is built from the published roster — the
+    # boolean on Company is a mirror of that roster, and the failure mode worth
+    # catching is the two disagreeing. Hardcoding the list here is what let the
+    # flag sit stale through an expansion that tripled it.
+    ORIGINAL_EIGHT = {
         "amazon", "google", "meta", "microsoft", "openai", "oracle", "qts", "xai",
     }
 
-    def test_exactly_the_eight_signatories_flagged(self, companies):
+    def test_signatory_flags_match_the_roster(self, companies):
+        roster = json.loads((SEED / "signatories.json").read_text())
+        on_roster = {
+            s["matched_company_slug"]
+            for s in roster["signatories"]
+            if s.get("matched_company_slug")
+        }
         flagged = {
             c.slug for c in companies.companies if c.ratepayer_pledge_signatory
         }
-        assert flagged == self.EXPECTED_SIGNATORIES, (
-            f"Signatory roster drift: extra={flagged - self.EXPECTED_SIGNATORIES}, "
-            f"missing={self.EXPECTED_SIGNATORIES - flagged}"
+        assert flagged == on_roster, (
+            "Company.ratepayer_pledge_signatory disagrees with signatories.json: "
+            f"flagged-but-not-on-roster={flagged - on_roster}, "
+            f"on-roster-but-not-flagged={on_roster - flagged}"
+        )
+
+    def test_the_original_eight_are_still_signatories(self, companies):
+        """The March/DOE cohort is fixed history — an expansion never removes them."""
+        flagged = {
+            c.slug for c in companies.companies if c.ratepayer_pledge_signatory
+        }
+        assert self.ORIGINAL_EIGHT <= flagged, (
+            f"original signatories dropped: {self.ORIGINAL_EIGHT - flagged}"
         )
 
     def test_anthropic_is_not_a_signatory(self, companies):

@@ -28,7 +28,25 @@ All colors live as CSS custom properties on `:root` (light) and
 `[data-theme="dark"]`. JS reads them via `getComputedStyle()` — never
 hard-code a hex value in `app.js`.
 
-Three palettes:
+**v2: the base palette is cool paper / near-black ink / one deep signal blue**
+(`--bg #F7F8FA`, `--text #11151C`, `--accent #1F4E79`). It replaced a warm
+cream-and-gold scheme borrowed from the White House pledge page, which read as a
+consumer AI product rather than a public record. The pledge reference is carried
+by *structure* — Roman numeral commitments, letterspaced kickers, a display
+serif — not by colour.
+
+**Compute contrast before adopting a colour; don't eyeball it — a colour annotated "AA" in a doc is a claim, not a measurement, including a doc you wrote.** The pledge
+page's ochre measures 2.96:1 on its own cream, below both the 4.5:1 small-text
+and 3:1 large-text floors. It was written into the v2 spec as a token and would
+have shipped unusable. Every token in the current palette was checked first.
+
+**One accent, two weights, both text-safe.** `--accent-mark` (8.15:1) carries
+kickers, labels and small copy; `--accent-rule` is the darker weight for rules
+and emphasis. The earlier split had a decorative-only tint that failed contrast,
+which meant the accent could not be used for text — a distinction nobody
+remembers at the call site.
+
+Palettes:
 
 | Group           | Vars                                                         | Used for                                                          |
 | --------------- | ------------------------------------------------------------ | ----------------------------------------------------------------- |
@@ -36,6 +54,13 @@ Three palettes:
 | Per-stance      | `--stance-{positive,mixed,negative}` + `*-soft` variants     | Community-response cards: left-border + soft background per stance |
 | Per-company     | `--co-{meta,google,microsoft,amazon,openai,anthropic,xai,oracle}` | Subtle 3px left border on claim/project cards, matrix row dot     |
 | Per-theme       | `--theme-{jobs,tax_revenue,energy,water,community_grants,infrastructure,education,engagement}` | Matrix column header underline, theme chip dot                    |
+| Accent (v2)     | `--accent-mark`, `--accent-rule`                             | Kickers, panel labels, hairline rules, the landing band            |
+| Inked band (v2) | `--band-{bg,text,text-muted,accent,hairline}`                | The dark commitments section — dark in BOTH themes                 |
+
+**The inked band carries its own foreground tokens on purpose.** `.rp-band` is a
+figure, not a surface: it stays dark in light mode. Anything rendered inside it
+must read from `--band-*`, never from `--text` / `--accent`, or it inverts and
+disappears when the theme flips.
 
 ### Per-company colors are NOT brand colors
 
@@ -251,6 +276,26 @@ operationally fragile.
   Reuse this pattern before adding scope-creep sections that are shown
   by default: keep the primary view answering its one question, let the
   reader explicitly ask for the adjacent comparison.
+- **Answer with shape, not just a number, when the shape is the story
+  (v2).** The landing band began as four stat tiles. "279 organizations"
+  is true and says nothing; a proportional bar showing the coalition is
+  63% rural cooperatives says what actually happened in July. Same for
+  the commitment meters (how thin the site-level evidence is) and the
+  50-state strip (how partial coverage is). Reach for a bar, a meter or a
+  grid before a fifth stat tile.
+- **Show the whole domain, including the empty parts (v2).** The state
+  strip renders all 50 states, not just the ones with records; a grid of
+  only-populated states would imply national coverage the dataset does
+  not have. Same rule drives the state panel rendering all four sections
+  even when three are empty.
+- **A count that comes from an external source must render its as-of
+  date (v2).** The pledge roster is a living list; an undated "279" reads
+  as a permanent fact. `roster_as_of` is displayed everywhere counts are.
+- **Colour carries one variable at a time (v2).** In the state strip,
+  colour encodes record density and a corner ★ marks governor
+  signatories — because colour was already taken. Same rule the
+  moratorium timeline learned (one combined bar, level as a filter, never
+  a second colour ramp).
 
 ---
 

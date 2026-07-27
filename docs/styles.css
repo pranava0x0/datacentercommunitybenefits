@@ -5,17 +5,48 @@
    hard-code colors elsewhere — read CSS vars via getComputedStyle in JS.
    ========================================================================== */
 
+/* Civic-record palette (v2): cool paper, near-black ink, one deep signal blue.
+   Deliberately NOT the warm cream the source page uses — a warm-cream-and-gold
+   editorial look reads as a consumer AI product, and this is a public record.
+   Cool paper reads as a registry or an investigative newsroom, which is what
+   the site actually is. The pledge's STRUCTURE is what we borrowed (Roman
+   numeral commitments, letterspaced kickers, big display serif); the colour is
+   ours.
+
+   Every value below is a literal in BOTH this block and the dark block
+   (DESIGN.md 12.12: a `var()` alias in :root only computes on :root and does
+   NOT propagate the dark override to descendants). */
 :root {
-  --bg: #fafaf7;
+  --bg: #f7f8fa;
   --surface: #ffffff;
-  --surface-2: #f1f0ea;
-  --text: #14181f;
-  --text-muted: #5b6471;
-  --border: #d9d6cc;
-  --border-strong: #b9b3a5;
-  --accent: #2f5d8a;
-  --accent-soft: #d9e4ef;
+  --surface-2: #eef0f4;
+  --text: #11151c;
+  --text-muted: #4a5262;
+  --border: #d8dce4;
+  --border-strong: #aab2c0;
+  --accent: #1f4e79;
+  --accent-soft: #dfe8f2;
   --link: #1a4a78;
+
+  /* The single accent, in two weights. --accent-mark is text-safe at any size
+     (8.15:1 on --bg) and carries kickers, labels and small copy; --accent-rule
+     is the darker weight used for rules and emphasis where more presence is
+     wanted. There is no decorative-only tint: an accent that fails contrast is
+     an accent that cannot be used for text, and that split caused trouble in
+     the first cut of this palette. */
+  --accent-mark: #1f4e79;
+  --accent-rule: #17395a;
+
+  /* The inked band — the dark section the commitments render on. Deliberately
+     dark in BOTH themes (it is a figure, not a surface), so its own foreground
+     tokens travel with it rather than inheriting the page theme. */
+  --band-bg: #11151c;
+  --band-text: #f2f4f7;
+  --band-text-muted: #aab3c0;
+  --band-accent: #7fb3e0;
+  --band-hairline: rgba(242, 244, 247, 0.18);
+
+  --hairline: rgba(17, 21, 28, 0.14);
 
   /* Per-stance colors (community responses) */
   --stance-positive: #2f7a4d;
@@ -110,24 +141,44 @@
     "Baskerville", "Times New Roman", "Droid Serif", Times, serif;
   --font-mono:
     "SF Mono", Menlo, Consolas, "Liberation Mono", "Roboto Mono", monospace;
+  /* Display face for the pledge hero + section titles. The source page uses
+     Instrument Serif; this approximates it from fonts already on the machine.
+     Deliberately NOT a webfont — the perf baseline (no web fonts, no images)
+     is a guardrail, and a display face is the easiest place to blow it. */
+  --font-display:
+    "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia,
+    "Times New Roman", serif;
 
   --radius-sm: 4px;
   --radius: 8px;
-  --shadow-sm: 0 1px 2px rgba(20, 24, 31, 0.06);
-  --shadow: 0 4px 16px rgba(20, 24, 31, 0.1);
+  --shadow-sm: 0 1px 2px rgba(17, 21, 28, 0.06);
+  --shadow: 0 4px 16px rgba(17, 21, 28, 0.1);
 }
 
 [data-theme="dark"] {
-  --bg: #0d1116;
-  --surface: #161b22;
-  --surface-2: #1f2630;
-  --text: #e6e9ef;
-  --text-muted: #8b95a5;
-  --border: #2a3340;
-  --border-strong: #3d485a;
-  --accent: #7eb6e8;
-  --accent-soft: #1f3a55;
+  --bg: #0e1117;
+  --surface: #161b23;
+  --surface-2: #1d232d;
+  --text: #e8ebf0;
+  --text-muted: #9aa4b4;
+  --border: #2a323d;
+  --border-strong: #3d4756;
+  --accent: #7fb3e0;
+  --accent-soft: #17293d;
   --link: #9bc4ec;
+
+  --accent-mark: #7fb3e0;
+  --accent-rule: #5c9bd6;
+
+  /* The band goes darker still in dark mode so it stays a distinct figure
+     against the already-dark page rather than blending into it. */
+  --band-bg: #070a0f;
+  --band-text: #f2f4f7;
+  --band-text-muted: #aab3c0;
+  --band-accent: #7fb3e0;
+  --band-hairline: rgba(242, 244, 247, 0.18);
+
+  --hairline: rgba(232, 235, 240, 0.16);
 
   --stance-positive: #6cc18a;
   --stance-positive-soft: #1d3a28;
@@ -315,12 +366,13 @@ select:focus-visible,
    Topbar
    ========================================================================== */
 
+/* The header is no longer sticky as a whole (v2): it now contains the pledge
+   hero, and pinning a hero-sized band to the top would eat the viewport. The
+   tab bar alone sticks instead — that is the part worth keeping reachable, and
+   the hero is free to scroll away once it has done its job. */
 .topbar {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 50;
 }
 
 .topbar-inner {
@@ -370,6 +422,235 @@ select:focus-visible,
   overflow-x: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
+}
+
+/* Sticky wrapper so the tab bar survives the hero scrolling past. The
+   background lives here rather than on .tabbar because the sticky element must
+   be opaque edge-to-edge, not just under the 1280px content column. */
+.tabbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   Pledge landing band (v2)
+   ==========================================================================
+   The site's front door. Everything in it answers one of three questions a
+   first-time visitor arrives with: who signed / is it working / what about my
+   state. Numbers are rendered from data by renderPledgeHero() — never baked
+   into the markup, because the roster is a moving target.
+   ========================================================================== */
+
+.pledge-hero {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.pledge-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(28px, 4.5vw, 56px) 20px clamp(24px, 3.5vw, 40px);
+}
+
+/* Letterspaced gold overline with a short rule above it — the source page's
+   section-tag motif, which is what makes the type feel like the pledge. */
+.pledge-kicker {
+  position: relative;
+  margin: 0 0 18px;
+  padding-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-mark);
+}
+
+.pledge-kicker::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-rule);
+}
+
+.pledge-kicker-strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pledge-hero-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+  /* Wide enough to break to two lines on a desktop viewport — at 20ch it ran
+     to three and pushed the pathway cards under the fold, which is exactly
+     the metric this band exists to serve. */
+  max-width: 28ch;
+  color: var(--text);
+}
+
+/* One italic gold accent, as on the source page. It is an em dash here rather
+   than a word so the emphasis never lands on a claim. */
+.pledge-hero-title em {
+  font-style: italic;
+  color: var(--accent-mark);
+}
+
+.pledge-hero-dek {
+  margin: 0 0 22px;
+  max-width: 62ch;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* --- stat quartet ------------------------------------------------------- */
+
+.pledge-stats {
+  list-style: none;
+  margin: 0 0 4px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  border-top: 2px solid var(--text);
+}
+
+.pledge-stat {
+  padding: 13px 20px 12px 0;
+  border-right: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pledge-stat:last-child {
+  border-right: none;
+}
+
+.pledge-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 2.9vw, 2.4rem);
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.pledge-stat-lbl {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+}
+
+.pledge-stat-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+/* Stats that deep-link are buttons; the rest are plain <li>. Only the
+   interactive ones get affordances. */
+.pledge-stat button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pledge-stat button:hover .pledge-stat-num {
+  color: var(--accent-mark);
+}
+
+.pledge-stat.is-loading .pledge-stat-num {
+  color: var(--text-muted);
+}
+
+/* --- pathway cards ------------------------------------------------------ */
+
+.pledge-paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.pledge-path {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent-rule);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.pledge-path:hover {
+  border-color: var(--border-strong);
+  border-top-color: var(--accent-mark);
+  transform: translateY(-1px);
+}
+
+.pledge-path-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-mark);
+}
+
+.pledge-path-title {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.pledge-path-dek {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .pledge-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pledge-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .pledge-hero-title {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pledge-path {
+    transition: none;
+  }
+  .pledge-path:hover {
+    transform: none;
+  }
 }
 
 .tabbar::-webkit-scrollbar {
@@ -4449,4 +4730,1048 @@ body.tariff-modal-open {
     animation: none !important;
     transition: none !important;
   }
+}
+
+/* ==========================================================================
+   Ratepayer v2 — commitments band, coverage, roster, state panel
+   ========================================================================== */
+
+/* --- 1. The pledge: five commitments on an inked band -------------------- */
+
+/* The band is dark in BOTH themes — it is a figure on the page, not a
+   surface — so it carries its own foreground tokens rather than inheriting. */
+.rp-band {
+  background: var(--band-bg);
+  color: var(--band-text);
+  border-top: 2px solid var(--band-bg);
+  margin: 28px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.rp-band-inner {
+  padding: clamp(24px, 4vw, 44px) clamp(18px, 3vw, 36px);
+}
+
+.rp-band-kicker {
+  position: relative;
+  margin: 0 0 14px;
+  padding-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--band-accent);
+}
+
+.rp-band-kicker::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--band-accent);
+}
+
+.rp-band-title {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+  color: var(--band-text);
+  max-width: 26ch;
+}
+
+.rp-commit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--band-hairline);
+}
+
+.rp-commit {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: clamp(14px, 2.5vw, 32px);
+  padding: 22px 0;
+  border-bottom: 1px solid var(--band-hairline);
+  align-items: start;
+}
+
+.rp-commit-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  line-height: 0.85;
+  color: var(--band-accent);
+}
+
+.rp-commit-title {
+  /* Overrides the global h4 (uppercase, sans, muted) — these are display
+     headings quoting the pledge, not eyebrow labels. */
+  text-transform: none;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  line-height: 1.18;
+  color: var(--band-text);
+}
+
+.rp-commit-dek {
+  margin: 0 0 12px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--band-text-muted);
+  max-width: 62ch;
+}
+
+.rp-commit-meter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rp-commit-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--band-hairline);
+  font-size: 0.76rem;
+  color: var(--band-text);
+}
+
+.rp-commit-chip-num {
+  font-weight: 700;
+}
+
+.rp-commit-chip.is-met {
+  border-color: var(--stance-positive);
+  color: var(--stance-positive);
+}
+.rp-commit-chip.is-partial {
+  border-color: var(--stance-mixed);
+  color: var(--stance-mixed);
+}
+.rp-commit-chip.is-not_met {
+  border-color: var(--stance-negative);
+  color: var(--stance-negative);
+}
+
+.rp-commit-empty,
+.rp-commit-chip.is-unknown {
+  font-size: 0.78rem;
+  color: var(--band-text-muted);
+}
+
+.rp-band-source {
+  margin: 18px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--band-text-muted);
+}
+
+.rp-band-source a {
+  color: var(--band-accent);
+}
+
+/* --- 2. Coverage --------------------------------------------------------- */
+
+.rp-cat-stats {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  border-top: 2px solid var(--text);
+}
+
+.rp-cat-stat {
+  padding: 14px 16px 12px 0;
+  border-right: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rp-cat-stat:last-child {
+  border-right: none;
+}
+
+.rp-cat-num {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+.rp-cat-lbl {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* The source page disagrees with its own list; the note says so out loud. */
+.rp-drift-note {
+  margin: 0 0 20px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent-rule);
+  background: var(--surface-2);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.rp-subhead {
+  /* Same override as .rp-commit-title — see the global h4 rule. */
+  text-transform: none;
+  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin: 26px 0 6px;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.rp-state-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.rp-state-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 104px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-rule);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+}
+
+.rp-state-chip:hover {
+  border-color: var(--border-strong);
+  border-left-color: var(--accent-mark);
+}
+
+/* A governor state we hold no records for. Rendered hollow rather than hidden:
+   "my governor signed and there is nothing on file" is itself an answer. */
+.rp-state-chip.is-empty {
+  background: transparent;
+  border-style: dashed;
+  border-left-color: var(--border-strong);
+}
+
+.rp-state-code {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.rp-state-gov {
+  position: absolute;
+  margin-left: 30px;
+  margin-top: -2px;
+  color: var(--accent-mark);
+  font-size: 0.7rem;
+}
+
+.rp-state-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* --- 3. Signatory roster ------------------------------------------------- */
+
+.rp-roster-details > summary {
+  cursor: pointer;
+  padding: 8px 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.rp-roster-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.rp-roster-search input {
+  min-width: 240px;
+  padding: 7px 10px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 0.88rem;
+}
+
+.rp-roster-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rp-roster-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.rp-roster-chip[aria-pressed="true"] {
+  background: var(--surface-2);
+  border-color: var(--accent-mark);
+  color: var(--text);
+}
+
+.rp-roster-chip-n {
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+
+.rp-roster-count {
+  margin: 4px 0 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.rp-sig-row {
+  display: grid;
+  grid-template-areas: "name cat track domain";
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 0.85rem;
+}
+
+.rp-sig-name {
+  grid-area: name;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.rp-sig-cat { grid-area: cat; }
+.rp-sig-track { grid-area: track; }
+.rp-sig-domain { grid-area: domain; }
+
+.rp-sig-cat,
+.rp-sig-track,
+.rp-sig-domain {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.rp-sig-domain {
+  overflow-wrap: anywhere;
+}
+
+.rp-sig-tracked {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-mark);
+}
+
+@media (max-width: 700px) {
+  .rp-sig-row,
+  .rp-sig-row.has-lens {
+    grid-template-areas: none;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .rp-sig-row > * {
+    grid-area: auto;
+  }
+}
+
+/* --- 4. State panel ------------------------------------------------------ */
+
+.state-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(16px, 6vh, 72px) 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* [hidden] trap: the display override above would beat the attribute. */
+.state-modal[hidden] {
+  display: none;
+}
+
+.state-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.state-modal__dialog {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  width: min(720px, 100%);
+  max-height: calc(100vh - clamp(32px, 12vh, 144px));
+  overflow-y: auto;
+  padding: 22px 24px 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.38);
+  animation: state-modal-in 160ms ease-out;
+}
+
+@keyframes state-modal-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .state-modal__dialog { animation: none; }
+}
+
+body.state-modal-open {
+  overflow: hidden;
+}
+
+.state-detail .detail-header h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin: 2px 0 6px;
+}
+
+.sd-gov-name {
+  color: var(--text);
+}
+
+.sd-gov-link {
+  margin-left: 8px;
+  font-size: 0.78rem;
+}
+
+.sd-gov-none {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.state-detail-body {
+  margin-top: 18px;
+}
+
+.sd-section {
+  margin-bottom: 22px;
+}
+
+.sd-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.sd-section-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.sd-empty {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.sd-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sd-item {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.sd-item:last-child {
+  border-bottom: none;
+}
+
+.sd-item-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 2px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sd-item-btn:hover .sd-item-label {
+  color: var(--link);
+}
+
+.sd-item-label {
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.sd-item-meta {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.state-loading {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Landing panels (v2) — coverage bar, commitment meters, state strip, activity
+   ==========================================================================
+   The landing answers three questions with SHAPE, not just numbers: the
+   proportional bar shows the coalition is mostly rural co-ops; the meters show
+   how thin the evidence still is; the strip shows how partial our state
+   coverage is. Four stat tiles said none of that.
+   ========================================================================== */
+
+.pledge-panels {
+  display: grid;
+  /* Asymmetric on purpose: the meter rows carry a label, a track and a count,
+     and at an even split the labels ellipsised to "New power su…". */
+  grid-template-columns: minmax(240px, 0.8fr) minmax(340px, 1.2fr);
+  gap: 18px 32px;
+  margin: 18px 0 16px;
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
+}
+
+.pledge-panel--wide {
+  grid-column: 1 / -1;
+}
+
+.pledge-panel-h {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  /* Overrides the global h3; these are panel labels, not section headings. */
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent-mark);
+  white-space: nowrap;
+}
+
+.pledge-panel-more {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pledge-panel-more:hover {
+  color: var(--accent-mark);
+}
+
+/* --- coverage bar -------------------------------------------------------- */
+
+.pledge-bar {
+  display: flex;
+  height: 14px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.pledge-bar-seg {
+  min-width: 2px;
+}
+
+/* One accent, stepped by weight — categories are parts of a whole, not
+   independent series, so they share a hue rather than getting five colours. */
+.pledge-bar-seg.cat-cooperative { background: #1f4e79; }
+.pledge-bar-seg.cat-utility     { background: #3d7ab0; }
+.pledge-bar-seg.cat-developer   { background: #6ba3d6; }
+.pledge-bar-seg.cat-hyperscaler { background: #11151c; }
+.pledge-bar-seg.cat-governor    { background: #9dc2e3; }
+
+[data-theme="dark"] .pledge-bar-seg.cat-cooperative { background: #4a8ec4; }
+[data-theme="dark"] .pledge-bar-seg.cat-utility     { background: #6ba3d6; }
+[data-theme="dark"] .pledge-bar-seg.cat-developer   { background: #8fbde4; }
+[data-theme="dark"] .pledge-bar-seg.cat-hyperscaler { background: #e8ebf0; }
+[data-theme="dark"] .pledge-bar-seg.cat-governor    { background: #b5d2ec; }
+
+.pledge-bar-key {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.pledge-bar-key-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.pledge-bar-swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--border-strong);
+}
+
+.cat-cooperative .pledge-bar-swatch { background: #1f4e79; }
+.cat-utility     .pledge-bar-swatch { background: #3d7ab0; }
+.cat-developer   .pledge-bar-swatch { background: #6ba3d6; }
+.cat-hyperscaler .pledge-bar-swatch { background: #11151c; }
+.cat-governor    .pledge-bar-swatch { background: #9dc2e3; }
+
+[data-theme="dark"] .cat-cooperative .pledge-bar-swatch { background: #4a8ec4; }
+[data-theme="dark"] .cat-utility     .pledge-bar-swatch { background: #6ba3d6; }
+[data-theme="dark"] .cat-developer   .pledge-bar-swatch { background: #8fbde4; }
+[data-theme="dark"] .cat-hyperscaler .pledge-bar-swatch { background: #e8ebf0; }
+[data-theme="dark"] .cat-governor    .pledge-bar-swatch { background: #b5d2ec; }
+
+.pledge-bar-key-n {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pledge-bar-note {
+  flex-basis: 100%;
+  margin-top: 2px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.pledge-bar-loading {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* --- commitment meters --------------------------------------------------- */
+
+.pledge-meters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.pledge-meter {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.pledge-meter-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--accent-mark);
+  text-align: right;
+}
+
+.pledge-meter-body {
+  display: grid;
+  grid-template-columns: 150px minmax(72px, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.pledge-meter-lbl {
+  font-size: 0.76rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pledge-meter-track {
+  display: flex;
+  height: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.pledge-meter-seg.is-met     { background: var(--stance-positive); }
+.pledge-meter-seg.is-partial { background: var(--stance-mixed); }
+.pledge-meter-seg.is-not_met { background: var(--stance-negative); }
+.pledge-meter-seg.is-unknown { background: var(--border-strong); }
+.pledge-meter-seg.is-none {
+  flex: 1;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--surface-2),
+    var(--surface-2) 3px,
+    var(--border) 3px,
+    var(--border) 6px
+  );
+}
+
+.pledge-meter-count {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* --- state strip --------------------------------------------------------- */
+
+.pledge-state-strip {
+  display: grid;
+  grid-template-columns: repeat(25, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.pledge-state-cell {
+  position: relative;
+  aspect-ratio: 1;
+  min-width: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--surface);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Four density steps rather than a continuous ramp — the counts are small and
+   a smooth scale would imply precision the data doesn't carry. */
+.pledge-state-cell.lvl-0 { background: var(--surface); }
+.pledge-state-cell.lvl-1 { background: #dbe6f1; border-color: #c3d5e8; }
+.pledge-state-cell.lvl-2 { background: #9dc2e3; border-color: #7fb0d8; }
+.pledge-state-cell.lvl-3 { background: #3d7ab0; border-color: #2f6796; }
+
+[data-theme="dark"] .pledge-state-cell.lvl-1 { background: #1c2f42; border-color: #27435e; }
+[data-theme="dark"] .pledge-state-cell.lvl-2 { background: #2f6796; border-color: #3d7ab0; }
+[data-theme="dark"] .pledge-state-cell.lvl-3 { background: #6ba3d6; border-color: #8fbde4; }
+
+.pledge-state-cell:hover {
+  outline: 2px solid var(--accent-mark);
+  outline-offset: 1px;
+}
+
+.pledge-state-abbr {
+  font-size: 0.56rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.pledge-state-cell.lvl-3 .pledge-state-abbr { color: #ffffff; }
+[data-theme="dark"] .pledge-state-cell.lvl-3 .pledge-state-abbr { color: #0e1117; }
+
+/* Governor-signed states carry a corner mark, not a colour — colour is already
+   carrying record density and must not do two jobs. */
+.pledge-state-cell.is-gov::after {
+  content: "★";
+  position: absolute;
+  top: -1px;
+  right: 1px;
+  font-size: 0.44rem;
+  line-height: 1;
+  color: var(--accent-rule);
+}
+
+[data-theme="dark"] .pledge-state-cell.is-gov::after { color: #b5d2ec; }
+
+.pledge-strip-key {
+  margin: 8px 0 0;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* --- activity feed ------------------------------------------------------- */
+
+.pledge-activity {
+  margin-bottom: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline);
+}
+
+.pledge-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pledge-activity-item {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 12px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.pledge-activity-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-mark);
+  white-space: nowrap;
+  padding-top: 1px;
+}
+
+.pledge-activity-text {
+  color: var(--text-muted);
+}
+
+@media (max-width: 860px) {
+  .pledge-panels { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .pledge-state-strip { grid-template-columns: repeat(13, minmax(0, 1fr)); }
+  .pledge-meter-body { grid-template-columns: 1fr; gap: 3px; }
+  .pledge-meter-lbl { white-space: normal; }
+  .pledge-activity-item { grid-template-columns: 1fr; gap: 1px; }
+}
+
+/* --- Scorecard filter bar (v2) --------------------------------------------
+   Sticky under the tab bar. The scorecard runs to 39 cards and growing, and
+   before this the only way to reach a site was to scroll past all of them
+   (BACKLOG: "Long Ratepayer scorecard"). Sticky offset matches the tab bar's
+   height so the two never overlap. */
+
+.rp-filterbar {
+  position: sticky;
+  top: 41px;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 10px 0 12px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.rp-filter-search input {
+  min-width: 220px;
+  padding: 6px 10px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.rp-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rp-filter-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 11px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.rp-filter-chip[aria-pressed="true"] {
+  border-color: var(--accent-mark);
+  color: var(--text);
+  background: var(--accent-soft);
+}
+
+/* Status chips carry the same hue language as the cards they filter. */
+.rp-filter-chip.is-affirmed[aria-pressed="true"] {
+  border-color: var(--ratepayer-affirmed);
+}
+.rp-filter-chip.is-pledge_only[aria-pressed="true"] {
+  border-color: var(--ratepayer-pledge_only);
+}
+.rp-filter-chip.is-contested[aria-pressed="true"] {
+  border-color: var(--ratepayer-contested);
+}
+
+.rp-filter-chip-n {
+  font-size: 0.72rem;
+  opacity: 0.75;
+}
+
+.rp-filter-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.rp-filter-count {
+  margin: 0 0 0 auto;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 700px) {
+  .rp-filterbar {
+    position: static;
+  }
+  .rp-filter-count {
+    margin-left: 0;
+  }
+}
+
+/* --- Signatory roster lens (v2, P5) ---------------------------------------
+   The roster row IS the lens — no per-signatory pages for 300 organizations.
+   A row only becomes expandable when we can say something concrete about it;
+   most cooperatives stay flat, which is the honest state. */
+
+.rp-sig-row.has-lens {
+  grid-template-areas:
+    "name cat track domain"
+    "expand expand expand expand"
+    "lens lens lens lens";
+}
+
+.rp-sig-expand {
+  grid-area: expand;
+  justify-self: start;
+  margin-top: 2px;
+  padding: 2px 0;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 0.72rem;
+  color: var(--accent-mark);
+  cursor: pointer;
+}
+
+.rp-sig-expand:hover {
+  text-decoration: underline;
+}
+
+.rp-sig-lens {
+  grid-area: lens;
+  margin: 6px 0 4px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border-left: 2px solid var(--accent-rule);
+  border-radius: var(--radius-sm);
+}
+
+/* [hidden] trap: the block display above would beat the attribute. */
+.rp-sig-lens[hidden] {
+  display: none;
+}
+
+.rp-sig-lens-h {
+  /* Overrides the global uppercase h4/h5 treatment. */
+  margin: 0 0 4px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rp-sig-lens-h + .rp-sig-lens-list {
+  margin-bottom: 8px;
+}
+
+.rp-sig-lens-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rp-sig-lens-link {
+  background: none;
+  border: none;
+  padding: 2px 0;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--link);
+  text-align: left;
+  cursor: pointer;
+}
+
+.rp-sig-lens-link:hover {
+  text-decoration: underline;
+}
+
+.rp-sig-lens-note,
+.rp-sig-lens-loading {
+  margin: 4px 0 0;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  font-style: italic;
 }

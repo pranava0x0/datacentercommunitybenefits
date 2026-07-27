@@ -309,6 +309,110 @@ to validate the connector framework end-to-end before tackling the others.
 
 ---
 
+### Bugs found and fixed in the v2 build (2026-07-25/26) — reference, no action
+Recorded here because ISSUES.md is refresh-generated and cannot hold them. All
+fixed; listed because each has a repeatable shape.
+
+1. **Hardcoded list vs. registry — three separate instances, all passing while
+   wrong.** The refresh test's seed-copy list, `tools/build_preview.py`'s
+   `DATA_FILES`, and `test_exactly_the_eight_signatories_flagged`. The preview
+   one is the worst: it shipped a bundle whose landing view rendered zero cards
+   *and reported PASS*. Root cause: literal beside the thing it enumerates.
+   Fixed by deriving all three. Promoted to the base CLAUDE.md.
+2. **Roster labelled all 11 tracked signatories with the March 4 date** — four
+   months early for the July cohort. Caught by an e2e test written for exactly
+   that conflation. *Code bug.*
+3. **Stat tile read "8 signatories" beside a 279-row roster.** *Code bug*, same
+   root cause as #2 — company-derived where it should be roster-derived.
+4. **`t.name` on tariffs is `undefined`** — the field is `tariff_name`. Hit both
+   the new roster lens and the state panel. Found by reading rendered output,
+   not by a test. *Code bug.*
+5. **State code read from the hash after `activateView` had rewritten it**, so
+   `#state/GA` yielded `"yer"` and never opened the panel. *Code bug.*
+6. **`XX` (the virtual-partnership sentinel) rendered as a state chip.** *Data
+   sentinel leaking into UI.*
+7. **Two distinct co-ops share a name**; the first parser deduped by slug and
+   silently dropped one. Now disambiguates by domain or raises. *Code bug.*
+8. **`ny-state-2026-06` cited S7992** — an unrelated NY labor bill. *Data bug*,
+   and REFRESH.md already knew the correct number. See the refresh log.
+9. **Spec's proposed accent measured 2.96:1** on its own background, below both
+   contrast floors. *Spec bug*, caught before shipping. Promoted to base
+   DESIGN.md.
+
+### First-paint headroom — reclaimed once, will need it again — **medium**
+P5 pushed first paint to 246.5 KB against the 250 KB budget (3.5 KB of
+headroom). Fixed by splitting `responses.json` out of `loadProjectData` into its
+own `loadResponseData`: **first paint is now 203.9 KB across 7 requests.**
+Responses only decorate below-the-fold concern flags, so the Ratepayer view
+paints from projects and re-renders the scorecard when responses land; Explorer
+and Aggregate, which render response content, await both.
+
+Two options remain for the next time it tightens. **Do not raise the ceiling** —
+the budget test says so in its failure message:
+- **Ship `claims-index.json` for first paint** (counts + ids, full verbatim
+  claims lazy on demand) — the pre-existing idea below, worth ~35 KB.
+- **Code-split `app.js`** (~61 KB gz and the single largest asset) so the landing
+  loads only the Ratepayer + shared renderers. Biggest win, most work, and it is
+  vanilla JS with no bundler.
+
+### Stale status re-checks still open after the 2026-07-26 pass — **high**
+Four of the ten flagged records were re-verified and updated (NY, Michigan,
+Spartanburg, Lake County FL). Six remain, and their `captured_at` was
+deliberately NOT bumped so they stay flagged — bumping a date on a record you
+could not actually confirm is how a stale record becomes an invisible one:
+
+- **henderson-nv-2026-06** — the source (Review-Journal, June 16) says Bill No.
+  3927 was referred to the **July 21, 2026 council meeting for potential
+  adoption**, but no source consulted reports the outcome. Needs Henderson city
+  council minutes or agenda results for 2026-07-21. This is the closest to a
+  real status change of the six.
+- **hernando-county-fl-2026-06** — wfla.com returns 403 to fetchers. Needs a
+  different outlet or the county's own agenda.
+- **new-albany-in-2026-06** — wdrb.com returned 429. Retry later.
+- **nv-energy-callisto-esa**, **aps-arizona-large-load-rate-case-2025**,
+  **duke-nc-large-load-rate-case-2025** — the three stale tariffs. Not attempted
+  this pass. Each needs its PUC docket checked (PUCN 24-06014, ACC
+  E-01345A-25-0134, NCUC E-7 Sub 1300); `nv-energy-callisto-esa`'s `source_url`
+  is the LBL brief, which will never report a status change — repoint it at the
+  docket.
+
+### Ratepayer v2 — P6 site refresh remains (P0–P5 landed)
+`SPEC_RPP_V2.md` P0–P5 are done. P5's utility layer: the alias map meets the
+spec's ≥80% bar (20 of 25 tariffs resolve to a roster signatory; the 5 unmatched
+are four statewide frameworks and one federal FERC case — genuinely unmatchable,
+reported rather than forced). Roster-row lenses and the Aggregate
+by-signatory-category rollup shipped.
+
+`Project.serving_utility` is backfilled for **18** sites — only where a source
+states the serving relationship verbatim. Six candidates were rejected on
+review: a *nearby* Duke plant, a *former* Duke site, an SRP donation, a business
+park name, a contingent NIPSCO agreement, and a renewable procurement deal. The
+remaining ~99 sites need P6 research; **don't infer a serving utility from
+geography** — half the automated candidates were wrong.
+
+- **P6 site-list refresh — not started.** The site list is stale (newest
+  `captured_at` 2026-07-15) and the roster's 28 developers are an unmined lead
+  list. Also wants `Project.serving_utility` backfilled for the top ~20
+  pledge-era sites — it is already implicit in several claims (Ameren, Entergy,
+  NIPSCO). This is a data-refresh session (REFRESH.md / the `data-refresh`
+  skill), not a code session, and will blow past the 10-URL fetch gate, so it
+  needs its own run with explicit approval. *Priority: medium.*
+
+### Chesterfield County SC — enacted_date disputed between two outlets
+`chesterfield-county-sc-2026-05` carries a sourcing note in its summary: the
+Progressive Journal (its primary source) places the unanimous second reading in
+early May 2026; a later Go Laurens roundup describes the ordinance as enacted in
+early June. The May date from the primary source is used. Re-check against the
+county council minutes and drop the note once resolved. *Priority: low.*
+
+### Governor addendum text is summarized, not quoted verbatim
+The 23 governor records cite the RGA release and carry a `notes` line describing
+the addendum, but we never captured the addendum's own language verbatim the way
+the five commitments are quoted. If the signed PDF
+(`Ratepayer-Protection-Pledge-Signed.pdf`, linked in the payload) contains the
+governors' text, quoting it would let the state panel show what a governor
+actually committed to rather than our paraphrase. *Priority: low.*
+
 ## Medium priority
 
 ### Tariff schema needs a tax-vs-rate-design distinction
@@ -591,9 +695,16 @@ Granicus/Legistar/Municode), promote it to `source_url` or add to `resources`.
 
 ## Performance + preview + restyle notes (2026-07-14)
 
-### Performance — currently good; optimizations if it grows — **low/medium**
-Baseline (live Pages, gzipped/CDN): first paint FCP ~340 ms · 6 reqs · ~202 KB;
-lazy-load per tab works; no images/web fonts. If it needs tightening later:
+### Performance — baseline moved in v2; now CI-gated — **medium**
+**The ~202 KB / 6-request baseline below described the Comparison landing and no
+longer applies.** v2 makes Ratepayer the landing view, which pulls projects +
+responses + the signatory roster into first paint: **~237 KB gzipped across 8
+requests**, inside the 250 KB / 8 guardrail but with almost no headroom.
+`tests/test_perf_budget.py` now fails CI on a regression and says in its failure
+message that the fix is to make the new payload lazy, not to raise the ceiling.
+
+Because headroom is thin, the two optimizations below moved from "if it grows"
+to the next thing worth doing:
 - **Code-split `app.js`** (~52 KB gz, monolithic — all views in one file). First
   paint only needs the Comparison logic; the moratorium/ratepayer/tariff/explorer
   renderers could load per-tab. It's vanilla JS (no bundler), so this is a manual
@@ -607,9 +718,12 @@ lazy-load per tab works; no images/web fonts. If it needs tightening later:
   got un-split (e.g. a heavy payload accidentally preloaded, or a web font added).
 
 ### Restyle notes — the design system is solid; minor polish only — **low**
-- **Long Ratepayer scorecard** (37 cards and growing) — add a sticky filter/search
-  or status-grouping (affirmed / pledge_only / contested) so users don't scroll the
-  whole list. The "⚠ Ratepayer concern" cards especially are worth surfacing to the top.
+- ~~**Long Ratepayer scorecard** — sticky filter/search + concern-first ordering~~
+  **DONE (v2).** `.rp-filterbar` sticks under the tab bar: search (matches site,
+  company, city, state code AND spelled-out state name), status chips that only
+  render for statuses actually present, and an "only sites with a ratepayer
+  concern" toggle. Concern cards sort first — a documented cost-shift is the most
+  consequential thing on the page and was buried alphabetically among 39 cards.
 - **Moratorium timeline x-axis on mobile** — the quarter labels (`Q1'24` … `Q3'26`,
   11 columns) can get cramped under ~380 px; verify and, if tight, show every other
   label or enable horizontal scroll on the plot (`.mtl-plot` already has `overflow-x`).

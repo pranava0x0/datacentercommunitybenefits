@@ -548,3 +548,29 @@ Full detail: `connectors/README.md`.
   rule. Separately: a genuinely stalled agent (zero output growth for far longer than
   sibling agents doing comparable work — 83 min vs. 5-10 min this session) is fine to kill
   and relaunch; that's error recovery, not over-parallelization.
+
+---
+
+### 2026-07-26 refresh pass — learnings
+
+- **A renumbering note in this file does not fix the data.** The status-re-check
+  checklist already said "NY's S7992 was superseded by S10642 after an Assembly
+  substitution", yet `ny-state-2026-06`'s summary *and* CLAUDE.md both still cited
+  S7992/A7234. S7992 is an unrelated NY labor-relations bill. **When you record a
+  renumbering here, grep the seed and the docs for the old number in the same
+  pass** — otherwise the playbook is right and the product is wrong.
+- **The `bill_number` field and the summary can disagree.** On the NY record the
+  field was correct (S10642/A11560) and the prose was not. Nothing cross-checks
+  the two. Worth a validator if it recurs.
+- **Don't bump `captured_at` on a record whose source could not answer the
+  question.** Six of ten stale records this pass were unresolvable (one source
+  predated the vote it referred to; two were 403/429). They were left un-bumped so
+  they stay flagged. A bumped date on an unverified record silently retires it
+  from the audit for another 21 days.
+- **A "first reading only" record can still be operative.** Spartanburg County
+  invoked the *pending ordinance doctrine* to freeze applications immediately
+  after first reading. `status` tracks the instrument (`proposed`), and the
+  operative freeze belongs in the summary — don't promote it to `enacted`.
+- **A unanimous vote to "pursue an ordinance" is not a moratorium.** Lake County
+  FL had no drafted ordinance and no scheduled adoption vote; the record now says
+  so explicitly rather than reading as a pending ban.

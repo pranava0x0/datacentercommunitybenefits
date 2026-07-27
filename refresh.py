@@ -38,6 +38,7 @@ from schema import (
     MoratoriumsPayload,
     ProjectsPayload,
     ResponsesPayload,
+    SignatoriesPayload,
     TariffsPayload,
 )
 
@@ -55,6 +56,7 @@ PAYLOAD_FILES: dict[str, type] = {
     "responses": ResponsesPayload,
     "moratoriums": MoratoriumsPayload,
     "tariffs": TariffsPayload,
+    "signatories": SignatoriesPayload,
 }
 
 
@@ -79,9 +81,28 @@ def _check_cross_refs(
     claims: ClaimsPayload,
     projects: ProjectsPayload,
     responses: ResponsesPayload,
+    signatories=None,
 ) -> list[str]:
     """Cross-payload reference checks. Returns list of error messages (empty = OK)."""
     errors: list[str] = []
+
+    # serving_utility_signatory_id must resolve to a real roster row. A typo
+    # here fails silently in the browser — the utility lens simply shows no
+    # sites, which reads as "this utility serves nothing we track".
+    if signatories is not None:
+        roster_ids = {s.id for s in signatories.signatories}
+        for p in projects.projects:
+            sid = p.serving_utility_signatory_id
+            if sid and sid not in roster_ids:
+                errors.append(
+                    f"projects.json: project {p.id!r} serving_utility_signatory_id "
+                    f"{sid!r} not found in signatories.json"
+                )
+            if sid and not p.serving_utility:
+                errors.append(
+                    f"projects.json: project {p.id!r} sets serving_utility_signatory_id "
+                    "without serving_utility — the display name is what readers see"
+                )
 
     company_slugs = {c.slug for c in companies.companies}
     project_ids = {p.id for p in projects.projects}
@@ -139,30 +160,51 @@ def _check_cross_refs(
     return errors
 
 
-def _is_ratepayer_eligible(p, signatory_slugs: set[str]) -> bool:
-    """Mirror docs/app.js's isPrePledgeProject: only signatory companies with a
-    pledge-era (on/after RATEPAYER_PLEDGE_DATE, or year-only 2026) announcement
-    are ever expected to carry a ratepayer assessment. A bare year can't be
-    placed either side of March 4, so a year-only 2026 record counts as
-    pledge-era here too, matching the frontend.
+def _signatory_dates(signatories) -> dict[str, date]:
+    """company slug -> the date that company joined the pledge.
+
+    Read from the roster rather than assumed, because the July 2026 expansion
+    made the join date vary by company: the original seven signed 2026-03-04,
+    QTS 2026-04-24, and CoreWeave / Crusoe / Prologis 2026-07-23.
     """
-    if p.company_slug not in signatory_slugs:
+    out: dict[str, date] = {}
+    for s in signatories.signatories:
+        if s.matched_company_slug and s.signed_date:
+            out[s.matched_company_slug] = s.signed_date
+    return out
+
+
+def _is_ratepayer_eligible(p, signed_dates: dict[str, date]) -> bool:
+    """Mirror docs/app.js's isPrePledgeProject.
+
+    A site is expected to carry a ratepayer assessment only when its operator
+    had ALREADY SIGNED when the site was announced. Before v2 this compared
+    every project against the single White House date; that silently mislabeled
+    the July cohort, whose sites announced in (say) May 2026 predate their own
+    operator's signature by two months and cannot reasonably be assessed
+    against a pledge that company had not yet made.
+
+    A year-only announcement is treated as pledge-era when the year is at or
+    after the signing year: a bare "2026" cannot be placed either side of a
+    specific day, so it stays in the awaiting-assessment bucket rather than
+    being confidently mislabeled pre-pledge.
+    """
+    signed = signed_dates.get(p.company_slug)
+    if signed is None:
         return False
     if p.announced_date:
-        return p.announced_date >= RATEPAYER_PLEDGE_DATE_OBJ
-    return p.announced_year >= RATEPAYER_PLEDGE_YEAR
+        return p.announced_date >= signed
+    return p.announced_year >= signed.year
 
 
 def _audit_missing_commitments(
-    projects: ProjectsPayload, companies: CompaniesPayload
+    projects: ProjectsPayload, signatories
 ) -> tuple[dict, dict]:
     """Audit projects for missing key commitment details.
 
     Returns: (critical_missing, medium_missing) dicts keyed by severity.
     """
-    signatory_slugs = {
-        c.slug for c in companies.companies if c.ratepayer_pledge_signatory
-    }
+    signed_dates = _signatory_dates(signatories)
 
     # Key commitment fields to check
     EXPECTATIONS = {
@@ -197,7 +239,7 @@ def _audit_missing_commitments(
                 missing_critical.append(field)
 
         for field in important:
-            if field == "ratepayer" and not _is_ratepayer_eligible(p, signatory_slugs):
+            if field == "ratepayer" and not _is_ratepayer_eligible(p, signed_dates):
                 continue
             if getattr(p, field, None) is None:
                 missing_medium.append(field)
@@ -313,6 +355,61 @@ def _write_audit_report(
     logger.info("Wrote audit report to ISSUES.md")
 
 
+# "XX" is the sentinel for virtual / multi-site partnerships with no physical
+# location. It is not a place and must never become a state.
+NON_GEOGRAPHIC_STATE = "XX"
+
+
+def _build_coverage(projects, tariffs, moratoriums) -> dict:
+    """Per-state record counts for the landing page's coverage surfaces.
+
+    Precomputed here rather than derived in the browser because the landing view
+    would otherwise have to download moratoriums.json + tariffs.json (~50 KB
+    gzipped) just to draw a state grid. Without this, the strip silently reported
+    site counts only: a state with a moratorium and no tracked site rendered as
+    "No records yet", which is precisely the opposite of what that chip is for.
+
+    ~2 KB, so it can join first paint without troubling the budget.
+    """
+    states: dict[str, dict[str, int]] = {}
+
+    def bucket(code):
+        if not code:
+            return None
+        key = str(code).upper()
+        if key == NON_GEOGRAPHIC_STATE:
+            return None
+        return states.setdefault(key, {"projects": 0, "tariffs": 0, "moratoriums": 0})
+
+    for p in projects.projects:
+        b = bucket(p.state)
+        if b is not None:
+            b["projects"] += 1
+    for t in tariffs.tariffs:
+        b = bucket(t.state)
+        if b is not None:
+            b["tariffs"] += 1
+    for m in moratoriums.moratoriums:
+        b = bucket(m.state_code)
+        if b is not None:
+            b["moratoriums"] += 1
+
+    return {"states": dict(sorted(states.items()))}
+
+
+def _write_coverage(payloads, *, pretty: bool) -> int:
+    """Emit the derived coverage rollup alongside the validated payloads."""
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    data = _build_coverage(
+        payloads["projects"], payloads["tariffs"], payloads["moratoriums"]
+    )
+    data["generated_at"] = payloads["projects"].generated_at.isoformat()
+    out = OUT_DIR / "coverage.json"
+    text = json.dumps(data, indent=2) + "\n" if pretty else json.dumps(data, separators=(",", ":"))
+    out.write_text(text, encoding="utf-8")
+    return len(text.encode("utf-8"))
+
+
 def _write_payload(name: str, model_obj, *, pretty: bool) -> int:
     """Emit one payload to docs/data/<name>.json. Returns bytes written."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -342,6 +439,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         payloads["claims"],
         payloads["projects"],
         payloads["responses"],
+        payloads.get("signatories"),
     )
     if cross_errors:
         for err in cross_errors:
@@ -360,7 +458,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
     # Audit missing commitment details if requested
     if audit:
         critical, medium = _audit_missing_commitments(
-            payloads["projects"], payloads["companies"]
+            payloads["projects"], payloads["signatories"]
         )
         stale_pending = _audit_stale_pending(payloads["moratoriums"], payloads["tariffs"])
         logger.warning(
@@ -388,6 +486,9 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         nbytes = _write_payload(name, payload, pretty=pretty)
         total += nbytes
         logger.info("Wrote %s.json (%d bytes)", name, nbytes)
+    nbytes = _write_coverage(payloads, pretty=pretty)
+    total += nbytes
+    logger.info("Wrote coverage.json (%d bytes)", nbytes)
     logger.info("Total payload size: %.1f KB", total / 1024)
     return 0
 

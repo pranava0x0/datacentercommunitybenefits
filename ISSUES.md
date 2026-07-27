@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-07-15
+Generated: 2026-07-26
 Total projects needing attention: 91
 
 ## Critical Missing Commitment Details
@@ -104,7 +104,12 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Bills / Tariffs
-(1 records)
+(6 records)
 
 `proposed` moratoriums/tariffs not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **nv-energy-callisto-esa** (tariff, NV): captured 2026-06-22, 23 days ago
+- **nv-energy-callisto-esa** (tariff, NV): captured 2026-06-22, 34 days ago
+- **henderson-nv-2026-06** (moratorium, Henderson): captured 2026-06-25, 31 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-06-25, 31 days ago
+- **new-albany-in-2026-06** (moratorium, New Albany): captured 2026-06-25, 31 days ago
+- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-06-25, 31 days ago
+- **duke-nc-large-load-rate-case-2025** (tariff, NC): captured 2026-06-25, 31 days ago
