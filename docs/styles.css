@@ -418,13 +418,36 @@ select:focus-visible,
   gap: 0;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--page-gutter);
   overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
+  /* The six labels total ~910px, so the bar overflows on anything narrower than
+     a laptop. It used to hide its scrollbar entirely, which left three of six
+     tabs invisible with no hint they existed — the same failure mode as the
+     clipped aggregate chart. Keep a thin scrollbar AND fade the trailing edge,
+     so overflow is legible two ways. activateView() also calls
+     scrollTabIntoView() so the selected tab is never the hidden one. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
 }
 
-/* Sticky wrapper so the tab bar survives the hero scrolling past. The
+.tabbar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.tabbar::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+.tabbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Sticky wrapper so the tab bar stays reachable as the view scrolls. It now
+   sits directly under .topbar-inner rather than below the landing band, which
+   is what puts the top-level navigation above the fold on every viewport. The
    background lives here rather than on .tabbar because the sticky element must
    be opaque edge-to-edge, not just under the 1280px content column. */
 .tabbar-sticky {
@@ -433,6 +456,26 @@ select:focus-visible,
   z-index: 50;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
+}
+
+/* Trailing-edge fade that says "there is more to the right". Sits above the
+   bar but must not eat clicks on the last tab. */
+.tabbar-sticky::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to right, transparent, var(--surface));
+}
+
+@media (min-width: 1000px) {
+  /* All six tabs fit; the fade would be a lie. */
+  .tabbar-sticky::after {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -444,15 +487,56 @@ select:focus-visible,
    into the markup, because the roster is a moving target.
    ========================================================================== */
 
+/* The band now sits inside #view-ratepayer, which is already inside <main>'s
+   1280px column and 20px gutter — so it no longer needs its own max-width or
+   horizontal padding, and the vertical padding is trimmed hard. The tab bar is
+   above it now; the band's job is to be the first thing in the view, not to be
+   a full screen of chrome ahead of the navigation. */
 .pledge-hero {
   background: var(--bg);
-  border-top: 1px solid var(--border);
 }
 
 .pledge-hero-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: clamp(28px, 4.5vw, 56px) 20px clamp(24px, 3.5vw, 40px);
+  padding: 6px 0 clamp(20px, 2.5vw, 28px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Two-column lede on anything laptop-width or wider: the kicker + display
+   headline sit left, the orientation copy right, instead of stacking to 261px
+   of vertical space before the first number. That is what lets the three
+   at-a-glance panels finish above the fold on a 900px-tall desktop viewport.
+   Below 900px it falls back to the natural stacking order. */
+@media (min-width: 900px) {
+  .pledge-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    column-gap: clamp(32px, 4vw, 64px);
+    align-items: end;
+  }
+  .pledge-kicker {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 10px;
+  }
+  .pledge-hero-title {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 0;
+  }
+  .pledge-hero-dek {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+    margin-bottom: 0;
+  }
+  .pledge-stats,
+  .pledge-panels,
+  .pledge-paths {
+    grid-column: 1 / -1;
+  }
+  .pledge-stats {
+    margin-top: 22px;
+  }
 }
 
 /* Letterspaced gold overline with a short rule above it — the source page's
@@ -641,6 +725,219 @@ select:focus-visible,
   }
   .pledge-hero-title {
     max-width: none;
+    font-size: 1.45rem;
+  }
+  /* The dek is the largest single block in the band on a phone (6 lines, ~330px)
+     and it is orientation, not information — the stats and panels directly
+     below say the same thing with data. Clamp it to two lines rather than
+     hiding it, so the "not affiliated" disclaimer stays on screen. */
+  .pledge-hero-dek {
+    margin-bottom: 16px;
+    font-size: 0.92rem;
+  }
+  .pledge-kicker {
+    margin-bottom: 12px;
+  }
+  /* The three pathway cards stack on a phone, and their deks pushed the block
+     to 394px. The tag names the audience and the title states the job as a
+     question — that IS the job-to-be-done; the dek is supporting detail that
+     costs a third of a screen here. */
+  .pledge-path-dek {
+    display: none;
+  }
+  .pledge-path {
+    padding: 13px 15px;
+  }
+}
+
+/* ==========================================================================
+   In-page jump strip (Ratepayer view)
+   ==========================================================================
+   The Ratepayer view is by far the longest in the app. This puts every section
+   one click away and sticks under the tab bar so it stays reachable the whole
+   way down. --tabbar-h is the offset it stacks below; keep it in sync with the
+   .tab padding + font-size if those change.
+   ========================================================================== */
+
+/* Measured height of .tabbar-sticky, which .rp-jump stacks below. If .tab's
+   padding or font-size changes, re-measure both — a value that is too small
+   leaves a strip of content showing through the gap, too large leaves a band of
+   dead space. */
+:root {
+  --tabbar-h: 46px;
+  /* <main>'s horizontal padding. Anything that wants to bleed past the content
+     column (the jump strip) cancels it with a negative margin, so the two must
+     be read from one place. */
+  --page-gutter: 20px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --tabbar-h: 40px;
+    --page-gutter: 14px;
+  }
+}
+
+.rp-jump {
+  position: sticky;
+  /* 1px of deliberate overlap rather than an exact abutment: .tabbar-sticky's
+     height lands on a fractional pixel (45.8px at default zoom), and a seam
+     that shows page content sliding through is worse than a hairline hidden
+     under the bar above — which wins on z-index. */
+  top: calc(var(--tabbar-h) - 1px);
+  z-index: 40;
+  display: flex;
+  gap: 4px;
+  /* Full-bleed to the page edges by cancelling <main>'s gutter. Derived from
+     --page-gutter rather than a literal 20px: the gutter narrows to 14px under
+     640px, and the hardcoded version overhung the viewport by 6px a side. */
+  margin: 0 calc(-1 * var(--page-gutter)) 20px;
+  padding: 7px var(--page-gutter);
+  overflow-x: auto;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  scrollbar-width: none;
+}
+
+.rp-jump::-webkit-scrollbar {
+  display: none;
+}
+
+.rp-jump-btn {
+  flex-shrink: 0;
+  padding: 5px 11px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.rp-jump-btn:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+/* Anything the jump strip targets has to clear both sticky bars, or
+   scrollIntoView({block:"start"}) parks the heading underneath them. */
+.rp-section,
+.rp-band,
+#rp-activity-section {
+  scroll-margin-top: calc(var(--tabbar-h) + 52px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-jump-btn {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Accordion (Ratepayer view)
+   ==========================================================================
+   Reference cohorts that are long, secondary, and mostly "here is what we do
+   NOT have". Collapsed they cost one line; the count in the summary keeps the
+   absence declared rather than hidden.
+   ========================================================================== */
+
+.rp-accordion {
+  margin: 14px 0 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.rp-accordion-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.rp-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.rp-accordion-summary:hover .rp-accordion-title {
+  color: var(--accent-mark);
+}
+
+.rp-accordion-summary:focus-visible {
+  outline: 2px solid var(--accent-mark);
+  outline-offset: -2px;
+}
+
+/* Disclosure triangle, drawn rather than relying on the UA marker so it can be
+   positioned and rotated consistently across browsers. */
+.rp-accordion-summary::before {
+  content: "";
+  flex-shrink: 0;
+  align-self: center;
+  width: 0;
+  height: 0;
+  border-left: 5px solid var(--text-muted);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: transform 0.15s ease;
+}
+
+.rp-accordion[open] > .rp-accordion-summary::before {
+  transform: rotate(90deg);
+}
+
+.rp-accordion-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.rp-accordion-count {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.rp-accordion-body {
+  padding: 0 16px 16px;
+  border-top: 1px solid var(--hairline);
+}
+
+.rp-accordion-body > .rp-section-sub {
+  margin-top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-accordion-summary::before {
+    transition: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .rp-accordion-summary {
+    flex-wrap: wrap;
+    padding: 11px 13px;
+  }
+  .rp-accordion-title {
+    font-size: 1.02rem;
+  }
+  /* Once the title wraps the count drops to its own line, where margin-left:auto
+     strands it against the right edge. Align it under the title instead. */
+  .rp-accordion-count {
+    flex-basis: 100%;
+    margin-left: 15px;
+    margin-top: 2px;
+  }
+  .rp-accordion-body {
+    padding: 0 13px 14px;
   }
 }
 
@@ -651,10 +948,6 @@ select:focus-visible,
   .pledge-path:hover {
     transform: none;
   }
-}
-
-.tabbar::-webkit-scrollbar {
-  display: none;
 }
 
 .tab {
@@ -685,7 +978,7 @@ select:focus-visible,
 main {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 16px 20px 32px;
+  padding: 16px var(--page-gutter) 32px;
 }
 
 .view {
@@ -1814,7 +2107,7 @@ main {
 
 @media (max-width: 640px) {
   main {
-    padding: 12px 14px 32px;
+    padding: 12px var(--page-gutter) 32px;
   }
 
   .topbar-inner {
@@ -3228,11 +3521,38 @@ a.rp-roster-note:hover {
   color: var(--text);
 }
 
+/* The directory tables are the main event on their tabs, so collapsing them
+   behind a closed accordion would add a click to the primary job. Instead they
+   scroll inside a viewport-height box: the Moratoriums directory rendered 102
+   rows as 6,497px of page, and the Tariffs directory 1,844px, which is where
+   nearly all of those views' scroll came from. Capping the box keeps the page
+   short AND pins the column headers, so row 90 still has labels — strictly
+   better than paging the rows out of reach.
+   The vertical scrollbar is deliberately visible (see the .tabbar note): a
+   hidden scrollbar is how data disappears quietly. */
 .table-scroll {
-  overflow-x: auto;
+  overflow: auto;
+  max-height: min(70vh, 720px);
   -webkit-overflow-scrolling: touch;
   border-radius: var(--radius);
   border: 1px solid var(--border);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+  overscroll-behavior: contain;
+}
+
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  /* Phones have less to spare, and a 70vh box inside a scrolling page is a
+     nested-scroll trap when it is most of the screen. */
+  .table-scroll {
+    max-height: min(62vh, 460px);
+  }
 }
 
 .agg-table {
@@ -4101,21 +4421,26 @@ body.tariff-modal-open {
   margin-bottom: 1rem;
 }
 
-#moratorium-filters {
+/* Class-scoped, not #moratorium-filters. Both directory views ship
+   <div class="filters"> with the same shape, but these rules were written
+   against the moratorium id only — so #tariff-filters fell through to the
+   unstyled native control and rendered a 19px-tall select, below even the
+   24x24 WCAG 2.2 minimum target. */
+.filters {
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
 
-#moratorium-filters label {
+.filters label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
 }
 
-#moratorium-filters select {
+.filters select {
   padding: 0.4rem 0.6rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -4938,60 +5263,6 @@ body.tariff-modal-open {
   color: var(--text);
 }
 
-.rp-state-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.rp-state-chip {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  min-width: 104px;
-  padding: 8px 12px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent-rule);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-align: left;
-}
-
-.rp-state-chip:hover {
-  border-color: var(--border-strong);
-  border-left-color: var(--accent-mark);
-}
-
-/* A governor state we hold no records for. Rendered hollow rather than hidden:
-   "my governor signed and there is nothing on file" is itself an answer. */
-.rp-state-chip.is-empty {
-  background: transparent;
-  border-style: dashed;
-  border-left-color: var(--border-strong);
-}
-
-.rp-state-code {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--text);
-}
-
-.rp-state-gov {
-  position: absolute;
-  margin-left: 30px;
-  margin-top: -2px;
-  color: var(--accent-mark);
-  font-size: 0.7rem;
-}
-
-.rp-state-meta {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-}
-
 /* --- 3. Signatory roster ------------------------------------------------- */
 
 .rp-roster-details > summary {
@@ -5774,4 +6045,58 @@ body.state-modal-open {
   line-height: 1.45;
   color: var(--text-muted);
   font-style: italic;
+}
+
+/* ==========================================================================
+   Touch targets (v3)
+   ==========================================================================
+   Audited at 375px across all six views. WCAG 2.2 AA "Target Size (Minimum)"
+   is 24x24 CSS px; several controls sat at or under it, including the two the
+   v3 layout promoted into primary navigation — the panel "→" links (15px) and
+   the 50-state strip cells (24px, the whole "what about my state" job).
+   32px is the floor used here: it matches .rp-jump-btn, which set the
+   precedent, and clears the minimum with room for imprecise thumbs.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /* Ten columns instead of thirteen: 24px -> 32px cells across five rows.
+     Costs ~67px of height and buys a state grid that can actually be tapped. */
+  .pledge-state-strip {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  /* The bridge from each at-a-glance panel to its full section. Padded rather
+     than enlarged so the type stays in the eyebrow register; the negative
+     margin keeps it optically aligned with the heading it sits beside. */
+  .pledge-panel-more {
+    padding: 9px 4px;
+    margin: -9px -4px;
+  }
+
+  .mor-toggle-btn {
+    padding: 0.45rem 0.7rem;
+  }
+
+  .filters select,
+  .filters label {
+    min-height: 32px;
+  }
+
+  /* Per-signatory disclosure inside the roster rows: 21px tall, under the
+     minimum. Padded vertically with a matching negative margin so the row
+     rhythm is unchanged. */
+  .rp-sig-expand {
+    padding: 7px 0;
+    margin-top: -3px;
+    margin-bottom: -5px;
+  }
+
+  /* Native checkboxes render 13x13. Their <label> wrapper is the real target
+     and clears the minimum, so this is comfort rather than conformance — but
+     13px is a genuinely hard tap on glass. */
+  .rp-toggle input[type="checkbox"],
+  .rp-filter-flag input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
 }

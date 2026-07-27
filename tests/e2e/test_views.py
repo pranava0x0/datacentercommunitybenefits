@@ -1005,9 +1005,10 @@ class TestRatepayerView:
         self, page: Page, base_url: str
     ):
         page.goto(base_url + "/")
-        # The tracked-company roster now renders inline under Coverage rather
-        # than behind a disclosure; the full 300-row published roster is the
-        # thing that collapses (see TestSignatoryRoster).
+        # The tracked-company roster is a collapsed accordion under Coverage —
+        # open it before asserting on visibility.
+        page.wait_for_selector("#rp-tracked-roster .rp-roster-item", state="attached", timeout=10_000)
+        page.locator("#rp-tracked-details > summary").click()
         page.wait_for_selector("#rp-tracked-roster .rp-roster-item", timeout=10_000)
         signed = page.locator("#rp-tracked-roster .rp-roster-item.signed")
         unsigned = page.locator("#rp-tracked-roster .rp-roster-item.unsigned")
@@ -1026,6 +1027,12 @@ class TestRatepayerView:
         # sites awaiting assessment" instead of being mislabeled pre-pledge.
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
+        # Both cohorts are collapsed accordions; open them before asserting.
+        page.wait_for_selector(
+            "#rp-pre-pledge .rp-pre-card", state="attached", timeout=10_000
+        )
+        page.locator("#rp-unassessed-details > summary").click()
+        page.locator("#rp-pre-pledge-details > summary").click()
         page.wait_for_selector("#rp-pre-pledge .rp-pre-card", timeout=10_000)
         unassessed = page.locator("#rp-unassessed .rp-pre-card")
         pre = page.locator("#rp-pre-pledge .rp-pre-card")
@@ -1048,6 +1055,8 @@ class TestRatepayerView:
         # signatories — that conflation is the whole reason join dates are now
         # read per-company off the roster.
         page.goto(base_url + "/")
+        page.wait_for_selector("#rp-tracked-roster .rp-roster-item", state="attached", timeout=10_000)
+        page.locator("#rp-tracked-details > summary").click()
         page.wait_for_selector("#rp-tracked-roster .rp-roster-item", timeout=10_000)
         notes = page.locator("#rp-tracked-roster .rp-roster-item.signed .rp-roster-note")
         texts = notes.all_inner_texts()
@@ -1924,8 +1933,8 @@ class TestSignatoryRoster:
 class TestStatePanel:
     def test_state_chip_opens_panel_with_records(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
-        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=10_000)
+        page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         expect(page.locator("#sd-name")).to_have_text("Texas")
@@ -1942,8 +1951,8 @@ class TestStatePanel:
 
     def test_escape_closes_and_restores_hash(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
-        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=10_000)
+        page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.keyboard.press("Escape")
         page.wait_for_timeout(400)
@@ -1952,8 +1961,8 @@ class TestStatePanel:
 
     def test_backdrop_click_closes(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
-        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=10_000)
+        page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.locator(".state-modal__backdrop").click(position={"x": 5, "y": 5})
         page.wait_for_timeout(400)
@@ -2189,3 +2198,213 @@ class TestReviewFixes:
             "() => !!document.activeElement.closest('#state-modal')"
         )
         assert inside, "focus escaped the state dialog"
+
+
+class TestLayoutAndScrollBudget:
+    """Guards the v3 layout pass: navigation above the fold, sticky chrome that
+    actually sticks, and views short enough to scan.
+
+    Before this pass the header stack (title + full landing band + tab bar) was
+    1,210px on a 1280x900 desktop and 2,039px on a 375x812 phone, so the tab bar
+    — the only way to discover the other five views — sat a full screen below
+    the fold. The Ratepayer view was 20,638px, 15,300px of which was three
+    always-expanded "not assessed" reference lists.
+    """
+
+    # Generous vs. the ~120px the layout actually produces: this asserts "the
+    # nav is on the first screen", not a pixel-perfect header height.
+    MAX_TABBAR_TOP = 260
+
+    def test_tabbar_is_above_the_fold_on_desktop(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#tab-ratepayer", timeout=10_000)
+        top = page.evaluate(
+            "() => document.querySelector('.tabbar-sticky').getBoundingClientRect().top"
+        )
+        assert 0 <= top <= self.MAX_TABBAR_TOP, (
+            f"tab bar starts {top}px down; navigation must be on the first screen"
+        )
+
+    def test_tabbar_is_above_the_fold_on_mobile(self, page: Page, base_url: str):
+        page.set_viewport_size({"width": 375, "height": 812})
+        page.goto(base_url + "/")
+        page.wait_for_selector("#tab-ratepayer", timeout=10_000)
+        top = page.evaluate(
+            "() => document.querySelector('.tabbar-sticky').getBoundingClientRect().top"
+        )
+        assert 0 <= top <= self.MAX_TABBAR_TOP, (
+            f"tab bar starts {top}px down on a phone; it used to be 1,997px"
+        )
+
+    def test_tabbar_stays_pinned_when_scrolled(self, page: Page, base_url: str):
+        """.tabbar-sticky is a SIBLING of <header>, not a child.
+
+        A sticky element can only stick inside its containing block. While the
+        landing band lived in <header> the header was tall enough to hide this;
+        once it shrank to ~118px, a header-child tab bar scrolled away after a
+        few hundred pixels. Regression: scroll deep and assert it is still at
+        the top of the viewport.
+        """
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        page.evaluate("window.scrollTo(0, 3000)")
+        page.wait_for_timeout(400)
+        top = page.evaluate(
+            "() => document.querySelector('.tabbar-sticky').getBoundingClientRect().top"
+        )
+        assert -1 <= top <= 1, f"tab bar unpinned at scrollY=3000 (top={top})"
+
+    def test_jump_strip_stacks_below_the_tabbar_without_a_gap(
+        self, page: Page, base_url: str
+    ):
+        """The two sticky bars must abut. A gap lets page content slide through
+        between them; an overlap is fine because the tab bar wins on z-index."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        page.evaluate("window.scrollTo(0, 3000)")
+        page.wait_for_timeout(400)
+        gap = page.evaluate(
+            "() => document.querySelector('.rp-jump').getBoundingClientRect().top"
+            " - document.querySelector('.tabbar-sticky').getBoundingClientRect().bottom"
+        )
+        assert gap <= 0.5, f"{gap}px of page shows between the sticky bars"
+
+    def test_every_view_stays_within_a_scannable_height(
+        self, page: Page, base_url: str
+    ):
+        """Ceiling, not a target. Ratepayer was 22,025px and Moratoriums 9,033px
+        before the accordions and the capped directory tables. If this fails,
+        collapse or cap the new content — don't raise the ceiling.
+        """
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        heights = {}
+        for name in (
+            "ratepayer",
+            "comparison",
+            "moratoriums",
+            "tariffs",
+            "explorer",
+            "aggregate",
+        ):
+            page.locator(f"#tab-{name}").click()
+            page.wait_for_timeout(900)
+            heights[name] = page.evaluate("() => document.body.scrollHeight")
+        over = {k: v for k, v in heights.items() if v > 8_000}
+        assert not over, f"views exceed the 8,000px scroll budget: {over}"
+
+    def test_long_reference_lists_are_collapsed_by_default(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-pre-pledge .rp-pre-card", state="attached", timeout=15_000)
+        for did in (
+            "rp-tracked-details",
+            "rp-unassessed-details",
+            "rp-pre-pledge-details",
+        ):
+            assert page.locator(f"#{did}").get_attribute("open") is None, (
+                f"#{did} ships expanded; it is reference material, not the argument"
+            )
+
+    def test_collapsed_sections_declare_their_count(self, page: Page, base_url: str):
+        """Collapsing must not make data disappear quietly — the summary carries
+        a live count rendered from the same array that fills the list."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-pre-pledge .rp-pre-card", state="attached", timeout=15_000)
+        page.wait_for_function(
+            "() => document.getElementById('rp-pre-pledge-count').textContent.trim() !== ''",
+            timeout=10_000,
+        )
+        pre_count = page.locator("#rp-pre-pledge-count").inner_text()
+        rendered = page.locator("#rp-pre-pledge .rp-pre-card").count()
+        assert pre_count == f"{rendered} sites", f"{pre_count!r} vs {rendered} cards"
+        # Regression: the first cut appended "s" unconditionally → "12 companys".
+        tracked = page.locator("#rp-tracked-count").inner_text()
+        assert tracked.endswith("companies"), tracked
+
+    def test_jump_strip_opens_the_section_it_targets(self, page: Page, base_url: str):
+        """Jumping to a collapsed accordion has to expand it, or the user lands
+        on a one-line summary. The expand runs synchronously rather than inside
+        requestAnimationFrame, which is throttled to nothing while the document
+        is hidden."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-pre-pledge .rp-pre-card", state="attached", timeout=15_000)
+        page.locator('.rp-jump-btn[data-path-target="unassessed"]').click()
+        page.wait_for_timeout(600)
+        assert page.locator("#rp-unassessed-details").get_attribute("open") is not None
+        page.locator('.rp-jump-btn[data-path-target="roster"]').click()
+        page.wait_for_timeout(600)
+        assert page.locator("#rp-roster-details").get_attribute("open") is not None
+
+    def test_no_horizontal_page_overflow_on_mobile(self, page: Page, base_url: str):
+        """The tab bar and jump strip scroll horizontally on purpose; the page
+        body must not."""
+        page.set_viewport_size({"width": 375, "height": 812})
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        for name in ("ratepayer", "moratoriums", "tariffs", "aggregate"):
+            page.locator(f"#tab-{name}").click()
+            page.wait_for_timeout(700)
+            overflow = page.evaluate(
+                "() => document.documentElement.scrollWidth - window.innerWidth"
+            )
+            assert overflow <= 1, f"{name} overflows the viewport by {overflow}px"
+
+    def test_directory_tables_scroll_internally_with_pinned_headers(
+        self, page: Page, base_url: str
+    ):
+        """The 102-row Moratoriums table rendered 6,497px of page. It now scrolls
+        inside a capped box, which is only an improvement if the column headers
+        stay put."""
+        page.goto(base_url + "/#moratoriums")
+        page.wait_for_selector("#moratoriums-tbody tr", timeout=15_000)
+        box = page.locator("#view-moratoriums .table-scroll").first
+        metrics = box.evaluate(
+            "el => ({clientH: el.clientHeight, scrollH: el.scrollHeight,"
+            " sticky: getComputedStyle(el.querySelector('thead th')).position})"
+        )
+        assert metrics["sticky"] == "sticky", "column headers scroll away with the rows"
+        assert metrics["scrollH"] > metrics["clientH"], "table is not actually capped"
+
+    def test_touch_targets_meet_the_minimum_on_mobile(
+        self, page: Page, base_url: str
+    ):
+        """WCAG 2.2 AA "Target Size (Minimum)" is 24x24 CSS px.
+
+        Audited at 375px after the v3 layout pass, which promoted two
+        under-sized controls into primary navigation: the panel "->" links were
+        15px tall and the 50-state strip cells 24px — the entire "what about my
+        state" job. Inline prose links are exempt (the success criterion
+        excludes targets in a sentence); this checks discrete controls.
+        """
+        page.set_viewport_size({"width": 375, "height": 812})
+        page.goto(base_url + "/")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        undersized = {}
+        for name in ("ratepayer", "moratoriums", "tariffs", "explorer", "aggregate"):
+            page.locator(f"#tab-{name}").click()
+            page.wait_for_timeout(900)
+            undersized[name] = page.evaluate(
+                """(view) => {
+                  const out = [];
+                  const sel = `#view-${view} button, #view-${view} select,`
+                    + ` #view-${view} summary, #view-${view} input[type=checkbox]`;
+                  for (const e of document.querySelectorAll(sel)) {
+                    if (e.offsetParent === null) continue;
+                    // For a checkbox wrapped in a <label>, the label is the
+                    // target — clicking anywhere in it toggles the input — so
+                    // that is what the success criterion measures.
+                    const t = e.closest('label') || e;
+                    const r = t.getBoundingClientRect();
+                    if (r.width === 0 || r.height === 0) continue;
+                    if (r.height < 24 || r.width < 24) {
+                      out.push(`${t.className || t.tagName} ${r.width.toFixed(0)}x${r.height.toFixed(0)}`);
+                    }
+                  }
+                  return [...new Set(out)];
+                }""",
+                name,
+            )
+        offenders = {k: v for k, v in undersized.items() if v}
+        assert not offenders, f"controls below 24x24 on a 375px viewport: {offenders}"

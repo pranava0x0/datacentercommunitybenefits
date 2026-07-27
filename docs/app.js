@@ -2397,7 +2397,10 @@ function renderPledgeHero() {
   renderPledgeMeters();
   renderPledgeStateStrip();
   renderPledgeActivity();
-  wirePledgeTargets(document.getElementById("pledge-hero"));
+  // Document-wide: the jump strip lives outside #pledge-hero but routes through
+  // the same registry. wirePledgeTargets is idempotent (dataset.wired guard),
+  // so re-running it on every hero render costs nothing.
+  wirePledgeTargets(document);
 }
 
 // --- who signed: one proportional bar ------------------------------------
@@ -2638,12 +2641,20 @@ function renderPledgeActivity() {
 // Every hero affordance (stat tiles + pathway cards) routes through one place,
 // so a new entry point only has to name a target rather than know how views
 // and anchors work.
+// `expand` names a <details> to open before scrolling: several of these
+// sections are collapsed by default, and jumping to a closed accordion would
+// land the user on a one-line summary with no visible answer.
 const PLEDGE_TARGETS = {
-  roster: { view: "ratepayer", anchor: "rp-roster-section" },
+  roster: { view: "ratepayer", anchor: "rp-roster-section", expand: "rp-roster-details" },
   coverage: { view: "ratepayer", anchor: "rp-coverage-section" },
   commitments: { view: "ratepayer", anchor: "rp-commitments-section" },
   scorecard: { view: "ratepayer", anchor: "rp-scorecard-section" },
-  states: { view: "ratepayer", anchor: "rp-coverage-section" },
+  unassessed: {
+    view: "ratepayer",
+    anchor: "rp-unassessed-section",
+    expand: "rp-unassessed-details",
+  },
+  activity: { view: "ratepayer", anchor: "rp-activity-section" },
   explorer: { view: "explorer", anchor: null },
 };
 
@@ -2652,10 +2663,22 @@ function goToPledgeTarget(name) {
   if (!target) return;
   activateView(target.view);
   if (!target.anchor) return;
+
+  // Expand synchronously, before the frame callback: requestAnimationFrame is
+  // throttled to nothing while the document is hidden (backgrounded tab,
+  // headless run), and "the section I jumped to is open" should not be
+  // contingent on the page being painted.
+  if (target.expand) {
+    const d = document.getElementById(target.expand);
+    if (d) d.open = true;
+  }
+
   // The Ratepayer view renders asynchronously; wait a frame so the anchor
   // exists before scrolling, and fail quietly if it never appears.
   requestAnimationFrame(() => {
     const anchor = document.getElementById(target.anchor);
+    // scroll-margin-top on .rp-section / .rp-band clears the sticky tab bar and
+    // jump strip, so block:"start" lands below them rather than under them.
     if (anchor) anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
@@ -4424,7 +4447,6 @@ function renderRatepayerView() {
   renderRatepayerStats();
   renderPledgeCommitments();
   renderCoverageStats();
-  renderStateChips();
   renderRatepayerRoster();
   renderSignatoryRoster();
   renderRatepayerLegend();
@@ -4609,39 +4631,6 @@ function coverageStates() {
     if (d !== 0) return d;
     return a.code.localeCompare(b.code);
   });
-}
-
-function renderStateChips() {
-  const wrap = document.getElementById("rp-state-chips");
-  if (!wrap) return;
-  const entries = coverageStates();
-
-  wrap.replaceChildren(
-    ...entries.map((s) => {
-      const records = s.projects + s.tariffs + s.moratoriums;
-      const btn = el("button", `rp-state-chip${records ? "" : " is-empty"}`);
-      btn.type = "button";
-      btn.dataset.stateCode = s.code;
-      btn.append(el("span", "rp-state-code", s.code));
-      if (s.governor) {
-        const mark = el("span", "rp-state-gov", "★");
-        mark.setAttribute("aria-hidden", "true");
-        btn.append(mark);
-      }
-      const parts = [];
-      if (s.projects) parts.push(`${s.projects} site${s.projects === 1 ? "" : "s"}`);
-      if (s.tariffs) parts.push(`${s.tariffs} tariff${s.tariffs === 1 ? "" : "s"}`);
-      if (s.moratoriums) parts.push(`${s.moratoriums} moratorium${s.moratoriums === 1 ? "" : "s"}`);
-      btn.append(el("span", "rp-state-meta", parts.length ? parts.join(" · ") : "No records yet"));
-      btn.setAttribute(
-        "aria-label",
-        `${s.code}${s.governor ? ", governor signed" : ""} — ` +
-          (parts.length ? parts.join(", ") : "no tracked records yet")
-      );
-      btn.addEventListener("click", () => openStatePanel(s.code));
-      return btn;
-    })
-  );
 }
 
 // --------------------------------------------------------------------------
@@ -5333,6 +5322,7 @@ function renderRatepayerRoster() {
     ...signatories.slice().sort(byName),
     ...nonSigWithClaim.slice().sort(byName),
   ];
+  setAccordionCount("rp-tracked-count", ordered.length, "company", "companies");
 
   for (const co of ordered) {
     const signed = !!co.ratepayer_pledge_signatory;
@@ -5710,6 +5700,7 @@ function renderRatepayerScorecard() {
   if (unassessedUl) {
     unassessedUl.innerHTML = "";
     const unassessed = ratepayerUnassessedPledgeEraProjects();
+    setAccordionCount("rp-unassessed-count", unassessed.length, "site", "sites");
     if (unassessed.length === 0) {
       const li = document.createElement("li");
       li.className = "muted";
@@ -5729,6 +5720,7 @@ function renderRatepayerScorecard() {
   if (prePledgeUl) {
     prePledgeUl.innerHTML = "";
     const prePledge = ratepayerPrePledgeProjects();
+    setAccordionCount("rp-pre-pledge-count", prePledge.length, "site", "sites");
     if (prePledge.length === 0) {
       const li = document.createElement("li");
       li.className = "muted";
@@ -5747,6 +5739,7 @@ function renderRatepayerScorecard() {
   if (nonSigUl) {
     nonSigUl.replaceChildren();
     const nonSig = ratepayerNonSignatoryProjects();
+    setAccordionCount("rp-non-signatory-count", nonSig.length, "site", "sites");
     if (nonSig.length === 0) {
       const li = document.createElement("li");
       li.className = "muted";
@@ -5759,6 +5752,17 @@ function renderRatepayerScorecard() {
     }
   }
   wireRatepayerNonSignatoryToggle();
+}
+
+// A collapsed section has to declare what it is hiding, or collapsing it just
+// makes the data disappear quietly. Every .rp-accordion summary carries a live
+// count rendered from the same array that fills its list.
+// `plural` is passed explicitly rather than derived by appending "s" — the
+// first cut rendered "12 companys".
+function setAccordionCount(id, n, singular, plural) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  target.textContent = `${n} ${n === 1 ? singular : plural}`;
 }
 
 function wireRatepayerNonSignatoryToggle() {

@@ -743,8 +743,9 @@ temporal dead zone). Comparison gained an explicit `#comparison` hash — it had
 been the bare-root view, and demoting it without one would have left it
 un-linkable.
 
-The landing band sits **above the tab bar**, inside `<header>`. `.topbar` is no
-longer `position: sticky` (a hero-sized sticky band eats the viewport); the new
+The landing band sat **above the tab bar**, inside `<header>`. **v3 moved it
+into `#view-ratepayer` — see "Layout + scroll budget (v3)" below.** `.topbar` is
+not `position: sticky` (a hero-sized sticky band eats the viewport); the
 `.tabbar-sticky` wrapper sticks instead.
 
 **It is not four stat tiles.** An early cut was, and four numbers said nothing
@@ -772,6 +773,93 @@ enforced by `tests/test_perf_budget.py`, not just documented.
 The global `h4` rule sets `text-transform: uppercase` + sans + muted. Any new
 display heading using `<h4>` must override all three (`.rp-commit-title`,
 `.rp-subhead` do) or it renders as an eyebrow label.
+
+### Layout + scroll budget (v3)
+
+**Navigation goes above the fold; reference material collapses.** Measured
+before this pass, on a 1280x900 desktop: the header stack (title + landing band
++ tab bar) was **1,210px**, so `.tabbar-sticky` — the only way to discover the
+other five views — started a full screen *below* the fold. On a 375x812 phone
+it was **2,039px**. The Ratepayer view was **20,638px**; the whole page 22,025px.
+
+Five changes, in the order they matter:
+
+1. **The tab bar moved directly under `.topbar-inner`, and out of `<header>`.**
+   Being a body-level **sibling** of `<header>` is load-bearing, not stylistic:
+   `position: sticky` only sticks inside its containing block, and once the
+   header shrank to ~118px a header-child tab bar scrolled away after a few
+   hundred pixels. `test_tabbar_stays_pinned_when_scrolled` guards this — it is
+   exactly the regression the move introduced and then fixed.
+2. **The landing band moved into `#view-ratepayer`.** It is pledge content; the
+   other five tabs should not pay for it. It still leads the page. Its
+   `.pledge-hero-inner` no longer sets `max-width`/gutter — it inherits `<main>`'s
+   column — and at ≥900px the kicker + headline sit in one grid column with the
+   dek in the other, which is what lets all three at-a-glance panels finish
+   above the fold.
+3. **Duplicates deleted, not just collapsed.** The band already answered *who
+   signed / is it showing up / what about my state*; the sections below then
+   answered the same three again in long form. `#rp-state-chips` (482px) and
+   `renderStateChips()` are **gone** — `#pledge-state-strip` says the same thing
+   in 96px and is the affordance that opens the state panel. `#rp-stats` moved
+   into `#rp-scorecard-section`, next to the cards it actually counts.
+4. **The three "not assessed" cohorts are `<details class="rp-accordion">`,
+   collapsed.** They were 15,300px of the view, the 73-card pre-pledge list
+   alone being 14,800px. Every summary carries a **live count** from the same
+   array that fills its list (`setAccordionCount()`) — collapsing must not make
+   data disappear quietly. Pass the plural explicitly; the first cut appended
+   "s" and rendered "12 companys".
+5. **Directory tables scroll internally instead of collapsing.** On Moratoriums
+   and Tariffs the table *is* the job, so a closed accordion would add a click to
+   the primary task. `.table-scroll` now caps at `min(70vh, 720px)` with
+   `position: sticky` `<thead>` — shorter page AND column headers that survive to
+   row 90. Any table put in a `.table-scroll` needs an opaque `th` background.
+
+**`--page-gutter` and `--tabbar-h` exist because both were hardcoded and drifted.**
+`.rp-jump` bleeds past the content column with a negative margin; hardcoding
+`-20px` overhung the viewport by 6px a side on mobile, where `<main>`'s padding
+is 14px. Anything that cancels the gutter must read `--page-gutter`. `--tabbar-h`
+is the measured height `.rp-jump` stacks below — re-measure both if `.tab`'s
+padding or font-size changes. The jump strip deliberately sits at
+`calc(var(--tabbar-h) - 1px)`: the bar's height lands on a fractional pixel, and
+a seam showing page content is worse than a hairline hidden under the higher
+z-index bar.
+
+**The jump strip expands its target synchronously.** `goToPledgeTarget()` opens
+`target.expand`'s `<details>` *before* the `requestAnimationFrame` that scrolls,
+because rAF is throttled to nothing while the document is hidden (backgrounded
+tab, headless run) — "the section I jumped to is open" must not depend on the
+page being painted. Sections carry `scroll-margin-top: calc(var(--tabbar-h) + 52px)`
+so `block: "start"` lands below both sticky bars.
+
+**Debugging note — `.view`'s fade-in animation creates a containing block.**
+While `animation: fadein` runs, `.view` has a live `transform`, which makes it
+the containing block for any descendant `position: sticky` and offsets
+`getBoundingClientRect()` by 4px. On a visible page it settles in 180ms and is
+invisible; on a **hidden** page the animation never advances, so the transform
+is frozen and every sticky measurement is 4px off. If sticky offsets look wrong
+by a few pixels in a headless or backgrounded context, check
+`getComputedStyle(view).animationPlayState` before chasing the CSS.
+
+**Touch targets: 32px is the floor, and `.filters` was id-scoped.** Audited at
+375px across all six views. The v3 layout promoted two under-sized controls into
+primary navigation — the panel "→" links (15px tall) and the 50-state strip
+cells (24px, the whole "what about my state" job) — so the strip drops to **10
+columns under 640px** (24px → 32px cells, five rows, ~67px taller) and the links
+get padding with a cancelling negative margin. Separately, `#moratorium-filters`
+styling was **id-scoped while both directory views ship `class="filters"`**, so
+the tariff filters fell through to unstyled native selects at 19px; the rules are
+now class-scoped and both views get them. Native checkboxes render 13×13 — their
+`<label>` wrapper is the real target and clears the minimum, so enlarging them is
+comfort, not conformance, and the test measures `e.closest('label') || e` for
+that reason.
+
+Guarded by `TestLayoutAndScrollBudget` in `tests/e2e/test_views.py` (11 tests):
+tab bar above the fold on desktop AND mobile, tab bar stays pinned, no gap
+between the sticky bars, **every view under an 8,000px scroll budget**,
+accordions collapsed by default and declaring their counts, jump strip expands
+its target, no horizontal page overflow on mobile, directory tables capped with
+pinned headers, and every discrete control at least 24×24 on a 375px viewport. **When the scroll-budget test fails, collapse or cap the new
+content — don't raise the ceiling.** Same rule as the first-paint budget below.
 
 ### First-paint budget is now a test (v2)
 
