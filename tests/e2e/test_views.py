@@ -2269,6 +2269,26 @@ class TestSubtabs:
         )
         assert total == parts, f"summary says {total}, cohorts sum to {parts}"
 
+    def test_every_subtab_carries_a_count(self, page: Page, base_url: str):
+        """Every alternative in a group shows its extent, or none do.
+
+        "By signatory category" shipped without a pill while its two siblings
+        had one, which reads as an unfinished tab rather than a deliberate
+        omission. Iterating the group rather than naming the tabs means a new
+        cohort can't be added without one.
+        """
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=10_000)
+        missing = page.evaluate(
+            """() => [...document.querySelectorAll('#view-aggregate .subtab')]
+                 .filter((b) => {
+                   const pill = b.querySelector('.subtab-count');
+                   return !pill || !/^\\d+$/.test(pill.textContent.trim());
+                 })
+                 .map((b) => b.id)"""
+        )
+        assert missing == [], f"sub-tabs with no count pill: {missing}"
+
     def test_arrow_keys_move_between_subtabs(self, page: Page, base_url: str):
         page.goto(base_url + "/#aggregate")
         page.wait_for_selector("#agg-company-tbody tr", timeout=10_000)

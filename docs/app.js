@@ -6424,6 +6424,7 @@ function renderSignatoryCategoryRollup() {
   const tbody = document.getElementById("agg-signatory-tbody");
   if (!tbody) return;
   const rows = buildSignatoryCategoryRollups();
+  setSubtabCount("agg-signatory-count", rows.length);
 
   tbody.replaceChildren(
     ...rows.map((r) => {

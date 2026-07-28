@@ -18,7 +18,9 @@ So this parses actual class *application* sites instead:
 
   * `class="..."` attributes (in HTML, and in JS template strings)
   * `className = "..."` / `className: "..."`
-  * `classList.add/remove/toggle/contains("...")`
+  * `classList.add("...")` / `classList.toggle("...")` -- ADDING operations
+    only. `remove()` and `contains()` are not evidence that anything can ever
+    carry the class.
   * this project's `el(tag, "classes", ...)` helper
 
 Interpolated names (`` `rp-met-pill--${level}` ``) can't be resolved
@@ -116,8 +118,13 @@ def _applied_classes(html: str, js: str) -> tuple[set[str], set[str]]:
     # className = "..." / className: "..."
     for m in re.finditer(r"""className\s*[=:]\s*(["'`])(.*?)\1""", js, re.DOTALL):
         absorb(m.group(2))
-    # classList.add("a", "b") and friends
-    for m in re.finditer(r"classList\.(?:add|remove|toggle|contains)\(([^)]*)\)", js):
+    # classList.add("a", "b") / .toggle("a") -- ADDING operations only.
+    # `remove()` and `contains()` were in this list and are not evidence of
+    # anything: if the code that applied a class is deleted and only the
+    # cleanup or the query survives, no element can ever carry it, yet the
+    # selector would still be certified live. That is the same false-negative
+    # this whole file exists to close.
+    for m in re.finditer(r"classList\.(?:add|toggle)\(([^)]*)\)", js):
         for literal in re.findall(r"""["'`]([^"'`]*)["'`]""", m.group(1)):
             absorb(literal)
     # el(tag, "classes", ...) — this project's element helper
