@@ -729,30 +729,6 @@ main {
   line-height: 1.5;
 }
 
-.rp-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  padding: 6px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  user-select: none;
-}
-
-.rp-toggle:hover {
-  border-color: var(--text-muted);
-}
-
-.rp-toggle input[type="checkbox"] {
-  cursor: pointer;
-}
-
 /* ==========================================================================
    Theme legend
    ========================================================================== */
@@ -2198,19 +2174,7 @@ main {
   }
 }
 
-/* Two-column: pledge elements on left, who's signed on right */
-.rp-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  align-items: start;
-  margin-bottom: 1.75rem;
-}
-
 @media (max-width: 720px) {
-  .rp-two-col {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Commitments box — a collapsible <details> (reference material, collapsed
@@ -2237,30 +2201,11 @@ main {
   border-radius: var(--radius-sm);
 }
 
-.rp-commitment-list {
-  margin: 0.85rem 0 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
-.rp-commitment-list li {
-  line-height: 1.45;
-}
-
-.rp-commitments-source {
-  margin: 0.85rem 0 0;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
 /* ==========================================================================
    SECTION LANGUAGE — one heading treatment for every tab.
 
    Before this each view had invented its own: .summary-section (no rules at
-   all — it inherited the global serif h3), .agg-section-heading (0.95rem
+   all — it inherited the global serif h3), .agg-section-heading (1.05rem
    sans), .hot-rail-title (1rem sans), .matrix-help (720px, no heading).
    Six tabs, five heading scales. The Ratepayer view's shape won — display
    serif at 400 weight, a muted 64ch dek — and the legacy class names are
@@ -2591,64 +2536,6 @@ main {
   .rp-roster { grid-template-columns: 1fr; }
 }
 
-.rp-roster-item {
-  --co-color: var(--accent);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas:
-    "mark name"
-    "mark note";
-  column-gap: 0.6rem;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--co-color);
-  border-radius: var(--radius);
-  padding: 0.6rem 0.8rem;
-}
-
-.rp-roster-mark {
-  grid-area: mark;
-  font-size: 1.1rem;
-  font-weight: 700;
-  width: 1.4rem;
-  text-align: center;
-}
-
-.rp-roster-item.signed .rp-roster-mark {
-  color: var(--ratepayer-affirmed);
-}
-
-.rp-roster-item.unsigned .rp-roster-mark {
-  color: var(--ratepayer-contested); /* amber — own/DOE commitment, not the White House pledge */
-}
-
-.rp-roster-name {
-  grid-area: name;
-  font-weight: 600;
-  font-size: 0.92rem;
-}
-
-.rp-roster-note {
-  grid-area: note;
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  line-height: 1.3;
-}
-/* When the note is a source link, show a ↗ affordance via CSS so the link
-   text stays exactly the signing-track string (inner_text ignores ::after). */
-a.rp-roster-note {
-  color: var(--accent);
-  text-decoration: none;
-}
-a.rp-roster-note::after {
-  content: " ↗";
-  color: var(--text-muted);
-}
-a.rp-roster-note:hover {
-  text-decoration: underline;
-}
-
 /* Scorecard toolbar: legend chips + export button on the same row */
 .rp-scorecard-toolbar {
   display: flex;
@@ -2678,7 +2565,6 @@ a.rp-roster-note:hover {
   border: 1px solid color-mix(in srgb, var(--rp-color) 45%, transparent);
   white-space: nowrap;
 }
-
 
 /* Scorecard — multi-column so 11 sites don't become a tall single stack.
    Cards hold short content, so a ~340px min keeps two (often three) per row
@@ -3060,64 +2946,6 @@ a.rp-roster-note:hover {
 }
 .pp-row--unknown .pp-row-status { color: var(--text-muted); }
 
-.rp-evidence-details {
-  margin: 0.65rem 0 0;
-}
-
-.rp-evidence-summary {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  list-style: none;
-  cursor: pointer;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  user-select: none;
-}
-
-.rp-evidence-summary::-webkit-details-marker { display: none; }
-
-.rp-evidence-summary::before {
-  content: "▶";
-  font-size: 0.6rem;
-  transition: transform 0.15s;
-  flex-shrink: 0;
-}
-
-.rp-evidence-details[open] .rp-evidence-summary::before {
-  transform: rotate(90deg);
-}
-
-.rp-evidence-src-link {
-  color: var(--text-muted);
-  text-decoration: none;
-}
-
-.rp-evidence-src-link:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.rp-evidence {
-  margin: 0.5rem 0 0;
-  padding: 0.55rem 0.85rem;
-  border-left: 3px solid var(--rp-color);
-  background: var(--surface-2);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-family: var(--font-serif);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: var(--text);
-}
-
-.rp-evidence::before {
-  content: "\201C";
-}
-
-.rp-evidence::after {
-  content: "\201D";
-}
-
 /* Always-visible sources footer on every ratepayer site card (v1.17 fix) */
 .rp-card-sources {
   margin-top: 0.7rem;
@@ -3254,11 +3082,6 @@ a.rp-roster-note:hover {
     flex-direction: column;
     gap: 0.5rem;
   }
-
-  /* Roster items: tighter */
-  .rp-roster-item {
-    padding: 0.5rem 0.6rem;
-  }
 }
 
 /* ==========================================================================
@@ -3352,7 +3175,6 @@ a.rp-roster-note:hover {
 .hot-rail-head {
   margin-bottom: 10px;
 }
-
 
 .hot-rail-title::before {
   content: "";
@@ -4975,10 +4797,6 @@ body.tariff-modal-open {
   margin: 28px 0;
   border-radius: var(--radius);
   overflow: hidden;
-}
-
-.rp-band-inner {
-  padding: clamp(24px, 4vw, 44px) clamp(18px, 3vw, 36px);
 }
 
 .rp-band-kicker {
