@@ -242,17 +242,34 @@ const PLEDGE_PRINCIPLE_LABELS = {
   local_jobs:     "Investing in local job creation and workforce development",
   grid_resilience:"Contributing to electric and community resilience",
 };
+// VERBATIM commitment text from the White House pledge. The band's own footnote
+// tells the reader these are quoted, and the project's editorial rule is
+// quote-don't-paraphrase — so these are the source's sentences, not summaries.
+//
+// They were paraphrases until 2026-07-28, and two of the paraphrases were
+// materially wrong in the direction that flatters the pledge:
+//   separate_rate  — asserted companies pay "for the power and infrastructure
+//                    brought online, used or not". The source body says only
+//                    that they will negotiate separate rate structures; the
+//                    pay-anyway framing is the section's TITLE, not a
+//                    commitment the body makes. We were quoting the headline
+//                    back as if it were the text.
+//   grid_resilience — dropped the source's "whenever possible" hedge on backup
+//                    generation, which made a qualified commitment read as
+//                    unconditional.
+// Don't re-tighten these into snappier lines. If they need shortening for a
+// layout, shorten the LAYOUT — PLEDGE_PRINCIPLE_SHORT already exists for that.
 const PLEDGE_PRINCIPLE_DESCRIPTIONS = {
   new_generation:
-    "Building, bringing, or buying new generation — paying the full cost of the new generation and electricity needed to meet their demand.",
+    "Companies will build, bring, or buy the new generation resources and electricity needed to satisfy their new energy demands, paying the full cost of those resources whether by building, or buying from, new or otherwise additive power plants.",
   delivery_infra:
-    "Paying for all transmission and distribution infrastructure upgrades needed to serve their data centers so the expense isn't passed to ordinary households.",
+    "Companies will pay for all new power delivery infrastructure upgrades required to service their data centers, including adequate network upgrade costs to ensure that these expenses are not passed on to the ordinary household.",
   separate_rate:
-    "Negotiating separate rate structures with utilities and states and paying those rates for the power and infrastructure brought online, used or not.",
+    "Companies will voluntarily negotiate new, separate rate structures with their utilities and relevant State governments wherever they build data centers.",
   local_jobs:
-    "Hiring from the local community and building skills-development programs where they operate.",
+    "Companies will invest in the local communities in which they build data centers. This includes hiring from within the local community and establishing programs to develop relevant skills.",
   grid_resilience:
-    "Coordinating with grid operators and making backup generation available at times of scarcity to help prevent blackouts.",
+    "Companies will coordinate with grid operators to contribute to a more reliable grid and, whenever possible, make available their backup generation resources at times of scarcity to prevent blackouts and power shortages in their communities.",
 };
 // Short forms for the landing-page meters, where the full label wraps to three
 // lines and stops being scannable. Purely presentational — the full label is
@@ -285,10 +302,6 @@ const RATEPAYER_PLEDGE_SIGNATORIES = [
   "qts",
   "xai",
 ];
-// Signatories who signed via the DOE companion track rather than at the
-// White House event — drives the per-track roster note. Mirrors
-// schema.RATEPAYER_PLEDGE_DOE_DATE.
-const RATEPAYER_DOE_TRACK_SIGNATORIES = new Set(["qts"]);
 const RATEPAYER_PLEDGE_DOE_DATE = "2026-04-24";
 
 // --------------------------------------------------------------------------
@@ -1024,6 +1037,8 @@ function renderMoratoriumsView() {
     filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
   }
 
+  setAccCount("moratoriums-count", filtered.length, "record");
+
   // Sort: enacted first (by date desc), then proposed, then failed
   filtered.sort((a, b) => {
     const statusOrder = { enacted: 0, proposed: 1, failed: 2 };
@@ -1758,6 +1773,7 @@ function renderTariffCoverage(tariffs) {
   const grid = document.getElementById("tariff-coverage-grid");
   if (!grid) return;
   grid.innerHTML = "";
+  setAccCount("tariff-coverage-count", TARIFF_PARAMETERS.length, "element");
 
   const counts = {};
   for (const k of TARIFF_PARAMETERS) counts[k] = 0;
@@ -1863,6 +1879,7 @@ function renderTariffsTable() {
   const tbody = document.getElementById("tariffs-tbody");
   if (!tbody) return;
   const rows = filteredTariffs();
+  setAccCount("tariffs-count", rows.length, "tariff");
   tbody.innerHTML = "";
 
   if (rows.length === 0) {
@@ -2657,6 +2674,104 @@ const PLEDGE_TARGETS = {
   explorer: { view: "explorer", anchor: null },
 };
 
+// --------------------------------------------------------------------------
+// Accordions (.acc)
+//
+// One collapsible-section component, shared by every tab — see the ACCORDION
+// block in styles.css for the markup contract. Two helpers keep the rest of
+// the app from having to know it's a <details>.
+// --------------------------------------------------------------------------
+
+// Write the "N sites" chip in an accordion's summary, so a collapsed panel
+// still says how much is inside. A count of 0 clears the chip rather than
+// rendering "0" — .acc-count:empty hides it, and an empty panel's own body
+// copy is the honest place to explain the absence.
+function setAccCount(id, n, singular, plural) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  // Naive +"s" produced "302 signatorys" / "13 companys" in the first cut, so
+  // any noun that doesn't pluralize by suffix passes its plural explicitly.
+  const noun = n === 1 ? singular : plural || `${singular}s`;
+  el.textContent = n ? `${n} ${noun}` : "";
+}
+
+// Expand the accordion containing `node` (and any accordion containing THAT,
+// for the roster's nested case). Deep links and the Overview pathway cards
+// both scroll to sections that may be collapsed; without this the scroll
+// lands on a closed bar and reads as a dead link.
+function openAccordionsFor(node) {
+  for (let el = node; el; el = el.parentElement) {
+    if (el.tagName === "DETAILS" && el.classList.contains("acc")) el.open = true;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Sub-tabs
+//
+// For sections that are ALTERNATIVES rather than a sequence — see the SUB-TABS
+// block in styles.css for when to reach for this instead of an accordion.
+//
+// Same drift-safe shape as DETAIL_TABS: everything iterates this constant, so
+// adding a cohort means adding markup + one array entry, and nothing else has
+// to be taught the new key. Ids are conventional:
+//   button  subtab-<group>-<key>
+//   panel   subpane-<group>-<key>
+// --------------------------------------------------------------------------
+
+const SUBTAB_GROUPS = {
+  "rp-sites": ["assessed", "unassessed", "pre-pledge", "non-signatory"],
+  agg: ["company", "signatory", "state"],
+};
+
+// Last-clicked sub-tab per group, for this session only. Same reasoning as
+// _lastDetailTab: a reader comparing cohorts across re-renders shouldn't be
+// snapped back, but a reload should land on the primary cohort rather than
+// whatever they last poked at.
+const _activeSubtab = {};
+
+function setActiveSubtab(group, key) {
+  const keys = SUBTAB_GROUPS[group];
+  if (!keys) return;
+  if (!keys.includes(key)) key = keys[0];
+  _activeSubtab[group] = key;
+  for (const k of keys) {
+    const btn = document.getElementById(`subtab-${group}-${k}`);
+    const pane = document.getElementById(`subpane-${group}-${k}`);
+    const active = k === key;
+    if (btn) btn.setAttribute("aria-selected", active ? "true" : "false");
+    if (pane) pane.hidden = !active;
+  }
+}
+
+function wireSubtabs() {
+  for (const [group, keys] of Object.entries(SUBTAB_GROUPS)) {
+    for (const key of keys) {
+      const btn = document.getElementById(`subtab-${group}-${key}`);
+      if (!btn || btn.dataset.wired === "1") continue;
+      btn.dataset.wired = "1";
+      btn.addEventListener("click", () => setActiveSubtab(group, key));
+      // Arrow keys move between tabs in a tablist, per the ARIA pattern.
+      btn.addEventListener("keydown", (e) => {
+        const delta = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!delta) return;
+        e.preventDefault();
+        const next = keys[(keys.indexOf(key) + delta + keys.length) % keys.length];
+        setActiveSubtab(group, next);
+        const nextBtn = document.getElementById(`subtab-${group}-${next}`);
+        if (nextBtn) nextBtn.focus();
+      });
+    }
+  }
+}
+
+// Bare number for a sub-tab pill. setAccCount's "39 sites" phrasing is right in
+// an accordion summary and far too wide in a tab.
+function setSubtabCount(id, n) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = n ? String(n) : "";
+}
+
 function goToPledgeTarget(name) {
   const target = PLEDGE_TARGETS[name];
   if (!target) return;
@@ -2666,7 +2781,9 @@ function goToPledgeTarget(name) {
   // exists before scrolling, and fail quietly if it never appears.
   requestAnimationFrame(() => {
     const anchor = document.getElementById(target.anchor);
-    if (anchor) anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!anchor) return;
+    openAccordionsFor(anchor);
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
@@ -2989,6 +3106,7 @@ function renderMatrix() {
   const body = document.getElementById("matrix-body");
   headRow.innerHTML = "";
   body.innerHTML = "";
+  setAccCount("matrix-count", state.companies.length, "company", "companies");
 
   const corner = document.createElement("th");
   corner.className = "col-company";
@@ -4171,6 +4289,7 @@ function renderProjectList() {
   list.innerHTML = "";
   const items = filteredProjects();
   meta.textContent = `${items.length} of ${state.projects.length} projects`;
+  setAccCount("explorer-filter-count", items.length, "site");
 
   if (items.length === 0) {
     const li = document.createElement("li");
@@ -4431,11 +4550,9 @@ function renderRatepayerView() {
     if (el) el.href = RATEPAYER_PLEDGE_URL;
   }
 
-  renderRatepayerStats();
   renderPledgeCommitments();
   renderCoverageStats();
   renderStateChips();
-  renderRatepayerRoster();
   renderSignatoryRoster();
   renderRatepayerLegend();
   renderRatepayerScorecard();
@@ -4475,6 +4592,7 @@ function renderPledgeCommitments() {
   const ol = document.getElementById("rp-commitments");
   if (!ol) return;
   const tallies = principleTallies();
+  setAccCount("rp-commitments-count", PLEDGE_PRINCIPLES.length, "commitment");
 
   ol.replaceChildren(
     ...PLEDGE_PRINCIPLES.map((key, i) => {
@@ -4527,6 +4645,7 @@ function renderCoverageStats() {
   }
 
   const counts = signatoryCounts();
+  setAccCount("rp-coverage-count", (state.signatories || []).length, "signatory", "signatories");
   ul.replaceChildren(
     ...SIGNATORY_CATEGORIES.map((cat) => {
       const li = el("li", `rp-cat-stat cat-${cat}`);
@@ -4934,6 +5053,9 @@ function renderSignatoryRoster() {
   if (count) {
     count.textContent = `Showing ${rows.length} of ${(state.signatories || []).length}`;
   }
+  // Summary chip counts the WHOLE roster, not the filtered subset — it has to
+  // read correctly while the panel is collapsed and no filter is visible.
+  setAccCount("rp-roster-total", (state.signatories || []).length, "signatory", "signatories");
 
   ul.replaceChildren(
     ...rows.map((s) => {
@@ -5246,59 +5368,10 @@ function formatAnnouncedDate(p) {
   return String(p.announced_year);
 }
 
-function renderRatepayerStats() {
-  const ul = document.getElementById("rp-stats");
-  if (!ul) return;
-  ul.innerHTML = "";
-
-  const assessed = ratepayerAssessedProjects();
-  const affirmed = assessed.filter((p) => p.ratepayer.status === "affirmed");
-  const contested = assessed.filter((p) => p.ratepayer.status === "contested");
-
-  // The landing band above already reports the roster-wide count; this row is
-  // about the scorecard cohort, so it starts from the companies we actually
-  // track site by site.
-  const tiles = [
-    {
-      value: String(ratepayerSignatories().length),
-      label: "signatories tracked in depth",
-    },
-    {
-      value: String(assessed.length),
-      label: "sites assessed",
-    },
-    {
-      value: String(affirmed.length),
-      label: "site-specific commitments",
-      accent: "affirmed",
-    },
-  ];
-  // Honest-absence: the contested tile only appears once a documented
-  // cost-shift dispute exists in the cohort — don't render a zero.
-  if (contested.length > 0) {
-    tiles.push({
-      value: String(contested.length),
-      label: "contested",
-      accent: "contested",
-    });
-  }
-
-  for (const t of tiles) {
-    const li = document.createElement("li");
-    li.className = "rp-stat";
-    if (t.accent) li.style.setProperty("--rp-color", `var(--ratepayer-${t.accent})`);
-    li.innerHTML = `
-      <span class="rp-stat-value">${escapeHtml(t.value)}</span>
-      <span class="rp-stat-label">${escapeHtml(t.label)}</span>
-    `;
-    ul.appendChild(li);
-  }
-}
-
-// Companies that did NOT sign the pledge but have at least one claim using
-// ratepayer / pay-our-own-way language (e.g. QTS, Anthropic). Surfaced as a
-// stat + flagged in the roster so the view doesn't imply the pledge is the
-// only path to ratepayer protection.
+// Claim language that reads as a ratepayer / pay-our-own-way commitment.
+// Used as the company-wide fallback on a scorecard card when a site has no
+// site-specific claim of its own, so a card can still show what the operator
+// has committed to in general rather than rendering empty.
 const RATEPAYER_CLAIM_KEYWORDS = [
   "ratepayer",
   "pay our own way",
@@ -5317,83 +5390,6 @@ const RATEPAYER_CLAIM_KEYWORDS = [
   "do not increase",
   "electricity prices",
 ];
-
-function companyHasRatepayerClaim(slug) {
-  return state.claims.some(
-    (c) =>
-      c.company_slug === slug &&
-      RATEPAYER_CLAIM_KEYWORDS.some((k) => c.statement.toLowerCase().includes(k))
-  );
-}
-
-function renderRatepayerRoster() {
-  const ul = document.getElementById("rp-tracked-roster");
-  if (!ul) return;
-  ul.innerHTML = "";
-
-  // Signatories first, then non-signatories who have their own commitment,
-  // then the rest. Within each group, alphabetical by name.
-  const signatories = ratepayerSignatories();
-  const nonSigWithClaim = state.companies.filter(
-    (c) => !c.ratepayer_pledge_signatory && companyHasRatepayerClaim(c.slug)
-  );
-
-  const byName = (a, b) => a.name.localeCompare(b.name);
-  const ordered = [
-    ...signatories.slice().sort(byName),
-    ...nonSigWithClaim.slice().sort(byName),
-  ];
-
-  for (const co of ordered) {
-    const signed = !!co.ratepayer_pledge_signatory;
-    const li = document.createElement("li");
-    li.className = `rp-roster-item${signed ? " signed" : " unsigned"}`;
-    li.style.setProperty("--co-color", `var(--co-${co.slug})`);
-
-    // Which track a company signed on is read from the roster, not assumed.
-    // Labelling the July cohort with the March date would claim they committed
-    // four months before they did.
-    const rosterRec = state.signatoryByCompany && state.signatoryByCompany.get(co.slug);
-    let note;
-    if (!signed) {
-      note = "Own commitment";
-    } else if (rosterRec && rosterRec.signed_track === "expansion-2026-07-23") {
-      note = `Signed in the expansion on ${formatLongDate(
-        rosterRec.signed_date || RATEPAYER_PLEDGE_EXPANSION_DATE
-      )}`;
-    } else if (
-      (rosterRec && rosterRec.signed_track === "doe-2026-04-24") ||
-      RATEPAYER_DOE_TRACK_SIGNATORIES.has(co.slug)
-    ) {
-      note = `Signed with DOE on ${formatLongDate(RATEPAYER_PLEDGE_DOE_DATE)}`;
-    } else {
-      note = `Signed at White House on ${formatLongDate(RATEPAYER_PLEDGE_DATE)}`;
-    }
-    const mark = "✓";
-
-    // Link the note to a source: signatories → the pledge proclamation;
-    // own-commitment companies → their published page when one exists. Keeps a
-    // traceable link on every roster row.
-    const noteUrl = signed
-      ? RATEPAYER_PLEDGE_URL
-      : co.dedicated_page_url
-        ? String(co.dedicated_page_url)
-        : null;
-    // Keep the note's text EXACTLY the signing-track string (an e2e test counts
-    // it verbatim); the "↗" link affordance is added via CSS ::after so it
-    // doesn't leak into inner_text.
-    const noteHtml = noteUrl
-      ? `<a class="rp-roster-note" href="${escapeAttr(noteUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(note)}</a>`
-      : `<span class="rp-roster-note">${escapeHtml(note)}</span>`;
-
-    li.innerHTML = `
-      <span class="rp-roster-mark" aria-hidden="true">${mark}</span>
-      <span class="rp-roster-name">${escapeHtml(co.name)}</span>
-      ${noteHtml}
-    `;
-    ul.appendChild(li);
-  }
-}
 
 function renderRatepayerLegend() {
   const wrap = document.getElementById("rp-legend");
@@ -5679,6 +5675,7 @@ function renderRatepayerFilterBar() {
 
 function renderRatepayerScorecard() {
   renderRatepayerFilterBar();
+  setSubtabCount("rp-scorecard-count", ratepayerAssessedProjects().length);
 
   const ul = document.getElementById("rp-scorecard");
   if (ul) {
@@ -5720,6 +5717,7 @@ function renderRatepayerScorecard() {
   if (unassessedUl) {
     unassessedUl.innerHTML = "";
     const unassessed = ratepayerUnassessedPledgeEraProjects();
+    setSubtabCount("rp-unassessed-count", unassessed.length);
     if (unassessed.length === 0) {
       const li = document.createElement("li");
       li.className = "muted";
@@ -5739,6 +5737,7 @@ function renderRatepayerScorecard() {
   if (prePledgeUl) {
     prePledgeUl.innerHTML = "";
     const prePledge = ratepayerPrePledgeProjects();
+    setSubtabCount("rp-pre-pledge-count", prePledge.length);
     if (prePledge.length === 0) {
       const li = document.createElement("li");
       li.className = "muted";
@@ -5757,6 +5756,7 @@ function renderRatepayerScorecard() {
   if (nonSigUl) {
     nonSigUl.replaceChildren();
     const nonSig = ratepayerNonSignatoryProjects();
+    setSubtabCount("rp-non-signatory-count", nonSig.length);
     if (nonSig.length === 0) {
       const li = document.createElement("li");
       li.className = "muted";
@@ -5768,17 +5768,18 @@ function renderRatepayerScorecard() {
       }
     }
   }
-  wireRatepayerNonSignatoryToggle();
-}
-
-function wireRatepayerNonSignatoryToggle() {
-  const checkbox = document.getElementById("rp-show-non-signatory");
-  const section = document.getElementById("rp-non-signatory-section");
-  if (!checkbox || !section || checkbox.dataset.wired === "1") return;
-  checkbox.dataset.wired = "1";
-  checkbox.addEventListener("change", () => {
-    section.hidden = !checkbox.checked;
-  });
+  // Every cohort's total, so the collapsed accordion says how many sites are
+  // tracked in all — the sub-tab pills break that down once it's open.
+  setAccCount(
+    "rp-sites-count",
+    ratepayerAssessedProjects().length +
+      ratepayerUnassessedPledgeEraProjects().length +
+      ratepayerPrePledgeProjects().length +
+      ratepayerNonSignatoryProjects().length,
+    "site"
+  );
+  wireSubtabs();
+  setActiveSubtab("rp-sites", _activeSubtab["rp-sites"] || "assessed");
 }
 
 // True when the project's company is a pledge signatory at all (regardless of
@@ -6124,6 +6125,8 @@ function renderAggregateView() {
   renderSignatoryCategoryRollup();
   renderStateRollup(stRows);
   wireAggSort();
+  wireSubtabs();
+  setActiveSubtab("agg", _activeSubtab.agg || "company");
   wireBtn("agg-csv-btn", downloadAggregateCSV);
   wireBtn("agg-pdf-btn", exportAggregateToPDF);
 }
@@ -6418,6 +6421,7 @@ function renderCompanyRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildCompanyRollups(), "company");
   const tot = aggTotals(rows);
+  setSubtabCount("agg-company-count", rows.length);
 
   tbody.innerHTML = rows
     .map(
@@ -6461,6 +6465,7 @@ function renderStateRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildStateRollups(), "state");
   const tot = aggTotals(rows);
+  setSubtabCount("agg-state-count", rows.length);
 
   tbody.innerHTML = rows
     .map(

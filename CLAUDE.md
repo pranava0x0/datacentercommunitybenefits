@@ -851,6 +851,226 @@ does. **When you change which view is default, every test that `goto("/")` and
 then waits on another view's DOM will fail — route them through the hash rather
 than loosening the wait.**
 
+### One section language, one accordion (v2.2)
+
+Every tab had grown its own section chrome. Five heading scales
+(`.summary-section > h3` — which had **no CSS rule at all** and just inherited
+the global serif h3; `.agg-section-heading` at 1.05rem sans; `.hot-rail-title`
+at 1rem sans; `.matrix-help` with no heading; `.rp-section > h3` at 1.1rem) and
+**three unrelated `<details>` skins** (`.directory-section` a filled button bar,
+`.china-context-section` an accent-left callout, `.rp-roster-details` a bare
+bold summary). Six tabs that read as six products.
+
+The Ratepayer view's shape won — display serif at **400** weight, muted 64ch
+dek — and everything else is aliased onto it in the SECTION LANGUAGE block in
+[styles.css](docs/styles.css). Legacy class names were aliased rather than
+renamed so no JS selector or test id had to move; the ones that ended up with
+**zero** remaining markup (`.summary-section`, `.view-description`,
+`.agg-section`, `.agg-section-heading`) were then deleted outright.
+
+**`.acc` is now the only collapsible-section component.** Markup contract:
+
+```html
+<details class="acc" [open]>
+  <summary><h3 class="acc-title">…</h3><span class="acc-count"></span>
+           <span class="acc-chevron" aria-hidden="true"></span></summary>
+  <div class="acc-body">…</div>
+</details>
+```
+
+Five rules that are load-bearing:
+
+- **The heading goes INSIDE the `<summary>`.** `<details>`/`<summary>` supplies
+  the expand semantics natively (no `aria-expanded` bookkeeping), and the inner
+  `<h3>` keeps the section in a screen reader's heading list. Don't hoist it out.
+- **Never put a button in the `<summary>`.** A click anywhere inside a summary
+  toggles the panel — the old `.directory-section` shipped its CSV/PDF buttons
+  there and collapsed the table out from under the reader on every export
+  click. Toolbars go in `.acc-body`; `.table-controls` is styled for exactly
+  that.
+- **`setAccCount(id, n, singular, plural)`** writes the summary chip so a
+  *collapsed* panel still says how much is inside. `n === 0` clears it
+  (`.acc-count:empty` hides it) — an empty panel's own body copy is the honest
+  place to explain an absence, not a "0" chip. Pass `plural` for anything that
+  doesn't take a bare `+s`; the first cut shipped "302 signatorys" and
+  "13 companys".
+- **`openAccordionsFor(node)` before any programmatic scroll.**
+  `goToPledgeTarget()` calls it, because a smooth-scroll to a collapsed section
+  lands on a closed bar and reads as a broken link. It walks *all* ancestors, so
+  a nested accordion opens too.
+- **Collapsing a section breaks every e2e test that waits on its contents.**
+  Same hidden-pane trap CLAUDE.md already documents twice (Community pane, v2
+  comparison default): children of a closed `<details>` are attached but not
+  painted, so `wait_for_selector` needs `state="attached"` and
+  `inner_text()` returns `""` — read `text_content()`, or click the summary
+  first when the test is about what the reader sees.
+
+**The pledge band is collapsed by default** (`.acc--band`, the dark variant with
+band-palette hairline and marker). The five commitments are reference material a
+returning reader has already read; the live content below is what they came back
+for. `test_commitments_render_as_the_pages_spine` asserts the collapsed default
+*and* that expanding works, so flipping it back is a deliberate act.
+
+`#hot-rail` deliberately did NOT become an accordion: it renders only when
+contested sites exist, and a collapsible whose whole existence is conditional
+reads as a bug when it vanishes.
+
+### Sub-tabs are for alternatives; accordions are for sequences (v2.2)
+
+`.subtabs` / `SUBTAB_GROUPS`. The rule that decides which to reach for:
+
+> **Would a reader ever want two of these on screen at once?**
+> Yes → accordion. No → sub-tab.
+
+Sub-tabs exist in exactly **two** places, and `test_only_two_subtab_groups_exist`
+guards that number — a third group has to argue against the test above:
+
+- **Ratepayer → "Tracked sites"** — Assessed / Awaiting assessment / Before the
+  pledge / Never signed. These were four sibling sections; they are four
+  *bucketings of one site list*.
+- **Aggregate** — By company / By signatory category / By state. Three rollups
+  of the same numbers.
+
+The Moratoriums and Tariffs tabs kept accordions on purpose: you read the charts
+**and** the directory. Sub-tabs there would hide half the tab from Ctrl-F and
+from the PDF exports, which walk the DOM.
+
+Mechanics, mirroring `DETAIL_TABS`:
+
+- **Everything iterates `SUBTAB_GROUPS`.** Adding a cohort = markup + one array
+  entry. Ids are conventional: `subtab-<group>-<key>` / `subpane-<group>-<key>`.
+- **`setSubtabCount()`, not `setAccCount()`.** A pill is a bare number;
+  "39 sites" is right in an accordion summary and far too wide in a tab.
+  The accordion summary above the strip carries the **combined** total, so
+  collapsing it doesn't hide the count entirely
+  (`test_accordion_summary_totals_every_cohort` pins summary == sum of pills).
+- **Panels toggle via the `hidden` attribute**, and `.subtab-panel` sets
+  `display: block` — safe only because the global `[hidden]` rule carries
+  `!important`. See the `[hidden]` trap.
+- **Arrow keys move between tabs**, per the ARIA tablist pattern.
+- **Collapsing content into a sub-tab breaks every e2e test that waits on it**,
+  same as accordions — four aggregate tests failed at once here. Fix by
+  clicking the sub-tab (what a reader does), not by loosening the wait.
+
+**The "Show non-signatory companies" checkbox is gone**, replaced by the
+"Never signed" sub-tab. CLAUDE.md previously called that checkbox the documented
+opt-in-reveal shape; a sub-tab is the same opt-in (Assessed is the default, you
+have to choose the cohort) while sitting where cohorts actually compare. The
+scope rule it protected is unchanged and enforced where it always was —
+`_is_ratepayer_eligible` / `isPrePledgeProject` still refuse to attach a
+`ratepayer` assessment to a non-signatory site.
+
+### The Ratepayer view's own stat row is gone (v2.2)
+
+`#rp-stats` / `renderRatepayerStats()` — "N signatories tracked in depth / sites
+assessed / site-specific commitments" — was removed, along with the
+"Companies tracked in depth" roster (`#rp-tracked-roster` /
+`renderRatepayerRoster()`) under Coverage. Both predated the v2 roster expansion
+and reported numbers the Overview landing band now reports better and
+roster-wide. `companyHasRatepayerClaim()` and
+`RATEPAYER_DOE_TRACK_SIGNATORIES` died with them (the roster record's own
+`signed_track` is the source of truth for which track a company signed on).
+`RATEPAYER_CLAIM_KEYWORDS` survives — it still backs the company-wide claim
+fallback on scorecard cards.
+
+Four e2e tests went with them. **Don't reintroduce a per-view stat row that
+restates roster figures**: two places reporting the same count is how the
+"11 signatories" tile sat stale through an expansion that tripled the roster.
+
+### The pledge's five commitments are quoted, and were paraphrased (v2.2)
+
+`PLEDGE_PRINCIPLE_DESCRIPTIONS` in app.js now holds the **verbatim** body text
+from the White House pledge, re-fetched and re-verified 2026-07-28. It held
+paraphrases until then, and two had drifted in the direction that flatters the
+pledge:
+
+- **`separate_rate`** claimed companies pay "for the power and infrastructure
+  brought online, used or not." The source body says only that they will
+  *negotiate separate rate structures*. The pay-anyway framing is that section's
+  **title** — we were quoting the headline back as if it were the commitment.
+  Same failure shape as the Loudoun "ban" lesson: a headline's strong word is
+  not the underlying action.
+- **`grid_resilience`** dropped the source's "whenever possible" hedge on backup
+  generation, turning a qualified commitment into an unconditional one.
+
+`test_commitment_text_is_verbatim_from_the_pledge` pins all five strings, so
+re-tightening them into snappier lines is a deliberate edit to the test file.
+If a layout needs them shorter, shorten the layout — `PLEDGE_PRINCIPLE_SHORT`
+already exists for exactly that. The band's footnote now reads "titles **and
+text** quoted verbatim".
+
+Titles were already verbatim and stay so, modulo case: the source uses Title
+Case, the dashboard renders sentence case throughout, and
+`test_commitment_titles_are_the_pledges_headings` compares casefolded.
+
+`PLEDGE_PRINCIPLES` / `PLEDGE_PRINCIPLE_LABELS` were mirrored Python↔JS with
+**no parity test** — the only mirrored vocabulary here that lacked one. Now
+guarded by `test_pledge_principles_match` / `test_pledge_principle_labels_match`.
+
+Note the pledge's five commitments and the dashboard's eight `THEMES` are
+**different axes** and are not being reconciled: THEMES is the community-benefit
+taxonomy (jobs, water, education…), the commitments are ratepayer-cost
+obligations. Don't map one onto the other.
+
+### Universal lessons learned here (mirrors the canonical CLAUDE.md)
+
+Promoted to `~/Projects/coding-best-practices/CLAUDE.md` in the same pass, and
+repeated here because this is the file that actually loads in this directory.
+
+- **A click anywhere inside `<summary>` toggles the panel**, so a button in a
+  collapsible header fires *and* collapses the section. Toolbars go in the body.
+  The old `.directory-section` shipped its CSV/PDF buttons in the summary.
+- **Aliasing legacy class names onto a new shared rule only works if the shared
+  rule wins the cascade.** `.hot-rail-title` / `.hot-rail-sub` sat later in the
+  sheet and silently re-won, so the Explorer heading kept rendering a size
+  smaller than every other tab while the new rule looked "not applied". Grep and
+  delete the redundant declarations; a selector with zero remaining markup is
+  dead code (four were, one referencing a `--text-secondary` that no `:root`
+  defines).
+- **A styled `<span>` standing in for a heading is invisible in review and in a
+  screenshot.** The pledge band's `<h3>` became a `<span>` during the accordion
+  conversion and dropped out of the document outline. Wrap in a `<div>` (a
+  `<span>` can't legally contain a heading) and guard with
+  `test_every_accordion_header_is_a_real_heading`.
+- **Hiding content behind a disclosure or tab breaks every test that waits on
+  it** — attached but not painted, so `state="visible"` times out and
+  `inner_text()` returns `""`. Click the disclosure rather than loosening the
+  wait. Third time this project has paid for it (Community pane → v2 comparison
+  default → accordions + sub-tabs).
+- **`page.goto(base + "#hash")` does not reload an SPA**, so hash routing never
+  fires; successive fragment-only `goto`s are same-document navigations. The
+  screenshot harness silently captured four un-rendered tabs. Use
+  `/?i=<name>#hash` or `reload()`.
+- **A source's heading routinely claims more than its body supports — quote the
+  body.** See the commitments section above for this project's instance.
+
+### The documented `<details>` display-override trap did NOT reproduce here
+
+The base CLAUDE.md warns that an author `display:` rule on a direct child of
+`<details>` outranks the UA rule hiding a closed panel. Mutation-checked in this
+project's Chromium: adding `.acc-body { display: grid }` **and** deleting the
+`.acc:not([open]) > :not(summary)` safeguard left the panel correctly hidden and
+the test green. Current Chromium hides closed content via the slot, not a
+defeatable `display: none`.
+
+Both stay: the CSS rule as defense for engines where it does bite, and
+`test_closed_accordion_does_not_paint_its_body` as the weaker assertion it can
+honestly make — its docstring says so explicitly. **The transferable bit is the
+method, not the result:** the test looked like a guard on that trap and would
+have been believed. Mutating the code to make a new assertion go red is the only
+way to know which of your guards are real (base CLAUDE.md > "a green test you
+have never seen go red is a hypothesis").
+
+### Per-signatory deep dives — plan only, not built
+
+[SPEC_SIGNATORY_PAGES.md](SPEC_SIGNATORY_PAGES.md) proposes `#signatory/<id>`
+pages for all 302 roster rows, a stored `SignatoryCuration` work ledger, and a
+REFRESH.md "Signatory sweep". **Nothing in it is implemented.** The load-bearing
+constraint it works around: 291 of the 302 rows hold only what the roster
+publishes, so a page titled "deep dive" over six fields is a lie told by layout
+— curation state has to be stored and rendered, not implied. Read it before
+starting any per-signatory work.
+
 ### Comparison view is summary-pop-out, not claims-list (v1.3)
 
 The Comparison view's job is to surface "what does each company actually publish about community engagement?" — not to be a global claim browser. v1.0–v1.2 had a global claims list under the matrix that filtered when you clicked a cell; v1.3 removed that entirely. The matrix now opens a per-company pop-out (`#company-detail`) on row / cell click, showing:

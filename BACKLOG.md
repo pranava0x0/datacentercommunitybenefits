@@ -813,3 +813,39 @@ months"; "Permanent" vs "Permanent ban" vs "Permanent prohibition"). Not wrong (
 the jurisdiction's own framing) but a light normalization pass to canonical labels would make
 the raw data tidier. Alternatively split into `duration_label` (short, required) + keep the
 detail in `summary`. Defer unless the raw field is consumed elsewhere.
+
+
+---
+
+## Deferred from the accordion / sub-tab pass (2026-07-28)
+
+### Sub-tab state isn't in the URL — **medium**
+`SUBTAB_GROUPS` state is session-only (`_activeSubtab`), so "Before the pledge"
+and "By state" can't be linked to. Every other detail surface here is
+deep-linkable (`#state/XX`, `#ratepayer`), which makes this the odd one out — a
+reader who finds 74 pre-pledge sites can't send anyone to them. Shape: extend
+the hash to `#ratepayer/pre-pledge`, reusing the state-panel router's lesson
+(**read the sub-key off the hash BEFORE `activateView`** — it rewrites the hash).
+
+### Accordion open/closed state isn't remembered — **low**
+Every `.acc` resets to its authored default on reload. Deliberate for now (same
+reasoning as `_lastDetailTab` not going to `localStorage`: a returning reader
+should land on the structured default). Revisit only if the Ratepayer page's
+length becomes a complaint again.
+
+### `tariff-coverage-count` is a constant — **low**
+The chip reads "17 elements" — the size of the LBL taxonomy, not coverage. Every
+other accordion count says how much data is inside. Either make it "N of 17
+addressed" or drop the chip; a count that can never change is noise.
+
+### Per-signatory deep-dive pages — **see [SPEC_SIGNATORY_PAGES.md](SPEC_SIGNATORY_PAGES.md)** — **medium**
+P1–P3 are tooling (curation ledger schema + rebuild-merge test, `#signatory/<id>`
+panel, `audit_signatories.py` + REFRESH.md sweep); P4 is the curation itself and
+does not end. Three decisions are open in §8 before P1 starts — the sharpest is
+whether the 176 cooperatives should carry a curation record at all yet.
+
+### Re-check the `<details>` display-override trap on a non-Chromium engine — **low**
+It didn't reproduce in this project's Chromium (see CLAUDE.md). The
+`.acc:not([open])` safeguard is currently defense against a threat we have not
+observed here. If the e2e suite ever runs WebKit/Firefox, re-run the mutation
+there; if it doesn't bite in any engine we test, the rule is dead weight.
