@@ -1055,6 +1055,29 @@ repeated here because this is the file that actually loads in this directory.
   assert the media query engages before trusting its numbers
   (`test_coarse_pointer_emulation_actually_engages`).
 
+### A guard can inherit the exact blind spot of the bug it guards
+
+`goToPledgeTarget` failed to open the signatory roster because
+`openAccordionsFor()` walks **ancestors**, and the roster's `<details>` is a
+**child** of the `#rp-roster-section` the target pointed at. Codex caught it.
+
+The test written to guard the whole `PLEDGE_TARGETS` table then used
+`el.closest('details.acc:not([open])')` — which also only looks *upward*.
+Reverting the fix left the new test **green**. It was only caught by mutating
+the fix away, which is the whole argument for doing that on every new
+assertion. The guard now checks self + ancestors + descendants.
+
+Generalizes: when you write a test for a directional bug (upward/downward,
+before/after, inner/outer), the obvious API for the check usually shares the
+bug's direction. Mutate the fix away and watch the test go red, or you have
+written the bug twice.
+
+Related, same review: `test_only_the_active_subtab_is_in_the_tab_order` passes
+from the authored HTML alone, so deleting the `btn.tabIndex` line in
+`setActiveSubtab` does **not** turn it red — `test_tab_order_follows_selection`
+is what covers the JS half. Both docstrings say so. **Two tests that look like
+one guard can each cover a different half and neither cover the whole.**
+
 ### The documented `<details>` display-override trap did NOT reproduce here
 
 The base CLAUDE.md warns that an author `display:` rule on a direct child of

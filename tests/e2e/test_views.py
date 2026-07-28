@@ -2425,3 +2425,82 @@ class TestTouchTargets:
             h >= TOUCH_FLOOR_PX - _SUBPIXEL for h in heights
         ), f"summary heights: {heights}"
         ctx.close()
+
+
+class TestPledgeTargetsAndTabOrder:
+    """Both from Codex's review of this PR."""
+
+    def test_every_pledge_target_lands_open(self, page: Page, base_url: str):
+        """Guards the whole PLEDGE_TARGETS table, not just the one that broke.
+
+        `roster` pointed at #rp-roster-section while the collapsed <details> was
+        its CHILD (#rp-roster-details) -- and openAccordionsFor() walks
+        ANCESTORS, so the tile scrolled the reader to a closed bar. Any future
+        target aimed at a wrapper instead of the disclosure fails here.
+        """
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        targets = page.evaluate(
+            "() => Object.entries(PLEDGE_TARGETS)"
+            ".filter(([, t]) => t.anchor).map(([k, t]) => [k, t.anchor])"
+        )
+        assert len(targets) >= 4, f"only {len(targets)} anchored targets found"
+        for name, anchor in targets:
+            el = page.locator(f"#{anchor}")
+            assert el.count() == 1, f"target {name!r} -> #{anchor} does not exist"
+            page.evaluate("(n) => goToPledgeTarget(n)", name)
+            page.wait_for_timeout(250)
+            # Check the anchor itself, its ANCESTORS, and its DESCENDANTS.
+            # The descendant arm is the point: mutation-testing this guard
+            # showed that checking only self+ancestors (via closest()) has the
+            # exact same blind spot as the bug -- reverting the fix left this
+            # test green, because #rp-roster-section's closed <details> is
+            # BELOW it, where closest() never looks. A wrapper holding exactly
+            # one accordion must have it open.
+            shut = page.evaluate(
+                """(a) => {
+                     const el = document.getElementById(a);
+                     if (el.tagName === 'DETAILS' && !el.open) return 'self';
+                     if (el.closest('details.acc:not([open])')) return 'ancestor';
+                     const inner = el.querySelectorAll('details.acc');
+                     if (inner.length === 1 && !inner[0].open) return 'descendant';
+                     return '';
+                   }""",
+                anchor,
+            )
+            assert not shut, (
+                f"target {name!r} -> #{anchor} landed on a closed accordion ({shut})"
+            )
+
+    def test_only_the_active_subtab_is_in_the_tab_order(
+        self, page: Page, base_url: str
+    ):
+        """Roving tabindex, per the ARIA tablist pattern -- the STATIC markup.
+
+        Mutation-checked and honest about its reach: deleting the `btn.tabIndex`
+        line in setActiveSubtab leaves this GREEN, because the authored HTML
+        already carries the right values on load. This guards the markup;
+        test_tab_order_follows_selection guards the JS. Neither covers both.
+        """
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        state = page.evaluate(
+            """() => [...document.querySelectorAll('#view-ratepayer .subtab')]
+                 .map((b) => [b.id, b.getAttribute('aria-selected'), b.tabIndex])"""
+        )
+        assert state, "no sub-tabs found -- extractor broken"
+        for tab_id, selected, tabindex in state:
+            expected = 0 if selected == "true" else -1
+            assert tabindex == expected, (
+                f"{tab_id}: aria-selected={selected} but tabIndex={tabindex}"
+            )
+        assert sum(1 for _, sel, _ in state if sel == "true") == 1
+
+    def test_tab_order_follows_selection(self, page: Page, base_url: str):
+        """The static markup being right isn't enough -- setActiveSubtab has to
+        move the 0 when the reader switches cohort."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-pre-pledge").click()
+        assert page.locator("#subtab-rp-sites-pre-pledge").evaluate("el => el.tabIndex") == 0
+        assert page.locator("#subtab-rp-sites-assessed").evaluate("el => el.tabIndex") == -1

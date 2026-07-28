@@ -2666,7 +2666,11 @@ function renderPledgeActivity() {
 // so a new entry point only has to name a target rather than know how views
 // and anchors work.
 const PLEDGE_TARGETS = {
-  roster: { view: "ratepayer", anchor: "rp-roster-section" },
+  // Targets the <details>, NOT its #rp-roster-section wrapper:
+  // openAccordionsFor() walks ancestors, so a target pointing at the
+  // wrapper leaves the disclosure shut. test_every_pledge_target_lands_open
+  // guards the whole table against that mistake.
+  roster: { view: "ratepayer", anchor: "rp-roster-details" },
   coverage: { view: "ratepayer", anchor: "rp-coverage-section" },
   commitments: { view: "ratepayer", anchor: "rp-commitments-section" },
   scorecard: { view: "ratepayer", anchor: "rp-scorecard-section" },
@@ -2738,7 +2742,13 @@ function setActiveSubtab(group, key) {
     const btn = document.getElementById(`subtab-${group}-${k}`);
     const pane = document.getElementById(`subpane-${group}-${k}`);
     const active = k === key;
-    if (btn) btn.setAttribute("aria-selected", active ? "true" : "false");
+    if (btn) {
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+      // Roving tabindex, per the ARIA tablist pattern: Tab enters the strip
+      // once and lands on the ACTIVE tab; ArrowLeft/Right move within it.
+      // Leaving every tab at 0 puts seven stops in the tab order.
+      btn.tabIndex = active ? 0 : -1;
+    }
     if (pane) pane.hidden = !active;
   }
 }
