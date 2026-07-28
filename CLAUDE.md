@@ -1055,6 +1055,33 @@ repeated here because this is the file that actually loads in this directory.
   assert the media query engages before trusting its numbers
   (`test_coarse_pointer_emulation_actually_engages`).
 
+### A "does this name appear anywhere?" check is not a usage check
+
+`tests/test_no_dead_css.py` v1 asked whether a CSS class name appeared as a
+substring of index.html + app.js. Codex pointed out that an **id** of the same
+name answers yes: `.rp-commitments` had three orphaned rule blocks and the
+guard passed on the strength of `id="rp-commitments"` sitting on an element
+whose class is `rp-commit-list`. A guard that accepts an id as evidence of a
+class certifies exactly what it cannot see.
+
+v2 parses class *application* sites — `class="..."`, `className =`,
+`classList.add(...)`, and this project's `el(tag, "classes")` helper. It found
+two more dead selectors immediately.
+
+**Tightening a guard needs its own false-positive pass.** The stricter version
+initially reported `.mor-toggle-btn` and `.rp-state-chip` as dead, and both are
+live. Cause: the interpolation contains its own quotes —
+
+```js
+class="mor-toggle-btn${active ? " is-active" : ""}"
+```
+
+— so the `class="..."` regex stops at the quote before ` is-active` and the
+captured value ends mid-expression. Substituting only well-formed `${...}` left
+`mor-toggle-btn${active` as a literal class name. Any residual `${` now
+truncates the token to a stem. **Run a newly-strict check against known-good
+code before trusting its output**; a guard that cries wolf gets disabled.
+
 ### A guard can inherit the exact blind spot of the bug it guards
 
 `goToPledgeTarget` failed to open the signatory roster because
