@@ -2310,6 +2310,7 @@ main {
   white-space: nowrap;
 }
 
+/* Fires only when the count is genuinely unloaded -- a zero renders "0". */
 .acc-count:empty {
   display: none;
 }
@@ -2428,6 +2429,7 @@ main {
   color: var(--accent-mark);
 }
 
+/* See .acc-count:empty -- a zero cohort renders "0", not blank. */
 .subtab-count:empty {
   display: none;
 }

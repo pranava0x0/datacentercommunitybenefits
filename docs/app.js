@@ -2703,6 +2703,14 @@ const PLEDGE_TARGETS = {
 function setAccCount(id, n, singular, plural, note) {
   const el = document.getElementById(id);
   if (!el) return;
+  // ZERO IS A RESULT; missing is not. A truthiness check erased the chip on
+  // both, so a directory filtered down to nothing lost its "0 records" the
+  // moment the reader collapsed it -- indistinguishable from a count that
+  // never loaded. Only a non-number clears.
+  if (!Number.isFinite(n)) {
+    el.textContent = "";
+    return;
+  }
   // Naive +"s" produced "302 signatorys" / "13 companys" in the first cut, so
   // any noun that doesn't pluralize by suffix passes its plural explicitly.
   const noun = n === 1 ? singular : plural || `${singular}s`;
@@ -2711,7 +2719,7 @@ function setAccCount(id, n, singular, plural, note) {
   // an undated "302" reads as a permanent fact about a living roster. The
   // as-of text also lives in the roster's body copy, but that is INSIDE the
   // collapsed panel, which is exactly when the chip is the only thing showing.
-  el.textContent = n ? `${n} ${noun}${note ? ` · ${note}` : ""}` : "";
+  el.textContent = `${n} ${noun}${note ? ` · ${note}` : ""}`;
 }
 
 // "as of <date>" for roster-derived counts, or "" before the roster lands.
@@ -2799,7 +2807,9 @@ function wireSubtabs() {
 function setSubtabCount(id, n) {
   const el = document.getElementById(id);
   if (!el) return;
-  el.textContent = n ? String(n) : "";
+  // Same rule as setAccCount: an empty cohort reads "0", not blank. A blank
+  // pill on one tab beside numbers on the others reads as a broken tab.
+  el.textContent = Number.isFinite(n) ? String(n) : "";
 }
 
 function goToPledgeTarget(name) {

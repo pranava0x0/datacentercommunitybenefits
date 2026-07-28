@@ -2672,3 +2672,48 @@ class TestPathwayCohort:
         expect(page.locator("#subtab-rp-sites-pre-pledge")).to_have_attribute(
             "aria-selected", "true"
         )
+
+
+class TestZeroCounts:
+    """Zero is a result; missing is not.
+
+    Both count helpers used a truthiness check, so a directory filtered down to
+    nothing lost its "0 records" the instant the reader collapsed it --
+    indistinguishable from a count that never loaded. Codex caught it.
+    """
+
+    def test_a_filtered_to_empty_directory_still_reports_zero(
+        self, page: Page, base_url: str
+    ):
+        """The real path, not a synthetic one: filter the tariff directory to a
+        combination with no rows and read the accordion chip."""
+        page.goto(base_url + "/#tariffs")
+        page.wait_for_selector("#tariffs-tbody tr", timeout=15_000)
+        page.select_option("#tariff-status-filter", "rejected")
+        page.select_option("#tariff-state-filter", "OH")
+        page.wait_for_timeout(300)
+        rows = page.locator("#tariffs-tbody tr.tariff-row")
+        assert rows.count() == 0, "fixture drifted -- expected an empty result"
+        expect(page.locator("#tariffs-count")).to_have_text("0 tariffs")
+
+    def test_helpers_distinguish_zero_from_unloaded(self, page: Page, base_url: str):
+        """Pins the distinction directly, so it survives any data change that
+        makes the filter case above stop producing zero."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        result = page.evaluate(
+            """() => {
+                 const acc = document.getElementById('rp-sites-count');
+                 const pill = document.getElementById('rp-scorecard-count');
+                 const before = [acc.textContent, pill.textContent];
+                 setAccCount('rp-sites-count', 0, 'site');
+                 setSubtabCount('rp-scorecard-count', 0);
+                 const zero = [acc.textContent, pill.textContent];
+                 setAccCount('rp-sites-count', null, 'site');
+                 setSubtabCount('rp-scorecard-count', undefined);
+                 const missing = [acc.textContent, pill.textContent];
+                 return {before, zero, missing};
+               }"""
+        )
+        assert result["zero"] == ["0 sites", "0"], result
+        assert result["missing"] == ["", ""], result

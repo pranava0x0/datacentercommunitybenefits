@@ -1055,6 +1055,19 @@ repeated here because this is the file that actually loads in this directory.
   assert the media query engages before trusting its numbers
   (`test_coarse_pointer_emulation_actually_engages`).
 
+### Zero is a result; missing is not
+
+Both count helpers cleared their chip on a falsy value, so `0` and "hasn't
+loaded" rendered identically — blank. A directory filtered down to nothing lost
+its "0 records" the moment the reader collapsed the section, which is exactly
+when the chip is the only thing left saying anything. `Number.isFinite(n)` is
+the check; only a non-number clears.
+
+This is **not** in tension with the project's honest-absence rule (`renderRatepayerStats`
+deliberately omitted a zero "contested" tile). The distinction: a stat tile's
+*existence* asserts a finding, so a zero one manufactures one. A count chip
+answers "how much is inside this section", and `0` is a true answer to that.
+
 ### Check the spec with a validator, not from memory
 
 Codex flagged the accordion summaries as non-conforming, claiming both the
