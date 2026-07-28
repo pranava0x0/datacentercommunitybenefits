@@ -2269,6 +2269,45 @@ class TestSubtabs:
         )
         assert total == parts, f"summary says {total}, cohorts sum to {parts}"
 
+    def test_every_accordion_summary_carries_a_count(
+        self, page: Page, base_url: str
+    ):
+        """DESIGN.md: a collapsed summary still reports its extent.
+
+        Iterates the accordions rather than naming them -- "Key themes driving
+        moratoriums" shipped without a pill because the contract was applied
+        tab by tab instead of to the component. Accordions whose contents are
+        not countable (a prose block, a single chart) are listed explicitly, so
+        adding one is a deliberate act rather than a silent omission.
+        """
+        # Scoped to the ACTIVE view. Every view is in the DOM at once, and an
+        # unvisited one has legitimately-empty counts (nothing loaded), so a
+        # document-wide scan reports four false positives.
+        NOT_COUNTABLE = {"china-context", "moratorium-charts"}
+        for view_hash, view_id, ready in [
+            ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
+            ("#moratoriums", "#view-moratoriums", "#moratoriums-tbody tr"),
+            ("#tariffs", "#view-tariffs", "#tariffs-tbody tr"),
+        ]:
+            # Cache-busting query per iteration: successive fragment-only
+            # goto()s are SAME-DOCUMENT navigations, so the hash router never
+            # fires and the second view never loads. (Exactly the trap this
+            # session added to CLAUDE.md, hit again ten minutes later.)
+            page.goto(f"{base_url}/?acc={view_hash[1:]}{view_hash}")
+            page.wait_for_selector(ready, state="attached", timeout=15_000)
+            missing = page.evaluate(
+                """([view, skip]) => [...document.querySelectorAll(view + ' details.acc')]
+                     .filter((d) => {
+                       const pill = d.querySelector(':scope > summary .acc-count');
+                       const id = d.id || (d.querySelector(':scope > summary h3') || {}).id || '';
+                       if (skip.some((sk) => id.includes(sk))) return false;
+                       return !pill || !pill.textContent.trim();
+                     })
+                     .map((d) => d.id || d.textContent.trim().slice(0, 30))""",
+                [view_id, list(NOT_COUNTABLE)],
+            )
+            assert missing == [], f"{view_hash}: accordions with no count: {missing}"
+
     def test_every_subtab_carries_a_count(self, page: Page, base_url: str):
         """Every alternative in a group shows its extent, or none do.
 

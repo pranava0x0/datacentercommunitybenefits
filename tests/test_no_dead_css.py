@@ -28,8 +28,7 @@ statically, so the literal prefix is kept as a *stem* and any class starting
 with it is accepted. That is a deliberate hole, and a narrow one: the stem has
 to appear in a real class position, not anywhere in the file.
 
-Scope is deliberately narrow -- only classes carrying a project-owned prefix,
-so library classes (Leaflet), utilities, and state classes stay out of it.
+Scope is every class in styles.css except third-party prefixes (Leaflet).
 """
 
 from __future__ import annotations
@@ -42,19 +41,13 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 
-# Prefixes this project owns. A class outside these is somebody else's problem.
-OWNED_PREFIXES = (
-    "rp-",
-    "acc-",
-    "subtab",
-    "pledge-",
-    "mor-",
-    "mtl-",
-    "tariff-",
-    "agg-",
-    "dtab",
-    "dpane",
-)
+# Everything in styles.css is ours EXCEPT these. An allowlist of owned prefixes
+# was the first design and it silently omitted whole families -- `claims-` and
+# `chip-` were missing, so `.claims-section` and `.chip-row` sat dead and
+# certified clean. A guard whose scope is hand-maintained rots exactly like the
+# hand-written lists CLAUDE.md warns about; a denylist of foreign prefixes is
+# short, obvious when it needs an entry, and fails loudly rather than silently.
+THIRD_PARTY_PREFIXES = ("leaflet",)
 
 # Stands in for a `${...}` interpolation while tokenizing.
 _INTERP = "\x00"
@@ -70,25 +63,60 @@ def _strip_comments(css: str) -> str:
     return re.sub(r"/\*.*?\*/", "", css, flags=re.DOTALL)
 
 
+def _class_attr_values(text: str) -> list[str]:
+    """Every complete `class="..."` value, interpolations included.
+
+    A regex cannot do this, and two false positives proved it. These attribute
+    values routinely contain their own quotes inside a `${...}`:
+
+        class="mor-toggle-btn${active ? " is-active" : ""}"
+        class="at-a-glance-text${isCurated ? " curator-override" : ""}"
+
+    A `class="(.*?)"` match stops at the quote before ` is-active`, capturing a
+    fragment that ends mid-expression. That reported `.mor-toggle-btn` as dead
+    (its name became `mor-toggle-btn${active`) AND `.curator-override` as dead
+    (its name lives in a segment the match never reached) -- both perfectly
+    live. So walk the value, tracking `${}` depth, and only let a quote at
+    depth 0 close it.
+    """
+    values: list[str] = []
+    for m in re.finditer(r"""class\s*=\s*(["'`])""", text):
+        quote = m.group(1)
+        i = m.end()
+        depth = 0
+        start = i
+        while i < len(text):
+            ch = text[i]
+            if text.startswith("${", i):
+                depth += 1
+                i += 2
+                continue
+            if ch == "}" and depth:
+                depth -= 1
+            elif ch == quote and depth == 0:
+                values.append(text[start:i])
+                break
+            i += 1
+    return values
+
+
 def _tokenize(value: str) -> tuple[set[str], set[str]]:
     """Split one class-attribute value into (exact names, interpolation stems).
 
-    Handles `${...}` that never closes inside the captured span. That happens
-    constantly here, because the interpolation contains its own quotes:
-
-        class="mor-toggle-btn${active ? " is-active" : ""}"
-
-    The `class="..."` regex stops at the quote before ` is-active`, so the
-    captured value ends mid-expression. Substituting only well-formed `${...}`
-    left `mor-toggle-btn${active` as a literal class name and reported the
-    perfectly live `.mor-toggle-btn` as dead. Any residual `${` therefore
-    truncates the token to a stem.
+    Class names that live *inside* an interpolation's string literals are real
+    application sites (`${isCurated ? " curator-override" : ""}`), so those
+    literals are harvested before the `${...}` blocks are collapsed away.
     """
     exact: set[str] = set()
     stems: set[str] = set()
-    for token in re.sub(r"\$\{[^}]*\}", _INTERP, value).split():
-        # Unterminated interpolation: keep whatever preceded it as a stem.
-        if "${" in token:
+
+    # Names contributed from within the interpolation's own string literals.
+    for expr in re.findall(r"\$\{(.*?)\}", value, re.DOTALL):
+        for literal in re.findall(r"""["'`]([^"'`]*)["'`]""", expr):
+            exact.update(literal.split())
+
+    for token in re.sub(r"\$\{.*?\}", _INTERP, value, flags=re.DOTALL).split():
+        if "${" in token:  # unbalanced remnant
             head = token.split("${")[0].split(_INTERP)[0]
             if head:
                 stems.add(head)
@@ -113,8 +141,8 @@ def _applied_classes(html: str, js: str) -> tuple[set[str], set[str]]:
 
     both = html + "\n" + js
     # class="..." — HTML attributes and JS template strings alike.
-    for m in re.finditer(r"""class\s*=\s*(["'`])(.*?)\1""", both, re.DOTALL):
-        absorb(m.group(2))
+    for value in _class_attr_values(both):
+        absorb(value)
     # className = "..." / className: "..."
     for m in re.finditer(r"""className\s*[=:]\s*(["'`])(.*?)\1""", js, re.DOTALL):
         absorb(m.group(2))
@@ -127,9 +155,15 @@ def _applied_classes(html: str, js: str) -> tuple[set[str], set[str]]:
     for m in re.finditer(r"classList\.(?:add|toggle)\(([^)]*)\)", js):
         for literal in re.findall(r"""["'`]([^"'`]*)["'`]""", m.group(1)):
             absorb(literal)
-    # el(tag, "classes", ...) — this project's element helper
-    for m in re.finditer(r"""\bel\(\s*["'][\w-]+["']\s*,\s*["'`]([^"'`]*)["'`]""", js):
-        absorb(m.group(1))
+    # el(tag, "classes", ...) — this project's element helper — and Leaflet's
+    # L.DomUtil.create(tag, "classes"), which builds the map legend. Missing
+    # the latter reported the perfectly live .map-legend as dead.
+    for pattern in (
+        r"""\bel\(\s*["'][\w-]+["']\s*,\s*["'`]([^"'`]*)["'`]""",
+        r"""DomUtil\.create\(\s*["'][\w-]+["']\s*,\s*["'`]([^"'`]*)["'`]""",
+    ):
+        for m in re.finditer(pattern, js):
+            absorb(m.group(1))
     return exact, stems
 
 
@@ -142,7 +176,7 @@ def scan() -> tuple[list[str], set[str], set[str]]:
         {
             c
             for c in re.findall(r"\.([a-zA-Z][\w-]*)", css)
-            if c.startswith(OWNED_PREFIXES)
+            if not c.startswith(THIRD_PARTY_PREFIXES)
         }
     )
     exact, stems = _applied_classes(html, js)
@@ -158,7 +192,7 @@ def test_extractor_finds_a_meaningful_number_of_classes(scan) -> None:
     """
     owned, exact, _ = scan
     assert len(owned) > 100, (
-        f"only {len(owned)} project-owned classes found in styles.css -- the "
+        f"only {len(owned)} project classes found in styles.css -- the "
         "CSS extractor is probably broken, which would make the dead-CSS test "
         "vacuous"
     )

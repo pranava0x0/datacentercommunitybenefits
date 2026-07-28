@@ -896,46 +896,6 @@ main {
   flex-shrink: 0;
 }
 
-/* ==========================================================================
-   Claims section
-   ========================================================================== */
-
-.claims-section {
-  margin-top: 32px;
-}
-
-.claims-help {
-  margin: 4px 0 12px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 8px 0 16px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  color: var(--text);
-}
-
-.chip-clear {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--text);
-  cursor: pointer;
-}
-
 .claims-list {
   list-style: none;
   margin: 0;
@@ -1637,14 +1597,6 @@ main {
   font-style: italic;
 }
 
-.detail-block {
-  margin-top: 20px;
-}
-
-.detail-block h4 {
-  margin-bottom: 8px;
-}
-
 .response-help {
   margin: 0 0 12px;
   font-size: 0.82rem;
@@ -2193,7 +2145,6 @@ main {
    non-signatory block, became a sub-tab panel.) Don't add a sixth heading
    rule.
    ========================================================================== */
-
 
 .hot-rail-title,
 .acc-title {
@@ -4572,14 +4523,6 @@ body.tariff-modal-open {
   letter-spacing: 0.02em;
 }
 
-/* Sponsor name shown under bill number in table cell */
-.moratorium-sponsor {
-  display: block;
-  font-size: 0.78rem;
-  font-style: italic;
-  margin-top: 1px;
-}
-
 /* .gov badge on official government links in the resources list */
 .badge-gov {
   display: inline-block;
@@ -4672,25 +4615,6 @@ body.tariff-modal-open {
   margin-bottom: 0.75rem;
 }
 
-.btn-secondary {
-  padding: 0.4rem 0.8rem;
-  font-size: 0.85rem;
-  background-color: var(--accent);
-  color: white;
-  border: none;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.btn-secondary:hover {
-  opacity: 0.85;
-}
-
-.btn-secondary:active {
-  opacity: 0.7;
-}
-
 @media print {
   /* ---- Hide chrome ---- */
   .topbar-controls,
@@ -4703,7 +4627,6 @@ body.tariff-modal-open {
   .skip-link,
   .explorer-filters,
   .detail-close,
-  .map-container,
   .map,
   #rp-export-csv,
   .cd-responses-breakdown,

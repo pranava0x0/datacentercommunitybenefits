@@ -1382,6 +1382,9 @@ function renderReasonBreakdown(moratoriums) {
   MORATORIUM_REASON_TYPES.forEach((r) => {
     reasonCounts[r] = 0;
   });
+  // Count of concerns actually cited, so a collapsed section still reports its
+  // extent. Populated after the tally below.
+  let citedThemes = 0;
 
   moratoriums.forEach((m) => {
     if (m.key_reasons && Array.isArray(m.key_reasons)) {
@@ -1390,6 +1393,12 @@ function renderReasonBreakdown(moratoriums) {
       });
     }
   });
+
+  // Only concerns that at least one jurisdiction actually cited are rendered,
+  // so that -- not the size of the taxonomy -- is the number the summary owes
+  // the reader.
+  citedThemes = Object.values(reasonCounts).filter((n) => n > 0).length;
+  setAccCount("moratorium-themes-count", citedThemes, "theme");
 
   const container = document.getElementById("reason-breakdown");
   if (!container) return;

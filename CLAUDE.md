@@ -888,12 +888,12 @@ Five rules that are load-bearing:
   there and collapsed the table out from under the reader on every export
   click. Toolbars go in `.acc-body`; `.table-controls` is styled for exactly
   that.
-- **`setAccCount(id, n, singular, plural)`** writes the summary chip so a
-  *collapsed* panel still says how much is inside. `n === 0` clears it
-  (`.acc-count:empty` hides it) — an empty panel's own body copy is the honest
-  place to explain an absence, not a "0" chip. Pass `plural` for anything that
-  doesn't take a bare `+s`; the first cut shipped "302 signatorys" and
-  "13 companys".
+- **`setAccCount(id, n, singular, plural, note)`** writes the summary chip so a
+  *collapsed* panel still says how much is inside. **Only a non-number clears
+  it** (`Number.isFinite`); `0` renders as "0 records" — see "Zero is a result;
+  missing is not" below. Pass `plural` for anything that doesn't take a bare
+  `+s`; the first cut shipped "302 signatorys" and "13 companys". Pass `note`
+  for a count sourced from an external list, which must carry its as-of date.
 - **`openAccordionsFor(node)` before any programmatic scroll.**
   `goToPledgeTarget()` calls it, because a smooth-scroll to a collapsed section
   lands on a closed bar and reads as a broken link. It walks *all* ancestors, so
@@ -1054,6 +1054,38 @@ repeated here because this is the file that actually loads in this directory.
   rule. Any test about touch behaviour needs a real touch context, and needs to
   assert the media query engages before trusting its numbers
   (`test_coarse_pointer_emulation_actually_engages`).
+
+### A guard's SCOPE rots exactly like any other hand-written list
+
+`tests/test_no_dead_css.py` started with an allowlist of "project-owned"
+class prefixes. Codex pointed out it omitted whole families — `claims-` and
+`chip-` were never in the list, so `.claims-section`, `.chip-row` and seven
+others sat dead and *certified clean*. This is CLAUDE.md's own
+single-source-of-truth lesson landing inside the tool written to catch drift,
+for the fourth time in this project.
+
+Now inverted: scan **every** class in styles.css, exclude a short denylist of
+third-party prefixes (`leaflet`). A denylist is obvious when it needs an entry;
+an allowlist is silent when it doesn't have one.
+
+Two live classes were false-positived on the way, both from interpolations
+carrying their own quotes:
+
+```js
+class="mor-toggle-btn${active ? " is-active" : ""}"
+class="at-a-glance-text${isCurated ? " curator-override" : ""}"
+```
+
+A `class="(.*?)"` regex stops at the quote before ` is-active`. The fix is a
+depth-tracking scanner (`_class_attr_values`) plus harvesting class names from
+*inside* the interpolation's string literals — `curator-override` only ever
+appears there. Leaflet's `L.DomUtil.create("div", "map-legend")` needed teaching
+too.
+
+**The pattern across all four rounds of this guard**: every time it was
+tightened it produced false positives on known-good code, and every time the
+loosening that fixed them had to be checked for re-opening the original hole.
+Budget for that; a scanner is not a one-line test.
 
 ### Zero is a result; missing is not
 
