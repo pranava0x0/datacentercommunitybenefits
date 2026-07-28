@@ -1,6 +1,6 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-07-26
-Total projects needing attention: 91
+Generated: 2026-07-27
+Total projects needing attention: 93
 
 ## Critical Missing Commitment Details
 (34 projects)
@@ -42,7 +42,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(57 projects)
+(59 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -89,10 +89,12 @@ Projects with important gaps:
 - **microsoft-pecos-tx** (announced): claimed_investment_usd
 - **microsoft-person-county-nc** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **microsoft-union-city-ga** (construction): claimed_jobs, power_mw
+- **openai-effingham-county-ga** (announced): claimed_jobs
 - **openai-lordstown-oh** (construction): power_mw
 - **openai-milam-county-tx** (construction): claimed_jobs
 - **oracle-abilene-tx** (construction): claimed_jobs
 - **prologis-coweta-ga** (announced): claimed_jobs
+- **prologis-san-jose-ca** (announced): claimed_investment_usd, claimed_jobs, at_a_glance
 - **qts-blakely-ga** (announced): claimed_jobs
 - **qts-clinton-ia** (announced): claimed_jobs, power_mw
 - **qts-dane-county-wi** (announced): claimed_jobs
@@ -104,12 +106,8 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Bills / Tariffs
-(6 records)
+(2 records)
 
 `proposed` moratoriums/tariffs not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **nv-energy-callisto-esa** (tariff, NV): captured 2026-06-22, 34 days ago
-- **henderson-nv-2026-06** (moratorium, Henderson): captured 2026-06-25, 31 days ago
-- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-06-25, 31 days ago
-- **new-albany-in-2026-06** (moratorium, New Albany): captured 2026-06-25, 31 days ago
-- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-06-25, 31 days ago
-- **duke-nc-large-load-rate-case-2025** (tariff, NC): captured 2026-06-25, 31 days ago
+- **nv-energy-callisto-esa** (tariff, NV): captured 2026-06-22, 35 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-06-25, 32 days ago
