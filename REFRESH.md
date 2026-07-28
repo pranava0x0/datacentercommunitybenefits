@@ -574,3 +574,95 @@ Full detail: `connectors/README.md`.
 - **A unanimous vote to "pursue an ordinance" is not a moratorium.** Lake County
   FL had no drafted ordinance and no scheduled adoption vote; the record now says
   so explicitly rather than reading as a pending ban.
+
+---
+
+### 2026-07-27 refresh pass — learnings
+
+Scope: closed out the 6 records left stale from 07-26, then scouted all three
+dimensions (new sites, new bills/dockets, tariffs) via direct WebSearch/WebFetch
+before considering any agent — none were needed this pass.
+
+- **4 of the 6 stale records resolved cleanly; 2 stayed genuinely unresolvable.**
+  Henderson NV: council *rejected* the moratorium 2026-07-21 (→ `failed`), corroborated
+  by 5 independent outlets. New Albany IN: enacted 2026-07-16 (→ `enacted`), 3+ outlets.
+  APS AZ tariff: the seed's docket number was simply wrong (`E-01345A-25-0134` vs. the
+  real `E-01345A-25-0105`) — confirmed via a direct fetch of azcc.gov, not search
+  synthesis. Duke NC tariff: enriched with the 2026-07-17 fast-track settlement (75%
+  minimum-take, 10-15yr terms) without a status change. **Hernando County FL** and
+  **nv-energy-callisto-esa** stayed flagged/un-bumped — 4 fetch attempts across
+  floridapolitics.com (402 paywall), wtsp.com (timeout), tampabay28.com (predates the
+  vote) never confirmed Hernando's July 7 final-vote outcome either way; NV Callisto's
+  only lead is citizenportal.ai, still 403 on every attempt, with conflicting
+  self-contradictory dates in WebSearch synthesis (April 2025 vs. a 2026 bundled order).
+  Per the 07-26 rule, left both un-bumped rather than guessing.
+- **The "5 new Stargate sites" news recurred as a stale-recap trap, exactly per the
+  2026-07-14 lesson.** A WebSearch for "OpenAI Oracle new data center July 2026"
+  surfaced `openai.com/index/five-new-stargate-sites/` and DCD coverage that read as
+  fresh — but a 30-second mechanical check (`openai-shackelford-tx`,
+  `oracle-dona-ana-nm` already in the seed, captured 2026-05-16, matching figures)
+  showed it was the September 2025 five-site expansion being recirculated, not new
+  news. Same for "Amazon $10B + Google $15B in Montgomery County" — both already
+  seeded (`amazon-montgomery-city-mo`, `google-new-florence-mo`, exact dollar match).
+  **Zero new data center projects or tariffs survived this pre-flight check** — every
+  lead from ~8 broad searches across companies/DCD/utility-tariff angles turned out
+  already-tracked. Worth noting since it means a broad "any new sites?" search after a
+  ~12-day gap can legitimately come back empty; don't force a record to justify the
+  search effort.
+- **Moratoriums were the one dimension with a real, sizeable gap: a whole state's
+  wave was missing.** Only `denver-city-2026-05` was tracked for Colorado despite a
+  live wave of 7 more Front Range jurisdictions (Larimer County, Jefferson County,
+  Boulder County, Broomfield, Woodland Park, Monument, Longmont) plus Surry County NC
+  — all enacted between 2026-01-27 and 2026-07-21, none previously captured. Lesson:
+  when a state shows just one old record and national coverage keeps mentioning
+  "joining Denver/Longmont/..." in passing, treat the named peer jurisdictions as a
+  worklist, not color commentary — the Broomfield article alone named 4 other CO
+  jurisdictions that turned out to be real, addable gaps.
+- **Longmont's ordinance is a permanent MW-threshold land-use ban, not a time-boxed
+  pause** — confirmed schema already anticipates this (`duration_months` docstring:
+  "Null for permanent bans or unknown durations"; the class docstring says "moratorium
+  *or ban*"). Shipped with `duration_months: null`, `power_threshold_mw: 100`, and a
+  `policy_type` note rather than forcing a fake duration.
+- **WebFetch and the validator script's own `requests`-based fetcher don't fail on the
+  same URLs.** `bizwest.com` and two `gazette.com` (Colorado Springs) articles all
+  403'd on WebFetch but returned clean HTTP 200 with real content (5-12K chars) to
+  `scripts/validate_moratoriums.py`'s fetcher. Where WebFetch is blocked and a
+  fact is corroborated by 3+ independently-named outlets from the WebSearch pass
+  (not one aggregator), that multi-outlet agreement is the fallback per the existing
+  "find a second outlet" rule — don't hold a well-corroborated record hostage to one
+  blocked fetcher when another one in the same toolchain already got through.
+- **A bill that *mandates* a future utility tariff is not itself a tariff record.**
+  NJ S731 (signed/awaiting signature as of this pass) requires NJ utilities to design
+  a large-load tariff for 100MW+ data centers, but no utility has filed one yet under
+  it — same for Michigan's Whitmer "Affordable and Responsible Growth" plan (a policy
+  framework, not a docketed rate case). Neither got a `Tariff` record; both are worklist
+  items for whenever a specific utility files under them (see BACKLOG.md).
+- **A DCD "News → Construction & Site Selection" channel URL, fetched directly, beat
+  every keyword WebSearch this pass.** After the initial broad searches came back with
+  nothing genuinely new (see above), the user asked to specifically expand the DCD
+  angle. `WebSearch` scoped to `datacenterdynamics.com` still mostly surfaced older
+  recirculated stories — the breakthrough was `WebFetch`-ing
+  `datacenterdynamics.com/en/news/?term=construction-site-selection` directly, which
+  returned an actual dated headline list (27 Jul, 23 Jul, 22 Jul …) that no search
+  query reconstructed on its own. **Lesson for next time: try fetching a source's own
+  news-index/channel URL directly before concluding a search pass is exhaustive** —
+  search snippets sample a source, a channel listing enumerates it.
+- **That listing surfaced 3 genuinely new projects and one significant correction in
+  one page-load:** OpenAI's self-developed "Project Camellia" (3.2GW, Effingham
+  County GA, $20-30B, first OpenAI-owned-not-leased Stargate-family site), Meta's
+  Temple TX campus going operational (first AI-optimized Meta DC in the US, with two
+  clean named-executive verbatim quotes from kdhnews.com), and a new Prologis San
+  Jose project (99MW, Silver Creek Valley Rd) — plus catching that
+  `loudoun-county-va-2026-03` was mischaracterizing a March-**2025** (not 2026)
+  by-right→special-exception zoning change as a permanent enacted ban, contradicted
+  outright by the county's own FAQ ("A blanket prohibition... is not legally
+  permissible"). Same failure shape as the *other* Loudoun record already removed in
+  the v1.20 pass — **removed rather than reworded**, per that precedent.
+- **openai.com and the DCD/Data-Centre-Magazine/mlq.ai family of sites 403'd on
+  every direct-fetch attempt for the Camellia story** (6 attempts across 5 domains).
+  Per the established "find a second outlet" fallback, shipped the project on the
+  strength of 5+ independently-named outlets (DCD, GPB, TechRadar, Energy Digital,
+  MLQ News) agreeing on the core figures, but did **not** add a Claim record without
+  a verbatim quote actually read — same treatment as the existing Stargate Abilene
+  backlog item. A browser-driven visit to the openai.com URL remains the way to
+  close that gap.

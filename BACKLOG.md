@@ -355,26 +355,100 @@ the budget test says so in its failure message:
   loads only the Ratepayer + shared renderers. Biggest win, most work, and it is
   vanilla JS with no bundler.
 
-### Stale status re-checks still open after the 2026-07-26 pass — **high**
-Four of the ten flagged records were re-verified and updated (NY, Michigan,
-Spartanburg, Lake County FL). Six remain, and their `captured_at` was
-deliberately NOT bumped so they stay flagged — bumping a date on a record you
-could not actually confirm is how a stale record becomes an invisible one:
+### Stale status re-checks still open after the 2026-07-27 pass — **medium**
+The 2026-07-27 pass resolved 4 of the remaining 6: **henderson-nv-2026-06**
+(council rejected the moratorium 2026-07-21 → `failed`), **new-albany-in-2026-06**
+(enacted 2026-07-16 → `enacted`), **aps-arizona-large-load-rate-case-2025**
+(docket number was simply wrong — corrected to `E-01345A-25-0105` via a direct
+azcc.gov fetch), and **duke-nc-large-load-rate-case-2025** (enriched with the
+2026-07-17 fast-track settlement terms; docket `E-7, Sub 1300` confirmed
+distinct from the general rate case Sub 1329, no change needed). Two remain
+unresolved and deliberately un-bumped:
 
-- **henderson-nv-2026-06** — the source (Review-Journal, June 16) says Bill No.
-  3927 was referred to the **July 21, 2026 council meeting for potential
-  adoption**, but no source consulted reports the outcome. Needs Henderson city
-  council minutes or agenda results for 2026-07-21. This is the closest to a
-  real status change of the six.
-- **hernando-county-fl-2026-06** — wfla.com returns 403 to fetchers. Needs a
-  different outlet or the county's own agenda.
-- **new-albany-in-2026-06** — wdrb.com returned 429. Retry later.
-- **nv-energy-callisto-esa**, **aps-arizona-large-load-rate-case-2025**,
-  **duke-nc-large-load-rate-case-2025** — the three stale tariffs. Not attempted
-  this pass. Each needs its PUC docket checked (PUCN 24-06014, ACC
-  E-01345A-25-0134, NCUC E-7 Sub 1300); `nv-energy-callisto-esa`'s `source_url`
-  is the LBL brief, which will never report a status change — repoint it at the
-  docket.
+- **hernando-county-fl-2026-06** — the final adoption vote was scheduled for
+  July 7, 2026; still couldn't confirm the outcome after 4 attempts this pass
+  (floridapolitics.com 402 paywall, wtsp.com timeout, tampabay28.com's cached
+  copy predates the vote, wfla.com still 403s). Needs the county's own agenda/
+  minutes for 2026-07-07, or a fresh news search once more coverage lands.
+- **nv-energy-callisto-esa** — citizenportal.ai (both the stipulation article
+  and the follow-up order article) still 403s on every direct-fetch attempt.
+  WebSearch synthesis suggests the PUCN accepted a stipulation on the amended
+  ESA, but the date is self-contradictory across searches (April 29, 2025 in
+  one pass vs. bundled into a 2026 order alongside "NV Energy permit changes"
+  and "AmeriGas margin rates" in another) — exactly the kind of unconfirmed
+  synthesis this project's sourcing rules say not to ship. Still needs a
+  browser-driven (not WebFetch/requests) pass against puc.nv.gov's docket
+  search UI for docket 24-06014.
+
+### Leads deferred from the 2026-07-27 refresh pass
+- **NJ S731 / A796** — passed the NJ legislature, requires electric utilities to
+  design a large-load tariff protecting non-data-center ratepayers for 100MW+
+  customers; awaiting the Governor's signature as of this pass. Not a `Tariff`
+  record yet — no NJ utility (PSE&G, JCP&L) has filed the actual rate design
+  under it. Watch for the implementing filing. *Priority: medium.*
+- **Michigan "Affordable and Responsible Growth Action Plan"** — Gov. Whitmer's
+  policy framework (announced ~2026-07-20) aiming to make data centers pay full
+  cost and protect ratepayers/water. A policy announcement, not a docketed MPSC
+  rate case — same "not yet a tariff" shape as NJ S731. Watch for the MPSC
+  filing that would actually implement it. *Priority: medium.*
+- **Alamance County, NC** — too early to add per the Lake County FL precedent
+  (CLAUDE.md / this file's 07-26 entry): commissioners have only scheduled a
+  public hearing for 2026-08-17 to *consider* a moratorium, no drafted ordinance
+  or vote yet. Check back after the hearing. *Priority: low, time-boxed to
+  mid-August.*
+- **New Colorado moratorium records lack a clean `.gov` citation.** 6 of the 7
+  new CO records added this pass (all but `boulder-county-co-2026-06`, whose
+  `bouldercounty.gov` source_url is a genuine .gov page) cite news outlets as
+  `source_url` because `larimer.gov` 403'd every fetch attempt and no equivalent
+  official page was found/confirmed for Jefferson County (jeffco.us — a real
+  government domain, just not a `.gov` TLD, so the validator's regex-based GOV
+  check false-negatives it), Broomfield, Woodland Park, Monument, or Longmont.
+  Facts are corroborated by 3+ independently-named outlets per record (see
+  REFRESH.md's 2026-07-27 entry), but a future pass should look for each city's
+  own ordinance-text page as a stronger primary citation. *Priority: low —
+  content is well-corroborated, this is a citation-quality upgrade.*
+- **`openai-effingham-county-ga` needs a verbatim-quote follow-up.** openai.com's
+  own announcement (`openai.com/index/building-ai-infrastructure-with-the-
+  effingham-county-community/`) 403'd on every fetch attempt, so the project was
+  added from 5+ corroborating outlets but with no `Claim` record — same shape as
+  the existing "OpenAI / Oracle Stargate Abilene" item above. Action: visit the
+  URL in a browser, pull verbatim community-commitment quotes (jobs, water,
+  ratepayer protection — multiple outlets paraphrase a "OpenAI pays full
+  infrastructure/electric-service cost, rates won't rise for residents" claim
+  that reads exactly like a ratepayer-pledge-relevant statement, but no source
+  put it in quotation marks, so it wasn't shipped as a claim). *Priority: medium
+  — likely `ratepayer: affirmed` material once a real quote is in hand.*
+- **Nvidia-leased San Jose site (300 Holger Way) — operator unclear, not added.**
+  A data center at a site Nvidia leased in Dec 2024 is facing a permit appeal
+  after Planning Commission approval + a CEQA exemption (20MW, interior tenant
+  improvements). Distinct from the Prologis Silver Creek Valley Rd project added
+  this pass. Nvidia isn't a tracked company slug and no operator/developer was
+  named in coverage found so far — needs that identified before it can become a
+  Project record (or a decision that Nvidia itself qualifies under the two-gate
+  test, which it likely doesn't — no first-party community-impact page found).
+  *Priority: low.*
+- **`google-lagrange-ga` acreage discrepancy (270 vs 420 acres).** The seed's
+  notes say "420-acre site"; a 2026-07-27 search citing the original Thor
+  Equities/Form8tion site acquisition says 270 acres. Could be Google's build-out
+  growing the footprint, or one figure being wrong — a July 2026 DCD headline
+  ("Google files to expand campus in LaGrange") suggests the former but wasn't
+  confirmed via direct fetch (DCD 403'd). *Priority: low.*
+- **Nebius PA campus — now has concrete details, still needs a company-onboarding
+  decision.** The 2026-07-27 DCD listing surfaced "Nebius details plans for 1.2GW
+  data center campus in Pennsylvania" (supersedes the vaguer "city TBD" note in
+  the "Outstanding site leads" item below). 1.2GW clears the ≥1GW scale gate: the
+  open question is whether Nebius publishes its own first-party community-impact
+  framing (gate 2) and whether it's worth the 4-location slug onboarding
+  (schema.py Literal + COMPANY_SLUGS, app.js COMPANY_SLUGS, OPTIONAL_ENTITIES,
+  color tokens, company summary) per CLAUDE.md's "Companies in scope" section.
+  Not actioned this pass — a company-scope decision, not a routine add.
+  *Priority: medium, pending an editorial call.*
+- **`oracle-dona-ana-nm` gas pipeline rejection** — New Mexico regulators
+  rejected a proposed 17-mile natural gas pipeline that would have supplied
+  Project Jupiter's power (reported week of 2026-07-20, exact outlet not yet
+  pinned down). A plausible new `CommunityResponse` (negative or mixed,
+  `regulator` constituency) for an existing project — not curated this pass,
+  needs a primary source fetch first. *Priority: medium.*
 
 ### Ratepayer v2 — P6 site refresh remains (P0–P5 landed)
 `SPEC_RPP_V2.md` P0–P5 are done. P5's utility layer: the alias map meets the

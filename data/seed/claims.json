@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15",
+  "generated_at": "2026-07-27",
   "claims": [
     {
       "id": "meta-energy-renewable-match",
@@ -4164,6 +4164,28 @@
       "published_at": "2026-06-15",
       "project_id": "amazon-montgomery-city-mo",
       "formal_agreement": false
+    },
+    {
+      "id": "meta-temple-engagement-davis-2026",
+      "company_slug": "meta",
+      "theme": "engagement",
+      "statement": "We are committed to making a positive impact in the communities in which we operate.",
+      "source_url": "https://kdhnews.com/news/region/first-ai-optimized-meta-data-center-in-nation-opens-in-temple-tx/article_fd6cd4ad-d6a5-52cf-bf85-86199550c88d.html",
+      "source_title": "Killeen Daily Herald -- Bradley Davis (Meta Director of Global Economic Development) on the Temple TX data center",
+      "captured_at": "2026-07-27",
+      "published_at": "2026-07-22",
+      "project_id": "meta-temple-tx"
+    },
+    {
+      "id": "meta-temple-water-davis-2026",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "We use a water-efficient, closed-loop liquid-cooling system that will use zero water for a majority of the year.",
+      "source_url": "https://kdhnews.com/news/region/first-ai-optimized-meta-data-center-in-nation-opens-in-temple-tx/article_fd6cd4ad-d6a5-52cf-bf85-86199550c88d.html",
+      "source_title": "Killeen Daily Herald -- Bradley Davis (Meta Director of Global Economic Development) on the Temple TX data center",
+      "captured_at": "2026-07-27",
+      "published_at": "2026-07-22",
+      "project_id": "meta-temple-tx"
     }
   ]
 }

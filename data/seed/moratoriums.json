@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15",
+  "generated_at": "2026-07-27",
   "moratoriums": [
     {
       "id": "asbury-ia-2026-07",
@@ -893,7 +893,7 @@
       "id": "henderson-nv-2026-06",
       "jurisdiction": "Henderson",
       "jurisdiction_type": "city",
-      "status": "proposed",
+      "status": "failed",
       "enacted_date": null,
       "effective_date": null,
       "duration_months": 6,
@@ -905,24 +905,29 @@
         "air_quality",
         "transparency"
       ],
-      "summary": "Henderson, Nevada (pop. ~330K, Las Vegas suburb) introduced Bill No. 3927 at City Council: a 180-day ban on conditional use permit applications for new data centers. City staff may amend it to allow the Council to lift the moratorium early once their comprehensive review is complete. The review covers energy demand, water use, heat output, air quality, and proximity impacts to residential areas. A final vote is scheduled for July 21, 2026. Distinct from a Las Vegas city or Clark County action — no county-level moratorium has been enacted.",
+      "summary": "Henderson, Nevada (pop. ~330K, Las Vegas suburb) introduced Bill No. 3927 at City Council: a 180-day ban on conditional use permit applications for new data centers. The Council rejected the moratorium at its July 21, 2026 meeting, opting instead for city staff to draft stricter development regulations and require individually negotiated development agreements for future data center projects. Distinct from a Las Vegas city or Clark County action — no county-level moratorium has been enacted.",
       "source_url": "https://www.reviewjournal.com/local/henderson/henderson-city-council-introduces-moratorium-on-new-data-centers-3839299/",
       "source_title": "Las Vegas Review-Journal — Las Vegas suburb Henderson to mull moratorium on new data centers",
-      "captured_at": "2026-06-25",
+      "captured_at": "2026-07-27",
       "bill_number": "Bill No. 3927",
       "sponsors": null,
       "key_stakeholders": null,
       "resources": [
         {
-          "url": "https://www.reviewjournal.com/local/henderson/henderson-city-council-introduces-moratorium-on-new-data-centers-3839299/",
-          "title": "Las Vegas Review-Journal — Henderson data center moratorium article"
+          "url": "https://thenevadaindependent.com/article/henderson-rejects-data-center-moratorium-instead-exploring-code-changes",
+          "title": "The Nevada Independent — Henderson rejects data center moratorium, instead exploring code changes"
         },
         {
-          "url": "https://www.cityofhenderson.com/",
-          "title": "City of Henderson, Nevada"
+          "url": "https://lasvegassun.com/news/2026/jul/22/henderson-council-opts-for-strict-development-agre/",
+          "title": "Las Vegas Sun — Henderson council opts for strict development agreements instead of freeze"
+        },
+        {
+          "url": "https://nevadacurrent.com/briefs/henderson-city-council-reject-data-center-moratorium/",
+          "title": "Nevada Current — Henderson City Council rejects data center moratorium"
         }
       ],
-      "state_code": "NV"
+      "state_code": "NV",
+      "failure_reason": "City Council declined the 180-day moratorium at its July 21, 2026 meeting after nearly two hours of public comment, instead directing staff to develop stricter data center development standards; future projects will go through individually negotiated development agreements rather than a blanket pause."
     },
     {
       "id": "henderson-nv-2026-07",
@@ -1479,37 +1484,6 @@
       "state_code": "VA"
     },
     {
-      "id": "loudoun-county-va-2026-03",
-      "jurisdiction": "Loudoun County",
-      "jurisdiction_type": "county",
-      "status": "enacted",
-      "enacted_date": "2026-03-08",
-      "effective_date": "2026-03-08",
-      "duration_months": null,
-      "duration_description": "Permanent ban on new facilities",
-      "power_threshold_mw": null,
-      "key_reasons": [
-        "water",
-        "transparency",
-        "energy"
-      ],
-      "summary": "Ban on new data center development to protect remaining capacity on strained electrical grid. Existing facilities can expand but new facilities prohibited.",
-      "source_url": "https://www.loudouncount.gov/",
-      "source_title": "Loudoun County Government",
-      "captured_at": "2026-03-08",
-      "resources": [
-        {
-          "url": "https://www.loudouncount.gov/government",
-          "title": "Loudoun County Government"
-        },
-        {
-          "url": "https://www.loudountimes.com/",
-          "title": "Loudoun Times"
-        }
-      ],
-      "state_code": "VA"
-    },
-    {
       "id": "madison-city-2026-01",
       "jurisdiction": "Madison",
       "jurisdiction_type": "city",
@@ -1983,27 +1957,31 @@
       "id": "new-albany-in-2026-06",
       "jurisdiction": "New Albany",
       "jurisdiction_type": "city",
-      "status": "proposed",
-      "enacted_date": null,
-      "effective_date": null,
+      "status": "enacted",
+      "enacted_date": "2026-07-16",
+      "effective_date": "2026-07-16",
       "duration_months": 12,
-      "duration_description": "1 year (plan commission recommendation; pending city council vote)",
+      "duration_description": "1 year (blocks new data centers, or campuses, over 100,000 sq ft)",
       "power_threshold_mw": null,
       "key_reasons": [
         "transparency",
         "energy"
       ],
-      "summary": "New Albany, Indiana (across the Ohio River from Louisville, KY) Plan Commission recommended a one-year moratorium on new data center construction to City Council on approximately June 9, 2026, citing that the city's zoning rules were not written for the rapidly growing industry. Mayor Jeff Gahan backed the proposal. The moratorium would pause all new data center development while officials develop updated zoning and impact review standards. Final vote by City Council pending.",
+      "summary": "New Albany, Indiana (across the Ohio River from Louisville, KY) City Council unanimously enacted a one-year moratorium on new data center development at its July 16, 2026 meeting, following Mayor Jeff Gahan's June 9 call for a pause and a Plan Commission recommendation. The ordinance blocks new data centers — single buildings or multi-building campuses — exceeding 100,000 sq ft while the city studies impacts on infrastructure, utilities, environment, and noise and updates its zoning ordinance. City leaders cited the $800M Meta data center under construction in neighboring Jeffersonville as an example of the scale the city wants to plan ahead of.",
       "source_url": "https://www.wdrb.com/news/new-albany-plan-commission-advances-data-center-moratorium-to-city-council/article_b4b07b07-2dbb-40fe-b4aa-549640952ac8.html",
       "source_title": "WDRB — New Albany Plan Commission advances data center moratorium to City Council",
-      "captured_at": "2026-06-25",
+      "captured_at": "2026-07-27",
       "sponsors": [
         "Mayor Jeff Gahan"
       ],
       "resources": [
         {
-          "url": "https://www.wdrb.com/news/new-albany-plan-commission-advances-data-center-moratorium-to-city-council/article_b4b07b07-2dbb-40fe-b4aa-549640952ac8.html",
-          "title": "WDRB — New Albany Plan Commission advances moratorium to City Council"
+          "url": "https://www.newsandtribune.com/indiana/city-council-pauses-data-center-development-in-new-albany-for-1-year/article_dc3733a3-b9a5-4197-b780-9ffd5035aa89.html",
+          "title": "News and Tribune — City council pauses data center development in New Albany for 1 year"
+        },
+        {
+          "url": "https://www.whas11.com/article/news/local/mayor-jeff-gahan-moratorium-ordinance-new-data-center-development-new-albany-indiana/417-a66ead0d-832f-4188-aab0-4d16d93baedb",
+          "title": "WHAS11 — New Albany's mayor asks for moratorium on new data center development"
         }
       ],
       "state_code": "IN"
@@ -3479,6 +3457,213 @@
         }
       ],
       "state_code": "FL"
+    },
+    {
+      "id": "larimer-county-co-2026-01",
+      "jurisdiction": "Larimer County",
+      "jurisdiction_type": "county",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-01-27",
+      "effective_date": "2026-01-27",
+      "duration_months": 7,
+      "duration_description": "Extended through Aug 25, 2026 (adopted Jan 27, extended Feb 9, 2026)",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy",
+        "transparency"
+      ],
+      "summary": "Larimer County's Board of County Commissioners adopted a resolution on January 27, 2026 pausing new land-use applications for data center facilities in unincorporated Larimer County, then extended it on February 9, 2026 through August 25, 2026 to give staff time to draft permanent regulations; a public survey drew 94% opposition to any data center construction in the county.",
+      "source_url": "https://www.larimer.gov/planning/temp-moratorium-data-centers",
+      "source_title": "Larimer County, CO — Temporary Moratorium on Data Center Facilities",
+      "resources": [
+        {
+          "url": "https://www.govtech.com/artificial-intelligence/colorado-county-prepares-to-extend-data-center-moratorium",
+          "title": "Government Technology — Colorado County Prepares to Extend Data Center Moratorium"
+        }
+      ],
+      "captured_at": "2026-07-27"
+    },
+    {
+      "id": "jefferson-county-co-2026-05",
+      "jurisdiction": "Jefferson County",
+      "jurisdiction_type": "county",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-05-19",
+      "effective_date": "2026-05-19",
+      "duration_months": 10,
+      "duration_description": "10 months (through March 2027)",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "transparency"
+      ],
+      "summary": "Jefferson County's Board of County Commissioners voted Tuesday, May 19, 2026 to impose a 10-month moratorium on new data center development in the county, running through March 2027 while staff develop land-use regulations specific to the industry.",
+      "source_url": "https://www.jeffco.us/m/newsflash/Home/Detail/2596",
+      "source_title": "Jefferson County, CO — Jefferson County Issues Temporary Moratorium on Data Centers",
+      "resources": [
+        {
+          "url": "https://www.denver7.com/news/front-range/jefferson-county-imposes-temporary-moratorium-on-development-of-new-data-centers",
+          "title": "Denver7 — Jefferson County imposes temporary moratorium on development of new data centers"
+        }
+      ],
+      "captured_at": "2026-07-27"
+    },
+    {
+      "id": "boulder-county-co-2026-06",
+      "jurisdiction": "Boulder County",
+      "jurisdiction_type": "county",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-06-02",
+      "effective_date": "2026-06-02",
+      "duration_months": 6,
+      "duration_description": "Up to 6 months",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "transparency",
+        "energy"
+      ],
+      "summary": "Boulder County commissioners unanimously declared a moratorium of up to 6 months at their June 2, 2026 business meeting, pausing new land-use applications for both data centers and detention facilities in unincorporated Boulder County while staff draft Land Use Code amendments specific to each.",
+      "source_url": "https://bouldercounty.gov/news/data-centers-and-detention-centers-commissioners-declare-moratorium/",
+      "source_title": "Boulder County, CO — Data Centers and Detention Centers: Commissioners Declare Moratorium",
+      "captured_at": "2026-07-27"
+    },
+    {
+      "id": "broomfield-city-2026-07",
+      "jurisdiction": "Broomfield",
+      "jurisdiction_type": "city",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-07-07",
+      "effective_date": "2026-07-07",
+      "duration_months": 18,
+      "duration_description": "18 months (through Dec 2, 2027, or until permanent regulations adopted)",
+      "power_threshold_mw": 10,
+      "key_reasons": [
+        "energy",
+        "water",
+        "transparency"
+      ],
+      "summary": "Broomfield City Council unanimously passed Ordinance 2313 on second reading July 7, 2026: an 18-month pause on new or expanded data center facilities with a projected load of 10 MW or more, halting land-use applications, site plans, and building permits while the city drafts permanent zoning and water-use rules. Broomfield joins Longmont, Fort Collins, Boulder, and Larimer County in the Boulder Valley / Northern Colorado wave of pauses.",
+      "source_url": "https://bizwest.com/2026/07/14/broomfield-temporarily-bans-new-data-centers/",
+      "source_title": "BizWest — Broomfield temporarily bans new data centers",
+      "bill_number": "Ordinance 2313",
+      "city_council_vote": "9-0 in favor",
+      "resources": [
+        {
+          "url": "https://www.coloradopolitics.com/2026/07/08/broomfield-passes-temporary-ban-on-new-data-center-construction/",
+          "title": "Colorado Politics — Broomfield passes temporary ban on new data center construction"
+        },
+        {
+          "url": "https://www.longmontleader.com/local-news/broomfield-city-council-unanimously-approves-pause-on-new-data-centers-with-18-month-moratorium-12524652",
+          "title": "Longmont Leader — Broomfield City Council unanimously approves pause on new data centers"
+        }
+      ],
+      "captured_at": "2026-07-27"
+    },
+    {
+      "id": "woodland-park-city-2026-07",
+      "jurisdiction": "Woodland Park",
+      "jurisdiction_type": "city",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-07-16",
+      "effective_date": "2026-07-16",
+      "duration_months": 18,
+      "duration_description": "18 months",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "transparency",
+        "energy"
+      ],
+      "summary": "Woodland Park City Council passed an ordinance at its July 16, 2026 meeting imposing an 18-month moratorium on the submission, acceptance, processing, and approval of data center applications, giving the city time to study county-level rules and draft its own zoning use standards.",
+      "source_url": "https://gazette.com/2026/07/17/woodland-park-passes-moratorium-on-data-centers/",
+      "source_title": "Colorado Springs Gazette — Woodland Park passes moratorium on data centers",
+      "captured_at": "2026-07-27"
+    },
+    {
+      "id": "monument-city-2026-07",
+      "jurisdiction": "Monument",
+      "jurisdiction_type": "city",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-07-20",
+      "effective_date": "2026-07-20",
+      "duration_months": 6,
+      "duration_description": "6 months",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "transparency",
+        "energy"
+      ],
+      "summary": "Monument's town council voted Monday, July 20, 2026 to place a proactive 6-month ban on new data center applications — no project has yet been proposed in town, but officials wanted rules in place before one arrives. Monument is the first municipality in El Paso County to adopt a data center moratorium, following Woodland Park's ordinance days earlier.",
+      "source_url": "https://gazette.com/2026/07/21/monument-places-moratorium-on-data-centers-following-decision-in-woodland-park/",
+      "source_title": "Colorado Springs Gazette — Monument places moratorium on data centers, following decision in Woodland Park",
+      "resources": [
+        {
+          "url": "https://www.koaa.com/news/local-news/monument-puts-the-brakes-on-data-centers-as-council-approves-moratorium",
+          "title": "KOAA — Monument puts the brakes on data centers as council approves moratorium"
+        }
+      ],
+      "captured_at": "2026-07-27"
+    },
+    {
+      "id": "longmont-city-2026-06",
+      "jurisdiction": "Longmont",
+      "jurisdiction_type": "city",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-06-09",
+      "effective_date": "2026-06-09",
+      "duration_months": null,
+      "duration_description": "Permanent — 100 MW+ facilities are banned as a land use outright, rather than paused for a fixed term",
+      "power_threshold_mw": 100,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "policy_type": "Permanent size-threshold ban plus a regulatory track for smaller facilities (not a time-limited pause)",
+      "summary": "Longmont City Council passed Ordinance 2026-34 on a 6-1 vote June 9, 2026: data centers with 100 MW or more of projected or contracted peak demand (at opening or through phased expansion) are permanently banned as a land use, while smaller facilities in Primary Employment zones remain permitted subject to new energy-efficiency, water, cooling, noise, and lighting standards.",
+      "source_url": "https://www.denver7.com/news/front-range/longmont/longmont-bans-hyperscale-data-centers-amid-concerns-about-energy-and-water-use",
+      "source_title": "Denver7 — Longmont bans hyperscale data centers amid concerns about energy and water use",
+      "bill_number": "Ordinance 2026-34",
+      "city_council_vote": "6-1 in favor",
+      "resources": [
+        {
+          "url": "https://hoodline.com/2026/06/longmont-pulls-plug-on-mega-data-centers-in-clash-over-power-and-water/",
+          "title": "Hoodline — Longmont pulls plug on mega data centers in clash over power and water"
+        }
+      ],
+      "captured_at": "2026-07-27"
+    },
+    {
+      "id": "surry-county-nc-2026-07",
+      "jurisdiction": "Surry County",
+      "jurisdiction_type": "county",
+      "state_code": "NC",
+      "status": "enacted",
+      "enacted_date": "2026-07-21",
+      "effective_date": "2026-07-21",
+      "duration_months": 24,
+      "duration_description": "2 years",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "transparency"
+      ],
+      "summary": "Surry County commissioners unanimously approved a two-year moratorium on new data center development on July 21, 2026, giving the county time to research impacts via a steering committee that will visit operating data centers and consult power providers and environmental officials before new zoning standards are set.",
+      "source_url": "https://www.wunc.org/2026-07-21/surry-county-enacts-two-year-data-center-development-moratorium",
+      "source_title": "WUNC — Surry County enacts two-year data center development moratorium",
+      "resources": [
+        {
+          "url": "https://www.wfae.org/2026-07-21/surry-county-enacts-two-year-data-center-development-moratorium",
+          "title": "WFAE — Surry County enacts two-year data center development moratorium"
+        }
+      ],
+      "captured_at": "2026-07-27"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15",
+  "generated_at": "2026-07-27",
   "tariffs": [
     {
       "id": "we-energies-very-large-customer-tariff",
@@ -8,7 +8,7 @@
       "tariff_name": "Very Large Customer (VLC) tariff",
       "tariff_type": "Data center tariff",
       "status": "approved",
-      "status_detail": "Wisconsin PSC approved, with modifications, April 24, 2026. Oracle (tenant/operator at the Stargate Lighthouse campus, see oracle-port-washington-wi) sued the PSC in Ozaukee County Circuit Court in June 2026 to overturn the credit-rating requirement below; the PSC declined to reconsider and will defend the rule in court (as of July 10, 2026) \u2014 see the credit-security additional term.",
+      "status_detail": "Wisconsin PSC approved, with modifications, April 24, 2026. Oracle (tenant/operator at the Stargate Lighthouse campus, see oracle-port-washington-wi) sued the PSC in Ozaukee County Circuit Court in June 2026 to overturn the credit-rating requirement below; the PSC declined to reconsider and will defend the rule in court (as of July 10, 2026) — see the credit-security additional term.",
       "regulator": "Public Service Commission of Wisconsin (PSCW)",
       "docket_number": "6630-TE-113",
       "decision_date": "2026-04-24",
@@ -48,15 +48,15 @@
       ],
       "legislation": [],
       "source_url": "https://psc.wi.gov/Documents/PressReleases/04.24.2026PressRelease.PDF",
-      "source_title": "Wisconsin PSC \u2014 Press release on We Energies Very Large Customer tariff decision",
+      "source_title": "Wisconsin PSC — Press release on We Energies Very Large Customer tariff decision",
       "resources": [
         {
           "url": "https://www.we-energies.com/pdfs/etariffs/wisconsin/elecrateswi.pdf",
-          "title": "We Energies \u2014 Wisconsin electric rate schedules"
+          "title": "We Energies — Wisconsin electric rate schedules"
         },
         {
           "url": "https://wisconsinwatch.org/2026/07/wisconsin-regulators-refuse-to-loosen-data-center-credit-rules-setting-up-oracle-court-fight/",
-          "title": "Wisconsin Watch \u2014 Regulators refuse to loosen data center credit rules, setting up Oracle court fight"
+          "title": "Wisconsin Watch — Regulators refuse to loosen data center credit rules, setting up Oracle court fight"
         }
       ],
       "captured_at": "2026-07-14"
@@ -65,7 +65,7 @@
       "id": "nj-large-load-tariff-2026",
       "utility": "All New Jersey electric public utilities (statewide framework)",
       "state": "NJ",
-      "tariff_name": "Data Center Fair Share Act (A796/S731) \u2014 Large Load Tariff Standards",
+      "tariff_name": "Data Center Fair Share Act (A796/S731) — Large Load Tariff Standards",
       "tariff_type": "Data center rate class / large-load rider",
       "status": "approved",
       "status_detail": "Passed both chambers of the NJ Legislature June 30, 2026 and signed into law by Governor Mikie Sherrill on July 7, 2026, as part of a broader energy-affordability package; directs the NJ Board of Public Utilities to establish the rate class by rulemaking. An earlier, differently-numbered version (A5462, 2024-2025 session) had passed the legislature but was pocket-vetoed by outgoing Governor Phil Murphy; it was reintroduced in the current session as A796/S731, which is what was actually signed. Some press coverage still refers to it by the original A5462 number.",
@@ -112,12 +112,12 @@
       "additional_terms": [
         {
           "term": "Priority curtailment order",
-          "detail": "During system emergencies, large data-center customers must be curtailed before residential customers \u2014 an explicit ratepayer-protection ordering rule not itself one of the 17 LBL elements.",
+          "detail": "During system emergencies, large data-center customers must be curtailed before residential customers — an explicit ratepayer-protection ordering rule not itself one of the 17 LBL elements.",
           "source_url": "https://www.utilitydive.com/news/new-jersey-lawmakers-send-data-center-tariff-bill-to-governor/824191/"
         },
         {
           "term": "Demand-reduction offset program",
-          "detail": "Establishes a retail program outside the PJM capacity market letting large loads offset their capacity obligations by funding demand reduction elsewhere on the system \u2014 state officials described it as a first-of-its-kind mechanism."
+          "detail": "Establishes a retail program outside the PJM capacity market letting large loads offset their capacity obligations by funding demand reduction elsewhere on the system — state officials described it as a first-of-its-kind mechanism."
         }
       ],
       "legislation": [
@@ -126,23 +126,23 @@
           "url": "https://www.njleg.state.nj.us/bill-search/2026/S731",
           "citation": "A796/S731",
           "status": "Enacted 2026-07-07",
-          "summary": "The enabling legislation \u2014 creates the data-center rate class directly and directs BPU implementation. (Note: an alternate njleg.gov bill-text URL found in an earlier draft of this record resolved to an unrelated homepage on direct verification and referenced a mismatched bill number in its own query string \u2014 dropped rather than kept unverified.)"
+          "summary": "The enabling legislation — creates the data-center rate class directly and directs BPU implementation. (Note: an alternate njleg.gov bill-text URL found in an earlier draft of this record resolved to an unrelated homepage on direct verification and referenced a mismatched bill number in its own query string — dropped rather than kept unverified.)"
         }
       ],
       "source_url": "https://www.nj.gov/governor/news/2026/20260707a.shtml",
-      "source_title": "Office of Governor Sherrill \u2014 Ratepayer Relief energy legislation signing announcement",
+      "source_title": "Office of Governor Sherrill — Ratepayer Relief energy legislation signing announcement",
       "resources": [
         {
           "url": "https://nj1015.com/nj-data-center-fair-share-law/",
-          "title": "NJ 1015 \u2014 New Jersey becomes first state to put AI data centers in their own ratepayer class"
+          "title": "NJ 1015 — New Jersey becomes first state to put AI data centers in their own ratepayer class"
         },
         {
           "url": "https://www.assemblydems.com/m/newsflash/Home/Detail/13131",
-          "title": "NJ Assembly Democrats \u2014 Bill to Protect Ratepayers from Data Center Energy Costs Signed Into Law (85%/10-year and 50 MW detail)"
+          "title": "NJ Assembly Democrats — Bill to Protect Ratepayers from Data Center Energy Costs Signed Into Law (85%/10-year and 50 MW detail)"
         },
         {
           "url": "https://www.utilitydive.com/news/new-jersey-lawmakers-send-data-center-tariff-bill-to-governor/824191/",
-          "title": "Utility Dive \u2014 New Jersey lawmakers send data center tariff bill to governor"
+          "title": "Utility Dive — New Jersey lawmakers send data center tariff bill to governor"
         }
       ],
       "captured_at": "2026-07-14"
@@ -170,7 +170,7 @@
       "parameters": {
         "min_load": {
           "status": "included",
-          "detail": "Applies to data centers of 25 MW and larger (and mobile data centers \u22651 MW)."
+          "detail": "Applies to data centers of 25 MW and larger (and mobile data centers ≥1 MW)."
         },
         "monthly_demand_charge": {
           "status": "included",
@@ -198,7 +198,7 @@
         },
         "ramp_times": {
           "status": "included",
-          "detail": "Up to a 4-year load ramp: \u226550% yr1, 65% yr2, 80% yr3, 90% yr4 of contract capacity."
+          "detail": "Up to a 4-year load ramp: ≥50% yr1, 65% yr2, 80% yr3, 90% yr4 of contract capacity."
         },
         "exit_fee": {
           "status": "included",
@@ -222,15 +222,15 @@
         }
       ],
       "source_url": "https://puco.ohio.gov/news/puco-orders-aep-ohio-to-create-data-center-specific-tariff",
-      "source_title": "PUCO \u2014 Order directing AEP Ohio to create a data-center-specific tariff",
+      "source_title": "PUCO — Order directing AEP Ohio to create a data-center-specific tariff",
       "resources": [
         {
           "url": "https://www.aepohio.com/company/about/rates/data-center-tariff/",
-          "title": "AEP Ohio \u2014 Data Center Tariff page"
+          "title": "AEP Ohio — Data Center Tariff page"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-06-22"
@@ -279,7 +279,7 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 NV Energy Clean Transition Tariff (PUCN 24-05022/23)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — NV Energy Clean Transition Tariff (PUCN 24-05022/23)",
       "resources": null,
       "captured_at": "2026-07-15",
       "decision_date": "2025-03-11"
@@ -312,7 +312,7 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 NV Energy Callisto ESA (PUCN 24-06014)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — NV Energy Callisto ESA (PUCN 24-06014)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
@@ -320,7 +320,7 @@
       "id": "indiana-michigan-power-industrial-power-tariff",
       "utility": "Indiana Michigan Power (I&M, an AEP utility)",
       "state": "IN",
-      "tariff_name": "Tariff I.P. \u2014 Industrial Power (large-load settlement)",
+      "tariff_name": "Tariff I.P. — Industrial Power (large-load settlement)",
       "tariff_type": "Data center / large-load tariff",
       "status": "approved",
       "status_detail": "IURC approved the settlement Feb 2025 (filed Nov 2024).",
@@ -353,7 +353,7 @@
         },
         "resize_reassign": {
           "status": "included",
-          "detail": "Contract capacity may be reduced up to 20% after the first 5 years, with \u226542 months' notice before the PJM delivery year."
+          "detail": "Contract capacity may be reduced up to 20% after the first 5 years, with ≥42 months' notice before the PJM delivery year."
         },
         "contract_duration": {
           "status": "included",
@@ -375,11 +375,11 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://www.aep.com/news/stories/view/10037/",
-      "source_title": "AEP \u2014 Indiana Michigan Power receives order in large-load settlement",
+      "source_title": "AEP — Indiana Michigan Power receives order in large-load settlement",
       "resources": [
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-06-22"
@@ -414,13 +414,13 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 Duke Energy Indiana / Meta ESA (IURC 45975)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — Duke Energy Indiana / Meta ESA (IURC 45975)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
     {
       "id": "xcel-minnesota-competitive-response-rider",
-      "utility": "Xcel Energy (Northern States Power \u2014 Minnesota)",
+      "utility": "Xcel Energy (Northern States Power — Minnesota)",
       "state": "MN",
       "tariff_name": "Competitive Response Rider / Google Electric Service Agreement",
       "tariff_type": "Large-load rider",
@@ -443,11 +443,11 @@
         },
         "contract_duration": {
           "status": "included",
-          "detail": "1\u20137-year initial term (existing) or 10 years (new)."
+          "detail": "1–7-year initial term (existing) or 10 years (new)."
         },
         "duration_flexibility": {
           "status": "included",
-          "detail": "Customers may renew for an additional 10 years if they maintain \u226575 MW firm peak demand during their final 2 years."
+          "detail": "Customers may renew for an additional 10 years if they maintain ≥75 MW firm peak demand during their final 2 years."
         },
         "exit_fee": {
           "status": "included",
@@ -461,7 +461,7 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 Xcel Minnesota Competitive Response Rider (MPUC 19-39)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — Xcel Minnesota Competitive Response Rider (MPUC 19-39)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
@@ -499,7 +499,7 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 Idaho Power Brisbie ESA (IPUC IPC-E-21-42)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — Idaho Power Brisbie ESA (IPUC IPC-E-21-42)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
@@ -530,7 +530,7 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 MDU High Density Contracted Demand Response (ND PSC PU-22-337)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — MDU High Density Contracted Demand Response (ND PSC PU-22-337)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
@@ -543,7 +543,7 @@
       "status": "approved",
       "regulator": "Wyoming Public Service Commission (WY PSC)",
       "docket_number": "20003-146-ET-15",
-      "summary": "A contract-service tariff under which Black Hills will not build new generation for the customer \u2014 the customer instead pays for excess capacity above 35 MW purchased from the market \u2014 backed by credit support and utility access to the customer's back-up generation.",
+      "summary": "A contract-service tariff under which Black Hills will not build new generation for the customer — the customer instead pays for excess capacity above 35 MW purchased from the market — backed by credit support and utility access to the customer's back-up generation.",
       "parameters": {
         "credit_collateral": {
           "status": "included",
@@ -569,7 +569,7 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 Black Hills Large Power Contract Service (WY PSC 20003-146-ET-15)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — Black Hills Large Power Contract Service (WY PSC 20003-146-ET-15)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
@@ -600,7 +600,7 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 PGE Green Energy Affinity Rider (OPUC UM 1953)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — PGE Green Energy Affinity Rider (OPUC UM 1953)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
@@ -613,7 +613,7 @@
       "status": "approved",
       "regulator": "Mississippi Public Service Commission (MS PSC)",
       "docket_number": "2014-UN-132",
-      "summary": "Entergy Mississippi's large-power rate schedule, which sets a 30 MW minimum load requirement for service. Entergy maintains data centers pay their full cost of service \u2014 a claim contested by ratepayer advocates (see the Ratepayer Protection view).",
+      "summary": "Entergy Mississippi's large-power rate schedule, which sets a 30 MW minimum load requirement for service. Entergy maintains data centers pay their full cost of service — a claim contested by ratepayer advocates (see the Ratepayer Protection view).",
       "parameters": {
         "min_load": {
           "status": "included",
@@ -629,7 +629,7 @@
       ],
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025) \u2014 Entergy Mississippi Large Power Rate (MS PSC 2014-UN-132)",
+      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — Entergy Mississippi Large Power Rate (MS PSC 2014-UN-132)",
       "resources": null,
       "captured_at": "2026-06-22"
     },
@@ -671,15 +671,15 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://psc.ga.gov/site/assets/files/8617/media_advisory_data_centers_rule_1-23-2025.pdf",
-      "source_title": "Georgia PSC \u2014 Media advisory: rule allowing new power-usage terms for data centers",
+      "source_title": "Georgia PSC — Media advisory: rule allowing new power-usage terms for data centers",
       "resources": [
         {
           "url": "https://psc.ga.gov/facts-advanced-search/docket/?docketId=55378",
-          "title": "Georgia PSC \u2014 Docket 55378"
+          "title": "Georgia PSC — Docket 55378"
         },
         {
           "url": "https://psc.ga.gov/site/downloads/datacenterfactsheet.pdf",
-          "title": "Georgia PSC \u2014 Data Center Fact Sheet"
+          "title": "Georgia PSC — Data Center Fact Sheet"
         }
       ],
       "captured_at": "2026-06-22"
@@ -711,7 +711,7 @@
         },
         "contracted_capacity": {
           "status": "included",
-          "detail": "Must pay for \u226585% of contracted distribution and transmission demand and \u226560% of generation demand."
+          "detail": "Must pay for ≥85% of contracted distribution and transmission demand and ≥60% of generation demand."
         },
         "contract_duration": {
           "status": "included",
@@ -725,7 +725,7 @@
       "additional_terms": [],
       "legislation": [
         {
-          "title": "Virginia SCC Data Center Initiatives (2025\u20132026)",
+          "title": "Virginia SCC Data Center Initiatives (2025–2026)",
           "url": "https://www.scc.virginia.gov/media/sccvirginiagov-home/about-the-scc/fact-sheets/scc-data-center-initiatives-02-2026.pdf",
           "citation": "SCC fact sheet",
           "status": "Active",
@@ -733,11 +733,11 @@
         }
       ],
       "source_url": "https://www.scc.virginia.gov/about-the-scc/newsreleases/release/scc-issues-order-on-dev-biennial-review-2025/scc-rules-in-dev-biennial-review-case.html",
-      "source_title": "Virginia SCC \u2014 Order on Dominion's 2025 biennial review (new data-center rate class)",
+      "source_title": "Virginia SCC — Order on Dominion's 2025 biennial review (new data-center rate class)",
       "resources": [
         {
           "url": "https://www.scc.virginia.gov/media/sccvirginiagov-home/about-the-scc/fact-sheets/scc-data-center-initiatives-02-2026.pdf",
-          "title": "Virginia SCC \u2014 Data Center Initiatives fact sheet"
+          "title": "Virginia SCC — Data Center Initiatives fact sheet"
         }
       ],
       "captured_at": "2026-06-22"
@@ -749,7 +749,7 @@
       "tariff_name": "Large-load interconnection standards (SB 6 implementation)",
       "tariff_type": "Interconnection rule / statute",
       "status": "approved",
-      "status_detail": "Signed by Governor Abbott June 20, 2025, effective immediately (Acts 2025, 89th R.S., ch. 953). The implementing PUCT rule (16 TAC \u00a725.194) remains in rulemaking: draft published March 12, 2026, comments closed April 17, 2026, final adoption not yet confirmed.",
+      "status_detail": "Signed by Governor Abbott June 20, 2025, effective immediately (Acts 2025, 89th R.S., ch. 953). The implementing PUCT rule (16 TAC §25.194) remains in rulemaking: draft published March 12, 2026, comments closed April 17, 2026, final adoption not yet confirmed.",
       "regulator": "Public Utility Commission of Texas (PUCT) / ERCOT",
       "summary": "Texas Senate Bill 6 directs the PUCT to create interconnection standards for new loads of 75 MW or greater, imposing interconnection fees, financial security, full cost responsibility and emergency curtailment obligations on data centers and other large loads.",
       "parameters": {
@@ -794,11 +794,11 @@
         }
       ],
       "source_url": "https://www.lrl.texas.gov/legis/billsearch/BillDetails.cfm?legSession=89-0&billTypeDetail=SB&billnumberDetail=6",
-      "source_title": "Texas Legislative Reference Library \u2014 SB 6 (89th R.S.) bill history",
+      "source_title": "Texas Legislative Reference Library — SB 6 (89th R.S.) bill history",
       "resources": [
         {
           "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6",
-          "title": "Texas Legislature \u2014 SB 6 bill history"
+          "title": "Texas Legislature — SB 6 bill history"
         }
       ],
       "captured_at": "2026-07-15",
@@ -809,10 +809,10 @@
       "utility": "Talen Energy / PPL / PJM (Amazon co-location)",
       "state": "PA",
       "jurisdiction_level": "federal",
-      "tariff_name": "Amended Interconnection Service Agreement \u2014 Susquehanna co-location",
+      "tariff_name": "Amended Interconnection Service Agreement — Susquehanna co-location",
       "tariff_type": "Co-location interconnection agreement (federal)",
       "status": "rejected",
-      "status_detail": "FERC rejected the amended ISA 2\u20131 on Nov 1, 2024 (189 FERC \u00b6 61,078).",
+      "status_detail": "FERC rejected the amended ISA 2–1 on Nov 1, 2024 (189 FERC ¶ 61,078).",
       "regulator": "Federal Energy Regulatory Commission (FERC)",
       "docket_number": "ER24-2172",
       "decision_date": "2024-11-01",
@@ -848,15 +848,15 @@
       ],
       "legislation": [],
       "source_url": "https://www.ferc.gov/sites/default/files/2024-11/20241101-3061_ER24-2172-000.pdf",
-      "source_title": "FERC \u2014 Order rejecting amended ISA, 189 FERC \u00b6 61,078 (Docket ER24-2172)",
+      "source_title": "FERC — Order rejecting amended ISA, 189 FERC ¶ 61,078 (Docket ER24-2172)",
       "resources": [
         {
           "url": "https://www.utilitydive.com/news/ferc-interconnection-isa-talen-amazon-data-center-susquehanna-exelon/731841/",
-          "title": "Utility Dive \u2014 FERC rejects Talen\u2013Amazon Susquehanna interconnection pact"
+          "title": "Utility Dive — FERC rejects Talen–Amazon Susquehanna interconnection pact"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-06-22"
@@ -874,7 +874,7 @@
       "docket_number": "M-2025-3054271",
       "decision_date": "2026-05-13",
       "min_load_mw": 50,
-      "summary": "First-of-its-kind statewide model tariff framework giving Pennsylvania's electric distribution companies consistent guidance for serving large loads \u2014 customers above 50 MW individually or 100 MW in aggregate \u2014 with cost-causation, financial-assurance, and interconnection-study standards to protect existing ratepayers from stranded costs.",
+      "summary": "First-of-its-kind statewide model tariff framework giving Pennsylvania's electric distribution companies consistent guidance for serving large loads — customers above 50 MW individually or 100 MW in aggregate — with cost-causation, financial-assurance, and interconnection-study standards to protect existing ratepayers from stranded costs.",
       "parameters": {
         "min_load": {
           "status": "included",
@@ -932,15 +932,15 @@
       ],
       "legislation": [],
       "source_url": "https://www.puc.pa.gov/press-release/2026/puc-releases-final-order-establishing-first-of-its-kind-large-load-model-tariff-framework-05132026",
-      "source_title": "PA PUC \u2014 Final Order establishing first-of-its-kind Large Load Model Tariff Framework",
+      "source_title": "PA PUC — Final Order establishing first-of-its-kind Large Load Model Tariff Framework",
       "resources": [
         {
           "url": "https://www.puc.pa.gov/press-release/2026/puc-acts-to-protect-ratepayers-guide-data-center-growth-with-new-large-load-tariff-framework-4-30-26",
-          "title": "PA PUC \u2014 April 30, 2026 vote adopting the large load tariff framework"
+          "title": "PA PUC — April 30, 2026 vote adopting the large load tariff framework"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-06-24"
@@ -950,7 +950,7 @@
       "utility": "Portland General Electric (PGE)",
       "state": "OR",
       "jurisdiction_level": "state",
-      "tariff_name": "Schedule 96 \u2014 Large Load Direct Access / large energy use facility rate class",
+      "tariff_name": "Schedule 96 — Large Load Direct Access / large energy use facility rate class",
       "tariff_type": "Data center / large-load rate class",
       "status": "approved",
       "status_detail": "Approved by Oregon PUC Order No. 26-154 on May 7, 2026; revised tariffs filed June 3, schedules effective June 10, 2026.",
@@ -958,7 +958,7 @@
       "docket_number": "Order No. 26-154",
       "decision_date": "2026-05-07",
       "min_load_mw": 20,
-      "summary": "Oregon's first dedicated large-load rate class, requiring PGE data center and other large customers above 20 MW to cover 100% of distribution upgrades and pay minimum demand charges at 90% of contracted capacity, with contract terms that lengthen with project size \u2014 implementing 2025's HB 3546 so growth costs don't shift to residential ratepayers.",
+      "summary": "Oregon's first dedicated large-load rate class, requiring PGE data center and other large customers above 20 MW to cover 100% of distribution upgrades and pay minimum demand charges at 90% of contracted capacity, with contract terms that lengthen with project size — implementing 2025's HB 3546 so growth costs don't shift to residential ratepayers.",
       "parameters": {
         "min_load": {
           "status": "included",
@@ -990,7 +990,7 @@
         },
         "econ_dev_payments": {
           "status": "included",
-          "detail": "Loads over 100 MW pay a 1\u00a2/kWh surcharge directed to offset residential customer costs and low-income energy burden."
+          "detail": "Loads over 100 MW pay a 1¢/kWh surcharge directed to offset residential customer costs and low-income energy burden."
         }
       },
       "additional_terms": [
@@ -1002,23 +1002,23 @@
       ],
       "legislation": [
         {
-          "title": "Oregon HB 3546 (2025) \u2014 large energy use facilities",
+          "title": "Oregon HB 3546 (2025) — large energy use facilities",
           "url": "https://olis.oregonlegislature.gov/liz/2025R1/Measures/Overview/HB3546",
           "citation": "HB 3546, Chapter 323 (2025)",
           "status": "Enacted as Chapter 323 (2025), emergency clause; sunsets Jan 2, 2035",
-          "summary": "Directs the Oregon PUC to create a new service classification for large energy use facilities that allocates serving costs to those facilities and mitigates risk to other customer classes \u2014 the basis for PGE's Schedule 96. Widely referred to as the POWER Act."
+          "summary": "Directs the Oregon PUC to create a new service classification for large energy use facilities that allocates serving costs to those facilities and mitigates risk to other customer classes — the basis for PGE's Schedule 96. Widely referred to as the POWER Act."
         }
       ],
       "source_url": "https://www.utilitydive.com/news/oregon-puc-approves-pges-large-load-tariff-framework-for-data-centers/821361/",
-      "source_title": "Utility Dive \u2014 Oregon PUC approves PGE's large-load tariff framework for data centers",
+      "source_title": "Utility Dive — Oregon PUC approves PGE's large-load tariff framework for data centers",
       "resources": [
         {
           "url": "https://www.oregon.gov/puc/utilities/pages/large-load.aspx",
-          "title": "Oregon PUC \u2014 Large Customer Demand / large-load rulemaking page"
+          "title": "Oregon PUC — Large Customer Demand / large-load rulemaking page"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-06-24"
@@ -1035,7 +1035,7 @@
       "regulator": "Colorado Public Utilities Commission (COPUC)",
       "filed_date": "2026-04-02",
       "min_load_mw": 50,
-      "summary": "Proposed Xcel/Public Service Company of Colorado tariff requiring customers above 50 MW (and some 20\u201350 MW) to cover the transmission, substation, interconnection, and new-generation costs needed to serve them, with 15-year-plus contracts and financial security, so existing customers don't subsidize large new loads such as data centers.",
+      "summary": "Proposed Xcel/Public Service Company of Colorado tariff requiring customers above 50 MW (and some 20–50 MW) to cover the transmission, substation, interconnection, and new-generation costs needed to serve them, with 15-year-plus contracts and financial security, so existing customers don't subsidize large new loads such as data centers.",
       "parameters": {
         "min_load": {
           "status": "included",
@@ -1080,11 +1080,11 @@
       ],
       "legislation": [],
       "source_url": "https://newsroom.xcelenergy.com/news/xcel-energy-proposal-protects-customers-from-higher-bills-as-data-center-demand-grows",
-      "source_title": "Xcel Energy \u2014 Proposal protects customers from higher bills as data center demand grows",
+      "source_title": "Xcel Energy — Proposal protects customers from higher bills as data center demand grows",
       "resources": [
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-07-15",
@@ -1102,7 +1102,7 @@
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "20-08014",
       "min_load_mw": null,
-      "summary": "A statewide framework Microsoft proposed to Nevada regulators that would have NV Energy track the substations, generation, and transmission dedicated to each large-load customer and split costs into a customer-paid project share and a grid-benefit share \u2014 turning Microsoft's 'paying our way' pledge into an enforceable rate mechanism that shields residential and small-business ratepayers.",
+      "summary": "A statewide framework Microsoft proposed to Nevada regulators that would have NV Energy track the substations, generation, and transmission dedicated to each large-load customer and split costs into a customer-paid project share and a grid-benefit share — turning Microsoft's 'paying our way' pledge into an enforceable rate mechanism that shields residential and small-business ratepayers.",
       "parameters": {
         "customer_type": {
           "status": "included",
@@ -1138,15 +1138,15 @@
       ],
       "legislation": [],
       "source_url": "https://www.utilitydive.com/news/microsoft-seeks-nevada-tariff-to-shield-ratepayers-from-data-center-costs/822250/",
-      "source_title": "Utility Dive \u2014 Microsoft seeks Nevada tariff to shield ratepayers from data center costs",
+      "source_title": "Utility Dive — Microsoft seeks Nevada tariff to shield ratepayers from data center costs",
       "resources": [
         {
           "url": "https://www.datacenterdynamics.com/en/news/microsoft-proposes-ratepayer-protection-tariff-in-nevada/",
-          "title": "DCD \u2014 Microsoft proposes ratepayer-protection tariff in Nevada"
+          "title": "DCD — Microsoft proposes ratepayer-protection tariff in Nevada"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-07-15"
@@ -1165,11 +1165,11 @@
       "decision_date": "2026-03-20",
       "min_load_mw": 50,
       "customers": null,
-      "summary": "ICC approved ComEd's revised tariff requiring security deposits from large-load applicants requesting 50 MW or more: $1M for 50\u2013200 MW, plus $500K per additional 100 MW above that. Deposits apply toward development costs on completed projects and are refunded (minus incurred costs) on cancellations. Simultaneously, ICC opened a separate investigation (staff report due ~late 2026) into additional consumer-protection mechanisms for data-center-driven distribution upgrades. First approved large-load surety tariff in Illinois.",
+      "summary": "ICC approved ComEd's revised tariff requiring security deposits from large-load applicants requesting 50 MW or more: $1M for 50–200 MW, plus $500K per additional 100 MW above that. Deposits apply toward development costs on completed projects and are refunded (minus incurred costs) on cancellations. Simultaneously, ICC opened a separate investigation (staff report due ~late 2026) into additional consumer-protection mechanisms for data-center-driven distribution upgrades. First approved large-load surety tariff in Illinois.",
       "parameters": {
         "credit_collateral": {
           "status": "included",
-          "detail": "$1M deposit for 50\u2013200 MW requests; +$500K per additional 100 MW. Refundable on cancellation minus incurred costs."
+          "detail": "$1M deposit for 50–200 MW requests; +$500K per additional 100 MW. Refundable on cancellation minus incurred costs."
         },
         "min_load": {
           "status": "included",
@@ -1179,15 +1179,15 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://capitolnewsillinois.com/news/regulators-ok-comeds-plan-to-increase-deposit-costs-for-large-load-projects-like-data-centers/",
-      "source_title": "Capitol News Illinois \u2014 Regulators OK ComEd's plan to increase deposit costs for large-load projects like data centers",
+      "source_title": "Capitol News Illinois — Regulators OK ComEd's plan to increase deposit costs for large-load projects like data centers",
       "resources": [
         {
           "url": "https://capitolnewsillinois.com/news/regulators-ok-comeds-plan-to-increase-deposit-costs-for-large-load-projects-like-data-centers/",
-          "title": "Capitol News Illinois \u2014 ComEd large-load deposit tariff approved (March 2026)"
+          "title": "Capitol News Illinois — ComEd large-load deposit tariff approved (March 2026)"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
       "captured_at": "2026-06-25"
@@ -1196,12 +1196,12 @@
       "id": "aps-arizona-large-load-rate-case-2025",
       "utility": "Arizona Public Service (APS)",
       "state": "AZ",
-      "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0134)",
+      "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0105)",
       "tariff_type": "Large-load cost-of-service rate case",
       "status": "proposed",
-      "status_detail": "Filed with Arizona Corporation Commission in 2025; ACC decision expected by end of 2026.",
+      "status_detail": "Filed with Arizona Corporation Commission in 2025 (docket E-01345A-25-0105); public hearings before the ACC began May 18, 2026; decision expected by end of 2026.",
       "regulator": "Arizona Corporation Commission (ACC)",
-      "docket_number": "E-01345A-25-0134",
+      "docket_number": "E-01345A-25-0105",
       "filed_date": "2025-06-01",
       "decision_date": null,
       "min_load_mw": null,
@@ -1216,63 +1216,67 @@
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://www.aps.com/en/Utility/Company-wide-Events-and-Messages/Data_Centers_How_Were_Protecting_Customers_While_Planning-for_Big_Energy_Needs",
-      "source_title": "APS \u2014 Data Centers: How We're Protecting Customers While Planning for Big Energy Needs",
+      "source_title": "APS — Data Centers: How We're Protecting Customers While Planning for Big Energy Needs",
       "resources": [
         {
           "url": "https://www.aps.com/en/Utility/Company-wide-Events-and-Messages/Data_Centers_How_Were_Protecting_Customers_While_Planning-for_Big_Energy_Needs",
-          "title": "APS \u2014 Data Center customer protection explainer"
+          "title": "APS — Data Center customer protection explainer"
         },
         {
           "url": "https://www.azcc.gov/news/home/2026/04/20/acc-large-load-data-center-workshop-highlights",
-          "title": "ACC \u2014 Large-Load / Data Center Workshop Highlights (April 20, 2026)"
+          "title": "ACC — Large-Load / Data Center Workshop Highlights (April 20, 2026)"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-06-25"
+      "captured_at": "2026-07-27"
     },
     {
       "id": "duke-nc-large-load-rate-case-2025",
       "utility": "Duke Energy Carolinas / Duke Energy Progress",
       "state": "NC",
       "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1300)",
-      "tariff_type": "Large-load rate case \u2014 cost-of-service and class design",
+      "tariff_type": "Large-load rate case — cost-of-service and class design",
       "status": "proposed",
-      "status_detail": "Filed November 20, 2025; NCUC evidentiary hearings summer 2026; decision expected late 2026, new rates effective January 1, 2027.",
+      "status_detail": "Filed November 20, 2025; on July 17, 2026 Duke Energy Carolinas reached a settlement with the NC Public Staff and other parties to pursue large-load tariff terms via a fast-track process; decision expected late 2026, new rates effective January 1, 2027.",
       "regulator": "North Carolina Utilities Commission (NCUC)",
       "docket_number": "E-7, Sub 1300",
       "filed_date": "2025-11-20",
       "decision_date": null,
       "min_load_mw": 50,
       "customers": null,
-      "summary": "Duke Energy's 2025 rate case is the arena for a major fight over large-load tariff design in North Carolina. The NC Attorney General, NCUC Public Staff, and advocacy groups have independently proposed creating a new large-load customer class (50+ MW) with special rules and rates for data centers, ensuring they pay their own cost of service. Duke has approximately 6 GW of data center demand in its queue. A final order is expected late 2026 with new rates effective January 1, 2027.",
+      "summary": "Duke Energy's 2025 rate case is the arena for a major fight over large-load tariff design in North Carolina. The NC Attorney General, NCUC Public Staff, and advocacy groups independently proposed a new large-load customer class (50+ MW) with special rules and rates for data centers. On July 17, 2026, Duke Energy Carolinas settled with the Public Staff and other parties to develop the large-load tariff via a fast-track process; per testimony filed in late June 2026, Duke proposed that data centers and other large loads above 50 MW pay at least 75% of their contracted capacity for 10 to 15 years, regardless of actual usage. Duke has approximately 6 GW of data center demand in its interconnection queue. A final order is expected late 2026 with new rates effective January 1, 2027.",
       "parameters": {
         "customer_type": {
           "status": "partial",
-          "detail": "Proposed new 50+ MW customer class embedded in the broader rate case; not yet formally designated but supported by the AG, Public Staff, and intervening parties."
+          "detail": "New 50+ MW customer class advanced via a July 17, 2026 settlement between Duke Energy Carolinas, the NCUC Public Staff, and other parties to develop large-load tariff terms through a fast-track process; not yet a final NCUC-approved tariff."
         },
         "min_load": {
           "status": "partial",
-          "detail": "50 MW threshold proposed by multiple parties for the new large-load class."
+          "detail": "50 MW threshold, with Duke's June 2026 testimony proposing a minimum take of at least 75% of contracted capacity for 10-15 year terms for loads above that threshold."
         }
       },
       "additional_terms": [],
       "legislation": [],
       "source_url": "https://www.duke-energy.com/home/billing/dec-nc-rate-case",
-      "source_title": "Duke Energy \u2014 2025 Duke Energy Carolinas and Duke Energy Progress Rate Request",
+      "source_title": "Duke Energy — 2025 Duke Energy Carolinas and Duke Energy Progress Rate Request",
       "resources": [
         {
-          "url": "https://www.duke-energy.com/home/billing/dec-nc-rate-case",
-          "title": "Duke Energy \u2014 2025 NC Rate Case page"
+          "url": "https://blogs.edf.org/climate411/2026/07/23/duke-energy-settlement-beginning-north-carolina-data-center-energy-policy/",
+          "title": "EDF Climate 411 — The Duke Energy settlement is just the beginning for North Carolina's data center energy policy"
+        },
+        {
+          "url": "https://www.axios.com/local/raleigh/2026/07/20/duke-energy-and-state-reach-agreement-on-lower-rate-increase-request",
+          "title": "Axios Raleigh — Duke Energy and state reach agreement on lower rate increase request"
         },
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-          "title": "DOE/Berkeley Lab \u2014 Electricity Rate Designs for Large Loads (Jan 2025)"
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-06-25"
+      "captured_at": "2026-07-27"
     },
     {
       "id": "virginia-data-center-electricity-consumption-tax",
@@ -1281,17 +1285,17 @@
       "tariff_name": "Data Center Electricity Consumption Tax (HB30, Item 3-5.24)",
       "tariff_type": "Data center electricity consumption tax (state budget-enacted, not a utility-filed rate design)",
       "status": "approved",
-      "status_detail": "Enacted as part of the FY2026\u20132028 state budget, signed by Governor Abigail Spanberger; took effect July 1, 2026. Distinct from the Dominion GS-5 rate class (see dominion-virginia-gs5-rate-class) \u2014 this is a statewide tax collected alongside utility bills, not an SCC-approved utility rate design.",
+      "status_detail": "Enacted as part of the FY2026–2028 state budget, signed by Governor Abigail Spanberger; took effect July 1, 2026. Distinct from the Dominion GS-5 rate class (see dominion-virginia-gs5-rate-class) — this is a statewide tax collected alongside utility bills, not an SCC-approved utility rate design.",
       "regulator": "Virginia Department of Taxation (State Corporation Commission administers collection/remittance)",
       "docket_number": "HB30, Item 3-5.24",
       "decision_date": null,
       "min_load_mw": null,
       "customers": null,
-      "summary": "Virginia's FY2026\u20132028 state budget imposes a $0.011/kWh consumption tax on all electricity used by data centers statewide \u2014 utility-supplied, from a competitive retail provider, or self-generated on-site \u2014 effective July 1, 2026 and sunsetting July 1, 2028, with annual revenue above $600 million refunded pro rata to operators.",
+      "summary": "Virginia's FY2026–2028 state budget imposes a $0.011/kWh consumption tax on all electricity used by data centers statewide — utility-supplied, from a competitive retail provider, or self-generated on-site — effective July 1, 2026 and sunsetting July 1, 2028, with annual revenue above $600 million refunded pro rata to operators.",
       "parameters": {
         "min_load": {
           "status": "partial",
-          "detail": "No minimum-load threshold or exemption \u2014 applies to all data-center electricity consumption regardless of size, unlike most large-load tariffs (e.g. the GS-5 rate class's 25 MW floor)."
+          "detail": "No minimum-load threshold or exemption — applies to all data-center electricity consumption regardless of size, unlike most large-load tariffs (e.g. the GS-5 rate class's 25 MW floor)."
         },
         "customer_type": {
           "status": "partial",
@@ -1301,7 +1305,7 @@
       "additional_terms": [
         {
           "term": "Consumption tax rate",
-          "detail": "$0.011 per kWh on all electricity consumed at a data center per month; no minimum-load exemption documented \u2014 applies broadly, unlike the GS-5 rate class's 25 MW threshold."
+          "detail": "$0.011 per kWh on all electricity consumed at a data center per month; no minimum-load exemption documented — applies broadly, unlike the GS-5 rate class's 25 MW threshold."
         },
         {
           "term": "Revenue cap + refund",
@@ -1322,11 +1326,11 @@
         }
       ],
       "source_url": "https://budget.lis.virginia.gov/amendment/2026/2/HB30/Introduced/CR/3-5.24/1c",
-      "source_title": "Virginia General Assembly \u2014 HB30 Conference Report, Item 3-5.24 (Data Center Electricity Consumption Tax)",
+      "source_title": "Virginia General Assembly — HB30 Conference Report, Item 3-5.24 (Data Center Electricity Consumption Tax)",
       "resources": [
         {
           "url": "https://www.datacenterknowledge.com/regulations/virginia-approves-first-ever-data-center-power-tax",
-          "title": "Data Center Knowledge \u2014 Virginia Approves First-Ever Data Center Power Tax"
+          "title": "Data Center Knowledge — Virginia Approves First-Ever Data Center Power Tax"
         }
       ],
       "captured_at": "2026-07-14"

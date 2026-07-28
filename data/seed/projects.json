@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15",
+  "generated_at": "2026-07-27",
   "projects": [
     {
       "id": "google-hermantown-mn",
@@ -3885,6 +3885,77 @@
       },
       "serving_utility": "Xcel Energy",
       "serving_utility_signatory_id": "xcel-energy"
+    },
+    {
+      "id": "meta-temple-tx",
+      "company_slug": "meta",
+      "name": "Temple Data Center",
+      "city": "Temple",
+      "state": "TX",
+      "country": "US",
+      "lat": 31.0982,
+      "lon": -97.3428,
+      "status": "operational",
+      "announced_year": 2022,
+      "claimed_investment_usd": 1200000000,
+      "claimed_jobs": 100,
+      "notes": "393-acre campus at 3101 Industrial Boulevard, ~65 miles north of Austin. Meta's first AI-optimized data center in the US -- redesigned in 2023 with dry-cooling and closed-loop liquid-cooling for AI workloads; construction paused Dec 2022 for the redesign, resumed Oct 2023, went operational July 22, 2026. Over 750,000 sq ft, ~198 MW, 100% renewable energy matched. 1,200+ construction workers at peak, ~100 permanent operational roles. Education funding: $300,000 to Temple ISD, $105,000 to Belton ISD, $1.7M total to Bell County nonprofits/schools.",
+      "source_url": "https://kdhnews.com/news/region/first-ai-optimized-meta-data-center-in-nation-opens-in-temple-tx/article_fd6cd4ad-d6a5-52cf-bf85-86199550c88d.html",
+      "source_title": "Killeen Daily Herald -- First AI-optimized Meta data center in nation opens in Temple TX",
+      "captured_at": "2026-07-27",
+      "acreage": 393,
+      "power_mw": 198,
+      "offtaker": "Meta",
+      "at_a_glance": {
+        "jobs": "$1.2B / ~100 ops jobs, 1,200+ peak construction",
+        "water": "Closed-loop liquid cooling; zero water use most of the year",
+        "energy": "198 MW, 100% renewable energy matched",
+        "education": "$1.7M to Bell County schools/nonprofits (Temple ISD + Belton ISD)"
+      }
+    },
+    {
+      "id": "openai-effingham-county-ga",
+      "company_slug": "openai",
+      "name": "Project Camellia (Effingham County)",
+      "city": "Rincon",
+      "state": "GA",
+      "country": "US",
+      "lat": 32.2957,
+      "lon": -81.2354,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": 20000000000,
+      "claimed_jobs": null,
+      "notes": "OpenAI-owned and -developed (not leased from Oracle/CoreWeave/Crusoe, unlike OpenAI's other Stargate-family sites) campus within the 2,600-acre Savannah Gateway Industrial Hub, near Rincon, ~25 miles NW of Savannah. Effingham County leaders value the project at $20B; OpenAI's VP of Compute Strategy reportedly estimates $30B+ at full buildout (per Bloomberg, not independently confirmed). 25-year power supply agreement with Georgia Power for 3.2 GW delivered in phases 2028-2032. Closed-loop water cooling system. First-party announcement (openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/) consistently 403'd on direct fetch across multiple attempts -- facts here are corroborated across 5+ independently-named outlets (DCD, GPB, TechRadar, Energy Digital, MLQ News) rather than a single direct read. See BACKLOG.md for the pending verbatim-quote follow-up.",
+      "source_url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/",
+      "source_title": "OpenAI -- Building AI infrastructure with the Effingham County community",
+      "captured_at": "2026-07-27",
+      "power_mw": 3200,
+      "offtaker": "OpenAI",
+      "at_a_glance": {
+        "energy": "3.2 GW via 25-yr Georgia Power PSA, phased 2028-2032",
+        "water": "Closed-loop water cooling system"
+      }
+    },
+    {
+      "id": "prologis-san-jose-ca",
+      "company_slug": "prologis",
+      "name": "Silver Creek Valley Data Center",
+      "city": "San Jose",
+      "state": "CA",
+      "country": "US",
+      "lat": 37.2431,
+      "lon": -121.7802,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Proposed multi-level (3-story), 500,000+ sq ft data center (incl. 30,000+ sq ft office space) at 5977 Silver Creek Valley Road, South San Jose. Up to 99 MW power demand. Plans include an on-site substation near an existing PG&E substation ~3 miles away, plus backup generation. Estimated water usage comparable to ~40 households. Early design/proposal phase; construction could conclude within roughly 2 years pending approvals. Distinct from a separate, unrelated data center proposal at a Nvidia-leased site (300 Holger Way, San Jose) facing a permit appeal -- see BACKLOG.md.",
+      "source_url": "https://www.thesanjoseblog.com/2026/07/prologis-advances-major-data-center.html",
+      "source_title": "The San Jose Blog -- Prologis Advances Major Data Center Plans in South San Jose",
+      "captured_at": "2026-07-27",
+      "power_mw": 99,
+      "offtaker": "Prologis"
     }
   ]
 }
