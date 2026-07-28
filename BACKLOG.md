@@ -813,3 +813,66 @@ months"; "Permanent" vs "Permanent ban" vs "Permanent prohibition"). Not wrong (
 the jurisdiction's own framing) but a light normalization pass to canonical labels would make
 the raw data tidier. Alternatively split into `duration_label` (short, required) + keep the
 detail in `summary`. Defer unless the raw field is consumed elsewhere.
+
+
+---
+
+## Deferred from the accordion / sub-tab pass (2026-07-28)
+
+### Sub-tab state isn't in the URL — **medium**
+`SUBTAB_GROUPS` state is session-only (`_activeSubtab`), so "Before the pledge"
+and "By state" can't be linked to. Every other detail surface here is
+deep-linkable (`#state/XX`, `#ratepayer`), which makes this the odd one out — a
+reader who finds 74 pre-pledge sites can't send anyone to them. Shape: extend
+the hash to `#ratepayer/pre-pledge`, reusing the state-panel router's lesson
+(**read the sub-key off the hash BEFORE `activateView`** — it rewrites the hash).
+
+### Accordion open/closed state isn't remembered — **low**
+Every `.acc` resets to its authored default on reload. Deliberate for now (same
+reasoning as `_lastDetailTab` not going to `localStorage`: a returning reader
+should land on the structured default). Revisit only if the Ratepayer page's
+length becomes a complaint again.
+
+### `tariff-coverage-count` is a constant — **low**
+The chip reads "17 elements" — the size of the LBL taxonomy, not coverage. Every
+other accordion count says how much data is inside. Either make it "N of 17
+addressed" or drop the chip; a count that can never change is noise.
+
+### Per-signatory deep-dive pages — **see [SPEC_SIGNATORY_PAGES.md](SPEC_SIGNATORY_PAGES.md)** — **medium**
+P1–P3 are tooling (curation ledger schema + rebuild-merge test, `#signatory/<id>`
+panel, `audit_signatories.py` + REFRESH.md sweep); P4 is the curation itself and
+does not end. Three decisions are open in §8 before P1 starts — the sharpest is
+whether the 176 cooperatives should carry a curation record at all yet.
+
+### Re-check the `<details>` display-override trap on a non-Chromium engine — **low**
+It didn't reproduce in this project's Chromium (see CLAUDE.md). The
+`.acc:not([open])` safeguard is currently defense against a threat we have not
+observed here. If the e2e suite ever runs WebKit/Firefox, re-run the mutation
+there; if it doesn't bite in any engine we test, the rule is dead weight.
+
+
+### 22 pre-existing W3C validation errors — **medium**
+Found while checking a Codex review point against the W3C Nu validator rather
+than arguing from memory (`curl --data-binary @docs/index.html
+"https://validator.w3.org/nu/?out=json"`). Exactly **one** of the 23 errors
+belonged to the accordion work and was fixed; the other 22 predate it:
+
+- **11×** `role` on `<th>` inside a `<table>` with no `role` — the aggregate and
+  directory tables.
+- **4×** `aria-label` / `aria-labelledby` on a bare `<div>` with no `role`.
+  These are silently ignored by AT, so the labels do nothing today.
+- **3×** `role="dialog"` + `aria-modal` on `<aside>` — the tariff, moratorium
+  and state modals. Should be `<div role="dialog">`.
+- **1×** `<thead>` row with no cells.
+
+None are cosmetic: the four `aria-label`-on-`div` cases mean four regions a
+screen-reader user hears unlabelled. Worth a dedicated pass, plus wiring the
+validator into CI so the count can only go down.
+
+### `.rp-card-details` summaries wrap content in a `<div>` — **low**
+`<summary>` takes phrasing content optionally intermixed with heading content,
+so the `<div class="rp-card-title">` inside each of the 39 ratepayer card
+summaries is non-conforming — same defect as the one fixed on the pledge band,
+different component. `test_summaries_contain_only_conforming_children` is
+deliberately scoped to `details.acc > summary` so it stays green; widen the
+selector once the card markup is fixed.

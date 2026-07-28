@@ -968,31 +968,6 @@ class TestRatepayerView:
             "aria-selected", "true"
         )
 
-    def test_stats_render_expected_tiles(self, page: Page, base_url: str):
-        # Three base tiles (signatories tracked in depth / sites assessed /
-        # site-specific commitments) plus a conditional "contested" tile that
-        # only renders when the cohort actually contains contested sites
-        # (honest-absence — no zero tile). The seed ships contested examples
-        # (the Amazon Mississippi trio, v1.19), so all four render.
-        page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
-        assert page.locator("#rp-stats .rp-stat").count() == 4
-        last = page.locator("#rp-stats .rp-stat").last
-        expect(last).to_contain_text("contested")
-
-    def test_first_stat_scopes_itself_to_tracked_companies(
-        self, page: Page, base_url: str
-    ):
-        # Before the 2026-07-23 expansion this tile read "8 signatories" and
-        # that was also the whole roster. It is not any more, so the tile says
-        # what it is counting: the companies followed site by site. The
-        # roster-wide count lives in the landing band above.
-        page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
-        first = page.locator("#rp-stats .rp-stat").first
-        expect(first).to_contain_text("tracked in depth")
-        assert int(first.locator(".rp-stat-value").inner_text()) == 11
-
     def test_landing_band_reports_the_whole_roster(self, page: Page, base_url: str):
         # The landing band lives in the Overview tab (v2.1), which is the
         # default view — no navigation needed to reach it.
@@ -1003,22 +978,6 @@ class TestRatepayerView:
         value = int(first.locator(".pledge-stat-num").inner_text())
         assert value >= 200, f"landing tile shows {value}; expected the full roster"
 
-    def test_roster_marks_signatories_and_nonsignatories(
-        self, page: Page, base_url: str
-    ):
-        page.goto(base_url + "/#ratepayer")
-        # The tracked-company roster now renders inline under Coverage rather
-        # than behind a disclosure; the full 300-row published roster is the
-        # thing that collapses (see TestSignatoryRoster).
-        page.wait_for_selector("#rp-tracked-roster .rp-roster-item", timeout=10_000)
-        signed = page.locator("#rp-tracked-roster .rp-roster-item.signed")
-        unsigned = page.locator("#rp-tracked-roster .rp-roster-item.unsigned")
-        # Eleven tracked companies signed once CoreWeave, Crusoe and Prologis
-        # joined in the July expansion; at least one non-signatory commitment
-        # (Anthropic) is still flagged via the keyword scan.
-        assert signed.count() == 11
-        assert unsigned.count() >= 1
-
     def test_pledge_era_unassessed_split_from_pre_pledge(
         self, page: Page, base_url: str
     ):
@@ -1028,33 +987,24 @@ class TestRatepayerView:
         # sites awaiting assessment" instead of being mislabeled pre-pledge.
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
-        page.wait_for_selector("#rp-pre-pledge .rp-pre-card", timeout=10_000)
+        page.wait_for_selector(
+            "#rp-pre-pledge .rp-pre-card", state="attached", timeout=10_000
+        )
         unassessed = page.locator("#rp-unassessed .rp-pre-card")
         pre = page.locator("#rp-pre-pledge .rp-pre-card")
         assert unassessed.count() >= 1
         assert pre.count() >= 1
+        # Both lists live in collapsed accordions, so read text_content() (the
+        # DOM) rather than inner_text() (the rendered box, empty when hidden).
+        unassessed_txt = page.locator("#rp-unassessed").text_content()
+        pre_txt = page.locator("#rp-pre-pledge").text_content()
         # google-spacex-gpu-partnership (announced 2026-06-05) is a dated
         # post-pledge site with no site assessment → pledge-era, not pre-pledge.
-        assert "Google-SpaceX" in page.locator("#rp-unassessed").inner_text()
-        assert "Google-SpaceX" not in page.locator("#rp-pre-pledge").inner_text()
+        assert "Google-SpaceX" in unassessed_txt
+        assert "Google-SpaceX" not in pre_txt
         # ms-quincy-wa (announced 2006) stays pre-pledge.
-        assert "Quincy" in page.locator("#rp-pre-pledge").inner_text()
-        assert "Quincy" not in page.locator("#rp-unassessed").inner_text()
-
-    def test_roster_notes_carry_signing_track_and_date(
-        self, page: Page, base_url: str
-    ):
-        # Per-track notes: White House signatories show the March 4 date, the
-        # DOE-track signatory (QTS) shows April 24. The July expansion cohort
-        # (CoreWeave, Crusoe, Prologis) must NOT be relabelled as March
-        # signatories — that conflation is the whole reason join dates are now
-        # read per-company off the roster.
-        page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector("#rp-tracked-roster .rp-roster-item", timeout=10_000)
-        notes = page.locator("#rp-tracked-roster .rp-roster-item.signed .rp-roster-note")
-        texts = notes.all_inner_texts()
-        assert texts.count("Signed at White House on March 4, 2026") == 7
-        assert texts.count("Signed with DOE on April 24, 2026") == 1
+        assert "Quincy" in pre_txt
+        assert "Quincy" not in unassessed_txt
 
     def test_scorecard_has_cards_with_status_badges(
         self, page: Page, base_url: str
@@ -1121,14 +1071,23 @@ class TestRatepayerView:
         assert lefts == 1, f"Scorecard should be single-column on mobile, got {lefts}"
 
     def test_commitments_render_as_the_pages_spine(self, page: Page, base_url: str):
-        # v2 inverts the v1 arrangement. The five commitments used to be a
-        # collapsed <details> box so the scorecard sat higher; they are now the
-        # section the page is organised around, rendered open with a live
-        # met/partial/not-met count per commitment. The thing that collapses
-        # now is the 300-row published roster, which genuinely should not
-        # render unasked.
+        # The five commitments are a collapsed accordion: reference material a
+        # returning reader has already read, kept out of the way of the live
+        # content. Collapsed must mean "in the DOM, not painted" -- wait for
+        # "attached", never the default "visible" (the hidden-pane trap).
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector("#rp-commitments .rp-commit", timeout=10_000)
+        page.wait_for_selector(
+            "#rp-commitments .rp-commit", state="attached", timeout=10_000
+        )
+        band = page.locator("#rp-commitments-section")
+        assert band.evaluate("el => el.tagName.toLowerCase()") == "details"
+        assert band.evaluate("el => el.open") is False
+        # The summary says how much is inside without being opened.
+        expect(page.locator("#rp-commitments-count")).to_have_text("5 commitments")
+
+        band.locator("summary").click()
+        assert band.evaluate("el => el.open") is True
+        expect(page.locator("#rp-commitments .rp-commit").first).to_be_visible()
         assert page.locator("#rp-commitments .rp-commit").count() == 5
         # Roman numerals, in order, so the band reads as the pledge does.
         numerals = page.locator("#rp-commitments .rp-commit-num").all_inner_texts()
@@ -1138,6 +1097,18 @@ class TestRatepayerView:
         for i in range(5):
             meter = page.locator("#rp-commitments .rp-commit-meter").nth(i)
             assert meter.inner_text().strip(), f"commitment {i} has an empty meter"
+
+    def test_pathway_card_opens_the_collapsed_pledge(self, page: Page, base_url: str):
+        # The Overview "All five commitments →" affordance scrolls to a section
+        # that is collapsed by default. Without openAccordionsFor() the scroll
+        # lands on a closed bar and the link reads as broken.
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-meters li", timeout=10_000)
+        page.locator("[data-path-target='commitments']").first.click()
+        page.wait_for_timeout(600)
+        band = page.locator("#rp-commitments-section")
+        assert band.evaluate("el => el.open") is True
+        expect(page.locator("#rp-commitments .rp-commit").first).to_be_visible()
 
     def test_published_roster_is_collapsed_by_default(
         self, page: Page, base_url: str
@@ -1452,6 +1423,9 @@ class TestAggregateView:
 
     def test_aggregate_state_sort_header_click(self, page: Page, base_url: str):
         self._goto_aggregate(page, base_url)
+        # "By state" is a sub-tab; its <th> is attached but not painted until
+        # the tab is selected, and Playwright won't click an unpainted element.
+        page.locator("#subtab-agg-state").click()
         th = page.locator("[data-sort-key='capex'][data-sort-table='state']")
         th.click()
         page.wait_for_timeout(200)
@@ -2134,9 +2108,22 @@ class TestSignatoryLens:
 
 
 class TestAggregateSignatoryRollup:
-    def test_rollup_groups_sites_by_signing_cohort(self, page: Page, base_url: str):
+    @staticmethod
+    def _open(page: Page, base_url: str) -> None:
+        """Select the "By signatory category" sub-tab.
+
+        The three aggregate rollups are sub-tabs, so two of the three panels are
+        [hidden] on load. Waiting for their rows with the default
+        state="visible" hangs on rows that are in the DOM but unpainted.
+        """
         page.goto(base_url + "/#aggregate")
-        page.wait_for_selector("#agg-signatory-tbody tr", timeout=10_000)
+        page.wait_for_selector(
+            "#agg-signatory-tbody tr", state="attached", timeout=10_000
+        )
+        page.locator("#subtab-agg-signatory").click()
+
+    def test_rollup_groups_sites_by_signing_cohort(self, page: Page, base_url: str):
+        self._open(page, base_url)
         rows = page.locator("#agg-signatory-tbody tr")
         assert rows.count() >= 2
         text = page.locator("#agg-signatory-tbody").inner_text()
@@ -2146,8 +2133,7 @@ class TestAggregateSignatoryRollup:
     def test_rollup_states_its_own_scope(self, page: Page, base_url: str):
         """It covers the tracked companies, not the 279-row roster, and must
         not be read as roster-wide."""
-        page.goto(base_url + "/#aggregate")
-        page.wait_for_selector("#agg-signatory-sub", timeout=10_000)
+        self._open(page, base_url)
         sub = page.locator("#agg-signatory-sub").inner_text()
         assert "not the full" in sub.lower()
 
@@ -2155,8 +2141,7 @@ class TestAggregateSignatoryRollup:
         self, page: Page, base_url: str
     ):
         """Contested sites are a subset of assessed ones."""
-        page.goto(base_url + "/#aggregate")
-        page.wait_for_selector("#agg-signatory-tbody tr", timeout=10_000)
+        self._open(page, base_url)
         rows = page.locator("#agg-signatory-tbody tr")
         for i in range(rows.count()):
             cells = rows.nth(i).locator("td").all_inner_texts()
@@ -2215,3 +2200,591 @@ class TestReviewFixes:
             "() => !!document.activeElement.closest('#state-modal')"
         )
         assert inside, "focus escaped the state dialog"
+
+
+class TestSubtabs:
+    """Sub-tabs are used only where sections are ALTERNATIVES: the Ratepayer
+    site cohorts and the Aggregate rollups. Everything else stays an accordion.
+    """
+
+    def test_site_cohorts_are_subtabs_with_assessed_first(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        expect(page.locator("#subtab-rp-sites-assessed")).to_have_attribute(
+            "aria-selected", "true"
+        )
+        expect(page.locator("#subpane-rp-sites-assessed")).to_be_visible()
+        for other in ("unassessed", "pre-pledge", "non-signatory"):
+            expect(page.locator(f"#subpane-rp-sites-{other}")).to_be_hidden()
+
+    def test_clicking_a_cohort_swaps_exactly_one_panel(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-pre-pledge").click()
+        expect(page.locator("#subpane-rp-sites-pre-pledge")).to_be_visible()
+        expect(page.locator("#subpane-rp-sites-assessed")).to_be_hidden()
+        # Exactly one panel visible at a time — the whole point of a tablist.
+        visible = page.evaluate(
+            """() => [...document.querySelectorAll('#rp-scorecard-section .subtab-panel')]
+                     .filter((p) => !p.hidden).length"""
+        )
+        assert visible == 1, f"{visible} cohort panels visible"
+
+    def test_never_signed_cohort_is_reachable_and_populated(
+        self, page: Page, base_url: str
+    ):
+        """Replaced the "Show non-signatory companies" checkbox. Still opt-in
+        (Assessed is the default tab), but now sits where cohorts compare."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-non-signatory").click()
+        cards = page.locator("#rp-non-signatory .rp-pre-card")
+        assert cards.count() >= 1
+        expect(cards.first).to_be_visible()
+
+    def test_cohort_pills_carry_bare_counts(self, page: Page, base_url: str):
+        """The pill is a number, not "39 sites" — that phrasing belongs in an
+        accordion summary and is far too wide in a tab."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        for cohort in ("assessed", "unassessed", "pre-pledge", "non-signatory"):
+            txt = page.locator(f"#subtab-rp-sites-{cohort} .subtab-count").inner_text()
+            assert txt.strip().isdigit(), f"{cohort} pill reads {txt!r}"
+
+    def test_accordion_summary_totals_every_cohort(self, page: Page, base_url: str):
+        """Collapsed, the accordion must still say how many sites are tracked in
+        all — otherwise closing it hides the number entirely."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        total = int(
+            page.locator("#rp-sites-count").inner_text().split()[0]
+        )
+        parts = sum(
+            int(page.locator(f"#subtab-rp-sites-{c} .subtab-count").inner_text())
+            for c in ("assessed", "unassessed", "pre-pledge", "non-signatory")
+        )
+        assert total == parts, f"summary says {total}, cohorts sum to {parts}"
+
+    def test_every_accordion_summary_carries_a_count(
+        self, page: Page, base_url: str
+    ):
+        """DESIGN.md: a collapsed summary still reports its extent.
+
+        Iterates the accordions rather than naming them -- "Key themes driving
+        moratoriums" shipped without a pill because the contract was applied
+        tab by tab instead of to the component. Accordions whose contents are
+        not countable (a prose block, a single chart) are listed explicitly, so
+        adding one is a deliberate act rather than a silent omission.
+        """
+        # Scoped to the ACTIVE view. Every view is in the DOM at once, and an
+        # unvisited one has legitimately-empty counts (nothing loaded), so a
+        # document-wide scan reports four false positives.
+        NOT_COUNTABLE = {"china-context", "moratorium-charts"}
+        for view_hash, view_id, ready in [
+            ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
+            ("#moratoriums", "#view-moratoriums", "#moratoriums-tbody tr"),
+            ("#tariffs", "#view-tariffs", "#tariffs-tbody tr"),
+        ]:
+            # Cache-busting query per iteration: successive fragment-only
+            # goto()s are SAME-DOCUMENT navigations, so the hash router never
+            # fires and the second view never loads. (Exactly the trap this
+            # session added to CLAUDE.md, hit again ten minutes later.)
+            page.goto(f"{base_url}/?acc={view_hash[1:]}{view_hash}")
+            page.wait_for_selector(ready, state="attached", timeout=15_000)
+            missing = page.evaluate(
+                """([view, skip]) => [...document.querySelectorAll(view + ' details.acc')]
+                     .filter((d) => {
+                       const pill = d.querySelector(':scope > summary .acc-count');
+                       const id = d.id || (d.querySelector(':scope > summary h3') || {}).id || '';
+                       if (skip.some((sk) => id.includes(sk))) return false;
+                       return !pill || !pill.textContent.trim();
+                     })
+                     .map((d) => d.id || d.textContent.trim().slice(0, 30))""",
+                [view_id, list(NOT_COUNTABLE)],
+            )
+            assert missing == [], f"{view_hash}: accordions with no count: {missing}"
+
+    def test_every_subtab_carries_a_count(self, page: Page, base_url: str):
+        """Every alternative in a group shows its extent, or none do.
+
+        "By signatory category" shipped without a pill while its two siblings
+        had one, which reads as an unfinished tab rather than a deliberate
+        omission. Iterating the group rather than naming the tabs means a new
+        cohort can't be added without one.
+        """
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=10_000)
+        missing = page.evaluate(
+            """() => [...document.querySelectorAll('#view-aggregate .subtab')]
+                 .filter((b) => {
+                   const pill = b.querySelector('.subtab-count');
+                   return !pill || !/^\\d+$/.test(pill.textContent.trim());
+                 })
+                 .map((b) => b.id)"""
+        )
+        assert missing == [], f"sub-tabs with no count pill: {missing}"
+
+    def test_arrow_keys_move_between_subtabs(self, page: Page, base_url: str):
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", timeout=10_000)
+        page.locator("#subtab-agg-company").focus()
+        page.keyboard.press("ArrowRight")
+        expect(page.locator("#subtab-agg-signatory")).to_have_attribute(
+            "aria-selected", "true"
+        )
+        page.keyboard.press("ArrowLeft")
+        expect(page.locator("#subtab-agg-company")).to_have_attribute(
+            "aria-selected", "true"
+        )
+
+    def test_only_two_subtab_groups_exist(self, page: Page, base_url: str):
+        """Guard on the design rule, not just the current markup: sub-tabs are
+        for alternatives. If a third group appears, it needs justifying against
+        the "would a reader want two on screen at once?" test."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
+        groups = page.evaluate(
+            "() => document.querySelectorAll('.subtabs').length"
+        )
+        assert groups == 2, f"expected 2 sub-tab groups, found {groups}"
+
+
+class TestAccordionTraps:
+    """Guards for the two <details> traps the base CLAUDE.md documents.
+
+    Both are silent failures -- the page renders, nothing errors, and the
+    defect only shows up in a screen reader or as a panel that never closes.
+    """
+
+    def test_closed_accordion_does_not_paint_its_body(
+        self, page: Page, base_url: str
+    ):
+        """Collapsed must mean not-painted -- the pledge band ships collapsed.
+
+        NOT a guard on the documented `display:`-override trap, despite looking
+        like one. Mutation-checked: adding `.acc-body { display: grid }` AND
+        deleting the `.acc:not([open])` safeguard still leaves this GREEN,
+        because current Chromium hides closed <details> content via the slot
+        rather than a defeatable `display: none`. The CSS safeguard stays as
+        defense for engines where the trap does bite; this test is the weaker,
+        honest assertion it can actually make."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector(
+            "#rp-commitments .rp-commit", state="attached", timeout=10_000
+        )
+        band = page.locator("#rp-commitments-section")
+        assert band.evaluate("el => el.open") is False
+        expect(page.locator("#rp-commitments")).to_be_hidden()
+        # The collapsed bar itself must still be visible -- hiding the whole
+        # section rather than just its body would be the opposite bug.
+        expect(band.locator("summary")).to_be_visible()
+
+    def test_every_accordion_header_is_a_real_heading(
+        self, page: Page, base_url: str
+    ):
+        """A styled <span> renders identically and drops out of screen-reader
+        heading navigation and the document outline. Shipped exactly once, on
+        the pledge band, when its <h3> became a <span> during the accordion
+        conversion."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        bad = page.evaluate(
+            """() => [...document.querySelectorAll('.acc > summary')]
+                 .filter((s) => !s.querySelector('h1,h2,h3,h4,h5,h6,[role="heading"]'))
+                 .map((s) => s.textContent.trim().slice(0, 40))"""
+        )
+        assert bad == [], f"accordion summaries with no heading element: {bad}"
+
+
+    def test_summaries_contain_only_conforming_children(
+        self, page: Page, base_url: str
+    ):
+        """<summary> takes phrasing content optionally intermixed with heading
+        content -- so a wrapping <div> is non-conforming, while an <h3> beside
+        count/chevron spans is fine.
+
+        Confirmed against the W3C Nu validator, not from memory: it flagged
+        exactly the <div> ("Element div not allowed as child of element
+        summary") and said nothing about the h3-with-sibling-spans pattern used
+        on every other accordion. Offline proxy for that check, since the suite
+        shouldn't depend on a network service.
+
+        Scoped to `.acc > summary`, the component this rule now governs. The
+        JS-rendered `.rp-card-details` summaries wrap their content in a
+        `<div class="rp-card-title">` and have the same problem -- 39 of them --
+        but that is pre-existing markup outside this component and is logged in
+        BACKLOG.md rather than widened into this change.
+        """
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        FLOW_ONLY = "div,p,ol,ul,li,section,article,table,form,dl,figure,details"
+        bad = page.evaluate(
+            """(sel) => [...document.querySelectorAll('details.acc > summary')]
+                 .flatMap((s) => [...s.querySelectorAll(sel)]
+                   .map((c) => `${c.tagName.toLowerCase()} in ${s.parentElement.id || '(unnamed)'}`))""",
+            FLOW_ONLY,
+        )
+        assert bad == [], f"flow-content children inside <summary>: {bad}"
+
+# A `min-height: 44px` element measures 43.999969... in a device-scaled mobile
+# context -- getBoundingClientRect returns layout units, and the mobile
+# emulation's deviceScaleFactor quantizes them. A bare `< 44` comparison
+# therefore fails ~1 run in 5 on code that is perfectly correct. Compare against
+# a half-pixel tolerance, never the exact floor.
+TOUCH_FLOOR_PX = 44
+_SUBPIXEL = 0.5
+
+
+class TestTouchTargets:
+    """44px floor on coarse pointers (AGENTS.md / base CLAUDE.md).
+
+    Codex caught the sub-tabs shipping at ~39px. Note this needs a context with
+    `is_mobile`/`has_touch` -- `set_viewport_size` alone does NOT make
+    `(pointer: coarse)` match, so the project's other mobile tests would have
+    happily measured the desktop rule and passed.
+    """
+
+    def test_coarse_pointer_emulation_actually_engages(self, browser, base_url: str):
+        """Without this the height assertion below silently measures the
+        desktop rule and passes whatever the media query says."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/#ratepayer")
+        assert page.evaluate("() => matchMedia('(pointer: coarse)').matches") is True
+        ctx.close()
+
+    # Both sub-tab groups, each measured in ITS OWN view. A document-wide scan
+    # reads 0px for whichever view is [hidden] and "0 < 44" fails for the wrong
+    # reason -- which is exactly how this test first failed.
+    @pytest.mark.parametrize(
+        "view_hash,view_id,ready",
+        [
+            ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
+            ("#aggregate", "#view-aggregate", "#agg-company-tbody tr"),
+        ],
+    )
+    def test_subtabs_meet_the_44px_floor_on_touch(
+        self, browser, base_url: str, view_hash: str, view_id: str, ready: str
+    ):
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/" + view_hash)
+        page.wait_for_selector(ready, state="attached", timeout=15_000)
+        # Wait for the strip to be VISIBLE, not merely attached: this asserts on
+        # getBoundingClientRect, and a view that has been un-hidden but not yet
+        # laid out reports 0px for every tab. Waiting on `attached` alone made
+        # the #aggregate case fail intermittently under full-suite load.
+        page.wait_for_selector(f"{view_id} .subtab", state="visible", timeout=15_000)
+        heights = page.evaluate(
+            """(sel) => Object.fromEntries(
+                 [...document.querySelectorAll(sel + ' .subtab')]
+                   .map((b) => [b.id, b.getBoundingClientRect().height]))""",
+            view_id,
+        )
+        assert heights, f"no .subtab elements found in {view_id} -- extractor broken"
+        short = {
+            k: v for k, v in heights.items() if v < TOUCH_FLOOR_PX - _SUBPIXEL
+        }
+        assert short == {}, f"sub-tabs below the {TOUCH_FLOOR_PX}px touch floor: {short}"
+        ctx.close()
+
+    def test_accordion_summaries_meet_the_floor_too(self, browser, base_url: str):
+        """These already clear it at 55.8px with no coarse-pointer rule; the
+        test exists so a future padding trim can't quietly drop them under."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        heights = page.evaluate(
+            """() => [...document.querySelectorAll('#view-ratepayer .acc > summary')]
+                   .map((s) => s.getBoundingClientRect().height)"""
+        )
+        assert heights, "no accordion summaries found -- extractor broken"
+        assert all(
+            h >= TOUCH_FLOOR_PX - _SUBPIXEL for h in heights
+        ), f"summary heights: {heights}"
+        ctx.close()
+
+
+class TestPledgeTargetsAndTabOrder:
+    """Both from Codex's review of this PR."""
+
+    def test_every_pledge_target_lands_open(self, page: Page, base_url: str):
+        """Guards the whole PLEDGE_TARGETS table, not just the one that broke.
+
+        `roster` pointed at #rp-roster-section while the collapsed <details> was
+        its CHILD (#rp-roster-details) -- and openAccordionsFor() walks
+        ANCESTORS, so the tile scrolled the reader to a closed bar. Any future
+        target aimed at a wrapper instead of the disclosure fails here.
+        """
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        targets = page.evaluate(
+            "() => Object.entries(PLEDGE_TARGETS)"
+            ".filter(([, t]) => t.anchor).map(([k, t]) => [k, t.anchor])"
+        )
+        assert len(targets) >= 4, f"only {len(targets)} anchored targets found"
+        for name, anchor in targets:
+            el = page.locator(f"#{anchor}")
+            assert el.count() == 1, f"target {name!r} -> #{anchor} does not exist"
+            page.evaluate("(n) => goToPledgeTarget(n)", name)
+            page.wait_for_timeout(250)
+            # Check the anchor itself, its ANCESTORS, and its DESCENDANTS.
+            # The descendant arm is the point: mutation-testing this guard
+            # showed that checking only self+ancestors (via closest()) has the
+            # exact same blind spot as the bug -- reverting the fix left this
+            # test green, because #rp-roster-section's closed <details> is
+            # BELOW it, where closest() never looks. A wrapper holding exactly
+            # one accordion must have it open.
+            shut = page.evaluate(
+                """(a) => {
+                     const el = document.getElementById(a);
+                     if (el.tagName === 'DETAILS' && !el.open) return 'self';
+                     if (el.closest('details.acc:not([open])')) return 'ancestor';
+                     const inner = el.querySelectorAll('details.acc');
+                     if (inner.length === 1 && !inner[0].open) return 'descendant';
+                     return '';
+                   }""",
+                anchor,
+            )
+            assert not shut, (
+                f"target {name!r} -> #{anchor} landed on a closed accordion ({shut})"
+            )
+
+    def test_only_the_active_subtab_is_in_the_tab_order(
+        self, page: Page, base_url: str
+    ):
+        """Roving tabindex, per the ARIA tablist pattern -- the STATIC markup.
+
+        Mutation-checked and honest about its reach: deleting the `btn.tabIndex`
+        line in setActiveSubtab leaves this GREEN, because the authored HTML
+        already carries the right values on load. This guards the markup;
+        test_tab_order_follows_selection guards the JS. Neither covers both.
+        """
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        state = page.evaluate(
+            """() => [...document.querySelectorAll('#view-ratepayer .subtab')]
+                 .map((b) => [b.id, b.getAttribute('aria-selected'), b.tabIndex])"""
+        )
+        assert state, "no sub-tabs found -- extractor broken"
+        for tab_id, selected, tabindex in state:
+            expected = 0 if selected == "true" else -1
+            assert tabindex == expected, (
+                f"{tab_id}: aria-selected={selected} but tabIndex={tabindex}"
+            )
+        assert sum(1 for _, sel, _ in state if sel == "true") == 1
+
+    def test_tab_order_follows_selection(self, page: Page, base_url: str):
+        """The static markup being right isn't enough -- setActiveSubtab has to
+        move the 0 when the reader switches cohort."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-pre-pledge").click()
+        assert page.locator("#subtab-rp-sites-pre-pledge").evaluate("el => el.tabIndex") == 0
+        assert page.locator("#subtab-rp-sites-assessed").evaluate("el => el.tabIndex") == -1
+
+
+class TestExternalCountsAreDated:
+    """DESIGN.md: a count sourced from an external list must render its as-of
+    date. The roster is a living page -- an undated "302" reads as a permanent
+    fact. Codex caught the new summary chips shipping without it: the as-of
+    text existed only in the roster's body copy, which is INSIDE the collapsed
+    panel, i.e. hidden in exactly the state where the chip is all you can see.
+    """
+
+    ROSTER_COUNT_IDS = ("rp-coverage-count", "rp-roster-total")
+
+    def test_roster_chips_carry_the_as_of_date(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        for chip_id in self.ROSTER_COUNT_IDS:
+            txt = page.locator(f"#{chip_id}").inner_text().strip()
+            assert txt, f"#{chip_id} is empty"
+            assert "as of" in txt.lower(), f"#{chip_id} is undated: {txt!r}"
+            # And the date must be the roster's own, not today's.
+            as_of = page.evaluate("() => state.rosterAsOf")
+            assert as_of, "state.rosterAsOf never loaded"
+            assert as_of[:4] in txt, f"#{chip_id}={txt!r} does not carry {as_of}"
+
+    def test_chips_stay_readable_while_collapsed_on_mobile(
+        self, browser, base_url: str
+    ):
+        """The dated chip is long; it must wrap rather than overflow the
+        summary or squeeze the heading out."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        # The page must not scroll sideways -- that is the defect a reader
+        # actually feels, and it is measured in whole pixels on the body.
+        doc = page.evaluate(
+            "() => [document.body.scrollWidth, document.body.clientWidth]"
+        )
+        assert doc[0] <= doc[1], f"page scrolls horizontally: {doc}"
+
+        # Per-summary check needs a tolerance for the same reason the touch
+        # floor does: device scaling makes these sub-pixel, and a flex row that
+        # resolves to 362.4 reports clientWidth 362 / scrollWidth 364 while
+        # rendering with no visible overflow (verified by screenshot).
+        overflow = page.evaluate(
+            r"""(tol) => [...document.querySelectorAll('#view-ratepayer .acc > summary')]
+                 .filter((s) => s.scrollWidth > s.clientWidth + tol)
+                 .map((s) => [s.textContent.trim().slice(0, 30).replace(/\s+/g, ' '),
+                              s.scrollWidth, s.clientWidth])""",
+            3,
+        )
+        assert overflow == [], f"summaries overflowing on mobile: {overflow}"
+
+        # The dated chip must actually be laid out, not clipped to nothing.
+        chip = page.locator("#rp-coverage-count").bounding_box()
+        assert chip and chip["width"] > 40, f"as-of chip not rendered: {chip}"
+        ctx.close()
+
+    def test_non_roster_chips_are_not_spuriously_dated(
+        self, page: Page, base_url: str
+    ):
+        """Only externally-sourced counts get the date. Site cohorts are ours,
+        and stamping them would imply the roster's provenance."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        txt = page.locator("#rp-sites-count").inner_text().lower()
+        assert "as of" not in txt, f"#rp-sites-count wrongly dated: {txt!r}"
+
+
+class TestPathwayCohort:
+    """A pathway card that names a cohort must deliver that cohort.
+
+    Codex: the cohort persists across navigations (deliberately -- a reader
+    comparing cohorts shouldn't be snapped back). But the Overview's "Which
+    sites have real evidence?" card promises the assessed scorecard, so a
+    reader who last viewed "Never signed" was handed that instead.
+    """
+
+    def test_researcher_pathway_forces_the_assessed_cohort(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-non-signatory").click()
+        expect(page.locator("#subtab-rp-sites-non-signatory")).to_have_attribute(
+            "aria-selected", "true"
+        )
+
+        page.locator("#tab-overview").click()
+        page.wait_for_selector("#pledge-meters li", timeout=10_000)
+        page.locator("#path-researcher").click()
+        page.wait_for_timeout(600)
+
+        expect(page.locator("#subtab-rp-sites-assessed")).to_have_attribute(
+            "aria-selected", "true"
+        )
+        expect(page.locator("#rp-scorecard .rp-card").first).to_be_visible()
+
+    def test_ordinary_tab_switching_still_preserves_the_cohort(
+        self, page: Page, base_url: str
+    ):
+        """The other half: only a target that NAMES a cohort overrides it.
+        Without this, the fix above becomes 'always snap back to assessed',
+        which is the behaviour _activeSubtab exists to prevent."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-pre-pledge").click()
+
+        page.locator("#tab-moratoriums").click()
+        page.wait_for_timeout(300)
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_timeout(400)
+
+        expect(page.locator("#subtab-rp-sites-pre-pledge")).to_have_attribute(
+            "aria-selected", "true"
+        )
+
+
+class TestZeroCounts:
+    """Zero is a result; missing is not.
+
+    Both count helpers used a truthiness check, so a directory filtered down to
+    nothing lost its "0 records" the instant the reader collapsed it --
+    indistinguishable from a count that never loaded. Codex caught it.
+    """
+
+    def test_a_filtered_to_empty_directory_still_reports_zero(
+        self, page: Page, base_url: str
+    ):
+        """The real path, not a synthetic one: filter the tariff directory to a
+        combination with no rows and read the accordion chip."""
+        page.goto(base_url + "/#tariffs")
+        page.wait_for_selector("#tariffs-tbody tr", timeout=15_000)
+        page.select_option("#tariff-status-filter", "rejected")
+        page.select_option("#tariff-state-filter", "OH")
+        page.wait_for_timeout(300)
+        rows = page.locator("#tariffs-tbody tr.tariff-row")
+        assert rows.count() == 0, "fixture drifted -- expected an empty result"
+        expect(page.locator("#tariffs-count")).to_have_text("0 tariffs")
+
+    def test_helpers_distinguish_zero_from_unloaded(self, page: Page, base_url: str):
+        """Pins the distinction directly, so it survives any data change that
+        makes the filter case above stop producing zero."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        result = page.evaluate(
+            """() => {
+                 const acc = document.getElementById('rp-sites-count');
+                 const pill = document.getElementById('rp-scorecard-count');
+                 const before = [acc.textContent, pill.textContent];
+                 setAccCount('rp-sites-count', 0, 'site');
+                 setSubtabCount('rp-scorecard-count', 0);
+                 const zero = [acc.textContent, pill.textContent];
+                 setAccCount('rp-sites-count', null, 'site');
+                 setSubtabCount('rp-scorecard-count', undefined);
+                 const missing = [acc.textContent, pill.textContent];
+                 return {before, zero, missing};
+               }"""
+        )
+        assert result["zero"] == ["0 sites", "0"], result
+        assert result["missing"] == ["", ""], result
+
+
+class TestAggregateExportsCoverEveryRollup:
+    """Every rollup the UI advertises must appear in the export.
+
+    The Aggregate CSV/PDF serialized only company + state, so a reader who
+    selected "By signatory category" and hit Export got a file without the
+    table they were looking at. Codex caught it.
+    """
+
+    def test_csv_contains_all_three_rollups(self, page: Page, base_url: str):
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
+        with page.expect_download() as dl:
+            page.locator("#agg-csv-btn").click()
+        text = Path(dl.value.path()).read_text()
+        for section in ("BY COMPANY", "BY SIGNATORY CATEGORY", "BY STATE"):
+            assert section in text, f"{section} missing from the aggregate CSV"
+        # And it must carry real rows, not just the header.
+        assert "Hyperscaler" in text or "Did not sign" in text, text[:400]
+
+    def test_every_rollup_tab_has_a_csv_section(self, page: Page, base_url: str):
+        """Derived, not hardcoded: one CSV section per sub-tab, so adding a
+        fourth rollup without exporting it fails here."""
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
+        tabs = page.locator("#view-aggregate .subtab").count()
+        with page.expect_download() as dl:
+            page.locator("#agg-csv-btn").click()
+        text = Path(dl.value.path()).read_text()
+        sections = sum(1 for line in text.splitlines() if line.startswith("BY "))
+        assert sections == tabs, f"{tabs} rollup tabs but {sections} CSV sections"

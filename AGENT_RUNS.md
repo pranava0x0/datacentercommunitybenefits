@@ -12,6 +12,7 @@
 | 2026-07-14 | (Independent parallel session, merged in via reconciling PR #33 with main) 7-agent moratorium + ratepayer comprehensive pass — see "Detail: 2026-07-14 moratorium + ratepayer comprehensive pass" below | ~996K across 7 runs (~61K pure waste on one misfired relaunch) | Mostly yes | Cap fan-out at 2-3 not 5; model-select (Sonnet not Opus) for research agents; surface the running spend around ~500K instead of only at the end |
 | 2026-07-15 | Full three-dimension data refresh: 6-agent wave (stale-bill re-checks + scouting), 6-agent wave (critical-gap fill, incl. 1 stalled-agent relaunch), 3-agent wave (citation audit + 2 verification checks), 10-agent wave (medium-gap fill) — see "Detail: 2026-07-15 refresh fan-out" below | ~2.3-2.5M (approximate — each of ~24 completed agents fell in the 83K-121K range; the AWS/Amazon medium-gap batch alone was split into 2 agents for 13 records) | Mostly yes, at a bad price | See detail — this is the **third** recorded instance of the 2-3-agent cap being violated in this file |
 | 2026-07-25/26 | **Ratepayer Pledge v2 implementation (SPEC_RPP_V2 P0–P5) — zero agents spawned** | ~0 agent tokens (all inline) | Yes | Nothing; the no-agent call was right. See detail below |
+| 2026-07-28 | **None — solo, deliberately.** IA restyle (accordions + sub-tabs), copy verification against a primary source, spec authoring | ~0 agent tokens; whole session in the main loop | Yes | Nothing. This is the shape that should stay solo — see detail below |
 
 ## Detail: 2026-07-15 refresh fan-out
 
@@ -206,3 +207,39 @@ reviewer — not an agent — had to make. The judgement was the *only* part tha
 couldn't be automated: 6 of 24 automated `serving_utility` candidates were
 false positives, and no agent prompt would have reliably caught "a *former*
 Duke Energy site" as not-a-serving-utility.
+
+
+## Detail: 2026-07-28 accordion / sub-tab IA pass — zero agents, and that was right
+
+**What the session did:** converted six tabs' ad-hoc section chrome onto one
+heading language + one accordion component, removed two stale UI blocks, added
+sub-tabs where sections were alternatives, verified the pledge copy against
+whitehouse.gov, and wrote a per-signatory implementation spec.
+
+**Agents/workflows spawned: none.** Worth logging *because* it's a null result —
+this log's standing lesson is "exhaust `grep` + `python3 -c` before reaching for
+an agent," and this session is the clean case for it. Every discovery step was a
+targeted local command:
+
+- `grep -n "accordion\|<details"` across three files found all three legacy
+  disclosure skins in one call.
+- `grep -rn "<constant>" docs/ tests/` before every deletion told me exactly
+  which tests and call sites would break — this is what made removing two
+  renderers safe.
+- An 8-line `HTMLParser` well-formedness check caught unbalanced tags after each
+  structural edit, instantly and for free. Much faster than a browser round-trip
+  and it never gave a false pass.
+- One `WebFetch` of the primary source settled the copy question that no amount
+  of code-reading could.
+
+**The one place a subagent would have paid:** nothing here. A parallel reviewer
+over the final diff might have found the `<span>`-for-`<h3>` regression — but the
+base CLAUDE.md's own "`<details>`-collapse trap" entry found it first, during the
+learnings pass, at zero marginal cost. **Reading your own accumulated notes is
+the cheapest reviewer you have**, and it beat the agent that wasn't spawned.
+
+**Cost shape:** the expensive part of this session was not search, it was the
+four full e2e suite runs (~110s each) after each structural change. That's the
+right thing to spend on and shouldn't be optimized away — two of the four caught
+real breakage (4 aggregate tests on the sub-tab conversion, and the pluralization
+bug surfaced by a screenshot, not a test).

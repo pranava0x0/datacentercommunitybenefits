@@ -287,6 +287,13 @@
           <ul id="theme-legend" class="theme-legend"></ul>
         </div>
 
+        <details class="acc" id="matrix-section" open>
+          <summary>
+            <h3 class="acc-title">Commitments by company and theme</h3>
+            <span class="acc-count" id="matrix-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
         <div class="matrix-toolbar">
           <p class="matrix-help">
             A check means the company has at least one published claim mapping to that
@@ -318,6 +325,8 @@
           </table>
           <div id="matrix-tooltip" class="matrix-tooltip" hidden role="tooltip" aria-live="off"></div>
         </div>
+          </div>
+        </details>
 
         <section
           id="company-detail"
@@ -410,6 +419,18 @@
           ></ol>
         </section>
 
+        <details class="acc" id="explorer-filter-section" open>
+          <summary>
+            <h3 class="acc-title">Find a site</h3>
+            <span class="acc-count" id="explorer-filter-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+        <p class="acc-sub">
+          Narrow by theme, operator, state, build status, or how the surrounding
+          community has responded. The map and list below both follow the filters.
+        </p>
+
         <div
           class="theme-filter-row"
           id="theme-filter-row"
@@ -475,6 +496,8 @@
             <button id="explorer-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
           </span>
         </div>
+          </div>
+        </details>
 
         <div class="explorer-layout">
           <div id="map" class="map" aria-label="Project map" role="img"></div>
@@ -629,28 +652,41 @@
           </p>
         </div>
 
-        <!-- Top-level stats -->
-        <ul id="rp-stats" class="rp-stats" aria-label="Pledge summary statistics"></ul>
-
         <!-- ---------------------------------------------------------------
              1. THE PLEDGE — the five commitments, rendered as the page's
              spine. Each carries a live count of how the assessed sites score
              on that principle, which turns the existing per-principle rubric
              into the thing the page is organized around.
+
+             Collapsed by default: the commitments are reference material a
+             returning reader has already read, and the page's live content
+             (coverage, scorecard) is what they came back for. Expanding it
+             from elsewhere goes through goToPledgeTarget(), which opens the
+             panel before scrolling — a smooth-scroll to a collapsed section
+             lands on a closed bar and reads as a broken link.
              --------------------------------------------------------------- -->
-        <section
-          class="rp-band"
-          id="rp-commitments-section"
-          aria-labelledby="rp-commitments-heading"
-        >
-          <div class="rp-band-inner">
-            <p class="rp-band-kicker">The pledge</p>
-            <h3 id="rp-commitments-heading" class="rp-band-title">
+        <details class="rp-band acc acc--band" id="rp-commitments-section">
+          <summary>
+            <!-- A real <h3>, not a styled <span>: a collapsed section whose
+                 header isn't a heading element drops out of screen-reader
+                 heading navigation and the document outline.
+
+                 The kicker lives INSIDE the heading. <summary> takes phrasing
+                 content optionally intermixed with heading content, so a
+                 wrapping <div> is not conforming (W3C Nu: "Element div not
+                 allowed as child of element summary") — but <h3> takes
+                 phrasing content, so the kicker nests happily there. -->
+            <h3 class="rp-band-title acc-title" id="rp-commitments-heading">
+              <span class="rp-band-kicker">The pledge</span>
               Five commitments, and how the tracked sites measure up.
             </h3>
+            <span class="acc-count" id="rp-commitments-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
             <ol id="rp-commitments" class="rp-commit-list"></ol>
             <p class="rp-band-source">
-              Commitment titles quoted verbatim from the
+              Commitment titles and text quoted verbatim from the
               <a
                 id="rp-commitments-link"
                 href="#"
@@ -661,57 +697,52 @@
               counted in none of them.
             </p>
           </div>
-        </section>
+        </details>
 
         <!-- ---------------------------------------------------------------
              2. COVERAGE — who signed, by category, plus the state grid.
              --------------------------------------------------------------- -->
-        <section
-          class="rp-section"
-          id="rp-coverage-section"
-          aria-labelledby="rp-coverage-heading"
-        >
-          <h3 id="rp-coverage-heading">Coverage</h3>
-          <p class="rp-section-sub" id="rp-coverage-sub">
-            Every stakeholder group in the power system — the companies buying the
-            power, the utilities and cooperatives selling it, the developers building
-            the sites, and the governors who regulate them.
-          </p>
-          <ul id="rp-category-stats" class="rp-cat-stats" aria-label="Signatories by category"></ul>
-          <p class="rp-drift-note" id="rp-drift-note" hidden></p>
+        <details class="acc" id="rp-coverage-section" open>
+          <summary>
+            <h3 class="acc-title" id="rp-coverage-heading">Coverage</h3>
+            <span class="acc-count" id="rp-coverage-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub" id="rp-coverage-sub">
+              Every stakeholder group in the power system — the companies buying the
+              power, the utilities and cooperatives selling it, the developers building
+              the sites, and the governors who regulate them.
+            </p>
+            <ul id="rp-category-stats" class="rp-cat-stats" aria-label="Signatories by category"></ul>
+            <p class="rp-drift-note" id="rp-drift-note" hidden></p>
 
-          <h4 class="rp-subhead" id="rp-tracked-heading">Companies tracked in depth</h4>
-          <p class="rp-section-sub">
-            The operators this dashboard follows site by site. Most signed; those that
-            did not are shown here too when they publish a ratepayer commitment of
-            their own, so the absence of a signature is visible rather than implied.
-          </p>
-          <ul id="rp-tracked-roster" class="rp-roster" aria-labelledby="rp-tracked-heading"></ul>
-
-          <h4 class="rp-subhead" id="rp-states-heading">By state</h4>
-          <p class="rp-section-sub">
-            Filled chips have tracked records; hollow chips are states where a governor
-            signed but we have nothing on file yet. Select a state to see its sites,
-            tariffs, moratoriums, and utility signatories.
-          </p>
-          <div id="rp-state-chips" class="rp-state-chips" aria-labelledby="rp-states-heading"></div>
-        </section>
+            <h4 class="rp-subhead" id="rp-states-heading">By state</h4>
+            <p class="rp-section-sub">
+              Filled chips have tracked records; hollow chips are states where a governor
+              signed but we have nothing on file yet. Select a state to see its sites,
+              tariffs, moratoriums, and utility signatories.
+            </p>
+            <div id="rp-state-chips" class="rp-state-chips" aria-labelledby="rp-states-heading"></div>
+          </div>
+        </details>
 
         <!-- ---------------------------------------------------------------
              3. SIGNATORY ROSTER — searchable, category-filterable. Rendered
-             on first expand (300+ rows), not on view load.
+             on first expand (300+ rows), not on view load — the id below is
+             what that wiring and the e2e suite address.
              --------------------------------------------------------------- -->
-        <section
-          class="rp-section"
-          id="rp-roster-section"
-          aria-labelledby="rp-roster-heading"
-        >
-          <h3 id="rp-roster-heading">Signatory roster</h3>
-          <p class="rp-section-sub" id="rp-roster-sub">
-            The full published roster, as captured from the White House page.
-          </p>
-          <details class="rp-roster-details" id="rp-roster-details">
-            <summary id="rp-roster-summary">Browse the roster</summary>
+        <section id="rp-roster-section">
+          <details class="acc" id="rp-roster-details">
+            <summary id="rp-roster-summary">
+              <h3 class="acc-title" id="rp-roster-heading">Signatory roster</h3>
+              <span class="acc-count" id="rp-roster-total"></span>
+              <span class="acc-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="acc-body">
+            <p class="acc-sub" id="rp-roster-sub">
+              The full published roster, as captured from the White House page.
+            </p>
             <div class="rp-roster-controls">
               <label class="rp-roster-search" for="rp-roster-q">
                 <span class="visually-hidden">Search signatories by name or domain</span>
@@ -731,85 +762,167 @@
             </div>
             <p class="rp-roster-count" id="rp-roster-count" role="status"></p>
             <ul id="rp-roster" class="rp-roster"></ul>
+            </div>
           </details>
         </section>
 
-        <!-- Per-data-center scorecard -->
-        <!-- Assessed sites: announced on/after pledge date, or pre-pledge with post-pledge commitment -->
-        <section
-          class="rp-section"
-          id="rp-scorecard-section"
-          aria-labelledby="rp-scorecard-heading"
-        >
-          <h3 id="rp-scorecard-heading">Assessed sites</h3>
-          <p class="rp-section-sub">
-            Sites announced on or after their operator signed, or pre-pledge sites where post-pledge reporting confirms adherence. Each card shows the announcement date and first pledge reference. Expand to see per-principle breakdown.
-          </p>
-          <div class="rp-scorecard-toolbar">
-            <div id="rp-legend" class="rp-legend" aria-label="Assessment status legend"></div>
-            <span class="export-btns">
-              <button id="rp-export-csv" class="btn-ghost" type="button">⤓ CSV</button>
-              <button id="rp-export-pdf" class="btn-ghost" type="button">⤓ PDF</button>
-            </span>
-          </div>
-          <!-- Sticky filter bar. The scorecard is 39 cards and growing; before
-               this the only way to find a site was to scroll all of them. -->
-          <div class="rp-filterbar" id="rp-filterbar">
-            <label class="rp-filter-search" for="rp-q">
-              <span class="visually-hidden">Search assessed sites</span>
-              <input
-                id="rp-q"
-                type="search"
-                placeholder="Search site, company, or state…"
-                autocomplete="off"
-              />
-            </label>
+        <!-- ---------------------------------------------------------------
+             TRACKED SITES — one list, four cohorts, as sub-tabs.
+
+             These were four sibling sections; they are four *bucketings of
+             the same site list*, and a reader wants one at a time. That is
+             the test for a sub-tab group rather than an accordion: sections
+             you'd never want on screen together.
+
+             The id stays `rp-scorecard-section` because PLEDGE_TARGETS and
+             the Overview "For researchers" pathway card both scroll to it.
+             --------------------------------------------------------------- -->
+        <details class="acc" id="rp-scorecard-section" open>
+          <summary>
+            <h3 class="acc-title" id="rp-scorecard-heading">Tracked sites</h3>
+            <span class="acc-count" id="rp-sites-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <div class="subtabs" role="tablist" aria-label="Site cohort">
+              <button
+                class="subtab"
+                role="tab"
+                type="button"
+                id="subtab-rp-sites-assessed"
+                aria-selected="true"
+                tabindex="0"
+                aria-controls="subpane-rp-sites-assessed"
+              >
+                Assessed <span class="subtab-count" id="rp-scorecard-count"></span>
+              </button>
+              <button
+                class="subtab"
+                role="tab"
+                type="button"
+                id="subtab-rp-sites-unassessed"
+                aria-selected="false"
+                tabindex="-1"
+                aria-controls="subpane-rp-sites-unassessed"
+              >
+                Awaiting assessment
+                <span class="subtab-count" id="rp-unassessed-count"></span>
+              </button>
+              <button
+                class="subtab"
+                role="tab"
+                type="button"
+                id="subtab-rp-sites-pre-pledge"
+                aria-selected="false"
+                tabindex="-1"
+                aria-controls="subpane-rp-sites-pre-pledge"
+              >
+                Before the pledge
+                <span class="subtab-count" id="rp-pre-pledge-count"></span>
+              </button>
+              <button
+                class="subtab"
+                role="tab"
+                type="button"
+                id="subtab-rp-sites-non-signatory"
+                aria-selected="false"
+                tabindex="-1"
+                aria-controls="subpane-rp-sites-non-signatory"
+              >
+                Never signed
+                <span class="subtab-count" id="rp-non-signatory-count"></span>
+              </button>
+            </div>
+
             <div
-              class="rp-filter-chips"
-              id="rp-status-filter"
-              role="group"
-              aria-label="Filter by assessment status"
-            ></div>
-            <label class="rp-filter-flag">
-              <input type="checkbox" id="rp-only-concerns" />
-              Only sites with a ratepayer concern
-            </label>
-            <p class="rp-filter-count" id="rp-filter-count" role="status"></p>
+              class="subtab-panel"
+              id="subpane-rp-sites-assessed"
+              role="tabpanel"
+              aria-labelledby="subtab-rp-sites-assessed"
+            >
+              <p class="acc-sub">
+                Sites announced on or after their operator signed, or pre-pledge sites where post-pledge reporting confirms adherence. Each card shows the announcement date and first pledge reference. Expand to see per-principle breakdown.
+              </p>
+              <div class="rp-scorecard-toolbar">
+                <div id="rp-legend" class="rp-legend" aria-label="Assessment status legend"></div>
+                <span class="export-btns">
+                  <button id="rp-export-csv" class="btn-ghost" type="button">⤓ CSV</button>
+                  <button id="rp-export-pdf" class="btn-ghost" type="button">⤓ PDF</button>
+                </span>
+              </div>
+              <!-- Sticky filter bar. The scorecard is 39 cards and growing; before
+                   this the only way to find a site was to scroll all of them. -->
+              <div class="rp-filterbar" id="rp-filterbar">
+                <label class="rp-filter-search" for="rp-q">
+                  <span class="visually-hidden">Search assessed sites</span>
+                  <input
+                    id="rp-q"
+                    type="search"
+                    placeholder="Search site, company, or state…"
+                    autocomplete="off"
+                  />
+                </label>
+                <div
+                  class="rp-filter-chips"
+                  id="rp-status-filter"
+                  role="group"
+                  aria-label="Filter by assessment status"
+                ></div>
+                <label class="rp-filter-flag">
+                  <input type="checkbox" id="rp-only-concerns" />
+                  Only sites with a ratepayer concern
+                </label>
+                <p class="rp-filter-count" id="rp-filter-count" role="status"></p>
+              </div>
+              <ul id="rp-scorecard" class="rp-scorecard"></ul>
+            </div>
+
+            <div
+              class="subtab-panel"
+              id="subpane-rp-sites-unassessed"
+              role="tabpanel"
+              aria-labelledby="subtab-rp-sites-unassessed"
+              hidden
+            >
+              <p class="acc-sub">
+                Signatory sites announced during the pledge era with no per-site assessment captured yet. Absence of an assessment means the curation work is pending — not implied compliance.
+              </p>
+              <ul id="rp-unassessed" class="rp-pre-pledge-list"></ul>
+            </div>
+
+            <div
+              class="subtab-panel"
+              id="subpane-rp-sites-pre-pledge"
+              role="tabpanel"
+              aria-labelledby="subtab-rp-sites-pre-pledge"
+              hidden
+            >
+              <p class="acc-sub">
+                Signatory sites announced before their operator signed, with no post-pledge site-specific commitment captured. Covered by the national pledge but not yet assessed per-site.
+              </p>
+              <ul id="rp-pre-pledge" class="rp-pre-pledge-list"></ul>
+            </div>
+
+            <!-- Not part of the assessed cohort. This replaced a "Show
+                 non-signatory companies" checkbox: a sub-tab is the same
+                 opt-in reveal (default is Assessed, you have to choose this)
+                 while sitting in the one place a reader compares cohorts.
+                 The scope rule is unchanged and enforced elsewhere — no
+                 `ratepayer` assessment is ever attached to these sites. -->
+            <div
+              class="subtab-panel"
+              id="subpane-rp-sites-non-signatory"
+              role="tabpanel"
+              aria-labelledby="subtab-rp-sites-non-signatory"
+              hidden
+            >
+              <p class="acc-sub">
+                These companies have not signed the Ratepayer Protection Pledge. Shown for comparison, not part of the assessed cohort — some publish their own ratepayer-related language (see each card's sources), but none carry a curated pledge assessment.
+              </p>
+              <ul id="rp-non-signatory" class="rp-pre-pledge-list"></ul>
+            </div>
           </div>
-
-          <label class="rp-toggle">
-            <input type="checkbox" id="rp-show-non-signatory" />
-            Show sites from companies that never signed
-          </label>
-          <ul id="rp-scorecard" class="rp-scorecard"></ul>
-        </section>
-
-        <!-- Pledge-era sites awaiting assessment: signatory sites announced on/after the pledge (or year-only 2026) with no assessment captured yet -->
-        <section class="rp-section" aria-labelledby="rp-unassessed-heading">
-          <h3 id="rp-unassessed-heading">Pledge-era sites awaiting assessment</h3>
-          <p class="rp-section-sub">
-            Signatory sites announced during the pledge era with no per-site assessment captured yet. Absence of an assessment means the curation work is pending — not implied compliance.
-          </p>
-          <ul id="rp-unassessed" class="rp-pre-pledge-list"></ul>
-        </section>
-
-        <!-- Pre-pledge sites: signatory sites announced before the pledge with no post-pledge commitment captured -->
-        <section class="rp-section" aria-labelledby="rp-pre-pledge-heading">
-          <h3 id="rp-pre-pledge-heading">Sites announced before the pledge</h3>
-          <p class="rp-section-sub">
-            Signatory sites announced before March 4, 2026 with no post-pledge site-specific commitment captured. Covered by the national pledge but not yet assessed per-site.
-          </p>
-          <ul id="rp-pre-pledge" class="rp-pre-pledge-list"></ul>
-        </section>
-
-        <!-- Non-signatory companies: not part of the White House/DOE pledge roster at all. Hidden by default via the toggle above — shown for comparison, not part of the assessed cohort. -->
-        <section class="rp-section" id="rp-non-signatory-section" aria-labelledby="rp-non-signatory-heading" hidden>
-          <h3 id="rp-non-signatory-heading">Sites from non-signatory companies</h3>
-          <p class="rp-section-sub">
-            These companies have not signed the Ratepayer Protection Pledge. Shown for comparison, not part of the assessed cohort — some publish their own ratepayer-related language (see each card's sources), but none carry a curated pledge assessment.
-          </p>
-          <ul id="rp-non-signatory" class="rp-pre-pledge-list"></ul>
-        </section>
+        </details>
 
         <p class="rp-footnote">
           Assessment is editorial, not a pass/fail score. Absence of a
@@ -879,34 +992,53 @@
         </section>
 
         <!-- Key Themes Section -->
-        <div id="moratorium-themes" class="summary-section">
-          <h3>Key themes driving moratoriums</h3>
-          <p class="view-description">
-            Count of moratoriums that cite each concern. Click a theme to see which
-            jurisdictions raised it and what their legislation says.
-          </p>
-          <div id="reason-breakdown" class="reason-grid">
-            <!-- Populated by app.js -->
+        <details class="acc" id="moratorium-themes" open>
+          <summary>
+            <h3 class="acc-title">Key themes driving moratoriums</h3>
+            <span class="acc-count" id="moratorium-themes-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub">
+              Count of moratoriums that cite each concern. Click a theme to see which
+              jurisdictions raised it and what their legislation says.
+            </p>
+            <div id="reason-breakdown" class="reason-grid">
+              <!-- Populated by app.js -->
+            </div>
           </div>
-        </div>
+        </details>
 
         <!-- China Anti-Data-Center Messaging Claims -->
-        <details class="china-context-section">
-          <summary id="china-context-heading">Claimed Chinese Influence on Data Center Opposition</summary>
-          <div id="china-context-content" class="china-context-detail">
-            <!-- Populated by app.js -->
+        <details class="acc">
+          <summary>
+            <h3 class="acc-title" id="china-context-heading">Claimed Chinese influence on data center opposition</h3>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <div id="china-context-content" class="china-context-detail">
+              <!-- Populated by app.js -->
+            </div>
           </div>
         </details>
 
         <!-- Filters and Table (Collapsible) -->
-        <details class="directory-section" open>
-          <summary id="moratoriums-table-heading">
-            Moratoriums Directory
-            <span class="table-controls">
-              <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
-              <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
-            </span>
+        <details class="acc" id="moratoriums-directory" open>
+          <summary>
+            <h3 class="acc-title" id="moratoriums-table-heading">Moratoriums directory</h3>
+            <span class="acc-count" id="moratoriums-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
+          <div class="acc-body">
+          <p class="acc-sub">
+            Every tracked city, county, state, and federal restriction, with its
+            status, duration, and the concerns cited. Click a row for the full
+            record and its sources.
+          </p>
+          <span class="table-controls">
+            <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+            <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
+          </span>
 
           <div id="moratorium-filters" class="filters">
             <label>Status:
@@ -942,6 +1074,7 @@
                 <!-- Populated by app.js -->
               </tbody>
             </table>
+          </div>
           </div>
         </details>
 
@@ -1036,28 +1169,42 @@
         <ul id="tariff-stats" class="rp-stats" aria-label="Tariff statistics"></ul>
 
         <!-- LBL element coverage: how many tracked tariffs address each element -->
-        <div id="tariff-coverage-section" class="summary-section">
-          <h3>LBL rate-design elements — how often each appears</h3>
-          <p class="view-description">
-            Count of tracked tariffs that include each design element from the LBL
-            study. Click an element to see which tariffs address it. Elements with
-            no coverage are shown muted — a gap in current practice, not an error.
-          </p>
-          <div id="tariff-coverage-grid" class="tariff-coverage-grid">
-            <!-- Populated by app.js -->
+        <details class="acc" id="tariff-coverage-section" open>
+          <summary>
+            <h3 class="acc-title">LBL rate-design elements — how often each appears</h3>
+            <span class="acc-count" id="tariff-coverage-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub">
+              Count of tracked tariffs that include each design element from the LBL
+              study. Click an element to see which tariffs address it. Elements with
+              no coverage are shown muted — a gap in current practice, not an error.
+            </p>
+            <div id="tariff-coverage-grid" class="tariff-coverage-grid">
+              <!-- Populated by app.js -->
+            </div>
+            <div id="tariff-coverage-popout" class="tariff-coverage-popout"></div>
           </div>
-          <div id="tariff-coverage-popout" class="tariff-coverage-popout"></div>
-        </div>
+        </details>
 
         <!-- Filters and directory table -->
-        <details class="directory-section" open>
-          <summary id="tariffs-table-heading">
-            Tariff Directory
-            <span class="table-controls">
-              <button id="tariffs-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
-              <button id="tariffs-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
-            </span>
+        <details class="acc" id="tariffs-directory" open>
+          <summary>
+            <h3 class="acc-title" id="tariffs-table-heading">Tariff directory</h3>
+            <span class="acc-count" id="tariffs-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
+          <div class="acc-body">
+          <p class="acc-sub">
+            Every tracked large-load tariff, rate class, and rule, with the
+            jurisdiction it applies in and how many of the 17 LBL elements it
+            addresses. Click a row for the full breakdown and its sources.
+          </p>
+          <span class="table-controls">
+            <button id="tariffs-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+            <button id="tariffs-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
+          </span>
 
           <div id="tariff-filters" class="filters">
             <label>Status:
@@ -1090,6 +1237,7 @@
                 <!-- Populated by app.js -->
               </tbody>
             </table>
+          </div>
           </div>
         </details>
 
@@ -1189,8 +1337,51 @@
           <button id="agg-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
         </div>
 
-        <section class="agg-section">
-          <h3 class="agg-section-heading">By company</h3>
+        <!-- Three rollups of the same numbers — alternatives, not a sequence,
+             so a sub-tab group rather than three accordions. -->
+        <div class="subtabs" role="tablist" aria-label="Rollup">
+          <button
+            class="subtab"
+            role="tab"
+            type="button"
+            id="subtab-agg-company"
+            aria-selected="true"
+            tabindex="0"
+            aria-controls="subpane-agg-company"
+          >
+            By company <span class="subtab-count" id="agg-company-count"></span>
+          </button>
+          <button
+            class="subtab"
+            role="tab"
+            type="button"
+            id="subtab-agg-signatory"
+            aria-selected="false"
+            tabindex="-1"
+            aria-controls="subpane-agg-signatory"
+          >
+            By signatory category
+            <span class="subtab-count" id="agg-signatory-count"></span>
+          </button>
+          <button
+            class="subtab"
+            role="tab"
+            type="button"
+            id="subtab-agg-state"
+            aria-selected="false"
+            tabindex="-1"
+            aria-controls="subpane-agg-state"
+          >
+            By state <span class="subtab-count" id="agg-state-count"></span>
+          </button>
+        </div>
+
+        <div
+          class="subtab-panel"
+          id="subpane-agg-company"
+          role="tabpanel"
+          aria-labelledby="subtab-agg-company"
+        >
           <div class="table-scroll">
             <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
               <thead>
@@ -1208,14 +1399,19 @@
               <tfoot id="agg-company-tfoot"></tfoot>
             </table>
           </div>
-        </section>
+        </div>
 
         <!-- Rolls the tracked sites up by which pledge cohort their operator
              belongs to. Answers "does signing correlate with anything we can
              see?" — which the by-company table cannot, because it has no
              notion of the roster. -->
-        <section class="agg-section" id="agg-signatory-section">
-          <h3 class="agg-section-heading">By signatory category</h3>
+        <div
+          class="subtab-panel"
+          id="subpane-agg-signatory"
+          role="tabpanel"
+          aria-labelledby="subtab-agg-signatory"
+          hidden
+        >
           <p class="agg-section-sub" id="agg-signatory-sub"></p>
           <div class="table-scroll">
             <table
@@ -1237,10 +1433,15 @@
               <tbody id="agg-signatory-tbody"></tbody>
             </table>
           </div>
-        </section>
+        </div>
 
-        <section class="agg-section">
-          <h3 class="agg-section-heading">By state</h3>
+        <div
+          class="subtab-panel"
+          id="subpane-agg-state"
+          role="tabpanel"
+          aria-labelledby="subtab-agg-state"
+          hidden
+        >
           <div class="table-scroll">
             <table class="agg-table" id="agg-state-table" aria-label="State rollup">
               <thead>
@@ -1258,7 +1459,7 @@
               <tfoot id="agg-state-tfoot"></tfoot>
             </table>
           </div>
-        </section>
+        </div>
       </section>
     </main>
 

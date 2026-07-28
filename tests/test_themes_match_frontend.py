@@ -14,6 +14,8 @@ import pytest
 
 from schema import (
     COMPANY_SLUGS,
+    PLEDGE_PRINCIPLE_LABELS,
+    PLEDGE_PRINCIPLES,
     SIGNATORY_CATEGORIES,
     SIGNATORY_CATEGORY_LABELS,
     SIGNATORY_TRACK_LABELS,
@@ -226,4 +228,123 @@ def test_every_category_has_a_short_label(js: str) -> None:
     assert js_keys == set(SIGNATORY_CATEGORIES), (
         "SIGNATORY_CATEGORY_SHORT must cover every category: "
         f"missing={set(SIGNATORY_CATEGORIES) - js_keys}, extra={js_keys - set(SIGNATORY_CATEGORIES)}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# The pledge's own words
+# ---------------------------------------------------------------------------
+
+# Quoted from https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/
+# (re-fetched and re-verified 2026-07-28). The band renders these under a
+# footnote that tells the reader they are verbatim, so they are pinned here:
+# re-paraphrasing them has to be a deliberate edit to this file, not a tidy-up
+# in app.js.
+#
+# Until 2026-07-28 they WERE paraphrases, and two drifted in the direction that
+# flatters the pledge -- `separate_rate` quoted the section's title back as if
+# it were the body's commitment, and `grid_resilience` dropped the source's
+# "whenever possible" hedge. Both are called out in app.js.
+PLEDGE_COMMITMENT_TEXT = {
+    "new_generation": (
+        "Companies will build, bring, or buy the new generation resources and "
+        "electricity needed to satisfy their new energy demands, paying the full "
+        "cost of those resources whether by building, or buying from, new or "
+        "otherwise additive power plants."
+    ),
+    "delivery_infra": (
+        "Companies will pay for all new power delivery infrastructure upgrades "
+        "required to service their data centers, including adequate network "
+        "upgrade costs to ensure that these expenses are not passed on to the "
+        "ordinary household."
+    ),
+    "separate_rate": (
+        "Companies will voluntarily negotiate new, separate rate structures with "
+        "their utilities and relevant State governments wherever they build data "
+        "centers."
+    ),
+    "local_jobs": (
+        "Companies will invest in the local communities in which they build data "
+        "centers. This includes hiring from within the local community and "
+        "establishing programs to develop relevant skills."
+    ),
+    "grid_resilience": (
+        "Companies will coordinate with grid operators to contribute to a more "
+        "reliable grid and, whenever possible, make available their backup "
+        "generation resources at times of scarcity to prevent blackouts and power "
+        "shortages in their communities."
+    ),
+}
+
+
+def _extract_string_values(js_text: str, name: str) -> dict[str, str]:
+    """Extract `const NAME = { key: "value", ... }` from app.js."""
+    pattern = rf"const\s+{re.escape(name)}\s*=\s*\{{(.*?)\n\}};"
+    m = re.search(pattern, js_text, re.DOTALL)
+    if not m:
+        raise AssertionError(f"Could not find `const {name} = {{...}}` in app.js")
+    return dict(re.findall(r'(\w+):\s*\n?\s*"((?:[^"\\]|\\.)*)"', m.group(1)))
+
+
+def test_commitment_text_is_verbatim_from_the_pledge(js: str) -> None:
+    got = _extract_string_values(js, "PLEDGE_PRINCIPLE_DESCRIPTIONS")
+    assert set(got) == set(PLEDGE_COMMITMENT_TEXT), (
+        "PLEDGE_PRINCIPLE_DESCRIPTIONS must cover exactly the five commitments: "
+        f"missing={set(PLEDGE_COMMITMENT_TEXT) - set(got)}, "
+        f"extra={set(got) - set(PLEDGE_COMMITMENT_TEXT)}"
+    )
+    for key, expected in PLEDGE_COMMITMENT_TEXT.items():
+        assert got[key] == expected, (
+            f"Commitment {key!r} is no longer the pledge's own wording.\n"
+            f"  app.js:   {got[key]}\n"
+            f"  published: {expected}"
+        )
+
+
+def test_commitment_titles_are_the_pledges_headings(js: str) -> None:
+    """Title wording must match the published headings word for word.
+
+    Case is deliberately normalised -- the source uses Title Case, the dashboard
+    renders sentence case throughout -- so this compares casefolded text.
+    """
+    published = {
+        "new_generation": "Building, Bringing, or Buying New Power Supply",
+        "delivery_infra": "Paying for New Power Delivery Infrastructure Upgrades",
+        "separate_rate": "Paying Whether They Use the Power or Not",
+        "local_jobs": "Investing in Local Job Creation and Workforce Development",
+        "grid_resilience": "Contributing to Electric and Community Resilience",
+    }
+    got = _extract_string_values(js, "PLEDGE_PRINCIPLE_LABELS")
+    for key, expected in published.items():
+        assert got[key].casefold() == expected.casefold(), (
+            f"Commitment title {key!r} differs from the published heading.\n"
+            f"  app.js:    {got[key]}\n"
+            f"  published: {expected}"
+        )
+
+
+def test_pledge_principles_match(js: str) -> None:
+    """The five commitments are mirrored Python <-> JS with no guard until now.
+
+    Every other mirrored vocabulary here (THEMES, DELIVERED_*, RATEPAYER_*,
+    TARIFF_*, SIGNATORY_*) has a parity test; this one did not, which is exactly
+    the shape CLAUDE.md keeps warning about -- a hand-written list beside the
+    registry it mirrors.
+    """
+    assert _extract_array(js, "PLEDGE_PRINCIPLES") == list(PLEDGE_PRINCIPLES), (
+        "PLEDGE_PRINCIPLES differs between schema.py and app.js"
+    )
+
+
+def test_pledge_principle_labels_match(js: str) -> None:
+    got = _extract_string_values(js, "PLEDGE_PRINCIPLE_LABELS")
+    assert got == dict(PLEDGE_PRINCIPLE_LABELS), (
+        "PLEDGE_PRINCIPLE_LABELS differs between schema.py and app.js:\n"
+        f"  py-only={set(PLEDGE_PRINCIPLE_LABELS) - set(got)}\n"
+        f"  js-only={set(got) - set(PLEDGE_PRINCIPLE_LABELS)}\n"
+        + "".join(
+            f"  {k}: py={PLEDGE_PRINCIPLE_LABELS[k]!r} js={got[k]!r}\n"
+            for k in set(got) & set(PLEDGE_PRINCIPLE_LABELS)
+            if got[k] != PLEDGE_PRINCIPLE_LABELS[k]
+        )
     )

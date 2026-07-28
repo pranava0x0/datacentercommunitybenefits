@@ -304,6 +304,34 @@ operationally fragile.
 
 ---
 
+### Accordions vs. sub-tabs — the one question that decides (v2.2)
+
+Two sectioning components, and exactly one test picks between them:
+
+> **Would a reader ever want two of these on screen at once?**
+> Yes → `.acc` accordion. No → `.subtabs`.
+
+- **Accordion** for sections read *together*: the moratorium charts and its
+  directory, the tariff coverage grid and its table. Collapsing is about page
+  length, not exclusivity. Several can be open; Ctrl-F and the PDF exports
+  (which walk the DOM) still reach everything.
+- **Sub-tabs** for sections that are *alternatives*: the Ratepayer site cohorts
+  (Assessed / Awaiting / Before the pledge / Never signed — one list bucketed
+  four ways) and the Aggregate rollups (company / signatory category / state —
+  three views of the same numbers). Exactly one panel is visible.
+
+Sub-tabs exist in **two** places and `test_only_two_subtab_groups_exist` pins
+that count, so a third has to argue against the question above rather than
+accrete. Before this, six tabs carried five heading scales and three unrelated
+`<details>` skins; the cost of that wasn't ugliness, it was that a reader
+couldn't tell from the chrome what kind of thing they were looking at.
+
+Counts belong on both: an accordion summary carries a phrase ("39 sites") so a
+*collapsed* panel still says how much is inside; a sub-tab pill carries a bare
+number, because the phrase is too wide for a tab. Where an accordion contains a
+sub-tab group, the summary shows the **combined** total — otherwise collapsing
+hides the number entirely.
+
 ## 4. When to revisit this document
 
 - A new theme is added (rare; requires backlog discussion).

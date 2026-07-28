@@ -729,30 +729,6 @@ main {
   line-height: 1.5;
 }
 
-.rp-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  padding: 6px 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  user-select: none;
-}
-
-.rp-toggle:hover {
-  border-color: var(--text-muted);
-}
-
-.rp-toggle input[type="checkbox"] {
-  cursor: pointer;
-}
-
 /* ==========================================================================
    Theme legend
    ========================================================================== */
@@ -918,46 +894,6 @@ main {
   border-radius: 2px;
   background: var(--co-color, var(--accent));
   flex-shrink: 0;
-}
-
-/* ==========================================================================
-   Claims section
-   ========================================================================== */
-
-.claims-section {
-  margin-top: 32px;
-}
-
-.claims-help {
-  margin: 4px 0 12px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 8px 0 16px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  color: var(--text);
-}
-
-.chip-clear {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--text);
-  cursor: pointer;
 }
 
 .claims-list {
@@ -1661,14 +1597,6 @@ main {
   font-style: italic;
 }
 
-.detail-block {
-  margin-top: 20px;
-}
-
-.detail-block h4 {
-  margin-bottom: 8px;
-}
-
 .response-help {
   margin: 0 0 12px;
   font-size: 0.82rem;
@@ -2198,80 +2126,339 @@ main {
   }
 }
 
-/* Two-column: pledge elements on left, who's signed on right */
-.rp-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  align-items: start;
-  margin-bottom: 1.75rem;
-}
-
 @media (max-width: 720px) {
-  .rp-two-col {
-    grid-template-columns: 1fr;
-  }
 }
 
-/* Commitments box — a collapsible <details> (reference material, collapsed
-   by default to keep the scorecard near the top). */
-.rp-commitments {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.85rem 1.35rem;
-  margin-bottom: 1.75rem;
-}
+/* ==========================================================================
+   SECTION LANGUAGE — one heading treatment for every tab.
 
-.rp-commitments > summary {
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 650;
-  list-style-position: inside;
-  padding: 0.15rem 0;
-}
+   Before this each view had invented its own: .summary-section (no rules at
+   all — it inherited the global serif h3), .agg-section-heading (1.05rem
+   sans), .hot-rail-title (1rem sans), .matrix-help (720px, no heading).
+   Six tabs, five heading scales. The Ratepayer view's shape won — display
+   serif at 400 weight, a muted 64ch dek — and the legacy class names are
+   aliased onto it here rather than renamed, so no JS selector or test id
+   has to move.
 
-.rp-commitments > summary:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
+   Adding a new section? Use the .acc accordion below -- every section on the
+   dashboard is one now. (.rp-section itself is gone: its last holder, the
+   non-signatory block, became a sub-tab panel.) Don't add a sixth heading
+   rule.
+   ========================================================================== */
 
-.rp-commitment-list {
-  margin: 0.85rem 0 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
-.rp-commitment-list li {
-  line-height: 1.45;
-}
-
-.rp-commitments-source {
-  margin: 0.85rem 0 0;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* Generic section heading inside the view */
-.rp-section {
-  margin-bottom: 1.85rem;
-}
-
-.rp-section h3 {
+.hot-rail-title,
+.acc-title {
   margin: 0 0 0.3rem;
-  font-size: 1.1rem;
+  font-family: var(--font-display);
+  /* The display face carries weight optically; 600 makes it look printed
+     twice. Same 400 the pledge band and .rp-subhead already use. */
+  font-weight: 400;
+  font-size: 1.28rem;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: var(--text);
+  /* The global h4 rule uppercases + switches to sans; any heading in this
+     family that happens to be an h4 has to opt back out. */
+  text-transform: none;
 }
 
-.rp-section-sub {
+.rp-section-sub,
+.agg-section-sub,
+.hot-rail-sub,
+.matrix-help,
+.acc-sub {
   margin: 0 0 1rem;
   font-size: 0.9rem;
   color: var(--text-muted);
   max-width: 64ch;
   line-height: 1.45;
+}
+
+/* ==========================================================================
+   ACCORDION — the one collapsible-section component.
+
+   Replaces three unrelated <details> skins that had grown up separately:
+   .directory-section (a filled button-looking bar), .china-context-section
+   (an accent-left callout) and .rp-roster-details (a bare bold summary).
+   All three now render as this.
+
+   Structure:
+     <details class="acc" [open]>
+       <summary><h3 class="acc-title">…</h3><span class="acc-count">…</span></summary>
+       <div class="acc-body">…</div>
+     </details>
+
+   The heading lives INSIDE the summary so the section still appears in a
+   screen reader's heading list; <details>/<summary> supplies the expand
+   semantics natively, so no aria-expanded bookkeeping is needed.
+
+   Don't put buttons in the summary — a click inside it toggles the panel.
+   Export toolbars go in .acc-body. (The old .directory-section shipped its
+   CSV/PDF buttons inside the summary and collapsed the table out from under
+   the reader on every export click.)
+   ========================================================================== */
+
+.acc {
+  margin: 0 0 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.acc > summary {
+  display: flex;
+  align-items: baseline;
+  /* The count chip can carry an as-of date ("302 signatories · as of Jul 25,
+     2026"), which is too wide to sit beside a title on a phone. Let it wrap to
+     its own line rather than overflow or squeeze the heading. */
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0.9rem 0 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  /* Suppress the native disclosure triangle in both engines; .acc-chevron
+     replaces it so the marker can sit on the right and animate. */
+  list-style: none;
+}
+
+.acc > summary::-webkit-details-marker {
+  display: none;
+}
+
+.acc > summary:focus-visible {
+  outline: 2px solid var(--accent-mark);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.acc > summary:hover .acc-title {
+  color: var(--accent-mark);
+}
+
+.acc-title {
+  /* Typography comes from the section-language rule above. */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Belt-and-braces against the <details>-collapse trap: an author `display:`
+   rule on a direct child of <details> outranks the UA rule that hides content
+   while closed, and a closed panel that keeps painting its body is a silent,
+   total failure of the component. Nothing here sets `display` on .acc-body
+   today — this makes sure nothing can. */
+.acc:not([open]) > :not(summary) {
+  display: none;
+}
+
+/* Count of what's inside, so the reader can judge a collapsed panel without
+   opening it. Rendered by setAccCount() in app.js; stays empty (and hidden)
+   until the data it counts has loaded. */
+.acc-count {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-mark);
+  white-space: nowrap;
+}
+
+/* Fires only when the count is genuinely unloaded -- a zero renders "0". */
+.acc-count:empty {
+  display: none;
+}
+
+.acc-chevron {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  margin-left: 2px;
+  border-right: 1.5px solid var(--text-muted);
+  border-bottom: 1.5px solid var(--text-muted);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 0.18s ease;
+}
+
+.acc[open] > summary .acc-chevron {
+  transform: translateY(1px) rotate(225deg);
+}
+
+.acc-body {
+  padding-bottom: 0.5rem;
+  animation: acc-reveal 0.18s ease;
+}
+
+@keyframes acc-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acc-chevron,
+  .acc-body {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   SUB-TABS — for sections that are ALTERNATIVES, not a sequence.
+
+   Used in exactly two places, and the distinction is the whole rule:
+
+     Ratepayer "Tracked sites" — Assessed / Awaiting / Before the pledge /
+       Non-signatory are one list of sites bucketed four ways. You read one.
+     Aggregate — By company / By signatory category / By state are three
+       rollups of the same numbers. You read one.
+
+   Everything else on the dashboard stays an .acc, because those sections are
+   read together (the moratorium charts AND the directory) and sub-tabs would
+   hide content from Ctrl-F and from the PDF exports, which walk the DOM.
+
+   Don't add a sub-tab group to a tab whose sections are complementary. The
+   test is: would a reader ever want two of these on screen at once? If yes,
+   accordion.
+   ========================================================================== */
+
+.subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin: 0 0 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.subtab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.subtab:hover {
+  color: var(--text);
+}
+
+.subtab:focus-visible {
+  outline: 2px solid var(--accent-mark);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.subtab[aria-selected="true"] {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--accent-mark);
+}
+
+.subtab-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+
+.subtab[aria-selected="true"] .subtab-count {
+  color: var(--accent-mark);
+}
+
+/* See .acc-count:empty -- a zero cohort renders "0", not blank. */
+.subtab-count:empty {
+  display: none;
+}
+
+/* 44px touch floor, coarse pointers only. At the desktop scale a sub-tab is
+   ~37px tall (8px padding + 0.88rem text), which is fine for a mouse and below
+   the floor for a thumb. Scoping to `pointer: coarse` keeps the desktop strip
+   at its natural chip scale instead of bloating seven tabs into CTAs. */
+@media (pointer: coarse) {
+  .subtab {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+/* Panels are toggled with the `hidden` attribute. The global [hidden] rule
+   carries !important, so this display value can't resurrect a hidden pane —
+   see CLAUDE.md > "The [hidden] trap". */
+.subtab-panel {
+  display: block;
+  animation: acc-reveal 0.18s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subtab-panel {
+    animation: none;
+  }
+}
+
+/* --- Band variant: the pledge itself ------------------------------------
+   The five commitments sit in the dark band (.rp-band). Collapsing it means
+   the summary row has to read on the band's own background, not the page's,
+   so the hairline and marker flip to the band palette. */
+
+.acc--band {
+  border-top: none;
+}
+
+.acc--band > summary {
+  padding: clamp(20px, 3vw, 32px) clamp(18px, 3vw, 36px);
+  align-items: center;
+}
+
+.acc--band > summary:hover .acc-title,
+.acc--band > summary:hover .rp-band-title {
+  color: var(--band-accent);
+}
+
+/* The kicker is a <span> nested in the <h3> (see index.html for why), so it
+   needs an explicit block to keep sitting above the title. */
+.acc--band .rp-band-kicker {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.acc--band .rp-band-title {
+  margin: 0;
+  max-width: 30ch;
+}
+
+.acc--band .acc-chevron {
+  border-right-color: var(--band-accent);
+  border-bottom-color: var(--band-accent);
+}
+
+.acc--band .acc-count {
+  color: var(--band-accent);
+}
+
+.acc--band > summary:focus-visible {
+  outline-color: var(--band-accent);
+}
+
+/* The band's own padding lives on the summary and this body, so the
+   collapsed state is a single clean bar. */
+.acc--band > .acc-body {
+  padding: 0 clamp(18px, 3vw, 36px) clamp(20px, 3vw, 32px);
 }
 
 /* Signatory roster */
@@ -2286,64 +2473,6 @@ main {
 
 @media (max-width: 480px) {
   .rp-roster { grid-template-columns: 1fr; }
-}
-
-.rp-roster-item {
-  --co-color: var(--accent);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas:
-    "mark name"
-    "mark note";
-  column-gap: 0.6rem;
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--co-color);
-  border-radius: var(--radius);
-  padding: 0.6rem 0.8rem;
-}
-
-.rp-roster-mark {
-  grid-area: mark;
-  font-size: 1.1rem;
-  font-weight: 700;
-  width: 1.4rem;
-  text-align: center;
-}
-
-.rp-roster-item.signed .rp-roster-mark {
-  color: var(--ratepayer-affirmed);
-}
-
-.rp-roster-item.unsigned .rp-roster-mark {
-  color: var(--ratepayer-contested); /* amber — own/DOE commitment, not the White House pledge */
-}
-
-.rp-roster-name {
-  grid-area: name;
-  font-weight: 600;
-  font-size: 0.92rem;
-}
-
-.rp-roster-note {
-  grid-area: note;
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  line-height: 1.3;
-}
-/* When the note is a source link, show a ↗ affordance via CSS so the link
-   text stays exactly the signing-track string (inner_text ignores ::after). */
-a.rp-roster-note {
-  color: var(--accent);
-  text-decoration: none;
-}
-a.rp-roster-note::after {
-  content: " ↗";
-  color: var(--text-muted);
-}
-a.rp-roster-note:hover {
-  text-decoration: underline;
 }
 
 /* Scorecard toolbar: legend chips + export button on the same row */
@@ -2375,7 +2504,6 @@ a.rp-roster-note:hover {
   border: 1px solid color-mix(in srgb, var(--rp-color) 45%, transparent);
   white-space: nowrap;
 }
-
 
 /* Scorecard — multi-column so 11 sites don't become a tall single stack.
    Cards hold short content, so a ~340px min keeps two (often three) per row
@@ -2757,64 +2885,6 @@ a.rp-roster-note:hover {
 }
 .pp-row--unknown .pp-row-status { color: var(--text-muted); }
 
-.rp-evidence-details {
-  margin: 0.65rem 0 0;
-}
-
-.rp-evidence-summary {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  list-style: none;
-  cursor: pointer;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  user-select: none;
-}
-
-.rp-evidence-summary::-webkit-details-marker { display: none; }
-
-.rp-evidence-summary::before {
-  content: "▶";
-  font-size: 0.6rem;
-  transition: transform 0.15s;
-  flex-shrink: 0;
-}
-
-.rp-evidence-details[open] .rp-evidence-summary::before {
-  transform: rotate(90deg);
-}
-
-.rp-evidence-src-link {
-  color: var(--text-muted);
-  text-decoration: none;
-}
-
-.rp-evidence-src-link:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-.rp-evidence {
-  margin: 0.5rem 0 0;
-  padding: 0.55rem 0.85rem;
-  border-left: 3px solid var(--rp-color);
-  background: var(--surface-2);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-family: var(--font-serif);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: var(--text);
-}
-
-.rp-evidence::before {
-  content: "\201C";
-}
-
-.rp-evidence::after {
-  content: "\201D";
-}
-
 /* Always-visible sources footer on every ratepayer site card (v1.17 fix) */
 .rp-card-sources {
   margin-top: 0.7rem;
@@ -2951,11 +3021,6 @@ a.rp-roster-note:hover {
     flex-direction: column;
     gap: 0.5rem;
   }
-
-  /* Roster items: tighter */
-  .rp-roster-item {
-    padding: 0.5rem 0.6rem;
-  }
 }
 
 /* ==========================================================================
@@ -3050,14 +3115,6 @@ a.rp-roster-note:hover {
   margin-bottom: 10px;
 }
 
-.hot-rail-title {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-
 .hot-rail-title::before {
   content: "";
   display: inline-block;
@@ -3070,10 +3127,7 @@ a.rp-roster-note:hover {
 }
 
 .hot-rail-sub {
-  margin: 4px 0 0;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  max-width: 720px;
+  margin: 0;
 }
 
 .hot-rail-list {
@@ -3216,17 +3270,6 @@ a.rp-roster-note:hover {
 /* ==========================================================================
    Aggregate view
    ========================================================================== */
-
-.agg-section {
-  margin-bottom: 2.25rem;
-}
-
-.agg-section-heading {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 0 0 0.75rem;
-  color: var(--text);
-}
 
 .table-scroll {
   overflow-x: auto;
@@ -4096,11 +4139,6 @@ body.tariff-modal-open {
 
 /* ===================== Moratoriums View ===================== */
 
-#view-moratoriums .view-description {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
-
 #moratorium-filters {
   display: flex;
   gap: 1rem;
@@ -4485,14 +4523,6 @@ body.tariff-modal-open {
   letter-spacing: 0.02em;
 }
 
-/* Sponsor name shown under bill number in table cell */
-.moratorium-sponsor {
-  display: block;
-  font-size: 0.78rem;
-  font-style: italic;
-  margin-top: 1px;
-}
-
 /* .gov badge on official government links in the resources list */
 .badge-gov {
   display: inline-block;
@@ -4508,32 +4538,9 @@ body.tariff-modal-open {
   margin-right: 2px;
 }
 
-/* China national security context */
-.china-context-section {
-  margin: 2rem 0;
-  padding: 1.25rem;
-  background-color: var(--surface-2);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: var(--radius);
-}
-
-.china-context-section summary {
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--accent);
-  user-select: none;
-}
-
-.china-context-section summary:hover {
-  text-decoration: underline;
-}
-
+/* China national security context. The outer collapsible skin is now the
+   shared .acc component; only the inner content styling lives here. */
 .china-context-detail {
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--text);
@@ -4595,62 +4602,17 @@ body.tariff-modal-open {
   background-color: var(--surface);
 }
 
-[data-theme="dark"] .china-context-section {
-  background-color: var(--surface-2);
-  border-left-color: var(--accent);
-}
-
 [data-theme="dark"] .china-context-detail table tr:hover {
   background-color: var(--surface);
 }
 
-/* Moratoriums table section (collapsible) */
-.directory-section {
-  margin: 2rem 0;
-}
-
-.directory-section summary {
-  cursor: pointer;
-  padding: 1rem;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--text);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-  transition: background-color 0.2s ease;
-}
-
-.directory-section summary:hover {
-  background-color: var(--surface-2);
-}
-
+/* Export buttons for a directory table. These sit in .acc-body, never in the
+   <summary> — a click inside a summary toggles the panel, so an export button
+   there collapsed the table out from under the reader. */
 .table-controls {
   display: flex;
   gap: 0.5rem;
-}
-
-.btn-secondary {
-  padding: 0.4rem 0.8rem;
-  font-size: 0.85rem;
-  background-color: var(--accent);
-  color: white;
-  border: none;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.btn-secondary:hover {
-  opacity: 0.85;
-}
-
-.btn-secondary:active {
-  opacity: 0.7;
+  margin-bottom: 0.75rem;
 }
 
 @media print {
@@ -4665,7 +4627,6 @@ body.tariff-modal-open {
   .skip-link,
   .explorer-filters,
   .detail-close,
-  .map-container,
   .map,
   #rp-export-csv,
   .cd-responses-breakdown,
@@ -4747,10 +4708,6 @@ body.tariff-modal-open {
   margin: 28px 0;
   border-radius: var(--radius);
   overflow: hidden;
-}
-
-.rp-band-inner {
-  padding: clamp(24px, 4vw, 44px) clamp(18px, 3vw, 36px);
 }
 
 .rp-band-kicker {
@@ -4994,12 +4951,9 @@ body.tariff-modal-open {
 
 /* --- 3. Signatory roster ------------------------------------------------- */
 
-.rp-roster-details > summary {
-  cursor: pointer;
-  padding: 8px 0;
-  font-weight: 600;
-  color: var(--text);
-}
+/* The roster's collapsible skin is the shared .acc component; #rp-roster-details
+   keeps its id because the render-on-first-expand wiring and the e2e suite
+   both address it. */
 
 .rp-roster-controls {
   display: flex;
