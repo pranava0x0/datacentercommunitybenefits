@@ -2690,13 +2690,23 @@ const PLEDGE_TARGETS = {
 // still says how much is inside. A count of 0 clears the chip rather than
 // rendering "0" — .acc-count:empty hides it, and an empty panel's own body
 // copy is the honest place to explain the absence.
-function setAccCount(id, n, singular, plural) {
+function setAccCount(id, n, singular, plural, note) {
   const el = document.getElementById(id);
   if (!el) return;
   // Naive +"s" produced "302 signatorys" / "13 companys" in the first cut, so
   // any noun that doesn't pluralize by suffix passes its plural explicitly.
   const noun = n === 1 ? singular : plural || `${singular}s`;
-  el.textContent = n ? `${n} ${noun}` : "";
+  // `note` carries the as-of date for counts sourced from an external list.
+  // DESIGN.md: a count from an external source must render its as-of date --
+  // an undated "302" reads as a permanent fact about a living roster. The
+  // as-of text also lives in the roster's body copy, but that is INSIDE the
+  // collapsed panel, which is exactly when the chip is the only thing showing.
+  el.textContent = n ? `${n} ${noun}${note ? ` · ${note}` : ""}` : "";
+}
+
+// "as of <date>" for roster-derived counts, or "" before the roster lands.
+function rosterAsOfNote() {
+  return state.rosterAsOf ? `as of ${formatAsOf(state.rosterAsOf)}` : "";
 }
 
 // Expand the accordion containing `node` (and any accordion containing THAT,
@@ -4655,7 +4665,13 @@ function renderCoverageStats() {
   }
 
   const counts = signatoryCounts();
-  setAccCount("rp-coverage-count", (state.signatories || []).length, "signatory", "signatories");
+  setAccCount(
+    "rp-coverage-count",
+    (state.signatories || []).length,
+    "signatory",
+    "signatories",
+    rosterAsOfNote()
+  );
   ul.replaceChildren(
     ...SIGNATORY_CATEGORIES.map((cat) => {
       const li = el("li", `rp-cat-stat cat-${cat}`);
@@ -5065,7 +5081,13 @@ function renderSignatoryRoster() {
   }
   // Summary chip counts the WHOLE roster, not the filtered subset — it has to
   // read correctly while the panel is collapsed and no filter is visible.
-  setAccCount("rp-roster-total", (state.signatories || []).length, "signatory", "signatories");
+  setAccCount(
+    "rp-roster-total",
+    (state.signatories || []).length,
+    "signatory",
+    "signatories",
+    rosterAsOfNote()
+  );
 
   ul.replaceChildren(
     ...rows.map((s) => {

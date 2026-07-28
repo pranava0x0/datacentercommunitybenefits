@@ -2504,3 +2504,72 @@ class TestPledgeTargetsAndTabOrder:
         page.locator("#subtab-rp-sites-pre-pledge").click()
         assert page.locator("#subtab-rp-sites-pre-pledge").evaluate("el => el.tabIndex") == 0
         assert page.locator("#subtab-rp-sites-assessed").evaluate("el => el.tabIndex") == -1
+
+
+class TestExternalCountsAreDated:
+    """DESIGN.md: a count sourced from an external list must render its as-of
+    date. The roster is a living page -- an undated "302" reads as a permanent
+    fact. Codex caught the new summary chips shipping without it: the as-of
+    text existed only in the roster's body copy, which is INSIDE the collapsed
+    panel, i.e. hidden in exactly the state where the chip is all you can see.
+    """
+
+    ROSTER_COUNT_IDS = ("rp-coverage-count", "rp-roster-total")
+
+    def test_roster_chips_carry_the_as_of_date(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        for chip_id in self.ROSTER_COUNT_IDS:
+            txt = page.locator(f"#{chip_id}").inner_text().strip()
+            assert txt, f"#{chip_id} is empty"
+            assert "as of" in txt.lower(), f"#{chip_id} is undated: {txt!r}"
+            # And the date must be the roster's own, not today's.
+            as_of = page.evaluate("() => state.rosterAsOf")
+            assert as_of, "state.rosterAsOf never loaded"
+            assert as_of[:4] in txt, f"#{chip_id}={txt!r} does not carry {as_of}"
+
+    def test_chips_stay_readable_while_collapsed_on_mobile(
+        self, browser, base_url: str
+    ):
+        """The dated chip is long; it must wrap rather than overflow the
+        summary or squeeze the heading out."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        # The page must not scroll sideways -- that is the defect a reader
+        # actually feels, and it is measured in whole pixels on the body.
+        doc = page.evaluate(
+            "() => [document.body.scrollWidth, document.body.clientWidth]"
+        )
+        assert doc[0] <= doc[1], f"page scrolls horizontally: {doc}"
+
+        # Per-summary check needs a tolerance for the same reason the touch
+        # floor does: device scaling makes these sub-pixel, and a flex row that
+        # resolves to 362.4 reports clientWidth 362 / scrollWidth 364 while
+        # rendering with no visible overflow (verified by screenshot).
+        overflow = page.evaluate(
+            """(tol) => [...document.querySelectorAll('#view-ratepayer .acc > summary')]
+                 .filter((s) => s.scrollWidth > s.clientWidth + tol)
+                 .map((s) => [s.textContent.trim().slice(0, 30).replace(/\s+/g, ' '),
+                              s.scrollWidth, s.clientWidth])""",
+            3,
+        )
+        assert overflow == [], f"summaries overflowing on mobile: {overflow}"
+
+        # The dated chip must actually be laid out, not clipped to nothing.
+        chip = page.locator("#rp-coverage-count").bounding_box()
+        assert chip and chip["width"] > 40, f"as-of chip not rendered: {chip}"
+        ctx.close()
+
+    def test_non_roster_chips_are_not_spuriously_dated(
+        self, page: Page, base_url: str
+    ):
+        """Only externally-sourced counts get the date. Site cohorts are ours,
+        and stamping them would imply the roster's provenance."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        txt = page.locator("#rp-sites-count").inner_text().lower()
+        assert "as of" not in txt, f"#rp-sites-count wrongly dated: {txt!r}"
