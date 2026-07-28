@@ -974,7 +974,7 @@ class TestRatepayerView:
         # only renders when the cohort actually contains contested sites
         # (honest-absence — no zero tile). The seed ships contested examples
         # (the Amazon Mississippi trio, v1.19), so all four render.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         assert page.locator("#rp-stats .rp-stat").count() == 4
         last = page.locator("#rp-stats .rp-stat").last
@@ -987,13 +987,15 @@ class TestRatepayerView:
         # that was also the whole roster. It is not any more, so the tile says
         # what it is counting: the companies followed site by site. The
         # roster-wide count lives in the landing band above.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#rp-stats .rp-stat", timeout=10_000)
         first = page.locator("#rp-stats .rp-stat").first
         expect(first).to_contain_text("tracked in depth")
         assert int(first.locator(".rp-stat-value").inner_text()) == 11
 
     def test_landing_band_reports_the_whole_roster(self, page: Page, base_url: str):
+        # The landing band lives in the Overview tab (v2.1), which is the
+        # default view — no navigation needed to reach it.
         page.goto(base_url + "/")
         page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=10_000)
         first = page.locator("#pledge-stats .pledge-stat").first
@@ -1004,7 +1006,7 @@ class TestRatepayerView:
     def test_roster_marks_signatories_and_nonsignatories(
         self, page: Page, base_url: str
     ):
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#ratepayer")
         # The tracked-company roster now renders inline under Coverage rather
         # than behind a disclosure; the full 300-row published roster is the
         # thing that collapses (see TestSignatoryRoster).
@@ -1047,7 +1049,7 @@ class TestRatepayerView:
         # (CoreWeave, Crusoe, Prologis) must NOT be relabelled as March
         # signatories — that conflation is the whole reason join dates are now
         # read per-company off the roster.
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#rp-tracked-roster .rp-roster-item", timeout=10_000)
         notes = page.locator("#rp-tracked-roster .rp-roster-item.signed .rp-roster-note")
         texts = notes.all_inner_texts()
@@ -1797,15 +1799,35 @@ class TestPledgeLanding:
 
     Its job is time-to-first-insight: who signed / is it working / what about
     my state, each answerable without first learning this dashboard's
-    information architecture. These tests assert the band renders from DATA
-    (never hardcoded numbers) and that each surface deep-links.
+    information architecture. As of v2.1 the band is the Overview tab's own
+    content rather than always-visible header chrome — that chrome pushed the
+    tab bar below the fold on load. These tests assert the band renders from
+    DATA (never hardcoded numbers) and that each surface deep-links.
     """
 
-    def test_ratepayer_is_the_default_landing_view(self, page: Page, base_url: str):
+    def test_overview_is_the_default_landing_view(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
-        expect(page.locator("#view-ratepayer")).to_be_visible()
+        expect(page.locator("#view-overview")).to_be_visible()
+        expect(page.locator("#view-ratepayer")).to_be_hidden()
         expect(page.locator("#view-comparison")).to_be_hidden()
+        expect(page.locator("#tab-overview")).to_have_attribute("aria-selected", "true")
+
+    def test_tab_bar_is_reachable_without_scrolling(self, page: Page, base_url: str):
+        """The whole point of moving the landing band into its own tab: the
+        tab bar must be inside the first viewport on load, not pushed below it
+        by a hero-sized band."""
+        page.set_viewport_size({"width": 1440, "height": 900})
+        page.goto(base_url + "/")
+        box = page.locator(".tabbar").bounding_box()
+        assert box is not None, ".tabbar did not render"
+        assert box["y"] < 900, f".tabbar starts at y={box['y']:.0f}, below the fold"
+
+    def test_ratepayer_tab_is_reachable_and_not_default(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.locator("#tab-ratepayer").click()
+        expect(page.locator("#view-ratepayer")).to_be_visible()
+        expect(page.locator("#view-overview")).to_be_hidden()
         expect(page.locator("#tab-ratepayer")).to_have_attribute("aria-selected", "true")
 
     def test_comparison_is_still_deep_linkable(self, page: Page, base_url: str):
@@ -1870,7 +1892,11 @@ class TestPledgeLanding:
 
     def test_pathway_card_jumps_to_its_section(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        # The Ratepayer view renders in the background (Overview shares its
+        # data loader) but stays [hidden] until a tab switch, so the scorecard
+        # cards exist in the DOM before they're visible — wait for "attached",
+        # not the default "visible", or this races the hidden-pane trap.
+        page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=10_000)
         page.locator("#path-researcher").click()
         page.wait_for_timeout(600)
         expect(page.locator("#rp-scorecard-section")).to_be_visible()

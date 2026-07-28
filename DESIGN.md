@@ -92,6 +92,11 @@ editorial weight (good vs bad signaling). Everything else is neutral.
   column at 960px.
 - **Sticky topbar** with the tab strip — users can switch views from any
   scroll position.
+- **Tabs are reachable without scrolling on load.** The header is just the
+  title row + tab strip; no view puts hero-sized content above the tabs. The
+  pledge landing band that used to do this now renders as the "Overview"
+  tab's own content instead (CLAUDE.md > "Pledge-first landing + civic
+  palette").
 - **Project detail panel** uses the `[hidden]` attribute paired with
   `[hidden] { display: none !important }` in CSS (CLAUDE.md > "[hidden]
   trap").
