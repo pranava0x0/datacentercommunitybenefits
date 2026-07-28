@@ -2339,3 +2339,89 @@ class TestAccordionTraps:
                  .map((s) => s.textContent.trim().slice(0, 40))"""
         )
         assert bad == [], f"accordion summaries with no heading element: {bad}"
+
+
+# A `min-height: 44px` element measures 43.999969... in a device-scaled mobile
+# context -- getBoundingClientRect returns layout units, and the mobile
+# emulation's deviceScaleFactor quantizes them. A bare `< 44` comparison
+# therefore fails ~1 run in 5 on code that is perfectly correct. Compare against
+# a half-pixel tolerance, never the exact floor.
+TOUCH_FLOOR_PX = 44
+_SUBPIXEL = 0.5
+
+
+class TestTouchTargets:
+    """44px floor on coarse pointers (AGENTS.md / base CLAUDE.md).
+
+    Codex caught the sub-tabs shipping at ~39px. Note this needs a context with
+    `is_mobile`/`has_touch` -- `set_viewport_size` alone does NOT make
+    `(pointer: coarse)` match, so the project's other mobile tests would have
+    happily measured the desktop rule and passed.
+    """
+
+    def test_coarse_pointer_emulation_actually_engages(self, browser, base_url: str):
+        """Without this the height assertion below silently measures the
+        desktop rule and passes whatever the media query says."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/#ratepayer")
+        assert page.evaluate("() => matchMedia('(pointer: coarse)').matches") is True
+        ctx.close()
+
+    # Both sub-tab groups, each measured in ITS OWN view. A document-wide scan
+    # reads 0px for whichever view is [hidden] and "0 < 44" fails for the wrong
+    # reason -- which is exactly how this test first failed.
+    @pytest.mark.parametrize(
+        "view_hash,view_id,ready",
+        [
+            ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
+            ("#aggregate", "#view-aggregate", "#agg-company-tbody tr"),
+        ],
+    )
+    def test_subtabs_meet_the_44px_floor_on_touch(
+        self, browser, base_url: str, view_hash: str, view_id: str, ready: str
+    ):
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/" + view_hash)
+        page.wait_for_selector(ready, state="attached", timeout=15_000)
+        # Wait for the strip to be VISIBLE, not merely attached: this asserts on
+        # getBoundingClientRect, and a view that has been un-hidden but not yet
+        # laid out reports 0px for every tab. Waiting on `attached` alone made
+        # the #aggregate case fail intermittently under full-suite load.
+        page.wait_for_selector(f"{view_id} .subtab", state="visible", timeout=15_000)
+        heights = page.evaluate(
+            """(sel) => Object.fromEntries(
+                 [...document.querySelectorAll(sel + ' .subtab')]
+                   .map((b) => [b.id, b.getBoundingClientRect().height]))""",
+            view_id,
+        )
+        assert heights, f"no .subtab elements found in {view_id} -- extractor broken"
+        short = {
+            k: v for k, v in heights.items() if v < TOUCH_FLOOR_PX - _SUBPIXEL
+        }
+        assert short == {}, f"sub-tabs below the {TOUCH_FLOOR_PX}px touch floor: {short}"
+        ctx.close()
+
+    def test_accordion_summaries_meet_the_floor_too(self, browser, base_url: str):
+        """These already clear it at 55.8px with no coarse-pointer rule; the
+        test exists so a future padding trim can't quietly drop them under."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=15_000)
+        heights = page.evaluate(
+            """() => [...document.querySelectorAll('#view-ratepayer .acc > summary')]
+                   .map((s) => s.getBoundingClientRect().height)"""
+        )
+        assert heights, "no accordion summaries found -- extractor broken"
+        assert all(
+            h >= TOUCH_FLOOR_PX - _SUBPIXEL for h in heights
+        ), f"summary heights: {heights}"
+        ctx.close()

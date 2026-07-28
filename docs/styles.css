@@ -2461,6 +2461,18 @@ main {
   display: none;
 }
 
+/* 44px touch floor, coarse pointers only. At the desktop scale a sub-tab is
+   ~37px tall (8px padding + 0.88rem text), which is fine for a mouse and below
+   the floor for a thumb. Scoping to `pointer: coarse` keeps the desktop strip
+   at its natural chip scale instead of bloating seven tabs into CTAs. */
+@media (pointer: coarse) {
+  .subtab {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
 /* Panels are toggled with the `hidden` attribute. The global [hidden] rule
    carries !important, so this display value can't resurrect a hidden pane —
    see CLAUDE.md > "The [hidden] trap". */

@@ -1043,6 +1043,17 @@ repeated here because this is the file that actually loads in this directory.
   `/?i=<name>#hash` or `reload()`.
 - **A source's heading routinely claims more than its body supports — quote the
   body.** See the commitments section above for this project's instance.
+- **Never assert a layout measurement against an exact pixel floor.** A
+  `min-height: 44px` sub-tab measures `43.999969...` in Playwright's
+  device-scaled mobile context, so `height < 44` failed ~1 run in 5 on correct
+  CSS and read as flake. `TOUCH_FLOOR_PX - 0.5` in
+  `TestTouchTargets`; mutation-checked that 39px still fails.
+- **`set_viewport_size` does NOT make `(pointer: coarse)` match** — only a
+  context with `is_mobile`/`has_touch` does. Every other mobile test in this
+  repo resizes the viewport, so all of them silently measure the *desktop*
+  rule. Any test about touch behaviour needs a real touch context, and needs to
+  assert the media query engages before trusting its numbers
+  (`test_coarse_pointer_emulation_actually_engages`).
 
 ### The documented `<details>` display-override trap did NOT reproduce here
 
