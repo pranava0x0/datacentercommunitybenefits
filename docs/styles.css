@@ -366,10 +366,12 @@ select:focus-visible,
    Topbar
    ========================================================================== */
 
-/* The header is no longer sticky as a whole (v2): it now contains the pledge
-   hero, and pinning a hero-sized band to the top would eat the viewport. The
-   tab bar alone sticks instead — that is the part worth keeping reachable, and
-   the hero is free to scroll away once it has done its job. */
+/* The header is just the title row + tab bar (v2.1): the pledge landing band
+   used to live here too, which pushed the tabs below the fold on load. It now
+   renders as the "Overview" tab's content inside <main> instead, so the whole
+   header is short enough that every tab is reachable without scrolling. The
+   tab bar keeps its own sticky wrapper (.tabbar-sticky below) so it stays
+   reachable once a tall view (e.g. Overview itself) scrolls past the header. */
 .topbar {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
@@ -436,23 +438,21 @@ select:focus-visible,
 }
 
 /* ==========================================================================
-   Pledge landing band (v2)
+   Pledge landing band (v2) — now the "Overview" tab's content (v2.1)
    ==========================================================================
    The site's front door. Everything in it answers one of three questions a
    first-time visitor arrives with: who signed / is it working / what about my
    state. Numbers are rendered from data by renderPledgeHero() — never baked
    into the markup, because the roster is a moving target.
-   ========================================================================== */
 
-.pledge-hero {
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-}
+   This used to be a full-bleed header band; it is now a normal .view section
+   inside <main>, which already centers content to 1280px and adds 20px side
+   padding. .pledge-hero-inner only needs its own vertical rhythm now — no
+   horizontal padding or max-width of its own, or the Overview tab would render
+   narrower than every other tab. */
 
 .pledge-hero-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: clamp(28px, 4.5vw, 56px) 20px clamp(24px, 3.5vw, 40px);
+  padding: clamp(20px, 3vw, 36px) 0 clamp(20px, 3vw, 32px);
 }
 
 /* Letterspaced gold overline with a short rule above it — the source page's

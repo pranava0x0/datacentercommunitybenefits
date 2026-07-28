@@ -737,17 +737,29 @@ May 2026 CoreWeave site predates *its own operator's* signature. The second is
 not a gap in follow-through — it is outside the window. **Don't** collapse them
 back into one label.
 
-### Pledge-first landing + civic palette (v2)
+### Pledge-first landing + civic palette (v2; tab placement revised in v2.1)
 
-`#ratepayer` is the **default view** (`DEFAULT_VIEW_NAME` in app.js, hoisted
+`#overview` is the **default view** (`DEFAULT_VIEW_NAME` in app.js, hoisted
 above `state` because `state` initializes from it and would otherwise hit the
 temporal dead zone). Comparison gained an explicit `#comparison` hash — it had
 been the bare-root view, and demoting it without one would have left it
 un-linkable.
 
-The landing band sits **above the tab bar**, inside `<header>`. `.topbar` is no
-longer `position: sticky` (a hero-sized sticky band eats the viewport); the new
-`.tabbar-sticky` wrapper sticks instead.
+**v2.1: the landing band moved from header chrome into its own "Overview" tab.**
+Originally (v2) the band sat above the tab bar, inside `<header>`, on every
+view — which meant the tab bar itself was pushed below the fold on load and
+needed a scroll to reach. It now lives in `#view-overview`, a normal `.view`
+section in `<main>` selected by `#tab-overview`, the first tab and the new
+`DEFAULT_VIEW_NAME`. `#ratepayer` (the pledge's own tab: commitments, coverage,
+roster, scorecard) is no longer the default — it's one click away, same as
+every other tab. The header is now just the title row + tab bar, so every tab
+is reachable without scrolling regardless of which one is active.
+`activateView()` triggers the same `loadRatepayerView()` loader for both
+`"overview"` and `"ratepayer"`, since the Overview tab's stat tiles / coverage
+bar / meters / state strip need the identical projects + signatories +
+coverage payload the Ratepayer tab does — there's no separate fetch path to
+keep in sync. `.topbar` is not `position: sticky` (only `.tabbar-sticky` is);
+that stayed true across both layouts.
 
 **It is not four stat tiles.** An early cut was, and four numbers said nothing
 about shape. It now carries a proportional roster bar (the coalition is 63%
@@ -780,7 +792,10 @@ display heading using `<h4>` must override all three (`.rp-commit-title`,
 Making Ratepayer the landing view pulled projects + responses + the roster into
 first paint: **~141 KB → ~237 KB gzipped across 8 requests**, inside the 250 KB
 / 8 guardrail but with little headroom. The old ~202 KB / 6 baseline in this
-file described the Comparison landing and no longer applies.
+file described the Comparison landing and no longer applies. (v2.1: the default
+view is now Overview, not Ratepayer, but the budget is unchanged — Overview
+shares Ratepayer's `loadRatepayerView()` loader and needs the identical
+payload, so nothing below moved.)
 
 `tests/test_perf_budget.py` gates it. **When it fails, make the new payload lazy
 — don't raise the ceiling.** This has already been exercised once: P5 took it to

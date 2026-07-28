@@ -369,7 +369,12 @@ const SORT_LABELS = {
 // it and is defined first — referencing the VIEWS-adjacent const would hit the
 // temporal dead zone. VIEWS resolves DEFAULT_VIEW from this name, so the two
 // cannot disagree.
-const DEFAULT_VIEW_NAME = "ratepayer";
+//
+// "overview" (v2.1) rather than "ratepayer": the pledge landing band used to
+// be always-visible header chrome sitting above the tab bar, which pushed the
+// tabs below the fold on load. It is now the Overview tab's own content, so
+// it needs to be the default view to keep behaving as the front door.
+const DEFAULT_VIEW_NAME = "overview";
 
 const state = {
   companies: [],
@@ -443,7 +448,7 @@ document.addEventListener("DOMContentLoaded", () => {
   wireTabs();
   // The hero's pathway cards are static markup, so they wire once on boot;
   // the stat tiles are re-rendered from data and re-wire themselves.
-  wirePledgeTargets(document.getElementById("pledge-hero"));
+  wirePledgeTargets(document.getElementById("view-overview"));
   wireStatePanel();
   ensureComparisonData()
     .then(() => {
@@ -509,14 +514,16 @@ function wireThemeToggle() {
 // the view name. Iterate this table everywhere so adding a view stays a
 // one-line change.
 //
-// Ratepayer is the default landing view as of v2 (DEFAULT_VIEW_NAME), not
-// Comparison.
+// Overview is the default landing view as of v2.1 (DEFAULT_VIEW_NAME), not
+// Comparison, and not Ratepayer either.
 // The pledge became the organizing frame for the whole "who pays for data
-// center power" question, so it is the front door. Comparison keeps its full
-// behaviour one click away and gained an explicit `#comparison` hash — it had
-// been the bare-root view, and demoting it without giving it a hash would have
-// left it un-linkable.
+// center power" question, so it is the front door — but as of v2.1 it lives in
+// its own Overview tab rather than as header chrome above the tab bar (see
+// DEFAULT_VIEW_NAME). Comparison keeps its full behaviour one click away and
+// has an explicit `#comparison` hash — it had been the bare-root view before
+// v2, and demoting it without giving it a hash would have left it un-linkable.
 const VIEWS = [
+  { name: "overview", tab: "tab-overview", section: "view-overview", hash: "#overview" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
@@ -666,13 +673,16 @@ function activateView(name) {
   }
 
   // The Explorer and Ratepayer views both need the projects/responses payload.
+  // Overview needs the same payload (projects + signatories + coverage) for
+  // its stat tiles / coverage bar / meters / state strip, so it shares the
+  // Ratepayer loader rather than duplicating the fetch-and-index logic.
   if (target.name === "explorer" && !state.explorerLoaded) {
     loadExplorerData().catch((err) => {
       console.error("Failed to load explorer data:", err);
       document.getElementById("explorer-meta").textContent =
         "Failed to load projects.";
     });
-  } else if (target.name === "ratepayer") {
+  } else if (target.name === "ratepayer" || target.name === "overview") {
     loadRatepayerView().catch((err) => {
       console.error("Failed to load ratepayer view:", err);
     });
@@ -2397,7 +2407,7 @@ function renderPledgeHero() {
   renderPledgeMeters();
   renderPledgeStateStrip();
   renderPledgeActivity();
-  wirePledgeTargets(document.getElementById("pledge-hero"));
+  wirePledgeTargets(document.getElementById("view-overview"));
 }
 
 // --- who signed: one proportional bar ------------------------------------

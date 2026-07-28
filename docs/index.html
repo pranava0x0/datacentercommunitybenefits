@@ -33,13 +33,102 @@
         </nav>
       </div>
 
-      <!-- Pledge-first landing band (v2). Sits above the tab bar so the three
-           questions a first-time visitor actually arrives with — who signed,
-           is it working, what about my state — are answerable without first
-           learning this dashboard's information architecture. Stats are
-           computed from the loaded data by renderPledgeHero(); nothing here is
-           a hardcoded number. -->
-      <section class="pledge-hero" id="pledge-hero" aria-labelledby="pledge-hero-title">
+      <!-- Tab bar sits directly under the title (v2.1) so every tab is
+           reachable without scrolling on load. The pledge landing content
+           (kicker/stats/panels/activity/paths) used to live here as
+           always-visible header chrome; it now lives in the "Overview" tab
+           below (#view-overview), the default view, so it's presented like
+           everything else instead of pushing the tab bar off-screen. -->
+      <div class="tabbar-sticky">
+      <div class="tabbar" role="tablist" aria-label="Dashboard views">
+        <button
+          id="tab-overview"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="true"
+          aria-controls="view-overview"
+        >
+          Overview
+        </button>
+        <button
+          id="tab-ratepayer"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-ratepayer"
+        >
+          Ratepayer Protection Pledge
+        </button>
+        <button
+          id="tab-comparison"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-comparison"
+        >
+          Company Comparison
+        </button>
+        <button
+          id="tab-moratoriums"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-moratoriums"
+        >
+          Policy Moratoriums
+        </button>
+        <button
+          id="tab-tariffs"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-tariffs"
+        >
+          Utility Tariffs
+        </button>
+        <button
+          id="tab-explorer"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-explorer"
+        >
+          Project Explorer
+        </button>
+        <button
+          id="tab-aggregate"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-aggregate"
+        >
+          Aggregate
+        </button>
+      </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1" role="main">
+      <!-- ====================== OVERVIEW VIEW ====================== -->
+      <!-- The pledge landing band (v2), now a normal tab (v2.1) rather than
+           header chrome. Answers the three questions a first-time visitor
+           arrives with — who signed, is it working, what about my state —
+           without first learning this dashboard's information architecture.
+           Stats are computed from the loaded data by renderPledgeHero();
+           nothing here is a hardcoded number. -->
+      <section
+        id="view-overview"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-overview"
+      >
         <div class="pledge-hero-inner">
           <p class="pledge-kicker">
             Ratepayer Protection Pledge <span aria-hidden="true">—</span>
@@ -146,73 +235,6 @@
         </div>
       </section>
 
-      <div class="tabbar-sticky">
-      <div class="tabbar" role="tablist" aria-label="Dashboard views">
-        <button
-          id="tab-ratepayer"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="true"
-          aria-controls="view-ratepayer"
-        >
-          Ratepayer Protection Pledge
-        </button>
-        <button
-          id="tab-comparison"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="false"
-          aria-controls="view-comparison"
-        >
-          Company Comparison
-        </button>
-        <button
-          id="tab-moratoriums"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="false"
-          aria-controls="view-moratoriums"
-        >
-          Policy Moratoriums
-        </button>
-        <button
-          id="tab-tariffs"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="false"
-          aria-controls="view-tariffs"
-        >
-          Utility Tariffs
-        </button>
-        <button
-          id="tab-explorer"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="false"
-          aria-controls="view-explorer"
-        >
-          Project Explorer
-        </button>
-        <button
-          id="tab-aggregate"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="false"
-          aria-controls="view-aggregate"
-        >
-          Aggregate
-        </button>
-      </div>
-      </div>
-    </header>
-
-    <main id="main" tabindex="-1" role="main">
       <!-- ====================== COMPARISON VIEW ====================== -->
       <section
         id="view-comparison"
@@ -594,6 +616,7 @@
         class="view"
         role="tabpanel"
         aria-labelledby="tab-ratepayer"
+        hidden
       >
         <div class="hero">
           <h2 class="hero-title">The Ratepayer Protection Pledge</h2>
