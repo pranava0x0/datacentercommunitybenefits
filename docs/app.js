@@ -2673,7 +2673,17 @@ const PLEDGE_TARGETS = {
   roster: { view: "ratepayer", anchor: "rp-roster-details" },
   coverage: { view: "ratepayer", anchor: "rp-coverage-section" },
   commitments: { view: "ratepayer", anchor: "rp-commitments-section" },
-  scorecard: { view: "ratepayer", anchor: "rp-scorecard-section" },
+  // `subtab` pins the cohort this entry point PROMISES. The Overview's
+  // "Which sites have real evidence?" card means the assessed, five-commitment
+  // scorecard -- but the cohort persists across navigations, so a reader who
+  // last looked at "Never signed" was being handed that instead. Ordinary tab
+  // switches still preserve whatever cohort the reader chose; only a target
+  // that names one overrides it.
+  scorecard: {
+    view: "ratepayer",
+    anchor: "rp-scorecard-section",
+    subtab: { group: "rp-sites", key: "assessed" },
+  },
   states: { view: "ratepayer", anchor: "rp-coverage-section" },
   explorer: { view: "explorer", anchor: null },
 };
@@ -2803,6 +2813,7 @@ function goToPledgeTarget(name) {
     const anchor = document.getElementById(target.anchor);
     if (!anchor) return;
     openAccordionsFor(anchor);
+    if (target.subtab) setActiveSubtab(target.subtab.group, target.subtab.key);
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }

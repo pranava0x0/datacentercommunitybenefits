@@ -2551,7 +2551,7 @@ class TestExternalCountsAreDated:
         # resolves to 362.4 reports clientWidth 362 / scrollWidth 364 while
         # rendering with no visible overflow (verified by screenshot).
         overflow = page.evaluate(
-            """(tol) => [...document.querySelectorAll('#view-ratepayer .acc > summary')]
+            r"""(tol) => [...document.querySelectorAll('#view-ratepayer .acc > summary')]
                  .filter((s) => s.scrollWidth > s.clientWidth + tol)
                  .map((s) => [s.textContent.trim().slice(0, 30).replace(/\s+/g, ' '),
                               s.scrollWidth, s.clientWidth])""",
@@ -2573,3 +2573,52 @@ class TestExternalCountsAreDated:
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
         txt = page.locator("#rp-sites-count").inner_text().lower()
         assert "as of" not in txt, f"#rp-sites-count wrongly dated: {txt!r}"
+
+
+class TestPathwayCohort:
+    """A pathway card that names a cohort must deliver that cohort.
+
+    Codex: the cohort persists across navigations (deliberately -- a reader
+    comparing cohorts shouldn't be snapped back). But the Overview's "Which
+    sites have real evidence?" card promises the assessed scorecard, so a
+    reader who last viewed "Never signed" was handed that instead.
+    """
+
+    def test_researcher_pathway_forces_the_assessed_cohort(
+        self, page: Page, base_url: str
+    ):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-non-signatory").click()
+        expect(page.locator("#subtab-rp-sites-non-signatory")).to_have_attribute(
+            "aria-selected", "true"
+        )
+
+        page.locator("#tab-overview").click()
+        page.wait_for_selector("#pledge-meters li", timeout=10_000)
+        page.locator("#path-researcher").click()
+        page.wait_for_timeout(600)
+
+        expect(page.locator("#subtab-rp-sites-assessed")).to_have_attribute(
+            "aria-selected", "true"
+        )
+        expect(page.locator("#rp-scorecard .rp-card").first).to_be_visible()
+
+    def test_ordinary_tab_switching_still_preserves_the_cohort(
+        self, page: Page, base_url: str
+    ):
+        """The other half: only a target that NAMES a cohort overrides it.
+        Without this, the fix above becomes 'always snap back to assessed',
+        which is the behaviour _activeSubtab exists to prevent."""
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        page.locator("#subtab-rp-sites-pre-pledge").click()
+
+        page.locator("#tab-moratoriums").click()
+        page.wait_for_timeout(300)
+        page.locator("#tab-ratepayer").click()
+        page.wait_for_timeout(400)
+
+        expect(page.locator("#subtab-rp-sites-pre-pledge")).to_have_attribute(
+            "aria-selected", "true"
+        )
