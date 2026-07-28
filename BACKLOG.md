@@ -849,3 +849,30 @@ It didn't reproduce in this project's Chromium (see CLAUDE.md). The
 `.acc:not([open])` safeguard is currently defense against a threat we have not
 observed here. If the e2e suite ever runs WebKit/Firefox, re-run the mutation
 there; if it doesn't bite in any engine we test, the rule is dead weight.
+
+
+### 22 pre-existing W3C validation errors — **medium**
+Found while checking a Codex review point against the W3C Nu validator rather
+than arguing from memory (`curl --data-binary @docs/index.html
+"https://validator.w3.org/nu/?out=json"`). Exactly **one** of the 23 errors
+belonged to the accordion work and was fixed; the other 22 predate it:
+
+- **11×** `role` on `<th>` inside a `<table>` with no `role` — the aggregate and
+  directory tables.
+- **4×** `aria-label` / `aria-labelledby` on a bare `<div>` with no `role`.
+  These are silently ignored by AT, so the labels do nothing today.
+- **3×** `role="dialog"` + `aria-modal` on `<aside>` — the tariff, moratorium
+  and state modals. Should be `<div role="dialog">`.
+- **1×** `<thead>` row with no cells.
+
+None are cosmetic: the four `aria-label`-on-`div` cases mean four regions a
+screen-reader user hears unlabelled. Worth a dedicated pass, plus wiring the
+validator into CI so the count can only go down.
+
+### `.rp-card-details` summaries wrap content in a `<div>` — **low**
+`<summary>` takes phrasing content optionally intermixed with heading content,
+so the `<div class="rp-card-title">` inside each of the 39 ratepayer card
+summaries is non-conforming — same defect as the one fixed on the pledge band,
+different component. `test_summaries_contain_only_conforming_children` is
+deliberately scoped to `details.acc > summary` so it stays green; widen the
+selector once the card markup is fixed.

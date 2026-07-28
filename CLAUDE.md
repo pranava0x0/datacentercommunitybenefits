@@ -1055,6 +1055,32 @@ repeated here because this is the file that actually loads in this directory.
   assert the media query engages before trusting its numbers
   (`test_coarse_pointer_emulation_actually_engages`).
 
+### Check the spec with a validator, not from memory
+
+Codex flagged the accordion summaries as non-conforming, claiming both the
+`<div>` wrapper **and** the `<h3>`-beside-spans pattern were invalid. Running
+`docs/index.html` through the W3C Nu validator settled it in one call:
+
+```
+curl -sS -H "Content-Type: text/html; charset=utf-8" \
+  --data-binary @docs/index.html "https://validator.w3.org/nu/?out=json"
+```
+
+The `<div>` was a real error ("Element div not allowed as child of element
+summary"); the h3-with-sibling-spans pattern drew no complaint — `<summary>`
+takes phrasing content *optionally intermixed with heading content*, which is a
+spec change I'd have got wrong from memory in either direction. The kicker moved
+inside the `<h3>` (which does take phrasing content), so no wrapper is needed.
+
+**The same call found 22 pre-existing errors nobody had looked for**, four of
+which are `aria-label` on a bare `<div>` — silently ignored by AT, so four
+regions a screen-reader user hears unlabelled. Logged in BACKLOG.md, not
+widened into that PR. Worth wiring into CI so the count can only go down.
+
+`test_summaries_contain_only_conforming_children` is the offline proxy, scoped
+to `details.acc > summary` so it doesn't fail on the 39 pre-existing
+`.rp-card-details` summaries that have the identical defect.
+
 ### A "does this name appear anywhere?" check is not a usage check
 
 `tests/test_no_dead_css.py` v1 asked whether a CSS class name appeared as a

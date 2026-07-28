@@ -2288,13 +2288,6 @@ main {
   min-width: 0;
 }
 
-/* Wrapper for a summary whose header needs more than the title (the pledge
-   band pairs a kicker with it). A <div> so it can legally hold the <h3>. */
-.acc-head {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 /* Belt-and-braces against the <details>-collapse trap: an author `display:`
    rule on a direct child of <details> outranks the UA rule that hides content
    while closed, and a closed panel that keeps painting its body is a silent,
@@ -2484,7 +2477,10 @@ main {
   color: var(--band-accent);
 }
 
+/* The kicker is a <span> nested in the <h3> (see index.html for why), so it
+   needs an explicit block to keep sitting above the title. */
 .acc--band .rp-band-kicker {
+  display: block;
   margin-bottom: 10px;
 }
 

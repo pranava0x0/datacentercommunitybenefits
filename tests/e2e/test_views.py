@@ -2341,6 +2341,36 @@ class TestAccordionTraps:
         assert bad == [], f"accordion summaries with no heading element: {bad}"
 
 
+    def test_summaries_contain_only_conforming_children(
+        self, page: Page, base_url: str
+    ):
+        """<summary> takes phrasing content optionally intermixed with heading
+        content -- so a wrapping <div> is non-conforming, while an <h3> beside
+        count/chevron spans is fine.
+
+        Confirmed against the W3C Nu validator, not from memory: it flagged
+        exactly the <div> ("Element div not allowed as child of element
+        summary") and said nothing about the h3-with-sibling-spans pattern used
+        on every other accordion. Offline proxy for that check, since the suite
+        shouldn't depend on a network service.
+
+        Scoped to `.acc > summary`, the component this rule now governs. The
+        JS-rendered `.rp-card-details` summaries wrap their content in a
+        `<div class="rp-card-title">` and have the same problem -- 39 of them --
+        but that is pre-existing markup outside this component and is logged in
+        BACKLOG.md rather than widened into this change.
+        """
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", timeout=10_000)
+        FLOW_ONLY = "div,p,ol,ul,li,section,article,table,form,dl,figure,details"
+        bad = page.evaluate(
+            """(sel) => [...document.querySelectorAll('details.acc > summary')]
+                 .flatMap((s) => [...s.querySelectorAll(sel)]
+                   .map((c) => `${c.tagName.toLowerCase()} in ${s.parentElement.id || '(unnamed)'}`))""",
+            FLOW_ONLY,
+        )
+        assert bad == [], f"flow-content children inside <summary>: {bad}"
+
 # A `min-height: 44px` element measures 43.999969... in a device-scaled mobile
 # context -- getBoundingClientRect returns layout units, and the mobile
 # emulation's deviceScaleFactor quantizes them. A bare `< 44` comparison

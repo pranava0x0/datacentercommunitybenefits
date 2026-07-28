@@ -669,15 +669,17 @@
           <summary>
             <!-- A real <h3>, not a styled <span>: a collapsed section whose
                  header isn't a heading element drops out of screen-reader
-                 heading navigation and the document outline. The wrapper is a
-                 <div> because <span> is phrasing content and can't legally
-                 contain a heading. -->
-            <div class="acc-head">
+                 heading navigation and the document outline.
+
+                 The kicker lives INSIDE the heading. <summary> takes phrasing
+                 content optionally intermixed with heading content, so a
+                 wrapping <div> is not conforming (W3C Nu: "Element div not
+                 allowed as child of element summary") — but <h3> takes
+                 phrasing content, so the kicker nests happily there. -->
+            <h3 class="rp-band-title acc-title" id="rp-commitments-heading">
               <span class="rp-band-kicker">The pledge</span>
-              <h3 class="rp-band-title acc-title" id="rp-commitments-heading">
-                Five commitments, and how the tracked sites measure up.
-              </h3>
-            </div>
+              Five commitments, and how the tracked sites measure up.
+            </h3>
             <span class="acc-count" id="rp-commitments-count"></span>
             <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
