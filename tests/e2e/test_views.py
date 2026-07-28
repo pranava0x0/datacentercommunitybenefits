@@ -2756,3 +2756,35 @@ class TestZeroCounts:
         )
         assert result["zero"] == ["0 sites", "0"], result
         assert result["missing"] == ["", ""], result
+
+
+class TestAggregateExportsCoverEveryRollup:
+    """Every rollup the UI advertises must appear in the export.
+
+    The Aggregate CSV/PDF serialized only company + state, so a reader who
+    selected "By signatory category" and hit Export got a file without the
+    table they were looking at. Codex caught it.
+    """
+
+    def test_csv_contains_all_three_rollups(self, page: Page, base_url: str):
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
+        with page.expect_download() as dl:
+            page.locator("#agg-csv-btn").click()
+        text = Path(dl.value.path()).read_text()
+        for section in ("BY COMPANY", "BY SIGNATORY CATEGORY", "BY STATE"):
+            assert section in text, f"{section} missing from the aggregate CSV"
+        # And it must carry real rows, not just the header.
+        assert "Hyperscaler" in text or "Did not sign" in text, text[:400]
+
+    def test_every_rollup_tab_has_a_csv_section(self, page: Page, base_url: str):
+        """Derived, not hardcoded: one CSV section per sub-tab, so adding a
+        fourth rollup without exporting it fails here."""
+        page.goto(base_url + "/#aggregate")
+        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
+        tabs = page.locator("#view-aggregate .subtab").count()
+        with page.expect_download() as dl:
+            page.locator("#agg-csv-btn").click()
+        text = Path(dl.value.path()).read_text()
+        sections = sum(1 for line in text.splitlines() if line.startswith("BY "))
+        assert sections == tabs, f"{tabs} rollup tabs but {sections} CSV sections"

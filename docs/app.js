@@ -3103,6 +3103,16 @@ function downloadAggregateCSV() {
     csv += [r.name, r.projects, r.power_mw ?? "", r.capex ?? "", r.jobs ?? "",
       r.claims, r.positive, r.mixed, r.negative].map(csvCell).join(",") + "\r\n";
   }
+  // All THREE advertised rollups, not two. A reader who selects the signatory
+  // tab and hits Export was getting a file that omitted the table they were
+  // looking at.
+  csv += "\r\nBY SIGNATORY CATEGORY\r\n";
+  const sigHeaders = ["category", "companies", "sites", "power_mw", "investment_usd", "assessed", "contested"];
+  csv += sigHeaders.map(csvCell).join(",") + "\r\n";
+  for (const r of buildSignatoryCategoryRollups()) {
+    csv += [r.label, r.companies.size, r.projects, r.power_mw || "", r.capex || "",
+      r.assessed, r.contested].map(csvCell).join(",") + "\r\n";
+  }
   csv += "\r\nBY STATE\r\n";
   const stHeaders = ["state", "companies", "projects", "power_mw", "investment_usd", "jobs", "positive", "mixed", "negative"];
   csv += stHeaders.map(csvCell).join(",") + "\r\n";
@@ -3131,10 +3141,19 @@ async function exportAggregateToPDF() {
       r.capex != null ? formatUsd(r.capex) : "—",
       r.jobs ?? "—", r.positive, r.mixed, r.negative])
   );
+  const sigHtml = _pdfTable(
+    ["Category", "Companies", "Sites", "Power", "Investment", "Assessed", "Contested"],
+    buildSignatoryCategoryRollups().map((r) => [r.label, r.companies.size, r.projects,
+      r.power_mw ? formatPower(r.power_mw) : "—",
+      r.capex ? formatUsd(r.capex) : "—",
+      r.assessed, r.contested || "—"])
+  );
   const today = new Date().toISOString().slice(0, 10);
   await _exportToPDF(
     "Aggregate Totals",
-    `<h2 style="font-size:14px;margin-top:0;">By Company</h2>${coHtml}<h2 style="font-size:14px;margin-top:16px;">By State</h2>${stHtml}`,
+    `<h2 style="font-size:14px;margin-top:0;">By Company</h2>${coHtml}` +
+      `<h2 style="font-size:14px;margin-top:16px;">By Signatory Category</h2>${sigHtml}` +
+      `<h2 style="font-size:14px;margin-top:16px;">By State</h2>${stHtml}`,
     `dcb-aggregate-${today}.pdf`
   );
 }

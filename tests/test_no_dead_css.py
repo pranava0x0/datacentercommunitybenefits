@@ -63,6 +63,56 @@ def _strip_comments(css: str) -> str:
     return re.sub(r"/\*.*?\*/", "", css, flags=re.DOTALL)
 
 
+def _strip_source_comments(html: str, js: str) -> tuple[str, str]:
+    """Remove comments so retired-by-commenting-out markup isn't read as live.
+
+    The CSS side has always been stripped; the markup side was not, so
+    `<!-- <div class="retired"> -->` kept its selector certified. Same
+    false-negative this file exists to close, one input over.
+
+    The JS stripper is context-aware ON PURPOSE. A `//`-matching regex cannot
+    tell a comment from the `//` inside `"https://example.com"` and will
+    silently eat half a URL -- see the base CLAUDE.md's rule about never
+    regex-stripping comments from JS. This walks the source tracking string,
+    template and regex-literal context, and `test_comment_stripper_preserves_string_literals`
+    proves it leaves a known URL intact.
+    """
+    html = re.sub(r"<!--.*?-->", "", html, flags=re.DOTALL)
+
+    out: list[str] = []
+    i, n = 0, len(js)
+    quote: str | None = None
+    while i < n:
+        ch = js[i]
+        nxt = js[i + 1] if i + 1 < n else ""
+        if quote:
+            if ch == "\\":
+                out.append(js[i : i + 2])
+                i += 2
+                continue
+            if ch == quote:
+                quote = None
+            out.append(ch)
+            i += 1
+            continue
+        if ch in "\"'`":
+            quote = ch
+            out.append(ch)
+            i += 1
+            continue
+        if ch == "/" and nxt == "/":
+            while i < n and js[i] != "\n":
+                i += 1
+            continue
+        if ch == "/" and nxt == "*":
+            end = js.find("*/", i + 2)
+            i = n if end == -1 else end + 2
+            continue
+        out.append(ch)
+        i += 1
+    return html, "".join(out)
+
+
 def _class_attr_values(text: str) -> list[str]:
     """Every complete `class="..."` value, interpolations included.
 
@@ -170,8 +220,9 @@ def _applied_classes(html: str, js: str) -> tuple[set[str], set[str]]:
 @pytest.fixture(scope="module")
 def scan() -> tuple[list[str], set[str], set[str]]:
     css = _strip_comments((DOCS / "styles.css").read_text())
-    html = (DOCS / "index.html").read_text()
-    js = (DOCS / "app.js").read_text()
+    html, js = _strip_source_comments(
+        (DOCS / "index.html").read_text(), (DOCS / "app.js").read_text()
+    )
     owned = sorted(
         {
             c
@@ -228,3 +279,36 @@ def test_no_orphaned_project_selectors(scan) -> None:
         "check the template-literal stem is detectable:\n  "
         + "\n  ".join(f".{c}" for c in dead)
     )
+
+
+def test_comment_stripper_preserves_string_literals() -> None:
+    """The JS stripper must not eat `//` inside a string.
+
+    A regex-based stripper silently corrupts `"https://..."` into `"https:` --
+    the failure the base CLAUDE.md rule was written about. This asserts a real
+    URL from app.js survives, and that a genuine comment does not.
+    """
+    js_raw = (DOCS / "app.js").read_text()
+    marker = "https://www.whitehouse.gov"
+    assert marker in js_raw, "fixture drifted -- pick another literal"
+    _, js = _strip_source_comments("", js_raw)
+    assert marker in js, "the stripper ate a URL inside a string literal"
+
+    _, stripped = _strip_source_comments(
+        "", 'const a = "keep://this"; // drop-this\n/* and-this */ const b = 1;'
+    )
+    assert "keep://this" in stripped
+    assert "drop-this" not in stripped
+    assert "and-this" not in stripped
+
+
+def test_commented_out_markup_is_not_a_live_class() -> None:
+    """Pins the hole Codex found: retiring markup by commenting it out must not
+    keep its CSS certified."""
+    html, js = _strip_source_comments(
+        '<!-- <div class="zz-retired-html"></div> -->',
+        '// el("div", "zz-retired-js")\n',
+    )
+    exact, _ = _applied_classes(html, js)
+    assert "zz-retired-html" not in exact
+    assert "zz-retired-js" not in exact
