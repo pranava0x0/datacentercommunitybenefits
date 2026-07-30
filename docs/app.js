@@ -53,6 +53,9 @@ const COMPANY_SLUGS = [
   "crusoe",
   "coreweave",
   "prologis",
+  "sb-energy",
+  "amentum",
+  "brookfield",
 ];
 
 const STANCE_LABELS = {

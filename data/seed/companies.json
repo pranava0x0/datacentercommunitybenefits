@@ -126,6 +126,31 @@
       "summary": "Prologis is the world's largest industrial REIT (~1.2 billion sq ft logistics portfolio globally) that entered hyperscale data-center development in 2024-2025 via partnership with developer Atlas. The first major US project tracked here is Project Sail — a $17B, 832-acre, 9-building, ~900 MW campus near Newnan, GA (Coweta County), approved 3-2 in an April 2026 rezoning vote and sited deliberately to lean on Georgia Power's Plant Yates and the Ashley Park-Wansley 500 kV transmission build-out. Prologis does NOT publish a community-impact framework comparable to QTS's Ratepayer Protection Pledge or Nebius's Independence MO commitments — public statements are project-by-project rather than a portfolio doctrine. The most-quoted Prologis posture on Project Sail is JC Witt (SVP Data Center Investments) framing the 900 MW campus as something 'we really want to execute on for the community and for the company,' combined with Atlanta market officer Kent Mason's siting rationale that 'the lines are there' — the same Georgia Power transmission corridor whose extension is now subject to active eminent-domain disputes by Coweta and Fayette County residents. Tracked from v1.14 onward because Project Sail meets the non-hyperscaler scale gate via $17B and 900 MW; the no-published-framework status is the editorially honest summary, not a research gap.",
       "last_reviewed": "2026-05-17",
       "ratepayer_pledge_signatory": true
+    },
+    {
+      "slug": "sb-energy",
+      "name": "SB Energy (SoftBank Group)",
+      "hq": "Redwood City, CA",
+      "dedicated_page_url": "https://sbenergy.com/communities/",
+      "summary": "SB Energy, SoftBank Group's energy platform, is building the PORTS Technology Campus on private land adjacent to the U.S. Department of Energy's Portsmouth Site near Piketon, Ohio — a planned buildout of up to 10 GW (800 MW first phase, groundbreaking held March 20, 2026). SB Energy has published the most substantive first-party community framing of the three DOE-adjacent entities added in this refresh: a standing corporate '/communities/' page with named-staff quotes on local engagement, and a project-specific '$40 million Community Benefits Agreement' on its own PORTS Technology Campus microsite. SB Energy states it will fund 100% of the cost of new grid upgrades and transmission (built via AEP Ohio) so Ohio ratepayers aren't burdened by the buildout — the same pay-our-own-way framing as the White House Ratepayer Protection Pledge, though SB Energy is not a signatory to that specific pledge. Reported investment and jobs figures vary widely across sources depending on scope (data center alone vs. the paired 9.2 GW gas plant vs. transmission vs. the full $67.2B campus figure tied to its FAST-41 federal permitting designation) — treat any single headline number with that caveat.",
+      "last_reviewed": "2026-07-30",
+      "ratepayer_pledge_signatory": false
+    },
+    {
+      "slug": "amentum",
+      "name": "Amentum",
+      "hq": "Chantilly, VA",
+      "summary": "Amentum, a government-services and engineering contractor, was selected by DOE's National Nuclear Security Administration on July 20, 2026 to negotiate a phased lease for a 1 GW AI data center (backed by ~2 GW of on-site gas-to-nuclear generation) at the Savannah River Site in Aiken County, South Carolina. DOE's own language is explicit that this is a selection for negotiations, not a final lease award — subject to permitting, safety/security review, and federal approvals. Amentum's general corporate sustainability page carries no data-center- or Savannah-River-specific content; the only first-party material found so far is its own press release announcing the selection, with quotes from CEO John Heller and Energy & Environment business president Mark Whitney about the opportunity, not yet a standing community-impact page. Tracked here because the announced scale (1 GW) clears the non-hyperscaler bar, with the caveat that this is the earliest-stage of the three DOE-adjacent entities added in this refresh and has the thinnest published community framing to date.",
+      "last_reviewed": "2026-07-30",
+      "ratepayer_pledge_signatory": false
+    },
+    {
+      "slug": "brookfield",
+      "name": "Brookfield",
+      "hq": "Toronto, Canada",
+      "summary": "Brookfield was selected by DOE to lease, develop, and operate a data-center campus at the former Paducah Gaseous Diffusion Plant site in McCracken County, Kentucky, announced July 29, 2026 — a $100B+ privately-funded redevelopment, ~600 acres, 1.8 GW of utility capacity (1.2+ GW compute), with DOE, Brookfield, and NextEra Energy's own releases all explicit that Brookfield develops/operates the data center while NextEra Energy separately builds and owns the paired generation (up to 2 GW gas, up to 2.6 GW battery storage) — Brookfield is not itself a power-generation company here. Brookfield CEO Bruce Flatt is quoted on the need for infrastructure capital 'that benefits local communities'; Brookfield has not published a standing data-center community-impact page, only this project announcement. NextEra Energy is an independent Ratepayer Protection Pledge signatory (joined the July 23, 2026 expansion track) — Brookfield itself is not a signatory, and that distinction is deliberately not blurred here: the consortium's combined ratepayer-protection framing (generation 'paid for and built specifically for the project, protecting customers from costs') reflects NextEra's commitment on the power side, not an independent Brookfield pledge.",
+      "last_reviewed": "2026-07-30",
+      "ratepayer_pledge_signatory": false
     }
   ]
 }

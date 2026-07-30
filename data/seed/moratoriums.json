@@ -959,21 +959,21 @@
       "id": "hernando-county-fl-2026-06",
       "jurisdiction": "Hernando County",
       "jurisdiction_type": "county",
-      "status": "proposed",
-      "enacted_date": null,
-      "effective_date": null,
+      "status": "enacted",
+      "enacted_date": "2026-07-14",
+      "effective_date": "2026-07-14",
       "duration_months": 12,
-      "duration_description": "1 year (unanimously approved at first reading June 24; final adoption vote pending)",
+      "duration_description": "1 year",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "water",
         "transparency"
       ],
-      "summary": "Hernando County (west Florida) commissioners unanimously approved a proposed 12-month moratorium on new data center applications on June 24, 2026, advancing it to a final adoption vote. Triggered by resident concerns about data center energy and water impacts. Part of the broader wave of Central/North Florida county moratoriums enacted in June 2026 under the 1-year pathway created by Florida SB484.",
+      "summary": "Hernando County (west Florida) commissioners unanimously approved a 12-month moratorium on new data center applications, advancing it at first reading June 24, 2026 and adopting it on final vote July 14, 2026 (the same meeting date on which neighboring Pasco County finalized its own moratorium). Triggered by resident concerns about data center energy and water impacts. Part of the broader wave of Central/North Florida county moratoriums enacted in mid-2026 under the 1-year pathway created by Florida SB484.",
       "source_url": "https://www.wfla.com/news/local-news/hernando-county/hernando-county-moves-forward-with-proposed-data-center-moratorium-after-resident-concerns/",
       "source_title": "WFLA — Hernando County moves forward with proposed data center moratorium",
-      "captured_at": "2026-06-25",
+      "captured_at": "2026-07-30",
       "resources": [
         {
           "url": "https://www.wfla.com/news/local-news/hernando-county/hernando-county-moves-forward-with-proposed-data-center-moratorium-after-resident-concerns/",
@@ -982,6 +982,10 @@
         {
           "url": "https://floridapolitics.com/archives/803697-three-counties-moving-forward-with-one-year-data-center-moratoriums/",
           "title": "Florida Politics — Three counties moving forward with data center moratoriums"
+        },
+        {
+          "url": "https://www.tampabaybeacons.com/2026/07/27/why-hernando-county-needs-a-total-data-center-ban/",
+          "title": "Tampa Bay Beacons — Why Hernando County needs a total data center ban (confirms final adoption)"
         },
         {
           "url": "https://www.hernandocounty.us/",
@@ -2480,29 +2484,49 @@
       "jurisdiction": "Pasco County",
       "jurisdiction_type": "county",
       "status": "enacted",
-      "enacted_date": "2026-06-12",
-      "effective_date": "2026-06-12",
+      "enacted_date": "2026-07-14",
+      "effective_date": "2026-07-14",
       "duration_months": 12,
       "duration_description": "1 year",
-      "power_threshold_mw": null,
+      "power_threshold_mw": 2.5,
       "key_reasons": [
         "energy",
         "water"
       ],
-      "summary": "Pasco County (west-central Florida) commissioners enacted a one-year moratorium on data center development around June 12, 2026, following resident concerns about energy and water impacts. Part of a broader wave of Central/North Florida county moratoriums enacted within days of each other in June 2026. Florida's SB484 (signed May 7) restricts permanent bans but allows moratoria of up to one year, which is why multiple Florida counties moved in concert.",
-      "source_url": "https://www.wusf.org/economy-business/2026-06-12/data-centers-pasco-county-one-year-moratorium",
-      "source_title": "WUSF (NPR Florida) — A one-year moratorium is placed on data centers in Pasco County",
-      "captured_at": "2026-06-25",
+      "summary": "Pasco County (west-central Florida) commissioners passed the first reading of a one-year moratorium on large-scale data center development on June 12, 2026, then adopted it on final vote July 14, 2026, with a 2.5 MW threshold (reduced from an originally proposed 10 MW). Following resident concerns about energy and water impacts. Part of a broader wave of Central/North Florida county moratoriums enacted in mid-2026. Florida's SB484 (signed May 7) restricts permanent bans but allows moratoria of up to one year, which is why multiple Florida counties moved in concert.",
+      "source_url": "https://www.wusf.org/politics-issues/2026-07-15/pasco-county-one-year-moratorium-large-data-centers",
+      "source_title": "WUSF (NPR Florida) — Pasco County commissioners approve one-year moratorium on large-scale data centers",
+      "captured_at": "2026-07-30",
       "resources": [
         {
           "url": "https://www.wusf.org/economy-business/2026-06-12/data-centers-pasco-county-one-year-moratorium",
-          "title": "WUSF (NPR Florida) — Pasco County one-year moratorium"
+          "title": "WUSF (NPR Florida) — first reading, June 12, 2026"
         },
         {
           "url": "https://pascogov.com/",
           "title": "Pasco County, Florida (official)"
         }
       ],
+      "state_code": "FL"
+    },
+    {
+      "id": "sarasota-county-fl-2026-07",
+      "jurisdiction": "Sarasota County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-07-09",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "1 year",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "transparency"
+      ],
+      "summary": "Sarasota County (southwest Florida) commissioners voted 5-0 on July 9, 2026 to stop accepting or reviewing data center applications for one year, after the county was approached by a company interested in a Cattleman Road property. No formal applications had been received; the pause gives staff time to evaluate how data centers fit the zoning code before any are considered. Part of the broader wave of Florida county moratoriums enacted under the 1-year pathway created by Florida SB484.",
+      "source_url": "https://www.businessobserverfl.com/news/2026/jul/09/sarasota-county-bans-data-center/",
+      "source_title": "Business Observer — Sarasota County bans data center applications for one year",
+      "captured_at": "2026-07-30",
+      "resources": null,
       "state_code": "FL"
     },
     {
@@ -3263,6 +3287,41 @@
         {
           "url": "https://www.washco-md.net/wp-content/uploads/Draft-Ordinance-Data-Center-Memoratorium.pdf",
           "title": "Washington County — Draft Ordinance: A Moratorium Concerning Data Centers"
+        }
+      ],
+      "state_code": "MD"
+    },
+    {
+      "id": "montgomery-county-md-2026-07",
+      "jurisdiction": "Montgomery County",
+      "jurisdiction_type": "county",
+      "status": "enacted",
+      "enacted_date": "2026-07-28",
+      "effective_date": null,
+      "duration_months": 18,
+      "duration_description": "18 months",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy",
+        "noise",
+        "transparency"
+      ],
+      "summary": "The Montgomery County Council voted 11-0 on July 28, 2026 to adopt an 18-month moratorium (Expedited Bill 19-26) barring the Department of Permitting Services from issuing new data center permits, alongside a companion Zoning Text Amendment (ZTA 26-01) establishing a data-center definition and limitations in the zoning code. Cited concerns: Potomac River protection, ratepayer/electric-bill impact, noise, water use, and the absence of an existing zoning definition for data centers; a state-level study is due to the Governor and General Assembly by September 1, 2026. The 18-month term was a compromise between an initial 6-month proposal (Councilmember Evan Glass) and a 2-year proposal (Councilmembers Will Jawando and Kristin Mink), and follows an interim 6-month moratorium County Executive Marc Elrich had already imposed by executive order in June 2026. Existing, already-operating data centers are exempt. Atmosphere's proposed Dickerson data center (a former coal-plant site) is among the affected pending proposals.",
+      "source_url": "https://www.montgomerycountymd.gov/news/council-approves-18-month-data-center-moratorium-places-limitations-data-center-development",
+      "source_title": "Montgomery County, MD — Council Approves 18-Month Data Center Moratorium, Places Limitations on Data Center Development",
+      "bill_number": "Expedited Bill 19-26 / ZTA 26-01",
+      "sponsors": null,
+      "key_stakeholders": null,
+      "enacted_by": "Montgomery County Council",
+      "city_council_vote": "11-0 (unanimous)",
+      "failure_reason": null,
+      "session": "2026",
+      "captured_at": "2026-07-30",
+      "resources": [
+        {
+          "url": "https://wtop.com/montgomery-county/2026/07/montgomery-county-council-approves-18-month-moratorium-on-data-centers/",
+          "title": "WTOP — Montgomery County Council approves 18-month moratorium on data centers"
         }
       ],
       "state_code": "MD"

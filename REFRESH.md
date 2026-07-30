@@ -81,6 +81,19 @@ Target the most productive news sources per CLAUDE.md backlog + v1.8 experience:
 - **QTS:** `q.com/news/`
 - **CoreWeave:** `coreweave.com/blog/`
 - **Crusoe:** `crusoe.ai/resources/blog/`
+- **SB Energy (SoftBank Group):** `sbenergy.com/communities/` (community framing) + `portscampus.com/` (PORTS Technology Campus project microsite) — added 2026-07-30
+- **Amentum:** `amentum.com/news/` — thin so far (one selection-announcement release as of 2026-07-30); re-check after lease negotiations conclude
+- **Brookfield:** `brookfield.com/views-news/newsroom` — thin so far (one joint DOE/NextEra release as of 2026-07-30)
+
+### DOE Federal-Land AI Data Center Program (added 2026-07-30)
+A fourth discovery angle, distinct from the three companies above being
+DOE-adjacent: DOE itself periodically announces site selections and private
+partners for AI data centers on its own land. Check `energy.gov/powering-
+americas-ai-future-data-center-resource-hub` and search `"Department of
+Energy" AI data center site selected` each cycle — **Oak Ridge Reservation
+(TN) and Idaho National Laboratory (ID) were still in the RFP/no-partner-
+selected stage as of this pass** and are not yet Project records; re-check
+whether a partner has been named before adding either.
 
 ### High-Signal Third-Party Sources
 - **DataCenterDynamics** (`datacenterdynamics.com/en/news/`) — 90%+ hit rate on new sites
@@ -105,7 +118,9 @@ re-check before you go looking for anything new.
 - **Trackers (aggregators, verify before trusting):** `datacenterbans.com`,
   `interconnectedcapital.com/research/data-center-moratoriums`, MultiState's
   `multistate.us/insider` state-legislation roundups, Good Jobs First
-  (`goodjobsfirst.org`).
+  (`goodjobsfirst.org`), `halcyon.io/large-load-tariff-tracker` (tariffs, found
+  2026-07-30 — same "mine as a worklist, verify each row" treatment as the
+  Moratorium Nation CSV).
 - **Primary/gov (always the final source for a record):** state legislature bill
   trackers (`nysenate.gov`, `<state>legislature.gov`, etc.), state PUC/PSC docket
   search, city/county council agendas and minutes.
@@ -396,6 +411,19 @@ This playbook encodes the learnings from the v1.18 session (June 9, 2026). If ga
 The manual search strategy above has a CLI accelerator — use it to find gaps and turn URLs
 into candidate records (it never auto-publishes; curation stays editorial):
 
+0. **Scout for new records first** (added 2026-07-30 — do this before `status`,
+   which only covers gaps in EXISTING records):
+   ```bash
+   python -m connectors.scout all
+   ```
+   Fetches the same fixed source list as "Finding New Announcements" /
+   "Moratoriums & Tariffs Refresh" above, extracts headlines, and diffs them
+   against the seed. Read the "No seed match" bucket by hand (or hand it to an
+   agent) before deciding a full research-agent sweep is needed — see
+   `connectors/README.md`'s "What a script can't do here" for this tool's
+   real, demonstrated limits (it misses matches as often as it manufactures
+   false ones; treat both buckets as leads, not verdicts).
+
 1. **Load state.** Read `ISSUES.md`, `BACKLOG.md`, and run:
    ```bash
    python -m connectors.research status --list
@@ -666,3 +694,109 @@ before considering any agent — none were needed this pass.
   a verbatim quote actually read — same treatment as the existing Stargate Abilene
   backlog item. A browser-driven visit to the openai.com URL remains the way to
   close that gap.
+
+---
+
+### 2026-07-30 refresh pass — a new dimension (DOE federal-land program) + two waves found in passing
+
+Scope: user explicitly asked to sweep for DOE (Department of Energy) data center
+site announcements, on top of the standard three-dimension refresh. That turned
+into a fourth dimension worth naming going forward, plus two moratorium waves
+found while rechecking a single stale record — a reminder that "recheck two
+records" and "the state next door has a wave" are unrelated in scope but often
+discovered together.
+
+- **DOE's federal-land AI data center program is a NEW company-scope
+  precedent, not a one-off.** DOE announced 4 sites for private-partner AI data
+  center development on federal land (Idaho National Lab, Oak Ridge, Paducah,
+  Savannah River) in July 2025; by this pass, partners were selected for two
+  (Amentum/Savannah River, Brookfield+NextEra/Paducah) and a related-but-earlier
+  deal (SB Energy/Portsmouth) was already under construction. All three cleared
+  the two-gate test (≥1GW scale trivially; community-impact framing verified via
+  a dedicated research agent) and were added as full `Company` + `Project` +
+  `Claim` records — `sb-energy`, `amentum`, `brookfield`. **NextEra Energy was
+  deliberately NOT added as a separate slug**, even though DOE/company releases
+  are explicit NextEra builds/owns the Paducah generation: NextEra is a Ratepayer
+  Pledge signatory (joined the 2026-07-23 expansion) and Brookfield is not, so
+  collapsing them into one company record would have let NextEra's signatory
+  status bleed onto Brookfield's `ratepayer_pledge_signatory` flag. When a
+  multi-party consortium shows up, identify the actual data-center
+  developer/operator (ask directly: "who leases and operates the DC, who just
+  supplies power?") and track only that one as the `company_slug`; name the
+  power/utility partners in the project's `notes`, not as second company slugs.
+- **A research agent's own extraction can still produce the WebSearch-synthesis
+  error it's supposed to prevent.** The DOE-companies research agent initially
+  read Amentum CEO John Heller's quote as two separate quotes, because
+  WebFetch's markdown conversion of two different mirror pages (amentum.com and
+  World Nuclear News) each truncated it to a different sentence. It caught this
+  itself by pulling the original press-release PDF and confirming both fragments
+  were one continuous quote — but the lesson generalizes: **a quote appearing
+  twice, worded slightly differently, across two sources covering the same
+  event is a truncation artifact, not two quotes** — go to the primary
+  document (often a PDF press release, not the HTML mirror) before shipping
+  either fragment as `Claim.statement`.
+- **A company's own press release quoting a government official is not a
+  first-party claim for that company.** NNSA Administrator Brandon Williams's
+  quote on the Amentum/Savannah River deal, and DOE Secretary Chris Wright's
+  quotes throughout, were found and explicitly excluded — they're government
+  speakers, not company speakers, even when they appear on the company's own
+  announcement page. Same discipline as the existing first-party rules in
+  CLAUDE.md, just a new venue (a DOE press release) to apply it to.
+- **Two agents' worth of research surfaced conflicting scope on the same
+  company (SB Energy) with no source stating the reconciliation.** Investment
+  figures ranged $30B–$500B and jobs figures were 10,000/2,000+ vs.
+  35,000/2,500 depending on whether the source scoped to the initial 189-acre
+  federal parcel (DOE's own March 2026 article) or the full 2,700-acre private
+  campus (SB Energy's current site + June 2026 FAST-41 coverage). Resolved by
+  using the larger, more current, company-published, full-scope figures
+  consistently across `claimed_investment_usd`/`claimed_jobs`/`acreage`/
+  `power_mw` (so the numbers stay internally consistent with each other) and
+  documenting the smaller DOE-cited figure in `notes` rather than picking one
+  as "correct" — neither source contradicts the other, they're just scoped
+  differently, and nothing available says which scope the record should
+  prefer by default.
+- **A Florida moratorium wave was found entirely by accident** while
+  rechecking the single stale `hernando-county-fl-2026-06` record. Confirmed:
+  Hernando's final vote (July 14, matching Pasco's own confirmed final-vote
+  date via tandem Tampa Bay-area coverage — no single source stated Hernando's
+  exact date, but 3+ independent sources agreed status had flipped to enacted).
+  Sarasota County was a clean new add (enacted July 9). **Pasco County's
+  existing record had a real data error**: stamped `enacted_date: 2026-06-12`,
+  but the June 12 WUSF article it cited only describes a **first reading**
+  ("A second and final vote is scheduled for July 14") — the true enactment
+  was July 14, with a 2.5 MW threshold (down from a proposed 10 MW) never
+  previously captured. Two different WUSF articles, different reporters,
+  different URLs, covering the same county a month apart, is exactly the shape
+  that produces this error — a "final" framing in an early article's headline
+  doesn't mean the vote in it was actually final.
+- **A Georgia moratorium/ordinance wave is much larger and NOT actioned this
+  pass** — logged to BACKLOG.md instead. One overview source cites 32 counties
+  + 21 cities with moratoriums/ordinances/drafts as of mid-2025; the seed has
+  2 Georgia records. This is bigger than the Colorado (07-27) or Florida
+  (this pass) waves that got a dedicated in-session sweep — deliberately left
+  for its own future pass rather than rushed into this one, per the
+  "efficient-first, don't force scope" principle. Concrete near-term threads
+  (DeKalb's repeatedly-extended moratorium, Coweta's possible second
+  moratorium) are in BACKLOG.md with what's known so far.
+- **`connectors/scout.py` (new)** — a mechanical "is there anything new?"
+  sweep (fetch known index pages, extract headlines, diff against the seed by
+  token overlap), built at the user's request after this session ran 3
+  research agents. It replaces the *fetching + first-pass triage* an agent
+  used to do by hand, not the judgment after it — see its module docstring
+  and `connectors/README.md`'s "What a script can't do here" section for
+  concrete, this-session-demonstrated limits (single-token false negatives,
+  generic-word false positives inside a company name, JS-rendered tracker
+  sites returning a contentless 200, no memory of previously-dismissed
+  candidates across runs). Use `python -m connectors.scout projects` /
+  `moratoriums` / `all` as the FIRST step of a future refresh's discovery
+  dimensions, before reaching for an agent — only escalate to an agent for
+  the "no seed match" shortlist it produces, not for the initial fetch.
+- **Agent-dispatch shape that worked well this pass**: 3 parallel background
+  agents, one per research family (DOE companies deep-research; standard
+  new-site scouting; moratorium/tariff scouting+verification), matching the
+  existing "fewer, larger agents" rule. All three ran ~2-3x longer than a
+  typical single-company gap-fill agent (the DOE one used 55 tool calls / 763s
+  — by far the largest single agent this project has dispatched) because each
+  was a genuinely open-ended multi-source research task, not a bounded
+  per-record lookup — budget accordingly when a request spans a new,
+  unexplored angle rather than a routine recheck.

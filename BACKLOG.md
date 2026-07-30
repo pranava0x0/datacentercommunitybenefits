@@ -9,6 +9,69 @@ criterion.
 
 ## High priority
 
+### Georgia data center moratorium/ordinance wave — largely untracked — **high**
+Found 2026-07-30 while resolving an unrelated Hernando County FL recheck. The
+seed has only 2 Georgia records (`fayetteville-ga-city-2026-03`,
+`georgia-state-2026-01`), but a single overview article
+(northwestgeorgianews.com, "All Georgia data center ordinances — from most to
+least restrictive," itself dated mid-2025) states **32 counties and 21 cities**
+had moratoriums, drafted ordinances, or were drafting ordinances as of June 1,
+2025 — over a year of accumulated activity this dataset has never swept.
+Confirmed-live, concrete threads found in passing (not yet added — this needs
+its own dedicated pass, not a bolt-on to this session):
+- **DeKalb County** — an active, repeatedly-extended moratorium (traced back to
+  ~Dec 2025; extended to June 23, 2026; extended again June 9, 2026 for another
+  100 days, through ~September 2026). Multiple corroborating outlets
+  (roughdraftatlanta.com, atlantanewsfirst.com, wabe.org, saportareport.com).
+  Needs the original enactment date + each extension's exact date pinned down
+  from primary sources before it can be curated as a single coherent record
+  (or a record + notes documenting the extension history).
+- **Coweta County** — a first 180-day moratorium adopted ~Dec 2025 while an
+  ordinance was drafted, with a second moratorium considered around a June 16,
+  2026 commission vote (times-herald.com, wsbtv.com). Status of the June vote
+  not confirmed.
+- **Hall County** — only "debating" per available coverage; per this project's
+  own precedent (a vote to "pursue/study" isn't a moratorium), not yet
+  addable — watch for an actual vote.
+- **Muscogee County** — a "technology overlay" ordinance with a first reading
+  scheduled June 2, 2025 per the overview article; status since unknown.
+*Priority: high — this is the largest known coverage gap in the dataset,
+larger than the Colorado (07-27) or Florida (07-30) waves that got dedicated
+passes. Acceptance criterion: fetch the northwestgeorgianews.com list (or an
+equivalent current roster) in full, cross-reference against the existing 2 GA
+records, and verify+add each jurisdiction with a live primary/gov source
+before shipping — do not bulk-import the overview article's claims without
+per-record verification, per the Moratorium Nation CSV precedent.*
+
+### NV Energy Callisto ESA — newer docket found, still needs a direct fetch — **medium**
+Found 2026-07-30 (this session's moratorium/tariff scout agent + one follow-up
+attempt). `nv-energy-callisto-esa`'s existing docket (`24-06014`) may be stale:
+three independently-published Nevada legal notices (recordcourier.com,
+nevadaappeal.com — Douglas County legal-63310, Carson City legal-63311,
+Churchill County legal-63309, all dated 2026-07-14/15) consistently describe a
+**Docket No. 26-06023**, filed June 26, 2026, a joint application by Sierra
+Pacific Power Company d/b/a NV Energy and **"Callisto Enterprises, LLC"** for
+an *amended* Energy Supply Agreement. WebSearch synthesis (unconfirmed by
+direct fetch) also asserts Callisto Enterprises LLC is a Google shell entity,
+and that the PUCN has since accepted a stipulation — neither claim was
+confirmed against a directly-fetched primary source. Every direct-fetch
+attempt at a primary source 403'd (citizenportal.ai, nevadaappeal.com,
+recordcourier.com) or dead-ended (`puc-onbase.nv.gov`'s docket search requires
+interactive JS form submission, which WebFetch/requests-based tooling cannot
+do). Left the existing record untouched rather than guess at the relationship
+between the two docket numbers. *Priority: medium. Acceptance criterion: an
+interactive-browser pass (Chrome MCP, not WebFetch) against
+`puc-onbase.nv.gov` searching "26-06023" or "Callisto", to confirm the docket
+relationship, the Callisto=Google identity, and current status, before
+updating the record.*
+
+### New large-load tariff tracker found: halcyon.io — **low**
+Found 2026-07-30. `halcyon.io/large-load-tariff-tracker` is a third-party
+aggregator of large-load utility tariffs, same shape as the already-known
+"Moratorium Nation CSV" — useful as a work-list, not a citable source. Add to
+REFRESH.md's tariff-sources list; mine it like the CSV (verify each row
+individually, never bulk-import). *Priority: low.*
+
 ### Add a `key_reasons` ↔ CSS parity test
 Found 2026-07-15: `docs/styles.css`'s `.badge-reason-*` classes had drifted
 from `MoratoriumReasonType` (schema.py) — two dead class names, one missing
@@ -362,14 +425,11 @@ The 2026-07-27 pass resolved 4 of the remaining 6: **henderson-nv-2026-06**
 (docket number was simply wrong — corrected to `E-01345A-25-0105` via a direct
 azcc.gov fetch), and **duke-nc-large-load-rate-case-2025** (enriched with the
 2026-07-17 fast-track settlement terms; docket `E-7, Sub 1300` confirmed
-distinct from the general rate case Sub 1329, no change needed). Two remain
-unresolved and deliberately un-bumped:
+distinct from the general rate case Sub 1329, no change needed). The 2026-07-30
+pass resolved **hernando-county-fl-2026-06** (final vote confirmed July 14,
+2026 — same meeting as Pasco's; see the 2026-07-30 REFRESH.md entry). One
+remains unresolved and deliberately un-bumped:
 
-- **hernando-county-fl-2026-06** — the final adoption vote was scheduled for
-  July 7, 2026; still couldn't confirm the outcome after 4 attempts this pass
-  (floridapolitics.com 402 paywall, wtsp.com timeout, tampabay28.com's cached
-  copy predates the vote, wfla.com still 403s). Needs the county's own agenda/
-  minutes for 2026-07-07, or a fresh news search once more coverage lands.
 - **nv-energy-callisto-esa** — citizenportal.ai (both the stipulation article
   and the follow-up order article) still 403s on every direct-fetch attempt.
   WebSearch synthesis suggests the PUCN accepted a stipulation on the amended
@@ -396,6 +456,17 @@ unresolved and deliberately un-bumped:
   public hearing for 2026-08-17 to *consider* a moratorium, no drafted ordinance
   or vote yet. Check back after the hearing. *Priority: low, time-boxed to
   mid-August.*
+- **Loudoun County, VA** — a THIRD "moratorium" headline surfaced 2026-07-30
+  (DCD, loudounnow.com, loudountimes.com). Checked carefully given the two
+  prior false "ban" records already removed from this dataset (CLAUDE.md). This
+  one is genuinely too early: the Board of Supervisors voted 6-1 on July 22 only
+  to *direct staff to prepare* a moratorium item for the **September 15, 2026**
+  meeting, and separately asked the County Attorney to assess legality under
+  Virginia law — matches this project's own "pursue/study ≠ moratorium" rule
+  exactly. Not added. A planning-commission rejection of a separate 3.25M sq ft
+  rezoning application (Active Infrastructure's "Spring Valley Technology
+  Park") happened the same week but isn't a tracked company. *Priority: low,
+  time-boxed to mid-September — check back after the Sept 15 meeting.*
 - **New Colorado moratorium records lack a clean `.gov` citation.** 6 of the 7
   new CO records added this pass (all but `boulder-county-co-2026-06`, whose
   `bouldercounty.gov` source_url is a genuine .gov page) cite news outlets as
