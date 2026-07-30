@@ -782,15 +782,24 @@ discovered together.
   sweep (fetch known index pages, extract headlines, diff against the seed by
   token overlap), built at the user's request after this session ran 3
   research agents. It replaces the *fetching + first-pass triage* an agent
-  used to do by hand, not the judgment after it — see its module docstring
-  and `connectors/README.md`'s "What a script can't do here" section for
-  concrete, this-session-demonstrated limits (single-token false negatives,
-  generic-word false positives inside a company name, JS-rendered tracker
-  sites returning a contentless 200, no memory of previously-dismissed
-  candidates across runs). Use `python -m connectors.scout projects` /
-  `moratoriums` / `all` as the FIRST step of a future refresh's discovery
-  dimensions, before reaching for an agent — only escalate to an agent for
-  the "no seed match" shortlist it produces, not for the initial fetch.
+  used to do by hand, not the judgment after it. **A same-session adversarial
+  code review of the PR caught 3 real matching bugs in the first cut**
+  (a flat 2-token match floor made 57 of 111 moratorium records structurally
+  unmatchable regardless of headline wording; the generic-word stoplist only
+  covered company names, not utility names; a raw-substring fallback in
+  `relevant()` let "gw" match inside "Edgware") — all fixed in the same pass,
+  with regression tests. Worth noting as its own lesson: a first-cut heuristic
+  tool shipped with real, reproducible bugs on day one, not just abstract
+  gaps — a review pass that actually *runs* the tool against live data (not
+  just reads the diff) is what caught these. See its module docstring and
+  `connectors/README.md`'s "What a script can't do here" section for the
+  fixed bugs plus what's still a genuine, unfixed limit (JS-rendered tracker
+  sites returning a contentless 200 that doesn't show up as "blocked", no
+  memory of previously-dismissed candidates across runs). Use
+  `python -m connectors.scout projects` / `moratoriums` / `all` as the FIRST
+  step of a future refresh's discovery dimensions, before reaching for an
+  agent — only escalate for the "no seed match" shortlist it produces, not
+  for the initial fetch.
 - **Agent-dispatch shape that worked well this pass**: 3 parallel background
   agents, one per research family (DOE companies deep-research; standard
   new-site scouting; moratorium/tariff scouting+verification), matching the

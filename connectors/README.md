@@ -108,22 +108,38 @@ below).
 ### What a script can't do here — read before assuming this replaces an agent
 
 Added 2026-07-30, after the first real run surfaced these directly (not
-hypothetical):
+hypothetical). Two matching bugs from that first run were found and fixed in
+the same pass — documented here as fixed, not as open limitations, but the
+underlying lesson (a heuristic like this ships with real bugs on day one, not
+just theoretical gaps) is worth keeping:
 
-- **A single distinctive word isn't a confirmed match, and requiring two
-  words misses real ones.** The first live run flagged `datacenterdynamics.com`'s
-  own headline "Brookfield to develop gigawatt-scale data center campus at
-  DOE's Kentucky nuclear enrichment plant" as *no seed match*, even though
-  `brookfield-paducah-ky` was already in the seed — the headline names the
-  company but not the city, so token overlap tops out at 1 and never clears
-  `MIN_MATCH_TOKENS`. A human/agent reads "DOE's Kentucky nuclear enrichment
-  plant" and knows that's Paducah; the script doesn't.
-- **Generic words inside a company name cause false positives** — an early
+- **Fixed: requiring 2 token hits made every single-word jurisdiction
+  structurally unmatchable, not just imprecise.** The first live run flagged
+  `datacenterdynamics.com`'s own headline "Brookfield to develop
+  gigawatt-scale data center campus at DOE's Kentucky nuclear enrichment
+  plant" as *no seed match*, even though `brookfield-paducah-ky` was already
+  in the seed — the headline names the company but not the city, so token
+  overlap topped out at 1 and never cleared the old flat 2-token floor.
+  Checked against the live seed: **57 of 111 moratorium records** (any
+  single-word city/county name once its 2-letter state code was excluded as
+  "too short to count") could never match *any* headline, no matter how
+  exact the wording. Fixed by letting one sufficiently distinctive token
+  (length >= 4) match on its own, while still requiring two shorter tokens
+  together otherwise — see `match_existing`'s docstring.
+- **Fixed: the generic-word stoplist only covered company names, not utility
+  names, and `relevant()`'s own word-boundary check had a hole.** An early
   run matched an unrelated "Energy Systems Integration Group (ESIG) Large
-  Load Task Force" headline to `sb-energy` purely on the words "Energy" and
-  "Group". Patched with a small stopword list (`_GENERIC_COMPANY_WORDS`), but
-  that list is inherently incomplete — a new tracked company with a
-  similarly generic name will need its own patch.
+  Load Task Force" headline to `sb-energy` purely on "Energy" + "Group"; a
+  parallel bug let a generic "Indiana regulators weigh new large load energy
+  tariff" headline match a Duke Energy Indiana tariff record purely on
+  "energy" + "indiana", because the stoplist (`_GENERIC_WORDS`, renamed from
+  `_GENERIC_COMPANY_WORDS`) wasn't applied to `tariff_fingerprints()`'s
+  utility-name tokens. Separately, `relevant()` had a raw-substring fallback
+  clause that defeated its own padding fix and let "gw" match inside
+  "Edgware" (an unrelated UK town). All three fixed in the same review pass —
+  but the stoplist is inherently incomplete: a new tracked company or utility
+  with a similarly generic name will need its own addition to
+  `_GENERIC_WORDS`.
 - **A "fetched successfully" source can still return nothing useful.**
   `datacenterbans.com` and `halcyon.io` both returned HTTP 200 but, being
   client-rendered pages, only a nav shell — `extract_links` correctly parsed

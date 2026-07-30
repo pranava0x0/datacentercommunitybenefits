@@ -227,12 +227,27 @@ def test_match_existing_ignores_trailing_comma():
     assert scout.match_existing(title, fps) == "google-lagrange-ga"
 
 
-def test_match_existing_requires_min_token_overlap():
-    """A single shared word (e.g. just the company name) isn't enough --
-    below MIN_MATCH_TOKENS this must report 'no match', not a false positive."""
+def test_match_existing_one_distinctive_token_is_enough():
+    """Regression (found in the first live run, 2026-07-30): a headline naming
+    just the company but not the city -- 'Brookfield to develop gigawatt-scale
+    data center campus in Kentucky' has no word in common with a 'paducah'
+    token -- must still match, because 'brookfield' alone is distinctive
+    (length >= MIN_DISTINCTIVE_LEN). An earlier version required 2 token hits
+    unconditionally, which left every single-word jurisdiction (57 of 111 live
+    moratorium records) structurally unmatchable no matter how exact the
+    headline wording was -- not just imprecise, but impossible to ever match."""
     fps = [{"id": "brookfield-paducah-ky", "tokens": {"brookfield", "paducah"}}]
     title = "Brookfield to develop gigawatt-scale data center campus in Kentucky"
-    assert scout.match_existing(title, fps) is None
+    assert scout.match_existing(title, fps) == "brookfield-paducah-ky"
+
+
+def test_match_existing_short_token_alone_is_not_enough():
+    """A bare state-code-length token must not match on its own -- otherwise
+    almost every in-state headline would false-positive against every record
+    in that state. Distinctiveness (see test above) is what should carry a
+    single-token match, not mere presence."""
+    fps = [{"id": "some-fl-record", "tokens": {"fl"}}]
+    assert scout.match_existing("Unrelated story about Florida oranges", fps) is None
 
 
 def test_match_existing_returns_none_for_no_overlap():
@@ -240,12 +255,47 @@ def test_match_existing_returns_none_for_no_overlap():
     assert scout.match_existing("Sky47 inaugurates data center in Islamabad", fps) is None
 
 
-def test_project_fingerprints_strip_generic_company_words():
+def test_project_fingerprints_strip_generic_company_words(tmp_path, monkeypatch):
     """'SB Energy' and 'Brookfield' both contain generic words ('Energy',
     'Group') common enough in unrelated headlines to false-positive on their
     own (e.g. an energy-policy story matching purely on 'energy' + 'group').
-    Those generic words must not survive into a company's fingerprint tokens."""
-    tokens = scout._words("SB Energy (SoftBank Group)") - scout._GENERIC_COMPANY_WORDS
+    Exercises the real function against fixture seed files -- a prior version
+    of this test checked `_words(...) - _GENERIC_COMPANY_WORDS` directly
+    without ever calling `project_fingerprints()`, so it stayed green even
+    with the subtraction deleted from the function itself."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "companies.json").write_text(json.dumps({"companies": [
+        {"slug": "sb-energy", "name": "SB Energy (SoftBank Group)"},
+    ]}))
+    (seed / "projects.json").write_text(json.dumps({"projects": [
+        {"id": "sb-energy-piketon-oh", "company_slug": "sb-energy", "city": "Piketon", "state": "OH"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = scout.project_fingerprints()
+    assert len(fps) == 1
+    tokens = fps[0]["tokens"]
     assert "softbank" in tokens
+    assert "piketon" in tokens
     assert "energy" not in tokens
     assert "group" not in tokens
+
+
+def test_tariff_fingerprints_strip_generic_utility_words(tmp_path, monkeypatch):
+    """Same class of bug, utility side: a generic Indiana rate-case headline
+    must not false-positive against a Duke Energy Indiana tariff purely on
+    'energy' + 'indiana' (found in the same review as the test above)."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "tariffs.json").write_text(json.dumps({"tariffs": [
+        {"id": "duke-energy-indiana-meta-esa", "utility": "Duke Energy Indiana", "state": "IN"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = scout.tariff_fingerprints()
+    tokens = fps[0]["tokens"]
+    assert "duke" in tokens
+    assert "energy" not in tokens
+    title = "Indiana regulators weigh new large load energy tariff"
+    assert scout.match_existing(title, fps) is None

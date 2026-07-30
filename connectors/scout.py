@@ -86,6 +86,9 @@ PROJECT_SOURCES: dict[str, str] = {
     "qts": "https://q.com/news/",
     "coreweave": "https://www.coreweave.com/news",
     "crusoe": "https://www.crusoe.ai/resources/blog",
+    "sb_energy": "https://sbenergy.com/communities/",
+    "amentum": "https://www.amentum.com/news/",
+    "brookfield": "https://bam.brookfield.com/views-news/newsroom",
     "doe_hub": "https://www.energy.gov/powering-americas-ai-future-data-center-resource-hub",
 }
 
@@ -105,7 +108,7 @@ RELEVANCE_KEYWORDS = [
     "large load", "large-load", "rate case", "ratepayer",
 ]
 
-MIN_MATCH_TOKENS = 2  # token-overlap floor before we call a headline "matched"
+MIN_DISTINCTIVE_LEN = 4  # a token this long or longer can match on its own
 _WORD = re.compile(r"[a-z0-9]+")
 
 
@@ -159,7 +162,15 @@ def _padded(text: str) -> str:
 
 def relevant(title: str) -> bool:
     t = _padded(title)
-    return any(_padded(k) in t or k.strip() in t for k in RELEVANCE_KEYWORDS)
+    # _padded() both normalizes the title AND the keyword the same way, so a
+    # plain `_padded(keyword) in t` is already word-boundary-safe -- no raw
+    # substring fallback needed. An earlier version had one (`k.strip() in
+    # t`) to work around a padding bug of its own; that fallback is exactly
+    # what let "gw" match inside "Edgware" (unrelated headline), since a raw
+    # substring check ignores word boundaries entirely. Fixed by padding the
+    # keyword's own whitespace away first (`k.strip()`) instead of adding a
+    # second, unsafe check.
+    return any(_padded(k.strip()) in t for k in RELEVANCE_KEYWORDS)
 
 
 # -- seed fingerprints ----------------------------------------------------
@@ -169,15 +180,42 @@ def _load(name: str) -> list[dict]:
     return payload[key]
 
 
-# Generic words that show up inside company names (SB "Energy", "Brookfield"
-# Asset Management Group) but are common enough in unrelated headlines to
-# produce false-positive matches on their own -- e.g. an ESIG "Large Load
-# Task Force" headline matching "sb-energy" purely on the words "energy" and
-# "group". Stripped from company-name tokens only; a city/jurisdiction name
-# is assumed distinctive enough not to need this.
-_GENERIC_COMPANY_WORDS = {
-    "energy", "group", "power", "systems", "corp", "corporation", "inc",
-    "llc", "company", "holdings", "partners", "capital", "solutions",
+# Generic words that show up inside company/utility names (SB "Energy",
+# "Brookfield" Asset Management "Group", "Duke Energy", Big Rivers "Electric"
+# Power Corporation) but are common enough in unrelated headlines to produce
+# false-positive matches on their own -- e.g. an unrelated ESIG "Large Load
+# Task Force" headline matched "sb-energy" purely on "energy" + "group"
+# before this list existed, and a generic Indiana rate-case headline matched
+# a Duke Energy Indiana tariff purely on "energy" + "indiana" before this
+# list was applied to utility names too (2026-07-30 review). Applied to
+# EVERY fingerprint source below -- company names, utility names -- not just
+# companies; a city/county/jurisdiction name is assumed distinctive enough
+# not to need it.
+_GENERIC_WORDS = {
+    "energy", "group", "power", "electric", "systems", "corp", "corporation",
+    "inc", "llc", "company", "holdings", "partners", "capital", "solutions",
+    "cooperative", "co", "utilities", "utility",
+}
+
+# US utilities routinely embed their state in their own name ("Duke Energy
+# Indiana", "AEP Ohio", "Entergy Mississippi") -- found via a test failure
+# 2026-07-30: after _GENERIC_WORDS strips "Energy", "Duke Energy Indiana"
+# left {"duke", "indiana"}, and "indiana" (7 letters) alone is "distinctive"
+# by length even though a state name is the opposite of distinctive -- it is
+# a legitimate word in nearly every headline about that state, regardless of
+# subject. Spelled-out state names are excluded from fingerprint tokens
+# entirely (the 2-letter code already covers the "same state" signal, at the
+# lower "not enough alone" weight that short tokens get).
+_STATE_NAMES = {
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho",
+    "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana",
+    "maine", "maryland", "massachusetts", "michigan", "minnesota",
+    "mississippi", "missouri", "montana", "nebraska", "nevada",
+    "hampshire", "jersey", "mexico", "york", "carolina", "dakota", "ohio",
+    "oklahoma", "oregon", "pennsylvania", "rhode", "island", "tennessee",
+    "texas", "utah", "vermont", "virginia", "washington", "wisconsin",
+    "wyoming",
 }
 
 
@@ -187,12 +225,17 @@ def project_fingerprints() -> list[dict]:
     out = []
     for p in _load("projects"):
         tokens = _words(p.get("city", "")) | _words(p.get("state", ""))
-        tokens |= _words(companies.get(p["company_slug"], "")) - _GENERIC_COMPANY_WORDS
+        tokens |= _words(companies.get(p["company_slug"], "")) - _GENERIC_WORDS - _STATE_NAMES
         out.append({"id": p["id"], "tokens": tokens})
     return out
 
 
 def moratorium_fingerprints() -> list[dict]:
+    # NOTE: _STATE_NAMES is intentionally NOT applied here -- a jurisdiction
+    # can legitimately be named after a state word ("Washington County"),
+    # unlike a company/utility name where the state is incidental to the
+    # brand. Stripping it would make exactly those jurisdictions unmatchable
+    # by their most distinctive word.
     out = []
     for r in _load("moratoriums"):
         tokens = _words(r.get("jurisdiction", "")) | _words(r.get("state_code", "") or "")
@@ -203,14 +246,26 @@ def moratorium_fingerprints() -> list[dict]:
 def tariff_fingerprints() -> list[dict]:
     out = []
     for r in _load("tariffs"):
-        tokens = _words(r.get("utility", "")) | _words(r.get("state", ""))
+        utility_tokens = _words(r.get("utility", "")) - _GENERIC_WORDS - _STATE_NAMES
+        tokens = utility_tokens | _words(r.get("state", ""))
         out.append({"id": r["id"], "tokens": tokens})
     return out
 
 
 def match_existing(title: str, fingerprints: list[dict]) -> str | None:
-    """Best-effort: does this headline share >= MIN_MATCH_TOKENS words with an
-    existing record's city/state/company/jurisdiction tokens?
+    """Best-effort: does this headline share enough words with an existing
+    record's city/state/company/jurisdiction tokens to call it a match?
+
+    A match needs EITHER one "distinctive" token (length >= MIN_DISTINCTIVE_LEN,
+    e.g. a city or company name) OR two shorter tokens together (so a bare
+    2-letter state code never matches alone). The distinctive/short split
+    matters: an earlier version required 2 tokens unconditionally, which
+    filtered out state-code tokens (length 2) as too short to count at all --
+    meaning a single-word jurisdiction like "Denver" could NEVER clear the
+    bar even with an exact headline match, because "denver" (1 token) plus
+    "co" (filtered) never reached 2. Confirmed against the live seed
+    2026-07-30: that version left 57 of 111 moratorium records structurally
+    unmatchable regardless of headline wording.
 
     Returns the best-matching record id, or None. Read the module docstring
     before trusting either outcome -- this is a heuristic, not a verdict.
@@ -218,10 +273,13 @@ def match_existing(title: str, fingerprints: list[dict]) -> str | None:
     title_words = _words(title)
     best_id, best_score = None, 0
     for fp in fingerprints:
-        score = sum(1 for tok in fp["tokens"] if len(tok) > 2 and tok in title_words)
-        if score > best_score:
-            best_id, best_score = fp["id"], score
-    return best_id if best_score >= MIN_MATCH_TOKENS else None
+        hits = [tok for tok in fp["tokens"] if tok in title_words]
+        distinctive = sum(1 for tok in hits if len(tok) >= MIN_DISTINCTIVE_LEN)
+        if distinctive >= 1 or len(hits) >= 2:
+            score = distinctive * 2 + len(hits)  # for picking the BEST match only
+            if score > best_score:
+                best_id, best_score = fp["id"], score
+    return best_id
 
 
 # -- sweep ------------------------------------------------------------------

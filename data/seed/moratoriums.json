@@ -959,18 +959,18 @@
       "id": "hernando-county-fl-2026-06",
       "jurisdiction": "Hernando County",
       "jurisdiction_type": "county",
-      "status": "enacted",
-      "enacted_date": "2026-07-14",
-      "effective_date": "2026-07-14",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
       "duration_months": 12,
-      "duration_description": "1 year",
+      "duration_description": "1 year (unanimously approved at first reading June 24; final adoption scheduled July 14, outcome not independently confirmed)",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "water",
         "transparency"
       ],
-      "summary": "Hernando County (west Florida) commissioners unanimously approved a 12-month moratorium on new data center applications, advancing it at first reading June 24, 2026 and adopting it on final vote July 14, 2026 (the same meeting date on which neighboring Pasco County finalized its own moratorium). Triggered by resident concerns about data center energy and water impacts. Part of the broader wave of Central/North Florida county moratoriums enacted in mid-2026 under the 1-year pathway created by Florida SB484.",
+      "summary": "Hernando County (west Florida) commissioners unanimously approved a proposed 12-month moratorium on new data center applications at first reading June 24, 2026, with final adoption scheduled for the same July 14, 2026 meeting at which neighboring Pasco County finalized its own moratorium. Two secondary sources (a July 1 opinion column and a July 27 op-ed) describe the moratorium as already adopted, but neither is a neutral news report confirming the vote, so status is left as proposed pending a cleaner source. Triggered by resident concerns about data center energy and water impacts. Part of the broader wave of Central/North Florida county moratoriums under the 1-year pathway created by Florida SB484.",
       "source_url": "https://www.wfla.com/news/local-news/hernando-county/hernando-county-moves-forward-with-proposed-data-center-moratorium-after-resident-concerns/",
       "source_title": "WFLA — Hernando County moves forward with proposed data center moratorium",
       "captured_at": "2026-07-30",
@@ -985,7 +985,7 @@
         },
         {
           "url": "https://www.tampabaybeacons.com/2026/07/27/why-hernando-county-needs-a-total-data-center-ban/",
-          "title": "Tampa Bay Beacons — Why Hernando County needs a total data center ban (confirms final adoption)"
+          "title": "Tampa Bay Beacons op-ed — describes the moratorium as already adopted, but is not a neutral confirming source"
         },
         {
           "url": "https://www.hernandocounty.us/",
