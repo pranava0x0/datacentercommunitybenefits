@@ -9,6 +9,24 @@ criterion.
 
 ## High priority
 
+### Amentum (Savannah River Site, SC) — watch for real community-impact framing — **medium**
+Added then removed in the same PR, 2026-07-30 (see REFRESH.md's 2026-07-30
+entry and CLAUDE.md's "Companies in scope" for the full lesson). DOE's NNSA
+selected Amentum on 2026-07-20 to negotiate a 1 GW AI data center lease at
+the Savannah River Site — clears the ≥1GW scale gate easily, but its only two
+first-party quotes (CEO John Heller, Energy & Environment president Mark
+Whitney, both from `amentum.com/news/amentum-selected-for-the-department-of-
+energy-ai-data-center-and-energy-generation-project/`) are pure engineering-
+capability and national-security framing with zero jobs/ratepayer/
+environment/community content. Re-check after the lease negotiation concludes
+(DOE's own language: "selection for negotiations does not constitute a final
+lease award") — a later announcement, a dedicated project page, or a signed
+lease is more likely to carry genuine community-impact language than a
+same-day selection press release. *Acceptance criterion: don't re-add as a
+`Company` until a first-party statement actually addresses at least one of
+the 8 community-benefit themes for the host community, not just Amentum's
+own capabilities.*
+
 ### Georgia data center moratorium/ordinance wave — largely untracked — **high**
 Found 2026-07-30 while resolving an unrelated Hernando County FL recheck. The
 seed has only 2 Georgia records (`fayetteville-ga-city-2026-03`,

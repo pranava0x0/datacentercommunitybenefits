@@ -82,11 +82,12 @@ Target the most productive news sources per CLAUDE.md backlog + v1.8 experience:
 - **CoreWeave:** `coreweave.com/blog/`
 - **Crusoe:** `crusoe.ai/resources/blog/`
 - **SB Energy (SoftBank Group):** `sbenergy.com/communities/` (community framing) + `portscampus.com/` (PORTS Technology Campus project microsite) — added 2026-07-30
-- **Amentum:** `amentum.com/news/` — thin so far (one selection-announcement release as of 2026-07-30); re-check after lease negotiations conclude
 - **Brookfield:** `brookfield.com/views-news/newsroom` — thin so far (one joint DOE/NextEra release as of 2026-07-30)
 
+Note: **Amentum (DOE's Savannah River Site partner) is watched but NOT tracked as a company** — see "Companies in scope" in CLAUDE.md for why (announced scale clears gate 1, but its only two first-party quotes are pure engineering/national-security capability language with no community-impact content, so gate 2 isn't actually cleared despite having quotable material). Re-check `amentum.com/news/` after lease negotiations conclude, in case a future announcement carries genuine community-impact framing.
+
 ### DOE Federal-Land AI Data Center Program (added 2026-07-30)
-A fourth discovery angle, distinct from the three companies above being
+A fourth discovery angle, distinct from the two companies above being
 DOE-adjacent: DOE itself periodically announces site selections and private
 partners for AI data centers on its own land. Check `energy.gov/powering-
 americas-ai-future-data-center-resource-hub` and search `"Department of
@@ -712,9 +713,13 @@ discovered together.
   Savannah River) in July 2025; by this pass, partners were selected for two
   (Amentum/Savannah River, Brookfield+NextEra/Paducah) and a related-but-earlier
   deal (SB Energy/Portsmouth) was already under construction. All three cleared
-  the two-gate test (≥1GW scale trivially; community-impact framing verified via
-  a dedicated research agent) and were added as full `Company` + `Project` +
-  `Claim` records — `sb-energy`, `amentum`, `brookfield`. **NextEra Energy was
+  gate 1 (≥1GW scale) trivially — **but only SB Energy and Brookfield actually
+  clear gate 2**, added as full `Company` + `Project` + `Claim` records —
+  `sb-energy`, `brookfield`. Amentum was added in the first cut of this PR, then
+  REMOVED on code review: it has two first-party named-executive quotes, but
+  both are pure engineering/national-security capability language with zero
+  community-impact content — see the standalone gate-2 lesson below, and
+  CLAUDE.md's "Companies in scope" for the corrected rule. **NextEra Energy was
   deliberately NOT added as a separate slug**, even though DOE/company releases
   are explicit NextEra builds/owns the Paducah generation: NextEra is a Ratepayer
   Pledge signatory (joined the 2026-07-23 expansion) and Brookfield is not, so
@@ -724,6 +729,23 @@ discovered together.
   developer/operator (ask directly: "who leases and operates the DC, who just
   supplies power?") and track only that one as the `company_slug`; name the
   power/utility partners in the project's `notes`, not as second company slugs.
+- **"We have first-party quotes to attach" is not the same claim as "gate 2 is
+  cleared" — and this pass shipped the conflation once before a review caught
+  it.** Amentum's two quotes (CEO John Heller, Energy & Environment president
+  Mark Whitney) are genuinely first-party — named executives, on the record,
+  in the company's own press release. They were added as `Claim` records
+  without a second check on what they actually SAY: both are about Amentum's
+  engineering pedigree and the deal's strategic/national-security framing, not
+  about jobs, ratepayers, environment, or any other community-facing
+  commitment. The two-gate test's real requirement is "the entity publishes
+  ITS OWN COMMUNITY-IMPACT framing" — having *some* quotable first-party
+  material satisfies the letter of "we have first-party claims to quote" while
+  missing the substance entirely. Compare to QTS's or SB Energy's claims, which
+  are explicitly about cost/jobs/ratepayer commitments. Going forward: before
+  shipping a new non-hyperscaler company, re-read every claim being attached
+  and confirm it's actually ABOUT one of the 8 community-benefit themes for
+  the HOST COMMUNITY, not just about the company's capabilities or the deal's
+  strategic significance.
 - **A research agent's own extraction can still produce the WebSearch-synthesis
   error it's supposed to prevent.** The DOE-companies research agent initially
   read Amentum CEO John Heller's quote as two separate quotes, because

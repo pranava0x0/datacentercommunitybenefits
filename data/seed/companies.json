@@ -137,14 +137,6 @@
       "ratepayer_pledge_signatory": false
     },
     {
-      "slug": "amentum",
-      "name": "Amentum",
-      "hq": "Chantilly, VA",
-      "summary": "Amentum, a government-services and engineering contractor, was selected by DOE's National Nuclear Security Administration on July 20, 2026 to negotiate a phased lease for a 1 GW AI data center (backed by ~2 GW of on-site gas-to-nuclear generation) at the Savannah River Site in Aiken County, South Carolina. DOE's own language is explicit that this is a selection for negotiations, not a final lease award — subject to permitting, safety/security review, and federal approvals. Amentum's general corporate sustainability page carries no data-center- or Savannah-River-specific content; the only first-party material found so far is its own press release announcing the selection, with quotes from CEO John Heller and Energy & Environment business president Mark Whitney about the opportunity, not yet a standing community-impact page. Tracked here because the announced scale (1 GW) clears the non-hyperscaler bar, with the caveat that this is the earliest-stage of the three DOE-adjacent entities added in this refresh and has the thinnest published community framing to date.",
-      "last_reviewed": "2026-07-30",
-      "ratepayer_pledge_signatory": false
-    },
-    {
       "slug": "brookfield",
       "name": "Brookfield",
       "hq": "Toronto, Canada",

@@ -83,7 +83,7 @@ class TestSeedCoverage:
     # at hyperscaler scale + publish their own community-impact framing.
     OPTIONAL_ENTITIES = {
         "wonder-valley", "qts", "crusoe", "coreweave", "prologis",
-        "sb-energy", "amentum", "brookfield",
+        "sb-energy", "brookfield",
     }
 
     def test_all_required_hyperscalers_present(self, companies):

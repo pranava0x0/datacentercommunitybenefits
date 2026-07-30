@@ -54,7 +54,6 @@ const COMPANY_SLUGS = [
   "coreweave",
   "prologis",
   "sb-energy",
-  "amentum",
   "brookfield",
 ];
 

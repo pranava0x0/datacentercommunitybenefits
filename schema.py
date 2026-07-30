@@ -69,8 +69,11 @@ COMPANY_SLUGS: tuple[str, ...] = (
     # signatory) is deliberately NOT a separate slug here — Brookfield is the
     # confirmed data-center developer/operator, NextEra builds/owns generation
     # only. Don't let NextEra's signatory status bleed onto Brookfield's flag.
+    # Amentum (Savannah River Site) was considered and NOT added: on review,
+    # its only two first-party quotes are about engineering/national-security
+    # capability, not community impact — it doesn't actually clear gate 2
+    # despite having quotable material. See BACKLOG.md.
     "sb-energy",
-    "amentum",
     "brookfield",
 )
 
@@ -113,7 +116,6 @@ CompanySlug = Literal[
     "coreweave",
     "prologis",
     "sb-energy",
-    "amentum",
     "brookfield",
 ]
 ProjectStatus = Literal["announced", "construction", "operational"]

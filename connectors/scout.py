@@ -87,7 +87,6 @@ PROJECT_SOURCES: dict[str, str] = {
     "coreweave": "https://www.coreweave.com/news",
     "crusoe": "https://www.crusoe.ai/resources/blog",
     "sb_energy": "https://sbenergy.com/communities/",
-    "amentum": "https://www.amentum.com/news/",
     "brookfield": "https://bam.brookfield.com/views-news/newsroom",
     "doe_hub": "https://www.energy.gov/powering-americas-ai-future-data-center-resource-hub",
 }
@@ -284,10 +283,21 @@ def match_existing(title: str, fingerprints: list[dict]) -> str | None:
 
 # -- sweep ------------------------------------------------------------------
 def sweep(sources: dict[str, str], fingerprints: list[dict], sess: CachedSession) -> dict:
+    """Fetch every source and diff its headlines against the fingerprints.
+
+    Index/listing pages are live documents -- new headlines appear at the
+    SAME url every refresh. `sess.get(..., refresh=not sess.offline)` forces
+    a live re-fetch on every non-offline run; the alternative (the default
+    `refresh=False`) would silently keep serving the first run's cached
+    snapshot forever, defeating the entire point of a repeatable "is there
+    anything new?" sweep (caught by review, 2026-07-30, before this ever
+    shipped as a false sense of "checked"). `--offline` runs still want the
+    cache-only behavior, so honor `sess.offline` rather than hardcoding True.
+    """
     fetched, blocked, candidates = [], [], []
     for name, url in sources.items():
         try:
-            rec = sess.get(url)
+            rec = sess.get(url, refresh=not sess.offline)
         except FetchError as exc:
             log.warning("fetch failed for %s (%s): %s", name, url, exc)
             blocked.append({"source": name, "url": url, "error": str(exc)})
@@ -332,23 +342,45 @@ def _report(results: dict, as_json: bool) -> None:
         print(f"  [{c['source']}] {c['title']}  ~ {c['existing_match']}")
 
 
-def cmd_projects(args: argparse.Namespace) -> int:
+def _run_projects(args: argparse.Namespace) -> dict:
     sess = CachedSession(offline=args.offline)
-    _report(sweep(PROJECT_SOURCES, project_fingerprints(), sess), args.json)
+    return sweep(PROJECT_SOURCES, project_fingerprints(), sess)
+
+
+def _run_moratoriums(args: argparse.Namespace) -> dict:
+    sess = CachedSession(offline=args.offline)
+    fps = moratorium_fingerprints() + tariff_fingerprints()
+    return sweep(MORATORIUM_TARIFF_SOURCES, fps, sess)
+
+
+def cmd_projects(args: argparse.Namespace) -> int:
+    _report(_run_projects(args), args.json)
     return 0
 
 
 def cmd_moratoriums(args: argparse.Namespace) -> int:
-    sess = CachedSession(offline=args.offline)
-    fps = moratorium_fingerprints() + tariff_fingerprints()
-    _report(sweep(MORATORIUM_TARIFF_SOURCES, fps, sess), args.json)
+    _report(_run_moratoriums(args), args.json)
     return 0
 
 
 def cmd_all(args: argparse.Namespace) -> int:
-    rc = cmd_projects(args)
-    print("\n" + "=" * 78 + "\n")
-    return cmd_moratoriums(args) or rc
+    """Run both sweeps and report once.
+
+    `--json` must emit exactly ONE JSON document (a `{"projects": ...,
+    "moratoriums": ...}` object) -- printing two separate JSON objects with a
+    text separator between them, as an earlier version did, produces output
+    that isn't valid JSON at all and can't be piped into anything (caught by
+    review, 2026-07-30).
+    """
+    projects_results = _run_projects(args)
+    moratoriums_results = _run_moratoriums(args)
+    if args.json:
+        print(json.dumps({"projects": projects_results, "moratoriums": moratoriums_results}, indent=2))
+    else:
+        _report(projects_results, as_json=False)
+        print("\n" + "=" * 78 + "\n")
+        _report(moratoriums_results, as_json=False)
+    return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
