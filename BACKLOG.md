@@ -444,10 +444,17 @@ The 2026-07-27 pass resolved 4 of the remaining 6: **henderson-nv-2026-06**
 azcc.gov fetch), and **duke-nc-large-load-rate-case-2025** (enriched with the
 2026-07-17 fast-track settlement terms; docket `E-7, Sub 1300` confirmed
 distinct from the general rate case Sub 1329, no change needed). The 2026-07-30
-pass resolved **hernando-county-fl-2026-06** (final vote confirmed July 14,
-2026 — same meeting as Pasco's; see the 2026-07-30 REFRESH.md entry). One
-remains unresolved and deliberately un-bumped:
+pass tried **hernando-county-fl-2026-06** again and, after an initial
+(incorrect) "resolved" pass got caught and reverted by code review, left it
+unresolved too — the only "final adoption" source found was an advocacy
+op-ed, not a neutral report. Two remain unresolved and deliberately un-bumped:
 
+- **hernando-county-fl-2026-06** — final adoption was scheduled for July 14,
+  2026 (the same meeting Pasco County finalized its own moratorium at), and
+  two secondary sources (a July 1 opinion column, a July 27 op-ed) describe
+  it as already adopted, but neither is a neutral news report confirming the
+  vote. Needs the county's own agenda/minutes for 2026-07-14, or a neutral
+  news report, before flipping to `enacted`.
 - **nv-energy-callisto-esa** — citizenportal.ai (both the stipulation article
   and the follow-up order article) still 403s on every direct-fetch attempt.
   WebSearch synthesis suggests the PUCN accepted a stipulation on the amended

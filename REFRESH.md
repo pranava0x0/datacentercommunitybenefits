@@ -778,11 +778,14 @@ discovered together.
   differently, and nothing available says which scope the record should
   prefer by default.
 - **A Florida moratorium wave was found entirely by accident** while
-  rechecking the single stale `hernando-county-fl-2026-06` record. Confirmed:
-  Hernando's final vote (July 14, matching Pasco's own confirmed final-vote
-  date via tandem Tampa Bay-area coverage — no single source stated Hernando's
-  exact date, but 3+ independent sources agreed status had flipped to enacted).
-  Sarasota County was a clean new add (enacted July 9). **Pasco County's
+  rechecking the single stale `hernando-county-fl-2026-06` record. **Hernando
+  itself stayed unresolved, and correctly so** — an initial pass inferred
+  "enacted July 14" from circumstantial evidence (matching Pasco's own
+  confirmed final-vote date via tandem Tampa Bay-area coverage), but a code
+  review caught that the only "confirms final adoption" source was an
+  advocacy op-ed, not a neutral report — reverted to `proposed` per this
+  project's own don't-guess rule. Sarasota County was a clean new add
+  (enacted July 9). **Pasco County's
   existing record had a real data error**: stamped `enacted_date: 2026-06-12`,
   but the June 12 WUSF article it cited only describes a **first reading**
   ("A second and final vote is scheduled for July 14") — the true enactment

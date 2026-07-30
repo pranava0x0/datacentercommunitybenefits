@@ -110,10 +110,26 @@ RELEVANCE_KEYWORDS = [
 MIN_DISTINCTIVE_LEN = 4  # a token this long or longer can match on its own
 _WORD = re.compile(r"[a-z0-9]+")
 
+# Plain English function words -- found via a live-seed smoke test 2026-07-30
+# (not by the PR review): "New Carlisle, IN" contributes tokens {"new", "in"},
+# and "Meta announces a NEW data center IN Reno" shares BOTH words purely by
+# coincidence of grammar, not because the headline is about New Carlisle --
+# "new" is an adjective modifying "data center", "in" is a preposition, but
+# match_existing's "two shorter tokens together" fallback can't tell that
+# from two real place-name fragments landing next to each other. Stripped at
+# the tokenizer level (not per-fingerprint) because a stopword is equally
+# meaningless whether it came from a city, a company, or the headline itself.
+_STOPWORDS = {
+    "a", "an", "and", "at", "by", "for", "from", "in", "is", "it", "new",
+    "of", "on", "or", "the", "to", "with",
+}
+
 
 def _words(text: str) -> set[str]:
-    """Punctuation-stripped lowercase word set, e.g. 'LaGrange, Georgia' -> {'lagrange', 'georgia'}."""
-    return set(_WORD.findall(text.lower()))
+    """Punctuation-stripped lowercase word set, minus English stopwords,
+    e.g. 'LaGrange, Georgia' -> {'lagrange', 'georgia'}; 'New Carlisle, IN'
+    -> {'carlisle'} ("new" and "in" are stopwords, not place identifiers)."""
+    return set(_WORD.findall(text.lower())) - _STOPWORDS
 
 # -- HTML link extraction ------------------------------------------------------
 _A_TAG = re.compile(r'<a\b[^>]*href=(["\'])(.*?)\1[^>]*>(.*?)</a>', re.I | re.S)

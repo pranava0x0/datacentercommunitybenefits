@@ -263,6 +263,18 @@ def test_match_existing_returns_none_for_no_overlap():
     assert scout.match_existing("Sky47 inaugurates data center in Islamabad", fps) is None
 
 
+def test_words_strips_english_stopwords():
+    """Regression, found by a live-seed smoke test 2026-07-30 (not by the PR
+    review): 'New Carlisle, IN' tokenized to {'new', 'in', 'carlisle'}, and
+    'new'/'in' are common enough English words (an adjective, a preposition)
+    that they satisfy the "two shorter tokens together" fallback against
+    almost ANY headline containing the phrase "a new ... in ..." -- nothing
+    to do with New Carlisle at all. 'in' is also Indiana's state code, but
+    losing it as a token costs little: 2-letter tokens were already too
+    short to count as distinctive on their own."""
+    assert scout._words("New Carlisle, IN") == {"carlisle"}
+
+
 def test_match_existing_ambiguous_token_alone_is_not_enough():
     """Regression (found by review, 2026-07-30): a distinctive token that's
     marked ambiguous (a company name shared by multiple tracked projects)
