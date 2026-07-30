@@ -108,10 +108,13 @@ below).
 ### What a script can't do here — read before assuming this replaces an agent
 
 Added 2026-07-30, after the first real run surfaced these directly (not
-hypothetical). Two matching bugs from that first run were found and fixed in
-the same pass — documented here as fixed, not as open limitations, but the
-underlying lesson (a heuristic like this ships with real bugs on day one, not
-just theoretical gaps) is worth keeping:
+hypothetical). Six matching bugs from that first run were found and fixed in
+the same pass — three from an adversarial PR review, two more from the SAME
+review's follow-up pass on the fix commit, and one from just running the tool
+against the live seed afterward and reading the output. Documented here as
+fixed, not as open limitations, but the underlying lesson (a heuristic like
+this ships with real, compounding bugs on day one, and fixing one can
+introduce the next) is worth keeping:
 
 - **Fixed: requiring 2 token hits made every single-word jurisdiction
   structurally unmatchable, not just imprecise.** The first live run flagged
@@ -140,6 +143,33 @@ just theoretical gaps) is worth keeping:
   but the stoplist is inherently incomplete: a new tracked company or utility
   with a similarly generic name will need its own addition to
   `_GENERIC_WORDS`.
+- **Fixed: a distinctive single token was ENOUGH to fix the false-negative
+  above, and TOO MUCH for a company with many sites.** Letting one
+  distinctive token match alone (the fix two bullets up) fixed Brookfield
+  (one tracked project) but reopened the door for Meta, Google, and every
+  other multi-site company: "Meta announces a new data center in Reno" would
+  have matched some unrelated existing Meta project purely because "meta" is
+  a long word, misreporting a genuinely new site as already tracked. Fixed
+  with `ambiguous_tokens`: a company's name tokens only count as sufficient
+  ALONE when that company has exactly one tracked project; with 2+, the name
+  alone no longer clears the bar and a second token (the city) is required.
+  Also fixed the same day: the keyword list only had singular phrases, so
+  "Google announces new data centers in Virginia" (plural) never even
+  reached the matching step — `relevant()` now checks singular/+s/+es
+  variants of every keyword.
+- **Fixed: administrative-unit words ("county", "township") were treated as
+  distinctive place names.** Found by running the tool against the live seed
+  after the review, not by the review itself: "county" alone (6 letters)
+  matched `wonder-valley-box-elder-ut` (city "Box Elder County") against an
+  unrelated "data center in Henderson County, Texas" headline. Same failure
+  shape as the generic-company-word bug, one layer down — `_ADMIN_UNIT_WORDS`
+  strips these from both project city tokens and moratorium jurisdiction
+  tokens before matching. (Left alone, deliberately: two different real
+  places sharing a genuinely distinctive name, like "Henderson, NV" and
+  "Henderson County, TX", or the two different "Temple, TX" projects from
+  different developers — that's the same "a MATCH is not proof of an actual
+  duplicate" limitation the module docstring already calls out, not a new
+  bug to chase.)
 - **A "fetched successfully" source can still return nothing useful.**
   `datacenterbans.com` and `halcyon.io` both returned HTTP 200 but, being
   client-rendered pages, only a nav shell — `extract_links` correctly parsed

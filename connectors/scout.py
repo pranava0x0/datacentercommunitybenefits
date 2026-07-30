@@ -159,17 +159,33 @@ def _padded(text: str) -> str:
     return " " + _WS.sub(" ", re.sub(r"[^a-z0-9]+", " ", text.lower())) + " "
 
 
+def _keyword_variants(keyword: str) -> tuple[str, str, str]:
+    """(singular, +s, +es) -- covers 'data center'/'data centers',
+    'moratorium'/'moratoriums', 'ai campus'/'ai campuses' without guessing at
+    the TITLE's plural form (which risks mangling an unrelated word). A
+    plain singular-only list missed every plural headline ("Google announces
+    new data centers in Virginia") -- caught by review, 2026-07-30. The `+es`
+    form is nonsense for some keywords (e.g. "tariffes") but that's harmless:
+    it just never matches anything, same as leaving it out."""
+    k = keyword.strip()
+    return (k, k + "s", k + "es")
+
+
 def relevant(title: str) -> bool:
     t = _padded(title)
     # _padded() both normalizes the title AND the keyword the same way, so a
-    # plain `_padded(keyword) in t` is already word-boundary-safe -- no raw
+    # plain `_padded(variant) in t` is already word-boundary-safe -- no raw
     # substring fallback needed. An earlier version had one (`k.strip() in
     # t`) to work around a padding bug of its own; that fallback is exactly
     # what let "gw" match inside "Edgware" (unrelated headline), since a raw
     # substring check ignores word boundaries entirely. Fixed by padding the
-    # keyword's own whitespace away first (`k.strip()`) instead of adding a
-    # second, unsafe check.
-    return any(_padded(k.strip()) in t for k in RELEVANCE_KEYWORDS)
+    # keyword's own whitespace away first instead of adding a second, unsafe
+    # check.
+    return any(
+        _padded(variant) in t
+        for k in RELEVANCE_KEYWORDS
+        for variant in _keyword_variants(k)
+    )
 
 
 # -- seed fingerprints ----------------------------------------------------
@@ -217,15 +233,51 @@ _STATE_NAMES = {
     "wyoming",
 }
 
+# Administrative-unit words that show up as part of nearly every jurisdiction
+# or city name ("Henderson COUNTY", "Washington TOWNSHIP") but, unlike the
+# proper-noun part of the name, are shared by hundreds of unrelated places --
+# found via a live-seed smoke test (not by the PR review) 2026-07-30:
+# "Diode Ventures withdraws proposal for data center in Henderson County,
+# Texas" matched `wonder-valley-box-elder-ut` purely because that project's
+# city is "Box Elder County" and "county" alone was treated as distinctive.
+# Unlike _STATE_NAMES, this IS stripped from jurisdiction tokens too --
+# "county"/"township"/etc. are never themselves a place identifier the way a
+# state name occasionally is (e.g. "Washington County" is legitimately named
+# after the word "Washington", but no jurisdiction is legitimately named
+# after the word "county" alone).
+_ADMIN_UNIT_WORDS = {
+    "county", "township", "borough", "parish", "city", "town", "village",
+    "district",
+}
+
 
 def project_fingerprints() -> list[dict]:
-    """One fingerprint per seed project: city/state + company-name tokens."""
+    """One fingerprint per seed project: city/state + company-name tokens.
+
+    A company name is only allowed to match a headline BY ITSELF when that
+    company has exactly one tracked project -- otherwise it's marked
+    "ambiguous" and needs a second (e.g. city) token to corroborate it.
+    Without this: a company with many sites (Meta, Google, ...) would have
+    every one of its projects match ANY headline mentioning the company at
+    all, including one about a genuinely new, untracked site -- "Meta
+    announces a new data center in Reno" would false-positive-match some
+    unrelated existing Meta project purely because "meta" is a long enough
+    word to look distinctive (caught by review, 2026-07-30). A single-project
+    company doesn't have this ambiguity, so its name can stand alone -- see
+    the Brookfield/Paducah case in `match_existing`'s docstring.
+    """
     companies = {c["slug"]: c["name"] for c in _load("companies")}
+    projects = _load("projects")
+    projects_per_company: dict[str, int] = {}
+    for p in projects:
+        projects_per_company[p["company_slug"]] = projects_per_company.get(p["company_slug"], 0) + 1
+
     out = []
-    for p in _load("projects"):
-        tokens = _words(p.get("city", "")) | _words(p.get("state", ""))
-        tokens |= _words(companies.get(p["company_slug"], "")) - _GENERIC_WORDS - _STATE_NAMES
-        out.append({"id": p["id"], "tokens": tokens})
+    for p in projects:
+        place = (_words(p.get("city", "")) - _ADMIN_UNIT_WORDS) | _words(p.get("state", ""))
+        entity = _words(companies.get(p["company_slug"], "")) - _GENERIC_WORDS - _STATE_NAMES
+        ambiguous = entity if projects_per_company[p["company_slug"]] > 1 else set()
+        out.append({"id": p["id"], "tokens": place | entity, "ambiguous_tokens": ambiguous})
     return out
 
 
@@ -234,20 +286,30 @@ def moratorium_fingerprints() -> list[dict]:
     # can legitimately be named after a state word ("Washington County"),
     # unlike a company/utility name where the state is incidental to the
     # brand. Stripping it would make exactly those jurisdictions unmatchable
-    # by their most distinctive word.
+    # by their most distinctive word. _ADMIN_UNIT_WORDS IS applied, though --
+    # "county"/"township"/etc. are never themselves the distinctive part of a
+    # jurisdiction name (see that set's docstring). No ambiguous_tokens
+    # either -- each jurisdiction is its own fingerprint, so there's no
+    # sibling-record ambiguity the way one company's name spans many
+    # projects.
     out = []
     for r in _load("moratoriums"):
-        tokens = _words(r.get("jurisdiction", "")) | _words(r.get("state_code", "") or "")
-        out.append({"id": r["id"], "tokens": tokens})
+        tokens = (_words(r.get("jurisdiction", "")) - _ADMIN_UNIT_WORDS) | _words(
+            r.get("state_code", "") or ""
+        )
+        out.append({"id": r["id"], "tokens": tokens, "ambiguous_tokens": set()})
     return out
 
 
 def tariff_fingerprints() -> list[dict]:
+    # Utilities are ~1 tariff each in this dataset (no sibling-ambiguity
+    # problem the way a company spans many projects), so utility-name tokens
+    # don't need the ambiguous_tokens treatment either.
     out = []
     for r in _load("tariffs"):
         utility_tokens = _words(r.get("utility", "")) - _GENERIC_WORDS - _STATE_NAMES
         tokens = utility_tokens | _words(r.get("state", ""))
-        out.append({"id": r["id"], "tokens": tokens})
+        out.append({"id": r["id"], "tokens": tokens, "ambiguous_tokens": set()})
     return out
 
 
@@ -255,16 +317,27 @@ def match_existing(title: str, fingerprints: list[dict]) -> str | None:
     """Best-effort: does this headline share enough words with an existing
     record's city/state/company/jurisdiction tokens to call it a match?
 
-    A match needs EITHER one "distinctive" token (length >= MIN_DISTINCTIVE_LEN,
-    e.g. a city or company name) OR two shorter tokens together (so a bare
-    2-letter state code never matches alone). The distinctive/short split
+    A match needs EITHER one "distinctive", non-ambiguous token (length >=
+    MIN_DISTINCTIVE_LEN, e.g. a city, or a company name that isn't shared
+    across multiple tracked projects) OR two shorter/ambiguous tokens
+    together (so a bare 2-letter state code, or a multi-site company's name
+    alone, never triggers a match by itself). The distinctive/short split
     matters: an earlier version required 2 tokens unconditionally, which
     filtered out state-code tokens (length 2) as too short to count at all --
     meaning a single-word jurisdiction like "Denver" could NEVER clear the
     bar even with an exact headline match, because "denver" (1 token) plus
     "co" (filtered) never reached 2. Confirmed against the live seed
     2026-07-30: that version left 57 of 111 moratorium records structurally
-    unmatchable regardless of headline wording.
+    unmatchable regardless of headline wording. Fixing that by allowing ANY
+    one distinctive token to match alone then over-corrected the other way
+    for companies with many sites (see `project_fingerprints`'s docstring) --
+    `ambiguous_tokens` is the fix for that second-order bug, also caught by
+    review the same day.
+
+    A fingerprint without an `ambiguous_tokens` key (e.g. built by hand in a
+    test) is treated as having none, i.e. every one of its tokens can match
+    alone if long enough -- this only matters for fixtures; the real
+    `*_fingerprints()` functions above always set the key.
 
     Returns the best-matching record id, or None. Read the module docstring
     before trusting either outcome -- this is a heuristic, not a verdict.
@@ -272,8 +345,11 @@ def match_existing(title: str, fingerprints: list[dict]) -> str | None:
     title_words = _words(title)
     best_id, best_score = None, 0
     for fp in fingerprints:
+        ambiguous = fp.get("ambiguous_tokens", set())
         hits = [tok for tok in fp["tokens"] if tok in title_words]
-        distinctive = sum(1 for tok in hits if len(tok) >= MIN_DISTINCTIVE_LEN)
+        distinctive = sum(
+            1 for tok in hits if tok not in ambiguous and len(tok) >= MIN_DISTINCTIVE_LEN
+        )
         if distinctive >= 1 or len(hits) >= 2:
             score = distinctive * 2 + len(hits)  # for picking the BEST match only
             if score > best_score:

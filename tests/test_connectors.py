@@ -217,6 +217,14 @@ def test_relevant_survives_trailing_punctuation():
     assert scout.relevant("Data center, moratorium proposed in Anytown.")
 
 
+def test_relevant_matches_plural_headlines():
+    """Regression (found by review, 2026-07-30): a keyword list built from
+    singular phrases missed the common case of a plural headline. 'data
+    centers' and 'moratoriums' must match their singular keyword entries."""
+    assert scout.relevant("Google announces new data centers in Virginia")
+    assert scout.relevant("Three more moratoriums proposed this week")
+
+
 # --- scout: seed matching heuristic ------------------------------------------
 
 def test_match_existing_ignores_trailing_comma():
@@ -253,6 +261,75 @@ def test_match_existing_short_token_alone_is_not_enough():
 def test_match_existing_returns_none_for_no_overlap():
     fps = [{"id": "google-lagrange-ga", "tokens": {"lagrange", "georgia", "google"}}]
     assert scout.match_existing("Sky47 inaugurates data center in Islamabad", fps) is None
+
+
+def test_match_existing_ambiguous_token_alone_is_not_enough():
+    """Regression (found by review, 2026-07-30): a distinctive token that's
+    marked ambiguous (a company name shared by multiple tracked projects)
+    must NOT match on its own -- otherwise 'Meta announces a new data center
+    in Reno' would false-positive-match some unrelated existing Meta project
+    purely because 'meta' is a long word, misreporting a genuinely new site
+    as already tracked. A non-ambiguous token (the city) still carries a
+    match on its own, same as before."""
+    fps = [
+        {"id": "meta-el-paso-tx", "tokens": {"el", "paso", "tx", "meta"}, "ambiguous_tokens": {"meta"}},
+        {"id": "meta-temple-tx", "tokens": {"temple", "tx", "meta"}, "ambiguous_tokens": {"meta"}},
+    ]
+    assert scout.match_existing("Meta announces a new data center in Reno", fps) is None
+    assert scout.match_existing("Meta expands its Temple, Texas campus", fps) == "meta-temple-tx"
+
+
+def test_project_fingerprints_mark_multi_project_companies_ambiguous(tmp_path, monkeypatch):
+    """Integration version of the test above: a company with 2+ tracked
+    projects gets its name tokens marked ambiguous; a company with exactly 1
+    project does not (that's the Brookfield/Paducah case -- no sibling
+    project to be ambiguous WITH)."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "companies.json").write_text(json.dumps({"companies": [
+        {"slug": "meta", "name": "Meta"},
+        {"slug": "brookfield", "name": "Brookfield"},
+    ]}))
+    (seed / "projects.json").write_text(json.dumps({"projects": [
+        {"id": "meta-el-paso-tx", "company_slug": "meta", "city": "El Paso", "state": "TX"},
+        {"id": "meta-temple-tx", "company_slug": "meta", "city": "Temple", "state": "TX"},
+        {"id": "brookfield-paducah-ky", "company_slug": "brookfield", "city": "Paducah", "state": "KY"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = {fp["id"]: fp for fp in scout.project_fingerprints()}
+    assert "meta" in fps["meta-el-paso-tx"]["ambiguous_tokens"]
+    assert "meta" in fps["meta-temple-tx"]["ambiguous_tokens"]
+    assert "brookfield" not in fps["brookfield-paducah-ky"]["ambiguous_tokens"]
+
+
+def test_project_fingerprints_strip_admin_unit_words_from_city(tmp_path, monkeypatch):
+    """Regression, found by a live-seed smoke test (not the PR review itself)
+    2026-07-30: 'county' alone matched `wonder-valley-box-elder-ut` (city
+    'Box Elder County') against an unrelated 'data center in Henderson
+    County, Texas' headline, purely because 'county' is 6 letters and wasn't
+    marked as non-distinctive -- same failure shape as the generic-company-
+    word bug, one layer down at the place-name level. Checks both the
+    fingerprint (token stripped) and the end-to-end match (no false
+    positive)."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "companies.json").write_text(json.dumps({"companies": [
+        {"slug": "wonder-valley", "name": "Wonder Valley"},
+    ]}))
+    (seed / "projects.json").write_text(json.dumps({"projects": [
+        {"id": "wonder-valley-box-elder-ut", "company_slug": "wonder-valley", "city": "Box Elder County", "state": "UT"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = scout.project_fingerprints()
+    tokens = fps[0]["tokens"]
+    assert "box" in tokens
+    assert "elder" in tokens
+    assert "county" not in tokens
+
+    title = "Diode Ventures withdraws proposal for data center in Henderson County, Texas"
+    assert scout.match_existing(title, fps) is None
 
 
 def test_project_fingerprints_strip_generic_company_words(tmp_path, monkeypatch):
