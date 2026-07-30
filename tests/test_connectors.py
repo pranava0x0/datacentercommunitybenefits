@@ -7,7 +7,7 @@ import json
 
 import pytest
 
-from connectors import extract
+from connectors import extract, scout
 from connectors.http import CachedSession, FetchError
 
 # --- fixtures ---------------------------------------------------------------
@@ -170,3 +170,82 @@ def test_harvest_html_file_bridge_extracts_quotes():
     assert cand["kind"] == "claim_candidates"
     assert cand["company_slug"] == "google"
     assert any("green tariff" in q for q in cand["quote_candidates"])
+
+
+# --- scout: link extraction --------------------------------------------------
+
+LISTING_PAGE = """
+<html><body>
+<nav><a href="#top">Skip to content</a> <a href="mailto:x@y.com">Contact</a></nav>
+<ul>
+<li><a href="/en/news/google-files-to-expand-data-center-campus-in-lagrange-georgia/">
+  Google files to expand data center campus in LaGrange, Georgia</a></li>
+<li><a href="https://example.com/en/news/unrelated-story/">A totally unrelated story</a></li>
+<li><a href="javascript:void(0)">Load more</a></li>
+</ul>
+</body></html>
+"""
+
+
+def test_extract_links_skips_nav_junk_and_resolves_relative_urls():
+    links = scout.extract_links(LISTING_PAGE, "https://example.com/en/news/")
+    urls = {l["url"] for l in links}
+    assert "https://example.com/en/news/google-files-to-expand-data-center-campus-in-lagrange-georgia/" in urls
+    # mailto / javascript / fragment-only anchors are not links to a story
+    assert not any(u.startswith(("mailto:", "javascript:")) for u in urls)
+    assert not any(u.endswith("#top") for u in urls)
+
+
+def test_extract_links_dedupes_repeated_title_and_url():
+    doubled = LISTING_PAGE + LISTING_PAGE
+    links = scout.extract_links(doubled, "https://example.com/")
+    titles = [l["title"] for l in links]
+    assert titles.count("Google files to expand data center campus in LaGrange, Georgia") == 1
+
+
+# --- scout: relevance keyword gate -------------------------------------------
+
+def test_relevant_matches_on_keyword():
+    assert scout.relevant("Brookfield to develop gigawatt-scale data center campus")
+    assert scout.relevant("County considers new data-center moratorium")
+    assert not scout.relevant("Company launches new cloud storage pricing tier")
+
+
+def test_relevant_survives_trailing_punctuation():
+    """A phrase keyword must still match when punctuation sits right after it —
+    this is the same word-boundary bug that first showed up in match_existing."""
+    assert scout.relevant("Data center, moratorium proposed in Anytown.")
+
+
+# --- scout: seed matching heuristic ------------------------------------------
+
+def test_match_existing_ignores_trailing_comma():
+    """Regression: 'LaGrange, Georgia' must match a fingerprint token 'lagrange'
+    even though the comma sits directly against the word in the raw title."""
+    fps = [{"id": "google-lagrange-ga", "tokens": {"lagrange", "georgia", "google"}}]
+    title = "Google files to expand data center campus in LaGrange, Georgia"
+    assert scout.match_existing(title, fps) == "google-lagrange-ga"
+
+
+def test_match_existing_requires_min_token_overlap():
+    """A single shared word (e.g. just the company name) isn't enough --
+    below MIN_MATCH_TOKENS this must report 'no match', not a false positive."""
+    fps = [{"id": "brookfield-paducah-ky", "tokens": {"brookfield", "paducah"}}]
+    title = "Brookfield to develop gigawatt-scale data center campus in Kentucky"
+    assert scout.match_existing(title, fps) is None
+
+
+def test_match_existing_returns_none_for_no_overlap():
+    fps = [{"id": "google-lagrange-ga", "tokens": {"lagrange", "georgia", "google"}}]
+    assert scout.match_existing("Sky47 inaugurates data center in Islamabad", fps) is None
+
+
+def test_project_fingerprints_strip_generic_company_words():
+    """'SB Energy' and 'Brookfield' both contain generic words ('Energy',
+    'Group') common enough in unrelated headlines to false-positive on their
+    own (e.g. an energy-policy story matching purely on 'energy' + 'group').
+    Those generic words must not survive into a company's fingerprint tokens."""
+    tokens = scout._words("SB Energy (SoftBank Group)") - scout._GENERIC_COMPANY_WORDS
+    assert "softbank" in tokens
+    assert "energy" not in tokens
+    assert "group" not in tokens
