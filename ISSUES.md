@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-07-30
+Generated: 2026-08-03
 Total projects needing attention: 93
 
 ## Critical Missing Commitment Details
@@ -106,7 +106,15 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Bills / Tariffs
-(1 records)
+(2 records)
 
 `proposed` moratoriums/tariffs not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **nv-energy-callisto-esa** (tariff, NV): captured 2026-06-22, 38 days ago
+- **nv-energy-callisto-esa** (tariff, NV): captured 2026-06-22, 42 days ago
+- **oneida-county-wi-2026-07** (moratorium, Oneida County): captured 2026-07-13, 21 days ago
+
+## Moratorium source audit
+
+| Date | Record | Issue | Recommended action | Status |
+|------|--------|-------|-------------------|--------|
+| 2026-08-03 | moratoriums:dekalb-county-ga-2025-12 | No gov/official source URL | Add .gov or official legislative link to source_url or resources | Open |
+| 2026-08-03 | moratoriums:virginia-state-2026-07 | No gov/official source URL | Add .gov or official legislative link to source_url or resources | Open |
