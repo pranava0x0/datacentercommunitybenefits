@@ -1197,6 +1197,89 @@ have been believed. Mutating the code to make a new assertion go red is the only
 way to know which of your guards are real (base CLAUDE.md > "a green test you
 have never seen go red is a hypothesis").
 
+### Rate cases — the proceeding layer under the tariffs (v3)
+
+`RateCase` + `data/seed/rate_cases.json` (builder: `scripts/build_rate_cases.py`,
+idempotent — edit it, re-run, then `python3 refresh.py`). A tariff is the
+instrument; a rate case is the fight: the docketed PUC/PSC/FERC proceeding where
+who-pays-for-data-center-load actually gets decided. Separate record type
+because several cases exist in states with no tracked tariff, one tariff can
+accumulate proceedings over its life, and `next_milestone` needs a home.
+
+- **`next_milestone` is regulator-announced steps only, never a guess** — the
+  schema description says so and the Home "What's next" list renders it
+  verbatim. A milestone with only a season/quarter stays in the text field;
+  `next_milestone_date` is for a specific announced day.
+- **Statuses `pending|approved|rejected` render with the tariff palette**
+  (pending shares the `proposed` amber) via `RATE_CASE_BADGE_CLASS`; the
+  badge-class map is parity-tested against the status vocab so an unmapped
+  status can't silently fall back to a colorless badge (the `badge-reason-*`
+  failure shape).
+- **Deferred-tier payload**, like `responses.json`: fetched by
+  `loadRatepayerView` after first render, never preloaded — first paint stays
+  at 8 requests. `tests/test_perf_budget.py`'s DEFERRED list records it.
+- **Cross-refs validated at refresh time**: `related_tariff_id` must exist in
+  tariffs, `related_project_ids` in projects. `coverage.json` now carries
+  per-state `rate_cases` counts (federal `US` rows excluded from state cells).
+- **Verify sources by fetching, and .gov order PDFs by reading them.** Two
+  orders were text-extracted (zlib-decompress the PDF streams, grep the Tj/TJ
+  text operators) to confirm dates/thresholds/parties before shipping: MO
+  ET-2025-0184 (75 MW, issued 2025-11-24, effective 2025-12-04, Amazon/Google
+  as signatory intervenors) and IN Cause 46362 (Amazon special contract dated
+  2025-09-18). A state PUC **legal notice in a local paper is a dated primary
+  source** — the PUCN notice for Docket 26-06023 is where 'Callisto
+  Enterprises, LLC ("Google")' is the Commission's own identification.
+- **Search synthesis will hand you the wrong docket.** "Georgia Power's 2025
+  rate case, docket 44280" came back from search; fetching the PSC docket page
+  showed 44280 is the **2022** rate case (still Open — the 2025 freeze
+  stipulation extends that plan). Same v1.19 lesson, docket-shaped: fetch the
+  docket page before storing a docket number.
+- **.gov press URLs rot fast; dockets don't.** The MO PSC press release
+  (pr-26-40) and DeKalb's agenda PDF both 404'd within months of publication.
+  Cite the EFIS/docket-system URL (or the order document itself) as
+  `source_url`; press releases go in `resources` if anywhere.
+- **`utility_aliases` now joins three surfaces** — tariff, rate-case, and
+  project `serving_utility` strings all resolve through the same hand-curated
+  map (`test_utility_aliases_resolve_to_real_records` widened accordingly; the
+  dead-alias guard rejected a speculative bare "NIPSCO" immediately, which is
+  the guard working). The aggregate **By utility** rollup groups by resolved
+  roster row, else verbatim string; display shows the roster (parent) name
+  only when a group genuinely spans multiple operating utilities (Duke IN +
+  Carolinas), keeps the operating name for single-string rows (SWEPCO stays
+  SWEPCO), never fuzzy-matches.
+
+### IA v3 — Home as the record's front door (2026-08-03)
+
+Tab labels changed, **hashes did not** (deep-link compatibility): Home
+(`#overview`, default) · The Pledge (`#ratepayer`) · Companies (`#comparison`)
+· Moratoriums · Tariffs & Rate Cases (`#tariffs`) · Sites (`#explorer`) · By
+State & Company (`#aggregate`). Home is no longer pledge-only: new
+masthead/dek introducing all five record types, a **"What's next"** list
+(dated docket milestones, soonest first — the user question the dashboard
+exists to answer), the activity feed, and five reader paths (added: rate
+watchers → `ratecases` target, planners → `moratoriums` target). The tariffs
+tab gained the rate-cases section; the state panel a fifth section (e2e
+updated 4 → 5); the aggregate a fourth sub-tab (CSV/PDF exports cover it —
+the derived one-section-per-subtab e2e test caught the gap the same day it
+was created, exactly as designed).
+
+### Civic palette v3 — whitehouse.gov, contrast-computed (2026-08-03)
+
+The user directed the theme to follow whitehouse.gov's colors and type. The
+palette was **extracted from the live site's own CSS presets** (browser
+`getComputedStyle` + stylesheet walk), not eyeballed: deep navy `#0D132D` /
+`#151A30` / `#141F4D`, charcoal ink `#293340`, signal red `#B50000`, amber
+`#FFBD00`, stone `#E8E6E0`, pale-gray `#D9DEE8`. Every text pairing was
+contrast-computed before landing (red on white 7.08:1; amber on white 1.68:1
+— so **amber is a mark color on light surfaces and a text color only on the
+navy band**, where it hits 10.9:1; dark-mode muted 7.28:1). Dark mode is the
+navy family, not gray. Fonts: whitehouse.gov uses Instrument Serif/Sans —
+the stacks now **name those first and fall back to system faces**, which
+costs zero bytes and engages when a reader has them installed; the no-web-font
+budget test still enforces no `@font-face`. If the user later wants the real
+faces, two self-hosted WOFF2 subsets (~60 KB, +2 requests) are the price —
+that is a deliberate budget decision, not a default.
+
 ### Per-signatory deep dives — plan only, not built
 
 [SPEC_SIGNATORY_PAGES.md](SPEC_SIGNATORY_PAGES.md) proposes `#signatory/<id>`

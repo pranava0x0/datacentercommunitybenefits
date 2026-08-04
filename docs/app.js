@@ -6314,7 +6314,7 @@ function rpConflictsHtml(p) {
     })
     .join("");
   return `<div class="rp-conflicts">
-    <div class="rp-conflicts-head">⚠ Ratepayer cost-shift concerns (${reports.length}) — independent findings affecting this site or its utility system</div>
+    <div class="rp-conflicts-head">Ratepayer cost-shift concerns (${reports.length}) — independent findings affecting this site or its utility system</div>
     <ul class="rp-conflicts-list">${items}</ul>
   </div>`;
 }
@@ -6322,7 +6322,7 @@ function rpConflictsHtml(p) {
 function rpConflictFlagHtml(p) {
   // Small always-visible header flag when independent reports raise a ratepayer
   // cost-shift concern for this site or the utility system it sits on.
-  return rpConflictingReports(p).length ? `<span class="rp-conflict-flag" title="Independent reports raise a ratepayer cost-shift concern for this site or its utility">⚠ Ratepayer concern</span>` : "";
+  return rpConflictingReports(p).length ? `<span class="rp-conflict-flag" title="Independent reports raise a ratepayer cost-shift concern for this site or its utility">Ratepayer concern</span>` : "";
 }
 
 function renderRatepayerCard(p) {

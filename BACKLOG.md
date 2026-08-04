@@ -972,3 +972,23 @@ summaries is non-conforming — same defect as the one fixed on the pledge band,
 different component. `test_summaries_contain_only_conforming_children` is
 deliberately scoped to `details.acc > summary` so it stays green; widen the
 selector once the card markup is fixed.
+
+## Rate-case / tariff leads (2026-08-03 refresh)
+
+- **EEI "Large Load Projects and Tariffs" (June 2026) PDF** — industry-wide
+  enumerated list at eei.org (found via search; not yet mined). Same treatment
+  as the Moratorium Nation CSV: work-list, verify each row against a primary
+  source, never bulk-import. (medium)
+- **WV Appalachian Power / Google large-load settlement** — Jan 2025 WVPB story
+  (I&M-template: 100 MW min, 12-yr, 80% take) but no PSC case number verified;
+  find the case number + outcome before adding a tariff record. Pairs with
+  google-putnam-county-wv. (medium)
+- **SPP High Impact Large Load (HILL)** — FERC approved Jan 2026 per FERC's own
+  April release; docket number unverified. Add as a federal rate-case record
+  once the docket is pinned. (low)
+- **Per-utility panel (`#utility/<slug>`)** — the aggregate By-utility rollup
+  exists; a deep-linkable panel (tariff-modal pattern) listing a utility's
+  tariffs, rate cases, served sites, and roster row is the natural next step.
+  (low)
+- **Halcyon large-load tariff tracker** — 218 tracked tariffs, gated behind a
+  contact form; worth requesting access once. (low)

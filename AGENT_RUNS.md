@@ -243,3 +243,16 @@ four full e2e suite runs (~110s each) after each structural change. That's the
 right thing to spend on and shouldn't be optimized away — two of the four caught
 real breakage (4 aggregate tests on the sub-tab conversion, and the pluralization
 bug surfaced by a screenshot, not a test).
+
+## 2026-08-03 — Data refresh + rate-case layer + IA v3 + civic palette
+
+**Agents/workflows spawned: none.** The heavy lifting was research, and the
+cheap tools carried it: WebFetch/WebSearch for discovery, the in-app browser
+pane for bot-walled pages (DCD, ferc.gov article pages, nevadaappeal legal
+notices — the pane loads what curl cannot), and an 18-line zlib/regex PDF text
+extractor to verify two .gov orders (MO ET-2025-0184, IN Cause 46362) that the
+fetch tool could only save as binary. One live-site `getComputedStyle` walk
+settled the whitehouse.gov palette question that no amount of recall could.
+Cost shape matched the 2026-07-28 entry: the expensive part was the two full
+e2e runs (~102 s each), both of which caught real breakage (state-panel
+section count, aggregate export coverage).

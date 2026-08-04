@@ -128,6 +128,23 @@ re-check before you go looking for anything new.
 - **News for context/community reaction:** DataCenterDynamics, UtilityDive,
   regional outlets (same list as project research).
 
+### Rate cases (v3)
+
+`data/seed/rate_cases.json` joins the stale-pending audit: a `pending` case
+older than STALE_PENDING_DAYS gets flagged in ISSUES.md like a proposed
+bill/tariff. Re-check sources: the PSC/PUC docket system itself (EFIS in MO,
+eDocket in AZ, starw1 in NC, PUCN in NV), PSC press pages, and **legal
+notices in local papers** (dated, primary, and they carry the docket number).
+Standing dated watch items as of 2026-08-03 — each is a `next_milestone` on a
+record, so the Home "What's next" list is the live version of this list:
+- 2026-08 (est): Oneida County WI board vote on the county moratorium
+- 2026-09-30: NC large-load tariff submission (Duke/Public Staff); DeKalb GA
+  moratorium expiry
+- 2026-12-01: Xcel MN clean energy & capacity tariff filing
+- 2027-01-01: Dominion GS-5 class effective; Duke NC new rates if approved
+- Undated: ACC decision post-hearing (APS), PUCN 26-06023 schedule, LPSC
+  response to the Earthjustice investigation request, FERC RM26-4 compliance
+
 ### Status re-check checklist (for anything flagged stale)
 1. Search `<jurisdiction> data center moratorium <bill number or name>` for the
    most recent coverage.
