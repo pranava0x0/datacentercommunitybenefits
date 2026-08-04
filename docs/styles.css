@@ -5503,6 +5503,195 @@ body.state-modal-open {
 
 /* --- activity feed ------------------------------------------------------- */
 
+/* --- What's next: dated docket milestones on Home ------------------------ */
+
+.whats-next {
+  margin-bottom: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline);
+}
+
+.wn-sub {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+.wn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wn-btn {
+  display: grid;
+  grid-template-columns: 104px 44px 1fr;
+  gap: 12px;
+  align-items: start;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.wn-btn:hover,
+.wn-btn:focus-visible {
+  border-color: var(--accent-rule);
+  background: var(--surface-2);
+}
+
+.wn-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-mark);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.wn-date--open {
+  color: var(--text-muted);
+}
+
+.wn-state {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 1px 5px;
+  text-align: center;
+  justify-self: start;
+}
+
+.wn-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wn-text {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.wn-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 760px) {
+  .wn-btn { grid-template-columns: 1fr; gap: 3px; }
+  .wn-state { display: none; }
+}
+
+/* --- Utility rollup (aggregate "By utility" sub-tab) --------------------- */
+
+.agg-utility-signed {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tariff-approved);
+  border: 1px solid var(--tariff-approved);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+/* --- Rate cases & proceedings (Tariffs tab) ------------------------------ */
+
+.rc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rc-item {
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.rc-item--empty {
+  color: var(--text-muted);
+  border-style: dashed;
+}
+
+.rc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rc-state {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.rc-state--fed {
+  color: var(--tariff-federal);
+  border-color: var(--tariff-federal);
+}
+
+.rc-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rc-meta {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.rc-src {
+  white-space: nowrap;
+}
+
+.rc-summary {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  max-width: 78ch;
+}
+
+.rc-next {
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+}
+
+.rc-next-lbl {
+  font-weight: 700;
+  color: var(--accent-mark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.68rem;
+}
+
+.rc-next-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
 .pledge-activity {
   margin-bottom: 22px;
   padding-top: 16px;

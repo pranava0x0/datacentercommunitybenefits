@@ -2,12 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "data-center-dashboard",
+      "name": "docs",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server"],
-      "cwd": "docs",
-      "port": 8000,
-      "autoPort": true
+      "runtimeArgs": ["-m", "http.server", "8931", "--directory", "docs"],
+      "port": 8931
     }
   ]
 }

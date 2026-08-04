@@ -398,7 +398,7 @@ def _write_audit_report(
 NON_GEOGRAPHIC_STATE = "XX"
 
 
-def _build_coverage(projects, tariffs, moratoriums) -> dict:
+def _build_coverage(projects, tariffs, moratoriums, rate_cases=None) -> dict:
     """Per-state record counts for the landing page's coverage surfaces.
 
     Precomputed here rather than derived in the browser because the landing view
@@ -417,7 +417,9 @@ def _build_coverage(projects, tariffs, moratoriums) -> dict:
         key = str(code).upper()
         if key == NON_GEOGRAPHIC_STATE:
             return None
-        return states.setdefault(key, {"projects": 0, "tariffs": 0, "moratoriums": 0})
+        return states.setdefault(
+            key, {"projects": 0, "tariffs": 0, "moratoriums": 0, "rate_cases": 0}
+        )
 
     for p in projects.projects:
         b = bucket(p.state)
@@ -431,6 +433,13 @@ def _build_coverage(projects, tariffs, moratoriums) -> dict:
         b = bucket(m.state_code)
         if b is not None:
             b["moratoriums"] += 1
+    if rate_cases is not None:
+        for rc in rate_cases.rate_cases:
+            if rc.jurisdiction_level == "federal":
+                continue  # "US" is not a state cell
+            b = bucket(rc.state_code)
+            if b is not None:
+                b["rate_cases"] += 1
 
     return {"states": dict(sorted(states.items()))}
 
@@ -439,7 +448,10 @@ def _write_coverage(payloads, *, pretty: bool) -> int:
     """Emit the derived coverage rollup alongside the validated payloads."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     data = _build_coverage(
-        payloads["projects"], payloads["tariffs"], payloads["moratoriums"]
+        payloads["projects"],
+        payloads["tariffs"],
+        payloads["moratoriums"],
+        payloads.get("rate_cases"),
     )
     data["generated_at"] = payloads["projects"].generated_at.isoformat()
     out = OUT_DIR / "coverage.json"

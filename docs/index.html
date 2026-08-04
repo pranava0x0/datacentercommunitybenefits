@@ -49,7 +49,7 @@
           aria-selected="true"
           aria-controls="view-overview"
         >
-          Overview
+          Home
         </button>
         <button
           id="tab-ratepayer"
@@ -59,7 +59,7 @@
           aria-selected="false"
           aria-controls="view-ratepayer"
         >
-          Ratepayer Protection Pledge
+          The Pledge
         </button>
         <button
           id="tab-comparison"
@@ -69,7 +69,7 @@
           aria-selected="false"
           aria-controls="view-comparison"
         >
-          Company Comparison
+          Companies
         </button>
         <button
           id="tab-moratoriums"
@@ -79,7 +79,7 @@
           aria-selected="false"
           aria-controls="view-moratoriums"
         >
-          Policy Moratoriums
+          Moratoriums
         </button>
         <button
           id="tab-tariffs"
@@ -89,7 +89,7 @@
           aria-selected="false"
           aria-controls="view-tariffs"
         >
-          Utility Tariffs
+          Tariffs &amp; Rate Cases
         </button>
         <button
           id="tab-explorer"
@@ -99,7 +99,7 @@
           aria-selected="false"
           aria-controls="view-explorer"
         >
-          Project Explorer
+          Sites
         </button>
         <button
           id="tab-aggregate"
@@ -109,7 +109,7 @@
           aria-selected="false"
           aria-controls="view-aggregate"
         >
-          Aggregate
+          By State &amp; Company
         </button>
       </div>
       </div>
@@ -131,17 +131,19 @@
       >
         <div class="pledge-hero-inner">
           <p class="pledge-kicker">
-            Ratepayer Protection Pledge <span aria-hidden="true">—</span>
-            <span class="pledge-kicker-strong">Independent tracker</span>
+            Data centers, communities &amp; the grid <span aria-hidden="true">—</span>
+            <span class="pledge-kicker-strong">An independent public record</span>
           </p>
           <h2 class="pledge-hero-title" id="pledge-hero-title">
-            Who signed <em>&mdash;</em> and is it showing up on the ground?
+            The data-center buildout, on the record.
           </h2>
           <p class="pledge-hero-dek">
-            An independent record of the White House Ratepayer Protection Pledge: the
-            organizations that signed it, the five commitments they made, and what the
-            evidence looks like at real data-center sites. Not affiliated with the
-            White House or any signatory.
+            One place to follow what the buildout is committing to and what is being
+            decided about it: the White House Ratepayer Protection Pledge and its
+            signatories, the community benefits companies publish for real sites, the
+            moratoriums cities and states are enacting, and the utility tariffs and
+            rate cases that settle who pays for the power. Every figure links to a
+            source. Not affiliated with the White House or any signatory.
           </p>
 
           <ul class="pledge-stats" id="pledge-stats" aria-label="Pledge at a glance">
@@ -189,6 +191,16 @@
             </section>
           </div>
 
+          <!-- The user question this dashboard exists to answer: what happens
+               next with the pledge and the buildout's open disputes. Items are
+               regulator-announced milestones from the rate-case records —
+               rendered by renderWhatsNext(); never hand-maintained here. -->
+          <section class="whats-next" aria-labelledby="wn-h" id="whats-next">
+            <h3 class="pledge-panel-h" id="wn-h">What&rsquo;s next</h3>
+            <p class="wn-sub" id="whats-next-sub">Loading docket milestones…</p>
+            <ol id="whats-next-list" class="wn-list"></ol>
+          </section>
+
           <section class="pledge-activity" aria-labelledby="pp-activity-h">
             <h3 class="pledge-panel-h" id="pp-activity-h">What changed</h3>
             <ol id="pledge-activity" class="pledge-activity-list"></ol>
@@ -229,6 +241,30 @@
               <span class="pledge-path-title">What's being built near me?</span>
               <span class="pledge-path-dek">
                 Every tracked site, who operates it, and what's on the record.
+              </span>
+            </button>
+            <button
+              class="pledge-path"
+              type="button"
+              id="path-regulatory"
+              data-path-target="ratecases"
+            >
+              <span class="pledge-path-tag">For rate watchers</span>
+              <span class="pledge-path-title">Who pays for the power?</span>
+              <span class="pledge-path-dek">
+                Large-load tariffs and the rate cases deciding cost allocation.
+              </span>
+            </button>
+            <button
+              class="pledge-path"
+              type="button"
+              id="path-landuse"
+              data-path-target="moratoriums"
+            >
+              <span class="pledge-path-tag">For planners</span>
+              <span class="pledge-path-title">Where is development paused?</span>
+              <span class="pledge-path-dek">
+                Enacted, proposed, and failed moratoriums at every level.
               </span>
             </button>
           </nav>
@@ -1241,6 +1277,30 @@
           </div>
         </details>
 
+        <!-- Rate cases & proceedings: the docketed layer under the tariffs.
+             Where the tariffs table answers "what instrument exists", this
+             answers "what is being decided, by whom, and what happens next".
+             Rendered by renderRateCases() from its own deferred payload. -->
+        <details class="acc" id="rate-cases-section" open>
+          <summary>
+            <h3 class="acc-title" id="rate-cases-heading">Rate cases &amp; proceedings</h3>
+            <span class="acc-count" id="rate-cases-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub">
+              The regulatory proceedings where who-pays-for-data-center-load is
+              actually decided: general rate cases, special contracts, and
+              rulemakings, each with its docket and — for pending cases — the
+              next known step. Federal (FERC) proceedings are badged
+              <span class="badge badge-tariff-federal">FED</span>.
+            </p>
+            <ol id="rate-cases-list" class="rc-list">
+              <!-- Populated by app.js -->
+            </ol>
+          </div>
+        </details>
+
         <p class="rp-footnote">
           Coverage is curated, not exhaustive: it tracks states with a documented
           large-load tariff, rate class, or rule. Many states have no
@@ -1374,6 +1434,17 @@
           >
             By state <span class="subtab-count" id="agg-state-count"></span>
           </button>
+          <button
+            class="subtab"
+            role="tab"
+            type="button"
+            id="subtab-agg-utility"
+            aria-selected="false"
+            tabindex="-1"
+            aria-controls="subpane-agg-utility"
+          >
+            By utility <span class="subtab-count" id="agg-utility-count"></span>
+          </button>
         </div>
 
         <div
@@ -1457,6 +1528,36 @@
               </thead>
               <tbody id="agg-state-tbody"></tbody>
               <tfoot id="agg-state-tfoot"></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- Rolls the record up by the utility at the center of it: who sells
+             the power, whether that utility signed the pledge, and how many
+             tariffs, rate cases, and served sites it carries here. Grouping
+             is exact-match via the hand-curated utility_aliases /
+             serving_utility_signatory_id joins — never fuzzy. -->
+        <div
+          class="subtab-panel"
+          id="subpane-agg-utility"
+          role="tabpanel"
+          aria-labelledby="subtab-agg-utility"
+          hidden
+        >
+          <p class="agg-section-sub" id="agg-utility-sub"></p>
+          <div class="table-scroll">
+            <table class="agg-table" id="agg-utility-table" aria-label="Utility rollup">
+              <thead>
+                <tr>
+                  <th scope="col">Utility</th>
+                  <th scope="col">Pledge</th>
+                  <th scope="col">States</th>
+                  <th scope="col" class="num">Tariffs</th>
+                  <th scope="col" class="num">Rate cases</th>
+                  <th scope="col" class="num">Served sites</th>
+                </tr>
+              </thead>
+              <tbody id="agg-utility-tbody"></tbody>
             </table>
           </div>
         </div>

@@ -1929,9 +1929,9 @@ class TestStatePanel:
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         expect(page.locator("#sd-name")).to_have_text("Texas")
-        # Four sections always render — an empty one shows an honest placeholder
-        # rather than disappearing.
-        assert page.locator("#sd-body .sd-section").count() == 4
+        # Five sections always render — an empty one shows an honest placeholder
+        # rather than disappearing. (v3 added Rate cases & proceedings.)
+        assert page.locator("#sd-body .sd-section").count() == 5
         assert "Abbott" in page.locator("#sd-governor").inner_text()
 
     def test_panel_is_deep_linkable(self, page: Page, base_url: str):
@@ -1966,7 +1966,7 @@ class TestStatePanel:
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         assert page.locator("#sd-body .sd-empty").count() >= 1
-        assert page.locator("#sd-body .sd-section").count() == 4
+        assert page.locator("#sd-body .sd-section").count() == 5
 
 
 class TestScorecardFilterBar:
