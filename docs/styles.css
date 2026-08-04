@@ -122,6 +122,8 @@
   --co-crusoe: #8e6b4a;
   --co-coreweave: #5b4a8e;
   --co-prologis: #7a5a3a;
+  --co-sb-energy: #8e4a6b;
+  --co-brookfield: #5a6b3a;
 
   /* Per-theme accent (used as left border on theme chips + matrix headers) */
   --theme-jobs: #2f5d8a;
@@ -230,6 +232,8 @@
   --co-crusoe: #d6b08a;
   --co-coreweave: #a896d8;
   --co-prologis: #c89a6a;
+  --co-sb-energy: #d68ab0;
+  --co-brookfield: #a8c47a;
 
   --theme-jobs: #7eb6e8;
   --theme-tax_revenue: #b48ad8;

@@ -7,7 +7,7 @@ import json
 
 import pytest
 
-from connectors import extract
+from connectors import extract, scout
 from connectors.http import CachedSession, FetchError
 
 # --- fixtures ---------------------------------------------------------------
@@ -170,3 +170,221 @@ def test_harvest_html_file_bridge_extracts_quotes():
     assert cand["kind"] == "claim_candidates"
     assert cand["company_slug"] == "google"
     assert any("green tariff" in q for q in cand["quote_candidates"])
+
+
+# --- scout: link extraction --------------------------------------------------
+
+LISTING_PAGE = """
+<html><body>
+<nav><a href="#top">Skip to content</a> <a href="mailto:x@y.com">Contact</a></nav>
+<ul>
+<li><a href="/en/news/google-files-to-expand-data-center-campus-in-lagrange-georgia/">
+  Google files to expand data center campus in LaGrange, Georgia</a></li>
+<li><a href="https://example.com/en/news/unrelated-story/">A totally unrelated story</a></li>
+<li><a href="javascript:void(0)">Load more</a></li>
+</ul>
+</body></html>
+"""
+
+
+def test_extract_links_skips_nav_junk_and_resolves_relative_urls():
+    links = scout.extract_links(LISTING_PAGE, "https://example.com/en/news/")
+    urls = {l["url"] for l in links}
+    assert "https://example.com/en/news/google-files-to-expand-data-center-campus-in-lagrange-georgia/" in urls
+    # mailto / javascript / fragment-only anchors are not links to a story
+    assert not any(u.startswith(("mailto:", "javascript:")) for u in urls)
+    assert not any(u.endswith("#top") for u in urls)
+
+
+def test_extract_links_dedupes_repeated_title_and_url():
+    doubled = LISTING_PAGE + LISTING_PAGE
+    links = scout.extract_links(doubled, "https://example.com/")
+    titles = [l["title"] for l in links]
+    assert titles.count("Google files to expand data center campus in LaGrange, Georgia") == 1
+
+
+# --- scout: relevance keyword gate -------------------------------------------
+
+def test_relevant_matches_on_keyword():
+    assert scout.relevant("Brookfield to develop gigawatt-scale data center campus")
+    assert scout.relevant("County considers new data-center moratorium")
+    assert not scout.relevant("Company launches new cloud storage pricing tier")
+
+
+def test_relevant_survives_trailing_punctuation():
+    """A phrase keyword must still match when punctuation sits right after it —
+    this is the same word-boundary bug that first showed up in match_existing."""
+    assert scout.relevant("Data center, moratorium proposed in Anytown.")
+
+
+def test_relevant_matches_plural_headlines():
+    """Regression (found by review, 2026-07-30): a keyword list built from
+    singular phrases missed the common case of a plural headline. 'data
+    centers' and 'moratoriums' must match their singular keyword entries."""
+    assert scout.relevant("Google announces new data centers in Virginia")
+    assert scout.relevant("Three more moratoriums proposed this week")
+
+
+# --- scout: seed matching heuristic ------------------------------------------
+
+def test_match_existing_ignores_trailing_comma():
+    """Regression: 'LaGrange, Georgia' must match a fingerprint token 'lagrange'
+    even though the comma sits directly against the word in the raw title."""
+    fps = [{"id": "google-lagrange-ga", "tokens": {"lagrange", "georgia", "google"}}]
+    title = "Google files to expand data center campus in LaGrange, Georgia"
+    assert scout.match_existing(title, fps) == "google-lagrange-ga"
+
+
+def test_match_existing_one_distinctive_token_is_enough():
+    """Regression (found in the first live run, 2026-07-30): a headline naming
+    just the company but not the city -- 'Brookfield to develop gigawatt-scale
+    data center campus in Kentucky' has no word in common with a 'paducah'
+    token -- must still match, because 'brookfield' alone is distinctive
+    (length >= MIN_DISTINCTIVE_LEN). An earlier version required 2 token hits
+    unconditionally, which left every single-word jurisdiction (57 of 111 live
+    moratorium records) structurally unmatchable no matter how exact the
+    headline wording was -- not just imprecise, but impossible to ever match."""
+    fps = [{"id": "brookfield-paducah-ky", "tokens": {"brookfield", "paducah"}}]
+    title = "Brookfield to develop gigawatt-scale data center campus in Kentucky"
+    assert scout.match_existing(title, fps) == "brookfield-paducah-ky"
+
+
+def test_match_existing_short_token_alone_is_not_enough():
+    """A bare state-code-length token must not match on its own -- otherwise
+    almost every in-state headline would false-positive against every record
+    in that state. Distinctiveness (see test above) is what should carry a
+    single-token match, not mere presence."""
+    fps = [{"id": "some-fl-record", "tokens": {"fl"}}]
+    assert scout.match_existing("Unrelated story about Florida oranges", fps) is None
+
+
+def test_match_existing_returns_none_for_no_overlap():
+    fps = [{"id": "google-lagrange-ga", "tokens": {"lagrange", "georgia", "google"}}]
+    assert scout.match_existing("Sky47 inaugurates data center in Islamabad", fps) is None
+
+
+def test_words_strips_english_stopwords():
+    """Regression, found by a live-seed smoke test 2026-07-30 (not by the PR
+    review): 'New Carlisle, IN' tokenized to {'new', 'in', 'carlisle'}, and
+    'new'/'in' are common enough English words (an adjective, a preposition)
+    that they satisfy the "two shorter tokens together" fallback against
+    almost ANY headline containing the phrase "a new ... in ..." -- nothing
+    to do with New Carlisle at all. 'in' is also Indiana's state code, but
+    losing it as a token costs little: 2-letter tokens were already too
+    short to count as distinctive on their own."""
+    assert scout._words("New Carlisle, IN") == {"carlisle"}
+
+
+def test_match_existing_ambiguous_token_alone_is_not_enough():
+    """Regression (found by review, 2026-07-30): a distinctive token that's
+    marked ambiguous (a company name shared by multiple tracked projects)
+    must NOT match on its own -- otherwise 'Meta announces a new data center
+    in Reno' would false-positive-match some unrelated existing Meta project
+    purely because 'meta' is a long word, misreporting a genuinely new site
+    as already tracked. A non-ambiguous token (the city) still carries a
+    match on its own, same as before."""
+    fps = [
+        {"id": "meta-el-paso-tx", "tokens": {"el", "paso", "tx", "meta"}, "ambiguous_tokens": {"meta"}},
+        {"id": "meta-temple-tx", "tokens": {"temple", "tx", "meta"}, "ambiguous_tokens": {"meta"}},
+    ]
+    assert scout.match_existing("Meta announces a new data center in Reno", fps) is None
+    assert scout.match_existing("Meta expands its Temple, Texas campus", fps) == "meta-temple-tx"
+
+
+def test_project_fingerprints_mark_multi_project_companies_ambiguous(tmp_path, monkeypatch):
+    """Integration version of the test above: a company with 2+ tracked
+    projects gets its name tokens marked ambiguous; a company with exactly 1
+    project does not (that's the Brookfield/Paducah case -- no sibling
+    project to be ambiguous WITH)."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "companies.json").write_text(json.dumps({"companies": [
+        {"slug": "meta", "name": "Meta"},
+        {"slug": "brookfield", "name": "Brookfield"},
+    ]}))
+    (seed / "projects.json").write_text(json.dumps({"projects": [
+        {"id": "meta-el-paso-tx", "company_slug": "meta", "city": "El Paso", "state": "TX"},
+        {"id": "meta-temple-tx", "company_slug": "meta", "city": "Temple", "state": "TX"},
+        {"id": "brookfield-paducah-ky", "company_slug": "brookfield", "city": "Paducah", "state": "KY"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = {fp["id"]: fp for fp in scout.project_fingerprints()}
+    assert "meta" in fps["meta-el-paso-tx"]["ambiguous_tokens"]
+    assert "meta" in fps["meta-temple-tx"]["ambiguous_tokens"]
+    assert "brookfield" not in fps["brookfield-paducah-ky"]["ambiguous_tokens"]
+
+
+def test_project_fingerprints_strip_admin_unit_words_from_city(tmp_path, monkeypatch):
+    """Regression, found by a live-seed smoke test (not the PR review itself)
+    2026-07-30: 'county' alone matched `wonder-valley-box-elder-ut` (city
+    'Box Elder County') against an unrelated 'data center in Henderson
+    County, Texas' headline, purely because 'county' is 6 letters and wasn't
+    marked as non-distinctive -- same failure shape as the generic-company-
+    word bug, one layer down at the place-name level. Checks both the
+    fingerprint (token stripped) and the end-to-end match (no false
+    positive)."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "companies.json").write_text(json.dumps({"companies": [
+        {"slug": "wonder-valley", "name": "Wonder Valley"},
+    ]}))
+    (seed / "projects.json").write_text(json.dumps({"projects": [
+        {"id": "wonder-valley-box-elder-ut", "company_slug": "wonder-valley", "city": "Box Elder County", "state": "UT"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = scout.project_fingerprints()
+    tokens = fps[0]["tokens"]
+    assert "box" in tokens
+    assert "elder" in tokens
+    assert "county" not in tokens
+
+    title = "Diode Ventures withdraws proposal for data center in Henderson County, Texas"
+    assert scout.match_existing(title, fps) is None
+
+
+def test_project_fingerprints_strip_generic_company_words(tmp_path, monkeypatch):
+    """'SB Energy' and 'Brookfield' both contain generic words ('Energy',
+    'Group') common enough in unrelated headlines to false-positive on their
+    own (e.g. an energy-policy story matching purely on 'energy' + 'group').
+    Exercises the real function against fixture seed files -- a prior version
+    of this test checked `_words(...) - _GENERIC_COMPANY_WORDS` directly
+    without ever calling `project_fingerprints()`, so it stayed green even
+    with the subtraction deleted from the function itself."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "companies.json").write_text(json.dumps({"companies": [
+        {"slug": "sb-energy", "name": "SB Energy (SoftBank Group)"},
+    ]}))
+    (seed / "projects.json").write_text(json.dumps({"projects": [
+        {"id": "sb-energy-piketon-oh", "company_slug": "sb-energy", "city": "Piketon", "state": "OH"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = scout.project_fingerprints()
+    assert len(fps) == 1
+    tokens = fps[0]["tokens"]
+    assert "softbank" in tokens
+    assert "piketon" in tokens
+    assert "energy" not in tokens
+    assert "group" not in tokens
+
+
+def test_tariff_fingerprints_strip_generic_utility_words(tmp_path, monkeypatch):
+    """Same class of bug, utility side: a generic Indiana rate-case headline
+    must not false-positive against a Duke Energy Indiana tariff purely on
+    'energy' + 'indiana' (found in the same review as the test above)."""
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "tariffs.json").write_text(json.dumps({"tariffs": [
+        {"id": "duke-energy-indiana-meta-esa", "utility": "Duke Energy Indiana", "state": "IN"},
+    ]}))
+    monkeypatch.setattr(scout, "SEED", seed)
+
+    fps = scout.tariff_fingerprints()
+    tokens = fps[0]["tokens"]
+    assert "duke" in tokens
+    assert "energy" not in tokens
+    title = "Indiana regulators weigh new large load energy tariff"
+    assert scout.match_existing(title, fps) is None

@@ -4186,6 +4186,65 @@
       "captured_at": "2026-07-27",
       "published_at": "2026-07-22",
       "project_id": "meta-temple-tx"
+    },
+    {
+      "id": "sb-energy-piketon-infrastructure-son-2026",
+      "company_slug": "sb-energy",
+      "theme": "infrastructure",
+      "statement": "Our partnership with the Department of Energy strengthens America's AI leadership, secures the energy and compute needed for the future, and powers the next era of innovation for the United States. AI will transform every industry, and the PORTS Technology Campus will help deliver the next-generation infrastructure needed to unlock those breakthroughs.",
+      "source_url": "https://www.energy.gov/articles/energy-department-announces-partnership-ensure-affordable-energy-and-power-americas-ai",
+      "source_title": "Masayoshi Son, Chairman & CEO, SoftBank Group Corp. -- on the PORTS Technology Campus partnership",
+      "captured_at": "2026-07-30",
+      "project_id": "sb-energy-piketon-oh"
+    },
+    {
+      "id": "sb-energy-energy-ratepayer-transmission",
+      "company_slug": "sb-energy",
+      "theme": "energy",
+      "statement": "SB Energy will fund 100% of the cost of grid upgrades and new power transmission. Ohio ratepayers will benefit from a stronger electricity grid and more reliable power from SB Energy's investment.",
+      "source_url": "https://portscampus.com/",
+      "source_title": "SB Energy -- PORTS Technology Campus",
+      "captured_at": "2026-07-30",
+      "project_id": "sb-energy-piketon-oh"
+    },
+    {
+      "id": "sb-energy-community-grants-cba",
+      "company_slug": "sb-energy",
+      "theme": "community_grants",
+      "statement": "$40M CBA designed to support programs and priorities of the local community.",
+      "source_url": "https://portscampus.com/community/",
+      "source_title": "SB Energy -- PORTS Technology Campus Community Benefits Agreement",
+      "captured_at": "2026-07-30",
+      "project_id": "sb-energy-piketon-oh",
+      "formal_agreement": true
+    },
+    {
+      "id": "sb-energy-community-grants-peterson",
+      "company_slug": "sb-energy",
+      "theme": "community_grants",
+      "statement": "By actively supporting local programs and community members, we strengthen our reputation as dependable and engaged community members with every project.",
+      "source_url": "https://sbenergy.com/communities/",
+      "source_title": "SB Energy -- Amy Peterson, Director of Projects, on community engagement",
+      "captured_at": "2026-07-30"
+    },
+    {
+      "id": "sb-energy-engagement-brown",
+      "company_slug": "sb-energy",
+      "theme": "engagement",
+      "statement": "As long-term partners in the community, we deeply value the relationships formed with neighbors over the life of a project.",
+      "source_url": "https://sbenergy.com/communities/",
+      "source_title": "SB Energy -- Travis A. Brown, Director of Environmental & Permitting, on community relationships",
+      "captured_at": "2026-07-30"
+    },
+    {
+      "id": "brookfield-paducah-infrastructure-flatt",
+      "company_slug": "brookfield",
+      "theme": "infrastructure",
+      "statement": "Demand for critical infrastructure that accelerates innovation in the U.S. and supports the economy will need to be met with capital, development capabilities, and additional power generation that benefits local communities.",
+      "source_url": "https://newsroom.nexteraenergy.com/2026-07-29-DOE-Site-in-Western-Kentucky-Revitalized-with-Data-Center-Campus-and-Dedicated-Energy-Project,-Creating-Jobs-and-Protecting-Residents-and-Businesses-from-Costs",
+      "source_title": "Bruce Flatt, CEO, Brookfield -- on the Paducah data center campus",
+      "captured_at": "2026-07-30",
+      "project_id": "brookfield-paducah-ky"
     }
   ]
 }

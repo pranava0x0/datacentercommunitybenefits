@@ -63,6 +63,18 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "crusoe",
     "coreweave",
     "prologis",
+    # DOE federal-land AI data center program partners, added 2026-07-30.
+    # Each clears the two-gate test independently of the others; note that
+    # NextEra Energy (Paducah's power-generation partner, a Ratepayer Pledge
+    # signatory) is deliberately NOT a separate slug here — Brookfield is the
+    # confirmed data-center developer/operator, NextEra builds/owns generation
+    # only. Don't let NextEra's signatory status bleed onto Brookfield's flag.
+    # Amentum (Savannah River Site) was considered and NOT added: on review,
+    # its only two first-party quotes are about engineering/national-security
+    # capability, not community impact — it doesn't actually clear gate 2
+    # despite having quotable material. See BACKLOG.md.
+    "sb-energy",
+    "brookfield",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational")
@@ -103,6 +115,8 @@ CompanySlug = Literal[
     "crusoe",
     "coreweave",
     "prologis",
+    "sb-energy",
+    "brookfield",
 ]
 ProjectStatus = Literal["announced", "construction", "operational"]
 Stance = Literal["positive", "mixed", "negative"]

@@ -81,6 +81,20 @@ Target the most productive news sources per CLAUDE.md backlog + v1.8 experience:
 - **QTS:** `q.com/news/`
 - **CoreWeave:** `coreweave.com/blog/`
 - **Crusoe:** `crusoe.ai/resources/blog/`
+- **SB Energy (SoftBank Group):** `sbenergy.com/communities/` (community framing) + `portscampus.com/` (PORTS Technology Campus project microsite) — added 2026-07-30
+- **Brookfield:** `brookfield.com/views-news/newsroom` — thin so far (one joint DOE/NextEra release as of 2026-07-30)
+
+Note: **Amentum (DOE's Savannah River Site partner) is watched but NOT tracked as a company** — see "Companies in scope" in CLAUDE.md for why (announced scale clears gate 1, but its only two first-party quotes are pure engineering/national-security capability language with no community-impact content, so gate 2 isn't actually cleared despite having quotable material). Re-check `amentum.com/news/` after lease negotiations conclude, in case a future announcement carries genuine community-impact framing.
+
+### DOE Federal-Land AI Data Center Program (added 2026-07-30)
+A fourth discovery angle, distinct from the two companies above being
+DOE-adjacent: DOE itself periodically announces site selections and private
+partners for AI data centers on its own land. Check `energy.gov/powering-
+americas-ai-future-data-center-resource-hub` and search `"Department of
+Energy" AI data center site selected` each cycle — **Oak Ridge Reservation
+(TN) and Idaho National Laboratory (ID) were still in the RFP/no-partner-
+selected stage as of this pass** and are not yet Project records; re-check
+whether a partner has been named before adding either.
 
 ### High-Signal Third-Party Sources
 - **DataCenterDynamics** (`datacenterdynamics.com/en/news/`) — 90%+ hit rate on new sites
@@ -105,7 +119,9 @@ re-check before you go looking for anything new.
 - **Trackers (aggregators, verify before trusting):** `datacenterbans.com`,
   `interconnectedcapital.com/research/data-center-moratoriums`, MultiState's
   `multistate.us/insider` state-legislation roundups, Good Jobs First
-  (`goodjobsfirst.org`).
+  (`goodjobsfirst.org`), `halcyon.io/large-load-tariff-tracker` (tariffs, found
+  2026-07-30 — same "mine as a worklist, verify each row" treatment as the
+  Moratorium Nation CSV).
 - **Primary/gov (always the final source for a record):** state legislature bill
   trackers (`nysenate.gov`, `<state>legislature.gov`, etc.), state PUC/PSC docket
   search, city/county council agendas and minutes.
@@ -396,6 +412,19 @@ This playbook encodes the learnings from the v1.18 session (June 9, 2026). If ga
 The manual search strategy above has a CLI accelerator — use it to find gaps and turn URLs
 into candidate records (it never auto-publishes; curation stays editorial):
 
+0. **Scout for new records first** (added 2026-07-30 — do this before `status`,
+   which only covers gaps in EXISTING records):
+   ```bash
+   python -m connectors.scout all
+   ```
+   Fetches the same fixed source list as "Finding New Announcements" /
+   "Moratoriums & Tariffs Refresh" above, extracts headlines, and diffs them
+   against the seed. Read the "No seed match" bucket by hand (or hand it to an
+   agent) before deciding a full research-agent sweep is needed — see
+   `connectors/README.md`'s "What a script can't do here" for this tool's
+   real, demonstrated limits (it misses matches as often as it manufactures
+   false ones; treat both buckets as leads, not verdicts).
+
 1. **Load state.** Read `ISSUES.md`, `BACKLOG.md`, and run:
    ```bash
    python -m connectors.research status --list
@@ -666,3 +695,142 @@ before considering any agent — none were needed this pass.
   a verbatim quote actually read — same treatment as the existing Stargate Abilene
   backlog item. A browser-driven visit to the openai.com URL remains the way to
   close that gap.
+
+---
+
+### 2026-07-30 refresh pass — a new dimension (DOE federal-land program) + two waves found in passing
+
+Scope: user explicitly asked to sweep for DOE (Department of Energy) data center
+site announcements, on top of the standard three-dimension refresh. That turned
+into a fourth dimension worth naming going forward, plus two moratorium waves
+found while rechecking a single stale record — a reminder that "recheck two
+records" and "the state next door has a wave" are unrelated in scope but often
+discovered together.
+
+- **DOE's federal-land AI data center program is a NEW company-scope
+  precedent, not a one-off.** DOE announced 4 sites for private-partner AI data
+  center development on federal land (Idaho National Lab, Oak Ridge, Paducah,
+  Savannah River) in July 2025; by this pass, partners were selected for two
+  (Amentum/Savannah River, Brookfield+NextEra/Paducah) and a related-but-earlier
+  deal (SB Energy/Portsmouth) was already under construction. All three cleared
+  gate 1 (≥1GW scale) trivially — **but only SB Energy and Brookfield actually
+  clear gate 2**, added as full `Company` + `Project` + `Claim` records —
+  `sb-energy`, `brookfield`. Amentum was added in the first cut of this PR, then
+  REMOVED on code review: it has two first-party named-executive quotes, but
+  both are pure engineering/national-security capability language with zero
+  community-impact content — see the standalone gate-2 lesson below, and
+  CLAUDE.md's "Companies in scope" for the corrected rule. **NextEra Energy was
+  deliberately NOT added as a separate slug**, even though DOE/company releases
+  are explicit NextEra builds/owns the Paducah generation: NextEra is a Ratepayer
+  Pledge signatory (joined the 2026-07-23 expansion) and Brookfield is not, so
+  collapsing them into one company record would have let NextEra's signatory
+  status bleed onto Brookfield's `ratepayer_pledge_signatory` flag. When a
+  multi-party consortium shows up, identify the actual data-center
+  developer/operator (ask directly: "who leases and operates the DC, who just
+  supplies power?") and track only that one as the `company_slug`; name the
+  power/utility partners in the project's `notes`, not as second company slugs.
+- **"We have first-party quotes to attach" is not the same claim as "gate 2 is
+  cleared" — and this pass shipped the conflation once before a review caught
+  it.** Amentum's two quotes (CEO John Heller, Energy & Environment president
+  Mark Whitney) are genuinely first-party — named executives, on the record,
+  in the company's own press release. They were added as `Claim` records
+  without a second check on what they actually SAY: both are about Amentum's
+  engineering pedigree and the deal's strategic/national-security framing, not
+  about jobs, ratepayers, environment, or any other community-facing
+  commitment. The two-gate test's real requirement is "the entity publishes
+  ITS OWN COMMUNITY-IMPACT framing" — having *some* quotable first-party
+  material satisfies the letter of "we have first-party claims to quote" while
+  missing the substance entirely. Compare to QTS's or SB Energy's claims, which
+  are explicitly about cost/jobs/ratepayer commitments. Going forward: before
+  shipping a new non-hyperscaler company, re-read every claim being attached
+  and confirm it's actually ABOUT one of the 8 community-benefit themes for
+  the HOST COMMUNITY, not just about the company's capabilities or the deal's
+  strategic significance.
+- **A research agent's own extraction can still produce the WebSearch-synthesis
+  error it's supposed to prevent.** The DOE-companies research agent initially
+  read Amentum CEO John Heller's quote as two separate quotes, because
+  WebFetch's markdown conversion of two different mirror pages (amentum.com and
+  World Nuclear News) each truncated it to a different sentence. It caught this
+  itself by pulling the original press-release PDF and confirming both fragments
+  were one continuous quote — but the lesson generalizes: **a quote appearing
+  twice, worded slightly differently, across two sources covering the same
+  event is a truncation artifact, not two quotes** — go to the primary
+  document (often a PDF press release, not the HTML mirror) before shipping
+  either fragment as `Claim.statement`.
+- **A company's own press release quoting a government official is not a
+  first-party claim for that company.** NNSA Administrator Brandon Williams's
+  quote on the Amentum/Savannah River deal, and DOE Secretary Chris Wright's
+  quotes throughout, were found and explicitly excluded — they're government
+  speakers, not company speakers, even when they appear on the company's own
+  announcement page. Same discipline as the existing first-party rules in
+  CLAUDE.md, just a new venue (a DOE press release) to apply it to.
+- **Two agents' worth of research surfaced conflicting scope on the same
+  company (SB Energy) with no source stating the reconciliation.** Investment
+  figures ranged $30B–$500B and jobs figures were 10,000/2,000+ vs.
+  35,000/2,500 depending on whether the source scoped to the initial 189-acre
+  federal parcel (DOE's own March 2026 article) or the full 2,700-acre private
+  campus (SB Energy's current site + June 2026 FAST-41 coverage). Resolved by
+  using the larger, more current, company-published, full-scope figures
+  consistently across `claimed_investment_usd`/`claimed_jobs`/`acreage`/
+  `power_mw` (so the numbers stay internally consistent with each other) and
+  documenting the smaller DOE-cited figure in `notes` rather than picking one
+  as "correct" — neither source contradicts the other, they're just scoped
+  differently, and nothing available says which scope the record should
+  prefer by default.
+- **A Florida moratorium wave was found entirely by accident** while
+  rechecking the single stale `hernando-county-fl-2026-06` record. **Hernando
+  itself stayed unresolved, and correctly so** — an initial pass inferred
+  "enacted July 14" from circumstantial evidence (matching Pasco's own
+  confirmed final-vote date via tandem Tampa Bay-area coverage), but a code
+  review caught that the only "confirms final adoption" source was an
+  advocacy op-ed, not a neutral report — reverted to `proposed` per this
+  project's own don't-guess rule. Sarasota County was a clean new add
+  (enacted July 9). **Pasco County's
+  existing record had a real data error**: stamped `enacted_date: 2026-06-12`,
+  but the June 12 WUSF article it cited only describes a **first reading**
+  ("A second and final vote is scheduled for July 14") — the true enactment
+  was July 14, with a 2.5 MW threshold (down from a proposed 10 MW) never
+  previously captured. Two different WUSF articles, different reporters,
+  different URLs, covering the same county a month apart, is exactly the shape
+  that produces this error — a "final" framing in an early article's headline
+  doesn't mean the vote in it was actually final.
+- **A Georgia moratorium/ordinance wave is much larger and NOT actioned this
+  pass** — logged to BACKLOG.md instead. One overview source cites 32 counties
+  + 21 cities with moratoriums/ordinances/drafts as of mid-2025; the seed has
+  2 Georgia records. This is bigger than the Colorado (07-27) or Florida
+  (this pass) waves that got a dedicated in-session sweep — deliberately left
+  for its own future pass rather than rushed into this one, per the
+  "efficient-first, don't force scope" principle. Concrete near-term threads
+  (DeKalb's repeatedly-extended moratorium, Coweta's possible second
+  moratorium) are in BACKLOG.md with what's known so far.
+- **`connectors/scout.py` (new)** — a mechanical "is there anything new?"
+  sweep (fetch known index pages, extract headlines, diff against the seed by
+  token overlap), built at the user's request after this session ran 3
+  research agents. It replaces the *fetching + first-pass triage* an agent
+  used to do by hand, not the judgment after it. **A same-session adversarial
+  code review of the PR caught 3 real matching bugs in the first cut**
+  (a flat 2-token match floor made 57 of 111 moratorium records structurally
+  unmatchable regardless of headline wording; the generic-word stoplist only
+  covered company names, not utility names; a raw-substring fallback in
+  `relevant()` let "gw" match inside "Edgware") — all fixed in the same pass,
+  with regression tests. Worth noting as its own lesson: a first-cut heuristic
+  tool shipped with real, reproducible bugs on day one, not just abstract
+  gaps — a review pass that actually *runs* the tool against live data (not
+  just reads the diff) is what caught these. See its module docstring and
+  `connectors/README.md`'s "What a script can't do here" section for the
+  fixed bugs plus what's still a genuine, unfixed limit (JS-rendered tracker
+  sites returning a contentless 200 that doesn't show up as "blocked", no
+  memory of previously-dismissed candidates across runs). Use
+  `python -m connectors.scout projects` / `moratoriums` / `all` as the FIRST
+  step of a future refresh's discovery dimensions, before reaching for an
+  agent — only escalate for the "no seed match" shortlist it produces, not
+  for the initial fetch.
+- **Agent-dispatch shape that worked well this pass**: 3 parallel background
+  agents, one per research family (DOE companies deep-research; standard
+  new-site scouting; moratorium/tariff scouting+verification), matching the
+  existing "fewer, larger agents" rule. All three ran ~2-3x longer than a
+  typical single-company gap-fill agent (the DOE one used 55 tool calls / 763s
+  — by far the largest single agent this project has dispatched) because each
+  was a genuinely open-ended multi-source research task, not a bounded
+  per-record lookup — budget accordingly when a request spans a new,
+  unexplored angle rather than a routine recheck.
