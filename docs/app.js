@@ -122,9 +122,9 @@ const RATE_CASE_TYPE_LABELS = {
 // Rate-case statuses render with the tariff palette: pending shares the
 // `proposed` amber so the two directories read with one color language.
 const RATE_CASE_BADGE_CLASS = {
-  pending: "badge-tariff-proposed",
-  approved: "badge-tariff-approved",
-  rejected: "badge-tariff-rejected",
+  pending: "badge-tariff-status-proposed",
+  approved: "badge-tariff-status-approved",
+  rejected: "badge-tariff-status-rejected",
 };
 // The five LBL element groups, in the brief's order: [group_key, label].
 const TARIFF_PARAMETER_GROUPS = [
@@ -385,6 +385,7 @@ const RATEPAYER_PLEDGE_EXPANSION_DATE = "2026-07-23";
 const _aggSort = {
   company: { key: "capex", dir: -1 },
   state: { key: "capex", dir: -1 },
+  utility: { key: "total", dir: -1 },
 };
 
 // Sort orders for the Explorer's project list. Each option is descending —
@@ -1066,14 +1067,16 @@ async function loadAggregateView() {
   // The by-signatory-category rollup needs the roster; without it every
   // company would fall into "Did not sign". The responses-by-stance column
   // needs the response payload. The by-utility rollup joins tariffs + rate
-  // cases + served sites, so those payloads load here too.
+  // cases + served sites, so those payloads load here too. Caught as a whole
+  // (like openStatePanel) so one payload failing doesn't blank the entire
+  // view — it renders with whatever loaded.
   await Promise.all([
     loadProjectData(),
     loadSignatoryData(),
     loadResponseData(),
     loadTariffsData(),
     loadRateCasesData(),
-  ]);
+  ]).catch((err) => console.error("Aggregate view data load failed:", err));
   state.aggregateLoaded = true;
   renderAggregateView();
 }
@@ -1797,9 +1800,15 @@ function closeMoratoriumDetail() {
 
 async function loadTariffsData() {
   if (state.tariffsLoaded) return;
+  // Rate cases are secondary to this view (they decorate the rate-cases
+  // section, not the tariff directory itself), so their failure is caught
+  // here rather than left to reject the whole Promise.all and blank the
+  // tariff directory along with them.
   const [payload] = await Promise.all([
     fetchJson("data/tariffs.json"),
-    loadRateCasesData(),
+    loadRateCasesData().catch((err) =>
+      console.error("Failed to load rate cases:", err)
+    ),
   ]);
   state.tariffs = payload.tariffs || [];
   state.tariffsLoaded = true;
@@ -1807,12 +1816,22 @@ async function loadTariffsData() {
 }
 
 // Rate cases lazy-load alongside the tariffs (and independently for the state
-// panel + the Home "What's next" list). Small payload; no Leaflet.
-async function loadRateCasesData() {
-  if (state.rateCasesLoaded) return;
-  const payload = await fetchJson("data/rate_cases.json");
-  state.rateCases = payload.rate_cases || [];
-  state.rateCasesLoaded = true;
+// panel + the Home "What's next" list). Small payload; no Leaflet. Promise-
+// memoized like loadProjectData/loadResponseData/loadSignatoryData — the
+// state.rateCasesLoaded flag alone isn't set until after the fetch resolves,
+// so concurrent callers (loadTariffsData + loadAggregateView calling both
+// loadTariffsData AND loadRateCasesData in the same Promise.all) would each
+// see it false and double-fetch the payload.
+let _rateCaseDataPromise = null;
+function loadRateCasesData() {
+  if (!_rateCaseDataPromise) {
+    _rateCaseDataPromise = (async () => {
+      const payload = await fetchJson("data/rate_cases.json");
+      state.rateCases = payload.rate_cases || [];
+      state.rateCasesLoaded = true;
+    })();
+  }
+  return _rateCaseDataPromise;
 }
 
 // ---- Rate cases & proceedings (the docketed layer under the tariffs) ------
@@ -5058,7 +5077,7 @@ function coverageStates() {
     // Governor states first (that is the pledge-relevant cohort), then by how
     // much we can actually show, then alphabetically.
     if (!!b.governor !== !!a.governor) return b.governor ? 1 : -1;
-    const load = (s) => s.projects + s.tariffs + s.moratoriums;
+    const load = (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases;
     const d = load(b) - load(a);
     if (d !== 0) return d;
     return a.code.localeCompare(b.code);
@@ -5072,7 +5091,7 @@ function renderStateChips() {
 
   wrap.replaceChildren(
     ...entries.map((s) => {
-      const records = s.projects + s.tariffs + s.moratoriums;
+      const records = s.projects + s.tariffs + s.moratoriums + s.rate_cases;
       const btn = el("button", `rp-state-chip${records ? "" : " is-empty"}`);
       btn.type = "button";
       btn.dataset.stateCode = s.code;
@@ -5086,6 +5105,7 @@ function renderStateChips() {
       if (s.projects) parts.push(`${s.projects} site${s.projects === 1 ? "" : "s"}`);
       if (s.tariffs) parts.push(`${s.tariffs} tariff${s.tariffs === 1 ? "" : "s"}`);
       if (s.moratoriums) parts.push(`${s.moratoriums} moratorium${s.moratoriums === 1 ? "" : "s"}`);
+      if (s.rate_cases) parts.push(`${s.rate_cases} rate case${s.rate_cases === 1 ? "" : "s"}`);
       btn.append(el("span", "rp-state-meta", parts.length ? parts.join(" · ") : "No records yet"));
       btn.setAttribute(
         "aria-label",
@@ -5487,18 +5507,28 @@ function signatoryLensSummary(s) {
     (p) => p.serving_utility_signatory_id === s.id
   ).length;
   if (served) parts.push(`serves ${served} tracked site${served === 1 ? "" : "s"}`);
-  if ((s.utility_aliases || []).length) parts.push("tariffs on file");
+  // An alias can resolve to a tariff, a rate case, or both (Ameren and
+  // NiSource's aliases currently only match rate_cases.json) — say
+  // "proceedings" rather than committing to "tariffs" without checking which.
+  if ((s.utility_aliases || []).length) parts.push("proceedings on file");
   if (!parts.length) return null;
   return `${parts.join(" · ")} ▾`;
 }
 
 async function renderSignatoryLens(s, panel) {
   panel.replaceChildren(el("p", "rp-sig-lens-loading", "Loading…"));
-  // Tariffs live behind their own tab; a reader can reach this row without
-  // having opened it.
+  // Tariffs and rate cases each live behind their own tab; a reader can reach
+  // this row without having opened either. loadTariffsData() already loads
+  // rate cases alongside it, but call both explicitly so this doesn't depend
+  // on that internal detail.
   if (!state.tariffsLoaded) {
     await loadTariffsData().catch((err) =>
       console.error("Tariff load for signatory lens failed:", err)
+    );
+  }
+  if (!state.rateCasesLoaded) {
+    await loadRateCasesData().catch((err) =>
+      console.error("Rate case load for signatory lens failed:", err)
     );
   }
 
@@ -5520,6 +5550,11 @@ async function renderSignatoryLens(s, panel) {
 
   const aliases = new Set(s.utility_aliases || []);
   const tariffs = (state.tariffs || []).filter((t) => aliases.has(t.utility));
+  // Some signatories' aliases (Ameren, NiSource) currently only resolve to a
+  // rate case, not a tariff — without this, those proceedings were invisible
+  // here and the roster read as "Nothing tracked" for a signatory that does
+  // have a tracked docket.
+  const rateCases = (state.rateCases || []).filter((rc) => aliases.has(rc.utility));
 
   const frag = document.createDocumentFragment();
 
@@ -5559,6 +5594,26 @@ async function renderSignatoryLens(s, panel) {
       ul.append(li);
     }
     frag.append(ul);
+  }
+
+  if (rateCases.length) {
+    frag.append(el("h5", "rp-sig-lens-h", "Rate cases & proceedings"));
+    const ul = el("ul", "rp-sig-lens-list");
+    for (const rc of rateCases) {
+      const li = el("li");
+      const btn = el("button", "rp-sig-lens-link");
+      btn.type = "button";
+      btn.textContent = `${rc.title} — ${
+        RATE_CASE_STATUS_LABELS[rc.status] || rc.status
+      }`;
+      btn.addEventListener("click", () => goToPledgeTarget("ratecases"));
+      li.append(btn);
+      ul.append(li);
+    }
+    frag.append(ul);
+  }
+
+  if (tariffs.length || rateCases.length) {
     if (s.notes) frag.append(el("p", "rp-sig-lens-note", s.notes));
   }
 
@@ -6485,7 +6540,7 @@ function renderAggregateView() {
   renderCompanyRollup(coRows);
   renderSignatoryCategoryRollup();
   renderStateRollup(stRows);
-  renderUtilityRollup(buildUtilityRollups());
+  renderUtilityRollup(sortAggRows(buildUtilityRollups(), "utility"));
   wireAggSort();
   wireSubtabs();
   setActiveSubtab("agg", _activeSubtab.agg || "company");
@@ -6542,14 +6597,24 @@ function buildUtilityRollups() {
 
   return [...rows.values()]
     .map((r) => {
-      // Display name: a group that merged MORE THAN ONE operating-utility
-      // string via the roster (Duke IN + Duke Carolinas; Entergy LA + MS)
+      // Display name: a group that merged MORE THAN ONE DISTINCT operating
+      // utility via the roster (Duke IN + Duke Carolinas; Entergy LA + MS)
       // shows the roster row's name — the entity that actually signed.
       // Single-string rows keep their operating name (SWEPCO stays SWEPCO
       // even though its parent resolves), and unresolved rows show the
       // shortest string seen ("NV Energy" over its parenthetical variants).
+      //
+      // "More than one string" is NOT the same test as "more than one
+      // utility" — "NV Energy" / "NV Energy (Sierra Pacific Power)" / "NV
+      // Energy (tariff proposed by Microsoft)" are three strings for ONE
+      // utility. Strip a trailing parenthetical before comparing so spelling
+      // variants of the same operating name don't get flattened up to the
+      // signatory's holding company (CLAUDE.md: record holding-company /
+      // subsidiary pairs, don't flatten them).
+      const baseName = (s) => s.replace(/\s*\([^)]*\)\s*$/, "").trim();
       const shortest = [...r.names.keys()].sort((a, b) => a.length - b.length)[0];
-      const name = r.sig && r.names.size > 1 ? r.sig.name : shortest;
+      const distinctUtilities = new Set([...r.names.keys()].map(baseName));
+      const name = r.sig && distinctUtilities.size > 1 ? r.sig.name : shortest;
       return {
         name,
         sig: r.sig,

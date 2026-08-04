@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import logging
 import sys
 from pathlib import Path
 
@@ -22,6 +23,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from schema import RateCasesPayload  # noqa: E402
+
+logger = logging.getLogger("build_rate_cases")
 
 GENERATED_AT = "2026-08-03"
 
@@ -551,14 +554,20 @@ RATE_CASES: list[dict] = [
 
 
 def main() -> int:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     payload = {"generated_at": GENERATED_AT, "rate_cases": RATE_CASES}
     validated = RateCasesPayload.model_validate(payload)
     out = ROOT / "data" / "seed" / "rate_cases.json"
+    # ensure_ascii=False, matching build_signatories.py and the other seed
+    # builders — the default (True) escapes non-ASCII characters (curly
+    # quotes, em dashes) to \uXXXX, which the next run of a builder that DOES
+    # use ensure_ascii=False rewrites back to raw UTF-8, producing a
+    # whole-file diff with no real content change.
     out.write_text(
-        json.dumps(json.loads(validated.model_dump_json()), indent=2) + "\n",
+        json.dumps(json.loads(validated.model_dump_json()), indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
-    print(f"Wrote {out} with {len(validated.rate_cases)} rate cases")
+    logger.info("Wrote %s with %d rate cases", out, len(validated.rate_cases))
     return 0
 
 

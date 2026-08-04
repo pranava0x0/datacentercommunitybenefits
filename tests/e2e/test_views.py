@@ -1222,6 +1222,29 @@ class TestTariffsView:
         # All 17 LBL elements appear as coverage cards.
         assert page.locator("#tariff-coverage-grid .tariff-coverage-card").count() == 17
 
+    def test_rate_cases_list_populates(self, page: Page, base_url: str):
+        """The only prior guard for this section (test_app_js_wires_rate_cases)
+        greps app.js for function names — it would stay green even if
+        renderRateCasesList() were deleted from the call chain. This actually
+        loads the page and checks records render."""
+        self._open(page, base_url)
+        page.wait_for_selector("#rate-cases-list .rc-item", timeout=10_000)
+        assert page.locator("#rate-cases-list .rc-item").count() > 0
+
+    def test_rate_case_badges_are_colored(self, page: Page, base_url: str):
+        """Regression test: RATE_CASE_BADGE_CLASS used to map to
+        badge-tariff-approved/-proposed/-rejected, but styles.css only ever
+        defined badge-tariff-status-approved/-proposed/-rejected — every rate
+        case badge silently rendered with no background color."""
+        self._open(page, base_url)
+        page.wait_for_selector("#rate-cases-list .rc-item .badge", timeout=10_000)
+        badge = page.locator("#rate-cases-list .rc-item .badge").first
+        bg = badge.evaluate("el => getComputedStyle(el).backgroundColor")
+        assert bg not in ("rgba(0, 0, 0, 0)", "transparent"), (
+            f"Rate case badge has no background color ({bg!r}) — "
+            "RATE_CASE_BADGE_CLASS likely points at a nonexistent CSS class"
+        )
+
     def test_row_opens_detail_via_keyboard(self, page: Page, base_url: str):
         # Accessibility: rows are focusable buttons that open on Enter (not
         # mouse-only). Guards the keyboard path the reviewer flagged.
@@ -1437,6 +1460,41 @@ class TestAggregateView:
         self._goto_aggregate(page, base_url)
         total_row = page.locator("#agg-company-tfoot .agg-total-row")
         assert total_row.count() == 1, "Expected a total row in company tfoot"
+
+    def test_agg_utility_tbody_populates(self, page: Page, base_url: str):
+        """The By-utility sub-tab is easy to leave silently unwired — nothing
+        else on the page fails if renderUtilityRollup() were deleted."""
+        self._goto_aggregate(page, base_url)
+        page.locator("#subtab-agg-utility").click()
+        rows = page.locator("#agg-utility-tbody tr")
+        assert rows.count() > 0, "Expected populated rows in the By-utility table"
+
+    def test_agg_utility_sort_header_click(self, page: Page, base_url: str):
+        self._goto_aggregate(page, base_url)
+        page.locator("#subtab-agg-utility").click()
+        th = page.locator("[data-sort-key='rateCases'][data-sort-table='utility']")
+        th.click()
+        page.wait_for_timeout(200)
+        ind = th.locator(".sort-ind")
+        text = ind.text_content() or ""
+        assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
+
+    def test_rate_cases_json_fetched_at_most_once(self, page: Page, base_url: str):
+        """Regression test: loadRateCasesData() used to guard on a plain
+        boolean (state.rateCasesLoaded) that isn't set until after its own
+        fetch resolves. loadAggregateView() calls loadTariffsData() (which
+        itself calls loadRateCasesData()) AND loadRateCasesData() directly in
+        the same Promise.all — both saw the flag false before either await
+        settled, so data/rate_cases.json fetched twice on every Aggregate
+        load. Now promise-memoized like the other loaders."""
+        requests = []
+        page.on(
+            "request",
+            lambda req: requests.append(req.url) if "rate_cases.json" in req.url else None,
+        )
+        self._goto_aggregate(page, base_url)
+        page.wait_for_timeout(500)
+        assert len(requests) == 1, f"Expected 1 fetch of rate_cases.json, got {len(requests)}"
 
     def test_pdf_export_downloads(self, page: Page, base_url: str):
         # Regression test: exportAggregateToPDF used to call an undefined
@@ -1797,6 +1855,15 @@ class TestPledgeLanding:
         assert box is not None, ".tabbar did not render"
         assert box["y"] < 900, f".tabbar starts at y={box['y']:.0f}, below the fold"
 
+    def test_whats_next_list_populates(self, page: Page, base_url: str):
+        """test_rate_cases.py's test_app_js_wires_rate_cases only greps app.js
+        for "function renderWhatsNext()" — it stays green even if the call
+        site were deleted from loadRatepayerView(). This actually loads the
+        page and checks the list renders real items."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#whats-next-list .wn-item", timeout=10_000)
+        assert page.locator("#whats-next-list .wn-item").count() > 0
+
     def test_ratepayer_tab_is_reachable_and_not_default(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.locator("#tab-ratepayer").click()
@@ -2082,6 +2149,27 @@ class TestSignatoryLens:
         # Tariffs render their name, not "undefined" (the field is tariff_name,
         # and both this lens and the state panel read `t.name` at first).
         assert "undefined" not in text
+
+    def test_utility_lens_with_only_rate_cases_still_shows_something(
+        self, page: Page, base_url: str
+    ):
+        """Regression test: Ameren's roster aliases ("Ameren Missouri" /
+        "Ameren Missouri (Union Electric)") only resolve to records in
+        rate_cases.json, not tariffs.json. Before this fix, signatoryLensSummary()
+        claimed "tariffs on file" from alias presence alone (never checking
+        which payload actually matched), and renderSignatoryLens() only ever
+        searched state.tariffs — so Ameren's two tracked rate cases were
+        invisible and the panel fell through to "Nothing tracked", even though
+        real proceedings are on file."""
+        self._open_roster(page, base_url)
+        page.locator("#rp-roster-q").fill("ameren")
+        page.wait_for_timeout(300)
+        row = page.locator("#rp-roster .rp-sig-row").first
+        row.locator(".rp-sig-expand").click()
+        page.wait_for_timeout(2500)
+        text = row.locator(".rp-sig-lens").inner_text().lower()
+        assert "nothing tracked" not in text
+        assert "rate cases" in text
 
     def test_operator_lens_lists_its_own_sites(self, page: Page, base_url: str):
         self._open_roster(page, base_url)

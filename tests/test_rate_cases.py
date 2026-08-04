@@ -24,7 +24,10 @@ def cases() -> list[dict]:
     return json.loads(SEED.read_text(encoding="utf-8"))["rate_cases"]
 
 
-def test_seed_validates_against_schema(cases) -> None:
+def test_seed_validates_against_schema() -> None:
+    # Validates the full payload (generated_at + rate_cases), not just the
+    # `cases` fixture's list — reads the file directly rather than taking an
+    # unused fixture param shaped for a different check.
     from schema import RateCasesPayload
 
     RateCasesPayload.model_validate(

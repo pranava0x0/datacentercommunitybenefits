@@ -1,15 +1,16 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-08-03
-Total projects needing attention: 93
+Generated: 2026-08-04
+Total projects needing attention: 96
 
 ## Critical Missing Commitment Details
-(34 projects)
+(35 projects)
 
 Projects missing required fields based on status:
 - **amazon-bossier-parish-la** (construction): claimed_investment_usd
 - **aws-caroline-va** (construction): claimed_investment_usd
 - **aws-umatilla-or** (operational): power_mw
 - **coreweave-ellendale-nd** (construction): claimed_investment_usd
+- **crusoe-goodnight-tx** (construction): claimed_investment_usd
 - **google-armstrong-tx** (construction): claimed_investment_usd
 - **google-council-bluffs-ia** (operational): power_mw
 - **google-ellis-county-tx** (operational): claimed_investment_usd, power_mw
@@ -42,7 +43,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(59 projects)
+(61 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -56,12 +57,14 @@ Projects with important gaps:
 - **amazon-wheatfield-in** (announced): claimed_jobs, power_mw
 - **anthropic-hawesville-ky** (announced): claimed_investment_usd, claimed_jobs
 - **anthropic-xai-infrastructure-partnership** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **aws-ashburn-gwu-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **aws-boling-tx** (announced): claimed_jobs, power_mw
 - **aws-calvert-cliffs-md** (announced): claimed_investment_usd, power_mw
 - **aws-ridgeland-ms** (construction): power_mw
 - **aws-wilmington-oh** (announced): power_mw
 - **coreweave-hammond-in** (announced): claimed_investment_usd, claimed_jobs
 - **crusoe-cheyenne-wy** (announced): claimed_investment_usd, claimed_jobs
+- **crusoe-inl-id** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **crusoe-springfield-oh** (announced): claimed_investment_usd, power_mw
 - **google-botetourt-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-chesterfield-va** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -106,15 +109,11 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Bills / Tariffs
-(2 records)
+(5 records)
 
 `proposed` moratoriums/tariffs not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **nv-energy-callisto-esa** (tariff, NV): captured 2026-06-22, 42 days ago
-- **oneida-county-wi-2026-07** (moratorium, Oneida County): captured 2026-07-13, 21 days ago
-
-## Moratorium source audit
-
-| Date | Record | Issue | Recommended action | Status |
-|------|--------|-------|-------------------|--------|
-| 2026-08-03 | moratoriums:dekalb-county-ga-2025-12 | No gov/official source URL | Add .gov or official legislative link to source_url or resources | Open |
-| 2026-08-03 | moratoriums:virginia-state-2026-07 | No gov/official source URL | Add .gov or official legislative link to source_url or resources | Open |
+- **cleveland-city-2026-04** (moratorium, Cleveland): captured 2026-07-14, 21 days ago
+- **oklahoma-state-sb1488-2026** (moratorium, Oklahoma): captured 2026-07-14, 21 days ago
+- **pennsylvania-state-2026-01** (moratorium, Pennsylvania): captured 2026-07-14, 21 days ago
+- **pennsylvania-state-2026-02** (moratorium, Pennsylvania): captured 2026-07-14, 21 days ago
+- **virginia-state-2026-01** (moratorium, Virginia): captured 2026-07-14, 21 days ago

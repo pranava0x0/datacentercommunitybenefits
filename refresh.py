@@ -93,10 +93,17 @@ def _check_cross_refs(
     # Rate cases join onto tariffs and projects; a broken id renders as a dead
     # link in the state panel, so it must fail here, not in the browser.
     if rate_cases is not None:
-        tariff_ids = {t.id for t in tariffs.tariffs} if tariffs is not None else set()
+        # tariffs is None means "not passed to this check", not "no tariffs
+        # exist" — treating it as an empty set would flag every non-null
+        # related_tariff_id as unknown. Skip the check rather than false-fail.
+        tariff_ids = {t.id for t in tariffs.tariffs} if tariffs is not None else None
         rc_project_ids = {p.id for p in projects.projects}
         for rc in rate_cases.rate_cases:
-            if rc.related_tariff_id is not None and rc.related_tariff_id not in tariff_ids:
+            if (
+                tariff_ids is not None
+                and rc.related_tariff_id is not None
+                and rc.related_tariff_id not in tariff_ids
+            ):
                 errors.append(
                     f"rate_cases.json: case {rc.id!r} references unknown "
                     f"related_tariff_id {rc.related_tariff_id!r}"

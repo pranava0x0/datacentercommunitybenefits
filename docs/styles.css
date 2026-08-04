@@ -33,7 +33,14 @@
   --border-strong: #8a8a8a;
   --accent: #141f4d;
   --accent-soft: #e3e7f2;
-  --link: #141f4d;
+  /* Deliberately NOT --accent's navy: navy-on-white text and this navy link
+     color compute to ~1.23:1 contrast against each other, so a link with no
+     other visual cue (many use text-decoration: none at rest, underline only
+     on :hover) reads as indistinguishable body copy. #2563eb keeps AA against
+     white (5.17:1) while roughly doubling the link/text separation (~2.48:1)
+     — the practical ceiling given how dark --text already is; 3:1 would need
+     --text itself to lighten, out of scope here. */
+  --link: #2563eb;
 
   /* The signal accent, in two weights. --accent-mark (whitehouse.gov red,
      7.08:1 on white) is text-safe at any size and carries kickers, labels and
@@ -178,7 +185,12 @@
   --border-strong: #3e4a6b;
   --accent: #ffbd00;
   --accent-soft: #33290a;
-  --link: #ffcb33;
+  /* Same fix as the light-mode --link: the previous amber-adjacent value
+     (#ffcb33) sits at ~1.22:1 contrast against --text (#e8e6e0) — both are
+     light, so a link with no static underline was nearly indistinguishable
+     from body copy. #4d84ff keeps AA against --bg (5.2:1) and separates from
+     --text at ~2.82:1. */
+  --link: #4d84ff;
 
   --accent-mark: #ffbd00;
   --accent-rule: #e6a800;
@@ -375,6 +387,15 @@ select:focus-visible,
 
 .skip-link:focus {
   top: 8px;
+}
+
+/* In dark mode --accent is the amber mark color (#ffbd00) — white text on it
+   is ~1.68:1, the same failing ratio the palette comment documents for
+   amber-on-white and the reason amber is kept out of --accent-mark. This is
+   the first thing a keyboard/AT user focuses, so it needs real contrast:
+   --band-bg is near-black navy, ~10.9:1 on the amber background. */
+[data-theme="dark"] .skip-link {
+  color: var(--band-bg);
 }
 
 /* ==========================================================================
@@ -5675,6 +5696,19 @@ body.state-modal-open {
 
 .rc-src {
   white-space: nowrap;
+}
+
+/* 44px touch floor, coarse pointers only — see the .subtab rule above for the
+   same pattern. At the desktop scale this inline link inherits .rc-meta's
+   0.75rem line box with no padding, well under the floor for a thumb. */
+@media (pointer: coarse) {
+  .rc-src {
+    display: inline-block;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 4px;
+    margin: -12px -4px;
+  }
 }
 
 .rc-summary {

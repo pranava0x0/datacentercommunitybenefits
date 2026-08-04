@@ -35,6 +35,7 @@ from schema import (
 
 ROOT = Path(__file__).resolve().parent.parent
 APP_JS = ROOT / "docs" / "app.js"
+STYLES_CSS = ROOT / "docs" / "styles.css"
 
 
 def _extract_array(js_text: str, name: str) -> list[str]:
@@ -58,9 +59,24 @@ def _extract_object_keys(js_text: str, name: str) -> set[str]:
     return set(keys)
 
 
+def _extract_object_values(js_text: str, name: str) -> set[str]:
+    """Extract string values from `const NAME = { foo: "a", bar: "b" }`."""
+    pattern = rf"const\s+{re.escape(name)}\s*=\s*\{{(.*?)\}}\s*;"
+    m = re.search(pattern, js_text, re.DOTALL)
+    if not m:
+        raise AssertionError(f"Could not find `const {name} = {{...}}` in app.js")
+    body = m.group(1)
+    return set(re.findall(r':\s*"([^"]+)"', body))
+
+
 @pytest.fixture(scope="module")
 def js() -> str:
     return APP_JS.read_text(encoding="utf-8")
+
+
+@pytest.fixture(scope="module")
+def css() -> str:
+    return STYLES_CSS.read_text(encoding="utf-8")
 
 
 def test_themes_exact_match(js: str) -> None:
@@ -387,11 +403,22 @@ def test_rate_case_type_labels_keys_match(js: str) -> None:
     assert js_keys == set(RATE_CASE_TYPE_LABELS.keys())
 
 
-def test_rate_case_badge_class_covers_every_status(js: str) -> None:
-    """Every status must render with a real badge class — an unmapped status
-    falls back to the bare .badge with no color, the badge-reason-* failure
-    shape from v1.19."""
+def test_rate_case_badge_class_covers_every_status(js: str, css: str) -> None:
+    """Every status must render with a real, colored badge class — an unmapped
+    OR mismatched-name class falls back to the bare .badge with no color, the
+    badge-reason-* failure shape from v1.19. A keys-only check doesn't catch a
+    mismatched value (exactly what shipped here first: RATE_CASE_BADGE_CLASS
+    pointed at `badge-tariff-approved` while styles.css only defines
+    `badge-tariff-status-approved`), so this also checks each mapped class
+    name resolves to a real selector in styles.css."""
     from schema import RATE_CASE_STATUSES
 
     js_keys = _extract_object_keys(js, "RATE_CASE_BADGE_CLASS")
     assert js_keys == set(RATE_CASE_STATUSES)
+
+    js_values = _extract_object_values(js, "RATE_CASE_BADGE_CLASS")
+    for class_name in js_values:
+        assert f".{class_name}" in css, (
+            f"RATE_CASE_BADGE_CLASS maps to `{class_name}`, but styles.css has "
+            f"no `.{class_name}` rule — that status renders with no color."
+        )

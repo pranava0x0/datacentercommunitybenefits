@@ -1550,12 +1550,12 @@
             <table class="agg-table" id="agg-utility-table" aria-label="Utility rollup">
               <thead>
                 <tr>
-                  <th scope="col">Utility</th>
+                  <th scope="col" data-sort-key="name" data-sort-table="utility" class="sortable">Utility <span class="sort-ind" aria-hidden="true"></span></th>
                   <th scope="col">Pledge</th>
                   <th scope="col">States</th>
-                  <th scope="col" class="num">Tariffs</th>
-                  <th scope="col" class="num">Rate cases</th>
-                  <th scope="col" class="num">Served sites</th>
+                  <th scope="col" class="num sortable" data-sort-key="tariffs" data-sort-table="utility">Tariffs <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="rateCases" data-sort-table="utility">Rate cases <span class="sort-ind" aria-hidden="true"></span></th>
+                  <th scope="col" class="num sortable" data-sort-key="sites" data-sort-table="utility">Served sites <span class="sort-ind" aria-hidden="true"></span></th>
                 </tr>
               </thead>
               <tbody id="agg-utility-tbody"></tbody>
