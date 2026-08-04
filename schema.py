@@ -15,7 +15,7 @@ from __future__ import annotations
 from datetime import date as Date
 from typing import Literal, Optional
 
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator, model_validator
 
 
 # ---------------------------------------------------------------------------
@@ -932,6 +932,47 @@ TARIFF_STATUS_LABELS: dict[str, str] = {
 TARIFF_JURISDICTION_LEVELS: tuple[str, ...] = ("state", "federal")
 TariffJurisdictionLevel = Literal["state", "federal"]
 
+# --- Rate cases (v3) -------------------------------------------------------
+# A RateCase is the PROCEEDING layer under the tariffs: the docketed PUC / PSC /
+# FERC case in which who-pays-for-data-center-load actually gets decided. A
+# tariff is the instrument; a rate case is the fight. Kept as its own record
+# type because (a) several cases exist in states with no tracked tariff yet,
+# (b) one tariff can accumulate multiple proceedings over its life, and
+# (c) `next_milestone` on pending cases is what powers the landing page's
+# "What's next" feed — a tariff record has no natural home for that.
+#
+# Status vocabulary deliberately mirrors the tariff palette (pending renders
+# with the `proposed` amber): approved = order issued / settlement approved;
+# pending = filed / hearing / awaiting decision; rejected = denied or dismissed.
+RATE_CASE_STATUSES: tuple[str, ...] = ("pending", "approved", "rejected")
+RateCaseStatus = Literal["pending", "approved", "rejected"]
+RATE_CASE_STATUS_LABELS: dict[str, str] = {
+    "pending": "Pending",
+    "approved": "Decided / approved",
+    "rejected": "Rejected / dismissed",
+}
+
+# What kind of proceeding this is. Frozen for v3 — adding a type is the same
+# drill as THEMES (BACKLOG entry + Python/JS mirrors + parity test).
+RATE_CASE_TYPES: tuple[str, ...] = (
+    "general_rate_case",
+    "large_load_tariff",
+    "special_contract",
+    "rulemaking",
+)
+RateCaseType = Literal[
+    "general_rate_case",
+    "large_load_tariff",
+    "special_contract",
+    "rulemaking",
+]
+RATE_CASE_TYPE_LABELS: dict[str, str] = {
+    "general_rate_case": "General rate case",
+    "large_load_tariff": "Large-load tariff proceeding",
+    "special_contract": "Special contract / ESA",
+    "rulemaking": "Rulemaking / generic docket",
+}
+
 SignatoryCategory = Literal[
     "hyperscaler",
     "utility",
@@ -1231,6 +1272,115 @@ class TariffsPayload(_StrictBase):
         return v
 
 
+class RateCase(_StrictBase):
+    """One regulatory proceeding shaping who pays for data-center electricity.
+
+    Sourcing rules match Tariff: `source_url` must be live and must actually
+    contain the facts stated in `summary` (fetch it; do not trust search
+    synthesis). Prefer .gov docket pages / orders; `resources` carries
+    secondary coverage.
+    """
+
+    id: str = Field(min_length=1)
+    state_code: str = Field(
+        min_length=2,
+        max_length=2,
+        description="Two-letter state code; 'US' for a federal (FERC) case.",
+    )
+    jurisdiction_level: TariffJurisdictionLevel = Field(
+        default="state",
+        description="'state' for PUC/PSC cases; 'federal' for FERC. Federal "
+        "cases are excluded from per-state stats and surfaced separately, "
+        "mirroring Tariff.jurisdiction_level.",
+    )
+    utility: str = Field(
+        min_length=1,
+        description="Utility (or RTO/grid operator for federal cases) at the "
+        "center of the proceeding.",
+    )
+    regulator: str = Field(min_length=1, description="Deciding commission (with acronym).")
+    docket_number: Optional[str] = Field(
+        default=None, description="Docket / case / cause number, e.g. 'PUR-2025-00058'."
+    )
+    title: str = Field(min_length=1, description="Short human-readable case title.")
+    case_type: RateCaseType
+    status: RateCaseStatus
+    filed_date: Optional[Date] = None
+    decided_date: Optional[Date] = Field(
+        default=None, description="Order / decision date. Null while pending."
+    )
+    effective_date: Optional[Date] = Field(
+        default=None,
+        description="When approved rates/rules take effect, if distinct from decided_date.",
+    )
+    next_milestone: Optional[str] = Field(
+        default=None,
+        description=(
+            "The next known dated step (hearing, compliance filing, decision "
+            "window). Feeds the landing page's 'What's next' list. Only for "
+            "milestones actually announced by the regulator or parties — "
+            "never a guess."
+        ),
+    )
+    next_milestone_date: Optional[Date] = Field(
+        default=None,
+        description="Date of next_milestone when a specific day is known. A "
+        "milestone with only a season/quarter stays in the text field.",
+    )
+    related_tariff_id: Optional[str] = Field(
+        default=None,
+        description="Tariff record this case created / amends / decides. "
+        "Cross-ref validated by refresh.py.",
+    )
+    related_project_ids: Optional[list[str]] = Field(
+        default=None,
+        description="Tracked project(s) the case directly serves (e.g. the "
+        "NIPSCO/Amazon contract → amazon-wheatfield-in). Cross-ref validated.",
+    )
+    summary: str = Field(
+        min_length=1,
+        description="2–4 sentence neutral description: what's at stake, what "
+        "was decided or is pending, and the ratepayer-protection terms.",
+    )
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+    resources: Optional[list[SourceResource]] = Field(default=None)
+    captured_at: Date
+
+    @field_validator("state_code")
+    @classmethod
+    def _state_code_upper(cls, v: str) -> str:
+        return v.upper()
+
+    @model_validator(mode="after")
+    def _federal_uses_us(self) -> "RateCase":
+        if self.jurisdiction_level == "federal" and self.state_code != "US":
+            raise ValueError("federal rate cases must use state_code 'US'")
+        if self.jurisdiction_level == "state" and self.state_code == "US":
+            raise ValueError("state rate cases need a real state_code, not 'US'")
+        return self
+
+    @model_validator(mode="after")
+    def _decided_has_date(self) -> "RateCase":
+        if self.status == "approved" and self.decided_date is None:
+            raise ValueError(f"rate case {self.id!r} is approved but has no decided_date")
+        return self
+
+
+class RateCasesPayload(_StrictBase):
+    generated_at: Date
+    rate_cases: list[RateCase]
+
+    @field_validator("rate_cases")
+    @classmethod
+    def _ids_unique(cls, v: list[RateCase]) -> list[RateCase]:
+        ids = [r.id for r in v]
+        if len(ids) != len(set(ids)):
+            dup = [i for i in ids if ids.count(i) > 1]
+            raise ValueError(f"Duplicate rate case ids: {sorted(set(dup))}")
+        return v
+
+
 class Signatory(_StrictBase):
     """One organization (or governor) on the Ratepayer Protection Pledge roster.
 
@@ -1508,6 +1658,14 @@ __all__ = [
     "ResponsesPayload",
     "MoratoriumsPayload",
     "TariffsPayload",
+    "RATE_CASE_STATUSES",
+    "RATE_CASE_STATUS_LABELS",
+    "RATE_CASE_TYPES",
+    "RATE_CASE_TYPE_LABELS",
+    "RateCaseStatus",
+    "RateCaseType",
+    "RateCase",
+    "RateCasesPayload",
     "Signatory",
     "SignatoriesPayload",
 ]

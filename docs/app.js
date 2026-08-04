@@ -99,6 +99,33 @@ const TARIFF_STATUS_LABELS = {
   proposed: "Proposed",
   rejected: "Rejected / Withdrawn",
 };
+// v3: rate cases — the docketed proceedings under the tariffs. Must mirror
+// schema.RATE_CASE_STATUSES / RATE_CASE_TYPES exactly; parity-tested.
+const RATE_CASE_STATUSES = ["pending", "approved", "rejected"];
+const RATE_CASE_STATUS_LABELS = {
+  pending: "Pending",
+  approved: "Decided / approved",
+  rejected: "Rejected / dismissed",
+};
+const RATE_CASE_TYPES = [
+  "general_rate_case",
+  "large_load_tariff",
+  "special_contract",
+  "rulemaking",
+];
+const RATE_CASE_TYPE_LABELS = {
+  general_rate_case: "General rate case",
+  large_load_tariff: "Large-load tariff proceeding",
+  special_contract: "Special contract / ESA",
+  rulemaking: "Rulemaking / generic docket",
+};
+// Rate-case statuses render with the tariff palette: pending shares the
+// `proposed` amber so the two directories read with one color language.
+const RATE_CASE_BADGE_CLASS = {
+  pending: "badge-tariff-status-proposed",
+  approved: "badge-tariff-status-approved",
+  rejected: "badge-tariff-status-rejected",
+};
 // The five LBL element groups, in the brief's order: [group_key, label].
 const TARIFF_PARAMETER_GROUPS = [
   ["eligibility", "Eligibility & Applicability"],
@@ -358,6 +385,7 @@ const RATEPAYER_PLEDGE_EXPANSION_DATE = "2026-07-23";
 const _aggSort = {
   company: { key: "capex", dir: -1 },
   state: { key: "capex", dir: -1 },
+  utility: { key: "total", dir: -1 },
 };
 
 // Sort orders for the Explorer's project list. Each option is descending —
@@ -433,6 +461,8 @@ const state = {
   responsesLoaded: false,
   moratoriumsLoaded: false,
   tariffsLoaded: false,
+  rateCases: [],
+  rateCasesLoaded: false,
   aggregateLoaded: false,
   leafletLoaded: false,
   map: null,
@@ -964,7 +994,71 @@ async function loadRatepayerView() {
     );
     renderRatepayerScorecard();
   }
+  // The Home "What's next" list reads the rate-case docket milestones. Same
+  // deferred tier as responses: fetched after first render, awaited before the
+  // ready event so the event still means "the view is complete".
+  if (!state.rateCasesLoaded) {
+    await loadRateCasesData().catch((err) =>
+      console.error("Failed to load rate cases:", err)
+    );
+  }
+  renderWhatsNext();
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
+}
+
+// --- what's next: dated steps ahead in the tracked proceedings -------------
+//
+// Derived from RateCase.next_milestone — regulator-announced steps only, never
+// a guess (the schema says so). Dated milestones sort soonest-first; undated
+// pendings follow. Clicking an item lands on the rate-cases section.
+function renderWhatsNext() {
+  const ol = document.getElementById("whats-next-list");
+  if (!ol) return;
+  const items = (state.rateCases || []).filter((rc) => rc.next_milestone);
+  items.sort((a, b) => {
+    const da = a.next_milestone_date || "9999";
+    const db = b.next_milestone_date || "9999";
+    if (da !== db) return da.localeCompare(db);
+    return String(a.state_code).localeCompare(String(b.state_code));
+  });
+  ol.replaceChildren(
+    ...items.map((rc) => {
+      const li = el("li", "wn-item");
+      const btn = el("button", "wn-btn");
+      btn.type = "button";
+      const when = el("span", "wn-date", rc.next_milestone_date || "Ahead");
+      if (!rc.next_milestone_date) when.classList.add("wn-date--open");
+      const where = el(
+        "span",
+        "wn-state",
+        isFederalRateCase(rc) ? "FED" : rc.state_code
+      );
+      where.title = isFederalRateCase(rc)
+        ? "Federal (FERC) proceeding"
+        : STATE_NAMES[rc.state_code] || rc.state_code;
+      const body = el("span", "wn-body");
+      body.append(
+        el("span", "wn-text", rc.next_milestone),
+        el(
+          "span",
+          "wn-meta",
+          [rc.utility, rc.docket_number ? `Docket ${rc.docket_number}` : null]
+            .filter(Boolean)
+            .join(" · ")
+        )
+      );
+      btn.append(when, where, body);
+      btn.addEventListener("click", () => goToPledgeTarget("ratecases"));
+      li.append(btn);
+      return li;
+    })
+  );
+  const sub = document.getElementById("whats-next-sub");
+  if (sub) {
+    sub.textContent = items.length
+      ? "Regulator-announced next steps in the rate cases and proceedings this record tracks — soonest first. From the dockets, not a forecast."
+      : "No announced next steps on file yet.";
+  }
 }
 
 // Aggregate view: needs the project payload but not Leaflet.
@@ -972,8 +1066,17 @@ async function loadAggregateView() {
   if (state.aggregateLoaded) return;
   // The by-signatory-category rollup needs the roster; without it every
   // company would fall into "Did not sign". The responses-by-stance column
-  // needs the response payload.
-  await Promise.all([loadProjectData(), loadSignatoryData(), loadResponseData()]);
+  // needs the response payload. The by-utility rollup joins tariffs + rate
+  // cases + served sites, so those payloads load here too. Caught as a whole
+  // (like openStatePanel) so one payload failing doesn't blank the entire
+  // view — it renders with whatever loaded.
+  await Promise.all([
+    loadProjectData(),
+    loadSignatoryData(),
+    loadResponseData(),
+    loadTariffsData(),
+    loadRateCasesData(),
+  ]).catch((err) => console.error("Aggregate view data load failed:", err));
   state.aggregateLoaded = true;
   renderAggregateView();
 }
@@ -1697,10 +1800,137 @@ function closeMoratoriumDetail() {
 
 async function loadTariffsData() {
   if (state.tariffsLoaded) return;
-  const payload = await fetchJson("data/tariffs.json");
+  // Rate cases are secondary to this view (they decorate the rate-cases
+  // section, not the tariff directory itself), so their failure is caught
+  // here rather than left to reject the whole Promise.all and blank the
+  // tariff directory along with them.
+  const [payload] = await Promise.all([
+    fetchJson("data/tariffs.json"),
+    loadRateCasesData().catch((err) =>
+      console.error("Failed to load rate cases:", err)
+    ),
+  ]);
   state.tariffs = payload.tariffs || [];
   state.tariffsLoaded = true;
   renderTariffsView();
+}
+
+// Rate cases lazy-load alongside the tariffs (and independently for the state
+// panel + the Home "What's next" list). Small payload; no Leaflet. Promise-
+// memoized like loadProjectData/loadResponseData/loadSignatoryData — the
+// state.rateCasesLoaded flag alone isn't set until after the fetch resolves,
+// so concurrent callers (loadTariffsData + loadAggregateView calling both
+// loadTariffsData AND loadRateCasesData in the same Promise.all) would each
+// see it false and double-fetch the payload.
+let _rateCaseDataPromise = null;
+function loadRateCasesData() {
+  if (!_rateCaseDataPromise) {
+    _rateCaseDataPromise = (async () => {
+      const payload = await fetchJson("data/rate_cases.json");
+      state.rateCases = payload.rate_cases || [];
+      state.rateCasesLoaded = true;
+    })();
+  }
+  return _rateCaseDataPromise;
+}
+
+// ---- Rate cases & proceedings (the docketed layer under the tariffs) ------
+
+function isFederalRateCase(rc) {
+  return rc.jurisdiction_level === "federal";
+}
+
+// Sort for the directory: pending first (they're the live news), then by
+// decision date descending; federal cases sink to the end of each group so
+// the state story leads.
+function sortedRateCases(cases) {
+  const rank = { pending: 0, approved: 1, rejected: 2 };
+  return [...cases].sort((a, b) => {
+    const r = (rank[a.status] ?? 9) - (rank[b.status] ?? 9);
+    if (r !== 0) return r;
+    const fed = Number(isFederalRateCase(a)) - Number(isFederalRateCase(b));
+    if (fed !== 0) return fed;
+    return String(b.decided_date || b.filed_date || "").localeCompare(
+      String(a.decided_date || a.filed_date || "")
+    );
+  });
+}
+
+function rateCaseDateLine(rc) {
+  if (rc.status === "pending") {
+    return rc.filed_date ? `Filed ${rc.filed_date}` : "Pending";
+  }
+  const bits = [];
+  if (rc.decided_date) bits.push(`Decided ${rc.decided_date}`);
+  if (rc.effective_date && rc.effective_date !== rc.decided_date) {
+    bits.push(`effective ${rc.effective_date}`);
+  }
+  return bits.join(", ") || RATE_CASE_STATUS_LABELS[rc.status] || rc.status;
+}
+
+function renderRateCases() {
+  const list = document.getElementById("rate-cases-list");
+  if (!list) return;
+  list.replaceChildren();
+  const cases = sortedRateCases(state.rateCases || []);
+  setAccCount("rate-cases-count", cases.length, "proceeding");
+  for (const rc of cases) {
+    const li = el("li", "rc-item");
+
+    const head = el("div", "rc-head");
+    const chip = el(
+      "span",
+      "rc-state",
+      isFederalRateCase(rc) ? "FED" : rc.state_code
+    );
+    if (isFederalRateCase(rc)) chip.classList.add("rc-state--fed");
+    chip.title = isFederalRateCase(rc)
+      ? "Federal (FERC) proceeding"
+      : STATE_NAMES[rc.state_code] || rc.state_code;
+    const badge = el(
+      "span",
+      "badge " + (RATE_CASE_BADGE_CLASS[rc.status] || ""),
+      RATE_CASE_STATUS_LABELS[rc.status] || rc.status
+    );
+    const title = el("span", "rc-title", rc.title);
+    head.append(chip, badge, title);
+    li.append(head);
+
+    const metaBits = [
+      rc.utility,
+      rc.docket_number ? `Docket ${rc.docket_number}` : null,
+      RATE_CASE_TYPE_LABELS[rc.case_type] || rc.case_type,
+      rateCaseDateLine(rc),
+    ].filter(Boolean);
+    const meta = el("p", "rc-meta", metaBits.join(" · "));
+    const src = document.createElement("a");
+    src.href = String(rc.source_url);
+    src.target = "_blank";
+    src.rel = "noopener noreferrer";
+    src.className = "rc-src";
+    src.textContent = "Source ↗";
+    meta.append(" ", src);
+    li.append(meta);
+
+    li.append(el("p", "rc-summary", rc.summary));
+
+    if (rc.next_milestone) {
+      const next = el("p", "rc-next");
+      next.append(
+        el("span", "rc-next-lbl", "Next:"),
+        " ",
+        document.createTextNode(rc.next_milestone),
+        rc.next_milestone_date
+          ? el("span", "rc-next-date", ` (${rc.next_milestone_date})`)
+          : ""
+      );
+      li.append(next);
+    }
+    list.append(li);
+  }
+  if (!cases.length) {
+    list.append(el("li", "rc-item rc-item--empty", "No proceedings loaded."));
+  }
 }
 
 // Number of LBL design elements a tariff addresses (included OR partial).
@@ -1724,6 +1954,7 @@ function renderTariffsView() {
   renderTariffStats(state.tariffs);
   renderTariffCoverage(state.tariffs);
   renderTariffsTable();
+  renderRateCases();
 }
 
 // Federal (FERC co-location) cases are tracked for context but kept OUT of the
@@ -2575,7 +2806,9 @@ function renderPledgeStateStrip() {
   wrap.replaceChildren(
     ...STATE_STRIP_ORDER.map((code) => {
       const s = byCode.get(code);
-      const records = s ? s.projects + s.tariffs + s.moratoriums : 0;
+      const records = s
+        ? s.projects + s.tariffs + s.moratoriums + (s.rate_cases || 0)
+        : 0;
       const gov = Boolean(s && s.governor);
       if (records) withRecords += 1;
       if (gov) governors += 1;
@@ -2697,6 +2930,8 @@ const PLEDGE_TARGETS = {
   },
   states: { view: "ratepayer", anchor: "rp-coverage-section" },
   explorer: { view: "explorer", anchor: null },
+  ratecases: { view: "tariffs", anchor: "rate-cases-section" },
+  moratoriums: { view: "moratoriums", anchor: null },
 };
 
 // --------------------------------------------------------------------------
@@ -2763,7 +2998,7 @@ function openAccordionsFor(node) {
 
 const SUBTAB_GROUPS = {
   "rp-sites": ["assessed", "unassessed", "pre-pledge", "non-signatory"],
-  agg: ["company", "signatory", "state"],
+  agg: ["company", "signatory", "state", "utility"],
 };
 
 // Last-clicked sub-tab per group, for this session only. Same reasoning as
@@ -3122,6 +3357,13 @@ function downloadAggregateCSV() {
     csv += [r.state, r.companies, r.projects, r.power_mw ?? "", r.capex ?? "",
       r.jobs ?? "", r.positive, r.mixed, r.negative].map(csvCell).join(",") + "\r\n";
   }
+  csv += "\r\nBY UTILITY\r\n";
+  const utHeaders = ["utility", "pledge_signatory", "states", "tariffs", "rate_cases", "served_sites"];
+  csv += utHeaders.map(csvCell).join(",") + "\r\n";
+  for (const r of buildUtilityRollups()) {
+    csv += [r.name, r.sig ? r.sig.name : "", r.states.join(" "), r.tariffs || "",
+      r.rateCases || "", r.sites || ""].map(csvCell).join(",") + "\r\n";
+  }
   _triggerDownload(csv, "dcb-aggregate-TODAY.csv");
 }
 
@@ -3150,12 +3392,19 @@ async function exportAggregateToPDF() {
       r.capex ? formatUsd(r.capex) : "—",
       r.assessed, r.contested || "—"])
   );
+  const utHtml = _pdfTable(
+    ["Utility", "Pledge", "States", "Tariffs", "Rate cases", "Served sites"],
+    buildUtilityRollups().map((r) => [r.name, r.sig ? "Signed" : "—",
+      r.states.join(", ") || "—", r.tariffs || "—", r.rateCases || "—",
+      r.sites || "—"])
+  );
   const today = new Date().toISOString().slice(0, 10);
   await _exportToPDF(
     "Aggregate Totals",
     `<h2 style="font-size:14px;margin-top:0;">By Company</h2>${coHtml}` +
       `<h2 style="font-size:14px;margin-top:16px;">By Signatory Category</h2>${sigHtml}` +
-      `<h2 style="font-size:14px;margin-top:16px;">By State</h2>${stHtml}`,
+      `<h2 style="font-size:14px;margin-top:16px;">By State</h2>${stHtml}` +
+      `<h2 style="font-size:14px;margin-top:16px;">By Utility</h2>${utHtml}`,
     `dcb-aggregate-${today}.pdf`
   );
 }
@@ -4770,7 +5019,14 @@ function coverageStates() {
     const key = String(code).toUpperCase();
     if (key === NON_GEOGRAPHIC_STATE) return null;
     if (!states.has(key)) {
-      states.set(key, { code: key, governor: null, projects: 0, tariffs: 0, moratoriums: 0 });
+      states.set(key, {
+        code: key,
+        governor: null,
+        projects: 0,
+        tariffs: 0,
+        moratoriums: 0,
+        rate_cases: 0,
+      });
     }
     return states.get(key);
   };
@@ -4790,6 +5046,7 @@ function coverageStates() {
       entry.projects = counts.projects || 0;
       entry.tariffs = counts.tariffs || 0;
       entry.moratoriums = counts.moratoriums || 0;
+      entry.rate_cases = counts.rate_cases || 0;
     }
   } else {
     for (const p of state.projects || []) {
@@ -4805,12 +5062,22 @@ function coverageStates() {
       if (entry) entry.moratoriums += 1;
     }
   }
+  // Rate cases come from their own (deferred) payload; when it has landed,
+  // its live counts win over whatever the precomputed rollup carried.
+  if (state.rateCasesLoaded) {
+    for (const entry of states.values()) entry.rate_cases = 0;
+    for (const rc of state.rateCases || []) {
+      if (isFederalRateCase(rc)) continue; // "US" is not a state cell
+      const entry = touch(rc.state_code);
+      if (entry) entry.rate_cases += 1;
+    }
+  }
 
   return [...states.values()].sort((a, b) => {
     // Governor states first (that is the pledge-relevant cohort), then by how
     // much we can actually show, then alphabetically.
     if (!!b.governor !== !!a.governor) return b.governor ? 1 : -1;
-    const load = (s) => s.projects + s.tariffs + s.moratoriums;
+    const load = (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases;
     const d = load(b) - load(a);
     if (d !== 0) return d;
     return a.code.localeCompare(b.code);
@@ -4824,7 +5091,7 @@ function renderStateChips() {
 
   wrap.replaceChildren(
     ...entries.map((s) => {
-      const records = s.projects + s.tariffs + s.moratoriums;
+      const records = s.projects + s.tariffs + s.moratoriums + s.rate_cases;
       const btn = el("button", `rp-state-chip${records ? "" : " is-empty"}`);
       btn.type = "button";
       btn.dataset.stateCode = s.code;
@@ -4838,6 +5105,7 @@ function renderStateChips() {
       if (s.projects) parts.push(`${s.projects} site${s.projects === 1 ? "" : "s"}`);
       if (s.tariffs) parts.push(`${s.tariffs} tariff${s.tariffs === 1 ? "" : "s"}`);
       if (s.moratoriums) parts.push(`${s.moratoriums} moratorium${s.moratoriums === 1 ? "" : "s"}`);
+      if (s.rate_cases) parts.push(`${s.rate_cases} rate case${s.rate_cases === 1 ? "" : "s"}`);
       btn.append(el("span", "rp-state-meta", parts.length ? parts.join(" · ") : "No records yet"));
       btn.setAttribute(
         "aria-label",
@@ -4917,6 +5185,7 @@ async function openStatePanel(code) {
     loadSignatoryData(),
     state.moratoriumsLoaded ? Promise.resolve() : loadMoratoriumsData(),
     state.tariffsLoaded ? Promise.resolve() : loadTariffsData(),
+    state.rateCasesLoaded ? Promise.resolve() : loadRateCasesData(),
   ]).catch((err) => console.error("State panel data load failed:", err));
 
   // Bail if the user closed the panel (or opened another state) while loading.
@@ -4963,6 +5232,9 @@ function renderStatePanel(code) {
   const moratoriums = (state.moratoriums || []).filter(
     (m) => moratoriumStateCode(m) === code
   );
+  const rateCases = (state.rateCases || []).filter(
+    (rc) => String(rc.state_code || "").toUpperCase() === code
+  );
   const utilities = stateUtilitySignatories(code);
 
   const sections = [
@@ -4997,6 +5269,32 @@ function renderStatePanel(code) {
           closeStatePanel();
           activateView("tariffs");
           requestAnimationFrame(() => showTariffDetail(t));
+        },
+      })),
+    },
+    {
+      title: "Rate cases & proceedings",
+      empty: "No tracked rate case for this state yet.",
+      items: rateCases.map((rc) => ({
+        label: rc.title,
+        meta: [
+          rc.utility,
+          rc.docket_number ? `Docket ${rc.docket_number}` : null,
+          RATE_CASE_STATUS_LABELS[rc.status] || rc.status,
+          rc.next_milestone ? `Next: ${rc.next_milestone}` : null,
+        ]
+          .filter(Boolean)
+          .join(" · "),
+        onClick: () => {
+          closeStatePanel();
+          activateView("tariffs");
+          requestAnimationFrame(() => {
+            const sec = document.getElementById("rate-cases-section");
+            if (sec) {
+              openAccordionsFor(sec);
+              sec.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
         },
       })),
     },
@@ -5209,18 +5507,28 @@ function signatoryLensSummary(s) {
     (p) => p.serving_utility_signatory_id === s.id
   ).length;
   if (served) parts.push(`serves ${served} tracked site${served === 1 ? "" : "s"}`);
-  if ((s.utility_aliases || []).length) parts.push("tariffs on file");
+  // An alias can resolve to a tariff, a rate case, or both (Ameren and
+  // NiSource's aliases currently only match rate_cases.json) — say
+  // "proceedings" rather than committing to "tariffs" without checking which.
+  if ((s.utility_aliases || []).length) parts.push("proceedings on file");
   if (!parts.length) return null;
   return `${parts.join(" · ")} ▾`;
 }
 
 async function renderSignatoryLens(s, panel) {
   panel.replaceChildren(el("p", "rp-sig-lens-loading", "Loading…"));
-  // Tariffs live behind their own tab; a reader can reach this row without
-  // having opened it.
+  // Tariffs and rate cases each live behind their own tab; a reader can reach
+  // this row without having opened either. loadTariffsData() already loads
+  // rate cases alongside it, but call both explicitly so this doesn't depend
+  // on that internal detail.
   if (!state.tariffsLoaded) {
     await loadTariffsData().catch((err) =>
       console.error("Tariff load for signatory lens failed:", err)
+    );
+  }
+  if (!state.rateCasesLoaded) {
+    await loadRateCasesData().catch((err) =>
+      console.error("Rate case load for signatory lens failed:", err)
     );
   }
 
@@ -5242,6 +5550,11 @@ async function renderSignatoryLens(s, panel) {
 
   const aliases = new Set(s.utility_aliases || []);
   const tariffs = (state.tariffs || []).filter((t) => aliases.has(t.utility));
+  // Some signatories' aliases (Ameren, NiSource) currently only resolve to a
+  // rate case, not a tariff — without this, those proceedings were invisible
+  // here and the roster read as "Nothing tracked" for a signatory that does
+  // have a tracked docket.
+  const rateCases = (state.rateCases || []).filter((rc) => aliases.has(rc.utility));
 
   const frag = document.createDocumentFragment();
 
@@ -5281,6 +5594,26 @@ async function renderSignatoryLens(s, panel) {
       ul.append(li);
     }
     frag.append(ul);
+  }
+
+  if (rateCases.length) {
+    frag.append(el("h5", "rp-sig-lens-h", "Rate cases & proceedings"));
+    const ul = el("ul", "rp-sig-lens-list");
+    for (const rc of rateCases) {
+      const li = el("li");
+      const btn = el("button", "rp-sig-lens-link");
+      btn.type = "button";
+      btn.textContent = `${rc.title} — ${
+        RATE_CASE_STATUS_LABELS[rc.status] || rc.status
+      }`;
+      btn.addEventListener("click", () => goToPledgeTarget("ratecases"));
+      li.append(btn);
+      ul.append(li);
+    }
+    frag.append(ul);
+  }
+
+  if (tariffs.length || rateCases.length) {
     if (s.notes) frag.append(el("p", "rp-sig-lens-note", s.notes));
   }
 
@@ -6036,7 +6369,7 @@ function rpConflictsHtml(p) {
     })
     .join("");
   return `<div class="rp-conflicts">
-    <div class="rp-conflicts-head">⚠ Ratepayer cost-shift concerns (${reports.length}) — independent findings affecting this site or its utility system</div>
+    <div class="rp-conflicts-head">Ratepayer cost-shift concerns (${reports.length}) — independent findings affecting this site or its utility system</div>
     <ul class="rp-conflicts-list">${items}</ul>
   </div>`;
 }
@@ -6044,7 +6377,7 @@ function rpConflictsHtml(p) {
 function rpConflictFlagHtml(p) {
   // Small always-visible header flag when independent reports raise a ratepayer
   // cost-shift concern for this site or the utility system it sits on.
-  return rpConflictingReports(p).length ? `<span class="rp-conflict-flag" title="Independent reports raise a ratepayer cost-shift concern for this site or its utility">⚠ Ratepayer concern</span>` : "";
+  return rpConflictingReports(p).length ? `<span class="rp-conflict-flag" title="Independent reports raise a ratepayer cost-shift concern for this site or its utility">Ratepayer concern</span>` : "";
 }
 
 function renderRatepayerCard(p) {
@@ -6207,11 +6540,139 @@ function renderAggregateView() {
   renderCompanyRollup(coRows);
   renderSignatoryCategoryRollup();
   renderStateRollup(stRows);
+  renderUtilityRollup(sortAggRows(buildUtilityRollups(), "utility"));
   wireAggSort();
   wireSubtabs();
   setActiveSubtab("agg", _activeSubtab.agg || "company");
   wireBtn("agg-csv-btn", downloadAggregateCSV);
   wireBtn("agg-pdf-btn", exportAggregateToPDF);
+}
+
+// Roll the record up by the utility at the center of it. Grouping is
+// exact-match only: a tariff/rate-case utility string resolves through the
+// hand-curated utility_aliases map, a project through its
+// serving_utility_signatory_id; records that resolve to the same roster row
+// merge, everything else groups by its verbatim string. No fuzzy matching —
+// AEP Ohio and AEP Texas are different companies (CLAUDE.md).
+function buildUtilityRollups() {
+  const rows = new Map();
+  const touch = (utilityStr, sig) => {
+    const key = sig ? `sig:${sig.id}` : `str:${utilityStr}`;
+    if (!rows.has(key)) {
+      rows.set(key, {
+        names: new Map(),
+        sig: sig || null,
+        states: new Set(),
+        tariffs: 0,
+        rateCases: 0,
+        sites: 0,
+      });
+    }
+    const r = rows.get(key);
+    r.names.set(utilityStr, (r.names.get(utilityStr) || 0) + 1);
+    return r;
+  };
+
+  for (const t of state.tariffs || []) {
+    const sig = state.signatoryByUtilityAlias.get(t.utility) || null;
+    const r = touch(t.utility, sig);
+    r.tariffs += 1;
+    if (!isFederalTariff(t)) r.states.add(t.state);
+  }
+  for (const rc of state.rateCases || []) {
+    const sig = state.signatoryByUtilityAlias.get(rc.utility) || null;
+    const r = touch(rc.utility, sig);
+    r.rateCases += 1;
+    if (!isFederalRateCase(rc)) r.states.add(rc.state_code);
+  }
+  for (const p of state.projects || []) {
+    if (!p.serving_utility) continue;
+    const sig = p.serving_utility_signatory_id
+      ? state.signatoriesById.get(p.serving_utility_signatory_id) || null
+      : null;
+    const r = touch(p.serving_utility, sig);
+    r.sites += 1;
+    if (p.state && p.state !== NON_GEOGRAPHIC_STATE) r.states.add(p.state);
+  }
+
+  return [...rows.values()]
+    .map((r) => {
+      // Display name: a group that merged MORE THAN ONE DISTINCT operating
+      // utility via the roster (Duke IN + Duke Carolinas; Entergy LA + MS)
+      // shows the roster row's name — the entity that actually signed.
+      // Single-string rows keep their operating name (SWEPCO stays SWEPCO
+      // even though its parent resolves), and unresolved rows show the
+      // shortest string seen ("NV Energy" over its parenthetical variants).
+      //
+      // "More than one string" is NOT the same test as "more than one
+      // utility" — "NV Energy" / "NV Energy (Sierra Pacific Power)" / "NV
+      // Energy (tariff proposed by Microsoft)" are three strings for ONE
+      // utility. Strip a trailing parenthetical before comparing so spelling
+      // variants of the same operating name don't get flattened up to the
+      // signatory's holding company (CLAUDE.md: record holding-company /
+      // subsidiary pairs, don't flatten them).
+      const baseName = (s) => s.replace(/\s*\([^)]*\)\s*$/, "").trim();
+      const shortest = [...r.names.keys()].sort((a, b) => a.length - b.length)[0];
+      const distinctUtilities = new Set([...r.names.keys()].map(baseName));
+      const name = r.sig && distinctUtilities.size > 1 ? r.sig.name : shortest;
+      return {
+        name,
+        sig: r.sig,
+        states: [...r.states].sort(),
+        tariffs: r.tariffs,
+        rateCases: r.rateCases,
+        sites: r.sites,
+        total: r.tariffs + r.rateCases + r.sites,
+      };
+    })
+    .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+}
+
+function renderUtilityRollup(rows) {
+  const tbody = document.getElementById("agg-utility-tbody");
+  if (!tbody) return;
+  setSubtabCount("agg-utility-count", rows.length);
+  const sub = document.getElementById("agg-utility-sub");
+  if (sub) {
+    const signed = rows.filter((r) => r.sig).length;
+    sub.textContent =
+      `${rows.length} utilities and grid operators appear in the tracked tariffs, ` +
+      `rate cases, and site records; ${signed} resolve to a Ratepayer Protection ` +
+      `Pledge signatory. Grouping is by exact, hand-curated joins — a utility ` +
+      `absent here has no tracked record, which is a coverage fact, not a verdict.`;
+  }
+  tbody.replaceChildren(
+    ...rows.map((r) => {
+      const tr = document.createElement("tr");
+      const name = document.createElement("th");
+      name.scope = "row";
+      name.textContent = r.name;
+      const pledge = document.createElement("td");
+      if (r.sig) {
+        const chip = el("span", "agg-utility-signed", "Signed");
+        chip.title = `${r.sig.name} — ${
+          SIGNATORY_TRACK_LABELS[r.sig.signed_track] || r.sig.signed_track
+        }`;
+        pledge.append(chip);
+      } else {
+        pledge.textContent = "—";
+        pledge.title = "No roster match for this utility string";
+      }
+      const states = document.createElement("td");
+      states.textContent = r.states.join(", ") || "—";
+      const t = document.createElement("td");
+      t.className = "num";
+      t.textContent = String(r.tariffs || "—");
+      const rc = document.createElement("td");
+      rc.className = "num";
+      rc.textContent = String(r.rateCases || "—");
+      const s = document.createElement("td");
+      s.className = "num";
+      s.textContent = String(r.sites || "—");
+      tr.append(name, pledge, states, t, rc, s);
+      return tr;
+    })
+  );
 }
 
 // Wire click-to-sort on all [data-sort-key] <th> in both aggregate tables.

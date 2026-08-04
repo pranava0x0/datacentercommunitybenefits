@@ -3625,7 +3625,10 @@
       "source_title": "White House — Ratepayer Protection Pledge signatory roster",
       "captured_at": "2026-07-25",
       "matched_company_slug": null,
-      "utility_aliases": [],
+      "utility_aliases": [
+        "Ameren Missouri",
+        "Ameren Missouri (Union Electric)"
+      ],
       "notes": null
     },
     {
@@ -3734,7 +3737,8 @@
       "matched_company_slug": null,
       "utility_aliases": [
         "NV Energy",
-        "NV Energy (tariff proposed by Microsoft)"
+        "NV Energy (tariff proposed by Microsoft)",
+        "NV Energy (Sierra Pacific Power)"
       ],
       "notes": "Roster row is the parent holding company; the tariffs tracked here are filed by its operating utility."
     },
@@ -3861,7 +3865,8 @@
       "matched_company_slug": null,
       "utility_aliases": [
         "Duke Energy Carolinas / Duke Energy Progress",
-        "Duke Energy Indiana"
+        "Duke Energy Indiana",
+        "Duke Energy Carolinas"
       ],
       "notes": null
     },
@@ -3893,7 +3898,8 @@
       "captured_at": "2026-07-25",
       "matched_company_slug": null,
       "utility_aliases": [
-        "Entergy Mississippi"
+        "Entergy Mississippi",
+        "Entergy Louisiana"
       ],
       "notes": null
     },
@@ -4204,7 +4210,9 @@
       "source_title": "White House — Ratepayer Protection Pledge signatory roster",
       "captured_at": "2026-07-25",
       "matched_company_slug": null,
-      "utility_aliases": [],
+      "utility_aliases": [
+        "NIPSCO (Northern Indiana Public Service Company)"
+      ],
       "notes": null
     },
     {

@@ -40,8 +40,9 @@ FIRST_PAINT = [
 
 # Fetched immediately AFTER first paint, not as part of it. responses.json only
 # decorates below-the-fold cards (the concern flags), so it is split out of
-# loadProjectData deliberately — see loadResponseData in app.js.
-DEFERRED = ["data/responses.json"]
+# loadProjectData deliberately — see loadResponseData in app.js. rate_cases.json
+# fills the Home "What's next" list the same way — see loadRateCasesData.
+DEFERRED = ["data/responses.json", "data/rate_cases.json"]
 
 # Payloads that must NOT be part of first paint — they belong to a tab the
 # visitor has not opened yet.

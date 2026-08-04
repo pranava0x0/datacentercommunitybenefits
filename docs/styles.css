@@ -17,36 +17,50 @@
    (DESIGN.md 12.12: a `var()` alias in :root only computes on :root and does
    NOT propagate the dark override to descendants). */
 :root {
-  --bg: #f7f8fa;
+  /* v3 civic palette, taken from whitehouse.gov's own presets (extracted from
+     the live site 2026-08-03): white paper, charcoal ink (#293340), deep navy
+     (#0D132D / #151A30 / #141F4D), signal red (#B50000), amber (#FFBD00 —
+     10.9:1 on the navy band, 1.7:1 on white, so it is a MARK color on light
+     surfaces and a text color only on the band), stone (#E8E6E0) and
+     pale-gray (#D9DEE8). Every text pairing below was contrast-computed
+     before landing; see the commit message for the table. */
+  --bg: #ffffff;
   --surface: #ffffff;
-  --surface-2: #eef0f4;
-  --text: #11151c;
-  --text-muted: #4a5262;
-  --border: #d8dce4;
-  --border-strong: #aab2c0;
-  --accent: #1f4e79;
-  --accent-soft: #dfe8f2;
-  --link: #1a4a78;
+  --surface-2: #f3f3f3;
+  --text: #293340;
+  --text-muted: #5a6572;
+  --border: #d9dee8;
+  --border-strong: #8a8a8a;
+  --accent: #141f4d;
+  --accent-soft: #e3e7f2;
+  /* Deliberately NOT --accent's navy: navy-on-white text and this navy link
+     color compute to ~1.23:1 contrast against each other, so a link with no
+     other visual cue (many use text-decoration: none at rest, underline only
+     on :hover) reads as indistinguishable body copy. #2563eb keeps AA against
+     white (5.17:1) while roughly doubling the link/text separation (~2.48:1)
+     — the practical ceiling given how dark --text already is; 3:1 would need
+     --text itself to lighten, out of scope here. */
+  --link: #2563eb;
 
-  /* The single accent, in two weights. --accent-mark is text-safe at any size
-     (8.15:1 on --bg) and carries kickers, labels and small copy; --accent-rule
-     is the darker weight used for rules and emphasis where more presence is
-     wanted. There is no decorative-only tint: an accent that fails contrast is
-     an accent that cannot be used for text, and that split caused trouble in
-     the first cut of this palette. */
-  --accent-mark: #1f4e79;
-  --accent-rule: #17395a;
+  /* The signal accent, in two weights. --accent-mark (whitehouse.gov red,
+     7.08:1 on white) is text-safe at any size and carries kickers, labels and
+     small copy; --accent-rule (deep red) is the darker weight for rules and
+     emphasis. Amber (#FFBD00) deliberately does NOT appear here: at 1.68:1 on
+     white it is a mark color only, and it lives on the band tokens where it
+     passes (10.9:1 on the navy). */
+  --accent-mark: #b50000;
+  --accent-rule: #730000;
 
   /* The inked band — the dark section the commitments render on. Deliberately
      dark in BOTH themes (it is a figure, not a surface), so its own foreground
      tokens travel with it rather than inheriting the page theme. */
-  --band-bg: #11151c;
-  --band-text: #f2f4f7;
-  --band-text-muted: #aab3c0;
-  --band-accent: #7fb3e0;
-  --band-hairline: rgba(242, 244, 247, 0.18);
+  --band-bg: #0d132d;
+  --band-text: #ffffff;
+  --band-text-muted: #abb4c4;
+  --band-accent: #ffbd00;
+  --band-hairline: rgba(255, 255, 255, 0.18);
 
-  --hairline: rgba(17, 21, 28, 0.14);
+  --hairline: rgba(41, 51, 64, 0.16);
 
   /* Per-stance colors (community responses) */
   --stance-positive: #2f7a4d;
@@ -135,12 +149,16 @@
   --theme-education: #8a4a5b;
   --theme-engagement: #4a8a6b;
 
+  /* whitehouse.gov sets Instrument Sans / Instrument Serif. Naming them
+     first costs nothing (they engage when locally installed) and the stacks
+     fall back to system faces — still no web fonts, per the perf budget. */
   --font-sans:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
+    "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   --font-serif:
-    "Charter", "Source Serif 4", "Iowan Old Style", "Apple Garamond",
-    "Baskerville", "Times New Roman", "Droid Serif", Times, serif;
+    "Instrument Serif", "Charter", "Source Serif 4", "Iowan Old Style",
+    "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", Times,
+    serif;
   --font-mono:
     "SF Mono", Menlo, Consolas, "Liberation Mono", "Roboto Mono", monospace;
   /* Display face for the pledge hero + section titles. The source page uses
@@ -148,8 +166,8 @@
      Deliberately NOT a webfont — the perf baseline (no web fonts, no images)
      is a guardrail, and a display face is the easiest place to blow it. */
   --font-display:
-    "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia,
-    "Times New Roman", serif;
+    "Instrument Serif", Georgia, "Iowan Old Style", "Palatino Linotype",
+    Palatino, "Book Antiqua", "Times New Roman", serif;
 
   --radius-sm: 4px;
   --radius: 8px;
@@ -158,29 +176,34 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0e1117;
-  --surface: #161b23;
-  --surface-2: #1d232d;
-  --text: #e8ebf0;
-  --text-muted: #9aa4b4;
-  --border: #2a323d;
-  --border-strong: #3d4756;
-  --accent: #7fb3e0;
-  --accent-soft: #17293d;
-  --link: #9bc4ec;
+  --bg: #0d132d;
+  --surface: #151a30;
+  --surface-2: #141f4d;
+  --text: #e8e6e0;
+  --text-muted: #9aa4b6;
+  --border: #2a3450;
+  --border-strong: #3e4a6b;
+  --accent: #ffbd00;
+  --accent-soft: #33290a;
+  /* Same fix as the light-mode --link: the previous amber-adjacent value
+     (#ffcb33) sits at ~1.22:1 contrast against --text (#e8e6e0) — both are
+     light, so a link with no static underline was nearly indistinguishable
+     from body copy. #4d84ff keeps AA against --bg (5.2:1) and separates from
+     --text at ~2.82:1. */
+  --link: #4d84ff;
 
-  --accent-mark: #7fb3e0;
-  --accent-rule: #5c9bd6;
+  --accent-mark: #ffbd00;
+  --accent-rule: #e6a800;
 
   /* The band goes darker still in dark mode so it stays a distinct figure
      against the already-dark page rather than blending into it. */
-  --band-bg: #070a0f;
-  --band-text: #f2f4f7;
-  --band-text-muted: #aab3c0;
-  --band-accent: #7fb3e0;
-  --band-hairline: rgba(242, 244, 247, 0.18);
+  --band-bg: #070d1f;
+  --band-text: #ffffff;
+  --band-text-muted: #abb4c4;
+  --band-accent: #ffbd00;
+  --band-hairline: rgba(255, 255, 255, 0.18);
 
-  --hairline: rgba(232, 235, 240, 0.16);
+  --hairline: rgba(232, 230, 224, 0.16);
 
   --stance-positive: #6cc18a;
   --stance-positive-soft: #1d3a28;
@@ -364,6 +387,15 @@ select:focus-visible,
 
 .skip-link:focus {
   top: 8px;
+}
+
+/* In dark mode --accent is the amber mark color (#ffbd00) — white text on it
+   is ~1.68:1, the same failing ratio the palette comment documents for
+   amber-on-white and the reason amber is kept out of --accent-mark. This is
+   the first thing a keyboard/AT user focuses, so it needs real contrast:
+   --band-bg is near-black navy, ~10.9:1 on the amber background. */
+[data-theme="dark"] .skip-link {
+  color: var(--band-bg);
 }
 
 /* ==========================================================================
@@ -5502,6 +5534,208 @@ body.state-modal-open {
 }
 
 /* --- activity feed ------------------------------------------------------- */
+
+/* --- What's next: dated docket milestones on Home ------------------------ */
+
+.whats-next {
+  margin-bottom: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hairline);
+}
+
+.wn-sub {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+.wn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wn-btn {
+  display: grid;
+  grid-template-columns: 104px 44px 1fr;
+  gap: 12px;
+  align-items: start;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.wn-btn:hover,
+.wn-btn:focus-visible {
+  border-color: var(--accent-rule);
+  background: var(--surface-2);
+}
+
+.wn-date {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-mark);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.wn-date--open {
+  color: var(--text-muted);
+}
+
+.wn-state {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 1px 5px;
+  text-align: center;
+  justify-self: start;
+}
+
+.wn-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wn-text {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.wn-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 760px) {
+  .wn-btn { grid-template-columns: 1fr; gap: 3px; }
+  .wn-state { display: none; }
+}
+
+/* --- Utility rollup (aggregate "By utility" sub-tab) --------------------- */
+
+.agg-utility-signed {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tariff-approved);
+  border: 1px solid var(--tariff-approved);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+/* --- Rate cases & proceedings (Tariffs tab) ------------------------------ */
+
+.rc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rc-item {
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.rc-item--empty {
+  color: var(--text-muted);
+  border-style: dashed;
+}
+
+.rc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rc-state {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.rc-state--fed {
+  color: var(--tariff-federal);
+  border-color: var(--tariff-federal);
+}
+
+.rc-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rc-meta {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.rc-src {
+  white-space: nowrap;
+}
+
+/* 44px touch floor, coarse pointers only — see the .subtab rule above for the
+   same pattern. At the desktop scale this inline link inherits .rc-meta's
+   0.75rem line box with no padding, well under the floor for a thumb. */
+@media (pointer: coarse) {
+  .rc-src {
+    display: inline-block;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 4px;
+    margin: -12px -4px;
+  }
+}
+
+.rc-summary {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  max-width: 78ch;
+}
+
+.rc-next {
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+}
+
+.rc-next-lbl {
+  font-weight: 700;
+  color: var(--accent-mark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.68rem;
+}
+
+.rc-next-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
 
 .pledge-activity {
   margin-bottom: 22px;

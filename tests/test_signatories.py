@@ -189,16 +189,27 @@ def test_utility_aliases_are_unique_across_the_roster() -> None:
             seen[alias] = s.id
 
 
-def test_utility_aliases_resolve_to_real_tariff_records(roster: SignatoriesPayload) -> None:
-    """An alias that matches no tariff is dead weight — and usually a typo."""
+def test_utility_aliases_resolve_to_real_records(roster: SignatoriesPayload) -> None:
+    """An alias that matches no record is dead weight — and usually a typo.
+
+    v3: aliases join three surfaces now, not just tariffs — rate-case utility
+    strings and project serving_utility strings resolve through the same map
+    (see buildUtilityRollups in app.js). Still exact-match only.
+    """
     tariffs = json.loads((SEED / "tariffs.json").read_text())["tariffs"]
-    known = {t.get("utility") for t in tariffs}
+    rate_cases = json.loads((SEED / "rate_cases.json").read_text())["rate_cases"]
+    projects = json.loads((SEED / "projects.json").read_text())["projects"]
+    known = (
+        {t.get("utility") for t in tariffs}
+        | {rc.get("utility") for rc in rate_cases}
+        | {p.get("serving_utility") for p in projects if p.get("serving_utility")}
+    )
     for s in roster.signatories:
         for alias in s.utility_aliases:
             assert alias in known, (
-                f"{s.id} aliases {alias!r}, which appears in no tariff record. "
-                "Aliases are exact-match joins; fix the spelling rather than "
-                "loosening the match."
+                f"{s.id} aliases {alias!r}, which appears in no tariff, rate-case, "
+                "or project record. Aliases are exact-match joins; fix the "
+                "spelling rather than loosening the match."
             )
 
 

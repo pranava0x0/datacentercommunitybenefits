@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-03",
   "claims": [
     {
       "id": "meta-energy-renewable-match",
@@ -4245,6 +4245,37 @@
       "source_title": "Bruce Flatt, CEO, Brookfield -- on the Paducah data center campus",
       "captured_at": "2026-07-30",
       "project_id": "brookfield-paducah-ky"
+    },
+    {
+      "id": "crusoe-inl-energy-cavness",
+      "company_slug": "crusoe",
+      "project_id": "crusoe-inl-id",
+      "theme": "energy",
+      "statement": "The next generation of AI infrastructure demands power that is reliable, abundant, clean, and at scale, and Aalo's nuclear reactors are built to meet that need. One of Crusoe's core values is to 'bend the arc of energy toward sustainability,' and within that value we embrace the principle of using Crusoe's market position to support and accelerate energy innovation.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/crusoe-partners-with-aalo-on-nuclear-powered-ai-data-center-deployment-at-idaho-national-lab/",
+      "source_title": "DCD — Cully Cavness (Crusoe co-founder, president & CSO) on the Aalo SMR partnership",
+      "captured_at": "2026-08-03"
+    },
+    {
+      "id": "xai-southaven-engagement-turbine-removal",
+      "company_slug": "xai",
+      "project_id": "xai-southaven-ms",
+      "theme": "engagement",
+      "statement": "[SpaceXAI has] entered into an agreed order with the Mississippi Department of Environmental Quality establishing a fixed removal timeline for all 69 of the temporary, mobile turbines. … We care deeply about being good neighbors and we regularly reconfigure power operations to reduce noise from the facility and minimize our impact on the local community.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/musk-confirms-fourth-spacexai-data-center-in-memphis-company-starts-removing-illegal-gas-turbines/",
+      "source_title": "DCD — SpaceXAI statement on the MDEQ agreed order and turbine removal",
+      "captured_at": "2026-08-03"
+    },
+    {
+      "id": "google-clay-county-capacity-commitment-2026",
+      "company_slug": "google",
+      "project_id": "google-clay-county-mo",
+      "theme": "energy",
+      "statement": "Through our Capacity Commitment Framework agreement with Ameren, we're supporting the development of more than 500 megawatts of additional capacity, helping to ensure we cover our own operational and infrastructure costs.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/missouri-programs/",
+      "source_title": "Google — Missouri data center investment announcement (May 20, 2026)",
+      "captured_at": "2026-08-03",
+      "published_at": "2026-05-21"
     }
   ]
 }

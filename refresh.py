@@ -37,6 +37,7 @@ from schema import (
     CompaniesPayload,
     MoratoriumsPayload,
     ProjectsPayload,
+    RateCasesPayload,
     ResponsesPayload,
     SignatoriesPayload,
     TariffsPayload,
@@ -57,6 +58,7 @@ PAYLOAD_FILES: dict[str, type] = {
     "moratoriums": MoratoriumsPayload,
     "tariffs": TariffsPayload,
     "signatories": SignatoriesPayload,
+    "rate_cases": RateCasesPayload,
 }
 
 
@@ -82,9 +84,36 @@ def _check_cross_refs(
     projects: ProjectsPayload,
     responses: ResponsesPayload,
     signatories=None,
+    tariffs=None,
+    rate_cases=None,
 ) -> list[str]:
     """Cross-payload reference checks. Returns list of error messages (empty = OK)."""
     errors: list[str] = []
+
+    # Rate cases join onto tariffs and projects; a broken id renders as a dead
+    # link in the state panel, so it must fail here, not in the browser.
+    if rate_cases is not None:
+        # tariffs is None means "not passed to this check", not "no tariffs
+        # exist" — treating it as an empty set would flag every non-null
+        # related_tariff_id as unknown. Skip the check rather than false-fail.
+        tariff_ids = {t.id for t in tariffs.tariffs} if tariffs is not None else None
+        rc_project_ids = {p.id for p in projects.projects}
+        for rc in rate_cases.rate_cases:
+            if (
+                tariff_ids is not None
+                and rc.related_tariff_id is not None
+                and rc.related_tariff_id not in tariff_ids
+            ):
+                errors.append(
+                    f"rate_cases.json: case {rc.id!r} references unknown "
+                    f"related_tariff_id {rc.related_tariff_id!r}"
+                )
+            for pid in rc.related_project_ids or []:
+                if pid not in rc_project_ids:
+                    errors.append(
+                        f"rate_cases.json: case {rc.id!r} references unknown "
+                        f"related_project_id {pid!r}"
+                    )
 
     # serving_utility_signatory_id must resolve to a real roster row. A typo
     # here fails silently in the browser — the utility lens simply shows no
@@ -266,7 +295,9 @@ STALE_PENDING_DAYS = 21  # matches the skill's "3-week research window" cadence
 
 
 def _audit_stale_pending(
-    moratoriums: MoratoriumsPayload, tariffs: TariffsPayload
+    moratoriums: MoratoriumsPayload,
+    tariffs: TariffsPayload,
+    rate_cases: RateCasesPayload | None = None,
 ) -> list[dict]:
     """Flag proposed moratoriums/tariffs not re-checked in STALE_PENDING_DAYS.
 
@@ -301,6 +332,20 @@ def _audit_stale_pending(
                         "id": t.id,
                         "jurisdiction": t.state,
                         "captured_at": str(t.captured_at),
+                        "age_days": age,
+                    }
+                )
+
+    for rc in rate_cases.rate_cases if rate_cases is not None else []:
+        if rc.status == "pending":
+            age = (today - rc.captured_at).days
+            if age >= STALE_PENDING_DAYS:
+                stale.append(
+                    {
+                        "kind": "rate_case",
+                        "id": rc.id,
+                        "jurisdiction": rc.state_code,
+                        "captured_at": str(rc.captured_at),
                         "age_days": age,
                     }
                 )
@@ -360,7 +405,7 @@ def _write_audit_report(
 NON_GEOGRAPHIC_STATE = "XX"
 
 
-def _build_coverage(projects, tariffs, moratoriums) -> dict:
+def _build_coverage(projects, tariffs, moratoriums, rate_cases=None) -> dict:
     """Per-state record counts for the landing page's coverage surfaces.
 
     Precomputed here rather than derived in the browser because the landing view
@@ -379,7 +424,9 @@ def _build_coverage(projects, tariffs, moratoriums) -> dict:
         key = str(code).upper()
         if key == NON_GEOGRAPHIC_STATE:
             return None
-        return states.setdefault(key, {"projects": 0, "tariffs": 0, "moratoriums": 0})
+        return states.setdefault(
+            key, {"projects": 0, "tariffs": 0, "moratoriums": 0, "rate_cases": 0}
+        )
 
     for p in projects.projects:
         b = bucket(p.state)
@@ -393,6 +440,13 @@ def _build_coverage(projects, tariffs, moratoriums) -> dict:
         b = bucket(m.state_code)
         if b is not None:
             b["moratoriums"] += 1
+    if rate_cases is not None:
+        for rc in rate_cases.rate_cases:
+            if rc.jurisdiction_level == "federal":
+                continue  # "US" is not a state cell
+            b = bucket(rc.state_code)
+            if b is not None:
+                b["rate_cases"] += 1
 
     return {"states": dict(sorted(states.items()))}
 
@@ -401,7 +455,10 @@ def _write_coverage(payloads, *, pretty: bool) -> int:
     """Emit the derived coverage rollup alongside the validated payloads."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     data = _build_coverage(
-        payloads["projects"], payloads["tariffs"], payloads["moratoriums"]
+        payloads["projects"],
+        payloads["tariffs"],
+        payloads["moratoriums"],
+        payloads.get("rate_cases"),
     )
     data["generated_at"] = payloads["projects"].generated_at.isoformat()
     out = OUT_DIR / "coverage.json"
@@ -440,6 +497,8 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         payloads["projects"],
         payloads["responses"],
         payloads.get("signatories"),
+        payloads.get("tariffs"),
+        payloads.get("rate_cases"),
     )
     if cross_errors:
         for err in cross_errors:
@@ -460,7 +519,9 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         critical, medium = _audit_missing_commitments(
             payloads["projects"], payloads["signatories"]
         )
-        stale_pending = _audit_stale_pending(payloads["moratoriums"], payloads["tariffs"])
+        stale_pending = _audit_stale_pending(
+            payloads["moratoriums"], payloads["tariffs"], payloads.get("rate_cases")
+        )
         logger.warning(
             "Audit found %d critical + %d medium gaps in project commitment details; "
             "%d stale pending bills/tariffs",

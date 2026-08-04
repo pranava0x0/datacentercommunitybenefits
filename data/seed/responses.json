@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16",
+  "generated_at": "2026-08-03",
   "responses": [
     {
       "id": "resp-meta-newton-water",
@@ -2397,6 +2397,28 @@
       "summary": "Paducah Mayor George Bray called the data center campus the largest investment in the history of Western Kentucky; Kentucky's federal delegation (Reps. Comer and Barr) and state Sen. Danny Carroll also voiced support, with Carroll praising the project's alignment with the federal Ratepayer Protection Pledge.",
       "source_url": "https://www.wpsdlocal6.com/news/kentucky-officials-weigh-in-on-paducah-american-energy-hub/article_0f209089-9708-41e3-b790-537d904a9519.html",
       "source_title": "WPSD Local 6 — Kentucky officials weigh in on Paducah 'American Energy Hub'",
+      "single_source": true
+    },
+    {
+      "id": "resp-xai-southaven-mdeq-agreed-order",
+      "project_id": "xai-southaven-ms",
+      "date": "2026-07-31",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "SpaceXAI entered an agreed order with the Mississippi Department of Environmental Quality committing to remove all 69 temporary mobile gas turbines within a year, ahead of a permanent 1.2 GW plant permitted in March 2026 — a resolution of the permitting dispute, though the permanent installation still comprises 41 turbines.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/musk-confirms-fourth-spacexai-data-center-in-memphis-company-starts-removing-illegal-gas-turbines/",
+      "source_title": "DCD — SpaceXAI sets out timeline for removing turbines under MDEQ agreed order",
+      "single_source": true
+    },
+    {
+      "id": "resp-aws-ashburn-briskman",
+      "project_id": "aws-ashburn-gwu-va",
+      "date": "2026-07-31",
+      "stance": "negative",
+      "constituency": "local_government",
+      "summary": "Loudoun County supervisor Juli Briskman opposes the by-right application: 'Replacing the George Washington University campus with four massive data center buildings would be a profound loss for our community… I will use every tool available to challenge this proposal and protect Loudoun County residents from the impacts of inappropriate data center development.'",
+      "source_url": "https://www.datacenterdynamics.com/en/news/aws-looks-to-build-800000-sq-ft-data-center-campus-at-gwu-site-in-ashburn-virginia/",
+      "source_title": "DCD — County supervisor vows to fight AWS's GWU-site campus",
       "single_source": true
     }
   ]

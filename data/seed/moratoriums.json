@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-03",
   "moratoriums": [
     {
       "id": "asbury-ia-2026-07",
@@ -2390,7 +2390,7 @@
       "enacted_date": null,
       "effective_date": null,
       "duration_months": 12,
-      "duration_description": "Proposed interim moratorium of at least one year (extendable). Passed the Planning & Development Committee unanimously; awaits full County Board (expected on the August 2026 agenda). Excludes un-zoned towns (Sugar Camp, Monico, Enterprise) and the City of Rhinelander.",
+      "duration_description": "Proposed interim moratorium of at least one year (extendable). Passed the Planning & Development Committee unanimously; awaits full County Board (still pending as of August 3, 2026). Excludes un-zoned towns (Sugar Camp, Monico, Enterprise) and the City of Rhinelander.",
       "power_threshold_mw": null,
       "key_reasons": [
         "water",
@@ -2408,7 +2408,7 @@
       "city_council_vote": "Passed the Planning & Development Committee unanimously; awaiting full County Board vote",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13",
+      "captured_at": "2026-08-03",
       "resources": [
         {
           "url": "https://www.oneidacountywi.gov/wp-content/uploads/meetings/7.8.26-NPH-Dilley-Waterhouse-Jones-OA-02-2026.pdf",
@@ -3723,6 +3723,38 @@
         }
       ],
       "captured_at": "2026-07-27"
+    },
+    {
+      "id": "dekalb-county-ga-2025-12",
+      "jurisdiction": "DeKalb County",
+      "jurisdiction_type": "county",
+      "state_code": "GA",
+      "status": "enacted",
+      "enacted_date": "2026-06-09",
+      "effective_date": null,
+      "duration_months": null,
+      "duration_description": "In force through September 30, 2026. First imposed in 2025; the Board of Commissioners extended it December 16, 2025 (through June 23, 2026) and again June 9, 2026 by 100 days (5-2 vote).",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "noise",
+        "energy",
+        "equity",
+        "water"
+      ],
+      "summary": "DeKalb County's moratorium blocks new licenses and permits for data centers (including expansions) while the county drafts zoning rules that would restrict facilities to industrial areas and require a special land-use permit in most cases, with defined categories up to 500,000+ sq ft campuses. Commissioners cited noise near homes and parks, grid reliability, stormwater and drinking-water impacts, and the concentration of industrial burdens on historically overburdened communities.",
+      "source_url": "https://www.wabe.org/dekalb-county-commission-extends-data-center-moratorium/",
+      "source_title": "WABE — DeKalb County Commission extends data center moratorium",
+      "resources": [
+        {
+          "url": "https://roughdraftatlanta.com/2025/12/16/dekalb-county-data-center-pause/",
+          "title": "Rough Draft Atlanta — DeKalb County extends data center moratorium amid public health concerns"
+        },
+        {
+          "url": "https://www.atlantanewsfirst.com/2026/06/09/dekalb-county-extends-data-center-moratorium/",
+          "title": "Atlanta News First — DeKalb County extends data center moratorium"
+        }
+      ],
+      "captured_at": "2026-08-03"
     }
   ]
 }

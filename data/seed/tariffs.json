@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-03",
   "tariffs": [
     {
       "id": "we-energies-very-large-customer-tariff",
@@ -291,10 +291,10 @@
       "tariff_name": "Callisto Energy Supply Agreement",
       "tariff_type": "Special contract / ESA",
       "status": "proposed",
-      "status_detail": "Pending before the PUCN as of the LBL brief.",
+      "status_detail": "Pending before the PUCN as of the LBL brief. Secondary coverage (Citizen Portal, an AI-generated news aggregator) reports a stipulation accepted at the Commission's April 29, 2026 open meeting, but that report could not be independently verified against a PUCN docket filing or order in this pass, and the source_url below (the Jan 2025 LBL brief) predates it by over a year — so the status is left at 'proposed' pending a primary-source confirmation. A second Google ESA (Docket 26-06023) was filed June 26, 2026, independently confirmed.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "24-06014",
-      "summary": "A bespoke energy-supply agreement for a large-load customer whose exit terms are tied to the price difference between the procured resource and NV Energy's most recent approved renewable facilities.",
+      "summary": "A bespoke energy-supply agreement between Sierra Pacific Power (NV Energy) and Callisto Enterprises — identified in the Commission's public notice as Google — whose exit terms are tied to the price difference between the procured resource and NV Energy's most recent approved renewable facilities. A second Google ESA (Docket 26-06023) was filed June 26, 2026.",
       "parameters": {
         "exit_fee": {
           "status": "included",
@@ -313,8 +313,13 @@
       "legislation": [],
       "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
       "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — NV Energy Callisto ESA (PUCN 24-06014)",
-      "resources": null,
-      "captured_at": "2026-06-22"
+      "resources": [
+        {
+          "url": "https://citizenportal.ai/articles/6556644/PUC-accepts-stipulation-on-NV-EnergyCallisto-energy-supply-agreement",
+          "title": "Citizen Portal — PUCN accepts stipulation on the NV Energy–Callisto ESA (meeting coverage)"
+        }
+      ],
+      "captured_at": "2026-08-03"
     },
     {
       "id": "indiana-michigan-power-industrial-power-tariff",
@@ -1031,7 +1036,7 @@
       "tariff_name": "Large Load Tariff",
       "tariff_type": "Large-load / data center tariff",
       "status": "proposed",
-      "status_detail": "Suspended for 120 days by Colorado PUC Decision No. C26-0280 (April 30, 2026); intervention/comment period closed June 1, 2026; evidentiary proceedings ongoing.",
+      "status_detail": "Filed April 2, 2026; Colorado PUC decision expected Q3 2026, with proposed implementation August 2026 if approved.",
       "regulator": "Colorado Public Utilities Commission (COPUC)",
       "filed_date": "2026-04-02",
       "min_load_mw": 50,
@@ -1087,7 +1092,7 @@
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-07-15",
+      "captured_at": "2026-08-03",
       "docket_number": "26AL-0137E"
     },
     {
@@ -1199,7 +1204,7 @@
       "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0105)",
       "tariff_type": "Large-load cost-of-service rate case",
       "status": "proposed",
-      "status_detail": "Filed with Arizona Corporation Commission in 2025 (docket E-01345A-25-0105); public hearings before the ACC began May 18, 2026; decision expected by end of 2026.",
+      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 (~8 weeks); a recommended opinion and Commission vote follow. Requested rates effective no earlier than July 8, 2026.",
       "regulator": "Arizona Corporation Commission (ACC)",
       "docket_number": "E-01345A-25-0105",
       "filed_date": "2025-06-01",
@@ -1231,7 +1236,7 @@
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-07-27"
+      "captured_at": "2026-08-03"
     },
     {
       "id": "duke-nc-large-load-rate-case-2025",
@@ -1240,9 +1245,9 @@
       "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1300)",
       "tariff_type": "Large-load rate case — cost-of-service and class design",
       "status": "proposed",
-      "status_detail": "Filed November 20, 2025; on July 17, 2026 Duke Energy Carolinas reached a settlement with the NC Public Staff and other parties to pursue large-load tariff terms via a fast-track process; decision expected late 2026, new rates effective January 1, 2027.",
+      "status_detail": "July 2026 settlement commits Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026, with a final NCUC order expected in fall 2026 and new rates effective January 1, 2027 if approved.",
       "regulator": "North Carolina Utilities Commission (NCUC)",
-      "docket_number": "E-7, Sub 1300",
+      "docket_number": "E-7, Sub 1329",
       "filed_date": "2025-11-20",
       "decision_date": null,
       "min_load_mw": 50,
@@ -1276,7 +1281,7 @@
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-07-27"
+      "captured_at": "2026-08-03"
     },
     {
       "id": "virginia-data-center-electricity-consumption-tax",
@@ -1334,6 +1339,56 @@
         }
       ],
       "captured_at": "2026-07-14"
+    },
+    {
+      "id": "xcel-minnesota-large-load-tariff",
+      "utility": "Xcel Energy (Northern States Power — Minnesota)",
+      "state": "MN",
+      "jurisdiction_level": "state",
+      "tariff_name": "Large Load Tariff",
+      "tariff_type": "Data center / large-load tariff",
+      "status": "approved",
+      "status_detail": "Approved May 15, 2026; the Commission also directed Xcel to file a separate clean energy and capacity tariff by December 1, 2026.",
+      "regulator": "Minnesota Public Utilities Commission (PUC)",
+      "docket_number": null,
+      "filed_date": null,
+      "decision_date": "2026-05-15",
+      "min_load_mw": 100.0,
+      "customers": null,
+      "summary": "Creates a dedicated rate class for very large new customers (100 MW and up, aimed at data centers) with 15-year minimum contracts and an 80% demand-charge obligation on early exit, so infrastructure built for large loads is paid for by them rather than shifted to other customers in future rate cases.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to very large customers of 100 MW or more, in a new dedicated rate class."
+        },
+        "contract_duration": {
+          "status": "included",
+          "detail": "15-year minimum contract term between the large facility and the utility."
+        },
+        "exit_fee": {
+          "status": "included",
+          "detail": "80% demand-charge obligation applies if a facility exits its contract early."
+        },
+        "clean_energy": {
+          "status": "partial",
+          "detail": "A separate clean energy and capacity tariff for very large customers was ordered filed by December 1, 2026."
+        }
+      },
+      "additional_terms": [],
+      "legislation": [],
+      "source_url": "https://fresh-energy.org/regulatory-update-commission-approves-xcel-energys-large-load-tariff",
+      "source_title": "Fresh Energy — Commission approves Xcel Energy's large load tariff",
+      "resources": [
+        {
+          "url": "https://elpc.org/news/final-order-encourages-affordable-clean-energy-for-minnesotans/",
+          "title": "ELPC — Final order encourages affordable, clean energy for Minnesotans"
+        },
+        {
+          "url": "https://newsroom.xcelenergy.com/news/xcel-energy-proposal-protects-customers-from-higher-bills-as-data-center-demand-grows",
+          "title": "Xcel Energy — proposal protects customers from higher bills as data center demand grows"
+        }
+      ],
+      "captured_at": "2026-08-03"
     }
   ]
 }

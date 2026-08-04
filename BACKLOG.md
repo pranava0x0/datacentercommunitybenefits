@@ -972,3 +972,43 @@ summaries is non-conforming — same defect as the one fixed on the pledge band,
 different component. `test_summaries_contain_only_conforming_children` is
 deliberately scoped to `details.acc > summary` so it stays green; widen the
 selector once the card markup is fixed.
+
+## Rate-case / tariff leads (2026-08-03 refresh)
+
+- **EEI "Large Load Projects and Tariffs" (June 2026) PDF** — industry-wide
+  enumerated list at eei.org (found via search; not yet mined). Same treatment
+  as the Moratorium Nation CSV: work-list, verify each row against a primary
+  source, never bulk-import. (medium)
+- **WV Appalachian Power / Google large-load settlement** — Jan 2025 WVPB story
+  (I&M-template: 100 MW min, 12-yr, 80% take) but no PSC case number verified;
+  find the case number + outcome before adding a tariff record. Pairs with
+  google-putnam-county-wv. (medium)
+- **SPP High Impact Large Load (HILL)** — FERC approved Jan 2026 per FERC's own
+  April release; docket number unverified. Add as a federal rate-case record
+  once the docket is pinned. (low)
+- **Per-utility panel (`#utility/<slug>`)** — the aggregate By-utility rollup
+  exists; a deep-linkable panel (tariff-modal pattern) listing a utility's
+  tariffs, rate cases, served sites, and roster row is the natural next step.
+  (low)
+- **Halcyon large-load tariff tracker** — 218 tracked tariffs, gated behind a
+  contact form; worth requesting access once. (low)
+- **NV Energy–Callisto ESA (nv-energy-callisto-esa) status re-verification** —
+  PR #41 flipped this to `approved` on a April 29, 2026 PUCN stipulation, but
+  the only corroboration is Citizen Portal (an AI-generated aggregator) and
+  the source_url (a Jan 2025 LBL brief) can't confirm a 2026 decision. Reverted
+  to `proposed` pending a primary-source confirmation (the PUCN docket page or
+  an order/transcript for docket 24-06014). (medium)
+- **Virginia statewide-moratorium call (senators' letters)** — removed the
+  `virginia-state-2026-07` moratorium record: its own `duration_description`
+  said "no bill or executive order has been introduced," but `MoratoriumStatus`
+  has no status for a call-to-action short of a bill, so recording it as
+  `proposed` would conflate it with actually-introduced bills in the stat tiles
+  and timeline chart. Re-add if Sen. Sturtevant's/Lucas's push produces an
+  actual bill or executive order. (low)
+- **No `rejected` rate case in the seed** — `data/seed/rate_cases.json` has 6
+  `approved` / 6 `pending`, 0 `rejected`, so the `rejected` badge/label never
+  renders against real data (unlike tariffs' `test_all_three_statuses_present`,
+  which the rate-case tests don't have an analogue of). The FERC
+  Talen/Amazon Susquehanna co-location ISA rejection is already a `rejected`
+  *tariff*; find a genuine rejected rate case rather than fabricating one.
+  (low)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-03",
   "projects": [
     {
       "id": "google-hermantown-mn",
@@ -2419,10 +2419,10 @@
       "announced_year": 2026,
       "claimed_investment_usd": 20000000000,
       "claimed_jobs": null,
-      "notes": "DeSoto County MS facility codenamed MACROHARD / Colossus 3, third xAI building across the TN-MS border (complementing the Memphis Colossus 1 + 2 sites). Powered by 41 natural-gas turbines at a former Duke Energy site — permit issued April 29 2026 by Mississippi regulators amid the NAACP Clean Air Act lawsuit. Elon Musk pledged $20B in state investment.",
+      "notes": "DeSoto County MS facility codenamed MACROHARD / Colossus 3, third xAI building across the TN-MS border (complementing the Memphis Colossus 1 + 2 sites). Powered by 41 natural-gas turbines at a former Duke Energy site — permit issued April 29 2026 by Mississippi regulators amid the NAACP Clean Air Act lawsuit. Elon Musk pledged $20B in state investment. July 2026: xAI (now SpaceXAI after being rolled into SpaceX) confirmed a fourth building, 'Minihard' (220,000 GB300 GPUs, 400+ MW, $659M permit), and entered an agreed order with the Mississippi DEQ setting a fixed timeline to remove all 69 temporary mobile turbines within a year, ahead of a permanent 1.2 GW plant (41 turbines) permitted in March.",
       "source_url": "https://www.datacenterdynamics.com/en/news/xai-confirms-new-data-center-in-mississippi-elon-musk-pledges-20bn-investment-in-state/",
       "source_title": "Data Center Dynamics — xAI confirms new Mississippi data center, Musk pledges $20bn",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-08-03",
       "offtaker": "xAI",
       "ratepayer": {
         "status": "pledge_only",
@@ -3025,28 +3025,28 @@
       "offtaker": "AWS",
       "ratepayer": {
         "status": "pledge_only",
-        "summary": "Covered by Amazon's national Ratepayer Protection Pledge signature; no site-specific commitment or utility agreement has been filed for the Wheatfield campus.",
-        "assessed_at": "2026-06-04",
+        "summary": "Covered by Amazon's national pledge; the IURC's June 2026 order in Cause No. 46362 approved NIPSCO's special contract with Amazon under which data-center customers fund the generation and transmission infrastructure built to serve them.",
+        "assessed_at": "2026-08-03",
         "principles": {
           "new_generation": {
-            "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific generation agreement captured for this campus."
+            "status": "met",
+            "note": "The IURC-approved framework (Cause No. 46362, June 17, 2026) has Amazon's contract fund new combined-cycle and battery resources built to serve the load."
           },
           "delivery_infra": {
-            "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific grid upgrade agreement captured for this site."
+            "status": "met",
+            "note": "Under the approved special contract, data-center customers fund the generation and transmission infrastructure required to serve them, with ~$1.4B in projected savings for existing customers."
           },
           "separate_rate": {
-            "status": "partial",
-            "note": "Covered by Amazon's national pledge; no separate rate filing or utility agreement captured for this site."
+            "status": "met",
+            "note": "Service is under an IURC-approved special contract (dated September 18, 2025) — a separate negotiated rate arrangement reviewed by the regulator."
           },
           "local_jobs": {
             "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific local hiring or workforce commitment captured."
+            "note": "No Wheatfield-specific jobs commitment captured."
           },
           "grid_resilience": {
             "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific grid coordination or backup commitment captured."
+            "note": "The contract adds battery storage to the local system, but no explicit community-resilience commitment is published."
           }
         }
       },
@@ -3161,7 +3161,29 @@
         "status": "pledge_only",
         "summary": "Announced June 2026 after the White House Ratepayer Protection Pledge; Google's co-owned on-site generation model is consistent with the pledge, but no site-specific first-party commitment text has been captured yet.",
         "evidence_claim_id": null,
-        "assessed_at": "2026-06-05"
+        "assessed_at": "2026-08-03",
+        "principles": {
+          "new_generation": {
+            "status": "met",
+            "note": "Google acquired Intersect Power (announced March 2026) to develop co-owned on-site wind, solar, battery storage, and firming gas for the 1 GW+ campus — dedicated new supply rather than grid draw."
+          },
+          "delivery_infra": {
+            "status": "partial",
+            "note": "On-site generation limits delivery-infrastructure exposure, but no cost-allocation arrangement for grid interconnection has been published."
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "No published rate structure; the co-owned generation model sits largely outside utility tariffs."
+          },
+          "local_jobs": {
+            "status": "met",
+            "note": "The Caprock Workforce Hub — an 800-acre residential campus in Wheeler County housing ~3,500 construction workers — is a site-specific workforce investment."
+          },
+          "grid_resilience": {
+            "status": "partial",
+            "note": "On-site firming generation serves the campus; no published commitment to broader grid or community resilience."
+          }
+        }
       },
       "at_a_glance": {
         "energy": "1,000 MW — Meitner Energy Center (Texas Panhandle)"
@@ -3328,10 +3350,32 @@
         "energy": "Adjacent to Constellation's Calvert Cliffs nuclear plant; ~1.5 GW reported"
       },
       "ratepayer": {
-        "status": "pledge_only",
-        "summary": "Amazon is a Ratepayer Protection Pledge signatory and introduced this site after the March 2026 pledge, but no Calvert-specific ratepayer commitment has been captured beyond Amazon's general 'pays its full electricity costs' framing - covered by the national signature.",
-        "evidence_claim_id": null,
-        "assessed_at": "2026-06-08"
+        "status": "affirmed",
+        "summary": "AWS introduced the Calvert Cliffs campus with a stated full-cost commitment — 'Amazon pays its full electricity costs while making substantial investments in building new energy infrastructure' — though the co-location arrangement itself is the kind FERC's PJM proceedings are still defining rules for.",
+        "evidence_claim_id": "aws-calvert-cliffs-md-energy",
+        "assessed_at": "2026-08-03",
+        "principles": {
+          "new_generation": {
+            "status": "partial",
+            "note": "The site co-locates with Constellation's existing Calvert Cliffs nuclear plant — existing supply, not new; Amazon cites 'investments in building new energy infrastructure' without site-specific detail."
+          },
+          "delivery_infra": {
+            "status": "met",
+            "note": "Amazon's site introduction states it 'pays its full electricity costs while making substantial investments in building new energy infrastructure.'"
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "Co-located-load rate treatment in PJM is exactly what FERC docket EL25-49 is still settling; no site rate structure is public."
+          },
+          "local_jobs": {
+            "status": "partial",
+            "note": "No Calvert-specific jobs or workforce commitment published at the community-meeting stage."
+          },
+          "grid_resilience": {
+            "status": "partial",
+            "note": "No published commitment on backup generation or community resilience; the site needs no new cooling water."
+          }
+        }
       }
     },
     {
@@ -3935,6 +3979,34 @@
       "at_a_glance": {
         "energy": "3.2 GW via 25-yr Georgia Power PSA, phased 2028-2032",
         "water": "Closed-loop water cooling system"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "OpenAI's first self-developed campus is covered by its national pledge signature and a reported 25-year, 3.2 GW power supply agreement with Georgia Power, but no first-party ratepayer commitment for the site has been captured.",
+        "evidence_claim_id": null,
+        "assessed_at": "2026-08-03",
+        "principles": {
+          "new_generation": {
+            "status": "partial",
+            "note": "A 25-year power supply agreement with Georgia Power for 3.2 GW (phased 2028–2032) is corroborated across outlets, but no first-party or regulatory document confirming its terms has been read."
+          },
+          "delivery_infra": {
+            "status": "partial",
+            "note": "Georgia Power's PSC-approved large-load rules would govern cost allocation; nothing Effingham-specific published by OpenAI."
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "The reported long-term PSA implies contracted commitment, but its take-or-pay terms are not public."
+          },
+          "local_jobs": {
+            "status": "partial",
+            "note": "County leaders cite a $20B+ valuation; OpenAI has not published a site-specific jobs or workforce commitment."
+          },
+          "grid_resilience": {
+            "status": "partial",
+            "note": "Closed-loop cooling is reported; nothing published on grid or community resilience contributions."
+          }
+        }
       }
     },
     {
@@ -3984,7 +4056,8 @@
         "energy": "Up to 10 GW planned; SB Energy funds 100% of new transmission",
         "community_grants": "$40M Community Benefits Agreement",
         "infrastructure": "$67.2B full campus; first data center project with FAST-41 status alongside QTS Richmond"
-      }
+      },
+      "serving_utility_signatory_id": "aep-ohio"
     },
     {
       "id": "brookfield-paducah-ky",
@@ -4007,11 +4080,144 @@
       "acreage": 600,
       "power_mw": 1800,
       "offtaker": null,
-      "serving_utility": "Big Rivers Electric Power Corporation",
+      "serving_utility": "Big Rivers Electric Corporation",
       "at_a_glance": {
         "jobs": "~8,000 construction / 600 permanent",
         "energy": "1.8 GW utility capacity; up to 4.6 GW dedicated generation (gas + battery)"
-      }
+      },
+      "serving_utility_signatory_id": "big-rivers-electric-corporation"
+    },
+    {
+      "id": "aws-ashburn-gwu-va",
+      "company_slug": "amazon",
+      "name": "Bridgefield Tech Center (GWU Virginia campus)",
+      "city": "Ashburn",
+      "state": "VA",
+      "country": "US",
+      "lat": 39.0437,
+      "lon": -77.4875,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "power_mw": null,
+      "gpu_count": null,
+      "acreage": 122.0,
+      "offtaker": "AWS",
+      "project_page_url": null,
+      "serving_utility": "Dominion Energy",
+      "serving_utility_signatory_id": "dominion-energy",
+      "notes": "Four-building, 800,000 sq ft campus planned on the 122-acre George Washington University Virginia Science and Technology Campus, which Amazon bought for $427M in March 2026. A site-plan application filed with Loudoun County in July 2026 seeks by-right approval under grandfathered zoning — without planning-commission review or public hearings — which Loudoun supervisor Juli Briskman has vowed to fight. GWU may retain the property up to five years while relocating.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/aws-looks-to-build-800000-sq-ft-data-center-campus-at-gwu-site-in-ashburn-virginia/",
+      "source_title": "DCD — AWS looks to build 800,000 sq ft data center campus at GWU site in Ashburn, Virginia",
+      "captured_at": "2026-08-03",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Filed four months after Amazon signed the White House pledge; no site-specific ratepayer commitment has been published for the Bridgefield campus yet.",
+        "evidence_claim_id": null,
+        "assessed_at": "2026-08-03",
+        "principles": {
+          "new_generation": {
+            "status": "partial",
+            "note": "Covered by Amazon's national pledge signature only; no Bridgefield-specific power-supply arrangement published."
+          },
+          "delivery_infra": {
+            "status": "partial",
+            "note": "No site-specific commitment; Dominion's GS-5 class (25 MW+, effective Jan 2027) would govern new large-load service in this territory."
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "No site-specific rate arrangement published; the site-plan filing is a land-use application, not a utility contract."
+          },
+          "local_jobs": {
+            "status": "partial",
+            "note": "No Bridgefield-specific jobs commitment published as of the July 2026 filing."
+          },
+          "grid_resilience": {
+            "status": "partial",
+            "note": "Nothing site-specific published on backup generation or grid contributions."
+          }
+        }
+      },
+      "announced_date": "2026-07-31"
+    },
+    {
+      "id": "crusoe-inl-id",
+      "company_slug": "crusoe",
+      "name": "Crusoe Spark at Idaho National Laboratory (Aalo SMR)",
+      "city": "Idaho Falls",
+      "state": "ID",
+      "country": "US",
+      "lat": 43.4917,
+      "lon": -112.0339,
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "power_mw": null,
+      "gpu_count": null,
+      "acreage": null,
+      "offtaker": "Crusoe",
+      "project_page_url": null,
+      "serving_utility": null,
+      "serving_utility_signatory_id": null,
+      "notes": "Announced July 30, 2026: Crusoe will deploy a Crusoe Spark modular data center (just under 1 MW per unit) at Idaho National Laboratory in 2027, powered directly by Aalo Atomics' 50 MWe Pod reactor — billed as the world's first nuclear-powered AI data center. Aalo's test reactor reached criticality at INL on July 4, 2026 under the DOE Reactor Pilot Program; the companies intend to deploy Aalo Pods across Crusoe's portfolio by the end of 2029. The Pod is sodium- and air-cooled, requiring no external water source.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/crusoe-partners-with-aalo-on-nuclear-powered-ai-data-center-deployment-at-idaho-national-lab/",
+      "source_title": "DCD — Crusoe partners with Aalo on nuclear-powered AI data center deployment at Idaho National Lab",
+      "captured_at": "2026-08-03",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Crusoe is a pledge signatory; the INL site brings its own dedicated generation (an on-site Aalo small modular reactor) rather than drawing utility supply, which supports the new_generation principle. But the backing claim is about SMR partnership and energy-innovation values, not a site-specific pay-our-own-way ratepayer commitment, so this is recorded as covered by the national signature rather than affirmed on its own evidence.",
+        "assessed_at": "2026-08-03",
+        "principles": {
+          "new_generation": {
+            "status": "met",
+            "note": "Powered directly by Aalo's on-site 50 MWe Pod small modular reactor — dedicated new supply rather than grid draw."
+          },
+          "delivery_infra": {
+            "status": "partial",
+            "note": "Behind-the-meter at a federal lab; no utility delivery-infrastructure arrangement is implicated or published."
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "Self-supplied power; no utility rate arrangement exists to assess."
+          },
+          "local_jobs": {
+            "status": "partial",
+            "note": "No site-specific workforce commitment published for the INL deployment."
+          },
+          "grid_resilience": {
+            "status": "partial",
+            "note": "Nothing published on grid or community resilience contributions at this proof-of-concept site."
+          }
+        }
+      },
+      "announced_date": "2026-07-30"
+    },
+    {
+      "id": "crusoe-goodnight-tx",
+      "company_slug": "crusoe",
+      "name": "Goodnight Campus (Project Llano)",
+      "city": "Claude",
+      "state": "TX",
+      "country": "US",
+      "lat": 35.1117,
+      "lon": -101.3627,
+      "status": "construction",
+      "announced_year": 2026,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "power_mw": 1000.0,
+      "gpu_count": null,
+      "acreage": null,
+      "offtaker": null,
+      "project_page_url": null,
+      "serving_utility": null,
+      "serving_utility_signatory_id": null,
+      "notes": "Six-to-seven-building campus at 10001 Lima Road in Claude, Armstrong County, east of Amarillo, filed under Crusoe affiliate GN DC1 LLC and going live in phases from August 2026 to February 2027. TDLR filings show four buildings of 805,380 sq ft and two of 484,955 sq ft; Buildings 3 and 4 were filed in July 2026 at an estimated $500M each. Aterio Research estimates seven buildings, 1 GW+ (530 MW phase one, 500 MW phase two) and ~$29B total investment. Construction began before Crusoe signed the pledge on July 23, 2026.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/crusoe-files-for-two-more-data-centers-at-goodnight-campus-in-armstrong-county-texas/",
+      "source_title": "DCD — Crusoe files for two more data centers at Goodnight Campus in Armstrong County, Texas",
+      "captured_at": "2026-08-03"
     }
   ]
 }

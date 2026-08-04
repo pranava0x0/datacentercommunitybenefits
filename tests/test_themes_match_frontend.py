@@ -35,6 +35,7 @@ from schema import (
 
 ROOT = Path(__file__).resolve().parent.parent
 APP_JS = ROOT / "docs" / "app.js"
+STYLES_CSS = ROOT / "docs" / "styles.css"
 
 
 def _extract_array(js_text: str, name: str) -> list[str]:
@@ -58,9 +59,24 @@ def _extract_object_keys(js_text: str, name: str) -> set[str]:
     return set(keys)
 
 
+def _extract_object_values(js_text: str, name: str) -> set[str]:
+    """Extract string values from `const NAME = { foo: "a", bar: "b" }`."""
+    pattern = rf"const\s+{re.escape(name)}\s*=\s*\{{(.*?)\}}\s*;"
+    m = re.search(pattern, js_text, re.DOTALL)
+    if not m:
+        raise AssertionError(f"Could not find `const {name} = {{...}}` in app.js")
+    body = m.group(1)
+    return set(re.findall(r':\s*"([^"]+)"', body))
+
+
 @pytest.fixture(scope="module")
 def js() -> str:
     return APP_JS.read_text(encoding="utf-8")
+
+
+@pytest.fixture(scope="module")
+def css() -> str:
+    return STYLES_CSS.read_text(encoding="utf-8")
 
 
 def test_themes_exact_match(js: str) -> None:
@@ -348,3 +364,61 @@ def test_pledge_principle_labels_match(js: str) -> None:
             if got[k] != PLEDGE_PRINCIPLE_LABELS[k]
         )
     )
+
+
+# --- Rate cases (v3): the proceeding layer under the tariffs ----------------
+
+
+def test_rate_case_statuses_match(js: str) -> None:
+    from schema import RATE_CASE_STATUSES
+
+    js_statuses = _extract_array(js, "RATE_CASE_STATUSES")
+    assert tuple(js_statuses) == RATE_CASE_STATUSES, (
+        f"RATE_CASE_STATUSES drift between schema.py {RATE_CASE_STATUSES} and "
+        f"app.js {tuple(js_statuses)}. Update both files together."
+    )
+
+
+def test_rate_case_status_labels_keys_match(js: str) -> None:
+    from schema import RATE_CASE_STATUS_LABELS
+
+    js_keys = _extract_object_keys(js, "RATE_CASE_STATUS_LABELS")
+    assert js_keys == set(RATE_CASE_STATUS_LABELS.keys())
+
+
+def test_rate_case_types_match(js: str) -> None:
+    from schema import RATE_CASE_TYPES
+
+    js_types = _extract_array(js, "RATE_CASE_TYPES")
+    assert tuple(js_types) == RATE_CASE_TYPES, (
+        f"RATE_CASE_TYPES drift between schema.py {RATE_CASE_TYPES} and "
+        f"app.js {tuple(js_types)}. Update both files together."
+    )
+
+
+def test_rate_case_type_labels_keys_match(js: str) -> None:
+    from schema import RATE_CASE_TYPE_LABELS
+
+    js_keys = _extract_object_keys(js, "RATE_CASE_TYPE_LABELS")
+    assert js_keys == set(RATE_CASE_TYPE_LABELS.keys())
+
+
+def test_rate_case_badge_class_covers_every_status(js: str, css: str) -> None:
+    """Every status must render with a real, colored badge class — an unmapped
+    OR mismatched-name class falls back to the bare .badge with no color, the
+    badge-reason-* failure shape from v1.19. A keys-only check doesn't catch a
+    mismatched value (exactly what shipped here first: RATE_CASE_BADGE_CLASS
+    pointed at `badge-tariff-approved` while styles.css only defines
+    `badge-tariff-status-approved`), so this also checks each mapped class
+    name resolves to a real selector in styles.css."""
+    from schema import RATE_CASE_STATUSES
+
+    js_keys = _extract_object_keys(js, "RATE_CASE_BADGE_CLASS")
+    assert js_keys == set(RATE_CASE_STATUSES)
+
+    js_values = _extract_object_values(js, "RATE_CASE_BADGE_CLASS")
+    for class_name in js_values:
+        assert f".{class_name}" in css, (
+            f"RATE_CASE_BADGE_CLASS maps to `{class_name}`, but styles.css has "
+            f"no `.{class_name}` rule — that status renders with no color."
+        )
