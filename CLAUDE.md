@@ -1330,3 +1330,95 @@ Claim cards have two visual modes driven by an opt-in `.compact` class on the pa
 - **Compact** (Project detail's Claims tab) — tighter padding, 0.85rem font, no shadow, same serif quote treatment but at 0.88rem. The card is supporting context for a project, not the headline read; visual weight should drop accordingly.
 
 **Don't** drop the serif on `.claim-quote` in either mode — that's the editorial signal. **Don't** add the `compact` class to the comparison view's main list — that view IS the read.
+
+### PR #41 review + merge lessons (2026-08-04)
+
+A fresh review pass (2 background code-reviewer agents, backend/data vs.
+frontend/e2e split) on PR #41 found 9 + 4 findings (the 4 from an independent
+Codex bot review already posted); every one was verified against the actual
+PR branch before acting, all were fixed, and PR #40 + #41 merged to `main`.
+Concrete, reusable lessons:
+
+- **A class-name-mapping constant's parity test must check the CSS *value*
+  resolves, not just that the JS object's *keys* match the enum.**
+  `RATE_CASE_BADGE_CLASS` mapped `approved` → `badge-tariff-approved`, but
+  `styles.css` only ever defined `badge-tariff-status-approved` (note the
+  extra `-status-`) — every rate-case badge rendered with no color. The
+  guarding test (`test_rate_case_badge_class_covers_every_status`) asserted
+  `set(js_keys) == set(RATE_CASE_STATUSES)` and passed green over the bug,
+  because a mismatched *value* is invisible to a keys-only check. This is the
+  **third** recorded instance of this exact shape in this project (v1.19
+  `badge-reason-*`, the RATEPAYER_STATUSES-adjacent drift, now
+  RATE_CASE_BADGE_CLASS) — worth grepping for the pattern
+  `_extract_object_keys(js, "..._CLASS")` without a matching values check
+  anywhere else it might still exist. Fixed by adding
+  `_extract_object_values()` and asserting `f".{class_name}" in css` for
+  every mapped value.
+- **New `docs/app.js` loaders must follow the existing promise-memoization
+  pattern (`let _xDataPromise = null`), not a plain boolean flag.**
+  `loadRateCasesData()` guarded on `state.rateCasesLoaded` — a boolean not
+  set until after its own `await` resolves — while every sibling loader
+  (`loadProjectData`, `loadResponseData`, `loadSignatoryData`) caches the
+  in-flight *promise*. Concretely: `loadAggregateView()` calls
+  `loadTariffsData()` (which itself calls `loadRateCasesData()`) **and**
+  `loadRateCasesData()` directly in the same `Promise.all` — both synchronous
+  calls saw the flag `false` before either `await` settled, so
+  `data/rate_cases.json` fetched twice on every Aggregate-view load. When
+  adding a lazy-loaded payload here, copy the `let _xPromise = null; function
+  loadX() { if (!_xPromise) { _xPromise = (async () => {...})(); } return
+  _xPromise; }` shape verbatim, and add an e2e test asserting the payload URL
+  is requested exactly once (`page.on("request", ...)` + count assertion) —
+  this bug had zero test coverage until this pass.
+- **A `Promise.all` combining a view's primary payload with a secondary/
+  decorative one needs the secondary payload's promise caught individually**
+  (`loadRateCasesData().catch(err => console.error(...))`), not the whole
+  array — otherwise the secondary payload failing rejects the primary too and
+  blanks the whole view. `loadRatepayerView` and `openStatePanel` already did
+  this correctly; the two new call sites (`loadTariffsData`,
+  `loadAggregateView`) didn't.
+- **When a claim's cited source is third-party news paraphrasing a company
+  statement, check whether the article links to the company's own primary
+  source and fetch that directly.** A Clay County claim read "the company
+  pays for 100% of the power it uses" (POWER Magazine, third-person, no
+  quotation marks — the exact shape CLAUDE.md's first-party rule rejects).
+  The article linked to Google's own blog post; fetching that directly
+  surfaced the *actual* first-person quote ("we're supporting... helping to
+  ensure we cover our own operational and infrastructure costs") — a
+  genuinely different, more defensible claim, not just a reformatting of the
+  same one. One extra WebFetch turned an unusable paraphrase into a valid
+  first-party claim instead of a deletion.
+- **A DOE/LBL-brief-cited docket number is not automatically verified** — the
+  brief is a trusted source for the *existence* of a proceeding, not for a
+  *later* status change claimed by a different, weaker secondary source.
+  `nv-energy-callisto-esa`'s docket number (`24-06014`, originally from the
+  LBL brief) came back in an independent web search attached to an
+  *unrelated* Sierra Pacific general rate case — stronger grounds to revert
+  an unverified `approved` status flip than "the source_url predates the
+  claim" alone. Don't stop at "the source doesn't support this specific
+  claim"; a quick search on the docket number itself can surface a direct
+  contradiction.
+- **Stacked-PR merge sequence that works cleanly on GitHub:** merge the base
+  PR first *without* deleting its branch (`gh pr merge N --merge
+  --delete-branch=false`), then `gh pr edit (N+1) --base main` to retarget
+  the dependent PR — GitHub recomputes mergeability against `main`'s new HEAD
+  cleanly as long as the base PR's branch still exists at retarget time. Only
+  delete both branches after the dependent PR has also merged.
+- **`gh api .../pulls/{n}/reviews` rejects `event: "REQUEST_CHANGES"` (and
+  presumably `APPROVE`) when the authenticated user is the PR's own author** —
+  422 `"Review Can not request changes on your own pull request"`. Use
+  `event: "COMMENT"` for a self-authored PR review submitted via the API.
+- **`git merge-tree $(git merge-base A B) B A` finds real conflicts without
+  attempting an actual merge** — used to confirm PR #36 (a `ui/` branch from
+  2026-07-27) had genuine, substantive conflicts with `main` before closing
+  it as superseded, rather than guessing from commit dates alone.
+- **A new seed-data builder must use `ensure_ascii=False` like every other
+  one, or it — and any ad-hoc `python3 -c` edit of the seed JSON that doesn't
+  explicitly pass it — produces `\uXXXX`-escape churn that reads as a
+  whole-file diff on the next run of a builder that DOES pass it.**
+  `build_rate_cases.py` shipped with the `json.dumps()` default
+  (`ensure_ascii=True`); by the time this was caught, all six seed files
+  (not just the one that script generates — meaning some other pass, likely
+  a direct Python edit, had the same gap) had ~1,300 lines of pure escape
+  churn. Fixed the builder and normalized all seed + `docs/data` JSON back to
+  UTF-8, verifying `json.loads(before) == json.loads(after)` for every file
+  before writing so the fix was provably free of semantic changes.

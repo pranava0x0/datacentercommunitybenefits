@@ -13,6 +13,48 @@
 | 2026-07-15 | Full three-dimension data refresh: 6-agent wave (stale-bill re-checks + scouting), 6-agent wave (critical-gap fill, incl. 1 stalled-agent relaunch), 3-agent wave (citation audit + 2 verification checks), 10-agent wave (medium-gap fill) — see "Detail: 2026-07-15 refresh fan-out" below | ~2.3-2.5M (approximate — each of ~24 completed agents fell in the 83K-121K range; the AWS/Amazon medium-gap batch alone was split into 2 agents for 13 records) | Mostly yes, at a bad price | See detail — this is the **third** recorded instance of the 2-3-agent cap being violated in this file |
 | 2026-07-25/26 | **Ratepayer Pledge v2 implementation (SPEC_RPP_V2 P0–P5) — zero agents spawned** | ~0 agent tokens (all inline) | Yes | Nothing; the no-agent call was right. See detail below |
 | 2026-07-28 | **None — solo, deliberately.** IA restyle (accordions + sub-tabs), copy verification against a primary source, spec authoring | ~0 agent tokens; whole session in the main loop | Yes | Nothing. This is the shape that should stay solo — see detail below |
+| 2026-08-04 | 2-agent parallel PR review (backend/data vs. frontend/e2e split) on PR #41 (~14K-line diff incl. stacked PR #40), then all fixes + data verification done solo in the main loop | ~322K (159K + 162K for the two review agents; ~0 additional agent tokens for the fix/verify/merge phase) | Yes | Close to optimal already. The 2-way split by file ownership (schema/refresh.py/data files vs. app.js/CSS/e2e) had almost no overlap between the two reports — see detail below |
+
+## Detail: 2026-08-04 PR #41 review + fix + merge
+
+**What happened:** asked to review PR #41 with GitHub comments, address them,
+run `/learnings`, then merge and clean up branches. Spawned exactly 2
+background `code-reviewer` agents in parallel — one scoped to
+schema.py/refresh.py/scripts/build_rate_cases.py/all `data/seed/*.json`, the
+other to docs/app.js/docs/index.html/docs/styles.css/tests/e2e — with explicit
+instructions to read CLAUDE.md first and to spot-check specific claims (data
+sourcing, badge-class mirrors, `[hidden]`-trap, promise memoization). This
+matches the standing "2 review agents, not one per lens" preference exactly,
+and it worked: 9 backend findings + 7 frontend findings, only one of which
+(the resources-URL duplicate on a wrong record id) turned out to be a
+hallucination once verified by hand.
+
+**Verification pass before acting mattered.** Every finding was re-checked
+against the actual PR branch with `git show <sha>:<path>` / direct greps
+before it went into a GitHub comment or a code fix — this caught the one false
+positive and also *upgraded* two findings: the "NV Callisto ESA status flip"
+finding, taken at face value, would have just said "check the source"; a
+WebFetch + WebSearch pass (4 URLs total, well under the 10-URL gate) instead
+found that the docket number itself resolves to an *unrelated* Sierra Pacific
+rate case in search results, which is a much stronger reason to revert the
+status than "the source_url predates the claim."
+
+**Zero agents for the fix/merge/cleanup phase.** All ~26 file edits, the 6
+data-integrity fixes (including the two WebFetch/WebSearch verification
+passes), 7 new e2e tests, the GitHub review + 13 reply comments, the stacked
+PR-40-then-PR-41 merge, closing PR #36 as superseded (verified via
+`git merge-tree` rather than guessed from dates), and 8 stale-branch deletions
+were all done solo in the main loop. This is the same shape as 2026-07-25/26
+and 2026-07-28: once the review agents had done the wide parallel read, every
+subsequent step needed the accumulated context from the fixes before it, so
+sequential inline work was strictly cheaper than spawning more agents.
+
+**Cost shape:** review agents were ~322K combined — on the high end for a
+2-agent review, but the diff was unusually large (14K lines, a stacked PR).
+The fix phase's real cost was four full test-suite runs (2× offline ~1s each,
+2× e2e ~105s each) plus re-running `refresh.py` three times after data edits
+— cheap and worth it; every e2e run passed clean, meaning the fixes were
+correct on the first attempt rather than needing a debug loop.
 
 ## Detail: 2026-07-15 refresh fan-out
 
