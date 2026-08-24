@@ -2649,6 +2649,52 @@ class TestTouchTargets:
         ), f"summary heights: {heights}"
         ctx.close()
 
+    def test_state_strip_cells_meet_the_floor_on_touch(
+        self, browser, base_url: str
+    ):
+        """Codex on PR #44: the strip's narrow-viewport 13-column rule made
+        ~23px cells on a phone — far under the old 104px state chips it
+        replaced. The coarse-pointer override lets auto-fill pick however
+        many ≥44px columns fit instead."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector(
+            "#pledge-state-strip .pledge-state-cell", state="visible", timeout=15_000
+        )
+        cell = page.evaluate(
+            """() => {
+                 const b = document
+                   .querySelector('#pledge-state-strip .pledge-state-cell')
+                   .getBoundingClientRect();
+                 return { w: b.width, h: b.height };
+               }"""
+        )
+        assert cell["w"] >= TOUCH_FLOOR_PX - _SUBPIXEL, f"cell width {cell}"
+        assert cell["h"] >= TOUCH_FLOOR_PX - _SUBPIXEL, f"cell height {cell}"
+        ctx.close()
+
+    def test_all_milestones_link_meets_the_floor_on_touch(
+        self, browser, base_url: str
+    ):
+        """Codex on PR #44: .pledge-panel-more is a zero-padding 0.64rem text
+        button — a one-line tap target guarding the five milestones the Home
+        cap hides. Only measurable when the shipped data exceeds the cap,
+        which the capped-with-a-link e2e test already asserts separately."""
+        ctx = browser.new_context(
+            has_touch=True, is_mobile=True, viewport={"width": 390, "height": 844}
+        )
+        page = ctx.new_page()
+        page.goto(base_url + "/")
+        page.wait_for_selector("#whats-next-list .wn-item", timeout=15_000)
+        more = page.locator("#whats-next-more")
+        if more.is_visible():
+            box = more.bounding_box()
+            assert box and box["height"] >= TOUCH_FLOOR_PX - _SUBPIXEL, box
+        ctx.close()
+
 
 class TestPledgeTargetsAndTabOrder:
     """Both from Codex's review of this PR."""

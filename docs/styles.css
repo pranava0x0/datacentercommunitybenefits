@@ -5589,6 +5589,23 @@ body.state-modal-open {
   .pledge-activity-item { grid-template-columns: 1fr; gap: 1px; }
 }
 
+/* 44px touch floor (AGENTS.md), gated on pointer so desktop stays dense.
+   MUST come after the 760px rule above — same specificity, so source order
+   is what lets the coarse override win on phones. auto-fill lets the grid
+   pick however many ≥44px columns fit (7 on a 390px viewport) instead of
+   forcing 13 ~23px cells; the aspect-ratio on the cell keeps them square. */
+@media (pointer: coarse) {
+  .pledge-state-strip {
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  }
+  .pledge-panel-more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 10px;
+  }
+}
+
 /* --- Scorecard filter bar (v2) --------------------------------------------
    Sticky under the tab bar. The scorecard runs to 39 cards and growing, and
    before this the only way to reach a site was to scroll past all of them
