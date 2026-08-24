@@ -100,6 +100,16 @@ editorial weight (good vs bad signaling). Everything else is neutral.
 - **Project detail panel** uses the `[hidden]` attribute paired with
   `[hidden] { display: none !important }` in CSS (CLAUDE.md > "[hidden]
   trap").
+- **Two font families, one structural accent, masthead on top (2026-08-24).**
+  `--font-sans` for body/UI/labels/dates, `--font-serif` for the masthead,
+  headings and the band — `--font-display` and `--font-mono` are deleted.
+  `--accent` (navy light / amber dark) is the only chrome accent;
+  `--accent-mark` / `--accent-rule` are deleted, and red/amber/green appear
+  only through semantic status tokens. Heading scale runs down from the site
+  title: h1 1.5rem > h2 1.4rem > `.acc-title` 1.28rem > h3 1.2rem, and every
+  view opens with the same `.hero` block. Stat rows share the `.rp-stat`
+  boxed-tile shape everywhere, Home included. Full ruleset + rationale:
+  CLAUDE.md > "One type scale, one accent".
 
 ---
 

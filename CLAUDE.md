@@ -1062,6 +1062,23 @@ repeated here because this is the file that actually loads in this directory.
   assert the media query engages before trusting its numbers
   (`test_coarse_pointer_emulation_actually_engages`).
 
+- **"Make it simpler" is a request about the design SYSTEM, not the layout**
+  (2026-08-24). The minimal-briefing Home shipped at half the old height and
+  still read as "way too busy / worse than before" because it inherited four
+  font families, red label chrome, and a page headline that dwarfed the
+  masthead. Before calling any simplification done: count font families on
+  one screen (two), count colors doing non-semantic chrome work (one accent;
+  red/amber/green only for data meaning), confirm the masthead outranks
+  every view heading. Enforce by deleting the extra tokens, not styling
+  around them — see "One type scale, one accent".
+- **"I don't see your changes / is this stale?" is a which-surface question**
+  (2026-08-24). The deployed site serves `main` (branch work invisible until
+  merge), the preview artifact updates on republish but viewers cache until
+  a hard reload, and localhost is its own thing. Verify the publish landed
+  by grepping the published bundle for a marker only the new version
+  contains, then tell the user which surface shows what — before debugging
+  code that was never wrong.
+
 ### A guard's SCOPE rots exactly like any other hand-written list
 
 `tests/test_no_dead_css.py` started with an allowlist of "project-owned"
