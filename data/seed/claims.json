@@ -4276,6 +4276,50 @@
       "source_title": "Google — Missouri data center investment announcement (May 20, 2026)",
       "captured_at": "2026-08-03",
       "published_at": "2026-05-21"
+    },
+    {
+      "id": "google-owasso-engagement-payfer-2026",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "This project is far more than an infrastructure investment; it is a long-term commitment to Tulsa County's future.",
+      "source_url": "https://ktul.com/news/local/google-confirmed-as-end-user-of-tulsa-countys-project-clydesdale-data-center-campus",
+      "source_title": "KTUL — Trystine Payfer, Google Public Affairs Manager for Oklahoma, on Project Clydesdale (Aug 19 2026)",
+      "captured_at": "2026-08-24",
+      "published_at": "2026-08-19",
+      "project_id": "google-owasso-ok"
+    },
+    {
+      "id": "amazon-shreveport-jobs-klein-2026",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "When we announced our investment in northwest Louisiana earlier this year, we made a promise: Amazon pays its own way, and the communities where we operate will be better off because we're there. Increasing our planned investment to $18 billion means more good jobs for the region and more opportunities for local businesses.",
+      "source_url": "https://www.ktbs.com/news/louisiana/amazon-announces-6b-data-center-investment-in-shreveport/article_b675ab68-f5cf-5376-b3e1-87a79fd38202.html",
+      "source_title": "KTBS — Keith Klein, Amazon Director of Data Center Supply Solutions, on the $18B Louisiana investment (Aug 18 2026)",
+      "captured_at": "2026-08-24",
+      "published_at": "2026-08-18",
+      "project_id": "amazon-shreveport-la"
+    },
+    {
+      "id": "amazon-pecos-county-energy-statement-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon believes in paying the full costs of powering our operations...It's powered by new on-site generation that won't raise electricity costs for Texas families",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-pecos-county-texas-data-center-clean-energy-jobs",
+      "source_title": "Amazon — Amazon's planned data center campus in Pecos County, Texas: Read Amazon's statement (Aug 2026)",
+      "captured_at": "2026-08-24",
+      "published_at": null,
+      "project_id": "amazon-fort-stockton-tx"
+    },
+    {
+      "id": "openai-piketon-community-grants-2026",
+      "company_slug": "openai",
+      "theme": "community_grants",
+      "statement": "SB Energy and OpenAI have together committed $80M to the community.",
+      "source_url": "https://portscampus.com/",
+      "source_title": "PORTS-Pike Technology Campus — Community Benefits page",
+      "captured_at": "2026-08-24",
+      "published_at": null,
+      "project_id": "sb-energy-piketon-oh"
     }
   ]
 }
