@@ -1098,17 +1098,17 @@ class TestRatepayerView:
             meter = page.locator("#rp-commitments .rp-commit-meter").nth(i)
             assert meter.inner_text().strip(), f"commitment {i} has an empty meter"
 
-    def test_pathway_card_opens_the_collapsed_pledge(self, page: Page, base_url: str):
-        # The Overview "All five commitments →" affordance scrolls to a section
-        # that is collapsed by default. Without openAccordionsFor() the scroll
-        # lands on a closed bar and the link reads as broken.
+    def test_stat_tile_opens_the_collapsed_roster(self, page: Page, base_url: str):
+        # A Home entry point that scrolls to a section collapsed by default
+        # must open it first (openAccordionsFor), or the scroll lands on a
+        # closed bar and the link reads as broken. The "Organizations signed"
+        # tile targets the roster, whose <details> starts closed.
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-meters li", timeout=10_000)
-        page.locator("[data-path-target='commitments']").first.click()
+        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=10_000)
+        page.locator("#pledge-stats [data-path-target='roster']").first.click()
         page.wait_for_timeout(600)
-        band = page.locator("#rp-commitments-section")
-        assert band.evaluate("el => el.open") is True
-        expect(page.locator("#rp-commitments .rp-commit").first).to_be_visible()
+        details = page.locator("#rp-roster-details")
+        assert details.evaluate("el => el.open") is True
 
     def test_published_roster_is_collapsed_by_default(
         self, page: Page, base_url: str
@@ -1878,23 +1878,66 @@ class TestPledgeLanding:
         expect(page.locator("#view-comparison")).to_be_visible()
         expect(page.locator("#tab-comparison")).to_have_attribute("aria-selected", "true")
 
-    def test_three_landing_questions_are_answered_above_the_fold(
-        self, page: Page, base_url: str
-    ):
-        """The north-star metric, made falsifiable.
+    def test_the_briefing_lands_above_the_fold(self, page: Page, base_url: str):
+        """The north-star metric, made falsifiable — v3 edition.
 
-        Who signed / is it working / what about my state must all render inside
-        the first viewport at desktop size. If the hero grows, this fails
-        before a reader has to scroll to learn what the site is.
+        Home is a briefing now: the numbers band and the start of "What's
+        next" must render inside the first viewport at desktop size. If the
+        hero grows back toward the v2 panel stack, this fails before a reader
+        has to scroll to learn what the site is.
         """
         page.set_viewport_size({"width": 1440, "height": 900})
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-coverage-bar .pledge-bar-seg", timeout=10_000)
-        page.wait_for_selector("#pledge-meters .pledge-meter", timeout=10_000)
-        for sel in ("#pledge-coverage-bar", "#pledge-meters", "#pledge-state-strip"):
+        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=10_000)
+        page.wait_for_selector("#whats-next-list .wn-item", timeout=10_000)
+        for sel in ("#pledge-stats", "#whats-next"):
             box = page.locator(sel).bounding_box()
             assert box is not None, f"{sel} did not render"
             assert box["y"] < 900, f"{sel} starts at y={box['y']:.0f}, below the fold"
+
+    def test_home_cards_cover_every_other_tab(self, page: Page, base_url: str):
+        """One card per non-Home view, each wired to a real PLEDGE_TARGETS
+        entry — the cards are the section index of the front page, so a view
+        missing here is unreachable from the briefing."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=10_000)
+        cards = page.locator(".home-cards .home-card")
+        views = page.evaluate("() => VIEWS.length")
+        assert cards.count() == views - 1, (
+            f"{cards.count()} cards for {views - 1} non-Home views"
+        )
+        for i in range(cards.count()):
+            target = cards.nth(i).get_attribute("data-path-target")
+            known = page.evaluate("(t) => t in PLEDGE_TARGETS", target)
+            assert known, f"card {i} targets unknown {target!r}"
+        # Counts render from data, never stay on the markup placeholder.
+        page.wait_for_timeout(1500)
+        counts = page.locator(".home-card-count").all_inner_texts()
+        assert all(c.strip() and c.strip() != "—" for c in counts), counts
+
+    def test_whats_next_is_capped_with_a_link_to_the_rest(
+        self, page: Page, base_url: str
+    ):
+        """Home shows the soonest few milestones as clamped briefs; the full
+        regulator prose lives on the Tariffs & Rate Cases tab. The "All N"
+        link only appears when there is actually more than the cap."""
+        page.goto(base_url + "/")
+        page.wait_for_selector("#whats-next-list .wn-item", timeout=10_000)
+        shown = page.locator("#whats-next-list .wn-item").count()
+        cap = page.evaluate("() => HOME_WHATS_NEXT_MAX")
+        assert shown <= cap, f"{shown} milestones shown, cap is {cap}"
+        more = page.locator("#whats-next-more")
+        total = page.evaluate(
+            "() => (state.rateCases || []).filter((rc) => rc.next_milestone).length"
+        )
+        if total > cap:
+            expect(more).to_be_visible()
+            assert str(total) in more.inner_text()
+            more.click()
+            page.wait_for_timeout(600)
+            expect(page.locator("#view-tariffs")).to_be_visible()
+        else:
+            expect(more).to_be_hidden()
 
     def test_landing_numbers_come_from_data_not_markup(
         self, page: Page, base_url: str
@@ -1910,7 +1953,9 @@ class TestPledgeLanding:
     def test_coverage_bar_covers_every_populated_category(
         self, page: Page, base_url: str
     ):
-        page.goto(base_url + "/")
+        # The proportional bar lives in the Pledge tab's Coverage section
+        # (v3) — Home carries numbers only.
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#pledge-coverage-bar .pledge-bar-seg", timeout=10_000)
         # Five categories, all populated in the shipped roster.
         assert page.locator("#pledge-coverage-bar .pledge-bar-seg").count() == 5
@@ -1921,8 +1966,9 @@ class TestPledgeLanding:
 
     def test_state_strip_shows_all_fifty_states(self, page: Page, base_url: str):
         """Including the ones we hold nothing for — omitting them would imply
-        national coverage the dataset does not have."""
-        page.goto(base_url + "/")
+        national coverage the dataset does not have. The strip lives in the
+        Pledge tab's Coverage section (v3)."""
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
         cells = page.locator("#pledge-state-strip .pledge-state-cell")
         assert cells.count() == 50
@@ -1931,14 +1977,14 @@ class TestPledgeLanding:
         # At least one honest-empty cell.
         assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() >= 1
 
-    def test_pathway_card_jumps_to_its_section(self, page: Page, base_url: str):
+    def test_stat_tile_jumps_to_the_scorecard(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         # The Ratepayer view renders in the background (Overview shares its
         # data loader) but stays [hidden] until a tab switch, so the scorecard
         # cards exist in the DOM before they're visible — wait for "attached",
         # not the default "visible", or this races the hidden-pane trap.
         page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=10_000)
-        page.locator("#path-researcher").click()
+        page.locator("#pledge-stats [data-path-target='scorecard']").click()
         page.wait_for_timeout(600)
         expect(page.locator("#rp-scorecard-section")).to_be_visible()
 
@@ -1982,7 +2028,7 @@ class TestSignatoryRoster:
         """The source page disagrees with its own list; say so rather than
         quietly picking a number."""
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector("#rp-category-stats .rp-cat-stat", timeout=10_000)
+        page.wait_for_selector("#pledge-coverage-key .pledge-bar-key-item", timeout=10_000)
         note = page.locator("#rp-drift-note")
         if not note.is_hidden():
             assert "advertised" in note.inner_text().lower()
@@ -1991,8 +2037,8 @@ class TestSignatoryRoster:
 class TestStatePanel:
     def test_state_chip_opens_panel_with_records(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
-        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=10_000)
+        page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         expect(page.locator("#sd-name")).to_have_text("Texas")
@@ -2009,8 +2055,8 @@ class TestStatePanel:
 
     def test_escape_closes_and_restores_hash(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
-        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=10_000)
+        page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.keyboard.press("Escape")
         page.wait_for_timeout(400)
@@ -2019,8 +2065,8 @@ class TestStatePanel:
 
     def test_backdrop_click_closes(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
-        page.wait_for_selector('.rp-state-chip[data-state-code="TX"]', timeout=10_000)
-        page.locator('.rp-state-chip[data-state-code="TX"]').click()
+        page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=10_000)
+        page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.locator(".state-modal__backdrop").click(position={"x": 5, "y": 5})
         page.wait_for_timeout(400)
@@ -2248,7 +2294,7 @@ class TestReviewFixes:
         were loaded, so CA / NY / FL — which have moratoriums and no tracked
         site — rendered as "No records yet" and the key under-reported the
         covered-state count."""
-        page.goto(base_url + "/")
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
         page.wait_for_timeout(1500)
         for code in ("CA", "NY", "FL"):
@@ -2772,8 +2818,8 @@ class TestPathwayCohort:
         )
 
         page.locator("#tab-overview").click()
-        page.wait_for_selector("#pledge-meters li", timeout=10_000)
-        page.locator("#path-researcher").click()
+        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=10_000)
+        page.locator("#pledge-stats [data-path-target='scorecard']").click()
         page.wait_for_timeout(600)
 
         expect(page.locator("#subtab-rp-sites-assessed")).to_have_attribute(

@@ -541,11 +541,21 @@ select:focus-visible,
 }
 
 .pledge-hero-dek {
-  margin: 0 0 22px;
+  margin: 0 0 8px;
   max-width: 62ch;
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--text-muted);
+}
+
+/* Sourcing + affiliation disclaimer, demoted from the dek to small print —
+   load-bearing words, but not the headline read. */
+.pledge-hero-fineprint {
+  margin: 0 0 22px;
+  font-size: 0.74rem;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  opacity: 0.85;
 }
 
 /* --- stat quartet ------------------------------------------------------- */
@@ -616,15 +626,39 @@ select:focus-visible,
   color: var(--text-muted);
 }
 
-/* --- pathway cards ------------------------------------------------------ */
+/* --- the briefing: what's next beside what changed ---------------------- */
 
-.pledge-paths {
+.home-latest {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 28px;
+}
+
+/* --- explore the record: one card per tab ------------------------------- */
+
+.home-cards {
+  display: grid;
+  /* Six cards, one per tab: a fixed 3×2 so the grid never strands an orphan
+     pair on its own row the way auto-fit did at desktop widths. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
-.pledge-path {
+@media (max-width: 880px) {
+  .home-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .home-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-card {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -640,13 +674,13 @@ select:focus-visible,
     transform 0.15s ease;
 }
 
-.pledge-path:hover {
+.home-card:hover {
   border-color: var(--border-strong);
   border-top-color: var(--accent-mark);
   transform: translateY(-1px);
 }
 
-.pledge-path-tag {
+.home-card-tag {
   font-family: var(--font-mono);
   font-size: 0.66rem;
   letter-spacing: 0.12em;
@@ -654,17 +688,33 @@ select:focus-visible,
   color: var(--accent-mark);
 }
 
-.pledge-path-title {
+.home-card-title {
   font-family: var(--font-display);
   font-size: 1.12rem;
   line-height: 1.2;
   color: var(--text);
 }
 
-.pledge-path-dek {
+.home-card-dek {
   font-size: 0.84rem;
   line-height: 1.45;
   color: var(--text-muted);
+}
+
+.home-card-count {
+  margin-top: auto;
+  padding-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+@media (max-width: 880px) {
+  .home-latest {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -681,10 +731,10 @@ select:focus-visible,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pledge-path {
+  .home-card {
     transition: none;
   }
-  .pledge-path:hover {
+  .home-card:hover {
     transform: none;
   }
 }
@@ -4875,39 +4925,8 @@ body.tariff-modal-open {
 }
 
 /* --- 2. Coverage --------------------------------------------------------- */
-
-.rp-cat-stats {
-  list-style: none;
-  margin: 0 0 12px;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  border-top: 2px solid var(--text);
-}
-
-.rp-cat-stat {
-  padding: 14px 16px 12px 0;
-  border-right: 1px solid var(--hairline);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.rp-cat-stat:last-child {
-  border-right: none;
-}
-
-.rp-cat-num {
-  font-family: var(--font-display);
-  font-size: 1.7rem;
-  line-height: 1;
-  color: var(--text);
-}
-
-.rp-cat-lbl {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
+/* Category counts render as the proportional roster bar + key (.pledge-bar /
+   .pledge-bar-key, further down) — moved here from the Home band in v3. */
 
 /* The source page disagrees with its own list; the note says so out loud. */
 .rp-drift-note {
@@ -4931,59 +4950,10 @@ body.tariff-modal-open {
   color: var(--text);
 }
 
-.rp-state-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.rp-state-chip {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  min-width: 104px;
-  padding: 8px 12px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent-rule);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-align: left;
-}
-
-.rp-state-chip:hover {
-  border-color: var(--border-strong);
-  border-left-color: var(--accent-mark);
-}
-
-/* A governor state we hold no records for. Rendered hollow rather than hidden:
-   "my governor signed and there is nothing on file" is itself an answer. */
-.rp-state-chip.is-empty {
-  background: transparent;
-  border-style: dashed;
-  border-left-color: var(--border-strong);
-}
-
-.rp-state-code {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--text);
-}
-
-.rp-state-gov {
-  position: absolute;
-  margin-left: 30px;
-  margin-top: -2px;
-  color: var(--accent-mark);
-  font-size: 0.7rem;
-}
-
-.rp-state-meta {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-}
+/* The by-state grid is the 50-state strip (.pledge-state-strip, further
+   down) — moved here from the Home band in v3. Every state gets a cell,
+   including the ones we hold nothing for: a grid that only showed states
+   with data would quietly imply national coverage we do not have. */
 
 /* --- 3. Signatory roster ------------------------------------------------- */
 
@@ -5256,28 +5226,13 @@ body.state-modal-open {
 }
 
 /* ==========================================================================
-   Landing panels (v2) — coverage bar, commitment meters, state strip, activity
+   Shape graphics + Home briefing chrome
    ==========================================================================
-   The landing answers three questions with SHAPE, not just numbers: the
-   proportional bar shows the coalition is mostly rural co-ops; the meters show
-   how thin the evidence still is; the strip shows how partial our state
-   coverage is. Four stat tiles said none of that.
+   The proportional roster bar and the 50-state strip render inside the
+   Pledge tab's Coverage section (v3 — they moved out of the Home band, which
+   now carries numbers, the briefing, and the per-tab cards). .pledge-panel-h
+   survives as the kicker-style heading the Home briefing sections share.
    ========================================================================== */
-
-.pledge-panels {
-  display: grid;
-  /* Asymmetric on purpose: the meter rows carry a label, a track and a count,
-     and at an even split the labels ellipsised to "New power su…". */
-  grid-template-columns: minmax(240px, 0.8fr) minmax(340px, 1.2fr);
-  gap: 18px 32px;
-  margin: 18px 0 16px;
-  padding-top: 18px;
-  border-top: 1px solid var(--hairline);
-}
-
-.pledge-panel--wide {
-  grid-column: 1 / -1;
-}
 
 .pledge-panel-h {
   display: flex;
@@ -5394,83 +5349,13 @@ body.state-modal-open {
   font-style: italic;
 }
 
-/* --- commitment meters --------------------------------------------------- */
-
-.pledge-meters {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.pledge-meter {
-  display: grid;
-  grid-template-columns: 22px 1fr;
-  gap: 8px;
-  align-items: center;
-}
-
-.pledge-meter-num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 0.86rem;
-  color: var(--accent-mark);
-  text-align: right;
-}
-
-.pledge-meter-body {
-  display: grid;
-  grid-template-columns: 150px minmax(72px, 1fr) auto;
-  gap: 8px;
-  align-items: center;
-  min-width: 0;
-}
-
-.pledge-meter-lbl {
-  font-size: 0.76rem;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.pledge-meter-track {
-  display: flex;
-  height: 8px;
-  border-radius: 2px;
-  overflow: hidden;
-  background: var(--surface-2);
-}
-
-.pledge-meter-seg.is-met     { background: var(--stance-positive); }
-.pledge-meter-seg.is-partial { background: var(--stance-mixed); }
-.pledge-meter-seg.is-not_met { background: var(--stance-negative); }
-.pledge-meter-seg.is-unknown { background: var(--border-strong); }
-.pledge-meter-seg.is-none {
-  flex: 1;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--surface-2),
-    var(--surface-2) 3px,
-    var(--border) 3px,
-    var(--border) 6px
-  );
-}
-
-.pledge-meter-count {
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
 /* --- state strip --------------------------------------------------------- */
 
 .pledge-state-strip {
   display: grid;
   grid-template-columns: repeat(25, minmax(0, 1fr));
   gap: 3px;
+  margin-top: 12px;
 }
 
 .pledge-state-cell {
@@ -5614,6 +5499,13 @@ body.state-modal-open {
 .wn-text {
   font-size: 0.82rem;
   line-height: 1.45;
+  /* Headline treatment: the Home briefing shows the first two lines of a
+     milestone; the full regulator prose lives with the rate-case record on
+     the Tariffs & Rate Cases tab, one click away. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .wn-meta {
@@ -5772,14 +5664,8 @@ body.state-modal-open {
   color: var(--text-muted);
 }
 
-@media (max-width: 860px) {
-  .pledge-panels { grid-template-columns: 1fr; }
-}
-
 @media (max-width: 760px) {
   .pledge-state-strip { grid-template-columns: repeat(13, minmax(0, 1fr)); }
-  .pledge-meter-body { grid-template-columns: 1fr; gap: 3px; }
-  .pledge-meter-lbl { white-space: normal; }
   .pledge-activity-item { grid-template-columns: 1fr; gap: 1px; }
 }
 

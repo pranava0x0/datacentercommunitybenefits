@@ -72,6 +72,30 @@ def test_coverage_rollup_counts_rate_cases() -> None:
     )
 
 
+def test_coverage_totals_include_federal_records() -> None:
+    """The Home numbers band reads coverage.json's `totals` so it never has to
+    download the full payloads. Totals are the len() of each payload — NOT the
+    sum of the state cells, which exclude federal records by design. Derived
+    from the shipped payloads here so the check cannot go stale."""
+    cov = json.loads((ROOT / "docs" / "data" / "coverage.json").read_text())
+    totals = cov.get("totals")
+    assert totals, "coverage.json is missing the totals block — re-run refresh.py"
+    for name in ("projects", "tariffs", "moratoriums", "rate_cases"):
+        payload = json.loads((ROOT / "docs" / "data" / f"{name}.json").read_text())
+        assert totals[name] == len(payload[name]), (
+            f"totals.{name} = {totals[name]}, payload holds {len(payload[name])} — "
+            "re-run refresh.py"
+        )
+    fed = [
+        rc
+        for rc in json.loads(SEED.read_text())["rate_cases"]
+        if rc.get("jurisdiction_level") == "federal"
+    ]
+    if fed:  # the whole point of totals: federal rows count here
+        state_sum = sum(s.get("rate_cases", 0) for s in cov["states"].values())
+        assert totals["rate_cases"] > state_sum
+
+
 def test_index_html_has_rate_cases_section() -> None:
     html = INDEX_HTML.read_text(encoding="utf-8")
     assert 'id="rate-cases-section"' in html

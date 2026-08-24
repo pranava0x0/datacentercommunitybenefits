@@ -771,6 +771,9 @@ rural co-ops), per-commitment meters (how thin the site evidence still is), a
 50-state strip (how partial coverage is), and a dated activity feed. Every
 figure renders from data — `test_landing_numbers_come_from_data_not_markup`
 asserts no roster count is baked into `index.html`, because the roster moves.
+*(2026-08-24: deliberately reversed for Home at the user's direction — the
+shape graphics moved into the Pledge tab and Home became a numbers-band
+briefing. See "Home as a minimal briefing" below.)*
 
 **Palette: cool paper / near-black ink / one deep signal blue.** The first cut
 adopted the source page's cream-and-gold and read as a consumer AI product;
@@ -1262,6 +1265,52 @@ tab gained the rate-cases section; the state panel a fifth section (e2e
 updated 4 → 5); the aggregate a fourth sub-tab (CSV/PDF exports cover it —
 the derived one-section-per-subtab e2e test caught the gap the same day it
 was created, exactly as designed).
+
+### Home as a minimal briefing (2026-08-24, user-directed)
+
+The user asked for a landing "simpler, like an industry or news website —
+tabs go into the specifics," and picked the minimal-briefing cut over a
+news-grid or tighten-in-place option. Home (`#overview`) is now: one-line dek
++ `.pledge-hero-fineprint` disclaimer · a **five-tile numbers band** spanning
+the whole record (orgs signed / governors / sites assessed / moratoriums /
+tariffs + rate cases) · **"What's next" beside "What changed"**
+(`.home-latest`) · **six `.home-card` tab cards** ("Explore the record", one
+per non-Home view). ~1,650px tall, was ~2,430. Rules that keep it that way:
+
+- **This deliberately reverses the v2 "it is not four stat tiles" decision
+  for Home only — the shape graphics MOVED, they did not die.** The
+  proportional roster bar + key now render in the Pledge tab's Coverage
+  section, where they **replaced** the `rp-category-stats` tiles (same
+  numbers twice in one section); the 50-state strip replaced `rp-state-chips`
+  there (two state grids in one section, and the strip's all-50 honesty is
+  the documented keeper). The commitment meters were deleted outright because
+  `rp-commitments` already renders richer per-principle tallies. **Don't**
+  reintroduce a second state grid or category-count tiles beside the bar,
+  and **don't** grow Home panels back — depth belongs to the owning tab.
+- **`coverage.json` now carries a `totals` block** (len() of each payload,
+  federal records INCLUDED — the state cells exclude them by design, so
+  summing the grid client-side undercounts: 123 vs 124 moratoriums, 10 vs 12
+  rate cases). The numbers band and card counts read `state.coverageTotals`
+  instead of fetching moratoriums/tariffs payloads; first paint is unchanged.
+  Guarded by `test_coverage_totals_include_federal_records`.
+- **"What's next" is capped** at `HOME_WHATS_NEXT_MAX` (6) with a 2-line
+  `-webkit-line-clamp` on `.wn-text`; the `#whats-next-more` link ("All N
+  docket milestones →") routes to the `ratecases` target where
+  `renderRateCases()` shows every milestone in full. The full regulator prose
+  ships on the Tariffs tab, never on Home.
+- **The five persona pathway cards are gone**; the `.home-card`s (static
+  markup, wired once on boot via `wirePledgeTargets`, counts filled by
+  `renderHomeCards()` as payloads land) replaced them. `PLEDGE_TARGETS`
+  gained anchor-less `pledge` / `companies` / `tariffs` / `aggregate`
+  entries. `test_home_cards_cover_every_other_tab` derives the expected card
+  count from `VIEWS.length` — don't hardcode a 6.
+- **Card counts and tile numbers are data-only**: markup placeholder is
+  "&mdash;", and the cards test asserts no count is still "—" after load,
+  alongside the existing no-hardcoded-numbers test.
+- The e2e tests moved with the graphics (`/#ratepayer` navigation, strip-cell
+  selectors instead of `rp-state-chip`); the pathway-card tests became
+  stat-tile tests (`data-path-target='roster'` / `'scorecard'` on the band),
+  preserving the collapsed-target-opens guard.
 
 ### Civic palette v3 — whitehouse.gov, contrast-computed (2026-08-03)
 

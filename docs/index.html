@@ -117,12 +117,14 @@
 
     <main id="main" tabindex="-1" role="main">
       <!-- ====================== OVERVIEW VIEW ====================== -->
-      <!-- The pledge landing band (v2), now a normal tab (v2.1) rather than
-           header chrome. Answers the three questions a first-time visitor
-           arrives with — who signed, is it working, what about my state —
-           without first learning this dashboard's information architecture.
-           Stats are computed from the loaded data by renderPledgeHero();
-           nothing here is a hardcoded number. -->
+      <!-- The Home tab, cut to a news-style briefing (v3): a one-line dek, a
+           numbers band summarizing the whole record, the soonest docket
+           milestones + the change feed, and one card per tab. The shape
+           graphics that used to render here (roster bar, commitment meters,
+           50-state strip) live with their subjects now — the bar and strip in
+           The Pledge tab's Coverage section, the meters superseded by the
+           commitment band's own tallies. Stats are computed from the loaded
+           data by renderPledgeHero(); nothing here is a hardcoded number. -->
       <section
         id="view-overview"
         class="view"
@@ -138,12 +140,13 @@
             The data-center buildout, on the record.
           </h2>
           <p class="pledge-hero-dek">
-            One place to follow what the buildout is committing to and what is being
-            decided about it: the White House Ratepayer Protection Pledge and its
-            signatories, the community benefits companies publish for real sites, the
-            moratoriums cities and states are enacting, and the utility tariffs and
-            rate cases that settle who pays for the power. Every figure links to a
-            source. Not affiliated with the White House or any signatory.
+            Who signed the White House Ratepayer Protection Pledge, what operators
+            promise host communities, where development is paused, and who pays for
+            the power.
+          </p>
+          <p class="pledge-hero-fineprint">
+            Every figure links to a source &middot; Not affiliated with the White
+            House or any signatory
           </p>
 
           <ul class="pledge-stats" id="pledge-stats" aria-label="Pledge at a glance">
@@ -153,119 +156,85 @@
             </li>
           </ul>
 
-          <!-- Three read-at-a-glance panels. Each answers one of the landing
-               questions with shape rather than a single number: who signed
-               (proportional roster bar), is it working (per-commitment
-               meters), what about my state (the 50-state strip). All three
-               render from loaded data — see renderPledgeHero(). -->
-          <div class="pledge-panels">
-            <section class="pledge-panel" aria-labelledby="pp-roster-h">
-              <h3 class="pledge-panel-h" id="pp-roster-h">Who signed</h3>
-              <div id="pledge-coverage-bar" class="pledge-bar"></div>
-              <ul id="pledge-coverage-key" class="pledge-bar-key"></ul>
+          <!-- The briefing: soonest regulator-announced milestones (from the
+               rate-case records — rendered by renderWhatsNext(), capped; the
+               full list lives on the Tariffs & Rate Cases tab) beside the
+               dated change feed. Never hand-maintained here. -->
+          <div class="home-latest">
+            <section class="whats-next" aria-labelledby="wn-h" id="whats-next">
+              <h3 class="pledge-panel-h" id="wn-h">What&rsquo;s next</h3>
+              <p class="wn-sub" id="whats-next-sub">Loading docket milestones…</p>
+              <ol id="whats-next-list" class="wn-list"></ol>
+              <button
+                id="whats-next-more"
+                class="pledge-panel-more"
+                type="button"
+                data-path-target="ratecases"
+                hidden
+              ></button>
             </section>
 
-            <section class="pledge-panel" aria-labelledby="pp-commit-h">
-              <h3 class="pledge-panel-h" id="pp-commit-h">
-                Is it showing up?
-                <button
-                  class="pledge-panel-more"
-                  type="button"
-                  data-path-target="commitments"
-                >
-                  All five commitments &rarr;
-                </button>
-              </h3>
-              <ul id="pledge-meters" class="pledge-meters"></ul>
-            </section>
-
-            <section class="pledge-panel pledge-panel--wide" aria-labelledby="pp-states-h">
-              <h3 class="pledge-panel-h" id="pp-states-h">
-                What about my state?
-                <button class="pledge-panel-more" type="button" data-path-target="states">
-                  Full coverage &rarr;
-                </button>
-              </h3>
-              <div id="pledge-state-strip" class="pledge-state-strip"></div>
-              <p class="pledge-strip-key" id="pledge-strip-key"></p>
+            <section class="pledge-activity" aria-labelledby="pp-activity-h">
+              <h3 class="pledge-panel-h" id="pp-activity-h">What changed</h3>
+              <ol id="pledge-activity" class="pledge-activity-list"></ol>
             </section>
           </div>
 
-          <!-- The user question this dashboard exists to answer: what happens
-               next with the pledge and the buildout's open disputes. Items are
-               regulator-announced milestones from the rate-case records —
-               rendered by renderWhatsNext(); never hand-maintained here. -->
-          <section class="whats-next" aria-labelledby="wn-h" id="whats-next">
-            <h3 class="pledge-panel-h" id="wn-h">What&rsquo;s next</h3>
-            <p class="wn-sub" id="whats-next-sub">Loading docket milestones…</p>
-            <ol id="whats-next-list" class="wn-list"></ol>
-          </section>
-
-          <section class="pledge-activity" aria-labelledby="pp-activity-h">
-            <h3 class="pledge-panel-h" id="pp-activity-h">What changed</h3>
-            <ol id="pledge-activity" class="pledge-activity-list"></ol>
-          </section>
-
-          <nav class="pledge-paths" aria-label="Where to start">
-            <button
-              class="pledge-path"
-              type="button"
-              id="path-policymaker"
-              data-path-target="states"
-            >
-              <span class="pledge-path-tag">For policymakers</span>
-              <span class="pledge-path-title">What did my state sign up for?</span>
-              <span class="pledge-path-dek">
-                Governor signatures, tariffs, moratoriums, and sites — by state.
+          <!-- One card per tab: the section index of the front page. Static
+               markup (wired once on boot); only the count chips render from
+               data — see renderHomeCards(). -->
+          <h3 class="pledge-panel-h" id="home-explore-h">Explore the record</h3>
+          <nav class="home-cards" aria-labelledby="home-explore-h">
+            <button class="home-card" type="button" data-path-target="pledge">
+              <span class="home-card-tag">The Pledge</span>
+              <span class="home-card-title">Who signed — and is it showing up?</span>
+              <span class="home-card-dek">
+                The full roster, the five commitments, and a site-by-site scorecard.
               </span>
+              <span class="home-card-count" data-count-for="pledge">&mdash;</span>
             </button>
-            <button
-              class="pledge-path"
-              type="button"
-              id="path-researcher"
-              data-path-target="scorecard"
-            >
-              <span class="pledge-path-tag">For researchers</span>
-              <span class="pledge-path-title">Which sites have real evidence?</span>
-              <span class="pledge-path-dek">
-                Site-by-site scorecard against the pledge's five commitments.
+            <button class="home-card" type="button" data-path-target="companies">
+              <span class="home-card-tag">Companies</span>
+              <span class="home-card-title">What do the operators promise?</span>
+              <span class="home-card-dek">
+                Community-benefit claims in each company&rsquo;s own words, across
+                eight themes.
               </span>
+              <span class="home-card-count" data-count-for="companies">&mdash;</span>
             </button>
-            <button
-              class="pledge-path"
-              type="button"
-              id="path-community"
-              data-path-target="explorer"
-            >
-              <span class="pledge-path-tag">For communities</span>
-              <span class="pledge-path-title">What's being built near me?</span>
-              <span class="pledge-path-dek">
-                Every tracked site, who operates it, and what's on the record.
+            <button class="home-card" type="button" data-path-target="moratoriums">
+              <span class="home-card-tag">Moratoriums</span>
+              <span class="home-card-title">Where is development paused?</span>
+              <span class="home-card-dek">
+                Enacted, proposed, and failed pauses — city, county, state, and
+                federal.
               </span>
+              <span class="home-card-count" data-count-for="moratoriums">&mdash;</span>
             </button>
-            <button
-              class="pledge-path"
-              type="button"
-              id="path-regulatory"
-              data-path-target="ratecases"
-            >
-              <span class="pledge-path-tag">For rate watchers</span>
-              <span class="pledge-path-title">Who pays for the power?</span>
-              <span class="pledge-path-dek">
-                Large-load tariffs and the rate cases deciding cost allocation.
+            <button class="home-card" type="button" data-path-target="tariffs">
+              <span class="home-card-tag">Tariffs &amp; Rate Cases</span>
+              <span class="home-card-title">Who pays for the power?</span>
+              <span class="home-card-dek">
+                Large-load tariffs and the dockets deciding cost allocation.
               </span>
+              <span class="home-card-count" data-count-for="tariffs">&mdash;</span>
             </button>
-            <button
-              class="pledge-path"
-              type="button"
-              id="path-landuse"
-              data-path-target="moratoriums"
-            >
-              <span class="pledge-path-tag">For planners</span>
-              <span class="pledge-path-title">Where is development paused?</span>
-              <span class="pledge-path-dek">
-                Enacted, proposed, and failed moratoriums at every level.
+            <button class="home-card" type="button" data-path-target="explorer">
+              <span class="home-card-tag">Sites</span>
+              <span class="home-card-title">What&rsquo;s being built near me?</span>
+              <span class="home-card-dek">
+                Every tracked campus: operator, status, and what&rsquo;s on the
+                record.
               </span>
+              <span class="home-card-count" data-count-for="sites">&mdash;</span>
+            </button>
+            <button class="home-card" type="button" data-path-target="aggregate">
+              <span class="home-card-tag">By State &amp; Company</span>
+              <span class="home-card-title">The record, rolled up</span>
+              <span class="home-card-dek">
+                Totals by state, company, signatory category, and utility.
+              </span>
+              <span class="home-card-count" data-count-for="aggregate">&mdash;</span>
             </button>
           </nav>
         </div>
@@ -750,16 +719,22 @@
               power, the utilities and cooperatives selling it, the developers building
               the sites, and the governors who regulate them.
             </p>
-            <ul id="rp-category-stats" class="rp-cat-stats" aria-label="Signatories by category"></ul>
+            <!-- The proportional roster bar (moved here from the Home band in
+                 v3): a single count says nothing about the shape of the
+                 coalition, and the shape — overwhelmingly rural cooperatives —
+                 is the story. -->
+            <div id="pledge-coverage-bar" class="pledge-bar"></div>
+            <ul id="pledge-coverage-key" class="pledge-bar-key"></ul>
             <p class="rp-drift-note" id="rp-drift-note" hidden></p>
 
             <h4 class="rp-subhead" id="rp-states-heading">By state</h4>
             <p class="rp-section-sub">
-              Filled chips have tracked records; hollow chips are states where a governor
-              signed but we have nothing on file yet. Select a state to see its sites,
-              tariffs, moratoriums, and utility signatories.
+              All fifty states, shaded by how many records we hold — darker cells carry
+              more; ★ marks a governor who signed the addendum. Select a state for its
+              sites, tariffs, moratoriums, rate cases, and utility signatories.
             </p>
-            <div id="rp-state-chips" class="rp-state-chips" aria-labelledby="rp-states-heading"></div>
+            <div id="pledge-state-strip" class="pledge-state-strip" aria-labelledby="rp-states-heading"></div>
+            <p class="pledge-strip-key" id="pledge-strip-key"></p>
           </div>
         </details>
 
