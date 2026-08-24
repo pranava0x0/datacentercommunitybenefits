@@ -42,14 +42,11 @@
      --text itself to lighten, out of scope here. */
   --link: #2563eb;
 
-  /* The signal accent, in two weights. --accent-mark (whitehouse.gov red,
-     7.08:1 on white) is text-safe at any size and carries kickers, labels and
-     small copy; --accent-rule (deep red) is the darker weight for rules and
-     emphasis. Amber (#FFBD00) deliberately does NOT appear here: at 1.68:1 on
-     white it is a mark color only, and it lives on the band tokens where it
-     passes (10.9:1 on the navy). */
-  --accent-mark: #b50000;
-  --accent-rule: #730000;
+  /* ONE structural accent (2026-08-24, user-directed): the deep navy that
+     links, the tab underline and tile rules already used. The old separate
+     red mark/rule pair made the chrome read as alarm; whitehouse.gov red
+     survives only where color carries a data meaning — the
+     failed/rejected/negative status tokens. */
 
   /* The inked band — the dark section the commitments render on. Deliberately
      dark in BOTH themes (it is a figure, not a surface), so its own foreground
@@ -149,23 +146,17 @@
   --theme-education: #8a4a5b;
   --theme-engagement: #4a8a6b;
 
-  /* whitehouse.gov sets Instrument Sans / Instrument Serif. Naming them
-     first costs nothing (they engage when locally installed) and the stacks
-     fall back to system faces — still no web fonts, per the perf budget. */
+  /* Exactly TWO families (2026-08-24, user-directed): one sans for body, UI
+     and labels; one serif for the masthead, headings and display numbers.
+     The old third (mono, for kickers/dates/counts) and fourth (a separate
+     display serif) read as four competing voices on one page. whitehouse.gov
+     names Instrument first; naming it costs nothing (it engages when locally
+     installed) and the stacks fall back to system faces — still no web
+     fonts, per the perf budget. */
   --font-sans:
     "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   --font-serif:
-    "Instrument Serif", "Charter", "Source Serif 4", "Iowan Old Style",
-    "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", Times,
-    serif;
-  --font-mono:
-    "SF Mono", Menlo, Consolas, "Liberation Mono", "Roboto Mono", monospace;
-  /* Display face for the pledge hero + section titles. The source page uses
-     Instrument Serif; this approximates it from fonts already on the machine.
-     Deliberately NOT a webfont — the perf baseline (no web fonts, no images)
-     is a guardrail, and a display face is the easiest place to blow it. */
-  --font-display:
     "Instrument Serif", Georgia, "Iowan Old Style", "Palatino Linotype",
     Palatino, "Book Antiqua", "Times New Roman", serif;
 
@@ -192,8 +183,6 @@
      --text at ~2.82:1. */
   --link: #4d84ff;
 
-  --accent-mark: #ffbd00;
-  --accent-rule: #e6a800;
 
   /* The band goes darker still in dark mode so it stays a distinct figure
      against the already-dark page rather than blending into it. */
@@ -305,18 +294,21 @@ h4 {
   margin: 0;
 }
 
+/* Scale runs DOWN from the masthead: the site title is the biggest type on
+   the page (news-masthead convention, and 2026-08-24 user direction — view
+   headings must never outrank it). h1 1.5 > h2 1.4 > .acc-title 1.28 > h3 1.2. */
 h1 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.75rem;
-  line-height: 1.15;
+  font-size: 1.4rem;
+  line-height: 1.2;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 h4 {
@@ -389,10 +381,9 @@ select:focus-visible,
   top: 8px;
 }
 
-/* In dark mode --accent is the amber mark color (#ffbd00) — white text on it
-   is ~1.68:1, the same failing ratio the palette comment documents for
-   amber-on-white and the reason amber is kept out of --accent-mark. This is
-   the first thing a keyboard/AT user focuses, so it needs real contrast:
+/* In dark mode --accent is amber (#ffbd00) — white text on it is ~1.68:1,
+   the failing ratio the palette comment documents for amber-on-white. This
+   is the first thing a keyboard/AT user focuses, so it needs real contrast:
    --band-bg is near-black navy, ~10.9:1 on the amber background. */
 [data-theme="dark"] .skip-link {
   color: var(--band-bg);
@@ -474,84 +465,18 @@ select:focus-visible,
 }
 
 /* ==========================================================================
-   Pledge landing band (v2) — now the "Overview" tab's content (v2.1)
+   Home briefing (v3)
    ==========================================================================
-   The site's front door. Everything in it answers one of three questions a
-   first-time visitor arrives with: who signed / is it working / what about my
-   state. Numbers are rendered from data by renderPledgeHero() — never baked
-   into the markup, because the roster is a moving target.
-
-   This used to be a full-bleed header band; it is now a normal .view section
-   inside <main>, which already centers content to 1280px and adds 20px side
-   padding. .pledge-hero-inner only needs its own vertical rhythm now — no
-   horizontal padding or max-width of its own, or the Overview tab would render
-   narrower than every other tab. */
-
-.pledge-hero-inner {
-  padding: clamp(20px, 3vw, 36px) 0 clamp(20px, 3vw, 32px);
-}
-
-/* Letterspaced gold overline with a short rule above it — the source page's
-   section-tag motif, which is what makes the type feel like the pledge. */
-.pledge-kicker {
-  position: relative;
-  margin: 0 0 18px;
-  padding-top: 16px;
-  font-family: var(--font-mono);
-  font-size: 0.69rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent-mark);
-}
-
-.pledge-kicker::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--accent-rule);
-}
-
-.pledge-kicker-strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.pledge-hero-title {
-  margin: 0 0 16px;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
-  line-height: 1.08;
-  letter-spacing: -0.018em;
-  /* Wide enough to break to two lines on a desktop viewport — at 20ch it ran
-     to three and pushed the pathway cards under the fold, which is exactly
-     the metric this band exists to serve. */
-  max-width: 28ch;
-  color: var(--text);
-}
-
-/* One italic gold accent, as on the source page. It is an em dash here rather
-   than a word so the emphasis never lands on a claim. */
-.pledge-hero-title em {
-  font-style: italic;
-  color: var(--accent-mark);
-}
-
-.pledge-hero-dek {
-  margin: 0 0 8px;
-  max-width: 62ch;
-  font-size: 1.02rem;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
+   The site's front door, using the SAME .hero block every other tab opens
+   with (2026-08-24: the old oversized display hero + mono kicker made Home
+   speak a different language from its own tabs, and outranked the masthead).
+   Numbers are rendered from data by renderPledgeHero() — never baked into
+   the markup, because the roster is a moving target. */
 
 /* Sourcing + affiliation disclaimer, demoted from the dek to small print —
    load-bearing words, but not the headline read. */
 .pledge-hero-fineprint {
-  margin: 0 0 22px;
+  margin: 8px 0 0;
   font-size: 0.74rem;
   letter-spacing: 0.01em;
   color: var(--text-muted);
@@ -560,46 +485,47 @@ select:focus-visible,
 
 /* --- stat quartet ------------------------------------------------------- */
 
+/* Same boxed tile language as every other tab's stat row (.rp-stat) —
+   Home was the one view with its own open-band, serif-numeral tile style,
+   which is exactly the cross-tab inconsistency the 2026-08-24 pass killed. */
 .pledge-stats {
   list-style: none;
-  margin: 0 0 4px;
+  margin: 0 0 24px;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0;
-  border-top: 2px solid var(--text);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.85rem;
 }
 
 .pledge-stat {
-  padding: 13px 20px 12px 0;
-  border-right: 1px solid var(--hairline);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.9rem;
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.pledge-stat:last-child {
-  border-right: none;
-}
-
 .pledge-stat-num {
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 2.9vw, 2.4rem);
+  font-size: 1.55rem;
+  font-weight: 700;
   line-height: 1;
-  color: var(--text);
-  letter-spacing: -0.02em;
+  color: var(--accent);
 }
 
 .pledge-stat-lbl {
-  font-size: 0.8rem;
-  line-height: 1.35;
+  font-size: 0.78rem;
+  line-height: 1.3;
   color: var(--text-muted);
 }
 
 .pledge-stat-note {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 /* Stats that deep-link are buttons; the rest are plain <li>. Only the
@@ -619,7 +545,7 @@ select:focus-visible,
 }
 
 .pledge-stat button:hover .pledge-stat-num {
-  color: var(--accent-mark);
+  color: var(--accent);
 }
 
 .pledge-stat.is-loading .pledge-stat-num {
@@ -666,7 +592,6 @@ select:focus-visible,
   padding: 16px 18px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-top: 2px solid var(--accent-rule);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition:
@@ -675,21 +600,20 @@ select:focus-visible,
 }
 
 .home-card:hover {
-  border-color: var(--border-strong);
-  border-top-color: var(--accent-mark);
+  border-color: var(--accent);
   transform: translateY(-1px);
 }
 
 .home-card-tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.66rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-mark);
+  color: var(--text-muted);
 }
 
 .home-card-title {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 1.12rem;
   line-height: 1.2;
   color: var(--text);
@@ -704,7 +628,7 @@ select:focus-visible,
 .home-card-count {
   margin-top: auto;
   padding-top: 8px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   color: var(--text);
@@ -720,13 +644,6 @@ select:focus-visible,
 @media (max-width: 600px) {
   .pledge-stats {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .pledge-stat {
-    border-right: none;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .pledge-hero-title {
-    max-width: none;
   }
 }
 
@@ -1100,7 +1017,7 @@ main {
   padding: 1px 6px;
   background: var(--accent-soft);
   border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   color: var(--text);
 }
@@ -1179,7 +1096,7 @@ main {
   margin-left: auto;
   font-size: 0.7rem;
   color: var(--text-muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .delivered-summary {
@@ -2235,7 +2152,7 @@ main {
 .hot-rail-title,
 .acc-title {
   margin: 0 0 0.3rem;
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   /* The display face carries weight optically; 600 makes it look printed
      twice. Same 400 the pledge band and .rp-subhead already use. */
   font-weight: 400;
@@ -2310,13 +2227,13 @@ main {
 }
 
 .acc > summary:focus-visible {
-  outline: 2px solid var(--accent-mark);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
 .acc > summary:hover .acc-title {
-  color: var(--accent-mark);
+  color: var(--accent);
 }
 
 .acc-title {
@@ -2339,11 +2256,11 @@ main {
    until the data it counts has loaded. */
 .acc-count {
   flex: 0 0 auto;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent-mark);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
@@ -2442,7 +2359,7 @@ main {
 }
 
 .subtab:focus-visible {
-  outline: 2px solid var(--accent-mark);
+  outline: 2px solid var(--accent);
   outline-offset: -2px;
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
@@ -2450,11 +2367,11 @@ main {
 .subtab[aria-selected="true"] {
   color: var(--text);
   font-weight: 600;
-  border-bottom-color: var(--accent-mark);
+  border-bottom-color: var(--accent);
 }
 
 .subtab-count {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--text-muted);
   background: var(--surface-2);
@@ -2463,7 +2380,7 @@ main {
 }
 
 .subtab[aria-selected="true"] .subtab-count {
-  color: var(--accent-mark);
+  color: var(--accent);
 }
 
 /* See .acc-count:empty -- a zero cohort renders "0", not blank. */
@@ -4800,7 +4717,7 @@ body.tariff-modal-open {
   position: relative;
   margin: 0 0 14px;
   padding-top: 14px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -4819,7 +4736,7 @@ body.tariff-modal-open {
 
 .rp-band-title {
   margin: 0 0 24px;
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(1.35rem, 2.8vw, 2.1rem);
   line-height: 1.12;
@@ -4845,7 +4762,7 @@ body.tariff-modal-open {
 }
 
 .rp-commit-num {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(2.2rem, 4.5vw, 3.4rem);
   line-height: 0.85;
@@ -4858,7 +4775,7 @@ body.tariff-modal-open {
   text-transform: none;
   letter-spacing: -0.01em;
   margin: 0 0 6px;
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(1.05rem, 2vw, 1.4rem);
   line-height: 1.18;
@@ -4932,7 +4849,7 @@ body.tariff-modal-open {
 .rp-drift-note {
   margin: 0 0 20px;
   padding: 10px 12px;
-  border-left: 3px solid var(--accent-rule);
+  border-left: 3px solid var(--accent);
   background: var(--surface-2);
   font-size: 0.8rem;
   line-height: 1.5;
@@ -4943,7 +4860,7 @@ body.tariff-modal-open {
   /* Same override as .rp-commit-title — see the global h4 rule. */
   text-transform: none;
   letter-spacing: -0.01em;
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-weight: 400;
   margin: 26px 0 6px;
   font-size: 1.15rem;
@@ -5001,7 +4918,7 @@ body.tariff-modal-open {
 
 .rp-roster-chip[aria-pressed="true"] {
   background: var(--surface-2);
-  border-color: var(--accent-mark);
+  border-color: var(--accent);
   color: var(--text);
 }
 
@@ -5052,7 +4969,7 @@ body.tariff-modal-open {
   font-size: 0.68rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-mark);
+  color: var(--accent);
 }
 
 @media (max-width: 700px) {
@@ -5124,7 +5041,7 @@ body.state-modal-open {
 }
 
 .state-detail .detail-header h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: 1.8rem;
   margin: 2px 0 6px;
@@ -5164,7 +5081,7 @@ body.state-modal-open {
 }
 
 .sd-section-count {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--text-muted);
 }
@@ -5241,12 +5158,12 @@ body.state-modal-open {
   gap: 10px;
   /* Overrides the global h3; these are panel labels, not section headings. */
   margin: 0 0 10px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--accent-mark);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
@@ -5263,7 +5180,7 @@ body.state-modal-open {
 }
 
 .pledge-panel-more:hover {
-  color: var(--accent-mark);
+  color: var(--accent);
 }
 
 /* --- coverage bar -------------------------------------------------------- */
@@ -5384,13 +5301,13 @@ body.state-modal-open {
 [data-theme="dark"] .pledge-state-cell.lvl-3 { background: #6ba3d6; border-color: #8fbde4; }
 
 .pledge-state-cell:hover {
-  outline: 2px solid var(--accent-mark);
+  outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
 
 .pledge-state-abbr {
   font-size: 0.56rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   letter-spacing: 0.02em;
   color: var(--text);
 }
@@ -5407,7 +5324,7 @@ body.state-modal-open {
   right: 1px;
   font-size: 0.44rem;
   line-height: 1;
-  color: var(--accent-rule);
+  color: var(--accent);
 }
 
 [data-theme="dark"] .pledge-state-cell.is-gov::after { color: #b5d2ec; }
@@ -5441,20 +5358,20 @@ body.state-modal-open {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
 }
 
 .wn-btn {
   display: grid;
-  grid-template-columns: 104px 44px 1fr;
+  grid-template-columns: 96px 44px 1fr;
   gap: 12px;
   align-items: start;
   width: 100%;
   text-align: left;
   background: none;
-  border: 1px solid var(--hairline);
-  border-radius: 6px;
-  padding: 8px 10px;
+  border: none;
+  border-bottom: 1px solid var(--hairline);
+  border-radius: 0;
+  padding: 9px 2px;
   cursor: pointer;
   color: inherit;
   font: inherit;
@@ -5462,14 +5379,15 @@ body.state-modal-open {
 
 .wn-btn:hover,
 .wn-btn:focus-visible {
-  border-color: var(--accent-rule);
   background: var(--surface-2);
 }
 
 .wn-date {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.7rem;
-  color: var(--accent-mark);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
   white-space: nowrap;
   padding-top: 2px;
 }
@@ -5479,7 +5397,7 @@ body.state-modal-open {
 }
 
 .wn-state {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -5562,7 +5480,7 @@ body.state-modal-open {
 }
 
 .rc-state {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.7rem;
   font-weight: 600;
   border: 1px solid var(--hairline);
@@ -5617,14 +5535,14 @@ body.state-modal-open {
 
 .rc-next-lbl {
   font-weight: 700;
-  color: var(--accent-mark);
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 0.68rem;
 }
 
 .rc-next-date {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--text-muted);
 }
@@ -5653,9 +5571,11 @@ body.state-modal-open {
 }
 
 .pledge-activity-date {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.7rem;
-  color: var(--accent-mark);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
   white-space: nowrap;
   padding-top: 1px;
 }
@@ -5721,7 +5641,7 @@ body.state-modal-open {
 }
 
 .rp-filter-chip[aria-pressed="true"] {
-  border-color: var(--accent-mark);
+  border-color: var(--accent);
   color: var(--text);
   background: var(--accent-soft);
 }
@@ -5787,7 +5707,7 @@ body.state-modal-open {
   border: none;
   font: inherit;
   font-size: 0.72rem;
-  color: var(--accent-mark);
+  color: var(--accent);
   cursor: pointer;
 }
 
@@ -5800,7 +5720,7 @@ body.state-modal-open {
   margin: 6px 0 4px;
   padding: 10px 12px;
   background: var(--surface-2);
-  border-left: 2px solid var(--accent-rule);
+  border-left: 2px solid var(--accent);
   border-radius: var(--radius-sm);
 }
 

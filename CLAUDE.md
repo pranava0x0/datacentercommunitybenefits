@@ -1312,7 +1312,46 @@ per non-Home view). ~1,650px tall, was ~2,430. Rules that keep it that way:
   stat-tile tests (`data-path-target='roster'` / `'scorecard'` on the band),
   preserving the collapsed-target-opens guard.
 
+### One type scale, one accent (2026-08-24, user-directed)
+
+The first cut of the minimal-briefing Home shipped with the inherited v3
+chrome and the user called it out: four visible font families, a site title
+smaller than the page headings, red label chrome everywhere, and a Home that
+spoke a different component language from its own tabs. The fixes are
+system-wide rules, not Home styling — hold every future view to them:
+
+- **Exactly two font families.** `--font-sans` (body, UI, labels, dates,
+  counts) and `--font-serif` (masthead, headings, the band). `--font-display`
+  and `--font-mono` are deleted; the mono kickers/dates/badges all moved to
+  sans with letterspacing (+ `font-variant-numeric: tabular-nums` where
+  digits columnize). Reintroducing a third family is a deliberate act against
+  this section, not a styling choice.
+- **The masthead outranks everything.** h1 1.5rem > h2 1.4rem > `.acc-title`
+  1.28rem > h3 1.2rem. No view heading may exceed the site title — the old
+  Home hero (2.6rem display serif + mono kicker) is the cautionary example.
+  Every view opens with the same `.hero` block (h2 `.hero-title` + one-line
+  `.hero-dek`); Home adds only `.pledge-hero-fineprint` under it.
+- **One structural accent: `--accent`** (navy light / amber dark).
+  `--accent-mark` / `--accent-rule` are deleted — they had become synonyms.
+  Red now appears ONLY through semantic status tokens (failed / rejected /
+  negative / shortfall); if chrome needs an accent it uses `--accent`, and if
+  something red shows up outside a status badge, that's a bug.
+- **Section labels are muted, not accented.** `.pledge-panel-h`,
+  `.home-card-tag`, `.acc-count` are `--text-muted` uppercase sans — labels
+  identify, they don't signal.
+- **One stat-tile component.** Home's `.pledge-stat` now mirrors `.rp-stat`
+  (boxed, hairline border, 3px `--accent` top, sans-700 numeral at 1.55rem in
+  the accent color). Don't invent a per-view tile style; if a view needs a
+  stat row, copy the `.rp-stat` shape.
+- **Lists over boxes for reading flows.** `.wn-btn` milestone rows are
+  hairline-separated rows, not bordered cards — box chrome is for
+  navigation targets (`.home-card`), not for every list item.
+
 ### Civic palette v3 — whitehouse.gov, contrast-computed (2026-08-03)
+
+> **Partially superseded 2026-08-24** (see "One type scale, one accent"
+> below): the red mark/rule tokens and the second display-serif stack are
+> gone. The navy family, the band, and the contrast-computing method stand.
 
 The user directed the theme to follow whitehouse.gov's colors and type. The
 palette was **extracted from the live site's own CSS presets** (browser
