@@ -428,6 +428,7 @@ const state = {
   tariffs: [],
   signatories: [],
   coverage: {},
+  coverageTotals: null,
   coverageLoaded: false,
   rosterAsOf: null,
   rosterCountsStated: {},
@@ -491,8 +492,9 @@ document.addEventListener("DOMContentLoaded", () => {
   wireThemeToggle();
   readFiltersFromUrl();
   wireTabs();
-  // The hero's pathway cards are static markup, so they wire once on boot;
-  // the stat tiles are re-rendered from data and re-wire themselves.
+  // The Home "Explore the record" cards and the milestones link are static
+  // markup, so they wire once on boot; the stat tiles are re-rendered from
+  // data and re-wire themselves.
   wirePledgeTargets(document.getElementById("view-overview"));
   wireStatePanel();
   ensureComparisonData()
@@ -941,6 +943,9 @@ function loadCoverageData() {
     _coverageDataPromise = fetchJson("data/coverage.json")
       .then((payload) => {
         state.coverage = payload.states || {};
+        // Whole-record totals (federal records included — the state cells
+        // exclude them by design, so summing the grid would undercount).
+        state.coverageTotals = payload.totals || null;
         state.coverageLoaded = true;
       })
       .catch((err) => {
@@ -1011,6 +1016,11 @@ async function loadRatepayerView() {
 // Derived from RateCase.next_milestone — regulator-announced steps only, never
 // a guess (the schema says so). Dated milestones sort soonest-first; undated
 // pendings follow. Clicking an item lands on the rate-cases section.
+// Home shows only the soonest few, as one-line briefs — the full milestone
+// text lives with the rate-case records on the Tariffs & Rate Cases tab,
+// which is where every item (and the "All N milestones" link) lands.
+const HOME_WHATS_NEXT_MAX = 6;
+
 function renderWhatsNext() {
   const ol = document.getElementById("whats-next-list");
   if (!ol) return;
@@ -1022,7 +1032,7 @@ function renderWhatsNext() {
     return String(a.state_code).localeCompare(String(b.state_code));
   });
   ol.replaceChildren(
-    ...items.map((rc) => {
+    ...items.slice(0, HOME_WHATS_NEXT_MAX).map((rc) => {
       const li = el("li", "wn-item");
       const btn = el("button", "wn-btn");
       btn.type = "button";
@@ -1056,8 +1066,13 @@ function renderWhatsNext() {
   const sub = document.getElementById("whats-next-sub");
   if (sub) {
     sub.textContent = items.length
-      ? "Regulator-announced next steps in the rate cases and proceedings this record tracks — soonest first. From the dockets, not a forecast."
+      ? "Regulator-announced steps in the tracked dockets, soonest first. Not a forecast."
       : "No announced next steps on file yet.";
+  }
+  const more = document.getElementById("whats-next-more");
+  if (more) {
+    more.hidden = items.length <= HOME_WHATS_NEXT_MAX;
+    more.textContent = `All ${items.length} docket milestones →`;
   }
 }
 
@@ -2616,6 +2631,11 @@ function renderPledgeHero() {
     if (byStatus[p.ratepayer.status] !== undefined) byStatus[p.ratepayer.status] += 1;
   }
 
+  // Five numbers that summarize the WHOLE record, not just the pledge —
+  // the moratorium / tariff counts come from coverage.json's precomputed
+  // totals so the landing never has to download those payloads (~50 KB gz)
+  // just to state two integers.
+  const totals = state.coverageTotals;
   const tiles = [
     {
       num: counts ? String(counts.organizations) : "—",
@@ -2638,10 +2658,18 @@ function renderPledgeHero() {
       target: "scorecard",
     },
     {
-      num: String(PLEDGE_PRINCIPLES.length),
-      label: "Commitments in the pledge",
-      note: "What each site is measured against",
-      target: "commitments",
+      num: totals ? String(totals.moratoriums) : "—",
+      label: "Moratoriums tracked",
+      note: "Enacted, proposed & failed",
+      target: "moratoriums",
+    },
+    {
+      num: totals ? String(totals.tariffs + totals.rate_cases) : "—",
+      label: "Tariffs & rate cases",
+      note: totals
+        ? `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`
+        : "",
+      target: "tariffs",
     },
   ];
 
@@ -2662,11 +2690,45 @@ function renderPledgeHero() {
   );
 
   wirePledgeTargets(list);
-  renderPledgeCoverageBar();
-  renderPledgeMeters();
-  renderPledgeStateStrip();
+  renderHomeCards();
   renderPledgeActivity();
   wirePledgeTargets(document.getElementById("view-overview"));
+}
+
+// --- explore the record: one card per tab ---------------------------------
+//
+// The cards are static markup (they wire once on boot); only their count
+// chips render from data, filled in as each payload lands. A count that
+// hasn't loaded keeps its markup placeholder ("—") — never a baked-in number,
+// same rule the stat tiles live by.
+function renderHomeCards() {
+  const fill = (key, text) => {
+    const span = document.querySelector(
+      `.home-card-count[data-count-for="${key}"]`
+    );
+    if (span && text) span.textContent = text;
+  };
+  if (state.signatoriesLoaded) {
+    const counts = signatoryCounts();
+    fill("pledge", `${counts.total} signatories`);
+  }
+  if ((state.companies || []).length) {
+    fill("companies", `${state.companies.length} companies`);
+  }
+  const totals = state.coverageTotals;
+  if (totals) {
+    fill("moratoriums", `${totals.moratoriums} tracked`);
+    fill("tariffs", `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`);
+  }
+  if (state.projects.length) {
+    fill("sites", `${state.projects.length} sites`);
+  }
+  if (state.coverageLoaded) {
+    const covered = coverageStates().filter(
+      (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases > 0
+    ).length;
+    fill("aggregate", `${covered} of 50 states`);
+  }
 }
 
 // --- who signed: one proportional bar ------------------------------------
@@ -2726,58 +2788,6 @@ function renderPledgeCoverageBar() {
       "pledge-bar-note",
       `${pct}% of the organizations that signed are rural electric cooperatives.`
     )
-  );
-}
-
-// --- is it showing up: per-commitment meters ------------------------------
-function renderPledgeMeters() {
-  const ul = document.getElementById("pledge-meters");
-  if (!ul) return;
-  if (!state.projects.length) {
-    ul.replaceChildren(el("li", "pledge-bar-loading", "Loading site assessments…"));
-    return;
-  }
-
-  const tallies = principleTallies();
-  ul.replaceChildren(
-    ...PLEDGE_PRINCIPLES.map((keyName, i) => {
-      const t = tallies[keyName];
-      const li = el("li", "pledge-meter");
-      li.append(el("span", "pledge-meter-num", ROMAN[i] || String(i + 1)));
-
-      const body = el("div", "pledge-meter-body");
-      body.append(
-        el("span", "pledge-meter-lbl", PLEDGE_PRINCIPLE_SHORT[keyName] || keyName)
-      );
-
-      const track = el("span", "pledge-meter-track");
-      if (t.assessed === 0) {
-        track.append(el("span", "pledge-meter-seg is-none"));
-      } else {
-        for (const status of PLEDGE_PRINCIPLE_STATUSES) {
-          if (!t[status]) continue;
-          const seg = el("span", `pledge-meter-seg is-${status}`);
-          seg.style.flexGrow = String(t[status]);
-          track.append(seg);
-        }
-      }
-      body.append(track);
-      body.append(
-        el(
-          "span",
-          "pledge-meter-count",
-          t.assessed === 0
-            ? "not yet assessed"
-            : `${t.met} met · ${t.partial} partial${t.not_met ? ` · ${t.not_met} not met` : ""}`
-        )
-      );
-      li.append(body);
-      li.setAttribute(
-        "aria-label",
-        `${PLEDGE_PRINCIPLE_LABELS[keyName]}: ${t.met} met, ${t.partial} partial, ${t.not_met} not met`
-      );
-      return li;
-    })
   );
 }
 
@@ -2932,6 +2942,11 @@ const PLEDGE_TARGETS = {
   explorer: { view: "explorer", anchor: null },
   ratecases: { view: "tariffs", anchor: "rate-cases-section" },
   moratoriums: { view: "moratoriums", anchor: null },
+  // Anchor-less tab landings for the Home "Explore the record" cards.
+  pledge: { view: "ratepayer", anchor: null },
+  companies: { view: "comparison", anchor: null },
+  tariffs: { view: "tariffs", anchor: null },
+  aggregate: { view: "aggregate", anchor: null },
 };
 
 // --------------------------------------------------------------------------
@@ -4872,7 +4887,11 @@ function renderRatepayerView() {
 
   renderPledgeCommitments();
   renderCoverageStats();
-  renderStateChips();
+  // The proportional roster bar and the 50-state strip render into the
+  // Coverage section here (they moved from the Home band in the v3 minimal
+  // landing — Home now carries numbers only, this tab carries the shape).
+  renderPledgeCoverageBar();
+  renderPledgeStateStrip();
   renderSignatoryRoster();
   renderRatepayerLegend();
   renderRatepayerScorecard();
@@ -4956,13 +4975,9 @@ function renderPledgeCommitments() {
 // --------------------------------------------------------------------------
 
 function renderCoverageStats() {
-  const ul = document.getElementById("rp-category-stats");
-  if (!ul) return;
-
-  if (!state.signatoriesLoaded) {
-    ul.replaceChildren(el("li", "rp-cat-stat", "Loading roster…"));
-    return;
-  }
+  // Category counts render as the proportional bar + key (see
+  // renderPledgeCoverageBar) — this handles the section chrome around it.
+  if (!state.signatoriesLoaded) return;
 
   const counts = signatoryCounts();
   setAccCount(
@@ -4971,16 +4986,6 @@ function renderCoverageStats() {
     "signatory",
     "signatories",
     rosterAsOfNote()
-  );
-  ul.replaceChildren(
-    ...SIGNATORY_CATEGORIES.map((cat) => {
-      const li = el("li", `rp-cat-stat cat-${cat}`);
-      li.append(
-        el("span", "rp-cat-num", String(counts[cat] || 0)),
-        el("span", "rp-cat-lbl", SIGNATORY_CATEGORY_SHORT[cat] || cat)
-      );
-      return li;
-    })
   );
 
   const sub = document.getElementById("rp-roster-sub");
@@ -5082,40 +5087,6 @@ function coverageStates() {
     if (d !== 0) return d;
     return a.code.localeCompare(b.code);
   });
-}
-
-function renderStateChips() {
-  const wrap = document.getElementById("rp-state-chips");
-  if (!wrap) return;
-  const entries = coverageStates();
-
-  wrap.replaceChildren(
-    ...entries.map((s) => {
-      const records = s.projects + s.tariffs + s.moratoriums + s.rate_cases;
-      const btn = el("button", `rp-state-chip${records ? "" : " is-empty"}`);
-      btn.type = "button";
-      btn.dataset.stateCode = s.code;
-      btn.append(el("span", "rp-state-code", s.code));
-      if (s.governor) {
-        const mark = el("span", "rp-state-gov", "★");
-        mark.setAttribute("aria-hidden", "true");
-        btn.append(mark);
-      }
-      const parts = [];
-      if (s.projects) parts.push(`${s.projects} site${s.projects === 1 ? "" : "s"}`);
-      if (s.tariffs) parts.push(`${s.tariffs} tariff${s.tariffs === 1 ? "" : "s"}`);
-      if (s.moratoriums) parts.push(`${s.moratoriums} moratorium${s.moratoriums === 1 ? "" : "s"}`);
-      if (s.rate_cases) parts.push(`${s.rate_cases} rate case${s.rate_cases === 1 ? "" : "s"}`);
-      btn.append(el("span", "rp-state-meta", parts.length ? parts.join(" · ") : "No records yet"));
-      btn.setAttribute(
-        "aria-label",
-        `${s.code}${s.governor ? ", governor signed" : ""} — ` +
-          (parts.length ? parts.join(", ") : "no tracked records yet")
-      );
-      btn.addEventListener("click", () => openStatePanel(s.code));
-      return btn;
-    })
-  );
 }
 
 // --------------------------------------------------------------------------

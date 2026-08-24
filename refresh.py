@@ -448,7 +448,18 @@ def _build_coverage(projects, tariffs, moratoriums, rate_cases=None) -> dict:
             if b is not None:
                 b["rate_cases"] += 1
 
-    return {"states": dict(sorted(states.items()))}
+    # Whole-record totals for the Home numbers band. NOT the sum of the state
+    # cells: federal records (a FERC rate case, a federal moratorium) are
+    # excluded from state cells by design, so summing the grid client-side
+    # undercounts. len() of each payload is the honest total.
+    totals = {
+        "projects": len(projects.projects),
+        "tariffs": len(tariffs.tariffs),
+        "moratoriums": len(moratoriums.moratoriums),
+        "rate_cases": len(rate_cases.rate_cases) if rate_cases is not None else 0,
+    }
+
+    return {"states": dict(sorted(states.items())), "totals": totals}
 
 
 def _write_coverage(payloads, *, pretty: bool) -> int:

@@ -1070,3 +1070,9 @@ selector once the card markup is fixed.
   Talen/Amazon Susquehanna co-location ISA rejection is already a `rejected`
   *tariff*; find a genuine rejected rate case rather than fabricating one.
   (low)
+- **Align the PDF exports with the one-scale-one-accent system** — the export
+  builders in app.js (`.mpdf-*` and friends) hardcode their own light-theme
+  hex + font choices because html2canvas can't resolve app CSS vars; after
+  the 2026-08-24 type/accent unification they still render the old look
+  (separate display serif, red chrome). Port the exports' inline styles to
+  the new two-font / navy-accent language. (low)
