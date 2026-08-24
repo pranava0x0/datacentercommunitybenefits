@@ -113,7 +113,11 @@ whether a partner has been named before adding either.
 
 Run `python3 refresh.py --audit --check` first — the "Stale Pending Bills / Tariffs"
 section of `ISSUES.md` tells you exactly which `proposed` records need a status
-re-check before you go looking for anything new.
+re-check before you go looking for anything new. Then run
+`python -m connectors.recheck stale` to turn that list into ready-to-run
+search queries (using each record's own bill/docket number when present, plus
+a docket-system hint per state) instead of hand-writing one per record — see
+`connectors/README.md`'s "recheck" section.
 
 ### Sources
 - **Trackers (aggregators, verify before trusting):** `datacenterbans.com`,
@@ -146,8 +150,10 @@ record, so the Home "What's next" list is the live version of this list:
   response to the Earthjustice investigation request, FERC RM26-4 compliance
 
 ### Status re-check checklist (for anything flagged stale)
-1. Search `<jurisdiction> data center moratorium <bill number or name>` for the
-   most recent coverage.
+1. Run `python -m connectors.recheck stale` for ready-made queries (bill/docket
+   number folded in where the seed has one, plus a docket-system hint) instead
+   of hand-writing `<jurisdiction> data center moratorium <bill number or name>`
+   per record.
 2. If status changed (e.g. `proposed` → `enacted`/`failed`), update `status`,
    `enacted_date`/`failure_reason` as applicable, and bump `captured_at`.
 3. If status is unchanged, just bump `captured_at` to today so it doesn't
@@ -191,6 +197,15 @@ python -m connectors.research queries --missing-claims --limit 10
 ## Creating / Updating Project Records
 
 ### New Project Checklist
+
+0. **Dedupe pre-flight, before any research time is spent:**
+   `python -m connectors.dedupe projects --state <ST>` (or `all --state <ST>`
+   to also check moratoriums/tariffs/rate-cases in the same state). Eyeball
+   every row — the recurring failure mode here is a headline's place name
+   sharing no substring with the seed's own wording for the same site (see
+   "Learned patterns" 2026-07-14). This replaces the ad-hoc
+   `python3 -c "..."` one-liner that used to get re-typed by hand each
+   session — see `connectors/README.md`'s "dedupe" section.
 
 1. **Verify first-party source** (company press release, blog, investor filing)
    - No paraphrasing — quote verbatim from the company or named executive
@@ -851,3 +866,78 @@ discovered together.
   was a genuinely open-ended multi-source research task, not a bounded
   per-record lookup — budget accordingly when a request spans a new,
   unexplored angle rather than a routine recheck.
+
+---
+
+### 2026-08-24 refresh pass — 3-agent full pass + two new accelerator scripts
+
+Scope: user asked for a comprehensive pass emphasizing moratoriums/policies at
+every jurisdiction level plus new site announcements. Ran the standard
+3-dimension playbook with 2 agents in round 1 (stale re-check touching
+moratoriums/tariffs/rate_cases; new-site scouting touching projects/claims/
+responses — split by FILE, not just by "family", specifically so the two
+could run genuinely concurrently without racing edits to the same JSON) and 1
+agent in round 2 (new moratorium/policy discovery, sequenced after round 1's
+stale-recheck agent since both touch `moratoriums.json`).
+
+**Results:** moratoriums 112→124 (+12: 8 leads verified from a sibling
+agent's incidental discoveries during stale re-checks — Anderson Co SC,
+Lakeland FL, Fort Worth TX [still `proposed`, not `enacted` — the Aug 11 vote
+only started the state-mandated procedural clock], Greensboro NC, 5 Georgia
+records — plus Louisville KY and Mercer County KY from a general sweep);
+8 status flips among the 30 previously-stale records (Cleveland OH, Henderson
+NV [**a real bug**: council rejected 2026-07-21 but the record was still
+`proposed` — the prior session's REFRESH.md note that this had "already
+resolved" was itself wrong, or the fix never landed], Indianapolis IN,
+Colleton/Greenwood Co SC, Oneida Co WI → all `enacted`; Oklahoma SB1488 →
+`failed`; nv-energy-callisto-esa tariff → `approved`); 4 new projects (Google
+Owasso OK "Project Clydesdale", 2 new Amazon TX sites, 1 new Amazon LA site)
++ 4 claims + 1 negative community response (an Amazon TX site paired with a
+gas plant that drew an NYT/TechCrunch pollution investigation).
+
+**Georgia wave**: went from 2 tracked records to 8 (DeKalb pre-existing +
+Cherokee, Coweta's *second* moratorium, Augusta, Athens-Clarke County
+[historical — superseded by a permanent ordinance, kept per the append-only
+convention], Garden City). Still a partial sweep against the ~53-jurisdiction
+overview article — BACKLOG.md's entry updated with the current count rather
+than closed out; this remains a "dedicated future pass" item, not resolved.
+
+**Docket-renumbering false alarm, resolved cleanly**: BACKLOG.md flagged
+`nv-energy-callisto-esa`'s docket `24-06014` as possibly superseded by
+`26-06023`. Direct verification found these are two genuinely SEPARATE ESAs
+(the first approved by stipulation 2026-04-29; the second, filed June 26
+2026, already correctly tracked as its own record, `nv-pucn-google-esa-2026`)
+— not a renumbering at all. Lesson: a plausible-sounding "might be the same
+docket, renumbered" lead from a backlog note still needs the same direct
+verification as a fresh claim; don't assume a backlog note's hypothesis was
+correct just because it was specific.
+
+**New accelerator scripts, requested mid-session** (`connectors/dedupe.py`,
+`connectors/recheck.py`) — formalize two things that were previously
+re-derived by hand (or by prose reminder) every single session:
+- `dedupe.py` replaces the ad-hoc `python3 -c "..."` duplicate-check
+  one-liner that had already caused the SAME duplicate
+  (`google-new-florence-mo`) to be independently re-flagged as "new" by two
+  different sessions a week apart — REFRESH.md's own 2026-07-14 entry says
+  outright "prose reminders aren't sticking across sessions." A script that
+  runs in one command is stickier than a paragraph a future session has to
+  remember to re-read.
+- `recheck.py` turns `refresh.py --audit`'s stale-pending list (already
+  mechanically generated) into ready-to-run search queries using each
+  record's own bill/docket number — folding in the "Status re-check
+  checklist" step 1 that was previously hand-typed per record every pass.
+- Both import their ground truth from `refresh.py`/`schema.py` directly
+  (`_audit_stale_pending`, `STALE_PENDING_DAYS`, the payload key names)
+  rather than re-encoding "what counts as stale" or "what the seed files are
+  called" a second time — the exact single-source-of-truth pattern this
+  file's own intro paragraph calls out as the dataset's most common failure
+  shape. Verified against the live post-refresh seed: `recheck stale`
+  correctly reported only 1 remaining stale record (`hernando-county-fl-
+  2026-06`, the one genuinely unverifiable one) after the stale-recheck agent
+  closed out the other 29 — a real end-to-end check, not just a unit test.
+- Neither script does any fuzzy matching (unlike `scout.py`'s token-overlap
+  heuristic) — `dedupe` is a plain filtered listing to eyeball, deliberately
+  simple so it can't be silently wrong the way a heuristic match can.
+  `connectors/README.md` documents both; `python -m pytest tests/` (524
+  tests) still passes unchanged, since neither script touches `schema.py` or
+  `refresh.py`'s public behavior.
