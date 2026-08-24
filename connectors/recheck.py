@@ -35,12 +35,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from datetime import date
 from pathlib import Path
 
 from connectors.scout import _load as _load_seed
 from refresh import STALE_PENDING_DAYS, _audit_stale_pending, _load_payload
 from schema import MoratoriumsPayload, RateCasesPayload, TariffsPayload
+
+log = logging.getLogger("connectors.recheck")
 
 ROOT = Path(__file__).resolve().parent.parent
 SEED = ROOT / "data" / "seed"
@@ -182,6 +185,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     args = build_parser().parse_args(argv)
     return args.func(args)
 

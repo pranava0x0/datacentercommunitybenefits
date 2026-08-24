@@ -90,11 +90,13 @@ def test_all_covers_every_record_type_for_one_state(seed):
     assert len(dedupe._rate_cases("GA")) == 1
 
 
-def test_cmd_all_requires_state(seed, capsys):
+def test_cmd_all_requires_state(seed, caplog):
+    # Error message goes through logging (not print/stdout) per AGENTS.md's
+    # "no print() for runtime output" rule -- caplog, not capsys.
     ns = type("NS", (), {"state": None, "json": False})()
     rc = dedupe.cmd_all(ns)
     assert rc == 2
-    assert "--state is required" in capsys.readouterr().out
+    assert "--state is required" in caplog.text
 
 
 # -- recheck ---------------------------------------------------------------

@@ -34,9 +34,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from pathlib import Path
 
 from connectors.scout import _load as _load_seed
+
+log = logging.getLogger("connectors.dedupe")
 
 ROOT = Path(__file__).resolve().parent.parent
 SEED = ROOT / "data" / "seed"
@@ -160,7 +163,7 @@ def cmd_all(args: argparse.Namespace) -> int:
     might turn out to be a project, a moratorium, a tariff, or a rate case,
     and it's cheaper to check all four than to guess which one first."""
     if not args.state:
-        print("--state is required for 'all' (state is the only field every record type shares)")
+        log.error("--state is required for 'all' (state is the only field every record type shares)")
         return 2
     results = {
         "projects": _projects(args.state, None),
@@ -215,6 +218,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     args = build_parser().parse_args(argv)
     return args.func(args)
 
