@@ -230,6 +230,8 @@ python -m connectors.dedupe projects --state OK
 python -m connectors.dedupe projects --company google
 python -m connectors.dedupe moratoriums --state SC
 python -m connectors.dedupe all --state GA        # every record type, one state, one pass
+python -m connectors.dedupe tariffs --state NV
+python -m connectors.dedupe rate-cases --state NV
 ```
 
 Prints every existing record for the state/company you're about to add to —

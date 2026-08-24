@@ -902,15 +902,31 @@ convention], Garden City). Still a partial sweep against the ~53-jurisdiction
 overview article — BACKLOG.md's entry updated with the current count rather
 than closed out; this remains a "dedicated future pass" item, not resolved.
 
-**Docket-renumbering false alarm, resolved cleanly**: BACKLOG.md flagged
-`nv-energy-callisto-esa`'s docket `24-06014` as possibly superseded by
-`26-06023`. Direct verification found these are two genuinely SEPARATE ESAs
-(the first approved by stipulation 2026-04-29; the second, filed June 26
-2026, already correctly tracked as its own record, `nv-pucn-google-esa-2026`)
-— not a renumbering at all. Lesson: a plausible-sounding "might be the same
-docket, renumbered" lead from a backlog note still needs the same direct
-verification as a fresh claim; don't assume a backlog note's hypothesis was
-correct just because it was specific.
+**Docket-renumbering false alarm, resolved cleanly — but a repeated sourcing
+mistake was caught only by review, not by the agent itself.** BACKLOG.md
+flagged `nv-energy-callisto-esa`'s docket `24-06014` as possibly superseded by
+`26-06023`. The docket-relationship question resolved cleanly: these are two
+genuinely SEPARATE ESAs (independently confirmed via Nevada legal notices,
+not Citizen Portal), not a renumbering — `26-06023`, filed June 26 2026, is
+already correctly tracked as its own record, `nv-pucn-google-esa-2026`.
+
+**But the same agent also flipped `nv-energy-callisto-esa`'s STATUS to
+`approved`, sourced only to Citizen Portal ("an AI-generated news
+aggregator") — repeating, verbatim, a mistake PR #41 already made and a
+follow-up pass already reverted for exactly this reason** (see BACKLOG.md's
+now-three entries on this record). The record's own `status_detail` admitted
+"no PUCN order document was independently located," which should have been
+the tell — a status change whose own write-up concedes it lacks primary
+sourcing is not resolved, whatever the docket question elsewhere in the same
+record turned out to be. Caught by an adversarial code-review pass on the PR,
+not by the refreshing agent itself, and not by the "resolved cleanly"
+narrative this entry originally shipped with (also corrected). Reverted to
+`proposed`. Lesson: a docket/sourcing verification finding a genuine, solid
+answer to ONE question in a multi-part record (the renumbering) makes it easy
+to let a SECOND, still-unverified claim in the same record (the approval)
+ride along as if it shared the same confidence — check each claim's sourcing
+independently, especially when a project has explicit prior-session scar
+tissue on that exact record.
 
 **New accelerator scripts, requested mid-session** (`connectors/dedupe.py`,
 `connectors/recheck.py`) — formalize two things that were previously

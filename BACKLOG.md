@@ -82,16 +82,26 @@ Checked 2026-08-24 alongside the PA Governor's EO 2026-05 (added as
 *Priority: low — both are dead ends for this record type, logged so a future
 pass doesn't re-research them from scratch.*
 
-### ~~NV Energy Callisto ESA — docket relationship~~ **RESOLVED** (2026-08-24)
-Resolved during this session's stale-recheck pass: `24-06014` (the original
-ESA) and `26-06023` are genuinely **separate** ESAs, not a renumbering —
-`24-06014` was approved by PUCN stipulation 2026-04-29 (`nv-energy-callisto-esa`
-updated to `status: approved`); `26-06023` is a second, later Google ESA
-already tracked under its own record, `nv-pucn-google-esa-2026`. No docket-id
-edit was needed. Kept here (struck through) as the answer to the question the
-prior entry raised, rather than deleted, since the entry's speculative
-"might be a renumbering" framing is exactly the kind of hypothesis a future
-session could otherwise re-litigate from scratch.
+### ~~NV Energy Callisto ESA — docket relationship~~ **RESOLVED** (docket question only, 2026-08-24)
+The **docket-relationship** question is resolved: `24-06014` (the original
+ESA) and `26-06023` are genuinely **separate** ESAs, not a renumbering — this
+is independently sourced via Nevada legal notices (recordcourier.com,
+nevadaappeal.com), not Citizen Portal. `26-06023` is a second, later Google
+ESA already tracked under its own record, `nv-pucn-google-esa-2026`. No
+docket-id edit was needed on `nv-energy-callisto-esa`.
+
+**The approval-status question is NOT resolved and status was reverted to
+`proposed`.** This session's stale-recheck pass initially flipped
+`nv-energy-callisto-esa` to `status: approved` on the strength of Citizen
+Portal coverage alone — repeating the exact mistake PR #41 made and a
+follow-up pass explicitly reverted (see the two entries below, both still
+open). A same-session review caught the repeat before merge: the record's own
+`status_detail` admitted "no PUCN order document was independently located,"
+which is precisely the insufficient-sourcing pattern this project's rules
+reject. Reverted back to `proposed`; `decision_date` cleared to null. **Still
+needs**: a browser-driven (not WebFetch/requests) pass against
+`puc-onbase.nv.gov`'s docket search UI for docket 24-06014, per the two
+existing entries below. *Priority: medium, unchanged.*
 
 ### Site-scouting backfill leads (real, tracked-company, pre-window) — **medium**
 Found 2026-08-24 by the new-site scouting agent while sweeping the standard

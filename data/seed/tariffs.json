@@ -290,8 +290,8 @@
       "state": "NV",
       "tariff_name": "Callisto Energy Supply Agreement",
       "tariff_type": "Special contract / ESA",
-      "status": "approved",
-      "status_detail": "PUCN accepted a stipulation and approved (by unanimous vote) the amended Energy Supply Agreement at its April 29, 2026 open meeting, under which Sierra Pacific/NV Energy and Callisto Enterprises (Google) adopted the Commission's model methodologies for large-customer market pricing and updated capacity-tracking-tool requirements. Confirmed via meeting coverage (citizenportal.ai); no PUCN order document was independently located in this pass. A second, separate Google ESA (Docket 26-06023, filed June 26, 2026) is pending — tracked separately as nv-pucn-google-esa-2026 — and is not a renumbering of this docket.",
+      "status": "proposed",
+      "status_detail": "Pending before the PUCN as of the LBL brief. Secondary coverage (Citizen Portal, an AI-generated news aggregator) reports a stipulation accepted at the Commission's April 29, 2026 open meeting, corroborated across two separate Citizen Portal articles, but no PUCN order/docket document has been independently located in any pass so far — the same insufficient-sourcing gap flagged when this status was previously reverted from `approved` (see BACKLOG.md). Left at 'proposed' pending a primary-source confirmation (a browser-driven pass against the PUCN docket search, not a plain HTTP fetch, which 403s on every attempt). Separately confirmed (via independent Nevada legal notices, not Citizen Portal): a second, separate Google ESA (Docket 26-06023, filed June 26, 2026) is NOT a renumbering of this docket — it is a distinct filing, tracked separately as nv-pucn-google-esa-2026.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "24-06014",
       "summary": "A bespoke energy-supply agreement between Sierra Pacific Power (NV Energy) and Callisto Enterprises — identified in the Commission's public notice as Google — approved by the PUCN via stipulation at its April 29, 2026 open meeting, with exit terms tied to the price difference between the procured resource and NV Energy's most recent approved renewable facilities. A second, separate Google ESA (Docket 26-06023) was filed June 26, 2026.",
@@ -324,7 +324,7 @@
         }
       ],
       "captured_at": "2026-08-24",
-      "decision_date": "2026-04-29"
+      "decision_date": null
     },
     {
       "id": "indiana-michigan-power-industrial-power-tariff",

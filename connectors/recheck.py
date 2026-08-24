@@ -35,22 +35,37 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
+from datetime import date
 from pathlib import Path
 
+from connectors.scout import _load as _load_seed
+from refresh import STALE_PENDING_DAYS, _audit_stale_pending, _load_payload
+from schema import MoratoriumsPayload, RateCasesPayload, TariffsPayload
+
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))  # so `import refresh` / `import schema` resolve when run via -m
-
 SEED = ROOT / "data" / "seed"
-
-from refresh import STALE_PENDING_DAYS, _audit_stale_pending, _load_payload  # noqa: E402
-from schema import MoratoriumsPayload, RateCasesPayload, TariffsPayload  # noqa: E402
+# No sys.path manipulation needed: `python -m connectors.recheck`, run from
+# repo root (the only supported invocation -- same as scout.py/research.py),
+# already has the cwd on sys.path, so `refresh`/`schema` resolve directly.
+# An earlier version inserted ROOT at sys.path[0] on every import as a
+# just-in-case -- unnecessary here, and a real risk elsewhere (it would
+# shadow any same-named `refresh`/`schema` module found later on sys.path in
+# whatever process imports this module) -- found by adversarial PR review,
+# 2026-08-24.
 
 # Best-effort docket-system hints for states that have shown up in this
-# dataset's tariff/rate-case records so far -- not exhaustive. Unknown states
+# dataset's TARIFF/RATE_CASE records so far -- not exhaustive. Unknown states
 # fall back to a generic "check the state PUC/PSC docket search" hint. Add an
 # entry here as a new state's docket system gets used in a real record,
 # rather than letting this list silently go stale relative to the seed.
+#
+# NEVER apply this to a moratorium record -- a moratorium is a legislative
+# bill or local ordinance, not a PUC/PSC docket, so a hint like "Ohio PUCO
+# docketing" would be actively wrong guidance for e.g. a state constitutional
+# amendment moratorium. An earlier version of this module applied the SAME
+# dict to all three record kinds purely because they share the `state`/
+# `state_code` field -- found by adversarial PR review, 2026-08-24. Moratorium
+# rechecks always use the generic legislative hint below instead.
 DOCKET_SYSTEM_HINTS: dict[str, str] = {
     "MO": "Missouri PSC EFIS docket search (efis.psc.mo.gov)",
     "AZ": "Arizona Corp. Commission eDocket (edocket.azcc.gov)",
@@ -67,10 +82,10 @@ DOCKET_SYSTEM_HINTS: dict[str, str] = {
 def _load(name: str) -> dict[str, dict]:
     """Raw seed rows keyed by id, for fields _audit_stale_pending doesn't carry
     (bill_number, docket_number, state, utility) -- the audit summary only has
-    id/jurisdiction/captured_at/age_days, not enough to build a good query."""
-    payload = json.loads((SEED / f"{name}.json").read_text())
-    key = name if name in payload else next(k for k, v in payload.items() if isinstance(v, list))
-    return {r["id"]: r for r in payload[key]}
+    id/jurisdiction/captured_at/age_days, not enough to build a good query.
+    Reuses scout._load's fallback logic (see its docstring) rather than a
+    third copy of the same key-resolution rule."""
+    return {r["id"]: r for r in _load_seed(name, seed_dir=SEED)}
 
 
 def _moratorium_queries(row: dict) -> list[str]:
@@ -81,7 +96,7 @@ def _moratorium_queries(row: dict) -> list[str]:
     qs = [base]
     if bill:
         qs.append(f"{jurisdiction} {state} {bill} data center".strip())
-    qs.append(f"{jurisdiction} {state} data center ordinance vote 2026".strip())
+    qs.append(f"{jurisdiction} {state} data center ordinance vote {date.today().year}".strip())
     return qs
 
 
@@ -110,20 +125,21 @@ def cmd_stale(args: argparse.Namespace) -> int:
         "rate_case": _load("rate_cases"),
     }
 
+    # tariff and rate_case share the exact same hint/query shape, differing
+    # only in which field carries the state -- moratorium is handled
+    # separately because it needs a legislative hint, never a PUC one.
+    STATE_FIELD_BY_KIND = {"tariff": "state", "rate_case": "state_code"}
+
     items = []
     for s in stale:
         row = raw[s["kind"]].get(s["id"], {})
         if s["kind"] == "moratorium":
             queries = _moratorium_queries(row)
-            state = row.get("state_code") or ""
-            docket_hint = DOCKET_SYSTEM_HINTS.get(state, "state legislature bill tracker + local council agenda site")
-        elif s["kind"] == "tariff":
-            queries = _tariff_or_rate_case_queries(row, "state")
-            state = row.get("state") or ""
-            docket_hint = DOCKET_SYSTEM_HINTS.get(state, f"state PUC/PSC docket search for {state}")
-        else:  # rate_case
-            queries = _tariff_or_rate_case_queries(row, "state_code")
-            state = row.get("state_code") or ""
+            docket_hint = "state legislature bill tracker + local council agenda site"
+        else:
+            state_field = STATE_FIELD_BY_KIND[s["kind"]]
+            queries = _tariff_or_rate_case_queries(row, state_field)
+            state = row.get(state_field) or ""
             docket_hint = DOCKET_SYSTEM_HINTS.get(state, f"state PUC/PSC docket search for {state}")
         items.append(
             {

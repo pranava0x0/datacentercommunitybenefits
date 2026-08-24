@@ -60,6 +60,16 @@ def test_projects_company_filter(seed):
     assert {r["id"] for r in rows} == {"google-new-florence-mo", "google-owasso-ok"}
 
 
+def test_projects_company_filter_is_case_insensitive(seed):
+    """Regression: --state was normalized (.strip().upper()) but --company
+    wasn't, so `--company Google` silently returned zero rows against a seed
+    that has google-slug projects -- found by adversarial PR review,
+    2026-08-24. A curator typing the company's display name instead of its
+    lowercase slug should still get a match."""
+    rows = dedupe._projects(None, "Google")
+    assert {r["id"] for r in rows} == {"google-new-florence-mo", "google-owasso-ok"}
+
+
 def test_projects_no_match_returns_empty_not_error(seed):
     assert dedupe._projects("ZZ", None) == []
 
@@ -169,3 +179,42 @@ def test_cmd_stale_query_uses_the_records_own_bill_number(stale_seed, capsys):
     assert any("HB 42" in q for q in item["queries"])
     assert item["kind"] == "moratorium"
     assert item["age_days"] >= recheck.STALE_PENDING_DAYS
+
+
+def test_stale_moratorium_never_gets_a_puc_docket_hint(tmp_path, monkeypatch, capsys):
+    """Regression: an earlier version applied DOCKET_SYSTEM_HINTS (a PUC/PSC
+    docket-system map) to moratorium records too, purely because they share
+    a `state_code` field with tariffs/rate_cases -- so a state constitutional-
+    amendment moratorium in Ohio got told to check 'Ohio PUCO docketing',
+    which is nonsense for a legislative/ballot instrument. 'OH' is
+    deliberately IN DOCKET_SYSTEM_HINTS here (unlike the ZZ fixture above) so
+    this actually exercises the bug rather than trivially passing because the
+    dict has no entry to wrongly match."""
+    import refresh as refresh_module
+
+    d = tmp_path / "seed"
+    d.mkdir()
+    old_date = (date.today() - timedelta(days=recheck.STALE_PENDING_DAYS + 5)).isoformat()
+    (d / "moratoriums.json").write_text(json.dumps({
+        "generated_at": date.today().isoformat(),
+        "moratoriums": [{
+            "id": "ohio-state-amendment-2024", "jurisdiction": "Ohio", "jurisdiction_type": "state",
+            "status": "proposed", "duration_description": "Permanent if adopted",
+            "summary": "A proposed constitutional amendment.",
+            "source_url": "https://example.com/oh", "source_title": "Example", "captured_at": old_date,
+            "state_code": "OH",
+        }],
+    }))
+    (d / "tariffs.json").write_text(json.dumps({"generated_at": date.today().isoformat(), "tariffs": []}))
+    (d / "rate_cases.json").write_text(json.dumps({"generated_at": date.today().isoformat(), "rate_cases": []}))
+    monkeypatch.setattr(refresh_module, "SEED_DIR", d)
+    monkeypatch.setattr(recheck, "SEED", d)
+
+    ns = type("NS", (), {"kind": None, "json": True})()
+    recheck.cmd_stale(ns)
+    out = json.loads(capsys.readouterr().out)
+    item = out["items"][0]
+    assert item["id"] == "ohio-state-amendment-2024"
+    assert "PUCO" not in item["docket_hint"]
+    assert "docket" not in item["docket_hint"].lower()
+    assert item["docket_hint"] == "state legislature bill tracker + local council agenda site"

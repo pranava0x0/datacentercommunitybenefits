@@ -36,14 +36,17 @@ import argparse
 import json
 from pathlib import Path
 
+from connectors.scout import _load as _load_seed
+
 ROOT = Path(__file__).resolve().parent.parent
 SEED = ROOT / "data" / "seed"
 
 
 def _load(name: str) -> list[dict]:
-    payload = json.loads((SEED / f"{name}.json").read_text())
-    key = name if name in payload else next(k for k, v in payload.items() if isinstance(v, list))
-    return payload[key]
+    """Thin wrapper around scout._load, pointed at THIS module's `SEED` (kept
+    as its own constant so tests can monkeypatch it independently of scout's).
+    See scout._load's docstring for why the fallback logic lives there once."""
+    return _load_seed(name, seed_dir=SEED)
 
 
 def _filter_state(rows: list[dict], state_field: str, state: str) -> list[dict]:
@@ -57,7 +60,12 @@ def _projects(state: str | None, company: str | None) -> list[dict]:
     if state:
         rows = _filter_state(rows, "state", state)
     if company:
-        rows = [r for r in rows if r.get("company_slug") == company]
+        # company_slug values are lowercase-hyphenated; normalize the same way
+        # --state already is (--state was case-insensitive, --company wasn't --
+        # found by adversarial PR review, 2026-08-24: `--company Google` silently
+        # returned zero rows against a seed that has 32 google-slug projects).
+        want = company.strip().lower()
+        rows = [r for r in rows if (r.get("company_slug") or "").strip().lower() == want]
     return rows
 
 
