@@ -205,8 +205,21 @@ def relevant(title: str) -> bool:
 
 
 # -- seed fingerprints ----------------------------------------------------
-def _load(name: str) -> list[dict]:
-    payload = json.loads((SEED / f"{name}.json").read_text())
+def _load(name: str, seed_dir: Path | None = None) -> list[dict]:
+    """Load one seed payload's list of records, resolving the top-level key
+    even when it doesn't match the filename stem.
+
+    `seed_dir` lets other connector modules (dedupe.py, recheck.py) reuse this
+    exact fallback logic against THEIR OWN `SEED` constant rather than each
+    redefining it — three independent copies of this same 3-line fallback
+    previously existed across scout.py/dedupe.py/recheck.py, found by an
+    adversarial PR review (2026-08-24): a fix to the fallback rule applied to
+    one copy wouldn't propagate to the others. Each caller module still keeps
+    its own module-level `SEED` (needed so tests can monkeypatch it in
+    isolation) and passes it in explicitly here instead.
+    """
+    sd = seed_dir if seed_dir is not None else SEED
+    payload = json.loads((sd / f"{name}.json").read_text())
     key = name if name in payload else next(k for k, v in payload.items() if isinstance(v, list))
     return payload[key]
 

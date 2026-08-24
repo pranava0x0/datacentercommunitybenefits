@@ -1,6 +1,6 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-08-04
-Total projects needing attention: 96
+Generated: 2026-08-24
+Total projects needing attention: 100
 
 ## Critical Missing Commitment Details
 (35 projects)
@@ -43,7 +43,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(61 projects)
+(65 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -51,8 +51,11 @@ Projects with important gaps:
 - **amazon-canton-ms** (construction): power_mw
 - **amazon-clinton-ms** (announced): power_mw
 - **amazon-falls-twp-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **amazon-floydada-tx** (announced): claimed_jobs, power_mw
+- **amazon-fort-stockton-tx** (announced): claimed_jobs, power_mw
 - **amazon-montgomery-city-mo** (announced): power_mw
 - **amazon-richmond-county-nc** (construction): power_mw
+- **amazon-shreveport-la** (announced): power_mw
 - **amazon-vicksburg-ms** (announced): power_mw
 - **amazon-wheatfield-in** (announced): claimed_jobs, power_mw
 - **anthropic-hawesville-ky** (announced): claimed_investment_usd, claimed_jobs
@@ -77,6 +80,7 @@ Projects with important gaps:
 - **google-linn-county-ia** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **google-little-rock-ar** (announced): claimed_jobs, power_mw
 - **google-michigan-city-in** (construction): power_mw
+- **google-owasso-ok** (construction): claimed_jobs, power_mw, ratepayer
 - **google-pine-island-mn** (announced): claimed_investment_usd, power_mw
 - **google-putnam-county-wv** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **google-sand-springs-ok** (announced): claimed_investment_usd, power_mw
@@ -109,11 +113,7 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Bills / Tariffs
-(5 records)
+(1 records)
 
 `proposed` moratoriums/tariffs not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **cleveland-city-2026-04** (moratorium, Cleveland): captured 2026-07-14, 21 days ago
-- **oklahoma-state-sb1488-2026** (moratorium, Oklahoma): captured 2026-07-14, 21 days ago
-- **pennsylvania-state-2026-01** (moratorium, Pennsylvania): captured 2026-07-14, 21 days ago
-- **pennsylvania-state-2026-02** (moratorium, Pennsylvania): captured 2026-07-14, 21 days ago
-- **virginia-state-2026-01** (moratorium, Virginia): captured 2026-07-14, 21 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 25 days ago

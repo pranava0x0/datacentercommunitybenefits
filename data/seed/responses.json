@@ -2420,6 +2420,17 @@
       "source_url": "https://www.datacenterdynamics.com/en/news/aws-looks-to-build-800000-sq-ft-data-center-campus-at-gwu-site-in-ashburn-virginia/",
       "source_title": "DCD — County supervisor vows to fight AWS's GWU-site campus",
       "single_source": true
+    },
+    {
+      "id": "resp-amazon-fort-stockton-pollution-nyt",
+      "project_id": "amazon-fort-stockton-tx",
+      "date": "2026-08-08",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "A New York Times investigation, corroborated the same day by TechCrunch, reported that the Pacifico Energy gas plant financed by Amazon to power its Pecos County campus is permitted by the Texas Commission on Environmental Quality to emit up to 33 million tons of CO2 annually — roughly double the current dirtiest US power plant — and could become the largest single source of climate pollution in the country if run at its permitted ceiling. The report prompted Texas Gov. Greg Abbott to order audits of grid-connected data center projects statewide.",
+      "source_url": "https://techcrunch.com/2026/08/08/planned-amazon-data-center-could-become-the-biggest-climate-polluter-in-the-u-s/",
+      "source_title": "TechCrunch — Planned Amazon data center could become the biggest climate polluter in the U.S. (Aug 8 2026)",
+      "single_source": false
     }
   ]
 }

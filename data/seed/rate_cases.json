@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03",
+  "generated_at": "2026-08-24",
   "rate_cases": [
     {
       "id": "va-scc-dominion-biennial-2025",
@@ -110,7 +110,7 @@
       "filed_date": null,
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Administrative law judge's recommended opinion and ACC open-meeting vote, following the eight-week evidentiary hearing that began May 18, 2026",
+      "next_milestone": "Evidentiary hearing ran roughly eight weeks (May 18 through late July 2026) with 30+ intervenors; ACC is signaling a recommended opinion and Commission vote in late 2026, with new rates unlikely to take effect until early 2027.",
       "next_milestone_date": null,
       "related_tariff_id": "aps-arizona-large-load-rate-case-2025",
       "related_project_ids": null,
@@ -123,7 +123,7 @@
           "title": "APS — 2025 rate case filing page"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "mo-psc-ameren-large-load-2025",
@@ -164,7 +164,7 @@
       "filed_date": "2026-04-24",
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Contested-case schedule approved July 22, 2026 runs toward a decision in 2027; requested rates would take effect mid-2027",
+      "next_milestone": "Procedural schedule established July 30, 2026; Commission denied a motion for reconsideration and amended the schedule August 5, 2026. Extensive intervention includes Google LLC, Sierra Club, IBEW unions, Amazon, and Warrenton-area data-center entities. Discovery ongoing toward a 2027 decision; requested rates would take effect mid-2027.",
       "next_milestone_date": null,
       "related_tariff_id": null,
       "related_project_ids": null,
@@ -172,7 +172,7 @@
       "source_url": "https://efis.psc.mo.gov/Case/Display/105725",
       "source_title": "Missouri PSC EFIS — Case ER-2026-0291 docket sheet",
       "resources": null,
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "mn-puc-xcel-large-load-2026",
@@ -249,7 +249,7 @@
       "filed_date": null,
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Duke and Public Staff must submit the special large-load tariff by the end of September 2026; a final NCUC order on the settlement is expected in fall 2026, with new rates beginning January 1, 2027 if approved",
+      "next_milestone": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement — joined by Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation — was filed July 17, 2026 and amended July 20, 2026, committing Duke and Public Staff to submit the special large-load tariff by the end of September 2026. A final NCUC order on the settlement is expected in fall 2026, with new rates beginning January 1, 2027 if approved.",
       "next_milestone_date": "2026-09-30",
       "related_tariff_id": "duke-nc-large-load-rate-case-2025",
       "related_project_ids": null,
@@ -262,7 +262,7 @@
           "title": "EDF — The Duke Energy settlement is just the beginning for NC data center energy policy"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "nv-pucn-google-esa-2026",
@@ -277,7 +277,7 @@
       "filed_date": "2026-06-26",
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Procedural schedule and hearing follow the July 28, 2026 prehearing conference",
+      "next_milestone": "Prehearing conference held July 28, 2026 per the PUCN's scheduled notice (intervention deadline was July 22, 2026); procedural and hearing schedule to follow from that conference.",
       "next_milestone_date": null,
       "related_tariff_id": "nv-energy-callisto-esa",
       "related_project_ids": null,
@@ -285,7 +285,7 @@
       "source_url": "https://www.nevadaappeal.com/news/2026/jul/14/carson-city-legal-63311/",
       "source_title": "PUCN legal notice (Nevada Appeal) — Docket No. 26-06023 application and prehearing conference",
       "resources": null,
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "ferc-rm26-4-large-loads",
@@ -300,7 +300,7 @@
       "filed_date": "2025-10-23",
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Grid operators respond to the Commission's June 2026 directive to reform large-load interconnection procedures",
+      "next_milestone": "FERC issued Section 206 show cause orders June 18, 2026 to all six RTOs/ISOs and their transmission owners, directing them to justify or reform large-load (including co-located load) interconnection rules; intervention deadline was July 9, 2026. Per FERC's August 4, 2026 Federal Register notice, post-conference comments are due August 21, 2026, and an Alternative Dispute Resolution forum is set to begin September 1, 2026.",
       "next_milestone_date": null,
       "related_tariff_id": null,
       "related_project_ids": null,
@@ -313,7 +313,7 @@
           "title": "FERC — FERC to Act on Large Load Interconnection Docket by June 2026"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "ferc-pjm-colocated-el25-49",
@@ -328,7 +328,7 @@
       "filed_date": null,
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Further PJM compliance filings after FERC's April 2026 partial acceptance",
+      "next_milestone": "Following FERC's April 2026 partial acceptance, PJM filed a further compliance response May 18, 2026 in Docket No. ER26-1088-001; FERC's review of that filing is the proceeding's next major action. PJM's Expedited Interconnection Track for co-located load is targeted to be in place by August 2026.",
       "next_milestone_date": null,
       "related_tariff_id": "ferc-talen-amazon-susquehanna-isa",
       "related_project_ids": null,
@@ -345,7 +345,7 @@
           "title": "Baker Botts — FERC order providing guidance for co-locating power plants with data centers in PJM"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     }
   ]
 }

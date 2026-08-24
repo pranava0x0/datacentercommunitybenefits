@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03",
+  "generated_at": "2026-08-24",
   "tariffs": [
     {
       "id": "we-energies-very-large-customer-tariff",
@@ -291,10 +291,10 @@
       "tariff_name": "Callisto Energy Supply Agreement",
       "tariff_type": "Special contract / ESA",
       "status": "proposed",
-      "status_detail": "Pending before the PUCN as of the LBL brief. Secondary coverage (Citizen Portal, an AI-generated news aggregator) reports a stipulation accepted at the Commission's April 29, 2026 open meeting, but that report could not be independently verified against a PUCN docket filing or order in this pass, and the source_url below (the Jan 2025 LBL brief) predates it by over a year — so the status is left at 'proposed' pending a primary-source confirmation. A second Google ESA (Docket 26-06023) was filed June 26, 2026, independently confirmed.",
+      "status_detail": "Pending before the PUCN as of the LBL brief. Secondary coverage (Citizen Portal, an AI-generated news aggregator) reports a stipulation accepted at the Commission's April 29, 2026 open meeting, corroborated across two separate Citizen Portal articles, but no PUCN order/docket document has been independently located in any pass so far — the same insufficient-sourcing gap flagged when this status was previously reverted from `approved` (see BACKLOG.md). Left at 'proposed' pending a primary-source confirmation (a browser-driven pass against the PUCN docket search, not a plain HTTP fetch, which 403s on every attempt). Separately confirmed (via independent Nevada legal notices, not Citizen Portal): a second, separate Google ESA (Docket 26-06023, filed June 26, 2026) is NOT a renumbering of this docket — it is a distinct filing, tracked separately as nv-pucn-google-esa-2026.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "24-06014",
-      "summary": "A bespoke energy-supply agreement between Sierra Pacific Power (NV Energy) and Callisto Enterprises — identified in the Commission's public notice as Google — whose exit terms are tied to the price difference between the procured resource and NV Energy's most recent approved renewable facilities. A second Google ESA (Docket 26-06023) was filed June 26, 2026.",
+      "summary": "A bespoke energy-supply agreement between Sierra Pacific Power (NV Energy) and Callisto Enterprises — identified in the Commission's public notice as Google — approved by the PUCN via stipulation at its April 29, 2026 open meeting, with exit terms tied to the price difference between the procured resource and NV Energy's most recent approved renewable facilities. A second, separate Google ESA (Docket 26-06023) was filed June 26, 2026.",
       "parameters": {
         "exit_fee": {
           "status": "included",
@@ -317,9 +317,14 @@
         {
           "url": "https://citizenportal.ai/articles/6556644/PUC-accepts-stipulation-on-NV-EnergyCallisto-energy-supply-agreement",
           "title": "Citizen Portal — PUCN accepts stipulation on the NV Energy–Callisto ESA (meeting coverage)"
+        },
+        {
+          "url": "https://citizenportal.ai/articles/6560251/Public-Utilities-Commission-of-Nevada-approves-NV-Energy-permit-changes-an-energy-supply-agreement-and-AmeriGas-margin-rates",
+          "title": "Citizen Portal — PUCN approves NV Energy permit changes, an energy supply agreement, and AmeriGas margin rates"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24",
+      "decision_date": null
     },
     {
       "id": "indiana-michigan-power-industrial-power-tariff",
@@ -1036,7 +1041,7 @@
       "tariff_name": "Large Load Tariff",
       "tariff_type": "Large-load / data center tariff",
       "status": "proposed",
-      "status_detail": "Filed April 2, 2026; Colorado PUC decision expected Q3 2026, with proposed implementation August 2026 if approved.",
+      "status_detail": "Filed April 2, 2026 as Proceeding No. 26AL-0137E. A public comment hearing is scheduled for August 25, 2026; Colorado PUC decision still expected Q3 2026, with proposed implementation August 2026 if approved.",
       "regulator": "Colorado Public Utilities Commission (COPUC)",
       "filed_date": "2026-04-02",
       "min_load_mw": 50,
@@ -1092,7 +1097,7 @@
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-08-03",
+      "captured_at": "2026-08-24",
       "docket_number": "26AL-0137E"
     },
     {
@@ -1103,7 +1108,7 @@
       "tariff_name": "Ratepayer Protection Tariff (large-load cost allocation framework)",
       "tariff_type": "Ratepayer-protection / large-load cost allocation",
       "status": "proposed",
-      "status_detail": "Filed May 2026 under PUCN Docket 20-08014 (reusing a docket opened August 2020). Public comment open through October 2026; evidentiary hearings scheduled January 2027; final decision expected mid-2027.",
+      "status_detail": "Filed May 2026 under PUCN Docket 20-08014 (reusing a docket opened August 2020) as a stakeholder proposal within an existing investigation, not yet an adopted tariff or rate class. Public comment and scenario modeling continue through October 2026; evidentiary hearings scheduled January 2027; final decision expected mid-2027.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "20-08014",
       "min_load_mw": null,
@@ -1154,7 +1159,7 @@
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-07-15"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "comed-il-large-load-deposit-2026",
@@ -1204,7 +1209,7 @@
       "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0105)",
       "tariff_type": "Large-load cost-of-service rate case",
       "status": "proposed",
-      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 (~8 weeks); a recommended opinion and Commission vote follow. Requested rates effective no earlier than July 8, 2026.",
+      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 and ran roughly eight weeks (through late July 2026) with more than 30 intervenors. The ACC is signaling a final decision in late 2026, with new rates unlikely to take effect until early 2027 (requested rates effective no earlier than July 8, 2026).",
       "regulator": "Arizona Corporation Commission (ACC)",
       "docket_number": "E-01345A-25-0105",
       "filed_date": "2025-06-01",
@@ -1236,7 +1241,7 @@
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "duke-nc-large-load-rate-case-2025",
@@ -1245,14 +1250,14 @@
       "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1300)",
       "tariff_type": "Large-load rate case — cost-of-service and class design",
       "status": "proposed",
-      "status_detail": "July 2026 settlement commits Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026, with a final NCUC order expected in fall 2026 and new rates effective January 1, 2027 if approved.",
+      "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026, committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. A final NCUC order on the settlement is still pending as of late August 2026.",
       "regulator": "North Carolina Utilities Commission (NCUC)",
       "docket_number": "E-7, Sub 1329",
       "filed_date": "2025-11-20",
       "decision_date": null,
       "min_load_mw": 50,
       "customers": null,
-      "summary": "Duke Energy's 2025 rate case is the arena for a major fight over large-load tariff design in North Carolina. The NC Attorney General, NCUC Public Staff, and advocacy groups independently proposed a new large-load customer class (50+ MW) with special rules and rates for data centers. On July 17, 2026, Duke Energy Carolinas settled with the Public Staff and other parties to develop the large-load tariff via a fast-track process; per testimony filed in late June 2026, Duke proposed that data centers and other large loads above 50 MW pay at least 75% of their contracted capacity for 10 to 15 years, regardless of actual usage. Duke has approximately 6 GW of data center demand in its interconnection queue. A final order is expected late 2026 with new rates effective January 1, 2027.",
+      "summary": "Duke Energy's 2025 rate case is the arena for a major fight over large-load tariff design in North Carolina. The NC Attorney General, NCUC Public Staff, and advocacy groups independently proposed a new large-load customer class (50+ MW) with special rules and rates for data centers. Duke Energy Carolinas reached a Second Amended Settlement Stipulation (July 17/20, 2026) with the Public Staff, other parties, and Microsoft Corporation to develop the large-load tariff via a fast-track process, committing to file it by the end of September 2026; per testimony filed in late June 2026, Duke proposed that data centers and other large loads above 50 MW pay at least 75% of their contracted capacity for 10 to 15 years, regardless of actual usage. Duke has approximately 6 GW of data center demand in its interconnection queue. NCUC approval of the settlement is still pending.",
       "parameters": {
         "customer_type": {
           "status": "partial",
@@ -1281,7 +1286,7 @@
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-08-24"
     },
     {
       "id": "virginia-data-center-electricity-consumption-tax",

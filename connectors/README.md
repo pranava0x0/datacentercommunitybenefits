@@ -188,3 +188,56 @@ introduce the next) is worth keeping:
   two-gate editorial test for a new company, any stance/constituency call)
   is equally out of scope here — `scout` only gets you to a URL worth
   reading, same as a search engine would.
+
+## `recheck` — turn ISSUES.md's stale list into search queries
+
+`refresh.py --audit` already identifies which `proposed`/`pending`
+moratoriums/tariffs/rate cases haven't been re-checked in `STALE_PENDING_DAYS`
+(21) days and lists them in ISSUES.md. `recheck` imports that same audit
+function directly (never reimplements the "what counts as stale" rule) and
+turns the list into ready-to-run search strings, using each record's own
+bill/docket number when present — much higher-precision than guessing a query
+from the jurisdiction name alone — plus a docket-system hint for the state:
+
+```bash
+python -m connectors.recheck stale
+python -m connectors.recheck stale --kind moratorium --json
+```
+
+It does not verify anything — running the searches, reading the result, and
+deciding whether status changed is still a human/agent call. Follow
+REFRESH.md's "Status re-check checklist": if status changed, update it and
+bump `captured_at`; if you re-confirmed it's unchanged, bump `captured_at`
+anyway (so it stops re-flagging); if you couldn't verify at all (paywall,
+403, no fresh coverage), leave the record — including `captured_at` —
+completely untouched.
+
+## `dedupe` — the pre-flight check that keeps getting skipped
+
+A recurring, named failure mode in this project (see REFRESH.md's 2026-07-14
+entry, **which recurred a week later on the same record**): a lead gets
+pre-flighted by substring-matching the headline's place name against the
+seed and misses an exact duplicate filed under different wording —
+`google-new-florence-mo` shares no substring with the headline that
+re-discovered it as "Montgomery County." The prescribed fix was always "run a
+mechanical check, not a remembered habit" (a `python3 -c "..."` one-liner
+re-typed by hand each time); `dedupe` is that check, formalized so it can be
+run in one command and improved in one place instead of re-derived from
+memory every session:
+
+```bash
+python -m connectors.dedupe projects --state OK
+python -m connectors.dedupe projects --company google
+python -m connectors.dedupe moratoriums --state SC
+python -m connectors.dedupe all --state GA        # every record type, one state, one pass
+python -m connectors.dedupe tariffs --state NV
+python -m connectors.dedupe rate-cases --state NV
+```
+
+Prints every existing record for the state/company you're about to add to —
+no fuzzy matching, no heuristic score, just the list to eyeball. An empty
+result means "no existing record in this state," not "definitely not a
+duplicate" (the seed can have its own data-entry errors). Run this — or
+`connectors.scout`'s heuristic match, which is complementary, not a
+substitute — before adding any new project/moratorium/tariff/rate-case
+record, every time, regardless of how confident the headline's wording seems.

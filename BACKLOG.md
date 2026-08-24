@@ -27,61 +27,119 @@ same-day selection press release. *Acceptance criterion: don't re-add as a
 the 8 community-benefit themes for the host community, not just Amentum's
 own capabilities.*
 
-### Georgia data center moratorium/ordinance wave — largely untracked — **high**
-Found 2026-07-30 while resolving an unrelated Hernando County FL recheck. The
-seed has only 2 Georgia records (`fayetteville-ga-city-2026-03`,
-`georgia-state-2026-01`), but a single overview article
-(northwestgeorgianews.com, "All Georgia data center ordinances — from most to
-least restrictive," itself dated mid-2025) states **32 counties and 21 cities**
-had moratoriums, drafted ordinances, or were drafting ordinances as of June 1,
-2025 — over a year of accumulated activity this dataset has never swept.
-Confirmed-live, concrete threads found in passing (not yet added — this needs
-its own dedicated pass, not a bolt-on to this session):
-- **DeKalb County** — an active, repeatedly-extended moratorium (traced back to
-  ~Dec 2025; extended to June 23, 2026; extended again June 9, 2026 for another
-  100 days, through ~September 2026). Multiple corroborating outlets
-  (roughdraftatlanta.com, atlantanewsfirst.com, wabe.org, saportareport.com).
-  Needs the original enactment date + each extension's exact date pinned down
-  from primary sources before it can be curated as a single coherent record
-  (or a record + notes documenting the extension history).
-- **Coweta County** — a first 180-day moratorium adopted ~Dec 2025 while an
-  ordinance was drafted, with a second moratorium considered around a June 16,
-  2026 commission vote (times-herald.com, wsbtv.com). Status of the June vote
-  not confirmed.
-- **Hall County** — only "debating" per available coverage; per this project's
-  own precedent (a vote to "pursue/study" isn't a moratorium), not yet
-  addable — watch for an actual vote.
-- **Muscogee County** — a "technology overlay" ordinance with a first reading
-  scheduled June 2, 2025 per the overview article; status since unknown.
-*Priority: high — this is the largest known coverage gap in the dataset,
-larger than the Colorado (07-27) or Florida (07-30) waves that got dedicated
-passes. Acceptance criterion: fetch the northwestgeorgianews.com list (or an
-equivalent current roster) in full, cross-reference against the existing 2 GA
-records, and verify+add each jurisdiction with a live primary/gov source
-before shipping — do not bulk-import the overview article's claims without
-per-record verification, per the Moratorium Nation CSV precedent.*
+### Georgia data center moratorium/ordinance wave — partially swept, more remain — **high**
+Found 2026-07-30 (Hernando County FL recheck spillover); first dedicated pass
+2026-08-24 added 6 of the ~53 jurisdictions the northwestgeorgianews.com
+overview article claims had moratoriums/ordinances/drafts as of June 1, 2025
+(32 counties + 21 cities — that count is itself over a year stale by now).
+Georgia went from 2 tracked records to 8: `fayetteville-ga-city-2026-03`,
+`georgia-state-2026-01`, `dekalb-county-ga-2025-12` (added by a sibling
+revalidation pass earlier the same day), plus this pass's
+`cherokee-county-ga-2026-07`, `coweta-county-ga-2026-06`, `augusta-ga-2026-06`,
+`athens-clarke-county-ga-2025-12` (historical — superseded by a permanent
+ordinance April 8, 2026, kept per the append-only convention), and
+`garden-city-ga-2026-06`. Still outstanding:
+- **Hall County** — still only "debating" a 180-day moratorium per the last
+  available coverage (a March 2026 article said a vote was expected "Thursday");
+  no confirmation found that the vote ever happened. Per this project's own
+  precedent (a vote to "pursue/study" isn't a moratorium), not yet addable —
+  watch for a confirmed vote either way.
+- **Muscogee County (Columbus)** — checked 2026-08-24: this is NOT a
+  moratorium. The Columbus Council voted 6-2 in June 2026 to create a
+  "Technology Overlay District" that *permits* hyperscale data centers under
+  new noise/water/generator conditions (tied to the ~600 MW "Project Ruby").
+  It's the opposite direction — an enabling zoning ordinance, not a pause —
+  same shape as the Loudoun County VA precedent (zoning reclassification ≠
+  moratorium). Do not add as a Moratorium record.
+- **The rest of the ~53-jurisdiction list** (northwestgeorgianews.com's roster,
+  now well over a year stale) — this pass only chased the specific threads
+  already named in this backlog entry plus what turned up in general
+  "Georgia data center moratorium ordinance [county]" searches. A systematic
+  sweep of the full original list (or a fresher 2026-dated equivalent roster)
+  against the now-8 tracked GA records still hasn't been done.
+*Priority: high — still the largest known remaining coverage gap in the
+dataset. Acceptance criterion unchanged: use any aggregator/roster as a
+worklist only, verify+add each jurisdiction with a live primary/gov or 2+
+independent-outlet source before shipping — never bulk-import.*
 
-### NV Energy Callisto ESA — newer docket found, still needs a direct fetch — **medium**
-Found 2026-07-30 (this session's moratorium/tariff scout agent + one follow-up
-attempt). `nv-energy-callisto-esa`'s existing docket (`24-06014`) may be stale:
-three independently-published Nevada legal notices (recordcourier.com,
-nevadaappeal.com — Douglas County legal-63310, Carson City legal-63311,
-Churchill County legal-63309, all dated 2026-07-14/15) consistently describe a
-**Docket No. 26-06023**, filed June 26, 2026, a joint application by Sierra
-Pacific Power Company d/b/a NV Energy and **"Callisto Enterprises, LLC"** for
-an *amended* Energy Supply Agreement. WebSearch synthesis (unconfirmed by
-direct fetch) also asserts Callisto Enterprises LLC is a Google shell entity,
-and that the PUCN has since accepted a stipulation — neither claim was
-confirmed against a directly-fetched primary source. Every direct-fetch
-attempt at a primary source 403'd (citizenportal.ai, nevadaappeal.com,
-recordcourier.com) or dead-ended (`puc-onbase.nv.gov`'s docket search requires
-interactive JS form submission, which WebFetch/requests-based tooling cannot
-do). Left the existing record untouched rather than guess at the relationship
-between the two docket numbers. *Priority: medium. Acceptance criterion: an
-interactive-browser pass (Chrome MCP, not WebFetch) against
-`puc-onbase.nv.gov` searching "26-06023" or "Callisto", to confirm the docket
-relationship, the Callisto=Google identity, and current status, before
-updating the record.*
+### Pennsylvania — King of Prussia data center denial + Allentown zoning ordinance — checked, not added — **low**
+Checked 2026-08-24 alongside the PA Governor's EO 2026-05 (added as
+`pennsylvania-state-eo2026-05`). Neither is a jurisdiction-level moratorium:
+- **King of Prussia (Upper Merion Township)** — the Board of Supervisors
+  rejected developer MLP Ventures' plans for five data centers (4.6M sq ft
+  combined) in August 2026, citing an incomplete application (no landscape,
+  traffic, emergency-management or sanitary-sewer plans) after ~18,000
+  signatures of resident opposition. This is a single project's permit fate,
+  not a standing township policy — the developer is suing and has vowed to
+  refile. Watch for Upper Merion adopting an actual data-center ordinance or
+  moratorium out of this fight; the denial itself doesn't qualify.
+- **Allentown** — City Council adopted "Bill 20" (4-2, ~2026-08) setting
+  zoning regulations (500-ft setbacks — the article notes PA municipalities
+  can't legally ban a legitimate land use outright) for future data centers;
+  the pending 100MW J.G. Petrucci proposal is grandfathered under the *old*
+  zoning code since its application predates the ordinance. A permanent
+  zoning ordinance is not a moratorium (Loudoun County VA precedent) — skip.
+*Priority: low — both are dead ends for this record type, logged so a future
+pass doesn't re-research them from scratch.*
+
+### ~~NV Energy Callisto ESA — docket relationship~~ **RESOLVED** (docket question only, 2026-08-24)
+The **docket-relationship** question is resolved: `24-06014` (the original
+ESA) and `26-06023` are genuinely **separate** ESAs, not a renumbering — this
+is independently sourced via Nevada legal notices (recordcourier.com,
+nevadaappeal.com), not Citizen Portal. `26-06023` is a second, later Google
+ESA already tracked under its own record, `nv-pucn-google-esa-2026`. No
+docket-id edit was needed on `nv-energy-callisto-esa`.
+
+**The approval-status question is NOT resolved and status was reverted to
+`proposed`.** This session's stale-recheck pass initially flipped
+`nv-energy-callisto-esa` to `status: approved` on the strength of Citizen
+Portal coverage alone — repeating the exact mistake PR #41 made and a
+follow-up pass explicitly reverted (see the two entries below, both still
+open). A same-session review caught the repeat before merge: the record's own
+`status_detail` admitted "no PUCN order document was independently located,"
+which is precisely the insufficient-sourcing pattern this project's rules
+reject. Reverted back to `proposed`; `decision_date` cleared to null. **Still
+needs**: a browser-driven (not WebFetch/requests) pass against
+`puc-onbase.nv.gov`'s docket search UI for docket 24-06014, per the two
+existing entries below. *Priority: medium, unchanged.*
+
+### Site-scouting backfill leads (real, tracked-company, pre-window) — **medium**
+Found 2026-08-24 by the new-site scouting agent while sweeping the standard
+2026-08-03→08-24 window; explicitly NOT added this pass because they were
+first publicly named before the window (adding them would misrepresent when
+they were "found," and the agent stayed scoped to the window per instructions).
+Real leads for a future pass, not rumors:
+- **CoreWeave Cedar Creek / Bastrop County, TX** (EdgeConneX AUS02) — first
+  named ~March–May 2026.
+- **Crusoe Warrenton, MO** — first named ~Q2 2026.
+- **Crusoe's 2nd Abilene, TX campus** (Microsoft-anchored, ~900 MW) — first
+  named ~Q2 2026, distinct from Crusoe's existing tracked Abilene site.
+- **IREN/Microsoft Childress, TX "Horizon 1"** — the underlying $9.7B contract
+  was announced Nov 2025 (already outside any recent window); this week's
+  news was only a delivery/completion milestone. Not yet in the seed at all.
+*Priority: medium — all four are real, in-scope-company sites; this is a
+coverage gap, not an editorial judgment call. Acceptance criterion: verify
+each against a first-party source + populate the standard Project/Claim
+fields, same bar as any other new-site addition.*
+
+### Borderline leads deliberately NOT added (unconfirmed / too preliminary) — **low, watch only**
+Found 2026-08-24 by the new-site scouting agent — logged so a future pass
+doesn't re-discover the same ambiguity from scratch:
+- **Riot Platforms (Rockdale, TX) $9.1B lease "with Anthropic"** — every
+  source (Bloomberg, CNBC, DCD, Yahoo) hedges this as "reportedly"/anonymous-
+  sourced; neither Riot nor Anthropic has named the counterparty publicly.
+  Re-check once officially confirmed by either party.
+- **Google "possible customer" of MidAmerican's Salix, IA site** — explicitly
+  "no deal set" per reporting, no rezoning/application filed, and there's
+  active contested annexation litigation. Too preliminary for a Project record.
+- **Amazon 18-building Butler County/Cincinnati, OH campus** — still
+  "reportedly"/"aiming to develop" per local reporting, no Amazon
+  confirmation, AND Butler County has an active 6-month data-center
+  moratorium that would block it as described. Watch for either an Amazon
+  confirmation or a moratorium-expiry/exemption before revisiting.
+- **GIC/Macquarie "Theseus Infrastructure" (Anthropic)** — a financing
+  platform announcement with no specific site disclosed yet. Nothing to
+  track until a site is named.
 
 ### New large-load tariff tracker found: halcyon.io — **low**
 Found 2026-07-30. `halcyon.io/large-load-tariff-tracker` is a third-party
