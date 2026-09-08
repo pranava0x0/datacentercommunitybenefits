@@ -4146,6 +4146,123 @@
       "city_council_vote": "Unanimous",
       "session": "2026",
       "captured_at": "2026-08-24"
+    },
+    {
+      "id": "coachella-ca-2026-08",
+      "jurisdiction": "Coachella",
+      "jurisdiction_type": "city",
+      "state_code": "CA",
+      "status": "enacted",
+      "enacted_date": "2026-08-26",
+      "effective_date": "2026-09-25",
+      "duration_months": null,
+      "duration_description": "Permanent citywide prohibition on data center land uses (not time-boxed).",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "summary": "Coachella's City Council adopted Ordinance No. 1231 on August 26, 2026 (effective September 25, 2026), a permanent citywide ban on data center land uses, following public opposition to the proposed Coachella Valley Technology Campus project and a prior 45-day moratorium the council adopted June 4, 2026. The ordinance exempts smaller/incidental uses — \"accessory server rooms, data processing equipment or information technology facilities\" housed within other buildings — and council members cited strained electric infrastructure, water supply, noise, and other environmental and land-use concerns. No specific power (MW) threshold is stated; the exemption is scoped to accessory/incidental space, not a load size.",
+      "source_url": "https://mynewsla.com/riverside/2026/08/25/coachella-city-council-expected-to-permanently-ban-data-centers-citywide/",
+      "source_title": "MyNewsLA — Coachella City Council Expected to Permanently Ban Data Centers Citywide",
+      "resources": [
+        {
+          "url": "https://kesq.com/news/2026/08/25/coachella-city-council-passes-permanent-ban-on-data-centers/",
+          "title": "KESQ — Coachella City Council passes permanent ban on data centers"
+        }
+      ],
+      "policy_type": "Permanent land-use ban (ordinance)",
+      "enacted_by": "Coachella City Council",
+      "session": "2026",
+      "captured_at": "2026-09-08"
+    },
+    {
+      "id": "miamisburg-oh-2026-09",
+      "jurisdiction": "Miamisburg",
+      "jurisdiction_type": "city",
+      "state_code": "OH",
+      "status": "enacted",
+      "enacted_date": "2026-09-01",
+      "effective_date": "2026-09-01",
+      "duration_months": 9,
+      "duration_description": "Nine months",
+      "power_threshold_mw": null,
+      "key_reasons": [],
+      "summary": "Miamisburg City Council voted unanimously (6-0) on September 1, 2026 to impose a nine-month moratorium on new data center development, after developers began marketing the former DP&L Hutchings Power Station site (purchased by Frontier Industrial Corp. in 2021) as a possible data center location. City Manager Chris Fine said the city currently has no development regulations suited to a project of that kind and wanted to be proactive rather than \"get caught off guard by an application that comes in\"; the pause gives the city time to write appropriate zoning and development standards.",
+      "source_url": "https://cityofmiamisburg.com/city-council-approves-nine-month-moratorium-on-data-centers/",
+      "source_title": "City of Miamisburg, Ohio — City Council Approves Nine-Month Moratorium on Data Centers",
+      "resources": [
+        {
+          "url": "https://www.whio.com/news/local/miamisburg-joins-growing-list-ohio-towns-pausing-data-center-growth/7ILJWDRNZ5G5TJFYITY3C4HMLY/",
+          "title": "WHIO — Miamisburg joins growing list of Ohio towns pausing data center growth"
+        }
+      ],
+      "policy_type": "traditional moratorium",
+      "enacted_by": "Miamisburg City Council",
+      "city_council_vote": "6-0 (unanimous)",
+      "session": "2026",
+      "captured_at": "2026-09-08"
+    },
+    {
+      "id": "mattoon-il-2026-09",
+      "jurisdiction": "Mattoon",
+      "jurisdiction_type": "city",
+      "state_code": "IL",
+      "status": "enacted",
+      "enacted_date": "2026-09-01",
+      "effective_date": "2026-09-01",
+      "duration_months": 12,
+      "duration_description": "One year; auto-renews annually unless the City Council acts to change or end it.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "water",
+        "energy",
+        "equity"
+      ],
+      "summary": "The Mattoon City Council voted unanimously (5-0) at its Tuesday, September 1, 2026 meeting to enact a recurring, annually-renewing moratorium on new data center developments larger than 21,780 square feet (about half an acre), covering both Mattoon city limits and the 1.5-mile extraterritorial area where the city holds zoning authority. The city's release cites community questions about how large data centers \"could affect our water, environment, health, power costs, City services, and finances,\" and frames the pause as time to study the costs, benefits, and impacts before allowing such projects.",
+      "source_url": "https://mattoon.illinois.gov/city-news/city-council-passes-data-center-moratorium/",
+      "source_title": "City of Mattoon, Illinois — City Council Passes Data Center Moratorium",
+      "resources": [
+        {
+          "url": "https://www.wcia.com/coles-county/1-year-data-center-moratorium-unanimously-approved-by-mattoon-city-council/",
+          "title": "WCIA — 1-year data center moratorium unanimously approved by Mattoon City Council"
+        }
+      ],
+      "policy_type": "traditional moratorium (auto-renewing)",
+      "enacted_by": "Mattoon City Council",
+      "city_council_vote": "5-0 (unanimous)",
+      "session": "2026",
+      "captured_at": "2026-09-08"
+    },
+    {
+      "id": "texas-state-2026-08",
+      "jurisdiction": "Texas",
+      "jurisdiction_type": "state",
+      "state_code": "TX",
+      "status": "enacted",
+      "enacted_date": "2026-08-03",
+      "effective_date": "2026-08-03",
+      "duration_months": null,
+      "duration_description": "Indefinite administrative pause pending a comprehensive ERCOT/PUCT audit; ERCOT anticipates the audit will take several months, but no fixed end date has been announced.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed.",
+      "source_url": "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/",
+      "source_title": "The Texas Tribune — Gov. Greg Abbott orders audit of Texas data center projects amid grid capacity concerns",
+      "resources": [
+        {
+          "url": "https://www.akingump.com/en/insights/alerts/texas-pauses-data-center-interconnections-pending-statewide-audit",
+          "title": "Akin Gump — Texas Pauses Data Center Interconnections Pending Statewide Audit"
+        }
+      ],
+      "policy_type": "administrative pause pending audit (governor's directive)",
+      "enacted_by": "Governor Greg Abbott (directive to PUCT and ERCOT)",
+      "session": "2026",
+      "captured_at": "2026-09-08"
     }
   ]
 }
