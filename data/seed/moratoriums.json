@@ -4240,8 +4240,8 @@
       "jurisdiction": "Texas",
       "jurisdiction_type": "state",
       "state_code": "TX",
-      "status": "proposed",
-      "enacted_date": null,
+      "status": "enacted",
+      "enacted_date": "2026-08-03",
       "effective_date": "2026-08-03",
       "duration_months": null,
       "duration_description": "Indefinite administrative pause pending a comprehensive ERCOT/PUCT audit; ERCOT anticipates the audit will take several months, but no fixed end date has been announced.",
@@ -4250,7 +4250,7 @@
         "energy",
         "water"
       ],
-      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape. On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process in response. This is a pause pending audit, not a permanent ban on data centers — no project has been permanently barred, and status is tracked as 'proposed' pending the audit's outcome rather than 'enacted'.",
+      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed.",
       "source_url": "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/",
       "source_title": "The Texas Tribune — Gov. Greg Abbott orders audit of Texas data center projects amid grid capacity concerns",
       "resources": [
