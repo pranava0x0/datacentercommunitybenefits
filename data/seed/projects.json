@@ -4330,6 +4330,30 @@
       "at_a_glance": {
         "infrastructure": "$900M / 3 buildings ('Horizon Junction') filed Aug 2026"
       }
+    },
+    {
+      "id": "microsoft-fayetteville-ga",
+      "company_slug": "microsoft",
+      "name": "Fairwater Atlanta (Azure AI Superfactory)",
+      "city": "Fayetteville",
+      "state": "GA",
+      "country": "US",
+      "lat": 33.4487,
+      "lon": -84.4549,
+      "status": "operational",
+      "announced_year": 2025,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Microsoft's second 'Fairwater' AI-datacenter site (after Mount Pleasant, WI — ms-mt-pleasant-wi), unveiled publicly November 12, 2025 and directly networked to the Wisconsin site via a dedicated fiber 'AI WAN' to function as what Microsoft calls its first AI 'superfactory'. Sits on the original 615-acre QTS (Blackstone subsidiary) 'Main Campus' at 1435 Highway 54 West, Fayetteville, Fayette County, GA — QTS acquired this parcel in August 2022 for $153.8M and owns/leases the site to Microsoft; this is distinct from QTS's adjacent, separately-tracked 313-acre East Campus expansion (qts-fayetteville-ga), which combined with this Main Campus forms QTS's ~928-acre Fayetteville campus footprint. Operations began October 2025 (certificate of occupancy issued May 2025); over 1M sq ft, two-story building design. Third-party estimates (epoch.ai, cleanview.co) put this site at ~636 MW IT power, ~$24.1B capital cost, and ~743K H100-equivalent chips — NOT confirmed by Microsoft's own disclosures and not used for this record's power_mw/claimed_investment_usd/gpu_count fields, per this dataset's first-party-only rule for structured figures.",
+      "source_url": "https://news.microsoft.com/source/features/ai/from-wisconsin-to-atlanta-microsoft-connects-datacenters-to-build-its-first-ai-superfactory/",
+      "source_title": "Microsoft Source — From Wisconsin to Atlanta: Microsoft connects datacenters to build its first AI superfactory",
+      "captured_at": "2026-09-08",
+      "project_page_url": null,
+      "acreage": 615,
+      "power_mw": null,
+      "gpu_count": null,
+      "offtaker": "Microsoft",
+      "at_a_glance": null
     }
   ]
 }

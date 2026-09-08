@@ -1076,3 +1076,104 @@ selector once the card markup is fixed.
   the 2026-08-24 type/accent unification they still render the old look
   (separate display serif, red chrome). Port the exports' inline styles to
   the new two-font / navy-accent language. (low)
+
+## Data gaps (2026-09-08 refresh)
+
+- **Tribal-nation data center bans have no home in `MoratoriumJurisdictionType`
+  (`Literal["city", "county", "state", "federal"]`)** — a sovereign tribal
+  nation doesn't fit any of the four cleanly. At least 3 tribal nations
+  enacted their own data-center bans/moratoriums on tribally-owned/trust land
+  in 2026: **Cherokee Nation, OK** (announced 2026-08-10 by Principal Chief
+  Chuck Hoskin Jr., following the Nation's own Data Center Task Force report),
+  the **Seminole Nation** (March 2026), and the **Kickapoo Tribe** (July
+  2026). Per this project's frozen-taxonomy convention (CLAUDE.md's "Theme
+  taxonomy" / delivered-statuses / ratepayer-statuses precedent — "add a
+  category = deliberate migration + BACKLOG entry," never force a value into
+  the wrong bucket), none of these should be added as `state` or `federal`
+  moratorium records. Adding a `"tribal"` (or similar) enum value is a
+  deliberate schema decision for a human to make — it's the first tribal
+  record this dataset would carry, so there's no existing data to migrate,
+  just the new category + a parity check anywhere the taxonomy is mirrored
+  (frontend jurisdiction-type filters, state/jurisdiction rollups, etc. — a
+  tribal nation isn't a "state" for rollup purposes either, which needs its
+  own design thought before the first record lands).
+  Leads for whoever picks this up: KGOU, Tom's Hardware, KOSU, and Tribal
+  Business News coverage of the 2026-08-10 Cherokee Nation announcement.
+  (medium — real, dated leads exist and are ready to curate the moment the
+  schema question is resolved)
+
+- **Otter Tail Power's Minnesota data center rate class — NOT added, docket
+  number unconfirmed via any fetchable source (2026-09-08).** The lead:
+  Otter Tail Power filed a "Large General Service – Tier II – Time of Day"
+  very-large-customer class and a "Tier III – High Power Compute (HPC)" data
+  center rate schedule with the Minnesota PUC around May 2026, alongside
+  Xcel's already-tracked (and already-approved) large-load tariff, both
+  responding to Minnesota's 2025 large-load legislation (Laws 2025, 1st
+  Special Session, Ch. 12 / HF16). Extensive verification attempts this pass
+  could not confirm it: `mn.gov/puc/activities/v-l-e-c/` and its
+  `/data-centers/` subpage both redirect to a PerimeterX/ShieldSquare bot-wall
+  (`validate.perfdrive.com`) on every WebFetch attempt; `otpco.com` pages
+  403'd; a directly-fetched MN PUC "Notice of Comment Period" PDF found via
+  search turned out to be an unrelated Minnesota Power/Google ESA docket
+  (E-015/M-26-159); Fresh Energy's own "What's up with data centers in
+  Minnesota?" page (used elsewhere in this dataset as a live source) says only
+  "Minnesota Power and Otter Tail Power will have similar dockets in the
+  future" with no docket number; and CUB Minnesota's rate-case writeup covers
+  a *different*, unrelated Otter Tail docket (25-359, a general 17.69% rate
+  increase filed Oct. 2025). Two different docket numbers (26-211, 26-126)
+  surfaced only in WebSearch's synthesized answers, never in directly-fetched
+  page text, and 26-126 is independently confirmed (via the MN PUC PDF above)
+  to belong to *Minnesota Power's* large power tariff, not Otter Tail's — a
+  textbook instance of the cross-deal-conflation risk this dataset's sourcing
+  rules warn about. What IS confirmed (via a direct KELOLAND fetch): Otter
+  Tail filed a parallel, separately-docketed South Dakota version — Docket
+  EL26-021 (filed ~July 27, 2026, per SD SB135), an explicit 75 MW threshold,
+  and the company stated it currently has zero data-center customers on its
+  system. Do not reuse the South Dakota docket number or the 75 MW figure for
+  a Minnesota record — confirm Minnesota's own docket and terms independently
+  before adding. (medium)
+
+- **Microsoft Fairwater Atlanta (`microsoft-fayetteville-ga`) — project added,
+  no Claim shipped (2026-09-08).** Fetched Microsoft's own blog post
+  (news.microsoft.com "From Wisconsin to Atlanta...") and the AJC piece
+  looking for a named-executive verbatim quote about community impact (jobs,
+  tax revenue, energy, water, grants, infrastructure, education, engagement)
+  for this specific site; DataCenterDynamics's own coverage 403'd on every
+  attempt. Found only technical-architecture quotes (Mark Russinovich,
+  Alistair Speirs, both about the "superfactory" networking concept) and an
+  unattributed/ambiguous "consumes almost zero water" mention in AJC that
+  wasn't clearly a direct Microsoft quote — nothing that clears the
+  first-party community-impact bar. Re-check DCD directly (blocked this
+  pass) and Fayette County government sources for a jobs/tax/engagement
+  quote tied to this site specifically. Also note: roughdraftatlanta.com's
+  coverage described the site as "South Fulton County near Palmetto," which
+  conflicts with AJC + third-party trackers (epoch.ai, compute-atlas,
+  cleanview.co) all agreeing on Fayetteville/Fayette County — went with the
+  latter (matches this dataset's existing `qts-fayetteville-ga` record for
+  the same QTS campus), but worth a second look if a future pass finds a
+  stronger primary source on county. (low)
+
+- **Anthropic + Fluidstack ($50B, TX + NY) — NOT added, per the research
+  brief's explicit high-risk instruction (2026-09-08).** Directly fetched
+  BOTH primary sources: Anthropic's own
+  `anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure`
+  and Fluidstack's own
+  `fluidstack.io/blog/fluidstack-selected-by-anthropic-to-deliver-custom-data-centers-in-the-us`.
+  Neither names a specific town, city, or county for either state — both say
+  only "Texas and New York, with more sites to come." No project record
+  added, per the brief's instruction not to guess a site from third-party
+  candidates (a TeraWulf/Fluidstack "Abernathy" TX site, a Cipher Mining/
+  Fluidstack 244MW TX site, and a TeraWulf "Lake Mariner" NY site that one
+  search result attributed to a *Google*-backed Fluidstack deal, not
+  Anthropic's — exactly the cross-deal conflation risk the brief flagged).
+  Fluidstack's own blog DOES carry one usable first-party, named-executive,
+  verbatim quote not tied to a specific site: Dario Amodei (Anthropic CEO) —
+  "This investment reflects both Fluidstack and Anthropic's commitment to
+  technological leadership and meaningful economic impact in the communities
+  where we operate," plus company-wide figures (~800 permanent jobs averaging
+  ~$144,000/year, ~2,400 construction jobs, "sites coming online throughout
+  2026"). Not shipped as a Claim this pass either, since it has no project to
+  attach to and reads as boilerplate without a named site — worth revisiting
+  once either state's specific town is confirmed by a primary source, at
+  which point both the project AND this quote become addable together.
+  (medium — re-check in ~4-6 weeks once site selection is likely public)

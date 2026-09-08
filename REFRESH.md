@@ -957,3 +957,102 @@ re-derived by hand (or by prose reminder) every single session:
   `connectors/README.md` documents both; `python -m pytest tests/` (524
   tests) still passes unchanged, since neither script touches `schema.py` or
   `refresh.py`'s public behavior.
+
+---
+
+### 2026-09-08 refresh pass — pre-researched brief, verification-only
+
+Scope: curator pre-ran WebSearch on 8 leads (research_brief_2026-09-08.md) and
+handed off verification + primary-source-fetch + curation only — no new
+scouting. Worked A1-A4 (moratoriums), C5-C6 (tariffs), then D7/D8 (projects)
+last, per the brief's own risk-ordering.
+
+**Added:** 4 moratoriums (`coachella-ca-2026-08`, `miamisburg-oh-2026-09`,
+`mattoon-il-2026-09`, `texas-state-2026-08`), 1 tariff
+(`northwestern-energy-mt-2026-03`), 1 project (`microsoft-fayetteville-ga`,
+no Claim — see BACKLOG). Otter Tail Power's MN tariff and the Anthropic/
+Fluidstack project were investigated and deliberately NOT added; the tribal
+moratorium gap was logged, not force-fit. See BACKLOG.md for full detail on
+every non-add.
+
+- **A dateline on a city's own press page is not the event date.**
+  Mattoon's own `mattoon.illinois.gov` release was dated "September 3, 2026"
+  but its body said "Tuesday night's City Council meeting" — a mechanical
+  day-of-week check (`python3 -c "import datetime; print(datetime.date(2026,9,3).strftime('%A'))"`)
+  showed Sept 3 is a Thursday, so the meeting was actually the preceding
+  Tuesday, Sept 1 (independently confirmed: Miamisburg's own release the same
+  week explicitly named "Tuesday, September 1, 2026" for its own vote).
+  Publish date and event date routinely differ on these city-site
+  announcements; when a source only says "Tuesday night" without a calendar
+  date, check what day of the week its own dateline actually falls on before
+  trusting an inferred date.
+- **A WebFetch tool's own text extraction can silently insert an inference
+  as if it were quoted text.** The first fetch of the Mattoon page returned
+  "(September 3, 2026)" appended right after "Tuesday night's City Council
+  meeting" with no indication it wasn't in the source — a second, narrower
+  fetch asking specifically "what date does the text itself state" surfaced
+  that the page never states a meeting date at all, only "Tuesday night."
+  When a date matters for `enacted_date`, ask the fetch tool explicitly
+  whether a date is quoted verbatim vs. inferred, don't take a parenthetical
+  at face value.
+- **`mn.gov/puc` is behind a PerimeterX/ShieldSquare bot-wall that WebFetch
+  cannot pass** (redirects to `validate.perfdrive.com` every time, for both
+  `/puc/activities/v-l-e-c/` and its `/data-centers/` subpage) — worth noting
+  alongside the project's existing "confirmed-live isn't confirmed-fetchable"
+  list (njleg.state.nj.us, datacenterdynamics.com on a full GET, cpr.org,
+  enr.com). `otpco.com` also 403'd on every direct fetch this pass.
+- **A docket number that only ever appears in WebSearch's synthesized answer,
+  never in a directly-fetched page's actual text, should not be trusted even
+  when it recurs across multiple searches.** Two different Minnesota PUC
+  docket numbers (26-211, 26-126) surfaced for Otter Tail Power's data-center
+  tariff filing across separate searches; directly fetching a PDF found via
+  one of those searches showed 26-126 actually belongs to a *different*
+  utility's (Minnesota Power's) unrelated large-power-tariff docket. Search
+  synthesis reusing a plausible-looking docket number across unrelated
+  utilities in the same state is a new variant of the existing
+  "WebSearch cross-result contamination" lesson (2026-07-14) — this time at
+  the level of an identifier, not a fact. The Otter Tail MN tariff was left
+  unshipped rather than guessing between the two numbers.
+- **A legal filing PDF (motion, complaint, comment notice) fetched directly
+  is a reliable way to pull a confirmed docket number when press coverage
+  won't state one.** Two PSC filings — a Minnesota PUC "Notice of Comment
+  Period" and an Earthjustice "Motion to Clarify Scope" before the Montana
+  PSC — both had the exact docket number in their caption/header, extracted
+  cleanly via `mcp__PDF_Tools__fetch_pdf_from_url` + `read_pdf_content` after
+  WebFetch returned only a garbled binary stream for the same URL. When a
+  press release won't name a docket number, look for the underlying legal
+  filing PDF (via Earthjustice/law-firm/PUC sites) and read it with a PDF
+  tool rather than WebFetch.
+- **The "second Fairwater site" required disambiguating from an
+  already-tracked adjacent QTS record, not just checking for an exact-name
+  duplicate.** Microsoft's Fairwater Atlanta sits on QTS's original 615-acre
+  "Main Campus" in Fayetteville, GA; the seed already tracked a *different*,
+  adjacent 313-acre "East Campus" expansion on the same combined 928-acre
+  QTS footprint (`qts-fayetteville-ga`, company_slug=qts). The dedupe
+  pre-flight (`connectors.dedupe projects --state GA`) correctly showed no
+  literal duplicate, but understanding the two records describe two
+  physically distinct (if adjacent) parcels under two different operators —
+  QTS as landlord/owner on both, Microsoft operating its own equipment on the
+  older parcel — took a direct cross-read of both records' acreage figures
+  plus a second source (AJC) confirming the 615/313/928 split. Added as
+  company_slug=microsoft (Microsoft operates its own "Fairwater" architecture
+  there, distinct from the Oracle-hosts-OpenAI / AWS-hosts-Anthropic
+  colocation pattern where the landlord company_slug is the operator) with
+  notes cross-referencing `qts-fayetteville-ga` explicitly so a future
+  curator doesn't re-flag either as a duplicate of the other.
+- **No first-party community-impact quote existed for Microsoft Fairwater
+  Atlanta despite real effort** (Microsoft's own blog, AJC, DCD blocked,
+  roughdraftatlanta.com) — the only named-executive quotes found were about
+  network architecture ("superfactory" concept), not jobs/tax/water/
+  engagement. Shipped the project without a Claim, per the "quote or skip"
+  rule — logged to BACKLOG rather than force-fitting a technical quote into
+  a community-benefit theme.
+- **The Anthropic/Fluidstack lead resolved exactly as the brief predicted it
+  might: cleanly empty.** Both Anthropic's own press page and Fluidstack's
+  own blog, fetched directly, state only "Texas and New York, with more
+  sites to come" — neither names a town. No project shipped. Fluidstack's
+  blog did carry one genuine first-party company-wide quote (Amodei, on
+  "meaningful economic impact in the communities where we operate") with no
+  site to attach it to — logged to BACKLOG as a quote to pair with a project
+  once a specific site is confirmed, rather than shipped as an orphaned,
+  boilerplate-reading company claim.

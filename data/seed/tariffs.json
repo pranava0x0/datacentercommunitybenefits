@@ -1394,6 +1394,62 @@
         }
       ],
       "captured_at": "2026-08-03"
+    },
+    {
+      "id": "northwestern-energy-mt-2026-03",
+      "utility": "NorthWestern Energy",
+      "state": "MT",
+      "jurisdiction_level": "state",
+      "tariff_name": "Large New Load Service Tariff Rule, Rule No. 24 (\"LNL Rule\")",
+      "tariff_type": "Data center / large-load tariff",
+      "status": "proposed",
+      "status_detail": "Application pending before the Montana PSC as of this pass (Docket No. 2026.04.023). A coalition of ratepayer, environmental, and Indigenous-led groups (Big Sky 55+, Butte Watchdogs for Social and Environmental Justice, Climate Smart Missoula, Helena Interfaith Climate Advocates, Honor the Earth, Montana Environmental Information Center, Montana Public Interest Research Group, and NW Energy Coalition), represented by Earthjustice, intervened June 15, 2026 seeking a mandatory ratepayer-protective tariff and a separate data-center customer class rather than NorthWestern's proposed rule. NorthWestern opposes the intervenors' motion to clarify/expand the docket's scope; the Montana Department of Environmental Quality, Missoula County, the Large Customer Group, and the Northwest & Intermountain Power Producers Coalition had not taken a position as of the intervenors' July 9, 2026 filing.",
+      "regulator": "Montana Public Service Commission (PSC)",
+      "docket_number": "2026.04.023",
+      "filed_date": "2026-03-31",
+      "decision_date": null,
+      "min_load_mw": 5.0,
+      "customers": null,
+      "summary": "NorthWestern Energy's proposed Large New Load Service Tariff Rule (Rule No. 24) would set requirements and contract terms — minimum service commitments, billing, collateral/performance assurance, and termination-cost provisions — for serving new or expanded loads of 5 MW or more, including data centers; loads of 50 MW or more require Montana PSC review before service begins.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to new or expanded bundled-customer loads of 5 MW or greater; PSC review is required specifically for loads of 50 MW or more before NorthWestern can serve them."
+        },
+        "credit_collateral": {
+          "status": "included",
+          "detail": "Includes collateral and performance-assurance requirements for qualifying large new loads."
+        },
+        "exit_fee": {
+          "status": "included",
+          "detail": "Includes termination-cost provisions for large new load customers that exit service early."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Confidentiality of data-center agreements",
+          "detail": "A related PSC protective order (Dkt. No. 2025.11.084, granted Dec. 2025) shields NorthWestern's letters of intent with three prospective data-center developers (up to 1,400 MW combined) from public disclosure; the same intervenor coalition is separately challenging that confidentiality order, arguing Montanans have a right to know and participate in decisions affecting their utility bills.",
+          "source_url": "https://earthjustice.org/press/2026/groups-challenge-montana-psc-order-that-shields-data-center-plans-from-public-view"
+        }
+      ],
+      "legislation": [],
+      "source_url": "https://northwesternenergy.com/about-us/our-company/2026/04/01/northwestern-energy-submits-large-new-load-tariff-proposal-to-strengthen-customer-safeguards-and-support-montana-s-energy-future-and-economic-growth",
+      "source_title": "NorthWestern Energy — NorthWestern Energy Submits Large New Load Tariff Proposal to Strengthen Customer Safeguards and Support Montana's Energy Future and Economic Growth",
+      "resources": [
+        {
+          "url": "https://dailymontanan.com/2026/04/02/northwestern-energy-files-data-center-tariff-proposal/",
+          "title": "Daily Montanan — NorthWestern Energy files data center tariff proposal"
+        },
+        {
+          "url": "https://earthjustice.org/press/2026/groups-seek-intervention-in-northwestern-energy-data-center-tariff-proceeding",
+          "title": "Earthjustice — Groups Seek Intervention in NorthWestern Energy Data Center Tariff Proceeding"
+        },
+        {
+          "url": "https://earthjustice.org/wp-content/uploads/2026/07/2026-07-09-motion-to-clarify-scope-and-brief-in-support.pdf",
+          "title": "Earthjustice — Intervenors' Motion to Clarify the Scope and Brief in Support, Dkt. No. 2026.04.023 (PDF)"
+        }
+      ],
+      "captured_at": "2026-09-08"
     }
   ]
 }

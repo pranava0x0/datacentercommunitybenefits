@@ -1,9 +1,9 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-08-24
-Total projects needing attention: 100
+Generated: 2026-09-08
+Total projects needing attention: 101
 
 ## Critical Missing Commitment Details
-(35 projects)
+(36 projects)
 
 Projects missing required fields based on status:
 - **amazon-bossier-parish-la** (construction): claimed_investment_usd
@@ -29,6 +29,7 @@ Projects missing required fields based on status:
 - **microsoft-boydton-va** (operational): power_mw
 - **microsoft-douglasville-ga** (construction): claimed_investment_usd
 - **microsoft-el-mirage-az** (operational): claimed_investment_usd, power_mw
+- **microsoft-fayetteville-ga** (operational): claimed_investment_usd, power_mw
 - **microsoft-heath-oh** (construction): claimed_investment_usd
 - **microsoft-hebron-oh** (construction): claimed_investment_usd
 - **microsoft-la-porte-in** (construction): claimed_investment_usd
@@ -116,4 +117,11 @@ Projects with important gaps:
 (1 records)
 
 `proposed` moratoriums/tariffs not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 25 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 40 days ago
+
+## Moratorium link-liveness audit
+
+| Date | Record | Issue | Recommended action | Status |
+|------|--------|-------|-------------------|--------|
+| 2026-09-08 | moratoriums:coachella-ca-2026-08 | No gov/official source URL | Add a .gov or official legislative link | Open |
+| 2026-09-08 | moratoriums:texas-state-2026-08 | No gov/official source URL | Add a .gov or official legislative link | Open |
