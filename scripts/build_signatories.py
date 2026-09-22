@@ -30,6 +30,7 @@ panel gets its governor row for free.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import gzip
 import html as html_mod
 import json
@@ -94,6 +95,10 @@ DOE_TRACK_SLUGS = {"qts"}
 WH_TRACK = "white-house-2026-03-04"
 DOE_TRACK = "doe-2026-04-24"
 EXPANSION_TRACK = "expansion-2026-07-23"
+# Rows that were not on the previous snapshot. The roster is a living list and
+# publishes no join dates, so a rolling add carries `signed_date: null` and a
+# note saying which snapshot first showed it — never a guessed date.
+ROLLING_TRACK = "rolling"
 
 TRACK_DATES = {
     WH_TRACK: "2026-03-04",
@@ -117,12 +122,16 @@ UTILITY_ALIASES: dict[str, list[str]] = {
     "Duke Energy": [
         "Duke Energy Carolinas / Duke Energy Progress",
         "Duke Energy Indiana",
+        "Duke Energy Carolinas",
     ],
-    "Entergy Corporation": ["Entergy Mississippi"],
+    "Entergy Corporation": ["Entergy Mississippi", "Entergy Louisiana"],
+    "Ameren Corporation": ["Ameren Missouri", "Ameren Missouri (Union Electric)"],
+    "NorthWestern Energy": ["NorthWestern Energy"],
     "Georgia Power; Mississippi Power; Alabama Power": ["Georgia Power"],
     "Idaho Power": ["Idaho Power"],
     "Indiana Michigan Power": ["Indiana Michigan Power (I&M, an AEP utility)"],
     "Portland General Electric": ["Portland General Electric (PGE)"],
+    "PPL Corporation": ["PPL Electric Utilities"],
     "Xcel Energy": [
         "Public Service Company of Colorado (Xcel Energy)",
         "Xcel Energy (Northern States Power — Minnesota)",
@@ -132,17 +141,30 @@ UTILITY_ALIASES: dict[str, list[str]] = {
     "Berkshire Hathaway Energy": [
         "NV Energy",
         "NV Energy (tariff proposed by Microsoft)",
+        "NV Energy (Sierra Pacific Power)",
     ],
     "Exelon Corporation": ["Commonwealth Edison (ComEd)"],
     "MDU Resources Group": ["Montana-Dakota Utilities (MDU)"],
+    "NiSource": ["NIPSCO (Northern Indiana Public Service Company)"],
 }
+
+# THIS DICT IS THE SOURCE OF TRUTH FOR ALIASES. The seed is rebuilt from it, so
+# an alias added by hand to signatories.json alone is silently dropped on the
+# next rebuild (2026-09-21: six were, all from the rate-case pass — Ameren,
+# NiSource, NorthWestern, and extra NV Energy / Duke / Entergy spellings).
+# Add aliases here, then re-run the builder.
 
 PARENT_ALIAS_NAMES = {
     "WEC Energy Group",
     "Berkshire Hathaway Energy",
     "Exelon Corporation",
     "MDU Resources Group",
+    "NiSource",
 }
+PARENT_ALIAS_NOTE = (
+    "Roster row is the parent holding company; the tariffs tracked here "
+    "are filed by its operating utility."
+)
 
 # The 23 governors who signed the addendum, from the RGA release (2026-07-23).
 # Hand-curated because the White House roster does not list them.
@@ -213,13 +235,58 @@ def fetch(url: str, *, cached_only: bool = False) -> str:
     return text
 
 
-def parse_roster(html: str, captured: str) -> tuple[list[dict], dict[str, int]]:
+def _join_notes(*parts: str | None) -> str | None:
+    kept = [p.strip() for p in parts if p and p.strip()]
+    return " ".join(kept) if kept else None
+
+
+def _previous_lookup(previous: dict | None) -> tuple[dict[str, dict], dict[str, dict], str]:
+    """Index the previous seed snapshot by id and by domain.
+
+    The domain index is what turns a source-page spelling fix ("Digital
+    Reality" -> "Digital Realty", 2026-09-21) into a RENAME that keeps the
+    organization's original track and date, instead of an unexplained removal
+    plus a brand-new "rolling" signatory.
+    """
+    if not previous:
+        return {}, {}, ""
+    by_id: dict[str, dict] = {}
+    by_domain: dict[str, dict] = {}
+    shared_domains: set[str] = set()
+    for rec in previous.get("signatories", []):
+        by_id[rec["id"]] = rec
+        dom = rec.get("website_domain")
+        if dom:
+            if dom in by_domain:
+                shared_domains.add(dom)
+            else:
+                by_domain[dom] = rec
+    for dom in shared_domains:
+        del by_domain[dom]
+    return by_id, by_domain, previous.get("roster_as_of", "")
+
+
+def parse_roster(
+    html: str, captured: str, previous: dict | None = None
+) -> tuple[list[dict], dict[str, int]]:
+    """Parse the roster page into records.
+
+    `previous` is the seed payload from the last snapshot (None on a cold
+    bootstrap). A row already on it keeps that snapshot's track, date and
+    notes; a row that is new to the roster goes on ROLLING_TRACK with no
+    date. Without `previous`, every non-March/DOE row is the July cohort —
+    the original bootstrap behaviour, correct exactly once.
+    """
+    by_id, by_domain, prev_as_of = _previous_lookup(previous)
     rows = ROW_RE.findall(html)
     if not rows:
         raise SystemExit(
             "Parsed zero roster rows — the page markup changed. Inspect the cached "
             f"HTML in {CACHE} and update ROW_RE before trusting any output."
         )
+
+    current_names = {html_mod.unescape(raw_name).strip() for _, _, raw_name in rows}
+    current_domains = Counter(domain for domain, _, _ in rows if domain)
 
     stated = {}
     for cat, n in CHIP_RE.findall(html):
@@ -236,11 +303,6 @@ def parse_roster(html: str, captured: str) -> tuple[list[dict], dict[str, int]]:
             raise SystemExit(f"Unknown roster chip {chip!r} on row {name!r} — map it first.")
         if slug in HYPERSCALER_SLUGS:
             category = "hyperscaler"
-            track = WH_TRACK
-        elif slug in DOE_TRACK_SLUGS:
-            track = DOE_TRACK
-        else:
-            track = EXPANSION_TRACK
 
         # Distinct organizations can share a name — the roster carries two
         # separate "Southeastern Electric Cooperative" rows on different
@@ -257,12 +319,52 @@ def parse_roster(html: str, captured: str) -> tuple[list[dict], dict[str, int]]:
                 raise SystemExit(f"Cannot disambiguate duplicate roster row {name!r}.")
         seen.add(sid)
 
+        domain_prior = by_domain.get(domain) if domain and current_domains[domain] == 1 else None
+        if domain_prior and domain_prior["name"] in current_names:
+            domain_prior = None
+        prior_by_id = by_id.get(sid)
+        prior = prior_by_id or domain_prior
+        carried_note: str | None = None
+        if slug in HYPERSCALER_SLUGS:
+            track, signed = WH_TRACK, TRACK_DATES[WH_TRACK]
+        elif slug in DOE_TRACK_SLUGS:
+            track, signed = DOE_TRACK, TRACK_DATES[DOE_TRACK]
+        elif prior is not None:
+            track, signed = prior["signed_track"], prior.get("signed_date")
+            prior_note = prior.get("notes")
+            if prior_note:
+                prior_note = prior_note.replace(PARENT_ALIAS_NOTE, "").strip() or None
+            if prior["id"] != sid:
+                rename_note = (
+                    f"Roster spelling changed from {prior['name']!r} (as of "
+                    f"{prev_as_of}) to {name!r}; same organization and domain "
+                    f"({domain}). Signing track and date carried over."
+                )
+                carried_note = _join_notes(
+                    prior_note,
+                    rename_note,
+                )
+            else:
+                carried_note = prior_note
+        elif previous is None:
+            track, signed = EXPANSION_TRACK, TRACK_DATES[EXPANSION_TRACK]
+        else:
+            track, signed = ROLLING_TRACK, None
+            carried_note = (
+                f"Not on the {prev_as_of} roster snapshot; first observed in the "
+                f"{captured} snapshot. The roster does not publish join dates, so "
+                "none is recorded."
+            )
+
+        parent_note = None
+        if name in PARENT_ALIAS_NAMES:
+            parent_note = PARENT_ALIAS_NOTE
         rec = {
             "id": sid,
             "name": name,
             "category": category,
             "signed_track": track,
-            "signed_date": TRACK_DATES[track],
+            "signed_date": signed,
             "state": None,
             "website_domain": domain or None,
             "source_url": PLEDGE_ROSTER_URL,
@@ -270,13 +372,8 @@ def parse_roster(html: str, captured: str) -> tuple[list[dict], dict[str, int]]:
             "captured_at": captured,
             "matched_company_slug": slug,
             "utility_aliases": UTILITY_ALIASES.get(name, []),
-            "notes": None,
+            "notes": _join_notes(parent_note, carried_note),
         }
-        if name in PARENT_ALIAS_NAMES:
-            rec["notes"] = (
-                "Roster row is the parent holding company; the tariffs tracked here "
-                "are filed by its operating utility."
-            )
         out.append(rec)
     return out, stated
 
@@ -317,17 +414,63 @@ def _substance(rec: dict) -> dict:
     return {k: v for k, v in rec.items() if k not in SNAPSHOT_FIELDS}
 
 
+def _classify_changes(
+    old: dict[str, dict], new: dict[str, dict]
+) -> tuple[list[str], list[tuple[str, str]], list[str]]:
+    """Pair renames only when one removed and one added row share a domain."""
+    added = set(new) - set(old)
+    removed = set(old) - set(new)
+    old_domains: dict[str, list[str]] = {}
+    new_domains: dict[str, list[str]] = {}
+    for sid in removed:
+        domain = old[sid].get("website_domain")
+        if domain:
+            old_domains.setdefault(domain, []).append(sid)
+    for sid in added:
+        domain = new[sid].get("website_domain")
+        if domain:
+            new_domains.setdefault(domain, []).append(sid)
+    renamed = sorted(
+        (old_ids[0], new_domains[domain][0])
+        for domain, old_ids in old_domains.items()
+        if len(old_ids) == 1 and len(new_domains.get(domain, [])) == 1
+    )
+    return (
+        sorted(added - {new_id for _, new_id in renamed}),
+        renamed,
+        sorted(removed - {old_id for old_id, _ in renamed}),
+    )
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--diff", action="store_true", help="report adds/removals, write nothing")
     ap.add_argument("--cached", action="store_true", help="use cached HTML, no network")
+    ap.add_argument(
+        "--accept-removals",
+        action="store_true",
+        help="write after reviewing roster rows that disappeared",
+    )
     ap.add_argument("--as-of", default=date.today().isoformat(), help="roster_as_of date")
     args = ap.parse_args()
 
     html = fetch(PLEDGE_ROSTER_URL, cached_only=args.cached)
-    orgs, stated = parse_roster(html, args.as_of)
+    previous = json.loads(SEED.read_text()) if SEED.exists() else None
+    orgs, stated = parse_roster(html, args.as_of, previous)
     govs = build_governors(args.as_of)
     records = sorted(orgs + govs, key=lambda r: (r["category"], r["id"]))
+
+    if previous and not args.diff:
+        old = {s["id"]: s for s in previous["signatories"]}
+        new = {s["id"]: s for s in records}
+        _, _, removed = _classify_changes(old, new)
+        if removed and not args.accept_removals:
+            print(
+                "Roster rows disappeared; review with --diff, then rerun with "
+                "--accept-removals if intentional: " + ", ".join(removed),
+                file=sys.stderr,
+            )
+            return 2
 
     derived: dict[str, int] = {}
     for r in records:
@@ -358,10 +501,9 @@ def main() -> int:
         if not SEED.exists():
             print(f"No existing seed at {SEED}; {len(records)} records would be written.")
             return 0
-        old = {s["id"]: s for s in json.loads(SEED.read_text())["signatories"]}
+        old = {s["id"]: s for s in previous["signatories"]}
         new = {s["id"]: s for s in records}
-        added = sorted(set(new) - set(old))
-        removed = sorted(set(old) - set(new))
+        added, renamed, removed = _classify_changes(old, new)
         # Compare on substance only. `captured_at` is restamped to --as-of on
         # every parse, so a whole-record comparison flags all 302 signatories as
         # "changed" on any later date and buries the real renames it exists to
@@ -370,6 +512,7 @@ def main() -> int:
             i for i in set(old) & set(new) if _substance(old[i]) != _substance(new[i])
         )
         print(f"adds ({len(added)}): {added}")
+        print(f"renamed ({len(renamed)}): {renamed}")
         print(f"REMOVALS ({len(removed)}): {removed}   <- review before accepting")
         print(f"changed ({len(changed)}): {changed}")
         return 0

@@ -2865,12 +2865,31 @@ function renderPledgeActivity() {
     );
     const joinedOrgs = joined.filter((s) => s.category !== "governor").length;
     const joinedGovs = joined.length - joinedOrgs;
+    // The roster kept growing after the event, so the "to N" figure is the
+    // cohort as it stood on July 23 (the March + DOE signatories plus the
+    // expansion), not today's total — that belongs to the rolling item below.
+    const before = (state.signatories || []).filter(
+      (s) => s.category !== "governor" && s.signed_track !== "expansion-2026-07-23" && s.signed_track !== "rolling"
+    ).length;
     if (joined.length) {
       items.push({
         date: RATEPAYER_PLEDGE_EXPANSION_DATE,
         text:
           `${joinedOrgs} organizations and ${joinedGovs} governors joined, taking ` +
-          `the roster from 8 signatories to ${counts.organizations}.`,
+          `the roster from ${before} signatories to ${before + joinedOrgs}.`,
+      });
+    }
+    // Organizations that appeared on the roster after the expansion. The page
+    // publishes no join dates. A future rebuild may change rosterAsOf without
+    // changing when each organization was first seen.
+    const rolling = (state.signatories || []).filter((s) => s.signed_track === "rolling").length;
+    if (rolling && state.rosterAsOf) {
+      items.push({
+        date: state.rosterAsOf,
+        text:
+          `${rolling} more organization${rolling === 1 ? "" : "s"} appeared on the roster ` +
+          `after July 23 (join dates unpublished); the ${state.rosterAsOf} ` +
+          `snapshot lists ${counts.organizations} organizations.`,
       });
     }
   }
@@ -4021,9 +4040,9 @@ function renderHotRail() {
     } else if (contestedClaims.length) {
       hint = contestedClaims[0].delivered.summary;
     } else if (recentMixed) {
-      hint = "Recent mixed community response on the record.";
+      hint = "Recent mixed community response.";
     } else {
-      hint = "Contested delivery on the record.";
+      hint = "Claim delivery is contested.";
     }
 
     scored.push({ project: p, score, hint, latestNeg });
@@ -4440,7 +4459,7 @@ async function exportMoratoriumsToPDF() {
     <div class="mpdf-cover">
       <div class="mpdf-kicker">Data Center Community Benefits · Policy Tracker</div>
       <h1>Data Center Moratoriums &amp; Restrictions</h1>
-      <p class="mpdf-dek">A field guide to enacted, proposed, and failed limits on data center development across U.S. city, county, state, and federal jurisdictions.</p>
+      <p class="mpdf-dek">Enacted, proposed, and failed limits on data center development across U.S. city, county, state, and federal jurisdictions.</p>
       <div class="mpdf-meta">As of ${today} · ${filtered.length} record${filtered.length === 1 ? "" : "s"}${filterNote}</div>
     </div>
 

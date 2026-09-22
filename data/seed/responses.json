@@ -2431,6 +2431,61 @@
       "source_url": "https://techcrunch.com/2026/08/08/planned-amazon-data-center-could-become-the-biggest-climate-polluter-in-the-u-s/",
       "source_title": "TechCrunch — Planned Amazon data center could become the biggest climate polluter in the U.S. (Aug 8 2026)",
       "single_source": false
+    },
+    {
+      "id": "resp-google-lea-county-commission-water-2026",
+      "project_id": "google-lea-county-nm",
+      "date": "2026-09-15",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "Lea County Commission Chair Tyson Pierce, whose county owns the prospective site, said the commission would do everything in its power to come out ahead on any deal while noting that the water table at his own home has dropped considerably; the county said it considers the project worth evaluating subject to restrictions on lighting, sound, energy use and water, with commissioners scheduled to take it up the following week.",
+      "source_url": "https://www.abqjournal.com/news/google-announces-it-is-exploring-a-data-center-in-southeast-new-mexico/3122278",
+      "source_title": "Albuquerque Journal — Google explores potential data center in Lea County, New Mexico (Sep 15 2026)",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-lea-county-legislators-2026",
+      "project_id": "google-lea-county-nm",
+      "date": "2026-09-17",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "State legislators split on the proposal: Rep. Angelica Rubio (D-Las Cruces) said Lea County deserves the same protections as every New Mexico community and wants answers before any approval, while Sen. Jim Townsend (R-Alamogordo) backed it, saying data centers have become more efficient and environmentally sensitive and pointing to job creation.",
+      "source_url": "https://www.yahoo.com/news/us/articles/mexico-leaders-potential-google-data-004610186.html",
+      "source_title": "KRQE (via Yahoo News) — New Mexico leaders comment on potential Google data center in Lea County (Sep 17 2026)",
+      "single_source": true
+    },
+    {
+      "id": "resp-microsoft-gainesville-residents-contamination-2026",
+      "project_id": "microsoft-gainesville-va",
+      "date": "2026-08-13",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Gainesville-area residents, including a former EPA engineer who sits on the county's Sustainability Commission, told InsideNoVa that the Army Corps public notice understated the project's scope, questioned plans to relocate a stream on the former missile-plant Superfund site, and asked where excavated contaminated soil would be taken; Microsoft declined to comment.",
+      "source_url": "https://www.insidenova.com/news/business/public-comment-notice-for-microsoft-data-center-on-former-missile-site-raises-transparency-concerns/article_0a4658c0-73fa-4158-b721-c1837338d6b0.html",
+      "source_title": "InsideNoVa — Public comment notice for Microsoft data center on former missile site raises transparency concerns (Aug 13 2026)",
+      "single_source": true
+    },
+    {
+      "id": "resp-microsoft-gainesville-supervisor-byright-2026",
+      "project_id": "microsoft-gainesville-va",
+      "date": "2026-08-13",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "Brentsville District Supervisor Tom Gordy said he had not seen the development plan because the site is by-right and that he needed to check the proposed building heights against county limits; a county spokesperson said the public map still showed an older, inactive rezoning application for the parcel.",
+      "source_url": "https://www.insidenova.com/news/business/public-comment-notice-for-microsoft-data-center-on-former-missile-site-raises-transparency-concerns/article_0a4658c0-73fa-4158-b721-c1837338d6b0.html",
+      "source_title": "InsideNoVa — Public comment notice for Microsoft data center on former missile site raises transparency concerns (Aug 13 2026)",
+      "single_source": true
+    },
+    {
+      "id": "resp-aws-boling-community-meeting-2026",
+      "project_id": "aws-boling-tx",
+      "date": "2026-09-10",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "At an Amazon-hosted community meeting in Boling, residents' reactions ranged from support for the expected school-district and county tax revenue and rising property values to questions about water, construction noise, dust and flooding; Amazon's Keith Klein told attendees the campus would use about 16,000 gallons of water a day, none of it for cooling, and that the on-site jobs would pay above the county's average wage.",
+      "source_url": "https://www.click2houston.com/news/local/2026/09/10/community-conversation-to-explore-amazon-data-center-plans-in-boling/",
+      "source_title": "KPRC 2 / Click2Houston — Boling residents meet Amazon leaders over massive data center project (Sep 10 2026)",
+      "single_source": true
     }
   ]
 }

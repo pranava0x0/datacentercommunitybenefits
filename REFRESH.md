@@ -14,6 +14,7 @@ Every refresh session should consider all three — they have independent cadenc
 1. **New sites/projects** — new data center announcements from the 8 hyperscalers + tracked non-hyperscaler entities. See "Finding New Announcements" below.
 2. **New bills/dockets** — new or updated moratorium bills (city/county/state/federal) and utility large-load tariffs. See "Moratoriums & Tariffs Refresh" below.
 3. **Gap-filling existing records** — missing fields on records already in the seed (power_mw, ratepayer assessments, claims/feedback coverage). See "Filling Gaps" below.
+4. **Roster re-pull** (added 2026-09-22 — it is the Pledge tab, and the playbook never listed it) — the White House signatory roster is a living page. Run `python3 scripts/build_signatories.py --diff` every pass; if it reports adds or unambiguous renames, run it without `--diff` (it writes `data/seed/signatories.json`; new rows land on the `rolling` track with no guessed date). If it reports removals, investigate first: a normal rebuild stops before writing rather than deleting them. After confirming a removal is intentional, rerun with `--accept-removals`. Then run `python3 refresh.py`. Aliases live in the builder's `UTILITY_ALIASES` — never add one to the seed JSON alone. Two months of drift was 44 adds and 2 spelling fixes.
 
 Don't treat this as one undifferentiated "go find stuff" pass — each dimension has a different staleness signal and a different verification bar (a new moratorium bill needs a live gov source; a gap-fill on an existing project just needs one more first-party field).
 
@@ -73,8 +74,8 @@ Target the most productive news sources per CLAUDE.md backlog + v1.8 experience:
 ### Company Newsrooms (First-Party Source)
 - **Meta:** `datacenters.atmeta.com/`
 - **Google:** `blog.google/innovation-and-ai/infrastructure-and-cloud/` (Meitner Energy Center, project announcements)
-- **Microsoft:** `news.microsoft.com/source/topics/datacenters/` + `local.microsoft.com/blog/`
-- **Amazon:** `aboutamazon.com/news/aws/` (search for data center + infrastructure keywords)
+- **Microsoft:** `local.microsoft.com/blog/` (the `news.microsoft.com/source/topics/datacenters/` index 404s as of 2026-09-22; Microsoft site-page URLs also rot — the Wellington VA page 404'd within weeks)
+- **Amazon:** `aboutamazon.com/news/aws/amazon-data-centers-locations-news` — a LIVE BLOG whose entries are `?p=<slug>` deep links on the roundup page, only discoverable by curl-ing the page HTML (guessed `/news/aws/<slug>` URLs 404); plus `press.aboutamazon.com/aws/` for formal releases (found 2026-09-22)
 - **OpenAI:** `openai.com/index/` (Stargate updates)
 - **Oracle:** `oracle.com/news/announcement/` (Stargate, Project Jupiter updates)
 - **xAI:** `x.ai/blog/`
@@ -97,7 +98,7 @@ selected stage as of this pass** and are not yet Project records; re-check
 whether a partner has been named before adding either.
 
 ### High-Signal Third-Party Sources
-- **DataCenterDynamics** (`datacenterdynamics.com/en/news/`) — 90%+ hit rate on new sites
+- **DataCenterDynamics** (`datacenterdynamics.com/en/news/`) — 90%+ hit rate on new sites, but as of 2026-09-22 the listing page AND every article page 403 to curl/WebFetch; use WebSearch `site:datacenterdynamics.com` for headlines and a second outlet for the facts
 - **UtilityDive** (`utilitydive.com`) — grid/energy angle
 - **Regional outlets** (Texas Tribune, Wisconsin Watch, Mississippi Today, etc.) — community response angle
 
@@ -126,6 +127,22 @@ a docket-system hint per state) instead of hand-writing one per record — see
   (`goodjobsfirst.org`), `halcyon.io/large-load-tariff-tracker` (tariffs, found
   2026-07-30 — same "mine as a worklist, verify each row" treatment as the
   Moratorium Nation CSV).
+- **Enumerators that actually produced hits (2026-09-22):** the **Strisker "Data
+  Centers: Weekly Briefing"** pages (`writing.strisker.com`, ~60 dated
+  jurisdiction items with source URLs per week — the richest single list; four
+  weeks yielded ~35 verifiable leads); **EEI's "Large Load Projects and
+  Tariffs"** PDF (docket-numbered worklist of ~40 tariffs, updated monthly —
+  it is how Otter Tail MN's docket 26-211 was finally confirmed); **Oregon PUC
+  eDockets** (docket sheets + filing PDFs, all 200); `puc.pa.gov` press
+  releases (docket numbers in the footer); IURC's pending-base-rate-cases page;
+  **Nevada's `puc-onbase.nv.gov` portal** (search a docket, then fetch the
+  order via `/api/Document/<id>/` — see CLAUDE.md > Rate cases); city/county
+  sites that serve static pages (`/m/newsflash/Home/Detail/<n>` CivicPlus
+  detail pages work even when the CivicAlerts index is JS; govdelivery
+  bulletins); local TV station sites (Gray/Nexstar affiliates are nearly all
+  200). **Empty this pass:** the Moratorium Nation CSV (data ends Aug 19),
+  interconnectedcapital (JS table), halcyon.io (subscription preview),
+  `connectors.scout` (its fixed source list returned only nav pages).
 - **Primary/gov (always the final source for a record):** state legislature bill
   trackers (`nysenate.gov`, `<state>legislature.gov`, etc.), state PUC/PSC docket
   search, city/county council agendas and minutes.
@@ -139,15 +156,28 @@ older than STALE_PENDING_DAYS gets flagged in ISSUES.md like a proposed
 bill/tariff. Re-check sources: the PSC/PUC docket system itself (EFIS in MO,
 eDocket in AZ, starw1 in NC, PUCN in NV), PSC press pages, and **legal
 notices in local papers** (dated, primary, and they carry the docket number).
-Standing dated watch items as of 2026-08-03 — each is a `next_milestone` on a
-record, so the Home "What's next" list is the live version of this list:
-- 2026-08 (est): Oneida County WI board vote on the county moratorium
-- 2026-09-30: NC large-load tariff submission (Duke/Public Staff); DeKalb GA
-  moratorium expiry
-- 2026-12-01: Xcel MN clean energy & capacity tariff filing
-- 2027-01-01: Dominion GS-5 class effective; Duke NC new rates if approved
-- Undated: ACC decision post-hearing (APS), PUCN 26-06023 schedule, LPSC
-  response to the Earthjustice investigation request, FERC RM26-4 compliance
+Standing dated watch items as of 2026-09-22 — rate-case items are each a
+`next_milestone` on a record (the Home "What's next" list is the live
+version); moratorium items are scheduled local votes logged in BACKLOG.md's
+"Policy — leads ... 2026-09-22" section:
+- 2026-09-22 / 10-06: Manatee County FL Ordinance 26-42 hearings
+- 2026-09-23: Woodbury MN interim-ordinance vote · 09-24: Grant County NM
+- 2026-09-30: NC Duke second amended settlement milestone (E-7 Sub 1329);
+  DeKalb County GA moratorium expiry
+- 2026-10-01: PA PUC Tentative Order on load-control rules (M-2026-3064961)
+- 2026-10-05: Beaufort County NC · 10-06: Raleigh NC hearing, Mendocino CA
+  extension hearing · 10-13: Leon County FL final hearing, Moffat County CO
+- 2026-10-16: Mendocino CA urgency ordinance expires · 10-20: Loudoun County
+  VA resolution vote (a pause on Board action, not a moratorium)
+- 2026-11-03: Ohio's 18 local data-center ballot measures; Trenton OH ban;
+  Amazon Butler County OH 25 MW measure · 11-13: Vance County NC expiry
+- 2026-12-01: Xcel MN clean energy & capacity tariff filing · 12-04: Ameren
+  MO GRC (ER-2026-0291) schedule milestone
+- 2027-01-01: Dominion GS-5 class effective · 01-26: PUCN 26-06023 hearing
+  schedule · 01-28: PA PUC final order target · June 2027: IURC decision on
+  I&M's base-rate reduction (Cause 46454)
+- Undated: ACC Recommended Opinion and Order (APS), LPSC response to the
+  Earthjustice investigation request, FERC RM26-4 / EL25-49 compliance
 
 ### Status re-check checklist (for anything flagged stale)
 1. Run `python -m connectors.recheck stale` for ready-made queries (bill/docket
@@ -1056,3 +1086,88 @@ every non-add.
   site to attach it to — logged to BACKLOG as a quote to pair with a project
   once a specific site is confirmed, rather than shipped as an orphaned,
   boilerplate-reading company claim.
+
+---
+
+### 2026-09-22 refresh pass — every tab, three agents killed twice, roster on a rolling track
+
+Scope: user asked to "refresh every tab, lots of new info." Four dimensions
+this time — roster re-pull (new), stale re-check (24 records), new sites, new
+policy — with the roster and all merging/verification done by the orchestrator
+and the other three by background agents split by file (the 2026-08-24 shape).
+
+**Results:** signatories 302 → 346 (44 rolling adds, 2 renames, 6 aliases
+rescued); projects 130 → 132 (+7 updated, 8 ratepayer assessments attached:
+3 affirmed, 5 pledge_only); claims 353 → 380; responses 221 → 226;
+moratoriums 128 → 157 (24 from the policy agent + 5 orchestrator-built from
+verified leads; 3 stale records flipped to `enacted`: Greenfield MA 9/16,
+Lake County FL 9/8 as a 90-day application pause, Spartanburg County SC 9/21);
+tariffs 27 → 29 (+ the NV Energy Callisto ESA finally `approved`, on the PUCN
+order itself — see CLAUDE.md); rate cases 12 → 15; 6 rate-case milestones
+refreshed. Stale list closed to 1 (Hernando County FL, unverifiable for a
+fourth pass).
+
+- **The roster is a living list and the builder had to learn it.** Two months
+  after the 07-25 snapshot the page held 44 more organizations and had fixed
+  two spellings. The builder used to stamp every non-March/DOE row with the
+  July 23 cohort date, so a naive rebuild would have fabricated 44 join dates
+  AND dropped six aliases that a later pass had added to the seed JSON only.
+  Now: previous-snapshot carry-over, `rolling` track with `signed_date: null`
+  and a first-observed note, rename detection by domain, aliases synced back
+  into the builder as the single source. Six behavioural tests, one mutation-
+  checked. The page now advertises FEWER orgs (321) than it lists (323).
+- **Three Fable agents were killed by the session limit twice** (details in
+  AGENT_RUNS.md). What survived was exactly what had been written to disk:
+  the stale agent's apply-script + evidence notes (its seed edits were already
+  applied), the policy agent's candidates JSON + report, the new-sites agent's
+  finished work. Nothing was re-researched. Standing rules from the user, now
+  in memory: Sonnet-only subagents, one at a time, checkpoint per record.
+- **Verify the agents, don't trust the summary.** `probe.py` (scratchpad) —
+  curl a page with a browser UA, strip tags, show each phrase in context —
+  spot-checked 8 new claims, 3 moratorium flips, 4 policy records and 6 extra
+  leads in a few minutes. Everything checked out this time, including the
+  phrase behind each `affirmed` ratepayer call; the one apparent miss was a
+  curly-apostrophe encoding difference, fixed by normalizing quotes before
+  matching. Keep the helper; it is the cheapest reviewer after your own notes.
+- **A WebFetch "structured extraction" is not the page's prose.** Several of
+  the policy agent's evidence snippets read "Approval Date: August 24, 2026" /
+  "Vote Count on Moratorium: 6-0" — the tool's field extraction, not verbatim
+  text. The dates all survived a mechanical day-of-week check and four direct
+  probes, so they were accepted, but the rule stands (2026-09-08 lesson): when
+  the snippet looks like a form, re-fetch and quote the sentence.
+- **`affirmed` stays strict.** Amazon's Pecos County statement ("Our new
+  planned data center campus in Pecos County does just that: It's powered by
+  new on-site generation that won't raise electricity costs for Texas
+  families") is site-specific and about power costs → affirmed. Keith Klein's
+  "Amazon pays its own way" about the Shreveport investment is investment-wide
+  framing with no electricity-cost content → pledge_only, with the quote noted
+  in the summary and an upgrade path in BACKLOG. Under-claiming is the cheaper
+  error; a later curator can promote it with a better quote.
+- **The Loudoun rule held a third time.** The Sept 15 "moratorium" is a Board
+  vote on a plan to pause its OWN legislative approvals for up to 12 months,
+  with the County Attorney on record that a moratorium is not legal in
+  Virginia and the resolution itself not adopted until Oct 20. Recorded as
+  `proposed` with the instrument spelled out in the summary, not as a ban.
+- **Two governors' "pauses" in one pass, neither a statute:** Oregon's Kotek
+  directive (state-owned land only, through July 1, 2027) was recorded as a
+  separate `enacted` record from the HB 4084 bill; Massachusetts' EO 658
+  (permits conditioned on framework compliance + a community benefits
+  agreement, explicitly "rules," not a pause) was NOT recorded as a moratorium
+  — BACKLOG carries it as a policy_type question.
+- **Six verified leads the agents surfaced but did not build were cheaper to
+  build than to defer** (Laurens County SC, Palm Springs CA, Colquitt County
+  GA, Albany GA, Mead CO, the PPL Electric PA rate case): each was one probe
+  of a URL the agents had already found live, then one record. When an agent
+  report's "held for the cap" section has URLs and evidence, finish it in the
+  same pass. A page that was 200 for the agent at 07:5x was 404 by 13:0x
+  (mynewsla Palm Springs) — cite only what you fetched yourself.
+- **Sources that moved:** `news.microsoft.com/source/topics/datacenters/` 404;
+  DCD now 403s its listing page too; Amazon's site news is a `?p=` live blog;
+  `blog.google`'s infrastructure index shows undated Cloud Next posts (the Lea
+  County post surfaced only via WebSearch); halcyon.io trackers are
+  subscription previews; the Moratorium Nation CSV stopped at Aug 19.
+- **Completeness audit now reads 153 of 157 moratoriums "incomplete"** —
+  almost entirely missing ordinance numbers / sponsors / gov links on local
+  records whose only sources are local outlets. That is the honest state of
+  local-government sourcing, not a regression; the link-liveness gate is the
+  one that must stay green.

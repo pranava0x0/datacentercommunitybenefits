@@ -397,3 +397,157 @@ def test_diff_ignores_snapshot_timestamps() -> None:
     src = (ROOT / "scripts" / "build_signatories.py").read_text()
     assert "_substance(" in src and "SNAPSHOT_FIELDS" in src
     assert "captured_at" in src.split("SNAPSHOT_FIELDS")[1][:120]
+
+
+# ---------------------------------------------------------------------------
+# Builder behaviour: the roster is a living list
+# ---------------------------------------------------------------------------
+
+
+def _load_builder():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "build_signatories", ROOT / "scripts" / "build_signatories.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _row(name: str, domain: str, cat: str = "coop") -> str:
+    return (
+        f'<li class="row" data-name="{name}" data-domain="{domain}" data-cat="{cat}">'
+        f'<span class="row-name">{name}</span>'
+    )
+
+
+def _previous(*records: dict) -> dict:
+    return {"roster_as_of": "2026-07-25", "signatories": list(records)}
+
+
+def _prior(id_: str, name: str, domain: str, track: str, signed: str | None, notes=None) -> dict:
+    return {
+        "id": id_,
+        "name": name,
+        "website_domain": domain,
+        "signed_track": track,
+        "signed_date": signed,
+        "notes": notes,
+    }
+
+
+def test_a_row_new_to_the_roster_is_a_rolling_add_with_no_guessed_date() -> None:
+    """The roster publishes no join dates. A row that was not on the previous
+    snapshot must not inherit the July 23 cohort date just because that is the
+    builder's default — 46 organizations joined between 07-25 and 09-21."""
+    b = _load_builder()
+    html = _row("Lambda", "lambda.ai", "dc")
+    prev = _previous(_prior("x", "X", "x.com", b.EXPANSION_TRACK, "2026-07-23"))
+    (rec,), _ = b.parse_roster(html, "2026-09-21", prev)
+    assert rec["signed_track"] == "rolling"
+    assert rec["signed_date"] is None
+    assert "2026-07-25" in rec["notes"] and "2026-09-21" in rec["notes"]
+
+
+def test_a_row_already_on_the_roster_keeps_its_snapshot_track_and_date() -> None:
+    b = _load_builder()
+    html = _row("Old Co-op", "oldcoop.com")
+    prev = _previous(_prior("old-co-op", "Old Co-op", "oldcoop.com", b.EXPANSION_TRACK, "2026-07-23"))
+    (rec,), _ = b.parse_roster(html, "2026-09-21", prev)
+    assert rec["signed_track"] == b.EXPANSION_TRACK
+    assert rec["signed_date"] == "2026-07-23"
+    assert rec["notes"] is None
+
+
+def test_a_spelling_fix_on_the_source_page_is_a_rename_not_a_removal() -> None:
+    """'Digital Reality' became 'Digital Realty' on 2026-09-21; same domain.
+    The organization keeps its July track and date and says why."""
+    b = _load_builder()
+    html = _row("Digital Realty", "digitalrealty.com", "dc")
+    prev = _previous(
+        _prior("digital-reality", "Digital Reality", "digitalrealty.com", b.EXPANSION_TRACK, "2026-07-23")
+    )
+    (rec,), _ = b.parse_roster(html, "2026-09-21", prev)
+    assert rec["id"] == "digital-realty"
+    assert rec["signed_track"] == b.EXPANSION_TRACK
+    assert rec["signed_date"] == "2026-07-23"
+    assert "Digital Reality" in rec["notes"]
+
+
+def test_bootstrap_without_a_previous_snapshot_is_the_july_cohort() -> None:
+    b = _load_builder()
+    (rec,), _ = b.parse_roster(_row("Some Co-op", "some.coop"), "2026-07-25", None)
+    assert rec["signed_track"] == b.EXPANSION_TRACK
+    assert rec["signed_date"] == "2026-07-23"
+
+
+def test_rebuilding_from_its_own_output_is_a_fixed_point() -> None:
+    """A rolling add must stay rolling — with its first-observed note intact —
+    when the builder runs again against an unchanged page."""
+    b = _load_builder()
+    html = _row("Lambda", "lambda.ai", "dc") + _row("Old Co-op", "oldcoop.com")
+    prev = _previous(_prior("old-co-op", "Old Co-op", "oldcoop.com", b.EXPANSION_TRACK, "2026-07-23"))
+    first, _ = b.parse_roster(html, "2026-09-21", prev)
+    again, _ = b.parse_roster(html, "2026-10-05", {"roster_as_of": "2026-09-21", "signatories": first})
+    assert [b._substance(r) for r in first] == [b._substance(r) for r in again]
+    lam = next(r for r in again if r["id"] == "lambda")
+    assert lam["signed_track"] == "rolling" and "2026-09-21" in lam["notes"]
+
+
+def test_seed_rolling_adds_all_say_which_snapshot_first_showed_them(roster: SignatoriesPayload) -> None:
+    for s in roster.signatories:
+        if s.signed_track == "rolling":
+            assert s.notes and "first observed" in s.notes, f"{s.id} is rolling with no provenance note"
+
+
+def test_shared_domain_cannot_assign_a_renamed_row_to_the_wrong_signatory() -> None:
+    b = _load_builder()
+    previous = _previous(
+        _prior("first", "First", "shared.coop", b.EXPANSION_TRACK, "2026-07-23"),
+        _prior("second", "Second", "shared.coop", b.ROLLING_TRACK, None),
+    )
+    (rec,), _ = b.parse_roster(_row("Third", "shared.coop"), "2026-09-22", previous)
+    assert rec["signed_track"] == b.ROLLING_TRACK
+    assert "first observed" in rec["notes"]
+    _, renamed, removed = b._classify_changes(
+        {r["id"]: r for r in previous["signatories"]}, {rec["id"]: rec}
+    )
+    assert removed == ["first", "second"]
+    assert renamed == []
+
+
+def test_new_affiliate_on_existing_domain_stays_rolling() -> None:
+    b = _load_builder()
+    previous = _previous(_prior("parent", "Parent", "group.com", b.EXPANSION_TRACK, "2026-07-23"))
+    records, _ = b.parse_roster(
+        _row("Parent", "group.com") + _row("Affiliate", "group.com"),
+        "2026-09-22", previous,
+    )
+    affiliate = next(r for r in records if r["id"] == "affiliate")
+    assert affiliate["signed_track"] == b.ROLLING_TRACK
+    assert affiliate["signed_date"] is None
+    assert "first observed" in affiliate["notes"]
+
+
+def test_rolling_rename_keeps_first_observed_note() -> None:
+    b = _load_builder()
+    note = "Not on the 2026-07-25 roster snapshot; first observed in the 2026-09-21 snapshot."
+    previous = _previous(_prior("old-name", "Old Name", "example.com", b.ROLLING_TRACK, None, note))
+    (rec,), _ = b.parse_roster(_row("New Name", "example.com"), "2026-09-22", previous)
+    assert rec["signed_track"] == b.ROLLING_TRACK
+    assert note in rec["notes"]
+    assert "Roster spelling changed" in rec["notes"]
+
+
+def test_rebuild_stops_before_writing_when_roster_row_disappears(tmp_path, monkeypatch) -> None:
+    b = _load_builder()
+    seed = tmp_path / "signatories.json"
+    original = json.dumps(_previous(_prior("missing", "Missing", "missing.coop", b.EXPANSION_TRACK, "2026-07-23")))
+    seed.write_text(original)
+    monkeypatch.setattr(b, "SEED", seed)
+    monkeypatch.setattr(b, "fetch", lambda *args, **kwargs: _row("Present", "present.coop"))
+    monkeypatch.setattr("sys.argv", ["build_signatories.py", "--as-of", "2026-09-22"])
+    assert b.main() == 2
+    assert seed.read_text() == original

@@ -298,3 +298,56 @@ settled the whitehouse.gov palette question that no amount of recall could.
 Cost shape matched the 2026-07-28 entry: the expensive part was the two full
 e2e runs (~102 s each), both of which caught real breakage (state-panel
 section count, aggregate export coverage).
+
+## 2026-09-22 — Full tab refresh: three Fable agents, killed twice, saved by what was on disk
+
+**What the session did:** the standard three-dimension refresh plus a roster
+re-pull (44 new pledge signatories on a new `rolling` track, 2 renames, a
+builder fix for six aliases that had rotted in the seed only), a stale
+re-check of all 24 pending records, new-site scouting, and new-policy
+discovery. Net: +2 projects (+7 updated), +27 claims, +5 responses, +8
+ratepayer assessments, +29 moratoriums, +2 tariffs, +3 rate cases, 3
+moratorium and 1 tariff status flips, 6 rate-case milestones.
+
+**Agents/workflows spawned: 3 (general-purpose, inherited Fable model),
+split by FILE as in the 2026-08-24 pass** — stale re-check (moratoriums /
+tariffs / rate_cases), new sites (projects / claims / responses), new-policy
+discovery (scratchpad only, merged by the orchestrator). All three were
+**killed by the session usage limit twice**: once at 21:40 on 09-21 minutes
+after launch (nothing lost — they had only read files), and again at ~08:10
+on 09-22 after ~25 minutes of real work. The new-sites agent finished before
+the second wall (383K tokens, 24 tool uses, 14 min). The other two did not
+return a final message — and it did not matter, because both had written as
+they went: the stale agent had already applied its edits to the seed via an
+apply-script and saved its evidence notes; the policy agent had saved a
+schema-valid 28-record candidates file and a 33 KB report. Recovery was
+`git diff` + reading the scratchpad, not re-research.
+
+**Three rules came out of it, now in memory and CLAUDE.md:** (1) no more
+Fable subagents — every `Agent` call passes `model: "sonnet"`; (2) at most
+one agent at a time; (3) agents (and the orchestrator) checkpoint to disk per
+record, never in one write at the end. The second rule is what makes the
+first survivable: a single limit hit can only take out one agent's unsaved
+context.
+
+**What the cheap tools did better than the agents:** the roster diff and
+rebuild (one script run + one judgement call about renames), the eight
+source spot-checks of the agents' claims (a 20-line `probe.py` that curls a
+page and shows each phrase in context — every check that mattered, including
+the PUCN order PDF that finally settled the NV Energy Callisto ESA, was one
+call), and the six extra records the agents verified but did not build.
+**Cost shape:** ~0.9M agent tokens for the two rounds (most of round one
+wasted on reading files twice); the orchestrator's own verification and
+merge work was a fraction of that.
+
+**Review round (same day):** one Sonnet `general-purpose` review agent on the
+PR diff (282K tokens, 56 tool uses, 14.5 min; read-only, worked from a
+`git archive` snapshot because the worktree was being edited concurrently).
+It found what the 550-test suite could not: the two renamed roster rows had
+shipped with `notes: null` (the second rebuild dropped them), the shared-
+domain misattribution Codex had also flagged (six domains already collide in
+the seed), and a dormant parent-note duplication. The data itself checked
+out record by record. Cost was ~30% of one research agent, and it was the
+only reviewer that compared the shipped seed against the builder that
+claims to have produced it — tests that exercise `parse_roster()` with
+synthetic fixtures can't see that gap.

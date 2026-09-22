@@ -719,6 +719,38 @@ all data-center companies under one "DATA CENTER" chip; we re-tag the seven
 March-round buyers as `hyperscaler` because a company buying power and a
 developer building the shell answer different questions here.
 
+**The roster keeps growing after the event, and the builder now knows it
+(2026-09-21).** A re-pull two months after the 07-25 snapshot found 44 new
+organizations, 2 spelling corrections on the source page ("Digital Reality"
+→ "Digital Realty"; "East Central Electric Oklahoma Cooperative" → "East
+Central Oklahoma Electric") and the page advertising *fewer* organizations
+(321) than its list held (323). Three things the builder does about it:
+
+- **New rows go on the schema's `rolling` track with `signed_date: null`** and
+  a note naming the snapshot that first showed them. The roster publishes no
+  join dates, and the old behaviour — every non-March/DOE row gets the July 23
+  cohort date — would have stamped a fabricated date on all 44. A row already
+  on the previous snapshot keeps that snapshot's track and date; the
+  hyperscaler/DOE overrides still win. `test_a_row_new_to_the_roster_is_a_
+  rolling_add_with_no_guessed_date` and its siblings pin this, and the fixed-
+  point test proves a rolling add stays rolling on the next rebuild.
+- **Same domain on a removed + added pair is a RENAME**, reported as such by
+  `--diff` and carried over (original track + date, plus a note) rather than
+  surfacing as an unexplained departure and a brand-new signatory.
+- **`UTILITY_ALIASES` in the builder is the single source of truth for
+  aliases.** The v3 rate-case pass added six aliases (Ameren, NiSource,
+  NorthWestern, and extra NV Energy / Duke / Entergy spellings) to the seed
+  JSON only, so the next rebuild would have silently dropped them and broken
+  every rate-case join. Synced back into the builder; add aliases there, then
+  rebuild. This is the "hand-written list that mirrors a registry rots" lesson
+  from the top of this file, in the one file that IS the registry.
+
+The Home activity feed carries a data-derived item for rolling adds (dated to
+the snapshot, wording says the join dates are unpublished), and the expansion
+item now reports the cohort as it stood on July 23 rather than today's total.
+Dating individual rolling adds from their own press releases is a BACKLOG
+lead, not something to guess at.
+
 ### Roster-driven eligibility (v2 — supersedes the flat pledge date)
 
 **A site is assessable only if its operator had already signed when the site was
@@ -1258,6 +1290,19 @@ accumulate proceedings over its life, and `next_milestone` needs a home.
   (pr-26-40) and DeKalb's agenda PDF both 404'd within months of publication.
   Cite the EFIS/docket-system URL (or the order document itself) as
   `source_url`; press releases go in `resources` if anywhere.
+- **Nevada's PUCN docket system is `puc-onbase.nv.gov`, and its document API
+  is the primary source (2026-09-22).** `nv-energy-callisto-esa` (Docket
+  24-06014) had been flipped to `approved` and reverted TWICE on aggregator-only
+  sourcing. The third pass searched the portal itself (saved as
+  `pucn_search_24-06014.json`): it lists STIPULATION 4/28/2025, DRAFT ORDER
+  5/7/2025, ORDER 5/14/2025, then compliance filings — and the order PDF,
+  fetched from the portal's `/api/Document/<id>/` endpoint, says the Commission
+  "accepts the Stipulation and grants the Application as modified." The ESA was
+  approved in **May 2025**; the aggregator had the year wrong, which is why no
+  2026 order could ever be found. The record now cites the order document
+  itself. Rule: for NV dockets, list the docket's documents on the portal and
+  cite the order; for any docket, an approval with no order document is not an
+  approval.
 - **`utility_aliases` now joins three surfaces** — tariff, rate-case, and
   project `serving_utility` strings all resolve through the same hand-curated
   map (`test_utility_aliases_resolve_to_real_records` widened accordingly; the

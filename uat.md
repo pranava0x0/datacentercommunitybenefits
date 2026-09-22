@@ -1,7 +1,21 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-06-07_
+_Last run: 2026-09-22_
+
+## 2026-09-22 PR #47 run
+
+Tested local PR at 375×812, 768×1024, and 1280×900. All seven current views
+(Home, The Pledge, Companies, Moratoriums, Tariffs, Sites, Aggregate) rendered.
+Roster showed 346 rows; search for `entergy` narrowed to one. Moratoriums
+showed 157 rows and proposed filter narrowed to 12. Tariffs showed 29 rows and
+approved filter narrowed to 22. Aggregate showed 15 company rows and investment
+sort changed to ascending. A site card opened its detail panel. Dark mode worked.
+No page errors or document-level horizontal overflow at any tested width.
+Screenshots: `/tmp/uat-2026-09-22-{mobile,tablet,desktop}.png` (temporary).
+
+The older critical-flow counts below are historical. Use the current seed
+counts when repeating those flows.
 
 ## Project Info
 - **Stack:** Vanilla HTML/CSS/JS, static site — no build step
