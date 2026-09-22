@@ -290,11 +290,11 @@
       "state": "NV",
       "tariff_name": "Callisto Energy Supply Agreement",
       "tariff_type": "Special contract / ESA",
-      "status": "proposed",
-      "status_detail": "Pending before the PUCN as of the LBL brief. Secondary coverage (Citizen Portal, an AI-generated news aggregator) reports a stipulation accepted at the Commission's April 29, 2026 open meeting, corroborated across two separate Citizen Portal articles, but no PUCN order/docket document has been independently located in any pass so far — the same insufficient-sourcing gap flagged when this status was previously reverted from `approved` (see BACKLOG.md). Left at 'proposed' pending a primary-source confirmation (a browser-driven pass against the PUCN docket search, not a plain HTTP fetch, which 403s on every attempt). Separately confirmed (via independent Nevada legal notices, not Citizen Portal): a second, separate Google ESA (Docket 26-06023, filed June 26, 2026) is NOT a renumbering of this docket — it is a distinct filing, tracked separately as nv-pucn-google-esa-2026.",
+      "status": "approved",
+      "status_detail": "Approved. The PUCN's document portal (puc-onbase.nv.gov, the post-October-2023 docket system) lists for Docket 24-06014: STIPULATION filed 4/28/2025, DRAFT ORDER 5/7/2025, ORDER 5/14/2025, then compliance filings through 6/30/2025 and nothing since. The order itself (fetched from the portal 2026-09-22) states that the Commission, at its general session of May 13, 2025, 'accepts the Stipulation and grants the Application as modified by the Stipulation'; the stipulation was signed April 28, 2025 by Sierra Pacific Power, the Commission's Regulatory Operations Staff, the Attorney General's Bureau of Consumer Protection and counsel for Callisto Enterprises. Earlier passes that reported an 'April 29, 2026 open meeting' approval (from an AI news aggregator) had the year wrong; the two prior reversions to 'proposed' were correct to insist on a primary document. A second, separate Google ESA (Docket 26-06023, filed June 26, 2026) is tracked as nv-pucn-google-esa-2026.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "24-06014",
-      "summary": "A bespoke energy-supply agreement between Sierra Pacific Power (NV Energy) and Callisto Enterprises — identified in the Commission's public notice as Google — approved by the PUCN via stipulation at its April 29, 2026 open meeting, with exit terms tied to the price difference between the procured resource and NV Energy's most recent approved renewable facilities. A second, separate Google ESA (Docket 26-06023) was filed June 26, 2026.",
+      "summary": "A bespoke energy-supply agreement between Sierra Pacific Power (NV Energy) and Callisto Enterprises LLC — identified in the Commission's own order as Google — filed June 10, 2024 and approved by the PUCN by order adopted at its May 13, 2025 general session (entered in the docket May 14, 2025), accepting an April 28, 2025 stipulation among the joint applicants, Regulatory Operations Staff and the Bureau of Consumer Protection that resolved all issues in the docket. Exit terms tie the termination payment to the price difference between the procured resource and NV Energy's most recent approved renewable facilities (per the DOE/Berkeley Lab brief). A second, separate Google ESA (Docket 26-06023) was filed June 26, 2026.",
       "parameters": {
         "exit_fee": {
           "status": "included",
@@ -311,20 +311,24 @@
       },
       "additional_terms": [],
       "legislation": [],
-      "source_url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
-      "source_title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — NV Energy Callisto ESA (PUCN 24-06014)",
+      "source_url": "https://puc-onbase.nv.gov/api/Document/AckzzzMp%C3%8123fDLAE0kmsnAEO%C3%89fAhCMjq0AtJbUUW3HNUBxPFerGSDgKdb01cE%C3%81h%C3%89Cco248s%C3%897sEJyOEG5R8uJyA%3D/",
+      "source_title": "PUCN Order, Docket 24-06014 (general session May 13, 2025; entered May 14, 2025) — accepts Stipulation, grants Application as modified",
       "resources": [
         {
-          "url": "https://citizenportal.ai/articles/6556644/PUC-accepts-stipulation-on-NV-EnergyCallisto-energy-supply-agreement",
-          "title": "Citizen Portal — PUCN accepts stipulation on the NV Energy–Callisto ESA (meeting coverage)"
+          "url": "https://puc-onbase.nv.gov/",
+          "title": "PUCN Document Search portal — search type 'PUC - Public Search - Dockets', docket 24-06014"
         },
         {
-          "url": "https://citizenportal.ai/articles/6560251/Public-Utilities-Commission-of-Nevada-approves-NV-Energy-permit-changes-an-energy-supply-agreement-and-AmeriGas-margin-rates",
-          "title": "Citizen Portal — PUCN approves NV Energy permit changes, an energy supply agreement, and AmeriGas margin rates"
+          "url": "https://puc-onbase.nv.gov/api/Document/AZiVT6xWJfVUYu4f8QdFE%C3%89tjb1l5fEH6PYmtSFTpD%C3%816hmWZcKd1nvXGL2uyVctCuOtDiQpaLaVJ88TWvxWWREK4%3D/",
+          "title": "PUCN Docket 24-06014 — Stipulation filed April 28, 2025 (Sierra Pacific, Staff, BCP, Callisto)"
+        },
+        {
+          "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
+          "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025) — Callisto ESA design elements"
         }
       ],
-      "captured_at": "2026-08-24",
-      "decision_date": null
+      "captured_at": "2026-09-22",
+      "decision_date": "2025-05-14"
     },
     {
       "id": "indiana-michigan-power-industrial-power-tariff",
@@ -1041,7 +1045,7 @@
       "tariff_name": "Large Load Tariff",
       "tariff_type": "Large-load / data center tariff",
       "status": "proposed",
-      "status_detail": "Filed April 2, 2026 as Proceeding No. 26AL-0137E. A public comment hearing is scheduled for August 25, 2026; Colorado PUC decision still expected Q3 2026, with proposed implementation August 2026 if approved.",
+      "status_detail": "Advice letter (Proceeding 26AL-0137E, filed April 2, 2026) suspended and set for hearing by Decision C26-0280 (April 30, 2026). Decision C26-0430-I (June 26, 2026) set the procedural schedule with the evidentiary hearing on October 21, 22, 26, 27 and 28, 2026; Decision C26-0467 (July 10, 2026) scheduled remote public comment hearings for August 25 and October 20, 2026 and extended the suspension of the tariff sheets by an additional 130 days to January 8, 2027. Answer testimony was filed August 19, 2026 (Commission Staff, Western Resource Advocates, Google LLC, City of Boulder, United Power and others). As of September 22, 2026 the e-filings docket shows testimony and public comments still being filed and no Commission decision on the merits — the earlier expectation of a Q3 2026 decision and August 2026 implementation is superseded.",
       "regulator": "Colorado Public Utilities Commission (COPUC)",
       "filed_date": "2026-04-02",
       "min_load_mw": 50,
@@ -1095,9 +1099,21 @@
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        },
+        {
+          "url": "https://www.dora.state.co.us/pls/efi/EFI.Show_Docket?p_session_id=&p_docket_id=26AL-0137E",
+          "title": "Colorado PUC E-Filings — Proceeding 26AL-0137E docket (filings and decisions)"
+        },
+        {
+          "url": "https://www.dora.state.co.us/pls/efi/EFI_Search_UI.Show_Decision?p_dec=32982&p_session_id=",
+          "title": "Colorado PUC Decision C26-0430-I — procedural schedule; evidentiary hearing Oct. 21–28, 2026"
+        },
+        {
+          "url": "https://www.dora.state.co.us/pls/efi/EFI_Search_UI.Show_Decision?p_dec=33019&p_session_id=",
+          "title": "Colorado PUC Decision C26-0467 — public comment hearings Aug. 25 and Oct. 20, 2026; suspension extended to Jan. 8, 2027"
         }
       ],
-      "captured_at": "2026-08-24",
+      "captured_at": "2026-09-22",
       "docket_number": "26AL-0137E"
     },
     {
@@ -1108,7 +1124,7 @@
       "tariff_name": "Ratepayer Protection Tariff (large-load cost allocation framework)",
       "tariff_type": "Ratepayer-protection / large-load cost allocation",
       "status": "proposed",
-      "status_detail": "Filed May 2026 under PUCN Docket 20-08014 (reusing a docket opened August 2020) as a stakeholder proposal within an existing investigation, not yet an adopted tariff or rate class. Public comment and scenario modeling continue through October 2026; evidentiary hearings scheduled January 2027; final decision expected mid-2027.",
+      "status_detail": "Filed May 2026 under PUCN Docket 20-08014 (reusing a docket opened August 2020) as a stakeholder proposal within an existing investigation, not yet an adopted tariff or rate class. Public comment and scenario modeling continue through October 2026; evidentiary hearings scheduled January 2027; final decision expected mid-2027. Checked against the PUCN document portal on 2026-09-22: Docket 20-08014's most recent entries are public comments filed through June 16, 2026, following Procedural Order No. 6 (April 20, 2026); no Commission decision on the Ratepayer Protection Tariff proposal has been entered.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "20-08014",
       "min_load_mw": null,
@@ -1157,9 +1173,13 @@
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        },
+        {
+          "url": "https://puc-onbase.nv.gov/",
+          "title": "PUCN Document Search portal — search type 'PUC - Public Search - Dockets', docket 20-08014"
         }
       ],
-      "captured_at": "2026-08-24"
+      "captured_at": "2026-09-22"
     },
     {
       "id": "comed-il-large-load-deposit-2026",
@@ -1209,7 +1229,7 @@
       "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0105)",
       "tariff_type": "Large-load cost-of-service rate case",
       "status": "proposed",
-      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 and ran roughly eight weeks (through late July 2026) with more than 30 intervenors. The ACC is signaling a final decision in late 2026, with new rates unlikely to take effect until early 2027 (requested rates effective no earlier than July 8, 2026).",
+      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 with more than 30 intervenors and had concluded by July 10, 2026 (per APS). The ALJ's Recommended Opinion and Order 'may take months'; APS says a final ACC decision is expected later in 2026, with requested rates effective no earlier than July 8, 2026 — in practice early 2027. As of September 22, 2026 the ACC's news page lists no Recommended Opinion and Order or open-meeting item on the case.",
       "regulator": "Arizona Corporation Commission (ACC)",
       "docket_number": "E-01345A-25-0105",
       "filed_date": "2025-06-01",
@@ -1239,18 +1259,22 @@
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        },
+        {
+          "url": "https://www.aps.com/en/About/Our-Company/Newsroom/Articles/APS-Rate-Case-Hearing-Concludes-Process-Moves-to-Next-Phase",
+          "title": "APS — Rate Case Hearing Concludes; Process Moves to Next Phase (July 10, 2026)"
         }
       ],
-      "captured_at": "2026-08-24"
+      "captured_at": "2026-09-22"
     },
     {
       "id": "duke-nc-large-load-rate-case-2025",
       "utility": "Duke Energy Carolinas / Duke Energy Progress",
       "state": "NC",
-      "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1300)",
+      "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1329)",
       "tariff_type": "Large-load rate case — cost-of-service and class design",
       "status": "proposed",
-      "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026, committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. A final NCUC order on the settlement is still pending as of late August 2026.",
+      "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026, committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. A final NCUC order on the settlement is still pending as of late August 2026. As of September 22, 2026 no NCUC order on the settlement has been located (the Commission's docket system blocks automated retrieval). On September 14, 2026 Attorney General Jeff Jackson — who declined to sign the settlement — filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers, part of the process the Commission opened after he requested a separate large-load proceeding (NCDOJ release). The settlement's end-of-September deadline for Duke and the Public Staff to submit the large-load tariff remains pending.",
       "regulator": "North Carolina Utilities Commission (NCUC)",
       "docket_number": "E-7, Sub 1329",
       "filed_date": "2025-11-20",
@@ -1284,9 +1308,13 @@
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        },
+        {
+          "url": "https://ncdoj.gov/attorney-general-jeff-jackson-proposes-framework-to-ensure-data-centers-pay-their-fair-share-for-energy-costs/",
+          "title": "NCDOJ — Attorney General Jackson proposes framework to ensure data centers pay their fair share (Sept. 14, 2026)"
         }
       ],
-      "captured_at": "2026-08-24"
+      "captured_at": "2026-09-22"
     },
     {
       "id": "virginia-data-center-electricity-consumption-tax",
@@ -1450,6 +1478,149 @@
         }
       ],
       "captured_at": "2026-09-08"
+    },
+    {
+      "id": "iid-ca-large-load-tariff-2026",
+      "utility": "Imperial Irrigation District (IID)",
+      "state": "CA",
+      "jurisdiction_level": "state",
+      "tariff_name": "Large Load Tariff",
+      "tariff_type": "Data center / large-load tariff (publicly owned utility)",
+      "status": "approved",
+      "status_detail": "Approved unanimously by the IID Board of Directors on September 15, 2026 after a 30-day public review (proposed May 15, 2026) that drew 243 comments and produced revisions. IID is a publicly owned irrigation district and electric utility whose rates are set by its elected board rather than the CPUC; no docket number exists. Effective date not stated in coverage.",
+      "regulator": "Imperial Irrigation District Board of Directors (publicly owned utility; not CPUC rate-regulated)",
+      "docket_number": null,
+      "filed_date": null,
+      "decision_date": "2026-09-15",
+      "min_load_mw": 20,
+      "customers": null,
+      "summary": "IID's Large Load Tariff sets how the district evaluates and serves customers requesting at least 20 MW of demand at an 80% minimum load factor — including data centers — making them 'responsible for the costs and financial risks associated with serving their projects, including needed infrastructure and power supply' rather than existing ratepayers, with a formal process to determine whether IID can reliably serve a proposed load and what system improvements are required. Coverage also describes 15-year service commitments, cash deposits, minimum monthly charges of at least 85% of contracted usage, customer-funded renewable procurement, and first-in-line curtailment of large users when demand peaks.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Applies to customers requesting at least 20 MW of electric demand."
+        },
+        "load_factor": {
+          "status": "included",
+          "detail": "Requires an 80% minimum load factor."
+        },
+        "contract_duration": {
+          "status": "included",
+          "detail": "Large-load customers must 'commit to 15 years of energy service' (KPBS).",
+          "source_url": "https://www.kpbs.org/news/environment/2026/09/16/imperial-valley-utility-adopts-new-pricing-rules-putting-data-centers-first-for-power-cuts"
+        },
+        "monthly_demand_charge": {
+          "status": "included",
+          "detail": "Minimum monthly charges set at least 85% of the customer's contracted energy usage (KPBS); dollar figures not disclosed.",
+          "source_url": "https://www.kpbs.org/news/environment/2026/09/16/imperial-valley-utility-adopts-new-pricing-rules-putting-data-centers-first-for-power-cuts"
+        },
+        "credit_collateral": {
+          "status": "partial",
+          "detail": "Customers must provide a cash deposit (KPBS); amounts not disclosed.",
+          "source_url": "https://www.kpbs.org/news/environment/2026/09/16/imperial-valley-utility-adopts-new-pricing-rules-putting-data-centers-first-for-power-cuts"
+        },
+        "marginal_pricing": {
+          "status": "included",
+          "detail": "Large-load customers bear the costs and financial risks of serving their projects — infrastructure (substations, transmission lines), power supply and other system improvements — so costs are not shifted to existing IID ratepayers."
+        },
+        "clean_energy": {
+          "status": "partial",
+          "detail": "Customers must cover 'the price of purchasing renewable energy' needed to meet state standards for their load (KPBS).",
+          "source_url": "https://www.kpbs.org/news/environment/2026/09/16/imperial-valley-utility-adopts-new-pricing-rules-putting-data-centers-first-for-power-cuts"
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Curtailment priority",
+          "detail": "Gives IID the power to shut large-load users off first when energy demand soars during peak periods (KPBS).",
+          "source_url": "https://www.kpbs.org/news/environment/2026/09/16/imperial-valley-utility-adopts-new-pricing-rules-putting-data-centers-first-for-power-cuts"
+        },
+        {
+          "term": "Service-ability determination",
+          "detail": "Establishes a formal process for determining whether IID can reliably serve a proposed large load and what system improvements may be required (APPA)."
+        }
+      ],
+      "legislation": [],
+      "source_url": "https://kesq.com/news/2026/09/15/iid-board-unanimously-approves-large-load-tariff/",
+      "source_title": "KESQ — IID board unanimously approves large load tariff",
+      "resources": [
+        {
+          "url": "https://www.publicpower.org/periodical/article/imperial-irrigation-district-board-unanimously-approves-large-load-tariff",
+          "title": "American Public Power Association — Imperial Irrigation District Board Unanimously Approves Large Load Tariff"
+        },
+        {
+          "url": "https://www.kpbs.org/news/environment/2026/09/16/imperial-valley-utility-adopts-new-pricing-rules-putting-data-centers-first-for-power-cuts",
+          "title": "KPBS — Imperial Valley utility adopts new pricing rules, putting data centers first for power cuts"
+        }
+      ],
+      "captured_at": "2026-09-22"
+    },
+    {
+      "id": "pacificorp-oregon-schedule-401-ue463",
+      "utility": "Pacific Power (PacifiCorp)",
+      "state": "OR",
+      "jurisdiction_level": "state",
+      "tariff_name": "Schedule 401 — Service to New Large Energy Use Facilities (Advice No. 25-015)",
+      "tariff_type": "Data center / large energy use facility rate class (HB 3546 POWER Act implementation)",
+      "status": "proposed",
+      "status_detail": "Docket UE 463 shows status SUSPENDED (under Commission investigation) as of September 22, 2026. Filed October 2, 2025 as ADV 1790, which the Commission closed December 16, 2025 with all filings moved to UE 463 after AWEC, Amazon and the Data Center Coalition intervened. On September 16, 2026 PacifiCorp filed a motion to admit an executed stipulation among PUC Staff, PacifiCorp, the Citizens' Utility Board and environmental intervenors, with joint supporting testimony. The PUC's May 2026 release on PGE's Schedule 96 notes the Commission 'is now considering an updated data center-specific tariff that directly addresses the POWER Act in Docket UE 463.'",
+      "regulator": "Public Utility Commission of Oregon (OPUC)",
+      "docket_number": "UE 463 (originally ADV 1790 / Advice No. 25-015)",
+      "filed_date": "2025-10-02",
+      "decision_date": null,
+      "min_load_mw": 20,
+      "customers": null,
+      "summary": "PacifiCorp's proposed Schedule 401 implements Oregon HB 3546 (the POWER Act) by creating a separate customer class for new Large Energy Use Facilities — facilities that 'use or are able to use 20 megawatts (MW) or more' and are primarily engaged in NAICS 518210 data processing and hosting — and requiring each to sign a Commission-approved service agreement of not less than 10 years with minimum-payment provisions, so that the significant investments needed to serve loads ranging 'from 20 MW to potentially 1 gigawatt or more' are not shifted to residential and other customers. A stipulation resolving the case was filed September 16, 2026 and awaits Commission action.",
+      "parameters": {
+        "min_load": {
+          "status": "included",
+          "detail": "Large Energy Use Facilities are facilities that 'use or are able to use 20 megawatts (MW) or more' (HB 3546 definition adopted in the filing)."
+        },
+        "customer_type": {
+          "status": "included",
+          "detail": "Facilities primarily engaged in NAICS 518210 (computing infrastructure, data processing, web hosting); applies to new facilities not in Direct Access and without an electric service contract before June 16, 2025."
+        },
+        "contract_duration": {
+          "status": "included",
+          "detail": "Each facility must enter a Commission-approved agreement 'for a specified term that is not less than 10 years.'"
+        },
+        "monthly_demand_charge": {
+          "status": "partial",
+          "detail": "Agreements must require a minimum payment 'based on the customer's projected energy use' per HB 3546; the specific percentage is set in each Commission-reviewed agreement rather than the schedule."
+        }
+      },
+      "additional_terms": [
+        {
+          "term": "Existing facilities deferred",
+          "detail": "PacifiCorp plans to address HB 3546 implementation for existing Large Energy Use Facilities in its next general rate case."
+        }
+      ],
+      "legislation": [
+        {
+          "title": "Oregon HB 3546 (2025) — large energy use facilities",
+          "url": "https://olis.oregonlegislature.gov/liz/2025R1/Measures/Overview/HB3546",
+          "citation": "HB 3546, Chapter 323 (2025)",
+          "status": "Enacted 2025 (effective June 16, 2025)",
+          "summary": "Requires the Oregon PUC to create a separate service classification for large energy use facilities (20 MW+) that assigns serving costs to them — the POWER Act, which Schedule 401 implements for PacifiCorp."
+        }
+      ],
+      "source_url": "https://apps.puc.state.or.us/edockets/DocketNoLayout.asp?DocketID=24856",
+      "source_title": "Oregon PUC eDockets — UE 463, PacifiCorp Advice No. 25-015 Schedule 401 (docket sheet)",
+      "resources": [
+        {
+          "url": "https://edocs.puc.state.or.us/efdocs/UAA/uaa340367027.pdf",
+          "title": "PacifiCorp — Advice No. 25-015, Schedule 401 Service to New Large Energy Use Facilities (filing letter and tariff sheets, October 2, 2025)"
+        },
+        {
+          "url": "https://apps.puc.state.or.us/edockets/docket.asp?DocketID=24769",
+          "title": "Oregon PUC eDockets — ADV 1790 (closed; filings moved to UE 463)"
+        },
+        {
+          "url": "https://www.oregon.gov/puc/news-events/Documents/PR-202609.pdf",
+          "title": "Oregon PUC media release (UM 2377) — Oregon PUC Approves New Rate Structure to Protect Customers Amid Rapid Data Center Growth (notes UE 463 is under consideration)"
+        }
+      ],
+      "captured_at": "2026-09-22"
     }
   ]
 }

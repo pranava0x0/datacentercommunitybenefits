@@ -1,6 +1,6 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-09-08
-Total projects needing attention: 101
+Generated: 2026-09-22
+Total projects needing attention: 103
 
 ## Critical Missing Commitment Details
 (36 projects)
@@ -44,7 +44,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(65 projects)
+(67 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -62,7 +62,7 @@ Projects with important gaps:
 - **anthropic-hawesville-ky** (announced): claimed_investment_usd, claimed_jobs
 - **anthropic-xai-infrastructure-partnership** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **aws-ashburn-gwu-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
-- **aws-boling-tx** (announced): claimed_jobs, power_mw
+- **aws-boling-tx** (announced): power_mw
 - **aws-calvert-cliffs-md** (announced): claimed_investment_usd, power_mw
 - **aws-ridgeland-ms** (construction): power_mw
 - **aws-wilmington-oh** (announced): power_mw
@@ -77,11 +77,12 @@ Projects with important gaps:
 - **google-hermantown-mn** (announced): claimed_jobs, power_mw
 - **google-jackson-county-al** (construction): claimed_jobs
 - **google-lagrange-ga** (construction): claimed_jobs
+- **google-lea-county-nm** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **google-lima-oh** (announced): claimed_jobs, power_mw
 - **google-linn-county-ia** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **google-little-rock-ar** (announced): claimed_jobs, power_mw
 - **google-michigan-city-in** (construction): power_mw
-- **google-owasso-ok** (construction): claimed_jobs, power_mw, ratepayer
+- **google-owasso-ok** (construction): claimed_jobs, power_mw
 - **google-pine-island-mn** (announced): claimed_investment_usd, power_mw
 - **google-putnam-county-wv** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **google-sand-springs-ok** (announced): claimed_investment_usd, power_mw
@@ -93,6 +94,7 @@ Projects with important gaps:
 - **meta-tulsa-ok** (construction): power_mw
 - **microsoft-castroville-tx** (announced): claimed_jobs, power_mw
 - **microsoft-cheyenne-wy** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **microsoft-gainesville-va** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **microsoft-new-albany-oh** (construction): claimed_jobs, power_mw
 - **microsoft-pecos-tx** (announced): claimed_investment_usd
 - **microsoft-person-county-nc** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -117,4 +119,4 @@ Projects with important gaps:
 (1 records)
 
 `proposed` moratoriums/tariffs not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 40 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 54 days ago

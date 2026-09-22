@@ -458,10 +458,10 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": 600,
-      "notes": "Second Microsoft campus in La Porte County, adjacent to the original 2024 campus (489 acres, 6 buildings, $1B). April 14, 2026: La Porte voted to annex ~1,000 acres in Pleasant Township. May 18, 2026: City council approved annexation and rezoning for 11 additional data center buildings on the expanded footprint. Original La Porte campus announced June 2024; this second campus is a distinct post-pledge expansion. UPDATE (2026-06-18): Microsoft broke ground on this campus, one month after the May 18 rezoning approval, alongside signing a partnership with Ivy Tech Community College to launch Indiana's first Microsoft Datacenter Academy (see education claim). First phase expected to create 600+ permanent Microsoft jobs; will use energy-efficient closed-loop liquid cooling. Note: some local coverage of the groundbreaking doesn't cleanly distinguish this second campus from the original 2024 campus next door — investment figure left null pending a source that clearly attributes a dollar amount to this specific phase.",
+      "notes": "Second Microsoft campus in La Porte County, adjacent to the original 2024 campus (489 acres, 6 buildings, $1B). April 14, 2026: La Porte voted to annex ~1,000 acres in Pleasant Township. May 18, 2026: City council approved annexation and rezoning for 11 additional data center buildings on the expanded footprint. Original La Porte campus announced June 2024; this second campus is a distinct post-pledge expansion. UPDATE (2026-06-18): Microsoft broke ground on this campus, one month after the May 18 rezoning approval, alongside signing a partnership with Ivy Tech Community College to launch Indiana's first Microsoft Datacenter Academy (see education claim). First phase expected to create 600+ permanent Microsoft jobs; will use energy-efficient closed-loop liquid cooling. Note: some local coverage of the groundbreaking doesn't cleanly distinguish this second campus from the original 2024 campus next door — investment figure left null pending a source that clearly attributes a dollar amount to this specific phase. Sept 17 2026 Microsoft Local post: the first phase of the campus is 'expected to create more than 600 permanent jobs'; Microsoft is supporting Ivy Tech's skilled-trades academy in Valparaiso, the Shirley Heinze Land Trust's Ridgeway Wetlands / Clear Lake restoration with the City of La Porte (a Clear Loop Greenway trail to downtown La Porte), and local community meal programs.",
       "source_url": "https://www.datacenterdynamics.com/en/news/microsoft-expands-plans-for-la-porte-indiana-data-center-campus/",
       "source_title": "Data Center Dynamics — Microsoft expands La Porte, Indiana data center plans (2026)",
-      "captured_at": "2026-07-14",
+      "captured_at": "2026-09-22",
       "acreage": 1000.0,
       "offtaker": "Microsoft",
       "ratepayer": {
@@ -3254,17 +3254,18 @@
       "announced_year": 2023,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "1,143-acre campus straddling Caroline and Spotsylvania counties at I-95 / Mudd Tavern Rd (Ruther Glen, VA). Army Corps of Engineers permit filed 2023; construction started October 2025. Eleven two-story data center buildings targeting 770 MW total capacity by 2027. Part of AWS's $35B Virginia commitment by 2040, extending the Northern Virginia data center corridor south toward Richmond. Proximate to a proposed Duke Energy 2.24 GW gas generation complex.",
+      "notes": "1,143-acre campus straddling Caroline and Spotsylvania counties at I-95 / Mudd Tavern Rd (Ruther Glen, VA). Army Corps of Engineers permit filed 2023; construction started October 2025. Eleven two-story data center buildings targeting 770 MW total capacity by 2027. Part of AWS's $35B Virginia commitment by 2040, extending the Northern Virginia data center corridor south toward Richmond. Proximate to a proposed Duke Energy 2.24 GW gas generation complex. Sept 10 2026: Amazon and Spotsylvania County celebrated the start of construction on a $480M water-reuse system — upgrading the county's Massaponax Wastewater Treatment Plant and adding 20+ miles of purple pipe — that will recycle treated wastewater to cool Amazon's Spotsylvania data centers (the county owns the system and can sell reclaimed water to other users; Amazon says residents are not paying for it); Amazon says it cools with outside air ~96% of the year in Spotsylvania. Amazon's post does not name the campus; local reporting (Free Lance-Star, Oct 2024) tied the county's reuse agreement to this Mattameade campus, the AWS campus straddling Spotsylvania and Caroline counties.",
       "source_url": "https://www.datacenterdynamics.com/en/news/amazon-requests-permit-for-11-building-data-center-campus-in-caroline-county-virginia/",
       "source_title": "Data Center Dynamics — Amazon requests permit for 11-building data center campus in Caroline County, Virginia",
-      "captured_at": "2026-06-05",
+      "captured_at": "2026-09-22",
       "project_page_url": null,
       "acreage": 1143,
       "power_mw": 770,
       "gpu_count": null,
       "offtaker": "Amazon",
       "at_a_glance": {
-        "energy": "770 MW / 1,143 ac — Caroline County campus (Mattermeade)"
+        "energy": "770 MW / 1,143 ac — Caroline County campus (Mattermeade)",
+        "water": "$480M county-owned wastewater-reuse system for cooling (Massaponax WWTP, 20+ mi pipe); outside-air cooling ~96% of year"
       }
     },
     {
@@ -3446,19 +3447,19 @@
       "status": "operational",
       "announced_year": 2022,
       "announced_date": "2022-02-16",
-      "claimed_investment_usd": 800000000,
-      "claimed_jobs": 1300,
-      "notes": "Meta's 15th US data center (19th globally). 960,000 sq ft; ~100 operational + 1,200 peak construction jobs. Powered via a new Idaho Power green tariff for 100% renewable energy; designed to be 80%+ more water efficient with outside-air cooling ~50% of the year. Meta also funded a ~$50M city-owned water and sewer system for Kuna. Broke ground Sept 2022.",
+      "claimed_investment_usd": 1200000000,
+      "claimed_jobs": 1700,
+      "notes": "Meta's 15th US data center (19th globally). 960,000 sq ft; ~100 operational + 1,200 peak construction jobs. Powered via a new Idaho Power green tariff for 100% renewable energy; designed to be 80%+ more water efficient with outside-air cooling ~50% of the year. Meta also funded a ~$50M city-owned water and sewer system for Kuna. Broke ground Sept 2022. Sept 3 2026: Meta announced the Kuna Data Center is 'online and operational'; investment now 'more than $1.2 billion' with 1,600 skilled-trade workers at peak construction (operational headcount not restated, so claimed_jobs = 1,600 construction + the ~100 ops figure from the 2022 announcement). Meta now says it invested more than $100M (earlier reporting: ~$50M) in the new Kuna water and wastewater system, built with capacity for future growth; the campus uses closed-loop liquid cooling with zero water for the majority of the year; three Meta-supported projects are adding 645 MW of new renewable energy in Ada County (supply, not site load); a new $200K grant to the Kuna School District, $1.5M+ to date to Ada County schools and nonprofits, and the Alta Harris Creek Boise River side-channel project expected to return ~149M gal/yr to the watershed.",
       "source_url": "https://datacenters.atmeta.com/2022/02/hello-kuna/",
       "source_title": "Meta Data Centers — Hello Kuna! (Feb 16 2022)",
-      "captured_at": "2026-06-18",
+      "captured_at": "2026-09-22",
       "project_page_url": "https://datacenters.atmeta.com/2022/02/hello-kuna/",
       "offtaker": "Meta",
       "at_a_glance": {
-        "jobs": "~100 ops / 1,200 peak construction",
-        "energy": "Idaho Power green tariff; 100% renewable match",
-        "water": "80%+ more water efficient; outside-air cooling",
-        "infrastructure": "Funded ~$50M city water & sewer system"
+        "jobs": "~100 ops / 1,600 peak construction; >$1.2B investment (online Sept 2026)",
+        "energy": "Idaho Power green tariff; 100% renewable match; 645 MW new Ada County renewables",
+        "water": "Closed-loop liquid cooling, zero water most of the year; ~149M gal/yr watershed restoration",
+        "infrastructure": "Funded $100M+ city water & wastewater system for Kuna"
       },
       "serving_utility": "Idaho Power",
       "serving_utility_signatory_id": "idaho-power"
@@ -3474,19 +3475,19 @@
       "lon": -112.0069,
       "status": "operational",
       "announced_year": 2018,
-      "claimed_investment_usd": 1000000000,
-      "claimed_jobs": 1450,
-      "notes": "Cedar Valley campus, ~2.4M sq ft, online since 2021. $1B+ Utah investment; 200+ operational jobs and 1,250 peak daily construction workers. Powered by 100% renewable energy via 800MW+ of new Rocky Mountain Power solar across nine projects; 2020 Provo River water restoration partnership with Trout Unlimited. ~$2M in community investment since 2018, including ~$1M COVID-19 relief.",
+      "claimed_investment_usd": 3000000000,
+      "claimed_jobs": 1500,
+      "notes": "Cedar Valley campus, ~2.4M sq ft, online since 2021. $1B+ Utah investment; 200+ operational jobs and 1,250 peak daily construction workers. Powered by 100% renewable energy via 800MW+ of new Rocky Mountain Power solar across nine projects; 2020 Provo River water restoration partnership with Trout Unlimited. ~$2M in community investment since 2018, including ~$1M COVID-19 relief. Sept 14 2026: Meta announced the campus 'is growing' — investment in Utah (Eagle Mountain is Meta's only Utah data center) rising to more than $3B, with 1,200+ construction workers at peak and 300+ jobs at the data center once completed (claimed_jobs = 1,500 combined); new buildings will use closed-loop liquid cooling with dry cooling (no operational cooling water). Announced alongside: a $450K grant for the Walden Park Astronomy Park (total city contribution $700K), $600K to buy three acres for a future Lake Mountain School District elementary school, $1.5M to the Lake Mountain Education Foundation plus $50K/yr, $4.85M to date to the city's Affordable Housing Fund (66 families), $50M+ in local road/water infrastructure, $6.2M+ to local schools and organizations, Hobble Creek + Provo River restoration (726M+ gal/yr), and 1.7 GW+ of Meta-supported clean energy across 13 Utah sites (a supply figure, not site load). Meta states it pays 'the full costs of our data centers' energy use so other consumers aren't negatively impacted' — no ratepayer assessment attached because the site predates the pledge.",
       "source_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
       "source_title": "Meta Data Centers — Utah County, We Are Online! (Jul 2021)",
-      "captured_at": "2026-06-18",
+      "captured_at": "2026-09-22",
       "project_page_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
       "offtaker": "Meta",
       "at_a_glance": {
-        "jobs": "200+ ops / 1,250 peak construction",
-        "energy": "800MW+ new Rocky Mountain Power solar; 100% renewable",
-        "water": "Provo River restoration w/ Trout Unlimited",
-        "community_grants": "~$2M community investment; ~$1M COVID relief"
+        "jobs": "300+ ops / 1,200+ peak construction (2026 expansion); >$3B Utah investment",
+        "energy": "800MW+ RMP solar (2021); 1.7 GW+ Meta-supported clean energy across 13 Utah sites; pays full energy + infrastructure costs",
+        "water": "Provo River / Hobble Creek restoration (726M+ gal/yr); new buildings dry-cooled, no operational cooling water",
+        "community_grants": "$6.2M+ to schools/orgs; $4.85M affordable housing; $450K astronomy park (2026)"
       }
     },
     {
@@ -3733,16 +3734,17 @@
       "announced_year": 2012,
       "claimed_investment_usd": 15600000000,
       "claimed_jobs": 1800,
-      "notes": "AWS's Eastern Oregon cluster in Umatilla County (Hermiston/Umatilla), part of a $15.6B Oregon investment (2012-2021); 1,800+ FTE across Morrow and Umatilla counties, $1.1B+ local GDP. Top taxpayer in both counties (~$41M property taxes/fees in 2021). BMCC Data Center Technician Training program (scholarship doubled to $100K/yr); four AWS Think Big Spaces; $2M AWS InCommunities education donations (2022).",
+      "notes": "AWS's Eastern Oregon cluster in Umatilla County (Hermiston/Umatilla), part of a $15.6B Oregon investment (2012-2021); 1,800+ FTE across Morrow and Umatilla counties, $1.1B+ local GDP. Top taxpayer in both counties (~$41M property taxes/fees in 2021). BMCC Data Center Technician Training program (scholarship doubled to $100K/yr); four AWS Think Big Spaces; $2M AWS InCommunities education donations (2022). Sept 20 2026: Amazon announced it is investing $400M to improve public water systems in Eastern Oregon (City of Umatilla, City of Hermiston, Port of Morrow), including a Columbia River intake initially providing up to 23 cfs / 14.8M gal/day for the whole community and Port of Morrow plants adding 10B gal/yr of net-new capacity of which Amazon says it will use ~5% (455M gal); Amazon says its Eastern Oregon data centers use water for only ~7% of the year (outside-air cooling ~93%), used ~284M gal across all Oregon operations in 2024 and 242M gal in 2025, and that its replenishment projects will return or improve 957M gal/yr — nearly four times its 2025 cooling water use.",
       "source_url": "https://www.aboutamazon.com/news/aws/committed-to-our-communities-the-economic-impact-of-awss-15-6-billion-investment-in-oregon",
       "source_title": "About Amazon — Economic impact of AWS's $15.6B investment in Oregon",
-      "captured_at": "2026-06-19",
+      "captured_at": "2026-09-22",
       "project_page_url": "https://www.aboutamazon.com/news/aws/committed-to-our-communities-the-economic-impact-of-awss-15-6-billion-investment-in-oregon",
       "offtaker": "AWS",
       "at_a_glance": {
         "jobs": "1,800+ FTE across Morrow & Umatilla",
         "tax_revenue": "Top taxpayer in both counties",
-        "education": "BMCC Data Center Technician program; 4 Think Big Spaces"
+        "education": "BMCC Data Center Technician program; 4 Think Big Spaces",
+        "water": "$400M for public water systems (Umatilla, Hermiston, Port of Morrow); 957M gal/yr replenishment; outside-air cooling ~93% of year"
       }
     },
     {
@@ -3865,40 +3867,43 @@
       "status": "announced",
       "announced_year": 2026,
       "claimed_investment_usd": 1200000000,
-      "claimed_jobs": null,
-      "notes": "Four-building, ~2,700-acre campus in Wharton County (near FM 1301/FM 442, southwest of Houston), filed with the Texas Department of Licensing and Regulation. ~756,240 sq ft total (189,060 sq ft / ~$300M per building). Construction on all four buildings set to start Aug 1, 2026; first three targeted for completion around January 2027, the fourth around August 2027. Wharton County sits near Houston, described by the source as Texas' third-largest data center market.",
+      "claimed_jobs": 300,
+      "notes": "Four-building, ~2,700-acre campus in Wharton County (near FM 1301/FM 442, southwest of Houston), filed with the Texas Department of Licensing and Regulation. ~756,240 sq ft total (189,060 sq ft / ~$300M per building). Construction on all four buildings set to start Aug 1, 2026; first three targeted for completion around January 2027, the fourth around August 2027. Wharton County sits near Houston, described by the source as Texas' third-largest data center market. Sept 10 2026 Amazon post ('How we're building responsibly in Wharton County'): Amazon 'today only [has] plans for 13 buildings' (the four TDLR-filed buildings behind the $1.2B figure are the first of these; press reports cite ~$10B for the full campus, a figure not in Amazon's own post, so claimed_investment_usd keeps the filed $1.2B); at least 300 full-time jobs (150 by mid-2027) at wages 'well above the county average'; site preparation already underway; no water for cooling and no groundwater use, potable use ~16,000 gal/day; a Wharton County Alternate Wetting and Drying irrigation replenishment project expected to return 225M+ gal/yr for 10 years; no gas plant planned at the site — power via ERCOT over existing transmission plus on-site substations Amazon funds; Tier 4 backup generators; commits to SB 6 grid-reliability rules and load curtailment in grid emergencies. Same day, Amazon's Keith Klein fielded resident questions at a community meeting in Boling.",
       "source_url": "https://www.datacenterdynamics.com/en/news/aws-files-for-12bn-data-center-campus-outside-houston-texas/",
       "source_title": "Data Center Dynamics — AWS files for $1.2bn data center campus outside Houston, Texas",
-      "captured_at": "2026-07-14",
+      "captured_at": "2026-09-22",
       "acreage": 2700,
       "offtaker": "Amazon",
       "at_a_glance": {
-        "infrastructure": "$1.2B, 4 buildings, ~756K sq ft; construction starts Aug 1, 2026"
+        "infrastructure": "13 buildings planned (4 filed, $1.2B); on-site substations Amazon-funded; no gas plant",
+        "water": "No cooling water or groundwater; ~16K gal/day potable; 225M+ gal/yr replenishment (AWD irrigation)",
+        "jobs": "300+ full-time (150 by mid-2027), wages above county average"
       },
       "ratepayer": {
-        "status": "pledge_only",
-        "summary": "Covered by Amazon's national pledge signature; the Project Eagle permit filings focus on construction/zoning with no site-specific ratepayer commitment captured for this campus.",
-        "assessed_at": "2026-07-14",
+        "status": "affirmed",
+        "summary": "Amazon's Sept 2026 Wharton County post states it pays 'the full costs of powering our operations—so those costs are not passed to other customers' and is funding the on-site substations, with no gas plant planned at the site and a commitment to Texas SB 6 grid-reliability rules — a site-specific affirmation, though no rate structure or generation agreement is public.",
+        "evidence_claim_id": "aws-boling-energy-full-costs-2026",
+        "assessed_at": "2026-09-22",
         "principles": {
           "new_generation": {
             "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific generation agreement captured for this campus."
+            "note": "Amazon is 'exploring power supply options in ERCOT' and cites 10 GW of Texas supply investments statewide; no site-specific new-generation agreement announced."
           },
           "delivery_infra": {
-            "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific grid upgrade agreement captured for this site."
+            "status": "met",
+            "note": "Post: pays 'the full costs of powering our operations—so those costs are not passed to other customers', delivered over 'existing transmission infrastructure and substations we are funding on-site.'"
           },
           "separate_rate": {
             "status": "partial",
-            "note": "Covered by Amazon's national pledge; no separate rate filing or utility agreement captured for this site."
+            "note": "No separate rate filing or utility agreement public for this campus."
           },
           "local_jobs": {
-            "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific local hiring or workforce commitment captured."
+            "status": "met",
+            "note": "At least 300 full-time positions (150 by mid-2027) at wages 'well above the county average', plus thousands of construction jobs."
           },
           "grid_resilience": {
-            "status": "partial",
-            "note": "Covered by Amazon's national pledge; no site-specific grid coordination or backup commitment captured."
+            "status": "met",
+            "note": "Commits to curtail load or switch to Tier 4 backup generation in grid emergencies and to comply with Texas SB 6 reliability standards."
           }
         }
       }
@@ -4043,14 +4048,14 @@
       "announced_date": "2026-03-20",
       "claimed_investment_usd": 67200000000,
       "claimed_jobs": 37500,
-      "notes": "Built on ~2,700 acres of private land adjacent to the DOE Portsmouth Site (former uranium-enrichment site). Groundbreaking held March 20, 2026. Planned buildout up to 10 GW total (800 MW first phase). $67.2B is the full-campus figure (data center + a paired 9.2 GW / ~$33B natural-gas generation plant + $4.2B in AEP Ohio transmission infrastructure, which SB Energy is paying for so the cost doesn't fall on Ohio ratepayers) tied to the campus's FAST-41 federal-permitting designation (June 16, 2026). Jobs figures vary by source and scope: DOE's own March 2026 article (tied to a smaller 189-acre initial federal parcel) cites 10,000 construction / 2,000+ permanent; SB Energy's own current site (tied to the larger 2,700-acre full campus) cites 35,000 construction / 2,500 operating -- used here as the more current, company-published, full-scope figure. No offtaker/tenant has been named; SB Energy appears to be building for its own account. Local reporting (Scioto Valley Guardian, Mar 2026) notes no water-use plan or environmental impact assessment had been made public as of the groundbreaking, on a site with a legacy of radiation-exposure contamination claims (RECA).",
+      "notes": "Built on ~2,700 acres of private land adjacent to the DOE Portsmouth Site (former uranium-enrichment site). Groundbreaking held March 20, 2026. Planned buildout up to 10 GW total (800 MW first phase). $67.2B is the full-campus figure (data center + a paired 9.2 GW / ~$33B natural-gas generation plant + $4.2B in AEP Ohio transmission infrastructure, which SB Energy is paying for so the cost doesn't fall on Ohio ratepayers) tied to the campus's FAST-41 federal-permitting designation (June 16, 2026). Jobs figures vary by source and scope: DOE's own March 2026 article (tied to a smaller 189-acre initial federal parcel) cites 10,000 construction / 2,000+ permanent; SB Energy's own current site (tied to the larger 2,700-acre full campus) cites 35,000 construction / 2,500 operating -- used here as the more current, company-published, full-scope figure. Aug 17 2026: OpenAI named as tenant — SB Energy 'will build, own and operate the data center under a 20-year lease to OpenAI', with NVIDIA providing credit support on land, power and shell buildout for an initial 4.25 IT-GW (option on the remaining 3.75 IT-GW; 'OpenAI will be the customer for 8-IT GW'), investing $1.5B in SB Energy, and capacity coming online in phases from 2028; OpenAI added an incremental $40M to the $40M community benefits fund ($80M total). Local reporting (Scioto Valley Guardian, Mar 2026) notes no water-use plan or environmental impact assessment had been made public as of the groundbreaking, on a site with a legacy of radiation-exposure contamination claims (RECA).",
       "source_url": "https://www.energy.gov/em/articles/partnership-ensures-affordable-energy-powers-ai-future-portsmouth-site",
       "source_title": "U.S. Department of Energy -- Partnership Ensures Affordable Energy, Powers AI Future at Portsmouth Site",
-      "captured_at": "2026-07-30",
+      "captured_at": "2026-09-22",
       "project_page_url": "https://portscampus.com/",
       "acreage": 2700,
       "power_mw": 10000,
-      "offtaker": null,
+      "offtaker": "OpenAI",
       "serving_utility": "AEP Ohio",
       "at_a_glance": {
         "energy": "Up to 10 GW planned; SB Energy funds 100% of new transmission",
@@ -4236,7 +4241,7 @@
       "notes": "506-acre campus in unincorporated Tulsa County, west of Owasso, adjacent to Cherokee Industrial Park. Developed by Beale Infrastructure; Google confirmed publicly as the end user Aug 19 2026 (site itself broke ground Oct 2025 under the 'Project Clydesdale' name before Google's identity was disclosed). Planned $1B initial-phase investment; up to four ~200,000 sq ft buildings over a 5-7 year build-out. Press reports cite ~100-200 direct operating jobs (range, not a single confirmed figure, so left out of claimed_jobs) plus 160+ electrical apprenticeships by 2030 via the electrical training ALLIANCE. Google funding ~1.5 miles of new water lines and infrastructure upgrades for Washington County Rural Water District No. 3. Distinct from Google's other Oklahoma sites: Sand Springs (Project Spring), Stillwater, and Mayes County/Pryor.",
       "source_url": "https://ktul.com/news/local/google-confirmed-as-end-user-of-tulsa-countys-project-clydesdale-data-center-campus",
       "source_title": "KTUL — Google confirmed as end user of Tulsa County's Project Clydesdale data center campus (Aug 19 2026)",
-      "captured_at": "2026-08-24",
+      "captured_at": "2026-09-22",
       "project_page_url": null,
       "acreage": 506,
       "power_mw": null,
@@ -4245,6 +4250,17 @@
       "at_a_glance": {
         "jobs": "$1B initial phase / 506 ac — Project Clydesdale",
         "water": "~1.5 mi new water lines for Washington Co. Rural Water District No. 3"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Google is a pledge signatory and confirmed itself as the Owasso campus's end user in August 2026, but its published statements on the site address community commitment in general terms; no site-specific commitment on power costs or grid upgrades has been captured, so the site is recorded as covered by the national signature.",
+        "assessed_at": "2026-09-22",
+        "principles": {
+          "delivery_infra": {
+            "status": "partial",
+            "note": "No Google-published site-specific statement on paying for delivery infrastructure at the Tulsa County campus captured; Beale Infrastructure is the developer of record."
+          }
+        }
       }
     },
     {
@@ -4264,7 +4280,7 @@
       "notes": "Third AWS data center campus in the Caddo-Bossier area, at Resilient Technology Park in west Shreveport (Caddo Parish, but a distinct site from the existing amazon-caddo-parish-la campus in Blanchard). Announced Aug 18 2026, raising Amazon's total northwest Louisiana commitment from $12B (Feb 2026, two campuses) to $18B (three campuses). Site-specific figures per Amazon/KTBS: $6B investment, 210 direct + 499 indirect jobs (709 total) for this campus specifically. The combined $400M Louisiana water-infrastructure commitment and up to 200 MW of solar are state-wide commitments across all three LA campuses, not specific to this site alone (already captured on amazon-caddo-parish-la). Served by SWEPCO, same as the other two LA campuses.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-center-louisiana-new-jobs",
       "source_title": "Amazon — Amazon to invest $18 billion in Louisiana for new data centers (Aug 18 2026)",
-      "captured_at": "2026-08-24",
+      "captured_at": "2026-09-22",
       "project_page_url": null,
       "acreage": null,
       "power_mw": null,
@@ -4275,7 +4291,22 @@
         "energy": "100% electricity cost coverage (SWEPCO); part of $18B 3-campus LA commitment"
       },
       "serving_utility": "Southwestern Electric Power Company (SWEPCO)",
-      "serving_utility_signatory_id": "southwestern-electric-power-company"
+      "serving_utility_signatory_id": "southwestern-electric-power-company",
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Amazon is a pledge signatory; its August 2026 Shreveport announcement carried a named executive's promise that 'Amazon pays its own way' for the northwest Louisiana investment, but that statement is general rather than an explicit commitment on electricity costs or grid upgrades for this campus, so the site is recorded as covered by the national signature pending a site-specific energy statement.",
+        "assessed_at": "2026-09-22",
+        "principles": {
+          "delivery_infra": {
+            "status": "partial",
+            "note": "Keith Klein's 'Amazon pays its own way' (KTBS, Aug 18 2026) is investment-wide framing; no statement on who pays for this campus's delivery infrastructure captured."
+          },
+          "local_jobs": {
+            "status": "partial",
+            "note": "709 permanent jobs claimed for the campus; no local-hiring or workforce-development commitment captured."
+          }
+        }
+      }
     },
     {
       "id": "amazon-fort-stockton-tx",
@@ -4294,7 +4325,7 @@
       "notes": "Three-building campus (Buildings A, B, C; ~189,060 sq ft each, $300M/building) at 6000 TX-18, Pecos County, ~11 miles north of Fort Stockton. Construction permits filed early Aug 2026; construction window Aug-Dec 2026, first power targeted Q1 2027. Distinct from Microsoft's Pecos, TX site (microsoft-pecos-tx), which is in a different county (Reeves County) despite the similar name. Paired with a large Pacifico Energy on-site gas power plant (35 turbines, up to 7.65 GW permitted capacity per TCEQ filings) financed by Amazon — that plant capacity is the power PLANT's permitted ceiling, not a confirmed site-specific data-center load figure, so left out of power_mw. The gas plant's ~33M tons/year permitted CO2 ceiling (about double the current dirtiest US coal plant) drew an Aug 2026 NYT investigation and a TechCrunch report, plus an order from Texas Gov. Greg Abbott for audits of grid-connected data center projects statewide.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-pecos-county-texas-data-center-clean-energy-jobs",
       "source_title": "Amazon — Amazon's planned data center campus in Pecos County, Texas: Read Amazon's statement (Aug 2026)",
-      "captured_at": "2026-08-24",
+      "captured_at": "2026-09-22",
       "project_page_url": null,
       "acreage": null,
       "power_mw": null,
@@ -4302,6 +4333,34 @@
       "offtaker": "AWS",
       "at_a_glance": {
         "energy": "$900M / 3 buildings; on-site gas plant (Pacifico Energy) drew pollution scrutiny"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Amazon's own statement on the Pecos County campus says it believes in 'paying the full costs of powering our operations' and that the campus is powered by new on-site generation 'that won't raise electricity costs for Texas families' — a site-specific affirmation; separately, a New York Times / TechCrunch investigation raised air-pollution concerns about the Amazon-financed gas plant, which is a distinct issue from ratepayer cost-shifting.",
+        "evidence_claim_id": "amazon-pecos-county-energy-statement-2026",
+        "assessed_at": "2026-09-22",
+        "principles": {
+          "new_generation": {
+            "status": "met",
+            "note": "Powered by new on-site generation (the Amazon-financed Pacifico Energy gas plant), per Amazon's own statement."
+          },
+          "delivery_infra": {
+            "status": "met",
+            "note": "Statement: 'paying the full costs of powering our operations'; on-site generation, with a designed transition to grid-connected service 'as interconnection timelines allow'."
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "No rate structure or utility agreement is public; the campus initially runs on on-site generation rather than a utility tariff."
+          },
+          "local_jobs": {
+            "status": "partial",
+            "note": "No site-specific jobs figure or workforce-development commitment captured."
+          },
+          "grid_resilience": {
+            "status": "partial",
+            "note": "Designed to transition to grid-connected service as interconnection allows; no commitment on making backup generation available to the grid captured."
+          }
+        }
       }
     },
     {
@@ -4321,7 +4380,7 @@
       "notes": "Three-building campus (Buildings B, C, D; ~189,060 sq ft each, $300M/building), 'Horizon Junction,' at 1774/1782 County Road 241, Floyd County, ~45 miles northeast of Lubbock. Permits filed early Aug 2026; construction window Aug 2026 - Apr 2027. Filed the same week as the Fort Stockton (Pecos County) campus and an expansion of the existing Boling campus (aws-boling-tx) — all three covered in the same DCD/usdatacenterprojects.com report. No power, jobs, or investment breakdown specific to community-benefit themes found beyond the building/cost figures below.",
       "source_url": "https://usdatacenterprojects.com/texas/amazon-files-plans-for-new-data-center-buildings-in-texas-across-three-sites",
       "source_title": "US Data Center Projects — Amazon files plans for new data center buildings in Texas across three sites (Aug 7 2026)",
-      "captured_at": "2026-08-24",
+      "captured_at": "2026-09-22",
       "project_page_url": null,
       "acreage": null,
       "power_mw": null,
@@ -4329,6 +4388,17 @@
       "offtaker": "AWS",
       "at_a_glance": {
         "infrastructure": "$900M / 3 buildings ('Horizon Junction') filed Aug 2026"
+      },
+      "ratepayer": {
+        "status": "pledge_only",
+        "summary": "Amazon is a pledge signatory and filed the Floydada (Horizon Junction) permits in August 2026 in the same week as the Pecos County campus, but unlike Pecos County no Amazon statement on power supply or cost responsibility for this site has been captured, so it is recorded as covered by the national signature.",
+        "assessed_at": "2026-09-22",
+        "principles": {
+          "delivery_infra": {
+            "status": "partial",
+            "note": "No site-specific statement on power supply or who pays for delivery infrastructure captured for the Floyd County campus."
+          }
+        }
       }
     },
     {
@@ -4354,6 +4424,90 @@
       "gpu_count": null,
       "offtaker": "Microsoft",
       "at_a_glance": null
+    },
+    {
+      "id": "google-lea-county-nm",
+      "company_slug": "google",
+      "name": "Google Lea County Data Center (prospective site near Hobbs)",
+      "city": "Hobbs",
+      "state": "NM",
+      "country": "US",
+      "lat": 32.7026,
+      "lon": -103.222,
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-09-14",
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "EXPLORATORY: announced Sept 14 2026 via a Google blog post and a project website (leacountydatacenter.com); Google says it is 'in the very early stages of reviewing this opportunity' and has made no final decision. Prospective site is 'roughly five miles outside the western edge of Hobbs' in Lea County (Permian Basin, SE New Mexico) — lat/lon here is approximate. Per Albuquerque Journal / KRQE reporting, the land is county-owned and under an option-to-purchase agreement with Excelsior Hobbs Power LLC, which is partnering with Google; any arrangement needs New Mexico State Board of Finance review, and county commissioners were to take it up the week of Sept 21. Would be Google's first self-built development in New Mexico (Google's existing NM footprint is leased). Project site commitments: closed-loop, air-cooled facility with no evaporative cooling (operational water 'similar to an office building'; construction water averaging ~900,000 gal/day per the site and ABQ Journal); power mix 'likely to be a mix' of solar, wind, battery storage and 'a moderate amount of firming, gas-powered resources', with a commitment to pay for 100% of the power used and growth-driven infrastructure; 'hundreds of long-term, operational jobs initially' plus thousands of construction jobs (ranges only, so claimed_jobs is null); payments to 'exceed 100% of its real property taxes'. No investment, acreage, MW or utility figure disclosed. Lea County said it would evaluate the project subject to restrictions on lighting, sound, energy use and water.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/lea-county-new-mexico/",
+      "source_title": "Google — We're exploring a potential data center in Lea County, New Mexico (Sep 14 2026)",
+      "captured_at": "2026-09-22",
+      "project_page_url": "https://leacountydatacenter.com/",
+      "acreage": null,
+      "power_mw": null,
+      "gpu_count": null,
+      "offtaker": "Google",
+      "at_a_glance": {
+        "energy": "Commits to pay 100% of power + growth-driven infrastructure; mix of solar/wind/batteries + some firming gas",
+        "water": "Closed-loop, air-cooled; no evaporative cooling; office-building-scale water use",
+        "engagement": "Exploratory (no final decision); Google launched a project site to 'start our conversation with the community early'"
+      },
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "Google's own project site for the prospective Lea County facility states a commitment to pay for 100% of the power it uses, to cover the infrastructure needs driven by its growth, and not to pass those costs on to families — a site-specific affirmation, though the project is still exploratory and no utility, rate structure or generation agreement has been named.",
+        "evidence_claim_id": "google-lea-county-energy-pay-100-2026",
+        "assessed_at": "2026-09-22",
+        "principles": {
+          "new_generation": {
+            "status": "partial",
+            "note": "Site says the power mix is 'likely to be a mix' of solar, wind, batteries and a moderate amount of firming gas; no specific new-generation agreement announced."
+          },
+          "delivery_infra": {
+            "status": "met",
+            "note": "Project site: 'When we build data centers, we also cover the infrastructure needs directly driven by our growth.'"
+          },
+          "separate_rate": {
+            "status": "partial",
+            "note": "No serving utility named and no rate arrangement public at the exploratory stage."
+          },
+          "local_jobs": {
+            "status": "partial",
+            "note": "'Hundreds of long-term, operational jobs initially' stated; no workforce-development commitment yet."
+          },
+          "grid_resilience": {
+            "status": "partial",
+            "note": "Site says its footprint 'will not require the adoption of additional electricity conservation measures from the community'; no backup-generation or resilience commitment published."
+          }
+        }
+      }
+    },
+    {
+      "id": "microsoft-gainesville-va",
+      "company_slug": "microsoft",
+      "name": "Wellington Datacenter (MNZ07), Prince William County",
+      "city": "Gainesville",
+      "state": "VA",
+      "country": "US",
+      "lat": 38.7795,
+      "lon": -77.554,
+      "status": "announced",
+      "announced_year": 2024,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Microsoft's proposed 'Wellington' datacenter (Microsoft site code MNZ07) at 13490 University Boulevard in the Gainesville/Bristow area of Prince William County: 123 acres on the east side of University Blvd, south of I-66 and north of Wellington Road, inside the county's Data Center Opportunity Zone Overlay District (by-right for data centers, so no rezoning vote). Microsoft bought ~124 acres (two parcels, 13490 University Blvd and 5941 Wellington Rd) for more than $465M in early 2024 from an entity tied to JK Land Holdings (Chuck Kuhn); the March 2024 purchase was reported as data-center land, so announced_year is 2024 (pre-pledge) even though the first detailed plan only surfaced in July 2026. The land price is deliberately NOT recorded as claimed_investment_usd (land cost, not announced capex). Plan per the July 2026 U.S. Army Corps of Engineers (Norfolk District) individual Clean Water Act permit public notice: two one-story data center buildings, an on-site electrical substation, water storage and detention ponds; public comment ran through Aug 7 2026 (DataCenterDynamics also reported the USACE application on Sept 16 2026; that article returns 403 and was not read). The parcel is the former Atlantic Research Corporation rocket/missile production and testing facility (decommissioned 2005; a Superfund site with historic groundwater contamination). Microsoft's Northern Virginia community page names no Wellington-specific project page, and its 'Environmental update for Proposed Wellington Datacenter site' post returned 404 on 2026-09-22; Microsoft declined to comment to InsideNoVa in Aug 2026. No first-party site-specific community-impact quote found, so no Claim is attached. Distinct from Microsoft's operational Gainesville datacenters and from QTS's Manassas/PW Digital Gateway sites.",
+      "source_url": "https://www.insidenova.com/news/prince_william/environmental-public-comment-open-for-planned-microsoft-data-center-near-gainesville/article_6d30cfb2-9e3f-47e1-b11c-d7cb74f453d8.html",
+      "source_title": "InsideNoVa — Environmental public comment open for planned Microsoft data center near Gainesville (Jul 14 2026)",
+      "captured_at": "2026-09-22",
+      "project_page_url": null,
+      "acreage": 123,
+      "power_mw": null,
+      "gpu_count": null,
+      "offtaker": "Microsoft",
+      "at_a_glance": {
+        "infrastructure": "2 one-story buildings + on-site substation on 123 ac; USACE Clean Water Act permit pending",
+        "engagement": "By-right site; residents raised contamination/transparency concerns during the USACE comment period"
+      }
     }
   ]
 }

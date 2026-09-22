@@ -2865,12 +2865,31 @@ function renderPledgeActivity() {
     );
     const joinedOrgs = joined.filter((s) => s.category !== "governor").length;
     const joinedGovs = joined.length - joinedOrgs;
+    // The roster kept growing after the event, so the "to N" figure is the
+    // cohort as it stood on July 23 (the March + DOE signatories plus the
+    // expansion), not today's total — that belongs to the rolling item below.
+    const before = (state.signatories || []).filter(
+      (s) => s.category !== "governor" && s.signed_track !== "expansion-2026-07-23" && s.signed_track !== "rolling"
+    ).length;
     if (joined.length) {
       items.push({
         date: RATEPAYER_PLEDGE_EXPANSION_DATE,
         text:
           `${joinedOrgs} organizations and ${joinedGovs} governors joined, taking ` +
-          `the roster from 8 signatories to ${counts.organizations}.`,
+          `the roster from ${before} signatories to ${before + joinedOrgs}.`,
+      });
+    }
+    // Organizations that appeared on the roster after the expansion. The page
+    // publishes no join dates, so the item is dated to the snapshot that first
+    // showed them and says so.
+    const rolling = (state.signatories || []).filter((s) => s.signed_track === "rolling").length;
+    if (rolling && state.rosterAsOf) {
+      items.push({
+        date: state.rosterAsOf,
+        text:
+          `${rolling} more organization${rolling === 1 ? "" : "s"} appeared on the roster ` +
+          `after July 23 (join dates unpublished; first seen in the ${state.rosterAsOf} ` +
+          `snapshot), taking it to ${counts.organizations}.`,
       });
     }
   }

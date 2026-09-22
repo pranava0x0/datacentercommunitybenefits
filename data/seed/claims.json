@@ -4320,6 +4320,368 @@
       "captured_at": "2026-08-24",
       "published_at": null,
       "project_id": "sb-energy-piketon-oh"
+    },
+    {
+      "id": "google-lea-county-energy-pay-100-2026",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Google's responsible energy growth approach is grounded in a commitment to pay for 100% of the power we use. When we build data centers, we also cover the infrastructure needs directly driven by our growth. We will not pass on the costs of our growth to families, and our footprint will not require the adoption of additional electricity conservation measures from the community.",
+      "source_url": "https://leacountydatacenter.com/",
+      "source_title": "Google — Lea County Data Center project site, 'Our Energy Approach'",
+      "captured_at": "2026-09-22",
+      "published_at": null,
+      "project_id": "google-lea-county-nm"
+    },
+    {
+      "id": "google-lea-county-engagement-transparent-2026",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "While discussions are ongoing, we recognize residents are asking questions about data center development, so we want to be transparent and start our conversation with the community early.",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/lea-county-new-mexico/",
+      "source_title": "Google — We're exploring a potential data center in Lea County, New Mexico (Sep 14 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-14",
+      "project_id": "google-lea-county-nm"
+    },
+    {
+      "id": "google-lea-county-water-closed-loop-2026",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "Our prospective facility in Lea County would be a closed loop, air-cooled facility to minimize impact on local water resources. This means it will not use evaporative cooling and water consumption will be limited to domestic uses like bathrooms and kitchens, with water consumption similar to an office building.",
+      "source_url": "https://leacountydatacenter.com/",
+      "source_title": "Google — Lea County Data Center project site, 'Our Cooling & Water Approach'",
+      "captured_at": "2026-09-22",
+      "published_at": null,
+      "project_id": "google-lea-county-nm"
+    },
+    {
+      "id": "google-lea-county-tax-revenue-2026",
+      "company_slug": "google",
+      "theme": "tax_revenue",
+      "statement": "Any arrangement will ensure that Google makes payments that exceed 100% of its real property taxes.",
+      "source_url": "https://leacountydatacenter.com/",
+      "source_title": "Google — Lea County Data Center project site, 'Economic Impact'",
+      "captured_at": "2026-09-22",
+      "published_at": null,
+      "project_id": "google-lea-county-nm"
+    },
+    {
+      "id": "google-lea-county-jobs-2026",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "We expect the prospective Lea County data center will produce hundreds of long-term, operational jobs initially, as well as thousands of jobs during construction.",
+      "source_url": "https://leacountydatacenter.com/",
+      "source_title": "Google — Lea County Data Center project site, 'Economic Impact'",
+      "captured_at": "2026-09-22",
+      "published_at": null,
+      "project_id": "google-lea-county-nm"
+    },
+    {
+      "id": "meta-eagle-mountain-jobs-expansion-2026",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "With this expansion, we are increasing our investment in Utah to more than $3 billion and will support more than 1,200 construction workers at the peak of construction, as well as more than 300 jobs at the data center once completed.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/deepening-our-investment-in-eagle-mountain-utah/",
+      "source_title": "Meta Data Centers — Deepening Our Investment in Eagle Mountain, Utah (Sep 14 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-14",
+      "project_id": "meta-eagle-mountain-ut",
+      "metric": {
+        "value": 300,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "meta-eagle-mountain-energy-full-costs-2026",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "We pay the full costs of our data centers' energy use so other consumers aren't negatively impacted, and we fund the new and upgraded infrastructure needed to support our operations.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/deepening-our-investment-in-eagle-mountain-utah/",
+      "source_title": "Meta Data Centers — Deepening Our Investment in Eagle Mountain, Utah (Sep 14 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-14",
+      "project_id": "meta-eagle-mountain-ut"
+    },
+    {
+      "id": "meta-eagle-mountain-water-dry-cooling-2026",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "For our new buildings in Eagle Mountain, we will use a water-efficient, closed-loop liquid cooling system with dry cooling, meaning there will be no operational water use in the cooling system.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/deepening-our-investment-in-eagle-mountain-utah/",
+      "source_title": "Meta Data Centers — Deepening Our Investment in Eagle Mountain, Utah (Sep 14 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-14",
+      "project_id": "meta-eagle-mountain-ut"
+    },
+    {
+      "id": "meta-eagle-mountain-community-grants-astronomy-park-2026",
+      "company_slug": "meta",
+      "theme": "community_grants",
+      "statement": "As part of this ongoing commitment, we're proud to announce a $450,000 grant to the City of Eagle Mountain for construction of the Walden Park Astronomy Park, bringing our total contribution to $700,000.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/deepening-our-investment-in-eagle-mountain-utah/",
+      "source_title": "Meta Data Centers — Deepening Our Investment in Eagle Mountain, Utah (Sep 14 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-14",
+      "project_id": "meta-eagle-mountain-ut",
+      "metric": {
+        "value": 450000,
+        "unit": "usd",
+        "kind": "grant"
+      }
+    },
+    {
+      "id": "meta-eagle-mountain-education-foundation-2026",
+      "company_slug": "meta",
+      "theme": "education",
+      "statement": "In addition, we are committing $1.5 million to the Lake Mountain Education Foundation, and an ongoing annual contribution of $50,000 to support initiatives that directly enhance student learning experiences.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/deepening-our-investment-in-eagle-mountain-utah/",
+      "source_title": "Meta Data Centers — Deepening Our Investment in Eagle Mountain, Utah (Sep 14 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-14",
+      "project_id": "meta-eagle-mountain-ut",
+      "metric": {
+        "value": 1500000,
+        "unit": "usd",
+        "kind": "education"
+      }
+    },
+    {
+      "id": "meta-kuna-jobs-online-2026",
+      "company_slug": "meta",
+      "theme": "jobs",
+      "statement": "Since breaking ground in 2022, this project has supported 1,600 skilled trade workers at peak construction and represents an investment of more than $1.2 billion in Kuna.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/kuna-we-are-online/",
+      "source_title": "Meta Data Centers — Kuna, we are online! (Sep 3 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-03",
+      "project_id": "meta-kuna-id",
+      "metric": {
+        "value": 1600,
+        "unit": "jobs",
+        "kind": "construction"
+      }
+    },
+    {
+      "id": "meta-kuna-infrastructure-water-system-2026",
+      "company_slug": "meta",
+      "theme": "infrastructure",
+      "statement": "We also invested more than $100 million in a new water and wastewater system for the City of Kuna. Built for future growth, the system adds capacity to support new homes, businesses, and development.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/kuna-we-are-online/",
+      "source_title": "Meta Data Centers — Kuna, we are online! (Sep 3 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-03",
+      "project_id": "meta-kuna-id",
+      "metric": {
+        "value": 100000000,
+        "unit": "usd",
+        "kind": "infrastructure"
+      }
+    },
+    {
+      "id": "meta-kuna-community-grants-school-district-2026",
+      "company_slug": "meta",
+      "theme": "community_grants",
+      "statement": "As part of this ongoing commitment, we announced a new $200,000 grant to the Kuna School District",
+      "source_url": "https://datacenters.atmeta.com/2026/09/kuna-we-are-online/",
+      "source_title": "Meta Data Centers — Kuna, we are online! (Sep 3 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-03",
+      "project_id": "meta-kuna-id",
+      "metric": {
+        "value": 200000,
+        "unit": "usd",
+        "kind": "grant"
+      }
+    },
+    {
+      "id": "meta-kuna-water-closed-loop-2026",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "The Kuna Data Center uses a water efficient closed-loop, liquid cooled system that will use zero water for the majority of the year.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/kuna-we-are-online/",
+      "source_title": "Meta Data Centers — Kuna, we are online! (Sep 3 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-03",
+      "project_id": "meta-kuna-id"
+    },
+    {
+      "id": "meta-kuna-energy-645mw-2026",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "Three Meta-supported projects are adding 645 MW of new renewable energy in Ada County.",
+      "source_url": "https://datacenters.atmeta.com/2026/09/kuna-we-are-online/",
+      "source_title": "Meta Data Centers — Kuna, we are online! (Sep 3 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-03",
+      "project_id": "meta-kuna-id",
+      "metric": {
+        "value": 645,
+        "unit": "MW",
+        "kind": "renewable_supply"
+      }
+    },
+    {
+      "id": "sb-energy-piketon-jobs-hossfeld-2026",
+      "company_slug": "sb-energy",
+      "theme": "jobs",
+      "statement": "Infrastructure is vital for the AI economy. With SoftBank Group, OpenAI and NVIDIA, SB Energy is building power-first infrastructure at unprecedented scale while strengthening the communities that make it possible – protecting ratepayers, creating tens of thousands of well-paying jobs, and investing in infrastructure to revitalize Southern Ohio that has long shaped America's future.",
+      "source_url": "https://sbenergy.com/nvidia-ai-compute-ports-pike-ohio/",
+      "source_title": "SB Energy press release — Rich Hossfeld, co-CEO of SB Energy, on the PORTS-Pike campus (Aug 17 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-08-17",
+      "project_id": "sb-energy-piketon-oh"
+    },
+    {
+      "id": "sb-energy-piketon-energy-grid-4-2b-2026",
+      "company_slug": "sb-energy",
+      "theme": "energy",
+      "statement": "In support of the surrounding Ohio community, SB Energy and SoftBank will build at least 10 GW of new energy generation, which results in 8 IT-GW of AI factory capacity, and invest at least $4.2 billion in new regional grid infrastructure through an innovative partnership with AEP Ohio designed to protect ratepayers.",
+      "source_url": "https://sbenergy.com/nvidia-ai-compute-ports-pike-ohio/",
+      "source_title": "SB Energy — NVIDIA Secures AI Compute at PORTS-Pike Technology Campus (press release, Aug 17 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-08-17",
+      "project_id": "sb-energy-piketon-oh",
+      "metric": {
+        "value": 4200000000,
+        "unit": "usd",
+        "kind": "grid_infrastructure"
+      }
+    },
+    {
+      "id": "aws-boling-energy-full-costs-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Amazon works closely with energy providers in Texas to pay the full costs of powering our operations—so those costs are not passed to other customers. These investments often extend beyond our immediate needs and help modernize the broader grid.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?p=how-were-building-responsibly-in-wharton-county-texas",
+      "source_title": "Amazon — How we're building responsibly in Wharton County, Texas (Sep 10 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-10",
+      "project_id": "aws-boling-tx"
+    },
+    {
+      "id": "aws-boling-infrastructure-no-gas-plant-2026",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "We do not plan to build or operate a gas plant at our Wharton County site. We are actively working with energy companies to explore power supply options in ERCOT, delivered by existing transmission infrastructure and substations we are funding on-site.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?p=how-were-building-responsibly-in-wharton-county-texas",
+      "source_title": "Amazon — How we're building responsibly in Wharton County, Texas (Sep 10 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-10",
+      "project_id": "aws-boling-tx"
+    },
+    {
+      "id": "aws-boling-water-no-cooling-water-2026",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "The 13 buildings planned on the Wharton County campus will not use water for cooling. No groundwater will be used for data center cooling at this site.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?p=how-were-building-responsibly-in-wharton-county-texas",
+      "source_title": "Amazon — How we're building responsibly in Wharton County, Texas (Sep 10 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-10",
+      "project_id": "aws-boling-tx"
+    },
+    {
+      "id": "aws-boling-water-replenish-awd-2026",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "As part of this project, Amazon is funding a water replenishment project in Wharton County that helps local farmers adopt Alternate Wetting and Drying (AWD) irrigation practices—reducing flood-based irrigation demand by 25% or more without reducing crop yields—in the lower Colorado River watershed, where both area farmers and other users draw from the same surface water source. This effort is expected to replenish more than 225 million gallons of water per year over a 10-year period.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?p=how-were-building-responsibly-in-wharton-county-texas",
+      "source_title": "Amazon — How we're building responsibly in Wharton County, Texas (Sep 10 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-10",
+      "project_id": "aws-boling-tx",
+      "metric": {
+        "value": 225000000,
+        "unit": "gallons",
+        "kind": "annual_replenishment"
+      }
+    },
+    {
+      "id": "aws-boling-jobs-300-2026",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "The project will support at least 300 full-time positions, with 150 full-time roles by mid-2027, with wages well above the county average. The construction process will generate thousands of additional jobs and expanded opportunities for local contractors and small businesses.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?p=how-were-building-responsibly-in-wharton-county-texas",
+      "source_title": "Amazon — How we're building responsibly in Wharton County, Texas (Sep 10 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-10",
+      "project_id": "aws-boling-tx",
+      "metric": {
+        "value": 300,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "aws-umatilla-water-400m-2026",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "Amazon is investing $400 million to improve public water systems in Eastern Oregon, supporting our growth and benefiting the public.",
+      "source_url": "https://press.aboutamazon.com/aws/2026/9/how-amazon-is-helping-protect-water-resources-in-eastern-oregon",
+      "source_title": "Amazon press center — How Amazon is helping protect water resources in Eastern Oregon (Sep 20 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-20",
+      "project_id": "aws-umatilla-or",
+      "metric": {
+        "value": 400000000,
+        "unit": "usd",
+        "kind": "water_infrastructure"
+      }
+    },
+    {
+      "id": "aws-umatilla-water-replenish-957m-2026",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "Amazon's water replenishment projects in Eastern Oregon will return or improve 957 million gallons of water a year to the local ecosystem – nearly four times the total water used to cool our data centers in 2025.",
+      "source_url": "https://press.aboutamazon.com/aws/2026/9/how-amazon-is-helping-protect-water-resources-in-eastern-oregon",
+      "source_title": "Amazon press center — How Amazon is helping protect water resources in Eastern Oregon (Sep 20 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-20",
+      "project_id": "aws-umatilla-or",
+      "metric": {
+        "value": 957000000,
+        "unit": "gallons",
+        "kind": "annual_replenishment"
+      }
+    },
+    {
+      "id": "aws-caroline-water-reclaimed-480m-2026",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "A new $480 million water project, built in partnership between Amazon and Spotsylvania County, will upgrade the Massaponax Wastewater Treatment Plant and add more than 20 miles of new pipeline to turn that wastewater into a resource. The system will produce the second-largest water reuse capacity in Virginia.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?p=amazon-is-turning-spotsylvanias-sewage-water-into-a-resource",
+      "source_title": "Amazon — Amazon is turning Spotsylvania's sewage water into a resource (Sep 10 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-10",
+      "project_id": "aws-caroline-va",
+      "metric": {
+        "value": 480000000,
+        "unit": "usd",
+        "kind": "water_infrastructure"
+      }
+    },
+    {
+      "id": "aws-caroline-infrastructure-reuse-no-resident-cost-2026",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "The county will own the system and can sell reclaimed water to other businesses, creating a new revenue stream. And residents won't see any of this on their water bills, because they aren't paying for it.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?p=amazon-is-turning-spotsylvanias-sewage-water-into-a-resource",
+      "source_title": "Amazon — Amazon is turning Spotsylvania's sewage water into a resource (Sep 10 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-10",
+      "project_id": "aws-caroline-va"
+    },
+    {
+      "id": "microsoft-la-porte-jobs-smith-2026",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "AI infrastructure is driving demand for skilled trades nationwide. We're committed to helping fill these jobs with people in the communities where we operate.",
+      "source_url": "https://local.microsoft.com/blog/from-robotics-to-community-meal-resources-investing-in-northern-indiana-one-project-at-a-time/",
+      "source_title": "Microsoft Local — Brad Smith, Microsoft Vice Chair and President, on northern Indiana community investments (Sep 17 2026)",
+      "captured_at": "2026-09-22",
+      "published_at": "2026-09-17",
+      "project_id": "microsoft-la-porte-in"
     }
   ]
 }

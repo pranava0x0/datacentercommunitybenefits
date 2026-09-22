@@ -94,17 +94,21 @@ Lazy-loads the project payload (no Leaflet). Deep-linkable at `#ratepayer`.
 
 ---
 
-## What's in the dataset (as of v1.15)
+## What's in the dataset (as of 2026-09-22)
 
 | Record type        | Count | What it tracks                                                          |
 | ------------------ | ----- | ----------------------------------------------------------------------- |
-| Companies          | 14    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Nebius + Prologis |
-| Claims             | 286   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
-| Projects           | 77    | Sites with location, status, investment, acreage, power, GPUs, offtaker |
-| On-the-ground feedback | 206 | Reactions from residents / officials / NGOs / journalists / regulators  |
+| Companies          | 15    | 8 hyperscalers + Wonder Valley + QTS + Crusoe + CoreWeave + Prologis + SB Energy (SoftBank Group) + Brookfield |
+| Claims             | 380   | Verbatim first-party quotes (incl. exec quotes in news), mapped to 8 themes |
+| Projects           | 132   | Sites with location, status, investment, acreage, power, GPUs, offtaker |
+| On-the-ground feedback | 226 | Reactions from residents / officials / NGOs / journalists / regulators  |
 | Delivered-vs-promised assessments | 14  | Curator judgment on whether the claim was actually met (4 status types) |
-| Ratepayer pledge assessments | 11  | Signatory data centers since the pledge, tagged site-specific vs national-pledge-only |
-| **Matrix coverage** | **~99/112** | full-8-theme coverage for the established companies; honest gaps remain for newer entities |
+| Ratepayer pledge assessments | 47  | Signatory data centers since the pledge, tagged site-specific vs national-pledge-only |
+| Pledge signatories | 346   | 323 organizations on the White House roster + 23 governors on the RGA addendum |
+| Moratoriums        | 157   | City / county / state / federal data-center moratoriums and pauses (enacted, proposed, failed) |
+| Tariffs            | 29    | Large-load / data-center electricity tariffs scored against the LBL design elements |
+| Rate cases         | 15    | Docketed PUC / PSC / FERC proceedings deciding who pays for data-center load |
+| **Matrix coverage** | **98/120** | company × theme cells with at least one first-party claim; honest gaps remain for newer entities |
 
 **First-paint payload:** `companies.json` (~7 KB) + `claims.json`
 (~70 KB) preload on first paint. `projects.json` (~20 KB) +

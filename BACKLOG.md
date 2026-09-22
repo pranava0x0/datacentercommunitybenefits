@@ -1177,3 +1177,176 @@ selector once the card markup is fixed.
   once either state's specific town is confirmed by a primary source, at
   which point both the project AND this quote become addable together.
   (medium — re-check in ~4-6 weeks once site selection is likely public)
+
+## Data gaps (2026-09-22 refresh)
+
+Full pass across all tabs (roster re-pull, stale re-check, new-site scouting,
+new-policy discovery). Per-agent reports are summarized in REFRESH.md's
+2026-09-22 learned-patterns entry; the leads below are what was deliberately
+NOT shipped, so a future pass starts from them rather than rediscovering them.
+
+### Sites — backfill leads (real, tracked-company, no in-window event) — **medium**
+- **Google Fort Wayne, IN ("Project Zodiac", ~$2B, ~200 jobs, I&M territory)** —
+  never tracked; went operational Dec 11 2025 per Inside Indiana Business
+  (WANE 403s). A coverage gap, not a September event.
+- **Meta New Albany, OH ("Prometheus")** — never tracked; "slated to open in
+  2026". The moment `meta-new-albany-oh` exists, attach the orphan Chris Rinkus
+  (Meta Public Policy Director for Ohio, Aug 18 2026) quote: "…paying the full
+  cost of the energy our data centers use — so others are not negatively
+  impacted…" (datacenters.atmeta.com/2026/08/supporting-our-ohio-neighbors-…).
+  That quote is a ready-made `affirmed` evidence claim for a post-pledge Meta
+  Ohio site; it must not ship as an orphan company-wide claim.
+- **Prologis "Project Steel", Yorkville IL** (540 ac, 24 buildings, $40M
+  development agreement approved Mar 24 2026; first-phase construction summer
+  2027) — pre-window, never tracked.
+- **Microsoft "ATL50", 5235 Stonewall Tell Rd, Union City GA** — GA DCA DRI
+  application filed Sept 17 2026 (88 ac, two 3-story buildings, launch 2032).
+  Only DCD covers it and DCD 403s on every fetch. Adjacent to the tracked
+  `microsoft-union-city-ga` (4810 Stonewall Tell Rd, 90 ac, $1.8B) — different
+  parcel/building count, so probably a distinct second campus, but nothing
+  readable confirms it. Next step: pull the DRI record from the Georgia DCA DRI
+  database (apps.dca.ga.gov) as the .gov source before adding.
+
+### Sites — two-gate candidates (not tracked companies) — **low, watch only**
+- **Aligned Data Centers "Project Phoenix", Shippingport PA** — 2 GW,
+  groundbreaking Sept 17 2026 (clears gate 1). Gate 2 unchecked: does Aligned
+  publish its own community-impact framing? DCD was the only source and 403'd.
+- **Global AI, Weld County CO** — up to 1 GW on the former Kodak/Carestream
+  site, approved Sept 9 2026 (borderline gate 1).
+
+### Sites — first-party quotes with no site to attach (do NOT ship as orphans) — **low**
+- Meta "Future Is for Everyone Fund" ($1B, communities where Meta operates
+  data centers; in both the Eagle Mountain and Kuna posts) — company-wide.
+- QTS co-CEOs Greason/Robey $250M Texas water pledge (q.com, Aug 31 2026) and
+  the Sept 9 $1B Global Water Stewardship Pledge — Texas-wide / global.
+- Microsoft Northern Virginia community page's five region-wide commitments
+  ("We'll pay our way to ensure our datacenters don't increase your electricity
+  prices…") — regional; a candidate company claim if one is wanted.
+- Prologis "Responsible Data Center Development Commitments" (Aug 10 2026) —
+  company-wide framework, not fetched.
+- **Microsoft "Responsible datacenter development in the state of Texas" letter
+  to Gov. Abbott** (local.microsoft.com PDF, Aug 2026) is an image-only scan
+  (JBIG2, no text layer). Possibly a Texas-wide ratepayer statement relevant to
+  `microsoft-pecos-tx` / `microsoft-castroville-tx`; needs OCR before it can be
+  quoted.
+
+### Sites — unchanged watch items (re-checked 2026-09-22, still not addable)
+- Anthropic / Riot Platforms Rockdale TX (191 MW, 20-yr): Riot's release and
+  10-Q still say only "a leading frontier AI lab"; Anthropic attribution remains
+  Bloomberg-sourced. Anthropic / Fluidstack TX + NY: still no town named
+  (Anthropic newsroom Aug 4 – Sep 18 read; no infrastructure post).
+- Amazon Butler County / Trenton OH ($5B): annexation petition withdrawn; the
+  25 MW citizen ballot measure is on the **Nov 3 2026** ballot — re-check after.
+- DOE Oak Ridge / INL: energy.gov hub still names only the Portsmouth/SoftBank
+  partnership.
+
+### Ratepayer — one deliberately conservative call — **low**
+- `amazon-shreveport-la` is `pledge_only`, not `affirmed`, even though Keith
+  Klein (Amazon Director of Data Center Supply Solutions, KTBS Aug 18 2026)
+  said "Amazon pays its own way" about the northwest Louisiana investment: the
+  statement is investment-wide framing, not an explicit commitment on
+  electricity costs or grid upgrades for the campus. Upgrade to `affirmed` if
+  Amazon publishes a site-specific power-cost statement (its Wharton County and
+  Pecos County posts are the model).
+
+### Roster — date the rolling adds from their own releases — **low**
+- 44 organizations joined the pledge roster between the 2026-07-25 and
+  2026-09-21 snapshots and sit on the `rolling` track with `signed_date: null`
+  (the White House page publishes no join dates). Several are large enough to
+  have issued their own press release naming a date (Oncor, Puget Sound Energy,
+  Hawaiian Electric, Cleco, Digital Realty, Lambda, NRECA). A per-row
+  `signed_date` from a company release, cited in `notes`, would be legitimate;
+  guessing from the snapshot date is not. Also: the roster now advertises
+  FEWER organizations (321) than its list holds (323) — the inverse of the
+  July drift; `drift_note` states it.
+
+### Policy — leads verified or surfaced 2026-09-22 but NOT built — **high** (next pass starts here)
+Every item below has a named-outlet URL in the scratchpad reports of the
+2026-09-22 pass (`new_policy_report.md` §B/§C, `leads_from_stale_recheck.md`,
+`working_notes_evidence.md`); rebuild from those, don't re-search.
+- **Scheduled votes / hearings to re-check (dated):** Manatee County FL
+  Ordinance 26-42 (hearings Sept 22 + Oct 6, 2026; WMNF's "approved Sept 3"
+  conflicts with the two-hearing schedule — verify the outcome, don't trust
+  either alone); Woodbury MN one-year interim ordinance (vote Sept 23);
+  Beaufort County NC (hearing + vote Oct 5); Raleigh NC six-month draft (hearing
+  Oct 6); Mendocino County CA extension hearing (Oct 6; urgency ordinance
+  expires Oct 16); Leon County FL 18-month (final hearing Oct 13); Moffat County
+  CO (decision Oct 13); Loudoun County VA resolution (Oct 20 — NOT a
+  moratorium; see the record's summary); Gallatin TN (second reading of a
+  six-month moratorium — TN currently has no records); Fort Wayne IN 365-day
+  pause on council actions (vote "in the next few weeks" from Sept 8); San
+  Francisco 45-day interim zoning moratorium (Sept 15 vote; outcome not found);
+  Forsyth County NC (six-month on the Sept 28 agenda); Grant County NM (vote
+  Sept 24); Ohio: 18 local charter amendments / bans on the **Nov 3, 2026**
+  ballot (Ohio Capital Journal, Sept 14 — Cloudflare-walled; needs a browser
+  read); Trenton OH ban on the same ballot.
+- **Enacted-in-window items not yet verified** (from the Strisker weekly
+  briefings Aug 24–Sept 18, each with an outlet URL in the saved extracts):
+  Zeeland Twp MI (1 yr), Springhill Twp PA, Forest Park GA (90 days),
+  Harpersville AL (6 mo), Escondido CA (45 days), Rowan County KY (2 yr),
+  Winchester KY (1 yr), Newton Falls OH (12 mo), Bellevue WI (12 mo), Madison
+  County AR (3 yr to Aug 31, 2029), Westover AL (6 mo), Garfield Twp MI (1 yr),
+  Orangetown NY (6 mo), Anniston AL (12 mo), Jasper County SC (first reading),
+  Gage County NE (12 mo), Archuleta County CO, Marysville WA (July 13, Ordinance
+  3381, 6 mo — distinct from the built-ready Marysville KS: Sept 14, 12 months,
+  single outlet), Meriwether County GA (Feb 24 → extended to Nov 21, 2026; only
+  an AI aggregator and a 403'd paper — not citable yet), Bulloch County GA
+  (an existing moratorium through Dec 31, 2026 per The Georgia Virtue —
+  untracked; the 4-3 rejection of an outright ban is a separate event).
+  **Failed votes** to record: Indiantown FL (4-1 against), Salix IA (3-2
+  against, ~Aug 22), Okaloosa County FL (3-2 against).
+- **Not moratoriums, deliberately not recorded as such:** Massachusetts EO 658
+  (Gov. Healey, Sept 8: no state permits for >25 MW data centers without
+  Data Center Framework compliance and a host-community benefits agreement;
+  NDA ban; Ratepayer Protection Fund — Healey: "what's important here is that
+  we actually have rules") — an executive-order conditions regime like NY EO
+  62 but explicitly not a pause; worth a record only if the curator wants
+  EO-type consent/CBA instruments tracked (needs a `policy_type` convention).
+  Hall County GA (debating 180 days; no vote found), Palm Beach County FL
+  ("could be next"), Minneola FL (advanced; final vote unknown), Westfield MA
+  (council "supports"), Dallas TX (early stage), Northampton MA (study
+  committee), Alachua / Orange County FL / Port Angeles WA (votes to draft),
+  NH and CT governors (intentions), NJ transparency law, CA SB 1168/886/887
+  (rate-design legislation → future `legislation` entries once a CPUC tariff
+  exists), Prince William / Christiansburg / Henry County VA, West Hempfield
+  PA, Fort Payne AL, Wixom MI, Portland/Eugene OR NDA bans, Lubbock/Jefferson
+  TX resolutions, Kokomo IN (zoning / regulatory actions), Pinal County AZ /
+  Clinton Twp PA / Eugene OR / Imperial County CA (project denials).
+- **Status updates to existing records (verify, then edit):** DeKalb County GA
+  (`dekalb-county-ga-2025-12`, moratorium expires **Sept 30, 2026** — did the
+  commission extend or let it lapse? Engage DeKalb's Data Center Text
+  Amendment page is the primary); Charlotte NC (`charlotte-city-2026-06`,
+  staff recommended an extension; expires Nov 5 — QCNews); Normal IL
+  (`bloomington-normal-il-2026-06`, six-month extension proposed, WGLT Sept
+  18); Texas (`texas-state-2026-08`, Gov. Abbott ordered TWDB to penalize
+  non-compliant data centers — cw39); `pge-oregon-schedule-96-large-load`
+  (PUC release PR-202609: 1¢/kWh surcharge for ≥100 MW Schedule 96 customers).
+- **Tariffs / rate cases:** Otter Tail Power MN docket **26-211** is now
+  confirmed in a directly fetched document — EEI's "Large Load Projects and
+  Tariffs" compilation (updated Sept 11, 2026; PDF + text in the scratchpad),
+  not a PUC page (mn.gov/puc is still bot-walled). Add as `proposed` only if a
+  trade-association compilation is accepted as the docket citation. Maryland
+  PC72: Potomac Edison and the Exelon Maryland utilities filed large-load rate
+  schedules Sept 1, 2026 (EEI) — no MD PSC case numbers located. Arizona ACC
+  (Aug 13, 2026): "ACC Approves Measure to Ensure Electric Cooperative
+  Customers Don't Pay for Large-Load Growth" (azcc.gov/news item; fetch the
+  item page). North Carolina: AG Jeff Jackson's proposed ≥100 MW rate class
+  filed in Duke's dockets (ncdoj.gov, Sept 14; DEP docket E-2 Sub 1406 appears
+  alongside E-7 Sub 1329) — possibly a distinct RateCase. **EEI worklist of
+  untracked docketed tariffs** (each needs its own docket-page fetch): DE
+  Delmarva 25-0826; FL FPL 20250011 + Duke FL 20260064; GA Power 44847; KS
+  Evergy 25-EKME-315-TAR; KY KU/LG&E 2025-00113/00114, Kentucky Power
+  2024-00305; LA Entergy U-36595; MI Consumers U-21859, I&M U-21986, DTE
+  U-22061; MN Power 26-126; MO Evergy EO-2025-0154; NM EPE 25-00082-UT; OH
+  FirstEnergy 26-0697-EL-ATA, Duke OH 26-0755-EL-ATA, AES Ohio 25-0958-EL-AIR;
+  OK PSO PUD2025-000075, OG&E PUD2026-000046; SC Duke 2025-172-E/2025-154-E +
+  generic 2026-138-E; TX EPE 57568/56903/59611, SWEPCO 58796, TNMP 58964; VA
+  APCO PUR-2025-00057; WV 24-0611-E-T-PW; WI Xcel 4220-TE-119, MGE 3270-TE-124,
+  WPL 6680-TE-119. A dedicated tariff-backfill pass, one Sonnet agent.
+- **Georgia wave, still open** after +6 this pass (Savannah, Chatham, Bloomingdale,
+  Dougherty, Colquitt, Albany → 14 tracked): Hall County, Forest Park, Lee
+  County (WALB 5/27 "consider extending"), Floyd County (likely an ordinance,
+  the model others cite), Lowndes, Effingham, Meriwether (blocked), Bulloch
+  (existing moratorium). GPB/The Current say "about 40" municipalities.
+- **Tribal moratoriums** (Cherokee Nation, Seminole Nation, Kickapoo) — still no
+  schema home; nothing new since Aug 24.
