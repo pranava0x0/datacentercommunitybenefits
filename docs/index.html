@@ -135,12 +135,11 @@
              site's one heading voice, one size below the masthead. -->
         <div class="hero">
           <h2 class="hero-title" id="pledge-hero-title">
-            The data-center buildout, on the record.
+            Data center commitments, projects, and policy
           </h2>
           <p class="hero-dek">
-            Who signed the White House Ratepayer Protection Pledge, what operators
-            promise host communities, where development is paused, and who pays for
-            the power.
+            Track pledge signers, company commitments, local project responses,
+            development pauses, and rules for electricity costs.
           </p>
           <p class="pledge-hero-fineprint">
             Every figure links to a source &middot; Not affiliated with the White
@@ -162,7 +161,7 @@
                dated change feed. Never hand-maintained here. -->
           <div class="home-latest">
             <section class="whats-next" aria-labelledby="wn-h" id="whats-next">
-              <h3 class="pledge-panel-h" id="wn-h">What&rsquo;s next</h3>
+              <h3 class="pledge-panel-h" id="wn-h">Upcoming docket dates</h3>
               <p class="wn-sub" id="whats-next-sub">Loading docket milestones…</p>
               <ol id="whats-next-list" class="wn-list"></ol>
               <button
@@ -175,7 +174,7 @@
             </section>
 
             <section class="pledge-activity" aria-labelledby="pp-activity-h">
-              <h3 class="pledge-panel-h" id="pp-activity-h">What changed</h3>
+              <h3 class="pledge-panel-h" id="pp-activity-h">Recent changes</h3>
               <ol id="pledge-activity" class="pledge-activity-list"></ol>
             </section>
           </div>
@@ -183,11 +182,11 @@
           <!-- One card per tab: the section index of the front page. Static
                markup (wired once on boot); only the count chips render from
                data — see renderHomeCards(). -->
-          <h3 class="pledge-panel-h" id="home-explore-h">Explore the record</h3>
+          <h3 class="pledge-panel-h" id="home-explore-h">Browse by topic</h3>
           <nav class="home-cards" aria-labelledby="home-explore-h">
             <button class="home-card" type="button" data-path-target="pledge">
               <span class="home-card-tag">The Pledge</span>
-              <span class="home-card-title">Who signed — and is it showing up?</span>
+              <span class="home-card-title">Pledge signers and site checks</span>
               <span class="home-card-dek">
                 The full roster, the five commitments, and a site-by-site scorecard.
               </span>
@@ -195,7 +194,7 @@
             </button>
             <button class="home-card" type="button" data-path-target="companies">
               <span class="home-card-tag">Companies</span>
-              <span class="home-card-title">What do the operators promise?</span>
+              <span class="home-card-title">Company commitments</span>
               <span class="home-card-dek">
                 Community-benefit claims in each company&rsquo;s own words, across
                 eight themes.
@@ -204,7 +203,7 @@
             </button>
             <button class="home-card" type="button" data-path-target="moratoriums">
               <span class="home-card-tag">Moratoriums</span>
-              <span class="home-card-title">Where is development paused?</span>
+              <span class="home-card-title">Development pauses</span>
               <span class="home-card-dek">
                 Enacted, proposed, and failed pauses — city, county, state, and
                 federal.
@@ -213,7 +212,7 @@
             </button>
             <button class="home-card" type="button" data-path-target="tariffs">
               <span class="home-card-tag">Tariffs &amp; Rate Cases</span>
-              <span class="home-card-title">Who pays for the power?</span>
+              <span class="home-card-title">Electricity costs and rate cases</span>
               <span class="home-card-dek">
                 Large-load tariffs and the dockets deciding cost allocation.
               </span>
@@ -221,16 +220,16 @@
             </button>
             <button class="home-card" type="button" data-path-target="explorer">
               <span class="home-card-tag">Sites</span>
-              <span class="home-card-title">What&rsquo;s being built near me?</span>
+              <span class="home-card-title">Data center projects</span>
               <span class="home-card-dek">
-                Every tracked campus: operator, status, and what&rsquo;s on the
-                record.
+                Every tracked campus: operator, status, sources, and community
+                responses.
               </span>
               <span class="home-card-count" data-count-for="sites">&mdash;</span>
             </button>
             <button class="home-card" type="button" data-path-target="aggregate">
               <span class="home-card-tag">By State &amp; Company</span>
-              <span class="home-card-title">The record, rolled up</span>
+              <span class="home-card-title">Totals by state and company</span>
               <span class="home-card-dek">
                 Totals by state, company, signatory category, and utility.
               </span>
@@ -249,13 +248,13 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">What's being offered to host communities</h2>
+          <h2 class="hero-title">Community commitments by company</h2>
           <p class="hero-dek">
             A matrix of the community-benefit commitments major data-center operators
-            have published — across jobs, energy, water, tax revenue, grants,
-            infrastructure, education, and engagement. Use it as a starting menu of
-            what's possible to ask for in future projects. Click any company to see
-            their framework and link out to the source.
+            have published across jobs, energy, water, tax revenue, grants,
+            infrastructure, education, and engagement. Select a company for its
+            claims and source links, then compare the terms offered for future
+            projects.
           </p>
         </div>
 
@@ -393,13 +392,10 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">What's actually being built — and how it's playing out</h2>
+          <h2 class="hero-title">Data center sites and community responses</h2>
           <p class="hero-dek">
-            Real data center sites with the community benefits being offered, plus
-            on-the-ground feedback from residents, local government, NGOs,
-            regulators, and journalists. A field guide to what's working in
-            practice — and where the gaps still are — so future projects can build
-            on the playbook.
+            Explore tracked projects, company commitments for each site, and
+            responses from residents, officials, regulators, and reporters.
           </p>
         </div>
 
@@ -652,7 +648,8 @@
             Signed at the White House on <span id="rp-pledge-date">March 4, 2026</span> by
             seven hyperscalers, extended to QTS via the DOE companion track that April, and
             expanded on July 23, 2026 to utilities, cooperatives, data-center developers, and
-            23 governors. This page tracks who signed and whether it is showing up site by site.
+            23 governors. This page lists signers and site-specific evidence of
+            electricity cost commitments.
             <a id="rp-pledge-link" href="#" target="_blank" rel="noopener noreferrer">Read the pledge →</a>
           </p>
         </div>
@@ -1357,7 +1354,7 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">The record, rolled up</h2>
+          <h2 class="hero-title">Totals by company, state, and utility</h2>
           <p class="hero-dek">
             The same records, totaled four ways: by company, by pledge signatory
             category, by state, and by utility. Claimed figures are

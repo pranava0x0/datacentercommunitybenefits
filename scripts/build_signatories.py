@@ -30,6 +30,7 @@ panel gets its governor row for free.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import gzip
 import html as html_mod
 import json
@@ -160,6 +161,10 @@ PARENT_ALIAS_NAMES = {
     "MDU Resources Group",
     "NiSource",
 }
+PARENT_ALIAS_NOTE = (
+    "Roster row is the parent holding company; the tariffs tracked here "
+    "are filed by its operating utility."
+)
 
 # The 23 governors who signed the addendum, from the RGA release (2026-07-23).
 # Hand-curated because the White House roster does not list them.
@@ -247,11 +252,17 @@ def _previous_lookup(previous: dict | None) -> tuple[dict[str, dict], dict[str, 
         return {}, {}, ""
     by_id: dict[str, dict] = {}
     by_domain: dict[str, dict] = {}
+    shared_domains: set[str] = set()
     for rec in previous.get("signatories", []):
         by_id[rec["id"]] = rec
         dom = rec.get("website_domain")
-        if dom and dom not in by_domain:
-            by_domain[dom] = rec
+        if dom:
+            if dom in by_domain:
+                shared_domains.add(dom)
+            else:
+                by_domain[dom] = rec
+    for dom in shared_domains:
+        del by_domain[dom]
     return by_id, by_domain, previous.get("roster_as_of", "")
 
 
@@ -273,6 +284,9 @@ def parse_roster(
             "Parsed zero roster rows — the page markup changed. Inspect the cached "
             f"HTML in {CACHE} and update ROW_RE before trusting any output."
         )
+
+    current_names = {html_mod.unescape(raw_name).strip() for _, _, raw_name in rows}
+    current_domains = Counter(domain for domain, _, _ in rows if domain)
 
     stated = {}
     for cat, n in CHIP_RE.findall(html):
@@ -305,7 +319,11 @@ def parse_roster(
                 raise SystemExit(f"Cannot disambiguate duplicate roster row {name!r}.")
         seen.add(sid)
 
-        prior = by_id.get(sid) or (by_domain.get(domain) if domain else None)
+        domain_prior = by_domain.get(domain) if domain and current_domains[domain] == 1 else None
+        if domain_prior and domain_prior["name"] in current_names:
+            domain_prior = None
+        prior_by_id = by_id.get(sid)
+        prior = prior_by_id or domain_prior
         carried_note: str | None = None
         if slug in HYPERSCALER_SLUGS:
             track, signed = WH_TRACK, TRACK_DATES[WH_TRACK]
@@ -313,14 +331,21 @@ def parse_roster(
             track, signed = DOE_TRACK, TRACK_DATES[DOE_TRACK]
         elif prior is not None:
             track, signed = prior["signed_track"], prior.get("signed_date")
+            prior_note = prior.get("notes")
+            if prior_note:
+                prior_note = prior_note.replace(PARENT_ALIAS_NOTE, "").strip() or None
             if prior["id"] != sid:
-                carried_note = (
+                rename_note = (
                     f"Roster spelling changed from {prior['name']!r} (as of "
                     f"{prev_as_of}) to {name!r}; same organization and domain "
                     f"({domain}). Signing track and date carried over."
                 )
-            elif track == ROLLING_TRACK:
-                carried_note = prior.get("notes")
+                carried_note = _join_notes(
+                    prior_note,
+                    rename_note,
+                )
+            else:
+                carried_note = prior_note
         elif previous is None:
             track, signed = EXPANSION_TRACK, TRACK_DATES[EXPANSION_TRACK]
         else:
@@ -333,10 +358,7 @@ def parse_roster(
 
         parent_note = None
         if name in PARENT_ALIAS_NAMES:
-            parent_note = (
-                "Roster row is the parent holding company; the tariffs tracked here "
-                "are filed by its operating utility."
-            )
+            parent_note = PARENT_ALIAS_NOTE
         rec = {
             "id": sid,
             "name": name,
@@ -392,10 +414,43 @@ def _substance(rec: dict) -> dict:
     return {k: v for k, v in rec.items() if k not in SNAPSHOT_FIELDS}
 
 
+def _classify_changes(
+    old: dict[str, dict], new: dict[str, dict]
+) -> tuple[list[str], list[tuple[str, str]], list[str]]:
+    """Pair renames only when one removed and one added row share a domain."""
+    added = set(new) - set(old)
+    removed = set(old) - set(new)
+    old_domains: dict[str, list[str]] = {}
+    new_domains: dict[str, list[str]] = {}
+    for sid in removed:
+        domain = old[sid].get("website_domain")
+        if domain:
+            old_domains.setdefault(domain, []).append(sid)
+    for sid in added:
+        domain = new[sid].get("website_domain")
+        if domain:
+            new_domains.setdefault(domain, []).append(sid)
+    renamed = sorted(
+        (old_ids[0], new_domains[domain][0])
+        for domain, old_ids in old_domains.items()
+        if len(old_ids) == 1 and len(new_domains.get(domain, [])) == 1
+    )
+    return (
+        sorted(added - {new_id for _, new_id in renamed}),
+        renamed,
+        sorted(removed - {old_id for old_id, _ in renamed}),
+    )
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--diff", action="store_true", help="report adds/removals, write nothing")
     ap.add_argument("--cached", action="store_true", help="use cached HTML, no network")
+    ap.add_argument(
+        "--accept-removals",
+        action="store_true",
+        help="write after reviewing roster rows that disappeared",
+    )
     ap.add_argument("--as-of", default=date.today().isoformat(), help="roster_as_of date")
     args = ap.parse_args()
 
@@ -404,6 +459,18 @@ def main() -> int:
     orgs, stated = parse_roster(html, args.as_of, previous)
     govs = build_governors(args.as_of)
     records = sorted(orgs + govs, key=lambda r: (r["category"], r["id"]))
+
+    if previous and not args.diff:
+        old = {s["id"]: s for s in previous["signatories"]}
+        new = {s["id"]: s for s in records}
+        _, _, removed = _classify_changes(old, new)
+        if removed and not args.accept_removals:
+            print(
+                "Roster rows disappeared; review with --diff, then rerun with "
+                "--accept-removals if intentional: " + ", ".join(removed),
+                file=sys.stderr,
+            )
+            return 2
 
     derived: dict[str, int] = {}
     for r in records:
@@ -436,20 +503,7 @@ def main() -> int:
             return 0
         old = {s["id"]: s for s in previous["signatories"]}
         new = {s["id"]: s for s in records}
-        added = sorted(set(new) - set(old))
-        removed = sorted(set(old) - set(new))
-        # A spelling fix on the source page changes the slug. Same domain on
-        # one removed and one added row is a rename, not a departure + arrival.
-        old_dom = {old[i].get("website_domain"): i for i in removed if old[i].get("website_domain")}
-        renamed = sorted(
-            (old_dom[new[i]["website_domain"]], i)
-            for i in added
-            if new[i].get("website_domain") in old_dom
-        )
-        renamed_old = {a for a, _ in renamed}
-        renamed_new = {b for _, b in renamed}
-        added = [i for i in added if i not in renamed_new]
-        removed = [i for i in removed if i not in renamed_old]
+        added, renamed, removed = _classify_changes(old, new)
         # Compare on substance only. `captured_at` is restamped to --as-of on
         # every parse, so a whole-record comparison flags all 302 signatories as
         # "changed" on any later date and buries the real renames it exists to

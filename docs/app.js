@@ -2880,16 +2880,16 @@ function renderPledgeActivity() {
       });
     }
     // Organizations that appeared on the roster after the expansion. The page
-    // publishes no join dates, so the item is dated to the snapshot that first
-    // showed them and says so.
+    // publishes no join dates. A future rebuild may change rosterAsOf without
+    // changing when each organization was first seen.
     const rolling = (state.signatories || []).filter((s) => s.signed_track === "rolling").length;
     if (rolling && state.rosterAsOf) {
       items.push({
         date: state.rosterAsOf,
         text:
           `${rolling} more organization${rolling === 1 ? "" : "s"} appeared on the roster ` +
-          `after July 23 (join dates unpublished; first seen in the ${state.rosterAsOf} ` +
-          `snapshot), taking it to ${counts.organizations}.`,
+          `after July 23 (join dates unpublished); the ${state.rosterAsOf} ` +
+          `snapshot lists ${counts.organizations} organizations.`,
       });
     }
   }
@@ -4040,9 +4040,9 @@ function renderHotRail() {
     } else if (contestedClaims.length) {
       hint = contestedClaims[0].delivered.summary;
     } else if (recentMixed) {
-      hint = "Recent mixed community response on the record.";
+      hint = "Recent mixed community response.";
     } else {
-      hint = "Contested delivery on the record.";
+      hint = "Claim delivery is contested.";
     }
 
     scored.push({ project: p, score, hint, latestNeg });
@@ -4459,7 +4459,7 @@ async function exportMoratoriumsToPDF() {
     <div class="mpdf-cover">
       <div class="mpdf-kicker">Data Center Community Benefits · Policy Tracker</div>
       <h1>Data Center Moratoriums &amp; Restrictions</h1>
-      <p class="mpdf-dek">A field guide to enacted, proposed, and failed limits on data center development across U.S. city, county, state, and federal jurisdictions.</p>
+      <p class="mpdf-dek">Enacted, proposed, and failed limits on data center development across U.S. city, county, state, and federal jurisdictions.</p>
       <div class="mpdf-meta">As of ${today} · ${filtered.length} record${filtered.length === 1 ? "" : "s"}${filterNote}</div>
     </div>
 

@@ -397,16 +397,15 @@ class TestCrossCutting:
         # (may briefly show claim count before refresh date arrives via JSON)
         assert meta.count() == 1
 
-    def test_blueprint_framing_in_hero(self, page: Page, base_url: str):
-        # v1.5: hero copy reframed toward 'blueprint of solutions'.
-        # Comparison view's hero should signal the blueprint orientation.
+    def test_comparison_hero_explains_source_and_use(self, page: Page, base_url: str):
+        # The comparison page should tell readers what the records are and why
+        # they are useful without relying on vague "blueprint" language.
         page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         hero = page.locator("#view-comparison .hero")
         text = hero.text_content() or ""
-        assert (
-            "Blueprint" in text or "blueprint" in text or "starting menu" in text.lower()
-        ), f"Hero should reflect blueprint framing: {text!r}"
+        assert "source links" in text.lower()
+        assert "future" in text.lower() and "projects" in text.lower()
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
         page.goto(base_url + "/#comparison")
@@ -1996,6 +1995,10 @@ class TestPledgeLanding:
         for i in range(items.count()):
             assert items.nth(i).locator(".pledge-activity-date").inner_text().strip()
             assert items.nth(i).locator(".pledge-activity-text").inner_text().strip()
+        rolling = items.filter(has_text="join dates unpublished")
+        expect(rolling).to_have_count(1)
+        assert "first seen" not in rolling.inner_text()
+        assert "snapshot lists" in rolling.inner_text()
 
 
 class TestSignatoryRoster:
