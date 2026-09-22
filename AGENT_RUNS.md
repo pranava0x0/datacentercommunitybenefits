@@ -339,3 +339,15 @@ call), and the six extra records the agents verified but did not build.
 **Cost shape:** ~0.9M agent tokens for the two rounds (most of round one
 wasted on reading files twice); the orchestrator's own verification and
 merge work was a fraction of that.
+
+**Review round (same day):** one Sonnet `general-purpose` review agent on the
+PR diff (282K tokens, 56 tool uses, 14.5 min; read-only, worked from a
+`git archive` snapshot because the worktree was being edited concurrently).
+It found what the 550-test suite could not: the two renamed roster rows had
+shipped with `notes: null` (the second rebuild dropped them), the shared-
+domain misattribution Codex had also flagged (six domains already collide in
+the seed), and a dormant parent-note duplication. The data itself checked
+out record by record. Cost was ~30% of one research agent, and it was the
+only reviewer that compared the shipped seed against the builder that
+claims to have produced it — tests that exercise `parse_roster()` with
+synthetic fixtures can't see that gap.
