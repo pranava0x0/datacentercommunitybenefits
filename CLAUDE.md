@@ -1341,12 +1341,29 @@ agreements, and companies' own published community plans.
 - **`value_usd` is the value of committed community benefits.** Not total
   project investment ($17B, $100B slipped in on the first pass), not a
   projected ROI, and not a sum the curator computed from several terms.
-- **Pure pauses stay on the Moratoriums tab.** Governor directives that pause
-  *tax-incentive applications* (IL, OH 2026) are policies here, not
-  moratoriums: they pause a subsidy, not development. Records the moratorium
-  tab also carries link via `related_moratorium_id` (cross-ref validated)
-  rather than being duplicated. Moving the three misfiled moratorium records
-  is a BACKLOG item.
+- **Pure pauses stay on the Moratoriums tab; everything else lives here.**
+  Governor directives that pause *tax-incentive applications* (IL, OH, AZ
+  2026) are policies: they pause a subsidy, not development. The PA EO
+  2026-05 (conditional permitting) moved here on 2026-09-23.
+  `test_non_pauses_are_not_filed_as_moratoriums` rejects a moratorium record
+  whose own `policy_type` says it isn't one. `related_moratorium_id` exists
+  for a genuine overlap; don't duplicate a record across the two tabs.
+- **A homepage citation is how fabricated records survive.** The same pass
+  found the moratorium tab's "Washington SB 5982 (2024)" was a Department of
+  Health bill, and "Oklahoma HB 2992 (2024)" was really a 2026 law, with
+  invented sponsors and votes. Both cited a bare homepage
+  (`datacenterbans.com/`, `app.leg.wa.gov/`), which "resolves" while proving
+  nothing. Checking the bill number on the legislature's own site took one
+  fetch each. `HOMEPAGE_SOURCED_MORATORIUMS` (tests/test_policies.py) lists
+  the 22 moratorium records that still cite only a homepage and lets that
+  list only shrink. Policies may not cite a bare homepage at all.
+- **`delivered` on a Policy reuses `Delivered`** (in-effect records only).
+  The evidence bar is *independent* evidence that a payment was made or a
+  grant awarded: the recipient government's own record of receipt, or an
+  announcement naming recipients. A company page restating the pledge, a
+  page older than the agreement, or spending not tied to the agreement is
+  not evidence. Four of seven research findings failed that bar on review.
+  Absence means not yet assessed.
 - Statuses reuse the tariff palette through `POLICY_STATUS_BADGE_CLASS`,
   whose *values* are checked against styles.css (the RATE_CASE_BADGE_CLASS
   lesson). The payload is promise-memoized (tab + state panel both load it)

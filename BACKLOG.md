@@ -22,9 +22,12 @@ criterion.
 - **Aggregate rollup** — a "By state" policy count column; `coverage.json`
   already carries per-state `policies`.
 - **Home "What changed" feed** — new policy records do not yet surface there.
-- **States with no record** — the state sweep's progress log
-  (`SPEC_POLICIES_TAB.md` > Research log) lists states checked with nothing
-  found; re-sweep each legislative session.
+- **States with no state-level record (7)**: CO, CT, DC, HI, MI, NY, RI, with
+  reasons in `SPEC_POLICIES_TAB.md` > Research log. Watch MI HB6137/SB1050
+  (would require CBAs) and NY A9086. Re-sweep every state each session.
+- **Delivery assessments — 14 in-force agreements unassessed.** Start with
+  Wilmington OH (reporting suggests no payment amid litigation; the
+  wnewsj.com source 403'd) and Hammond IN (first impact payment timing).
 
 ### Amentum (Savannah River Site, SC) — watch for real community-impact framing — **medium**
 Added then removed in the same PR, 2026-07-30 (see REFRESH.md's 2026-07-30

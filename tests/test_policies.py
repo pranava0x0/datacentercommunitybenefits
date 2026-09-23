@@ -331,3 +331,32 @@ def test_delivery_assessments_exist_and_are_honest(policies) -> None:
     for p in assessed:
         if p["delivered"]["status"] == "shortfall":
             assert "not" in p["delivered"]["summary"].lower(), p["id"]
+
+
+# Aggregators that restate other sources (or generate text) are not
+# citations. Each one on this list was caught in review on 2026-09-23.
+AGGREGATOR_DOMAINS = (
+    "servercountry.org",
+    "billtrack50.com",
+    "citizenportal.ai",
+    "datacenterbans.com",
+    "r.jina.ai",
+)
+
+
+def test_no_aggregator_citations(policies) -> None:
+    for p in policies:
+        urls = [p["source_url"]] + [r["url"] for r in p.get("resources", [])]
+        if p.get("delivered"):
+            urls.append(p["delivered"]["source_url"])
+        for u in urls:
+            assert not any(d in u for d in AGGREGATOR_DOMAINS), (p["id"], u)
+
+
+def test_failed_bills_got_a_floor_vote_or_a_veto(policies) -> None:
+    """The bar for a failed bill is a real decision point (a chamber vote or a
+    veto), not death in committee — otherwise every introduced bill is in."""
+    for p in policies:
+        if p["status"] == "failed" and p["instrument"] == "legislation":
+            s = p["summary"].lower()
+            assert any(w in s for w in ("passed", "veto", "rejected it", "senate rejected")), p["id"]

@@ -1199,4 +1199,18 @@ Learnings:
   stated total of committed benefits belongs there.
 - **Governor pauses on tax-incentive *applications*** (OH, IL, AZ 2026) are
   policies, not moratoriums: they pause a subsidy, not development.
+- **Pass 2 (same day):** a deeper 3–4-searches-per-state re-sweep of the 19
+  empty states found 24 records, so pass 1's "1–2 searches" was too shallow
+  to call a state empty. Review then cut 3 on the failed-bill bar and
+  re-sourced Alaska SB 250 from an AI-written aggregator (citizenportal.ai)
+  to the bill text. `test_no_aggregator_citations` now bans the aggregator
+  domains met so far; extend the list when a new one turns up.
+- **Delivery evidence needs a different bar than a claim.** The agent returned
+  7 assessments; 4 were the company restating its pledge, a page older than
+  the agreement, or unrelated spending. Only a recipient's record of receipt
+  or an announcement naming recipients survived.
+- **Moving records between tabs surfaces fabrication.** Checking the
+  migrated moratorium records' bill numbers on the legislatures' own sites
+  found one fabricated (WA "SB 5982" is a health bill) and one misdated (OK
+  HB 2992 is a 2026 law). Both cited a bare homepage.
 

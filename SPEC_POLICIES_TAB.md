@@ -94,27 +94,41 @@ Verification bar (both): fetch the exact `source_url`, confirm each
 lesson), live links only, no fabricated .gov paths, headline words ("ban",
 "agreement") checked against the instrument itself.
 
-## Research log (2026-09-23 pass)
+## Research log
 
-Shipped 68 records across 38 states plus 10 company-wide plans: 29
-legislation, 6 executive orders, 21 benefit agreements, 12 company plans
-(2 of them site pledges).
+**2026-09-23, pass 1** (2 agents: all states + DC; agreements from a grep
+of existing records): 68 records.
 
-**States with no state-level policy that cleared verification** (several
-have local agreements). These are open leads, not "no policy exists": MD, CT, MS, WI, MO, ND, ID, NM, ME, VT, NH,
-RI, DE, AK, HI, DC, WY, IA, AR. Oklahoma's ratepayer act is HB 2992, which is
-already a moratorium record. Bills that never passed a chamber (GA SB421, NY
-A9086, MI HB6137/SB1050) were left out.
+**2026-09-23, pass 2** (2 agents: a deeper re-sweep of the 19 states pass 1
+left empty; delivery evidence for in-force agreements), plus migrating PA
+EO 2026-05 and a rebuilt Oklahoma HB 2992 from the Moratoriums tab. 91
+records now: 48 legislation, 10 executive orders, 21 benefit agreements, 12
+company plans. 35 carry a community-benefits framework. State-level records
+cover 44 states.
+
+**Bar for a failed bill:** a chamber vote or a veto. Bills that died in
+committee are left out (MD HB 900 and CO HB26-1030 were removed on review
+for this reason), otherwise every introduced bill qualifies.
+
+**No state-level record, with reasons (open leads, not "no policy exists"):**
+- CO: HB26-1030 died in committee.
+- CT: PA 26-122 is administrative only.
+- DC: nothing data-center-specific.
+- HI: non-binding resolutions only; the county-level ban is a moratorium.
+- MI: HB6137/SB1050 (would require CBAs) introduced, not passed.
+- NY: EO 62 and S10642/A11560 are moratoriums; A9086 is still in committee.
+- RI: incentive bills died in committee.
 
 **Companies with no company-wide community plan found:** Oracle, xAI (it has
 a Memphis site pledge instead), SB Energy, Wonder Valley, Brookfield (it has
 a Paducah site pledge instead).
 
+**Delivery:** 3 of 17 in-force site agreements have independent delivery
+evidence (1 delivered, 2 partial); 14 unassessed. Wilmington OH is worth a
+look: reporting suggests no funds received amid litigation, not yet
+verifiable.
+
 ## Out of scope for v1
 
-- Moving misfiled non-moratorium records (PA EO 2026-05, OK HB2992, WA
-  SB5982) out of `moratoriums.json`. They stay on the Moratoriums tab for
-  now and are not duplicated here. `related_moratorium_id` exists for the
-  migration (and for any future record that genuinely overlaps). The move
-  itself is a BACKLOG item.
-- Delivered-vs-promised on agreements (the `Delivered` pattern) — later.
+- Delivery assessments beyond the first three (the remaining 14 in-force
+  agreements are unassessed; re-check as first payments come due).

@@ -2,6 +2,40 @@
   "generated_at": "2026-09-23",
   "policies": [
     {
+      "id": "ak-sb250-2026-failed",
+      "title": "Senate Bill 250 — data center utility service, ratepayer cost protection, and community benefit agreement requirement (passed Senate, died at sine die)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "Alaska",
+      "state_code": "AK",
+      "identifier": "SB 250 (34th Legislature, 2026)",
+      "benefit_themes": [
+        "energy",
+        "community_grants",
+        "jobs"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Utilities must submit data-center service contracts to the Regulatory Commission of Alaska for approval",
+        "A municipality must enter into a community benefit agreement with the data center before the commission approves its utility contract",
+        "The community benefit agreement must require a waste-heat recovery assessment",
+        "An end-of-life decommissioning and recycling plan must be filed before contract approval",
+        "Utility capital investment over $1,000,000 requires the data center to provide financial security",
+        "Transmission built specifically to serve a data center is not initially treated as backbone transmission for cost allocation"
+      ],
+      "summary": "Alaska Senate Bill 250, sponsored by Sen. Löki Gale Tobin, would have required utilities serving large data centers to have their contracts approved by the Regulatory Commission of Alaska, with financial security above $1 million of utility investment and data-center-specific transmission kept out of shared backbone cost allocation. It also required the host municipality to sign a community benefit agreement with the data center, including a waste-heat recovery assessment, and a decommissioning plan before approval. The bill passed the Senate and was in the House Community and Regional Affairs Committee (status as of May 17, 2026) when the session ended, so it did not become law.",
+      "source_url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+      "source_title": "Alaska State Legislature — SB 250 (34th Legislature): status (H) CRA, 05/17/2026",
+      "resources": [
+        {
+          "url": "https://www.akleg.gov/PDF/34/Bills/SB0250B.PDF",
+          "title": "Alaska State Legislature — CSSB 250(CRA) bill text"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "al-sb270-act2026-610-2026",
       "title": "Act 2026-610 (SB 270) — large-load data center utility contract review",
       "instrument": "legislation",
@@ -92,6 +126,39 @@
       "summary": "Anthropic published a company-wide commitment to cover 100% of grid-interconnection upgrade costs for its own-workload data centers (funded via its own electricity charges), to bring net-new power generation online to match demand, to invest in demand curtailment during peak grid stress, and to deploy water-efficient cooling. The company notes it is still exploring how to address impacts at sites where it leases capacity rather than operates directly.",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
       "source_title": "Anthropic — Covering electricity price increases from our data centers",
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "ar-hb1444-2025-act548",
+      "title": "House Bill 1444 (Act 548) — Qualified Data Center sales/use tax exemption expansion",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Arkansas",
+      "state_code": "AR",
+      "identifier": "HB 1444 (2025), Act 548",
+      "date": "2025-04-10",
+      "benefit_themes": [
+        "jobs",
+        "tax_revenue"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "investment threshold for standard qualified data center lowered to $100 million",
+        "new 'Qualified Large Data Center' tier requires $2 billion investment within 10 years",
+        "$3 million minimum annualized in-state compensation in first two years",
+        "cryptocurrency mining explicitly excluded",
+        "oversight shifted to Dept. of Finance and Administration"
+      ],
+      "summary": "Arkansas Act 548 of 2025 (HB1444) revised the state's qualified-data-center sales and use tax exemption program: it lowered the standard qualified-data-center investment threshold from $500 million to $100 million, created a new 'Qualified Large Data Center' tier requiring at least $2 billion in investment within ten years and at least $3 million in aggregate annualized compensation to Arkansas-based workers within the first two years of operation, broadened exempt equipment/services to include construction-related services and electricity consumption, explicitly excluded cryptocurrency mining from eligibility, and shifted program administration from the Arkansas Economic Development Commission to the Department of Finance and Administration (with AEDC still performing a cost-benefit analysis). Governor Sanders signed it April 10, 2025, effective July 1, 2025.",
+      "source_url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+      "source_title": "Arkansas State Legislature — HB1444 (2025) bill detail",
+      "resources": [
+        {
+          "url": "https://www.salestaxinstitute.com/resources/arkansas-data-center-tax-exemption-expansion-2025",
+          "title": "Sales Tax Institute — Arkansas Expands Sales & Use Tax Exemption for Data Centers Under Act 548"
+        }
+      ],
       "captured_at": "2026-09-23"
     },
     {
@@ -285,36 +352,6 @@
       "captured_at": "2026-09-23"
     },
     {
-      "id": "co-hb26-1030-2026",
-      "title": "House Bill 26-1030 — Data Center Workforce, Clean Energy, Grid Modernization, and Consumer and Environmental Protection Act",
-      "instrument": "legislation",
-      "status": "failed",
-      "scope": "state",
-      "jurisdiction": "Colorado",
-      "state_code": "CO",
-      "identifier": "HB26-1030",
-      "date": "2026-01-14",
-      "benefit_themes": [
-        "jobs",
-        "tax_revenue",
-        "energy",
-        "water"
-      ],
-      "community_benefits_framework": false,
-      "key_terms": [
-        "Would have required certified data center operators to commit to a $250 million minimum investment within 5 years and break ground within 2 years of certification",
-        "Would have required compliance with craft-labor, apprenticeship-utilization and prevailing-wage standards",
-        "Would have required energy-efficiency certification, water-management strategies and backup-power standards",
-        "Would have granted a 100% state sales/use tax exemption for 20 years (renewable for 10 more years on continued compliance) administered by a 9-member oversight authority",
-        "Introduced Jan. 14, 2026 (sponsors Reps. Valdez/Duran, Sen. Mullica); postponed indefinitely by the House Energy & Environment Committee on an 11-2 vote (2026-05-07); bill status 'Lost'"
-      ],
-      "summary": "Colorado's HB26-1030, introduced January 14, 2026, would have paired a 20-year data-center sales tax exemption with labor standards (prevailing wage, apprenticeship), energy-efficiency certification and water-management requirements, but was postponed indefinitely by committee vote on May 7, 2026 and did not advance.",
-      "source_url": "https://leg.colorado.gov/bills/HB26-1030",
-      "source_title": "Colorado General Assembly — HB26-1030",
-      "resources": [],
-      "captured_at": "2026-09-23"
-    },
-    {
       "id": "columbia-county-ga-google-kinetic-agreement-2026",
       "title": "Columbia County, GA – Google (Kinetic Infrastructure Solutions) data center agreement",
       "instrument": "benefit_agreement",
@@ -459,6 +496,97 @@
       ],
       "related_project_ids": [
         "qts-dane-county-wi"
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "de-hb233-2026",
+      "title": "House Bill 233 — separate utility rate class for large data centers, developer-pays infrastructure costs",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Delaware",
+      "state_code": "DE",
+      "identifier": "HB 233 (153rd General Assembly, 2026)",
+      "date": "2026-08-26",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "separate rate class for large energy facilities/data centers",
+        "full infrastructure-upgrade cost responsibility",
+        "first disconnected during grid emergencies absent own generation",
+        "ratepayer cost-shift protection"
+      ],
+      "summary": "Delaware House Bill 233, part of a four-bill energy package signed by Governor Matt Meyer on August 26, 2026, establishes a separate utility rate class for large energy facilities such as data centers, requiring them to cover the full cost of infrastructure upgrades needed to serve them rather than shifting those costs to residential and small-business ratepayers. It also prioritizes disconnecting these large users first during grid emergencies unless they provide their own generation.",
+      "source_url": "https://news.delaware.gov/2026/08/28/governor-matt-meyer-signs-energy-consumer-protection-legislation/",
+      "source_title": "State of Delaware News — Governor Matt Meyer Signs Energy Consumer Protection Legislation",
+      "resources": [
+        {
+          "url": "https://whyy.org/articles/data-center-legislation-delaware/",
+          "title": "WHYY — Gov. Meyer signs Delaware data center legislation"
+        },
+        {
+          "url": "https://www.sierraclub.org/press-releases/2026/08/delaware-governor-signs-first-its-kind-bill-power-data-centers-clean-energy",
+          "title": "Sierra Club — Delaware Governor Signs First-of-its-Kind Bill to Power Data Centers with Clean Energy"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "de-hb310-2026",
+      "title": "House Bill 310 — excludes large energy-use facilities from job-creation tax credits",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Delaware",
+      "state_code": "DE",
+      "identifier": "HB 310 (153rd General Assembly, 2026)",
+      "date": "2026-08-26",
+      "benefit_themes": [
+        "tax_revenue"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "excludes large energy-use facilities from job-creation business tax credits",
+        "excludes license-fee reductions",
+        "targets data centers claiming incentives for jobs not created"
+      ],
+      "summary": "Delaware House Bill 310, signed by Governor Matt Meyer on August 26, 2026 as part of a four-bill energy package, prohibits large energy-use facilities such as data centers from accessing job-creation business tax credits and license-fee reductions, addressing concerns that data centers were claiming tax incentives tied to jobs they did not actually create.",
+      "source_url": "https://news.delaware.gov/2026/08/28/governor-matt-meyer-signs-energy-consumer-protection-legislation/",
+      "source_title": "State of Delaware News — Governor Matt Meyer Signs Energy Consumer Protection Legislation",
+      "resources": [],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "de-hb445-2026",
+      "title": "House Bill 445 — \"Bring Your Own Generation\" mandate for large energy-use facilities",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Delaware",
+      "state_code": "DE",
+      "identifier": "HB 445 (153rd General Assembly, 2026)",
+      "date": "2026-08-26",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Bring Your Own Generation mandate",
+        "facility must produce/secure 100% of its own power",
+        "includes a renewable-energy share requirement",
+        "first state to legislatively enact a BYOG policy per Gov. Meyer"
+      ],
+      "summary": "Delaware House Bill 445, signed by Governor Matt Meyer on August 26, 2026 as part of a four-bill energy package, requires large energy-use facilities such as data centers to produce or secure 100% of their required power — including a renewable-energy share — rather than drawing on the public grid, to prevent straining Delaware's electric system. Governor Meyer stated Delaware became the first state to legislatively enact a 'Bring Your Own Generation' policy.",
+      "source_url": "https://news.delaware.gov/2026/08/28/governor-matt-meyer-signs-energy-consumer-protection-legislation/",
+      "source_title": "State of Delaware News — Governor Matt Meyer Signs Energy Consumer Protection Legislation",
+      "resources": [
+        {
+          "url": "https://www.sierraclub.org/press-releases/2026/08/delaware-governor-signs-first-its-kind-bill-power-data-centers-clean-energy",
+          "title": "Sierra Club — Delaware Governor Signs First-of-its-Kind Bill to Power Data Centers with Clean Energy"
+        }
       ],
       "captured_at": "2026-09-23"
     },
@@ -774,6 +902,147 @@
       "source_title": "City of Huntsville, AL — Data center expansion to benefit North Huntsville, local schools",
       "related_project_ids": [
         "meta-huntsville-al"
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "ia-hf976-2025",
+      "title": "House File 976 — time limits, registration, and reporting on the data center electricity/backup-power sales tax exemption",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Iowa",
+      "state_code": "IA",
+      "identifier": "HF 976 (91st General Assembly, 2025)",
+      "date": "2025-06-06",
+      "benefit_themes": [
+        "tax_revenue",
+        "energy",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "ends indefinite electricity/backup-power exemption for new and expanded data centers",
+        "10-year exemption limit in cities over 30,000 population, 15-year limit in smaller cities",
+        "existing non-expanding data centers unaffected",
+        "mandatory Dept. of Revenue registration and annual purchase reporting",
+        "new exemption certificate required starting February 1, 2026"
+      ],
+      "summary": "Before Iowa House File 976, data centers investing $200 million or more could purchase computers, equipment, electricity, and backup-power generation fuel exempt from Iowa sales and use tax indefinitely. HF 976, signed by Governor Kim Reynolds on June 6, 2025, ends that indefinite exemption for the electricity and backup-power fuel purchases of new and expanding data centers: those in cities over 30,000 people get a 10-year limit, those in smaller cities a 15-year limit (equipment/computer purchases remain exempt without a time limit, and data centers operating before June 6, 2025 that don't expand keep an unlimited exemption). The law also formally defines 'site preparation' for investment-timing purposes, confirms lessees can qualify independently, and newly requires data centers to register with the Department of Revenue and file annual reports on their electricity and backup-power fuel purchases, using a new Department-issued exemption certificate starting February 1, 2026.",
+      "source_url": "https://www.legis.iowa.gov/legislation/BillBook?ga=91&ba=HF976",
+      "source_title": "Iowa Legislature — HF976 (2025) BillBook page",
+      "resources": [
+        {
+          "url": "https://www.brownwinick.com/insights/iowa-sales-tax-changes-for-data-centers",
+          "title": "BrownWinick — Iowa Sales Tax Changes for Data Centers"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "id-hb895-2026",
+      "title": "House Bill 895 — limitations on consumptive water use for data center cooling",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Idaho",
+      "state_code": "ID",
+      "identifier": "H 895 (2026), Session Law Chapter 291",
+      "date": "2026-04-02",
+      "benefit_themes": [
+        "water"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "no consumptive-use cooling water unless from a municipal/water district system",
+        "applies to data centers beginning construction on/after July 1, 2026",
+        "legislative findings on conflict with public interest and water conservation"
+      ],
+      "summary": "Idaho House Bill 895 adds to existing law to limit consumptive use of water for cooling at certain data centers: a data center that begins construction on or after July 1, 2026 may not use water for cooling as a consumptive use unless that water is supplied by a municipal, water district, or water and sewer district system. It passed the House 58-10-2 on March 20, 2026, the Senate 32-1-2 on March 31, 2026, and was signed by Governor Little on April 2, 2026 as Session Law Chapter 291, effective July 1, 2026.",
+      "source_url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0895/",
+      "source_title": "Idaho State Legislature — House Bill 895 (2026) status page",
+      "resources": [
+        {
+          "url": "https://idahoconservation.org/icl-bill-tracker/hb-895-regulating-data-centers-water-usage-2026",
+          "title": "Idaho Conservation League — HB 895 bill tracker"
+        },
+        {
+          "url": "https://idahocapitalsun.com/2026/03/26/bill-intended-to-protect-water-from-data-center-developers-heads-to-idaho-senate/",
+          "title": "Idaho Capital Sun — Bill intended to protect water from data center developers heads to Idaho Senate"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "id-hb897-2026-failed",
+      "title": "House Bill 897 — data center tax exemption limits, water notice, cost-recovery electric service (stalled after Senate amendment)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "Idaho",
+      "state_code": "ID",
+      "identifier": "H 897 (2026)",
+      "date": "2026-04-01",
+      "benefit_themes": [
+        "tax_revenue",
+        "water",
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "sales tax exemption limited to server equipment",
+        "phase-out of large capital investment property tax exemption",
+        "advance notice of water use required",
+        "cost-recovery electric rate structures required"
+      ],
+      "summary": "Idaho House Bill 897 would have limited the state's sales tax exemption for new data center facilities to server equipment only, phased out eligibility for the large capital investment property tax exemption, required new data centers to take electric service under cost-recovery rate structures, and required advance notice of water use. It passed the House 68-0-2 on March 23, 2026 and, as amended, the Senate 34-0-1 on April 1, 2026, but was returned to the House for a concurrence vote on the Senate amendments and never received final House concurrence or a Governor's signature before the session's provisions lapsed.",
+      "source_url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+      "source_title": "Idaho State Legislature — House Bill 897 (2026) status page",
+      "resources": [
+        {
+          "url": "https://boisedev.com/news/2026/02/09/bipartisan-bill-would-limit-tax-exemptions-for-data-centers-add-new-requirements-for-water-power-usage/",
+          "title": "BoiseDev — Bipartisan bill would limit tax exemptions for data centers"
+        },
+        {
+          "url": "https://idahoconservation.org/icl-bill-tracker/hb-897-tax-accountability-for-data-centers-2026",
+          "title": "Idaho Conservation League — HB 897 bill tracker (Did Not Pass)"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "id-hb911-2026",
+      "title": "House Bill 911 — new large electric loads (interconnection, cost allocation, no-harm test)",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Idaho",
+      "state_code": "ID",
+      "identifier": "H 911 (2026), Session Law Chapter 335",
+      "date": "2026-04-10",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "50 MW+ new-large-load threshold",
+        "PUC-approved service contracts required",
+        "'no harm test' for existing customers",
+        "cost allocation and financial security requirements",
+        "dispute resolution process"
+      ],
+      "summary": "Idaho House Bill 911 establishes a regulatory framework for utilities serving 'new large loads' of electricity — defined as any increase of 50 MW or more at a single service entrance, covering data centers among other large consumers. Utilities must submit service contracts for Idaho Public Utilities Commission approval, including a 'no harm test' to ensure existing ratepayers are not adversely affected, along with requirements for cost allocation, financial security, and dispute resolution. It passed the House 65-3-2 on March 20, 2026, the Senate 34-1-0 on March 30, 2026, and was signed by Governor Little on April 10, 2026 as Session Law Chapter 335, effective July 1, 2026.",
+      "source_url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+      "source_title": "Idaho State Legislature — House Bill 911 (2026) status page",
+      "resources": [
+        {
+          "url": "https://idahoconservation.org/icl-bill-tracker/electricity-new-large-loads",
+          "title": "Idaho Conservation League — HB 911 bill tracker"
+        },
+        {
+          "url": "https://idahocapitalsun.com/2026/02/23/data-centers-and-other-new-large-loads-are-driving-sharp-increases-in-idaho-farmers-electric-bills/",
+          "title": "Idaho Capital Sun — Data centers and other new large loads are driving sharp increases in Idaho farmers' electric bills"
+        }
       ],
       "captured_at": "2026-09-23"
     },
@@ -1101,35 +1370,56 @@
       "captured_at": "2026-09-23"
     },
     {
-      "id": "md-hb900-2025-failed",
-      "title": "House Bill 900 — Electricity - Data Centers - Rate Schedule and Requirements (failed)",
-      "instrument": "legislation",
-      "status": "failed",
+      "id": "me-eo5-2026",
+      "title": "Executive Order 5 — Maine Data Center Advisory Council",
+      "instrument": "executive_order",
+      "status": "in_effect",
       "scope": "state",
-      "jurisdiction": "Maryland",
-      "state_code": "MD",
-      "identifier": "HB 900 (2025)",
-      "date": "2025-04-08",
+      "jurisdiction": "Maine",
+      "state_code": "ME",
+      "identifier": "Executive Order 5 (FY 2026)",
+      "date": "2026-04-29",
       "benefit_themes": [
-        "energy"
+        "energy",
+        "engagement"
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "2,500 kW demand threshold",
-        "4-year maximum load ramp period",
-        "24-year minimum contract term",
-        "~50% collateral requirement",
-        "PSC-approved rate schedule"
+        "15-member Data Center Advisory Council",
+        "ratepayer protection focus",
+        "grid stability and environmental impact review",
+        "PUC/Department of Energy Resources coordination on ratepayer cost protection",
+        "recommendations due to Governor and Legislature by January 29, 2027"
       ],
-      "summary": "House Bill 900 (2025), sponsored by Del. C.T. Wilson, would have required Maryland electric companies to submit a Public Service Commission-approved rate schedule specifically for data center customers with monthly maximum demand over 2,500 kW, including a maximum 4-year load ramp period, a 24-year minimum contract term, and collateral requirements of roughly 50% of total minimum charges (with possible waivers for strong-credit customers). The bill died in committee on April 8, 2025 without a floor vote in either chamber. Its large-load rate-schedule concept was substantially revived in 2026 as part of the enacted Utility RELIEF Act (HB1532/Chapter 353) and in a separate 2026 bill, HB1082.",
-      "source_url": "https://www.billtrack50.com/billdetail/1810338",
-      "source_title": "BillTrack50 — MD HB900 (2025) bill detail",
-      "resources": [
-        {
-          "url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/HB0900?ys=2025RS",
-          "title": "Maryland General Assembly — HB0900 (2025) bill page"
-        }
+      "summary": "Governor Janet Mills signed Executive Order 5 on April 29, 2026, five days after vetoing the LD 307 data-center moratorium, establishing a 15-member Maine Data Center Advisory Council to develop policy recommendations on large-scale data center development around four goals: protecting ratepayers, preserving grid stability, reducing environmental impact, and supporting responsible economic growth. The order also directs the Department of Energy Resources to coordinate with the Maine Public Utilities Commission on ways to protect ratepayers from new or increased energy costs caused by data centers. The Council must deliver recommendations to the Governor and Legislature by January 29, 2027.",
+      "source_url": "https://www.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+      "source_title": "Office of Governor Janet T. Mills — Governor Mills Signs Executive Order to Establish Maine Data Center Advisory Council",
+      "resources": [],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "me-ld713-2026",
+      "title": "LD 713 — An Act to Exclude Data Centers from the Business Equipment Tax Exemption and the Dirigo Business Incentives Program",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Maine",
+      "state_code": "ME",
+      "identifier": "LD 713 (132nd Legislature, 2026)",
+      "date": "2026-04-23",
+      "benefit_themes": [
+        "tax_revenue"
       ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "excludes data centers from the Business Equipment Tax Exemption (BETE)",
+        "excludes data centers from the Dirigo Business Incentives Program",
+        "applies to data centers beginning operations on/after August 1, 2026",
+        "DECD study of alternative incentives due November 4, 2026"
+      ],
+      "summary": "LD 713, sponsored by Sen. Nicole Grohoski (D-Ellsworth), amends Maine law to exclude data centers from two of the state's general business tax-incentive programs — the Business Equipment Tax Exemption and the Dirigo Business Incentives Program — for data centers (including expansions) that begin operations on or after August 1, 2026. It also directs the Department of Economic and Community Development to study what other incentives (e.g., Tax Increment Financing, economic development grants) data centers may access under current law and report to the taxation committee by November 4, 2026. Governor Mills signed it into law on April 23, 2026, the same week she vetoed the separate LD 307 data-center moratorium bill.",
+      "source_url": "https://www.mainesenate.org/sen-grohoski-champions-new-maine-law-excluding-data-centers-from-tax-exemption-programs/",
+      "source_title": "Maine Senate Democrats — Sen. Grohoski champions new Maine law excluding data centers from tax exemption programs",
       "captured_at": "2026-09-23"
     },
     {
@@ -1269,6 +1559,42 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "mo-sb4-2025",
+      "title": "Senate Bill 4 — large-load customer tariffs and utility-regulatory omnibus",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Missouri",
+      "state_code": "MO",
+      "identifier": "SB 4 (2025)",
+      "date": "2025-04-09",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "100 MW peak-demand threshold (50 MW for smaller utilities)",
+        "PSC-approved large-load tariff schedule required",
+        "cost-causation ratemaking (large loads pay their own share)",
+        "12-year minimum contract term",
+        "80% minimum-take/collateral obligation"
+      ],
+      "summary": "Missouri Senate Bill 4, sponsored by Sen. Mike Cierpot and signed by Governor Mike Kehoe on April 9, 2025, is a utility-regulatory omnibus law that requires large electrical corporations (over 250,000 customers) to submit Public Service Commission-approved tariff schedules for large-load customers reasonably projected to exceed 100 MW of annual peak demand (50 MW for smaller utilities). The tariffs must reflect large-load customers' own share of the costs to serve them so that other ratepayer classes are not charged unjust or unreasonable costs arising from that service; reporting describes resulting contracts requiring roughly 12-year minimum terms with large customers responsible for a substantial share of minimum committed capacity even if usage falls short. The bill also enacted broader utility provisions (integrated resource planning, natural gas CWIP recovery, thermal-plant decommissioning standards).",
+      "source_url": "https://natlawreview.com/article/missouri-enacts-significant-utilityregulatory-omnibus-bill",
+      "source_title": "The National Law Review — Missouri Enacts Significant Utility/Regulatory Omnibus Bill",
+      "resources": [
+        {
+          "url": "https://www.senate.mo.gov/BillTracking/Bills/BillInformation?year=2025&billid=66",
+          "title": "Missouri Senate — SB 4 (2025) bill information"
+        },
+        {
+          "url": "https://psc.mo.gov/General/Utility_Tariffs_for_Large_Load_Customers",
+          "title": "Missouri Public Service Commission — Utility Tariffs for Large Load Customers"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "montgomery-county-mo-amazon-community-contributions-2026",
       "title": "Montgomery County, MO – Amazon community contributions",
       "instrument": "benefit_agreement",
@@ -1377,10 +1703,6 @@
       "source_title": "Magnolia Tribune — Senate bill aims to attract more data centers to Mississippi",
       "resources": [
         {
-          "url": "https://www.billtrack50.com/billdetail/1844233",
-          "title": "BillTrack50 — MS SB3168 (2025) bill detail"
-        },
-        {
           "url": "https://billstatus.ls.state.ms.us/documents/2025/html/SB/3100-3199/SB3168IN.htm",
           "title": "Mississippi Legislature — SB3168 as introduced"
         }
@@ -1448,6 +1770,40 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "nd-sb2406-2026-failed",
+      "title": "Senate Bill 2406 — ban on nondisclosure agreements for data center/industrial siting (failed)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "North Dakota",
+      "state_code": "ND",
+      "identifier": "SB 2406 (69th Assembly, September 2026 Special Session)",
+      "date": "2026-09-03",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "ban on public-agency NDAs for data center and industrial siting",
+        "extends to industrial, infrastructure, and utility projects broadly",
+        "penalties for companies entering prohibited NDAs"
+      ],
+      "summary": "Senate Bill 2406, considered during North Dakota's September 2026 special session, would have broadly restricted public agencies and officials from entering nondisclosure agreements with data center developers and other industrial, infrastructure, and utility projects, with penalties for noncompliant companies. Co-sponsor Sen. Tim Mathern argued NDAs 'keep citizens out of the know' about data center projects; Governor Kelly Armstrong testified existing open-records law was already sufficient. A joint policy committee gave it a do-not-pass recommendation, and the full Senate rejected it 32-15 on its second reading on September 3, 2026, without reaching the House. Legislative committee chair Rep. Jonathan Warrey said a similar bill is likely to return in the 2027 session.",
+      "source_url": "https://www.valleynewslive.com/2026/09/04/nd-lawmakers-reject-ban-data-center-non-disclosure-agreements/",
+      "source_title": "Valley News Live — ND lawmakers reject ban on data center non-disclosure agreements",
+      "resources": [
+        {
+          "url": "https://www.ndchamber.com/blog/brass-tacks-2463/post/special-session-recap-sb-2406-the-no-ndas-bill-43302",
+          "title": "Greater North Dakota Chamber — Special Session Recap: SB 2406 'The No NDAs Bill'"
+        },
+        {
+          "url": "https://ndlegis.gov/assembly/69-2025/special-2",
+          "title": "North Dakota Legislative Branch — September 2026 Special Session"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "ne-eo26-17-2026",
       "title": "Executive Order 26-17 — data center incentive and resource review",
       "instrument": "executive_order",
@@ -1474,6 +1830,41 @@
       "source_url": "https://governor.nebraska.gov/gov-pillen-signs-executive-order-data-centers",
       "source_title": "Office of Governor Jim Pillen — Gov. Pillen Signs Executive Order on Data Centers",
       "resources": [],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "nh-sb439-2026-failed",
+      "title": "Senate Bill 439 — municipal data center zoning (weakened by amendment, tabled by House)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "New Hampshire",
+      "state_code": "NH",
+      "identifier": "SB 439 (2026)",
+      "date": "2026-05-14",
+      "benefit_themes": [
+        "engagement",
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "as introduced: commercial/industrial-zone-only siting, setbacks and noise limits, local zoning preserved, grid-capacity proof required",
+        "as amended: 'by right' permitted use, preempts town-specific data center zoning",
+        "tabled by House 304-11"
+      ],
+      "summary": "New Hampshire Senate Bill 439, introduced by Sen. Debra Altschiller (D-Stratham), would originally have limited data centers to commercial/industrial zones, imposed setback and noise-pollution limits, preserved towns' authority to further regulate data centers locally, and required developers to provide utility-verified proof of sufficient grid capacity. A Senate floor amendment in January 2026 stripped those requirements — Altschiller called the result 'a shell' — and the bill passed the Senate in that weakened form (engrossed to the House February 26, 2026). In the House, the Municipal and County Government Committee voted 11-9 to recommend passage with a further amendment making data centers a 'by right' permitted use in commercial/industrial zones, which would have preempted towns from enacting data-center-specific regulations. The full House rejected that path and voted 304-11 to table the bill on May 14, 2026, so it did not become law.",
+      "source_url": "https://www.nhpr.org/nh-news/2026-05-07/data-centers-nh-bill-local-regulations",
+      "source_title": "New Hampshire Public Radio — Bill would forbid NH towns from enacting regulations specific to data centers",
+      "resources": [
+        {
+          "url": "https://newhampshirebulletin.com/2026/05/15/house-sets-by-right-data-center-zoning-bill-aside-in-decisive-vote/",
+          "title": "New Hampshire Bulletin — House sets 'by right' data center zoning bill aside in decisive vote"
+        },
+        {
+          "url": "https://www.citizenscount.org/bills/sb-439-2026",
+          "title": "Citizens Count — SB 439 (2026) bill tracker"
+        }
+      ],
       "captured_at": "2026-09-23"
     },
     {
@@ -1505,6 +1896,37 @@
         {
           "url": "https://www.njeda.gov/DataCenterTA/",
           "title": "NJEDA — Data Center Municipal Resource Hub"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "nm-sb235-2026-failed",
+      "title": "Senate Bill 235 — Microgrid Oversight Act (failed, died in House)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "New Mexico",
+      "state_code": "NM",
+      "identifier": "SB 235 (2026)",
+      "date": "2026-02-15",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "20 MW+ microgrid threshold",
+        "renewable portfolio standard for large microgrids (40% by enactment, 50% by 2030, 80% by 2040, 100% zero-carbon by 2045)",
+        "Public Regulation Commission enforcement authority, including shutdown power",
+        "motivated by Project Jupiter data center microgrid"
+      ],
+      "summary": "New Mexico Senate Bill 235, the 'Microgrid Oversight Act' sponsored by Sen. Jeff Steinborn, would have given the state Public Regulation Commission oversight of large (20 MW+) microgrids, including the power to shut down non-compliant projects, and imposed a renewable-portfolio ramp for such microgrids (40% renewable initially, 50% by 2030, 80% by 2040, and 100% zero-carbon energy by 2045). It was introduced after Sen. Steinborn learned that data-center microgrids planned for New Mexico — including the roughly $165 billion, 700-900 MW gas-fired microgrid for the 'Project Jupiter' data center in Doña Ana County — would collectively generate two to three times the electricity the entire state currently consumes. The Senate passed it 22-20 on February 15, 2026, but the House failed to act before the session ended, and it never reached the Governor.",
+      "source_url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+      "source_title": "Microgrid Knowledge — Microgrid Renewable Portfolio Standard Approved by NM Senate",
+      "resources": [
+        {
+          "url": "https://www.nmlegis.gov/Sessions/26%20Regular/firs/SB0235.PDF",
+          "title": "New Mexico Legislature — SB235 (2026) Fiscal Impact Report"
         }
       ],
       "captured_at": "2026-09-23"
@@ -2404,6 +2826,44 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "vt-h727-2026-failed",
+      "title": "H.727 — Vermont Sustainable Data Centers Act (vetoed, veto sustained)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "Vermont",
+      "state_code": "VT",
+      "identifier": "H.727 (2026)",
+      "date": "2026-05-29",
+      "benefit_themes": [
+        "energy",
+        "tax_revenue",
+        "water"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "large load service equity contract required for 20MW+ data centers",
+        "Public Utility Commission approval of contracts",
+        "ratepayer cost-shift protection",
+        "proposed data-center-funded financing mechanism (sales/property/income tax or gross receipts tax)",
+        "vetoed by Governor Scott, veto sustained"
+      ],
+      "summary": "H.727, the 'Vermont Sustainable Data Centers Act,' passed the Vermont Legislature with strong tripartisan margins (26-3 in the Senate; a near-unanimous House voice vote) on May 26, 2026. It would have required data centers using or able to use 20 MW or more of power to enter a Public Utility Commission-approved 'large load service equity contract' with their electric company to shield other ratepayers from data-center-driven costs, and directed development of a financing mechanism (drawing on data-center sales, property, or income tax revenue, a data-center gross receipts tax, or another mechanism) to fund state/local energy, environmental, and economic benefits. Governor Phil Scott vetoed the bill on May 28, 2026, citing existing Act 250, Public Utility Commission, environmental-permitting, energy-siting, and municipal zoning authority as already sufficient. The House voted 83-52 on May 29, 2026 to sustain the veto, short of the two-thirds needed to override, and the bill did not become law.",
+      "source_url": "https://legislature.vermont.gov/bill/status/2026/H.727",
+      "source_title": "Vermont General Assembly — Bill Status H.727 (2026)",
+      "resources": [
+        {
+          "url": "https://governor.vermont.gov/press-release/action-taken-governor-phil-scott-legislation-may-28-2026",
+          "title": "Office of Governor Phil Scott — Action Taken by Governor Phil Scott on Legislation, May 28, 2026"
+        },
+        {
+          "url": "https://www.clf.org/newsroom/vermont-legislature-passes-one-of-the-nations-strongest-data-center-laws/",
+          "title": "Conservation Law Foundation — Vermont Legislature Passes One of the Nation's Strongest Data Center Laws"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "wa-essb6231-2026",
       "title": "Engrossed Substitute Senate Bill 6231 — repeal of data center replacement/refurbished equipment tax exemption",
       "instrument": "legislation",
@@ -2512,6 +2972,79 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "wi-ab840-2026-failed",
+      "title": "Assembly Bill 840 — data center regulation (cost-shift, closed-loop cooling, renewable co-location, reclamation bonds) (failed)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "Wisconsin",
+      "state_code": "WI",
+      "identifier": "2025 Assembly Bill 840 (2025-2026 session)",
+      "date": "2026-01-20",
+      "benefit_themes": [
+        "energy",
+        "water"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "100 MW / 20 GWh large-data-center threshold",
+        "closed-loop cooling water system required",
+        "annual DNR water-use reporting",
+        "renewable generation must be co-located with the data center it serves",
+        "reclamation bonds for abandoned projects"
+      ],
+      "summary": "Wisconsin AB 840 (2025-2026 session), introduced January 9, 2026 by a group of GOP legislators, would have directed the Public Service Commission to ensure new electric infrastructure costs for a data center are borne by that facility rather than other ratepayers, required data centers above 100 MW demand or 20 GWh consumption to use closed-loop cooling systems and report annual water use to the DNR, required any renewable generation facility primarily serving a data center's load to be sited at the data center itself, and required reclamation bonds for abandoned projects. The Assembly passed the bill 53-44 on January 20, 2026, but the Senate failed to concur on March 23, 2026, and it did not become law.",
+      "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
+      "source_title": "Wisconsin Legislature — 2025 Assembly Bill 840 legislative history",
+      "resources": [
+        {
+          "url": "https://wisconsinexaminer.com/2026/01/21/assembly-passes-gop-bill-to-regulate-data-centers-in-wisconsin/",
+          "title": "Wisconsin Examiner — Assembly passes GOP bill to regulate data centers in Wisconsin"
+        },
+        {
+          "url": "https://www.wispolitics.com/2026/wisconsin-conservation-voters-ab-840-would-shift-data-center-energy-costs-to-wisconsin-residents/",
+          "title": "WisPolitics — Wisconsin Conservation Voters on AB 840"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "wi-act19-2023-dcste",
+      "title": "2023 Wisconsin Act 19 — Data Center Sales and Use Tax Exemption",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Wisconsin",
+      "state_code": "WI",
+      "identifier": "2023 Wisconsin Act 19 (state budget act); Wis. Stat. §§77.54(70), 238.40",
+      "date": "2023-07-05",
+      "benefit_themes": [
+        "tax_revenue",
+        "jobs"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "WEDC certification required",
+        "county-population-tiered investment thresholds ($50M/$100M/$150M over 5 years)",
+        "no dollar cap on exempt purchases",
+        "sales and use tax exemption on qualifying equipment/construction"
+      ],
+      "summary": "2023 Wisconsin Act 19, the state budget act signed by Governor Evers on July 5, 2023, created a sales and use tax exemption (Wis. Stat. §§77.54(70), 238.40) for property purchased for a WEDC-certified 'qualified data center.' To qualify, an operator must commit to invest at least $150 million over five years in a county with population over 100,000, $100 million in a county of 50,000-100,000, or $50 million in a county under 50,000. There is no dollar cap on the exemption once certified, and certification cannot predate October 1, 2023.",
+      "source_url": "https://wedc.org/programs/data-center-sales-and-use-tax-exemption/",
+      "source_title": "Wisconsin Economic Development Corporation — Data Center Sales and Use Tax Exemption program page",
+      "resources": [
+        {
+          "url": "https://www.revenue.wi.gov/Pages/FAQS/ExemptionforQualifiedDataCenter.aspx",
+          "title": "Wisconsin DOR — Qualified Data Center Exemption FAQ"
+        },
+        {
+          "url": "https://docs.legis.wisconsin.gov/document/acts/2023/19",
+          "title": "Wisconsin Legislature — 2023 Act 19 (state budget act)"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "wilmington-oh-aws-cra-compensation-agreement-2025",
       "title": "Wilmington, OH – AWS Community Reinvestment Area / compensation agreement",
       "instrument": "benefit_agreement",
@@ -2586,6 +3119,45 @@
         {
           "url": "https://www.wvlegislature.gov/Bill_Text_HTML/2025_SESSIONS/RS/bills/hb2014%20sub1%20enr.pdf",
           "title": "West Virginia Legislature — HB 2014 Enrolled Committee Substitute (bill text)"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "wy-eo2026-03",
+      "title": "Executive Order 2026-03 — Data Centers the Wyoming Way",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Wyoming",
+      "state_code": "WY",
+      "identifier": "Executive Order 2026-03",
+      "date": "2026-06-03",
+      "benefit_themes": [
+        "water",
+        "energy",
+        "jobs",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Wyoming Data Center Development Framework",
+        "closed-loop cooling encouraged for water sustainability",
+        "developers bear all incremental power-infrastructure costs",
+        "60-day agency policy/legislative recommendations",
+        "local siting/nuisance authority preserved for towns and counties"
+      ],
+      "summary": "Governor Mark Gordon signed Executive Order 2026-03, 'Data Centers the Wyoming Way,' on June 3, 2026, establishing the Wyoming Data Center Development Framework around eight principles: water sustainability (encouraging closed-loop cooling), wildlife stewardship, transparency, energy leadership (Wyoming's gas/coal resources), grid protection, revenue-driven growth (developers bear all incremental power-infrastructure costs), workforce development, and community investment/engagement. It directs state agencies to coordinate on proposed developments, streamline permitting, and improve transparency and public-participation opportunities, while preserving local town/city/county authority over siting and nuisance issues. Agencies must deliver policy and potential-legislation recommendations to the Governor within 60 days.",
+      "source_url": "https://www.wyomingnews.com/news/local_news/gov-gordon-signs-executive-order-addressing-data-centers-in-wyoming/article_b5a4f53a-ed08-4cb7-8ab1-c0a9332da7e6.html",
+      "source_title": "Wyoming Tribune Eagle — Gov. Gordon signs executive order addressing data centers in Wyoming",
+      "resources": [
+        {
+          "url": "https://wyofile.com/gov-gordon-demands-data-center-developers-do-it-the-wyoming-way/",
+          "title": "WyoFile — Gov. Gordon demands data center developers 'do it the Wyoming way'"
+        },
+        {
+          "url": "https://trinityconsultants.com/resources/data-centers-the-wyoming-way-what-governor-gordons-executive-order-2026-03-means/",
+          "title": "Trinity Consultants — Data Centers the Wyoming Way: What Governor Gordon's Executive Order 2026-03 Means"
         }
       ],
       "captured_at": "2026-09-23"
