@@ -1171,3 +1171,32 @@ fourth pass).
   records whose only sources are local outlets. That is the honest state of
   local-government sourcing, not a regression; the link-liveness gate is the
   one that must stay green.
+
+### 2026-09-23 — Policies & Agreements tab: a sixth dimension
+
+New payload `data/seed/policies.json` (see SPEC_POLICIES_TAB.md). To refresh:
+re-sweep state legislatures each session (states with nothing verified are
+listed in SPEC_POLICIES_TAB.md > Research log), and check each tracked
+site's county/city agendas for development / host / PILOT agreements.
+Agents append records to a scratchpad JSONL; a merge step validates each
+row against `schema.Policy`, applies reviewed patches, and writes the seed.
+
+Learnings:
+- **Grep your own records before searching the web.** 15+ tracked sites
+  already mentioned a CBA, PILOT, development agreement or community fund
+  in notes/claims/responses. That work-list seeded the agreements pass,
+  and most of its 21 agreements came from it.
+- **Research agents invent day-level dates.** `-01-01` and `-09-01` dates
+  appeared on 9 records, and a July 1 effective date was stored as a signing
+  date. Say "omit the date if the source gives only month/year" in the
+  prompt, and grep the merged seed for `-01"` days before shipping.
+- **servercountry.org is an aggregator, not a source.** Four state records
+  first cited it. Re-sourcing to azleg.gov / capitol.tn.gov found one wrong
+  date (TN: May 7 vs the May 18 Public Chapter), which is the point.
+- **Total investment is not a community benefit.** `value_usd` came back with
+  $17B (Columbia County GA) and $100B (Paducah) project totals, a projected
+  ROI (Huntsville), and a sum the agent computed itself (xAI Memphis). Only a
+  stated total of committed benefits belongs there.
+- **Governor pauses on tax-incentive *applications*** (OH, IL, AZ 2026) are
+  policies, not moratoriums: they pause a subsidy, not development.
+

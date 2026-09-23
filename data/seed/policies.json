@@ -560,6 +560,37 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "fl-hb7031-2025",
+      "title": "House Bill 7031 — data center sales tax exemption threshold increase (15 MW to 100 MW)",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Florida",
+      "state_code": "FL",
+      "identifier": "HB 7031 (2025)",
+      "date": "2025-06-30",
+      "benefit_themes": [
+        "tax_revenue"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Raises the critical IT load required to qualify for Florida's data center sales tax exemption certificate from 15 MW to 100 MW",
+        "Extends the deadline to obtain an exemption certificate from June 30, 2027 to June 30, 2037",
+        "No grandfather clause: previously certified data centers under 100 MW lose the exemption",
+        "Passed Senate 32-2, House 93-7; provisions take effect July 1, 2025 except as otherwise provided"
+      ],
+      "summary": "Florida's HB 7031, signed by Gov. DeSantis June 30, 2025, restricts the state's data center sales tax exemption to facilities with 100 MW or more of critical IT load (up from 15 MW) and extends the program's certification deadline to 2037, cutting off previously certified sub-100 MW data centers with no grandfathering.",
+      "source_url": "https://www.flsenate.gov/Committees/BillSummaries/2025/html/7031",
+      "source_title": "The Florida Senate — 2025 Bill Summary, HB 7031",
+      "resources": [
+        {
+          "url": "https://www.gtlaw.com/en/insights/2025/6/florida-legislature-passes-bill-to-end-sales-tax-exemption-for-sub-100-mw-data-centers",
+          "title": "Greenberg Traurig — Florida Legislature Passes Bill to End Sales Tax Exemption for Sub-100 MW Data Centers"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "frederick-county-md-quantum-cba-rejected-2026",
       "title": "Frederick County, MD – rejected $110M Quantum Frederick community benefits agreement",
       "instrument": "benefit_agreement",
@@ -599,6 +630,37 @@
         {
           "url": "https://conduitstreet.mdcounties.org/2026/09/02/frederick-secures-110m-community-benefits-agreement-for-data-center-campus/",
           "title": "Conduit Street (Maryland Association of Counties) — Frederick Secures $110M Community Benefits Agreement for Data Center Campus"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "ga-sb410-2026",
+      "title": "Senate Bill 410 — repeal of sales tax exemption for new data centers",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "Georgia",
+      "state_code": "GA",
+      "identifier": "SB 410 (2025-2026 Session)",
+      "date": "2026-03-06",
+      "benefit_themes": [
+        "tax_revenue"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Would have ended Georgia's sales tax exemption for NEW data centers while preserving it for existing/already-certified facilities",
+        "Sponsored by Sen. Matt Brass",
+        "Passed the Senate March 6, 2026",
+        "Died in the House; did not reach Gov. Kemp's desk"
+      ],
+      "summary": "Georgia's SB 410 would have repealed the state sales tax exemption for new (but not existing) data centers. It passed the Senate on March 6, 2026 but died in the House, leaving Georgia's data center tax exemption fully in force; Gov. Kemp has been a vocal supporter of keeping the incentive.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/georgia-senate-passes-bill-to-suspend-data-center-tax-exemptions/",
+      "source_title": "Data Center Dynamics — Georgia Senate passes bill to suspend data center tax exemptions",
+      "resources": [
+        {
+          "url": "https://www.ajc.com/business/2026/03/georgia-senate-votes-to-claw-back-data-center-tax-breaks/",
+          "title": "Atlanta Journal-Constitution — Georgia Senate votes to claw back data center tax breaks"
         }
       ],
       "captured_at": "2026-09-23"
@@ -822,6 +884,37 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "ky-hb775-2025",
+      "title": "House Bill 775 — statewide data center sales and use tax exemption expansion",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Kentucky",
+      "state_code": "KY",
+      "identifier": "HB 775 (2025 Regular Session)",
+      "benefit_themes": [
+        "tax_revenue"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Expands the data center sales/use tax exemption from Louisville/Jefferson County to all 120 Kentucky counties",
+        "Exemption duration scales up to 50 years for a $450 million+ capital investment in counties with 100,000+ population",
+        "Lower tiers: $100 million minimum in counties with 50,000-100,000 population; $25 million minimum in counties under 50,000 population",
+        "All qualifying investment must occur within 5 years of preliminary approval",
+        "Became law without Gov. Beshear's signature"
+      ],
+      "summary": "Kentucky's HB 775 (2025) expanded the state's data center sales/use tax exemption statewide to all 120 counties with population-tiered investment thresholds ($25M-$450M) and exemption terms up to 50 years for the largest projects; it became law without Gov. Beshear's signature. Beshear has since (August 2026) publicly called for rolling the incentives back.",
+      "source_url": "https://www.stites.com/resources/client-alerts/kentucky-vastly-expands-data-center-tax-incentives/",
+      "source_title": "Stites & Harbison PLLC — Kentucky Vastly Expands Data Center Tax Incentives",
+      "resources": [
+        {
+          "url": "https://www.lpm.org/news/2026-08-27/kentucky-gov-andy-beshear-calls-for-ending-state-tax-incentives-for-data-centers",
+          "title": "Louisville Public Media — Kentucky Gov. Andy Beshear calls for ending state tax incentives for data centers"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "la-act730-2024",
       "title": "Act 730 (HB 827) — data center sales and use tax rebate",
       "instrument": "legislation",
@@ -830,7 +923,6 @@
       "jurisdiction": "Louisiana",
       "state_code": "LA",
       "identifier": "Act 730 (HB 827, 2024 R.S.)",
-      "date": "2024-01-01",
       "benefit_themes": [
         "jobs",
         "tax_revenue"
@@ -1146,6 +1238,39 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "mt-hb424-2025",
+      "title": "House Bill 424 — Class 17 data center property tax revisions",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Montana",
+      "state_code": "MT",
+      "identifier": "HB 424 (2025, Chapter 678)",
+      "date": "2025-05-13",
+      "benefit_themes": [
+        "tax_revenue",
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Extends the qualified data center construction window to 2037",
+        "Revises ownership requirements for qualifying data center property",
+        "Adds qualifying on-site generation and storage equipment to the Class 17 property category",
+        "Preserves 10-year Class 17 tax treatment (0.9% taxable valuation rate) for qualified dedicated communications infrastructure",
+        "Applies retroactively to tax years beginning after December 31, 2024"
+      ],
+      "summary": "Montana's HB 424, signed by Gov. Gianforte May 13, 2025, extends and revises the state's Class 17 reduced-valuation property tax treatment for qualified data centers — pushing the construction-window deadline to 2037, broadening eligible on-site generation/storage equipment, and applying retroactively to 2025.",
+      "source_url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+      "source_title": "Montana Free Press — Capitol Tracker 2025, HB 424",
+      "resources": [
+        {
+          "url": "https://archive.legmt.gov/content/Sessions/69th/Contractor_index/CH0678.pdf",
+          "title": "Montana Legislature — HB 424, Chapter 678 (authorized print version)"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "nc-budget2026-electricity-exemption-repeal-2026",
       "title": "2026 state budget — repeal of data center electricity sales tax exemption",
       "instrument": "legislation",
@@ -1199,39 +1324,6 @@
       "source_url": "https://governor.nebraska.gov/gov-pillen-signs-executive-order-data-centers",
       "source_title": "Office of Governor Jim Pillen — Gov. Pillen Signs Executive Order on Data Centers",
       "resources": [],
-      "captured_at": "2026-09-23"
-    },
-    {
-      "id": "nj-aspire-cba-2020",
-      "title": "Aspire Program — community benefits agreement condition",
-      "instrument": "legislation",
-      "status": "in_effect",
-      "scope": "state",
-      "jurisdiction": "New Jersey",
-      "state_code": "NJ",
-      "identifier": "Aspire Program (Economic Recovery Act of 2020)",
-      "date": "2021-01-07",
-      "benefit_themes": [
-        "community_grants",
-        "engagement",
-        "infrastructure"
-      ],
-      "community_benefits_framework": true,
-      "key_terms": [
-        "A developer seeking Aspire tax-credit support must obtain a letter of support from the chief executive of the host municipality",
-        "Must enter into both a Community Benefits Agreement and a separate Redevelopment Agreement with the project's municipal governing body",
-        "NJEDA operates a Data Center Municipal Resource Hub to help host municipalities evaluate and negotiate these agreements",
-        "Aspire Program paused new applications effective 5:00pm EDT July 23, 2026 because demand exceeded available resources; applications expected to reopen fall 2026 with revised criteria"
-      ],
-      "summary": "New Jersey's Aspire redevelopment tax-credit program, created under the Economic Recovery Act of 2020 (signed by Gov. Murphy Jan. 7, 2021) and available to data center and other large projects, conditions state support on the developer signing a Community Benefits Agreement plus a Redevelopment Agreement with the host municipality, and securing the municipality's letter of support. NJEDA has paused new Aspire applications since July 2026 pending a program review.",
-      "source_url": "https://www.njeda.gov/aspire/",
-      "source_title": "NJEDA — Aspire Program",
-      "resources": [
-        {
-          "url": "https://www.njeda.gov/DataCenterTA/",
-          "title": "NJEDA — Data Center Municipal Resource Hub"
-        }
-      ],
       "captured_at": "2026-09-23"
     },
     {
@@ -1388,6 +1480,38 @@
       "summary": "OpenAI's Stargate Community plan is a locally-tailored, company-wide framework announced in the year following the January 2025 Stargate Project launch, anchored on paying its own way on energy costs, low-water-use cooling (illustrated at the Abilene, TX site), and OpenAI Academies for regional workforce development (first launched in Abilene). A Wisconsin-specific commitment names a $175 million minimum infrastructure/water-restoration investment by project partners.",
       "source_url": "https://openai.com/index/stargate-community/",
       "source_title": "OpenAI — Stargate Community",
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "or-hb3546-2025",
+      "title": "House Bill 3546 — POWER Act (large energy use facility rate class)",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Oregon",
+      "state_code": "OR",
+      "identifier": "HB 3546 (Chapter 323, 2025 Laws)",
+      "date": "2025-07-07",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Directs the Public Utility Commission to create a separate rate/service classification for 'large energy use facilities' (20 MW+, primarily data processing services under NAICS code 518210)",
+        "New rate class must be separate and distinct from other commercial/industrial classes, with its own tariff schedule",
+        "Tariff must allocate the cost of serving large energy use facilities to those facilities and mitigate cost-shifting risk to other ratepayer classes",
+        "Requires electric companies to use a contract (10+ year duration) when serving a large energy use facility",
+        "Oregon is described as the first state to create a specific data-center customer electricity rate classification"
+      ],
+      "summary": "Oregon's POWER Act (HB 3546), sponsored by Rep. Pam Marsh and enacted in 2025 (effective June 16, 2025), directs the PUC to establish a dedicated 20 MW+ 'large energy use facility' rate class with its own tariff and 10-year-minimum contracts, so data centers' grid costs are allocated to them rather than spread across other ratepayers.",
+      "source_url": "https://katu.com/news/politics/oregon-house-passes-bill-making-large-data-centers-pay-for-power-grid-costs-electricity-money-consumers-cost-bill-politics",
+      "source_title": "KATU — Oregon House passes bill making large data centers pay for power grid costs",
+      "resources": [
+        {
+          "url": "https://www.oregon.gov/puc/forms/Forms%20and%20Reports/2026%20POWER%20Act%20Legislative%20Report.pdf",
+          "title": "Oregon PUC — 2026 POWER Act Biennial Report to the Legislature"
+        }
+      ],
       "captured_at": "2026-09-23"
     },
     {
@@ -1715,6 +1839,34 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "sc-act41-h3309-2025",
+      "title": "Act No. 41 (H.3309) — South Carolina Energy Security Act",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "South Carolina",
+      "state_code": "SC",
+      "identifier": "Act No. 41 (H.3309, R.60)",
+      "date": "2025-05-12",
+      "benefit_themes": [
+        "energy",
+        "tax_revenue"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Defines 'data center' as any facility over 5,000 sq ft housing computer systems/servers/networking/storage equipment, including colocation and modular/containerized units",
+        "Requires special contracts for large-load customers (including data centers) to identify all new facilities/upgrades needed to serve them and address how the customer will cover infrastructure costs",
+        "Costs of increased fuel, generation and transmission substantially related to serving a commercial data center's demand must be recovered solely from that data center, not spread to other ratepayers",
+        "Provisions do not apply to a data center that was already an electric service provider's customer as of May 15, 2025 (grandfather clause)",
+        "Also authorizes annual rate-adjustment mechanisms and competitive procurement mandates for renewables/storage tied to 2023 integrated resource plans"
+      ],
+      "summary": "South Carolina's Act No. 41 (H.3309), the Energy Security Act signed by Gov. McMaster May 12, 2025, requires new commercial data centers to bear the incremental fuel, generation and transmission costs their demand causes rather than spreading them to other ratepayers, via special utility contracts, with a grandfather clause for centers already served as of May 15, 2025.",
+      "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/3309.htm",
+      "source_title": "South Carolina Legislature Online — Bill 3309 (Act No. 41)",
+      "resources": [],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "scioto-county-oh-google-franklin-furnace-pilot-2026",
       "title": "Scioto County, OH – Google Franklin Furnace PILOT / tax abatement",
       "instrument": "benefit_agreement",
@@ -1744,6 +1896,40 @@
       "source_title": "WSAZ — Google's request for tax abatement on proposed data center approved",
       "related_project_ids": [
         "google-franklin-furnace-oh"
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "sd-sb135-2026",
+      "title": "Senate Bill 135 — Data Center Bill of Rights for Citizens",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "South Dakota",
+      "state_code": "SD",
+      "identifier": "SB 135 (2026 Session)",
+      "date": "2026-03-25",
+      "benefit_themes": [
+        "water",
+        "energy",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Applies to data centers with 10 MW or greater peak electrical demand",
+        "Requires data centers to ensure their water use does not overburden local water resources",
+        "Requires data center operators to pay for the electrical infrastructure costs attributable to their own demand",
+        "Prohibits the state from preempting local ordinances that limit, prohibit or otherwise regulate data centers, preserving municipal authority",
+        "A companion bill signed the same day (SD legislative bill number 26923) lets the Public Utilities Commission assess regulatory review costs to data center companies"
+      ],
+      "summary": "South Dakota's SB 135, signed by Gov. Rhoden March 25, 2026 after a competing push for new data center tax incentives failed, requires 10 MW+ data centers to cover their own grid infrastructure costs, avoid overburdening local water supplies, and explicitly preserves local governments' authority to regulate or restrict data centers despite state law.",
+      "source_url": "https://www.kotatv.com/2026/03/25/data-center-restrictions-signed-into-south-dakota-law-after-push-incentives-failed/",
+      "source_title": "KOTA Territory News — Data center restrictions signed into South Dakota law after push for incentives failed",
+      "resources": [
+        {
+          "url": "https://legiscan.com/SD/bill/SB135/2026",
+          "title": "LegiScan — South Dakota SB135 (2026)"
+        }
       ],
       "captured_at": "2026-09-23"
     },
@@ -1930,6 +2116,62 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "va-hb153-sb94-2026",
+      "title": "HB 153 / SB 94 — data center siting sound-profile assessment",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Virginia",
+      "state_code": "VA",
+      "identifier": "HB 153 (Ch. 567) / SB 94 (Ch. 568)",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Before approving a rezoning, special exception or special use permit for a new 'high energy use facility' (100 MW+), a locality must require the applicant to submit a site assessment examining the facility's sound profile on residential units and schools within 500 feet of the property boundary",
+        "Sets no decibel ceiling, no water cap and no minimum setback — the requirement is disclosure/assessment, not a hard standard",
+        "Water-impact assessment remains at local discretion rather than mandatory"
+      ],
+      "summary": "Virginia's HB 153/SB 94, effective July 1, 2026, requires localities to obtain a sound-impact site assessment before approving zoning for a new 100 MW+ data center near homes or schools, but stops short of setting an enforceable noise limit, water cap or minimum setback.",
+      "source_url": "https://www.roanokerambler.com/a-roanoke-delegate-helped-write-virginias-new-data-center-law-heres-what-it-does-and-what-it-doesnt/",
+      "source_title": "Roanoke Rambler — A Roanoke Delegate Helped Write Virginia's New Data Center Law",
+      "resources": [],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "va-hb496-2026",
+      "title": "House Bill 496 — data center water use reporting and disclosure",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Virginia",
+      "state_code": "VA",
+      "identifier": "HB 496 (2026 Session)",
+      "date": "2026-04-13",
+      "benefit_themes": [
+        "water",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Requires any water user that must register withdrawal/use data with the State Water Control Board, and that supplies water offsite to another person, to separately report total monthly potable and reclaimed water volumes provided to data centers holding a DEQ air permit",
+        "Reporting categories also separately break out domestic, commercial/industrial and other non-categorized water use",
+        "Delayed effective date of January 1, 2027",
+        "Chaptered April 13, 2026"
+      ],
+      "summary": "Virginia's HB 496, chaptered April 13, 2026 with a delayed effective date of January 1, 2027, requires water utilities and other bulk water suppliers to separately report, by category, how much potable and reclaimed water they provide to data centers with a DEQ air permit, making data center water use publicly disclosed for the first time.",
+      "source_url": "https://www.wvtf.org/news/2026-06-11/new-virginia-law-requires-data-center-water-usage-be-made-public",
+      "source_title": "WVTF/Radio IQ — New Virginia law requires data center water usage be made public",
+      "resources": [
+        {
+          "url": "https://lis.virginia.gov/bill-details/20261/HB496",
+          "title": "Virginia Legislative Information System — HB496 (2026 Session)"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "wa-essb6231-2026",
       "title": "Engrossed Substitute Senate Bill 6231 — repeal of data center replacement/refurbished equipment tax exemption",
       "instrument": "legislation",
@@ -1938,7 +2180,6 @@
       "jurisdiction": "Washington",
       "state_code": "WA",
       "identifier": "ESSB 6231 (Chapter 266, Laws of 2026)",
-      "date": "2026-04-01",
       "benefit_themes": [
         "tax_revenue"
       ],
@@ -2075,6 +2316,38 @@
       ],
       "related_project_ids": [
         "aws-wilmington-oh"
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "wv-hb2014-2025",
+      "title": "House Bill 2014 — Power Generation and Consumption Act",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "West Virginia",
+      "state_code": "WV",
+      "identifier": "HB 2014 (2025 Regular Session)",
+      "date": "2025-04-30",
+      "benefit_themes": [
+        "tax_revenue",
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Authorizes up to two 'microgrid' industrial business development districts (up to 2,250 acres each, on state or former coal land) where non-utility generators can sell power free of PSC rate rules, siting certificates and net-metering standards, provided 90% of the power stays in the district",
+        "Permits any power generation type (including nuclear, coal or gas-fired) within a certified microgrid/high-impact data center district",
+        "Prohibits counties and municipalities from adopting ordinances that limit creation, development or operation of a certified microgrid district or high-impact data center project (local zoning preemption)",
+        "Data center property and equipment is taxed at salvage value (about 5% of assessed value) for ad valorem property tax purposes, with the majority of that revenue directed to a state grid-stabilization/security fund rather than local governments"
+      ],
+      "summary": "West Virginia's HB 2014, a governor's priority bill signed by Gov. Morrisey April 30, 2025, creates fast-tracked 'microgrid' industrial districts where data centers can build their own power generation largely outside PSC oversight, preempts local zoning limits on certified projects, and taxes data center property at a steeply discounted salvage value, with most resulting revenue flowing to the state rather than host localities.",
+      "source_url": "https://www.govtech.com/policy/west-virginia-passes-new-data-center-development-bill",
+      "source_title": "Government Technology — West Virginia Passes New Data Center Development Bill",
+      "resources": [
+        {
+          "url": "https://www.wvlegislature.gov/Bill_Text_HTML/2025_SESSIONS/RS/bills/hb2014%20sub1%20enr.pdf",
+          "title": "West Virginia Legislature — HB 2014 Enrolled Committee Substitute (bill text)"
+        }
       ],
       "captured_at": "2026-09-23"
     }

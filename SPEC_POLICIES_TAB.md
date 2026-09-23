@@ -94,6 +94,22 @@ Verification bar (both): fetch the exact `source_url`, confirm each
 lesson), live links only, no fabricated .gov paths, headline words ("ban",
 "agreement") checked against the instrument itself.
 
+## Research log (2026-09-23 pass)
+
+Shipped 68 records across 38 states plus 10 company-wide plans: 29
+legislation, 6 executive orders, 21 benefit agreements, 12 company plans
+(2 of them site pledges).
+
+**States checked with nothing that cleared verification.** These are open
+leads, not "no policy exists": MD, CT, MS, WI, MO, ND, ID, NM, ME, VT, NH,
+RI, DE, AK, HI, DC, WY, IA, AR. Oklahoma's ratepayer act is HB 2992, which is
+already a moratorium record. Bills that never passed a chamber (GA SB421, NY
+A9086, MI HB6137/SB1050) were left out.
+
+**Companies with no company-wide community plan found:** Oracle, xAI (it has
+a Memphis site pledge instead), SB Energy, Wonder Valley, Brookfield (it has
+a Paducah site pledge instead).
+
 ## Out of scope for v1
 
 - Moving misfiled non-moratorium records (PA EO 2026-05, OK HB2992, WA
