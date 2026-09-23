@@ -245,3 +245,86 @@ def test_tab_is_wired(js) -> None:
     assert 'id="tab-policies"' in html and 'id="view-policies"' in html
     assert '"#policies"' in js
     assert 'data-path-target="policies"' in html
+
+
+# --- the moratorium tab holds pauses, sourced to something specific ---------
+#
+# 2026-09-23: three records were moved off the Moratoriums tab. One was a
+# conditional-permitting order (PA EO 2026-05, now a Policy); the other two
+# were cited to a bare homepage and turned out to be fabricated (WA "SB 5982"
+# is a Department of Health bill) or badly wrong (OK HB 2992 is a 2026 law,
+# not 2024). A homepage citation is how both survived: it "resolves" while
+# proving nothing. These guards keep the list of such records from growing.
+
+HOMEPAGE_SOURCED_MORATORIUMS = {  # audit these; remove ids as they are fixed
+    "baltimore-city-2026-05", "bloomington-normal-il-2026-06", "boise-id-2026-05",
+    "cheyenne-wy-2026-06", "dubuque-county-ia-2026-06", "hawaii-state-2026-01",
+    "hill-county-tx-2024-04", "idaho-state-2026-03", "indianapolis-in-2024-10",
+    "iron-county-ut-2026-06", "loudoun-county-leesburg-va-2026-06", "maine-state-2026-04",
+    "manitowoc-county-wi-2026-06", "meridian-township-mi-2024-11", "minneapolis-city-2026-05",
+    "oklahoma-county-ok-2026-04", "philadelphia-pa-2026-05", "pulaski-county-ar-2024-07",
+    "reno-city-2026-05", "smithfield-town-2026-05", "vermont-state-2026-03",
+    "washington-township-macomb-mi-2024-03",
+}
+
+
+def _moratoriums() -> list[dict]:
+    return json.loads((ROOT / "data/seed/moratoriums.json").read_text())["moratoriums"]
+
+
+def test_no_new_homepage_sourced_moratoriums() -> None:
+    from urllib.parse import urlparse
+
+    bare = {
+        m["id"]
+        for m in _moratoriums()
+        if urlparse(m["source_url"]).path in ("", "/") and not urlparse(m["source_url"]).query
+    }
+    new = bare - HOMEPAGE_SOURCED_MORATORIUMS
+    assert not new, f"moratorium records cited only to a homepage: {sorted(new)}"
+    fixed = HOMEPAGE_SOURCED_MORATORIUMS - bare
+    assert not fixed, f"these are fixed — drop them from the allowlist: {sorted(fixed)}"
+
+
+def test_policies_never_cite_a_bare_homepage(policies) -> None:
+    from urllib.parse import urlparse
+
+    for p in policies:
+        u = urlparse(p["source_url"])
+        assert u.path not in ("", "/") or u.query, p["id"]
+
+
+def test_non_pauses_are_not_filed_as_moratoriums() -> None:
+    for m in _moratoriums():
+        pt = (m.get("policy_type") or "").lower()
+        assert "not a pause" not in pt and "cost-allocation" not in pt, (
+            f"{m['id']} describes itself as not a moratorium — it belongs in policies.json"
+        )
+
+
+def test_migrated_records_live_in_exactly_one_place(policies) -> None:
+    ids = {m["id"] for m in _moratoriums()}
+    for gone in ("pennsylvania-state-eo2026-05", "oklahoma-state-hb2992-2024",
+                 "washington-state-sb5982-2024"):
+        assert gone not in ids
+    pol = {p["id"] for p in policies}
+    assert {"pa-eo2026-05-2026", "ok-hb2992-2026"} <= pol
+
+
+# --- delivered-vs-promised on agreements ------------------------------------
+
+def test_delivered_only_on_in_effect_records() -> None:
+    d = {"status": "partial", "summary": "s", "source_url": "https://example.gov/d",
+         "source_title": "t", "assessed_at": "2026-09-23"}
+    assert _policy(delivered=d).delivered.status == "partial"
+    with pytest.raises(ValidationError):
+        _policy(status="failed", delivered=d)
+    with pytest.raises(ValidationError):
+        _policy(delivered={**d, "status": "unknown"})
+
+
+def test_delivery_evidence_is_independent_of_the_record_source(policies) -> None:
+    """The assessment cites evidence of delivery, not the announcement."""
+    for p in policies:
+        if p.get("delivered"):
+            assert p["delivered"]["source_url"] != p["source_url"], p["id"]

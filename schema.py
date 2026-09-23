@@ -1504,6 +1504,12 @@ class Policy(_StrictBase):
         description="Moratorium record covering the same instrument, if any. "
         "Cross-ref validated.",
     )
+    delivered: Optional[Delivered] = Field(
+        default=None,
+        description="Independent evidence of whether an agreement's committed "
+        "benefits were actually paid / awarded / built. Same rules as "
+        "Claim.delivered: absent = not yet assessed, never implied delivery.",
+    )
     captured_at: Date
 
     @field_validator("state_code")
@@ -1527,6 +1533,10 @@ class Policy(_StrictBase):
         # A company plan is company-wide (scope 'company') or a site pledge
         # published for one host community (scope city/county/state). Either
         # way it is the company's own words, so it must name the company.
+        # Delivery is assessable only for something that promised a benefit
+        # and is in force — a failed or proposed deal has nothing to deliver.
+        if self.delivered is not None and self.status != "in_effect":
+            raise ValueError(f"policy {self.id!r}: only an in-effect record can carry `delivered`")
         if self.instrument == "company_plan":
             if not self.company_slugs:
                 raise ValueError(f"policy {self.id!r}: a company_plan must name its company_slugs")

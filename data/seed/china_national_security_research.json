@@ -298,7 +298,7 @@
     "title": "Relationship to State-Level Data Center Moratoriums",
     "finding": "State-level moratoriums rarely cite China explicitly; primary drivers are environmental (energy, water, planning) rather than national security",
     "observation": "Unlike state environmental moratoriums (driven by local concerns), China concerns are primarily addressed at federal level through CFIUS and export controls",
-    "direct_link": "Some state moratorium discussions (Idaho HB620, Oklahoma HB 2992 circa 2023-2024) mentioned 'foreign data center interest' or 'national security concerns' in passing, but no explicit China reference in legislative record",
+    "direct_link": "Some state moratorium discussions (Idaho HB620) mentioned 'foreign data center interest' or 'national security concerns' in passing, but no explicit China reference in legislative record. (An earlier version also cited Oklahoma HB 2992 'circa 2023-2024'; that bill is a 2026 ratepayer-protection law whose enrolled text contains no such language, and the claim was removed 2026-09-23.)",
     "indirect_link": "Federal national security framework (CFIUS, export controls, intelligence operations) creates de facto barriers preventing Chinese participation in US data center development",
     "future_trajectory": "If Congress passes legislation explicitly tightening foreign investment rules in data centers, state moratoriums may evolve to include explicit national security language. However, states are likely to continue delegating national security vetting to federal authorities.",
     "data_gap": "No current state-level data center moratoriums explicitly name China or Chinese companies as the rationale. This is a federal-level policy domain."

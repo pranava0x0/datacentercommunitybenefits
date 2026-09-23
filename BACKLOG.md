@@ -10,15 +10,15 @@ criterion.
 ## High priority
 
 ### Policies & Agreements tab — follow-ups from the v3.1 launch (2026-09-23) — **medium**
-- **Migrate misfiled non-moratorium records** out of `moratoriums.json`:
-  `pennsylvania-state-eo2026-05` (its own `policy_type` says "not a pause on
-  development"), `oklahoma-state-hb2992-2024` and `washington-state-sb5982-2024`
-  ("Cost-allocation rule (not traditional moratorium)"). v3.1 cross-links
-  instead of moving them (`Policy.related_moratorium_id`). Moving them changes
-  moratorium stat tiles and several tests, so it is its own PR.
-- **Delivered-vs-promised on agreements** — reuse the `Delivered` sub-object
-  pattern for CBAs whose payments can now be checked (e.g. a first annual
-  impact payment).
+- ~~Migrate misfiled non-moratorium records~~ **DONE 2026-09-23.** PA EO
+  2026-05 moved to policies. OK HB 2992 rebuilt from the enrolled text as a
+  2026 law. WA "SB 5982" removed as fabricated (a Department of Health bill).
+- **Audit the 22 homepage-sourced moratorium records — high.** Both bad
+  records above cited a bare homepage (`datacenterbans.com/`,
+  `app.leg.wa.gov/`). 22 more do (17 datacenterbans.com, 5 legislature
+  homepages); `HOMEPAGE_SOURCED_MORATORIUMS` in tests/test_policies.py lists
+  them and only lets the list shrink. For each: find the ordinance / bill
+  page, confirm the facts, re-cite or remove.
 - **Aggregate rollup** — a "By state" policy count column; `coverage.json`
   already carries per-state `policies`.
 - **Home "What changed" feed** — new policy records do not yet surface there.

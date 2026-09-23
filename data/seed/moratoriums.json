@@ -2339,55 +2339,6 @@
       "state_code": "OK"
     },
     {
-      "id": "oklahoma-state-hb2992-2024",
-      "jurisdiction": "Oklahoma",
-      "jurisdiction_type": "state",
-      "status": "enacted",
-      "enacted_date": "2024-06-15",
-      "effective_date": "2024-06-15",
-      "duration_months": null,
-      "duration_description": "Permanent",
-      "power_threshold_mw": null,
-      "key_reasons": [
-        "energy"
-      ],
-      "policy_type": "Cost-allocation rule (not traditional moratorium)",
-      "summary": "NOT a traditional moratorium, but a cost-allocation statute modeled on Washington SB 5982. Oklahoma HB 2992 (Data Center Infrastructure Cost Act), signed June 15, 2024, requires large data center operators to fund their own electrical infrastructure upgrade costs rather than allowing cost-shifting to existing ratepayers. Mechanism: Oklahoma Corporation Commission (utility regulator) must approve cost-allocation plans for any data center project seeking grid connection; operators must demonstrate funding for: distribution system upgrades, transmission line improvements, capacity expansioning, and grid integration. Primary trigger: concerns over potential Microsoft, Google, Amazon, or Chinese-affiliated projects (data center scouts active in Panhandle region 2023-2024) that could impose $200M+ infrastructure bills on OGE (Oklahoma Gas & Electric) ratepayers. Sponsored by Rep. Brad Witt (D-Tahlequah) and Gov. Kevin Stitt (R) administration in rare bipartisan alignment on 'ratepayer protection.' Supported by: Oklahoma Ratepayers Union, IBEW Local 222, environmental groups (Oklahoma Coalition for Responsible Energy), and OGE itself (utility supported to avoid cost-shifting burden). Opposed by: data center industry, real estate development groups. Vote: Senate 34-14, House 72-28. Significant precedent: Referenced in subsequent state bills (Louisiana, Texas interest). Implementation guidance: OCC issued Nov 2024 rule requiring cost-benefit analysis for projects >50 MW. Effectively prices large data centers out of Oklahoma unless operators accept full infrastructure costs.",
-      "source_url": "https://www.datacenterbans.com/",
-      "source_title": "DatacenterBans.com",
-      "captured_at": "2026-06-15",
-      "bill_number": "HB2992",
-      "enacted_by": "Governor Kevin Stitt",
-      "sponsors": [
-        "Rep. Brad Witt (D-Tahlequah)",
-        "Sen. Sean Kouplen (R-Midwest City)"
-      ],
-      "legislative_votes": "Senate 34-14, House 72-28",
-      "key_stakeholders": {
-        "utility": [
-          "Oklahoma Gas & Electric Company (OGE)"
-        ],
-        "labor": [
-          "International Brotherhood of Electrical Workers Local 222"
-        ],
-        "regulatory": [
-          "Oklahoma Corporation Commission"
-        ],
-        "environmental": [
-          "Oklahoma Coalition for Responsible Energy"
-        ],
-        "community": [
-          "Oklahoma Ratepayers Union",
-          "Panhandle community groups"
-        ],
-        "opposed": [
-          "Data Center Coalition",
-          "Oklahoma Technology Council"
-        ]
-      },
-      "state_code": "OK"
-    },
-    {
       "id": "oklahoma-state-sb1488-2026",
       "jurisdiction": "Oklahoma",
       "jurisdiction_type": "state",
@@ -2395,14 +2346,14 @@
       "enacted_date": null,
       "effective_date": null,
       "duration_months": null,
-      "duration_description": "Construction moratorium on new data centers until November 1, 2029, pending a Corporation Commission study. NOTE: distinct from Oklahoma's already-tracked HB 2992 (2024); SB 1488 is a separate 2026 Senate moratorium bill.",
+      "duration_description": "Construction moratorium on new data centers until November 1, 2029, pending a Corporation Commission study. NOTE: distinct from Oklahoma's HB 2992 (2026), a ratepayer-protection law tracked on the Policies & Agreements tab; SB 1488 is a separate 2026 Senate moratorium bill.",
       "power_threshold_mw": 100,
       "key_reasons": [
         "water",
         "energy",
         "equity"
       ],
-      "summary": "SB 1488 (Sen. Kendal Sacchieri, R-Blanchard; House co-author Rep. Gann), titled 'Corporation Commission; establishing moratorium; requiring certain study,' would have established a moratorium on constructing new data centers in Oklahoma (100 MW+ facilities) until November 1, 2029, pending a Corporation Commission study. It never received a committee or floor vote and died at sine die adjournment of the 2026 session on May 14, 2026. Distinct from Oklahoma's already-tracked HB 2992 and from the Oklahoma City Council's separate, enacted local moratorium (through Dec 31, 2026).",
+      "summary": "SB 1488 (Sen. Kendal Sacchieri, R-Blanchard; House co-author Rep. Gann), titled 'Corporation Commission; establishing moratorium; requiring certain study,' would have established a moratorium on constructing new data centers in Oklahoma (100 MW+ facilities) until November 1, 2029, pending a Corporation Commission study. It never received a committee or floor vote and died at sine die adjournment of the 2026 session on May 14, 2026. Distinct from Oklahoma's HB 2992 (the 2026 Data Center Customer Ratepayer Protection Act, tracked on the Policies & Agreements tab) and from the Oklahoma City Council's separate, enacted local moratorium (through Dec 31, 2026).",
       "source_url": "https://oksenate.gov/press-releases/senator-sacchieri-files-legislation-address-unknown-impacts-data-centers-oklahoma",
       "source_title": "Oklahoma Senate - Sen. Sacchieri files SB 1488 (data center moratorium), Jan 22, 2026",
       "resources": [
@@ -3404,7 +3355,7 @@
         "transparency",
         "energy"
       ],
-      "summary": "Washington HB 2515 (“Addressing emerging large energy use facilities”), sponsored by Rep. Beth Doglio with 15 co-sponsors, would have required large energy users including data centers to pay additional utility charges, meet clean-energy requirements, and cover their own grid costs. It passed the House 51-41 on February 14, 2026, moved through the Senate Environment, Energy & Technology and Ways & Means committees, and was returned to House Rules for third reading on March 12, 2026 without becoming law. Reporting attributes the stall to technology-industry lobbying. Distinct from SB 5982, a narrower clean-energy compliance bill that did pass (see washington-state-sb5982-2024), and from Seattle's enacted city-level moratorium (see seattle-city-2026-06).",
+      "summary": "Washington HB 2515 (“Addressing emerging large energy use facilities”), sponsored by Rep. Beth Doglio with 15 co-sponsors, would have required large energy users including data centers to pay additional utility charges, meet clean-energy requirements, and cover their own grid costs. It passed the House 51-41 on February 14, 2026, moved through the Senate Environment, Energy & Technology and Ways & Means committees, and was returned to House Rules for third reading on March 12, 2026 without becoming law. Reporting attributes the stall to technology-industry lobbying. Distinct from Seattle's enacted city-level moratorium (see seattle-city-2026-06).",
       "source_url": "https://app.leg.wa.gov/billsummary?BillNumber=2515&Year=2025",
       "source_title": "Washington State Legislature — HB 2515 bill summary (Addressing emerging large energy use facilities)",
       "captured_at": "2026-07-25",
@@ -3422,70 +3373,6 @@
         {
           "url": "https://www.geekwire.com/2026/washington-states-data-center-regulation-bill-stalls-following-pushback-from-tech-industry/",
           "title": "GeekWire — Washington state's data center regulation bill stalls"
-        }
-      ],
-      "state_code": "WA"
-    },
-    {
-      "id": "washington-state-sb5982-2024",
-      "jurisdiction": "Washington",
-      "jurisdiction_type": "state",
-      "status": "enacted",
-      "enacted_date": "2024-05-01",
-      "effective_date": "2024-05-01",
-      "duration_months": null,
-      "duration_description": "Permanent",
-      "power_threshold_mw": null,
-      "key_reasons": [
-        "energy"
-      ],
-      "policy_type": "Cost-allocation rule (not traditional moratorium)",
-      "summary": "NOT a traditional moratorium, but a permanent cost-allocation statute with significant precedential weight. Washington SB 5982 (Data Center Ratepayer Protection Act), enacted May 2024, establishes statewide requirements that large data center projects (no MW threshold, applies to all industrial-scale facilities) fund 100% of grid connection and infrastructure upgrade costs rather than shifting expenses to existing residential/small-business ratepayers. Mechanism: utilities must conduct cost-of-service studies for each data center project; large users bear full cost of distribution system upgrades, transmission interconnection, and capacity expansioning. Signed by Governor Jay Inslee (D) following testimony from Puget Sound Energy ratepayers concerned about potential $500M+ cost-shifting if proposed data centers in Eastern Washington (Tri-Cities region) expanded. Primary trigger: anticipated Microsoft, Google, and Amazon expansion in Washington region post-2023; ratepayer coalition concerns about hidden subsidies in utility rate structures. Supported by: Puget Sound Energy (internally), residential ratepayer coalitions, labor unions (International Brotherhood of Electrical Workers), environmental groups (Sierra Club Washington, Front and Centered). Opposed by: data center industry (claimed would kill projects), Real Estate Roundtable. Vote: Senate 26-23 (party-line mostly), House 57-41. Critical precedent: Cost-shifting prohibition now copied by Oklahoma (HB2992), Florida (SB484), and other states. Effectively makes large data center projects economically unviable unless operators absorb $100M+ infrastructure costs.",
-      "source_url": "https://app.leg.wa.gov/",
-      "source_title": "Washington State Legislature",
-      "captured_at": "2026-06-15",
-      "bill_number": "SB5982",
-      "enacted_by": "Governor Jay Inslee",
-      "sponsors": [
-        "Sen. Claire Wilson (D-Federal Way)",
-        "Rep. Kristine Reeves (D-Federal Way)"
-      ],
-      "legislative_votes": "Senate 26-23, House 57-41",
-      "key_stakeholders": {
-        "utility": [
-          "Puget Sound Energy",
-          "Pacific Power and Light"
-        ],
-        "labor": [
-          "International Brotherhood of Electrical Workers"
-        ],
-        "environmental": [
-          "Sierra Club Washington",
-          "Front and Centered (environmental justice)",
-          "Climate Solutions"
-        ],
-        "community": [
-          "Washington Ratepayers Coalition",
-          "Tri-Cities community groups"
-        ],
-        "opposed": [
-          "Data Center Coalition",
-          "Real Estate Roundtable",
-          "Washington Technology Industry Association"
-        ]
-      },
-      "resources": [
-        {
-          "url": "https://app.leg.wa.gov/billsummary?initiative=false&year=2024&billnumber=5982",
-          "title": "Washington SB 5982 Legislative Database"
-        },
-        {
-          "url": "https://pse.com/en/about-us/community/data-center-cost-analysis-2024",
-          "title": "Puget Sound Energy — Data Center Cost Study"
-        },
-        {
-          "url": "https://www.nwenergy.org/resources/data-center-cost-allocation",
-          "title": "Northwest Energy Coalition — Analysis of SB 5982"
         }
       ],
       "state_code": "WA"
@@ -3952,42 +3839,6 @@
       ],
       "enacted_by": "City Council",
       "city_council_vote": "8-0 with one recusal",
-      "session": "2026",
-      "captured_at": "2026-08-24"
-    },
-    {
-      "id": "pennsylvania-state-eo2026-05",
-      "jurisdiction": "Pennsylvania",
-      "jurisdiction_type": "state",
-      "state_code": "PA",
-      "status": "enacted",
-      "enacted_date": "2026-08-18",
-      "effective_date": "2026-08-18",
-      "duration_months": null,
-      "duration_description": "Not a fixed-term or blanket pause — legal analysts (National Law Review) note the order explicitly does not impose a moratorium on data center development. It is an ongoing conditional-permitting regime: DEP will not evaluate a permit application unless the developer has first executed a binding Consent Order and Agreement committing to the Governor's GRID Requirements and has received required local approvals. All AI data center projects are immediately and permanently removed from the PA Permit Fast Track Program.",
-      "power_threshold_mw": 25,
-      "key_reasons": [
-        "energy",
-        "water",
-        "equity",
-        "transparency"
-      ],
-      "summary": "Governor Josh Shapiro signed Executive Order 2026-05, 'Protecting Pennsylvania Consumers from Data Center Impacts,' on August 18, 2026. It directs DEP, the Department of Revenue and DCED to condition permitting, tax-incentive and fast-track eligibility for data center projects with peak demand over 25 MW on compliance with the Governor's Responsible Infrastructure Development (GRID) Requirements: developers must pay the full cost of new generation, transmission and distribution infrastructure their project needs (rather than shifting costs to other ratepayers), commit to transparent community engagement and community benefit agreements, meet strict water-conservation and environmental standards, and are barred from using NDAs to limit public disclosure. This is a separate instrument from the two pending state bills SB1359 and HB2496, which remain in the legislature unsigned; unlike New York's Executive Order No. 62, Pennsylvania's order conditions permit review rather than pausing it outright.",
-      "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/governor-shapiro-signs-executive-order-on-data-center-developmen",
-      "source_title": "Commonwealth of Pennsylvania — Governor Shapiro Signs Executive Order on Data Center Development in PA",
-      "resources": [
-        {
-          "url": "https://whyy.org/articles/shapiro-data-centers-executive-order-pennsylvania/",
-          "title": "WHYY — Pennsylvania Gov. Shapiro signs order to rein in new data center development"
-        },
-        {
-          "url": "https://natlawreview.com/article/gov-shapiro-issues-executive-order-2026-05-imposing-new-requirements-pennsylvania",
-          "title": "National Law Review — Gov. Shapiro Issues Executive Order 2026-05 Imposing New Requirements on Pennsylvania Data Center Projects"
-        }
-      ],
-      "bill_number": "Executive Order 2026-05",
-      "enacted_by": "Governor Josh Shapiro",
-      "policy_type": "Conditional permitting / cost-responsibility framework (not a pause on development)",
       "session": "2026",
       "captured_at": "2026-08-24"
     },

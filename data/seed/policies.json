@@ -1453,6 +1453,42 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "ok-hb2992-2026",
+      "title": "House Bill 2992 — Data Center Customer Ratepayer Protection Act of 2026",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Oklahoma",
+      "state_code": "OK",
+      "identifier": "HB 2992 (2026), 17 O.S. §§ 900–906",
+      "date": "2026-05-11",
+      "counterparties": [
+        "Oklahoma Corporation Commission"
+      ],
+      "benefit_themes": [
+        "energy",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Covers new data centers, crypto-mining and AI computing facilities adding 75 MW or more after July 1, 2026",
+        "Rate reviewers must protect residential, commercial and industrial customers from unjust rates caused by large-load service, allocating costs by cost causation",
+        "Every electric supplier must keep separate large-load terms and tariffs, with credit requirements so the customer reimburses costs left unrecovered if it leaves or cuts load",
+        "Large-load service terms of at least ten years",
+        "Buyers of land outside an industrial park or municipality must notify the Corporation Commission, county commissioners and abutting owners within 60 days, or pay $1,500 per day per violation"
+      ],
+      "summary": "Oklahoma's HB 2992 (Boles / Green), passed by both chambers on May 5, 2026 and approved by the Governor on May 11, 2026, creates the Data Center Customer Ratepayer Protection Act of 2026. It applies to every retail electric supplier in the state, requiring separate large-load tariffs with ten-year minimum terms and cost-causation allocation so other customers are not charged for data-center service, and it adds a land-purchase notice requirement enforced by county commissioners. It takes effect July 1, 2026. An earlier moratorium-tab record described this bill as a 2024 statute with different sponsors and votes; those details were not supported by the legislature's record and were discarded.",
+      "source_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20ENR/hB/HB2992%20ENR.PDF",
+      "source_title": "Oklahoma Legislature — Enrolled House Bill 2992 (2026)",
+      "resources": [
+        {
+          "url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=HB2992&Session=2600",
+          "title": "Oklahoma Legislature — HB 2992 bill history (Approved by Governor 05/11/2026)"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "openai-company-plan-stargate-community-2026",
       "title": "OpenAI Stargate Community",
       "instrument": "company_plan",
@@ -1510,6 +1546,45 @@
         {
           "url": "https://www.oregon.gov/puc/forms/Forms%20and%20Reports/2026%20POWER%20Act%20Legislative%20Report.pdf",
           "title": "Oregon PUC — 2026 POWER Act Biennial Report to the Legislature"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "pa-eo2026-05-2026",
+      "title": "Executive Order 2026-05 — Protecting Pennsylvania Consumers from Data Center Impacts",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Pennsylvania",
+      "state_code": "PA",
+      "identifier": "Executive Order 2026-05",
+      "date": "2026-08-18",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "engagement",
+        "community_grants"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Applies to data center projects with peak demand over 25 MW",
+        "Conditions DEP permitting, tax-incentive and fast-track eligibility on the Governor's GRID Requirements",
+        "Developers pay the full cost of the new generation, transmission and distribution their project needs",
+        "Commitments to transparent community engagement and community benefit agreements; NDAs limiting public disclosure barred",
+        "AI data center projects removed from the PA Permit Fast Track Program"
+      ],
+      "summary": "Governor Josh Shapiro signed Executive Order 2026-05, 'Protecting Pennsylvania Consumers from Data Center Impacts,' on August 18, 2026. It directs DEP, the Department of Revenue and DCED to condition permitting, tax-incentive and fast-track eligibility for data center projects with peak demand over 25 MW on compliance with the Governor's Responsible Infrastructure Development (GRID) Requirements: developers must pay the full cost of new generation, transmission and distribution infrastructure their project needs (rather than shifting costs to other ratepayers), commit to transparent community engagement and community benefit agreements, meet strict water-conservation and environmental standards, and are barred from using NDAs to limit public disclosure. Unlike New York's Executive Order No. 62, it conditions permit review rather than pausing it; legal analysts note it does not impose a moratorium. Moved here from the Moratoriums tab on 2026-09-23 for that reason.",
+      "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/governor-shapiro-signs-executive-order-on-data-center-developmen",
+      "source_title": "Commonwealth of Pennsylvania — Governor Shapiro Signs Executive Order on Data Center Development in PA",
+      "resources": [
+        {
+          "url": "https://whyy.org/articles/shapiro-data-centers-executive-order-pennsylvania/",
+          "title": "WHYY — Pennsylvania Gov. Shapiro signs order to rein in new data center development"
+        },
+        {
+          "url": "https://natlawreview.com/article/gov-shapiro-issues-executive-order-2026-05-imposing-new-requirements-pennsylvania",
+          "title": "National Law Review — Gov. Shapiro Issues Executive Order 2026-05 Imposing New Requirements on Pennsylvania Data Center Projects"
         }
       ],
       "captured_at": "2026-09-23"

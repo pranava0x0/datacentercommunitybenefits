@@ -2767,8 +2767,11 @@ function renderPoliciesTable() {
     const themes = (p.benefit_themes || [])
       .map((t) => `<span class="policy-theme">${escapeHtml(THEME_LABELS[t] || t)}</span>`)
       .join("");
+    const deliveredTag = p.delivered
+      ? ` <span class="badge policy-delivered delivered-${p.delivered.status}" title="Delivered vs promised">${escapeHtml(DELIVERED_LABELS[p.delivered.status] || p.delivered.status)}</span>`
+      : "";
     tr.innerHTML = `
-      <td><span class="tariff-row-name">${escapeHtml(p.title)}</span>${cbf}${
+      <td><span class="tariff-row-name">${escapeHtml(p.title)}</span>${cbf}${deliveredTag}${
         p.identifier ? `<span class="tariff-row-type">${escapeHtml(p.identifier)}</span>` : ""
       }</td>
       <td>${escapeHtml(POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument)}</td>
@@ -2832,6 +2835,11 @@ function showPolicyDetail(p) {
       (p.community_benefits_framework ? " · community-benefits framework" : "")
   );
   setText("pd-summary", p.summary);
+  // Delivered-vs-promised: same panel as the Claims tab. Absent means not
+  // yet assessed, so the slot stays hidden rather than showing a placeholder.
+  const deliv = document.getElementById("pd-delivered");
+  deliv.replaceChildren(...(p.delivered ? [renderDeliveredPanel(p.delivered)] : []));
+  deliv.hidden = !p.delivered;
 
   const terms = document.getElementById("pd-terms");
   terms.replaceChildren(...(p.key_terms || []).map((t) => el("li", null, t)));
@@ -2911,6 +2919,7 @@ function _policyExportRows(list) {
     (p.key_terms || []).join(" | "),
     p.summary,
     String(p.source_url),
+    p.delivered ? DELIVERED_LABELS[p.delivered.status] || p.delivered.status : "",
     p.captured_at,
   ]);
 }
@@ -2918,7 +2927,7 @@ function _policyExportRows(list) {
 const POLICY_EXPORT_HEADERS = [
   "Title", "Type", "Level", "Where", "State", "Status", "Date", "Identifier",
   "Parties", "Themes", "Community benefits framework", "Stated value (USD)",
-  "Key terms", "Summary", "Source", "Captured",
+  "Key terms", "Summary", "Source", "Delivery assessment", "Captured",
 ];
 
 function downloadPoliciesCSV() {

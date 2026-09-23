@@ -99,6 +99,16 @@ Enhanced detailed research on the 10 most significant data center moratoriums an
 - **Notable:** House 105-1, Senate 28-2; national exemplar of "precautionary" environmental governance
 - **File:** `moratoriums_enhanced_high_priority.json` (id: `vermont-state-2026-03`)
 
+> **Correction (2026-09-23).** Entries 8 and 9 below are wrong and were
+> removed from the dataset. Washington SB 5982 (2024) is a Department of
+> Health bill unrelated to data centers (legislature record: sponsors
+> Cleveland et al., "By request: Department of Health", Chapter 41, 2024
+> Laws); the data-center record built on it was fabricated. Oklahoma HB 2992
+> is real but is the 2026 Data Center Customer Ratepayer Protection Act
+> (Boles / Green, approved May 11, 2026); the 2024 date, sponsors, votes and
+> stakeholders below were unsupported. It now lives on the Policies &
+> Agreements tab as `ok-hb2992-2026`, rebuilt from the enrolled text.
+
 ### 8. WASHINGTON (SB 5982) — ENACTED MAY 2024
 - **Status:** Permanent statute; Jay Inslee signature
 - **Threshold:** None (applies to all industrial-scale data centers)

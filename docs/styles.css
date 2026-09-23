@@ -5868,3 +5868,35 @@ body.state-modal-open {
 .policy-table .badge {
   white-space: nowrap;
 }
+
+/* Delivered-vs-promised chip on a policy directory row: the claim palette,
+   one token per status, in both themes via the existing --delivered-* vars. */
+.policy-delivered {
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.policy-delivered.delivered-delivered {
+  color: var(--delivered-delivered);
+  background: var(--delivered-delivered-soft);
+}
+.policy-delivered.delivered-partial {
+  color: var(--delivered-partial);
+  background: var(--delivered-partial-soft);
+}
+.policy-delivered.delivered-contested {
+  color: var(--delivered-contested);
+  background: var(--delivered-contested-soft);
+}
+.policy-delivered.delivered-shortfall {
+  color: var(--delivered-shortfall);
+  background: var(--delivered-shortfall-soft);
+}
+#pd-delivered {
+  margin: 0.75rem 0;
+}
