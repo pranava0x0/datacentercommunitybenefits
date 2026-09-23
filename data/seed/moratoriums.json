@@ -524,7 +524,7 @@
       "jurisdiction_type": "city",
       "status": "enacted",
       "enacted_date": "2026-05-18",
-      "effective_date": "2026-05-18",
+      "effective_date": "2026-05-20",
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": null,
@@ -534,47 +534,19 @@
         "transparency"
       ],
       "summary": "Denver City Council enacted a 1-year moratorium on May 18, 2026, pausing all new data center facility permits and zoning approvals while the city conducts comprehensive zoning, energy, and water impact assessments. Triggered by: (1) Colorado River Compact water-sharing pressures and acute shortages in the South Platte watershed (Denver's primary source); (2) strains on the Rocky Mountain Power grid during peak summer demand; (3) city's Climate Action Plan goals — Council concerns that unmanaged data center growth could undermine 2040 carbon-neutrality targets. Moratorium covers all facilities, no MW threshold specified. Denver's Office of Energy & Environmental Planning charged with 12-month review of: data center energy consumption projections, renewable energy allocation, water recycling standards, and zoning district revisions. Supported by local environmental groups (Colorado Environmental Law Center, Sierra Club Rocky Mountain Group), labor unions (IBEW Local 68), and water conservation coalitions. Denver International Airport and downtown development interests opposed. Council vote: 11-2 in favor (only two pro-development votes). Industry framed as 'anti-growth'; proponents framed as 'resource stewardship.'",
-      "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
-      "source_title": "Route Fifty — Data center moratoriums gain ground",
-      "captured_at": "2026-05-18",
-      "city_council_vote": "11-2 in favor",
+      "source_url": "https://denver.legistar.com/LegislationDetail.aspx?ID=7960021&GUID=0A6BACDC-1F9A-474F-863E-C3F51B5C4489",
+      "source_title": "City and County of Denver Legistar -- Council Bill 26-0431",
+      "captured_at": "2026-09-23",
+      "city_council_vote": "Unanimous",
       "sponsors": [
-        "Councilmember Kevin Flynn",
-        "Councilmember Emily Knievel"
+        "Councilmember Paul Kashmann",
+        "Councilmember Serena Gonzales-Gutierrez",
+        "Councilmember Darrell Watson"
       ],
-      "key_stakeholders": {
-        "environmental": [
-          "Colorado Environmental Law Center",
-          "Sierra Club Rocky Mountain Group",
-          "American Rivers Colorado"
-        ],
-        "water": [
-          "Colorado River District",
-          "South Platte Riverkeeper Foundation",
-          "Denver Parks & Recreation (water management)"
-        ],
-        "utility": [
-          "Rocky Mountain Power",
-          "Xcel Energy (Colorado subsidiary)"
-        ],
-        "labor": [
-          "International Brotherhood of Electrical Workers Local 68"
-        ],
-        "community": [
-          "Denver Water Board",
-          "South Platte Basin municipalities",
-          "Environmental justice neighborhoods"
-        ],
-        "opposed": [
-          "Denver Metropolitan Chamber of Commerce",
-          "CBRE (commercial real estate)",
-          "Data Center Coalition"
-        ]
-      },
       "resources": [
         {
-          "url": "https://coloradosun.com/energy/2026/05/denver-data-center-moratorium",
-          "title": "Colorado Sun — Energy & Water Concerns Drive Moratorium"
+          "url": "https://www.govtech.com/artificial-intelligence/denver-city-council-approves-data-center-moratorium",
+          "title": "GovTech — Denver City Council approves data center moratorium"
         }
       ],
       "state_code": "CO"
@@ -1086,65 +1058,6 @@
       "state_code": "TX"
     },
     {
-      "id": "idaho-state-2026-03",
-      "jurisdiction": "Idaho",
-      "jurisdiction_type": "state",
-      "status": "failed",
-      "enacted_date": null,
-      "effective_date": null,
-      "duration_months": null,
-      "duration_description": "Bill failed in committee",
-      "power_threshold_mw": null,
-      "key_reasons": [
-        "energy",
-        "transparency"
-      ],
-      "summary": "Idaho HB620 (Data Center Facility Moratorium), proposed in the 2026 legislative session, sought a 2-year statewide moratorium on large hyperscale data center construction (100+ MW) pending state infrastructure impact study. Introduced amid regional pressure: Idaho had received preliminary interest from major data center operators (including Chinese-linked companies scouting sites in northwest Idaho). Primary trigger: concerns over electrical grid strain, particularly in rural areas with aging distribution infrastructure; secondary concern about water availability for cooling in arid climate. Sponsored by Rep. Stefani Steffens (R-Post Falls), unusual for a conservative state. Failed in House Energy and Water Resources Committee in March 2026 after industry-backed opposition testimony emphasized job creation and tax revenue. Committee vote: 9-6 against advancement. Opposed by Idaho Economic Development Board, Idaho Power (utility), and data center industry. Limited support from environmental groups (Idaho Conservation League), but insufficient to overcome conservative skepticism of 'growth-limiting' regulations. Likely to be reintroduced if foreign ownership concerns escalate.",
-      "source_url": "https://legislature.idaho.gov/",
-      "source_title": "Idaho Legislature",
-      "captured_at": "2026-03-15",
-      "bill_number": "HB620",
-      "session": "2026",
-      "sponsors": [
-        "Rep. Stefani Steffens (R-Post Falls)",
-        "Rep. Michele Stennett (D-Ketchum)"
-      ],
-      "failure_reason": "Died in House Energy and Water Resources Committee (9-6 vote against); no floor action",
-      "key_stakeholders": {
-        "environmental": [
-          "Idaho Conservation League",
-          "Sierra Club Pacific Northwest"
-        ],
-        "utility": [
-          "Idaho Power Company",
-          "Avista Utilities"
-        ],
-        "economic": [
-          "Idaho Economic Development Board",
-          "Association of Idaho Cities"
-        ],
-        "community": [
-          "Rural northern Idaho coalitions"
-        ],
-        "opposed": [
-          "Data Center Coalition",
-          "Idaho Chamber of Commerce",
-          "Real Estate Development Association"
-        ]
-      },
-      "resources": [
-        {
-          "url": "https://ipower.com/about-us/energy-outlook/data-center-demand",
-          "title": "Idaho Power — Grid Capacity Analysis (2025)"
-        },
-        {
-          "url": "https://www.idahochamber.com/policy-positions/data-centers",
-          "title": "Idaho Chamber of Commerce — Data Center Economic Impact Statement"
-        }
-      ],
-      "state_code": "ID"
-    },
-    {
       "id": "imperial-county-ca-2026-06",
       "jurisdiction": "Imperial County",
       "jurisdiction_type": "county",
@@ -1564,50 +1477,31 @@
       "id": "maine-state-2026-04",
       "jurisdiction": "Maine",
       "jurisdiction_type": "state",
-      "status": "enacted",
-      "enacted_date": "2026-04-29",
-      "effective_date": "2026-04-29",
-      "duration_months": null,
-      "duration_description": "Permanent",
+      "status": "failed",
+      "duration_description": "Vetoed; not enacted. A companion Executive Order 5 (2026-04-29) created a 15-member advisory council but imposed no moratorium.",
       "power_threshold_mw": 20,
       "key_reasons": [
         "water",
         "energy",
         "air_quality"
       ],
-      "summary": "Maine's LD307 (An Act to Impose a Moratorium on Large-Scale Data Centers), signed by Governor Janet Mills on April 29, 2026, enacts a permanent statewide ban on new data center construction exceeding 20 MW. Largest triggers: (1) water sustainability concerns — Maine's grid-balancing reliance on hydroelectric dams sensitive to drought; (2) energy grid reliability in rural areas with aging infrastructure; (3) pollution risks from cooling water discharge and wastewater contamination. The ban reflects Maine's 'small state, finite resources' principle endorsed by environmental groups and community organizations. Grandfathered exemptions: expansions of existing facilities <10% annual increase, research institutions with <5 MW. Supported by Conservation Law Foundation, Maine Audubon, League of Conservation Voters Maine, and rural selectboards concerned about aquifer depletion and cooling water impacts. Heavily opposed by development interests and Microsoft (which had explored Rumford site pre-ban). Unanimous legislative passage. Positioned as national model for permanent bans; Janet Mills framed it as precedent-setting environmental protection.",
-      "source_url": "https://mainelegislature.org/",
-      "source_title": "Maine Legislature — LD307",
-      "captured_at": "2026-04-29",
+      "summary": "Maine's LD 307 would have created a 13-member data center coordination council and imposed a moratorium on state/municipal permits for data centers of 20 MW or more until November 1, 2027. Governor Janet Mills vetoed the bill on April 24, 2026, saying a moratorium was 'appropriate' in principle but that the final bill wrongly failed to exempt an in-progress $550 million data center redevelopment of the former Androscoggin paper mill in Jay, ME (expected to bring 800+ construction jobs and 100+ permanent jobs). The Legislature sustained the veto the same day; no moratorium was enacted. On April 29, 2026, Mills instead signed Executive Order 5, establishing a 15-member Maine Data Center Advisory Council to recommend data-center policy by January 29, 2027, and directing state energy regulators to work on ratepayer protections -- an advisory body, not a moratorium.",
+      "source_url": "https://www.maine.gov/governor/mills/official_documents/veto_messages/2026-04-ld-307-act-establish-maine-data-center-coordination",
+      "source_title": "Office of Governor Janet T. Mills -- Veto Message, L.D. 307",
+      "captured_at": "2026-09-23",
       "bill_number": "LD307",
-      "enacted_by": "Governor Janet Mills",
       "sponsors": [
         "Rep. Victoria Foley (D-Orrington)",
         "Sen. Rebecca Milliken (D-Cape Elizabeth)"
       ],
-      "key_stakeholders": {
-        "environmental": [
-          "Conservation Law Foundation",
-          "Maine Audubon Society",
-          "League of Conservation Voters Maine",
-          "Sierra Club Atlantic Chapter"
-        ],
-        "water": [
-          "Maine Department of Environmental Protection",
-          "Maine Water Company Association"
-        ],
-        "community": [
-          "Rural Maine selectboards",
-          "Penobscot Nation (water rights)",
-          "Property owner associations"
-        ],
-        "opposed": [
-          "Data Center Coalition",
-          "Northeast Economic Development Association",
-          "Maine Technology Council"
-        ]
-      },
-      "state_code": "ME"
+      "state_code": "ME",
+      "failure_reason": "Vetoed by Gov. Janet Mills on 2026-04-24; veto sustained by the Legislature the same day. Mills objected to the bill's failure to exempt an in-progress $550M data center redevelopment at the former Androscoggin Mill in Jay, ME, not to the moratorium concept itself.",
+      "resources": [
+        {
+          "url": "https://www.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+          "title": "Office of Governor Janet T. Mills — Executive Order 5 (advisory council), 2026-04-29"
+        }
+      ]
     },
     {
       "id": "manitowoc-county-wi-2026-06",
@@ -1731,81 +1625,6 @@
       "state_code": "MD"
     },
     {
-      "id": "massachusetts-state-2026-04",
-      "jurisdiction": "Massachusetts",
-      "jurisdiction_type": "state",
-      "status": "enacted",
-      "enacted_date": "2026-04-12",
-      "effective_date": "2026-04-12",
-      "duration_months": 18,
-      "duration_description": "18 months with renewable extension",
-      "power_threshold_mw": 25,
-      "key_reasons": [
-        "water",
-        "energy",
-        "transparency"
-      ],
-      "summary": "Massachusetts S2455 (Data Center Moratorium Act), signed April 12, 2026, imposes an 18-month moratorium on permits for data center facilities exceeding 25 MW, renewable by one additional 18-month extension if infrastructure assessments are incomplete. Governor Maura Healey (D) signed with emphasis on ensuring 'comprehensive energy resilience review.' Primary triggers: (1) renewable energy constraints — Massachusetts Clean Energy Standard mandates 100% clean electricity by 2035; large data center loads could strain renewable supply or necessitate grid imports; (2) grid infrastructure strain in Eastern Massachusetts where many potential sites cluster; (3) wastewater and cooling-water discharge concerns (Merrimack River ecosystem impacts). The moratorium funds two parallel studies: state energy office assessment of renewable energy availability, and Department of Environmental Protection water discharge impact study. Supported by Massachusetts Sierra Club, Conservation Law Foundation, New England Rivers Alliance, and labor unions (United Steelworkers Local 8751 backing 'just transition' language). Utility statements mixed: Eversource initially resisted, later agreed to participate in infrastructure working group. Tech industry and commercial real estate opposed. Legislative passage: Senate 27-12, House 105-51. Positioned as model for 'infrastructure-first' approach to large tech development.",
-      "source_url": "https://www.mass.gov/legislature",
-      "source_title": "Massachusetts Legislature",
-      "captured_at": "2026-04-12",
-      "bill_number": "S2455",
-      "enacted_by": "Governor Maura Healey",
-      "sponsors": [
-        "Sen. John Keenan (D-Salem)",
-        "Rep. Danielle Gregoire (D-Marlborough)"
-      ],
-      "key_stakeholders": {
-        "environmental": [
-          "Sierra Club Massachusetts",
-          "Conservation Law Foundation",
-          "New England Rivers Alliance",
-          "Environmental League of Massachusetts"
-        ],
-        "utility": [
-          "Eversource Energy",
-          "National Grid",
-          "ISO-NE (New England grid operator)"
-        ],
-        "labor": [
-          "United Steelworkers Local 8751",
-          "International Brotherhood of Electrical Workers"
-        ],
-        "government": [
-          "Executive Office of Energy and Environmental Affairs",
-          "Massachusetts Department of Environmental Protection"
-        ],
-        "community": [
-          "Merrimack River watershed protection groups",
-          "Eastern Massachusetts municipal coalitions"
-        ],
-        "opposed": [
-          "Real Estate Board of Massachusetts",
-          "Data Center Coalition",
-          "Massachusetts Business Roundtable"
-        ]
-      },
-      "resources": [
-        {
-          "url": "https://malegislature.gov/Bills/192/Senate/S2455",
-          "title": "Massachusetts S2455 Full Legislative Text"
-        },
-        {
-          "url": "https://www.mass.gov/energy/data-center-energy-assessment",
-          "title": "Massachusetts State Energy Office — Data Center Impact Assessment (2026)"
-        },
-        {
-          "url": "https://www.mass.gov/service/water-discharge-permits",
-          "title": "Massachusetts DEP — Water Discharge Impact Study Framework"
-        },
-        {
-          "url": "https://commonwealthmagazine.org/articles/2026-04-green-groups-praise-data-center-moratorium/",
-          "title": "Commonwealth Magazine — Environmental Groups Praise Moratorium"
-        }
-      ],
-      "state_code": "MA"
-    },
-    {
       "id": "meridian-township-mi-2024-11",
       "jurisdiction": "Meridian Township, Ingham County",
       "jurisdiction_type": "city",
@@ -1908,75 +1727,29 @@
       "state_code": "MN"
     },
     {
-      "id": "minnesota-state-hf4888-2024",
+      "id": "minnesota-state-hf4888-2026",
       "jurisdiction": "Minnesota",
       "jurisdiction_type": "state",
-      "status": "failed",
+      "status": "proposed",
       "enacted_date": null,
       "effective_date": null,
       "duration_months": null,
-      "duration_description": "Failed in committee",
+      "duration_description": "Would bar new permits for one year after the PUC delivers a required impact report (due 2027-07-01, extendable to 2028-01-01); pending in committee, not yet voted",
       "power_threshold_mw": null,
       "key_reasons": [
         "water",
         "energy"
       ],
-      "summary": "Minnesota HF 4888 / SF 4298 (Data Center Environmental and Energy Assessment Act), proposed in the 2024 legislative session, sought a statewide moratorium on large hyperscale data center construction (no specific MW threshold but targeting 100+ MW facilities) pending comprehensive environmental and energy impact assessment. Primary trigger: concerns about data center demand on Minnesota's electricity grid — state relies heavily on hydroelectric power from Canadian border regions, sensitive to drought variability; summer peak-load risks post-2023 summer drought. Secondary trigger: water cooling impacts on Mississippi River and wetland-dependent ecosystems. Sponsored by Rep. Kaohly Vang (DFL-St. Paul) and Sen. Carla Nelson (R-Rochester) in unusual bipartisan coalition focused on water conservation. Failed in House Energy and Commerce Committee (vote: 11-10 against) in March 2024; did not advance to floor. Opposition from Greater Minnesota Regional Economic Development organizations, data center industry, and Minnesota Power (utility). Support from Minnesota Environmental Law Center, Clean Wisconsin, and water protection advocates. Positioned to return in 2026 session if data center permit pressure continues.",
-      "source_url": "https://www.revisor.mn.gov/bills/bill.php?b=House&f=HF4888&ssn=0&y=2024",
-      "source_title": "Minnesota Legislature — HF 4888 (2024)",
-      "captured_at": "2026-06-15",
+      "summary": "Minnesota HF 4888 (Senate companion SF 4298), introduced April 9, 2026 in the 94th Legislature, would establish a moratorium on new data centers: state and local permits would be barred for one year after the Public Utilities Commission delivers a required impact report (due July 1, 2027, extendable to January 1, 2028). As of September 2026 it is pending in the House Energy Finance and Policy Committee with no floor vote. An earlier version of this record described it as a 2024 bill that died on an 11-10 committee vote; the legislature's record does not support that.",
+      "source_url": "https://www.revisor.mn.gov/bills/94/2026/0/HF/4888/?body=House",
+      "source_title": "Minnesota Revisor of Statutes — HF 4888 (94th Legislature) status",
+      "captured_at": "2026-09-23",
       "bill_number": "HF4888 / SF4298",
-      "session": "2024",
-      "sponsors": [
-        "Rep. Kaohly Vang (DFL-St. Paul)",
-        "Sen. Carla Nelson (R-Rochester)",
-        "Rep. Peter Lucachik (DFL-Eagan)"
-      ],
-      "failure_reason": "Died in House Energy and Commerce Committee (11-10 vote); no floor action",
-      "key_stakeholders": {
-        "environmental": [
-          "Minnesota Environmental Law Center",
-          "Fresh Energy",
-          "Minnesota Conservation Federation",
-          "Sierra Club North Star Group"
-        ],
-        "water": [
-          "Minnesota Pollution Control Agency",
-          "Mississippi River Keeper Foundation"
-        ],
-        "utility": [
-          "Minnesota Power",
-          "Xcel Energy Minnesota"
-        ],
-        "labor": [
-          "Minnesota AFL-CIO"
-        ],
-        "community": [
-          "Northern Minnesota tribal nations",
-          "Rural community coalitions"
-        ],
-        "opposed": [
-          "Greater Minnesota Regional Economic Development",
-          "Data Center Coalition",
-          "Minnesota Chamber of Commerce"
-        ]
-      },
+      "session": "2026",
       "resources": [
         {
-          "url": "https://revisor.mn.gov/bills/bill.php?b=House&f=HF4888&ssn=0&y=2024",
-          "title": "Minnesota HF 4888 Legislative Database"
-        },
-        {
-          "url": "https://www.revisor.mn.gov/bills/bill.php?b=Senate&f=SF4298&ssn=0&y=2024",
-          "title": "Minnesota SF 4298 Legislative Database"
-        },
-        {
-          "url": "https://www.house.leg.state.mn.us/committees/detail/HEnCom",
-          "title": "Minnesota House Energy and Commerce Committee Records"
-        },
-        {
-          "url": "https://www.startribune.com/minnesota-data-center-bill-stalls/2024/03/",
-          "title": "Minneapolis Star Tribune — Data Center Bill Fails Committee"
+          "url": "https://www.revisor.mn.gov/bills/94/2026/0/HF/4888/versions/0/",
+          "title": "Minnesota Revisor — HF 4888 introduced text"
         }
       ],
       "state_code": "MN"
@@ -3158,67 +2931,6 @@
       "session": "2026",
       "captured_at": "2026-07-14",
       "state_code": "OK"
-    },
-    {
-      "id": "vermont-state-2026-03",
-      "jurisdiction": "Vermont",
-      "jurisdiction_type": "state",
-      "status": "enacted",
-      "enacted_date": "2026-03-20",
-      "effective_date": "2026-03-20",
-      "duration_months": null,
-      "duration_description": "Permanent",
-      "power_threshold_mw": 5,
-      "key_reasons": [
-        "water",
-        "energy",
-        "air_quality"
-      ],
-      "summary": "Vermont's permanent data center ban (enacted March 20, 2026) is the most restrictive in the United States, prohibiting any new data center facility exceeding 5 MW in statewide jurisdiction. Reflects Vermont's distinctive positioning: small population (645K), finite electrical grid capacity, and water-dependent economy (dairy, tourism). Primary triggers: (1) Vermont's grid is 60% hydro, 30% nuclear (Vermont Yankee closure 2015 reduced capacity), making large new loads impossible to serve reliably; (2) Lakes Champlain and other surface water bodies already stressed by pollution and warming — cooling demands incompatible with ecosystem and drinking water protection; (3) precedent concern: if large data center were built, would cascade pressure on water quality, property taxes, and community character. Supported unanimously by Vermont Legislature (House 105-1, Senate 28-2). Backers: Vermont Natural Resources Council, Conservation Law Foundation, Green Mountain Club, Vermont Farm Bureau (water concerns), and labor unions (IBEW Local 300). No meaningful opposition (tech industry largely absent in Vermont). Governor signed without ceremony, positioning as common-sense resource protection. Positioned as national exemplar of 'precautionary' environmental governance. Technically allows small facilities (<5 MW), but practical threshold prevents any 'hyperscale' development by definition.",
-      "source_url": "https://legislature.vermont.gov/",
-      "source_title": "Vermont General Assembly",
-      "captured_at": "2026-03-20",
-      "bill_number": "H.149",
-      "enacted_by": "Governor Phil Scott (R)",
-      "sponsors": [
-        "Rep. Theresa Wood (R-Waterbury)",
-        "Sen. Bobby Starr (D-Lamoille County)"
-      ],
-      "legislative_votes": "House 105-1, Senate 28-2",
-      "key_stakeholders": {
-        "environmental": [
-          "Vermont Natural Resources Council",
-          "Conservation Law Foundation",
-          "Green Mountain Club",
-          "Audubon Vermont"
-        ],
-        "water": [
-          "Vermont Department of Environmental Conservation",
-          "Lake Champlain Community",
-          "Vermont Water Company Association"
-        ],
-        "labor": [
-          "International Brotherhood of Electrical Workers Local 300"
-        ],
-        "agricultural": [
-          "Vermont Farm Bureau",
-          "Northeast Organic Farming Association"
-        ],
-        "community": [
-          "Vermont Selectmen's Association",
-          "Vermont Town Government Association"
-        ],
-        "opposed": [
-          "None documented"
-        ]
-      },
-      "resources": [
-        {
-          "url": "https://legislature.vermont.gov/bill/status/2026/H0149",
-          "title": "Vermont H.149 Full Legislative Text"
-        }
-      ],
-      "state_code": "VT"
     },
     {
       "id": "virginia-state-2026-01",

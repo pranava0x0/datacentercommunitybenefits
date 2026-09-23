@@ -67,12 +67,6 @@ class TestComparisonView:
         head_cells = page.locator("#matrix-head-row .col-theme-head")
         expect(head_cells).to_have_count(8)
 
-    def test_theme_legend_renders_eight_chips(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
-        page.wait_for_selector("#theme-legend .theme-chip", timeout=10_000)
-        chips = page.locator("#theme-legend .theme-chip")
-        expect(chips).to_have_count(8)
-
     def test_no_global_claims_list_on_comparison(self, page: Page, base_url: str):
         # v1.3: the comparison view dropped the global claims list + filter
         # chip. Claims live exclusively in the project-detail Claims tab.
@@ -1513,89 +1507,86 @@ class TestMatrixCsv:
 # ---------------------------------------------------------------------------
 
 
-class TestAggregateView:
-    def _goto_aggregate(self, page: Page, base_url: str) -> None:
+class TestTotalsTables:
+    """The totals tables that used to be the "By State & Company" tab now live
+    in the views that own their question: per company on Companies, per state
+    on Sites, per signatory category and per utility on The Pledge."""
+
+    @staticmethod
+    def _open(page: Page, base_url: str, view_hash: str, section: str, ready: str) -> None:
+        page.goto(base_url + "/" + view_hash)
+        page.wait_for_selector(ready, state="attached", timeout=15_000)
+        sec = page.locator(f"#{section}")
+        if sec.get_attribute("open") is None:
+            sec.locator("summary").click()
+
+    def test_aggregate_hash_redirects_to_companies(self, page: Page, base_url: str):
         page.goto(base_url + "/#aggregate")
         page.wait_for_selector("#agg-company-tbody tr", timeout=15_000)
+        assert page.evaluate("() => location.hash") == "#comparison"
+        assert page.locator("#tab-aggregate").count() == 0
 
-    def test_aggregate_tab_loads(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
+    def test_company_table_on_companies_tab(self, page: Page, base_url: str):
+        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
         rows = page.locator("#agg-company-tbody tr")
         assert rows.count() >= 8, f"Expected >=8 company rows, got {rows.count()}"
+        assert page.locator("#agg-company-tfoot .agg-total-row").count() == 1
 
-    def test_aggregate_stat_tiles_render_four(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        tiles = page.locator("#agg-stats .rp-stat")
-        assert tiles.count() == 4, f"Expected 4 stat tiles, got {tiles.count()}"
-
-    def test_aggregate_company_sort_header_click(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
+    def test_company_sort_header_click(self, page: Page, base_url: str):
+        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
         th = page.locator("[data-sort-key='capex'][data-sort-table='company']")
         th.click()
         page.wait_for_timeout(200)
-        ind = th.locator(".sort-ind")
-        text = ind.text_content() or ""
+        text = th.locator(".sort-ind").text_content() or ""
         assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
 
-    def test_aggregate_state_sort_header_click(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        # "By state" is a sub-tab; its <th> is attached but not painted until
-        # the tab is selected, and Playwright won't click an unpainted element.
-        page.locator("#subtab-agg-state").click()
+    def test_state_table_on_sites_tab(self, page: Page, base_url: str):
+        self._open(page, base_url, "#explorer", "sites-by-state-section", "#agg-state-tbody tr")
+        assert page.locator("#view-explorer #agg-state-tbody tr").count() >= 10
         th = page.locator("[data-sort-key='capex'][data-sort-table='state']")
         th.click()
         page.wait_for_timeout(200)
-        ind = th.locator(".sort-ind")
-        text = ind.text_content() or ""
+        text = th.locator(".sort-ind").text_content() or ""
         assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
 
-    def test_aggregate_company_tfoot_has_total_row(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        total_row = page.locator("#agg-company-tfoot .agg-total-row")
-        assert total_row.count() == 1, "Expected a total row in company tfoot"
-
-    def test_agg_utility_tbody_populates(self, page: Page, base_url: str):
-        """The By-utility sub-tab is easy to leave silently unwired — nothing
-        else on the page fails if renderUtilityRollup() were deleted."""
-        self._goto_aggregate(page, base_url)
-        page.locator("#subtab-agg-utility").click()
-        rows = page.locator("#agg-utility-tbody tr")
-        assert rows.count() > 0, "Expected populated rows in the By-utility table"
-
-    def test_agg_utility_sort_header_click(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        page.locator("#subtab-agg-utility").click()
+    def test_utility_table_on_pledge_tab(self, page: Page, base_url: str):
+        """Easy to leave silently unwired: nothing else fails if
+        renderUtilityRollup() were deleted."""
+        self._open(page, base_url, "#ratepayer", "rp-utility-section", "#agg-utility-tbody tr")
+        assert page.locator("#view-ratepayer #agg-utility-tbody tr").count() > 0
         th = page.locator("[data-sort-key='rateCases'][data-sort-table='utility']")
         th.click()
         page.wait_for_timeout(200)
-        ind = th.locator(".sort-ind")
-        text = ind.text_content() or ""
+        text = th.locator(".sort-ind").text_content() or ""
         assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
 
+    def test_totals_do_not_load_on_first_paint(self, page: Page, base_url: str):
+        """Home is first paint; the totals need tariffs + rate cases, which the
+        perf budget keeps off it."""
+        seen: list[str] = []
+        page.on("request", lambda r: seen.append(r.url))
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
+        page.wait_for_timeout(800)
+        assert not any("tariffs.json" in u for u in seen)
+
     def test_rate_cases_json_fetched_at_most_once(self, page: Page, base_url: str):
-        """Regression test: loadRateCasesData() used to guard on a plain
-        boolean (state.rateCasesLoaded) that isn't set until after its own
-        fetch resolves. loadAggregateView() calls loadTariffsData() (which
-        itself calls loadRateCasesData()) AND loadRateCasesData() directly in
-        the same Promise.all — both saw the flag false before either await
-        settled, so data/rate_cases.json fetched twice on every Aggregate
-        load. Now promise-memoized like the other loaders."""
+        """loadRateCasesData() is promise-memoized: the Pledge view's own
+        loader and the totals loader both call it on the same activation."""
         requests = []
         page.on(
             "request",
             lambda req: requests.append(req.url) if "rate_cases.json" in req.url else None,
         )
-        self._goto_aggregate(page, base_url)
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#agg-utility-tbody tr", state="attached", timeout=15_000)
         page.wait_for_timeout(500)
         assert len(requests) == 1, f"Expected 1 fetch of rate_cases.json, got {len(requests)}"
 
     def test_pdf_export_downloads(self, page: Page, base_url: str):
-        # Regression test: exportAggregateToPDF used to call an undefined
-        # formatInvestment(), throwing before html2pdf ever loaded. Stubbed
-        # html2pdf (see the Explorer test above) to avoid the cdnjs
-        # dependency this suite otherwise avoids.
+        # Regression: exportAggregateToPDF once called an undefined helper.
         page.add_init_script(STUB_HTML2PDF_JS)
-        self._goto_aggregate(page, base_url)
+        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
         with page.expect_download(timeout=15_000) as dl_info:
             page.locator("#agg-pdf-btn").click()
         download = dl_info.value
@@ -2342,17 +2333,16 @@ class TestSignatoryLens:
 class TestAggregateSignatoryRollup:
     @staticmethod
     def _open(page: Page, base_url: str) -> None:
-        """Select the "By signatory category" sub-tab.
+        """Open the Pledge tab's "by signatory category" section.
 
-        The three aggregate rollups are sub-tabs, so two of the three panels are
-        [hidden] on load. Waiting for their rows with the default
-        state="visible" hangs on rows that are in the DOM but unpainted.
+        It ships collapsed, so its rows are attached but unpainted until the
+        summary is clicked.
         """
-        page.goto(base_url + "/#aggregate")
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector(
             "#agg-signatory-tbody tr", state="attached", timeout=10_000
         )
-        page.locator("#subtab-agg-signatory").click()
+        page.locator("#rp-category-section summary").click()
 
     def test_rollup_groups_sites_by_signing_cohort(self, page: Page, base_url: str):
         self._open(page, base_url)
@@ -2548,10 +2538,10 @@ class TestSubtabs:
         omission. Iterating the group rather than naming the tabs means a new
         cohort can't be added without one.
         """
-        page.goto(base_url + "/#aggregate")
-        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=10_000)
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=10_000)
         missing = page.evaluate(
-            """() => [...document.querySelectorAll('#view-aggregate .subtab')]
+            """() => [...document.querySelectorAll('#view-ratepayer .subtab')]
                  .filter((b) => {
                    const pill = b.querySelector('.subtab-count');
                    return !pill || !/^\\d+$/.test(pill.textContent.trim());
@@ -2561,28 +2551,29 @@ class TestSubtabs:
         assert missing == [], f"sub-tabs with no count pill: {missing}"
 
     def test_arrow_keys_move_between_subtabs(self, page: Page, base_url: str):
-        page.goto(base_url + "/#aggregate")
-        page.wait_for_selector("#agg-company-tbody tr", timeout=10_000)
-        page.locator("#subtab-agg-company").focus()
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=10_000)
+        page.locator("#subtab-rp-sites-assessed").focus()
         page.keyboard.press("ArrowRight")
-        expect(page.locator("#subtab-agg-signatory")).to_have_attribute(
+        expect(page.locator("#subtab-rp-sites-unassessed")).to_have_attribute(
             "aria-selected", "true"
         )
         page.keyboard.press("ArrowLeft")
-        expect(page.locator("#subtab-agg-company")).to_have_attribute(
+        expect(page.locator("#subtab-rp-sites-assessed")).to_have_attribute(
             "aria-selected", "true"
         )
 
-    def test_only_two_subtab_groups_exist(self, page: Page, base_url: str):
+    def test_only_one_subtab_group_exists(self, page: Page, base_url: str):
         """Guard on the design rule, not just the current markup: sub-tabs are
-        for alternatives. If a third group appears, it needs justifying against
-        the "would a reader want two on screen at once?" test."""
+        for alternatives. The aggregate group went away with its tab
+        (2026-09-23). A new group needs justifying against the "would a reader
+        want two on screen at once?" test."""
         page.goto(base_url + "/")
         page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
         groups = page.evaluate(
             "() => document.querySelectorAll('.subtabs').length"
         )
-        assert groups == 2, f"expected 2 sub-tab groups, found {groups}"
+        assert groups == 1, f"expected 1 sub-tab group, found {groups}"
 
 
 class TestAccordionTraps:
@@ -2698,7 +2689,6 @@ class TestTouchTargets:
         "view_hash,view_id,ready",
         [
             ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
-            ("#aggregate", "#view-aggregate", "#agg-company-tbody tr"),
         ],
     )
     def test_subtabs_meet_the_44px_floor_on_touch(
@@ -3045,7 +3035,7 @@ class TestAggregateExportsCoverEveryRollup:
     """
 
     def test_csv_contains_all_three_rollups(self, page: Page, base_url: str):
-        page.goto(base_url + "/#aggregate")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
         with page.expect_download() as dl:
             page.locator("#agg-csv-btn").click()
@@ -3056,11 +3046,11 @@ class TestAggregateExportsCoverEveryRollup:
         assert "Hyperscaler" in text or "Did not sign" in text, text[:400]
 
     def test_every_rollup_tab_has_a_csv_section(self, page: Page, base_url: str):
-        """Derived, not hardcoded: one CSV section per sub-tab, so adding a
-        fourth rollup without exporting it fails here."""
-        page.goto(base_url + "/#aggregate")
+        """Derived, not hardcoded: one CSV section per totals table, so adding a
+        table without exporting it fails here."""
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
-        tabs = page.locator("#view-aggregate .subtab").count()
+        tabs = page.locator("table.agg-table").count()
         with page.expect_download() as dl:
             page.locator("#agg-csv-btn").click()
         text = Path(dl.value.path()).read_text()

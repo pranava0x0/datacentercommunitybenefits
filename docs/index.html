@@ -111,16 +111,6 @@
         >
           Sites
         </button>
-        <button
-          id="tab-aggregate"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="false"
-          aria-controls="view-aggregate"
-        >
-          By State &amp; Company
-        </button>
       </div>
       </div>
     </header>
@@ -246,14 +236,6 @@
               </span>
               <span class="home-card-count" data-count-for="sites">&mdash;</span>
             </button>
-            <button class="home-card" type="button" data-path-target="aggregate">
-              <span class="home-card-tag">By State &amp; Company</span>
-              <span class="home-card-title">Totals by state and company</span>
-              <span class="home-card-dek">
-                Totals by state, company, signatory category, and utility.
-              </span>
-              <span class="home-card-count" data-count-for="aggregate">&mdash;</span>
-            </button>
           </nav>
         </div>
       </section>
@@ -277,38 +259,36 @@
           </p>
         </div>
 
-        <div class="summary-stats" aria-label="Dataset scope at a glance">
-          <div class="stat-group">
-            <span class="stat-num" id="ss-companies">—</span>
-            <span class="stat-label">companies</span>
+        <details class="acc" id="company-footprint-section" open>
+          <summary>
+            <h3 class="acc-title">Sites, power and investment</h3>
+            <span class="acc-count" id="agg-company-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <span class="table-controls">
+              <button id="agg-csv-btn" type="button" class="btn-ghost" title="All totals: by company, state, signatory category and utility">⤓ CSV</button>
+              <button id="agg-pdf-btn" type="button" class="btn-ghost" title="All totals: by company, state, signatory category and utility">⤓ PDF</button>
+            </span>
+            <div class="table-scroll">
+              <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sort-key="name" data-sort-table="company" class="sortable">Company <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="company">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="company">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="company">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="company">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="claims" data-sort-table="company">Claims <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="company" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="agg-company-tbody"></tbody>
+                <tfoot id="agg-company-tfoot"></tfoot>
+              </table>
+            </div>
           </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-projects">—</span>
-            <span class="stat-label">data center sites</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-claims">—</span>
-            <span class="stat-label">commitments tracked</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-power">—</span>
-            <span class="stat-label">announced capacity</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-investment">—</span>
-            <span class="stat-label">announced investment</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-responses">—</span>
-            <span class="stat-label">community responses</span>
-            <span class="stance-breakdown" id="ss-stance-breakdown" hidden></span>
-          </div>
-        </div>
-
-        <div class="legend-row" aria-label="Theme legend">
-          <span class="legend-label">Themes:</span>
-          <ul id="theme-legend" class="theme-legend"></ul>
-        </div>
+        </details>
 
         <details class="acc" id="matrix-section" open>
           <summary>
@@ -651,6 +631,33 @@
           </div>
         </section>
 
+      
+        <details class="acc" id="sites-by-state-section">
+          <summary>
+            <h3 class="acc-title">Sites by state</h3>
+            <span class="acc-count" id="agg-state-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <div class="table-scroll">
+              <table class="agg-table" id="agg-state-table" aria-label="State rollup">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sort-key="state" data-sort-table="state" class="sortable">State <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="companies" data-sort-table="state">Companies <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="state">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="state">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="state">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="state">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="state" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="agg-state-tbody"></tbody>
+                <tfoot id="agg-state-tfoot"></tfoot>
+              </table>
+            </div>
+          </div>
+        </details>
       </section>
 
       <!-- ================= RATEPAYER PROTECTION PLEDGE VIEW ================= -->
@@ -753,6 +760,64 @@
             <p class="pledge-strip-key" id="pledge-strip-key"></p>
           </div>
         </details>
+
+        <details class="acc" id="rp-category-section">
+          <summary>
+            <h3 class="acc-title">Tracked sites by signatory category</h3>
+            <span class="acc-count" id="agg-signatory-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub" id="agg-signatory-sub"></p>
+            <div class="table-scroll">
+              <table
+                class="agg-table"
+                id="agg-signatory-table"
+                aria-label="Rollup by pledge signatory category"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col" class="num">Companies</th>
+                    <th scope="col" class="num">Sites</th>
+                    <th scope="col" class="num">Power</th>
+                    <th scope="col" class="num">Investment</th>
+                    <th scope="col" class="num">Assessed</th>
+                    <th scope="col" class="num">Contested</th>
+                  </tr>
+                </thead>
+                <tbody id="agg-signatory-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" id="rp-utility-section">
+          <summary>
+            <h3 class="acc-title">Utilities</h3>
+            <span class="acc-count" id="agg-utility-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub" id="agg-utility-sub"></p>
+            <div class="table-scroll">
+              <table class="agg-table" id="agg-utility-table" aria-label="Utility rollup">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sort-key="name" data-sort-table="utility" class="sortable">Utility <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col">Pledge</th>
+                    <th scope="col">States</th>
+                    <th scope="col" class="num sortable" data-sort-key="tariffs" data-sort-table="utility">Tariffs <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="rateCases" data-sort-table="utility">Rate cases <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="sites" data-sort-table="utility">Served sites <span class="sort-ind" aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="agg-utility-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
 
         <!-- ---------------------------------------------------------------
              3. SIGNATORY ROSTER — searchable, category-filterable. Rendered
@@ -1525,196 +1590,6 @@
         </div>
       </section>
 
-      <!-- ====================== AGGREGATE VIEW ====================== -->
-      <section
-        id="view-aggregate"
-        class="view"
-        role="tabpanel"
-        aria-labelledby="tab-aggregate"
-        hidden
-      >
-        <div class="hero">
-          <h2 class="hero-title">Totals by company, state, and utility</h2>
-          <p class="hero-dek">
-            The same records, totaled four ways: by company, by pledge signatory
-            category, by state, and by utility. Claimed figures are
-            company-disclosed; independently verified delivery is sparse. Null
-            values are omitted from totals.
-          </p>
-        </div>
-
-        <ul id="agg-stats" class="rp-stats" aria-label="Aggregate statistics"></ul>
-
-        <div class="export-btns" style="margin-bottom: 12px;">
-          <button id="agg-csv-btn" type="button" class="btn-ghost">⤓ CSV</button>
-          <button id="agg-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
-        </div>
-
-        <!-- Three rollups of the same numbers — alternatives, not a sequence,
-             so a sub-tab group rather than three accordions. -->
-        <div class="subtabs" role="tablist" aria-label="Rollup">
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-company"
-            aria-selected="true"
-            tabindex="0"
-            aria-controls="subpane-agg-company"
-          >
-            By company <span class="subtab-count" id="agg-company-count"></span>
-          </button>
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-signatory"
-            aria-selected="false"
-            tabindex="-1"
-            aria-controls="subpane-agg-signatory"
-          >
-            By signatory category
-            <span class="subtab-count" id="agg-signatory-count"></span>
-          </button>
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-state"
-            aria-selected="false"
-            tabindex="-1"
-            aria-controls="subpane-agg-state"
-          >
-            By state <span class="subtab-count" id="agg-state-count"></span>
-          </button>
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-utility"
-            aria-selected="false"
-            tabindex="-1"
-            aria-controls="subpane-agg-utility"
-          >
-            By utility <span class="subtab-count" id="agg-utility-count"></span>
-          </button>
-        </div>
-
-        <div
-          class="subtab-panel"
-          id="subpane-agg-company"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-company"
-        >
-          <div class="table-scroll">
-            <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
-              <thead>
-                <tr>
-                  <th scope="col" data-sort-key="name" data-sort-table="company" class="sortable">Company <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="company">Projects <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="company">Power <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="company">Investment <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="company">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="claims" data-sort-table="company">Claims <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="company" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
-                </tr>
-              </thead>
-              <tbody id="agg-company-tbody"></tbody>
-              <tfoot id="agg-company-tfoot"></tfoot>
-            </table>
-          </div>
-        </div>
-
-        <!-- Rolls the tracked sites up by which pledge cohort their operator
-             belongs to. Answers "does signing correlate with anything we can
-             see?" — which the by-company table cannot, because it has no
-             notion of the roster. -->
-        <div
-          class="subtab-panel"
-          id="subpane-agg-signatory"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-signatory"
-          hidden
-        >
-          <p class="agg-section-sub" id="agg-signatory-sub"></p>
-          <div class="table-scroll">
-            <table
-              class="agg-table"
-              id="agg-signatory-table"
-              aria-label="Rollup by pledge signatory category"
-            >
-              <thead>
-                <tr>
-                  <th scope="col">Category</th>
-                  <th scope="col" class="num">Companies</th>
-                  <th scope="col" class="num">Sites</th>
-                  <th scope="col" class="num">Power</th>
-                  <th scope="col" class="num">Investment</th>
-                  <th scope="col" class="num">Assessed</th>
-                  <th scope="col" class="num">Contested</th>
-                </tr>
-              </thead>
-              <tbody id="agg-signatory-tbody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div
-          class="subtab-panel"
-          id="subpane-agg-state"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-state"
-          hidden
-        >
-          <div class="table-scroll">
-            <table class="agg-table" id="agg-state-table" aria-label="State rollup">
-              <thead>
-                <tr>
-                  <th scope="col" data-sort-key="state" data-sort-table="state" class="sortable">State <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="companies" data-sort-table="state">Companies <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="state">Projects <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="state">Power <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="state">Investment <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="state">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="state" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
-                </tr>
-              </thead>
-              <tbody id="agg-state-tbody"></tbody>
-              <tfoot id="agg-state-tfoot"></tfoot>
-            </table>
-          </div>
-        </div>
-
-        <!-- Rolls the record up by the utility at the center of it: who sells
-             the power, whether that utility signed the pledge, and how many
-             tariffs, rate cases, and served sites it carries here. Grouping
-             is exact-match via the hand-curated utility_aliases /
-             serving_utility_signatory_id joins — never fuzzy. -->
-        <div
-          class="subtab-panel"
-          id="subpane-agg-utility"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-utility"
-          hidden
-        >
-          <p class="agg-section-sub" id="agg-utility-sub"></p>
-          <div class="table-scroll">
-            <table class="agg-table" id="agg-utility-table" aria-label="Utility rollup">
-              <thead>
-                <tr>
-                  <th scope="col" data-sort-key="name" data-sort-table="utility" class="sortable">Utility <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col">Pledge</th>
-                  <th scope="col">States</th>
-                  <th scope="col" class="num sortable" data-sort-key="tariffs" data-sort-table="utility">Tariffs <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="rateCases" data-sort-table="utility">Rate cases <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="sites" data-sort-table="utility">Served sites <span class="sort-ind" aria-hidden="true"></span></th>
-                </tr>
-              </thead>
-              <tbody id="agg-utility-tbody"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">

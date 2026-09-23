@@ -259,11 +259,11 @@ def test_tab_is_wired(js) -> None:
 HOMEPAGE_SOURCED_MORATORIUMS = {  # audit these; remove ids as they are fixed
     "baltimore-city-2026-05", "bloomington-normal-il-2026-06", "boise-id-2026-05",
     "cheyenne-wy-2026-06", "dubuque-county-ia-2026-06", "hawaii-state-2026-01",
-    "hill-county-tx-2024-04", "idaho-state-2026-03", "indianapolis-in-2024-10",
-    "iron-county-ut-2026-06", "loudoun-county-leesburg-va-2026-06", "maine-state-2026-04",
+    "hill-county-tx-2024-04", "indianapolis-in-2024-10",
+    "iron-county-ut-2026-06", "loudoun-county-leesburg-va-2026-06", 
     "manitowoc-county-wi-2026-06", "meridian-township-mi-2024-11", "minneapolis-city-2026-05",
     "oklahoma-county-ok-2026-04", "philadelphia-pa-2026-05", "pulaski-county-ar-2024-07",
-    "reno-city-2026-05", "smithfield-town-2026-05", "vermont-state-2026-03",
+    "reno-city-2026-05", "smithfield-town-2026-05", 
     "washington-township-macomb-mi-2024-03",
 }
 
@@ -305,7 +305,9 @@ def test_non_pauses_are_not_filed_as_moratoriums() -> None:
 def test_migrated_records_live_in_exactly_one_place(policies) -> None:
     ids = {m["id"] for m in _moratoriums()}
     for gone in ("pennsylvania-state-eo2026-05", "oklahoma-state-hb2992-2024",
-                 "washington-state-sb5982-2024"):
+                 "washington-state-sb5982-2024", "massachusetts-state-2026-04",
+                 "vermont-state-2026-03", "idaho-state-2026-03",
+                 "minnesota-state-hf4888-2024"):
         assert gone not in ids
     pol = {p["id"] for p in policies}
     assert {"pa-eo2026-05-2026", "ok-hb2992-2026"} <= pol

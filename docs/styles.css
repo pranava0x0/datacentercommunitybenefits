@@ -183,7 +183,6 @@
      --text at ~2.82:1. */
   --link: #4d84ff;
 
-
   /* The band goes darker still in dark mode so it stays a distinct figure
      against the already-dark page rather than blending into it. */
   --band-bg: #070d1f;
@@ -492,17 +491,20 @@ select:focus-visible,
   list-style: none;
   margin: 0 0 24px;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 .pledge-stat {
+  flex: 0 1 auto;
+  min-width: 7.5rem;
+  max-width: 15rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-top: 3px solid var(--accent);
   border-radius: var(--radius);
-  padding: 0.75rem 0.9rem;
+  padding: 0.55rem 0.8rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -735,51 +737,6 @@ main {
 /* ==========================================================================
    Theme legend
    ========================================================================== */
-
-.legend-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 8px 0 12px;
-  flex-wrap: wrap;
-}
-
-.legend-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.theme-legend {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.theme-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 10px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 0.8rem;
-  color: var(--text);
-}
-
-.theme-chip::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--theme-color, var(--accent));
-}
 
 /* ==========================================================================
    Comparison matrix
@@ -1805,35 +1762,27 @@ main {
    ========================================================================== */
 
 /* Stat tiles */
+/* Tiles size to their content and wrap, rather than stretching a row of
+   four numbers across the full page width. */
 .rp-stats {
   list-style: none;
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.5rem;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.85rem;
-}
-
-@media (max-width: 800px) {
-  .rp-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .rp-stats {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 .rp-stat {
   --rp-color: var(--accent);
+  flex: 0 1 auto;
+  min-width: 7.5rem;
+  max-width: 15rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-top: 3px solid var(--rp-color);
   border-radius: var(--radius);
-  padding: 0.75rem 0.9rem;
+  padding: 0.55rem 0.8rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -2129,9 +2078,6 @@ main {
   }
 }
 
-@media (max-width: 720px) {
-}
-
 /* ==========================================================================
    SECTION LANGUAGE — one heading treatment for every tab.
 
@@ -2166,7 +2112,6 @@ main {
 }
 
 .rp-section-sub,
-.agg-section-sub,
 .hot-rail-sub,
 .matrix-help,
 .acc-sub {
@@ -3031,66 +2976,6 @@ main {
    Recently-Contested rail, theme-filter chips
    ========================================================================== */
 
-.summary-stats {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 4px 20px 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px 28px;
-  align-items: baseline;
-  border-bottom: 1px solid var(--border);
-  font-feature-settings: "tnum" 1, "lnum" 1;
-}
-
-.stat-group {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  white-space: nowrap;
-}
-
-.stat-num {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-
-.stat-label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  text-transform: lowercase;
-  letter-spacing: 0.01em;
-}
-
-.stance-breakdown {
-  font-size: 0.74rem;
-  color: var(--text-muted);
-  margin-left: 4px;
-}
-
-.stance-breakdown .stance-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  margin: 0 3px 0 8px;
-  transform: translateY(-1px);
-}
-
-.stance-breakdown .stance-dot.positive {
-  background: var(--stance-positive);
-}
-
-.stance-breakdown .stance-dot.mixed {
-  background: var(--stance-mixed);
-}
-
-.stance-breakdown .stance-dot.negative {
-  background: var(--stance-negative);
-}
-
 /* Matrix CSV toolbar */
 .matrix-toolbar {
   display: flex;
@@ -3247,19 +3132,6 @@ main {
 }
 
 @media (max-width: 640px) {
-  .summary-stats {
-    padding: 4px 14px 8px;
-    gap: 12px 20px;
-  }
-  .stat-num {
-    font-size: 1rem;
-  }
-  .stat-label {
-    font-size: 0.72rem;
-  }
-  .stance-breakdown {
-    display: none;
-  }
   .matrix-toolbar {
     flex-direction: column;
     align-items: stretch;
@@ -4624,22 +4496,21 @@ body.tariff-modal-open {
 @media print {
   /* ---- Hide chrome ---- */
   .topbar-controls,
-  .tabbar,
-  .summary-stats,
-  .hot-rail,
-  .theme-filter-row,
-  .matrix-toolbar .matrix-csv,
-  #theme-toggle,
-  .skip-link,
-  .explorer-filters,
-  .detail-close,
-  .map,
-  #rp-export-csv,
-  .cd-responses-breakdown,
-  .detail-cta,
-  .matrix-tooltip,
-  button,
-  nav {
+.tabbar,
+.hot-rail,
+.theme-filter-row,
+.matrix-toolbar .matrix-csv,
+#theme-toggle,
+.skip-link,
+.explorer-filters,
+.detail-close,
+.map,
+#rp-export-csv,
+.cd-responses-breakdown,
+.detail-cta,
+.matrix-tooltip,
+button,
+nav {
     display: none !important;
   }
 
@@ -5793,7 +5664,6 @@ body.state-modal-open {
   color: var(--text-muted);
   font-style: italic;
 }
-
 
 /* ===================== Policies & Agreements View (v3.1) ===================== */
 /* Reuses the tariff table/modal and the moratorium bar charts; only the bits

@@ -548,7 +548,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const preload = () =>
         Promise.all([loadProjectData(), loadResponseData()])
           .then(() => {
-            renderSummaryStats();
             renderPledgeHero();
           })
           .catch((err) =>
@@ -617,7 +616,6 @@ const VIEWS = [
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
   { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
-  { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
 ];
 
 const DEFAULT_VIEW =
@@ -651,6 +649,11 @@ function wireTabs() {
   // Allow URL hash to deep-link to a non-default view on load. Also activate
   // the Explorer when filter query params are present (even without the
   // #explorer hash) so a deep-linked filtered Explorer round-trips.
+  // #aggregate was retired when its tables moved into Companies / Sites /
+  // The Pledge; old links land on Companies rather than the default view.
+  if (window.location.hash === "#aggregate") {
+    history.replaceState(null, "", "#comparison");
+  }
   const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
   if (fromHash) {
     activateView(fromHash.name);
@@ -749,6 +752,15 @@ function activateView(name) {
     }
   }
 
+  // The totals tables (formerly the "By State & Company" tab) live in the
+  // views that own their question: per company on Companies, per state on
+  // Sites, per signatory category and per utility on The Pledge.
+  if (["comparison", "explorer", "ratepayer"].includes(target.name)) {
+    loadAggregateView().catch((err) => {
+      console.error("Failed to load totals tables:", err);
+    });
+  }
+
   // Keep the URL in sync so views are deep-linkable / back-button friendly.
   // The Explorer serializes its full filter state (via writeFiltersToUrl);
   // the other views use a bare hash and drop any stale query string.
@@ -773,10 +785,6 @@ function activateView(name) {
   } else if (target.name === "ratepayer" || target.name === "overview") {
     loadRatepayerView().catch((err) => {
       console.error("Failed to load ratepayer view:", err);
-    });
-  } else if (target.name === "aggregate") {
-    loadAggregateView().catch((err) => {
-      console.error("Failed to load aggregate view:", err);
     });
   } else if (target.name === "moratoriums") {
     loadMoratoriumsData().catch((err) => {
@@ -814,7 +822,6 @@ async function loadComparisonData() {
   state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
   updateDraftBanner(companies.generated_at);
   renderComparisonView();
-  renderSummaryStats();
   renderPledgeHero();
 }
 
@@ -855,7 +862,6 @@ function loadProjectData() {
       }
       // Fill in the projects / GW / investment tiles now that the lazy payload
       // is in hand (companies + claims tiles already showed).
-      renderSummaryStats();
     })();
   }
   return _projectDataPromise;
@@ -885,7 +891,6 @@ function loadResponseData() {
         state.responsesByProject.get(r.project_id).push(r);
       }
       state.responsesLoaded = true;
-      renderSummaryStats();
     })();
   }
   return _responseDataPromise;
@@ -2961,7 +2966,6 @@ async function fetchJson(url) {
 
 function renderComparisonView() {
   renderMeta();
-  renderThemeLegend();
   renderMatrix();
   wireCompanyDetail();
   wireMatrixCsvExport();
@@ -2983,50 +2987,6 @@ function updateDraftBanner(generatedAt) {
   if (el && generatedAt) {
     el.dataset.refreshDate = generatedAt;
     el.textContent = `Last refreshed: ${generatedAt}`;
-  }
-}
-
-// Aggregate dataset stats shown in the topbar strip. Progressively enhances:
-// called after companies+claims load (companies / claims tiles), and again
-// after the lazy projects/responses payload lands (projects / GW / investment
-// / responses). Never blocks first paint on the lazy payload.
-function renderSummaryStats() {
-  const setNum = (id, txt) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = txt;
-  };
-
-  if (state.companies.length) setNum("ss-companies", state.companies.length);
-  if (state.claims.length) setNum("ss-claims", state.claims.length);
-
-  if (state.projects.length) {
-    setNum("ss-projects", state.projects.length);
-    const mw = state.projects.reduce((s, p) => s + (p.power_mw || 0), 0);
-    setNum("ss-power", formatSummaryGW(mw));
-    const usd = state.projects.reduce(
-      (s, p) => s + (p.claimed_investment_usd || 0),
-      0
-    );
-    setNum("ss-investment", formatSummaryUsd(usd));
-  }
-
-  if (state.responses.length) {
-    setNum("ss-responses", state.responses.length);
-    const byStance = { positive: 0, mixed: 0, negative: 0 };
-    for (const r of state.responses) {
-      if (byStance[r.stance] !== undefined) byStance[r.stance] += 1;
-    }
-    const breakdown = document.getElementById("ss-stance-breakdown");
-    if (breakdown) {
-      const label = `${byStance.positive} positive, ${byStance.mixed} mixed, ${byStance.negative} negative`;
-      breakdown.innerHTML =
-        `<span class="stance-dot positive"></span>${byStance.positive}` +
-        `<span class="stance-dot mixed"></span>${byStance.mixed}` +
-        `<span class="stance-dot negative"></span>${byStance.negative}`;
-      breakdown.setAttribute("aria-label", `Community responses by stance: ${label}`);
-      breakdown.setAttribute("title", label);
-      breakdown.hidden = false;
-    }
   }
 }
 
@@ -3208,7 +3168,6 @@ function renderHomeCards() {
     const covered = coverageStates().filter(
       (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases > 0
     ).length;
-    fill("aggregate", `${covered} of 50 states`);
   }
 }
 
@@ -3447,7 +3406,6 @@ const PLEDGE_TARGETS = {
   companies: { view: "comparison", anchor: null },
   tariffs: { view: "tariffs", anchor: null },
   policies: { view: "policies", anchor: null },
-  aggregate: { view: "aggregate", anchor: null },
 };
 
 // --------------------------------------------------------------------------
@@ -3514,7 +3472,6 @@ function openAccordionsFor(node) {
 
 const SUBTAB_GROUPS = {
   "rp-sites": ["assessed", "unassessed", "pre-pledge", "non-signatory"],
-  agg: ["company", "signatory", "state", "utility"],
 };
 
 // Last-clicked sub-tab per group, for this session only. Same reasoning as
@@ -3923,18 +3880,6 @@ async function exportAggregateToPDF() {
       `<h2 style="font-size:14px;margin-top:16px;">By Utility</h2>${utHtml}`,
     `dcb-aggregate-${today}.pdf`
   );
-}
-
-function renderThemeLegend() {
-  const ul = document.getElementById("theme-legend");
-  ul.innerHTML = "";
-  for (const t of THEMES) {
-    const li = document.createElement("li");
-    li.className = "theme-chip";
-    li.style.setProperty("--theme-color", `var(--theme-${t})`);
-    li.textContent = THEME_LABELS[t];
-    ul.appendChild(li);
-  }
 }
 
 function renderMatrix() {
@@ -7031,14 +6976,11 @@ function renderAggregateView() {
   // Build rollups once and pass to each renderer to avoid triple iteration.
   const coRows = buildCompanyRollups();
   const stRows = buildStateRollups();
-  renderAggregateStats(coRows, stRows);
   renderCompanyRollup(coRows);
   renderSignatoryCategoryRollup();
   renderStateRollup(stRows);
   renderUtilityRollup(sortAggRows(buildUtilityRollups(), "utility"));
   wireAggSort();
-  wireSubtabs();
-  setActiveSubtab("agg", _activeSubtab.agg || "company");
   wireBtn("agg-csv-btn", downloadAggregateCSV);
   wireBtn("agg-pdf-btn", exportAggregateToPDF);
 }
@@ -7126,7 +7068,7 @@ function buildUtilityRollups() {
 function renderUtilityRollup(rows) {
   const tbody = document.getElementById("agg-utility-tbody");
   if (!tbody) return;
-  setSubtabCount("agg-utility-count", rows.length);
+  setAccCount("agg-utility-count", rows.length, "utility", "utilities");
   const sub = document.getElementById("agg-utility-sub");
   if (sub) {
     const signed = rows.filter((r) => r.sig).length;
@@ -7329,33 +7271,6 @@ function aggTotals(rows) {
   );
 }
 
-function renderAggregateStats(preCoRows, preStRows) {
-  const ul = document.getElementById("agg-stats");
-  if (!ul) return;
-  ul.innerHTML = "";
-
-  const coRows = preCoRows || buildCompanyRollups();
-  const stRows = preStRows || buildStateRollups();
-  const tot = aggTotals(coRows);
-
-  const tiles = [
-    { value: formatSummaryUsd(tot.capex), label: "total claimed investment" },
-    { value: tot.jobs.toLocaleString(), label: "total claimed jobs" },
-    { value: formatSummaryGW(tot.power_mw), label: "total announced power" },
-    { value: String(stRows.length), label: "states with projects" },
-  ];
-
-  for (const t of tiles) {
-    const li = document.createElement("li");
-    li.className = "rp-stat";
-    li.innerHTML = `
-      <span class="rp-stat-value">${escapeHtml(t.value)}</span>
-      <span class="rp-stat-label">${escapeHtml(t.label)}</span>
-    `;
-    ul.appendChild(li);
-  }
-}
-
 function stanceSpan(pos, mix, neg) {
   return (
     `<span class="stance-dot positive" title="Positive"></span>${pos} ` +
@@ -7420,7 +7335,7 @@ function renderSignatoryCategoryRollup() {
   const tbody = document.getElementById("agg-signatory-tbody");
   if (!tbody) return;
   const rows = buildSignatoryCategoryRollups();
-  setSubtabCount("agg-signatory-count", rows.length);
+  setAccCount("agg-signatory-count", rows.length, "category", "categories");
 
   tbody.replaceChildren(
     ...rows.map((r) => {
@@ -7461,7 +7376,7 @@ function renderCompanyRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildCompanyRollups(), "company");
   const tot = aggTotals(rows);
-  setSubtabCount("agg-company-count", rows.length);
+  setAccCount("agg-company-count", rows.length, "company", "companies");
 
   tbody.innerHTML = rows
     .map(
@@ -7505,7 +7420,7 @@ function renderStateRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildStateRollups(), "state");
   const tot = aggTotals(rows);
-  setSubtabCount("agg-state-count", rows.length);
+  setAccCount("agg-state-count", rows.length, "state");
 
   tbody.innerHTML = rows
     .map(

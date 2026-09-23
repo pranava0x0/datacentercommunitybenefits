@@ -99,8 +99,12 @@ Enhanced detailed research on the 10 most significant data center moratoriums an
 - **Notable:** House 105-1, Senate 28-2; national exemplar of "precautionary" environmental governance
 - **File:** `moratoriums_enhanced_high_priority.json` (id: `vermont-state-2026-03`)
 
-> **Correction (2026-09-23).** Entries 8 and 9 below are wrong and were
-> removed from the dataset. Washington SB 5982 (2024) is a Department of
+> **Correction (2026-09-23).** This batch is unreliable: 5 of its 9 records
+> were fabricated (WA SB 5982, MA S.2455, VT H.149, ID HB620 are unrelated
+> bills; OK HB 2992 is a different 2026 law) and 3 had wrong facts (Maine LD
+> 307 was vetoed, not enacted; Denver's sponsors and vote; Minnesota HF 4888
+> is a pending 2026 bill). Only New York checked out. All were removed or
+> corrected in `moratoriums.json`. Entries 8 and 9 below: Washington SB 5982 (2024) is a Department of
 > Health bill unrelated to data centers (legislature record: sponsors
 > Cleveland et al., "By request: Department of Health", Chapter 41, 2024
 > Laws); the data-center record built on it was fabricated. Oklahoma HB 2992
