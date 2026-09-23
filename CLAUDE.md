@@ -1334,10 +1334,14 @@ numbers is the "11 signatories" failure waiting to happen; before adding a
 tab, name the one question only it answers.
 
 **Policy Playbook** (`#policies`, was "Policies & Agreements") leads with
-`Policy.principles`, a frozen 8-value vocabulary of what a policy asks OF data
+`Policy.principles`, a frozen 9-value vocabulary of what a policy asks OF data
 centers: pay own grid costs, binding community benefits, conditioned tax
 breaks, water, no secret deals, local siting say, new supply for new demand,
-state review. Rules for the vocabulary:
+environmental review, study. **Environmental review and study were one value
+("states review large projects") until the user asked what it meant:** a
+permit condition with public comment and an advisory council are different
+asks, and one label hid both. When a principle needs a sentence to explain,
+it is probably two principles. Rules for the vocabulary:
 - **Curator-assigned, primary first, max 3.** A keyword pass over-tagged
   (six principles on one EO, none on others), so every record was assigned
   by hand. Don't regex-classify principles.
@@ -1359,6 +1363,21 @@ state review. Rules for the vocabulary:
 - Empty states are one short sentence.
 - Stat tiles size to their content (`flex: 0 1 auto`); a row of four numbers
   never stretches to full width.
+
+**Type system (enforced by tests/test_type_scale.py):**
+- **Two families only**, `--font-sans` and `--font-serif`. The audit found
+  five: a stray Georgia stack, `monospace` on bill ids, and Leaflet's
+  Helvetica Neue / Lucida Console. Leaflet's CSS lazy-loads after ours and
+  wins ties, so its override needs a `body` prefix.
+- **One size scale:** nine `--fs-*` tokens, from 11px labels to the 1.55rem
+  masthead. It replaced 35 distinct sizes. A new size is a design decision:
+  add a token or reuse one.
+- **No `clamp()` display sizes.** The pledge band's title and Roman numerals
+  scaled past the site title.
+- **Uppercase labels share one weight (600) and one tracking (0.05em).**
+- Measure before restyling: a Playwright walk over every visible text node
+  per tab, counting (family, size, weight, case) combinations. It went from
+  79 combinations to 37. Re-run it after any visual change.
 
 **The 2026-07 "enhanced high-priority" moratorium batch is poisoned.** 5 of
 its 9 records were fabricated: WA SB 5982, MA S.2455, VT H.149 and ID HB620

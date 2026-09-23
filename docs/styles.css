@@ -160,6 +160,18 @@
     "Instrument Serif", Georgia, "Iowan Old Style", "Palatino Linotype",
     Palatino, "Book Antiqua", "Times New Roman", serif;
 
+  /* Type scale (2026-09-23). Every font-size in this sheet is one of these;
+     a new size is a design decision, not a styling one. */
+  --fs-2xs: 0.6875rem; /* 11px: uppercase labels, pills */
+  --fs-xs: 0.75rem; /* 12px: meta, notes, table headers */
+  --fs-sm: 0.8125rem; /* 13px: secondary text, card body */
+  --fs-base: 0.875rem; /* 14px: tables, lists, body UI */
+  --fs-md: 1rem; /* 16px: deks, reading text */
+  --fs-lg: 1.125rem; /* 18px: card titles */
+  --fs-xl: 1.28rem; /* section headings */
+  --fs-2xl: 1.4rem; /* view headings */
+  --fs-3xl: 1.55rem; /* masthead, stat numerals */
+
   --radius-sm: 4px;
   --radius: 8px;
   --shadow-sm: 0 1px 2px rgba(17, 21, 28, 0.06);
@@ -276,7 +288,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: var(--fs-md);
   line-height: 1.5;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
@@ -297,25 +309,25 @@ h4 {
    the page (news-masthead convention, and 2026-08-24 user direction — view
    headings must never outrank it). h1 1.5 > h2 1.4 > .acc-title 1.28 > h3 1.2. */
 h1 {
-  font-size: 1.5rem;
+  font-size: var(--fs-3xl);
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: var(--fs-2xl);
   line-height: 1.2;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: var(--fs-md);
   font-family: var(--font-sans);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
 }
 
@@ -419,7 +431,7 @@ select:focus-visible,
 
 .topbar-sub {
   margin: 4px 0 0;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   color: var(--text-muted);
 }
 
@@ -435,7 +447,7 @@ select:focus-visible,
   border-radius: var(--radius-sm);
   width: 36px;
   height: 36px;
-  font-size: 1.1rem;
+  font-size: var(--fs-lg);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -476,7 +488,7 @@ select:focus-visible,
    load-bearing words, but not the headline read. */
 .pledge-hero-fineprint {
   margin: 8px 0 0;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   letter-spacing: 0.01em;
   color: var(--text-muted);
   opacity: 0.85;
@@ -512,20 +524,20 @@ select:focus-visible,
 }
 
 .pledge-stat-num {
-  font-size: 1.55rem;
+  font-size: var(--fs-3xl);
   font-weight: 700;
   line-height: 1;
   color: var(--accent);
 }
 
 .pledge-stat-lbl {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   line-height: 1.3;
   color: var(--text-muted);
 }
 
 .pledge-stat-note {
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
   opacity: 0.75;
 }
@@ -608,21 +620,22 @@ select:focus-visible,
 
 .home-card-tag {
   font-family: var(--font-sans);
-  font-size: 0.66rem;
-  letter-spacing: 0.12em;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
+  font-weight: 600;
 }
 
 .home-card-title {
   font-family: var(--font-serif);
-  font-size: 1.12rem;
+  font-size: var(--fs-lg);
   line-height: 1.2;
   color: var(--text);
 }
 
 .home-card-dek {
-  font-size: 0.84rem;
+  font-size: var(--fs-sm);
   line-height: 1.45;
   color: var(--text-muted);
 }
@@ -631,7 +644,7 @@ select:focus-visible,
   margin-top: auto;
   padding-top: 8px;
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   letter-spacing: 0.04em;
   color: var(--text);
 }
@@ -668,7 +681,7 @@ select:focus-visible,
   border-bottom: 2px solid transparent;
   padding: 10px 16px;
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   font-weight: 500;
   white-space: nowrap;
   flex-shrink: 0;
@@ -716,8 +729,8 @@ main {
 .eyebrow {
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin: 0 0 6px;
   font-weight: 600;
@@ -730,7 +743,7 @@ main {
 .hero-dek {
   margin: 0;
   color: var(--text-muted);
-  font-size: 1rem;
+  font-size: var(--fs-md);
   line-height: 1.5;
 }
 
@@ -754,7 +767,7 @@ main {
 .matrix {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
 }
 
 .matrix th,
@@ -778,7 +791,7 @@ main {
 .matrix thead th {
   background: var(--surface-2);
   font-weight: 600;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -837,7 +850,7 @@ main {
    the digit so the binary "yes, claim recorded" signal reads at a glance. */
 .matrix .count.check {
   color: var(--accent);
-  font-size: 1.05rem;
+  font-size: var(--fs-md);
   line-height: 1;
 }
 
@@ -871,7 +884,7 @@ main {
   border-radius: var(--radius);
   padding: 10px 14px;
   box-shadow: var(--shadow-sm);
-  font-size: 0.92rem;
+  font-size: var(--fs-base);
 }
 
 /* Compact variant — used inside the project detail pane (and anywhere
@@ -883,7 +896,7 @@ main {
 
 .claims-list.compact .claim-card {
   padding: 8px 12px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   box-shadow: none;
 }
 
@@ -892,7 +905,7 @@ main {
   flex-wrap: wrap;
   gap: 6px 10px;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-bottom: 4px;
   line-height: 1.3;
@@ -910,11 +923,12 @@ main {
   padding: 0 7px;
   background: var(--surface-2);
   border-radius: 999px;
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   line-height: 1.6;
+  font-weight: 600;
 }
 
 .claim-theme::before {
@@ -928,7 +942,7 @@ main {
 
 .claim-quote {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   line-height: 1.4;
   margin: 0 0 4px;
   color: var(--text);
@@ -947,17 +961,17 @@ main {
 }
 
 .claims-list.compact .claim-quote {
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
   line-height: 1.35;
 }
 
 .claim-source {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   margin: 0;
 }
 
 .claims-list.compact .claim-source {
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
 }
 
 .claim-source a {
@@ -975,7 +989,7 @@ main {
   background: var(--accent-soft);
   border-radius: var(--radius-sm);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text);
 }
 
@@ -988,12 +1002,12 @@ main {
   border-radius: var(--radius-sm);
   border-left: 3px solid currentColor;
   background: var(--surface-2);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--text);
 }
 
 .claims-list.compact .claim-delivered {
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   padding: 6px 8px;
   margin-top: 8px;
 }
@@ -1029,9 +1043,9 @@ main {
   background: currentColor;
   color: var(--surface);
   border-radius: 999px;
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   /* Dark-mode bump: when currentColor is a light token (delivered/positive
      etc), the contrast against --surface needs the surface to be the *light*
@@ -1043,15 +1057,16 @@ main {
 }
 
 .delivered-label {
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
 .delivered-date {
   margin-left: auto;
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
   font-family: var(--font-sans);
 }
@@ -1064,7 +1079,7 @@ main {
 
 .delivered-source {
   margin: 6px 0 0;
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
 }
 
@@ -1098,14 +1113,15 @@ main {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
 }
 
 .filter span {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
 .filter select {
@@ -1123,7 +1139,7 @@ main {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 7px 12px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
 }
 
 .btn-ghost:hover {
@@ -1162,13 +1178,13 @@ main {
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 12px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .map-legend h4 {
   margin: 0 0 8px;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--text);
 }
@@ -1183,7 +1199,7 @@ main {
 
 .legend-section strong {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -1209,19 +1225,19 @@ main {
 .legend-item-opacity-40 {
   color: var(--accent);
   opacity: 0.4;
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
 }
 
 .legend-item-opacity-65 {
   color: var(--accent);
   opacity: 0.65;
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
 }
 
 .legend-item-opacity-90 {
   color: var(--accent);
   opacity: 0.9;
-  font-size: 1.2rem;
+  font-size: var(--fs-lg);
 }
 
 .explorer-list {
@@ -1234,7 +1250,7 @@ main {
 }
 
 .list-meta {
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   color: var(--text-muted);
   margin: 0 0 8px;
 }
@@ -1269,11 +1285,11 @@ main {
 .project-name {
   font-weight: 600;
   margin: 0 0 2px;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
 }
 
 .project-meta {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   display: flex;
   flex-wrap: wrap;
@@ -1312,7 +1328,7 @@ main {
 .matrix-help {
   margin: 0 0 12px;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   line-height: 1.45;
   max-width: 720px;
 }
@@ -1333,7 +1349,7 @@ main {
 .company-summary {
   margin: 0 0 16px;
   font-family: var(--font-serif);
-  font-size: 1.02rem;
+  font-size: var(--fs-md);
   line-height: 1.55;
   color: var(--text);
 }
@@ -1341,7 +1357,7 @@ main {
 .company-summary.muted {
   color: var(--text-muted);
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
 }
 
 .detail-cta {
@@ -1368,7 +1384,7 @@ main {
 .at-a-glance-sub {
   margin: 0 0 10px;
   color: var(--text-muted);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   line-height: 1.4;
 }
 
@@ -1387,7 +1403,7 @@ main {
   padding: 6px 0;
   border-bottom: 1px solid var(--border);
   align-items: baseline;
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
 }
 
 .at-a-glance-row:last-child {
@@ -1398,7 +1414,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
@@ -1457,7 +1473,7 @@ main {
   border-radius: var(--radius-sm);
   width: 32px;
   height: 32px;
-  font-size: 1.4rem;
+  font-size: var(--fs-2xl);
   line-height: 1;
   color: var(--text-muted);
 }
@@ -1475,7 +1491,7 @@ main {
 
 .detail-sub {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   margin: 4px 0 0;
 }
 
@@ -1498,7 +1514,7 @@ main {
   padding: 8px 14px 9px;
   margin-bottom: -1px;
   color: var(--text-muted);
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -1520,7 +1536,7 @@ main {
   color: var(--text-muted);
   border-radius: 999px;
   padding: 0 7px;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-variant-numeric: tabular-nums;
   line-height: 1.6;
 }
@@ -1539,7 +1555,7 @@ main {
   grid-template-columns: 160px 1fr;
   gap: 6px 16px;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
 }
 
 .kv dt {
@@ -1559,7 +1575,7 @@ main {
 
 .response-help {
   margin: 0 0 12px;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   line-height: 1.45;
 }
@@ -1577,7 +1593,7 @@ main {
   background: var(--stance-soft, var(--surface-2));
   border-radius: var(--radius-sm);
   padding: 10px 14px;
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
 }
 
 .response-card.positive {
@@ -1600,7 +1616,7 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: 6px 10px;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-bottom: 6px;
 }
@@ -1608,7 +1624,7 @@ main {
 .response-stance {
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--stance-color, var(--text));
 }
 
@@ -1619,7 +1635,7 @@ main {
 }
 
 .response-source {
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
 }
 
 .response-source a {
@@ -1629,12 +1645,13 @@ main {
 .badge-single-source {
   display: inline-block;
   padding: 0 6px;
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   border: 1px solid var(--border-strong);
   border-radius: 999px;
+  font-weight: 600;
 }
 
 /* ==========================================================================
@@ -1647,7 +1664,7 @@ main {
   padding: 16px 20px 32px;
   border-top: 1px solid var(--border);
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
 }
 
 .site-footer p {
@@ -1667,7 +1684,7 @@ main {
   color: var(--bg);
   padding: 10px 16px;
   border-radius: var(--radius);
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms ease;
@@ -1715,11 +1732,11 @@ main {
 
   .tab {
     padding: 8px 12px;
-    font-size: 0.9rem;
+    font-size: var(--fs-base);
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: var(--fs-2xl);
   }
 
   .hero {
@@ -1727,7 +1744,7 @@ main {
   }
 
   .matrix {
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
   }
 
   .matrix th,
@@ -1790,20 +1807,20 @@ main {
 }
 
 .rp-stat-value {
-  font-size: 1.55rem;
+  font-size: var(--fs-3xl);
   font-weight: 700;
   line-height: 1;
   color: var(--rp-color);
 }
 
 .rp-stat-label {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   line-height: 1.3;
 }
 
 .rp-stat-breakdown {
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
   opacity: 0.75;
   line-height: 1.3;
@@ -1831,7 +1848,7 @@ main {
 
 .mor-chart-title {
   font-family: var(--font-serif);
-  font-size: 1.02rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--text);
   margin-bottom: 0.85rem;
@@ -1843,7 +1860,7 @@ main {
 
 .mor-chart-sub {
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   font-weight: 400;
   color: var(--text-muted);
 }
@@ -1872,7 +1889,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -1931,7 +1948,7 @@ main {
 }
 
 .mtl-total {
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   color: var(--text-muted);
   font-feature-settings: "tnum" 1;
@@ -1986,7 +2003,7 @@ main {
   background: transparent;
   color: var(--text-muted);
   font: inherit;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   line-height: 1.4;
   padding: 0.18rem 0.6rem;
@@ -2018,7 +2035,7 @@ main {
 }
 
 .mtl-label {
-  font-size: 0.64rem;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
   margin-top: 5px;
   white-space: nowrap;
@@ -2040,7 +2057,7 @@ main {
 }
 
 .mhb-label {
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   color: var(--text);
   text-align: right;
   line-height: 1.2;
@@ -2061,7 +2078,7 @@ main {
 }
 
 .mhb-val {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--text);
   text-align: left;
@@ -2074,7 +2091,7 @@ main {
     gap: 0.4rem;
   }
   .mhb-label {
-    font-size: 0.7rem;
+    font-size: var(--fs-2xs);
   }
 }
 
@@ -2102,7 +2119,7 @@ main {
   /* The display face carries weight optically; 600 makes it look printed
      twice. Same 400 the pledge band and .rp-subhead already use. */
   font-weight: 400;
-  font-size: 1.28rem;
+  font-size: var(--fs-xl);
   line-height: 1.2;
   letter-spacing: -0.012em;
   color: var(--text);
@@ -2116,7 +2133,7 @@ main {
 .matrix-help,
 .acc-sub {
   margin: 0 0 1rem;
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   color: var(--text-muted);
   max-width: 64ch;
   line-height: 1.45;
@@ -2202,11 +2219,12 @@ main {
 .acc-count {
   flex: 0 0 auto;
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
+  font-weight: 600;
 }
 
 /* Fires only when the count is genuinely unloaded -- a zero renders "0". */
@@ -2291,7 +2309,7 @@ main {
   background: none;
   color: var(--text-muted);
   font: inherit;
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
   cursor: pointer;
   white-space: nowrap;
   transition:
@@ -2317,7 +2335,7 @@ main {
 
 .subtab-count {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   background: var(--surface-2);
   border-radius: 999px;
@@ -2443,7 +2461,7 @@ main {
 }
 
 .rp-legend-chip {
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   padding: 0.22rem 0.6rem;
   border-radius: 999px;
@@ -2497,26 +2515,26 @@ main {
 }
 
 .rp-card-company {
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--co-color);
 }
 
 .rp-card-name {
-  font-size: 0.88rem;
-  font-weight: 650;
+  font-size: var(--fs-base);
+  font-weight: 600;
   line-height: 1.3;
 }
 
 .rp-card-loc {
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
 .rp-card-dates {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   opacity: 0.8;
 }
@@ -2533,7 +2551,7 @@ main {
 .rp-basis {
   display: inline-flex;
   align-items: center;
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   padding: 0.08rem 0.5rem;
   border-radius: 999px;
@@ -2556,7 +2574,7 @@ main {
 .rp-conflict-flag {
   display: inline-flex;
   align-items: center;
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   padding: 0.08rem 0.5rem;
   border-radius: 999px;
@@ -2576,7 +2594,7 @@ main {
 }
 
 .rp-conflicts-head {
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   color: var(--ratepayer-contested);
   margin-bottom: 0.5rem;
@@ -2594,7 +2612,7 @@ main {
 
 .rp-conflict-summary {
   margin: 0 0 0.25rem;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text);
   line-height: 1.4;
 }
@@ -2604,7 +2622,7 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem 0.6rem;
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
 }
 
@@ -2649,31 +2667,31 @@ main {
 }
 
 .rp-pre-company {
-  font-size: 0.65rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--co-color);
   grid-column: 1;
   grid-row: 1;
 }
 
 .rp-pre-name {
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
   grid-column: 2;
   grid-row: 1;
 }
 
 .rp-pre-loc {
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   grid-column: 3;
   grid-row: 1;
 }
 
 .rp-pre-dates {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   opacity: 0.8;
   grid-column: 2 / -1;
@@ -2708,7 +2726,7 @@ main {
 /* X/5 met pill — fixed width so all pills align regardless of digit */
 .rp-met-pill {
   flex: none;
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   padding: 0.2rem 0;
   border-radius: 999px;
@@ -2737,7 +2755,7 @@ main {
 
 .rp-card-summary {
   margin: 0.7rem 0 0;
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   line-height: 1.5;
   color: var(--text);
 }
@@ -2774,19 +2792,19 @@ main {
 }
 
 .pp-row-label {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--text);
 }
 
 .pp-row-note {
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   color: var(--text);
   line-height: 1.45;
 }
 
 .pp-row-status {
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   white-space: nowrap;
   flex-shrink: 0;
@@ -2797,7 +2815,7 @@ main {
 }
 
 .pp-row-src {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-weight: 400;
   color: inherit;
   opacity: 0.7;
@@ -2838,15 +2856,15 @@ main {
   margin-top: 0.7rem;
   padding-top: 0.55rem;
   border-top: 1px dashed var(--border);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   line-height: 1.6;
   color: var(--text-muted);
 }
 .rp-card-sources .rp-sources-label {
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  font-size: var(--fs-2xs);
   margin-right: 0.3rem;
 }
 .rp-card-sources a {
@@ -2877,8 +2895,8 @@ main {
   display: block;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  font-size: var(--fs-2xs);
   color: var(--text-muted);
   margin-bottom: 0.45rem;
 }
@@ -2895,7 +2913,7 @@ main {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.45rem;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   line-height: 1.45;
 }
 .rp-claim-theme {
@@ -2906,11 +2924,12 @@ main {
   padding: 0 7px;
   background: var(--surface-2);
   border-radius: 999px;
-  font-size: 0.64rem;
+  font-size: var(--fs-2xs);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   line-height: 1.7;
+  font-weight: 600;
 }
 .rp-claim-theme::before {
   content: "";
@@ -2929,10 +2948,10 @@ main {
 .rp-claim-date {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
 }
 .rp-claim-flag {
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   color: var(--ratepayer-affirmed, var(--accent));
   white-space: nowrap;
@@ -2944,7 +2963,7 @@ main {
 
 .rp-footnote {
   margin: 1.5rem 0 0;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   max-width: 70ch;
   line-height: 1.45;
@@ -3052,15 +3071,16 @@ main {
 
 .hot-card-eyebrow {
   margin: 0;
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
+  font-weight: 600;
 }
 
 .hot-card-title {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--text);
   line-height: 1.3;
@@ -3068,20 +3088,20 @@ main {
 
 .hot-card-loc {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
 }
 
 .hot-card-hint {
   margin: 6px 0 0;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text);
   line-height: 1.4;
 }
 
 .hot-card-cta {
   margin: 8px 0 0;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--link);
   align-self: flex-end;
 }
@@ -3102,7 +3122,7 @@ main {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   color: var(--text);
   cursor: pointer;
   transition: background 120ms ease, border-color 120ms ease;
@@ -3156,14 +3176,14 @@ main {
 .agg-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.875rem;
+  font-size: var(--fs-base);
   background: var(--surface);
 }
 
 .agg-table th {
   background: var(--surface-2, var(--surface));
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -3227,7 +3247,7 @@ main {
 
 .agg-pill {
   display: inline-block;
-  font-size: 0.67rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   padding: 1px 4px;
   border-radius: 3px;
@@ -3261,14 +3281,14 @@ main {
 .moratorium-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.875rem;
+  font-size: var(--fs-base);
   background: var(--surface);
 }
 
 .moratorium-table th {
   background: var(--surface-2, var(--surface));
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -3378,10 +3398,10 @@ body.moratorium-modal-open {
   margin-top: 20px;
 }
 .moratorium-stakeholders h4 {
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   margin: 0 0 10px;
 }
@@ -3389,10 +3409,10 @@ body.moratorium-modal-open {
   margin-bottom: 10px;
 }
 .mstakeholder-category {
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   margin: 0 0 4px;
 }
@@ -3409,7 +3429,7 @@ body.moratorium-modal-open {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 2px 8px;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   color: var(--text);
 }
 /* Opposed group gets a subtle red tint */
@@ -3477,7 +3497,7 @@ body.moratorium-modal-open {
 /* Coverage count surfaced in the params heading. */
 .td-elem-tally {
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   color: var(--text-muted);
   margin-left: 0.4rem;
 }
@@ -3505,7 +3525,7 @@ body.tariff-modal-open {
 }
 .tariff-row-type {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-top: 0.1rem;
 }
@@ -3522,7 +3542,7 @@ body.tariff-modal-open {
 .badge-tariff-federal {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   font-weight: 500;
 }
 .badge-tariff-status-approved {
@@ -3541,7 +3561,7 @@ body.tariff-modal-open {
   background-color: var(--tariff-federal-soft);
   color: var(--tariff-federal);
   border: 1px solid var(--border);
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   letter-spacing: 0.04em;
   margin-left: 0.3rem;
@@ -3569,10 +3589,11 @@ body.tariff-modal-open {
 }
 .tariff-coverage-group-title {
   margin: 0 0 0.4rem;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
+  font-weight: 600;
 }
 .tariff-coverage-row {
   display: flex;
@@ -3589,7 +3610,7 @@ body.tariff-modal-open {
   border-radius: 18px;
   cursor: pointer;
   font: inherit;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text);
   transition: border-color 0.15s ease, background 0.15s ease;
 }
@@ -3616,7 +3637,7 @@ body.tariff-modal-open {
   justify-content: center;
   background: var(--surface-2, rgba(0,0,0,0.06));
   border-radius: 50%;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -3638,17 +3659,17 @@ body.tariff-modal-open {
 }
 .tariff-popout-title {
   margin: 0 0 0.25rem;
-  font-size: 1rem;
+  font-size: var(--fs-md);
 }
 .tariff-popout-n {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 500;
   color: var(--text-muted);
   margin-left: 0.4rem;
 }
 .tariff-popout-desc {
   margin: 0 0 0.75rem;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   color: var(--text-muted);
 }
 .tariff-popout-list {
@@ -3672,10 +3693,10 @@ body.tariff-modal-open {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.4rem;
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
 }
 .tpi-state {
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   letter-spacing: 0.03em;
   padding: 0.05rem 0.4rem;
@@ -3685,17 +3706,18 @@ body.tariff-modal-open {
 }
 .tpi-detail {
   margin: 0.25rem 0 0;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
 }
 .tariff-partial-tag {
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--tariff-partial);
   background: var(--tariff-partial-soft);
   border-radius: 4px;
   padding: 0.05rem 0.35rem;
+  font-weight: 600;
 }
 
 /* Detail pop-out: per-element checklist */
@@ -3707,12 +3729,13 @@ body.tariff-modal-open {
 }
 .tparam-group-title {
   margin: 0 0 0.4rem;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.25rem;
+  font-weight: 600;
 }
 .tparam-list {
   list-style: none;
@@ -3735,7 +3758,7 @@ body.tariff-modal-open {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   font-weight: 700;
   margin-top: 0.05rem;
 }
@@ -3757,7 +3780,7 @@ body.tariff-modal-open {
   gap: 0.1rem;
 }
 .tparam-label {
-  font-size: 0.86rem;
+  font-size: var(--fs-base);
   font-weight: 600;
 }
 .tparam-status {
@@ -3769,13 +3792,13 @@ body.tariff-modal-open {
   font-weight: 500;
 }
 .tparam-detail {
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   line-height: 1.4;
 }
 .tparam-src {
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
 }
 
 /* Additional terms + legislation lists */
@@ -3790,18 +3813,18 @@ body.tariff-modal-open {
 }
 .tariff-additional-list li,
 .tariff-legislation-list li {
-  font-size: 0.86rem;
+  font-size: var(--fs-base);
   line-height: 1.45;
 }
 .tleg-meta {
   display: inline-block;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-left: 0.4rem;
 }
 .tleg-summary {
   display: block;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   margin-top: 0.1rem;
 }
@@ -3824,31 +3847,31 @@ body.tariff-modal-open {
   padding: 10px 12px;
   max-width: 320px;
   pointer-events: none;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   line-height: 1.45;
   color: var(--text);
 }
 
 .mtt-theme {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: var(--theme-color, var(--text-muted));
   margin-bottom: 6px;
 }
 
 .mtt-quote {
   margin: 0 0 6px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.82rem;
+  font-family: var(--font-serif);
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--text);
 }
 
 .mtt-hint {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   display: block;
   margin-top: 2px;
@@ -3864,10 +3887,10 @@ body.tariff-modal-open {
 
 .claim-cba-badge {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   padding: 2px 7px;
   border-radius: 3px;
   background: var(--stance-positive-soft);
@@ -3894,10 +3917,10 @@ body.tariff-modal-open {
 }
 
 .cd-breakdown-heading {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   color: var(--text-muted);
   margin: 0 0 10px;
 }
@@ -3907,13 +3930,13 @@ body.tariff-modal-open {
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
 }
 
 .cb-label {
   flex: 0 0 120px;
   color: var(--text);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -3941,13 +3964,13 @@ body.tariff-modal-open {
 .cb-total {
   flex: 0 0 20px;
   text-align: right;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
 
 .cb-summary {
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin: 8px 0 0;
 }
@@ -3989,7 +4012,7 @@ body.tariff-modal-open {
   display: inline-block;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 500;
   white-space: nowrap;
 }
@@ -4094,7 +4117,7 @@ body.tariff-modal-open {
   color: #065f46;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   font-weight: 500;
 }
 
@@ -4103,7 +4126,7 @@ body.tariff-modal-open {
   color: #78350f;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   font-weight: 500;
 }
 
@@ -4112,7 +4135,7 @@ body.tariff-modal-open {
   color: #7f1d1d;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   font-weight: 500;
 }
 
@@ -4122,7 +4145,7 @@ body.tariff-modal-open {
   color: var(--text-primary);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   font-weight: 500;
   border: 1px solid var(--border-color);
 }
@@ -4165,7 +4188,7 @@ body.tariff-modal-open {
 .badge-reason-equity {
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 500;
   display: inline-block;
   margin: 0 0.25rem 0.25rem 0;
@@ -4202,7 +4225,7 @@ body.tariff-modal-open {
   border-radius: 18px;
   cursor: pointer;
   font: inherit;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   color: var(--text);
   transition: border-color 0.15s ease, background 0.15s ease;
   white-space: nowrap;
@@ -4260,14 +4283,14 @@ body.tariff-modal-open {
 }
 
 .theme-popout-title {
-  font-size: 1.1rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 0.3rem 0;
 }
 
 .theme-popout-desc {
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   color: var(--text-muted);
   margin: 0;
 }
@@ -4297,8 +4320,8 @@ body.tariff-modal-open {
 }
 
 .evidence-moratorium {
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: var(--fs-sm);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent);
@@ -4306,7 +4329,7 @@ body.tariff-modal-open {
 }
 
 .evidence-text {
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   line-height: 1.5;
   color: var(--text);
   margin: 0 0 0.8rem 0;
@@ -4323,7 +4346,7 @@ body.tariff-modal-open {
 }
 
 .evidence-proposals li {
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   line-height: 1.4;
   color: var(--text);
   padding-left: 1.2rem;
@@ -4346,7 +4369,7 @@ body.tariff-modal-open {
 }
 
 .moratorium-resources h4 {
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   margin-bottom: 0.85rem;
   color: var(--text);
@@ -4369,7 +4392,7 @@ body.tariff-modal-open {
 .resources-list a {
   color: var(--link);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -4381,7 +4404,7 @@ body.tariff-modal-open {
 
 .moratorium-summary {
   margin: 1rem 0;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   line-height: 1.5;
   color: var(--text);
 }
@@ -4389,9 +4412,9 @@ body.tariff-modal-open {
 /* Bill number chip shown in the jurisdiction table cell */
 .moratorium-bill-id {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
-  font-family: monospace;
+  font-variant-numeric: tabular-nums;
   color: var(--muted);
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -4404,10 +4427,10 @@ body.tariff-modal-open {
 /* .gov badge on official government links in the resources list */
 .badge-gov {
   display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 700;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   background: var(--stance-positive, #1a7a4a);
   color: #fff;
   border-radius: 3px;
@@ -4419,7 +4442,7 @@ body.tariff-modal-open {
 /* China national security context. The outer collapsible skin is now the
    shared .acc component; only the inner content styling lives here. */
 .china-context-detail {
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
   line-height: 1.6;
   color: var(--text);
 }
@@ -4427,7 +4450,7 @@ body.tariff-modal-open {
 .china-context-detail h4 {
   margin-top: 1.25rem;
   margin-bottom: 0.6rem;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--text);
   border-bottom: 1px solid var(--border-strong);
@@ -4461,7 +4484,7 @@ body.tariff-modal-open {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
 }
 
 .china-context-detail table thead {
@@ -4592,10 +4615,11 @@ nav {
   margin: 0 0 14px;
   padding-top: 14px;
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--band-accent);
+  font-weight: 600;
 }
 
 .rp-band-kicker::before {
@@ -4612,7 +4636,7 @@ nav {
   margin: 0 0 24px;
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+  font-size: var(--fs-2xl);
   line-height: 1.12;
   letter-spacing: -0.012em;
   color: var(--band-text);
@@ -4638,7 +4662,7 @@ nav {
 .rp-commit-num {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-size: var(--fs-3xl);
   line-height: 0.85;
   color: var(--band-accent);
 }
@@ -4651,14 +4675,14 @@ nav {
   margin: 0 0 6px;
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  font-size: var(--fs-lg);
   line-height: 1.18;
   color: var(--band-text);
 }
 
 .rp-commit-dek {
   margin: 0 0 12px;
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
   line-height: 1.55;
   color: var(--band-text-muted);
   max-width: 62ch;
@@ -4677,7 +4701,7 @@ nav {
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid var(--band-hairline);
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   color: var(--band-text);
 }
 
@@ -4700,13 +4724,13 @@ nav {
 
 .rp-commit-empty,
 .rp-commit-chip.is-unknown {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--band-text-muted);
 }
 
 .rp-band-source {
   margin: 18px 0 0;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--band-text-muted);
 }
@@ -4725,7 +4749,7 @@ nav {
   padding: 10px 12px;
   border-left: 3px solid var(--accent);
   background: var(--surface-2);
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--text-muted);
 }
@@ -4737,7 +4761,7 @@ nav {
   font-family: var(--font-serif);
   font-weight: 400;
   margin: 26px 0 6px;
-  font-size: 1.15rem;
+  font-size: var(--fs-lg);
   color: var(--text);
 }
 
@@ -4768,7 +4792,7 @@ nav {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font: inherit;
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
 }
 
 .rp-roster-filters {
@@ -4785,7 +4809,7 @@ nav {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   cursor: pointer;
 }
@@ -4797,13 +4821,13 @@ nav {
 }
 
 .rp-roster-chip-n {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   opacity: 0.75;
 }
 
 .rp-roster-count {
   margin: 4px 0 10px;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -4815,7 +4839,7 @@ nav {
   align-items: baseline;
   padding: 8px 0;
   border-bottom: 1px solid var(--hairline);
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
 }
 
 .rp-sig-name {
@@ -4831,7 +4855,7 @@ nav {
 .rp-sig-cat,
 .rp-sig-track,
 .rp-sig-domain {
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -4840,10 +4864,11 @@ nav {
 }
 
 .rp-sig-tracked {
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--accent);
+  font-weight: 600;
 }
 
 @media (max-width: 700px) {
@@ -4917,7 +4942,7 @@ body.state-modal-open {
 .state-detail .detail-header h3 {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: var(--fs-2xl);
   margin: 2px 0 6px;
 }
 
@@ -4927,7 +4952,7 @@ body.state-modal-open {
 
 .sd-gov-link {
   margin-left: 8px;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
 }
 
 .sd-gov-none {
@@ -4950,19 +4975,19 @@ body.state-modal-open {
   margin: 0 0 8px;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--hairline);
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   color: var(--text);
 }
 
 .sd-section-count {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
 .sd-empty {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--text-muted);
   font-style: italic;
@@ -5002,12 +5027,12 @@ body.state-modal-open {
 }
 
 .sd-item-label {
-  font-size: 0.88rem;
+  font-size: var(--fs-base);
   color: var(--text);
 }
 
 .sd-item-meta {
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -5033,9 +5058,9 @@ body.state-modal-open {
   /* Overrides the global h3; these are panel labels, not section headings. */
   margin: 0 0 10px;
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
@@ -5046,7 +5071,7 @@ body.state-modal-open {
   border: none;
   padding: 0;
   font: inherit;
-  font-size: 0.64rem;
+  font-size: var(--fs-2xs);
   letter-spacing: 0.08em;
   color: var(--text-muted);
   cursor: pointer;
@@ -5098,7 +5123,7 @@ body.state-modal-open {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -5129,13 +5154,13 @@ body.state-modal-open {
 .pledge-bar-note {
   flex-basis: 100%;
   margin-top: 2px;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   font-style: italic;
 }
 
 .pledge-bar-loading {
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   font-style: italic;
 }
@@ -5205,7 +5230,7 @@ body.state-modal-open {
 
 .pledge-strip-key {
   margin: 8px 0 0;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -5221,7 +5246,7 @@ body.state-modal-open {
 
 .wn-sub {
   margin: 0 0 10px;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   max-width: 64ch;
 }
@@ -5258,7 +5283,7 @@ body.state-modal-open {
 
 .wn-date {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: var(--text);
@@ -5272,7 +5297,7 @@ body.state-modal-open {
 
 .wn-state {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   color: var(--text-muted);
   border: 1px solid var(--hairline);
@@ -5289,7 +5314,7 @@ body.state-modal-open {
 }
 
 .wn-text {
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   line-height: 1.45;
   /* Headline treatment: the Home briefing shows the first two lines of a
      milestone; the full regulator prose lives with the rate-case record on
@@ -5301,7 +5326,7 @@ body.state-modal-open {
 }
 
 .wn-meta {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -5314,9 +5339,9 @@ body.state-modal-open {
 
 .agg-utility-signed {
   display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--tariff-approved);
   border: 1px solid var(--tariff-approved);
@@ -5355,7 +5380,7 @@ body.state-modal-open {
 
 .rc-state {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   border: 1px solid var(--hairline);
   border-radius: 4px;
@@ -5369,12 +5394,12 @@ body.state-modal-open {
 
 .rc-title {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: var(--fs-base);
 }
 
 .rc-meta {
   margin: 4px 0 0;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -5397,27 +5422,27 @@ body.state-modal-open {
 
 .rc-summary {
   margin: 6px 0 0;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   max-width: 78ch;
 }
 
 .rc-next {
   margin: 6px 0 0;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
 }
 
 .rc-next-lbl {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  font-size: var(--fs-2xs);
 }
 
 .rc-next-date {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -5440,13 +5465,13 @@ body.state-modal-open {
   display: grid;
   grid-template-columns: 104px 1fr;
   gap: 12px;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   line-height: 1.45;
 }
 
 .pledge-activity-date {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: var(--text);
@@ -5509,7 +5534,7 @@ body.state-modal-open {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font: inherit;
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
 }
 
 .rp-filter-chips {
@@ -5526,7 +5551,7 @@ body.state-modal-open {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   cursor: pointer;
 }
@@ -5549,7 +5574,7 @@ body.state-modal-open {
 }
 
 .rp-filter-chip-n {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   opacity: 0.75;
 }
 
@@ -5557,14 +5582,14 @@ body.state-modal-open {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   cursor: pointer;
 }
 
 .rp-filter-count {
   margin: 0 0 0 auto;
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 
@@ -5597,7 +5622,7 @@ body.state-modal-open {
   background: none;
   border: none;
   font: inherit;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--accent);
   cursor: pointer;
 }
@@ -5624,9 +5649,9 @@ body.state-modal-open {
   /* Overrides the global uppercase h4/h5 treatment. */
   margin: 0 0 4px;
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -5646,7 +5671,7 @@ body.state-modal-open {
   border: none;
   padding: 2px 0;
   font: inherit;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--link);
   text-align: left;
   cursor: pointer;
@@ -5659,7 +5684,7 @@ body.state-modal-open {
 .rp-sig-lens-note,
 .rp-sig-lens-loading {
   margin: 4px 0 0;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   line-height: 1.45;
   color: var(--text-muted);
   font-style: italic;
@@ -5675,7 +5700,7 @@ body.state-modal-open {
   border-radius: 4px;
   border: 1px solid var(--accent);
   color: var(--accent);
-  font-size: 0.66rem;
+  font-size: var(--fs-2xs);
   font-weight: 700;
   letter-spacing: 0.05em;
   vertical-align: middle;
@@ -5687,7 +5712,7 @@ body.state-modal-open {
   gap: 0.25rem;
 }
 .policy-theme {
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -5699,7 +5724,7 @@ body.state-modal-open {
   font-variant-numeric: tabular-nums;
 }
 .policy-captured {
-  font-size: 0.85rem;
+  font-size: var(--fs-base);
   margin-top: 1rem;
 }
 
@@ -5727,9 +5752,9 @@ body.state-modal-open {
   margin-left: 0.35rem;
   padding: 0.1rem 0.4rem;
   border-radius: 4px;
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   vertical-align: middle;
 }
@@ -5774,7 +5799,7 @@ body.state-modal-open {
 .pb-principle-title {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: var(--fs-md);
   font-weight: 400;
   text-transform: none;
   letter-spacing: 0;
@@ -5782,13 +5807,13 @@ body.state-modal-open {
 }
 .pb-principle-desc {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
   line-height: 1.45;
   color: var(--text-muted);
 }
 .pb-principle-counts {
   margin: 0;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--text);
@@ -5828,8 +5853,8 @@ body.state-modal-open {
 }
 .pb-example-where,
 .pb-action-where {
-  font-size: 0.68rem;
-  font-weight: 700;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -5842,12 +5867,12 @@ body.state-modal-open {
   padding-top: 0.12rem;
 }
 .pb-example-title {
-  font-size: 0.84rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
   line-height: 1.3;
 }
 .pb-example-term {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   line-height: 1.35;
   color: var(--text-muted);
   display: -webkit-box;
@@ -5858,7 +5883,7 @@ body.state-modal-open {
 .pb-see-all {
   align-self: flex-start;
   margin-top: 0.15rem;
-  font-size: 0.8rem;
+  font-size: var(--fs-sm);
 }
 
 .pb-actions {
@@ -5889,18 +5914,18 @@ body.state-modal-open {
   text-decoration: underline;
 }
 .pb-action-date {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 .pb-action-text {
-  font-size: 0.86rem;
+  font-size: var(--fs-base);
   line-height: 1.35;
 }
 .pb-action-note {
   grid-column: 3;
-  font-size: 0.74rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 @media (max-width: 560px) {
@@ -5913,4 +5938,21 @@ body.state-modal-open {
   .pb-action-note {
     grid-column: 2;
   }
+}
+
+/* Buttons, selects and inputs default to the platform's UI font, and
+   Leaflet sets Helvetica Neue on the map: both inherit the site face. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+/* Leaflet's stylesheet lazy-loads AFTER this one and sets `font:` shorthands
+   (Helvetica Neue; Lucida Console on the zoom buttons), so an equal-specificity
+   rule here loses. The body prefix wins regardless of load order. */
+body .leaflet-container,
+body .leaflet-container .leaflet-bar a,
+body .leaflet-container .leaflet-control-attribution {
+  font-family: var(--font-sans);
 }

@@ -166,7 +166,8 @@ const POLICY_PRINCIPLES = [
   "transparency",
   "local_control",
   "new_power",
-  "state_review",
+  "environmental_review",
+  "study",
 ];
 const POLICY_PRINCIPLE_LABELS = {
   pay_own_way: "Data centers pay their own grid costs",
@@ -176,7 +177,8 @@ const POLICY_PRINCIPLE_LABELS = {
   transparency: "No secret deals",
   local_control: "Localities keep a say in siting",
   new_power: "New demand brings new supply",
-  state_review: "States review large projects",
+  environmental_review: "Projects get environmental review",
+  study: "States study before setting rules",
 };
 const POLICY_PRINCIPLE_SHORT = {
   pay_own_way: "Grid costs",
@@ -186,7 +188,8 @@ const POLICY_PRINCIPLE_SHORT = {
   transparency: "Disclosure",
   local_control: "Local siting",
   new_power: "New supply",
-  state_review: "State review",
+  environmental_review: "Environmental review",
+  study: "Study",
 };
 const POLICY_PRINCIPLE_DESCRIPTIONS = {
   pay_own_way:
@@ -201,7 +204,10 @@ const POLICY_PRINCIPLE_DESCRIPTIONS = {
   local_control: "Local approval before state permits, plus zoning, noise, and setback rules.",
   new_power:
     "Requirements, or permission, to build new generation instead of drawing on existing supply.",
-  state_review: "Task forces, advisory councils, and state review of large projects.",
+  environmental_review:
+    "Impact review before permits issue: water, air, noise, and wildlife studies, usually with public comment. New York's statewide pause (EO 62) waits on one.",
+  study:
+    "Task forces, advisory councils, and workgroups that recommend rules before a state writes them.",
 };
 const POLICY_SCOPES = ["federal", "state", "county", "city", "company"];
 const POLICY_SCOPE_LABELS = {
@@ -2799,7 +2805,8 @@ const PB_TERM_HINTS = {
   transparency: /disclos|nondisclosure|\bNDA|report|registr|notice|public/i,
   local_control: /local|zoning|sound|noise|setback|siting|approv/i,
   new_power: /generation|clean|renewable|solar|nuclear|storage|behind|microgrid/i,
-  state_review: /task force|council|review|framework|workgroup|recommend/i,
+  environmental_review: /permit|review|impact|environment|air|wildlife|sound|comment/i,
+  study: /task force|council|workgroup|recommend|study|report/i,
 };
 
 function pbTermFor(p, key) {

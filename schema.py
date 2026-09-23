@@ -1431,7 +1431,11 @@ POLICY_STATUS_LABELS: dict[str, str] = {
 # The playbook's organizing axis (v3.2): what a policy asks OF data centers.
 # Distinct from THEMES (the community-benefit taxonomy for company claims):
 # a principle is a rule or condition a government or community sets, e.g.
-# "data centers pay their own grid costs". Curator-assigned, primary first,
+# "data centers pay their own grid costs". v3.2 split the old "states
+# review large projects" value into environmental_review (impact review
+# before permits, with public comment) and study (task forces and councils
+# that recommend rules): a permit condition and an advisory council are
+# different asks. Curator-assigned, primary first,
 # at most three per record. Frozen: the THEMES drill applies.
 POLICY_PRINCIPLES: tuple[str, ...] = (
     "pay_own_way",
@@ -1441,7 +1445,8 @@ POLICY_PRINCIPLES: tuple[str, ...] = (
     "transparency",
     "local_control",
     "new_power",
-    "state_review",
+    "environmental_review",
+    "study",
 )
 PolicyPrinciple = Literal[
     "pay_own_way",
@@ -1451,7 +1456,8 @@ PolicyPrinciple = Literal[
     "transparency",
     "local_control",
     "new_power",
-    "state_review",
+    "environmental_review",
+    "study",
 ]
 POLICY_PRINCIPLE_LABELS: dict[str, str] = {
     "pay_own_way": "Data centers pay their own grid costs",
@@ -1461,7 +1467,8 @@ POLICY_PRINCIPLE_LABELS: dict[str, str] = {
     "transparency": "No secret deals",
     "local_control": "Localities keep a say in siting",
     "new_power": "New demand brings new supply",
-    "state_review": "States review large projects",
+    "environmental_review": "Projects get environmental review",
+    "study": "States study before setting rules",
 }
 
 # Who sets it. 'company' is not a jurisdiction — it marks a company's own
