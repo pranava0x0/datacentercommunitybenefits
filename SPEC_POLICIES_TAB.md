@@ -100,8 +100,8 @@ Shipped 68 records across 38 states plus 10 company-wide plans: 29
 legislation, 6 executive orders, 21 benefit agreements, 12 company plans
 (2 of them site pledges).
 
-**States checked with nothing that cleared verification.** These are open
-leads, not "no policy exists": MD, CT, MS, WI, MO, ND, ID, NM, ME, VT, NH,
+**States with no state-level policy that cleared verification** (several
+have local agreements). These are open leads, not "no policy exists": MD, CT, MS, WI, MO, ND, ID, NM, ME, VT, NH,
 RI, DE, AK, HI, DC, WY, IA, AR. Oklahoma's ratepayer act is HB 2992, which is
 already a moratorium record. Bills that never passed a chamber (GA SB421, NY
 A9086, MI HB6137/SB1050) were left out.
@@ -113,6 +113,8 @@ a Paducah site pledge instead).
 ## Out of scope for v1
 
 - Moving misfiled non-moratorium records (PA EO 2026-05, OK HB2992, WA
-  SB5982) out of `moratoriums.json` — cross-linked via
-  `related_moratorium_id` instead; migration is a BACKLOG item.
+  SB5982) out of `moratoriums.json`. They stay on the Moratoriums tab for
+  now and are not duplicated here. `related_moratorium_id` exists for the
+  migration (and for any future record that genuinely overlaps). The move
+  itself is a BACKLOG item.
 - Delivered-vs-promised on agreements (the `Delivered` pattern) — later.
