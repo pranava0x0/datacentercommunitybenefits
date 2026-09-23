@@ -12,10 +12,10 @@
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="preload" as="fetch" href="data/claims.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20260824a" />
+    <link rel="stylesheet" href="styles.css?v=20260923a" />
     <!-- html2pdf is lazy-loaded on demand by the moratorium PDF export (see
          loadHtml2Pdf in app.js) so it doesn't block first paint or tests. -->
-    <script defer src="app.js?v=20260824a"></script>
+    <script defer src="app.js?v=20260923a"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -92,6 +92,16 @@
           Tariffs &amp; Rate Cases
         </button>
         <button
+          id="tab-policies"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-policies"
+        >
+          Policy Playbook
+        </button>
+        <button
           id="tab-explorer"
           class="tab"
           role="tab"
@@ -100,16 +110,6 @@
           aria-controls="view-explorer"
         >
           Sites
-        </button>
-        <button
-          id="tab-aggregate"
-          class="tab"
-          role="tab"
-          type="button"
-          aria-selected="false"
-          aria-controls="view-aggregate"
-        >
-          By State &amp; Company
         </button>
       </div>
       </div>
@@ -135,15 +135,13 @@
              site's one heading voice, one size below the masthead. -->
         <div class="hero">
           <h2 class="hero-title" id="pledge-hero-title">
-            Data center commitments, projects, and policy
+            What data centers promise, and what communities require
           </h2>
           <p class="hero-dek">
-            Track pledge signers, company commitments, local project responses,
-            development pauses, and rules for electricity costs.
+            Pledges, company claims, local fights, moratoriums, electricity rules, and state policy for U.S. data centers.
           </p>
           <p class="pledge-hero-fineprint">
-            Every figure links to a source &middot; Not affiliated with the White
-            House or any signatory
+            Independent. Not affiliated with the White House or any signatory.
           </p>
         </div>
         <div class="home-body">
@@ -182,22 +180,21 @@
           <!-- One card per tab: the section index of the front page. Static
                markup (wired once on boot); only the count chips render from
                data — see renderHomeCards(). -->
-          <h3 class="pledge-panel-h" id="home-explore-h">Browse by topic</h3>
+          <h3 class="pledge-panel-h" id="home-explore-h">Explore</h3>
           <nav class="home-cards" aria-labelledby="home-explore-h">
             <button class="home-card" type="button" data-path-target="pledge">
               <span class="home-card-tag">The Pledge</span>
-              <span class="home-card-title">Pledge signers and site checks</span>
+              <span class="home-card-title">Who signed the pledge</span>
               <span class="home-card-dek">
-                The full roster, the five commitments, and a site-by-site scorecard.
+                Who signed, what they promised, and which sites back it up.
               </span>
               <span class="home-card-count" data-count-for="pledge">&mdash;</span>
             </button>
             <button class="home-card" type="button" data-path-target="companies">
               <span class="home-card-tag">Companies</span>
-              <span class="home-card-title">Company commitments</span>
+              <span class="home-card-title">What companies promise</span>
               <span class="home-card-dek">
-                Community-benefit claims in each company&rsquo;s own words, across
-                eight themes.
+                What each company says it gives host communities, in its own words.
               </span>
               <span class="home-card-count" data-count-for="companies">&mdash;</span>
             </button>
@@ -205,8 +202,7 @@
               <span class="home-card-tag">Moratoriums</span>
               <span class="home-card-title">Development pauses</span>
               <span class="home-card-dek">
-                Enacted, proposed, and failed pauses — city, county, state, and
-                federal.
+                Pauses on new data centers at every level of government.
               </span>
               <span class="home-card-count" data-count-for="moratoriums">&mdash;</span>
             </button>
@@ -214,26 +210,25 @@
               <span class="home-card-tag">Tariffs &amp; Rate Cases</span>
               <span class="home-card-title">Electricity costs and rate cases</span>
               <span class="home-card-dek">
-                Large-load tariffs and the dockets deciding cost allocation.
+                Who pays for the power, and the cases deciding it.
               </span>
               <span class="home-card-count" data-count-for="tariffs">&mdash;</span>
+            </button>
+            <button class="home-card" type="button" data-path-target="policies">
+              <span class="home-card-tag">Policy Playbook</span>
+              <span class="home-card-title">What communities are requiring</span>
+              <span class="home-card-dek">
+                Nine rules governments are writing, from grid costs to benefit agreements.
+              </span>
+              <span class="home-card-count" data-count-for="policies">&mdash;</span>
             </button>
             <button class="home-card" type="button" data-path-target="explorer">
               <span class="home-card-tag">Sites</span>
               <span class="home-card-title">Data center projects</span>
               <span class="home-card-dek">
-                Every tracked campus: operator, status, sources, and community
-                responses.
+                Each campus on a map, with what neighbors and officials have said.
               </span>
               <span class="home-card-count" data-count-for="sites">&mdash;</span>
-            </button>
-            <button class="home-card" type="button" data-path-target="aggregate">
-              <span class="home-card-tag">By State &amp; Company</span>
-              <span class="home-card-title">Totals by state and company</span>
-              <span class="home-card-dek">
-                Totals by state, company, signatory category, and utility.
-              </span>
-              <span class="home-card-count" data-count-for="aggregate">&mdash;</span>
             </button>
           </nav>
         </div>
@@ -248,61 +243,53 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Community commitments by company</h2>
+          <h2 class="hero-title">Companies</h2>
           <p class="hero-dek">
-            A matrix of the community-benefit commitments major data-center operators
-            have published across jobs, energy, water, tax revenue, grants,
-            infrastructure, education, and engagement. Select a company for its
-            claims and source links, then compare the terms offered for future
-            projects.
+            How much each operator is building, and which community benefits it has put in writing.
           </p>
         </div>
 
-        <div class="summary-stats" aria-label="Dataset scope at a glance">
-          <div class="stat-group">
-            <span class="stat-num" id="ss-companies">—</span>
-            <span class="stat-label">companies</span>
+        <details class="acc" id="company-footprint-section" open>
+          <summary>
+            <h3 class="acc-title">Sites, power and investment</h3>
+            <span class="acc-count" id="agg-company-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <span class="table-controls">
+              <button id="agg-csv-btn" type="button" class="btn-ghost" title="All totals: by company, state, signatory category and utility">⤓ CSV</button>
+              <button id="agg-pdf-btn" type="button" class="btn-ghost" title="All totals: by company, state, signatory category and utility">⤓ PDF</button>
+            </span>
+            <div class="table-scroll">
+              <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sort-key="name" data-sort-table="company" class="sortable">Company <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="company">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="company">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="company">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="company">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="claims" data-sort-table="company">Claims <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="company" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="agg-company-tbody"></tbody>
+                <tfoot id="agg-company-tfoot"></tfoot>
+              </table>
+            </div>
           </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-projects">—</span>
-            <span class="stat-label">data center sites</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-claims">—</span>
-            <span class="stat-label">commitments tracked</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-power">—</span>
-            <span class="stat-label">announced capacity</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-investment">—</span>
-            <span class="stat-label">announced investment</span>
-          </div>
-          <div class="stat-group">
-            <span class="stat-num" id="ss-responses">—</span>
-            <span class="stat-label">community responses</span>
-            <span class="stance-breakdown" id="ss-stance-breakdown" hidden></span>
-          </div>
-        </div>
-
-        <div class="legend-row" aria-label="Theme legend">
-          <span class="legend-label">Themes:</span>
-          <ul id="theme-legend" class="theme-legend"></ul>
-        </div>
+        </details>
 
         <details class="acc" id="matrix-section" open>
           <summary>
-            <h3 class="acc-title">Commitments by company and theme</h3>
+            <h3 class="acc-title">Published commitments</h3>
             <span class="acc-count" id="matrix-count"></span>
             <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
           <div class="acc-body">
         <div class="matrix-toolbar">
           <p class="matrix-help">
-            A check means the company has at least one published claim mapping to that
-            theme. Click any company row to open a summary of how that company frames
-            data-center community engagement, and a link to their main page.
+            ✓ = at least one published claim on the theme.
           </p>
           <span class="export-btns">
             <button
@@ -352,7 +339,7 @@
           </header>
 
           <p id="cd-summary" class="company-summary muted">
-            Click a company row above to open its summary.
+            Select a company.
           </p>
 
           <dl class="kv">
@@ -392,10 +379,9 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Data center sites and community responses</h2>
+          <h2 class="hero-title">Data center sites</h2>
           <p class="hero-dek">
-            Explore tracked projects, company commitments for each site, and
-            responses from residents, officials, regulators, and reporters.
+            Where the campuses are, what each operator promised there, and how the community responded.
           </p>
         </div>
 
@@ -408,9 +394,7 @@
           <div class="hot-rail-head">
             <h3 class="hot-rail-title">Recently contested</h3>
             <p class="hot-rail-sub">
-              Sites with active legal action, eminent-domain disputes, or
-              contested delivery as of the last six months. Click any card to
-              open the full record.
+              Lawsuits, eminent-domain fights, or disputed promises in the last six months.
             </p>
           </div>
           <ol
@@ -428,8 +412,7 @@
           </summary>
           <div class="acc-body">
         <p class="acc-sub">
-          Narrow by theme, operator, state, build status, or how the surrounding
-          community has responded. The map and list below both follow the filters.
+          Filters apply to the map and the list.
         </p>
 
         <div
@@ -595,8 +578,7 @@
             >
               <h4 id="d-at-a-glance-heading">At a glance</h4>
               <p class="at-a-glance-sub">
-                Per-theme summary derived from this project's claims. See the
-                Claims tab for verbatim quotes and sources.
+                Summarized from this site's claims. Quotes and sources are on the Claims tab.
               </p>
               <ul id="d-at-a-glance-list" class="at-a-glance-list"></ul>
             </section>
@@ -622,9 +604,7 @@
             hidden
           >
             <p class="response-help">
-              On-the-ground feedback — what local government, residents, NGOs,
-              regulators, and journalists have said about this project. The
-              good news AND the lessons learned, with sources.
+              What officials, residents, advocates, regulators, and reporters have said about this site.
             </p>
             <ol id="d-responses" class="response-list">
               <li class="muted">No on-the-ground feedback captured for this site yet.</li>
@@ -632,6 +612,33 @@
           </div>
         </section>
 
+      
+        <details class="acc" id="sites-by-state-section">
+          <summary>
+            <h3 class="acc-title">State totals</h3>
+            <span class="acc-count" id="agg-state-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <div class="table-scroll">
+              <table class="agg-table" id="agg-state-table" aria-label="State rollup">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sort-key="state" data-sort-table="state" class="sortable">State <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="companies" data-sort-table="state">Companies <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="state">Projects <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="state">Power <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="state">Investment <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="state">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="state" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="agg-state-tbody"></tbody>
+                <tfoot id="agg-state-tfoot"></tfoot>
+              </table>
+            </div>
+          </div>
+        </details>
       </section>
 
       <!-- ================= RATEPAYER PROTECTION PLEDGE VIEW ================= -->
@@ -648,8 +655,7 @@
             Signed at the White House on <span id="rp-pledge-date">March 4, 2026</span> by
             seven hyperscalers, extended to QTS via the DOE companion track that April, and
             expanded on July 23, 2026 to utilities, cooperatives, data-center developers, and
-            23 governors. This page lists signers and site-specific evidence of
-            electricity cost commitments.
+            23 governors. Below: who signed, and which sites have site-specific evidence.
             <a id="rp-pledge-link" href="#" target="_blank" rel="noopener noreferrer">Read the pledge →</a>
           </p>
         </div>
@@ -695,8 +701,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 >White House Ratepayer Protection Pledge</a
-              >. Counts are of assessed sites only — a site with no assessment is
-              counted in none of them.
+              >. Counts cover assessed sites only.
             </p>
           </div>
         </details>
@@ -712,9 +717,7 @@
           </summary>
           <div class="acc-body">
             <p class="acc-sub" id="rp-coverage-sub">
-              Every stakeholder group in the power system — the companies buying the
-              power, the utilities and cooperatives selling it, the developers building
-              the sites, and the governors who regulate them.
+              Buyers, utilities, cooperatives, developers, and governors.
             </p>
             <!-- The proportional roster bar (moved here from the Home band in
                  v3): a single count says nothing about the shape of the
@@ -724,16 +727,72 @@
             <ul id="pledge-coverage-key" class="pledge-bar-key"></ul>
             <p class="rp-drift-note" id="rp-drift-note" hidden></p>
 
-            <h4 class="rp-subhead" id="rp-states-heading">By state</h4>
+            <h4 class="rp-subhead" id="rp-states-heading">States</h4>
             <p class="rp-section-sub">
-              All fifty states, shaded by how many records we hold — darker cells carry
-              more; ★ marks a governor who signed the addendum. Select a state for its
-              sites, tariffs, moratoriums, rate cases, and utility signatories.
+              Darker states have more records. ★ = governor signed the addendum.
             </p>
             <div id="pledge-state-strip" class="pledge-state-strip" aria-labelledby="rp-states-heading"></div>
             <p class="pledge-strip-key" id="pledge-strip-key"></p>
           </div>
         </details>
+
+        <details class="acc" id="rp-category-section">
+          <summary>
+            <h3 class="acc-title">Signer categories</h3>
+            <span class="acc-count" id="agg-signatory-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub" id="agg-signatory-sub"></p>
+            <div class="table-scroll">
+              <table
+                class="agg-table"
+                id="agg-signatory-table"
+                aria-label="Rollup by pledge signatory category"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col" class="num">Companies</th>
+                    <th scope="col" class="num">Sites</th>
+                    <th scope="col" class="num">Power</th>
+                    <th scope="col" class="num">Investment</th>
+                    <th scope="col" class="num">Assessed</th>
+                    <th scope="col" class="num">Contested</th>
+                  </tr>
+                </thead>
+                <tbody id="agg-signatory-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" id="rp-utility-section">
+          <summary>
+            <h3 class="acc-title">Utilities</h3>
+            <span class="acc-count" id="agg-utility-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub" id="agg-utility-sub"></p>
+            <div class="table-scroll">
+              <table class="agg-table" id="agg-utility-table" aria-label="Utility rollup">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sort-key="name" data-sort-table="utility" class="sortable">Utility <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col">Pledge</th>
+                    <th scope="col">States</th>
+                    <th scope="col" class="num sortable" data-sort-key="tariffs" data-sort-table="utility">Tariffs <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="rateCases" data-sort-table="utility">Rate cases <span class="sort-ind" aria-hidden="true"></span></th>
+                    <th scope="col" class="num sortable" data-sort-key="sites" data-sort-table="utility">Served sites <span class="sort-ind" aria-hidden="true"></span></th>
+                  </tr>
+                </thead>
+                <tbody id="agg-utility-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
 
         <!-- ---------------------------------------------------------------
              3. SIGNATORY ROSTER — searchable, category-filterable. Rendered
@@ -749,7 +808,7 @@
             </summary>
             <div class="acc-body">
             <p class="acc-sub" id="rp-roster-sub">
-              The full published roster, as captured from the White House page.
+              From the White House roster.
             </p>
             <div class="rp-roster-controls">
               <label class="rp-roster-search" for="rp-roster-q">
@@ -849,7 +908,7 @@
               aria-labelledby="subtab-rp-sites-assessed"
             >
               <p class="acc-sub">
-                Sites announced on or after their operator signed, or pre-pledge sites where post-pledge reporting confirms adherence. Each card shows the announcement date and first pledge reference. Expand to see per-principle breakdown.
+                Sites announced after their operator signed, plus earlier sites with later reporting that confirms the pledge applies.
               </p>
               <div class="rp-scorecard-toolbar">
                 <div id="rp-legend" class="rp-legend" aria-label="Assessment status legend"></div>
@@ -893,7 +952,7 @@
               hidden
             >
               <p class="acc-sub">
-                Signatory sites announced during the pledge era with no per-site assessment captured yet. Absence of an assessment means the curation work is pending — not implied compliance.
+                Announced after the operator signed. Not yet assessed.
               </p>
               <ul id="rp-unassessed" class="rp-pre-pledge-list"></ul>
             </div>
@@ -906,7 +965,7 @@
               hidden
             >
               <p class="acc-sub">
-                Signatory sites announced before their operator signed, with no post-pledge site-specific commitment captured. Covered by the national pledge but not yet assessed per-site.
+                Announced before the operator signed. Covered by the company's national pledge only.
               </p>
               <ul id="rp-pre-pledge" class="rp-pre-pledge-list"></ul>
             </div>
@@ -925,7 +984,7 @@
               hidden
             >
               <p class="acc-sub">
-                These companies have not signed the Ratepayer Protection Pledge. Shown for comparison, not part of the assessed cohort — some publish their own ratepayer-related language (see each card's sources), but none carry a curated pledge assessment.
+                Companies that have not signed. Shown for comparison; some publish their own ratepayer commitments.
               </p>
               <ul id="rp-non-signatory" class="rp-pre-pledge-list"></ul>
             </div>
@@ -933,9 +992,7 @@
         </details>
 
         <p class="rp-footnote">
-          Assessment is editorial, not a pass/fail score. Absence of a
-          site-specific commitment is not a failing grade — it means the company
-          hasn't published one for that site yet. Sources are linked on every card.
+          Assessments are editorial judgments. A site without a site-specific commitment has not failed; the company has not published one for it.
         </p>
 
         <!-- ================= STATE PANEL MODAL =================
@@ -979,11 +1036,9 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Data Center Policy Moratoriums</h2>
+          <h2 class="hero-title">Moratoriums</h2>
           <p class="hero-dek">
-            Tracking enacted, proposed, and failed city, county, state, and federal
-            restrictions on data center development. Each record links to the primary
-            government or authoritative source. Click any row to open the full detail.
+            Local, state, and federal pauses on new data centers, including the ones that failed.
           </p>
         </div>
 
@@ -1002,14 +1057,13 @@
         <!-- Key Themes Section -->
         <details class="acc" id="moratorium-themes" open>
           <summary>
-            <h3 class="acc-title">Key themes driving moratoriums</h3>
+            <h3 class="acc-title">Concerns cited</h3>
             <span class="acc-count" id="moratorium-themes-count"></span>
             <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
           <div class="acc-body">
             <p class="acc-sub">
-              Count of moratoriums that cite each concern. Click a theme to see which
-              jurisdictions raised it and what their legislation says.
+              How many moratoriums cite each concern.
             </p>
             <div id="reason-breakdown" class="reason-grid">
               <!-- Populated by app.js -->
@@ -1039,9 +1093,7 @@
           </summary>
           <div class="acc-body">
           <p class="acc-sub">
-            Every tracked city, county, state, and federal restriction, with its
-            status, duration, and the concerns cited. Click a row for the full
-            record and its sources.
+            Status, duration, and the concerns each one cites.
           </p>
           <span class="table-controls">
             <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
@@ -1157,19 +1209,16 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">State Utility Tariff Designs for Large Loads</h2>
+          <h2 class="hero-title">Large-load tariffs</h2>
           <p class="hero-dek">
-            How states are re-pricing electricity for data centers. Each tariff is
-            scored against the 17 large-load rate-design elements catalogued in the
-            DOE / Berkeley Lab brief
+            How utilities are pricing power for data centers, checked against the 17 rate-design elements in the DOE / Berkeley Lab brief
             <a
               id="tariff-lbl-link"
               href="https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf"
               target="_blank"
               rel="noopener noreferrer"
               >“Electricity Rate Designs for Large Loads” (Jan 2025) ↗</a
-            >, plus terms outside that study and the state legislation behind them.
-            Every cell links to a government or authoritative source.
+            >.
           </p>
         </div>
 
@@ -1179,15 +1228,13 @@
         <!-- LBL element coverage: how many tracked tariffs address each element -->
         <details class="acc" id="tariff-coverage-section" open>
           <summary>
-            <h3 class="acc-title">LBL rate-design elements — how often each appears</h3>
+            <h3 class="acc-title">Rate-design elements</h3>
             <span class="acc-count" id="tariff-coverage-count"></span>
             <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
           <div class="acc-body">
             <p class="acc-sub">
-              Count of tracked tariffs that include each design element from the LBL
-              study. Click an element to see which tariffs address it. Elements with
-              no coverage are shown muted — a gap in current practice, not an error.
+              How many tariffs include each element. Muted elements appear in none.
             </p>
             <div id="tariff-coverage-grid" class="tariff-coverage-grid">
               <!-- Populated by app.js -->
@@ -1205,9 +1252,7 @@
           </summary>
           <div class="acc-body">
           <p class="acc-sub">
-            Every tracked large-load tariff, rate class, and rule, with the
-            jurisdiction it applies in and how many of the 17 LBL elements it
-            addresses. Click a row for the full breakdown and its sources.
+            Each tariff, rate class, and rule, with how many of the 17 elements it includes.
           </p>
           <span class="table-controls">
             <button id="tariffs-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
@@ -1255,16 +1300,13 @@
              Rendered by renderRateCases() from its own deferred payload. -->
         <details class="acc" id="rate-cases-section" open>
           <summary>
-            <h3 class="acc-title" id="rate-cases-heading">Rate cases &amp; proceedings</h3>
+            <h3 class="acc-title" id="rate-cases-heading">Rate cases</h3>
             <span class="acc-count" id="rate-cases-count"></span>
             <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
           <div class="acc-body">
             <p class="acc-sub">
-              The regulatory proceedings where who-pays-for-data-center-load is
-              actually decided: general rate cases, special contracts, and
-              rulemakings, each with its docket and — for pending cases — the
-              next known step. Federal (FERC) proceedings are badged
+              Where regulators decide who pays: rate cases, special contracts, and rulemakings. Pending cases show their next step. Federal cases are marked
               <span class="badge badge-tariff-federal">FED</span>.
             </p>
             <ol id="rate-cases-list" class="rc-list">
@@ -1274,15 +1316,9 @@
         </details>
 
         <p class="rp-footnote">
-          Coverage is curated, not exhaustive: it tracks states with a documented
-          large-load tariff, rate class, or rule. Many states have no
-          data-center-specific tariff yet — an absence that is itself a finding.
-          “LBL elements” counts how many of the 17 study elements a tariff
-          addresses; it is a coverage measure, not a quality score. One
+          Curated, not exhaustive. Many states have no data-center tariff yet. “LBL elements” measures coverage, not quality. One
           <strong>federal</strong> FERC co-location case (badged
-          <span class="badge badge-tariff-federal">FED</span>) is included for
-          context because the LBL brief covers co-location; it is excluded from
-          the state status counts and the states-covered tally.
+          <span class="badge badge-tariff-federal">FED</span>) is included because the LBL brief covers co-location. It is left out of the state counts.
         </p>
 
         <!-- ================= TARIFF DETAIL MODAL ================= -->
@@ -1321,17 +1357,17 @@
           <div id="td-summary" class="moratorium-summary"></div>
 
           <section id="td-params" class="tariff-params" aria-labelledby="td-params-heading">
-            <h4 id="td-params-heading">LBL rate-design elements — met or not</h4>
+            <h4 id="td-params-heading">Rate-design elements</h4>
             <div id="td-params-body"><!-- Populated by app.js --></div>
           </section>
 
           <section id="td-additional" class="tariff-additional" aria-labelledby="td-additional-heading" hidden>
-            <h4 id="td-additional-heading">Additional terms (outside the LBL study)</h4>
+            <h4 id="td-additional-heading">Other terms</h4>
             <ul id="td-additional-list" class="tariff-additional-list"></ul>
           </section>
 
           <section id="td-legislation" class="tariff-legislation" aria-labelledby="td-legislation-heading" hidden>
-            <h4 id="td-legislation-heading">State legislation behind this tariff</h4>
+            <h4 id="td-legislation-heading">Related legislation</h4>
             <ul id="td-legislation-list" class="tariff-legislation-list"></ul>
           </section>
 
@@ -1345,203 +1381,173 @@
         </div>
       </section>
 
-      <!-- ====================== AGGREGATE VIEW ====================== -->
+      <!-- ================= POLICIES & AGREEMENTS VIEW ================= -->
+      <!-- The instruments between a moratorium (a pause) and a tariff (who
+           pays for power): orders, laws and ordinances that set conditions,
+           the benefit agreements signed at specific sites, and companies'
+           own community plans. One Policy record type; see
+           SPEC_POLICIES_TAB.md. Lazy-loads data/policies.json. -->
       <section
-        id="view-aggregate"
+        id="view-policies"
         class="view"
         role="tabpanel"
-        aria-labelledby="tab-aggregate"
+        aria-labelledby="tab-policies"
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Totals by company, state, and utility</h2>
+          <h2 class="hero-title">Policy playbook</h2>
           <p class="hero-dek">
-            The same records, totaled four ways: by company, by pledge signatory
-            category, by state, and by utility. Claimed figures are
-            company-disclosed; independently verified delivery is sparse. Null
-            values are omitted from totals.
+            Nine rules states, cities, and companies are writing for data
+            centers, and where each one has been adopted, proposed, or turned down.
           </p>
         </div>
 
-        <ul id="agg-stats" class="rp-stats" aria-label="Aggregate statistics"></ul>
+        <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
 
-        <div class="export-btns" style="margin-bottom: 12px;">
-          <button id="agg-csv-btn" type="button" class="btn-ghost">⤓ CSV</button>
-          <button id="agg-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
-        </div>
-
-        <!-- Three rollups of the same numbers — alternatives, not a sequence,
-             so a sub-tab group rather than three accordions. -->
-        <div class="subtabs" role="tablist" aria-label="Rollup">
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-company"
-            aria-selected="true"
-            tabindex="0"
-            aria-controls="subpane-agg-company"
-          >
-            By company <span class="subtab-count" id="agg-company-count"></span>
-          </button>
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-signatory"
-            aria-selected="false"
-            tabindex="-1"
-            aria-controls="subpane-agg-signatory"
-          >
-            By signatory category
-            <span class="subtab-count" id="agg-signatory-count"></span>
-          </button>
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-state"
-            aria-selected="false"
-            tabindex="-1"
-            aria-controls="subpane-agg-state"
-          >
-            By state <span class="subtab-count" id="agg-state-count"></span>
-          </button>
-          <button
-            class="subtab"
-            role="tab"
-            type="button"
-            id="subtab-agg-utility"
-            aria-selected="false"
-            tabindex="-1"
-            aria-controls="subpane-agg-utility"
-          >
-            By utility <span class="subtab-count" id="agg-utility-count"></span>
-          </button>
-        </div>
-
-        <div
-          class="subtab-panel"
-          id="subpane-agg-company"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-company"
-        >
-          <div class="table-scroll">
-            <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
-              <thead>
-                <tr>
-                  <th scope="col" data-sort-key="name" data-sort-table="company" class="sortable">Company <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="company">Projects <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="company">Power <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="company">Investment <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="company">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="claims" data-sort-table="company">Claims <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="company" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
-                </tr>
-              </thead>
-              <tbody id="agg-company-tbody"></tbody>
-              <tfoot id="agg-company-tfoot"></tfoot>
-            </table>
+        <details class="acc" id="policy-principles-section" open>
+          <summary>
+            <h3 class="acc-title">Principles</h3>
+            <span class="acc-count" id="policy-principles-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <ol id="policy-principles" class="pb-principles"></ol>
           </div>
-        </div>
+        </details>
 
-        <!-- Rolls the tracked sites up by which pledge cohort their operator
-             belongs to. Answers "does signing correlate with anything we can
-             see?" — which the by-company table cannot, because it has no
-             notion of the roster. -->
-        <div
-          class="subtab-panel"
-          id="subpane-agg-signatory"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-signatory"
-          hidden
-        >
-          <p class="agg-section-sub" id="agg-signatory-sub"></p>
-          <div class="table-scroll">
-            <table
-              class="agg-table"
-              id="agg-signatory-table"
-              aria-label="Rollup by pledge signatory category"
-            >
-              <thead>
-                <tr>
-                  <th scope="col">Category</th>
-                  <th scope="col" class="num">Companies</th>
-                  <th scope="col" class="num">Sites</th>
-                  <th scope="col" class="num">Power</th>
-                  <th scope="col" class="num">Investment</th>
-                  <th scope="col" class="num">Assessed</th>
-                  <th scope="col" class="num">Contested</th>
-                </tr>
-              </thead>
-              <tbody id="agg-signatory-tbody"></tbody>
-            </table>
+        <details class="acc" id="policy-actions-section" open>
+          <summary>
+            <h3 class="acc-title">Latest actions</h3>
+            <span class="acc-count" id="policy-actions-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <ol id="policy-actions" class="pb-actions"></ol>
           </div>
-        </div>
+        </details>
 
-        <div
-          class="subtab-panel"
-          id="subpane-agg-state"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-state"
-          hidden
-        >
-          <div class="table-scroll">
-            <table class="agg-table" id="agg-state-table" aria-label="State rollup">
-              <thead>
-                <tr>
-                  <th scope="col" data-sort-key="state" data-sort-table="state" class="sortable">State <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="companies" data-sort-table="state">Companies <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="projects" data-sort-table="state">Projects <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="power_mw" data-sort-table="state">Power <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="capex" data-sort-table="state">Investment <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="jobs" data-sort-table="state">Jobs <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num responses-col sortable" data-sort-key="responses" data-sort-table="state" title="Community responses by stance">Responses <span class="sort-ind" aria-hidden="true"></span></th>
-                </tr>
-              </thead>
-              <tbody id="agg-state-tbody"></tbody>
-              <tfoot id="agg-state-tfoot"></tfoot>
-            </table>
+        <details class="acc" id="policies-directory">
+          <summary>
+            <h3 class="acc-title" id="policies-table-heading">Directory</h3>
+            <span class="acc-count" id="policies-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <p class="acc-sub">
+              <span class="badge badge-cbf">CBF</span> = requires or is a
+              community benefit agreement, fund, or host payment.
+            </p>
+            <span class="table-controls">
+              <button id="policies-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+              <button id="policies-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
+            </span>
+            <div id="policy-filters" class="filters">
+              <label>Type:
+                <select id="policy-instrument-filter">
+                  <option value="">All types</option>
+                </select>
+              </label>
+              <label>Status:
+                <select id="policy-status-filter">
+                  <option value="">All</option>
+                </select>
+              </label>
+              <label>Level:
+                <select id="policy-scope-filter">
+                  <option value="">All levels</option>
+                </select>
+              </label>
+              <label>State:
+                <select id="policy-state-filter">
+                  <option value="">All states</option>
+                </select>
+              </label>
+              <label>Principle:
+                <select id="policy-principle-filter">
+                  <option value="">All principles</option>
+                </select>
+              </label>
+              <label class="rp-filter-flag">
+                <input type="checkbox" id="policy-cbf-filter" />
+                Community benefits only
+              </label>
+            </div>
+            <div class="table-scroll">
+              <table id="policies-table" class="moratorium-table policy-table">
+                <thead>
+                  <tr>
+                    <th role="columnheader">Title</th>
+                    <th role="columnheader">Type</th>
+                    <th role="columnheader">Where</th>
+                    <th role="columnheader">Status</th>
+                    <th role="columnheader">Date</th>
+                    <th role="columnheader">Principles</th>
+                  </tr>
+                </thead>
+                <tbody id="policies-tbody">
+                  <tr><td colspan="6" class="muted">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </details>
 
-        <!-- Rolls the record up by the utility at the center of it: who sells
-             the power, whether that utility signed the pledge, and how many
-             tariffs, rate cases, and served sites it carries here. Grouping
-             is exact-match via the hand-curated utility_aliases /
-             serving_utility_signatory_id joins — never fuzzy. -->
-        <div
-          class="subtab-panel"
-          id="subpane-agg-utility"
-          role="tabpanel"
-          aria-labelledby="subtab-agg-utility"
-          hidden
-        >
-          <p class="agg-section-sub" id="agg-utility-sub"></p>
-          <div class="table-scroll">
-            <table class="agg-table" id="agg-utility-table" aria-label="Utility rollup">
-              <thead>
-                <tr>
-                  <th scope="col" data-sort-key="name" data-sort-table="utility" class="sortable">Utility <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col">Pledge</th>
-                  <th scope="col">States</th>
-                  <th scope="col" class="num sortable" data-sort-key="tariffs" data-sort-table="utility">Tariffs <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="rateCases" data-sort-table="utility">Rate cases <span class="sort-ind" aria-hidden="true"></span></th>
-                  <th scope="col" class="num sortable" data-sort-key="sites" data-sort-table="utility">Served sites <span class="sort-ind" aria-hidden="true"></span></th>
-                </tr>
-              </thead>
-              <tbody id="agg-utility-tbody"></tbody>
-            </table>
-          </div>
+        <p class="rp-footnote">
+          Curated, not exhaustive. Pauses on development are on the Moratoriums
+          tab and utility tariffs on Tariffs &amp; Rate Cases. A state with no
+          record here may not have been researched yet.
+        </p>
+
+        <div id="policy-modal" class="tariff-modal" hidden>
+          <div class="tariff-modal__backdrop" data-policy-close aria-hidden="true"></div>
+          <aside id="policy-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pd-title">
+            <button id="policy-detail-close" class="detail-close" type="button" aria-label="Close policy details">×</button>
+            <header class="detail-header">
+              <p class="eyebrow" id="pd-instrument">—</p>
+              <h3 id="pd-title">—</h3>
+              <p class="detail-sub">
+                <span id="pd-status" class="badge">—</span> ·
+                <span id="pd-where">—</span>
+              </p>
+            </header>
+            <dl class="kv">
+              <dt>Identifier</dt>
+              <dd id="pd-identifier">—</dd>
+              <dt>Date</dt>
+              <dd id="pd-date">—</dd>
+              <dt>Parties</dt>
+              <dd id="pd-parties">—</dd>
+              <dt>Stated value</dt>
+              <dd id="pd-value">—</dd>
+              <dt>Principles</dt>
+              <dd id="pd-principles">—</dd>
+              <dt>Themes</dt>
+              <dd id="pd-themes">—</dd>
+            </dl>
+            <div id="pd-summary" class="moratorium-summary"></div>
+            <div id="pd-delivered" hidden></div>
+            <section class="tariff-additional" aria-labelledby="pd-terms-heading">
+              <h4 id="pd-terms-heading">Key terms</h4>
+              <ul id="pd-terms" class="tariff-additional-list"></ul>
+            </section>
+            <section id="pd-related" class="tariff-legislation" aria-labelledby="pd-related-heading" hidden>
+              <h4 id="pd-related-heading">Related records</h4>
+              <ul id="pd-related-list" class="tariff-legislation-list"></ul>
+            </section>
+            <section class="moratorium-resources" aria-labelledby="pd-resources-heading">
+              <h4 id="pd-resources-heading">Sources &amp; Resources</h4>
+              <ul id="pd-resources-list" class="resources-list"></ul>
+            </section>
+            <p id="pd-captured" class="muted policy-captured"></p>
+          </aside>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
       <p>
-        Built as a public-interest dashboard. Company claims are quoted from each company's own
-        published material; community responses are summaries of reporting and public records.
-        See <a href="https://github.com/pranava0x0/datacentercommunitybenefits">source on GitHub</a>.
+        Company claims are quoted from each company's own material. Community responses summarize reporting and public records. <a href="https://github.com/pranava0x0/datacentercommunitybenefits">Code on GitHub</a>.
       </p>
     </footer>
   </body>

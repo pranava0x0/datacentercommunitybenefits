@@ -9,6 +9,29 @@ criterion.
 
 ## High priority
 
+### Policies & Agreements tab — follow-ups from the v3.1 launch (2026-09-23) — **medium**
+- ~~Migrate misfiled non-moratorium records~~ **DONE 2026-09-23.** PA EO
+  2026-05 moved to policies. OK HB 2992 rebuilt from the enrolled text as a
+  2026 law. WA "SB 5982" removed as fabricated (a Department of Health bill).
+- **Audit the 19 homepage-sourced moratorium records — high.** (Was 22; the
+  2026-09-23 batch check removed MA/VT/ID as fabricated and fixed Maine.) Both bad
+  records above cited a bare homepage (`datacenterbans.com/`,
+  `app.leg.wa.gov/`). 22 more do (17 datacenterbans.com, 5 legislature
+  homepages); `HOMEPAGE_SOURCED_MORATORIUMS` in tests/test_policies.py lists
+  them and only lets the list shrink. For each: find the ordinance / bill
+  page, confirm the facts, re-cite or remove.
+- **State totals table** (now on Sites) — add a policy-count column;
+  `coverage.json` already carries per-state `policies`.
+- **Principle-level "what's missing" view** — for each state, which of the
+  eight principles it has no record for. The data supports it now.
+- **Home "What changed" feed** — new policy records do not yet surface there.
+- **States with no state-level record (7)**: CO, CT, DC, HI, MI, NY, RI, with
+  reasons in `SPEC_POLICIES_TAB.md` > Research log. Watch MI HB6137/SB1050
+  (would require CBAs) and NY A9086. Re-sweep every state each session.
+- **Delivery assessments — 14 in-force agreements unassessed.** Start with
+  Wilmington OH (reporting suggests no payment amid litigation; the
+  wnewsj.com source 403'd) and Hammond IN (first impact payment timing).
+
 ### Amentum (Savannah River Site, SC) — watch for real community-impact framing — **medium**
 Added then removed in the same PR, 2026-07-30 (see REFRESH.md's 2026-07-30
 entry and CLAUDE.md's "Companies in scope" for the full lesson). DOE's NNSA

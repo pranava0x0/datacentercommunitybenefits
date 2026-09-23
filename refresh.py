@@ -36,6 +36,7 @@ from schema import (
     ClaimsPayload,
     CompaniesPayload,
     MoratoriumsPayload,
+    PoliciesPayload,
     ProjectsPayload,
     RateCasesPayload,
     ResponsesPayload,
@@ -59,6 +60,7 @@ PAYLOAD_FILES: dict[str, type] = {
     "tariffs": TariffsPayload,
     "signatories": SignatoriesPayload,
     "rate_cases": RateCasesPayload,
+    "policies": PoliciesPayload,
 }
 
 
@@ -86,9 +88,32 @@ def _check_cross_refs(
     signatories=None,
     tariffs=None,
     rate_cases=None,
+    policies=None,
+    moratoriums=None,
 ) -> list[str]:
     """Cross-payload reference checks. Returns list of error messages (empty = OK)."""
     errors: list[str] = []
+
+    # Policies link to tracked sites and to the moratorium record that carries
+    # the same instrument; a broken id would render as a dead link.
+    if policies is not None:
+        project_ids = {p.id for p in projects.projects}
+        moratorium_ids = (
+            {m.id for m in moratoriums.moratoriums} if moratoriums is not None else None
+        )
+        for pol in policies.policies:
+            for pid in pol.related_project_ids or []:
+                if pid not in project_ids:
+                    errors.append(
+                        f"policies.json: {pol.id!r} references unknown "
+                        f"related_project_id {pid!r}"
+                    )
+            mid = pol.related_moratorium_id
+            if mid is not None and moratorium_ids is not None and mid not in moratorium_ids:
+                errors.append(
+                    f"policies.json: {pol.id!r} references unknown "
+                    f"related_moratorium_id {mid!r}"
+                )
 
     # Rate cases join onto tariffs and projects; a broken id renders as a dead
     # link in the state panel, so it must fail here, not in the browser.
@@ -298,8 +323,9 @@ def _audit_stale_pending(
     moratoriums: MoratoriumsPayload,
     tariffs: TariffsPayload,
     rate_cases: RateCasesPayload | None = None,
+    policies: PoliciesPayload | None = None,
 ) -> list[dict]:
-    """Flag proposed moratoriums/tariffs not re-checked in STALE_PENDING_DAYS.
+    """Flag proposed/pending public records not re-checked in STALE_PENDING_DAYS.
 
     A `proposed` bill or docket is a moving target (it can be signed, vetoed,
     or fail in committee at any time) — unlike an `enacted`/`approved` record,
@@ -350,6 +376,20 @@ def _audit_stale_pending(
                     }
                 )
 
+    for policy in policies.policies if policies is not None else []:
+        if policy.status == "proposed":
+            age = (today - policy.captured_at).days
+            if age >= STALE_PENDING_DAYS:
+                stale.append(
+                    {
+                        "kind": "policy",
+                        "id": policy.id,
+                        "jurisdiction": policy.jurisdiction,
+                        "captured_at": str(policy.captured_at),
+                        "age_days": age,
+                    }
+                )
+
     return stale
 
 
@@ -384,9 +424,9 @@ def _write_audit_report(
 
     if stale_pending:
         report_lines.extend([
-            "\n## Stale Pending Bills / Tariffs\n",
-            f"({len(stale_pending)} records)\n",
-            f"\n`proposed` moratoriums/tariffs not re-verified in "
+            "\n## Stale Pending Records\n",
+            f"({len(stale_pending)} {'record' if len(stale_pending) == 1 else 'records'})\n",
+            f"\n`proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in "
             f"{STALE_PENDING_DAYS}+ days — status may have changed "
             "(signed/vetoed/enacted/rejected). Re-check source and update:\n",
         ])
@@ -405,7 +445,7 @@ def _write_audit_report(
 NON_GEOGRAPHIC_STATE = "XX"
 
 
-def _build_coverage(projects, tariffs, moratoriums, rate_cases=None) -> dict:
+def _build_coverage(projects, tariffs, moratoriums, rate_cases=None, policies=None) -> dict:
     """Per-state record counts for the landing page's coverage surfaces.
 
     Precomputed here rather than derived in the browser because the landing view
@@ -425,7 +465,7 @@ def _build_coverage(projects, tariffs, moratoriums, rate_cases=None) -> dict:
         if key == NON_GEOGRAPHIC_STATE:
             return None
         return states.setdefault(
-            key, {"projects": 0, "tariffs": 0, "moratoriums": 0, "rate_cases": 0}
+            key, {"projects": 0, "tariffs": 0, "moratoriums": 0, "rate_cases": 0, "policies": 0}
         )
 
     for p in projects.projects:
@@ -447,6 +487,11 @@ def _build_coverage(projects, tariffs, moratoriums, rate_cases=None) -> dict:
             b = bucket(rc.state_code)
             if b is not None:
                 b["rate_cases"] += 1
+    if policies is not None:
+        for pol in policies.policies:
+            b = bucket(pol.state_code)  # company-wide / federal have none
+            if b is not None:
+                b["policies"] += 1
 
     # Whole-record totals for the Home numbers band. NOT the sum of the state
     # cells: federal records (a FERC rate case, a federal moratorium) are
@@ -457,6 +502,7 @@ def _build_coverage(projects, tariffs, moratoriums, rate_cases=None) -> dict:
         "tariffs": len(tariffs.tariffs),
         "moratoriums": len(moratoriums.moratoriums),
         "rate_cases": len(rate_cases.rate_cases) if rate_cases is not None else 0,
+        "policies": len(policies.policies) if policies is not None else 0,
     }
 
     return {"states": dict(sorted(states.items())), "totals": totals}
@@ -470,6 +516,7 @@ def _write_coverage(payloads, *, pretty: bool) -> int:
         payloads["tariffs"],
         payloads["moratoriums"],
         payloads.get("rate_cases"),
+        payloads.get("policies"),
     )
     data["generated_at"] = payloads["projects"].generated_at.isoformat()
     out = OUT_DIR / "coverage.json"
@@ -510,6 +557,8 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         payloads.get("signatories"),
         payloads.get("tariffs"),
         payloads.get("rate_cases"),
+        payloads.get("policies"),
+        payloads.get("moratoriums"),
     )
     if cross_errors:
         for err in cross_errors:
@@ -531,11 +580,12 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
             payloads["projects"], payloads["signatories"]
         )
         stale_pending = _audit_stale_pending(
-            payloads["moratoriums"], payloads["tariffs"], payloads.get("rate_cases")
+            payloads["moratoriums"], payloads["tariffs"],
+            payloads.get("rate_cases"), payloads.get("policies"),
         )
         logger.warning(
             "Audit found %d critical + %d medium gaps in project commitment details; "
-            "%d stale pending bills/tariffs",
+            "%d stale pending bills/tariffs/rate cases/policies",
             len(critical),
             len(medium),
             len(stale_pending),

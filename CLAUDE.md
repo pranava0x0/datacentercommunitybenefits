@@ -956,6 +956,9 @@ reads as a bug when it vanishes.
 
 ### Sub-tabs are for alternatives; accordions are for sequences (v2.2)
 
+> v4 (2026-09-23): the Aggregate group is gone with its tab; only
+> "Tracked sites" remains. See "IA v4" above.
+
 `.subtabs` / `SUBTAB_GROUPS`. The rule that decides which to reach for:
 
 > **Would a reader ever want two of these on screen at once?**
@@ -1312,6 +1315,139 @@ accumulate proceedings over its life, and `next_milestone` needs a home.
   only when a group genuinely spans multiple operating utilities (Duke IN +
   Carolinas), keeps the operating name for single-string rows (SWEPCO stays
   SWEPCO), never fuzzy-matches.
+
+### IA v4: seven tabs, a playbook, and copy rules (2026-09-23, user-directed)
+
+**Tabs:** Home · The Pledge · Companies · Moratoriums · Tariffs & Rate Cases
+· Policy Playbook · Sites. The "By State & Company" tab (`#aggregate`) is
+gone. Its tables moved to the tab that owns each one's question:
+- the per-company table goes to Companies, replacing a stat strip that
+  repeated its total row;
+- per state goes to Sites;
+- per signer category and per utility go to The Pledge.
+
+`#aggregate` redirects to `#comparison`. `loadAggregateView()` runs for
+those three views, never for Home (first paint). The `agg` sub-tab group
+died with it, so **one** sub-tab group exists now (`rp-sites`), and
+`test_only_one_subtab_group_exists` guards that. Two tabs with overlapping
+numbers is the "11 signatories" failure waiting to happen; before adding a
+tab, name the one question only it answers.
+
+**Policy Playbook** (`#policies`, was "Policies & Agreements") leads with
+`Policy.principles`, a frozen 9-value vocabulary of what a policy asks OF data
+centers: pay own grid costs, binding community benefits, conditioned tax
+breaks, water, no secret deals, local siting say, new supply for new demand,
+environmental review, study. **Environmental review and study were one value
+("states review large projects") until the user asked what it meant:** a
+permit condition with public comment and an advisory council are different
+asks, and one label hid both. When a principle needs a sentence to explain,
+it is probably two principles. Rules for the vocabulary:
+- **Curator-assigned, primary first, max 3.** A keyword pass over-tagged
+  (six principles on one EO, none on others), so every record was assigned
+  by hand. Don't regex-classify principles.
+- **Not THEMES.** THEMES is what companies *give*; principles are what
+  governments *require*. Records carry both.
+- **Card examples rank by primary principle, then public instrument, then
+  date,** or one broad order (VA EO 22, NV EO 2026-005) headlines every card.
+- **"Latest actions" merges in governor orders filed on the Moratoriums tab**
+  (`isGovernorMoratorium`), since readers look for NY EO 62 here too.
+
+**Copy rules (the user's slop pass):**
+- Say what a section holds in one plain line, or say nothing.
+- No "Every record links to its source," and no "Click a row to…" manuals.
+- No "X, not Y" hedges ("a coverage fact, not a verdict").
+- No "by X and Y" headings ("Commitments by company and theme" became
+  "Published commitments").
+- No fragment-pair notes ("A separate instrument", "Enacted, proposed &
+  failed").
+- Empty states are one short sentence.
+- Stat tiles size to their content (`flex: 0 1 auto`); a row of four numbers
+  never stretches to full width.
+
+**Type system (enforced by tests/test_type_scale.py):**
+- **Two families only**, `--font-sans` and `--font-serif`. The audit found
+  five: a stray Georgia stack, `monospace` on bill ids, and Leaflet's
+  Helvetica Neue / Lucida Console. Leaflet's CSS lazy-loads after ours and
+  wins ties, so its override needs a `body` prefix.
+- **One size scale:** nine `--fs-*` tokens, from 11px labels to the 1.55rem
+  masthead. It replaced 35 distinct sizes. A new size is a design decision:
+  add a token or reuse one.
+- **No `clamp()` display sizes.** The pledge band's title and Roman numerals
+  scaled past the site title.
+- **Uppercase labels share one weight (600) and one tracking (0.05em).**
+- Measure before restyling: a Playwright walk over every visible text node
+  per tab, counting (family, size, weight, case) combinations. It went from
+  79 combinations to 37. Re-run it after any visual change.
+
+**The 2026-07 "enhanced high-priority" moratorium batch is poisoned.** 5 of
+its 9 records were fabricated: WA SB 5982, MA S.2455, VT H.149 and ID HB620
+are unrelated real bills, and OK HB 2992 was a different law. 3 more had
+wrong facts: Maine LD 307 was vetoed, not enacted; Denver's sponsors and vote
+were wrong; MN HF 4888 is a pending 2026 bill. Only NY checked out. The
+shape: a real bill number with an invented data-center narrative and a
+homepage source. One fetch of the legislature's bill page catches it every
+time. Treat any record from a bulk generation pass the same way, and check
+the 19 remaining homepage-sourced moratoriums (the ratchet list in
+tests/test_policies.py) with the same method.
+
+### Policies & Agreements tab (v3.1, 2026-09-23)
+
+`Policy` + `data/seed/policies.json`, tab `#policies` (between Tariffs and
+Sites). Spec and research plan: [SPEC_POLICIES_TAB.md](SPEC_POLICIES_TAB.md).
+Holds the instruments between a moratorium (a pause) and a tariff (who pays
+for power): executive orders, statutes and regulations that set conditions,
+local ordinances, site-level community benefit / host / development / PILOT
+agreements, and companies' own published community plans.
+
+- **One record type, `instrument` field** (`executive_order | legislation |
+  regulation | local_ordinance | benefit_agreement | company_plan`). A state
+  framework that requires a CBA and the CBA a county then signs share every
+  field that matters, and one directory with a type filter shows "what was
+  required" beside "what was won". Don't split it into two types.
+- **`benefit_themes` reuses the frozen 8 THEMES**; `community_benefits_framework`
+  (bool, `CBF` badge) marks records that require, create or are a CBA,
+  community fund or host payment. That flag is the thing readers came for.
+- **`key_terms` must each be literally on `source_url`.** A term the agent
+  flagged as "secondary reporting, not confirmed on this source" gets cut,
+  not kept with a caveat.
+- **`scope: company` is only for a `company_plan`**, and every plan names its
+  `company_slugs`. A company's pledge for ONE host community (xAI's "Our
+  Commitment to Memphis", Brookfield at Paducah) is a `company_plan` scoped to
+  that city: it is the company's own words, not a negotiated agreement, so
+  don't file it as `benefit_agreement`.
+- **`value_usd` is the value of committed community benefits.** Not total
+  project investment ($17B, $100B slipped in on the first pass), not a
+  projected ROI, and not a sum the curator computed from several terms.
+- **Pure pauses stay on the Moratoriums tab; everything else lives here.**
+  Governor directives that pause *tax-incentive applications* (IL, OH, AZ
+  2026) are policies: they pause a subsidy, not development. The PA EO
+  2026-05 (conditional permitting) moved here on 2026-09-23.
+  `test_non_pauses_are_not_filed_as_moratoriums` rejects a moratorium record
+  whose own `policy_type` says it isn't one. `related_moratorium_id` exists
+  for a genuine overlap; don't duplicate a record across the two tabs.
+- **A homepage citation is how fabricated records survive.** The same pass
+  found the moratorium tab's "Washington SB 5982 (2024)" was a Department of
+  Health bill, and "Oklahoma HB 2992 (2024)" was really a 2026 law, with
+  invented sponsors and votes. Both cited a bare homepage
+  (`datacenterbans.com/`, `app.leg.wa.gov/`), which "resolves" while proving
+  nothing. Checking the bill number on the legislature's own site took one
+  fetch each. `HOMEPAGE_SOURCED_MORATORIUMS` (tests/test_policies.py) lists
+  the 22 moratorium records that still cite only a homepage and lets that
+  list only shrink. Policies may not cite a bare homepage at all.
+- **`delivered` on a Policy reuses `Delivered`** (in-effect records only).
+  The evidence bar is *independent* evidence that a payment was made or a
+  grant awarded: the recipient government's own record of receipt, or an
+  announcement naming recipients. A company page restating the pledge, a
+  page older than the agreement, or spending not tied to the agreement is
+  not evidence. Four of seven research findings failed that bar on review.
+  Absence means not yet assessed.
+- Statuses reuse the tariff palette through `POLICY_STATUS_BADGE_CLASS`,
+  whose *values* are checked against styles.css (the RATE_CASE_BADGE_CLASS
+  lesson). The payload is promise-memoized (tab + state panel both load it)
+  and never on first paint. The state panel now has **six** sections.
+- **The state modal lives inside the Pledge view.** `openStatePanel()` called
+  while another view is active opens an invisible modal. e2e tests must
+  `activateView('ratepayer')` first. The `#state/XX` deep link already does.
 
 ### IA v3 — Home as the record's front door (2026-08-03)
 

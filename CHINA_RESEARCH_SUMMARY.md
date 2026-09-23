@@ -174,7 +174,7 @@ China developing domestic alternatives (Huawei Kunpeng, Alibaba Yitian) but **tr
 
 ### Current State of the Record
 - Idaho HB620 (2024): Mentions "foreign data center interest" vaguely; no China naming
-- Oklahoma HB 2992 (2024): Discusses "national security concerns" but primary focus is ratepayer protection
+- ~~Oklahoma HB 2992 (2024): Discusses "national security concerns" but primary focus is ratepayer protection~~ — removed 2026-09-23: HB 2992 is a 2026 ratepayer-protection law and its enrolled text has no national-security language.
 - **No state-level moratorium explicitly names China or Chinese companies**
 
 ### Federal vs. State Framework

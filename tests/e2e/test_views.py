@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -66,12 +67,6 @@ class TestComparisonView:
 
         head_cells = page.locator("#matrix-head-row .col-theme-head")
         expect(head_cells).to_have_count(8)
-
-    def test_theme_legend_renders_eight_chips(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
-        page.wait_for_selector("#theme-legend .theme-chip", timeout=10_000)
-        chips = page.locator("#theme-legend .theme-chip")
-        expect(chips).to_have_count(8)
 
     def test_no_global_claims_list_on_comparison(self, page: Page, base_url: str):
         # v1.3: the comparison view dropped the global claims list + filter
@@ -398,14 +393,14 @@ class TestCrossCutting:
         assert meta.count() == 1
 
     def test_comparison_hero_explains_source_and_use(self, page: Page, base_url: str):
-        # The comparison page should tell readers what the records are and why
-        # they are useful without relying on vague "blueprint" language.
+        # The Companies dek names the two things the tab holds: how much each
+        # operator is building (the totals table) and what it has committed
+        # to in writing (the matrix). One plain sentence, no usage manual.
         page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        hero = page.locator("#view-comparison .hero")
-        text = hero.text_content() or ""
-        assert "source links" in text.lower()
-        assert "future" in text.lower() and "projects" in text.lower()
+        text = (page.locator("#view-comparison .hero").text_content() or "").lower()
+        assert "building" in text and "community benefits" in text
+        assert "click" not in text
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
         page.goto(base_url + "/#comparison")
@@ -1208,6 +1203,261 @@ class TestRatepayerView:
         assert page.locator("#rp-scorecard .rp-conflicts").count() >= 1
 
 
+class TestPoliciesView:
+    """Policies & Agreements tab (v3.1): lazy load, directory, modal, filters."""
+
+    def _open(self, page: Page, base_url: str) -> None:
+        """The directory ships collapsed (the principle cards are the way in),
+        so open it the way a reader would before asserting on its rows."""
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policies-tbody tr[role=button]", state="attached", timeout=10_000)
+        page.locator("#policies-directory > summary").click()
+
+    def test_directory_renders_every_record(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        n = page.evaluate("() => state.policies.length")
+        assert n > 0
+        assert page.locator("#policies-tbody tr[role=button]").count() == n
+        assert page.locator("#policy-stats .rp-stat").count() >= 4
+
+    def test_payload_is_lazy(self, page: Page, base_url: str):
+        """policies.json must not join first paint (perf budget)."""
+        seen: list[str] = []
+        page.on("request", lambda r: seen.append(r.url))
+        page.goto(base_url + "/")
+        page.wait_for_timeout(1500)
+        assert not any("policies.json" in u for u in seen)
+
+    def test_payload_fetched_once(self, page: Page, base_url: str):
+        """Tab + state panel both load it; promise memoization means one fetch."""
+        seen: list[str] = []
+        page.on("request", lambda r: seen.append(r.url))
+        self._open(page, base_url)
+        code = page.evaluate("() => state.policies.find(p => p.state_code).state_code")
+        # The state modal lives in the Pledge view, so open it from there.
+        page.evaluate(f"() => {{ activateView('ratepayer'); openStatePanel('{code}'); }}")
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.wait_for_timeout(1500)
+        assert sum("policies.json" in u for u in seen) == 1
+
+    def test_row_opens_modal_and_escape_closes(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        row = page.locator("#policies-tbody tr[role=button]").first
+        row.focus()
+        page.keyboard.press("Enter")
+        page.wait_for_selector("#policy-modal:not([hidden])", timeout=5_000)
+        assert page.locator("#pd-terms li").count() >= 1
+        assert page.locator("#pd-resources-list a").count() >= 1
+        page.keyboard.press("Escape")
+        assert page.locator("#policy-modal").is_hidden()
+
+    def test_every_principle_has_a_card_with_examples(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        n = page.evaluate("() => POLICY_PRINCIPLES.length")
+        cards = page.locator("#policy-principles .pb-principle")
+        assert cards.count() == n
+        for i in range(n):
+            assert cards.nth(i).locator(".pb-example").count() >= 1, f"card {i} has no example"
+
+    def test_see_all_filters_directory_by_principle(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policy-principles .pb-see-all", timeout=10_000)
+        card = page.locator("#policy-principles .pb-principle").nth(1)
+        key = card.get_attribute("data-principle")
+        card.locator(".pb-see-all").click()
+        expect(page.locator("#policies-directory")).to_have_attribute("open", "")
+        assert page.input_value("#policy-principle-filter") == key
+        expected = page.evaluate(
+            f"() => state.policies.filter(p => p.principles.includes('{key}')).length"
+        )
+        assert page.locator("#policies-tbody tr[role=button]").count() == expected
+
+    def test_see_all_clears_other_filters(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        page.select_option("#policy-status-filter", "failed")
+        page.check("#policy-cbf-filter")
+        card = page.locator("#policy-principles .pb-principle").first
+        key = card.get_attribute("data-principle")
+        card.locator(".pb-see-all").click()
+        assert page.input_value("#policy-status-filter") == ""
+        assert not page.locator("#policy-cbf-filter").is_checked()
+        expected = page.evaluate(
+            f"() => state.policies.filter(p => p.principles.includes('{key}')).length"
+        )
+        assert page.locator("#policies-tbody tr[role=button]").count() == expected
+
+    def test_governor_year_uses_snapshot(self, page: Page, base_url: str):
+        page.add_init_script("""(() => {
+          const RealDate = Date;
+          window.Date = class extends RealDate {
+            constructor(...args) { super(...(args.length ? args : ['2027-01-01T12:00:00Z'])); }
+          };
+          Date.now = () => new RealDate('2027-01-01T12:00:00Z').getTime();
+        })()""")
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policy-stats .rp-stat", timeout=10_000)
+        assert "Governor orders in 2026" in page.locator("#policy-stats").inner_text()
+
+    def test_policy_exports_use_local_date(self, browser, base_url: str):
+        context = browser.new_context(timezone_id="America/Los_Angeles", accept_downloads=True)
+        context.add_init_script(STUB_HTML2PDF_JS)
+        context.add_init_script("""(() => {
+          const RealDate = Date;
+          window.Date = class extends RealDate {
+            constructor(...args) { super(...(args.length ? args : ['2026-09-23T00:30:00Z'])); }
+          };
+        })()""")
+        page = context.new_page()
+        try:
+            page.goto(base_url + "/#policies")
+            page.wait_for_selector("#policies-tbody tr[role=button]", state="attached", timeout=10_000)
+            page.locator("#policies-directory > summary").click()
+            with page.expect_download() as csv:
+                page.locator("#policies-csv-btn").click()
+            assert csv.value.suggested_filename == "policies-and-agreements-2026-09-22.csv"
+            with page.expect_download() as pdf:
+                page.locator("#policies-pdf-btn").click()
+            assert pdf.value.suggested_filename == "policies-and-agreements-2026-09-22.pdf"
+        finally:
+            context.close()
+
+    def test_mobile_latest_actions_keep_jurisdiction(self, browser, base_url: str):
+        context = browser.new_context(viewport={"width": 390, "height": 844})
+        page = context.new_page()
+        try:
+            page.goto(base_url + "/#policies")
+            page.wait_for_selector("#policy-actions .pb-action", timeout=10_000)
+            assert page.locator("#policy-actions .pb-action-where").first.is_visible()
+            assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        finally:
+            context.close()
+
+    def test_policy_touch_targets(self, browser, base_url: str):
+        context = browser.new_context(
+            viewport={"width": 390, "height": 844}, has_touch=True, is_mobile=True
+        )
+        page = context.new_page()
+        try:
+            page.goto(base_url + "/#policies")
+            page.wait_for_selector("#policy-actions .pb-action", timeout=10_000)
+            for selector in (".pb-see-all", ".pb-action-btn"):
+                heights = page.locator(f"#view-policies {selector}").evaluate_all(
+                    "els => els.map(el => el.getBoundingClientRect().height)"
+                )
+                assert heights and min(heights) >= 44, (selector, heights)
+        finally:
+            context.close()
+
+    def test_related_site_opens_after_cold_project_load(self, page: Page, base_url: str):
+        page.add_init_script("""(() => {
+          const realFetch = window.fetch.bind(window);
+          window.fetch = (...args) => realFetch(...args).then(response =>
+            String(args[0]).includes('data/projects.json')
+              ? new Promise(resolve => setTimeout(() => resolve(response), 1500))
+              : response
+          );
+        })()""")
+        page.goto(base_url + "/#policies", wait_until="domcontentloaded")
+        page.wait_for_selector("#policy-principles .pb-principle", timeout=10_000)
+        assert page.evaluate("state.projects.length") == 0
+        project_id = page.evaluate("""() => {
+          const policy = state.policies.find(p => p.related_project_ids?.length);
+          showPolicyDetail(policy);
+          return policy.related_project_ids[0];
+        }""")
+        page.locator("#pd-related-list button").first.click()
+        page.wait_for_function("id => state.selectedProjectId === id", arg=project_id, timeout=10_000)
+        assert page.evaluate("state.activeView") == "explorer"
+
+    def test_state_strip_counts_policies(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
+        code = "MT"
+        expected = page.evaluate("""code => {
+          const s = coverageStates().find(s => s.code === code);
+          return s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies;
+        }""", code)
+        cell = page.locator(f'#pledge-state-strip [data-state-code="{code}"]')
+        assert f"{expected} tracked records" in cell.get_attribute("aria-label")
+
+    def test_state_panel_waits_for_other_data_after_policy_failure(self, page: Page, base_url: str):
+        page.route("**/data/policies.json", lambda route: route.abort())
+        page.add_init_script("""(() => {
+          const realFetch = window.fetch.bind(window);
+          window.fetch = (...args) => realFetch(...args).then(response =>
+            String(args[0]).includes('data/tariffs.json')
+              ? new Promise(resolve => setTimeout(() => resolve(response), 700))
+              : response
+          );
+        })()""")
+        page.goto(base_url + "/#ratepayer", wait_until="domcontentloaded")
+        page.evaluate("() => openStatePanel('VA')")
+        assert page.evaluate("state.tariffsLoaded")
+        assert page.locator("#sd-body .sd-section").count() == 6
+        assert page.locator("#sd-body .sd-section").filter(
+            has=page.locator(".sd-section-title", has_text="Utility tariffs")
+        ).locator(".sd-item").count() > 0
+        policy_section = page.locator("#sd-body .sd-section").filter(
+            has=page.locator(".sd-section-title", has_text="Policies & agreements")
+        )
+        assert "Records unavailable" in policy_section.inner_text()
+
+    def test_latest_actions_include_governor_orders_from_moratoriums(
+        self, page: Page, base_url: str
+    ):
+        """NY EO 62 is a pause, so it lives on the Moratoriums tab, but it is
+        a governor's order a reader expects in the playbook's timeline."""
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policy-actions .pb-action", timeout=10_000)
+        dates = page.locator("#policy-actions .pb-action-date").all_inner_texts()
+        assert len(dates) >= 5
+        assert page.evaluate(
+            "() => state.moratoriums.some(isGovernorMoratorium)"
+        ), "expected at least one governor order on the Moratoriums tab"
+        labels = page.locator("#policy-actions .pb-action-text").all_inner_texts()
+        frederick = next(label for label in labels if "Frederick County" in label)
+        assert frederick.lower().count("rejected") == 1
+        failed_bill = next(label for label in labels if "Senate Bill 2406" in label)
+        assert failed_bill.lower().count("failed") == 1
+
+    def test_cbf_filter_and_zero_result(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        page.check("#policy-cbf-filter")
+        expected = page.evaluate(
+            "() => state.policies.filter(p => p.community_benefits_framework).length"
+        )
+        assert page.locator("#policies-tbody tr[role=button]").count() == expected
+        assert page.locator("#policies-tbody .badge-cbf").count() == expected
+
+    def test_delivered_assessment_renders_in_row_and_modal(self, page: Page, base_url: str):
+        """An agreement with a delivery assessment shows the chip in its row and
+        the Claims-tab delivered panel in its modal; one without shows neither."""
+        self._open(page, base_url)
+        row = page.locator("#policies-tbody tr[role=button]").filter(
+            has=page.locator(".policy-delivered")
+        ).first
+        chip_bg = row.locator(".policy-delivered").evaluate(
+            "el => getComputedStyle(el).backgroundColor"
+        )
+        assert chip_bg not in ("rgba(0, 0, 0, 0)", "transparent")
+        row.click()
+        page.wait_for_selector("#policy-modal:not([hidden])", timeout=5_000)
+        assert page.locator("#pd-delivered .claim-delivered").is_visible()
+        page.keyboard.press("Escape")
+        bare = page.locator("#policies-tbody tr[role=button]").filter(
+            has_not=page.locator(".policy-delivered")
+        ).first
+        bare.click()
+        page.wait_for_selector("#policy-modal:not([hidden])", timeout=5_000)
+        assert page.locator("#pd-delivered").is_hidden()
+
+    def test_status_badges_are_colored(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        badge = page.locator("#policies-tbody .badge:not(.badge-cbf)").first
+        bg = badge.evaluate("el => getComputedStyle(el).backgroundColor")
+        assert bg not in ("rgba(0, 0, 0, 0)", "transparent")
+
+
 class TestTariffsView:
     """Utility Tariffs tab: rendering, keyboard access, federal segregation."""
 
@@ -1419,89 +1669,86 @@ class TestMatrixCsv:
 # ---------------------------------------------------------------------------
 
 
-class TestAggregateView:
-    def _goto_aggregate(self, page: Page, base_url: str) -> None:
+class TestTotalsTables:
+    """The totals tables that used to be the "By State & Company" tab now live
+    in the views that own their question: per company on Companies, per state
+    on Sites, per signatory category and per utility on The Pledge."""
+
+    @staticmethod
+    def _open(page: Page, base_url: str, view_hash: str, section: str, ready: str) -> None:
+        page.goto(base_url + "/" + view_hash)
+        page.wait_for_selector(ready, state="attached", timeout=15_000)
+        sec = page.locator(f"#{section}")
+        if sec.get_attribute("open") is None:
+            sec.locator("summary").click()
+
+    def test_aggregate_hash_redirects_to_companies(self, page: Page, base_url: str):
         page.goto(base_url + "/#aggregate")
         page.wait_for_selector("#agg-company-tbody tr", timeout=15_000)
+        assert page.evaluate("() => location.hash") == "#comparison"
+        assert page.locator("#tab-aggregate").count() == 0
 
-    def test_aggregate_tab_loads(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
+    def test_company_table_on_companies_tab(self, page: Page, base_url: str):
+        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
         rows = page.locator("#agg-company-tbody tr")
         assert rows.count() >= 8, f"Expected >=8 company rows, got {rows.count()}"
+        assert page.locator("#agg-company-tfoot .agg-total-row").count() == 1
 
-    def test_aggregate_stat_tiles_render_four(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        tiles = page.locator("#agg-stats .rp-stat")
-        assert tiles.count() == 4, f"Expected 4 stat tiles, got {tiles.count()}"
-
-    def test_aggregate_company_sort_header_click(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
+    def test_company_sort_header_click(self, page: Page, base_url: str):
+        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
         th = page.locator("[data-sort-key='capex'][data-sort-table='company']")
         th.click()
         page.wait_for_timeout(200)
-        ind = th.locator(".sort-ind")
-        text = ind.text_content() or ""
+        text = th.locator(".sort-ind").text_content() or ""
         assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
 
-    def test_aggregate_state_sort_header_click(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        # "By state" is a sub-tab; its <th> is attached but not painted until
-        # the tab is selected, and Playwright won't click an unpainted element.
-        page.locator("#subtab-agg-state").click()
+    def test_state_table_on_sites_tab(self, page: Page, base_url: str):
+        self._open(page, base_url, "#explorer", "sites-by-state-section", "#agg-state-tbody tr")
+        assert page.locator("#view-explorer #agg-state-tbody tr").count() >= 10
         th = page.locator("[data-sort-key='capex'][data-sort-table='state']")
         th.click()
         page.wait_for_timeout(200)
-        ind = th.locator(".sort-ind")
-        text = ind.text_content() or ""
+        text = th.locator(".sort-ind").text_content() or ""
         assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
 
-    def test_aggregate_company_tfoot_has_total_row(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        total_row = page.locator("#agg-company-tfoot .agg-total-row")
-        assert total_row.count() == 1, "Expected a total row in company tfoot"
-
-    def test_agg_utility_tbody_populates(self, page: Page, base_url: str):
-        """The By-utility sub-tab is easy to leave silently unwired — nothing
-        else on the page fails if renderUtilityRollup() were deleted."""
-        self._goto_aggregate(page, base_url)
-        page.locator("#subtab-agg-utility").click()
-        rows = page.locator("#agg-utility-tbody tr")
-        assert rows.count() > 0, "Expected populated rows in the By-utility table"
-
-    def test_agg_utility_sort_header_click(self, page: Page, base_url: str):
-        self._goto_aggregate(page, base_url)
-        page.locator("#subtab-agg-utility").click()
+    def test_utility_table_on_pledge_tab(self, page: Page, base_url: str):
+        """Easy to leave silently unwired: nothing else fails if
+        renderUtilityRollup() were deleted."""
+        self._open(page, base_url, "#ratepayer", "rp-utility-section", "#agg-utility-tbody tr")
+        assert page.locator("#view-ratepayer #agg-utility-tbody tr").count() > 0
         th = page.locator("[data-sort-key='rateCases'][data-sort-table='utility']")
         th.click()
         page.wait_for_timeout(200)
-        ind = th.locator(".sort-ind")
-        text = ind.text_content() or ""
+        text = th.locator(".sort-ind").text_content() or ""
         assert text.strip() in ("▲", "▼"), f"Expected sort indicator after click, got {text!r}"
 
+    def test_totals_do_not_load_on_first_paint(self, page: Page, base_url: str):
+        """Home is first paint; the totals need tariffs + rate cases, which the
+        perf budget keeps off it."""
+        seen: list[str] = []
+        page.on("request", lambda r: seen.append(r.url))
+        page.goto(base_url + "/")
+        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
+        page.wait_for_timeout(800)
+        assert not any("tariffs.json" in u for u in seen)
+
     def test_rate_cases_json_fetched_at_most_once(self, page: Page, base_url: str):
-        """Regression test: loadRateCasesData() used to guard on a plain
-        boolean (state.rateCasesLoaded) that isn't set until after its own
-        fetch resolves. loadAggregateView() calls loadTariffsData() (which
-        itself calls loadRateCasesData()) AND loadRateCasesData() directly in
-        the same Promise.all — both saw the flag false before either await
-        settled, so data/rate_cases.json fetched twice on every Aggregate
-        load. Now promise-memoized like the other loaders."""
+        """loadRateCasesData() is promise-memoized: the Pledge view's own
+        loader and the totals loader both call it on the same activation."""
         requests = []
         page.on(
             "request",
             lambda req: requests.append(req.url) if "rate_cases.json" in req.url else None,
         )
-        self._goto_aggregate(page, base_url)
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#agg-utility-tbody tr", state="attached", timeout=15_000)
         page.wait_for_timeout(500)
         assert len(requests) == 1, f"Expected 1 fetch of rate_cases.json, got {len(requests)}"
 
     def test_pdf_export_downloads(self, page: Page, base_url: str):
-        # Regression test: exportAggregateToPDF used to call an undefined
-        # formatInvestment(), throwing before html2pdf ever loaded. Stubbed
-        # html2pdf (see the Explorer test above) to avoid the cdnjs
-        # dependency this suite otherwise avoids.
+        # Regression: exportAggregateToPDF once called an undefined helper.
         page.add_init_script(STUB_HTML2PDF_JS)
-        self._goto_aggregate(page, base_url)
+        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
         with page.expect_download(timeout=15_000) as dl_info:
             page.locator("#agg-pdf-btn").click()
         download = dl_info.value
@@ -1964,17 +2211,16 @@ class TestPledgeLanding:
         assert label and "Cooperatives" in label
 
     def test_state_strip_shows_all_fifty_states(self, page: Page, base_url: str):
-        """Including the ones we hold nothing for — omitting them would imply
-        national coverage the dataset does not have. The strip lives in the
-        Pledge tab's Coverage section (v3)."""
+        """Show every state and derive empty cells from the published rollup."""
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
         cells = page.locator("#pledge-state-strip .pledge-state-cell")
         assert cells.count() == 50
         # Governor-signed states are marked, and there are exactly 23.
         assert page.locator("#pledge-state-strip .pledge-state-cell.is-gov").count() == 23
-        # At least one honest-empty cell.
-        assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() >= 1
+        coverage = json.loads((ROOT / "docs/data/coverage.json").read_text())["states"]
+        expected_empty = sum(not any(counts.values()) for counts in coverage.values())
+        assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() == expected_empty
 
     def test_stat_tile_jumps_to_the_scorecard(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -2045,9 +2291,10 @@ class TestStatePanel:
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         expect(page.locator("#sd-name")).to_have_text("Texas")
-        # Five sections always render — an empty one shows an honest placeholder
-        # rather than disappearing. (v3 added Rate cases & proceedings.)
-        assert page.locator("#sd-body .sd-section").count() == 5
+        # Six sections always render — an empty one shows an honest placeholder
+        # rather than disappearing. (v3 added Rate cases & proceedings; v3.1
+        # added Policies & agreements.)
+        assert page.locator("#sd-body .sd-section").count() == 6
         assert "Abbott" in page.locator("#sd-governor").inner_text()
 
     def test_panel_is_deep_linkable(self, page: Page, base_url: str):
@@ -2082,7 +2329,7 @@ class TestStatePanel:
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         assert page.locator("#sd-body .sd-empty").count() >= 1
-        assert page.locator("#sd-body .sd-section").count() == 5
+        assert page.locator("#sd-body .sd-section").count() == 6
 
 
 class TestScorecardFilterBar:
@@ -2247,17 +2494,16 @@ class TestSignatoryLens:
 class TestAggregateSignatoryRollup:
     @staticmethod
     def _open(page: Page, base_url: str) -> None:
-        """Select the "By signatory category" sub-tab.
+        """Open the Pledge tab's "by signatory category" section.
 
-        The three aggregate rollups are sub-tabs, so two of the three panels are
-        [hidden] on load. Waiting for their rows with the default
-        state="visible" hangs on rows that are in the DOM but unpainted.
+        It ships collapsed, so its rows are attached but unpainted until the
+        summary is clicked.
         """
-        page.goto(base_url + "/#aggregate")
+        page.goto(base_url + "/#ratepayer")
         page.wait_for_selector(
             "#agg-signatory-tbody tr", state="attached", timeout=10_000
         )
-        page.locator("#subtab-agg-signatory").click()
+        page.locator("#rp-category-section summary").click()
 
     def test_rollup_groups_sites_by_signing_cohort(self, page: Page, base_url: str):
         self._open(page, base_url)
@@ -2272,7 +2518,7 @@ class TestAggregateSignatoryRollup:
         not be read as roster-wide."""
         self._open(page, base_url)
         sub = page.locator("#agg-signatory-sub").inner_text()
-        assert "not the full" in sub.lower()
+        assert "tracked companies only" in sub.lower()
 
     def test_assessed_and_contested_columns_are_consistent(
         self, page: Page, base_url: str
@@ -2306,7 +2552,7 @@ class TestReviewFixes:
             ).get_attribute("aria-label")
             assert "no tracked records" not in label, f"{code}: {label}"
         key = page.locator("#pledge-strip-key").inner_text()
-        covered = int(key.split(" of 50")[0].split()[-1])
+        covered = int(key.split(" states with records")[0].split()[-1])
         assert covered >= 45, f"only {covered} of 50 states reported as covered"
 
     def test_every_csv_row_has_the_same_column_count(self, page: Page, base_url: str):
@@ -2453,10 +2699,10 @@ class TestSubtabs:
         omission. Iterating the group rather than naming the tabs means a new
         cohort can't be added without one.
         """
-        page.goto(base_url + "/#aggregate")
-        page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=10_000)
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=10_000)
         missing = page.evaluate(
-            """() => [...document.querySelectorAll('#view-aggregate .subtab')]
+            """() => [...document.querySelectorAll('#view-ratepayer .subtab')]
                  .filter((b) => {
                    const pill = b.querySelector('.subtab-count');
                    return !pill || !/^\\d+$/.test(pill.textContent.trim());
@@ -2466,28 +2712,29 @@ class TestSubtabs:
         assert missing == [], f"sub-tabs with no count pill: {missing}"
 
     def test_arrow_keys_move_between_subtabs(self, page: Page, base_url: str):
-        page.goto(base_url + "/#aggregate")
-        page.wait_for_selector("#agg-company-tbody tr", timeout=10_000)
-        page.locator("#subtab-agg-company").focus()
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=10_000)
+        page.locator("#subtab-rp-sites-assessed").focus()
         page.keyboard.press("ArrowRight")
-        expect(page.locator("#subtab-agg-signatory")).to_have_attribute(
+        expect(page.locator("#subtab-rp-sites-unassessed")).to_have_attribute(
             "aria-selected", "true"
         )
         page.keyboard.press("ArrowLeft")
-        expect(page.locator("#subtab-agg-company")).to_have_attribute(
+        expect(page.locator("#subtab-rp-sites-assessed")).to_have_attribute(
             "aria-selected", "true"
         )
 
-    def test_only_two_subtab_groups_exist(self, page: Page, base_url: str):
+    def test_only_one_subtab_group_exists(self, page: Page, base_url: str):
         """Guard on the design rule, not just the current markup: sub-tabs are
-        for alternatives. If a third group appears, it needs justifying against
-        the "would a reader want two on screen at once?" test."""
+        for alternatives. The aggregate group went away with its tab
+        (2026-09-23). A new group needs justifying against the "would a reader
+        want two on screen at once?" test."""
         page.goto(base_url + "/")
         page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
         groups = page.evaluate(
             "() => document.querySelectorAll('.subtabs').length"
         )
-        assert groups == 2, f"expected 2 sub-tab groups, found {groups}"
+        assert groups == 1, f"expected 1 sub-tab group, found {groups}"
 
 
 class TestAccordionTraps:
@@ -2603,7 +2850,6 @@ class TestTouchTargets:
         "view_hash,view_id,ready",
         [
             ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
-            ("#aggregate", "#view-aggregate", "#agg-company-tbody tr"),
         ],
     )
     def test_subtabs_meet_the_44px_floor_on_touch(
@@ -2950,7 +3196,7 @@ class TestAggregateExportsCoverEveryRollup:
     """
 
     def test_csv_contains_all_three_rollups(self, page: Page, base_url: str):
-        page.goto(base_url + "/#aggregate")
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
         with page.expect_download() as dl:
             page.locator("#agg-csv-btn").click()
@@ -2961,11 +3207,11 @@ class TestAggregateExportsCoverEveryRollup:
         assert "Hyperscaler" in text or "Did not sign" in text, text[:400]
 
     def test_every_rollup_tab_has_a_csv_section(self, page: Page, base_url: str):
-        """Derived, not hardcoded: one CSV section per sub-tab, so adding a
-        fourth rollup without exporting it fails here."""
-        page.goto(base_url + "/#aggregate")
+        """Derived, not hardcoded: one CSV section per totals table, so adding a
+        table without exporting it fails here."""
+        page.goto(base_url + "/#comparison")
         page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
-        tabs = page.locator("#view-aggregate .subtab").count()
+        tabs = page.locator("table.agg-table").count()
         with page.expect_download() as dl:
             page.locator("#agg-csv-btn").click()
         text = Path(dl.value.path()).read_text()

@@ -1,0 +1,410 @@
+"""Policies & agreements dataset integrity + Python↔JS vocabulary parity (v3.1).
+
+See SPEC_POLICIES_TAB.md. The schema enforces shape; these tests pin the
+editorial rules and the frontend mirrors that nothing else would catch.
+"""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pytest
+from pydantic import ValidationError
+
+from tests.test_themes_match_frontend import (
+    _extract_array,
+    _extract_object_keys,
+    _extract_object_values,
+)
+
+ROOT = Path(__file__).resolve().parent.parent
+SEED = ROOT / "data" / "seed" / "policies.json"
+APP_JS = ROOT / "docs" / "app.js"
+CSS = ROOT / "docs" / "styles.css"
+INDEX = ROOT / "docs" / "index.html"
+
+
+@pytest.fixture(scope="module")
+def policies() -> list[dict]:
+    return json.loads(SEED.read_text(encoding="utf-8"))["policies"]
+
+
+@pytest.fixture(scope="module")
+def js() -> str:
+    return APP_JS.read_text(encoding="utf-8")
+
+
+def test_seed_validates_against_schema() -> None:
+    from schema import PoliciesPayload
+
+    PoliciesPayload.model_validate(json.loads(SEED.read_text(encoding="utf-8")))
+
+
+def test_seed_is_not_empty(policies) -> None:
+    assert len(policies) >= 20
+
+
+def test_every_record_cites_an_https_source(policies) -> None:
+    for p in policies:
+        assert p["source_url"].startswith("https://"), p["id"]
+        for r in p.get("resources", []):
+            assert r["url"].startswith("https://"), p["id"]
+
+
+def test_related_ids_resolve(policies) -> None:
+    projects = {
+        x["id"]
+        for x in json.loads((ROOT / "data/seed/projects.json").read_text())["projects"]
+    }
+    moratoriums = {
+        x["id"]
+        for x in json.loads((ROOT / "data/seed/moratoriums.json").read_text())["moratoriums"]
+    }
+    for p in policies:
+        for pid in p.get("related_project_ids", []):
+            assert pid in projects, (p["id"], pid)
+        if p.get("related_moratorium_id"):
+            assert p["related_moratorium_id"] in moratoriums, p["id"]
+
+
+def test_state_codes_are_real_states(policies, js) -> None:
+    import re
+
+    body = re.search(r"const STATE_NAMES = \{(.*?)\};", js, re.DOTALL).group(1)
+    codes = set(re.findall(r"\b([A-Z]{2}):", body))
+    for p in policies:
+        if p.get("state_code"):
+            assert p["state_code"] in codes, (p["id"], p["state_code"])
+
+
+def test_both_halves_of_the_tab_are_populated(policies) -> None:
+    """The tab exists to put public instruments beside negotiated agreements."""
+    kinds = {p["instrument"] for p in policies}
+    assert kinds & {"executive_order", "legislation", "regulation"}
+    assert kinds & {"benefit_agreement", "company_plan", "local_ordinance"}
+    assert any(p["community_benefits_framework"] for p in policies)
+
+
+def test_value_usd_only_with_a_community_benefit(policies) -> None:
+    """A stated dollar value is the value of committed community benefits."""
+    for p in policies:
+        if p.get("value_usd") is not None:
+            assert p["community_benefits_framework"] or "community_grants" in p["benefit_themes"], p["id"]
+
+
+def test_unilateral_site_commitments_are_not_agreements(policies) -> None:
+    by_id = {p["id"]: p for p in policies}
+    for id_ in (
+        "dane-county-wi-qts-community-commitment-2025",
+        "montgomery-county-mo-amazon-community-contributions-2026",
+        "salem-township-pa-amazon-nepa-community-fund-2025",
+        "warren-county-ms-amazon-community-fund-2025",
+    ):
+        assert by_id[id_]["instrument"] == "company_plan", id_
+    assert not by_id["warren-county-ms-amazon-community-fund-2025"].get("delivered")
+
+
+def test_benefit_flag_tracks_funds_and_host_payments(policies) -> None:
+    by_id = {p["id"]: p for p in policies}
+    assert by_id["in-hea1210-2026"]["community_benefits_framework"]
+    for id_ in (
+        "amazon-company-plan-aws-data-center-communities-2026",
+        "anthropic-company-plan-electricity-price-coverage-2026",
+        "prologis-company-plan-responsible-development-2026",
+    ):
+        assert not by_id[id_]["community_benefits_framework"], id_
+
+
+# --- schema edge cases ------------------------------------------------------
+
+BASE = {
+    "principles": ["pay_own_way"],
+    "id": "x",
+    "title": "X",
+    "instrument": "legislation",
+    "status": "in_effect",
+    "scope": "state",
+    "jurisdiction": "Texas",
+    "state_code": "tx",
+    "benefit_themes": ["energy"],
+    "key_terms": ["term"],
+    "summary": "s",
+    "source_url": "https://example.gov/x",
+    "source_title": "t",
+    "captured_at": "2026-09-23",
+}
+
+
+def _policy(**over):
+    from schema import Policy
+
+    return Policy.model_validate({**BASE, **over})
+
+
+def test_state_code_is_uppercased() -> None:
+    assert _policy().state_code == "TX"
+
+
+@pytest.mark.parametrize("scope", ["state", "county", "city"])
+def test_local_scopes_need_a_state_code(scope) -> None:
+    with pytest.raises(ValidationError):
+        _policy(scope=scope, state_code=None)
+
+
+def test_federal_scope_needs_no_state() -> None:
+    assert _policy(scope="federal", state_code=None, jurisdiction="Federal")
+
+
+def test_company_plan_rules() -> None:
+    ok = dict(instrument="company_plan", scope="company", state_code=None,
+              jurisdiction="Meta (company-wide)", company_slugs=["meta"])
+    assert _policy(**ok)
+    with pytest.raises(ValidationError):  # no company named
+        _policy(**{**ok, "company_slugs": None})
+    # A site pledge for one host community is a plan at that scope.
+    assert _policy(**{**ok, "scope": "city", "state_code": "TN", "jurisdiction": "Memphis, TN"})
+    with pytest.raises(ValidationError):  # a site pledge still needs its state
+        _policy(**{**ok, "scope": "city", "jurisdiction": "Memphis"})
+    with pytest.raises(ValidationError):
+        _policy(**{**ok, "scope": "federal"})
+    with pytest.raises(ValidationError):  # company scope, public instrument
+        _policy(**{**ok, "instrument": "legislation"})
+
+
+@pytest.mark.parametrize("terms", [[], ["  "]])
+def test_key_terms_required_and_non_blank(terms) -> None:
+    with pytest.raises(ValidationError):
+        _policy(key_terms=terms)
+
+
+def test_themes_required_and_frozen() -> None:
+    with pytest.raises(ValidationError):
+        _policy(benefit_themes=[])
+    with pytest.raises(ValidationError):
+        _policy(benefit_themes=["housing"])
+
+
+def test_negative_value_rejected() -> None:
+    with pytest.raises(ValidationError):
+        _policy(value_usd=-1)
+
+
+def test_duplicate_ids_rejected() -> None:
+    from schema import PoliciesPayload
+
+    with pytest.raises(ValidationError):
+        PoliciesPayload.model_validate(
+            {"generated_at": "2026-09-23", "policies": [BASE, BASE]}
+        )
+
+
+def test_refresh_flags_unknown_related_ids() -> None:
+    import refresh
+    from schema import Policy, PoliciesPayload
+
+    pl = refresh._load_payload
+    projects = pl("projects", refresh.PAYLOAD_FILES["projects"])
+    bad = PoliciesPayload(
+        generated_at="2026-09-23",
+        policies=[Policy.model_validate(
+            {**BASE, "related_project_ids": ["nope"], "related_moratorium_id": "nope"}
+        )],
+    )
+    errors = refresh._check_cross_refs(
+        pl("companies", refresh.PAYLOAD_FILES["companies"]),
+        pl("claims", refresh.PAYLOAD_FILES["claims"]),
+        projects,
+        pl("responses", refresh.PAYLOAD_FILES["responses"]),
+        policies=bad,
+        moratoriums=pl("moratoriums", refresh.PAYLOAD_FILES["moratoriums"]),
+    )
+    assert any("related_project_id 'nope'" in e for e in errors)
+    assert any("related_moratorium_id 'nope'" in e for e in errors)
+
+
+def test_coverage_totals_count_policies() -> None:
+    cov = json.loads((ROOT / "docs/data/coverage.json").read_text())
+    n = len(json.loads(SEED.read_text())["policies"])
+    assert cov["totals"]["policies"] == n
+
+
+# --- Python ↔ JS parity -----------------------------------------------------
+
+def test_instrument_vocab_matches(js) -> None:
+    from schema import POLICY_INSTRUMENT_LABELS, POLICY_INSTRUMENTS
+
+    assert tuple(_extract_array(js, "POLICY_INSTRUMENTS")) == POLICY_INSTRUMENTS
+    assert _extract_object_keys(js, "POLICY_INSTRUMENT_LABELS") == set(POLICY_INSTRUMENTS)
+    assert _extract_object_values(js, "POLICY_INSTRUMENT_LABELS") == set(POLICY_INSTRUMENT_LABELS.values())
+
+
+def test_status_vocab_matches(js) -> None:
+    from schema import POLICY_STATUS_LABELS, POLICY_STATUSES
+
+    assert tuple(_extract_array(js, "POLICY_STATUSES")) == POLICY_STATUSES
+    assert _extract_object_keys(js, "POLICY_STATUS_LABELS") == set(POLICY_STATUSES)
+    assert _extract_object_values(js, "POLICY_STATUS_LABELS") == set(POLICY_STATUS_LABELS.values())
+
+
+def test_scope_vocab_matches(js) -> None:
+    from schema import POLICY_SCOPES
+
+    assert tuple(_extract_array(js, "POLICY_SCOPES")) == POLICY_SCOPES
+    assert _extract_object_keys(js, "POLICY_SCOPE_LABELS") == set(POLICY_SCOPES)
+
+
+def test_principle_vocab_matches(js) -> None:
+    from schema import POLICY_PRINCIPLE_LABELS, POLICY_PRINCIPLES
+
+    assert tuple(_extract_array(js, "POLICY_PRINCIPLES")) == POLICY_PRINCIPLES
+    assert _extract_object_values(js, "POLICY_PRINCIPLE_LABELS") == set(POLICY_PRINCIPLE_LABELS.values())
+    for name in ("POLICY_PRINCIPLE_LABELS", "POLICY_PRINCIPLE_SHORT", "POLICY_PRINCIPLE_DESCRIPTIONS"):
+        assert _extract_object_keys(js, name) == set(POLICY_PRINCIPLES), name
+
+
+def test_every_principle_is_in_use(policies) -> None:
+    """An empty principle card would read as 'nobody does this'."""
+    from schema import POLICY_PRINCIPLES
+
+    used = {k for p in policies for k in p["principles"]}
+    assert used == set(POLICY_PRINCIPLES)
+
+
+def test_principles_are_bounded(policies) -> None:
+    for p in policies:
+        assert 1 <= len(p["principles"]) <= 3, p["id"]
+
+
+def test_status_badge_classes_exist_in_css(js) -> None:
+    """Values, not just keys — the RATE_CASE_BADGE_CLASS lesson (CLAUDE.md)."""
+    from schema import POLICY_STATUSES
+
+    assert _extract_object_keys(js, "POLICY_STATUS_BADGE_CLASS") == set(POLICY_STATUSES)
+    css = CSS.read_text(encoding="utf-8")
+    for cls in _extract_object_values(js, "POLICY_STATUS_BADGE_CLASS"):
+        assert f".{cls}" in css, cls
+
+
+def test_tab_is_wired(js) -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert 'id="tab-policies"' in html and 'id="view-policies"' in html
+    assert '"#policies"' in js
+    assert 'data-path-target="policies"' in html
+
+
+# --- the moratorium tab holds pauses, sourced to something specific ---------
+#
+# 2026-09-23: three records were moved off the Moratoriums tab. One was a
+# conditional-permitting order (PA EO 2026-05, now a Policy); the other two
+# were cited to a bare homepage and turned out to be fabricated (WA "SB 5982"
+# is a Department of Health bill) or badly wrong (OK HB 2992 is a 2026 law,
+# not 2024). A homepage citation is how both survived: it "resolves" while
+# proving nothing. These guards keep the list of such records from growing.
+
+HOMEPAGE_SOURCED_MORATORIUMS = {  # audit these; remove ids as they are fixed
+    "baltimore-city-2026-05", "bloomington-normal-il-2026-06", "boise-id-2026-05",
+    "cheyenne-wy-2026-06", "dubuque-county-ia-2026-06", "hawaii-state-2026-01",
+    "hill-county-tx-2024-04", "indianapolis-in-2024-10",
+    "iron-county-ut-2026-06", "loudoun-county-leesburg-va-2026-06", 
+    "manitowoc-county-wi-2026-06", "meridian-township-mi-2024-11", "minneapolis-city-2026-05",
+    "oklahoma-county-ok-2026-04", "philadelphia-pa-2026-05", "pulaski-county-ar-2024-07",
+    "reno-city-2026-05", "smithfield-town-2026-05", 
+    "washington-township-macomb-mi-2024-03",
+}
+
+
+def _moratoriums() -> list[dict]:
+    return json.loads((ROOT / "data/seed/moratoriums.json").read_text())["moratoriums"]
+
+
+def test_no_new_homepage_sourced_moratoriums() -> None:
+    from urllib.parse import urlparse
+
+    bare = {
+        m["id"]
+        for m in _moratoriums()
+        if urlparse(m["source_url"]).path in ("", "/") and not urlparse(m["source_url"]).query
+    }
+    new = bare - HOMEPAGE_SOURCED_MORATORIUMS
+    assert not new, f"moratorium records cited only to a homepage: {sorted(new)}"
+    fixed = HOMEPAGE_SOURCED_MORATORIUMS - bare
+    assert not fixed, f"these are fixed — drop them from the allowlist: {sorted(fixed)}"
+
+
+def test_policies_never_cite_a_bare_homepage(policies) -> None:
+    from urllib.parse import urlparse
+
+    for p in policies:
+        u = urlparse(p["source_url"])
+        assert u.path not in ("", "/") or u.query, p["id"]
+
+
+def test_non_pauses_are_not_filed_as_moratoriums() -> None:
+    for m in _moratoriums():
+        pt = (m.get("policy_type") or "").lower()
+        assert "not a pause" not in pt and "cost-allocation" not in pt, (
+            f"{m['id']} describes itself as not a moratorium — it belongs in policies.json"
+        )
+
+
+def test_migrated_records_live_in_exactly_one_place(policies) -> None:
+    ids = {m["id"] for m in _moratoriums()}
+    for gone in ("pennsylvania-state-eo2026-05", "oklahoma-state-hb2992-2024",
+                 "washington-state-sb5982-2024", "massachusetts-state-2026-04",
+                 "vermont-state-2026-03", "idaho-state-2026-03",
+                 "minnesota-state-hf4888-2024"):
+        assert gone not in ids
+    pol = {p["id"] for p in policies}
+    assert {"pa-eo2026-05-2026", "ok-hb2992-2026"} <= pol
+
+
+# --- delivered-vs-promised on agreements ------------------------------------
+
+def test_delivered_only_on_in_effect_records() -> None:
+    d = {"status": "partial", "summary": "s", "source_url": "https://example.gov/d",
+         "source_title": "t", "assessed_at": "2026-09-23"}
+    assert _policy(delivered=d).delivered.status == "partial"
+    with pytest.raises(ValidationError):
+        _policy(status="failed", delivered=d)
+    with pytest.raises(ValidationError):
+        _policy(delivered={**d, "status": "unknown"})
+
+
+def test_delivery_assessments_exist_and_are_honest(policies) -> None:
+    """At least one assessment ships, and `shortfall` — the strongest claim —
+    never appears without a summary that names what was not delivered."""
+    assessed = [p for p in policies if p.get("delivered")]
+    assert assessed
+    for p in assessed:
+        if p["delivered"]["status"] == "shortfall":
+            assert "not" in p["delivered"]["summary"].lower(), p["id"]
+
+
+# Aggregators that restate other sources (or generate text) are not
+# citations. Each one on this list was caught in review on 2026-09-23.
+AGGREGATOR_DOMAINS = (
+    "servercountry.org",
+    "billtrack50.com",
+    "citizenportal.ai",
+    "datacenterbans.com",
+    "r.jina.ai",
+)
+
+
+def test_no_aggregator_citations(policies) -> None:
+    for p in policies:
+        urls = [p["source_url"]] + [r["url"] for r in p.get("resources", [])]
+        if p.get("delivered"):
+            urls.append(p["delivered"]["source_url"])
+        for u in urls:
+            assert not any(d in u for d in AGGREGATOR_DOMAINS), (p["id"], u)
+
+
+def test_failed_bills_got_a_floor_vote_or_a_veto(policies) -> None:
+    """The bar for a failed bill is a real decision point (a chamber vote or a
+    veto), not death in committee — otherwise every introduced bill is in."""
+    for p in policies:
+        if p["status"] == "failed" and p["instrument"] == "legislation":
+            s = p["summary"].lower()
+            assert any(w in s for w in ("passed", "veto", "rejected it", "senate rejected")), p["id"]

@@ -126,6 +126,97 @@ const RATE_CASE_BADGE_CLASS = {
   approved: "badge-tariff-status-approved",
   rejected: "badge-tariff-status-rejected",
 };
+
+// Policies & agreements (v3.1). Mirrors POLICY_* in schema.py; parity-tested
+// in test_themes_match_frontend.py. Statuses reuse the tariff palette —
+// in effect ↔ approved green, proposed ↔ amber, failed ↔ rejected red.
+const POLICY_INSTRUMENTS = [
+  "executive_order",
+  "legislation",
+  "regulation",
+  "local_ordinance",
+  "benefit_agreement",
+  "company_plan",
+];
+const POLICY_INSTRUMENT_LABELS = {
+  executive_order: "Executive order",
+  legislation: "Legislation",
+  regulation: "Regulation",
+  local_ordinance: "Local ordinance",
+  benefit_agreement: "Benefit agreement",
+  company_plan: "Company plan",
+};
+const POLICY_STATUSES = ["in_effect", "proposed", "failed"];
+const POLICY_STATUS_LABELS = {
+  in_effect: "In effect",
+  proposed: "Proposed",
+  failed: "Failed / withdrawn",
+};
+const POLICY_STATUS_BADGE_CLASS = {
+  in_effect: "badge-tariff-status-approved",
+  proposed: "badge-tariff-status-proposed",
+  failed: "badge-tariff-status-rejected",
+};
+// The playbook's organizing axis. Mirrors POLICY_PRINCIPLES in schema.py.
+const POLICY_PRINCIPLES = [
+  "pay_own_way",
+  "community_benefits",
+  "incentive_terms",
+  "water",
+  "transparency",
+  "local_control",
+  "new_power",
+  "environmental_review",
+  "study",
+];
+const POLICY_PRINCIPLE_LABELS = {
+  pay_own_way: "Data centers pay their own grid costs",
+  community_benefits: "Host communities get binding benefits",
+  incentive_terms: "Tax breaks come with conditions",
+  water: "Water use is capped or reported",
+  transparency: "No secret deals",
+  local_control: "Localities keep a say in siting",
+  new_power: "New demand brings new supply",
+  environmental_review: "Projects get environmental review",
+  study: "States study before setting rules",
+};
+const POLICY_PRINCIPLE_SHORT = {
+  pay_own_way: "Grid costs",
+  community_benefits: "Community benefits",
+  incentive_terms: "Tax breaks",
+  water: "Water",
+  transparency: "Disclosure",
+  local_control: "Local siting",
+  new_power: "New supply",
+  environmental_review: "Environmental review",
+  study: "Study",
+};
+const POLICY_PRINCIPLE_DESCRIPTIONS = {
+  pay_own_way:
+    "Separate rate classes, long contracts, and collateral, so grid upgrades for a data center are not billed to households.",
+  community_benefits:
+    "Benefit agreements, community funds, and payments in lieu of taxes, written into the approval.",
+  incentive_terms:
+    "Job, wage, and investment floors on tax exemptions, and pauses or repeals where states pulled back.",
+  water: "Limits on cooling water, closed-loop requirements, and usage reporting.",
+  transparency:
+    "Bans on nondisclosure agreements with officials, public registries, and early notice to neighbors.",
+  local_control: "Local approval before state permits, plus zoning, noise, and setback rules.",
+  new_power:
+    "Requirements, or permission, to build new generation instead of drawing on existing supply.",
+  environmental_review:
+    "Impact review before permits issue: water, air, noise, and wildlife studies, usually with public comment. New York's statewide pause (EO 62) waits on one.",
+  study:
+    "Task forces, advisory councils, and workgroups that recommend rules before a state writes them.",
+};
+const POLICY_SCOPES = ["federal", "state", "county", "city", "company"];
+const POLICY_SCOPE_LABELS = {
+  federal: "Federal",
+  state: "State",
+  county: "County",
+  city: "City / town",
+  company: "Company-wide",
+};
 // The five LBL element groups, in the brief's order: [group_key, label].
 const TARIFF_PARAMETER_GROUPS = [
   ["eligibility", "Eligibility & Applicability"],
@@ -426,6 +517,7 @@ const state = {
   responses: [],
   moratoriums: [],
   tariffs: [],
+  policies: [],
   signatories: [],
   coverage: {},
   coverageTotals: null,
@@ -508,7 +600,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const preload = () =>
         Promise.all([loadProjectData(), loadResponseData()])
           .then(() => {
-            renderSummaryStats();
             renderPledgeHero();
           })
           .catch((err) =>
@@ -575,8 +666,8 @@ const VIEWS = [
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
+  { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
-  { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
 ];
 
 const DEFAULT_VIEW =
@@ -610,6 +701,11 @@ function wireTabs() {
   // Allow URL hash to deep-link to a non-default view on load. Also activate
   // the Explorer when filter query params are present (even without the
   // #explorer hash) so a deep-linked filtered Explorer round-trips.
+  // #aggregate was retired when its tables moved into Companies / Sites /
+  // The Pledge; old links land on Companies rather than the default view.
+  if (window.location.hash === "#aggregate") {
+    history.replaceState(null, "", "#comparison");
+  }
   const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
   if (fromHash) {
     activateView(fromHash.name);
@@ -708,6 +804,15 @@ function activateView(name) {
     }
   }
 
+  // The totals tables (formerly the "By State & Company" tab) live in the
+  // views that own their question: per company on Companies, per state on
+  // Sites, per signatory category and per utility on The Pledge.
+  if (["comparison", "explorer", "ratepayer"].includes(target.name)) {
+    loadAggregateView().catch((err) => {
+      console.error("Failed to load totals tables:", err);
+    });
+  }
+
   // Keep the URL in sync so views are deep-linkable / back-button friendly.
   // The Explorer serializes its full filter state (via writeFiltersToUrl);
   // the other views use a bare hash and drop any stale query string.
@@ -733,10 +838,6 @@ function activateView(name) {
     loadRatepayerView().catch((err) => {
       console.error("Failed to load ratepayer view:", err);
     });
-  } else if (target.name === "aggregate") {
-    loadAggregateView().catch((err) => {
-      console.error("Failed to load aggregate view:", err);
-    });
   } else if (target.name === "moratoriums") {
     loadMoratoriumsData().catch((err) => {
       console.error("Failed to load moratoriums data:", err);
@@ -745,6 +846,25 @@ function activateView(name) {
     loadTariffsData().catch((err) => {
       console.error("Failed to load tariffs data:", err);
     });
+  } else if (target.name === "policies") {
+    // Moratoriums are secondary here: they only add the governor orders
+    // filed on that tab to "Latest actions", so their failure is caught
+    // rather than blanking the playbook.
+    Promise.all([
+      loadPoliciesData(),
+      loadMoratoriumsData().catch((err) =>
+        console.error("Failed to load moratoriums for latest actions:", err)
+      ),
+    ])
+      .then(renderPoliciesView)
+      .catch((err) => {
+        console.error("Failed to load policies data:", err);
+        const tbody = document.getElementById("policies-tbody");
+        if (tbody) {
+          tbody.innerHTML =
+            "<tr><td colspan='6' class='muted'>Failed to load policies.</td></tr>";
+        }
+      });
   }
 }
 
@@ -762,7 +882,6 @@ async function loadComparisonData() {
   state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
   updateDraftBanner(companies.generated_at);
   renderComparisonView();
-  renderSummaryStats();
   renderPledgeHero();
 }
 
@@ -803,7 +922,6 @@ function loadProjectData() {
       }
       // Fill in the projects / GW / investment tiles now that the lazy payload
       // is in hand (companies + claims tiles already showed).
-      renderSummaryStats();
     })();
   }
   return _projectDataPromise;
@@ -833,7 +951,6 @@ function loadResponseData() {
         state.responsesByProject.get(r.project_id).push(r);
       }
       state.responsesLoaded = true;
-      renderSummaryStats();
     })();
   }
   return _responseDataPromise;
@@ -1066,8 +1183,8 @@ function renderWhatsNext() {
   const sub = document.getElementById("whats-next-sub");
   if (sub) {
     sub.textContent = items.length
-      ? "Regulator-announced steps in the tracked dockets, soonest first. Not a forecast."
-      : "No announced next steps on file yet.";
+      ? "Next steps set by regulators."
+      : "No upcoming steps announced.";
   }
   const more = document.getElementById("whats-next-more");
   if (more) {
@@ -2469,6 +2586,602 @@ function downloadTariffCSV() {
   URL.revokeObjectURL(url);
 }
 
+// --------------------------------------------------------------------------
+// Policies & agreements view (v3.1)
+//
+// One Policy record type covering executive orders, legislation, regulations,
+// local ordinances, site-level benefit agreements and company community
+// plans. Lazy-loaded like the other per-tab payloads; the state panel loads it
+// too, so it is promise-memoized (see loadRateCasesData for why a boolean
+// flag alone double-fetches).
+// --------------------------------------------------------------------------
+
+let _policyDataPromise = null;
+let _policySnapshotYear = null;
+function loadPoliciesData() {
+  if (!_policyDataPromise) {
+    _policyDataPromise = (async () => {
+      const payload = await fetchJson("data/policies.json");
+      state.policies = payload.policies || [];
+      _policySnapshotYear = /^\d{4}-\d{2}-\d{2}$/.test(payload.generated_at || "")
+        ? payload.generated_at.slice(0, 4)
+        : null;
+    })().catch((err) => {
+      _policyDataPromise = null; // let a later open retry
+      throw err;
+    });
+  }
+  return _policyDataPromise;
+}
+
+function policyWhere(p) {
+  if (p.scope === "company" || p.scope === "federal") return p.jurisdiction;
+  if (p.scope === "state") return p.jurisdiction;
+  return p.state_code && !p.jurisdiction.includes(p.state_code)
+    ? `${p.jurisdiction}, ${p.state_code}`
+    : p.jurisdiction;
+}
+
+function policyParties(p) {
+  const companies = (p.company_slugs || []).map(
+    (slug) => (state.companiesBySlug.get(slug) || {}).name || slug
+  );
+  return [...companies, ...(p.counterparties || [])];
+}
+
+function policySort(a, b) {
+  // Newest first; undated proposals sink to the bottom, then by title.
+  const ad = a.date || "";
+  const bd = b.date || "";
+  if (ad !== bd) return bd.localeCompare(ad);
+  return a.title.localeCompare(b.title);
+}
+
+const POLICY_FILTER_IDS = [
+  "policy-instrument-filter",
+  "policy-status-filter",
+  "policy-scope-filter",
+  "policy-state-filter",
+  "policy-principle-filter",
+  "policy-cbf-filter",
+];
+
+function policyFilters() {
+  const val = (id) => document.getElementById(id)?.value || "";
+  return {
+    instrument: val("policy-instrument-filter"),
+    status: val("policy-status-filter"),
+    scope: val("policy-scope-filter"),
+    state: val("policy-state-filter"),
+    principle: val("policy-principle-filter"),
+    cbfOnly: Boolean(document.getElementById("policy-cbf-filter")?.checked),
+  };
+}
+
+function filteredPolicies() {
+  const f = policyFilters();
+  return (state.policies || [])
+    .filter((p) => !f.instrument || p.instrument === f.instrument)
+    .filter((p) => !f.status || p.status === f.status)
+    .filter((p) => !f.scope || p.scope === f.scope)
+    .filter((p) => !f.state || p.state_code === f.state)
+    .filter((p) => !f.principle || (p.principles || []).includes(f.principle))
+    .filter((p) => !f.cbfOnly || p.community_benefits_framework)
+    .sort(policySort);
+}
+
+// Fill each <select> once from the frozen vocab (instrument / status / level /
+// theme) or from the data (state), counting records per option so an empty
+// option is visibly empty rather than a dead end.
+function populatePolicyFilters() {
+  const all = state.policies || [];
+  const fill = (id, keys, labelOf, countOf) => {
+    const sel = document.getElementById(id);
+    if (!sel || sel.dataset.populated) return;
+    for (const k of keys) {
+      const n = countOf(k);
+      if (!n) continue;
+      const opt = document.createElement("option");
+      opt.value = k;
+      opt.textContent = `${labelOf(k)} (${n})`;
+      sel.appendChild(opt);
+    }
+    sel.dataset.populated = "1";
+  };
+  fill("policy-instrument-filter", POLICY_INSTRUMENTS, (k) => POLICY_INSTRUMENT_LABELS[k],
+    (k) => all.filter((p) => p.instrument === k).length);
+  fill("policy-status-filter", POLICY_STATUSES, (k) => POLICY_STATUS_LABELS[k],
+    (k) => all.filter((p) => p.status === k).length);
+  fill("policy-scope-filter", POLICY_SCOPES, (k) => POLICY_SCOPE_LABELS[k],
+    (k) => all.filter((p) => p.scope === k).length);
+  const states = [...new Set(all.map((p) => p.state_code).filter(Boolean))].sort();
+  fill("policy-state-filter", states, (k) => STATE_NAMES[k] || k,
+    (k) => all.filter((p) => p.state_code === k).length);
+  fill("policy-principle-filter", POLICY_PRINCIPLES, (k) => POLICY_PRINCIPLE_SHORT[k],
+    (k) => all.filter((p) => (p.principles || []).includes(k)).length);
+}
+
+function wirePolicyControls() {
+  for (const id of POLICY_FILTER_IDS) {
+    const el = document.getElementById(id);
+    if (el && !el.dataset.wired) {
+      el.addEventListener("change", renderPoliciesTable);
+      el.dataset.wired = "1";
+    }
+  }
+  wireBtn("policies-csv-btn", (e) => {
+    e.preventDefault();
+    downloadPoliciesCSV();
+  });
+  wireBtn("policies-pdf-btn", exportPoliciesToPDF);
+
+  const overlay = document.getElementById("policy-modal");
+  wireBtn("policy-detail-close", closePolicyDetail);
+  if (overlay && !overlay.dataset.wired) {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay || e.target.closest("[data-policy-close]")) {
+        closePolicyDetail();
+      }
+    });
+    overlay.addEventListener("keydown", (e) => {
+      if (e.key === "Tab" && !overlay.hidden) trapModalFocus(e, overlay);
+    });
+    overlay.dataset.wired = "1";
+  }
+  if (!document._policyEscWired) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePolicyDetail();
+    });
+    document._policyEscWired = true;
+  }
+}
+
+function renderPoliciesView() {
+  wirePolicyControls();
+  populatePolicyFilters();
+  const all = state.policies || [];
+  renderPolicyStats(all);
+  renderPolicyPrinciples(all);
+  renderPolicyActions(all);
+  renderPoliciesTable();
+}
+
+function renderPolicyStats(all) {
+  const ul = document.getElementById("policy-stats");
+  if (!ul) return;
+  const n = (pred) => all.filter(pred).length;
+  const year = _policySnapshotYear || String(new Date().getFullYear());
+  const tiles = [
+    [n((p) => p.status === "in_effect" && p.scope !== "company"), "Laws, orders, and deals in effect"],
+    [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
+    [n((p) => p.instrument === "executive_order" && (p.date || "").startsWith(year)), `Governor orders in ${year}`],
+    [n((p) => p.community_benefits_framework), "Benefit agreements or funds"],
+  ];
+  ul.innerHTML = tiles
+    .map(
+      ([v, label]) => `
+      <li class="rp-stat">
+        <span class="rp-stat-value">${v}</span>
+        <span class="rp-stat-label">${escapeHtml(label)}</span>
+      </li>`
+    )
+    .join("");
+}
+
+// Principle cards: what each rule looks like in practice, how far it has
+// spread, and the latest examples. "All N" filters the directory.
+const PB_EXAMPLES_PER_PRINCIPLE = 3;
+// Public instruments first, then site agreements, then company plans: the
+// playbook is about what can be required, and a company's own plan is the
+// weakest evidence of that.
+const PB_INSTRUMENT_RANK = {
+  executive_order: 0,
+  legislation: 0,
+  regulation: 0,
+  local_ordinance: 1,
+  benefit_agreement: 1,
+  company_plan: 2,
+};
+
+// Records whose PRIMARY principle is this one come first, so a broad order
+// tagged with five principles doesn't headline every card.
+function pbExamples(records, key) {
+  const primary = (p) => ((p.principles || [])[0] === key ? 0 : 1);
+  return records
+    .filter((p) => p.status === "in_effect")
+    .sort(
+      (a, b) =>
+        primary(a) - primary(b) ||
+        (PB_INSTRUMENT_RANK[a.instrument] ?? 3) - (PB_INSTRUMENT_RANK[b.instrument] ?? 3) ||
+        (b.date || "").localeCompare(a.date || "")
+    )
+    .slice(0, PB_EXAMPLES_PER_PRINCIPLE);
+}
+
+// Which of a record's key terms to show under a principle: the first one
+// that speaks to it, else the first term. Display only; the principle tags
+// themselves are curator-assigned.
+const PB_TERM_HINTS = {
+  pay_own_way: /cost|rate|ratepayer|tariff|pay|collateral|contract/i,
+  community_benefits: /benefit|fund|payment|grant|\$|school/i,
+  incentive_terms: /tax|exempt|incentive|abatement|credit|rebate/i,
+  water: /water|cool|aquifer/i,
+  transparency: /disclos|nondisclosure|\bNDA|report|registr|notice|public/i,
+  local_control: /local|zoning|sound|noise|setback|siting|approv/i,
+  new_power: /generation|clean|renewable|solar|nuclear|storage|behind|microgrid/i,
+  environmental_review: /permit|review|impact|environment|air|wildlife|sound|comment/i,
+  study: /task force|council|workgroup|recommend|study|report/i,
+};
+
+function pbTermFor(p, key) {
+  const hint = PB_TERM_HINTS[key];
+  return (hint && p.key_terms.find((t) => hint.test(t))) || p.key_terms[0];
+}
+
+function pbWhereTag(p) {
+  if (p.scope === "company") {
+    return (p.company_slugs || [])
+      .map((slug) => (state.companiesBySlug.get(slug) || {}).name || slug)
+      .join(", ");
+  }
+  return p.state_code || POLICY_SCOPE_LABELS[p.scope] || "";
+}
+
+function renderPolicyPrinciples(all) {
+  const ol = document.getElementById("policy-principles");
+  if (!ol) return;
+  setAccCount("policy-principles-count", POLICY_PRINCIPLES.length, "principle");
+  ol.replaceChildren();
+  for (const key of POLICY_PRINCIPLES) {
+    const recs = all.filter((p) => (p.principles || []).includes(key));
+    const by = (s) => recs.filter((p) => p.status === s).length;
+    const states = new Set(recs.map((p) => p.state_code).filter(Boolean)).size;
+    const li = el("li", "pb-principle");
+    li.dataset.principle = key;
+    li.append(el("h4", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
+    li.append(el("p", "pb-principle-desc", POLICY_PRINCIPLE_DESCRIPTIONS[key]));
+    const counts = [
+      `${by("in_effect")} in effect`,
+      by("proposed") ? `${by("proposed")} proposed` : null,
+      by("failed") ? `${by("failed")} failed` : null,
+      `${states} ${states === 1 ? "state" : "states"}`,
+    ].filter(Boolean);
+    li.append(el("p", "pb-principle-counts", counts.join(" · ")));
+    const ex = el("ul", "pb-examples");
+    for (const p of pbExamples(recs, key)) {
+      const item = el("li");
+      const btn = el("button", "pb-example");
+      btn.type = "button";
+      btn.append(
+        el("span", "pb-example-where", pbWhereTag(p)),
+        el("span", "pb-example-title", p.title),
+        el("span", "pb-example-term", pbTermFor(p, key))
+      );
+      btn.addEventListener("click", () => showPolicyDetail(p));
+      item.append(btn);
+      ex.append(item);
+    }
+    li.append(ex);
+    const all_ = el("button", "linkish pb-see-all", `All ${recs.length} →`);
+    all_.type = "button";
+    all_.addEventListener("click", () => {
+      for (const id of POLICY_FILTER_IDS) {
+        if (id === "policy-principle-filter") continue;
+        const filter = document.getElementById(id);
+        if (filter) {
+          if (filter.type === "checkbox") filter.checked = false;
+          else filter.value = "";
+        }
+      }
+      const sel = document.getElementById("policy-principle-filter");
+      if (sel) sel.value = key;
+      renderPoliciesTable();
+      const dir = document.getElementById("policies-directory");
+      if (dir) {
+        openAccordionsFor(dir);
+        dir.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+    li.append(all_);
+    ol.append(li);
+  }
+}
+
+// Latest actions: a dated timeline across this tab's records plus the
+// governor orders filed on the Moratoriums tab (NY EO 62, Texas, Oregon),
+// which are state executive actions a reader expects to see here too.
+const PB_ACTIONS_MAX = 12;
+
+function pbActionVerb(p) {
+  if (p.status === "failed") {
+    return /veto/i.test(p.summary) ? "vetoed" : p.instrument === "benefit_agreement" ? "rejected" : "failed";
+  }
+  if (p.status === "proposed") return "proposed";
+  return {
+    executive_order: "signed",
+    legislation: "enacted",
+    regulation: "adopted",
+    local_ordinance: "adopted",
+    benefit_agreement: "approved",
+    company_plan: "published",
+  }[p.instrument] || "adopted";
+}
+
+function isGovernorMoratorium(m) {
+  if (m.jurisdiction_type !== "state" || m.status !== "enacted") return false;
+  const kind = `${m.policy_type || ""} ${m.bill_number || ""}`.toLowerCase();
+  return kind.includes("executive order") || kind.includes("directive");
+}
+
+function renderPolicyActions(all) {
+  const ol = document.getElementById("policy-actions");
+  if (!ol) return;
+  const items = all
+    .filter((p) => p.date && p.scope !== "company")
+    .map((p) => ({
+      date: p.date,
+      where: pbWhereTag(p),
+      verb: pbActionVerb(p),
+      title: p.title,
+      note: null,
+      open: () => showPolicyDetail(p),
+    }));
+  for (const m of (state.moratoriums || []).filter(isGovernorMoratorium)) {
+    items.push({
+      date: m.enacted_date || m.effective_date,
+      where: m.state_code,
+      verb: "signed",
+      title: m.bill_number && /order/i.test(m.bill_number) ? m.bill_number : `${m.jurisdiction} governor's directive`,
+      note: "pause · Moratoriums tab",
+      open: () => {
+        activateView("moratoriums");
+        requestAnimationFrame(() => showMoratoriumDetail(m));
+      },
+    });
+  }
+  const latest = items
+    .filter((it) => it.date)
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, PB_ACTIONS_MAX);
+  setAccCount("policy-actions-count", latest.length, "action");
+  ol.replaceChildren(
+    ...latest.map((it) => {
+      const li = el("li", "pb-action");
+      const btn = el("button", "pb-action-btn");
+      btn.type = "button";
+      const outcomeInTitle =
+        new RegExp(`\\b${it.verb}\\b`, "i").test(it.title) ||
+        (["failed", "rejected"].includes(it.verb) &&
+          /\b(rejected|failed|vetoed|died|tabled|stalled)\b/i.test(it.title));
+      btn.append(
+        el("span", "pb-action-date", formatActionDate(it.date)),
+        el("span", "pb-action-where", it.where),
+        el("span", "pb-action-text", outcomeInTitle ? it.title : `${it.title} ${it.verb}`)
+      );
+      if (it.note) btn.append(el("span", "pb-action-note", it.note));
+      btn.addEventListener("click", it.open);
+      li.append(btn);
+      return li;
+    })
+  );
+}
+
+function formatActionDate(iso) {
+  const d = new Date(`${iso}T00:00:00`);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+
+function renderPoliciesTable() {
+  const tbody = document.getElementById("policies-tbody");
+  if (!tbody) return;
+  const rows = filteredPolicies();
+  setAccCount("policies-count", rows.length, "record");
+  tbody.innerHTML = "";
+  if (!rows.length) {
+    tbody.innerHTML =
+      "<tr><td colspan='6' class='muted'>No records match the current filters.</td></tr>";
+    return;
+  }
+  for (const p of rows) {
+    const tr = document.createElement("tr");
+    tr.className = `tariff-status-${p.status === "in_effect" ? "approved" : p.status === "failed" ? "rejected" : "proposed"}`;
+    const cbf = p.community_benefits_framework
+      ? ` <span class="badge badge-cbf" title="Requires, creates or is a community benefit agreement, fund or host payment">CBF</span>`
+      : "";
+    const themes = (p.principles || [])
+      .map((k) => `<span class="policy-theme">${escapeHtml(POLICY_PRINCIPLE_SHORT[k] || k)}</span>`)
+      .join("");
+    const deliveredTag = p.delivered
+      ? ` <span class="badge policy-delivered delivered-${p.delivered.status}" title="Delivered vs promised">${escapeHtml(DELIVERED_LABELS[p.delivered.status] || p.delivered.status)}</span>`
+      : "";
+    tr.innerHTML = `
+      <td><span class="tariff-row-name">${escapeHtml(p.title)}</span>${cbf}${deliveredTag}${
+        p.identifier ? `<span class="tariff-row-type">${escapeHtml(p.identifier)}</span>` : ""
+      }</td>
+      <td>${escapeHtml(POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument)}</td>
+      <td>${escapeHtml(policyWhere(p))}</td>
+      <td><span class="badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}">${escapeHtml(POLICY_STATUS_LABELS[p.status] || p.status)}</span></td>
+      <td class="policy-date">${escapeHtml(p.date || "—")}</td>
+      <td><span class="policy-themes">${themes}</span></td>`;
+    tr.tabIndex = 0;
+    tr.setAttribute("role", "button");
+    tr.setAttribute(
+      "aria-label",
+      `${p.title}, ${POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument}, ${POLICY_STATUS_LABELS[p.status] || p.status}. Open details.`
+    );
+    const open = () => showPolicyDetail(p);
+    tr.addEventListener("click", open);
+    tr.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        open();
+      }
+    });
+    tbody.appendChild(tr);
+  }
+}
+
+function _linkLi(href, text) {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = String(href);
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  a.textContent = `${text} ↗`;
+  li.append(a);
+  return li;
+}
+
+function showPolicyDetail(p) {
+  const overlay = document.getElementById("policy-modal");
+  const modal = document.getElementById("policy-detail");
+  if (!overlay || !modal) return;
+  wirePolicyControls();
+  const setText = (id, txt) => {
+    const node = document.getElementById(id);
+    if (node) node.textContent = txt;
+  };
+
+  setText("pd-instrument", POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument);
+  setText("pd-title", p.title);
+  const badge = document.getElementById("pd-status");
+  badge.className = `badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}`;
+  badge.textContent = POLICY_STATUS_LABELS[p.status] || p.status;
+  setText("pd-where", `${policyWhere(p)} · ${POLICY_SCOPE_LABELS[p.scope] || p.scope}`);
+  setText("pd-identifier", p.identifier || "Not stated");
+  setText("pd-date", p.date || "Not dated");
+  const parties = policyParties(p);
+  setText("pd-parties", parties.length ? parties.join(", ") : "Not stated");
+  setText("pd-value", p.value_usd != null ? formatUsd(p.value_usd) : "Not stated");
+  setText(
+    "pd-principles",
+    (p.principles || []).map((k) => POLICY_PRINCIPLE_LABELS[k] || k).join("; ")
+  );
+  setText(
+    "pd-themes",
+    (p.benefit_themes || []).map((t) => THEME_LABELS[t] || t).join(", ") +
+      (p.community_benefits_framework ? " · community-benefits framework" : "")
+  );
+  setText("pd-summary", p.summary);
+  // Delivered-vs-promised: same panel as the Claims tab. Absent means not
+  // yet assessed, so the slot stays hidden rather than showing a placeholder.
+  const deliv = document.getElementById("pd-delivered");
+  deliv.replaceChildren(...(p.delivered ? [renderDeliveredPanel(p.delivered)] : []));
+  deliv.hidden = !p.delivered;
+
+  const terms = document.getElementById("pd-terms");
+  terms.replaceChildren(...(p.key_terms || []).map((t) => el("li", null, t)));
+
+  // Related records: tracked sites (open in Sites) and the moratorium record
+  // that carries the same instrument, if any.
+  const rel = document.getElementById("pd-related");
+  const relList = document.getElementById("pd-related-list");
+  relList.replaceChildren();
+  for (const pid of p.related_project_ids || []) {
+    const proj = (state.projects || []).find((x) => x.id === pid);
+    const li = el("li");
+    const btn = el("button", "linkish", proj ? `Site: ${proj.name}` : `Site: ${pid}`);
+    btn.type = "button";
+    btn.addEventListener("click", () => {
+      closePolicyDetail();
+      state.pendingProjectId = pid;
+      activateView("explorer");
+      if (state.explorerLoaded) {
+        state.pendingProjectId = null;
+        selectProject(pid);
+      }
+    });
+    li.append(btn);
+    relList.append(li);
+  }
+  if (p.related_moratorium_id) {
+    const li = el("li");
+    const btn = el("button", "linkish", "Also tracked on the Moratoriums tab");
+    btn.type = "button";
+    btn.addEventListener("click", async () => {
+      closePolicyDetail();
+      activateView("moratoriums");
+      await loadMoratoriumsData();
+      const m = (state.moratoriums || []).find((x) => x.id === p.related_moratorium_id);
+      if (m) showMoratoriumDetail(m);
+    });
+    li.append(btn);
+    relList.append(li);
+  }
+  rel.hidden = relList.children.length === 0;
+
+  const res = document.getElementById("pd-resources-list");
+  res.replaceChildren(_linkLi(p.source_url, p.source_title));
+  for (const r of p.resources || []) res.append(_linkLi(r.url, r.title));
+  setText("pd-captured", `Captured: ${p.captured_at}`);
+
+  state._policyReturnFocus =
+    document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  overlay.hidden = false;
+  document.body.classList.add("tariff-modal-open");
+  modal.scrollTop = 0;
+  overlay.scrollTop = 0;
+  document.getElementById("policy-detail-close")?.focus();
+}
+
+function closePolicyDetail() {
+  const overlay = document.getElementById("policy-modal");
+  if (!overlay || overlay.hidden) return;
+  overlay.hidden = true;
+  document.body.classList.remove("tariff-modal-open");
+  const ret = state._policyReturnFocus;
+  state._policyReturnFocus = null;
+  if (ret && typeof ret.focus === "function") ret.focus();
+}
+
+function _policyExportRows(list) {
+  return list.map((p) => [
+    p.title,
+    POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument,
+    POLICY_SCOPE_LABELS[p.scope] || p.scope,
+    policyWhere(p),
+    p.state_code || "",
+    POLICY_STATUS_LABELS[p.status] || p.status,
+    p.date || "",
+    p.identifier || "",
+    policyParties(p).join("; "),
+    (p.principles || []).map((k) => POLICY_PRINCIPLE_SHORT[k] || k).join("; "),
+    (p.benefit_themes || []).map((t) => THEME_LABELS[t] || t).join("; "),
+    p.community_benefits_framework ? "yes" : "no",
+    p.value_usd ?? "",
+    (p.key_terms || []).join(" | "),
+    p.summary,
+    String(p.source_url),
+    p.delivered ? DELIVERED_LABELS[p.delivered.status] || p.delivered.status : "",
+    p.captured_at,
+  ]);
+}
+
+const POLICY_EXPORT_HEADERS = [
+  "Title", "Type", "Level", "Where", "State", "Status", "Date", "Identifier",
+  "Parties", "Principles", "Themes", "Community benefits framework", "Stated value (USD)",
+  "Key terms", "Summary", "Source", "Delivery assessment", "Captured",
+];
+
+function downloadPoliciesCSV() {
+  const lines = [POLICY_EXPORT_HEADERS.map(csvCell).join(",")];
+  for (const row of _policyExportRows(filteredPolicies())) {
+    lines.push(row.map(csvCell).join(","));
+  }
+  _triggerDownload(lines.join("\r\n"), "policies-and-agreements-TODAY.csv");
+}
+
+async function exportPoliciesToPDF() {
+  const list = filteredPolicies();
+  if (!list.length) { alert("No records match the current filters."); return; }
+  // The PDF is a reading copy: drop the long columns the CSV carries in full.
+  const keep = [0, 1, 3, 5, 6, 9, 13];
+  const headers = keep.map((i) => POLICY_EXPORT_HEADERS[i]);
+  const rows = _policyExportRows(list).map((r) => keep.map((i) => r[i]));
+  const today = localToday();
+  await _exportToPDF("Data Center Policies & Community Benefit Agreements", _pdfTable(headers, rows), `policies-and-agreements-${today}.pdf`);
+}
+
 async function fetchJson(url) {
   const res = await fetch(url, { cache: "no-cache" });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -2481,7 +3194,6 @@ async function fetchJson(url) {
 
 function renderComparisonView() {
   renderMeta();
-  renderThemeLegend();
   renderMatrix();
   wireCompanyDetail();
   wireMatrixCsvExport();
@@ -2503,50 +3215,6 @@ function updateDraftBanner(generatedAt) {
   if (el && generatedAt) {
     el.dataset.refreshDate = generatedAt;
     el.textContent = `Last refreshed: ${generatedAt}`;
-  }
-}
-
-// Aggregate dataset stats shown in the topbar strip. Progressively enhances:
-// called after companies+claims load (companies / claims tiles), and again
-// after the lazy projects/responses payload lands (projects / GW / investment
-// / responses). Never blocks first paint on the lazy payload.
-function renderSummaryStats() {
-  const setNum = (id, txt) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = txt;
-  };
-
-  if (state.companies.length) setNum("ss-companies", state.companies.length);
-  if (state.claims.length) setNum("ss-claims", state.claims.length);
-
-  if (state.projects.length) {
-    setNum("ss-projects", state.projects.length);
-    const mw = state.projects.reduce((s, p) => s + (p.power_mw || 0), 0);
-    setNum("ss-power", formatSummaryGW(mw));
-    const usd = state.projects.reduce(
-      (s, p) => s + (p.claimed_investment_usd || 0),
-      0
-    );
-    setNum("ss-investment", formatSummaryUsd(usd));
-  }
-
-  if (state.responses.length) {
-    setNum("ss-responses", state.responses.length);
-    const byStance = { positive: 0, mixed: 0, negative: 0 };
-    for (const r of state.responses) {
-      if (byStance[r.stance] !== undefined) byStance[r.stance] += 1;
-    }
-    const breakdown = document.getElementById("ss-stance-breakdown");
-    if (breakdown) {
-      const label = `${byStance.positive} positive, ${byStance.mixed} mixed, ${byStance.negative} negative`;
-      breakdown.innerHTML =
-        `<span class="stance-dot positive"></span>${byStance.positive}` +
-        `<span class="stance-dot mixed"></span>${byStance.mixed}` +
-        `<span class="stance-dot negative"></span>${byStance.negative}`;
-      breakdown.setAttribute("aria-label", `Community responses by stance: ${label}`);
-      breakdown.setAttribute("title", label);
-      breakdown.hidden = false;
-    }
   }
 }
 
@@ -2646,7 +3314,7 @@ function renderPledgeHero() {
     {
       num: counts ? String(counts.governor) : "—",
       label: "Governors signed an addendum",
-      note: counts ? "A separate instrument" : "",
+      note: "",
       target: "coverage",
     },
     {
@@ -2660,7 +3328,7 @@ function renderPledgeHero() {
     {
       num: totals ? String(totals.moratoriums) : "—",
       label: "Moratoriums tracked",
-      note: "Enacted, proposed & failed",
+      note: "",
       target: "moratoriums",
     },
     {
@@ -2670,6 +3338,12 @@ function renderPledgeHero() {
         ? `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`
         : "",
       target: "tariffs",
+    },
+    {
+      num: totals && Number.isFinite(totals.policies) ? String(totals.policies) : "—",
+      label: "Policies and benefit deals",
+      note: "",
+      target: "policies",
     },
   ];
 
@@ -2719,15 +3393,10 @@ function renderHomeCards() {
   if (totals) {
     fill("moratoriums", `${totals.moratoriums} tracked`);
     fill("tariffs", `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`);
+    if (Number.isFinite(totals.policies)) fill("policies", `${totals.policies} tracked`);
   }
   if (state.projects.length) {
     fill("sites", `${state.projects.length} sites`);
-  }
-  if (state.coverageLoaded) {
-    const covered = coverageStates().filter(
-      (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases > 0
-    ).length;
-    fill("aggregate", `${covered} of 50 states`);
   }
 }
 
@@ -2817,7 +3486,7 @@ function renderPledgeStateStrip() {
     ...STATE_STRIP_ORDER.map((code) => {
       const s = byCode.get(code);
       const records = s
-        ? s.projects + s.tariffs + s.moratoriums + (s.rate_cases || 0)
+        ? s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies
         : 0;
       const gov = Boolean(s && s.governor);
       if (records) withRecords += 1;
@@ -2843,8 +3512,7 @@ function renderPledgeStateStrip() {
 
   if (keyEl) {
     keyEl.textContent =
-      `${withRecords} of 50 states have tracked records · ` +
-      `${governors} governors signed (marked ★) · select a state for detail`;
+      `${withRecords} states with records · ${governors} governors signed (★)`;
   }
 }
 
@@ -2965,7 +3633,7 @@ const PLEDGE_TARGETS = {
   pledge: { view: "ratepayer", anchor: null },
   companies: { view: "comparison", anchor: null },
   tariffs: { view: "tariffs", anchor: null },
-  aggregate: { view: "aggregate", anchor: null },
+  policies: { view: "policies", anchor: null },
 };
 
 // --------------------------------------------------------------------------
@@ -3032,7 +3700,6 @@ function openAccordionsFor(node) {
 
 const SUBTAB_GROUPS = {
   "rp-sites": ["assessed", "unassessed", "pre-pledge", "non-signatory"],
-  agg: ["company", "signatory", "state", "utility"],
 };
 
 // Last-clicked sub-tab per group, for this session only. Same reasoning as
@@ -3188,10 +3855,15 @@ function _pdfTable(headers, rows) {
   return `<table style="width:100%;border-collapse:collapse;margin-top:8px;"><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table>`;
 }
 
+function localToday() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+}
+
 function _triggerDownload(csv, filename) {
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   const a = document.createElement("a");
   a.href = url;
   a.download = filename.replace("TODAY", today);
@@ -3441,18 +4113,6 @@ async function exportAggregateToPDF() {
       `<h2 style="font-size:14px;margin-top:16px;">By Utility</h2>${utHtml}`,
     `dcb-aggregate-${today}.pdf`
   );
-}
-
-function renderThemeLegend() {
-  const ul = document.getElementById("theme-legend");
-  ul.innerHTML = "";
-  for (const t of THEMES) {
-    const li = document.createElement("li");
-    li.className = "theme-chip";
-    li.style.setProperty("--theme-color", `var(--theme-${t})`);
-    li.textContent = THEME_LABELS[t];
-    ul.appendChild(li);
-  }
 }
 
 function renderMatrix() {
@@ -5010,8 +5670,8 @@ function renderCoverageStats() {
   const sub = document.getElementById("rp-roster-sub");
   if (sub && state.rosterAsOf) {
     sub.textContent =
-      `${counts.organizations} organizations and ${counts.governor} governors, ` +
-      `as captured from the White House page on ${formatAsOf(state.rosterAsOf)}.`;
+      `${counts.organizations} organizations and ${counts.governor} governors ` +
+      `as of ${formatAsOf(state.rosterAsOf)}.`;
   }
 
   // Surface the source page's self-disagreement rather than quietly picking a
@@ -5050,6 +5710,7 @@ function coverageStates() {
         tariffs: 0,
         moratoriums: 0,
         rate_cases: 0,
+        policies: 0,
       });
     }
     return states.get(key);
@@ -5071,6 +5732,7 @@ function coverageStates() {
       entry.tariffs = counts.tariffs || 0;
       entry.moratoriums = counts.moratoriums || 0;
       entry.rate_cases = counts.rate_cases || 0;
+      entry.policies = counts.policies || 0;
     }
   } else {
     for (const p of state.projects || []) {
@@ -5084,6 +5746,10 @@ function coverageStates() {
     for (const m of state.moratoriums || []) {
       const entry = touch(moratoriumStateCode(m));
       if (entry) entry.moratoriums += 1;
+    }
+    for (const p of state.policies || []) {
+      const entry = touch(p.state_code);
+      if (entry) entry.policies += 1;
     }
   }
   // Rate cases come from their own (deferred) payload; when it has landed,
@@ -5101,7 +5767,7 @@ function coverageStates() {
     // Governor states first (that is the pledge-relevant cohort), then by how
     // much we can actually show, then alphabetically.
     if (!!b.governor !== !!a.governor) return b.governor ? 1 : -1;
-    const load = (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases;
+    const load = (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies;
     const d = load(b) - load(a);
     if (d !== 0) return d;
     return a.code.localeCompare(b.code);
@@ -5170,20 +5836,29 @@ async function openStatePanel(code) {
   if (closeBtn) closeBtn.focus();
   history.replaceState(null, "", `#state/${key}`);
 
-  await Promise.all([
+  const sources = ["projects", "signatories", "moratoriums", "tariffs", "rate_cases", "policies"];
+  const results = await Promise.allSettled([
     loadProjectData(),
     loadSignatoryData(),
     state.moratoriumsLoaded ? Promise.resolve() : loadMoratoriumsData(),
     state.tariffsLoaded ? Promise.resolve() : loadTariffsData(),
     state.rateCasesLoaded ? Promise.resolve() : loadRateCasesData(),
-  ]).catch((err) => console.error("State panel data load failed:", err));
+    loadPoliciesData(),
+  ]);
+  const failedSources = new Set();
+  for (const [index, result] of results.entries()) {
+    if (result.status === "rejected") {
+      failedSources.add(sources[index]);
+      console.error("State panel data load failed:", result.reason);
+    }
+  }
 
   // Bail if the user closed the panel (or opened another state) while loading.
   if (overlay.hidden || !window.location.hash.endsWith(`/${key}`)) return;
-  renderStatePanel(key);
+  renderStatePanel(key, failedSources);
 }
 
-function renderStatePanel(code) {
+function renderStatePanel(code, failedSources = new Set()) {
   const body = document.getElementById("sd-body");
   if (!body) return;
 
@@ -5207,7 +5882,7 @@ function renderStatePanel(code) {
         el(
           "span",
           "sd-gov-none",
-          "No governor signature on the addendum — records below are shown for context."
+          "Governor has not signed the addendum."
         )
       );
     }
@@ -5226,10 +5901,14 @@ function renderStatePanel(code) {
     (rc) => String(rc.state_code || "").toUpperCase() === code
   );
   const utilities = stateUtilitySignatories(code);
+  const policies = (state.policies || []).filter(
+    (pol) => String(pol.state_code || "").toUpperCase() === code
+  );
 
   const sections = [
     {
       title: "Data-center sites",
+      source: "projects",
       empty: "No tracked sites in this state yet.",
       items: projects.map((p) => ({
         label: p.name,
@@ -5249,6 +5928,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Utility tariffs",
+      source: "tariffs",
       empty: "No large-load tariff on file for this state yet.",
       items: tariffs.map((t) => ({
         label: t.tariff_name,
@@ -5264,6 +5944,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Rate cases & proceedings",
+      source: "rate_cases",
       empty: "No tracked rate case for this state yet.",
       items: rateCases.map((rc) => ({
         label: rc.title,
@@ -5290,6 +5971,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Moratoriums",
+      source: "moratoriums",
       empty: "No moratorium records for this state yet.",
       items: moratoriums.map((m) => ({
         label: m.jurisdiction,
@@ -5308,10 +5990,30 @@ function renderStatePanel(code) {
       })),
     },
     {
+      title: "Policies & agreements",
+      source: "policies",
+      empty: "No state policy, local ordinance or benefit agreement on file for this state yet.",
+      items: policies.map((pol) => ({
+        label: pol.title,
+        meta: [
+          POLICY_INSTRUMENT_LABELS[pol.instrument] || pol.instrument,
+          pol.jurisdiction,
+          POLICY_STATUS_LABELS[pol.status] || pol.status,
+        ]
+          .filter(Boolean)
+          .join(" · "),
+        onClick: () => {
+          closeStatePanel();
+          activateView("policies");
+          requestAnimationFrame(() => showPolicyDetail(pol));
+        },
+      })),
+    },
+    {
       title: "Utility signatories",
+      source: "signatories",
       empty:
-        "No pledge signatory matched to a tariff in this state. Absence here means " +
-        "no exact match in the roster, not that no local utility signed.",
+        "No utility in this state's records matches the roster.",
       items: utilities.map((u) => ({
         label: u.name,
         meta: SIGNATORY_TRACK_LABELS[u.signed_track] || u.signed_track,
@@ -5324,12 +6026,13 @@ function renderStatePanel(code) {
     ...sections.map((sec) => {
       const wrap = el("section", "sd-section");
       const h = el("h4", "sd-section-title", sec.title);
-      const n = el("span", "sd-section-count", String(sec.items.length));
+      const failed = failedSources.has(sec.source);
+      const n = el("span", "sd-section-count", failed ? "—" : String(sec.items.length));
       h.append(n);
       wrap.append(h);
 
       if (!sec.items.length) {
-        wrap.append(el("p", "sd-empty", sec.empty));
+        wrap.append(el("p", "sd-empty", failed ? "Records unavailable. Reopen this state to retry." : sec.empty));
         return wrap;
       }
 
@@ -6308,7 +7011,7 @@ function rpBasisBadgeHtml(p) {
   const title =
     basis === "individual"
       ? "The company published a ratepayer commitment for this exact site."
-      : "This site is covered only by the company's national pledge signature — no site-specific commitment captured.";
+      : "Covered only by the company's national pledge.";
   return `<span class="rp-basis rp-basis--${basis}" title="${escapeAttr(title)}">${RP_BASIS_LABELS[basis]}</span>`;
 }
 
@@ -6526,14 +7229,11 @@ function renderAggregateView() {
   // Build rollups once and pass to each renderer to avoid triple iteration.
   const coRows = buildCompanyRollups();
   const stRows = buildStateRollups();
-  renderAggregateStats(coRows, stRows);
   renderCompanyRollup(coRows);
   renderSignatoryCategoryRollup();
   renderStateRollup(stRows);
   renderUtilityRollup(sortAggRows(buildUtilityRollups(), "utility"));
   wireAggSort();
-  wireSubtabs();
-  setActiveSubtab("agg", _activeSubtab.agg || "company");
   wireBtn("agg-csv-btn", downloadAggregateCSV);
   wireBtn("agg-pdf-btn", exportAggregateToPDF);
 }
@@ -6621,15 +7321,11 @@ function buildUtilityRollups() {
 function renderUtilityRollup(rows) {
   const tbody = document.getElementById("agg-utility-tbody");
   if (!tbody) return;
-  setSubtabCount("agg-utility-count", rows.length);
+  setAccCount("agg-utility-count", rows.length, "utility", "utilities");
   const sub = document.getElementById("agg-utility-sub");
   if (sub) {
     const signed = rows.filter((r) => r.sig).length;
-    sub.textContent =
-      `${rows.length} utilities and grid operators appear in the tracked tariffs, ` +
-      `rate cases, and site records; ${signed} resolve to a Ratepayer Protection ` +
-      `Pledge signatory. Grouping is by exact, hand-curated joins — a utility ` +
-      `absent here has no tracked record, which is a coverage fact, not a verdict.`;
+    sub.textContent = `${rows.length} utilities in the tariff, rate-case, and site records. ${signed} signed the pledge.`;
   }
   tbody.replaceChildren(
     ...rows.map((r) => {
@@ -6824,33 +7520,6 @@ function aggTotals(rows) {
   );
 }
 
-function renderAggregateStats(preCoRows, preStRows) {
-  const ul = document.getElementById("agg-stats");
-  if (!ul) return;
-  ul.innerHTML = "";
-
-  const coRows = preCoRows || buildCompanyRollups();
-  const stRows = preStRows || buildStateRollups();
-  const tot = aggTotals(coRows);
-
-  const tiles = [
-    { value: formatSummaryUsd(tot.capex), label: "total claimed investment" },
-    { value: tot.jobs.toLocaleString(), label: "total claimed jobs" },
-    { value: formatSummaryGW(tot.power_mw), label: "total announced power" },
-    { value: String(stRows.length), label: "states with projects" },
-  ];
-
-  for (const t of tiles) {
-    const li = document.createElement("li");
-    li.className = "rp-stat";
-    li.innerHTML = `
-      <span class="rp-stat-value">${escapeHtml(t.value)}</span>
-      <span class="rp-stat-label">${escapeHtml(t.label)}</span>
-    `;
-    ul.appendChild(li);
-  }
-}
-
 function stanceSpan(pos, mix, neg) {
   return (
     `<span class="stance-dot positive" title="Positive"></span>${pos} ` +
@@ -6915,7 +7584,7 @@ function renderSignatoryCategoryRollup() {
   const tbody = document.getElementById("agg-signatory-tbody");
   if (!tbody) return;
   const rows = buildSignatoryCategoryRollups();
-  setSubtabCount("agg-signatory-count", rows.length);
+  setAccCount("agg-signatory-count", rows.length, "category", "categories");
 
   tbody.replaceChildren(
     ...rows.map((r) => {
@@ -6942,10 +7611,7 @@ function renderSignatoryCategoryRollup() {
   const sub = document.getElementById("agg-signatory-sub");
   if (sub) {
     const tracked = new Set((state.projects || []).map((p) => p.company_slug)).size;
-    sub.textContent =
-      `Covers the ${tracked} companies tracked site by site — not the full ` +
-      `roster. "Assessed" counts sites carrying a per-site pledge assessment; ` +
-      `a site with none is counted in neither Assessed nor Contested.`;
+    sub.textContent = `The ${tracked} tracked companies only. Contested sites are a subset of assessed ones.`;
   }
 }
 
@@ -6956,7 +7622,7 @@ function renderCompanyRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildCompanyRollups(), "company");
   const tot = aggTotals(rows);
-  setSubtabCount("agg-company-count", rows.length);
+  setAccCount("agg-company-count", rows.length, "company", "companies");
 
   tbody.innerHTML = rows
     .map(
@@ -7000,7 +7666,7 @@ function renderStateRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildStateRollups(), "state");
   const tot = aggTotals(rows);
-  setSubtabCount("agg-state-count", rows.length);
+  setAccCount("agg-state-count", rows.length, "state");
 
   tbody.innerHTML = rows
     .map(

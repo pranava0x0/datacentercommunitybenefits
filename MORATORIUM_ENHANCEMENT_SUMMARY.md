@@ -1,5 +1,7 @@
 # Data Center Moratorium Enhancement Report
 
+> Archived research draft. Its enhancement file now has no records ready to merge. Use `data/seed/moratoriums.json` for current bill numbers, sources, and status; the historical notes below are unverified.
+
 **Date:** June 15, 2026  
 **Focus:** 10 High-Priority Moratoriums (NEW YORK, MAINE, COLORADO, MINNESOTA, MASSACHUSETTS, IDAHO, VERMONT, WASHINGTON, OKLAHOMA)
 
@@ -98,6 +100,20 @@ Enhanced detailed research on the 10 most significant data center moratoriums an
 - **Opposition:** None documented (tech industry minimal in state)
 - **Notable:** House 105-1, Senate 28-2; national exemplar of "precautionary" environmental governance
 - **File:** `moratoriums_enhanced_high_priority.json` (id: `vermont-state-2026-03`)
+
+> **Correction (2026-09-23).** This batch is unreliable: 5 of its 9 records
+> were fabricated (WA SB 5982, MA S.2455, VT H.149, ID HB620 are unrelated
+> bills; OK HB 2992 is a different 2026 law) and 3 had wrong facts (Maine LD
+> 307 was vetoed, not enacted; Denver's sponsors and vote; Minnesota HF 4888
+> is a pending 2026 bill). Only New York checked out. All were removed or
+> corrected in `moratoriums.json`. Entries 8 and 9 below: Washington SB 5982 (2024) is a Department of
+> Health bill unrelated to data centers (legislature record: sponsors
+> Cleveland et al., "By request: Department of Health", Chapter 41, 2024
+> Laws); the data-center record built on it was fabricated. Oklahoma HB 2992
+> is real but is the 2026 Data Center Customer Ratepayer Protection Act
+> (Boles / Green, approved May 11, 2026); the 2024 date, sponsors, votes and
+> stakeholders below were unsupported. It now lives on the Policies &
+> Agreements tab as `ok-hb2992-2026`, rebuilt from the enrolled text.
 
 ### 8. WASHINGTON (SB 5982) — ENACTED MAY 2024
 - **Status:** Permanent statute; Jay Inslee signature

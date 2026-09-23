@@ -41,14 +41,14 @@ python3 refresh.py --audit --check
   - **Operational sites:** must have `claimed_investment_usd` and `power_mw`
   - **Construction sites:** must have `claimed_investment_usd`
   - **Announced sites:** important fields are investment, jobs, power, at_a_glance
-- **Flags stale `proposed` moratoriums/tariffs** (v1.20): any `proposed` record whose
+- **Flags stale `proposed` moratoriums, tariffs, and policies, plus `pending` rate cases**: any such record whose
   `captured_at` is `STALE_PENDING_DAYS` (21) or older gets listed — a pending bill
   or docket is a moving target and needs a re-check, unlike `enacted`/`approved`/
   `failed`/`rejected` records, which are stable once captured and are never flagged.
 - Generates `ISSUES.md` with prioritized gaps:
   - **Critical:** missing required fields
   - **Medium:** missing important/commitment fields
-  - **Stale Pending Bills / Tariffs:** `proposed` records due for a status re-check
+  - **Stale Pending Records:** proposed or pending records due for a status re-check
 - Report format: per-project / per-bill lists with missing fields or staleness age
 - Use to prioritize curation work and flag data gaps across all three refresh dimensions
 - **Note:** `--audit --check` writes ISSUES.md but does NOT write `docs/data/*.json`. Run without `--check` to regenerate outputs AND ISSUES.md together.
@@ -112,7 +112,7 @@ whether a partner has been named before adding either.
 
 ## Moratoriums & Tariffs Refresh
 
-Run `python3 refresh.py --audit --check` first — the "Stale Pending Bills / Tariffs"
+Run `python3 refresh.py --audit --check` first — the "Stale Pending Records"
 section of `ISSUES.md` tells you exactly which `proposed` records need a status
 re-check before you go looking for anything new. Then run
 `python -m connectors.recheck stale` to turn that list into ready-to-run
@@ -1171,3 +1171,45 @@ fourth pass).
   records whose only sources are local outlets. That is the honest state of
   local-government sourcing, not a regression; the link-liveness gate is the
   one that must stay green.
+
+### 2026-09-23 — Policies & Agreements tab: a sixth dimension
+
+New payload `data/seed/policies.json` (see SPEC_POLICIES_TAB.md). To refresh:
+re-sweep state legislatures each session (states with nothing verified are
+listed in SPEC_POLICIES_TAB.md > Research log), and check each tracked
+site's county/city agendas for development / host / PILOT agreements.
+Agents append records to a scratchpad JSONL; a merge step validates each
+row against `schema.Policy`, applies reviewed patches, and writes the seed.
+
+Learnings:
+- **Grep your own records before searching the web.** 15+ tracked sites
+  already mentioned a CBA, PILOT, development agreement or community fund
+  in notes/claims/responses. That work-list seeded the agreements pass,
+  and most of its 21 agreements came from it.
+- **Research agents invent day-level dates.** `-01-01` and `-09-01` dates
+  appeared on 9 records, and a July 1 effective date was stored as a signing
+  date. Say "omit the date if the source gives only month/year" in the
+  prompt, and grep the merged seed for `-01"` days before shipping.
+- **servercountry.org is an aggregator, not a source.** Four state records
+  first cited it. Re-sourcing to azleg.gov / capitol.tn.gov found one wrong
+  date (TN: May 7 vs the May 18 Public Chapter), which is the point.
+- **Total investment is not a community benefit.** `value_usd` came back with
+  $17B (Columbia County GA) and $100B (Paducah) project totals, a projected
+  ROI (Huntsville), and a sum the agent computed itself (xAI Memphis). Only a
+  stated total of committed benefits belongs there.
+- **Governor pauses on tax-incentive *applications*** (OH, IL, AZ 2026) are
+  policies, not moratoriums: they pause a subsidy, not development.
+- **Pass 2 (same day):** a deeper 3–4-searches-per-state re-sweep of the 19
+  empty states found 24 records, so pass 1's "1–2 searches" was too shallow
+  to call a state empty. Review then cut 3 on the failed-bill bar and
+  re-sourced Alaska SB 250 from an AI-written aggregator (citizenportal.ai)
+  to the bill text. `test_no_aggregator_citations` now bans the aggregator
+  domains met so far; extend the list when a new one turns up.
+- **Delivery evidence needs a different bar than a claim.** The agent returned
+  7 assessments; 4 were the company restating its pledge, a page older than
+  the agreement, or unrelated spending. Only a recipient's record of receipt
+  or an announcement naming recipients survived.
+- **Moving records between tabs surfaces fabrication.** Checking the
+  migrated moratorium records' bill numbers on the legislatures' own sites
+  found one fabricated (WA "SB 5982" is a health bill) and one misdated (OK
+  HB 2992 is a 2026 law). Both cited a bare homepage.
