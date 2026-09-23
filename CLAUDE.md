@@ -956,6 +956,9 @@ reads as a bug when it vanishes.
 
 ### Sub-tabs are for alternatives; accordions are for sequences (v2.2)
 
+> v4 (2026-09-23): the Aggregate group is gone with its tab; only
+> "Tracked sites" remains. See "IA v4" above.
+
 `.subtabs` / `SUBTAB_GROUPS`. The rule that decides which to reach for:
 
 > **Would a reader ever want two of these on screen at once?**
@@ -1312,6 +1315,61 @@ accumulate proceedings over its life, and `next_milestone` needs a home.
   only when a group genuinely spans multiple operating utilities (Duke IN +
   Carolinas), keeps the operating name for single-string rows (SWEPCO stays
   SWEPCO), never fuzzy-matches.
+
+### IA v4: seven tabs, a playbook, and copy rules (2026-09-23, user-directed)
+
+**Tabs:** Home · The Pledge · Companies · Moratoriums · Tariffs & Rate Cases
+· Policy Playbook · Sites. The "By State & Company" tab (`#aggregate`) is
+gone. Its tables moved to the tab that owns each one's question:
+- the per-company table goes to Companies, replacing a stat strip that
+  repeated its total row;
+- per state goes to Sites;
+- per signer category and per utility go to The Pledge.
+
+`#aggregate` redirects to `#comparison`. `loadAggregateView()` runs for
+those three views, never for Home (first paint). The `agg` sub-tab group
+died with it, so **one** sub-tab group exists now (`rp-sites`), and
+`test_only_one_subtab_group_exists` guards that. Two tabs with overlapping
+numbers is the "11 signatories" failure waiting to happen; before adding a
+tab, name the one question only it answers.
+
+**Policy Playbook** (`#policies`, was "Policies & Agreements") leads with
+`Policy.principles`, a frozen 8-value vocabulary of what a policy asks OF data
+centers: pay own grid costs, binding community benefits, conditioned tax
+breaks, water, no secret deals, local siting say, new supply for new demand,
+state review. Rules for the vocabulary:
+- **Curator-assigned, primary first, max 3.** A keyword pass over-tagged
+  (six principles on one EO, none on others), so every record was assigned
+  by hand. Don't regex-classify principles.
+- **Not THEMES.** THEMES is what companies *give*; principles are what
+  governments *require*. Records carry both.
+- **Card examples rank by primary principle, then public instrument, then
+  date,** or one broad order (VA EO 22, NV EO 2026-005) headlines every card.
+- **"Latest actions" merges in governor orders filed on the Moratoriums tab**
+  (`isGovernorMoratorium`), since readers look for NY EO 62 here too.
+
+**Copy rules (the user's slop pass):**
+- Say what a section holds in one plain line, or say nothing.
+- No "Every record links to its source," and no "Click a row to…" manuals.
+- No "X, not Y" hedges ("a coverage fact, not a verdict").
+- No "by X and Y" headings ("Commitments by company and theme" became
+  "Published commitments").
+- No fragment-pair notes ("A separate instrument", "Enacted, proposed &
+  failed").
+- Empty states are one short sentence.
+- Stat tiles size to their content (`flex: 0 1 auto`); a row of four numbers
+  never stretches to full width.
+
+**The 2026-07 "enhanced high-priority" moratorium batch is poisoned.** 5 of
+its 9 records were fabricated: WA SB 5982, MA S.2455, VT H.149 and ID HB620
+are unrelated real bills, and OK HB 2992 was a different law. 3 more had
+wrong facts: Maine LD 307 was vetoed, not enacted; Denver's sponsors and vote
+were wrong; MN HF 4888 is a pending 2026 bill. Only NY checked out. The
+shape: a real bill number with an invented data-center narrative and a
+homepage source. One fetch of the legislature's bill page catches it every
+time. Treat any record from a bulk generation pass the same way, and check
+the 19 remaining homepage-sourced moratoriums (the ratchet list in
+tests/test_policies.py) with the same method.
 
 ### Policies & Agreements tab (v3.1, 2026-09-23)
 

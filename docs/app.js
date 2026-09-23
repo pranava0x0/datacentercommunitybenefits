@@ -1177,8 +1177,8 @@ function renderWhatsNext() {
   const sub = document.getElementById("whats-next-sub");
   if (sub) {
     sub.textContent = items.length
-      ? "Regulator-announced steps in the tracked dockets, soonest first. Not a forecast."
-      : "No announced next steps on file yet.";
+      ? "Next steps set by regulators."
+      : "No upcoming steps announced.";
   }
   const more = document.getElementById("whats-next-more");
   if (more) {
@@ -3287,7 +3287,7 @@ function renderPledgeHero() {
     {
       num: counts ? String(counts.governor) : "—",
       label: "Governors signed an addendum",
-      note: counts ? "A separate instrument" : "",
+      note: "",
       target: "coverage",
     },
     {
@@ -3301,7 +3301,7 @@ function renderPledgeHero() {
     {
       num: totals ? String(totals.moratoriums) : "—",
       label: "Moratoriums tracked",
-      note: "Enacted, proposed & failed",
+      note: "",
       target: "moratoriums",
     },
     {
@@ -3311,6 +3311,12 @@ function renderPledgeHero() {
         ? `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`
         : "",
       target: "tariffs",
+    },
+    {
+      num: totals && Number.isFinite(totals.policies) ? String(totals.policies) : "—",
+      label: "Policies and benefit deals",
+      note: "",
+      target: "policies",
     },
   ];
 
@@ -3484,8 +3490,7 @@ function renderPledgeStateStrip() {
 
   if (keyEl) {
     keyEl.textContent =
-      `${withRecords} of 50 states have tracked records · ` +
-      `${governors} governors signed (marked ★) · select a state for detail`;
+      `${withRecords} states with records · ${governors} governors signed (★)`;
   }
 }
 
@@ -5638,8 +5643,8 @@ function renderCoverageStats() {
   const sub = document.getElementById("rp-roster-sub");
   if (sub && state.rosterAsOf) {
     sub.textContent =
-      `${counts.organizations} organizations and ${counts.governor} governors, ` +
-      `as captured from the White House page on ${formatAsOf(state.rosterAsOf)}.`;
+      `${counts.organizations} organizations and ${counts.governor} governors ` +
+      `as of ${formatAsOf(state.rosterAsOf)}.`;
   }
 
   // Surface the source page's self-disagreement rather than quietly picking a
@@ -5836,7 +5841,7 @@ function renderStatePanel(code) {
         el(
           "span",
           "sd-gov-none",
-          "No governor signature on the addendum — records below are shown for context."
+          "Governor has not signed the addendum."
         )
       );
     }
@@ -5961,8 +5966,7 @@ function renderStatePanel(code) {
     {
       title: "Utility signatories",
       empty:
-        "No pledge signatory matched to a tariff in this state. Absence here means " +
-        "no exact match in the roster, not that no local utility signed.",
+        "No utility in this state's records matches the roster.",
       items: utilities.map((u) => ({
         label: u.name,
         meta: SIGNATORY_TRACK_LABELS[u.signed_track] || u.signed_track,
@@ -6959,7 +6963,7 @@ function rpBasisBadgeHtml(p) {
   const title =
     basis === "individual"
       ? "The company published a ratepayer commitment for this exact site."
-      : "This site is covered only by the company's national pledge signature — no site-specific commitment captured.";
+      : "Covered only by the company's national pledge.";
   return `<span class="rp-basis rp-basis--${basis}" title="${escapeAttr(title)}">${RP_BASIS_LABELS[basis]}</span>`;
 }
 
@@ -7273,11 +7277,7 @@ function renderUtilityRollup(rows) {
   const sub = document.getElementById("agg-utility-sub");
   if (sub) {
     const signed = rows.filter((r) => r.sig).length;
-    sub.textContent =
-      `${rows.length} utilities and grid operators appear in the tracked tariffs, ` +
-      `rate cases, and site records; ${signed} resolve to a Ratepayer Protection ` +
-      `Pledge signatory. Grouping is by exact, hand-curated joins — a utility ` +
-      `absent here has no tracked record, which is a coverage fact, not a verdict.`;
+    sub.textContent = `${rows.length} utilities in the tariff, rate-case, and site records. ${signed} signed the pledge.`;
   }
   tbody.replaceChildren(
     ...rows.map((r) => {
@@ -7563,10 +7563,7 @@ function renderSignatoryCategoryRollup() {
   const sub = document.getElementById("agg-signatory-sub");
   if (sub) {
     const tracked = new Set((state.projects || []).map((p) => p.company_slug)).size;
-    sub.textContent =
-      `Covers the ${tracked} companies tracked site by site — not the full ` +
-      `roster. "Assessed" counts sites carrying a per-site pledge assessment; ` +
-      `a site with none is counted in neither Assessed nor Contested.`;
+    sub.textContent = `The ${tracked} tracked companies only. Contested sites are a subset of assessed ones.`;
   }
 }
 

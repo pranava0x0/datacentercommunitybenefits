@@ -392,14 +392,14 @@ class TestCrossCutting:
         assert meta.count() == 1
 
     def test_comparison_hero_explains_source_and_use(self, page: Page, base_url: str):
-        # The comparison page should tell readers what the records are and why
-        # they are useful without relying on vague "blueprint" language.
+        # The Companies dek names the two things the tab holds: how much each
+        # operator is building (the totals table) and what it has committed
+        # to in writing (the matrix). One plain sentence, no usage manual.
         page.goto(base_url + "/#comparison")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        hero = page.locator("#view-comparison .hero")
-        text = hero.text_content() or ""
-        assert "source links" in text.lower()
-        assert "future" in text.lower() and "projects" in text.lower()
+        text = (page.locator("#view-comparison .hero").text_content() or "").lower()
+        assert "building" in text and "community benefits" in text
+        assert "click" not in text
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
         page.goto(base_url + "/#comparison")
@@ -2383,7 +2383,7 @@ class TestAggregateSignatoryRollup:
         not be read as roster-wide."""
         self._open(page, base_url)
         sub = page.locator("#agg-signatory-sub").inner_text()
-        assert "not the full" in sub.lower()
+        assert "tracked companies only" in sub.lower()
 
     def test_assessed_and_contested_columns_are_consistent(
         self, page: Page, base_url: str
@@ -2417,7 +2417,7 @@ class TestReviewFixes:
             ).get_attribute("aria-label")
             assert "no tracked records" not in label, f"{code}: {label}"
         key = page.locator("#pledge-strip-key").inner_text()
-        covered = int(key.split(" of 50")[0].split()[-1])
+        covered = int(key.split(" states with records")[0].split()[-1])
         assert covered >= 45, f"only {covered} of 50 states reported as covered"
 
     def test_every_csv_row_has_the_same_column_count(self, page: Page, base_url: str):

@@ -1,4 +1,8 @@
-# Spec — Policies & Agreements tab (v3.1)
+# Spec — Policy Playbook tab (v3.1; restructured v3.2)
+
+> v3.2 (2026-09-23): renamed "Policy Playbook"; organized by
+> `Policy.principles` (8 frozen values) with principle cards and a latest-
+> actions timeline; bar charts removed. See CLAUDE.md > "IA v4".
 
 ## Why
 
