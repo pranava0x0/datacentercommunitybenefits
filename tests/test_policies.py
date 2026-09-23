@@ -138,8 +138,12 @@ def test_company_plan_rules() -> None:
     assert _policy(**ok)
     with pytest.raises(ValidationError):  # no company named
         _policy(**{**ok, "company_slugs": None})
-    with pytest.raises(ValidationError):  # plan at a jurisdiction scope
-        _policy(**{**ok, "scope": "state", "state_code": "TX"})
+    # A site pledge for one host community is a plan at that scope.
+    assert _policy(**{**ok, "scope": "city", "state_code": "TN", "jurisdiction": "Memphis, TN"})
+    with pytest.raises(ValidationError):  # a site pledge still needs its state
+        _policy(**{**ok, "scope": "city", "jurisdiction": "Memphis"})
+    with pytest.raises(ValidationError):
+        _policy(**{**ok, "scope": "federal"})
     with pytest.raises(ValidationError):  # company scope, public instrument
         _policy(**{**ok, "instrument": "legislation"})
 

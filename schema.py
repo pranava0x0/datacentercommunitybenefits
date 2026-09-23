@@ -1429,7 +1429,8 @@ POLICY_STATUS_LABELS: dict[str, str] = {
 }
 
 # Who sets it. 'company' is not a jurisdiction — it marks a company's own
-# published plan, which applies wherever that company builds.
+# company-wide plan. A company's pledge for ONE host community is a
+# company_plan scoped to that city/county instead.
 POLICY_SCOPES: tuple[str, ...] = ("federal", "state", "county", "city", "company")
 PolicyScope = Literal["federal", "state", "county", "city", "company"]
 
@@ -1521,13 +1522,16 @@ class Policy(_StrictBase):
     def _scope_consistency(self) -> "Policy":
         if self.scope in ("state", "county", "city") and not self.state_code:
             raise ValueError(f"policy {self.id!r}: {self.scope} scope needs a state_code")
-        if self.scope == "company":
-            if self.instrument != "company_plan":
-                raise ValueError(f"policy {self.id!r}: company scope is only for company_plan")
+        if self.scope == "company" and self.instrument != "company_plan":
+            raise ValueError(f"policy {self.id!r}: company scope is only for company_plan")
+        # A company plan is company-wide (scope 'company') or a site pledge
+        # published for one host community (scope city/county/state). Either
+        # way it is the company's own words, so it must name the company.
+        if self.instrument == "company_plan":
             if not self.company_slugs:
                 raise ValueError(f"policy {self.id!r}: a company_plan must name its company_slugs")
-        if self.instrument == "company_plan" and self.scope != "company":
-            raise ValueError(f"policy {self.id!r}: company_plan must use scope 'company'")
+            if self.scope == "federal":
+                raise ValueError(f"policy {self.id!r}: a company_plan cannot have federal scope")
         return self
 
 

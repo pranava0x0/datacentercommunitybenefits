@@ -1330,10 +1330,17 @@ agreements, and companies' own published community plans.
 - **`benefit_themes` reuses the frozen 8 THEMES**; `community_benefits_framework`
   (bool, `CBF` badge) marks records that require, create or are a CBA,
   community fund or host payment. That flag is the thing readers came for.
-- **`key_terms` must each be literally on `source_url`**, and `value_usd` is
-  set only when the source states a total. Never sum it from the terms.
-- **`company_plan` ⇔ `scope: company`** and must name `company_slugs`. The
-  validator enforces both directions.
+- **`key_terms` must each be literally on `source_url`.** A term the agent
+  flagged as "secondary reporting, not confirmed on this source" gets cut,
+  not kept with a caveat.
+- **`scope: company` is only for a `company_plan`**, and every plan names its
+  `company_slugs`. A company's pledge for ONE host community (xAI's "Our
+  Commitment to Memphis", Brookfield at Paducah) is a `company_plan` scoped to
+  that city: it is the company's own words, not a negotiated agreement, so
+  don't file it as `benefit_agreement`.
+- **`value_usd` is the value of committed community benefits.** Not total
+  project investment ($17B, $100B slipped in on the first pass), not a
+  projected ROI, and not a sum the curator computed from several terms.
 - **Pure pauses stay on the Moratoriums tab.** Governor directives that pause
   *tax-incentive applications* (IL, OH 2026) are policies here, not
   moratoriums: they pause a subsidy, not development. Records the moratorium
