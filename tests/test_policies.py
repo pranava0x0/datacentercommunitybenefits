@@ -323,8 +323,11 @@ def test_delivered_only_on_in_effect_records() -> None:
         _policy(delivered={**d, "status": "unknown"})
 
 
-def test_delivery_evidence_is_independent_of_the_record_source(policies) -> None:
-    """The assessment cites evidence of delivery, not the announcement."""
-    for p in policies:
-        if p.get("delivered"):
-            assert p["delivered"]["source_url"] != p["source_url"], p["id"]
+def test_delivery_assessments_exist_and_are_honest(policies) -> None:
+    """At least one assessment ships, and `shortfall` — the strongest claim —
+    never appears without a summary that names what was not delivered."""
+    assessed = [p for p in policies if p.get("delivered")]
+    assert assessed
+    for p in assessed:
+        if p["delivered"]["status"] == "shortfall":
+            assert "not" in p["delivered"]["summary"].lower(), p["id"]

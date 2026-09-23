@@ -510,7 +510,14 @@
       "related_project_ids": [
         "oracle-dona-ana-nm"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "delivered": {
+        "status": "partial",
+        "summary": "Doña Ana County's own economic development projects page confirms the $1.5 million Boys and Girls Club of Las Cruces payment was paid on January 6, 2026, as scheduled. Other supplemental commitments (workforce development $4M, desalination evaluation $250K, community-college connectivity $150K, habitat restoration) are due by/through December 31, 2026 and were not yet due at assessment time; the underlying $360M 30-year PILOT and ~$80M in tax revenue reported by Oracle/county officials (mid-2026) were not independently itemized on the page.",
+        "source_url": "https://www.donaana.gov/about_us/economic_development_projects.php",
+        "source_title": "Doña Ana County — Economic Development Projects (Project Jupiter)",
+        "assessed_at": "2026-09-23"
+      }
     },
     {
       "id": "effingham-county-ga-openai-camellia-community-benefits-2026",
@@ -1021,6 +1028,111 @@
       "captured_at": "2026-09-23"
     },
     {
+      "id": "md-eo-01.01.2026.16-2026",
+      "title": "Executive Order 01.01.2026.16 — Responsible Data Center Development in Maryland",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Maryland",
+      "state_code": "MD",
+      "identifier": "Executive Order 01.01.2026.16",
+      "date": "2026-09-23",
+      "benefit_themes": [
+        "energy",
+        "jobs",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "25 MW review threshold",
+        "Maryland Data Center Task Force",
+        "public Data Center Dashboard",
+        "Aligned/Conditionally Aligned/Not Aligned determinations",
+        "local land-use approval preserved"
+      ],
+      "summary": "On September 23, 2026, Governor Wes Moore signed Executive Order 01.01.2026.16, creating a state review framework for proposed data centers of 25 MW or more. A new Maryland Data Center Task Force, housed in the Governor's Office, reviews projects against five principles — ratepayer/grid protection, economic benefits, community voice, environmental protection, and transparency/accountability — and issues public 'Aligned,' 'Conditionally Aligned,' or 'Not Aligned' determinations. The order preserves local land-use authority (a project cannot be 'Aligned' if denied a required local approval) and creates a monthly public Data Center Dashboard tracking project locations, developers, power/water demand, and developer commitments. Moore also announced he will seek repeal of Maryland's 2020 data center sales-and-use tax exemption in the next legislative session.",
+      "source_url": "https://dbknews.com/2026/09/23/data-center-executive-order-maryland/",
+      "source_title": "The Diamondback — Gov. Wes Moore signs executive order setting new standards for data centers in Maryland",
+      "resources": [
+        {
+          "url": "https://governor.maryland.gov/media/1083",
+          "title": "Executive Order 01.01.2026.16 (governor.maryland.gov)"
+        },
+        {
+          "url": "https://conduitstreet.mdcounties.org/2026/09/23/governor-moore-signs-executive-order-establishing-data-center-review-framework/",
+          "title": "Conduit Street (MACo) — Governor Moore Signs Executive Order Establishing Data Center Review Framework"
+        },
+        {
+          "url": "https://www.wboc.com/news/gov-moore-sets-new-guardrails-for-maryland-data-centers/article_99519b87-0ba7-4a2d-a3b2-b484bbf42407.html",
+          "title": "WBOC — Gov. Moore sets new guardrails for Maryland data centers"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "md-hb1532-2026",
+      "title": "Utility RELIEF Act (House Bill 1532 / Chapter 353) — large-load/data-center grid cost provisions",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Maryland",
+      "state_code": "MD",
+      "identifier": "HB 1532 (2026), Chapter 353",
+      "date": "2026-05-12",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "separate rate class for data centers",
+        "large-load customers pay for grid infrastructure upgrades",
+        "PSC registration requirement",
+        "cost-shift protection for residential ratepayers"
+      ],
+      "summary": "Maryland's Utility RELIEF Act, signed by Governor Moore on May 12, 2026 (Chapter 353), is the omnibus vehicle the 2026 General Assembly used to carry its energy and data-center policy. Reporting on the signed law states it requires large-load customers such as data centers to register with the Public Service Commission and to pay for the grid infrastructure upgrades needed to connect and serve them — through a separate data-center rate class, long-term contracts, or direct payment — rather than shifting those costs onto residential ratepayers. The bill's formal legislative synopsis foregrounds its broader utility-assistance and renewable-energy titles (transferring the electric universal service program, a nonprofit renewable-energy loan program, solar interconnection changes); the data-center cost-shift provisions are documented in Maryland news coverage of the signed law.",
+      "source_url": "https://thedailyrecord.com/2026/06/15/maryland-energy-law-data-centers-grid-upgrades/",
+      "source_title": "The Daily Record — Maryland's new energy law intertwines with data center boom",
+      "resources": [
+        {
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/HB1532?ys=2026RS",
+          "title": "Maryland General Assembly — HB1532 (2026) bill page"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "md-hb900-2025-failed",
+      "title": "House Bill 900 — Electricity - Data Centers - Rate Schedule and Requirements (failed)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "Maryland",
+      "state_code": "MD",
+      "identifier": "HB 900 (2025)",
+      "date": "2025-04-08",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "2,500 kW demand threshold",
+        "4-year maximum load ramp period",
+        "24-year minimum contract term",
+        "~50% collateral requirement",
+        "PSC-approved rate schedule"
+      ],
+      "summary": "House Bill 900 (2025), sponsored by Del. C.T. Wilson, would have required Maryland electric companies to submit a Public Service Commission-approved rate schedule specifically for data center customers with monthly maximum demand over 2,500 kW, including a maximum 4-year load ramp period, a 24-year minimum contract term, and collateral requirements of roughly 50% of total minimum charges (with possible waivers for strong-credit customers). The bill died in committee on April 8, 2025 without a floor vote in either chamber. Its large-load rate-schedule concept was substantially revived in 2026 as part of the enacted Utility RELIEF Act (HB1532/Chapter 353) and in a separate 2026 bill, HB1082.",
+      "source_url": "https://www.billtrack50.com/billdetail/1810338",
+      "source_title": "BillTrack50 — MD HB900 (2025) bill detail",
+      "resources": [
+        {
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/HB0900?ys=2025RS",
+          "title": "Maryland General Assembly — HB0900 (2025) bill page"
+        }
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
       "id": "memphis-tn-xai-our-commitment-2026",
       "title": "xAI — 'Our Commitment to Memphis' (site pledge)",
       "instrument": "company_plan",
@@ -1234,6 +1346,44 @@
       "source_title": "Wisconsin Public Radio — Mount Pleasant approves Microsoft deal for data centers on Foxconn land",
       "related_project_ids": [
         "ms-mt-pleasant-wi"
+      ],
+      "captured_at": "2026-09-23"
+    },
+    {
+      "id": "ms-sb3168-2025-failed",
+      "title": "Senate Bill 3168 — Data Center Enterprise (DCE) program revisions (failed)",
+      "instrument": "legislation",
+      "status": "failed",
+      "scope": "state",
+      "jurisdiction": "Mississippi",
+      "state_code": "MS",
+      "identifier": "SB 3168 (2025)",
+      "date": "2025-02-26",
+      "benefit_themes": [
+        "jobs",
+        "tax_revenue",
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "$250 million investment threshold",
+        "35 new full-time jobs at 125% of state average wage",
+        "excludes cryptocurrency mining",
+        "electricity purchase tax exemption",
+        "two 10-year extensions for $100M+ expansions"
+      ],
+      "summary": "Senate Bill 3168 (2025), sponsored by Senate Finance Chair Josh Harkins, would have revised Mississippi's Data Center Enterprise tax-exemption program: raising the new-construction investment threshold to $250 million, requiring at least 35 new full-time jobs paid 125% of the state average annual wage, excluding cryptocurrency mining from eligibility, adding an exemption for state tax on electricity purchases, and allowing up to two automatic 10-year extensions for qualifying data centers that complete a $100 million-plus expansion. The bill passed the Senate on February 26, 2025, but died in a House committee on March 18, 2025 without becoming law.",
+      "source_url": "https://magnoliatribune.com/2025/02/25/senate-bill-aims-to-attract-more-data-centers-to-mississippi/",
+      "source_title": "Magnolia Tribune — Senate bill aims to attract more data centers to Mississippi",
+      "resources": [
+        {
+          "url": "https://www.billtrack50.com/billdetail/1844233",
+          "title": "BillTrack50 — MS SB3168 (2025) bill detail"
+        },
+        {
+          "url": "https://billstatus.ls.state.ms.us/documents/2025/html/SB/3100-3199/SB3168IN.htm",
+          "title": "Mississippi Legislature — SB3168 as introduced"
+        }
       ],
       "captured_at": "2026-09-23"
     },
@@ -2052,7 +2202,14 @@
       "related_project_ids": [
         "aws-new-carlisle-in"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "delivered": {
+        "status": "partial",
+        "summary": "AWS's separate $250,000 St. Joseph County Community Fund — one piece of the broader $143 million Community Enhancement Agreement — was confirmed delivered: $250,000 distributed across 31 local organizations in awards of $1,000-$10,000, announced March 3, 2025. The larger $143M agreement's infrastructure/schools/parks/fire spending was not independently confirmed as disbursed.",
+        "source_url": "https://www.insideindianabusiness.com/articles/aws-launches-250k-community-fund-to-support-31-organizations-in-st-joseph-county",
+        "source_title": "Inside INdiana Business — AWS launches $250K community fund to support 31 organizations in St. Joseph County",
+        "assessed_at": "2026-09-23"
+      }
     },
     {
       "id": "tn-pc961-2026",
@@ -2308,7 +2465,14 @@
       "related_project_ids": [
         "amazon-vicksburg-ms"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "delivered": {
+        "status": "delivered",
+        "summary": "Amazon awarded nearly $250,000 (increased from the originally committed $150,000) to 28 organizations through the Warren County Community Fund, announced August 6, 2026, covering food security, education, STEM, housing, mental health, and historic preservation projects. Independently corroborated by Vicksburg-area local news.",
+        "source_url": "https://press.aboutamazon.com/community/2026/8/amazon-awards-nearly-250-000-to-warren-county-community-fund-recipients",
+        "source_title": "Amazon US Press Center — Amazon Awards Nearly $250,000 to Warren County Community Fund Recipients",
+        "assessed_at": "2026-09-23"
+      }
     },
     {
       "id": "west-memphis-ar-google-entergy-energy-impact-fund-2025",

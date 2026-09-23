@@ -1273,6 +1273,28 @@ class TestPoliciesView:
         assert page.locator("#policies-tbody tr[role=button]").count() == expected
         assert page.locator("#policies-tbody .badge-cbf").count() == expected
 
+    def test_delivered_assessment_renders_in_row_and_modal(self, page: Page, base_url: str):
+        """An agreement with a delivery assessment shows the chip in its row and
+        the Claims-tab delivered panel in its modal; one without shows neither."""
+        self._open(page, base_url)
+        row = page.locator("#policies-tbody tr[role=button]").filter(
+            has=page.locator(".policy-delivered")
+        ).first
+        chip_bg = row.locator(".policy-delivered").evaluate(
+            "el => getComputedStyle(el).backgroundColor"
+        )
+        assert chip_bg not in ("rgba(0, 0, 0, 0)", "transparent")
+        row.click()
+        page.wait_for_selector("#policy-modal:not([hidden])", timeout=5_000)
+        assert page.locator("#pd-delivered .claim-delivered").is_visible()
+        page.keyboard.press("Escape")
+        bare = page.locator("#policies-tbody tr[role=button]").filter(
+            has_not=page.locator(".policy-delivered")
+        ).first
+        bare.click()
+        page.wait_for_selector("#policy-modal:not([hidden])", timeout=5_000)
+        assert page.locator("#pd-delivered").is_hidden()
+
     def test_status_badges_are_colored(self, page: Page, base_url: str):
         self._open(page, base_url)
         badge = page.locator("#policies-tbody .badge:not(.badge-cbf)").first
