@@ -1208,6 +1208,78 @@ class TestRatepayerView:
         assert page.locator("#rp-scorecard .rp-conflicts").count() >= 1
 
 
+class TestPoliciesView:
+    """Policies & Agreements tab (v3.1): lazy load, directory, modal, filters."""
+
+    def _open(self, page: Page, base_url: str) -> None:
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policies-tbody tr[role=button]", timeout=10_000)
+
+    def test_directory_renders_every_record(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        n = page.evaluate("() => state.policies.length")
+        assert n > 0
+        assert page.locator("#policies-tbody tr[role=button]").count() == n
+        assert page.locator("#policy-stats .rp-stat").count() >= 4
+
+    def test_payload_is_lazy(self, page: Page, base_url: str):
+        """policies.json must not join first paint (perf budget)."""
+        seen: list[str] = []
+        page.on("request", lambda r: seen.append(r.url))
+        page.goto(base_url + "/")
+        page.wait_for_timeout(1500)
+        assert not any("policies.json" in u for u in seen)
+
+    def test_payload_fetched_once(self, page: Page, base_url: str):
+        """Tab + state panel both load it; promise memoization means one fetch."""
+        seen: list[str] = []
+        page.on("request", lambda r: seen.append(r.url))
+        self._open(page, base_url)
+        code = page.evaluate("() => state.policies.find(p => p.state_code).state_code")
+        # The state modal lives in the Pledge view, so open it from there.
+        page.evaluate(f"() => {{ activateView('ratepayer'); openStatePanel('{code}'); }}")
+        page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
+        page.wait_for_timeout(1500)
+        assert sum("policies.json" in u for u in seen) == 1
+
+    def test_row_opens_modal_and_escape_closes(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        row = page.locator("#policies-tbody tr[role=button]").first
+        row.focus()
+        page.keyboard.press("Enter")
+        page.wait_for_selector("#policy-modal:not([hidden])", timeout=5_000)
+        assert page.locator("#pd-terms li").count() >= 1
+        assert page.locator("#pd-resources-list a").count() >= 1
+        page.keyboard.press("Escape")
+        assert page.locator("#policy-modal").is_hidden()
+
+    def test_bar_click_filters_directory(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        bar = page.locator("[data-policy-filter='policy-instrument-filter']").first
+        value = bar.get_attribute("data-value")
+        bar.click()
+        assert page.input_value("#policy-instrument-filter") == value
+        expected = page.evaluate(
+            f"() => state.policies.filter(p => p.instrument === '{value}').length"
+        )
+        assert page.locator("#policies-tbody tr[role=button]").count() == expected
+
+    def test_cbf_filter_and_zero_result(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        page.check("#policy-cbf-filter")
+        expected = page.evaluate(
+            "() => state.policies.filter(p => p.community_benefits_framework).length"
+        )
+        assert page.locator("#policies-tbody tr[role=button]").count() == expected
+        assert page.locator("#policies-tbody .badge-cbf").count() == expected
+
+    def test_status_badges_are_colored(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        badge = page.locator("#policies-tbody .badge:not(.badge-cbf)").first
+        bg = badge.evaluate("el => getComputedStyle(el).backgroundColor")
+        assert bg not in ("rgba(0, 0, 0, 0)", "transparent")
+
+
 class TestTariffsView:
     """Utility Tariffs tab: rendering, keyboard access, federal segregation."""
 
@@ -2045,9 +2117,10 @@ class TestStatePanel:
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         expect(page.locator("#sd-name")).to_have_text("Texas")
-        # Five sections always render — an empty one shows an honest placeholder
-        # rather than disappearing. (v3 added Rate cases & proceedings.)
-        assert page.locator("#sd-body .sd-section").count() == 5
+        # Six sections always render — an empty one shows an honest placeholder
+        # rather than disappearing. (v3 added Rate cases & proceedings; v3.1
+        # added Policies & agreements.)
+        assert page.locator("#sd-body .sd-section").count() == 6
         assert "Abbott" in page.locator("#sd-governor").inner_text()
 
     def test_panel_is_deep_linkable(self, page: Page, base_url: str):
@@ -2082,7 +2155,7 @@ class TestStatePanel:
         page.wait_for_selector("#state-modal:not([hidden])", timeout=10_000)
         page.wait_for_timeout(2500)
         assert page.locator("#sd-body .sd-empty").count() >= 1
-        assert page.locator("#sd-body .sd-section").count() == 5
+        assert page.locator("#sd-body .sd-section").count() == 6
 
 
 class TestScorecardFilterBar:

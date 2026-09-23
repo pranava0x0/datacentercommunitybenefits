@@ -9,6 +9,23 @@ criterion.
 
 ## High priority
 
+### Policies & Agreements tab — follow-ups from the v3.1 launch (2026-09-23) — **medium**
+- **Migrate misfiled non-moratorium records** out of `moratoriums.json`:
+  `pennsylvania-state-eo2026-05` (its own `policy_type` says "not a pause on
+  development"), `oklahoma-state-hb2992-2024` and `washington-state-sb5982-2024`
+  ("Cost-allocation rule (not traditional moratorium)"). v3.1 cross-links
+  instead of moving them (`Policy.related_moratorium_id`). Moving them changes
+  moratorium stat tiles and several tests, so it is its own PR.
+- **Delivered-vs-promised on agreements** — reuse the `Delivered` sub-object
+  pattern for CBAs whose payments can now be checked (e.g. a first annual
+  impact payment).
+- **Aggregate rollup** — a "By state" policy count column; `coverage.json`
+  already carries per-state `policies`.
+- **Home "What changed" feed** — new policy records do not yet surface there.
+- **States with no record** — the state sweep's progress log
+  (`SPEC_POLICIES_TAB.md` > Research log) lists states checked with nothing
+  found; re-sweep each legislative session.
+
 ### Amentum (Savannah River Site, SC) — watch for real community-impact framing — **medium**
 Added then removed in the same PR, 2026-07-30 (see REFRESH.md's 2026-07-30
 entry and CLAUDE.md's "Companies in scope" for the full lesson). DOE's NNSA

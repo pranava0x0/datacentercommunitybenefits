@@ -1313,6 +1313,41 @@ accumulate proceedings over its life, and `next_milestone` needs a home.
   Carolinas), keeps the operating name for single-string rows (SWEPCO stays
   SWEPCO), never fuzzy-matches.
 
+### Policies & Agreements tab (v3.1, 2026-09-23)
+
+`Policy` + `data/seed/policies.json`, tab `#policies` (between Tariffs and
+Sites). Spec and research plan: [SPEC_POLICIES_TAB.md](SPEC_POLICIES_TAB.md).
+Holds the instruments between a moratorium (a pause) and a tariff (who pays
+for power): executive orders, statutes and regulations that set conditions,
+local ordinances, site-level community benefit / host / development / PILOT
+agreements, and companies' own published community plans.
+
+- **One record type, `instrument` field** (`executive_order | legislation |
+  regulation | local_ordinance | benefit_agreement | company_plan`). A state
+  framework that requires a CBA and the CBA a county then signs share every
+  field that matters, and one directory with a type filter shows "what was
+  required" beside "what was won". Don't split it into two types.
+- **`benefit_themes` reuses the frozen 8 THEMES**; `community_benefits_framework`
+  (bool, `CBF` badge) marks records that require, create or are a CBA,
+  community fund or host payment. That flag is the thing readers came for.
+- **`key_terms` must each be literally on `source_url`**, and `value_usd` is
+  set only when the source states a total. Never sum it from the terms.
+- **`company_plan` ⇔ `scope: company`** and must name `company_slugs`. The
+  validator enforces both directions.
+- **Pure pauses stay on the Moratoriums tab.** Governor directives that pause
+  *tax-incentive applications* (IL, OH 2026) are policies here, not
+  moratoriums: they pause a subsidy, not development. Records the moratorium
+  tab also carries link via `related_moratorium_id` (cross-ref validated)
+  rather than being duplicated. Moving the three misfiled moratorium records
+  is a BACKLOG item.
+- Statuses reuse the tariff palette through `POLICY_STATUS_BADGE_CLASS`,
+  whose *values* are checked against styles.css (the RATE_CASE_BADGE_CLASS
+  lesson). The payload is promise-memoized (tab + state panel both load it)
+  and never on first paint. The state panel now has **six** sections.
+- **The state modal lives inside the Pledge view.** `openStatePanel()` called
+  while another view is active opens an invisible modal. e2e tests must
+  `activateView('ratepayer')` first. The `#state/XX` deep link already does.
+
 ### IA v3 — Home as the record's front door (2026-08-03)
 
 Tab labels changed, **hashes did not** (deep-link compatibility): Home

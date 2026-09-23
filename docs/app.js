@@ -126,6 +126,45 @@ const RATE_CASE_BADGE_CLASS = {
   approved: "badge-tariff-status-approved",
   rejected: "badge-tariff-status-rejected",
 };
+
+// Policies & agreements (v3.1). Mirrors POLICY_* in schema.py; parity-tested
+// in test_themes_match_frontend.py. Statuses reuse the tariff palette —
+// in effect ↔ approved green, proposed ↔ amber, failed ↔ rejected red.
+const POLICY_INSTRUMENTS = [
+  "executive_order",
+  "legislation",
+  "regulation",
+  "local_ordinance",
+  "benefit_agreement",
+  "company_plan",
+];
+const POLICY_INSTRUMENT_LABELS = {
+  executive_order: "Executive order",
+  legislation: "Legislation",
+  regulation: "Regulation",
+  local_ordinance: "Local ordinance",
+  benefit_agreement: "Benefit agreement",
+  company_plan: "Company plan",
+};
+const POLICY_STATUSES = ["in_effect", "proposed", "failed"];
+const POLICY_STATUS_LABELS = {
+  in_effect: "In effect",
+  proposed: "Proposed",
+  failed: "Failed / withdrawn",
+};
+const POLICY_STATUS_BADGE_CLASS = {
+  in_effect: "badge-tariff-status-approved",
+  proposed: "badge-tariff-status-proposed",
+  failed: "badge-tariff-status-rejected",
+};
+const POLICY_SCOPES = ["federal", "state", "county", "city", "company"];
+const POLICY_SCOPE_LABELS = {
+  federal: "Federal",
+  state: "State",
+  county: "County",
+  city: "City / town",
+  company: "Company-wide",
+};
 // The five LBL element groups, in the brief's order: [group_key, label].
 const TARIFF_PARAMETER_GROUPS = [
   ["eligibility", "Eligibility & Applicability"],
@@ -426,6 +465,7 @@ const state = {
   responses: [],
   moratoriums: [],
   tariffs: [],
+  policies: [],
   signatories: [],
   coverage: {},
   coverageTotals: null,
@@ -575,6 +615,7 @@ const VIEWS = [
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
+  { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
   { name: "aggregate", tab: "tab-aggregate", section: "view-aggregate", hash: "#aggregate" },
 ];
@@ -745,6 +786,17 @@ function activateView(name) {
     loadTariffsData().catch((err) => {
       console.error("Failed to load tariffs data:", err);
     });
+  } else if (target.name === "policies") {
+    loadPoliciesData()
+      .then(renderPoliciesView)
+      .catch((err) => {
+        console.error("Failed to load policies data:", err);
+        const tbody = document.getElementById("policies-tbody");
+        if (tbody) {
+          tbody.innerHTML =
+            "<tr><td colspan='6' class='muted'>Failed to load policies.</td></tr>";
+        }
+      });
   }
 }
 
@@ -2469,6 +2521,425 @@ function downloadTariffCSV() {
   URL.revokeObjectURL(url);
 }
 
+// --------------------------------------------------------------------------
+// Policies & agreements view (v3.1)
+//
+// One Policy record type covering executive orders, legislation, regulations,
+// local ordinances, site-level benefit agreements and company community
+// plans. Lazy-loaded like the other per-tab payloads; the state panel loads it
+// too, so it is promise-memoized (see loadRateCasesData for why a boolean
+// flag alone double-fetches).
+// --------------------------------------------------------------------------
+
+let _policyDataPromise = null;
+function loadPoliciesData() {
+  if (!_policyDataPromise) {
+    _policyDataPromise = (async () => {
+      const payload = await fetchJson("data/policies.json");
+      state.policies = payload.policies || [];
+    })().catch((err) => {
+      _policyDataPromise = null; // let a later open retry
+      throw err;
+    });
+  }
+  return _policyDataPromise;
+}
+
+function policyWhere(p) {
+  if (p.scope === "company" || p.scope === "federal") return p.jurisdiction;
+  if (p.scope === "state") return p.jurisdiction;
+  return p.state_code && !p.jurisdiction.includes(p.state_code)
+    ? `${p.jurisdiction}, ${p.state_code}`
+    : p.jurisdiction;
+}
+
+function policyParties(p) {
+  const companies = (p.company_slugs || []).map(
+    (slug) => (state.companiesBySlug.get(slug) || {}).name || slug
+  );
+  return [...companies, ...(p.counterparties || [])];
+}
+
+function policySort(a, b) {
+  // Newest first; undated proposals sink to the bottom, then by title.
+  const ad = a.date || "";
+  const bd = b.date || "";
+  if (ad !== bd) return bd.localeCompare(ad);
+  return a.title.localeCompare(b.title);
+}
+
+const POLICY_FILTER_IDS = [
+  "policy-instrument-filter",
+  "policy-status-filter",
+  "policy-scope-filter",
+  "policy-state-filter",
+  "policy-theme-filter",
+  "policy-cbf-filter",
+];
+
+function policyFilters() {
+  const val = (id) => document.getElementById(id)?.value || "";
+  return {
+    instrument: val("policy-instrument-filter"),
+    status: val("policy-status-filter"),
+    scope: val("policy-scope-filter"),
+    state: val("policy-state-filter"),
+    theme: val("policy-theme-filter"),
+    cbfOnly: Boolean(document.getElementById("policy-cbf-filter")?.checked),
+  };
+}
+
+function filteredPolicies() {
+  const f = policyFilters();
+  return (state.policies || [])
+    .filter((p) => !f.instrument || p.instrument === f.instrument)
+    .filter((p) => !f.status || p.status === f.status)
+    .filter((p) => !f.scope || p.scope === f.scope)
+    .filter((p) => !f.state || p.state_code === f.state)
+    .filter((p) => !f.theme || (p.benefit_themes || []).includes(f.theme))
+    .filter((p) => !f.cbfOnly || p.community_benefits_framework)
+    .sort(policySort);
+}
+
+// Fill each <select> once from the frozen vocab (instrument / status / level /
+// theme) or from the data (state), counting records per option so an empty
+// option is visibly empty rather than a dead end.
+function populatePolicyFilters() {
+  const all = state.policies || [];
+  const fill = (id, keys, labelOf, countOf) => {
+    const sel = document.getElementById(id);
+    if (!sel || sel.dataset.populated) return;
+    for (const k of keys) {
+      const n = countOf(k);
+      if (!n) continue;
+      const opt = document.createElement("option");
+      opt.value = k;
+      opt.textContent = `${labelOf(k)} (${n})`;
+      sel.appendChild(opt);
+    }
+    sel.dataset.populated = "1";
+  };
+  fill("policy-instrument-filter", POLICY_INSTRUMENTS, (k) => POLICY_INSTRUMENT_LABELS[k],
+    (k) => all.filter((p) => p.instrument === k).length);
+  fill("policy-status-filter", POLICY_STATUSES, (k) => POLICY_STATUS_LABELS[k],
+    (k) => all.filter((p) => p.status === k).length);
+  fill("policy-scope-filter", POLICY_SCOPES, (k) => POLICY_SCOPE_LABELS[k],
+    (k) => all.filter((p) => p.scope === k).length);
+  const states = [...new Set(all.map((p) => p.state_code).filter(Boolean))].sort();
+  fill("policy-state-filter", states, (k) => STATE_NAMES[k] || k,
+    (k) => all.filter((p) => p.state_code === k).length);
+  fill("policy-theme-filter", THEMES, (k) => THEME_LABELS[k],
+    (k) => all.filter((p) => (p.benefit_themes || []).includes(k)).length);
+}
+
+function wirePolicyControls() {
+  for (const id of POLICY_FILTER_IDS) {
+    const el = document.getElementById(id);
+    if (el && !el.dataset.wired) {
+      el.addEventListener("change", renderPoliciesTable);
+      el.dataset.wired = "1";
+    }
+  }
+  wireBtn("policies-csv-btn", (e) => {
+    e.preventDefault();
+    downloadPoliciesCSV();
+  });
+  wireBtn("policies-pdf-btn", exportPoliciesToPDF);
+
+  const overlay = document.getElementById("policy-modal");
+  wireBtn("policy-detail-close", closePolicyDetail);
+  if (overlay && !overlay.dataset.wired) {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay || e.target.closest("[data-policy-close]")) {
+        closePolicyDetail();
+      }
+    });
+    overlay.addEventListener("keydown", (e) => {
+      if (e.key === "Tab" && !overlay.hidden) trapModalFocus(e, overlay);
+    });
+    overlay.dataset.wired = "1";
+  }
+  if (!document._policyEscWired) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePolicyDetail();
+    });
+    document._policyEscWired = true;
+  }
+}
+
+function renderPoliciesView() {
+  wirePolicyControls();
+  populatePolicyFilters();
+  const all = state.policies || [];
+  renderPolicyStats(all);
+  renderPolicyCharts(all);
+  renderPoliciesTable();
+}
+
+function renderPolicyStats(all) {
+  const ul = document.getElementById("policy-stats");
+  if (!ul) return;
+  const n = (pred) => all.filter(pred).length;
+  const tiles = [
+    [all.length, "Records tracked"],
+    [n((p) => p.status === "in_effect" && p.scope !== "company"), "Public instruments in effect"],
+    [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States with a state-level record"],
+    [n((p) => p.instrument === "benefit_agreement"), "Benefit agreements"],
+    [n((p) => p.instrument === "company_plan"), "Company plans"],
+    [n((p) => p.community_benefits_framework), "Include a community-benefits framework"],
+  ];
+  ul.innerHTML = tiles
+    .map(
+      ([v, label]) => `
+      <li class="rp-stat">
+        <span class="rp-stat-value">${v}</span>
+        <span class="rp-stat-label">${escapeHtml(label)}</span>
+      </li>`
+    )
+    .join("");
+}
+
+// Two clickable bar sets (reusing the moratorium .mhb bar styling): by
+// instrument, and by theme. Clicking a bar sets that directory filter.
+function renderPolicyCharts(all) {
+  const host = document.getElementById("policy-charts");
+  if (!host) return;
+  const bars = (filterId, keys, labelOf, countOf) => {
+    const rows = keys
+      .map((k) => ({ k, label: labelOf(k), value: countOf(k) }))
+      .filter((r) => r.value > 0)
+      .sort((a, b) => b.value - a.value);
+    const max = Math.max(1, ...rows.map((r) => r.value));
+    return rows
+      .map(
+        (r) => `<button type="button" class="mhb-row mhb-row--btn" data-policy-filter="${filterId}" data-value="${escapeAttr(r.k)}" aria-label="Filter the directory: ${escapeAttr(r.label)}, ${r.value} records">
+          <span class="mhb-label">${escapeHtml(r.label)}</span>
+          <span class="mhb-track"><span class="mhb-fill" style="width:${(r.value / max) * 100}%;background:var(--accent)"></span></span>
+          <span class="mhb-val">${r.value}</span>
+        </button>`
+      )
+      .join("");
+  };
+  host.innerHTML = `
+    <figure class="mor-chart">
+      <figcaption class="mor-chart-title">By type <span class="mor-chart-sub">records of each instrument</span></figcaption>
+      <div class="mor-hbar-set">${bars("policy-instrument-filter", POLICY_INSTRUMENTS,
+        (k) => POLICY_INSTRUMENT_LABELS[k], (k) => all.filter((p) => p.instrument === k).length)}</div>
+    </figure>
+    <figure class="mor-chart">
+      <figcaption class="mor-chart-title">By benefit theme <span class="mor-chart-sub">records addressing each theme</span></figcaption>
+      <div class="mor-hbar-set">${bars("policy-theme-filter", THEMES,
+        (k) => THEME_LABELS[k], (k) => all.filter((p) => (p.benefit_themes || []).includes(k)).length)}</div>
+    </figure>`;
+  setAccCount("policy-breakdown-count", all.length, "record");
+  for (const btn of host.querySelectorAll("[data-policy-filter]")) {
+    btn.addEventListener("click", () => {
+      const sel = document.getElementById(btn.dataset.policyFilter);
+      if (!sel) return;
+      sel.value = sel.value === btn.dataset.value ? "" : btn.dataset.value;
+      renderPoliciesTable();
+      const dir = document.getElementById("policies-directory");
+      if (dir) {
+        openAccordionsFor(dir);
+        dir.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }
+}
+
+function renderPoliciesTable() {
+  const tbody = document.getElementById("policies-tbody");
+  if (!tbody) return;
+  const rows = filteredPolicies();
+  setAccCount("policies-count", rows.length, "record");
+  tbody.innerHTML = "";
+  if (!rows.length) {
+    tbody.innerHTML =
+      "<tr><td colspan='6' class='muted'>No records match the current filters.</td></tr>";
+    return;
+  }
+  for (const p of rows) {
+    const tr = document.createElement("tr");
+    tr.className = `tariff-status-${p.status === "in_effect" ? "approved" : p.status === "failed" ? "rejected" : "proposed"}`;
+    const cbf = p.community_benefits_framework
+      ? ` <span class="badge badge-cbf" title="Requires, creates or is a community benefit agreement, fund or host payment">CBF</span>`
+      : "";
+    const themes = (p.benefit_themes || [])
+      .map((t) => `<span class="policy-theme">${escapeHtml(THEME_LABELS[t] || t)}</span>`)
+      .join("");
+    tr.innerHTML = `
+      <td><span class="tariff-row-name">${escapeHtml(p.title)}</span>${cbf}${
+        p.identifier ? `<span class="tariff-row-type">${escapeHtml(p.identifier)}</span>` : ""
+      }</td>
+      <td>${escapeHtml(POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument)}</td>
+      <td>${escapeHtml(policyWhere(p))}</td>
+      <td><span class="badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}">${escapeHtml(POLICY_STATUS_LABELS[p.status] || p.status)}</span></td>
+      <td class="policy-date">${escapeHtml(p.date || "—")}</td>
+      <td><span class="policy-themes">${themes}</span></td>`;
+    tr.tabIndex = 0;
+    tr.setAttribute("role", "button");
+    tr.setAttribute(
+      "aria-label",
+      `${p.title}, ${POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument}, ${POLICY_STATUS_LABELS[p.status] || p.status}. Open details.`
+    );
+    const open = () => showPolicyDetail(p);
+    tr.addEventListener("click", open);
+    tr.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        open();
+      }
+    });
+    tbody.appendChild(tr);
+  }
+}
+
+function _linkLi(href, text) {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = String(href);
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  a.textContent = `${text} ↗`;
+  li.append(a);
+  return li;
+}
+
+function showPolicyDetail(p) {
+  const overlay = document.getElementById("policy-modal");
+  const modal = document.getElementById("policy-detail");
+  if (!overlay || !modal) return;
+  wirePolicyControls();
+  const setText = (id, txt) => {
+    const node = document.getElementById(id);
+    if (node) node.textContent = txt;
+  };
+
+  setText("pd-instrument", POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument);
+  setText("pd-title", p.title);
+  const badge = document.getElementById("pd-status");
+  badge.className = `badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}`;
+  badge.textContent = POLICY_STATUS_LABELS[p.status] || p.status;
+  setText("pd-where", `${policyWhere(p)} · ${POLICY_SCOPE_LABELS[p.scope] || p.scope}`);
+  setText("pd-identifier", p.identifier || "Not stated");
+  setText("pd-date", p.date || "Not dated");
+  const parties = policyParties(p);
+  setText("pd-parties", parties.length ? parties.join(", ") : "Not stated");
+  setText("pd-value", p.value_usd != null ? formatUsd(p.value_usd) : "Not stated");
+  setText(
+    "pd-themes",
+    (p.benefit_themes || []).map((t) => THEME_LABELS[t] || t).join(", ") +
+      (p.community_benefits_framework ? " · community-benefits framework" : "")
+  );
+  setText("pd-summary", p.summary);
+
+  const terms = document.getElementById("pd-terms");
+  terms.replaceChildren(...(p.key_terms || []).map((t) => el("li", null, t)));
+
+  // Related records: tracked sites (open in Sites) and the moratorium record
+  // that carries the same instrument, if any.
+  const rel = document.getElementById("pd-related");
+  const relList = document.getElementById("pd-related-list");
+  relList.replaceChildren();
+  for (const pid of p.related_project_ids || []) {
+    const proj = (state.projects || []).find((x) => x.id === pid);
+    const li = el("li");
+    const btn = el("button", "linkish", proj ? `Site: ${proj.name}` : `Site: ${pid}`);
+    btn.type = "button";
+    btn.addEventListener("click", () => {
+      closePolicyDetail();
+      activateView("explorer");
+      selectProject(pid);
+    });
+    li.append(btn);
+    relList.append(li);
+  }
+  if (p.related_moratorium_id) {
+    const li = el("li");
+    const btn = el("button", "linkish", "Also tracked on the Moratoriums tab");
+    btn.type = "button";
+    btn.addEventListener("click", async () => {
+      closePolicyDetail();
+      activateView("moratoriums");
+      await loadMoratoriumsData();
+      const m = (state.moratoriums || []).find((x) => x.id === p.related_moratorium_id);
+      if (m) showMoratoriumDetail(m);
+    });
+    li.append(btn);
+    relList.append(li);
+  }
+  rel.hidden = relList.children.length === 0;
+
+  const res = document.getElementById("pd-resources-list");
+  res.replaceChildren(_linkLi(p.source_url, p.source_title));
+  for (const r of p.resources || []) res.append(_linkLi(r.url, r.title));
+  setText("pd-captured", `Captured: ${p.captured_at}`);
+
+  state._policyReturnFocus =
+    document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  overlay.hidden = false;
+  document.body.classList.add("tariff-modal-open");
+  modal.scrollTop = 0;
+  overlay.scrollTop = 0;
+  document.getElementById("policy-detail-close")?.focus();
+}
+
+function closePolicyDetail() {
+  const overlay = document.getElementById("policy-modal");
+  if (!overlay || overlay.hidden) return;
+  overlay.hidden = true;
+  document.body.classList.remove("tariff-modal-open");
+  const ret = state._policyReturnFocus;
+  state._policyReturnFocus = null;
+  if (ret && typeof ret.focus === "function") ret.focus();
+}
+
+function _policyExportRows(list) {
+  return list.map((p) => [
+    p.title,
+    POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument,
+    POLICY_SCOPE_LABELS[p.scope] || p.scope,
+    policyWhere(p),
+    p.state_code || "",
+    POLICY_STATUS_LABELS[p.status] || p.status,
+    p.date || "",
+    p.identifier || "",
+    policyParties(p).join("; "),
+    (p.benefit_themes || []).map((t) => THEME_LABELS[t] || t).join("; "),
+    p.community_benefits_framework ? "yes" : "no",
+    p.value_usd ?? "",
+    (p.key_terms || []).join(" | "),
+    p.summary,
+    String(p.source_url),
+    p.captured_at,
+  ]);
+}
+
+const POLICY_EXPORT_HEADERS = [
+  "Title", "Type", "Level", "Where", "State", "Status", "Date", "Identifier",
+  "Parties", "Themes", "Community benefits framework", "Stated value (USD)",
+  "Key terms", "Summary", "Source", "Captured",
+];
+
+function downloadPoliciesCSV() {
+  const lines = [POLICY_EXPORT_HEADERS.map(csvCell).join(",")];
+  for (const row of _policyExportRows(filteredPolicies())) {
+    lines.push(row.map(csvCell).join(","));
+  }
+  _triggerDownload(lines.join("\r\n"), "policies-and-agreements-TODAY.csv");
+}
+
+async function exportPoliciesToPDF() {
+  const list = filteredPolicies();
+  if (!list.length) { alert("No records match the current filters."); return; }
+  // The PDF is a reading copy: drop the long columns the CSV carries in full.
+  const keep = [0, 1, 3, 5, 6, 9, 12];
+  const headers = keep.map((i) => POLICY_EXPORT_HEADERS[i]);
+  const rows = _policyExportRows(list).map((r) => keep.map((i) => r[i]));
+  const today = new Date().toISOString().slice(0, 10);
+  await _exportToPDF("Data Center Policies & Community Benefit Agreements", _pdfTable(headers, rows), `policies-and-agreements-${today}.pdf`);
+}
+
 async function fetchJson(url) {
   const res = await fetch(url, { cache: "no-cache" });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -2719,6 +3190,7 @@ function renderHomeCards() {
   if (totals) {
     fill("moratoriums", `${totals.moratoriums} tracked`);
     fill("tariffs", `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`);
+    if (Number.isFinite(totals.policies)) fill("policies", `${totals.policies} tracked`);
   }
   if (state.projects.length) {
     fill("sites", `${state.projects.length} sites`);
@@ -2965,6 +3437,7 @@ const PLEDGE_TARGETS = {
   pledge: { view: "ratepayer", anchor: null },
   companies: { view: "comparison", anchor: null },
   tariffs: { view: "tariffs", anchor: null },
+  policies: { view: "policies", anchor: null },
   aggregate: { view: "aggregate", anchor: null },
 };
 
@@ -5176,6 +5649,7 @@ async function openStatePanel(code) {
     state.moratoriumsLoaded ? Promise.resolve() : loadMoratoriumsData(),
     state.tariffsLoaded ? Promise.resolve() : loadTariffsData(),
     state.rateCasesLoaded ? Promise.resolve() : loadRateCasesData(),
+    loadPoliciesData(),
   ]).catch((err) => console.error("State panel data load failed:", err));
 
   // Bail if the user closed the panel (or opened another state) while loading.
@@ -5226,6 +5700,9 @@ function renderStatePanel(code) {
     (rc) => String(rc.state_code || "").toUpperCase() === code
   );
   const utilities = stateUtilitySignatories(code);
+  const policies = (state.policies || []).filter(
+    (pol) => String(pol.state_code || "").toUpperCase() === code
+  );
 
   const sections = [
     {
@@ -5304,6 +5781,25 @@ function renderStatePanel(code) {
           closeStatePanel();
           activateView("moratoriums");
           requestAnimationFrame(() => showMoratoriumDetail(m));
+        },
+      })),
+    },
+    {
+      title: "Policies & agreements",
+      empty: "No state policy, local ordinance or benefit agreement on file for this state yet.",
+      items: policies.map((pol) => ({
+        label: pol.title,
+        meta: [
+          POLICY_INSTRUMENT_LABELS[pol.instrument] || pol.instrument,
+          pol.jurisdiction,
+          POLICY_STATUS_LABELS[pol.status] || pol.status,
+        ]
+          .filter(Boolean)
+          .join(" · "),
+        onClick: () => {
+          closeStatePanel();
+          activateView("policies");
+          requestAnimationFrame(() => showPolicyDetail(pol));
         },
       })),
     },

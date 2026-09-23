@@ -1381,6 +1381,169 @@ class RateCasesPayload(_StrictBase):
         return v
 
 
+
+# --- Policies & agreements (v3.1) ------------------------------------------
+# The instruments between a moratorium (a pause) and a tariff (who pays for
+# power): executive orders, statutes and regulations that set CONDITIONS on
+# data centers, local ordinances, site-level community benefit / host /
+# development agreements, and companies' own published community plans. One
+# record type with an `instrument` field rather than several, because a state
+# framework that requires a community benefit agreement and the agreement a
+# county then signs share every field that matters. See SPEC_POLICIES_TAB.md.
+#
+# Frozen vocabularies — adding a value is the THEMES drill (BACKLOG entry +
+# Python/JS mirrors + the parity tests in test_themes_match_frontend.py).
+POLICY_INSTRUMENTS: tuple[str, ...] = (
+    "executive_order",
+    "legislation",
+    "regulation",
+    "local_ordinance",
+    "benefit_agreement",
+    "company_plan",
+)
+PolicyInstrument = Literal[
+    "executive_order",
+    "legislation",
+    "regulation",
+    "local_ordinance",
+    "benefit_agreement",
+    "company_plan",
+]
+POLICY_INSTRUMENT_LABELS: dict[str, str] = {
+    "executive_order": "Executive order",
+    "legislation": "Legislation",
+    "regulation": "Regulation",
+    "local_ordinance": "Local ordinance",
+    "benefit_agreement": "Benefit agreement",
+    "company_plan": "Company plan",
+}
+
+# in_effect = signed / enacted / published; proposed = introduced, passed one
+# chamber, or under negotiation; failed = vetoed, died, rejected or withdrawn.
+POLICY_STATUSES: tuple[str, ...] = ("in_effect", "proposed", "failed")
+PolicyStatus = Literal["in_effect", "proposed", "failed"]
+POLICY_STATUS_LABELS: dict[str, str] = {
+    "in_effect": "In effect",
+    "proposed": "Proposed",
+    "failed": "Failed / withdrawn",
+}
+
+# Who sets it. 'company' is not a jurisdiction — it marks a company's own
+# published plan, which applies wherever that company builds.
+POLICY_SCOPES: tuple[str, ...] = ("federal", "state", "county", "city", "company")
+PolicyScope = Literal["federal", "state", "county", "city", "company"]
+
+
+class Policy(_StrictBase):
+    """A policy, agreement or plan that sets terms for data-center development.
+
+    Sourcing rules match RateCase: `source_url` must be live and must actually
+    contain the facts in `key_terms` and `summary` (fetch it; search-result
+    synthesis is not verification). Public instruments cite the .gov text
+    where one is reachable; company plans cite the company's own page.
+    """
+
+    id: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    instrument: PolicyInstrument
+    status: PolicyStatus
+    scope: PolicyScope
+    jurisdiction: str = Field(
+        min_length=1,
+        description="'Pennsylvania', 'Hammond, IN', or 'Microsoft (company-wide)'.",
+    )
+    state_code: Optional[str] = Field(
+        default=None,
+        min_length=2,
+        max_length=2,
+        description="Required unless scope is 'federal' or 'company'.",
+    )
+    identifier: Optional[str] = Field(
+        default=None, description="Bill / EO / ordinance / resolution number."
+    )
+    date: Optional[Date] = Field(
+        default=None,
+        description="Signed / enacted / announced (introduced, for proposals).",
+    )
+    company_slugs: Optional[list[CompanySlug]] = Field(
+        default=None, description="Tracked companies party to it."
+    )
+    counterparties: Optional[list[str]] = Field(
+        default=None,
+        description="Other named parties: untracked developers, school districts, utilities.",
+    )
+    benefit_themes: list[Theme] = Field(
+        min_length=1,
+        description="Reuses the frozen 8-theme taxonomy — what the instrument addresses.",
+    )
+    community_benefits_framework: bool = Field(
+        default=False,
+        description="True when it requires, creates or IS a community benefit "
+        "agreement, community fund or host-community payment.",
+    )
+    key_terms: list[str] = Field(
+        min_length=1,
+        description="Concrete, source-verifiable terms ('$10M community fund over 10 years').",
+    )
+    value_usd: Optional[float] = Field(
+        default=None,
+        ge=0,
+        description="Stated dollar value of committed community benefits — only "
+        "when the source states one. Never summed from key_terms.",
+    )
+    summary: str = Field(min_length=1, description="2–4 neutral sentences.")
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+    resources: Optional[list[SourceResource]] = Field(default=None)
+    related_project_ids: Optional[list[str]] = Field(
+        default=None, description="Tracked sites it governs. Cross-ref validated."
+    )
+    related_moratorium_id: Optional[str] = Field(
+        default=None,
+        description="Moratorium record covering the same instrument, if any. "
+        "Cross-ref validated.",
+    )
+    captured_at: Date
+
+    @field_validator("state_code")
+    @classmethod
+    def _state_code_upper(cls, v: Optional[str]) -> Optional[str]:
+        return v.upper() if v else v
+
+    @field_validator("key_terms")
+    @classmethod
+    def _terms_non_blank(cls, v: list[str]) -> list[str]:
+        if any(not t.strip() for t in v):
+            raise ValueError("key_terms entries must be non-blank")
+        return v
+
+    @model_validator(mode="after")
+    def _scope_consistency(self) -> "Policy":
+        if self.scope in ("state", "county", "city") and not self.state_code:
+            raise ValueError(f"policy {self.id!r}: {self.scope} scope needs a state_code")
+        if self.scope == "company":
+            if self.instrument != "company_plan":
+                raise ValueError(f"policy {self.id!r}: company scope is only for company_plan")
+            if not self.company_slugs:
+                raise ValueError(f"policy {self.id!r}: a company_plan must name its company_slugs")
+        if self.instrument == "company_plan" and self.scope != "company":
+            raise ValueError(f"policy {self.id!r}: company_plan must use scope 'company'")
+        return self
+
+
+class PoliciesPayload(_StrictBase):
+    generated_at: Date
+    policies: list[Policy]
+
+    @field_validator("policies")
+    @classmethod
+    def _ids_unique(cls, v: list[Policy]) -> list[Policy]:
+        ids = [p.id for p in v]
+        if len(ids) != len(set(ids)):
+            dup = [i for i in ids if ids.count(i) > 1]
+            raise ValueError(f"Duplicate policy ids: {sorted(set(dup))}")
+        return v
+
 class Signatory(_StrictBase):
     """One organization (or governor) on the Ratepayer Protection Pledge roster.
 
