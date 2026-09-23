@@ -92,7 +92,7 @@
         "education",
         "tax_revenue"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"AWS is also committed to returning more water to communities and the environment than we use\" (water positive by 2030; 41% of the way there by end of 2023)",
         "Committed to net-zero carbon by 2040",
@@ -126,7 +126,7 @@
         "water",
         "engagement"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"We will pay for 100% of the grid upgrades needed to interconnect our data centers, paid through increases to our monthly electricity charges.\"",
         "\"We will work to bring net-new power generation online to match our data centers' electricity needs.\"",
@@ -337,12 +337,12 @@
         "Newly filed transmission/distribution tariffs must ensure data centers pay a reasonable share of wildfire mitigation/liability, electrification and other societal program costs normally collected from distribution-level ratepayers"
       ],
       "summary": "SB 886, signed Sept. 21, 2026, directs the California Public Utilities Commission to adopt, by 2028, new tariffs and rules ensuring data centers pay their own grid-interconnection and service costs rather than shifting them onto other ratepayers, including a fair share of wildfire and other societal program costs.",
-      "source_url": "https://www.datacenterdynamics.com/en/news/california-lawmakers-pass-data-center-ratepayer-protection-bills-send-to-governor-for-approval/",
-      "source_title": "Data Center Dynamics — California lawmakers pass data center ratepayer protection bills, send to governor for approval",
+      "source_url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+      "source_title": "Office of Gov. Newsom — Governor Newsom Signs Most Comprehensive Data Center Laws in the Nation",
       "resources": [
         {
-          "url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
-          "title": "Office of Gov. Newsom — Governor Newsom Signs Most Comprehensive Data Center Laws in the Nation"
+          "url": "https://sd18.senate.ca.gov/news/nation-leading-data-center-regulations-signed-law",
+          "title": "Sen. Steve Padilla — Nation-Leading Data Center Regulations Signed Into Law"
         }
       ],
       "captured_at": "2026-09-23",
@@ -451,7 +451,7 @@
         "tax_revenue",
         "engagement"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"Communities that make our operations possible should be able to share in the benefits without shouldering our costs.\"",
         "Signed the U.S. Ratepayer Protection Pledge to \"fully fund their own power supply and grid upgrades so electricity costs don't get passed along to everyday ratepayers\"",
@@ -484,7 +484,7 @@
         "tax_revenue",
         "engagement"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"We cover our onsite power generation and any required infrastructure upgrades to avoid passing costs on to our neighbors.\"",
         "\"Our advanced closed-loop cooling systems do not consume or evaporate water to cool the equipment.\"",
@@ -504,7 +504,7 @@
     {
       "id": "dane-county-wi-qts-community-commitment-2025",
       "title": "QTS $50 million Dane County community commitment",
-      "instrument": "benefit_agreement",
+      "instrument": "company_plan",
       "status": "proposed",
       "scope": "county",
       "jurisdiction": "Dane County / Town of Vienna / DeForest, WI",
@@ -513,13 +513,7 @@
       "company_slugs": [
         "qts"
       ],
-      "counterparties": [
-        "Dane County",
-        "Town of Vienna",
-        "Madison Area Technical College",
-        "University of Wisconsin-Madison",
-        "Wisconsin Technology Council"
-      ],
+      "counterparties": [],
       "benefit_themes": [
         "education",
         "jobs",
@@ -538,12 +532,6 @@
       "summary": "QTS announced a $50 million community commitment for Dane County, Wisconsin as it advanced zoning plans for a multibillion-dollar data center campus in the Town of Vienna/DeForest area, funding scholarships and workforce partnerships with Madison Area Technical College, a UW-Madison research partnership, and support for local nonprofits and first responders. Co-CEOs Tag Greason and David Robey issued the announcement. The commitment was made ahead of the DeForest Village Board zoning application, so it is proposed rather than a signed development agreement.",
       "source_url": "https://spectrumnews1.com/wi/milwaukee/news/2025/10/30/qts-data-centers-dane-county",
       "source_title": "Spectrum News 1 — QTS plans to propose multibillion-dollar data center campus in Dane County",
-      "resources": [
-        {
-          "url": "https://q.com/news/qts-advances-plans-for-state-of-the-art-data-center-campus-and-announces-50-million-community-commitment-for-dane-county/",
-          "title": "QTS — QTS Advances Plans for State-of-the-Art Data Center Campus and Announces $50 Million Community Commitment for Dane County (404 on refetch; cited via search snippet only)"
-        }
-      ],
       "related_project_ids": [
         "qts-dane-county-wi"
       ],
@@ -1223,7 +1211,7 @@
       "benefit_themes": [
         "tax_revenue"
       ],
-      "community_benefits_framework": false,
+      "community_benefits_framework": true,
       "key_terms": [
         "Authorizes a host county or municipality to require a payment of up to 1% of the state sales/use tax that would otherwise be exempted on a qualified data center's electricity purchases, to qualify for certain sales tax breaks",
         "Applies to data centers whose permits/certificates are issued after the bill's effective date",
@@ -1752,7 +1740,7 @@
         "education",
         "engagement"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"We'll pay our way to ensure our datacenters don't increase your electricity prices.\"",
         "\"We'll minimize our water use and replenish more of your water than we use\" (40% improvement in datacenter water-use intensity by 2030)",
@@ -1883,7 +1871,7 @@
     {
       "id": "montgomery-county-mo-amazon-community-contributions-2026",
       "title": "Montgomery County, MO – Amazon community contributions",
-      "instrument": "benefit_agreement",
+      "instrument": "company_plan",
       "status": "in_effect",
       "scope": "county",
       "jurisdiction": "Montgomery City / Montgomery County, MO",
@@ -1892,9 +1880,7 @@
       "company_slugs": [
         "amazon"
       ],
-      "counterparties": [
-        "Montgomery County"
-      ],
+      "counterparties": [],
       "benefit_themes": [
         "community_grants",
         "infrastructure",
@@ -2485,7 +2471,7 @@
         "education",
         "infrastructure"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"we commit to paying our own way on energy, so that our operations don't increase your electricity prices\"",
         "Minimizing water use and protecting local ecosystems via closed-loop/low-water cooling; example given: Abilene's annual site water use equals half of what the city uses in a single day",
@@ -2780,7 +2766,7 @@
         "jobs",
         "engagement"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"Protect ratepayers by planning and paying our fair share\" (power planning)",
         "\"Use water responsibly,\" emphasizing closed-loop cooling systems",
@@ -2820,7 +2806,7 @@
         "community_grants",
         "engagement"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "\"Communities are right to ask hard questions about energy, water, jobs, infrastructure, ratepayer protection and long-term benefits.\" — Co-CEO Tag Greason",
         "Commitment focuses on protecting residents from project-related costs, building responsibly, creating good jobs, investing locally, and leading with transparency",
@@ -2846,7 +2832,7 @@
     {
       "id": "salem-township-pa-amazon-nepa-community-fund-2025",
       "title": "Salem Township, PA – Amazon Northeastern Pennsylvania Community Fund",
-      "instrument": "benefit_agreement",
+      "instrument": "company_plan",
       "status": "in_effect",
       "scope": "county",
       "jurisdiction": "Salem Township, Luzerne County, PA",
@@ -3473,7 +3459,7 @@
     {
       "id": "warren-county-ms-amazon-community-fund-2025",
       "title": "Warren County (Vicksburg), MS – Amazon Warren County Community Fund",
-      "instrument": "benefit_agreement",
+      "instrument": "company_plan",
       "status": "in_effect",
       "scope": "county",
       "jurisdiction": "Warren County / Vicksburg, MS",
@@ -3506,14 +3492,7 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
-      ],
-      "delivered": {
-        "status": "delivered",
-        "summary": "Amazon awarded nearly $250,000 (increased from the originally committed $150,000) to 28 organizations through the Warren County Community Fund, announced August 6, 2026, covering food security, education, STEM, housing, mental health, and historic preservation projects. Independently corroborated by Vicksburg-area local news.",
-        "source_url": "https://press.aboutamazon.com/community/2026/8/amazon-awards-nearly-250-000-to-warren-county-community-fund-recipients",
-        "source_title": "Amazon US Press Center — Amazon Awards Nearly $250,000 to Warren County Community Fund Recipients",
-        "assessed_at": "2026-09-23"
-      }
+      ]
     },
     {
       "id": "west-memphis-ar-google-entergy-energy-impact-fund-2025",

@@ -41,14 +41,14 @@ python3 refresh.py --audit --check
   - **Operational sites:** must have `claimed_investment_usd` and `power_mw`
   - **Construction sites:** must have `claimed_investment_usd`
   - **Announced sites:** important fields are investment, jobs, power, at_a_glance
-- **Flags stale `proposed` moratoriums/tariffs** (v1.20): any `proposed` record whose
+- **Flags stale `proposed` moratoriums, tariffs, and policies, plus `pending` rate cases**: any such record whose
   `captured_at` is `STALE_PENDING_DAYS` (21) or older gets listed — a pending bill
   or docket is a moving target and needs a re-check, unlike `enacted`/`approved`/
   `failed`/`rejected` records, which are stable once captured and are never flagged.
 - Generates `ISSUES.md` with prioritized gaps:
   - **Critical:** missing required fields
   - **Medium:** missing important/commitment fields
-  - **Stale Pending Bills / Tariffs:** `proposed` records due for a status re-check
+  - **Stale Pending Records:** proposed or pending records due for a status re-check
 - Report format: per-project / per-bill lists with missing fields or staleness age
 - Use to prioritize curation work and flag data gaps across all three refresh dimensions
 - **Note:** `--audit --check` writes ISSUES.md but does NOT write `docs/data/*.json`. Run without `--check` to regenerate outputs AND ISSUES.md together.
@@ -112,7 +112,7 @@ whether a partner has been named before adding either.
 
 ## Moratoriums & Tariffs Refresh
 
-Run `python3 refresh.py --audit --check` first — the "Stale Pending Bills / Tariffs"
+Run `python3 refresh.py --audit --check` first — the "Stale Pending Records"
 section of `ISSUES.md` tells you exactly which `proposed` records need a status
 re-check before you go looking for anything new. Then run
 `python -m connectors.recheck stale` to turn that list into ready-to-run
@@ -1213,4 +1213,3 @@ Learnings:
   migrated moratorium records' bill numbers on the legislatures' own sites
   found one fabricated (WA "SB 5982" is a health bill) and one misdated (OK
   HB 2992 is a 2026 law). Both cited a bare homepage.
-

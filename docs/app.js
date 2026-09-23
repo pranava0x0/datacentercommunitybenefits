@@ -2597,11 +2597,15 @@ function downloadTariffCSV() {
 // --------------------------------------------------------------------------
 
 let _policyDataPromise = null;
+let _policySnapshotYear = null;
 function loadPoliciesData() {
   if (!_policyDataPromise) {
     _policyDataPromise = (async () => {
       const payload = await fetchJson("data/policies.json");
       state.policies = payload.policies || [];
+      _policySnapshotYear = /^\d{4}-\d{2}-\d{2}$/.test(payload.generated_at || "")
+        ? payload.generated_at.slice(0, 4)
+        : null;
     })().catch((err) => {
       _policyDataPromise = null; // let a later open retry
       throw err;
@@ -2746,7 +2750,7 @@ function renderPolicyStats(all) {
   const ul = document.getElementById("policy-stats");
   if (!ul) return;
   const n = (pred) => all.filter(pred).length;
-  const year = String(new Date().getFullYear());
+  const year = _policySnapshotYear || String(new Date().getFullYear());
   const tiles = [
     [n((p) => p.status === "in_effect" && p.scope !== "company"), "Laws, orders, and deals in effect"],
     [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
@@ -2861,6 +2865,14 @@ function renderPolicyPrinciples(all) {
     const all_ = el("button", "linkish pb-see-all", `All ${recs.length} →`);
     all_.type = "button";
     all_.addEventListener("click", () => {
+      for (const id of POLICY_FILTER_IDS) {
+        if (id === "policy-principle-filter") continue;
+        const filter = document.getElementById(id);
+        if (filter) {
+          if (filter.type === "checkbox") filter.checked = false;
+          else filter.value = "";
+        }
+      }
       const sel = document.getElementById("policy-principle-filter");
       if (sel) sel.value = key;
       renderPoliciesTable();
@@ -2937,10 +2949,14 @@ function renderPolicyActions(all) {
       const li = el("li", "pb-action");
       const btn = el("button", "pb-action-btn");
       btn.type = "button";
+      const outcomeInTitle =
+        new RegExp(`\\b${it.verb}\\b`, "i").test(it.title) ||
+        (["failed", "rejected"].includes(it.verb) &&
+          /\b(rejected|failed|vetoed|died|tabled|stalled)\b/i.test(it.title));
       btn.append(
         el("span", "pb-action-date", formatActionDate(it.date)),
         el("span", "pb-action-where", it.where),
-        el("span", "pb-action-text", `${it.title} ${it.verb}`)
+        el("span", "pb-action-text", outcomeInTitle ? it.title : `${it.title} ${it.verb}`)
       );
       if (it.note) btn.append(el("span", "pb-action-note", it.note));
       btn.addEventListener("click", it.open);
@@ -3068,8 +3084,12 @@ function showPolicyDetail(p) {
     btn.type = "button";
     btn.addEventListener("click", () => {
       closePolicyDetail();
+      state.pendingProjectId = pid;
       activateView("explorer");
-      selectProject(pid);
+      if (state.explorerLoaded) {
+        state.pendingProjectId = null;
+        selectProject(pid);
+      }
     });
     li.append(btn);
     relList.append(li);
@@ -3158,7 +3178,7 @@ async function exportPoliciesToPDF() {
   const keep = [0, 1, 3, 5, 6, 9, 13];
   const headers = keep.map((i) => POLICY_EXPORT_HEADERS[i]);
   const rows = _policyExportRows(list).map((r) => keep.map((i) => r[i]));
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   await _exportToPDF("Data Center Policies & Community Benefit Agreements", _pdfTable(headers, rows), `policies-and-agreements-${today}.pdf`);
 }
 
@@ -3378,11 +3398,6 @@ function renderHomeCards() {
   if (state.projects.length) {
     fill("sites", `${state.projects.length} sites`);
   }
-  if (state.coverageLoaded) {
-    const covered = coverageStates().filter(
-      (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases > 0
-    ).length;
-  }
 }
 
 // --- who signed: one proportional bar ------------------------------------
@@ -3471,7 +3486,7 @@ function renderPledgeStateStrip() {
     ...STATE_STRIP_ORDER.map((code) => {
       const s = byCode.get(code);
       const records = s
-        ? s.projects + s.tariffs + s.moratoriums + (s.rate_cases || 0)
+        ? s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies
         : 0;
       const gov = Boolean(s && s.governor);
       if (records) withRecords += 1;
@@ -3840,10 +3855,15 @@ function _pdfTable(headers, rows) {
   return `<table style="width:100%;border-collapse:collapse;margin-top:8px;"><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table>`;
 }
 
+function localToday() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+}
+
 function _triggerDownload(csv, filename) {
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   const a = document.createElement("a");
   a.href = url;
   a.download = filename.replace("TODAY", today);
@@ -5690,6 +5710,7 @@ function coverageStates() {
         tariffs: 0,
         moratoriums: 0,
         rate_cases: 0,
+        policies: 0,
       });
     }
     return states.get(key);
@@ -5711,6 +5732,7 @@ function coverageStates() {
       entry.tariffs = counts.tariffs || 0;
       entry.moratoriums = counts.moratoriums || 0;
       entry.rate_cases = counts.rate_cases || 0;
+      entry.policies = counts.policies || 0;
     }
   } else {
     for (const p of state.projects || []) {
@@ -5724,6 +5746,10 @@ function coverageStates() {
     for (const m of state.moratoriums || []) {
       const entry = touch(moratoriumStateCode(m));
       if (entry) entry.moratoriums += 1;
+    }
+    for (const p of state.policies || []) {
+      const entry = touch(p.state_code);
+      if (entry) entry.policies += 1;
     }
   }
   // Rate cases come from their own (deferred) payload; when it has landed,
@@ -5741,7 +5767,7 @@ function coverageStates() {
     // Governor states first (that is the pledge-relevant cohort), then by how
     // much we can actually show, then alphabetically.
     if (!!b.governor !== !!a.governor) return b.governor ? 1 : -1;
-    const load = (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases;
+    const load = (s) => s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies;
     const d = load(b) - load(a);
     if (d !== 0) return d;
     return a.code.localeCompare(b.code);
@@ -5810,21 +5836,29 @@ async function openStatePanel(code) {
   if (closeBtn) closeBtn.focus();
   history.replaceState(null, "", `#state/${key}`);
 
-  await Promise.all([
+  const sources = ["projects", "signatories", "moratoriums", "tariffs", "rate_cases", "policies"];
+  const results = await Promise.allSettled([
     loadProjectData(),
     loadSignatoryData(),
     state.moratoriumsLoaded ? Promise.resolve() : loadMoratoriumsData(),
     state.tariffsLoaded ? Promise.resolve() : loadTariffsData(),
     state.rateCasesLoaded ? Promise.resolve() : loadRateCasesData(),
     loadPoliciesData(),
-  ]).catch((err) => console.error("State panel data load failed:", err));
+  ]);
+  const failedSources = new Set();
+  for (const [index, result] of results.entries()) {
+    if (result.status === "rejected") {
+      failedSources.add(sources[index]);
+      console.error("State panel data load failed:", result.reason);
+    }
+  }
 
   // Bail if the user closed the panel (or opened another state) while loading.
   if (overlay.hidden || !window.location.hash.endsWith(`/${key}`)) return;
-  renderStatePanel(key);
+  renderStatePanel(key, failedSources);
 }
 
-function renderStatePanel(code) {
+function renderStatePanel(code, failedSources = new Set()) {
   const body = document.getElementById("sd-body");
   if (!body) return;
 
@@ -5874,6 +5908,7 @@ function renderStatePanel(code) {
   const sections = [
     {
       title: "Data-center sites",
+      source: "projects",
       empty: "No tracked sites in this state yet.",
       items: projects.map((p) => ({
         label: p.name,
@@ -5893,6 +5928,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Utility tariffs",
+      source: "tariffs",
       empty: "No large-load tariff on file for this state yet.",
       items: tariffs.map((t) => ({
         label: t.tariff_name,
@@ -5908,6 +5944,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Rate cases & proceedings",
+      source: "rate_cases",
       empty: "No tracked rate case for this state yet.",
       items: rateCases.map((rc) => ({
         label: rc.title,
@@ -5934,6 +5971,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Moratoriums",
+      source: "moratoriums",
       empty: "No moratorium records for this state yet.",
       items: moratoriums.map((m) => ({
         label: m.jurisdiction,
@@ -5953,6 +5991,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Policies & agreements",
+      source: "policies",
       empty: "No state policy, local ordinance or benefit agreement on file for this state yet.",
       items: policies.map((pol) => ({
         label: pol.title,
@@ -5972,6 +6011,7 @@ function renderStatePanel(code) {
     },
     {
       title: "Utility signatories",
+      source: "signatories",
       empty:
         "No utility in this state's records matches the roster.",
       items: utilities.map((u) => ({
@@ -5986,12 +6026,13 @@ function renderStatePanel(code) {
     ...sections.map((sec) => {
       const wrap = el("section", "sd-section");
       const h = el("h4", "sd-section-title", sec.title);
-      const n = el("span", "sd-section-count", String(sec.items.length));
+      const failed = failedSources.has(sec.source);
+      const n = el("span", "sd-section-count", failed ? "—" : String(sec.items.length));
       h.append(n);
       wrap.append(h);
 
       if (!sec.items.length) {
-        wrap.append(el("p", "sd-empty", sec.empty));
+        wrap.append(el("p", "sd-empty", failed ? "Records unavailable. Reopen this state to retry." : sec.empty));
         return wrap;
       }
 

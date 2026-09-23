@@ -93,6 +93,29 @@ def test_value_usd_only_with_a_community_benefit(policies) -> None:
             assert p["community_benefits_framework"] or "community_grants" in p["benefit_themes"], p["id"]
 
 
+def test_unilateral_site_commitments_are_not_agreements(policies) -> None:
+    by_id = {p["id"]: p for p in policies}
+    for id_ in (
+        "dane-county-wi-qts-community-commitment-2025",
+        "montgomery-county-mo-amazon-community-contributions-2026",
+        "salem-township-pa-amazon-nepa-community-fund-2025",
+        "warren-county-ms-amazon-community-fund-2025",
+    ):
+        assert by_id[id_]["instrument"] == "company_plan", id_
+    assert not by_id["warren-county-ms-amazon-community-fund-2025"].get("delivered")
+
+
+def test_benefit_flag_tracks_funds_and_host_payments(policies) -> None:
+    by_id = {p["id"]: p for p in policies}
+    assert by_id["in-hea1210-2026"]["community_benefits_framework"]
+    for id_ in (
+        "amazon-company-plan-aws-data-center-communities-2026",
+        "anthropic-company-plan-electricity-price-coverage-2026",
+        "prologis-company-plan-responsible-development-2026",
+    ):
+        assert not by_id[id_]["community_benefits_framework"], id_
+
+
 # --- schema edge cases ------------------------------------------------------
 
 BASE = {

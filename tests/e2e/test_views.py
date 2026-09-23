@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -1271,6 +1272,136 @@ class TestPoliciesView:
         )
         assert page.locator("#policies-tbody tr[role=button]").count() == expected
 
+    def test_see_all_clears_other_filters(self, page: Page, base_url: str):
+        self._open(page, base_url)
+        page.select_option("#policy-status-filter", "failed")
+        page.check("#policy-cbf-filter")
+        card = page.locator("#policy-principles .pb-principle").first
+        key = card.get_attribute("data-principle")
+        card.locator(".pb-see-all").click()
+        assert page.input_value("#policy-status-filter") == ""
+        assert not page.locator("#policy-cbf-filter").is_checked()
+        expected = page.evaluate(
+            f"() => state.policies.filter(p => p.principles.includes('{key}')).length"
+        )
+        assert page.locator("#policies-tbody tr[role=button]").count() == expected
+
+    def test_governor_year_uses_snapshot(self, page: Page, base_url: str):
+        page.add_init_script("""(() => {
+          const RealDate = Date;
+          window.Date = class extends RealDate {
+            constructor(...args) { super(...(args.length ? args : ['2027-01-01T12:00:00Z'])); }
+          };
+          Date.now = () => new RealDate('2027-01-01T12:00:00Z').getTime();
+        })()""")
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policy-stats .rp-stat", timeout=10_000)
+        assert "Governor orders in 2026" in page.locator("#policy-stats").inner_text()
+
+    def test_policy_exports_use_local_date(self, browser, base_url: str):
+        context = browser.new_context(timezone_id="America/Los_Angeles", accept_downloads=True)
+        context.add_init_script(STUB_HTML2PDF_JS)
+        context.add_init_script("""(() => {
+          const RealDate = Date;
+          window.Date = class extends RealDate {
+            constructor(...args) { super(...(args.length ? args : ['2026-09-23T00:30:00Z'])); }
+          };
+        })()""")
+        page = context.new_page()
+        try:
+            page.goto(base_url + "/#policies")
+            page.wait_for_selector("#policies-tbody tr[role=button]", state="attached", timeout=10_000)
+            page.locator("#policies-directory > summary").click()
+            with page.expect_download() as csv:
+                page.locator("#policies-csv-btn").click()
+            assert csv.value.suggested_filename == "policies-and-agreements-2026-09-22.csv"
+            with page.expect_download() as pdf:
+                page.locator("#policies-pdf-btn").click()
+            assert pdf.value.suggested_filename == "policies-and-agreements-2026-09-22.pdf"
+        finally:
+            context.close()
+
+    def test_mobile_latest_actions_keep_jurisdiction(self, browser, base_url: str):
+        context = browser.new_context(viewport={"width": 390, "height": 844})
+        page = context.new_page()
+        try:
+            page.goto(base_url + "/#policies")
+            page.wait_for_selector("#policy-actions .pb-action", timeout=10_000)
+            assert page.locator("#policy-actions .pb-action-where").first.is_visible()
+            assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        finally:
+            context.close()
+
+    def test_policy_touch_targets(self, browser, base_url: str):
+        context = browser.new_context(
+            viewport={"width": 390, "height": 844}, has_touch=True, is_mobile=True
+        )
+        page = context.new_page()
+        try:
+            page.goto(base_url + "/#policies")
+            page.wait_for_selector("#policy-actions .pb-action", timeout=10_000)
+            for selector in (".pb-see-all", ".pb-action-btn"):
+                heights = page.locator(f"#view-policies {selector}").evaluate_all(
+                    "els => els.map(el => el.getBoundingClientRect().height)"
+                )
+                assert heights and min(heights) >= 44, (selector, heights)
+        finally:
+            context.close()
+
+    def test_related_site_opens_after_cold_project_load(self, page: Page, base_url: str):
+        page.add_init_script("""(() => {
+          const realFetch = window.fetch.bind(window);
+          window.fetch = (...args) => realFetch(...args).then(response =>
+            String(args[0]).includes('data/projects.json')
+              ? new Promise(resolve => setTimeout(() => resolve(response), 1500))
+              : response
+          );
+        })()""")
+        page.goto(base_url + "/#policies", wait_until="domcontentloaded")
+        page.wait_for_selector("#policy-principles .pb-principle", timeout=10_000)
+        assert page.evaluate("state.projects.length") == 0
+        project_id = page.evaluate("""() => {
+          const policy = state.policies.find(p => p.related_project_ids?.length);
+          showPolicyDetail(policy);
+          return policy.related_project_ids[0];
+        }""")
+        page.locator("#pd-related-list button").first.click()
+        page.wait_for_function("id => state.selectedProjectId === id", arg=project_id, timeout=10_000)
+        assert page.evaluate("state.activeView") == "explorer"
+
+    def test_state_strip_counts_policies(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
+        code = "MT"
+        expected = page.evaluate("""code => {
+          const s = coverageStates().find(s => s.code === code);
+          return s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies;
+        }""", code)
+        cell = page.locator(f'#pledge-state-strip [data-state-code="{code}"]')
+        assert f"{expected} tracked records" in cell.get_attribute("aria-label")
+
+    def test_state_panel_waits_for_other_data_after_policy_failure(self, page: Page, base_url: str):
+        page.route("**/data/policies.json", lambda route: route.abort())
+        page.add_init_script("""(() => {
+          const realFetch = window.fetch.bind(window);
+          window.fetch = (...args) => realFetch(...args).then(response =>
+            String(args[0]).includes('data/tariffs.json')
+              ? new Promise(resolve => setTimeout(() => resolve(response), 700))
+              : response
+          );
+        })()""")
+        page.goto(base_url + "/#ratepayer", wait_until="domcontentloaded")
+        page.evaluate("() => openStatePanel('VA')")
+        assert page.evaluate("state.tariffsLoaded")
+        assert page.locator("#sd-body .sd-section").count() == 6
+        assert page.locator("#sd-body .sd-section").filter(
+            has=page.locator(".sd-section-title", has_text="Utility tariffs")
+        ).locator(".sd-item").count() > 0
+        policy_section = page.locator("#sd-body .sd-section").filter(
+            has=page.locator(".sd-section-title", has_text="Policies & agreements")
+        )
+        assert "Records unavailable" in policy_section.inner_text()
+
     def test_latest_actions_include_governor_orders_from_moratoriums(
         self, page: Page, base_url: str
     ):
@@ -1283,6 +1414,11 @@ class TestPoliciesView:
         assert page.evaluate(
             "() => state.moratoriums.some(isGovernorMoratorium)"
         ), "expected at least one governor order on the Moratoriums tab"
+        labels = page.locator("#policy-actions .pb-action-text").all_inner_texts()
+        frederick = next(label for label in labels if "Frederick County" in label)
+        assert frederick.lower().count("rejected") == 1
+        failed_bill = next(label for label in labels if "Senate Bill 2406" in label)
+        assert failed_bill.lower().count("failed") == 1
 
     def test_cbf_filter_and_zero_result(self, page: Page, base_url: str):
         self._open(page, base_url)
@@ -2075,17 +2211,16 @@ class TestPledgeLanding:
         assert label and "Cooperatives" in label
 
     def test_state_strip_shows_all_fifty_states(self, page: Page, base_url: str):
-        """Including the ones we hold nothing for — omitting them would imply
-        national coverage the dataset does not have. The strip lives in the
-        Pledge tab's Coverage section (v3)."""
+        """Show every state and derive empty cells from the published rollup."""
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=10_000)
         cells = page.locator("#pledge-state-strip .pledge-state-cell")
         assert cells.count() == 50
         # Governor-signed states are marked, and there are exactly 23.
         assert page.locator("#pledge-state-strip .pledge-state-cell.is-gov").count() == 23
-        # At least one honest-empty cell.
-        assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() >= 1
+        coverage = json.loads((ROOT / "docs/data/coverage.json").read_text())["states"]
+        expected_empty = sum(not any(counts.values()) for counts in coverage.values())
+        assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() == expected_empty
 
     def test_stat_tile_jumps_to_the_scorecard(self, page: Page, base_url: str):
         page.goto(base_url + "/")

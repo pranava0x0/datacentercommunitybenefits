@@ -5928,12 +5928,24 @@ body.state-modal-open {
   font-size: var(--fs-xs);
   color: var(--text-muted);
 }
+@media (pointer: coarse) {
+  .pb-see-all,
+  .pb-action-btn {
+    min-height: 45px;
+  }
+  .pb-see-all {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.35rem;
+  }
+}
 @media (max-width: 560px) {
   .pb-action-btn {
     grid-template-columns: 5.6rem 1fr;
   }
   .pb-action-where {
-    display: none;
+    grid-column: 1;
+    grid-row: 2;
   }
   .pb-action-note {
     grid-column: 2;

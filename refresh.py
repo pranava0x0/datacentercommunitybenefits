@@ -323,8 +323,9 @@ def _audit_stale_pending(
     moratoriums: MoratoriumsPayload,
     tariffs: TariffsPayload,
     rate_cases: RateCasesPayload | None = None,
+    policies: PoliciesPayload | None = None,
 ) -> list[dict]:
-    """Flag proposed moratoriums/tariffs not re-checked in STALE_PENDING_DAYS.
+    """Flag proposed/pending public records not re-checked in STALE_PENDING_DAYS.
 
     A `proposed` bill or docket is a moving target (it can be signed, vetoed,
     or fail in committee at any time) — unlike an `enacted`/`approved` record,
@@ -375,6 +376,20 @@ def _audit_stale_pending(
                     }
                 )
 
+    for policy in policies.policies if policies is not None else []:
+        if policy.status == "proposed":
+            age = (today - policy.captured_at).days
+            if age >= STALE_PENDING_DAYS:
+                stale.append(
+                    {
+                        "kind": "policy",
+                        "id": policy.id,
+                        "jurisdiction": policy.jurisdiction,
+                        "captured_at": str(policy.captured_at),
+                        "age_days": age,
+                    }
+                )
+
     return stale
 
 
@@ -409,9 +424,9 @@ def _write_audit_report(
 
     if stale_pending:
         report_lines.extend([
-            "\n## Stale Pending Bills / Tariffs\n",
-            f"({len(stale_pending)} records)\n",
-            f"\n`proposed` moratoriums/tariffs not re-verified in "
+            "\n## Stale Pending Records\n",
+            f"({len(stale_pending)} {'record' if len(stale_pending) == 1 else 'records'})\n",
+            f"\n`proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in "
             f"{STALE_PENDING_DAYS}+ days — status may have changed "
             "(signed/vetoed/enacted/rejected). Re-check source and update:\n",
         ])
@@ -565,11 +580,12 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
             payloads["projects"], payloads["signatories"]
         )
         stale_pending = _audit_stale_pending(
-            payloads["moratoriums"], payloads["tariffs"], payloads.get("rate_cases")
+            payloads["moratoriums"], payloads["tariffs"],
+            payloads.get("rate_cases"), payloads.get("policies"),
         )
         logger.warning(
             "Audit found %d critical + %d medium gaps in project commitment details; "
-            "%d stale pending bills/tariffs",
+            "%d stale pending bills/tariffs/rate cases/policies",
             len(critical),
             len(medium),
             len(stale_pending),

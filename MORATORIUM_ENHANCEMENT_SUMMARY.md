@@ -1,5 +1,7 @@
 # Data Center Moratorium Enhancement Report
 
+> Archived research draft. Its enhancement file now has no records ready to merge. Use `data/seed/moratoriums.json` for current bill numbers, sources, and status; the historical notes below are unverified.
+
 **Date:** June 15, 2026  
 **Focus:** 10 High-Priority Moratoriums (NEW YORK, MAINE, COLORADO, MINNESOTA, MASSACHUSETTS, IDAHO, VERMONT, WASHINGTON, OKLAHOMA)
 

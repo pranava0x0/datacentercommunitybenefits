@@ -158,6 +158,7 @@ def stale_seed(tmp_path, monkeypatch):
     }))
     (d / "tariffs.json").write_text(json.dumps({"generated_at": fresh_date, "tariffs": []}))
     (d / "rate_cases.json").write_text(json.dumps({"generated_at": fresh_date, "rate_cases": []}))
+    (d / "policies.json").write_text(json.dumps({"generated_at": fresh_date, "policies": []}))
 
     monkeypatch.setattr(refresh_module, "SEED_DIR", d)
     monkeypatch.setattr(recheck, "SEED", d)
@@ -181,6 +182,27 @@ def test_cmd_stale_query_uses_the_records_own_bill_number(stale_seed, capsys):
     assert any("HB 42" in q for q in item["queries"])
     assert item["kind"] == "moratorium"
     assert item["age_days"] >= recheck.STALE_PENDING_DAYS
+
+
+def test_cmd_stale_policy_uses_identifier_and_legislative_hint(stale_seed, capsys):
+    old_date = (date.today() - timedelta(days=recheck.STALE_PENDING_DAYS + 5)).isoformat()
+    (stale_seed / "policies.json").write_text(json.dumps({
+        "generated_at": date.today().isoformat(),
+        "policies": [{
+            "id": "oh-bill", "title": "Ohio data center bill", "identifier": "HB 42",
+            "instrument": "legislation", "status": "proposed", "scope": "state",
+            "jurisdiction": "Ohio", "state_code": "OH", "benefit_themes": ["energy"],
+            "principles": ["pay_own_way"], "key_terms": ["test term"],
+            "summary": "Test summary.", "source_url": "https://example.gov/bill",
+            "source_title": "Test bill", "captured_at": old_date,
+        }],
+    }))
+    ns = type("NS", (), {"kind": "policy", "json": True})()
+    assert recheck.cmd_stale(ns) == 0
+    items = json.loads(capsys.readouterr().out)["items"]
+    assert [item["id"] for item in items] == ["oh-bill"]
+    assert "HB 42" in items[0]["queries"][0]
+    assert "PUC" not in items[0]["docket_hint"]
 
 
 def test_stale_moratorium_never_gets_a_puc_docket_hint(tmp_path, monkeypatch, capsys):
@@ -209,6 +231,7 @@ def test_stale_moratorium_never_gets_a_puc_docket_hint(tmp_path, monkeypatch, ca
     }))
     (d / "tariffs.json").write_text(json.dumps({"generated_at": date.today().isoformat(), "tariffs": []}))
     (d / "rate_cases.json").write_text(json.dumps({"generated_at": date.today().isoformat(), "rate_cases": []}))
+    (d / "policies.json").write_text(json.dumps({"generated_at": date.today().isoformat(), "policies": []}))
     monkeypatch.setattr(refresh_module, "SEED_DIR", d)
     monkeypatch.setattr(recheck, "SEED", d)
 

@@ -1,7 +1,7 @@
 """Recheck accelerator -- ready-to-run search queries for stale pending records.
 
 `refresh.py --audit` already identifies WHICH `proposed`/`pending` moratoriums,
-tariffs, and rate cases are stale (not re-verified in `STALE_PENDING_DAYS`) and
+tariffs, rate cases, and policies are stale (not re-verified in `STALE_PENDING_DAYS`) and
 writes them to ISSUES.md -- see `refresh._audit_stale_pending`, imported here
 directly rather than re-implemented, so the two can never drift on what
 "stale" means (CLAUDE.md's single-source-of-truth rule). What ISSUES.md does
@@ -41,7 +41,7 @@ from pathlib import Path
 
 from connectors.scout import _load as _load_seed
 from refresh import STALE_PENDING_DAYS, _audit_stale_pending, _load_payload
-from schema import MoratoriumsPayload, RateCasesPayload, TariffsPayload
+from schema import MoratoriumsPayload, PoliciesPayload, RateCasesPayload, TariffsPayload
 
 log = logging.getLogger("connectors.recheck")
 
@@ -113,11 +113,18 @@ def _tariff_or_rate_case_queries(row: dict, state_field: str) -> list[str]:
     return qs
 
 
+def _policy_queries(row: dict) -> list[str]:
+    subject = row.get("identifier") or row.get("title") or row.get("id", "")
+    place = row.get("jurisdiction", "")
+    return [f"{place} {subject} data center status {date.today().year}".strip()]
+
+
 def cmd_stale(args: argparse.Namespace) -> int:
     moratoriums = _load_payload("moratoriums", MoratoriumsPayload)
     tariffs = _load_payload("tariffs", TariffsPayload)
     rate_cases = _load_payload("rate_cases", RateCasesPayload)
-    stale = _audit_stale_pending(moratoriums, tariffs, rate_cases)
+    policies = _load_payload("policies", PoliciesPayload)
+    stale = _audit_stale_pending(moratoriums, tariffs, rate_cases, policies)
 
     if args.kind:
         stale = [s for s in stale if s["kind"] == args.kind]
@@ -126,6 +133,7 @@ def cmd_stale(args: argparse.Namespace) -> int:
         "moratorium": _load("moratoriums"),
         "tariff": _load("tariffs"),
         "rate_case": _load("rate_cases"),
+        "policy": _load("policies"),
     }
 
     # tariff and rate_case share the exact same hint/query shape, differing
@@ -139,6 +147,9 @@ def cmd_stale(args: argparse.Namespace) -> int:
         if s["kind"] == "moratorium":
             queries = _moratorium_queries(row)
             docket_hint = "state legislature bill tracker + local council agenda site"
+        elif s["kind"] == "policy":
+            queries = _policy_queries(row)
+            docket_hint = "state legislature or local government tracker; company source for company plans"
         else:
             state_field = STATE_FIELD_BY_KIND[s["kind"]]
             queries = _tariff_or_rate_case_queries(row, state_field)
@@ -174,11 +185,11 @@ def cmd_stale(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="connectors.recheck",
-        description="Ready-to-run search queries for stale pending moratoriums/tariffs/rate cases.",
+        description="Ready-to-run search queries for stale pending moratoriums/tariffs/rate cases/policies.",
     )
     sub = p.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("stale", help="emit queries for every stale-pending record")
-    s.add_argument("--kind", choices=["moratorium", "tariff", "rate_case"], help="filter to one record type")
+    s.add_argument("--kind", choices=["moratorium", "tariff", "rate_case", "policy"], help="filter to one record type")
     s.add_argument("--json", action="store_true", help="machine-readable output")
     s.set_defaults(func=cmd_stale)
     return p

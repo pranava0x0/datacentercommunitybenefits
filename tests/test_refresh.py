@@ -10,7 +10,7 @@ from pathlib import Path
 import pytest
 
 import refresh
-from schema import Moratorium, MoratoriumsPayload, Tariff, TariffsPayload
+from schema import Moratorium, MoratoriumsPayload, PoliciesPayload, Policy, Tariff, TariffsPayload
 
 ROOT = Path(__file__).resolve().parent.parent
 SEED = ROOT / "data" / "seed"
@@ -206,3 +206,25 @@ class TestStalePendingAudit:
             generated_at=date.today(), tariffs=[_tariff("old-approved", "approved", ancient)]
         )
         assert refresh._audit_stale_pending(moratoriums, tariffs) == []
+
+    def test_only_stale_proposed_policies_are_flagged(self):
+        old = date.today() - timedelta(days=refresh.STALE_PENDING_DAYS + 1)
+        recent = date.today() - timedelta(days=refresh.STALE_PENDING_DAYS - 1)
+        def policy(id_: str, status: str, captured: date) -> Policy:
+            return Policy(
+                id=id_, title=id_, instrument="legislation", status=status,
+                scope="state", jurisdiction="Ohio", state_code="OH",
+                benefit_themes=["energy"], principles=["pay_own_way"],
+                key_terms=["test term"], summary="Test summary.",
+                source_url="https://example.gov/bill", source_title="Test bill",
+                captured_at=captured,
+            )
+        policies = PoliciesPayload(generated_at=date.today(), policies=[
+            policy("old-proposed", "proposed", old),
+            policy("recent-proposed", "proposed", recent),
+            policy("old-enacted", "in_effect", old),
+        ])
+        moratoriums = MoratoriumsPayload(generated_at=date.today(), moratoriums=[])
+        tariffs = TariffsPayload(generated_at=date.today(), tariffs=[])
+        stale = refresh._audit_stale_pending(moratoriums, tariffs, policies=policies)
+        assert [(r["kind"], r["id"]) for r in stale] == [("policy", "old-proposed")]

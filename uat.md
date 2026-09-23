@@ -1,7 +1,24 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-09-22_
+_Last run: 2026-09-23_
+
+## 2026-09-23 PR #48 run
+
+Local published `docs/` output tested at 1440×900, 390×844, and 375×812.
+All seven tabs opened. The Policy Playbook loaded its 98-record directory;
+the principle shortcut opened a filtered directory, a record opened its
+source-backed detail panel, and Escape closed it. A state cell opened six
+sections. Dark mode worked. No page errors or document-level horizontal
+overflow occurred at any width. Mobile latest actions retained their state
+labels. Screenshots: `.preview/uat-screenshots/2026-09-23-*` (local, ignored).
+Screenshot review found repeated outcome words in two Latest actions; the
+timeline wording was fixed, then the walkthrough passed again.
+
+Current critical flow additions: open `#policies`, use an **All N** principle
+shortcut after setting other filters, open a policy and its related site,
+then open a state cell from `#ratepayer`. Check status and source in each
+detail panel. Verify phone widths at 375–390px.
 
 ## 2026-09-22 PR #47 run
 
@@ -21,8 +38,8 @@ counts when repeating those flows.
 - **Stack:** Vanilla HTML/CSS/JS, static site — no build step
 - **Dev server:** `python3 -m http.server 8013 --directory docs` (via `.claude/launch.json` name `docs`)
 - **Entry point:** `docs/index.html`
-- **Key views:** Company Comparison (tab 1), Project Explorer (tab 2), Ratepayer Protection Pledge (tab 3), Aggregate (tab 4)
-- **Data:** `docs/data/` — companies.json, claims.json, projects.json, responses.json
+- **Key views:** Home, The Pledge, Companies, Moratoriums, Tariffs & Rate Cases, Policy Playbook, Sites
+- **Data:** `docs/data/` — validated JSON payloads emitted by `refresh.py`, including policies and coverage
 - **Embed widget:** `docs/embed.html?company=<slug>`
 
 ## Critical Flows (run every time)
@@ -66,6 +83,9 @@ counts when repeating those flows.
 | Aggregate tab | 2026-06-07 | v1.17 — 4 stat tiles, company + state tables, sort indicators |
 | Embed widget | 2026-06-07 | v1.17 — loads company theme grid; CSP meta tag added; error states work |
 | Dark mode | 2026-06-07 | Stable |
+| Policy Playbook | 2026-09-23 | Stats, principles, directory, detail, and source links passed at three widths |
+| State panel | 2026-09-23 | Six sections loaded from a state cell at three widths |
+| Tab navigation and dark mode | 2026-09-23 | Seven tabs and theme toggle passed at three widths |
 
 ## Known Stable Areas
 - Console: zero errors across full session

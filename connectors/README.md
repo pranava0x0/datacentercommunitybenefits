@@ -192,7 +192,7 @@ introduce the next) is worth keeping:
 ## `recheck` — turn ISSUES.md's stale list into search queries
 
 `refresh.py --audit` already identifies which `proposed`/`pending`
-moratoriums/tariffs/rate cases haven't been re-checked in `STALE_PENDING_DAYS`
+moratoriums/tariffs/policies/rate cases haven't been re-checked in `STALE_PENDING_DAYS`
 (21) days and lists them in ISSUES.md. `recheck` imports that same audit
 function directly (never reimplements the "what counts as stale" rule) and
 turns the list into ready-to-run search strings, using each record's own
@@ -202,6 +202,7 @@ from the jurisdiction name alone — plus a docket-system hint for the state:
 ```bash
 python -m connectors.recheck stale
 python -m connectors.recheck stale --kind moratorium --json
+python -m connectors.recheck stale --kind policy --json
 ```
 
 It does not verify anything — running the searches, reading the result, and
