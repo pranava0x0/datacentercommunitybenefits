@@ -1428,6 +1428,42 @@ POLICY_STATUS_LABELS: dict[str, str] = {
     "failed": "Failed / withdrawn",
 }
 
+# The playbook's organizing axis (v3.2): what a policy asks OF data centers.
+# Distinct from THEMES (the community-benefit taxonomy for company claims):
+# a principle is a rule or condition a government or community sets, e.g.
+# "data centers pay their own grid costs". Curator-assigned, primary first,
+# at most three per record. Frozen: the THEMES drill applies.
+POLICY_PRINCIPLES: tuple[str, ...] = (
+    "pay_own_way",
+    "community_benefits",
+    "incentive_terms",
+    "water",
+    "transparency",
+    "local_control",
+    "new_power",
+    "state_review",
+)
+PolicyPrinciple = Literal[
+    "pay_own_way",
+    "community_benefits",
+    "incentive_terms",
+    "water",
+    "transparency",
+    "local_control",
+    "new_power",
+    "state_review",
+]
+POLICY_PRINCIPLE_LABELS: dict[str, str] = {
+    "pay_own_way": "Data centers pay their own grid costs",
+    "community_benefits": "Host communities get binding benefits",
+    "incentive_terms": "Tax breaks come with conditions",
+    "water": "Water use is capped or reported",
+    "transparency": "No secret deals",
+    "local_control": "Localities keep a say in siting",
+    "new_power": "New demand brings new supply",
+    "state_review": "States review large projects",
+}
+
 # Who sets it. 'company' is not a jurisdiction — it marks a company's own
 # company-wide plan. A company's pledge for ONE host community is a
 # company_plan scoped to that city/county instead.
@@ -1477,6 +1513,11 @@ class Policy(_StrictBase):
         min_length=1,
         description="Reuses the frozen 8-theme taxonomy — what the instrument addresses.",
     )
+    principles: list[PolicyPrinciple] = Field(
+        min_length=1,
+        max_length=3,
+        description="Playbook principles the record puts into practice, primary first.",
+    )
     community_benefits_framework: bool = Field(
         default=False,
         description="True when it requires, creates or IS a community benefit "
@@ -1516,6 +1557,13 @@ class Policy(_StrictBase):
     @classmethod
     def _state_code_upper(cls, v: Optional[str]) -> Optional[str]:
         return v.upper() if v else v
+
+    @field_validator("principles")
+    @classmethod
+    def _principles_unique(cls, v: list[str]) -> list[str]:
+        if len(v) != len(set(v)):
+            raise ValueError("principles must not repeat")
+        return v
 
     @field_validator("key_terms")
     @classmethod

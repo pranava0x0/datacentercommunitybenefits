@@ -33,7 +33,11 @@
           "title": "Alaska State Legislature — CSSB 250(CRA) bill text"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "community_benefits"
+      ]
     },
     {
       "id": "al-sb270-act2026-610-2026",
@@ -65,7 +69,10 @@
           "title": "Alabama Public Service Commission — Docket 33709 Public Comment and Reply Info"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "amazon-company-plan-aws-data-center-communities-2026",
@@ -95,7 +102,11 @@
       "summary": "AWS publishes a standing, ongoing (evergreen, no single announcement date) set of community-impact commitments for its data center regions: water-positive-by-2030 pledge, net-zero-carbon-by-2040 target, STEAM education investment via Think Big Spaces, and region-by-region economic impact reporting (investment, jobs, tax payments) for states such as Virginia, Ohio, and Oregon.",
       "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-center-investment-community-impact",
       "source_title": "About Amazon — How Amazon helps data center communities thrive",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "water",
+        "community_benefits"
+      ]
     },
     {
       "id": "anthropic-company-plan-electricity-price-coverage-2026",
@@ -126,7 +137,11 @@
       "summary": "Anthropic published a company-wide commitment to cover 100% of grid-interconnection upgrade costs for its own-workload data centers (funded via its own electricity charges), to bring net-new power generation online to match demand, to invest in demand curtailment during peak grid stress, and to deploy water-efficient cooling. The company notes it is still exploring how to address impacts at sites where it leases capacity rather than operates directly.",
       "source_url": "https://www.anthropic.com/news/covering-electricity-price-increases",
       "source_title": "Anthropic — Covering electricity price increases from our data centers",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "new_power"
+      ]
     },
     {
       "id": "ar-hb1444-2025-act548",
@@ -159,7 +174,10 @@
           "title": "Sales Tax Institute — Arkansas Expands Sales & Use Tax Exemption for Data Centers Under Act 548"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "az-hb2756-2026",
@@ -187,7 +205,10 @@
       "source_url": "https://www.azleg.gov/legtext/57leg/2r/laws/0111.htm",
       "source_title": "Arizona State Legislature — Session Laws, Chapter 111 (HB 2756)",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "az-hb4168-2026",
@@ -218,7 +239,10 @@
           "title": "Arizona Capitol Times — Data centers dominated 2026 session"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "ca-ab1577-2026",
@@ -251,7 +275,10 @@
           "title": "Office of Gov. Newsom — Governor Newsom Signs Most Comprehensive Data Center Laws in the Nation"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "transparency"
+      ]
     },
     {
       "id": "ca-ab2469-2026",
@@ -283,7 +310,11 @@
           "title": "Office of Gov. Newsom — Governor Newsom Signs Most Comprehensive Data Center Laws in the Nation"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "water",
+        "transparency"
+      ]
     },
     {
       "id": "ca-sb886-2026",
@@ -313,7 +344,10 @@
           "title": "Office of Gov. Newsom — Governor Newsom Signs Most Comprehensive Data Center Laws in the Nation"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "cheyenne-wy-microsoft-cba-rejected-2026",
@@ -349,7 +383,10 @@
       "related_project_ids": [
         "microsoft-cheyenne-wy"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "columbia-county-ga-google-kinetic-agreement-2026",
@@ -389,7 +426,11 @@
           "title": "WGAC — Columbia County Expects $40 Million Annually from Google Data Center Agreement"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "local_control",
+        "water"
+      ]
     },
     {
       "id": "coreweave-company-plan-community-2026",
@@ -418,7 +459,11 @@
       "summary": "CoreWeave has published a general community-benefits philosophy (conserving local resources, creating economic opportunity, staying accountable after construction) and is a Ratepayer Protection Pledge signatory. It does not publish a numbered, formal company-wide benefits framework the way Microsoft/QTS/Crusoe do; its most concrete commitments are site-specific (see the Lancaster, PA and Hammond, IN agreement records).",
       "source_url": "https://www.coreweave.com/blog/a-data-center-should-make-its-community-stronger",
       "source_title": "CoreWeave Blog — Why Data Centers Should Strengthen Local Communities",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "pay_own_way"
+      ]
     },
     {
       "id": "crusoe-company-plan-communities-2026",
@@ -449,7 +494,11 @@
       "summary": "Crusoe publishes a five-commitment, ongoing (evergreen, no single announcement date) company-wide framework — energy cost coverage, closed-loop water-free cooling, local hiring, tax-funded local investment, and a dedicated community liaison per site — covering all of its data center host communities. The page footer shows a 2026 copyright but no article publish date.",
       "source_url": "https://www.crusoe.ai/about/communities",
       "source_title": "Crusoe — How Data Centers Benefit Local Communities",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "water"
+      ]
     },
     {
       "id": "dane-county-wi-qts-community-commitment-2025",
@@ -497,7 +546,10 @@
       "related_project_ids": [
         "qts-dane-county-wi"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "de-hb233-2026",
@@ -532,7 +584,10 @@
           "title": "Sierra Club — Delaware Governor Signs First-of-its-Kind Bill to Power Data Centers with Clean Energy"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "de-hb310-2026",
@@ -557,7 +612,10 @@
       "source_url": "https://news.delaware.gov/2026/08/28/governor-matt-meyer-signs-energy-consumer-protection-legislation/",
       "source_title": "State of Delaware News — Governor Matt Meyer Signs Energy Consumer Protection Legislation",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "de-hb445-2026",
@@ -588,7 +646,10 @@
           "title": "Sierra Club — Delaware Governor Signs First-of-its-Kind Bill to Power Data Centers with Clean Energy"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "new_power"
+      ]
     },
     {
       "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
@@ -639,6 +700,10 @@
         "oracle-dona-ana-nm"
       ],
       "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ],
       "delivered": {
         "status": "partial",
         "summary": "Doña Ana County's own economic development projects page confirms the $1.5 million Boys and Girls Club of Las Cruces payment was paid on January 6, 2026, as scheduled. Other supplemental commitments (workforce development $4M, desalination evaluation $250K, community-college connectivity $150K, habitat restoration) are due by/through December 31, 2026 and were not yet due at assessment time; the underlying $360M 30-year PILOT and ~$80M in tax revenue reported by Oracle/county officials (mid-2026) were not independently itemized on the page.",
@@ -692,7 +757,10 @@
       "related_project_ids": [
         "openai-effingham-county-ga"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "fl-hb7031-2025",
@@ -723,7 +791,10 @@
           "title": "Greenberg Traurig — Florida Legislature Passes Bill to End Sales Tax Exemption for Sub-100 MW Data Centers"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "frederick-county-md-quantum-cba-rejected-2026",
@@ -767,7 +838,11 @@
           "title": "Conduit Street (Maryland Association of Counties) — Frederick Secures $110M Community Benefits Agreement for Data Center Campus"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "local_control"
+      ]
     },
     {
       "id": "ga-sb410-2026",
@@ -798,7 +873,10 @@
           "title": "Atlanta Journal-Constitution — Georgia Senate votes to claw back data center tax breaks"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "google-company-plan-data-center-communities-2026",
@@ -829,7 +907,10 @@
       "summary": "Google publishes a recurring set of community-benefit programs tied to its data centers: teacher-training grants, the STAR workforce/skilled-trades program, a $10 million nonprofit AI-adoption fund, and local infrastructure contributions (power grid and water treatment upgrades). Site-specific commitments (e.g., Botetourt County, Lenoir NC) are layered on top of these company-wide programs.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/google-data-centers-grow-advance-communities/",
       "source_title": "Google Blog — 4 ways Google data centers benefit our communities",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "hammond-in-coreweave-development-agreement-2025",
@@ -867,7 +948,10 @@
       "related_project_ids": [
         "coreweave-hammond-in"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "huntsville-al-meta-project-agreement-2022",
@@ -903,7 +987,10 @@
       "related_project_ids": [
         "meta-huntsville-al"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "ia-hf976-2025",
@@ -937,7 +1024,10 @@
           "title": "BrownWinick — Iowa Sales Tax Changes for Data Centers"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "id-hb895-2026",
@@ -971,7 +1061,10 @@
           "title": "Idaho Capital Sun — Bill intended to protect water from data center developers heads to Idaho Senate"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "water"
+      ]
     },
     {
       "id": "id-hb897-2026-failed",
@@ -1008,7 +1101,11 @@
           "title": "Idaho Conservation League — HB 897 bill tracker (Did Not Pass)"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms",
+        "water"
+      ]
     },
     {
       "id": "id-hb911-2026",
@@ -1044,7 +1141,10 @@
           "title": "Idaho Capital Sun — Data centers and other new large loads are driving sharp increases in Idaho farmers' electric bills"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "il-datacenter-tax-exemption-2019",
@@ -1074,7 +1174,11 @@
       "source_url": "https://dceo.illinois.gov/expandrelocate/incentives/datacenters.html",
       "source_title": "Illinois DCEO — Data Center Investment Tax Exemptions and Credits",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms",
+        "new_power"
+      ]
     },
     {
       "id": "il-tax-exemption-pause-2026",
@@ -1100,7 +1204,10 @@
       "source_url": "https://gov-pritzker-newsroom.prezly.com/gov-pritzker-pauses-new-data-center-tax-incentives",
       "source_title": "Office of Gov. JB Pritzker — Gov. Pritzker Pauses New Data Center Tax Incentives",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "in-hea1210-2026",
@@ -1126,7 +1233,11 @@
       "source_url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
       "source_title": "Mirror Indy — At a pivotal moment for data centers, Indiana lawmakers take little action",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ]
     },
     {
       "id": "ks-sb98-2025",
@@ -1157,7 +1268,50 @@
       "source_url": "https://www.kansascommerce.gov/program/business-incentives-and-services/sb-98-data-center-sales-tax-exemption/",
       "source_title": "Kansas Department of Commerce — SB 98 Data Center Sales Tax Exemption",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
+    },
+    {
+      "id": "ky-eo-2026-494",
+      "title": "Executive Order 2026-494 — Data Center Ratepayer, Environmental, Tax, and Community Commitments",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Kentucky",
+      "state_code": "KY",
+      "identifier": "Executive Order 2026-494",
+      "date": "2026-08-06",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "tax_revenue",
+        "engagement",
+        "jobs"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Data center developers required to submit energy plan to Energy and Environment Cabinet showing no added costs to other ratepayers",
+        "PSC directed not to allow utilities to raise other ratepayers' rates to recover data-center-caused costs",
+        "Energy and Environment Cabinet directed to deny permits harming air quality, water use/quality/supply, federal wetlands, or natural resources",
+        "developers must pay full and fair share of state/local/school taxes",
+        "developers must engage in public discussions with local community leaders on job opportunities"
+      ],
+      "summary": "Gov. Andy Beshear's EO 2026-494, effective Aug. 6, 2026, directs that data center developers in Kentucky demonstrate three commitments: (I) no detrimental impact on ratepayers or the environment — an energy plan to the Energy and Environment Cabinet showing no added ratepayer costs, a PSC bar on shifting data-center costs to other ratepayers, and Cabinet denial of permits harming air/water/wetlands/natural resources; (II) paying full state, local, and school taxes; and (III) building a 'meaningful relationship with the community' through public engagement on local job opportunities. The order states it does not affect local jurisdictions' own decisions on data center operations.",
+      "source_url": "https://governor.ky.gov/attachments/20260806_Executive-Order_2026-494_Related-to-Data-Centers.pdf",
+      "source_title": "Executive Order 2026-494 (Governor Andy Beshear, Commonwealth of Kentucky)",
+      "resources": [
+        {
+          "url": "https://kentuckylantern.com/2026/08/06/beshear-to-issue-executive-order-to-protect-against-harmful-impacts-of-data-centers/",
+          "title": "Kentucky Lantern — Beshear issues executive order to protect against 'harmful impacts' of data centers"
+        }
+      ],
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "water"
+      ]
     },
     {
       "id": "ky-hb775-2025",
@@ -1188,7 +1342,10 @@
           "title": "Louisville Public Media — Kentucky Gov. Andy Beshear calls for ending state tax incentives for data centers"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "la-act730-2024",
@@ -1218,7 +1375,56 @@
           "title": "Invest in Louisiana — Louisiana's Data Center Incentives: Big Promises, Bigger Questions"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
+    },
+    {
+      "id": "la-eo-26-058-2026",
+      "title": "Executive Order 26-058 — Louisiana Ratepayer and Community Protection Initiative for Data Center and Large-Load Investments",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Louisiana",
+      "state_code": "LA",
+      "identifier": "Executive Order Number 26-058",
+      "date": "2026-06-25",
+      "benefit_themes": [
+        "jobs",
+        "tax_revenue",
+        "energy",
+        "water",
+        "infrastructure",
+        "education",
+        "community_grants"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Ratepayer and Community Protection Framework as condition of Data Center Sales and Use Tax Exemption eligibility (R.S. 47:305.73(B))",
+        "large-load customers must fully fund incremental generation/transmission/infrastructure to prevent cost shifts onto residential/commercial ratepayers",
+        "companies must submit detailed compliance attestation to LED",
+        "coordination with Louisiana Public Service Commission, DOTD/DEQ, Workforce Commission",
+        "Secretary must present proposed Framework criteria to Governor within 90 days"
+      ],
+      "summary": "Gov. Jeff Landry's EO 26-058, signed June 25, 2026, directs the Secretary of Louisiana Economic Development to develop a 'Ratepayer and Community Protection Framework for Large Load Investments' as a mandatory condition for data centers and other large-load projects to receive or keep Louisiana's Data Center Sales and Use Tax Exemption. Companies must attest to fully funding their own incremental generation/transmission costs (preventing cost-shifting to other ratepayers), plus commitments across workforce development, local tax contribution, resource stewardship, and community investment (nonprofits, STEM/AI training). The Secretary must report proposed criteria back to the Governor within 90 days for approval before implementation.",
+      "source_url": "https://gov.louisiana.gov/assets/2026-Executive-Orders/JML-Executive-Order-25-058.pdf",
+      "source_title": "Executive Order Number 26-058 — Louisiana Ratepayer and Community Protection Initiative Criteria for LED Certifications for Data Center and Large-Load Investments",
+      "resources": [
+        {
+          "url": "https://lailluminator.com/2026/06/26/landry-order-data-power/",
+          "title": "Louisiana Illuminator — Landry signs order to protect utility customers as he promotes more data center development"
+        },
+        {
+          "url": "https://www.wafb.com/2026/06/26/governor-landry-signs-executive-order-data-center-requirements/",
+          "title": "WAFB — Governor Landry signs executive order on data center requirements"
+        }
+      ],
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms",
+        "pay_own_way"
+      ]
     },
     {
       "id": "lancaster-pa-coreweave-cba-2025",
@@ -1259,7 +1465,10 @@
       "related_project_ids": [
         "coreweave-lancaster-pa"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "ma-eo658-2026",
@@ -1294,7 +1503,12 @@
           "title": "WBUR — Proposed data centers subjected to local approvals under Gov. Healey's order"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "local_control",
+        "new_power"
+      ]
     },
     {
       "id": "md-eo-01.01.2026.16-2026",
@@ -1336,7 +1550,10 @@
           "title": "WBOC — Gov. Moore sets new guardrails for Maryland data centers"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "state_review"
+      ]
     },
     {
       "id": "md-hb1532-2026",
@@ -1367,7 +1584,10 @@
           "title": "Maryland General Assembly — HB1532 (2026) bill page"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "me-eo5-2026",
@@ -1396,7 +1616,9 @@
       "source_title": "Office of Governor Janet T. Mills — Governor Mills Signs Executive Order to Establish Maine Data Center Advisory Council",
       "resources": [],
       "captured_at": "2026-09-23",
-      "related_moratorium_id": "maine-state-2026-04"
+      "principles": [
+        "state_review"
+      ]
     },
     {
       "id": "me-ld713-2026",
@@ -1421,7 +1643,10 @@
       "summary": "LD 713, sponsored by Sen. Nicole Grohoski (D-Ellsworth), amends Maine law to exclude data centers from two of the state's general business tax-incentive programs — the Business Equipment Tax Exemption and the Dirigo Business Incentives Program — for data centers (including expansions) that begin operations on or after August 1, 2026. It also directs the Department of Economic and Community Development to study what other incentives (e.g., Tax Increment Financing, economic development grants) data centers may access under current law and report to the taxation committee by November 4, 2026. Governor Mills signed it into law on April 23, 2026, the same week she vetoed the separate LD 307 data-center moratorium bill.",
       "source_url": "https://www.mainesenate.org/sen-grohoski-champions-new-maine-law-excluding-data-centers-from-tax-exemption-programs/",
       "source_title": "Maine Senate Democrats — Sen. Grohoski champions new Maine law excluding data centers from tax exemption programs",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "memphis-tn-xai-our-commitment-2026",
@@ -1456,7 +1681,11 @@
       "related_project_ids": [
         "xai-memphis-tn"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "water",
+        "pay_own_way"
+      ]
     },
     {
       "id": "meta-company-plan-data-center-community-support-2026",
@@ -1494,7 +1723,11 @@
           "title": "Alabama Reporter — Meta launches $1 billion fund supporting data center communities"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "pay_own_way"
+      ]
     },
     {
       "id": "microsoft-company-plan-community-first-2026",
@@ -1528,7 +1761,12 @@
       "summary": "Microsoft published a five-commitment 'Community-First AI Infrastructure' framework in January 2026 covering electricity cost pass-through, water use/replenishment, local jobs, local tax contribution, and community/AI-training investment, applied to new and expanding US data center markets starting in H1 2026. The company also pledged not to use NDAs with local governments on data center projects.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
       "source_title": "Microsoft On the Issues — Building Community-First AI Infrastructure",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "water",
+        "community_benefits"
+      ]
     },
     {
       "id": "mn-hf16-ch12-2025",
@@ -1557,7 +1795,47 @@
       "source_url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
       "source_title": "Minnesota Office of the Revisor of Statutes — Laws 2025, Chapter 12",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "water",
+        "incentive_terms"
+      ]
+    },
+    {
+      "id": "mo-eo-26-02-2026",
+      "title": "Executive Order 26-02 — Missouri AI Strategy and Data Center Ratepayer/Energy Review",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Missouri",
+      "state_code": "MO",
+      "identifier": "Executive Order 26-02",
+      "date": "2026-01-13",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "DNR + Public Service Commission directed to investigate energy regulations 'in light of the growing demand for power from data centers supporting AI'",
+        "large power users must 'cover their full cost of electricity and infrastructure service'",
+        "DNR must assess ratepayer protection for residential/small business Missourians from data-center-driven rate increases",
+        "DNR to coordinate statewide understanding of data center development demand for natural resource management",
+        "reports due to Governor by November 30, 2026"
+      ],
+      "summary": "Gov. Mike Kehoe's EO 26-02, signed Jan. 13, 2026, is primarily a state-government AI strategy order (AI integration framework, AI business-climate review, workforce/education AI training) but includes a distinct data-center directive: the Department of Natural Resources, with the Public Service Commission, must investigate energy regulations and infrastructure planning 'in light of the growing demand for power from data centers supporting AI,' ensure data centers and other large power users 'cover their full cost of electricity and infrastructure service' rather than raising rates for residential/small-business ratepayers, and assess the state's future energy needs and natural-resource impacts from data center growth. Findings are due to the Governor by Nov. 30, 2026.",
+      "source_url": "https://www.sos.mo.gov/CMSImages/Library/Reference/Orders/2026/26-02.pdf",
+      "source_title": "Executive Order 26-02 (Governor Mike Kehoe, State of Missouri)",
+      "resources": [
+        {
+          "url": "https://www.govtech.com/artificial-intelligence/missouri-executive-order-seeks-to-advance-ai-strategy-use",
+          "title": "Government Technology — Missouri Executive Order Seeks to Advance AI Strategy, Use"
+        }
+      ],
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "state_review"
+      ]
     },
     {
       "id": "mo-sb4-2025",
@@ -1593,7 +1871,10 @@
           "title": "Missouri Public Service Commission — Utility Tariffs for Large Load Customers"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "montgomery-county-mo-amazon-community-contributions-2026",
@@ -1636,7 +1917,10 @@
       "related_project_ids": [
         "amazon-montgomery-city-mo"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "mount-pleasant-wi-microsoft-development-agreement-2024",
@@ -1674,7 +1958,11 @@
       "related_project_ids": [
         "ms-mt-pleasant-wi"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms",
+        "community_benefits"
+      ]
     },
     {
       "id": "ms-sb3168-2025-failed",
@@ -1708,7 +1996,10 @@
           "title": "Mississippi Legislature — SB3168 as introduced"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "mt-hb424-2025",
@@ -1741,7 +2032,10 @@
           "title": "Montana Legislature — HB 424, Chapter 678 (authorized print version)"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "nc-budget2026-electricity-exemption-repeal-2026",
@@ -1768,7 +2062,46 @@
       "source_url": "https://www.datacenterknowledge.com/regulations/nc-ends-data-center-power-tax-break-keeps-capital-incentives",
       "source_title": "Data Center Knowledge — NC Ends Data Center Power Tax Break, Keeps Capital Incentives",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
+    },
+    {
+      "id": "nc-eo-23-2025",
+      "title": "Executive Order No. 23 — Establishing the North Carolina Energy Policy Task Force",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "North Carolina",
+      "state_code": "NC",
+      "identifier": "Executive Order No. 23",
+      "date": "2025-08-26",
+      "benefit_themes": [
+        "energy",
+        "tax_revenue"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Task Force required to include 'Large Load Data Center Electricity Customers' as a member category",
+        "Load Growth Subcommittee directed to identify solutions 'to address the growing energy needs of data centers and heavy industry'",
+        "annual report due Feb. 15 to Governor, General Assembly, NC Utilities Commission",
+        "effective through December 31, 2028",
+        "whereas clause cites 'emergence of artificial intelligence and the associated need to power data centers' as a driver of new electricity demand"
+      ],
+      "summary": "Gov. Josh Stein's EO 23, signed Aug. 26, 2025, establishes a 30-member North Carolina Energy Policy Task Force to recommend policies managing rising electricity demand while maintaining affordability, reliability, and emissions reductions. The order's text explicitly cites data centers as a driver of new demand, requires 'Large Load Data Center Electricity Customers' as a represented stakeholder category, and directs a Load Growth Subcommittee to address 'the growing energy needs of data centers and heavy industry' and to avoid unfairly raising ratepayer costs or creating stranded assets. It does not impose data-center-specific permitting/siting requirements itself.",
+      "source_url": "https://governor.nc.gov/executive-order-no-23-establishing-north-carolina-energy-policy-task-force/open",
+      "source_title": "Executive Order No. 23 (Governor Josh Stein, State of North Carolina) — Establishing the North Carolina Energy Policy Task Force",
+      "resources": [
+        {
+          "url": "https://governor.nc.gov/news/press-releases/2025/08/26/governor-stein-establishes-energy-policy-task-force-promote-energy-affordability",
+          "title": "NC Governor's Office — Governor Stein Establishes Energy Policy Task Force to Promote Energy Affordability"
+        }
+      ],
+      "captured_at": "2026-09-23",
+      "principles": [
+        "state_review"
+      ]
     },
     {
       "id": "nd-sb2406-2026-failed",
@@ -1802,7 +2135,10 @@
           "title": "North Dakota Legislative Branch — September 2026 Special Session"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "transparency"
+      ]
     },
     {
       "id": "ne-eo26-17-2026",
@@ -1831,7 +2167,11 @@
       "source_url": "https://governor.nebraska.gov/gov-pillen-signs-executive-order-data-centers",
       "source_title": "Office of Governor Jim Pillen — Gov. Pillen Signs Executive Order on Data Centers",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms",
+        "state_review"
+      ]
     },
     {
       "id": "nh-sb439-2026-failed",
@@ -1866,7 +2206,10 @@
           "title": "Citizens Count — SB 439 (2026) bill tracker"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "local_control"
+      ]
     },
     {
       "id": "nj-aspire-cba-2021",
@@ -1899,7 +2242,47 @@
           "title": "NJEDA — Data Center Municipal Resource Hub"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ]
+    },
+    {
+      "id": "nj-eo-2-2026",
+      "title": "Executive Order No. 2 — New Jersey Electricity Emergency: Large-Load/Data-Center Interconnection Monitoring & Generation Acceleration",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "New Jersey",
+      "state_code": "NJ",
+      "identifier": "Executive Order No. 2",
+      "date": "2026-01-20",
+      "benefit_themes": [
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "declares State of Emergency under Civilian Defense and Disaster Control Act",
+        "BPU directed to formulate policies/reports on 'large load' interconnections and reduce speculative 'ghost load' interconnection requests within 45 days",
+        "accelerates solar, Community Solar (3,000 MW), and battery storage (Garden State Energy Storage Program) procurement",
+        "establishes interagency Nuclear Power Task Force",
+        "cites PJM finding that data centers drive the 'overwhelming majority' of anticipated 20% peak load growth by 2030"
+      ],
+      "summary": "Gov. Mikie Sherrill's EO 2, signed Jan. 20, 2026, declares a state of emergency over New Jersey's electricity affordability crisis and directs the Board of Public Utilities (BPU) and other agencies to accelerate solar, battery storage, and nuclear generation, and to expedite permitting waivers. The order's whereas clauses explicitly attribute the crisis largely to data-center-driven load growth ('the overwhelming majority of the growth stemming from data centers'), and Directive 8 specifically orders BPU to formulate policies/reports on 'large load' interconnections to curb speculative, duplicative 'ghost load' requests that inflate utility demand forecasts. It does not itself impose data-center-specific permitting or siting conditions; those measures target the crisis's supply side.",
+      "source_url": "https://www.nj.gov/infobank/eo/057sherrill/pdf/EO-2.pdf",
+      "source_title": "Executive Order No. 2 (Governor Mikie Sherrill, State of New Jersey)",
+      "resources": [
+        {
+          "url": "https://www.nj.gov/governor/news/2026/approved/20260120a.shtml",
+          "title": "NJ Governor's Office — Promise Kept: Governor Sherrill Takes Bold Action with Executive Orders Declaring State of Emergency on Utility Costs"
+        }
+      ],
+      "captured_at": "2026-09-23",
+      "principles": [
+        "new_power",
+        "pay_own_way"
+      ]
     },
     {
       "id": "nm-sb235-2026-failed",
@@ -1930,7 +2313,10 @@
           "title": "New Mexico Legislature — SB235 (2026) Fiscal Impact Report"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "new_power"
+      ]
     },
     {
       "id": "nv-eo2026-005-2026",
@@ -1966,7 +2352,12 @@
           "title": "News 3 Las Vegas — Nevada Governor signs executive order setting new rules for state data center development"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "incentive_terms",
+        "water"
+      ]
     },
     {
       "id": "oh-hb15-2025",
@@ -1998,7 +2389,10 @@
           "title": "Dickinson Wright (dwlaw.com) — Ohio Energy Reform 2025: Highlights of House Bill 15"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "new_power"
+      ]
     },
     {
       "id": "oh-tax-exemption-pause-2026",
@@ -2023,7 +2417,11 @@
       "source_url": "https://www.clermontsun.com/2026/05/27/governor-dewine-announces-pause-of-data-center-tax-exemption",
       "source_title": "The Clermont Sun — Governor DeWine Announces Pause of Data Center Tax Exemption",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms",
+        "state_review"
+      ]
     },
     {
       "id": "ok-hb2992-2026",
@@ -2059,7 +2457,11 @@
           "title": "Oklahoma Legislature — HB 2992 bill history (Approved by Governor 05/11/2026)"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "transparency"
+      ]
     },
     {
       "id": "openai-company-plan-stargate-community-2026",
@@ -2089,7 +2491,11 @@
       "summary": "OpenAI's Stargate Community plan is a locally-tailored, company-wide framework announced in the year following the January 2025 Stargate Project launch, anchored on paying its own way on energy costs, low-water-use cooling (illustrated at the Abilene, TX site), and OpenAI Academies for regional workforce development (first launched in Abilene). A Wisconsin-specific commitment names a $175 million minimum infrastructure/water-restoration investment by project partners.",
       "source_url": "https://openai.com/index/stargate-community/",
       "source_title": "OpenAI — Stargate Community",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "community_benefits"
+      ]
     },
     {
       "id": "or-hb3546-2025",
@@ -2121,7 +2527,10 @@
           "title": "Oregon PUC — 2026 POWER Act Biennial Report to the Legislature"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "pa-eo2026-05-2026",
@@ -2160,7 +2569,12 @@
           "title": "National Law Review — Gov. Shapiro Issues Executive Order 2026-05 Imposing New Requirements on Pennsylvania Data Center Projects"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "community_benefits",
+        "transparency"
+      ]
     },
     {
       "id": "pa-hb2198-2026",
@@ -2192,7 +2606,10 @@
           "title": "City & State PA — In bipartisan fashion, PA lawmakers vote to repeal tax incentives for data centers"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "paducah-ky-brookfield-doe-site-2026",
@@ -2233,7 +2650,11 @@
       "related_project_ids": [
         "brookfield-paducah-ky"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "new_power"
+      ]
     },
     {
       "id": "piketon-oh-sb-energy-openai-community-benefits-2026",
@@ -2280,7 +2701,10 @@
       "related_project_ids": [
         "sb-energy-piketon-oh"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "pima-county-az-beale-project-blue-moa-2025",
@@ -2327,7 +2751,11 @@
           "title": "KJZZ — Rejected by Tucson and abandoned by Amazon, Project Blue data center moves forward"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "water"
+      ]
     },
     {
       "id": "prologis-company-plan-responsible-development-2026",
@@ -2362,7 +2790,12 @@
       "summary": "Prologis published an eight-point 'Responsible Data Center Development Commitments' framework on August 10, 2026, covering ratepayer-fair-share power planning, responsible/closed-loop water use, backup-power transparency, a net-zero-2040-linked environmental design standard, neighbor-conscious site design, regular community engagement, plain-language benefit communication, and documented accountability — framed against the company's 40-year real-estate track record.",
       "source_url": "https://www.prologis.com/insights-news/blog/prologis-announces-responsible-data-center-development-commitments",
       "source_title": "Prologis — Prologis Announces Responsible Data Center Development Commitments",
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "water",
+        "transparency"
+      ]
     },
     {
       "id": "qts-company-plan-commitment-to-communities-2026",
@@ -2399,7 +2832,12 @@
           "title": "QTS — Community Commitment"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "community_benefits",
+        "transparency"
+      ]
     },
     {
       "id": "salem-township-pa-amazon-nepa-community-fund-2025",
@@ -2432,7 +2870,10 @@
       "related_project_ids": [
         "aws-cumberland-pa"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ]
     },
     {
       "id": "saline-township-mi-openai-oracle-settlement-2025",
@@ -2484,7 +2925,11 @@
       "related_project_ids": [
         "openai-saline-mi"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "local_control"
+      ]
     },
     {
       "id": "sc-act41-h3309-2025",
@@ -2512,7 +2957,10 @@
       "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/3309.htm",
       "source_title": "South Carolina Legislature Online — Bill 3309 (Act No. 41)",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "scioto-county-oh-google-franklin-furnace-pilot-2026",
@@ -2545,7 +2993,11 @@
       "related_project_ids": [
         "google-franklin-furnace-oh"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms",
+        "community_benefits"
+      ]
     },
     {
       "id": "sd-sb135-2026",
@@ -2579,7 +3031,12 @@
           "title": "LegiScan — South Dakota SB135 (2026)"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "local_control",
+        "water"
+      ]
     },
     {
       "id": "st-joseph-county-in-aws-community-enhancement-agreement-2024",
@@ -2626,6 +3083,9 @@
         "aws-new-carlisle-in"
       ],
       "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ],
       "delivered": {
         "status": "partial",
         "summary": "AWS's separate $250,000 St. Joseph County Community Fund — one piece of the broader $143 million Community Enhancement Agreement — was confirmed delivered: $250,000 distributed across 31 local organizations in awards of $1,000-$10,000, announced March 3, 2025. The larger $143M agreement's infrastructure/schools/parks/fire spending was not independently confirmed as disbursed.",
@@ -2663,7 +3123,10 @@
           "title": "Bass, Berry & Sims PLC — 2026 Legislative Recap, 114th Tennessee General Assembly"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "tulsa-ok-meta-pilot-tax-incentive-district-2026",
@@ -2702,7 +3165,11 @@
       "related_project_ids": [
         "meta-tulsa-ok"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ]
     },
     {
       "id": "tx-sb6-2025",
@@ -2734,7 +3201,11 @@
           "title": "Bracewell LLP — Texas Senate Bill 6 Ushers in Major Overhaul of Large Load Interconnection and Grid Access Rules"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "transparency"
+      ]
     },
     {
       "id": "ut-eo2026-03-2026",
@@ -2768,7 +3239,56 @@
           "title": "Deseret News — Utah executive order supports growth and oversight of data centers"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "state_review",
+        "water",
+        "pay_own_way"
+      ]
+    },
+    {
+      "id": "va-eo-22-2026",
+      "title": "Executive Order 22 — Virginia Data Center Accountability Framework & AI Task Force",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Virginia",
+      "state_code": "VA",
+      "identifier": "Executive Order 22 (2026)",
+      "date": "2026-09-18",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "engagement",
+        "jobs"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "NDA ban for state agencies on data center projects",
+        "VEDP exclusion for new data centers ≥25MW peak demand from Business Ready Sites/expedited permitting programs",
+        "VA-LEAD responsible-development designation criteria modeled on LEED/EnergyStar",
+        "Cooling water scarcity area designation for Eastern Virginia Groundwater Management Area",
+        "PJM Reliability Backstop Procurement costs to be assigned to data center large loads"
+      ],
+      "summary": "Gov. Abigail Spanberger's EO 22, signed Sept. 18, 2026, directs the Office of the Chief Energy Officer to implement a five-pillar 'Virginia Data Center Accountability Framework' covering community engagement, environmental protection, affordability, clean energy/grid reliability, and workforce. It bans state-agency NDAs on data center projects, excludes new data centers of 25 MW or more from VEDP's Business Ready Sites/expedited-permitting programs, directs DEQ to develop noise rules and a cooling-water-scarcity-area designation (naming the Eastern Virginia Groundwater Management Area), and directs engagement with the SCC/PJM to shield ratepayers from data-center-driven grid costs. It also creates a rapid-response AI Task Force. It rescinds Youngkin's EO 30 (2024) and Executive Directive 5 (2023).",
+      "source_url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+      "source_title": "Executive Order 22 (2026) — Establishing New Nation-Leading Standards and Initiatives to Implement the Virginia Data Center Accountability Framework and Responding to Unprecedented Risk from Artificial Intelligence",
+      "resources": [
+        {
+          "url": "https://cardinalnews.org/2026/09/18/spanberger-issues-executive-order-to-hold-data-centers-accountable-form-ai-task-force/",
+          "title": "Cardinal News — Spanberger issues executive order to hold data centers 'accountable,' form AI task force"
+        },
+        {
+          "url": "https://www.governor.virginia.gov/newsroom/news-releases/2026/september-releases/name-1123696-en.html",
+          "title": "Governor of Virginia newsroom — September releases"
+        }
+      ],
+      "captured_at": "2026-09-23",
+      "principles": [
+        "transparency",
+        "incentive_terms",
+        "water"
+      ]
     },
     {
       "id": "va-hb153-sb94-2026",
@@ -2792,7 +3312,10 @@
       "source_url": "https://www.roanokerambler.com/a-roanoke-delegate-helped-write-virginias-new-data-center-law-heres-what-it-does-and-what-it-doesnt/",
       "source_title": "Roanoke Rambler — A Roanoke Delegate Helped Write Virginia's New Data Center Law",
       "resources": [],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "local_control"
+      ]
     },
     {
       "id": "va-hb496-2026",
@@ -2824,7 +3347,11 @@
           "title": "Virginia Legislative Information System — HB496 (2026 Session)"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "water",
+        "transparency"
+      ]
     },
     {
       "id": "vt-h727-2026-failed",
@@ -2862,7 +3389,49 @@
           "title": "Conservation Law Foundation — Vermont Legislature Passes One of the Nation's Strongest Data Center Laws"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way",
+        "new_power"
+      ]
+    },
+    {
+      "id": "wa-eo-25-05-2025",
+      "title": "Executive Order 25-05 — Data Center Workgroup",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Washington",
+      "state_code": "WA",
+      "identifier": "Executive Order 25-05",
+      "date": "2025-02-03",
+      "benefit_themes": [
+        "jobs",
+        "tax_revenue",
+        "energy"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Department of Revenue directed to establish and lead a Data Center Workgroup",
+        "Workgroup includes Commerce, Utilities and Transportation Commission, Department of Ecology, electric utilities, environmental advocacy groups, labor organizations, industry stakeholders",
+        "Workgroup to discuss impacts on economy, tax revenue, energy use, and environment",
+        "findings/policy recommendations due to Governor by December 1, 2025",
+        "cites JLARC estimate that data center sales/use tax exemptions saved beneficiaries over $100 million in 2017-2019 biennium"
+      ],
+      "summary": "Gov. Bob Ferguson's EO 25-05, signed Feb. 3, 2025, directs the Washington Department of Revenue to establish and lead a multi-stakeholder Data Center Workgroup to evaluate data centers' impacts on the state's economy, tax revenue, energy use, and environment, and to develop policy recommendations balancing industry growth, tax needs, energy constraints, and sustainability. Findings and recommendations were due to the Governor by December 1, 2025 (the workgroup released a preliminary report on that date, which informed subsequent legislation).",
+      "source_url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+      "source_title": "Executive Order 25-05 — Data Center Workgroup (Governor Bob Ferguson, State of Washington)",
+      "resources": [
+        {
+          "url": "https://governor.wa.gov/news/2025/governor-bob-ferguson-signs-executive-order-establishing-data-center-workgroup",
+          "title": "Washington Governor's Office — Governor Bob Ferguson signs Executive Order establishing a data center workgroup"
+        }
+      ],
+      "captured_at": "2026-09-23",
+      "principles": [
+        "state_review",
+        "incentive_terms"
+      ]
     },
     {
       "id": "wa-essb6231-2026",
@@ -2891,7 +3460,10 @@
           "title": "Ballard Spahr — Washington State 2026 Session: Legislature Repeals and Rolls Back Certain Recently Enacted Taxes"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "warren-county-ms-amazon-community-fund-2025",
@@ -2927,6 +3499,9 @@
         "amazon-vicksburg-ms"
       ],
       "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits"
+      ],
       "delivered": {
         "status": "delivered",
         "summary": "Amazon awarded nearly $250,000 (increased from the originally committed $150,000) to 28 organizations through the Warren County Community Fund, announced August 6, 2026, covering food security, education, STEM, housing, mental health, and historic preservation projects. Independently corroborated by Vicksburg-area local news.",
@@ -2970,7 +3545,11 @@
       "related_project_ids": [
         "google-west-memphis-ar"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "pay_own_way"
+      ]
     },
     {
       "id": "wi-ab840-2026-failed",
@@ -3007,7 +3586,10 @@
           "title": "WisPolitics — Wisconsin Conservation Voters on AB 840"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "pay_own_way"
+      ]
     },
     {
       "id": "wi-act19-2023-dcste",
@@ -3043,7 +3625,10 @@
           "title": "Wisconsin Legislature — 2023 Act 19 (state budget act)"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "incentive_terms"
+      ]
     },
     {
       "id": "wilmington-oh-aws-cra-compensation-agreement-2025",
@@ -3090,7 +3675,11 @@
       "related_project_ids": [
         "aws-wilmington-oh"
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ]
     },
     {
       "id": "wv-hb2014-2025",
@@ -3122,7 +3711,10 @@
           "title": "West Virginia Legislature — HB 2014 Enrolled Committee Substitute (bill text)"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "new_power"
+      ]
     },
     {
       "id": "wy-eo2026-03",
@@ -3161,7 +3753,12 @@
           "title": "Trinity Consultants — Data Centers the Wyoming Way: What Governor Gordon's Executive Order 2026-03 Means"
         }
       ],
-      "captured_at": "2026-09-23"
+      "captured_at": "2026-09-23",
+      "principles": [
+        "state_review",
+        "water",
+        "pay_own_way"
+      ]
     }
   ]
 }

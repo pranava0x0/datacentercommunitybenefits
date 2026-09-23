@@ -157,6 +157,52 @@ const POLICY_STATUS_BADGE_CLASS = {
   proposed: "badge-tariff-status-proposed",
   failed: "badge-tariff-status-rejected",
 };
+// The playbook's organizing axis. Mirrors POLICY_PRINCIPLES in schema.py.
+const POLICY_PRINCIPLES = [
+  "pay_own_way",
+  "community_benefits",
+  "incentive_terms",
+  "water",
+  "transparency",
+  "local_control",
+  "new_power",
+  "state_review",
+];
+const POLICY_PRINCIPLE_LABELS = {
+  pay_own_way: "Data centers pay their own grid costs",
+  community_benefits: "Host communities get binding benefits",
+  incentive_terms: "Tax breaks come with conditions",
+  water: "Water use is capped or reported",
+  transparency: "No secret deals",
+  local_control: "Localities keep a say in siting",
+  new_power: "New demand brings new supply",
+  state_review: "States review large projects",
+};
+const POLICY_PRINCIPLE_SHORT = {
+  pay_own_way: "Grid costs",
+  community_benefits: "Community benefits",
+  incentive_terms: "Tax breaks",
+  water: "Water",
+  transparency: "Disclosure",
+  local_control: "Local siting",
+  new_power: "New supply",
+  state_review: "State review",
+};
+const POLICY_PRINCIPLE_DESCRIPTIONS = {
+  pay_own_way:
+    "Separate rate classes, long contracts, and collateral, so grid upgrades for a data center are not billed to households.",
+  community_benefits:
+    "Benefit agreements, community funds, and payments in lieu of taxes, written into the approval.",
+  incentive_terms:
+    "Job, wage, and investment floors on tax exemptions, and pauses or repeals where states pulled back.",
+  water: "Limits on cooling water, closed-loop requirements, and usage reporting.",
+  transparency:
+    "Bans on nondisclosure agreements with officials, public registries, and early notice to neighbors.",
+  local_control: "Local approval before state permits, plus zoning, noise, and setback rules.",
+  new_power:
+    "Requirements, or permission, to build new generation instead of drawing on existing supply.",
+  state_review: "Task forces, advisory councils, and state review of large projects.",
+};
 const POLICY_SCOPES = ["federal", "state", "county", "city", "company"];
 const POLICY_SCOPE_LABELS = {
   federal: "Federal",
@@ -795,7 +841,15 @@ function activateView(name) {
       console.error("Failed to load tariffs data:", err);
     });
   } else if (target.name === "policies") {
-    loadPoliciesData()
+    // Moratoriums are secondary here: they only add the governor orders
+    // filed on that tab to "Latest actions", so their failure is caught
+    // rather than blanking the playbook.
+    Promise.all([
+      loadPoliciesData(),
+      loadMoratoriumsData().catch((err) =>
+        console.error("Failed to load moratoriums for latest actions:", err)
+      ),
+    ])
       .then(renderPoliciesView)
       .catch((err) => {
         console.error("Failed to load policies data:", err);
@@ -2578,7 +2632,7 @@ const POLICY_FILTER_IDS = [
   "policy-status-filter",
   "policy-scope-filter",
   "policy-state-filter",
-  "policy-theme-filter",
+  "policy-principle-filter",
   "policy-cbf-filter",
 ];
 
@@ -2589,7 +2643,7 @@ function policyFilters() {
     status: val("policy-status-filter"),
     scope: val("policy-scope-filter"),
     state: val("policy-state-filter"),
-    theme: val("policy-theme-filter"),
+    principle: val("policy-principle-filter"),
     cbfOnly: Boolean(document.getElementById("policy-cbf-filter")?.checked),
   };
 }
@@ -2601,7 +2655,7 @@ function filteredPolicies() {
     .filter((p) => !f.status || p.status === f.status)
     .filter((p) => !f.scope || p.scope === f.scope)
     .filter((p) => !f.state || p.state_code === f.state)
-    .filter((p) => !f.theme || (p.benefit_themes || []).includes(f.theme))
+    .filter((p) => !f.principle || (p.principles || []).includes(f.principle))
     .filter((p) => !f.cbfOnly || p.community_benefits_framework)
     .sort(policySort);
 }
@@ -2633,8 +2687,8 @@ function populatePolicyFilters() {
   const states = [...new Set(all.map((p) => p.state_code).filter(Boolean))].sort();
   fill("policy-state-filter", states, (k) => STATE_NAMES[k] || k,
     (k) => all.filter((p) => p.state_code === k).length);
-  fill("policy-theme-filter", THEMES, (k) => THEME_LABELS[k],
-    (k) => all.filter((p) => (p.benefit_themes || []).includes(k)).length);
+  fill("policy-principle-filter", POLICY_PRINCIPLES, (k) => POLICY_PRINCIPLE_SHORT[k],
+    (k) => all.filter((p) => (p.principles || []).includes(k)).length);
 }
 
 function wirePolicyControls() {
@@ -2677,7 +2731,8 @@ function renderPoliciesView() {
   populatePolicyFilters();
   const all = state.policies || [];
   renderPolicyStats(all);
-  renderPolicyCharts(all);
+  renderPolicyPrinciples(all);
+  renderPolicyActions(all);
   renderPoliciesTable();
 }
 
@@ -2685,13 +2740,12 @@ function renderPolicyStats(all) {
   const ul = document.getElementById("policy-stats");
   if (!ul) return;
   const n = (pred) => all.filter(pred).length;
+  const year = String(new Date().getFullYear());
   const tiles = [
-    [all.length, "Records tracked"],
-    [n((p) => p.status === "in_effect" && p.scope !== "company"), "Public instruments in effect"],
-    [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States with a state-level record"],
-    [n((p) => p.instrument === "benefit_agreement"), "Benefit agreements"],
-    [n((p) => p.instrument === "company_plan"), "Company plans"],
-    [n((p) => p.community_benefits_framework), "Include a community-benefits framework"],
+    [n((p) => p.status === "in_effect" && p.scope !== "company"), "Laws, orders, and deals in effect"],
+    [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
+    [n((p) => p.instrument === "executive_order" && (p.date || "").startsWith(year)), `Governor orders in ${year}`],
+    [n((p) => p.community_benefits_framework), "Benefit agreements or funds"],
   ];
   ul.innerHTML = tiles
     .map(
@@ -2704,44 +2758,104 @@ function renderPolicyStats(all) {
     .join("");
 }
 
-// Two clickable bar sets (reusing the moratorium .mhb bar styling): by
-// instrument, and by theme. Clicking a bar sets that directory filter.
-function renderPolicyCharts(all) {
-  const host = document.getElementById("policy-charts");
-  if (!host) return;
-  const bars = (filterId, keys, labelOf, countOf) => {
-    const rows = keys
-      .map((k) => ({ k, label: labelOf(k), value: countOf(k) }))
-      .filter((r) => r.value > 0)
-      .sort((a, b) => b.value - a.value);
-    const max = Math.max(1, ...rows.map((r) => r.value));
-    return rows
-      .map(
-        (r) => `<button type="button" class="mhb-row mhb-row--btn" data-policy-filter="${filterId}" data-value="${escapeAttr(r.k)}" aria-label="Filter the directory: ${escapeAttr(r.label)}, ${r.value} records">
-          <span class="mhb-label">${escapeHtml(r.label)}</span>
-          <span class="mhb-track"><span class="mhb-fill" style="width:${(r.value / max) * 100}%;background:var(--accent)"></span></span>
-          <span class="mhb-val">${r.value}</span>
-        </button>`
-      )
-      .join("");
-  };
-  host.innerHTML = `
-    <figure class="mor-chart">
-      <figcaption class="mor-chart-title">By type <span class="mor-chart-sub">records of each instrument</span></figcaption>
-      <div class="mor-hbar-set">${bars("policy-instrument-filter", POLICY_INSTRUMENTS,
-        (k) => POLICY_INSTRUMENT_LABELS[k], (k) => all.filter((p) => p.instrument === k).length)}</div>
-    </figure>
-    <figure class="mor-chart">
-      <figcaption class="mor-chart-title">By benefit theme <span class="mor-chart-sub">records addressing each theme</span></figcaption>
-      <div class="mor-hbar-set">${bars("policy-theme-filter", THEMES,
-        (k) => THEME_LABELS[k], (k) => all.filter((p) => (p.benefit_themes || []).includes(k)).length)}</div>
-    </figure>`;
-  setAccCount("policy-breakdown-count", all.length, "record");
-  for (const btn of host.querySelectorAll("[data-policy-filter]")) {
-    btn.addEventListener("click", () => {
-      const sel = document.getElementById(btn.dataset.policyFilter);
-      if (!sel) return;
-      sel.value = sel.value === btn.dataset.value ? "" : btn.dataset.value;
+// Principle cards: what each rule looks like in practice, how far it has
+// spread, and the latest examples. "All N" filters the directory.
+const PB_EXAMPLES_PER_PRINCIPLE = 3;
+// Public instruments first, then site agreements, then company plans: the
+// playbook is about what can be required, and a company's own plan is the
+// weakest evidence of that.
+const PB_INSTRUMENT_RANK = {
+  executive_order: 0,
+  legislation: 0,
+  regulation: 0,
+  local_ordinance: 1,
+  benefit_agreement: 1,
+  company_plan: 2,
+};
+
+// Records whose PRIMARY principle is this one come first, so a broad order
+// tagged with five principles doesn't headline every card.
+function pbExamples(records, key) {
+  const primary = (p) => ((p.principles || [])[0] === key ? 0 : 1);
+  return records
+    .filter((p) => p.status === "in_effect")
+    .sort(
+      (a, b) =>
+        primary(a) - primary(b) ||
+        (PB_INSTRUMENT_RANK[a.instrument] ?? 3) - (PB_INSTRUMENT_RANK[b.instrument] ?? 3) ||
+        (b.date || "").localeCompare(a.date || "")
+    )
+    .slice(0, PB_EXAMPLES_PER_PRINCIPLE);
+}
+
+// Which of a record's key terms to show under a principle: the first one
+// that speaks to it, else the first term. Display only; the principle tags
+// themselves are curator-assigned.
+const PB_TERM_HINTS = {
+  pay_own_way: /cost|rate|ratepayer|tariff|pay|collateral|contract/i,
+  community_benefits: /benefit|fund|payment|grant|\$|school/i,
+  incentive_terms: /tax|exempt|incentive|abatement|credit|rebate/i,
+  water: /water|cool|aquifer/i,
+  transparency: /disclos|nondisclosure|\bNDA|report|registr|notice|public/i,
+  local_control: /local|zoning|sound|noise|setback|siting|approv/i,
+  new_power: /generation|clean|renewable|solar|nuclear|storage|behind|microgrid/i,
+  state_review: /task force|council|review|framework|workgroup|recommend/i,
+};
+
+function pbTermFor(p, key) {
+  const hint = PB_TERM_HINTS[key];
+  return (hint && p.key_terms.find((t) => hint.test(t))) || p.key_terms[0];
+}
+
+function pbWhereTag(p) {
+  if (p.scope === "company") {
+    return (p.company_slugs || [])
+      .map((slug) => (state.companiesBySlug.get(slug) || {}).name || slug)
+      .join(", ");
+  }
+  return p.state_code || POLICY_SCOPE_LABELS[p.scope] || "";
+}
+
+function renderPolicyPrinciples(all) {
+  const ol = document.getElementById("policy-principles");
+  if (!ol) return;
+  setAccCount("policy-principles-count", POLICY_PRINCIPLES.length, "principle");
+  ol.replaceChildren();
+  for (const key of POLICY_PRINCIPLES) {
+    const recs = all.filter((p) => (p.principles || []).includes(key));
+    const by = (s) => recs.filter((p) => p.status === s).length;
+    const states = new Set(recs.map((p) => p.state_code).filter(Boolean)).size;
+    const li = el("li", "pb-principle");
+    li.dataset.principle = key;
+    li.append(el("h4", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
+    li.append(el("p", "pb-principle-desc", POLICY_PRINCIPLE_DESCRIPTIONS[key]));
+    const counts = [
+      `${by("in_effect")} in effect`,
+      by("proposed") ? `${by("proposed")} proposed` : null,
+      by("failed") ? `${by("failed")} failed` : null,
+      `${states} ${states === 1 ? "state" : "states"}`,
+    ].filter(Boolean);
+    li.append(el("p", "pb-principle-counts", counts.join(" · ")));
+    const ex = el("ul", "pb-examples");
+    for (const p of pbExamples(recs, key)) {
+      const item = el("li");
+      const btn = el("button", "pb-example");
+      btn.type = "button";
+      btn.append(
+        el("span", "pb-example-where", pbWhereTag(p)),
+        el("span", "pb-example-title", p.title),
+        el("span", "pb-example-term", pbTermFor(p, key))
+      );
+      btn.addEventListener("click", () => showPolicyDetail(p));
+      item.append(btn);
+      ex.append(item);
+    }
+    li.append(ex);
+    const all_ = el("button", "linkish pb-see-all", `All ${recs.length} →`);
+    all_.type = "button";
+    all_.addEventListener("click", () => {
+      const sel = document.getElementById("policy-principle-filter");
+      if (sel) sel.value = key;
       renderPoliciesTable();
       const dir = document.getElementById("policies-directory");
       if (dir) {
@@ -2749,7 +2863,89 @@ function renderPolicyCharts(all) {
         dir.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
+    li.append(all_);
+    ol.append(li);
   }
+}
+
+// Latest actions: a dated timeline across this tab's records plus the
+// governor orders filed on the Moratoriums tab (NY EO 62, Texas, Oregon),
+// which are state executive actions a reader expects to see here too.
+const PB_ACTIONS_MAX = 12;
+
+function pbActionVerb(p) {
+  if (p.status === "failed") {
+    return /veto/i.test(p.summary) ? "vetoed" : p.instrument === "benefit_agreement" ? "rejected" : "failed";
+  }
+  if (p.status === "proposed") return "proposed";
+  return {
+    executive_order: "signed",
+    legislation: "enacted",
+    regulation: "adopted",
+    local_ordinance: "adopted",
+    benefit_agreement: "approved",
+    company_plan: "published",
+  }[p.instrument] || "adopted";
+}
+
+function isGovernorMoratorium(m) {
+  if (m.jurisdiction_type !== "state" || m.status !== "enacted") return false;
+  const kind = `${m.policy_type || ""} ${m.bill_number || ""}`.toLowerCase();
+  return kind.includes("executive order") || kind.includes("directive");
+}
+
+function renderPolicyActions(all) {
+  const ol = document.getElementById("policy-actions");
+  if (!ol) return;
+  const items = all
+    .filter((p) => p.date && p.scope !== "company")
+    .map((p) => ({
+      date: p.date,
+      where: pbWhereTag(p),
+      verb: pbActionVerb(p),
+      title: p.title,
+      note: null,
+      open: () => showPolicyDetail(p),
+    }));
+  for (const m of (state.moratoriums || []).filter(isGovernorMoratorium)) {
+    items.push({
+      date: m.enacted_date || m.effective_date,
+      where: m.state_code,
+      verb: "signed",
+      title: m.bill_number && /order/i.test(m.bill_number) ? m.bill_number : `${m.jurisdiction} governor's directive`,
+      note: "pause · Moratoriums tab",
+      open: () => {
+        activateView("moratoriums");
+        requestAnimationFrame(() => showMoratoriumDetail(m));
+      },
+    });
+  }
+  const latest = items
+    .filter((it) => it.date)
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, PB_ACTIONS_MAX);
+  setAccCount("policy-actions-count", latest.length, "action");
+  ol.replaceChildren(
+    ...latest.map((it) => {
+      const li = el("li", "pb-action");
+      const btn = el("button", "pb-action-btn");
+      btn.type = "button";
+      btn.append(
+        el("span", "pb-action-date", formatActionDate(it.date)),
+        el("span", "pb-action-where", it.where),
+        el("span", "pb-action-text", `${it.title} ${it.verb}`)
+      );
+      if (it.note) btn.append(el("span", "pb-action-note", it.note));
+      btn.addEventListener("click", it.open);
+      li.append(btn);
+      return li;
+    })
+  );
+}
+
+function formatActionDate(iso) {
+  const d = new Date(`${iso}T00:00:00`);
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 }
 
 function renderPoliciesTable() {
@@ -2769,8 +2965,8 @@ function renderPoliciesTable() {
     const cbf = p.community_benefits_framework
       ? ` <span class="badge badge-cbf" title="Requires, creates or is a community benefit agreement, fund or host payment">CBF</span>`
       : "";
-    const themes = (p.benefit_themes || [])
-      .map((t) => `<span class="policy-theme">${escapeHtml(THEME_LABELS[t] || t)}</span>`)
+    const themes = (p.principles || [])
+      .map((k) => `<span class="policy-theme">${escapeHtml(POLICY_PRINCIPLE_SHORT[k] || k)}</span>`)
       .join("");
     const deliveredTag = p.delivered
       ? ` <span class="badge policy-delivered delivered-${p.delivered.status}" title="Delivered vs promised">${escapeHtml(DELIVERED_LABELS[p.delivered.status] || p.delivered.status)}</span>`
@@ -2834,6 +3030,10 @@ function showPolicyDetail(p) {
   const parties = policyParties(p);
   setText("pd-parties", parties.length ? parties.join(", ") : "Not stated");
   setText("pd-value", p.value_usd != null ? formatUsd(p.value_usd) : "Not stated");
+  setText(
+    "pd-principles",
+    (p.principles || []).map((k) => POLICY_PRINCIPLE_LABELS[k] || k).join("; ")
+  );
   setText(
     "pd-themes",
     (p.benefit_themes || []).map((t) => THEME_LABELS[t] || t).join(", ") +
@@ -2918,6 +3118,7 @@ function _policyExportRows(list) {
     p.date || "",
     p.identifier || "",
     policyParties(p).join("; "),
+    (p.principles || []).map((k) => POLICY_PRINCIPLE_SHORT[k] || k).join("; "),
     (p.benefit_themes || []).map((t) => THEME_LABELS[t] || t).join("; "),
     p.community_benefits_framework ? "yes" : "no",
     p.value_usd ?? "",
@@ -2931,7 +3132,7 @@ function _policyExportRows(list) {
 
 const POLICY_EXPORT_HEADERS = [
   "Title", "Type", "Level", "Where", "State", "Status", "Date", "Identifier",
-  "Parties", "Themes", "Community benefits framework", "Stated value (USD)",
+  "Parties", "Principles", "Themes", "Community benefits framework", "Stated value (USD)",
   "Key terms", "Summary", "Source", "Delivery assessment", "Captured",
 ];
 
@@ -2947,7 +3148,7 @@ async function exportPoliciesToPDF() {
   const list = filteredPolicies();
   if (!list.length) { alert("No records match the current filters."); return; }
   // The PDF is a reading copy: drop the long columns the CSV carries in full.
-  const keep = [0, 1, 3, 5, 6, 9, 12];
+  const keep = [0, 1, 3, 5, 6, 9, 13];
   const headers = keep.map((i) => POLICY_EXPORT_HEADERS[i]);
   const rows = _policyExportRows(list).map((r) => keep.map((i) => r[i]));
   const today = new Date().toISOString().slice(0, 10);

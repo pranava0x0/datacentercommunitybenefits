@@ -1206,8 +1206,11 @@ class TestPoliciesView:
     """Policies & Agreements tab (v3.1): lazy load, directory, modal, filters."""
 
     def _open(self, page: Page, base_url: str) -> None:
+        """The directory ships collapsed (the principle cards are the way in),
+        so open it the way a reader would before asserting on its rows."""
         page.goto(base_url + "/#policies")
-        page.wait_for_selector("#policies-tbody tr[role=button]", timeout=10_000)
+        page.wait_for_selector("#policies-tbody tr[role=button]", state="attached", timeout=10_000)
+        page.locator("#policies-directory > summary").click()
 
     def test_directory_renders_every_record(self, page: Page, base_url: str):
         self._open(page, base_url)
@@ -1247,16 +1250,39 @@ class TestPoliciesView:
         page.keyboard.press("Escape")
         assert page.locator("#policy-modal").is_hidden()
 
-    def test_bar_click_filters_directory(self, page: Page, base_url: str):
+    def test_every_principle_has_a_card_with_examples(self, page: Page, base_url: str):
         self._open(page, base_url)
-        bar = page.locator("[data-policy-filter='policy-instrument-filter']").first
-        value = bar.get_attribute("data-value")
-        bar.click()
-        assert page.input_value("#policy-instrument-filter") == value
+        n = page.evaluate("() => POLICY_PRINCIPLES.length")
+        cards = page.locator("#policy-principles .pb-principle")
+        assert cards.count() == n
+        for i in range(n):
+            assert cards.nth(i).locator(".pb-example").count() >= 1, f"card {i} has no example"
+
+    def test_see_all_filters_directory_by_principle(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policy-principles .pb-see-all", timeout=10_000)
+        card = page.locator("#policy-principles .pb-principle").nth(1)
+        key = card.get_attribute("data-principle")
+        card.locator(".pb-see-all").click()
+        expect(page.locator("#policies-directory")).to_have_attribute("open", "")
+        assert page.input_value("#policy-principle-filter") == key
         expected = page.evaluate(
-            f"() => state.policies.filter(p => p.instrument === '{value}').length"
+            f"() => state.policies.filter(p => p.principles.includes('{key}')).length"
         )
         assert page.locator("#policies-tbody tr[role=button]").count() == expected
+
+    def test_latest_actions_include_governor_orders_from_moratoriums(
+        self, page: Page, base_url: str
+    ):
+        """NY EO 62 is a pause, so it lives on the Moratoriums tab, but it is
+        a governor's order a reader expects in the playbook's timeline."""
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector("#policy-actions .pb-action", timeout=10_000)
+        dates = page.locator("#policy-actions .pb-action-date").all_inner_texts()
+        assert len(dates) >= 5
+        assert page.evaluate(
+            "() => state.moratoriums.some(isGovernorMoratorium)"
+        ), "expected at least one governor order on the Moratoriums tab"
 
     def test_cbf_filter_and_zero_result(self, page: Page, base_url: str):
         self._open(page, base_url)

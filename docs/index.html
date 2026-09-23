@@ -99,7 +99,7 @@
           aria-selected="false"
           aria-controls="view-policies"
         >
-          Policies &amp; Agreements
+          Policy Playbook
         </button>
         <button
           id="tab-explorer"
@@ -219,11 +219,11 @@
               <span class="home-card-count" data-count-for="tariffs">&mdash;</span>
             </button>
             <button class="home-card" type="button" data-path-target="policies">
-              <span class="home-card-tag">Policies &amp; Agreements</span>
-              <span class="home-card-title">Rules and community deals</span>
+              <span class="home-card-tag">Policy Playbook</span>
+              <span class="home-card-title">What communities are requiring</span>
               <span class="home-card-dek">
-                Executive orders, laws, local ordinances, benefit agreements,
-                and company community plans.
+                Eight principles, from paying for grid upgrades to binding
+                benefit agreements, with the laws and deals behind each.
               </span>
               <span class="home-card-count" data-count-for="policies">&mdash;</span>
             </button>
@@ -1443,33 +1443,38 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Policies &amp; Community Benefit Agreements</h2>
+          <h2 class="hero-title">Policy playbook</h2>
           <p class="hero-dek">
-            What governments have required of data centers, and what host
-            communities have negotiated: executive orders, state laws and
-            regulations, local ordinances, signed benefit agreements, and the
-            community plans companies publish. Every record links to its source.
+            Eight rules states, cities, and companies are writing for data
+            centers, and where each one has been adopted, proposed, or turned down.
           </p>
         </div>
 
         <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
 
-        <details class="acc" id="policy-breakdown-section" open>
+        <details class="acc" id="policy-principles-section" open>
           <summary>
-            <h3 class="acc-title">By instrument and theme</h3>
-            <span class="acc-count" id="policy-breakdown-count"></span>
+            <h3 class="acc-title">Principles</h3>
+            <span class="acc-count" id="policy-principles-count"></span>
             <span class="acc-chevron" aria-hidden="true"></span>
           </summary>
           <div class="acc-body">
-            <p class="acc-sub">
-              How many records of each kind, and which of the eight benefit
-              themes they address. Click a bar to filter the directory.
-            </p>
-            <div id="policy-charts" class="mor-charts"></div>
+            <ol id="policy-principles" class="pb-principles"></ol>
           </div>
         </details>
 
-        <details class="acc" id="policies-directory" open>
+        <details class="acc" id="policy-actions-section" open>
+          <summary>
+            <h3 class="acc-title">Latest actions</h3>
+            <span class="acc-count" id="policy-actions-count"></span>
+            <span class="acc-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="acc-body">
+            <ol id="policy-actions" class="pb-actions"></ol>
+          </div>
+        </details>
+
+        <details class="acc" id="policies-directory">
           <summary>
             <h3 class="acc-title" id="policies-table-heading">Directory</h3>
             <span class="acc-count" id="policies-count"></span>
@@ -1477,10 +1482,8 @@
           </summary>
           <div class="acc-body">
             <p class="acc-sub">
-              Click a row for the concrete terms, the parties, and the sources.
-              <span class="badge badge-cbf">CBF</span> marks a record that
-              requires, creates or is a community benefit agreement, community
-              fund or host payment.
+              <span class="badge badge-cbf">CBF</span> = requires or is a
+              community benefit agreement, fund, or host payment.
             </p>
             <span class="table-controls">
               <button id="policies-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
@@ -1507,9 +1510,9 @@
                   <option value="">All states</option>
                 </select>
               </label>
-              <label>Theme:
-                <select id="policy-theme-filter">
-                  <option value="">All themes</option>
+              <label>Principle:
+                <select id="policy-principle-filter">
+                  <option value="">All principles</option>
                 </select>
               </label>
               <label class="rp-filter-flag">
@@ -1526,7 +1529,7 @@
                     <th role="columnheader">Where</th>
                     <th role="columnheader">Status</th>
                     <th role="columnheader">Date</th>
-                    <th role="columnheader">Themes</th>
+                    <th role="columnheader">Principles</th>
                   </tr>
                 </thead>
                 <tbody id="policies-tbody">
@@ -1538,13 +1541,9 @@
         </details>
 
         <p class="rp-footnote">
-          Coverage is curated, not exhaustive. Moratoriums, which pause
-          development, are on the Moratoriums tab, and utility tariffs are on
-          Tariffs &amp; Rate Cases. When a record here covers the same
-          instrument as a moratorium record, its detail view links to that
-          record. A state with no record here may simply not have been
-          researched yet. Dollar values appear only when the source states a
-          total.
+          Curated, not exhaustive. Pauses on development are on the Moratoriums
+          tab and utility tariffs on Tariffs &amp; Rate Cases. A state with no
+          record here may not have been researched yet.
         </p>
 
         <div id="policy-modal" class="tariff-modal" hidden>
@@ -1568,6 +1567,8 @@
               <dd id="pd-parties">—</dd>
               <dt>Stated value</dt>
               <dd id="pd-value">—</dd>
+              <dt>Principles</dt>
+              <dd id="pd-principles">—</dd>
               <dt>Themes</dt>
               <dd id="pd-themes">—</dd>
             </dl>

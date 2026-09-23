@@ -96,6 +96,7 @@ def test_value_usd_only_with_a_community_benefit(policies) -> None:
 # --- schema edge cases ------------------------------------------------------
 
 BASE = {
+    "principles": ["pay_own_way"],
     "id": "x",
     "title": "X",
     "instrument": "legislation",
@@ -228,6 +229,28 @@ def test_scope_vocab_matches(js) -> None:
 
     assert tuple(_extract_array(js, "POLICY_SCOPES")) == POLICY_SCOPES
     assert _extract_object_keys(js, "POLICY_SCOPE_LABELS") == set(POLICY_SCOPES)
+
+
+def test_principle_vocab_matches(js) -> None:
+    from schema import POLICY_PRINCIPLE_LABELS, POLICY_PRINCIPLES
+
+    assert tuple(_extract_array(js, "POLICY_PRINCIPLES")) == POLICY_PRINCIPLES
+    assert _extract_object_values(js, "POLICY_PRINCIPLE_LABELS") == set(POLICY_PRINCIPLE_LABELS.values())
+    for name in ("POLICY_PRINCIPLE_LABELS", "POLICY_PRINCIPLE_SHORT", "POLICY_PRINCIPLE_DESCRIPTIONS"):
+        assert _extract_object_keys(js, name) == set(POLICY_PRINCIPLES), name
+
+
+def test_every_principle_is_in_use(policies) -> None:
+    """An empty principle card would read as 'nobody does this'."""
+    from schema import POLICY_PRINCIPLES
+
+    used = {k for p in policies for k in p["principles"]}
+    assert used == set(POLICY_PRINCIPLES)
+
+
+def test_principles_are_bounded(policies) -> None:
+    for p in policies:
+        assert 1 <= len(p["principles"]) <= 3, p["id"]
 
 
 def test_status_badge_classes_exist_in_css(js) -> None:
