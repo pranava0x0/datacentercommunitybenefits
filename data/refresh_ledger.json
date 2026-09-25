@@ -31,7 +31,11 @@
           "due": "2026-10-16",
           "what": "Indio's extended moratorium (indio-ca-2026-06) expires Oct 16 2026 -- permanent ban adopted, extended again, or lapsed?"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-09-25",
+        "summary": "Indio (indio-ca-2026-06): council unanimously extended the moratorium July 15 through Oct 16, 2026 while staff drafts General Plan/code amendments (NBC Palm Springs)."
+      }
     },
     "state:CO": {
       "follow_ups": [
@@ -43,7 +47,11 @@
           "due": "2026-10-29",
           "what": "Colorado PUC evidentiary hearing Oct 21–28 on Xcel's large-load tariff (xcel-colorado-large-load-tariff)"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-09-25",
+        "summary": "Larimer County (larimer-county-co-2026-01): extended a second time July 13, 2026, through Feb 25, 2027 (engage.larimer.gov)."
+      }
     },
     "state:FL": {
       "follow_ups": [
@@ -84,6 +92,12 @@
           "what": "Fort Wayne: council reconsiders the 365-day pause on its own actions in mid-October (postponed 3 weeks on Sept 23)"
         }
       ]
+    },
+    "state:MO": {
+      "last_check": {
+        "date": "2026-09-25",
+        "summary": "St. Charles (st-charles-city-2025-08): council converted the one-year moratorium into a permanent zoning ban May 19, 2026, 7-1 (St. Louis Public Radio)."
+      }
     },
     "state:NC": {
       "follow_ups": [

@@ -3183,9 +3183,13 @@
         "transparency"
       ],
       "summary": "Larimer County's Board of County Commissioners adopted a resolution on January 27, 2026 pausing new land-use applications for data center facilities in unincorporated Larimer County, extended it on February 9, 2026 through August 25, 2026, and extended it a second time on July 13, 2026 through February 25, 2027, to give staff more time to draft permanent regulations; a public survey drew 94% opposition to any data center construction in the county.",
-      "source_url": "https://www.larimer.gov/planning/temp-moratorium-data-centers",
-      "source_title": "Larimer County, CO — Temporary Moratorium on Data Center Facilities",
+      "source_url": "https://engage.larimer.gov/datacenter",
+      "source_title": "Larimer County — Data Center Regulations (county engagement page)",
       "resources": [
+        {
+          "url": "https://www.larimer.gov/planning/temp-moratorium-data-centers",
+          "title": "Larimer County, CO — Temporary Moratorium on Data Center Facilities"
+        },
         {
           "url": "https://www.govtech.com/artificial-intelligence/colorado-county-prepares-to-extend-data-center-moratorium",
           "title": "Government Technology — Colorado County Prepares to Extend Data Center Moratorium"

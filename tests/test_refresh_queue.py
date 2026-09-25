@@ -128,6 +128,22 @@ def test_followups_only_mark_is_not_a_full_review(tmp_ledger) -> None:
     assert "follow_ups" not in entry
 
 
+def test_followups_only_check_is_recorded_not_lost(tmp_ledger) -> None:
+    """A derived follow-up (no stored ones) checked with --followups-only must
+    leave its finding in the ledger: not a bare {}, and not nothing at all.
+    The 2026-09-25 dry run hit both failure shapes."""
+    rq.mark("state:MO", "St. Charles made its ban permanent", [], date(2026, 9, 25),
+            False, None, followups_only=True)
+    entry = json.loads(tmp_ledger.read_text())["units"]["state:MO"]
+    assert entry == {"last_check": {"date": "2026-09-25", "summary": "St. Charles made its ban permanent"}}
+    assert rq.check_ledger() == []
+
+
+def test_check_flags_a_malformed_last_check(tmp_ledger) -> None:
+    _write(tmp_ledger, {"state:MO": {"last_check": {"date": "soon"}}})
+    assert any("last_check" in p for p in rq.check_ledger())
+
+
 def test_mark_rejects_an_unknown_unit(tmp_ledger) -> None:
     with pytest.raises(SystemExit):
         rq.mark("site:not-a-real-project", "x", [], date(2026, 9, 25), False, None)

@@ -99,6 +99,7 @@ class Unit:
     last_reviewed: Optional[date] = None
     summary: str = ""
     follow_ups: list[dict] = field(default_factory=list)
+    last_check: Optional[dict] = None
 
     def due_follow_ups(self, today: date) -> list[dict]:
         return sorted(
@@ -222,6 +223,7 @@ def merged_units() -> dict[str, Unit]:
             u.last_reviewed = date.fromisoformat(entry["last_reviewed"])
         u.summary = entry.get("summary", "")
         u.follow_ups = list(entry.get("follow_ups", []))
+        u.last_check = entry.get("last_check")
     for key, items in derived_follow_ups().items():
         if key in units:
             units[key].follow_ups.extend(items)
@@ -286,6 +288,7 @@ def unit_json(u: Unit, why: str, today: date) -> dict:
         "why_now": why,
         "last_reviewed": u.last_reviewed.isoformat() if u.last_reviewed else None,
         "last_summary": u.summary or None,
+        "last_check": u.last_check,
         "due_follow_ups": u.due_follow_ups(today),
         "upcoming_follow_ups": [f for f in u.follow_ups if f not in u.due_follow_ups(today)],
         "records": u.records,
@@ -349,14 +352,18 @@ def render_backlog_block(units: dict[str, Unit], today: date) -> str:
             lines.append(f"| {f['due']} | `{u.key}` | {f['what']} |")
     else:
         lines.append("No dated follow-ups in the next 30 days.")
-    recent = sorted(
-        (u for u in units.values() if u.last_reviewed and (today - u.last_reviewed).days <= 14),
-        key=lambda u: (u.last_reviewed, u.key), reverse=True,
-    )
-    lines += ["", f"**Reviewed in the last 14 days ({len(recent)})**", ""]
+    recent = []
+    for u in units.values():
+        if u.last_reviewed and (today - u.last_reviewed).days <= 14:
+            recent.append((u.last_reviewed, u.key, "review", u.summary or "(no summary)"))
+        lc = u.last_check
+        if lc and (today - date.fromisoformat(lc["date"])).days <= 14:
+            recent.append((date.fromisoformat(lc["date"]), u.key, "check", lc["summary"]))
+    recent.sort(reverse=True)
+    lines += ["", f"**Reviewed or checked in the last 14 days ({len(recent)})**", ""]
     if recent:
-        for u in recent[:15]:
-            lines.append(f"- {u.last_reviewed} `{u.key}`: {u.summary or '(no summary)'}")
+        for when, key, kind, text in recent[:15]:
+            lines.append(f"- {when} `{key}` ({kind}): {text}")
         if len(recent) > 15:
             lines.append(f"- …and {len(recent) - 15} more (see `data/refresh_ledger.json`).")
     else:
@@ -387,9 +394,17 @@ def check_ledger() -> list[str]:
     for key, entry in ledger.get("units", {}).items():
         if key not in units:
             problems.append(f"{key}: not a unit (record renamed or removed?)")
-        if not entry.get("last_reviewed") and not entry.get("follow_ups"):
-            problems.append(f"{key}: empty entry (no review and no follow-ups)")
-        extra = set(entry) - {"last_reviewed", "summary", "follow_ups"}
+        if not entry.get("last_reviewed") and not entry.get("follow_ups") and not entry.get("last_check"):
+            problems.append(f"{key}: empty entry (no review, check or follow-ups)")
+        lc = entry.get("last_check")
+        if lc is not None:
+            if not isinstance(lc, dict) or not lc.get("summary"):
+                problems.append(f"{key}: last_check needs a summary: {lc}")
+            try:
+                date.fromisoformat((lc or {}).get("date", "") if isinstance(lc, dict) else "")
+            except ValueError:
+                problems.append(f"{key}: last_check needs an ISO date: {lc}")
+        extra = set(entry) - {"last_reviewed", "summary", "follow_ups", "last_check"}
         if extra:
             problems.append(f"{key}: unexpected fields {sorted(extra)}")
         try:
@@ -415,7 +430,10 @@ def mark(key: str, summary: str, follow_ups: list[list[str]], on: date,
         raise SystemExit(f"unknown unit {key!r}. Similar: {close}")
     ledger = load_ledger()
     entry = ledger["units"].setdefault(key, {})
-    if not followups_only:  # a quick follow-up check is not a full review
+    if followups_only:  # a quick follow-up check is not a full review...
+        # ...but what it found must survive the run, not only its commit message.
+        entry["last_check"] = {"date": on.isoformat(), "summary": summary.strip()}
+    else:
         entry["last_reviewed"] = on.isoformat()
         entry["summary"] = summary.strip()
     kept = [
@@ -433,7 +451,7 @@ def mark(key: str, summary: str, follow_ups: list[list[str]], on: date,
         entry["follow_ups"] = sorted(kept, key=lambda f: (f["due"], f["what"]))
     else:
         entry.pop("follow_ups", None)
-    if not entry.get("last_reviewed") and not entry.get("follow_ups"):
+    if not entry.get("last_reviewed") and not entry.get("follow_ups") and not entry.get("last_check"):
         # A `--followups-only` mark whose unit had no *stored* follow-ups (the
         # due item was purely derived — see module docstring) both skips
         # last_reviewed/summary and clears the (empty) follow_ups list, so the

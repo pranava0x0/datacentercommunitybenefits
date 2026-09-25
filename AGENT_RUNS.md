@@ -19,6 +19,7 @@
 | 2026-09-23 | Playbook pass: 2 parallel Sonnet agents — (A) governor data-center EOs missing from the dataset (VA first); (B) fact-check of the 7 remaining records from the July 'enhanced' moratorium batch, read-only, verdicts to a JSONL | ~459K (287K + 171K) | Yes, high value — A: 8 EOs, all shipped (one mis-numbered file name checked). B: 3 fabricated, 3 wrong, 1 correct, all applied | B was the best-ROI run of the session: 171K tokens removed three fabricated records and a false 'enacted' Maine moratorium. A read-only verdict file the orchestrator applies beats letting an agent edit the seed. Run this kind of audit on any bulk-generated batch before building UI on it |
 | 2026-09-23 | PR #48: one UX/layperson agent reviewed the changed site, then fixed frontend review threads and added browser tests | Not measured | Yes — found the missing mobile jurisdiction; frontend fixes passed targeted browser tests and were checked in the main loop | One agent with exact file ownership worked better than a separate agent for each review lens; keep policy/data verification in the main loop |
 | 2026-09-25 | One Sonnet agent, isolated worktree: the time-sensitive re-check (8 rate cases, 7 tariffs, 7 dated moratorium events, 6 scheduled votes, 21 reported local enactments). Then a 1-call web-fetch agent for a bot-walled town page | ~568K (559K + 9K) | Yes, after review. 50 items: 22 added, 10 updated, 12 re-verified. The orchestrator's review corrected 6 records and held 3 as leads (see detail) | The prompt already banned search-synthesis quotes, and the agent still logged three with 'not independently re-fetched'. The mechanical gate (`probe.py --evidence`) plus date probes caught all of them in ~15 minutes. Keep the gate mandatory; never merge an agent's evidence unread |
+| 2026-09-25 | A supervised dry run of the new daily-refresh skill: one Sonnet agent in a worktree follows SKILL.md on the real queue (3 due follow-ups + 1 full site review), with no push and no merge | ~309K (102 tool uses, 14 min) | Yes, high value. Its data was correct (5 of 6 quotes machine-verified; the 6th, on a bot-walled county page, I re-sourced to the county's own readable page). It found 1 real queue bug and 5 procedure gaps, all fixed before the first unattended run | Dry-run any procedure an unattended routine will follow. It cost about half a research pass, and every gap it found would otherwise have surfaced as a failed 10:00 cloud run with nobody watching |
 
 ## Detail: 2026-08-04 PR #41 review + fix + merge
 
@@ -402,4 +403,18 @@ scope was right and it finished well inside its window. The cost of trust
 is the lesson. At 22 additions, three unsourced facts and three bad dates
 would have shipped without the gate. The daily routine now runs the same
 gate before every merge.
+
+**The dry run (same day).** A second Sonnet agent ran the new skill as the
+cloud routine will, on today's real queue. It used 13 of 25 minutes.
+- **Data:** Indio was extended to Oct 16, St. Charles converted its moratorium
+  to a permanent ban (7-1, May 19), and Larimer County extended to Feb 25
+  2027. AWS Cumberland had a dead source link fixed and Talen's move to a
+  front-of-the-meter PPA added.
+- **Procedure bug:** `--followups-only` left a bare `{}` ledger entry that
+  failed the ledger test, and it recorded the finding nowhere. Fixed with
+  `last_check` plus pruning, and two tests.
+- **Procedure gaps:** `git config` is forbidden in some harnesses (use the
+  `GIT_*` env vars); what "made permanent" means for a moratorium record;
+  derived follow-ups work in whole months (add a manual one for an exact
+  date); and the realistic load is 2–3 units per run, not 4.
 

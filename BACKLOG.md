@@ -180,9 +180,12 @@ Nothing due.
 | 2026-10-20 | `state:IN` | Fort Wayne: council reconsiders the 365-day pause on its own actions in mid-October (postponed 3 weeks on Sept 23) |
 | 2026-10-21 | `state:VA` | Loudoun County: Board resolution Oct 20 pausing its OWN legislative approvals (NOT a moratorium; see loudoun-county-va-2026-09) — adopted? Update the record's status/summary only. |
 
-**Reviewed in the last 14 days (1)**
+**Reviewed or checked in the last 14 days (4)**
 
-- 2026-09-25 `site:aws-cumberland-pa`: Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed.
+- 2026-09-25 `state:MO` (check): St. Charles (st-charles-city-2025-08): council converted the one-year moratorium into a permanent zoning ban May 19, 2026, 7-1 (St. Louis Public Radio).
+- 2026-09-25 `state:CO` (check): Larimer County (larimer-county-co-2026-01): extended a second time July 13, 2026, through Feb 25, 2027 (engage.larimer.gov).
+- 2026-09-25 `state:CA` (check): Indio (indio-ca-2026-06): council unanimously extended the moratorium July 15 through Oct 16, 2026 while staff drafts General Plan/code amendments (NBC Palm Springs).
+- 2026-09-25 `site:aws-cumberland-pa` (review): Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed.
 <!-- refresh-queue:end -->
 
 ---

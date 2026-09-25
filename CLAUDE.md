@@ -1728,8 +1728,9 @@ claude.ai/code/routines.
   `scripts/refresh_queue.py` builds its units from the payloads: every
   project is a `site:`, every company a `company:`, and every `STATE_NAMES`
   key in app.js plus `US` is a `state:`. `data/refresh_ledger.json` holds only
-  `last_reviewed`, a one-line `summary` and dated `follow_ups`, keyed by
-  unit. A new project enters the queue by existing.
+  `last_reviewed`, a one-line `summary`, dated `follow_ups` and `last_check`
+  (the finding of the latest quick follow-up check, so it outlives the run's
+  commit message), keyed by unit. A new project enters the queue by existing.
   `test_committed_ledger_is_valid` rejects a ledger key that no longer names
   a unit, such as a renamed project id.
 - **Some follow-ups are derived, not stored.** A pending rate case's

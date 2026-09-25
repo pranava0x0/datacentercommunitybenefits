@@ -46,7 +46,10 @@ git fetch -q origin main && git reset -q --hard origin/main   # start from the l
 python3 scripts/refresh_queue.py --next 4 --json
 ```
 
-Work the list top-down. Each item has `unit`, `why_now`, `due_follow_ups`,
+Work the list top-down. It is a ceiling, not a quota. On 2026-09-25 the
+supervised dry run took ~5 minutes for three follow-ups together and ~5
+minutes for one full site review. Expect two or three units per run; a
+fourth full review won't fit in 20 minutes. Each item has `unit`, `why_now`, `due_follow_ups`,
 `records` (the ids that belong to the unit) and `backlog_leads` (that unit's
 section of BACKLOG.md §3). A unit whose only reason is a due follow-up gets a
 **targeted check** (§2a). Every other unit gets a **full review** (§2b–§2d).
@@ -71,8 +74,23 @@ government's own page, then move on and record the lead.
 Answer exactly the question in `what`. Update the record it names: status,
 dates, `duration_months`, `next_milestone`, `summary`. **Bump the record's
 `captured_at` to today.** A derived follow-up (a rate-case milestone, or a
-moratorium's computed end date) clears only when the record changes. Then:
+moratorium's computed end date) clears only when the record changes.
+- **Extended:** update `duration_months` (whole months from the original
+  start) and `duration_description` with the new end date and the vote date.
+  The derived follow-up works in whole months, so when the source states an
+  exact end date, add a manual `--follow-up` for the day after it.
+- **Made permanent:** keep the record, since the dataset is append-only. Set
+  `duration_months: null` and say in `summary` and `duration_description`
+  when and by what vote it became permanent. If the permanent rule sets
+  conditions rather than banning outright, it is also a Policy
+  (`local_ordinance`); file that as a lead.
+- **Lapsed:** say so in `duration_description` with the date. Record the
+  source you found, even if it only confirms that nothing was renewed.
 
+Then:
+
+The summary is kept as the unit's `last_check`, so the finding lives in the
+ledger and the backlog, not only in the commit message.
 ```bash
 python3 scripts/refresh_queue.py --mark <unit> --followups-only --summary "<what you found>" \
   [--follow-up YYYY-MM-DD "<next dated step, if the source names one>"]
@@ -205,10 +223,11 @@ If the gate still fails, push the branch, open the PR as a draft titled
 "daily refresh YYYY-MM-DD (NEEDS REVIEW)", and stop.
 
 **Commit and merge.** No CI exists, and GitHub Pages deploys `main:/docs`
-on merge, so there is nothing to wait for.
+on merge, so there is nothing to wait for. Set the identity per commit rather
+than with `git config`; some harnesses forbid config writes.
 ```bash
-git config user.name "pranava0x0"
-git config user.email "2497510+pranava0x0@users.noreply.github.com"
+export GIT_AUTHOR_NAME="pranava0x0" GIT_AUTHOR_EMAIL="2497510+pranava0x0@users.noreply.github.com"
+export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME" GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git add -A && git commit -q -m "data: daily refresh $(date +%F) — <n> units, <summary>"
 git push -u origin HEAD
 ```
