@@ -9,6 +9,10 @@
         }
       ]
     },
+    "site:aws-cumberland-pa": {
+      "last_reviewed": "2026-09-25",
+      "summary": "Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed."
+    },
     "state:CA": {
       "follow_ups": [
         {
@@ -22,6 +26,10 @@
         {
           "due": "2026-10-11",
           "what": "Escondido: staff returns Oct 10 with findings on the 45-day moratorium (escondido-ca-2026-08) — extended or lapsed?"
+        },
+        {
+          "due": "2026-10-16",
+          "what": "Indio's extended moratorium (indio-ca-2026-06) expires Oct 16 2026 -- permanent ban adopted, extended again, or lapsed?"
         }
       ]
     },
