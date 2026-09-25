@@ -868,18 +868,18 @@
       "announced_year": 2024,
       "claimed_investment_usd": 20000000000,
       "claimed_jobs": 1250,
-      "notes": "Two-campus build on land adjoining the Susquehanna Nuclear Plant in Salem Township, Luzerne County PA, structured around a behind-the-meter PPA with Talen Energy. (Project name 'Cumberland Valley' is a Talen-era branding; the actual location is Luzerne County, not Cumberland County PA.)",
-      "source_url": "https://www.aboutamazon.com/news/aws/aws-pennsylvania-data-center-investment",
+      "notes": "Two-campus build on land adjoining the Susquehanna Nuclear Plant in Salem Township, Luzerne County PA, structured around a behind-the-meter PPA with Talen Energy. (Project name 'Cumberland Valley' is a Talen-era branding; the actual location is Luzerne County, not Cumberland County PA.) June 11, 2025: Talen said its 300 MW co-location arrangement with AWS would shift from behind-the-meter to a front-of-the-meter PPA framework that does not require FERC approval, sidestepping the ISA dispute; transition targeted for spring 2026 after transmission upgrades.",
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
       "source_title": "AWS — $20B Pennsylvania investment (June 2024)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-09-25",
       "project_page_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
       "acreage": 1200,
       "power_mw": 1920,
       "offtaker": "AWS",
       "at_a_glance": {
         "jobs": "$20B / 1,250 jobs",
-        "energy": "1,920 MW behind-the-meter PPA with Talen (Susquehanna nuclear)",
-        "engagement": "FERC rejected amended ISA Nov 2024 — regulatory uncertainty"
+        "energy": "1,920 MW PPA with Talen (Susquehanna nuclear); shifting from behind-the-meter co-location to a front-of-the-meter framework, targeted spring 2026",
+        "engagement": "FERC rejected amended ISA Nov 2024; Talen/AWS restructured to a front-of-the-meter PPA instead of pursuing further FERC approval"
       }
     },
     {

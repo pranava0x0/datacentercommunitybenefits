@@ -433,6 +433,15 @@ def mark(key: str, summary: str, follow_ups: list[list[str]], on: date,
         entry["follow_ups"] = sorted(kept, key=lambda f: (f["due"], f["what"]))
     else:
         entry.pop("follow_ups", None)
+    if not entry.get("last_reviewed") and not entry.get("follow_ups"):
+        # A `--followups-only` mark whose unit had no *stored* follow-ups (the
+        # due item was purely derived — see module docstring) both skips
+        # last_reviewed/summary and clears the (empty) follow_ups list, so the
+        # entry setdefault'd above would otherwise be left as a bare `{}`: an
+        # empty ledger entry that carries no information and fails
+        # check_ledger(). Drop it — a unit with nothing stored is exactly a
+        # never-reviewed unit, which is already how a MISSING key is read.
+        ledger["units"].pop(key, None)
     save_ledger(ledger)
 
 

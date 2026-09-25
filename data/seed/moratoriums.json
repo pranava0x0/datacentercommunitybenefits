@@ -1136,16 +1136,22 @@
       "status": "enacted",
       "enacted_date": "2026-06-03",
       "effective_date": "2026-06-03",
-      "duration_months": 2,
-      "duration_description": "45-day emergency moratorium; Planning Commission has recommended an outright ban, with a Council decision on extension vs. permanent ban expected July 15, 2026",
+      "duration_months": 4,
+      "duration_description": "45-day emergency moratorium (enacted June 3, 2026); unanimously extended by the City Council on July 15, 2026 through October 16, 2026 while staff drafts General Plan and development-code amendments ranging from a full ban to lesser regulations. The Planning Commission has separately recommended an outright ban; Council has not yet acted on a permanent ordinance.",
       "power_threshold_mw": null,
       "key_reasons": [
         "transparency"
       ],
-      "summary": "Indio City Council unanimously passed a 45-day emergency data-center moratorium on June 3, 2026, though no data-center proposals were active at the time. The Planning Commission has since recommended an outright ban; the Council is weighing extension versus a permanent ban.",
-      "source_url": "https://kesq.com/news/2026/07/14/indio-city-council-to-consider-extending-data-center-moratorium-weigh-permanent-ban/",
-      "source_title": "KESQ — Indio City Council to consider extending data center moratorium, weigh permanent ban",
-      "captured_at": "2026-07-15",
+      "summary": "Indio City Council unanimously passed a 45-day emergency data-center moratorium on June 3, 2026, then voted unanimously on July 15, 2026 to extend it through October 16, 2026 while staff drafts General Plan and development-code amendments (a range of options up to a full ban). The Planning Commission has recommended an outright ban; no permanent ordinance has been adopted yet.",
+      "source_url": "https://www.nbcpalmsprings.com/2026/07/16/indio-city-council-extends-data-center-moratorium-with-planning-commission-already-recommending-a-full-ban",
+      "source_title": "NBC Palm Springs — Indio City Council Extends Data Center Moratorium, With Planning Commission Already Recommending A Full Ban",
+      "resources": [
+        {
+          "url": "https://kesq.com/news/2026/07/14/indio-city-council-to-consider-extending-data-center-moratorium-weigh-permanent-ban/",
+          "title": "KESQ — Indio City Council to consider extending data center moratorium, weigh permanent ban"
+        }
+      ],
+      "captured_at": "2026-09-25",
       "city_council_vote": "unanimous",
       "state_code": "CA"
     },
@@ -2783,16 +2789,16 @@
       "status": "enacted",
       "enacted_date": "2025-08-22",
       "effective_date": null,
-      "duration_months": 12,
-      "duration_description": "One-year moratorium pausing acceptance of zoning-change applications for data centers and issuance of building permits for data centers while the city studies effects and revises the zoning code. (In May 2026 the council moved to permanently restrict large-scale data centers.)",
+      "duration_months": null,
+      "duration_description": "Originally a one-year moratorium (enacted Aug 22, 2025) pausing data-center zoning applications and building permits; the City Council converted it into a permanent zoning ban on May 19, 2026 (7-1 vote), amending the zoning code so data centers are not a permitted or conditional use anywhere in city limits.",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "water"
       ],
-      "summary": "On August 22, 2025 the St. Charles City Council approved a one-year moratorium pausing data-center zoning-change applications and building permits, following public opposition to a proposed 440-acre project ('Project Cumulus') that the developer (CRG) later withdrew. All ten council members co-sponsored the measure. Status: enacted.",
-      "source_url": "https://www.govtech.com/policy/st-charles-mo-moves-to-ban-data-centers-for-1-year",
-      "source_title": "St. Charles, Mo., Moves to Ban Data Centers for 1 Year (Government Technology)",
+      "summary": "On August 22, 2025 the St. Charles City Council approved a one-year moratorium pausing data-center zoning-change applications and building permits, following public opposition to a proposed 440-acre project ('Project Cumulus') that the developer (CRG) later withdrew. On May 19, 2026 the Council voted 7-1 to make the ban permanent, amending the zoning code to exclude data centers as a permitted or conditional use citywide. Status: enacted (now a permanent zoning ban).",
+      "source_url": "https://www.stlpr.org/2026-05-20/st-charles-passes-a-ban-on-data-centers",
+      "source_title": "St. Louis Public Radio — St. Charles passes a ban on data centers",
       "bill_number": null,
       "sponsors": null,
       "key_stakeholders": null,
@@ -2800,7 +2806,7 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2025",
-      "captured_at": "2026-07-14",
+      "captured_at": "2026-09-25",
       "state_code": "MO"
     },
     {
@@ -3168,15 +3174,15 @@
       "status": "enacted",
       "enacted_date": "2026-01-27",
       "effective_date": "2026-01-27",
-      "duration_months": 7,
-      "duration_description": "Extended through Aug 25, 2026 (adopted Jan 27, extended Feb 9, 2026)",
+      "duration_months": 13,
+      "duration_description": "Adopted Jan 27, 2026; extended Feb 9, 2026 through Aug 25, 2026; extended a second time by the Board of County Commissioners on July 13, 2026, through Feb 25, 2027, to give staff more time to draft permanent land-use regulations.",
       "power_threshold_mw": null,
       "key_reasons": [
         "water",
         "energy",
         "transparency"
       ],
-      "summary": "Larimer County's Board of County Commissioners adopted a resolution on January 27, 2026 pausing new land-use applications for data center facilities in unincorporated Larimer County, then extended it on February 9, 2026 through August 25, 2026 to give staff time to draft permanent regulations; a public survey drew 94% opposition to any data center construction in the county.",
+      "summary": "Larimer County's Board of County Commissioners adopted a resolution on January 27, 2026 pausing new land-use applications for data center facilities in unincorporated Larimer County, extended it on February 9, 2026 through August 25, 2026, and extended it a second time on July 13, 2026 through February 25, 2027, to give staff more time to draft permanent regulations; a public survey drew 94% opposition to any data center construction in the county.",
       "source_url": "https://www.larimer.gov/planning/temp-moratorium-data-centers",
       "source_title": "Larimer County, CO — Temporary Moratorium on Data Center Facilities",
       "resources": [
@@ -3185,7 +3191,7 @@
           "title": "Government Technology — Colorado County Prepares to Extend Data Center Moratorium"
         }
       ],
-      "captured_at": "2026-07-27"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "jefferson-county-co-2026-05",
