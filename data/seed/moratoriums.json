@@ -5040,10 +5040,10 @@
       "jurisdiction_type": "county",
       "state_code": "KY",
       "status": "enacted",
-      "enacted_date": null,
-      "effective_date": null,
+      "enacted_date": "2026-08-18",
+      "effective_date": "2026-08-18",
       "duration_months": 24,
-      "duration_description": "2 years, unanimously passed at the Fiscal Court's August 2026 monthly meeting (exact day not stated even in the county's own newsletter). No data center has approached the county; officials cited a lack of zoning regulations to review any future proposal.",
+      "duration_description": "2 years, unanimously passed at the Fiscal Court's regular August 2026 monthly meeting -- Aug. 18, 2026, per the Fiscal Court's own standing 'meetings...held on the 3rd Tuesday of each month' schedule (rcky.us/fiscal-court), since the Rowan Review only says 'August's monthly meeting' without stating the day directly. No data center has approached the county; officials cited a lack of zoning regulations to review any future proposal.",
       "power_threshold_mw": null,
       "key_reasons": [
         "transparency"
@@ -5055,6 +5055,10 @@
         {
           "url": "https://www.lex18.com/news/covering-kentucky/rowan-county-approves-two-year-data-center-moratorium-ahead-of-potential-projects",
           "title": "LEX18 — Rowan County approves two-year data center moratorium ahead of potential projects"
+        },
+        {
+          "url": "https://www.rcky.us/fiscal-court",
+          "title": "Rowan County, Kentucky (official) — Fiscal Court meeting schedule and minutes"
         }
       ],
       "session": "2026",
