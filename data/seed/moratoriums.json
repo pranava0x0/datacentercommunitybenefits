@@ -114,36 +114,6 @@
       "state_code": "AL"
     },
     {
-      "id": "bloomington-normal-il-2026-06",
-      "jurisdiction": "Bloomington and Normal",
-      "jurisdiction_type": "city",
-      "status": "enacted",
-      "enacted_date": "2026-05-25",
-      "effective_date": "2026-05-25",
-      "duration_months": null,
-      "duration_description": "Temporary pause",
-      "power_threshold_mw": null,
-      "key_reasons": [
-        "transparency",
-        "energy"
-      ],
-      "summary": "Joint moratorium on data center development in Bloomington and Normal, Illinois.",
-      "source_url": "https://www.datacenterbans.com/",
-      "source_title": "DatacenterBans.com",
-      "captured_at": "2026-05-25",
-      "resources": [
-        {
-          "url": "https://datacenterbans.com/",
-          "title": "DatacenterBans.com"
-        },
-        {
-          "url": "https://www.nrdc.org/",
-          "title": "NRDC"
-        }
-      ],
-      "state_code": "IL"
-    },
-    {
       "id": "boise-id-2026-05",
       "jurisdiction": "Boise",
       "jurisdiction_type": "city",
@@ -256,7 +226,7 @@
         "water",
         "noise"
       ],
-      "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development. Already-approved projects are exempt, and staff will use the pause to draft new regulations. Status: enacted.",
+      "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development, running through November 5, 2026. Already-approved projects are exempt. A city staff study submitted September 1, 2026 found data-center impacts vary widely by facility type, site layout and climate; the Transportation, Planning and Development Committee then recommended the full council extend the pause by up to nine months (to roughly August 2027) to allow more time on air-pollution monitoring, noise limits and community input, with the full council taking up the extension at its September 14, 2026 business meeting. As of September 25, 2026 no outlet checked reports the outcome of a final council vote on the extension; the moratorium as enacted remains in effect through November 5, 2026 either way. Status: enacted (original 150-day pause).",
       "source_url": "https://www.wfae.org/politics/2026-06-08/charlotte-city-council-approves-150-day-data-center-moratorium",
       "source_title": "Charlotte City Council approves 150-day data center moratorium (WFAE)",
       "bill_number": null,
@@ -266,8 +236,18 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14",
-      "state_code": "NC"
+      "captured_at": "2026-09-25",
+      "state_code": "NC",
+      "resources": [
+        {
+          "url": "https://www.wfae.org/2026-09-08/charlotte-could-extend-data-center-moratorium",
+          "title": "WFAE — Charlotte could extend data center moratorium by nine months (Sept. 8, 2026)"
+        },
+        {
+          "url": "https://www.wfae.org/energy-environment/2026-08-21/halfway-through-the-charlotte-data-center-moratorium-the-city-still-has-questions",
+          "title": "WFAE — Halfway through the Charlotte data center moratorium, the city still has questions (Aug. 21, 2026)"
+        }
+      ]
     },
     {
       "id": "chesterfield-county-sc-2026-05",
@@ -3396,7 +3376,7 @@
       "enacted_date": "2026-06-09",
       "effective_date": null,
       "duration_months": null,
-      "duration_description": "In force through September 30, 2026. First imposed in 2025; the Board of Commissioners extended it December 16, 2025 (through June 23, 2026) and again June 9, 2026 by 100 days (5-2 vote).",
+      "duration_description": "In force through March 30, 2027. First imposed in 2025; the Board of Commissioners extended it December 16, 2025 (through June 23, 2026), again June 9, 2026 by 100 days (5-2 vote, through September 30, 2026), and again July 7, 2026 through March 30, 2027. Separately, the Commission REJECTED the Planning & Sustainability Department's proposed zoning/land-use text amendment for data centers on June 23, 2026 (unanimous vote); officials are now seeking input from additional county departments (Watershed Management, Public Safety, Transportation, Public Health) before drafting new regulations.",
       "power_threshold_mw": null,
       "key_reasons": [
         "noise",
@@ -3404,7 +3384,7 @@
         "equity",
         "water"
       ],
-      "summary": "DeKalb County's moratorium blocks new licenses and permits for data centers (including expansions) while the county drafts zoning rules that would restrict facilities to industrial areas and require a special land-use permit in most cases, with defined categories up to 500,000+ sq ft campuses. Commissioners cited noise near homes and parks, grid reliability, stormwater and drinking-water impacts, and the concentration of industrial burdens on historically overburdened communities.",
+      "summary": "DeKalb County's moratorium blocks new licenses and permits for data centers (including expansions) while the county works on zoning rules. Commissioners rejected the Planning & Sustainability Department's proposed zoning/land-use regulations on June 23, 2026, then extended the moratorium itself through March 30, 2027 on July 7, 2026 to allow further review with additional county departments. Commissioners cited noise near homes and parks, grid reliability, stormwater and drinking-water impacts, and the concentration of industrial burdens on historically overburdened communities.",
       "source_url": "https://www.wabe.org/dekalb-county-commission-extends-data-center-moratorium/",
       "source_title": "WABE — DeKalb County Commission extends data center moratorium",
       "resources": [
@@ -3415,9 +3395,21 @@
         {
           "url": "https://www.atlantanewsfirst.com/2026/06/09/dekalb-county-extends-data-center-moratorium/",
           "title": "Atlanta News First — DeKalb County extends data center moratorium"
+        },
+        {
+          "url": "https://www.atlantanewsfirst.com/2026/06/26/dekalb-county-rejects-data-center-regulations/",
+          "title": "Atlanta News First — DeKalb County rejects data center regulations (June 26, 2026)"
+        },
+        {
+          "url": "https://www.decaturish.com/news/dekalb/dekalb-extends-data-center-moratorium-through-early-2027/article_22c7d964-ee2f-49f5-a879-9abaabbd6b45.html",
+          "title": "Decaturish — DeKalb extends data center moratorium through early 2027 (July 7, 2026)"
+        },
+        {
+          "url": "https://engagedekalb.dekalbcountyga.gov/data-center-text-amendment/news_feed/data-center-update",
+          "title": "DeKalb County (Engage DeKalb, official) — Data Center Text Amendment Update: Commission voted to deny the amendment June 23, 2026"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "anderson-county-sc-2026-08",
@@ -3492,7 +3484,7 @@
       "enacted_date": null,
       "effective_date": null,
       "duration_months": 3,
-      "duration_description": "90 days once formally adopted (extendable for an additional 90 days under state law); the Aug. 11, 2026 council resolution only initiated the required process. Per the city's data-center page (checked Sept. 22, 2026), the first of two required public hearings will be held not later than Nov. 10, 2026, with further notices, hearings and ordinance readings before an adoption vote tentatively set for Feb. 16, 2027.",
+      "duration_description": "90 days once formally adopted (extendable for an additional 90 days under state law); the Aug. 11, 2026 council resolution only initiated the required process. Full procedural timeline per the city's own published schedule: Oct. 9 notice for first hearing; Nov. 3 Data Center & Infrastructure Committee presents studies to council; Nov. 10 first public hearing; Nov. 13 notice for second hearing; Jan. 5, 2027 second public hearing; Jan. 12, 2027 first reading of the proposed ordinance; Feb. 16, 2027 second reading/effective date if adopted (requires a three-fourths council majority on final vote, not a simple majority).",
       "power_threshold_mw": null,
       "key_reasons": [
         "water",
@@ -3518,7 +3510,7 @@
       ],
       "city_council_vote": "Unanimous (moratorium process); 10-1 (infrastructure committee)",
       "session": "2026",
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "greensboro-nc-2026-08",
@@ -3849,19 +3841,23 @@
         "energy",
         "water"
       ],
-      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed.",
+      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. On September 14, 2026 Abbott issued a second, related directive to the Texas Water Development Board (TWDB), ordering it to compel major water users including data centers to complete legally required water-use surveys and to penalize those that don't: noncompliant users can face a Class C misdemeanor and become ineligible for TCEQ permits, permit amendments or renewals, with the Governor's office citing roughly 28% survey response compliance over the last three years; TWDB must report back to the Governor's office on enforcement progress by October 14, 2026. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed.",
       "source_url": "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/",
       "source_title": "The Texas Tribune — Gov. Greg Abbott orders audit of Texas data center projects amid grid capacity concerns",
       "resources": [
         {
           "url": "https://www.akingump.com/en/insights/alerts/texas-pauses-data-center-interconnections-pending-statewide-audit",
           "title": "Akin Gump — Texas Pauses Data Center Interconnections Pending Statewide Audit"
+        },
+        {
+          "url": "https://gov.texas.gov/news/post/governor-abbott-directs-twdb-to-penalize-data-center-reporting-failures",
+          "title": "Office of the Texas Governor — Governor Abbott Directs TWDB To Penalize Data Center Reporting Failures (Sept. 14, 2026)"
         }
       ],
       "policy_type": "administrative pause pending audit (governor's directive)",
       "enacted_by": "Governor Greg Abbott (directive to PUCT and ERCOT)",
       "session": "2026",
-      "captured_at": "2026-09-08"
+      "captured_at": "2026-09-25"
     },
     {
       "enacted_date": "2026-09-08",
@@ -4660,7 +4656,7 @@
       "city_council_vote": "Unanimous at first public hearing (September 15, 2026)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-09-22",
+      "captured_at": "2026-09-25",
       "id": "leon-county-fl-2026-09",
       "jurisdiction": "Leon County",
       "jurisdiction_type": "county",
@@ -4855,6 +4851,66 @@
       "failure_reason": null,
       "session": "2026",
       "captured_at": "2026-09-22"
+    },
+    {
+      "id": "bloomington-il-2026-05",
+      "jurisdiction": "Bloomington",
+      "jurisdiction_type": "city",
+      "state_code": "IL",
+      "status": "enacted",
+      "enacted_date": "2026-05-26",
+      "effective_date": "2026-05-26",
+      "duration_months": 6,
+      "duration_description": "6 months (through approximately November 26, 2026); applies only to facilities designed with a capacity greater than 5 megawatts. Not an extension yet as of this capture, but the Planning Commission has scheduled two public hearings (Oct. 16 and Nov. 16, 2026) toward a longer-term data-center ordinance, per Mayor Dan Brady.",
+      "power_threshold_mw": 5,
+      "key_reasons": [
+        "energy",
+        "transparency"
+      ],
+      "summary": "The Bloomington City Council voted (Mollie Ward dissenting) on May 26, 2026 to approve a 6-month moratorium on data center development, specifically for facilities over 5 MW capacity, while the city studies regulations. This is a separate action from neighboring Normal's moratorium, which has no MW threshold.",
+      "source_url": "https://www.wglt.org/local-news/2026-05-26/bloomington-approves-6-month-moratorium-on-data-centers",
+      "source_title": "WGLT — Bloomington approves 6-month moratorium on data centers",
+      "resources": [
+        {
+          "url": "https://www.25newsnow.com/2026/09/20/normal-consider-longer-moratorium-data-centers-bloomington-schedules-pair-public-hearings/",
+          "title": "25News Now — Normal to consider longer moratorium on data centers, Bloomington schedules 2 public hearings (Sept. 20, 2026)"
+        }
+      ],
+      "city_council_vote": "Passed (Mollie Ward against)",
+      "session": "2026",
+      "captured_at": "2026-09-25"
+    },
+    {
+      "id": "normal-il-2026-05",
+      "jurisdiction": "Normal",
+      "jurisdiction_type": "city",
+      "state_code": "IL",
+      "status": "enacted",
+      "enacted_date": "2026-05-18",
+      "effective_date": "2026-05-18",
+      "duration_months": null,
+      "duration_description": "Originally 6-plus months, through November 30, 2026 (unanimous vote, ~May 18, 2026); extended a further six months, through May 31, 2027, by a 6-1 council vote on September 22, 2026 (Andy Byars dissenting). No minimum-capacity threshold (unlike neighboring Bloomington's 5+ MW-only pause). Town staff cited continued uncertainty over potential state-level data-center legislation (the POWER Act, on which Illinois lawmakers took no action in the spring session) as the reason for the extension.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "transparency"
+      ],
+      "summary": "The Town of Normal's council voted unanimously around May 18, 2026 to pause approval of new data centers through November 30, 2026 while it develops regulations; on September 22, 2026 the council voted 6-1 to extend that pause a further six months, through May 31, 2027, citing unresolved state-level data-center legislation. This is a separate action from neighboring Bloomington's moratorium, which only applies above 5 MW.",
+      "source_url": "https://www.wglt.org/local-news/2026-09-22/normal-town-council-hears-financial-trends-approves-data-center-moratorium-extension",
+      "source_title": "WGLT — Normal Town Council hears financial trends, approves data center moratorium extension (Sept. 22, 2026)",
+      "resources": [
+        {
+          "url": "https://www.25newsnow.com/2026/05/19/data-center-pauses-considered-normal-bloomington/",
+          "title": "25News Now — Data center pause approved in Normal, Bloomington likely to follow (May 18-19, 2026)"
+        },
+        {
+          "url": "https://www.wglt.org/local-news/2026-09-18/normal-proposes-6-month-extension-to-data-center-moratorium",
+          "title": "WGLT — Normal proposes 6-month extension to data center moratorium (Sept. 18, 2026)"
+        }
+      ],
+      "city_council_vote": "6-1 (Andy Byars against); original vote unanimous",
+      "session": "2026",
+      "captured_at": "2026-09-25"
     }
   ]
 }
