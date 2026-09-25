@@ -607,6 +607,10 @@ navigation.
   policies, tariffs, rate-case decisions or sites, which is most of what
   changes. It should be derived from all record types (see `home.json` in
   §5). **medium**
+- **"Upcoming docket dates" can show past dates.** Between a milestone
+  passing and the routine re-checking it (due the next day), Home lists a
+  date that is already over. Filter out past dates, or label them "awaiting
+  outcome". **low**
 - **Very long pages on phone.** Moratoriums runs 25 screens, Tariffs 17.5,
   The Pledge 13.4. Collapse directories by default under 600 px, or
   paginate. **medium**
