@@ -12,8 +12,16 @@
     "state:CA": {
       "follow_ups": [
         {
+          "due": "2026-10-02",
+          "what": "San Francisco: Sup. Walton's 45-day interim zoning moratorium (introduced Sept 14/15) — approved?"
+        },
+        {
           "due": "2026-10-07",
           "what": "Mendocino County: extension hearing Oct 6 (urgency ordinance expires Oct 16) — extended or lapsed?"
+        },
+        {
+          "due": "2026-10-11",
+          "what": "Escondido: staff returns Oct 10 with findings on the 45-day moratorium (escondido-ca-2026-08) — extended or lapsed?"
         }
       ]
     },
@@ -22,6 +30,10 @@
         {
           "due": "2026-10-14",
           "what": "Moffat County: decision Oct 13 — outcome?"
+        },
+        {
+          "due": "2026-10-29",
+          "what": "Colorado PUC evidentiary hearing Oct 21–28 on Xcel's large-load tariff (xcel-colorado-large-load-tariff)"
         }
       ]
     },
@@ -34,6 +46,34 @@
         {
           "due": "2026-10-14",
           "what": "Leon County: 18-month moratorium final hearing Oct 13 — adopted?"
+        }
+      ]
+    },
+    "state:GA": {
+      "follow_ups": [
+        {
+          "due": "2027-01-01",
+          "what": "Bulloch County moratorium ends Dec 31, 2026 unless extended or replaced (bulloch-county-ga-2026-02)"
+        }
+      ]
+    },
+    "state:IL": {
+      "follow_ups": [
+        {
+          "due": "2026-10-17",
+          "what": "Bloomington: Planning Commission hearing Oct 16 toward a permanent data-center ordinance (bloomington-il-2026-05); second hearing Nov 16"
+        },
+        {
+          "due": "2026-11-27",
+          "what": "Bloomington's 6-month moratorium from May 26 nears its end — extended, lapsed, or replaced by the permanent ordinance?"
+        }
+      ]
+    },
+    "state:IN": {
+      "follow_ups": [
+        {
+          "due": "2026-10-20",
+          "what": "Fort Wayne: council reconsiders the 365-day pause on its own actions in mid-October (postponed 3 weeks on Sept 23)"
         }
       ]
     },
@@ -50,6 +90,18 @@
         {
           "due": "2026-10-07",
           "what": "Raleigh: six-month draft moratorium hearing Oct 6 — adopted?"
+        },
+        {
+          "due": "2026-11-06",
+          "what": "Charlotte: the original 150-day pause expires Nov 5 — was staff's 9-month extension adopted? (charlotte-city-2026-06; the Sept 14 vote outcome was never found)"
+        }
+      ]
+    },
+    "state:NM": {
+      "follow_ups": [
+        {
+          "due": "2026-10-09",
+          "what": "Grant County: board formally considers a moratorium Oct 8 (only a notice of intent passed Sept 24) — adopted?"
         }
       ]
     },
@@ -58,6 +110,26 @@
         {
           "due": "2026-11-04",
           "what": "Nov 3 ballot: ~18 local data-center charter amendments/bans (Ohio Capital Journal Sept 14, Cloudflare-walled), incl. Trenton; and the Butler County 25 MW citizen measure tied to Amazon's $5B plan — record outcomes"
+        }
+      ]
+    },
+    "state:OR": {
+      "follow_ups": [
+        {
+          "due": "2027-01-01",
+          "what": "Oregon PUC deadline Dec 31 on PacifiCorp Schedule 401 (UE 463; Order 26-310 suspended it to Dec 31)"
+        }
+      ]
+    },
+    "state:TX": {
+      "follow_ups": [
+        {
+          "due": "2026-10-15",
+          "what": "TWDB reports to Gov. Abbott Oct 14 on penalizing data centers that skip water-use reporting (texas-state-2026-08)"
+        },
+        {
+          "due": "2026-11-11",
+          "what": "Fort Worth: committee report to council Nov 3, first public hearing Nov 10 (fort-worth-tx-2026-08)"
         }
       ]
     },

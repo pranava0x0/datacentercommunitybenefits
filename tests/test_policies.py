@@ -303,7 +303,7 @@ def test_tab_is_wired(js) -> None:
 # proving nothing. These guards keep the list of such records from growing.
 
 HOMEPAGE_SOURCED_MORATORIUMS = {  # audit these; remove ids as they are fixed
-    "baltimore-city-2026-05", "bloomington-normal-il-2026-06", "boise-id-2026-05",
+    "baltimore-city-2026-05", "boise-id-2026-05",
     "cheyenne-wy-2026-06", "dubuque-county-ia-2026-06", "hawaii-state-2026-01",
     "hill-county-tx-2024-04", "indianapolis-in-2024-10",
     "iron-county-ut-2026-06", "loudoun-county-leesburg-va-2026-06", 

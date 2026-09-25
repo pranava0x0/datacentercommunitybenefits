@@ -50,7 +50,12 @@ MIN_TEXT = 400  # a bot-wall interstitial is short; real article text is not
 def norm(s: str) -> str:
     for a, b in NORMALIZE.items():
         s = s.replace(a, b)
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s)
+    # Page layout leaves spaces the prose never had: "News , the" from an
+    # inline link, "1 - cent" from PDF text runs. Collapse them on both sides.
+    s = re.sub(r" ([,.;:!?)])", r"\1", s)
+    s = re.sub(r" ?- ?", "-", s)
+    return s.strip()
 
 
 def html_text(raw: str) -> str:
