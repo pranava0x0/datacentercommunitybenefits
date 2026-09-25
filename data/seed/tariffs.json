@@ -1004,7 +1004,8 @@
         },
         "econ_dev_payments": {
           "status": "included",
-          "detail": "Loads over 100 MW pay a 1¢/kWh surcharge directed to offset residential customer costs and low-income energy burden."
+          "detail": "Loads over 100 MW pay a 1¢/kWh surcharge directed to offset residential customer costs and low-income energy burden.",
+          "source_url": "https://www.oregon.gov/puc/news-events/Documents/PR-202609.pdf"
         }
       },
       "additional_terms": [
@@ -1033,9 +1034,13 @@
         {
           "url": "https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf",
           "title": "DOE/Berkeley Lab — Electricity Rate Designs for Large Loads (Jan 2025)"
+        },
+        {
+          "url": "https://www.oregon.gov/puc/news-events/Documents/PR-202609.pdf",
+          "title": "Oregon PUC media release (PR-202609) — Oregon PUC Approves New Rate Structure to Protect Customers Amid Rapid Data Center Growth"
         }
       ],
-      "captured_at": "2026-06-24"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "xcel-colorado-large-load-tariff",
@@ -1045,7 +1050,7 @@
       "tariff_name": "Large Load Tariff",
       "tariff_type": "Large-load / data center tariff",
       "status": "proposed",
-      "status_detail": "Advice letter (Proceeding 26AL-0137E, filed April 2, 2026) suspended and set for hearing by Decision C26-0280 (April 30, 2026). Decision C26-0430-I (June 26, 2026) set the procedural schedule with the evidentiary hearing on October 21, 22, 26, 27 and 28, 2026; Decision C26-0467 (July 10, 2026) scheduled remote public comment hearings for August 25 and October 20, 2026 and extended the suspension of the tariff sheets by an additional 130 days to January 8, 2027. Answer testimony was filed August 19, 2026 (Commission Staff, Western Resource Advocates, Google LLC, City of Boulder, United Power and others). As of September 22, 2026 the e-filings docket shows testimony and public comments still being filed and no Commission decision on the merits — the earlier expectation of a Q3 2026 decision and August 2026 implementation is superseded.",
+      "status_detail": "Advice letter (Proceeding 26AL-0137E, filed April 2, 2026) suspended and set for hearing by Decision C26-0280 (April 30, 2026). Decision C26-0430-I (June 26, 2026) set the procedural schedule with the evidentiary hearing on October 21, 22, 26, 27 and 28, 2026; Decision C26-0467 (July 10, 2026) scheduled remote public comment hearings for August 25 and October 20, 2026 and extended the suspension of the tariff sheets by an additional 130 days to January 8, 2027. Answer testimony was filed August 19, 2026 (Commission Staff, Western Resource Advocates, Google LLC, City of Boulder, United Power and others). As of September 25, 2026 the Colorado PUC's own key-proceedings and e-filings pages show no Commission decision on the merits — the case remains at the pre-hearing stage awaiting the late-October evidentiary hearing.",
       "regulator": "Colorado Public Utilities Commission (COPUC)",
       "filed_date": "2026-04-02",
       "min_load_mw": 50,
@@ -1113,7 +1118,7 @@
           "title": "Colorado PUC Decision C26-0467 — public comment hearings Aug. 25 and Oct. 20, 2026; suspension extended to Jan. 8, 2027"
         }
       ],
-      "captured_at": "2026-09-22",
+      "captured_at": "2026-09-25",
       "docket_number": "26AL-0137E"
     },
     {
@@ -1124,7 +1129,7 @@
       "tariff_name": "Ratepayer Protection Tariff (large-load cost allocation framework)",
       "tariff_type": "Ratepayer-protection / large-load cost allocation",
       "status": "proposed",
-      "status_detail": "Filed May 2026 under PUCN Docket 20-08014 (reusing a docket opened August 2020) as a stakeholder proposal within an existing investigation, not yet an adopted tariff or rate class. Public comment and scenario modeling continue through October 2026; evidentiary hearings scheduled January 2027; final decision expected mid-2027. Checked against the PUCN document portal on 2026-09-22: Docket 20-08014's most recent entries are public comments filed through June 16, 2026, following Procedural Order No. 6 (April 20, 2026); no Commission decision on the Ratepayer Protection Tariff proposal has been entered.",
+      "status_detail": "Filed May 2026 under PUCN Docket 20-08014 (reusing a docket opened August 2020) as a stakeholder proposal within an existing investigation, not yet an adopted tariff or rate class. Utility Dive (source_url) reports the commission is expected to move the matter through evaluation, scenario modeling and public comment before deciding whether to adopt the framework; other coverage (not independently re-verified this pass) has described public comment continuing through October 2026 with evidentiary hearings in January 2027 and a decision expected mid-2027. Re-checked 2026-09-25: no Commission decision on the Ratepayer Protection Tariff proposal has been found.",
       "regulator": "Public Utilities Commission of Nevada (PUCN)",
       "docket_number": "20-08014",
       "min_load_mw": null,
@@ -1179,7 +1184,7 @@
           "title": "PUCN Document Search portal — search type 'PUC - Public Search - Dockets', docket 20-08014"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "comed-il-large-load-deposit-2026",
@@ -1229,7 +1234,7 @@
       "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0105)",
       "tariff_type": "Large-load cost-of-service rate case",
       "status": "proposed",
-      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 with more than 30 intervenors and had concluded by July 10, 2026 (per APS). The ALJ's Recommended Opinion and Order 'may take months'; APS says a final ACC decision is expected later in 2026, with requested rates effective no earlier than July 8, 2026 — in practice early 2027. As of September 22, 2026 the ACC's news page lists no Recommended Opinion and Order or open-meeting item on the case.",
+      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 with more than 30 intervenors and had concluded by July 10, 2026 (per APS). The ALJ's Recommended Opinion and Order 'may take months'; APS says a final ACC decision is expected later in 2026, with requested rates effective no earlier than July 8, 2026 — in practice early 2027. As of September 25, 2026 the ACC's news page lists no Recommended Opinion and Order or open-meeting item on the case.",
       "regulator": "Arizona Corporation Commission (ACC)",
       "docket_number": "E-01345A-25-0105",
       "filed_date": "2025-06-01",
@@ -1265,7 +1270,7 @@
           "title": "APS — Rate Case Hearing Concludes; Process Moves to Next Phase (July 10, 2026)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "duke-nc-large-load-rate-case-2025",
@@ -1274,7 +1279,7 @@
       "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1329)",
       "tariff_type": "Large-load rate case — cost-of-service and class design",
       "status": "proposed",
-      "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026, committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. A final NCUC order on the settlement is still pending as of late August 2026. As of September 22, 2026 no NCUC order on the settlement has been located (the Commission's docket system blocks automated retrieval). On September 14, 2026 Attorney General Jeff Jackson — who declined to sign the settlement — filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers, part of the process the Commission opened after he requested a separate large-load proceeding (NCDOJ release). The settlement's end-of-September deadline for Duke and the Public Staff to submit the large-load tariff remains pending.",
+      "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026 (Andale, LLC later added as a stipulating party), committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. As of September 25, 2026 no NCUC order on the settlement has been located (the Commission's docket system blocks automated retrieval). On September 14, 2026 Attorney General Jeff Jackson — who declined to sign the settlement — filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers, part of the process the Commission opened after he requested a separate large-load proceeding (NCDOJ release). The settlement's end-of-September deadline for Duke and the Public Staff to submit the large-load tariff remains the next dated step.",
       "regulator": "North Carolina Utilities Commission (NCUC)",
       "docket_number": "E-7, Sub 1329",
       "filed_date": "2025-11-20",
@@ -1314,7 +1319,7 @@
           "title": "NCDOJ — Attorney General Jackson proposes framework to ensure data centers pay their fair share (Sept. 14, 2026)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "virginia-data-center-electricity-consumption-tax",
@@ -1477,7 +1482,7 @@
           "title": "Earthjustice — Intervenors' Motion to Clarify the Scope and Brief in Support, Dkt. No. 2026.04.023 (PDF)"
         }
       ],
-      "captured_at": "2026-09-08"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "iid-ca-large-load-tariff-2026",
@@ -1563,7 +1568,7 @@
       "tariff_name": "Schedule 401 — Service to New Large Energy Use Facilities (Advice No. 25-015)",
       "tariff_type": "Data center / large energy use facility rate class (HB 3546 POWER Act implementation)",
       "status": "proposed",
-      "status_detail": "Docket UE 463 shows status SUSPENDED (under Commission investigation) as of September 22, 2026. Filed October 2, 2025 as ADV 1790, which the Commission closed December 16, 2025 with all filings moved to UE 463 after AWEC, Amazon and the Data Center Coalition intervened. On September 16, 2026 PacifiCorp filed a motion to admit an executed stipulation among PUC Staff, PacifiCorp, the Citizens' Utility Board and environmental intervenors, with joint supporting testimony. The PUC's May 2026 release on PGE's Schedule 96 notes the Commission 'is now considering an updated data center-specific tariff that directly addresses the POWER Act in Docket UE 463.'",
+      "status_detail": "Docket UE 463 shows status SUSPENDED (under Commission investigation); Order No. 26-310 (Aug. 31, 2026) suspended the tariff sheets' effective date until December 31, 2026. Filed October 2, 2025 as ADV 1790, which the Commission closed December 16, 2025 with all filings moved to UE 463 after AWEC, Amazon and the Data Center Coalition intervened. On September 16, 2026 PacifiCorp filed a motion to admit an executed stipulation among PUC Staff, PacifiCorp, the Citizens' Utility Board and Environmental Intervenors, with joint supporting testimony from Robert Meredith, Bret Stevens, Ryan Tran and Jeremy Fisher. As of September 25, 2026 the docket's own filing log shows no Commission order acting on the stipulation yet; the December 31, 2026 suspension deadline is the next dated step.",
       "regulator": "Public Utility Commission of Oregon (OPUC)",
       "docket_number": "UE 463 (originally ADV 1790 / Advice No. 25-015)",
       "filed_date": "2025-10-02",
@@ -1620,7 +1625,7 @@
           "title": "Oregon PUC media release (UM 2377) — Oregon PUC Approves New Rate Structure to Protect Customers Amid Rapid Data Center Growth (notes UE 463 is under consideration)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     }
   ]
 }
