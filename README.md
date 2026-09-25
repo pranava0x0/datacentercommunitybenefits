@@ -174,39 +174,37 @@ addition checklist.
 
 ## Repo layout
 
+Counts are left out on purpose; they go stale. Run
+`python3 refresh.py --check` for the current totals.
+
 ```
 .
 ├── schema.py                   # Pydantic models — single source of truth
-├── refresh.py                  # CLI: validate seed → emit docs/data/*.json
-├── connectors/                 # Skeleton for v2 per-company scrapers
-│   ├── __init__.py             # (v1: empty; v2: connector registry)
-│   └── base.py                 # Connector ABC for v2 fetchers
-├── data/seed/                  # Curator's working JSON (the source of truth)
-│   ├── companies.json          # 9 companies
-│   ├── claims.json             # 93 verbatim benefit claims
-│   ├── projects.json           # 16 data center sites
-│   └── responses.json          # 16 community responses
-├── docs/                       # GitHub Pages root
-│   ├── index.html              # Two-view shell + tab strip
-│   ├── styles.css              # CSS-var-driven palette + dark mode
-│   ├── app.js                  # View rendering + Leaflet code-split
-│   └── data/                   # Built JSON payloads (output of refresh.py)
-├── tests/
-│   ├── test_schema.py          # Schema-level invariants (30 tests)
-│   ├── test_seed_data.py       # Seed validation + cross-references (26 tests)
-│   ├── test_refresh.py         # refresh.py CLI behavior (8 tests)
-│   ├── test_themes_match_frontend.py   # Python ↔ JS parity (3 tests)
-│   └── e2e/
-│       ├── conftest.py         # Spins up local server for Playwright
-│       └── test_views.py       # End-to-end browser tests (41 tests)
-├── requirements.txt            # pydantic, requests, pytest, playwright
-├── pytest.ini                  # Test config
-├── CLAUDE.md                   # Project conventions (read first)
-├── AGENTS.md                   # How AI agents should work in this repo
+├── refresh.py                  # CLI: validate seed → emit docs/data/*.json (+ --audit → ISSUES.md)
+├── data/
+│   ├── seed/                   # Curator's working JSON (the source of truth): companies, claims,
+│   │                           #   projects, responses, moratoriums, tariffs, rate_cases, policies,
+│   │                           #   signatories
+│   └── refresh_ledger.json     # When each site/company/state was last reviewed + dated follow-ups
+├── scripts/
+│   ├── refresh_queue.py        # What the daily refresh works on next (derived from the data + ledger)
+│   ├── probe.py                # Does the cited page say what the record claims? (evidence gate)
+│   ├── validate_moratoriums.py # Moratorium link-liveness / completeness audit
+│   ├── build_signatories.py    # Pledge roster builder (White House page → signatories.json)
+│   └── build_rate_cases.py     # Rate-case seed builder
+├── connectors/                 # Research accelerators (scout, recheck, research harvest)
+├── docs/                       # GitHub Pages root (deploys from main:/docs)
+│   ├── index.html · styles.css · app.js
+│   └── data/                   # Built JSON payloads (output of refresh.py — don't edit)
+├── tests/                      # Unit tests + tests/e2e (Playwright)
+├── .claude/skills/             # daily-refresh (the 10:00 routine), validate-moratoriums, refresh
+├── notes/specs/ · notes/archive/   # Detailed specs; finished or superseded plans
+├── BACKLOG.md                  # THE planning doc: decisions, refresh queue, leads, roadmap
+├── REFRESH.md                  # How to refresh data (playbook + dated lessons)
+├── CLAUDE.md · AGENTS.md       # Project conventions for agents (read first)
 ├── DESIGN.md                   # Design system + editorial rubric
-├── ISSUES.md                   # Open / fixed bugs
-├── BACKLOG.md                  # Roadmap + done log
-└── README.md                   # ← you are here
+├── ISSUES.md                   # Generated data-gap audit (refresh.py --audit)
+└── AGENT_RUNS.md               # Subagent cost/quality log
 ```
 
 ---
@@ -214,7 +212,8 @@ addition checklist.
 ## Quick start
 
 ```bash
-# 1. Install deps
+# 1. Install deps (into a venv; Python 3.9+ — 3.9 pulls in eval_type_backport)
+python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
 playwright install chromium      # only needed for e2e tests
 
@@ -228,9 +227,9 @@ cd docs && python -m http.server 8000
 # → http://localhost:8000
 
 # 4. Run tests
-python -m pytest                                # full suite (108 tests, ~15 s)
-python -m pytest tests/ --ignore=tests/e2e      # unit only (67 tests, ~0.2 s)
-python -m pytest tests/e2e/                     # Playwright e2e only (~13 s)
+python -m pytest                                # full suite (~2 min)
+python -m pytest tests/ --ignore=tests/e2e      # unit only (~2 s)
+python -m pytest tests/e2e/                     # Playwright e2e only
 ```
 
 ---

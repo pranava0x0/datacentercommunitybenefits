@@ -1389,7 +1389,7 @@ class RateCasesPayload(_StrictBase):
 # development agreements, and companies' own published community plans. One
 # record type with an `instrument` field rather than several, because a state
 # framework that requires a community benefit agreement and the agreement a
-# county then signs share every field that matters. See SPEC_POLICIES_TAB.md.
+# county then signs share every field that matters. See notes/specs/SPEC_POLICIES_TAB.md.
 #
 # Frozen vocabularies — adding a value is the THEMES drill (BACKLOG entry +
 # Python/JS mirrors + the parity tests in test_themes_match_frontend.py).
