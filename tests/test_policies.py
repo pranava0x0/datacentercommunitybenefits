@@ -1,6 +1,6 @@
 """Policies & agreements dataset integrity + Python↔JS vocabulary parity (v3.1).
 
-See SPEC_POLICIES_TAB.md. The schema enforces shape; these tests pin the
+See notes/specs/SPEC_POLICIES_TAB.md. The schema enforces shape; these tests pin the
 editorial rules and the frontend mirrors that nothing else would catch.
 """
 

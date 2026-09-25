@@ -88,6 +88,11 @@ Never blindly write code. Always follow this loop:
   - After updating documentation
 - Write descriptive commit messages explaining *what* and *why*.
 - Never commit large binary files, downloaded data, or API keys.
+- **No AI attribution, ever.** No `Co-Authored-By: Claude/Codex` trailer and no
+  "Generated with" footer on any commit or PR. Commits read as written by the
+  owner (`pranava0x0 <2497510+pranava0x0@users.noreply.github.com>`). This
+  overrides tool defaults. It is stated here because cloud routine runs see only
+  this file, not the owner's global instructions.
 
 ---
 
@@ -1393,7 +1398,7 @@ tests/test_policies.py) with the same method.
 ### Policies & Agreements tab (v3.1, 2026-09-23)
 
 `Policy` + `data/seed/policies.json`, tab `#policies` (between Tariffs and
-Sites). Spec and research plan: [SPEC_POLICIES_TAB.md](SPEC_POLICIES_TAB.md).
+Sites). Spec and research plan: [notes/specs/SPEC_POLICIES_TAB.md](notes/specs/SPEC_POLICIES_TAB.md).
 Holds the instruments between a moratorium (a pause) and a tariff (who pays
 for power): executive orders, statutes and regulations that set conditions,
 local ordinances, site-level community benefit / host / development / PILOT
@@ -1568,7 +1573,7 @@ that is a deliberate budget decision, not a default.
 
 ### Per-signatory deep dives — plan only, not built
 
-[SPEC_SIGNATORY_PAGES.md](SPEC_SIGNATORY_PAGES.md) proposes `#signatory/<id>`
+[notes/specs/SPEC_SIGNATORY_PAGES.md](notes/specs/SPEC_SIGNATORY_PAGES.md) proposes `#signatory/<id>`
 pages for all 302 roster rows, a stored `SignatoryCuration` work ledger, and a
 REFRESH.md "Signatory sweep". **Nothing in it is implemented.** The load-bearing
 constraint it works around: 291 of the 302 rows hold only what the roster
@@ -1708,3 +1713,65 @@ Concrete, reusable lessons:
   churn. Fixed the builder and normalized all seed + `docs/data` JSON back to
   UTF-8, verifying `json.loads(before) == json.loads(after)` for every file
   before writing so the fix was provably free of semantic changes.
+
+### Daily refresh routine and the review queue (2026-09-25)
+
+A cloud routine, **DataCenterCommunityBenefits-DailyRefresh**, runs every day
+at 10:00 America/New_York on Sonnet, as one agent with no subagents, capped
+at 20 minutes by its prompt. It follows
+[.claude/skills/daily-refresh/SKILL.md](.claude/skills/daily-refresh/SKILL.md).
+Change the procedure by editing that file in a PR, not the routine's prompt,
+which only says "follow the skill". Manage the routine itself at
+claude.ai/code/routines.
+
+- **The queue is derived, and the ledger only annotates.**
+  `scripts/refresh_queue.py` builds its units from the payloads: every
+  project is a `site:`, every company a `company:`, and every `STATE_NAMES`
+  key in app.js plus `US` is a `state:`. `data/refresh_ledger.json` holds only
+  `last_reviewed`, a one-line `summary` and dated `follow_ups`, keyed by
+  unit. A new project enters the queue by existing.
+  `test_committed_ledger_is_valid` rejects a ledger key that no longer names
+  a unit, such as a renamed project id.
+- **Some follow-ups are derived, not stored.** A pending rate case's
+  `next_milestone_date` comes due the next day. An enacted moratorium with
+  `duration_months` comes due at its computed end date. Each clears when the
+  record's `captured_at` passes the due date, so a re-check has to bump
+  `captured_at`. Don't copy these into the ledger, or they drift.
+- **Run rhythm:** due follow-ups first, as targeted checks marked with
+  `--followups-only`, which does *not* count as a review. Then full reviews
+  in the order site, state or company on alternating days, site. Target
+  intervals are site 90 days, state 120, company 30.
+- **Evidence gate:** each run logs `{id, source_url, verbatim}` per change,
+  then `scripts/probe.py --evidence` re-fetches every page and fails on a
+  MISS, meaning the page loaded but lacks the quote. That is the mechanical
+  version of the v1.19 "live link ≠ verified claim" rule. A BLOCKED site
+  (bot wall) needs a WebFetch read in the run, and the run lists it as not
+  machine-verified.
+- **Merge policy:** the routine squash-merges to `main` when `refresh.py` and
+  the unit tests pass, matching the owner's other refresh routines, because
+  a merge is a deploy. This is an open decision (BACKLOG §1). It also keeps
+  the ledger moving: unmerged runs would start from a stale ledger and redo
+  the same units. The routine never adds companies, marks `contested`,
+  attaches `delivered`, deletes records or edits company summaries; those
+  become BACKLOG leads.
+- **BACKLOG §3 is keyed by unit heading** (`#### state:GA`), and
+  `refresh_queue.py --unit` hands a unit its own section. A lead filed under
+  any other heading is invisible to the routine.
+- **Agents:** `model: "sonnet"`, one at a time, each checkpointing to disk
+  per record. The 2026-09-22 pass lost two agents' unsaved context to a
+  session limit. Only what was on disk survived.
+- **Local environment:** this Mac has only the system Python 3.9. schema.py's
+  `X | None` annotations need `eval_type_backport` there, now in
+  requirements.txt behind a `python_version < "3.10"` marker. Use a project
+  `.venv` (gitignored).
+
+**Cross-device audit (2026-09-25).** A Playwright harness that serves `docs/`
+gzipped cold-loads each tab at 390/820/1366/1920 widths and also under Slow
+4G with 4x CPU. It found performance fine: FCP 0.86 s and LCP ≤ 1.4 s
+throttled, TBT about 0, warm tab switches 28–110 ms. It found real usability
+problems: on a phone only 2–4 of the 7 tabs show, with no overflow cue; stat
+tiles wrap raggedly; Moratoriums runs 25 screens; The Pledge has 214 targets
+under 24 px; and Home's "Recent changes" feed is unsorted and blind to every
+payload except the roster. First paint is 246.5 of the 250 KB budget, with
+most of it being claims and projects that Home barely uses. All of it is in
+BACKLOG §4–§5.
