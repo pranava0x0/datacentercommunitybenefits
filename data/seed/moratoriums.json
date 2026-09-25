@@ -4911,6 +4911,63 @@
       "city_council_vote": "6-1 (Andy Byars against); original vote unanimous",
       "session": "2026",
       "captured_at": "2026-09-25"
+    },
+    {
+      "jurisdiction": "Manatee County",
+      "jurisdiction_type": "county",
+      "state_code": "FL",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "12 months (proposed); Ordinance 26-42 requires two public hearings. The Planning Commission reviewed the draft Sept. 17, 2026; the Board of County Commissioners held the first public hearing Sept. 22, 2026, and advanced it; the second and final public hearing / adoption vote is scheduled for Oct. 6, 2026.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "summary": "Manatee County commissioners on September 22, 2026 advanced, at the first of two required public hearings, Ordinance 26-42, which would impose a 12-month moratorium on applications for building permits, site plans, development orders, rezonings and comprehensive plan amendments for data centers and other large-load customers in unincorporated Manatee County. The second and final public hearing is scheduled for October 6, 2026. The county acted under authority granted by Florida's newly effective SB 484. Commissioner Amanda Ballard said the pause will let staff address gaps in county regulations, since neither the land development code nor the comprehensive plan currently address large-load customers.",
+      "source_url": "https://www.yourobserver.com/news/2026/sep/22/manatee-ordinance-data-center-moratorium/",
+      "source_title": "Your Observer / East County News — Manatee County issues one-year ban on data centers",
+      "resources": [
+        {
+          "url": "https://www.pulseofmanatee.com/p/manatee-commissioners-to-consider",
+          "title": "Pulse of Manatee — Manatee Commissioners to Consider Data Center Moratorium, Gambling Regulations and Land Conservation"
+        }
+      ],
+      "city_council_vote": "Unanimous (first hearing, Sept. 22, 2026)",
+      "session": "2026",
+      "captured_at": "2026-09-25",
+      "id": "manatee-county-fl-2026-09"
+    },
+    {
+      "jurisdiction": "Woodbury",
+      "jurisdiction_type": "city",
+      "state_code": "MN",
+      "status": "enacted",
+      "enacted_date": "2026-09-23",
+      "effective_date": "2026-09-23",
+      "duration_months": 12,
+      "duration_description": "Up to 1 year (interim ordinance); takes effect upon adoption and publication and can end earlier if the city repeals it or adopts replacement regulations first.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "summary": "The Woodbury City Council voted on September 23, 2026 to approve a moratorium on new data centers and on expansion beyond existing approvals, giving the city up to a year to study water use, electricity demand, noise and possible zoning changes. The ordinance blocks related rezoning proposals, comprehensive plan amendments, conditional use permits, variances and permit applications (including building, electrical and right-of-way permits) to establish or expand data centers, and also covers proposed water or sewer users whose annual consumption would place them among the city's largest users. Woodbury has three existing data centers, including two IronGate facilities and a Medtronic facility.",
+      "source_url": "https://woodburynewsnet.org/8110/business/woodbury-approves-data-center-moratorium-after-questions-about-water-power/",
+      "source_title": "Woodbury News Net — Woodbury Approves Data Center Moratorium After Questions About Water, Power",
+      "resources": [
+        {
+          "url": "https://woodburynewsnet.org/8014/city-county/woodbury-proposes-data-center-moratorium-ahead-of-sept-23-council-meeting/",
+          "title": "Woodbury News Net — Woodbury Proposes Data Center Moratorium Ahead Of Sept. 23 Council Meeting"
+        }
+      ],
+      "session": "2026",
+      "captured_at": "2026-09-25",
+      "id": "woodbury-mn-2026-09"
     }
   ]
 }
