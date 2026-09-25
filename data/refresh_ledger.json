@@ -1,0 +1,73 @@
+{
+  "about": "Review log for the daily refresh routine. Written only by scripts/refresh_queue.py --mark; read by the queue. Units (sites, companies, states) are derived from the payloads, so this file records only when each was last reviewed, what the review found, and dated follow-ups.",
+  "units": {
+    "company:anthropic": {
+      "follow_ups": [
+        {
+          "due": "2026-10-20",
+          "what": "Fluidstack TX/NY campuses: has Anthropic or Fluidstack named a town yet? (anthropic.com/news, fluidstack.io/blog)"
+        }
+      ]
+    },
+    "state:CA": {
+      "follow_ups": [
+        {
+          "due": "2026-10-07",
+          "what": "Mendocino County: extension hearing Oct 6 (urgency ordinance expires Oct 16) — extended or lapsed?"
+        }
+      ]
+    },
+    "state:CO": {
+      "follow_ups": [
+        {
+          "due": "2026-10-14",
+          "what": "Moffat County: decision Oct 13 — outcome?"
+        }
+      ]
+    },
+    "state:FL": {
+      "follow_ups": [
+        {
+          "due": "2026-10-07",
+          "what": "Manatee County Ordinance 26-42: second hearing Oct 6 — adopted? (WMNF's 'approved Sept 3' conflicted with the hearing schedule)"
+        },
+        {
+          "due": "2026-10-14",
+          "what": "Leon County: 18-month moratorium final hearing Oct 13 — adopted?"
+        }
+      ]
+    },
+    "state:NC": {
+      "follow_ups": [
+        {
+          "due": "2026-09-29",
+          "what": "Forsyth County: six-month moratorium was on the Sept 28 agenda — adopted?"
+        },
+        {
+          "due": "2026-10-06",
+          "what": "Beaufort County: hearing + vote Oct 5 — outcome?"
+        },
+        {
+          "due": "2026-10-07",
+          "what": "Raleigh: six-month draft moratorium hearing Oct 6 — adopted?"
+        }
+      ]
+    },
+    "state:OH": {
+      "follow_ups": [
+        {
+          "due": "2026-11-04",
+          "what": "Nov 3 ballot: ~18 local data-center charter amendments/bans (Ohio Capital Journal Sept 14, Cloudflare-walled), incl. Trenton; and the Butler County 25 MW citizen measure tied to Amazon's $5B plan — record outcomes"
+        }
+      ]
+    },
+    "state:VA": {
+      "follow_ups": [
+        {
+          "due": "2026-10-21",
+          "what": "Loudoun County: Board resolution Oct 20 pausing its OWN legislative approvals (NOT a moratorium; see loudoun-county-va-2026-09) — adopted? Update the record's status/summary only."
+        }
+      ]
+    }
+  }
+}
