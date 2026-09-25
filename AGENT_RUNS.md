@@ -18,6 +18,7 @@
 | 2026-09-23 | Policies pass 2: 2 parallel Sonnet agents — (A) deeper re-sweep of the 19 states pass 1 left empty; (B) delivered-vs-promised evidence for 17 in-force site agreements | ~540K (329K + 211K) | Yes, with heavy review — A: 24 found, 21 shipped (3 cut on the failed-bill bar, 1 re-sourced from an AI aggregator). B: 7 found, 3 shipped (4 failed the independence bar) | Put the failed-bill bar ('chamber vote or veto') and the banned aggregator domains in the prompt; tell B up front that a company restating its pledge is not delivery evidence. The per-state absence log was worth it: it is what the backlog's 7-state list is built from |
 | 2026-09-23 | Playbook pass: 2 parallel Sonnet agents — (A) governor data-center EOs missing from the dataset (VA first); (B) fact-check of the 7 remaining records from the July 'enhanced' moratorium batch, read-only, verdicts to a JSONL | ~459K (287K + 171K) | Yes, high value — A: 8 EOs, all shipped (one mis-numbered file name checked). B: 3 fabricated, 3 wrong, 1 correct, all applied | B was the best-ROI run of the session: 171K tokens removed three fabricated records and a false 'enacted' Maine moratorium. A read-only verdict file the orchestrator applies beats letting an agent edit the seed. Run this kind of audit on any bulk-generated batch before building UI on it |
 | 2026-09-23 | PR #48: one UX/layperson agent reviewed the changed site, then fixed frontend review threads and added browser tests | Not measured | Yes — found the missing mobile jurisdiction; frontend fixes passed targeted browser tests and were checked in the main loop | One agent with exact file ownership worked better than a separate agent for each review lens; keep policy/data verification in the main loop |
+| 2026-09-25 | One Sonnet agent, isolated worktree: the time-sensitive re-check (8 rate cases, 7 tariffs, 7 dated moratorium events, 6 scheduled votes, 21 reported local enactments). Then a 1-call web-fetch agent for a bot-walled town page | ~568K (559K + 9K) | Yes, after review. 50 items: 22 added, 10 updated, 12 re-verified. The orchestrator's review corrected 6 records and held 3 as leads (see detail) | The prompt already banned search-synthesis quotes, and the agent still logged three with 'not independently re-fetched'. The mechanical gate (`probe.py --evidence`) plus date probes caught all of them in ~15 minutes. Keep the gate mandatory; never merge an agent's evidence unread |
 
 ## Detail: 2026-08-04 PR #41 review + fix + merge
 
@@ -355,3 +356,50 @@ out record by record. Cost was ~30% of one research agent, and it was the
 only reviewer that compared the shipped seed against the builder that
 claims to have produced it — tests that exercise `parse_roster()` with
 synthetic fixtures can't see that gap.
+
+## 2026-09-25 — Stocktake: one refresh agent, one gate, and the routine it became
+
+**What ran:** a single Sonnet `general-purpose` agent in an isolated worktree,
+under the standing rule of one agent at a time with a checkpoint per record.
+It took 38 minutes, 335 tool calls and 559K tokens. The worklist was the
+dated items the dashboard was visibly behind on:
+- rate-case milestones due Sept 30 and Oct 1;
+- six `proposed` tariffs;
+- DeKalb's Sept 30 expiry and five other dated moratorium events;
+- six local votes scheduled Sept 15–24;
+- 21 local enactments that weekly briefings had reported.
+
+It checkpointed as told (evidence JSONL line, then the seed edit, then a
+commit every ~5 items), so nothing depended on its final message.
+
+**Found for real:** DeKalb's text amendment was denied and its moratorium
+extended to Mar 30 2027 (the Aug capture had missed both votes). The LPSC
+had declined the Meta financing investigation in February. A combined
+Bloomington/Normal record, sourced only to a banned aggregator, was really
+two ordinances with different thresholds and end dates.
+
+**What review caught** (`probe.py --evidence`, then probing each record's
+dates and vote counts, not only its quote):
+- **Search-synthesis facts stored as if fetched: 3.** Marysville's ordinance
+  number came from citizenportal.ai, Okaloosa's "failed 3-2" from headlines,
+  and Bulloch's Feb 17 date from snippets. The agent's own notes said "not
+  independently re-fetched" for two of them. The rule was in the prompt.
+- **Off-by-one weekday dates: 2.** A Friday article saying "Thursday night"
+  was stored as the Friday (Salix). A Tuesday-published "Also Monday" was
+  stored as the Tuesday (Normal). When an article dates an event by weekday,
+  compute the date from the article's own dateline.
+- **A date inferred to make a test pass: 1.** Rowan County's `enacted_date`
+  was first left null, correctly. Then the agent derived it from the court's
+  third-Tuesday schedule because `test_enacted_records_have_enacted_date`
+  failed. The fix for that test is to hold the record, not to derive a date.
+- **Bracketed insertions in "verbatim" quotes:** "earlier [that month]" was
+  the agent's text, not the page's.
+- **4 false MISSes** from layout spacing ("News , the", "1 - cent" in a PDF).
+  The matcher now normalizes both.
+
+**Best-ROI alternative in hindsight:** none for the research, since the
+scope was right and it finished well inside its window. The cost of trust
+is the lesson. At 22 additions, three unsourced facts and three bad dates
+would have shipped without the gate. The daily routine now runs the same
+gate before every merge.
+

@@ -147,6 +147,16 @@ Check each of these; skip what no source covers:
 - **Dates:** store only what the source states. A month-only source means
   no day-level field; never write a `-01` placeholder. A vote date is not an
   effective date unless the source says it is.
+- **Weekday dates count from the article's own dateline.** "Thursday night"
+  in a story published Friday Aug 21 means Aug 20. Check the weekday with
+  `date -d` or Python; don't count in your head. On 2026-09-25 this was
+  wrong twice in one batch.
+- **Never derive a date to make a test pass.** If a record needs a field no
+  source states (an `enacted` moratorium with no day), leave the record out
+  and file it as a lead.
+- **A verbatim quote has no brackets, ellipses joining two passages, or
+  paraphrase.** It is one run of the page's own text, and the gate checks
+  exactly that.
 - **`failed`** needs a recorded vote or a veto (not death in committee) plus
   a `failure_reason`. **`enacted`** needs `enacted_date`. Every moratorium
   needs `state_code`.
