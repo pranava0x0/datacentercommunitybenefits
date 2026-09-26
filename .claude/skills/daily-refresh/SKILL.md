@@ -24,7 +24,12 @@ Leaving a record unchanged is always better than guessing.
 START=$(date +%s); echo "start $(date -u +%FT%TZ)"
 elapsed() { echo $(( ($(date +%s) - START) / 60 ))m; }
 git fetch -q origin main && git reset -q --hard origin/main   # start from the latest main (nothing is committed yet)
+[ "$(git branch --show-current)" = "main" ] && git checkout -q -b "daily-refresh-$(date +%F)"
 ```
+The cloud session may start on `main` itself (the 2026-09-26 run did). Never
+commit or push there: the PR, with its sources and quotes, is the run's audit
+trail. The last line moves you onto a working branch. If the environment
+assigned a branch instead, stay on it.
 
 - **Time box: 20 minutes total.** Don't start a new unit after minute 12.
   Begin wrap-up (§4) by minute 15 at the latest, even mid-unit. An
@@ -57,7 +62,9 @@ section of BACKLOG.md §3). A unit whose only reason is a due follow-up gets a
 ## 2. Research, one unit at a time
 
 Keep a JSONL evidence log at `/tmp/refresh_evidence.jsonl`. Append one line
-the moment you verify something, before editing the seed:
+the moment you verify something, before editing the seed. **Every row that
+changes data needs `source_url` and `verbatim`, or the gate fails it.** Only
+`no_change`, `held` and `not_found` rows may omit them.
 
 ```json
 {"id": "<record id>", "file": "projects.json", "action": "updated|added|no_change|held",
@@ -197,8 +204,12 @@ Check each of these; skip what no source covers:
 ```bash
 python3 -W ignore scripts/probe.py --evidence /tmp/refresh_evidence.jsonl   # MISS = the quote isn't on the page
 ```
-- **MISS:** revert that record's change (or drop the new record), and move
-  the item to BACKLOG.md §3 as a lead with the URL.
+- **MISS:** the gate checks *every* clause of the quote. First re-read the
+  page. If you misquoted (you blended two sentences, dropped "today
+  announced", or changed "its" to "our"), fix the evidence line to the
+  page's exact sentence and re-run. Revert the record's change (or drop the
+  new record) only if the fact itself isn't on the page, and move that item
+  to BACKLOG.md §3 as a lead with the URL.
 - **BLOCKED:** acceptable only if you read the page with WebFetch yourself
   this run. List those records in the report under "not machine-verified".
 

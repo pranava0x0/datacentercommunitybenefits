@@ -1766,6 +1766,31 @@ claude.ai/code/routines.
   requirements.txt behind a `python_version < "3.10"` marker. Use a project
   `.venv` (gitignored).
 
+**The gate had two loopholes, caught by Codex on PR #49 before any
+unattended run.** A changed evidence row with no `source_url` or `verbatim`
+was counted as "skipped", which means passed. The quote check matched only
+the longest clause, truncated to 160 characters, so a page holding the first
+sentence of a two-fact quote passed while contradicting the second. Now only
+`no_change`/`held`/`not_found` rows may lack evidence, and every clause of
+every quote must be on the page. Trailing punctuation is ignored, because
+quoting the front of a sentence and closing it with a period is normal. Two
+general rules follow:
+- **A gate that skips malformed input is a gate that passes it.**
+- **Check every piece of a claim, not the most matchable one.**
+
+Re-running the strict gate on the day's already-reviewed evidence found three
+more problems:
+- a quote blended from two sentences on one page;
+- a bracket insertion ("r[eading]");
+- a claim on no page at all (Fort Worth "extendable for an additional 90
+  days").
+
+**The first scheduled run (2026-09-26 10:05) hit the setup-not-merged guard,
+made no changes, and stopped in 9 seconds.** It showed that the cloud session
+starts **on `main`**, not on an assigned branch as the owner's other routine
+does. A bare `git push -u origin HEAD` would have pushed straight to main and
+skipped the PR audit trail, so the skill now branches first.
+
 **Cross-device audit (2026-09-25).** A Playwright harness that serves `docs/`
 gzipped cold-loads each tab at 390/820/1366/1920 widths and also under Slow
 4G with 4x CPU. It found performance fine: FCP 0.86 s and LCP ≤ 1.4 s
