@@ -135,12 +135,23 @@ def derive_units() -> dict[str, Unit]:
             key, "site", f"{p['name']} ({p['city']}, {p['state']}; {p['status']})",
             date.fromisoformat(p["captured_at"]), by_project.get(p["id"], {}),
         )
+    policies = _load("policies.json", "policies")
     for c in companies:
-        n_projects = sum(p["company_slug"] == c["slug"] for p in projects)
-        units[f"company:{c['slug']}"] = Unit(
-            f"company:{c['slug']}", "company", f"{c['name']} ({n_projects} tracked sites)",
+        slug = c["slug"]
+        n_projects = sum(p["company_slug"] == slug for p in projects)
+        # A company unit owns what no site does: its company-level claims (no
+        # project_id) and the company plans that name it. Without them, 95
+        # claims and 10 plans sat in no unit and were never re-checked
+        # (Codex review, PR #49).
+        owned = {
+            "projects": [p["id"] for p in projects if p["company_slug"] == slug],
+            "claims": [cl["id"] for cl in claims if cl["company_slug"] == slug and not cl.get("project_id")],
+            "policies": [pol["id"] for pol in policies if slug in (pol.get("company_slugs") or [])],
+        }
+        units[f"company:{slug}"] = Unit(
+            f"company:{slug}", "company", f"{c['name']} ({n_projects} tracked sites)",
             date.fromisoformat(c["last_reviewed"]),
-            {"projects": [p["id"] for p in projects if p["company_slug"] == c["slug"]]},
+            {k: v for k, v in owned.items() if v},
         )
     for code, name in list(names.items()) + [(FEDERAL, "Federal (FERC, Congress, agencies)")]:
         units[f"state:{code}"] = Unit(f"state:{code}", "state", name, None, {})
@@ -158,7 +169,7 @@ def derive_units() -> dict[str, Unit]:
         add(FEDERAL if t.get("jurisdiction_level") == "federal" else t.get("state"), "tariffs", t["id"])
     for rc in _load("rate_cases.json", "rate_cases"):
         add(rc.get("state_code"), "rate_cases", rc["id"])
-    for pol in _load("policies.json", "policies"):
+    for pol in policies:
         add(pol.get("state_code"), "policies", pol["id"])
     for s in _load("signatories.json", "signatories"):
         if s["category"] == "governor":

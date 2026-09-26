@@ -74,6 +74,24 @@ def test_every_moratorium_lands_in_a_state_unit() -> None:
     assert placed == {m["id"] for m in moratoriums}
 
 
+def test_every_claim_and_policy_lands_in_a_unit() -> None:
+    """Claims belong to a site (project_id) or, company-wide, to their company.
+    Policies belong to a state, or, when company-scoped, to each company they
+    name. A record outside every unit is one the routine never re-checks
+    (Codex review, PR #49)."""
+    units = rq.derive_units()
+    placed = {(payload, rid) for u in units.values()
+              for payload, ids in u.records.items() for rid in ids}
+    claims = json.loads((SEED / "claims.json").read_text())["claims"]
+    for c in claims:
+        if c.get("project_id"):
+            assert c["id"] in units[f"site:{c['project_id']}"].records.get("claims", []), c["id"]
+        else:
+            assert ("claims", c["id"]) in placed, c["id"]
+    policies = json.loads((SEED / "policies.json").read_text())["policies"]
+    assert {p["id"] for p in policies} <= {rid for payload, rid in placed if payload == "policies"}
+
+
 # --- ranking ---------------------------------------------------------------------
 
 def test_due_follow_ups_come_first(tmp_ledger) -> None:
