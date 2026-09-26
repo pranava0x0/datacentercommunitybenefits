@@ -9,10 +9,12 @@ has: the 2026-09-22 pass spot-checked 21 agent findings with it in minutes.
     python3 scripts/probe.py URL --text [N]                  # dump the first N chars of page text
     python3 scripts/probe.py --evidence FILE.jsonl           # gate: check every evidence line
 
-Evidence lines are JSON objects with at least `id`, `source_url` and `verbatim`
-(the sentence on the page that supports the change). `--evidence` prints
-HIT / MISS / BLOCKED per line and exits 1 if any line is a MISS: the page
-loaded but does not contain the quote. That is the case to act on. BLOCKED
+Evidence lines are JSON objects with at least `id`, `action`, `source_url` and
+`verbatim` (the page's own sentences that support the change). `--evidence`
+prints HIT / MISS / BLOCKED per line and exits 1 if any line is a MISS. A MISS
+means one of three things: a clause of the quote is not on the page; the row
+changed data (any action except no_change / held / not_found) but has no
+source_url; or it has no quote to check. That is the case to act on. BLOCKED
 means the site refuses scripted fetches (403, bot wall, timeout). Blocked
 lines need a manual or WebFetch re-read, and the run report should say so.
 
@@ -101,33 +103,61 @@ def find(text: str, phrase: str) -> list[int]:
     return [m.start() for m in re.finditer(re.escape(norm(phrase).lower()), text.lower())]
 
 
+SKIP_ACTIONS = ("no_change", "held", "not_found")
+MIN_CLAUSE = 12  # shorter pieces ("Aug.", "No. 5") carry no checkable fact on their own
+
+
+def clauses(quote: str) -> list[str]:
+    """The pieces of a quote that must each appear on the page: its sentences,
+    and any passages an ellipsis joins. Every piece is checked, not just the
+    longest. A page that holds the first sentence but contradicts the second
+    must not pass (Codex review, PR #49)."""
+    parts = re.split(r"(?<=[.;:!?])\s+|…|\.\.\.", norm(quote))
+    # Quoting the front of a sentence and closing it with a period is normal
+    # ("…applications Tuesday." for "…applications Tuesday, opting…"), so a
+    # piece's trailing punctuation is not part of what must match. Every word is.
+    pieces = [part.strip(" \"'").rstrip(".;:!?,").strip() for part in parts]
+    return [piece for piece in pieces if len(piece) >= MIN_CLAUSE]
+
+
 def check_evidence(path: Path, delay: float) -> int:
+    """Exit 1 if any changed row fails. A row that changed data (any action but
+    no_change / held / not_found) must carry `source_url` and `verbatim`, and
+    every clause of the quote must be on the page. Skipping a malformed row
+    would let an unsupported change through the gate (Codex review, PR #49)."""
     lines = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
     cache: dict[str, tuple[int, str, str]] = {}
     misses = blocked = hits = skipped = 0
     for rec in lines:
         url, quote = rec.get("source_url"), (rec.get("verbatim") or "").strip()
         rid = rec.get("id", "?")
-        if not url or not quote or rec.get("action") in ("no_change", "held", "not_found"):
+        if rec.get("action") in SKIP_ACTIONS:
             skipped += 1
+            continue
+        pieces = clauses(quote)
+        if not url or not pieces:
+            misses += 1
+            what = "no source_url" if not url else "no verbatim quote long enough to check"
+            print(f"MISS    {rid}: changed row ({rec.get('action') or 'no action'}) has {what}")
             continue
         if url not in cache:
             if cache:
                 time.sleep(delay)  # CLAUDE.md: be polite to any single host
             cache[url] = fetch(url)
         status, _, text = cache[url]
-        # Long quotes rarely survive layout intact. Check the longest clause.
-        probe_phrase = max(re.split(r"(?<=[.;:])\s+|…|\.\.\.", norm(quote)), key=len)[:160]
         if status in BLOCKED_STATUSES or status == 0 or len(text) < MIN_TEXT:
             blocked += 1
             print(f"BLOCKED {rid}: HTTP {status} {url}")
-        elif find(text, probe_phrase):
-            hits += 1
-            print(f"HIT     {rid}")
-        else:
+            continue
+        missing = [piece for piece in pieces if not find(text, piece)]
+        if missing:
             misses += 1
-            print(f"MISS    {rid}: {probe_phrase[:90]!r} not on {url} (HTTP {status})")
-    print(f"\n{hits} hit, {misses} miss, {blocked} blocked, {skipped} skipped (no quote or no change)")
+            print(f"MISS    {rid}: {len(missing)} of {len(pieces)} clause(s) not on {url} "
+                  f"(HTTP {status}); first: {missing[0][:90]!r}")
+        else:
+            hits += 1
+            print(f"HIT     {rid} ({len(pieces)} clause(s))")
+    print(f"\n{hits} hit, {misses} miss, {blocked} blocked, {skipped} skipped (no change)")
     return 1 if misses else 0
 
 
