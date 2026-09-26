@@ -44,8 +44,8 @@
       "filed_date": null,
       "decided_date": "2025-08-20",
       "effective_date": null,
-      "next_milestone": "LPSC response to the 2026 Earthjustice/UCS request to investigate the Meta financing arrangement's stranded-asset risk",
-      "next_milestone_date": null,
+      "next_milestone": "The LPSC declined to open the Earthjustice/UCS/Alliance for Affordable Energy investigation into Meta's Blue Owl Capital financing arrangement (Feb. 25, 2026 vote). In a related LPSC docket over Entergy's application for seven additional gas plants for the same Richland Parish project, an administrative law judge on Aug. 4, 2026 rejected Meta's motion to cancel a subpoena for its investment, job-creation and electricity-demand figures, but the full Commission voted Aug. 12, 2026 to kill that subpoena instead. The Commission's final decision on the additional gas plants is not scheduled until Dec. 16, 2026.",
+      "next_milestone_date": "2026-12-16",
       "related_tariff_id": null,
       "related_project_ids": [
         "meta-richland-la"
@@ -61,9 +61,17 @@
         {
           "url": "https://www.ucs.org/about/news/metas-new-data-center-agreement-increases-risk-stranded-assets",
           "title": "Union of Concerned Scientists — stranded-asset risk analysis"
+        },
+        {
+          "url": "https://earthjustice.org/press/2026/consumer-groups-alarmed-as-louisiana-psc-declines-to-take-up-probe-into-meta-risky-financing-deal",
+          "title": "Earthjustice — Consumer Groups Alarmed as Louisiana PSC Declines to Take Up Probe Into Meta Risky Financing Deal (Feb. 25, 2026)"
+        },
+        {
+          "url": "https://thelensnola.org/2026/08/18/meta-louisiana-data-center-ratepayer-costs/",
+          "title": "The Lens — Meta hides data center info as it pushes more risks to Entergy's customers (Aug. 18, 2026; subpoena vote, Dec. 16 decision date)"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "ga-psc-rate-freeze-2025",
@@ -110,7 +118,7 @@
       "filed_date": null,
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Evidentiary hearing began May 18, 2026 and had concluded by July 10, 2026 (per APS). Next step is the ALJ's Recommended Opinion and Order, which APS says 'may take months', followed by party exceptions and a Commission open-meeting vote; APS expects a final decision later in 2026. No ROO date or open-meeting date had been announced as of September 22, 2026.",
+      "next_milestone": "Evidentiary hearing began May 18, 2026 and had concluded by July 10, 2026 (per APS). Next step is the ALJ's Recommended Opinion and Order, which APS says 'may take months', followed by party exceptions and a Commission open-meeting vote; APS expects a final decision later in 2026. No ROO date or open-meeting date had been announced as of September 25, 2026.",
       "next_milestone_date": null,
       "related_tariff_id": "aps-arizona-large-load-rate-case-2025",
       "related_project_ids": null,
@@ -127,7 +135,7 @@
           "title": "APS — Rate Case Hearing Concludes; Process Moves to Next Phase (July 10, 2026)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "mo-psc-ameren-large-load-2025",
@@ -185,7 +193,7 @@
           "title": "Missouri PSC — Order Denying Motion for Reconsideration and Order Amending Procedural Schedule (Aug. 5, 2026)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "mn-puc-xcel-large-load-2026",
@@ -262,7 +270,7 @@
       "filed_date": null,
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement — joined by Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation — was filed July 17, 2026 and amended July 20, 2026, committing Duke and Public Staff to submit the special large-load tariff by the end of September 2026. A final NCUC order on the settlement is expected in fall 2026, with new rates beginning January 1, 2027 if approved. On September 14, 2026 Attorney General Jeff Jackson, who declined to sign the settlement, filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers (NCDOJ). As of September 22, 2026 no NCUC order on the settlement had been located; the end-of-September large-load tariff submission remains the next dated step.",
+      "next_milestone": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement — joined by Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation — was filed July 17, 2026 and amended July 20, 2026 (with Andale, LLC later added as a stipulating party), committing Duke and Public Staff to submit the special large-load tariff by the end of September 2026. A final NCUC order on the settlement is expected in fall 2026, with new rates beginning January 1, 2027 if approved. On September 14, 2026 Attorney General Jeff Jackson, who declined to sign the settlement, filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers (NCDOJ). As of September 25, 2026 no NCUC order on the settlement had been located; the end-of-September large-load tariff submission remains the next dated step.",
       "next_milestone_date": "2026-09-30",
       "related_tariff_id": "duke-nc-large-load-rate-case-2025",
       "related_project_ids": null,
@@ -279,7 +287,7 @@
           "title": "NCDOJ — Attorney General Jackson proposes framework to ensure data centers pay their fair share (Sept. 14, 2026)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "nv-pucn-google-esa-2026",
@@ -351,7 +359,7 @@
           "title": "PJM — Overview of June 18 Co-Located Load and Large Load Show Cause Orders (July 30, 2026 stakeholder deck; next steps)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "ferc-pjm-colocated-el25-49",
@@ -391,7 +399,7 @@
           "title": "PJM — Overview of June 18 Co-Located Load and Large Load Show Cause Orders (July 30, 2026 stakeholder deck)"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "pa-puc-large-load-cost-allocation-2026",
@@ -423,7 +431,7 @@
           "title": "Utility Dive — Pennsylvania PUC to consider ratemaking, ROE and curtailment as data center load grows"
         }
       ],
-      "captured_at": "2026-09-22"
+      "captured_at": "2026-09-25"
     },
     {
       "id": "in-iurc-im-base-rate-reduction-2026",

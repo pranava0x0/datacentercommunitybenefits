@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-09-23
+Generated: 2026-09-26
 Total projects needing attention: 103
 
 ## Critical Missing Commitment Details
@@ -119,4 +119,4 @@ Projects with important gaps:
 (1 record)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 55 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 58 days ago

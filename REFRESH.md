@@ -2,6 +2,17 @@
 
 > Project refresh playbook, read by the generic `data-refresh` skill (~/.claude/skills/data-refresh). Keep current: every refresh run appends learned patterns; structural pipeline changes get edited into the body.
 
+> **Daily routine (2026-09-25).** Most refresh work now happens in small
+> daily increments. The 10:00 cloud routine follows
+> [.claude/skills/daily-refresh/SKILL.md](.claude/skills/daily-refresh/SKILL.md)
+> and works the queue from `python3 scripts/refresh_queue.py --next 4`: due
+> follow-ups first, then full reviews of a site, a state or company, and
+> another site. It logs each review in `data/refresh_ledger.json`. This
+> playbook is still the reference for how to do each kind of check. Use a
+> full multi-dimension pass (below) for the big sweeps a day at a time can't
+> cover: roster re-pulls, a state-by-state policy sweep, or the EEI tariff
+> backfill.
+
 
 **Purpose:** Systematically refresh and audit the dashboard's curated data (companies, projects, claims, community responses, moratoriums, tariffs) to keep it current with recent announcements, regulatory filings, and community feedback.
 
@@ -1174,9 +1185,9 @@ fourth pass).
 
 ### 2026-09-23 — Policies & Agreements tab: a sixth dimension
 
-New payload `data/seed/policies.json` (see SPEC_POLICIES_TAB.md). To refresh:
+New payload `data/seed/policies.json` (see notes/specs/SPEC_POLICIES_TAB.md). To refresh:
 re-sweep state legislatures each session (states with nothing verified are
-listed in SPEC_POLICIES_TAB.md > Research log), and check each tracked
+listed in notes/specs/SPEC_POLICIES_TAB.md > Research log), and check each tracked
 site's county/city agendas for development / host / PILOT agreements.
 Agents append records to a scratchpad JSONL; a merge step validates each
 row against `schema.Policy`, applies reviewed patches, and writes the seed.
