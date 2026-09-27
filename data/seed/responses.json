@@ -2486,6 +2486,28 @@
       "source_url": "https://www.click2houston.com/news/local/2026/09/10/community-conversation-to-explore-amazon-data-center-plans-in-boling/",
       "source_title": "KPRC 2 / Click2Houston — Boling residents meet Amazon leaders over massive data center project (Sep 10 2026)",
       "single_source": true
+    },
+    {
+      "id": "resp-aws-new-carlisle-drainage-board-2026",
+      "project_id": "aws-new-carlisle-in",
+      "date": "2026-05-04",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "The St. Joseph County Drainage Board approved Amazon's altered dewatering proposal for the New Carlisle site, reduced from an original 35-million-gallon-per-day request to 31 million gallons per day into Niespodziany Ditch, after Amazon met with affected farmers and submitted a letter of commitment on transparency; the board retained authority to suspend dewatering and required monitoring devices to track ditch levels.",
+      "source_url": "https://wsbt.com/news/local/amazon-data-center-dewatering-proposal-changed-altered-million-gallons-water-drain-ditch-niespondziany-community-concern-farmers-planting-season-impact-frustration-new-carlisle-st-joseph-county-indiana",
+      "source_title": "WSBT — St. Joseph Co. Drainage Board approves altered proposal for Amazon data center dewatering",
+      "single_source": true
+    },
+    {
+      "id": "resp-aws-new-carlisle-wetlands-permit-2026",
+      "project_id": "aws-new-carlisle-in",
+      "date": "2026-07-09",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "At an IDEM public hearing on Amazon's new wetlands-fill permit application for the New Carlisle site (4.88 acres of emergent wetlands, 0.06 acres of scrub-shrub wetlands and 3,986 linear feet of streams), environmental advocates including Just Transition Northwest Indiana's Ashley Williams urged IDEM to deny the permit, arguing mitigation should not excuse the unauthorized wetland impacts IDEM had already cited in 2025.",
+      "source_url": "https://www.abc57.com/news/public-voices-concerns-as-amazon-seeks-permit-to-impact-wetlands-in-new-carlisle",
+      "source_title": "ABC57 — Public voices concerns as Amazon seeks permit to impact wetlands in New Carlisle (Jul 9 2026)",
+      "single_source": true
     }
   ]
 }

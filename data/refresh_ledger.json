@@ -9,9 +9,21 @@
         }
       ]
     },
+    "company:coreweave": {
+      "last_reviewed": "2026-09-27",
+      "summary": "Bumped last_reviewed; checked newsroom (no new US community-impact commitments beyond tracked sites). Cedar Creek TX lead still blocked (DCD 403). Elk Grove Village IL bond/lease/revenue figures now corroborated by a Bloomberg-sourced wire story (GuruFocus via TradingView) but still lack a first-party source, so not promoted to a Project; BACKLOG.md updated."
+    },
     "site:aws-cumberland-pa": {
       "last_reviewed": "2026-09-25",
       "summary": "Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed."
+    },
+    "site:aws-loudoun-va": {
+      "last_reviewed": "2026-09-27",
+      "summary": "Re-checked AWS US-East-1 (Ashburn) source links (both live); no verified change to status/investment/jobs. Couldn't independently re-confirm $91.5B/20,700-jobs provenance against AWS's own aboutamazon.com Virginia page ($51.9B 2011-2021 + $35B planned through 2040, 8,710 FTE 2021) -- filed as a lead rather than guessing a correction. New GWU/Bridgefield opposition news belongs to the separately-tracked aws-ashburn-gwu-va project, not this one."
+    },
+    "site:aws-new-carlisle-in": {
+      "last_reviewed": "2026-09-27",
+      "summary": "Checked status/figures (unchanged), IDEM wetlands and dewatering developments since 2026-05-14. Added 2 CommunityResponses: St. Joseph Co. Drainage Board's 2026-05-04 approval of Amazon's altered dewatering proposal (mixed, local_government) and a 2026-07-09 IDEM public hearing on Amazon's new wetlands-fill permit application where NGOs urged denial (negative, ngo). Appended a dated notes sentence on the pending wetlands permit (comment period closed 2026-07-17, decision pending)."
     },
     "state:CA": {
       "follow_ups": [
