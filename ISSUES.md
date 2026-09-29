@@ -1,6 +1,6 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-09-27
-Total projects needing attention: 103
+Generated: 2026-09-29
+Total projects needing attention: 104
 
 ## Critical Missing Commitment Details
 (36 projects)
@@ -44,7 +44,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(67 projects)
+(68 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -70,6 +70,7 @@ Projects with important gaps:
 - **crusoe-cheyenne-wy** (announced): claimed_investment_usd, claimed_jobs
 - **crusoe-inl-id** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **crusoe-springfield-oh** (announced): claimed_investment_usd, power_mw
+- **crusoe-warrenton-mo** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-botetourt-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-chesterfield-va** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **google-clay-county-mo** (construction): claimed_jobs
@@ -119,4 +120,4 @@ Projects with important gaps:
 (1 record)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 59 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 61 days ago

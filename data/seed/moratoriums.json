@@ -5393,6 +5393,23 @@
       "source_title": "Iowa Public Radio — Northwest Iowa town votes against a data center moratorium",
       "session": "2026",
       "captured_at": "2026-09-25"
+    },
+    {
+      "id": "alamance-county-nc-2026-08",
+      "jurisdiction": "Alamance County",
+      "jurisdiction_type": "county",
+      "state_code": "NC",
+      "status": "enacted",
+      "enacted_date": "2026-08-17",
+      "effective_date": "2026-08-17",
+      "duration_months": 12,
+      "duration_description": "12 months, through Tuesday, August 17, 2027",
+      "power_threshold_mw": null,
+      "key_reasons": [],
+      "summary": "The Alamance County Board of Commissioners voted 5-0 on Monday, August 17, 2026 to enact a 12-month moratorium on data center development in the unincorporated parts of the county, following a public hearing where residents pushed for a one- to two-year pause. Before the moratorium expires around August 17, 2027, staff must catalog applicable regulations within 120 days, consult county departments on infrastructure needs within 180 days, and present regulatory recommendations within 240 days.",
+      "source_url": "https://alamancenews.com/commissioners-decide-yearlong-pause-will-allow-review-potential-revision-of-ordinances-that-might-apply-to-data-centers/",
+      "source_title": "The Alamance News — Commissioners decide: yearlong 'pause' will allow review, potential revision of ordinances that might apply to data centers",
+      "captured_at": "2026-09-29"
     }
   ]
 }

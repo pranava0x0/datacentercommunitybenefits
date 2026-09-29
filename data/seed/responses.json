@@ -2508,6 +2508,17 @@
       "source_url": "https://www.abc57.com/news/public-voices-concerns-as-amazon-seeks-permit-to-impact-wetlands-in-new-carlisle",
       "source_title": "ABC57 — Public voices concerns as Amazon seeks permit to impact wetlands in New Carlisle (Jul 9 2026)",
       "single_source": true
+    },
+    {
+      "id": "resp-google-council-bluffs-mayor-moratorium-2026",
+      "project_id": "google-council-bluffs-ia",
+      "date": "2026-06-18",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "Council Bluffs Mayor Jill Shudak asked the city council for up to a one-year moratorium on new data center projects to study infrastructure and ordinances; the council unanimously declined, with a councilman saying the city could review policy without pausing development.",
+      "source_url": "https://www.3newsnow.com/council-bluffs/council-bluffs-mayors-push-to-pause-new-data-center-construction-rejected-by-city-council",
+      "source_title": "3 News Now (KMTV) — Council Bluffs mayor's push to pause new data center construction rejected by city council",
+      "single_source": true
     }
   ]
 }
