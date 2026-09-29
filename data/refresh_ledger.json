@@ -13,6 +13,10 @@
       "last_reviewed": "2026-09-27",
       "summary": "Bumped last_reviewed; checked newsroom (no new US community-impact commitments beyond tracked sites). Cedar Creek TX lead still blocked (DCD 403). Elk Grove Village IL bond/lease/revenue figures now corroborated by a Bloomberg-sourced wire story (GuruFocus via TradingView) but still lack a first-party source, so not promoted to a Project; BACKLOG.md updated."
     },
+    "company:crusoe": {
+      "last_reviewed": "2026-09-29",
+      "summary": "Checked the Abilene community page (jobs/tax/water figures unchanged) and newsroom. Confirmed crusoe-cheyenne-wy's operator handoff to Google (Project Tembo, Jupiter Star Holdings LLC, 2.7GW/716ac) and updated power_mw + notes; company_slug migration to google deferred as a lead. Added one new site, crusoe-warrenton-mo (announced, tax-abatement sourced)."
+    },
     "site:aws-cumberland-pa": {
       "last_reviewed": "2026-09-25",
       "summary": "Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed."
@@ -24,6 +28,10 @@
     "site:aws-new-carlisle-in": {
       "last_reviewed": "2026-09-27",
       "summary": "Checked status/figures (unchanged), IDEM wetlands and dewatering developments since 2026-05-14. Added 2 CommunityResponses: St. Joseph Co. Drainage Board's 2026-05-04 approval of Amazon's altered dewatering proposal (mixed, local_government) and a 2026-07-09 IDEM public hearing on Amazon's new wetlands-fill permit application where NGOs urged denial (negative, ngo). Appended a dated notes sentence on the pending wetlands permit (comment period closed 2026-07-17, decision pending)."
+    },
+    "site:google-council-bluffs-ia": {
+      "last_reviewed": "2026-09-29",
+      "summary": "Checked status/figures, links, ratepayer eligibility (pre-pledge, none due), and news since 2026-05-14. Fixed a dead source_url (datacenters.google/locations/council-bluffs/ now 404s) to the live iowa page. Re-captured 3 claims with updated figures (investment $6.8B->$20B statewide, 2025 economic activity $2.1B->$2.7B, education orgs/Iowans updated); water grade-stabilization claim unchanged. Added a mixed CommunityResponse: the mayor's June 2026 moratorium request was unanimously declined by city council. Filed a lead for an untracked Cedar Rapids Google site."
     },
     "state:CA": {
       "follow_ups": [
@@ -114,12 +122,12 @@
     "state:NC": {
       "follow_ups": [
         {
-          "due": "2026-09-29",
-          "what": "Forsyth County: six-month moratorium was on the Sept 28 agenda — adopted?"
+          "due": "2026-10-06",
+          "what": "Beaufort County: hearing + vote Oct 5 — outcome?"
         },
         {
           "due": "2026-10-06",
-          "what": "Beaufort County: hearing + vote Oct 5 — outcome?"
+          "what": "Forsyth County: regular meeting Oct 5 — did the moratorium discussion advance to a formal vote or hearing?"
         },
         {
           "due": "2026-10-07",
@@ -129,7 +137,11 @@
           "due": "2026-11-06",
           "what": "Charlotte: the original 150-day pause expires Nov 5 — was staff's 9-month extension adopted? (charlotte-city-2026-06; the Sept 14 vote outcome was never found)"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-09-29",
+        "summary": "Forsyth: Sept 28 item was a briefing (work session), not a formal vote; staff to return with more analysis before any vote. Added alamance-county-nc-2026-08 (5-0, 12-month moratorium enacted 2026-08-17, resolving the Alamance backlog lead). Confirmed AG Jeff Jackson's proposed Duke data-center rate class is live."
+      }
     },
     "state:NM": {
       "follow_ups": [

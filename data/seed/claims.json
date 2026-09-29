@@ -4682,6 +4682,46 @@
       "captured_at": "2026-09-22",
       "published_at": "2026-09-17",
       "project_id": "microsoft-la-porte-in"
+    },
+    {
+      "id": "google-council-bluffs-ia-infrastructure-investment-2026-update",
+      "company_slug": "google",
+      "theme": "infrastructure",
+      "statement": "Google has invested more than $20 billion in Iowa since building our data center in Council Bluffs in 2007.",
+      "source_url": "https://datacenters.google/locations/iowa/",
+      "source_title": "Iowa – Google Data Center Location",
+      "captured_at": "2026-09-29",
+      "project_id": "google-council-bluffs-ia",
+      "metric": {
+        "value": 20000000000.0,
+        "unit": "usd",
+        "kind": "announced_investment"
+      }
+    },
+    {
+      "id": "google-council-bluffs-ia-engagement-economic-activity-2026-update",
+      "company_slug": "google",
+      "theme": "engagement",
+      "statement": "In 2025, Google helped provide $2.7 billion of economic activity for thousands of Iowa businesses, nonprofits, publishers, creators, and developers.",
+      "source_url": "https://datacenters.google/locations/iowa/",
+      "source_title": "Iowa – Google Data Center Location",
+      "captured_at": "2026-09-29",
+      "project_id": "google-council-bluffs-ia",
+      "metric": {
+        "value": 2700000000.0,
+        "unit": "usd",
+        "kind": "community_investment"
+      }
+    },
+    {
+      "id": "google-council-bluffs-ia-education-digital-skills-2026-update",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Grow with Google has partnered with over 100 organizations in Iowa to train more than 112,000 Iowans on digital skills.",
+      "source_url": "https://datacenters.google/locations/iowa/",
+      "source_title": "Iowa – Google Data Center Location",
+      "captured_at": "2026-09-29",
+      "project_id": "google-council-bluffs-ia"
     }
   ]
 }
