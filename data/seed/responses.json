@@ -46,6 +46,17 @@
       "single_source": false
     },
     {
+      "id": "resp-google-dalles-mthood-water-2026",
+      "project_id": "google-the-dalles-or",
+      "date": "2026-01-15",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "OPB reported that Google's water use in The Dalles has grown to about a third of the city's supply, and the city is seeking federal legislation to raise its Mount Hood National Forest reservoir dam without standard Forest Service environmental review; WaterWatch of Oregon and Bark said the expansion serves industrial demand rather than residential drinking water and could reduce streamflow and fish habitat.",
+      "source_url": "https://www.opb.org/article/2026/01/15/as-googles-water-demands-grow-the-dalles-aims-to-pull-more-from-mount-hood-forest/",
+      "source_title": "OPB — As Google's water demands grow, The Dalles aims to pull more from Mount Hood forest",
+      "single_source": true
+    },
+    {
       "id": "resp-google-council-bluffs-positive",
       "project_id": "google-council-bluffs-ia",
       "date": "2023-06-20",

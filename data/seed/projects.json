@@ -687,16 +687,16 @@
       "announced_year": 2005,
       "claimed_investment_usd": 1800000000,
       "claimed_jobs": 200,
-      "notes": "Google's first dedicated data center campus. Water usage volumes were disclosed only after a multi-year public-records lawsuit.",
+      "notes": "Google's first dedicated data center campus. Water usage volumes were disclosed only after a multi-year public-records lawsuit. Jan 2026: OPB reported Google's water use had grown to about a third of the city's supply, and the city was seeking federal legislation to enlarge its Mount Hood National Forest reservoir dam to meet the demand.",
       "source_url": "https://datacenters.google/locations/the-dalles/",
       "source_title": "Google Data Centers — The Dalles",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-09-30",
       "project_page_url": "https://datacenters.google/locations/oregon/",
       "acreage": 190,
       "offtaker": "Google",
       "at_a_glance": {
         "jobs": "$1.8B / 200 ops jobs",
-        "water": "Water-use disclosure lawsuit settled Dec 2022"
+        "water": "Uses ~1/3 of city water; city seeking reservoir expansion"
       }
     },
     {
@@ -740,7 +740,7 @@
       "notes": "Sited in a high-water-stress region; Google has highlighted air-cooling and reclaimed-water investments.",
       "source_url": "https://datacenters.google/locations/mesa/",
       "source_title": "Google Data Centers — Mesa",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-09-30",
       "project_page_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
       "acreage": 187,
       "power_mw": 400,
@@ -1119,10 +1119,10 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "1 GW hyperscale campus on a 282-acre site in Wayne County (north of I-94, between Haggerty Road and I-275), originally advanced as 'Project Cannoli'. Power served by 2.7 GW of new DTE solar, storage and demand response. Service start targeted December 2027, full capacity December 2028. Google announced a $10M Energy Impact Fund for Michigan energy affordability. Project is in a contested case before the Michigan Public Service Commission with a September 10, 2026 decision target. Local opposition includes a 1,500+ signature petition.",
+      "notes": "1 GW hyperscale campus on a 282-acre site in Wayne County (north of I-94, between Haggerty Road and I-275), originally advanced as 'Project Cannoli'. Power served by 2.7 GW of new DTE solar, storage and demand response. Service start targeted December 2027, full capacity December 2028. Google announced a $10M Energy Impact Fund for Michigan energy affordability. Project was in a contested case before the Michigan Public Service Commission (docket U-22058) with a September 10, 2026 decision target; as of early Sept 2026 the Attorney General was still pressing for a 90% minimum billing demand (vs. DTE's proposed 80%) and stronger exit-fee terms, and no order confirming a decision has been found. Local opposition includes a 1,500+ signature petition. May 19, 2026: Van Buren Township's Board of Trustees unanimously approved a 50% property tax exemption for 15 years for the project, with a Real Industrial Facilities Tax Exemption for a 36-month construction period; Google is to pay the township $15.4 million for township-wide capital projects.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/clean-energy-reliability-michigan/",
       "source_title": "Scaling clean energy and reliability in Michigan",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-09-30",
       "project_page_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/clean-energy-reliability-michigan/",
       "acreage": 282,
       "power_mw": 1000,
