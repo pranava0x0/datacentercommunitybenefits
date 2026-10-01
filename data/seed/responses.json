@@ -1520,6 +1520,17 @@
       "single_source": false
     },
     {
+      "id": "resp-amazon-richmond-nc-ncuc-turbine-denial",
+      "project_id": "amazon-richmond-county-nc",
+      "date": "2026-09-18",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "The NCUC voted to deny Duke Energy Progress a certificate of public convenience and necessity for a 255 MW gas turbine at the adjacent Smith Energy Complex, citing inadequate evidence of how the plant would be paid for by data-center load and how it complies with the Ratepayer Protection Pledge: \"The proposed plant would also be close to Amazon's under-construction $10 billion data center,\" with commissioners' skepticism driven largely by questions over how much of its power would serve data-center projects. The denial is without prejudice; Duke can refile.",
+      "source_url": "https://www.wunc.org/environment/2026-09-21/nc-utilities-commission-denies-duke-energy-gas-plant",
+      "source_title": "WUNC — In rare step, NC Utilities Commission denies Duke Energy permission to build new gas plant",
+      "single_source": false
+    },
+    {
       "id": "resp-amazon-caddo-shreveport-council-positive",
       "project_id": "amazon-caddo-parish-la",
       "date": "2026-02-23",
