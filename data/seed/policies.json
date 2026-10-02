@@ -109,6 +109,53 @@
       ]
     },
     {
+      "id": "amazon-company-plan-built-together-2026",
+      "title": "Built Together — Amazon's $1B data center community investment framework",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "company",
+      "jurisdiction": "Amazon/AWS (company-wide)",
+      "date": "2026-10-02",
+      "company_slugs": [
+        "amazon"
+      ],
+      "counterparties": [],
+      "benefit_themes": [
+        "education",
+        "energy",
+        "water",
+        "community_grants",
+        "engagement"
+      ],
+      "principles": [
+        "community_benefits",
+        "pay_own_way",
+        "transparency"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "\"With Built Together, Amazon will add more than $1 billion over the next five years to what we're already doing\"",
+        "\"Over the next five years, we estimate that we will connect over 300,000 students to free degree access in data center communities.\"",
+        "plans to expand Modular Training Centers from 3 to 25 by the end of 2028, training up to 100,000 workers annually",
+        "\"ensure that the energy prices we pay for our data centers are sufficient to cover both the energy and infrastructure improvements that may be required\"",
+        "\"We are committed to being water positive across our data centers by 2030, returning more water to communities than we use.\"",
+        "\"We no longer use nondisclosure agreements with the government agencies we work with on our projects.\"",
+        "\"We will utilize backup generators in new sites that meet the EPA's Tier 4 emissions standards (the cleanest EPA emission standard) or the equivalent standards in other regions.\"",
+        "\"Right now there are over 100 data center moratoriums being considered across the country.\" (written by AWS CEO Matt Garman, in the same post)"
+      ],
+      "value_usd": 1000000000,
+      "summary": "Amazon announced Built Together on Oct. 2, 2026, a new community-investment framework adding over $1 billion over five years on top of existing spending at its U.S. data center sites, organized around education and workforce pathways, energy affordability and water, and flexible local funding chosen by communities. AWS CEO Matt Garman, in the same post, tied the program to the wave of local opposition and the more than 100 local data-center moratoriums under consideration nationwide. Alongside the funding, Amazon committed to ending NDAs with government agencies on its projects and to using only Tier 4 (cleanest-standard) backup generators at new sites.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-centers-built-together",
+      "source_title": "Amazon's approach to data centers: community-focused, sustainable and efficient — About Amazon",
+      "resources": [
+        {
+          "url": "https://www.newsweek.com/amazon-pledges-1-billion-for-data-center-communities-as-us-backlash-grows-12515431",
+          "title": "Newsweek — Amazon Pledges $1 Billion for Data Center Communities as US Backlash Grows"
+        }
+      ],
+      "captured_at": "2026-10-02"
+    },
+    {
       "id": "anthropic-company-plan-electricity-price-coverage-2026",
       "title": "Anthropic: covering electricity price increases from our data centers",
       "instrument": "company_plan",
