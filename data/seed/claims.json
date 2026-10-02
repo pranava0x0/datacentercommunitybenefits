@@ -1195,6 +1195,66 @@
       "captured_at": "2026-05-14"
     },
     {
+      "id": "amazon-built-together-community-investment-2026",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "With Built Together, Amazon will add more than $1 billion over the next five years to what we're already doing",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-centers-built-together",
+      "source_title": "Amazon's approach to data centers: community-focused, sustainable and efficient — About Amazon",
+      "captured_at": "2026-10-02",
+      "published_at": "2026-10-02",
+      "metric": {
+        "value": 1000000000,
+        "unit": "usd",
+        "kind": "five_year_commitment"
+      }
+    },
+    {
+      "id": "amazon-built-together-education-2026",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "Over the next five years, we estimate that we will connect over 300,000 students to free degree access in data center communities.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-centers-built-together",
+      "source_title": "Amazon's approach to data centers: community-focused, sustainable and efficient — About Amazon",
+      "captured_at": "2026-10-02",
+      "published_at": "2026-10-02",
+      "metric": {
+        "value": 300000,
+        "unit": "students",
+        "kind": "free_degree_access_5yr"
+      }
+    },
+    {
+      "id": "amazon-built-together-energy-pricing-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "To ensure that our data centers do not raise electricity bills for people in our communities, we work with local utilities, regulators, policymakers, and grid operators to ensure that the energy prices we pay for our data centers are sufficient to cover both the energy and infrastructure improvements that may be required.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-centers-built-together",
+      "source_title": "Amazon's approach to data centers: community-focused, sustainable and efficient — About Amazon",
+      "captured_at": "2026-10-02",
+      "published_at": "2026-10-02"
+    },
+    {
+      "id": "amazon-built-together-backup-generators-2026",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "We will utilize backup generators in new sites that meet the EPA's Tier 4 emissions standards (the cleanest EPA emission standard) or the equivalent standards in other regions.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-centers-built-together",
+      "source_title": "Amazon's approach to data centers: community-focused, sustainable and efficient — About Amazon",
+      "captured_at": "2026-10-02",
+      "published_at": "2026-10-02"
+    },
+    {
+      "id": "amazon-built-together-nda-transparency-2026",
+      "company_slug": "amazon",
+      "theme": "engagement",
+      "statement": "We no longer use nondisclosure agreements with the government agencies we work with on our projects.",
+      "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-centers-built-together",
+      "source_title": "Amazon's approach to data centers: community-focused, sustainable and efficient — About Amazon",
+      "captured_at": "2026-10-02",
+      "published_at": "2026-10-02"
+    },
+    {
       "id": "wonder-valley-box-elder-ut-energy-oleary-air-cooled-2026-05",
       "company_slug": "wonder-valley",
       "project_id": "wonder-valley-box-elder-ut",

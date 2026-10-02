@@ -1,6 +1,10 @@
 {
   "about": "Review log for the daily refresh routine. Written only by scripts/refresh_queue.py --mark; read by the queue. Units (sites, companies, states) are derived from the payloads, so this file records only when each was last reviewed, what the review found, and dated follow-ups.",
   "units": {
+    "company:amazon": {
+      "last_reviewed": "2026-10-02",
+      "summary": "Added Built Together (Oct 2, 2026): new $1B/5yr company_plan policy + 5 company-level claims (community_grants, education, energy x2, engagement) covering free community college, Modular Training Centers, energy-pricing/grid-cost commitment, Tier 4 backup generators, and ending government NDAs. Bumped companies.json summary + last_reviewed. No named community reaction yet (too fresh) — filed as a BACKLOG lead to re-check."
+    },
     "company:anthropic": {
       "follow_ups": [
         {
