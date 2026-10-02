@@ -2541,6 +2541,28 @@
       "source_url": "https://www.3newsnow.com/council-bluffs/council-bluffs-mayors-push-to-pause-new-data-center-construction-rejected-by-city-council",
       "source_title": "3 News Now (KMTV) — Council Bluffs mayor's push to pause new data center construction rejected by city council",
       "single_source": true
+    },
+    {
+      "id": "resp-google-van-buren-mi-wayne-county-override",
+      "project_id": "google-van-buren-mi",
+      "date": "2026-10-01",
+      "stance": "mixed",
+      "constituency": "local_government",
+      "summary": "The Wayne County Commission voted 13-0 to override County Executive Warren Evans' veto of tax incentives for the Google project, after Evans had objected that the approval process was rushed.",
+      "source_url": "https://www.fox2detroit.com/news/wayne-county-overrides-evans-veto-tax-breaks-van-buren-data-center",
+      "source_title": "Fox 2 Detroit — Wayne County overrides Evans veto of tax breaks for Van Buren data center",
+      "single_source": false
+    },
+    {
+      "id": "resp-google-van-buren-mi-mpsc-conditional-approval",
+      "project_id": "google-van-buren-mi",
+      "date": "2026-10-01",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "The Michigan Public Service Commission voted unanimously to grant conditional approval of DTE Energy contracts to power the Google project, the state's first hyperscale data center contracts decided by a contested case.",
+      "source_url": "https://planetdetroit.org/2026/10/dte-google-data-center-contract-approval/",
+      "source_title": "Planet Detroit — Michigan regulators OK DTE contracts for Google data center",
+      "single_source": true
     }
   ]
 }

@@ -48,22 +48,20 @@
     "site:google-van-buren-mi": {
       "last_reviewed": "2026-09-30",
       "summary": "Confirmed May 19, 2026 township tax exemption (50%/15yr + 36-mo construction, $15.4M community payment) via Belleville Area Independent; added to notes. Found but could not directly verify (paywalled/blocked): Wayne Co. Exec Evans' Sept 25 veto of that tax break + expected Oct 1 override vote, and MPSC docket U-22058's Sept 10 decision status (still pending, no order found) -- filed as backlog leads. captured_at bumped.",
-      "follow_ups": [
-        {
-          "due": "2026-10-02",
-          "what": "Did the Wayne County Commission override Evans' veto at its Oct 1 meeting? Also check MPSC docket U-22058 for an order."
-        }
-      ]
+      "last_check": {
+        "date": "2026-10-02",
+        "summary": "Wayne Co. Commission overrode Evans' veto 13-0 on Oct 1 (Fox 2); MPSC voted unanimously Oct 1 to conditionally approve DTE contracts (Planet Detroit; docket number not stated there). Added 2 responses + notes."
+      }
     },
     "state:CA": {
       "follow_ups": [
         {
-          "due": "2026-10-02",
-          "what": "San Francisco: Sup. Walton's 45-day interim zoning moratorium (introduced Sept 14/15) — approved?"
-        },
-        {
           "due": "2026-10-07",
           "what": "Mendocino County: extension hearing Oct 6 (urgency ordinance expires Oct 16) — extended or lapsed?"
+        },
+        {
+          "due": "2026-10-09",
+          "what": "San Francisco Walton 45-day moratorium: Board vote outcome?"
         },
         {
           "due": "2026-10-11",
@@ -75,8 +73,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-09-25",
-        "summary": "Indio (indio-ca-2026-06): council unanimously extended the moratorium July 15 through Oct 16, 2026 while staff drafts General Plan/code amendments (NBC Palm Springs)."
+        "date": "2026-10-02",
+        "summary": "SF Walton 45-day moratorium: introduced Sept 15; SF Standard Sept 22 says it still needs Board approval; no vote outcome found as of Oct 2. Not marked approved."
       }
     },
     "state:CO": {
@@ -188,6 +186,12 @@
           "what": "Oregon PUC deadline Dec 31 on PacifiCorp Schedule 401 (UE 463; Order 26-310 suspended it to Dec 31)"
         }
       ]
+    },
+    "state:PA": {
+      "last_check": {
+        "date": "2026-10-02",
+        "summary": "Oct 1 PUC meeting: Tentative Order on emergency load control approved; 30-day comments + 15-day replies; Nov 17 technical conference on large-load cost allocation; final order anticipated Jan 28 2027 (PUC press release)."
+      }
     },
     "state:TX": {
       "follow_ups": [
