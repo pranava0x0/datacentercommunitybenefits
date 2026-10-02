@@ -418,8 +418,8 @@
       "filed_date": "2026-09-10",
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Law Bureau and Bureau of Technical Utility Services to present a Tentative Order updating emergency electric load control regulations at the October 1, 2026 public meeting; a technical conference on cost responsibility for large computational loads in fall 2026; final order targeted for the January 28, 2027 public meeting",
-      "next_milestone_date": "2026-10-01",
+      "next_milestone": "Technical conference on cost allocation for large computational loads Nov. 17, 2026; 30-day comment period plus 15 days of reply comments on the Oct 1 Tentative Order on emergency load control; final order anticipated at the Jan. 28, 2027 public meeting",
+      "next_milestone_date": "2026-11-17",
       "related_tariff_id": null,
       "related_project_ids": null,
       "summary": "At its September 10, 2026 public meeting the PUC voted 5-0 on Vice Chair Kimberly Barrow's motion directing staff to draft updates to Pennsylvania's emergency electric load control regulations — including 'greater clarity regarding the order, criteria and circumstances under which customers may be curtailed during pre-emergency and emergency conditions' — and to convene a technical conference examining how costs associated with large computational loads, including data centers, are identified and allocated and their potential impact on non-contributing customers. Barrow: 'The combination of rapid load growth and tightening resource adequacy conditions requires us to carefully examine whether our existing regulatory framework is sufficient for the challenges ahead.' A companion docket (M-2026-3064953) created a Ratemaking Working Group on return on equity, settlement transparency and DSIC returns. This sits alongside the PUC's April 2026 Large Load Tariff Framework (M-2025-3054271, tracked as pa-puc-large-load-model-tariff).",
@@ -435,7 +435,7 @@
           "title": "Utility Dive — Pennsylvania PUC to consider ratemaking, ROE and curtailment as data center load grows"
         }
       ],
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-10-02"
     },
     {
       "id": "in-iurc-im-base-rate-reduction-2026",
