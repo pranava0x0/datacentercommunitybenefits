@@ -140,10 +140,11 @@
         "\"ensure that the energy prices we pay for our data centers are sufficient to cover both the energy and infrastructure improvements that may be required\"",
         "\"We are committed to being water positive across our data centers by 2030, returning more water to communities than we use.\"",
         "\"We no longer use nondisclosure agreements with the government agencies we work with on our projects.\"",
-        "\"We will utilize backup generators in new sites that meet the EPA's Tier 4 emissions standards (the cleanest EPA emission standard) or the equivalent standards in other regions.\""
+        "\"We will utilize backup generators in new sites that meet the EPA's Tier 4 emissions standards (the cleanest EPA emission standard) or the equivalent standards in other regions.\"",
+        "\"Right now there are over 100 data center moratoriums being considered across the country.\" (written by AWS CEO Matt Garman, in the same post)"
       ],
       "value_usd": 1000000000,
-      "summary": "Amazon announced Built Together on Oct. 2, 2026, a new community-investment framework adding over $1 billion over five years on top of existing spending at its U.S. data center sites, organized around education and workforce pathways, energy affordability and water, and flexible local funding chosen by communities. AWS CEO Matt Garman tied the program to the wave of local opposition and the more than 100 local data-center moratoriums under consideration nationwide. Alongside the funding, Amazon committed to ending NDAs with government agencies on its projects and to using only Tier 4 (cleanest-standard) backup generators at new sites.",
+      "summary": "Amazon announced Built Together on Oct. 2, 2026, a new community-investment framework adding over $1 billion over five years on top of existing spending at its U.S. data center sites, organized around education and workforce pathways, energy affordability and water, and flexible local funding chosen by communities. AWS CEO Matt Garman, in the same post, tied the program to the wave of local opposition and the more than 100 local data-center moratoriums under consideration nationwide. Alongside the funding, Amazon committed to ending NDAs with government agencies on its projects and to using only Tier 4 (cleanest-standard) backup generators at new sites.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-data-centers-built-together",
       "source_title": "Amazon's approach to data centers: community-focused, sustainable and efficient — About Amazon",
       "resources": [
