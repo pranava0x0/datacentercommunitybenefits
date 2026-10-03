@@ -1137,7 +1137,7 @@
       "enacted_date": "2026-06-03",
       "effective_date": "2026-06-03",
       "duration_months": 4,
-      "duration_description": "45-day emergency moratorium (enacted June 3, 2026); unanimously extended by the City Council on July 15, 2026 through October 16, 2026 while staff drafts General Plan and development-code amendments ranging from a full ban to lesser regulations. The Planning Commission has separately recommended an outright ban; Council has not yet acted on a permanent ordinance.",
+      "duration_description": "45-day emergency moratorium (enacted June 3, 2026); unanimously extended by the City Council on July 15, 2026 through October 16, 2026 while staff drafts General Plan and development-code amendments ranging from a full ban to lesser regulations. The Planning Commission has separately recommended an outright ban; As of Oct 3, 2026 no later council action was found in search; the moratorium runs through Oct 16, 2026.",
       "power_threshold_mw": null,
       "key_reasons": [
         "transparency"
@@ -1151,7 +1151,7 @@
           "title": "KESQ — Indio City Council to consider extending data center moratorium, weigh permanent ban"
         }
       ],
-      "captured_at": "2026-09-25",
+      "captured_at": "2026-10-03",
       "city_council_vote": "unanimous",
       "state_code": "CA"
     },

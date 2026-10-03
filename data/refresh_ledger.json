@@ -70,11 +70,15 @@
         {
           "due": "2026-10-16",
           "what": "Indio's extended moratorium (indio-ca-2026-06) expires Oct 16 2026 -- permanent ban adopted, extended again, or lapsed?"
+        },
+        {
+          "due": "2026-10-17",
+          "what": "Indio: moratorium expired Oct 16 — permanent ban adopted, extended, or lapsed?"
         }
       ],
       "last_check": {
-        "date": "2026-10-02",
-        "summary": "SF Walton 45-day moratorium: introduced Sept 15; SF Standard Sept 22 says it still needs Board approval; no vote outcome found as of Oct 2. Not marked approved."
+        "date": "2026-10-03",
+        "summary": "Indio: council extended moratorium through Oct 16 (NBC Palm Springs); no later council action found as of Oct 3. Computed end date was stale vs stated Oct 16."
       }
     },
     "state:CO": {
