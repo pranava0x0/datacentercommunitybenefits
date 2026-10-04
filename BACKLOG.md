@@ -639,6 +639,14 @@ come first, then locations, companies and sites.
   from Aug. 26) was expected Sept. 23 or Oct. 14, 2026; not confirmed this
   run.
 
+#### site:meta-newton-ga
+- **Dead `source_url` (2026-10-04).** `https://datacenters.atmeta.com/location/newton/`
+  returns 404 (also in a browser-UA fetch). The `project_page_url`
+  (`/2021/03/hello-georgia/`) is live but is the 2021 announcement, which does not
+  state the $1.5B / 400-job / 1,120 MW figures. Needs Meta's current Newton page
+  (or a fetchable local-press source) before the URL is swapped; no guessed URL.
+  Unit not marked reviewed: figures, permits and news were not completed.
+
 #### site:microsoft-boydton-va
 - $2B and 250 jobs aren't on the cited local.microsoft.com page.
 
