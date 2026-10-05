@@ -53,6 +53,10 @@
         "summary": "Wayne Co. Commission overrode Evans' veto 13-0 on Oct 1 (Fox 2); MPSC voted unanimously Oct 1 to conditionally approve DTE contracts (Planet Detroit; docket number not stated there). Added 2 responses + notes."
       }
     },
+    "site:meta-prineville-or": {
+      "last_reviewed": "2026-10-05",
+      "summary": "Checked news and source link; added Apr 2026 contractor layoff note; datacenters.atmeta.com/location/prineville/ returns 404 (needs new URL, not swapped); permits not checked"
+    },
     "state:CA": {
       "follow_ups": [
         {
