@@ -150,16 +150,12 @@
     "state:NC": {
       "follow_ups": [
         {
-          "due": "2026-10-06",
-          "what": "Beaufort County: hearing + vote Oct 5 — outcome?"
-        },
-        {
-          "due": "2026-10-06",
-          "what": "Forsyth County: regular meeting Oct 5 — did the moratorium discussion advance to a formal vote or hearing?"
-        },
-        {
           "due": "2026-10-07",
           "what": "Raleigh: six-month draft moratorium hearing Oct 6 — adopted?"
+        },
+        {
+          "due": "2026-10-09",
+          "what": "Beaufort County NC: Oct 5 hearing/vote outcome still unconfirmed; Forsyth County: any formal moratorium vote?"
         },
         {
           "due": "2026-11-06",
@@ -167,8 +163,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-01",
-        "summary": "Oct 1 milestone check: no NCUC filing/order confirming the end-of-Sept large-load tariff submission found. Related: NCUC voted 3-1 Sept 18 to deny Duke Energy Progress a CPCN for a gas turbine at Smith Energy Complex near Amazon's Richmond County site, citing inadequate Ratepayer Pledge compliance showing; added as a CommunityResponse on amazon-richmond-county-nc (WUNC). Denial is without prejudice."
+        "date": "2026-10-06",
+        "summary": "Oct 6 check: no published outcome found for the Beaufort County Oct 5 hearing/vote or the Forsyth County Oct 5 meeting (searches returned only Beaufort County SC and Forsyth Sept 14 briefing coverage: six-month pause discussed, county attorney warned of litigation, not advanced). No records changed."
       }
     },
     "state:NM": {
