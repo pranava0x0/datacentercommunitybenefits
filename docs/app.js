@@ -539,6 +539,10 @@ const state = {
   // they are narrowed to one operator.
   quoteTheme: null,
   quoteFocusCompany: null,
+  // Sites > Contested paging: how many cards are showing, and the filter
+  // combination they were paged under.
+  contestedShown: 0,
+  contestedPageKey: null,
   projectMoratoriums: new Map(),
   activeView: DEFAULT_VIEW_NAME,
   selectedCompanySlug: null,
@@ -5130,6 +5134,7 @@ const SITE_UPDATE_LABELS = {
   news: "News",
 };
 const CONTESTED_TIMELINE_PREVIEW = 3;
+const CONTESTED_PAGE_SIZE = 12;
 
 // Today's date as YYYY-MM-DD in UTC, matching how every record stores dates.
 function todayIso() {
@@ -5295,7 +5300,26 @@ function renderContestedSites() {
     list.innerHTML = `<li class="muted">No contested sites match these filters.</li>`;
     return;
   }
-  for (const p of sites) list.appendChild(renderContestedCard(p));
+  // Paged: all 58 cards with timelines ran ~47,000px on a phone. A filter
+  // change resets to the first page (the key captures every filter).
+  const key = `${fState}|${fCo}|${sort}`;
+  if (state.contestedPageKey !== key) {
+    state.contestedPageKey = key;
+    state.contestedShown = CONTESTED_PAGE_SIZE;
+  }
+  const shown = sites.slice(0, state.contestedShown);
+  for (const p of shown) list.appendChild(renderContestedCard(p));
+  const left = sites.length - shown.length;
+  if (left > 0) {
+    const li = document.createElement("li");
+    li.className = "contested-more";
+    li.innerHTML = `<button type="button" class="btn-ghost">Show ${Math.min(left, CONTESTED_PAGE_SIZE)} more (${left} not shown)</button>`;
+    li.querySelector("button").addEventListener("click", () => {
+      state.contestedShown += CONTESTED_PAGE_SIZE;
+      renderContestedSites();
+    });
+    list.appendChild(li);
+  }
 }
 
 function renderContestedCard(p) {

@@ -1669,9 +1669,23 @@ class TestContestedSites:
         page.goto(base_url + "/#explorer/contested")
         page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
         n = page.evaluate("() => state.projects.filter(isContestedSite).length")
-        assert n >= 10
-        expect(page.locator("#contested-list .contested-card")).to_have_count(n)
+        page_size = page.evaluate("() => CONTESTED_PAGE_SIZE")
+        assert n > page_size, "fixture: enough contested sites to exercise paging"
         expect(page.locator("#sites-contested-count")).to_have_text(str(n))
+        # Paged so a phone doesn't scroll ~50 screens; "Show more" reaches all.
+        cards = page.locator("#contested-list .contested-card")
+        expect(cards).to_have_count(page_size)
+        while page.locator("#contested-list .contested-more button").count():
+            page.locator("#contested-list .contested-more button").click()
+        expect(cards).to_have_count(n)
+
+    def test_filter_change_resets_paging(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
+        page.locator("#contested-list .contested-more button").click()
+        page.select_option("#c-sort", "critical")
+        size = page.evaluate("() => CONTESTED_PAGE_SIZE")
+        expect(page.locator("#contested-list .contested-card")).to_have_count(size)
 
     def test_every_card_says_why(self, page: Page, base_url: str):
         page.goto(base_url + "/#explorer/contested")
@@ -3365,3 +3379,71 @@ class TestAggregateExportsCoverEveryRollup:
         text = Path(dl.value.path()).read_text()
         sections = sum(1 for line in text.splitlines() if line.startswith("BY "))
         assert sections == tabs, f"{tabs} rollup tabs but {sections} CSV sections"
+
+
+
+class TestMobileV5Panes:
+    """v5 mobile pass: every view pane at phone width in a real touch context.
+
+    Derived from VIEW_SUBTAB_GROUP + SUBTAB_GROUPS so a new pane is covered.
+    A touch context, not set_viewport_size: only is_mobile/has_touch makes
+    (pointer: coarse) match (CLAUDE.md, universal lessons).
+    """
+
+    TARGETS = (
+        ".subtab, .depth-chip, .theme-pick, .theme-head-btn, .btn-link, "
+        ".filter-bar select, .co-card button, .contested-card button, .rc-more"
+    )
+
+    def _panes(self, browser, base_url):
+        page = browser.new_page()
+        page.goto(base_url + "/")
+        panes = page.evaluate(
+            "() => Object.entries(VIEW_SUBTAB_GROUP).flatMap(([v, g]) => SUBTAB_GROUPS[g].map(k => [v, g, k]))"
+        )
+        page.close()
+        return panes
+
+    def test_no_horizontal_overflow_and_no_tiny_targets(self, browser, base_url: str):
+        ctx = browser.new_context(
+            viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True
+        )
+        ctx.route("**/server.arcgisonline.com/**", lambda r: r.fulfill(status=204, body=""))
+        problems = []
+        try:
+            for view, group, key in self._panes(browser, base_url):
+                page = ctx.new_page()
+                page.goto(f"{base_url}/?m={view}-{key}#{view}/{key}")
+                expect(page.locator(f"#subpane-{group}-{key}")).to_be_visible(timeout=E2E_WAIT)
+                page.wait_for_timeout(400)
+                over = page.evaluate("document.documentElement.scrollWidth - innerWidth")
+                if over > 0:
+                    problems.append(f"{view}/{key}: {over}px horizontal overflow")
+                tiny = page.evaluate(
+                    """(sel) => [...document.querySelectorAll(sel)]
+                         .map(e => e.getBoundingClientRect())
+                         .filter(b => b.width > 0 && (b.height < 23.5 || b.width < 23.5)).length""",
+                    self.TARGETS,
+                )
+                if tiny:
+                    problems.append(f"{view}/{key}: {tiny} tap targets under 24px")
+                page.close()
+        finally:
+            ctx.close()
+        assert problems == []
+
+    def test_view_subtabs_fit_one_row_on_a_phone(self, browser, base_url: str):
+        ctx = browser.new_context(
+            viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True
+        )
+        try:
+            page = ctx.new_page()
+            page.goto(base_url + "/")
+            for view in page.evaluate("() => Object.keys(VIEW_SUBTAB_GROUP)"):
+                page.locator(f"#tab-{view}").click()
+                tops = page.locator(f"#view-{'explorer' if view == 'explorer' else view} .subtabs--view .subtab").evaluate_all(
+                    "els => [...new Set(els.map(e => Math.round(e.getBoundingClientRect().top)))]"
+                )
+                assert len(tops) == 1, f"{view}: sub-tabs wrap to {len(tops)} rows"
+        finally:
+            ctx.close()

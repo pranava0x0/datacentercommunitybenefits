@@ -6348,3 +6348,37 @@ button.depth-chip:focus-visible {
 }
 .rc-next-date { font-weight: 600; }
 .rc-more { margin-top: 2px; }
+
+/* ---- v5 mobile pass (2026-10-08) ----------------------------------------- */
+/* Three view sub-tabs on one row at 390px instead of wrapping to two. */
+@media (max-width: 600px) {
+  .subtabs--view .subtab {
+    padding: 8px 8px;
+    font-size: var(--fs-base);
+    gap: 4px;
+  }
+  .subtabs--view .subtab-count { padding: 1px 5px; }
+}
+/* Touch targets: chips and inline link-buttons were ~20px tall on a phone,
+   under the 24px WCAG 2.5.8 minimum. Coarse pointers only, so the desktop
+   chip scale is unchanged (same approach as the .subtab 44px floor). */
+@media (pointer: coarse) {
+  .depth-chip,
+  .theme-pick,
+  .btn-link,
+  .reason-chip {
+    min-height: 32px;
+  }
+  .depth-chip { padding: 5px 10px; }
+  .theme-head-btn {
+    display: block;
+    width: 100%;
+    min-height: 32px;
+  }
+}
+.contested-more {
+  list-style: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 8px 0;
+}
