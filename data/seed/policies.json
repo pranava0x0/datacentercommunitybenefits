@@ -3790,6 +3790,182 @@
         "water",
         "pay_own_way"
       ]
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "ca-ab2383-2026",
+      "title": "Assembly Bill 2383 — electricity: data centers",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "California",
+      "state_code": "CA",
+      "identifier": "AB 2383 (Chavez Zbur)",
+      "date": "2026-09-21",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "AB 2383"
+      ],
+      "summary": "Signed Sept. 21, 2026 as part of the Governor's data center package, which the release describes as making data centers pay their fair share of grid costs. The release names the bill but does not detail its individual provisions.",
+      "source_url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+      "source_title": "Office of the Governor — Newsom signs data center laws (Sept. 21, 2026)"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "ca-ab2619-2026",
+      "title": "Assembly Bill 2619 — water resources: data centers",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "California",
+      "state_code": "CA",
+      "identifier": "AB 2619 (Papan)",
+      "date": "2026-09-21",
+      "benefit_themes": [
+        "water"
+      ],
+      "principles": [
+        "water"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "AB 2619"
+      ],
+      "summary": "Signed Sept. 21, 2026 as part of the Governor's data center package, which the release describes as requiring data centers to pay for water-supply upgrades they need. The release names the bill but does not detail its individual provisions.",
+      "source_url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+      "source_title": "Office of the Governor — Newsom signs data center laws (Sept. 21, 2026)"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "ca-sb887-2026",
+      "title": "Senate Bill 887 — CEQA streamlining and data centers",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "California",
+      "state_code": "CA",
+      "identifier": "SB 887 (Padilla)",
+      "date": "2026-09-21",
+      "benefit_themes": [
+        "energy",
+        "water"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "SB 887"
+      ],
+      "summary": "Signed Sept. 21, 2026 as part of the Governor's data center package, which the release describes as narrowing blanket environmental-review exemptions for data centers. The release names the bill but does not detail its individual provisions.",
+      "source_url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+      "source_title": "Office of the Governor — Newsom signs data center laws (Sept. 21, 2026)"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "ca-sb1168-2026",
+      "title": "Senate Bill 1168 — data centers: rate structures",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "California",
+      "state_code": "CA",
+      "identifier": "SB 1168 (McNerney)",
+      "date": "2026-09-21",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "SB 1168"
+      ],
+      "summary": "Signed Sept. 21, 2026 as part of the Governor's data center package, which the release describes as preventing data centers from shifting electricity costs onto other ratepayers. The release names the bill but does not detail its individual provisions.",
+      "source_url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+      "source_title": "Office of the Governor — Newsom signs data center laws (Sept. 21, 2026)"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "nj-pl2026-c32",
+      "title": "Data Center Fair Share Act (P.L. 2026, c.32) — large data center rate class",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "New Jersey",
+      "state_code": "NJ",
+      "identifier": "P.L. 2026, c.32",
+      "date": "2026-07-07",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "P.L. 2026, c.32"
+      ],
+      "summary": "Signed July 7, 2026, the law has the Board of Public Utilities set a separate rate class and cost-allocation rules for large data centers so other customers do not subsidize them. The state's Local Finance Notice 2026-13 (Aug. 25, 2026) explains it to municipalities; the BPU is implementing it over the coming months. The tariff standards it sets are tracked on the Tariffs tab (A796/S731).",
+      "source_url": "https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf",
+      "source_title": "NJ Division of Local Government Services — Local Finance Notice 2026-13"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "pulaski-county-ar-ord-26-i-56b",
+      "title": "Pulaski County Ordinance 26-I-56B on data centers (vetoed)",
+      "instrument": "local_ordinance",
+      "status": "failed",
+      "scope": "county",
+      "jurisdiction": "Pulaski County",
+      "state_code": "AR",
+      "identifier": "Ordinance No. 26-I-56B",
+      "date": "2026-09-25",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "26-I-56B"
+      ],
+      "summary": "County Judge Barry Hyde vetoed Ordinance No. 26-I-56B, a county data center ordinance, citing five reasons including unresolved questions about state law and existing property rights and appeal provisions that should be brought into compliance with Arkansas law.",
+      "source_url": "https://katv.com/news/judge-barry-hyde-vetoes-data-center-ordinance-avaio-terri-hollingsworth-ordinance-no-26-i-56b-google-entergy-arkansas-law-economy-development",
+      "source_title": "KATV — Judge Barry Hyde vetoes data center ordinance"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "volusia-county-fl-ban-2026",
+      "title": "Volusia County ordinance prohibiting large-scale data centers (first reading)",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Volusia County",
+      "state_code": "FL",
+      "date": "2026-10-06",
+      "benefit_themes": [
+        "water",
+        "energy"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "large-scale data centers"
+      ],
+      "summary": "Volusia County Council voted unanimously on Oct. 6, 2026 to advance, after first reading, an ordinance prohibiting large-scale data centers in unincorporated areas. The Planning and Land Development Regulation Commission takes it up Oct. 15, with a second and final hearing Oct. 20.",
+      "source_url": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading",
+      "source_title": "Spectrum News 13 — Volusia County data center ban heads to first reading"
     }
   ]
 }

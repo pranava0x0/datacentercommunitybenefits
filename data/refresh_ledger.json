@@ -63,8 +63,25 @@
       "last_reviewed": "2026-10-05",
       "summary": "Checked news and source link; added Apr 2026 contractor layoff note; datacenters.atmeta.com/location/prineville/ returns 404 (needs new URL, not swapped); permits not checked"
     },
+    "state:AZ": {
+      "last_check": {
+        "date": "2026-10-08",
+        "summary": "2026-10-08 v5 refresh: added Pima County 120-day moratorium"
+      },
+      "follow_ups": [
+        {
+          "due": "2026-12-16",
+          "what": "Pima County board hearing on extending the 120-day moratorium (pima-county-az-2026-09)"
+        }
+      ]
+    },
     "state:CA": {
       "follow_ups": [
+        {
+          "due": "2026-10-09",
+          "what": "Oakland council Oct 6 vote on 45-day data center moratorium (oakland-ca-2026-09)",
+          "hint": "https://oaklandside.org/2026/09/23/oakland-data-center-moratorium-committee-appoval/"
+        },
         {
           "due": "2026-10-09",
           "what": "San Francisco Walton 45-day moratorium: Board vote outcome?"
@@ -87,8 +104,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-07",
-        "summary": "Mendocino: no report yet of the Oct 6 extension hearing outcome (searches found only pre-hearing coverage); record unchanged."
+        "date": "2026-10-08",
+        "summary": "2026-10-08 v5 refresh: added Oakland (proposed) and Tulare extension moratoriums, four Sept 21 data center laws"
       }
     },
     "state:CO": {
@@ -116,11 +133,16 @@
         {
           "due": "2026-10-14",
           "what": "Leon County: 18-month moratorium final hearing Oct 13 — adopted?"
+        },
+        {
+          "due": "2026-10-21",
+          "what": "Volusia County final hearing Oct 20 on data center ban (volusia-county-fl-ban-2026); Florida SB 484 large-load tariff filings (TECO Sept 30, FPL Oct 1) need PSC docket numbers",
+          "hint": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading"
         }
       ],
       "last_check": {
-        "date": "2026-10-07",
-        "summary": "Manatee Ord. 26-42: no report yet of the Oct 6 second-hearing outcome; record unchanged."
+        "date": "2026-10-08",
+        "summary": "2026-10-08 v5 refresh: added Volusia County ban ordinance (first reading)"
       }
     },
     "state:GA": {
@@ -164,6 +186,11 @@
           "what": "Beaufort County NC: Oct 5 hearing/vote outcome still unconfirmed; Forsyth County: any formal moratorium vote?"
         },
         {
+          "due": "2026-10-09",
+          "what": "Raleigh council Oct 6 vote on six-month moratorium (raleigh-nc-2026-09); find Cary's late-Aug enactment date to add it",
+          "hint": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium"
+        },
+        {
           "due": "2026-10-10",
           "what": "Raleigh: Oct 6 vote on six-month moratorium — adopted?"
         },
@@ -173,8 +200,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-07",
-        "summary": "Raleigh: no report yet of the Oct 6 council vote on the six-month moratorium; record unchanged."
+        "date": "2026-10-08",
+        "summary": "2026-10-08 v5 refresh: added Raleigh proposed moratorium; Cary held (no enacted date on page); Duke Oct 7 tariff settlement"
       }
     },
     "state:NM": {
@@ -193,6 +220,19 @@
         }
       ]
     },
+    "state:OK": {
+      "last_check": {
+        "date": "2026-10-08",
+        "summary": "2026-10-08 v5 refresh: OG&E 75 MW+ large-load tariff proposal held, no OCC cause number"
+      },
+      "follow_ups": [
+        {
+          "due": "2026-10-15",
+          "what": "OG&E large-load tariff: find the OCC cause number to add it as a proposed tariff",
+          "hint": "https://www.oge.com/web/portal/-/205-press-release"
+        }
+      ]
+    },
     "state:OR": {
       "follow_ups": [
         {
@@ -207,6 +247,19 @@
         "summary": "Oct 1 PUC meeting: Tentative Order on emergency load control approved; 30-day comments + 15-day replies; Nov 17 technical conference on large-load cost allocation; final order anticipated Jan 28 2027 (PUC press release)."
       }
     },
+    "state:TN": {
+      "last_check": {
+        "date": "2026-10-08",
+        "summary": "2026-10-08 v5 refresh: Crossville TN two-year moratorium held, no enactment date on the page"
+      },
+      "follow_ups": [
+        {
+          "due": "2026-10-15",
+          "what": "Crossville TN moratorium: find third-reading date and ordinance number to add it",
+          "hint": "https://1025wowcountry.com/?p=38497"
+        }
+      ]
+    },
     "state:TX": {
       "follow_ups": [
         {
@@ -214,10 +267,18 @@
           "what": "TWDB reports to Gov. Abbott Oct 14 on penalizing data centers that skip water-use reporting (texas-state-2026-08)"
         },
         {
+          "due": "2026-10-20",
+          "what": "TCEQ compliance report due Oct 19 on the data center permit pause (texas-state-2026-08)"
+        },
+        {
           "due": "2026-11-11",
           "what": "Fort Worth: committee report to council Nov 3, first public hearing Nov 10 (fort-worth-tx-2026-08)"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-10-08",
+        "summary": "2026-10-08 v5 refresh: Texas record gains the Sept 21 TCEQ permit pause"
+      }
     },
     "state:VA": {
       "follow_ups": [

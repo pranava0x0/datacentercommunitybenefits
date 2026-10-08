@@ -3851,7 +3851,7 @@
         "energy",
         "water"
       ],
-      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. On September 14, 2026 Abbott issued a second, related directive to the Texas Water Development Board (TWDB), ordering it to compel major water users including data centers to complete legally required water-use surveys and to penalize those that don't: noncompliant users can face a Class C misdemeanor and become ineligible for TCEQ permits, permit amendments or renewals, with the Governor's office citing roughly 28% survey response compliance over the last three years; TWDB must report back to the Governor's office on enforcement progress by October 14, 2026. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed.",
+      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. On September 14, 2026 Abbott issued a second, related directive to the Texas Water Development Board (TWDB), ordering it to compel major water users including data centers to complete legally required water-use surveys and to penalize those that don't: noncompliant users can face a Class C misdemeanor and become ineligible for TCEQ permits, permit amendments or renewals, with the Governor's office citing roughly 28% survey response compliance over the last three years; TWDB must report back to the Governor's office on enforcement progress by October 14, 2026. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed. On September 21, 2026 Abbott issued a third directive, ordering the Texas Commission on Environmental Quality (TCEQ) to issue no permits sought by data center projects until the audits are complete, with a TCEQ compliance report due to the Governor's office by October 19, 2026.",
       "source_url": "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/",
       "source_title": "The Texas Tribune — Gov. Greg Abbott orders audit of Texas data center projects amid grid capacity concerns",
       "resources": [
@@ -3862,12 +3862,16 @@
         {
           "url": "https://gov.texas.gov/news/post/governor-abbott-directs-twdb-to-penalize-data-center-reporting-failures",
           "title": "Office of the Texas Governor — Governor Abbott Directs TWDB To Penalize Data Center Reporting Failures (Sept. 14, 2026)"
+        },
+        {
+          "url": "https://www.troutman.com/insights/governor-abbott-directs-tceq-to-halt-all-data-center-permits-pending-ercot-twdb-audits/",
+          "title": "Troutman Pepper Locke — Governor Abbott directs TCEQ to halt all data center permits"
         }
       ],
       "policy_type": "administrative pause pending audit (governor's directive)",
       "enacted_by": "Governor Greg Abbott (directive to PUCT and ERCOT)",
       "session": "2026",
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-10-08"
     },
     {
       "enacted_date": "2026-09-08",
@@ -5410,6 +5414,123 @@
       "source_url": "https://alamancenews.com/commissioners-decide-yearlong-pause-will-allow-review-potential-revision-of-ordinances-that-might-apply-to-data-centers/",
       "source_title": "The Alamance News — Commissioners decide: yearlong 'pause' will allow review, potential revision of ordinances that might apply to data centers",
       "captured_at": "2026-09-29"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "shawnee-county-ks-2026-08",
+      "jurisdiction": "Shawnee County",
+      "jurisdiction_type": "county",
+      "state_code": "KS",
+      "status": "enacted",
+      "enacted_date": "2026-08-13",
+      "duration_months": 6,
+      "duration_description": "Six months; set to expire Feb. 17, 2027 unless changed.",
+      "key_reasons": [],
+      "summary": "Shawnee County commissioners approved a six-month pause at their Aug. 13, 2026 meeting: the county will not accept or process new applications for county land-use approval for a data center, and will not take final action on the pending Compass Datacenters application. The moratorium is set to expire Feb. 17, 2027.",
+      "source_url": "https://www.ksnt.com/news/local-news/six-month-moratorium-approved-for-new-data-center-applications-in-shawnee-county/amp/",
+      "source_title": "KSNT — Six-month moratorium approved for new data center applications in Shawnee County",
+      "enacted_by": "Board of County Commissioners",
+      "session": "2026"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "mesa-county-co-2026-09",
+      "jurisdiction": "Mesa County",
+      "jurisdiction_type": "county",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-09-29",
+      "effective_date": "2026-09-29",
+      "duration_months": 12,
+      "duration_description": "12 months, effective immediately.",
+      "key_reasons": [],
+      "summary": "Mesa County commissioners unanimously approved a 12-month moratorium at a Sept. 29, 2026 public hearing, effective immediately. It pauses acceptance, processing and approval of land use applications for data center facilities in unincorporated Mesa County while staff update the land development code.",
+      "source_url": "https://www.mesacounty.us/news/county-wide/commissioners-approve-data-center-moratorium",
+      "source_title": "Mesa County — Commissioners approve data center moratorium",
+      "enacted_by": "Board of County Commissioners",
+      "session": "2026"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "pima-county-az-2026-09",
+      "jurisdiction": "Pima County",
+      "jurisdiction_type": "county",
+      "state_code": "AZ",
+      "status": "enacted",
+      "enacted_date": "2026-09-22",
+      "duration_months": 4,
+      "duration_description": "120 days; returns to the board before it ends for a possible extension hearing.",
+      "key_reasons": [],
+      "summary": "The Pima County Board of Supervisors voted 3-2 on Sept. 22, 2026 to impose a 120-day moratorium on new data center development in unincorporated Pima County, applying to data centers whose site-improvement permits had not yet been submitted, while a zoning code text amendment on data centers is prepared.",
+      "source_url": "https://tucsondailybrief.com/news-reports/pima-county-2026-09-22.html",
+      "source_title": "Tucson Daily Brief — Pima County Board of Supervisors, Sept. 22, 2026",
+      "enacted_by": "Board of Supervisors",
+      "city_council_vote": "3-2",
+      "session": "2026"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "oakland-ca-2026-09",
+      "jurisdiction": "Oakland",
+      "jurisdiction_type": "city",
+      "state_code": "CA",
+      "status": "proposed",
+      "duration_description": "Proposed 45-day moratorium on approving land-use agreements or entitlements for new data centers.",
+      "key_reasons": [],
+      "summary": "Oakland's Life Enrichment Committee unanimously approved a proposed 45-day moratorium on Sept. 22, 2026 that would temporarily stop the city approving land-use agreements or entitlements for new data centers while it writes regulations. The full City Council was scheduled to take it up Oct. 6; that outcome is not yet recorded here.",
+      "source_url": "https://oaklandside.org/2026/09/23/oakland-data-center-moratorium-committee-appoval/",
+      "source_title": "The Oaklandside — Oakland data center moratorium clears committee",
+      "session": "2026"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "tulare-county-ca-2026-09",
+      "jurisdiction": "Tulare County",
+      "jurisdiction_type": "county",
+      "state_code": "CA",
+      "status": "enacted",
+      "enacted_date": "2026-09-22",
+      "duration_months": 10,
+      "duration_description": "Original 45-day pause (set to expire Oct. 2, 2026) extended by 10 months and 15 days.",
+      "key_reasons": [],
+      "summary": "Tulare County supervisors voted 5-0 to extend the county's original 45-day moratorium on new data center development in unincorporated Tulare County by another 10 months and 15 days. The original pause had been set to expire Oct. 2.",
+      "source_url": "https://kmph.com/news/local/woman-removed-from-tulare-county-meeting-as-data-center-debate-erupts",
+      "source_title": "KMPH — Tulare County extends data center moratorium",
+      "enacted_by": "Board of Supervisors",
+      "city_council_vote": "5-0",
+      "session": "2026",
+      "policy_type": "Extension of an August 2026 45-day moratorium (the original pause is not separately recorded)"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "raleigh-nc-2026-09",
+      "jurisdiction": "Raleigh",
+      "jurisdiction_type": "city",
+      "state_code": "NC",
+      "status": "proposed",
+      "duration_description": "Proposed six-month moratorium; city attorney directed to draft it.",
+      "key_reasons": [],
+      "summary": "Raleigh City Council directed the city attorney to draft a six-month data center moratorium (reported Sept. 16, 2026), with discussion and a possible vote set for Oct. 6. That outcome is not yet recorded here.",
+      "source_url": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium",
+      "source_title": "WFAE — Raleigh, Cary weigh data center moratoriums",
+      "session": "2026"
+    },
+    {
+      "captured_at": "2026-10-08",
+      "id": "marshall-county-ia-2026-09",
+      "jurisdiction": "Marshall County",
+      "jurisdiction_type": "county",
+      "state_code": "IA",
+      "status": "enacted",
+      "enacted_date": "2026-09-23",
+      "duration_months": 6,
+      "duration_description": "Six months, on applications for data centers, AI computing, data mining and cryptocurrency mining.",
+      "key_reasons": [],
+      "summary": "The Marshall County Board of Supervisors adopted a six-month moratorium resolution on applications for data centers, AI computing facilities, data mining and cryptocurrency mining. The source article is inconsistent on the vote count, so none is recorded.",
+      "source_url": "https://www.timesrepublican.com/news/todays-news/2026/09/supervisors-ok-six-month-data-center-moratorium-resolution/",
+      "source_title": "Times-Republican — Supervisors OK six-month data center moratorium resolution",
+      "enacted_by": "Board of Supervisors",
+      "session": "2026"
     }
   ]
 }

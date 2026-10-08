@@ -422,3 +422,31 @@ def test_rate_case_badge_class_covers_every_status(js: str, css: str) -> None:
             f"RATE_CASE_BADGE_CLASS maps to `{class_name}`, but styles.css has "
             f"no `.{class_name}` rule — that status renders with no color."
         )
+
+
+# v5 (2026-10-08): the site-timeline vocabulary. A kind the frontend doesn't
+# know renders a bare key as its label; a label the schema doesn't know is a
+# filter option no record can match.
+def test_site_update_kinds_match(js: str) -> None:
+    from schema import SITE_UPDATE_KINDS
+
+    assert tuple(_extract_array(js, "SITE_UPDATE_KINDS")) == SITE_UPDATE_KINDS
+
+
+def test_site_update_labels_cover_every_kind(js: str) -> None:
+    from schema import SITE_UPDATE_KINDS
+
+    assert _extract_object_keys(js, "SITE_UPDATE_LABELS") == set(SITE_UPDATE_KINDS)
+
+
+def test_depth_levels_have_labels(js: str) -> None:
+    """Companies > Commitments: every depth level renders a word, and the
+    legend's CSS classes exist for each (the badge-class lesson: a mapped
+    value with no rule renders colourless)."""
+    levels = _extract_array(js, "DEPTH_LEVELS")
+    assert set(levels) == {"specific", "general", "none"}
+    assert _extract_object_keys(js, "DEPTH_LABELS") == set(levels)
+    css_text = (Path(__file__).resolve().parent.parent / "docs" / "styles.css").read_text()
+    for lvl in levels:
+        assert f".depth-chip.depth-{lvl}" in css_text, lvl
+        assert f".depth-mark.depth-{lvl}" in css_text, lvl

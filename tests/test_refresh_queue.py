@@ -174,7 +174,7 @@ def test_check_flags_an_orphaned_entry(tmp_ledger) -> None:
 
 # --- derived follow-ups -----------------------------------------------------------
 
-def _fake_loader(moratoriums: list[dict], rate_cases: list[dict]):
+def _fake_loader(moratoriums: list[dict], rate_cases: list[dict], projects: list[dict] | None = None):
     real = rq._load
 
     def load(name: str, key: str):
@@ -182,6 +182,8 @@ def _fake_loader(moratoriums: list[dict], rate_cases: list[dict]):
             return moratoriums
         if name == "rate_cases.json":
             return rate_cases
+        if name == "projects.json":  # real projects carry live upcoming dates
+            return projects or []
         return real(name, key)
     return load
 
@@ -257,3 +259,21 @@ def test_a_completed_review_lifts_the_block(tmp_ledger) -> None:
 def test_check_flags_a_malformed_block(tmp_ledger) -> None:
     _write(tmp_ledger, {"state:GA": {"blocked": {"date": "nope"}}})
     assert any("blocked" in p for p in rq.check_ledger())
+
+
+
+def test_a_passed_upcoming_site_date_comes_due(tmp_path, monkeypatch) -> None:
+    """An announced site date with no recorded outcome must reach the queue
+    the day after it, or the timeline says "Outcome not yet recorded" forever."""
+    data = tmp_path / "data"
+    data.mkdir()
+    for name, key in (("rate_cases.json", "rate_cases"), ("moratoriums.json", "moratoriums")):
+        (data / name).write_text(json.dumps({key: []}))
+    (data / "projects.json").write_text(json.dumps({"projects": [{
+        "id": "x-site", "captured_at": "2026-10-08",
+        "updates": [{"date": "2026-10-14", "title": "Vote", "upcoming": True},
+                    {"date": "2026-09-01", "title": "Old", "upcoming": False}],
+    }]}))
+    monkeypatch.setattr(rq, "_load", lambda name, key: json.loads((data / name).read_text())[key])
+    out = rq.derived_follow_ups()
+    assert [f["due"] for f in out["site:x-site"]] == ["2026-10-15"]

@@ -505,6 +505,45 @@ class Claim(_StrictBase):
     )
 
 
+# ---------------------------------------------------------------------------
+# Site timeline (v5, 2026-10-08)
+# ---------------------------------------------------------------------------
+# BACKLOG decision 3, made by the owner on 2026-10-08 ("contested sites should
+# have more local info/news/hearings"). A permit decision or a hearing date is
+# not a stance, so it doesn't belong in CommunityResponse; a filing is not a
+# sentence for Project.notes. These are dated facts with a source.
+
+SITE_UPDATE_KINDS: tuple[str, ...] = (
+    "hearing", "vote", "permit", "lawsuit", "filing", "agreement",
+    "construction", "news",
+)
+SiteUpdateKind = Literal[
+    "hearing", "vote", "permit", "lawsuit", "filing", "agreement",
+    "construction", "news",
+]
+
+
+class SiteUpdate(_StrictBase):
+    """One dated local event at a site: a hearing, vote, permit, suit, filing."""
+
+    date: Date
+    kind: SiteUpdateKind
+    title: str = Field(min_length=1, max_length=120, description="Neutral, plain English.")
+    summary: Optional[str] = Field(default=None, description="≤2 neutral sentences.")
+    authority: Optional[str] = Field(
+        default=None, description="The body that acted or will act (council, PSC, court)."
+    )
+    upcoming: bool = Field(
+        default=False,
+        description=(
+            "True for an announced future date. Flips to a past event on the "
+            "next refresh that confirms the outcome; never guessed."
+        ),
+    )
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+
+
 class Project(_StrictBase):
     """An individual data center project."""
 
@@ -641,6 +680,14 @@ class Project(_StrictBase):
             "only for pledge-signatory projects announced on/after the pledge "
             "date (see Ratepayer docstring). Absent = out of cohort or not yet "
             "assessed; the Ratepayer view treats absence honestly, not as a fail."
+        ),
+    )
+    updates: Optional[list[SiteUpdate]] = Field(
+        default=None,
+        description=(
+            "Dated local timeline (hearings, votes, permits, lawsuits, filings). "
+            "Every entry carries its own source. Rendered on the Sites tab's "
+            "Contested pane and the project detail."
         ),
     )
 

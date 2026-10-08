@@ -57,3 +57,23 @@ def base_url(docs_server):
 def browser_context_args(browser_context_args):
     # Default viewport: desktop. Individual tests can override via fixture.
     return {**browser_context_args, "viewport": {"width": 1280, "height": 900}}
+
+
+@pytest.fixture(autouse=True)
+def _fast_fail(page):
+    """Fail fast and keep the suite off the network where it can.
+
+    Default action/expect timeouts drop to the same budget as E2E_WAIT, and
+    basemap tile requests are answered locally with an empty 204: no test
+    asserts on tile pixels, and 100+ tile fetches per map test were most of
+    the Sites tests' wall time.
+    """
+    import os
+
+    from playwright.sync_api import expect
+
+    ms = int(os.environ.get("E2E_WAIT_MS", "6000"))
+    page.set_default_timeout(ms)
+    expect.set_options(timeout=ms)
+    page.route("**/server.arcgisonline.com/**", lambda route: route.fulfill(status=204, body=""))
+    yield

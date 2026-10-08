@@ -533,7 +533,16 @@ const state = {
   themeRecommendations: {},
   responsesByProject: new Map(),
   claimsByProject: new Map(),
+  projectsById: new Map(),
   companiesBySlug: new Map(),
+  // Companies > Commitments: which theme's quotes are showing, and whether
+  // they are narrowed to one operator.
+  quoteTheme: null,
+  quoteFocusCompany: null,
+  // Sites > Contested paging: how many cards are showing, and the filter
+  // combination they were paged under.
+  contestedShown: 0,
+  contestedPageKey: null,
   projectMoratoriums: new Map(),
   activeView: DEFAULT_VIEW_NAME,
   selectedCompanySlug: null,
@@ -583,13 +592,20 @@ document.addEventListener("DOMContentLoaded", () => {
   applyStoredTheme();
   wireThemeToggle();
   readFiltersFromUrl();
+  // Sub-tab strips are static markup on five views; wire them before any view
+  // renders. (v5 shipped with this only reached via the Pledge renderer, so
+  // the new strips switched by URL but ignored clicks.)
+  wireSubtabs();
   wireTabs();
   // The Home "Explore the record" cards and the milestones link are static
   // markup, so they wire once on boot; the stat tiles are re-rendered from
   // data and re-wire themselves.
   wirePledgeTargets(document.getElementById("view-overview"));
   wireStatePanel();
-  ensureComparisonData()
+  // Companies is the only landing that needs claims for first paint.
+  const bootData =
+    state.activeView === "comparison" ? ensureComparisonData() : ensureCompanyData();
+  bootData
     .then(() => {
       // Idle-preload projects + responses JSON (NOT Leaflet) so the
       // summary-stats bar can fill in projects / GW / investment / responses
@@ -598,7 +614,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // the two-payload first-paint strategy is preserved.
       if (state.explorerLoaded || state.projects.length) return;
       const preload = () =>
-        Promise.all([loadProjectData(), loadResponseData()])
+        Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()])
           .then(() => {
             renderPledgeHero();
           })
@@ -640,6 +656,7 @@ function wireThemeToggle() {
     const cur = document.documentElement.getAttribute("data-theme") || "light";
     const next = cur === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
+    setMapTiles();
     localStorage.setItem("dcb-theme", next);
   });
 }
@@ -707,7 +724,12 @@ function wireTabs() {
     history.replaceState(null, "", "#comparison");
   }
   const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
-  if (fromHash) {
+  // Read the sub-key BEFORE activating: activateView rewrites the hash.
+  const sub = parseSubtabHash(window.location.hash);
+  if (sub) {
+    activateView(sub.view);
+    setActiveSubtab(sub.group, sub.key);
+  } else if (fromHash) {
     activateView(fromHash.name);
   } else if (anyExplorerFilterSet() || state.pendingProjectId) {
     activateView("explorer");
@@ -775,7 +797,9 @@ function writeFiltersToUrl() {
     const pid = state.selectedProjectId || state.pendingProjectId;
     if (pid) params.set("project", pid);
     const qs = params.toString();
-    const url = window.location.pathname + (qs ? "?" + qs : "") + "#explorer";
+    const sub = _activeSubtab.sites;
+    const hash = sub && sub !== SUBTAB_GROUPS.sites[0] ? `#explorer/${sub}` : "#explorer";
+    const url = window.location.pathname + (qs ? "?" + qs : "") + hash;
     history.replaceState(null, "", url);
   } catch (err) {
     console.warn("Could not write URL filter state:", err);
@@ -807,6 +831,9 @@ function activateView(name) {
   // The totals tables (formerly the "By State & Company" tab) live in the
   // views that own their question: per company on Companies, per state on
   // Sites, per signatory category and per utility on The Pledge.
+  if (target.name === "comparison") {
+    ensureComparisonData().catch((err) => console.error("Failed to load claims:", err));
+  }
   if (["comparison", "explorer", "ratepayer"].includes(target.name)) {
     loadAggregateView().catch((err) => {
       console.error("Failed to load totals tables:", err);
@@ -818,6 +845,12 @@ function activateView(name) {
   // the other views use a bare hash and drop any stale query string.
   if (target.name === "explorer") {
     writeFiltersToUrl();
+  } else if (VIEW_SUBTAB_GROUP[target.name]) {
+    syncSubtabHash(VIEW_SUBTAB_GROUP[target.name]);
+    const sub = _activeSubtab[VIEW_SUBTAB_GROUP[target.name]];
+    if (!sub || sub === SUBTAB_GROUPS[VIEW_SUBTAB_GROUP[target.name]][0]) {
+      history.replaceState(null, "", target.hash);
+    }
   } else if (target.hash) {
     history.replaceState(null, "", target.hash);
   } else if (window.location.hash || window.location.search) {
@@ -872,16 +905,66 @@ function activateView(name) {
 // Data loading
 // --------------------------------------------------------------------------
 
+// v5 (2026-10-08): companies and claims are two tiers now. companies.json
+// (8 KB) is first paint everywhere; claims.json (48 KB) is first paint only
+// on Companies, and on every other landing it is fetched after the view has
+// rendered -- Home never shows a claim, and carrying it put first paint at
+// 258 KB against the 250 KB budget once the v5 views landed. Same deferred
+// tier responses.json already uses.
+let _companyDataPromise = null;
+function ensureCompanyData() {
+  if (!_companyDataPromise) {
+    _companyDataPromise = (async () => {
+      const companies = await fetchJson("data/companies.json");
+      state.companies = companies.companies;
+      state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
+      updateDraftBanner(companies.generated_at);
+    })();
+  }
+  return _companyDataPromise;
+}
+
+let _claimsDataPromise = null;
+function ensureClaimsData() {
+  if (!_claimsDataPromise) {
+    _claimsDataPromise = (async () => {
+      const [, claims] = await Promise.all([
+        ensureCompanyData(),
+        fetchJson("data/claims.json"),
+      ]);
+      state.claims = claims.claims;
+      indexClaimsByProject();
+    })();
+    // Renders hang off the data promise rather than living inside it, so a
+    // render bug can't reject the promise that Explorer and the totals tables
+    // also await.
+    _claimsDataPromise
+      .then(() => {
+        renderComparisonView();
+        // Views already on screen that quote claims re-render in place.
+        if (state.ratepayerLoaded) renderRatepayerScorecard();
+        if (state.aggregateLoaded) renderAggregateView();
+      })
+      .catch((err) => console.error("Rendering claims failed:", err));
+  }
+  return _claimsDataPromise;
+}
+
+// claimsByProject needs both payloads; whichever lands second builds it.
+function indexClaimsByProject() {
+  state.claimsByProject = new Map();
+  if (!state.projects.length) return;
+  for (const c of state.claims) {
+    if (!c.project_id) continue;
+    if (!state.claimsByProject.has(c.project_id)) {
+      state.claimsByProject.set(c.project_id, []);
+    }
+    state.claimsByProject.get(c.project_id).push(c);
+  }
+}
+
 async function loadComparisonData() {
-  const [companies, claims] = await Promise.all([
-    fetchJson("data/companies.json"),
-    fetchJson("data/claims.json"),
-  ]);
-  state.companies = companies.companies;
-  state.claims = claims.claims;
-  state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
-  updateDraftBanner(companies.generated_at);
-  renderComparisonView();
+  await Promise.all([ensureCompanyData(), ensureClaimsData()]);
   renderPledgeHero();
 }
 
@@ -904,22 +987,16 @@ let _projectDataPromise = null;
 function loadProjectData() {
   if (!_projectDataPromise) {
     _projectDataPromise = (async () => {
-      // Guarantee state.claims is populated before we index claimsByProject —
-      // otherwise a cold #ratepayer/#explorer deep-link builds an empty index.
+      // Companies only: claims are the deferred tier (see ensureCompanyData).
+      // indexClaimsByProject runs here AND when claims land, so whichever
+      // payload arrives second builds the index.
       const [, projects] = await Promise.all([
-        ensureComparisonData(),
+        ensureCompanyData(),
         fetchJson("data/projects.json"),
       ]);
       state.projects = projects.projects;
-
-      state.claimsByProject = new Map();
-      for (const c of state.claims) {
-        if (!c.project_id) continue;
-        if (!state.claimsByProject.has(c.project_id)) {
-          state.claimsByProject.set(c.project_id, []);
-        }
-        state.claimsByProject.get(c.project_id).push(c);
-      }
+      state.projectsById = new Map(state.projects.map((p) => [p.id, p]));
+      indexClaimsByProject();
       // Fill in the projects / GW / investment tiles now that the lazy payload
       // is in hand (companies + claims tiles already showed).
     })();
@@ -1005,7 +1082,7 @@ function buildMoratoriumAffectanceMap() {
 
 async function loadExplorerData() {
   document.getElementById("explorer-meta").textContent = "Loading projects…";
-  await Promise.all([loadProjectData(), loadResponseData()]);
+  await Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()]);
   await ensureLeaflet();
   state.explorerLoaded = true;
   renderExplorerView();
@@ -1125,6 +1202,10 @@ async function loadRatepayerView() {
     );
   }
   renderWhatsNext();
+  // Evidence quotes on the scorecard need claims (deferred tier). Awaited for
+  // the same reason as responses: the ready event means "complete".
+  // ensureClaimsData re-renders the scorecard itself when they land.
+  await ensureClaimsData().catch((err) => console.error("Failed to load claims:", err));
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
 }
 
@@ -1208,6 +1289,7 @@ async function loadAggregateView() {
     loadResponseData(),
     loadTariffsData(),
     loadRateCasesData(),
+    ensureClaimsData(),
   ]).catch((err) => console.error("Aggregate view data load failed:", err));
   state.aggregateLoaded = true;
   renderAggregateView();
@@ -1274,7 +1356,9 @@ function renderMoratoriumsView() {
     filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
   }
 
-  setAccCount("moratoriums-count", filtered.length, "record");
+  setSubtabCount("moratoriums-count", state.moratoriums.length);
+  const mmeta = document.getElementById("moratoriums-meta");
+  if (mmeta) mmeta.textContent = `${filtered.length} of ${state.moratoriums.length} records`;
 
   // Sort: enacted first (by date desc), then proposed, then failed
   filtered.sort((a, b) => {
@@ -1607,7 +1691,25 @@ function renderMoratoriumCharts(moratoriums) {
     // still hidden (a display:none plot has zero scrollWidth, so the first call
     // would be a silent no-op and the surge would clip off-screen again).
     requestAnimationFrame(parkOnRecent);
+    wireMorTimelinePark();
   }
+}
+
+// v5: the charts live in a sub-tab that is hidden on load, so the parks in
+// renderMoratoriumCharts have no layout to work with. Re-park whenever Trends
+// is shown. One document listener for the page's life; it looks the plot up
+// when it fires, because every chart re-render replaces the element.
+let _morParkWired = false;
+function wireMorTimelinePark() {
+  if (_morParkWired) return;
+  _morParkWired = true;
+  document.addEventListener("dcb:subtab", (e) => {
+    if (e.detail.group !== "mor" || e.detail.key !== "trends") return;
+    requestAnimationFrame(() => {
+      const plot = document.querySelector("#moratorium-charts .mtl-plot");
+      if (plot) plot.scrollLeft = plot.scrollWidth;
+    });
+  });
 }
 
 function renderReasonBreakdown(moratoriums) {
@@ -1635,7 +1737,7 @@ function renderReasonBreakdown(moratoriums) {
   // so that -- not the size of the taxonomy -- is the number the summary owes
   // the reader.
   citedThemes = Object.values(reasonCounts).filter((n) => n > 0).length;
-  setAccCount("moratorium-themes-count", citedThemes, "theme");
+  setSubtabCount("moratorium-themes-count", citedThemes);
 
   const container = document.getElementById("reason-breakdown");
   if (!container) return;
@@ -2004,8 +2106,17 @@ function renderRateCases() {
   const list = document.getElementById("rate-cases-list");
   if (!list) return;
   list.replaceChildren();
-  const cases = sortedRateCases(state.rateCases || []);
-  setAccCount("rate-cases-count", cases.length, "proceeding");
+  const all = sortedRateCases(state.rateCases || []);
+  setSubtabCount("rate-cases-count", all.length);
+  const rcSel = document.getElementById("rc-status-filter");
+  if (rcSel && rcSel.dataset.wired !== "1") {
+    rcSel.dataset.wired = "1";
+    rcSel.addEventListener("change", renderRateCases);
+  }
+  const statusF = rcSel ? rcSel.value : "";
+  const cases = all.filter((rc) => !statusF || rc.status === statusF);
+  const rcMeta = document.getElementById("rc-meta");
+  if (rcMeta) rcMeta.textContent = `${cases.length} of ${all.length} proceedings`;
   for (const rc of cases) {
     const li = el("li", "rc-item");
 
@@ -2044,20 +2155,31 @@ function renderRateCases() {
     meta.append(" ", src);
     li.append(meta);
 
-    li.append(el("p", "rc-summary", rc.summary));
-
+    // Next step leads, date first: it is what a reader of a pending case came
+    // for. The regulator's milestone prose can run to a paragraph, so both it
+    // and the summary are clamped with a toggle rather than shown in full.
     if (rc.next_milestone) {
-      const next = el("p", "rc-next");
+      const next = el("p", "rc-next clampable");
       next.append(
-        el("span", "rc-next-lbl", "Next:"),
+        el("span", "rc-next-lbl", "Next"),
         " ",
-        document.createTextNode(rc.next_milestone),
         rc.next_milestone_date
-          ? el("span", "rc-next-date", ` (${rc.next_milestone_date})`)
-          : ""
+          ? el("span", "rc-next-date", `${formatAsOf(rc.next_milestone_date)} — `)
+          : "",
+        document.createTextNode(rc.next_milestone)
       );
       li.append(next);
     }
+    li.append(el("p", "rc-summary clampable", rc.summary));
+    const more = el("button", "btn-link rc-more", "Read more");
+    more.type = "button";
+    more.setAttribute("aria-expanded", "false");
+    more.addEventListener("click", () => {
+      const open = li.classList.toggle("is-expanded");
+      more.textContent = open ? "Show less" : "Read more";
+      more.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    li.append(more);
     list.append(li);
   }
   if (!cases.length) {
@@ -2138,6 +2260,15 @@ function populateTariffStateFilter() {
     sel.appendChild(opt);
   }
   sel.dataset.populated = "1";
+  // The 17 element chips used to be the only way to filter by element, and
+  // they sat above the directory as a full-width block. A select does the
+  // same job in one control; the chips keep their own sub-tab.
+  const elemSel = document.getElementById("tariff-element-filter");
+  if (elemSel && elemSel.options.length === 1) {
+    for (const k of TARIFF_PARAMETERS) {
+      elemSel.add(new Option(TARIFF_PARAMETER_LABELS[k] || k, k));
+    }
+  }
 }
 
 // LBL element coverage grid: one card per design element, grouped by the five
@@ -2147,7 +2278,7 @@ function renderTariffCoverage(tariffs) {
   const grid = document.getElementById("tariff-coverage-grid");
   if (!grid) return;
   grid.innerHTML = "";
-  setAccCount("tariff-coverage-count", TARIFF_PARAMETERS.length, "element");
+  setSubtabCount("tariff-coverage-count", TARIFF_PARAMETERS.length);
 
   const counts = {};
   for (const k of TARIFF_PARAMETERS) counts[k] = 0;
@@ -2243,9 +2374,11 @@ function tariffSort(a, b) {
 function filteredTariffs() {
   const statusF = document.getElementById("tariff-status-filter")?.value || "";
   const stateF = document.getElementById("tariff-state-filter")?.value || "";
+  const elemF = document.getElementById("tariff-element-filter")?.value || "";
   return state.tariffs
     .filter((t) => (statusF ? t.status === statusF : true))
     .filter((t) => (stateF ? t.state === stateF : true))
+    .filter((t) => (elemF ? Boolean((t.parameters || {})[elemF]) : true))
     .sort(tariffSort);
 }
 
@@ -2253,7 +2386,9 @@ function renderTariffsTable() {
   const tbody = document.getElementById("tariffs-tbody");
   if (!tbody) return;
   const rows = filteredTariffs();
-  setAccCount("tariffs-count", rows.length, "tariff");
+  setSubtabCount("tariffs-count", state.tariffs.length);
+  const tmeta = document.getElementById("tariffs-meta");
+  if (tmeta) tmeta.textContent = `${rows.length} of ${state.tariffs.length} tariffs`;
   tbody.innerHTML = "";
 
   if (rows.length === 0) {
@@ -2457,7 +2592,7 @@ function closeTariffDetail() {
 }
 
 function wireTariffsFilters() {
-  for (const id of ["tariff-status-filter", "tariff-state-filter"]) {
+  for (const id of ["tariff-status-filter", "tariff-state-filter", "tariff-element-filter"]) {
     const el = document.getElementById(id);
     if (el && !el.dataset.wired) {
       el.addEventListener("change", renderTariffsTable);
@@ -2830,7 +2965,7 @@ function pbWhereTag(p) {
 function renderPolicyPrinciples(all) {
   const ol = document.getElementById("policy-principles");
   if (!ol) return;
-  setAccCount("policy-principles-count", POLICY_PRINCIPLES.length, "principle");
+  setSubtabCount("policy-principles-count", POLICY_PRINCIPLES.length);
   ol.replaceChildren();
   for (const key of POLICY_PRINCIPLES) {
     const recs = all.filter((p) => (p.principles || []).includes(key));
@@ -2876,11 +3011,9 @@ function renderPolicyPrinciples(all) {
       const sel = document.getElementById("policy-principle-filter");
       if (sel) sel.value = key;
       renderPoliciesTable();
+      setActiveSubtab("pol", "directory");
       const dir = document.getElementById("policies-directory");
-      if (dir) {
-        openAccordionsFor(dir);
-        dir.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      if (dir) dir.scrollIntoView({ behavior: "smooth", block: "start" });
     });
     li.append(all_);
     ol.append(li);
@@ -2943,7 +3076,7 @@ function renderPolicyActions(all) {
     .filter((it) => it.date)
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, PB_ACTIONS_MAX);
-  setAccCount("policy-actions-count", latest.length, "action");
+  setSubtabCount("policy-actions-count", latest.length);
   ol.replaceChildren(
     ...latest.map((it) => {
       const li = el("li", "pb-action");
@@ -2975,7 +3108,7 @@ function renderPoliciesTable() {
   const tbody = document.getElementById("policies-tbody");
   if (!tbody) return;
   const rows = filteredPolicies();
-  setAccCount("policies-count", rows.length, "record");
+  setSubtabCount("policies-count", (state.policies || []).length);
   tbody.innerHTML = "";
   if (!rows.length) {
     tbody.innerHTML =
@@ -3195,6 +3328,7 @@ async function fetchJson(url) {
 function renderComparisonView() {
   renderMeta();
   renderMatrix();
+  renderCompanyCards();
   wireCompanyDetail();
   wireMatrixCsvExport();
   wireBtn("comparison-pdf-btn", exportComparisonToPDF);
@@ -3627,7 +3761,11 @@ const PLEDGE_TARGETS = {
   },
   states: { view: "ratepayer", anchor: "rp-coverage-section" },
   explorer: { view: "explorer", anchor: null },
-  ratecases: { view: "tariffs", anchor: "rate-cases-section" },
+  ratecases: {
+    view: "tariffs",
+    anchor: "rate-cases-section",
+    subtab: { group: "tar", key: "ratecases" },
+  },
   moratoriums: { view: "moratoriums", anchor: null },
   // Anchor-less tab landings for the Home "Explore the record" cards.
   pledge: { view: "ratepayer", anchor: null },
@@ -3700,6 +3838,23 @@ function openAccordionsFor(node) {
 
 const SUBTAB_GROUPS = {
   "rp-sites": ["assessed", "unassessed", "pre-pledge", "non-signatory"],
+  co: ["profiles", "commitments", "footprint"],
+  sites: ["map", "contested", "states"],
+  tar: ["ratecases", "tariffs", "elements"],
+  pol: ["principles", "latest", "directory"],
+  mor: ["directory", "trends", "influence"],
+};
+
+// v5: a view-level sub-tab group owns the part of the hash after the slash,
+// so `#tariffs/tariffs` or `#explorer/contested` deep-links a pane. The first
+// key is the default and keeps the bare hash. rp-sites is a group INSIDE a
+// section of The Pledge, not the view's own strip, so it stays out of the URL.
+const VIEW_SUBTAB_GROUP = {
+  comparison: "co",
+  explorer: "sites",
+  tariffs: "tar",
+  policies: "pol",
+  moratoriums: "mor",
 };
 
 // Last-clicked sub-tab per group, for this session only. Same reasoning as
@@ -3726,6 +3881,33 @@ function setActiveSubtab(group, key) {
     }
     if (pane) pane.hidden = !active;
   }
+  syncSubtabHash(group);
+  document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
+}
+
+// Write the active pane into the hash for the view that owns `group`, but
+// only while that view is showing -- a sub-tab set programmatically on a
+// hidden view must not clobber the current view's hash.
+function syncSubtabHash(group) {
+  const view = Object.keys(VIEW_SUBTAB_GROUP).find((v) => VIEW_SUBTAB_GROUP[v] === group);
+  if (!view || state.activeView !== view) return;
+  if (view === "explorer") {
+    writeFiltersToUrl();
+    return;
+  }
+  const target = VIEWS.find((v) => v.name === view);
+  const key = _activeSubtab[group];
+  const hash = key && key !== SUBTAB_GROUPS[group][0] ? `${target.hash}/${key}` : target.hash;
+  if (window.location.hash !== hash) history.replaceState(null, "", hash);
+}
+
+// "#tariffs/elements" -> { view, key }, or null for any other hash shape.
+function parseSubtabHash(hash) {
+  const m = /^#([a-z]+)\/([a-z-]+)$/.exec(hash || "");
+  if (!m) return null;
+  const group = VIEW_SUBTAB_GROUP[m[1]];
+  if (!group || !SUBTAB_GROUPS[group].includes(m[2])) return null;
+  return { view: m[1], group, key: m[2] };
 }
 
 function wireSubtabs() {
@@ -3763,6 +3945,9 @@ function goToPledgeTarget(name) {
   const target = PLEDGE_TARGETS[name];
   if (!target) return;
   activateView(target.view);
+  // Set the promised pane first: an anchor inside a hidden sub-tab panel has
+  // no box, so scrolling to it would land nowhere.
+  if (target.subtab) setActiveSubtab(target.subtab.group, target.subtab.key);
   if (!target.anchor) return;
   // The Ratepayer view renders asynchronously; wait a frame so the anchor
   // exists before scrolling, and fail quietly if it never appears.
@@ -4115,12 +4300,82 @@ async function exportAggregateToPDF() {
   );
 }
 
+// --------------------------------------------------------------------------
+// Companies view (v5, 2026-10-08)
+//
+// The checkmark matrix answered "has this operator said anything about
+// water?" and nothing else: 13 of 15 rows were solid ticks. Depth is the
+// question a negotiator actually has: is there a NUMBER behind it? A claim
+// with a structured `metric` is "specific"; a claim without one is "general".
+// That is derived from the record, not a curator grade, so it can't drift.
+// --------------------------------------------------------------------------
+
+const DEPTH_LEVELS = ["specific", "general", "none"];
+const DEPTH_LABELS = {
+  specific: "Specific",
+  general: "General",
+  none: "None found",
+};
+
+// company|theme -> { n, quantified, claims[] }, rebuilt per render so a
+// refresh of state.claims can't leave a stale index behind.
+function claimDepthIndex() {
+  const idx = new Map();
+  for (const c of state.claims) {
+    const key = `${c.company_slug}|${c.theme}`;
+    if (!idx.has(key)) idx.set(key, { n: 0, quantified: 0, claims: [] });
+    const e = idx.get(key);
+    e.n += 1;
+    if (c.metric) e.quantified += 1;
+    e.claims.push(c);
+  }
+  return idx;
+}
+
+function depthOf(entry) {
+  if (!entry || !entry.n) return "none";
+  return entry.quantified ? "specific" : "general";
+}
+
+// Why a site counts as contested. Shared by the Companies cards and the
+// Sites "Contested" pane so the two counts can't disagree. A site is
+// contested when there is documented pushback, not when a curator thinks it
+// should be: a negative community response, a contested ratepayer
+// assessment, a contested/shortfall delivery finding, or a lawsuit.
+function contestedReasons(p) {
+  const reasons = [];
+  const resps = (state.responsesByProject && state.responsesByProject.get(p.id)) || [];
+  const neg = resps.filter((r) => r.stance === "negative");
+  if (neg.length) reasons.push(`${neg.length} critical response${neg.length === 1 ? "" : "s"}`);
+  if (p.ratepayer && p.ratepayer.status === "contested") reasons.push("ratepayer costs disputed");
+  const claims = (state.claimsByProject && state.claimsByProject.get(p.id)) || [];
+  if (claims.some((c) => c.delivered && ["contested", "shortfall"].includes(c.delivered.status))) {
+    reasons.push("promise disputed");
+  }
+  if ((p.updates || []).some((u) => u.kind === "lawsuit")) reasons.push("in court");
+  return reasons;
+}
+
+function isContestedSite(p) {
+  return contestedReasons(p).length > 0;
+}
+
+// "3 operating · 7 building · 13 announced" — the words the old "3O 7C 13A"
+// pills abbreviated.
+function statusWords(counts) {
+  const parts = [];
+  if (counts.operational) parts.push(`${counts.operational} operating`);
+  if (counts.construction) parts.push(`${counts.construction} building`);
+  if (counts.announced) parts.push(`${counts.announced} announced`);
+  return parts.join(" · ");
+}
+
 function renderMatrix() {
   const headRow = document.getElementById("matrix-head-row");
   const body = document.getElementById("matrix-body");
   headRow.innerHTML = "";
   body.innerHTML = "";
-  setAccCount("matrix-count", state.companies.length, "company", "companies");
+  setSubtabCount("matrix-count", state.claims.length);
 
   const corner = document.createElement("th");
   corner.className = "col-company";
@@ -4131,25 +4386,22 @@ function renderMatrix() {
     const th = document.createElement("th");
     th.className = "col-theme-head";
     th.style.setProperty("--theme-color", `var(--theme-${t})`);
-    th.textContent = THEME_LABELS[t];
     th.scope = "col";
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "theme-head-btn";
+    btn.textContent = THEME_LABELS[t];
+    btn.setAttribute("aria-label", `Read every operator's ${THEME_LABELS[t]} statements`);
+    btn.addEventListener("click", () => showThemeQuotes(t, null));
+    th.appendChild(btn);
     headRow.appendChild(th);
   }
 
-  // Index claim counts: company × theme
-  const counts = new Map();
-  for (const c of state.claims) {
-    const key = `${c.company_slug}|${c.theme}`;
-    counts.set(key, (counts.get(key) || 0) + 1);
-  }
+  const idx = claimDepthIndex();
 
   for (const co of state.companies) {
     const tr = document.createElement("tr");
     tr.dataset.company = co.slug;
-
-    // Whole-row click + keyboard activation opens the company pop-out.
-    // We also expose role=button on the company-name <th> so the row reads
-    // as a single interactive unit to assistive tech.
     const openCompany = () => selectCompany(co.slug);
 
     const nameCell = document.createElement("th");
@@ -4158,10 +4410,7 @@ function renderMatrix() {
     nameCell.style.setProperty("--co-color", `var(--co-${co.slug})`);
     nameCell.setAttribute("role", "button");
     nameCell.tabIndex = 0;
-    nameCell.setAttribute(
-      "aria-label",
-      `${co.name} — click to view community-engagement summary`
-    );
+    nameCell.setAttribute("aria-label", `${co.name} — open company profile`);
     nameCell.innerHTML = `
       <span class="company-name">
         <span class="company-dot" aria-hidden="true"></span>
@@ -4179,33 +4428,36 @@ function renderMatrix() {
 
     for (const t of THEMES) {
       const td = document.createElement("td");
-      const n = counts.get(`${co.slug}|${t}`) || 0;
+      const entry = idx.get(`${co.slug}|${t}`);
+      const level = depthOf(entry);
       td.dataset.company = co.slug;
       td.dataset.theme = t;
+      td.dataset.depth = level;
 
-      if (n === 0) {
+      if (level === "none") {
         td.className = "cell empty";
-        td.innerHTML = `<span aria-hidden="true">—</span><span class="visually-hidden">no claims</span>`;
+        td.innerHTML = `<span class="depth-mark depth-none" aria-hidden="true"></span><span class="cell-none">none</span>`;
       } else {
-        td.className = "cell";
-        // Binary checkmark — see CLAUDE.md > "Matrix is checkmark-only".
-        // Cells are also clickable as a richer affordance: clicking any
-        // populated cell opens the same company pop-out the row name does.
-        td.innerHTML = `<span class="count check" aria-hidden="true">✓</span>`;
+        const n = entry.n;
+        td.className = `cell depth-cell-${level}`;
+        td.innerHTML = `<span class="depth-mark depth-${level}" aria-hidden="true"></span><span class="count">${n}</span>`;
         td.setAttribute("role", "button");
         td.tabIndex = 0;
+        const fig = entry.quantified
+          ? `, ${entry.quantified} with a figure`
+          : ", none with a figure";
         td.setAttribute(
           "aria-label",
-          `${n} ${co.name} ${THEME_LABELS[t]} claim${n === 1 ? "" : "s"} — click to view ${co.name} summary`
+          `${co.name} ${THEME_LABELS[t]}: ${DEPTH_LABELS[level]} — ${n} statement${n === 1 ? "" : "s"}${fig}. Read the quotes.`
         );
-        td.addEventListener("click", openCompany);
+        const open = () => showThemeQuotes(t, co.slug);
+        td.addEventListener("click", open);
         td.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            openCompany();
+            open();
           }
         });
-        // Hover tooltip: show first claim statement for this company×theme.
         td.addEventListener("mouseenter", (e) => showMatrixTooltip(e.currentTarget, co.slug, t));
         td.addEventListener("mouseleave", hideMatrixTooltip);
         td.addEventListener("focus", (e) => showMatrixTooltip(e.currentTarget, co.slug, t));
@@ -4213,9 +4465,229 @@ function renderMatrix() {
       }
       tr.appendChild(td);
     }
-
     body.appendChild(tr);
   }
+
+  renderThemePicker();
+  showThemeQuotes(state.quoteTheme || THEMES[0], state.quoteFocusCompany || null, { scroll: false });
+}
+
+function renderThemePicker() {
+  const picker = document.getElementById("theme-picker");
+  if (!picker || picker.dataset.built === "1") return;
+  picker.dataset.built = "1";
+  for (const t of THEMES) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "theme-pick";
+    b.dataset.theme = t;
+    b.style.setProperty("--theme-color", `var(--theme-${t})`);
+    b.textContent = THEME_LABELS[t];
+    b.addEventListener("click", () => showThemeQuotes(t, null, { scroll: false }));
+    picker.appendChild(b);
+  }
+}
+
+// Strongest statement first: one with a figure beats one without, then the
+// most recently published. The reader gets each operator's best evidence,
+// not whichever claim happened to be seeded first.
+function rankClaims(claims) {
+  const when = (c) => c.published_at || c.captured_at || "";
+  return [...claims].sort((a, b) => {
+    if (Boolean(b.metric) !== Boolean(a.metric)) return b.metric ? 1 : -1;
+    return when(b).localeCompare(when(a));
+  });
+}
+
+function showThemeQuotes(theme, focusSlug, opts = {}) {
+  const list = document.getElementById("theme-quotes-list");
+  const title = document.getElementById("theme-quotes-title");
+  if (!list || !title) return;
+  state.quoteTheme = theme;
+  state.quoteFocusCompany = focusSlug || null;
+  // A cell or theme click from another sub-tab should land on the quotes.
+  if (_activeSubtab.co !== "commitments" && opts.scroll !== false) {
+    setActiveSubtab("co", "commitments");
+  }
+  for (const b of document.querySelectorAll("#theme-picker .theme-pick")) {
+    b.setAttribute("aria-pressed", b.dataset.theme === theme ? "true" : "false");
+  }
+  const label = THEME_LABELS[theme] || theme;
+  const focusCo = focusSlug ? state.companiesBySlug.get(focusSlug) : null;
+  title.textContent = focusCo ? `${focusCo.name} on ${label.toLowerCase()}` : `${label}: what each operator has published`;
+
+  const idx = claimDepthIndex();
+  const companies = focusCo ? [focusCo] : state.companies;
+  // Specific before general before none, so the strongest commitments lead.
+  const rows = companies
+    .map((co) => ({ co, entry: idx.get(`${co.slug}|${theme}`) }))
+    .sort((a, b) => DEPTH_LEVELS.indexOf(depthOf(a.entry)) - DEPTH_LEVELS.indexOf(depthOf(b.entry)));
+
+  list.innerHTML = "";
+  for (const { co, entry } of rows) {
+    const level = depthOf(entry);
+    const li = document.createElement("li");
+    li.className = "tq-row";
+    li.style.setProperty("--co-color", `var(--co-${co.slug})`);
+    li.dataset.company = co.slug;
+    const head = `<div class="tq-head">
+        <span class="tq-co"><span class="company-dot" aria-hidden="true"></span>${escapeHtml(co.name)}</span>
+        <span class="depth-chip depth-${level}">${DEPTH_LABELS[level]}</span>
+        ${entry ? `<span class="tq-n muted">${entry.n} statement${entry.n === 1 ? "" : "s"}${entry.quantified ? ` · ${entry.quantified} with a figure` : ""}</span>` : ""}
+      </div>`;
+    if (!entry) {
+      li.innerHTML = `${head}<p class="tq-none muted">No published statement on ${escapeHtml(label.toLowerCase())} found.</p>`;
+      list.appendChild(li);
+      continue;
+    }
+    const ranked = rankClaims(entry.claims);
+    const shown = focusCo ? ranked : ranked.slice(0, 2);
+    const quotes = shown
+      .map((c) => {
+        const proj = c.project_id && state.projectsById ? state.projectsById.get(c.project_id) : null;
+        const where = proj ? `${proj.city}, ${proj.state}` : "Company-wide";
+        const when = c.published_at || c.captured_at;
+        const fig = c.metric ? `<span class="tq-fig">${escapeHtml(formatMetric(c.metric))}</span>` : "";
+        return `<li class="tq-quote">
+          <blockquote class="claim-quote">${escapeHtml(c.statement)}</blockquote>
+          <p class="tq-meta">${fig}<span>${escapeHtml(where)}</span> · <span>${escapeHtml(formatAsOf(when))}</span> ·
+            <a href="${escapeAttr(c.source_url)}" target="_blank" rel="noopener">${escapeHtml(c.source_title || "Source")} ↗</a></p>
+        </li>`;
+      })
+      .join("");
+    const more =
+      !focusCo && ranked.length > shown.length
+        ? `<button type="button" class="btn-link tq-more" data-company="${escapeAttr(co.slug)}">All ${ranked.length} ${escapeHtml(co.name)} statements →</button>`
+        : "";
+    li.innerHTML = `${head}<ol class="tq-quotes" role="list">${quotes}</ol>${more}`;
+    const moreBtn = li.querySelector(".tq-more");
+    if (moreBtn) moreBtn.addEventListener("click", () => showThemeQuotes(theme, co.slug, { scroll: false }));
+    list.appendChild(li);
+  }
+  if (focusCo) {
+    const back = document.createElement("li");
+    back.className = "tq-back";
+    back.innerHTML = `<button type="button" class="btn-link">← Every operator on ${escapeHtml(label.toLowerCase())}</button>`;
+    back.querySelector("button").addEventListener("click", () => showThemeQuotes(theme, null, { scroll: false }));
+    list.appendChild(back);
+  }
+  if (opts.scroll !== false) {
+    document.getElementById("theme-quotes").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+
+// Profiles: one card per operator. Renders from claims on first paint and
+// re-renders when the projects/responses/roster payloads land.
+function renderCompanyCards() {
+  const list = document.getElementById("co-cards");
+  if (!list) return;
+  setSubtabCount("co-profiles-count", state.companies.length);
+  const idx = claimDepthIndex();
+  const projectsLoaded = state.projects && state.projects.length > 0;
+  const rollups = projectsLoaded ? new Map(buildCompanyRollups().map((r) => [r.slug, r])) : new Map();
+
+  // Biggest builders first, so the page opens on the operators with the
+  // most at stake; ties by name.
+  const ordered = [...state.companies].sort((a, b) => {
+    const ra = rollups.get(a.slug);
+    const rb = rollups.get(b.slug);
+    const d = (rb ? rb.projects : 0) - (ra ? ra.projects : 0);
+    return d || a.name.localeCompare(b.name);
+  });
+
+  list.innerHTML = "";
+  for (const co of ordered) {
+    const r = rollups.get(co.slug);
+    const sites = projectsLoaded ? state.projects.filter((p) => p.company_slug === co.slug) : [];
+    const contested = sites.filter(isContestedSite).length;
+    const signed = signatorySignedDate(co.slug);
+    const pledge = co.ratepayer_pledge_signatory
+      ? `<span class="co-pledge signed">Signed the Ratepayer Protection Pledge${signed ? ` · ${escapeHtml(formatAsOf(signed))}` : ""}</span>`
+      : `<span class="co-pledge unsigned">Has not signed the Ratepayer Protection Pledge</span>`;
+    const depthCounts = { specific: 0, general: 0, none: 0 };
+    const chips = THEMES.map((t) => {
+      const level = depthOf(idx.get(`${co.slug}|${t}`));
+      depthCounts[level] += 1;
+      return `<li><button type="button" class="depth-chip depth-${level}" data-theme="${t}" title="${escapeAttr(`${THEME_LABELS[t]}: ${DEPTH_LABELS[level]}`)}">${escapeHtml(THEME_LABELS[t])}</button></li>`;
+    }).join("");
+
+    const facts = r
+      ? `<dl class="co-facts">
+          <div><dt>Sites tracked</dt><dd>${r.projects}<span class="co-sub">${escapeHtml(statusWords(r))}</span></dd></div>
+          <div><dt>Announced power</dt><dd>${r.power_mw ? formatSummaryGW(r.power_mw) : "Not disclosed"}</dd></div>
+          <div><dt>Announced investment</dt><dd>${r.capex ? formatSummaryUsd(r.capex) : "Not disclosed"}</dd></div>
+          <div><dt>Jobs claimed</dt><dd>${r.jobs ? r.jobs.toLocaleString() : "Not disclosed"}</dd></div>
+        </dl>`
+      : projectsLoaded
+      ? `<p class="co-sub muted">No sites tracked yet.</p>`
+      : `<p class="co-sub muted">Loading sites…</p>`;
+
+    const total = r ? r.positive + r.mixed + r.negative : 0;
+    // Responses land after projects; until then a zero tally would read as
+    // "no community responses", which is a finding, not a loading state.
+    const response = !r || !state.responsesLoaded
+      ? ""
+      : total === 0
+      ? `<p class="co-response muted">No community responses recorded yet.</p>`
+      : `<div class="co-response">
+          <p class="co-label">Community response <span class="muted">(${total} recorded)</span></p>
+          <div class="stance-bar" aria-hidden="true">
+            ${r.positive ? `<span class="positive" style="flex:${r.positive}"></span>` : ""}
+            ${r.mixed ? `<span class="mixed" style="flex:${r.mixed}"></span>` : ""}
+            ${r.negative ? `<span class="negative" style="flex:${r.negative}"></span>` : ""}
+          </div>
+          <p class="co-sub">${stanceWords(r.positive, r.mixed, r.negative)}</p>
+        </div>`;
+
+    const li = document.createElement("li");
+    li.className = "co-card";
+    li.dataset.company = co.slug;
+    li.style.setProperty("--co-color", `var(--co-${co.slug})`);
+    li.innerHTML = `
+      <header class="co-card-head">
+        <h3 class="co-card-name"><span class="company-dot" aria-hidden="true"></span>${escapeHtml(co.name)}</h3>
+        <p class="co-sub">${escapeHtml(co.hq || "")}</p>
+        ${pledge}
+      </header>
+      ${facts}
+      <div class="co-depth">
+        <p class="co-label">Commitments in writing <span class="muted">${depthCounts.specific} specific · ${depthCounts.general} general · ${depthCounts.none} none</span></p>
+        <ul class="depth-chips" role="list">${chips}</ul>
+      </div>
+      ${response}
+      <footer class="co-card-foot">
+        <button type="button" class="btn-ghost co-open">Profile &amp; summary</button>
+        ${sites.length ? `<button type="button" class="btn-link co-sites">Sites →</button>` : ""}
+        ${contested ? `<button type="button" class="btn-link co-contested">${contested} contested →</button>` : ""}
+      </footer>`;
+    li.querySelector(".co-open").addEventListener("click", () => selectCompany(co.slug));
+    for (const chip of li.querySelectorAll(".depth-chip[data-theme]")) {
+      chip.addEventListener("click", () => showThemeQuotes(chip.dataset.theme, co.slug));
+    }
+    const sitesBtn = li.querySelector(".co-sites");
+    if (sitesBtn) sitesBtn.addEventListener("click", () => openCompanySites(co.slug, "map"));
+    const conBtn = li.querySelector(".co-contested");
+    if (conBtn) conBtn.addEventListener("click", () => openCompanySites(co.slug, "contested"));
+    list.appendChild(li);
+  }
+  // Quotes rendered before projects landed say "Company-wide" for every
+  // site-tied claim; re-render them in place now the places are known.
+  if (projectsLoaded && state.quoteTheme) {
+    showThemeQuotes(state.quoteTheme, state.quoteFocusCompany, { scroll: false });
+  }
+}
+
+// Jump to the Sites tab filtered to one operator, on the given sub-tab.
+function openCompanySites(slug, subkey) {
+  state.explorerFilters.company = slug;
+  closeCompanyDetail();
+  activateView("explorer");
+  if (state.explorerLoaded) {
+    syncExplorerFilterUIToState();
+    refreshExplorer();
+  }
+  setActiveSubtab("sites", subkey);
 }
 
 // --------------------------------------------------------------------------
@@ -4233,7 +4705,9 @@ function showMatrixTooltip(cellEl, slug, theme) {
   if (!tooltip) return;
 
   // Find the first claim for this company/theme
-  const claim = state.claims.find((c) => c.company_slug === slug && c.theme === theme);
+  const claim = rankClaims(
+    state.claims.filter((c) => c.company_slug === slug && c.theme === theme)
+  )[0];
   if (!claim) return;
 
   const MAX = 160;
@@ -4244,7 +4718,7 @@ function showMatrixTooltip(cellEl, slug, theme) {
   tooltip.innerHTML = `
     <span class="mtt-theme" style="--theme-color:var(--theme-${escapeAttr(theme)})">${escapeHtml(THEME_LABELS[theme] || theme)}</span>
     <p class="mtt-quote">${escapeHtml(stmt)}</p>
-    <span class="mtt-hint">Click to view all ${escapeHtml(THEME_LABELS[theme] || theme)} claims</span>
+    <span class="mtt-hint">Click to read the quotes</span>
   `;
   tooltip.hidden = false;
 
@@ -4293,6 +4767,7 @@ function wireCompanyDetail() {
       // pre-set state.explorerFilters.company itself.
       state.explorerFilters.company = slug;
       closeCompanyDetail();
+      setActiveSubtab("sites", "map");
       activateView("explorer");
       if (state.explorerLoaded) {
         syncExplorerFilterUIToState();
@@ -4532,6 +5007,9 @@ function renderMetricBadge(m) {
 }
 
 function formatMetric(m) {
+  // Null-safe: this runs inside the Companies render on claims arrival, and a
+  // throw there would leave the quotes panel and the matrix blank.
+  if (!m || m.value == null) return "";
   const v = m.value;
   if (m.unit === "usd") {
     if (v >= 1e9) return `$${(v / 1e9).toFixed(1)}B${m.kind ? ` ${m.kind}` : ""}`;
@@ -4549,11 +5027,11 @@ function renderExplorerView() {
   populateCompanyFilter();
   populateStateFilter();
   renderThemeFilterChips();
-  renderHotRail();
   wireExplorerFilters();
   syncExplorerFilterUIToState();
   renderProjectList();
   renderProjectMap();
+  renderContestedSites();
 
   // If the page loaded with ?project=<id>, open that project's detail panel
   // now that data + DOM are ready. selectProject is a no-op for unknown ids.
@@ -4644,116 +5122,255 @@ function populateCompanyFilter() {
 }
 
 // --------------------------------------------------------------------------
-// Recently-contested rail (auto-derived, no curator featured flag)
+// Sites > Contested (v5, 2026-10-08)
+//
+// Replaces the six-card "Recently contested" rail. Every site with documented
+// pushback (contestedReasons) gets a card with a dated local timeline that
+// merges the site's typed `updates` (hearings, votes, permits, suits,
+// filings) with its community responses. Upcoming announced dates lead.
 // --------------------------------------------------------------------------
-// A project belongs on the rail when it has (a) negative/mixed-stance
-// responses in the last ~180 days, or (b) claims with delivered status
-// "contested" / "shortfall". Score = weighted sum; the most-actively
-// contested sites surface first.
-const HOT_RAIL_WINDOW_DAYS = 180;
-const HOT_RAIL_MAX_CARDS = 6;
 
-function renderHotRail() {
-  const rail = document.getElementById("hot-rail");
-  const list = document.getElementById("hot-rail-list");
-  if (!rail || !list) return;
-  list.innerHTML = "";
+const SITE_UPDATE_KINDS = [
+  "hearing", "vote", "permit", "lawsuit", "filing", "agreement", "construction", "news",
+];
+const SITE_UPDATE_LABELS = {
+  hearing: "Hearing",
+  vote: "Vote",
+  permit: "Permit",
+  lawsuit: "Lawsuit",
+  filing: "Filing",
+  agreement: "Agreement",
+  construction: "Construction",
+  news: "News",
+};
+const CONTESTED_TIMELINE_PREVIEW = 3;
+const CONTESTED_PAGE_SIZE = 12;
 
-  const now = Date.now();
-  const windowMs = HOT_RAIL_WINDOW_DAYS * 24 * 60 * 60 * 1000;
-
-  const scored = [];
-  for (const p of state.projects) {
-    const responses = state.responsesByProject.get(p.id) || [];
-    const claims = state.claimsByProject.get(p.id) || [];
-
-    let recentNeg = 0;
-    let recentMixed = 0;
-    let latestNeg = null;
-    for (const r of responses) {
-      const t = Date.parse(r.date);
-      if (Number.isNaN(t) || now - t > windowMs) continue;
-      if (r.stance === "negative") {
-        recentNeg += 1;
-        if (!latestNeg || Date.parse(r.date) > Date.parse(latestNeg.date)) {
-          latestNeg = r;
-        }
-      } else if (r.stance === "mixed") {
-        recentMixed += 1;
-      }
-    }
-
-    const contestedClaims = claims.filter(
-      (c) =>
-        c.delivered &&
-        (c.delivered.status === "contested" ||
-          c.delivered.status === "shortfall")
-    );
-
-    const score =
-      recentNeg * 2 + recentMixed * 0.5 + contestedClaims.length * 1.5;
-    if (score <= 0) continue;
-
-    let hint;
-    if (latestNeg) {
-      hint = latestNeg.summary;
-    } else if (contestedClaims.length) {
-      hint = contestedClaims[0].delivered.summary;
-    } else if (recentMixed) {
-      hint = "Recent mixed community response.";
-    } else {
-      hint = "Claim delivery is contested.";
-    }
-
-    scored.push({ project: p, score, hint, latestNeg });
-  }
-
-  if (!scored.length) {
-    rail.hidden = true;
-    return;
-  }
-
-  scored.sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score;
-    const aT = a.latestNeg ? Date.parse(a.latestNeg.date) : 0;
-    const bT = b.latestNeg ? Date.parse(b.latestNeg.date) : 0;
-    return bT - aT;
-  });
-
-  for (const item of scored.slice(0, HOT_RAIL_MAX_CARDS)) {
-    list.appendChild(renderHotRailCard(item));
-  }
-  rail.hidden = false;
+// Today's date as YYYY-MM-DD in UTC, matching how every record stores dates.
+function todayIso() {
+  return new Date().toISOString().slice(0, 10);
 }
 
-function renderHotRailCard({ project: p, hint }) {
-  const co = state.companiesBySlug
-    ? state.companiesBySlug.get(p.company_slug)
-    : null;
-  const coName = co ? co.name : p.company_slug;
-  const li = document.createElement("li");
-  li.className = "hot-card";
-  li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
-  li.tabIndex = 0;
-  li.setAttribute("role", "button");
-  li.setAttribute("aria-label", `Open ${p.name} — recently contested case`);
+// One merged, dated event list for a site. A typed update is a fact (a vote
+// happened); a response is a stance (who said what) and keeps its colour.
+function siteTimeline(p) {
+  const today = todayIso();
+  const events = [];
+  for (const u of p.updates || []) {
+    events.push({
+      date: u.date,
+      kind: u.kind,
+      label: SITE_UPDATE_LABELS[u.kind] || u.kind,
+      title: u.title,
+      summary: u.summary || "",
+      authority: u.authority || "",
+      // A date flagged upcoming that has since passed is "awaiting outcome",
+      // not still upcoming -- the refresh hasn't confirmed what happened.
+      upcoming: Boolean(u.upcoming) && u.date >= today,
+      awaiting: Boolean(u.upcoming) && u.date < today,
+      source_url: u.source_url,
+      source_title: u.source_title,
+    });
+  }
+  for (const r of (state.responsesByProject && state.responsesByProject.get(p.id)) || []) {
+    events.push({
+      date: r.date,
+      kind: "response",
+      stance: r.stance,
+      label: `${STANCE_LABELS[r.stance] || r.stance} · ${CONSTITUENCY_LABELS[r.constituency] || r.constituency}`,
+      title: r.summary,
+      summary: "",
+      authority: "",
+      upcoming: false,
+      awaiting: false,
+      source_url: r.source_url,
+      source_title: r.source_title,
+    });
+  }
+  // Upcoming first (soonest first), then everything else newest first.
+  const up = events.filter((e) => e.upcoming).sort((a, b) => a.date.localeCompare(b.date));
+  const past = events.filter((e) => !e.upcoming).sort((a, b) => b.date.localeCompare(a.date));
+  return [...up, ...past];
+}
 
-  const statusLabel = STATUS_LABELS[p.status] || p.status;
-  li.innerHTML = `
-    <p class="hot-card-eyebrow">${escapeHtml(coName)} · ${escapeHtml(statusLabel)}</p>
-    <h4 class="hot-card-title">${escapeHtml(p.name)}</h4>
-    <p class="hot-card-loc">${escapeHtml(p.city)}, ${escapeHtml(p.state)}</p>
-    <p class="hot-card-hint">${escapeHtml(truncate(hint, 180))}</p>
-    <p class="hot-card-cta" aria-hidden="true">View record →</p>
-  `;
+function timelineItemHtml(e) {
+  // Kind and stance ride on data- attributes (styled by attribute selector)
+  // rather than interpolated class names, so the dead-CSS guard can see
+  // every class this template applies.
+  const flag = e.upcoming
+    ? `<span class="tl-flag tl-flag-upcoming">Upcoming</span>`
+    : e.awaiting
+    ? `<span class="tl-flag tl-flag-awaiting">Outcome not yet recorded</span>`
+    : "";
+  return `<li class="tl-item" data-kind="${escapeAttr(e.kind)}"${e.stance ? ` data-stance="${escapeAttr(e.stance)}"` : ""}>
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-body">
+      <p class="tl-meta"><time datetime="${escapeAttr(e.date)}">${escapeHtml(formatAsOf(e.date))}</time>
+        <span class="tl-kind">${escapeHtml(e.label)}</span>${flag}</p>
+      <p class="tl-title">${escapeHtml(e.title)}</p>
+      ${e.summary ? `<p class="tl-summary">${escapeHtml(e.summary)}</p>` : ""}
+      <p class="tl-src">${e.authority ? `${escapeHtml(e.authority)} · ` : ""}<a href="${escapeAttr(e.source_url)}" target="_blank" rel="noopener">${escapeHtml(e.source_title || "Source")} ↗</a></p>
+    </div>
+  </li>`;
+}
 
-  const open = () => selectProject(p.id);
-  li.addEventListener("click", open);
-  li.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      open();
+// Render a site's timeline into `ol`. `limit` shows a preview with a
+// "Show all" toggle; null shows everything.
+function renderTimelineInto(ol, p, limit) {
+  const events = siteTimeline(p);
+  if (!events.length) {
+    ol.innerHTML = `<li class="muted">No dated local events recorded for this site yet.</li>`;
+    return 0;
+  }
+  const draw = (all) => {
+    const shown = all || !limit ? events : events.slice(0, limit);
+    ol.innerHTML = shown.map(timelineItemHtml).join("");
+    if (!all && limit && events.length > limit) {
+      const li = document.createElement("li");
+      li.className = "tl-more";
+      li.innerHTML = `<button type="button" class="btn-link">Show all ${events.length} events</button>`;
+      li.querySelector("button").addEventListener("click", () => draw(true));
+      ol.appendChild(li);
     }
+  };
+  draw(false);
+  return events.length;
+}
+
+function contestedSites() {
+  return state.projects.filter(isContestedSite);
+}
+
+function latestActivity(p) {
+  const ev = siteTimeline(p).filter((e) => !e.upcoming);
+  return ev.length ? ev[0].date : "";
+}
+
+function nextUpcoming(p) {
+  return siteTimeline(p).find((e) => e.upcoming) || null;
+}
+
+function populateContestedFilters(sites) {
+  const st = document.getElementById("c-state");
+  const co = document.getElementById("c-company");
+  if (st && st.options.length === 1) {
+    for (const s of [...new Set(sites.map((p) => p.state))].sort()) {
+      st.add(new Option(STATE_NAMES[s] || s, s));
+    }
+  }
+  if (co && co.options.length === 1) {
+    const present = new Set(sites.map((p) => p.company_slug));
+    for (const c of state.companies) if (present.has(c.slug)) co.add(new Option(c.name, c.slug));
+  }
+  for (const id of ["c-state", "c-company", "c-sort"]) {
+    const sel = document.getElementById(id);
+    if (sel && sel.dataset.wired !== "1") {
+      sel.dataset.wired = "1";
+      sel.addEventListener("change", renderContestedSites);
+    }
+  }
+}
+
+function renderContestedSites() {
+  const list = document.getElementById("contested-list");
+  if (!list || !state.projects.length) return;
+  const all = contestedSites();
+  setSubtabCount("sites-contested-count", all.length);
+  populateContestedFilters(all);
+
+  // The company filter is shared with the map: a Companies-card
+  // "N contested →" link sets the Explorer company filter, and the reader
+  // expects that operator here too.
+  const coSel = document.getElementById("c-company");
+  if (coSel && state.explorerFilters.company && coSel.dataset.synced !== state.explorerFilters.company) {
+    coSel.value = state.explorerFilters.company;
+    coSel.dataset.synced = state.explorerFilters.company;
+  }
+  const fState = (document.getElementById("c-state") || {}).value || "";
+  const fCo = (coSel || {}).value || "";
+  const sort = (document.getElementById("c-sort") || {}).value || "recent";
+
+  let sites = all.filter((p) => (!fState || p.state === fState) && (!fCo || p.company_slug === fCo));
+  const negCount = (p) =>
+    ((state.responsesByProject.get(p.id) || []).filter((r) => r.stance === "negative")).length;
+  if (sort === "critical") {
+    sites.sort((a, b) => negCount(b) - negCount(a) || latestActivity(b).localeCompare(latestActivity(a)));
+  } else if (sort === "upcoming") {
+    const nd = (p) => (nextUpcoming(p) || {}).date || "9999";
+    sites.sort((a, b) => nd(a).localeCompare(nd(b)) || latestActivity(b).localeCompare(latestActivity(a)));
+  } else {
+    sites.sort((a, b) => latestActivity(b).localeCompare(latestActivity(a)));
+  }
+
+  const meta = document.getElementById("contested-meta");
+  if (meta) meta.textContent = `${sites.length} of ${all.length} sites`;
+
+  list.innerHTML = "";
+  if (!sites.length) {
+    list.innerHTML = `<li class="muted">No contested sites match these filters.</li>`;
+    return;
+  }
+  // Paged: all 58 cards with timelines ran ~47,000px on a phone. A filter
+  // change resets to the first page (the key captures every filter).
+  const key = `${fState}|${fCo}|${sort}`;
+  if (state.contestedPageKey !== key) {
+    state.contestedPageKey = key;
+    state.contestedShown = CONTESTED_PAGE_SIZE;
+  }
+  const shown = sites.slice(0, state.contestedShown);
+  for (const p of shown) list.appendChild(renderContestedCard(p));
+  const left = sites.length - shown.length;
+  if (left > 0) {
+    const li = document.createElement("li");
+    li.className = "contested-more";
+    li.innerHTML = `<button type="button" class="btn-ghost">Show ${Math.min(left, CONTESTED_PAGE_SIZE)} more (${left} not shown)</button>`;
+    li.querySelector("button").addEventListener("click", () => {
+      state.contestedShown += CONTESTED_PAGE_SIZE;
+      renderContestedSites();
+    });
+    list.appendChild(li);
+  }
+}
+
+function renderContestedCard(p) {
+  const co = state.companiesBySlug.get(p.company_slug);
+  const li = document.createElement("li");
+  li.className = "contested-card";
+  li.dataset.projectId = p.id;
+  li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
+  const facts = [
+    `${p.city}, ${p.state}`,
+    STATUS_LABELS[p.status] || p.status,
+    p.power_mw ? formatPower(p.power_mw) : null,
+    p.claimed_investment_usd ? formatUsd(p.claimed_investment_usd) : null,
+  ].filter(Boolean);
+  const next = nextUpcoming(p);
+  const reasons = contestedReasons(p)
+    .map((r) => `<li class="reason-chip">${escapeHtml(r)}</li>`)
+    .join("");
+  li.innerHTML = `
+    <header class="contested-head">
+      <p class="contested-eyebrow">${escapeHtml(co ? co.name : p.company_slug)}</p>
+      <h3 class="contested-name">${escapeHtml(p.name)}</h3>
+      <p class="contested-facts">${facts.map(escapeHtml).join(" · ")}</p>
+      <ul class="reason-chips" role="list" aria-label="Why it is contested">${reasons}</ul>
+    </header>
+    ${
+      next
+        ? `<p class="contested-next"><span class="tl-flag tl-flag-upcoming">Next</span>
+            <time datetime="${escapeAttr(next.date)}">${escapeHtml(formatAsOf(next.date))}</time> — ${escapeHtml(next.title)}</p>`
+        : ""
+    }
+    <ol class="timeline" role="list" aria-label="Local timeline"></ol>
+    <footer class="contested-foot">
+      <button type="button" class="btn-ghost contested-open">Full site record</button>
+    </footer>`;
+  renderTimelineInto(li.querySelector(".timeline"), p, CONTESTED_TIMELINE_PREVIEW);
+  li.querySelector(".contested-open").addEventListener("click", () => {
+    setActiveSubtab("sites", "map");
+    selectProject(p.id);
+    const d = document.getElementById("project-detail");
+    if (d) d.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   return li;
 }
@@ -4835,7 +5452,7 @@ function wireExplorerFilters() {
 // browsing the same tab across projects to re-click on every selection.
 let _lastDetailTab = "overview";
 
-const DETAIL_TABS = ["overview", "claims", "responses"];
+const DETAIL_TABS = ["overview", "claims", "responses", "timeline"];
 
 function wireDetailTabs() {
   for (const name of DETAIL_TABS) {
@@ -5209,6 +5826,7 @@ function updateDetailTabCounts(claimsCount, responsesCount) {
 }
 
 function refreshExplorer() {
+  renderContestedSites();
   renderProjectList();
   refreshMapMarkers();
   writeFiltersToUrl();
@@ -5302,8 +5920,10 @@ function renderProjectList() {
   const meta = document.getElementById("explorer-meta");
   list.innerHTML = "";
   const items = filteredProjects();
-  meta.textContent = `${items.length} of ${state.projects.length} projects`;
-  setAccCount("explorer-filter-count", items.length, "site");
+  meta.textContent = `${items.length} of ${state.projects.length} sites`;
+  setSubtabCount("sites-map-count", state.projects.length);
+  const fc = document.getElementById("explorer-filter-count");
+  if (fc) fc.textContent = items.length === state.projects.length ? "" : `${items.length} match`;
 
   if (items.length === 0) {
     const li = document.createElement("li");
@@ -5334,23 +5954,33 @@ function renderProjectCard(p) {
 
   if (state.selectedProjectId === p.id) li.classList.add("active");
 
-  const stanceDots = ["positive", "mixed", "negative"]
-    .filter((s) => stances.has(s))
-    .map((s) => `<span class="stance-dot ${s}" title="${STANCE_LABELS[s]} response"></span>`)
-    .join("");
+  const tally = { positive: 0, mixed: 0, negative: 0 };
+  for (const r of responses) tally[r.stance] = (tally[r.stance] || 0) + 1;
+  const contested = isContestedSite(p);
+  const next = nextUpcoming(p);
 
   const moratoriumBadges = moratoriums
     .map((m) => `<span class="badge badge-moratorium badge-moratorium-${m.status}" title="Affected by ${m.jurisdiction} ${m.status} moratorium">${escapeHtml(m.jurisdiction)}</span>`)
     .join("");
 
+  const figures = [
+    p.power_mw ? formatPower(p.power_mw) : null,
+    p.claimed_investment_usd ? formatUsd(p.claimed_investment_usd) : null,
+  ].filter(Boolean);
+
   li.innerHTML = `
+    <div class="project-card-top">
+      <span class="status-pill status-${escapeAttr(p.status)}">${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+      ${contested ? `<span class="reason-chip">Contested</span>` : ""}
+    </div>
     <p class="project-name">${escapeHtml(p.name)}</p>
     <div class="project-meta">
       <span>${escapeHtml(co ? co.name : p.company_slug)}</span>
       <span>${escapeHtml(p.city)}, ${escapeHtml(p.state)}</span>
-      <span>${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
+      ${figures.map((f) => `<span>${escapeHtml(f)}</span>`).join("")}
     </div>
-    ${stanceDots ? `<div class="project-stance-row">${stanceDots}</div>` : ""}
+    ${responses.length ? `<p class="project-stance-row stance-words">${stanceWords(tally.positive, tally.mixed, tally.negative)}</p>` : ""}
+    ${next ? `<p class="project-next">Next: ${escapeHtml(formatAsOf(next.date))} — ${escapeHtml(truncate(next.title, 70))}</p>` : ""}
     ${moratoriumBadges ? `<div class="project-moratoriums-row">${moratoriumBadges}</div>` : ""}
   `;
 
@@ -5421,17 +6051,43 @@ function renderProjectMap() {
     tap: false,
   });
 
-  L.tileLayer(
-    "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
-    {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      maxZoom: 18,
-      subdomains: "abcd",
-    }
-  ).addTo(state.map);
+  // CARTO's keyless basemap endpoints started serving an "API KEY REQUIRED"
+  // placeholder tile (seen 2026-10-08), so the map rendered as a watermark.
+  // Esri's light-gray canvas is keyless with attribution and reads the same.
+  // A base layer plus a separate label layer keeps place names above the
+  // muted fill.
+  setMapTiles();
+  // The map is often created while its Sites pane is hidden (a #explorer/
+  // contested deep link, or Companies -> "N contested"). Leaflet then caches
+  // a 0x0 size and fits bounds against it; re-measure when the pane shows.
+  document.addEventListener("dcb:subtab", (e) => {
+    if (e.detail.group !== "sites" || e.detail.key !== "map" || !state.map) return;
+    requestAnimationFrame(() => {
+      state.map.invalidateSize();
+      refreshMapMarkers();
+    });
+  });
 
   refreshMapMarkers();
+}
+
+// Tiles follow the theme: light or dark gray canvas, swapped in place when
+// the theme toggles (they were picked once at creation and went stale).
+function setMapTiles() {
+  if (!state.map || !window.L) return;
+  for (const layer of state.mapTileLayers || []) state.map.removeLayer(layer);
+  const esri = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas";
+  const dark = document.documentElement.getAttribute("data-theme") === "dark";
+  const shade = dark ? "World_Dark_Gray" : "World_Light_Gray";
+  const tileOpts = {
+    attribution: "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors",
+    maxZoom: 16,
+  };
+  state.mapTileLayers = [
+    L.tileLayer(`${esri}/${shade}_Base/MapServer/tile/{z}/{y}/{x}`, tileOpts),
+    L.tileLayer(`${esri}/${shade}_Reference/MapServer/tile/{z}/{y}/{x}`, { ...tileOpts, attribution: "" }),
+  ];
+  for (const layer of state.mapTileLayers) layer.addTo(state.map);
 }
 
 function refreshMapMarkers() {
@@ -5958,14 +6614,8 @@ function renderStatePanel(code, failedSources = new Set()) {
           .join(" · "),
         onClick: () => {
           closeStatePanel();
-          activateView("tariffs");
-          requestAnimationFrame(() => {
-            const sec = document.getElementById("rate-cases-section");
-            if (sec) {
-              openAccordionsFor(sec);
-              sec.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          });
+          // Sets the Rate cases sub-tab before scrolling (it may be hidden).
+          goToPledgeTarget("ratecases");
         },
       })),
     },
@@ -7230,6 +7880,7 @@ function renderAggregateView() {
   const coRows = buildCompanyRollups();
   const stRows = buildStateRollups();
   renderCompanyRollup(coRows);
+  renderCompanyCards();
   renderSignatoryCategoryRollup();
   renderStateRollup(stRows);
   renderUtilityRollup(sortAggRows(buildUtilityRollups(), "utility"));
@@ -7520,12 +8171,18 @@ function aggTotals(rows) {
   );
 }
 
+// Plain words, not "●12 ●14 ●19": a reader shouldn't need a legend to know
+// which dot is which. Zero buckets are dropped; all-zero reads "None".
+function stanceWords(pos, mix, neg) {
+  const parts = [];
+  if (pos) parts.push(`<span class="sw positive">${pos} supportive</span>`);
+  if (mix) parts.push(`<span class="sw mixed">${mix} mixed</span>`);
+  if (neg) parts.push(`<span class="sw negative">${neg} critical</span>`);
+  return parts.length ? parts.join(" · ") : `<span class="muted">None</span>`;
+}
+
 function stanceSpan(pos, mix, neg) {
-  return (
-    `<span class="stance-dot positive" title="Positive"></span>${pos} ` +
-    `<span class="stance-dot mixed" title="Mixed"></span>${mix} ` +
-    `<span class="stance-dot negative" title="Negative"></span>${neg}`
-  );
+  return `<span class="stance-words">${stanceWords(pos, mix, neg)}</span>`;
 }
 
 function fmtJobs(n) {
@@ -7622,7 +8279,7 @@ function renderCompanyRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildCompanyRollups(), "company");
   const tot = aggTotals(rows);
-  setAccCount("agg-company-count", rows.length, "company", "companies");
+  setSubtabCount("agg-company-count", rows.length);
 
   tbody.innerHTML = rows
     .map(
@@ -7633,11 +8290,7 @@ function renderCompanyRollup(preRows) {
       </td>
       <td class="num">
         ${r.projects}
-        <span class="agg-status-pills">
-          ${r.announced ? `<span class="agg-pill announced">${r.announced}A</span>` : ""}
-          ${r.construction ? `<span class="agg-pill construction">${r.construction}C</span>` : ""}
-          ${r.operational ? `<span class="agg-pill operational">${r.operational}O</span>` : ""}
-        </span>
+        <span class="agg-status-words">${escapeHtml(statusWords(r))}</span>
       </td>
       <td class="num">${r.power_mw ? formatSummaryGW(r.power_mw) : "—"}</td>
       <td class="num">${r.capex ? formatSummaryUsd(r.capex) : "—"}</td>
@@ -7666,7 +8319,7 @@ function renderStateRollup(preRows) {
 
   const rows = sortAggRows(preRows || buildStateRollups(), "state");
   const tot = aggTotals(rows);
-  setAccCount("agg-state-count", rows.length, "state");
+  setSubtabCount("agg-state-count", rows.length);
 
   tbody.innerHTML = rows
     .map(
@@ -7675,11 +8328,7 @@ function renderStateRollup(preRows) {
       <td class="num">${r.companies}</td>
       <td class="num">
         ${r.projects}
-        <span class="agg-status-pills">
-          ${r.announced ? `<span class="agg-pill announced">${r.announced}A</span>` : ""}
-          ${r.construction ? `<span class="agg-pill construction">${r.construction}C</span>` : ""}
-          ${r.operational ? `<span class="agg-pill operational">${r.operational}O</span>` : ""}
-        </span>
+        <span class="agg-status-words">${escapeHtml(statusWords(r))}</span>
       </td>
       <td class="num">${r.power_mw ? formatSummaryGW(r.power_mw) : "—"}</td>
       <td class="num">${r.capex ? formatSummaryUsd(r.capex) : "—"}</td>
@@ -7707,6 +8356,10 @@ function renderStateRollup(preRows) {
 function selectProject(id) {
   const p = state.projects.find((x) => x.id === id);
   if (!p) return;
+  // The detail panel lives in the Map & list pane; every way in (policy and
+  // state-panel links, company CTA, Contested cards) must land there, not on
+  // whichever Sites pane the reader used last.
+  setActiveSubtab("sites", "map");
   state.selectedProjectId = id;
   const co = state.companiesBySlug.get(p.company_slug);
 
@@ -7736,6 +8389,15 @@ function selectProject(id) {
   const claimsCount = renderProjectClaims(p);
   const responsesCount = renderProjectResponses(p);
   updateDetailTabCounts(claimsCount, responsesCount);
+  const tl = document.getElementById("d-timeline");
+  if (tl) {
+    const n = renderTimelineInto(tl, p, null);
+    const badge = document.getElementById("dtab-timeline-count");
+    if (badge) {
+      badge.textContent = String(n);
+      badge.hidden = n === 0;
+    }
+  }
   renderAtAGlance(p);
   resetDetailTabs();
 

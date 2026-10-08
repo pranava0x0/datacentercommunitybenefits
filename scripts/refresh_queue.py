@@ -221,6 +221,21 @@ def derived_follow_ups() -> dict[str, list[dict]]:
                         f"date {end}: lapsed, extended, or replaced by a permanent rule?",
                 "derived": True,
             })
+    for proj in _load("projects.json", "projects"):
+        # An announced site date ("upcoming") comes due the day after it; the
+        # Sites timeline shows "Outcome not yet recorded" until someone checks.
+        # Clears when a re-check bumps the project's captured_at past it.
+        for u in proj.get("updates") or []:
+            if not u.get("upcoming"):
+                continue
+            due = date.fromisoformat(u["date"]) + timedelta(days=1)
+            if date.fromisoformat(proj["captured_at"]) < due:
+                out.setdefault(f"site:{proj['id']}", []).append({
+                    "due": due.isoformat(),
+                    "what": f"announced {u['date']}: {u['title']} -- record what happened "
+                            "(set upcoming false or replace the event)",
+                    "derived": True,
+                })
     return out
 
 

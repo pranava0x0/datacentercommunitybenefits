@@ -481,3 +481,70 @@ class TestBuildOutputs:
             f"First-paint payloads grew to {first_paint} bytes. "
             "Re-run `python refresh.py` (without --pretty) before shipping."
         )
+
+
+class TestSiteUpdates:
+    """v5 (2026-10-08): typed local timelines on Project.updates."""
+
+    @pytest.fixture(scope="class")
+    def updates(self) -> list[tuple[str, dict]]:
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        return [(p["id"], u) for p in raw for u in p.get("updates") or []]
+
+    def test_some_sites_carry_a_timeline(self, updates) -> None:
+        assert len({pid for pid, _ in updates}) >= 10
+
+    def test_no_bare_homepage_sources(self, updates) -> None:
+        # A homepage "resolves" while proving nothing -- the moratorium
+        # tab's fabricated records all cited one (CLAUDE.md, IA v4).
+        from urllib.parse import urlparse
+
+        # A WordPress "/?p=123" permalink is an article, not a homepage.
+        bare = [
+            (pid, u["source_url"])
+            for pid, u in updates
+            if urlparse(u["source_url"]).path in ("", "/") and not urlparse(u["source_url"]).query
+        ]
+        assert bare == []
+
+    def test_past_events_are_not_in_the_future(self, updates) -> None:
+        # Only an announced date may sit ahead of the capture; a past event
+        # dated in the future is a typo or a guessed date.
+        today = date.today().isoformat()
+        future = [(pid, u["date"]) for pid, u in updates if not u.get("upcoming") and u["date"] > today]
+        assert future == []
+
+    def test_each_timeline_is_sorted_and_deduped(self) -> None:
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        for p in raw:
+            ups = p.get("updates") or []
+            assert [u["date"] for u in ups] == sorted(u["date"] for u in ups), p["id"]
+            keys = [(u["date"], u["source_url"]) for u in ups]
+            assert len(keys) == len(set(keys)), p["id"]
+
+    def test_no_event_duplicates_a_response_at_the_same_site(self) -> None:
+        """The Sites timeline merges updates with responses; an update citing
+        the page a response already cites would show the same event twice."""
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        resp = json.loads((SEED / "responses.json").read_text())["responses"]
+        srcs = {(r["project_id"], r["source_url"]) for r in resp}
+        dup = [(p["id"], u["date"]) for p in raw for u in p.get("updates") or [] if (p["id"], u["source_url"]) in srcs]
+        assert dup == []
+
+    def test_summaries_are_facts_not_curator_notes(self) -> None:
+        """Review of PR #62: 37 summaries shipped the validator's working notes
+        ("The article is dated...", "Date derived from the dateline") to the
+        Sites timeline. Provenance belongs in the evidence log."""
+        import re
+
+        note = re.compile(r"\b(the article|dateline|date (is|derived)|derived:|publication date)\b", re.I)
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        bad = [(p["id"], u["date"]) for p in raw for u in p.get("updates") or [] if note.search(u.get("summary") or "")]
+        assert bad == []
+
+    def test_site_update_kind_literal_matches_its_tuple(self) -> None:
+        from typing import get_args
+
+        from schema import SITE_UPDATE_KINDS, SiteUpdateKind
+
+        assert get_args(SiteUpdateKind) == SITE_UPDATE_KINDS
