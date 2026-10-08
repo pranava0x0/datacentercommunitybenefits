@@ -153,7 +153,11 @@
           "title": "Newsweek — Amazon Pledges $1 Billion for Data Center Communities as US Backlash Grows"
         }
       ],
-      "captured_at": "2026-10-02"
+      "captured_at": "2026-10-02",
+      "agreement_features": [
+        "dollar_commitment",
+        "ratepayer_protection"
+      ]
     },
     {
       "id": "anthropic-company-plan-electricity-price-coverage-2026",
@@ -585,6 +589,9 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -746,7 +753,10 @@
         "source_url": "https://www.donaana.gov/about_us/economic_development_projects.php",
         "source_title": "Doña Ana County — Economic Development Projects (Project Jupiter)",
         "assessed_at": "2026-09-23"
-      }
+      },
+      "agreement_features": [
+        "dollar_commitment"
+      ]
     },
     {
       "id": "effingham-county-ga-openai-camellia-community-benefits-2026",
@@ -796,6 +806,10 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment",
+        "ratepayer_protection"
       ]
     },
     {
@@ -840,7 +854,7 @@
       "scope": "county",
       "jurisdiction": "Frederick County, MD (Adamstown)",
       "state_code": "MD",
-      "date": "2026-09-15",
+      "date": "2026-09-14",
       "company_slugs": [],
       "counterparties": [
         "Frederick County",
@@ -862,10 +876,10 @@
         "Quantum Maryland LLC (a Quantum Loophole/Catellus/TPG-affiliated entity) submitted a development rights and responsibilities agreement application September 1, 2026, offering >$110 million in community investments for the 2,100-acre, 17.4M-sq-ft, 2.4 GW Frederick Digital Campus",
         "Proposed breakdown: $30M Carroll Manor Elementary School renovations; $40M community center/recreational space; $14.5M workforce development/career-technical education; $10.5M agricultural land preservation; $10M perimeter improvements/trails; $5M community solar project; $1M fire engine",
         "Also offered to cut planned data center development ~20% and potable water use 80% once a reclaimed-water system comes online",
-        "In exchange, the county would have locked in the project's development/zoning rules for at least 8 years",
-        "County Executive Jessica Fitzwater rejected the agreement on September 15, 2026, objecting specifically to the 8-year zoning lock-in rather than the dollar amount, and extended the county's data-center-application pause to July 1, 2027"
+        "In exchange, the county would not change zoning rules that might hurt the campus for the agreement's duration; the developer sought 8 years",
+        "County Executive Jessica Fitzwater rejected the agreement on Monday, September 14, 2026, and extended the moratorium on data center applications to July 1, 2027"
       ],
-      "summary": "Frederick County, Maryland's proposed $110+ million community benefits agreement with Quantum Maryland LLC for the Frederick Digital Campus (which hosts Aligned Data Centers and Rowan Digital Infrastructure) was rejected by County Executive Jessica Fitzwater on September 15, 2026, just two weeks after the September 1 application — not over the dollar amount but because the deal would have locked in the county's zoning/development rules for 8 years. The county's pause on new data center applications was extended to July 1, 2027. No company_slugs are set: the developer and site tenants (Quantum Maryland/Catellus, Aligned, Rowan) are outside this dashboard's tracked company vocabulary.",
+      "summary": "Frederick County, Maryland's proposed $110+ million community benefits agreement with Quantum Maryland LLC for the Frederick Digital Campus (which hosts Aligned Data Centers and Rowan Digital Infrastructure) was rejected by County Executive Jessica Fitzwater on September 14, 2026, two weeks after the September 1 application, amid public outcry. In return for the investments, the developer had asked the county not to change zoning rules affecting the campus for 8 years. The county's pause on new data center applications was extended to July 1, 2027. No company_slugs are set: the developer and site tenants (Quantum Maryland/Catellus, Aligned, Rowan) are outside this dashboard's tracked company vocabulary.",
       "source_url": "https://www.wypr.org/wypr-news/2026-09-15/frederick-county-rejects-agreement-with-data-center-developer-amidst-public-outcry",
       "source_title": "WYPR — Frederick County rejects agreement with data center developer amidst public outcry",
       "resources": [
@@ -878,6 +892,9 @@
       "principles": [
         "community_benefits",
         "local_control"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -946,6 +963,9 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -1026,6 +1046,9 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -1505,6 +1528,11 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment",
+        "community_oversight",
+        "clawback"
       ]
     },
     {
@@ -1957,6 +1985,9 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -1999,6 +2030,9 @@
       "principles": [
         "incentive_terms",
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -2741,6 +2775,10 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment",
+        "ratepayer_protection"
       ]
     },
     {
@@ -2792,6 +2830,10 @@
       "principles": [
         "community_benefits",
         "water"
+      ],
+      "agreement_features": [
+        "dollar_commitment",
+        "water_limit"
       ]
     },
     {
@@ -2910,6 +2952,9 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -2966,6 +3011,10 @@
       "principles": [
         "community_benefits",
         "local_control"
+      ],
+      "agreement_features": [
+        "dollar_commitment",
+        "water_limit"
       ]
     },
     {
@@ -3034,6 +3083,9 @@
       "principles": [
         "incentive_terms",
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -3123,13 +3175,9 @@
       "principles": [
         "community_benefits"
       ],
-      "delivered": {
-        "status": "partial",
-        "summary": "AWS's separate $250,000 St. Joseph County Community Fund — one piece of the broader $143 million Community Enhancement Agreement — was confirmed delivered: $250,000 distributed across 31 local organizations in awards of $1,000-$10,000, announced March 3, 2025. The larger $143M agreement's infrastructure/schools/parks/fire spending was not independently confirmed as disbursed.",
-        "source_url": "https://www.insideindianabusiness.com/articles/aws-launches-250k-community-fund-to-support-31-organizations-in-st-joseph-county",
-        "source_title": "Inside INdiana Business — AWS launches $250K community fund to support 31 organizations in St. Joseph County",
-        "assessed_at": "2026-09-23"
-      }
+      "agreement_features": [
+        "dollar_commitment"
+      ]
     },
     {
       "id": "tn-pc961-2026",
@@ -3206,6 +3254,9 @@
       "principles": [
         "community_benefits",
         "incentive_terms"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -3539,6 +3590,9 @@
       "captured_at": "2026-09-23",
       "principles": [
         "community_benefits"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -3580,6 +3634,16 @@
       "principles": [
         "community_benefits",
         "pay_own_way"
+      ],
+      "delivered": {
+        "status": "partial",
+        "summary": "Google named the first two recipients of the West Memphis Energy Impact Fund on April 28, 2026: Crowley's Ridge Development Council (weatherization readiness) and Groundswell (home energy upgrades, with the city). About $1.26 million is to be allocated in 2026 of the $25 million fund; per-recipient amounts and actual payments were not reported.",
+        "source_url": "https://talkbusiness.net/2026/04/google-hands-out-money-from-west-memphis-energy-impact-fund/",
+        "source_title": "Talk Business & Politics — Google hands out money from West Memphis Energy Impact Fund",
+        "assessed_at": "2026-10-08"
+      },
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -3710,6 +3774,9 @@
       "principles": [
         "community_benefits",
         "incentive_terms"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
       ]
     },
     {
@@ -3966,6 +4033,410 @@
       "summary": "Volusia County Council voted unanimously on Oct. 6, 2026 to advance, after first reading, an ordinance prohibiting large-scale data centers in unincorporated areas. The Planning and Land Development Regulation Commission takes it up Oct. 15, with a second and final hearing Oct. 20.",
       "source_url": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading",
       "source_title": "Spectrum News 13 — Volusia County data center ban heads to first reading"
+    },
+    {
+      "id": "barber-county-ks-google-project-helium-2026",
+      "title": "Barber County–Google Project Helium agreements (community benefit payments)",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Barber County, KS",
+      "state_code": "KS",
+      "date": "2026-08-31",
+      "company_slugs": [
+        "google"
+      ],
+      "counterparties": [
+        "Barber County Board of Commissioners"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "tax_revenue",
+        "infrastructure",
+        "water",
+        "jobs"
+      ],
+      "principles": [
+        "community_benefits",
+        "incentive_terms",
+        "water"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 5500000,
+      "key_terms": [
+        "the agreement includes $5.5 million in community benefit payments to Barber County to help address anticipated County costs related to the construction of Project Helium",
+        "$500,000 by the end of 2026, $3 million in 2027, $1 million in 2028, and $1 million in 2029",
+        "Google will pay 100% of ad valorem property taxes, with no property tax abatement",
+        "provide $5 million in security to help ensure road improvement and maintenance costs are covered",
+        "guarantee a minimum of 300 full time equivalent jobs by the fifth year of project operations",
+        "Project Helium will be a closed-loop, air-cooled facility, not a water-cooled facility.",
+        "Google will not drill or construct new water wells on the property and will pay for required on-site and off-site water and wastewater utility upgrades."
+      ],
+      "summary": "The Barber County Board of Commissioners announced on August 31, 2026 that it had signed agreements with Google for Project Helium, a data center development planned in the county. Google will pay full ad valorem property taxes with no abatement, plus $5.5 million in community benefit payments scheduled from 2026 through 2029 to help address county costs during construction. The county's release also lists $5 million in road-protection security, a 300-job minimum by the fifth year of operations and a closed-loop, air-cooled design with no new water wells. The agreement text itself was not reviewed; terms are as described in the county's own release.",
+      "source_url": "https://barber.ks.gov/uploads/5/6/1/9/56198487/press_release.pdf",
+      "source_title": "Barber County Commissioners — Announce Agreement Terms for Project Helium Data Center Development (press release, Aug 31, 2026)",
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "dollar_commitment",
+        "water_limit"
+      ]
+    },
+    {
+      "id": "tuscaloosa-county-al-applied-digital-delta-forge-2-2026",
+      "title": "Applied Digital Delta Forge 2 (Brookwood) community benefits payments",
+      "instrument": "benefit_agreement",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Brookwood / Tuscaloosa County, AL",
+      "state_code": "AL",
+      "date": "2026-09-24",
+      "counterparties": [
+        "Applied Digital",
+        "Tuscaloosa County Economic Development Authority"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "tax_revenue"
+      ],
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 270000000,
+      "key_terms": [
+        "Applied Digital said it is committing $270 million in community benefits payments to the Tuscaloosa County Economic Development Authority over 20 years, in addition to its educational tax contributions.",
+        "This annual revenue stream will directly support local entities whose taxes are being abated, including the cities of Brookwood, Tuscaloosa and Northport, Tuscaloosa County, the Tuscaloosa County Road Improvement Commission, and DCH Health System",
+        "Each entity will receive a share proportional to its current local tax distribution.",
+        "The Tuscaloosa County Economic Development Authority signed off on the project Thursday."
+      ],
+      "summary": "On September 24, 2026 Applied Digital announced a $3.2 billion data center campus in Brookwood and said it is committing $270 million in community benefits payments over 20 years to the Tuscaloosa County Economic Development Authority, on top of its educational tax contributions. Per the company's statement, the payments support the local entities whose taxes are being abated, each in proportion to its current share of local tax distributions. The authority signed off on the project, but the cited report does not describe an executed payment agreement or give its terms beyond the company's statement, so the record is marked proposed.",
+      "source_url": "https://www.fox10tv.com/2026/09/25/applied-digital-confirms-32-billion-data-center-campus-brookwood/",
+      "source_title": "WBRC/FOX10 — Applied Digital confirms $3.2 billion data center campus in Brookwood (Sep 24, 2026)",
+      "resources": [
+        {
+          "url": "https://abc3340.com/news/local/alabama-32-billion-ai-data-center-campus-announced-in-brookwood-brookwood-mayor-joe-barger-september-2026",
+          "title": "ABC 33/40 — $3.2 Billion AI Data Center Campus Announced in Brookwood (project fact sheet figures)"
+        }
+      ],
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "dona-ana-county-nm-project-jupiter-cba-2025",
+      "title": "Project Jupiter Community Benefits Agreement (executed)",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Doña Ana County, NM",
+      "state_code": "NM",
+      "date": "2025-11-12",
+      "identifier": "Project Jupiter Community Benefits Agreement; Ordinance Nos. 367-2025, 368-2025, 369-2025",
+      "counterparties": [
+        "Doña Ana County",
+        "Red Chiles A, LLC",
+        "Red Chiles B, LLC",
+        "Red Chiles C, LLC",
+        "Red Chiles D, LLC",
+        "Yucca Growth Infrastructure, LLC",
+        "Green Chile Ventures, LLC (guarantor)"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "education",
+        "water",
+        "jobs",
+        "energy",
+        "infrastructure"
+      ],
+      "principles": [
+        "community_benefits",
+        "pay_own_way",
+        "water"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Project Jupiter Community Benefits Agreement — made and executed on this 12th day of November, 2025",
+        "Local Workforce Development Education Fund — $4,000,000 on or before December 31, 2026",
+        "Doña Ana County Community Fund — $1,500,000 on or before December 31, 2026",
+        "Advancement of Desalination for Doña Ana County Clean Drinking Water — $250,000 on or before December 31, 2026",
+        "Doña Ana Community College Regional Connectivity Contribution — $150,000 on or before December 31, 2026",
+        "Doña Ana County Habitat Restoration Projects — $500,000 on or before December 31, 2026 and $50,000 annually thereafter, with the last payment occurring on December 31, 2036",
+        "County Projects (Building Permit Payments) — $4,500,000",
+        "The Project is committed to creating a minimum of 750 new full-time equivalent jobs and 50 part-time jobs within three years of commencing operation",
+        "The daily operational potable water use for the full data center campus buildout will be an average of 20,000 gallons per day with a maximum peak use capped at 60,000 gallons per day.",
+        "The Project Jupiter data center will use a closed-loop cooling system, limiting overall water usage compared to traditional data centers.",
+        "The microgrid and energy generated by the Onsite Microgrid System and used by the data center will be paid for by the Companies. The Onsite Microgrid System will not impact existing customers' power reliability or costs.",
+        "This CBA will be binding on and for the benefit of each of the Parties hereto and their respective personal representatives, executives, agents, attorneys, principals, agents, and assigns.",
+        "the Companies may assign this CBA to another entity developing Project Jupiter under the Industrial Revenue Bonds — Upon assumption of the obligations in this CBA by the assignee",
+        "The sole and exclusive remedy of the County in the event of a failure by the Companies to satisfy the terms of this CBA will be to avail itself of the applicable rights and remedies corresponding to such failure under the Companies’ respective Lease Agreements with the County — which shall include termination of the respective Leases",
+        "the County shall have the right to seek payment for unpaid amounts listed in Exhibit B from the Guarantor"
+      ],
+      "summary": "Doña Ana County and the Project Jupiter developer entities (four Red Chiles LLCs and Yucca Growth Infrastructure, with Green Chile Ventures as guarantor) executed this Community Benefits Agreement on November 12, 2025, as an inducement for the county's industrial revenue bonds of up to $165 billion. Exhibit B sets dated payments for workforce development, a county community fund, a desalination RFP, community-college connectivity, habitat restoration and county projects, and Exhibit A commits to a closed-loop cooling design with capped potable water use and developer-paid microgrid energy that does not affect existing customers' costs. The county's only remedy for a missed term is its rights under the project leases, including lease termination, plus a claim on the guarantor for unpaid Exhibit B amounts; there is no separate claim for damages or specific performance. The agreement names the developer entities, not Oracle; Oracle describes itself as the project's tenant, and this is a separate instrument from the PILOT/IRB record.",
+      "source_url": "https://cms2.revize.com/revize/donaanacounty/Documents/About%20Us/Economic%20Development%20Projects/Community%20Benefits%20Agreement%20(CBA)%20Executed.pdf",
+      "source_title": "Doña Ana County — Project Jupiter Community Benefits Agreement (executed Nov 12, 2025) (PDF)",
+      "resources": [
+        {
+          "url": "https://www.donaana.gov/about_us/economic_development_projects.php",
+          "title": "Doña Ana County — Economic Development Projects (Project Jupiter)"
+        },
+        {
+          "url": "https://www.oracle.com/news/announcement/blog/oracle-advances-american-ai-innovation-in-new-mexico-2026-01-23/",
+          "title": "Oracle — Oracle Advances American AI Innovation and Local Economic Prosperity in New Mexico (names Oracle as tenant)"
+        }
+      ],
+      "related_project_ids": [
+        "oracle-dona-ana-nm"
+      ],
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "binding_contract",
+        "dollar_commitment",
+        "water_limit",
+        "ratepayer_protection",
+        "successor_binding",
+        "clawback"
+      ]
+    },
+    {
+      "id": "blakely-ga-qts-community-betterment-agreement-2026",
+      "title": "Blakely and Early County–QTS Community Betterment Agreement",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Blakely, GA (Early County)",
+      "state_code": "GA",
+      "date": "2026-08-13",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "City of Blakely",
+        "Early County"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "education",
+        "infrastructure",
+        "energy",
+        "water"
+      ],
+      "principles": [
+        "community_benefits",
+        "pay_own_way"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 28750000,
+      "key_terms": [
+        "QTS's commitment to Early County begins with annual $7.5 million payments for three years beginning in December 2026",
+        "QTS will support a Community Betterment Fund totaling a minimum of $28.75 million.",
+        "including infrastructure upgrades, school improvements, workforce development programs and local law enforcement and fire department resources and training",
+        "As each building becomes operational, QTS will make payments, ranging from approximately $4.5 to $12.5 million per building per year.",
+        "QTS will fund the energy infrastructure and electricity required to support the campus, ensuring project-related energy costs are not passed on to local residents.",
+        "The campus will also utilize a closed-loop cooling system that consumes no water for cooling once operational"
+      ],
+      "summary": "On August 13, 2026 QTS announced a community investment package with the City of Blakely and Early County, Georgia, for its planned Blakely campus: annual $7.5 million payments for three years starting in December 2026, per-building payments as each building becomes operational, and a Community Betterment Fund of at least $28.75 million for infrastructure, schools, workforce programs and public safety. WTVY reported that city and county leaders signed the agreement at Blakely City Hall. QTS also states it will fund the energy infrastructure the campus needs and use closed-loop cooling that consumes no water for cooling. The signed agreement text was not reviewed; the release does not say how the annual payments relate to the $28.75 million fund.",
+      "source_url": "https://q.com/news/qts-announces-transformative-community-investment-in-blakely-and-early-county/",
+      "source_title": "QTS — QTS Announces Transformative Community Investment in Blakely and Early County (press release, Aug 13, 2026)",
+      "resources": [
+        {
+          "url": "https://www.wtvy.com/2026/08/14/qts-data-center-deal-brings-2875m-commitment-blakely/",
+          "title": "WTVY — QTS data center deal brings $28.75M commitment to Blakely (reports the signing)"
+        }
+      ],
+      "related_project_ids": [
+        "qts-blakely-ga"
+      ],
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "cedar-rapids-ia-qts-amended-development-agreement-2025",
+      "title": "Cedar Rapids–QTS amended development agreement (community betterment fund)",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Cedar Rapids, IA",
+      "state_code": "IA",
+      "date": "2025-12-02",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "City of Cedar Rapids"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "jobs",
+        "tax_revenue"
+      ],
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 18000000,
+      "key_terms": [
+        "QTS also will contribute up to $18 million to a city-run \"community betterment fund\" over 20 years to support future economic development in Cedar Rapids, as was outlined in the previously approved development agreement.",
+        "The Cedar Rapids City Council on Tuesday unanimously approved an amended development agreement with QTS outlining plans for up to seven project phases",
+        "The minimum required investment remains at $750 million under the amended plan",
+        "each phase will result in the creation of at least 15 jobs at or above the high-quality jobs threshold",
+        "QTS will receive a 20-year, 70 percent property tax rebate per project phase and a 20-year, 75 percent rebate of electrical franchise fees collected by the city through Alliant Energy"
+      ],
+      "summary": "On December 2, 2025 the Cedar Rapids City Council unanimously approved an amended development agreement with QTS that allows up to seven project phases. QTS will contribute up to $18 million over 20 years to a city-run community betterment fund, with a $750 million minimum investment and at least 15 qualifying jobs per phase. The city's incentives are unchanged: a 20-year, 70 percent property tax rebate per phase and a 20-year, 75 percent rebate of electrical franchise fees. The cited report does not say whether the agreement carries enforcement terms.",
+      "source_url": "https://www.thegazette.com/news/cedar-rapids-city-council-oks-amended-qts-development-agreement/",
+      "source_title": "The Gazette — Cedar Rapids City Council OKs amended QTS development agreement (Dec 2, 2025)",
+      "resources": [
+        {
+          "url": "https://corridorbusiness.com/cedar-rapids-council-approves-development-agreement-for-qts-data-center-project/",
+          "title": "Corridor Business Journal — Cedar Rapids council approves development agreement for QTS data center project (original agreement; per-phase fund payments)"
+        }
+      ],
+      "related_project_ids": [
+        "qts-cedar-rapids-ia"
+      ],
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "st-louis-mo-terrawatt-armory-community-benefit-plan-2026",
+      "title": "St. Louis–TerraWatt community benefit plan (Armory Innovation Data Center)",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "St. Louis, MO",
+      "state_code": "MO",
+      "date": "2026-09-15",
+      "counterparties": [
+        "TerraWatt",
+        "City of St. Louis Land Clearance for Redevelopment Authority"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "jobs",
+        "energy",
+        "tax_revenue"
+      ],
+      "principles": [
+        "community_benefits",
+        "incentive_terms"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 15700000,
+      "key_terms": [
+        "The community benefit plan calls for TerraWatt to pay the city $15.7 million, with nearly $9 million of that paid by spring 2027, according to the agreement.",
+        "The agreement bars the developers from seeking local tax incentives, such as tax abatements, that would significantly reduce the project's financial benefit to the city and other tax beneficiaries, including St. Louis Public Schools.",
+        "by July 30 of the year in which the project's building permit is issued, the center must employ at least 25 people. The center must employ at least 50 people by the second year and eventually at least 100 people.",
+        "The developers will be required to submit an annual report detailing the number of jobs it has created.",
+        "Renewable energy sources must power half of the data center's power in its first five years of operation. Within 10 years, the data center must use 100% renewable energy.",
+        "The conditional use permit the city approved for this data center project required the community benefit plan that the LCRA approved on Tuesday."
+      ],
+      "summary": "On September 15, 2026 the city's Land Clearance for Redevelopment Authority gave final approval to a community benefit plan with TerraWatt, the developer of a data center campus at the old Famous-Barr building in Midtown, known as the Armory data center. The plan, which the city's conditional use permit required, calls for $15.7 million in payments to the city, bars local tax incentives, sets minimum employment of 25, 50 and eventually 100 people, and requires renewable power for half the load in the first five years and all of it within ten. STLPR reports that plaintiffs have filed suit against the city to stop the development.",
+      "source_url": "https://www.stlpr.org/government-politics-issues/2026-09-15/st-louis-okays-midtown-data-center-445m-tax-revenue",
+      "source_title": "St. Louis Public Radio — St. Louis OKs plan for Midtown data center estimated to generate $445M in tax revenue over 10 years (Sep 15, 2026)",
+      "resources": [
+        {
+          "url": "https://stlouis-mo.gov/government/departments/mayor/news/data-center-permit-approved.cfm",
+          "title": "City of St. Louis Mayor's office — Data center permit approved (Apr 21, 2026; Armory Innovation Data Center conditional use permit)"
+        }
+      ],
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "ashville-oh-edgeconnex-term-summary-resolution-2026",
+      "title": "Ashville–EdgeConneX development and supply agreement term summary (Resolution 06-2026)",
+      "instrument": "benefit_agreement",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Ashville, OH (Pickaway County)",
+      "state_code": "OH",
+      "date": "2026-04-06",
+      "identifier": "Resolution 06-2026",
+      "counterparties": [
+        "Village of Ashville",
+        "EdgeConneX",
+        "Teays Valley School District",
+        "Harrison Township Fire Department"
+      ],
+      "benefit_themes": [
+        "education",
+        "infrastructure",
+        "community_grants"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 102000000,
+      "key_terms": [
+        "Resolution 06-2026: Resolution approving a development and supply agreement term summary with EdgeConneX, and declaring an emergency.",
+        "The resolution offered up to $102 million-divided between the Teays Valley School District ($64 million), the Village of Ashville for EPA-related infrastructure ($35 million), and the Harrison Township Fire Department ($3 million).",
+        "Five council members voted to adopt the resolution, and President Pro Tempore Jeff Martin was the single nay vote.",
+        "it's going to be part of the negotiation now moving forward."
+      ],
+      "summary": "On April 6, 2026 the Ashville Village Council voted 5-1 to adopt Resolution 06-2026 approving a term summary for a development and supply agreement with EdgeConneX. The resolution offered up to $102 million, divided among the Teays Valley School District ($64 million), the village for EPA-related infrastructure ($35 million) and the Harrison Township Fire Department ($3 million). The dissenting council member said some terms remained to be negotiated, so this is a term summary and not an executed agreement. Later developments, including a referendum petition, are not covered by the cited report.",
+      "source_url": "https://www.circlevilleherald.com/community/ashville-council-votes-5-1-to-adopt-the-edgeconnex-term-summary-resolution/article_6a335fd7-4406-411d-b8ea-178155601d5c.html",
+      "source_title": "Circleville Herald — Ashville council votes 5-1 to adopt the EdgeConneX term summary resolution (Apr 9, 2026)",
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "festus-mo-crg-data-center-ordinance-2026",
+      "title": "Festus–CRG data center ordinance and development agreement framework",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Festus, MO",
+      "state_code": "MO",
+      "date": "2026-03-30",
+      "counterparties": [
+        "City of Festus",
+        "CRG (Clayco)",
+        "Ameren Missouri"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "infrastructure",
+        "energy",
+        "water"
+      ],
+      "principles": [
+        "community_benefits",
+        "pay_own_way"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Council members approved an ordinance creating a framework of requirements for developer CRG, the data center arm of area developer Clayco, by a vote of 6-2.",
+        "The ordinance locks in rules the developer must follow if the data center is built, like requiring CRG to pay for infrastructure upgrades to water, sewage and streets.",
+        "CRG will pay the city $3 million each year on \"community development\" for five years and then $5 million a year for another five years.",
+        "CRG will enter into an agreement with Ameren Missouri, ensuring it will pay for its energy use and any additional energy infrastructure needed to serve the data center."
+      ],
+      "summary": "On March 30, 2026 the Festus City Council voted 6-2 to approve an ordinance setting requirements for CRG, the data center arm of developer Clayco, for a proposed $6 billion data center. CRG would pay the city $3 million a year for community development for five years and then $5 million a year for five more, pay for water, sewer and street upgrades, and enter an agreement with Ameren Missouri to pay for its energy use and the energy infrastructure needed to serve the site. STLPR reports the vote came over sustained public opposition. No total value is stated in the source, so none is recorded.",
+      "source_url": "https://www.stlpr.org/government-politics-issues/2026-03-31/festus-data-center-development-approval",
+      "source_title": "St. Louis Public Radio — Festus council approves $6 billion data center plan despite massive public pushback (Mar 31, 2026)",
+      "resources": [
+        {
+          "url": "https://www.firstalert4.com/2026/03/21/festus-reaches-deal-framework-with-developer-data-center",
+          "title": "First Alert 4 (KMOV) — Festus reaches deal on framework with developer for data center (Mar 21, 2026; pre-vote)"
+        }
+      ],
+      "captured_at": "2026-10-08",
+      "agreement_features": [
+        "binding_contract",
+        "dollar_commitment",
+        "ratepayer_protection"
+      ]
     }
   ]
 }

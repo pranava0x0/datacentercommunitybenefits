@@ -1518,6 +1518,46 @@ POLICY_PRINCIPLE_LABELS: dict[str, str] = {
     "study": "States study before setting rules",
 }
 
+# Observable features of a benefit agreement's own text, tagged by the
+# curator from the record's key_terms (each tag must be backed by a term on
+# the record's source). The list came from the NAACP 2026 CBA template, the
+# Lancaster PA agreement and Michigan HB 6137 (research notes 2026-10-08).
+# They describe what the paper says, never whether it was honored; delivery is
+# `delivered`. Frozen like THEMES: adding one means re-tagging every record.
+AGREEMENT_FEATURES: tuple[str, ...] = (
+    "binding_contract",
+    "dollar_commitment",
+    "community_oversight",
+    "local_hiring_target",
+    "water_limit",
+    "ratepayer_protection",
+    "public_reporting",
+    "successor_binding",
+    "clawback",
+)
+AgreementFeature = Literal[
+    "binding_contract",
+    "dollar_commitment",
+    "community_oversight",
+    "local_hiring_target",
+    "water_limit",
+    "ratepayer_protection",
+    "public_reporting",
+    "successor_binding",
+    "clawback",
+]
+AGREEMENT_FEATURE_LABELS: dict[str, str] = {
+    "binding_contract": "Signed, enforceable contract",
+    "dollar_commitment": "Dollar amounts written in",
+    "community_oversight": "Independent body controls the money",
+    "local_hiring_target": "Numeric local hiring target",
+    "water_limit": "Water cap or cooling standard",
+    "ratepayer_protection": "Grid costs kept off residents' bills",
+    "public_reporting": "Regular public reporting",
+    "successor_binding": "Binds future owners",
+    "clawback": "Penalty or repayment if terms are missed",
+}
+
 # Who sets it. 'company' is not a jurisdiction — it marks a company's own
 # company-wide plan. A company's pledge for ONE host community is a
 # company_plan scoped to that city/county instead.
@@ -1599,6 +1639,12 @@ class Policy(_StrictBase):
         description="Moratorium record covering the same instrument, if any. "
         "Cross-ref validated.",
     )
+    agreement_features: Optional[list[AgreementFeature]] = Field(
+        default=None,
+        description="What a community-benefits record's text contains "
+        "(AGREEMENT_FEATURES). Each tag needs a key_term that shows it. "
+        "Absent = not yet tagged, not 'has none'.",
+    )
     delivered: Optional[Delivered] = Field(
         default=None,
         description="Independent evidence of whether an agreement's committed "
@@ -1639,6 +1685,14 @@ class Policy(_StrictBase):
         # and is in force — a failed or proposed deal has nothing to deliver.
         if self.delivered is not None and self.status != "in_effect":
             raise ValueError(f"policy {self.id!r}: only an in-effect record can carry `delivered`")
+        if self.agreement_features is not None:
+            if not self.community_benefits_framework:
+                raise ValueError(
+                    f"policy {self.id!r}: agreement_features only apply to a "
+                    "community_benefits_framework record"
+                )
+            if len(self.agreement_features) != len(set(self.agreement_features)):
+                raise ValueError(f"policy {self.id!r}: agreement_features must not repeat")
         if self.instrument == "company_plan":
             if not self.company_slugs:
                 raise ValueError(f"policy {self.id!r}: a company_plan must name its company_slugs")
