@@ -724,8 +724,8 @@ navigation.
 - **"323 organizations" on Home vs "346 signatories" on The Pledge.** The 23
   governors are the difference, and the Coverage header should say so.
   **low**
-- **Contested-site timelines: the other 30 contested sites.** v5 researched
-  29 of 59 (those with ≥2 critical responses); the rest have only their
+- **Contested-site timelines: thin sites.** v5 researched all 59 contested sites;
+  14 still have no typed events (nothing verifiable found), only their
   community responses on the timeline. Same method: Haiku per site, probe
   gate, per-event date check. **medium**
 - **Announced upcoming dates are thin.** No verified future hearing/vote

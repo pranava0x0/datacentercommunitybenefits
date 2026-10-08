@@ -521,3 +521,12 @@ class TestSiteUpdates:
             assert [u["date"] for u in ups] == sorted(u["date"] for u in ups), p["id"]
             keys = [(u["date"], u["source_url"]) for u in ups]
             assert len(keys) == len(set(keys)), p["id"]
+
+    def test_no_event_duplicates_a_response_at_the_same_site(self) -> None:
+        """The Sites timeline merges updates with responses; an update citing
+        the page a response already cites would show the same event twice."""
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        resp = json.loads((SEED / "responses.json").read_text())["responses"]
+        srcs = {(r["project_id"], r["source_url"]) for r in resp}
+        dup = [(p["id"], u["date"]) for p in raw for u in p.get("updates") or [] if (p["id"], u["source_url"]) in srcs]
+        assert dup == []

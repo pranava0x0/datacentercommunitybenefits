@@ -106,6 +106,10 @@ def load_jsonl(path: Path) -> list[dict]:
 
 def apply_site_updates(projects: list[dict]) -> int:
     by_id = {p["id"]: p for p in projects}
+    # An event whose page already backs a community response at the same site
+    # would render twice on the merged timeline; the response wins.
+    responses = json.loads((SEED / "responses.json").read_text())["responses"]
+    response_srcs = {(r["project_id"], r["source_url"]) for r in responses}
     fixes = dict(FIXES)
     drops = dict(DROP)
     # Later batches ship only once their validator's fixes file exists.
@@ -120,6 +124,15 @@ def apply_site_updates(projects: list[dict]) -> int:
         for k, why in b.get("drop", {}).items():
             drops[tuple(k.split("|"))] = why
     added = 0
+    for p in projects:  # enforce the response-wins rule on events merged earlier too
+        if p.get("updates"):
+            kept = [u for u in p["updates"] if (p["id"], u["source_url"]) not in response_srcs]
+            if len(kept) != len(p["updates"]):
+                log.info("dedupe %s: %d event(s) duplicated a response", p["id"], len(p["updates"]) - len(kept))
+            if kept:
+                p["updates"] = kept
+            else:
+                p.pop("updates")
     for path in batches:
         for row in load_jsonl(path):
             for e in row["events"]:
@@ -148,6 +161,9 @@ def apply_site_updates(projects: list[dict]) -> int:
                 )
                 pid = fix.get("project_id", pid)
                 ev.update({k: v for k, v in fix.items() if k != "project_id"})
+                if (pid, ev["source_url"]) in response_srcs:
+                    log.info("skip %s %s: same source as an existing response", pid, ev["date"])
+                    continue
                 p = by_id.get(pid)
                 if p is None:
                     log.warning("unknown project %s", pid)
