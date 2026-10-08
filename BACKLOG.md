@@ -776,6 +776,13 @@ navigation.
   Emit a small `home.json` digest from refresh.py (numbers, dated changes
   across all payloads, upcoming dates). That drops Home to about 140 KB,
   and every landing option needs it. **high**
+- **First-paint test should observe real requests.** `test_perf_budget.py`
+  sums a hand-written `FIRST_PAINT` list, so pulling a payload back into boot
+  fails nothing. Record requests in Playwright up to the first render and
+  fail on any payload not in the allowed set (PR #62 review). **medium**
+- **e2e: one context fixture.** ~8 tests build their own `browser.new_context`
+  and miss the autouse fast-fail timeouts and tile stub; move both into a
+  shared context fixture and import `E2E_WAIT` from conftest. **low**
 - **Code-split `app.js`.** It is 85 KB gzipped and loads whole on every
   view. **medium**
 - **Home builds the Pledge view's DOM** (7.5K nodes at load) because both
