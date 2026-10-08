@@ -59,6 +59,26 @@ fourth full review won't fit in 20 minutes. Each item has `unit`, `why_now`, `du
 section of BACKLOG.md §3). A unit whose only reason is a due follow-up gets a
 **targeted check** (§2a). Every other unit gets a **full review** (§2b–§2d).
 
+**Stalling is the failure mode, not the rule.** The 2026-10-08 run took the
+top unit (`site:meta-newton-ga`, a dead `source_url` already flagged in
+BACKLOG), found nothing citable after one search, and ended after 2 of 20
+minutes with zero changes. The dashboard is meant to move a little every day.
+So:
+- **A run that ends before minute 12 must say why the queue was exhausted.**
+  "Top unit was stuck" is not a reason to stop; it is a reason to take the next.
+- **When a unit stalls** (dead source, no citable replacement after one
+  alternate outlet, ~5 minutes spent), park it and go straight to the next:
+  `python3 scripts/refresh_queue.py --mark <unit> --blocked --summary "<why, and what would unblock it>"`.
+  That drops it from the plan for 14 days (`BLOCKED_COOLDOWN_DAYS`), records the
+  reason in the ledger, and is not a review. Also put the lead under the unit in
+  BACKLOG.md §3. Never leave a stalled unit unmarked: the next run would pick it
+  up first and stall identically.
+- **Prefer cheap wins over perfect units.** Even on a stuck site, a partial pass
+  counts: re-check the news since `captured_at`, one county/state agency page,
+  one community response. Log each verified change; skip only what no source covers.
+- `--next 4` already lists parked units last; if you park one, re-run
+  `--next 4 --json` to refill the list.
+
 ## 2. Research, one unit at a time
 
 Keep a JSONL evidence log at `/tmp/refresh_evidence.jsonl`. Append one line
@@ -218,6 +238,10 @@ For each unit you fully reviewed:
 python3 scripts/refresh_queue.py --mark <unit> --summary "<checked X, Y, Z; changed A; added B>" \
   [--follow-up YYYY-MM-DD "<dated next step a source named>"]
 ```
+A run with no data changes is still worth committing: the ledger (reviewed and
+blocked marks) and BACKLOG leads are what stop the next run repeating this
+one. If nothing but the ledger/backlog changed, merge it the same way.
+
 Then:
 ```bash
 python3 scripts/refresh_queue.py --write-backlog
@@ -253,5 +277,5 @@ overrides any default. Don't try to delete the branch; the proxy refuses it.
 
 ## 5. Report (final message, ≤20 lines)
 Units reviewed and what changed (counts per payload); follow-ups handled;
-anything MISS or BLOCKED; leads added; gate result and the merged commit (or
+anything MISS or BLOCKED; units parked with `--blocked` and why; leads added; gate result and the merged commit (or
 why it didn't merge); minutes used.
