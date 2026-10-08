@@ -731,6 +731,12 @@ navigation.
 
 - ~~**Phone tab bar hides most of the site.**~~ Done 2026-10-08: the bar
   wraps to two rows of short labels at ≤960px (interaction-cost UAT).
+- **Moratorium end dates on Home "Coming up".** Removed 2026-10-08 (Codex
+  on #63): `duration_months` is often a rounded "45 days" or "through Oct
+  16", so start + N months invented deadlines. Add an explicit, curated
+  `ends_on` date to Moratorium, backfill it from each record's own source,
+  then list end dates again. The refresh queue's derived end-date follow-ups
+  have the same rounding problem. **medium**
 - **Moratoriums directory has no search.** On a phone, an older record is
   many swipes down the table. Add a jurisdiction/bill search like Sites'
   `#f-q`, then add a task for an older record to `tools/interaction_cost.py`.

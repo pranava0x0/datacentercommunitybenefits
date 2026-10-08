@@ -22,9 +22,9 @@ Per CLAUDE.md:
 from __future__ import annotations
 
 import argparse
-import calendar
 import json
 import logging
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -552,6 +552,22 @@ def _is_contested(p, neg_projects: set, disputed_projects: set) -> bool:
     )
 
 
+# A parenthetical that already states a status. "(Brookwood)" or "(HB 15)"
+# does not, so the feed still appends "(proposed)" to those.
+_TITLE_STATUS = re.compile(
+    r"\((?:[^)]*\b)?(?:proposed|failed|vetoed|withdrawn|rejected|"
+    r"first reading|second reading|pending|died|enacted|signed)\b",
+    re.I,
+)
+_SCOPE_LABEL = {
+    "federal": "Federal policy",
+    "state": "State policy",
+    "county": "Local policy",
+    "city": "Local policy",
+    "company": "Company plan",
+}
+
+
 def _is_agreement(pol) -> bool:
     """Mirror of isAgreementRecord in app.js: a developer-community deal, or a
     company's pledge to one host community. Company-wide plans are not."""
@@ -616,12 +632,17 @@ def _build_home(payloads, today: date) -> dict:
     for pol in policies:
         if pol.date and pol.date <= today:
             verb = {"in_effect": "", "proposed": " (proposed)", "failed": " (failed)"}[pol.status]
-            if "(" in pol.title:  # "(vetoed)", "(first reading)" already say it
+            if _TITLE_STATUS.search(pol.title):  # "(vetoed)", "(first reading)"
                 verb = ""
             agreement = _is_agreement(pol)
+            kind_label = (
+                "Agreement" if agreement
+                else "Company plan" if pol.instrument == "company_plan"
+                else _SCOPE_LABEL[pol.scope]
+            )
             latest.append({
                 "date": pol.date.isoformat(),
-                "type": "Agreement" if agreement else "Local policy",
+                "type": kind_label,
                 "title": pol.title + verb,
                 "place": pol.state_code or "",
                 "target": {"kind": "agreement" if agreement else "policy", "id": pol.id},
@@ -684,22 +705,14 @@ def _build_home(payloads, today: date) -> dict:
                     "date": u.date.isoformat(), "type": "Site", "subtype": u.kind, "title": u.title,
                     "place": _place(p.city, p.state), "target": {"kind": "site", "id": p.id},
                 })
-    for m in morats:
-        start = m.effective_date or m.enacted_date
-        if m.status == "enacted" and m.duration_months and start:
-            y, mo = divmod(start.month - 1 + m.duration_months, 12)
-            year, month = start.year + y, mo + 1
-            end = date(year, month, min(start.day, calendar.monthrange(year, month)[1]))
-            if end >= today:
-                upcoming.append({
-                    "date": end.isoformat(), "type": "Moratorium",
-                    "title": f"{m.jurisdiction} moratorium reaches its end date",
-                    "place": m.state_code or "", "target": {"kind": "moratorium", "id": m.id},
-                })
+    # Moratorium end dates are NOT listed: duration_months is often a
+    # rounded "45 days" or "through Oct 16", so start + N months invents a
+    # deadline (Codex on #63: Cleveland, Vance County). They return when the
+    # schema carries an explicit curated end date (BACKLOG).
     upcoming.sort(key=lambda x: x["date"])
     soon: list[dict] = []
     per_type = {}
-    for item in upcoming:  # 107 moratorium end dates would otherwise fill it
+    for item in upcoming:  # keep one busy type from filling the list
         if per_type.get(item["type"], 0) >= HOME_UPCOMING_PER_TYPE:
             continue
         per_type[item["type"]] = per_type.get(item["type"], 0) + 1

@@ -2146,6 +2146,7 @@ function renderRateCases() {
   if (rcMeta) rcMeta.textContent = `${cases.length} of ${all.length} proceedings`;
   for (const rc of cases) {
     const li = el("li", "rc-item");
+    li.id = `rc-${rc.id}`;
 
     const head = el("div", "rc-head");
     const chip = el(
@@ -3903,10 +3904,27 @@ function openHomeTarget(target) {
   } else if (target.kind === "agreement") {
     openAgreement(target.id);
   } else if (target.kind === "ratecase") {
-    goToPledgeTarget("ratecases");
+    openRateCase(target.id);
   } else if (target.kind === "roster") {
     goToPledgeTarget("roster");
   }
+}
+
+// Open the rate-case list on one case: clear the status filter so it is
+// listed, then scroll to it and flag it for the reader.
+function openRateCase(id) {
+  goToPledgeTarget("ratecases");
+  const sel = document.getElementById("rc-status-filter");
+  loadTariffsData().then(() => {
+    if (sel && sel.value) {
+      sel.value = "";
+      renderRateCases();
+    }
+    const li = document.getElementById(`rc-${id}`);
+    if (!li) return;
+    li.classList.add("is-target");
+    li.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 }
 
 // Every hero affordance (stat tiles + pathway cards) routes through one place,

@@ -6448,3 +6448,10 @@ button.depth-chip:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* A rate case opened from Home is marked so the reader finds it in the list. */
+.rc-item.is-target {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -3499,6 +3500,17 @@ class TestHomeV6:
         page.fill("#f-q", "va")
         states = page.evaluate("() => filteredProjects().map(p => p.state)")
         assert states and set(states) == {"VA"}, set(states)
+
+    def test_ratecase_feed_item_opens_that_case(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#whats-next-list .feed-item", timeout=E2E_WAIT)
+        target = page.evaluate("() => (state.home.upcoming.find(x => x.target.kind === 'ratecase') || {}).target")
+        if not target:
+            pytest.skip("no upcoming rate case in today's digest")
+        page.evaluate("(t) => openHomeTarget(t)", target)
+        li = page.locator(f"#rc-{target['id']}")
+        expect(li).to_be_visible()
+        expect(li).to_have_class(re.compile(r"\bis-target\b"))
 
     def test_agreements_count_matches_the_digest(self, page: Page, base_url: str):
         # refresh.py's _is_agreement mirrors isAgreementRecord().

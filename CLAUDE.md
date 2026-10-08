@@ -1907,7 +1907,11 @@ notion of "known stuck" will serve the same stuck unit first forever.
 
 **Home renders from `data/home.json`**, a ~1 KB gzipped digest built by
 `refresh.py` (`_build_home`): section totals, a mixed "Latest" feed (≤4 per
-type) and a "Coming up" list (≤3 per type, never in the past). First paint is
+type, policies labeled by scope) and a "Coming up" list (≤3 per type, never
+in the past). Coming up carries only dates a record states: rate-case
+milestones and upcoming site events. Moratorium end dates were derived from
+`duration_months` and came out a day or more wrong, so they are off until the
+schema has a curated end date. First paint is
 `index.html`, `styles.css`, `app.js`, `companies.json`, `home.json`: 142 KB,
 5 requests. Every other payload loads after `dcb:home-ready`. The Python side
 duplicates two JS rules, and an e2e parity test holds each pair together:
