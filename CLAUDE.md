@@ -1869,3 +1869,16 @@ under 24 px; and Home's "Recent changes" feed is unsorted and blind to every
 payload except the roster. First paint is 246.5 of the 250 KB budget, with
 most of it being claims and projects that Home barely uses. All of it is in
 BACKLOG §4–§5.
+
+### Stuck units get parked, not retried (2026-10-08)
+
+The first unattended-style run on the new queue ended after 2 of 20 minutes
+with no changes: the top unit (`site:meta-newton-ga`, dead `source_url`) was
+already a known dead end, and the run treated "one search found nothing" as the
+end of the run instead of moving to the next unit. Two fixes, both in
+`scripts/refresh_queue.py` and the daily-refresh skill: `--mark KEY --blocked
+--summary "why"` parks a unit for `BLOCKED_COOLDOWN_DAYS` (14), sorting it last
+in `ranked()` and out of `run_plan()`, stored as `blocked: {date, reason}` in
+the ledger (a completed review clears it); and the skill now forbids ending
+before minute 12 without having worked or parked the next units. A queue with no
+notion of "known stuck" will serve the same stuck unit first forever.
