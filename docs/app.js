@@ -5125,7 +5125,7 @@ const SITE_UPDATE_LABELS = {
   construction: "Construction",
   news: "News",
 };
-const CONTESTED_TIMELINE_PREVIEW = 4;
+const CONTESTED_TIMELINE_PREVIEW = 3;
 
 // Today's date as YYYY-MM-DD in UTC, matching how every record stores dates.
 function todayIso() {

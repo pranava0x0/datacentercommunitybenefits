@@ -48,41 +48,34 @@ behind it unblocks.
    to leave each run's PR open for review. Auto-merge keeps the site current
    and the review ledger moving. PR-only is safer editorially, but unmerged
    runs repeat each other's units, because the ledger lives on `main`. **high**
-3. **A home for per-site permits and news.** Today a permit decision is a
-   `local_government` / `regulator` CommunityResponse, and a company filing
-   is a dated sentence in `Project.notes`. A typed `Project.updates` list
-   (date, kind: permit | approval | filing | hearing | construction | news,
-   authority, docket or permit number, source) rendered as a fourth
-   "Timeline" detail tab would hold what the routine finds without forcing a
-   stance onto a filing. **medium**
-4. **Moratorium lifecycle.** No `expired` / `lapsed` status exists, so a
+3. **Moratorium lifecycle.** No `expired` / `lapsed` status exists, so a
    lapsed six-month pause still counts as `enacted` in the stat tiles. The
    queue now derives end dates from `duration_months`, and 4 have passed
    (Indio CA, St. Charles MO, Larimer County CO, Athens-Clarke GA). **medium**
-5. **Cancelled projects.** `Project.status` has no `cancelled`. QTS Prince
+4. **Cancelled projects.** `Project.status` has no `cancelled`. QTS Prince
    William Digital Gateway (appeal withdrawn 2026-07-02) is the precedent
    case, and Microsoft Caledonia WI (pulled Oct 2025) is another. **low**
-6. **Tribal jurisdictions.** `jurisdiction_type` has no tribal value.
+5. **Tribal jurisdictions.** `jurisdiction_type` has no tribal value.
    Cherokee Nation (2026-08-10), Seminole Nation (March 2026) and Kickapoo
    Tribe (July 2026) have data-center bans ready to curate. KGOU, KOSU,
    Tom's Hardware and Tribal Business News covered Cherokee. **medium**
-7. **Executive-order "conditions" regimes.** Massachusetts EO 658 (Healey,
+6. **Executive-order "conditions" regimes.** Massachusetts EO 658 (Healey,
    Sept 8: no state permits for >25 MW without framework compliance and a
    host-community benefits agreement; NDA ban; Ratepayer Protection Fund) is
    not a pause. Should it be filed as a Policy `executive_order` like VA EO
    22? **medium**
-8. **Nebius.** It has a 1.2 GW Pennsylvania campus, which clears gate 1.
+7. **Nebius.** It has a 1.2 GW Pennsylvania campus, which clears gate 1.
    Does it publish its own community-impact framing (gate 2)? Onboarding a
    company touches four registries. **low**
-9. **Infrastructure partnerships.** Google-SpaceX GPU lease and the
+8. **Infrastructure partnerships.** Google-SpaceX GPU lease and the
    Anthropic-xAI compute rental are `Project` records with no site. Options:
    exclude them, give them their own section, or fold them into the company
    pop-out. **low**
-10. **Taxes filed as tariffs.** `virginia-data-center-electricity-consumption-tax`
+9. **Taxes filed as tariffs.** `virginia-data-center-electricity-consumption-tax`
     is a state excise tax scored against a rate-design taxonomy and counted
     in tariff tiles. It needs an `instrument_type` field or an
     `excluded_from_stats` flag. **low**
-11. **Per-signatory pages.** Three open questions in
+10. **Per-signatory pages.** Three open questions in
     [notes/specs/SPEC_SIGNATORY_PAGES.md](notes/specs/SPEC_SIGNATORY_PAGES.md) §8:
     whether cooperatives get a light curation pass, modal vs. URL, and the
     promotion path to `Company`. **medium**
@@ -724,12 +717,18 @@ navigation.
 - **"323 organizations" on Home vs "346 signatories" on The Pledge.** The 23
   governors are the difference, and the Coverage header should say so.
   **low**
-- **Two detail-view patterns.** Companies and Sites open inline panels;
-  Moratoriums and Tariffs open modals. Decide deliberately, since Sites may
-  want to keep the map visible. **medium**
-- **Sub-tab state isn't in the URL** (`#ratepayer/pre-pledge` shape). Read
-  the sub-key before `activateView`. **medium**
-- **Map clustering on Sites.** Northern Virginia pins overlap. **medium**
+- **Contested-site timelines: the other 30 contested sites.** v5 researched
+  29 of 59 (those with ≥2 critical responses); the rest have only their
+  community responses on the timeline. Same method: Haiku per site, probe
+  gate, per-event date check. **medium**
+- **Announced upcoming dates are thin.** No verified future hearing/vote
+  dates turned up for any contested site. Agendas (county/city .gov) are
+  where they live; a per-site agenda check would make "Next date first"
+  sorting useful. **medium**
+- **Companies › Commitments: a "first-party figure" check.** Depth counts a
+  claim as Specific when it has a `metric`; a curator pass should confirm
+  each metric's number is in the quote itself. **low**
+- **Map clustering on Sites** is still open (Northern Virginia). **medium**
 - **State totals table:** add a policy-count column (`coverage.json` already
   has it). **low**
 - **Per-principle "what's missing" view:** which of the 9 principles each

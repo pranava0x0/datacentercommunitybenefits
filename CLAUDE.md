@@ -959,7 +959,7 @@ for. `test_commitments_render_as_the_pages_spine` asserts the collapsed default
 contested sites exist, and a collapsible whose whole existence is conditional
 reads as a bug when it vanishes.
 
-### Sub-tabs are for alternatives; accordions are for sequences (v2.2)
+### Sub-tabs are for alternatives; accordions are for sequences (v2.2; group count superseded by v5)
 
 > v4 (2026-09-23): the Aggregate group is gone with its tab; only
 > "Tracked sites" remains. See "IA v4" above.
@@ -1595,7 +1595,7 @@ The Comparison view's job is to surface "what does each company actually publish
 
 The `summary` field is **Optional** in the schema. An empty summary surfaces a muted "No community-impact summary captured for this company yet" placeholder — that's editorially honest for a future entity we haven't researched yet. **Don't** lazy-fill summaries by templating from the claims; spend the curation time.
 
-### Matrix is checkmark-only (v1.2)
+### Matrix is checkmark-only (v1.2) — SUPERSEDED by v5 (see "v5 tab pass" below)
 
 `renderMatrix()` in [docs/app.js](docs/app.js) emits `<span class="count check">✓</span>` for **every** populated cell, regardless of the underlying claim count. The matrix answers a binary question — "does this company speak to this theme at all?" — and volume goes in the claims list below, not the matrix itself. The `aria-label` still carries the precise integer (`"6 Meta Jobs claims — click to filter"`) so screen readers get the count even when the visual is a glyph. **Don't** restore the digit-count branch: the v1.1 implementation surfaced volume in the matrix and the user explicitly cut it because the matrix should read at a glance. **Don't** drop the `aria-label` numeric — the visual is intentionally lossy. Tests `test_all_populated_cells_render_check`, `test_no_digit_only_cells_remain`, and `test_check_cell_aria_label_carries_numeric_count` guard the contract.
 
@@ -1713,6 +1713,74 @@ Concrete, reusable lessons:
   churn. Fixed the builder and normalized all seed + `docs/data` JSON back to
   UTF-8, verifying `json.loads(before) == json.loads(after)` for every file
   before writing so the fix was provably free of semantic changes.
+
+### v5 tab pass: view-level sub-tabs, Companies depth, Sites contested (2026-10-08, user-directed)
+
+The owner asked for sub-tabs on every tab, a Companies tab that "makes
+sense" (it was all checkmarks and codes), a Sites tab that tracks contested
+sites with local news and hearings, Policy Playbook renamed **Local Policy
+Frameworks**, and rate cases reachable without scrolling. Spec:
+[notes/specs/SPEC_V5_TABS.md](notes/specs/SPEC_V5_TABS.md).
+
+- **Sub-tabs now exist at view level** on Companies (`co`), Sites (`sites`),
+  Moratoriums (`mor`), Tariffs & Rate Cases (`tar`) and Local Policy
+  Frameworks (`pol`), plus The Pledge's in-section `rp-sites`. This reverses
+  the v2.2/IA-v4 "one/two groups only" cap at the owner's direction; the
+  alternatives-vs-sequence test still decides what goes in a pane. Moratoriums
+  splits Directory / Trends & concerns / Influence claims because the
+  directory is what readers came for and the page ran 25 phone screens.
+- **`VIEW_SUBTAB_GROUP` puts the pane in the URL**: `#tariffs/tariffs`,
+  `#explorer/contested`, `#comparison/commitments`. The first key of each
+  group is the default and keeps the bare hash. Read the sub-key BEFORE
+  `activateView` (it rewrites the hash), same rule as `#state/XX`.
+  `PLEDGE_TARGETS` entries with a `subtab` set it before scrolling, because
+  an anchor inside a hidden pane has no box.
+- **Charts inside a hidden pane need a re-park.** The moratorium timeline's
+  scroll-to-recent ran while its pane was `hidden`; a `dcb:subtab` listener
+  re-parks it when Trends is shown. Any new chart in a pane needs the same.
+- **Companies: the matrix measures commitment DEPTH, not presence.** A cell
+  is *Specific* (≥1 claim with a structured `metric`), *General* (claims, no
+  figure) or *None found*, plus the claim count. Derived from the records,
+  not a curator grade. Clicking a cell or theme header opens the quotes panel
+  (strongest first: figure before none, then newest). This supersedes
+  "Matrix is checkmark-only" — the owner cut the ticks because 13 of 15 rows
+  were solid ticks and said nothing. Profiles (one card per operator) and
+  Footprint (the totals table) are the other panes.
+- **No codes.** `13A 7C 3O` became "3 operating · 7 building · 13 announced"
+  (`statusWords`), and stance dots became "12 supportive · 14 mixed · 19
+  critical" (`stanceWords`). A number without its word is a code.
+- **Contested sites are derived** (`contestedReasons` / `isContestedSite`):
+  a negative community response, a `contested` ratepayer assessment, a
+  `contested`/`shortfall` delivery finding, or a `lawsuit` update. Shared by
+  the Companies cards and the Sites Contested pane so their counts agree.
+  The six-card "Recently contested" rail is gone; the pane lists every one.
+- **`Project.updates` (typed `SiteUpdate`) is the site timeline** (BACKLOG
+  decision 3, now made): date, kind (`hearing|vote|permit|lawsuit|filing|
+  agreement|construction|news`), neutral title, optional summary/authority,
+  `upcoming`, source. `siteTimeline()` merges it with the site's community
+  responses; announced future dates lead, and an `upcoming` date that has
+  passed renders "Outcome not yet recorded", never as still upcoming.
+  Mirrored as `SITE_UPDATE_KINDS`/`SITE_UPDATE_LABELS`, parity-tested.
+- **A timeline date is the EVENT date.** The validator caught four
+  relative-day errors in one batch ("on Tuesday" in an article dated
+  Wednesday). When the page states only its own publication date, the event
+  ships as `kind: "news"` with a title phrased as reported, not as a dated
+  vote or filing. `scripts/merge_v5_refresh.py` records every correction and
+  drop with its reason.
+- **claims.json is the deferred tier on every landing except Companies**
+  (`ensureCompanyData` / `ensureClaimsData`). Home never shows a claim, and
+  the v5 views pushed first paint to 258.6 KB. `indexClaimsByProject` runs
+  when either claims or projects land, so whichever arrives second builds
+  the index. Views that quote claims (Pledge scorecard, Sites, totals)
+  await or re-render on `ensureClaimsData`.
+- **Map tiles:** CARTO's keyless basemaps now return an "API KEY REQUIRED"
+  placeholder; the Sites map uses Esri's light/dark gray canvas (keyless,
+  attributed). If tiles ever show a watermark, check the endpoint with curl
+  and look at the PNG before debugging Leaflet.
+- **Compact filter bars**: `.filter-bar--slim` rows; the select's first
+  option says what it filters ("All states"), so the label is `.sr-only`.
+  Tariff design elements became a filter select; their chips moved to the
+  Rate-design elements pane.
 
 ### Daily refresh routine and the review queue (2026-09-25)
 

@@ -59,7 +59,7 @@ class TestComparisonView:
     ):
         # 8 hyperscalers + non-hyperscaler entities (e.g. Wonder Valley).
         # Themes are still 8 (frozen vocabulary).
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         rows = page.locator("#matrix-body tr")
         n = rows.count()
@@ -71,27 +71,35 @@ class TestComparisonView:
     def test_no_global_claims_list_on_comparison(self, page: Page, base_url: str):
         # v1.3: the comparison view dropped the global claims list + filter
         # chip. Claims live exclusively in the project-detail Claims tab.
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         assert page.locator("#claims-list").count() == 0
         assert page.locator("#claims-filter").count() == 0
         assert page.locator("#claims-section").count() == 0
 
     def test_clicking_company_name_opens_popout(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator('#matrix-body tr[data-company="meta"] th.col-company').click()
         expect(page.locator("#company-detail")).to_be_visible()
         expect(page.locator("#cd-name")).to_have_text("Meta")
 
-    def test_clicking_populated_cell_opens_popout(self, page: Page, base_url: str):
-        # The cell is also a "tell me more about this company" affordance.
-        page.goto(base_url + "/#comparison")
+    def test_clicking_populated_cell_shows_that_companys_quotes(self, page: Page, base_url: str):
+        # v5: a cell answers "what has Google actually said about energy?"
+        # by showing the quotes, not a generic company summary.
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        cell = page.locator(
-            '#comparison-matrix td[data-company="google"][data-theme="energy"]'
-        )
-        cell.click()
+        page.locator('#comparison-matrix td[data-company="google"][data-theme="energy"]').click()
+        expect(page.locator("#theme-quotes-title")).to_contain_text("Google")
+        rows = page.locator("#theme-quotes-list .tq-row")
+        expect(rows).to_have_count(1)
+        assert rows.first.get_attribute("data-company") == "google"
+        assert rows.first.locator(".tq-quote").count() >= 1
+
+    def test_company_row_name_opens_profile(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison/commitments")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        page.locator('#matrix-body tr[data-company="google"] th.col-company').click()
         expect(page.locator("#company-detail")).to_be_visible()
         expect(page.locator("#cd-name")).to_have_text("Google")
 
@@ -100,7 +108,7 @@ class TestComparisonView:
         # publishes substantive education work but only attributes quotes
         # to PARTNER orgs, never to a named Anthropic exec. Confirmed
         # across multiple research passes including v1.6.1 fallback news.
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator(
             '#comparison-matrix td[data-company="anthropic"][data-theme="education"]'
@@ -114,7 +122,7 @@ class TestCompanyPopout:
     """v1.3: Comparison view's per-company summary pop-out."""
 
     def _open(self, page: Page, base_url: str, slug: str) -> None:
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator(
             f'#matrix-body tr[data-company="{slug}"] th.col-company'
@@ -122,7 +130,7 @@ class TestCompanyPopout:
         expect(page.locator("#company-detail")).to_be_visible()
 
     def test_popout_starts_hidden(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         bbox = page.locator("#company-detail").bounding_box()
         assert bbox is None, "company-detail should have no layout box on first paint"
@@ -247,7 +255,7 @@ class TestCompanyPopout:
 
 class TestExplorerView:
     def test_tab_switches_to_explorer(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator("#tab-explorer").click()
         expect(page.locator("#view-explorer")).to_be_visible()
@@ -299,8 +307,8 @@ class TestExplorerView:
         assert n >= 1, "Seed includes projects with negative responses"
         for i in range(n):
             assert (
-                cards.nth(i).locator(".stance-dot.negative").count() >= 1
-            ), f"Project {i} surfaced under 'negative' filter but lacks a negative dot"
+                cards.nth(i).locator(".sw.negative").count() >= 1
+            ), f"Project {i} surfaced under 'negative' filter but lacks a critical-response count"
 
     def test_reset_clears_filters(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -396,14 +404,14 @@ class TestCrossCutting:
         # The Companies dek names the two things the tab holds: how much each
         # operator is building (the totals table) and what it has committed
         # to in writing (the matrix). One plain sentence, no usage manual.
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         text = (page.locator("#view-comparison .hero").text_content() or "").lower()
         assert "building" in text and "community benefits" in text
         assert "click" not in text
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         before = page.evaluate("document.documentElement.getAttribute('data-theme')")
         page.locator("#theme-toggle").click()
@@ -421,7 +429,7 @@ class TestCrossCutting:
         assert bbox is None, "project-detail should have no layout box while hidden"
 
     def test_explorer_view_starts_hidden(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         bbox = page.locator("#view-explorer").bounding_box()
         assert bbox is None, "Explorer view should be display:none on first paint"
@@ -429,7 +437,7 @@ class TestCrossCutting:
     def test_no_console_errors_on_first_paint(self, page: Page, base_url: str):
         errors: list[str] = []
         page.on("console", lambda msg: errors.append(msg.text) if msg.type == "error" else None)
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         # Filter known noise (resource hints from external CDNs aren't errors here).
         relevant = [e for e in errors if "favicon" not in e.lower()]
@@ -437,7 +445,7 @@ class TestCrossCutting:
 
     def test_mobile_layout_does_not_break(self, page: Page, base_url: str):
         page.set_viewport_size({"width": 375, "height": 720})
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         # Matrix should still render every company row even if it's compressed.
         n = page.locator("#matrix-body tr").count()
@@ -452,7 +460,7 @@ class TestDetailTabs:
     """The project detail panel is split into Overview / Claims / Community tabs."""
 
     def _open_first_project(self, page: Page, base_url: str) -> None:
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
         page.locator("#project-list .project-card").first.click()
@@ -580,64 +588,85 @@ class TestDetailTabs:
         ), "Responses badge should hide when count is 0"
 
 
-class TestMatrixGlyphs:
-    """Every populated cell renders a checkmark — volume goes in the claims list."""
+class TestMatrixDepth:
+    """v5: cells measure commitment DEPTH, derived from the records.
 
-    def test_all_populated_cells_render_check(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
-        page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        non_empty = page.locator("#comparison-matrix td.cell:not(.empty)").count()
-        check_cells = page.locator("#comparison-matrix .count.check").count()
-        assert non_empty >= 1, "Seed should have at least one populated matrix cell"
-        assert (
-            check_cells == non_empty
-        ), f"Every non-empty cell should render a check; got {check_cells}/{non_empty}"
+    Specific = at least one claim with a structured metric; General = claims
+    without one; None found = no claims. Replaces the checkmark-only matrix,
+    which the owner cut because 13 of 15 rows were solid ticks.
+    """
 
-    def test_no_digit_only_cells_remain(self, page: Page, base_url: str):
-        # Regression for the v1.2 simplification: there must be NO `.count`
-        # spans without the `.check` class — that was the digit branch and
-        # it's been removed.
-        page.goto(base_url + "/#comparison")
+    def test_cell_depth_matches_the_claims(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        digit_only = page.locator("#comparison-matrix .count:not(.check)").count()
-        assert digit_only == 0, (
-            f"Found {digit_only} digit-style cells; the matrix should be "
-            "checkmarks-only after v1.2."
-        )
+        mismatches = page.evaluate("""() => {
+          const out = [];
+          for (const td of document.querySelectorAll('#comparison-matrix td[data-theme]')) {
+            const cs = state.claims.filter(c => c.company_slug === td.dataset.company && c.theme === td.dataset.theme);
+            const want = !cs.length ? 'none' : cs.some(c => c.metric) ? 'specific' : 'general';
+            if (td.dataset.depth !== want) out.push(`${td.dataset.company}/${td.dataset.theme}`);
+          }
+          return out;
+        }""")
+        assert mismatches == []
 
-    def test_check_glyph_is_check_mark(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+    def test_all_three_depths_appear(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        # Pick the first checkmark cell and verify its text is the U+2713 glyph.
-        first_check = page.locator("#comparison-matrix .count.check").first
-        text = first_check.text_content()
-        assert text and text.strip() == "✓", f"Expected ✓ in check cell, got {text!r}"
+        for lvl in ("specific", "general", "none"):
+            assert page.locator(f'#comparison-matrix td[data-depth="{lvl}"]').count() >= 1, lvl
 
-    def test_check_cell_aria_label_carries_numeric_count(
-        self, page: Page, base_url: str
-    ):
-        # Aria label must spell out the count even when the visual is a glyph,
-        # so screen readers convey the same info as sighted users.
-        page.goto(base_url + "/#comparison")
+    def test_no_checkmarks_remain(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
-        check_cell_td = page.locator(
-            "#comparison-matrix td.cell:has(.count.check)"
-        ).first
-        label = check_cell_td.get_attribute("aria-label") or ""
-        # Label format: "<N> <Company> <Theme> claim(s) — click to filter"
+        assert "✓" not in (page.locator("#comparison-matrix").text_content() or "")
+
+    def test_cell_aria_label_spells_out_depth_and_count(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison/commitments")
+        page.wait_for_selector("#matrix-body tr", timeout=10_000)
+        label = page.locator('#comparison-matrix td[data-depth="specific"]').first.get_attribute("aria-label") or ""
+        assert "Specific" in label and "statement" in label and "with a figure" in label, label
+
+
+class TestCompanyProfiles:
+    def test_one_card_per_company(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison")
+        page.wait_for_selector("#co-cards .co-card .co-facts", timeout=15_000)
+        n = page.evaluate("() => state.companies.length")
+        expect(page.locator("#co-cards .co-card")).to_have_count(n)
+
+    def test_cards_use_words_not_codes(self, page: Page, base_url: str):
+        # "13A 7C 3O" and bare stance dots were the codes the owner flagged.
         import re
 
-        m = re.match(r"^(\d+)\s+\S", label)
-        assert m, f"Aria-label should start with a numeric count: {label!r}"
-        assert int(m.group(1)) >= 1, f"Numeric count should be >= 1: {label!r}"
-        assert "claim" in label.lower(), f"Aria-label should mention 'claim': {label!r}"
+        page.goto(base_url + "/#comparison")
+        page.wait_for_selector("#co-cards .co-card .co-facts", timeout=15_000)
+        text = page.locator("#co-cards").inner_text()
+        assert not re.search(r"\b\d+[ACO]\b", text), "status codes like 13A leaked into the cards"
+        assert "supportive" in text or "critical" in text
+
+    def test_depth_chip_opens_that_theme(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison")
+        page.wait_for_selector("#co-cards .co-card .co-facts", timeout=15_000)
+        card = page.locator('#co-cards .co-card[data-company="google"]')
+        card.locator('.depth-chip[data-theme="water"]').click()
+        expect(page.locator("#subpane-co-commitments")).to_be_visible()
+        expect(page.locator("#theme-quotes-title")).to_contain_text("Google")
+        assert page.evaluate("() => location.hash") == "#comparison/commitments"
+
+    def test_contested_link_lands_on_sites_contested(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison")
+        page.wait_for_selector("#co-cards .co-contested", timeout=15_000)
+        page.locator("#co-cards .co-contested").first.click()
+        expect(page.locator("#subpane-sites-contested")).to_be_visible()
+        page.wait_for_selector("#contested-list .contested-card", timeout=15_000)
 
 
 class TestWonderValley:
     """Wonder Valley (Kevin O'Leary) is the first non-hyperscaler entity tracked."""
 
     def test_wonder_valley_row_in_matrix(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         row = page.locator('#matrix-body tr[data-company="wonder-valley"]')
         expect(row).to_have_count(1)
@@ -817,7 +846,7 @@ class TestNewV14Sites:
     """v1.4: smoke tests for the newly added sites and 10th company."""
 
     def test_qts_company_appears_in_matrix(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         row = page.locator('#matrix-body tr[data-company="qts"]')
         expect(row).to_have_count(1)
@@ -953,7 +982,7 @@ class TestDeliveredAssessmentRendering:
 
 class TestRatepayerView:
     def test_tab_switches_to_ratepayer(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator("#tab-ratepayer").click()
         expect(page.locator("#view-ratepayer")).to_be_visible()
@@ -1209,9 +1238,8 @@ class TestPoliciesView:
     def _open(self, page: Page, base_url: str) -> None:
         """The directory ships collapsed (the principle cards are the way in),
         so open it the way a reader would before asserting on its rows."""
-        page.goto(base_url + "/#policies")
-        page.wait_for_selector("#policies-tbody tr[role=button]", state="attached", timeout=10_000)
-        page.locator("#policies-directory > summary").click()
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role=button]", timeout=10_000)
 
     def test_directory_renders_every_record(self, page: Page, base_url: str):
         self._open(page, base_url)
@@ -1265,7 +1293,7 @@ class TestPoliciesView:
         card = page.locator("#policy-principles .pb-principle").nth(1)
         key = card.get_attribute("data-principle")
         card.locator(".pb-see-all").click()
-        expect(page.locator("#policies-directory")).to_have_attribute("open", "")
+        expect(page.locator("#subpane-pol-directory")).to_be_visible()
         assert page.input_value("#policy-principle-filter") == key
         expected = page.evaluate(
             f"() => state.policies.filter(p => p.principles.includes('{key}')).length"
@@ -1309,9 +1337,8 @@ class TestPoliciesView:
         })()""")
         page = context.new_page()
         try:
-            page.goto(base_url + "/#policies")
-            page.wait_for_selector("#policies-tbody tr[role=button]", state="attached", timeout=10_000)
-            page.locator("#policies-directory > summary").click()
+            page.goto(base_url + "/#policies/directory")
+            page.wait_for_selector("#policies-tbody tr[role=button]", timeout=10_000)
             with page.expect_download() as csv:
                 page.locator("#policies-csv-btn").click()
             assert csv.value.suggested_filename == "policies-and-agreements-2026-09-22.csv"
@@ -1616,21 +1643,94 @@ class TestExplorerFiltersPorted:
         assert opts == 7  # "Any" + 6 constituencies
 
 
-class TestHotRail:
-    def test_hot_rail_renders_cards(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
-        page.locator("#tab-explorer").click()
-        page.wait_for_selector("#hot-rail .hot-card", timeout=15_000)
-        cards = page.locator("#hot-rail .hot-card")
-        assert 1 <= cards.count() <= 6
+class TestContestedSites:
+    """v5: the Sites > Contested pane replaces the six-card rail."""
 
-    def test_hot_card_opens_project(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
-        page.locator("#tab-explorer").click()
-        page.wait_for_selector("#hot-rail .hot-card", timeout=15_000)
-        page.locator("#hot-rail .hot-card").first.click()
+    def test_lists_every_contested_site(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=15_000)
+        n = page.evaluate("() => state.projects.filter(isContestedSite).length")
+        assert n >= 10
+        expect(page.locator("#contested-list .contested-card")).to_have_count(n)
+        expect(page.locator("#sites-contested-count")).to_have_text(str(n))
+
+    def test_every_card_says_why(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=15_000)
+        no_reason = page.evaluate("""() => [...document.querySelectorAll('#contested-list .contested-card')]
+            .filter(c => !c.querySelector('.reason-chip')).length""")
+        assert no_reason == 0
+
+    def test_timeline_merges_updates_and_responses(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=15_000)
+        pid = page.evaluate("() => state.projects.find(p => (p.updates||[]).length && isContestedSite(p)).id")
+        card = page.locator(f'#contested-list .contested-card[data-project-id="{pid}"]')
+        more = card.locator(".tl-more button")
+        if more.count():
+            more.click()
+        kinds = card.locator(".tl-item").evaluate_all("els => els.map(e => e.dataset.kind)")
+        assert "response" in kinds or len(kinds) >= 1
+        assert any(k != "response" for k in kinds), "typed site updates should render"
+
+    def test_state_filter_narrows(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=15_000)
+        page.select_option("#c-state", "GA")
+        bad = page.evaluate("""() => [...document.querySelectorAll('#contested-list .contested-card')]
+            .map(c => state.projects.find(p => p.id === c.dataset.projectId).state).filter(s => s !== 'GA').length""")
+        assert bad == 0
+
+    def test_full_record_opens_project_on_map_tab(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=15_000)
+        page.locator("#contested-list .contested-open").first.click()
+        expect(page.locator("#subpane-sites-map")).to_be_visible()
         page.wait_for_selector("#project-detail:not([hidden])", timeout=5_000)
-        expect(page.locator("#project-detail")).to_be_visible()
+
+    def test_project_detail_has_timeline_tab(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=15_000)
+        page.locator("#contested-list .contested-open").first.click()
+        page.locator("#dtab-timeline").click()
+        expect(page.locator("#dpane-timeline")).to_be_visible()
+        assert page.locator("#d-timeline .tl-item").count() >= 1
+
+
+class TestSubtabDeepLinks:
+    """v5: #view/pane deep-links a view-level sub-tab."""
+
+    @pytest.mark.parametrize(
+        "hash_,pane",
+        [
+            ("#tariffs/tariffs", "#subpane-tar-tariffs"),
+            ("#tariffs/elements", "#subpane-tar-elements"),
+            ("#policies/directory", "#subpane-pol-directory"),
+            ("#moratoriums/trends", "#subpane-mor-trends"),
+            ("#comparison/footprint", "#subpane-co-footprint"),
+            ("#explorer/states", "#subpane-sites-states"),
+        ],
+    )
+    def test_hash_opens_pane(self, page: Page, base_url: str, hash_: str, pane: str):
+        page.goto(base_url + "/?i=" + hash_.strip("#").replace("/", "-") + hash_)
+        expect(page.locator(pane)).to_be_visible(timeout=10_000)
+
+    def test_clicking_a_subtab_writes_the_hash(self, page: Page, base_url: str):
+        page.goto(base_url + "/#tariffs")
+        page.wait_for_selector("#rate-cases-list .rc-item", timeout=10_000)
+        page.locator("#subtab-tar-tariffs").click()
+        assert page.evaluate("() => location.hash") == "#tariffs/tariffs"
+        page.locator("#subtab-tar-ratecases").click()
+        assert page.evaluate("() => location.hash") == "#tariffs"
+
+    def test_rate_cases_lead_the_tariffs_tab(self, page: Page, base_url: str):
+        # The owner: "too long to get to the meat". Rate cases are the
+        # default pane, so the first proceeding is above the fold.
+        page.set_viewport_size({"width": 1366, "height": 900})
+        page.goto(base_url + "/#tariffs")
+        page.wait_for_selector("#rate-cases-list .rc-item", timeout=10_000)
+        top = page.locator("#rate-cases-list .rc-item").first.bounding_box()["y"]
+        assert top < 900, f"first rate case starts at y={top}"
 
 
 class TestUrlState:
@@ -1655,7 +1755,7 @@ class TestUrlState:
 
 class TestMatrixCsv:
     def test_csv_button_downloads(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-csv", timeout=10_000)
         with page.expect_download(timeout=5_000) as dl_info:
             page.locator("#matrix-csv").click()
@@ -1678,9 +1778,18 @@ class TestTotalsTables:
     def _open(page: Page, base_url: str, view_hash: str, section: str, ready: str) -> None:
         page.goto(base_url + "/" + view_hash)
         page.wait_for_selector(ready, state="attached", timeout=15_000)
-        sec = page.locator(f"#{section}")
-        if sec.get_attribute("open") is None:
-            sec.locator("summary").click()
+        # v5: a section is either an accordion (click its summary) or sits in
+        # a view-level sub-tab pane (click that pane's tab).
+        page.evaluate(
+            """(id) => {
+              const sec = document.getElementById(id);
+              const pane = sec.closest('.subtab-panel');
+              if (pane && pane.hidden) document.getElementById('subtab-' + pane.id.slice('subpane-'.length)).click();
+              const det = sec.closest('details') || (sec.tagName === 'DETAILS' ? sec : null);
+              if (det && !det.open) det.querySelector('summary').click();
+            }""",
+            section,
+        )
 
     def test_aggregate_hash_redirects_to_companies(self, page: Page, base_url: str):
         page.goto(base_url + "/#aggregate")
@@ -1689,13 +1798,13 @@ class TestTotalsTables:
         assert page.locator("#tab-aggregate").count() == 0
 
     def test_company_table_on_companies_tab(self, page: Page, base_url: str):
-        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
+        self._open(page, base_url, "#comparison", "agg-company-table", "#agg-company-tbody tr")
         rows = page.locator("#agg-company-tbody tr")
         assert rows.count() >= 8, f"Expected >=8 company rows, got {rows.count()}"
         assert page.locator("#agg-company-tfoot .agg-total-row").count() == 1
 
     def test_company_sort_header_click(self, page: Page, base_url: str):
-        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
+        self._open(page, base_url, "#comparison", "agg-company-table", "#agg-company-tbody tr")
         th = page.locator("[data-sort-key='capex'][data-sort-table='company']")
         th.click()
         page.wait_for_timeout(200)
@@ -1748,7 +1857,7 @@ class TestTotalsTables:
     def test_pdf_export_downloads(self, page: Page, base_url: str):
         # Regression: exportAggregateToPDF once called an undefined helper.
         page.add_init_script(STUB_HTML2PDF_JS)
-        self._open(page, base_url, "#comparison", "company-footprint-section", "#agg-company-tbody tr")
+        self._open(page, base_url, "#comparison", "agg-company-table", "#agg-company-tbody tr")
         with page.expect_download(timeout=15_000) as dl_info:
             page.locator("#agg-pdf-btn").click()
         download = dl_info.value
@@ -1763,13 +1872,13 @@ class TestTotalsTables:
 
 class TestMatrixTooltip:
     def test_tooltip_hidden_on_load(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         assert page.locator("#matrix-tooltip").is_hidden(), \
             "#matrix-tooltip should be hidden on initial load"
 
     def test_tooltip_appears_on_cell_hover(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         # Hover over the first non-empty matrix cell.
         cell = page.locator("#comparison-matrix td.cell:not(.empty)").first
@@ -1783,7 +1892,7 @@ class TestMatrixTooltip:
             "#matrix-tooltip should be visible after hovering a non-empty cell"
 
     def test_tooltip_hides_on_leave(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         cell = page.locator("#comparison-matrix td.cell:not(.empty)").first
         cell.hover()
@@ -1817,7 +1926,7 @@ class TestConstituencyBreakdown:
         # exists in the DOM (not erroring out) and is either hidden initially
         # OR has properly rendered rows once the data arrives — never an
         # inconsistent "visible but empty" state.
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         page.locator('#matrix-body tr[data-company="microsoft"] th.col-company').click()
         expect(page.locator("#company-detail")).to_be_visible()
@@ -1840,7 +1949,7 @@ class TestConstituencyBreakdown:
         self, page: Page, base_url: str
     ):
         # Navigate to Explorer first so project data (including responses) is fetched.
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
         # Switch back to Comparison and open the Microsoft pop-out.
@@ -1867,7 +1976,7 @@ class TestConstituencyBreakdown:
 
 class TestFormalAgreementBadge:
     def _open_claims(self, page: Page, base_url: str, project_id: str) -> None:
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=15_000)
         page.evaluate(f"window.__dcb.selectProject('{project_id}')")
@@ -2119,7 +2228,7 @@ class TestPledgeLanding:
 
     def test_comparison_is_still_deep_linkable(self, page: Page, base_url: str):
         """Demoting the matrix must not make it unreachable by URL."""
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=10_000)
         expect(page.locator("#view-comparison")).to_be_visible()
         expect(page.locator("#tab-comparison")).to_have_attribute("aria-selected", "true")
@@ -2724,17 +2833,22 @@ class TestSubtabs:
             "aria-selected", "true"
         )
 
-    def test_only_one_subtab_group_exists(self, page: Page, base_url: str):
-        """Guard on the design rule, not just the current markup: sub-tabs are
-        for alternatives. The aggregate group went away with its tab
-        (2026-09-23). A new group needs justifying against the "would a reader
-        want two on screen at once?" test."""
+    def test_subtab_strips_match_the_registry(self, page: Page, base_url: str):
+        """v5: view-level sub-tabs on five tabs plus The Pledge's site cohorts
+        (owner-directed, 2026-10-08). Derived from SUBTAB_GROUPS, so a strip
+        added in markup without a registry entry (or vice versa) fails."""
         page.goto(base_url + "/")
         page.wait_for_selector("#pledge-stats .pledge-stat", timeout=10_000)
-        groups = page.evaluate(
-            "() => document.querySelectorAll('.subtabs').length"
-        )
-        assert groups == 1, f"expected 1 sub-tab group, found {groups}"
+        missing = page.evaluate("""() => {
+          const out = [];
+          for (const [g, keys] of Object.entries(SUBTAB_GROUPS))
+            for (const k of keys)
+              if (!document.getElementById(`subtab-${g}-${k}`) || !document.getElementById(`subpane-${g}-${k}`)) out.push(`${g}/${k}`);
+          const strips = document.querySelectorAll('.subtabs').length;
+          if (strips !== Object.keys(SUBTAB_GROUPS).length) out.push(`strips=${strips}`);
+          return out;
+        }""")
+        assert missing == []
 
 
 class TestAccordionTraps:
@@ -3162,7 +3276,7 @@ class TestZeroCounts:
         page.wait_for_timeout(300)
         rows = page.locator("#tariffs-tbody tr.tariff-row")
         assert rows.count() == 0, "fixture drifted -- expected an empty result"
-        expect(page.locator("#tariffs-count")).to_have_text("0 tariffs")
+        expect(page.locator("#tariffs-meta")).to_contain_text("0 of ")
 
     def test_helpers_distinguish_zero_from_unloaded(self, page: Page, base_url: str):
         """Pins the distinction directly, so it survives any data change that
@@ -3196,7 +3310,7 @@ class TestAggregateExportsCoverEveryRollup:
     """
 
     def test_csv_contains_all_three_rollups(self, page: Page, base_url: str):
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
         with page.expect_download() as dl:
             page.locator("#agg-csv-btn").click()
@@ -3209,7 +3323,7 @@ class TestAggregateExportsCoverEveryRollup:
     def test_every_rollup_tab_has_a_csv_section(self, page: Page, base_url: str):
         """Derived, not hardcoded: one CSV section per totals table, so adding a
         table without exporting it fails here."""
-        page.goto(base_url + "/#comparison")
+        page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#agg-company-tbody tr", state="attached", timeout=15_000)
         tabs = page.locator("table.agg-table").count()
         with page.expect_download() as dl:
