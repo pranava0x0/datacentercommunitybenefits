@@ -252,6 +252,9 @@ come first, then locations, companies and sites.
 - Fort Payne is a zoning action, not a moratorium.
 
 #### state:AZ — Arizona
+- Pima County / Beale MOA: KVOA (2026-06-11) reports the Pima Community
+  College board approved a $5.9M five-year gift (record says $5M). Acceptance
+  is not receipt; look for a payment record before attaching `delivered`. **low**
 - ACC, Aug 13 2026: "ACC Approves Measure to Ensure Electric Cooperative
   Customers Don't Pay for Large-Load Growth" (azcc.gov news item). Fetch the
   item page, then decide between a rate case and a policy.
@@ -316,6 +319,14 @@ come first, then locations, companies and sites.
 - Prologis "Project Steel", Yorkville (see company:prologis).
 
 #### state:IN — Indiana
+- Jasper County / Amazon "Project Rise": Fortune (2026-07-23) reports a
+  "$98 million upfront and $23 million a year for a decade" community benefit
+  plan, but only in a utility executive's op-ed that doesn't name the
+  developer. Find the county's own ordinance (04-06-2026B amends 02-02-2026A)
+  before adding. **medium**
+- St. Joseph County CEA: the delivered block was removed 2026-10-08. Its
+  source ties AWS's $250K community fund to AWS's Indiana investment, not to
+  the $143M agreement. Look for county records of CEA payments. **low**
 - Indiana ratepayer conflict (Mirror Indy, 2026-06-25: bills up ~27%, with
   data centers cited as one driver). Needs a source that pins a cost shift
   to a specific Indiana site before it can be surfaced.
@@ -390,6 +401,10 @@ come first, then locations, companies and sites.
   implements it. The NJ transparency law is a Policy candidate.
 
 #### state:NM — New Mexico
+- Doña Ana PILOT record: probe.py found neither the "$50M water fund" nor
+  the "$360M" on the record's own source_url. Both may be real (Oracle blog,
+  El Paso Matters), but the executed CBA (now its own record) doesn't contain
+  the water fund. Re-source or trim the PILOT record. **high**
 - EEI: El Paso Electric 25-00082-UT. See also site:oracle-dona-ana-nm.
 
 #### state:NV — Nevada
@@ -403,6 +418,13 @@ come first, then locations, companies and sites.
   moratoriums, already tracked.
 
 #### state:OH — Ohio
+- Wilmington / AWS compensation agreement: local coverage (search only,
+  Journal-News 429) says the 30-year abatement's final council vote had not
+  happened by Sept 2026 and the offer changed to $10M. The record says
+  in_effect with $1.5M. Check council minutes; correct status/terms. **high**
+- Ashville / EdgeConneX (proposed): search results say the Ohio Supreme Court
+  ordered a referendum petition forwarded on Aug 7, 2026. Confirm and update
+  status. **medium**
 - Moratorium Nation candidates (30+): Findlay, Avon, Massillon, Maumee, Kent, Ravenna, Tallmadge, Tiffin,
   Vermilion, Norton, Cincinnati.
 - EEI: FirstEnergy 26-0697-EL-ATA, Duke Ohio 26-0755-EL-ATA, AES Ohio
@@ -437,6 +459,9 @@ come first, then locations, companies and sites.
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 
 #### state:TX — Texas
+- El Paso / Meta CBA: council directed staff (2026-06-23) to draft one in 45
+  days. No draft or signed agreement found as of 2026-10-08. Add when terms
+  exist. **low**
 - EEI: El Paso Electric 57568 / 56903 / 59611, SWEPCO 58796, TNMP 58964.
 - Dallas (early stage), plus Lubbock and Jefferson County resolutions: not
   moratoriums.
@@ -704,11 +729,19 @@ desktop 1920). Performance is healthy everywhere: on Slow 4G with 4x CPU,
 FCP is 0.86 s, LCP ≤ 1.4 s and TBT is ~0. The problems below are layout and
 navigation.
 
-- **Phone tab bar hides most of the site.** Only 2–4 of 7 tabs are visible
-  and nothing signals that the bar scrolls. On Policy Playbook, Home and The
-  Pledge are off-screen to the left. Options: a "More" menu, two rows, or
-  fade edges with a chevron; shorter phone labels ("Rates", "Policy") help
-  any of them. **high**
+- ~~**Phone tab bar hides most of the site.**~~ Done 2026-10-08: the bar
+  wraps to two rows of short labels at ≤960px (interaction-cost UAT).
+- **Moratoriums directory has no search.** On a phone, an older record is
+  many swipes down the table. Add a jurisdiction/bill search like Sites'
+  `#f-q`, then add a task for an older record to `tools/interaction_cost.py`.
+  **medium**
+- **The Pledge scorecard is 4 swipes in on a phone.** Consider a jump link
+  or putting the scorecard before Coverage. Measure before and after.
+  **low**
+- **Benefit Agreements: tag the rest.** 28 records carry feature tags.
+  Re-check each untagged agreement's source for the nine terms, and add the
+  Michigan HB 6137-style "permit or hookup gated on a CBA" as a 10th feature
+  only with a BACKLOG migration. **medium**
 - **Landing redesign** once decision 1 is made. **high**
 - **Stat tiles stack raggedly on phone.** Content-sized tiles (`flex: 0 1
   auto`) wrap into rows of 1, 1, 1, 2, 1, taking about 1.3 screens before

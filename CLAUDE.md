@@ -1902,3 +1902,65 @@ in `ranked()` and out of `run_plan()`, stored as `blocked: {date, reason}` in
 the ledger (a completed review clears it); and the skill now forbids ending
 before minute 12 without having worked or parked the next units. A queue with no
 notion of "known stuck" will serve the same stuck unit first forever.
+
+### Home v6, tab order, Benefit Agreements tab, interaction cost (2026-10-08, owner-directed)
+
+**Home renders from `data/home.json`**, a ~1 KB gzipped digest built by
+`refresh.py` (`_build_home`): section totals, a mixed "Latest" feed (≤4 per
+type) and a "Coming up" list (≤3 per type, never in the past). First paint is
+`index.html`, `styles.css`, `app.js`, `companies.json`, `home.json`: 142 KB,
+5 requests. Every other payload loads after `dcb:home-ready`. The Python side
+duplicates two JS rules, and an e2e parity test holds each pair together:
+`_is_contested` ↔ `contestedReasons`, `_is_agreement` ↔ `isAgreementRecord`.
+
+**Tab order:** Home · The Pledge · Local Policy Frameworks · Benefit
+Agreements · Moratoriums · Tariffs & Rate Cases · Companies · Sites. Home
+cards follow the same order (`test_sections_lead_with_numbers_in_tab_order`
+derives it from `VIEWS`). On screens ≤960px the tab bar wraps instead of
+scrolling sideways, and on phones it uses short labels (`.tab-long` hidden,
+full name in `aria-label`). The UAT counted side-swipes to reach half the tabs
+before this.
+
+**Benefit Agreements (`#agreements`)** reads `policies.json`, with no payload
+of its own. It shows `benefit_agreement` records plus company pledges to one
+community; company-wide plans stay on Frameworks. `Policy.agreement_features`
+is a frozen 9-value vocabulary (`AGREEMENT_FEATURES`, parity-tested) of what an
+agreement's *text* contains: binding contract, dollar amounts, independent
+oversight of the money, a numeric hiring target, a water cap, ratepayer
+protection, public reporting, successor binding, clawback. The list comes from
+the NAACP 2026 CBA template, the Lancaster PA agreement and Michigan HB 6137.
+- **Each tag must be shown by one of the record's own `key_terms`.** Never tag
+  from memory or from a news summary. An untagged record reads "Terms not yet
+  reviewed", not "has none".
+- **"Most complete" is derived, not picked.** It ranks signed agreements by tag
+  count, then by stated value, then by date. Don't add a hand-written "best
+  of" field; if the ranking is wrong, the tags are wrong.
+- **A feature describes paper, not delivery.** Delivery stays in `delivered`,
+  under the evidence bar in "Policies & Agreements tab".
+- Opening a record from another view uses `openAgreement(id)`: it switches to
+  All, clears filters and opens the card in place. There is no modal, so
+  there is no invisible-modal trap.
+
+**Interaction cost is measured and budgeted per device.**
+`python3 tools/interaction_cost.py` cold-loads Home and walks 14 reader tasks
+on mobile (390×844 touch), tablet (820×1180 touch) and desktop (1366×900). It
+counts taps, swipes (0.75 of the visible area), side-swipes and typed queries,
+in a `default` context and an `expanded` one (every section accordion open).
+It writes `uat/interaction_costs.json` and appends a dated line to
+`uat/interaction_costs_history.jsonl`. `tests/e2e/test_interaction_cost.py`
+fails when any task exceeds `uat/interaction_budgets.json` for its device.
+Lessons from the first run:
+- **A collapsed section is cheap until it sits above the thing you want.**
+  Forcing the Pledge accordions open pushed the scorecard from 4 swipes to
+  68 on a phone, because the 300-row roster opens above it. Collapsed by
+  default is right for long reference lists, and the roster now sits first
+  (collapsed) because "did my utility sign?" is the most common question.
+- **Count only section accordions in "expanded".** Forcing per-card
+  `<details>` open measured a page no reader ever sees.
+- **On a phone, a long list with no search costs swipes in the dozens.**
+  Finding one site took 19 swipes, so Sites got a search box (`#f-q`, also
+  serialized to `?q=`).
+- **Measure after the network goes idle.** A lazy payload landing mid-measure
+  produced one run with 19 phantom swipes and one with none.
+- A table row whose tail overflows a scroll container is tappable once its
+  leading edge shows; counting its right edge invented side-swipes.
