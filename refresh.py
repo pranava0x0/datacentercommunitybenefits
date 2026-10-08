@@ -24,6 +24,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -525,6 +526,217 @@ def _write_coverage(payloads, *, pretty: bool) -> int:
     return len(text.encode("utf-8"))
 
 
+# ---------------------------------------------------------------------------
+# Home digest (v6, 2026-10-08)
+# ---------------------------------------------------------------------------
+# Home used to load projects + the pledge roster + coverage (~90 KB gzipped) to
+# show six numbers, and its "Recent changes" feed only knew about the roster.
+# This ~4 KB digest is everything Home renders: whole-record numbers, the
+# latest dated events across every record type, and announced dates ahead.
+
+HOME_LATEST_MAX = 12
+HOME_LATEST_PER_TYPE = 4  # so a burst of one record type can't fill the feed
+HOME_UPCOMING_MAX = 8
+HOME_UPCOMING_PER_TYPE = 3
+
+
+def _is_contested(p, neg_projects: set, disputed_projects: set) -> bool:
+    """Mirror of contestedReasons() in docs/app.js (parity-tested in e2e):
+    a critical community response, a contested ratepayer assessment, a
+    contested/shortfall delivery finding, or a lawsuit on the timeline."""
+    return (
+        p.id in neg_projects
+        or (p.ratepayer is not None and p.ratepayer.status == "contested")
+        or p.id in disputed_projects
+        or any(u.kind == "lawsuit" for u in (p.updates or []))
+    )
+
+
+# A parenthetical that already states a status. "(Brookwood)" or "(HB 15)"
+# does not, so the feed still appends "(proposed)" to those.
+_TITLE_STATUS = re.compile(
+    r"\((?:[^)]*\b)?(?:proposed|failed|vetoed|withdrawn|rejected|"
+    r"first reading|second reading|pending|died|enacted|signed)\b",
+    re.I,
+)
+_SCOPE_LABEL = {
+    "federal": "Federal policy",
+    "state": "State policy",
+    "county": "Local policy",
+    "city": "Local policy",
+    "company": "Company plan",
+}
+
+
+def _is_agreement(pol) -> bool:
+    """Mirror of isAgreementRecord in app.js: a developer-community deal, or a
+    company's pledge to one host community. Company-wide plans are not."""
+    if not pol.community_benefits_framework:
+        return False
+    if pol.instrument == "benefit_agreement":
+        return True
+    return pol.instrument == "company_plan" and pol.scope != "company"
+
+
+def _place(city: str | None, state: str | None) -> str:
+    return ", ".join(x for x in (city, state) if x)
+
+
+def _build_home(payloads, today: date) -> dict:
+    projects = payloads["projects"].projects
+    responses = payloads["responses"].responses
+    claims = payloads["claims"].claims
+    morats = payloads["moratoriums"].moratoriums
+    policies = payloads["policies"].policies
+    tariffs = payloads["tariffs"].tariffs
+    rate_cases = payloads["rate_cases"].rate_cases
+    sig = payloads["signatories"]
+
+    neg = {r.project_id for r in responses if r.stance == "negative"}
+    disputed = {
+        c.project_id for c in claims
+        if c.project_id and c.delivered and c.delivered.status in ("contested", "shortfall")
+    }
+    contested = [p for p in projects if _is_contested(p, neg, disputed)]
+    orgs = [s for s in sig.signatories if s.category != "governor"]
+
+    totals = {
+        "sites": len(projects),
+        "contested_sites": len(contested),
+        "companies": len(payloads["companies"].companies),
+        "moratoriums": len(morats),
+        "moratoriums_enacted": sum(m.status == "enacted" for m in morats),
+        "policies": len(policies),
+        "policies_in_effect": sum(p.status == "in_effect" for p in policies),
+        "agreements": sum(_is_agreement(p) for p in policies),
+        "agreements_signed": sum(
+            p.instrument == "benefit_agreement" and p.status == "in_effect"
+            for p in policies
+        ),
+        "tariffs": len(tariffs),
+        "rate_cases": len(rate_cases),
+        "rate_cases_pending": sum(r.status == "pending" for r in rate_cases),
+        "pledge_organizations": len(orgs),
+        "pledge_governors": len(sig.signatories) - len(orgs),
+        "roster_as_of": sig.roster_as_of.isoformat() if sig.roster_as_of else None,
+    }
+
+    latest: list[dict] = []
+    for m in morats:
+        if m.status == "enacted" and m.enacted_date and m.enacted_date <= today:
+            latest.append({
+                "date": m.enacted_date.isoformat(), "type": "Moratorium",
+                "title": f"{m.jurisdiction} enacts a data center moratorium",
+                "place": m.state_code or "", "target": {"kind": "moratorium", "id": m.id},
+            })
+    for pol in policies:
+        if pol.date and pol.date <= today:
+            verb = {"in_effect": "", "proposed": " (proposed)", "failed": " (failed)"}[pol.status]
+            if _TITLE_STATUS.search(pol.title):  # "(vetoed)", "(first reading)"
+                verb = ""
+            agreement = _is_agreement(pol)
+            kind_label = (
+                "Agreement" if agreement
+                else "Company plan" if pol.instrument == "company_plan"
+                else _SCOPE_LABEL[pol.scope]
+            )
+            latest.append({
+                "date": pol.date.isoformat(),
+                "type": kind_label,
+                "title": pol.title + verb,
+                "place": pol.state_code or "",
+                "target": {"kind": "agreement" if agreement else "policy", "id": pol.id},
+            })
+    for rc in rate_cases:
+        d = rc.decided_date if rc.status != "pending" else rc.filed_date
+        if d and d <= today:
+            what = {"pending": "filed", "approved": "approved", "rejected": "rejected"}[rc.status]
+            latest.append({
+                "date": d.isoformat(), "type": "Rate case",
+                "title": f"{rc.title} ({what})",
+                "place": rc.state_code or "", "target": {"kind": "ratecase", "id": rc.id},
+            })
+    for p in projects:
+        for u in p.updates or []:
+            if not u.upcoming and u.date <= today:
+                latest.append({
+                    "date": u.date.isoformat(), "type": "Site", "subtype": u.kind,
+                    "title": u.title, "place": _place(p.city, p.state),
+                    "target": {"kind": "site", "id": p.id},
+                })
+    joined = [x for x in sig.signatories if x.signed_track == "expansion-2026-07-23"]
+    if joined:
+        govs = sum(x.category == "governor" for x in joined)
+        latest.append({
+            "date": "2026-07-23", "type": "Pledge",
+            "title": f"{len(joined) - govs} organizations and {govs} governors join the Ratepayer Protection Pledge",
+            "place": "", "target": {"kind": "roster"},
+        })
+    rolling = sum(x.signed_track == "rolling" for x in sig.signatories)
+    if rolling and sig.roster_as_of and sig.roster_as_of <= today:
+        latest.append({
+            "date": sig.roster_as_of.isoformat(), "type": "Pledge",
+            "title": f"{rolling} more organizations appear on the pledge roster (join dates unpublished)",
+            "place": "", "target": {"kind": "roster"},
+        })
+    latest.sort(key=lambda x: x["date"], reverse=True)
+    picked: list[dict] = []
+    per_type: dict[str, int] = {}
+    for item in latest:
+        if per_type.get(item["type"], 0) >= HOME_LATEST_PER_TYPE:
+            continue
+        per_type[item["type"]] = per_type.get(item["type"], 0) + 1
+        picked.append(item)
+        if len(picked) == HOME_LATEST_MAX:
+            break
+
+    upcoming: list[dict] = []
+    for rc in rate_cases:
+        d = rc.next_milestone_date  # regulator-announced; any status can have one
+        if d and d >= today:
+            upcoming.append({
+                "date": d.isoformat(), "type": "Rate case", "title": rc.title,
+                "place": rc.state_code or "", "target": {"kind": "ratecase", "id": rc.id},
+            })
+    for p in projects:
+        for u in p.updates or []:
+            if u.upcoming and u.date >= today:
+                upcoming.append({
+                    "date": u.date.isoformat(), "type": "Site", "subtype": u.kind, "title": u.title,
+                    "place": _place(p.city, p.state), "target": {"kind": "site", "id": p.id},
+                })
+    # Moratorium end dates are NOT listed: duration_months is often a
+    # rounded "45 days" or "through Oct 16", so start + N months invents a
+    # deadline (Codex on #63: Cleveland, Vance County). They return when the
+    # schema carries an explicit curated end date (BACKLOG).
+    upcoming.sort(key=lambda x: x["date"])
+    soon: list[dict] = []
+    per_type = {}
+    for item in upcoming:  # keep one busy type from filling the list
+        if per_type.get(item["type"], 0) >= HOME_UPCOMING_PER_TYPE:
+            continue
+        per_type[item["type"]] = per_type.get(item["type"], 0) + 1
+        soon.append(item)
+        if len(soon) == HOME_UPCOMING_MAX:
+            break
+
+    return {
+        "totals": totals,
+        "latest": picked,
+        "upcoming": soon,
+    }
+
+
+def _write_home(payloads, *, pretty: bool) -> int:
+    today = payloads["projects"].generated_at
+    data = _build_home(payloads, today)
+    data["generated_at"] = today.isoformat()
+    out = OUT_DIR / "home.json"
+    text = json.dumps(data, indent=2, ensure_ascii=False) + "\n" if pretty else json.dumps(data, separators=(",", ":"), ensure_ascii=False)
+    out.write_text(text, encoding="utf-8")
+    return len(text.encode("utf-8"))
+
+
 def _write_payload(name: str, model_obj, *, pretty: bool) -> int:
     """Emit one payload to docs/data/<name>.json. Returns bytes written."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -611,6 +823,9 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
     nbytes = _write_coverage(payloads, pretty=pretty)
     total += nbytes
     logger.info("Wrote coverage.json (%d bytes)", nbytes)
+    nbytes = _write_home(payloads, pretty=pretty)
+    total += nbytes
+    logger.info("Wrote home.json (%d bytes)", nbytes)
     logger.info("Total payload size: %.1f KB", total / 1024)
     return 0
 

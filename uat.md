@@ -1,7 +1,50 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-09-23_
+_Last run: 2026-10-08_
+
+## Interaction cost (tracked from 2026-10-08)
+
+How many taps, swipes and typed queries a reader needs, starting cold on
+Home, to reach a specific piece of information. Measured by
+`python3 tools/interaction_cost.py` on mobile (390×844, touch) first, then
+tablet (820×1180) and desktop (1366×900). Each device has its own budget in
+`uat/interaction_budgets.json`, enforced by `tests/e2e/test_interaction_cost.py`.
+Full paths are in `uat/interaction_costs.json`; one dated summary line per run
+goes to `uat/interaction_costs_history.jsonl`.
+
+A swipe is 0.75 of the visible area. "Default" is the page as shipped, so a
+collapsed section costs a tap to open. "Expanded" forces every section
+accordion open first.
+
+| Task | Mobile before | Mobile now | Tablet | Desktop | What changed |
+|---|---|---|---|---|---|
+| Latest change (Home) | 2 | 2 | 0 | 1 | |
+| Next hearing or deadline (Home) | 4 | 3 | 3 | 1 | Phones show 5 Latest items, then "Show N more" |
+| Last section card (Home) | 0 | 2 | 0 | 0 | Seven compact rows (was six tall cards); every card now in reach |
+| Open the newest record | 3 | 3 | 1 | 2 | |
+| Did Entergy sign the pledge? | 7 | 6 | 4 | 4 | Roster moved to the top of The Pledge (still collapsed) |
+| A site's pledge scorecard | 5 | 5 | 3 | 3 | |
+| What's happening in Virginia | 4 | 5 | 2 | 3 | +1: the roster now sits above the state grid |
+| A signed benefit agreement (Frameworks) | 7 | 5 | 3 | 3 | Tab bar wraps; no side-swipes |
+| A signed agreement's terms (new tab) | n/a | 4 | 1 | 1 | Benefit Agreements tab |
+| Raleigh moratorium detail | 5 | 4 | 2 | 2 | Tab bar wraps |
+| Next step in a rate case | 4 | 3 | 1 | 1 | Tab bar wraps |
+| Google's water quotes | 7 | 5 | 3 | 3 | Tab bar wraps |
+| A contested site's timeline | 4 | 3 | 2 | 2 | Tab bar wraps |
+| What residents said about one site | 22 | 5 | 5 | 5 | Site search box; list above the map on phones |
+
+Expanded vs default: the expanded context costs more wherever a long
+reference list sits above the target. On a phone, opening every Pledge
+section pushes the scorecard from 5 to 69 swipes and the state grid from 5 to
+66, because the 300-row roster opens above them. That is the case for keeping
+the roster collapsed. Elsewhere the two contexts match, because their targets
+sit outside accordions.
+
+Still worth improving (logged in BACKLOG.md):
+- Moratoriums has no search; Raleigh is reachable only because it is recent.
+  An older record would need many swipes on a phone.
+- On a phone, the scorecard sits 4 swipes into The Pledge.
 
 ## 2026-09-23 PR #48 run
 

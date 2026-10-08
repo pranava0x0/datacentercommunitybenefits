@@ -1,0 +1,1156 @@
+{
+ "date": "2026-10-08",
+ "swipe_fraction": 0.75,
+ "devices": {
+  "mobile": {
+   "home_latest": {
+    "question": "What changed most recently?",
+    "default": {
+     "taps": 0,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "swipe x2",
+      "see: #home-latest-list .feed-item"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "swipe x2",
+      "see: #home-latest-list .feed-item"
+     ]
+    }
+   },
+   "home_coming_up": {
+    "question": "What is the next scheduled hearing or deadline?",
+    "default": {
+     "taps": 0,
+     "swipes": 3,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "swipe x3",
+      "see: #whats-next-list .feed-item"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 3,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "swipe x3",
+      "see: #whats-next-list .feed-item"
+     ]
+    }
+   },
+   "home_sections": {
+    "question": "Where do I go to explore a topic?",
+    "default": {
+     "taps": 0,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "swipe x2",
+      "see: #home-cards .home-card:last-child"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "swipe x2",
+      "see: #home-cards .home-card:last-child"
+     ]
+    }
+   },
+   "latest_item_record": {
+    "question": "Open the newest change (a moratorium) in full.",
+    "default": {
+     "taps": 1,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "swipe x2",
+      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "swipe x2",
+      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ]
+    }
+   },
+   "pledge_signatory": {
+    "question": "Did Entergy sign the ratepayer pledge?",
+    "default": {
+     "taps": 3,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 1,
+     "total": 6,
+     "path": [
+      "tap: #tab-ratepayer",
+      "tap: expand section",
+      "type: 'entergy'",
+      "swipe x2",
+      "see: #rp-roster > li"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 4,
+     "hswipes": 0,
+     "types": 1,
+     "total": 7,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x4",
+      "type: 'entergy'",
+      "see: #rp-roster > li"
+     ]
+    }
+   },
+   "pledge_site_score": {
+    "question": "How does an assessed site score on the five commitments?",
+    "default": {
+     "taps": 1,
+     "swipes": 4,
+     "hswipes": 0,
+     "types": 0,
+     "total": 5,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x4",
+      "see: #subpane-rp-sites-assessed .rp-card"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 68,
+     "hswipes": 0,
+     "types": 0,
+     "total": 69,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x68",
+      "see: #subpane-rp-sites-assessed .rp-card"
+     ]
+    }
+   },
+   "state_panel": {
+    "question": "What is happening in Virginia?",
+    "default": {
+     "taps": 2,
+     "swipes": 3,
+     "hswipes": 0,
+     "types": 0,
+     "total": 5,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x3",
+      "tap: .pledge-state-cell[data-state-code=\"VA\"]",
+      "see: #sd-body > *"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 64,
+     "hswipes": 0,
+     "types": 0,
+     "total": 66,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x64",
+      "tap: .pledge-state-cell[data-state-code=\"VA\"]",
+      "see: #sd-body > *"
+     ]
+    }
+   },
+   "policy_cba": {
+    "question": "Find a signed community benefits agreement.",
+    "default": {
+     "taps": 3,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 5,
+     "path": [
+      "tap: #tab-policies",
+      "tap: #subtab-pol-directory",
+      "swipe x2",
+      "tap: #policy-cbf-filter",
+      "see: #policies-tbody tr"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 5,
+     "path": [
+      "tap: #tab-policies",
+      "tap: #subtab-pol-directory",
+      "swipe x2",
+      "tap: #policy-cbf-filter",
+      "see: #policies-tbody tr"
+     ]
+    }
+   },
+   "agreement_terms": {
+    "question": "What did the most complete signed agreement commit to?",
+    "default": {
+     "taps": 1,
+     "swipes": 3,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: #tab-agreements",
+      "swipe x3",
+      "see: #cba-strongest .cba-card .cba-terms"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 3,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: #tab-agreements",
+      "swipe x3",
+      "see: #cba-strongest .cba-card .cba-terms"
+     ]
+    }
+   },
+   "moratorium_raleigh": {
+    "question": "What did Raleigh pass, and when?",
+    "default": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "swipe x2",
+      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "swipe x2",
+      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    }
+   },
+   "ratecase_milestone": {
+    "question": "When is the next step in a pending rate case?",
+    "default": {
+     "taps": 1,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-tariffs",
+      "swipe x2",
+      "see: #rate-cases-list .rc-item .rc-next"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-tariffs",
+      "swipe x2",
+      "see: #rate-cases-list .rc-item .rc-next"
+     ]
+    }
+   },
+   "company_water": {
+    "question": "What has Google said about water?",
+    "default": {
+     "taps": 3,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 5,
+     "path": [
+      "tap: #tab-comparison",
+      "tap: #subtab-co-commitments",
+      "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
+      "swipe x2",
+      "see: #theme-quotes-list > li"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 5,
+     "path": [
+      "tap: #tab-comparison",
+      "tap: #subtab-co-commitments",
+      "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
+      "swipe x2",
+      "see: #theme-quotes-list > li"
+     ]
+    }
+   },
+   "contested_timeline": {
+    "question": "What hearings or votes are coming at a contested site?",
+    "default": {
+     "taps": 2,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-explorer",
+      "tap: #subtab-sites-contested",
+      "swipe x1",
+      "see: #contested-list .contested-card .timeline .tl-item"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-explorer",
+      "tap: #subtab-sites-contested",
+      "swipe x1",
+      "see: #contested-list .contested-card .timeline .tl-item"
+     ]
+    }
+   },
+   "site_comment": {
+    "question": "What did residents say about a specific site?",
+    "default": {
+     "taps": 4,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-explorer",
+      "type: 'memphis'",
+      "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
+      "tap: #dtab-responses",
+      "see: #d-responses .response-card"
+     ]
+    },
+    "expanded": {
+     "taps": 4,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-explorer",
+      "type: 'memphis'",
+      "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
+      "tap: #dtab-responses",
+      "see: #d-responses .response-card"
+     ]
+    }
+   }
+  },
+  "tablet": {
+   "home_latest": {
+    "question": "What changed most recently?",
+    "default": {
+     "taps": 0,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 0,
+     "path": [
+      "see: #home-latest-list .feed-item"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 0,
+     "path": [
+      "see: #home-latest-list .feed-item"
+     ]
+    }
+   },
+   "home_coming_up": {
+    "question": "What is the next scheduled hearing or deadline?",
+    "default": {
+     "taps": 0,
+     "swipes": 3,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "swipe x3",
+      "see: #whats-next-list .feed-item"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 3,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "swipe x3",
+      "see: #whats-next-list .feed-item"
+     ]
+    }
+   },
+   "home_sections": {
+    "question": "Where do I go to explore a topic?",
+    "default": {
+     "taps": 0,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 0,
+     "path": [
+      "see: #home-cards .home-card:last-child"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 0,
+     "path": [
+      "see: #home-cards .home-card:last-child"
+     ]
+    }
+   },
+   "latest_item_record": {
+    "question": "Open the newest change (a moratorium) in full.",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ]
+    }
+   },
+   "pledge_signatory": {
+    "question": "Did Entergy sign the ratepayer pledge?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-ratepayer",
+      "tap: expand section",
+      "type: 'entergy'",
+      "see: #rp-roster > li"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x2",
+      "type: 'entergy'",
+      "see: #rp-roster > li"
+     ]
+    }
+   },
+   "pledge_site_score": {
+    "question": "How does an assessed site score on the five commitments?",
+    "default": {
+     "taps": 1,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x2",
+      "see: #subpane-rp-sites-assessed .rp-card"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 23,
+     "hswipes": 0,
+     "types": 0,
+     "total": 24,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x23",
+      "see: #subpane-rp-sites-assessed .rp-card"
+     ]
+    }
+   },
+   "state_panel": {
+    "question": "What is happening in Virginia?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-ratepayer",
+      "tap: .pledge-state-cell[data-state-code=\"VA\"]",
+      "see: #sd-body > *"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 20,
+     "hswipes": 0,
+     "types": 0,
+     "total": 22,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x20",
+      "tap: .pledge-state-cell[data-state-code=\"VA\"]",
+      "see: #sd-body > *"
+     ]
+    }
+   },
+   "policy_cba": {
+    "question": "Find a signed community benefits agreement.",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-policies",
+      "tap: #subtab-pol-directory",
+      "tap: #policy-cbf-filter",
+      "see: #policies-tbody tr"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-policies",
+      "tap: #subtab-pol-directory",
+      "tap: #policy-cbf-filter",
+      "see: #policies-tbody tr"
+     ]
+    }
+   },
+   "agreement_terms": {
+    "question": "What did the most complete signed agreement commit to?",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-agreements",
+      "see: #cba-strongest .cba-card .cba-terms"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-agreements",
+      "see: #cba-strongest .cba-card .cba-terms"
+     ]
+    }
+   },
+   "moratorium_raleigh": {
+    "question": "What did Raleigh pass, and when?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-moratoriums",
+      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-moratoriums",
+      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    }
+   },
+   "ratecase_milestone": {
+    "question": "When is the next step in a pending rate case?",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-tariffs",
+      "see: #rate-cases-list .rc-item .rc-next"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-tariffs",
+      "see: #rate-cases-list .rc-item .rc-next"
+     ]
+    }
+   },
+   "company_water": {
+    "question": "What has Google said about water?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-comparison",
+      "tap: #subtab-co-commitments",
+      "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
+      "see: #theme-quotes-list > li"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-comparison",
+      "tap: #subtab-co-commitments",
+      "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
+      "see: #theme-quotes-list > li"
+     ]
+    }
+   },
+   "contested_timeline": {
+    "question": "What hearings or votes are coming at a contested site?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-explorer",
+      "tap: #subtab-sites-contested",
+      "see: #contested-list .contested-card .timeline .tl-item"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-explorer",
+      "tap: #subtab-sites-contested",
+      "see: #contested-list .contested-card .timeline .tl-item"
+     ]
+    }
+   },
+   "site_comment": {
+    "question": "What did residents say about a specific site?",
+    "default": {
+     "taps": 4,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-explorer",
+      "type: 'memphis'",
+      "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
+      "tap: #dtab-responses",
+      "see: #d-responses .response-card"
+     ]
+    },
+    "expanded": {
+     "taps": 4,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-explorer",
+      "type: 'memphis'",
+      "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
+      "tap: #dtab-responses",
+      "see: #d-responses .response-card"
+     ]
+    }
+   }
+  },
+  "desktop": {
+   "home_latest": {
+    "question": "What changed most recently?",
+    "default": {
+     "taps": 0,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "swipe x1",
+      "see: #home-latest-list .feed-item"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "swipe x1",
+      "see: #home-latest-list .feed-item"
+     ]
+    }
+   },
+   "home_coming_up": {
+    "question": "What is the next scheduled hearing or deadline?",
+    "default": {
+     "taps": 0,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "swipe x1",
+      "see: #whats-next-list .feed-item"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "swipe x1",
+      "see: #whats-next-list .feed-item"
+     ]
+    }
+   },
+   "home_sections": {
+    "question": "Where do I go to explore a topic?",
+    "default": {
+     "taps": 0,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 0,
+     "path": [
+      "see: #home-cards .home-card:last-child"
+     ]
+    },
+    "expanded": {
+     "taps": 0,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 0,
+     "path": [
+      "see: #home-cards .home-card:last-child"
+     ]
+    }
+   },
+   "latest_item_record": {
+    "question": "Open the newest change (a moratorium) in full.",
+    "default": {
+     "taps": 1,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "swipe x1",
+      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "swipe x1",
+      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ]
+    }
+   },
+   "pledge_signatory": {
+    "question": "Did Entergy sign the ratepayer pledge?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-ratepayer",
+      "tap: expand section",
+      "type: 'entergy'",
+      "see: #rp-roster > li"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x2",
+      "type: 'entergy'",
+      "see: #rp-roster > li"
+     ]
+    }
+   },
+   "pledge_site_score": {
+    "question": "How does an assessed site score on the five commitments?",
+    "default": {
+     "taps": 1,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x2",
+      "see: #subpane-rp-sites-assessed .rp-card"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 26,
+     "hswipes": 0,
+     "types": 0,
+     "total": 27,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x26",
+      "see: #subpane-rp-sites-assessed .rp-card"
+     ]
+    }
+   },
+   "state_panel": {
+    "question": "What is happening in Virginia?",
+    "default": {
+     "taps": 2,
+     "swipes": 1,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x1",
+      "tap: .pledge-state-cell[data-state-code=\"VA\"]",
+      "see: #sd-body > *"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 22,
+     "hswipes": 0,
+     "types": 0,
+     "total": 24,
+     "path": [
+      "tap: #tab-ratepayer",
+      "swipe x22",
+      "tap: .pledge-state-cell[data-state-code=\"VA\"]",
+      "see: #sd-body > *"
+     ]
+    }
+   },
+   "policy_cba": {
+    "question": "Find a signed community benefits agreement.",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-policies",
+      "tap: #subtab-pol-directory",
+      "tap: #policy-cbf-filter",
+      "see: #policies-tbody tr"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-policies",
+      "tap: #subtab-pol-directory",
+      "tap: #policy-cbf-filter",
+      "see: #policies-tbody tr"
+     ]
+    }
+   },
+   "agreement_terms": {
+    "question": "What did the most complete signed agreement commit to?",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-agreements",
+      "see: #cba-strongest .cba-card .cba-terms"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-agreements",
+      "see: #cba-strongest .cba-card .cba-terms"
+     ]
+    }
+   },
+   "moratorium_raleigh": {
+    "question": "What did Raleigh pass, and when?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-moratoriums",
+      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-moratoriums",
+      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    }
+   },
+   "ratecase_milestone": {
+    "question": "When is the next step in a pending rate case?",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-tariffs",
+      "see: #rate-cases-list .rc-item .rc-next"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-tariffs",
+      "see: #rate-cases-list .rc-item .rc-next"
+     ]
+    }
+   },
+   "company_water": {
+    "question": "What has Google said about water?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-comparison",
+      "tap: #subtab-co-commitments",
+      "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
+      "see: #theme-quotes-list > li"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: #tab-comparison",
+      "tap: #subtab-co-commitments",
+      "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
+      "see: #theme-quotes-list > li"
+     ]
+    }
+   },
+   "contested_timeline": {
+    "question": "What hearings or votes are coming at a contested site?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-explorer",
+      "tap: #subtab-sites-contested",
+      "see: #contested-list .contested-card .timeline .tl-item"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-explorer",
+      "tap: #subtab-sites-contested",
+      "see: #contested-list .contested-card .timeline .tl-item"
+     ]
+    }
+   },
+   "site_comment": {
+    "question": "What did residents say about a specific site?",
+    "default": {
+     "taps": 4,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-explorer",
+      "type: 'memphis'",
+      "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
+      "tap: #dtab-responses",
+      "see: #d-responses .response-card"
+     ]
+    },
+    "expanded": {
+     "taps": 4,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 5,
+     "path": [
+      "tap: #tab-explorer",
+      "type: 'memphis'",
+      "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
+      "tap: #dtab-responses",
+      "see: #d-responses .response-card"
+     ]
+    }
+   }
+  }
+ }
+}

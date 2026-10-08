@@ -1,0 +1,51 @@
+{
+ "_note": "Max default-context total (taps+swipes+side-swipes+typed queries) per task, per device. Set 2026-10-08 as measured + 1. Lower a budget when a path gets cheaper; raise one only with a note in uat.md.",
+ "mobile": {
+  "home_latest": 3,
+  "home_coming_up": 4,
+  "home_sections": 3,
+  "latest_item_record": 4,
+  "pledge_signatory": 7,
+  "pledge_site_score": 6,
+  "state_panel": 6,
+  "policy_cba": 6,
+  "agreement_terms": 5,
+  "moratorium_raleigh": 5,
+  "ratecase_milestone": 4,
+  "company_water": 6,
+  "contested_timeline": 4,
+  "site_comment": 6
+ },
+ "tablet": {
+  "home_latest": 1,
+  "home_coming_up": 4,
+  "home_sections": 1,
+  "latest_item_record": 2,
+  "pledge_signatory": 5,
+  "pledge_site_score": 4,
+  "state_panel": 3,
+  "policy_cba": 4,
+  "agreement_terms": 2,
+  "moratorium_raleigh": 3,
+  "ratecase_milestone": 2,
+  "company_water": 4,
+  "contested_timeline": 3,
+  "site_comment": 6
+ },
+ "desktop": {
+  "home_latest": 2,
+  "home_coming_up": 2,
+  "home_sections": 1,
+  "latest_item_record": 3,
+  "pledge_signatory": 5,
+  "pledge_site_score": 4,
+  "state_panel": 4,
+  "policy_cba": 4,
+  "agreement_terms": 2,
+  "moratorium_raleigh": 3,
+  "ratecase_milestone": 2,
+  "company_water": 4,
+  "contested_timeline": 3,
+  "site_comment": 6
+ }
+}

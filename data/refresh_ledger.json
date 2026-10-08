@@ -60,8 +60,10 @@
       }
     },
     "site:meta-prineville-or": {
-      "last_reviewed": "2026-10-05",
-      "summary": "Checked news and source link; added Apr 2026 contractor layoff note; datacenters.atmeta.com/location/prineville/ returns 404 (needs new URL, not swapped); permits not checked"
+      "last_check": {
+        "date": "2026-10-05",
+        "summary": "Checked news and source link; added Apr 2026 contractor layoff note; datacenters.atmeta.com/location/prineville/ returns 404 (needs new URL, not swapped); permits not checked (partial: permits not checked, so not counted as a full review)"
+      }
     },
     "state:AZ": {
       "last_check": {
@@ -85,10 +87,6 @@
         {
           "due": "2026-10-09",
           "what": "San Francisco Walton 45-day moratorium: Board vote outcome?"
-        },
-        {
-          "due": "2026-10-10",
-          "what": "Mendocino County: Oct 6 extension hearing outcome (urgency ordinance expires Oct 16) — extended or lapsed?"
         },
         {
           "due": "2026-10-11",
@@ -183,16 +181,12 @@
       "follow_ups": [
         {
           "due": "2026-10-09",
-          "what": "Beaufort County NC: Oct 5 hearing/vote outcome still unconfirmed; Forsyth County: any formal moratorium vote?"
+          "what": "Beaufort County NC: Oct 5 hearing/vote outcome still unconfirmed"
         },
         {
           "due": "2026-10-09",
-          "what": "Raleigh council Oct 6 vote on six-month moratorium (raleigh-nc-2026-09); find Cary's late-Aug enactment date to add it",
+          "what": "Cary NC: find the late-August enactment date to add the 18-month moratorium",
           "hint": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium"
-        },
-        {
-          "due": "2026-10-10",
-          "what": "Raleigh: Oct 6 vote on six-month moratorium — adopted?"
         },
         {
           "due": "2026-11-06",

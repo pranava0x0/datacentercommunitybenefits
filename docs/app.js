@@ -157,6 +157,47 @@ const POLICY_STATUS_BADGE_CLASS = {
   proposed: "badge-tariff-status-proposed",
   failed: "badge-tariff-status-rejected",
 };
+// What a community-benefits record's text contains. Mirrors
+// AGREEMENT_FEATURES / AGREEMENT_FEATURE_LABELS in schema.py (parity-tested).
+const AGREEMENT_FEATURES = [
+  "binding_contract",
+  "dollar_commitment",
+  "community_oversight",
+  "local_hiring_target",
+  "water_limit",
+  "ratepayer_protection",
+  "public_reporting",
+  "successor_binding",
+  "clawback",
+];
+const AGREEMENT_FEATURE_LABELS = {
+  binding_contract: "Signed, enforceable contract",
+  dollar_commitment: "Dollar amounts written in",
+  community_oversight: "Independent body controls the money",
+  local_hiring_target: "Numeric local hiring target",
+  water_limit: "Water cap or cooling standard",
+  ratepayer_protection: "Grid costs kept off residents' bills",
+  public_reporting: "Regular public reporting",
+  successor_binding: "Binds future owners",
+  clawback: "Penalty or repayment if terms are missed",
+};
+// The test a curator applies before tagging, shown on the "Terms" sub-tab.
+const AGREEMENT_FEATURE_TESTS = {
+  binding_contract: "Signed by both sides, with obligations stated as binding or enforceable.",
+  dollar_commitment: "Specific dollar amounts or a payment schedule.",
+  community_oversight: "A board, foundation or development body outside the company decides how the money is spent.",
+  local_hiring_target: "A number or percentage of jobs for local residents.",
+  water_limit: "A gallons-per-day cap, or a closed-loop or low-water cooling requirement.",
+  ratepayer_protection: "The developer pays its own grid and infrastructure costs so other customers don't.",
+  public_reporting: "A public report on a set schedule, such as yearly.",
+  successor_binding: "The terms carry over to whoever buys or operates the site next.",
+  clawback: "Repayment, a penalty, or a draw on posted security if the developer misses a term.",
+};
+const AGREEMENT_STATUS_LABELS = {
+  in_effect: "Signed",
+  proposed: "Proposed",
+  failed: "Rejected or withdrawn",
+};
 // The playbook's organizing axis. Mirrors POLICY_PRINCIPLES in schema.py.
 const POLICY_PRINCIPLES = [
   "pay_own_way",
@@ -521,6 +562,7 @@ const state = {
   signatories: [],
   coverage: {},
   coverageTotals: null,
+  home: null,
   coverageLoaded: false,
   rosterAsOf: null,
   rosterCountsStated: {},
@@ -547,6 +589,7 @@ const state = {
   activeView: DEFAULT_VIEW_NAME,
   selectedCompanySlug: null,
   explorerFilters: {
+    q: "",
     company: "",
     status: "",
     stance: "",
@@ -576,6 +619,7 @@ const state = {
 // Default Explorer filter shape — single source of truth for init + reset so
 // the six dimensions stay in sync everywhere.
 const EMPTY_EXPLORER_FILTERS = {
+  q: "",
   company: "",
   status: "",
   stance: "",
@@ -615,16 +659,24 @@ document.addEventListener("DOMContentLoaded", () => {
       if (state.explorerLoaded || state.projects.length) return;
       const preload = () =>
         Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()])
-          .then(() => {
-            renderPledgeHero();
-          })
+          .then(() => {})
           .catch((err) =>
             console.error("Idle preload of project data failed:", err)
           );
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(preload, { timeout: 2000 });
+      const schedule = () => {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(preload, { timeout: 2000 });
+        } else {
+          setTimeout(preload, 800);
+        }
+      };
+      // On Home, warm the other tabs' data only after Home has rendered, so
+      // Home's first paint is just the page, companies.json and home.json
+      // (the e2e test TestHomeFirstPaint records the requests to prove it).
+      if (state.activeView === "overview") {
+        loadHomeData().then(schedule, schedule);
       } else {
-        setTimeout(preload, 800);
+        schedule();
       }
     })
     .catch((err) => {
@@ -677,13 +729,16 @@ function wireThemeToggle() {
 // DEFAULT_VIEW_NAME). Comparison keeps its full behaviour one click away and
 // has an explicit `#comparison` hash — it had been the bare-root view before
 // v2, and demoting it without giving it a hash would have left it un-linkable.
+// Tab order (owner-directed 2026-10-08): the pledge, then the local rules
+// (frameworks, agreements, moratoriums, tariffs), then companies and sites.
 const VIEWS = [
   { name: "overview", tab: "tab-overview", section: "view-overview", hash: "#overview" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
-  { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
+  { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
+  { name: "agreements", tab: "tab-agreements", section: "view-agreements", hash: "#agreements" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
-  { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
+  { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
 ];
 
@@ -751,11 +806,25 @@ function wireTabs() {
 function anyExplorerFilterSet() {
   const f = state.explorerFilters;
   return Boolean(
-    f.company || f.state || f.status || f.stance || f.theme || f.constituency
+    f.q || f.company || f.state || f.status || f.stance || f.theme || f.constituency
   );
 }
 
+// Return focus after a modal closes. The opener can be gone from view (a
+// Home feed button once its record opened another tab); then focus the
+// active view's tab rather than dropping to <body>.
+function returnFocus(el) {
+  if (el && typeof el.focus === "function" && el.offsetParent !== null) {
+    el.focus();
+    return;
+  }
+  const v = VIEWS.find((x) => x.name === state.activeView);
+  const tab = v && document.getElementById(v.tab);
+  if (tab) tab.focus();
+}
+
 const URL_FILTER_KEYS = [
+  "q",
   "company",
   "state",
   "status",
@@ -867,7 +936,15 @@ function activateView(name) {
       document.getElementById("explorer-meta").textContent =
         "Failed to load projects.";
     });
-  } else if (target.name === "ratepayer" || target.name === "overview") {
+  } else if (target.name === "overview") {
+    loadHomeData()
+      .then(renderHome)
+      .catch((err) => {
+        console.error("Failed to load home digest:", err);
+        const ol = document.getElementById("home-latest-list");
+        if (ol) ol.replaceChildren(el("li", "muted", "Couldn't load the latest records."));
+      });
+  } else if (target.name === "ratepayer") {
     loadRatepayerView().catch((err) => {
       console.error("Failed to load ratepayer view:", err);
     });
@@ -879,6 +956,14 @@ function activateView(name) {
     loadTariffsData().catch((err) => {
       console.error("Failed to load tariffs data:", err);
     });
+  } else if (target.name === "agreements") {
+    loadPoliciesData()
+      .then(renderAgreementsView)
+      .catch((err) => {
+        console.error("Failed to load agreements:", err);
+        const ol = document.getElementById("cba-strongest");
+        if (ol) ol.innerHTML = "<li class='muted'>Failed to load agreements.</li>";
+      });
   } else if (target.name === "policies") {
     // Moratoriums are secondary here: they only add the governor orders
     // filed on that tab to "Latest actions", so their failure is caught
@@ -965,7 +1050,6 @@ function indexClaimsByProject() {
 
 async function loadComparisonData() {
   await Promise.all([ensureCompanyData(), ensureClaimsData()]);
-  renderPledgeHero();
 }
 
 // Memoized handle on the companies + claims payload. loadProjectData awaits
@@ -1083,7 +1167,10 @@ function buildMoratoriumAffectanceMap() {
 async function loadExplorerData() {
   document.getElementById("explorer-meta").textContent = "Loading projects…";
   await Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()]);
-  await ensureLeaflet();
+  // The map library is optional for this tab: Contested, By state and the list
+  // render from data alone. A blocked CDN only costs the map, which then shows
+  // its own "Map library failed to load" (renderProjectMap checks window.L).
+  await ensureLeaflet().catch((err) => console.error("Leaflet failed to load:", err));
   state.explorerLoaded = true;
   renderExplorerView();
 
@@ -1181,7 +1268,6 @@ async function loadRatepayerView() {
   await Promise.all([loadProjectData(), loadSignatoryData(), loadCoverageData()]);
   state.ratepayerLoaded = true;
   renderRatepayerView();
-  renderPledgeHero();
 
   // Concern flags need responses, which are deliberately not part of first
   // paint. Fetch them straight after and re-render the scorecard in place.
@@ -1201,77 +1287,11 @@ async function loadRatepayerView() {
       console.error("Failed to load rate cases:", err)
     );
   }
-  renderWhatsNext();
   // Evidence quotes on the scorecard need claims (deferred tier). Awaited for
   // the same reason as responses: the ready event means "complete".
   // ensureClaimsData re-renders the scorecard itself when they land.
   await ensureClaimsData().catch((err) => console.error("Failed to load claims:", err));
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
-}
-
-// --- what's next: dated steps ahead in the tracked proceedings -------------
-//
-// Derived from RateCase.next_milestone — regulator-announced steps only, never
-// a guess (the schema says so). Dated milestones sort soonest-first; undated
-// pendings follow. Clicking an item lands on the rate-cases section.
-// Home shows only the soonest few, as one-line briefs — the full milestone
-// text lives with the rate-case records on the Tariffs & Rate Cases tab,
-// which is where every item (and the "All N milestones" link) lands.
-const HOME_WHATS_NEXT_MAX = 6;
-
-function renderWhatsNext() {
-  const ol = document.getElementById("whats-next-list");
-  if (!ol) return;
-  const items = (state.rateCases || []).filter((rc) => rc.next_milestone);
-  items.sort((a, b) => {
-    const da = a.next_milestone_date || "9999";
-    const db = b.next_milestone_date || "9999";
-    if (da !== db) return da.localeCompare(db);
-    return String(a.state_code).localeCompare(String(b.state_code));
-  });
-  ol.replaceChildren(
-    ...items.slice(0, HOME_WHATS_NEXT_MAX).map((rc) => {
-      const li = el("li", "wn-item");
-      const btn = el("button", "wn-btn");
-      btn.type = "button";
-      const when = el("span", "wn-date", rc.next_milestone_date || "Ahead");
-      if (!rc.next_milestone_date) when.classList.add("wn-date--open");
-      const where = el(
-        "span",
-        "wn-state",
-        isFederalRateCase(rc) ? "FED" : rc.state_code
-      );
-      where.title = isFederalRateCase(rc)
-        ? "Federal (FERC) proceeding"
-        : STATE_NAMES[rc.state_code] || rc.state_code;
-      const body = el("span", "wn-body");
-      body.append(
-        el("span", "wn-text", rc.next_milestone),
-        el(
-          "span",
-          "wn-meta",
-          [rc.utility, rc.docket_number ? `Docket ${rc.docket_number}` : null]
-            .filter(Boolean)
-            .join(" · ")
-        )
-      );
-      btn.append(when, where, body);
-      btn.addEventListener("click", () => goToPledgeTarget("ratecases"));
-      li.append(btn);
-      return li;
-    })
-  );
-  const sub = document.getElementById("whats-next-sub");
-  if (sub) {
-    sub.textContent = items.length
-      ? "Next steps set by regulators."
-      : "No upcoming steps announced.";
-  }
-  const more = document.getElementById("whats-next-more");
-  if (more) {
-    more.hidden = items.length <= HOME_WHATS_NEXT_MAX;
-    more.textContent = `All ${items.length} docket milestones →`;
-  }
 }
 
 // Aggregate view: needs the project payload but not Leaflet.
@@ -1397,8 +1417,15 @@ function renderMoratoriumsView() {
       <td>${reasonBadges}</td>
     `;
 
-    tr.addEventListener("click", () => {
-      showMoratoriumDetail(m);
+    tr.dataset.id = m.id;
+    tr.tabIndex = 0;
+    tr.setAttribute("role", "button");
+    tr.addEventListener("click", () => showMoratoriumDetail(m));
+    tr.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showMoratoriumDetail(m);
+      }
     });
     tbody.appendChild(tr);
   });
@@ -2023,7 +2050,7 @@ function closeMoratoriumDetail() {
   document.body.classList.remove("moratorium-modal-open");
   const ret = state._moratoriumReturnFocus;
   state._moratoriumReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 // --------------------------------------------------------------------------
@@ -2119,6 +2146,7 @@ function renderRateCases() {
   if (rcMeta) rcMeta.textContent = `${cases.length} of ${all.length} proceedings`;
   for (const rc of cases) {
     const li = el("li", "rc-item");
+    li.id = `rc-${rc.id}`;
 
     const head = el("div", "rc-head");
     const chip = el(
@@ -2588,7 +2616,7 @@ function closeTariffDetail() {
   document.body.classList.remove("tariff-modal-open");
   const ret = state._tariffReturnFocus;
   state._tariffReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 function wireTariffsFilters() {
@@ -2901,6 +2929,218 @@ function renderPolicyStats(all) {
       </li>`
     )
     .join("");
+}
+
+// --------------------------------------------------------------------------
+// Benefit agreements view (#agreements)
+//
+// Built from policies.json: deals between a developer and its host community
+// (benefit_agreement), plus a company's published pledge to one community.
+// Company-wide plans stay on the frameworks tab. Ranking is derived from the
+// curator's feature tags, never a hand-written "best of" list.
+// --------------------------------------------------------------------------
+const CBA_STRONGEST_MAX = 10;
+
+function isAgreementRecord(p) {
+  if (!p.community_benefits_framework) return false;
+  if (p.instrument === "benefit_agreement") return true;
+  return p.instrument === "company_plan" && p.scope !== "company";
+}
+
+function agreementRecords() {
+  return (state.policies || []).filter(isAgreementRecord);
+}
+
+// Most features first, then the larger stated value, then the newest.
+function agreementRank(a, b) {
+  const fa = (a.agreement_features || []).length;
+  const fb = (b.agreement_features || []).length;
+  if (fa !== fb) return fb - fa;
+  const va = a.value_usd || 0;
+  const vb = b.value_usd || 0;
+  if (va !== vb) return vb - va;
+  return (b.date || "").localeCompare(a.date || "");
+}
+
+function strongestAgreements() {
+  return agreementRecords()
+    .filter(
+      (p) =>
+        p.instrument === "benefit_agreement" &&
+        p.status === "in_effect" &&
+        (p.agreement_features || []).length
+    )
+    .sort(agreementRank)
+    .slice(0, CBA_STRONGEST_MAX);
+}
+
+function renderAgreementCard(p, { compact = false } = {}) {
+  const li = el("li", "cba-card");
+  // One record can render in both lists; the prefix keeps ids unique.
+  li.id = `${compact ? "cba-all" : "cba-top"}-${p.id}`;
+  li.dataset.id = p.id;
+  const has = new Set(p.agreement_features || []);
+  const parties = policyParties(p);
+  const facts = [
+    policyWhere(p),
+    p.date ? formatAsOf(p.date) : null,
+    parties.length
+      ? parties.slice(0, 3).join(", ") + (parties.length > 3 ? ` and ${parties.length - 3} more` : "")
+      : null,
+  ].filter(Boolean);
+  const kind =
+    p.instrument === "company_plan" ? "Company pledge" : "Agreement";
+  const value = p.value_usd
+    ? `<p class="cba-value"><span class="cba-value-num">${escapeHtml(formatUsd(p.value_usd))}</span> stated in the source</p>`
+    : "";
+  // The full card lists all nine so readers can see what is missing; the
+  // compact row lists only what is there.
+  const chips = (compact ? AGREEMENT_FEATURES.filter((f) => has.has(f)) : AGREEMENT_FEATURES)
+    .map(
+      (f) =>
+        `<li class="cba-feat${has.has(f) ? " is-on" : ""}"><span aria-hidden="true">${has.has(f) ? "✓" : "–"}</span> ${escapeHtml(AGREEMENT_FEATURE_LABELS[f])}<span class="sr-only">${has.has(f) ? "" : " (not in text)"}</span></li>`
+    )
+    .join("");
+  const featLine = p.agreement_features
+    ? `<p class="cba-feat-count">${has.size} of ${AGREEMENT_FEATURES.length} terms in writing</p>
+       ${chips ? `<ul class="cba-feats" role="list">${chips}</ul>` : ""}`
+    : `<p class="cba-feat-count muted">Terms not yet reviewed.</p>`;
+  const terms = `<ul class="cba-terms">${p.key_terms.map((t) => `<li>${escapeHtml(t)}</li>`).join("")}</ul>`;
+  const src = `<p class="cba-src"><a href="${escapeAttr(String(p.source_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(p.source_title)} ↗</a></p>`;
+  li.innerHTML = `
+    <header class="cba-head">
+      <span class="badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}">${escapeHtml(AGREEMENT_STATUS_LABELS[p.status] || p.status)}</span>
+      <span class="cba-kind">${escapeHtml(kind)}</span>
+      <h3 class="cba-title">${escapeHtml(p.title)}</h3>
+      <p class="cba-facts">${facts.map(escapeHtml).join(" · ")}</p>
+    </header>
+    ${value}
+    ${featLine}
+    ${
+      compact
+        ? `<details class="cba-more"><summary>Terms and source</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}</details>`
+        : `<p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}`
+    }`;
+  if (p.delivered) {
+    const d = renderDeliveredPanel(p.delivered);
+    const target = li.querySelector(".cba-more") || li;
+    target.append(d);
+  }
+  return li;
+}
+
+function renderAgreementsView() {
+  const all = agreementRecords();
+  const deals = all.filter((p) => p.instrument === "benefit_agreement");
+  const signed = deals.filter((p) => p.status === "in_effect");
+  const stated = signed.filter((p) => p.value_usd);
+  const total = stated.reduce((a, p) => a + p.value_usd, 0);
+
+  const stats = document.getElementById("cba-stats");
+  if (stats) {
+    const tiles = [
+      [signed.length, "Signed agreements"],
+      [deals.filter((p) => p.status === "proposed").length, "Proposed"],
+      [deals.filter((p) => p.status === "failed").length, "Rejected or withdrawn"],
+      [total ? formatUsd(total) : "N/A", `Stated value of ${stated.length} signed agreements`],
+    ];
+    stats.innerHTML = tiles
+      .map(
+        ([v, label]) => `
+      <li class="rp-stat">
+        <span class="rp-stat-value">${escapeHtml(String(v))}</span>
+        <span class="rp-stat-label">${escapeHtml(label)}</span>
+      </li>`
+      )
+      .join("");
+  }
+
+  const strongest = strongestAgreements();
+  setSubtabCount("cba-strongest-count", strongest.length);
+  const top = document.getElementById("cba-strongest");
+  if (top) {
+    top.replaceChildren(...strongest.map((p) => renderAgreementCard(p)));
+    if (!strongest.length) top.innerHTML = "<li class='muted'>No signed agreements reviewed yet.</li>";
+  }
+
+  // Directory, filtered.
+  const stSel = document.getElementById("cba-state-filter");
+  if (stSel && stSel.dataset.filled !== "1") {
+    stSel.dataset.filled = "1";
+    const codes = [...new Set(all.map((p) => p.state_code).filter(Boolean))].sort();
+    for (const c of codes) stSel.append(new Option(STATE_NAMES[c] || c, c));
+  }
+  for (const id of ["cba-status-filter", "cba-state-filter", "cba-kind-filter"]) {
+    const sel = document.getElementById(id);
+    if (sel && sel.dataset.wired !== "1") {
+      sel.dataset.wired = "1";
+      sel.addEventListener("change", renderAgreementsView);
+    }
+  }
+  const val = (id) => (document.getElementById(id) || {}).value || "";
+  const fStatus = val("cba-status-filter");
+  const fState = val("cba-state-filter");
+  const fKind = val("cba-kind-filter");
+  const shown = all
+    .filter(
+      (p) =>
+        (!fStatus || p.status === fStatus) &&
+        (!fState || p.state_code === fState) &&
+        (!fKind || p.instrument === fKind)
+    )
+    .sort(policySort);
+  setSubtabCount("cba-all-count", all.length);
+  const meta = document.getElementById("cba-meta");
+  if (meta) meta.textContent = `${shown.length} of ${all.length}`;
+  const list = document.getElementById("cba-all");
+  if (list) {
+    list.replaceChildren(...shown.map((p) => renderAgreementCard(p, { compact: true })));
+    if (!shown.length) list.innerHTML = "<li class='muted'>Nothing matches these filters.</li>";
+  }
+
+  // Terms: each feature, how many signed agreements have it, and which.
+  const feats = document.getElementById("cba-features");
+  if (feats) {
+    const tagged = signed.filter((p) => p.agreement_features);
+    feats.innerHTML = AGREEMENT_FEATURES.map((f) => {
+      const withIt = tagged.filter((p) => p.agreement_features.includes(f));
+      const names = withIt
+        .map((p) => `<li><button type="button" class="btn-link cba-jump" data-id="${escapeAttr(p.id)}">${escapeHtml(policyWhere(p))}</button></li>`)
+        .join("");
+      return `<li class="cba-feature">
+        <h3 class="cba-feature-title">${escapeHtml(AGREEMENT_FEATURE_LABELS[f])}</h3>
+        <p class="cba-feature-test">${escapeHtml(AGREEMENT_FEATURE_TESTS[f])}</p>
+        <p class="cba-feature-count">${withIt.length} of ${tagged.length} signed agreements</p>
+        ${names ? `<ul class="cba-feature-who" role="list">${names}</ul>` : ""}
+      </li>`;
+    }).join("");
+    if (feats.dataset.wired !== "1") {
+      feats.dataset.wired = "1";
+      feats.addEventListener("click", (e) => {
+        const b = e.target.closest(".cba-jump");
+        if (b) openAgreement(b.dataset.id);
+      });
+    }
+  }
+}
+
+// Show one agreement in the directory, opened. Used by Home and the
+// "Terms" lists.
+function openAgreement(id) {
+  activateView("agreements");
+  setActiveSubtab("cba", "all");
+  for (const sid of ["cba-status-filter", "cba-state-filter", "cba-kind-filter"]) {
+    const sel = document.getElementById(sid);
+    if (sel) sel.value = "";
+  }
+  loadPoliciesData().then(() => {
+    renderAgreementsView();
+    const card = document.getElementById(`cba-all-${id}`);
+    if (!card) return;
+    const more = card.querySelector(".cba-more");
+    if (more) more.open = true;
+    card.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 }
 
 // Principle cards: what each rule looks like in practice, how far it has
@@ -3264,7 +3504,7 @@ function closePolicyDetail() {
   document.body.classList.remove("tariff-modal-open");
   const ret = state._policyReturnFocus;
   state._policyReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 function _policyExportRows(list) {
@@ -3421,119 +3661,6 @@ function el(tag, className, text) {
 // payload has not landed shows an em dash instead of blocking the row. That
 // keeps the pledge stats visible on first paint without pulling the 124 KB
 // roster into it.
-function renderPledgeHero() {
-  const list = document.getElementById("pledge-stats");
-  if (!list) return;
-
-  const counts = state.signatoriesLoaded ? signatoryCounts() : null;
-  const assessed = (state.projects || []).filter((p) => p.ratepayer);
-  const byStatus = {};
-  for (const s of RATEPAYER_STATUSES) byStatus[s] = 0;
-  for (const p of assessed) {
-    if (byStatus[p.ratepayer.status] !== undefined) byStatus[p.ratepayer.status] += 1;
-  }
-
-  // Five numbers that summarize the WHOLE record, not just the pledge —
-  // the moratorium / tariff counts come from coverage.json's precomputed
-  // totals so the landing never has to download those payloads (~50 KB gz)
-  // just to state two integers.
-  const totals = state.coverageTotals;
-  const tiles = [
-    {
-      num: counts ? String(counts.organizations) : "—",
-      label: "Organizations signed",
-      note: state.rosterAsOf ? `As of ${formatAsOf(state.rosterAsOf)}` : "",
-      target: "roster",
-    },
-    {
-      num: counts ? String(counts.governor) : "—",
-      label: "Governors signed an addendum",
-      note: "",
-      target: "coverage",
-    },
-    {
-      num: state.projects.length ? String(assessed.length) : "—",
-      label: "Sites assessed against the pledge",
-      note: assessed.length
-        ? `${byStatus.affirmed} site-specific · ${byStatus.contested} contested`
-        : "",
-      target: "scorecard",
-    },
-    {
-      num: totals ? String(totals.moratoriums) : "—",
-      label: "Moratoriums tracked",
-      note: "",
-      target: "moratoriums",
-    },
-    {
-      num: totals ? String(totals.tariffs + totals.rate_cases) : "—",
-      label: "Tariffs & rate cases",
-      note: totals
-        ? `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`
-        : "",
-      target: "tariffs",
-    },
-    {
-      num: totals && Number.isFinite(totals.policies) ? String(totals.policies) : "—",
-      label: "Policies and benefit deals",
-      note: "",
-      target: "policies",
-    },
-  ];
-
-  list.replaceChildren(
-    ...tiles.map((t) => {
-      const li = el("li", "pledge-stat");
-      const btn = el("button", null);
-      btn.type = "button";
-      btn.dataset.pathTarget = t.target;
-      btn.append(
-        el("span", "pledge-stat-num", t.num),
-        el("span", "pledge-stat-lbl", t.label)
-      );
-      if (t.note) btn.append(el("span", "pledge-stat-note", t.note));
-      li.append(btn);
-      return li;
-    })
-  );
-
-  wirePledgeTargets(list);
-  renderHomeCards();
-  renderPledgeActivity();
-  wirePledgeTargets(document.getElementById("view-overview"));
-}
-
-// --- explore the record: one card per tab ---------------------------------
-//
-// The cards are static markup (they wire once on boot); only their count
-// chips render from data, filled in as each payload lands. A count that
-// hasn't loaded keeps its markup placeholder ("—") — never a baked-in number,
-// same rule the stat tiles live by.
-function renderHomeCards() {
-  const fill = (key, text) => {
-    const span = document.querySelector(
-      `.home-card-count[data-count-for="${key}"]`
-    );
-    if (span && text) span.textContent = text;
-  };
-  if (state.signatoriesLoaded) {
-    const counts = signatoryCounts();
-    fill("pledge", `${counts.total} signatories`);
-  }
-  if ((state.companies || []).length) {
-    fill("companies", `${state.companies.length} companies`);
-  }
-  const totals = state.coverageTotals;
-  if (totals) {
-    fill("moratoriums", `${totals.moratoriums} tracked`);
-    fill("tariffs", `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`);
-    if (Number.isFinite(totals.policies)) fill("policies", `${totals.policies} tracked`);
-  }
-  if (state.projects.length) {
-    fill("sites", `${state.projects.length} sites`);
-  }
-}
-
 // --- who signed: one proportional bar ------------------------------------
 //
 // A single number ("279") says nothing about the shape of the coalition. The
@@ -3650,91 +3777,154 @@ function renderPledgeStateStrip() {
   }
 }
 
-// --- what changed: a short dated feed -------------------------------------
+
+// --------------------------------------------------------------------------
+// Home (v6, 2026-10-08)
 //
-// Derived from the data rather than hand-maintained, so it cannot go stale
-// while the dataset moves underneath it.
-function renderPledgeActivity() {
-  const ol = document.getElementById("pledge-activity");
-  if (!ol) return;
+// Everything Home shows comes from data/home.json, a ~1 KB gzipped digest
+// refresh.py builds (_build_home): per-tab numbers, the latest dated events
+// across every record type, and announced dates ahead. Home used to load the
+// projects + pledge roster + coverage payloads (~90 KB) to show six numbers,
+// and opened on pledge figures, which belong to The Pledge tab.
+// --------------------------------------------------------------------------
 
-  const items = [];
+let _homeDataPromise = null;
+const HOME_LATEST_PHONE = 5;
+function loadHomeData() {
+  if (!_homeDataPromise) {
+    _homeDataPromise = fetchJson("data/home.json").then((d) => {
+      state.home = d;
+      return d;
+    });
+  }
+  return _homeDataPromise;
+}
 
-  if (state.signatoriesLoaded) {
-    const counts = signatoryCounts();
-    const joined = (state.signatories || []).filter(
-      (s) => s.signed_track === "expansion-2026-07-23"
+const HOME_SITE_KIND_LABELS = {
+  hearing: "Hearing", vote: "Vote", permit: "Permit", lawsuit: "Lawsuit",
+  filing: "Filing", agreement: "Agreement", construction: "Construction", news: "News",
+};
+
+function renderHome() {
+  const h = state.home;
+  if (!h) return;
+  const t = h.totals;
+  const cards = {
+    sites: [t.sites, `${t.contested_sites} contested`],
+    moratoriums: [t.moratoriums, `${t.moratoriums_enacted} enacted`],
+    policies: [t.policies, `${t.policies_in_effect} in effect`],
+    agreements: [t.agreements, `${t.agreements_signed} signed`],
+    tariffs: [t.tariffs + t.rate_cases, `${t.tariffs} tariffs · ${t.rate_cases_pending} rate cases pending`],
+    companies: [t.companies, "operators"],
+    pledge: [t.pledge_organizations, `organizations, plus ${t.pledge_governors} governors`],
+  };
+  for (const [key, [num, sub]] of Object.entries(cards)) {
+    const n = document.querySelector(`.home-card-num[data-count-for="${key}"]`);
+    const sEl = document.querySelector(`.home-card-sub[data-sub-for="${key}"]`);
+    if (n) n.textContent = Number.isFinite(num) ? num.toLocaleString() : "—";
+    if (sEl) sEl.textContent = sub;
+  }
+
+  const today = todayIso();
+  const feed = (ol, items, empty) => {
+    if (!ol) return;
+    if (!items.length) {
+      ol.replaceChildren(el("li", "muted", empty));
+      return;
+    }
+    ol.replaceChildren(
+      ...items.map((it) => {
+        const li = el("li", "feed-item");
+        const btn = el("button", "feed-btn");
+        btn.type = "button";
+        const kind = it.type === "Site" ? `Site · ${HOME_SITE_KIND_LABELS[it.subtype] || ""}` : it.type;
+        btn.append(
+          el("time", "feed-date", formatAsOf(it.date)),
+          el("span", "feed-type", kind),
+          el("span", "feed-title", it.title),
+          el("span", "feed-place", it.place ? STATE_NAMES[it.place] || it.place : "")
+        );
+        btn.querySelector("time").setAttribute("datetime", it.date);
+        btn.dataset.kind = it.target.kind;
+        btn.addEventListener("click", () => openHomeTarget(it.target));
+        li.append(btn);
+        return li;
+      })
     );
-    const joinedOrgs = joined.filter((s) => s.category !== "governor").length;
-    const joinedGovs = joined.length - joinedOrgs;
-    // The roster kept growing after the event, so the "to N" figure is the
-    // cohort as it stood on July 23 (the March + DOE signatories plus the
-    // expansion), not today's total — that belongs to the rolling item below.
-    const before = (state.signatories || []).filter(
-      (s) => s.category !== "governor" && s.signed_track !== "expansion-2026-07-23" && s.signed_track !== "rolling"
-    ).length;
-    if (joined.length) {
-      items.push({
-        date: RATEPAYER_PLEDGE_EXPANSION_DATE,
-        text:
-          `${joinedOrgs} organizations and ${joinedGovs} governors joined, taking ` +
-          `the roster from ${before} signatories to ${before + joinedOrgs}.`,
-      });
-    }
-    // Organizations that appeared on the roster after the expansion. The page
-    // publishes no join dates. A future rebuild may change rosterAsOf without
-    // changing when each organization was first seen.
-    const rolling = (state.signatories || []).filter((s) => s.signed_track === "rolling").length;
-    if (rolling && state.rosterAsOf) {
-      items.push({
-        date: state.rosterAsOf,
-        text:
-          `${rolling} more organization${rolling === 1 ? "" : "s"} appeared on the roster ` +
-          `after July 23 (join dates unpublished); the ${state.rosterAsOf} ` +
-          `snapshot lists ${counts.organizations} organizations.`,
+  };
+  const latestEl = document.getElementById("home-latest-list");
+  feed(latestEl, h.latest, "Nothing recorded yet.");
+  // Phones show the first HOME_LATEST_PHONE items (CSS hides the rest while
+  // .is-capped is set) so "Coming up" stays within reach; one tap shows all.
+  const more = document.getElementById("home-latest-more");
+  const hidden = h.latest.length - HOME_LATEST_PHONE;
+  if (latestEl && more) {
+    const expanded = latestEl.dataset.expanded === "1";
+    latestEl.classList.toggle("is-capped", hidden > 0 && !expanded);
+    more.hidden = hidden <= 0 || expanded;
+    more.textContent = `Show ${hidden} more`;
+    if (more.dataset.wired !== "1") {
+      more.dataset.wired = "1";
+      more.addEventListener("click", () => {
+        latestEl.dataset.expanded = "1";
+        latestEl.classList.remove("is-capped");
+        more.hidden = true;
       });
     }
   }
-
-  // Newest contested findings — the sharpest signal the dataset carries.
-  const contested = (state.projects || [])
-    .filter((p) => p.ratepayer && p.ratepayer.status === "contested")
-    .slice(0, 3);
-  if (contested.length) {
-    items.push({
-      date: contested[0].ratepayer.captured_at || contested[0].captured_at || null,
-      text:
-        `${contested.length} site${contested.length === 1 ? "" : "s"} marked contested — ` +
-        "a third party documents costs reaching ratepayers despite the pledge.",
-    });
-  }
-
-  // Most recently captured site assessment.
-  const assessed = (state.projects || [])
-    .filter((p) => p.ratepayer && p.ratepayer.captured_at)
-    .sort((a, b) => b.ratepayer.captured_at.localeCompare(a.ratepayer.captured_at));
-  if (assessed.length) {
-    items.push({
-      date: assessed[0].ratepayer.captured_at,
-      text: `Latest site assessment: ${assessed[0].name}.`,
-    });
-  }
-
-  if (!items.length) {
-    ol.replaceChildren(el("li", "pledge-bar-loading", "Loading recent activity…"));
-    return;
-  }
-
-  ol.replaceChildren(
-    ...items.slice(0, 4).map((it) => {
-      const li = el("li", "pledge-activity-item");
-      li.append(
-        el("span", "pledge-activity-date", it.date ? formatAsOf(it.date) : "—"),
-        el("span", "pledge-activity-text", it.text)
-      );
-      return li;
-    })
+  // The digest is built once a day; drop anything whose date has since passed.
+  feed(
+    document.getElementById("whats-next-list"),
+    h.upcoming.filter((u) => u.date >= today),
+    "No announced dates ahead."
   );
+  document.dispatchEvent(new CustomEvent("dcb:home-ready"));
+}
+
+// A feed item opens the record it describes, not just its tab.
+function openHomeTarget(target) {
+  if (!target) return;
+  if (target.kind === "site") {
+    state.pendingProjectId = target.id;
+    activateView("explorer");
+    if (state.explorerLoaded) selectProject(target.id);
+  } else if (target.kind === "moratorium") {
+    activateView("moratoriums");
+    loadMoratoriumsData().then(() => {
+      const m = state.moratoriums.find((x) => x.id === target.id);
+      if (m) showMoratoriumDetail(m);
+    });
+  } else if (target.kind === "policy") {
+    setActiveSubtab("pol", "directory");
+    activateView("policies");
+    loadPoliciesData().then(() => {
+      const pol = (state.policies || []).find((x) => x.id === target.id);
+      if (pol) showPolicyDetail(pol);
+    });
+  } else if (target.kind === "agreement") {
+    openAgreement(target.id);
+  } else if (target.kind === "ratecase") {
+    openRateCase(target.id);
+  } else if (target.kind === "roster") {
+    goToPledgeTarget("roster");
+  }
+}
+
+// Open the rate-case list on one case: clear the status filter so it is
+// listed, then scroll to it and flag it for the reader.
+function openRateCase(id) {
+  goToPledgeTarget("ratecases");
+  const sel = document.getElementById("rc-status-filter");
+  loadTariffsData().then(() => {
+    if (sel && sel.value) {
+      sel.value = "";
+      renderRateCases();
+    }
+    const li = document.getElementById(`rc-${id}`);
+    if (!li) return;
+    li.classList.add("is-target");
+    li.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 }
 
 // Every hero affordance (stat tiles + pathway cards) routes through one place,
@@ -3772,6 +3962,7 @@ const PLEDGE_TARGETS = {
   companies: { view: "comparison", anchor: null },
   tariffs: { view: "tariffs", anchor: null },
   policies: { view: "policies", anchor: null },
+  agreements: { view: "agreements", anchor: null },
 };
 
 // --------------------------------------------------------------------------
@@ -3842,6 +4033,7 @@ const SUBTAB_GROUPS = {
   sites: ["map", "contested", "states"],
   tar: ["ratecases", "tariffs", "elements"],
   pol: ["principles", "latest", "directory"],
+  cba: ["strongest", "all", "features"],
   mor: ["directory", "trends", "influence"],
 };
 
@@ -3854,6 +4046,7 @@ const VIEW_SUBTAB_GROUP = {
   explorer: "sites",
   tariffs: "tar",
   policies: "pol",
+  agreements: "cba",
   moratoriums: "mor",
 };
 
@@ -4085,7 +4278,7 @@ async function exportComparisonToPDF() {
 // --------------------------------------------------------------------------
 function _filteredProjects() {
   const { company, status, stance, state: stateFilter, theme, constituency } = state.explorerFilters;
-  let list = [...state.projects];
+  let list = state.projects.filter((p) => matchesSiteQuery(p, state.explorerFilters.q));
   if (company) list = list.filter((p) => p.company_slug === company);
   if (stateFilter) list = list.filter((p) => p.state === stateFilter);
   if (status) list = list.filter((p) => p.status === status);
@@ -5050,6 +5243,8 @@ function syncExplorerFilterUIToState() {
   const sn = document.getElementById("f-stance");
   const cn = document.getElementById("f-constituency");
   const so = document.getElementById("f-sort");
+  const q = document.getElementById("f-q");
+  if (q) q.value = f.q || "";
   if (co) co.value = f.company || "";
   if (stt) stt.value = f.state || "";
   if (st) st.value = f.status || "";
@@ -5146,9 +5341,13 @@ const SITE_UPDATE_LABELS = {
 const CONTESTED_TIMELINE_PREVIEW = 3;
 const CONTESTED_PAGE_SIZE = 12;
 
-// Today's date as YYYY-MM-DD in UTC, matching how every record stores dates.
+// Today as YYYY-MM-DD on the READER's calendar. UTC would turn a same-day
+// hearing into "Outcome not yet recorded" every US evening, once UTC has
+// rolled over (Codex, PR #62).
 function todayIso() {
-  return new Date().toISOString().slice(0, 10);
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 // One merged, dated event list for a site. A typed update is a fact (a vote
@@ -5282,9 +5481,12 @@ function renderContestedSites() {
   // "N contested →" link sets the Explorer company filter, and the reader
   // expects that operator here too.
   const coSel = document.getElementById("c-company");
-  if (coSel && state.explorerFilters.company && coSel.dataset.synced !== state.explorerFilters.company) {
-    coSel.value = state.explorerFilters.company;
-    coSel.dataset.synced = state.explorerFilters.company;
+  // Synced on every change of the shared filter, including back to "" when
+  // Map & list's Reset clears it (Codex, PR #62).
+  const shared = state.explorerFilters.company || "";
+  if (coSel && coSel.dataset.synced !== shared) {
+    coSel.value = shared;
+    coSel.dataset.synced = shared;
   }
   const fState = (document.getElementById("c-state") || {}).value || "";
   const fCo = (coSel || {}).value || "";
@@ -5386,6 +5588,10 @@ function wireExplorerFilters() {
   if (root && root.dataset.wired === "1") return;
   if (root) root.dataset.wired = "1";
 
+  document.getElementById("f-q").addEventListener("input", (e) => {
+    state.explorerFilters.q = e.target.value.trim();
+    refreshExplorer();
+  });
   document.getElementById("f-company").addEventListener("change", (e) => {
     state.explorerFilters.company = e.target.value;
     refreshExplorer();
@@ -5832,9 +6038,34 @@ function refreshExplorer() {
   writeFiltersToUrl();
 }
 
+// Free-text site search: name, place, operator. Every word must match, so
+// "memphis xai" narrows rather than widens.
+function matchesSiteQuery(p, q) {
+  if (!q) return true;
+  const co = state.companiesBySlug.get(p.company_slug);
+  const words = [p.name, p.city, STATE_NAMES[p.state], co && co.name, p.company_slug]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean);
+  // Each query word must start a word in the record. A two-letter state
+  // code means that state only: "va" finds Virginia, not Nevada or "Valley".
+  return q
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean)
+    .every((w) =>
+      w.length === 2 && STATE_NAMES[w.toUpperCase()]
+        ? w === String(p.state).toLowerCase()
+        : words.some((x) => x.startsWith(w))
+    );
+}
+
 function filteredProjects() {
   const f = state.explorerFilters;
   const items = state.projects.filter((p) => {
+    if (!matchesSiteQuery(p, f.q)) return false;
     if (f.company && p.company_slug !== f.company) return false;
     if (f.state && p.state !== f.state) return false;
     if (f.status && p.status !== f.status) return false;
@@ -6718,7 +6949,7 @@ function closeStatePanel() {
   }
   const ret = state._stateReturnFocus;
   state._stateReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 function wireStatePanel() {
