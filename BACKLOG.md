@@ -135,8 +135,8 @@ Nothing due.
 |---|---|---|
 | `state:TX` | Texas | never reviewed; 28 records |
 | `state:OH` | Ohio | never reviewed; 24 records |
+| `state:CA` | California | never reviewed; 20 records |
 | `state:IN` | Indiana | never reviewed; 19 records |
-| `state:VA` | Virginia | never reviewed; 18 records |
 
 **Then, companies**
 
@@ -147,12 +147,14 @@ Nothing due.
 | `company:oracle` | Oracle (3 tracked sites) | never reviewed; record curated 2026-05-16 (4.8x target) |
 | `company:qts` | QTS (14 tracked sites) | never reviewed; record curated 2026-05-16 (4.8x target) |
 
-**Coming up in the next 30 days (21)**
+**Coming up in the next 30 days (27)**
 
 | Due | Unit | Check |
 |---|---|---|
+| 2026-10-09 | `state:CA` | Oakland council Oct 6 vote on 45-day data center moratorium (oakland-ca-2026-09) |
 | 2026-10-09 | `state:CA` | San Francisco Walton 45-day moratorium: Board vote outcome? |
 | 2026-10-09 | `state:NC` | Beaufort County NC: Oct 5 hearing/vote outcome still unconfirmed; Forsyth County: any formal moratorium vote? |
+| 2026-10-09 | `state:NC` | Raleigh council Oct 6 vote on six-month moratorium (raleigh-nc-2026-09); find Cary's late-Aug enactment date to add it |
 | 2026-10-09 | `state:NM` | Grant County: board formally considers a moratorium Oct 8 (only a notice of intent passed Sept 24) — adopted? |
 | 2026-10-10 | `state:CA` | Mendocino County: Oct 6 extension hearing outcome (urgency ordinance expires Oct 16) — extended or lapsed? |
 | 2026-10-10 | `state:FL` | Manatee County Ordinance 26-42: Oct 6 second hearing outcome — adopted? |
@@ -162,22 +164,30 @@ Nothing due.
 | 2026-10-14 | `state:CO` | Moffat County: decision Oct 13 — outcome? |
 | 2026-10-14 | `state:FL` | Leon County: 18-month moratorium final hearing Oct 13 — adopted? |
 | 2026-10-15 | `state:OH` | moratorium `cleveland-city-2026-04` (Cleveland) reaches its computed end date 2026-10-15: lapsed, extended, or replaced by a permanent rule? |
+| 2026-10-15 | `state:OK` | OG&E large-load tariff: find the OCC cause number to add it as a proposed tariff |
+| 2026-10-15 | `state:TN` | Crossville TN moratorium: find third-reading date and ordinance number to add it |
 | 2026-10-15 | `state:TX` | TWDB reports to Gov. Abbott Oct 14 on penalizing data centers that skip water-use reporting (texas-state-2026-08) |
 | 2026-10-16 | `state:CA` | Indio's extended moratorium (indio-ca-2026-06) expires Oct 16 2026 -- permanent ban adopted, extended again, or lapsed? |
 | 2026-10-17 | `state:CA` | Indio: moratorium expired Oct 16 — permanent ban adopted, extended, or lapsed? |
 | 2026-10-17 | `state:IL` | Bloomington: Planning Commission hearing Oct 16 toward a permanent data-center ordinance (bloomington-il-2026-05); second hearing Nov 16 |
 | 2026-10-20 | `company:anthropic` | Fluidstack TX/NY campuses: has Anthropic or Fluidstack named a town yet? (anthropic.com/news, fluidstack.io/blog) |
 | 2026-10-20 | `state:IN` | Fort Wayne: council reconsiders the 365-day pause on its own actions in mid-October (postponed 3 weeks on Sept 23) |
+| 2026-10-20 | `state:TX` | TCEQ compliance report due Oct 19 on the data center permit pause (texas-state-2026-08) |
+| 2026-10-21 | `state:FL` | Volusia County final hearing Oct 20 on data center ban (volusia-county-fl-ban-2026); Florida SB 484 large-load tariff filings (TECO Sept 30, FPL Oct 1) need PSC docket numbers |
 | 2026-10-21 | `state:VA` | Loudoun County: Board resolution Oct 20 pausing its OWN legislative approvals (NOT a moratorium; see loudoun-county-va-2026-09) — adopted? Update the record's status/summary only. |
 | 2026-10-29 | `state:CO` | Colorado PUC evidentiary hearing Oct 21–28 on Xcel's large-load tariff (xcel-colorado-large-load-tariff) |
 | 2026-11-04 | `state:OH` | Nov 3 ballot: ~18 local data-center charter amendments/bans (Ohio Capital Journal Sept 14, Cloudflare-walled), incl. Trenton; and the Butler County 25 MW citizen measure tied to Amazon's $5B plan — record outcomes |
 | 2026-11-06 | `state:NC` | Charlotte: the original 150-day pause expires Nov 5 — was staff's 9-month extension adopted? (charlotte-city-2026-06; the Sept 14 vote outcome was never found) |
 
-**Reviewed or checked in the last 14 days (18)**
+**Reviewed or checked in the last 14 days (22)**
 
-- 2026-10-07 `state:NC` (check): Raleigh: no report yet of the Oct 6 council vote on the six-month moratorium; record unchanged.
-- 2026-10-07 `state:FL` (check): Manatee Ord. 26-42: no report yet of the Oct 6 second-hearing outcome; record unchanged.
-- 2026-10-07 `state:CA` (check): Mendocino: no report yet of the Oct 6 extension hearing outcome (searches found only pre-hearing coverage); record unchanged.
+- 2026-10-08 `state:TX` (check): 2026-10-08 v5 refresh: Texas record gains the Sept 21 TCEQ permit pause
+- 2026-10-08 `state:TN` (check): 2026-10-08 v5 refresh: Crossville TN two-year moratorium held, no enactment date on the page
+- 2026-10-08 `state:OK` (check): 2026-10-08 v5 refresh: OG&E 75 MW+ large-load tariff proposal held, no OCC cause number
+- 2026-10-08 `state:NC` (check): 2026-10-08 v5 refresh: added Raleigh proposed moratorium; Cary held (no enacted date on page); Duke Oct 7 tariff settlement
+- 2026-10-08 `state:FL` (check): 2026-10-08 v5 refresh: added Volusia County ban ordinance (first reading)
+- 2026-10-08 `state:CA` (check): 2026-10-08 v5 refresh: added Oakland (proposed) and Tulare extension moratoriums, four Sept 21 data center laws
+- 2026-10-08 `state:AZ` (check): 2026-10-08 v5 refresh: added Pima County 120-day moratorium
 - 2026-10-05 `site:meta-prineville-or` (review): Checked news and source link; added Apr 2026 contractor layoff note; datacenters.atmeta.com/location/prineville/ returns 404 (needs new URL, not swapped); permits not checked
 - 2026-10-02 `state:PA` (check): Oct 1 PUC meeting: Tentative Order on emergency load control approved; 30-day comments + 15-day replies; Nov 17 technical conference on large-load cost allocation; final order anticipated Jan 28 2027 (PUC press release).
 - 2026-10-02 `site:google-van-buren-mi` (check): Wayne Co. Commission overrode Evans' veto 13-0 on Oct 1 (Fox 2); MPSC voted unanimously Oct 1 to conditionally approve DTE contracts (Planet Detroit; docket number not stated there). Added 2 responses + notes.
@@ -186,11 +196,7 @@ Nothing due.
 - 2026-09-30 `site:google-the-dalles-or` (review): Checked status/figures/news; added resp-google-dalles-mthood-water-2026 (OPB, Jan 2026): Google's Dalles water use now ~1/3 of city supply, city seeking federal legislation to expand Mount Hood reservoir without standard Forest Service review, WaterWatch/Bark objected; captured_at bumped.
 - 2026-09-30 `site:google-mesa-az` (review): Checked status/figures (Phase III design-review submittal from Oct 2025/Mar 2026 predates capture; no post-2026-05 news); no community-response or news changes found; captured_at bumped.
 - 2026-09-29 `site:google-council-bluffs-ia` (review): Checked status/figures, links, ratepayer eligibility (pre-pledge, none due), and news since 2026-05-14. Fixed a dead source_url (datacenters.google/locations/council-bluffs/ now 404s) to the live iowa page. Re-captured 3 claims with updated figures (investment $6.8B->$20B statewide, 2025 economic activity $2.1B->$2.7B, education orgs/Iowans updated); water grade-stabilization claim unchanged. Added a mixed CommunityResponse: the mayor's June 2026 moratorium request was unanimously declined by city council. Filed a lead for an untracked Cedar Rapids Google site.
-- 2026-09-29 `company:crusoe` (review): Checked the Abilene community page (jobs/tax/water figures unchanged) and newsroom. Confirmed crusoe-cheyenne-wy's operator handoff to Google (Project Tembo, Jupiter Star Holdings LLC, 2.7GW/716ac) and updated power_mw + notes; company_slug migration to google deferred as a lead. Added one new site, crusoe-warrenton-mo (announced, tax-abatement sourced).
-- 2026-09-27 `site:aws-new-carlisle-in` (review): Checked status/figures (unchanged), IDEM wetlands and dewatering developments since 2026-05-14. Added 2 CommunityResponses: St. Joseph Co. Drainage Board's 2026-05-04 approval of Amazon's altered dewatering proposal (mixed, local_government) and a 2026-07-09 IDEM public hearing on Amazon's new wetlands-fill permit application where NGOs urged denial (negative, ngo). Appended a dated notes sentence on the pending wetlands permit (comment period closed 2026-07-17, decision pending).
-- 2026-09-27 `site:aws-loudoun-va` (review): Re-checked AWS US-East-1 (Ashburn) source links (both live); no verified change to status/investment/jobs. Couldn't independently re-confirm $91.5B/20,700-jobs provenance against AWS's own aboutamazon.com Virginia page ($51.9B 2011-2021 + $35B planned through 2040, 8,710 FTE 2021) -- filed as a lead rather than guessing a correction. New GWU/Bridgefield opposition news belongs to the separately-tracked aws-ashburn-gwu-va project, not this one.
-- 2026-09-27 `company:coreweave` (review): Bumped last_reviewed; checked newsroom (no new US community-impact commitments beyond tracked sites). Cedar Creek TX lead still blocked (DCD 403). Elk Grove Village IL bond/lease/revenue figures now corroborated by a Bloomberg-sourced wire story (GuruFocus via TradingView) but still lack a first-party source, so not promoted to a Project; BACKLOG.md updated.
-- …and 3 more (see `data/refresh_ledger.json`).
+- …and 7 more (see `data/refresh_ledger.json`).
 <!-- refresh-queue:end -->
 
 ---
