@@ -481,3 +481,43 @@ class TestBuildOutputs:
             f"First-paint payloads grew to {first_paint} bytes. "
             "Re-run `python refresh.py` (without --pretty) before shipping."
         )
+
+
+class TestSiteUpdates:
+    """v5 (2026-10-08): typed local timelines on Project.updates."""
+
+    @pytest.fixture(scope="class")
+    def updates(self) -> list[tuple[str, dict]]:
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        return [(p["id"], u) for p in raw for u in p.get("updates") or []]
+
+    def test_some_sites_carry_a_timeline(self, updates) -> None:
+        assert len({pid for pid, _ in updates}) >= 10
+
+    def test_no_bare_homepage_sources(self, updates) -> None:
+        # A homepage "resolves" while proving nothing -- the moratorium
+        # tab's fabricated records all cited one (CLAUDE.md, IA v4).
+        from urllib.parse import urlparse
+
+        # A WordPress "/?p=123" permalink is an article, not a homepage.
+        bare = [
+            (pid, u["source_url"])
+            for pid, u in updates
+            if urlparse(u["source_url"]).path in ("", "/") and not urlparse(u["source_url"]).query
+        ]
+        assert bare == []
+
+    def test_past_events_are_not_in_the_future(self, updates) -> None:
+        # Only an announced date may sit ahead of the capture; a past event
+        # dated in the future is a typo or a guessed date.
+        today = date.today().isoformat()
+        future = [(pid, u["date"]) for pid, u in updates if not u.get("upcoming") and u["date"] > today]
+        assert future == []
+
+    def test_each_timeline_is_sorted_and_deduped(self) -> None:
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        for p in raw:
+            ups = p.get("updates") or []
+            assert [u["date"] for u in ups] == sorted(u["date"] for u in ups), p["id"]
+            keys = [(u["date"], u["source_url"]) for u in ups]
+            assert len(keys) == len(set(keys)), p["id"]

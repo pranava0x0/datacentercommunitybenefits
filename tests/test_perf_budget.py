@@ -32,7 +32,8 @@ FIRST_PAINT = [
     "styles.css",
     "app.js",
     "data/companies.json",  # preloaded
-    "data/claims.json",  # preloaded
+    # claims.json left first paint in v5: Home never shows a claim (see
+    # ensureCompanyData / ensureClaimsData in app.js). Companies loads it.
     "data/projects.json",  # Ratepayer scorecard + principle tallies
     "data/signatories.json",  # roster counts + coverage
     "data/coverage.json",  # per-state rollup (~2 KB) so the grid needn't pull 50 KB
@@ -42,7 +43,7 @@ FIRST_PAINT = [
 # decorates below-the-fold cards (the concern flags), so it is split out of
 # loadProjectData deliberately — see loadResponseData in app.js. rate_cases.json
 # fills the Home "What's next" list the same way — see loadRateCasesData.
-DEFERRED = ["data/responses.json", "data/rate_cases.json"]
+DEFERRED = ["data/responses.json", "data/rate_cases.json", "data/claims.json"]
 
 # Payloads that must NOT be part of first paint — they belong to a tab the
 # visitor has not opened yet.

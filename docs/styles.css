@@ -1287,31 +1287,6 @@ main {
   gap: 6px 10px;
 }
 
-.project-stance-row {
-  display: inline-flex;
-  gap: 4px;
-  margin-top: 4px;
-}
-
-.stance-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.stance-dot.positive {
-  background: var(--stance-positive);
-}
-
-.stance-dot.mixed {
-  background: var(--stance-mixed);
-}
-
-.stance-dot.negative {
-  background: var(--stance-negative);
-}
-
 /* ==========================================================================
    Comparison view: matrix help line + company-detail pop-out
    ========================================================================== */
@@ -3134,13 +3109,6 @@ main {
   flex-shrink: 0;
 }
 
-.agg-status-pills {
-  display: inline-flex;
-  gap: 0.2rem;
-  margin-left: 0.35rem;
-  vertical-align: middle;
-}
-
 .responses-col {
   min-width: 8rem;
 }
@@ -4423,7 +4391,6 @@ nav {
   .matrix-wrap { overflow: visible; }
   .matrix { width: 100%; border-collapse: collapse; font-size: 9pt; }
   .matrix th, .matrix td { border: 0.5pt solid #ccc; padding: 4pt 6pt; }
-  .matrix .cell .count.check { color: #2f7a4d; font-weight: bold; }
   .matrix .cell.empty { color: #999; }
   .col-company { font-weight: 600; text-align: left; }
 
@@ -6285,11 +6252,11 @@ button.depth-chip:focus-visible {
   position: relative;
   z-index: 1;
 }
-.tl-response .tl-dot { background: var(--surface); border: 2px solid var(--text-muted); }
-.tl-positive .tl-dot { border-color: var(--stance-positive); }
-.tl-mixed .tl-dot { border-color: var(--stance-mixed); }
-.tl-negative .tl-dot { border-color: var(--stance-negative); }
-.tl-kind-lawsuit .tl-dot { background: var(--stance-negative); }
+.tl-item[data-kind="response"] .tl-dot { background: var(--surface); border: 2px solid var(--text-muted); }
+.tl-item[data-stance="positive"] .tl-dot { border-color: var(--stance-positive); }
+.tl-item[data-stance="mixed"] .tl-dot { border-color: var(--stance-mixed); }
+.tl-item[data-stance="negative"] .tl-dot { border-color: var(--stance-negative); }
+.tl-item[data-kind="lawsuit"] .tl-dot { background: var(--stance-negative); }
 .tl-body p { margin: 0; }
 .tl-meta {
   display: flex;

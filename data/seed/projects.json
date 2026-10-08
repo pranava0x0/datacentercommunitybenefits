@@ -310,7 +310,37 @@
             "note": "The QTS Fayetteville site page makes no statement about funding energy infrastructure or shielding the local utility's existing customers."
           }
         }
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-05-11",
+          "kind": "news",
+          "title": "Records show ~$147,000 retroactive water bill to the QTS campus, which QTS later paid",
+          "summary": "A county letter written in May 2025 and released through an open records request describes the retroactive billing. The article is dated May 11, 2026.",
+          "upcoming": false,
+          "source_url": "https://thecitizen.com/?p=246504",
+          "source_title": "The Citizen — Behind Fayette's QTS water controversy: A missed meter, 8,000 workers and a massive construction project"
+        },
+        {
+          "date": "2026-07-13",
+          "kind": "news",
+          "title": "County records show 20.6 million gallons billed on one QTS water line",
+          "summary": "Billing records show the single water line was billed for 20.6 million gallons and that all 13 lines were billed for 109 million gallons.",
+          "authority": "Fayette County",
+          "upcoming": false,
+          "source_url": "https://www.atlantanewsfirst.com/2026/07/13/records-raise-questions-about-georgias-largest-data-center-its-water-use/",
+          "source_title": "Atlanta News First — Records raise questions about Georgia's largest data center and its water use"
+        },
+        {
+          "date": "2026-07-16",
+          "kind": "news",
+          "title": "Report alleges 30M gallons of unbilled water; county cites a meter billing error",
+          "summary": "The article reports an allegation that the facility consumed 30 million gallons of unbilled water during a drought after officials in a metro Atlanta county investigated. It does not report a finding.",
+          "upcoming": false,
+          "source_url": "https://atlantatribune.com/2026/07/16/data-center-in-fayetteville-investigated-for-water-usage/",
+          "source_title": "Atlanta Tribune — Data center in Fayetteville investigated for water usage"
+        }
+      ]
     },
     {
       "id": "qts-salem-twp-pa",
@@ -414,7 +444,38 @@
       "at_a_glance": {
         "jobs": "Original Crusoe estimate: $50B / 5,000 jobs — superseded, Crusoe exited Apr 2026, no confirmed operator",
         "energy": "2,700 MW site plan (\"Project Tembo\") — Google confirmed as owner/operator July 2026, Crusoe exited as developer Apr 2026"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-05-04",
+          "kind": "news",
+          "title": "Petition for Laramie County data center moratorium aims for 7,000 signatures",
+          "summary": "Organizers led by Heather Madrid circulated a petition seeking a temporary halt to new data center approvals, permitting and construction.",
+          "upcoming": false,
+          "source_url": "https://cowboystatedaily.com/2026/05/04/with-up-to-70-cheyenne-area-data-centers-in-the-works-petition-calls-for-pause/",
+          "source_title": "Cowboy State Daily — With up to 70 Cheyenne-area data centers in the works, petition calls for pause"
+        },
+        {
+          "date": "2026-05-11",
+          "kind": "news",
+          "title": "Cheyenne councilman proposes 12-month data center moratorium",
+          "summary": "The proposal follows the grassroots petition. The article says it will go before the City Council on a Monday night and does not give a date.",
+          "authority": "Cheyenne City Council",
+          "upcoming": false,
+          "source_url": "https://cowboystatedaily.com/2026/05/11/cheyenne-data-center-surge-prompts-push-for-12-month-moratorium/",
+          "source_title": "Cowboy State Daily — Cheyenne residents push for 12-month data center moratorium"
+        },
+        {
+          "date": "2026-05-26",
+          "kind": "vote",
+          "title": "Cheyenne council rejects 12-month data center moratorium, 9-1",
+          "summary": "The meeting began Tuesday night and ran past midnight; the article is dated May 27, 2026, and does not give the vote date. Ward 3 Councilman Mark Moody cast the only vote in favor.",
+          "authority": "Cheyenne City Council",
+          "upcoming": false,
+          "source_url": "https://www.wyomingnews.com/news/local_news/city-council-votes-down-proposed-12-month-data-center-moratorium/article_f24f76a1-f4af-4aec-9a8c-71a598f66d33.html",
+          "source_title": "Wyoming News — City council votes down proposed 12-month data center moratorium"
+        }
+      ]
     },
     {
       "id": "meta-richland-la",
@@ -443,7 +504,28 @@
         "infrastructure": "$1.6B contracted with local businesses; $215M to Entergy bill-assistance programs"
       },
       "serving_utility": "Entergy Louisiana",
-      "serving_utility_signatory_id": "entergy-corporation"
+      "serving_utility_signatory_id": "entergy-corporation",
+      "updates": [
+        {
+          "date": "2025-08-20",
+          "kind": "vote",
+          "title": "Louisiana PSC approves Entergy settlement for gas plant serving Meta data center, 4-1",
+          "summary": "The settlement concerns the gas generation plan for Meta's Richland Parish data center. The article is dated August 20, 2025 and refers to Wednesday's meeting.",
+          "authority": "Louisiana Public Service Commission",
+          "upcoming": false,
+          "source_url": "https://www.knoe.com/2025/08/20/louisiana-public-service-commission-approves-settlement-meta-data-center-gas-plant/",
+          "source_title": "KNOE — Louisiana Public Service Commission approves settlement for Meta data center gas plant"
+        },
+        {
+          "date": "2026-05-26",
+          "kind": "news",
+          "title": "Report: Louisiana ratepayers could bear billions in data center power costs",
+          "summary": "The report says a December 2025 LPSC rule lets data center developers pay 50% of new power infrastructure costs, leaving consumers responsible for the balance through higher bills. The article is dated May 26, 2026.",
+          "upcoming": false,
+          "source_url": "https://www.all4energy.org/watchdog/report-finds-ratepayers-could-be-left-with-data-center-costs/",
+          "source_title": "All4Energy — New report finds ratepayers could be left with half the cost"
+        }
+      ]
     },
     {
       "id": "microsoft-la-porte-in",
@@ -672,7 +754,27 @@
         "jobs": "$1.5B / 400 ops jobs",
         "water": "Groundwater concerns — NYT documented neighbor well failures Jul 2025",
         "energy": "1,120 MW campus, 416 ac"
-      }
+      },
+      "updates": [
+        {
+          "date": "2025-07-14",
+          "kind": "news",
+          "title": "Neighbors say their well ran dry after construction began; Meta says its campus is an unlikely cause",
+          "summary": "Residents Beverly and Jeff Morris say their wells began failing after construction began in 2018. The article is dated July 14, 2025.",
+          "upcoming": false,
+          "source_url": "https://www.myheraldreview.com/free_access/their-water-taps-ran-dry-when-meta-built-next-door/article_977dc88a-b171-4a91-8043-8770ec35d1c5.html",
+          "source_title": "Herald Review — Their water taps ran dry when Meta built next door"
+        },
+        {
+          "date": "2026-05-27",
+          "kind": "news",
+          "title": "Neighbors report muddy, unusable well water near Meta Georgia campus",
+          "summary": "Neighbors say their well water is muddy and unusable.",
+          "upcoming": false,
+          "source_url": "https://www.wsbtv.com/news/local/north-georgia-neighbors-say-data-center-responsible-dirty-well-water/YERXGUYXHVAGPIAPQJ6ILVC4BQ/",
+          "source_title": "WSB-TV — North Georgia neighbors say data center responsible for dirty well water"
+        }
+      ]
     },
     {
       "id": "google-the-dalles-or",
@@ -697,7 +799,28 @@
       "at_a_glance": {
         "jobs": "$1.8B / 200 ops jobs",
         "water": "Uses ~1/3 of city water; city seeking reservoir expansion"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-01-15",
+          "kind": "news",
+          "title": "OPB reports Google's three local data centers used a third of The Dalles' water",
+          "summary": "The report says the city plans to raise its reservoir dam, expanding capacity from 900 to about 3,000 acre-feet at an estimated $70 million. The article was updated January 23, 2026.",
+          "upcoming": false,
+          "source_url": "https://www.opb.org/article/2026/01/15/as-googles-water-demands-grow-the-dalles-aims-to-pull-more-from-mount-hood-forest/",
+          "source_title": "OPB — As Google's water demands grow, The Dalles aims to pull more from Mount Hood forest"
+        },
+        {
+          "date": "2026-01-23",
+          "kind": "news",
+          "title": "Mayor disputes OPB data center water story; OPB stands by reporting",
+          "summary": "Mayor Richard Mays posted a response citing inaccuracies in the article. OPB said the corrected error does not change the article's foundational points.",
+          "authority": "City of The Dalles",
+          "upcoming": false,
+          "source_url": "https://opb.org/article/2026/01/23/the-dalles-mayor-data-center-google",
+          "source_title": "OPB — The Dalles mayor calls OPB's data center story inaccurate. Here are the facts"
+        }
+      ]
     },
     {
       "id": "google-council-bluffs-ia",
@@ -774,7 +897,19 @@
       "at_a_glance": {
         "energy": "95+ diesel generators across MS Quincy complex",
         "engagement": "PCHB ordered annual generator emissions testing post-NYT coverage"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-01-27",
+          "kind": "vote",
+          "title": "Grant PUD approves rate increase; largest power users up 9.5% on average from April 1",
+          "summary": "Large power-using customers in Tier 1 and Tier 2 will see an average 9.5% increase on April 1, 2026.",
+          "authority": "Grant County Public Utility District",
+          "upcoming": false,
+          "source_url": "https://www.grantpud.org/blog/commission-recap-1-27-2026-rate-increase-approved",
+          "source_title": "Grant PUD — Commission recap 1/27/2026: rate increase approved"
+        }
+      ]
     },
     {
       "id": "ms-goodyear-az",
@@ -825,7 +960,19 @@
         "jobs": "$91.5B / 20,700 jobs — largest tracked site",
         "tax_revenue": "Anchor of Loudoun's data-center tax base (US-East-1)",
         "engagement": "Noise + zoning pushback; Loudoun tightened DC standards post-2024"
-      }
+      },
+      "updates": [
+        {
+          "date": "2025-03-18",
+          "kind": "vote",
+          "title": "Loudoun supervisors vote 7-2 to end by-right data center zoning",
+          "summary": "Data centers now need a special exception in zoning districts where they had been allowed by right.",
+          "authority": "Loudoun County Board of Supervisors",
+          "upcoming": false,
+          "source_url": "https://www.mcguirewoods.com/client-resources/alerts/2025/4/loudoun-county-eliminates-by-right-use-for-data-centers-increasing-development-hurdles/",
+          "source_title": "McGuireWoods — Loudoun County eliminates by-right use for data centers, increasing development hurdles"
+        }
+      ]
     },
     {
       "id": "aws-new-carlisle-in",
@@ -853,7 +1000,48 @@
         "jobs": "$11B / 1,000 jobs (Project Rainier, operational Oct 2025)",
         "water": "Residential well failures reported locally; IDEM wetland citations",
         "infrastructure": "Anthropic primary tenant"
-      }
+      },
+      "updates": [
+        {
+          "date": "2025-05-29",
+          "kind": "news",
+          "title": "Indiana DNR investigating six residential well failures near Amazon and GM sites",
+          "authority": "Indiana Department of Natural Resources",
+          "upcoming": false,
+          "source_url": "https://www.wvpe.org/wvpe-news/2025-05-29/state-investigates-nearby-well-failures-as-amazon-gm-build",
+          "source_title": "WVPE — State investigates nearby well failures as Amazon, GM build"
+        },
+        {
+          "date": "2025-08-14",
+          "kind": "news",
+          "title": "Amazon told to reapply for its New Carlisle wetland permit, report says",
+          "summary": "A contractor impacted almost an acre of emergent wetland without authorization, and Amazon must reapply for the wetland permit.",
+          "authority": "Indiana Department of Environmental Management",
+          "upcoming": false,
+          "source_url": "https://www.wvpe.org/wvpe-news/2025-08-14/amazon-looking-to-resubmit-idem-application-after-contractors-unauthorized-wetland-impact",
+          "source_title": "WVPE — Amazon looking to resubmit IDEM application after contractor's unauthorized wetland impact"
+        },
+        {
+          "date": "2026-03-03",
+          "kind": "vote",
+          "title": "Drainage board tables Amazon's 35-million-gallon-a-day dewatering request",
+          "summary": "Amazon requested up to 35 million gallons of water per day for construction dewatering. Neighbors questioned whether nearby ditches could handle the discharge.",
+          "authority": "St. Joseph County Drainage Board",
+          "upcoming": false,
+          "source_url": "https://www.wsbt.com/news/local/amazon-data-center-dewater-water-pump-gallons-nespodziany-ditch-concerns-community-farmers-fields-crops-request-tabled-discussion-review-clarification-new-carlisle-st-joseph-county-indiana",
+          "source_title": "WSBT — Amazon's request to dewater millions of gallons from data center near New Carlisle tabled"
+        },
+        {
+          "date": "2026-07-08",
+          "kind": "news",
+          "title": "Residents urge IDEM to deny Amazon wetland permit at virtual hearing",
+          "summary": "IDEM held a virtual hearing on a permit to permanently impact 4.88 acres of emergent wetlands, 0.06 acres of scrub-shrub wetlands and 3,986 linear feet of streams. The article, dated July 9, 2026, describes the hearing as held Wednesday.",
+          "authority": "Indiana Department of Environmental Management",
+          "upcoming": false,
+          "source_url": "https://www.abc57.com/news/public-voices-concerns-as-amazon-seeks-permit-to-impact-wetlands-in-new-carlisle",
+          "source_title": "ABC57 — Public voices concerns as Amazon seeks permit to impact wetlands in New Carlisle"
+        }
+      ]
     },
     {
       "id": "aws-cumberland-pa",
@@ -965,7 +1153,38 @@
         "energy": "27→46 unpermitted gas turbines; NAACP/SELC Clean Air Act lawsuit pending",
         "water": "$80M water-recycling plant paused Apr 2026 then recommitted",
         "infrastructure": "$55M for new electrical substations"
-      }
+      },
+      "updates": [
+        {
+          "date": "2025-06-19",
+          "kind": "filing",
+          "title": "NAACP issues notice of intent to sue xAI over Clean Air Act violations",
+          "summary": "The notice, reported in an article dated June 19, 2025, alleges the Colossus data center construction and operation violates the Clean Air Act. The article does not state the notice date.",
+          "upcoming": false,
+          "source_url": "https://www.mealeys.com/mealeys/mealeys-artificial-intelligence/articles/2355484/naacp-files-intent-to-sue-alleging-caa-violations-at-memphis-xai-data-center-",
+          "source_title": "Mealey's — NAACP files intent to sue alleging CAA violations at Memphis xAI data center"
+        },
+        {
+          "date": "2025-07-03",
+          "kind": "permit",
+          "title": "Shelby County Health Department grants xAI permit for 15 permanent turbines",
+          "summary": "The article is dated July 3, 2025 and states the permit was granted after the public comment period closed. The article does not state the decision date.",
+          "authority": "Shelby County Health Department",
+          "upcoming": false,
+          "source_url": "https://www.memphisflyer.com/shelby-county-health-department-grants-air-permit-for-xai-turbines",
+          "source_title": "Memphis Flyer — Shelby County Health Department grants air permit for xAI turbines"
+        },
+        {
+          "date": "2026-04-14",
+          "kind": "lawsuit",
+          "title": "NAACP sues xAI and MZX Tech alleging Clean Air Act violations at Colossus 2",
+          "summary": "The suit, filed in federal court in Mississippi, alleges dozens of gas turbines run without the required federal air permit. The article, posted April 15, 2026, says the suit was filed Tuesday.",
+          "authority": "U.S. District Court (Mississippi)",
+          "upcoming": false,
+          "source_url": "https://www.newser.com/story/387356/lawsuit-communities-at-risk-from-xais-illegal-toxins.html",
+          "source_title": "Newser — Lawsuit: Communities at risk from xAI's illegal toxins"
+        }
+      ]
     },
     {
       "id": "wonder-valley-box-elder-ut",
@@ -991,7 +1210,39 @@
         "jobs": "40,000 ac private + 1,200 ac military/state",
         "energy": "Phase 1 ~3 GW scaling to 7.5-9 GW; on-site gas via Ruby Pipeline",
         "engagement": "Construction slipped to 2028 (announced May 4 2026)"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-05-05",
+          "kind": "news",
+          "title": "Voters file referendum application against county data center approvals",
+          "summary": "A small group of voters filed a referendum application with Box Elder County after the county commission's approval.",
+          "authority": "Box Elder County",
+          "upcoming": false,
+          "source_url": "https://www.sltrib.com/news/politics/2026/05/06/utah-voters-file-referendum/",
+          "source_title": "Salt Lake Tribune — Utah voters file referendum"
+        },
+        {
+          "date": "2026-05-29",
+          "kind": "news",
+          "title": "Governor Cox issues executive order on large data center reviews",
+          "summary": "The order directs state agencies to protect air quality, water quality and utility ratepayers in evaluating large data center proposals.",
+          "authority": "Office of the Governor of Utah",
+          "upcoming": false,
+          "source_url": "https://www.sltrib.com/news/environment/2026/05/29/utah-governor-issues-order-protect",
+          "source_title": "Salt Lake Tribune — Utah governor issues order to protect air, water and ratepayers"
+        },
+        {
+          "date": "2026-06-01",
+          "kind": "news",
+          "title": "Senate President Adams asks developer to cut project area by 75%",
+          "summary": "Adams sent a letter to Kevin O'Leary calling for a 75% reduction in the proposed project area.",
+          "authority": "Utah Senate",
+          "upcoming": false,
+          "source_url": "https://www.kpcw.org/state-regional/2026-06-01/utah-leaders-to-increase-standards-walk-back-data-center-footprint",
+          "source_title": "KPCW — Utah leaders to increase standards, walk back data center footprint"
+        }
+      ]
     },
     {
       "id": "qts-cedar-rapids-ia",
@@ -2048,7 +2299,49 @@
       "at_a_glance": {
         "community_grants": "$1M/building/yr community-betterment payments",
         "energy": "Duane Arnold nuclear restart partnership (Midwest Carbon Free)"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-01-28",
+          "kind": "news",
+          "title": "Records show Google and Palo officials met before annexation push",
+          "summary": "Records obtained through a Freedom of Information Request show the meeting, which KCRG reports came before Palo city leaders stopped working with Linn County.",
+          "authority": "City of Palo",
+          "upcoming": false,
+          "source_url": "https://www.kcrg.com/2026/04/14/i9-investigation-new-documents-detail-palo-annexation-timeline/",
+          "source_title": "KCRG — I-9 investigation: New documents detail Palo annexation timeline"
+        },
+        {
+          "date": "2026-03-24",
+          "kind": "hearing",
+          "title": "Palo town hall on Google data center annexation",
+          "summary": "The town hall was scheduled for 6:00 p.m. at the Palo Community Center gym. The source article is dated March 23, 2026.",
+          "authority": "City of Palo",
+          "upcoming": false,
+          "source_url": "https://www.kcrg.com/2026/03/23/palo-host-town-hall-tuesday-amidst-data-center-questions/",
+          "source_title": "KCRG — Palo to host town hall Tuesday amidst data center questions"
+        },
+        {
+          "date": "2026-06-01",
+          "kind": "hearing",
+          "title": "Palo council public hearing on Google data center ordinance",
+          "summary": "The hearing was scheduled for 7 p.m. Monday during the City Council meeting, per an article dated May 29, 2026.",
+          "authority": "Palo City Council",
+          "upcoming": false,
+          "source_url": "https://www.kcrg.com/2026/05/30/palo-council-hold-public-hearing-google-data-center-ordinance/",
+          "source_title": "KCRG — Palo council to hold public hearing on Google data center ordinance"
+        },
+        {
+          "date": "2026-06-01",
+          "kind": "vote",
+          "title": "Palo council approves first reading of data center ordinance",
+          "summary": "The ordinance is the same version the Planning and Zoning Commission recommended. The article says the next two votes would determine whether Google follows only state water rules.",
+          "authority": "Palo City Council",
+          "upcoming": false,
+          "source_url": "https://www.kcrg.com/2026/06/02/palo-city-council-advances-google-data-center-ordinance",
+          "source_title": "KCRG — Palo city council advances Google data center ordinance"
+        }
+      ]
     },
     {
       "id": "openai-milam-county-tx",
@@ -2251,7 +2544,29 @@
       "at_a_glance": {
         "jobs": "4,000 union construction + 700 OpenAI/Oracle + 330 Vantage ops",
         "infrastructure": "$15B Stargate Lighthouse campus; 1.3 GW / 672 ac"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-03-19",
+          "kind": "vote",
+          "title": "Plan Commission approves limits on outdoor construction hours at data center site",
+          "summary": "The article, dated March 20, 2026, reports the new limit on outdoor construction is 6 a.m. to 8 p.m., effective April 18.",
+          "authority": "Port Washington Plan Commission",
+          "upcoming": false,
+          "source_url": "https://fox6now.com/news/port-washington-data-center-site-city-limit-hours-outdoor-construction-work",
+          "source_title": "FOX6 — Port Washington data center site; city to limit outdoor construction work hours"
+        },
+        {
+          "date": "2026-04-07",
+          "kind": "vote",
+          "title": "Voters require a referendum for future TIF districts of $10M or more (66% yes)",
+          "summary": "The referendum asks whether voters should have a say when the city considers tax incremental financing districts of $10 million or more.",
+          "authority": "City of Port Washington",
+          "upcoming": false,
+          "source_url": "https://www.wuwm.com/port-washington-tid-tax-incremental-financing-districts-referendum-april-election",
+          "source_title": "WUWM — Port Washington TID referendum, April election"
+        }
+      ]
     },
     {
       "id": "amazon-falls-twp-pa",
@@ -2454,7 +2769,47 @@
       "at_a_glance": {
         "jobs": "$20B Colossus 3 / MACROHARD campus",
         "energy": "Third xAI AI campus in greater Memphis corridor"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-02-17",
+          "kind": "hearing",
+          "title": "MDEQ public hearing on xAI Southaven turbine permit; every speaker opposed",
+          "summary": "The hearing was held Tuesday night, per an article published February 17, 2026.",
+          "authority": "Mississippi Department of Environmental Quality",
+          "upcoming": false,
+          "source_url": "https://www.wlox.com/2026/02/18/residents-oppose-xai-southaven-turbines-permit-mdeq-hearing/",
+          "source_title": "WLOX — Residents oppose xAI Southaven turbines permit at MDEQ hearing"
+        },
+        {
+          "date": "2026-03-10",
+          "kind": "permit",
+          "title": "MDEQ grants air permit for xAI Southaven facility",
+          "summary": "The permit allows xAI to use dozens of methane gas turbines at the Southaven facility. The article does not give a turbine count.",
+          "authority": "Mississippi Department of Environmental Quality",
+          "upcoming": false,
+          "source_url": "https://www.wdam.com/2026/03/11/state-approves-xais-use-gas-turbines-southaven/",
+          "source_title": "WDAM — State approves xAI's use of gas turbines in Southaven"
+        },
+        {
+          "date": "2026-06-09",
+          "kind": "lawsuit",
+          "title": "DeSoto County residents file class action over xAI nuisance complaints",
+          "summary": "The class action alleges interference with residents' right to use and enjoy their property. The article, dated June 9, 2026, does not give a filing date.",
+          "upcoming": false,
+          "source_url": "https://www.wlox.com/2026/06/10/class-action-lawsuit-filed-over-xai-complaints-southaven/",
+          "source_title": "WLOX — Class action lawsuit filed over xAI complaints in Southaven"
+        },
+        {
+          "date": "2026-07-31",
+          "kind": "news",
+          "title": "xAI says it will remove all 69 turbines from its Southaven site",
+          "summary": "The company is preparing to remove all 69 turbines from its Stanton Road site and replace them with a permanent 1.2-gigawatt plant with 41 turbines. The article, dated July 31, 2026, gives no MDEQ order date.",
+          "upcoming": false,
+          "source_url": "https://www.actionnews5.com/2026/07/31/xai-announces-fourth-data-center-turbines-be-removed-southaven-site/",
+          "source_title": "Action News 5 — xAI announces fourth data center; turbines to be removed from Southaven site"
+        }
+      ]
     },
     {
       "id": "openai-shackelford-tx",
@@ -2821,7 +3176,29 @@
         "engagement": "Approved 3-2; residents lawsuit filed May 2026"
       },
       "serving_utility": "Georgia Power",
-      "serving_utility_signatory_id": "georgia-power-mississippi-power-alabama-power"
+      "serving_utility_signatory_id": "georgia-power-mississippi-power-alabama-power",
+      "updates": [
+        {
+          "date": "2026-04-07",
+          "kind": "vote",
+          "title": "County commission approves Project Sail rezoning, 3-2",
+          "summary": "The article is dated April 7, 2026 and reports the vote as Tuesday night; other outlets give April 10 or 11, so the exact date is unconfirmed.",
+          "authority": "Coweta County Board of Commissioners",
+          "upcoming": false,
+          "source_url": "https://www.times-herald.com/news/full-sail-ahead-commissioners-approve-project-sail-data-center-in-split-3-2-vote/article_479686a7-f485-47bd-9db1-7624cec24351.html",
+          "source_title": "Times-Herald — Full sail ahead: Commissioners approve Project Sail data center in split 3-2 vote"
+        },
+        {
+          "date": "2026-05-05",
+          "kind": "lawsuit",
+          "title": "Residents file Superior Court appeal to reverse Project Sail rezoning",
+          "summary": "The appeal argues the county abused its zoning powers and that commissioners violated the Georgia Constitution.",
+          "authority": "Coweta County Superior Court",
+          "upcoming": false,
+          "source_url": "https://www.times-herald.com/data_center/coweta-residents-file-appeal-to-reverse-project-sail-zoning-decision/article_819c2d7f-7539-4562-84d7-19026b64a832.html",
+          "source_title": "Times-Herald — Coweta residents file appeal to reverse Project Sail zoning decision"
+        }
+      ]
     },
     {
       "id": "aws-ridgeland-ms",
@@ -4144,7 +4521,19 @@
           }
         }
       },
-      "announced_date": "2026-07-31"
+      "announced_date": "2026-07-31",
+      "updates": [
+        {
+          "date": "2026-03-17",
+          "kind": "news",
+          "title": "Amazon Data Services buys the GWU Ashburn campus for $427 million",
+          "summary": "Amazon Data Services paid $427 million for George Washington University's Science and Technology Campus in Ashburn. The article, dated March 17, 2026, reports the county is prepared to fight to keep data centers off the property; the sale date is not stated.",
+          "authority": "Loudoun County government",
+          "upcoming": false,
+          "source_url": "https://wtop.com/loudoun-county/2026/03/loudoun-county-will-fight-to-keep-amazon-data-center-off-just-sold-gw-campus-in-ashburn/",
+          "source_title": "WTOP — Loudoun County will fight to keep Amazon data center off just-sold GW campus in Ashburn"
+        }
+      ]
     },
     {
       "id": "crusoe-inl-id",

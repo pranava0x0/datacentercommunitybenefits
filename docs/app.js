@@ -554,6 +554,7 @@ const state = {
   selectedProjectId: null,
   pendingProjectId: null,
   explorerLoaded: false,
+  claimsLoaded: false,
   ratepayerLoaded: false,
   signatoriesLoaded: false,
   responsesLoaded: false,
@@ -594,7 +595,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // data and re-wire themselves.
   wirePledgeTargets(document.getElementById("view-overview"));
   wireStatePanel();
-  ensureComparisonData()
+  // Companies is the only landing that needs claims for first paint.
+  const bootData =
+    state.activeView === "comparison" ? ensureComparisonData() : ensureCompanyData();
+  bootData
     .then(() => {
       // Idle-preload projects + responses JSON (NOT Leaflet) so the
       // summary-stats bar can fill in projects / GW / investment / responses
@@ -603,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // the two-payload first-paint strategy is preserved.
       if (state.explorerLoaded || state.projects.length) return;
       const preload = () =>
-        Promise.all([loadProjectData(), loadResponseData()])
+        Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()])
           .then(() => {
             renderPledgeHero();
           })
@@ -819,6 +823,9 @@ function activateView(name) {
   // The totals tables (formerly the "By State & Company" tab) live in the
   // views that own their question: per company on Companies, per state on
   // Sites, per signatory category and per utility on The Pledge.
+  if (target.name === "comparison") {
+    ensureComparisonData().catch((err) => console.error("Failed to load claims:", err));
+  }
   if (["comparison", "explorer", "ratepayer"].includes(target.name)) {
     loadAggregateView().catch((err) => {
       console.error("Failed to load totals tables:", err);
@@ -890,16 +897,61 @@ function activateView(name) {
 // Data loading
 // --------------------------------------------------------------------------
 
+// v5 (2026-10-08): companies and claims are two tiers now. companies.json
+// (8 KB) is first paint everywhere; claims.json (48 KB) is first paint only
+// on Companies, and on every other landing it is fetched after the view has
+// rendered -- Home never shows a claim, and carrying it put first paint at
+// 258 KB against the 250 KB budget once the v5 views landed. Same deferred
+// tier responses.json already uses.
+let _companyDataPromise = null;
+function ensureCompanyData() {
+  if (!_companyDataPromise) {
+    _companyDataPromise = (async () => {
+      const companies = await fetchJson("data/companies.json");
+      state.companies = companies.companies;
+      state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
+      updateDraftBanner(companies.generated_at);
+    })();
+  }
+  return _companyDataPromise;
+}
+
+let _claimsDataPromise = null;
+function ensureClaimsData() {
+  if (!_claimsDataPromise) {
+    _claimsDataPromise = (async () => {
+      const [, claims] = await Promise.all([
+        ensureCompanyData(),
+        fetchJson("data/claims.json"),
+      ]);
+      state.claims = claims.claims;
+      indexClaimsByProject();
+      state.claimsLoaded = true;
+      renderComparisonView();
+      // Views already on screen that quote claims re-render in place.
+      if (state.ratepayerLoaded) renderRatepayerScorecard();
+      if (state.aggregateLoaded) renderAggregateView();
+      document.dispatchEvent(new CustomEvent("dcb:claims-ready"));
+    })();
+  }
+  return _claimsDataPromise;
+}
+
+// claimsByProject needs both payloads; whichever lands second builds it.
+function indexClaimsByProject() {
+  state.claimsByProject = new Map();
+  if (!state.projects.length) return;
+  for (const c of state.claims) {
+    if (!c.project_id) continue;
+    if (!state.claimsByProject.has(c.project_id)) {
+      state.claimsByProject.set(c.project_id, []);
+    }
+    state.claimsByProject.get(c.project_id).push(c);
+  }
+}
+
 async function loadComparisonData() {
-  const [companies, claims] = await Promise.all([
-    fetchJson("data/companies.json"),
-    fetchJson("data/claims.json"),
-  ]);
-  state.companies = companies.companies;
-  state.claims = claims.claims;
-  state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
-  updateDraftBanner(companies.generated_at);
-  renderComparisonView();
+  await Promise.all([ensureCompanyData(), ensureClaimsData()]);
   renderPledgeHero();
 }
 
@@ -922,23 +974,16 @@ let _projectDataPromise = null;
 function loadProjectData() {
   if (!_projectDataPromise) {
     _projectDataPromise = (async () => {
-      // Guarantee state.claims is populated before we index claimsByProject —
-      // otherwise a cold #ratepayer/#explorer deep-link builds an empty index.
+      // Companies only: claims are the deferred tier (see ensureCompanyData).
+      // indexClaimsByProject runs here AND when claims land, so whichever
+      // payload arrives second builds the index.
       const [, projects] = await Promise.all([
-        ensureComparisonData(),
+        ensureCompanyData(),
         fetchJson("data/projects.json"),
       ]);
       state.projects = projects.projects;
       state.projectsById = new Map(state.projects.map((p) => [p.id, p]));
-
-      state.claimsByProject = new Map();
-      for (const c of state.claims) {
-        if (!c.project_id) continue;
-        if (!state.claimsByProject.has(c.project_id)) {
-          state.claimsByProject.set(c.project_id, []);
-        }
-        state.claimsByProject.get(c.project_id).push(c);
-      }
+      indexClaimsByProject();
       // Fill in the projects / GW / investment tiles now that the lazy payload
       // is in hand (companies + claims tiles already showed).
     })();
@@ -1024,7 +1069,7 @@ function buildMoratoriumAffectanceMap() {
 
 async function loadExplorerData() {
   document.getElementById("explorer-meta").textContent = "Loading projects…";
-  await Promise.all([loadProjectData(), loadResponseData()]);
+  await Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()]);
   await ensureLeaflet();
   state.explorerLoaded = true;
   renderExplorerView();
@@ -1144,6 +1189,10 @@ async function loadRatepayerView() {
     );
   }
   renderWhatsNext();
+  // Evidence quotes on the scorecard need claims (deferred tier). Awaited for
+  // the same reason as responses: the ready event means "complete".
+  // ensureClaimsData re-renders the scorecard itself when they land.
+  await ensureClaimsData().catch((err) => console.error("Failed to load claims:", err));
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
 }
 
@@ -1227,6 +1276,7 @@ async function loadAggregateView() {
     loadResponseData(),
     loadTariffsData(),
     loadRateCasesData(),
+    ensureClaimsData(),
   ]).catch((err) => console.error("Aggregate view data load failed:", err));
   state.aggregateLoaded = true;
   renderAggregateView();
@@ -5125,13 +5175,15 @@ function siteTimeline(p) {
 }
 
 function timelineItemHtml(e) {
-  const cls = e.kind === "response" ? `tl-response tl-${e.stance}` : `tl-kind-${e.kind}`;
+  // Kind and stance ride on data- attributes (styled by attribute selector)
+  // rather than interpolated class names, so the dead-CSS guard can see
+  // every class this template applies.
   const flag = e.upcoming
     ? `<span class="tl-flag tl-flag-upcoming">Upcoming</span>`
     : e.awaiting
     ? `<span class="tl-flag tl-flag-awaiting">Outcome not yet recorded</span>`
     : "";
-  return `<li class="tl-item ${cls}">
+  return `<li class="tl-item" data-kind="${escapeAttr(e.kind)}"${e.stance ? ` data-stance="${escapeAttr(e.stance)}"` : ""}>
     <span class="tl-dot" aria-hidden="true"></span>
     <div class="tl-body">
       <p class="tl-meta"><time datetime="${escapeAttr(e.date)}">${escapeHtml(formatAsOf(e.date))}</time>
