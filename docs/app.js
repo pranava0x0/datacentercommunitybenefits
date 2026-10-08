@@ -558,7 +558,6 @@ const state = {
   selectedProjectId: null,
   pendingProjectId: null,
   explorerLoaded: false,
-  claimsLoaded: false,
   ratepayerLoaded: false,
   signatoriesLoaded: false,
   responsesLoaded: false,
@@ -657,6 +656,7 @@ function wireThemeToggle() {
     const cur = document.documentElement.getAttribute("data-theme") || "light";
     const next = cur === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
+    setMapTiles();
     localStorage.setItem("dcb-theme", next);
   });
 }
@@ -934,13 +934,18 @@ function ensureClaimsData() {
       ]);
       state.claims = claims.claims;
       indexClaimsByProject();
-      state.claimsLoaded = true;
-      renderComparisonView();
-      // Views already on screen that quote claims re-render in place.
-      if (state.ratepayerLoaded) renderRatepayerScorecard();
-      if (state.aggregateLoaded) renderAggregateView();
-      document.dispatchEvent(new CustomEvent("dcb:claims-ready"));
     })();
+    // Renders hang off the data promise rather than living inside it, so a
+    // render bug can't reject the promise that Explorer and the totals tables
+    // also await.
+    _claimsDataPromise
+      .then(() => {
+        renderComparisonView();
+        // Views already on screen that quote claims re-render in place.
+        if (state.ratepayerLoaded) renderRatepayerScorecard();
+        if (state.aggregateLoaded) renderAggregateView();
+      })
+      .catch((err) => console.error("Rendering claims failed:", err));
   }
   return _claimsDataPromise;
 }
@@ -1686,18 +1691,25 @@ function renderMoratoriumCharts(moratoriums) {
     // still hidden (a display:none plot has zero scrollWidth, so the first call
     // would be a silent no-op and the surge would clip off-screen again).
     requestAnimationFrame(parkOnRecent);
-    // v5: the charts live in a sub-tab that is hidden on load, so neither
-    // call above has a layout to work with. Park again whenever the Trends
-    // pane is shown. Bound once per plot element.
-    if (!plot.dataset.parkWired) {
-      plot.dataset.parkWired = "1";
-      document.addEventListener("dcb:subtab", (e) => {
-        if (e.detail.group === "mor" && e.detail.key === "trends") {
-          requestAnimationFrame(parkOnRecent);
-        }
-      });
-    }
+    wireMorTimelinePark();
   }
+}
+
+// v5: the charts live in a sub-tab that is hidden on load, so the parks in
+// renderMoratoriumCharts have no layout to work with. Re-park whenever Trends
+// is shown. One document listener for the page's life; it looks the plot up
+// when it fires, because every chart re-render replaces the element.
+let _morParkWired = false;
+function wireMorTimelinePark() {
+  if (_morParkWired) return;
+  _morParkWired = true;
+  document.addEventListener("dcb:subtab", (e) => {
+    if (e.detail.group !== "mor" || e.detail.key !== "trends") return;
+    requestAnimationFrame(() => {
+      const plot = document.querySelector("#moratorium-charts .mtl-plot");
+      if (plot) plot.scrollLeft = plot.scrollWidth;
+    });
+  });
 }
 
 function renderReasonBreakdown(moratoriums) {
@@ -4564,16 +4576,6 @@ function showThemeQuotes(theme, focusSlug, opts = {}) {
   }
 }
 
-// "500 jobs (construction)" / "$5M" — one readable string for a Metric.
-function formatMetric(m) {
-  if (!m || m.value == null) return "";
-  const unit = (m.unit || "").toLowerCase();
-  let v;
-  if (unit === "usd" || unit === "$") v = formatSummaryUsd(m.value);
-  else if (unit === "mw") v = formatPower(m.value);
-  else v = `${Number(m.value).toLocaleString()} ${m.unit || ""}`.trim();
-  return m.kind ? `${v} (${String(m.kind).replace(/_/g, " ")})` : v;
-}
 
 // Profiles: one card per operator. Renders from claims on first paint and
 // re-renders when the projects/responses/roster payloads land.
@@ -4617,10 +4619,14 @@ function renderCompanyCards() {
           <div><dt>Announced investment</dt><dd>${r.capex ? formatSummaryUsd(r.capex) : "Not disclosed"}</dd></div>
           <div><dt>Jobs claimed</dt><dd>${r.jobs ? r.jobs.toLocaleString() : "Not disclosed"}</dd></div>
         </dl>`
+      : projectsLoaded
+      ? `<p class="co-sub muted">No sites tracked yet.</p>`
       : `<p class="co-sub muted">Loading sites…</p>`;
 
     const total = r ? r.positive + r.mixed + r.negative : 0;
-    const response = !r
+    // Responses land after projects; until then a zero tally would read as
+    // "no community responses", which is a finding, not a loading state.
+    const response = !r || !state.responsesLoaded
       ? ""
       : total === 0
       ? `<p class="co-response muted">No community responses recorded yet.</p>`
@@ -4761,6 +4767,7 @@ function wireCompanyDetail() {
       // pre-set state.explorerFilters.company itself.
       state.explorerFilters.company = slug;
       closeCompanyDetail();
+      setActiveSubtab("sites", "map");
       activateView("explorer");
       if (state.explorerLoaded) {
         syncExplorerFilterUIToState();
@@ -5000,6 +5007,9 @@ function renderMetricBadge(m) {
 }
 
 function formatMetric(m) {
+  // Null-safe: this runs inside the Companies render on claims arrival, and a
+  // throw there would leave the quotes panel and the matrix blank.
+  if (!m || m.value == null) return "";
   const v = m.value;
   if (m.unit === "usd") {
     if (v >= 1e9) return `$${(v / 1e9).toFixed(1)}B${m.kind ? ` ${m.kind}` : ""}`;
@@ -6046,20 +6056,38 @@ function renderProjectMap() {
   // Esri's light-gray canvas is keyless with attribution and reads the same.
   // A base layer plus a separate label layer keeps place names above the
   // muted fill.
+  setMapTiles();
+  // The map is often created while its Sites pane is hidden (a #explorer/
+  // contested deep link, or Companies -> "N contested"). Leaflet then caches
+  // a 0x0 size and fits bounds against it; re-measure when the pane shows.
+  document.addEventListener("dcb:subtab", (e) => {
+    if (e.detail.group !== "sites" || e.detail.key !== "map" || !state.map) return;
+    requestAnimationFrame(() => {
+      state.map.invalidateSize();
+      refreshMapMarkers();
+    });
+  });
+
+  refreshMapMarkers();
+}
+
+// Tiles follow the theme: light or dark gray canvas, swapped in place when
+// the theme toggles (they were picked once at creation and went stale).
+function setMapTiles() {
+  if (!state.map || !window.L) return;
+  for (const layer of state.mapTileLayers || []) state.map.removeLayer(layer);
   const esri = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas";
-  const dark = document.documentElement.dataset.theme === "dark";
+  const dark = document.documentElement.getAttribute("data-theme") === "dark";
   const shade = dark ? "World_Dark_Gray" : "World_Light_Gray";
   const tileOpts = {
     attribution: "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors",
     maxZoom: 16,
   };
-  L.tileLayer(`${esri}/${shade}_Base/MapServer/tile/{z}/{y}/{x}`, tileOpts).addTo(state.map);
-  L.tileLayer(`${esri}/${shade}_Reference/MapServer/tile/{z}/{y}/{x}`, {
-    ...tileOpts,
-    attribution: "",
-  }).addTo(state.map);
-
-  refreshMapMarkers();
+  state.mapTileLayers = [
+    L.tileLayer(`${esri}/${shade}_Base/MapServer/tile/{z}/{y}/{x}`, tileOpts),
+    L.tileLayer(`${esri}/${shade}_Reference/MapServer/tile/{z}/{y}/{x}`, { ...tileOpts, attribution: "" }),
+  ];
+  for (const layer of state.mapTileLayers) layer.addTo(state.map);
 }
 
 function refreshMapMarkers() {
@@ -6586,14 +6614,8 @@ function renderStatePanel(code, failedSources = new Set()) {
           .join(" · "),
         onClick: () => {
           closeStatePanel();
-          activateView("tariffs");
-          requestAnimationFrame(() => {
-            const sec = document.getElementById("rate-cases-section");
-            if (sec) {
-              openAccordionsFor(sec);
-              sec.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          });
+          // Sets the Rate cases sub-tab before scrolling (it may be hidden).
+          goToPledgeTarget("ratecases");
         },
       })),
     },
@@ -8334,6 +8356,10 @@ function renderStateRollup(preRows) {
 function selectProject(id) {
   const p = state.projects.find((x) => x.id === id);
   if (!p) return;
+  // The detail panel lives in the Map & list pane; every way in (policy and
+  // state-panel links, company CTA, Contested cards) must land there, not on
+  // whichever Sites pane the reader used last.
+  setActiveSubtab("sites", "map");
   state.selectedProjectId = id;
   const co = state.companiesBySlug.get(p.company_slug);
 

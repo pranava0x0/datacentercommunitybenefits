@@ -3452,3 +3452,42 @@ class TestMobileV5Panes:
                 assert len(tops) == 1, f"{view}: sub-tabs wrap to {len(tops)} rows"
         finally:
             ctx.close()
+
+
+class TestSitesPaneRouting:
+    """PR #62 review: jumps into Sites/Tariffs content must land on the pane
+    that holds it, and a map built inside a hidden pane must re-measure."""
+
+    def test_map_sizes_itself_when_its_pane_is_shown_late(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
+        page.wait_for_function("() => window.__dcb && window.__dcb.state.map", timeout=E2E_WAIT)
+        page.locator("#subtab-sites-map").click()
+        page.wait_for_function("() => state.map.getSize().x > 100", timeout=E2E_WAIT)
+
+    def test_company_cta_lands_on_the_map_pane(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
+        page.locator("#tab-comparison").click()
+        page.locator("#subtab-co-commitments").click()
+        page.locator('#matrix-body tr[data-company="google"] th.col-company').click()
+        page.locator("#cd-view-projects").click()
+        expect(page.locator("#subpane-sites-map")).to_be_visible()
+
+    def test_select_project_from_another_pane_shows_the_detail(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer/states")
+        page.wait_for_selector("#agg-state-tbody tr", timeout=E2E_WAIT)
+        pid = page.evaluate("() => state.projects[0].id")
+        page.evaluate(f"() => selectProject('{pid}')")
+        expect(page.locator("#project-detail")).to_be_visible()
+
+    def test_state_panel_rate_case_lands_on_rate_cases_pane(self, page: Page, base_url: str):
+        code = None
+        page.goto(base_url + "/#tariffs/tariffs")
+        page.wait_for_selector("#tariffs-tbody tr", timeout=E2E_WAIT)
+        code = page.evaluate("() => state.rateCases.find(r => r.state_code && r.state_code !== 'US').state_code")
+        page.goto(f"{base_url}/?s=1#state/{code}")
+        page.wait_for_selector("#sd-body .sd-section", timeout=E2E_WAIT)
+        sec = page.locator("#sd-body .sd-section", has_text="Rate cases")
+        sec.locator(".sd-item-btn").first.click()
+        expect(page.locator("#subpane-tar-ratecases")).to_be_visible()
