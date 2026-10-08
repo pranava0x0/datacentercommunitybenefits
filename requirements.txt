@@ -7,3 +7,4 @@ eval_type_backport>=0.2,<1; python_version < "3.10"
 pytest>=7.4,<9.0
 pytest-playwright>=0.4,<1.0
 playwright>=1.40,<2.0
+pytest-xdist>=3.5,<4  # e2e in parallel: pytest tests/e2e -n auto

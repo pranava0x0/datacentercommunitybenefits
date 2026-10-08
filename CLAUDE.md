@@ -1782,6 +1782,26 @@ Frameworks**, and rate cases reachable without scrolling. Spec:
   Tariff design elements became a filter select; their chips moved to the
   Rate-design elements pane.
 
+### e2e suite: 40+ minutes → ~80 seconds (2026-10-08)
+
+`python3 -m pytest tests/e2e -n 4` (pytest-xdist). Three changes, all in
+`tests/e2e/`:
+- **One wait budget, `E2E_WAIT`** (6 s, env `E2E_WAIT_MS`) replaced 190
+  hardcoded 10-15 s waits, and an autouse fixture sets the same default
+  for actions and `expect`. Locally a view renders in under a second; the
+  long waits only made each broken test cost 10-15 s.
+- **Basemap tiles are answered locally** (204) in the autouse fixture. No
+  test asserts tile pixels.
+- **Parallel workers**: the docs server is session-scoped per worker.
+Run the suite after every UI change; at 80 s there is no excuse not to.
+The first fast run caught a real bug the slow one had hidden in its
+timeouts: `wireSubtabs()` was only reached from the Pledge renderer, so the
+new sub-tab strips switched panes by URL and ignored clicks
+(`test_every_view_subtab_responds_to_a_click` now guards every strip).
+**A test that pins a specific record to a capped list** (Frederick County
+in the 12-item "Latest actions") goes stale on the next data refresh;
+assert the rule, not the record.
+
 ### Daily refresh routine and the review queue (2026-09-25)
 
 A cloud routine, **DataCenterCommunityBenefits-DailyRefresh**, runs every day

@@ -589,6 +589,10 @@ document.addEventListener("DOMContentLoaded", () => {
   applyStoredTheme();
   wireThemeToggle();
   readFiltersFromUrl();
+  // Sub-tab strips are static markup on five views; wire them before any view
+  // renders. (v5 shipped with this only reached via the Pledge renderer, so
+  // the new strips switched by URL but ignored clicks.)
+  wireSubtabs();
   wireTabs();
   // The Home "Explore the record" cards and the milestones link are static
   // markup, so they wire once on boot; the stat tiles are re-rendered from
