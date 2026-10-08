@@ -264,5 +264,24 @@ class TestHomeDigest:
         assert max(collections.Counter(x["type"] for x in home["upcoming"]).values()) <= 3
 
     def test_every_item_has_an_openable_target(self, home) -> None:
+        import json as _json
+
+        # Kind AND id: openHomeTarget does nothing for an id missing from its
+        # payload, so a dead click would otherwise pass.
+        data = ROOT / "docs" / "data"
+        ids = {
+            "site": ("projects", "projects"),
+            "moratorium": ("moratoriums", "moratoriums"),
+            "policy": ("policies", "policies"),
+            "agreement": ("policies", "policies"),
+            "ratecase": ("rate_cases", "rate_cases"),
+        }
+        known = {
+            k: {r["id"] for r in _json.loads((data / f"{f}.json").read_text())[key]}
+            for k, (f, key) in ids.items()
+        }
         for x in home["latest"] + home["upcoming"]:
-            assert x["target"]["kind"] in {"site", "moratorium", "policy", "agreement", "ratecase", "roster"}
+            kind = x["target"]["kind"]
+            assert kind in {*ids, "roster"}, kind
+            if kind != "roster":
+                assert x["target"]["id"] in known[kind], x

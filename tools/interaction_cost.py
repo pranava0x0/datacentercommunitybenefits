@@ -7,7 +7,8 @@ shortest realistic path a reader would take. The harness counts:
   taps    every click/tap, including tapping a collapsed <details> open
   swipes  vertical scrolls, in units of SWIPE_FRACTION of the scrolling area
   hswipes horizontal scrolls (the tab bar on a phone)
-  types   typing a query into a search box (one interaction per query)
+  types   typing a query into a search box (one per query; tapping into
+          the box first is counted as a tap)
 
 Two contexts per device:
 
@@ -94,8 +95,8 @@ TASKS: list[Task] = [
          [("see", "#whats-next-list .feed-item")]),
     Task("home_sections", "Where do I go to explore a topic?",
          [("see", "#home-cards .home-card:last-child")]),
-    Task("latest_item_record", "Open the newest change (a moratorium) in full.",
-         [("tap", "#home-latest-list .feed-item:first-child .feed-btn"),
+    Task("latest_item_record", "Open the newest moratorium in the Latest feed.",
+         [("tap", '#home-latest-list .feed-btn[data-kind="moratorium"]'),
           ("see", "#moratorium-modal:not([hidden]) #md-status")]),
     Task("pledge_signatory", "Did Entergy sign the ratepayer pledge?",
          [("tap", "#tab-ratepayer"),

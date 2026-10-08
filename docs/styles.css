@@ -515,15 +515,19 @@ select:focus-visible,
 
 .home-cards {
   display: grid;
-  /* Six cards, one per tab: a fixed 3×2 so the grid never strands an orphan
-     pair on its own row the way auto-fit did at desktop widths. */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Seven cards, one per tab. Four columns give a 4+3 split instead of a
+     lone card on a third row. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1100px) {
   .home-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* An odd last card spans the row instead of sitting alone in a column. */
+  .home-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 }
 

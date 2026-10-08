@@ -184,7 +184,7 @@ const AGREEMENT_FEATURE_LABELS = {
 // The test a curator applies before tagging, shown on the "Terms" sub-tab.
 const AGREEMENT_FEATURE_TESTS = {
   binding_contract: "Signed by both sides, with obligations stated as binding or enforceable.",
-  dollar_commitment: "Specific dollar amounts or a payment schedule, not a blank to fill in later.",
+  dollar_commitment: "Specific dollar amounts or a payment schedule.",
   community_oversight: "A board, foundation or development body outside the company decides how the money is spent.",
   local_hiring_target: "A number or percentage of jobs for local residents.",
   water_limit: "A gallons-per-day cap, or a closed-loop or low-water cooling requirement.",
@@ -806,8 +806,21 @@ function wireTabs() {
 function anyExplorerFilterSet() {
   const f = state.explorerFilters;
   return Boolean(
-    f.company || f.state || f.status || f.stance || f.theme || f.constituency
+    f.q || f.company || f.state || f.status || f.stance || f.theme || f.constituency
   );
+}
+
+// Return focus after a modal closes. The opener can be gone from view (a
+// Home feed button once its record opened another tab); then focus the
+// active view's tab rather than dropping to <body>.
+function returnFocus(el) {
+  if (el && typeof el.focus === "function" && el.offsetParent !== null) {
+    el.focus();
+    return;
+  }
+  const v = VIEWS.find((x) => x.name === state.activeView);
+  const tab = v && document.getElementById(v.tab);
+  if (tab) tab.focus();
 }
 
 const URL_FILTER_KEYS = [
@@ -1407,7 +1420,6 @@ function renderMoratoriumsView() {
     tr.dataset.id = m.id;
     tr.tabIndex = 0;
     tr.setAttribute("role", "button");
-    tr.setAttribute("aria-label", `${m.jurisdiction}: ${m.status}. View details`);
     tr.addEventListener("click", () => showMoratoriumDetail(m));
     tr.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -2038,7 +2050,7 @@ function closeMoratoriumDetail() {
   document.body.classList.remove("moratorium-modal-open");
   const ret = state._moratoriumReturnFocus;
   state._moratoriumReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 // --------------------------------------------------------------------------
@@ -2603,7 +2615,7 @@ function closeTariffDetail() {
   document.body.classList.remove("tariff-modal-open");
   const ret = state._tariffReturnFocus;
   state._tariffReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 function wireTariffsFilters() {
@@ -2963,7 +2975,8 @@ function strongestAgreements() {
 
 function renderAgreementCard(p, { compact = false } = {}) {
   const li = el("li", "cba-card");
-  li.id = `cba-${p.id}`;
+  // One record can render in both lists; the prefix keeps ids unique.
+  li.id = `${compact ? "cba-all" : "cba-top"}-${p.id}`;
   li.dataset.id = p.id;
   const has = new Set(p.agreement_features || []);
   const parties = policyParties(p);
@@ -3121,7 +3134,7 @@ function openAgreement(id) {
   }
   loadPoliciesData().then(() => {
     renderAgreementsView();
-    const card = document.getElementById(`cba-${id}`);
+    const card = document.getElementById(`cba-all-${id}`);
     if (!card) return;
     const more = card.querySelector(".cba-more");
     if (more) more.open = true;
@@ -3490,7 +3503,7 @@ function closePolicyDetail() {
   document.body.classList.remove("tariff-modal-open");
   const ret = state._policyReturnFocus;
   state._policyReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 function _policyExportRows(list) {
@@ -3831,6 +3844,7 @@ function renderHome() {
           el("span", "feed-place", it.place ? STATE_NAMES[it.place] || it.place : "")
         );
         btn.querySelector("time").setAttribute("datetime", it.date);
+        btn.dataset.kind = it.target.kind;
         btn.addEventListener("click", () => openHomeTarget(it.target));
         li.append(btn);
         return li;
@@ -3844,12 +3858,14 @@ function renderHome() {
   const more = document.getElementById("home-latest-more");
   const hidden = h.latest.length - HOME_LATEST_PHONE;
   if (latestEl && more) {
-    latestEl.classList.toggle("is-capped", hidden > 0);
-    more.hidden = hidden <= 0;
+    const expanded = latestEl.dataset.expanded === "1";
+    latestEl.classList.toggle("is-capped", hidden > 0 && !expanded);
+    more.hidden = hidden <= 0 || expanded;
     more.textContent = `Show ${hidden} more`;
     if (more.dataset.wired !== "1") {
       more.dataset.wired = "1";
       more.addEventListener("click", () => {
+        latestEl.dataset.expanded = "1";
         latestEl.classList.remove("is-capped");
         more.hidden = true;
       });
@@ -6009,11 +6025,23 @@ function refreshExplorer() {
 function matchesSiteQuery(p, q) {
   if (!q) return true;
   const co = state.companiesBySlug.get(p.company_slug);
-  const hay = [p.name, p.city, p.state, STATE_NAMES[p.state], co && co.name, p.company_slug]
+  const words = [p.name, p.city, STATE_NAMES[p.state], co && co.name, p.company_slug]
     .filter(Boolean)
     .join(" ")
-    .toLowerCase();
-  return q.toLowerCase().split(/\s+/).filter(Boolean).every((w) => hay.includes(w));
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean);
+  // Each query word must start a word in the record. A two-letter state
+  // code means that state only: "va" finds Virginia, not Nevada or "Valley".
+  return q
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean)
+    .every((w) =>
+      w.length === 2 && STATE_NAMES[w.toUpperCase()]
+        ? w === String(p.state).toLowerCase()
+        : words.some((x) => x.startsWith(w))
+    );
 }
 
 function filteredProjects() {
@@ -6903,7 +6931,7 @@ function closeStatePanel() {
   }
   const ret = state._stateReturnFocus;
   state._stateReturnFocus = null;
-  if (ret && typeof ret.focus === "function") ret.focus();
+  returnFocus(ret);
 }
 
 function wireStatePanel() {

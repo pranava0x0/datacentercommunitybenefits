@@ -409,14 +409,13 @@ class TestCrossCutting:
         assert meta.count() == 1
 
     def test_comparison_hero_explains_source_and_use(self, page: Page, base_url: str):
-        # The Companies dek names the two things the tab holds: how much each
-        # operator is building (the totals table) and what it has committed
-        # to in writing (the matrix). One plain sentence, no usage manual.
+        # One short line (owner, 2026-10-08) saying what the tab holds: what
+        # each operator has promised, in its own words. No usage manual.
         page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=E2E_WAIT)
-        text = (page.locator("#view-comparison .hero").text_content() or "").lower()
-        assert "building" in text and "promised" in text
-        assert "click" not in text
+        dek = (page.locator("#view-comparison .hero-dek").text_content() or "").strip().lower()
+        assert "promised" in dek and "own words" in dek
+        assert "click" not in dek and len(dek) <= 90
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
         page.goto(base_url + "/#comparison/commitments")
@@ -3482,6 +3481,24 @@ class TestHomeV6:
             ".find(([k, t]) => t.view === v.name && !t.anchor)[0])"
         )
         assert targets == views
+
+    def test_open_agreement_lands_on_an_open_card_even_if_it_is_strongest(self, page: Page, base_url: str):
+        # The same record renders in Strongest and All; ids must not collide.
+        page.goto(base_url + "/#agreements")
+        page.wait_for_selector("#cba-strongest .cba-card", timeout=E2E_WAIT)
+        rid = page.evaluate("() => strongestAgreements()[0].id")
+        page.evaluate("(id) => openAgreement(id)", rid)
+        card = page.locator(f"#cba-all-{rid}")
+        expect(card).to_be_visible()
+        expect(card.locator(".cba-more")).to_have_attribute("open", "")
+        assert page.evaluate("(id) => document.querySelectorAll(`[id$='-${id}']`).length", rid) == 2
+
+    def test_site_search_matches_word_starts_and_state_codes(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer")
+        page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
+        page.fill("#f-q", "va")
+        states = page.evaluate("() => filteredProjects().map(p => p.state)")
+        assert states and set(states) == {"VA"}, set(states)
 
     def test_agreements_count_matches_the_digest(self, page: Page, base_url: str):
         # refresh.py's _is_agreement mirrors isAgreementRecord().

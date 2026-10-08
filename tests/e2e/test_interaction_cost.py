@@ -32,21 +32,25 @@ def test_every_task_has_a_budget_on_every_device() -> None:
         assert set(BUDGETS[dev]) == {t.key for t in ic.TASKS}, dev
 
 
-@pytest.mark.parametrize("device", list(ic.DEVICES))
-def test_tasks_stay_within_budget(device: str, base_url: str, tmp_path: Path) -> None:
+# `dev`, not `device`: pytest-playwright owns a session-scoped `device` fixture.
+@pytest.mark.parametrize("dev", list(ic.DEVICES))
+def test_tasks_stay_within_budget(dev: str, base_url: str, tmp_path: Path) -> None:
+    device = dev
     # A subprocess: the harness drives its own browser, and Playwright's sync
     # API refuses to start inside the worker that already runs pytest-playwright.
     out = tmp_path / "cost.json"
-    subprocess.run(
+    proc = subprocess.run(
         [sys.executable, str(ROOT / "tools" / "interaction_cost.py"),
          "--device", device, "--base", base_url, "--json-out", str(out)],
-        check=True, capture_output=True, timeout=600,
+        capture_output=True, text=True, timeout=600,
     )
+    assert proc.returncode == 0, proc.stderr[-2000:]
     result = json.loads(out.read_text())["devices"][device]
     over = []
     for key, r in result.items():
         d = r["default"]
-        assert "error" not in d, f"{device}/{key}: {d['error']}"
+        for ctx in ("default", "expanded"):
+            assert "error" not in r[ctx], f"{device}/{key}/{ctx}: {r[ctx]['error']}"
         if d["total"] > BUDGETS[device][key]:
             over.append(f"{key}: {d['total']} > {BUDGETS[device][key]} ({' > '.join(d['path'])})")
     assert not over, f"{device} over budget:\n" + "\n".join(over)
