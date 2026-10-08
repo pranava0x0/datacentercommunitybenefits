@@ -89,7 +89,13 @@ DROP: dict[tuple, str] = {
     ("prologis-coweta-ga", "2026-05-12"): "article date only; the May 5 appeal already covers the suit",
 }
 
-BATCH2_FIXES_FILE = OUT / "batch2_fixes.json"  # written after the b2 validator runs
+# (events file, validator-fixes file). Fix/drop keys are "project_id|date"
+# or "project_id|date|title prefix" where two events share a date.
+BATCHES = [
+    (OUT / "site_updates_b2.jsonl", OUT / "batch2_fixes.json"),
+    (OUT / "site_updates_c1.jsonl", OUT / "batch_c_fixes.json"),
+    (OUT / "site_updates_c2.jsonl", OUT / "batch_c_fixes.json"),
+]
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -102,17 +108,17 @@ def apply_site_updates(projects: list[dict]) -> int:
     by_id = {p["id"]: p for p in projects}
     fixes = dict(FIXES)
     drops = dict(DROP)
-    if BATCH2_FIXES_FILE.exists():
-        b2 = json.loads(BATCH2_FIXES_FILE.read_text())
-        for k, v in b2.get("fixes", {}).items():
-            pid, d = k.split("|")
-            fixes[(pid, d)] = v
-        for k, why in b2.get("drop", {}).items():
-            pid, d = k.split("|")
-            drops[(pid, d)] = why
+    # Later batches ship only once their validator's fixes file exists.
     batches = [OUT / "site_updates.jsonl"]
-    if BATCH2_FIXES_FILE.exists():
-        batches.append(OUT / "site_updates_b2.jsonl")
+    for jsonl, fix_file in BATCHES:
+        if not fix_file.exists():
+            continue
+        batches.append(jsonl)
+        b = json.loads(fix_file.read_text())
+        for k, v in b.get("fixes", {}).items():
+            fixes[tuple(k.split("|"))] = v
+        for k, why in b.get("drop", {}).items():
+            drops[tuple(k.split("|"))] = why
     added = 0
     for path in batches:
         for row in load_jsonl(path):
@@ -136,7 +142,10 @@ def apply_site_updates(projects: list[dict]) -> int:
                     "source_title": e["source_title"],
                 }
                 pid = row["project_id"]
-                fix = fixes.get(key, {})
+                fix = fixes.get(key) or next(
+                    (f for k, f in fixes.items() if len(k) == 3 and k[:2] == key and e["title"].startswith(k[2])),
+                    {},
+                )
                 pid = fix.get("project_id", pid)
                 ev.update({k: v for k, v in fix.items() if k != "project_id"})
                 p = by_id.get(pid)
@@ -363,6 +372,33 @@ DUKE_RESOURCE = {
 }
 
 
+# Pre-existing record corrected during this pass. The Missouri Independent
+# article it cited never mentions a lawsuit; ABC17 reports the suit but names
+# no company. Google's New Florence project was not announced until
+# 2026-05-20, three months after the filing, while Amazon's Montgomery County
+# tax framework was approved 2025-12-18 (STLPR) -- so the suit belongs to the
+# Amazon site. The unsourced "hearing June 1" is dropped.
+RESPONSE_MOVES = {
+    "resp-google-new-florence-preserve-lawsuit": {
+        "id": "resp-amazon-montgomery-preserve-lawsuit",
+        "project_id": "amazon-montgomery-city-mo",
+        "date": "2026-02-17",
+        "stance": "negative",
+        "constituency": "residents",
+        "summary": (
+            "Preserve Montgomery County, LLC sued Montgomery County and the Missouri Department of "
+            "Economic Development, alleging 10 Sunshine Law violations tied to the county's data center "
+            "approval, including inadequate public notice, unlawful closed sessions and excessive "
+            "records fees, and raising groundwater concerns. The article does not name the company; "
+            "Amazon's was the only data center the county had approved at the time."
+        ),
+        "source_url": "https://abc17news.com/news/top-stories/2026/02/17/lawsuit-filed-to-stop-montgomery-county-data-center/",
+        "source_title": "ABC17 (KMIZ) — Lawsuit filed to stop Montgomery County data center",
+        "single_source": True,
+    },
+}
+
+
 def upsert(records: list[dict], rec: dict) -> bool:
     rec = {"captured_at": CAPTURED, **rec}
     for i, r in enumerate(records):
@@ -396,6 +432,14 @@ def main() -> None:
     added = sum(upsert(polj["policies"], p) for p in NEW_POLICIES)
     (SEED / "policies.json").write_text(json.dumps(polj, indent=2, ensure_ascii=False) + "\n")
     log.info("policies added: %d", added)
+
+    rj = json.loads((SEED / "responses.json").read_text())
+    for old_id, new in RESPONSE_MOVES.items():
+        rj["responses"] = [r for r in rj["responses"] if r["id"] != old_id]
+        if not any(r["id"] == new["id"] for r in rj["responses"]):
+            rj["responses"].append(new)
+    (SEED / "responses.json").write_text(json.dumps(rj, indent=2, ensure_ascii=False) + "\n")
+    log.info("responses corrected: %d", len(RESPONSE_MOVES))
 
     rcj = json.loads((SEED / "rate_cases.json").read_text())
     duke = next(r for r in rcj["rate_cases"] if r["id"] == "nc-ncuc-duke-settlement-2026")
