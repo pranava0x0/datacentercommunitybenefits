@@ -107,7 +107,9 @@ def test_app_js_wires_rate_cases() -> None:
     js = APP_JS.read_text(encoding="utf-8")
     assert "function loadRateCasesData()" in js
     assert "function renderRateCases()" in js
-    assert "function renderWhatsNext()" in js
+    # Home's "Coming up" list reads rate-case milestones from the home.json
+    # digest (refresh.py _build_home) rather than the rate-case payload.
+    assert "function renderHome()" in js and "whats-next-list" in js
     # The state panel must include the rate-case section (the pairing the
     # dataset exists for).
     assert "Rate cases & proceedings" in js

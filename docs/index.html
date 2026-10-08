@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#0d132d" />
-    <title>Data Center Community Benefits - Ratepayer Protection Pledge</title>
+    <title>Data Center Community Benefits</title>
     <meta
       name="description"
-      content="What hyperscalers say about data center community benefits — and what local communities, journalists, and regulators report back."
+      content="Data center operators' commitments to host communities, local moratoriums and policies, utility tariffs and rate cases, and contested sites in the U.S."
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="stylesheet" href="styles.css?v=20261008a" />
@@ -134,102 +134,71 @@
              site's one heading voice, one size below the masthead. -->
         <div class="hero">
           <h2 class="hero-title" id="pledge-hero-title">
-            What data centers promise, and what communities require
+            Data centers and the communities around them
           </h2>
           <p class="hero-dek">
-            Pledges, company claims, local fights, moratoriums, electricity rules, and state policy for U.S. data centers.
+            What operators have committed to, the rules local and state governments have passed, how utilities charge for the power, and where residents have pushed back. U.S. only, updated daily.
           </p>
           <p class="pledge-hero-fineprint">
             Independent. Not affiliated with the White House or any signatory.
           </p>
         </div>
         <div class="home-body">
-
-          <ul class="pledge-stats" id="pledge-stats" aria-label="Pledge at a glance">
-            <li class="pledge-stat is-loading">
-              <span class="pledge-stat-num">&mdash;</span>
-              <span class="pledge-stat-lbl">Loading roster…</span>
-            </li>
-          </ul>
-
-          <!-- The briefing: soonest regulator-announced milestones (from the
-               rate-case records — rendered by renderWhatsNext(), capped; the
-               full list lives on the Tariffs & Rate Cases tab) beside the
-               dated change feed. Never hand-maintained here. -->
-          <div class="home-latest">
-            <section class="whats-next" aria-labelledby="wn-h" id="whats-next">
-              <h3 class="pledge-panel-h" id="wn-h">Upcoming docket dates</h3>
-              <p class="wn-sub" id="whats-next-sub">Loading docket milestones…</p>
-              <ol id="whats-next-list" class="wn-list"></ol>
-              <button
-                id="whats-next-more"
-                class="pledge-panel-more"
-                type="button"
-                data-path-target="ratecases"
-                hidden
-              ></button>
-            </section>
-
-            <section class="pledge-activity" aria-labelledby="pp-activity-h">
-              <h3 class="pledge-panel-h" id="pp-activity-h">Recent changes</h3>
-              <ol id="pledge-activity" class="pledge-activity-list"></ol>
-            </section>
-          </div>
-
-          <!-- One card per tab: the section index of the front page. Static
-               markup (wired once on boot); only the count chips render from
-               data — see renderHomeCards(). -->
-          <h3 class="pledge-panel-h" id="home-explore-h">Explore</h3>
-          <nav class="home-cards" aria-labelledby="home-explore-h">
-            <button class="home-card" type="button" data-path-target="pledge">
-              <span class="home-card-tag">The Pledge</span>
-              <span class="home-card-title">Who signed the pledge</span>
-              <span class="home-card-dek">
-                Who signed, what they promised, and which sites back it up.
-              </span>
-              <span class="home-card-count" data-count-for="pledge">&mdash;</span>
-            </button>
-            <button class="home-card" type="button" data-path-target="companies">
-              <span class="home-card-tag">Companies</span>
-              <span class="home-card-title">What companies promise</span>
-              <span class="home-card-dek">
-                What each company says it gives host communities, in its own words.
-              </span>
-              <span class="home-card-count" data-count-for="companies">&mdash;</span>
+          <!-- One card per tab, each led by its main number. Numbers and the
+               two lists render from data/home.json (built by refresh.py). -->
+          <h3 class="home-h" id="home-explore-h">Sections</h3>
+          <nav class="home-cards" id="home-cards" aria-labelledby="home-explore-h">
+            <button class="home-card" type="button" data-path-target="explorer">
+              <span class="home-card-title">Sites</span>
+              <span class="home-card-num" data-count-for="sites">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="sites"></span>
+              <span class="home-card-dek">Tracked campuses on a map. Contested sites list their local hearings, votes and lawsuits.</span>
             </button>
             <button class="home-card" type="button" data-path-target="moratoriums">
-              <span class="home-card-tag">Moratoriums</span>
-              <span class="home-card-title">Development pauses</span>
-              <span class="home-card-dek">
-                Pauses on new data centers at every level of government.
-              </span>
-              <span class="home-card-count" data-count-for="moratoriums">&mdash;</span>
-            </button>
-            <button class="home-card" type="button" data-path-target="tariffs">
-              <span class="home-card-tag">Tariffs &amp; Rate Cases</span>
-              <span class="home-card-title">Electricity costs and rate cases</span>
-              <span class="home-card-dek">
-                Who pays for the power, and the cases deciding it.
-              </span>
-              <span class="home-card-count" data-count-for="tariffs">&mdash;</span>
+              <span class="home-card-title">Moratoriums</span>
+              <span class="home-card-num" data-count-for="moratoriums">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="moratoriums"></span>
+              <span class="home-card-dek">City, county and state pauses on new data centers.</span>
             </button>
             <button class="home-card" type="button" data-path-target="policies">
-              <span class="home-card-tag">Local Policy Frameworks</span>
-              <span class="home-card-title">What communities are requiring</span>
-              <span class="home-card-dek">
-                Nine rules governments are writing, from grid costs to benefit agreements.
-              </span>
-              <span class="home-card-count" data-count-for="policies">&mdash;</span>
+              <span class="home-card-title">Local Policy Frameworks</span>
+              <span class="home-card-num" data-count-for="policies">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="policies"></span>
+              <span class="home-card-dek">Ordinances, laws and agreements that set conditions for data centers.</span>
             </button>
-            <button class="home-card" type="button" data-path-target="explorer">
-              <span class="home-card-tag">Sites</span>
-              <span class="home-card-title">Data center projects</span>
-              <span class="home-card-dek">
-                Each campus on a map, with what neighbors and officials have said.
-              </span>
-              <span class="home-card-count" data-count-for="sites">&mdash;</span>
+            <button class="home-card" type="button" data-path-target="tariffs">
+              <span class="home-card-title">Tariffs &amp; Rate Cases</span>
+              <span class="home-card-num" data-count-for="tariffs">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="tariffs"></span>
+              <span class="home-card-dek">How utilities charge data centers for power, and the cases still open.</span>
+            </button>
+            <button class="home-card" type="button" data-path-target="companies">
+              <span class="home-card-title">Companies</span>
+              <span class="home-card-num" data-count-for="companies">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="companies"></span>
+              <span class="home-card-dek">Each operator&rsquo;s published commitments to host communities.</span>
+            </button>
+            <button class="home-card" type="button" data-path-target="pledge">
+              <span class="home-card-title">The Pledge</span>
+              <span class="home-card-num" data-count-for="pledge">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="pledge"></span>
+              <span class="home-card-dek">Who signed the White House Ratepayer Protection Pledge.</span>
             </button>
           </nav>
+
+          <div class="home-latest">
+            <section class="home-feed" aria-labelledby="home-latest-h">
+              <h3 class="home-h" id="home-latest-h">Latest</h3>
+              <ol id="home-latest-list" class="feed-list"></ol>
+            </section>
+            <section class="whats-next" aria-labelledby="wn-h" id="whats-next">
+              <h3 class="home-h" id="wn-h">Coming up</h3>
+              <ol id="whats-next-list" class="feed-list"></ol>
+              <button id="whats-next-more" class="btn-link" type="button" data-path-target="ratecases">
+                All rate-case milestones &rarr;
+              </button>
+            </section>
+          </div>
         </div>
       </section>
 
@@ -727,8 +696,7 @@
                  allowed as child of element summary") — but <h3> takes
                  phrasing content, so the kicker nests happily there. -->
             <h3 class="rp-band-title acc-title" id="rp-commitments-heading">
-              <span class="rp-band-kicker">The pledge</span>
-              Five commitments, and how the tracked sites measure up.
+              The five commitments, and how tracked sites measure up
             </h3>
             <span class="acc-count" id="rp-commitments-count"></span>
             <span class="acc-chevron" aria-hidden="true"></span>
@@ -1428,7 +1396,7 @@
            pays for power): orders, laws and ordinances that set conditions,
            the benefit agreements signed at specific sites, and companies'
            own community plans. One Policy record type; see
-           notes/specs/SPEC_POLICIES_TAB.md. Lazy-loads data/policies.json. -->
+           notes/specs/SPEC_POLICIES_TAB.md. Lazy-loads its own payload. -->
       <section
         id="view-policies"
         class="view"

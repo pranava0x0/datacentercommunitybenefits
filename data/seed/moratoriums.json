@@ -3979,12 +3979,16 @@
       "enacted_date": "2026-09-01",
       "effective_date": "2026-09-01",
       "duration_months": null,
-      "power_threshold_mw": null,
+      "power_threshold_mw": 3,
       "key_reasons": [],
       "resources": [
         {
           "url": "https://www.pressdemocrat.com/2026/09/03/mendocino-county-adopts-temporary-data-center-moratorium/",
           "title": "The Press Democrat — Mendocino County adopts temporary data center moratorium"
+        },
+        {
+          "url": "https://mendovoice.com/2026/09/mendocino-county-supes-ban-data-centers-for-the-moment-at-least/",
+          "title": "The Mendocino Voice — Sept. 2026 adoption"
         }
       ],
       "bill_number": null,
@@ -3999,16 +4003,16 @@
       "city_council_vote": "5-0",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-09-22",
+      "captured_at": "2026-10-08",
       "id": "mendocino-county-ca-2026-09",
       "jurisdiction": "Mendocino County",
       "jurisdiction_type": "county",
       "state_code": "CA",
       "status": "enacted",
-      "duration_description": "45 days, to October 16, 2026, unless the Board extends it (extension hearing expected October 6, 2026; state law allows up to two years)",
-      "summary": "The Mendocino County Board of Supervisors voted 5-0 on Tuesday, September 1, 2026 to adopt an urgency ordinance barring any new data center in the unincorporated county, effective immediately and 'running 45 days to October 16, 2026, unless the board extends it.' Sponsored by Supervisors John Haschak and Ted Williams, the ordinance is intended, per Deputy County Counsel, 'to prevent the applications coming in for construction of buildings that could be used as data centers and could be processed under a building permit' without discretionary review; counsel expected to return October 6 with a public hearing on extending it.",
-      "source_url": "https://mendovoice.com/2026/09/mendocino-county-supes-ban-data-centers-for-the-moment-at-least/",
-      "source_title": "The Mendocino Voice — Mendocino County supes ban data centers—for the moment, at least"
+      "duration_description": "Adopted Sept. 1, 2026 for 45 days; extended Oct. 6, 2026 by 22 months and 15 days, to Aug. 21, 2028. Facilities drawing less than 3 MW are exempt.",
+      "summary": "The Mendocino County Board of Supervisors voted 5-0 on Tuesday, September 1, 2026 to adopt an urgency ordinance barring any new data center in the unincorporated county, effective immediately and 'running 45 days to October 16, 2026, unless the board extends it.' Sponsored by Supervisors John Haschak and Ted Williams, the ordinance is intended, per Deputy County Counsel, 'to prevent the applications coming in for construction of buildings that could be used as data centers and could be processed under a building permit' without discretionary review; counsel expected to return October 6 with a public hearing on extending it. On October 6, 2026 the Board voted 4-1 to extend the moratorium by 22 months and 15 days, to August 21, 2028, and exempted facilities that draw less than 3 megawatts.",
+      "source_url": "https://mendovoice.com/2026/10/mendocino-county-supervisors-extend-data-center-moratorium-to-2028-with-a-3-megawatt-exception/",
+      "source_title": "The Mendocino Voice — Supervisors extend data center moratorium to 2028, with a 3-megawatt exception"
     },
     {
       "enacted_date": "2026-09-08",
@@ -5507,13 +5511,22 @@
       "jurisdiction": "Raleigh",
       "jurisdiction_type": "city",
       "state_code": "NC",
-      "status": "proposed",
-      "duration_description": "Proposed six-month moratorium; city attorney directed to draft it.",
+      "status": "enacted",
+      "duration_description": "Six months, on data center applications.",
       "key_reasons": [],
-      "summary": "Raleigh City Council directed the city attorney to draft a six-month data center moratorium (reported Sept. 16, 2026), with discussion and a possible vote set for Oct. 6. That outcome is not yet recorded here.",
-      "source_url": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium",
-      "source_title": "WFAE — Raleigh, Cary weigh data center moratoriums",
-      "session": "2026"
+      "summary": "Raleigh City Council passed a six-month temporary moratorium on data center applications at its October 6, 2026 meeting, after directing the city attorney in September to draft it.",
+      "source_url": "https://raleighnc.gov/government/news/city-council-hold-public-hearing-temporary-moratorium-data-center-approvals",
+      "source_title": "City of Raleigh — City Council public hearing on a temporary moratorium on data center approvals",
+      "session": "2026",
+      "enacted_date": "2026-10-06",
+      "duration_months": 6,
+      "enacted_by": "City Council",
+      "resources": [
+        {
+          "url": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium",
+          "title": "WFAE — Raleigh, Cary weigh data center moratoriums"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-08",
@@ -5531,6 +5544,26 @@
       "source_title": "Times-Republican — Supervisors OK six-month data center moratorium resolution",
       "enacted_by": "Board of Supervisors",
       "session": "2026"
+    },
+    {
+      "id": "forsyth-county-nc-2026-09",
+      "jurisdiction": "Forsyth County",
+      "jurisdiction_type": "county",
+      "state_code": "NC",
+      "status": "failed",
+      "duration_description": "Proposed six-month moratorium.",
+      "key_reasons": [],
+      "summary": "Commissioner Dan Besse drafted a proposal for a six-month data center moratorium. After the county attorney warned the move was legally risky, the Forsyth County Board of Commissioners voted 5-2 against it, with Besse and Commissioner Tonya McDaniel voting yes.",
+      "source_url": "https://www.wfdd.org/politics-government/2026-10-01/forsyth-rejects-data-center-moratorium-proposal-over-legal-concerns",
+      "source_title": "WFDD — Forsyth rejects data center moratorium proposal over legal concerns",
+      "sponsors": [
+        "Dan Besse"
+      ],
+      "enacted_by": "Board of Commissioners",
+      "city_council_vote": "5-2 against",
+      "failure_reason": "Voted down 5-2 after the county attorney warned of legal risk.",
+      "session": "2026",
+      "captured_at": "2026-10-08"
     }
   ]
 }

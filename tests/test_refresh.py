@@ -228,3 +228,41 @@ class TestStalePendingAudit:
         tariffs = TariffsPayload(generated_at=date.today(), tariffs=[])
         stale = refresh._audit_stale_pending(moratoriums, tariffs, policies=policies)
         assert [(r["kind"], r["id"]) for r in stale] == [("policy", "old-proposed")]
+
+
+class TestHomeDigest:
+    """v6 (2026-10-08): data/home.json, everything Home renders."""
+
+    @pytest.fixture(scope="class")
+    def home(self):
+        import json as _json
+
+        return _json.loads((ROOT / "docs" / "data" / "home.json").read_text())
+
+    def test_numbers_match_the_payloads(self, home) -> None:
+        import json as _json
+
+        data = ROOT / "docs" / "data"
+        t = home["totals"]
+        assert t["sites"] == len(_json.loads((data / "projects.json").read_text())["projects"])
+        assert t["moratoriums"] == len(_json.loads((data / "moratoriums.json").read_text())["moratoriums"])
+        assert t["policies"] == len(_json.loads((data / "policies.json").read_text())["policies"])
+        assert 0 < t["contested_sites"] <= t["sites"]
+
+    def test_latest_is_newest_first_and_mixed(self, home) -> None:
+        dates = [x["date"] for x in home["latest"]]
+        assert dates == sorted(dates, reverse=True)
+        assert len({x["type"] for x in home["latest"]}) >= 3, "one record type must not fill the feed"
+        assert all(x["date"] <= home["generated_at"] for x in home["latest"])
+
+    def test_upcoming_is_soonest_first_and_capped_per_type(self, home) -> None:
+        import collections
+
+        dates = [x["date"] for x in home["upcoming"]]
+        assert dates == sorted(dates)
+        assert all(x["date"] >= home["generated_at"] for x in home["upcoming"])
+        assert max(collections.Counter(x["type"] for x in home["upcoming"]).values()) <= 3
+
+    def test_every_item_has_an_openable_target(self, home) -> None:
+        for x in home["latest"] + home["upcoming"]:
+            assert x["target"]["kind"] in {"site", "moratorium", "policy", "ratecase", "roster"}

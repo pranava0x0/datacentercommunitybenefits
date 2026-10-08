@@ -1000,14 +1000,11 @@ class TestRatepayerView:
         )
 
     def test_landing_band_reports_the_whole_roster(self, page: Page, base_url: str):
-        # The landing band lives in the Overview tab (v2.1), which is the
-        # default view — no navigation needed to reach it.
+        # The Pledge card on Home carries the whole roster count (from home.json).
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=E2E_WAIT)
-        first = page.locator("#pledge-stats .pledge-stat").first
-        expect(first).to_contain_text("Organizations signed")
-        value = int(first.locator(".pledge-stat-num").inner_text())
-        assert value >= 200, f"landing tile shows {value}; expected the full roster"
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        num = page.locator('#home-cards .home-card[data-path-target="pledge"] .home-card-num').inner_text()
+        assert int(num.replace(",", "")) >= 200, f"Pledge card shows {num}; expected the full roster"
 
     def test_pledge_era_unassessed_split_from_pre_pledge(
         self, page: Page, base_url: str
@@ -1131,15 +1128,13 @@ class TestRatepayerView:
 
     def test_stat_tile_opens_the_collapsed_roster(self, page: Page, base_url: str):
         # A Home entry point that scrolls to a section collapsed by default
-        # must open it first (openAccordionsFor), or the scroll lands on a
-        # closed bar and the link reads as broken. The "Organizations signed"
-        # tile targets the roster, whose <details> starts closed.
+        # must open it first (openAccordionsFor). Home's roster entry is a
+        # feed item ("N organizations join the pledge") targeting the roster.
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=E2E_WAIT)
-        page.locator("#pledge-stats [data-path-target='roster']").first.click()
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.evaluate("() => openHomeTarget({kind: 'roster'})")
         page.wait_for_timeout(600)
-        details = page.locator("#rp-roster-details")
-        assert details.evaluate("el => el.open") is True
+        assert page.locator("#rp-roster-details").evaluate("el => el.open") is True
 
     def test_published_roster_is_collapsed_by_default(
         self, page: Page, base_url: str
@@ -1758,7 +1753,7 @@ class TestSubtabDeepLinks:
         Pledge renderer, so the new strips switched panes by URL but ignored
         clicks. Derived from VIEW_SUBTAB_GROUP so a new strip is covered."""
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=E2E_WAIT)
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
         groups = page.evaluate("() => Object.entries(VIEW_SUBTAB_GROUP)")
         for view, group in groups:
             page.locator(f"#tab-{view}").click()
@@ -1889,7 +1884,7 @@ class TestTotalsTables:
         seen: list[str] = []
         page.on("request", lambda r: seen.append(r.url))
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=E2E_WAIT)
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
         page.wait_for_timeout(800)
         assert not any("tariffs.json" in u for u in seen)
 
@@ -2247,7 +2242,7 @@ class TestPledgeLanding:
 
     def test_overview_is_the_default_landing_view(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=E2E_WAIT)
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
         expect(page.locator("#view-overview")).to_be_visible()
         expect(page.locator("#view-ratepayer")).to_be_hidden()
         expect(page.locator("#view-comparison")).to_be_hidden()
@@ -2269,8 +2264,8 @@ class TestPledgeLanding:
         site were deleted from loadRatepayerView(). This actually loads the
         page and checks the list renders real items."""
         page.goto(base_url + "/")
-        page.wait_for_selector("#whats-next-list .wn-item", timeout=E2E_WAIT)
-        assert page.locator("#whats-next-list .wn-item").count() > 0
+        page.wait_for_selector("#whats-next-list .feed-item", timeout=E2E_WAIT)
+        assert page.locator("#whats-next-list .feed-item").count() > 0
 
     def test_ratepayer_tab_is_reachable_and_not_default(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -2287,76 +2282,43 @@ class TestPledgeLanding:
         expect(page.locator("#tab-comparison")).to_have_attribute("aria-selected", "true")
 
     def test_the_briefing_lands_above_the_fold(self, page: Page, base_url: str):
-        """The north-star metric, made falsifiable — v3 edition.
-
-        Home is a briefing now: the numbers band and the start of "What's
-        next" must render inside the first viewport at desktop size. If the
-        hero grows back toward the v2 panel stack, this fails before a reader
-        has to scroll to learn what the site is.
-        """
-        page.set_viewport_size({"width": 1440, "height": 900})
+        # The owner: "less time to get to explore". The section cards and the
+        # start of both feeds sit above a 900px desktop fold.
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=E2E_WAIT)
-        page.wait_for_selector("#whats-next-list .wn-item", timeout=E2E_WAIT)
-        for sel in ("#pledge-stats", "#whats-next"):
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.wait_for_selector("#whats-next-list .feed-item", timeout=E2E_WAIT)
+        for sel in ("#home-cards", "#home-latest-list", "#whats-next-list"):
             box = page.locator(sel).bounding_box()
             assert box is not None, f"{sel} did not render"
             assert box["y"] < 900, f"{sel} starts at y={box['y']:.0f}, below the fold"
 
     def test_home_cards_cover_every_other_tab(self, page: Page, base_url: str):
-        """One card per non-Home view, each wired to a real PLEDGE_TARGETS
-        entry — the cards are the section index of the front page, so a view
-        missing here is unreachable from the briefing."""
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=E2E_WAIT)
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
         cards = page.locator(".home-cards .home-card")
         views = page.evaluate("() => VIEWS.length")
-        assert cards.count() == views - 1, (
-            f"{cards.count()} cards for {views - 1} non-Home views"
-        )
+        assert cards.count() == views - 1, f"{cards.count()} cards for {views - 1} non-Home tabs"
         for i in range(cards.count()):
             target = cards.nth(i).get_attribute("data-path-target")
-            known = page.evaluate("(t) => t in PLEDGE_TARGETS", target)
-            assert known, f"card {i} targets unknown {target!r}"
-        # Counts render from data, never stay on the markup placeholder.
-        page.wait_for_timeout(1500)
-        counts = page.locator(".home-card-count").all_inner_texts()
-        assert all(c.strip() and c.strip() != "—" for c in counts), counts
+            assert page.evaluate(f"() => Boolean(PLEDGE_TARGETS['{target}'])"), target
+        nums = page.locator(".home-card-num").all_inner_texts()
+        assert all(n.strip() and n.strip() != "—" for n in nums), nums
 
-    def test_whats_next_is_capped_with_a_link_to_the_rest(
-        self, page: Page, base_url: str
-    ):
-        """Home shows the soonest few milestones as clamped briefs; the full
-        regulator prose lives on the Tariffs & Rate Cases tab. The "All N"
-        link only appears when there is actually more than the cap."""
+    def test_whats_next_is_capped_with_a_link_to_the_rest(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.wait_for_selector("#whats-next-list .wn-item", timeout=E2E_WAIT)
-        shown = page.locator("#whats-next-list .wn-item").count()
-        cap = page.evaluate("() => HOME_WHATS_NEXT_MAX")
-        assert shown <= cap, f"{shown} milestones shown, cap is {cap}"
-        more = page.locator("#whats-next-more")
-        total = page.evaluate(
-            "() => (state.rateCases || []).filter((rc) => rc.next_milestone).length"
-        )
-        if total > cap:
-            expect(more).to_be_visible()
-            assert str(total) in more.inner_text()
-            more.click()
-            page.wait_for_timeout(600)
-            expect(page.locator("#view-tariffs")).to_be_visible()
-        else:
-            expect(more).to_be_hidden()
+        page.wait_for_selector("#whats-next-list .feed-item", timeout=E2E_WAIT)
+        assert page.locator("#whats-next-list .feed-item").count() <= 8
+        page.locator("#whats-next-more").click()
+        expect(page.locator("#subpane-tar-ratecases")).to_be_visible()
 
-    def test_landing_numbers_come_from_data_not_markup(
-        self, page: Page, base_url: str
-    ):
-        """The roster is a moving target; a baked-in count would go stale."""
-        html = (ROOT / "docs" / "index.html").read_text()
-        assert "279" not in html, "roster count hardcoded in index.html"
+    def test_landing_numbers_come_from_data_not_markup(self, page: Page, base_url: str):
+        html = (Path(__file__).resolve().parents[2] / "docs" / "index.html").read_text()
+        assert "279" not in html and "323" not in html, "roster count hardcoded in index.html"
+        assert html.count('class="home-card-num"') == html.count("&mdash;</span>\n              <span class=\"home-card-sub\"")
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=E2E_WAIT)
-        nums = page.locator("#pledge-stats .pledge-stat-num").all_inner_texts()
-        assert all(n.strip().isdigit() for n in nums), nums
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        nums = page.locator("#home-cards .home-card-num").all_inner_texts()
+        assert all(n.replace(",", "").strip().isdigit() for n in nums), nums
 
     def test_coverage_bar_covers_every_populated_category(
         self, page: Page, base_url: str
@@ -2384,30 +2346,20 @@ class TestPledgeLanding:
         expected_empty = sum(not any(counts.values()) for counts in coverage.values())
         assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() == expected_empty
 
-    def test_stat_tile_jumps_to_the_scorecard(self, page: Page, base_url: str):
+    def test_pledge_card_opens_the_pledge_tab(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        # The Ratepayer view renders in the background (Overview shares its
-        # data loader) but stays [hidden] until a tab switch, so the scorecard
-        # cards exist in the DOM before they're visible — wait for "attached",
-        # not the default "visible", or this races the hidden-pane trap.
-        page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=E2E_WAIT)
-        page.locator("#pledge-stats [data-path-target='scorecard']").click()
-        page.wait_for_timeout(600)
-        expect(page.locator("#rp-scorecard-section")).to_be_visible()
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.locator('#home-cards .home-card[data-path-target="pledge"]').click()
+        expect(page.locator("#view-ratepayer")).to_be_visible()
 
     def test_activity_feed_renders_dated_entries(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-activity .pledge-activity-item", timeout=E2E_WAIT)
-        items = page.locator("#pledge-activity .pledge-activity-item")
-        assert items.count() >= 1
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        items = page.locator("#home-latest-list .feed-item")
+        assert items.count() >= 5
         for i in range(items.count()):
-            assert items.nth(i).locator(".pledge-activity-date").inner_text().strip()
-            assert items.nth(i).locator(".pledge-activity-text").inner_text().strip()
-        rolling = items.filter(has_text="join dates unpublished")
-        expect(rolling).to_have_count(1)
-        assert "first seen" not in rolling.inner_text()
-        assert "snapshot lists" in rolling.inner_text()
-
+            assert items.nth(i).locator(".feed-date").get_attribute("datetime")
+            assert items.nth(i).locator(".feed-title").inner_text().strip()
 
 class TestSignatoryRoster:
     def test_roster_renders_the_full_published_list(self, page: Page, base_url: str):
@@ -2891,7 +2843,7 @@ class TestSubtabs:
         (owner-directed, 2026-10-08). Derived from SUBTAB_GROUPS, so a strip
         added in markup without a registry entry (or vice versa) fails."""
         page.goto(base_url + "/")
-        page.wait_for_selector("#pledge-stats .pledge-stat", timeout=E2E_WAIT)
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
         missing = page.evaluate("""() => {
           const out = [];
           for (const [g, keys] of Object.entries(SUBTAB_GROUPS))
@@ -3104,7 +3056,7 @@ class TestTouchTargets:
         )
         page = ctx.new_page()
         page.goto(base_url + "/")
-        page.wait_for_selector("#whats-next-list .wn-item", timeout=E2E_WAIT)
+        page.wait_for_selector("#whats-next-list .feed-item", timeout=E2E_WAIT)
         more = page.locator("#whats-next-more")
         if more.is_visible():
             box = more.bounding_box()
@@ -3280,8 +3232,8 @@ class TestPathwayCohort:
         )
 
         page.locator("#tab-overview").click()
-        page.wait_for_selector("#pledge-stats .pledge-stat button", timeout=E2E_WAIT)
-        page.locator("#pledge-stats [data-path-target='scorecard']").click()
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.evaluate("() => goToPledgeTarget('scorecard')")
         page.wait_for_timeout(600)
 
         expect(page.locator("#subtab-rp-sites-assessed")).to_have_attribute(
@@ -3491,3 +3443,83 @@ class TestSitesPaneRouting:
         sec = page.locator("#sd-body .sd-section", has_text="Rate cases")
         sec.locator(".sd-item-btn").first.click()
         expect(page.locator("#subpane-tar-ratecases")).to_be_visible()
+
+
+class TestHomeV6:
+    """Home renders from data/home.json: sections first, numbers, two feeds."""
+
+    def test_first_paint_requests_only_page_companies_and_digest(self, page: Page, base_url: str):
+        # Records real requests until Home has rendered (the data review on
+        # PR #62: a hand-written file list can't catch a payload pulled back
+        # into boot). The other tabs' data warms only after this event.
+        seen = []
+        page.on("request", lambda r: seen.append(r.url.split("/docs/")[-1].split("?")[0].replace(base_url + "/", "")))
+        page.goto(base_url + "/")
+        page.wait_for_function("() => document.querySelector('#home-latest-list .feed-item')", timeout=E2E_WAIT)
+        data = sorted({u for u in seen if "data/" in u})
+        assert data == ["data/companies.json", "data/home.json"], data
+
+    def test_sections_lead_with_numbers_and_pledge_last(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        nums = page.locator("#home-cards .home-card-num").all_inner_texts()
+        assert nums and all(n.replace(",", "").isdigit() for n in nums), nums
+        targets = page.locator("#home-cards .home-card").evaluate_all("els => els.map(e => e.dataset.pathTarget)")
+        assert targets[-1] == "pledge", "the pledge is one section among six, not the lead"
+        n_views = page.evaluate("() => VIEWS.length")
+        assert len(targets) == n_views - 1
+
+    def test_contested_count_matches_the_frontend_rule(self, page: Page, base_url: str):
+        # refresh.py's _is_contested mirrors contestedReasons(); hold them together.
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
+        js = page.evaluate("() => state.projects.filter(isContestedSite).length")
+        digest = page.evaluate("() => fetch('data/home.json').then(r => r.json()).then(d => d.totals.contested_sites)")
+        assert js == digest
+
+    def test_feed_item_opens_the_record(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        kind = page.evaluate("() => state.home.latest.find(x => x.target.kind === 'moratorium') ? 'moratorium' : null")
+        if kind:
+            idx = page.evaluate("() => state.home.latest.findIndex(x => x.target.kind === 'moratorium')")
+            page.locator("#home-latest-list .feed-btn").nth(idx).click()
+            expect(page.locator("#moratorium-modal")).to_be_visible()
+
+    def test_no_eyebrow_labels_on_home(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        upper = page.evaluate("""() => [...document.querySelectorAll('#view-overview *')]
+            .filter(e => e.children.length === 0 && e.textContent.trim() && getComputedStyle(e).textTransform === 'uppercase').length""")
+        assert upper == 0
+
+
+class TestCodexFollowUps:
+    """Codex findings left open on PRs #58-#62, fixed 2026-10-08."""
+
+    def test_contested_renders_when_the_map_library_is_blocked(self, page: Page, base_url: str):
+        page.route("**/unpkg.com/**", lambda r: r.abort())
+        page.goto(base_url + "/#explorer/contested")
+        page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
+
+    def test_reset_clears_the_contested_company_filter(self, page: Page, base_url: str):
+        page.goto(base_url + "/#comparison")
+        page.wait_for_selector("#co-cards .co-contested", timeout=E2E_WAIT)
+        page.locator("#co-cards .co-contested").first.click()
+        page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
+        assert page.input_value("#c-company") != ""
+        page.locator("#subtab-sites-map").click()
+        page.locator("#f-reset").click()
+        page.locator("#subtab-sites-contested").click()
+        assert page.input_value("#c-company") == ""
+
+    def test_today_is_the_readers_calendar_day(self, browser, base_url: str):
+        ctx = browser.new_context(timezone_id="America/Los_Angeles")
+        try:
+            page = ctx.new_page()
+            # 03:00 UTC on the 14th is still the evening of the 13th in Los Angeles.
+            page.clock.set_fixed_time("2026-10-14T03:00:00Z")
+            page.goto(base_url + "/")
+            assert page.evaluate("() => todayIso()") == "2026-10-13"
+        finally:
+            ctx.close()

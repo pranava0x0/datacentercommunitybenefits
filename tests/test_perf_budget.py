@@ -26,34 +26,36 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 
-# Everything the browser must fetch before the landing view is usable.
+# Everything the browser must fetch before the landing view is usable. v6
+# (2026-10-08): Home renders from data/home.json, a ~1 KB digest built by
+# refresh.py, instead of the projects + roster + coverage payloads. The e2e
+# test TestHomeFirstPaint records real requests to keep this list honest.
 FIRST_PAINT = [
     "index.html",
     "styles.css",
     "app.js",
     "data/companies.json",  # preloaded
-    # claims.json left first paint in v5: Home never shows a claim (see
-    # ensureCompanyData / ensureClaimsData in app.js). Companies loads it.
-    "data/projects.json",  # Ratepayer scorecard + principle tallies
-    "data/signatories.json",  # roster counts + coverage
-    "data/coverage.json",  # per-state rollup (~2 KB) so the grid needn't pull 50 KB
+    "data/home.json",
 ]
 
-# Fetched immediately AFTER first paint, not as part of it. responses.json only
-# decorates below-the-fold cards (the concern flags), so it is split out of
-# loadProjectData deliberately — see loadResponseData in app.js. rate_cases.json
-# fills the Home "What's next" list the same way — see loadRateCasesData.
-DEFERRED = ["data/responses.json", "data/rate_cases.json", "data/claims.json"]
+# Warmed after Home renders (idle preload), so tab switches are instant.
+DEFERRED = ["data/projects.json", "data/responses.json", "data/claims.json"]
 
-# Payloads that must NOT be part of first paint — they belong to a tab the
-# visitor has not opened yet.
-LAZY_ONLY = ["data/moratoriums.json", "data/tariffs.json"]
+# Payloads only the tab that shows them fetches.
+LAZY_ONLY = [
+    "data/moratoriums.json",
+    "data/tariffs.json",
+    "data/signatories.json",
+    "data/coverage.json",
+    "data/rate_cases.json",
+    "data/policies.json",
+]
 
 # 250 -> 275 on 2026-10-08, owner-approved headroom for the v5 views. The
 # claims.json deferral stays: headroom is for app growth, not for pulling a
 # payload Home doesn't use back into first paint.
 MAX_FIRST_PAINT_KB = 275
-MAX_FIRST_PAINT_REQUESTS = 8
+MAX_FIRST_PAINT_REQUESTS = 5
 
 
 def gzipped_kb(rel: str) -> float:

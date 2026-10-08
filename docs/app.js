@@ -521,6 +521,7 @@ const state = {
   signatories: [],
   coverage: {},
   coverageTotals: null,
+  home: null,
   coverageLoaded: false,
   rosterAsOf: null,
   rosterCountsStated: {},
@@ -615,16 +616,24 @@ document.addEventListener("DOMContentLoaded", () => {
       if (state.explorerLoaded || state.projects.length) return;
       const preload = () =>
         Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()])
-          .then(() => {
-            renderPledgeHero();
-          })
+          .then(() => {})
           .catch((err) =>
             console.error("Idle preload of project data failed:", err)
           );
-      if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(preload, { timeout: 2000 });
+      const schedule = () => {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(preload, { timeout: 2000 });
+        } else {
+          setTimeout(preload, 800);
+        }
+      };
+      // On Home, warm the other tabs' data only after Home has rendered, so
+      // Home's first paint is just the page, companies.json and home.json
+      // (the e2e test TestHomeFirstPaint records the requests to prove it).
+      if (state.activeView === "overview") {
+        loadHomeData().then(schedule, schedule);
       } else {
-        setTimeout(preload, 800);
+        schedule();
       }
     })
     .catch((err) => {
@@ -867,7 +876,15 @@ function activateView(name) {
       document.getElementById("explorer-meta").textContent =
         "Failed to load projects.";
     });
-  } else if (target.name === "ratepayer" || target.name === "overview") {
+  } else if (target.name === "overview") {
+    loadHomeData()
+      .then(renderHome)
+      .catch((err) => {
+        console.error("Failed to load home digest:", err);
+        const ol = document.getElementById("home-latest-list");
+        if (ol) ol.replaceChildren(el("li", "muted", "Couldn't load the latest records."));
+      });
+  } else if (target.name === "ratepayer") {
     loadRatepayerView().catch((err) => {
       console.error("Failed to load ratepayer view:", err);
     });
@@ -965,7 +982,6 @@ function indexClaimsByProject() {
 
 async function loadComparisonData() {
   await Promise.all([ensureCompanyData(), ensureClaimsData()]);
-  renderPledgeHero();
 }
 
 // Memoized handle on the companies + claims payload. loadProjectData awaits
@@ -1083,7 +1099,10 @@ function buildMoratoriumAffectanceMap() {
 async function loadExplorerData() {
   document.getElementById("explorer-meta").textContent = "Loading projects…";
   await Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()]);
-  await ensureLeaflet();
+  // The map library is optional for this tab: Contested, By state and the list
+  // render from data alone. A blocked CDN only costs the map, which then shows
+  // its own "Map library failed to load" (renderProjectMap checks window.L).
+  await ensureLeaflet().catch((err) => console.error("Leaflet failed to load:", err));
   state.explorerLoaded = true;
   renderExplorerView();
 
@@ -1181,7 +1200,6 @@ async function loadRatepayerView() {
   await Promise.all([loadProjectData(), loadSignatoryData(), loadCoverageData()]);
   state.ratepayerLoaded = true;
   renderRatepayerView();
-  renderPledgeHero();
 
   // Concern flags need responses, which are deliberately not part of first
   // paint. Fetch them straight after and re-render the scorecard in place.
@@ -1201,77 +1219,11 @@ async function loadRatepayerView() {
       console.error("Failed to load rate cases:", err)
     );
   }
-  renderWhatsNext();
   // Evidence quotes on the scorecard need claims (deferred tier). Awaited for
   // the same reason as responses: the ready event means "complete".
   // ensureClaimsData re-renders the scorecard itself when they land.
   await ensureClaimsData().catch((err) => console.error("Failed to load claims:", err));
   document.dispatchEvent(new CustomEvent("dcb:ratepayer-ready"));
-}
-
-// --- what's next: dated steps ahead in the tracked proceedings -------------
-//
-// Derived from RateCase.next_milestone — regulator-announced steps only, never
-// a guess (the schema says so). Dated milestones sort soonest-first; undated
-// pendings follow. Clicking an item lands on the rate-cases section.
-// Home shows only the soonest few, as one-line briefs — the full milestone
-// text lives with the rate-case records on the Tariffs & Rate Cases tab,
-// which is where every item (and the "All N milestones" link) lands.
-const HOME_WHATS_NEXT_MAX = 6;
-
-function renderWhatsNext() {
-  const ol = document.getElementById("whats-next-list");
-  if (!ol) return;
-  const items = (state.rateCases || []).filter((rc) => rc.next_milestone);
-  items.sort((a, b) => {
-    const da = a.next_milestone_date || "9999";
-    const db = b.next_milestone_date || "9999";
-    if (da !== db) return da.localeCompare(db);
-    return String(a.state_code).localeCompare(String(b.state_code));
-  });
-  ol.replaceChildren(
-    ...items.slice(0, HOME_WHATS_NEXT_MAX).map((rc) => {
-      const li = el("li", "wn-item");
-      const btn = el("button", "wn-btn");
-      btn.type = "button";
-      const when = el("span", "wn-date", rc.next_milestone_date || "Ahead");
-      if (!rc.next_milestone_date) when.classList.add("wn-date--open");
-      const where = el(
-        "span",
-        "wn-state",
-        isFederalRateCase(rc) ? "FED" : rc.state_code
-      );
-      where.title = isFederalRateCase(rc)
-        ? "Federal (FERC) proceeding"
-        : STATE_NAMES[rc.state_code] || rc.state_code;
-      const body = el("span", "wn-body");
-      body.append(
-        el("span", "wn-text", rc.next_milestone),
-        el(
-          "span",
-          "wn-meta",
-          [rc.utility, rc.docket_number ? `Docket ${rc.docket_number}` : null]
-            .filter(Boolean)
-            .join(" · ")
-        )
-      );
-      btn.append(when, where, body);
-      btn.addEventListener("click", () => goToPledgeTarget("ratecases"));
-      li.append(btn);
-      return li;
-    })
-  );
-  const sub = document.getElementById("whats-next-sub");
-  if (sub) {
-    sub.textContent = items.length
-      ? "Next steps set by regulators."
-      : "No upcoming steps announced.";
-  }
-  const more = document.getElementById("whats-next-more");
-  if (more) {
-    more.hidden = items.length <= HOME_WHATS_NEXT_MAX;
-    more.textContent = `All ${items.length} docket milestones →`;
-  }
 }
 
 // Aggregate view: needs the project payload but not Leaflet.
@@ -3421,119 +3373,6 @@ function el(tag, className, text) {
 // payload has not landed shows an em dash instead of blocking the row. That
 // keeps the pledge stats visible on first paint without pulling the 124 KB
 // roster into it.
-function renderPledgeHero() {
-  const list = document.getElementById("pledge-stats");
-  if (!list) return;
-
-  const counts = state.signatoriesLoaded ? signatoryCounts() : null;
-  const assessed = (state.projects || []).filter((p) => p.ratepayer);
-  const byStatus = {};
-  for (const s of RATEPAYER_STATUSES) byStatus[s] = 0;
-  for (const p of assessed) {
-    if (byStatus[p.ratepayer.status] !== undefined) byStatus[p.ratepayer.status] += 1;
-  }
-
-  // Five numbers that summarize the WHOLE record, not just the pledge —
-  // the moratorium / tariff counts come from coverage.json's precomputed
-  // totals so the landing never has to download those payloads (~50 KB gz)
-  // just to state two integers.
-  const totals = state.coverageTotals;
-  const tiles = [
-    {
-      num: counts ? String(counts.organizations) : "—",
-      label: "Organizations signed",
-      note: state.rosterAsOf ? `As of ${formatAsOf(state.rosterAsOf)}` : "",
-      target: "roster",
-    },
-    {
-      num: counts ? String(counts.governor) : "—",
-      label: "Governors signed an addendum",
-      note: "",
-      target: "coverage",
-    },
-    {
-      num: state.projects.length ? String(assessed.length) : "—",
-      label: "Sites assessed against the pledge",
-      note: assessed.length
-        ? `${byStatus.affirmed} site-specific · ${byStatus.contested} contested`
-        : "",
-      target: "scorecard",
-    },
-    {
-      num: totals ? String(totals.moratoriums) : "—",
-      label: "Moratoriums tracked",
-      note: "",
-      target: "moratoriums",
-    },
-    {
-      num: totals ? String(totals.tariffs + totals.rate_cases) : "—",
-      label: "Tariffs & rate cases",
-      note: totals
-        ? `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`
-        : "",
-      target: "tariffs",
-    },
-    {
-      num: totals && Number.isFinite(totals.policies) ? String(totals.policies) : "—",
-      label: "Policies and benefit deals",
-      note: "",
-      target: "policies",
-    },
-  ];
-
-  list.replaceChildren(
-    ...tiles.map((t) => {
-      const li = el("li", "pledge-stat");
-      const btn = el("button", null);
-      btn.type = "button";
-      btn.dataset.pathTarget = t.target;
-      btn.append(
-        el("span", "pledge-stat-num", t.num),
-        el("span", "pledge-stat-lbl", t.label)
-      );
-      if (t.note) btn.append(el("span", "pledge-stat-note", t.note));
-      li.append(btn);
-      return li;
-    })
-  );
-
-  wirePledgeTargets(list);
-  renderHomeCards();
-  renderPledgeActivity();
-  wirePledgeTargets(document.getElementById("view-overview"));
-}
-
-// --- explore the record: one card per tab ---------------------------------
-//
-// The cards are static markup (they wire once on boot); only their count
-// chips render from data, filled in as each payload lands. A count that
-// hasn't loaded keeps its markup placeholder ("—") — never a baked-in number,
-// same rule the stat tiles live by.
-function renderHomeCards() {
-  const fill = (key, text) => {
-    const span = document.querySelector(
-      `.home-card-count[data-count-for="${key}"]`
-    );
-    if (span && text) span.textContent = text;
-  };
-  if (state.signatoriesLoaded) {
-    const counts = signatoryCounts();
-    fill("pledge", `${counts.total} signatories`);
-  }
-  if ((state.companies || []).length) {
-    fill("companies", `${state.companies.length} companies`);
-  }
-  const totals = state.coverageTotals;
-  if (totals) {
-    fill("moratoriums", `${totals.moratoriums} tracked`);
-    fill("tariffs", `${totals.tariffs} tariffs · ${totals.rate_cases} rate cases`);
-    if (Number.isFinite(totals.policies)) fill("policies", `${totals.policies} tracked`);
-  }
-  if (state.projects.length) {
-    fill("sites", `${state.projects.length} sites`);
-  }
-}
-
 // --- who signed: one proportional bar ------------------------------------
 //
 // A single number ("279") says nothing about the shape of the coalition. The
@@ -3650,91 +3489,113 @@ function renderPledgeStateStrip() {
   }
 }
 
-// --- what changed: a short dated feed -------------------------------------
+
+// --------------------------------------------------------------------------
+// Home (v6, 2026-10-08)
 //
-// Derived from the data rather than hand-maintained, so it cannot go stale
-// while the dataset moves underneath it.
-function renderPledgeActivity() {
-  const ol = document.getElementById("pledge-activity");
-  if (!ol) return;
+// Everything Home shows comes from data/home.json, a ~1 KB gzipped digest
+// refresh.py builds (_build_home): per-tab numbers, the latest dated events
+// across every record type, and announced dates ahead. Home used to load the
+// projects + pledge roster + coverage payloads (~90 KB) to show six numbers,
+// and opened on pledge figures, which belong to The Pledge tab.
+// --------------------------------------------------------------------------
 
-  const items = [];
+let _homeDataPromise = null;
+function loadHomeData() {
+  if (!_homeDataPromise) {
+    _homeDataPromise = fetchJson("data/home.json").then((d) => {
+      state.home = d;
+      return d;
+    });
+  }
+  return _homeDataPromise;
+}
 
-  if (state.signatoriesLoaded) {
-    const counts = signatoryCounts();
-    const joined = (state.signatories || []).filter(
-      (s) => s.signed_track === "expansion-2026-07-23"
+const HOME_SITE_KIND_LABELS = {
+  hearing: "Hearing", vote: "Vote", permit: "Permit", lawsuit: "Lawsuit",
+  filing: "Filing", agreement: "Agreement", construction: "Construction", news: "News",
+};
+
+function renderHome() {
+  const h = state.home;
+  if (!h) return;
+  const t = h.totals;
+  const cards = {
+    sites: [t.sites, `${t.contested_sites} contested`],
+    moratoriums: [t.moratoriums, `${t.moratoriums_enacted} enacted`],
+    policies: [t.policies, `${t.policies_in_effect} in effect`],
+    tariffs: [t.tariffs + t.rate_cases, `${t.tariffs} tariffs · ${t.rate_cases_pending} rate cases pending`],
+    companies: [t.companies, "operators"],
+    pledge: [t.pledge_organizations, `organizations, plus ${t.pledge_governors} governors`],
+  };
+  for (const [key, [num, sub]] of Object.entries(cards)) {
+    const n = document.querySelector(`.home-card-num[data-count-for="${key}"]`);
+    const sEl = document.querySelector(`.home-card-sub[data-sub-for="${key}"]`);
+    if (n) n.textContent = Number.isFinite(num) ? num.toLocaleString() : "—";
+    if (sEl) sEl.textContent = sub;
+  }
+
+  const today = todayIso();
+  const feed = (ol, items, empty) => {
+    if (!ol) return;
+    if (!items.length) {
+      ol.replaceChildren(el("li", "muted", empty));
+      return;
+    }
+    ol.replaceChildren(
+      ...items.map((it) => {
+        const li = el("li", "feed-item");
+        const btn = el("button", "feed-btn");
+        btn.type = "button";
+        const kind = it.type === "Site" ? `Site · ${HOME_SITE_KIND_LABELS[it.subtype] || ""}` : it.type;
+        btn.append(
+          el("time", "feed-date", formatAsOf(it.date)),
+          el("span", "feed-type", kind),
+          el("span", "feed-title", it.title),
+          el("span", "feed-place", it.place ? STATE_NAMES[it.place] || it.place : "")
+        );
+        btn.querySelector("time").setAttribute("datetime", it.date);
+        btn.addEventListener("click", () => openHomeTarget(it.target));
+        li.append(btn);
+        return li;
+      })
     );
-    const joinedOrgs = joined.filter((s) => s.category !== "governor").length;
-    const joinedGovs = joined.length - joinedOrgs;
-    // The roster kept growing after the event, so the "to N" figure is the
-    // cohort as it stood on July 23 (the March + DOE signatories plus the
-    // expansion), not today's total — that belongs to the rolling item below.
-    const before = (state.signatories || []).filter(
-      (s) => s.category !== "governor" && s.signed_track !== "expansion-2026-07-23" && s.signed_track !== "rolling"
-    ).length;
-    if (joined.length) {
-      items.push({
-        date: RATEPAYER_PLEDGE_EXPANSION_DATE,
-        text:
-          `${joinedOrgs} organizations and ${joinedGovs} governors joined, taking ` +
-          `the roster from ${before} signatories to ${before + joinedOrgs}.`,
-      });
-    }
-    // Organizations that appeared on the roster after the expansion. The page
-    // publishes no join dates. A future rebuild may change rosterAsOf without
-    // changing when each organization was first seen.
-    const rolling = (state.signatories || []).filter((s) => s.signed_track === "rolling").length;
-    if (rolling && state.rosterAsOf) {
-      items.push({
-        date: state.rosterAsOf,
-        text:
-          `${rolling} more organization${rolling === 1 ? "" : "s"} appeared on the roster ` +
-          `after July 23 (join dates unpublished); the ${state.rosterAsOf} ` +
-          `snapshot lists ${counts.organizations} organizations.`,
-      });
-    }
-  }
-
-  // Newest contested findings — the sharpest signal the dataset carries.
-  const contested = (state.projects || [])
-    .filter((p) => p.ratepayer && p.ratepayer.status === "contested")
-    .slice(0, 3);
-  if (contested.length) {
-    items.push({
-      date: contested[0].ratepayer.captured_at || contested[0].captured_at || null,
-      text:
-        `${contested.length} site${contested.length === 1 ? "" : "s"} marked contested — ` +
-        "a third party documents costs reaching ratepayers despite the pledge.",
-    });
-  }
-
-  // Most recently captured site assessment.
-  const assessed = (state.projects || [])
-    .filter((p) => p.ratepayer && p.ratepayer.captured_at)
-    .sort((a, b) => b.ratepayer.captured_at.localeCompare(a.ratepayer.captured_at));
-  if (assessed.length) {
-    items.push({
-      date: assessed[0].ratepayer.captured_at,
-      text: `Latest site assessment: ${assessed[0].name}.`,
-    });
-  }
-
-  if (!items.length) {
-    ol.replaceChildren(el("li", "pledge-bar-loading", "Loading recent activity…"));
-    return;
-  }
-
-  ol.replaceChildren(
-    ...items.slice(0, 4).map((it) => {
-      const li = el("li", "pledge-activity-item");
-      li.append(
-        el("span", "pledge-activity-date", it.date ? formatAsOf(it.date) : "—"),
-        el("span", "pledge-activity-text", it.text)
-      );
-      return li;
-    })
+  };
+  feed(document.getElementById("home-latest-list"), h.latest, "Nothing recorded yet.");
+  // The digest is built once a day; drop anything whose date has since passed.
+  feed(
+    document.getElementById("whats-next-list"),
+    h.upcoming.filter((u) => u.date >= today),
+    "No announced dates ahead."
   );
+  document.dispatchEvent(new CustomEvent("dcb:home-ready"));
+}
+
+// A feed item opens the record it describes, not just its tab.
+function openHomeTarget(target) {
+  if (!target) return;
+  if (target.kind === "site") {
+    state.pendingProjectId = target.id;
+    activateView("explorer");
+    if (state.explorerLoaded) selectProject(target.id);
+  } else if (target.kind === "moratorium") {
+    activateView("moratoriums");
+    loadMoratoriumsData().then(() => {
+      const m = state.moratoriums.find((x) => x.id === target.id);
+      if (m) showMoratoriumDetail(m);
+    });
+  } else if (target.kind === "policy") {
+    setActiveSubtab("pol", "directory");
+    activateView("policies");
+    loadPoliciesData().then(() => {
+      const pol = (state.policies || []).find((x) => x.id === target.id);
+      if (pol) showPolicyDetail(pol);
+    });
+  } else if (target.kind === "ratecase") {
+    goToPledgeTarget("ratecases");
+  } else if (target.kind === "roster") {
+    goToPledgeTarget("roster");
+  }
 }
 
 // Every hero affordance (stat tiles + pathway cards) routes through one place,
@@ -5146,9 +5007,13 @@ const SITE_UPDATE_LABELS = {
 const CONTESTED_TIMELINE_PREVIEW = 3;
 const CONTESTED_PAGE_SIZE = 12;
 
-// Today's date as YYYY-MM-DD in UTC, matching how every record stores dates.
+// Today as YYYY-MM-DD on the READER's calendar. UTC would turn a same-day
+// hearing into "Outcome not yet recorded" every US evening, once UTC has
+// rolled over (Codex, PR #62).
 function todayIso() {
-  return new Date().toISOString().slice(0, 10);
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
 // One merged, dated event list for a site. A typed update is a fact (a vote
@@ -5282,9 +5147,12 @@ function renderContestedSites() {
   // "N contested →" link sets the Explorer company filter, and the reader
   // expects that operator here too.
   const coSel = document.getElementById("c-company");
-  if (coSel && state.explorerFilters.company && coSel.dataset.synced !== state.explorerFilters.company) {
-    coSel.value = state.explorerFilters.company;
-    coSel.dataset.synced = state.explorerFilters.company;
+  // Synced on every change of the shared filter, including back to "" when
+  // Map & list's Reset clears it (Codex, PR #62).
+  const shared = state.explorerFilters.company || "";
+  if (coSel && coSel.dataset.synced !== shared) {
+    coSel.value = shared;
+    coSel.dataset.synced = shared;
   }
   const fState = (document.getElementById("c-state") || {}).value || "";
   const fCo = (coSel || {}).value || "";

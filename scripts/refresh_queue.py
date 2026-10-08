@@ -483,6 +483,9 @@ def mark(key: str, summary: str, follow_ups: list[list[str]], on: date,
     entry = ledger["units"].setdefault(key, {})
     if blocked:  # stuck on a source: neither a review nor a check; park it for a cooldown
         entry["blocked"] = {"date": on.isoformat(), "reason": summary.strip()}
+        # Parking answers nothing, so a due follow-up must survive it
+        # (Codex, PR #61: --blocked silently pruned the unanswered question).
+        keep_due = True
     elif followups_only:  # a quick follow-up check is not a full review...
         # ...but what it found must survive the run, not only its commit message.
         entry["last_check"] = {"date": on.isoformat(), "summary": summary.strip()}

@@ -277,3 +277,13 @@ def test_a_passed_upcoming_site_date_comes_due(tmp_path, monkeypatch) -> None:
     monkeypatch.setattr(rq, "_load", lambda name, key: json.loads((data / name).read_text())[key])
     out = rq.derived_follow_ups()
     assert [f["due"] for f in out["site:x-site"]] == ["2026-10-15"]
+
+
+def test_parking_a_unit_keeps_its_due_follow_ups(tmp_ledger) -> None:
+    """Codex, PR #61: --blocked pruned every due follow-up, so the question the
+    run got stuck on vanished from the plan and from BACKLOG."""
+    key = "state:GA"
+    _write(tmp_ledger, {key: {"follow_ups": [{"due": "2026-10-07", "what": "Hall County vote"}]}})
+    rq.mark(key, "source down", [], date(2026, 10, 8), False, None, blocked=True)
+    entry = json.loads(tmp_ledger.read_text())["units"][key]
+    assert [f["what"] for f in entry["follow_ups"]] == ["Hall County vote"]
