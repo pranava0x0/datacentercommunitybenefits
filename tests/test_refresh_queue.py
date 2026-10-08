@@ -228,3 +228,32 @@ def test_backlog_leads_are_found_by_exact_unit_heading(tmp_path, monkeypatch) ->
     monkeypatch.setattr(rq, "BACKLOG", backlog)
     assert rq.backlog_leads("state:GA") == "- Hall County vote"
     assert rq.backlog_leads("state:G") == ""
+
+
+# --- blocked units -----------------------------------------------------------------
+
+def test_blocked_unit_is_skipped_then_retried_after_cooldown(tmp_ledger) -> None:
+    units = rq.derive_units()
+    top = rq.run_plan(units, date(2026, 10, 8), 1)[0][0].key
+    rq.mark(top, "source_url 404, nothing citable", [], date(2026, 10, 8), False, None, blocked=True)
+    entry = json.loads(tmp_ledger.read_text())["units"][top]
+    assert entry == {"blocked": {"date": "2026-10-08", "reason": "source_url 404, nothing citable"}}
+    assert rq.check_ledger() == []
+    planned = [u.key for u, _ in rq.run_plan(rq.merged_units(), date(2026, 10, 9), 4)]
+    assert top not in planned
+    ranked = rq.ranked(rq.merged_units(), date(2026, 10, 9))
+    assert ranked[-1][0].key == top and "blocked" in ranked[-1][1]
+    later = date(2026, 10, 8).toordinal() + rq.BLOCKED_COOLDOWN_DAYS
+    assert not rq.merged_units()[top].is_blocked(date.fromordinal(later))
+
+
+def test_a_completed_review_lifts_the_block(tmp_ledger) -> None:
+    key = "state:GA"
+    rq.mark(key, "stuck", [], date(2026, 10, 8), False, None, blocked=True)
+    rq.mark(key, "reviewed", [], date(2026, 10, 9), False, None)
+    assert "blocked" not in json.loads(tmp_ledger.read_text())["units"][key]
+
+
+def test_check_flags_a_malformed_block(tmp_ledger) -> None:
+    _write(tmp_ledger, {"state:GA": {"blocked": {"date": "nope"}}})
+    assert any("blocked" in p for p in rq.check_ledger())

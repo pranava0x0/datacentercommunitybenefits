@@ -41,6 +41,8 @@ Usage:
     python3 scripts/refresh_queue.py --mark site:meta-newton-ga \\
         --summary "Status + figures re-verified; 1 county approval added" \\
         --follow-up 2026-11-04 "Nov 3 ballot measure outcome"
+    python3 scripts/refresh_queue.py --mark site:meta-newton-ga --blocked \\
+        --summary "source_url 404; no live page states the figures"   # park 14 days, move on
     python3 scripts/refresh_queue.py --write-backlog    # regenerate BACKLOG.md §1
     python3 scripts/refresh_queue.py --check            # validate the ledger (CI/tests)
 
@@ -69,6 +71,9 @@ BACKLOG = ROOT / "BACKLOG.md"
 APP_JS = ROOT / "docs" / "app.js"
 
 TARGET_DAYS = {"site": 90, "state": 120, "company": 30}
+# A unit parked with `--mark KEY --blocked` (dead source, nothing citable) drops out of
+# run_plan for this long, so one stuck unit cannot take the front of every run.
+BLOCKED_COOLDOWN_DAYS = 14
 KIND_ORDER = {"site": 0, "state": 1, "company": 2}
 START = "<!-- refresh-queue:start -->"
 END = "<!-- refresh-queue:end -->"
@@ -100,6 +105,12 @@ class Unit:
     summary: str = ""
     follow_ups: list[dict] = field(default_factory=list)
     last_check: Optional[dict] = None
+    blocked: Optional[dict] = None  # {date, reason}: stuck on a source; see BLOCKED_COOLDOWN_DAYS
+
+    def is_blocked(self, today: date) -> bool:
+        if not self.blocked:
+            return False
+        return (today - date.fromisoformat(self.blocked["date"])).days < BLOCKED_COOLDOWN_DAYS
 
     def due_follow_ups(self, today: date) -> list[dict]:
         return sorted(
@@ -235,6 +246,7 @@ def merged_units() -> dict[str, Unit]:
         u.summary = entry.get("summary", "")
         u.follow_ups = list(entry.get("follow_ups", []))
         u.last_check = entry.get("last_check")
+        u.blocked = entry.get("blocked")
     for key, items in derived_follow_ups().items():
         if key in units:
             units[key].follow_ups.extend(items)
@@ -242,11 +254,13 @@ def merged_units() -> dict[str, Unit]:
 
 
 def ranked(units: dict[str, Unit], today: date) -> list[tuple[Unit, str]]:
-    due, rest = [], []
+    due, rest, blocked = [], [], []
     for u in units.values():
         d = u.due_follow_ups(today)
         if d:
             due.append((d[0]["due"], u, f"follow-up due {d[0]['due']}: {d[0]['what']}"))
+        elif u.is_blocked(today):
+            blocked.append((u, f"blocked {u.blocked['date']}, retry after {BLOCKED_COOLDOWN_DAYS} days: {u.blocked['reason']}"))
         else:
             ratio = u.overdue_ratio(today)
             ref = u.last_reviewed or u.baseline
@@ -260,14 +274,16 @@ def ranked(units: dict[str, Unit], today: date) -> list[tuple[Unit, str]]:
             rest.append((ratio, u, why))
     due.sort(key=lambda t: (t[0], KIND_ORDER[t[1].kind], t[1].key))
     rest.sort(key=lambda t: (-t[0], KIND_ORDER[t[1].kind], t[1].key))
-    return [(u, why) for _, u, why in due] + [(u, why) for _, u, why in rest]
+    blocked.sort(key=lambda t: t[0].key)
+    return [(u, why) for _, u, why in due] + [(u, why) for _, u, why in rest] + blocked
 
 
 def run_plan(units: dict[str, Unit], today: date, n: int) -> list[tuple[Unit, str]]:
     """What one run should work through, in order (see module docstring)."""
     order = ranked(units, today)
     due = [t for t in order if t[0].due_follow_ups(today)]
-    by_kind = {k: [t for t in order if t[0].kind == k and not t[0].due_follow_ups(today)]
+    by_kind = {k: [t for t in order if t[0].kind == k and not t[0].due_follow_ups(today)
+                    and not t[0].is_blocked(today)]
                for k in TARGET_DAYS}
     alt = ("state", "company") if today.toordinal() % 2 else ("company", "state")
     rhythm = ["site", alt[0], "site", alt[1]]
@@ -405,7 +421,15 @@ def check_ledger() -> list[str]:
     for key, entry in ledger.get("units", {}).items():
         if key not in units:
             problems.append(f"{key}: not a unit (record renamed or removed?)")
-        if not entry.get("last_reviewed") and not entry.get("follow_ups") and not entry.get("last_check"):
+        bl = entry.get("blocked")
+        if bl is not None:
+            try:
+                date.fromisoformat(bl["date"])
+                if not bl.get("reason"):
+                    raise KeyError("reason")
+            except (KeyError, ValueError, TypeError):
+                problems.append(f"{key}: blocked needs an ISO date + reason: {bl}")
+        if not entry.get("last_reviewed") and not entry.get("follow_ups") and not entry.get("last_check") and not bl:
             problems.append(f"{key}: empty entry (no review, check or follow-ups)")
         lc = entry.get("last_check")
         if lc is not None:
@@ -415,7 +439,7 @@ def check_ledger() -> list[str]:
                 date.fromisoformat((lc or {}).get("date", "") if isinstance(lc, dict) else "")
             except ValueError:
                 problems.append(f"{key}: last_check needs an ISO date: {lc}")
-        extra = set(entry) - {"last_reviewed", "summary", "follow_ups", "last_check"}
+        extra = set(entry) - {"last_reviewed", "summary", "follow_ups", "last_check", "blocked"}
         if extra:
             problems.append(f"{key}: unexpected fields {sorted(extra)}")
         try:
@@ -434,19 +458,23 @@ def check_ledger() -> list[str]:
 
 
 def mark(key: str, summary: str, follow_ups: list[list[str]], on: date,
-         keep_due: bool, hint: Optional[str], followups_only: bool = False) -> None:
+         keep_due: bool, hint: Optional[str], followups_only: bool = False,
+         blocked: bool = False) -> None:
     units = derive_units()
     if key not in units:
         close = [k for k in units if k.split(":", 1)[-1] in key or key.split(":", 1)[-1] in k][:5]
         raise SystemExit(f"unknown unit {key!r}. Similar: {close}")
     ledger = load_ledger()
     entry = ledger["units"].setdefault(key, {})
-    if followups_only:  # a quick follow-up check is not a full review...
+    if blocked:  # stuck on a source: neither a review nor a check; park it for a cooldown
+        entry["blocked"] = {"date": on.isoformat(), "reason": summary.strip()}
+    elif followups_only:  # a quick follow-up check is not a full review...
         # ...but what it found must survive the run, not only its commit message.
         entry["last_check"] = {"date": on.isoformat(), "summary": summary.strip()}
     else:
         entry["last_reviewed"] = on.isoformat()
         entry["summary"] = summary.strip()
+        entry.pop("blocked", None)  # a completed review lifts the park
     kept = [
         f for f in entry.get("follow_ups", [])
         if keep_due or date.fromisoformat(f["due"]) > on
@@ -462,7 +490,8 @@ def mark(key: str, summary: str, follow_ups: list[list[str]], on: date,
         entry["follow_ups"] = sorted(kept, key=lambda f: (f["due"], f["what"]))
     else:
         entry.pop("follow_ups", None)
-    if not entry.get("last_reviewed") and not entry.get("follow_ups") and not entry.get("last_check"):
+    if not (entry.get("last_reviewed") or entry.get("follow_ups") or entry.get("last_check")
+            or entry.get("blocked")):
         # A `--followups-only` mark whose unit had no *stored* follow-ups (the
         # due item was purely derived — see module docstring) both skips
         # last_reviewed/summary and clears the (empty) follow_ups list, so the
@@ -488,6 +517,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     ap.add_argument("--followups-only", action="store_true",
                     help="with --mark: clear due follow-ups and add new ones without "
                          "counting it as a full review (last_reviewed unchanged)")
+    ap.add_argument("--blocked", action="store_true",
+                    help="with --mark: park the unit (--summary = why it is stuck) for "
+                         "BLOCKED_COOLDOWN_DAYS so the next run moves on; not a review")
     ap.add_argument("--write-backlog", action="store_true")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--top", type=int, default=20)
@@ -503,8 +535,8 @@ def main(argv: Optional[list[str]] = None) -> int:
         if not args.summary:
             raise SystemExit("--mark needs --summary (what was checked, what changed)")
         mark(args.mark, args.summary, args.follow_up, args.today, args.keep_due, args.hint,
-             args.followups_only)
-        print(f"{args.mark}: follow-ups updated" if args.followups_only
+             args.followups_only, args.blocked)
+        print(f"{args.mark}: parked as blocked" if args.blocked else f"{args.mark}: follow-ups updated" if args.followups_only
               else f"{args.mark}: marked reviewed {args.today}")
         if not args.write_backlog:
             return 0
