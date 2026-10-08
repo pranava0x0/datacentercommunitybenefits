@@ -1036,6 +1036,20 @@ main {
   font-weight: 600;
 }
 
+.filter-search {
+  flex: 1 1 260px;
+}
+
+.filter-search input {
+  width: 100%;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font: inherit;
+}
+
 .filter select {
   background: var(--surface-2);
   color: var(--text);
@@ -1581,6 +1595,12 @@ main {
    ========================================================================== */
 
 @media (max-width: 960px) {
+  /* Eight tabs do not fit a tablet's width; wrap rather than hide some. */
+  .tabbar {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
   .explorer-layout {
     grid-template-columns: 1fr;
   }
@@ -1607,13 +1627,46 @@ main {
     padding: 10px 14px 6px;
   }
 
+  /* Every tab visible, no sideways scrolling. The interaction-cost UAT
+     (tools/interaction_cost.py) counted one to two side-swipes to reach
+     Moratoriums or Sites when the bar scrolled. Two rows of short labels
+     cost ~44px of sticky height and remove them. */
   .tabbar {
-    padding: 0 14px;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding: 2px 8px;
   }
 
   .tab {
-    padding: 8px 12px;
+    min-height: 44px;
+    padding: 6px 9px;
     font-size: var(--fs-base);
+  }
+
+  .tab-long {
+    display: none;
+  }
+
+  /* Sites: the list is what a phone reader scrolls for; the map follows it.
+     Theme chips stay one swipeable row instead of three wrapped rows. */
+  .explorer-list {
+    order: -1;
+    max-height: none;
+  }
+
+  .map {
+    height: 300px;
+  }
+
+  #theme-filter-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: 4px;
+  }
+
+  .theme-filter-chip {
+    flex-shrink: 0;
   }
 
   h2 {
@@ -6101,10 +6154,27 @@ button.depth-chip:focus-visible {
 .feed-place { grid-area: place; font-size: var(--fs-xs); color: var(--text-muted); }
 .feed-place:empty { display: none; }
 #whats-next-more { margin-top: 8px; }
+/* Phones: one compact row per section (name and sub-line left, number
+   right). The 2x3 grid of tall cards pushed Latest two swipes and Coming up
+   four swipes below the fold (tools/interaction_cost.py, 2026-10-08). */
 @media (max-width: 600px) {
-  .home-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .home-card { padding: 12px; }
-  .home-card-num { font-size: var(--fs-2xl); }
+  #view-overview .hero-dek { font-size: var(--fs-base); }
+  #view-overview .hero { margin-bottom: 10px; }
+  .home-h { margin-top: 14px; }
+  .home-cards { grid-template-columns: 1fr; gap: 6px; }
+  #home-latest-list.is-capped > li:nth-child(n + 6) { display: none; }
+  .home-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "title num" "sub num";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 2px;
+    padding: 10px 14px;
+  }
+  .home-card-title { grid-area: title; font-size: var(--fs-md); }
+  .home-card-num { grid-area: num; font-size: var(--fs-2xl); }
+  .home-card-sub { grid-area: sub; }
   .home-card-dek { display: none; }
   .feed-btn { grid-template-columns: 5.2rem minmax(0, 1fr); }
 }
@@ -6184,3 +6254,193 @@ button.depth-chip:focus-visible {
 /* Headings throughout: one step heavier so they read as headings. */
 .hero-title,
 .theme-quotes-title { font-weight: 600; }
+
+/* ---- Benefit agreements (#agreements, 2026-10-08) --------------------------
+   One card per agreement. Full cards (Most complete) list all nine terms so a
+   missing one is visible; compact cards (All) list only what is present and
+   fold the terms into a disclosure. */
+.cba-note {
+  max-width: 64ch;
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+}
+.cba-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.cba-card {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.cba-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.cba-kind {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.cba-title {
+  flex-basis: 100%;
+  margin: 2px 0 0;
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.cba-facts {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.cba-value {
+  margin: 10px 0 0;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.cba-value-num {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.cba-feat-count {
+  margin: 10px 0 6px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.cba-feats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.cba-feat {
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  background: var(--surface);
+}
+.cba-feat.is-on {
+  color: var(--text);
+  border-color: var(--delivered-delivered, var(--accent));
+  background: var(--accent-soft);
+}
+.cba-summary {
+  margin: 10px 0 0;
+  font-size: var(--fs-base);
+  line-height: 1.5;
+}
+.cba-terms {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+.cba-src {
+  margin: 8px 0 0;
+  font-size: var(--fs-sm);
+}
+.cba-more {
+  margin-top: 8px;
+}
+.cba-more > summary {
+  cursor: pointer;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent);
+}
+.cba-card .claim-delivered {
+  margin-top: 10px;
+}
+.cba-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.cba-feature {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.cba-feature-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+.cba-feature-test {
+  margin: 6px 0;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.cba-feature-count {
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.cba-feature-who {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  font-size: var(--fs-sm);
+}
+@media (pointer: coarse) {
+  .cba-more > summary {
+    min-height: 44px;
+  }
+}
+
+/* The "Show N more" control only matters where the list is capped (phones). */
+.home-latest-more { margin-top: 8px; }
+@media (min-width: 601px) {
+  .home-latest-more { display: none; }
+}
+.home-latest-more[hidden] { display: none; }
+
+/* One line each on phones (owner, 2026-10-08): site title, sub-tab labels. */
+.subtab { white-space: nowrap; }
+@media (max-width: 640px) {
+  .topbar h1 {
+    font-size: var(--fs-xl);
+    white-space: nowrap;
+  }
+  .hero-title,
+  #view-overview .hero-title { font-size: var(--fs-lg); }
+  .subtabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .subtab { padding: 8px 10px; }
+  /* Stat tiles: an even two-column grid instead of a ragged wrap. */
+  .rp-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -552,6 +552,16 @@ def _is_contested(p, neg_projects: set, disputed_projects: set) -> bool:
     )
 
 
+def _is_agreement(pol) -> bool:
+    """Mirror of isAgreementRecord in app.js: a developer-community deal, or a
+    company's pledge to one host community. Company-wide plans are not."""
+    if not pol.community_benefits_framework:
+        return False
+    if pol.instrument == "benefit_agreement":
+        return True
+    return pol.instrument == "company_plan" and pol.scope != "company"
+
+
 def _place(city: str | None, state: str | None) -> str:
     return ", ".join(x for x in (city, state) if x)
 
@@ -582,6 +592,11 @@ def _build_home(payloads, today: date) -> dict:
         "moratoriums_enacted": sum(m.status == "enacted" for m in morats),
         "policies": len(policies),
         "policies_in_effect": sum(p.status == "in_effect" for p in policies),
+        "agreements": sum(_is_agreement(p) for p in policies),
+        "agreements_signed": sum(
+            p.instrument == "benefit_agreement" and p.status == "in_effect"
+            for p in policies
+        ),
         "tariffs": len(tariffs),
         "rate_cases": len(rate_cases),
         "rate_cases_pending": sum(r.status == "pending" for r in rate_cases),
@@ -603,10 +618,13 @@ def _build_home(payloads, today: date) -> dict:
             verb = {"in_effect": "", "proposed": " (proposed)", "failed": " (failed)"}[pol.status]
             if "(" in pol.title:  # "(vetoed)", "(first reading)" already say it
                 verb = ""
+            agreement = _is_agreement(pol)
             latest.append({
-                "date": pol.date.isoformat(), "type": "Local policy",
+                "date": pol.date.isoformat(),
+                "type": "Agreement" if agreement else "Local policy",
                 "title": pol.title + verb,
-                "place": pol.state_code or "", "target": {"kind": "policy", "id": pol.id},
+                "place": pol.state_code or "",
+                "target": {"kind": "agreement" if agreement else "policy", "id": pol.id},
             })
     for rc in rate_cases:
         d = rc.decided_date if rc.status != "pending" else rc.filed_date

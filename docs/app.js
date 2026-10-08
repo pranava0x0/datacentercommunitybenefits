@@ -157,6 +157,47 @@ const POLICY_STATUS_BADGE_CLASS = {
   proposed: "badge-tariff-status-proposed",
   failed: "badge-tariff-status-rejected",
 };
+// What a community-benefits record's text contains. Mirrors
+// AGREEMENT_FEATURES / AGREEMENT_FEATURE_LABELS in schema.py (parity-tested).
+const AGREEMENT_FEATURES = [
+  "binding_contract",
+  "dollar_commitment",
+  "community_oversight",
+  "local_hiring_target",
+  "water_limit",
+  "ratepayer_protection",
+  "public_reporting",
+  "successor_binding",
+  "clawback",
+];
+const AGREEMENT_FEATURE_LABELS = {
+  binding_contract: "Signed, enforceable contract",
+  dollar_commitment: "Dollar amounts written in",
+  community_oversight: "Independent body controls the money",
+  local_hiring_target: "Numeric local hiring target",
+  water_limit: "Water cap or cooling standard",
+  ratepayer_protection: "Grid costs kept off residents' bills",
+  public_reporting: "Regular public reporting",
+  successor_binding: "Binds future owners",
+  clawback: "Penalty or repayment if terms are missed",
+};
+// The test a curator applies before tagging, shown on the "Terms" sub-tab.
+const AGREEMENT_FEATURE_TESTS = {
+  binding_contract: "Signed by both sides, with obligations stated as binding or enforceable.",
+  dollar_commitment: "Specific dollar amounts or a payment schedule, not a blank to fill in later.",
+  community_oversight: "A board, foundation or development body outside the company decides how the money is spent.",
+  local_hiring_target: "A number or percentage of jobs for local residents.",
+  water_limit: "A gallons-per-day cap, or a closed-loop or low-water cooling requirement.",
+  ratepayer_protection: "The developer pays its own grid and infrastructure costs so other customers don't.",
+  public_reporting: "A public report on a set schedule, such as yearly.",
+  successor_binding: "The terms carry over to whoever buys or operates the site next.",
+  clawback: "Repayment, a penalty, or a draw on posted security if the developer misses a term.",
+};
+const AGREEMENT_STATUS_LABELS = {
+  in_effect: "Signed",
+  proposed: "Proposed",
+  failed: "Rejected or withdrawn",
+};
 // The playbook's organizing axis. Mirrors POLICY_PRINCIPLES in schema.py.
 const POLICY_PRINCIPLES = [
   "pay_own_way",
@@ -548,6 +589,7 @@ const state = {
   activeView: DEFAULT_VIEW_NAME,
   selectedCompanySlug: null,
   explorerFilters: {
+    q: "",
     company: "",
     status: "",
     stance: "",
@@ -577,6 +619,7 @@ const state = {
 // Default Explorer filter shape — single source of truth for init + reset so
 // the six dimensions stay in sync everywhere.
 const EMPTY_EXPLORER_FILTERS = {
+  q: "",
   company: "",
   status: "",
   stance: "",
@@ -686,13 +729,16 @@ function wireThemeToggle() {
 // DEFAULT_VIEW_NAME). Comparison keeps its full behaviour one click away and
 // has an explicit `#comparison` hash — it had been the bare-root view before
 // v2, and demoting it without giving it a hash would have left it un-linkable.
+// Tab order (owner-directed 2026-10-08): the pledge, then the local rules
+// (frameworks, agreements, moratoriums, tariffs), then companies and sites.
 const VIEWS = [
   { name: "overview", tab: "tab-overview", section: "view-overview", hash: "#overview" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
-  { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
+  { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
+  { name: "agreements", tab: "tab-agreements", section: "view-agreements", hash: "#agreements" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
-  { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
+  { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
 ];
 
@@ -765,6 +811,7 @@ function anyExplorerFilterSet() {
 }
 
 const URL_FILTER_KEYS = [
+  "q",
   "company",
   "state",
   "status",
@@ -896,6 +943,14 @@ function activateView(name) {
     loadTariffsData().catch((err) => {
       console.error("Failed to load tariffs data:", err);
     });
+  } else if (target.name === "agreements") {
+    loadPoliciesData()
+      .then(renderAgreementsView)
+      .catch((err) => {
+        console.error("Failed to load agreements:", err);
+        const ol = document.getElementById("cba-strongest");
+        if (ol) ol.innerHTML = "<li class='muted'>Failed to load agreements.</li>";
+      });
   } else if (target.name === "policies") {
     // Moratoriums are secondary here: they only add the governor orders
     // filed on that tab to "Latest actions", so their failure is caught
@@ -1349,8 +1404,16 @@ function renderMoratoriumsView() {
       <td>${reasonBadges}</td>
     `;
 
-    tr.addEventListener("click", () => {
-      showMoratoriumDetail(m);
+    tr.dataset.id = m.id;
+    tr.tabIndex = 0;
+    tr.setAttribute("role", "button");
+    tr.setAttribute("aria-label", `${m.jurisdiction}: ${m.status}. View details`);
+    tr.addEventListener("click", () => showMoratoriumDetail(m));
+    tr.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showMoratoriumDetail(m);
+      }
     });
     tbody.appendChild(tr);
   });
@@ -2855,6 +2918,217 @@ function renderPolicyStats(all) {
     .join("");
 }
 
+// --------------------------------------------------------------------------
+// Benefit agreements view (#agreements)
+//
+// Built from policies.json: deals between a developer and its host community
+// (benefit_agreement), plus a company's published pledge to one community.
+// Company-wide plans stay on the frameworks tab. Ranking is derived from the
+// curator's feature tags, never a hand-written "best of" list.
+// --------------------------------------------------------------------------
+const CBA_STRONGEST_MAX = 10;
+
+function isAgreementRecord(p) {
+  if (!p.community_benefits_framework) return false;
+  if (p.instrument === "benefit_agreement") return true;
+  return p.instrument === "company_plan" && p.scope !== "company";
+}
+
+function agreementRecords() {
+  return (state.policies || []).filter(isAgreementRecord);
+}
+
+// Most features first, then the larger stated value, then the newest.
+function agreementRank(a, b) {
+  const fa = (a.agreement_features || []).length;
+  const fb = (b.agreement_features || []).length;
+  if (fa !== fb) return fb - fa;
+  const va = a.value_usd || 0;
+  const vb = b.value_usd || 0;
+  if (va !== vb) return vb - va;
+  return (b.date || "").localeCompare(a.date || "");
+}
+
+function strongestAgreements() {
+  return agreementRecords()
+    .filter(
+      (p) =>
+        p.instrument === "benefit_agreement" &&
+        p.status === "in_effect" &&
+        (p.agreement_features || []).length
+    )
+    .sort(agreementRank)
+    .slice(0, CBA_STRONGEST_MAX);
+}
+
+function renderAgreementCard(p, { compact = false } = {}) {
+  const li = el("li", "cba-card");
+  li.id = `cba-${p.id}`;
+  li.dataset.id = p.id;
+  const has = new Set(p.agreement_features || []);
+  const parties = policyParties(p);
+  const facts = [
+    policyWhere(p),
+    p.date ? formatAsOf(p.date) : null,
+    parties.length
+      ? parties.slice(0, 3).join(", ") + (parties.length > 3 ? ` and ${parties.length - 3} more` : "")
+      : null,
+  ].filter(Boolean);
+  const kind =
+    p.instrument === "company_plan" ? "Company pledge" : "Agreement";
+  const value = p.value_usd
+    ? `<p class="cba-value"><span class="cba-value-num">${escapeHtml(formatUsd(p.value_usd))}</span> stated in the source</p>`
+    : "";
+  // The full card lists all nine so readers can see what is missing; the
+  // compact row lists only what is there.
+  const chips = (compact ? AGREEMENT_FEATURES.filter((f) => has.has(f)) : AGREEMENT_FEATURES)
+    .map(
+      (f) =>
+        `<li class="cba-feat${has.has(f) ? " is-on" : ""}"><span aria-hidden="true">${has.has(f) ? "✓" : "–"}</span> ${escapeHtml(AGREEMENT_FEATURE_LABELS[f])}<span class="sr-only">${has.has(f) ? "" : " (not in text)"}</span></li>`
+    )
+    .join("");
+  const featLine = p.agreement_features
+    ? `<p class="cba-feat-count">${has.size} of ${AGREEMENT_FEATURES.length} terms in writing</p>
+       ${chips ? `<ul class="cba-feats" role="list">${chips}</ul>` : ""}`
+    : `<p class="cba-feat-count muted">Terms not yet reviewed.</p>`;
+  const terms = `<ul class="cba-terms">${p.key_terms.map((t) => `<li>${escapeHtml(t)}</li>`).join("")}</ul>`;
+  const src = `<p class="cba-src"><a href="${escapeAttr(String(p.source_url))}" target="_blank" rel="noopener noreferrer">${escapeHtml(p.source_title)} ↗</a></p>`;
+  li.innerHTML = `
+    <header class="cba-head">
+      <span class="badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}">${escapeHtml(AGREEMENT_STATUS_LABELS[p.status] || p.status)}</span>
+      <span class="cba-kind">${escapeHtml(kind)}</span>
+      <h3 class="cba-title">${escapeHtml(p.title)}</h3>
+      <p class="cba-facts">${facts.map(escapeHtml).join(" · ")}</p>
+    </header>
+    ${value}
+    ${featLine}
+    ${
+      compact
+        ? `<details class="cba-more"><summary>Terms and source</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}</details>`
+        : `<p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}`
+    }`;
+  if (p.delivered) {
+    const d = renderDeliveredPanel(p.delivered);
+    const target = li.querySelector(".cba-more") || li;
+    target.append(d);
+  }
+  return li;
+}
+
+function renderAgreementsView() {
+  const all = agreementRecords();
+  const deals = all.filter((p) => p.instrument === "benefit_agreement");
+  const signed = deals.filter((p) => p.status === "in_effect");
+  const stated = signed.filter((p) => p.value_usd);
+  const total = stated.reduce((a, p) => a + p.value_usd, 0);
+
+  const stats = document.getElementById("cba-stats");
+  if (stats) {
+    const tiles = [
+      [signed.length, "Signed agreements"],
+      [deals.filter((p) => p.status === "proposed").length, "Proposed"],
+      [deals.filter((p) => p.status === "failed").length, "Rejected or withdrawn"],
+      [total ? formatUsd(total) : "N/A", `Stated value of ${stated.length} signed agreements`],
+    ];
+    stats.innerHTML = tiles
+      .map(
+        ([v, label]) => `
+      <li class="rp-stat">
+        <span class="rp-stat-value">${escapeHtml(String(v))}</span>
+        <span class="rp-stat-label">${escapeHtml(label)}</span>
+      </li>`
+      )
+      .join("");
+  }
+
+  const strongest = strongestAgreements();
+  setSubtabCount("cba-strongest-count", strongest.length);
+  const top = document.getElementById("cba-strongest");
+  if (top) {
+    top.replaceChildren(...strongest.map((p) => renderAgreementCard(p)));
+    if (!strongest.length) top.innerHTML = "<li class='muted'>No signed agreements reviewed yet.</li>";
+  }
+
+  // Directory, filtered.
+  const stSel = document.getElementById("cba-state-filter");
+  if (stSel && stSel.dataset.filled !== "1") {
+    stSel.dataset.filled = "1";
+    const codes = [...new Set(all.map((p) => p.state_code).filter(Boolean))].sort();
+    for (const c of codes) stSel.append(new Option(STATE_NAMES[c] || c, c));
+  }
+  for (const id of ["cba-status-filter", "cba-state-filter", "cba-kind-filter"]) {
+    const sel = document.getElementById(id);
+    if (sel && sel.dataset.wired !== "1") {
+      sel.dataset.wired = "1";
+      sel.addEventListener("change", renderAgreementsView);
+    }
+  }
+  const val = (id) => (document.getElementById(id) || {}).value || "";
+  const fStatus = val("cba-status-filter");
+  const fState = val("cba-state-filter");
+  const fKind = val("cba-kind-filter");
+  const shown = all
+    .filter(
+      (p) =>
+        (!fStatus || p.status === fStatus) &&
+        (!fState || p.state_code === fState) &&
+        (!fKind || p.instrument === fKind)
+    )
+    .sort(policySort);
+  setSubtabCount("cba-all-count", all.length);
+  const meta = document.getElementById("cba-meta");
+  if (meta) meta.textContent = `${shown.length} of ${all.length}`;
+  const list = document.getElementById("cba-all");
+  if (list) {
+    list.replaceChildren(...shown.map((p) => renderAgreementCard(p, { compact: true })));
+    if (!shown.length) list.innerHTML = "<li class='muted'>Nothing matches these filters.</li>";
+  }
+
+  // Terms: each feature, how many signed agreements have it, and which.
+  const feats = document.getElementById("cba-features");
+  if (feats) {
+    const tagged = signed.filter((p) => p.agreement_features);
+    feats.innerHTML = AGREEMENT_FEATURES.map((f) => {
+      const withIt = tagged.filter((p) => p.agreement_features.includes(f));
+      const names = withIt
+        .map((p) => `<li><button type="button" class="btn-link cba-jump" data-id="${escapeAttr(p.id)}">${escapeHtml(policyWhere(p))}</button></li>`)
+        .join("");
+      return `<li class="cba-feature">
+        <h3 class="cba-feature-title">${escapeHtml(AGREEMENT_FEATURE_LABELS[f])}</h3>
+        <p class="cba-feature-test">${escapeHtml(AGREEMENT_FEATURE_TESTS[f])}</p>
+        <p class="cba-feature-count">${withIt.length} of ${tagged.length} signed agreements</p>
+        ${names ? `<ul class="cba-feature-who" role="list">${names}</ul>` : ""}
+      </li>`;
+    }).join("");
+    if (feats.dataset.wired !== "1") {
+      feats.dataset.wired = "1";
+      feats.addEventListener("click", (e) => {
+        const b = e.target.closest(".cba-jump");
+        if (b) openAgreement(b.dataset.id);
+      });
+    }
+  }
+}
+
+// Show one agreement in the directory, opened. Used by Home and the
+// "Terms" lists.
+function openAgreement(id) {
+  activateView("agreements");
+  setActiveSubtab("cba", "all");
+  for (const sid of ["cba-status-filter", "cba-state-filter", "cba-kind-filter"]) {
+    const sel = document.getElementById(sid);
+    if (sel) sel.value = "";
+  }
+  loadPoliciesData().then(() => {
+    renderAgreementsView();
+    const card = document.getElementById(`cba-${id}`);
+    if (!card) return;
+    const more = card.querySelector(".cba-more");
+    if (more) more.open = true;
+    card.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
 // Principle cards: what each rule looks like in practice, how far it has
 // spread, and the latest examples. "All N" filters the directory.
 const PB_EXAMPLES_PER_PRINCIPLE = 3;
@@ -3501,6 +3775,7 @@ function renderPledgeStateStrip() {
 // --------------------------------------------------------------------------
 
 let _homeDataPromise = null;
+const HOME_LATEST_PHONE = 5;
 function loadHomeData() {
   if (!_homeDataPromise) {
     _homeDataPromise = fetchJson("data/home.json").then((d) => {
@@ -3524,6 +3799,7 @@ function renderHome() {
     sites: [t.sites, `${t.contested_sites} contested`],
     moratoriums: [t.moratoriums, `${t.moratoriums_enacted} enacted`],
     policies: [t.policies, `${t.policies_in_effect} in effect`],
+    agreements: [t.agreements, `${t.agreements_signed} signed`],
     tariffs: [t.tariffs + t.rate_cases, `${t.tariffs} tariffs · ${t.rate_cases_pending} rate cases pending`],
     companies: [t.companies, "operators"],
     pledge: [t.pledge_organizations, `organizations, plus ${t.pledge_governors} governors`],
@@ -3561,7 +3837,24 @@ function renderHome() {
       })
     );
   };
-  feed(document.getElementById("home-latest-list"), h.latest, "Nothing recorded yet.");
+  const latestEl = document.getElementById("home-latest-list");
+  feed(latestEl, h.latest, "Nothing recorded yet.");
+  // Phones show the first HOME_LATEST_PHONE items (CSS hides the rest while
+  // .is-capped is set) so "Coming up" stays within reach; one tap shows all.
+  const more = document.getElementById("home-latest-more");
+  const hidden = h.latest.length - HOME_LATEST_PHONE;
+  if (latestEl && more) {
+    latestEl.classList.toggle("is-capped", hidden > 0);
+    more.hidden = hidden <= 0;
+    more.textContent = `Show ${hidden} more`;
+    if (more.dataset.wired !== "1") {
+      more.dataset.wired = "1";
+      more.addEventListener("click", () => {
+        latestEl.classList.remove("is-capped");
+        more.hidden = true;
+      });
+    }
+  }
   // The digest is built once a day; drop anything whose date has since passed.
   feed(
     document.getElementById("whats-next-list"),
@@ -3591,6 +3884,8 @@ function openHomeTarget(target) {
       const pol = (state.policies || []).find((x) => x.id === target.id);
       if (pol) showPolicyDetail(pol);
     });
+  } else if (target.kind === "agreement") {
+    openAgreement(target.id);
   } else if (target.kind === "ratecase") {
     goToPledgeTarget("ratecases");
   } else if (target.kind === "roster") {
@@ -3633,6 +3928,7 @@ const PLEDGE_TARGETS = {
   companies: { view: "comparison", anchor: null },
   tariffs: { view: "tariffs", anchor: null },
   policies: { view: "policies", anchor: null },
+  agreements: { view: "agreements", anchor: null },
 };
 
 // --------------------------------------------------------------------------
@@ -3703,6 +3999,7 @@ const SUBTAB_GROUPS = {
   sites: ["map", "contested", "states"],
   tar: ["ratecases", "tariffs", "elements"],
   pol: ["principles", "latest", "directory"],
+  cba: ["strongest", "all", "features"],
   mor: ["directory", "trends", "influence"],
 };
 
@@ -3715,6 +4012,7 @@ const VIEW_SUBTAB_GROUP = {
   explorer: "sites",
   tariffs: "tar",
   policies: "pol",
+  agreements: "cba",
   moratoriums: "mor",
 };
 
@@ -3946,7 +4244,7 @@ async function exportComparisonToPDF() {
 // --------------------------------------------------------------------------
 function _filteredProjects() {
   const { company, status, stance, state: stateFilter, theme, constituency } = state.explorerFilters;
-  let list = [...state.projects];
+  let list = state.projects.filter((p) => matchesSiteQuery(p, state.explorerFilters.q));
   if (company) list = list.filter((p) => p.company_slug === company);
   if (stateFilter) list = list.filter((p) => p.state === stateFilter);
   if (status) list = list.filter((p) => p.status === status);
@@ -4911,6 +5209,8 @@ function syncExplorerFilterUIToState() {
   const sn = document.getElementById("f-stance");
   const cn = document.getElementById("f-constituency");
   const so = document.getElementById("f-sort");
+  const q = document.getElementById("f-q");
+  if (q) q.value = f.q || "";
   if (co) co.value = f.company || "";
   if (stt) stt.value = f.state || "";
   if (st) st.value = f.status || "";
@@ -5254,6 +5554,10 @@ function wireExplorerFilters() {
   if (root && root.dataset.wired === "1") return;
   if (root) root.dataset.wired = "1";
 
+  document.getElementById("f-q").addEventListener("input", (e) => {
+    state.explorerFilters.q = e.target.value.trim();
+    refreshExplorer();
+  });
   document.getElementById("f-company").addEventListener("change", (e) => {
     state.explorerFilters.company = e.target.value;
     refreshExplorer();
@@ -5700,9 +6004,22 @@ function refreshExplorer() {
   writeFiltersToUrl();
 }
 
+// Free-text site search: name, place, operator. Every word must match, so
+// "memphis xai" narrows rather than widens.
+function matchesSiteQuery(p, q) {
+  if (!q) return true;
+  const co = state.companiesBySlug.get(p.company_slug);
+  const hay = [p.name, p.city, p.state, STATE_NAMES[p.state], co && co.name, p.company_slug]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+  return q.toLowerCase().split(/\s+/).filter(Boolean).every((w) => hay.includes(w));
+}
+
 function filteredProjects() {
   const f = state.explorerFilters;
   const items = state.projects.filter((p) => {
+    if (!matchesSiteQuery(p, f.q)) return false;
     if (f.company && p.company_slug !== f.company) return false;
     if (f.state && p.state !== f.state) return false;
     if (f.status && p.status !== f.status) return false;

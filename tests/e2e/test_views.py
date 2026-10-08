@@ -3452,22 +3452,44 @@ class TestHomeV6:
         # Records real requests until Home has rendered (the data review on
         # PR #62: a hand-written file list can't catch a payload pulled back
         # into boot). The other tabs' data warms only after this event.
+        # The idle preload can start before this test regains control, so
+        # the check is ORDER: nothing else is requested until Home is ready.
+        page.add_init_script(
+            "window.__homeReadyAt = null; document.addEventListener('dcb:home-ready',"
+            " () => { window.__homeReadyAt = performance.now(); });"
+        )
         seen = []
-        page.on("request", lambda r: seen.append(r.url.split("/docs/")[-1].split("?")[0].replace(base_url + "/", "")))
+        page.on("request", lambda r: seen.append(r.url.split("?")[0].replace(base_url + "/", "")) if "/data/" in r.url else None)
         page.goto(base_url + "/")
-        page.wait_for_function("() => document.querySelector('#home-latest-list .feed-item')", timeout=E2E_WAIT)
-        data = sorted({u for u in seen if "data/" in u})
-        assert data == ["data/companies.json", "data/home.json"], data
+        page.wait_for_function("() => window.__homeReadyAt !== null", timeout=E2E_WAIT)
+        early = page.evaluate(
+            "() => performance.getEntriesByType('resource')"
+            ".filter(e => e.name.includes('/data/') && e.startTime < window.__homeReadyAt)"
+            ".map(e => 'data/' + e.name.split('/data/')[1].split('?')[0])"
+        )
+        assert sorted(set(early)) == ["data/companies.json", "data/home.json"], early
+        assert "data/home.json" in seen
 
-    def test_sections_lead_with_numbers_and_pledge_last(self, page: Page, base_url: str):
+    def test_sections_lead_with_numbers_in_tab_order(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
         nums = page.locator("#home-cards .home-card-num").all_inner_texts()
         assert nums and all(n.replace(",", "").isdigit() for n in nums), nums
         targets = page.locator("#home-cards .home-card").evaluate_all("els => els.map(e => e.dataset.pathTarget)")
-        assert targets[-1] == "pledge", "the pledge is one section among six, not the lead"
-        n_views = page.evaluate("() => VIEWS.length")
-        assert len(targets) == n_views - 1
+        # Cards follow the tab bar, so a reader meets sections in one order.
+        views = page.evaluate(
+            "() => VIEWS.slice(1).map(v => Object.entries(PLEDGE_TARGETS)"
+            ".find(([k, t]) => t.view === v.name && !t.anchor)[0])"
+        )
+        assert targets == views
+
+    def test_agreements_count_matches_the_digest(self, page: Page, base_url: str):
+        # refresh.py's _is_agreement mirrors isAgreementRecord().
+        page.goto(base_url + "/#agreements/all")
+        page.wait_for_selector("#cba-all .cba-card", timeout=E2E_WAIT)
+        js = page.evaluate("() => agreementRecords().length")
+        digest = page.evaluate("() => fetch('data/home.json').then(r => r.json()).then(d => d.totals.agreements)")
+        assert js == digest
 
     def test_contested_count_matches_the_frontend_rule(self, page: Page, base_url: str):
         # refresh.py's _is_contested mirrors contestedReasons(); hold them together.

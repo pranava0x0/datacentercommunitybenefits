@@ -293,6 +293,47 @@ def test_tab_is_wired(js) -> None:
     assert 'data-path-target="policies"' in html
 
 
+# --- benefit agreements tab (2026-10-08) ------------------------------------
+
+
+def test_agreement_feature_vocab_matches(js) -> None:
+    from schema import AGREEMENT_FEATURE_LABELS, AGREEMENT_FEATURES
+
+    assert tuple(_extract_array(js, "AGREEMENT_FEATURES")) == AGREEMENT_FEATURES
+    assert _extract_object_values(js, "AGREEMENT_FEATURE_LABELS") == set(AGREEMENT_FEATURE_LABELS.values())
+    for name in ("AGREEMENT_FEATURE_LABELS", "AGREEMENT_FEATURE_TESTS"):
+        assert _extract_object_keys(js, name) == set(AGREEMENT_FEATURES), name
+
+
+def test_agreement_status_labels_cover_policy_statuses(js) -> None:
+    from schema import POLICY_STATUSES
+
+    assert _extract_object_keys(js, "AGREEMENT_STATUS_LABELS") == set(POLICY_STATUSES)
+
+
+def test_features_only_on_community_benefit_records(policies) -> None:
+    for p in policies:
+        if p.get("agreement_features") is not None:
+            assert p["community_benefits_framework"], p["id"]
+
+
+def test_some_signed_agreements_are_tagged(policies) -> None:
+    """The "Most complete" pane ranks by tags; with none it renders empty."""
+    tagged = [
+        p for p in policies
+        if p["instrument"] == "benefit_agreement" and p["status"] == "in_effect"
+        and p.get("agreement_features")
+    ]
+    assert len(tagged) >= 5
+
+
+def test_agreements_tab_is_wired(js) -> None:
+    html = INDEX.read_text(encoding="utf-8")
+    assert 'id="tab-agreements"' in html and 'id="view-agreements"' in html
+    assert '"#agreements"' in js
+    assert 'data-path-target="agreements"' in html
+
+
 # --- the moratorium tab holds pauses, sourced to something specific ---------
 #
 # 2026-09-23: three records were moved off the Moratoriums tab. One was a

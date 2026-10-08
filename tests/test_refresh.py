@@ -265,4 +265,4 @@ class TestHomeDigest:
 
     def test_every_item_has_an_openable_target(self, home) -> None:
         for x in home["latest"] + home["upcoming"]:
-            assert x["target"]["kind"] in {"site", "moratorium", "policy", "ratecase", "roster"}
+            assert x["target"]["kind"] in {"site", "moratorium", "policy", "agreement", "ratecase", "roster"}
