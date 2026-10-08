@@ -99,7 +99,7 @@
           aria-selected="false"
           aria-controls="view-policies"
         >
-          Policy Playbook
+          Local Policy Frameworks
         </button>
         <button
           id="tab-explorer"
@@ -215,7 +215,7 @@
               <span class="home-card-count" data-count-for="tariffs">&mdash;</span>
             </button>
             <button class="home-card" type="button" data-path-target="policies">
-              <span class="home-card-tag">Policy Playbook</span>
+              <span class="home-card-tag">Local Policy Frameworks</span>
               <span class="home-card-title">What communities are requiring</span>
               <span class="home-card-dek">
                 Nine rules governments are writing, from grid costs to benefit agreements.
@@ -245,21 +245,76 @@
         <div class="hero">
           <h2 class="hero-title">Companies</h2>
           <p class="hero-dek">
-            How much each operator is building, and which community benefits it has put in writing.
+            Who is building, how much, what each operator has promised host communities in writing, and how those communities have responded.
           </p>
         </div>
 
-        <details class="acc" id="company-footprint-section" open>
-          <summary>
-            <h3 class="acc-title">Sites, power and investment</h3>
-            <span class="acc-count" id="agg-company-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
-            <span class="table-controls">
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Companies view">
+          <button class="subtab" role="tab" type="button" id="subtab-co-profiles" aria-selected="true" tabindex="0" aria-controls="subpane-co-profiles">
+            Profiles <span class="subtab-count" id="co-profiles-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-co-commitments" aria-selected="false" tabindex="-1" aria-controls="subpane-co-commitments">
+            Commitments <span class="subtab-count" id="matrix-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-co-footprint" aria-selected="false" tabindex="-1" aria-controls="subpane-co-footprint">
+            Footprint <span class="subtab-count" id="agg-company-count"></span>
+          </button>
+        </div>
+
+        <div class="subtab-panel" id="subpane-co-profiles" role="tabpanel" aria-labelledby="subtab-co-profiles">
+          <p class="acc-sub">
+            One card per operator. Commitment depth counts the operator&rsquo;s own published statements, theme by theme.
+          </p>
+          <ul class="depth-legend" aria-label="Commitment depth legend">
+            <li><span class="depth-chip depth-specific">Specific</span> at least one statement with a figure (jobs, dollars, megawatts, gallons)</li>
+            <li><span class="depth-chip depth-general">General</span> a written commitment without a figure</li>
+            <li><span class="depth-chip depth-none">None found</span> nothing published on the theme</li>
+          </ul>
+          <ol class="co-cards" id="co-cards" role="list"></ol>
+        </div>
+
+        <div class="subtab-panel" id="subpane-co-commitments" role="tabpanel" aria-labelledby="subtab-co-commitments" hidden>
+          <div class="matrix-toolbar">
+            <p class="matrix-help">
+              Each cell shows how specific an operator&rsquo;s published commitments are on a theme, and how many statements back it. Pick a cell or a theme to read the quotes.
+            </p>
+            <span class="export-btns">
+              <button id="matrix-csv" type="button" class="btn-ghost matrix-csv" aria-label="Download the company-by-theme matrix as a CSV file">⤓ CSV</button>
+              <button id="comparison-pdf-btn" type="button" class="btn-ghost" aria-label="Export comparison view as PDF">⤓ PDF</button>
+            </span>
+          </div>
+          <ul class="depth-legend" aria-label="Cell legend">
+            <li><span class="depth-mark depth-specific" aria-hidden="true"></span> Specific: a statement with a figure</li>
+            <li><span class="depth-mark depth-general" aria-hidden="true"></span> General: written, no figure</li>
+            <li><span class="depth-mark depth-none" aria-hidden="true"></span> None found</li>
+            <li class="muted">Number = published statements</li>
+          </ul>
+        <div class="matrix-wrap" role="region" aria-label="Company × Theme matrix">
+          <table id="comparison-matrix" class="matrix">
+            <thead>
+              <tr id="matrix-head-row"></tr>
+            </thead>
+            <tbody id="matrix-body"></tbody>
+          </table>
+          <div id="matrix-tooltip" class="matrix-tooltip" hidden role="tooltip" aria-live="off"></div>
+        </div>
+          <section class="theme-quotes" id="theme-quotes" aria-live="polite">
+            <div class="theme-quotes-head">
+              <h3 class="theme-quotes-title" id="theme-quotes-title">Read the quotes</h3>
+              <div class="theme-picker" id="theme-picker" role="group" aria-label="Theme"></div>
+            </div>
+            <ol class="theme-quotes-list" id="theme-quotes-list" role="list"></ol>
+          </section>
+        </div>
+
+        <div class="subtab-panel" id="subpane-co-footprint" role="tabpanel" aria-labelledby="subtab-co-footprint" hidden>
+          <div class="table-controls">
+            <p class="acc-sub">What each operator has announced across the sites tracked here.</p>
+            <span class="export-btns">
               <button id="agg-csv-btn" type="button" class="btn-ghost" title="All totals: by company, state, signatory category and utility">⤓ CSV</button>
               <button id="agg-pdf-btn" type="button" class="btn-ghost" title="All totals: by company, state, signatory category and utility">⤓ PDF</button>
             </span>
+          </div>
             <div class="table-scroll">
               <table class="agg-table" id="agg-company-table" aria-label="Company rollup">
                 <thead>
@@ -277,47 +332,7 @@
                 <tfoot id="agg-company-tfoot"></tfoot>
               </table>
             </div>
-          </div>
-        </details>
-
-        <details class="acc" id="matrix-section" open>
-          <summary>
-            <h3 class="acc-title">Published commitments</h3>
-            <span class="acc-count" id="matrix-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
-        <div class="matrix-toolbar">
-          <p class="matrix-help">
-            ✓ = at least one published claim on the theme.
-          </p>
-          <span class="export-btns">
-            <button
-              id="matrix-csv"
-              type="button"
-              class="btn-ghost matrix-csv"
-              aria-label="Download the company-by-theme matrix as a CSV file"
-            >⤓ CSV</button>
-            <button
-              id="comparison-pdf-btn"
-              type="button"
-              class="btn-ghost"
-              aria-label="Export comparison view as PDF"
-            >⤓ PDF</button>
-          </span>
         </div>
-
-        <div class="matrix-wrap" role="region" aria-label="Company × Theme matrix">
-          <table id="comparison-matrix" class="matrix">
-            <thead>
-              <tr id="matrix-head-row"></tr>
-            </thead>
-            <tbody id="matrix-body"></tbody>
-          </table>
-          <div id="matrix-tooltip" class="matrix-tooltip" hidden role="tooltip" aria-live="off"></div>
-        </div>
-          </div>
-        </details>
 
         <section
           id="company-detail"
@@ -381,40 +396,24 @@
         <div class="hero">
           <h2 class="hero-title">Data center sites</h2>
           <p class="hero-dek">
-            Where the campuses are, what each operator promised there, and how the community responded.
+            Where the campuses are, what each operator promised there, how the community responded, and what local decisions are coming up.
           </p>
         </div>
 
-        <section
-          class="hot-rail"
-          id="hot-rail"
-          aria-label="Recently contested sites"
-          hidden
-        >
-          <div class="hot-rail-head">
-            <h3 class="hot-rail-title">Recently contested</h3>
-            <p class="hot-rail-sub">
-              Lawsuits, eminent-domain fights, or disputed promises in the last six months.
-            </p>
-          </div>
-          <ol
-            class="hot-rail-list"
-            id="hot-rail-list"
-            role="list"
-          ></ol>
-        </section>
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Sites view">
+          <button class="subtab" role="tab" type="button" id="subtab-sites-map" aria-selected="true" tabindex="0" aria-controls="subpane-sites-map">
+            Map &amp; list <span class="subtab-count" id="sites-map-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-sites-contested" aria-selected="false" tabindex="-1" aria-controls="subpane-sites-contested">
+            Contested <span class="subtab-count" id="sites-contested-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-sites-states" aria-selected="false" tabindex="-1" aria-controls="subpane-sites-states">
+            By state <span class="subtab-count" id="agg-state-count"></span>
+          </button>
+        </div>
 
-        <details class="acc" id="explorer-filter-section" open>
-          <summary>
-            <h3 class="acc-title">Find a site</h3>
-            <span class="acc-count" id="explorer-filter-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
-        <p class="acc-sub">
-          Filters apply to the map and the list.
-        </p>
-
+        <div class="subtab-panel" id="subpane-sites-map" role="tabpanel" aria-labelledby="subtab-sites-map">
+        <div class="filter-bar" id="explorer-filter-section">
         <div
           class="theme-filter-row"
           id="theme-filter-row"
@@ -424,19 +423,19 @@
 
         <div class="explorer-filters" role="group" aria-label="Filter projects">
           <label class="filter">
-            <span>Company</span>
+            <span class="sr-only">Company</span>
             <select id="f-company">
               <option value="">All companies</option>
             </select>
           </label>
           <label class="filter">
-            <span>State</span>
+            <span class="sr-only">State</span>
             <select id="f-state">
               <option value="">All states</option>
             </select>
           </label>
           <label class="filter">
-            <span>Status</span>
+            <span class="sr-only">Status</span>
             <select id="f-status">
               <option value="">Any status</option>
               <option value="announced">Announced</option>
@@ -445,16 +444,16 @@
             </select>
           </label>
           <label class="filter">
-            <span>Community stance</span>
+            <span class="sr-only">Community stance</span>
             <select id="f-stance">
-              <option value="">Any stance</option>
+              <option value="">Any community stance</option>
               <option value="positive">Has positive responses</option>
               <option value="mixed">Has mixed responses</option>
               <option value="negative">Has negative responses</option>
             </select>
           </label>
           <label class="filter">
-            <span>Constituency</span>
+            <span class="sr-only">Constituency</span>
             <select id="f-constituency">
               <option value="">Any constituency</option>
               <option value="residents">Residents</option>
@@ -466,12 +465,12 @@
             </select>
           </label>
           <label class="filter">
-            <span>Sort by</span>
+            <span class="sr-only">Sort by</span>
             <select id="f-sort">
-              <option value="composite">Composite (most benefit)</option>
-              <option value="investment">Claimed investment ($)</option>
-              <option value="jobs">Claimed jobs</option>
-              <option value="claims">First-party claims</option>
+              <option value="composite">Sort: most benefit claimed</option>
+              <option value="investment">Sort: investment</option>
+              <option value="jobs">Sort: jobs</option>
+              <option value="claims">Sort: published statements</option>
             </select>
           </label>
           <button id="f-reset" type="button" class="btn-ghost">Reset</button>
@@ -480,8 +479,8 @@
             <button id="explorer-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
           </span>
         </div>
-          </div>
-        </details>
+          <p class="filter-bar-meta"><span id="explorer-filter-count"></span></p>
+        </div>
 
         <div class="explorer-layout">
           <div id="map" class="map" aria-label="Project map" role="img"></div>
@@ -540,6 +539,16 @@
               aria-controls="dpane-responses"
             >
               On the ground <span class="dtab-count" id="dtab-responses-count" hidden></span>
+            </button>
+            <button
+              id="dtab-timeline"
+              class="dtab"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="dpane-timeline"
+            >
+              Timeline <span class="dtab-count" id="dtab-timeline-count" hidden></span>
             </button>
           </div>
 
@@ -610,16 +619,50 @@
               <li class="muted">No on-the-ground feedback captured for this site yet.</li>
             </ol>
           </div>
-        </section>
 
-      
-        <details class="acc" id="sites-by-state-section">
-          <summary>
-            <h3 class="acc-title">State totals</h3>
-            <span class="acc-count" id="agg-state-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
+          <div
+            id="dpane-timeline"
+            class="dpane"
+            role="tabpanel"
+            aria-labelledby="dtab-timeline"
+            hidden
+          >
+            <p class="response-help">
+              Hearings, votes, permits, filings and coverage at this site, newest first. Announced future dates lead.
+            </p>
+            <ol id="d-timeline" class="timeline" role="list"></ol>
+          </div>
+        </section>
+        </div>
+
+        <div class="subtab-panel" id="subpane-sites-contested" role="tabpanel" aria-labelledby="subtab-sites-contested" hidden>
+          <p class="acc-sub">
+            Sites with documented pushback: a critical community response, disputed ratepayer costs, a disputed promise, or a lawsuit. Each carries a dated local timeline of hearings, votes, permits, filings and coverage.
+          </p>
+          <div class="filter-bar filter-bar--slim" role="group" aria-label="Filter contested sites">
+            <label class="filter">
+              <span class="sr-only">State</span>
+              <select id="c-state"><option value="">All states</option></select>
+            </label>
+            <label class="filter">
+              <span class="sr-only">Company</span>
+              <select id="c-company"><option value="">All companies</option></select>
+            </label>
+            <label class="filter">
+              <span class="sr-only">Sort</span>
+              <select id="c-sort">
+                <option value="recent">Most recent activity</option>
+                <option value="upcoming">Next date first</option>
+                <option value="critical">Most critical responses</option>
+              </select>
+            </label>
+            <span class="filter-bar-meta" id="contested-meta"></span>
+          </div>
+          <ol class="contested-list" id="contested-list" role="list"></ol>
+        </div>
+
+        <div class="subtab-panel" id="subpane-sites-states" role="tabpanel" aria-labelledby="subtab-sites-states" hidden>
+          <div id="sites-by-state-section">
             <div class="table-scroll">
               <table class="agg-table" id="agg-state-table" aria-label="State rollup">
                 <thead>
@@ -638,7 +681,7 @@
               </table>
             </div>
           </div>
-        </details>
+        </div>
       </section>
 
       <!-- ================= RATEPAYER PROTECTION PLEDGE VIEW ================= -->
@@ -1045,6 +1088,19 @@
         <!-- Status Overview Stats -->
         <ul id="moratorium-stats" class="rp-stats" aria-label="Moratorium statistics"></ul>
 
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Moratoriums view">
+          <button class="subtab" role="tab" type="button" id="subtab-mor-directory" aria-selected="true" tabindex="0" aria-controls="subpane-mor-directory">
+            Directory <span class="subtab-count" id="moratoriums-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-mor-trends" aria-selected="false" tabindex="-1" aria-controls="subpane-mor-trends">
+            Trends &amp; concerns <span class="subtab-count" id="moratorium-themes-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-mor-influence" aria-selected="false" tabindex="-1" aria-controls="subpane-mor-influence">
+            Influence claims
+          </button>
+        </div>
+
+        <div class="subtab-panel" id="subpane-mor-trends" role="tabpanel" aria-labelledby="subtab-mor-trends" hidden>
         <!-- Summary Charts (status split, jurisdiction level, reasons, timeline) -->
         <section
           id="moratorium-charts"
@@ -1054,70 +1110,48 @@
           <!-- Populated by app.js -->
         </section>
 
-        <!-- Key Themes Section -->
-        <details class="acc" id="moratorium-themes" open>
-          <summary>
-            <h3 class="acc-title">Concerns cited</h3>
-            <span class="acc-count" id="moratorium-themes-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
-            <p class="acc-sub">
-              How many moratoriums cite each concern.
-            </p>
+          <div id="moratorium-themes">
+            <h3 class="theme-quotes-title">Concerns cited</h3>
+            <p class="acc-sub">How many moratoriums cite each concern.</p>
             <div id="reason-breakdown" class="reason-grid">
               <!-- Populated by app.js -->
             </div>
           </div>
-        </details>
+        </div>
 
-        <!-- China Anti-Data-Center Messaging Claims -->
-        <details class="acc">
-          <summary>
-            <h3 class="acc-title" id="china-context-heading">Claimed Chinese influence on data center opposition</h3>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
+        <div class="subtab-panel" id="subpane-mor-influence" role="tabpanel" aria-labelledby="subtab-mor-influence" hidden>
+          <h3 class="theme-quotes-title" id="china-context-heading">Claimed Chinese influence on data center opposition</h3>
             <div id="china-context-content" class="china-context-detail">
               <!-- Populated by app.js -->
             </div>
-          </div>
-        </details>
+        </div>
 
-        <!-- Filters and Table (Collapsible) -->
-        <details class="acc" id="moratoriums-directory" open>
-          <summary>
-            <h3 class="acc-title" id="moratoriums-table-heading">Moratoriums directory</h3>
-            <span class="acc-count" id="moratoriums-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
-          <p class="acc-sub">
-            Status, duration, and the concerns each one cites.
-          </p>
-          <span class="table-controls">
-            <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
-            <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
-          </span>
-
-          <div id="moratorium-filters" class="filters">
-            <label>Status:
+        <div class="subtab-panel" id="subpane-mor-directory" role="tabpanel" aria-labelledby="subtab-mor-directory">
+          <div id="moratoriums-directory">
+          <h3 class="sr-only" id="moratoriums-table-heading">Moratoriums directory</h3>
+          <div id="moratorium-filters" class="filter-bar filter-bar--slim" role="group" aria-label="Filter moratoriums">
+            <label class="filter"><span class="sr-only">Status</span>
               <select id="moratorium-status-filter">
-                <option value="">All</option>
+                <option value="">Any status</option>
                 <option value="enacted">Enacted</option>
                 <option value="proposed">Proposed</option>
                 <option value="failed">Failed</option>
               </select>
             </label>
-            <label>Type:
+            <label class="filter"><span class="sr-only">Level</span>
               <select id="moratorium-type-filter">
-                <option value="">All</option>
+                <option value="">Any level</option>
                 <option value="federal">Federal</option>
                 <option value="state">State</option>
                 <option value="county">County</option>
                 <option value="city">City</option>
               </select>
             </label>
+            <span class="export-btns">
+              <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+              <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
+            </span>
+            <span class="filter-bar-meta" id="moratoriums-meta"></span>
           </div>
           <div class="table-scroll">
             <table id="moratoriums-table" class="moratorium-table">
@@ -1136,7 +1170,7 @@
             </table>
           </div>
           </div>
-        </details>
+        </div>
 
         <!-- ================= MORATORIUM DETAIL MODAL ================= -->
         <div id="moratorium-modal" class="moratorium-modal" hidden>
@@ -1209,9 +1243,9 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Large-load tariffs</h2>
+          <h2 class="hero-title">Tariffs &amp; rate cases</h2>
           <p class="hero-dek">
-            How utilities are pricing power for data centers, checked against the 17 rate-design elements in the DOE / Berkeley Lab brief
+            Who pays for data-center power: the proceedings where regulators decide, and the tariffs that result, checked against the 17 rate-design elements in the DOE / Berkeley Lab brief
             <a
               id="tariff-lbl-link"
               href="https://eta-publications.lbl.gov/sites/default/files/2025-01/electricity_rate_designs_for_large_loads_evolving_practices_and_opportunities_final.pdf"
@@ -1225,55 +1259,73 @@
         <!-- Status overview stats -->
         <ul id="tariff-stats" class="rp-stats" aria-label="Tariff statistics"></ul>
 
-        <!-- LBL element coverage: how many tracked tariffs address each element -->
-        <details class="acc" id="tariff-coverage-section" open>
-          <summary>
-            <h3 class="acc-title">Rate-design elements</h3>
-            <span class="acc-count" id="tariff-coverage-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Tariffs and rate cases view">
+          <button class="subtab" role="tab" type="button" id="subtab-tar-ratecases" aria-selected="true" tabindex="0" aria-controls="subpane-tar-ratecases">
+            Rate cases <span class="subtab-count" id="rate-cases-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-tar-tariffs" aria-selected="false" tabindex="-1" aria-controls="subpane-tar-tariffs">
+            Tariffs <span class="subtab-count" id="tariffs-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-tar-elements" aria-selected="false" tabindex="-1" aria-controls="subpane-tar-elements">
+            Rate-design elements <span class="subtab-count" id="tariff-coverage-count"></span>
+          </button>
+        </div>
+
+        <div class="subtab-panel" id="subpane-tar-ratecases" role="tabpanel" aria-labelledby="subtab-tar-ratecases">
+          <div id="rate-cases-section">
             <p class="acc-sub">
-              How many tariffs include each element. Muted elements appear in none.
+              Where regulators decide who pays: rate cases, special contracts, and rulemakings. Pending cases show their next step. Federal cases are marked
+              <span class="badge badge-tariff-federal">FED</span>.
             </p>
-            <div id="tariff-coverage-grid" class="tariff-coverage-grid">
-              <!-- Populated by app.js -->
+            <div class="filter-bar filter-bar--slim" role="group" aria-label="Filter rate cases">
+              <label class="filter">
+                <span class="sr-only">Status</span>
+                <select id="rc-status-filter">
+                  <option value="">Any status</option>
+                  <option value="pending">Pending</option>
+                  <option value="approved">Approved</option>
+                  <option value="rejected">Rejected</option>
+                </select>
+              </label>
+              <span class="filter-bar-meta" id="rc-meta"></span>
             </div>
-            <div id="tariff-coverage-popout" class="tariff-coverage-popout"></div>
+            <ol id="rate-cases-list" class="rc-list">
+              <!-- Populated by app.js -->
+            </ol>
           </div>
-        </details>
+        </div>
 
-        <!-- Filters and directory table -->
-        <details class="acc" id="tariffs-directory" open>
-          <summary>
-            <h3 class="acc-title" id="tariffs-table-heading">Tariff directory</h3>
-            <span class="acc-count" id="tariffs-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
-          <p class="acc-sub">
-            Each tariff, rate class, and rule, with how many of the 17 elements it includes.
-          </p>
-          <span class="table-controls">
-            <button id="tariffs-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
-            <button id="tariffs-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
-          </span>
-
-          <div id="tariff-filters" class="filters">
-            <label>Status:
-              <select id="tariff-status-filter">
-                <option value="">All</option>
-                <option value="approved">Approved</option>
-                <option value="proposed">Proposed</option>
-                <option value="rejected">Rejected / Withdrawn</option>
-              </select>
-            </label>
-            <label>State:
-              <select id="tariff-state-filter">
-                <option value="">All states</option>
-              </select>
-            </label>
-          </div>
+        <div class="subtab-panel" id="subpane-tar-tariffs" role="tabpanel" aria-labelledby="subtab-tar-tariffs" hidden>
+          <div id="tariffs-directory">
+            <h3 class="sr-only" id="tariffs-table-heading">Tariff directory</h3>
+            <div id="tariff-filters" class="filter-bar filter-bar--slim" role="group" aria-label="Filter tariffs">
+              <label class="filter">
+                <span class="sr-only">Status</span>
+                <select id="tariff-status-filter">
+                  <option value="">Any status</option>
+                  <option value="approved">Approved</option>
+                  <option value="proposed">Proposed</option>
+                  <option value="rejected">Rejected / Withdrawn</option>
+                </select>
+              </label>
+              <label class="filter">
+                <span class="sr-only">State</span>
+                <select id="tariff-state-filter">
+                  <option value="">All states</option>
+                </select>
+              </label>
+              <label class="filter">
+                <span class="sr-only">Rate-design element</span>
+                <select id="tariff-element-filter">
+                  <option value="">Any rate-design element</option>
+                </select>
+              </label>
+              <span class="export-btns">
+                <button id="tariffs-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+                <button id="tariffs-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
+              </span>
+              <span class="filter-bar-meta" id="tariffs-meta"></span>
+            </div>
           <div class="table-scroll">
             <table id="tariffs-table" class="moratorium-table tariff-table">
               <thead>
@@ -1292,28 +1344,19 @@
             </table>
           </div>
           </div>
-        </details>
+        </div>
 
-        <!-- Rate cases & proceedings: the docketed layer under the tariffs.
-             Where the tariffs table answers "what instrument exists", this
-             answers "what is being decided, by whom, and what happens next".
-             Rendered by renderRateCases() from its own deferred payload. -->
-        <details class="acc" id="rate-cases-section" open>
-          <summary>
-            <h3 class="acc-title" id="rate-cases-heading">Rate cases</h3>
-            <span class="acc-count" id="rate-cases-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
+        <div class="subtab-panel" id="subpane-tar-elements" role="tabpanel" aria-labelledby="subtab-tar-elements" hidden>
+          <div id="tariff-coverage-section">
             <p class="acc-sub">
-              Where regulators decide who pays: rate cases, special contracts, and rulemakings. Pending cases show their next step. Federal cases are marked
-              <span class="badge badge-tariff-federal">FED</span>.
+              The 17 elements from the DOE / Berkeley Lab brief, and how many tracked tariffs include each. Pick one to see which tariffs.
             </p>
-            <ol id="rate-cases-list" class="rc-list">
+            <div id="tariff-coverage-grid" class="tariff-coverage-grid">
               <!-- Populated by app.js -->
-            </ol>
+            </div>
+            <div id="tariff-coverage-popout" class="tariff-coverage-popout"></div>
           </div>
-        </details>
+        </div>
 
         <p class="rp-footnote">
           Curated, not exhaustive. Many states have no data-center tariff yet. “LBL elements” measures coverage, not quality. One
@@ -1381,7 +1424,7 @@
         </div>
       </section>
 
-      <!-- ================= POLICIES & AGREEMENTS VIEW ================= -->
+      <!-- ================= LOCAL POLICY FRAMEWORKS VIEW ================= -->
       <!-- The instruments between a moratorium (a pause) and a tariff (who
            pays for power): orders, laws and ordinances that set conditions,
            the benefit agreements signed at specific sites, and companies'
@@ -1395,74 +1438,69 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Policy playbook</h2>
+          <h2 class="hero-title">Local policy frameworks</h2>
           <p class="hero-dek">
-            Nine rules states, cities, and companies are writing for data
-            centers, and where each one has been adopted, proposed, or turned down.
+            The conditions counties, cities, states and companies are writing
+            for data centers: ordinances, laws, orders and benefit agreements,
+            sorted by the nine things they ask for.
           </p>
         </div>
 
         <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
 
-        <details class="acc" id="policy-principles-section" open>
-          <summary>
-            <h3 class="acc-title">Principles</h3>
-            <span class="acc-count" id="policy-principles-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Local policy frameworks view">
+          <button class="subtab" role="tab" type="button" id="subtab-pol-principles" aria-selected="true" tabindex="0" aria-controls="subpane-pol-principles">
+            Principles <span class="subtab-count" id="policy-principles-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-pol-latest" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-latest">
+            Latest actions <span class="subtab-count" id="policy-actions-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-pol-directory" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-directory">
+            All frameworks <span class="subtab-count" id="policies-count"></span>
+          </button>
+        </div>
+
+        <div class="subtab-panel" id="subpane-pol-principles" role="tabpanel" aria-labelledby="subtab-pol-principles">
+          <div id="policy-principles-section">
             <ol id="policy-principles" class="pb-principles"></ol>
           </div>
-        </details>
+        </div>
 
-        <details class="acc" id="policy-actions-section" open>
-          <summary>
-            <h3 class="acc-title">Latest actions</h3>
-            <span class="acc-count" id="policy-actions-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
+        <div class="subtab-panel" id="subpane-pol-latest" role="tabpanel" aria-labelledby="subtab-pol-latest" hidden>
+          <div id="policy-actions-section">
             <ol id="policy-actions" class="pb-actions"></ol>
           </div>
-        </details>
+        </div>
 
-        <details class="acc" id="policies-directory">
-          <summary>
-            <h3 class="acc-title" id="policies-table-heading">Directory</h3>
-            <span class="acc-count" id="policies-count"></span>
-            <span class="acc-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="acc-body">
+        <div class="subtab-panel" id="subpane-pol-directory" role="tabpanel" aria-labelledby="subtab-pol-directory" hidden>
+          <div id="policies-directory">
+            <h3 class="sr-only" id="policies-table-heading">All frameworks</h3>
             <p class="acc-sub">
               <span class="badge badge-cbf">CBF</span> = requires or is a
               community benefit agreement, fund, or host payment.
             </p>
-            <span class="table-controls">
-              <button id="policies-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
-              <button id="policies-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
-            </span>
-            <div id="policy-filters" class="filters">
-              <label>Type:
+            <div id="policy-filters" class="filter-bar filter-bar--slim" role="group" aria-label="Filter policies">
+              <label class="filter"><span class="sr-only">Type</span>
                 <select id="policy-instrument-filter">
                   <option value="">All types</option>
                 </select>
               </label>
-              <label>Status:
+              <label class="filter"><span class="sr-only">Status</span>
                 <select id="policy-status-filter">
-                  <option value="">All</option>
+                  <option value="">Any status</option>
                 </select>
               </label>
-              <label>Level:
+              <label class="filter"><span class="sr-only">Level</span>
                 <select id="policy-scope-filter">
                   <option value="">All levels</option>
                 </select>
               </label>
-              <label>State:
+              <label class="filter"><span class="sr-only">State</span>
                 <select id="policy-state-filter">
                   <option value="">All states</option>
                 </select>
               </label>
-              <label>Principle:
+              <label class="filter"><span class="sr-only">Principle</span>
                 <select id="policy-principle-filter">
                   <option value="">All principles</option>
                 </select>
@@ -1471,6 +1509,10 @@
                 <input type="checkbox" id="policy-cbf-filter" />
                 Community benefits only
               </label>
+              <span class="export-btns">
+                <button id="policies-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+                <button id="policies-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
+              </span>
             </div>
             <div class="table-scroll">
               <table id="policies-table" class="moratorium-table policy-table">
@@ -1490,7 +1532,7 @@
               </table>
             </div>
           </div>
-        </details>
+        </div>
 
         <p class="rp-footnote">
           Curated, not exhaustive. Pauses on development are on the Moratoriums
