@@ -3920,7 +3920,7 @@
     {
       "captured_at": "2026-10-08",
       "id": "pulaski-county-ar-ord-26-i-56b",
-      "title": "Pulaski County Ordinance 26-I-56B — data center conditional use permits (vetoed)",
+      "title": "Pulaski County Ordinance 26-I-56B on data centers (vetoed)",
       "instrument": "local_ordinance",
       "status": "failed",
       "scope": "county",
@@ -3929,18 +3929,16 @@
       "identifier": "Ordinance No. 26-I-56B",
       "date": "2026-09-25",
       "benefit_themes": [
-        "water",
         "engagement"
       ],
       "principles": [
-        "local_control",
-        "water"
+        "local_control"
       ],
       "community_benefits_framework": false,
       "key_terms": [
         "26-I-56B"
       ],
-      "summary": "An ordinance passed by the Quorum Court to require county conditional use permits for data centers and detailed water-use information was vetoed by County Judge Barry Hyde. A Quorum Court override remains possible; none is recorded here.",
+      "summary": "County Judge Barry Hyde vetoed Ordinance No. 26-I-56B, a county data center ordinance, citing five reasons including unresolved questions about state law and existing property rights and appeal provisions that should be brought into compliance with Arkansas law.",
       "source_url": "https://katv.com/news/judge-barry-hyde-vetoes-data-center-ordinance-avaio-terri-hollingsworth-ordinance-no-26-i-56b-google-entergy-arkansas-law-economy-development",
       "source_title": "KATV — Judge Barry Hyde vetoes data center ordinance"
     },

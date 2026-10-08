@@ -256,6 +256,7 @@ NEW_MORATORIUMS = [
         "duration_months": 10,
         "duration_description": "Original 45-day pause (set to expire Oct. 2, 2026) extended by 10 months and 15 days.",
         "key_reasons": [],
+        "policy_type": "Extension of an August 2026 45-day moratorium (the original pause is not separately recorded)",
         "summary": "Tulare County supervisors voted 5-0 to extend the county's original 45-day moratorium on new data center development in unincorporated Tulare County by another 10 months and 15 days. The original pause had been set to expire Oct. 2.",
         "source_url": "https://kmph.com/news/local/woman-removed-from-tulare-county-meeting-as-data-center-debate-erupts",
         "source_title": "KMPH — Tulare County extends data center moratorium",
@@ -341,15 +342,15 @@ NEW_POLICIES = [
         "source_url": "https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf",
         "source_title": "NJ Division of Local Government Services — Local Finance Notice 2026-13",
     },
-    {  # C18
+    {  # C18 -- summary limited to what KATV reports (the veto and its reasons)
         "id": "pulaski-county-ar-ord-26-i-56b",
-        "title": "Pulaski County Ordinance 26-I-56B — data center conditional use permits (vetoed)",
+        "title": "Pulaski County Ordinance 26-I-56B on data centers (vetoed)",
         "instrument": "local_ordinance", "status": "failed", "scope": "county",
         "jurisdiction": "Pulaski County", "state_code": "AR", "identifier": "Ordinance No. 26-I-56B",
-        "date": "2026-09-25", "benefit_themes": ["water", "engagement"], "principles": ["local_control", "water"],
+        "date": "2026-09-25", "benefit_themes": ["engagement"], "principles": ["local_control"],
         "community_benefits_framework": False,
         "key_terms": ["26-I-56B"],
-        "summary": "An ordinance passed by the Quorum Court to require county conditional use permits for data centers and detailed water-use information was vetoed by County Judge Barry Hyde. A Quorum Court override remains possible; none is recorded here.",
+        "summary": "County Judge Barry Hyde vetoed Ordinance No. 26-I-56B, a county data center ordinance, citing five reasons including unresolved questions about state law and existing property rights and appeal provisions that should be brought into compliance with Arkansas law.",
         "source_url": "https://katv.com/news/judge-barry-hyde-vetoes-data-center-ordinance-avaio-terri-hollingsworth-ordinance-no-26-i-56b-google-entergy-arkansas-law-economy-development",
         "source_title": "KATV — Judge Barry Hyde vetoes data center ordinance",
     },
@@ -388,45 +389,36 @@ DUKE_RESOURCE = {
 }
 
 
-# Pre-existing record corrected during this pass. The Missouri Independent
-# article it cited never mentions a lawsuit; ABC17 reports the suit but names
-# no company. Google's New Florence project was not announced until
-# 2026-05-20, three months after the filing, while Amazon's Montgomery County
-# tax framework was approved 2025-12-18 (STLPR) -- so the suit belongs to the
-# Amazon site. The unsourced "hearing June 1" is dropped.
-RESPONSE_MOVES = {
-    "resp-google-new-florence-preserve-lawsuit": {
-        "id": "resp-amazon-montgomery-preserve-lawsuit",
-        "project_id": "amazon-montgomery-city-mo",
-        "date": "2026-02-17",
-        "stance": "negative",
-        "constituency": "residents",
-        "summary": (
-            "Preserve Montgomery County, LLC sued Montgomery County and the Missouri Department of "
-            "Economic Development, alleging 10 Sunshine Law violations tied to the county's data center "
-            "approval, including inadequate public notice, unlawful closed sessions and excessive "
-            "records fees, and raising groundwater concerns. The article does not name the company; "
-            "Amazon's was the only data center the county had approved at the time."
-        ),
-        "source_url": "https://abc17news.com/news/top-stories/2026/02/17/lawsuit-filed-to-stop-montgomery-county-data-center/",
-        "source_title": "ABC17 (KMIZ) — Lawsuit filed to stop Montgomery County data center",
-        "single_source": True,
-    },
-}
+# Pre-existing record removed during this pass. It sat on google-new-florence-mo
+# citing a Missouri Independent article that never mentions a lawsuit. ABC17
+# reports the Feb 17, 2026 suit but names no company, so pinning it to either
+# Montgomery County site would be the curator's inference. Lead in BACKLOG §3.
+RESPONSES_REMOVED = ["resp-google-new-florence-preserve-lawsuit", "resp-amazon-montgomery-preserve-lawsuit"]
 
 
 def upsert(records: list[dict], rec: dict) -> bool:
-    rec = {"captured_at": CAPTURED, **rec}
-    for i, r in enumerate(records):
-        if r["id"] == rec["id"]:
-            records[i] = {**r, **rec}
-            return False
-    records.append(rec)
+    """Insert-only: an id already in the seed is left alone, so a re-run never
+    reverts a later edit (a daily refresh flipping Oakland to enacted)."""
+    if any(r["id"] == rec["id"] for r in records):
+        return False
+    records.append({"captured_at": CAPTURED, **rec})
     return True
+
+
+def find(records: list[dict], rid: str, kind: str) -> dict:
+    rec = next((r for r in records if r["id"] == rid), None)
+    if rec is None:
+        raise SystemExit(f"{kind} {rid!r} not in the seed (renamed?); update this script")
+    return rec
 
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
+    # One-shot replay of git-ignored agent outputs. On a clean checkout the
+    # inputs are absent; fail rather than log "added: 0" and exit 0.
+    if not (OUT / "site_updates.jsonl").exists():
+        raise SystemExit(f"{OUT} is missing: this script replays the 2026-10-08 agent outputs "
+                         "and only runs in the checkout that produced them")
 
     pj = json.loads((SEED / "projects.json").read_text())
     n = apply_site_updates(pj["projects"])
@@ -435,7 +427,7 @@ def main() -> None:
 
     mj = json.loads((SEED / "moratoriums.json").read_text())
     added = sum(upsert(mj["moratoriums"], m) for m in NEW_MORATORIUMS)
-    tx = next(m for m in mj["moratoriums"] if m["id"] == "texas-state-2026-08")
+    tx = find(mj["moratoriums"], "texas-state-2026-08", "moratorium")
     if "September 21, 2026" not in tx["summary"]:
         tx["summary"] += TEXAS_TCEQ
         tx.setdefault("resources", None)
@@ -450,15 +442,12 @@ def main() -> None:
     log.info("policies added: %d", added)
 
     rj = json.loads((SEED / "responses.json").read_text())
-    for old_id, new in RESPONSE_MOVES.items():
-        rj["responses"] = [r for r in rj["responses"] if r["id"] != old_id]
-        if not any(r["id"] == new["id"] for r in rj["responses"]):
-            rj["responses"].append(new)
+    rj["responses"] = [r for r in rj["responses"] if r["id"] not in RESPONSES_REMOVED]
     (SEED / "responses.json").write_text(json.dumps(rj, indent=2, ensure_ascii=False) + "\n")
-    log.info("responses corrected: %d", len(RESPONSE_MOVES))
+    log.info("responses removed: %s", RESPONSES_REMOVED)
 
     rcj = json.loads((SEED / "rate_cases.json").read_text())
-    duke = next(r for r in rcj["rate_cases"] if r["id"] == "nc-ncuc-duke-settlement-2026")
+    duke = find(rcj["rate_cases"], "nc-ncuc-duke-settlement-2026", "rate case")
     if "October 7, 2026" not in duke["next_milestone"]:
         duke["next_milestone"] += DUKE_SETTLEMENT
         duke["resources"] = (duke.get("resources") or []) + [DUKE_RESOURCE]

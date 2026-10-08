@@ -582,6 +582,14 @@ come first, then locations, companies and sites.
   Wharton and Pecos County posts are the model).
 
 #### site:amazon-montgomery-city-mo
+- Preserve Montgomery County, LLC sued Montgomery County and the Missouri
+  Department of Economic Development on Feb 17, 2026, alleging 10 Sunshine Law
+  violations tied to a data center approval (ABC17:
+  https://abc17news.com/news/top-stories/2026/02/17/lawsuit-filed-to-stop-montgomery-county-data-center/).
+  The article names no company. Find a source that ties the suit to this site,
+  or to `google-new-florence-mo`, before recording it. A record sat on the
+  Google site citing an article that never mentions the suit; it was removed
+  2026-10-08. **medium**
 - The $10B figure isn't on the cited aboutamazon.com page, which says only
   "several billion". Re-cite or soften it.
 

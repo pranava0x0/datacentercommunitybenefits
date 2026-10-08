@@ -530,3 +530,21 @@ class TestSiteUpdates:
         srcs = {(r["project_id"], r["source_url"]) for r in resp}
         dup = [(p["id"], u["date"]) for p in raw for u in p.get("updates") or [] if (p["id"], u["source_url"]) in srcs]
         assert dup == []
+
+    def test_summaries_are_facts_not_curator_notes(self) -> None:
+        """Review of PR #62: 37 summaries shipped the validator's working notes
+        ("The article is dated...", "Date derived from the dateline") to the
+        Sites timeline. Provenance belongs in the evidence log."""
+        import re
+
+        note = re.compile(r"\b(the article|dateline|date (is|derived)|derived:|publication date)\b", re.I)
+        raw = json.loads((SEED / "projects.json").read_text())["projects"]
+        bad = [(p["id"], u["date"]) for p in raw for u in p.get("updates") or [] if note.search(u.get("summary") or "")]
+        assert bad == []
+
+    def test_site_update_kind_literal_matches_its_tuple(self) -> None:
+        from typing import get_args
+
+        from schema import SITE_UPDATE_KINDS, SiteUpdateKind
+
+        assert get_args(SiteUpdateKind) == SITE_UPDATE_KINDS

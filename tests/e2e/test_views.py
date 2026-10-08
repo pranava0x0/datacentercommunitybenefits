@@ -1697,14 +1697,19 @@ class TestContestedSites:
     def test_timeline_merges_updates_and_responses(self, page: Page, base_url: str):
         page.goto(base_url + "/#explorer/contested")
         page.wait_for_selector("#contested-list .contested-card", timeout=E2E_WAIT)
-        pid = page.evaluate("() => state.projects.find(p => (p.updates||[]).length && isContestedSite(p)).id")
-        card = page.locator(f'#contested-list .contested-card[data-project-id="{pid}"]')
-        more = card.locator(".tl-more button")
-        if more.count():
-            more.click()
-        kinds = card.locator(".tl-item").evaluate_all("els => els.map(e => e.dataset.kind)")
-        assert "response" in kinds or len(kinds) >= 1
-        assert any(k != "response" for k in kinds), "typed site updates should render"
+        # A site with BOTH typed updates and responses, rendered in the
+        # project detail's full Timeline (no paging, no preview cut).
+        pid = page.evaluate(
+            "() => state.projects.find(p => (p.updates||[]).length && (state.responsesByProject.get(p.id)||[]).length).id"
+        )
+        page.evaluate(f"() => {{ setActiveSubtab('sites', 'map'); selectProject('{pid}'); }}")
+        page.locator("#dtab-timeline").click()
+        items = page.locator("#d-timeline .tl-item")
+        kinds = items.evaluate_all("els => els.map(e => e.dataset.kind)")
+        assert "response" in kinds, "responses must merge into the timeline"
+        assert any(k != "response" for k in kinds), "typed site updates must render"
+        dates = items.evaluate_all("els => els.filter(e => !e.querySelector('.tl-flag-upcoming')).map(e => e.querySelector('time').getAttribute('datetime'))")
+        assert dates == sorted(dates, reverse=True), "past events newest first"
 
     def test_state_filter_narrows(self, page: Page, base_url: str):
         page.goto(base_url + "/#explorer/contested")
