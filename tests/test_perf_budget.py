@@ -49,7 +49,10 @@ DEFERRED = ["data/responses.json", "data/rate_cases.json", "data/claims.json"]
 # visitor has not opened yet.
 LAZY_ONLY = ["data/moratoriums.json", "data/tariffs.json"]
 
-MAX_FIRST_PAINT_KB = 250
+# 250 -> 275 on 2026-10-08, owner-approved headroom for the v5 views. The
+# claims.json deferral stays: headroom is for app growth, not for pulling a
+# payload Home doesn't use back into first paint.
+MAX_FIRST_PAINT_KB = 275
 MAX_FIRST_PAINT_REQUESTS = 8
 
 

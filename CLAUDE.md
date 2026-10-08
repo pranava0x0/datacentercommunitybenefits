@@ -1769,7 +1769,7 @@ Frameworks**, and rate cases reachable without scrolling. Spec:
   drop with its reason.
 - **claims.json is the deferred tier on every landing except Companies**
   (`ensureCompanyData` / `ensureClaimsData`). Home never shows a claim, and
-  the v5 views pushed first paint to 258.6 KB. `indexClaimsByProject` runs
+  the v5 views pushed first paint to 258.6 KB. The cap went 250 → 275 KB the same day (owner-approved headroom); the deferral stays. `indexClaimsByProject` runs
   when either claims or projects land, so whichever arrives second builds
   the index. Views that quote claims (Pledge scorecard, Sites, totals)
   await or re-render on `ensureClaimsData`.
