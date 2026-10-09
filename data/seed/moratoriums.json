@@ -5473,18 +5473,27 @@
       "session": "2026"
     },
     {
-      "captured_at": "2026-10-08",
+      "captured_at": "2026-10-09",
       "id": "oakland-ca-2026-09",
       "jurisdiction": "Oakland",
       "jurisdiction_type": "city",
       "state_code": "CA",
-      "status": "proposed",
-      "duration_description": "Proposed 45-day moratorium on approving land-use agreements or entitlements for new data centers.",
+      "status": "enacted",
+      "duration_description": "45 days, effective immediately.",
       "key_reasons": [],
-      "summary": "Oakland's Life Enrichment Committee unanimously approved a proposed 45-day moratorium on Sept. 22, 2026 that would temporarily stop the city approving land-use agreements or entitlements for new data centers while it writes regulations. The full City Council was scheduled to take it up Oct. 6; that outcome is not yet recorded here.",
-      "source_url": "https://oaklandside.org/2026/09/23/oakland-data-center-moratorium-committee-appoval/",
-      "source_title": "The Oaklandside — Oakland data center moratorium clears committee",
-      "session": "2026"
+      "summary": "Oakland City Council voted 7-0 on October 6, 2026 to enact an immediate 45-day temporary moratorium on all new data center development across the city, pausing approvals while the city studies impacts on water, power grids and air quality.",
+      "source_url": "https://www.ktvu.com/news/oakland-city-council-approves-45-day-moratorium-new-data-centers",
+      "source_title": "KTVU — Oakland City Council approves 45-day moratorium on new data centers",
+      "session": "2026",
+      "enacted_date": "2026-10-06",
+      "effective_date": "2026-10-06",
+      "enacted_by": "City Council",
+      "resources": [
+        {
+          "url": "https://oaklandside.org/2026/09/23/oakland-data-center-moratorium-committee-appoval/",
+          "title": "The Oaklandside — Oakland data center moratorium clears committee"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-08",
@@ -5564,6 +5573,23 @@
       "failure_reason": "Voted down 5-2 after the county attorney warned of legal risk.",
       "session": "2026",
       "captured_at": "2026-10-08"
+    },
+    {
+      "id": "san-francisco-ca-2026-10",
+      "jurisdiction": "San Francisco",
+      "jurisdiction_type": "city",
+      "state_code": "CA",
+      "status": "enacted",
+      "enacted_date": "2026-10-06",
+      "effective_date": "2026-10-06",
+      "captured_at": "2026-10-09",
+      "enacted_by": "Board of Supervisors",
+      "duration_description": "45 days, effective immediately; could be extended up to 22 months.",
+      "key_reasons": [],
+      "session": "2026",
+      "summary": "San Francisco's Board of Supervisors passed a temporary 45-day moratorium on data centers citywide on October 6, 2026, introduced by Supervisor Shamann Walton. It takes effect immediately and could be extended up to 22 months if a significant environmental impact is found.",
+      "source_url": "https://missionlocal.org/2026/10/sf-supervisors-pass-data-center-moratorium/",
+      "source_title": "Mission Local — SF supervisors pass data center moratorium"
     }
   ]
 }
