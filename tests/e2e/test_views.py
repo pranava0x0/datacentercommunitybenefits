@@ -3522,8 +3522,8 @@ class TestHomeV6:
 
     def test_agreements_tab_opens_with_a_key_provisions_summary(self, page: Page, base_url: str):
         page.goto(base_url + "/#agreements")
-        page.wait_for_selector("#cba-provisions .mhb-row", timeout=E2E_WAIT)
-        rows = page.locator("#cba-provisions .mhb-row").count()
+        page.wait_for_selector("#cba-provisions .cba-prov-chip", timeout=E2E_WAIT)
+        rows = page.locator("#cba-provisions .cba-prov-chip").count()
         assert rows == page.evaluate("() => AGREEMENT_FEATURES.length")
 
     def test_contested_count_matches_the_frontend_rule(self, page: Page, base_url: str):

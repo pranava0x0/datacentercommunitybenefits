@@ -3064,10 +3064,10 @@ function renderAgreementsView() {
       value: tagged.filter((p) => p.agreement_features.includes(f)).length,
     })).sort((x, y) => y.value - x.value);
     prov.innerHTML = tagged.length
-      ? `<figure class="mor-chart">
-          <figcaption class="mor-chart-title">Key provisions <span class="mor-chart-sub">of ${tagged.length} signed agreements reviewed, how many put each term in writing</span></figcaption>
-          <div class="mor-hbar-set">${_morHbars(rows, { colorVar: "var(--accent)" })}</div>
-        </figure>`
+      ? `<p class="cba-prov-title">Key provisions <span class="muted">in ${tagged.length} signed agreements reviewed</span></p>
+         <ul class="cba-prov-chips" role="list">${rows
+           .map((r) => `<li class="cba-prov-chip"><span class="cba-prov-num">${r.value}</span> ${escapeHtml(r.label)}</li>`)
+           .join("")}</ul>`
       : "";
   }
 
