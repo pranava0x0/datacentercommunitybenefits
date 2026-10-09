@@ -80,15 +80,6 @@
     "state:CA": {
       "follow_ups": [
         {
-          "due": "2026-10-09",
-          "what": "Oakland council Oct 6 vote on 45-day data center moratorium (oakland-ca-2026-09)",
-          "hint": "https://oaklandside.org/2026/09/23/oakland-data-center-moratorium-committee-appoval/"
-        },
-        {
-          "due": "2026-10-09",
-          "what": "San Francisco Walton 45-day moratorium: Board vote outcome?"
-        },
-        {
           "due": "2026-10-11",
           "what": "Escondido: staff returns Oct 10 with findings on the 45-day moratorium (escondido-ca-2026-08) — extended or lapsed?"
         },
@@ -99,11 +90,19 @@
         {
           "due": "2026-10-17",
           "what": "Indio: moratorium expired Oct 16 — permanent ban adopted, extended, or lapsed?"
+        },
+        {
+          "due": "2026-11-21",
+          "what": "Oakland 45-day moratorium ends ~Nov 20: extended, permanent rules, or lapsed?"
+        },
+        {
+          "due": "2026-11-21",
+          "what": "San Francisco 45-day moratorium ends ~Nov 20; Planning hearing in November: extended or lapsed?"
         }
       ],
       "last_check": {
-        "date": "2026-10-08",
-        "summary": "2026-10-08 v5 refresh: added Oakland (proposed) and Tulare extension moratoriums, four Sept 21 data center laws"
+        "date": "2026-10-09",
+        "summary": "2026-10-09: Oakland council enacted 45-day moratorium 7-0 on Oct 6 (KTVU); SF Board passed 45-day moratorium Oct 6 (Mission Local)"
       }
     },
     "state:CO": {
@@ -196,6 +195,10 @@
       "last_check": {
         "date": "2026-10-08",
         "summary": "2026-10-08 v5 refresh: added Raleigh proposed moratorium; Cary held (no enacted date on page); Duke Oct 7 tariff settlement"
+      },
+      "blocked": {
+        "date": "2026-10-09",
+        "reason": "Beaufort NC Oct 5 outcome and Cary enactment date: no citable report found 2026-10-09; check county minutes / Washington NC outlets"
       }
     },
     "state:NM": {
@@ -204,7 +207,11 @@
           "due": "2026-10-09",
           "what": "Grant County: board formally considers a moratorium Oct 8 (only a notice of intent passed Sept 24) — adopted?"
         }
-      ]
+      ],
+      "blocked": {
+        "date": "2026-10-09",
+        "reason": "Grant County Oct 8 action: no coverage found 2026-10-09; Ordinance 4-2026 (2-year) already exists, relation unclear; check county minutes / Chronicle-Tribune"
+      }
     },
     "state:OH": {
       "follow_ups": [
