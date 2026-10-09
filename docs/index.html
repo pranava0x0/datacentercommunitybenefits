@@ -64,24 +64,24 @@
         <button
           id="tab-policies"
           class="tab"
-          aria-label="Local Policy Frameworks"
+          aria-label="Policy Frameworks"
           role="tab"
           type="button"
           aria-selected="false"
           aria-controls="view-policies"
         >
-          <span class="tab-long">Local Policy </span>Frameworks
+          Policy Frameworks
         </button>
         <button
           id="tab-agreements"
           class="tab"
-          aria-label="Benefit Agreements"
+          aria-label="Benefits"
           role="tab"
           type="button"
           aria-selected="false"
           aria-controls="view-agreements"
         >
-          <span class="tab-long">Benefit </span>Agreements
+          Benefits
         </button>
         <button
           id="tab-moratoriums"
@@ -96,13 +96,13 @@
         <button
           id="tab-tariffs"
           class="tab"
-          aria-label="Tariffs &amp; Rate Cases"
+          aria-label="Regulatory"
           role="tab"
           type="button"
           aria-selected="false"
           aria-controls="view-tariffs"
         >
-          Tariffs<span class="tab-long"> &amp; Rate Cases</span>
+          Regulatory
         </button>
         <button
           id="tab-comparison"
@@ -144,24 +144,10 @@
         role="tabpanel"
         aria-labelledby="tab-overview"
       >
-        <!-- Same .hero block every other tab opens with — Home speaks the
-             site's one heading voice, one size below the masthead. -->
-        <div class="hero">
-          <h2 class="hero-title" id="pledge-hero-title">
-            Data centers and the communities around them
-          </h2>
-          <p class="hero-dek">
-            Commitments, local rules, power rates and pushback around U.S. data centers.
-          </p>
-          <p class="pledge-hero-fineprint">
-            Independent. Not affiliated with the White House or any signatory.
-          </p>
-        </div>
         <div class="home-body">
           <!-- One card per tab, each led by its main number. Numbers and the
                two lists render from data/home.json (built by refresh.py). -->
-          <h3 class="home-h" id="home-explore-h">Sections</h3>
-          <nav class="home-cards" id="home-cards" aria-labelledby="home-explore-h">
+          <nav class="home-cards" id="home-cards" aria-label="Sections">
             <button class="home-card" type="button" data-path-target="pledge">
               <span class="home-card-title">The Pledge</span>
               <span class="home-card-num" data-count-for="pledge">&mdash;</span>
@@ -169,13 +155,13 @@
               <span class="home-card-dek">Who signed the White House Ratepayer Protection Pledge.</span>
             </button>
             <button class="home-card" type="button" data-path-target="policies">
-              <span class="home-card-title">Local Policy Frameworks</span>
+              <span class="home-card-title">Policy Frameworks</span>
               <span class="home-card-num" data-count-for="policies">&mdash;</span>
               <span class="home-card-sub" data-sub-for="policies"></span>
               <span class="home-card-dek">Ordinances, laws and agreements that set conditions for data centers.</span>
             </button>
             <button class="home-card" type="button" data-path-target="agreements">
-              <span class="home-card-title">Benefit Agreements</span>
+              <span class="home-card-title">Benefits</span>
               <span class="home-card-num" data-count-for="agreements">&mdash;</span>
               <span class="home-card-sub" data-sub-for="agreements"></span>
               <span class="home-card-dek">What developers have agreed to give host communities.</span>
@@ -187,7 +173,7 @@
               <span class="home-card-dek">City, county and state pauses on new data centers.</span>
             </button>
             <button class="home-card" type="button" data-path-target="tariffs">
-              <span class="home-card-title">Tariffs &amp; Rate Cases</span>
+              <span class="home-card-title">Regulatory</span>
               <span class="home-card-num" data-count-for="tariffs">&mdash;</span>
               <span class="home-card-sub" data-sub-for="tariffs"></span>
               <span class="home-card-dek">How utilities charge data centers for power, and the cases still open.</span>
@@ -1233,7 +1219,7 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Tariffs &amp; rate cases</h2>
+          <h2 class="hero-title">Regulatory</h2>
           <p class="hero-dek">
             Who pays for data center power, scored against the
             <a
@@ -1427,7 +1413,7 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Local policy frameworks</h2>
+          <h2 class="hero-title">Policy frameworks</h2>
           <p class="hero-dek">
             Rules that set conditions for new data centers.
           </p>
@@ -1435,7 +1421,7 @@
 
         <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
 
-        <div class="subtabs subtabs--view" role="tablist" aria-label="Local policy frameworks view">
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Policy frameworks view">
           <button class="subtab" role="tab" type="button" id="subtab-pol-principles" aria-selected="true" tabindex="0" aria-controls="subpane-pol-principles">
             Principles <span class="subtab-count" id="policy-principles-count"></span>
           </button>
@@ -1523,7 +1509,7 @@
 
         <p class="rp-footnote">
           Curated, not exhaustive. Pauses on development are on the Moratoriums
-          tab and utility tariffs on Tariffs &amp; Rate Cases. A state with no
+          tab and utility tariffs on the Regulatory tab. A state with no
           record here may not have been researched yet.
         </p>
 
@@ -1584,7 +1570,7 @@
         hidden
       >
         <div class="hero">
-          <h2 class="hero-title">Benefit agreements</h2>
+          <h2 class="hero-title">Benefits</h2>
           <p class="hero-dek">
             What developers have agreed to give their host communities.
           </p>
@@ -1592,7 +1578,9 @@
 
         <ul id="cba-stats" class="rp-stats" aria-label="Agreement statistics"></ul>
 
-        <div class="subtabs subtabs--view" role="tablist" aria-label="Benefit agreements view">
+        <div id="cba-provisions" class="cba-provisions"></div>
+
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Benefits view">
           <button class="subtab" role="tab" type="button" id="subtab-cba-strongest" aria-selected="true" tabindex="0" aria-controls="subpane-cba-strongest">
             Strongest <span class="subtab-count" id="cba-strongest-count"></span>
           </button>

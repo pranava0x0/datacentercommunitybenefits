@@ -482,16 +482,6 @@ select:focus-visible,
    Numbers are rendered from data by renderPledgeHero() — never baked into
    the markup, because the roster is a moving target. */
 
-/* Sourcing + affiliation disclaimer, demoted from the dek to small print —
-   load-bearing words, but not the headline read. */
-.pledge-hero-fineprint {
-  margin: 8px 0 0;
-  font-size: var(--fs-xs);
-  letter-spacing: 0.01em;
-  color: var(--text-muted);
-  opacity: 0.85;
-}
-
 /* --- stat quartet ------------------------------------------------------- */
 
 /* Same boxed tile language as every other tab's stat row (.rp-stat) —

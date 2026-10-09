@@ -3055,6 +3055,22 @@ function renderAgreementsView() {
       .join("");
   }
 
+  // Key provisions: how many reviewed signed agreements put each term in writing.
+  const prov = document.getElementById("cba-provisions");
+  if (prov) {
+    const tagged = signed.filter((p) => p.agreement_features);
+    const rows = AGREEMENT_FEATURES.map((f) => ({
+      label: AGREEMENT_FEATURE_LABELS[f],
+      value: tagged.filter((p) => p.agreement_features.includes(f)).length,
+    })).sort((x, y) => y.value - x.value);
+    prov.innerHTML = tagged.length
+      ? `<figure class="mor-chart">
+          <figcaption class="mor-chart-title">Key provisions <span class="mor-chart-sub">of ${tagged.length} signed agreements reviewed, how many put each term in writing</span></figcaption>
+          <div class="mor-hbar-set">${_morHbars(rows, { colorVar: "var(--accent)" })}</div>
+        </figure>`
+      : "";
+  }
+
   const strongest = strongestAgreements();
   setSubtabCount("cba-strongest-count", strongest.length);
   const top = document.getElementById("cba-strongest");
