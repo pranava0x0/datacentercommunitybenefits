@@ -3055,6 +3055,22 @@ function renderAgreementsView() {
       .join("");
   }
 
+  // Key provisions: how many reviewed signed agreements put each term in writing.
+  const prov = document.getElementById("cba-provisions");
+  if (prov) {
+    const tagged = signed.filter((p) => p.agreement_features);
+    const rows = AGREEMENT_FEATURES.map((f) => ({
+      label: AGREEMENT_FEATURE_LABELS[f],
+      value: tagged.filter((p) => p.agreement_features.includes(f)).length,
+    })).sort((x, y) => y.value - x.value);
+    prov.innerHTML = tagged.length
+      ? `<p class="cba-prov-title">Key provisions <span class="muted">in ${tagged.length} signed agreements reviewed</span></p>
+         <ul class="cba-prov-chips" role="list">${rows
+           .map((r) => `<li class="cba-prov-chip"><span class="cba-prov-num">${r.value}</span> ${escapeHtml(r.label)}</li>`)
+           .join("")}</ul>`
+      : "";
+  }
+
   const strongest = strongestAgreements();
   setSubtabCount("cba-strongest-count", strongest.length);
   const top = document.getElementById("cba-strongest");

@@ -3520,6 +3520,12 @@ class TestHomeV6:
         digest = page.evaluate("() => fetch('data/home.json').then(r => r.json()).then(d => d.totals.agreements)")
         assert js == digest
 
+    def test_agreements_tab_opens_with_a_key_provisions_summary(self, page: Page, base_url: str):
+        page.goto(base_url + "/#agreements")
+        page.wait_for_selector("#cba-provisions .cba-prov-chip", timeout=E2E_WAIT)
+        rows = page.locator("#cba-provisions .cba-prov-chip").count()
+        assert rows == page.evaluate("() => AGREEMENT_FEATURES.length")
+
     def test_contested_count_matches_the_frontend_rule(self, page: Page, base_url: str):
         # refresh.py's _is_contested mirrors contestedReasons(); hold them together.
         page.goto(base_url + "/#explorer/contested")
