@@ -179,13 +179,8 @@
     "state:NC": {
       "follow_ups": [
         {
-          "due": "2026-10-09",
-          "what": "Beaufort County NC: Oct 5 hearing/vote outcome still unconfirmed"
-        },
-        {
-          "due": "2026-10-09",
-          "what": "Cary NC: find the late-August enactment date to add the 18-month moratorium",
-          "hint": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium"
+          "due": "2026-10-24",
+          "what": "Beaufort County NC: Sept 14 hearing / Oct 5 outcome still unconfirmed; try Washington Daily News or county minutes"
         },
         {
           "due": "2026-11-06",
@@ -193,8 +188,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-08",
-        "summary": "2026-10-08 v5 refresh: added Raleigh proposed moratorium; Cary held (no enacted date on page); Duke Oct 7 tariff settlement"
+        "date": "2026-10-10",
+        "summary": "2026-10-10: Cary 18-month moratorium added (enacted Aug 27 per ABC11). Beaufort NC Oct 5 outcome not found in any outlet (only Sept 14 hearing listing)."
       },
       "blocked": {
         "date": "2026-10-09",
@@ -204,13 +199,17 @@
     "state:NM": {
       "follow_ups": [
         {
-          "due": "2026-10-09",
-          "what": "Grant County: board formally considers a moratorium Oct 8 (only a notice of intent passed Sept 24) — adopted?"
+          "due": "2026-10-24",
+          "what": "Grant County NM: was moratorium adopted at Oct 8 meeting? Try Silver City Daily Press / county minutes"
         }
       ],
       "blocked": {
         "date": "2026-10-09",
         "reason": "Grant County Oct 8 action: no coverage found 2026-10-09; Ordinance 4-2026 (2-year) already exists, relation unclear; check county minutes / Chronicle-Tribune"
+      },
+      "last_check": {
+        "date": "2026-10-10",
+        "summary": "2026-10-10: no coverage found of Grant County NM Oct 8 vote; only residents urging a moratorium (KRWG Sept 9)."
       }
     },
     "state:OH": {
