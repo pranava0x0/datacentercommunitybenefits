@@ -5590,6 +5590,29 @@
       "summary": "San Francisco's Board of Supervisors passed a temporary 45-day moratorium on data centers citywide on October 6, 2026, introduced by Supervisor Shamann Walton. It takes effect immediately and could be extended up to 22 months if a significant environmental impact is found.",
       "source_url": "https://missionlocal.org/2026/10/sf-supervisors-pass-data-center-moratorium/",
       "source_title": "Mission Local — SF supervisors pass data center moratorium"
+    },
+    {
+      "captured_at": "2026-10-10",
+      "id": "cary-nc-2026-08",
+      "jurisdiction": "Cary",
+      "jurisdiction_type": "city",
+      "state_code": "NC",
+      "status": "enacted",
+      "duration_description": "18 months, on data center development approvals.",
+      "key_reasons": [],
+      "summary": "Cary Town Council unanimously approved an 18-month moratorium on data centers on the evening of Thursday, August 27, 2026.",
+      "source_url": "https://abc11.com/post/cary-approves-18-month-moratorium-data-centers-amid-growth-concerns/19748618/",
+      "source_title": "ABC11 — Cary approves temporary pause on data center development",
+      "session": "2026",
+      "enacted_date": "2026-08-27",
+      "duration_months": 18,
+      "enacted_by": "Town Council",
+      "resources": [
+        {
+          "url": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium",
+          "title": "WFAE — Raleigh, Cary weigh data center moratoriums"
+        }
+      ]
     }
   ]
 }
