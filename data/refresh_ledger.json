@@ -80,8 +80,8 @@
     "state:CA": {
       "follow_ups": [
         {
-          "due": "2026-10-11",
-          "what": "Escondido: staff returns Oct 10 with findings on the 45-day moratorium (escondido-ca-2026-08) — extended or lapsed?"
+          "due": "2026-10-16",
+          "what": "Escondido: 45-day moratorium (escondido-ca-2026-08) status after Oct 10 staff report — find council minutes/local article"
         },
         {
           "due": "2026-10-16",
@@ -98,11 +98,15 @@
         {
           "due": "2026-11-21",
           "what": "San Francisco 45-day moratorium ends ~Nov 20; Planning hearing in November: extended or lapsed?"
+        },
+        {
+          "due": "2027-10-17",
+          "what": "Indio moratorium ended Oct 16 2027: permanent rule adopted or lapsed?"
         }
       ],
       "last_check": {
-        "date": "2026-10-09",
-        "summary": "2026-10-09: Oakland council enacted 45-day moratorium 7-0 on Oct 6 (KTVU); SF Board passed 45-day moratorium Oct 6 (Mission Local)"
+        "date": "2026-10-11",
+        "summary": "2026-10-11: Indio extended final year through Oct 16 2027 (KESQ); Escondido Oct 10 findings not found in any fetchable source, record unchanged"
       }
     },
     "state:CO": {
@@ -124,10 +128,6 @@
     "state:FL": {
       "follow_ups": [
         {
-          "due": "2026-10-10",
-          "what": "Manatee County Ordinance 26-42: Oct 6 second hearing outcome — adopted?"
-        },
-        {
           "due": "2026-10-14",
           "what": "Leon County: 18-month moratorium final hearing Oct 13 — adopted?"
         },
@@ -138,8 +138,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-08",
-        "summary": "2026-10-08 v5 refresh: added Volusia County ban ordinance (first reading)"
+        "date": "2026-10-11",
+        "summary": "2026-10-11: Manatee Ordinance 26-42 adopted Oct 8 (Pulse of Manatee, WWSB); record now enacted"
       }
     },
     "state:GA": {

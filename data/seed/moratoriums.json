@@ -1136,22 +1136,22 @@
       "status": "enacted",
       "enacted_date": "2026-06-03",
       "effective_date": "2026-06-03",
-      "duration_months": 4,
-      "duration_description": "45-day emergency moratorium (enacted June 3, 2026); unanimously extended by the City Council on July 15, 2026 through October 16, 2026 while staff drafts General Plan and development-code amendments ranging from a full ban to lesser regulations. The Planning Commission has separately recommended an outright ban; As of Oct 3, 2026 no later council action was found in search; the moratorium runs through Oct 16, 2026.",
+      "duration_months": 16,
+      "duration_description": "45-day emergency moratorium (enacted June 3, 2026); unanimously extended July 15, 2026 through October 16, 2026; then, in a unanimous vote reported Oct. 7, 2026, extended a final year through October 16, 2027 while staff drafts permanent general plan amendments and related rules.",
       "power_threshold_mw": null,
       "key_reasons": [
         "transparency"
       ],
-      "summary": "Indio City Council unanimously passed a 45-day emergency data-center moratorium on June 3, 2026, then voted unanimously on July 15, 2026 to extend it through October 16, 2026 while staff drafts General Plan and development-code amendments (a range of options up to a full ban). The Planning Commission has recommended an outright ban; no permanent ordinance has been adopted yet.",
-      "source_url": "https://www.nbcpalmsprings.com/2026/07/16/indio-city-council-extends-data-center-moratorium-with-planning-commission-already-recommending-a-full-ban",
-      "source_title": "NBC Palm Springs — Indio City Council Extends Data Center Moratorium, With Planning Commission Already Recommending A Full Ban",
+      "summary": "Indio City Council unanimously passed a 45-day emergency data-center moratorium on June 3, 2026, extended it unanimously on July 15 through October 16, 2026, and in a vote reported October 7, 2026 unanimously approved a final one-year extension through October 16, 2027 while staff drafts permanent amendments. The Planning Commission has recommended an outright ban; no permanent ordinance has been adopted yet.",
+      "source_url": "https://kesq.com/news/2026/10/07/indio-city-council-extends-data-center-moratorium-through-2027/",
+      "source_title": "KESQ — Indio City Council extends data center moratorium through 2027",
       "resources": [
         {
-          "url": "https://kesq.com/news/2026/07/14/indio-city-council-to-consider-extending-data-center-moratorium-weigh-permanent-ban/",
-          "title": "KESQ — Indio City Council to consider extending data center moratorium, weigh permanent ban"
+          "url": "https://www.nbcpalmsprings.com/2026/07/16/indio-city-council-extends-data-center-moratorium-with-planning-commission-already-recommending-a-full-ban",
+          "title": "NBC Palm Springs — Indio City Council Extends Data Center Moratorium, With Planning Commission Already Recommending A Full Ban"
         }
       ],
-      "captured_at": "2026-10-03",
+      "captured_at": "2026-10-11",
       "city_council_vote": "unanimous",
       "state_code": "CA"
     },
@@ -4938,29 +4938,33 @@
       "jurisdiction": "Manatee County",
       "jurisdiction_type": "county",
       "state_code": "FL",
-      "status": "proposed",
-      "enacted_date": null,
+      "status": "enacted",
+      "enacted_date": "2026-10-08",
       "effective_date": null,
       "duration_months": 12,
-      "duration_description": "12 months (proposed); Ordinance 26-42 requires two public hearings. The Planning Commission reviewed the draft Sept. 17, 2026; the Board of County Commissioners held the first public hearing Sept. 22, 2026, and advanced it; the second and final public hearing / adoption vote is scheduled for Oct. 6, 2026.",
+      "duration_description": "12 months or until repealed by the Board, whichever occurs first. Ordinance 26-42 was adopted Oct. 8, 2026 after its second and final public hearing (first hearing Sept. 22, 2026).",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "water",
         "noise"
       ],
-      "summary": "Manatee County commissioners on September 22, 2026 advanced, at the first of two required public hearings, Ordinance 26-42, which would impose a 12-month moratorium on applications for building permits, site plans, development orders, rezonings and comprehensive plan amendments for data centers and other large-load customers in unincorporated Manatee County. The second and final public hearing is scheduled for October 6, 2026. The county acted under authority granted by Florida's newly effective SB 484. Commissioner Amanda Ballard said the pause will let staff address gaps in county regulations, since neither the land development code nor the comprehensive plan currently address large-load customers.",
-      "source_url": "https://www.yourobserver.com/news/2026/sep/22/manatee-ordinance-data-center-moratorium/",
-      "source_title": "Your Observer / East County News — Manatee County issues one-year ban on data centers",
+      "summary": "Manatee County commissioners adopted Ordinance 26-42 on October 8, 2026, after the second of two required public hearings, imposing a 12-month moratorium on applications for building permits, site plans, development orders, rezonings and comprehensive plan amendments for data centers and other large-load customers in unincorporated Manatee County. The county acted under authority granted by Florida's SB 484. Commissioner Amanda Ballard said the pause will let staff address gaps in county regulations, since neither the land development code nor the comprehensive plan currently address large-load customers.",
+      "source_url": "https://www.pulseofmanatee.com/p/manatee-county-commissioners-approve-c34",
+      "source_title": "Pulse of Manatee — Manatee County Commissioners Approve 12-Month Data Center Moratorium",
       "resources": [
         {
-          "url": "https://www.pulseofmanatee.com/p/manatee-commissioners-to-consider",
-          "title": "Pulse of Manatee — Manatee Commissioners to Consider Data Center Moratorium, Gambling Regulations and Land Conservation"
+          "url": "https://www.mysuncoast.com/2026/10/08/manatee-county-approves-one-year-moratorium-data-centers/",
+          "title": "WWSB — Manatee County approves one-year moratorium on data centers"
+        },
+        {
+          "url": "https://www.yourobserver.com/news/2026/sep/22/manatee-ordinance-data-center-moratorium/",
+          "title": "Your Observer / East County News — Manatee County issues one-year ban on data centers"
         }
       ],
-      "city_council_vote": "Unanimous (first hearing, Sept. 22, 2026)",
+      "city_council_vote": "Unanimous (final adoption, Oct. 8, 2026)",
       "session": "2026",
-      "captured_at": "2026-09-25",
+      "captured_at": "2026-10-11",
       "id": "manatee-county-fl-2026-09"
     },
     {
