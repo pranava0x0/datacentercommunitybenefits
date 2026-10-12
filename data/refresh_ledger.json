@@ -65,6 +65,10 @@
         "summary": "Checked news and source link; added Apr 2026 contractor layoff note; datacenters.atmeta.com/location/prineville/ returns 404 (needs new URL, not swapped); permits not checked (partial: permits not checked, so not counted as a full review)"
       }
     },
+    "site:ms-goodyear-az": {
+      "last_reviewed": "2026-10-12",
+      "summary": "Source/project page 403 to scripts; ABC15 (undated) confirms air-cooling + $36M wastewater deal but year unstated, so nothing citable; no change."
+    },
     "state:AZ": {
       "last_check": {
         "date": "2026-10-08",
@@ -148,7 +152,9 @@
           "due": "2027-01-01",
           "what": "Bulloch County moratorium ends Dec 31, 2026 unless extended or replaced (bulloch-county-ga-2026-02)"
         }
-      ]
+      ],
+      "last_reviewed": "2026-10-12",
+      "summary": "Searched new GA moratoriums; Paulding/Camden/Newton found untracked, filed as BACKLOG leads (need primary source/dates). Existing records not re-verified."
     },
     "state:IL": {
       "follow_ups": [
