@@ -69,6 +69,10 @@
       "last_reviewed": "2026-10-12",
       "summary": "Source/project page 403 to scripts; ABC15 (undated) confirms air-cooling + $36M wastewater deal but year unstated, so nothing citable; no change."
     },
+    "site:ms-quincy-wa": {
+      "last_reviewed": "2026-10-13",
+      "summary": "Checked Microsoft Quincy news 2026: OPB (2026-01-17) covers Microsoft's Jan 13 community-first commitments; GeekWire 20-year anniversary piece (403, unreadable) mentions $210K grants. Nothing new met the verbatim-quote bar; record unchanged."
+    },
     "state:AZ": {
       "last_check": {
         "date": "2026-10-08",
@@ -173,6 +177,18 @@
         {
           "due": "2026-10-20",
           "what": "Fort Wayne: council reconsiders the 365-day pause on its own actions in mid-October (postponed 3 weeks on Sept 23)"
+        }
+      ]
+    },
+    "state:ME": {
+      "last_check": {
+        "date": "2026-10-13",
+        "summary": "Bangor moratorium (enacted 2026-04-13, 180 days): two searches found no coverage after April of an extension, lapse, or Land Development Code amendment; record unchanged, nothing citable."
+      },
+      "follow_ups": [
+        {
+          "due": "2026-10-20",
+          "what": "Bangor moratorium: check bangormaine.gov council agendas/minutes and BDN for extension or LDC amendment vote"
         }
       ]
     },
