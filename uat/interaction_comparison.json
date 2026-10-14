@@ -45,7 +45,9 @@
       "tap: [data-guide-target=\"evidence\"]",
       "swipe x2",
       "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
-      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
      ]
     }
    },
@@ -458,7 +460,9 @@
      "path": [
       "tap: [data-guide-target=\"evidence\"]",
       "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
-      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
      ]
     }
    },
@@ -862,7 +866,9 @@
      "path": [
       "tap: [data-guide-target=\"evidence\"]",
       "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
-      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
      ]
     }
    },

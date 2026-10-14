@@ -1592,7 +1592,7 @@
         "water",
         "community_grants"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "key_terms": [
         "25 MW threshold, with stated institutional exceptions",
         "Host CBA negotiation is an evaluation criterion, not a universal agreement mandate",
@@ -1602,7 +1602,7 @@
         "Public determinations and performance status; local land-use powers preserved",
         "Authority and public-information exemptions constrain implementation"
       ],
-      "summary": "The September 23, 2026 order establishes coordinated review of large data centers against five principles. It evaluates host agreements, cost protections, environmental impacts and public commitments. Annual reporting separates water withdrawal from consumption and includes generator hours and benefit payments. Incentive agreements incorporate milestones and remedies where authorized. The criteria are weighed holistically; this is not a blanket CBA mandate or new power to deny permits. Local authority and existing statutory limits remain.",
+      "summary": "The September 23, 2026 order establishes coordinated review of large data centers against five principles. It evaluates host agreements, cost protections, environmental impacts and public commitments. Annual reporting separates water withdrawal from consumption and includes generator hours and benefit payments. Incentive agreements incorporate milestones and remedies where authorized. The criteria are evaluated together; this is not a blanket CBA mandate or new power to deny permits. Local authority and existing statutory limits remain.",
       "source_url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
       "source_title": "Maryland Regulations Library — Executive Order 01.01.2026.16, Sections D–G",
       "resources": [
@@ -3994,7 +3994,7 @@
       "source_title": "NJ Division of Local Government Services — Local Finance Notice 2026-13",
       "resources": [
         {
-          "url": "https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf",
+          "url": "https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf#page=3",
           "title": "NJ Local Finance Notice 2026-13 — municipal CBA negotiation guidance, pp. 3–5 (advisory, separate from the Act)"
         }
       ]

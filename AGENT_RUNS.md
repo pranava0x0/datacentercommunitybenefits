@@ -427,3 +427,9 @@ Useful: it separated concessions, modeled emissions and observations from
 measured impacts, and found official Maryland/New Jersey drafting material.
 Token accounting unavailable. Existing policy IDs supplied after initial
 orientation; next time include them in the initial prompt. No parallel fan-out.
+
+The same agent performed one bounded review of authored code and source
+boundaries (generated data skipped). It found the water task measured the
+story paragraph before the verdict. Fixed the selector and added a visible
+verdict; parent review also restored Maryland's non-mandatory CBA flag.
+Both findings were posted inline on PR #71. No second agent or review fan-out.

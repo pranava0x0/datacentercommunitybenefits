@@ -182,3 +182,9 @@ keyboard arrows, lazy loading and failed-import retry. Screenshots inspected
 locally. Offline preview embeds the same guide source and passes its smoke test.
 Draft numbers are illustrative; registry authenticity, the municipal percentage,
 current generator authorization, actual emissions and tenancy remain unverified.
+
+PR #71 review fix: the water task now reaches an explicit verdict, evidence
+status and limitation, rather than stopping at the story claim. Re-measured
+on all three devices: totals remain 4/2/2; the stored paths reflect the corrected
+question. Maryland stays out of the CBA-required filter; its community-benefits
+principle and official source remain. One review round; both inline findings fixed.
