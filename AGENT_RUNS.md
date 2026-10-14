@@ -418,3 +418,18 @@ cloud routine will, on today's real queue. It used 13 of 25 minutes.
   derived follow-ups work in whole months (add a manual one for an exact
   date); and the realistic load is 2–3 units per run, not 4.
 
+
+## 2026-10-14 — community draft plans and impact evidence
+
+One research agent at a time. Bounded to six searches and a short synthesis;
+used for Rooted's client-rendered story and primary framework sources.
+Useful: it separated concessions, modeled emissions and observations from
+measured impacts, and found official Maryland/New Jersey drafting material.
+Token accounting unavailable. Existing policy IDs supplied after initial
+orientation; next time include them in the initial prompt. No parallel fan-out.
+
+The same agent performed one bounded review of authored code and source
+boundaries (generated data skipped). It found the water task measured the
+story paragraph before the verdict. Fixed the selector and added a visible
+verdict; parent review also restored Maryland's non-mandatory CBA flag.
+Both findings were posted inline on PR #71. No second agent or review fan-out.

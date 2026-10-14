@@ -50,6 +50,12 @@ def build() -> Path:
     if OLD_FETCH not in appjs:
         raise SystemExit("fetchJson() shape changed — update build_preview.py OLD_FETCH.")
     appjs = appjs.replace(OLD_FETCH, NEW_FETCH)
+    # The normal site loads the guide lazily; the offline preview embeds it.
+    guide = (DOCS / "community-plans.js").read_text().replace("export function ", "function ")
+    guide_js = "window.__PLANNING_GUIDE__ = (() => {\n" + guide + "\nreturn {renderPlans, renderEvidence};\n})();"
+    if "import(path)" not in appjs:
+        raise SystemExit("Planning guide import changed — update build_preview.py.")
+    appjs = appjs.replace("import(path)", "Promise.resolve(window.__PLANNING_GUIDE__)")
 
     body = html.split("<body>", 1)[1].split("</body>", 1)[0]
     entries = [f'"data/{f}.json": {(DOCS / "data" / f"{f}.json").read_text().strip()}'
@@ -61,6 +67,7 @@ def build() -> Path:
         "<title>Data Center Community Benefits — Dashboard</title>\n"
         f"<style>\n{css}\n</style>\n{body}\n"
         f"<script>\n{esc(data_js)}\n</script>\n"
+        f"<script>\n{esc(guide_js)}\n</script>\n"
         f"<script>\n{esc(appjs)}\n</script>\n"
     )
     OUT_DIR.mkdir(exist_ok=True)
@@ -87,12 +94,19 @@ def verify() -> int:
         page.wait_for_timeout(700)
         checks = {}
         page.locator("#tab-moratoriums").click()
-        page.wait_for_selector("#moratorium-charts .mor-chart", timeout=8000)
+        page.wait_for_selector("#moratoriums-tbody tr", timeout=8000)
         checks["moratorium_rows"] = page.locator("#moratoriums-tbody tr").count()
         page.locator("#tab-ratepayer").click(); page.wait_for_timeout(600)
         checks["ratepayer_cards"] = page.locator("#rp-scorecard .rp-card").count()
         page.locator("#tab-tariffs").click(); page.wait_for_timeout(500)
         checks["tariff_rows"] = page.locator("#tariffs-table tbody tr").count()
+        page.locator("#tab-overview").click()
+        page.locator('[data-guide-target="drafts"]').click()
+        page.wait_for_selector("#draft-plan-decision", timeout=8000)
+        checks["draft_clauses"] = page.locator("#draft-plan-content .guide-clause").count()
+        page.locator("#subtab-pol-evidence").click()
+        page.wait_for_selector("#impact-evidence-rule", timeout=8000)
+        checks["evidence_checks"] = page.locator("#subpane-pol-evidence .guide-clause").count()
         b.close()
     tmp.unlink(missing_ok=True)
     fatal = [e for e in errors if not any(k in e for k in

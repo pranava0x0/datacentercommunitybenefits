@@ -11,10 +11,10 @@
       content="Data center operators' commitments to host communities, local moratoriums and policies, utility tariffs and rate cases, and contested sites in the U.S."
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20261008a" />
+    <link rel="stylesheet" href="styles.css?v=20261014a" />
     <!-- html2pdf is lazy-loaded on demand by the moratorium PDF export (see
          loadHtml2Pdf in app.js) so it doesn't block first paint or tests. -->
-    <script defer src="app.js?v=20261008a"></script>
+    <script defer src="app.js?v=20261014a"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -22,7 +22,7 @@
     <header class="topbar" role="banner">
       <div class="topbar-inner">
         <div class="topbar-title">
-          <h1>Data Center Community Benefits</h1>
+          <h1 aria-label="Data Center Community Benefits">Data Center <span class="title-long">Community </span>Benefits</h1>
           <p class="topbar-sub" id="meta">Loading…</p>
         </div>
         <nav class="topbar-controls" aria-label="Toolbar">
@@ -145,6 +145,10 @@
         aria-labelledby="tab-overview"
       >
         <div class="home-body">
+          <nav class="home-tasks" aria-label="Planning tools">
+            <button type="button" data-guide-target="drafts">Draft a benefit plan</button>
+            <button type="button" data-guide-target="evidence">Check impact claims</button>
+          </nav>
           <!-- One card per tab, each led by its main number. Numbers and the
                two lists render from data/home.json (built by refresh.py). -->
           <nav class="home-cards" id="home-cards" aria-label="Sections">
@@ -164,7 +168,7 @@
               <span class="home-card-title">Benefits</span>
               <span class="home-card-num" data-count-for="agreements">&mdash;</span>
               <span class="home-card-sub" data-sub-for="agreements"></span>
-              <span class="home-card-dek">What developers have agreed to give host communities.</span>
+              <span class="home-card-dek">Agreements and company pledges to host communities.</span>
             </button>
             <button class="home-card" type="button" data-path-target="moratoriums">
               <span class="home-card-title">Moratoriums</span>
@@ -1431,6 +1435,15 @@
           <button class="subtab" role="tab" type="button" id="subtab-pol-directory" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-directory">
             Directory <span class="subtab-count" id="policies-count"></span>
           </button>
+          <button class="subtab" role="tab" type="button" id="subtab-pol-drafts" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-drafts">Draft plans</button>
+          <button class="subtab" role="tab" type="button" id="subtab-pol-evidence" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-evidence">Evidence</button>
+        </div>
+
+        <div class="subtab-panel planning-guide" id="subpane-pol-drafts" role="tabpanel" aria-labelledby="subtab-pol-drafts" hidden>
+          <p>Loading draft plans…</p>
+        </div>
+        <div class="subtab-panel planning-guide" id="subpane-pol-evidence" role="tabpanel" aria-labelledby="subtab-pol-evidence" hidden>
+          <p>Loading evidence guide…</p>
         </div>
 
         <div class="subtab-panel" id="subpane-pol-principles" role="tabpanel" aria-labelledby="subtab-pol-principles">
@@ -1572,13 +1585,11 @@
         <div class="hero">
           <h2 class="hero-title">Benefits</h2>
           <p class="hero-dek">
-            What developers have agreed to give their host communities.
+            Signed agreements, proposals and company pledges to host communities.
           </p>
         </div>
 
         <ul id="cba-stats" class="rp-stats" aria-label="Agreement statistics"></ul>
-
-        <div id="cba-provisions" class="cba-provisions"></div>
 
         <div class="subtabs subtabs--view" role="tablist" aria-label="Benefits view">
           <button class="subtab" role="tab" type="button" id="subtab-cba-strongest" aria-selected="true" tabindex="0" aria-controls="subpane-cba-strongest">
@@ -1628,6 +1639,7 @@
         </div>
 
         <div class="subtab-panel" id="subpane-cba-features" role="tabpanel" aria-labelledby="subtab-cba-features" hidden>
+          <div id="cba-provisions" class="cba-provisions"></div>
           <p class="cba-note">
             Nine terms a strong agreement puts in writing, from the
             <a href="https://naacp.org/sites/default/files/documents/NAACP%20CBA%20Template%202026.pdf" target="_blank" rel="noopener noreferrer">NAACP 2026 template</a>

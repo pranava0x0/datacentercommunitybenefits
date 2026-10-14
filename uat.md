@@ -1,7 +1,7 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-10-08_
+_Last run: 2026-10-14_
 
 ## Interaction cost (tracked from 2026-10-08)
 
@@ -153,3 +153,38 @@ counts when repeating those flows.
 - Matrix tooltip uses `getBoundingClientRect()` post-show for correct clamping (v1.17 fix).
 - Aggregate sort click calls `renderAggregateView()` to ensure `_aggSort` state picked up correctly; rollup data is rebuilt (O(n), n≤100) on each sort.
 - Constituency breakdown lazy-loads via `loadProjectData()` if project data isn't already present; never visible with 0 rows.
+
+## 2026-10-14 — plans, evidence and agreement terms
+
+Fresh baseline at `b2872a7`, same device settings and tasks as the candidate.
+`uat/interaction_comparison.json` preserves before/after paths and counts;
+new tasks have no prior equivalent. All 14 existing default paths stayed
+unchanged or improved. Measure first-line reachability, not reading the
+entire plan or agreement; scrolling through full documents costs more.
+
+| Task | Mobile before → after | Tablet before → after | Desktop before → after |
+|---|---|---|---|
+| Signed agreement terms | 4 → 1 | 1 → 1 | 1 → 1 |
+| County draft decision | absent → 1 | absent → 1 | absent → 1 |
+| State draft decision | absent → 3 | absent → 3 | absent → 3 |
+| Querétaro water evidence | absent → 4 | absent → 2 | absent → 2 |
+
+One selection costs two taps: open picker, choose option. The county path is
+one tap with zero swipes; the state path adds that selection. Phone water
+evidence takes two taps and two swipes. Full/expanded paths are also recorded.
+Benefits now puts sourced terms before background and feature chips; provision
+counts remain in Terms. Delivery panels remain visible on full cards.
+Frameworks uses two sub-tab rows on phones so its five panes remain visible
+without horizontal swipes. Home links open drafts or evidence directly.
+
+Checked 375px, 390px and 1366px layouts, downloads for both plans, URL reload,
+keyboard arrows, lazy loading and failed-import retry. Screenshots inspected
+locally. Offline preview embeds the same guide source and passes its smoke test.
+Draft numbers are illustrative; registry authenticity, the municipal percentage,
+current generator authorization, actual emissions and tenancy remain unverified.
+
+PR #71 review fix: the water task now reaches an explicit verdict, evidence
+status and limitation, rather than stopping at the story claim. Re-measured
+on all three devices: totals remain 4/2/2; the stored paths reflect the corrected
+question. Maryland stays out of the CBA-required filter; its community-benefits
+principle and official source remain. One review round; both inline findings fixed.

@@ -89,6 +89,19 @@ class Task:
 
 
 TASKS: list[Task] = [
+    Task("draft_county", "Reach a county community-benefits draft.",
+         [("tap", '[data-guide-target="drafts"]'),
+          ("see", "#draft-plan-decision")]),
+    Task("draft_state", "Reach a state community-benefits draft.",
+         [("tap", '[data-guide-target="drafts"]'),
+          ("select", "#draft-plan-kind", "state"),
+          ("see", "#draft-plan-decision")]),
+    Task("impact_water", "Check what the Querétaro water claim establishes.",
+         [("tap", '[data-guide-target="evidence"]'),
+          ("tap", "#subpane-pol-evidence .guide-clause:first-of-type summary"),
+          ("see", "#subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]"),
+          ("see", "#subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]"),
+          ("see", "#subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]")]),
     Task("home_latest", "What changed most recently?",
          [("see", "#home-latest-list .feed-item")]),
     Task("home_coming_up", "What is the next scheduled hearing or deadline?",
@@ -296,6 +309,11 @@ def run_task(page, base: str, task: Task, expanded: bool) -> Cost:
                 cost.taps += 1
                 cost.types += 1
                 cost.path.append(f"type: {step[2]!r}")
+                _settle(page)
+            elif kind == "select":
+                page.locator(sel).first.select_option(step[2])
+                cost.taps += 2  # open the picker, then choose an option
+                cost.path.append(f"select: {step[2]!r} (2 taps)")
                 _settle(page)
             elif kind == "see":
                 cost.path.append(f"see: {sel}")

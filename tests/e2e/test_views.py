@@ -3389,7 +3389,7 @@ class TestMobileV5Panes:
             ctx.close()
         assert problems == []
 
-    def test_view_subtabs_fit_one_row_on_a_phone(self, browser, base_url: str):
+    def test_view_subtabs_fit_without_side_swipes_on_a_phone(self, browser, base_url: str):
         ctx = browser.new_context(
             viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True
         )
@@ -3401,7 +3401,11 @@ class TestMobileV5Panes:
                 tops = page.locator(f"#view-{'explorer' if view == 'explorer' else view} .subtabs--view .subtab").evaluate_all(
                     "els => [...new Set(els.map(e => Math.round(e.getBoundingClientRect().top)))]"
                 )
-                assert len(tops) == 1, f"{view}: sub-tabs wrap to {len(tops)} rows"
+                # Frameworks has five panes; two rows keep the guides visible.
+                expected_rows = 2 if view == "policies" else 1
+                assert len(tops) == expected_rows, f"{view}: sub-tabs wrap to {len(tops)} rows"
+                strip = page.locator(f"#view-{view} .subtabs--view")
+                assert strip.evaluate("e => e.scrollWidth <= e.clientWidth + 1")
         finally:
             ctx.close()
 
@@ -3520,8 +3524,8 @@ class TestHomeV6:
         digest = page.evaluate("() => fetch('data/home.json').then(r => r.json()).then(d => d.totals.agreements)")
         assert js == digest
 
-    def test_agreements_tab_opens_with_a_key_provisions_summary(self, page: Page, base_url: str):
-        page.goto(base_url + "/#agreements")
+    def test_agreements_terms_has_a_key_provisions_summary(self, page: Page, base_url: str):
+        page.goto(base_url + "/#agreements/features")
         page.wait_for_selector("#cba-provisions .cba-prov-chip", timeout=E2E_WAIT)
         rows = page.locator("#cba-provisions .cba-prov-chip").count()
         assert rows == page.evaluate("() => AGREEMENT_FEATURES.length")

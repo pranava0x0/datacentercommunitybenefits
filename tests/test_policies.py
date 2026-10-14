@@ -45,6 +45,14 @@ def test_seed_is_not_empty(policies) -> None:
     assert len(policies) >= 20
 
 
+def test_maryland_evaluation_does_not_count_as_a_required_cba(policies) -> None:
+    """EO D.1/D.4 weigh negotiation; no single criterion is dispositive."""
+    md = next(p for p in policies if p["id"] == "md-eo-01.01.2026.16-2026")
+    assert md["community_benefits_framework"] is False
+    assert "community_benefits" in md["principles"]
+    assert md["source_url"].startswith("https://regs.maryland.gov/")
+
+
 def test_every_record_cites_an_https_source(policies) -> None:
     for p in policies:
         assert p["source_url"].startswith("https://"), p["id"]

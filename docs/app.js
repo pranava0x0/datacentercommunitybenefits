@@ -3015,15 +3015,14 @@ function renderAgreementCard(p, { compact = false } = {}) {
       <p class="cba-facts">${facts.map(escapeHtml).join(" · ")}</p>
     </header>
     ${value}
-    ${featLine}
     ${
       compact
-        ? `<details class="cba-more"><summary>Terms and source</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}</details>`
-        : `<p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}`
+        ? `${featLine}<details class="cba-more"><summary>Terms and source</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}</details>`
+        : `${terms}${src}<details class="cba-more"><summary>Background and terms reviewed</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${featLine}</details>`
     }`;
   if (p.delivered) {
     const d = renderDeliveredPanel(p.delivered);
-    const target = li.querySelector(".cba-more") || li;
+    const target = compact ? li.querySelector(".cba-more") : li;
     target.append(d);
   }
   return li;
@@ -4048,7 +4047,7 @@ const SUBTAB_GROUPS = {
   co: ["profiles", "commitments", "footprint"],
   sites: ["map", "contested", "states"],
   tar: ["ratecases", "tariffs", "elements"],
-  pol: ["principles", "latest", "directory"],
+  pol: ["principles", "latest", "directory", "drafts", "evidence"],
   cba: ["strongest", "all", "features"],
   mor: ["directory", "trends", "influence"],
 };
@@ -4091,7 +4090,38 @@ function setActiveSubtab(group, key) {
     if (pane) pane.hidden = !active;
   }
   syncSubtabHash(group);
+  if (group === "pol") {
+    const isGuide = key === "drafts" || key === "evidence";
+    document.getElementById("policy-stats").hidden = isGuide;
+    if (isGuide) loadPlanningGuide(key);
+  }
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
+}
+
+let _planningGuidePromise = null;
+let _planningGuideRetries = 0;
+const _planningGuidesRendered = new Set();
+function loadPlanningGuide(key) {
+  if (_planningGuidesRendered.has(key)) return;
+  const root = document.getElementById(`subpane-pol-${key}`);
+  if (!_planningGuidePromise) {
+    // Browsers cache a failed module fetch by URL; a new URL permits retry.
+    const path = _planningGuideRetries ? `./community-plans.js?retry=${_planningGuideRetries}` : "./community-plans.js";
+    _planningGuidePromise = import(path).catch((err) => {
+      _planningGuidePromise = null;
+      _planningGuideRetries += 1;
+      throw err;
+    });
+  }
+  _planningGuidePromise.then((guide) => {
+    if (_planningGuidesRendered.has(key)) return;
+    if (key === "drafts") guide.renderPlans(root);
+    else guide.renderEvidence(root);
+    _planningGuidesRendered.add(key);
+  }).catch((err) => {
+    console.error("Failed to load planning guide:", err);
+    root.replaceChildren(el("p", "muted", "Couldn't load this guide. Select another pane, then return to retry."));
+  });
 }
 
 // Write the active pane into the hash for the view that owns `group`, but
@@ -4120,6 +4150,12 @@ function parseSubtabHash(hash) {
 }
 
 function wireSubtabs() {
+  for (const btn of document.querySelectorAll("[data-guide-target]")) {
+    btn.addEventListener("click", () => {
+      activateView("policies");
+      setActiveSubtab("pol", btn.dataset.guideTarget);
+    });
+  }
   for (const [group, keys] of Object.entries(SUBTAB_GROUPS)) {
     for (const key of keys) {
       const btn = document.getElementById(`subtab-${group}-${key}`);

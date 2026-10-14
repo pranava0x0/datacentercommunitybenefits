@@ -9,12 +9,15 @@
   "pledge_site_score": 6,
   "state_panel": 6,
   "policy_cba": 6,
-  "agreement_terms": 5,
+  "agreement_terms": 2,
   "moratorium_raleigh": 5,
   "ratecase_milestone": 4,
   "company_water": 6,
   "contested_timeline": 4,
-  "site_comment": 6
+  "site_comment": 6,
+  "draft_county": 2,
+  "draft_state": 4,
+  "impact_water": 5
  },
  "tablet": {
   "home_latest": 1,
@@ -30,7 +33,10 @@
   "ratecase_milestone": 2,
   "company_water": 4,
   "contested_timeline": 3,
-  "site_comment": 6
+  "site_comment": 6,
+  "draft_county": 2,
+  "draft_state": 4,
+  "impact_water": 3
  },
  "desktop": {
   "home_latest": 2,
@@ -46,6 +52,9 @@
   "ratecase_milestone": 2,
   "company_water": 4,
   "contested_timeline": 3,
-  "site_comment": 6
+  "site_comment": 6,
+  "draft_county": 2,
+  "draft_state": 4,
+  "impact_water": 3
  }
 }

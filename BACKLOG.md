@@ -723,6 +723,13 @@ come first, then locations, companies and sites.
 
 ## 4. Product and UX
 
+- **Querétaro evidence follow-up (2026-10-14).** The planning guide attributes
+  the 2023 assessment's estimated generator emissions and a registry image (concession
+  855979, 25,000 m³/year, aquifer 2203). Authenticate the live registry entry,
+  matching municipal denominator/year, generator permit and runtime records
+  before publishing facility-use figures or a violation finding. Confirm any
+  Microsoft–Ascenty tenancy independently; proximity is insufficient. **medium**
+
 From the 2026-09-25 cross-device audit (phone 390, tablet 820, laptop 1366,
 desktop 1920). Performance is healthy everywhere: on Slow 4G with 4x CPU,
 FCP is 0.86 s, LCP ≤ 1.4 s and TBT is ~0. The problems below are layout and
