@@ -120,8 +120,8 @@
     "state:CO": {
       "follow_ups": [
         {
-          "due": "2026-10-14",
-          "what": "Moffat County: decision Oct 13 — outcome?"
+          "due": "2026-10-21",
+          "what": "Moffat County: re-check Craig Daily Press for the Oct 13 moratorium decision"
         },
         {
           "due": "2026-10-29",
@@ -129,16 +129,12 @@
         }
       ],
       "last_check": {
-        "date": "2026-09-25",
-        "summary": "Larimer County (larimer-county-co-2026-01): extended a second time July 13, 2026, through Feb 25, 2027 (engage.larimer.gov)."
+        "date": "2026-10-14",
+        "summary": "Moffat County Oct 13 vote: Craig Daily Press and search show no report of the outcome yet; record not tracked, nothing citable."
       }
     },
     "state:FL": {
       "follow_ups": [
-        {
-          "due": "2026-10-14",
-          "what": "Leon County: 18-month moratorium final hearing Oct 13 — adopted?"
-        },
         {
           "due": "2026-10-21",
           "what": "Volusia County final hearing Oct 20 on data center ban (volusia-county-fl-ban-2026); Florida SB 484 large-load tariff filings (TECO Sept 30, FPL Oct 1) need PSC docket numbers",
@@ -146,8 +142,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-11",
-        "summary": "2026-10-11: Manatee Ordinance 26-42 adopted Oct 8 (Pulse of Manatee, WWSB); record now enacted"
+        "date": "2026-10-14",
+        "summary": "Leon County moratorium adopted unanimously Oct 13, 2026 at second hearing (WCTV); record now enacted."
       }
     },
     "state:GA": {

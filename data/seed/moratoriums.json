@@ -4646,7 +4646,7 @@
       "source_title": "Loudoun County, Virginia — Board Approves Plan to Temporarily Pause Legislative Data Center and Substation Applications (posted September 17, 2026)"
     },
     {
-      "enacted_date": null,
+      "enacted_date": "2026-10-13",
       "effective_date": null,
       "duration_months": 18,
       "power_threshold_mw": null,
@@ -4671,19 +4671,19 @@
       "policy_type": "traditional moratorium (ordinance; two public hearings required)",
       "enacted_by": null,
       "legislative_votes": null,
-      "city_council_vote": "Unanimous at first public hearing (September 15, 2026)",
+      "city_council_vote": "Unanimous at second and final public hearing (October 13, 2026)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-09-25",
+      "captured_at": "2026-10-14",
       "id": "leon-county-fl-2026-09",
       "jurisdiction": "Leon County",
       "jurisdiction_type": "county",
       "state_code": "FL",
-      "status": "proposed",
-      "duration_description": "18 months (proposed); second and final public hearing scheduled October 13, 2026",
-      "summary": "Leon County commissioners on Tuesday, September 15, 2026 unanimously advanced, at the first of two required public hearings, an ordinance imposing an 18-month moratorium on the acceptance, review and approval of development permits, development orders, rezonings and site plans for large-load customer facilities, including large-scale data centers, in unincorporated Leon County; the second and final hearing is set for October 13, 2026. Neither the land development code nor the 2050 Comprehensive Plan addresses data centers, and staff expect to return with proposed code changes by September 2027. Commissioner Nick Maddox: 'Once these things are built, you can't take them back'; Commissioner Carolyn Cummings cited water, electricity, environmental and utility-bill concerns alongside potential revenue.",
-      "source_url": "https://fox49.tv/news/local/leon-county-moves-toward-18-month-data-center-moratorium",
-      "source_title": "FOX 49 — Leon County moves toward 18-month data center moratorium"
+      "status": "enacted",
+      "duration_description": "18 months; adopted at the second and final public hearing on October 13, 2026. Effective date not stated in the source.",
+      "summary": "Leon County commissioners unanimously adopted an 18-month moratorium on the review or acceptance of plans for new data centers (large-load customer facilities) in unincorporated Leon County at the second and final public hearing on Tuesday, October 13, 2026, after advancing it unanimously at the first hearing on September 15, 2026. Neither the land development code nor the 2050 Comprehensive Plan addresses data centers, and staff expect to return with proposed code changes by September 2027. Commissioner Nick Maddox: 'Once these things are built, you can't take them back'; Commissioner Carolyn Cummings cited water, electricity, environmental and utility-bill concerns alongside potential revenue.",
+      "source_url": "https://www.wctv.tv/2026/10/13/leon-county-commission-officially-adopts-data-center-moratorium/",
+      "source_title": "WCTV — Leon County Commission officially adopts data center moratorium"
     },
     {
       "enacted_date": null,

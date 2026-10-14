@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-10-13
+Generated: 2026-10-14
 Total projects needing attention: 104
 
 ## Critical Missing Commitment Details
@@ -117,18 +117,22 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Records
-(12 records)
+(16 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 75 days ago
-- **federal-sanders-ocasio-cortez-2026-03** (moratorium, Federal): captured 2026-09-22, 21 days ago
-- **michigan-state-2026-06** (moratorium, Michigan): captured 2026-09-22, 21 days ago
-- **ny-state-2026-06** (moratorium, New York): captured 2026-09-22, 21 days ago
-- **ohio-state-amendment-2024** (moratorium, Ohio): captured 2026-09-22, 21 days ago
-- **pennsylvania-state-2026-01** (moratorium, Pennsylvania): captured 2026-09-22, 21 days ago
-- **pennsylvania-state-2026-02** (moratorium, Pennsylvania): captured 2026-09-22, 21 days ago
-- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 21 days ago
-- **virginia-state-2026-01** (moratorium, Virginia): captured 2026-09-22, 21 days ago
-- **loudoun-county-va-2026-09** (moratorium, Loudoun County): captured 2026-09-22, 21 days ago
-- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 21 days ago
-- **in-iurc-im-base-rate-reduction-2026** (rate_case, IN): captured 2026-09-22, 21 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 76 days ago
+- **federal-sanders-ocasio-cortez-2026-03** (moratorium, Federal): captured 2026-09-22, 22 days ago
+- **michigan-state-2026-06** (moratorium, Michigan): captured 2026-09-22, 22 days ago
+- **ny-state-2026-06** (moratorium, New York): captured 2026-09-22, 22 days ago
+- **ohio-state-amendment-2024** (moratorium, Ohio): captured 2026-09-22, 22 days ago
+- **pennsylvania-state-2026-01** (moratorium, Pennsylvania): captured 2026-09-22, 22 days ago
+- **pennsylvania-state-2026-02** (moratorium, Pennsylvania): captured 2026-09-22, 22 days ago
+- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 22 days ago
+- **virginia-state-2026-01** (moratorium, Virginia): captured 2026-09-22, 22 days ago
+- **loudoun-county-va-2026-09** (moratorium, Loudoun County): captured 2026-09-22, 22 days ago
+- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 22 days ago
+- **in-iurc-im-base-rate-reduction-2026** (rate_case, IN): captured 2026-09-22, 22 days ago
+- **minnesota-state-hf4888-2026** (moratorium, Minnesota): captured 2026-09-23, 21 days ago
+- **dane-county-wi-qts-community-commitment-2025** (policy, Dane County / Town of Vienna / DeForest, WI): captured 2026-09-23, 21 days ago
+- **effingham-county-ga-openai-camellia-community-benefits-2026** (policy, Effingham County, GA (Rincon)): captured 2026-09-23, 21 days ago
+- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 21 days ago
