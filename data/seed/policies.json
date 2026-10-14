@@ -1588,19 +1588,23 @@
       "benefit_themes": [
         "energy",
         "jobs",
-        "engagement"
+        "engagement",
+        "water",
+        "community_grants"
       ],
-      "community_benefits_framework": false,
+      "community_benefits_framework": true,
       "key_terms": [
-        "25 MW review threshold",
-        "Maryland Data Center Task Force",
-        "public Data Center Dashboard",
-        "Aligned/Conditionally Aligned/Not Aligned determinations",
-        "local land-use approval preserved"
+        "25 MW threshold, with stated institutional exceptions",
+        "Host CBA negotiation is an evaluation criterion, not a universal agreement mandate",
+        "Cost protection criteria include collateral, minimum bills and exit fees",
+        "Annual reports include monthly water withdrawal and consumption, generator hours and CBA payments",
+        "Incentive terms include milestones, clawbacks and successor assumption where legally authorized",
+        "Public determinations and performance status; local land-use powers preserved",
+        "Authority and public-information exemptions constrain implementation"
       ],
-      "summary": "On September 23, 2026, Governor Wes Moore signed Executive Order 01.01.2026.16, creating a state review framework for proposed data centers of 25 MW or more. A new Maryland Data Center Task Force, housed in the Governor's Office, reviews projects against five principles — ratepayer/grid protection, economic benefits, community voice, environmental protection, and transparency/accountability — and issues public 'Aligned,' 'Conditionally Aligned,' or 'Not Aligned' determinations. The order preserves local land-use authority (a project cannot be 'Aligned' if denied a required local approval) and creates a monthly public Data Center Dashboard tracking project locations, developers, power/water demand, and developer commitments. Moore also announced he will seek repeal of Maryland's 2020 data center sales-and-use tax exemption in the next legislative session.",
-      "source_url": "https://dbknews.com/2026/09/23/data-center-executive-order-maryland/",
-      "source_title": "The Diamondback — Gov. Wes Moore signs executive order setting new standards for data centers in Maryland",
+      "summary": "The September 23, 2026 order establishes coordinated review of large data centers against five principles. It evaluates host agreements, cost protections, environmental impacts and public commitments. Annual reporting separates water withdrawal from consumption and includes generator hours and benefit payments. Incentive agreements incorporate milestones and remedies where authorized. The criteria are weighed holistically; this is not a blanket CBA mandate or new power to deny permits. Local authority and existing statutory limits remain.",
+      "source_url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+      "source_title": "Maryland Regulations Library — Executive Order 01.01.2026.16, Sections D–G",
       "resources": [
         {
           "url": "https://governor.maryland.gov/media/1083",
@@ -1613,12 +1617,17 @@
         {
           "url": "https://www.wboc.com/news/gov-moore-sets-new-guardrails-for-maryland-data-centers/article_99519b87-0ba7-4a2d-a3b2-b484bbf42407.html",
           "title": "WBOC — Gov. Moore sets new guardrails for Maryland data centers"
+        },
+        {
+          "url": "https://dbknews.com/2026/09/23/data-center-executive-order-maryland/",
+          "title": "The Diamondback — Gov. Wes Moore signs executive order setting new standards for data centers in Maryland"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-10-14",
       "principles": [
-        "environmental_review",
-        "study"
+        "pay_own_way",
+        "community_benefits",
+        "transparency"
       ]
     },
     {
@@ -3982,7 +3991,13 @@
       ],
       "summary": "Signed July 7, 2026, the law has the Board of Public Utilities set a separate rate class and cost-allocation rules for large data centers so other customers do not subsidize them. The state's Local Finance Notice 2026-13 (Aug. 25, 2026) explains it to municipalities; the BPU is implementing it over the coming months. The tariff standards it sets are tracked on the Tariffs tab (A796/S731).",
       "source_url": "https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf",
-      "source_title": "NJ Division of Local Government Services — Local Finance Notice 2026-13"
+      "source_title": "NJ Division of Local Government Services — Local Finance Notice 2026-13",
+      "resources": [
+        {
+          "url": "https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf",
+          "title": "NJ Local Finance Notice 2026-13 — municipal CBA negotiation guidance, pp. 3–5 (advisory, separate from the Act)"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-08",

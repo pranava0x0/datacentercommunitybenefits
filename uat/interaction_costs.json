@@ -1,29 +1,108 @@
 {
- "date": "2026-10-08",
+ "date": "2026-10-14",
  "swipe_fraction": 0.75,
  "devices": {
   "mobile": {
+   "draft_county": {
+    "question": "Reach a county community-benefits draft.",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "see: #draft-plan-decision"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "see: #draft-plan-decision"
+     ]
+    }
+   },
+   "draft_state": {
+    "question": "Reach a state community-benefits draft.",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "select: 'state' (2 taps)",
+      "see: #draft-plan-decision"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "select: 'state' (2 taps)",
+      "see: #draft-plan-decision"
+     ]
+    }
+   },
+   "impact_water": {
+    "question": "Check what the Querétaro water claim establishes.",
+    "default": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: [data-guide-target=\"evidence\"]",
+      "swipe x2",
+      "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: [data-guide-target=\"evidence\"]",
+      "swipe x2",
+      "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+     ]
+    }
+   },
    "home_latest": {
     "question": "What changed most recently?",
     "default": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 0,
      "path": [
-      "swipe x2",
       "see: #home-latest-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 0,
      "path": [
-      "swipe x2",
       "see: #home-latest-list .feed-item"
      ]
     }
@@ -32,23 +111,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -57,50 +136,46 @@
     "question": "Where do I go to explore a topic?",
     "default": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 0,
      "path": [
-      "swipe x2",
       "see: #home-cards .home-card:last-child"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 0,
      "path": [
-      "swipe x2",
       "see: #home-cards .home-card:last-child"
      ]
     }
    },
    "latest_item_record": {
-    "question": "Open the newest change (a moratorium) in full.",
+    "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 1,
      "path": [
-      "swipe x2",
-      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 1,
      "path": [
-      "swipe x2",
-      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     }
@@ -109,15 +184,15 @@
     "question": "Did Entergy sign the ratepayer pledge?",
     "default": {
      "taps": 3,
-     "swipes": 2,
+     "swipes": 1,
      "hswipes": 0,
      "types": 1,
-     "total": 6,
+     "total": 5,
      "path": [
       "tap: #tab-ratepayer",
       "tap: expand section",
       "type: 'entergy'",
-      "swipe x2",
+      "swipe x1",
       "see: #rp-roster > li"
      ]
     },
@@ -166,13 +241,13 @@
     "question": "What is happening in Virginia?",
     "default": {
      "taps": 2,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 5,
+     "total": 4,
      "path": [
       "tap: #tab-ratepayer",
-      "swipe x3",
+      "swipe x2",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
      ]
@@ -195,28 +270,26 @@
     "question": "Find a signed community benefits agreement.",
     "default": {
      "taps": 3,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 5,
+     "total": 3,
      "path": [
       "tap: #tab-policies",
       "tap: #subtab-pol-directory",
-      "swipe x2",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
      ]
     },
     "expanded": {
      "taps": 3,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 5,
+     "total": 3,
      "path": [
       "tap: #tab-policies",
       "tap: #subtab-pol-directory",
-      "swipe x2",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
      ]
@@ -226,25 +299,23 @@
     "question": "What did the most complete signed agreement commit to?",
     "default": {
      "taps": 1,
-     "swipes": 3,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 4,
+     "total": 1,
      "path": [
       "tap: #tab-agreements",
-      "swipe x3",
       "see: #cba-strongest .cba-card .cba-terms"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 3,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 4,
+     "total": 1,
      "path": [
       "tap: #tab-agreements",
-      "swipe x3",
       "see: #cba-strongest .cba-card .cba-terms"
      ]
     }
@@ -282,25 +353,25 @@
     "question": "When is the next step in a pending rate case?",
     "default": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 1,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
       "tap: #tab-tariffs",
-      "swipe x2",
+      "swipe x1",
       "see: #rate-cases-list .rc-item .rc-next"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 1,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
       "tap: #tab-tariffs",
-      "swipe x2",
+      "swipe x1",
       "see: #rate-cases-list .rc-item .rc-next"
      ]
     }
@@ -309,29 +380,27 @@
     "question": "What has Google said about water?",
     "default": {
      "taps": 3,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 5,
+     "total": 3,
      "path": [
       "tap: #tab-comparison",
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
-      "swipe x2",
       "see: #theme-quotes-list > li"
      ]
     },
     "expanded": {
      "taps": 3,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 5,
+     "total": 3,
      "path": [
       "tap: #tab-comparison",
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
-      "swipe x2",
       "see: #theme-quotes-list > li"
      ]
     }
@@ -340,27 +409,25 @@
     "question": "What hearings or votes are coming at a contested site?",
     "default": {
      "taps": 2,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
-      "swipe x1",
       "see: #contested-list .contested-card .timeline .tl-item"
      ]
     },
     "expanded": {
      "taps": 2,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
-      "swipe x1",
       "see: #contested-list .contested-card .timeline .tl-item"
      ]
     }
@@ -398,6 +465,85 @@
    }
   },
   "tablet": {
+   "draft_county": {
+    "question": "Reach a county community-benefits draft.",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "see: #draft-plan-decision"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "see: #draft-plan-decision"
+     ]
+    }
+   },
+   "draft_state": {
+    "question": "Reach a state community-benefits draft.",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "select: 'state' (2 taps)",
+      "see: #draft-plan-decision"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "select: 'state' (2 taps)",
+      "see: #draft-plan-decision"
+     ]
+    }
+   },
+   "impact_water": {
+    "question": "Check what the Querétaro water claim establishes.",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: [data-guide-target=\"evidence\"]",
+      "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: [data-guide-target=\"evidence\"]",
+      "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+     ]
+    }
+   },
    "home_latest": {
     "question": "What changed most recently?",
     "default": {
@@ -425,23 +571,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -470,7 +616,7 @@
     }
    },
    "latest_item_record": {
-    "question": "Open the newest change (a moratorium) in full.",
+    "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
      "swipes": 0,
@@ -478,7 +624,7 @@
      "types": 0,
      "total": 1,
      "path": [
-      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     },
@@ -489,7 +635,7 @@
      "types": 0,
      "total": 1,
      "path": [
-      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     }
@@ -773,27 +919,104 @@
    }
   },
   "desktop": {
-   "home_latest": {
-    "question": "What changed most recently?",
+   "draft_county": {
+    "question": "Reach a county community-benefits draft.",
     "default": {
-     "taps": 0,
-     "swipes": 1,
+     "taps": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
      "total": 1,
      "path": [
-      "swipe x1",
+      "tap: [data-guide-target=\"drafts\"]",
+      "see: #draft-plan-decision"
+     ]
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "see: #draft-plan-decision"
+     ]
+    }
+   },
+   "draft_state": {
+    "question": "Reach a state community-benefits draft.",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "select: 'state' (2 taps)",
+      "see: #draft-plan-decision"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 3,
+     "path": [
+      "tap: [data-guide-target=\"drafts\"]",
+      "select: 'state' (2 taps)",
+      "see: #draft-plan-decision"
+     ]
+    }
+   },
+   "impact_water": {
+    "question": "Check what the Querétaro water claim establishes.",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: [data-guide-target=\"evidence\"]",
+      "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: [data-guide-target=\"evidence\"]",
+      "tap: #subpane-pol-evidence .guide-clause:first-of-type summary",
+      "see: #subpane-pol-evidence .guide-clause:first-of-type p"
+     ]
+    }
+   },
+   "home_latest": {
+    "question": "What changed most recently?",
+    "default": {
+     "taps": 0,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 0,
+     "path": [
       "see: #home-latest-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 0,
      "path": [
-      "swipe x1",
       "see: #home-latest-list .feed-item"
      ]
     }
@@ -802,23 +1025,21 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 0,
      "path": [
-      "swipe x1",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 0,
      "path": [
-      "swipe x1",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -847,28 +1068,26 @@
     }
    },
    "latest_item_record": {
-    "question": "Open the newest change (a moratorium) in full.",
+    "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 1,
      "path": [
-      "swipe x1",
-      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 1,
      "path": [
-      "swipe x1",
-      "tap: #home-latest-list .feed-item:first-child .feed-btn",
+      "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     }
@@ -933,13 +1152,12 @@
     "question": "What is happening in Virginia?",
     "default": {
      "taps": 2,
-     "swipes": 1,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
       "tap: #tab-ratepayer",
-      "swipe x1",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
      ]

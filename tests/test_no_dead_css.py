@@ -221,7 +221,8 @@ def _applied_classes(html: str, js: str) -> tuple[set[str], set[str]]:
 def scan() -> tuple[list[str], set[str], set[str]]:
     css = _strip_comments((DOCS / "styles.css").read_text())
     html, js = _strip_source_comments(
-        (DOCS / "index.html").read_text(), (DOCS / "app.js").read_text()
+        (DOCS / "index.html").read_text(),
+        "\n".join(p.read_text() for p in sorted(DOCS.glob("*.js")))
     )
     owned = sorted(
         {
