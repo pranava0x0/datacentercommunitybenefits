@@ -1425,10 +1425,10 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "1 GW hyperscale campus on a 282-acre site in Wayne County (north of I-94, between Haggerty Road and I-275), originally advanced as 'Project Cannoli'. Power served by 2.7 GW of new DTE solar, storage and demand response. Service start targeted December 2027, full capacity December 2028. Google announced a $10M Energy Impact Fund for Michigan energy affordability. Project was in a contested case before the Michigan Public Service Commission (docket U-22058) with a September 10, 2026 decision target; as of early Sept 2026 the Attorney General was still pressing for a 90% minimum billing demand (vs. DTE's proposed 80%) and stronger exit-fee terms, and no order confirming a decision has been found. Local opposition includes a 1,500+ signature petition. May 19, 2026: Van Buren Township's Board of Trustees unanimously approved a 50% property tax exemption for 15 years for the project, with a Real Industrial Facilities Tax Exemption for a 36-month construction period; Google is to pay the township $15.4 million for township-wide capital projects. Oct 1, 2026: the Wayne County Commission overrode County Executive Warren Evans' Sept 25 veto of the project's tax incentives by a 13-0 vote (Fox 2 Detroit); the same day the Michigan Public Service Commission voted unanimously to grant conditional approval of DTE's power contracts for the project (Planet Detroit).",
+      "notes": "1 GW hyperscale campus on a 282-acre site in Wayne County (north of I-94, between Haggerty Road and I-275), originally advanced as 'Project Cannoli'. Power served by 2.7 GW of new DTE solar, storage and demand response. Service start targeted December 2027, full capacity December 2028. Google announced a $10M Energy Impact Fund for Michigan energy affordability. Project was in a contested case before the Michigan Public Service Commission (docket U-22058) with a September 10, 2026 decision target; as of early Sept 2026 the Attorney General was still pressing for a 90% minimum billing demand (vs. DTE's proposed 80%) and stronger exit-fee terms, and no order confirming a decision has been found. Local opposition includes a 1,500+ signature petition. May 19, 2026: Van Buren Township's Board of Trustees unanimously approved a 50% property tax exemption for 15 years for the project, with a Real Industrial Facilities Tax Exemption for a 36-month construction period; Google is to pay the township $15.4 million for township-wide capital projects. Oct 1, 2026: the Wayne County Commission overrode County Executive Warren Evans' Sept 25 veto of the project's tax incentives by a 13-0 vote (Fox 2 Detroit); the same day the Michigan Public Service Commission voted unanimously to grant conditional approval of DTE's power contracts for the project (Planet Detroit). Oct 14, 2026: the Van Buren Township Planning Commission approved the final site plan 5-1; Panattoni entered into an operational agreement with the township on issues outside the commission's scope.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/clean-energy-reliability-michigan/",
       "source_title": "Scaling clean energy and reliability in Michigan",
-      "captured_at": "2026-10-02",
+      "captured_at": "2026-10-15",
       "project_page_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/clean-energy-reliability-michigan/",
       "acreage": 282,
       "power_mw": 1000,
@@ -1479,11 +1479,11 @@
         {
           "date": "2026-10-14",
           "kind": "vote",
-          "title": "Final site plan vote for Google Van Buren Township data center could come Oct. 14",
-          "summary": "14 meeting.",
-          "upcoming": true,
-          "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2026-10-02/google-data-center-michigan-van-buren-township",
-          "source_title": "Michigan Public — Google data center Van Buren Township"
+          "title": "Van Buren Township Planning Commission approves final site plan for Google data center, 5-1",
+          "upcoming": false,
+          "source_url": "https://www.yahoo.com/news/articles/van-buren-township-approves-google-020330778.html",
+          "source_title": "Detroit News (via Yahoo) — Van Buren Township approves Google data center site plan",
+          "authority": "Van Buren Township Planning Commission"
         }
       ]
     },
