@@ -59,8 +59,8 @@
       "status": "enacted",
       "enacted_date": "2026-04-13",
       "effective_date": null,
-      "duration_months": 6,
-      "duration_description": "180 days, or until zoning and land-use amendments to the Land Development Code take effect, whichever comes first.",
+      "duration_months": 12,
+      "duration_description": "180 days, or until zoning and land-use amendments to the Land Development Code take effect, whichever comes first. Extended: Councilors voted 8-0 on Sept 28, 2026 to add another 180 days (WABI); the source states no new end date.",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
@@ -76,7 +76,7 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14",
+      "captured_at": "2026-10-15",
       "state_code": "ME"
     },
     {
@@ -374,7 +374,7 @@
       "enacted_date": "2026-07-15",
       "effective_date": "2026-07-15",
       "duration_months": 3,
-      "duration_description": "Three-month pause (reduced by Mayor Justin Bibb from an original ~one-year proposal), enacted by a 14-1 City Council vote on July 15, 2026. Applies only to standalone data-center buildings — ground-up construction and expansions — not in-house/multi-tenant server rooms. Currently scheduled to remain in effect through October 16, 2026; Council may extend up to three more months.",
+      "duration_description": "Three-month pause (reduced by Mayor Justin Bibb from an original ~one-year proposal), enacted by a 14-1 City Council vote on July 15, 2026. Applies only to standalone data-center buildings — ground-up construction and expansions — not in-house/multi-tenant server rooms. Currently scheduled to remain in effect through October 16, 2026; Council may extend up to three more months. Oct 12, 2026: Council introduced legislation to extend the pause from October 20 to January 29, 2027; Finance Committee and full Council votes pending (Cleveland Scene, Oct 14).",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy"
@@ -391,7 +391,7 @@
       "city_council_vote": "14-1",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-08-24",
+      "captured_at": "2026-10-15",
       "state_code": "OH",
       "resources": [
         {

@@ -49,8 +49,8 @@
       "last_reviewed": "2026-09-30",
       "summary": "Confirmed May 19, 2026 township tax exemption (50%/15yr + 36-mo construction, $15.4M community payment) via Belleville Area Independent; added to notes. Found but could not directly verify (paywalled/blocked): Wayne Co. Exec Evans' Sept 25 veto of that tax break + expected Oct 1 override vote, and MPSC docket U-22058's Sept 10 decision status (still pending, no order found) -- filed as backlog leads. captured_at bumped.",
       "last_check": {
-        "date": "2026-10-02",
-        "summary": "Wayne Co. Commission overrode Evans' veto 13-0 on Oct 1 (Fox 2); MPSC voted unanimously Oct 1 to conditionally approve DTE contracts (Planet Detroit; docket number not stated there). Added 2 responses + notes."
+        "date": "2026-10-15",
+        "summary": "Planning Commission approved final site plan 5-1 on Oct 14 (Detroit News via Yahoo); update + response added."
       }
     },
     "site:meta-newton-ga": {
@@ -178,13 +178,17 @@
     },
     "state:ME": {
       "last_check": {
-        "date": "2026-10-13",
-        "summary": "Bangor moratorium (enacted 2026-04-13, 180 days): two searches found no coverage after April of an extension, lapse, or Land Development Code amendment; record unchanged, nothing citable."
+        "date": "2026-10-15",
+        "summary": "Bangor Council voted 8-0 on Sept 28 to add 180 days (WABI); duration_months 12, no exact end date stated."
       },
       "follow_ups": [
         {
           "due": "2026-10-20",
           "what": "Bangor moratorium: check bangormaine.gov council agendas/minutes and BDN for extension or LDC amendment vote"
+        },
+        {
+          "due": "2027-03-20",
+          "what": "Bangor extended pause nears end (~180 days after April expiry); check for LDC amendment or further extension"
         }
       ]
     },
@@ -233,10 +237,18 @@
     "state:OH": {
       "follow_ups": [
         {
+          "due": "2026-10-22",
+          "what": "Cleveland extension: check Finance Committee/full Council vote on pause through Jan 29 2027"
+        },
+        {
           "due": "2026-11-04",
           "what": "Nov 3 ballot: ~18 local data-center charter amendments/bans (Ohio Capital Journal Sept 14, Cloudflare-walled), incl. Trenton; and the Butler County 25 MW citizen measure tied to Amazon's $5B plan — record outcomes"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-10-15",
+        "summary": "Cleveland pause expires Oct 20; extension to Jan 29 2027 introduced Oct 12, votes pending (Cleveland Scene)."
+      }
     },
     "state:OK": {
       "last_check": {
