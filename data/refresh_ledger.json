@@ -88,16 +88,12 @@
     "state:CA": {
       "follow_ups": [
         {
-          "due": "2026-10-16",
-          "what": "Escondido: 45-day moratorium (escondido-ca-2026-08) status after Oct 10 staff report — find council minutes/local article"
-        },
-        {
-          "due": "2026-10-16",
-          "what": "Indio's extended moratorium (indio-ca-2026-06) expires Oct 16 2026 -- permanent ban adopted, extended again, or lapsed?"
-        },
-        {
           "due": "2026-10-17",
           "what": "Indio: moratorium expired Oct 16 — permanent ban adopted, extended, or lapsed?"
+        },
+        {
+          "due": "2026-10-23",
+          "what": "Escondido extension: confirm Oct 7 vote and end date from a fetchable page (city minutes or other outlet)"
         },
         {
           "due": "2026-11-21",
@@ -113,8 +109,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-11",
-        "summary": "2026-10-11: Indio extended final year through Oct 16 2027 (KESQ); Escondido Oct 10 findings not found in any fetchable source, record unchanged"
+        "date": "2026-10-16",
+        "summary": "2026-10-16: search reports Escondido council extended its moratorium Oct 7 (10 months 15 days, to Aug 22 2027) but thecoastnews.com is 403 to fetch; not machine-verified, record unchanged"
       }
     },
     "state:CO": {
@@ -252,14 +248,13 @@
     },
     "state:OK": {
       "last_check": {
-        "date": "2026-10-08",
-        "summary": "2026-10-08 v5 refresh: OG&E 75 MW+ large-load tariff proposal held, no OCC cause number"
+        "date": "2026-10-16",
+        "summary": "2026-10-16: OG&E large-load tariff (filed June 2026, 75 MW threshold) covered by press, none gives the OCC cause number; held"
       },
       "follow_ups": [
         {
-          "due": "2026-10-15",
-          "what": "OG&E large-load tariff: find the OCC cause number to add it as a proposed tariff",
-          "hint": "https://www.oge.com/web/portal/-/205-press-release"
+          "due": "2026-10-30",
+          "what": "OG&E large-load tariff: OCC cause number via OCC case search"
         }
       ]
     },
@@ -279,26 +274,25 @@
     },
     "state:TN": {
       "last_check": {
-        "date": "2026-10-08",
-        "summary": "2026-10-08 v5 refresh: Crossville TN two-year moratorium held, no enactment date on the page"
+        "date": "2026-10-16",
+        "summary": "2026-10-16: Crossville 24-month moratorium third reading reported approved Aug 12 2026 (1025wowcountry); no vote date or ordinance number on the page, so not added"
       },
       "follow_ups": [
         {
-          "due": "2026-10-15",
-          "what": "Crossville TN moratorium: find third-reading date and ordinance number to add it",
-          "hint": "https://1025wowcountry.com/?p=38497"
+          "due": "2026-10-30",
+          "what": "Crossville moratorium: vote date and ordinance number from city minutes"
         }
       ]
     },
     "state:TX": {
       "follow_ups": [
         {
-          "due": "2026-10-15",
-          "what": "TWDB reports to Gov. Abbott Oct 14 on penalizing data centers that skip water-use reporting (texas-state-2026-08)"
-        },
-        {
           "due": "2026-10-20",
           "what": "TCEQ compliance report due Oct 19 on the data center permit pause (texas-state-2026-08)"
+        },
+        {
+          "due": "2026-10-23",
+          "what": "TWDB Oct 14 enforcement report: check for coverage"
         },
         {
           "due": "2026-11-11",
@@ -306,8 +300,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-08",
-        "summary": "2026-10-08 v5 refresh: Texas record gains the Sept 21 TCEQ permit pause"
+        "date": "2026-10-16",
+        "summary": "2026-10-16: no coverage yet of the TWDB Oct 14 report to Gov. Abbott; record unchanged"
       }
     },
     "state:VA": {
