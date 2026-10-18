@@ -1,5 +1,5 @@
 {
- "date": "2026-10-14",
+ "date": "2026-10-18",
  "swipe_fraction": 0.75,
  "devices": {
   "mobile": {
@@ -115,23 +115,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -163,22 +163,24 @@
     "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
@@ -353,29 +355,58 @@
      ]
     }
    },
+   "moratorium_older": {
+    "question": "Did Hernando County, FL pass its moratorium?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "type: 'hernando'",
+      "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
+      "see: #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "type: 'hernando'",
+      "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
+      "see: #md-status"
+     ]
+    }
+   },
    "ratecase_milestone": {
     "question": "When is the next step in a pending rate case?",
     "default": {
      "taps": 1,
-     "swipes": 1,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
       "tap: #tab-tariffs",
-      "swipe x1",
+      "swipe x2",
       "see: #rate-cases-list .rc-item .rc-next"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 1,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
       "tap: #tab-tariffs",
-      "swipe x1",
+      "swipe x2",
       "see: #rate-cases-list .rc-item .rc-next"
      ]
     }
@@ -579,23 +610,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -809,6 +840,35 @@
      "path": [
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    }
+   },
+   "moratorium_older": {
+    "question": "Did Hernando County, FL pass its moratorium?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "type: 'hernando'",
+      "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
+      "see: #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "type: 'hernando'",
+      "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
      ]
     }
@@ -1265,6 +1325,35 @@
      "path": [
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "see: #md-status"
+     ]
+    }
+   },
+   "moratorium_older": {
+    "question": "Did Hernando County, FL pass its moratorium?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "type: 'hernando'",
+      "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
+      "see: #md-status"
+     ]
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-moratoriums",
+      "type: 'hernando'",
+      "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
      ]
     }

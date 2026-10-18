@@ -188,3 +188,14 @@ status and limitation, rather than stopping at the story claim. Re-measured
 on all three devices: totals remain 4/2/2; the stored paths reflect the corrected
 question. Maryland stays out of the CBA-required filter; its community-benefits
 principle and official source remain. One review round; both inline findings fixed.
+
+## 2026-10-18 refresh pass
+
+New task `moratorium_older` (find Hernando County, FL): 4 on every device via
+the new Moratoriums search box. Before it, an older record meant scrolling a
+185-row table whose phone rows were ~115px tall (Key Reasons badges wrapped
+into a column); that column is now hidden under 600px and reasons stay in the
+detail panel. Budgets tightened to the measured totals (+1 only where vertical
+swipes make a count layout-sensitive); 45 budgets went down, none up. #72
+fixes measured in the same run: Back after a tab click, shareable policy
+records, search typed during Sites loading survives render.

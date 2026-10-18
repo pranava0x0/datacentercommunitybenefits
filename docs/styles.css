@@ -6490,3 +6490,11 @@ button.depth-chip:focus-visible {
 /* Policy detail: hand-off to the matching draft plan (#72). */
 .pd-next p { margin: 0.25rem 0; }
 .pd-next-note { font-size: var(--fs-sm); }
+
+/* Phones: the Key Reasons badges wrapped into a tall column, making each of
+   185 rows ~115px and the directory ~20 screens long. Reasons stay in the
+   detail panel. */
+@media (max-width: 600px) {
+  .moratorium-table th:nth-child(5),
+  .moratorium-table td:nth-child(5) { display: none; }
+}

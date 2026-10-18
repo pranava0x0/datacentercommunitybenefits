@@ -1395,6 +1395,15 @@ function renderMoratoriumsView() {
   if (typeFilter) {
     filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
   }
+  // Free-text search: on a phone, 185 rows is ~20 screens of scrolling.
+  const q = (document.getElementById("moratorium-q")?.value || "").trim().toLowerCase();
+  if (q) {
+    filtered = filtered.filter((m) =>
+      [m.jurisdiction, m.state_code, STATE_NAMES[m.state_code], m.bill_number]
+        .filter(Boolean)
+        .some((v) => String(v).toLowerCase().includes(q))
+    );
+  }
 
   setSubtabCount("moratoriums-count", state.moratoriums.length);
   const mmeta = document.getElementById("moratoriums-meta");
@@ -1414,6 +1423,9 @@ function renderMoratoriumsView() {
 
   // Render table rows
   tbody.innerHTML = "";
+  if (!filtered.length) {
+    tbody.innerHTML = "<tr><td colspan='5' class='muted'>No records match the current filters.</td></tr>";
+  }
 
   filtered.forEach((m) => {
     const tr = document.createElement("tr");
@@ -5864,6 +5876,11 @@ function wireMoratoriumsFilters() {
     typeFilter.addEventListener("change", () => {
       renderMoratoriumsView();
     });
+  }
+  const q = document.getElementById("moratorium-q");
+  if (q && !q.dataset.wired) {
+    q.dataset.wired = "1";
+    q.addEventListener("input", () => renderMoratoriumsView());
   }
 }
 
