@@ -1405,13 +1405,15 @@ class TestPoliciesView:
     def test_state_strip_counts_policies(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=E2E_WAIT)
+        page.wait_for_function("() => coverageStates().length > 0", timeout=E2E_WAIT)
         code = "MT"
         expected = page.evaluate("""code => {
           const s = coverageStates().find(s => s.code === code);
           return s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies;
         }""", code)
         cell = page.locator(f'#pledge-state-strip [data-state-code="{code}"]')
-        assert f"{expected} tracked records" in cell.get_attribute("aria-label")
+        # Retry: the strip renders once before coverage.json lands.
+        expect(cell).to_have_attribute("aria-label", re.compile(rf"\b{expected} tracked records"))
 
     def test_state_panel_waits_for_other_data_after_policy_failure(self, page: Page, base_url: str):
         page.route("**/data/policies.json", lambda route: route.abort())
@@ -2341,10 +2343,12 @@ class TestPledgeLanding:
         cells = page.locator("#pledge-state-strip .pledge-state-cell")
         assert cells.count() == 50
         # Governor-signed states are marked, and there are exactly 23.
-        assert page.locator("#pledge-state-strip .pledge-state-cell.is-gov").count() == 23
+        # The strip renders once before coverage.json lands (every cell
+        # empty), then again with it; retrying assertions wait for the second.
+        expect(page.locator("#pledge-state-strip .pledge-state-cell.is-gov")).to_have_count(23)
         coverage = json.loads((ROOT / "docs/data/coverage.json").read_text())["states"]
         expected_empty = sum(not any(counts.values()) for counts in coverage.values())
-        assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() == expected_empty
+        expect(page.locator("#pledge-state-strip .pledge-state-cell.lvl-0")).to_have_count(expected_empty)
 
     def test_pledge_card_opens_the_pledge_tab(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -3330,6 +3334,9 @@ class TestAggregateExportsCoverEveryRollup:
         table without exporting it fails here."""
         page.goto(base_url + "/#comparison/footprint")
         page.wait_for_selector("#agg-company-tbody tr", timeout=E2E_WAIT)
+        # Every rollup's payload must land before export, or a section is
+        # silently missing (flaked under -n 4).
+        page.wait_for_load_state("networkidle")
         tabs = page.locator("table.agg-table").count()
         with page.expect_download() as dl:
             page.locator("#agg-csv-btn").click()
