@@ -1279,7 +1279,7 @@
       "tariff_name": "Large-Load Customer Class Proposal (NCUC Rate Case E-7, Sub 1329)",
       "tariff_type": "Large-load rate case — cost-of-service and class design",
       "status": "proposed",
-      "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026 (Andale, LLC later added as a stipulating party), committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. As of September 25, 2026 no NCUC order on the settlement has been located (the Commission's docket system blocks automated retrieval). On September 14, 2026 Attorney General Jeff Jackson — who declined to sign the settlement — filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers, part of the process the Commission opened after he requested a separate large-load proceeding (NCDOJ release). The settlement's end-of-September deadline for Duke and the Public Staff to submit the large-load tariff remains the next dated step.",
+      "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026 (Andale, LLC later added as a stipulating party), committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. As of September 25, 2026 no NCUC order on the settlement has been located (the Commission's docket system blocks automated retrieval). On September 14, 2026 Attorney General Jeff Jackson — who declined to sign the settlement — filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers, part of the process the Commission opened after he requested a separate large-load proceeding (NCDOJ release). On October 7, 2026 WUNC and Blue Ridge Public Radio reported that Duke Energy had reached an agreement with data center operators on a large-load tariff; the Utilities Commission must approve some version before it takes effect, and no hearing or decision date had been announced as of October 18, 2026.",
       "regulator": "North Carolina Utilities Commission (NCUC)",
       "docket_number": "E-7, Sub 1329",
       "filed_date": "2025-11-20",
@@ -1319,7 +1319,7 @@
           "title": "NCDOJ — Attorney General Jackson proposes framework to ensure data centers pay their fair share (Sept. 14, 2026)"
         }
       ],
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-10-18"
     },
     {
       "id": "virginia-data-center-electricity-consumption-tax",

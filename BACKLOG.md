@@ -373,6 +373,16 @@ come first, then locations, companies and sites.
 - Crusoe Warrenton (see company:crusoe).
 
 #### state:NC — North Carolina
+- (2026-10-18) Charlotte extension: Oct 12 public hearing held per GovTech's
+  schedule; outcome and final vote not found. WSOC says up to 9 months,
+  GovTech 11 months (to Oct 11, 2027). Update `charlotte-city-2026-06` when
+  the council votes. Davidson County: Oct 26 agenda item
+  (`davidson-county-nc-2026-09`). Columbus County: Oct 5 hearing on a 120-day
+  pause, outcome unfound; add a record once minutes or coverage report it.
+- (2026-10-18) Duke large-load settlement (filed ~Oct 6, E-7 Sub 1329 /
+  E-2 Sub 1380): thresholds (50 MW@80% LF or 150 MW, 75% minimum billing,
+  Jan 1 2027) are in the SELC-hosted PDF but probe couldn't extract text.
+  Fetch the NCUC filing and add them to `nc-ncuc-duke-settlement-2026`.
 - AG Jeff Jackson's proposed ≥100 MW rate class, filed in Duke's dockets
   (ncdoj.gov, Sept 14; E-2 Sub 1406 alongside E-7 Sub 1329). Confirmed live
   2026-09-29 via ncnewsline.com / ncdoj.gov coverage — still worth its own
@@ -413,6 +423,11 @@ come first, then locations, companies and sites.
   moratoriums, already tracked.
 
 #### state:OH — Ohio
+- (2026-10-18) Trenton: city charter amendment banning data centers >25 MW;
+  FOX19 calls it Issue 17 on the Nov 3 ballot, but the Butler County BOE
+  page wasn't reachable and an Ohio Supreme Court ruling said November
+  placement wasn't required. AWS held an Oct 15 open house. No project
+  record until AWS's site, size and utility are public.
 - Wilmington / AWS compensation agreement: local coverage (search only,
   Journal-News 429) says the 30-year abatement's final council vote had not
   happened by Sept 2026 and the offer changed to $10M. The record says
@@ -450,6 +465,8 @@ come first, then locations, companies and sites.
 - EEI: Duke 2025-172-E / 2025-154-E; generic docket 2026-138-E.
 
 #### state:TN — Tennessee
+- (2026-10-18) Memphis council vote on `memphis-city-2026-10` set for Oct 20;
+  WREG reportedly said it wasn't taken up. Record the outcome.
 - Gallatin: a six-month moratorium passed first reading, shortened to six
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 
@@ -462,17 +479,27 @@ come first, then locations, companies and sites.
   moratoriums.
 
 #### state:VA — Virginia
+- (2026-10-18) Loudoun: Board resolution scheduled Oct 20 to pause its own
+  legislative action on data center and substation applications for up to a
+  year (county news flash, Sept 17/24). A pause on the Board's own docket, not
+  a moratorium. Update `loudoun-county-va-2026-09` after the vote.
 - EEI: APCO PUR-2025-00057.
 - Prince William, Christiansburg and Henry County: zoning actions.
 - A statewide moratorium call (the Sturtevant and Lucas letters) is not a
   bill. Re-add only if a bill or an executive order appears.
 
 #### state:WA — Washington
+- (2026-10-18) Pierce County: emergency ordinance (6-1, Aug 25) pausing
+  data centers >10 MW; Oct 20 hearing. County pages 403'd and snippets
+  disagree on the number (2026-577 vs O2026-557). Add once a county page
+  confirms.
 - Port Angeles only voted to draft. The Marysville record omits "Ordinance
   3381" because the number traces only to an AI aggregator. Add it if a city
   page confirms it.
 
 #### state:WI — Wisconsin
+- (2026-10-18) Mount Pleasant Village Board vote on Microsoft's amended
+  seven-building site plan expected "later this month" (WPR); no date.
 - EEI: Xcel 4220-TE-119, MGE 3270-TE-124, WPL 6680-TE-119.
 
 #### state:WV — West Virginia
@@ -861,6 +888,10 @@ navigation.
   months"). Normalize it, or split out a short `duration_label`. **low**
 - **`diesel_backup_mw`,** if backup generation should be tracked apart from
   `power_mw` (see site:amazon-richmond-county-nc). **low**
+- **No `withdrawn`/`cancelled` project status.** `aws-calvert-cliffs-md`
+  (withdrawn Aug 4, 2026) still reads "announced" with a note. Add a status
+  plus frontend handling; decide whether withdrawn sites stay in the
+  ratepayer cohort. **medium**
 - **8 minimal-data projects** are served by at-a-glance auto-derivation. Add
   overrides when they gain disclosable facts. **low**
 

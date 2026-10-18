@@ -4452,6 +4452,79 @@
         "dollar_commitment",
         "ratepayer_protection"
       ]
+    },
+    {
+      "id": "swatara-township-pa-corscale-cba-2026",
+      "title": "Swatara Township–Corscale Data Centers community benefits agreements (Highlands East and West)",
+      "instrument": "benefit_agreement",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Swatara Township (Dauphin County), PA",
+      "state_code": "PA",
+      "date": "2026-10-07",
+      "counterparties": [
+        "Corscale Data Centers",
+        "Swatara Township"
+      ],
+      "benefit_themes": [
+        "infrastructure",
+        "community_grants",
+        "education"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 120300000.0,
+      "key_terms": [
+        "covering the Highlands West and Highlands East data-center projects, providing for a combined $120.3 million in developer community-benefit contributions.",
+        "Among the largest commitments are $38 million for a public safety operations facility serving the Township, $24 million for a second public safety facility, $27 million for municipal infrastructure and capital stabilization, $12 million for public-safety workforce sustainability, and $8 million for fire apparatus replacement.",
+        "The payment schedule is tied to actual development milestones."
+      ],
+      "summary": "On October 8, 2026 Swatara Township announced that its board had approved community benefits agreements with Corscale Data Centers for the Highlands West and Highlands East projects, totaling $120.3 million ($84.15 million West, $36.15 million East). Contributions go mainly to public safety facilities and equipment, municipal infrastructure and workforce items, and are paid on development milestones. GovTech reports the board vote was 4-1 and that residents asked for a delay because they had not seen the agreement; the township release says the agreements are subject to final, unappealable approval of the land-development plans.",
+      "source_url": "https://swataratwp.com/wp-content/uploads/2026/10/Swatara_Press_Statement_120_3_Million_CBA.pdf",
+      "source_title": "Swatara Township — Press release: Community Benefits Agreements (October 8, 2026)",
+      "resources": [
+        {
+          "url": "https://www.govtech.com/artificial-intelligence/data-centers-could-bring-pennsylvania-township-120m",
+          "title": "GovTech — Data centers could bring Pennsylvania township $120M (Oct. 9, 2026)"
+        }
+      ],
+      "agreement_features": [
+        "dollar_commitment"
+      ],
+      "captured_at": "2026-10-18"
+    },
+    {
+      "id": "aurora-co-mui-data-centers-2026-10",
+      "title": "Aurora, CO zoning amendment removing data centers as a permitted use in the mixed-use office institutional zone",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Aurora, CO",
+      "state_code": "CO",
+      "date": "2026-10-12",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The Aurora City Council unanimously passed a new regulation on data centers Monday night",
+        "will no longer allow data centers as a permitted use in the mixed-use office institutional zone district"
+      ],
+      "summary": "On October 12, 2026 the Aurora, Colorado City Council unanimously adopted a zoning change under which data centers are no longer a permitted use in the mixed-use office institutional zone district. This is a change to one zone district, not a citywide ban or a moratorium; the article says data centers remain permitted by right in other districts.",
+      "source_url": "https://www.coloradopolitics.com/2026/10/13/aurora-city-council-bans-data-centers-in-mixed-use-office-zones/",
+      "source_title": "Colorado Politics — Aurora City Council bans data centers in mixed-use office zones",
+      "resources": [
+        {
+          "url": "https://app.govly.com/public/signals/218065",
+          "title": "Govly — summary of the October 12, 2026 Aurora City Council meeting"
+        }
+      ],
+      "captured_at": "2026-10-18"
     }
   ]
 }

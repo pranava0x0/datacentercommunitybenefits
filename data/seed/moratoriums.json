@@ -226,7 +226,7 @@
         "water",
         "noise"
       ],
-      "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development, running through November 5, 2026. Already-approved projects are exempt. A city staff study submitted September 1, 2026 found data-center impacts vary widely by facility type, site layout and climate; the Transportation, Planning and Development Committee then recommended the full council extend the pause by up to nine months (to roughly August 2027) to allow more time on air-pollution monitoring, noise limits and community input, with the full council taking up the extension at its September 14, 2026 business meeting. As of September 25, 2026 no outlet checked reports the outcome of a final council vote on the extension; the moratorium as enacted remains in effect through November 5, 2026 either way. Status: enacted (original 150-day pause).",
+      "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development, running through November 5, 2026. Already-approved projects are exempt. A city staff study submitted September 1, 2026 found data-center impacts vary widely by facility type, site layout and climate; the Transportation, Planning and Development Committee then recommended the full council extend the pause by up to nine months (to roughly August 2027) to allow more time on air-pollution monitoring, noise limits and community input, and the full council later set a public hearing for October 12, 2026 before its vote (GovTech, Sept. 29). Reports differ on the length: WFAE and WSOC describe up to nine months, GovTech an additional 11 months through Oct. 11, 2027. As of October 18, 2026 no checked source reports the hearing outcome or a final extension vote; the moratorium as enacted remains in effect through November 5, 2026 either way. Status: enacted (original 150-day pause).",
       "source_url": "https://www.wfae.org/politics/2026-06-08/charlotte-city-council-approves-150-day-data-center-moratorium",
       "source_title": "Charlotte City Council approves 150-day data center moratorium (WFAE)",
       "bill_number": null,
@@ -236,7 +236,7 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-09-25",
+      "captured_at": "2026-10-18",
       "state_code": "NC",
       "resources": [
         {
@@ -246,6 +246,10 @@
         {
           "url": "https://www.wfae.org/energy-environment/2026-08-21/halfway-through-the-charlotte-data-center-moratorium-the-city-still-has-questions",
           "title": "WFAE — Halfway through the Charlotte data center moratorium, the city still has questions (Aug. 21, 2026)"
+        },
+        {
+          "url": "https://www.govtech.com/artificial-intelligence/how-long-will-charlotte-n-c-extend-data-center-moratorium",
+          "title": "GovTech — How long will Charlotte, N.C., extend data center moratorium? (Sept. 29, 2026)"
         }
       ]
     },
@@ -940,21 +944,21 @@
       "id": "hernando-county-fl-2026-06",
       "jurisdiction": "Hernando County",
       "jurisdiction_type": "county",
-      "status": "proposed",
-      "enacted_date": null,
+      "status": "enacted",
+      "enacted_date": "2026-06-23",
       "effective_date": null,
       "duration_months": 12,
-      "duration_description": "1 year (unanimously approved at first reading June 24; final adoption scheduled July 14, outcome not independently confirmed)",
+      "duration_description": "365 days from the effective date (on acknowledgment of filing with the Florida Department of State; filed June 24, 2026), or until the county adopts the regulations the ordinance calls for, if earlier.",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "water",
         "transparency"
       ],
-      "summary": "Hernando County (west Florida) commissioners unanimously approved a proposed 12-month moratorium on new data center applications at first reading June 24, 2026, with final adoption scheduled for the same July 14, 2026 meeting at which neighboring Pasco County finalized its own moratorium. Two secondary sources (a July 1 opinion column and a July 27 op-ed) describe the moratorium as already adopted, but neither is a neutral news report confirming the vote, so status is left as proposed pending a cleaner source. Triggered by resident concerns about data center energy and water impacts. Part of the broader wave of Central/North Florida county moratoriums under the 1-year pathway created by Florida SB484.",
-      "source_url": "https://www.wfla.com/news/local-news/hernando-county/hernando-county-moves-forward-with-proposed-data-center-moratorium-after-resident-concerns/",
-      "source_title": "WFLA — Hernando County moves forward with proposed data center moratorium",
-      "captured_at": "2026-07-30",
+      "summary": "The Hernando County Commission adopted Ordinance No. 2026-15 on June 23, 2026 by a 4-0 roll-call vote: a one-year moratorium on large-scale data centers, triggered by resident concerns about energy and water. The clerk's transmittal is titled \"Adopted on June 23, 2026\"; the Florida Department of State acknowledged filing on June 24. An earlier version of this record, from a WFLA report, described a June 24 first reading and a July 14 final adoption; the county's own filing shows adoption on June 23. Part of the wave of Florida county moratoriums under the one-year pathway created by Florida SB484.",
+      "source_url": "https://hernandoclerk.com/wp-content/uploads/_Documents/Historical%20Ordinances/2026/Ordinance%20No.%202026-15.pdf",
+      "source_title": "Hernando County Clerk — Ordinance No. 2026-15 (adopted June 23, 2026)",
+      "captured_at": "2026-10-18",
       "resources": [
         {
           "url": "https://www.wfla.com/news/local-news/hernando-county/hernando-county-moves-forward-with-proposed-data-center-moratorium-after-resident-concerns/",
@@ -969,11 +973,14 @@
           "title": "Tampa Bay Beacons op-ed — describes the moratorium as already adopted, but is not a neutral confirming source"
         },
         {
-          "url": "https://www.hernandocounty.us/",
-          "title": "Hernando County, Florida (official)"
+          "url": "https://www.tampabaybeacons.com/2026/06/23/hernando-commission-approves-365-day-data-center-moratorium/",
+          "title": "Tampa Bay Beacon — Hernando Commission approves 365-day data center moratorium (June 23, 2026)"
         }
       ],
-      "state_code": "FL"
+      "state_code": "FL",
+      "bill_number": "Ordinance No. 2026-15",
+      "city_council_vote": "4-0 roll call (Tampa Bay Beacon)",
+      "enacted_by": "Board of County Commissioners"
     },
     {
       "id": "hill-county-tx-2024-04",
@@ -5617,6 +5624,77 @@
           "title": "WFAE — Raleigh, Cary weigh data center moratoriums"
         }
       ]
+    },
+    {
+      "id": "memphis-city-2026-10",
+      "jurisdiction": "Memphis",
+      "jurisdiction_type": "city",
+      "state_code": "TN",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "Up to 12 months from the effective date as drafted, or until comprehensive zoning regulations are adopted (draft v3 Section 5); council vote postponed to October 20, 2026",
+      "power_threshold_mw": null,
+      "key_reasons": [],
+      "summary": "The Memphis City Council postponed its vote on a proposed temporary data center moratorium to October 20, 2026, at its October 6 meeting. The draft ordinance would let the city continue to accept applications only for docketing and completeness review, while not processing, scheduling, hearing, approving or issuing rezonings, planned developments, special or conditional use permits, site plans, building, grading or land-disturbance permits, or other discretionary land-use approvals for new data centers and high-density computing facilities. It lasts up to 12 months or until comprehensive zoning regulations are adopted, and exempts existing lawfully operating facilities that do not expand, and applications legally vested before introduction. The draft is not adopted and the Oct. 20 outcome is not yet known.",
+      "source_url": "https://www.wcax.com/2026/10/07/data-center-moratorium-vote-postponed-after-fight-protests/",
+      "source_title": "WCAX — Data center moratorium vote postponed after fight, protests",
+      "resources": [
+        {
+          "url": "https://memphistn.gov/wp-content/uploads/2026/08/Data-Center-Temporary-Moratorium-Ordinance-v3.pdf",
+          "title": "City of Memphis — Data Center Temporary Moratorium Ordinance (draft v3; ordinance number blank)"
+        }
+      ],
+      "policy_type": "Proposed temporary pause on processing of data center land-use applications (draft ordinance)",
+      "city_council_vote": "Vote postponed to Oct. 20, 2026 at the Oct. 6 meeting; no adoption vote taken",
+      "session": "2026",
+      "captured_at": "2026-10-18"
+    },
+    {
+      "id": "davidson-county-nc-2026-09",
+      "jurisdiction": "Davidson County",
+      "jurisdiction_type": "county",
+      "state_code": "NC",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 4,
+      "duration_description": "4 months (as proposed for the October 26, 2026 agenda)",
+      "power_threshold_mw": null,
+      "key_reasons": [],
+      "summary": "On September 28, 2026 the Davidson County (North Carolina) Board of Commissioners voted 4-2 to place a four-month data center moratorium on its October 26 agenda, after an earlier 3-3 deadlock on a temporary moratorium. The outcome of the October 26 meeting is not yet known.",
+      "source_url": "https://www.wunc.org/2026-09-29/davidson-commissioners-remain-divided-on-data-centers-but-will-revisit-potential-moratorium",
+      "source_title": "WUNC — Davidson commissioners remain divided on data centers, but will revisit potential moratorium",
+      "enacted_by": null,
+      "city_council_vote": "4-2 to place a four-month moratorium on the Oct. 26 agenda (Sept. 28, 2026)",
+      "session": "2026",
+      "captured_at": "2026-10-18"
+    },
+    {
+      "id": "martin-county-fl-2026-10",
+      "jurisdiction": "Martin County",
+      "jurisdiction_type": "county",
+      "state_code": "FL",
+      "status": "proposed",
+      "enacted_date": null,
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "1 year (approved on first reading Oct. 13, 2026; second public hearing Oct. 27 before final approval)",
+      "power_threshold_mw": null,
+      "key_reasons": [],
+      "summary": "On October 13, 2026 the Martin County (Florida) Board of County Commissioners unanimously approved on first reading a proposed one-year moratorium on large-scale data centers, under which the county would temporarily stop accepting new applications. A second public hearing on October 27 is required before final approval. WPTV reports that one application submitted before the proposal would not be affected by the measure.",
+      "source_url": "https://cbs12.com/news/local/gallery/martin-county-advances-proposed-data-center-moratorium-commissioners-meeting-data-center-electricity-consumption-environmental-impact-florida-data-center-regulations-florida-news",
+      "source_title": "CBS12 — Martin County advances proposed data center moratorium",
+      "resources": [
+        {
+          "url": "https://www.wptv.com/news/treasure-coast/region-martin-county/martin-county-commissioners-unanimously-move-forward-with-1-year-moratorium-on-data-centers",
+          "title": "WPTV — Martin County commissioners unanimously move forward with 1-year moratorium on data centers"
+        }
+      ],
+      "city_council_vote": "Unanimous on first reading (Oct. 13, 2026)",
+      "session": "2026",
+      "captured_at": "2026-10-18"
     }
   ]
 }

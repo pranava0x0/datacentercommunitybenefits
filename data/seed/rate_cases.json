@@ -122,7 +122,7 @@
       "next_milestone_date": null,
       "related_tariff_id": "aps-arizona-large-load-rate-case-2025",
       "related_project_ids": null,
-      "summary": "APS requested a $579.5M (13.99%) net base-rate increase effective no earlier than July 8, 2026, including changes to minimum-bill requirements and eligibility in the Extra High Load Factor (XHLF) rate classes so large high-load-factor customers such as data centers carry the cost of serving their growth. The evidentiary hearing before an ALJ began May 18, 2026 and was scheduled to run roughly eight weeks; a recommended opinion and Commission vote follow.",
+      "summary": "APS requested a $579.5M (13.99%) net base-rate increase effective no earlier than July 8, 2026, including changes to minimum-bill requirements and eligibility in the Extra High Load Factor (XHLF) rate classes so large high-load-factor customers such as data centers carry the cost of serving their growth. The evidentiary hearing before an ALJ began May 18, 2026 and was scheduled to run roughly eight weeks; a recommended opinion and Commission vote follow. On October 9, 2026 Attorney General Kris Mayes urged the Commission to publicly investigate whether APS customers subsidized data centers, citing a consumer advocate's contention that $587 million in costs attributable to a handful of large energy users may have been allocated to other customers. APS called the study \"misleading\"; the Commission said it disagrees with the analysis and that cost causation is being addressed in this rate case. The allegation is disputed and not a Commission finding.",
       "source_url": "https://azcc.gov/news/home/2026/02/19/what-s-next-in-the-aps-rate-case",
       "source_title": "Arizona Corporation Commission — What's Next in the APS Rate Case?",
       "resources": [
@@ -133,9 +133,17 @@
         {
           "url": "https://www.aps.com/en/About/Our-Company/Newsroom/Articles/APS-Rate-Case-Hearing-Concludes-Process-Moves-to-Next-Phase",
           "title": "APS — Rate Case Hearing Concludes; Process Moves to Next Phase (July 10, 2026)"
+        },
+        {
+          "url": "https://www.azag.gov/press-release/attorney-general-mayes-urges-arizona-corporation-commission-investigate-whether-aps",
+          "title": "Arizona Attorney General — Mayes urges ACC to investigate whether APS customers subsidized data centers (Oct. 9, 2026)"
+        },
+        {
+          "url": "https://azcc.gov/news/home/2026/10/09/acc-statement",
+          "title": "Arizona Corporation Commission — Statement (Oct. 9, 2026)"
         }
       ],
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-10-18"
     },
     {
       "id": "mo-psc-ameren-large-load-2025",
@@ -270,7 +278,7 @@
       "filed_date": null,
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement — joined by Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation — was filed July 17, 2026 and amended July 20, 2026 (with Andale, LLC later added as a stipulating party), committing Duke and Public Staff to submit the special large-load tariff by the end of September 2026. A final NCUC order on the settlement is expected in fall 2026, with new rates beginning January 1, 2027 if approved. On September 14, 2026 Attorney General Jeff Jackson, who declined to sign the settlement, filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers (NCDOJ). As of October 1, 2026, no NCUC filing or order confirming the end-of-September large-load tariff submission had been found; it remains the next dated step. In a related docket, the NCUC voted September 18, 2026 to deny Duke Energy Progress a certificate of public convenience and necessity for a gas turbine at the Smith Energy Complex near Hamlet — \"The proposed plant would also be close to Amazon's under-construction $10 billion data center,\" and commissioners found Duke had not adequately shown how the plant would be paid for by data-center load or how it complies with the Ratepayer Protection Pledge (WUNC). On October 7, 2026 Blue Ridge Public Radio reported that Duke Energy and data center operators had reached an agreement on a large-load tariff that repurposes an existing tariff and makes it mandatory for data centers and other high-load-factor customers; an NCUC order on it has not been announced.",
+      "next_milestone": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement — joined by Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation — was filed July 17, 2026 and amended July 20, 2026 (with Andale, LLC later added as a stipulating party), committing Duke and Public Staff to submit the special large-load tariff by the end of September 2026. A final NCUC order on the settlement is expected in fall 2026, with new rates beginning January 1, 2027 if approved. On September 14, 2026 Attorney General Jeff Jackson, who declined to sign the settlement, filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers (NCDOJ). In a related docket, the NCUC voted September 18, 2026 to deny Duke Energy Progress a certificate of public convenience and necessity for a gas turbine at the Smith Energy Complex near Hamlet — \"The proposed plant would also be close to Amazon's under-construction $10 billion data center,\" and commissioners found Duke had not adequately shown how the plant would be paid for by data-center load or how it complies with the Ratepayer Protection Pledge (WUNC). On October 7, 2026 Blue Ridge Public Radio reported that Duke Energy and data center operators had reached an agreement on a large-load tariff that repurposes an existing tariff and makes it mandatory for data centers and other high-load-factor customers; an NCUC order on it has not been announced. WUNC reports the Utilities Commission will have to approve some version of the settlement for it to take effect; no hearing or decision date had been announced as of October 18, 2026.",
       "next_milestone_date": null,
       "related_tariff_id": "duke-nc-large-load-rate-case-2025",
       "related_project_ids": null,
@@ -293,9 +301,13 @@
         {
           "url": "https://www.bpr.org/2026-10-07/duke-energy-comes-to-an-agreement-on-long-sought-large-load-tariff-for-data-centers-in-north-carolina",
           "title": "Blue Ridge Public Radio — Duke Energy reaches agreement on large-load tariff (Oct. 7, 2026)"
+        },
+        {
+          "url": "https://www.wunc.org/2026-10-07/duke-energy-comes-to-an-agreement-on-long-sought-large-load-tariff-for-data-centers-in-north-carolina",
+          "title": "WUNC — Duke Energy comes to an agreement on long-sought large-load tariff for data centers (Oct. 7, 2026)"
         }
       ],
-      "captured_at": "2026-10-08"
+      "captured_at": "2026-10-18"
     },
     {
       "id": "nv-pucn-google-esa-2026",
@@ -504,6 +516,83 @@
         }
       ],
       "captured_at": "2026-09-22"
+    },
+    {
+      "id": "pa-puc-oca-ppl-complaint-2026",
+      "state_code": "PA",
+      "jurisdiction_level": "state",
+      "utility": "PPL Electric Utilities",
+      "regulator": "Pennsylvania Public Utility Commission (PUC)",
+      "docket_number": "C-2026-3065756",
+      "title": "Office of Consumer Advocate complaint on PPL's rate structure for large data centers (Gov. Shapiro petition to intervene)",
+      "case_type": "large_load_tariff",
+      "status": "pending",
+      "filed_date": "2026-10-02",
+      "decided_date": null,
+      "effective_date": null,
+      "next_milestone": "PPL answer due 20 days after the Oct. 6, 2026 e-service, per the docket note 'Complaint e-served to respondent for answer in 20 days.' PPL filed an unopposed motion for extension of time on Oct. 15, 2026; no grant appears on the docket page read.",
+      "related_tariff_id": null,
+      "related_project_ids": null,
+      "summary": "The Office of Consumer Advocate filed a formal complaint against PPL Electric Utilities on Oct. 2, 2026 (PUC docket C-2026-3065756), arguing that PPL's current rates, service classifications and procedures do not adequately protect existing customers. Gov. Josh Shapiro petitioned on Oct. 15, 2026 to intervene and will advocate for PPL to establish a separate customer class for large data centers. His office says it is the first time in at least 15 years a governor has intervened in a PUC proceeding. The PUC has not ruled on the complaint.",
+      "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/gov--shapiro-protects-customers-and-holds-data-center-developers",
+      "source_title": "Pennsylvania Governor's Office — Gov. Shapiro Protects Customers and Holds Data Center Developers Accountable",
+      "captured_at": "2026-10-18"
+    },
+    {
+      "id": "ferc-pjm-large-load-er26-3515",
+      "state_code": "US",
+      "jurisdiction_level": "federal",
+      "utility": "PJM Interconnection",
+      "regulator": "Federal Energy Regulatory Commission (FERC)",
+      "docket_number": "ER26-3515-000",
+      "title": "PJM large-load interconnection and Interim Resource Adequacy Service filing",
+      "case_type": "large_load_tariff",
+      "status": "rejected",
+      "filed_date": "2026-08-13",
+      "decided_date": "2026-10-09",
+      "effective_date": null,
+      "next_milestone": null,
+      "next_milestone_date": null,
+      "related_tariff_id": null,
+      "related_project_ids": null,
+      "summary": "On October 9, 2026 FERC rejected the core of PJM's August 13 large-load plan, the Interim Resource Adequacy Service package, and accepted two parts: PJM's definition of a large load as 50 MW or more at one site and its plan for a large-load registry. Utility Dive's coverage describes the rejected package as elements that 'intrude on state jurisdiction over retail rates' and 'appear to discriminate against large loads.' The order itself was not read; coverage is from Utility Dive and MGRID.",
+      "source_url": "https://www.utilitydive.com/news/ferc-pjm-large-load-interconnection-iras-byonc/832716/",
+      "source_title": "Utility Dive — FERC rejects most of PJM's large load interconnection plan",
+      "resources": [
+        {
+          "url": "https://mgrid.org/2026/10/10/ferc-rejects-pjms-curtail-first-plan-for-new-large-loads-and-keeps-only-the-50-mw-definition-and-a-registry/",
+          "title": "MGRID — FERC Rejects PJM's Curtail-First Plan for New Large Loads, and Keeps Only the 50 MW Definition and a Registry (Oct. 10, 2026)"
+        }
+      ],
+      "captured_at": "2026-10-18"
+    },
+    {
+      "id": "ferc-duke-energy-carolinas-large-load-er26-2691",
+      "state_code": "US",
+      "jurisdiction_level": "federal",
+      "utility": "Duke Energy Carolinas",
+      "regulator": "Federal Energy Regulatory Commission (FERC)",
+      "docket_number": "ER26-2691",
+      "title": "Duke Energy Carolinas transmission tariff provisions for large-load-driven network upgrades",
+      "case_type": "large_load_tariff",
+      "status": "approved",
+      "filed_date": null,
+      "decided_date": "2026-10-09",
+      "effective_date": null,
+      "next_milestone": null,
+      "next_milestone_date": null,
+      "related_tariff_id": null,
+      "related_project_ids": null,
+      "summary": "On October 9, 2026 FERC voted 4-1 to approve provisions of Duke Energy Carolinas' transmission tariff for network upgrades driven by large loads, including shortfall payments for loads of 100 MW or larger. Commissioner Judy Chang voted against Duke's proposal, saying 'I do not believe that [Duke Energy Carolinas] has demonstrated that its filing represents an acceptable level.' MGRID reports a floor under which a transmission customer serving a large load must pay for at least 75% of its planned load for 15 years. The docket number and the 75%/15-year floor come from MGRID; the order itself was not read.",
+      "source_url": "https://www.utilitydive.com/news/ferc-duke-energy-large-load-tariff-nitsa/832847/",
+      "source_title": "Utility Dive — FERC approves Duke large load transmission rules despite cost-shift concerns",
+      "resources": [
+        {
+          "url": "https://mgrid.org/2026/10/10/ferc-accepts-dukes-75-15-year-floor-on-large-load-transmission-costs-and-a-commissioner-calls-it-the-low-end/",
+          "title": "MGRID — FERC accepts Duke's 75% / 15-year floor on large-load transmission costs (Oct. 10, 2026)"
+        }
+      ],
+      "captured_at": "2026-10-18"
     }
   ]
 }
