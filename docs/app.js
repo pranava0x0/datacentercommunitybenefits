@@ -767,12 +767,7 @@ function wireTabs() {
   for (const v of VIEWS) {
     document
       .getElementById(v.tab)
-      .addEventListener("click", () => {
-        // A tab click is a meaningful navigation: give Back somewhere to go
-        // (#72). activateView then rewrites this new entry's URL.
-        if (state.activeView !== v.name) history.pushState(null, "", window.location.href);
-        activateView(v.name);
-      });
+      .addEventListener("click", () => activateView(v.name));
   }
   if (!window._dcbPopWired) {
     window._dcbPopWired = true;
@@ -787,16 +782,39 @@ function wireTabs() {
   if (window.location.hash === "#aggregate") {
     history.replaceState(null, "", "#comparison");
   }
-  routeFromLocation();
+  routeFromLocation({ boot: true });
+  state._booted = true;
 }
 
-// Route to whatever the URL names: on boot, and on Back/Forward.
-function routeFromLocation() {
+// Route to whatever the URL names: on boot, and on Back/Forward (#72).
+// While routing, nothing may push or rewrite history on its own: closing a
+// modal or syncing a view's URL would overwrite the entry Back just landed on.
+function routeFromLocation({ boot = false } = {}) {
+  state._routing = true;
+  try {
+    _routeFromLocation(boot);
+  } finally {
+    state._routing = false;
+  }
+}
+
+function _routeFromLocation(boot) {
   const params = new URLSearchParams(window.location.search);
-  // Back out of an open policy record when the URL no longer names one.
-  if (!params.get("policy")) closePolicyDetail();
-  // Ask the URL, not state: after Back, state still holds filters typed on a
-  // later page. (On boot readFiltersFromUrl made the two identical.)
+  if (!boot) {
+    // Back/Forward closes whatever overlay is open: the entry being restored
+    // did not have it (a policy record entry reopens it below).
+    closePolicyDetail();
+    closeMoratoriumDetail();
+    closeTariffDetail();
+    closeStatePanel();
+    // Restore the Sites filters this entry was saved with, not whatever was
+    // typed later.
+    state.explorerFilters = { ...EMPTY_EXPLORER_FILTERS };
+    state.pendingProjectId = null;
+    readFiltersFromUrl();
+    if (state.explorerLoaded) syncExplorerFilterUIToState();
+  }
+  // Ask the URL, not state: after Back, state could hold later filters.
   const explorerParams =
     URL_FILTER_KEYS.some((k) => params.get(k)) || Boolean(params.get("project"));
   const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
@@ -821,6 +839,11 @@ function routeFromLocation() {
     // happens to be first in the DOM.
     activateView(DEFAULT_VIEW.name);
   }
+  if (!boot && state.activeView === "explorer" && state.explorerLoaded) refreshExplorer();
+  // An entry that named an open policy record reopens it.
+  const pid = !boot && state.activeView === "policies" && params.get("policy");
+  const pol = pid && (state.policies || []).find((x) => x.id === pid);
+  if (pol) showPolicyDetail(pol);
 }
 
 // Return focus after a modal closes. The opener can be gone from view (a
@@ -890,6 +913,12 @@ function writeFiltersToUrl() {
 
 function activateView(name) {
   const target = VIEWS.find((v) => v.name === name) || DEFAULT_VIEW;
+  // Every user-driven view change (tab, Home card, cross-link) gets its own
+  // history entry so Back returns to where the reader was (#72). Boot and
+  // Back/Forward routing must not push. The URL is rewritten below.
+  if (state._booted && !state._routing && state.activeView !== target.name) {
+    history.pushState(null, "", window.location.href);
+  }
   state.activeView = target.name;
 
   for (const v of VIEWS) {
@@ -933,10 +962,12 @@ function activateView(name) {
     syncSubtabHash(VIEW_SUBTAB_GROUP[target.name]);
     const sub = _activeSubtab[VIEW_SUBTAB_GROUP[target.name]];
     if (!sub || sub === SUBTAB_GROUPS[VIEW_SUBTAB_GROUP[target.name]][0]) {
-      history.replaceState(null, "", target.hash);
+      history.replaceState(null, "", window.location.pathname + target.hash);
     }
   } else if (target.hash) {
-    history.replaceState(null, "", target.hash);
+    // pathname + hash: a bare "#x" keeps the query string, which leaked the
+    // Sites and policy params into every other view's URL.
+    history.replaceState(null, "", window.location.pathname + target.hash);
   } else if (window.location.hash || window.location.search) {
     history.replaceState(null, "", window.location.pathname);
   }
@@ -1367,6 +1398,24 @@ function shortDuration(d) {
   return s.length < full.length ? s + "…" : s;
 }
 
+// The directory, CSV and PDF all read the same three filters from here.
+function filteredMoratoriums() {
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
+  // Free-text search: on a phone, 185 rows is ~20 screens of scrolling.
+  const q = (document.getElementById("moratorium-q")?.value || "").trim().toLowerCase();
+  return (state.moratoriums || [])
+    .filter((m) => !statusFilter || m.status === statusFilter)
+    .filter((m) => !typeFilter || m.jurisdiction_type === typeFilter)
+    .filter(
+      (m) =>
+        !q ||
+        [m.jurisdiction, m.state_code, STATE_NAMES[m.state_code], m.bill_number]
+          .filter(Boolean)
+          .some((v) => String(v).toLowerCase().includes(q))
+    );
+}
+
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
   wireMoratoriumDetail();
@@ -1385,25 +1434,7 @@ function renderMoratoriumsView() {
   renderReasonBreakdown(state.moratoriums);
   renderChinaContext();
 
-  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
-  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
-
-  let filtered = [...state.moratoriums];
-  if (statusFilter) {
-    filtered = filtered.filter((m) => m.status === statusFilter);
-  }
-  if (typeFilter) {
-    filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
-  }
-  // Free-text search: on a phone, 185 rows is ~20 screens of scrolling.
-  const q = (document.getElementById("moratorium-q")?.value || "").trim().toLowerCase();
-  if (q) {
-    filtered = filtered.filter((m) =>
-      [m.jurisdiction, m.state_code, STATE_NAMES[m.state_code], m.bill_number]
-        .filter(Boolean)
-        .some((v) => String(v).toLowerCase().includes(q))
-    );
-  }
+  let filtered = filteredMoratoriums();
 
   setSubtabCount("moratoriums-count", state.moratoriums.length);
   const mmeta = document.getElementById("moratoriums-meta");
@@ -2866,10 +2897,12 @@ const POLICY_URL_KEYS = {
 
 // Captured at load, before activateView rewrites the URL: the policy payload
 // (and so the filter options) arrives later than the first URL write.
-const _bootPolicyParams = new URLSearchParams(window.location.search);
+const _bootPolicyParams = window.location.hash.startsWith("#policies")
+  ? new URLSearchParams(window.location.search)
+  : new URLSearchParams();
 
 function writePolicyUrl() {
-  if (state.activeView !== "policies") return;
+  if (state.activeView !== "policies" || state._routing) return;
   const key = _activeSubtab.pol;
   const hash = key && key !== SUBTAB_GROUPS.pol[0] ? `#policies/${key}` : "#policies";
   // Until the boot params are applied, keep the query string: rewriting it
@@ -2903,7 +2936,11 @@ function applyPolicyUrl() {
   if (cbf && params.get("p-cbf") === "1") cbf.checked = true;
   const pid = params.get("policy");
   const pol = pid && (state.policies || []).find((x) => x.id === pid);
-  if (pol) requestAnimationFrame(() => showPolicyDetail(pol));
+  if (pol) {
+    requestAnimationFrame(() => {
+      if (state.activeView === "policies") showPolicyDetail(pol);
+    });
+  }
 }
 
 function filteredPolicies() {
@@ -3597,7 +3634,7 @@ function showPolicyDetail(p) {
   const kind = p.scope === "state" || p.scope === "federal" ? "state" : "county";
   const draftBtn = document.getElementById("pd-draft-btn");
   if (draftBtn) {
-    draftBtn.textContent = kind === "state" ? "Open the state draft plan →" : "Open the county draft plan →";
+    draftBtn.textContent = kind === "state" ? "Open the state draft plan →" : "Open the local (county) draft plan →";
     draftBtn.onclick = () => openDraftPlan(kind);
   }
 
@@ -4205,12 +4242,15 @@ function openDraftPlan(kind) {
   closePolicyDetail();
   activateView("policies");
   setActiveSubtab("pol", "drafts");
-  _planningGuidePromise?.then(() => {
-    const sel = document.getElementById("draft-plan-kind");
-    if (!sel || sel.value === kind) return;
-    sel.value = kind;
-    sel.dispatchEvent(new Event("change"));
-  });
+  (_planningGuidePromise || Promise.reject(new Error("guide not loading")))
+    .then(() => {
+      const sel = document.getElementById("draft-plan-kind");
+      if (!sel || sel.value === kind) return;
+      sel.value = kind;
+      sel.dispatchEvent(new Event("change"));
+    })
+    // loadPlanningGuide already shows the failure in the pane.
+    .catch(() => {});
 }
 
 let _planningGuidePromise = null;
@@ -4256,7 +4296,9 @@ function syncSubtabHash(group) {
   const target = VIEWS.find((v) => v.name === view);
   const key = _activeSubtab[group];
   const hash = key && key !== SUBTAB_GROUPS[group][0] ? `${target.hash}/${key}` : target.hash;
-  if (window.location.hash !== hash) history.replaceState(null, "", hash);
+  if (window.location.hash !== hash || window.location.search) {
+    history.replaceState(null, "", window.location.pathname + hash);
+  }
 }
 
 // "#tariffs/elements" -> { view, key }, or null for any other hash shape.
@@ -4535,11 +4577,7 @@ async function exportRatepayerToPDF() {
 // --------------------------------------------------------------------------
 function downloadMoratoriumsCSV() {
   if (!state.moratoriums || !state.moratoriums.length) { alert("No moratoriums loaded."); return; }
-  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
-  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
-  let list = [...state.moratoriums];
-  if (statusFilter) list = list.filter((m) => m.status === statusFilter);
-  if (typeFilter) list = list.filter((m) => m.jurisdiction_type === typeFilter);
+  const list = filteredMoratoriums();
   const headers = ["id", "jurisdiction", "jurisdiction_type", "status", "enacted_date",
     "effective_date", "duration_description", "power_threshold_mw",
     "key_reasons", "bill_number", "sponsors", "enacted_by",
@@ -5758,8 +5796,11 @@ function checkedLine(rec, today = new Date()) {
   if (!d) return "Last checked: not recorded";
   let line = `Last checked against source: ${d}`;
   const open = rec.status === "proposed" || rec.status === "pending";
-  const days = Math.floor((today - new Date(d + "T00:00:00")) / 86400000);
-  if (open && days > STALE_OPEN_DAYS) {
+  // Calendar days in UTC, so a DST change can't move the 21-day boundary.
+  const then = Date.parse(d);
+  const now = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  const days = Math.floor((now - then) / 86400000);
+  if (open && Number.isFinite(days) && days > STALE_OPEN_DAYS) {
     line += ` · status not re-checked in ${days} days; it may have changed`;
   }
   return line;
@@ -5993,12 +6034,7 @@ async function exportMoratoriumsToPDF() {
     return;
   }
 
-  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
-  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
-
-  let filtered = [...state.moratoriums];
-  if (statusFilter) filtered = filtered.filter((m) => m.status === statusFilter);
-  if (typeFilter) filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
+  const filtered = filteredMoratoriums();
 
   // Sort: enacted (date desc) → proposed → failed, matching the on-screen table.
   filtered.sort((a, b) => {
@@ -7137,7 +7173,7 @@ function closeStatePanel() {
   if (!overlay || overlay.hidden) return;
   overlay.hidden = true;
   document.body.classList.remove("state-modal-open");
-  if (window.location.hash.startsWith("#state/")) {
+  if (window.location.hash.startsWith("#state/") && !state._routing) {
     history.replaceState(null, "", "#ratepayer");
   }
   const ret = state._stateReturnFocus;
