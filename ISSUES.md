@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-10-17
+Generated: 2026-10-18
 Total projects needing attention: 104
 
 ## Critical Missing Commitment Details
@@ -120,30 +120,30 @@ Projects with important gaps:
 (27 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 79 days ago
-- **federal-sanders-ocasio-cortez-2026-03** (moratorium, Federal): captured 2026-09-22, 25 days ago
-- **michigan-state-2026-06** (moratorium, Michigan): captured 2026-09-22, 25 days ago
-- **ny-state-2026-06** (moratorium, New York): captured 2026-09-22, 25 days ago
-- **ohio-state-amendment-2024** (moratorium, Ohio): captured 2026-09-22, 25 days ago
-- **pennsylvania-state-2026-01** (moratorium, Pennsylvania): captured 2026-09-22, 25 days ago
-- **pennsylvania-state-2026-02** (moratorium, Pennsylvania): captured 2026-09-22, 25 days ago
-- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 25 days ago
-- **virginia-state-2026-01** (moratorium, Virginia): captured 2026-09-22, 25 days ago
-- **loudoun-county-va-2026-09** (moratorium, Loudoun County): captured 2026-09-22, 25 days ago
-- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 25 days ago
-- **in-iurc-im-base-rate-reduction-2026** (rate_case, IN): captured 2026-09-22, 25 days ago
-- **minnesota-state-hf4888-2026** (moratorium, Minnesota): captured 2026-09-23, 24 days ago
-- **dane-county-wi-qts-community-commitment-2025** (policy, Dane County / Town of Vienna / DeForest, WI): captured 2026-09-23, 24 days ago
-- **effingham-county-ga-openai-camellia-community-benefits-2026** (policy, Effingham County, GA (Rincon)): captured 2026-09-23, 24 days ago
-- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 24 days ago
-- **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 22 days ago
-- **xcel-colorado-large-load-tariff** (tariff, CO): captured 2026-09-25, 22 days ago
-- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 22 days ago
-- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 22 days ago
-- **duke-nc-large-load-rate-case-2025** (tariff, NC): captured 2026-09-25, 22 days ago
-- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 22 days ago
-- **pacificorp-oregon-schedule-401-ue463** (tariff, OR): captured 2026-09-25, 22 days ago
-- **az-acc-aps-rate-case-2025** (rate_case, AZ): captured 2026-09-25, 22 days ago
-- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 22 days ago
-- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 22 days ago
-- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 22 days ago
+- **hernando-county-fl-2026-06** (moratorium, Hernando County): captured 2026-07-30, 80 days ago
+- **federal-sanders-ocasio-cortez-2026-03** (moratorium, Federal): captured 2026-09-22, 26 days ago
+- **michigan-state-2026-06** (moratorium, Michigan): captured 2026-09-22, 26 days ago
+- **ny-state-2026-06** (moratorium, New York): captured 2026-09-22, 26 days ago
+- **ohio-state-amendment-2024** (moratorium, Ohio): captured 2026-09-22, 26 days ago
+- **pennsylvania-state-2026-01** (moratorium, Pennsylvania): captured 2026-09-22, 26 days ago
+- **pennsylvania-state-2026-02** (moratorium, Pennsylvania): captured 2026-09-22, 26 days ago
+- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 26 days ago
+- **virginia-state-2026-01** (moratorium, Virginia): captured 2026-09-22, 26 days ago
+- **loudoun-county-va-2026-09** (moratorium, Loudoun County): captured 2026-09-22, 26 days ago
+- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 26 days ago
+- **in-iurc-im-base-rate-reduction-2026** (rate_case, IN): captured 2026-09-22, 26 days ago
+- **minnesota-state-hf4888-2026** (moratorium, Minnesota): captured 2026-09-23, 25 days ago
+- **dane-county-wi-qts-community-commitment-2025** (policy, Dane County / Town of Vienna / DeForest, WI): captured 2026-09-23, 25 days ago
+- **effingham-county-ga-openai-camellia-community-benefits-2026** (policy, Effingham County, GA (Rincon)): captured 2026-09-23, 25 days ago
+- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 25 days ago
+- **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 23 days ago
+- **xcel-colorado-large-load-tariff** (tariff, CO): captured 2026-09-25, 23 days ago
+- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 23 days ago
+- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 23 days ago
+- **duke-nc-large-load-rate-case-2025** (tariff, NC): captured 2026-09-25, 23 days ago
+- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 23 days ago
+- **pacificorp-oregon-schedule-401-ue463** (tariff, OR): captured 2026-09-25, 23 days ago
+- **az-acc-aps-rate-case-2025** (rate_case, AZ): captured 2026-09-25, 23 days ago
+- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 23 days ago
+- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 23 days ago
+- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 23 days ago
