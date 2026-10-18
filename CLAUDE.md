@@ -1259,8 +1259,11 @@ have never seen go red is a hypothesis").
 
 ### Rate cases — the proceeding layer under the tariffs (v3)
 
-`RateCase` + `data/seed/rate_cases.json` (builder: `scripts/build_rate_cases.py`,
-idempotent — edit it, re-run, then `python3 refresh.py`). A tariff is the
+`RateCase` + `data/seed/rate_cases.json` (edit the seed directly, then
+`python3 refresh.py`). **`scripts/build_rate_cases.py` was deleted 2026-10-18**:
+the daily routine had been editing the seed, so the builder fell 3 records and
+7 revisions behind, and one re-run would have silently reverted them. A
+generator and hand edits to its output can't both be the source of truth. A tariff is the
 instrument; a rate case is the fight: the docketed PUC/PSC/FERC proceeding where
 who-pays-for-data-center-load actually gets decided. Separate record type
 because several cases exist in states with no tracked tariff, one tariff can
