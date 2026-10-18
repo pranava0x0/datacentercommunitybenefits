@@ -609,8 +609,13 @@ def _build_home(payloads, today: date) -> dict:
         "policies": len(policies),
         "policies_in_effect": sum(p.status == "in_effect" for p in policies),
         "agreements": sum(_is_agreement(p) for p in policies),
+        # Same cohort as the Benefits tab's "Signed agreements" tile
+        # (agreementRecords → benefit_agreement → in_effect), so Home and the
+        # tab can never disagree (#72: Home said 19, the tab said 18).
         "agreements_signed": sum(
-            p.instrument == "benefit_agreement" and p.status == "in_effect"
+            _is_agreement(p)
+            and p.instrument == "benefit_agreement"
+            and p.status == "in_effect"
             for p in policies
         ),
         "tariffs": len(tariffs),

@@ -767,7 +767,16 @@ function wireTabs() {
   for (const v of VIEWS) {
     document
       .getElementById(v.tab)
-      .addEventListener("click", () => activateView(v.name));
+      .addEventListener("click", () => {
+        // A tab click is a meaningful navigation: give Back somewhere to go
+        // (#72). activateView then rewrites this new entry's URL.
+        if (state.activeView !== v.name) history.pushState(null, "", window.location.href);
+        activateView(v.name);
+      });
+  }
+  if (!window._dcbPopWired) {
+    window._dcbPopWired = true;
+    window.addEventListener("popstate", routeFromLocation);
   }
 
   // Allow URL hash to deep-link to a non-default view on load. Also activate
@@ -778,6 +787,18 @@ function wireTabs() {
   if (window.location.hash === "#aggregate") {
     history.replaceState(null, "", "#comparison");
   }
+  routeFromLocation();
+}
+
+// Route to whatever the URL names: on boot, and on Back/Forward.
+function routeFromLocation() {
+  const params = new URLSearchParams(window.location.search);
+  // Back out of an open policy record when the URL no longer names one.
+  if (!params.get("policy")) closePolicyDetail();
+  // Ask the URL, not state: after Back, state still holds filters typed on a
+  // later page. (On boot readFiltersFromUrl made the two identical.)
+  const explorerParams =
+    URL_FILTER_KEYS.some((k) => params.get(k)) || Boolean(params.get("project"));
   const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
   // Read the sub-key BEFORE activating: activateView rewrites the hash.
   const sub = parseSubtabHash(window.location.hash);
@@ -786,7 +807,7 @@ function wireTabs() {
     setActiveSubtab(sub.group, sub.key);
   } else if (fromHash) {
     activateView(fromHash.name);
-  } else if (anyExplorerFilterSet() || state.pendingProjectId) {
+  } else if (explorerParams) {
     activateView("explorer");
   } else if (STATE_DEEP_LINK.test(window.location.hash)) {
     // #state/TX — open the Ratepayer view, then the panel on top of it.
@@ -800,14 +821,6 @@ function wireTabs() {
     // happens to be first in the DOM.
     activateView(DEFAULT_VIEW.name);
   }
-}
-
-// True when any of the six Explorer filter dimensions is set.
-function anyExplorerFilterSet() {
-  const f = state.explorerFilters;
-  return Boolean(
-    f.q || f.company || f.state || f.status || f.stance || f.theme || f.constituency
-  );
 }
 
 // Return focus after a modal closes. The opener can be gone from view (a
@@ -914,6 +927,8 @@ function activateView(name) {
   // the other views use a bare hash and drop any stale query string.
   if (target.name === "explorer") {
     writeFiltersToUrl();
+  } else if (target.name === "policies") {
+    writePolicyUrl();
   } else if (VIEW_SUBTAB_GROUP[target.name]) {
     syncSubtabHash(VIEW_SUBTAB_GROUP[target.name]);
     const sub = _activeSubtab[VIEW_SUBTAB_GROUP[target.name]];
@@ -1171,6 +1186,11 @@ async function loadExplorerData() {
   // render from data alone. A blocked CDN only costs the map, which then shows
   // its own "Map library failed to load" (renderProjectMap checks window.L).
   await ensureLeaflet().catch((err) => console.error("Leaflet failed to load:", err));
+  // The search box is typeable before its handler is wired (that happens in
+  // renderExplorerView). Adopt anything typed during loading, or the first
+  // sync would write the empty filter back over it (#72).
+  const typed = (document.getElementById("f-q")?.value || "").trim();
+  if (typed && !state.explorerFilters.q) state.explorerFilters.q = typed;
   state.explorerLoaded = true;
   renderExplorerView();
 
@@ -2030,7 +2050,7 @@ function showMoratoriumDetail(m) {
   }
 
   // Captured date
-  document.getElementById("md-captured").textContent = `Verified: ${m.captured_at}`;
+  document.getElementById("md-captured").textContent = checkedLine(m);
 
   // Remember trigger for focus return, then open
   state._moratoriumReturnFocus =
@@ -2596,7 +2616,7 @@ function showTariffDetail(t) {
     }
   }
 
-  setText("td-captured", `Verified: ${t.captured_at}`);
+  setText("td-captured", checkedLine(t));
 
   // Remember the trigger so focus returns to it on close, then open the modal.
   state._tariffReturnFocus =
@@ -2821,6 +2841,59 @@ function policyFilters() {
   };
 }
 
+// Policy filters + the open record round-trip through the URL (#72), with
+// their own keys so they never collide with the Sites filters (`state`, `q`).
+// `p-` prefix: ?p-state=MD&policy=<id>#policies/directory
+const POLICY_URL_KEYS = {
+  "p-instrument": "policy-instrument-filter",
+  "p-status": "policy-status-filter",
+  "p-scope": "policy-scope-filter",
+  "p-state": "policy-state-filter",
+  "p-principle": "policy-principle-filter",
+};
+
+// Captured at load, before activateView rewrites the URL: the policy payload
+// (and so the filter options) arrives later than the first URL write.
+const _bootPolicyParams = new URLSearchParams(window.location.search);
+
+function writePolicyUrl() {
+  if (state.activeView !== "policies") return;
+  const key = _activeSubtab.pol;
+  const hash = key && key !== SUBTAB_GROUPS.pol[0] ? `#policies/${key}` : "#policies";
+  // Until the boot params are applied, keep the query string: rewriting it
+  // now would erase a shared link's filters before the payload lands.
+  if (!state._policyUrlApplied) {
+    history.replaceState(null, "", window.location.pathname + window.location.search + hash);
+    return;
+  }
+  const params = new URLSearchParams();
+  for (const [k, id] of Object.entries(POLICY_URL_KEYS)) {
+    const v = document.getElementById(id)?.value;
+    if (v) params.set(k, v);
+  }
+  if (document.getElementById("policy-cbf-filter")?.checked) params.set("p-cbf", "1");
+  if (state.openPolicyId) params.set("policy", state.openPolicyId);
+  const qs = params.toString();
+  history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : "") + hash);
+}
+
+// Apply ?p-*= / ?policy= once the payload and the filter options exist.
+function applyPolicyUrl() {
+  if (state._policyUrlApplied) return;
+  state._policyUrlApplied = true;
+  const params = _bootPolicyParams;
+  for (const [k, id] of Object.entries(POLICY_URL_KEYS)) {
+    const v = params.get(k);
+    const sel = document.getElementById(id);
+    if (v && sel && [...sel.options].some((o) => o.value === v)) sel.value = v;
+  }
+  const cbf = document.getElementById("policy-cbf-filter");
+  if (cbf && params.get("p-cbf") === "1") cbf.checked = true;
+  const pid = params.get("policy");
+  const pol = pid && (state.policies || []).find((x) => x.id === pid);
+  if (pol) requestAnimationFrame(() => showPolicyDetail(pol));
+}
+
 function filteredPolicies() {
   const f = policyFilters();
   return (state.policies || [])
@@ -2868,7 +2941,10 @@ function wirePolicyControls() {
   for (const id of POLICY_FILTER_IDS) {
     const el = document.getElementById(id);
     if (el && !el.dataset.wired) {
-      el.addEventListener("change", renderPoliciesTable);
+      el.addEventListener("change", () => {
+        renderPoliciesTable();
+        writePolicyUrl();
+      });
       el.dataset.wired = "1";
     }
   }
@@ -2906,7 +2982,9 @@ function renderPoliciesView() {
   renderPolicyStats(all);
   renderPolicyPrinciples(all);
   renderPolicyActions(all);
+  applyPolicyUrl();
   renderPoliciesTable();
+  writePolicyUrl();
 }
 
 function renderPolicyStats(all) {
@@ -3018,7 +3096,7 @@ function renderAgreementCard(p, { compact = false } = {}) {
     ${
       compact
         ? `${featLine}<details class="cba-more"><summary>Terms and source</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}</details>`
-        : `${terms}${src}<details class="cba-more"><summary>Background and terms reviewed</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${featLine}</details>`
+        : `${terms}<p class="cba-summary">${escapeHtml(p.summary)}</p>${src}<details class="cba-more"><summary>Terms checklist</summary>${featLine}</details>`
     }`;
   if (p.delivered) {
     const d = renderDeliveredPanel(p.delivered);
@@ -3501,10 +3579,20 @@ function showPolicyDetail(p) {
   const res = document.getElementById("pd-resources-list");
   res.replaceChildren(_linkLi(p.source_url, p.source_title));
   for (const r of p.resources || []) res.append(_linkLi(r.url, r.title));
-  setText("pd-captured", `Captured: ${p.captured_at}`);
+  setText("pd-captured", checkedLine(p));
+  // Hand off to the matching draft plan, so a reader who found a rule can
+  // see how it would be written without switching sections by hand (#72).
+  const kind = p.scope === "state" || p.scope === "federal" ? "state" : "county";
+  const draftBtn = document.getElementById("pd-draft-btn");
+  if (draftBtn) {
+    draftBtn.textContent = kind === "state" ? "Open the state draft plan →" : "Open the county draft plan →";
+    draftBtn.onclick = () => openDraftPlan(kind);
+  }
 
   state._policyReturnFocus =
     document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  state.openPolicyId = p.id;
+  writePolicyUrl();
   overlay.hidden = false;
   document.body.classList.add("tariff-modal-open");
   modal.scrollTop = 0;
@@ -3517,6 +3605,8 @@ function closePolicyDetail() {
   if (!overlay || overlay.hidden) return;
   overlay.hidden = true;
   document.body.classList.remove("tariff-modal-open");
+  state.openPolicyId = null;
+  writePolicyUrl();
   const ret = state._policyReturnFocus;
   state._policyReturnFocus = null;
   returnFocus(ret);
@@ -4098,6 +4188,19 @@ function setActiveSubtab(group, key) {
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
 }
 
+// Open Frameworks → Draft plans on the county or state draft.
+function openDraftPlan(kind) {
+  closePolicyDetail();
+  activateView("policies");
+  setActiveSubtab("pol", "drafts");
+  _planningGuidePromise?.then(() => {
+    const sel = document.getElementById("draft-plan-kind");
+    if (!sel || sel.value === kind) return;
+    sel.value = kind;
+    sel.dispatchEvent(new Event("change"));
+  });
+}
+
 let _planningGuidePromise = null;
 let _planningGuideRetries = 0;
 const _planningGuidesRendered = new Set();
@@ -4132,6 +4235,10 @@ function syncSubtabHash(group) {
   if (!view || state.activeView !== view) return;
   if (view === "explorer") {
     writeFiltersToUrl();
+    return;
+  }
+  if (view === "policies") {
+    writePolicyUrl();
     return;
   }
   const target = VIEWS.find((v) => v.name === view);
@@ -5627,6 +5734,23 @@ function renderContestedCard(p) {
     if (d) d.scrollIntoView({ behavior: "smooth", block: "start" });
   });
   return li;
+}
+
+// "Last checked" line for a detail panel (#72). captured_at is when a curator
+// last read the source, not when the status was confirmed today; an open
+// record (proposed / pending) that old may have moved, so say so rather than
+// let the global refresh stamp imply it was rechecked.
+const STALE_OPEN_DAYS = 21;
+function checkedLine(rec, today = new Date()) {
+  const d = rec.captured_at;
+  if (!d) return "Last checked: not recorded";
+  let line = `Last checked against source: ${d}`;
+  const open = rec.status === "proposed" || rec.status === "pending";
+  const days = Math.floor((today - new Date(d + "T00:00:00")) / 86400000);
+  if (open && days > STALE_OPEN_DAYS) {
+    line += ` · status not re-checked in ${days} days; it may have changed`;
+  }
+  return line;
 }
 
 function truncate(s, n) {

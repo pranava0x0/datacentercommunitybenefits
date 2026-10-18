@@ -145,6 +145,7 @@
         aria-labelledby="tab-overview"
       >
         <div class="home-body">
+          <p class="hero-dek">U.S. data centers and their host communities: what companies promised, what governments require, and what happened at each site.</p>
           <nav class="home-tasks" aria-label="Planning tools">
             <button type="button" data-guide-target="drafts">Draft a benefit plan</button>
             <button type="button" data-guide-target="evidence">Check impact claims</button>
@@ -1566,6 +1567,11 @@
               <h4 id="pd-resources-heading">Sources &amp; Resources</h4>
               <ul id="pd-resources-list" class="resources-list"></ul>
             </section>
+            <section class="pd-next" aria-labelledby="pd-next-heading">
+              <h4 id="pd-next-heading">Next step</h4>
+              <p><button type="button" id="pd-draft-btn" class="btn-link"></button></p>
+              <p class="muted pd-next-note">The draft uses invented example numbers; it does not say this rule applies elsewhere.</p>
+            </section>
             <p id="pd-captured" class="muted policy-captured"></p>
           </aside>
         </div>
@@ -1593,7 +1599,7 @@
 
         <div class="subtabs subtabs--view" role="tablist" aria-label="Benefits view">
           <button class="subtab" role="tab" type="button" id="subtab-cba-strongest" aria-selected="true" tabindex="0" aria-controls="subpane-cba-strongest">
-            Strongest <span class="subtab-count" id="cba-strongest-count"></span>
+            Most documented <span class="subtab-count" id="cba-strongest-count"></span>
           </button>
           <button class="subtab" role="tab" type="button" id="subtab-cba-all" aria-selected="false" tabindex="-1" aria-controls="subpane-cba-all">
             All <span class="subtab-count" id="cba-all-count"></span>
@@ -1604,7 +1610,7 @@
         </div>
 
         <div class="subtab-panel" id="subpane-cba-strongest" role="tabpanel" aria-labelledby="subtab-cba-strongest">
-          <p class="cba-note">Signed agreements that put the most of the nine terms in writing.</p>
+          <p class="cba-note">Signed agreements that put the most of the nine terms in writing. A count of terms on paper, not a measure of enforcement or delivery.</p>
           <ol id="cba-strongest" class="cba-list" role="list"></ol>
         </div>
 

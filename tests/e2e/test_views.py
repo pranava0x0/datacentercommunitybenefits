@@ -3584,3 +3584,89 @@ class TestCodexFollowUps:
             assert page.evaluate("() => todayIso()") == "2026-10-13"
         finally:
             ctx.close()
+
+
+class TestIssue72Navigation:
+    """Regression guards for GitHub issue #72 (lost search, shareable policy
+    records, Back after a tab click, Home/Benefits signed-count parity)."""
+
+    def test_search_typed_while_sites_load_survives_render(self, page: Page, base_url: str):
+        # Hold projects.json so the reader types before initialization ends.
+        held = []
+        page.route("**/data/projects.json", lambda r: held.append(r))
+        page.goto(base_url + "/#explorer")
+        page.wait_for_function("() => document.getElementById('f-q')", timeout=E2E_WAIT)
+        page.fill("#f-q", "memphis")
+        page.wait_for_timeout(100)
+        assert held, "projects.json was never requested"
+        for r in held:
+            r.continue_()
+        page.wait_for_function("() => window.__dcb && window.__dcb.state.explorerLoaded", timeout=E2E_WAIT)
+        expect(page.locator("#f-q")).to_have_value("memphis")
+        assert page.evaluate("() => state.explorerFilters.q") == "memphis"
+
+    def test_policy_filter_and_record_round_trip_through_the_url(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", state="attached", timeout=E2E_WAIT)
+        code = page.evaluate("() => state.policies.find(p => p.state_code).state_code")
+        page.select_option("#policy-state-filter", code)
+        page.locator("#policies-tbody tr[role='button']").first.click()
+        expect(page.locator("#policy-modal")).to_be_visible()
+        url = page.url
+        assert f"p-state={code}" in url and "policy=" in url and url.endswith("#policies/directory")
+        pid = page.evaluate("() => state.openPolicyId")
+        # A fragment-only goto would not reload the SPA; a fresh query does.
+        page.goto(url.replace("?", "?i=reload&", 1))
+        page.wait_for_function("(id) => state.openPolicyId === id", arg=pid, timeout=E2E_WAIT)
+        expect(page.locator("#policy-state-filter")).to_have_value(code)
+        expect(page.locator("#policy-modal")).to_be_visible()
+
+    def test_back_after_a_tab_click_returns_to_the_previous_view(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-agreements")
+        expect(page.locator("#view-agreements")).to_be_visible()
+        page.go_back()
+        expect(page.locator("#view-overview")).to_be_visible()
+        page.go_forward()
+        expect(page.locator("#view-agreements")).to_be_visible()
+
+    def test_home_and_benefits_count_signed_agreements_the_same_way(self, page: Page, base_url: str):
+        home = json.loads((ROOT / "docs/data/home.json").read_text())
+        page.goto(base_url + "/#agreements")
+        page.wait_for_selector("#cba-stats .rp-stat", timeout=E2E_WAIT)
+        tab = page.evaluate(
+            "() => agreementRecords().filter(p => p.instrument === 'benefit_agreement'"
+            " && p.status === 'in_effect').length"
+        )
+        totals = home.get("totals", home)
+        assert totals["agreements_signed"] == tab
+
+    def test_checked_line_flags_only_stale_open_records(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_function("() => typeof checkedLine === 'function'", timeout=E2E_WAIT)
+        out = page.evaluate(
+            """() => {
+              const today = new Date('2026-10-18T12:00:00');
+              return [
+                checkedLine({status: 'proposed', captured_at: '2026-09-01'}, today),
+                checkedLine({status: 'proposed', captured_at: '2026-10-10'}, today),
+                checkedLine({status: 'enacted', captured_at: '2026-01-01'}, today),
+                checkedLine({status: 'pending'}, today),
+              ];
+            }"""
+        )
+        assert "may have changed" in out[0] and "47 days" in out[0]
+        assert "may have changed" not in out[1]
+        assert "may have changed" not in out[2]
+        assert out[3] == "Last checked: not recorded"
+
+    def test_policy_detail_hands_off_to_the_matching_draft(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", state="attached", timeout=E2E_WAIT)
+        pid = page.evaluate("() => state.policies.find(p => p.scope === 'state').id")
+        page.evaluate("(id) => showPolicyDetail(state.policies.find(p => p.id === id))", pid)
+        page.click("#pd-draft-btn")
+        expect(page.locator("#policy-modal")).to_be_hidden()
+        expect(page.locator("#draft-plan-kind")).to_have_value("state")
+        assert page.url.endswith("#policies/drafts")
