@@ -2004,6 +2004,9 @@ restored and trapped the reader on Frameworks. Two more rules:
   the URL while `state._routing` is set.
 
 **Policy deep links:** `?p-state=&p-status=&…&policy=<id>#policies/<pane>`.
-These are separate keys from the Sites filters (`state`, `q`). They are read
-once at boot (`_bootPolicyParams`, only when the page opened on Frameworks),
-because `activateView` rewrites the URL before the payload lands.
+These are separate keys from the Sites filters (`state`, `q`).
+`writePolicyUrl` keeps the query string until the payload has applied it,
+because `activateView` rewrites the URL before data lands. Back/Forward onto a
+Frameworks or Sites entry re-applies *that entry's* params, including clearing
+the open project or record. State held in memory must never win over the
+restored URL.

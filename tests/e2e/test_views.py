@@ -3753,3 +3753,39 @@ class TestIssue72Navigation:
         assert len(rows) - 1 == shown
         page.fill("#moratorium-q", "zzzz-no-match")
         expect(page.locator("#moratoriums-tbody td.muted")).to_have_text("No records match the current filters.")
+
+    def test_policy_filters_restore_on_back(self, page: Page, base_url: str):
+        # Codex review of #77: an older Frameworks entry kept the newer filters.
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", state="attached", timeout=E2E_WAIT)
+        a, b = page.evaluate("() => [...new Set(state.policies.map(p => p.state_code).filter(Boolean))].slice(0, 2)")
+        page.select_option("#policy-state-filter", a)
+        page.click("#tab-tariffs")
+        page.click("#tab-policies")
+        page.select_option("#policy-state-filter", b)
+        page.click("#tab-tariffs")
+        page.go_back()
+        expect(page.locator("#policy-state-filter")).to_have_value(b)
+        page.go_back()
+        page.go_back()
+        expect(page.locator("#policy-state-filter")).to_have_value(a)
+        assert f"p-state={a}" in page.url
+
+    def test_back_restores_the_entrys_project_not_a_later_one(self, page: Page, base_url: str):
+        # Codex review of #77: a project opened on a later entry stayed open
+        # (and was written into the URL) after Back to an entry without one.
+        page.goto(base_url + "/#explorer")
+        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+        pid = page.evaluate("() => state.projects[0].id")
+        page.click("#tab-tariffs")
+        page.click("#tab-explorer")
+        page.evaluate("(id) => selectProject(id)", pid)
+        page.click("#tab-tariffs")
+        page.go_back()  # Sites with the project open
+        page.wait_for_function("(id) => state.selectedProjectId === id", arg=pid, timeout=E2E_WAIT)
+        page.go_back()  # Tariffs
+        page.go_back()  # the first Sites entry, no project
+        expect(page.locator("#view-explorer")).to_be_visible()
+        assert page.evaluate("() => state.selectedProjectId") is None
+        assert "project=" not in page.url
+        expect(page.locator("#project-detail")).to_be_hidden()

@@ -811,6 +811,11 @@ function _routeFromLocation(boot) {
     // typed later.
     state.explorerFilters = { ...EMPTY_EXPLORER_FILTERS };
     state.pendingProjectId = null;
+    // Drop the open project too, or writeFiltersToUrl would prefer it over
+    // the restored entry's ?project= (Codex review of #77).
+    state.selectedProjectId = null;
+    const detail = document.getElementById("project-detail");
+    if (detail) detail.hidden = true;
     readFiltersFromUrl();
     if (state.explorerLoaded) syncExplorerFilterUIToState();
   }
@@ -839,11 +844,23 @@ function _routeFromLocation(boot) {
     // happens to be first in the DOM.
     activateView(DEFAULT_VIEW.name);
   }
-  if (!boot && state.activeView === "explorer" && state.explorerLoaded) refreshExplorer();
-  // An entry that named an open policy record reopens it.
-  const pid = !boot && state.activeView === "policies" && params.get("policy");
-  const pol = pid && (state.policies || []).find((x) => x.id === pid);
-  if (pol) showPolicyDetail(pol);
+  if (!boot && state.activeView === "explorer" && state.explorerLoaded) {
+    refreshProjectListSelection();
+    refreshExplorer();
+    if (state.pendingProjectId) {
+      const pid = state.pendingProjectId;
+      state.pendingProjectId = null;
+      selectProject(pid);
+    }
+  }
+  // A Frameworks entry restores its own filters and open record.
+  if (!boot && state.activeView === "policies" && state._policyUrlApplied) {
+    setPolicyControlsFrom(params);
+    renderPoliciesTable();
+    const pid = params.get("policy");
+    const pol = pid && (state.policies || []).find((x) => x.id === pid);
+    if (pol) showPolicyDetail(pol);
+  }
 }
 
 // Return focus after a modal closes. The opener can be gone from view (a
@@ -2895,11 +2912,6 @@ const POLICY_URL_KEYS = {
   "p-principle": "policy-principle-filter",
 };
 
-// Captured at load, before activateView rewrites the URL: the policy payload
-// (and so the filter options) arrives later than the first URL write.
-const _bootPolicyParams = window.location.hash.startsWith("#policies")
-  ? new URLSearchParams(window.location.search)
-  : new URLSearchParams();
 
 function writePolicyUrl() {
   if (state.activeView !== "policies" || state._routing) return;
@@ -2922,18 +2934,25 @@ function writePolicyUrl() {
   history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : "") + hash);
 }
 
+// Set every policy filter control from URL params; absent keys clear.
+function setPolicyControlsFrom(params) {
+  for (const [k, id] of Object.entries(POLICY_URL_KEYS)) {
+    const v = params.get(k) || "";
+    const sel = document.getElementById(id);
+    if (sel) sel.value = [...sel.options].some((o) => o.value === v) ? v : "";
+  }
+  const cbf = document.getElementById("policy-cbf-filter");
+  if (cbf) cbf.checked = params.get("p-cbf") === "1";
+}
+
 // Apply ?p-*= / ?policy= once the payload and the filter options exist.
 function applyPolicyUrl() {
   if (state._policyUrlApplied) return;
   state._policyUrlApplied = true;
-  const params = _bootPolicyParams;
-  for (const [k, id] of Object.entries(POLICY_URL_KEYS)) {
-    const v = params.get(k);
-    const sel = document.getElementById(id);
-    if (v && sel && [...sel.options].some((o) => o.value === v)) sel.value = v;
-  }
-  const cbf = document.getElementById("policy-cbf-filter");
-  if (cbf && params.get("p-cbf") === "1") cbf.checked = true;
+  // writePolicyUrl keeps the query string until this runs, and plain-hash
+  // views drop theirs, so the current URL is this entry's own state.
+  const params = new URLSearchParams(window.location.search);
+  setPolicyControlsFrom(params);
   const pid = params.get("policy");
   const pol = pid && (state.policies || []).find((x) => x.id === pid);
   if (pol) {
