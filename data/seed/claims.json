@@ -30,28 +30,10 @@
       "id": "meta-community-action-grants",
       "company_slug": "meta",
       "theme": "community_grants",
-      "statement": "Through our Community Action Grants program, we provide funding to local nonprofits and schools in our data center communities to support science, technology, engineering and math (STEM) education and community priorities.",
-      "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers — Community",
-      "captured_at": "2026-05-14"
-    },
-    {
-      "id": "meta-stem-education",
-      "company_slug": "meta",
-      "theme": "education",
-      "statement": "Meta has awarded millions in STEM education grants to schools and nonprofits in our data center host communities.",
-      "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers — Community",
-      "captured_at": "2026-05-14"
-    },
-    {
-      "id": "meta-engagement-dialogue",
-      "company_slug": "meta",
-      "theme": "engagement",
-      "statement": "We engage early with local stakeholders — elected officials, residents, and utility providers — to identify shared priorities and develop our data centers as long-term community partners.",
-      "source_url": "https://datacenters.atmeta.com/community/",
-      "source_title": "Meta Data Centers — Community engagement",
-      "captured_at": "2026-05-14"
+      "statement": "We're now accepting applications for the 2026 Meta Data Center Community Action Grants program, which provides direct funding to schools, nonprofits, and community organizations working on projects that benefit the communities where we build our data centers.",
+      "source_url": "https://about.fb.com/news/2025/11/expanding-meta-data-center-community-action-grants-program/",
+      "source_title": "Meta Newsroom — Expanding the Data Center Community Action Grants program (Nov 2025)",
+      "captured_at": "2026-10-19"
     },
     {
       "id": "google-247-cfe-2030",
@@ -79,41 +61,13 @@
       }
     },
     {
-      "id": "google-economic-impact-reports",
-      "company_slug": "google",
-      "theme": "tax_revenue",
-      "statement": "Google publishes annual economic impact reports for each of our U.S. data center communities, detailing investment, jobs supported, and local tax contributions.",
-      "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers — Community impact",
-      "captured_at": "2026-05-14"
-    },
-    {
-      "id": "google-grants-for-good",
-      "company_slug": "google",
-      "theme": "community_grants",
-      "statement": "Through our Data Center Grants program, Google.org has awarded grants to local nonprofits in our data center communities, focused on STEM education, workforce development, and digital inclusion.",
-      "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers — Grants",
-      "captured_at": "2026-05-14"
-    },
-    {
       "id": "google-stem-education",
       "company_slug": "google",
       "theme": "education",
-      "statement": "We invest in STEM education programs, including Code Next labs and partnerships with local community colleges to build pipelines into data center operations roles.",
-      "source_url": "https://datacenters.google/community/",
-      "source_title": "Google Data Centers — Education",
-      "captured_at": "2026-05-14"
-    },
-    {
-      "id": "ms-pledge-2024",
-      "company_slug": "microsoft",
-      "theme": "engagement",
-      "statement": "Our Datacenter Community Pledge commits us to advancing community prosperity, addressing local environmental impacts, building skills for jobs of today and the AI economy of tomorrow, and operating in a manner deserving of trust.",
-      "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
-      "source_title": "Microsoft Datacenter Community Pledge (May 2024)",
-      "captured_at": "2026-05-14",
-      "formal_agreement": true
+      "statement": "We've collaborated with two inspiring local organizations in the region, Global Inheritance and Mobile Hope, to introduce more young women to science, technology, engineering, and math (STEM) and to combat youth homelessness.",
+      "source_url": "https://datacenters.google/",
+      "source_title": "Google Data Centers",
+      "captured_at": "2026-10-19"
     },
     {
       "id": "ms-water-positive-2030",
@@ -144,24 +98,10 @@
       "id": "ms-skills-ai-economy",
       "company_slug": "microsoft",
       "theme": "education",
-      "statement": "We will partner with local educational institutions and nonprofits to build skills training programs aligned with the AI economy in the communities that host our datacenters.",
-      "source_url": "https://blogs.microsoft.com/blog/2024/05/01/microsofts-datacenter-community-pledge-supporting-thriving-communities-in-the-ai-era/",
-      "source_title": "Microsoft Datacenter Community Pledge — Skills",
-      "captured_at": "2026-05-14"
-    },
-    {
-      "id": "ms-community-investment-wi",
-      "company_slug": "microsoft",
-      "theme": "community_grants",
-      "statement": "Microsoft is investing more than $50 million in community-focused projects in southeast Wisconsin, including educational programs, workforce training, and community infrastructure.",
-      "source_url": "https://blogs.microsoft.com/on-the-issues/2024/05/08/wisconsin-ai-co-innovation-data-center/",
-      "source_title": "Microsoft Wisconsin investment announcement (May 2024)",
-      "captured_at": "2026-05-14",
-      "metric": {
-        "value": 50000000,
-        "unit": "usd",
-        "kind": "community_investment"
-      }
+      "statement": "To support this goal, we will provide free, age-appropriate, best-in-class AI training and education in these communities in partnership with trusted, local community-based organizations.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "source_title": "Microsoft On the Issues — Community-First AI Infrastructure (Jan 13, 2026)",
+      "captured_at": "2026-10-19"
     },
     {
       "id": "aws-100-renewable-2023",
@@ -199,10 +139,10 @@
       "id": "aws-community-grants-think-big",
       "company_slug": "amazon",
       "theme": "community_grants",
-      "statement": "Amazon's Think Big Space program brings hands-on STEM and computer science learning experiences to public schools in AWS data center communities.",
-      "source_url": "https://www.aboutamazon.com/news/community/amazon-think-big-spaces-bring-stem-learning-to-students",
-      "source_title": "Amazon Think Big Space program",
-      "captured_at": "2026-05-14"
+      "statement": "Amazon Think Big Spaces go beyond the standard classroom, giving students hands-on experience in science, technology, engineering, and math (STEM).",
+      "source_url": "https://www.aboutamazon.com/md/news/aws/how-aws-think-big-spaces-help-kids-around-the-world-see-their-own-far-reaching-futures",
+      "source_title": "Amazon — How AWS Think Big Spaces help kids see far-reaching futures",
+      "captured_at": "2026-10-19"
     },
     {
       "id": "aws-infrastructure-pa-2024",
@@ -245,10 +185,10 @@
       "id": "anthropic-rainier-aws",
       "company_slug": "anthropic",
       "theme": "infrastructure",
-      "statement": "Anthropic and AWS are jointly building Project Rainier, a massive compute cluster of EC2 UltraServers powered by hundreds of thousands of Trainium2 chips, to train and serve frontier AI models.",
-      "source_url": "https://www.anthropic.com/news/expanding-our-strategic-partnership-with-aws",
-      "source_title": "Anthropic — Expanding our strategic partnership with AWS (Nov 2024)",
-      "captured_at": "2026-05-14"
+      "statement": "Together we launched Project Rainier, one of the largest compute clusters in the world, and we currently use over one million Trainium2 chips to train and serve Claude.",
+      "source_url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+      "source_title": "Anthropic — Anthropic and Amazon compute",
+      "captured_at": "2026-10-19"
     },
     {
       "id": "xai-memphis-colossus",
@@ -1019,12 +959,13 @@
       "statement": "Since 2011, Meta data center projects have supported more than 45,000 skilled trade jobs during construction — with 15,000+ currently on a data center site",
       "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
       "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway — Meta Data Centers",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "metric": {
         "value": 45000.0,
         "unit": "jobs",
         "kind": "construction"
-      }
+      },
+      "wayback_url": "http://web.archive.org/web/20260616182841/https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/"
     },
     {
       "id": "meta-jobs-operational-cumulative",
@@ -1033,12 +974,13 @@
       "statement": "created more than 6,000 permanent operational roles",
       "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
       "source_title": "Investing in people: Introducing LevelUp Fiber Technician Pathway — Meta Data Centers",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "metric": {
         "value": 6000.0,
         "unit": "jobs",
         "kind": "operational"
-      }
+      },
+      "wayback_url": "http://web.archive.org/web/20260616182841/https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/"
     },
     {
       "id": "meta-infrastructure-roads-water",
@@ -1289,10 +1231,10 @@
       "id": "qts-cedar-rapids-ia-infrastructure-pay-our-own-way",
       "company_slug": "qts",
       "theme": "infrastructure",
-      "statement": "We don't need to build infrastructure and put the burden on ratepayers. We can pay our own way.",
+      "statement": "We don’t need to build infrastructure and put the burden on the individual ratepayers. We can pay our own way.",
       "source_url": "https://corridorbusiness.com/qts-data-center-project-will-put-cedar-rapids-on-cutting-edge-leaders-say-after-site-tour/",
       "source_title": "QTS data center project will put Cedar Rapids on 'cutting edge' (Tag Greason, Co-CEO) — Corridor Business",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "qts-cedar-rapids-ia"
     },
     {
@@ -1498,12 +1440,13 @@
       "id": "meta-prineville-or-water-stewardship-pdf",
       "company_slug": "meta",
       "theme": "water",
-      "statement": "Our goal is to restore more water to local watersheds in Oregon than we consume by supporting water restoration and conservation projects led by local community partners",
+      "statement": "Meta’s goal is to be water positive in 2030, where we restore more water than we consume.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
       "source_title": "Meta's Prineville Data Center (2025 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-prineville-or",
-      "published_at": "2025-02-01"
+      "published_at": "2025-02-01",
+      "wayback_url": "http://web.archive.org/web/20260616191132id_/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf"
     },
     {
       "id": "meta-prineville-or-community-grants-school-funding",
@@ -1512,14 +1455,15 @@
       "statement": "$5.3M+ Direct funding to Crook County-area schools and nonprofits",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
       "source_title": "Meta's Prineville Data Center (2025 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-prineville-or",
       "published_at": "2025-02-01",
       "metric": {
         "value": 5300000.0,
         "unit": "usd",
         "kind": "community_investment"
-      }
+      },
+      "wayback_url": "http://web.archive.org/web/20260616191132id_/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf"
     },
     {
       "id": "meta-prineville-or-energy-pacificorp-mw",
@@ -1528,14 +1472,15 @@
       "statement": "Meta-supported projects are adding 977 megawatts of new renewable energy to PacifiCorp's grid.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
       "source_title": "Meta's Prineville Data Center (2025 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-prineville-or",
       "published_at": "2025-02-01",
       "metric": {
         "value": 977.0,
         "unit": "mwh",
         "kind": "renewable_added"
-      }
+      },
+      "wayback_url": "http://web.archive.org/web/20260616191132id_/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf"
     },
     {
       "id": "meta-newton-ga-investment-1.5b",
@@ -1544,14 +1489,15 @@
       "statement": "$1.5B+ Data center investment in Georgia",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
       "source_title": "Meta Stanton Springs Data Center (Dec 2025 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-newton-ga",
       "published_at": "2025-12-01",
       "metric": {
         "value": 1500000000.0,
         "unit": "usd",
         "kind": "announced_investment"
-      }
+      },
+      "wayback_url": "http://web.archive.org/web/20260527183316id_/https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
     },
     {
       "id": "meta-newton-ga-community-grants-school-funding",
@@ -1560,14 +1506,15 @@
       "statement": "$4.5M+ Direct funding to schools and nonprofits in the Stanton Springs area",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
       "source_title": "Meta Stanton Springs Data Center (Dec 2025 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-newton-ga",
       "published_at": "2025-12-01",
       "metric": {
         "value": 4500000.0,
         "unit": "usd",
         "kind": "community_investment"
-      }
+      },
+      "wayback_url": "http://web.archive.org/web/20260527183316id_/https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
     },
     {
       "id": "meta-newton-ga-water-onsite-efficiency",
@@ -1576,9 +1523,10 @@
       "statement": "The Stanton Springs Data Center prioritizes on-site water efficiency by: Using cooling technology that is significantly more water efficient than the industry standard. Reusing water numerous times before discharging it as wastewater.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
       "source_title": "Meta Stanton Springs Data Center (Dec 2025 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-newton-ga",
-      "published_at": "2025-12-01"
+      "published_at": "2025-12-01",
+      "wayback_url": "http://web.archive.org/web/20260527183316id_/https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
     },
     {
       "id": "meta-newton-ga-education-robotics-2025",
@@ -1587,9 +1535,10 @@
       "statement": "In 2025, we have partnered with Newton College and Career Academy to provide access to competitive robotics programs for every school (K-12) from Newton County Schools while promoting STEM education and careers for students and their families.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
       "source_title": "Meta Stanton Springs Data Center (Dec 2025 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-newton-ga",
-      "published_at": "2025-12-01"
+      "published_at": "2025-12-01",
+      "wayback_url": "http://web.archive.org/web/20260527183316id_/https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
     },
     {
       "id": "meta-richland-la-water-restoration-watersheds",
@@ -1620,14 +1569,15 @@
       "statement": "In Louisiana, we are working with Entergy to bring at least 1,500 megawatts of new renewable energy to the grid.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2024/12/Metas-Richland-Parish-Data-Center.pdf",
       "source_title": "Meta's Richland Parish Data Center (Dec 2024 info sheet)",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-19",
       "project_id": "meta-richland-la",
       "published_at": "2024-12-01",
       "metric": {
         "value": 1500.0,
-        "unit": "mwh",
+        "unit": "mw",
         "kind": "renewable_added"
-      }
+      },
+      "wayback_url": "http://web.archive.org/web/20260630010506id_/https://datacenters.atmeta.com/wp-content/uploads/2024/12/Metas-Richland-Parish-Data-Center.pdf"
     },
     {
       "id": "meta-richland-la-engagement-revitalization-board",
@@ -2409,8 +2359,9 @@
       "statement": "We know that the future of AI infrastructure depends on a highly skilled workforce — one that rises to the challenge of building and maintaining the complex systems that power American innovation.",
       "source_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
       "source_title": "Meta Data Centers — LevelUp Fiber Technician Pathway launch (Apr 2026)",
-      "captured_at": "2026-05-16",
-      "published_at": "2026-04-20"
+      "captured_at": "2026-10-19",
+      "published_at": "2026-04-20",
+      "wayback_url": "http://web.archive.org/web/20260616182841/https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/"
     },
     {
       "id": "google-lagrange-engagement-ryan-2026",
@@ -3762,22 +3713,24 @@
       "company_slug": "meta",
       "project_id": "meta-huntsville-al",
       "theme": "community_grants",
-      "statement": "$3.9M+ grants and sponsorships provided locally since 2019. We support the community through our annual Data Center Community Action Grants program and other direct funding for projects that put the power of technology to use for community benefit, give people the power to build strong, sustainable communities, and improve STEAM education. We proudly support all three public school systems in Madison County.",
+      "statement": "$3.9M+ Direct funding to Madison County-area schools and nonprofits",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
       "source_title": "Meta's Huntsville Data Center — Info Sheet",
-      "captured_at": "2026-06-07",
-      "published_at": "2025-02-01"
+      "captured_at": "2026-10-19",
+      "published_at": "2025-02-01",
+      "wayback_url": "http://web.archive.org/web/20260630010702id_/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf"
     },
     {
       "id": "meta-huntsville-al-energy-tva",
       "company_slug": "meta",
       "project_id": "meta-huntsville-al",
       "theme": "energy",
-      "statement": "Meta's supported projects are adding 227 megawatts of new renewable energy in Alabama. In Alabama, we worked with Tennessee Valley Authority to meet our 100% clean and renewable energy goal for the Huntsville Data Center. Our operational data center buildings achieve LEED® Gold certification by focusing on efficiency, sustainability and innovation.",
+      "statement": "Meta's supported projects are adding 227 megawatts of new renewable energy in Alabama. … In Alabama, we worked with Tennessee Valley Authority to meet our 100% clean and renewable energy goal for the Huntsville Data Center. Our operational data center buildings achieve LEED® Gold certification by focusing on efficiency, sustainability and innovation.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
       "source_title": "Meta's Huntsville Data Center — Info Sheet",
-      "captured_at": "2026-06-07",
-      "published_at": "2025-02-01"
+      "captured_at": "2026-10-19",
+      "published_at": "2025-02-01",
+      "wayback_url": "http://web.archive.org/web/20260630010702id_/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf"
     },
     {
       "id": "meta-huntsville-al-education",
@@ -3787,8 +3740,9 @@
       "statement": "We proudly support all three public school systems in Madison County. We're proud to support community projects led by: 100 Black Men of Greater Huntsville, Alabama School of Cyber Technology & Engineering, Boys & Girls Clubs of North Alabama, Drake State Community & Technical College, Girls Inc. of Huntsville, Huntsville City Schools, Huntsville Schools Foundation, Madison City Schools, Madison County Schools, U.S. Space and Rocket Center.",
       "source_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
       "source_title": "Meta's Huntsville Data Center — Info Sheet",
-      "captured_at": "2026-06-07",
-      "published_at": "2025-02-01"
+      "captured_at": "2026-10-19",
+      "published_at": "2025-02-01",
+      "wayback_url": "http://web.archive.org/web/20260630010702id_/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf"
     },
     {
       "id": "openai-energy-pay-own-way-2026",
@@ -4266,17 +4220,6 @@
       "source_title": "SB Energy -- PORTS Technology Campus",
       "captured_at": "2026-07-30",
       "project_id": "sb-energy-piketon-oh"
-    },
-    {
-      "id": "sb-energy-community-grants-cba",
-      "company_slug": "sb-energy",
-      "theme": "community_grants",
-      "statement": "$40M CBA designed to support programs and priorities of the local community.",
-      "source_url": "https://portscampus.com/community/",
-      "source_title": "SB Energy -- PORTS Technology Campus Community Benefits Agreement",
-      "captured_at": "2026-07-30",
-      "project_id": "sb-energy-piketon-oh",
-      "formal_agreement": true
     },
     {
       "id": "sb-energy-community-grants-peterson",
