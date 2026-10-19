@@ -297,3 +297,19 @@ def test_parking_a_unit_keeps_its_due_follow_ups(tmp_ledger) -> None:
     rq.mark(key, "source down", [], date(2026, 10, 8), False, None, blocked=True)
     entry = json.loads(tmp_ledger.read_text())["units"][key]
     assert [f["what"] for f in entry["follow_ups"]] == ["Hall County vote"]
+
+
+
+def test_run_plan_schedules_country_units_and_terminates() -> None:
+    """Codex review of #83: country units were ranked but never planned, and a
+    queue holding only country units looped forever."""
+    from datetime import date
+
+    today = date(2026, 10, 19)
+    units = rq.derive_units()
+    plan = rq.run_plan(units, today, n=40)
+    assert any(u.kind == "country" for u, _ in plan)
+    only_country = {k: u for k, u in units.items() if u.kind == "country"}
+    plan = rq.run_plan(only_country, today, n=999)  # must return, not spin
+    assert {u.kind for u, _ in plan} == {"country"}
+    assert len(plan) == len(only_country)

@@ -322,14 +322,17 @@ def run_plan(units: dict[str, Unit], today: date, n: int) -> list[tuple[Unit, st
                     and not t[0].is_blocked(today)]
                for k in TARGET_DAYS}
     alt = ("state", "company") if today.toordinal() % 2 else ("company", "state")
-    rhythm = ["site", alt[0], "site", alt[1]]
+    # country (v6) takes one slot per cycle, after the US kinds.
+    rhythm = ["site", alt[0], "site", alt[1], "country"]
+    assert set(rhythm) == set(TARGET_DAYS), "every unit kind needs a slot in the rhythm"
     plan = due[:n]
-    i = 0
-    while len(plan) < n and any(by_kind.values()):
-        kind = rhythm[i % len(rhythm)]
-        i += 1
-        if by_kind[kind]:
-            plan.append(by_kind[kind].pop(0))
+    while len(plan) < n:
+        before = len(plan)
+        for kind in rhythm:
+            if len(plan) < n and by_kind[kind]:
+                plan.append(by_kind[kind].pop(0))
+        if len(plan) == before:  # nothing left in any kind: stop, never spin
+            break
     return plan
 
 

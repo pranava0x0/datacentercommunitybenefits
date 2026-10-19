@@ -1831,8 +1831,10 @@ claude.ai/code/routines.
   `captured_at`. Don't copy these into the ledger, or they drift.
 - **Run rhythm:** due follow-ups first, as targeted checks marked with
   `--followups-only`, which does *not* count as a review. Then full reviews
-  in the order site, state or company on alternating days, site. Target
-  intervals are site 90 days, state 120, company 30.
+  in the order site, state or company on alternating days, site, then one
+  `country` unit (v6). Target intervals are site 90 days, state 120,
+  company 30, country 120. `run_plan` asserts every kind in `TARGET_DAYS` has
+  a rhythm slot, because a new kind without one is silently never scheduled.
 - **Evidence gate:** each run logs `{id, source_url, verbatim}` per change,
   then `scripts/probe.py --evidence` re-fetches every page and fails on a
   MISS, meaning the page loaded but lacks the quote. That is the mechanical
