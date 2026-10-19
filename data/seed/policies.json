@@ -4396,14 +4396,21 @@
         "Resolution 06-2026: Resolution approving a development and supply agreement term summary with EdgeConneX, and declaring an emergency.",
         "The resolution offered up to $102 million-divided between the Teays Valley School District ($64 million), the Village of Ashville for EPA-related infrastructure ($35 million), and the Harrison Township Fire Department ($3 million).",
         "Five council members voted to adopt the resolution, and President Pro Tempore Jeff Martin was the single nay vote.",
-        "it's going to be part of the negotiation now moving forward."
+        "it's going to be part of the negotiation now moving forward.",
+        "The village of Ashville must submit a referendum petition to the board of elections seeking a public vote on the village's effort to help construct two new data centers and a power plant."
       ],
-      "summary": "On April 6, 2026 the Ashville Village Council voted 5-1 to adopt Resolution 06-2026 approving a term summary for a development and supply agreement with EdgeConneX. The resolution offered up to $102 million, divided among the Teays Valley School District ($64 million), the village for EPA-related infrastructure ($35 million) and the Harrison Township Fire Department ($3 million). The dissenting council member said some terms remained to be negotiated, so this is a term summary and not an executed agreement. Later developments, including a referendum petition, are not covered by the cited report.",
+      "summary": "On April 6, 2026 the Ashville Village Council voted 5-1 to adopt Resolution 06-2026 approving a term summary for a development and supply agreement with EdgeConneX. The resolution offered up to $102 million, divided among the Teays Valley School District ($64 million), the village for EPA-related infrastructure ($35 million) and the Harrison Township Fire Department ($3 million). The dissenting council member said some terms remained to be negotiated, so this is a term summary and not an executed agreement. Later developments, including a referendum petition, are not covered by the cited report. On August 7, 2026 the Ohio Supreme Court ruled that the village must submit the referendum petition against the resolution to the county board of elections; whether it reaches the November 3 ballot is not yet confirmed.",
       "source_url": "https://www.circlevilleherald.com/community/ashville-council-votes-5-1-to-adopt-the-edgeconnex-term-summary-resolution/article_6a335fd7-4406-411d-b8ea-178155601d5c.html",
       "source_title": "Circleville Herald — Ashville council votes 5-1 to adopt the EdgeConneX term summary resolution (Apr 9, 2026)",
-      "captured_at": "2026-10-08",
+      "captured_at": "2026-10-19",
       "agreement_features": [
         "dollar_commitment"
+      ],
+      "resources": [
+        {
+          "url": "https://courtnewsohio.gov/cases/2026/SCO/0807/260906.asp",
+          "title": "Court News Ohio — Village Must Submit Data Center Referendum to County Board of Elections (Aug. 7, 2026)"
+        }
       ]
     },
     {
@@ -4525,6 +4532,456 @@
         }
       ],
       "captured_at": "2026-10-18"
+    },
+    {
+      "id": "san-marcos-tx-datacenter-prohibition-2026",
+      "title": "San Marcos Ordinance 2026-08 — data centers prohibited in every zoning district",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "San Marcos, TX",
+      "state_code": "TX",
+      "identifier": "Ordinance 2026-08",
+      "date": "2026-06-16",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "amend the city's Land Use Matrix and prohibit data centers in every zoning district"
+      ],
+      "summary": "The San Marcos City Council voted 4-3 on second reading of Ordinance 2026-08, amending the Land Use Matrix to prohibit data centers in every zoning district. This is a permanent zoning rule, not a time-limited pause.",
+      "source_url": "https://foxsanantonio.com/newsletter-daily/san-marcos-council-votes-to-prohibit-data-centers-citywide",
+      "source_title": "FOX San Antonio — San Marcos council votes to prohibit data centers citywide",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fl-sb484-large-load-tariffs-2026",
+      "title": "Florida CS/CS/SB 484 — large-load tariffs so data centers pay their own cost of service",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Florida",
+      "state_code": "FL",
+      "identifier": "CS/CS/SB 484",
+      "date": "2026-05-07",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Requires the Public Service Commission (PSC) to implement large load customer tariff and service requirements for public electric utilities.",
+        "The tariff requirements must reasonably ensure that large load customers (such as large data centers) pay for their own cost of service, the risk of nonpayment of such costs may not be borne by the general body of ratepayers"
+      ],
+      "summary": "Florida enacted SB 484, signed by Gov. Ron DeSantis on May 7, 2026. It requires the Public Service Commission to implement large-load tariffs for public electric utilities that make large data centers pay their own cost of service and keep nonpayment risk off the general body of ratepayers.",
+      "source_url": "https://flsenate.gov/Committees/BillSummaries/2026/html/484",
+      "source_title": "Florida Senate — Bill Summary, CS/CS/SB 484 (Data Centers)",
+      "resources": [
+        {
+          "url": "https://news.wfsu.org/state-news/2026-05-08/gov-desantis-has-signed-a-bill-regulating-data-centers-in-florida",
+          "title": "WFSU — Gov. DeSantis has signed a bill regulating data centers in Florida (May 8, 2026)"
+        }
+      ],
+      "related_moratorium_id": "florida-state-2026-07",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "independence-mo-udo-datacenter-bess-2026",
+      "title": "Independence, MO — Unified Development Ordinance changes for data center and battery storage projects",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Independence, MO",
+      "state_code": "MO",
+      "identifier": "Unified Development Ordinance amendments",
+      "date": "2026-10-05",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "the changes Oct. 5 to its Unified Development Ordinance, or UDO, related to such projects"
+      ],
+      "summary": "The Independence City Council unanimously approved changes to its Unified Development Ordinance for data centers and battery energy storage systems on Oct. 5, 2026, following several months of public hearings. The changes follow the July 2026 moratorium on new data center applications. This is a zoning amendment, not a moratorium.",
+      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/amid-moratorium-independence-passes-new-rules-for-data-center-battery-storage-zoning",
+      "source_title": "KSHB 41 — Amid moratorium, Independence passes new rules for data center, BESS zoning",
+      "related_moratorium_id": "independence-mo-2026-07",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "eugene-or-hynix-datacenter-use-determination-2026",
+      "title": "Eugene, OR — use determination: data centers not an allowed use at the former Hyundai/Hynix site",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Eugene, OR",
+      "state_code": "OR",
+      "identifier": "City zoning use determination",
+      "date": "2026-09-08",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "data centers are not an allowed use at the location of the former Hyundai/Hynix site in West Eugene because of zoning issues"
+      ],
+      "summary": "The City of Eugene determined that data centers are not an allowed use under its zoning at the former Hyundai/Hynix site in West Eugene. This is a city zoning use determination for one site, not an ordinance and not a moratorium.",
+      "source_url": "https://www.klcc.org/politics-government/2026-09-09/eugene-says-zoning-doesnt-allow-data-centers-at-former-hyundai-hynix-campus",
+      "source_title": "KLCC — Eugene says zoning doesn't allow data centers at former Hyundai/Hynix campus",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "bowling-green-ky-datacenter-zoning-2026",
+      "title": "Bowling Green, KY — zoning ordinance restricting data centers",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Bowling Green, KY",
+      "state_code": "KY",
+      "identifier": "Zoning ordinance",
+      "date": "2026-06-16",
+      "benefit_themes": [
+        "energy",
+        "water"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The city commission voted unanimously Tuesday night to adopt a zoning ordinance that places restrictions on energy and water consumption, noise, and light pollution, among other things."
+      ],
+      "summary": "The Bowling Green City Commission unanimously adopted a zoning ordinance on data centers on June 16, 2026, restricting energy and water consumption, noise and light. A six-month moratorium had failed 3-2 on June 2. This is a zoning ordinance, not a moratorium.",
+      "source_url": "https://www.wkyufm.org/news/2026-06-16/bowling-green-city-leaders-give-final-approval-to-zoning-restrictions-on-data-centers",
+      "source_title": "WKU Public Radio — Bowling Green city leaders give final approval to zoning restrictions on data centers",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "front-royal-va-datacenter-ban-proposal-2026",
+      "title": "Front Royal, VA — proposed zoning ban on data centers in industrial districts",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Front Royal, VA",
+      "state_code": "VA",
+      "identifier": "Zoning amendment (proposed)",
+      "date": "2026-06-22",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Council members at their June 22 meeting voted to deny a proposed zoning ordinance amendment that would have allowed data centers by special-use permit",
+        "The Front Royal Town Council agreed to hold a public hearing on proposed zoning restrictions banning data centers."
+      ],
+      "summary": "On June 22, 2026 the Front Royal Town Council denied a zoning amendment that would have allowed data centers by special-use permit, and the council later agreed to hold a public hearing on proposed zoning restrictions banning data centers. Final adoption has not been confirmed. This is a proposed zoning amendment, not a moratorium.",
+      "source_url": "https://www.nvdaily.com/nvdaily/council-seeks-legal-advice-on-data-center-ban/article_8447d61b-1e1a-5002-9eb8-53bfd83ab50a.html",
+      "source_title": "Northern Virginia Daily — Front Royal council seeks legal advice on data center ban",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "az-acc-cooperative-large-load-framework-2026",
+      "title": "Arizona Corporation Commission approves joint cooperative framework for large-load electric service agreements",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Arizona",
+      "state_code": "AZ",
+      "identifier": "Joint cooperative large-load application",
+      "date": "2026-08-12",
+      "counterparties": [
+        "AEPCO",
+        "Duncan Valley",
+        "Sulphur Springs Valley",
+        "Mohave",
+        "Graham County",
+        "Trico"
+      ],
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "This procedure supports the Commission's \"Growth Pays for Growth\" approach when it comes to the addition of new large-load customers."
+      ],
+      "summary": "The Arizona Corporation Commission unanimously approved a joint application by six electric cooperatives for a standardized large-load process. The process approves electric service agreements with large-load customers, such as data centers, and is framed as protecting existing ratepayers from bearing the infrastructure costs of that growth. It is a service-agreement framework, not a rate case. The meeting date of Aug. 12 follows the release URL; the release is dated Aug. 13.",
+      "source_url": "https://azcc.gov/news/home/2026/08/13/acc-approves-measure-to-ensure-electric-cooperative-customers-don-t-pay-for-large-load-growth",
+      "source_title": "Arizona Corporation Commission — ACC approves measure to ensure electric cooperative customers don't pay for large-load growth",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "coeur-dalene-id-datacenter-non-approval-2026",
+      "title": "Coeur d'Alene council announces it will not approve data center proposals pending study",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Coeur d'Alene, ID",
+      "state_code": "ID",
+      "identifier": "Council announcement (not an ordinance)",
+      "date": "2026-08-04",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control",
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "unanimously passed an announcement that they will not approve any proposals to construct, develop or expand data centers within city limits until"
+      ],
+      "summary": "On Aug. 4, 2026 the Coeur d'Alene City Council unanimously passed an announcement that it will not approve proposals to construct, develop or expand data centers within city limits until further analysis, study and policy review. It is not an ordinance or a legal moratorium, so the record stays proposed; the city has no data centers.",
+      "source_url": "https://cdapress.com/news/2026/aug/05/city-takes-stance-on-data-centers/",
+      "source_title": "Coeur d'Alene Press — City Council says 'No' to data centers",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "nehawka-ne-datacenter-prohibition-2026-08",
+      "title": "Village of Nehawka votes to prohibit data centers in its zoning jurisdiction",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Village of Nehawka",
+      "state_code": "NE",
+      "identifier": "Village board vote",
+      "date": null,
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Leaders in the village of Nehawka have voted to prohibit data centers within their zoning jurisdiction"
+      ],
+      "summary": "The village board voted to prohibit data centers, crypto-mining and blockchain computing and the power plants that run them within its zoning jurisdiction. Reporting describes it as an outright ban that takes effect in 15 days and does not say whether it is permanent. The meeting date and vote count are not stated. It is filed as a policy, not a pause, because no end date is given.",
+      "source_url": "https://www.1011now.com/2026/08/27/village-nehawka-votes-ban-data-centers/",
+      "source_title": "1011NOW / WOWT — Village of Nehawka votes to ban data centers",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "iron-county-ut-draft-large-load-ordinance-2026-10",
+      "title": "Iron County planning commission recommends noise, water and outreach rules for data centers and power plants",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Iron County",
+      "state_code": "UT",
+      "identifier": "Planning commission recommendation",
+      "date": null,
+      "benefit_themes": [
+        "water"
+      ],
+      "principles": [
+        "water",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Iron County's planning commission recommended new restrictions in early October"
+      ],
+      "summary": "Iron County's planning commission recommended new restrictions in early October 2026 covering noise, water use and public outreach for data centers, power plants, battery storage and industrial campuses above a 50 MW cutoff. KUER's report gives a water-use limit of 50,000 gallons a day and a closed-loop, dry or other efficient cooling requirement. The county's 180-day moratorium continues while the draft is reviewed.",
+      "source_url": "https://www.kuer.org/business-economy/2026-10-09/box-elder-iron-county-data-center-moratoriums-new-regulations",
+      "source_title": "KUER — Box Elder, Iron County data center moratoriums, new regulations",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "hawaii-county-bill-170-2026-07",
+      "title": "Hawaii County Bill 170 to exclude industrial-scale data centers from permitted uses",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Hawaii County",
+      "state_code": "HI",
+      "identifier": "Bill 170",
+      "date": "2026-07-07",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "voted to forward Bill 170 to the Hawaiʻi County planning commissions"
+      ],
+      "summary": "A Hawaii County Council committee voted on July 7, 2026 to forward Bill 170 to the Hawaii County planning commissions. The bill, sponsored by Councilmember Heather Kimball, would define data centers and exclude industrial-scale ones from the county's permitted uses. It is a zoning bill, not a moratorium. The vote tally and later steps were not confirmed.",
+      "source_url": "https://www.bigislandvideonews.com/2026/07/08/hawai%CA%BBi-county-council-forwards-data-center-bill-to-planning-commissions/",
+      "source_title": "Big Island Video News — Hawaii County Council forwards data center bill to planning commissions",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "boston-ma-datacenter-prohibited-use-order-2026-09",
+      "title": "Boston councilor files order to bar data centers in every zoning district",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Boston",
+      "state_code": "MA",
+      "identifier": "Council order",
+      "date": null,
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "designate them as a \"prohibited use in every zoning district and subdistrict\""
+      ],
+      "summary": "Boston City Councilor Miniard Culpepper filed an order that would amend the city's zoning code to define data centers and make them a prohibited use in every zoning district and subdistrict. It is a proposal only. The report says only that the order was filed in the week of September 15, 2026.",
+      "source_url": "https://www.boston.com/news/local-news/2026/09/15/boston-city-council-to-consider-zoning-changes-that-would-bar-data-center-construction/",
+      "source_title": "Boston.com — Boston City Council to consider zoning changes that would bar data center construction",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fairbanks-north-star-borough-2027-priorities-datacenter-moratorium-2026-08",
+      "title": "Fairbanks North Star Borough Assembly 2027 legislative priorities request a data center moratorium",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Fairbanks North Star Borough",
+      "state_code": "AK",
+      "identifier": "2027 legislative priorities resolution",
+      "date": "2026-08-27",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The Assembly resolution asks for a moratorium on the permitting, leasing, or construction of new commercial data centers"
+      ],
+      "summary": "The Borough Assembly's 2027 state and federal legislative priorities include a requested moratorium on the permitting, leasing or construction of new commercial data centers. It is a request to other governments, not a borough moratorium, so it is recorded as proposed. KUAC notes the resolution text refers to state-owned and municipal lands while the presiding officer said federal lands were intended. The date is the Thursday approval reported on August 31.",
+      "source_url": "https://fm.kuac.org/2026-08-31/in-legislative-priorities-fairbanks-north-star-borough-assembly-doubles-up-on-ai-data-center-moratorium-request",
+      "source_title": "KUAC — Fairbanks North Star Borough Assembly doubles up on AI data center moratorium request",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "prince-william-county-va-overlay-zta-2026-09",
+      "title": "Prince William County shrinks its by-right data center overlay district",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Prince William County",
+      "state_code": "VA",
+      "identifier": "Zoning text amendment (Data Center Opportunity Zone Overlay)",
+      "date": "2026-09-22",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "unanimously approved a zoning text amendment that largely eliminates by right data center development",
+        "The ZTA proposed to reduce the size of the overlay from 9,698 acres to 3,654 acres",
+        "The supervisors voted 5-3 against a separate motion"
+      ],
+      "summary": "On September 22, 2026 the Board of County Supervisors voted 8-0 to approve a zoning text amendment that largely eliminates by-right data center development by shrinking the overlay district. Data centers remain permitted, but projects outside the smaller overlay need full review. The amendment proposed cutting the overlay from 9,698 to 3,654 acres, and a motion to shorten the 90-day grace period to zero failed 5-3. This is a change from by-right to review, not a moratorium.",
+      "source_url": "https://www.bisnow.com/news/washington-dc/data-center/prince-william-county-drastically-shrinks-by-right-data-center-map",
+      "source_title": "Bisnow — Prince William County drastically shrinks by-right data center map",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fort-wayne-in-council-datacenter-pause-2026-09",
+      "title": "Fort Wayne council ordinances to pause its own data center actions for one year",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Fort Wayne",
+      "state_code": "IN",
+      "identifier": "Two ordinances introduced by Councilwoman Rohli Booker",
+      "date": "2026-09-08",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Booker emphasized that the moratorium on data centers would restrict only the council's actions, leaving city economic development and planning officials free to work with companies interested in Fort Wayne.",
+        "It will not affect the already operational data center."
+      ],
+      "summary": "On September 8, 2026 Fort Wayne's City Council saw the introduction of two ordinances from Councilwoman Rohli Booker for a one-year pause on data centers, plus an advisory board for large developments. Booker said the pause would restrict only the council's own actions, leaving city economic development and planning officials free to work with companies, and would not affect the already operational data center. It does not bind private development, so it is filed as a policy, not a moratorium. The final vote was not found.",
+      "source_url": "https://www.journalgazette.net/local/local-government/councilwoman-proposes-pause-on-new-fort-wayne-data-centers-board-for-large-developments/article_f14cc4f9-5797-4cd1-99be-12ca5cc4e918.html",
+      "source_title": "Journal Gazette — Councilwoman proposes pause on new Fort Wayne data centers, board for large developments",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "morton-county-nd-datacenter-ordinance-2026-08",
+      "title": "Morton County revised data center zoning ordinance advances with a noise setback",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Morton County",
+      "state_code": "ND",
+      "identifier": "Revised data center zoning ordinance",
+      "date": "2026-08-26",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The ordinance now goes to the Morton County Commission for consideration on September 10.",
+        "Noise-producing equipment would generally have to be at least three-quarters of a mile from an occupied home."
+      ],
+      "summary": "On August 26, 2026 the Morton County Planning and Zoning Commission recommended approval of a revised data center ordinance, which goes to the County Commission for consideration on September 10. Noise-producing equipment would generally need to be at least three-quarters of a mile from an occupied home. The County Commission outcome was not found. This is a zoning ordinance, not a moratorium.",
+      "source_url": "https://www.kfyrtv.com/2026/08/28/morton-county-data-center-ordinance-advances-commission/",
+      "source_title": "KFYR — Morton County data center ordinance advances to commission",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "west-vincent-twp-pa-ordinance-227-2026",
+      "title": "West Vincent Township Ordinance 227-2026 to define and add data centers and accessory uses (hearing notice)",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "West Vincent Township",
+      "state_code": "PA",
+      "identifier": "Ordinance 227-2026",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
+      ],
+      "summary": "West Vincent Township's Board of Supervisors gave public notice of a hearing on June 15, 2026 to consider, and possibly vote to adopt, Ordinance 227-2026, which amends the township code to define data centers and data center accessory uses. The outcome of the hearing was not found, so the ordinance is recorded as proposed.",
+      "source_url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
+      "source_title": "West Vincent Township — Public notice: data centers ordinance hearing",
+      "captured_at": "2026-10-19"
     }
   ]
 }

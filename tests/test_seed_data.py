@@ -84,7 +84,12 @@ class TestSeedCoverage:
     OPTIONAL_ENTITIES = {
         "wonder-valley", "qts", "crusoe", "coreweave", "prologis",
         "sb-energy", "brookfield",
+        # Owner decision 2026-10-19: international operators that also run
+        # US sites appear on the US tab. They are the documented gate-2
+        # exception (CLAUDE.md, International tab section).
+        "nscale", "goodman",
     }
+    GATE2_OWNER_EXCEPTIONS = {"nscale", "goodman"}
 
     def test_all_required_hyperscalers_present(self, companies):
         slugs = {c.slug for c in companies.companies}
@@ -117,7 +122,12 @@ class TestSeedCoverage:
     ):
         co_with_projects = {p.company_slug for p in projects.projects}
         co_with_claims = {c.company_slug for c in claims.claims}
-        missing = co_with_projects - co_with_claims
+        # The owner-approved international operators have US sites but no
+        # first-party community-impact statement yet; that absence is the
+        # exception, recorded once (GATE2_OWNER_EXCEPTIONS).
+        stale = self.GATE2_OWNER_EXCEPTIONS & co_with_claims
+        assert not stale, f"{stale} now have claims; drop them from GATE2_OWNER_EXCEPTIONS"
+        missing = co_with_projects - co_with_claims - self.GATE2_OWNER_EXCEPTIONS
         assert (
             not missing
         ), f"Companies with projects but no claims: {missing} — every project should be backed by at least one source claim."

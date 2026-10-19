@@ -85,11 +85,18 @@ def _load_payload(name: str, model: type):
         raise
 
 
-def _check_international_refs(companies: CompaniesPayload, intl) -> list[str]:
+def _check_international_refs(companies: CompaniesPayload, intl, projects=None, claims=None) -> list[str]:
     """Company slugs in international.json must resolve against companies.json
-    (the payload validator already checks refs inside the file)."""
+    (the payload validator already checks refs inside the file). And a US
+    record may not point at an international_only company: the US views
+    filter those out, so its site would silently vanish (Sonnet review, #84)."""
     slugs = {c.slug for c in companies.companies}
+    intl_only = {c.slug for c in companies.companies if c.international_only}
     errors = []
+    for kind, payload in (("projects", projects), ("claims", claims)):
+        for r in getattr(payload, kind, None) or []:
+            if r.company_slug in intl_only:
+                errors.append(f"{kind}.json: {r.id!r} is a US record of international_only company {r.company_slug!r}; clear the flag")
     for kind in ("projects", "claims"):
         for r in getattr(intl, kind):
             if r.company_slug not in slugs:
@@ -649,9 +656,11 @@ def _build_home(payloads, today: date) -> dict:
         "rate_cases_pending": sum(r.status == "pending" for r in rate_cases),
         # v6: International tab card. Records, never money (no cross-currency sums).
         "international_countries": sum(c.code in COUNTRIES for c in intl.countries),
+        # Everything a reader can open as its own card abroad: rules, pauses,
+        # sites, rate cases and company-wide statements (Codex review, #84).
         "international_records": sum(
             len(getattr(intl, k)) for k in ("policies", "moratoriums", "projects", "rate_cases")
-        ),
+        ) + sum(1 for c in intl.claims if not c.project_id),
         "pledge_organizations": len(orgs),
         "pledge_governors": len(sig.signatories) - len(orgs),
         "roster_as_of": sig.roster_as_of.isoformat() if sig.roster_as_of else None,
@@ -839,7 +848,9 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         payloads.get("policies"),
         payloads.get("moratoriums"),
     )
-    cross_errors += _check_international_refs(payloads["companies"], payloads["international"])
+    cross_errors += _check_international_refs(
+        payloads["companies"], payloads["international"], payloads["projects"], payloads["claims"]
+    )
     if cross_errors:
         for err in cross_errors:
             logger.error(err)

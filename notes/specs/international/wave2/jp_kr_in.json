@@ -1,0 +1,423 @@
+{
+  "wave": "wave2-jp-kr-in",
+  "as_of": "2026-10-19",
+  "countries": [
+    {
+      "code": "JP",
+      "summary": "Japan's data-centre policy in this pass is a coordination council: METI and MIC launched a public-private watt-bit council in March 2025 to join electricity and telecom infrastructure for data centres. Hyperscaler commitments are large and stated in yen: Microsoft announced about ¥1.6 trillion for 2026-2029, and AWS planned 2.26 trillion yen for Tokyo and Osaka by 2027. A SoftBank AI data centre under construction in Tomakomai, Hokkaido, is designed to run on locally procured renewable power.",
+      "regulators": [
+        {
+          "name": "Ministry of Economy, Trade and Industry (METI)",
+          "acronym": "METI",
+          "role": "planning",
+          "url": "https://www.meti.go.jp/english/press/2025/0318_001.html"
+        },
+        {
+          "name": "Ministry of Internal Affairs and Communications (MIC)",
+          "acronym": "MIC",
+          "role": "planning",
+          "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/pressrelease/2025/3/18_1.html"
+        }
+      ],
+      "context": [
+        {
+          "statement": "AWS had already invested 1.51 trillion yen in Japan from 2011 to 2022.",
+          "verbatim": "Having already invested 1.51 trillion yen in Japan from 2011 to 2022",
+          "source_lang": "en",
+          "period": "2011-2022",
+          "source_url": "https://press.aboutamazon.com/aws/2024/1/aws-plans-to-invest-2-26-trillion-yen-into-its-japanese-cloud-infrastructure-by-2027",
+          "source_title": "Amazon Press Center — AWS plans to invest 2.26 trillion yen into its Japanese cloud infrastructure by 2027",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": [
+        "ja",
+        "en"
+      ]
+    },
+    {
+      "code": "KR",
+      "summary": "Corporate AI data-centre plans in Korea are large and mostly outside the capital region. SK Group and AWS plan an AI Zone in Ulsan that is due to begin operations in 2027, and the OpenAI-linked Stargate Korea plan, announced in October 2025, had shown little progress by September 2026, according to Korean press. Gangwon State and KEPCO signed an MOU in September 2026 to expand power infrastructure for a planned AI data centre there.",
+      "regulators": [
+        {
+          "name": "Korea Electric Power Corporation (KEPCO)",
+          "acronym": "KEPCO",
+          "role": "grid_operator",
+          "url": "https://home.kepco.co.kr/kepco/EN/main.do"
+        }
+      ],
+      "context": [
+        {
+          "statement": "Stargate Korea was announced as two data centres, one led by Samsung SDS and one by SK Telecom.",
+          "verbatim": "aimed at building two data centers, one led by Samsung SDS and one by SK Telecom",
+          "source_lang": "en",
+          "period": "2025-10",
+          "source_url": "https://www.koreajoongangdaily.com/business/openais-stargate-project-in-korea-stuck-at-starting-gate-as-samsung-sk-report-little-progress/12856484",
+          "source_title": "Korea JoongAng Daily — OpenAI's Stargate project in Korea stuck at starting gate",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": [
+        "ko",
+        "en"
+      ]
+    },
+    {
+      "code": "IN",
+      "summary": "In the verified records, large investment commitments for India come from Google (a 1 GW AI hub in Visakhapatnam, Andhra Pradesh) and Microsoft ($17.5bn over 2026-2029). Google's headline figure of $15 billion conflicts with a roughly $10 billion MoU value reported for the same project, and both are kept as stated. Residents in Thane, Maharashtra, have protested a proposed Amazon data centre over water, power and consultation.",
+      "regulators": [
+        {
+          "name": "Central Electricity Regulatory Commission (CERC)",
+          "acronym": "CERC",
+          "role": "energy_regulator",
+          "url": "https://cercind.gov.in/"
+        },
+        {
+          "name": "Invest India",
+          "acronym": "Invest India",
+          "role": "investment_agency",
+          "url": "https://www.investindia.gov.in/"
+        }
+      ],
+      "context": [
+        {
+          "statement": "Google said it would invest $15 billion in India over the next five years, establishing its first AI hub in the country.",
+          "verbatim": "In October, Google said it will invest $15 billion in India over the next five years to establish its first AI hub in the country.",
+          "source_lang": "en",
+          "period": "2025-10",
+          "source_url": "https://www.news4jax.com/business/2025/12/09/microsoft-investing-175-billion-in-india-for-ai-and-cloud-infrastructure/",
+          "source_title": "Associated Press (via News4JAX) — Microsoft investing $17.5 billion in India for AI and cloud infrastructure",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": [
+        "hi",
+        "en"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "JP",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Public-Private Advisory Council on Watt-Bit Collaboration",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2025-03-18",
+        "summary": "METI and MIC launched a public-private council to coordinate electricity and telecommunications infrastructure for data centres (the 'watt-bit collaboration').",
+        "key_terms": [
+          "watt-bit collaboration"
+        ],
+        "principles": [
+          "study"
+        ],
+        "benefit_themes": [
+          "infrastructure",
+          "energy"
+        ]
+      },
+      "source_url": "https://www.meti.go.jp/english/press/2025/0318_001.html",
+      "source_title": "METI — Public-Private Advisory Council on Watt-Bit Collaboration to Launch",
+      "source_lang": "en",
+      "verbatim": "As the growing use of AI and the increase in communications traffic drive the rapid increase in demand for data centers, the further development of data centers is becoming a very important policy issue for Japan. The Ministry of Economy, Trade and Industry (METI) and the Ministry of Internal Affairs and Communications (MIC) will launch the Public-Private Advisory Council on Watt-Bit Collaboration",
+      "verified": true,
+      "notes": "Principles value is a placeholder 'study' for curator mapping; the council is a coordination forum, not a binding rule. Launch is the ministries' own announcement (18 Mar 2025)."
+    },
+    {
+      "type": "claim",
+      "country": "JP",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "company": "Microsoft",
+        "theme": "infrastructure",
+        "statement": "Microsoft today announced a $10 billion (approx. ¥1.6 trillion) investment in Japan from 2026 through 2029",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/",
+      "source_title": "Microsoft Source Asia (Brad Smith) — Microsoft deepens its commitment to Japan with $10 billion investment",
+      "source_lang": "en",
+      "verbatim": "Microsoft today announced a $10 billion (approx. ¥1.6 trillion) investment in Japan from 2026 through 2029",
+      "verified": true,
+      "notes": "Money as stated: $10 billion (approx. ¥1.6 trillion), 2026-2029. Company newsroom, signed by Vice Chair & President Brad Smith."
+    },
+    {
+      "type": "claim",
+      "country": "JP",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "company": "Amazon Web Services",
+        "theme": "infrastructure",
+        "statement": "announced its plans to invest 2.26 trillion yen into its existing cloud infrastructure in Tokyo and Osaka by 2027 to meet growing customer demand for cloud services in Japan.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://press.aboutamazon.com/aws/2024/1/aws-plans-to-invest-2-26-trillion-yen-into-its-japanese-cloud-infrastructure-by-2027",
+      "source_title": "Amazon Press Center — AWS plans to invest 2.26 trillion yen into its Japanese cloud infrastructure by 2027",
+      "source_lang": "en",
+      "verbatim": "announced its plans to invest 2.26 trillion yen into its existing cloud infrastructure in Tokyo and Osaka by 2027 to meet growing customer demand for cloud services in Japan.",
+      "verified": true,
+      "notes": "Money as stated: 2.26 trillion yen (planned, to 2027). Press release dated 19 Jan 2024."
+    },
+    {
+      "type": "claim",
+      "country": "JP",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "company": "Amazon Web Services",
+        "theme": "jobs",
+        "statement": "this planned investment is estimated to contribute 5.57 trillion yen to Japan's Gross Domestic Product (GDP), and support an estimated average of 30,500 full-time equivalent (FTE) jobs in local Japanese businesses each year.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://press.aboutamazon.com/aws/2024/1/aws-plans-to-invest-2-26-trillion-yen-into-its-japanese-cloud-infrastructure-by-2027",
+      "source_title": "Amazon Press Center — AWS plans to invest 2.26 trillion yen into its Japanese cloud infrastructure by 2027",
+      "source_lang": "en",
+      "verbatim": "this planned investment is estimated to contribute 5.57 trillion yen to Japan's Gross Domestic Product (GDP), and support an estimated average of 30,500 full-time equivalent (FTE) jobs in local Japanese businesses each year.",
+      "verified": true,
+      "notes": "Economic-impact figures come from an AWS-commissioned study cited in AWS's own release: first-party estimate, not an independent one."
+    },
+    {
+      "type": "project",
+      "country": "JP",
+      "subdivision": "JP-01",
+      "locality": "Tomakomai",
+      "fields": {
+        "name": "Hokkaido Tomakomai AI Data Center",
+        "company": "SoftBank Corp.",
+        "city": "Tomakomai",
+        "status": "construction",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": 42.633,
+        "lon": 141.6,
+        "notes": "SoftBank states the power capacity is expected to exceed 300 MW (power_mw left null: a lower bound, not a figure). Site area 700,000 m2. Coordinates are Tomakomai city centroid from Wikipedia, not site-level. Groundbreaking 15 Apr 2025; operations targeted for fiscal 2026."
+      },
+      "source_url": "https://www.softbank.jp/en/sbnews/entry/20250501_01",
+      "source_title": "SoftBank News — Construction Begins on Hokkaido Tomakomai AI Data Center",
+      "source_lang": "en",
+      "verbatim": "On April 15, 2025, a traditional groundbreaking ceremony was held at the construction site of the AI data center Scheduled to begin operations in fiscal 2026, the Hokkaido Tomakomai AI Data Center is expected to become one of Japan's largest, with an area of 700,000 square meters and a power capacity expected to exceed 300 megawatts.",
+      "verified": true,
+      "notes": "Coordinates probed separately on Wikipedia Tomakomai (city centroid)."
+    },
+    {
+      "type": "claim",
+      "country": "JP",
+      "subdivision": "JP-01",
+      "locality": "Tomakomai",
+      "fields": {
+        "company": "SoftBank Corp.",
+        "theme": "energy",
+        "statement": "operate entirely on renewable energy procured locally within Hokkaido Prefecture",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://www.softbank.jp/en/sbnews/entry/20250501_01",
+      "source_title": "SoftBank News — Construction Begins on Hokkaido Tomakomai AI Data Center",
+      "source_lang": "en",
+      "verbatim": "operate entirely on renewable energy procured locally within Hokkaido Prefecture.",
+      "verified": true,
+      "notes": "Company's own statement about the Tomakomai campus energy supply."
+    },
+    {
+      "type": "project",
+      "country": "KR",
+      "subdivision": "KR-31",
+      "locality": "Ulsan",
+      "fields": {
+        "name": "AWS AI Zone, Ulsan (SK Group build-out)",
+        "company": "SK Group with Amazon Web Services",
+        "city": "Ulsan",
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": null,
+        "claimed_jobs": 78000,
+        "power_mw": null,
+        "lat": 35.55,
+        "lon": 129.317,
+        "notes": "SK Group leads construction; AWS runs the AI Zone (15-year partnership, signed 20 June 2025). Operations expected 2027. Claimed jobs are 'direct and indirect ... over time'. No site-level investment amount stated; AWS's $5.88bn is a country-wide plan (see claim). Coordinates are Ulsan city centroid from Wikipedia, not the Mipo National Industrial Complex site."
+      },
+      "source_url": "https://news.sktelecom.com/en/1948",
+      "source_title": "SK Telecom press release — SK Group and AWS team up to build cloud computing infrastructure (22 Jun 2025)",
+      "source_lang": "en",
+      "verbatim": "The data center in Ulsan is scheduled to begin operations by 2027 and is expected to generate up to 78,000 direct and indirect jobs over time as the data center scales and operations expand. SK Group will lead the construction of the data center, while AWS will establish the AI Zone in Ulsan",
+      "verified": true,
+      "notes": "Coordinates probed separately on Wikipedia Ulsan (city centroid)."
+    },
+    {
+      "type": "claim",
+      "country": "KR",
+      "subdivision": "KR-31",
+      "locality": null,
+      "fields": {
+        "company": "Amazon Web Services",
+        "theme": "infrastructure",
+        "statement": "This partnership is in addition to AWS's long-term US $5.88 billion (approx. 7.85 trillion won) planned investment in Korea by 2027.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://news.sktelecom.com/en/1948",
+      "source_title": "SK Telecom press release — SK Group and AWS team up to build cloud computing infrastructure (22 Jun 2025)",
+      "source_lang": "en",
+      "verbatim": "This partnership is in addition to AWS's long-term US $5.88 billion (approx. 7.85 trillion won) planned investment in Korea by 2027.",
+      "verified": true,
+      "notes": "Statement appears in a joint SK Telecom release, not an AWS-issued release. Country-wide plan, not site-specific."
+    },
+    {
+      "type": "policy",
+      "country": "KR",
+      "subdivision": null,
+      "locality": "Gangwon State",
+      "fields": {
+        "title": "Gangwon State–KEPCO memorandum of understanding on the Gangwon AI Data Center and national backbone grid",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2026-09-09",
+        "summary": "Gangwon State and KEPCO signed an MOU to cooperate on power infrastructure for a planned Gangwon AI data centre and on a national backbone grid.",
+        "key_terms": [
+          "memorandum of understanding",
+          "Gangwon AI Data Center",
+          "national backbone power grid"
+        ],
+        "principles": [
+          "new supply for new demand"
+        ],
+        "benefit_themes": [
+          "energy",
+          "infrastructure"
+        ]
+      },
+      "source_url": "https://en.fnnews.com/news/202609091517018624",
+      "source_title": "Financial News (English) — Gangwon State, KEPCO to Expand Power Infrastructure for AI Data Center",
+      "source_lang": "en",
+      "verbatim": "Gangwon State and Korea Electric Power Corporation (KEPCO) signed a memorandum of understanding on the successful development of the Gangwon AI Data Center The agreement was established to strengthen cooperation in attracting the Gangwon AI Data Center and building a national backbone power grid",
+      "verified": true,
+      "notes": "A provincial-utility MOU, not a regulatory instrument. Source is an English-edition newspaper report of the Gangwon press release; no binding terms are stated in it. Key terms are from the same page."
+    },
+    {
+      "type": "project",
+      "country": "KR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "name": "Stargate Korea (OpenAI with Samsung SDS and SK Telecom)",
+        "company": "SK Telecom (with OpenAI)",
+        "city": null,
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Announced Oct 2025 as two data centres, one led by Samsung SDS and one by SK Telecom. As of Sept 2026 Korean press reports little progress; SK Telecom says no progress since the MOU. No site coordinates in any probed source, so lat/lon are null: this record is not map-ready. Subdivision not stated; the Jeonnam/Pohang location is unconfirmed."
+      },
+      "source_url": "https://www.koreajoongangdaily.com/business/openais-stargate-project-in-korea-stuck-at-starting-gate-as-samsung-sk-report-little-progress/12856484",
+      "source_title": "Korea JoongAng Daily — OpenAI's Stargate project in Korea stuck at starting gate",
+      "source_lang": "en",
+      "verbatim": "little progress has been made on construction and the funding structure said no progress has been made following October's memorandum of understanding",
+      "verified": true,
+      "notes": "Record is status-only. Coordinates missing by design (no probed site location). Do not publish on the map until a site source is found."
+    },
+    {
+      "type": "project",
+      "country": "IN",
+      "subdivision": "IN-AP",
+      "locality": "Visakhapatnam",
+      "fields": {
+        "name": "Google AI hub, Visakhapatnam (1 GW)",
+        "company": "Google (with AdaniConneX and Airtel)",
+        "city": "Visakhapatnam",
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": {
+          "amount": 15,
+          "currency": "USD",
+          "as_stated": "$15 billion"
+        },
+        "claimed_jobs": null,
+        "power_mw": 1000,
+        "lat": 17.69389,
+        "lon": 83.29222,
+        "notes": "CONFLICT, stored as stated: Google's plan is $15 billion over five years in India. The MoU with the Andhra Pradesh government is reported as 'valued at nearly $10 billion (₹83,000 crore)' (The South First). Both figures are kept; neither is reconciled. Coordinates are Visakhapatnam city centroid; the Tarluvada village site is not geocoded. Groundbreaking was reported 28 Apr 2026 (not verified here)."
+      },
+      "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%E2%82%B915-billion-in-india/",
+      "source_title": "The South First — Google's largest AI hub outside US coming up in Visakhapatnam",
+      "source_lang": "en",
+      "verbatim": "Google will invest $15 billion over the next five years in India, the American multinational tech giant said as it announced its plan to develop an Artificial Intelligence (AI) hub in Visakhapatnam. The American multinational tech company signed a Memorandum of Understanding (MoU) with the Andhra Pradesh government to establish a 1 Gigawatt (GW) hyperscale data centre in Visakhapatnam The agreement, valued at nearly $10 billion (₹83,000 crore), was inked in New Delhi on Tuesday, 14 October",
+      "verified": true,
+      "notes": "Google's own blog post was not located. The South First is a news report: Google's figures are attributed to Google by the outlet. The $10bn MoU value is a second figure, kept as a conflict."
+    },
+    {
+      "type": "project",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "locality": "Thane",
+      "fields": {
+        "name": "Amazon data centre, Balkum, Thane",
+        "company": "Amazon Web Services",
+        "city": "Thane (Balkum)",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": 19.19722,
+        "lon": 72.97222,
+        "notes": "Proposed hyperscale data centre in Balkum, Thane. No project-specific capacity is verified in the probed source. Coordinates are Thane city centroid, not site-level."
+      },
+      "source_url": "https://www.freepressjournal.in/amp/mumbai/we-are-genuinely-working-to-raise-issues-wake-up-thanekar-representative-opposes-proposed-amazon-data-centre-project",
+      "source_title": "Free Press Journal — Wake Up Thanekar representative opposes proposed Amazon data centre project",
+      "source_lang": "en",
+      "verbatim": "Residents in Thane's Balkum protested against a proposed Amazon data centre",
+      "verified": true,
+      "notes": "Operator is Amazon per the article headline; no Amazon-issued Thane record was probed."
+    },
+    {
+      "type": "response",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "locality": "Thane",
+      "fields": {
+        "project": "Amazon data centre, Balkum, Thane",
+        "date": "2026-07-18",
+        "stance": "negative",
+        "constituency": "residents",
+        "summary": "Balkum residents protested the proposed Amazon data centre, alleging inadequate public consultation, large water use and substantial power demand; the Wake Up Thanekar group demanded transparency and wider consultation."
+      },
+      "source_url": "https://www.freepressjournal.in/amp/mumbai/we-are-genuinely-working-to-raise-issues-wake-up-thanekar-representative-opposes-proposed-amazon-data-centre-project",
+      "source_title": "Free Press Journal — Wake Up Thanekar representative opposes proposed Amazon data centre project",
+      "source_lang": "en",
+      "verbatim": "Residents in Thane's Balkum area protested against the proposed project, alleging inadequate public consultation. alleging it would consume huge quantities of water",
+      "verified": true,
+      "notes": "Stance tag is a curator call: residents' allegations reported by the newspaper, not an official finding. Amazon's response is not in the probed page."
+    },
+    {
+      "type": "claim",
+      "country": "IN",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "company": "Microsoft",
+        "theme": "infrastructure",
+        "statement": "Microsoft on Tuesday announced its biggest-ever Asia investment, amounting to $17.5 billion, in India over the next four years to advance the country's cloud and artificial intelligence infrastructure.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://www.news4jax.com/business/2025/12/09/microsoft-investing-175-billion-in-india-for-ai-and-cloud-infrastructure/",
+      "source_title": "Associated Press (via News4JAX) — Microsoft investing $17.5 billion in India for AI and cloud infrastructure",
+      "source_lang": "en",
+      "verbatim": "Microsoft on Tuesday announced its biggest-ever Asia investment, amounting to $17.5 billion, in India over the next four years to advance the country's cloud and artificial intelligence infrastructure.",
+      "verified": true,
+      "notes": "Dated 9 Dec 2025. AP syndication of the Microsoft announcement; Nadella revealed it on X. Microsoft's own newsroom page was not located."
+    }
+  ]
+}

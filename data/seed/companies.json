@@ -150,8 +150,8 @@
       "hq": "London, United Kingdom",
       "dedicated_page_url": null,
       "last_reviewed": "2026-10-19",
-      "summary": "UK-based AI data-centre developer, tracked for its proposed Loughton, Essex site, which has drawn objections from the town council over cooling and energy demand. No community-impact page was found in the research.",
-      "international_only": true
+      "summary": "UK-based AI data-centre developer, tracked for its proposed Loughton, Essex site, which has drawn objections from the town council over cooling and energy demand. It also has a US operation: in March 2026 it agreed to acquire American Intelligence & Power Corporation, which holds the Monarch Compute Campus in Mason County, West Virginia, and created a Houston-based Nscale Energy & Power division. No community-impact page was found in the research.",
+      "international_only": false
     },
     {
       "slug": "segro",
@@ -168,7 +168,34 @@
       "hq": "Sydney, Australia",
       "dedicated_page_url": null,
       "last_reviewed": "2026-10-19",
-      "summary": "Australian property group tracked for its withdrawn 90 MW Project Mars application in Lane Cove, NSW. No community-impact page was found in the research.",
+      "summary": "Australian property group tracked for its withdrawn 90 MW Project Mars application in Lane Cove, NSW. It also has a US operation: a 49.5 MW data centre in Vernon, California, described as its first in the United States. No community-impact page was found in the research.",
+      "international_only": false
+    },
+    {
+      "slug": "softbank-corp",
+      "name": "SoftBank Corp.",
+      "hq": "Minato, Tokyo, Japan",
+      "dedicated_page_url": null,
+      "summary": "Japanese telecommunications company, tracked for its Hokkaido Tomakomai AI Data Center, which it says will operate entirely on renewable energy procured locally within Hokkaido. Not to be confused with SB Energy (sb-energy), a SoftBank Group company tracked for US sites.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "nextdc",
+      "name": "NEXTDC",
+      "hq": "Brisbane, Australia",
+      "dedicated_page_url": null,
+      "summary": "Australian data-centre operator, tracked for its S7 campus in Eastern Creek, Sydney, where it signed a non-binding memorandum of understanding with OpenAI in December 2025.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "xtx-markets",
+      "name": "XTX Markets",
+      "hq": "London, United Kingdom",
+      "dedicated_page_url": null,
+      "summary": "Algorithmic trading firm, tracked for its data-centre complex in Kajaani, Finland (over €1bn announced in January 2025), where it says it is exploring giving the waste heat to the local community free of charge.",
+      "last_reviewed": "2026-10-19",
       "international_only": true
     }
   ]

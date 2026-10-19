@@ -4087,3 +4087,18 @@ class TestInternational:
         expect(card).to_be_visible()
         expect(card).to_contain_text(rc["docket_number"])
         expect(card.locator(".rc-next")).to_contain_text("Next:")
+
+    def test_company_card_counts_sites_abroad(self, page: Page, base_url: str):
+        # Sonnet review of #84: Nscale/Goodman's cards showed only their US
+        # site while their summaries named sites abroad.
+        seed = json.loads((ROOT / "docs/data/international.json").read_text())
+        companies = json.loads((ROOT / "docs/data/companies.json").read_text())["companies"]
+        us = {c["slug"] for c in companies if not c.get("international_only")}
+        slug = next(p["company_slug"] for p in seed["projects"] if p["company_slug"] in us)
+        page.goto(base_url + "/#comparison")
+        page.wait_for_function("() => state.intl", timeout=E2E_WAIT)
+        n = sum(p["company_slug"] == slug for p in seed["projects"])
+        card = page.locator(f'#co-cards [data-company="{slug}"], #co-cards [data-slug="{slug}"]').first
+        if card.count() == 0:
+            card = page.locator("#co-cards > *").filter(has_text=page.evaluate(f"() => state.companiesBySlug.get('{slug}').name")).first
+        expect(card).to_contain_text(f"plus {n} site")

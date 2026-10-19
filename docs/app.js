@@ -59,6 +59,9 @@ const COMPANY_SLUGS = [
   "nscale",
   "segro",
   "goodman",
+  "softbank-corp",
+  "nextdc",
+  "xtx-markets",
 ];
 
 const STANCE_LABELS = {
@@ -998,6 +1001,8 @@ function activateView(name) {
   // Sites, per signatory category and per utility on The Pledge.
   if (target.name === "comparison") {
     ensureComparisonData().catch((err) => console.error("Failed to load claims:", err));
+    // Small and lazy: only so company cards can count sites abroad.
+    loadInternationalData().then(renderCompanyCards).catch((err) => console.error("Failed to load international data:", err));
   }
   if (["comparison", "explorer", "ratepayer"].includes(target.name)) {
     loadAggregateView().catch((err) => {
@@ -1057,7 +1062,11 @@ function activateView(name) {
       console.error("Failed to load tariffs data:", err);
     });
   } else if (target.name === "world") {
-    loadInternationalData()
+    // Cards name operators via companiesBySlug; on a cold #country/XX load
+    // companies.json may land after international.json (Sonnet review, #84).
+    // Operator names are supplementary (cards fall back to the slug), so a
+    // failed companies.json must not blank the tab (Codex review, #84).
+    Promise.all([loadInternationalData(), ensureCompanyData().catch((err) => console.error("Company names unavailable:", err))])
       .then(renderWorld)
       .catch((err) => {
         console.error("Failed to load international data:", err);
@@ -5112,6 +5121,15 @@ function showThemeQuotes(theme, focusSlug, opts = {}) {
 }
 
 
+// "plus 2 sites abroad" for an operator with international records (v6), once
+// the lazy international payload is in; empty until then (Sonnet review, #84).
+function abroadWords(slug) {
+  const d = state.intl;
+  if (!d) return "";
+  const n = d.projects.filter((p) => p.company_slug === slug).length;
+  return n ? escapeHtml(` · plus ${n} site${n === 1 ? "" : "s"} abroad`) : "";
+}
+
 // Profiles: one card per operator. Renders from claims on first paint and
 // re-renders when the projects/responses/roster payloads land.
 function renderCompanyCards() {
@@ -5149,7 +5167,7 @@ function renderCompanyCards() {
 
     const facts = r
       ? `<dl class="co-facts">
-          <div><dt>Sites tracked</dt><dd>${r.projects}<span class="co-sub">${escapeHtml(statusWords(r))}</span></dd></div>
+          <div><dt>Sites tracked</dt><dd>${r.projects}<span class="co-sub">${escapeHtml(statusWords(r))}${abroadWords(co.slug)}</span></dd></div>
           <div><dt>Announced power</dt><dd>${r.power_mw ? formatSummaryGW(r.power_mw) : "Not disclosed"}</dd></div>
           <div><dt>Announced investment</dt><dd>${r.capex ? formatSummaryUsd(r.capex) : "Not disclosed"}</dd></div>
           <div><dt>Jobs claimed</dt><dd>${r.jobs ? r.jobs.toLocaleString() : "Not disclosed"}</dd></div>
@@ -9333,6 +9351,9 @@ const COUNTRY_NAMES = {
   CA: "Canada",
   CL: "Chile",
   AR: "Argentina",
+  JP: "Japan",
+  KR: "South Korea",
+  IN: "India",
 };
 const SUPRANATIONAL_NAMES = { EU: "European Union" };
 const EU_MEMBERS = [
@@ -9348,23 +9369,51 @@ const SUBDIVISION_NAMES = {
   "GB-SCT": "Scotland",
   "GB-WLS": "Wales",
   "FR-IDF": "Île-de-France",
+  "FR-36": "Indre",
   "IE-D": "Dublin",
+  "IE-KE": "Kildare",
+  "IE-MH": "Meath",
   "GR-I": "Attica",
   "FI-18": "Uusimaa",
   "FI-09": "Kymenlaakso",
   "SE-AB": "Stockholm County",
   "SE-X": "Gävleborg County",
   "SE-M": "Skåne County",
+  "SE-BD": "Norrbotten County",
   "CL-RM": "Santiago Metropolitan Region",
   "CL-VS": "Valparaíso",
   "AR-B": "Buenos Aires Province",
   "AR-C": "Ciudad Autónoma de Buenos Aires",
   "AR-Q": "Neuquén",
   "AR-U": "Chubut",
+  "JP-13": "Tokyo",
+  "JP-27": "Osaka",
+  "JP-01": "Hokkaido",
+  "JP-12": "Chiba",
+  "JP-11": "Saitama",
+  "JP-40": "Fukuoka",
+  "JP-09": "Tochigi",
+  "KR-11": "Seoul",
+  "KR-41": "Gyeonggi",
+  "KR-26": "Busan",
+  "KR-28": "Incheon",
+  "KR-46": "South Jeolla",
+  "KR-31": "Ulsan",
+  "IN-MH": "Maharashtra",
+  "IN-AP": "Andhra Pradesh",
+  "IN-TN": "Tamil Nadu",
+  "IN-UP": "Uttar Pradesh",
+  "IN-TG": "Telangana",
+  "IN-KA": "Karnataka",
+  "SE-D": "Södermanland County",
+  "FI-14": "North Ostrobothnia",
+  "FI-05": "Kainuu",
+  "KR-42": "Gangwon",
 };
-const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS"];
+const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR"];
 const LANGUAGE_NAMES = {
   en: "English", fr: "French", sv: "Swedish", fi: "Finnish", el: "Greek", ga: "Irish", es: "Spanish",
+  ja: "Japanese", ko: "Korean", hi: "Hindi",
 };
 const TRANSLATION_SOURCE_LABELS = {
   official: "Official English version",
@@ -9388,6 +9437,9 @@ const FX_USD_PER_UNIT = {
   CAD: 1 / 1.3973,
   SGD: 1 / 1.3065,
   SEK: 1 / 9.8060,
+  JPY: 1 / 149.5686,
+  KRW: 1 / 1421.3963,
+  INR: 1 / 87.1468,
 };
 const FX_SOURCE_NOTE = "Federal Reserve G.5A, 2025 annual average";
 
@@ -9465,6 +9517,8 @@ function intlRecordsFor(code) {
     moratoriums: d.moratoriums.filter(inCountry),
     projects: d.projects.filter(inCountry),
     rateCases: (d.rate_cases || []).filter(inCountry),
+    // Company-wide statements for this country (not tied to one site).
+    statements: d.claims.filter((c) => inCountry(c) && !c.project_id),
     eu,
   };
 }
@@ -9475,6 +9529,7 @@ function countWords(rs) {
   if (rs.moratoriums.length) parts.push(`${rs.moratoriums.length} pause${rs.moratoriums.length === 1 ? "" : "s"}`);
   if (rs.rateCases.length) parts.push(`${rs.rateCases.length} rate case${rs.rateCases.length === 1 ? "" : "s"}`);
   if (rs.projects.length) parts.push(`${rs.projects.length} site${rs.projects.length === 1 ? "" : "s"}`);
+  if (rs.statements.length) parts.push(`${rs.statements.length} company statement${rs.statements.length === 1 ? "" : "s"}`);
   if (rs.eu.length) parts.push(`${rs.eu.length} EU rule${rs.eu.length === 1 ? "" : "s"}`);
   return parts.join(" · ") || "No records yet";
 }
@@ -9547,7 +9602,7 @@ function intlSiteCard(p, hTag = "h3") {
   if (figs.length) li.append(el("p", "cba-value", figs.join(" · ")));
   if (p.notes) li.append(el("p", "cba-summary", p.notes));
   for (const c of d.claims.filter((c) => c.project_id === p.id)) {
-    li.append(quoteBlock(c.statement, c.statement_lang, c.statement_translation));
+    li.append(quoteBlock(c.statement, c.statement_lang, c.statement_translation), sourceLine(c));
   }
   const resps = d.responses.filter((r) => r.project_id === p.id);
   if (resps.length) {
@@ -9564,6 +9619,20 @@ function intlSiteCard(p, hTag = "h3") {
     li.append(ul);
   }
   li.append(sourceLine(p));
+  return li;
+}
+
+function intlStatementCard(c, hTag = "h3") {
+  const li = el("li", "cba-card world-record");
+  li.dataset.id = c.id;
+  const co = state.companiesBySlug && state.companiesBySlug.get(c.company_slug);
+  const head = el("header", "cba-head");
+  head.append(
+    el("span", "cba-kind", THEME_LABELS[c.theme] || c.theme),
+    el(hTag, "cba-title", co ? co.name : c.company_slug),
+    el("p", "cba-facts", formatAsOf(c.published_at || c.captured_at))
+  );
+  li.append(head, quoteBlock(c.statement, c.statement_lang || "en", c.statement_translation), sourceLine(c));
   return li;
 }
 
@@ -9588,7 +9657,7 @@ function worldInstruments() {
   const d = state.intl;
   return [
     ...d.policies.map((p) => ({ kind: "policy", r: p, date: p.date || "" })),
-    ...d.moratoriums.map((m) => ({ kind: "pause", r: m, date: m.enacted_date || m.captured_at || "" })),
+    ...d.moratoriums.map((m) => ({ kind: "pause", r: m, date: m.enacted_date || m.effective_date || m.lifted_date || "" })),
     ...(d.rate_cases || []).map((rc) => ({ kind: "ratecase", r: rc, date: rc.filed_date || "" })),
   ].sort((a, b) => b.date.localeCompare(a.date));
 }
@@ -9627,7 +9696,8 @@ function renderWorld() {
     // A zero tile would assert a finding ("no pauses abroad") the curation
     // hasn't made; only populated counts get a tile.
     stats.innerHTML = [
-      [countries.length, "Countries and the EU"],
+      // Countries only; the EU is a layer on top, not a 12th country.
+      [countries.filter((c) => c.code in COUNTRY_NAMES).length, "Countries, plus EU rules"],
       [d.policies.length, "Rules and programmes"],
       [nPause, "Pauses"],
       [(d.rate_cases || []).length, "Rate cases"],
@@ -9696,7 +9766,9 @@ function openWorldPrinciple(key) {
   closeCountry();
   activateView("world");
   setActiveSubtab("world", "instruments");
-  loadInternationalData().then(() => {
+  // Same promise shape as activateView's world branch, registered after it,
+  // so renderWorld has filled the select before we set it.
+  Promise.all([loadInternationalData(), ensureCompanyData().catch(() => {})]).then(() => {
     const sel = document.getElementById("world-principle-filter");
     if (sel && [...sel.options].some((o) => o.value === key)) {
       sel.value = key;
@@ -9740,6 +9812,7 @@ function openCountry(code, { push = false } = {}) {
   section("Pauses", rs.moratoriums, intlPauseCard);
   section("Electricity rate cases", rs.rateCases, intlRateCaseCard);
   section("Sites", rs.projects, intlSiteCard);
+  section("Company statements", rs.statements, intlStatementCard);
   if (EU_MEMBERS.includes(code)) section("EU rules that apply here", rs.eu, intlPolicyCard);
   // Background after the records: readers come for the rules and sites.
   if (c.context && c.context.length) {

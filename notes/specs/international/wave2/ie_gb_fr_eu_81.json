@@ -1,0 +1,603 @@
+{
+  "as_of": "2026-10-19",
+  "scope": "Issue #81 open leads (Part 1), deeper IE/GB/FR/EU records (Part 2), company US operations (Part 3). Only probe-HIT verbatims count; verified:true only where every factual field's phrase HITs.",
+  "budget_note": "About 40 fetches (WebFetch + probe.py). Several primaries are blocked (Legifrance 403, economie.gouv.fr PPE 403, IMDA page JS-only, OpenAI page 403, Microsoft/AWS/Blackstone planning portals not reached). Part 2 is short of the 4-8 per country target; see notes.",
+  "part1_results": [
+    {
+      "lead": "a",
+      "topic": "Singapore 2019-2022 data-centre pause",
+      "result": "VERIFIED",
+      "detail": "EDB/IMDA joint release of 20 July 2022 (EDB PDF) states the government informed industry of a temporary pause in 2019 and launched the pilot DC-CFA. Authority statement satisfies the de_facto corroboration rule. Exact lifted date is inferred from the launch date; the release does not use the word 'lifted'."
+    },
+    {
+      "lead": "b",
+      "topic": "Ireland CRU LEU connection decision CRU/2025236",
+      "result": "VERIFIED",
+      "detail": "Final decision paper read from cru.ie (publication page 28906, 12 Dec 2025) and the decision PDF (PDFKit/probe). 80% renewable matching, 1 MVA de-minimis, dispatchable onsite/proximate generation for MIC >= 10 MVA all HIT. Also confirms the decision supersedes Direction CRU/21/124 (the 2021 'effective freeze' lead, #5 in issue #81): no new Moratorium record, lineage only."
+    },
+    {
+      "lead": "c",
+      "topic": "France heat-recovery obligation (decree 2025-1382, Code de l'energie L.236-2)",
+      "result": "NOT VERIFIED",
+      "detail": "Legifrance (JORFTEXT000053201866 and L236-2) returns 403 to probe and WebFetch. Search snippets give the decree number and 29 Dec 2025 date, and a 1 MW threshold, but a snippet is not a fetched page. The 20% reuse factor appears only in secondary sources and is contradicted by the search summary. Not shipped. Needs a manual Legifrance read or a CNIL-style mirror. Also not found: a verified ecologie.gouv.fr page (the PPE 2026-2035 PDF returned 403)."
+    },
+    {
+      "lead": "d",
+      "topic": "Australia federal large-load / grid-cost rules",
+      "result": "PARTIALLY VERIFIED",
+      "detail": "AEMC media release (12 March 2026) on the draft rule ERC0394 'Improving the NEM access standards - Package 2' is verified: raises the large inverter-based load threshold from 5 MW to 30 MW. This is a technical access standard, not a cost-allocation rule. The 'own connection costs' national proposal (aiunderstanding.org) is not verified; no DCCEEW or National Cabinet primary found. Stage per secondary: final determination expected late October 2026, not confirmed on AEMC."
+    },
+    {
+      "lead": "e",
+      "topic": "Stargate Argentina site (OpenAI + Sur Energy)",
+      "result": "PARTIALLY VERIFIED: NO SITE NAMED",
+      "detail": "Sur Energy press release (sur.energy/press-release) is probe-verified: LOI for up to 500MW, first Stargate in Latin America, up to $25 billion, structured within RIGI. It does not name a province or site, and 'Patagonia' and 'Neuquen' do not appear on it. The Patagonia reporting is press-only. The Neuquen 500 MW project is Pampa Energia, not Stargate, and must not be conflated. OpenAI's own page is 403 to probe."
+    },
+    {
+      "lead": "f1",
+      "topic": "EU Cloud and AI Development Act stage",
+      "result": "VERIFIED",
+      "detail": "OEIL summary (procedure 2026/0138(COD), dated 03/06/2026) is probe-verified: ordinary legislative procedure, Parliament and Council on equal footing. Secondary sources (EESC referrals 24 Jun and 18 Sep 2026) are not used for the record."
+    },
+    {
+      "lead": "f2",
+      "topic": "EU data-centre rating scheme (second delegated act)",
+      "result": "VERIFIED (date and scope); legal form not verified",
+      "detail": "Commission news page of 21 Sep 2026 (probe-verified) says the data centre energy efficiency package, 'also published today', aims at 'a common EU rating scheme and label for data centres'. Delegated Regulation number 2026/7000 and the 'scrutiny' and 'adopted' status come from secondary sources only and are not used. Earlier draft (call for feedback 26 Mar to 23 Apr 2026) is secondary."
+    }
+  ],
+  "records": [
+    {
+      "type": "moratorium",
+      "action": "new",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "jurisdiction": "Singapore (national)",
+        "jurisdiction_type": "national",
+        "status": "enacted",
+        "formality": "de_facto",
+        "enacted_date": null,
+        "lifted_date": "2022-07-20",
+        "duration_description": "Temporary pause in the growth of data centres, announced in 2019; new capacity reopened through the pilot Data Centre Call for Application launched 20 July 2022",
+        "key_reasons": [
+          "energy"
+        ],
+        "summary": "The government informed industry of a temporary pause in data-centre growth in 2019 and started a review. After consultation, EDB and IMDA launched a pilot call for applications in July 2022 for new capacity with sustainability conditions."
+      },
+      "source_url": "https://www.edb.gov.sg/content/dam/edb-en/about-edb/media-releases/news/edb-and-imda-launch-pilot-data-centre-call-for-application-to-support-sustainable-growth-of-data-centres/Press%20Release%20-%20EDB%20and%20IMDA%20launch%20pilot%20data%20centre%20-%20Call%20for%20Application%20to%20support%20sustainable%20growth%20of%20Data%20Centres.pdf",
+      "source_title": "EDB and IMDA joint release — Launch of pilot Data Centre Call for Application (20 July 2022)",
+      "source_lang": "en",
+      "verbatim": "The Government informed the industry of a temporary pause in the growth of DCs in 2019 and embarked on a review.",
+      "verbatims": [
+        "The Government informed the industry of a temporary pause in the growth of DCs in 2019 and embarked on a review.",
+        "EDB and IMDA have launched a pilot Data Centre (DC)-Call for Application Exercise (DC-CFA)"
+      ],
+      "verified": true,
+      "notes": "Authority's own statement (EDB + IMDA), so de_facto corroboration is met without a second source. The release gives no exact 2019 date, so enacted_date is null. lifted_date 2022-07-20 is the pilot launch date; the release does not say 'lifted'. Trade press (Reed Smith, DCD) calls it a moratorium that 'was lifted' but is not cited as the basis. Resources to add: the 2022 release itself (already source_url)."
+    },
+    {
+      "type": "policy",
+      "action": "update",
+      "existing_id": "sg-dc-cfa-pilot-2022",
+      "country": "SG",
+      "fields": {
+        "launch_date": "2022-07-20",
+        "pue_requirement": "PUE of 1.3 (at 100% IT load) or better",
+        "green_mark_requirement": "Platinum certification under the BCA-IMDA Green Mark for New Data Centre"
+      },
+      "source_url": "https://www.edb.gov.sg/content/dam/edb-en/about-edb/media-releases/news/edb-and-imda-launch-pilot-data-centre-call-for-application-to-support-sustainable-growth-of-data-centres/Press%20Release%20-%20EDB%20and%20IMDA%20launch%20pilot%20data%20centre%20-%20Call%20for%20Application%20to%20support%20sustainable%20growth%20of%20Data%20Centres.pdf",
+      "source_title": "EDB and IMDA joint release — Annex A, Summary of Pilot DC-CFA Key Parameters & Criteria (20 July 2022)",
+      "source_lang": "en",
+      "verbatim": "achieve at least a Power Usage Effectiveness (PUE) of 1.3 (at 100% IT load) or better",
+      "verified": true,
+      "notes": "Confirms the 2022 pilot parameters from the authority's Annex A. Closing date (21 November 2022) is in the same annex but its phrase did not probe cleanly; not added. The green-energy condition from DC-CFA2 is not in this pilot record."
+    },
+    {
+      "type": "policy",
+      "action": "update",
+      "existing_id": "ie-cru-large-energy-users-2025",
+      "country": "IE",
+      "fields": {
+        "identifier": "CRU/2025236",
+        "date": "2025-12-12",
+        "status": "in_effect",
+        "key_terms": [
+          "Data centres with MIC equal to or above the de-minimis level are required to meet at least 80% of their annual demand with additional renewable electricity generated in the Republic of Ireland.",
+          "this de-minimis level will be set at 1 MVA",
+          "Data centres with MIC equal to or greater than 10MVA ... are required to provide dispatchable onsite or proximate generation and/or storage capacity which matches their MIC (subject to derating requirements)"
+        ],
+        "summary_addition": "Decision paper CRU/2025236 (12 Dec 2025). Below 1 MVA MIC: de-minimis, no dispatchable or renewable requirement. 1 MVA to 10 MVA: separate requirements. 10 MVA and above: onsite or proximate dispatchable generation matching MIC, plus 80% annual renewable matching. It supersedes Direction CRU/21/124 (the 2021 direction, so no separate Moratorium record). Judicial review proceedings against the CRU decision were reported by EirGrid in May 2026."
+      },
+      "source_url": "https://cruie-live-96ca64acab2247eca8a850a7e54b-5b34f62.divio-media.com/documents/CRU2025236_Large_Energy_User_connection_policy_decision_paper.pdf",
+      "source_title": "CRU — Large Energy Users connection policy decision paper (CRU2025236, 12 December 2025)",
+      "source_lang": "en",
+      "verbatim": "Data centres with MIC equal to or above the de-minimis level are required to meet at least 80% of their annual demand with additional renewable electricity generated in the Republic of Ireland.",
+      "verbatims": [
+        "Data centres with MIC equal to or above the de-minimis level are required to meet at least 80% of their annual demand with additional renewable electricity generated in the Republic of Ireland.",
+        "this de-minimis level will be set at 1 MVA",
+        "The CRU is of the view that data centre connection applications seeking a Maximum Import Capacity (MIC) of 10MVA and above should be required to provide onsite or proximate generation and/or storage",
+        "This direction supersedes Direction CRU/21/124 and will apply to all new connection applications for new or additional capacity captured under the scope of the decision."
+      ],
+      "resources": [
+        {
+          "url": "https://www.cru.ie/publications/28906/",
+          "title": "CRU publication page: Review of Large Energy Users Connection Policy (12 Dec 2025)"
+        }
+      ],
+      "verified": true,
+      "notes": "Final decision PDF probe-HIT. The 'dispatchable ... matches their MIC' sentence was read in the probe output of the same PDF (exact-phrase probe not re-run). The CRU publication page confirms 'published a decision paper ... (CRU2025236)' on 12 Dec 2025 and 'supersedes Direction CRU/21/124'. The 'Mandatory Demand Curtailment' exemption for dispatchable-generation connections is also in the decision (not added). Proposed decision CRU202504 (18 Feb 2025, consultation to 4 April 2025) is in resources. Law-firm summaries are not used."
+    },
+    {
+      "type": "policy",
+      "action": "new",
+      "country": "IE",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "EirGrid Data Centre Connection Offer Process and Policy, Version 3 (DCCOPP v3)",
+        "jurisdiction": "Ireland (national)",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "date": "2026-05",
+        "identifier": "DCCOPP Version 3",
+        "summary": "EirGrid's connection process for data centres under CRU/2025236. A data-centre application cannot be progressed in a constrained area. EirGrid notes judicial review proceedings against the CRU decision.",
+        "key_terms": [
+          "a data centre application cannot be progressed if it is in a constrained area",
+          "judicial review proceedings have been initiated against the CRU in relation to its decision paper on Large Energy Users Connection Policy (CRU/2025236)"
+        ],
+        "principles": [
+          "new_power",
+          "pay_own_way"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "national"
+      },
+      "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Connection-Offer-Process-and-Policy-V3-May-2026.pdf",
+      "source_title": "EirGrid — Data Centre Connection Offer Process and Policy, Version 3 (May 2026)",
+      "source_lang": "en",
+      "verbatim": "a d ata c entre application cannot be progressed if it is in a constrained area",
+      "verbatims": [
+        "a d ata c entre application cannot be progressed if it is in a constrained area.",
+        "judicial review proceedings have been initiated against the CRU in relation to its d ecision p Large Energy Users Connection Policy (CRU/2025236)."
+      ],
+      "verified": true,
+      "notes": "The PDF has spaced-out letters; the verbatim is copied from probe context. Instrument is a curator call: TSO process implementing a CRU decision, not a statute. Filed as regulation to match CRU/2025236. Constrained-area statement cross-checked against EirGrid's Constrained Area Overview (see context fact)."
+    },
+    {
+      "type": "context",
+      "action": "new",
+      "country": "IE",
+      "fields": {
+        "statement": "EirGrid's May 2026 Constrained Area Overview treats the greater Dublin region as fully constrained for large data-centre connections.",
+        "period": "2026-05",
+        "regulator": "EirGrid (grid operator)"
+      },
+      "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Constrained-Area-Overview-May-2026.pdf",
+      "source_title": "EirGrid — Data Centre Constrained Area Overview (May 2026)",
+      "source_lang": "en",
+      "verbatim": "The greater Dublin region is considered fully constrained.",
+      "verbatims": [
+        "The greater Dublin region is considered fully constrained.",
+        "it is prudent to assume that these areas will only be able to facilitate new connections from the mid-2030s"
+      ],
+      "verified": true,
+      "notes": "Probe-HIT. The 'mid-2030s' sentence is about 220 kV substations serving the constrained areas. Secondary search claimed a 2028 'no new applications' date: NOT found on EirGrid, so not used. The 2022 Government statement that Dublin would not accept new requests is secondary."
+    },
+    {
+      "type": "project",
+      "action": "new",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Waltham Cross",
+      "fields": {
+        "name": "Google Waltham Cross data centre (Hertfordshire)",
+        "operator": "Google",
+        "city": "Waltham Cross, Hertfordshire",
+        "status": "operational",
+        "announced_year": 2024,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Opening announced 16 Sep 2025 as part of a two-year GBP 5 billion UK investment (company-wide, not a site figure, so no claimed_investment). Air-cooling and heat-recovery readiness are not quoted here because the phrases did not probe. Lat/lon not probed. Broxbourne Council item describes it as 'Cheshunt' (Theobalds Business Park); the address field is kept as the company's wording."
+      },
+      "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
+      "source_title": "Google — Our new Waltham Cross data center is part of our two-year, £5 billion investment to help power the UK's AI economy (16 Sep 2025)",
+      "source_lang": "en",
+      "verbatim": "Google is deepening our roots in the UK with the opening of our new data centre in Waltham Cross, Hertfordshire.",
+      "verified": true,
+      "notes": "First-party Google blog (official). The 2024 'USD 1 billion' figure is from the Google Cloud press corner (not probed) and is not used."
+    },
+    {
+      "type": "claim",
+      "action": "new",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Waltham Cross",
+      "fields": {
+        "company": "Google",
+        "theme": "jobs",
+        "statement": "supporting a projected 8,250 jobs annually in the UK",
+        "statement_lang": "en",
+        "translation": null,
+        "scope_note": "UK-wide job projection tied to the GBP 5 billion programme, not a site-specific figure"
+      },
+      "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
+      "source_title": "Google — Our new Waltham Cross data center (16 Sep 2025)",
+      "source_lang": "en",
+      "verbatim": "supporting a projected 8,250 jobs annually in the UK",
+      "verified": true,
+      "notes": "First-party company statement. It is about jobs, which passes gate 2. It is a company-wide projection, not a site claim, so it is linked to the Waltham Cross project only by location."
+    },
+    {
+      "type": "project",
+      "action": "new",
+      "country": "GB",
+      "subdivision": "GB-OXF",
+      "locality": "Culham",
+      "fields": {
+        "name": "Culham AI Growth Zone (Culham Campus, Oxfordshire)",
+        "operator": "UK Atomic Energy Authority campus (delivery partner to be selected; no operator named in the cited release)",
+        "city": "Culham, Oxfordshire",
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "First AI Growth Zone. The release says public compute will increase twentyfold and that a private partner would build one of the UK's largest AI data centres, starting with 100 MW (secondary read of the AI Action Plan response, NOT probe-verified; not used). Lat/lon not probed. Grid capacity 'up to 500MW' per zone is from the Feb 2025 DSIT release, not probed."
+      },
+      "source_url": "https://www.gov.uk/government/news/prime-minister-sets-out-blueprint-to-turbocharge-ai",
+      "source_title": "GOV.UK — Prime Minister sets out blueprint to turbocharge AI (January 2025)",
+      "source_lang": "en",
+      "verbatim": "The first of these will be in Culham, Oxfordshire",
+      "verbatims": [
+        "The first of these will be in Culham, Oxfordshire",
+        "forging new AI Growth Zones to speed up planning proposals and build more AI infrastructure"
+      ],
+      "verified": true,
+      "notes": "Official gov.uk PM release, probe-HIT. Designation text and 'first' are confirmed. Existing policy record gb-ai-growth-zones-2025 covers the framework; this record is the first site."
+    },
+    {
+      "type": "context",
+      "action": "new",
+      "country": "GB",
+      "fields": {
+        "statement": "The government said £14 billion and 13,250 jobs had been committed by private leading tech firms following the AI Opportunities Action Plan.",
+        "period": "2025-01",
+        "regulator": null
+      },
+      "source_url": "https://www.gov.uk/government/news/prime-minister-sets-out-blueprint-to-turbocharge-ai",
+      "source_title": "GOV.UK — Prime Minister sets out blueprint to turbocharge AI (January 2025)",
+      "source_lang": "en",
+      "verbatim": "£14 billion and 13,250 jobs committed by private leading tech firms following AI Action Plan",
+      "verified": true,
+      "notes": "Government's own figure, probe-HIT (the page is a 'commitments' summary). Commitments, not delivered investment."
+    },
+    {
+      "type": "project",
+      "action": "new",
+      "country": "FR",
+      "subdivision": "FR-IDF",
+      "locality": "Fouju",
+      "fields": {
+        "name": "Campus IA, Fouju (Seine-et-Marne)",
+        "operator": "Campus IA project company (SAS). Majority ownership by MGX is asserted by a senator's written question, not confirmed by the government, so it is not stored as fact.",
+        "city": "Fouju, Seine-et-Marne",
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": 1400,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Power 1.4 GW and 10 to 12 data centres on 70 to 73 ha are from the senator's question (the project description), not from a government release. Ministerial answer of 30 July 2026: 700 MW contracted with RTE, with talks to increase within available capacity. Public inquiry ran 30 April to 30 May 2026. Investment figure (EUR 50 bn per secondary) is not used. Secondary: RTE fast-track contract of 26 Jan 2026 (240 MW by end-2027, 700 MW by end-2029) could not be probed (release text not extractable)."
+      },
+      "source_url": "https://www.senat.fr/questions/base/2026/qSEQ260508929.html",
+      "source_title": "Sénat — Question écrite n°08929 sur le projet de « Campus IA » à Fouju en Seine-et-Marne, with ministerial reply published 30/07/2026",
+      "source_lang": "fr",
+      "verbatim": "A ce jour, 700 MW de puissance électrique ont été contractualisés avec RTE et des discussions sont en cours pour augmenter cette puissance, dans la limite des capacités disponibles.",
+      "verbatims": [
+        "A ce jour, 700 MW de puissance électrique ont été contractualisés avec RTE et des discussions sont en cours pour augmenter cette puissance, dans la limite des capacités disponibles.",
+        "Ce projet prévoit l'implantation de dix à douze centres de données sur 70 à 73 hectares de terres agricoles, pour une puissance électrique de 1,4 gigawatt",
+        "pour lequel l'enquête publique unique est ouverte du 30 avril au 30 mai 2026"
+      ],
+      "translation": {
+        "verbatim_en_machine": "To date, 700 MW of electrical capacity has been contracted with RTE, and discussions are under way to increase it within the limits of available capacity."
+      },
+      "verified": true,
+      "notes": "Parliament's own page, probe-HIT. The ministerial reply is official; the 1.4 GW and site description are the question author's words. The 'secret des affaires' question about the project company's blocking rights is a parliamentary question, not a stance. Not filed as a CommunityResponse (no constituency match). Operator field kept to what is verifiable."
+    },
+    {
+      "type": "context",
+      "action": "new",
+      "country": "FR",
+      "fields": {
+        "statement": "In May 2026 RTE had reserved nearly 18 GW of grid capacity for about 80 data-centre projects, up from about 5 GW for about forty projects at end-2024.",
+        "period": "2026-05",
+        "regulator": "RTE (grid operator)"
+      },
+      "source_url": "https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france",
+      "source_title": "RTE — Les data centers en chiffres clés (key figures)",
+      "source_lang": "fr",
+      "verbatim": "En mai 2026, RTE avait réservé près de 18 GW de capacité, pour environ 80 projets. Fin 2024, il y avait une quarantaine de projets totalisant environ 5 GW.",
+      "translation": {
+        "verbatim_en_machine": "In May 2026, RTE had reserved nearly 18 GW of capacity for about 80 projects. At the end of 2024, there were about forty projects totalling about 5 GW."
+      },
+      "verified": true,
+      "notes": "Reservations, not built load. RTE's own page; RTE is an official regulator-side party in the grid queue. The 'ghost project' caveat is from a later RTE consultation (secondary) and is not used as fact."
+    },
+    {
+      "type": "policy",
+      "action": "update",
+      "existing_id": "eu-cada-proposal-2026",
+      "country": "EU",
+      "fields": {
+        "procedure": "2026/0138(COD)",
+        "stage": "Commission proposal dated 03/06/2026; decided under the ordinary legislative procedure (European Parliament and Council on an equal footing)",
+        "status": "proposed"
+      },
+      "source_url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1903654",
+      "source_title": "European Parliament Legislative Observatory — Cloud and AI Development Act 2026/0138(COD)",
+      "source_lang": "en",
+      "verbatim": "Cloud and AI Development Act 2026/0138(COD) 03/06/2026",
+      "verbatims": [
+        "Cloud and AI Development Act 2026/0138(COD) 03/06/2026",
+        "the European Parliament decides in accordance with the ordinary legislative procedure and on an equal footing with the Council"
+      ],
+      "verified": true,
+      "notes": "OEIL procedure record, probe-HIT. Secondary EESC referral dates (24 June and 18 Sept 2026) and the Council working-party status are not verified and are not in the record. No rapporteur confirmed by the probed page."
+    },
+    {
+      "type": "policy",
+      "action": "new",
+      "country": "EU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Common EU rating scheme and label for data centres (data centre energy efficiency package)",
+        "jurisdiction": "European Union",
+        "instrument": "regulation",
+        "status": "proposed",
+        "stage": "Commission package published 21 September 2026. Delegated act under the Energy Efficiency Directive; scrutiny stage not verified on the probed page.",
+        "date": "2026-09-21",
+        "identifier": null,
+        "summary": "Commission package of 21 September 2026 that adds a common EU rating scheme and label for data centres. Same day, a 12-week public consultation opened on minimum performance standards, with a legislative proposal planned for Q2 2027.",
+        "key_terms": [
+          "aims at further improving transparency, notably through a common EU rating scheme and label for data centres",
+          "legislative proposal planned for the second quarter of 2027",
+          "launched a 12-week open public consultation and call for evidence on minimum performance standards for data centres in the EU"
+        ],
+        "principles": [
+          "study"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "supranational"
+      },
+      "source_url": "https://energy.ec.europa.eu/news/minimum-performance-standards-data-centres-europe-public-consultation-launched-2026-09-21_en",
+      "source_title": "European Commission (DG Energy) — Minimum performance standards for data centres in Europe: public consultation launched (21 Sep 2026)",
+      "source_lang": "en",
+      "verbatim": "aims at further improving transparency, notably through a common EU rating scheme and label for data centres",
+      "verbatims": [
+        "aims at further improving transparency, notably through a common EU rating scheme and label for data centres",
+        "legislative proposal planned for the second quarter of 2027",
+        "launched a 12-week open public consultation and call for evidence on minimum performance standards for data centres in the EU"
+      ],
+      "resources": [
+        {
+          "url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+          "title": "European Commission — Energy performance of data centres"
+        }
+      ],
+      "verified": true,
+      "notes": "Date, package, rating scheme and consultation/legislative timing are probe-HIT on the Commission news page. Not used: delegated act number 2026/7000, the 'scrutiny' period, the label-from-15-Aug-2027 timing, and the PUE class table, all secondary. Consultation closes 14 Dec 2026. Principle 'study' is a curator call (a reporting-and-rating instrument)."
+    },
+    {
+      "type": "policy",
+      "action": "new",
+      "country": "AU",
+      "subdivision": "AU-national",
+      "locality": null,
+      "fields": {
+        "title": "AEMC draft rule ERC0394 'Improving the NEM access standards - Package 2' (large inverter-based loads)",
+        "jurisdiction": "Australia (national)",
+        "instrument": "regulation",
+        "status": "proposed",
+        "stage": "draft determination published 12 March 2026; final determination not verified (secondary: late October 2026)",
+        "date": "2026-03-12",
+        "identifier": "ERC0394",
+        "summary": "AEMC draft rule on technical access standards for large inverter-based loads, including data centres. Raises the threshold for 'large' loads from 5 MW to 30 MW. Ride-through requirements.",
+        "key_terms": [
+          "The draft rule would raise the current threshold for large inverter-based loads from 5 MW to 30 MW"
+        ],
+        "principles": [],
+        "benefit_themes": [
+          "infrastructure"
+        ],
+        "value": null,
+        "scope": "national"
+      },
+      "source_url": "https://aemc.gov.au/news-centre/media-releases/aemc-proposes-new-grid-standards-data-centre-connections",
+      "source_title": "AEMC — Proposed new grid standards for data centre connections (12 Mar 2026)",
+      "source_lang": "en",
+      "verbatim": "The draft rule would raise the current threshold for large inverter-based loads from 5 MW to 30 MW",
+      "verified": true,
+      "notes": "Probe-HIT on the AEMC release. Shipped here as a verified proposed policy. Its principles are empty because it is a technical standard, not a cost-allocation rule. The AEMC chair quote 'it can cost consumers billions in lost electricity supply or emergency network upgrades' is also probe-HIT."
+    },
+    {
+      "type": "project",
+      "action": "new",
+      "country": "AR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "name": "Stargate Argentina (OpenAI and Sur Energy), letter of intent, site not named",
+        "operator": "Sur Energy",
+        "city": null,
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": {
+          "amount": 25000000000,
+          "currency": "USD",
+          "as_stated": "up to $25 billion"
+        },
+        "claimed_jobs": null,
+        "power_mw": 500,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Lead (e) answer: no official page names the province or site. Shipped only as a project with the site unnamed (locality null), status announced. Neuquen (Pampa Energia, 500 MW) is a different project and must not be attached. OpenAI's own page is 403 to probe."
+      },
+      "source_url": "https://www.sur.energy/press-release",
+      "source_title": "Sur Energy — Sur Energy and OpenAI plan Stargate Argentina (press release, 10 Oct 2025)",
+      "source_lang": "en",
+      "verbatim": "The companies have signed a Letter of Intent (LOI) to collaborate on a large-scale data center project capable of hosting the next generation of AI computing and reaching up to 500MW capacity.",
+      "verbatims": [
+        "The companies have signed a Letter of Intent (LOI) to collaborate on a large-scale data center project capable of hosting the next generation of AI computing and reaching up to 500MW capacity.",
+        "the project will involve up to $25 billion in investment at full scale"
+      ],
+      "verified": true,
+      "notes": "Lead (e) answer: no official page names the province or site. Shipped only as a project with the site unnamed (locality null), status announced. Neuquen (Pampa Energia, 500 MW) is a different project and must not be attached. OpenAI's own page is 403 to probe."
+    }
+  ],
+  "part2_summary": {
+    "IE": {
+      "new_verified": 1,
+      "updates": 1,
+      "context": 1,
+      "note": "1 new policy (EirGrid DCCOPP v3) plus 1 context fact, plus 1 update (CRU record). Short of 4-8. The Microsoft Grange Castle/Dub 14-15 items, the ACP decision and the Dublin council refusals are secondary-only or behind 403s (DCD 403, EirGrid planning pages not reached). See part2_failed_or_blocked."
+    },
+    "GB": {
+      "new_verified": 3,
+      "updates": 0,
+      "context": 1,
+      "note": "Waltham Cross project, Google jobs claim and Culham AI Growth Zone project verified, plus 1 context fact. Short of 4-8. Blackstone/QTS Blyth is trade-press only; the council portal was not reached. Nscale Loughton and Google Grange Castle are already in existing.md."
+    },
+    "FR": {
+      "new_verified": 1,
+      "updates": 0,
+      "context": 1,
+      "note": "Campus IA (Fouju) project and RTE reservation context verified. Short of 4-8: no Microsoft, AWS or Google France site verified in a primary source; heat-recovery decree blocked."
+    },
+    "EU": {
+      "new_verified": 1,
+      "updates": 1,
+      "context": 0,
+      "note": "Two EU items verified (rating scheme and CADA procedure). Minimum-standards consultation is folded into the rating record, not filed separately."
+    }
+  },
+  "part2_failed_or_blocked": [
+    {
+      "lead": "Blyth/Cambois QTS campus (Blackstone), Northumberland",
+      "reason": "trade-press only; no council or Blackstone primary fetched. 2 Dec approval and 720 MW figures are secondary (LBC, DCD)."
+    },
+    {
+      "lead": "Microsoft Grange Castle gas plant (170 MW standby, Grange Castle) and Dub 14/15 ACP approval",
+      "reason": "DCD returns 403 to probe; the 'two data centres overturning a council refusal' item is a baxtel roundup naming no council or ACP case. Not verified."
+    },
+    {
+      "lead": "EirGrid 'no new applications until 2028' (Dublin)",
+      "reason": "not found on EirGrid; the May 2026 documents say mid-2030s and 'fully constrained'. Not shipped."
+    },
+    {
+      "lead": "Google Hertfordshire planning approval date (30 Nov 2023 vs Jan 2024)",
+      "reason": "two sources conflict; no council primary fetched."
+    },
+    {
+      "lead": "Culham 100 MW public-private delivery and 500 MW zone cap",
+      "reason": "stated in gov.uk February 2025 DSIT release and the AI Action Plan response, not probed here."
+    },
+    {
+      "lead": "Microsoft/AWS France sites; CRE deliberation 2026-173 (RTE connection procedure)",
+      "reason": "no primary site announcement found; CRE PDF extraction returned partial text without the date or data-centre sentences."
+    },
+    {
+      "lead": "Clonee, Mulhuddart, Fingal sites",
+      "reason": "no 2026 primary source found in searches."
+    }
+  ],
+  "part3": [
+    {
+      "type": "company_us_ops",
+      "company": "nscale",
+      "name": "Monarch Compute Campus, Mason County, West Virginia (acquired via American Intelligence & Power Corporation)",
+      "location": "Mason County, West Virginia, USA",
+      "status": "acquisition signed; not yet reported closed",
+      "date": "2026-03-17",
+      "summary": "Nscale agreed to acquire AIPCorp, which holds the Monarch Compute Campus of up to 2,250 acres. Initial power of 2 GW is expected online by the first half of 2028, rising to about 8 GW by 2031. The deal creates Nscale Energy & Power, headquartered in Houston, Texas.",
+      "verbatim": "The acquisition secures the Monarch Compute Campus, a site with up to 2,250 acres in Mason County, West Virginia, and the United States' first state-certified AI microgrid with a power runway scalable to over 8 gigawatts.",
+      "verbatim_power": "Initial power capacity of 2 gigawatts is expected to be online by the first half of 2028 with an expansion to approximately 8 gigawatts planned for 2031.",
+      "verbatim_hq": "It also establishes Nscale Energy & Power, a new global division of Nscale headquartered in Houston, Texas.",
+      "source_url": "https://www.aap.com.au/aapreleases/cision20260316ae11323/",
+      "source_title": "Nscale — Nscale Acquires American Intelligence & Power Corporation (PR Newswire release, 17 Mar 2026; reprinted by AAP)",
+      "source_lang": "en",
+      "verified": true,
+      "notes": "Company press release (PR Newswire), reached through an AAP reprint; Nscale's own newsroom was not reachable by probe. Dateline 17 March 2026 (one reprint shows 16 March). The Microsoft Texas 240 MW site (Oct 2025, location unnamed) is secondary and not included."
+    },
+    {
+      "type": "company_us_ops",
+      "company": "goodman",
+      "name": "Goodman LAX01 Vernon (Los Angeles), 49.5 MW data centre",
+      "location": "Vernon, California, USA",
+      "status": "construction commenced (first US data centre, per company release as reported)",
+      "date": "2025-03",
+      "summary": "Goodman revealed construction of LAX01 Vernon in March 2025, a 49.5 MW facility expected to provide about 32 MW of critical IT capacity, with powered-shell target mid-2026.",
+      "verbatim": "It is a 49.5 MW data centre in Vernon, California.",
+      "verbatim_capacity": "the three-level facility is set to provide an estimated 32MW of critical IT capacity",
+      "source_url": "https://www.fool.com.au/2025/03/24/goodman-begins-building-its-first-u-s-data-centre/",
+      "source_title": "The Motley Fool Australia — Goodman begins building its first U.S data centre (24 Mar 2025, reporting Goodman's release)",
+      "source_lang": "en",
+      "verified": true,
+      "notes": "Probe-HIT on a secondary reprint of Goodman's release; Goodman's ASX announcement was not reached. Date is the reporting date (article says 'last week'), so the event date is approximate. A Nov 2025 update (~150 MW among FY26 projects) is secondary and not used. No Chicago or Atlanta site found."
+    },
+    {
+      "type": "company_us_ops",
+      "company": "segro",
+      "name": null,
+      "location": null,
+      "status": "not found",
+      "date": null,
+      "summary": "No US data-centre operation found. The FY2025 results RNS (20 Feb 2026) refers to a data centre pipeline and to UK and European assets, with no US reference.",
+      "verbatim": null,
+      "source_url": "https://www.investegate.co.uk/announcement/rns/segro--sgro/results-for-the-year-ended-31-december-2025/9439249",
+      "source_title": "SEGRO plc — Results for the year ended 31 December 2025 (RNS, 20 Feb 2026)",
+      "source_lang": "en",
+      "verified": false,
+      "notes": "Probe: 'United States' does not appear in the RNS (MISS). Negative finding. Not a company_us_ops record and not shippable. Recorded so the absence is visible."
+    }
+  ],
+  "unverified_leads_not_shipped": [
+    {
+      "type": "policy",
+      "country": "FR",
+      "title": "Heat-recovery obligation for data centres of at least 1 MW (Code de l'energie L.236-2; decree n° 2025-1382 of 29 Dec 2025)",
+      "verified": false,
+      "reason": "Legifrance 403 to probe and WebFetch. Snippets only. The 20% reuse factor is secondary and conflicts with the search summary. Needs a manual Legifrance read."
+    },
+    {
+      "type": "policy",
+      "country": "AU",
+      "title": "Proposed national data-centre rules: own connection costs, avoid raising power prices, minimise water, siting",
+      "verified": false,
+      "reason": "Only aiunderstanding.org (weak outlet). No DCCEEW or National Cabinet primary found. The AEMC rule that IS verified (ERC0394 draft, 12 Mar 2026, threshold 5 to 30 MW) is a technical access standard, not a cost-allocation rule, and is shipped as a separate policy below."
+    }
+  ],
+  "records_count": 15
+}

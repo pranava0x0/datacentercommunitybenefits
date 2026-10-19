@@ -460,3 +460,19 @@ def test_failed_bills_got_a_floor_vote_or_a_veto(policies) -> None:
         if p["status"] == "failed" and p["instrument"] == "legislation":
             s = p["summary"].lower()
             assert any(w in s for w in ("passed", "veto", "rejected it", "senate rejected")), p["id"]
+
+
+def test_no_record_dates_an_action_by_its_article() -> None:
+    """An article's publication date is not a vote, filing or signing date
+    (Codex review of #84 caught four). A record whose summary admits the
+    substitution must leave the date unset instead."""
+    import re
+
+    admits = re.compile(r"(article|report|story)('s)? (date|timestamp) is used|is used as the date", re.I)
+    bad = [
+        r["id"]
+        for name, key in (("policies", "policies"), ("moratoriums", "moratoriums"))
+        for r in json.loads((ROOT / "data" / "seed" / f"{name}.json").read_text(encoding="utf-8"))[key]
+        if admits.search(r.get("summary", ""))
+    ]
+    assert not bad, bad

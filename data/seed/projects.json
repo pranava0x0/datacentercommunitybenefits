@@ -3853,6 +3853,16 @@
           "upcoming": false,
           "source_url": "https://www.whio.com/news/local/temporary-restraining-order-prevents-city-moving-forward-with-data-center-plans/VCJUTIPM7VATVFSVMBSP6DFGPQ",
           "source_title": "WHIO — Temporary restraining order prevents city from moving forward with data center plans"
+        },
+        {
+          "date": "2026-09-03",
+          "kind": "news",
+          "title": "Reported: Wilmington council passes AWS site rezoning 7-0 as emergency legislation",
+          "summary": "Wilmington City Council passed, as emergency legislation, a rezoning of the AWS data center site from Rural Residential to Light Industrial after an earlier 5-2 vote failed to reach the 75% threshold. Residents have objected and one proposed a lawsuit.",
+          "authority": "Wilmington City Council",
+          "upcoming": false,
+          "source_url": "https://www.fox19.com/2026/09/04/wilmington-residents-continue-dissent-over-data-center-ordinances-passed-by-city-council/",
+          "source_title": "FOX 19 — Wilmington residents continue dissent over data center ordinances passed by city council"
         }
       ]
     },
@@ -4476,7 +4486,7 @@
       "notes": "Cedar Valley campus, ~2.4M sq ft, online since 2021. $1B+ Utah investment; 200+ operational jobs and 1,250 peak daily construction workers. Powered by 100% renewable energy via 800MW+ of new Rocky Mountain Power solar across nine projects; 2020 Provo River water restoration partnership with Trout Unlimited. ~$2M in community investment since 2018, including ~$1M COVID-19 relief. Sept 14 2026: Meta announced the campus 'is growing' — investment in Utah (Eagle Mountain is Meta's only Utah data center) rising to more than $3B, with 1,200+ construction workers at peak and 300+ jobs at the data center once completed (claimed_jobs = 1,500 combined); new buildings will use closed-loop liquid cooling with dry cooling (no operational cooling water). Announced alongside: a $450K grant for the Walden Park Astronomy Park (total city contribution $700K), $600K to buy three acres for a future Lake Mountain School District elementary school, $1.5M to the Lake Mountain Education Foundation plus $50K/yr, $4.85M to date to the city's Affordable Housing Fund (66 families), $50M+ in local road/water infrastructure, $6.2M+ to local schools and organizations, Hobble Creek + Provo River restoration (726M+ gal/yr), and 1.7 GW+ of Meta-supported clean energy across 13 Utah sites (a supply figure, not site load). Meta states it pays 'the full costs of our data centers' energy use so other consumers aren't negatively impacted' — no ratepayer assessment attached because the site predates the pledge.",
       "source_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
       "source_title": "Meta Data Centers — Utah County, We Are Online! (Jul 2021)",
-      "captured_at": "2026-09-22",
+      "captured_at": "2026-10-19",
       "project_page_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
       "offtaker": "Meta",
       "at_a_glance": {
@@ -4484,7 +4494,19 @@
         "energy": "800MW+ RMP solar (2021); 1.7 GW+ Meta-supported clean energy across 13 Utah sites; pays full energy + infrastructure costs",
         "water": "Provo River / Hobble Creek restoration (726M+ gal/yr); new buildings dry-cooled, no operational cooling water",
         "community_grants": "$6.2M+ to schools/orgs; $4.85M affordable housing; $450K astronomy park (2026)"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-09-14",
+          "kind": "news",
+          "title": "Reported: Meta announces Eagle Mountain expansion and community grants",
+          "summary": "Utah Business reports Meta's Utah investment now exceeds $3 billion, with grants to the Lake Mountain School District, Walden Park Observatory and the Lake Mountain Education Foundation. Meta and Eagle Mountain City made the announcement at an event in early September 2026.",
+          "authority": "Meta; Eagle Mountain City",
+          "upcoming": false,
+          "source_url": "https://www.utahbusiness.com/industry/2026/09/14/meta-boosts-eagle-mountain-investment-3-billion-utah-data-center/",
+          "source_title": "Utah Business — Meta boosts Eagle Mountain investment to $3 billion"
+        }
+      ]
     },
     {
       "id": "meta-los-lunas-nm",
@@ -5844,6 +5866,41 @@
           "authority": "Barber County Commission"
         }
       ]
+    },
+    {
+      "id": "nscale-monarch-mason-wv",
+      "company_slug": "nscale",
+      "name": "Monarch Compute Campus (acquired via American Intelligence & Power Corporation)",
+      "city": "Mason County",
+      "state": "WV",
+      "country": "US",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-03-17",
+      "acreage": 2250,
+      "notes": "Nscale's release (PR Newswire, dateline 17 March 2026, reached through an AAP reprint) says it agreed to acquire American Intelligence & Power Corporation (AIPCorp), which holds the Monarch Compute Campus: 'a site with up to 2,250 acres in Mason County, West Virginia', described as the first state-certified AI microgrid in the United States with a power runway scalable to over 8 gigawatts. Initial power of 2 gigawatts is expected online by the first half of 2028, with expansion to approximately 8 gigawatts planned for 2031, so power_mw is the planned maximum, not built capacity. acreage is the 'up to' figure. The deal also creates Nscale Energy & Power, headquartered in Houston, Texas. The acquisition was signed but not yet reported closed. Nscale's own newsroom was not reachable, so this rests on the company release as reprinted. power_mw is left empty: 8 GW is a planned 2031 maximum for a site whose acquisition was not reported closed, so it is not counted in announced-power totals. Coordinates are Mason County's centroid.",
+      "source_url": "https://www.aap.com.au/aapreleases/cision20260316ae11323/",
+      "source_title": "Nscale — Nscale Acquires American Intelligence & Power Corporation (PR Newswire release, 17 Mar 2026; reprinted by AAP)",
+      "captured_at": "2026-10-19",
+      "lat": 38.77,
+      "lon": -82.02
+    },
+    {
+      "id": "goodman-lax01-vernon-ca",
+      "company_slug": "goodman",
+      "name": "Goodman LAX01 Vernon (Los Angeles)",
+      "city": "Vernon",
+      "state": "CA",
+      "country": "US",
+      "status": "construction",
+      "announced_year": 2025,
+      "power_mw": 49.5,
+      "notes": "The Motley Fool Australia (24 March 2025), reporting Goodman's release, describes a 49.5 MW data centre in Vernon, California that is Goodman's first US data centre, with construction begun and the three-level facility 'set to provide an estimated 32MW of critical IT capacity'. power_mw is the 49.5 MW facility figure; 32 MW is IT capacity. The article's date is the reporting date, so the event date is approximate. Goodman's own ASX announcement was not reached. A November 2025 update (about 150 MW among FY26 projects) is secondary and not used. No Chicago or Atlanta site was found. Coordinates are Vernon's city centroid.",
+      "source_url": "https://www.fool.com.au/2025/03/24/goodman-begins-building-its-first-u-s-data-centre/",
+      "source_title": "The Motley Fool Australia — Goodman begins building its first U.S data centre (24 Mar 2025, reporting Goodman's release)",
+      "captured_at": "2026-10-19",
+      "lat": 34.00111,
+      "lon": -118.21111
     }
   ]
 }

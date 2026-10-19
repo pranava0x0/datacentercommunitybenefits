@@ -218,12 +218,16 @@ def _add_months(d: date, months: int) -> date:
 def derived_follow_ups() -> dict[str, list[dict]]:
     """Follow-ups implied by the records themselves (see module docstring)."""
     out: dict[str, list[dict]] = {}
-    for rc in _load("rate_cases.json", "rate_cases"):
+    us_cases = [(rc, f"state:{rc.get('state_code') or FEDERAL}") for rc in _load("rate_cases.json", "rate_cases")]
+    # v6: an international case's milestone is due on its country unit
+    # (Codex review of #83: the Québec hearings would never have come due).
+    intl_cases = [(rc, f"country:{rc['country']}") for rc in _load("international.json", "rate_cases")]
+    for rc, unit_key in us_cases + intl_cases:
         d = rc.get("next_milestone_date")
         if rc["status"] == "pending" and d:
             due = date.fromisoformat(d) + timedelta(days=1)
             if date.fromisoformat(rc["captured_at"]) < due:
-                out.setdefault(f"state:{rc.get('state_code') or FEDERAL}", []).append({
+                out.setdefault(unit_key, []).append({
                     "due": due.isoformat(),
                     "what": f"rate case `{rc['id']}`: {d} milestone passed; record the outcome "
                             "and the next announced step",

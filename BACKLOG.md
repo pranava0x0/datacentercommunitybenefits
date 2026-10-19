@@ -249,9 +249,6 @@ come first, then locations, companies and sites.
 - Pima County / Beale MOA: KVOA (2026-06-11) reports the Pima Community
   College board approved a $5.9M five-year gift (record says $5M). Acceptance
   is not receipt; look for a payment record before attaching `delivered`. **low**
-- ACC, Aug 13 2026: "ACC Approves Measure to Ensure Electric Cooperative
-  Customers Don't Pay for Large-Load Growth" (azcc.gov news item). Fetch the
-  item page, then decide between a rate case and a policy.
 - Pinal County project denial: a site fight, not a moratorium.
 
 #### state:CA — California
@@ -279,11 +276,11 @@ come first, then locations, companies and sites.
 - EEI: Delmarva docket 25-0826.
 
 #### state:FL — Florida
-- Okaloosa County: Commissioner Paul Mixon's 12-month moratorium reportedly
-  failed 3-2 on Sept 15, but only search headlines say so. WEAR's article
-  (weartv.com) describes the board choosing to regulate through conditional
-  use instead. Confirm the vote from county minutes or a fetched article
-  before recording `failed`.
+- Okaloosa County: Commissioner Paul Mixon's 12-month moratorium proposal
+  has no confirmed vote. An earlier note said it failed 3-2 on Sept 15; no
+  fetched source supports that. WEAR's article (weartv.com) describes the
+  board choosing to regulate through conditional use instead. Confirm any
+  vote from county minutes before recording `failed`.
 - `hernando-county-fl-2026-06`: unverified after five passes. Search snippets
   point to Ordinance No. 2026-23 (through June 16, 2027), but every article
   403s. Use the county's own agenda and minutes system.
@@ -314,6 +311,7 @@ come first, then locations, companies and sites.
 - Prologis "Project Steel", Yorkville (see company:prologis).
 
 #### state:IN — Indiana
+- (2026-10-19) Madison County: Indiana Public Radio (Aug 2026) says commissioners voted unanimously to extend the data center moratorium to a full year, but gives no vote date (2026-08-04 is the article date). Get the commissioners' minutes before adding; the original six-month June 2026 passage is also unverified.
 - Jasper County / Amazon "Project Rise": Fortune (2026-07-23) reports a
   "$98 million upfront and $23 million a year for a decade" community benefit
   plan, but only in a utility executive's op-ed that doesn't name the
@@ -333,6 +331,8 @@ come first, then locations, companies and sites.
 - EEI: Evergy 25-EKME-315-TAR.
 
 #### state:KY — Kentucky
+- (2026-10-19) Edmonson County: Ordinance EC26-18 (one-year moratorium on data centers, AI and crypto-mining facilities) text is verified, but the adoption date is blank in the copy. Get the fiscal court minutes or the clerk's adoption date before adding.
+- (2026-10-19) Allen County: WBKO (2026-06-12) quotes Judge Executive Dennis Harper that a 24-month moratorium "was put in place" but names no enacting body or date. Get the fiscal court order before adding.
 - Rowan County: a two-year moratorium passed unanimously at the Fiscal
   Court's August 2026 meeting (Rowan Review on rcky.us; LEX18; WTVQ, Sept 1),
   but no source states the day. Get it from the court's minutes before adding
@@ -448,9 +448,14 @@ come first, then locations, companies and sites.
   deals"). The Eugene project denial is a site fight.
 
 #### state:PA — Pennsylvania
-- Springhill Township adopted permanent conditional-use zoning with setbacks
-  on Sept 19, 2026. That is a Policy candidate (`local_ordinance`), not a
-  moratorium. West Hempfield and Clinton Twp are zoning actions or denials.
+- (2026-10-19) Upper Burrell Township: Resolution 6-2026 (curative amendment on data centers, 3-0, supervisors' May 6, 2026 minutes). Not a moratorium; a Valley News Dispatch report of a 180-day moratorium has no adopting vote found. Check for a later ordinance before adding a policy record.
+- Springhill Township: the board approved a resolution on Sept 3, 2026
+  barring data-center and power-plant applications until its next meeting
+  (recorded as `springhill-township-pa-2026-09`) and tabled two ordinances
+  to a Sept 17 vote. The Sept 17 outcome is not found; an earlier note that
+  permanent zoning was adopted Sept 19 is unsupported. Check township
+  minutes, then add a Policy (`local_ordinance`) if adopted.
+  West Hempfield and Clinton Twp are zoning actions or denials.
 - King of Prussia (Upper Merion) denied MLP Ventures' five buildings. That
   is a single project's permit fate, so watch for an actual ordinance. The
   Allentown "Bill 20" setbacks are a zoning ordinance, not a moratorium.
@@ -467,6 +472,7 @@ come first, then locations, companies and sites.
 #### state:TN — Tennessee
 - (2026-10-18) Memphis council vote on `memphis-city-2026-10` set for Oct 20;
   WREG reportedly said it wasn't taken up. Record the outcome.
+- (2026-10-19) Gallatin city: WSMV (2026-07-29) says commissioners "have approved a 60-day pause on new data center applications" but gives no vote date, and other outlets report a 12-month proposal advancing; reconcile from city minutes before adding a record.
 - Gallatin: a six-month moratorium passed first reading, shortened to six
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 
@@ -617,6 +623,16 @@ come first, then locations, companies and sites.
 - Honest gaps: community_grants, education.
 
 ### Sites
+
+#### International records held for an operator company (2026-10-19)
+- Verified but unshipped, because `Project.company_slug` needs a registered
+  operator: Mayo Data Hub Killala (IE), Campus IA Fouju (FR; MGX / Bpifrance
+  / Mistral / NVIDIA), Inzai Chiba (JP; Colt DCS Japan), and, with no
+  operator named at all, Abbots Langley (GB) and Muan Oryong (KR). Each
+  comes with its responses. Add the operator (owner rule: international
+  operators become companies), then ship. Research is in
+  `notes/specs/international/wave2/`. **medium**
+
 #### Claims and responses held after the 2026-10-19 link check
 - `qts-dane-county-wi-community-commitment`, `qts-dane-county-education-2025`:
   QTS moved its newsroom to q.com and the release now 404s; a 2026-05-19
@@ -1150,3 +1166,56 @@ Each item has the trigger that would make it addable.
 - **Halcyon large-load tariff tracker:** 218 tariffs behind a contact form.
   It's a work-list, not a source.
 - **International sites** (Dublin; Uruguay water): out of scope until v2.
+
+### Held international records (2026-10-19, verified but not shipped)
+
+Leads from `deep_ie_gb_eu_nordics_gr_ar_sg.json` (2026-10-19), none shipped:
+- **IE Meta Community Action Grants, Meath 2027 round** (open 14 Sep to 19 Oct 2026; over EUR 4.8m to 186 projects since 2019): reported by Meath PPN quoting Meta. Needs Meta's own grants page before a Claim.
+- **IE Microsoft / Fortum Espoo-Kirkkonummi heat pumps** (waste-heat deliveries "next year", Aug 2026 press): needs a Fortum or Microsoft primary.
+- **IE AWS Tallaght build date**: DCD reports a groundbreaking that conflicts with the 2023 opening. Resolve from SDCC or Codema before adding a timeline.
+- **IE AWS grid connection**: trade press (2025) says EirGrid called AWS ineligible. Check EirGrid's DCCOPP v3 constrained-area list first.
+- **GB Culham AI Growth Zone** (UKAEA, Oxfordshire; 100 MW rising to 500 MW; Find a Tender 005218-2025): operator not tracked; needs a decision on whether a government project record is allowed.
+- **GB Google Waltham Cross heat re-routing offer**: not in The Register article; find Google's own statement before a Claim.
+- **SE Microsoft Gavle/Sandviken**: no 2026 district-heating item found. **GR** Microsoft Attica and Dromeus/APTO Spata: nothing new. **AR** Stargate Argentina, **SG** green data centre roadmap, **EU** EED: nothing new this pass.
+
+Researched and probe-verified in `notes/specs/international/wave2/deep_au_ca_sg_cl_ar_se_fi_gr.json`,
+held because the operator is not a tracked company (add the company first;
+international-only operators are allowed per the v6 owner decision, but HQ and
+slug need confirming):
+- **atNorth** (SE SWE02 Kista 30 MW project, Stockholm mayor welcome response,
+  heat-reuse claim; FI Espoo Kesko heat-reuse and Caruna infrastructure claims).
+  atNorth's HQ was not verified in wave 2.
+- **Dromeus Capital-APTO, Spata GR** (80 MW project plus the municipal-council
+  and Council of State residents responses, newmoney.gr, 2025-11-24).
+- **Synapse Real Estate Corp., Olds AB** (1,400 MW gas plant denied by the AUC,
+  Decision 30732-D01-2026, 2026-08-18; AUC news release PDF). The AUC says it is
+  not a view on data centres as such.
+- **Régie R-4333-2026 intervenor response** (AQCIE/CIFQ information request,
+  2026-05-22, 5 MW threshold could be split into 4.9 MW subsidiaries). Not
+  shipped: a `CommunityResponse` needs a `project_id` and the case has no site.
+  Candidate home if the schema ever allows a rate-case-attached response.
+
+Held from `notes/specs/international/wave2/deep_jp_kr_in_gb_fr_ie.json` (leads, not shipped):
+- **JP METI/ANRE data-centre notice** (data_center2026.html): data-centre items in
+  periodic reports from FY2026 submissions, PUE 1.3 or lower for new data centres
+  from FY2029. HTTP 403 to WebFetch, so the quote could not be probed. National
+  policy candidate once a fetchable copy exists.
+- **JP Akita City AI data centre** (up to 500 MW, Shulman Advisory, Aug 2026) and
+  **NTT Data Inzai/Shiroi, Chiba** (about 250 MW, secondary). Developers not tracked.
+- **JP Utsunomiya solicitation schedule**: application and preferred-bidder dates
+  come from secondary reports only; read section V.2 of the solicitation PDF
+  before adding a timeline entry.
+- **KR dedicated AI data-centre electricity rate** (Ministry of Climate, Energy and
+  Environment, 2026-06-29, via asiae). Ministry release not found.
+- **KR Google / LG Uplus domestic data centre** (March 2026, secondary only) and
+  **Microsoft third Busan AI data centre** (local news, status unconfirmed).
+- **GB Section 35 directions**: Dartford New Barn Road (CSE52 Ltd, up to 300 MW,
+  2026-07-02) and Wapseys Wood (Buckinghamshire). Developers not tracked.
+- **GB UK NSIP commencement date** (8 Jan 2026 per secondary sources): not verified
+  on legislation.gov.uk, so left out. The NSIP-route sentence is on
+  `gb-ai-growth-zones-2025`.
+- **IE Naas appeals** to An Coimisiún Pleanála on a permitted 38.69 ha data centre
+  (Aug 2025). Developer not confirmed as tracked.
+- **FR Orange / Morrison JV** (EUR 3bn, 400 MW, exclusivity 2026-07-27). Neither tracked.
+- **FR Ozans-Châteauroux**: add a CommunityResponse once the CNDP pre-consultation
+  reports.
