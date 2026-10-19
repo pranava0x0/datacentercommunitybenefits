@@ -4591,6 +4591,57 @@
       ],
       "related_moratorium_id": "florida-state-2026-07",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "independence-mo-udo-datacenter-bess-2026",
+      "title": "Independence, MO — Unified Development Ordinance changes for data center and battery storage projects",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Independence, MO",
+      "state_code": "MO",
+      "identifier": "Unified Development Ordinance amendments",
+      "date": "2026-10-05",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "the changes Oct. 5 to its Unified Development Ordinance, or UDO, related to such projects"
+      ],
+      "summary": "The Independence City Council unanimously approved changes to its Unified Development Ordinance for data centers and battery energy storage systems on Oct. 5, 2026, following several months of public hearings. The changes follow the July 2026 moratorium on new data center applications. This is a zoning amendment, not a moratorium.",
+      "source_url": "https://www.kshb.com/news/local-news/missouri/jackson-county/amid-moratorium-independence-passes-new-rules-for-data-center-battery-storage-zoning",
+      "source_title": "KSHB 41 — Amid moratorium, Independence passes new rules for data center, BESS zoning",
+      "related_moratorium_id": "independence-mo-2026-07",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "eugene-or-hynix-datacenter-use-determination-2026",
+      "title": "Eugene, OR — use determination: data centers not an allowed use at the former Hyundai/Hynix site",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Eugene, OR",
+      "state_code": "OR",
+      "identifier": "City zoning use determination",
+      "date": "2026-09-08",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "data centers are not an allowed use at the location of the former Hyundai/Hynix site in West Eugene because of zoning issues"
+      ],
+      "summary": "The City of Eugene determined that data centers are not an allowed use under its zoning at the former Hyundai/Hynix site in West Eugene. This is a city zoning use determination for one site, not an ordinance and not a moratorium.",
+      "source_url": "https://www.klcc.org/politics-government/2026-09-09/eugene-says-zoning-doesnt-allow-data-centers-at-former-hyundai-hynix-campus",
+      "source_title": "KLCC — Eugene says zoning doesn't allow data centers at former Hyundai/Hynix campus",
+      "captured_at": "2026-10-19"
     }
   ]
 }

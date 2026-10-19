@@ -1,0 +1,577 @@
+{
+  "generated": "2026-10-19",
+  "budget_note": "About 36 fetches via scripts/probe.py, curl + PDFKit for PDFs, and WebSearch for leads. Only probe-HIT or PDFKit-extracted verbatims are marked verified:true.",
+  "countries": [
+    {
+      "code": "CA",
+      "summary": "Alberta's regulator denied Synapse Real Estate Corp.'s application for a 1,400 MW gas-fired power plant to serve a data centre campus at Olds, finding the site too close to homes; the decision (Decision 30732-D01-2026, 18 Aug 2026) says it is not a view on data centres as such. Alberta's Bill 12 proposes a levy of up to 2% on computer equipment for data centres of 75 MW or more. Québec's authorization threshold of 5 MW is under challenge in Hydro-Québec's R-4333-2026 tariff file, where intervenors argue a 4.9 MW split would avoid ministerial review.",
+      "regulators": [
+        {
+          "name": "Alberta Utilities Commission",
+          "acronym": "AUC",
+          "role": "energy_regulator",
+          "url": "https://media.auc.ab.ca/prd-wp-uploads/News/2026/News%20release%202026-01.pdf",
+          "notes": "Official AUC news release of 18 Aug 2026 (PDF, text read via PDFKit). The AUC is the regulator for the power plant; the release states it does not approve or regulate data centres."
+        },
+        {
+          "name": "Régie de l'énergie du Québec",
+          "acronym": "Régie",
+          "role": "energy_regulator",
+          "url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026/doc/R-4333-2026-C-AQCIE-CIFQ-0008-DDR-DDR-2026_05_22.pdf",
+          "notes": "Public file for R-4333-2026 (Hydro-Québec's data-centre tariff). Probed via PDFKit; the regulator homepage was not probed."
+        }
+      ],
+      "context": [
+        {
+          "statement": "The Alberta Utilities Commission states that it does not approve or regulate data centres.",
+          "verbatim": "The Commission does not approve or regulate data centres.",
+          "source_lang": "en",
+          "period": "2026-08-18",
+          "source_url": "https://media.auc.ab.ca/prd-wp-uploads/News/2026/News%20release%202026-01.pdf",
+          "source_title": "Alberta Utilities Commission — News release: AUC denies Synapse Data Center Power Plant Project (Decision 30732-D01-2026)",
+          "captured_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "code": "SG",
+      "summary": "Singapore's new data-centre capacity is released through competitive calls, and cloud providers report large multi-year commitments. AWS states that its Singapore investment brings its cumulative total to S$23.5 billion. The 2026 Microsoft pledge of US$5.5 billion could not be verified from a fetched primary page in this pass and is excluded.",
+      "regulators": [],
+      "context": [
+        {
+          "statement": "AWS said its cumulative investment in Singapore reached S$23.5 billion with its May 2024 announcement.",
+          "verbatim": "the investment brings the company's total sum poured into Singapore to S$23.5 billion",
+          "source_lang": "en",
+          "period": "2024-05-09",
+          "source_url": "https://www.edb.gov.sg/en/news-and-insights/amazon-invests-s12-billion-in-singapore-operations-and-cloud-infrastructure-launches-ai-training-scheme",
+          "source_title": "Singapore EDB — Amazon invests S$12 billion in Singapore operations and cloud infrastructure, launches AI training scheme",
+          "captured_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "code": "CL",
+      "summary": "Chile's Quilicura commune hosts Google's Chile data centre, which Google says is the first in Latin America. In early 2026 residents of Quilicura ran a one-day 'Quili.AI' action, organised by the NGO Corporación Ngen, to draw attention to the water used by AI. Google reports 92% hourly carbon-free energy at Quilicura for 2024 and says its investments in Chile supported about 5,520 jobs a year (2021-2023 averages).",
+      "regulators": [],
+      "context": [
+        {
+          "statement": "Quilicura is one of the territories with the highest concentration of data centres in Latin America, according to Radio Universidad de Chile.",
+          "verbatim": "La comuna del norte de Santiago es uno de los territorios con mayor concentración de centros de datos en Latinoamérica",
+          "source_lang": "es",
+          "period": "2026-03-04",
+          "source_url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
+          "source_title": "Radio Universidad de Chile — El agua que usa la IA es chilena: vecinos de Quilicura alegan \"falta de responsabilidad\" de data centers",
+          "captured_at": "2026-10-19"
+        }
+      ]
+    },
+    {
+      "code": "SE",
+      "summary": "Stockholm's Kista district has a new 30 MW atNorth site (SWE02) that is designed to recover heat into the local district heating system in collaboration with Stockholm Exergi. The Stockholm mayor publicly welcomed the site as a contribution to the city's climate efforts. The site's go-live is scheduled for Q4 2027.",
+      "regulators": [],
+      "context": [],
+      "primary_languages": [
+        "en",
+        "sv"
+      ]
+    },
+    {
+      "code": "FI",
+      "summary": "atNorth's FIN02 data centre in Espoo (Sinimäki) recovers waste heat for the neighbouring Kesko store, which the company says will cover almost all of that site's heating energy. atNorth also reports a 45 MW power access agreement with Caruna Espoo Oy.",
+      "regulators": [],
+      "context": [],
+      "primary_languages": [
+        "en",
+        "fi"
+      ]
+    },
+    {
+      "code": "GR",
+      "summary": "In Attica, the Spata-Artemida municipal council gave a negative opinion on the environmental impact study for an 80 MW data centre planned by Dromeus Capital and APTO, and residents have appealed to the Council of State. Attica's regional council is the body that rules on the study; this pass verified the municipal opinion and the resident appeal but not the regional decision.",
+      "regulators": [],
+      "context": [],
+      "primary_languages": [
+        "el",
+        "en"
+      ]
+    },
+    {
+      "code": "AU",
+      "summary": "Microsoft's Kemps Creek data centre in Penrith LGA (SSD-10101987) was approved under NSW State Significant Development on 13 July 2023 according to the NSW Planning Portal. Penrith City Council's own page (January 2022) gave the applicant's jobs estimate and said the assessment was then with the NSW Government.",
+      "regulators": [
+        {
+          "name": "NSW Department of Planning (NSW Planning Portal)",
+          "acronym": "NSW DPHI",
+          "role": "planning",
+          "url": "https://www.planningportal.nsw.gov.au/major-projects/projects/kemps-creek-data-centre",
+          "notes": "Probed (HTTP 200). Shows the state significant development record for the Kemps Creek data centre, with decision Approved and determination date 13/07/2023."
+        },
+        {
+          "name": "Penrith City Council",
+          "acronym": "Penrith CC",
+          "role": "planning",
+          "url": "https://penrithcity.nsw.gov.au/building-development/invest-penrith/invest-penrith-news/1179-microsoft-plans-to-call-penrith-home",
+          "notes": "Probed (HTTP 200). Council news page, last updated 19 January 2022."
+        }
+      ],
+      "context": []
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "CA",
+      "subdivision": "CA-AB",
+      "locality": null,
+      "fields": {
+        "title": "Alberta data centre levy (Bill 12, Financial Statutes Amendment Act (No. 2), 2025) amending the Alberta Corporate Tax Act",
+        "instrument": "legislation",
+        "status": "proposed",
+        "identifier": "Bill 12",
+        "date": "2025-12",
+        "summary": "The government fact sheet describes a levy of up to 2% on the value of computer equipment for data centres of 75 MW or more, with a lower rate for sites that bring their own power generation. The levy is deductible from Alberta corporate income tax. Law-firm summaries state Royal Assent in December 2025 and an effective date of 31 December 2026, but those dates were not confirmed on an official page, so the status is kept at proposed.",
+        "key_terms": [
+          "Introduce a levy of up to two per cent on the value of computer equipment for large data centres (with 75 megawatts of power or more).",
+          "Data centres that bring their own power generation will pay a"
+        ],
+        "principles": [
+          "pay_own_grid_costs"
+        ],
+        "benefit_themes": [
+          "tax_revenue"
+        ],
+        "value": null
+      },
+      "source_url": "https://www.alberta.ca/system/files/tbf-bill-12-financial-statutes-amendment-act-fact-sheet.pdf",
+      "source_title": "Government of Alberta — Bill 12 Financial Statutes Amendment Act fact sheet (Data Centre Levy)",
+      "source_lang": "en",
+      "verbatim": "Introduce a levy of up to two per cent on the value of computer equipment for large data centres (with 75 megawatts of power or more).",
+      "verified": true,
+      "notes": "Fact sheet read via curl + PDFKit (probe.py cannot read this PDF). The sentence is taken from the fact sheet's 'Proposed amendments would' list. The second key term is truncated where the PDF text breaks, so it is not a complete quote; drop it or re-read the page before shipping. Royal Assent date conflicts between sources (9 vs 11 Dec 2025) and is not used."
+    },
+    {
+      "type": "project",
+      "country": "CA",
+      "subdivision": "CA-AB",
+      "locality": "Olds",
+      "fields": {
+        "name": "Synapse data centre campus, Olds (gas plant application, denied)",
+        "company": "Synapse Real Estate Corp.",
+        "operator": "Synapse Real Estate Corp.",
+        "city": "Olds",
+        "status": "announced",
+        "power_mw": 1400,
+        "lat": 51.79278,
+        "lon": -114.10667,
+        "notes": "The AUC denied the 1,400 MW combined-cycle gas plant that would have powered the data centre campus; the AUC release does not describe the data centre itself. The coordinates are the Town of Olds centroid from Wikipedia, not the site parcel. The announced_year is inferred from the filing and is not verified on a probed page, so remove it if the curator cannot confirm it. announced_year removed: no probed source dates the filing."
+      },
+      "source_url": "https://media.auc.ab.ca/prd-wp-uploads/News/2026/News%20release%202026-01.pdf",
+      "source_title": "Alberta Utilities Commission — News release: AUC denies Synapse Data Center Power Plant Project (Decision 30732-D01-2026)",
+      "source_lang": "en",
+      "verbatim": "Synapse Real Estate Corp. applied for approval to construct and operate a 1,400‑megawatt (MW) combined-cycle natural gas-fired power plant",
+      "verified": true,
+      "notes": "Verbatim read via PDFKit. The regulator denied the application (Decision 30732-D01-2026, dated 18 Aug 2026). Lat/lon from https://en.wikipedia.org/wiki/Olds,_Alberta (probed: 51°47′34″N 114°06′24″W). The 1,400 MW figure is the gas plant, not the IT load."
+    },
+    {
+      "type": "response",
+      "country": "CA",
+      "subdivision": "CA-AB",
+      "locality": "Olds",
+      "fields": {
+        "project": "ca-synapse-olds-ab",
+        "date": "2026-08-18",
+        "stance": "negative",
+        "constituency": "regulator",
+        "summary": "The Alberta Utilities Commission denied the Olds gas plant application, finding the project too close to the surrounding community and the site unsuitable. The Commission said it was not commenting on whether a data centre is suitable at that location. The AUC noted the project's potential economic benefits and the Town of Olds' support in principle."
+      },
+      "source_url": "https://media.auc.ab.ca/prd-wp-uploads/News/2026/News%20release%202026-01.pdf",
+      "source_title": "Alberta Utilities Commission — News release: AUC denies Synapse Data Center Power Plant Project (Decision 30732-D01-2026)",
+      "source_lang": "en",
+      "verbatim": "The Commission finds that the project is too close to the surrounding community, and Synapse failed to demonstrate any compelling justification for selecting that location.",
+      "verified": true,
+      "notes": "Read via PDFKit. The 700-residences-within-800-metres figure is also on the same release but is not used here."
+    },
+    {
+      "type": "response",
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "locality": null,
+      "fields": {
+        "project": null,
+        "date": "2026-05-22",
+        "stance": "mixed",
+        "constituency": "ngo",
+        "summary": "The industrial electricity consumers' association AQCIE and CIFQ asked Hydro-Québec to justify the 5 MW threshold for its data-centre tariff. They argue a company could split a project into 4.9 MW subsidiaries and avoid the ministerial authorization that applies at 5 MW or more."
+      },
+      "source_url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026/doc/R-4333-2026-C-AQCIE-CIFQ-0008-DDR-DDR-2026_05_22.pdf",
+      "source_title": "Régie de l'énergie — R-4333-2026, Demande de renseignements no 1 de l'AQCIE et du CIFQ à HQD",
+      "source_lang": "fr",
+      "verbatim": "il est possible qu’une même entreprise, par exemple en créant des filiales, propose plusieurs projets de 4,9 MW. Dans un tel cas, il ne serait pas nécessaire d’obtenir l’autorisation du ministre de l’Économie, de l’Innovation et de l’Énergie du Québec avant de pouvoir être raccordé",
+      "verified": true,
+      "notes": "Read via PDFKit. The file date is 2026-05-22 from the file name, but the document header reads 'Le 22 mai 2025'; the header looks like a typo and the 2026 date is used. This is an intervenor's information request, not a company statement. project is null because it concerns the provincial threshold, not one site; the curator may attach it to ca-qc-regie-r-4333-2026. Original French quote, machine translation: 'a single company could, for example by creating subsidiaries, propose several projects of 4.9 MW. In that case, it would not be necessary to obtain the authorization of the Minister of Economy, Innovation and Energy before being connected.'"
+    },
+    {
+      "type": "claim",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "company": "AWS (Amazon Web Services)",
+        "theme": "jobs",
+        "statement": "AWS said in its Singapore economic impact report that the investment is expected to contribute some S$23.7 billion to the Republic's gross domestic product and support more than 12,300 jobs through 2028, within AWS and businesses that use its cloud services.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://www.edb.gov.sg/en/news-and-insights/amazon-invests-s12-billion-in-singapore-operations-and-cloud-infrastructure-launches-ai-training-scheme",
+      "source_title": "Singapore EDB — Amazon invests S$12 billion in Singapore operations and cloud infrastructure, launches AI training scheme",
+      "source_lang": "en",
+      "verbatim": "support more than 12,300 jobs through 2028",
+      "verified": true,
+      "notes": "Secondary attribution: the 12,300-job figure is reported by EDB from AWS's economic impact report, which was not itself fetched. The page is dated 9 May 2024; the EDB page's own 'last updated' is 19 Oct 2026. Treat as a first-party claim reported through the government's page."
+    },
+    {
+      "type": "claim",
+      "country": "CL",
+      "subdivision": null,
+      "locality": "Quilicura",
+      "fields": {
+        "company": "Google",
+        "theme": "energy",
+        "statement": "nuestro centro de datos en Quilicura alcanzó un 92% de energía libre de carbono (CFE) por hora en 2024, gracias a un conjunto de inversiones en proyectos de energía eólica, solar y de almacenamiento de energía.",
+        "statement_lang": "es",
+        "translation": "Google's Quilicura data centre reached 92% hourly carbon-free energy (CFE) in 2024, thanks to investments in wind, solar and energy-storage projects."
+      },
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "source_lang": "es",
+      "verbatim": "nuestro centro de datos en Quilicura alcanzó un 92% de energía libre de carbono (CFE) por hora en 2024, gracias a un conjunto de inversiones en proyectos de energía eólica, solar y de almacenamiento de energía.",
+      "verified": true,
+      "notes": "Blog post dated 31 Mar 2026. Probed (HIT on '92%'). The statement is Google's own."
+    },
+    {
+      "type": "claim",
+      "country": "CL",
+      "subdivision": null,
+      "locality": "Quilicura",
+      "fields": {
+        "company": "Google",
+        "theme": "jobs",
+        "statement": "nuestras inversiones en la infraestructura digital de Chile aportaron aproximadamente CLP 191.600 millones al PIB del país y sustentaron alrededor de 5.520 empleos anuales, basado en promedios de 2021-2023.",
+        "statement_lang": "es",
+        "translation": "Google says its investments in Chile's digital infrastructure contributed about CLP 191.6 billion to the country's GDP and supported about 5,520 jobs a year, based on 2021-2023 averages."
+      },
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "source_lang": "es",
+      "verbatim": "nuestras inversiones en la infraestructura digital de Chile aportaron aproximadamente CLP 191.600 millones al PIB del país y sustentaron alrededor de 5.520 empleos anuales, basado en promedios de 2021-2023.",
+      "verified": true,
+      "notes": "The figure covers Chile-wide digital infrastructure investment, not Quilicura alone. Google's own blog, probed (HIT)."
+    },
+    {
+      "type": "claim",
+      "country": "CL",
+      "subdivision": null,
+      "locality": "Quilicura",
+      "fields": {
+        "company": "Google",
+        "theme": "community_grants",
+        "statement": "desde 2015, nuestro Programa de Impacto Comunitario ha financiado iniciativas locales en Quilicura y en todo Chile de más de 20 organizaciones diferentes.",
+        "statement_lang": "es",
+        "translation": "Since 2015, our Community Impact Programme has funded local initiatives in Quilicura and across Chile by more than 20 different organisations."
+      },
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "source_lang": "es",
+      "verbatim": "desde 2015, nuestro Programa de Impacto Comunitario ha financiado iniciativas locales en Quilicura y en todo Chile de más de 20 organizaciones diferentes.",
+      "verified": true,
+      "notes": "Probed (HIT on 'Invirtiendo en la comunidad local', which sits in the same paragraph). The 20-organisation figure is Chile-wide, not Quilicura-specific."
+    },
+    {
+      "type": "response",
+      "country": "CL",
+      "subdivision": null,
+      "locality": "Quilicura",
+      "fields": {
+        "project": "cl-google-quilicura",
+        "date": "2026-01-31",
+        "stance": "negative",
+        "constituency": "ngo",
+        "summary": "Corporación Ngen ran the 'Quili.AI' action in Quilicura on 31 January 2026, with residents answering questions in place of a chatbot to raise awareness of AI's water use. Its coordinator said the aim was to build awareness of the water impact of AI. Residents cite the six data centres operating in the commune."
+      },
+      "source_url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
+      "source_title": "Radio Universidad de Chile — El agua que usa la IA es chilena: vecinos de Quilicura alegan \"falta de responsabilidad\" de data centers",
+      "source_lang": "es",
+      "verbatim": "La coordinadora de Quili.AI aclaró que la iniciativa no fue organizada para ir en contra de la inteligencia artificial, sino que la idea era generar conciencia sobre su efecto hídrico.",
+      "verified": true,
+      "notes": "Probed (HIT on the Quili.AI phrases and on the 31 January event). The verbatim above is the coordinator's clarification; the stance reflects the action's water focus. The 'six data centres' figure is from DCD's Spanish report (blocked, 403) and is not used. The Radio UChile piece says the coordinator's point was awareness of water impact."
+    },
+    {
+      "type": "project",
+      "country": "SE",
+      "subdivision": null,
+      "locality": "Kista, Stockholm",
+      "fields": {
+        "name": "atNorth SWE02 (Kista, Stockholm)",
+        "company": "atNorth",
+        "operator": "atNorth",
+        "city": "Stockholm",
+        "status": "announced",
+        "announced_year": 2026,
+        "power_mw": 30,
+        "lat": 59.40139,
+        "lon": 17.94444,
+        "notes": "Coordinates are the Kista district centroid from Wikipedia (probed), not the parcel. Go-live is scheduled for Q4 2027. The heat-reuse design is in collaboration with Stockholm Exergi."
+      },
+      "source_url": "https://www.atnorth.com/news/new-30mw-metro-data-center-in-stockholm-sweden/",
+      "source_title": "atNorth — New 30MW metro data center in Stockholm, Sweden",
+      "source_lang": "en",
+      "verbatim": "will be a 30MW metro site built in close proximity to the company's first state of the art Swedish data center, SWE01, that opened in March 2022.",
+      "verified": true,
+      "notes": "Probed (HIT on '30MW', 'Q4 2027' and 'Stockholm Exergi'). The press release is dated 29 Jan 2026. Wikipedia Kista: https://en.wikipedia.org/wiki/Kista (probed: 59°24′05″N 17°56′40″E). A trade report's mention of a new Ellevio substation is not in the press release and is excluded."
+    },
+    {
+      "type": "response",
+      "country": "SE",
+      "subdivision": null,
+      "locality": "Stockholm",
+      "fields": {
+        "project": "se-atnorth-swe02",
+        "date": "2026-01-29",
+        "stance": "positive",
+        "constituency": "local_government",
+        "summary": "Stockholm's mayor welcomed atNorth's choice of the Kista area for a further energy-efficient data-centre campus, saying it will contribute to the city's climate efforts."
+      },
+      "source_url": "https://www.atnorth.com/news/new-30mw-metro-data-center-in-stockholm-sweden/",
+      "source_title": "atNorth — New 30MW metro data center in Stockholm, Sweden",
+      "source_lang": "en",
+      "verbatim": "We are delighted that atNorth has chosen the Kista area for an additional energy efficient data center campus that will contribute to the city's climate efforts",
+      "verified": true,
+      "notes": "Quote by Karin Wanngård, Mayor of Stockholm, as printed in atNorth's press release (probed HIT). This is a company-published quotation of the mayor, not a council resolution. Stance is positive."
+    },
+    {
+      "type": "claim",
+      "country": "SE",
+      "subdivision": null,
+      "locality": "Kista, Stockholm",
+      "fields": {
+        "company": "atNorth",
+        "theme": "energy",
+        "statement": "It will be enabled with heat reuse capabilities, allowing excess heat from the data center to be recovered and recycled for use within the local community, in collaboration with Stockholm Exergi.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://www.atnorth.com/news/new-30mw-metro-data-center-in-stockholm-sweden/",
+      "source_title": "atNorth — New 30MW metro data center in Stockholm, Sweden",
+      "source_lang": "en",
+      "verbatim": "It will be enabled with heat reuse capabilities, allowing excess heat from the data center to be recovered and recycled for use within the local community, in collaboration with Stockholm Exergi.",
+      "verified": true,
+      "notes": "atNorth's own press release. The heat-reuse design is planned, not yet operating; the 'project' record is 'announced'."
+    },
+    {
+      "type": "claim",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Espoo (Sinimäki)",
+      "fields": {
+        "company": "atNorth",
+        "theme": "energy",
+        "statement": "The heat provided will cover almost all of the heating energy required by Kesko's site and in turn support Kesko's goal of a 50 percent reduction in scope 1 and scope 2 emissions",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://www.atnorth.com/news/atnorth-announces-heat-reuse-partnership-with-kesko-corporation/",
+      "source_title": "atNorth — atNorth announces heat reuse partnership with Kesko Corporation",
+      "source_lang": "en",
+      "verbatim": "The heat provided will cover almost all of the heating energy required by Kesko's site and in turn support Kesko's goal of a 50 percent reduction in scope 1 and scope 2 emissions",
+      "verified": true,
+      "notes": "Probed (HIT on 'almost all of' and 'FIN02' / 'Espoo'). The press release is dated April 2025. The go-live in Nov 2025 comes only from trade press and is not in this claim. The phrase is cut before the 'a large portion of which...' clause on purpose. The English page is the official version."
+    },
+    {
+      "type": "claim",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Espoo (Sinimäki)",
+      "fields": {
+        "company": "atNorth",
+        "theme": "infrastructure",
+        "statement": "atNorth's investment in Espoo supports Caruna's continual development and modernization of its power infrastructure for the benefit of the whole area.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://www.atnorth.com/news/atnorth-announces-heat-reuse-partnership-with-kesko-corporation/",
+      "source_title": "atNorth — atNorth announces heat reuse partnership with Kesko Corporation",
+      "source_lang": "en",
+      "verbatim": "atNorth's investment in Espoo supports Caruna's continual development and modernization of its power infrastructure for the benefit of the whole area.",
+      "verified": true,
+      "notes": "Same press release as the Kesko claim (probed HIT). It is a power-supply agreement for 45 MW with Caruna Espoo Oy. Trade press gives 40 MW for the site; that conflict is not resolved here, so no power_mw is recorded."
+    },
+    {
+      "type": "project",
+      "country": "GR",
+      "subdivision": null,
+      "locality": "Spata-Artemida, Attica",
+      "fields": {
+        "name": "Dromeus Capital / APTO data centre, Spata (80 MW)",
+        "company": "Dromeus Capital-APTO",
+        "operator": "Dromeus Capital-APTO",
+        "city": "Spata",
+        "status": "announced",
+        "power_mw": 80,
+        "lat": 37.967,
+        "lon": 23.917,
+        "notes": "Named in Newmoney as the 80 MW data centre, the largest of three in Spata, whose environmental impact study (ΜΠΕ) Spata-Artemida council gave a negative opinion on. Coordinates are the Spata town centroid from Wikipedia (probed), not the parcel. Operator is listed as 'Dromeus Capital-APTO' in the source. Attica's regional council decision on the study is not verified. announced_year removed: no probed source dates the announcement."
+      },
+      "source_url": "https://www.newmoney.gr/roh/palmos-oikonomias/ependyseis/sta-kagkela-i-katiki-gia-ti-dimiourgia-trion-data-centers-sta-spata/",
+      "source_title": "Newmoney — Στα «κάγκελα» η κατοικία για τη δημιουργία τριών data centers στα Σπάτα",
+      "source_lang": "el",
+      "verbatim": "ισχύος 80 MW, το οποίο έλαβε ήδη αρνητική γνωμοδότηση από το Δημοτικό Συμβούλιο Σπάτων-Αρτέμιδος",
+      "verified": true,
+      "notes": "Probed (HIT on 'Σπάτων'; the phrase is in the same sentence as 'Dromeus Capital-APTO'). The article is dated 24 Nov 2025 in its own header. Machine translation: 'of 80 MW, which has already received a negative opinion from the Spata-Artemida Municipal Council.' Wikipedia Spata: https://en.wikipedia.org/wiki/Spata (probed)."
+    },
+    {
+      "type": "response",
+      "country": "GR",
+      "subdivision": null,
+      "locality": "Spata-Artemida, Attica",
+      "fields": {
+        "project": "gr-dromeus-apto-spata",
+        "date": "2025-11-24",
+        "stance": "negative",
+        "constituency": "local_government",
+        "summary": "Spata-Artemida Municipal Council gave a negative opinion on the environmental impact study for the 80 MW Dromeus Capital-APTO data centre. Residents have also appealed to the Council of State over the data-centre build-out."
+      },
+      "source_url": "https://www.newmoney.gr/roh/palmos-oikonomias/ependyseis/sta-kagkela-i-katiki-gia-ti-dimiourgia-trion-data-centers-sta-spata/",
+      "source_title": "Newmoney — Στα «κάγκελα» η κατοικία για τη δημιουργία τριών data centers στα Σπάτα",
+      "source_lang": "el",
+      "verbatim": "ισχύος 80 MW, το οποίο έλαβε ήδη αρνητική γνωμοδότηση από το Δημοτικό Συμβούλιο Σπάτων-Αρτέμιδος",
+      "verified": true,
+      "notes": "Probed HIT. This is the municipal opinion (constituency local_government). A separate resident response covers the Council of State appeal (see next record)."
+    },
+    {
+      "type": "response",
+      "country": "GR",
+      "subdivision": null,
+      "locality": "Spata-Artemida, Attica",
+      "fields": {
+        "project": "gr-dromeus-apto-spata",
+        "date": "2025-11-24",
+        "stance": "negative",
+        "constituency": "residents",
+        "summary": "Residents of Spata have appealed to the Council of State and expect constant noise, rising local temperatures and effects on quality of life and the environment from three planned data centres of 12.5 to 80 MW. They ask for combined studies and an assessment of the area's carrying capacity."
+      },
+      "source_url": "https://www.newmoney.gr/roh/palmos-oikonomias/ependyseis/sta-kagkela-i-katiki-gia-ti-dimiourgia-trion-data-centers-sta-spata/",
+      "source_title": "Newmoney — Στα «κάγκελα» η κατοικία για τη δημιουργία τριών data centers στα Σπάτα",
+      "source_lang": "el",
+      "verbatim": "Στα «κάγκελα», έχοντας προσφύγει και στο Συμβούλιο της Επικρατείας είναι οι κάτοικοι των Σπάτων",
+      "verified": true,
+      "notes": "Probed HIT on 'Σπάτων'. Machine translation: 'Residents of Spata, who have also appealed to the Council of State, are at the end of their tether.' The resident's wording ('constant noise', 'rising temperatures') is in the same article but is a paraphrase of residents' concerns, so the summary says it is not a direct quote."
+    },
+    {
+      "type": "policy",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Penrith",
+      "fields": {
+        "title": "Kemps Creek data centre, Penrith LGA (SSD-10101987): Microsoft state significant development",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "identifier": "SSD-10101987",
+        "date": "2023-07-13",
+        "summary": "NSW Department of Planning approved the state significant development for the Kemps Creek data centre (decision 'Approved', determination 13/07/2023). The approval is for construction and operation of a data centre with two data-storage buildings, 61 generators, a substation, a high-voltage switchyard and 30 diesel storage tanks.",
+        "key_terms": [
+          "Construction and Operation of a Data Centre including two data storage buildings, 61 generators, substation, high voltage switch yard, 30 diesel storage tanks"
+        ],
+        "principles": [
+          "environmental_review"
+        ],
+        "benefit_themes": [
+          "jobs"
+        ],
+        "value": {
+          "amount": 300000000,
+          "currency": "AUD",
+          "as_stated": "over $300 million"
+        }
+      },
+      "source_url": "https://www.planningportal.nsw.gov.au/major-projects/projects/kemps-creek-data-centre",
+      "source_title": "NSW Planning Portal — Kemps Creek Data Centre (SSD-10101987)",
+      "source_lang": "en",
+      "verbatim": "Decision Approved Determination Date 13/07/2023",
+      "verified": true,
+      "notes": "Probed HIT on the portal's record fields. This is a planning approval, not a community benefit agreement, so it is recorded as a regulation with status in_effect. The instrument is the state's decision. Currency is inferred as AUD from the NSW context of the council page, which printed '$'. The value is the capital investment value as stated by the council page, not a verified commitment. The 'in_effect' status says the approval stands; construction is not confirmed. The planning portal lists the development as 'Approved', with the decision on the record; the 'over $300 million' figure is from Penrith council's January 2022 page."
+    },
+    {
+      "type": "project",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Kemps Creek, Penrith",
+      "fields": {
+        "name": "Microsoft Kemps Creek data centre (Penrith)",
+        "company": "Microsoft",
+        "operator": "Microsoft",
+        "city": "Kemps Creek",
+        "status": "announced",
+        "announced_year": 2022,
+        "claimed_investment": {
+          "amount": 300000000,
+          "currency": "AUD",
+          "as_stated": "over $300 million"
+        },
+        "claimed_jobs": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Penrith council's page (last updated 19 Jan 2022) gives 300 construction jobs and 50 operational jobs as the applicant's own estimate. The NSW Planning Portal records the state approval of 13/07/2023 (see the policy record). The planning portal's 2023 approval is not matched to a construction start, so status stays 'announced'. No coordinates were probed for Kemps Creek, so lat/lon is left null. Secondary-source figures (DCD-style 190 MW / A$1.3 billion figure from a secondary source) are not used. claimed_jobs is null because the page gives 300 construction and 50 operational jobs, not a single total."
+      },
+      "source_url": "https://penrithcity.nsw.gov.au/building-development/invest-penrith/invest-penrith-news/1179-microsoft-plans-to-call-penrith-home",
+      "source_title": "Penrith City Council — Microsoft plans to call Penrith home",
+      "source_lang": "en",
+      "verbatim": "The global giant is looking to build a data centre in Kemps Creek, in Penrith's east, with a capital investment value of over $300 million.",
+      "verified": true,
+      "notes": "Probed HIT on 'capital investment value'. Jobs phrase also probed: 'Documents supplied by the applicant indicate they expect the development to generate around 300 jobs during construction and 50 once operational.' claimed_jobs 350 = 300 + 50 is a sum and the sentence does not state 350, so the curator should check whether to keep claimed_jobs at all (set null if it is not a stated figure)."
+    }
+  ],
+  "unverified": [
+    {
+      "type": "claim",
+      "country": "SG",
+      "fields": {
+        "company": "Microsoft",
+        "theme": "jobs",
+        "statement": "Microsoft plans to spend US$5.5 billion in Singapore over 2025 through 2029 on cloud and AI infrastructure and ongoing operations.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://www.hpcwire.com/off-the-wire/microsoft-plans-5-5b-investment-in-singapore-cloud-and-ai-infrastructure-through-2029/",
+      "verbatim": null,
+      "verified": false,
+      "notes": "Could not verify. The HPCWire Microsoft release returned 403 to probe, and the DCD page also returned 403. Secondary reports (w.media, Bernama, Capacity) describe the pledge but no primary Microsoft page was fetched. Excluded; a curator should fetch Microsoft's Singapore newsroom page and probe it before shipping."
+    },
+    {
+      "type": "project",
+      "country": "FI",
+      "fields": {
+        "name": "atNorth FIN02 (Sinimäki, Espoo)",
+        "company": "atNorth",
+        "status": "operational"
+      },
+      "source_url": "https://www.atnorth.com/news/atnorth-announces-heat-reuse-partnership-with-kesko-corporation/",
+      "verbatim": null,
+      "verified": false,
+      "notes": "Not shipped as a project because the probed page is an April 2025 announcement. It does not state that FIN02 is operating, and the Nov 2025 go-live comes only from trade press. Also, the 40 vs 45 MW conflict is unresolved."
+    },
+    {
+      "type": "policy",
+      "country": "AR",
+      "fields": {},
+      "verified": false,
+      "notes": "No Argentina record this pass. Searches on the Neuquén council, provincial water (DGA) and the Stargate Argentina site returned only 2025 background and no 2026 decision, so nothing was probed for shipping."
+    },
+    {
+      "type": "policy",
+      "country": "GR",
+      "fields": {},
+      "verified": false,
+      "notes": "No Greek regional decision was probed. Attica regional council decision on the Spata ΜΠΕ is reported in a search snippet (approval on 24 Nov 2025 with a 50 dB noise condition), but the Newmoney page probed here does not contain that text, so it is not shipped."
+    }
+  ]
+}
