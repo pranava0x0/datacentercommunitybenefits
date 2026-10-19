@@ -4763,7 +4763,7 @@
       "jurisdiction": "Village of Nehawka",
       "state_code": "NE",
       "identifier": "Village board vote",
-      "date": "2026-08-27",
+      "date": null,
       "benefit_themes": [
         "engagement"
       ],
@@ -4774,7 +4774,7 @@
       "key_terms": [
         "Leaders in the village of Nehawka have voted to prohibit data centers within their zoning jurisdiction"
       ],
-      "summary": "The village board voted to prohibit data centers, crypto-mining and blockchain computing and the power plants that run them within its zoning jurisdiction. Reporting describes it as an outright ban that takes effect in 15 days and does not say whether it is permanent. The article date is used because the meeting date and vote count are not stated. It is filed as a policy, not a pause, because no end date is given.",
+      "summary": "The village board voted to prohibit data centers, crypto-mining and blockchain computing and the power plants that run them within its zoning jurisdiction. Reporting describes it as an outright ban that takes effect in 15 days and does not say whether it is permanent. The meeting date and vote count are not stated. It is filed as a policy, not a pause, because no end date is given.",
       "source_url": "https://www.1011now.com/2026/08/27/village-nehawka-votes-ban-data-centers/",
       "source_title": "1011NOW / WOWT — Village of Nehawka votes to ban data centers",
       "captured_at": "2026-10-19"
@@ -4839,7 +4839,7 @@
       "jurisdiction": "Boston",
       "state_code": "MA",
       "identifier": "Council order",
-      "date": "2026-09-15",
+      "date": null,
       "benefit_themes": [
         "engagement"
       ],
@@ -4850,7 +4850,7 @@
       "key_terms": [
         "designate them as a \"prohibited use in every zoning district and subdistrict\""
       ],
-      "summary": "Boston City Councilor Miniard Culpepper filed an order that would amend the city's zoning code to define data centers and make them a prohibited use in every zoning district and subdistrict. It is a proposal only. The article date is used because it says only that the order was filed 'this week'.",
+      "summary": "Boston City Councilor Miniard Culpepper filed an order that would amend the city's zoning code to define data centers and make them a prohibited use in every zoning district and subdistrict. It is a proposal only. The report says only that the order was filed in the week of September 15, 2026.",
       "source_url": "https://www.boston.com/news/local-news/2026/09/15/boston-city-council-to-consider-zoning-changes-that-would-bar-data-center-construction/",
       "source_title": "Boston.com — Boston City Council to consider zoning changes that would bar data center construction",
       "captured_at": "2026-10-19"
