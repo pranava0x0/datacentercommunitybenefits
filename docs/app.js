@@ -1064,7 +1064,9 @@ function activateView(name) {
   } else if (target.name === "world") {
     // Cards name operators via companiesBySlug; on a cold #country/XX load
     // companies.json may land after international.json (Sonnet review, #84).
-    Promise.all([loadInternationalData(), ensureCompanyData()])
+    // Operator names are supplementary (cards fall back to the slug), so a
+    // failed companies.json must not blank the tab (Codex review, #84).
+    Promise.all([loadInternationalData(), ensureCompanyData().catch((err) => console.error("Company names unavailable:", err))])
       .then(renderWorld)
       .catch((err) => {
         console.error("Failed to load international data:", err);
@@ -9761,7 +9763,7 @@ function openWorldPrinciple(key) {
   setActiveSubtab("world", "instruments");
   // Same promise shape as activateView's world branch, registered after it,
   // so renderWorld has filled the select before we set it.
-  Promise.all([loadInternationalData(), ensureCompanyData()]).then(() => {
+  Promise.all([loadInternationalData(), ensureCompanyData().catch(() => {})]).then(() => {
     const sel = document.getElementById("world-principle-filter");
     if (sel && [...sel.options].some((o) => o.value === key)) {
       sel.value = key;

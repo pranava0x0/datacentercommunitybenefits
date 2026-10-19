@@ -656,9 +656,11 @@ def _build_home(payloads, today: date) -> dict:
         "rate_cases_pending": sum(r.status == "pending" for r in rate_cases),
         # v6: International tab card. Records, never money (no cross-currency sums).
         "international_countries": sum(c.code in COUNTRIES for c in intl.countries),
+        # Everything a reader can open as its own card abroad: rules, pauses,
+        # sites, rate cases and company-wide statements (Codex review, #84).
         "international_records": sum(
             len(getattr(intl, k)) for k in ("policies", "moratoriums", "projects", "rate_cases")
-        ),
+        ) + sum(1 for c in intl.claims if not c.project_id),
         "pledge_organizations": len(orgs),
         "pledge_governors": len(sig.signatories) - len(orgs),
         "roster_as_of": sig.roster_as_of.isoformat() if sig.roster_as_of else None,
