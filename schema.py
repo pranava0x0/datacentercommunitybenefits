@@ -279,6 +279,133 @@ class _StrictBase(BaseModel):
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
 
+# ---------------------------------------------------------------------------
+# International (v6, 2026-10-19) — notes/specs/SPEC_INTERNATIONAL.md
+# ---------------------------------------------------------------------------
+# Registries are dicts, not Literals: adding a country is an editorial act
+# (owner decision), not a vocabulary migration. Each is mirrored in app.js and
+# parity-tested. US records keep `state` / `state_code`; non-US records use
+# ISO 3166-2 `subdivision`. International records live in their own payload
+# (international.json); the US payloads reject them, and vice versa.
+
+COUNTRIES: dict[str, str] = {
+    "US": "United States",
+    "IE": "Ireland",
+    "GB": "United Kingdom",
+    "FR": "France",
+    "SE": "Sweden",
+    "FI": "Finland",
+    "GR": "Greece",
+    "AU": "Australia",
+    "SG": "Singapore",
+    "CA": "Canada",
+}
+# ISO 3166-1 "exceptionally reserved" code; supranational policies only.
+SUPRANATIONAL: dict[str, str] = {"EU": "European Union"}
+EU_MEMBERS: tuple[str, ...] = (
+    "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE",
+    "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE",
+)
+# ISO 3166-2 codes records actually cite. Not the full standard.
+SUBDIVISIONS: dict[str, str] = {
+    "AU-NSW": "New South Wales",
+    "AU-VIC": "Victoria",
+    "CA-QC": "Québec",
+    "CA-AB": "Alberta",
+    "GB-ENG": "England",
+    "GB-SCT": "Scotland",
+    "GB-WLS": "Wales",
+    "FR-IDF": "Île-de-France",
+    "IE-D": "Dublin",
+    "GR-I": "Attica",
+    "FI-18": "Uusimaa",
+    "FI-09": "Kymenlaakso",
+    "SE-AB": "Stockholm County",
+    "SE-X": "Gävleborg County",
+    "SE-M": "Skåne County",
+}
+# What a first-level subdivision is called, for labels.
+SUBDIVISION_TERMS: dict[str, str] = {
+    "AU": "state", "CA": "province", "GB": "nation", "FR": "region",
+    "IE": "region", "GR": "region", "FI": "region", "SE": "county",
+}
+NO_SUBDIVISION_COUNTRIES: tuple[str, ...] = ("SG",)
+CURRENCIES: tuple[str, ...] = ("USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD")
+# BCP-47 primary tags a record's source may be in.
+LANGUAGES: dict[str, str] = {
+    "en": "English", "fr": "French", "sv": "Swedish", "fi": "Finnish", "el": "Greek",
+    "ga": "Irish",
+}
+TRANSLATION_SOURCES: tuple[str, ...] = ("official", "human", "machine")
+TranslationSource = Literal["official", "human", "machine"]
+TRANSLATION_SOURCE_LABELS: dict[str, str] = {
+    "official": "Official English version",
+    "human": "English translation",
+    "machine": "Machine translation (AI). The original is authoritative.",
+}
+MORATORIUM_FORMALITIES: tuple[str, ...] = ("formal", "administrative", "de_facto")
+MoratoriumFormality = Literal["formal", "administrative", "de_facto"]
+MORATORIUM_FORMALITY_LABELS: dict[str, str] = {
+    "formal": "Formal pause",
+    "administrative": "Administrative pause",
+    "de_facto": "Unofficial pause",
+}
+
+
+def _check_jurisdiction(rid: str, country: str, subdivision: Optional[str], *, allow_eu: bool = False) -> None:
+    if country not in COUNTRIES and not (allow_eu and country in SUPRANATIONAL):
+        raise ValueError(f"{rid!r}: unknown country {country!r}")
+    if subdivision is not None:
+        if country == "US":
+            raise ValueError(f"{rid!r}: US records use state/state_code, not subdivision")
+        if not subdivision.startswith(country + "-") or subdivision not in SUBDIVISIONS:
+            raise ValueError(f"{rid!r}: subdivision {subdivision!r} must be a known {country}-XX code")
+
+
+class Money(_StrictBase):
+    """An amount exactly as a source states it. Never converted or summed."""
+
+    amount: float = Field(ge=0)
+    currency: str
+    as_stated: str = Field(min_length=1, description="As printed: 'A$7bn', '€2.1 billion'.")
+
+    @field_validator("currency")
+    @classmethod
+    def _known_currency(cls, v: str) -> str:
+        if v not in CURRENCIES:
+            raise ValueError(f"currency must be one of {CURRENCIES}")
+        return v
+
+
+class Translation(_StrictBase):
+    """An English rendering of a non-English verbatim quote. Labelled by source."""
+
+    text: str = Field(min_length=1)
+    by: TranslationSource
+    official_url: Optional[HttpUrl] = None
+    translator: Optional[str] = None
+    reviewed_at: Date
+
+    @model_validator(mode="after")
+    def _provenance(self) -> "Translation":
+        if self.by == "official" and not self.official_url:
+            raise ValueError("an official translation needs official_url")
+        if self.by == "human" and not self.translator:
+            raise ValueError("a human translation needs translator")
+        return self
+
+
+class TranslatedTerms(_StrictBase):
+    items: list[str] = Field(min_length=1)
+    by: TranslationSource
+    reviewed_at: Date
+
+
+def _check_lang(rid: str, lang: str) -> None:
+    if lang not in LANGUAGES:
+        raise ValueError(f"{rid!r}: unknown language {lang!r}")
+
+
 class PledgePrincipleAssessment(_StrictBase):
     """Per-principle fulfillment assessment for a single pledge commitment at a single site.
 
@@ -505,6 +632,25 @@ class Claim(_StrictBase):
             "hasn't been checked or is still live."
         ),
     )
+    country: str = Field(default="US", description="ISO 3166-1 alpha-2 (v6).")
+    statement_lang: str = Field(
+        default="en",
+        description="Language of `statement`, which stays verbatim in the original (v6).",
+    )
+    statement_translation: Optional[Translation] = Field(
+        default=None,
+        description="Required when statement_lang != 'en'; labelled by who translated it.",
+    )
+
+    @model_validator(mode="after")
+    def _language(self) -> "Claim":
+        _check_jurisdiction(self.id, self.country, None)
+        _check_lang(self.id, self.statement_lang)
+        if self.statement_lang != "en" and self.statement_translation is None:
+            raise ValueError(f"claim {self.id!r}: a non-English quote needs statement_translation")
+        if self.statement_lang == "en" and self.statement_translation is not None:
+            raise ValueError(f"claim {self.id!r}: an English quote takes no translation")
+        return self
 
 
 # ---------------------------------------------------------------------------
@@ -565,10 +711,25 @@ class Project(_StrictBase):
     company_slug: CompanySlug
     name: str = Field(min_length=1)
     city: str = Field(min_length=1)
-    state: str = Field(
-        min_length=2, max_length=2, description="Two-letter US state code (or country code)."
+    state: Optional[str] = Field(
+        default=None,
+        min_length=2,
+        max_length=2,
+        description="Two-letter US state code. Required for US sites; null abroad (v6).",
     )
     country: str = Field(default="US", min_length=2, max_length=2)
+    subdivision: Optional[str] = Field(
+        default=None, description="ISO 3166-2 code for a non-US site (v6)."
+    )
+    locality: Optional[str] = Field(default=None, description="Council / municipality (v6).")
+    source_lang: str = Field(default="en", description="Language of source_url (v6).")
+    claimed_investment: Optional[Money] = Field(
+        default=None,
+        description="Non-US investment exactly as stated; claimed_investment_usd stays null (v6).",
+    )
+    import_capacity_mva: Optional[float] = Field(
+        default=None, ge=0, description="Capacity a source states in MVA. Never converted to MW."
+    )
     lat: Optional[float] = Field(
         default=None,
         ge=-90,
@@ -693,6 +854,24 @@ class Project(_StrictBase):
         ),
     )
 
+    @model_validator(mode="after")
+    def _jurisdiction(self) -> "Project":
+        _check_jurisdiction(self.id, self.country, self.subdivision)
+        _check_lang(self.id, self.source_lang)
+        if self.country == "US":
+            if not self.state:
+                raise ValueError(f"project {self.id!r}: a US site needs a state")
+            if self.claimed_investment is not None:
+                raise ValueError(f"project {self.id!r}: US sites use claimed_investment_usd")
+        else:
+            if self.state is not None:
+                raise ValueError(f"project {self.id!r}: non-US sites use subdivision, not state")
+            if self.claimed_investment_usd is not None:
+                raise ValueError(f"project {self.id!r}: non-US amounts go in claimed_investment (Money)")
+            if self.ratepayer is not None:
+                raise ValueError(f"project {self.id!r}: the Ratepayer Pledge is US-only")
+        return self
+
 
 class CommunityResponse(_StrictBase):
     """A documented community / journalist / regulator response to a project."""
@@ -719,6 +898,7 @@ class CommunityResponse(_StrictBase):
             "Set by the check_links.py curator tool."
         ),
     )
+    source_lang: str = Field(default="en", description="Language of source_url (v6).")
 
 
 # ---------------------------------------------------------------------------
@@ -764,8 +944,21 @@ class Moratorium(_StrictBase):
         min_length=1,
         description="City, County, State, or 'Federal' — the level at which the moratorium is set.",
     )
-    jurisdiction_type: Literal["city", "county", "state", "federal"] = Field(
-        description="Geographic scope of the moratorium.",
+    jurisdiction_type: Literal["city", "county", "state", "federal", "national"] = Field(
+        description="Geographic scope. 'federal' is the US government only; "
+        "'national' is another country's government (v6).",
+    )
+    country: str = Field(default="US", description="ISO 3166-1 alpha-2 (v6).")
+    subdivision: Optional[str] = Field(default=None, description="ISO 3166-2, non-US (v6).")
+    locality: Optional[str] = Field(default=None, description="Council / municipality (v6).")
+    source_lang: str = Field(default="en", description="Language of source_url (v6).")
+    formality: MoratoriumFormality = Field(
+        default="formal",
+        description="formal = statute/ordinance; administrative = an authority's announced "
+        "decision; de_facto = no published decision, described afterward (needs a second source).",
+    )
+    lifted_date: Optional[Date] = Field(
+        default=None, description="Date an enacted pause ended (v6)."
     )
     state_code: Optional[str] = Field(
         default=None,
@@ -900,6 +1093,25 @@ class Moratorium(_StrictBase):
         description="Date this record was curated / moratorium status was verified."
     )
 
+    @model_validator(mode="after")
+    def _jurisdiction(self) -> "Moratorium":
+        _check_jurisdiction(self.id, self.country, self.subdivision)
+        _check_lang(self.id, self.source_lang)
+        if self.jurisdiction_type == "federal" and self.country != "US":
+            raise ValueError(f"moratorium {self.id!r}: 'federal' is the US government; use 'national'")
+        if self.jurisdiction_type == "national" and self.country == "US":
+            raise ValueError(f"moratorium {self.id!r}: a US national pause is 'federal'")
+        if self.lifted_date is not None:
+            if self.status != "enacted":
+                raise ValueError(f"moratorium {self.id!r}: only an enacted pause can be lifted")
+            if self.enacted_date and self.lifted_date < self.enacted_date:
+                raise ValueError(f"moratorium {self.id!r}: lifted before it was enacted")
+        if self.formality == "de_facto" and not self.resources:
+            raise ValueError(
+                f"moratorium {self.id!r}: an unofficial pause needs a second source in resources"
+            )
+        return self
+
 
 class ThemeRecommendation(BaseModel):
     """Evidence-based recommendations for addressing a moratorium theme, backed by actual moratorium text."""
@@ -916,6 +1128,14 @@ class ThemeRecommendation(BaseModel):
 class MoratoriumsPayload(_StrictBase):
     generated_at: Date
     moratoriums: list[Moratorium]
+
+    @field_validator("moratoriums")
+    @classmethod
+    def _us_only(cls, v: list[Moratorium]) -> list[Moratorium]:
+        bad = [m.id for m in v if m.country != "US"]
+        if bad:
+            raise ValueError(f"non-US records belong in international.json: {bad}")
+        return v
     china_anti_datacenter_messaging: dict | None = None
     theme_recommendations: dict[str, ThemeRecommendation] | None = None
 
@@ -1449,6 +1669,7 @@ POLICY_INSTRUMENTS: tuple[str, ...] = (
     "local_ordinance",
     "benefit_agreement",
     "company_plan",
+    "government_framework",
 )
 PolicyInstrument = Literal[
     "executive_order",
@@ -1457,6 +1678,7 @@ PolicyInstrument = Literal[
     "local_ordinance",
     "benefit_agreement",
     "company_plan",
+    "government_framework",
 ]
 POLICY_INSTRUMENT_LABELS: dict[str, str] = {
     "executive_order": "Executive order",
@@ -1465,6 +1687,10 @@ POLICY_INSTRUMENT_LABELS: dict[str, str] = {
     "local_ordinance": "Local ordinance",
     "benefit_agreement": "Benefit agreement",
     "company_plan": "Company plan",
+    # v6: a published, non-statutory government scheme (Singapore DC-CFA, NSW
+    # framework, UK AI Growth Zones). Filing these as regulation would claim
+    # legal force they lack.
+    "government_framework": "Government framework",
 }
 
 # in_effect = signed / enacted / published; proposed = introduced, passed one
@@ -1496,6 +1722,7 @@ POLICY_PRINCIPLES: tuple[str, ...] = (
     "new_power",
     "environmental_review",
     "study",
+    "heat_reuse",
 )
 PolicyPrinciple = Literal[
     "pay_own_way",
@@ -1507,6 +1734,7 @@ PolicyPrinciple = Literal[
     "new_power",
     "environmental_review",
     "study",
+    "heat_reuse",
 ]
 POLICY_PRINCIPLE_LABELS: dict[str, str] = {
     "pay_own_way": "Data centers pay their own grid costs",
@@ -1518,6 +1746,9 @@ POLICY_PRINCIPLE_LABELS: dict[str, str] = {
     "new_power": "New demand brings new supply",
     "environmental_review": "Projects get environmental review",
     "study": "States study before setting rules",
+    # v6, owner decision 2026-10-19: mainly an international practice (Nordic
+    # district heating, Germany's EnEfG); few US records will carry it.
+    "heat_reuse": "Waste heat is reused (mainly outside the US)",
 }
 
 # Observable features of a benefit agreement's own text, tagged by the
@@ -1563,8 +1794,12 @@ AGREEMENT_FEATURE_LABELS: dict[str, str] = {
 # Who sets it. 'company' is not a jurisdiction — it marks a company's own
 # company-wide plan. A company's pledge for ONE host community is a
 # company_plan scoped to that city/county instead.
-POLICY_SCOPES: tuple[str, ...] = ("federal", "state", "county", "city", "company")
-PolicyScope = Literal["federal", "state", "county", "city", "company"]
+POLICY_SCOPES: tuple[str, ...] = (
+    "federal", "state", "county", "city", "company", "national", "supranational",
+)
+PolicyScope = Literal[
+    "federal", "state", "county", "city", "company", "national", "supranational",
+]
 
 
 class Policy(_StrictBase):
@@ -1654,6 +1889,20 @@ class Policy(_StrictBase):
         "Claim.delivered: absent = not yet assessed, never implied delivery.",
     )
     captured_at: Date
+    country: str = Field(default="US", description="ISO 3166-1 alpha-2, or 'EU' (v6).")
+    subdivision: Optional[str] = Field(default=None, description="ISO 3166-2, non-US (v6).")
+    locality: Optional[str] = Field(default=None, description="Council / municipality (v6).")
+    source_lang: str = Field(default="en", description="Language of source_url (v6).")
+    key_terms_translation: Optional[TranslatedTerms] = Field(
+        default=None,
+        description="English renderings of non-English key_terms, same order and length (v6).",
+    )
+    value: Optional[Money] = Field(
+        default=None, description="Non-US stated value; value_usd stays null (v6)."
+    )
+    applies_to: Optional[list[str]] = Field(
+        default=None, description="EU members a supranational rule covers; null = all (v6)."
+    )
 
     @field_validator("state_code")
     @classmethod
@@ -1676,8 +1925,31 @@ class Policy(_StrictBase):
 
     @model_validator(mode="after")
     def _scope_consistency(self) -> "Policy":
-        if self.scope in ("state", "county", "city") and not self.state_code:
-            raise ValueError(f"policy {self.id!r}: {self.scope} scope needs a state_code")
+        _check_jurisdiction(self.id, self.country, self.subdivision, allow_eu=True)
+        _check_lang(self.id, self.source_lang)
+        if self.country == "US":
+            if self.scope in ("national", "supranational"):
+                raise ValueError(f"policy {self.id!r}: a US policy is federal, not {self.scope}")
+            if self.scope in ("state", "county", "city") and not self.state_code:
+                raise ValueError(f"policy {self.id!r}: {self.scope} scope needs a state_code")
+        else:
+            if self.state_code:
+                raise ValueError(f"policy {self.id!r}: non-US policies use subdivision")
+            if self.scope == "federal":
+                raise ValueError(f"policy {self.id!r}: 'federal' is the US government; use 'national'")
+            if (self.scope == "supranational") != (self.country in SUPRANATIONAL):
+                raise ValueError(f"policy {self.id!r}: supranational scope goes with country 'EU'")
+            if self.value_usd is not None:
+                raise ValueError(f"policy {self.id!r}: non-US values go in `value` (Money)")
+        if self.applies_to is not None:
+            if self.scope != "supranational" or not set(self.applies_to) <= set(EU_MEMBERS):
+                raise ValueError(f"policy {self.id!r}: applies_to lists EU members of an EU rule")
+        if self.source_lang != "en":
+            t = self.key_terms_translation
+            if t is None or len(t.items) != len(self.key_terms):
+                raise ValueError(
+                    f"policy {self.id!r}: non-English key_terms need a parallel key_terms_translation"
+                )
         if self.scope == "company" and self.instrument != "company_plan":
             raise ValueError(f"policy {self.id!r}: company scope is only for company_plan")
         # A company plan is company-wide (scope 'company') or a site pledge
@@ -1706,6 +1978,16 @@ class Policy(_StrictBase):
 class PoliciesPayload(_StrictBase):
     generated_at: Date
     policies: list[Policy]
+
+    @field_validator("policies")
+    @classmethod
+    def _us_only(cls, v):
+        """International records live in international.json (v6). Keeping this
+        payload US-only is what lets every US code path assume a state."""
+        bad = [r.id for r in v if r.country != "US"]
+        if bad:
+            raise ValueError(f"non-US records belong in international.json: {bad}")
+        return v
 
     @field_validator("policies")
     @classmethod
@@ -1887,6 +2169,16 @@ class ClaimsPayload(_StrictBase):
 
     @field_validator("claims")
     @classmethod
+    def _us_only(cls, v):
+        """International records live in international.json (v6). Keeping this
+        payload US-only is what lets every US code path assume a state."""
+        bad = [r.id for r in v if r.country != "US"]
+        if bad:
+            raise ValueError(f"non-US records belong in international.json: {bad}")
+        return v
+
+    @field_validator("claims")
+    @classmethod
     def _ids_unique(cls, v: list[Claim]) -> list[Claim]:
         ids = [c.id for c in v]
         if len(ids) != len(set(ids)):
@@ -1898,6 +2190,16 @@ class ClaimsPayload(_StrictBase):
 class ProjectsPayload(_StrictBase):
     generated_at: Date
     projects: list[Project]
+
+    @field_validator("projects")
+    @classmethod
+    def _us_only(cls, v):
+        """International records live in international.json (v6). Keeping this
+        payload US-only is what lets every US code path assume a state."""
+        bad = [r.id for r in v if r.country != "US"]
+        if bad:
+            raise ValueError(f"non-US records belong in international.json: {bad}")
+        return v
 
     @field_validator("projects")
     @classmethod
@@ -1923,7 +2225,111 @@ class ResponsesPayload(_StrictBase):
         return v
 
 
+# ---------------------------------------------------------------------------
+# International payload (v6)
+# ---------------------------------------------------------------------------
+
+REGULATOR_ROLES: tuple[str, ...] = (
+    "energy_regulator", "grid_operator", "planning", "environment", "investment_agency",
+)
+
+
+class RegulatorRef(_StrictBase):
+    name: str = Field(min_length=1)
+    acronym: Optional[str] = None
+    role: Literal["energy_regulator", "grid_operator", "planning", "environment", "investment_agency"]
+    url: HttpUrl
+
+
+class ContextFact(_StrictBase):
+    """A sourced number about the country, e.g. a share of national electricity."""
+
+    statement: str = Field(min_length=1, description="Curator English sentence.")
+    verbatim: str = Field(min_length=1, description="The source's own words.")
+    source_lang: str = "en"
+    period: Optional[str] = None
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+    captured_at: Date
+
+
+class Country(_StrictBase):
+    code: str
+    summary: str = Field(
+        min_length=1,
+        description="2–4 neutral curator sentences; never templated from records. No score.",
+    )
+    regulators: list[RegulatorRef] = Field(default_factory=list)
+    primary_languages: list[str] = Field(min_length=1)
+    context: list[ContextFact] = Field(default_factory=list)
+    last_reviewed: Date
+
+    @model_validator(mode="after")
+    def _known(self) -> "Country":
+        if self.code == "US" or (self.code not in COUNTRIES and self.code not in SUPRANATIONAL):
+            raise ValueError(f"country {self.code!r} is not an international registry entry")
+        for lang in self.primary_languages:
+            _check_lang(self.code, lang)
+        return self
+
+
+class InternationalPayload(_StrictBase):
+    """Every non-US record, in one lazy file (owner decision, 2026-10-19)."""
+
+    generated_at: Date
+    countries: list[Country]
+    policies: list[Policy] = Field(default_factory=list)
+    moratoriums: list[Moratorium] = Field(default_factory=list)
+    projects: list[Project] = Field(default_factory=list)
+    responses: list[CommunityResponse] = Field(default_factory=list)
+    claims: list[Claim] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def _partition_and_refs(self) -> "InternationalPayload":
+        codes = [c.code for c in self.countries]
+        if len(codes) != len(set(codes)):
+            raise ValueError("duplicate country codes")
+        known = set(codes)
+        for kind in ("policies", "moratoriums", "projects", "claims"):
+            for r in getattr(self, kind):
+                if r.country == "US":
+                    raise ValueError(f"{kind} {r.id!r}: US records belong in the US payloads")
+                if r.country not in known:
+                    raise ValueError(f"{kind} {r.id!r}: country {r.country!r} has no Country entry")
+        ids = [r.id for k in ("policies", "moratoriums", "projects", "responses", "claims") for r in getattr(self, k)]
+        if len(ids) != len(set(ids)):
+            raise ValueError("duplicate ids in international.json")
+        project_ids = {p.id for p in self.projects}
+        for r in self.responses:
+            if r.project_id not in project_ids:
+                raise ValueError(f"response {r.id!r}: unknown project {r.project_id!r}")
+        for c in self.claims:
+            if c.project_id and c.project_id not in project_ids:
+                raise ValueError(f"claim {c.id!r}: unknown project {c.project_id!r}")
+        for p in self.policies:
+            for pid in p.related_project_ids or []:
+                if pid not in project_ids:
+                    raise ValueError(f"policy {p.id!r}: unknown project {pid!r}")
+        return self
+
+
 __all__ = [
+    "COUNTRIES",
+    "SUPRANATIONAL",
+    "EU_MEMBERS",
+    "SUBDIVISIONS",
+    "SUBDIVISION_TERMS",
+    "CURRENCIES",
+    "LANGUAGES",
+    "TRANSLATION_SOURCES",
+    "TRANSLATION_SOURCE_LABELS",
+    "MORATORIUM_FORMALITIES",
+    "MORATORIUM_FORMALITY_LABELS",
+    "Money",
+    "Translation",
+    "TranslatedTerms",
+    "Country",
+    "InternationalPayload",
     "THEMES",
     "THEME_LABELS",
     "COMPANY_SLUGS",

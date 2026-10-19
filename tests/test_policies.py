@@ -275,7 +275,10 @@ def test_every_principle_is_in_use(policies) -> None:
     """An empty principle card would read as 'nobody does this'."""
     from schema import POLICY_PRINCIPLES
 
-    used = {k for p in policies for k in p["principles"]}
+    # heat_reuse (v6) is mainly an international practice, so count the
+    # international policies too; the Frameworks card links to them.
+    intl = json.loads((ROOT / "data/seed/international.json").read_text())["policies"]
+    used = {k for p in policies + intl for k in p["principles"]}
     assert used == set(POLICY_PRINCIPLES)
 
 

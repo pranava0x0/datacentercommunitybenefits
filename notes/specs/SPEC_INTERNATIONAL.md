@@ -7,6 +7,18 @@
 > Phase 0 fetches it. CLAUDE.md's v1.19 rule (a live link is not a verified
 > claim) applies twice over once translation is involved.
 
+> **Owner decisions, 2026-10-19 (answers to §9.3; these override the text below where they conflict):**
+> 1. **Tab and title:** a new last tab, "International" (`#world`), *and* the site is retitled to cover the US and selected countries.
+> 2. **Operators:** untracked operators of seeded sites are added as `Company` records (not `operator_name` strings).
+> 3. **Translation:** quotes stay verbatim in the original language, with an English translation labelled "Machine translation (AI)".
+> 4. **Currency:** original amount as stated, plus a display-only "≈ US$" line from annual-average rates, labelled approximate. Never stored or summed.
+> 5. **Wave 1:** Ireland, United Kingdom, France, Sweden, Finland, Greece, Australia (national + NSW), Singapore, Canada (Québec), plus the EU layer. 3–6 verified records per country.
+> 6. **Proposed instruments:** included, with their stage.
+> 7. **Heat reuse:** added now as a 10th policy principle, labelled as mainly international, with a migration and parity tests.
+> 8. **EU database:** cite-only.
+> 9. **Refresh:** country units join the daily routine. The unattended run adds only from English-language sources and files the rest as backlog leads.
+> 10. **Verification budget:** approved.
+
 ## 1. Goal, non-goals, editorial frame
 
 ### Why

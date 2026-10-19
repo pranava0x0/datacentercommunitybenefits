@@ -137,6 +137,7 @@ const POLICY_INSTRUMENTS = [
   "local_ordinance",
   "benefit_agreement",
   "company_plan",
+  "government_framework",
 ];
 const POLICY_INSTRUMENT_LABELS = {
   executive_order: "Executive order",
@@ -145,6 +146,7 @@ const POLICY_INSTRUMENT_LABELS = {
   local_ordinance: "Local ordinance",
   benefit_agreement: "Benefit agreement",
   company_plan: "Company plan",
+  government_framework: "Government framework",
 };
 const POLICY_STATUSES = ["in_effect", "proposed", "failed"];
 const POLICY_STATUS_LABELS = {
@@ -209,6 +211,7 @@ const POLICY_PRINCIPLES = [
   "new_power",
   "environmental_review",
   "study",
+  "heat_reuse",
 ];
 const POLICY_PRINCIPLE_LABELS = {
   pay_own_way: "Data centers pay their own grid costs",
@@ -220,6 +223,7 @@ const POLICY_PRINCIPLE_LABELS = {
   new_power: "New demand brings new supply",
   environmental_review: "Projects get environmental review",
   study: "States study before setting rules",
+  heat_reuse: "Waste heat is reused (mainly outside the US)",
 };
 const POLICY_PRINCIPLE_SHORT = {
   pay_own_way: "Grid costs",
@@ -231,6 +235,7 @@ const POLICY_PRINCIPLE_SHORT = {
   new_power: "New supply",
   environmental_review: "Environmental review",
   study: "Study",
+  heat_reuse: "Heat reuse",
 };
 const POLICY_PRINCIPLE_DESCRIPTIONS = {
   pay_own_way:
@@ -249,14 +254,18 @@ const POLICY_PRINCIPLE_DESCRIPTIONS = {
     "Impact review before permits issue: water, air, noise, and wildlife studies, usually with public comment. New York's statewide pause (EO 62) waits on one.",
   study:
     "Task forces, advisory councils, and workgroups that recommend rules before a state writes them.",
+  heat_reuse:
+    "Requirements or agreements to pipe a data center's waste heat into district heating. Common in the Nordics and Germany; rare in the US so far.",
 };
-const POLICY_SCOPES = ["federal", "state", "county", "city", "company"];
+const POLICY_SCOPES = ["federal", "state", "county", "city", "company", "national", "supranational"];
 const POLICY_SCOPE_LABELS = {
   federal: "Federal",
   state: "State",
   county: "County",
   city: "City / town",
   company: "Company-wide",
+  national: "National",
+  supranational: "EU-wide",
 };
 // The five LBL element groups, in the brief's order: [group_key, label].
 const TARIFF_PARAMETER_GROUPS = [
@@ -3389,6 +3398,7 @@ const PB_TERM_HINTS = {
   new_power: /generation|clean|renewable|solar|nuclear|storage|behind|microgrid/i,
   environmental_review: /permit|review|impact|environment|air|wildlife|sound|comment/i,
   study: /task force|council|workgroup|recommend|study|report/i,
+  heat_reuse: /heat|district heating|warmth|thermal/i,
 };
 
 function pbTermFor(p, key) {

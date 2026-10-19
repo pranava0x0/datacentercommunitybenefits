@@ -745,14 +745,42 @@ def _write_home(payloads, *, pretty: bool) -> int:
     return len(text.encode("utf-8"))
 
 
+# v6 fields whose default is the US value. Written out on every US record
+# they added ~12 KB gzipped to first paint for no information, so the US
+# payloads omit them (the frontend treats a missing value as the default).
+# international.json keeps them: there the value is the point.
+_V6_US_DEFAULTS = {
+    "country": "US", "source_lang": "en", "statement_lang": "en", "formality": "formal",
+}
+_V6_STRIP = {
+    "claims": ("country", "statement_lang"),
+    "policies": ("country", "source_lang"),
+    "moratoriums": ("country", "source_lang", "formality"),
+    "projects": ("source_lang",),
+    "responses": ("source_lang",),
+}
+
+
+def _strip_v6_defaults(name: str, data: dict) -> dict:
+    keys = _V6_STRIP.get(name)
+    if not keys:
+        return data
+    for rec in data.get(name, []):
+        for k in keys:
+            if rec.get(k) == _V6_US_DEFAULTS[k]:
+                del rec[k]
+    return data
+
+
 def _write_payload(name: str, model_obj, *, pretty: bool) -> int:
     """Emit one payload to docs/data/<name>.json. Returns bytes written."""
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUT_DIR / f"{name}.json"
+    data = _strip_v6_defaults(name, model_obj.model_dump(mode="json", exclude_none=True))
     if pretty:
-        text = model_obj.model_dump_json(exclude_none=True, indent=2) + "\n"
+        text = json.dumps(data, indent=2, ensure_ascii=False) + "\n"
     else:
-        text = model_obj.model_dump_json(exclude_none=True)
+        text = json.dumps(data, separators=(",", ":"), ensure_ascii=False)
     out.write_text(text, encoding="utf-8")
     return len(text.encode("utf-8"))
 
