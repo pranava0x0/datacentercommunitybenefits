@@ -6220,7 +6220,7 @@
       "duration_months": 12,
       "duration_description": "12 months",
       "key_reasons": [],
-      "summary": "The Carroll County Quorum Court passed a one-year moratorium on data centers and other high-intensity digital infrastructure facilities in June 2026, while it works on an ordinance and regulations. The June 16 date is the report's timestamp; the story does not state the vote date.",
+      "summary": "The Carroll County Quorum Court passed a one-year moratorium on data centers and other high-intensity digital infrastructure facilities while it works on an ordinance and regulations. KY3 reports the ordinance \"was passed unanimously Tuesday night\" and took effect immediately; the story was published Tuesday, June 16, 2026 at 10:49 p.m., so the vote was that night.",
       "source_url": "https://ky3.com/2026/06/17/carroll-county-unanimously-passes-1-year-moratorium-data-centers-other-high-intensity-digital-infrastructure-facilities/",
       "source_title": "KY3 — Carroll County unanimously passes 1-year moratorium on data centers",
       "enacted_by": "Quorum Court",
@@ -6309,14 +6309,20 @@
       "duration_months": null,
       "duration_description": "Third extension, to late December 2026 (sources differ on the exact end date)",
       "key_reasons": [],
-      "summary": "The Sedgwick County commission voted unanimously to extend its data center moratorium for the third time, to late December, saying the Planning Commission had not delivered enough regulations in time. The report is dated September 3, 2026, which is used as the date here because the vote date is not stated. Fox Kansas gives two end dates, December 11 and December 24, and this record does not choose between them.",
+      "summary": "The Sedgwick County commission voted unanimously at its September 2, 2026 meeting to extend its data center moratorium for the third time, to late December, saying the Planning Commission had not delivered enough regulations in time. Fox Kansas gives two end dates, December 11 and December 24, and this record does not choose between them.",
       "source_url": "https://foxkansas.com/news/local/data-center-proposals-put-on-hold-as-sedgwick-county-delays-rules-until-late-december",
       "source_title": "Fox Kansas — Data center proposals put on hold as Sedgwick County delays rules until late December",
       "enacted_by": "County Commission",
       "session": "2026",
       "captured_at": "2026-10-19",
-      "enacted_date": "2026-09-03",
-      "city_council_vote": "unanimous"
+      "enacted_date": "2026-09-02",
+      "city_council_vote": "unanimous",
+      "resources": [
+        {
+          "url": "https://www.tsnews.com/node/9740",
+          "title": "The Times-Sentinel — Sedgwick County extends data center moratorium again"
+        }
+      ]
     },
     {
       "id": "mchenry-county-il-2026-10",
