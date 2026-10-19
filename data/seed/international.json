@@ -1441,6 +1441,73 @@
       "locality": "Maharashtra",
       "source_lang": "en",
       "community_benefits_framework": false
+    },
+    {
+      "id": "au-nsw-kemps-creek-data-centre-ssd-10101987",
+      "title": "Kemps Creek data centre, Penrith (SSD-10101987): state significant development approval",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "New South Wales",
+      "identifier": "SSD-10101987",
+      "date": "2023-07-13",
+      "company_slugs": [
+        "microsoft"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Construction and Operation of a Data Centre including two data storage buildings, 61 generators, substation, high voltage switch yard, 30 diesel storage tanks"
+      ],
+      "summary": "The NSW Planning Portal lists the Kemps Creek data centre state significant development (SSD-10101987) as approved, with a determination date of 13 July 2023. The approved scope is construction and operation of a data centre with two data storage buildings, 61 generators, a substation, a high-voltage switchyard and 30 diesel storage tanks. This is a planning approval, not a community benefit agreement.",
+      "source_url": "https://www.planningportal.nsw.gov.au/major-projects/projects/kemps-creek-data-centre",
+      "source_title": "NSW Planning Portal — Kemps Creek Data Centre (SSD-10101987)",
+      "captured_at": "2026-10-19",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Penrith",
+      "source_lang": "en",
+      "resources": [
+        {
+          "url": "https://penrithcity.nsw.gov.au/building-development/invest-penrith/invest-penrith-news/1179-microsoft-plans-to-call-penrith-home",
+          "title": "Penrith City Council — Microsoft plans to call Penrith home"
+        }
+      ],
+      "related_project_ids": [
+        "au-microsoft-kemps-creek"
+      ]
+    },
+    {
+      "id": "ca-ab-bill-12-data-centre-levy",
+      "title": "Alberta data centre levy (Bill 12, Financial Statutes Amendment Act (No. 2), 2025)",
+      "instrument": "legislation",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Alberta",
+      "identifier": "Bill 12",
+      "benefit_themes": [
+        "tax_revenue"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Introduce a levy of up to two per cent on the value of computer equipment for large data centres (with 75 megawatts of power or more)."
+      ],
+      "summary": "The government fact sheet describes a levy of up to 2% on the value of computer equipment for data centres of 75 MW or more, with a lower rate for sites that bring their own power generation. The levy is deductible from Alberta corporate income tax. Law-firm summaries state Royal Assent in December 2025 and an effective date of 31 December 2026, but those dates were not confirmed on an official page, so the status is kept at proposed.",
+      "source_url": "https://www.alberta.ca/system/files/tbf-bill-12-financial-statutes-amendment-act-fact-sheet.pdf",
+      "source_title": "Government of Alberta — Bill 12 Financial Statutes Amendment Act fact sheet (Data Centre Levy)",
+      "captured_at": "2026-10-19",
+      "country": "CA",
+      "subdivision": "CA-AB",
+      "locality": "Alberta",
+      "source_lang": "en"
     }
   ],
   "moratoriums": [
@@ -1996,6 +2063,27 @@
       "notes": "QTS page: outline planning permission approved; QTS has begun submitting detailed approvals to Northumberland County Council and says it will update as it moves towards starting works on site. announced_year is the earliest dated item on the page (2025). Coordinates: Wikipedia Cambois village (55°08′42″N 1°31′16″W), village-level, not the campus boundary.",
       "subdivision": "GB-ENG",
       "locality": "Cambois (near Blyth)"
+    },
+    {
+      "id": "au-microsoft-kemps-creek",
+      "company_slug": "microsoft",
+      "name": "Microsoft Kemps Creek data centre (Penrith)",
+      "city": "Kemps Creek",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Kemps Creek, Penrith",
+      "status": "announced",
+      "announced_year": 2022,
+      "claimed_investment": {
+        "amount": 300000000,
+        "currency": "AUD",
+        "as_stated": "over $300 million"
+      },
+      "source_url": "https://penrithcity.nsw.gov.au/building-development/invest-penrith/invest-penrith-news/1179-microsoft-plans-to-call-penrith-home",
+      "source_title": "Penrith City Council — Microsoft plans to call Penrith home",
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "notes": "Penrith City Council's page (last updated 19 Jan 2022) gives a capital investment value of over $300 million (currency not printed; AUD inferred from the NSW context) and says documents supplied by the applicant indicate around 300 construction jobs and 50 once operational. The NSW Planning Portal records the state significant development (SSD-10101987) as approved on 13/07/2023; no construction start was matched, so status stays announced. No coordinates were probed."
     }
   ],
   "responses": [
@@ -2112,6 +2200,17 @@
       "source_url": "https://forbes.cl/ia/2026-04-06/justicia-ambiental-da-luz-verde-al-proyecto-de-data-center-de-amazon-en-huechuraba/",
       "source_title": "Forbes Chile — Justicia ambiental da luz verde al proyecto de data center de Amazon en Huechuraba (6 Apr 2026)",
       "single_source": true
+    },
+    {
+      "id": "cl-resp-quilicura-quili-ai",
+      "project_id": "cl-google-quilicura",
+      "date": "2026-01-31",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Corporación Ngen ran the 'Quili.AI' action in Quilicura on 31 January 2026, with residents answering questions in place of a chatbot to raise awareness of AI's water use. Its coordinator said the aim was to build awareness of the water impact of AI, not to oppose AI. The report counts six approved data centres in the commune, Google's among them, and an activist quoted in it singles out Google's site over its water rights; the action was not aimed at one operator.",
+      "source_url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
+      "source_title": "Radio Universidad de Chile — El agua que usa la IA es chilena: vecinos de Quilicura alegan \"falta de responsabilidad\" de data centers",
+      "source_lang": "es"
     }
   ],
   "claims": [
@@ -2261,17 +2360,6 @@
     {
       "captured_at": "2026-10-19",
       "statement_lang": "en",
-      "id": "sg-claim-aws-investment-2028",
-      "company_slug": "amazon",
-      "theme": "infrastructure",
-      "country": "SG",
-      "statement": "At the 10th AWS ASEAN Summit in Singapore today, Amazon Web Services (AWS) announced plans to invest an additional S$12 billion into its existing cloud infrastructure in Singapore from 2024 to 2028 to meet growing customer demand for cloud technology and services in the country.",
-      "source_url": "https://www.edb.gov.sg/en/news-and-insights/aws-to-invest-an-additional-12billion-in-singapore-by-2028",
-      "source_title": "Singapore EDB — AWS to invest an additional SG$12 billion in Singapore by 2028, and announces flagship AI programme"
-    },
-    {
-      "captured_at": "2026-10-19",
-      "statement_lang": "en",
       "id": "fi-claim-google-muhos-heat",
       "company_slug": "google",
       "theme": "energy",
@@ -2339,6 +2427,71 @@
       "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
       "source_title": "Google — Our new Waltham Cross data center (16 Sep 2025)",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "cl-claim-google-quilicura-cfe",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "nuestro centro de datos en Quilicura alcanzó un 92% de energía libre de carbono (CFE) por hora en 2024, gracias a un conjunto de inversiones en proyectos de energía eólica, solar y de almacenamiento de energía.",
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "captured_at": "2026-10-19",
+      "country": "CL",
+      "statement_lang": "es",
+      "project_id": "cl-google-quilicura",
+      "statement_translation": {
+        "text": "Google's Quilicura data centre reached 92% hourly carbon-free energy (CFE) in 2024, thanks to investments in wind, solar and energy-storage projects.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "published_at": "2026-03-31"
+    },
+    {
+      "id": "cl-claim-google-chile-jobs-gdp",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "nuestras inversiones en la infraestructura digital de Chile aportaron aproximadamente CLP 191.600 millones al PIB del país y sustentaron alrededor de 5.520 empleos anuales, basado en promedios de 2021-2023.",
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "captured_at": "2026-10-19",
+      "country": "CL",
+      "statement_lang": "es",
+      "project_id": "cl-google-quilicura",
+      "statement_translation": {
+        "text": "Google says its investments in Chile's digital infrastructure contributed about CLP 191.6 billion to the country's GDP and supported about 5,520 jobs a year, based on 2021-2023 averages.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "published_at": "2026-03-31"
+    },
+    {
+      "id": "cl-claim-google-quilicura-community-grants",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "desde 2015, nuestro Programa de Impacto Comunitario ha financiado iniciativas locales en Quilicura y en todo Chile de más de 20 organizaciones diferentes.",
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "captured_at": "2026-10-19",
+      "country": "CL",
+      "statement_lang": "es",
+      "project_id": "cl-google-quilicura",
+      "statement_translation": {
+        "text": "Since 2015, our Community Impact Programme has funded local initiatives in Quilicura and across Chile by more than 20 different organisations.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "published_at": "2026-03-31"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "sg-claim-aws-investment-2028",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "country": "SG",
+      "statement": "At the 10th AWS ASEAN Summit in Singapore today, Amazon Web Services (AWS) announced plans to invest an additional S$12 billion into its existing cloud infrastructure in Singapore from 2024 to 2028 to meet growing customer demand for cloud technology and services in the country.",
+      "source_url": "https://www.edb.gov.sg/en/news-and-insights/aws-to-invest-an-additional-12billion-in-singapore-by-2028",
+      "source_title": "Singapore EDB — AWS to invest an additional SG$12 billion in Singapore by 2028, and announces flagship AI programme"
     }
   ],
   "rate_cases": [

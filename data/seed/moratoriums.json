@@ -2512,7 +2512,7 @@
       "jurisdiction": "Santa Fe County",
       "jurisdiction_type": "county",
       "status": "enacted",
-      "enacted_date": "2026-07-01",
+      "enacted_date": "2026-06-30",
       "effective_date": null,
       "duration_months": 18,
       "duration_description": "18 months (extended from the originally proposed 12 months) to develop standards and evaluate water and electrical-demand impacts.",
@@ -2523,7 +2523,7 @@
         "noise",
         "air_quality"
       ],
-      "summary": "The Santa Fe County Board of County Commissioners voted unanimously on July 1, 2026 to adopt an 18-month moratorium on data center development — extended from a proposed 12 months — with the regulatory threshold lowered from 100 MW to 1 MW. Commissioners cited large water and electricity use, serious risk to the water supply, groundwater impacts, grid reliability, noise from cooling systems, and backup diesel generators. Enacted.",
+      "summary": "The Santa Fe County Board of County Commissioners voted unanimously on July 1, 2026 to adopt an 18-month moratorium on data center development — extended from a proposed 12 months — with the regulatory threshold lowered from 100 MW to 1 MW. Commissioners cited large water and electricity use, serious risk to the water supply, groundwater impacts, grid reliability, noise from cooling systems, and backup diesel generators. Enacted. Correction: the county's release (dated July 2) says the unanimous vote was Tuesday night, which is June 30, 2026, not July 1.",
       "source_url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers",
       "source_title": "Santa Fe County (.gov) — Santa Fe County Approves 18-Month Moratorium on Data Centers",
       "bill_number": null,
@@ -2536,7 +2536,7 @@
       "city_council_vote": "Unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13",
+      "captured_at": "2026-10-19",
       "resources": [
         {
           "url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers",
@@ -2613,8 +2613,8 @@
       "jurisdiction": "Socorro County",
       "jurisdiction_type": "county",
       "status": "enacted",
-      "enacted_date": "2026-05-10",
-      "effective_date": "2026-05-10",
+      "enacted_date": "2026-06-09",
+      "effective_date": null,
       "duration_months": 12,
       "duration_description": "1 year",
       "power_threshold_mw": null,
@@ -2622,11 +2622,15 @@
         "water",
         "energy"
       ],
-      "summary": "One-year moratorium on data centers and related infrastructure projects in Socorro County, New Mexico.",
-      "source_url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
-      "source_title": "Route Fifty — Data center moratoriums gain ground",
-      "captured_at": "2026-05-10",
+      "summary": "One-year moratorium on data centers and related infrastructure projects in Socorro County, New Mexico. Correction: the Board of Commissioners adopted the moratorium unanimously on Tuesday, June 9, 2026; the earlier May date was not the adoption.",
+      "source_url": "https://www.kanw.org/new-mexico-news/2026-06-10/new-mexico-county-adopts-yearlong-data-center-moratorium",
+      "source_title": "KANW / Source NM — New Mexico county adopts yearlong data center moratorium",
+      "captured_at": "2026-10-19",
       "resources": [
+        {
+          "url": "https://www.route-fifty.com/artificial-intelligence/2026/06/data-center-moratoriums-gain-ground-states-and-cities/414090/",
+          "title": "Route Fifty — Data center moratoriums gain ground"
+        },
         {
           "url": "https://datacenterbans.com/",
           "title": "DatacenterBans.com"
@@ -5470,7 +5474,7 @@
       "session": "2026"
     },
     {
-      "captured_at": "2026-10-08",
+      "captured_at": "2026-10-19",
       "id": "pima-county-az-2026-09",
       "jurisdiction": "Pima County",
       "jurisdiction_type": "county",
@@ -5480,12 +5484,18 @@
       "duration_months": 4,
       "duration_description": "120 days; returns to the board before it ends for a possible extension hearing.",
       "key_reasons": [],
-      "summary": "The Pima County Board of Supervisors voted 3-2 on Sept. 22, 2026 to impose a 120-day moratorium on new data center development in unincorporated Pima County, applying to data centers whose site-improvement permits had not yet been submitted, while a zoning code text amendment on data centers is prepared.",
+      "summary": "The Pima County Board of Supervisors voted 3-2 on Sept. 22, 2026 to impose a 120-day moratorium on new data center development in unincorporated Pima County, applying to data centers whose site-improvement permits had not yet been submitted, while a zoning code text amendment on data centers is prepared. On Sept. 29, 2026 the Goldwater Institute said the pause is illegal under Title 11 and Prop. 207 because the county cannot prove data centers are an imminent threat; the supervisor who sponsored it says it is based on Title 11. No lawsuit had been filed as of the report.",
       "source_url": "https://tucsondailybrief.com/news-reports/pima-county-2026-09-22.html",
       "source_title": "Tucson Daily Brief — Pima County Board of Supervisors, Sept. 22, 2026",
       "enacted_by": "Board of Supervisors",
       "city_council_vote": "3-2",
-      "session": "2026"
+      "session": "2026",
+      "resources": [
+        {
+          "url": "https://www.kjzz.org/fronteras-desk/2026-09-29/goldwater-institute-says-pima-county-data-center-moratorium-is-illegal-facilities-arent-a-threat",
+          "title": "KJZZ — Goldwater Institute says Pima County data center moratorium is illegal"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-09",
@@ -6127,6 +6137,102 @@
       "session": "2026",
       "captured_at": "2026-10-19",
       "policy_type": "interim resolution"
+    },
+    {
+      "id": "bannock-county-id-2026-07",
+      "jurisdiction": "Bannock County",
+      "jurisdiction_type": "county",
+      "state_code": "ID",
+      "status": "enacted",
+      "duration_months": 6,
+      "duration_description": "180 days",
+      "key_reasons": [
+        "water",
+        "energy"
+      ],
+      "summary": "The Bannock County Board of Commissioners adopted an emergency 180-day moratorium on applications for data centers on July 30, 2026, citing imminent peril to water, environment, view sheds, decommissioning bonds, the grid and the aquifer. The county is directed to produce a permanent plan within 180 days. Permits already issued are exempt.",
+      "source_url": "https://www.bannockcounty.gov/wp-content/uploads/2026/07/Data-Center-Moratorium_Final.pdf",
+      "source_title": "Bannock County — Emergency Moratorium Ordinance No. 2026-02 (data centers)",
+      "enacted_by": "Board of County Commissioners",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-07-30",
+      "bill_number": "Ordinance 2026-02"
+    },
+    {
+      "id": "st-charles-parish-la-2026-04",
+      "jurisdiction": "St. Charles Parish",
+      "jurisdiction_type": "county",
+      "state_code": "LA",
+      "status": "failed",
+      "duration_months": null,
+      "duration_description": "Proposed eight-month moratorium, until the parish enacts specific data center regulations.",
+      "key_reasons": [
+        "water",
+        "energy",
+        "noise"
+      ],
+      "summary": "The St. Charles Parish council voted 5-3 against an eight-month moratorium on new data centers, after a debate on Monday, April 6, 2026. Supporters said it was needed to regulate location, size, water, energy and noise. The parish reported no current proposals for large data centers.",
+      "source_url": "https://www.heraldguide.com/featured/parish-council-rejects-8-month-moratorium-on-new-data-centers/",
+      "source_title": "Herald Guide — Parish council rejects 8-month moratorium on new data centers",
+      "enacted_by": "Parish Council",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "city_council_vote": "5-3 against",
+      "failure_reason": "Voted down 5-3."
+    },
+    {
+      "id": "baltimore-county-md-2026-09",
+      "jurisdiction": "Baltimore County",
+      "jurisdiction_type": "county",
+      "state_code": "MD",
+      "status": "enacted",
+      "duration_months": null,
+      "duration_description": "Extended through December 31, 2027",
+      "key_reasons": [],
+      "summary": "The Baltimore County Council unanimously passed a bill on Tuesday, Sept. 22, 2026 extending its moratorium on data centers through December 31, 2027. The bill does not set permanent rules; it extends the pause while the council considers Planning Board recommendations. The date is computed from the report's 'Tuesday night'; the executive's signature was not checked.",
+      "source_url": "https://www.thebanner.com/baltimore-county/baltimore-county-data-center-moratorium-5OKGK2L4TRBSXEKKDIPOGZLODE/",
+      "source_title": "Baltimore Banner — Baltimore County data center moratorium",
+      "enacted_by": "County Council",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-09-22",
+      "city_council_vote": "unanimous"
+    },
+    {
+      "id": "carroll-county-ar-2026-06",
+      "jurisdiction": "Carroll County",
+      "jurisdiction_type": "county",
+      "state_code": "AR",
+      "status": "enacted",
+      "duration_months": 12,
+      "duration_description": "12 months",
+      "key_reasons": [],
+      "summary": "The Carroll County Quorum Court passed a one-year moratorium on data centers and other high-intensity digital infrastructure facilities in June 2026, while it works on an ordinance and regulations. The June 16 date is the report's timestamp; the story does not state the vote date.",
+      "source_url": "https://ky3.com/2026/06/17/carroll-county-unanimously-passes-1-year-moratorium-data-centers-other-high-intensity-digital-infrastructure-facilities/",
+      "source_title": "KY3 — Carroll County unanimously passes 1-year moratorium on data centers",
+      "enacted_by": "Quorum Court",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-06-16"
+    },
+    {
+      "id": "new-denmark-wi-2026-06",
+      "jurisdiction": "Town of New Denmark",
+      "jurisdiction_type": "city",
+      "state_code": "WI",
+      "status": "enacted",
+      "duration_months": 12,
+      "duration_description": "One year; may be extended by six months",
+      "key_reasons": [],
+      "summary": "The Town Board of New Denmark (Brown County, WI) adopted Resolution 2026-04 on June 8, 2026, a one-year moratorium on placing data centers in the town. It may be extended by six months, and the Plan Commission and Zoning Administrator are directed to draft siting and operating rules. The town is filed at city level because the schema has no town level.",
+      "source_url": "https://townofnewdenmarkwi.gov/news-and-notices/notice-of-moratorium-of-data-centers/",
+      "source_title": "Town of New Denmark — Notice of Moratorium of Data Centers (Resolution #2026-04)",
+      "enacted_by": "Town Board",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-06-08",
+      "bill_number": "Resolution 2026-04"
     }
   ]
 }

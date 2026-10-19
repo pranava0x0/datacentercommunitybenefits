@@ -249,9 +249,6 @@ come first, then locations, companies and sites.
 - Pima County / Beale MOA: KVOA (2026-06-11) reports the Pima Community
   College board approved a $5.9M five-year gift (record says $5M). Acceptance
   is not receipt; look for a payment record before attaching `delivered`. **low**
-- ACC, Aug 13 2026: "ACC Approves Measure to Ensure Electric Cooperative
-  Customers Don't Pay for Large-Load Growth" (azcc.gov news item). Fetch the
-  item page, then decide between a rate case and a policy.
 - Pinal County project denial: a site fight, not a moratorium.
 
 #### state:CA — California
@@ -1164,3 +1161,22 @@ Each item has the trigger that would make it addable.
 - **Halcyon large-load tariff tracker:** 218 tariffs behind a contact form.
   It's a work-list, not a source.
 - **International sites** (Dublin; Uruguay water): out of scope until v2.
+
+### Held international records (2026-10-19, verified but not shipped)
+
+Researched and probe-verified in `notes/specs/international/wave2/deep_au_ca_sg_cl_ar_se_fi_gr.json`,
+held because the operator is not a tracked company (add the company first;
+international-only operators are allowed per the v6 owner decision, but HQ and
+slug need confirming):
+- **atNorth** (SE SWE02 Kista 30 MW project, Stockholm mayor welcome response,
+  heat-reuse claim; FI Espoo Kesko heat-reuse and Caruna infrastructure claims).
+  atNorth's HQ was not verified in wave 2.
+- **Dromeus Capital-APTO, Spata GR** (80 MW project plus the municipal-council
+  and Council of State residents responses, newmoney.gr, 2025-11-24).
+- **Synapse Real Estate Corp., Olds AB** (1,400 MW gas plant denied by the AUC,
+  Decision 30732-D01-2026, 2026-08-18; AUC news release PDF). The AUC says it is
+  not a view on data centres as such.
+- **Régie R-4333-2026 intervenor response** (AQCIE/CIFQ information request,
+  2026-05-22, 5 MW threshold could be split into 4.9 MW subsidiaries). Not
+  shipped: a `CommunityResponse` needs a `project_id` and the case has no site.
+  Candidate home if the schema ever allows a rate-case-attached response.

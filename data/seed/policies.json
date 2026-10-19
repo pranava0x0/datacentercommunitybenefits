@@ -4694,6 +4694,65 @@
       "source_url": "https://www.nvdaily.com/nvdaily/council-seeks-legal-advice-on-data-center-ban/article_8447d61b-1e1a-5002-9eb8-53bfd83ab50a.html",
       "source_title": "Northern Virginia Daily — Front Royal council seeks legal advice on data center ban",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "az-acc-cooperative-large-load-framework-2026",
+      "title": "Arizona Corporation Commission approves joint cooperative framework for large-load electric service agreements",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Arizona",
+      "state_code": "AZ",
+      "identifier": "Joint cooperative large-load application",
+      "date": "2026-08-12",
+      "counterparties": [
+        "AEPCO",
+        "Duncan Valley",
+        "Sulphur Springs Valley",
+        "Mohave",
+        "Graham County",
+        "Trico"
+      ],
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "This procedure supports the Commission's \"Growth Pays for Growth\" approach when it comes to the addition of new large-load customers."
+      ],
+      "summary": "The Arizona Corporation Commission unanimously approved a joint application by six electric cooperatives for a standardized large-load process. The process approves electric service agreements with large-load customers, such as data centers, and is framed as protecting existing ratepayers from bearing the infrastructure costs of that growth. It is a service-agreement framework, not a rate case. The meeting date of Aug. 12 follows the release URL; the release is dated Aug. 13.",
+      "source_url": "https://azcc.gov/news/home/2026/08/13/acc-approves-measure-to-ensure-electric-cooperative-customers-don-t-pay-for-large-load-growth",
+      "source_title": "Arizona Corporation Commission — ACC approves measure to ensure electric cooperative customers don't pay for large-load growth",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "coeur-dalene-id-datacenter-non-approval-2026",
+      "title": "Coeur d'Alene council announces it will not approve data center proposals pending study",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Coeur d'Alene, ID",
+      "state_code": "ID",
+      "identifier": "Council announcement (not an ordinance)",
+      "date": "2026-08-04",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control",
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "unanimously passed an announcement that they will not approve any proposals to construct, develop or expand data centers within city limits until"
+      ],
+      "summary": "On Aug. 4, 2026 the Coeur d'Alene City Council unanimously passed an announcement that it will not approve proposals to construct, develop or expand data centers within city limits until further analysis, study and policy review. It is not an ordinance or a legal moratorium, so the record stays proposed; the city has no data centers.",
+      "source_url": "https://cdapress.com/news/2026/aug/05/city-takes-stance-on-data-centers/",
+      "source_title": "Coeur d'Alene Press — City Council says 'No' to data centers",
+      "captured_at": "2026-10-19"
     }
   ]
 }
