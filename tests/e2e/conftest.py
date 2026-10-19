@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import http.server
 import socket
-import socketserver
 import sys
 import threading
 from pathlib import Path
@@ -38,7 +37,15 @@ def docs_server():
         def __init__(self, *a, **kw):
             super().__init__(*a, directory=str(DOCS), **kw)
 
-    httpd = socketserver.TCPServer(("127.0.0.1", port), _Handler)
+    # Threaded, with a deep backlog: a page fires ~8 fetches at once, and the
+    # old single-threaded TCPServer (backlog 5) refused some of them under
+    # load (ERR_SOCKET_NOT_CONNECTED). That was the source of the "rotating"
+    # e2e flakes: a different 2-6 tests failed each -n 4 run.
+    class _Server(http.server.ThreadingHTTPServer):
+        daemon_threads = True
+        request_queue_size = 128
+
+    httpd = _Server(("127.0.0.1", port), _Handler)
     thread = threading.Thread(target=httpd.serve_forever, daemon=True)
     thread.start()
     try:
