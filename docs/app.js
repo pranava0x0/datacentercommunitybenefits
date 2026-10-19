@@ -790,6 +790,7 @@ function wireTabs() {
 // While routing, nothing may push or rewrite history on its own: closing a
 // modal or syncing a view's URL would overwrite the entry Back just landed on.
 function routeFromLocation({ boot = false } = {}) {
+  state.navGen = (state.navGen || 0) + 1;
   state._routing = true;
   try {
     _routeFromLocation(boot);
@@ -937,6 +938,7 @@ function activateView(name) {
     history.pushState(null, "", window.location.href);
   }
   state.activeView = target.name;
+  state.navGen = (state.navGen || 0) + 1;
 
   for (const v of VIEWS) {
     const isActive = v.name === target.name;
@@ -3469,7 +3471,7 @@ function renderPolicyActions(all) {
       note: "pause · Moratoriums tab",
       open: () => {
         activateView("moratoriums");
-        requestAnimationFrame(() => showMoratoriumDetail(m));
+        openWhenStillOn("moratoriums", new Promise(requestAnimationFrame), () => showMoratoriumDetail(m));
       },
     });
   }
@@ -3635,9 +3637,10 @@ function showPolicyDetail(p) {
     btn.addEventListener("click", async () => {
       closePolicyDetail();
       activateView("moratoriums");
-      await loadMoratoriumsData();
-      const m = (state.moratoriums || []).find((x) => x.id === p.related_moratorium_id);
-      if (m) showMoratoriumDetail(m);
+      openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
+        const m = (state.moratoriums || []).find((x) => x.id === p.related_moratorium_id);
+        if (m) showMoratoriumDetail(m);
+      });
     });
     li.append(btn);
     relList.append(li);
@@ -4055,6 +4058,18 @@ function renderHome() {
 }
 
 // A feed item opens the record it describes, not just its tab.
+// Open a detail once its payload lands, unless the reader has navigated
+// since (Back, another tab): a late callback must not pop a modal over the
+// wrong view (Codex review of #77). Call right after activateView.
+function openWhenStillOn(view, ready, open) {
+  const gen = state.navGen;
+  Promise.resolve(ready)
+    .then(() => {
+      if (state.navGen === gen && state.activeView === view) open();
+    })
+    .catch((err) => console.error(`Failed to load ${view} detail:`, err));
+}
+
 function openHomeTarget(target) {
   if (!target) return;
   if (target.kind === "site") {
@@ -4063,14 +4078,14 @@ function openHomeTarget(target) {
     if (state.explorerLoaded) selectProject(target.id);
   } else if (target.kind === "moratorium") {
     activateView("moratoriums");
-    loadMoratoriumsData().then(() => {
+    openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
       const m = state.moratoriums.find((x) => x.id === target.id);
       if (m) showMoratoriumDetail(m);
     });
   } else if (target.kind === "policy") {
     setActiveSubtab("pol", "directory");
     activateView("policies");
-    loadPoliciesData().then(() => {
+    openWhenStillOn("policies", loadPoliciesData(), () => {
       const pol = (state.policies || []).find((x) => x.id === target.id);
       if (pol) showPolicyDetail(pol);
     });
@@ -7134,7 +7149,7 @@ function renderStatePanel(code, failedSources = new Set()) {
         onClick: () => {
           closeStatePanel();
           activateView("policies");
-          requestAnimationFrame(() => showPolicyDetail(pol));
+          openWhenStillOn("policies", new Promise(requestAnimationFrame), () => showPolicyDetail(pol));
         },
       })),
     },

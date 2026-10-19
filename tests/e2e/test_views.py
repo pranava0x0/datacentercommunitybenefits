@@ -3789,3 +3789,28 @@ class TestIssue72Navigation:
         assert page.evaluate("() => state.selectedProjectId") is None
         assert "project=" not in page.url
         expect(page.locator("#project-detail")).to_be_hidden()
+
+    def test_back_before_a_detail_payload_lands_does_not_reopen_it(self, page: Page, base_url: str):
+        # Codex review of #77: a Home feed item opened its detail after the
+        # payload landed, even if the reader had pressed Back meanwhile.
+        held = []
+        page.route("**/data/moratoriums.json*", lambda r: held.append(r))
+        page.goto(base_url + "/")
+        page.wait_for_function("() => typeof openHomeTarget === 'function' && state._booted", timeout=E2E_WAIT)
+        mid = json.loads((ROOT / "docs/data/moratoriums.json").read_text())["moratoriums"][0]["id"]
+        page.evaluate("(id) => openHomeTarget({kind: 'moratorium', id})", mid)
+        expect(page.locator("#view-moratoriums")).to_be_visible()
+        try:
+            page.wait_for_function("() => true")
+            assert held, "moratoriums.json was not held; the test would prove nothing"
+            page.go_back()
+            expect(page.locator("#view-overview")).to_be_visible()
+        finally:
+            for r in held:
+                r.continue_()
+        # Let the late callback run before asserting it did nothing.
+        page.evaluate("() => loadMoratoriumsData().then(() => new Promise(r => setTimeout(r, 50)))")
+        # The modal lives inside the (now hidden) Moratoriums view, so a late
+        # open is invisible but still locks page scroll; check both.
+        assert page.locator("#moratorium-modal").get_attribute("hidden") is not None
+        assert not page.evaluate("() => document.body.classList.contains('moratorium-modal-open')")
