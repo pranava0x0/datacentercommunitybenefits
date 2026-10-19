@@ -322,10 +322,23 @@ def test_run_plan_schedules_country_units_and_terminates() -> None:
 
 
 
-def test_international_rate_case_milestones_come_due_on_their_country() -> None:
-    intl = json.loads((SEED / "international.json").read_text())
-    pending = [rc for rc in intl.get("rate_cases", []) if rc["status"] == "pending" and rc.get("next_milestone_date")]
-    assert pending, "fixture: the Québec case has a dated milestone"
+def test_international_rate_case_milestones_come_due_on_their_country(monkeypatch) -> None:
+    """Synthetic, not the live Québec case: a real record moves (re-captured
+    after its hearing, or decided) and a test pinned to it would go red on a
+    correct refresh (Sonnet review of #84)."""
+    rc = {"id": "xx-test-case", "country": "CA", "status": "pending",
+          "next_milestone_date": "2026-12-07", "captured_at": "2026-10-19"}
+    real = rq._load
+
+    def load(name, key):
+        if name == "international.json" and key == "rate_cases":
+            return [rc]
+        if name in ("rate_cases.json", "moratoriums.json", "projects.json"):
+            return []
+        return real(name, key)
+
+    monkeypatch.setattr(rq, "_load", load)
     out = rq.derived_follow_ups()
-    for rc in pending:
-        assert any(rc["id"] in f["what"] for f in out.get(f"country:{rc['country']}", [])), rc["id"]
+    assert [f["due"] for f in out["country:CA"]] == ["2026-12-08"]
+    rc["captured_at"] = "2026-12-08"  # re-checked after the hearing: no longer due
+    assert "country:CA" not in rq.derived_follow_ups()

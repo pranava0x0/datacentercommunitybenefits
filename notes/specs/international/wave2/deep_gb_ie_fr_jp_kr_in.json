@@ -1,0 +1,468 @@
+{
+  "countries": [],
+  "records": [
+    {
+      "type": "policy",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Blyth; Cobalt Park (North Tyneside)",
+      "fields": {
+        "id": "gb-north-east-ai-growth-zone-2025",
+        "title": "North East AI Growth Zone (Blyth and Cobalt Park)",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "jurisdiction": "North East England",
+        "date": "2025-09-17",
+        "benefit_themes": [
+          "jobs"
+        ],
+        "summary": "The North East AI Growth Zone is made up of sites at Blyth (Northumberland) and Cobalt (North Tyneside). The city council states the zone is set to unlock more than 5,000 new jobs and bring in GBP 30 billion of investment; these are the council's figures, as announced, not committed community-benefit terms.",
+        "key_terms": [
+          "made up of sites at Blyth in Northumberland and Cobalt in North Tyneside"
+        ]
+      },
+      "source_url": "https://new.newcastle.gov.uk/news/2025/north-east-ai-growth-zone-announced",
+      "source_title": "Newcastle City Council — North East AI Growth Zone announced (17 September 2025)",
+      "source_lang": "en",
+      "verbatim": "An AI Growth Zone for the North East is set to unlock more than 5,000 new jobs in the years to come and bring in £30 billion in investment",
+      "verified": true,
+      "notes": "Date 17 September 2025 is the page's own date line. Record is the designation as announced; no binding terms on the page. Fetched via probe; the 'made up of sites' sentence also HITs.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "project",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Cambois (near Blyth)",
+      "fields": {
+        "id": "gb-qts-cambois",
+        "name": "QTS Cambois data centre campus",
+        "operator": "QTS",
+        "city": "Cambois",
+        "status": "announced",
+        "lat": 55.145,
+        "lon": -1.5222,
+        "notes": "QTS page: outline planning permission approved; QTS has begun submitting detailed approvals to Northumberland County Council and says it will update as it moves towards starting works on site. Coordinates: Wikipedia Cambois village (55°08′42″N 1°31′16″W), village-level, not the campus boundary."
+      },
+      "source_url": "https://q.com/data-centers/cambois/",
+      "source_title": "QTS — Cambois data centre campus",
+      "source_lang": "en",
+      "verbatim": "Following the approval of the outline planning permission for the data centre development in Cambois, QTS has begun to submit further details for approval by Northumberland County Council.",
+      "verified": true,
+      "notes": "Company page (first-party). Coordinates verified from https://en.wikipedia.org/wiki/Cambois (probed: 55°08′42″N 1°31′16″W). Blackstone funding is on the page but not in the probed sentence; left out of the record.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "claim",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Cambois (near Blyth)",
+      "fields": {
+        "company": "qts",
+        "theme": "water",
+        "project_id": "gb-qts-cambois",
+        "statement": "QTS will use its industry-leading closed-loop cooling system, significantly reducing requirements on local water supplies.",
+        "statement_lang": "en"
+      },
+      "source_url": "https://q.com/data-centers/cambois/",
+      "source_title": "QTS — Cambois data centre campus (water strategy section)",
+      "source_lang": "en",
+      "verbatim": "QTS will use its industry-leading closed-loop cooling system, significantly reducing requirements on local water supplies.",
+      "verified": true,
+      "notes": "First-party company statement on the Cambois campus page. The statement is generic QTS wording applied to the Cambois page, not a Cambois-specific water measure.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "claim",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Cambois (near Blyth)",
+      "fields": {
+        "company": "qts",
+        "theme": "engagement",
+        "project_id": "gb-qts-cambois",
+        "statement": "We've been actively working in the communities of Blyth and Cambois to find out where and how we can best support residents.",
+        "statement_lang": "en"
+      },
+      "source_url": "https://q.com/data-centers/cambois/",
+      "source_title": "QTS — Cambois data centre campus (community section)",
+      "source_lang": "en",
+      "verbatim": "We've been actively working in the communities of Blyth and Cambois to find out where and how we can best support residents.",
+      "verified": true,
+      "notes": "First-party. The page lists community groups met (The Tute, Isabella Heap Volunteering Group, Briardale House, Lighthouse Community Hub, St. Andrew's Church); not separately recorded.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "claim",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Waltham Cross (Hertfordshire)",
+      "fields": {
+        "company": "google",
+        "theme": "energy",
+        "project_id": "gb-google-waltham-cross",
+        "statement": "We signed an agreement with Shell to manage our UK carbon-free energy portfolio and deploy its innovative battery technology to store and feed surplus clean energy back into the grid at times of need",
+        "statement_lang": "en"
+      },
+      "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
+      "source_title": "Google — Our new Waltham Cross data center is part of our two-year, £5 billion investment (16 Sep 2025)",
+      "source_lang": "en",
+      "verbatim": "We signed an agreement with Shell to manage our UK carbon-free energy portfolio and deploy its innovative battery technology to store and feed surplus clean energy back into the grid at times of need",
+      "verified": true,
+      "notes": "First-party. Google's post ties the Shell battery agreement to the Waltham Cross opening, but does not name the site as the battery location. The 'community fund' and 'water to domestic levels' claims seen in search snippets are NOT on the page and are excluded.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "project",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Abbots Langley (Bedmond Road)",
+      "fields": {
+        "id": "gb-abbots-langley-bedmond-road",
+        "name": "Abbots Langley data centre, off Bedmond Road (application 23/1068/OUT)",
+        "operator": "Not named on the council pages probed (developer appealed as applicant)",
+        "city": "Abbots Langley",
+        "status": "announced",
+        "acreage": null,
+        "lat": 51.7011,
+        "lon": -0.4161,
+        "claimed_investment": null,
+        "notes": "Outline application 23/1068/OUT for an 84,000 sqm data centre on Green Belt land. The Secretary of State overturned the council's refusal (council statement, updated 13 May 2025). Coordinates are the Abbots Langley town centre (Wikipedia 51°42′04″N 0°24′58″W), not the site. The developer is not named on the pages probed; press reports naming one are not verified here."
+      },
+      "source_url": "https://www.threerivers.gov.uk/news/council-leader-responds-abbots-langley-data-centre",
+      "source_title": "Three Rivers District Council — Council Leader responds to government's decision over Abbots Langley data centre (13 May 2025)",
+      "source_lang": "en",
+      "verbatim": "overturn our refusal to grant outline planning permission to build an 84,000sqm data centre on our precious greenbelt in Abbots Langley (23/1068/OUT)",
+      "verified": true,
+      "notes": "Also verified: 'off Bedmond Road (TRDC planning reference 23/1068/OUT)' on https://threerivers.gov.uk/news/government-recovered-data-centre-planning-appeal. Operator left as unnamed rather than guessed.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "response",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Abbots Langley (Bedmond Road)",
+      "fields": {
+        "project": "gb-abbots-langley-bedmond-road",
+        "date": "2025-05-13",
+        "stance": "negative",
+        "constituency": "local_government",
+        "summary": "The Leader of Three Rivers District Council said the council was disappointed that the Secretary of State overturned its refusal, and that the scheme brings little gain for the village beyond a country park and low-level employment. The council said it would work to secure the promised benefits and tree planting, and noted the site would generate heat that could be used locally."
+      },
+      "source_url": "https://www.threerivers.gov.uk/news/council-leader-responds-abbots-langley-data-centre",
+      "source_title": "Three Rivers District Council — Council Leader responds to government's decision over Abbots Langley data centre (13 May 2025)",
+      "source_lang": "en",
+      "verbatim": "there is little gain for the village apart from an extra country park",
+      "verified": true,
+      "notes": "Event date 13 May 2025 = page 'Updated' date. The quote continues 'and some low-level employment'. Stance negative: the council opposed the project; it also says it will seek the promised benefits. Verified via probe.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "project",
+      "country": "IE",
+      "subdivision": null,
+      "locality": "Killala (outside Killala, Co Mayo)",
+      "fields": {
+        "id": "ie-mayo-data-hub-killala",
+        "name": "Mayo Data Hub, outside Killala",
+        "operator": "Mayo Data Hub Limited",
+        "city": "Killala",
+        "status": "announced",
+        "lat": 54.2125,
+        "lon": -9.22139,
+        "notes": "Mayo County Council granted permission in April 2025; An Coimisiún Pleanála refused it on appeal (RTE, 17 Sep 2026). Coordinates: Wikipedia Killala (54°12′45″N 09°13′17″W), town-level, not the site. Facility described as 29,000 sq m in the applicant's initial application."
+      },
+      "source_url": "https://www.rte.ie/news/regional/2026/0917/1591963-mayo-data-centre/",
+      "source_title": "RTE — Planning authority overturns approval for new Mayo data centre (17 Sep 2026)",
+      "source_lang": "en",
+      "verbatim": "Mayo Data Hub Limited was granted approval for the development outside Killala by Mayo County Council, in April 2025.",
+      "verified": true,
+      "notes": "Also verified: 'the 29,000-square metre facility would comprise a data centre' on the same page. Coordinates verified from https://en.wikipedia.org/wiki/Killala (probed).",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "response",
+      "country": "IE",
+      "subdivision": null,
+      "locality": "Killala (outside Killala, Co Mayo)",
+      "fields": {
+        "project": "ie-mayo-data-hub-killala",
+        "date": "2026-09-17",
+        "stance": "negative",
+        "constituency": "regulator",
+        "summary": "An Coimisiún Pleanála refused permission on appeal, following an appeal by a County Clare resident. The board found the applicants had not shown a fixed grid connection agreement, enough existing grid capacity, or significant onsite renewable energy, and that the facility would not accord with the 2025 Climate Action Plan."
+      },
+      "source_url": "https://www.rte.ie/news/regional/2026/0917/1591963-mayo-data-centre/",
+      "source_title": "RTE — Planning authority overturns approval for new Mayo data centre (17 Sep 2026)",
+      "source_lang": "en",
+      "verbatim": "An Coimusún Pleanála (ACP) has refused permission for a data centre in Co Mayo over concerns about the electricity capacity to run the facility and the impact it would have on climate targets.",
+      "verified": true,
+      "notes": "Verbatim keeps RTE's spelling 'Coimusún'. Regulator (planning board) response, not a community group. The appellant (a Clare resident) is named in the source but is not separately recorded.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "project",
+      "country": "FR",
+      "subdivision": null,
+      "locality": "Fouju (Seine-et-Marne)",
+      "fields": {
+        "id": "fr-campus-ia-fouju",
+        "name": "Campus IA, Fouju (Seine-et-Marne)",
+        "operator": "Campus IA (funded by MGX, Bpifrance, Mistral AI and NVIDIA)",
+        "city": "Fouju",
+        "status": "announced",
+        "lat": 48.5847,
+        "lon": 2.7768,
+        "claimed_investment": {
+          "amount": 50000000000,
+          "currency": "EUR",
+          "as_stated": "50 milliards d'euros"
+        },
+        "notes": "Prefect approved; a legal challenge has been filed (JSS, 11 Aug 2026). Site described as 60 to 65 ha (about 150 to 160 acres). Coordinates: Wikipedia Fouju (48°35′05″N 2°46′36″E), village-level."
+      },
+      "source_url": "https://jss.fr/post/en-seine-et-marne-le-prefet-valide-un-gigantesque-projet-de-centre-de-donnees-un-recours-depose",
+      "source_title": "JSS — En Seine-et-Marne, le préfet valide un gigantesque projet de centre de données, un recours déposé (11 Aug 2026)",
+      "source_lang": "fr",
+      "verbatim": "Financé par le fonds émirati MGX, Bpifrance, la start-up française d'intelligence artificielle Mistral et le géant américain Nvidia",
+      "verified": true,
+      "notes": "Attributes funding, not operating control; the operator field is the funding group named in the same article. The article says 'estimé à 50 milliards d'euros'. 'Le projet prévoit aussi un campus sur une surface de 60 à 65 ha' also verified on the same page. The 'first phase delivered by end-2029' line on the page is from a separate Paris-Saclay article and is NOT used.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "response",
+      "country": "FR",
+      "subdivision": null,
+      "locality": "Fouju (Seine-et-Marne)",
+      "fields": {
+        "project": "fr-campus-ia-fouju",
+        "date": "2026-08-11",
+        "stance": "mixed",
+        "constituency": "regulator",
+        "summary": "The regional environmental authority (MRAe) described the project as having 'exceptional' characteristics, and the article reports that this opinion has raised concern among some residents and local elected officials."
+      },
+      "source_url": "https://jss.fr/post/en-seine-et-marne-le-prefet-valide-un-gigantesque-projet-de-centre-de-donnees-un-recours-depose",
+      "source_title": "JSS — En Seine-et-Marne, le préfet valide un gigantesque projet de centre de données, un recours déposé (11 Aug 2026)",
+      "source_lang": "fr",
+      "verbatim": "aux « caractéristiques hors normes » selon l'avis de la Mission régionale d'autorité environnementale (MRAe), suscite l'inquiétude de certains habitants et d'élus locaux",
+      "verified": true,
+      "notes": "Date is the article date; the MRAe opinion date is not on the page. Translation of 'hors normes' as 'exceptional' is a machine-style rendering; the French original is kept verbatim.",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "type": "response",
+      "country": "FR",
+      "subdivision": null,
+      "locality": "Fouju (Seine-et-Marne)",
+      "fields": {
+        "project": "fr-campus-ia-fouju",
+        "date": "2026-08-11",
+        "stance": "positive",
+        "constituency": "local_government",
+        "summary": "The mayor of Fouju, a village of about 650 people with a budget of about EUR 650,000, expects the millions of euros received each year to fund major local projects, as reported by AFP in the article."
+      },
+      "source_url": "https://jss.fr/post/en-seine-et-marne-le-prefet-valide-un-gigantesque-projet-de-centre-de-donnees-un-recours-depose",
+      "source_title": "JSS — En Seine-et-Marne, le préfet valide un gigantesque projet de centre de données, un recours déposé (11 Aug 2026)",
+      "source_lang": "fr",
+      "verbatim": "Les millions d'euros attendus chaque année vont ainsi permettre de mener « des projets d'envergure », selon Jonathan Wochenmayer, maire depuis 2020",
+      "verified": true,
+      "notes": "Attributed in the article to the mayor, reported by AFP. Translation (machine): 'The millions of euros expected each year will allow the village to carry out \"major projects\", according to Jonathan Wochenmayer, mayor since 2020.' Date is the article date.",
+      "captured_at": "2026-10-19",
+      "translation": {
+        "text": "The millions of euros expected each year will allow the village to carry out \"major projects\", according to Jonathan Wochenmayer, mayor since 2020.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "type": "project",
+      "country": "JP",
+      "subdivision": null,
+      "locality": "Inzai (Chiba New Town Central station)",
+      "fields": {
+        "id": "jp-inzai-chiba-new-town-central",
+        "name": "Inzai data centre, Chiba New Town Central station (Inzai Five TMK)",
+        "operator": "Inzai Five TMK (Mitsui & Co.-backed); operated by Colt Data Centre Services Japan",
+        "city": "Inzai",
+        "status": "announced",
+        "lat": 35.8333,
+        "lon": 140.15,
+        "notes": "Six storeys, 52.7 m, on a site of about 10,000 sq m in front of Chiba New Town Central station. Building confirmation was issued 27 Jan 2026; residents sued the inspection body on 5 Mar 2026. Coordinates are Inzai city-level (Wikipedia 35°50′N 140°09′E), not the site."
+      },
+      "source_url": "https://www.arc-navi.shikaku.co.jp/column/details.php?column_id=6748",
+      "source_title": "総合資格navi コラム — 生成AI時代のデータセンター建設で住民反対が増加？ 印西市訴訟 (2026)",
+      "source_lang": "ja",
+      "verbatim": "訴訟対象の事業者は、三井物産などが出資する印西ファイブ特定目的会社（東京・千代田）です。運営はコルトデータセンターサービス・ジャパン・オペレーティング合同会社（東京・港）が担い",
+      "verified": true,
+      "notes": "Secondary source (architecture-school trade column); its own facts are cited to Nikkei and Tokyo Shimbun. Nikkei and NHK articles could not be read (paywall / gated). Translation: the defendant-side operator is Inzai Five TMK (Tokyo, Chiyoda), backed by Mitsui & Co. and others; it is run by Colt Data Centre Services Japan Operating GK (Tokyo, Minato).",
+      "captured_at": "2026-10-19",
+      "translation": {
+        "text": "The business subject to the lawsuit is Inzai Five Special Purpose Company (Chiyoda, Tokyo), funded by Mitsui & Co. and others. Operations are carried out by Colt Data Centre Services Japan Operating GK (Minato, Tokyo).",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "type": "response",
+      "country": "JP",
+      "subdivision": null,
+      "locality": "Inzai (Chiba New Town Central station)",
+      "fields": {
+        "project": "jp-inzai-chiba-new-town-central",
+        "date": "2026-03-05",
+        "stance": "negative",
+        "constituency": "residents",
+        "summary": "Ten nearby residents sued the designated inspection body Nippon ERI in the Chiba District Court, seeking to cancel the building confirmation issued on 27 January 2026 for the station-front data centre."
+      },
+      "source_url": "https://www.arc-navi.shikaku.co.jp/column/details.php?column_id=6748",
+      "source_title": "総合資格navi コラム — 生成AI時代のデータセンター建設で住民反対が増加？ 印西市訴訟 (2026)",
+      "source_lang": "ja",
+      "verbatim": "原告は周辺住民10人で、指定確認検査機関の日本ERIを相手に、2026年3月5日、千葉地方裁判所へ提訴しました。",
+      "verified": true,
+      "notes": "Translation of the verbatim: 'The plaintiffs are 10 nearby residents who, on 5 March 2026, filed suit in the Chiba District Court against the designated inspection body Nippon ERI.' The plaintiffs' legal argument is not in the probed sentence and is not recorded. Date is the filing date.",
+      "captured_at": "2026-10-19",
+      "translation": {
+        "text": "The plaintiffs are 10 nearby residents who, on 5 March 2026, filed suit in the Chiba District Court against the designated inspection body Nippon ERI.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "type": "response",
+      "country": "JP",
+      "subdivision": null,
+      "locality": "Inzai (Chiba New Town Central station)",
+      "fields": {
+        "project": "jp-inzai-chiba-new-town-central",
+        "date": "2025-08-29",
+        "stance": "negative",
+        "constituency": "local_government",
+        "summary": "The Inzai City Council unanimously passed a resolution describing data-centre construction around the station as 'inappropriate' and asking that such facilities be sited away from the station area, which it designates as the core district of city life."
+      },
+      "source_url": "https://www.arc-navi.shikaku.co.jp/column/details.php?column_id=6748",
+      "source_title": "総合資格navi コラム — 生成AI時代のデータセンター建設で住民反対が増加？ 印西市訴訟 (2026)",
+      "source_lang": "ja",
+      "verbatim": "印西市議会も、駅周辺へのデータセンター建設を「不適切」とする決議を全会一致で可決しました",
+      "verified": true,
+      "notes": "Translation: 'The Inzai City Council also unanimously passed a resolution calling data-centre construction around the station \"inappropriate\".' The mayor's stated support for data centres as an important industry is on the same page but not recorded here.",
+      "captured_at": "2026-10-19",
+      "translation": {
+        "text": "The Inzai City Council also unanimously passed a resolution calling data-centre construction around the station \"inappropriate\".",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "type": "project",
+      "country": "KR",
+      "subdivision": null,
+      "locality": "Muan County (Oryong district)",
+      "fields": {
+        "id": "kr-muan-oryong-200mw",
+        "name": "Muan Oryong district data centre (200 MW, proposed)",
+        "operator": "Not named in the fetched article",
+        "city": "Muan County",
+        "status": "announced",
+        "power_mw": 200,
+        "lat": 34.98972,
+        "lon": 126.47139,
+        "notes": "The article says Jeonnam Development Corporation supplies or sells the site land; developer not named. Coordinates are Muan County level (Wikipedia 34°59′23″N 126°28′17″E), not the Oryong site."
+      },
+      "source_url": "https://www.hankyung.com/article/2026092802101",
+      "source_title": "Hankyung — 내집 앞에 데이터센터 안돼…전국서 잇단 건립 반대 시위 (28 Sep 2026)",
+      "source_lang": "ko",
+      "verbatim": "무안군 오룡지구에 200메가와트(㎿) 규모로 추진 중인 데이터센터",
+      "verified": true,
+      "notes": "Translation: 'the data centre of 200 MW being pursued in the Oryong district of Muan County'. Developer not named in the article, so the operator is recorded as unnamed.",
+      "captured_at": "2026-10-19",
+      "translation": {
+        "text": "the data centre of 200 MW being pursued in the Oryong district of Muan County",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "type": "response",
+      "country": "KR",
+      "subdivision": null,
+      "locality": "Muan County (Oryong district)",
+      "fields": {
+        "project": "kr-muan-oryong-200mw",
+        "date": "2026-09-03",
+        "stance": "negative",
+        "constituency": "local_government",
+        "summary": "The Muan County Council adopted a resolution calling for the data-centre plan at Oryong to be halted and for building permits to be refused, and asked Jeonnam Development Corporation not to supply or sell the facility land."
+      },
+      "source_url": "https://www.hankyung.com/article/2026092802101",
+      "source_title": "Hankyung — 내집 앞에 데이터센터 안돼…전국서 잇단 건립 반대 시위 (28 Sep 2026)",
+      "source_lang": "ko",
+      "verbatim": "전남 무안군의회는 지난 3일 대규모 데이터센터 건립 반대 및 건축허가 불허 촉구 결의안을 채택했다.",
+      "verified": true,
+      "notes": "Translation: 'The Muan County Council adopted, on the 3rd, a resolution opposing the large-scale data-centre construction and calling for building permits to be refused.' The article says '지난 3일' (the 3rd); the month is inferred from the article date (28 Sep 2026). Verify the date before shipping.",
+      "captured_at": "2026-10-19",
+      "translation": {
+        "text": "The Muan County Council adopted a resolution on the 3rd opposing large-scale data-centre construction and calling for building permits to be refused.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "type": "policy",
+      "country": "KR",
+      "subdivision": null,
+      "locality": "Geumcheon-gu (Seoul)",
+      "fields": {
+        "id": "kr-geumcheon-gu-200m-consent-2026",
+        "title": "Geumcheon-gu data-centre resident-participation review system (head's first decision)",
+        "instrument": "executive_order",
+        "status": "in_effect",
+        "jurisdiction": "Geumcheon-gu, Seoul",
+        "benefit_themes": [
+          "engagement"
+        ],
+        "summary": "The new Geumcheon-gu head made the data-centre resident-participation review system his first approved decision. Under it, a developer must submit written consent from a majority of residents within 200 m before a data-centre building permit application.",
+        "key_terms": [
+          "데이터센터 건축허가 신청 때 반경 200m 이내 주민 과반수의 동의서를 사업자가 의무적으로 제출하도록 하는 내용을 담았다"
+        ]
+      },
+      "source_url": "https://www.hankyung.com/article/2026092802101",
+      "source_title": "Hankyung — 내집 앞에 데이터센터 안돼…전국서 잇단 건립 반대 시위 (28 Sep 2026)",
+      "source_lang": "ko",
+      "verbatim": "'데이터센터 주민참여형 검토체계 구축 및 제도 개선'을 취임 1호 결재안으로 삼았다",
+      "verified": true,
+      "notes": "Translation: 'made the \"data-centre resident-participation review system building and institutional improvement\" his first approved decision as head'. The effective date is stated as 1 July 2026 in the article (first day of term) but is not in the probed sentence, so date is left null. Record is an administrative decision, not an ordinance.",
+      "captured_at": "2026-10-19",
+      "translation": {
+        "text": "made the \"data-centre resident-participation review system building and institutional improvement\" his first approved decision as head",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "type": "policy",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "locality": "Maharashtra",
+      "fields": {
+        "id": "in-maharashtra-green-dc-parks-amendment-2026",
+        "title": "Maharashtra Integrated Green Data Centre Parks policy, amended (statewide)",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "jurisdiction": "Maharashtra",
+        "benefit_themes": [
+          "energy"
+        ],
+        "summary": "The amended state policy increases the number of eligible integrated green data-centre parks from three to 20 and extends the scheme beyond the Mumbai region to the whole state. Secondary reports describe a green-power requirement cut from 100% to 51% and tariff concessions; those figures are not verified here.",
+        "key_terms": [
+          "increased the number of eligible projects from just three to 20"
+        ]
+      },
+      "source_url": "https://www.whalesbook.com/news/English/real-estate/Maharashtra-Expands-Green-Data-Centre-Policy-Investor-Impact/6a30b10ad017fdb509977cc9",
+      "source_title": "Whalesbook — Maharashtra Expands Green Data Centre Policy: Investor Impact",
+      "source_lang": "en",
+      "verbatim": "Crucially, the government has increased the number of eligible projects from just three to 20.",
+      "verified": true,
+      "notes": "Only the parks count is probe-verified. Government Resolution date (9 June 2026) and the Cabinet Sub-Committee date (22 April 2026) are from secondary reports only, so date is null. Secondary news source; the official GR was not retrievable. Verified false for the GR date and tariff terms; verified true for the parks count only.",
+      "captured_at": "2026-10-19"
+    }
+  ]
+}

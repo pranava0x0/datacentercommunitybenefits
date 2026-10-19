@@ -125,6 +125,8 @@ class TestSeedCoverage:
         # The owner-approved international operators have US sites but no
         # first-party community-impact statement yet; that absence is the
         # exception, recorded once (GATE2_OWNER_EXCEPTIONS).
+        stale = self.GATE2_OWNER_EXCEPTIONS & co_with_claims
+        assert not stale, f"{stale} now have claims; drop them from GATE2_OWNER_EXCEPTIONS"
         missing = co_with_projects - co_with_claims - self.GATE2_OWNER_EXCEPTIONS
         assert (
             not missing

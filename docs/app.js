@@ -1001,6 +1001,8 @@ function activateView(name) {
   // Sites, per signatory category and per utility on The Pledge.
   if (target.name === "comparison") {
     ensureComparisonData().catch((err) => console.error("Failed to load claims:", err));
+    // Small and lazy: only so company cards can count sites abroad.
+    loadInternationalData().then(renderCompanyCards).catch((err) => console.error("Failed to load international data:", err));
   }
   if (["comparison", "explorer", "ratepayer"].includes(target.name)) {
     loadAggregateView().catch((err) => {
@@ -1060,7 +1062,9 @@ function activateView(name) {
       console.error("Failed to load tariffs data:", err);
     });
   } else if (target.name === "world") {
-    loadInternationalData()
+    // Cards name operators via companiesBySlug; on a cold #country/XX load
+    // companies.json may land after international.json (Sonnet review, #84).
+    Promise.all([loadInternationalData(), ensureCompanyData()])
       .then(renderWorld)
       .catch((err) => {
         console.error("Failed to load international data:", err);
@@ -5115,6 +5119,15 @@ function showThemeQuotes(theme, focusSlug, opts = {}) {
 }
 
 
+// "plus 2 sites abroad" for an operator with international records (v6), once
+// the lazy international payload is in; empty until then (Sonnet review, #84).
+function abroadWords(slug) {
+  const d = state.intl;
+  if (!d) return "";
+  const n = d.projects.filter((p) => p.company_slug === slug).length;
+  return n ? escapeHtml(` · plus ${n} site${n === 1 ? "" : "s"} abroad`) : "";
+}
+
 // Profiles: one card per operator. Renders from claims on first paint and
 // re-renders when the projects/responses/roster payloads land.
 function renderCompanyCards() {
@@ -5152,7 +5165,7 @@ function renderCompanyCards() {
 
     const facts = r
       ? `<dl class="co-facts">
-          <div><dt>Sites tracked</dt><dd>${r.projects}<span class="co-sub">${escapeHtml(statusWords(r))}</span></dd></div>
+          <div><dt>Sites tracked</dt><dd>${r.projects}<span class="co-sub">${escapeHtml(statusWords(r))}${abroadWords(co.slug)}</span></dd></div>
           <div><dt>Announced power</dt><dd>${r.power_mw ? formatSummaryGW(r.power_mw) : "Not disclosed"}</dd></div>
           <div><dt>Announced investment</dt><dd>${r.capex ? formatSummaryUsd(r.capex) : "Not disclosed"}</dd></div>
           <div><dt>Jobs claimed</dt><dd>${r.jobs ? r.jobs.toLocaleString() : "Not disclosed"}</dd></div>
@@ -9581,7 +9594,7 @@ function intlSiteCard(p, hTag = "h3") {
   if (figs.length) li.append(el("p", "cba-value", figs.join(" · ")));
   if (p.notes) li.append(el("p", "cba-summary", p.notes));
   for (const c of d.claims.filter((c) => c.project_id === p.id)) {
-    li.append(quoteBlock(c.statement, c.statement_lang, c.statement_translation));
+    li.append(quoteBlock(c.statement, c.statement_lang, c.statement_translation), sourceLine(c));
   }
   const resps = d.responses.filter((r) => r.project_id === p.id);
   if (resps.length) {
@@ -9608,7 +9621,8 @@ function intlStatementCard(c, hTag = "h3") {
   const head = el("header", "cba-head");
   head.append(
     el("span", "cba-kind", THEME_LABELS[c.theme] || c.theme),
-    el(hTag, "cba-title", co ? co.name : c.company_slug)
+    el(hTag, "cba-title", co ? co.name : c.company_slug),
+    el("p", "cba-facts", formatAsOf(c.published_at || c.captured_at))
   );
   li.append(head, quoteBlock(c.statement, c.statement_lang || "en", c.statement_translation), sourceLine(c));
   return li;
@@ -9744,7 +9758,9 @@ function openWorldPrinciple(key) {
   closeCountry();
   activateView("world");
   setActiveSubtab("world", "instruments");
-  loadInternationalData().then(() => {
+  // Same promise shape as activateView's world branch, registered after it,
+  // so renderWorld has filled the select before we set it.
+  Promise.all([loadInternationalData(), ensureCompanyData()]).then(() => {
     const sel = document.getElementById("world-principle-filter");
     if (sel && [...sel.options].some((o) => o.value === key)) {
       sel.value = key;

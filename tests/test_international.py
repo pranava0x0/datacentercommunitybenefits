@@ -208,3 +208,12 @@ def test_translation_provenance() -> None:
         schema.Translation.model_validate({"text": "x", "by": "official", "reviewed_at": "2026-10-19"})
     with pytest.raises(ValidationError):
         schema.Translation.model_validate({"text": "x", "by": "human", "reviewed_at": "2026-10-19"})
+
+
+
+def test_every_used_currency_has_a_rate_or_is_documented_rateless() -> None:
+    rates = _extract_quoted_or_bare_keys(APP_JS, "FX_USD_PER_UNIT")
+    rateless = {"CLP", "ARS"}  # not in Fed G.5A; shown as stated only (CLAUDE.md)
+    used = {m["currency"] for k in ("projects", "policies") for r in SEED[k]
+            for m in [r.get("claimed_investment") or r.get("value")] if m}
+    assert used <= rates | rateless, used - rates - rateless
