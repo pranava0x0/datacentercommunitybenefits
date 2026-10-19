@@ -1765,7 +1765,7 @@
         "transparency",
         "energy"
       ],
-      "summary": "Voter-approved (90%) ban on data center development in Monterey Park, California. Appears to be the first voter-approved data center ban in the US. Correction: voters approved Measure NDC at the June 2, 2026 special election, per Data Center Knowledge, so the enacted date is June 2; the record previously showed May 1, which that source does not support. The council voted unanimously on March 4 to place the measure on the ballot.",
+      "summary": "Voter-approved (90%) ban on data center development in Monterey Park, California, and apparently the first voter-approved data center ban in the US. The council voted unanimously on March 4 to place Measure NDC on the ballot, and voters approved it at the June 2, 2026 special election, per Data Center Knowledge.",
       "source_url": "https://truthout.org/articles/as-towns-and-cities-fight-off-data-centers-calls-grow-for-a-national-moratorium/",
       "source_title": "Truthout — Towns and cities fight off data centers",
       "captured_at": "2026-05-01",
@@ -2535,7 +2535,7 @@
         "noise",
         "air_quality"
       ],
-      "summary": "The Santa Fe County Board of County Commissioners voted unanimously on July 1, 2026 to adopt an 18-month moratorium on data center development — extended from a proposed 12 months — with the regulatory threshold lowered from 100 MW to 1 MW. Commissioners cited large water and electricity use, serious risk to the water supply, groundwater impacts, grid reliability, noise from cooling systems, and backup diesel generators. Enacted. Correction: the county's release (dated July 2) says the unanimous vote was Tuesday night, which is June 30, 2026, not July 1.",
+      "summary": "The Santa Fe County Board of County Commissioners voted unanimously on Tuesday night, June 30, 2026 (per the county's July 2 release), to adopt an 18-month moratorium on data center development — extended from a proposed 12 months — with the regulatory threshold lowered from 100 MW to 1 MW. Commissioners cited large water and electricity use, serious risk to the water supply, groundwater impacts, grid reliability, noise from cooling systems, and backup diesel generators.",
       "source_url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers",
       "source_title": "Santa Fe County (.gov) — Santa Fe County Approves 18-Month Moratorium on Data Centers",
       "bill_number": null,
@@ -2634,7 +2634,7 @@
         "water",
         "energy"
       ],
-      "summary": "One-year moratorium on data centers and related infrastructure projects in Socorro County, New Mexico. Correction: the Board of Commissioners adopted the moratorium unanimously on Tuesday, June 9, 2026; the earlier May date was not the adoption.",
+      "summary": "One-year moratorium on data centers and related infrastructure projects in Socorro County, New Mexico. The Board of Commissioners adopted it unanimously on Tuesday, June 9, 2026.",
       "source_url": "https://www.kanw.org/new-mexico-news/2026-06-10/new-mexico-county-adopts-yearlong-data-center-moratorium",
       "source_title": "KANW / Source NM — New Mexico county adopts yearlong data center moratorium",
       "captured_at": "2026-10-19",
@@ -6676,6 +6676,23 @@
           "title": "Montana Free Press — Missoula County adopts temporary moratorium on data centers"
         }
       ]
+    },
+    {
+      "id": "champaign-county-il-2026-04",
+      "jurisdiction": "Champaign County",
+      "jurisdiction_type": "county",
+      "state_code": "IL",
+      "status": "enacted",
+      "enacted_date": "2026-04-23",
+      "duration_months": 12,
+      "duration_description": "12 months",
+      "key_reasons": [],
+      "summary": "The Champaign County Board approved a 12-month moratorium on new large-scale data centers at its Thursday, April 23, 2026 meeting, reversing a committee recommendation of nine months. The measure covers facilities with at least 10,000 square feet of processing area, and gives a Data Centers Activities Task Force time to draft zoning rules for unincorporated areas. The source gives no vote count.",
+      "source_url": "https://www.nprillinois.org/economy-business/2026-04-24/champaign-county-board-approves-1-year-data-center-moratorium",
+      "source_title": "Illinois Public Media (NPR Illinois) — Champaign County Board approves 1-year data center moratorium",
+      "enacted_by": "County Board",
+      "session": "2026",
+      "captured_at": "2026-10-19"
     }
   ]
 }

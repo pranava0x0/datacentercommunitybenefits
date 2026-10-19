@@ -4958,6 +4958,30 @@
       "source_url": "https://www.kfyrtv.com/2026/08/28/morton-county-data-center-ordinance-advances-commission/",
       "source_title": "KFYR — Morton County data center ordinance advances to commission",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "west-vincent-twp-pa-ordinance-227-2026",
+      "title": "West Vincent Township Ordinance 227-2026 to define and add data centers and accessory uses (hearing notice)",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "West Vincent Township",
+      "state_code": "PA",
+      "identifier": "Ordinance 227-2026",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
+      ],
+      "summary": "West Vincent Township's Board of Supervisors gave public notice of a hearing on June 15, 2026 to consider, and possibly vote to adopt, Ordinance 227-2026, which amends the township code to define data centers and data center accessory uses. The outcome of the hearing was not found, so the ordinance is recorded as proposed.",
+      "source_url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
+      "source_title": "West Vincent Township — Public notice: data centers ordinance hearing",
+      "captured_at": "2026-10-19"
     }
   ]
 }

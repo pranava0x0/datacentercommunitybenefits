@@ -311,6 +311,7 @@ come first, then locations, companies and sites.
 - Prologis "Project Steel", Yorkville (see company:prologis).
 
 #### state:IN — Indiana
+- (2026-10-19) Madison County: Indiana Public Radio (Aug 2026) says commissioners voted unanimously to extend the data center moratorium to a full year, but gives no vote date (2026-08-04 is the article date). Get the commissioners' minutes before adding; the original six-month June 2026 passage is also unverified.
 - Jasper County / Amazon "Project Rise": Fortune (2026-07-23) reports a
   "$98 million upfront and $23 million a year for a decade" community benefit
   plan, but only in a utility executive's op-ed that doesn't name the
@@ -330,6 +331,7 @@ come first, then locations, companies and sites.
 - EEI: Evergy 25-EKME-315-TAR.
 
 #### state:KY — Kentucky
+- (2026-10-19) Edmonson County: Ordinance EC26-18 (one-year moratorium on data centers, AI and crypto-mining facilities) text is verified, but the adoption date is blank in the copy. Get the fiscal court minutes or the clerk's adoption date before adding.
 - (2026-10-19) Allen County: WBKO (2026-06-12) quotes Judge Executive Dennis Harper that a 24-month moratorium "was put in place" but names no enacting body or date. Get the fiscal court order before adding.
 - Rowan County: a two-year moratorium passed unanimously at the Fiscal
   Court's August 2026 meeting (Rowan Review on rcky.us; LEX18; WTVQ, Sept 1),
@@ -446,6 +448,7 @@ come first, then locations, companies and sites.
   deals"). The Eugene project denial is a site fight.
 
 #### state:PA — Pennsylvania
+- (2026-10-19) Upper Burrell Township: Resolution 6-2026 (curative amendment on data centers, 3-0, supervisors' May 6, 2026 minutes). Not a moratorium; a Valley News Dispatch report of a 180-day moratorium has no adopting vote found. Check for a later ordinance before adding a policy record.
 - Springhill Township: the board approved a resolution on Sept 3, 2026
   barring data-center and power-plant applications until its next meeting
   (recorded as `springhill-township-pa-2026-09`) and tabled two ordinances
@@ -1166,6 +1169,15 @@ Each item has the trigger that would make it addable.
 
 ### Held international records (2026-10-19, verified but not shipped)
 
+Leads from `deep_ie_gb_eu_nordics_gr_ar_sg.json` (2026-10-19), none shipped:
+- **IE Meta Community Action Grants, Meath 2027 round** (open 14 Sep to 19 Oct 2026; over EUR 4.8m to 186 projects since 2019): reported by Meath PPN quoting Meta. Needs Meta's own grants page before a Claim.
+- **IE Microsoft / Fortum Espoo-Kirkkonummi heat pumps** (waste-heat deliveries "next year", Aug 2026 press): needs a Fortum or Microsoft primary.
+- **IE AWS Tallaght build date**: DCD reports a groundbreaking that conflicts with the 2023 opening. Resolve from SDCC or Codema before adding a timeline.
+- **IE AWS grid connection**: trade press (2025) says EirGrid called AWS ineligible. Check EirGrid's DCCOPP v3 constrained-area list first.
+- **GB Culham AI Growth Zone** (UKAEA, Oxfordshire; 100 MW rising to 500 MW; Find a Tender 005218-2025): operator not tracked; needs a decision on whether a government project record is allowed.
+- **GB Google Waltham Cross heat re-routing offer**: not in The Register article; find Google's own statement before a Claim.
+- **SE Microsoft Gavle/Sandviken**: no 2026 district-heating item found. **GR** Microsoft Attica and Dromeus/APTO Spata: nothing new. **AR** Stargate Argentina, **SG** green data centre roadmap, **EU** EED: nothing new this pass.
+
 Researched and probe-verified in `notes/specs/international/wave2/deep_au_ca_sg_cl_ar_se_fi_gr.json`,
 held because the operator is not a tracked company (add the company first;
 international-only operators are allowed per the v6 owner decision, but HQ and
@@ -1202,8 +1214,6 @@ Held from `notes/specs/international/wave2/deep_jp_kr_in_gb_fr_ie.json` (leads, 
 - **GB UK NSIP commencement date** (8 Jan 2026 per secondary sources): not verified
   on legislation.gov.uk, so left out. The NSIP-route sentence is on
   `gb-ai-growth-zones-2025`.
-- **GB Google Waltham Cross residents' complaints** (July 2026): needs the primary
-  Register article before a CommunityResponse on `gb-google-waltham-cross`.
 - **IE Naas appeals** to An Coimisiún Pleanála on a permitted 38.69 ha data centre
   (Aug 2025). Developer not confirmed as tracked.
 - **FR Orange / Morrison JV** (EUR 3bn, 400 MW, exclusivity 2026-07-27). Neither tracked.

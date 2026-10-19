@@ -2170,7 +2170,7 @@
       "source_url": "https://www.debatpublic.fr/sites/default/files/2026-04/DECISION_2026_37_CENTRE%20DE%20DONNEES%20GOOGLE%20RTE_1%20Sign%C3%A9%20MP.pdf",
       "source_title": "CNDP decision 2026/37 (1 April 2026): public pre-consultation on the Google Ozans-Châteauroux data centre and RTE connection",
       "captured_at": "2026-10-19",
-      "notes": "Co-applicants Google France SARL, Tricolore Computing SARL and Violet Computing SARL, with RTE for the electricity connection. The CNDP ordered a pre-consultation (concertation préalable) and named three garants. The site overlaps the 400 kV Eguzon–Marmagne line, itself under CNDP pre-consultation since 4 Feb 2026. Subdivision null: FR-36/Indre is not in the SUBDIVISIONS registry (FR-IDF only)."
+      "notes": "Co-applicants Google France SARL, Tricolore Computing SARL and Violet Computing SARL, with RTE for the electricity connection. The CNDP ordered a pre-consultation (concertation préalable) and named three garants. The site overlaps the 400 kV Eguzon–Marmagne line, itself under CNDP pre-consultation since 4 Feb 2026."
     },
     {
       "id": "in-microsoft-hyderabad-south-central-region",
@@ -2204,7 +2204,7 @@
       "source_url": "https://local.microsoft.com/blog/jigginstown-datacentre-project-update/",
       "source_title": "Microsoft Ireland: Jigginstown datacentre project update",
       "captured_at": "2026-10-19",
-      "notes": "Site zoned 'P - Data Centre' under the Naas Local Area Plan. No planning application lodged as of Aug 2026 (local press). Microsoft's page cites a November 2023 open session at the Osprey Hotel. Campaigners seek a statutory variation to remove the zoning. Subdivision null: Kildare is not in the registry. The 'extensive engagement' and pre-planning wording in secondary summaries does not appear on Microsoft's page, so it is not recorded."
+      "notes": "Site zoned 'P - Data Centre' under the Naas Local Area Plan. No planning application lodged as of Aug 2026 (local press). Microsoft's page cites a November 2023 open session at the Osprey Hotel. Campaigners seek a statutory variation to remove the zoning. The 'extensive engagement' and pre-planning wording in secondary summaries does not appear on Microsoft's page, so it is not recorded."
     },
     {
       "id": "gb-google-north-weald-outline",
@@ -2222,6 +2222,82 @@
       "source_title": "North Weald Parish Council: Google Data Centre",
       "captured_at": "2026-10-19",
       "notes": "Outline permission only. Parish survey on the same page: 77 responses, 'No – 55.84%' and 'Yes- 44.16%', undated, so not recorded as a CommunityResponse. Parish council considered the application on 19 May 2025 per the page. Google's public consultation ran 'throughout July and August' with no year on the page."
+    },
+    {
+      "id": "ie-meta-clonee",
+      "company_slug": "meta",
+      "name": "Meta Clonee data centre (Meath)",
+      "city": "Clonee",
+      "country": "IE",
+      "status": "operational",
+      "source_url": "https://datacenters.atmeta.com/asset/clonee-data-center-info-sheet/",
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "subdivision": "IE-MH",
+      "locality": "Clonee, Co. Meath",
+      "announced_year": 2026,
+      "source_title": "Meta Data Centers — Clonee data centre fact sheet",
+      "claimed_investment": {
+        "amount": 1400000000.0,
+        "currency": "EUR",
+        "as_stated": "€1.4B"
+      },
+      "project_page_url": "https://datacenters.atmeta.com/all-locations/",
+      "notes": "Meta's two-page English fact sheet states the investment as €1.4B, 300+ operational jobs supported and 1,500 skilled trade workers on site at peak construction (company-reported). The sheet is undated, so announced_year is the year of capture, not an announcement year. Subdivision: Clonee is in Co. Meath."
+    },
+    {
+      "id": "se-meta-lulea",
+      "company_slug": "meta",
+      "name": "Meta Luleå data centre",
+      "city": "Luleå",
+      "country": "SE",
+      "status": "operational",
+      "source_url": "https://datacenters.atmeta.com/asset/lulea-data-center-info-sheet/",
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "subdivision": "SE-BD",
+      "locality": "Luleå, Norrbotten",
+      "announced_year": 2026,
+      "source_title": "Meta Data Centers — Luleå data centre fact sheet",
+      "claimed_investment": {
+        "amount": 8700000000.0,
+        "currency": "SEK",
+        "as_stated": "8.7B+ SEK"
+      },
+      "project_page_url": "https://datacenters.atmeta.com/europe/",
+      "notes": "Meta's English fact sheet states 8.7B+ SEK of investment and 300+ operational jobs supported (company-reported); the Europe fleet page repeats both. The sheet's second table row is garbled in the PDF and is not used. The sheet is undated, so announced_year is the year of capture, not an announcement year."
+    },
+    {
+      "id": "ie-aws-tallaght",
+      "company_slug": "amazon",
+      "name": "AWS Tallaght data centre (waste heat to Tallaght District Heating Scheme)",
+      "city": "Tallaght",
+      "country": "IE",
+      "status": "operational",
+      "source_url": "https://www.sdcc.ie/en/climate-action/latest-news/tallaght-district-heating-network-and-energy-centre-officially-opened.html",
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "subdivision": "IE-D",
+      "locality": "Tallaght, South Dublin",
+      "announced_year": 2020,
+      "source_title": "South Dublin County Council — Tallaght District Heating Network and Energy Centre officially opened",
+      "notes": "Excess heat from an Amazon Web Services data centre feeds the council-owned Tallaght District Heating Scheme, which AWS says it supplies free of charge. The council page says the scheme was officially opened; it shows no opening date. announced_year is 2020, the year of AWS's earliest dated statement captured. Trade press (DCD) reports a groundbreaking that conflicts with the operating account; the operating account is used. Site capacity is not disclosed."
+    },
+    {
+      "id": "ie-aws-cruiserath-road",
+      "company_slug": "amazon",
+      "name": "AWS Cruiserath Road data centres E, F and G (Fingal)",
+      "city": "Dublin (Fingal)",
+      "country": "IE",
+      "status": "announced",
+      "source_url": "https://www.pleanala.ie/anbordpleanala/media/abp/cases/orders/318/d318180.pdf",
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "subdivision": "IE-D",
+      "locality": "Cruiserath Road, Fingal",
+      "announced_year": 2023,
+      "source_title": "An Coimisiún Pleanála — Commission Order ABP-318180-23",
+      "notes": "Permission for data centres E, F and G was granted on 19 December 2025 on appeal (case ABP-318180-23, planning ref. FW22A/0308), subject to conditions. Condition 5 requires a Corporate Purchase Power Agreement with a renewable energy provider before commencement, covering new renewable projects in Ireland with generation at least equal to the data centres' requirements in operation. The campus is permitted, not built. announced_year is the year of Fingal County Council's decision that was appealed. Build size and capacity in trade press are not used."
     }
   ],
   "responses": [
@@ -2361,6 +2437,30 @@
       "source_title": "Kildare Nationalist: Kildare Microsoft data centre faces local opposition",
       "source_lang": "en",
       "single_source": true
+    },
+    {
+      "id": "ie-resp-aws-cruiserath-appeal",
+      "project_id": "ie-aws-cruiserath-road",
+      "date": "2025-12-19",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A resident and Louth Environmental Group appealed Fingal County Council's grant of permission for the campus. The Commission's order of 19 December 2025, which grants permission subject to conditions including a Corporate PPA, records the appeal; it does not state when the appeal was lodged.",
+      "source_url": "https://www.pleanala.ie/anbordpleanala/media/abp/cases/orders/318/d318180.pdf",
+      "source_title": "An Coimisiún Pleanála — Commission Order ABP-318180-23",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "gb-resp-waltham-cross-residents-2026",
+      "project_id": "gb-google-waltham-cross",
+      "date": "2026-07-24",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "According to The Register (24 July 2026), residents at a meeting with Google's team about the Waltham Cross data centre raised noise (a hum in the evening), night-time lighting in bedrooms and poor consultation; a council representative said only 12 people attended the previous public meeting.",
+      "source_url": "https://www.theregister.com/on-prem/2026/07/24/google-meets-the-neighbors-and-gets-both-barrels-over-its-new-uk-datacenter/5277188",
+      "source_title": "The Register — Google meets the neighbors and gets both barrels over its new UK datacenter",
+      "source_lang": "en",
+      "single_source": true
     }
   ],
   "claims": [
@@ -2430,7 +2530,7 @@
       "company_slug": "google",
       "theme": "jobs",
       "country": "GB",
-      "project_id": "gb-google-waltham-cross",
+      "project_id": null,
       "statement": "supporting a projected 8,250 jobs annually in the UK",
       "published_at": "2025-09-16",
       "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
@@ -2570,7 +2670,7 @@
       "company_slug": "google",
       "theme": "energy",
       "country": "GB",
-      "project_id": "gb-google-waltham-cross",
+      "project_id": null,
       "statement_lang": "en",
       "statement": "We signed an agreement with Shell to manage our UK carbon-free energy portfolio and deploy its innovative battery technology to store and feed surplus clean energy back into the grid at times of need",
       "published_at": "2025-09-16",
@@ -2707,6 +2807,113 @@
       "published_at": "2025-10-01",
       "country": "KR",
       "formal_agreement": false
+    },
+    {
+      "id": "ie-claim-meta-clonee-engagement",
+      "company_slug": "meta",
+      "theme": "engagement",
+      "statement": "Meta is committed to being a good neighbour and community partner. We do this by supporting jobs and sourcing labour and materials locally where we can, participating in community and water restoration projects, and partnering with local chambers, small businesses and not-for-profit organisations.",
+      "source_url": "https://datacenters.atmeta.com/asset/clonee-data-center-info-sheet/",
+      "source_title": "Meta Data Centers — Clonee data centre fact sheet",
+      "captured_at": "2026-10-19",
+      "country": "IE",
+      "statement_lang": "en",
+      "project_id": "ie-meta-clonee"
+    },
+    {
+      "id": "ie-claim-meta-ireland-renewables",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "Meta is committed to supporting the addition of new energy projects to the grid — this includes three projects in Ireland that are adding 219 megawatts of new clean and renewable energy.",
+      "source_url": "https://datacenters.atmeta.com/asset/clonee-data-center-info-sheet/",
+      "source_title": "Meta Data Centers — Clonee data centre fact sheet",
+      "captured_at": "2026-10-19",
+      "country": "IE",
+      "statement_lang": "en"
+    },
+    {
+      "id": "ie-claim-meta-ireland-water",
+      "company_slug": "meta",
+      "theme": "water",
+      "statement": "We have supported three water restoration projects in Ireland so far.",
+      "source_url": "https://datacenters.atmeta.com/asset/clonee-data-center-info-sheet/",
+      "source_title": "Meta Data Centers — Clonee data centre fact sheet",
+      "captured_at": "2026-10-19",
+      "country": "IE",
+      "statement_lang": "en"
+    },
+    {
+      "id": "se-claim-meta-lulea-engagement",
+      "company_slug": "meta",
+      "theme": "engagement",
+      "statement": "Meta is committed to being a good neighbour and community partner. We do this by supporting jobs and sourcing labour and materials locally where we can, and partnering with local chambers, small businesses and not-for-profit organisations.",
+      "source_url": "https://datacenters.atmeta.com/asset/lulea-data-center-info-sheet/",
+      "source_title": "Meta Data Centers — Luleå data centre fact sheet",
+      "captured_at": "2026-10-19",
+      "country": "SE",
+      "statement_lang": "en",
+      "project_id": "se-meta-lulea"
+    },
+    {
+      "id": "se-claim-meta-lulea-energy",
+      "company_slug": "meta",
+      "theme": "energy",
+      "statement": "We match our data centres’ electricity use with 100% clean and renewable energy.",
+      "source_url": "https://datacenters.atmeta.com/asset/lulea-data-center-info-sheet/",
+      "source_title": "Meta Data Centers — Luleå data centre fact sheet",
+      "captured_at": "2026-10-19",
+      "country": "SE",
+      "statement_lang": "en",
+      "project_id": "se-meta-lulea"
+    },
+    {
+      "id": "ie-claim-aws-tallaght-free-heat",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "AWS will provide recycled heat free of charge to the scheme",
+      "source_url": "https://www.aboutamazon.eu/news/amazon-web-services/local-community-buildings-in-ireland-to-be-heated-by-amazon-data-centre",
+      "source_title": "About Amazon EU — Local community buildings in Ireland to be heated by Amazon data centre",
+      "captured_at": "2026-10-19",
+      "country": "IE",
+      "statement_lang": "en",
+      "published_at": "2020-12-14",
+      "project_id": "ie-aws-tallaght"
+    },
+    {
+      "id": "ie-claim-amazon-ireland-water",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "for more than 95% of the year we use no water to cool our data centres in Ireland.",
+      "source_url": "https://www.aboutamazon.eu/news/aws/five-ways-aws-data-centres-benefit-local-communities-in-ireland",
+      "source_title": "About Amazon EU — Five ways AWS data centres benefit local communities in Ireland",
+      "captured_at": "2026-10-19",
+      "country": "IE",
+      "statement_lang": "en",
+      "published_at": "2023-10-26"
+    },
+    {
+      "id": "ie-claim-amazon-ireland-jobs",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "AWS supports an average of more than 10,000 jobs per year in the local communities across the country.",
+      "source_url": "https://www.aboutamazon.eu/news/aws/five-ways-aws-data-centres-benefit-local-communities-in-ireland",
+      "source_title": "About Amazon EU — Five ways AWS data centres benefit local communities in Ireland",
+      "captured_at": "2026-10-19",
+      "country": "IE",
+      "statement_lang": "en",
+      "published_at": "2023-10-26"
+    },
+    {
+      "id": "ie-claim-amazon-ireland-fingal-fund",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "The €150,000 fund, which is managed by non-profit organisation ChangeX, has supported 36 separate projects",
+      "source_url": "https://www.aboutamazon.eu/news/aws/five-ways-aws-data-centres-benefit-local-communities-in-ireland",
+      "source_title": "About Amazon EU — Five ways AWS data centres benefit local communities in Ireland",
+      "captured_at": "2026-10-19",
+      "country": "IE",
+      "statement_lang": "en",
+      "published_at": "2023-10-26"
     }
   ],
   "rate_cases": [
