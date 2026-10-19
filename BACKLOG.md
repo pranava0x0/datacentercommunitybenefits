@@ -617,6 +617,16 @@ come first, then locations, companies and sites.
 - Honest gaps: community_grants, education.
 
 ### Sites
+
+#### International records held for an operator company (2026-10-19)
+- Verified but unshipped, because `Project.company_slug` needs a registered
+  operator: Mayo Data Hub Killala (IE), Campus IA Fouju (FR; MGX / Bpifrance
+  / Mistral / NVIDIA), Inzai Chiba (JP; Colt DCS Japan), and, with no
+  operator named at all, Abbots Langley (GB) and Muan Oryong (KR). Each
+  comes with its responses. Add the operator (owner rule: international
+  operators become companies), then ship. Research is in
+  `notes/specs/international/wave2/`. **medium**
+
 #### Claims and responses held after the 2026-10-19 link check
 - `qts-dane-county-wi-community-commitment`, `qts-dane-county-education-2025`:
   QTS moved its newsroom to q.com and the release now 404s; a 2026-05-19

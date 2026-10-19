@@ -3853,6 +3853,16 @@
           "upcoming": false,
           "source_url": "https://www.whio.com/news/local/temporary-restraining-order-prevents-city-moving-forward-with-data-center-plans/VCJUTIPM7VATVFSVMBSP6DFGPQ",
           "source_title": "WHIO — Temporary restraining order prevents city from moving forward with data center plans"
+        },
+        {
+          "date": "2026-09-03",
+          "kind": "news",
+          "title": "Reported: Wilmington council passes AWS site rezoning 7-0 as emergency legislation",
+          "summary": "Wilmington City Council passed, as emergency legislation, a rezoning of the AWS data center site from Rural Residential to Light Industrial after an earlier 5-2 vote failed to reach the 75% threshold. Residents have objected and one proposed a lawsuit.",
+          "authority": "Wilmington City Council",
+          "upcoming": false,
+          "source_url": "https://www.fox19.com/2026/09/04/wilmington-residents-continue-dissent-over-data-center-ordinances-passed-by-city-council/",
+          "source_title": "FOX 19 — Wilmington residents continue dissent over data center ordinances passed by city council"
         }
       ]
     },

@@ -1352,6 +1352,95 @@
       "country": "CA",
       "subdivision": "CA-AB",
       "locality": "Alberta"
+    },
+    {
+      "id": "gb-north-east-ai-growth-zone-2025",
+      "title": "North East AI Growth Zone (Blyth and Cobalt Park)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "North East England",
+      "date": "2025-09-17",
+      "benefit_themes": [
+        "jobs"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "made up of sites at Blyth in Northumberland and Cobalt in North Tyneside"
+      ],
+      "summary": "The North East AI Growth Zone is made up of sites at Blyth (Northumberland) and Cobalt (North Tyneside). Newcastle City Council states the zone is set to unlock more than 5,000 new jobs and bring in GBP 30 billion of investment; these are the council's figures as announced, not committed community-benefit terms.",
+      "source_url": "https://new.newcastle.gov.uk/news/2025/north-east-ai-growth-zone-announced",
+      "source_title": "Newcastle City Council — North East AI Growth Zone announced (17 September 2025)",
+      "captured_at": "2026-10-19",
+      "country": "GB",
+      "subdivision": "GB-ENG",
+      "locality": "Blyth; Cobalt Park (North Tyneside)",
+      "source_lang": "en",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-geumcheon-gu-200m-consent-2026",
+      "title": "Geumcheon-gu data-centre resident-participation review system (head's first decision)",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Geumcheon-gu, Seoul",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control",
+        "community_benefits"
+      ],
+      "key_terms": [
+        "데이터센터 건축허가 신청 때 반경 200m 이내 주민 과반수의 동의서를 사업자가 의무적으로 제출하도록 하는 내용을 담았다",
+        "'데이터센터 주민참여형 검토체계 구축 및 제도 개선'을 취임 1호 결재안으로 삼았다"
+      ],
+      "summary": "The new Geumcheon-gu head made the data-centre resident-participation review system his first approved decision. Under it, a developer must submit written consent from a majority of residents within 200 m before a data-centre building permit application. It is an administrative decision, not an ordinance.",
+      "source_url": "https://www.hankyung.com/article/2026092802101",
+      "source_title": "Hankyung — 내집 앞에 데이터센터 안돼…전국서 잇단 건립 반대 시위 (28 Sep 2026)",
+      "captured_at": "2026-10-19",
+      "country": "KR",
+      "subdivision": "KR-11",
+      "locality": "Geumcheon-gu (Seoul)",
+      "source_lang": "ko",
+      "community_benefits_framework": false,
+      "key_terms_translation": {
+        "items": [
+          "The content requires the developer to submit written consent from a majority of residents within a 200 m radius when applying for a data-centre building permit",
+          "made the \"data-centre resident-participation review system building and institutional improvement\" his first approved decision as head"
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      }
+    },
+    {
+      "id": "in-maharashtra-green-dc-parks-amendment-2026",
+      "title": "Maharashtra Integrated Green Data Centre Parks policy, amended",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Maharashtra",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "increased the number of eligible projects from just three to 20"
+      ],
+      "summary": "The amended Maharashtra policy increases the number of eligible integrated green data-centre parks from three to 20, as reported by Whalesbook.",
+      "source_url": "https://www.whalesbook.com/news/English/real-estate/Maharashtra-Expands-Green-Data-Centre-Policy-Investor-Impact/6a30b10ad017fdb509977cc9",
+      "source_title": "Whalesbook — Maharashtra Expands Green Data Centre Policy: Investor Impact",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "locality": "Maharashtra",
+      "source_lang": "en",
+      "community_benefits_framework": false
     }
   ],
   "moratoriums": [
@@ -1889,6 +1978,24 @@
       "source_url": "https://files.xtxmarkets.com/publications/kajaani/index.html",
       "source_title": "XTX Markets — XTX Markets plans to invest over €1bn in large-scale data centre project in Finland (22 Jan 2025)",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-qts-cambois",
+      "company_slug": "qts",
+      "name": "QTS Cambois data centre campus",
+      "city": "Cambois",
+      "country": "GB",
+      "status": "announced",
+      "announced_year": 2025,
+      "lat": 55.145,
+      "lon": -1.5222,
+      "source_url": "https://q.com/data-centers/cambois/",
+      "source_title": "QTS — Cambois data centre campus",
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "notes": "QTS page: outline planning permission approved; QTS has begun submitting detailed approvals to Northumberland County Council and says it will update as it moves towards starting works on site. announced_year is the earliest dated item on the page (2025). Coordinates: Wikipedia Cambois village (55°08′42″N 1°31′16″W), village-level, not the campus boundary.",
+      "subdivision": "GB-ENG",
+      "locality": "Cambois (near Blyth)"
     }
   ],
   "responses": [
@@ -2194,6 +2301,43 @@
       "project_id": "fi-xtx-kajaani",
       "source_url": "https://files.xtxmarkets.com/publications/kajaani/index.html",
       "source_title": "XTX Markets — XTX Markets plans to invest over €1bn in large-scale data centre project in Finland (22 Jan 2025)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-claim-qts-cambois-water",
+      "company_slug": "qts",
+      "theme": "water",
+      "country": "GB",
+      "project_id": "gb-qts-cambois",
+      "statement_lang": "en",
+      "statement": "QTS will use its industry-leading closed-loop cooling system, significantly reducing requirements on local water supplies.",
+      "source_url": "https://q.com/data-centers/cambois/",
+      "source_title": "QTS — Cambois data centre campus (water strategy section)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-claim-qts-cambois-engagement",
+      "company_slug": "qts",
+      "theme": "engagement",
+      "country": "GB",
+      "project_id": "gb-qts-cambois",
+      "statement_lang": "en",
+      "statement": "We've been actively working in the communities of Blyth and Cambois to find out where and how we can best support residents.",
+      "source_url": "https://q.com/data-centers/cambois/",
+      "source_title": "QTS — Cambois data centre campus (community section)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-claim-google-waltham-cross-shell",
+      "company_slug": "google",
+      "theme": "energy",
+      "country": "GB",
+      "project_id": "gb-google-waltham-cross",
+      "statement_lang": "en",
+      "statement": "We signed an agreement with Shell to manage our UK carbon-free energy portfolio and deploy its innovative battery technology to store and feed surplus clean energy back into the grid at times of need",
+      "published_at": "2025-09-16",
+      "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
+      "source_title": "Google — Our new Waltham Cross data center (16 Sep 2025)",
       "captured_at": "2026-10-19"
     }
   ],

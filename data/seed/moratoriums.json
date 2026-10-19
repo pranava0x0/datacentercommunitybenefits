@@ -5695,6 +5695,60 @@
       "city_council_vote": "Unanimous on first reading (Oct. 13, 2026)",
       "session": "2026",
       "captured_at": "2026-10-18"
+    },
+    {
+      "id": "paulding-county-ga-2026-07",
+      "jurisdiction": "Paulding County",
+      "jurisdiction_type": "county",
+      "state_code": "GA",
+      "status": "enacted",
+      "enacted_date": "2026-07-28",
+      "duration_months": 5,
+      "duration_description": "Until January 1, 2027",
+      "key_reasons": [],
+      "summary": "The Paulding County Board of Commissioners voted unanimously on July 28, 2026 to suspend new data center applications, zoning requests and civil plan reviews until January 1, 2027, while the county updates its development codes.",
+      "source_url": "https://www.fox5atlanta.com/news/paulding-county-approves-data-center-moratorium-freezing-projects",
+      "source_title": "FOX 5 Atlanta — Paulding County approves data center moratorium, freezing projects",
+      "captured_at": "2026-10-19",
+      "city_council_vote": "unanimous",
+      "enacted_by": "Board of Commissioners",
+      "session": "2026"
+    },
+    {
+      "id": "denton-tx-2026-08",
+      "jurisdiction": "Denton",
+      "jurisdiction_type": "city",
+      "state_code": "TX",
+      "status": "proposed",
+      "enacted_date": null,
+      "duration_description": "Not set; no moratorium adopted as of the August 5, 2026 coverage",
+      "key_reasons": [],
+      "summary": "The Denton City Council is exploring a moratorium on further data center development within city limits, alongside development code updates. No moratorium had been adopted as of the August 5, 2026 coverage.",
+      "source_url": "https://communityimpact.com/denton/government/denton-officials-to-vote-on-public-hearings-for-data-center-moratorium-development-code-updates/",
+      "source_title": "Community Impact — Denton officials to vote on public hearings for data center moratorium, development code updates",
+      "captured_at": "2026-10-19",
+      "session": "2026"
+    },
+    {
+      "id": "desert-hot-springs-ca-2026-07",
+      "jurisdiction": "Desert Hot Springs",
+      "jurisdiction_type": "city",
+      "state_code": "CA",
+      "status": "enacted",
+      "enacted_date": "2026-07-07",
+      "duration_months": 24,
+      "duration_description": "Two years in total: the urgency moratorium was extended by 22 months and 15 days at the July 7, 2026 meeting",
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "summary": "The Desert Hot Springs City Council voted unanimously to extend its urgency moratorium on data centers and similar high-intensity computing uses by 22 months and 15 days, for a total of two years, while staff studies infrastructure, energy and water impacts.",
+      "source_url": "https://riversiderecord.org/desert-hot-springs-data-center-moratorium-extended/",
+      "source_title": "The Record (Riverside) — Desert Hot Springs data center moratorium extended",
+      "captured_at": "2026-10-19",
+      "city_council_vote": "unanimous",
+      "enacted_by": "City Council",
+      "session": "2026"
     }
   ]
 }

@@ -4396,14 +4396,21 @@
         "Resolution 06-2026: Resolution approving a development and supply agreement term summary with EdgeConneX, and declaring an emergency.",
         "The resolution offered up to $102 million-divided between the Teays Valley School District ($64 million), the Village of Ashville for EPA-related infrastructure ($35 million), and the Harrison Township Fire Department ($3 million).",
         "Five council members voted to adopt the resolution, and President Pro Tempore Jeff Martin was the single nay vote.",
-        "it's going to be part of the negotiation now moving forward."
+        "it's going to be part of the negotiation now moving forward.",
+        "The village of Ashville must submit a referendum petition to the board of elections seeking a public vote on the village's effort to help construct two new data centers and a power plant."
       ],
-      "summary": "On April 6, 2026 the Ashville Village Council voted 5-1 to adopt Resolution 06-2026 approving a term summary for a development and supply agreement with EdgeConneX. The resolution offered up to $102 million, divided among the Teays Valley School District ($64 million), the village for EPA-related infrastructure ($35 million) and the Harrison Township Fire Department ($3 million). The dissenting council member said some terms remained to be negotiated, so this is a term summary and not an executed agreement. Later developments, including a referendum petition, are not covered by the cited report.",
+      "summary": "On April 6, 2026 the Ashville Village Council voted 5-1 to adopt Resolution 06-2026 approving a term summary for a development and supply agreement with EdgeConneX. The resolution offered up to $102 million, divided among the Teays Valley School District ($64 million), the village for EPA-related infrastructure ($35 million) and the Harrison Township Fire Department ($3 million). The dissenting council member said some terms remained to be negotiated, so this is a term summary and not an executed agreement. Later developments, including a referendum petition, are not covered by the cited report. On August 7, 2026 the Ohio Supreme Court ruled that the village must submit the referendum petition against the resolution to the county board of elections; whether it reaches the November 3 ballot is not yet confirmed.",
       "source_url": "https://www.circlevilleherald.com/community/ashville-council-votes-5-1-to-adopt-the-edgeconnex-term-summary-resolution/article_6a335fd7-4406-411d-b8ea-178155601d5c.html",
       "source_title": "Circleville Herald — Ashville council votes 5-1 to adopt the EdgeConneX term summary resolution (Apr 9, 2026)",
-      "captured_at": "2026-10-08",
+      "captured_at": "2026-10-19",
       "agreement_features": [
         "dollar_commitment"
+      ],
+      "resources": [
+        {
+          "url": "https://courtnewsohio.gov/cases/2026/SCO/0807/260906.asp",
+          "title": "Court News Ohio — Village Must Submit Data Center Referendum to County Board of Elections (Aug. 7, 2026)"
+        }
       ]
     },
     {
@@ -4525,6 +4532,65 @@
         }
       ],
       "captured_at": "2026-10-18"
+    },
+    {
+      "id": "san-marcos-tx-datacenter-prohibition-2026",
+      "title": "San Marcos Ordinance 2026-08 — data centers prohibited in every zoning district",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "San Marcos, TX",
+      "state_code": "TX",
+      "identifier": "Ordinance 2026-08",
+      "date": "2026-06-16",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "amend the city's Land Use Matrix and prohibit data centers in every zoning district"
+      ],
+      "summary": "The San Marcos City Council voted 4-3 on second reading of Ordinance 2026-08, amending the Land Use Matrix to prohibit data centers in every zoning district. This is a permanent zoning rule, not a time-limited pause.",
+      "source_url": "https://foxsanantonio.com/newsletter-daily/san-marcos-council-votes-to-prohibit-data-centers-citywide",
+      "source_title": "FOX San Antonio — San Marcos council votes to prohibit data centers citywide",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fl-sb484-large-load-tariffs-2026",
+      "title": "Florida CS/CS/SB 484 — large-load tariffs so data centers pay their own cost of service",
+      "instrument": "legislation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Florida",
+      "state_code": "FL",
+      "identifier": "CS/CS/SB 484",
+      "date": "2026-05-07",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Requires the Public Service Commission (PSC) to implement large load customer tariff and service requirements for public electric utilities.",
+        "The tariff requirements must reasonably ensure that large load customers (such as large data centers) pay for their own cost of service, the risk of nonpayment of such costs may not be borne by the general body of ratepayers"
+      ],
+      "summary": "Florida enacted SB 484, signed by Gov. Ron DeSantis on May 7, 2026. It requires the Public Service Commission to implement large-load tariffs for public electric utilities that make large data centers pay their own cost of service and keep nonpayment risk off the general body of ratepayers.",
+      "source_url": "https://flsenate.gov/Committees/BillSummaries/2026/html/484",
+      "source_title": "Florida Senate — Bill Summary, CS/CS/SB 484 (Data Centers)",
+      "resources": [
+        {
+          "url": "https://news.wfsu.org/state-news/2026-05-08/gov-desantis-has-signed-a-bill-regulating-data-centers-in-florida",
+          "title": "WFSU — Gov. DeSantis has signed a bill regulating data centers in Florida (May 8, 2026)"
+        }
+      ],
+      "related_moratorium_id": "florida-state-2026-07",
+      "captured_at": "2026-10-19"
     }
   ]
 }
