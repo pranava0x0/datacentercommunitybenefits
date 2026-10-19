@@ -1158,6 +1158,12 @@ main {
   font-size: var(--fs-lg);
 }
 
+.legend-item-opacity-12 {
+  color: var(--accent);
+  opacity: 0.12;
+  font-size: var(--fs-lg);
+}
+
 .explorer-list {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -6497,4 +6503,11 @@ button.depth-chip:focus-visible {
 @media (max-width: 600px) {
   .moratorium-table th:nth-child(5),
   .moratorium-table td:nth-child(5) { display: none; }
+}
+/* #78: an abandoned site stays on the record, visibly inactive. */
+.status-pill.status-withdrawn { color: var(--text-muted); background: var(--surface-2, var(--surface)); text-decoration: line-through; }
+.project-list-more { list-style: none; padding: 0.75rem 0; text-align: center; }
+/* Paging controls are the only way to reach hidden rows: full touch target. */
+@media (pointer: coarse) {
+  .project-list-more .btn-ghost { min-height: 44px; padding-left: 1rem; padding-right: 1rem; }
 }

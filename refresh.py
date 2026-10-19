@@ -544,6 +544,9 @@ def _is_contested(p, neg_projects: set, disputed_projects: set) -> bool:
     """Mirror of contestedReasons() in docs/app.js (parity-tested in e2e):
     a critical community response, a contested ratepayer assessment, a
     contested/shortfall delivery finding, or a lawsuit on the timeline."""
+    # A withdrawn site is history, not a live dispute (#78).
+    if p.status == "withdrawn":
+        return False
     return (
         p.id in neg_projects
         or (p.ratepayer is not None and p.ratepayer.status == "contested")

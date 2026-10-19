@@ -1,0 +1,507 @@
+{
+  "region": "Americas (ex-US), Middle East & Africa, Global cross-cutting",
+  "as_of": "2026-10-19",
+  "method": "About 21 WebFetch calls and 12 WebSearch calls. A record is 'verified' only where a fetched page supports the quoted sentence. Items marked UNVERIFIED rest on search-result snippets or on pages that returned HTTP 403, and must not be ingested before a fetch. Several primary sources (IEA, Poder360, Axios, DCD Chile, Al Jazeera-adjacent, Daily Maverick mirrors) returned 403 or were not reachable.",
+  "countries": [
+    {
+      "country": "Chile",
+      "iso2": "CL",
+      "sites": [
+        {
+          "title": "Google Cerrillos data centre, Santiago: court partially revokes permit over water and climate",
+          "date": "2024-02-28",
+          "summary": "A Chilean court ordered Google to revise its application for a roughly $200m data centre to account for climate change. The court still held the original environmental assessment sufficient. Opponents argued the facility would use residents' water supply to cool servers during a drought. Later in 2024 Google paused the project to redesign cooling. Press reports describe a switch away from water-intensive cooling; the company's own statement was not fetched.",
+          "source_url": "https://www.semafor.com/article/02/28/2024/chile-google-data-center-gets-permit-partially-revoked",
+          "verbatim": "\"ruled Google must revise its application for the construction of a $200 million data center in Santiago\""
+        },
+        {
+          "title": "Google pauses Chilean project to rethink water use",
+          "date": "2024 (date not verified; DCD returned 403)",
+          "summary": "Secondary report that Google paused the Cerrillos project to revise its design and cooling system. Not fetched.",
+          "source_url": "https://www.datacenterdynamics.com/en/news/google-pauses-chilean-data-center-project-to-rethink-water-use",
+          "verbatim": "UNVERIFIED (page returned HTTP 403): search snippet 'Google paused the project to rework its design.'"
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Chilean court sufficiency finding on the Cerrillos environmental assessment",
+          "date": "2024-02-28",
+          "summary": "The court held that the initial environmental assessment remained sufficient even after Google's design changes. The article calls the ruling a 'partial win' for environmentalists, so the outcome is mixed, not a revocation.",
+          "source_url": "https://www.semafor.com/article/02/28/2024/chile-google-data-center-gets-permit-partially-revoked",
+          "verbatim": "\"But the court ultimately ruled that the initial environmental assessment was still sufficient despite Google's changes.\""
+        }
+      ],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Water-use opposition to Cerrillos in Santiago",
+          "date": "2024-02-28",
+          "summary": "Opponents said the data centre would worsen Chile's drought by drawing on residents' water supply for cooling. Based on the Semafor article, which reports the argument without a named speaker.",
+          "source_url": "https://www.semafor.com/article/02/28/2024/chile-google-data-center-gets-permit-partially-revoked",
+          "verbatim": "\"who said it would exacerbate the ongoing Chilean drought by using residents' water supplies to help cool its servers.\""
+        }
+      ],
+      "data_sources": [],
+      "schema_gaps": [
+        "The headline says 'partially revoked' but the body says the court ordered a revision and called the outcome a 'partial win'. Do not store the word 'revoked' as a fact. This is the same headline-vs-body failure the project already logs for Loudoun.",
+        "Chilean court proceedings are in Spanish. Any verbatim quote must be taken from the Spanish ruling or press, with the English gloss marked as a translation."
+      ]
+    },
+    {
+      "country": "Mexico",
+      "iso2": "MX",
+      "sites": [
+        {
+          "title": "Microsoft data centres, Colon (Queretaro): groundwater concession",
+          "date": "2024-09-06",
+          "summary": "Microsoft reportedly obtained a concession to extract 25 million litres a year from underground for one of two data-centre units in Colon. The article says this equals 24% of the water allocated to the municipality for public and urban use. Microsoft said the centres would use technology to reduce cooling water and would consume water less than 5% of the year. The companies and the state government declined requests for water-volume information.",
+          "source_url": "https://www.context.news/ai/thirsty-data-centres-spring-up-in-water-poor-mexican-town",
+          "verbatim": "Microsoft \"obtained a concession to extract 25 million litres a year from underground for just one of its two data centres units in Colón.\""
+        },
+        {
+          "title": "Queretaro cluster: intermittent water in Viborillas",
+          "date": "2026-02-04",
+          "summary": "Residents of Viborillas, a town surrounded by data centres, report water that is intermittent and sometimes unsafe. The Context long-read covers the wider regional conflict, including drought in Colon and incentives the state offers to data centres.",
+          "source_url": "https://www.context.news/ai/long-read/resistance-blooms-in-mexicos-data-centre-valley",
+          "verbatim": "\"Some residents say they get water just three days a week. Others say they have gone without water for as long as a month.\""
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Queretaro state incentives for data centres (described, not fetched as an instrument)",
+          "date": "2026-02-04",
+          "summary": "Per the Context long-read, the local government is offering incentives to companies to build data centres, which are water-intensive. The instrument itself (law, decree, or incentive name) was not identified and needs a primary government source before any record is created.",
+          "source_url": "https://www.context.news/ai/long-read/resistance-blooms-in-mexicos-data-centre-valley",
+          "verbatim": "UNVERIFIED as an instrument: article paraphrases 'the local government in Querétaro is giving incentives to companies to build data centres'."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "State government position: blame for water shortages",
+          "date": "2026-02-04",
+          "summary": "The state's Secretary for Sustainable Development says blaming data centres for water shortages oversimplifies a problem that predates them. The federal president says the government is seeking solutions, which activists doubt.",
+          "source_url": "https://www.context.news/ai/long-read/resistance-blooms-in-mexicos-data-centre-valley",
+          "verbatim": "Marco del Prete, Querétaro's Secretary of Sustainable Development, said blaming water shortages on data centres is \"simplifying\" the problem, since water issues predate them."
+        },
+        {
+          "title": "Activists: no public way to see data-centre water allocation",
+          "date": "2024-09-06",
+          "summary": "Activist Teresa Roldan says the public cannot see how water is allocated to data centres. This is a disclosure gap, not a finding on volumes.",
+          "source_url": "https://www.context.news/ai/thirsty-data-centres-spring-up-in-water-poor-mexican-town",
+          "verbatim": "\"There is no way of knowing how water is being distributed to those data centres.\""
+        }
+      ],
+      "data_sources": [
+        {
+          "title": "Queretaro water concession and allocation records (not yet identified)",
+          "date": "n/a",
+          "summary": "Concession and allocation data (CONAGUA and the state water authority) would be the primary source for the Microsoft and Google figures. No access route was confirmed, and the companies and state declined to share volumes in press reports.",
+          "source_url": "https://www.context.news/ai/thirsty-data-centres-spring-up-in-water-poor-mexican-town",
+          "verbatim": "The companies and the state government \"declined requests for information about how much water they would use.\""
+        }
+      ],
+      "schema_gaps": [
+        "Water is the central dispute, but the dashboard's water theme is about company-stated commitments. Here the company figures and activist estimates conflict and none is independently measured. Store the figure as the company's own claim, with the dispute recorded in responses.",
+        "Mexican records would not use state_code or county. Municipality (municipio) and state are the nearest analogues, and Colon is a municipality inside the Queretaro state.",
+        "Spanish is the source language. The ISO 3166 code is MX; keep the Spanish verbatim and add an English gloss field if the schema allows."
+      ]
+    },
+    {
+      "country": "Canada",
+      "iso2": "CA",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Hydro-Quebec proposed large data centre rate (Regie de l'energie)",
+          "date": "2026-02-19",
+          "summary": "Hydro-Quebec asked the Regie for a new rate for large data centres, equal on average to about 13 cents/kWh and roughly double the current large-power rate. It would take effect in H2 2026, subject to approval. A five-year transitional rate is available to data centres already connected.",
+          "source_url": "https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-proposing-regie-energie-new-rate-large-data-centres-adjustment-rate-cryptographic-use-applied-blockchains.html",
+          "verbatim": "\"which is equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay.\""
+        },
+        {
+          "title": "Quebec dedicated tariff for data centres above 5 MW",
+          "date": "2026-07-08",
+          "summary": "A BLG commentary describes Hydro-Quebec's proposed dedicated industrial tariff for data centres above 5 MW. The 5 MW selection screen and ministry authorisation (MEIE) were reported in search snippets only and were not confirmed on the BLG page that was fetched.",
+          "source_url": "https://www.blg.com/en/insights/2026/07/data-centres-in-canada-current-state",
+          "verbatim": "Hydro-Quebec \"has proposed a dedicated industrial tariff for data centres requiring more than 5 MW.\""
+        },
+        {
+          "title": "Alberta 'bring-your-own-power' preference and federal MOU on data-centre electricity",
+          "date": "2026-07-08",
+          "summary": "BLG reports that Alberta prefers self-supply ('bring-your-own power') and that an MOU with the federal government encourages expanded electricity access for data centres built in Canada. The AESO large-load rules were not covered by the page and are an open gap.",
+          "source_url": "https://www.blg.com/en/insights/2026/07/data-centres-in-canada-current-state",
+          "verbatim": "Alberta's \"explicit preference for 'bring-your-own power' self-supply.\""
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [
+        {
+          "title": "Regie de l'energie docket R-4333-2026 (Google evidence on Decree 89-2026)",
+          "date": "2026-07-20",
+          "summary": "Google's evidence argues the proposed Hydro-Quebec tariff does not meet Decree 89-2026. Only the table of contents of the filing was viewed. The hearing's status and any decision are unconfirmed. The docket is public and citable.",
+          "source_url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026/doc/R-4333-2026-C-Google-0016-Preuve-Memoire-2026_07_20.pdf",
+          "verbatim": "UNVERIFIED: table of contents only; no substantive quote captured."
+        }
+      ],
+      "schema_gaps": [
+        "Regie docket numbers (R-xxxx-YYYY) and Quebec decrees are provincial analogues of PUC dockets. The schema's state_code field would need a province code, and 'docket_number' would take the Regie number.",
+        "Quebec primary sources are in French. Quotes must be verbatim French with an English gloss, marked as translation.",
+        "Canadian pricing is in CAD. Hydro-Quebec's 13 cents/kWh is in CAD cents per kWh. Do not convert to USD in the verbatim field."
+      ]
+    },
+    {
+      "country": "United Arab Emirates",
+      "iso2": "AE",
+      "sites": [
+        {
+          "title": "Stargate UAE: 1 GW cluster in Abu Dhabi, developed by Khazna (G42)",
+          "date": "2025-10-16",
+          "summary": "Khazna, a G42 company, is developing a 1 GW compute cluster inside the UAE-US AI Campus. OpenAI and Oracle will operate it. The first 200 MW is scheduled for delivery in 2026. The article says the full 5 GW campus will take 'the next few years'. The newest status found is from October 2025; 2026 delivery is unconfirmed.",
+          "source_url": "https://www.khaleejtimes.com/uae/stargate-uae-phase-1-in-two-years?amp=1",
+          "verbatim": "\"On Thursday, G42 confirmed that 200MW of the 1GW project is scheduled to be delivered in 2026.\""
+        }
+      ],
+      "instruments": [],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        "No public planning or permit register comparable to US county or PUC dockets was found. Sovereign campuses are approved through government channels, so there is no community-facing record to ingest.",
+        "The UAE has no community-response record in press coverage I found. An empty responses list here means not found, not no opposition.",
+        "Currency is AED (pegged to USD at 3.6725). The 'US$' figures in press releases need the original currency kept alongside any conversion."
+      ]
+    },
+    {
+      "country": "Saudi Arabia",
+      "iso2": "SA",
+      "sites": [
+        {
+          "title": "HUMAIN and xAI framework: 500 MW+ hyperscale GPU data centre",
+          "date": "2025-11 (listing) / 2026 (reports)",
+          "summary": "Reports describe a framework agreement for a 500 MW+ hyperscale GPU data centre with xAI. The site location is not confirmed; a November 2025 listing says it has not been revealed, and no source ties it to Riyadh. HUMAIN's first facilities in Riyadh and Dammam were reported at 100 MW each, with a go-live target of Q2 2026. Dates in the secondary sources are inconsistent.",
+          "source_url": "https://www.middleeastainews.com/p/xai-to-build-500mw-saudi-ai-data",
+          "verbatim": "UNVERIFIED (search snippet): 'xAI to build 500MW Saudi AI data centre with HUMAIN'. Page not fetched."
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Saudi electricity subsidy for AI data centres (reported)",
+          "date": "2026 (reported)",
+          "summary": "One report says the Saudi government will subsidise electricity costs to strengthen competitiveness. The other report found attributes the advantage to land, cheap energy and capital. Neither was fetched from a primary government source.",
+          "source_url": "https://www.datacenterdynamics.com/en/news/humain-breaks-ground-two-data-centers-with-first-facilities-expected-to-go-live-in-q2-2026/",
+          "verbatim": "UNVERIFIED: search synthesis only."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        "Saudi electricity subsidies are a government-to-operator transfer that the US schema has no field for. A large-load tariff record would hold the posted rate, but the subsidy is outside any tariff document.",
+        "No water or community-impact reporting was found for the Riyadh or Dammam sites. The gap should be recorded as 'not disclosed'."
+      ]
+    },
+    {
+      "country": "Uruguay",
+      "iso2": "UY",
+      "sites": [
+        {
+          "title": "Google Teros data centre, Parque de las Ciencias (Canelones): smaller, air-cooled redesign and approval",
+          "date": "2024-07-29",
+          "summary": "The plan was first expected to use up to 7.6 million litres of potable water a day during a drought that began in 2018. Reports say Google scaled the project down and switched to air cooling. The Environment Ministry approved it in July 2024. Search snippets report a court ruling that required the ministry to publish water data and that the ministry then appealed, citing trade secrecy. That ruling was not confirmed on a fetched page.",
+          "source_url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/17075-google-gets-go-ahead-for-uruguay-data-centre-after-water-worries.html",
+          "verbatim": "\"Reports suggest that Google has made the project smaller and switched to an air cooling system.\""
+        },
+        {
+          "title": "Google Teros water-data court ruling and trade-secret appeal",
+          "date": "unknown",
+          "summary": "Search snippets say a court ruled for an NGO and ordered the environment ministry to publish water-use data; the ministry appealed, claiming trade secrecy. The date and case were not confirmed. This is the most transferable finding for the dashboard, since it shows a government withholding water-use data.",
+          "source_url": "https://www.bnamericas.com/en/news/googles-uruguay-datacenter-plans-run-into-water-trouble",
+          "verbatim": "UNVERIFIED (BNamericas returned HTTP 403): snippet 'Google's Uruguay datacenter plans run into water trouble'."
+        },
+        {
+          "title": "Google announced US$850m investment for the Uruguay facility",
+          "date": "unknown",
+          "summary": "A search snippet reports Google committed US$850m shortly after the approval. Not verified on a fetched page, and the July 2024 article did not state an investment amount.",
+          "source_url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/17240-google-to-invest-us-850m-in-uruguay-data-centre.html",
+          "verbatim": "UNVERIFIED (snippet only)."
+        }
+      ],
+      "instruments": [],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Water-use concern in a drought year",
+          "date": "2024-07-29",
+          "summary": "Researcher Daniel Pena contrasted the facility's potable-water use with agriculture's share of water and said only a small share of water goes to human consumption. Critics also argued data centres create few jobs.",
+          "source_url": "https://developingtelecoms.com/telecom-technology/data-centres-networks/17075-google-gets-go-ahead-for-uruguay-data-centre-after-water-worries.html",
+          "verbatim": "UNVERIFIED wording: the 7.6-million-litre figure is verified as an article statement, but the Pena quote came from a search snippet, not a fetched page."
+        }
+      ],
+      "data_sources": [
+        {
+          "title": "Uruguay Ministry of Environment (MAmbiente) application and water-use records",
+          "date": "n/a",
+          "summary": "The primary record is the environmental authorisation file for the Teros project. Public access depends on the ministry's ruling on the NGO case, so the route has to be checked before any ingest.",
+          "source_url": "https://www.bnamericas.com/en/news/googles-uruguay-datacenter-plans-run-into-water-trouble",
+          "verbatim": "UNVERIFIED."
+        }
+      ],
+      "schema_gaps": [
+        "The dispute is over whether water data is public. The dashboard has no field for a 'data withheld' status, which would matter here and in Chile.",
+        "The Uruguayan investment figure is in USD. Local records would be in UYU and an approval record would have to carry the currency it was stated in.",
+        "Spanish sources. Keep the verbatim quote in Spanish and label the English as a translation."
+      ]
+    },
+    {
+      "country": "Kenya",
+      "iso2": "KE",
+      "sites": [
+        {
+          "title": "Microsoft-G42 Olkaria data centre, Naivasha: stalled over power and payment terms",
+          "date": "2026-05 (stall); reported 2026-08-24",
+          "summary": "Plans for a major Microsoft-G42 data centre in Olkaria, near Lake Naivasha, stalled in May 2026. Reports point to a dispute over the government's capacity contract and the operator's request for guaranteed payments. President Ruto said that switching on the facility would require shutting off power for half the country. The companies say the campus would use geothermal energy and water conservation technology, but they did not disclose a project-specific water figure in 2024. Residents already face shortages.",
+          "source_url": "https://aljazeera.com/economy/2026/8/24/can-kenyas-ai-ambitions-coexist-with-naivashas-water-needs",
+          "verbatim": "\"plans for a major Microsoft-G42 data centre in Olkaria, near Lake Naivasha, stalled in May 2026\""
+        },
+        {
+          "title": "Olkaria project: no project-specific water figure disclosed",
+          "date": "2024",
+          "summary": "The companies did not disclose a project-specific water consumption figure in their 2024 announcement. That absence is the key disclosure gap for the Naivasha case.",
+          "source_url": "https://aljazeera.com/economy/2026/8/24/can-kenyas-ai-ambitions-coexist-with-naivashas-water-needs",
+          "verbatim": "\"The companies did not disclose a project-specific water consumption figure in their 2024 announcement.\""
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Kenya government capacity contract for Olkaria data centre (dispute)",
+          "date": "2026",
+          "summary": "Accounts of the stall differ. One says a concept note was not cleared by the National Treasury, another says the government's capacity contract was under negotiation, and Business Daily says the operator asked for guaranteed payments. The primary government record was not fetched.",
+          "source_url": "https://www.businessdailyafrica.com/bd/corporate/technology/kenya-microsoft-rift-on-sh129bn-data-hub-5457238",
+          "verbatim": "UNVERIFIED (snippet only; Business Daily not fetched)."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Naivasha residents on water supply",
+          "date": "2026-08-24",
+          "summary": "A Naivasha resident reports losing reliable piped water that residents previously received from KenGen. The article says residents fear demand from data centres will worsen shortages.",
+          "source_url": "https://aljazeera.com/economy/2026/8/24/can-kenyas-ai-ambitions-coexist-with-naivashas-water-needs",
+          "verbatim": "\"we fear things could get worse as demand for water rises\""
+        }
+      ],
+      "data_sources": [
+        {
+          "title": "KenGen / Kenya Power / Ministry of Energy capacity-contract filings (not identified)",
+          "date": "n/a",
+          "summary": "The capacity contract or power-purchase terms would be the right primary record. None was found in the sources read. Kenya's public-procurement and energy-regulator (EPRA) portals should be checked before ingestion.",
+          "source_url": "https://aljazeera.com/economy/2026/8/24/can-kenyas-ai-ambitions-coexist-with-naivashas-water-needs",
+          "verbatim": "UNVERIFIED: no primary document located."
+        }
+      ],
+      "schema_gaps": [
+        "The Kenya stall is a government-operator dispute, not a US-style public hearing. There is no docket. The schema's status vocabulary (announced/construction/operational) has no 'stalled' or 'suspended' value, and this case would need one.",
+        "A president's quote on grid capacity is a government statement, not a company claim, so it does not fit the 'first-party company quote' rule for Claims. It would sit in the instrument or response records.",
+        "Kenya Shilling figures appear as Sh129bn in Business Daily. Keep KES and do not convert without a dated rate."
+      ]
+    },
+    {
+      "country": "South Africa",
+      "iso2": "ZA",
+      "sites": [
+        {
+          "title": "Teraco JB5 and JB7, Johannesburg: free-air cooling claim",
+          "date": "2026 (JB7 due)",
+          "summary": "Teraco's JB5 site uses free-air cooling and the company says it has zero water use for ongoing cooling. The JB7 facility, due in 2026, is described with a closed-loop chilled-water system. These are company claims reported in press coverage.",
+          "source_url": "https://www.datacenterdynamics.com/en/news/teraco-jb5-south-africa-johannesburg/",
+          "verbatim": "UNVERIFIED (search synthesis; the DCD page was not fetched)."
+        },
+        {
+          "title": "Equinix Cape Town (airport) data centres: planning approval over water and power",
+          "date": "2026-08",
+          "summary": "The city planning tribunal approved two Equinix data centres near the airport, which together could draw about 174 MW. One estimate puts cooling water at up to 4.4 billion litres a year. Objectors said the application barely detailed water and electricity needs, and the tribunal treated the matter as zoning. Source attribution is uncertain: the Equinix details came from search snippets and were not confirmed on a fetched page.",
+          "source_url": "https://www.engineeringnews.co.za/print-version/south-africas-growing-data-centre-landscape-2026-08-07",
+          "verbatim": "UNVERIFIED for the Cape Town approval specifics (search synthesis from a July 2026 article; the Cape Town case itself was not fetched)."
+        }
+      ],
+      "instruments": [],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Water and grid concerns in SA data-centre expansion",
+          "date": "2026-07-22",
+          "summary": "Reuters-based coverage reports critics say data centres' electricity and water demand could worsen shortages given drought and an ageing grid. Eskom has flagged possible constraints.",
+          "source_url": "https://engineeringnews.co.za/article/south-africas-data-centre-gold-rush-risks-resource-crunch-2026-07-22",
+          "verbatim": "UNVERIFIED wording (the article was not fetched; the 403 response blocked the body)."
+        },
+        {
+          "title": "Constrained electricity supply by 2029 (analyst citing Eskom)",
+          "date": "2026-02-09",
+          "summary": "Analyst Chris Yelland, citing Eskom's risk analysis, said demand would probably lead to constrained electricity supplies by 2029.",
+          "source_url": "https://www.dailymaverick.co.za/article/2026-02-09-major-sa-data-centre-expansion-plans-emes-emerge-set-to-more-than-double-current.md",
+          "verbatim": "\"probably lead to constrained electricity supplies by 2029\""
+        }
+      ],
+      "data_sources": [],
+      "schema_gaps": [
+        "South African municipalities hold planning approval, not a PUC-style docket. A Cape Town tribunal decision would need a municipality code and the tribunal case reference.",
+        "Rand figures (ZAR) appear in trade press. Keep ZAR and MW/litre units exactly as stated; do not mix kWh and MW without saying which."
+      ]
+    },
+    {
+      "country": "Brazil",
+      "iso2": "BR",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Redata regime: tax incentives for data centres (Law 15.504/2026)",
+          "date": "2026-09-15",
+          "summary": "Lula sanctioned the Redata regime on 15 September 2026. Incentives cover import and federal taxes on data-centre equipment for up to five years and are tied to sustainability criteria, including renewable or low-carbon energy. Firms must get Ministry of Finance authorisation, and they lose the benefit and pay back taxes plus interest and a fine if they fail the conditions. The law number 15.504/2026 is from search synthesis; the fetched article gave the date and the sustainability link but no number. Tax mechanism (suspension vs exemption, and which taxes) is from search synthesis and was not confirmed on the fetched article.",
+          "source_url": "https://www.jb.com.br/brasil/politica/2026/09/1060917-brasil-sanciona-lei-que-cria-regime-tributario-para-datacenters.html",
+          "verbatim": "\"vincula os incentivos à adoção de critérios de sustentabilidade\" (links the incentives to the adoption of sustainability criteria)"
+        }
+      ],
+      "community_benefits": [
+        {
+          "title": "Redata sustainability condition (renewable energy use)",
+          "date": "2026-09-15",
+          "summary": "The incentives depend on sustainability criteria, which the article says include the use of renewable energy sources. This is a tax-incentive condition, not a community-benefit commitment.",
+          "source_url": "https://www.jb.com.br/brasil/politica/2026/09/1060917-brasil-sanciona-lei-que-cria-regime-tributario-para-datacenters.html",
+          "verbatim": "\"o uso de fontes renováveis de energia\" (the use of renewable energy sources)"
+        }
+      ],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        "Redata is a national tax regime, not a per-site permit, so it cannot go into the Policy record as a county or state instrument. It fits the 'Policy' type with scope national and a federal jurisdiction_level.",
+        "The Portuguese-language record has no 'tax exemption' vs 'tax suspension' distinction in the sources read. The reports differ on whether the regime suspends federal taxes or grants incentives. Check the law text before storing the mechanism.",
+        "BRL currency. The Brazilian government's 2026 forgone-revenue estimate of R$5.2bn is a fiscal estimate, not a community benefit, and must not be filed as one."
+      ]
+    }
+  ],
+  "cross_cutting": [
+    {
+      "title": "IEA global projection: data-centre electricity roughly doubling by 2030 (UNVERIFIED, IEA page returned 403)",
+      "date": "2025-04",
+      "summary": "Secondary reports say the IEA projects global data-centre electricity use to roughly double by 2030, to about 945 TWh. The IEA page itself could not be fetched, and the regional breakdown for Latin America, the Middle East and Africa was not found.",
+      "source_url": "https://www.iea.org/news/ai-is-set-to-drive-surging-electricity-demand-from-data-centres-while-offering-the-potential-to-transform-how-the-energy-sector-works",
+      "verbatim": "UNVERIFIED (page returned HTTP 403): search-snippet language on 'roughly double' by 2030."
+    },
+    {
+      "title": "EU European database on data centres (EED / Delegated Regulation 2024/1364)",
+      "date": "2024",
+      "summary": "The Commission's page says the EED introduced an obligation to monitor and report data-centre energy performance, and that Delegated Regulation (EU) 2024/1364 sets the information and KPIs. The database covers data centres with significant energy consumption and is relevant to their water footprint. Operators may report through a national scheme where one exists, or directly to the EU database. The Commission page gives no numeric threshold. Its user manual and FAQs are dated 3 September 2025 per the search snippet.",
+      "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+      "verbatim": "\"(EU/2024/1364) sets out the information and key performance indicators for the reporting obligation.\""
+    },
+    {
+      "title": "EU draft rating scheme for data centres (dates conflict)",
+      "date": "2026 (conflicting: April 2026 consultation per Uptime; 21 Sept 2026 per Unite.ai and a Council document)",
+      "summary": "A second delegated act would rate data centres above 500 kW through electronic labels issued by the EU database. The sources conflict on the date and on whether April and September describe one draft or two. DIGITALEUROPE opposes minimum performance standards at this stage. Check the Commission's register before citing a date.",
+      "source_url": "https://data.consilium.europa.eu/doc/document/ST-13444-2026-INIT/en/pdf",
+      "verbatim": "UNVERIFIED (Council document not fetched)."
+    },
+    {
+      "title": "C40 Global Urban Data Centres Pact (41 mayors, June 2026)",
+      "date": "2026-06-24",
+      "summary": "Mayors of 41 cities signed a pact to shape how urban data centres are built and run, led through C40 Cities. It sets four development standards: strategic siting that prioritises brownfield regeneration and adaptive reuse; avoiding new fossil-fuel facilities; publishing public benchmark data; and funding grid and water upgrades. Signatories also commit to sharing local economic benefits and fair-share pricing. This is a city-network instrument, not a government regulation.",
+      "source_url": "https://w.media/?p=41075",
+      "verbatim": "\"Strategically integrating data centers into cities by prioritising brownfield regeneration and adaptive reuse.\""
+    },
+    {
+      "title": "Company water-disclosure gap: Google's proposed industry water standards (Axios, June 2026)",
+      "date": "2026-06-03",
+      "summary": "Per search synthesis of an Axios piece, Google proposed industry water standards: returning more water to watersheds than its data centres consume by 2030, avoiding water-intensive cooling in water-stressed regions, and disclosing water use annually. The Axios page returned 403, so this rests on the search snippet and is unverified. It bears on the 'country-level water report' question, because the standards call for annual disclosure without a per-country breakdown.",
+      "source_url": "https://www.axios.com/2026/06/03/google-pushes-water-standards-data-center-backlash?stream=top",
+      "verbatim": "UNVERIFIED (page returned HTTP 403)."
+    },
+    {
+      "title": "Cross-cutting: hyperscalers publish global water totals, not per-country breakdowns (found in search)",
+      "date": "2025-08 (Civil Beat) / 2026",
+      "summary": "Civil Beat reports Google's global operations used 6.4 billion gallons of water in 2023, with 95% used by data centres. The regional examples found were US sites (Council Bluffs, Botetourt). The search did not return a Google or Microsoft per-country water table, so the claim that none exists is not established. Google's 2026 environmental report was not fetched.",
+      "source_url": "https://www.civilbeat.org/2025/08/data-centers-consume-massive-amounts-of-water-companies-rarely-say-exactly-how-much/",
+      "verbatim": "UNVERIFIED (search snippet): 'In 2023, Google operations worldwide consumed 6.4 billion gallons of water, with 95% used by data centers.'"
+    },
+    {
+      "title": "Cross-cutting: Uptime Institute community-opposition data is US-only",
+      "date": "2026-02",
+      "summary": "Uptime Intelligence counts project cancellations due to local opposition: two in 2023, six in 2024, twenty-five in 2025. The analysis is US-only. Uptime's Global Data Center Survey 2026 is paywalled for the full report and its public excerpt does not cover community opposition. This means there is no comparable international cancellation count in an open source.",
+      "source_url": "https://intelligence.uptimeinstitute.com/resource/data-center-cancellations-rise-public-opposition-grows",
+      "verbatim": "UNVERIFIED (search snippet): cancellation counts for 2023/2024/2025."
+    },
+    {
+      "title": "Cross-cutting: trade press reports moratoria in Europe, with conflicting figures",
+      "date": "2026-05 to 2026-09",
+      "summary": "Datacentres.com trade-press series (May-Sept 2026) reports moratoria and grid freezes in Europe, with a headline figure of $156bn in stalled projects. Its claims conflict with other sources. Specific claims for Dublin (a 12-month council pause adopted February 2026) and Berlin (a November 2025 moratorium) were not verified on fetched pages. Treat as leads only.",
+      "source_url": "https://www.datacentres.com/news/data-centre-moratoriums-spread-as-156b-in-projects-face-regulatory-gridlock-slot1-2026-06-25",
+      "verbatim": "UNVERIFIED (search snippet)."
+    }
+  ],
+  "unverified_leads": [
+    {
+      "title": "Dublin City Council 12-month pause on new data-centre applications (Feb 2026)",
+      "date": "2026-02",
+      "summary": "Reported in trade press, not fetched. Ireland is outside this region, so pass to the Europe researcher.",
+      "source_url": "https://www.datacentres.com/news/data-centre-moratoriums-spread-as-156b-in-projects-face-regulatory-gridlock-slot1-2026-06-25",
+      "verbatim": "UNVERIFIED."
+    },
+    {
+      "title": "Regie de l'energie R-4333-2026: Google evidence on Decree 89-2026",
+      "date": "2026-07-20",
+      "summary": "Substantive evidence in this filing could give a first-party company position on Quebec tariff design. Fetch the full PDF and check whether it is a company statement or a legal argument before recording it as a Claim.",
+      "source_url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026/doc/R-4333-2026-C-Google-0016-Preuve-Memoire-2026_07_20.pdf",
+      "verbatim": "UNVERIFIED."
+    },
+    {
+      "title": "Uruguay Teros water-data court ruling and ministry appeal",
+      "date": "unknown",
+      "summary": "A court case over public access to water data. Find the ruling date and case number before using. The 2024 approval article is the only fetched source.",
+      "source_url": "https://www.bnamericas.com/en/news/googles-uruguay-datacenter-plans-run-into-water-trouble",
+      "verbatim": "UNVERIFIED."
+    },
+    {
+      "title": "Chile Cerrillos pause: Google redesign statement and any resumption",
+      "date": "2024 onward",
+      "summary": "The DCD articles returned 403. Find Google's own statement on the redesign and check whether the project resumed.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/google-pauses-chilean-data-center-project-to-rethink-water-use",
+      "verbatim": "UNVERIFIED."
+    },
+    {
+      "title": "Stargate UAE 200 MW handover status in 2026",
+      "date": "2026",
+      "summary": "The last fetched status is October 2025. Check for a 2026 delivery announcement by G42 or Khazna.",
+      "source_url": "https://www.khaleejtimes.com/uae/stargate-uae-phase-1-in-two-years?amp=1",
+      "verbatim": "UNVERIFIED."
+    },
+    {
+      "title": "Hydro-Quebec 5 MW ministry authorisation (MEIE) requirement",
+      "date": "2025 onward",
+      "summary": "Search snippets say projects of 5 MW or more need ministry authorisation before a supplier can serve them. Not confirmed on any fetched primary page. Find the decree text.",
+      "source_url": "https://www.blg.com/en/insights/2026/07/data-centres-in-canada-current-state",
+      "verbatim": "UNVERIFIED."
+    },
+    {
+      "title": "Brazil Law 15.504/2026 text",
+      "date": "2026-09-15",
+      "summary": "Law number from search synthesis. Fetch the Planalto text to confirm the number, the tax mechanism (suspension vs exemption) and the sustainability conditions.",
+      "source_url": "https://www.jb.com.br/brasil/politica/2026/09/1060917-brasil-sanciona-lei-que-cria-regime-tributario-para-datacenters.html",
+      "verbatim": "UNVERIFIED for the number."
+    },
+    {
+      "title": "Saudi HUMAIN site locations and water/cooling disclosure",
+      "date": "2026",
+      "summary": "Search could not confirm locations or any environmental assessment. The DCD article returned 403.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/humain-breaks-ground-two-data-centers-with-first-facilities-expected-to-go-live-in-q2-2026/",
+      "verbatim": "UNVERIFIED."
+    },
+    {
+      "title": "Google 2026 Environmental Report: country-level water table",
+      "date": "2026",
+      "summary": "Not fetched and no confirmed URL. Locate the report from Google's sustainability site before checking for per-country water or energy data.",
+      "source_url": "https://sustainability.google/",
+      "verbatim": "UNVERIFIED."
+    }
+  ]
+}

@@ -450,3 +450,11 @@ def test_depth_levels_have_labels(js: str) -> None:
     for lvl in levels:
         assert f".depth-chip.depth-{lvl}" in css_text, lvl
         assert f".depth-mark.depth-{lvl}" in css_text, lvl
+
+
+def test_project_status_labels_match() -> None:
+    """Project statuses had no Python↔JS parity test; #78 added `withdrawn`."""
+    from schema import PROJECT_STATUSES
+
+    js = APP_JS.read_text()
+    assert _extract_object_keys(js, "STATUS_LABELS") == set(PROJECT_STATUSES)

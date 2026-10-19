@@ -1,0 +1,638 @@
+{
+  "region": "Europe plus EU-level policy",
+  "research_date": "2026-10-19",
+  "fetch_budget_note": "About 26 WebFetch calls used. Items in countries[] and cross_cutting[] were fetched from the cited URL and carry a verbatim sentence from that page. Items that were only seen in search snippets are in unverified_leads with verbatim set to null. Some fetched pages returned 403 or errors; those are noted in the leads.",
+  "countries": [
+    {
+      "country": "European Union",
+      "iso2": "EU",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Energy Efficiency Directive: data-centre reporting and EU-level database (Art. 12, Delegated Regulation (EU) 2024/1364)",
+          "date": "2024",
+          "summary": "The recast EED (EU) 2023/1791 requires Member States to make data centres publish energy performance information and tasks the Commission with an EU-level database in aggregated form. The first delegated act, Delegated Regulation (EU) 2024/1364, sets the information and key performance indicators to be reported. Per search summaries (not fetched), reporting may go through a national scheme or directly to the European database. The EC page fetched gives no numeric size threshold; it refers only to data centres 'with a significant energy consumption'.",
+          "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+          "verbatim": "a database \"collects and publishes data, which is relevant for the energy performance and water footprint of data centres\""
+        },
+        {
+          "title": "Commission analysis of first EED data-centre reporting cycle (2024 period)",
+          "date": "2025-07",
+          "summary": "The Commission published a July 2025 report analysing the data submitted in the 2024 reporting period. A report on the 2025 period was reported as under preparation.",
+          "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+          "verbatim": "\"includes an analysis of the data submitted in the 2024 reporting period\""
+        },
+        {
+          "title": "Proposed EU common rating scheme for data centres (delegated regulation, labels from the EU database)",
+          "date": "2026-09-21",
+          "summary": "Per Unite.AI (secondary; primary Commission draft not fetched), the Commission proposed a common Union rating scheme for data centres above 500 kW, with automatically generated labels on energy efficiency, water efficiency, clean energy sourcing and contributions to the electricity grid. It is established by a delegated regulation supplementing the recast EED and is in a two-month scrutiny period. It is part of a wider Data Centre Energy Efficiency Package. Labels are issued via the European database.",
+          "source_url": "https://www.unite.ai/?p=482709",
+          "verbatim": "\"The scheme is established by a delegated regulation supplementing the recast Energy Efficiency Directive.\""
+        },
+        {
+          "title": "Cloud and AI Development Act (CADA), proposed by the Commission",
+          "date": "2026-06-03",
+          "summary": "Proposed on 3 June 2026 as part of the Tech Sovereignty Package. The stated aim is to triple EU data-centre capacity within five to seven years and reach the needed capacity by 2035. The proposal requires Member States to facilitate data-centre acceleration zones. Per search summaries (not confirmed against the text), it also includes a 12-month permitting cap from a complete application and an aggregated baseline permit, and it lets some data-centre projects be designated EU strategic projects. The proposal is at the legislative stage.",
+          "source_url": "https://www.wsgrdataadvisor.com/2026/06/european-commission-publishes-proposal-for-act-to-reduce-reliance-on-foreign-cloud-and-ai/",
+          "verbatim": "\"aimed to triple the EU's data center capacity within five to seven years\""
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [
+        {
+          "title": "European Commission EED data-centre performance database (EU-level, aggregated)",
+          "date": "2026-10-19",
+          "summary": "The Commission's EED data-centre page says the database collects and publishes energy performance and water footprint data. Access and licence terms, language and update cadence were not verified. The Commission's stated plan is a report on each reporting period (the 2024 period was analysed in July 2025).",
+          "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+          "verbatim": "\"collects and publishes data, which is relevant for the energy performance and water footprint of data centres\""
+        }
+      ],
+      "schema_gaps": [
+        {
+          "title": "Aggregated EU database vs site-level US records",
+          "date": "2026-10-19",
+          "summary": "The EU database is described as holding data in aggregated form (search summary of Art. 12). It is not a per-site registry like the US Project record, so per-site ingestion may depend on what each Member State publishes. The reporting threshold is a qualitative 'significant energy consumption', not a number. The 500 kW figure belongs to the proposed rating scheme and is a different threshold.",
+          "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+          "verbatim": "data centres \"with a significant energy consumption\""
+        }
+      ]
+    },
+    {
+      "country": "Ireland",
+      "iso2": "IE",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "CRU Large Energy User (LEU) connection policy: proposed decision",
+          "date": "2025-02-18",
+          "summary": "CRU published a proposed decision (CRU/202504) requiring data centres to provide generation and/or storage that matches their grid connection capacity, with the generation participating in the Single Electricity Market. This was superseded by the final decision in December 2025.",
+          "source_url": "https://www.matheson.com/insights/large-energy-users-connection-policy-update/",
+          "verbatim": "\"generation and / or storage capacity which matches their Maximum Import Capacity (MIC)\""
+        },
+        {
+          "title": "CRU Large Energy User connection policy: final decision (December 2025)",
+          "date": "2025-12",
+          "summary": "Final decision applies only to data centres seeking a new grid connection; applications made before 12 December 2025 are assessed under earlier policies (per search summary of Matheson). Projects are sorted by maximum import capacity into tiers. Per DCByte (secondary; CRU decision paper not fetched), for projects above 10 MVA, on-site or proximate generation or storage is sized to 100% of the grid connection, and the policy requires 80% of annual electricity demand to be matched by renewable energy investments in Ireland.",
+          "source_url": "https://www.dcbyte.com/news-blogs/ireland-reopens-the-grid-for-data-centres/",
+          "verbatim": "\"segmenting projects by maximum import capacity: <1 MVA, 1–10 MVA, and >10 MVA.\""
+        },
+        {
+          "title": "Renewable matching condition for new Irish data-centre connections",
+          "date": "2025-12",
+          "summary": "Per DCByte's summary of the final CRU decision, projects must match 80% of annual demand through domestic renewable investment. Per search (not fetched), the policy does not require demand curtailment. Treat the percentage as needing a check against the CRU paper before use as a dashboard fact.",
+          "source_url": "https://www.dcbyte.com/news-blogs/ireland-reopens-the-grid-for-data-centres/",
+          "verbatim": "\"80% of annual electricity demand matched by renewable energy investments in Ireland\""
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [
+        {
+          "title": "CSO metered electricity statistics: data centres share of consumption (2025)",
+          "date": "2026-07-07",
+          "summary": "Data centres used 7,663 GWh in 2025, up 10% from 6,973 GWh in 2024, and accounted for 23% of metered electricity consumption, up from just over a fifth in 2024. Data centres are forecast to reach a third of electricity consumption by the end of the decade. Coverage is metered electricity only (secondary caveat from search, not fetched). The CSO is the publisher; the Irish Times article cites the CSO release.",
+          "source_url": "https://www.irishtimes.com/business/2026/07/07/data-centres-account-for-almost-one-quarter-of-irish-electricity-usage-in-2025/",
+          "verbatim": "\"data centres alone accounted for 23 per cent of metered electricity consumption last year\""
+        },
+        {
+          "title": "Dublin grid constraint statement in CRU final policy coverage",
+          "date": "2025-12",
+          "summary": "The Greater Dublin Area is the highest-demand area and the place where grid constraints are most acute. This is the basis for restricting new connections there, which is the Dublin constraint the brief refers to.",
+          "source_url": "https://www.dcbyte.com/news-blogs/ireland-reopens-the-grid-for-data-centres/",
+          "verbatim": "\"The Greater Dublin Area (GDA) remains the highest‑demand ecosystem, but it is also where constraints are most acute.\""
+        }
+      ],
+      "schema_gaps": [
+        {
+          "title": "Import capacity in MVA, not MW; regulator-level policy with no county unit",
+          "date": "2026-10-19",
+          "summary": "Irish connection tiers are set in maximum import capacity (MVA), not MW. The policy is national (CRU), not county or state. The CSO share figure is metered electricity only, so on-site and unmetered load are excluded. Irish-language or English primary sources both exist; the CRU decision paper itself was not readable through our tools.",
+          "source_url": "https://www.matheson.com/insights/large-energy-users-connection-policy-update/",
+          "verbatim": "\"generation and / or storage capacity which matches their Maximum Import Capacity (MIC)\""
+        }
+      ]
+    },
+    {
+      "country": "Netherlands",
+      "iso2": "NL",
+      "sites": [
+        {
+          "title": "Meta planned hyperscale data centre near Zeewolde (dropped 2022)",
+          "date": "2022-07-01",
+          "summary": "Meta put its Zeewolde plan on hold in spring 2022 and then dropped it. The fetched DutchNews article says the plan was put on hold because of public opposition and that Meta judged the site not a good match. Per search (not fetched), the Dutch upper house passed a resolution against it in December 2021, and a local party gained a majority in the March 2022 election. Opposition centred on grid and electricity demand, farmland and cooling-water discharge.",
+          "source_url": "https://dutchnews.nl/2022/07/not-a-good-match-facebook-parent-drops-zeewolde-data-centre-plan/",
+          "verbatim": "Meta put the plan on hold \"because of public opposition.\""
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Amsterdam and Haarlemmermeer: 2020 new-build restriction proposal (growth cap, siting, self-built substations)",
+          "date": "2020-07-02",
+          "summary": "A proposal that new data centres would only be allowed in areas where data centres already exist (Amstel III, Science Park, Schinkelkwartier, Haven/Haven-Stad). Average annual growth would be capped at 67 MVA until 2030. Facilities above 80 MVA would have to build their own station so they do not strain the grid, and purchased energy would have to come from sustainable sources. The article describes this as a proposal that still needed city council approval. Current status is not verified; a 2023 'preparatory decision' limiting new data centres to business parks was found only in search summaries.",
+          "source_url": "https://www.telecompaper.com/news/amsterdam-to-allow-new-data-centres-under-strict-conditions--1344982",
+          "verbatim": "\"new data centres would only be possible in areas where they are already present.\""
+        },
+        {
+          "title": "Amsterdam 2020 proposal: residual heat supplied at no cost",
+          "date": "2020-07-02",
+          "summary": "The same proposal required residual heat to be provided at no cost, for example to heat homes, and large facilities to meet conditions on cooling water, residual heat, spatial integration and circular construction.",
+          "source_url": "https://www.telecompaper.com/news/amsterdam-to-allow-new-data-centres-under-strict-conditions--1344982",
+          "verbatim": "\"Residual heat must be provided at no cost, for example to heat homes.\""
+        }
+      ],
+      "community_benefits": [
+        {
+          "title": "Heat-to-homes condition in Amsterdam proposal (2020)",
+          "date": "2020-07-02",
+          "summary": "A municipal proposal to make large facilities supply residual heat free of charge to residents. This is the closest Dutch analogue to district-heating reuse conditions, but it is a 2020 proposal and its adoption is unverified.",
+          "source_url": "https://www.telecompaper.com/news/amsterdam-to-allow-new-data-centres-under-strict-conditions--1344982",
+          "verbatim": "\"Residual heat must be provided at no cost, for example to heat homes.\""
+        }
+      ],
+      "responses": [
+        {
+          "title": "Zeewolde: Meta pauses plan after local and national opposition",
+          "date": "2022-07-01",
+          "summary": "A community and governmental response that ended the Meta Zeewolde plan. Local residents' group Datatruc Zeewolde argued dirty cooling water would reach the nearby canal or lake. An Arcadis study countered that water quality would improve. Both claims are contested and only the first is from a fetched source.",
+          "source_url": "https://dutchnews.nl/2022/07/not-a-good-match-facebook-parent-drops-zeewolde-data-centre-plan/",
+          "verbatim": "Meta put the plan on hold \"because of public opposition.\""
+        }
+      ],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "Municipal vs national vs provincial levels; MVA; Dutch-language primary sources",
+          "date": "2026-10-19",
+          "summary": "Siting rules are set by the municipality (Amsterdam, Haarlemmermeer), grid congestion by the national TSO (TenneT), and provinces (Noord-Holland, Flevoland) hold planning roles. The record needs a municipality field separate from the province. Growth caps and grid sizing are in MVA, not MW. The primary Dutch documents were not reached through our tools.",
+          "source_url": "https://www.telecompaper.com/news/amsterdam-to-allow-new-data-centres-under-strict-conditions--1344982",
+          "verbatim": "\"Until 2030, the average growth of data centres per year would not be allowed to exceed 67 megavolts ampere (MVA).\""
+        }
+      ]
+    },
+    {
+      "country": "Germany",
+      "iso2": "DE",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Energieeffizienzgesetz (EnEfG): data-centre PUE and waste-heat rules as enacted",
+          "date": "2023-10-31",
+          "summary": "The EnEfG sets PUE targets for existing data centres: 1.5 or less from 1 July 2027 and 1.3 or less from 1 July 2030, both as a permanent annual average. New data centres commissioned from 1 July 2026 must reach an average PUE of 1.2 or less two years after commissioning. The law entered into force the day after its Federal Law Gazette publication. The Linklaters article is dated October 2023; the enacted text was not checked against the Gazette.",
+          "source_url": "https://sustainablefutures.linklaters.com/post/102ir6a/the-new-german-energy-efficiency-act-implications-for-data-centers-and-other-com",
+          "verbatim": "\"The EnEfG will enter into force one day after its publication in the German Federal Law Gazette.\""
+        },
+        {
+          "title": "EnEfG waste-heat reuse obligation for new data centres (10% / 15% / 20%)",
+          "date": "2023-10-31",
+          "summary": "New data centres must re-use energy, esp. heat, unless it is supplied to third-party users. The share rises from 10% for facilities commissioned on or after 1 July 2026, to 15% from 1 July 2027, to 20% from 1 July 2028. Heat supplied to third parties counts toward it.",
+          "source_url": "https://sustainablefutures.linklaters.com/post/102ir6a/the-new-german-energy-efficiency-act-implications-for-data-centers-and-other-com",
+          "verbatim": "\"by 10% if commissioned on or after 1 July 2026\""
+        },
+        {
+          "title": "June 2026 federal cabinet draft amendment to EnEfG (loosens existing rules)",
+          "date": "2026-06-24",
+          "summary": "The federal cabinet adopted an amendment to the EnEfG on 24 June 2026 as a government bill, which the article does not report as passed by parliament. It raises the existing-site PUE thresholds from 1.5 to 1.6 from mid-2027 and from 1.3 to 1.4 from 2030. It doubles the deadline for new sites to reach PUE 1.2 from two to four years. It replaces the general waste-heat re-use duty with a cost-benefit analysis. The French-language source is a secondary article dated 6 July 2026.",
+          "source_url": "https://www.cloudmagazin.com/fr/2026/07/06/assouplissement-regles-pour-les-datacenters-ce-que/",
+          "verbatim": "\"Cette obligation générale est remplacée par une simple analyse coûts-bénéfices\""
+        }
+      ],
+      "community_benefits": [
+        {
+          "title": "Third-party heat supply as a route to waste-heat compliance (EnEfG)",
+          "date": "2023-10-31",
+          "summary": "Under the enacted EnEfG, heat supplied to third-party users is the preferred form of re-use. This is the German hook for district-heating benefits to host communities. The June 2026 draft would replace the general duty with a cost-benefit test, which would weaken it.",
+          "source_url": "https://sustainablefutures.linklaters.com/post/102ir6a/the-new-german-energy-efficiency-act-implications-for-data-centers-and-other-com",
+          "verbatim": "\"New data centers must re-use energy (esp. heat unless it is supplied to third-party users) to a certain extent.\""
+        }
+      ],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "PUE is an annual-average metric; commissioning date sets obligations; heat-reuse share is not a dashboard metric",
+          "date": "2026-10-19",
+          "summary": "German obligations attach to a facility's commissioning date, and PUE is measured as a permanent annual average. Neither maps to a US Project field. Waste-heat re-use is a percentage of energy, not a benefit amount, so it needs its own field. The June 2026 amendment would change the thresholds, so records need a 'law version' date. The 300 kW size threshold was reported in search commentary but conflicts with another summary and was not verified.",
+          "source_url": "https://sustainablefutures.linklaters.com/post/102ir6a/the-new-german-energy-efficiency-act-implications-for-data-centers-and-other-com",
+          "verbatim": "\"Existing data centers (which usually have a PUE of about 1.7)\""
+        }
+      ]
+    },
+    {
+      "country": "United Kingdom",
+      "iso2": "GB",
+      "sites": [
+        {
+          "title": "Nscale data centre, Loughton (Epping Forest, Essex): larger scheme, planning dispute",
+          "date": "2026-03-30",
+          "summary": "Nscale's Loughton scheme is opposed by the town council officers, who say the changes need more cooling and energy and call for a fresh application. The decision sits with Epping Forest District Council. Completion slipped to early 2027. Per search (not fetched), Microsoft is named as a likely major customer of Nscale capacity.",
+          "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
+          "verbatim": "\"50% higher than originally proposed and includes 50% more internal capacity\""
+        }
+      ],
+      "instruments": [
+        {
+          "title": "AI Growth Zones policy paper: grid reservation, reallocation and speculative-demand removal",
+          "date": "2025-11-13",
+          "summary": "Government policy paper published 13 November 2025. It identifies grid connection delays as the main obstacle to AI Growth Zones and proposes a reallocation mechanism to give priority access to freed capacity, a reservation mechanism to hold capacity at a physical connection point, and a strategic plan to remove speculative demand from the connections queue. Per search summaries (not confirmed), the mechanisms may use powers in the Planning and Infrastructure Bill, and national policy may be updated to prioritise AI data centres.",
+          "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
+          "verbatim": "\"a reservation mechanism that allows capacity to be held at a specific physical connection point\""
+        },
+        {
+          "title": "Geographic energy price support for data centres (Scotland, Cumbria, North East)",
+          "date": "2025-11-13",
+          "summary": "The policy paper proposes a geographic price support mechanism for data centres. For a 500 MW data centre it would be up to 24 GBP/MWh in Scotland, 16 GBP/MWh in Cumbria and 14 GBP/MWh in the North East. The attribution process is under consultation.",
+          "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
+          "verbatim": "\"£24/MWh in Scotland\""
+        }
+      ],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Loughton Town Council officers object to Nscale scheme",
+          "date": "2026-03-30",
+          "summary": "Council officers objected that the changed proposal would need more cooling and more energy, and asked for a completely new application. The council is not the decision-maker; Epping Forest District Council is. The objection is about grid strain and power evidence. The article says Nscale pushed completion to early 2027 for technology reasons.",
+          "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
+          "verbatim": "\"proposal would require more cooling and increased energy to facilitate this application.\""
+        }
+      ],
+      "data_sources": [
+        {
+          "title": "UK government AI Growth Zones policy paper (13 Nov 2025)",
+          "date": "2025-11-13",
+          "summary": "The primary policy document for AI Growth Zones and the grid and price mechanisms. It is a policy paper, not a dataset. The register of projects, the connections queue and planning-portal records were not reached. The planning-portal source for Loughton is local (Epping Forest), not verified.",
+          "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
+          "verbatim": "\"Setting out a strategic plan to remove speculative demand projects in the connections queue.\""
+        }
+      ],
+      "schema_gaps": [
+        {
+          "title": "Local planning authority, NSIP route, GBP and per-MWh pricing; devolved Scotland",
+          "date": "2026-10-19",
+          "summary": "UK planning is run by local authorities (for Loughton, Epping Forest District Council) or, for large projects, through the NSIP regime. There is no county or state_code equivalent. Scotland has separate planning and energy-price measures, so the UK record needs a nation field as well as a region. Prices are GBP/MWh, not USD. The Hoare Lea planning-delay average (490 days) was found only in search and is listed under leads.",
+          "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
+          "verbatim": "\"Setting out a strategic plan to remove speculative demand projects in the connections queue.\""
+        }
+      ]
+    },
+    {
+      "country": "Spain",
+      "iso2": "ES",
+      "sites": [
+        {
+          "title": "Aragon data-centre cluster: about thirty announced projects (Amazon, Microsoft, Blackstone)",
+          "date": "2026-02-08",
+          "summary": "The ARA article says about thirty data-centre projects have been announced in Aragon. Amazon, Microsoft and Blackstone are among the companies named. Microsoft's up-to-EUR 10bn plan and Blackstone's expansion are from search summaries and need checking. Ecologists in Action leads the opposition.",
+          "source_url": "https://en.ara.cat/politics/data-centers-the-new-gold-rush-in-aragon_130_5641964.html",
+          "verbatim": "\"So far, some thirty have already been announced.\""
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Aragon PIGA status: regional strategic-project designation for data centres",
+          "date": "2026-02-08",
+          "summary": "PIGA is a regional designation that makes a project a strategic project for Aragon. Per the ARA article, it would mean fewer bureaucratic procedures and tax breaks. Opponents say the public had only 23 days in late 2024 to review about 25,000 pages of Amazon project documentation (per search, not verified against the ARA article).",
+          "source_url": "https://en.ara.cat/politics/data-centers-the-new-gold-rush-in-aragon_130_5641964.html",
+          "verbatim": "\"they are strategic projects for Aragon\""
+        },
+        {
+          "title": "Spanish central-government draft decree on data-centre water and electricity rules",
+          "date": "2026-02-08",
+          "summary": "Per search summaries (not fetched), the central government has drafted tougher water and electricity rules for data centres. Industry, energy companies and Aragon's authorities criticised them. A regional election on 29 November adds uncertainty. Treat as a lead until the draft is read.",
+          "source_url": "https://www.khaleejtimes.com/business/fast-track-permits-turn-spains-aragon-into-a-70-billion-data-centre-magnet-at-what-cost",
+          "verbatim": null
+        }
+      ],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Ecologists in Action legal challenge against PIGA status for Aragon data centres",
+          "date": "2026-02-08",
+          "summary": "Ecologists in Action has filed a legal challenge to stop the centres from getting PIGA status. Search summaries call it Spain's first lawsuit against a major data-centre development (not verified in the ARA article).",
+          "source_url": "https://en.ara.cat/politics/data-centers-the-new-gold-rush-in-aragon_130_5641964.html",
+          "verbatim": "\"prevent the centers from being granted PIGA status\""
+        },
+        {
+          "title": "Critic's water and power estimates for one Aragon facility",
+          "date": "2026-02-08",
+          "summary": "Carlos Lopez of Ecologists in Action cites one facility needing 180 million litres of water a year and 300 MWh of power, and says three centres would consume as much energy as the whole province. These are advocacy estimates, not audited figures. The ARA article puts the regional total at rising from 10,000 GWh a year to more than 55,000 GWh if all announced facilities connect.",
+          "source_url": "https://en.ara.cat/politics/data-centers-the-new-gold-rush-in-aragon_130_5641964.html",
+          "verbatim": "\"This center needs 180 million liters of water a year\""
+        }
+      ],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "PIGA is regional (Aragon) not national; critic figures are estimates",
+          "date": "2026-02-08",
+          "summary": "PIGA is an Aragonese status with no national equivalent, so a state_code-style field is not enough; it needs a regional-designation field. Water and power figures are advocacy estimates and must be labelled as such. Spanish-language primary sources (BOA, the regional gazette) were not reached.",
+          "source_url": "https://en.ara.cat/politics/data-centers-the-new-gold-rush-in-aragon_130_5641964.html",
+          "verbatim": "\"Three such centers consume as much energy as the entire province of Aragon.\""
+        }
+      ]
+    },
+    {
+      "country": "France",
+      "iso2": "FR",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Ile-de-France regional strategy for siting data centres",
+          "date": "2026-06-25",
+          "summary": "The Ile-de-France regional strategy on siting data centres was adopted on 25 June 2026. The region holds 44% of the 322 French data centres recorded at 31 December 2024. It aims to maximise local spin-offs and to renegotiate the financial deal for local authorities. The connection principle shifts from first-come-first-served to first-ready-first-served.",
+          "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+          "verbatim": "\"Adoptée le 25 juin 2026, la stratégie francilienne relative à l'implantation des centres de données\""
+        }
+      ],
+      "community_benefits": [
+        {
+          "title": "Ile-de-France: connection priority by territorial value and renegotiated local financial deal",
+          "date": "2026-07-03",
+          "summary": "The region supports moving from first-come-first-served to first-ready-first-served connection priority, and wants a renegotiated financial deal for local authorities. This is a regional stance, not a binding rule.",
+          "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+          "verbatim": "\"la région soutient le passage d'une logique \"premier arrivé, premier servi\" à celle du \"premier prêt, premier servi\".\""
+        }
+      ],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "French departements/communes, RTE queue and French-language sources",
+          "date": "2026-10-19",
+          "summary": "The French local unit is the commune or department, not the county. The grid operator is RTE, a national TSO, and its queue is not public through our tools. The source is in French, so every verbatim is a translation risk. The regional strategy is a non-binding plan, not a regulation.",
+          "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+          "verbatim": "\"la région soutient le passage d'une logique \"premier arrivé, premier servi\" à celle du \"premier prêt, premier servi\".\""
+        }
+      ]
+    },
+    {
+      "country": "Norway",
+      "iso2": "NO",
+      "sites": [
+        {
+          "title": "Stargate Norway (Kvandal, Narvik): OpenAI, Nscale and Aker",
+          "date": "2025-08-01",
+          "summary": "OpenAI's first European AI data centre is being built at Kvandal near Narvik, developed with Nscale and Aker in a joint venture. The article reports capacity of up to 520 MW over time, with the first ~20 MW phase funded by Nscale and Aker, and an initial target of 100,000 NVIDIA GPUs by end-2026. Capacity figures differ across outlets (search summaries cite 230 MW), so phasing is unsettled. Waste heat is planned for district heating and low-carbon industrial use.",
+          "source_url": "https://tech.eu/2025/08/01/openai-launches-first-european-data-centre-in-narvik-norway/",
+          "verbatim": "\"The Stargate Norway facility will deliver up to 520 megawatts of power capacity over time\""
+        }
+      ],
+      "instruments": [],
+      "community_benefits": [
+        {
+          "title": "Stargate Norway: planned waste-heat supply to district heating and industry",
+          "date": "2025-08-01",
+          "summary": "The planned design repurposes waste heat for district heating and low-carbon industrial use in Narvik and nearby communities. This is a plan, not completed infrastructure, and the article gives no volumes or contract.",
+          "source_url": "https://tech.eu/2025/08/01/openai-launches-first-european-data-centre-in-narvik-norway/",
+          "verbatim": "\"waste heat will be repurposed for district heating and low-carbon industrial use\""
+        }
+      ],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "Heat reuse is planned, not mandated, in Norway (per search); MW capacity figures inconsistent",
+          "date": "2026-10-19",
+          "summary": "No Norwegian heat-reuse rule was found, so heat reuse is voluntary in the sources reviewed. Capacity is reported as 230 MW, 520 MW and a 20 MW phase in different outlets, so the record needs a phasing field and a source per figure. Norwegian-language primary sources were not reached.",
+          "source_url": "https://tech.eu/2025/08/01/openai-launches-first-european-data-centre-in-narvik-norway/",
+          "verbatim": "\"Nscale and Aker have committed to funding the first ~20 MW phase\""
+        }
+      ]
+    },
+    {
+      "country": "Denmark",
+      "iso2": "DK",
+      "sites": [
+        {
+          "title": "Meta Odense: district heating to local homes (Fjernvarme Fyn)",
+          "date": "2020-07-09",
+          "summary": "Meta's Odense campus supplies waste heat to Odense's district heating network, operated by Fjernvarme Fyn. The 2020 article says it heats up to 7,000 homes. The same article gives 100,000 MWh a year, which it says could warm 6,900 homes, so the homes figure has an internal inconsistency to resolve before use. The DCD article on the same project returned 403 and was not read.",
+          "source_url": "https://www.districtenergy.org/blogs/district-energy/2020/07/09/facebook-plugs-its-danish-data-center-into-odense",
+          "verbatim": "\"Facebook has announced that its data center in Odense, Denmark, is now helping to heat up to 7,000 local homes.\""
+        }
+      ],
+      "instruments": [],
+      "community_benefits": [
+        {
+          "title": "Voluntary waste-heat supply in Denmark (Odense, Hoje-Taastrup, Ballerup)",
+          "date": "2020-07-09",
+          "summary": "Denmark's heat-reuse examples in the search results (Meta Odense; Microsoft at Hoje-Taastrup for about 6,000 households; atNorth at Ballerup for over 8,000 homes from 2028) are voluntary company projects, not a national mandate. No Danish national rule was found in the search results, so this is a lead to verify.",
+          "source_url": "https://www.districtenergy.org/blogs/district-energy/2020/07/09/facebook-plugs-its-danish-data-center-into-odense",
+          "verbatim": "\"is now helping to heat up to 7,000 local homes\""
+        }
+      ],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "Voluntary heat-reuse projects with no national reporting baseline",
+          "date": "2026-10-19",
+          "summary": "Danish heat-reuse data is voluntary and project-by-project, so there is no common metric across operators. The home-count and MWh figures use different bases and need to be stored as separate fields with their source.",
+          "source_url": "https://www.districtenergy.org/blogs/district-energy/2020/07/09/facebook-plugs-its-danish-data-center-into-odense",
+          "verbatim": "\"is now helping to heat up to 7,000 local homes\""
+        }
+      ]
+    },
+    {
+      "country": "Sweden",
+      "iso2": "SE",
+      "sites": [],
+      "instruments": [],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "No Swedish heat-reuse mandate verified",
+          "date": "2026-10-19",
+          "summary": "Search results named Stockholm Data Parks (which pays tenants for waste heat) and EcoDataCenter (sharing heat with local industry) as voluntary examples, but neither was fetched. No binding Swedish rule was found. Treat Sweden as an unverified lead country.",
+          "source_url": null,
+          "verbatim": null
+        }
+      ]
+    },
+    {
+      "country": "Finland",
+      "iso2": "FI",
+      "sites": [],
+      "instruments": [],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        {
+          "title": "No Finnish heat-reuse mandate verified; LUMI and atNorth FIN02 examples are search-only",
+          "date": "2026-10-19",
+          "summary": "Search results describe LUMI supercomputer waste heat for local homes and atNorth FIN02 heat to a Kesko store. Neither was fetched and no Finnish rule was found. Treat Finland as an unverified lead country.",
+          "source_url": null,
+          "verbatim": null
+        }
+      ]
+    }
+  ],
+  "cross_cutting": [
+    {
+      "title": "Grid connection is the binding constraint in every country studied",
+      "date": "2025-11-13",
+      "summary": "Ireland restricts new connections in the Greater Dublin Area, the UK treats grid connection as the main obstacle to AI Growth Zones, the Dutch TSO reports congestion in Noord-Holland (secondary, unverified), and Ile-de-France calls connection the main limiting factor. Connection priority rules are the live policy lever, not planning consent alone.",
+      "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
+      "verbatim": "\"a reservation mechanism that allows capacity to be held at a specific physical connection point\""
+    },
+    {
+      "title": "Renewable matching is becoming an entry condition for new connections",
+      "date": "2025-12",
+      "summary": "Ireland's final CRU policy ties larger connections to on-site or nearby generation and an 80% renewable-investment match. The Dutch 2020 proposal required self-built substations above 80 MVA and sustainable purchased energy. Both are supply-side obligations, not community-benefit payments.",
+      "source_url": "https://www.dcbyte.com/news-blogs/ireland-reopens-the-grid-for-data-centres/",
+      "verbatim": "\"80% of annual electricity demand matched by renewable energy investments in Ireland\""
+    },
+    {
+      "title": "Heat reuse moves from a duty to a cost-benefit test in Germany",
+      "date": "2026-06-24",
+      "summary": "Germany's enacted EnEfG sets a 10%/15%/20% waste-heat re-use share for new sites. The June 2026 cabinet draft would replace the general duty with a cost-benefit analysis and loosen PUE dates. Heat reuse is therefore moving from a mandatory share toward case-by-case justification.",
+      "source_url": "https://www.cloudmagazin.com/fr/2026/07/06/assouplissement-regles-pour-les-datacenters-ce-que/",
+      "verbatim": "\"Cette obligation générale est remplacée par une simple analyse coûts-bénéfices\""
+    },
+    {
+      "title": "Local benefit is being framed as a connection-priority question",
+      "date": "2026-07-03",
+      "summary": "The Ile-de-France strategy proposes first-ready-first-served connection priority and a renegotiated local financial deal. The Dutch 2020 proposal tied siting to existing data-centre areas. Both treat local benefit as a condition on access, not a voluntary pledge.",
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+      "verbatim": "\"la région soutient le passage d'une logique \"premier arrivé, premier servi\" à celle du \"premier prêt, premier servi\".\""
+    },
+    {
+      "title": "Comparability: no European equivalent of a US pledge or per-site commitment record",
+      "date": "2026-10-19",
+      "summary": "The US schema assumes a company-level pledge (Ratepayer Protection Pledge), state_code, county, PUC dockets and USD. Europe has no common pledge; its equivalents are national laws (Germany EnEfG), regulator decisions (CRU), TSO queues, municipal siting rules and regional strategies. Units shift to MVA, MW and MWh, and currency to EUR and GBP. Verbatim quotes in French, German, Dutch and Spanish need a translation-check step. Regional status (PIGA in Aragon) and municipal status (Amsterdam) do not map to a state field.",
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+      "verbatim": "\"la région soutient le passage d'une logique \"premier arrivé, premier servi\" à celle du \"premier prêt, premier servi\".\""
+    }
+  ],
+  "unverified_leads": [
+    {
+      "title": "Hoare Lea: UK planning consent averages 490 days; objections centre on community engagement and benefit",
+      "date": "2026-04-24",
+      "summary": "From search summary of a Hoare Lea report covering 33 unnamed applications. Fetch of the bebeez article failed on a certificate error. Fetch the Hoare Lea report or a DCD version to verify.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/data-centers-in-the-uk-stymied-by-inadequate-community-engagement-report/",
+      "verbatim": null
+    },
+    {
+      "title": "Stargate UK: OpenAI reportedly dropped out of GBP 31bn UK investment",
+      "date": "2026",
+      "summary": "Search summary says OpenAI withdrew from the Stargate UK investment because 'right conditions', such as energy cost and regulation, were not met. Verify via computing.co.uk before use.",
+      "source_url": "https://www.computing.co.uk/news/2026/datacentre/openai-failed-to-visit-key-stargate-uk-site",
+      "verbatim": null
+    },
+    {
+      "title": "Google Waltham Cross and Microsoft Didcot UK sites",
+      "date": "2026-10-19",
+      "summary": "Requested in the brief but not found in search. Needs a targeted search.",
+      "source_url": null,
+      "verbatim": null
+    },
+    {
+      "title": "Ireland: Microsoft Grange Castle campus and Google Profile Park / Grange Castle planning (June 2024 application)",
+      "date": "2024-06",
+      "summary": "Search summaries from Baxtel (aggregator, not fetched) say Grange Castle was Microsoft's first data centre outside the US and that Google filed a planning application in June 2024 for a 72,400 sqm building. Verify against South Dublin County Council planning records.",
+      "source_url": "https://baxtel.com/data-center/microsoft-dublin-db3-grange",
+      "verbatim": null
+    },
+    {
+      "title": "Ireland: effective grid-connection freeze since 2021, lifted by December 2025 decision",
+      "date": "2025-12",
+      "summary": "Irish Examiner coverage (search only) says the State lifted an effective moratorium on new data-centre connections that had been in place since 2021. Fetch to verify.",
+      "source_url": "https://www.irishexaminer.com/business/companies/arid-41875214.html",
+      "verbatim": null
+    },
+    {
+      "title": "Netherlands: 2023 Amsterdam 'preparatory decision' limiting new data centres to business parks; 2022 sleep-mode fine law",
+      "date": "2023-late",
+      "summary": "Search summary of a DCD analysis (the DCD page returned 403) says new data centres are allowed only on business parks in Amsterdam and Haarlemmermeer, and that a 2022 law could fine colocation providers that do not use server sleep mode, not yet enforced. Verify with the municipality.",
+      "source_url": "https://www.datacenterdynamics.com/en/analysis/the-ongoing-impact-of-amsterdams-data-center-moratorium",
+      "verbatim": null
+    },
+    {
+      "title": "Netherlands: Dutch upper house opposes Meta Zeewolde plan (December 2021)",
+      "date": "2021-12",
+      "summary": "Search summary says the upper house passed a resolution in December 2021 citing energy, arable land and fresh water. Verify with the source.",
+      "source_url": "https://telecompaper.com/news/dutch-upper-house-opposes-meta-plan-for-local-data-centre--1408871",
+      "verbatim": null
+    },
+    {
+      "title": "Netherlands: TenneT congestion across Noord-Holland and Flevoland; 4.6 GW queue; relief around 2029",
+      "date": "2026-09-08",
+      "summary": "Datacentres.com (fetched) states these figures but gives no primary citation or link to TenneT's congestion maps. Treat as unverified until TenneT's own document is found.",
+      "source_url": "https://www.datacentres.com/news/amsterdam-data-centre-market-1-340-mw-live-as-tennet-s-grid-congestion-locks-out-slot2-2026-09-08",
+      "verbatim": "\"TenneT's transmission queue showing roughly 4.6 GW of unmet demand against zero available headroom\""
+    },
+    {
+      "title": "EU rating scheme: draft delegated regulation (Commission Ares draft)",
+      "date": "2026-09-21",
+      "summary": "A copy of the Commission's draft delegated regulation for the data-centre labelling scheme was seen in search results. The primary document was not fetched; use it to verify the 500 kW threshold and the label categories.",
+      "source_url": "https://www.thegreenwebfoundation.org/wp-content/uploads/EU.datacentre.labelling.scheme-draft-delegated-regulation.Ares_.2026.3247482pdf.pdf",
+      "verbatim": null
+    },
+    {
+      "title": "EU: DIGITALEUROPE position against minimum performance standards for data centres",
+      "date": "2026-01",
+      "summary": "Industry position paper (search only) argues baseline data from several EED reporting cycles is still lacking, so minimum performance standards are premature.",
+      "source_url": "https://cdn.digitaleurope.org/uploads/2026/01/Greentransition_59319_Approved_DIGITALEUROPE_Position_paper_on_rating_and_reporting_scheme_for_data_centres_23122025.pdf",
+      "verbatim": null
+    },
+    {
+      "title": "EU CADA: 12-month permitting cap and aggregated baseline permit",
+      "date": "2026-06-03",
+      "summary": "Search summaries (idpc.org.mt, Schjodt, Global Policy Watch) describe a 12-month permitting cap and an aggregated baseline permit. The WSGR article fetched did not cover them. Verify against the Commission proposal text.",
+      "source_url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1903654",
+      "verbatim": null
+    },
+    {
+      "title": "Germany: Frankfurt installed capacity and Mainova grid timeline; municipal data-centre rules",
+      "date": "2026-09-07",
+      "summary": "Datacentres.com (search only) says Frankfurt has over 831 MW installed and Mainova says large connections are likely only from the mid-2030s. An itpro piece on Frankfurt's clampdown returned a connection error. Verify both.",
+      "source_url": "https://www.datacentres.com/news/frankfurt-data-centre-market-1-020-mw-live-as-germany-s-waste-heat-mandate-colli-slot1-2026-09-07",
+      "verbatim": null
+    },
+    {
+      "title": "Germany: Gross-Gerau EUR 2.5bn data-centre project reportedly failed on local opposition",
+      "date": "2026",
+      "summary": "Search summary only. No further detail was found.",
+      "source_url": null,
+      "verbatim": null
+    },
+    {
+      "title": "Germany: Frankfurt data-centre regulation package (municipal)",
+      "date": "2026",
+      "summary": "A FLAP-D model regulation package is mentioned in search. Terms not found.",
+      "source_url": "https://itpro.com/infrastructure/data-centres/why-frankfurt-is-clamping-down-on-data-center-sprawl",
+      "verbatim": null
+    },
+    {
+      "title": "Spain: Microsoft up to EUR 10bn in Aragon; Blackstone cooling expansion without water",
+      "date": "2026",
+      "summary": "Search summary (Khaleej Times and fstech) only. Verify with company or regional sources.",
+      "source_url": "https://www.khaleejtimes.com/business/fast-track-permits-turn-spains-aragon-into-a-70-billion-data-centre-magnet-at-what-cost",
+      "verbatim": null
+    },
+    {
+      "title": "France: Le Bourget petition (18,000 signatures) and Drome project contested; Arcep water figure",
+      "date": "2026",
+      "summary": "Search summary of Banque des Territoires and Reporterre (not fetched). Arcep reported data centres drew 575,000 m3 of water in 2024, creating local conflicts of use. Verify before use.",
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-les-projets-dimplantation-dans-la-drome-et-au-bourget-contestes",
+      "verbatim": null
+    },
+    {
+      "title": "UK AI Growth Zones: connections queue more than 800 GW",
+      "date": "2026",
+      "summary": "Search summary says one report notes more than 800 GW of projects in the connection queue. Verify against NESO or Ofgem.",
+      "source_url": "https://www.hsfkramer.com/es/notes/energy/2025-posts/ai-growth-zones-in-the-uk-to-promote-ai-data-centre-investment",
+      "verbatim": null
+    },
+    {
+      "title": "Denmark: Microsoft Hoje-Taastrup heat deal (about 6,000 households) and atNorth Ballerup (over 8,000 homes from 2028)",
+      "date": "2025",
+      "summary": "Search summaries only. The DCD article returned 403.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/microsoft-to-supply-waste-heat-to-local-district-heating-network-in-h%C3%B8je-taastrup-denmark/",
+      "verbatim": null
+    }
+  ]
+}

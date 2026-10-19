@@ -1,0 +1,662 @@
+{
+  "region": "ASIA-PACIFIC",
+  "as_of": "2026-10-19",
+  "method_note": "Every item in countries[], cross_cutting[] carries a verbatim sentence taken from a page fetched in this session. Items that rest only on search-result snippets (page 403/404/binary, or not fetched) are placed in unverified_leads with an empty verbatim. Taiwan returned no usable results and is listed with no findings. South Korea hyperscale sites were not found.",
+  "countries": [
+    {
+      "country": "Singapore",
+      "iso2": "SG",
+      "sites": [
+        {
+          "title": "AWS commits $9bn to Singapore cloud infrastructure (via BMI, TNGlobal)",
+          "date": "2026-07-29",
+          "summary": "BMI report cited by TNGlobal: AWS has committed $9bn to expand cloud infrastructure in Singapore; Microsoft announced $5.5bn earlier in 2026; Google Cloud continues to expand its Singapore region. Company-level figures, not site-level.",
+          "source_url": "https://technode.global/2026/07/29/singapore-to-retain-top-southeast-asia-data-center-status-despite-capacity-constraints-bmi/",
+          "verbatim": "Amazon Web Services has committed $9 billion to expand its cloud infrastructure in Singapore"
+        }
+      ],
+      "instruments": [
+        {
+          "title": "De facto moratorium on new large-scale data centre approvals, 2019-2022",
+          "date": "2019-01-01 to 2022-12-31",
+          "summary": "Singapore paused new large-scale data centre approvals from 2019 until 2022 (per Reed Smith). The same sentence in the source cites energy, water and land concerns as the reasons. Source gives no exact start date in 2019.",
+          "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+          "verbatim": "From 2019 to 2022, Singapore maintained a de facto moratorium on new large-scale data centre approvals,"
+        },
+        {
+          "title": "Moratorium lifted; pilot Data Centre Call for Applications (DC-CFA) launched, 2022",
+          "date": "2022",
+          "summary": "The moratorium was lifted in 2022 and the DC-CFA pilot launched by IMDA and EDB, targeting roughly 60 MW under a selective approval regime. Note: a second search summary gives the pilot target as about 60 MW and the award as about 80 MW to four operators; the award figure is from the Reed Smith page.",
+          "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+          "verbatim": "In 2022, the moratorium was lifted and the original Data Centre Call for Applications (DC‑CFA) pilot was launched"
+        },
+        {
+          "title": "Pilot DC-CFA awards: about 80 MW to four operators, 2023",
+          "date": "2023",
+          "summary": "By 2023 about 80 MW had been awarded to four operators under the pilot DC-CFA. The source does not name the operators (search snippets name Equinix, Microsoft, GDS and an AirTrunk-ByteDance consortium, unverified).",
+          "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+          "verbatim": "By 2023, approximately 80 MW was awarded to four operators under the pilot DC-CFA."
+        },
+        {
+          "title": "Green Data Centre Roadmap (GDCR), 2024",
+          "date": "2024",
+          "summary": "The GDCR followed in 2024 with stricter energy-efficiency, renewable-energy sourcing and cooling-innovation obligations, framed as green growth. The source says the roadmap set a near-term target of at least 300 MW additional capacity (per search summary, not verified in the fetched text).",
+          "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+          "verbatim": "In 2024, the GDCR followed, signalling the government's focus on \"green growth\""
+        },
+        {
+          "title": "DC-CFA2: 200 MW provisionally allocated, 50 MW each to four operators on Jurong Island",
+          "date": "2026-08-21",
+          "summary": "EDB and IMDA named Digital Realty, Equinix, Keppel Data Centres and ST Telemedia Global Data Centres as winners of the second call, each allocated 50 MW, selected from 20 proposals. Sites sit in JTC's Sustainable Data Centre Park on Jurong Island. Winners commit to over 50% green energy. Agencies will review the need for another call in 18 to 24 months. Call launched 1 Dec 2025 as part of a controlled-growth regime. Note: the source is a W.Media article quoting the agencies; the EDB PDF fact sheet exists but was binary and unreadable via fetch.",
+          "source_url": "https://w.media/?p=42718",
+          "verbatim": "Four data center platforms namely Digital Realty, Equinix, Keppel Data Centres and ST Telemedia Global Data Centres were allocated 50 megawatts (MW) each under Singapore’s second Data Centre – Call for Application (DC-CFA2) exercise."
+        },
+        {
+          "title": "DC-CFA2 green-energy condition",
+          "date": "2026-08-21",
+          "summary": "The four winners will power more than 50 per cent of DC capacity from green energy sources, per the agency announcement as reported by W.Media.",
+          "source_url": "https://w.media/?p=42718",
+          "verbatim": "The four data centers \"will power more than 50 per cent of their DC capacity from green energy sources.\""
+        },
+        {
+          "title": "DC-CFA2 controlled-growth framing and launch date",
+          "date": "2025-12-01",
+          "summary": "Agencies launched DC-CFA2 on 1 December 2025 as part of Singapore's controlled-growth regime for approving new data centres.",
+          "source_url": "https://w.media/?p=42718",
+          "verbatim": "Launched on 1 December 2025, the DC-CFA2 is part of Singapore’s controlled-growth regime for approving new data centres."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [
+        {
+          "title": "EDB/IMDA Data Centre Call for Application fact sheet (PDF)",
+          "date": "2026-08-21",
+          "summary": "Official EDB PDF fact sheet on the four DC-CFA2 proposals. Exists and is cited by search results, but the fetch returned binary PDF bytes with no readable text, so its contents were NOT verified here. Access appears public and English-language; licence and update cadence not checked.",
+          "source_url": "https://www.edb.gov.sg/content/dam/edb-en/about-edb/media-releases/news/four-data-centre-proposals-selected-as-part-of-second-data-centre/Fact%20Sheet%20-Four%20data%20centre%20proposals%20selected%20as%20part%20of%20second%20data%20centre.pdf",
+          "verbatim": ""
+        }
+      ],
+      "schema_gaps": [
+        "Singapore has no municipal host; allocation is an EDB/IMDA competitive call for MW on a state-owned park (Jurong Island). Closest US analogue is a PUC-approved large-load allocation, not a county permit. No record type maps to a 'call for application' round.",
+        "Capacity is allocated in MW per operator (50 MW each), not per site. Project-level records would need an allocation-round field, not a single site.",
+        "Currency is SGD for investment figures (Keppel's S$1 billion project). Figures reported above are USD from secondary sources; convert with a dated rate.",
+        "state_code has no equivalent. Use a planning-area or island field (e.g. 'Jurong Island').",
+        "The 2019-2022 pause is a de facto administrative freeze, not a legal moratorium instrument. Schema's moratorium record assumes a formal pause with an enactment or order; this needs an 'informal' or 'administrative' flag.",
+        "Green-energy condition is a bid commitment, not a community benefit. It maps to energy/themes, not to community_grants or engagement."
+      ]
+    },
+    {
+      "country": "Malaysia",
+      "iso2": "MY",
+      "sites": [
+        {
+          "title": "Johor: Tier 1 and 2 data centre approvals stopped",
+          "date": "2025-11-27",
+          "summary": "Johor will no longer approve Tier 1 and Tier 2 data centres. NST says those tiers can use up to 50 million litres a day. A 20-agency review applies. Johor is Malaysia's largest data-centre market.",
+          "source_url": "https://www.nst.com.my/amp/news/nation/2025/11/1324188/johor-tightens-approvals-data-centres",
+          "verbatim": "Johor will no longer approve Tier 1 and 2 data centres, which can use up to 50 million litres a day"
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Johor water-triggered tiered approval halt (Tier 1/2), Nov 2025",
+          "date": "2025-11-27",
+          "summary": "Johor halted approvals for Tier 1 and Tier 2 data centres. Tier 3 and 4 are the focus. The NST describes the new rules as 'the most stringent and coordinated at state level in Malaysia', with a review by 20 agencies. Applications go through five levels of vetting under PlanMalaysia, across six review areas that include water and electricity usage.",
+          "source_url": "https://www.nst.com.my/amp/news/nation/2025/11/1324188/johor-tightens-approvals-data-centres",
+          "verbatim": "The new rules, involving a review by 20 agencies,"
+        },
+        {
+          "title": "Johor water-use basis for the tier split",
+          "date": "2025-11-27",
+          "summary": "Officials say Tier 1 and 2 centres consume about 200 times more water than Tier 3 and Tier 4 centres.",
+          "source_url": "https://www.nst.com.my/amp/news/nation/2025/11/1324188/johor-tightens-approvals-data-centres",
+          "verbatim": "consume about 200 times more water than Tier 3 and Tier 4 centres."
+        },
+        {
+          "title": "Johor reclaimed-water requirement",
+          "date": "2025-11-28",
+          "summary": "W.Media reports developers must use reclaimed water supplied by Syarikat Air Johor and keep facilities away from housing and commercial areas.",
+          "source_url": "https://w.media/johor-stops-approving-tier-1-and-tier-2-data-centers-due-to-water-overuse/",
+          "verbatim": "Data centers must use reclaimed water supplies from Syarikat Air Johor"
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [
+        {
+          "title": "MIDA data-centre investment releases",
+          "date": "unknown",
+          "summary": "Malaysian Investment Development Authority publishes data-centre investment figures (AWS, Microsoft, Google and Oracle together reported at US$16.9bn). Found in search results only; not fetched; no Johor-specific AWS figure.",
+          "source_url": "https://www.mida.gov.my/mida-news/data-centre-players-pour-in-investments/",
+          "verbatim": ""
+        }
+      ],
+      "schema_gaps": [
+        "Johor is a state (Malaysia has 13 states); the US state_code and county fields have no analogue. Tiers (Tier 1-4) are a state classification, not a land-use or zoning category, and there is no US equivalent.",
+        "Water is governed by a state utility (Syarikat Air Johor), not a PUC docket. There is no public docket number to cite.",
+        "Power pricing is set federally for Peninsular Malaysia (the RP4 base tariff), not per utility or per large-load class. A large-load tariff record would not map.",
+        "Currency is MYR. Use dated conversions.",
+        "Language: approval rules are in Malay and English official sources; verbatim quotes here are English-language news reports, not the regulation text."
+      ]
+    },
+    {
+      "country": "Japan",
+      "iso2": "JP",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Gradual decentralisation and DC cluster subsidies (GX Strategic Zones)",
+          "date": "2026-03-03",
+          "summary": "Tokyo and Osaka host roughly 90% of Japan's data centres. The government launched support programmes through GX Strategic Zones to decentralise, and will subsidise municipalities that host 'DC clusters' with the potential to exceed one gigawatt. Final cluster zones were expected around summer 2026; this was not confirmed in this session.",
+          "source_url": "https://shulman-advisory.com/japans-data-center-build-out-bottlenecks-and-strategic-direction/",
+          "verbatim": "First, the government will subsidize municipalities that host \"DC clusters,\" with the potential to scale to more than a gigawatt."
+        },
+        {
+          "title": "Grid connection: bottleneck and lengthening waits",
+          "date": "2026-03-03",
+          "summary": "Grid connection timelines are lengthening in Japan, with some reaching up to 10 years, per Shulman Advisory. CBRE (March 2026) calls high-voltage grid power the biggest bottleneck in Greater Tokyo. A CBRE page could not be fetched (403); its statement is unverified here.",
+          "source_url": "https://shulman-advisory.com/japans-data-center-build-out-bottlenecks-and-strategic-direction/",
+          "verbatim": "Grid connection timelines are also lengthening, with some reaching up to 10 years."
+        },
+        {
+          "title": "Interim grid-connection route under exploration (before reinforcement)",
+          "date": "2026-06-15",
+          "summary": "Regulators are exploring a route that would let facilities connect before grid reinforcement is completed, provided operators install load-shedding systems or battery storage. No firm rule yet. Source is an eco-business article citing Wood Mackenzie.",
+          "source_url": "https://www.eco-business.com/news/asia-pacific-power-grids-tighten-rules-for-data-centres-as-demand-strains-networks/",
+          "verbatim": "facilities that may \"connect to the grid before reinforcement works are completed,\" provided operators install \"load-shedding systems or battery storage\""
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [
+        {
+          "title": "Watt-Bit Collaboration council documents (METI)",
+          "date": "2025-06",
+          "summary": "The June 2025 public-private council summary on decentralisation is the primary Japanese source (cited by Oh-Ebashi and Shulman). Not fetched in this session; Japanese-language original; licence and cadence unknown.",
+          "source_url": "https://www.ohebashi.com/jp/newsletter/NL_en_2026spring_Sawa.pdf",
+          "verbatim": ""
+        }
+      ],
+      "schema_gaps": [
+        "No prefecture-to-county mapping. Japanese municipalities (shi/machi/mura) are the host unit, and the cluster subsidy is paid to a municipality. The schema's county or city fields do not capture prefecture.",
+        "Grid connection is handled by regional utilities under METI, not a PUC docket. There is no tariff-case equivalent found yet.",
+        "Japanese-language sources. Verbatim quotes here were translated by the fetch summariser; a fact-check against the Japanese original is needed before any quote ships.",
+        "Currency is JPY. Several figures in secondary sources are USD conversions of announced yen amounts (e.g. AWS 2.26 trillion yen)."
+      ]
+    },
+    {
+      "country": "India",
+      "iso2": "IN",
+      "sites": [
+        {
+          "title": "Google 1 GW hyperscale data centre, Visakhapatnam (Andhra Pradesh)",
+          "date": "2026-10-14",
+          "summary": "Google will invest $15bn over five years and establish a 1 GW hyperscale data centre in Visakhapatnam. The same article says the agreement is valued at nearly $10bn (Rs 83,000 crore) and was inked in New Delhi on 14 Oct 2026, so the headline figure conflicts with the agreement value and needs reconciling. Search summaries (not verified) add a 28 April 2026 foundation-stone date, 600+ acres, and AdaniConneX/Nxtra as partners.",
+          "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%e2%82%b915-billion-in-india/",
+          "verbatim": "establish a 1 Gigawatt (GW) hyperscale data centre in Visakhapatnam"
+        },
+        {
+          "title": "Google $15bn investment figure",
+          "date": "2026-10-14",
+          "summary": "Google will invest $15bn over the next five years in India, per The South First.",
+          "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%e2%82%b915-billion-in-india/",
+          "verbatim": "Google will invest $15 billion over the next five years in India"
+        },
+        {
+          "title": "Visakhapatnam agreement value (conflicting figure)",
+          "date": "2026-10-14",
+          "summary": "Same article: the agreement is valued at nearly $10bn (Rs 83,000 crore) and was signed in New Delhi on 14 Oct 2026.",
+          "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%e2%82%b915-billion-in-india/",
+          "verbatim": "The agreement, valued at nearly $10 billion (₹83,000 crore), was inked in New Delhi on Tuesday, 14 October"
+        }
+      ],
+      "instruments": [
+        {
+          "title": "Central data centre policy in preparation (no scope or timeline)",
+          "date": "2026-10-14",
+          "summary": "Junior IT minister Jitin Prasada said the Centre is preparing a policy for data centres. The stated aim is to stop growing data-centre electricity demand from pushing up consumer power bills. He did not disclose scope or a rollout timeline. India currently has no dedicated national data-centre policy; approvals run under environmental and building rules, with some states offering incentives.",
+          "source_url": "https://inc42.com/buzz/centre-to-roll-out-data-centre-policy-amid-power-cost-concerns/",
+          "verbatim": "The government wants to prevent growing electricity demand from data centres from pushing up consumers' power bills."
+        },
+        {
+          "title": "Karnataka reviewing its data centre policy (water)",
+          "date": "2026-03-11",
+          "summary": "Karnataka's government says its data centre policy is under review. Bengaluru has 31 of the state's 32 data centres. The government is considering a 'sustainable data centre policy' and shifting focus to coastal areas such as Mangaluru, and says treated-water cooling could reduce pressure on freshwater.",
+          "source_url": "https://thesouthfirst.com/karnataka/explained-why-karnataka-is-reviewing-its-data-centre-policy-amid-water-concerns/",
+          "verbatim": "\"We already have a data centre policy, which is under review,\" Kharge said."
+        },
+        {
+          "title": "Karnataka treated-water cooling statement",
+          "date": "2026-03-11",
+          "summary": "Minister Kharge said new technologies using treated water to cool data centres could reduce pressure on freshwater sources.",
+          "source_url": "https://thesouthfirst.com/karnataka/explained-why-karnataka-is-reviewing-its-data-centre-policy-amid-water-concerns/",
+          "verbatim": "new technologies that use treated water to cool data centres could help reduce pressure on freshwater sources."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [
+        {
+          "title": "Karnataka data centre count (Bengaluru)",
+          "date": "2026-03-15",
+          "summary": "Karnataka has 32 data centres, 31 of them in Bengaluru. Source is The South First; no state register was fetched.",
+          "source_url": "https://thesouthfirst.com/karnataka/explained-why-karnataka-is-reviewing-its-data-centre-policy-amid-water-concerns/",
+          "verbatim": "Karnataka currently has 32 data centres, of which 31 are in Bengaluru."
+        }
+      ],
+      "schema_gaps": [
+        "India has no national dedicated data-centre policy yet; governance is state-level (Andhra Pradesh, Karnataka, Maharashtra, UP, Telangana, Tamil Nadu). The US 'state_code' is a clean fit for state, but there is no federal policy instrument analogue to the Ratepayer Pledge.",
+        "Power supply runs through state distribution companies (discoms) and state regulators, not a single PUC docket. Some states (UP draft 2026) propose extending distribution licences to data centres; others keep them within discoms.",
+        "Currency is INR (crore/lakh). The $ and Rs figures in reporting conflict (Visakhapatnam: $15bn vs $10bn/Rs 83,000 crore). Use the signed agreement value as the primary figure and cite both.",
+        "Language: Indian state policy and Karnataka Assembly proceedings are in English, but many local reports are in Telugu, Kannada, Marathi. Verbatim quotes need a language note.",
+        "'Community benefit' in India is often a state incentive package (land, power tariff, stamp duty), not a community fund. Map to tax_revenue or infrastructure with a note."
+      ]
+    },
+    {
+      "country": "Australia",
+      "iso2": "AU",
+      "sites": [
+        {
+          "title": "Project Mars (Lane Cove, NSW) withdrawn after community pressure",
+          "date": "2026-09-29",
+          "summary": "Developer Goodman Group withdrew its 90 MW 'Project Mars' proposal in Lane Cove after community pressure and a parliamentary inquiry. Lane Cove's deputy mayor called it a 'massive community win'.",
+          "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
+          "verbatim": "Goodman has concluded that it will not progress with the development application."
+        },
+        {
+          "title": "Lane Cove 'Project Mars' proposal size",
+          "date": "2026-09-29",
+          "summary": "Goodman Group had proposed a 90 MW data centre in Lane Cove, which it called Project Mars.",
+          "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
+          "verbatim": "The company had proposed a 90-megawatt data centre in the suburb of Lane Cove, which it called Project Mars."
+        },
+        {
+          "title": "Lane Cove council response",
+          "date": "2026-09-29",
+          "summary": "Lane Cove deputy mayor Rochelle Flood said the withdrawal was a win for the community.",
+          "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
+          "verbatim": "This is a huge win for the Lane Cove community and shows what we can achieve when we work together."
+        }
+      ],
+      "instruments": [
+        {
+          "title": "NSW Data Centre Policy Framework and Guidelines",
+          "date": "2026-08-17",
+          "summary": "The NSW Government released its Data Centre Policy Framework on 17 Aug 2026, with NSW Data Centre Guidelines setting performance measures. Proponents meeting the measures get a government commitment to assess development applications within 75 days, while still meeting planning, environmental and community consultation requirements. One measure requires meaningful engagement with the local community and council.",
+          "source_url": "https://www.claytonutz.com/insights/2026/august/nsw-draws-the-line-what-the-new-data-centre-policy-framework-means-for-investors-developers-government-and-communities",
+          "verbatim": "On 17 August 2026, the NSW Government released the NSW Data Centre Policy Framework"
+        },
+        {
+          "title": "NSW grid-access bill (5 MW threshold); consultation closes 14 Sep 2026",
+          "date": "2026-08-17",
+          "summary": "The proposed bill would authorise or prohibit access to network infrastructure for facilities with a network connection capable of transmitting 5 MW or more. Submissions close 14 Sep 2026 at 5pm AEST.",
+          "source_url": "https://www.claytonutz.com/insights/2026/august/nsw-draws-the-line-what-the-new-data-centre-policy-framework-means-for-investors-developers-government-and-communities",
+          "verbatim": "Submissions close on 14 September 2026 at 5:00pm AEST."
+        },
+        {
+          "title": "NSW bill threshold wording",
+          "date": "2026-08-17",
+          "summary": "The bill would cover facilities with a network connection capable of transmitting 5 MW or more.",
+          "source_url": "https://www.claytonutz.com/insights/2026/august/nsw-draws-the-line-what-the-new-data-centre-policy-framework-means-for-investors-developers-government-and-communities",
+          "verbatim": "facilities with a network connection capable of transmitting 5MW or more"
+        },
+        {
+          "title": "Federal national-cabinet data centre rules (proposed)",
+          "date": "2026-08-25",
+          "summary": "Prime Minister Albanese is seeking national cabinet agreement on federal rules. Proposed rules would require new facilities to avoid raising power prices, meet their own connection costs, minimise water use, and be located away from schools and homes. They would apply prospectively only. Source is an aggregator summary of Guardian reporting, not a first-party document.",
+          "source_url": "https://aiunderstanding.org/news/australia-s-proposed-ai-data-centre-rules-could-spur-a-rush-for-approvals-the-guar",
+          "verbatim": "The proposed rules would require new facilities to avoid increasing power prices"
+        },
+        {
+          "title": "Federal proposal: connection costs, water, siting",
+          "date": "2026-08-25",
+          "summary": "Developers would have to meet their own connection costs and minimise water use, and facilities should be sized and sited away from schools, homes, potential housing and agricultural areas.",
+          "source_url": "https://aiunderstanding.org/news/australia-s-proposed-ai-data-centre-rules-could-spur-a-rush-for-approvals-the-guar",
+          "verbatim": "Developers would also have to meet their own connection costs, minimise water use"
+        },
+        {
+          "title": "Proposed grid ride-through rule for facilities over 30 MW",
+          "date": "2026-06-15",
+          "summary": "Proposed rules would require facilities larger than 30 MW to remain connected during voltage and frequency disturbances. No adoption date given. Source is an eco-business article citing Wood Mackenzie.",
+          "source_url": "https://www.eco-business.com/news/asia-pacific-power-grids-tighten-rules-for-data-centres-as-demand-strains-networks/",
+          "verbatim": "Proposed rules would require facilities larger than 30 megawatts to remain connected during voltage and frequency disturbances."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Project Mars withdrawal: parliamentary inquiry and community pressure",
+          "date": "2026-09-29",
+          "summary": "Community pressure and a parliamentary inquiry led Goodman Group to withdraw the Lane Cove proposal. Stance: community opposition succeeded at the site level. Developer is not a tracked company.",
+          "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
+          "verbatim": "The company had proposed a 90-megawatt data centre in the suburb of Lane Cove, which it called Project Mars."
+        }
+      ],
+      "data_sources": [
+        {
+          "title": "NSW Planning Portal / State Significant Development register",
+          "date": "unknown",
+          "summary": "NSW assesses large projects as State Significant Development (the NextDC S7 proposal is one). Not fetched in this session; access and licence unverified.",
+          "source_url": "https://www.claytonutz.com/insights/2026/august/nsw-draws-the-line-what-the-new-data-centre-policy-framework-means-for-investors-developers-government-and-communities",
+          "verbatim": ""
+        }
+      ],
+      "schema_gaps": [
+        "Australia's planning authority is state-level (NSW, Victoria, etc.). Large projects can be State Significant Development, assessed by the state rather than the council. A US 'county' field would misplace them.",
+        "Grid connection is set by the network operator and AEMO under national rules; NSW's proposed bill would let the state energy minister regulate access. There is no US PUC-docket equivalent for connection queue entries yet.",
+        "Currency AUD. Some figures are reported in USD by secondary sources.",
+        "The federal proposal is not in force. It must be recorded as proposed with an as-of date, not as an instrument.",
+        "Community benefit instruments (host agreements, funds) were not found for NSW or federal scope in this session."
+      ]
+    },
+    {
+      "country": "Indonesia",
+      "iso2": "ID",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Batam officials tell data centres to desalinate seawater instead of using reservoirs",
+          "date": "2026-10",
+          "summary": "After protests in August and September 2026, officials told data-centre firms in Batam to make fresh water from seawater instead of using reservoirs, citing a long drought. Informal administrative direction, not a written regulation found.",
+          "source_url": "https://thenextweb.com/news/batam-data-centres-water-protest",
+          "verbatim": "officials have told data centre firms to make fresh water from seawater instead of using reservoirs"
+        },
+        {
+          "title": "Batam: 10 data centres cleared (6 at Nongsa park)",
+          "date": "2026-10-13",
+          "summary": "Officials have cleared 10 data centres in Batam, six of them in the Nongsa Digital Park. Per BP Batam, two are working and one is under construction; six or more await approval (search summary, not verified in fetched text).",
+          "source_url": "https://thenextweb.com/news/batam-data-centres-water-protest",
+          "verbatim": "Officials have cleared 10 data centres in Batam, six of them in the Nongsa park."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [
+        {
+          "title": "Batam residents protest data centre water use at Nongsa Digital Park",
+          "date": "2026-10-05",
+          "summary": "Residents protested at the gate of Nongsa Digital Park on 5 Oct 2026, after earlier protests in August and September, over water supply. Hundreds reportedly took part (search summary).",
+          "source_url": "https://thenextweb.com/news/batam-data-centres-water-protest",
+          "verbatim": "The protest took place on October 5 at the gate of Nongsa Digital Park"
+        },
+        {
+          "title": "BP Batam denies household water is diverted to data centres",
+          "date": "2026-10-13",
+          "summary": "The agency that runs trade and industry on Batam denies household water is being sent to data centres. The statement is quoted in the article but is undated.",
+          "source_url": "https://thenextweb.com/news/batam-data-centres-water-protest",
+          "verbatim": "denies that household water is being sent to data centres"
+        }
+      ],
+      "data_sources": [],
+      "schema_gaps": [
+        "Indonesia's administrative unit (kabupaten/kota, province) and the Batam free-trade zone (BP Batam) are not county or state equivalents. The data centre sits in a special zone governed by a separate authority, not a standard municipal permit.",
+        "No moratorium found. Batam is an informal approval slowdown driven by water. Record type should be 'informal pause' if captured at all.",
+        "Water utility is PT Moya in Batam (named in search results) and state-owned PLN handles power. There is no PUC-type docket; the regulators are ministries and special-zone authorities.",
+        "Language: Indonesian-language primary sources were not fetched. Verbatim quotes are from English-language news coverage."
+      ]
+    },
+    {
+      "country": "South Korea",
+      "iso2": "KR",
+      "sites": [],
+      "instruments": [
+        {
+          "title": "Seoul district mayors back architectural review and residential-zone restrictions",
+          "date": "2026-08-12",
+          "summary": "The Association of District Mayors of Seoul unanimously approved a proposal on 12 Aug 2026 to make architectural reviews mandatory for data centre construction and restrict establishment within residential areas. Citywide application requires the Seoul Metropolitan Government to amend its local ordinance. Proposal, not yet law.",
+          "source_url": "https://view.asiae.co.kr/en/article/2026081307284684694",
+          "verbatim": "make architectural reviews mandatory for data center construction"
+        },
+        {
+          "title": "Seoul Special Act on Distributed Energy (effective June 2024)",
+          "date": "2024-06",
+          "summary": "Seoul's response to grid saturation is the Special Act on Distributed Energy, effective June 2024. It is designed to make Seoul-adjacent siting more expensive relative to non-metro provinces, per The Data Centres (Sept 2026).",
+          "source_url": "https://www.datacentres.com/news/seoul-s-grid-lockout-how-korea-s-decentralization-law-singapore-s-efficiency-man-slot1-2026-09-03",
+          "verbatim": "Seoul's response, effective from June 2024, is the Special Act on Distributed Energy"
+        },
+        {
+          "title": "Seoul-adjacent siting made more expensive by design",
+          "date": "2026-09-03",
+          "summary": "The Data Centres says the law is explicitly designed to make Seoul-adjacent siting more expensive relative to non-metro provinces, and that capital-region proposals face multi-year KEPCO connection timelines regardless of willingness to pay.",
+          "source_url": "https://www.datacentres.com/news/seoul-s-grid-lockout-how-korea-s-decentralization-law-singapore-s-efficiency-man-slot1-2026-09-03",
+          "verbatim": "capital-region proposals continue to face multi-year KEPCO connection timelines regardless of willingness to pay."
+        }
+      ],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        "Korea's grid is run by KEPCO under MOTIE; no PUC or docket. Regional proposals for power supply are decided by a national utility, not a state commission.",
+        "The Seoul metro share of capacity is reported differently across sources (about 60% of current capacity; about 86% including planned). A metro-share field needs a dated definition.",
+        "Korean-language primary sources (MSIT, district ordinances) were not fetched; translation and verbatim fidelity need a fact-check before quotes ship.",
+        "Local governance: Seoul districts (gu) propose, the Seoul Metropolitan Government adopts citywide ordinances. This two-tier pattern needs a field for the proposing body vs adopting body."
+      ]
+    },
+    {
+      "country": "Taiwan",
+      "iso2": "TW",
+      "sites": [],
+      "instruments": [],
+      "community_benefits": [],
+      "responses": [],
+      "data_sources": [],
+      "schema_gaps": [
+        "No usable results returned from searches on Hsinchu, Taoyuan or Taiwan's 2026 data-centre power policy. Not researched beyond one search; treat as a gap, not as evidence of no policy."
+      ]
+    }
+  ],
+  "cross_cutting": [
+    {
+      "title": "Grid-constrained metros are gated by allocation, not by moratorium",
+      "date": "2026-08-21",
+      "summary": "Singapore allocates MW through competitive calls (DC-CFA2: 200 MW, four operators, Jurong Island). Seoul's grid is saturated and KEPCO connection is the constraint. Japan's grid waits run up to 10 years. The US PUC large-load tariff is the closest analogue, but these systems allocate by call or by queue, not by tariff class.",
+      "source_url": "https://w.media/?p=42718",
+      "verbatim": "Launched on 1 December 2025, the DC-CFA2 is part of Singapore’s controlled-growth regime for approving new data centres."
+    },
+    {
+      "title": "Water is the trigger for approval halts in SE Asia; power is the trigger in East Asia",
+      "date": "2025-11-27",
+      "summary": "Johor halted approvals for Tier 1 and 2 data centres over water use (NST). Batam protests and seawater-desalination direction (Oct 2026). Karnataka reviews its policy over Bengaluru water shortage (Mar 2026). Seoul and Tokyo are power and grid-driven.",
+      "source_url": "https://www.nst.com.my/amp/news/nation/2025/11/1324188/johor-tightens-approvals-data-centres",
+      "verbatim": "consume about 200 times more water than Tier 3 and Tier 4 centres."
+    },
+    {
+      "title": "Cost-shift rules are the new national frame: Australia and India",
+      "date": "2026-08-25",
+      "summary": "Australia's proposed federal rules would require new facilities to avoid raising power prices and meet their own connection costs (prospective only, not yet law). India's Centre is preparing a policy to keep data-centre power demand from raising consumer bills, with no scope or timeline. This is the same frame as the US Ratepayer Protection Pledge, but neither is a signed corporate pledge.",
+      "source_url": "https://aiunderstanding.org/news/australia-s-proposed-ai-data-centre-rules-could-spur-a-rush-for-approvals-the-guar",
+      "verbatim": "The proposed rules would require new facilities to avoid increasing power prices"
+    },
+    {
+      "title": "Hyperscaler community-benefit instruments are almost absent from APAC sources reviewed",
+      "date": "2026-10-19",
+      "summary": "None of the fetched sources described a community fund, host agreement, or local-hiring commitment by a tracked company in these eight markets. Benefits described are sustainability bid conditions (Singapore 50%+ green), state incentives (India) and proposed federal conditions (Australia). The US Claim model (verbatim company first-party quote) has few APAC analogues found so far; company community pages (Microsoft, Google local pages) were not checked.",
+      "source_url": "https://w.media/?p=42718",
+      "verbatim": "The four data centers \"will power more than 50 per cent of their DC capacity from green energy sources.\""
+    },
+    {
+      "title": "Language and currency comparability",
+      "date": "2026-10-19",
+      "summary": "Most fetched primary-like sources are English-language (EDB via W.Media, NST, The South First, Clayton Utz, ACS). Japanese, Korean, Malay and Indonesian originals were not fetched; quotes from those markets are summaries. Currency mixes SGD, MYR, JPY, INR, AUD, IDR, KRW, and secondary sources convert to USD inconsistently.",
+      "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%e2%82%b915-billion-in-india/",
+      "verbatim": "The agreement, valued at nearly $10 billion (₹83,000 crore), was inked in New Delhi on Tuesday, 14 October"
+    }
+  ],
+  "unverified_leads": [
+    {
+      "title": "Singapore: Microsoft $5.5bn investment (BMI, 2026) - attributed in technode but the Microsoft figure is not confirmed on a Microsoft page",
+      "date": "2026-07-29",
+      "summary": "Stated in BMI report via TNGlobal. Verbatim confirmed for the sentence only in the technode fetch; treat the Microsoft figure as secondary.",
+      "source_url": "https://technode.global/2026/07/29/singapore-to-retain-top-southeast-asia-data-center-status-despite-capacity-constraints-bmi/",
+      "verbatim": "Microsoft announced a $5.5 billion investment earlier this year"
+    },
+    {
+      "title": "Singapore: Keppel DC SGP 11 (S$1bn) tied to Keppel's DC-CFA2 allocation",
+      "date": "2026-08-21",
+      "summary": "Search summary says Keppel links its 50 MW allocation to Keppel DC SGP 11, a S$1bn project. DCD page returned 403; not verified.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/singapore-govt-allocates-200mw-of-power-for-four-data-center-developers-on-jurong-island/",
+      "verbatim": ""
+    },
+    {
+      "title": "Singapore: DC-CFA1 (2023) winners reportedly Equinix, Microsoft, GDS, AirTrunk-ByteDance",
+      "date": "2023",
+      "summary": "Named in search summaries, not in a fetched page. Needs the IMDA 2023 announcement.",
+      "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+      "verbatim": ""
+    },
+    {
+      "title": "Singapore: GDCR near-term target of at least 300 MW additional capacity",
+      "date": "2024",
+      "summary": "A search summary attributes this to the Green Data Centre Roadmap. The fetched Reed Smith text did not include the 300 MW figure.",
+      "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+      "verbatim": ""
+    },
+    {
+      "title": "Malaysia: Johor reportedly bans high-water categories and requires renewables (July 2026) - conflicts with a postponement reading",
+      "date": "2026-07",
+      "summary": "Mezha, citing Reuters, describes a state ban on two high-water-use categories and new projects needing renewable energy. Mezha page returned 403-type failure on fetch; another guide describes a roughly 18-month postponement of water-cooled expansions. Needs a primary Johor state source before recording.",
+      "source_url": "https://mezha.net/eng/bukvy/4e3edddf_malaysia_tightens_data/",
+      "verbatim": ""
+    },
+    {
+      "title": "Malaysia: RP4 base tariff up about 14% from July 2025; AMRO estimates 10-14% rise in data-centre power bills",
+      "date": "2025-07",
+      "summary": "Search summaries. No TNB-specific data-centre tariff rule was found. AMRO 2026 report is the lead source for the bill estimate.",
+      "source_url": "https://amro-asia.org/wp-content/uploads/2026/05/Malaysia-ACR-2026-SI-1-Data-Center-Boom-in-Malaysia.pdf",
+      "verbatim": ""
+    },
+    {
+      "title": "Malaysia: Microsoft buys Kulai (Johor) site from EcoWorld for MYR 402.3m",
+      "date": "2025",
+      "summary": "Mingtiandi search summary. Edgeprop reports a possible Sedenak location, unconfirmed. Not fetched.",
+      "source_url": "https://www.mingtiandi.com/real-estate/data-centres/microsoft-buys-johor-malaysia-data-centre-site-from-crescendo/",
+      "verbatim": ""
+    },
+    {
+      "title": "Malaysia: AWS and Google planned large projects linked to Klang Valley (not Johor)",
+      "date": "2024-12-23",
+      "summary": "Knight Frank commentary (Malay Mail) links planned large AWS and Google projects to the Klang Valley. Not fetched.",
+      "source_url": "https://www.malaymail.com/news/money/2024/12/23/knight-frank-malaysia-is-number-one-again-for-data-centres-in-south-east-asia-after-tech-giants-rm105b-investments/160811",
+      "verbatim": ""
+    },
+    {
+      "title": "Japan: Microsoft about $10bn AI data-centre investment over four years, with SoftBank and Sakura Internet",
+      "date": "2026-04",
+      "summary": "Announced during Brad Smith's meeting with PM Takaichi (search summaries). Fetch of the AOL page returned 404. No site-level detail (Osaka/Chiba unconfirmed).",
+      "source_url": "https://www.aol.com/articles/microsoft-invest-10-bn-japan-051451527.html",
+      "verbatim": ""
+    },
+    {
+      "title": "Japan: AWS 2.26 trillion yen (about $15.2bn) through 2027, focus Tokyo and Osaka",
+      "date": "2024-01",
+      "summary": "January 2024 plan from search summary. No 2026 AWS announcement found.",
+      "source_url": "https://www.businesswire.com/news/home/20260122124194/en",
+      "verbatim": ""
+    },
+    {
+      "title": "Japan: combined hyperscaler commitments above $26bn (Introl)",
+      "date": "2026",
+      "summary": "Introl is a secondary blog; its own sourcing is not clear. Use only as a lead.",
+      "source_url": "https://introl.com/blog/japan-data-center-power-crisis-hyperscaler-investment-2026",
+      "verbatim": ""
+    },
+    {
+      "title": "Japan: final DC cluster zones expected around summer 2026",
+      "date": "2026-07",
+      "summary": "Stated in the Shulman March 2026 piece as an expectation; the outcome was not checked.",
+      "source_url": "https://shulman-advisory.com/japans-data-center-build-out-bottlenecks-and-strategic-direction/",
+      "verbatim": "...the government will select the final DC cluster zones around summer 2026."
+    },
+    {
+      "title": "India: Google Visakhapatnam foundation stone laid 28 April 2026 by AP Chief Minister Naidu; 600+ acres; AdaniConneX and Nxtra partners",
+      "date": "2026-04-28",
+      "summary": "Search summaries. The South First page did not include acreage or partners. Reuters reportedly cites 188,000 jobs from state projection (conflicts with ~3,000 direct technical jobs in another source).",
+      "source_url": "https://www.businesstoday.in/amp/technology/story/googles-big-india-bet-15-billion-vizag-ai-data-centre-foundation-to-be-laid-on-april-28-527498-2026-04-27",
+      "verbatim": ""
+    },
+    {
+      "title": "India: Thane (Maharashtra) protest against Amazon data centre (422 MW); Visakhapatnam residents and civil-society opposition",
+      "date": "2026",
+      "summary": "Search summary of a Thane protest over electricity, water, diesel-generator noise and tree felling; Amazon and Google deny wrongdoing. Visakhapatnam opposition over land, water and energy. Not fetched; needs primary local reporting.",
+      "source_url": "https://www.theindiaforum.in/amp/environment/looming-energy-and-water-burden-indias-data-centres",
+      "verbatim": ""
+    },
+    {
+      "title": "India: Andhra Pradesh IT minister Nara Lokesh defends a 6.5 GW Visakhapatnam ecosystem using Polavaram industrial water",
+      "date": "2026-09",
+      "summary": "Search summary. Not fetched. Water provenance (Polavaram) needs confirmation.",
+      "source_url": "https://telanganatoday.com/andhra-govt-allays-fears-over-data-centres-affecting-water-supply-to-vizag",
+      "verbatim": ""
+    },
+    {
+      "title": "India: Uttar Pradesh Data Centre Policy Draft 2026 extends distribution licences to data centres",
+      "date": "2026",
+      "summary": "Search summary. Draft policy; not fetched.",
+      "source_url": "https://www.theindiaforum.in/sites/default/files/article_pdf/2026/09/08/2100-1788839561.pdf",
+      "verbatim": ""
+    },
+    {
+      "title": "Australia: OpenAI and NextDC Stargate Australia, S7 Eastern Creek, 612 MW, A$7bn, State Significant Development",
+      "date": "2025-12",
+      "summary": "DCD page returned 403. Search summaries report OpenAI MoU (Dec 2025), 612 MW planning figure (up from 550 MW), SSD status and an EIS in preparation. First phase timing (H2 2027) is from a third-party tracker.",
+      "source_url": "https://www.datacenterdynamics.com/en/news/openai-signs-mou-with-nextdc-for-australian-stargate-data-center-in-sydney/",
+      "verbatim": ""
+    },
+    {
+      "title": "Australia: NextDC bought 169 hectares at Lovely Banks near Geelong (Victoria)",
+      "date": "2026",
+      "summary": "Search summary. Victoria planning not researched.",
+      "source_url": "https://baxtel.com/news/nextdc-unveils-612mw-s7-data-centre-openai-stargate-set-to-be-customer",
+      "verbatim": ""
+    },
+    {
+      "title": "Australia: AWS and Melbourne investment not found",
+      "date": "n/a",
+      "summary": "Searches returned no AWS Australia site-level item. Needs a targeted search.",
+      "source_url": "",
+      "verbatim": ""
+    },
+    {
+      "title": "Indonesia: PLN installed data-centre supply 1.9 GW across 159 customers; 25 GW projected by 2034",
+      "date": "2026-mid",
+      "summary": "Search summary (IDN Financials / BMI). Not fetched.",
+      "source_url": "https://www.idnfinancials.com/news/67611/indonesia-absorbs-data-centre-spillover-but-is-power-supply-ready",
+      "verbatim": ""
+    },
+    {
+      "title": "Indonesia: Batam shows 37% reserve margin on grid, still fossil-powered",
+      "date": "2026",
+      "summary": "Search summary. Not fetched.",
+      "source_url": "https://technode.global/2026/08/14/indonesias-data-center-boom-faces-growing-infrastructure-challenges-bmi/",
+      "verbatim": ""
+    },
+    {
+      "title": "South Korea: KEPCO may refuse supply to data centres of 5 MW or more that burden the grid; Power Grid Impact Assessment at 10 MW or more",
+      "date": "2024",
+      "summary": "Search summary of a 2024 report. The Data Centres article fetched did NOT contain these thresholds. Needs the Korean MOTIE or KEPCO source.",
+      "source_url": "https://www.datacentres.com/news/seoul-s-grid-lockout-how-korea-s-decentralization-law-singapore-s-efficiency-man-slot1-2026-09-03",
+      "verbatim": ""
+    },
+    {
+      "title": "South Korea: Oct 2026 Korea Economic Daily report says developers build smaller 'mini' facilities in Seoul-Gyeonggi to avoid the impact assessment",
+      "date": "2026-10",
+      "summary": "Secondary summary via StockHub of a Korean-language article. Not verified.",
+      "source_url": "https://stockhub.kr/en/news/news_8c486d5fd703",
+      "verbatim": ""
+    },
+    {
+      "title": "South Korea: MSIT distributed data-centre plan (Dec 2022, implementation 2023-2034) to shift capacity to Sejong, Cheonan, Chuncheon",
+      "date": "2022-12",
+      "summary": "Search summary. Official MSIT text not fetched.",
+      "source_url": "https://en.bizhankook.com/articles/28831.html",
+      "verbatim": ""
+    },
+    {
+      "title": "Taiwan: no results",
+      "date": "n/a",
+      "summary": "One search, no usable results. Not researched further.",
+      "source_url": "",
+      "verbatim": ""
+    }
+  ]
+}

@@ -3814,3 +3814,96 @@ class TestIssue72Navigation:
         # open is invisible but still locks page scroll; check both.
         assert page.locator("#moratorium-modal").get_attribute("hidden") is not None
         assert not page.evaluate("() => document.body.classList.contains('moratorium-modal-open')")
+
+
+class TestIssues78And79:
+    """#78 withdrawn sites; #79 phone page length."""
+
+    def test_withdrawn_sites_leave_the_scorecard_and_totals(self, page: Page, base_url: str):
+        withdrawn = [
+            p for p in json.loads((ROOT / "docs/data/projects.json").read_text())["projects"]
+            if p["status"] == "withdrawn"
+        ]
+        assert withdrawn, "seed should carry at least one withdrawn site (Calvert Cliffs)"
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_function("() => state.projects.length > 0", timeout=E2E_WAIT)
+        ids = page.evaluate(
+            "() => [...ratepayerAssessedProjects(), ...ratepayerPrePledgeProjects(),"
+            " ...ratepayerUnassessedPledgeEraProjects(), ...ratepayerNonSignatoryProjects()].map(p => p.id)"
+        )
+        assert not set(ids) & {p["id"] for p in withdrawn}
+        # Totals: a withdrawn site's MW / jobs / investment are not counted.
+        # (Sonnet review of #82: the capex-only check passed without the fix,
+        # because both withdrawn sites have no investment figure.)
+        for field, key in [("power_mw", "power_mw"), ("claimed_jobs", "jobs"), ("claimed_investment_usd", "capex")]:
+            live = page.evaluate(f"() => state.projects.filter(isLiveProject).reduce((a, p) => a + (p.{field} || 0), 0)")
+            every = page.evaluate(f"() => state.projects.reduce((a, p) => a + (p.{field} || 0), 0)")
+            rollup = page.evaluate(f"() => buildCompanyRollups().reduce((a, r) => a + r.{key}, 0)")
+            assert rollup == live, field
+        assert page.evaluate("() => state.projects.some(p => !isLiveProject(p) && (p.power_mw || p.claimed_jobs))"), \
+            "fixture lost its withdrawn site with figures; this test would prove nothing"
+        # A withdrawn site is history, not a contested one.
+        assert not page.evaluate("() => state.projects.filter(p => !isLiveProject(p)).some(isContestedSite)")
+
+    def test_withdrawn_status_is_filterable_and_labelled(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer")
+        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+        page.select_option("#f-status", "withdrawn")
+        card = page.locator("#project-list .project-card").first
+        expect(card.locator(".status-pill.status-withdrawn")).to_have_text("Withdrawn")
+
+    def test_phone_lists_are_paged(self, browser, base_url: str):
+        ctx = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
+        page = ctx.new_page()
+        try:
+            page.goto(base_url + "/#explorer")
+            page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+            total = page.evaluate("() => filteredProjects().length")
+            cards = page.locator("#project-list .project-card")
+            assert cards.count() == min(total, page.evaluate("() => SITES_PAGE"))
+            page.click("#project-list .project-list-more button")
+            assert cards.count() == min(total, 2 * page.evaluate("() => SITES_PAGE"))
+            # Benefits: the first few full cards, then the rest on request.
+            page.click("#tab-agreements")
+            page.wait_for_selector("#cba-strongest .cba-card", timeout=E2E_WAIT)
+            n = page.evaluate("() => strongestAgreements().length")
+            strongest = page.locator("#cba-strongest .cba-card")
+            assert strongest.count() == min(n, page.evaluate("() => CBA_PHONE_FIRST"))
+            if n > strongest.count():
+                page.click("#cba-strongest .project-list-more button")
+                assert strongest.count() == n
+            # Moratoriums: paged, and a search starts from the first page.
+            page.click("#tab-moratoriums")
+            page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
+            rows = page.locator("#moratoriums-tbody tr[data-id]")
+            per = page.evaluate("() => MOR_PHONE_PAGE")
+            total = page.evaluate("() => filteredMoratoriums().length")
+            assert rows.count() == min(total, per)
+            page.click("#moratoriums-tbody .project-list-more button")
+            assert rows.count() == min(total, 2 * per)
+            page.fill("#moratorium-q", "county")
+            assert rows.count() == min(page.evaluate("() => filteredMoratoriums().length"), per)
+            # A site picked past the current page still renders and is focused
+            # after "Show more" (Sonnet review of #82).
+            page.click("#tab-explorer")
+            last = page.evaluate("() => filteredProjects().slice(-1)[0].id")
+            page.evaluate("(id) => selectProject(id)", last)
+            expect(page.locator(f'#project-list .project-card[data-project-id="{last}"]')).to_have_count(1)
+            # ...without expanding the page to its index (Codex review of #82).
+            assert page.locator("#project-list .project-card").count() == page.evaluate(
+                "() => Math.min(state.sitesShown, filteredProjects().length - 1) + 1"
+            )
+            page.click("#tab-moratoriums")
+            page.fill("#moratorium-q", "")
+            more = page.locator("#moratoriums-tbody .project-list-more button")
+            # Codex review of #82: the only way to the hidden rows needs a full touch target.
+            assert more.bounding_box()["height"] >= 44 - 0.5
+            more.click()
+            assert page.evaluate("() => document.activeElement.closest('#moratoriums-tbody tr[data-id]') !== null")
+            # Pledge scorecard.
+            page.click("#tab-ratepayer")
+            page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=E2E_WAIT)
+            sc = page.evaluate("() => filteredAssessedProjects().length")
+            assert page.locator("#rp-scorecard > .rp-card").count() == min(sc, page.evaluate("() => SCORECARD_PHONE_PAGE"))
+        finally:
+            ctx.close()

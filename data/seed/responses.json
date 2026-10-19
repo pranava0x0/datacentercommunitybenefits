@@ -469,7 +469,7 @@
       "date": "2025-06-16",
       "stance": "negative",
       "constituency": "ngo",
-      "summary": "The Sierra Club's Virginia Chapter released a 2025 report calling unrestrained data center growth 'unsustainable,' citing 1 billion gallons of water consumed by Loudoun County data centers in 2023 and arguing Amazon's renewable-energy investments fall significantly short of actual power consumption.",
+      "summary": "The Sierra Club's Virginia Chapter's 2025 report calls business as usual on data centers 'unsustainable,' says the lack of transparency makes it 'hard to figure out the true impact of the industry on water supplies,' and argues Meta and Amazon's clean energy investments 'doesn't come close to covering their actual energy usage.'",
       "source_url": "https://www.vpm.org/news/2025-06-16/sierra-club-virginia-chapter-data-center-report-ann-bennett-tyler-ray",
       "source_title": "Sierra Club's Virginia chapter says data center growth is unsustainable",
       "single_source": false
@@ -656,10 +656,11 @@
       "date": "2026-04-29",
       "stance": "mixed",
       "constituency": "residents",
-      "summary": "Residents expressed concern about exclusion from decision-making and questioned whether the $1M Groundswell investment was sufficient given that Google reportedly committed $25M to a comparable West Memphis AR site; daily water use estimated at 2 million gallons drew specific objection.",
+      "summary": "Residents expressed concern about exclusion from decision-making and questioned whether the $1M Groundswell investment was sufficient given that Google reportedly committed $25M to a comparable West Memphis AR site.",
       "source_url": "https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/",
       "source_title": "WTVM — Google data center coming to LaGrange draws mixed reactions",
-      "single_source": true
+      "single_source": true,
+      "wayback_url": "http://web.archive.org/web/20260430003459/https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/"
     },
     {
       "id": "resp-google-lagrange-drought-ngo",
@@ -1888,7 +1889,7 @@
       "date": "2026-04-16",
       "stance": "positive",
       "constituency": "local_government",
-      "summary": "Mayor Angie Nelson Deuitch welcomed Google's confirmation as the Project Maize buyer, framing the reuse of the long-vacant Federal Mogul brownfield as transformational for Michigan City; the city highlighted a $400,000 Google gift fully funding the Fedder's Alley All-Inclusive Playground and Fitness Park.",
+      "summary": "The City of Michigan City announced that Google will provide the final $400,000 to fully fund the $5 million Fedder's Alley All-Inclusive Playground and Fitness Park, and Mayor Angie Nelson Deuitch said, \"This is an incredibly proud moment for Michigan City.\"",
       "source_url": "https://michigancityin.gov/google-gift/",
       "source_title": "City of Michigan City — Google Gift Fully Funds Fedder's Alley Playground",
       "single_source": false

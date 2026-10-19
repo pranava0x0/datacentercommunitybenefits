@@ -77,7 +77,7 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "brookfield",
 )
 
-PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational")
+PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
 
 STANCES: tuple[str, ...] = ("positive", "mixed", "negative")
 
@@ -118,7 +118,9 @@ CompanySlug = Literal[
     "sb-energy",
     "brookfield",
 ]
-ProjectStatus = Literal["announced", "construction", "operational"]
+# withdrawn (#78): the operator abandoned the site. The record stays, as
+# history, but leaves the pledge scorecard and the investment/jobs totals.
+ProjectStatus = Literal["announced", "construction", "operational", "withdrawn"]
 Stance = Literal["positive", "mixed", "negative"]
 Constituency = Literal[
     "residents", "local_government", "ngo", "academic", "journalist", "regulator"

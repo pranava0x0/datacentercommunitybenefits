@@ -1,5 +1,5 @@
 {
- "date": "2026-10-18",
+ "date": "2026-10-19",
  "swipe_fraction": 0.75,
  "devices": {
   "mobile": {
@@ -610,23 +610,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -658,22 +658,24 @@
     "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]

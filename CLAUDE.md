@@ -2010,3 +2010,46 @@ because `activateView` rewrites the URL before data lands. Back/Forward onto a
 Frameworks or Sites entry re-applies *that entry's* params, including clearing
 the open project or record. State held in memory must never win over the
 restored URL.
+
+### Oct 19 session: full site validation, withdrawn status, phone paging
+
+**Every site re-validated.** Eight Haiku validators (17 sites each, stalest
+first) re-fetched each record's sources and searched for news since capture.
+One Sonnet pass turned the results into append-only changes. What it caught:
+- **Two pledge assessments on pre-pledge sites.** Google Chesterfield VA and
+  Stillwater OK were announced in Aug 2025 according to their own cited
+  sources; the records said Mar/Apr 2026. The wrong date had made them
+  "pledge era", so they were carrying `pledge_only` assessments the frozen
+  eligibility rule forbids. When a record's date sits close to the pledge
+  date, fetch its source's own dateline.
+- **Company-level claims that no page contains.** Seven claims were removed
+  because no page, live or archived, has their words. One was a "$50M
+  community investment" that was really Microsoft's land price. Their shape:
+  a fluent first-person sentence ("We engage early with local stakeholders —
+  elected officials, residents…") citing a hub page (`/community/`) that has
+  since 404'd. Treat a hub-page citation for a specific quote as a lead.
+- **Scope mismatches,** such as statewide or multi-campus totals stored on
+  one site. They are flagged per site in BACKLOG §3 (`#### site:<id>`), not
+  silently changed.
+
+**Link checks:** `check_links.py` counts 403 as DEAD. 122 of 487 URLs
+"failed", but only 31 were really gone (404/410/DNS). Most of the rest were
+bot walls (datacenterdynamics, openai.com, x.ai). Filter to 404/410 before
+acting. Wayback rate-limits hard (429) after a few dozen requests: space
+fetches 15–30 s apart. probe.py can't read most snapshot PDFs (compressed
+fonts), but macOS PDFKit can, via JXA: `osascript -l JavaScript` with
+`ObjC.import('PDFKit')` and `PDFDocument…string`.
+
+**`withdrawn` project status (#78).** A withdrawn site keeps its record and
+history. `isLiveProject()` drops it from the pledge scorecard cohorts and
+from the investment/jobs/MW totals; it is still counted in `statusWords`. A
+project whose developer changes, like Crusoe → Google at Cheyenne, becomes
+two records: the old one `withdrawn`, the new operator's as a new record.
+There is no `paused` status. A pause is a timeline update.
+
+**Phone paging (#79).** Below 700px, `phonePageSize()` and
+`showMoreControl()` page the long lists: Sites 20, Moratoriums 40, the
+Pledge scorecard 10, Benefits' "Most documented" 5. A new filter or search
+resets to page one. Desktop renders everything. A card the reader selected
+always renders. Use the same helpers for any new long list rather than a
+bespoke "show more".

@@ -551,13 +551,10 @@ come first, then locations, companies and sites.
   equipment-cost figure was found).
 - A second Abilene TX campus (Microsoft-anchored, ~900 MW), first named Q2
   2026: still not tracked.
-- `crusoe-cheyenne-wy`: Google is now publicly confirmed as owner/operator
-  ("Project Tembo," Cowboy State Daily, 2026-07-08 — quoted and dated in the
-  2026-09-29 refresh). The record's company_slug is still `crusoe` for now;
-  a future pass should decide whether to migrate it (and its tied claim +
-  3 responses) to `company_slug: google`, or keep it under Crusoe as the
-  original developer of record with a note. Needs a deliberate decision, not
-  an automatic move.
+- `crusoe-cheyenne-wy`: decided 2026-10-19. The Crusoe record is `withdrawn`
+  (Crusoe left Project Jade, per its own Wyoming Tribune Eagle source), and
+  Google's campus is a separate record, `google-cheyenne-tembo-wy`. The tied
+  claim and responses stay on the Crusoe record as history.
 
 #### company:google
 - Google Fort Wayne IN ("Project Zodiac", ~$2B, ~200 jobs, I&M territory):
@@ -620,6 +617,27 @@ come first, then locations, companies and sites.
 - Honest gaps: community_grants, education.
 
 ### Sites
+#### Claims and responses held after the 2026-10-19 link check
+- `qts-dane-county-wi-community-commitment`, `qts-dane-county-education-2025`:
+  QTS moved its newsroom to q.com and the release now 404s; a 2026-05-19
+  Wayback snapshot reportedly has the text but was rate-limited (429) when
+  re-checked. Read the snapshot, add `wayback_url`, and fix the dropped
+  words ("core values at heart"). **high**
+- `aws-water-positive-2030`: aws.amazon.com/sustainability/water-positive/
+  404s and the 2022 press-release URL 404s to scripts. Find Amazon's live
+  page and re-quote the exact sentence. **high**
+- `resp-google-lima-epa-hearing-negative`: the source 404s and no snapshot
+  was found; the record's Google attribution may also be wrong (the
+  applicant is reported as Bistrozzi LLC / Project BOSC). Re-source or
+  remove. **high**
+- Removed 2026-10-19 because no page, live or archived, contains their
+  words: google-economic-impact-reports, google-grants-for-good,
+  meta-stem-education, meta-engagement-dialogue, ms-pledge-2024,
+  ms-community-investment-wi (the $50M was Microsoft's land price, not a
+  community investment), sb-energy-community-grants-cba (the $40M fund is
+  described only in NVIDIA's release, not SB Energy's words). Re-add only
+  with a fetched first-party quote.
+
 
 #### site:amazon-shreveport-la
 - Held at `pledge_only`. Keith Klein's "Amazon pays its own way" (KTBS, Aug
@@ -640,6 +658,9 @@ come first, then locations, companies and sites.
   "several billion". Re-cite or soften it.
 
 #### site:amazon-richmond-county-nc
+- (2026-10-19 validation) source_url (DCD) blocked; WSOC Oct 30 2025 says Amazon 'officially
+  breaking ground'; WUNC Sep 2026 says under construction. Acreage 800/500
+  jobs unverified. → Optionally repoint to WSOC.
 - The 1,600 MW figure is diesel backup generation from the permit, not grid
   capacity, so `power_mw` is left null on purpose.
 
@@ -665,6 +686,7 @@ come first, then locations, companies and sites.
 - The 400 jobs figure isn't on the cited page.
 
 #### site:google-mayes-county-ok
+- (2026-10-19 validation) $15B and $12M are Oklahoma-wide per Google page. → Scope the figures.
 - The 800 jobs figure isn't on the cited datacenters.google page.
 
 #### site:google-michigan-city-in
@@ -698,6 +720,9 @@ come first, then locations, companies and sites.
 - **Dead `source_url` (2026-10-05).** `https://datacenters.atmeta.com/location/prineville/` returns 404. Needs Meta's current Prineville page; no guessed URL. Permits/ratepayer/Crook County school-tax items not checked.
 
 #### site:meta-newton-ga
+- (2026-10-19 validation) source_url 404; project page is a 2021 post with none of the record's
+  figures (1120 MW, 416 ac, $1.5B, 400 jobs, operational). No fetched
+  replacement. → Find a primary source for the figures or label them.
 - **Dead `source_url` (2026-10-04).** `https://datacenters.atmeta.com/location/newton/`
   returns 404 (also in a browser-UA fetch). The `project_page_url`
   (`/2021/03/hello-georgia/`) is live but is the 2021 announcement, which does not
@@ -726,11 +751,18 @@ come first, then locations, companies and sites.
   citable URL for the Sept 2025 $4B second-facility announcement.
 
 #### site:oracle-dona-ana-nm
+- (2026-10-19 validation) Abq Journal (Sep 2026): 26% complete, 'current energy plan would still be
+  fueled by natural gas' vs notes 'Bloom fuel-cell-powered'. Crypto
+  Briefing (single trade outlet) reports project 'reportedly being
+  mothballed'; unconfirmed. Force-majeure notice seen only in search
+  summary. → Human review: energy wording; verify mothballing/force
+  majeure on primary sources before adding updates.
 - New Mexico regulators rejected a 17-mile gas pipeline that would have fed
   Project Jupiter (week of 2026-07-20). This is a regulator
   CommunityResponse candidate, pending a primary source.
 
 #### site:qts-aurora-co
+- (2026-10-19 validation) Campus 160 MW; QTS plans up to 200 MW across Colorado. → Scope note.
 - The 65–80 ac / 4-building specifics in `notes` aren't on the cited
   article. Re-cite or soften them.
 
@@ -739,10 +771,205 @@ come first, then locations, companies and sites.
   ($12B announcement). `claimed_jobs` is left empty pending a call.
 
 #### site:wonder-valley-box-elder-ut
+- (2026-10-19 validation) power_mw 3000 (phase 1, from county approval per notes) vs own source
+  (PRN) '7.5 gigawatts per campus'. → Notes attribute 3 GW to the May 4
+  county approval; leave, but consider stating both.
 - The auto-derived At-a-glance lines truncate an O'Leary marketing quote.
   Write a curator `at_a_glance` override.
 
 ---
+
+#### site:amazon-caddo-parish-la
+- (2026-10-19 validation) Shares one combined $12B figure with amazon-bossier-parish-la
+  (KSLA/Opportunity Louisiana cite $12B across both parish campuses); the
+  two records double-count it. Neither source gives a per-site split. →
+  Keep the combined figure on one record and null it on the other, or note
+  it as combined; needs a curator decision.
+
+#### site:amazon-bossier-parish-la
+- (2026-10-19 validation) Double-counts the combined $12B with amazon-caddo-parish-la;
+  'construction' status unconfirmed (KSLA Feb 2026 says construction
+  'expected to begin imminently'). → Dedupe the $12B; re-check status
+  against a later source.
+
+#### site:coreweave-ellendale-nd
+- (2026-10-19 validation) power_mw 150 is the added lease; own source says 400 MW across three
+  leases. → Decide whether power_mw should be the site total (400).
+
+#### site:ms-goodyear-az
+- (2026-10-19 validation) source_url 404; project page covers Goodyear+El Mirage jointly; record's
+  250 jobs/$1B/300 ac/480 MW unsupported by fetched pages. → Find
+  Goodyear-specific source.
+
+#### site:ms-quincy-wa
+- (2026-10-19 validation) source_url 404; none of 600 jobs/270 ac/$4B supported by fetched project
+  page. → Find Quincy-specific source.
+
+#### site:google-haskell-tx
+- (2026-10-19 validation) source_url 404; replacement KTXS (Nov 2025) says Google 'prepares to
+  build', so 'construction underway' is unverified by any fetched page. →
+  Verify construction via TDLR/abatement filing before keeping status.
+
+#### site:aws-new-carlisle-in
+- (2026-10-19 validation) source_url 404; live Amazon page describes $15B/2.4 GW/1,100+ jobs for
+  Northern Indiana vs record's $11B/2,200 MW/1,000 jobs. → Re-scope record
+  to the $15B plan or keep 2024 figures with a different source.
+
+#### site:google-mesa-az
+- (2026-10-19 validation) source_url 404; GPEC project page says $600M (2023 groundbreaking) vs
+  record $1.2B. → Check whether $1.2B is multi-phase; find supporting
+  source.
+
+#### site:google-the-dalles-or
+- (2026-10-19 validation) source_url 404; Oregon page says 2006 vs announced_year 2005; $7B is
+  Oregon-wide. → Fix announced_year if confirmed; find site page.
+
+#### site:amazon-clinton-ms
+- (2026-10-19 validation) Record's source (aboutamazon release) does not state the $1B Clinton
+  figure or 100 jobs; OurTupelo/Mississippi Today (Jun 9 2026) does for
+  jobs. Status 'announced' despite ribbon-cutting and 1,500 peak
+  construction workers. → Consider repointing source_url to OurTupelo and
+  re-checking status.
+
+#### site:microsoft-cheyenne-wy
+- (2026-10-19 validation) Existing 2026-07-14 annexation update: yourwyominglink says 'late Monday
+  night' (July 13) while publishing July 14. → Re-date existing update to
+  2026-07-13 if confirmed.
+
+#### site:crusoe-sweetwater-tx
+- (2026-10-19 validation) No independent corroboration of Crusoe at the Sweetwater site found; KTXS
+  names Crusoe Energy Systems. → Verify company attribution.
+
+#### site:crusoe-abilene-tx
+- (2026-10-19 validation) Mid-2026 completion date has passed; status 'construction' needs current
+  source. claimed_jobs uses 5,600 daily construction workers, not a jobs
+  total. → Re-check status; label jobs.
+
+#### site:google-armstrong-tx
+- (2026-10-19 validation) Source replaced with Crusoe release, which names Crusoe as developer and
+  does not state 1,300 acres; notes say 'Crusoe assisting with site
+  preparation'. → Find an acreage source; reword developer note.
+
+#### site:google-west-memphis-ar
+- (2026-10-19 validation) acreage 1178 (Project Pyramid filing per notes) vs KAIT8 1,100 acres;
+  Google blog source does not state acreage/jobs. → Curator to reconcile.
+
+#### site:qts-manassas-va
+- (2026-10-19 validation) Notes say rezoning approved Nov 2022 and ~2,139 acres; WTOP says Dec 2023
+  and 2,000 acres. → Verify with county records.
+
+#### site:qts-clinton-ia
+- (2026-10-19 validation) Own source: 3,500 acres, M3 zoning, $1.5B taxable revenue (not investment)
+  vs record ~3,400 ac, M5, $1.5B investment. → Verify and correct.
+
+#### site:meta-montgomery-al
+- (2026-10-19 validation) Own source says $800M/100 jobs; record $1.5B/1,100 jobs rely on notes'
+  Sept 2025 expansion (other source). → Add a source for the expansion.
+
+#### site:meta-kuna-id
+- (2026-10-19 validation) Own (2022) source says $800M+ and ~100 jobs; record figures from Sept 2026
+  Meta statement per notes. → Cite the 2026 statement.
+
+#### site:sb-energy-piketon-oh
+- (2026-10-19 validation) DOE page: 189-acre initial phase, 10,000 construction + 2,000+ permanent
+  jobs vs record 2,700 ac, 37,500 jobs. → Reconcile scopes (SB Energy
+  full-campus vs DOE phase 1).
+
+#### site:aws-cumberland-pa
+- (2026-10-19 validation) $20B is Pennsylvania-wide per Amazon, presented as this campus. → Scope
+  the figure.
+
+#### site:microsoft-new-albany-oh
+- (2026-10-19 validation) $1B is shared across New Albany, Heath, Hebron per own source. → Scope the
+  figure.
+
+#### site:meta-eagle-mountain-ut
+- (2026-10-19 validation) $3B is Meta's total Utah investment per Utah Business. → Scope the figure.
+
+#### site:amazon-vicksburg-ms
+- (2026-10-19 validation) claimed_jobs 200 not stated for Warren County; page gives 2,000 statewide.
+  → Find site-specific source.
+
+#### site:oracle-abilene-tx
+- (2026-10-19 validation) gpu_count 450,000 vs Network World ~400,000 GB200. → Reconcile.
+
+#### site:qts-eagle-mountain-ut
+- (2026-10-19 validation) Notes say three buildings; QTS page says five buildings in phase one. →
+  Verify.
+
+#### site:qts-blakely-ga
+- (2026-10-19 validation) QTS page: 'concept stage', no start date, 1,400 MW vs notes' July 2026
+  construction timeline. → Verify timeline; check status.
+
+#### site:meta-el-paso-tx
+- (2026-10-19 validation) ICN describes the 366 MW gas facility as powering the data center, not
+  'backup via 813 generators'. → Reword notes after verification.
+
+#### site:crusoe-goodnight-tx
+- (2026-10-19 validation) Building 4 due March 2027 vs notes' Feb 2027 go-live window. → Update
+  notes.
+
+#### site:aws-boling-tx
+- (2026-10-19 validation) TDLR start date 9/1/2026 vs notes' Aug 1 2026. → Update notes.
+
+#### site:google-gray-county-tx
+- (2026-10-19 validation) Page: 'air cooling to limit water consumption' vs notes 'zero water
+  consumed'. → Soften wording.
+
+#### site:aws-ridgeland-ms
+- (2026-10-19 validation) Amazon page: 'pay 100% of the costs associated with our new data center
+  campuses' vs notes 'all grid infrastructure and upgrade costs'. → Align
+  wording.
+
+#### site:microsoft-heath-oh
+- (2026-10-19 validation) Own page: vertical-construction timeline 'has not yet been determined' vs
+  notes 'completion early 2028'. → Verify.
+
+#### site:google-lea-county-nm
+- (2026-10-19 validation) Quote wording in notes differs from Google page ('While discussions are
+  ongoing'). → Fix quote.
+
+#### site:microsoft-douglasville-ga
+- (2026-10-19 validation) announced_year 2023 vs Azure region blog Feb 2021. → Verify site-specific
+  year.
+
+#### site:google-sand-springs-ok
+- (2026-10-19 validation) Rezoning is in Osage County per Public Radio Tulsa; notes say Tulsa/Creek
+  border. → Fix location text.
+
+#### site:qts-york-county-sc
+- (2026-10-19 validation) Venue of May 12 meeting: Oakridge Elementary per Post and Courier vs
+  notes' Middle School. → Fix notes.
+
+#### site:crusoe-springfield-oh
+- (2026-10-19 validation) Source: 'did not return a request for comment' vs notes 'declined
+  comment'. → Fix notes.
+
+#### site:microsoft-castroville-tx
+- (2026-10-19 validation) TDLR completion date 7/24/2028 vs notes June 2028; TDLR est. cost $400M. →
+  Update notes.
+
+#### site:coreweave-hammond-in
+- (2026-10-19 validation) 'Up to $4M' community impact payment not stated on the city page. → Source
+  it.
+
+#### site:qts-cedar-rapids-ia
+- (2026-10-19 validation) 2,000 jobs vs 30 high-tech jobs in source; 1,050 MW/$1.75B unverified. →
+  Label job categories.
+
+#### site:coreweave-lancaster-pa
+- (2026-10-19 validation) Page says 600+ construction and 75+ operational jobs; record 775. → Fine
+  as sum; confirm.
+
+#### site:google-franklin-furnace-oh
+- (2026-10-19 validation) Later coverage (search only) says 792 acres/1.7M sq ft vs record 500,000
+  sq ft. → Verify.
+
+#### site:google-pine-island-mn
+- (2026-10-19 validation) Validator could not find the existing 2026-10-11 MPR 'on pause' item; TRO
+  (May 22) added as update. No 'paused' status exists. → Confirm TRO still
+  in force.
+
 
 ## 4. Product and UX
 
