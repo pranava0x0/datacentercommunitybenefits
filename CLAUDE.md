@@ -1259,8 +1259,11 @@ have never seen go red is a hypothesis").
 
 ### Rate cases — the proceeding layer under the tariffs (v3)
 
-`RateCase` + `data/seed/rate_cases.json` (builder: `scripts/build_rate_cases.py`,
-idempotent — edit it, re-run, then `python3 refresh.py`). A tariff is the
+`RateCase` + `data/seed/rate_cases.json` (edit the seed directly, then
+`python3 refresh.py`). **`scripts/build_rate_cases.py` was deleted 2026-10-18**:
+the daily routine had been editing the seed, so the builder fell 3 records and
+7 revisions behind, and one re-run would have silently reverted them. A
+generator and hand edits to its output can't both be the source of truth. A tariff is the
 instrument; a rate case is the fight: the docketed PUC/PSC/FERC proceeding where
 who-pays-for-data-center-load actually gets decided. Separate record type
 because several cases exist in states with no tracked tariff, one tariff can
@@ -1968,3 +1971,42 @@ Lessons from the first run:
   produced one run with 19 phantom swipes and one with none.
 - A table row whose tail overflows a scroll container is tappable once its
   leading edge shows; counting its right edge invented side-swipes.
+
+### Oct 18 refresh: research pipeline and history routing (2026-10-18)
+
+**Research pipeline that worked:** Haiku researchers (≤3 at once, one beat
+each: government actions / sites / power) → a deeper Haiku follow-up per beat
+→ one Sonnet synthesis into a schema-validated `merge_plan.json` → Haiku
+fact-checkers per beat → `probe.py --evidence` over every quote. Three
+lessons:
+- **Agents read this file's 10-URL gate and stop at it.** All three
+  first-pass researchers halted at 8–10 fetches with thin results. When the
+  owner has approved a large research pass, say so in the agent brief with a
+  number ("up to ~25 WebFetch calls").
+- **Fact-checkers strip facts an earlier pass sourced.** Asked to verify an
+  *update*, they marked every pre-existing sentence that wasn't on *their*
+  page as unsupported. They also wrote "removed pending a source" into the
+  notes text. Apply updates append-only by hand. Use a checker's field fixes
+  only for the new facts, and for whole records being added.
+- **probe.py misses on PDFs and coordinates are usually extraction
+  spacing** ("202 6-15"). Re-probe with a short phrase before treating one as
+  a real miss.
+
+**History routing (#72, PR #77).** `activateView` pushes a history entry for
+every user-driven view change. Boot and Back/Forward go through
+`routeFromLocation`, which sets `state._routing`. While it is set, nothing may
+push or `replaceState` on its own. Closing the policy modal used to call
+`writePolicyUrl()` mid-popstate, which overwrote the entry Back had just
+restored and trapped the reader on Frameworks. Two more rules:
+- Plain-hash views write `pathname + hash`. A bare `"#x"` keeps the query
+  string, and that leaked Sites/policy params into every view.
+- Any new modal must be closed in `_routeFromLocation`, and must not touch
+  the URL while `state._routing` is set.
+
+**Policy deep links:** `?p-state=&p-status=&…&policy=<id>#policies/<pane>`.
+These are separate keys from the Sites filters (`state`, `q`).
+`writePolicyUrl` keeps the query string until the payload has applied it,
+because `activateView` rewrites the URL before data lands. Back/Forward onto a
+Frameworks or Sites entry re-applies *that entry's* params, including clearing
+the open project or record. State held in memory must never win over the
+restored URL.

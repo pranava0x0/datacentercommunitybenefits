@@ -2552,6 +2552,17 @@
       "source_url": "https://planetdetroit.org/2026/10/dte-google-data-center-contract-approval/",
       "source_title": "Planet Detroit — Michigan regulators OK DTE contracts for Google data center",
       "single_source": true
+    },
+    {
+      "id": "resp-google-van-buren-mi-planning-commission-residents",
+      "project_id": "google-van-buren-mi",
+      "date": "2026-10-14",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "On Wednesday, Oct 14, the Van Buren Township Planning Commission voted 5-1 to approve a final site plan over objections from nearby residents, especially those in an adjacent subdivision, who raised concerns about dump-truck traffic.",
+      "source_url": "https://www.michiganpublic.org/politics-government/2026-10-15/google-wins-zoning-approval-for-huge-data-center-near-detroit-airport",
+      "source_title": "Michigan Public — Google wins zoning approval for huge data center near Detroit airport",
+      "single_source": true
     }
   ]
 }

@@ -769,6 +769,10 @@ function wireTabs() {
       .getElementById(v.tab)
       .addEventListener("click", () => activateView(v.name));
   }
+  if (!window._dcbPopWired) {
+    window._dcbPopWired = true;
+    window.addEventListener("popstate", routeFromLocation);
+  }
 
   // Allow URL hash to deep-link to a non-default view on load. Also activate
   // the Explorer when filter query params are present (even without the
@@ -778,6 +782,46 @@ function wireTabs() {
   if (window.location.hash === "#aggregate") {
     history.replaceState(null, "", "#comparison");
   }
+  routeFromLocation({ boot: true });
+  state._booted = true;
+}
+
+// Route to whatever the URL names: on boot, and on Back/Forward (#72).
+// While routing, nothing may push or rewrite history on its own: closing a
+// modal or syncing a view's URL would overwrite the entry Back just landed on.
+function routeFromLocation({ boot = false } = {}) {
+  state._routing = true;
+  try {
+    _routeFromLocation(boot);
+  } finally {
+    state._routing = false;
+  }
+}
+
+function _routeFromLocation(boot) {
+  const params = new URLSearchParams(window.location.search);
+  if (!boot) {
+    // Back/Forward closes whatever overlay is open: the entry being restored
+    // did not have it (a policy record entry reopens it below).
+    closePolicyDetail();
+    closeMoratoriumDetail();
+    closeTariffDetail();
+    closeStatePanel();
+    // Restore the Sites filters this entry was saved with, not whatever was
+    // typed later.
+    state.explorerFilters = { ...EMPTY_EXPLORER_FILTERS };
+    state.pendingProjectId = null;
+    // Drop the open project too, or writeFiltersToUrl would prefer it over
+    // the restored entry's ?project= (Codex review of #77).
+    state.selectedProjectId = null;
+    const detail = document.getElementById("project-detail");
+    if (detail) detail.hidden = true;
+    readFiltersFromUrl();
+    if (state.explorerLoaded) syncExplorerFilterUIToState();
+  }
+  // Ask the URL, not state: after Back, state could hold later filters.
+  const explorerParams =
+    URL_FILTER_KEYS.some((k) => params.get(k)) || Boolean(params.get("project"));
   const fromHash = VIEWS.find((v) => v.hash && v.hash === window.location.hash);
   // Read the sub-key BEFORE activating: activateView rewrites the hash.
   const sub = parseSubtabHash(window.location.hash);
@@ -786,7 +830,7 @@ function wireTabs() {
     setActiveSubtab(sub.group, sub.key);
   } else if (fromHash) {
     activateView(fromHash.name);
-  } else if (anyExplorerFilterSet() || state.pendingProjectId) {
+  } else if (explorerParams) {
     activateView("explorer");
   } else if (STATE_DEEP_LINK.test(window.location.hash)) {
     // #state/TX — open the Ratepayer view, then the panel on top of it.
@@ -800,14 +844,23 @@ function wireTabs() {
     // happens to be first in the DOM.
     activateView(DEFAULT_VIEW.name);
   }
-}
-
-// True when any of the six Explorer filter dimensions is set.
-function anyExplorerFilterSet() {
-  const f = state.explorerFilters;
-  return Boolean(
-    f.q || f.company || f.state || f.status || f.stance || f.theme || f.constituency
-  );
+  if (!boot && state.activeView === "explorer" && state.explorerLoaded) {
+    refreshProjectListSelection();
+    refreshExplorer();
+    if (state.pendingProjectId) {
+      const pid = state.pendingProjectId;
+      state.pendingProjectId = null;
+      selectProject(pid);
+    }
+  }
+  // A Frameworks entry restores its own filters and open record.
+  if (!boot && state.activeView === "policies" && state._policyUrlApplied) {
+    setPolicyControlsFrom(params);
+    renderPoliciesTable();
+    const pid = params.get("policy");
+    const pol = pid && (state.policies || []).find((x) => x.id === pid);
+    if (pol) showPolicyDetail(pol);
+  }
 }
 
 // Return focus after a modal closes. The opener can be gone from view (a
@@ -877,6 +930,12 @@ function writeFiltersToUrl() {
 
 function activateView(name) {
   const target = VIEWS.find((v) => v.name === name) || DEFAULT_VIEW;
+  // Every user-driven view change (tab, Home card, cross-link) gets its own
+  // history entry so Back returns to where the reader was (#72). Boot and
+  // Back/Forward routing must not push. The URL is rewritten below.
+  if (state._booted && !state._routing && state.activeView !== target.name) {
+    history.pushState(null, "", window.location.href);
+  }
   state.activeView = target.name;
 
   for (const v of VIEWS) {
@@ -914,14 +973,18 @@ function activateView(name) {
   // the other views use a bare hash and drop any stale query string.
   if (target.name === "explorer") {
     writeFiltersToUrl();
+  } else if (target.name === "policies") {
+    writePolicyUrl();
   } else if (VIEW_SUBTAB_GROUP[target.name]) {
     syncSubtabHash(VIEW_SUBTAB_GROUP[target.name]);
     const sub = _activeSubtab[VIEW_SUBTAB_GROUP[target.name]];
     if (!sub || sub === SUBTAB_GROUPS[VIEW_SUBTAB_GROUP[target.name]][0]) {
-      history.replaceState(null, "", target.hash);
+      history.replaceState(null, "", window.location.pathname + target.hash);
     }
   } else if (target.hash) {
-    history.replaceState(null, "", target.hash);
+    // pathname + hash: a bare "#x" keeps the query string, which leaked the
+    // Sites and policy params into every other view's URL.
+    history.replaceState(null, "", window.location.pathname + target.hash);
   } else if (window.location.hash || window.location.search) {
     history.replaceState(null, "", window.location.pathname);
   }
@@ -1171,6 +1234,11 @@ async function loadExplorerData() {
   // render from data alone. A blocked CDN only costs the map, which then shows
   // its own "Map library failed to load" (renderProjectMap checks window.L).
   await ensureLeaflet().catch((err) => console.error("Leaflet failed to load:", err));
+  // The search box is typeable before its handler is wired (that happens in
+  // renderExplorerView). Adopt anything typed during loading, or the first
+  // sync would write the empty filter back over it (#72).
+  const typed = (document.getElementById("f-q")?.value || "").trim();
+  if (typed && !state.explorerFilters.q) state.explorerFilters.q = typed;
   state.explorerLoaded = true;
   renderExplorerView();
 
@@ -1347,6 +1415,24 @@ function shortDuration(d) {
   return s.length < full.length ? s + "…" : s;
 }
 
+// The directory, CSV and PDF all read the same three filters from here.
+function filteredMoratoriums() {
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
+  // Free-text search: on a phone, 185 rows is ~20 screens of scrolling.
+  const q = (document.getElementById("moratorium-q")?.value || "").trim().toLowerCase();
+  return (state.moratoriums || [])
+    .filter((m) => !statusFilter || m.status === statusFilter)
+    .filter((m) => !typeFilter || m.jurisdiction_type === typeFilter)
+    .filter(
+      (m) =>
+        !q ||
+        [m.jurisdiction, m.state_code, STATE_NAMES[m.state_code], m.bill_number]
+          .filter(Boolean)
+          .some((v) => String(v).toLowerCase().includes(q))
+    );
+}
+
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
   wireMoratoriumDetail();
@@ -1365,16 +1451,7 @@ function renderMoratoriumsView() {
   renderReasonBreakdown(state.moratoriums);
   renderChinaContext();
 
-  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
-  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
-
-  let filtered = [...state.moratoriums];
-  if (statusFilter) {
-    filtered = filtered.filter((m) => m.status === statusFilter);
-  }
-  if (typeFilter) {
-    filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
-  }
+  let filtered = filteredMoratoriums();
 
   setSubtabCount("moratoriums-count", state.moratoriums.length);
   const mmeta = document.getElementById("moratoriums-meta");
@@ -1394,6 +1471,9 @@ function renderMoratoriumsView() {
 
   // Render table rows
   tbody.innerHTML = "";
+  if (!filtered.length) {
+    tbody.innerHTML = "<tr><td colspan='5' class='muted'>No records match the current filters.</td></tr>";
+  }
 
   filtered.forEach((m) => {
     const tr = document.createElement("tr");
@@ -2030,7 +2110,7 @@ function showMoratoriumDetail(m) {
   }
 
   // Captured date
-  document.getElementById("md-captured").textContent = `Verified: ${m.captured_at}`;
+  document.getElementById("md-captured").textContent = checkedLine(m);
 
   // Remember trigger for focus return, then open
   state._moratoriumReturnFocus =
@@ -2596,7 +2676,7 @@ function showTariffDetail(t) {
     }
   }
 
-  setText("td-captured", `Verified: ${t.captured_at}`);
+  setText("td-captured", checkedLine(t));
 
   // Remember the trigger so focus returns to it on close, then open the modal.
   state._tariffReturnFocus =
@@ -2821,6 +2901,67 @@ function policyFilters() {
   };
 }
 
+// Policy filters + the open record round-trip through the URL (#72), with
+// their own keys so they never collide with the Sites filters (`state`, `q`).
+// `p-` prefix: ?p-state=MD&policy=<id>#policies/directory
+const POLICY_URL_KEYS = {
+  "p-instrument": "policy-instrument-filter",
+  "p-status": "policy-status-filter",
+  "p-scope": "policy-scope-filter",
+  "p-state": "policy-state-filter",
+  "p-principle": "policy-principle-filter",
+};
+
+
+function writePolicyUrl() {
+  if (state.activeView !== "policies" || state._routing) return;
+  const key = _activeSubtab.pol;
+  const hash = key && key !== SUBTAB_GROUPS.pol[0] ? `#policies/${key}` : "#policies";
+  // Until the boot params are applied, keep the query string: rewriting it
+  // now would erase a shared link's filters before the payload lands.
+  if (!state._policyUrlApplied) {
+    history.replaceState(null, "", window.location.pathname + window.location.search + hash);
+    return;
+  }
+  const params = new URLSearchParams();
+  for (const [k, id] of Object.entries(POLICY_URL_KEYS)) {
+    const v = document.getElementById(id)?.value;
+    if (v) params.set(k, v);
+  }
+  if (document.getElementById("policy-cbf-filter")?.checked) params.set("p-cbf", "1");
+  if (state.openPolicyId) params.set("policy", state.openPolicyId);
+  const qs = params.toString();
+  history.replaceState(null, "", window.location.pathname + (qs ? "?" + qs : "") + hash);
+}
+
+// Set every policy filter control from URL params; absent keys clear.
+function setPolicyControlsFrom(params) {
+  for (const [k, id] of Object.entries(POLICY_URL_KEYS)) {
+    const v = params.get(k) || "";
+    const sel = document.getElementById(id);
+    if (sel) sel.value = [...sel.options].some((o) => o.value === v) ? v : "";
+  }
+  const cbf = document.getElementById("policy-cbf-filter");
+  if (cbf) cbf.checked = params.get("p-cbf") === "1";
+}
+
+// Apply ?p-*= / ?policy= once the payload and the filter options exist.
+function applyPolicyUrl() {
+  if (state._policyUrlApplied) return;
+  state._policyUrlApplied = true;
+  // writePolicyUrl keeps the query string until this runs, and plain-hash
+  // views drop theirs, so the current URL is this entry's own state.
+  const params = new URLSearchParams(window.location.search);
+  setPolicyControlsFrom(params);
+  const pid = params.get("policy");
+  const pol = pid && (state.policies || []).find((x) => x.id === pid);
+  if (pol) {
+    requestAnimationFrame(() => {
+      if (state.activeView === "policies") showPolicyDetail(pol);
+    });
+  }
+}
+
 function filteredPolicies() {
   const f = policyFilters();
   return (state.policies || [])
@@ -2868,7 +3009,10 @@ function wirePolicyControls() {
   for (const id of POLICY_FILTER_IDS) {
     const el = document.getElementById(id);
     if (el && !el.dataset.wired) {
-      el.addEventListener("change", renderPoliciesTable);
+      el.addEventListener("change", () => {
+        renderPoliciesTable();
+        writePolicyUrl();
+      });
       el.dataset.wired = "1";
     }
   }
@@ -2906,7 +3050,9 @@ function renderPoliciesView() {
   renderPolicyStats(all);
   renderPolicyPrinciples(all);
   renderPolicyActions(all);
+  applyPolicyUrl();
   renderPoliciesTable();
+  writePolicyUrl();
 }
 
 function renderPolicyStats(all) {
@@ -3018,7 +3164,7 @@ function renderAgreementCard(p, { compact = false } = {}) {
     ${
       compact
         ? `${featLine}<details class="cba-more"><summary>Terms and source</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${terms}${src}</details>`
-        : `${terms}${src}<details class="cba-more"><summary>Background and terms reviewed</summary><p class="cba-summary">${escapeHtml(p.summary)}</p>${featLine}</details>`
+        : `${terms}<p class="cba-summary">${escapeHtml(p.summary)}</p>${src}<details class="cba-more"><summary>Terms checklist</summary>${featLine}</details>`
     }`;
   if (p.delivered) {
     const d = renderDeliveredPanel(p.delivered);
@@ -3501,10 +3647,20 @@ function showPolicyDetail(p) {
   const res = document.getElementById("pd-resources-list");
   res.replaceChildren(_linkLi(p.source_url, p.source_title));
   for (const r of p.resources || []) res.append(_linkLi(r.url, r.title));
-  setText("pd-captured", `Captured: ${p.captured_at}`);
+  setText("pd-captured", checkedLine(p));
+  // Hand off to the matching draft plan, so a reader who found a rule can
+  // see how it would be written without switching sections by hand (#72).
+  const kind = p.scope === "state" || p.scope === "federal" ? "state" : "county";
+  const draftBtn = document.getElementById("pd-draft-btn");
+  if (draftBtn) {
+    draftBtn.textContent = kind === "state" ? "Open the state draft plan →" : "Open the local (county) draft plan →";
+    draftBtn.onclick = () => openDraftPlan(kind);
+  }
 
   state._policyReturnFocus =
     document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  state.openPolicyId = p.id;
+  writePolicyUrl();
   overlay.hidden = false;
   document.body.classList.add("tariff-modal-open");
   modal.scrollTop = 0;
@@ -3517,6 +3673,8 @@ function closePolicyDetail() {
   if (!overlay || overlay.hidden) return;
   overlay.hidden = true;
   document.body.classList.remove("tariff-modal-open");
+  state.openPolicyId = null;
+  writePolicyUrl();
   const ret = state._policyReturnFocus;
   state._policyReturnFocus = null;
   returnFocus(ret);
@@ -4098,6 +4256,22 @@ function setActiveSubtab(group, key) {
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
 }
 
+// Open Frameworks → Draft plans on the county or state draft.
+function openDraftPlan(kind) {
+  closePolicyDetail();
+  activateView("policies");
+  setActiveSubtab("pol", "drafts");
+  (_planningGuidePromise || Promise.reject(new Error("guide not loading")))
+    .then(() => {
+      const sel = document.getElementById("draft-plan-kind");
+      if (!sel || sel.value === kind) return;
+      sel.value = kind;
+      sel.dispatchEvent(new Event("change"));
+    })
+    // loadPlanningGuide already shows the failure in the pane.
+    .catch(() => {});
+}
+
 let _planningGuidePromise = null;
 let _planningGuideRetries = 0;
 const _planningGuidesRendered = new Set();
@@ -4134,10 +4308,16 @@ function syncSubtabHash(group) {
     writeFiltersToUrl();
     return;
   }
+  if (view === "policies") {
+    writePolicyUrl();
+    return;
+  }
   const target = VIEWS.find((v) => v.name === view);
   const key = _activeSubtab[group];
   const hash = key && key !== SUBTAB_GROUPS[group][0] ? `${target.hash}/${key}` : target.hash;
-  if (window.location.hash !== hash) history.replaceState(null, "", hash);
+  if (window.location.hash !== hash || window.location.search) {
+    history.replaceState(null, "", window.location.pathname + hash);
+  }
 }
 
 // "#tariffs/elements" -> { view, key }, or null for any other hash shape.
@@ -4416,11 +4596,7 @@ async function exportRatepayerToPDF() {
 // --------------------------------------------------------------------------
 function downloadMoratoriumsCSV() {
   if (!state.moratoriums || !state.moratoriums.length) { alert("No moratoriums loaded."); return; }
-  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
-  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
-  let list = [...state.moratoriums];
-  if (statusFilter) list = list.filter((m) => m.status === statusFilter);
-  if (typeFilter) list = list.filter((m) => m.jurisdiction_type === typeFilter);
+  const list = filteredMoratoriums();
   const headers = ["id", "jurisdiction", "jurisdiction_type", "status", "enacted_date",
     "effective_date", "duration_description", "power_threshold_mw",
     "key_reasons", "bill_number", "sponsors", "enacted_by",
@@ -5629,6 +5805,26 @@ function renderContestedCard(p) {
   return li;
 }
 
+// "Last checked" line for a detail panel (#72). captured_at is when a curator
+// last read the source, not when the status was confirmed today; an open
+// record (proposed / pending) that old may have moved, so say so rather than
+// let the global refresh stamp imply it was rechecked.
+const STALE_OPEN_DAYS = 21;
+function checkedLine(rec, today = new Date()) {
+  const d = rec.captured_at;
+  if (!d) return "Last checked: not recorded";
+  let line = `Last checked against source: ${d}`;
+  const open = rec.status === "proposed" || rec.status === "pending";
+  // Calendar days in UTC, so a DST change can't move the 21-day boundary.
+  const then = Date.parse(d);
+  const now = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  const days = Math.floor((now - then) / 86400000);
+  if (open && Number.isFinite(days) && days > STALE_OPEN_DAYS) {
+    line += ` · status not re-checked in ${days} days; it may have changed`;
+  }
+  return line;
+}
+
 function truncate(s, n) {
   if (!s) return "";
   return s.length <= n ? s : s.slice(0, n - 1).trimEnd() + "…";
@@ -5741,6 +5937,11 @@ function wireMoratoriumsFilters() {
       renderMoratoriumsView();
     });
   }
+  const q = document.getElementById("moratorium-q");
+  if (q && !q.dataset.wired) {
+    q.dataset.wired = "1";
+    q.addEventListener("input", () => renderMoratoriumsView());
+  }
 }
 
 function wireMoratoriumDetail() {
@@ -5852,12 +6053,7 @@ async function exportMoratoriumsToPDF() {
     return;
   }
 
-  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
-  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
-
-  let filtered = [...state.moratoriums];
-  if (statusFilter) filtered = filtered.filter((m) => m.status === statusFilter);
-  if (typeFilter) filtered = filtered.filter((m) => m.jurisdiction_type === typeFilter);
+  const filtered = filteredMoratoriums();
 
   // Sort: enacted (date desc) → proposed → failed, matching the on-screen table.
   filtered.sort((a, b) => {
@@ -6996,7 +7192,7 @@ function closeStatePanel() {
   if (!overlay || overlay.hidden) return;
   overlay.hidden = true;
   document.body.classList.remove("state-modal-open");
-  if (window.location.hash.startsWith("#state/")) {
+  if (window.location.hash.startsWith("#state/") && !state._routing) {
     history.replaceState(null, "", "#ratepayer");
   }
   const ret = state._stateReturnFocus;

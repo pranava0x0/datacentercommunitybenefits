@@ -1405,13 +1405,15 @@ class TestPoliciesView:
     def test_state_strip_counts_policies(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=E2E_WAIT)
+        page.wait_for_function("() => coverageStates().length > 0", timeout=E2E_WAIT)
         code = "MT"
         expected = page.evaluate("""code => {
           const s = coverageStates().find(s => s.code === code);
           return s.projects + s.tariffs + s.moratoriums + s.rate_cases + s.policies;
         }""", code)
         cell = page.locator(f'#pledge-state-strip [data-state-code="{code}"]')
-        assert f"{expected} tracked records" in cell.get_attribute("aria-label")
+        # Retry: the strip renders once before coverage.json lands.
+        expect(cell).to_have_attribute("aria-label", re.compile(rf"\b{expected} tracked records"))
 
     def test_state_panel_waits_for_other_data_after_policy_failure(self, page: Page, base_url: str):
         page.route("**/data/policies.json", lambda route: route.abort())
@@ -2340,11 +2342,15 @@ class TestPledgeLanding:
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=E2E_WAIT)
         cells = page.locator("#pledge-state-strip .pledge-state-cell")
         assert cells.count() == 50
-        # Governor-signed states are marked, and there are exactly 23.
-        assert page.locator("#pledge-state-strip .pledge-state-cell.is-gov").count() == 23
+        # Governor-signed states are marked, one per governor on the roster.
+        # The strip renders once before coverage.json lands (every cell
+        # empty), then again with it; retrying assertions wait for the second.
+        roster = json.loads((ROOT / "docs/data/signatories.json").read_text())["signatories"]
+        governors = sum(s["category"] == "governor" for s in roster)
+        expect(page.locator("#pledge-state-strip .pledge-state-cell.is-gov")).to_have_count(governors)
         coverage = json.loads((ROOT / "docs/data/coverage.json").read_text())["states"]
         expected_empty = sum(not any(counts.values()) for counts in coverage.values())
-        assert page.locator("#pledge-state-strip .pledge-state-cell.lvl-0").count() == expected_empty
+        expect(page.locator("#pledge-state-strip .pledge-state-cell.lvl-0")).to_have_count(expected_empty)
 
     def test_pledge_card_opens_the_pledge_tab(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -2367,7 +2373,8 @@ class TestSignatoryRoster:
         page.wait_for_selector("#rp-roster-summary", timeout=E2E_WAIT)
         page.locator("#rp-roster-summary").click()
         page.wait_for_selector("#rp-roster .rp-sig-row", timeout=E2E_WAIT)
-        assert page.locator("#rp-roster .rp-sig-row").count() >= 250
+        roster = json.loads((ROOT / "docs/data/signatories.json").read_text())["signatories"]
+        assert page.locator("#rp-roster .rp-sig-row").count() == len(roster)
 
     def test_search_and_category_filter_narrow_the_roster(
         self, page: Page, base_url: str
@@ -3330,6 +3337,9 @@ class TestAggregateExportsCoverEveryRollup:
         table without exporting it fails here."""
         page.goto(base_url + "/#comparison/footprint")
         page.wait_for_selector("#agg-company-tbody tr", timeout=E2E_WAIT)
+        # Every rollup's payload must land before export, or a section is
+        # silently missing (flaked under -n 4).
+        page.wait_for_load_state("networkidle")
         tabs = page.locator("table.agg-table").count()
         with page.expect_download() as dl:
             page.locator("#agg-csv-btn").click()
@@ -3584,3 +3594,198 @@ class TestCodexFollowUps:
             assert page.evaluate("() => todayIso()") == "2026-10-13"
         finally:
             ctx.close()
+
+
+class TestIssue72Navigation:
+    """Regression guards for GitHub issue #72 (lost search, shareable policy
+    records, Back after a tab click, Home/Benefits signed-count parity)."""
+
+    def test_search_typed_while_sites_load_survives_render(self, page: Page, base_url: str):
+        # Hold projects.json so the reader types before initialization ends.
+        held = []
+        page.route("**/data/projects.json", lambda r: held.append(r))
+        page.goto(base_url + "/#explorer")
+        page.wait_for_function("() => document.getElementById('f-q')", timeout=E2E_WAIT)
+        try:
+            page.fill("#f-q", "memphis")
+            page.wait_for_function("() => true")  # let the fill's input event run
+            assert held, "projects.json was never requested"
+        finally:
+            for r in held:
+                r.continue_()
+        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+        expect(page.locator("#f-q")).to_have_value("memphis")
+        assert page.evaluate("() => state.explorerFilters.q") == "memphis"
+
+    def test_policy_filter_and_record_round_trip_through_the_url(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", state="attached", timeout=E2E_WAIT)
+        code = page.evaluate("() => state.policies.find(p => p.state_code).state_code")
+        page.select_option("#policy-state-filter", code)
+        page.locator("#policies-tbody tr[role='button']").first.click()
+        expect(page.locator("#policy-modal")).to_be_visible()
+        url = page.url
+        assert f"p-state={code}" in url and "policy=" in url and url.endswith("#policies/directory")
+        pid = page.evaluate("() => state.openPolicyId")
+        # A fragment-only goto would not reload the SPA; a fresh query does.
+        page.goto(url.replace("?", "?i=reload&", 1))
+        page.wait_for_function("(id) => state.openPolicyId === id", arg=pid, timeout=E2E_WAIT)
+        expect(page.locator("#policy-state-filter")).to_have_value(code)
+        expect(page.locator("#policy-modal")).to_be_visible()
+
+    def test_back_after_a_tab_click_returns_to_the_previous_view(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-agreements")
+        expect(page.locator("#view-agreements")).to_be_visible()
+        page.go_back()
+        expect(page.locator("#view-overview")).to_be_visible()
+        page.go_forward()
+        expect(page.locator("#view-agreements")).to_be_visible()
+
+    def test_home_and_benefits_count_signed_agreements_the_same_way(self, page: Page, base_url: str):
+        home = json.loads((ROOT / "docs/data/home.json").read_text())
+        page.goto(base_url + "/#agreements")
+        page.wait_for_selector("#cba-stats .rp-stat", timeout=E2E_WAIT)
+        tab = page.evaluate(
+            "() => agreementRecords().filter(p => p.instrument === 'benefit_agreement'"
+            " && p.status === 'in_effect').length"
+        )
+        assert home["totals"]["agreements_signed"] == tab
+
+    def test_checked_line_flags_only_stale_open_records(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_function("() => typeof checkedLine === 'function'", timeout=E2E_WAIT)
+        out = page.evaluate(
+            """() => {
+              const today = new Date('2026-10-18T12:00:00');
+              return [
+                checkedLine({status: 'proposed', captured_at: '2026-09-01'}, today),
+                checkedLine({status: 'proposed', captured_at: '2026-10-10'}, today),
+                checkedLine({status: 'enacted', captured_at: '2026-01-01'}, today),
+                checkedLine({status: 'pending'}, today),
+              ];
+            }"""
+        )
+        assert "may have changed" in out[0] and "47 days" in out[0]
+        assert "may have changed" not in out[1]
+        assert "may have changed" not in out[2]
+        assert out[3] == "Last checked: not recorded"
+
+    def test_policy_detail_hands_off_to_the_matching_draft(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", state="attached", timeout=E2E_WAIT)
+        pid = page.evaluate("() => state.policies.find(p => p.scope === 'state').id")
+        page.evaluate("(id) => showPolicyDetail(state.policies.find(p => p.id === id))", pid)
+        page.click("#pd-draft-btn")
+        expect(page.locator("#policy-modal")).to_be_hidden()
+        expect(page.locator("#draft-plan-kind")).to_have_value("state")
+        assert page.url.endswith("#policies/drafts")
+
+    def test_back_with_a_policy_record_open_leaves_policies(self, page: Page, base_url: str):
+        # Sonnet review of #77: closing the modal during popstate rewrote the
+        # entry Back had just restored, trapping the reader on Frameworks.
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-policies")
+        page.click("#subtab-pol-directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", timeout=E2E_WAIT)
+        page.locator("#policies-tbody tr[role='button']").first.click()
+        expect(page.locator("#policy-modal")).to_be_visible()
+        page.go_back()
+        expect(page.locator("#view-overview")).to_be_visible()
+        expect(page.locator("#policy-modal")).to_be_hidden()
+        assert "policy=" not in page.url
+
+    def test_back_closes_a_moratorium_detail(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-moratoriums")
+        page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
+        page.locator("#moratoriums-tbody tr[data-id]").first.click()
+        expect(page.locator("#moratorium-modal")).to_be_visible()
+        page.go_back()
+        expect(page.locator("#view-overview")).to_be_visible()
+        expect(page.locator("#moratorium-modal")).to_be_hidden()
+        assert not page.evaluate("() => document.body.classList.contains('moratorium-modal-open')")
+
+    def test_back_after_a_home_card_returns_home(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click('#home-cards .home-card[data-path-target="agreements"]')
+        expect(page.locator("#view-agreements")).to_be_visible()
+        page.go_back()
+        expect(page.locator("#view-overview")).to_be_visible()
+
+    def test_leaving_policies_drops_its_query_params(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", state="attached", timeout=E2E_WAIT)
+        code = page.evaluate("() => state.policies.find(p => p.state_code).state_code")
+        page.select_option("#policy-state-filter", code)
+        assert "p-state=" in page.url
+        page.click("#tab-tariffs")
+        assert "?" not in page.url and page.url.endswith("#tariffs")
+
+    def test_sites_filters_restore_on_back(self, page: Page, base_url: str):
+        page.goto(base_url + "/?q=memphis#explorer")
+        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+        page.click("#tab-tariffs")
+        page.click("#tab-explorer")
+        page.fill("#f-q", "texas")
+        page.click("#tab-tariffs")
+        page.go_back()  # the Sites entry saved with q=texas
+        expect(page.locator("#f-q")).to_have_value("texas")
+        page.go_back()  # Tariffs
+        page.go_back()  # the first Sites entry, q=memphis
+        expect(page.locator("#f-q")).to_have_value("memphis")
+        assert page.evaluate("() => state.explorerFilters.q") == "memphis"
+
+    def test_moratorium_search_and_csv_export_agree(self, page: Page, base_url: str):
+        page.goto(base_url + "/#moratoriums")
+        page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
+        page.fill("#moratorium-q", "county")
+        shown = page.locator("#moratoriums-tbody tr[data-id]").count()
+        with page.expect_download() as dl:
+            page.click("#moratoriums-csv-btn")
+        import csv
+        rows = list(csv.reader(Path(dl.value.path()).read_text().splitlines()))
+        assert 0 < shown < page.evaluate("() => state.moratoriums.length")
+        assert len(rows) - 1 == shown
+        page.fill("#moratorium-q", "zzzz-no-match")
+        expect(page.locator("#moratoriums-tbody td.muted")).to_have_text("No records match the current filters.")
+
+    def test_policy_filters_restore_on_back(self, page: Page, base_url: str):
+        # Codex review of #77: an older Frameworks entry kept the newer filters.
+        page.goto(base_url + "/#policies/directory")
+        page.wait_for_selector("#policies-tbody tr[role='button']", state="attached", timeout=E2E_WAIT)
+        a, b = page.evaluate("() => [...new Set(state.policies.map(p => p.state_code).filter(Boolean))].slice(0, 2)")
+        page.select_option("#policy-state-filter", a)
+        page.click("#tab-tariffs")
+        page.click("#tab-policies")
+        page.select_option("#policy-state-filter", b)
+        page.click("#tab-tariffs")
+        page.go_back()
+        expect(page.locator("#policy-state-filter")).to_have_value(b)
+        page.go_back()
+        page.go_back()
+        expect(page.locator("#policy-state-filter")).to_have_value(a)
+        assert f"p-state={a}" in page.url
+
+    def test_back_restores_the_entrys_project_not_a_later_one(self, page: Page, base_url: str):
+        # Codex review of #77: a project opened on a later entry stayed open
+        # (and was written into the URL) after Back to an entry without one.
+        page.goto(base_url + "/#explorer")
+        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+        pid = page.evaluate("() => state.projects[0].id")
+        page.click("#tab-tariffs")
+        page.click("#tab-explorer")
+        page.evaluate("(id) => selectProject(id)", pid)
+        page.click("#tab-tariffs")
+        page.go_back()  # Sites with the project open
+        page.wait_for_function("(id) => state.selectedProjectId === id", arg=pid, timeout=E2E_WAIT)
+        page.go_back()  # Tariffs
+        page.go_back()  # the first Sites entry, no project
+        expect(page.locator("#view-explorer")).to_be_visible()
+        assert page.evaluate("() => state.selectedProjectId") is None
+        assert "project=" not in page.url
+        expect(page.locator("#project-detail")).to_be_hidden()

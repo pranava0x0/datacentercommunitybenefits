@@ -50,10 +50,10 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": 100,
-      "notes": "Announced February 24, 2026. 480-acre campus in Pine Island Township, Goodhue County, served by Xcel Energy. Google committed to finance 1,900 MW of new clean energy resources for the Minnesota grid (solar, wind, battery storage). $25M community investment fund over 20 years, benefiting Pine Island schools. Google covers 100% of new grid infrastructure costs. ~500 construction trades during build phase.",
+      "notes": "Announced February 24, 2026. 480-acre campus in Pine Island Township, Goodhue County, served by Xcel Energy. Google committed to finance 1,900 MW of new clean energy resources for the Minnesota grid (solar, wind, battery storage). $25M community investment fund over 20 years, benefiting Pine Island schools. Google covers 100% of new grid infrastructure costs. ~500 construction trades during build phase. As of Oct 11, 2026, MPR News reports the data center is on pause while a judge considers whether the project requires further environmental review.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
       "source_title": "Google Blog — Pine Island, Minnesota data center announcement (Feb 2026)",
-      "captured_at": "2026-06-01",
+      "captured_at": "2026-10-18",
       "acreage": 480.0,
       "offtaker": "Google",
       "at_a_glance": {
@@ -81,7 +81,18 @@
         "evidence_claim_id": "google-pine-island-mn-ratepayer-pledge"
       },
       "serving_utility": "Xcel Energy",
-      "serving_utility_signatory_id": "xcel-energy"
+      "serving_utility_signatory_id": "xcel-energy",
+      "updates": [
+        {
+          "date": "2026-10-11",
+          "kind": "news",
+          "title": "Reported: Pine Island data center on pause while a judge considers further environmental review",
+          "summary": "MPR News reports the pause as of this date; the court and the date of the order are not named.",
+          "upcoming": false,
+          "source_url": "https://mprnews.org/story/2026/10/11/rochester-business-group-backs-googles-controversial-pine-island-data-center",
+          "source_title": "MPR News — Rochester business group backs Google's controversial Pine Island data center"
+        }
+      ]
     },
     {
       "id": "google-sand-springs-ok",
@@ -587,17 +598,29 @@
       "announced_year": 2023,
       "claimed_investment_usd": 7000000000,
       "claimed_jobs": 2300,
-      "notes": "Microsoft's first Wisconsin data center, branded 'Fairwater.' Per Satya Nadella's April 16 2026 statement the site is 'going live ahead of schedule,' combining hundreds of thousands of NVIDIA GB200 GPUs into a single seamless cluster. Mount Pleasant Village Board approved 15 additional buildings across two new lots on May 11 2026 (~$13B+ incremental taxable value). 375 FTEs hired as of May 8 2026 per Bowen Wallace at the RCEDC Impact 2026 event. On June 23, 2026 Microsoft announced the first Fairwater facility is fully operational (equipment brought online in April 2026), with roughly 550 on-site full-time employees — expected to reach about 800 once the second facility opens — and about $4.7 billion in projected 2024–2028 Wisconsin hyperscale construction spending, including direct purchases from 29 Wisconsin businesses across 11 counties. A second, similarly-sized Fairwater facility (announced Sept 18, 2025, $4B) is under construction targeting completion by end of 2028, bringing Microsoft's total announced Wisconsin commitment to more than $7 billion (see ms-mt-pleasant-wi-investment claim; investment_usd now reflects this combined total, not just the original $3.3B). Gov. Evers: 'Microsoft's investment puts Wisconsin on the very cutting edge of AI power, not just in the U.S., but throughout the world.' Microsoft also runs an AI Co-Innovation Lab at UW-Milwaukee (WEDC $500K grant) teaching AI applications to Wisconsin small/medium businesses.",
+      "notes": "Microsoft's first Wisconsin data center, branded 'Fairwater.' Per Satya Nadella's April 16 2026 statement the site is 'going live ahead of schedule,' combining hundreds of thousands of NVIDIA GB200 GPUs into a single seamless cluster. Mount Pleasant Village Board approved 15 additional buildings across two new lots on May 11 2026 (~$13B+ incremental taxable value). 375 FTEs hired as of May 8 2026 per Bowen Wallace at the RCEDC Impact 2026 event. On June 23, 2026 Microsoft announced the first Fairwater facility is fully operational (equipment brought online in April 2026), with roughly 550 on-site full-time employees — expected to reach about 800 once the second facility opens — and about $4.7 billion in projected 2024–2028 Wisconsin hyperscale construction spending, including direct purchases from 29 Wisconsin businesses across 11 counties. A second, similarly-sized Fairwater facility (announced Sept 18, 2025, $4B) is under construction targeting completion by end of 2028, bringing Microsoft's total announced Wisconsin commitment to more than $7 billion (see ms-mt-pleasant-wi-investment claim; investment_usd now reflects this combined total, not just the original $3.3B). Gov. Evers: 'Microsoft's investment puts Wisconsin on the very cutting edge of AI power, not just in the U.S., but throughout the world.' Microsoft also runs an AI Co-Innovation Lab at UW-Milwaukee (WEDC $500K grant) teaching AI applications to Wisconsin small/medium businesses. Oct 14, 2026: the Mount Pleasant Plan Commission unanimously approved an amended site plan cutting the planned data center buildings from nine to seven, lowering the estimated taxable value per acre from about $10 million to about $7.7 million; a Microsoft spokesperson said the changes 'in no way reflect a reduction in our ambition.' The Village Board is expected to vote later in October (WPR).",
       "source_url": "https://news.microsoft.com/source/2024/05/08/microsoft-announces-3-3-billion-investment-in-wisconsin-to-spur-artificial-intelligence-innovation-and-economic-growth/",
       "source_title": "Microsoft — Announces $3.3 billion investment in Wisconsin (May 2024; link updated 2026-07-14, original blogs.microsoft.com/on-the-issues URL now 404s)",
-      "captured_at": "2026-06-24",
+      "captured_at": "2026-10-18",
       "project_page_url": "https://news.microsoft.com/source/2026/06/23/microsoft-completes-construction-on-first-datacenter-facility-in-mount-pleasant-wisconsin/",
       "acreage": 1300,
       "offtaker": "Microsoft",
       "at_a_glance": {
         "jobs": "~550 FTEs; first Fairwater facility operational Jun 2026, 2nd facility under construction",
         "infrastructure": "Hundreds of thousands of NVIDIA GB200s in single AI cluster"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-10-14",
+          "kind": "vote",
+          "title": "Plan Commission unanimously approves amended Microsoft site plan, nine buildings cut to seven",
+          "summary": "The amended site plan reduces the planned data center buildings from nine to seven and lowers the estimated taxable value per acre from around $10 million to around $7.7 million. The village board is expected to vote later this month.",
+          "authority": "Mount Pleasant Plan Commission",
+          "upcoming": false,
+          "source_url": "https://www.wpr.org/news/microsoft-fewer-data-centers-sprawling-mount-pleasant-campus",
+          "source_title": "Wisconsin Public Radio — Microsoft plans fewer data centers on sprawling Mount Pleasant campus"
+        }
+      ]
     },
     {
       "id": "microsoft-pecos-tx",
@@ -1425,10 +1448,10 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "1 GW hyperscale campus on a 282-acre site in Wayne County (north of I-94, between Haggerty Road and I-275), originally advanced as 'Project Cannoli'. Power served by 2.7 GW of new DTE solar, storage and demand response. Service start targeted December 2027, full capacity December 2028. Google announced a $10M Energy Impact Fund for Michigan energy affordability. Project was in a contested case before the Michigan Public Service Commission (docket U-22058) with a September 10, 2026 decision target; as of early Sept 2026 the Attorney General was still pressing for a 90% minimum billing demand (vs. DTE's proposed 80%) and stronger exit-fee terms, and no order confirming a decision has been found. Local opposition includes a 1,500+ signature petition. May 19, 2026: Van Buren Township's Board of Trustees unanimously approved a 50% property tax exemption for 15 years for the project, with a Real Industrial Facilities Tax Exemption for a 36-month construction period; Google is to pay the township $15.4 million for township-wide capital projects. Oct 1, 2026: the Wayne County Commission overrode County Executive Warren Evans' Sept 25 veto of the project's tax incentives by a 13-0 vote (Fox 2 Detroit); the same day the Michigan Public Service Commission voted unanimously to grant conditional approval of DTE's power contracts for the project (Planet Detroit). Oct 14, 2026: the Van Buren Township Planning Commission approved the final site plan 5-1; Panattoni entered into an operational agreement with the township on issues outside the commission's scope.",
+      "notes": "1 GW hyperscale campus on a 282-acre site in Wayne County (north of I-94, between Haggerty Road and I-275), originally advanced as 'Project Cannoli'. Power served by 2.7 GW of new DTE solar, storage and demand response. Service start targeted December 2027, full capacity December 2028. Google announced a $10M Energy Impact Fund for Michigan energy affordability. DTE's contracts for the project went through a contested case before the Michigan Public Service Commission (docket U-22058). As of early Sept 2026 the Attorney General was pressing for a 90% minimum billing demand (vs. DTE's proposed 80%) and stronger exit-fee terms. On Oct 1, 2026 the Commission voted unanimously to grant conditional approval, with a minimum monthly billing demand of 80% of contract capacity and a termination payment ensuring Google pays at least 15 years of minimum monthly charges (Michigan Public). Utility approval is separate from local permission to build. Local opposition includes a 1,500+ signature petition. May 19, 2026: Van Buren Township's Board of Trustees unanimously approved a 50% property tax exemption for 15 years for the project, with a Real Industrial Facilities Tax Exemption for a 36-month construction period; Google is to pay the township $15.4 million for township-wide capital projects. Oct 1, 2026: the Wayne County Commission overrode County Executive Warren Evans' Sept 25 veto of the project's tax incentives by a 13-0 vote (Fox 2 Detroit). Oct 14, 2026: the Van Buren Township Planning Commission approved the final site plan 5-1; Panattoni entered into an operational agreement with the township on issues outside the commission's scope.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/clean-energy-reliability-michigan/",
       "source_title": "Scaling clean energy and reliability in Michigan",
-      "captured_at": "2026-10-15",
+      "captured_at": "2026-10-18",
       "project_page_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/clean-energy-reliability-michigan/",
       "acreage": 282,
       "power_mw": 1000,
@@ -1441,7 +1464,7 @@
         "status": "affirmed",
         "summary": "Google and DTE filed contracts with the Michigan Public Service Commission confirming Google finances all 2.7 GW of new power supply needed, ensuring no costs associated with the Van Buren Township campus shift to existing ratepayers.",
         "evidence_claim_id": "google-van-buren-mi-energy-pay-costs-2026",
-        "assessed_at": "2026-06-01",
+        "assessed_at": "2026-10-18",
         "principles": {
           "new_generation": {
             "status": "met",
@@ -1453,7 +1476,7 @@
           },
           "separate_rate": {
             "status": "met",
-            "note": "Separate rate structure filed with the Michigan Public Service Commission; contested case hearing scheduled for September 2026."
+            "note": "Separate special contracts filed with the Michigan Public Service Commission; on Oct 1, 2026 the Commission unanimously granted conditional approval, with an 80% minimum monthly billing demand and a 15-year minimum-charge termination payment (Michigan Public, Oct. 2, 2026)."
           },
           "local_jobs": {
             "status": "met",
@@ -2847,7 +2870,7 @@
       "notes": "Stargate Lighthouse: four-building, 672-acre Ozaukee County campus announced Oct 22 2025. 902 MW IT load (1.3 GW total electrical) — 'close to a gigawatt.' ~4,000 union construction + 700 Oracle/OpenAI on-site + 330 Vantage operations FTEs. Vantage Data Centers is the developer; OpenAI is the workload tenant.",
       "source_url": "https://www.constructiondive.com/news/openai-oracle-stargate-data-center-site-wisconsin/804031/",
       "source_title": "Construction Dive — OpenAI/Oracle $15B Stargate site in Wisconsin (Oct 22 2025)",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-10-18",
       "acreage": 672,
       "power_mw": 1300,
       "offtaker": "OpenAI",
@@ -2875,6 +2898,16 @@
           "upcoming": false,
           "source_url": "https://www.wuwm.com/port-washington-tid-tax-incremental-financing-districts-referendum-april-election",
           "source_title": "WUWM — Port Washington TID referendum, April election"
+        },
+        {
+          "date": "2026-08-17",
+          "kind": "lawsuit",
+          "title": "Oracle moves to voluntarily drop its lawsuit against Wisconsin's utility regulator",
+          "summary": "Oracle's attorneys filed a motion to voluntarily dismiss its suit challenging new credit-rating requirements, which Wisconsin Watch says could cost Oracle over $100 million per year in financial security payments.",
+          "authority": "Ozaukee County Circuit Court",
+          "upcoming": false,
+          "source_url": "https://wisconsinwatch.org/2026/08/oracle-drops-lawsuit-challenging-wisconsin-data-center-credit-rules/",
+          "source_title": "Wisconsin Watch — Oracle drops lawsuit challenging Wisconsin data center credit rules"
         }
       ]
     },
@@ -4108,10 +4141,10 @@
       "announced_date": "2026-03-31",
       "claimed_investment_usd": null,
       "claimed_jobs": 250,
-      "notes": "Proposed AWS campus on ~2,050 acres (a 965-acre northern parcel and a 1,085-acre southern parcel) adjacent to Constellation Energy's Calvert Cliffs nuclear plant at 1650 Calvert Cliffs Parkway, Lusby. The concept calls for up to eight data center buildings (266,000-332,000 sq ft each) across three campuses, ~2.46M sq ft total. AWS publicly introduced the project at a Calvert County community meeting on March 31, 2026 and filed a concept site plan application on May 4, 2026; no construction permits have been issued. Air-cooled design (cited as ~96% of the year); reported at ~1.5 GW, a figure AWS has not officially disclosed. The proposal drew local opposition, and county commissioners attempted an unsuccessful temporary moratorium on data center development.",
+      "notes": "Proposed AWS campus on ~2,050 acres (a 965-acre northern parcel and a 1,085-acre southern parcel) adjacent to Constellation Energy's Calvert Cliffs nuclear plant at 1650 Calvert Cliffs Parkway, Lusby. The concept calls for up to eight data center buildings (266,000-332,000 sq ft each) across three campuses, ~2.46M sq ft total. AWS publicly introduced the project at a Calvert County community meeting on March 31, 2026 and filed a concept site plan application on May 4, 2026; no construction permits have been issued. Air-cooled design (cited as ~96% of the year); reported at ~1.5 GW, a figure AWS has not officially disclosed. The proposal drew local opposition, and county commissioners voted against a pause on data centers. On Aug 4, 2026 a Calvert County government news release reported that AWS is abandoning its plans for the campus; Constellation said AWS has withdrawn its plans (WTOP). The project is withdrawn; the dashboard's status field has no withdrawn value, so it still reads announced.",
       "source_url": "https://southernmarylandchronicle.com/2026/05/27/aws-calvert-technology-center-site-plan-filed/",
       "source_title": "Southern Maryland Chronicle - AWS Calvert Technology Center site plan filed (May 2026)",
-      "captured_at": "2026-06-08",
+      "captured_at": "2026-10-18",
       "project_page_url": null,
       "acreage": 2050,
       "power_mw": null,
@@ -4148,7 +4181,19 @@
             "note": "No published commitment on backup generation or community resilience; the site needs no new cooling water."
           }
         }
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-08-04",
+          "kind": "filing",
+          "title": "AWS withdraws plans for Calvert Cliffs data center campus",
+          "summary": "A Calvert County government news release reported that AWS is abandoning its plans for the campus. Constellation, which owns the plant, said AWS has withdrawn its plans.",
+          "authority": "Calvert County Government",
+          "upcoming": false,
+          "source_url": "https://wtop.com/calvert-county/2026/08/amazon-abandons-plans-for-data-center-campus-at-md-s-calvert-cliffs-nuclear-plant/",
+          "source_title": "WTOP — Amazon abandons plans for data center campus at Md.'s Calvert Cliffs nuclear plant"
+        }
+      ]
     },
     {
       "id": "google-spacex-gpu-partnership",
@@ -5346,6 +5391,42 @@
       "source_url": "https://www.firstalert4.com/2026/04/15/warrenton-officials-approve-75-personal-property-tax-abatement-multi-billion-dollar-data-center-project/",
       "source_title": "First Alert 4 (KMOV) — Warrenton officials approve 75% personal property tax abatement for multi-billion-dollar data center project",
       "captured_at": "2026-09-29"
+    },
+    {
+      "id": "microsoft-woodward-ia",
+      "company_slug": "microsoft",
+      "name": "Microsoft Woodward Data Center (Eco Business Park)",
+      "city": "Woodward",
+      "state": "IA",
+      "country": "US",
+      "lat": 41.85528,
+      "lon": -93.92056,
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": null,
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Microsoft bought about 600 acres of industrial-zoned land in the Woodward Eco Business Park, Woodward (Dallas County), Iowa, for data center development (Newsweek). A Microsoft spokesperson said the project is at the earliest phase of planning and development. Construction Review Online reports Microsoft closed on the purchase on October 8, 2026. Capacity, investment and jobs have not been disclosed. Coordinates are the Woodward city centroid, not the parcel.",
+      "source_url": "https://www.newsweek.com/man-dragged-from-iowa-meeting-protesting-microsoft-data-center-12560823",
+      "source_title": "Newsweek — Man dragged from Iowa meeting protesting Microsoft data center",
+      "captured_at": "2026-10-18",
+      "project_page_url": null,
+      "acreage": 600.0,
+      "power_mw": null,
+      "gpu_count": null,
+      "offtaker": "Microsoft",
+      "updates": [
+        {
+          "date": "2026-10-12",
+          "kind": "news",
+          "title": "Woodward holds residents-only Oct 12 event on Microsoft land purchase after council meeting canceled",
+          "summary": "A Microsoft spokesperson said the project is at the earliest phase of planning and development. A resident was removed from the meeting after a confrontation with security and police. The city restricted the event to Woodward residents.",
+          "authority": "City of Woodward",
+          "upcoming": false,
+          "source_url": "https://www.newsweek.com/man-dragged-from-iowa-meeting-protesting-microsoft-data-center-12560823",
+          "source_title": "Newsweek — Man dragged from Iowa meeting protesting Microsoft data center"
+        }
+      ]
     }
   ]
 }

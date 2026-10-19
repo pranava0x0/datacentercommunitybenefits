@@ -191,7 +191,7 @@ Counts are left out on purpose; they go stale. Run
 │   ├── probe.py                # Does the cited page say what the record claims? (evidence gate)
 │   ├── validate_moratoriums.py # Moratorium link-liveness / completeness audit
 │   ├── build_signatories.py    # Pledge roster builder (White House page → signatories.json)
-│   └── build_rate_cases.py     # Rate-case seed builder
+│   (rate cases: edit data/seed/rate_cases.json directly)
 ├── connectors/                 # Research accelerators (scout, recheck, research harvest)
 ├── docs/                       # GitHub Pages root (deploys from main:/docs)
 │   ├── index.html · styles.css · app.js
