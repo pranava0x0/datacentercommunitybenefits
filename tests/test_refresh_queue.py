@@ -59,9 +59,19 @@ def test_every_record_owner_is_a_unit() -> None:
     for p in projects:
         assert f"site:{p['id']}" in units
     for c in companies:
+        if c.get("international_only"):
+            continue  # owned by its sites' country unit (v6)
         assert f"company:{c['slug']}" in units
     states = {k.split(":", 1)[1] for k, u in units.items() if u.kind == "state"}
     assert states == set(rq.state_names()) | {rq.FEDERAL}
+
+
+def test_every_international_record_lands_in_its_country_unit() -> None:
+    units = rq.derive_units()
+    intl = json.loads((SEED / "international.json").read_text())
+    for kind in ("policies", "moratoriums", "projects", "claims"):
+        for r in intl[kind]:
+            assert r["id"] in units[f"country:{r['country']}"].records.get(kind, []), r["id"]
 
 
 def test_every_moratorium_lands_in_a_state_unit() -> None:

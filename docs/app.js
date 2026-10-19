@@ -55,6 +55,10 @@ const COMPANY_SLUGS = [
   "prologis",
   "sb-energy",
   "brookfield",
+  // v6: operators tracked only for their international sites.
+  "nscale",
+  "segro",
+  "goodman",
 ];
 
 const STANCE_LABELS = {
@@ -759,6 +763,7 @@ const VIEWS = [
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
+  { name: "world", tab: "tab-world", section: "view-world", hash: "#world" },
 ];
 
 const DEFAULT_VIEW =
@@ -766,6 +771,8 @@ const DEFAULT_VIEW =
 
 // #state/TX deep-links straight to a state panel over the Ratepayer view.
 const STATE_DEEP_LINK = /^#state\/[A-Za-z]{2}$/;
+// #country/IE opens a country page inside the International view.
+const COUNTRY_DEEP_LINK = /^#country\/[A-Za-z]{2}$/;
 
 // Scroll a tab button into the visible portion of the tabbar. Called both
 // synchronously (on tab click) and deferred (on page-load) so the active tab
@@ -827,6 +834,7 @@ function _routeFromLocation(boot) {
     closeMoratoriumDetail();
     closeTariffDetail();
     closeStatePanel();
+    if (!COUNTRY_DEEP_LINK.test(window.location.hash)) closeCountry();
     // Restore the Sites filters this entry was saved with, not whatever was
     // typed later.
     state.explorerFilters = { ...EMPTY_EXPLORER_FILTERS };
@@ -852,6 +860,11 @@ function _routeFromLocation(boot) {
     activateView(fromHash.name);
   } else if (explorerParams) {
     activateView("explorer");
+  } else if (COUNTRY_DEEP_LINK.test(window.location.hash)) {
+    // Read the code BEFORE activating: activateView rewrites the hash.
+    const code = window.location.hash.slice("#country/".length).toUpperCase();
+    activateView("world");
+    openCountry(code);
   } else if (STATE_DEEP_LINK.test(window.location.hash)) {
     // #state/TX — open the Ratepayer view, then the panel on top of it.
     // Read the code BEFORE activating: activateView rewrites the hash to
@@ -1040,6 +1053,14 @@ function activateView(name) {
     loadTariffsData().catch((err) => {
       console.error("Failed to load tariffs data:", err);
     });
+  } else if (target.name === "world") {
+    loadInternationalData()
+      .then(renderWorld)
+      .catch((err) => {
+        console.error("Failed to load international data:", err);
+        const ol = document.getElementById("world-country-list");
+        if (ol) ol.replaceChildren(el("li", "muted", "Couldn't load international records."));
+      });
   } else if (target.name === "agreements") {
     loadPoliciesData()
       .then(renderAgreementsView)
@@ -1085,8 +1106,11 @@ function ensureCompanyData() {
   if (!_companyDataPromise) {
     _companyDataPromise = (async () => {
       const companies = await fetchJson("data/companies.json");
-      state.companies = companies.companies;
-      state.companiesBySlug = new Map(state.companies.map((c) => [c.slug, c]));
+      // Every company resolves by slug; the US views list only US-tracked
+      // ones (v6: operators tracked only abroad are international_only).
+      state.allCompanies = companies.companies;
+      state.companies = companies.companies.filter((c) => !c.international_only);
+      state.companiesBySlug = new Map(state.allCompanies.map((c) => [c.slug, c]));
       updateDraftBanner(companies.generated_at);
     })();
   }
@@ -2263,6 +2287,9 @@ function renderRateCases() {
   for (const rc of cases) {
     const li = el("li", "rc-item");
     li.id = `rc-${rc.id}`;
+    // A re-render must keep the case a reader was sent to flagged (the list
+    // can render again after openRateCase marked it; seen under test load).
+    if (state.rcTarget === rc.id) li.classList.add("is-target");
 
     const head = el("div", "rc-head");
     const chip = el(
@@ -3428,6 +3455,17 @@ function renderPolicyPrinciples(all) {
     li.dataset.principle = key;
     li.append(el("h4", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
     li.append(el("p", "pb-principle-desc", POLICY_PRINCIPLE_DESCRIPTIONS[key]));
+    if (!recs.length) {
+      // heat_reuse (v6) is mainly practiced abroad: point to those records
+      // rather than render an empty card that reads as "nobody does this".
+      li.append(el("p", "pb-principle-counts", "No US records yet."));
+      const abroad = el("button", "linkish pb-see-all", "See it abroad →");
+      abroad.type = "button";
+      abroad.addEventListener("click", () => openWorldPrinciple(key));
+      li.append(abroad);
+      ol.append(li);
+      continue;
+    }
     const counts = [
       `${by("in_effect")} in effect`,
       by("proposed") ? `${by("proposed")} proposed` : null,
@@ -4043,6 +4081,7 @@ function renderHome() {
     tariffs: [t.tariffs + t.rate_cases, `${t.tariffs} tariffs · ${t.rate_cases_pending} rate cases pending`],
     companies: [t.companies, "operators"],
     pledge: [t.pledge_organizations, `organizations, plus ${t.pledge_governors} governors`],
+    world: [t.international_records, `records in ${t.international_countries} countries and the EU`],
   };
   for (const [key, [num, sub]] of Object.entries(cards)) {
     const n = document.querySelector(`.home-card-num[data-count-for="${key}"]`);
@@ -4158,6 +4197,7 @@ function openRateCase(id) {
       sel.value = "";
       renderRateCases();
     }
+    state.rcTarget = id;
     const li = document.getElementById(`rc-${id}`);
     if (!li) return;
     li.classList.add("is-target");
@@ -4189,6 +4229,7 @@ const PLEDGE_TARGETS = {
   },
   states: { view: "ratepayer", anchor: "rp-coverage-section" },
   explorer: { view: "explorer", anchor: null },
+  world: { view: "world", anchor: null },
   ratecases: {
     view: "tariffs",
     anchor: "rate-cases-section",
@@ -4273,6 +4314,7 @@ const SUBTAB_GROUPS = {
   pol: ["principles", "latest", "directory", "drafts", "evidence"],
   cba: ["strongest", "all", "features"],
   mor: ["directory", "trends", "influence"],
+  world: ["countries", "instruments", "sites"],
 };
 
 // v5: a view-level sub-tab group owns the part of the hash after the slash,
@@ -4286,6 +4328,7 @@ const VIEW_SUBTAB_GROUP = {
   policies: "pol",
   agreements: "cba",
   moratoriums: "mor",
+  world: "world",
 };
 
 // Last-clicked sub-tab per group, for this session only. Same reasoning as
@@ -9269,6 +9312,437 @@ function closeDetail() {
   refreshProjectListSelection();
   writeFiltersToUrl();
 }
+
+// --------------------------------------------------------------------------
+// International (v6, 2026-10-19) — notes/specs/SPEC_INTERNATIONAL.md
+// --------------------------------------------------------------------------
+// Registries mirror schema.py (parity-tested in tests/test_international.py).
+const COUNTRY_NAMES = {
+  US: "United States",
+  IE: "Ireland",
+  GB: "United Kingdom",
+  FR: "France",
+  SE: "Sweden",
+  FI: "Finland",
+  GR: "Greece",
+  AU: "Australia",
+  SG: "Singapore",
+  CA: "Canada",
+  CL: "Chile",
+  AR: "Argentina",
+};
+const SUPRANATIONAL_NAMES = { EU: "European Union" };
+const EU_MEMBERS = [
+  "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE",
+  "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE",
+];
+const SUBDIVISION_NAMES = {
+  "AU-NSW": "New South Wales",
+  "AU-VIC": "Victoria",
+  "CA-QC": "Québec",
+  "CA-AB": "Alberta",
+  "GB-ENG": "England",
+  "GB-SCT": "Scotland",
+  "GB-WLS": "Wales",
+  "FR-IDF": "Île-de-France",
+  "IE-D": "Dublin",
+  "GR-I": "Attica",
+  "FI-18": "Uusimaa",
+  "FI-09": "Kymenlaakso",
+  "SE-AB": "Stockholm County",
+  "SE-X": "Gävleborg County",
+  "SE-M": "Skåne County",
+  "CL-RM": "Santiago Metropolitan Region",
+  "CL-VS": "Valparaíso",
+  "AR-B": "Buenos Aires Province",
+  "AR-C": "Ciudad Autónoma de Buenos Aires",
+  "AR-Q": "Neuquén",
+  "AR-U": "Chubut",
+};
+const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS"];
+const LANGUAGE_NAMES = {
+  en: "English", fr: "French", sv: "Swedish", fi: "Finnish", el: "Greek", ga: "Irish", es: "Spanish",
+};
+const TRANSLATION_SOURCE_LABELS = {
+  official: "Official English version",
+  human: "English translation",
+  machine: "Machine translation (AI). The original is authoritative.",
+};
+const MORATORIUM_FORMALITIES = ["formal", "administrative", "de_facto"];
+const MORATORIUM_FORMALITY_LABELS = {
+  formal: "Formal pause",
+  administrative: "Administrative pause",
+  de_facto: "Unofficial pause",
+};
+// US dollars per unit of each currency: Federal Reserve G.5A, 2025 annual
+// averages (released 2026-01-05). Display only: never stored on a record,
+// never summed. CLP and ARS are not in G.5A, so they get no approximation.
+const FX_USD_PER_UNIT = {
+  USD: 1,
+  EUR: 1.1306,
+  GBP: 1.3192,
+  AUD: 0.6450,
+  CAD: 1 / 1.3973,
+  SGD: 1 / 1.3065,
+  SEK: 1 / 9.8060,
+};
+const FX_SOURCE_NOTE = "Federal Reserve G.5A, 2025 annual average";
+
+function countryName(code) {
+  return COUNTRY_NAMES[code] || SUPRANATIONAL_NAMES[code] || code;
+}
+
+function intlPlace(r) {
+  const bits = [r.locality, SUBDIVISION_NAMES[r.subdivision], countryName(r.country)];
+  return [...new Set(bits.filter(Boolean))].join(", ");
+}
+
+// "€2.1 billion (≈ US$2.4B, Federal Reserve G.5A, 2025 annual average)".
+function formatMoney(m) {
+  if (!m) return "";
+  const rate = FX_USD_PER_UNIT[m.currency];
+  if (m.currency === "USD" || !rate) return m.as_stated;
+  return `${m.as_stated} (≈ ${formatUsd(m.amount * rate)})`;
+}
+
+// A verbatim quote in its original language, then its labelled translation.
+function quoteBlock(text, lang, translation) {
+  const wrap = el("div", "world-quote");
+  const bq = el("blockquote", "claim-quote", text);
+  if (lang) bq.setAttribute("lang", lang);
+  wrap.append(bq);
+  if (translation && translation.text) {
+    const tr = el("p", "world-translation");
+    tr.append(
+      el("span", "world-translation-label", TRANSLATION_SOURCE_LABELS[translation.by] || "Translation"),
+      el("span", "world-translation-text", translation.text)
+    );
+    wrap.append(tr);
+  }
+  return wrap;
+}
+
+function sourceLine(r) {
+  const p = el("p", "cba-src");
+  const a = el("a", null, `${r.source_title} ↗`);
+  a.href = String(r.wayback_url || r.source_url);
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  p.append(a);
+  if (r.source_lang && r.source_lang !== "en") {
+    p.append(el("span", "muted", ` · in ${LANGUAGE_NAMES[r.source_lang] || r.source_lang}`));
+  }
+  return p;
+}
+
+let _intlPromise = null;
+function loadInternationalData() {
+  if (!_intlPromise) {
+    _intlPromise = fetchJson("data/international.json")
+      .then((d) => {
+        state.intl = d;
+        return d;
+      })
+      .catch((err) => {
+        _intlPromise = null;
+        throw err;
+      });
+  }
+  return _intlPromise;
+}
+
+function intlRecordsFor(code) {
+  const d = state.intl;
+  const inCountry = (r) => r.country === code;
+  const eu = EU_MEMBERS.includes(code)
+    ? d.policies.filter((p) => p.scope === "supranational" && (!p.applies_to || p.applies_to.includes(code)))
+    : [];
+  return {
+    policies: d.policies.filter(inCountry),
+    moratoriums: d.moratoriums.filter(inCountry),
+    projects: d.projects.filter(inCountry),
+    eu,
+  };
+}
+
+function countWords(rs) {
+  const parts = [];
+  if (rs.policies.length) parts.push(`${rs.policies.length} rule${rs.policies.length === 1 ? "" : "s"}`);
+  if (rs.moratoriums.length) parts.push(`${rs.moratoriums.length} pause${rs.moratoriums.length === 1 ? "" : "s"}`);
+  if (rs.projects.length) parts.push(`${rs.projects.length} site${rs.projects.length === 1 ? "" : "s"}`);
+  if (rs.eu.length) parts.push(`${rs.eu.length} EU rule${rs.eu.length === 1 ? "" : "s"}`);
+  return parts.join(" · ") || "No records yet";
+}
+
+function intlPolicyCard(p, hTag = "h3") {
+  const li = el("li", "cba-card world-record");
+  li.id = `world-rec-${p.id}`;
+  li.dataset.id = p.id;
+  const head = el("header", "cba-head");
+  head.append(
+    el("span", `badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}`, POLICY_STATUS_LABELS[p.status] || p.status),
+    el("span", "cba-kind", POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument),
+    el(hTag, "cba-title", p.title),
+    el("p", "cba-facts", [intlPlace(p), p.date ? formatAsOf(p.date) : null, p.identifier].filter(Boolean).join(" · "))
+  );
+  li.append(head);
+  if (p.value) li.append(el("p", "cba-value", formatMoney(p.value)));
+  li.append(el("p", "cba-summary", p.summary));
+  const terms = el("ul", "cba-terms");
+  p.key_terms.forEach((t, i) => {
+    const item = el("li");
+    const tr = p.key_terms_translation;
+    item.append(quoteBlock(t, p.source_lang, tr ? { text: tr.items[i], by: tr.by } : null));
+    terms.append(item);
+  });
+  li.append(terms);
+  if (p.principles && p.principles.length) {
+    li.append(el("p", "muted world-principles", `Principles: ${p.principles.map((k) => POLICY_PRINCIPLE_SHORT[k] || k).join(" · ")}`));
+  }
+  li.append(sourceLine(p));
+  return li;
+}
+
+function intlPauseCard(m, hTag = "h3") {
+  const li = el("li", "cba-card world-record");
+  li.id = `world-rec-${m.id}`;
+  li.dataset.id = m.id;
+  const status = m.lifted_date ? `Lifted ${formatAsOf(m.lifted_date)}` : m.status;
+  const head = el("header", "cba-head");
+  head.append(
+    el("span", `badge badge-moratorium-status-${m.status}`, status),
+    el("span", `cba-kind world-formality world-formality-${m.formality || "formal"}`, MORATORIUM_FORMALITY_LABELS[m.formality || "formal"]),
+    el(hTag, "cba-title", `${m.jurisdiction}: data center pause`),
+    el("p", "cba-facts", [intlPlace(m), m.enacted_date ? formatAsOf(m.enacted_date) : null, m.duration_description].filter(Boolean).join(" · "))
+  );
+  li.append(head, el("p", "cba-summary", m.summary), sourceLine(m));
+  return li;
+}
+
+function intlSiteCard(p, hTag = "h3") {
+  const d = state.intl;
+  const li = el("li", "cba-card world-record");
+  li.id = `world-rec-${p.id}`;
+  li.dataset.id = p.id;
+  const co = state.companiesBySlug && state.companiesBySlug.get(p.company_slug);
+  const head = el("header", "cba-head");
+  head.append(
+    el("span", `status-pill status-${p.status}`, STATUS_LABELS[p.status] || p.status),
+    el("span", "cba-kind", co ? co.name : p.company_slug),
+    el(hTag, "cba-title", p.name),
+    el("p", "cba-facts", [intlPlace(p), String(p.announced_year)].join(" · "))
+  );
+  li.append(head);
+  const figs = [
+    p.power_mw ? formatPower(p.power_mw) : null,
+    p.import_capacity_mva ? `${p.import_capacity_mva} MVA` : null,
+    p.claimed_investment ? formatMoney(p.claimed_investment) : null,
+    p.claimed_jobs ? `${p.claimed_jobs.toLocaleString()} jobs claimed` : null,
+  ].filter(Boolean);
+  if (figs.length) li.append(el("p", "cba-value", figs.join(" · ")));
+  if (p.notes) li.append(el("p", "cba-summary", p.notes));
+  for (const c of d.claims.filter((c) => c.project_id === p.id)) {
+    li.append(quoteBlock(c.statement, c.statement_lang, c.statement_translation));
+  }
+  const resps = d.responses.filter((r) => r.project_id === p.id);
+  if (resps.length) {
+    const ul = el("ul", "world-responses");
+    for (const r of resps) {
+      const item = el("li", `world-response stance-${r.stance}`);
+      item.append(
+        el("span", `badge badge-stance-${r.stance}`, r.stance),
+        el("span", null, ` ${formatAsOf(r.date)}: ${r.summary} `)
+      );
+      item.append(sourceLine(r));
+      ul.append(item);
+    }
+    li.append(ul);
+  }
+  li.append(sourceLine(p));
+  return li;
+}
+
+function worldInstruments() {
+  const d = state.intl;
+  return [
+    ...d.policies.map((p) => ({ kind: "policy", r: p, date: p.date || "" })),
+    ...d.moratoriums.map((m) => ({ kind: "pause", r: m, date: m.enacted_date || m.captured_at || "" })),
+  ].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+function worldStatusOf(x) {
+  const s = x.r.status;
+  if (x.kind === "pause") return x.r.lifted_date || s === "failed" ? "ended" : s === "enacted" ? "in_effect" : s;
+  return s === "failed" ? "ended" : s;
+}
+
+function renderWorldInstruments() {
+  const c = document.getElementById("world-country-filter")?.value || "";
+  const pr = document.getElementById("world-principle-filter")?.value || "";
+  const st = document.getElementById("world-status-filter")?.value || "";
+  const all = worldInstruments();
+  const rows = all
+    .filter((x) => !c || x.r.country === c)
+    .filter((x) => !pr || (x.kind === "policy" && (x.r.principles || []).includes(pr)))
+    .filter((x) => !st || worldStatusOf(x) === st);
+  const ol = document.getElementById("world-instrument-list");
+  ol.replaceChildren(...rows.map((x) => (x.kind === "policy" ? intlPolicyCard(x.r) : intlPauseCard(x.r))));
+  if (!rows.length) ol.replaceChildren(el("li", "muted", "No records match the current filters."));
+  const meta = document.getElementById("world-instruments-meta");
+  if (meta) meta.textContent = `${rows.length} of ${all.length} records`;
+}
+
+function renderWorld() {
+  const d = state.intl;
+  if (!d) return;
+  const countries = d.countries.slice().sort((a, b) => countryName(a.code).localeCompare(countryName(b.code)));
+  const nPause = d.moratoriums.length;
+  const stats = document.getElementById("world-stats");
+  if (stats) {
+    // A zero tile would assert a finding ("no pauses abroad") the curation
+    // hasn't made; only populated counts get a tile.
+    stats.innerHTML = [
+      [countries.length, "Countries and the EU"],
+      [d.policies.length, "Rules and programmes"],
+      [nPause, "Pauses"],
+      [d.projects.length, "Sites"],
+    ]
+      .filter(([v]) => v > 0)
+      .map(([v, l]) => `<li class="rp-stat"><span class="rp-stat-value">${escapeHtml(String(v))}</span><span class="rp-stat-label">${escapeHtml(l)}</span></li>`)
+      .join("");
+  }
+  setSubtabCount("world-countries-count", countries.length);
+  setSubtabCount("world-instruments-count", d.policies.length + nPause);
+  setSubtabCount("world-sites-count", d.projects.length);
+
+  const list = document.getElementById("world-country-list");
+  list.replaceChildren(
+    ...countries.map((c) => {
+      const li = el("li", "world-card");
+      const btn = el("button", "home-card world-card-btn");
+      btn.type = "button";
+      btn.dataset.country = c.code;
+      btn.append(
+        el("span", "home-card-title", countryName(c.code)),
+        el("span", "home-card-sub", countWords(intlRecordsFor(c.code))),
+        el("span", "home-card-dek", c.summary.split(/(?<=\.)\s/)[0])
+      );
+      btn.addEventListener("click", () => openCountry(c.code, { push: true }));
+      li.append(btn);
+      return li;
+    })
+  );
+
+  const cSel = document.getElementById("world-country-filter");
+  if (cSel && !cSel.dataset.populated) {
+    for (const c of countries) cSel.append(new Option(countryName(c.code), c.code));
+    const pSel = document.getElementById("world-principle-filter");
+    const used = new Set(d.policies.flatMap((p) => p.principles || []));
+    for (const k of POLICY_PRINCIPLES.filter((k) => used.has(k))) pSel.append(new Option(POLICY_PRINCIPLE_SHORT[k], k));
+    for (const id of ["world-country-filter", "world-principle-filter", "world-status-filter"]) {
+      document.getElementById(id).addEventListener("change", renderWorldInstruments);
+    }
+    cSel.dataset.populated = "1";
+  }
+  renderWorldInstruments();
+  const sites = document.getElementById("world-site-list");
+  sites.replaceChildren(...d.projects.map((p) => intlSiteCard(p)));
+  if (!d.projects.length) sites.replaceChildren(el("li", "muted", "No sites recorded yet."));
+  wireBtn("world-country-back", () => closeCountry({ push: true }));
+  if (state.pendingCountry) {
+    const code = state.pendingCountry;
+    state.pendingCountry = null;
+    openCountry(code);
+  }
+  document.dispatchEvent(new CustomEvent("dcb:world-ready"));
+}
+
+// Frameworks → International, filtered to one principle.
+function openWorldPrinciple(key) {
+  activateView("world");
+  setActiveSubtab("world", "instruments");
+  loadInternationalData().then(() => {
+    const sel = document.getElementById("world-principle-filter");
+    if (sel && [...sel.options].some((o) => o.value === key)) {
+      sel.value = key;
+      renderWorldInstruments();
+    }
+  });
+}
+
+// The country page: a panel inside #view-world (deep link #country/XX).
+function openCountry(code, { push = false } = {}) {
+  const d = state.intl;
+  if (!d) {
+    state.pendingCountry = code;
+    return;
+  }
+  const c = d.countries.find((x) => x.code === code);
+  if (!c) return;
+  if (push && !state._routing) history.pushState(null, "", window.location.pathname + `#country/${code}`);
+  else if (!state._routing) history.replaceState(null, "", window.location.pathname + `#country/${code}`);
+  const rs = intlRecordsFor(code);
+  const body = document.getElementById("world-country-body");
+  const parts = [el("h3", "acc-title world-country-name", countryName(code)), el("p", "hero-dek", c.summary)];
+  const section = (title, items, render) => {
+    if (!items.length) return;
+    parts.push(el("h4", "rp-subhead", title));
+    const ol = el("ol", "world-records");
+    ol.setAttribute("role", "list");
+    // Card titles sit under this h4, so they drop to h5 here.
+    ol.append(...items.map((r) => render(r, "h5")));
+    parts.push(ol);
+  };
+  section("Rules and programmes", rs.policies, intlPolicyCard);
+  section("Pauses", rs.moratoriums, intlPauseCard);
+  section("Sites", rs.projects, intlSiteCard);
+  section("EU rules that apply here", rs.eu, intlPolicyCard);
+  if (!rs.policies.length && !rs.moratoriums.length && !rs.projects.length && !rs.eu.length) {
+    parts.push(el("p", "muted", "No records yet."));
+  }
+  // Background after the records: readers come for the rules and sites.
+  if (c.context && c.context.length) {
+    const ul = el("ul", "world-context");
+    for (const f of c.context) {
+      const li = el("li");
+      li.append(el("span", null, f.statement + " "), sourceLine(f));
+      ul.append(li);
+    }
+    parts.push(ul);
+  }
+  if (c.regulators && c.regulators.length) {
+    const p = el("p", "muted world-regulators");
+    p.append("Regulators: ");
+    c.regulators.forEach((r, i) => {
+      const a = el("a", null, r.acronym ? `${r.name} (${r.acronym})` : r.name);
+      a.href = String(r.url);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      p.append(a, i < c.regulators.length - 1 ? " · " : "");
+    });
+    parts.push(p);
+  }
+  body.replaceChildren(...parts);
+  document.getElementById("world-country").hidden = false;
+  document.getElementById("world-panes").hidden = true;
+  state.openCountry = code;
+  document.getElementById("world-country-back")?.focus({ preventScroll: true });
+  document.getElementById("world-country").scrollIntoView({ block: "start" });
+}
+
+function closeCountry({ push = false } = {}) {
+  const panel = document.getElementById("world-country");
+  if (!panel || panel.hidden) return;
+  panel.hidden = true;
+  document.getElementById("world-panes").hidden = false;
+  state.openCountry = null;
+  if (state.activeView === "world" && !state._routing) {
+    const url = window.location.pathname + "#world";
+    if (push) history.pushState(null, "", url);
+    else history.replaceState(null, "", url);
+  }
+}
+
 
 // --------------------------------------------------------------------------
 // Helpers

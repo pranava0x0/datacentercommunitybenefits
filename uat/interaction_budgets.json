@@ -2,7 +2,7 @@
  "_note": "Max default-context total (taps+swipes+side-swipes+typed queries) per task, per device. Tightened 2026-10-18 to measured (+1 where vertical swipes make the count layout-sensitive). Lower a budget when a path gets cheaper; raise one only with a note in uat.md.",
  "mobile": {
   "home_latest": 0,
-  "home_coming_up": 4,
+  "home_coming_up": 3,
   "home_sections": 0,
   "latest_item_record": 4,
   "pledge_signatory": 6,
@@ -18,7 +18,8 @@
   "draft_county": 1,
   "draft_state": 3,
   "impact_water": 5,
-  "moratorium_older": 4
+  "moratorium_older": 4,
+  "world_country": 5
  },
  "tablet": {
   "home_latest": 0,
@@ -38,7 +39,8 @@
   "draft_county": 1,
   "draft_state": 3,
   "impact_water": 2,
-  "moratorium_older": 4
+  "moratorium_older": 4,
+  "world_country": 2
  },
  "desktop": {
   "home_latest": 0,
@@ -58,6 +60,7 @@
   "draft_county": 1,
   "draft_state": 3,
   "impact_water": 2,
-  "moratorium_older": 4
+  "moratorium_older": 4,
+  "world_country": 2
  }
 }

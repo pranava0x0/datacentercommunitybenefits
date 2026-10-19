@@ -32,12 +32,14 @@ from pathlib import Path
 from pydantic import ValidationError
 
 from schema import (
+    COUNTRIES,
     RATEPAYER_PLEDGE_DATE,
     THEMES,
     ClaimsPayload,
     CompaniesPayload,
     MoratoriumsPayload,
     PoliciesPayload,
+    InternationalPayload,
     ProjectsPayload,
     RateCasesPayload,
     ResponsesPayload,
@@ -62,6 +64,8 @@ PAYLOAD_FILES: dict[str, type] = {
     "signatories": SignatoriesPayload,
     "rate_cases": RateCasesPayload,
     "policies": PoliciesPayload,
+    # v6: every non-US record, one lazy file for the International tab.
+    "international": InternationalPayload,
 }
 
 
@@ -79,6 +83,22 @@ def _load_payload(name: str, model: type):
     except ValidationError as e:
         logger.error("Validation failed for %s.json:\n%s", name, e)
         raise
+
+
+def _check_international_refs(companies: CompaniesPayload, intl) -> list[str]:
+    """Company slugs in international.json must resolve against companies.json
+    (the payload validator already checks refs inside the file)."""
+    slugs = {c.slug for c in companies.companies}
+    errors = []
+    for kind in ("projects", "claims"):
+        for r in getattr(intl, kind):
+            if r.company_slug not in slugs:
+                errors.append(f"international.json: {kind[:-1]} {r.id!r} references unknown company {r.company_slug!r}")
+    for p in intl.policies:
+        for slug in p.company_slugs or []:
+            if slug not in slugs:
+                errors.append(f"international.json: policy {p.id!r} references unknown company {slug!r}")
+    return errors
 
 
 def _check_cross_refs(
@@ -591,6 +611,7 @@ def _build_home(payloads, today: date) -> dict:
     claims = payloads["claims"].claims
     morats = payloads["moratoriums"].moratoriums
     policies = payloads["policies"].policies
+    intl = payloads["international"]
     tariffs = payloads["tariffs"].tariffs
     rate_cases = payloads["rate_cases"].rate_cases
     sig = payloads["signatories"]
@@ -606,7 +627,9 @@ def _build_home(payloads, today: date) -> dict:
     totals = {
         "sites": len(projects),
         "contested_sites": len(contested),
-        "companies": len(payloads["companies"].companies),
+        # US-tracked operators only: international_only ones (v6) live on
+        # the International tab, not the Companies tab this card opens.
+        "companies": sum(not c.international_only for c in payloads["companies"].companies),
         "moratoriums": len(morats),
         "moratoriums_enacted": sum(m.status == "enacted" for m in morats),
         "policies": len(policies),
@@ -624,6 +647,11 @@ def _build_home(payloads, today: date) -> dict:
         "tariffs": len(tariffs),
         "rate_cases": len(rate_cases),
         "rate_cases_pending": sum(r.status == "pending" for r in rate_cases),
+        # v6: International tab card. Records, never money (no cross-currency sums).
+        "international_countries": sum(c.code in COUNTRIES for c in intl.countries),
+        "international_records": sum(
+            len(getattr(intl, k)) for k in ("policies", "moratoriums", "projects")
+        ),
         "pledge_organizations": len(orgs),
         "pledge_governors": len(sig.signatories) - len(orgs),
         "roster_as_of": sig.roster_as_of.isoformat() if sig.roster_as_of else None,
@@ -750,9 +778,11 @@ def _write_home(payloads, *, pretty: bool) -> int:
 # payloads omit them (the frontend treats a missing value as the default).
 # international.json keeps them: there the value is the point.
 _V6_US_DEFAULTS = {
+    "international_only": False,
     "country": "US", "source_lang": "en", "statement_lang": "en", "formality": "formal",
 }
 _V6_STRIP = {
+    "companies": ("international_only",),
     "claims": ("country", "statement_lang"),
     "policies": ("country", "source_lang"),
     "moratoriums": ("country", "source_lang", "formality"),
@@ -808,6 +838,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         payloads.get("policies"),
         payloads.get("moratoriums"),
     )
+    cross_errors += _check_international_refs(payloads["companies"], payloads["international"])
     if cross_errors:
         for err in cross_errors:
             logger.error(err)

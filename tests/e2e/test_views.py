@@ -1287,8 +1287,16 @@ class TestPoliciesView:
         n = page.evaluate("() => POLICY_PRINCIPLES.length")
         cards = page.locator("#policy-principles .pb-principle")
         assert cards.count() == n
+        us = json.loads((ROOT / "docs/data/policies.json").read_text())["policies"]
+        used_us = {k for p in us for k in p["principles"]}
         for i in range(n):
-            assert cards.nth(i).locator(".pb-example").count() >= 1, f"card {i} has no example"
+            card = cards.nth(i)
+            if card.get_attribute("data-principle") in used_us:
+                assert card.locator(".pb-example").count() >= 1, f"card {i} has no example"
+            else:
+                # A principle practiced only abroad (heat_reuse, v6) points there
+                # instead of rendering an empty card.
+                expect(card.locator(".pb-see-all")).to_have_text("See it abroad →")
 
     def test_see_all_filters_directory_by_principle(self, page: Page, base_url: str):
         page.goto(base_url + "/#policies")
@@ -3905,5 +3913,100 @@ class TestIssues78And79:
             page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=E2E_WAIT)
             sc = page.evaluate("() => filteredAssessedProjects().length")
             assert page.locator("#rp-scorecard > .rp-card").count() == min(sc, page.evaluate("() => SCORECARD_PHONE_PAGE"))
+        finally:
+            ctx.close()
+
+
+class TestInternational:
+    """v6 International tab (notes/specs/SPEC_INTERNATIONAL.md)."""
+
+    @staticmethod
+    def _seed():
+        return json.loads((ROOT / "docs/data/international.json").read_text())
+
+    def test_international_payload_is_lazy(self, page: Page, base_url: str):
+        seen = []
+        page.on("request", lambda r: seen.append(r.url) if "international.json" in r.url else None)
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.wait_for_load_state("networkidle")
+        assert not seen, "international.json must not load until the tab opens"
+        page.click("#tab-world")
+        page.wait_for_selector("#world-country-list .world-card", timeout=E2E_WAIT)
+        assert len(seen) == 1
+
+    def test_country_cards_cover_every_country(self, page: Page, base_url: str):
+        page.goto(base_url + "/#world")
+        page.wait_for_selector("#world-country-list .world-card", timeout=E2E_WAIT)
+        codes = sorted(c["code"] for c in self._seed()["countries"])
+        got = sorted(page.locator("#world-country-list [data-country]").evaluate_all("els => els.map(e => e.dataset.country)"))
+        assert got == codes
+
+    def test_country_deep_link_and_back(self, page: Page, base_url: str):
+        seed = self._seed()
+        code = next(c["code"] for c in seed["countries"] if any(p["country"] == c["code"] for p in seed["policies"]))
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-world")
+        page.click(f'#world-country-list [data-country="{code}"]')
+        expect(page.locator("#world-country")).to_be_visible()
+        assert page.url.endswith(f"#country/{code}")
+        page.go_back()
+        expect(page.locator("#world-panes")).to_be_visible()
+        expect(page.locator("#world-country")).to_be_hidden()
+        page.goto(base_url + f"/?i=dl#country/{code}")
+        expect(page.locator("#world-country")).to_be_visible()
+        expect(page.locator("#world-country-body .world-country-name")).to_have_text(page.evaluate(f"() => countryName('{code}')"))
+
+    def test_non_english_quotes_show_original_then_labelled_translation(self, page: Page, base_url: str):
+        seed = self._seed()
+        pol = next((p for p in seed["policies"] if p.get("source_lang", "en") != "en"), None)
+        if pol is None:
+            pytest.skip("no non-English policy in the seed")
+        page.goto(base_url + "/#world/instruments")
+        card = page.locator(f'#world-instrument-list [data-id="{pol["id"]}"]')
+        expect(card).to_be_visible()
+        bq = card.locator(f'blockquote[lang="{pol["source_lang"]}"]').first
+        expect(bq).to_have_text(pol["key_terms"][0])
+        expect(card.locator(".world-translation-label").first).to_contain_text("Machine translation")
+
+    def test_money_shows_as_stated_with_an_approximation_only_where_a_rate_exists(self, page: Page, base_url: str):
+        page.goto(base_url + "/#world")
+        page.wait_for_function("() => state.intl", timeout=E2E_WAIT)
+        out = page.evaluate(
+            "() => [formatMoney({amount: 2e9, currency: 'EUR', as_stated: '€2bn'}),"
+            " formatMoney({amount: 1e9, currency: 'CLP', as_stated: 'CLP 1bn'})]"
+        )
+        assert out[0].startswith("€2bn (≈ ") and "$" in out[0]
+        assert out[1] == "CLP 1bn"
+
+    def test_us_views_unchanged_by_international(self, page: Page, base_url: str):
+        # The US payloads are partitioned; no international record leaks in.
+        page.goto(base_url + "/#explorer")
+        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+        assert page.evaluate("() => state.projects.every(p => (p.country || 'US') === 'US')")
+
+
+    def test_principle_practiced_only_abroad_links_to_international(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector('#policy-principles [data-principle="heat_reuse"]', timeout=E2E_WAIT)
+        page.click('#policy-principles [data-principle="heat_reuse"] .pb-see-all')
+        expect(page.locator("#subpane-world-instruments")).to_be_visible()
+        expect(page.locator("#world-principle-filter")).to_have_value("heat_reuse")
+        assert page.locator("#world-instrument-list .world-record").count() >= 1
+
+    @pytest.mark.parametrize("width", [360, 375, 390])
+    def test_phone_tab_bar_stays_two_rows(self, browser, base_url: str, width: int):
+        # A ninth tab (v6) wrapped to a third row and pushed every view down
+        # ~44px; the interaction-cost budgets caught it. Derived from VIEWS.
+        ctx = browser.new_context(viewport={"width": width, "height": 800}, is_mobile=True, has_touch=True)
+        page = ctx.new_page()
+        try:
+            page.goto(base_url + "/")
+            page.wait_for_selector("#tab-world", timeout=E2E_WAIT)
+            rows = page.evaluate(
+                "() => new Set(VIEWS.map(v => Math.round(document.getElementById(v.tab).getBoundingClientRect().y))).size"
+            )
+            assert rows <= 2, f"{rows} tab rows at {width}px"
         finally:
             ctx.close()

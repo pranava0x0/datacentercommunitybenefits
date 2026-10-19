@@ -84,6 +84,8 @@ class TestSeedCoverage:
     OPTIONAL_ENTITIES = {
         "wonder-valley", "qts", "crusoe", "coreweave", "prologis",
         "sb-energy", "brookfield",
+        # v6: international-only operators (owner decision 2026-10-19).
+        "nscale", "segro", "goodman",
     }
 
     def test_all_required_hyperscalers_present(self, companies):

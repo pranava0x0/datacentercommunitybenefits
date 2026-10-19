@@ -133,6 +133,9 @@
   --co-crusoe: #8e6b4a;
   --co-coreweave: #5b4a8e;
   --co-prologis: #7a5a3a;
+  --co-nscale: #4a5d7a;
+  --co-segro: #6b5a7a;
+  --co-goodman: #5a7a5f;
   --co-sb-energy: #8e4a6b;
   --co-brookfield: #5a6b3a;
 
@@ -255,6 +258,9 @@
   --co-crusoe: #d6b08a;
   --co-coreweave: #a896d8;
   --co-prologis: #c89a6a;
+  --co-nscale: #8fa6c8;
+  --co-segro: #b29cc8;
+  --co-goodman: #9cc8a2;
   --co-sb-energy: #d68ab0;
   --co-brookfield: #a8c47a;
 
@@ -6510,4 +6516,64 @@ button.depth-chip:focus-visible {
 /* Paging controls are the only way to reach hidden rows: full touch target. */
 @media (pointer: coarse) {
   .project-list-more .btn-ghost { min-height: 44px; padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* ===================== International view (v6) ===================== */
+/* Short tab label ("World") only where the long ones are hidden. */
+.tab-short { display: none; }
+/* Mirrors the 640px rule that hides .tab-long. */
+@media (max-width: 640px) {
+  .tab-long + .tab-short { display: inline; }
+}
+.world-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0.75rem;
+}
+.world-card-btn { width: 100%; text-align: left; }
+.world-records { list-style: none; padding: 0; margin: 0.5rem 0 0; display: grid; gap: 0.75rem; }
+.world-quote { margin: 0.4rem 0; }
+.world-translation { margin: 0.25rem 0 0; font-size: var(--fs-sm); }
+.world-translation-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.world-formality-de_facto, .world-formality-administrative { font-style: italic; }
+.world-responses { list-style: none; padding: 0; margin: 0.5rem 0; display: grid; gap: 0.4rem; }
+.world-context { margin: 0.5rem 0 1rem; padding-left: 1.1rem; }
+.world-note { margin-top: 1.5rem; font-size: var(--fs-xs); }
+.world-country { margin-bottom: 1rem; }
+/* Phones: country cards as a compact list; the summary is on the country page. */
+@media (max-width: 640px) {
+  .world-card .home-card-dek { display: none; }
+  .world-cards { gap: 0.4rem; }
+}
+/* Nine tabs (v6) must still fit two rows on a 360-390px phone; a third row
+   pushed every view's content down ~44px (interaction-cost regressions). */
+@media (max-width: 640px) {
+  .tab { padding-left: 6px; padding-right: 6px; }
+}
+@media (max-width: 380px) {
+  .tab { font-size: var(--fs-sm); padding-left: 5px; padding-right: 5px; }
+}
+/* v6: eight cards (International added). One column of eight pushed Home's
+   Latest feed off the first phone screen, so phones get two columns with the
+   number under the title. */
+@media (max-width: 600px) {
+  .home-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "num" "sub";
+    align-items: start;
+    padding: 8px 12px;
+  }
+  .home-card-num { font-size: var(--fs-xl); }
+  .home-card-sub { font-size: var(--fs-xs); }
 }

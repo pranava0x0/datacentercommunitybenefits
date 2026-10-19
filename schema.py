@@ -75,6 +75,10 @@ COMPANY_SLUGS: tuple[str, ...] = (
     # despite having quotable material. See BACKLOG.md.
     "sb-energy",
     "brookfield",
+    # v6: operators tracked only for their international sites.
+    "nscale",
+    "segro",
+    "goodman",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
@@ -117,6 +121,9 @@ CompanySlug = Literal[
     "prologis",
     "sb-energy",
     "brookfield",
+    "nscale",
+    "segro",
+    "goodman",
 ]
 # withdrawn (#78): the operator abandoned the site. The record stays, as
 # history, but leaves the pledge scorecard and the investment/jobs totals.
@@ -299,6 +306,8 @@ COUNTRIES: dict[str, str] = {
     "AU": "Australia",
     "SG": "Singapore",
     "CA": "Canada",
+    "CL": "Chile",
+    "AR": "Argentina",
 }
 # ISO 3166-1 "exceptionally reserved" code; supranational policies only.
 SUPRANATIONAL: dict[str, str] = {"EU": "European Union"}
@@ -323,18 +332,25 @@ SUBDIVISIONS: dict[str, str] = {
     "SE-AB": "Stockholm County",
     "SE-X": "Gävleborg County",
     "SE-M": "Skåne County",
+    "CL-RM": "Santiago Metropolitan Region",
+    "CL-VS": "Valparaíso",
+    "AR-B": "Buenos Aires Province",
+    "AR-C": "Ciudad Autónoma de Buenos Aires",
+    "AR-Q": "Neuquén",
+    "AR-U": "Chubut",
 }
 # What a first-level subdivision is called, for labels.
 SUBDIVISION_TERMS: dict[str, str] = {
     "AU": "state", "CA": "province", "GB": "nation", "FR": "region",
     "IE": "region", "GR": "region", "FI": "region", "SE": "county",
+    "CL": "region", "AR": "province",
 }
 NO_SUBDIVISION_COUNTRIES: tuple[str, ...] = ("SG",)
-CURRENCIES: tuple[str, ...] = ("USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD")
+CURRENCIES: tuple[str, ...] = ("USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS")
 # BCP-47 primary tags a record's source may be in.
 LANGUAGES: dict[str, str] = {
     "en": "English", "fr": "French", "sv": "Swedish", "fi": "Finnish", "el": "Greek",
-    "ga": "Irish",
+    "ga": "Irish", "es": "Spanish",
 }
 TRANSLATION_SOURCES: tuple[str, ...] = ("official", "human", "machine")
 TranslationSource = Literal["official", "human", "machine"]
@@ -459,6 +475,14 @@ class Company(_StrictBase):
             "their own ratepayer commitments — the flag means 'signed THE "
             "pledge', and the Ratepayer view surfaces non-signatory commitments "
             "separately."
+        ),
+    )
+    international_only: bool = Field(
+        default=False,
+        description=(
+            "v6: an operator tracked only for its non-US sites (owner decision "
+            "2026-10-19: untracked operators of international sites become "
+            "companies). Kept out of the US Companies tab; resolvable by slug."
         ),
     )
 

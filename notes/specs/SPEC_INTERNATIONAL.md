@@ -12,7 +12,7 @@
 > 2. **Operators:** untracked operators of seeded sites are added as `Company` records (not `operator_name` strings).
 > 3. **Translation:** quotes stay verbatim in the original language, with an English translation labelled "Machine translation (AI)".
 > 4. **Currency:** original amount as stated, plus a display-only "≈ US$" line from annual-average rates, labelled approximate. Never stored or summed.
-> 5. **Wave 1:** Ireland, United Kingdom, France, Sweden, Finland, Greece, Australia (national + NSW), Singapore, Canada (Québec), plus the EU layer. 3–6 verified records per country.
+> 5. **Wave 1:** Ireland, United Kingdom, France, Sweden, Finland, Greece, Australia (national + NSW), Singapore, Canada (Québec), Chile and Argentina, plus the EU layer. 3–6 verified records per country.
 > 6. **Proposed instruments:** included, with their stage.
 > 7. **Heat reuse:** added now as a 10th policy principle, labelled as mainly international, with a migration and parity tests.
 > 8. **EU database:** cite-only.

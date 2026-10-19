@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#0d132d" />
-    <title>Data Center Community Benefits</title>
+    <title>Data Center Community Benefits: the US and selected countries</title>
     <meta
       name="description"
-      content="Data center operators' commitments to host communities, local moratoriums and policies, utility tariffs and rate cases, and contested sites in the U.S."
+      content="Data center operators' commitments to host communities, local moratoriums and policies, utility tariffs and rate cases, and contested sites in the U.S. and selected countries."
     />
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
     <link rel="stylesheet" href="styles.css?v=20261014a" />
@@ -70,7 +70,7 @@
           aria-selected="false"
           aria-controls="view-policies"
         >
-          Policy Frameworks
+          <span class="tab-long">Policy </span>Frameworks
         </button>
         <button
           id="tab-agreements"
@@ -124,6 +124,17 @@
         >
           Sites
         </button>
+        <button
+          id="tab-world"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-world"
+          aria-label="International"
+        >
+          <span class="tab-long">International</span><span class="tab-short" aria-hidden="true">World</span>
+        </button>
       </div>
       </div>
     </header>
@@ -145,7 +156,7 @@
         aria-labelledby="tab-overview"
       >
         <div class="home-body">
-          <p class="hero-dek">U.S. data centers and their host communities: what companies promised, what governments require, and what happened at each site.</p>
+          <p class="hero-dek">Data centers and their host communities in the US and selected countries: what companies promised, what governments require, and what happened at each site.</p>
           <nav class="home-tasks" aria-label="Planning tools">
             <button type="button" data-guide-target="drafts">Draft a benefit plan</button>
             <button type="button" data-guide-target="evidence">Check impact claims</button>
@@ -194,6 +205,12 @@
               <span class="home-card-num" data-count-for="sites">&mdash;</span>
               <span class="home-card-sub" data-sub-for="sites"></span>
               <span class="home-card-dek">Tracked campuses, with hearings and lawsuits at contested ones.</span>
+            </button>
+            <button class="home-card" type="button" data-path-target="world">
+              <span class="home-card-title">International</span>
+              <span class="home-card-num" data-count-for="world">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="world"></span>
+              <span class="home-card-dek">Rules, pauses and sites outside the US.</span>
             </button>
           </nav>
 
@@ -1659,6 +1676,69 @@
         </div>
       </section>
 
+
+      <!-- ================== INTERNATIONAL VIEW (v6) ================== -->
+      <!-- notes/specs/SPEC_INTERNATIONAL.md. One lazy payload
+           (data/international.json); no US view reads it. Country pages are a
+           panel INSIDE this view, never a modal over another view. -->
+      <section id="view-world" class="view" role="tabpanel" aria-labelledby="tab-world" hidden>
+        <div class="hero">
+          <h2 class="hero-title">International</h2>
+          <p class="hero-dek">What other countries require of data centers, and what happened at their sites.</p>
+        </div>
+
+        <ul id="world-stats" class="rp-stats" aria-label="International statistics"></ul>
+
+        <div id="world-country" class="world-country" hidden>
+          <p><button type="button" id="world-country-back" class="btn-link">← All countries</button></p>
+          <div id="world-country-body"></div>
+        </div>
+
+        <div id="world-panes">
+          <div class="subtabs subtabs--view" role="tablist" aria-label="International view">
+            <button class="subtab" role="tab" type="button" id="subtab-world-countries" aria-selected="true" tabindex="0" aria-controls="subpane-world-countries">
+              Countries <span class="subtab-count" id="world-countries-count"></span>
+            </button>
+            <button class="subtab" role="tab" type="button" id="subtab-world-instruments" aria-selected="false" tabindex="-1" aria-controls="subpane-world-instruments">
+              Rules <span class="subtab-count" id="world-instruments-count"></span>
+            </button>
+            <button class="subtab" role="tab" type="button" id="subtab-world-sites" aria-selected="false" tabindex="-1" aria-controls="subpane-world-sites">
+              Sites <span class="subtab-count" id="world-sites-count"></span>
+            </button>
+          </div>
+
+          <div class="subtab-panel" id="subpane-world-countries" role="tabpanel" aria-labelledby="subtab-world-countries">
+            <ol id="world-country-list" class="world-cards" role="list"></ol>
+          </div>
+
+          <div class="subtab-panel" id="subpane-world-instruments" role="tabpanel" aria-labelledby="subtab-world-instruments" hidden>
+            <div class="filter-bar filter-bar--slim" role="group" aria-label="Filter international rules">
+              <label class="filter"><span class="sr-only">Country</span>
+                <select id="world-country-filter"><option value="">All countries</option></select>
+              </label>
+              <label class="filter"><span class="sr-only">Principle</span>
+                <select id="world-principle-filter"><option value="">All principles</option></select>
+              </label>
+              <label class="filter"><span class="sr-only">Status</span>
+                <select id="world-status-filter">
+                  <option value="">Any status</option>
+                  <option value="in_effect">In effect / enacted</option>
+                  <option value="proposed">Proposed</option>
+                  <option value="ended">Ended or failed</option>
+                </select>
+              </label>
+              <span class="filter-bar-meta" id="world-instruments-meta"></span>
+            </div>
+            <ol id="world-instrument-list" class="world-records" role="list"></ol>
+          </div>
+
+          <div class="subtab-panel" id="subpane-world-sites" role="tabpanel" aria-labelledby="subtab-world-sites" hidden>
+            <ol id="world-site-list" class="world-records" role="list"></ol>
+          </div>
+        </div>
+
+        <p class="muted world-note">Amounts are shown as each source states them. The "≈ US$" figure uses the Federal Reserve's 2025 annual-average rate (G.5A) and is approximate; nothing is summed across currencies. Quotes stay in their original language, followed by a labelled English translation.</p>
+      </section>
     </main>
 
     <footer class="site-footer">

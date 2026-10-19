@@ -2053,3 +2053,49 @@ Pledge scorecard 10, Benefits' "Most documented" 5. A new filter or search
 resets to page one. Desktop renders everything. A card the reader selected
 always renders. Use the same helpers for any new long list rather than a
 bespoke "show more".
+
+### International tab (v6, 2026-10-19, owner-directed)
+
+Spec and decisions: [notes/specs/SPEC_INTERNATIONAL.md](notes/specs/SPEC_INTERNATIONAL.md)
+(owner answers are at the top). Research inputs: `notes/specs/international/`.
+Tab `#world`, placed last; country pages at `#country/XX`.
+
+- **One lazy payload, partitioned.** Every non-US record lives in
+  `data/seed/international.json` (`InternationalPayload`). The US payloads
+  reject a non-US record and the international payload rejects a US one, so
+  US code paths keep assuming a `state`. The file is never on first paint
+  (`tests/test_perf_budget.py` DEFERRED).
+- **Jurisdiction:** `country` (ISO 3166-1; `EU` for supranational) and
+  `subdivision` (ISO 3166-2, from `SUBDIVISIONS`). `federal` means the US
+  government only. Another country's government is `national`, and an EU rule
+  is `scope: supranational`. The registries (COUNTRIES, SUBDIVISIONS,
+  LANGUAGES, CURRENCIES, TRANSLATION_SOURCE_LABELS, MORATORIUM_FORMALITY_LABELS)
+  are mirrored in app.js and parity-tested in `tests/test_international.py`.
+- **Quotes stay in the original language.** `Claim.statement` and
+  `Policy.key_terms` are verbatim in `statement_lang` / `source_lang`. The
+  English goes in `statement_translation` / `key_terms_translation`, labelled
+  `machine` / `human` / `official`. A machine translation is always labelled
+  "Machine translation (AI)".
+- **Money as stated.** Use `Money {amount, currency, as_stated}`. Never set
+  `claimed_investment_usd` or `value_usd` on an international record. The
+  "≈ US$" line is display-only, computed from `FX_USD_PER_UNIT` in app.js
+  (Federal Reserve G.5A 2025 annual averages). CLP and ARS are not in G.5A, so
+  they get no approximation.
+- **Operators abroad become companies** with `international_only: true`
+  (Nscale, SEGRO, Goodman). The US Companies tab and the Home count skip
+  them, and `companiesBySlug` still resolves them. Their sites are owned by
+  `country:XX` refresh units, not `company:` units.
+- **`heat_reuse` principle** is mainly practiced abroad. The Frameworks card
+  for any principle with no US records says "See it abroad →".
+- **Verification for non-English pages:** WebFetch returns a *summary*, not
+  page text. Every verbatim must be a `scripts/probe.py` HIT. probe now
+  decodes UTF-8, which fixed accented Spanish and French phrases missing. Read
+  PDFs with macOS PDFKit (`osascript -l JavaScript`). Wave 1's 44 quotes are
+  all HITs.
+- **Nine tabs on a phone.** The ninth tab wrapped the bar to a third row and
+  pushed every view down about 44px; the interaction budgets caught it.
+  `test_phone_tab_bar_stays_two_rows` guards 360/375/390px. Phones also get
+  two-column Home cards.
+- **Daily routine:** `country:XX` units, 120-day cadence, English sources
+  only. Non-English findings become BACKLOG leads (see the daily-refresh
+  skill).

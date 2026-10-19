@@ -96,7 +96,16 @@ def fetch(url: str) -> tuple[int, str, str]:
     except requests.RequestException as exc:
         return 0, url, f"FETCH-ERROR: {exc}"
     is_pdf = "pdf" in r.headers.get("content-type", "") or r.content[:5] == b"%PDF-"
-    return r.status_code, r.url, pdf_text(r.content) if is_pdf else html_text(r.text)
+    if is_pdf:
+        return r.status_code, r.url, pdf_text(r.content)
+    # requests falls back to ISO-8859-1 when the header names no charset,
+    # which mangles accented text on many non-English pages (é -> Ã©) and
+    # makes Spanish/French quotes MISS. Prefer UTF-8 when it decodes cleanly.
+    try:
+        text = r.content.decode("utf-8")
+    except UnicodeDecodeError:
+        text = r.text
+    return r.status_code, r.url, html_text(text)
 
 
 def find(text: str, phrase: str) -> list[int]:
