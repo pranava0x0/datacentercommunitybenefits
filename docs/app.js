@@ -9333,6 +9333,9 @@ const COUNTRY_NAMES = {
   CA: "Canada",
   CL: "Chile",
   AR: "Argentina",
+  JP: "Japan",
+  KR: "South Korea",
+  IN: "India",
 };
 const SUPRANATIONAL_NAMES = { EU: "European Union" };
 const EU_MEMBERS = [
@@ -9361,10 +9364,29 @@ const SUBDIVISION_NAMES = {
   "AR-C": "Ciudad Autónoma de Buenos Aires",
   "AR-Q": "Neuquén",
   "AR-U": "Chubut",
+  "JP-13": "Tokyo",
+  "JP-27": "Osaka",
+  "JP-01": "Hokkaido",
+  "JP-12": "Chiba",
+  "JP-11": "Saitama",
+  "JP-40": "Fukuoka",
+  "KR-11": "Seoul",
+  "KR-41": "Gyeonggi",
+  "KR-26": "Busan",
+  "KR-28": "Incheon",
+  "KR-46": "South Jeolla",
+  "KR-31": "Ulsan",
+  "IN-MH": "Maharashtra",
+  "IN-AP": "Andhra Pradesh",
+  "IN-TN": "Tamil Nadu",
+  "IN-UP": "Uttar Pradesh",
+  "IN-TG": "Telangana",
+  "IN-KA": "Karnataka",
 };
-const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS"];
+const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR"];
 const LANGUAGE_NAMES = {
   en: "English", fr: "French", sv: "Swedish", fi: "Finnish", el: "Greek", ga: "Irish", es: "Spanish",
+  ja: "Japanese", ko: "Korean", hi: "Hindi",
 };
 const TRANSLATION_SOURCE_LABELS = {
   official: "Official English version",
@@ -9388,6 +9410,9 @@ const FX_USD_PER_UNIT = {
   CAD: 1 / 1.3973,
   SGD: 1 / 1.3065,
   SEK: 1 / 9.8060,
+  JPY: 1 / 149.5686,
+  KRW: 1 / 1421.3963,
+  INR: 1 / 87.1468,
 };
 const FX_SOURCE_NOTE = "Federal Reserve G.5A, 2025 annual average";
 
@@ -9627,7 +9652,8 @@ function renderWorld() {
     // A zero tile would assert a finding ("no pauses abroad") the curation
     // hasn't made; only populated counts get a tile.
     stats.innerHTML = [
-      [countries.length, "Countries and the EU"],
+      // Countries only; the EU is a layer on top, not a 12th country.
+      [countries.filter((c) => c.code in COUNTRY_NAMES).length, "Countries, plus EU rules"],
       [d.policies.length, "Rules and programmes"],
       [nPause, "Pauses"],
       [(d.rate_cases || []).length, "Rate cases"],

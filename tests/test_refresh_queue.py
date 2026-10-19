@@ -194,6 +194,8 @@ def _fake_loader(moratoriums: list[dict], rate_cases: list[dict], projects: list
             return rate_cases
         if name == "projects.json":  # real projects carry live upcoming dates
             return projects or []
+        if name == "international.json" and key == "rate_cases":
+            return []  # isolate from the live Québec case
         return real(name, key)
     return load
 
@@ -277,7 +279,11 @@ def test_a_passed_upcoming_site_date_comes_due(tmp_path, monkeypatch) -> None:
     the day after it, or the timeline says "Outcome not yet recorded" forever."""
     data = tmp_path / "data"
     data.mkdir()
-    for name, key in (("rate_cases.json", "rate_cases"), ("moratoriums.json", "moratoriums")):
+    for name, key in (
+        ("rate_cases.json", "rate_cases"),
+        ("moratoriums.json", "moratoriums"),
+        ("international.json", "rate_cases"),
+    ):
         (data / name).write_text(json.dumps({key: []}))
     (data / "projects.json").write_text(json.dumps({"projects": [{
         "id": "x-site", "captured_at": "2026-10-08",
@@ -313,3 +319,13 @@ def test_run_plan_schedules_country_units_and_terminates() -> None:
     plan = rq.run_plan(only_country, today, n=999)  # must return, not spin
     assert {u.kind for u, _ in plan} == {"country"}
     assert len(plan) == len(only_country)
+
+
+
+def test_international_rate_case_milestones_come_due_on_their_country() -> None:
+    intl = json.loads((SEED / "international.json").read_text())
+    pending = [rc for rc in intl.get("rate_cases", []) if rc["status"] == "pending" and rc.get("next_milestone_date")]
+    assert pending, "fixture: the Québec case has a dated milestone"
+    out = rq.derived_follow_ups()
+    for rc in pending:
+        assert any(rc["id"] in f["what"] for f in out.get(f"country:{rc['country']}", [])), rc["id"]
