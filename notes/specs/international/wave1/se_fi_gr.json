@@ -1,0 +1,184 @@
+{
+  "_status_note": "PARTIAL. WebFetch session limit reached after 13 fetches (resets 10:50am ET). Every quote below came from a SUMMARIZING WebFetch (the tool returns model output, not raw page text), so no record is verified:true. Several primaries returned 403 (valtioneuvosto.fi x2, iea.org, datacenterdynamics x2, vm.fi) or could not be read (regeringen.se PDF from the 2022 memo, local.microsoft.com PDF: too large, riksdagen/tillvaxtanalys PDF encrypted). Per spec 4.6 a summarized fetch is not verification; Phase 0 must re-fetch each source_url raw.",
+  "countries": [
+    {
+      "code": "SE",
+      "summary": "Sweden reduced the energy tax on electricity used in data centres from 2017. A 2022 Finance Ministry proposal (regeringen.se) removed that reduction from 1 July 2023, and the National Audit Office later criticised the decision basis. This pass found no binding Swedish heat-reuse mandate; the Stockholm district-heating operators' waste-heat arrangement is voluntary. Coverage is thin: Microsoft's Swedish sites and municipal pushback were not researched, and the 2023 enactment is not yet confirmed.",
+      "regulators": [
+        {"name": "Energimarknadsinspektionen", "acronym": "Ei", "role": "energy_regulator", "url": "https://www.ei.se/"}
+      ],
+      "context": [],
+      "primary_languages": ["sv", "en"]
+    },
+    {
+      "code": "FI",
+      "summary": "Finland moved electricity used by data centres from the reduced electricity tax class II to the general class I from 1 July 2026, with a planned ten-year tax relief for consumption in place of the reduction (government release, not read directly). DatacenterDynamics reports that a planned Google data centre was put on hold after the tax proposal. Microsoft's Espoo and Kirkkonummi campus is the leading heat-reuse case: waste heat feeds the Fortum district heating network, per a 2022 Microsoft announcement.",
+      "regulators": [
+        {"name": "Energiavirasto", "acronym": "Energy Authority", "role": "energy_regulator", "url": "https://energiavirasto.fi/"},
+        {"name": "Business Finland", "acronym": null, "role": "investment_agency", "url": "https://www.businessfinland.fi/"}
+      ],
+      "context": [],
+      "primary_languages": ["fi", "sv", "en"]
+    },
+    {
+      "code": "GR",
+      "summary": "Microsoft's three Attica data centres (Spata-Artemida and Kropia, eastern Attica) were proposed for fast-track strategic-investment status in 2022 and carry a Government Gazette investment-incentive record. The Greek investment portal lists the project as Microsoft Operations 4733 Hellas. Public debate on energy and water demand exists in Greek press (To Vima), but this pass did not read those articles, so no water or energy claim is recorded.",
+      "regulators": [
+        {"name": "Regulatory Authority for Energy", "acronym": "RAE", "role": "energy_regulator", "url": "https://www.rae.gr/"},
+        {"name": "Enterprise Greece", "acronym": null, "role": "investment_agency", "url": "https://www.enterprisegreece.gov.gr/"}
+      ],
+      "context": [],
+      "primary_languages": ["el", "en"]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "SE",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Abolition of the energy-tax reduction for electricity used in data centres (slopad energiskattenedsattning for datorhallar)",
+        "jurisdiction": "Sweden",
+        "instrument": "legislation",
+        "status": "proposed",
+        "date": "2022",
+        "identifier": "Promemoria: Avskaffad avfallsforbranningsskatt och slopad energiskattenedsattning for datorhallar (2022)",
+        "summary": "A 2022 Finance Ministry proposal to end the energy-tax reduction for electricity used in data centres from 1 July 2023 (and to remove the refund option for electricity used to produce heat or cooling for them). The reduction had been introduced in 2017. Enactment is not confirmed in this pass: a secondary source says the relief was abolished in July 2023 as part of an energy agreement, but no Riksdag or regeringen.se decision document was read. Status must be set to in_effect only after the proposition or law is confirmed.",
+        "key_terms": ["slopad energiskattenedsattning for datorhallar"],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null
+      },
+      "source_url": "https://www.regeringen.se/contentassets/ca6c0676a1da47a5a34b8d67a5f12494/avskaffad-avfallsforbranningsskatt-och-slopad-energiskattenedsattning-for-datorhallar.pdf",
+      "source_title": "Regeringen — Avskaffad avfallsforbranningsskatt och slopad energiskattenedsattning for datorhallar (promemoria)",
+      "source_lang": "sv",
+      "verbatim": "dels att avfallsförbränningsskatten avskaffas, dels att skattenedsättningen för energiskatt på elektrisk kraft som förbrukas i datorhallar slopas",
+      "verified": false,
+      "notes": "Verbatim came from a search-result summary of the regeringen.se PDF, not a raw read; the PDF fetch failed (session limit). Enactment date and the 2023/24 proposition number are unconfirmed. Tillvaxtanalys (secondary, search only) says the relief was abolished July 2023 as part of an energy agreement. Principles left empty for curator assignment. Stockholm Data Parks / Stockholm Exergi heat recovery was NOT recorded: no first-party or official source was read."
+    },
+    {
+      "type": "policy",
+      "country": "FI",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Data centres moved from electricity tax class II to the general class from 1 July 2026",
+        "jurisdiction": "Finland",
+        "instrument": "legislation",
+        "status": "in_effect",
+        "date": "2026-07-01",
+        "identifier": "HE 156/2025 vp (government bill; per Bloomberg Tax and the Finnish government release)",
+        "summary": "Electricity used by data centres moves from the reduced tax class II to the general class I from 1 July 2026 (about 2.24 c/kWh under class I versus 0.05 c/kWh under class II, per a search summary of the government release). The change is expected to raise about EUR 47 million a year. A replacement state-aid scheme gives ten-year tax relief on consumption, capped at EUR 30 million in lost revenue, with timing reported as autumn 2026. Status is in_effect on the 2026-07-01 date per the IEA page as summarized; the scheme is not yet confirmed.",
+        "key_terms": [],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null
+      },
+      "source_url": "https://valtioneuvosto.fi/en/-/government-safeguards-finland-s-competitiveness-in-attracting-data-centre-investments",
+      "source_title": "Valtioneuvosto (Finnish Government) — Government safeguards Finland's competitiveness in attracting data centre investments",
+      "source_lang": "en",
+      "verbatim": null,
+      "verified": false,
+      "notes": "No verbatim sentence obtained: the Finnish government page, the IEA policy page (iea.org/policies/21053) and the VM page all returned 403 to WebFetch. Figures come from search-result summaries of those pages. Sources conflict on the start date: an earlier DatacenterDynamics article said 1 January 2026, but the later government and IEA sources say 1 July 2026, so the earlier date is treated as superseded. Subsidy timing (autumn 2026 vs 1 July 2026 legislation) is unresolved. A DCD article reports Google putting a Finnish data centre on hold; that article returned 403 and is not recorded as a response. Record cannot ship until the government page is read directly."
+    },
+    {
+      "type": "project",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Espoo and Kirkkonummi",
+      "fields": {
+        "name": "Microsoft Finland datacentre region (Espoo / Kirkkonummi, Helsinki area), heat supplied to Fortum district heating",
+        "company": "microsoft",
+        "operator": "Microsoft",
+        "city": "Espoo",
+        "status": "announced",
+        "announced_year": 2022,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Announced 17 March 2022 as an intent to build a datacentre region in Southern Finland. Waste heat is to be converted to district heating with Fortum, supplying Espoo, Kauniainen and Kirkkonummi. Secondary coverage (search only) states the Espoo and Kirkkonummi data centres would eventually supply about 40% of the district heat needed in the area, while the 2022 release-era figure is 60%; the baselines differ, so neither is recorded. Construction and commissioning status were not confirmed in this pass. Google's Hamina heat-recovery project is NOT covered by this record."
+      },
+      "source_url": "https://news.microsoft.com/europe/2022/03/17/microsoft-announces-intent-to-build-a-new-datacenter-region-in-finland-accelerating-sustainable-digital-transformation-and-enabling-large-scale-carbon-free-district-heating/",
+      "source_title": "Microsoft News Europe — Microsoft announces intent to build a new datacenter region in Finland",
+      "source_lang": "en",
+      "verbatim": "the waste heat produced in the datacenters will be converted to district heating",
+      "verified": false,
+      "notes": "Fetched successfully, but via a summarizing WebFetch: the verbatim sentence is the model's quotation of the page, not raw text. Microsoft executive Cindy Rose's quote (Western Europe president, 'We are incredibly proud of the novel way this datacenter will sustainably power Finnish digital transformation') was read in summary only and is not recorded as a claim: it is not about community impact (the gate-2 rule) and the heat-to-homes sentence was paraphrased. Power and investment figures are not in the fetched text."
+    },
+    {
+      "type": "project",
+      "country": "GR",
+      "subdivision": null,
+      "locality": "Spata-Artemida and Kropia (Attica)",
+      "fields": {
+        "name": "Microsoft Attica data centres (Spata Site 6; Kropia / Koropi Sites 27 and 28)",
+        "company": "microsoft",
+        "operator": "Microsoft Operations 4733 Hellas Single Member S.A.",
+        "city": "Spata-Artemida",
+        "status": "construction",
+        "announced_year": 2022,
+        "claimed_investment": {"amount": 976168800, "currency": "EUR", "as_stated": "976.168.800 €"},
+        "claimed_jobs": null,
+        "power_mw": 38.4,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Three data centres in two installation areas in Attica. Site 6 is 19.2 MW (Spata-Artemida); Sites 27 and 28 are 9.6 MW each (Kropia). power_mw is the sum of the three figures as printed, not a stated total. The Greek portal lists Government Gazette ΦΕΚ 3325 Β/28.6.2022, Interministerial Decision 74/2022, and an investment-incentive approval in ΦΕΚ 139 Β/10.1.2024. Status 'construction' comes from a search summary of Microsoft's October 2025 Greece fact sheet, which was not read (its PDF exceeded the fetch size limit), so it is unverified. Enterprise Greece's English page says the Board decided on 1 April 2022 to propose the project to the Interministerial Committee, and that it 'will create 300 new jobs within a decade'; the jobs figure is not recorded here because it is not first-party to a site claim. Microsoft's fact sheet (search only) says the Attica facility uses direct evaporative cooling and uses water for cooling less than 15% of the year; that is a first-party water claim and should be re-read and recorded as a claim once the PDF is fetched in part or in full."
+      },
+      "source_url": "https://ependyseis.mindev.gov.gr/en/stratigikes/erga/investment-in-data-centres-in-greece-2",
+      "source_title": "Greek Ministry of Development — Investment in Data Centres in Greece (ependyseis portal)",
+      "source_lang": "en",
+      "verbatim": "The installation field named Site 6 (Power 19.2MW) is located at the Municipality of Spata - Artemida.",
+      "verified": false,
+      "notes": "Fetched successfully, but via a summarizing WebFetch: the verbatim sentence and the 976.168.800 € and MW figures are the model's readings of the page, not raw text. The page is in English. Enterprise Greece (a separate fetched page) describes the investment as 'several hundred million', so the budget figure and that description disagree in scale. The budget figure is stored as stated and the conflict is noted, not resolved. Lat/lon not fetched."
+    },
+    {
+      "type": "policy",
+      "country": "GR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Strategic investment approval for Microsoft Attica data centres (Interministerial Committee / Greek investment-incentive regime)",
+        "jurisdiction": "Greece",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "date": "2022-06-28",
+        "identifier": "Interministerial Decision 74/2022; Government Gazette ΦΕΚ 3325 Β/28.6.2022",
+        "summary": "Greece's Enterprise Greece board proposed the Microsoft Attica data-centre project to the Interministerial Committee on 1 April 2022 under the strategic-investment fast track, and the approval was published in the Government Gazette on 28 June 2022 as Interministerial Decision 74/2022. A later investment-incentive approval is recorded in ΦΕΚ 139 Β/10.1.2024. The instruments are incentive and fast-track approvals; they set no community-benefit or water or energy conditions that this pass found.",
+        "key_terms": [],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null
+      },
+      "source_url": "https://ependyseis.mindev.gov.gr/en/stratigikes/erga/investment-in-data-centres-in-greece-2",
+      "source_title": "Greek Ministry of Development — Investment in Data Centres in Greece (ependyseis portal)",
+      "source_lang": "en",
+      "verbatim": "Government Gazette \"ΦΕΚ 3325 Β/28.6.2022\"",
+      "verified": false,
+      "notes": "Verbatim and gazette references are from a summarizing fetch of the portal page. The English Enterprise Greece page (enterprisegreece.gov.gr) describes the board decision on 1 April 2022 and the €100m threshold, but it was not used as the source because the instrument is the gazetted decision. The Interministerial Decision 74/2022 is not opened (gazette not fetched), so 'regulation' as the instrument type and 'in_effect' are unconfirmed. Per the spec's Georgia-docket rule, the gazette entry must be fetched before this number ships. No water or energy debate in Greek press was read: To Vima's 'Data Centers: Greece's Next Investment Frontier and the Challenges of Energy and Water' is a lead only (its fetch hit the session limit)."
+    }
+  ],
+  "unverified_leads": [
+    {"jurisdiction": "SE", "lead": "Stockholm Data Parks / Stockholm Exergi: buys data-centre waste heat for the district network in the eight coldest months; 10% of city heating by 2035 target", "source_url": "https://w.media/energy-companies-in-sweden-aims-to-recycle-heat-from-data-centers/", "status": "search summary only, not fetched"},
+    {"jurisdiction": "SE", "lead": "Swedish Ministry of Finance / Riksdag proposition that finalised the 2023 removal of the data-centre energy-tax reduction", "source_url": "https://www.regeringen.se/", "status": "not found; need the proposition number from riksdagen.se"},
+    {"jurisdiction": "SE", "lead": "Microsoft Gävle / Sandviken / Staffanstorp sites and any municipal opposition", "status": "not researched; no search returned a Swedish municipal case"},
+    {"jurisdiction": "FI", "lead": "Google Hamina heat-recovery project: heat from the expanded Hamina data centre to Haminan Energia's district heating, reported to cover 80% of local network demand, delivered free of charge", "source_url": "https://www.businessfinland.fi/en/whats-new/news/2024/google-announced-an-expansion-of-its-hamina-data-center/", "status": "fetch hit session limit; search summaries only (heise, DCD, Gigazine)"},
+    {"jurisdiction": "FI", "lead": "Google Hamina expansion reported at about EUR 1 billion", "status": "search summary only"},
+    {"jurisdiction": "FI", "lead": "DCD: plans for a Google data centre in Finland on hold after the electricity tax proposal", "source_url": "https://www.datacenterdynamics.com/en/news/plans-on-hold-for-google-data-center-in-finland-following-potential-electricity-tax-raise/", "status": "403"},
+    {"jurisdiction": "GR", "lead": "Microsoft fact sheet, October 2025: Attica facility uses direct evaporative cooling; water for cooling less than 15% of the year; construction 1.4 million work hours and more than 340 jobs at peak", "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Greece.pdf", "status": "search snippet; PDF exceeded fetch size limit. Highest-value first-party claim for Greece; fetch in parts or from the Microsoft Greece local page"},
+    {"jurisdiction": "GR", "lead": "To Vima: 'Data Centers: Greece's Next Investment Frontier and the Challenges of Energy and Water'", "source_url": "https://www.tovima.com/finance/data-centers-greeces-next-investment-frontier-and-the-challenges-of-energy-and-water", "status": "fetch hit session limit; search summary: Olive Data Center (Spata-Artemida, 80 MW, EUR ~300m, GRECO MI) got a positive opinion from the Attica Regional Council on its environmental impact assessment; Hermes-B Paiania (DATA4, 90 MW); no water figures or local opposition confirmed"},
+    {"jurisdiction": "GR", "lead": "Microsoft Attica: 2025 Greek ministerial visit to Spata, project 'on schedule'", "status": "search snippet from ot.gr / tovima (2025-01-30), not fetched"}
+  ],
+  "summary_counts": {
+    "SE": {"records": 1, "verified": 0, "note": "Thin: only the 2022 tax proposal. No Swedish heat-reuse or municipal record."},
+    "FI": {"records": 2, "verified": 0, "note": "Tax change and Microsoft Espoo/Kirkkonummi. Google Hamina is a lead."},
+    "GR": {"records": 2, "verified": 0, "note": "Microsoft Attica project and gazette investment decision. Water and energy debate not recorded."}
+  },
+  "not_done": "Session WebFetch limit reached after 13 fetches. Owner-approved budget was ~40. Remaining: Swedish regeringen/riksdagen decision text, valtioneuvosto.fi pages (403), Google Hamina primary, Microsoft Greece fact sheet (size limit), To Vima articles, Gazette 74/2022 entry. Resume after 10:50am ET or re-run in a fresh session using raw-text fetches."
+}

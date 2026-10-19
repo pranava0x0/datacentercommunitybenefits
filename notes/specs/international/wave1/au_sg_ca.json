@@ -1,0 +1,266 @@
+{
+  "countries": [
+    {
+      "code": "SG",
+      "summary": "Singapore paused approvals for new large-scale data centres from 2019 to 2022, as described by Reed Smith and by a 2022 EDB/IMDA-based report. Since then, capacity has been released through competitive Calls for Application: a 2022 pilot (DC-CFA) and a second round (DC-CFA2) with a green-energy condition, under which 200 MW was provisionally allocated on 21 August 2026. Only EDB's release is quoted here; the operator-level figures are in the notes and not yet verified against the fact sheet.",
+      "regulators": [
+        {"name": "Singapore Economic Development Board", "acronym": "EDB", "role": "investment_agency", "url": "https://www.edb.gov.sg/en/about-edb/media-releases-publications/four-data-centre-proposals-selected-as-part-of-second-data-centre.html"}
+      ],
+      "context": [],
+      "primary_languages": ["en"]
+    },
+    {
+      "code": "CA",
+      "summary": "In Quebec, the government requires authorization before any new load or load addition of 5 MW or more can be connected. Hydro-Quebec has applied to the Regie de l'energie for a dedicated large data-centre rate of about 13 cents per kWh; that proceeding is open, with hearings scheduled for October and December 2026. The Quebec government decree the application cites (89-2026) is not yet verified against the Gazette.",
+      "regulators": [
+        {"name": "Regie de l'energie du Quebec", "acronym": "Regie", "role": "energy_regulator", "url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026"},
+        {"name": "Ministere de l'Economie, de l'Innovation et de l'Energie (Quebec)", "acronym": "MEIE", "role": "planning", "url": "https://www.quebec.ca/agriculture-environnement-et-ressources-naturelles/energie/production-approvisionnement-distribution/autorisation-projet-electrique"}
+      ],
+      "context": [],
+      "primary_languages": ["fr", "en"]
+    },
+    {
+      "code": "AU",
+      "summary": "Australia has no national data-centre rule recorded here as in force. New South Wales released a Data Centre Policy Framework on 17 August 2026, reported by Clayton Utz; the framework PDF was not readable in this pass. National-level rules were reported as proposed at National Cabinet on 26 August 2026, with legislation expected in early 2027, but the primary communique was not found. Project Mars (Lane Cove) is reported as withdrawn; this was not verified on a primary page.",
+      "regulators": [
+        {"name": "NSW Department of Climate Change, Energy, the Environment and Water (infrastructure NSW document host)", "acronym": "NSW Infrastructure", "role": "planning", "url": "https://www.infrastructure.nsw.gov.au/media/iosp3yuo/id0073_nsw-data-centre_policy-framework.pdf"}
+      ],
+      "context": [],
+      "primary_languages": ["en"]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Data Centre Call for Application 2 (DC-CFA2): provisional allocation of 200 MW",
+        "jurisdiction": "Singapore",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Provisional allocation announced 21 Aug 2026 under the second Call for Application, which launched 1 Dec 2025.",
+        "date": "2026-08-21",
+        "identifier": "DC-CFA2",
+        "summary": "EDB and IMDA provisionally allocated 200 MW of new data-centre capacity to four operators through DC-CFA2. The allocation carries a green-energy condition; the operators named in the notes are per a search snippet of the fact sheet, not yet verified.",
+        "key_terms": ["provisionally allocated 200 megawatts (MW) of new capacity to four data centre (DC) operators"],
+        "principles": ["new_power"],
+        "benefit_themes": ["energy"],
+        "value": null
+      },
+      "source_url": "https://www.edb.gov.sg/en/about-edb/media-releases-publications/four-data-centre-proposals-selected-as-part-of-second-data-centre.html",
+      "source_title": "Singapore Economic Development Board — Four data centre proposals selected as part of second data centre",
+      "source_lang": "en",
+      "verbatim": "provisionally allocated 200 megawatts (MW) of new capacity to four data centre (DC) operators",
+      "verified": true,
+      "notes": "Date 21 Aug 2026 and 200 MW are from the fetched EDB page. Second-source quotes from Pinsent Masons (https://www.pinsentmasons.com/out-law/news/singapore-approves-200mw-data-centre-capacity-expansion-for-four-operators, article dated 07 Sep 2026): \"were each provisionally allocated 50MW of new data centre capacity\" and \"meet at least half of the new facilities' power consumption via \"green energy\"\". The brief's \">50%\" wording is not confirmed; Pinsent says \"at least half\". The EDB fact sheet PDF is not readable by WebFetch (compressed PDF), so the four operator names (Digital Realty, Equinix, Keppel Data Centres, ST Telemedia Global Data Centres) and their 50 MW each are NOT verified on a primary page; add them as counterparties only after the fact sheet is read. Do not ship the green-energy threshold until the fact sheet confirms it. Some outlets (w.media) report 200 MW each; that conflicts with the EDB figure and was not used."
+    },
+    {
+      "type": "policy",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Data Centre Call for Application (DC-CFA) pilot, 2022",
+        "jurisdiction": "Singapore",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Pilot call launched July 2022; application window closed 21 Nov 2022. Awards announced 2023.",
+        "date": "2022-07-20",
+        "identifier": "DC-CFA (pilot)",
+        "summary": "The pilot Call for Application for new green data-centre capacity was launched by EDB and IMDA after the 2019–2022 pause was lifted. It required PUE of 1.3 or better and Platinum certification under the BCA-IMDA Green Mark.",
+        "key_terms": ["The pilot DC-CFA application will close on 21 November 2022."],
+        "principles": ["new_power", "water"],
+        "benefit_themes": ["energy"],
+        "value": null
+      },
+      "source_url": "https://w.media/edb-imda-to-launch-a-pilot-data-centre-call-for-application-dc-cfa-for-building-sustainable-dc/",
+      "source_title": "w.media — EDB & IMDA to launch a pilot Data Centre Call For Application (DC-CFA) for building sustainable DC",
+      "source_lang": "en",
+      "verbatim": "The pilot DC-CFA application will close on 21 November 2022.",
+      "verified": true,
+      "notes": "Article dated 20 Jul 2022 (per fetched page); this reproduces the agencies' pilot announcement, not the EDB/IMDA page itself. Eligibility quoted from the same page: PUE \"of 1.3 (at 100% IT load) or better\" and Platinum Green Mark. The 2022 article gives no MW range; search snippets citing 10–30 MW and a maximum of three approvals were not verified and are not used. Outcome conflict to resolve: Pinsent Masons (7 Sep 2026) says \"the 80MW allocated under the first call for application which was launched in 2022\"; a search summary cited an IMDA figure of about 120 MW of IT load. Neither is stored. Reed Smith gives the same ~80 MW to four operators. No primary IMDA award document was fetched."
+    },
+    {
+      "type": "moratorium",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "jurisdiction": "Singapore",
+        "jurisdiction_type": "national",
+        "status": "enacted",
+        "formality": "de_facto",
+        "enacted_date": null,
+        "lifted_date": "2022",
+        "duration_description": "Approx. 2019 to 2022 (about three years); lifted 2022 with conditions.",
+        "key_reasons": [],
+        "summary": "A de facto moratorium on new large-scale data-centre approvals ran from 2019 to 2022. No published decision set it; it is described after the fact. It was lifted in 2022 with conditions and replaced by a competitive Call for Application (DC-CFA). Key reasons are not yet verified and are left empty."
+      },
+      "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+      "source_title": "Reed Smith — Singapore's data centre expansion on Jurong Island: sustainable growth",
+      "source_lang": "en",
+      "verbatim": "From 2019 to 2022, Singapore maintained a de facto moratorium on new large-scale data centre approvals",
+      "verified": true,
+      "notes": "formality de_facto requires the authority's statement or two independent sources. Source 1: Reed Smith (fetched; verbatim above; also \"In 2022, the moratorium was lifted\"). Source 2: w.media 2022 reproduction of the EDB/IMDA pilot release (https://w.media/edb-imda-to-launch-a-pilot-data-centre-call-for-application-dc-cfa-for-building-sustainable-dc/): \"Earlier this year, the moratorium was lifted but with conditions.\" That is two sources, but neither is an IMDA/EDB page of its own, so the IMDA/EDB statement is still outstanding. The status 'enacted' is a schema fit for a pause that took effect; the formality field is the honest marker. The 2026 datacentres.com article (29 Apr 2026, https://www.datacentres.com/news/singapore-lifts-data-centre-moratorium) calls it a \"moratorium\" and a \"pause\", and says it started in 2019, but it is not used as a source. Its \"three-year pause\" wording is not reconciled with the 2019 start."
+    },
+    {
+      "type": "policy",
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "locality": null,
+      "fields": {
+        "title": "Government authorization required to connect projects of 5 MW or more (Quebec)",
+        "jurisdiction": "Quebec",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Authorization procedure as published by the Quebec government; page last updated 5 May 2026.",
+        "date": "2026-05-05",
+        "identifier": null,
+        "summary": "Projects of 5 MW or more, including new loads and load additions, must obtain the Quebec government's authorization before they can be connected. This is the allocation gate that sits in front of Hydro-Quebec's proposed data-centre rate. The statute and regulation behind it were not fetched directly.",
+        "key_terms": ["doivent obtenir l’autorisation du gouvernement du Québec avant de pouvoir être raccordés"],
+        "principles": ["new_power"],
+        "benefit_themes": ["energy"],
+        "value": null
+      },
+      "source_url": "https://www.quebec.ca/agriculture-environnement-et-ressources-naturelles/energie/production-approvisionnement-distribution/autorisation-projet-electrique",
+      "source_title": "Gouvernement du Québec — Obtenir l’autorisation pour le raccordement d’un projet d’une puissance de 5 MW et plus",
+      "source_lang": "fr",
+      "verbatim": "doivent obtenir l’autorisation du gouvernement du Québec avant de pouvoir être raccordés",
+      "verified": true,
+      "notes": "Quoted from the official quebec.ca page (fetched via WebFetch, which summarizes; re-probe the exact French string before shipping). The page lists 'les nouveaux projets d’une puissance de 5 MW et plus' and 'les projets d’addition de charge d’une puissance de 5 MW et plus'. Its table lists Vantage Data Centers Canada QC4 (Pointe-Claire) under 'Centres de données'. Origin 2023 and Bill 69 (June 2025) are secondary (BLG, McCarthy, Bennett Jones) and are not stored. The statute text is not fetched; the instrument is set to government_framework, not legislation, until the Act is read. Data-centre specific language is not on the page itself beyond the allocation table, so the 'data centre' framing rests on the BLG and Régie filings. The record date is the page's last-updated date, not an event date."
+    },
+    {
+      "type": "policy",
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "locality": null,
+      "fields": {
+        "title": "Hydro-Québec proposed large data-centre rate (tarif CD), Régie docket R-4333-2026",
+        "jurisdiction": "Quebec",
+        "instrument": "regulation",
+        "status": "proposed",
+        "status_detail": "Application filed 19 Feb 2026 and under review at the Régie. Hearing sessions scheduled 1–9 Oct, 7–11 Dec and 15–18 Dec 2026, per the docket page. No decision recorded.",
+        "date": "2026-02-19",
+        "identifier": "R-4333-2026",
+        "summary": "Hydro-Québec Distribution applied to the Régie de l'énergie for a dedicated rate for data centres drawing 5 MW or more, at an average of about 13 cents per kWh. The press release says this is approximately double the current large-power rate, and that it is subject to Régie approval. The docket also covers a blockchain cryptographic-use rate.",
+        "key_terms": ["equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay"],
+        "principles": ["pay_own_way"],
+        "benefit_themes": ["energy"],
+        "value": null
+      },
+      "source_url": "https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-proposing-regie-energie-new-rate-large-data-centres-adjustment-rate-cryptographic-use-applied-blockchains.html",
+      "source_title": "Hydro-Québec — Hydro-Québec proposing new rate for large data centres (press release, 19 Feb 2026)",
+      "source_lang": "en",
+      "verbatim": "equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay",
+      "verified": true,
+      "notes": "Instrument type: this is a utility tariff application, not a regulation, and the brief's record types (policy/moratorium/project/response/claim) have no tariff or rate-case type. It is filed here as policy/regulation/proposed to get it into the country page. It should move to Tariff + RateCase (related_tariff_id) once that path exists in the international payload; reclassify then. Verbatim is from the English press release (official English page; the fetch was summarized, so re-probe the exact sentence). Press release states the rate is \"subject to approval by the Régie de l'énergie\" and applies to projects above 5 MW. Docket page (fetched): title \"HQD - Demande du Distributeur relative à la fixation des tarifs centres de données\", applicant Hydro-Québec Distribution, filed 19/02/2026, status \"En cours\", hearings 1–9 Oct, 7–11 Dec, 15–18 Dec 2026 (B-0091), intervenors including ASIC, AREQ, Coalition des centres de données, FCEI, Flumen, AQCIE-CIFQ and others; Google is an intervenor per other filings. No decision yet. Principle pay_own_way is curator-assigned (the rate is for new supply, not average cost), but the 'cost of new supply' wording comes from the decree as described in intervenor filings and is not on the fetched press release. Remove the principle if the owner disagrees."
+    },
+    {
+      "type": "policy",
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "locality": null,
+      "fields": {
+        "title": "Décret 89-2026 (government direction to the Régie on a data-centre tariff)",
+        "jurisdiction": "Quebec",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "status_detail": "Published 18 Feb 2026 per Hydro-Québec filing (secondary). Not verified in the Gazette.",
+        "date": "2026-02-18",
+        "identifier": "Décret 89-2026",
+        "summary": "A government decree under s.109.1 of the Loi sur la Régie de l'énergie asks the Régie to set a data-centre customer category. It is cited by Hydro-Québec and intervenors; its text was not read.",
+        "key_terms": [],
+        "principles": ["pay_own_way"],
+        "benefit_themes": ["energy"],
+        "value": null
+      },
+      "source_url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026",
+      "source_title": "Régie de l'énergie — Dossier R-4333-2026 (Hydro-Québec data-centre tariff)",
+      "source_lang": "fr",
+      "verbatim": "",
+      "verified": false,
+      "notes": "NOT SHIPPABLE. The decree number and date come only from search-synthesis and party filings (Hydro-Québec and intervenor briefs on the R-4333-2026 docket). The Gazette officielle entry was not found or fetched, and the decree text was not read. Per the spec's rule, the number must be read on the gazette page before storing. Keep as a lead: Gazette officielle du Québec search for décret 89-2026 (Feb 2026); Keel Infrastructure Corp. has served notice challenging decrees 88-2026 and 89-2026 (secondary). Also: the docket page is listed as source_url only because it is the fetched page where the decree is named indirectly."
+    },
+    {
+      "type": "policy",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": null,
+      "fields": {
+        "title": "NSW Data Centre Policy Framework and Guidelines",
+        "jurisdiction": "New South Wales",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Released 17 Aug 2026 per Clayton Utz. Primary PDF text not readable in this pass.",
+        "date": "2026-08-17",
+        "identifier": null,
+        "summary": "NSW Government framework released 17 August 2026 setting how data centres are to be planned and connected. Content not verified in this pass.",
+        "key_terms": [],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null
+      },
+      "source_url": "https://www.infrastructure.nsw.gov.au/media/iosp3yuo/id0073_nsw-data-centre_policy-framework.pdf",
+      "source_title": "NSW Government — Data Centre Policy Framework and Guidelines (PDF)",
+      "source_lang": "en",
+      "verbatim": "",
+      "verified": false,
+      "notes": "NOT SHIPPABLE. The PDF returned compressed binary with metadata only (title 'ID0092_Data-Centre-Strategy_DOC-GRAPHICS_v3', modified 2026-07-28), so the framework's own words could not be quoted. The release date and existence come from Clayton Utz (https://www.claytonutz.com/insights/2026/august/nsw-draws-the-line-what-the-new-data-centre-policy-framework-means-for-investors-developers-government-and-communities), which was fetched but is secondary. The filename/title mismatch means the PDF may be the wrong document; confirm the framework's title and reference on the NSW page before storing. The NSW implementation consultation (energy.nsw.gov.au/.../data-centres, submissions close 14 Sep 2026) is referenced but not fetched. Clayton Utz describes the grid-access bill as introduced to Parliament, which conflicts with the research's 'exposure draft' label; that conflict is unresolved."
+    },
+    {
+      "type": "policy",
+      "country": "AU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Proposed national data-centre standards (energy, water, siting)",
+        "jurisdiction": "Australia",
+        "instrument": "government_framework",
+        "status": "proposed",
+        "status_detail": "Reported as discussed at National Cabinet on 26 Aug 2026; legislation expected early 2027 per reporting. Sources disagree on whether it was agreed.",
+        "date": "2026-08-26",
+        "identifier": null,
+        "summary": "National Cabinet discussed mandatory national standards for large data centres covering power sourcing, water use and siting. Queensland and the Northern Territory did not sign up to the renewable-matching element. Whether the standards were agreed is disputed in reporting.",
+        "key_terms": [],
+        "principles": ["pay_own_way", "water"],
+        "benefit_themes": ["energy", "water"],
+        "value": null
+      },
+      "source_url": "https://www.claytonutz.com/insights/2026/august/nine-governments-one-rulebook-national-cabinet-backs-mandatory-ai-and-data-centre-standards",
+      "source_title": "Clayton Utz — Nine governments, one rulebook: National Cabinet backs mandatory AI and data centre standards",
+      "source_lang": "en",
+      "verbatim": "",
+      "verified": false,
+      "notes": "NOT SHIPPABLE. Only the search summary of this article was seen; the page itself was not read because the session limit was reached. The primary communique (pm.gov.au or DCCEEW) was not found. Reporting also cites a March 2026 set of non-binding principles that reportedly expect operators to cover connection costs; that wording is not confirmed on any page. The 'own connection costs' framing from the research lead (aiunderstanding.org, a weak source) is NOT used. Do not ship until the National Cabinet communique is read and the outcome (agreed or not) is stated in its own words. The sources conflict (ASPI says the meeting did not lock in mandatory standards)."
+    },
+    {
+      "type": "project",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Lane Cove Council",
+      "fields": {
+        "name": "Project Mars, Lane Cove",
+        "operator": "Goodman",
+        "city": "Lane Cove",
+        "status": "withdrawn",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": 90,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Withdrawn 2026-09-29 per the ACS report: development application not progressed. Not verified on a primary page. Operator Goodman is not a tracked Company, so it would enter as an operator_name string. The NSW Planning Portal SSD page and Goodman's own release are the primaries still to fetch. The 90 MW figure is from the same lead and is unverified. Local council mayor's quote (Lane Cove) is a lead for a response record and is not verified."
+      },
+      "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
+      "source_title": "ACS Information Age — Controversial Sydney data centre plan scrapped",
+      "source_lang": "en",
+      "verbatim": "",
+      "verified": false,
+      "notes": "NOT SHIPPABLE. Source not fetched in this pass (session limit). Withdrawal date, operator and MW are leads from the research (summarized fetch). Do not ship until the NSW Planning Portal status change is read, with the event date from the portal, not the article's date. Do not describe the withdrawal as a moratorium."
+    }
+  ]
+}
