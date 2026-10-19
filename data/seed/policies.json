@@ -4753,6 +4753,132 @@
       "source_url": "https://cdapress.com/news/2026/aug/05/city-takes-stance-on-data-centers/",
       "source_title": "Coeur d'Alene Press — City Council says 'No' to data centers",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "nehawka-ne-datacenter-prohibition-2026-08",
+      "title": "Village of Nehawka votes to prohibit data centers in its zoning jurisdiction",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Village of Nehawka",
+      "state_code": "NE",
+      "identifier": "Village board vote",
+      "date": "2026-08-27",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Leaders in the village of Nehawka have voted to prohibit data centers within their zoning jurisdiction"
+      ],
+      "summary": "The village board voted to prohibit data centers, crypto-mining and blockchain computing and the power plants that run them within its zoning jurisdiction. Reporting describes it as an outright ban that takes effect in 15 days and does not say whether it is permanent. The article date is used because the meeting date and vote count are not stated. It is filed as a policy, not a pause, because no end date is given.",
+      "source_url": "https://www.1011now.com/2026/08/27/village-nehawka-votes-ban-data-centers/",
+      "source_title": "1011NOW / WOWT — Village of Nehawka votes to ban data centers",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "iron-county-ut-draft-large-load-ordinance-2026-10",
+      "title": "Iron County planning commission recommends noise, water and outreach rules for data centers and power plants",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Iron County",
+      "state_code": "UT",
+      "identifier": "Planning commission recommendation",
+      "date": "2026-10-09",
+      "benefit_themes": [
+        "water"
+      ],
+      "principles": [
+        "water",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Iron County's planning commission recommended new restrictions in early October"
+      ],
+      "summary": "Iron County's planning commission recommended new restrictions in early October 2026 covering noise, water use and public outreach for data centers, power plants, battery storage and industrial campuses above a 50 MW cutoff. KUER's report gives a water-use limit of 50,000 gallons a day and a closed-loop, dry or other efficient cooling requirement. The county's 180-day moratorium continues while the draft is reviewed. The article date is used because the commission meeting date is given only as early October.",
+      "source_url": "https://www.kuer.org/business-economy/2026-10-09/box-elder-iron-county-data-center-moratoriums-new-regulations",
+      "source_title": "KUER — Box Elder, Iron County data center moratoriums, new regulations",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "hawaii-county-bill-170-2026-07",
+      "title": "Hawaii County Bill 170 to exclude industrial-scale data centers from permitted uses",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Hawaii County",
+      "state_code": "HI",
+      "identifier": "Bill 170",
+      "date": "2026-07-07",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "voted to forward Bill 170 to the Hawaiʻi County planning commissions"
+      ],
+      "summary": "A Hawaii County Council committee voted on July 7, 2026 to forward Bill 170 to the Hawaii County planning commissions. The bill, sponsored by Councilmember Heather Kimball, would define data centers and exclude industrial-scale ones from the county's permitted uses. It is a zoning bill, not a moratorium. The vote tally and later steps were not confirmed.",
+      "source_url": "https://www.bigislandvideonews.com/2026/07/08/hawai%CA%BBi-county-council-forwards-data-center-bill-to-planning-commissions/",
+      "source_title": "Big Island Video News — Hawaii County Council forwards data center bill to planning commissions",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "boston-ma-datacenter-prohibited-use-order-2026-09",
+      "title": "Boston councilor files order to bar data centers in every zoning district",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Boston",
+      "state_code": "MA",
+      "identifier": "Council order",
+      "date": "2026-09-15",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "designate them as a \"prohibited use in every zoning district and subdistrict\""
+      ],
+      "summary": "Boston City Councilor Miniard Culpepper filed an order that would amend the city's zoning code to define data centers and make them a prohibited use in every zoning district and subdistrict. It is a proposal only. The article date is used because it says only that the order was filed 'this week'.",
+      "source_url": "https://www.boston.com/news/local-news/2026/09/15/boston-city-council-to-consider-zoning-changes-that-would-bar-data-center-construction/",
+      "source_title": "Boston.com — Boston City Council to consider zoning changes that would bar data center construction",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fairbanks-north-star-borough-2027-priorities-datacenter-moratorium-2026-08",
+      "title": "Fairbanks North Star Borough Assembly 2027 legislative priorities request a data center moratorium",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Fairbanks North Star Borough",
+      "state_code": "AK",
+      "identifier": "2027 legislative priorities resolution",
+      "date": "2026-08-27",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The Assembly resolution asks for a moratorium on the permitting, leasing, or construction of new commercial data centers"
+      ],
+      "summary": "The Borough Assembly's 2027 state and federal legislative priorities include a requested moratorium on the permitting, leasing or construction of new commercial data centers. It is a request to other governments, not a borough moratorium, so it is recorded as proposed. KUAC notes the resolution text refers to state-owned and municipal lands while the presiding officer said federal lands were intended. The date is the Thursday approval reported on August 31.",
+      "source_url": "https://fm.kuac.org/2026-08-31/in-legislative-priorities-fairbanks-north-star-borough-assembly-doubles-up-on-ai-data-center-moratorium-request",
+      "source_title": "KUAC — Fairbanks North Star Borough Assembly doubles up on AI data center moratorium request",
+      "captured_at": "2026-10-19"
     }
   ]
 }

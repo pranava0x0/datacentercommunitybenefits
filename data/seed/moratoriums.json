@@ -1176,10 +1176,10 @@
         "water",
         "energy"
       ],
-      "summary": "Moratorium on data center development in Iron County, Utah.",
+      "summary": "Moratorium on data center development in Iron County, Utah. KUER reported on October 9, 2026 that the 180-day moratorium, the longest Utah law allows, was well over halfway done, and that the county planning commission had recommended new restrictions in early October (see the Iron County draft-ordinance policy record).",
       "source_url": "https://www.datacenterbans.com/",
       "source_title": "DatacenterBans.com",
-      "captured_at": "2026-06-01",
+      "captured_at": "2026-10-19",
       "resources": [
         {
           "url": "https://datacenterbans.com/",
@@ -1188,6 +1188,10 @@
         {
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
+        },
+        {
+          "url": "https://www.kuer.org/business-economy/2026-10-09/box-elder-iron-county-data-center-moratoriums-new-regulations",
+          "title": "KUER — Box Elder, Iron County data center moratoriums, new regulations"
         }
       ],
       "state_code": "UT"
@@ -1927,10 +1931,10 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's legislative data center moratorium — the Responsible Data Center Development Act, S10642 / A11560 — passed both chambers on June 4, 2026, imposing a one-year statewide moratorium on permits for data centers above a 20 MW threshold while the state completes an energy-planning and grid modernization review. The act also requires a separate utility rate classification for large data centers, sets a 90%-renewable-by-2040 goal, and mandates community benefits and construction labor standards. Governor Hochul has not delivered/signed the Act; instead she issued Executive Order No. 62 on July 14, 2026 (see ny-state-eo62-2026-07) — a separate instrument with a 50 MW threshold covering state environmental permitting only. Legal commentary (Hodgson Russ) notes that, in light of EO 62, Hochul is likely to veto the Act by year's end, but as of September 22, 2026 the Senate's bill page still shows S10642 as 'Passed Senate' via substitution by A11560 on June 4, 2026 (43–17), with no delivery to the governor, signature or veto recorded. Correction (2026-07-26): this record's summary previously cited S7992/A7234. S7992 is an unrelated New York labor-relations bill; the data-center act is S10642/A11560, which matches this record's bill_number field.",
+      "summary": "New York's legislative data center moratorium — the Responsible Data Center Development Act, S10642 / A11560 — passed both chambers on June 4, 2026, imposing a one-year statewide moratorium on permits for data centers above a 20 MW threshold while the state completes an energy-planning and grid modernization review. The act also requires a separate utility rate classification for large data centers, sets a 90%-renewable-by-2040 goal, and mandates community benefits and construction labor standards. Governor Hochul has not delivered/signed the Act; instead she issued Executive Order No. 62 on July 14, 2026 (see ny-state-eo62-2026-07) — a separate instrument with a 50 MW threshold covering state environmental permitting only. Legal commentary (Hodgson Russ) notes that, in light of EO 62, Hochul is likely to veto the Act by year's end, but as of September 22, 2026 the Senate's bill page still shows S10642 as 'Passed Senate' via substitution by A11560 on June 4, 2026 (43–17), with no delivery to the governor, signature or veto recorded. Correction (2026-07-26): this record's summary previously cited S7992/A7234. S7992 is an unrelated New York labor-relations bill; the data-center act is S10642/A11560, which matches this record's bill_number field. Re-checked 2026-10-19: the nysenate.gov page for A11560 lists, on June 4, 2026, 'delivered to senate' and 'passed Assembly' alongside the Senate's 43-17 passage; the nyassembly.gov summary view shows only the June 1 referral to the Committee on Ways and Means, so the two public pages differ in what they display. Neither page records delivery to the governor, and no signature or veto appears.",
       "source_url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
       "source_title": "New York State Senate — S10642, Responsible Data Center Development Act",
-      "captured_at": "2026-09-22",
+      "captured_at": "2026-10-19",
       "bill_number": "S10642/A11560",
       "sponsors": [
         "Sen. Kristen Gonzalez (D-WF, 59th District)"
@@ -1975,6 +1979,10 @@
         {
           "url": "https://www.dec.ny.gov/energy/data-center-impact-study",
           "title": "NY DEC — Data Center Energy Impact Assessment (2025)"
+        },
+        {
+          "url": "https://nyassembly.gov/leg/?default_fld=&leg_video=&bn=A11560&term=2025&Summary=Y&Text=Y",
+          "title": "New York State Assembly — A11560 bill page (summary view)"
         }
       ],
       "state_code": "NY"
@@ -1997,7 +2005,7 @@
         "noise",
         "transparency"
       ],
-      "summary": "The nation's first statewide data center moratorium. Executive Order No. 62, signed July 14, 2026, directs the Department of Environmental Conservation to hold in abeyance all pending applications for any discretionary permit, approval or license for constructing or expanding a data center of 50 MW or more (applications deemed complete before the order are excluded). It suspends state environmental permitting only — local government permits are not covered. The pause runs until the Department of Public Service delivers a final Generic Environmental Impact Statement assessing energy demand, water use and quality, air quality, disproportionate community impacts and noise; press reporting describes it as up to a year. Facilities primarily used for manufacturing, research (including quantum computing), accredited education (including the Empire AI consortium) or medical care are exempt. Empire State Development must post a 'Community Investment Framework' within 60 days covering community investment funds, local infrastructure, labor frameworks and transparency reporting. The order is a separate instrument from the one-year moratorium bill (S10642/A11560) passed by the legislature, which Hochul has not signed. Note: the governor's office describes this as the nation's first statewide moratorium on hyperscale data centers, but this dataset already tracks several earlier-enacted state moratoriums (e.g. Oklahoma 2024, Washington 2024, Hawaii Jan 2026, Vermont Mar 2026, Maine and Massachusetts Apr 2026, Florida May 2026) — the 'first' framing appears to be a self-characterization, not independently verified here.",
+      "summary": "The nation's first statewide data center moratorium. Executive Order No. 62, signed July 14, 2026, directs the Department of Environmental Conservation to hold in abeyance all pending applications for any discretionary permit, approval or license for constructing or expanding a data center of 50 MW or more (applications deemed complete before the order are excluded). It suspends state environmental permitting only — local government permits are not covered. The pause runs until the Department of Public Service delivers a final Generic Environmental Impact Statement assessing energy demand, water use and quality, air quality, disproportionate community impacts and noise; press reporting describes it as up to a year. Facilities primarily used for manufacturing, research (including quantum computing), accredited education (including the Empire AI consortium) or medical care are exempt. Empire State Development must post a 'Community Investment Framework' within 60 days covering community investment funds, local infrastructure, labor frameworks and transparency reporting. The order is a separate instrument from the one-year moratorium bill (S10642/A11560) passed by the legislature, which Hochul has not signed. Note: the governor's office describes this as the nation's first statewide moratorium on hyperscale data centers, but this dataset already tracks several earlier-enacted state moratoriums (e.g. Oklahoma 2024, Washington 2024, Hawaii Jan 2026, Vermont Mar 2026, Maine and Massachusetts Apr 2026, Florida May 2026) — the 'first' framing appears to be a self-characterization, not independently verified here. Empire State Development released an outline of the Community Investment Framework and took public comment until August 13, 2026. A law-firm summary lists good-neighbor commitments, labor commitments, transparency standards and a Community Investment Fund, and says the outline recommends an operator contribution of $1 million per 1 MW of anticipated utility demand per project. That figure is a recommendation in the outline, not a requirement. The final framework, due within 60 days of the order, was not found published as of 2026-10-19.",
       "source_url": "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
       "source_title": "NY Executive Order No. 62 — Establishing a Temporary Moratorium on Data Centers (governor.ny.gov)",
       "resources": [
@@ -2008,13 +2016,17 @@
         {
           "url": "https://ny1.com/nyc/all-boroughs/politics/2026/07/14/hochul-enacts-first-statewide-data-center-moratorium",
           "title": "NY1 — Hochul enacts first statewide data center moratorium"
+        },
+        {
+          "url": "https://www.hodgsonruss.com/newsroom/alerts/new-york-state-issues-data-center-community-investment-framework-policy-online",
+          "title": "Hodgson Russ — New York State Issues Data Center Community Investment Framework Policy Outline"
         }
       ],
       "bill_number": "Executive Order No. 62",
       "enacted_by": "Governor Kathy Hochul",
       "policy_type": "executive order",
       "session": "2026",
-      "captured_at": "2026-07-14",
+      "captured_at": "2026-10-19",
       "state_code": "NY"
     },
     {
@@ -6233,6 +6245,202 @@
       "captured_at": "2026-10-19",
       "enacted_date": "2026-06-08",
       "bill_number": "Resolution 2026-04"
+    },
+    {
+      "id": "cass-county-ne-2026-08",
+      "jurisdiction": "Cass County",
+      "jurisdiction_type": "county",
+      "state_code": "NE",
+      "status": "enacted",
+      "duration_months": 12,
+      "duration_description": "12 months",
+      "key_reasons": [],
+      "summary": "The Cass County Board of Commissioners voted 5-0 on August 11, 2026 to approve a 12-month moratorium on permits for data centers. Proposed data center regulations were tabled until September 22.",
+      "source_url": "https://www.klkntv.com/cass-county-board-of-commissioners-unanimously-vote-for-data-center-moratorium/",
+      "source_title": "KLKN — Cass County Board of Commissioners unanimously vote for data center moratorium",
+      "enacted_by": "Board of Commissioners",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-08-11",
+      "city_council_vote": "5-0"
+    },
+    {
+      "id": "saline-county-ne-2026-08",
+      "jurisdiction": "Saline County (Nebraska)",
+      "jurisdiction_type": "county",
+      "state_code": "NE",
+      "status": "enacted",
+      "duration_months": 12,
+      "duration_description": "12 months, with option to change",
+      "key_reasons": [],
+      "summary": "The Saline County (Nebraska) Board of Commissioners moved on August 4, 2026 to place a 12-month moratorium on data center applications, with an option to change it. The minutes record the motion as carried, with four members voting aye and one absent. This is not Saline County, Kansas.",
+      "source_url": "https://salinecountyne.gov/wp-content/uploads/sites/14/2026/08/BOC-8-4-2026.pdf",
+      "source_title": "Saline County (NE) Board of Commissioners minutes, August 4, 2026",
+      "enacted_by": "Board of Commissioners",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-08-04",
+      "city_council_vote": "4-0 (one member absent)"
+    },
+    {
+      "id": "leavenworth-county-ks-2026-08",
+      "jurisdiction": "Leavenworth County",
+      "jurisdiction_type": "county",
+      "state_code": "KS",
+      "status": "failed",
+      "duration_months": null,
+      "duration_description": "Proposed extension of a 90-day pause through January 31, 2027",
+      "key_reasons": [],
+      "summary": "On August 5, 2026 the Leavenworth County commission voted 3-2 against extending its 90-day pause on data center applications, and the pause lapsed. Commissioners Mike Stieben and Mike Smith supported the extension; Vanessa Reid, Willie Dove and Jeff Culbertson opposed it. The Tonganoxie Mirror headline says the commission 'lifts' the moratorium, while the article body describes a failed extension motion. Planning commissioners were reviewing data center regulation language. The date of the original enactment is not stated here.",
+      "source_url": "https://www.tonganoxiemirror.com/news/2026/aug/12/leavenworth-county-commission-lifts-moratorium-on-data-center-by-3-2-vote/",
+      "source_title": "Tonganoxie Mirror — Leavenworth County commission lifts moratorium on data center by 3-2 vote",
+      "enacted_by": "County Commission",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "city_council_vote": "3-2 against extension",
+      "failure_reason": "The extension motion failed 3-2 on August 5, 2026 and the pause lapsed."
+    },
+    {
+      "id": "sedgwick-county-ks-2026-09",
+      "jurisdiction": "Sedgwick County",
+      "jurisdiction_type": "county",
+      "state_code": "KS",
+      "status": "enacted",
+      "duration_months": null,
+      "duration_description": "Third extension, to late December 2026 (sources differ on the exact end date)",
+      "key_reasons": [],
+      "summary": "The Sedgwick County commission voted unanimously to extend its data center moratorium for the third time, to late December, saying the Planning Commission had not delivered enough regulations in time. The report is dated September 3, 2026, which is used as the date here because the vote date is not stated. Fox Kansas gives two end dates, December 11 and December 24, and this record does not choose between them.",
+      "source_url": "https://foxkansas.com/news/local/data-center-proposals-put-on-hold-as-sedgwick-county-delays-rules-until-late-december",
+      "source_title": "Fox Kansas — Data center proposals put on hold as Sedgwick County delays rules until late December",
+      "enacted_by": "County Commission",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-09-03",
+      "city_council_vote": "unanimous"
+    },
+    {
+      "id": "mchenry-county-il-2026-10",
+      "jurisdiction": "McHenry County",
+      "jurisdiction_type": "county",
+      "state_code": "IL",
+      "status": "proposed",
+      "duration_months": 12,
+      "duration_description": "12 months (proposed)",
+      "key_reasons": [
+        "water"
+      ],
+      "summary": "McHenry County officials are considering a 12-month moratorium on new data center applications in unincorporated areas while rules are written. A county committee was due to take up the proposal on a Tuesday after the October 3, 2026 report; the committee outcome was not found, and the full county board is expected to consider it at its November meeting, timing uncertain.",
+      "source_url": "https://hoodline.com/2026/10/mchenry-county-weighs-12-month-data-center-freeze-amid-water-fears/",
+      "source_title": "Hoodline — McHenry County Weighs 12-Month Data Center Freeze Amid Water Fears",
+      "enacted_by": "County Board",
+      "session": "2026",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "logan-ut-2026-06",
+      "jurisdiction": "Logan",
+      "jurisdiction_type": "city",
+      "state_code": "UT",
+      "status": "enacted",
+      "duration_months": 6,
+      "duration_description": "180 days",
+      "key_reasons": [],
+      "summary": "Logan's city council voted on June 30, 2026 to approve a 180-day moratorium on data centers and data center power plants inside city limits. No applications are accepted, approved or permitted during the pause. The vote tally is not stated in the source.",
+      "source_url": "https://hoodline.com/2026/07/logan-slams-brakes-on-data-center-boom-with-180-day-freeze/",
+      "source_title": "Hoodline — Logan slams brakes on data center boom with 180-day freeze",
+      "enacted_by": "City Council",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-06-30"
+    },
+    {
+      "id": "knoxville-tn-2026-08",
+      "jurisdiction": "Knoxville",
+      "jurisdiction_type": "city",
+      "state_code": "TN",
+      "status": "proposed",
+      "duration_months": 12,
+      "duration_description": "One year, until June 30, 2027 or until new regulations are adopted (recommended)",
+      "key_reasons": [],
+      "summary": "On August 13, 2026 the Knoxville-Knox County Planning Commission's Zoning Committee voted to recommend a one-year moratorium on building large data centers within Knoxville city limits. The recommendation goes to the Knox County Commission for a final vote; if approved, the pause would last until June 30, 2027 or until new regulations are adopted. The same article says the Knox County Commission first approved a one-year moratorium in June, and that Mayor Indya Kincannon then called for a similar pause for the city.",
+      "source_url": "https://www.wvlt.tv/2026/08/13/knox-co-zoning-commission-approves-recommendation-one-year-moratorium-data-centers/",
+      "source_title": "WVLT — Knox Co. Zoning Commission approves recommendation of one-year moratorium on data centers",
+      "enacted_by": "Knoxville-Knox County Planning Commission Zoning Committee",
+      "session": "2026",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "nottingham-nh-2026-09",
+      "jurisdiction": "Nottingham",
+      "jurisdiction_type": "city",
+      "state_code": "NH",
+      "status": "enacted",
+      "duration_months": 12,
+      "duration_description": "12 months",
+      "key_reasons": [],
+      "summary": "Nottingham voters approved a 12-month moratorium on any data center development within town limits on September 8, 2026, by 1,335 votes to 143. The town gets time to study zoning changes. The date is computed from 'Tuesday' in an article published September 9.",
+      "source_url": "https://www.wshu.org/2026-09-09/nottingham-voters-approve-moratorium-data-centers-nh-newhampshire",
+      "source_title": "NHPR (via WSHU) — Nottingham voters overwhelmingly approve moratorium on data centers",
+      "enacted_by": "Town voters",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-09-08",
+      "city_council_vote": "1,335 to 143"
+    },
+    {
+      "id": "sanford-me-2026-08",
+      "jurisdiction": "Sanford",
+      "jurisdiction_type": "city",
+      "state_code": "ME",
+      "status": "enacted",
+      "duration_months": 6,
+      "duration_description": "180-day extension, to January 31, 2027",
+      "key_reasons": [],
+      "summary": "The Sanford City Council voted unanimously on August 4, 2026 to extend its emergency data center moratorium for 180 days, to January 31 (2027). The date is computed from 'Tuesday night' in an article dated August 5 and matches a second outlet's August 4 report. The original May 2026 pause is a separate event not recorded here.",
+      "source_url": "https://www.pressherald.com/2026/08/05/sanford-extends-data-center-moratorium-for-180-days/",
+      "source_title": "Press Herald — Sanford extends data center moratorium for 180 days",
+      "enacted_by": "City Council",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-08-04",
+      "city_council_vote": "unanimous"
+    },
+    {
+      "id": "eastport-me-2026-08",
+      "jurisdiction": "Eastport",
+      "jurisdiction_type": "city",
+      "state_code": "ME",
+      "status": "enacted",
+      "duration_months": 6,
+      "duration_description": "180 days, unless extended or replaced by a permanent ordinance",
+      "key_reasons": [],
+      "summary": "Eastport's city council unanimously adopted a data center moratorium at an August 12, 2026 meeting. The pause runs for 180 days unless it is extended or the city passes a permanent ordinance banning data centers.",
+      "source_url": "https://www.mainepublic.org/climate/2026-08-14/eastport-enacts-pause-on-data-center-development",
+      "source_title": "Maine Public — Eastport enacts pause on data center development",
+      "enacted_by": "City Council",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-08-12",
+      "city_council_vote": "unanimous"
+    },
+    {
+      "id": "pierce-county-wa-2026-08",
+      "jurisdiction": "Pierce County",
+      "jurisdiction_type": "county",
+      "state_code": "WA",
+      "status": "enacted",
+      "duration_months": 12,
+      "duration_description": "Up to one year",
+      "key_reasons": [],
+      "summary": "The Pierce County Council adopted an emergency ordinance on August 25, 2026, by a 6-1 vote, halting new and expanded data centers over 10 MW in unincorporated Pierce County. The measure prohibits the filing, processing and approval of permits for affected projects for up to one year while officials work on permanent regulations. The county's own release returned an access error when fetched, so this record rests on the Daily Journal of Commerce report; the ordinance number was not confirmed and the County Executive's signature was not checked.",
+      "source_url": "https://www.djc.com/news/co/12177525.html",
+      "source_title": "Daily Journal of Commerce — Pierce Co. puts pause on data centers",
+      "enacted_by": "County Council",
+      "session": "2026",
+      "captured_at": "2026-10-19",
+      "enacted_date": "2026-08-25",
+      "city_council_vote": "6-1",
+      "power_threshold_mw": 10
     }
   ]
 }

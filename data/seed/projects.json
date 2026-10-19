@@ -4486,7 +4486,7 @@
       "notes": "Cedar Valley campus, ~2.4M sq ft, online since 2021. $1B+ Utah investment; 200+ operational jobs and 1,250 peak daily construction workers. Powered by 100% renewable energy via 800MW+ of new Rocky Mountain Power solar across nine projects; 2020 Provo River water restoration partnership with Trout Unlimited. ~$2M in community investment since 2018, including ~$1M COVID-19 relief. Sept 14 2026: Meta announced the campus 'is growing' — investment in Utah (Eagle Mountain is Meta's only Utah data center) rising to more than $3B, with 1,200+ construction workers at peak and 300+ jobs at the data center once completed (claimed_jobs = 1,500 combined); new buildings will use closed-loop liquid cooling with dry cooling (no operational cooling water). Announced alongside: a $450K grant for the Walden Park Astronomy Park (total city contribution $700K), $600K to buy three acres for a future Lake Mountain School District elementary school, $1.5M to the Lake Mountain Education Foundation plus $50K/yr, $4.85M to date to the city's Affordable Housing Fund (66 families), $50M+ in local road/water infrastructure, $6.2M+ to local schools and organizations, Hobble Creek + Provo River restoration (726M+ gal/yr), and 1.7 GW+ of Meta-supported clean energy across 13 Utah sites (a supply figure, not site load). Meta states it pays 'the full costs of our data centers' energy use so other consumers aren't negatively impacted' — no ratepayer assessment attached because the site predates the pledge.",
       "source_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
       "source_title": "Meta Data Centers — Utah County, We Are Online! (Jul 2021)",
-      "captured_at": "2026-09-22",
+      "captured_at": "2026-10-19",
       "project_page_url": "https://datacenters.atmeta.com/2021/07/utah-county-we-are-online/",
       "offtaker": "Meta",
       "at_a_glance": {
@@ -4494,7 +4494,19 @@
         "energy": "800MW+ RMP solar (2021); 1.7 GW+ Meta-supported clean energy across 13 Utah sites; pays full energy + infrastructure costs",
         "water": "Provo River / Hobble Creek restoration (726M+ gal/yr); new buildings dry-cooled, no operational cooling water",
         "community_grants": "$6.2M+ to schools/orgs; $4.85M affordable housing; $450K astronomy park (2026)"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-09-14",
+          "kind": "news",
+          "title": "Reported: Meta announces Eagle Mountain expansion and community grants",
+          "summary": "Utah Business reports Meta's Utah investment now exceeds $3 billion, with grants to the Lake Mountain School District, Walden Park Observatory and the Lake Mountain Education Foundation. Meta and Eagle Mountain City made the announcement at an event in early September 2026.",
+          "authority": "Meta; Eagle Mountain City",
+          "upcoming": false,
+          "source_url": "https://www.utahbusiness.com/industry/2026/09/14/meta-boosts-eagle-mountain-investment-3-billion-utah-data-center/",
+          "source_title": "Utah Business — Meta boosts Eagle Mountain investment to $3 billion"
+        }
+      ]
     },
     {
       "id": "meta-los-lunas-nm",
