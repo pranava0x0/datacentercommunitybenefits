@@ -110,7 +110,7 @@ class TestVocabularies:
 
     def test_project_statuses_fixed(self):
         # Locked vocabulary; adding a status is a schema change.
-        assert PROJECT_STATUSES == ("announced", "construction", "operational")
+        assert PROJECT_STATUSES == ("announced", "construction", "operational", "withdrawn")
 
     def test_stances_fixed(self):
         assert STANCES == ("positive", "mixed", "negative")

@@ -3814,3 +3814,57 @@ class TestIssue72Navigation:
         # open is invisible but still locks page scroll; check both.
         assert page.locator("#moratorium-modal").get_attribute("hidden") is not None
         assert not page.evaluate("() => document.body.classList.contains('moratorium-modal-open')")
+
+
+class TestIssues78And79:
+    """#78 withdrawn sites; #79 phone page length."""
+
+    def test_withdrawn_sites_leave_the_scorecard_and_totals(self, page: Page, base_url: str):
+        withdrawn = [
+            p for p in json.loads((ROOT / "docs/data/projects.json").read_text())["projects"]
+            if p["status"] == "withdrawn"
+        ]
+        assert withdrawn, "seed should carry at least one withdrawn site (Calvert Cliffs)"
+        page.goto(base_url + "/#ratepayer")
+        page.wait_for_function("() => state.projects.length > 0", timeout=E2E_WAIT)
+        ids = page.evaluate(
+            "() => [...ratepayerAssessedProjects(), ...ratepayerPrePledgeProjects(),"
+            " ...ratepayerUnassessedPledgeEraProjects(), ...ratepayerNonSignatoryProjects()].map(p => p.id)"
+        )
+        assert not set(ids) & {p["id"] for p in withdrawn}
+        # Totals: a withdrawn site's investment is not counted.
+        live_capex = page.evaluate(
+            "() => state.projects.filter(isLiveProject).reduce((a, p) => a + (p.claimed_investment_usd || 0), 0)"
+        )
+        rollup_capex = page.evaluate("() => buildCompanyRollups().reduce((a, r) => a + r.capex, 0)")
+        assert rollup_capex == live_capex
+
+    def test_withdrawn_status_is_filterable_and_labelled(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer")
+        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+        page.select_option("#f-status", "withdrawn")
+        card = page.locator("#project-list .project-card").first
+        expect(card.locator(".status-pill.status-withdrawn")).to_have_text("Withdrawn")
+
+    def test_phone_lists_are_paged(self, browser, base_url: str):
+        ctx = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
+        page = ctx.new_page()
+        try:
+            page.goto(base_url + "/#explorer")
+            page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
+            total = page.evaluate("() => filteredProjects().length")
+            cards = page.locator("#project-list .project-card")
+            assert cards.count() == min(total, page.evaluate("() => SITES_PAGE"))
+            page.click("#project-list .project-list-more button")
+            assert cards.count() == min(total, 2 * page.evaluate("() => SITES_PAGE"))
+            # Benefits: the first few full cards, then the rest on request.
+            page.click("#tab-agreements")
+            page.wait_for_selector("#cba-strongest .cba-card", timeout=E2E_WAIT)
+            n = page.evaluate("() => strongestAgreements().length")
+            strongest = page.locator("#cba-strongest .cba-card")
+            assert strongest.count() == min(n, page.evaluate("() => CBA_PHONE_FIRST"))
+            if n > strongest.count():
+                page.click("#cba-strongest .project-list-more button")
+                assert strongest.count() == n
+        finally:
+            ctx.close()

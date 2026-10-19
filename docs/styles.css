@@ -6498,3 +6498,6 @@ button.depth-chip:focus-visible {
   .moratorium-table th:nth-child(5),
   .moratorium-table td:nth-child(5) { display: none; }
 }
+/* #78: an abandoned site stays on the record, visibly inactive. */
+.status-pill.status-withdrawn { color: var(--text-muted); background: var(--surface-2, var(--surface)); text-decoration: line-through; }
+.project-list-more { list-style: none; padding: 0.75rem 0; text-align: center; }

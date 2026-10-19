@@ -346,11 +346,19 @@ const TARIFF_PARAMETER_GROUP_OF = {
 };
 
 
+// Mirrors schema.PROJECT_STATUSES (parity-tested).
 const STATUS_LABELS = {
   announced: "Announced",
   construction: "Under construction",
   operational: "Operational",
+  withdrawn: "Withdrawn",
 };
+
+// A withdrawn site stays on the record but is no longer a live project: it
+// leaves the pledge scorecard and the investment / jobs / MW totals (#78).
+function isLiveProject(p) {
+  return p.status !== "withdrawn";
+}
 
 // v1.13: Delivered-vs-promised vocabulary. Must mirror schema.DELIVERED_STATUSES.
 // Frontend test `test_themes_match_frontend.py` enforces parity.
@@ -600,6 +608,8 @@ const state = {
   explorerSort: "composite",
   selectedProjectId: null,
   pendingProjectId: null,
+  // Sites list cards rendered on phones (SITES_PAGE; #79).
+  sitesShown: 20,
   explorerLoaded: false,
   ratepayerLoaded: false,
   signatoriesLoaded: false,
@@ -3088,6 +3098,7 @@ function renderPolicyStats(all) {
 // curator's feature tags, never a hand-written "best of" list.
 // --------------------------------------------------------------------------
 const CBA_STRONGEST_MAX = 10;
+const CBA_PHONE_FIRST = 5;
 
 function isAgreementRecord(p) {
   if (!p.community_benefits_framework) return false;
@@ -3222,7 +3233,20 @@ function renderAgreementsView() {
   setSubtabCount("cba-strongest-count", strongest.length);
   const top = document.getElementById("cba-strongest");
   if (top) {
-    top.replaceChildren(...strongest.map((p) => renderAgreementCard(p)));
+    // Phones: the first 5 full cards, then a button (#79: ten full cards
+    // with nine-term checklists ran ~14 screens).
+    const cut = window.matchMedia(SITES_PAGED_QUERY).matches ? CBA_PHONE_FIRST : strongest.length;
+    top.replaceChildren(...strongest.slice(0, cut).map((p) => renderAgreementCard(p)));
+    if (cut < strongest.length) {
+      const li = el("li", "project-list-more");
+      const btn = el("button", "btn-ghost", `Show all ${strongest.length}`);
+      btn.type = "button";
+      btn.addEventListener("click", () => {
+        li.replaceWith(...strongest.slice(cut).map((p) => renderAgreementCard(p)));
+      });
+      li.append(btn);
+      top.append(li);
+    }
     if (!strongest.length) top.innerHTML = "<li class='muted'>No signed agreements reviewed yet.</li>";
   }
 
@@ -4803,6 +4827,7 @@ function statusWords(counts) {
   if (counts.operational) parts.push(`${counts.operational} operating`);
   if (counts.construction) parts.push(`${counts.construction} building`);
   if (counts.announced) parts.push(`${counts.announced} announced`);
+  if (counts.withdrawn) parts.push(`${counts.withdrawn} withdrawn`);
   return parts.join(" · ");
 }
 
@@ -6295,6 +6320,7 @@ function updateDetailTabCounts(claimsCount, responsesCount) {
 }
 
 function refreshExplorer() {
+  state.sitesShown = SITES_PAGE;
   renderContestedSites();
   renderProjectList();
   refreshMapMarkers();
@@ -6409,6 +6435,9 @@ function sortProjects(items, sortKey) {
     .map((x) => x.p);
 }
 
+const SITES_PAGE = 20;
+const SITES_PAGED_QUERY = "(max-width: 700px)";
+
 function renderProjectList() {
   const list = document.getElementById("project-list");
   const meta = document.getElementById("explorer-meta");
@@ -6427,8 +6456,25 @@ function renderProjectList() {
     return;
   }
 
-  for (const p of items) {
+  // Phones: 20 cards, then "Show more" (#79: the full list ran ~21 screens).
+  // Desktop scrolls the list inside the map sidebar, so it renders them all.
+  // A selected site always renders, even past the current page.
+  const paged = window.matchMedia(SITES_PAGED_QUERY).matches;
+  const sel = items.findIndex((p) => p.id === state.selectedProjectId);
+  const shown = paged ? Math.max(state.sitesShown, sel + 1) : items.length;
+  for (const p of items.slice(0, shown)) {
     list.appendChild(renderProjectCard(p));
+  }
+  if (shown < items.length) {
+    const li = el("li", "project-list-more");
+    const btn = el("button", "btn-ghost", `Show ${Math.min(SITES_PAGE, items.length - shown)} more of ${items.length - shown}`);
+    btn.type = "button";
+    btn.addEventListener("click", () => {
+      state.sitesShown = shown + SITES_PAGE;
+      renderProjectList();
+    });
+    li.append(btn);
+    list.appendChild(li);
   }
 }
 
@@ -6605,7 +6651,7 @@ function refreshMapMarkers() {
     }
 
     // Opacity reflects status: announced=0.4, construction=0.65, operational=0.9
-    const opacityMap = { announced: 0.4, construction: 0.65, operational: 0.9 };
+    const opacityMap = { announced: 0.4, construction: 0.65, operational: 0.9, withdrawn: 0.12 };
     const fillOpacity = opacityMap[p.status] || 0.65;
 
     // Border weight reflects status: more prominent for operational
@@ -7517,7 +7563,7 @@ function ratepayerSignatories() {
 // Projects that carry a curated ratepayer assessment (the post-pledge cohort).
 function ratepayerAssessedProjects() {
   return state.projects
-    .filter((p) => p.ratepayer)
+    .filter((p) => p.ratepayer && isLiveProject(p))
     .sort((a, b) => {
       // affirmed first, then by company, then name — stable, scannable order.
       const rank = (s) => RATEPAYER_STATUSES.indexOf(s);
@@ -7581,6 +7627,7 @@ function ratepayerPrePledgeProjects() {
       (p) =>
         signatorySlugs.has(p.company_slug) &&
         !p.ratepayer &&
+        isLiveProject(p) &&
         isPrePledgeProject(p)
     )
     .sort(rosterSort);
@@ -7597,6 +7644,7 @@ function ratepayerUnassessedPledgeEraProjects() {
       (p) =>
         signatorySlugs.has(p.company_slug) &&
         !p.ratepayer &&
+        isLiveProject(p) &&
         !isPrePledgeProject(p)
     )
     .sort(rosterSort);
@@ -7610,7 +7658,7 @@ function ratepayerUnassessedPledgeEraProjects() {
 function ratepayerNonSignatoryProjects() {
   const signatorySlugs = new Set(ratepayerSignatories().map((c) => c.slug));
   return state.projects
-    .filter((p) => !signatorySlugs.has(p.company_slug))
+    .filter((p) => !signatorySlugs.has(p.company_slug) && isLiveProject(p))
     .sort(rosterSort);
 }
 
@@ -8569,6 +8617,7 @@ function buildCompanyRollups() {
       announced: 0,
       construction: 0,
       operational: 0,
+      withdrawn: 0,
       capex: 0,
       jobs: 0,
       power_mw: 0,
@@ -8582,9 +8631,8 @@ function buildCompanyRollups() {
     const r = map.get(p.company_slug);
     if (!r) continue;
     r.projects++;
-    if (p.status === "announced") r.announced++;
-    else if (p.status === "construction") r.construction++;
-    else if (p.status === "operational") r.operational++;
+    if (p.status in r) r[p.status]++;
+    if (!isLiveProject(p)) continue;
     if (p.claimed_investment_usd) r.capex += p.claimed_investment_usd;
     if (p.claimed_jobs) r.jobs += p.claimed_jobs;
     if (p.power_mw) r.power_mw += p.power_mw;
@@ -8618,6 +8666,7 @@ function buildStateRollups() {
         announced: 0,
         construction: 0,
         operational: 0,
+        withdrawn: 0,
         capex: 0,
         jobs: 0,
         power_mw: 0,
@@ -8629,9 +8678,8 @@ function buildStateRollups() {
     const r = map.get(p.state);
     r.companySlugs.add(p.company_slug);
     r.projects++;
-    if (p.status === "announced") r.announced++;
-    else if (p.status === "construction") r.construction++;
-    else if (p.status === "operational") r.operational++;
+    if (p.status in r) r[p.status]++;
+    if (!isLiveProject(p)) continue;
     if (p.claimed_investment_usd) r.capex += p.claimed_investment_usd;
     if (p.claimed_jobs) r.jobs += p.claimed_jobs;
     if (p.power_mw) r.power_mw += p.power_mw;
@@ -8707,7 +8755,7 @@ function buildSignatoryCategoryRollups() {
     return rows.get(key);
   };
 
-  for (const p of state.projects || []) {
+  for (const p of (state.projects || []).filter(isLiveProject)) {
     const sig = state.signatoryByCompany && state.signatoryByCompany.get(p.company_slug);
     const key = sig ? sig.category : "none";
     const label = sig
