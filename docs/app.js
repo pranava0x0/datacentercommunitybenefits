@@ -9655,7 +9655,7 @@ function worldInstruments() {
   const d = state.intl;
   return [
     ...d.policies.map((p) => ({ kind: "policy", r: p, date: p.date || "" })),
-    ...d.moratoriums.map((m) => ({ kind: "pause", r: m, date: m.enacted_date || m.captured_at || "" })),
+    ...d.moratoriums.map((m) => ({ kind: "pause", r: m, date: m.enacted_date || m.effective_date || m.lifted_date || "" })),
     ...(d.rate_cases || []).map((rc) => ({ kind: "ratecase", r: rc, date: rc.filed_date || "" })),
   ].sort((a, b) => b.date.localeCompare(a.date));
 }
