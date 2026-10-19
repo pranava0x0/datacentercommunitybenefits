@@ -1,0 +1,209 @@
+{
+  "_meta": {
+    "scope": "Wave 1 pass 2, Argentina (AR) only. Builds on cl_ar.json (RIGI decree record carried over and re-probed). Every verbatim below was probe.py HIT or copied from probe output. Captured 2026-10-19.",
+    "probe_note": "Spanish pages probed with scripts/probe.py; accented phrases printed correctly. Verbatims are copied from probe context output.",
+    "counts": {"verified_records": 4, "unverified_records": 3, "context_facts_verified": 2, "regulators": 2}
+  },
+  "countries": [
+    {
+      "code": "AR",
+      "summary": "Argentina's RIGI large-investment regime (Ley 27.742, Título VII; Decreto 749/2024) is in force. Ministry of Economy listing reported in July 2026 counts 17 approved RIGI projects, none of them a data centre per the sources reviewed. Stargate Argentina (OpenAI letter of intent with Sur Energy, announced October 2025, up to 500 MW) has no published site or binding contract. A Súper RIGI bill that covers data centres (Mensaje 181/2026) has been sent to Congress; Pampa Energía (Neuquén, up to 500 MW) and Green Capital (Chubut, 300 MW first stage) have proposed campuses that are not yet approved.",
+      "regulators": [
+        {"name": "Ente Nacional Regulador del Gas y la Electricidad", "acronym": "ENReGE", "role": "energy_regulator", "url": "https://www.argentina.gob.ar/enre"},
+        {"name": "Energía (Ministerio de Economía)", "acronym": null, "role": "planning", "url": "https://www.argentina.gob.ar/economia/energia"}
+      ],
+      "context": [
+        {
+          "statement": "The Ministry of Economy's updated list shows 17 projects authorised under the RIGI, for US$31.192 million and almost 55,000 projected jobs (per Letra P, July 2026).",
+          "verbatim": "El listado actualizado por el Ministerio de Economía muestra 17 proyectos autorizados por el RIGI, por u$s 31.192 millones y casi 55.000 empleos proyectados.",
+          "source_lang": "es",
+          "period": "2026-07",
+          "source_url": "https://www.letrap.com.ar/economia/argentina-quiere-ser-un-polo-inteligencia-artificial-pero-el-rigi-es-un-desierto-tecnologico-n5425031",
+          "source_title": "Letra P — Argentina quiere ser un polo de inteligencia artificial, pero el RIGI es un desierto tecnológico",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Letra P reports that only one technology-sector file is under evaluation under the RIGI, and that it is held under reserve.",
+          "verbatim": "Solo hay un expediente del sector en evaluación y permanece bajo reserva.",
+          "source_lang": "es",
+          "period": "2026-07",
+          "source_url": "https://www.letrap.com.ar/economia/argentina-quiere-ser-un-polo-inteligencia-artificial-pero-el-rigi-es-un-desierto-tecnologico-n5425031",
+          "source_title": "Letra P — Argentina quiere ser un polo de inteligencia artificial, pero el RIGI es un desierto tecnológico",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": ["es", "en"]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "AR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Régimen de Incentivo para Grandes Inversiones (RIGI), Título VII de la Ley 27.742, reglamentado por Decreto 749/2024",
+        "jurisdiction": "Argentina (national)",
+        "instrument": "legislation",
+        "status": "in_effect",
+        "date": "2024-08-23",
+        "identifier": "Ley 27.742, Título VII (arts. 164-228); Decreto 749/2024",
+        "summary": "National large-investment incentive regime. Ley 27.742 creates the promotional regime in Title VII; Decree 749/2024 (published 23 August 2024) regulates it and names the Ministry of Economy as application authority. A general investment regime, not a data-centre rule.",
+        "key_terms": ["Régimen de Incentivo para Grandes Inversiones (RIGI)", "artículos 164 a 228"],
+        "principles": ["conditioned_tax_breaks"],
+        "benefit_themes": [],
+        "value": null
+      },
+      "source_url": "https://www.argentina.gob.ar/normativa/nacional/decreto-749-2024-403230/texto",
+      "source_title": "Argentina.gob.ar — Decreto 749/2024 (reglamentación del Título VII, RIGI, Ley 27.742)",
+      "source_lang": "es",
+      "verbatim": "Apruébase Reglamentación del Título VII-Régimen de Incentivo para Grandes Inversiones (RIGI)-Ley Nº 27.742.",
+      "verified": true,
+      "notes": "Re-probed 2026-10-19: HITs for 'Apruébase Reglamentación del Título VII', 'Autoridad de Aplicación del RIGI' (art. 122: MINISTERIO DE ECONOMÍA) and the Boletín Oficial date. 'artículos 164 a 228' carried from the earlier pass. The 'conditioned_tax_breaks' principle is a curator assignment on a general regime with no community condition in the text read; reconsider. Not a community-benefit instrument."
+    },
+    {
+      "type": "policy",
+      "country": "AR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Súper RIGI (proyecto de régimen de incentivo para grandes inversiones en nuevas industrias)",
+        "jurisdiction": "Argentina (national)",
+        "instrument": "legislation",
+        "status": "proposed",
+        "date": null,
+        "identifier": "Mensaje 181/2026 (Poder Ejecutivo, Cámara de Diputados)",
+        "summary": "Executive bill that would give a RIGI-style regime for new or experimental activities in technology and strategic sectors, including data centres. Proposed thresholds: at least US$1,000 million in qualifying assets per project (the first RIGI: US$200 million), with at least 20% committed within two years of joining, benefits for up to 30 years, and a five-year filing window extendable by one year.",
+        "key_terms": ["comprometer al menos 20% de ese monto dentro de los primeros dos años desde su adhesión"],
+        "principles": ["conditioned_tax_breaks"],
+        "benefit_themes": [],
+        "value": {"amount": 1000000000, "currency": "USD", "as_stated": "mínimas de 1,000 millones de dólares en activos computables por proyecto"}
+      },
+      "source_url": "https://dplnews.com/super-rigi-argentina-busca-atraer-inversiones-1000-mdd-en-ia-centros-de-datos-y-semiconductores/",
+      "source_title": "DPL News — El “Súper RIGI” de Argentina busca atraer inversiones de 1,000 mdd en IA, Centros de Datos y semiconductores",
+      "source_lang": "es",
+      "verbatim": "El texto fue remitido a la Cámara de Diputados a través del Mensaje 181/2026 y plantea un régimen especial orientado exclusivamente a actividades económicas nuevas o experimentales en Argentina",
+      "verified": true,
+      "notes": "Verified by probe on DPL News (HITs: 'Mensaje 181', '20%' context, the 1,000-million threshold printed as '1,000 millones de dólares en activos computables'). Stage is limited to what DPL states: sent to the Chamber of Deputies. Later stages (Diputados half-sanction, Senate changes) appear only in unprobed search snippets (iProUP, Buenos Aires Económico) and are NOT shipped as verified. No expediente number was found. The 'date' is null because the verbatim gives no filing date. 'Súper RIGI' is a bill, not law; status proposed. Principle 'conditioned_tax_breaks' is a curator assignment. The energy requirement for data centres is disputed in the Senate per a Buenos Aires Económico snippet (unprobed); do not ship that point."
+    },
+    {
+      "type": "project",
+      "country": "AR",
+      "subdivision": "AR-B",
+      "locality": "Bahía Blanca (Coronel Rosales free-trade zone)",
+      "fields": {
+        "name": "AWS data centre, zona franca Bahía Blanca (Tango Sur / Centro / Norte)",
+        "company": "Amazon Web Services (AWS)",
+        "city": "Bahía Blanca",
+        "status": "announced",
+        "announced_year": 2019,
+        "claimed_investment": {"amount": 800000000, "currency": "USD", "as_stated": "US$ 800 millones"},
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": -38.718333,
+        "lon": -62.267222,
+        "notes": "Authorisation reported by Reuters on 25 October 2019 (the Boletín Oficial of Buenos Aires province, dated the Thursday before). Coordinates are the Bahía Blanca city centroid from es.wikipedia (probed; approximate). The free-trade zone is in Coronel Rosales, which is not probed, so treat the point as approximate. El Cronista (unprobed search snippet) later reports these plans were never concluded; this record stays 'announced' because no completion or withdrawal source was probed. Not an operating site on the evidence read."
+      },
+      "source_url": "https://www.df.cl/internacional/multinacionales/argentina-aprueba-construccion-de-centro-de-datos-de-amazon",
+      "source_title": "Diario Financiero (Reuters) — Argentina aprueba construcción de centro de datos de Amazon",
+      "source_lang": "es",
+      "verbatim": "AWS se instalará en las áreas denominadas 'Tango Sur', Tango Centro' y 'Tango Norte' de la zona franca ubicada en Bahía Blanca, Coronel Rosales, en la provincia de Buenos Aires.",
+      "verified": true,
+      "notes": "Probe HITs: 'Argentina aprueba construcción de centro de datos de Amazon' headline, the Tango zone sentence (verbatim above, source's own quote-mark spelling kept), 'Publicado: Viernes 25 de octubre de 2019', and 'recibió autorización para construir un centro de datos en una zona de libre comercio en la provincia de Buenos Aires con una inversión estimada de US$ 800 millones'. Coordinates probed on es.wikipedia Bahía Blanca (38°43′06″S 62°16′02″O). Investment figure is the Reuters-reported estimate, not a verified outcome."
+    },
+    {
+      "type": "claim",
+      "country": "AR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "company": "Sur Energy",
+        "theme": "jobs",
+        "statement": "convierte a la Argentina en un actor relevante en el mapa digital y energético mundial, creando empleos de calidad, atrayendo inversiones internacionales y demostrando que la innovación y la energía pueden ser motores complementarios del desarrollo sustentable",
+        "statement_lang": "es",
+        "translation": "makes Argentina a relevant player on the world's digital and energy map, creating quality jobs, attracting international investment, and showing that innovation and energy can be complementary drivers of sustainable development (machine translation)"
+      },
+      "source_url": "https://chequeado.com/el-explicador/openai-y-sur-energy-anunciaron-una-inversion-para-construir-un-data-center-de-ia-en-la-argentina-que-beneficios-y-desafios-plantea/",
+      "source_title": "Chequeado — OpenAI y Sur Energy anunciaron la construcción de un data center de IA en la Argentina: qué beneficios y desafíos plantea (quoting Emiliano Kargieman, Sur Energy co-founder)",
+      "source_lang": "es",
+      "verbatim": "Kargieman-cofundador de Sur Energy junto al recientemente fallecido Matías Travizano-planteó que esta alianza \"convierte a la Argentina en un actor relevante en el mapa digital y energético mundial, creando empleos de calidad, atrayendo inversiones internacionales y demostrando que la innovación y la energía pueden ser motores complementarios del desarrollo sustentable\".",
+      "verified": true,
+      "notes": "Probe HITs on Chequeado (20 Oct 2025 explainer) for 'creando empleos de calidad' and 'atrayendo inversiones internacionales'. Speaker is co-founder Emiliano Kargieman, a named executive, quoted in quotation marks: first-party under the project rule (named exec, outlet named in source_title). The statement is about jobs and national investment, so it passes gate 2. Sur Energy is not a tracked company; it would be added as an operator. Sur Energy is not a Ratepayer pledge signatory as far as this pass checked (not probed)."
+    },
+    {
+      "type": "project",
+      "country": "AR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "name": "Stargate Argentina",
+        "company": "Sur Energy",
+        "city": null,
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": {"amount": 25000000000, "currency": "USD", "as_stated": "US$25 billion"},
+        "claimed_jobs": null,
+        "power_mw": 500,
+        "lat": null,
+        "lon": null,
+        "notes": "Letter of intent, not a binding contract. Herald (10 Oct 2025) reports the government announcement of OpenAI-Sur Energy letter of intent, 'up to 500 MW using renewable energy'. DPL News (14 Oct 2025, probed) quotes OpenAI: 'OpenAI agradece la oportunidad de convertirse en comprador' and 'OpenAI acoge con satisfacción la posible oportunidad de convertirse en comprador', so OpenAI is described as a prospective offtaker, not the investor. Chequeado (probed) gives the same US$25 billion figure as 'hasta US$ 25 mil millones'. No government or company text names a site, so lat/lon cannot be set from a probed page. Regional press (unprobed) names Neuquén among five candidate sites; not verified. Hold until a site and binding contract are confirmed."
+      },
+      "source_url": "https://buenosairesherald.com/business/argentine-government-and-openai-announce-project-to-build-data-center-in-patagonia",
+      "source_title": "Buenos Aires Herald — Argentine government and OpenAI announce project to build data center in Patagonia",
+      "source_lang": "en",
+      "verbatim": "The project is expected to be capable of \"hosting the next generation of AI computing\" and reach a capacity of up to 500 MW using renewable energy.",
+      "verified": false,
+      "notes": "Verified text, but NOT shippable: no site or coordinates from a probed page (brief hard rule). Held as verified false until a site is confirmed. Also note: the cl_ar.json record used the Herald verbatim 'OpenAI will collaborate with Argentine-U.S. owned company Sur Energy on an investment worth an estimated US$25 billion', which probed HIT and is the same headline wording. The OpenAI statement page (openai.com) was not fetched in this pass. The argentina.gob.ar release was not found in search, so the government's own wording is not verified here."
+    },
+    {
+      "type": "project",
+      "country": "AR",
+      "subdivision": "AR-Q",
+      "locality": "Neuquén (Loma de la Lata thermal plant; exact site not located)",
+      "fields": {
+        "name": "Pampa Energía data centre at Loma de la Lata",
+        "company": "Pampa Energía",
+        "city": "Neuquén",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": 500,
+        "lat": null,
+        "lon": null,
+        "notes": "Proposal described by Pampa's commercial director, Rubén Turienzo, as a campus that 'podría consumir hasta 500 megavatios' and supplied from Vaca Muerta. Not an approved project. Coordinates NOT set: es.wikipedia Neuquén probe returned a short page with no coordinates, so the site cannot be geocoded from a probed source. Re-probe for a coordinate source before shipping. Pampa Energía is not a tracked company (would be added as operator)."
+      },
+      "source_url": "https://eleconomista.com.ar/economia/vaca-muerta-mucho-frio-combo-perfecto-despierta-interes-empresas-tecnologicas-patagonia-n98025",
+      "source_title": "El Economista — Vaca Muerta, mucho frío y combo perfecto: despierta interés de empresas tecnológicas en la Patagonia",
+      "source_lang": "es",
+      "verbatim": "la generadora Pampa Energía impulsa un proyecto para instalar un centro de datos junto a su central térmica Loma de la Lata. Según explicó Rubén Turienzo, director comercial de electricidad de la compañía, el complejo podría consumir hasta 500 megavatios y se abastecería con energía proveniente de Vaca Muerta",
+      "verified": false,
+      "notes": "All text fields HIT on the probed page ('Loma de la Lata', '500 megavatios'). Held as verified false only because lat/lon are not from a probed page. Set coordinates and flip to verified true once a source is probed. The Spanish is copied from probe context output."
+    },
+    {
+      "type": "project",
+      "country": "AR",
+      "subdivision": "AR-U",
+      "locality": "Chubut (site not located)",
+      "fields": {
+        "name": "Green Capital data centre, Chubut (first stage 300 MW)",
+        "company": "Green Capital",
+        "city": null,
+        "status": "announced",
+        "announced_year": 2026,
+        "claimed_investment": {"amount": 3000000000, "currency": "USD", "as_stated": "US$ 3.000 millones"},
+        "claimed_jobs": null,
+        "power_mw": 300,
+        "lat": null,
+        "lon": null,
+        "notes": "Polish developer; first stage 300 MW, could scale to 3,000 MW, per Marta Złotkowska (international development and data centres) as reported in El Economista. The article says 'informó en julio' but gives no year in the probed text; announced_year 2026 is inferred from the article's date and should be checked. Site not located. Planned wind and solar supply and an incentive-regime application in 2027, per unprobed snippets. Not verified: no coordinates, no site."
+      },
+      "source_url": "https://eleconomista.com.ar/economia/vaca-muerta-mucho-frio-combo-perfecto-despierta-interes-empresas-tecnologicas-patagonia-n98025",
+      "source_title": "El Economista — Vaca Muerta, mucho frío y combo perfecto: despierta interés de empresas tecnológicas en la Patagonia",
+      "source_lang": "es",
+      "verbatim": "la empresa polaca Green Capital informó en julio que proyecta un centro de datos que en una primera etapa alcanzaría 300 MW, con una inversión de US$ 3.000 millones",
+      "verified": false,
+      "notes": "Text HIT on the probed El Economista article. Held as verified false: no site and no coordinates, and the year is inferred. Re-check against Green Capital's own release before shipping."
+    }
+  ]
+}

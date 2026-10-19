@@ -1,0 +1,573 @@
+{
+  "countries": [
+    {
+      "code": "AU",
+      "summary": "New South Wales released a Data Centre Policy Framework and Guidelines on 17 August 2026, which the state government describes as matching data-centre investment with renewable energy and water infrastructure. National Cabinet discussed mandatory national data-centre standards on 26 August 2026; the primary communique was not reached in this pass, so the national instrument is not shippable. Goodman formally withdrew its development application for a 90 MW campus in Lane Cove (Project Mars) on 28 September 2026, following local opposition and a parliamentary inquiry.",
+      "regulators": [
+        {
+          "name": "Infrastructure NSW",
+          "acronym": "INSW",
+          "role": "planning",
+          "url": "https://www.infrastructure.nsw.gov.au/"
+        },
+        {
+          "name": "Australian Energy Market Commission",
+          "acronym": "AEMC",
+          "role": "energy_regulator",
+          "url": "https://www.aemc.gov.au/"
+        }
+      ],
+      "context": [
+        {
+          "statement": "The NSW Government reports 19 data-centre projects valued at $50.3 billion in its State Significant Development pipeline, in addition to more than 60 data centres already operating or under construction.",
+          "verbatim": "There are 19 data centre projects valued at $50.3 billion in the State Significant Development pipeline. This is in addition to more than 60 data centres that are already o",
+          "source_lang": "en",
+          "period": "2026-08-17",
+          "source_url": "https://www.nsw.gov.au/ministerial-releases/nation-leading-framework-to-harness-nsw-data-centre-investment",
+          "source_title": "NSW Government — Nation-leading framework to harness NSW data centre investment",
+          "captured_at": "2026-10-19",
+          "verified": true
+        }
+      ],
+      "primary_languages": [
+        "en"
+      ]
+    },
+    {
+      "code": "SE",
+      "summary": "Sweden removed the reduced energy-tax rate for electricity used in data centres from 1 July 2023; the Riksdag decided this on 13 December 2022 as part of the 2023 budget bill. The city-led Stockholm Data Parks initiative pairs data-centre waste heat with the district-heating system run by Stockholm Exergi. Microsoft's Sandviken campus carries a first-party jobs claim recorded here; Microsoft's Gävle and Staffanstorp sites and any heat-reuse arrangements were not researched in this pass.",
+      "regulators": [
+        {
+          "name": "Energimarknadsinspektionen",
+          "acronym": "Ei",
+          "role": "energy_regulator",
+          "url": "https://www.ei.se/"
+        }
+      ],
+      "context": [
+        {
+          "statement": "The City of Stockholm's objective is to be entirely fossil-fuel free by 2040, and it has invited data centres to play a key role in that transition through heat recovery.",
+          "verbatim": "The City's objective is to be entirely fossil fuel free by 2040, and we have invited data centers to play a key role in th",
+          "source_lang": "en",
+          "period": "2040",
+          "source_url": "https://stockholmdataparks.com/",
+          "source_title": "Stockholm Data Parks — Green computing redefined",
+          "captured_at": "2026-10-19",
+          "verified": true
+        }
+      ],
+      "primary_languages": [
+        "sv",
+        "en"
+      ]
+    },
+    {
+      "code": "FI",
+      "summary": "From 1 July 2026, electricity used in data centres moves from the reduced electricity tax class II to the general class I, according to the Finnish Tax Administration. Microsoft's Espoo and Kirkkonummi region is designed to send its waste heat into the Fortum district-heating network, and Google's Hamina campus expansion includes a heat-recovery partnership with the municipal utility. The Finnish government release and IEA summary of the replacement tax-relief scheme were not readable in this pass.",
+      "regulators": [
+        {
+          "name": "Energiavirasto (Energy Authority)",
+          "acronym": "Energiavirasto",
+          "role": "energy_regulator",
+          "url": "https://energiavirasto.fi/"
+        },
+        {
+          "name": "Business Finland",
+          "acronym": null,
+          "role": "investment_agency",
+          "url": "https://www.businessfinland.fi/"
+        }
+      ],
+      "context": [
+        {
+          "statement": "Google's Hamina heat-recovery project would supply an estimated 80% of Hamina's district-heating needs, per Business Finland.",
+          "verbatim": "The volume of the recovered heat represents an estimated 80% of Hamina's district-heating needs",
+          "source_lang": "en",
+          "period": "2024-05-20",
+          "source_url": "https://businessfinland.fi/en/News/news/2024/google-announced-an-expansion-of-its-hamina-data-center",
+          "source_title": "Business Finland — Google announced an expansion of its Hamina data center and a new heat recovery project",
+          "captured_at": "2026-10-19",
+          "verified": true
+        }
+      ],
+      "primary_languages": [
+        "fi",
+        "sv",
+        "en"
+      ]
+    },
+    {
+      "code": "GR",
+      "summary": "Microsoft's Attica data-centre facilities at Spata-Artemida and Kropia were proposed by Enterprise Greece's board on 1 April 2022 and approved for investment incentives by Interministerial Decision 74/2022, published in the Government Gazette on 28 June 2022. The portal's budget figure (EUR 976,168,800) and Enterprise Greece's 'several hundred million' describe the investment at different scales, and the Greek water and energy debate was not read in this pass.",
+      "regulators": [
+        {
+          "name": "Regulatory Authority for Energy",
+          "acronym": "RAE",
+          "role": "energy_regulator",
+          "url": "https://www.rae.gr/"
+        },
+        {
+          "name": "Enterprise Greece",
+          "acronym": null,
+          "role": "investment_agency",
+          "url": "https://www.enterprisegreece.gov.gr/"
+        }
+      ],
+      "context": [
+        {
+          "statement": "Enterprise Greece expected the Microsoft data-centre investment to create 300 new jobs within a decade.",
+          "verbatim": "is expected to create 300 new jobs within a decade",
+          "source_lang": "en",
+          "period": "2022-04-01",
+          "source_url": "https://www.enterprisegreece.gov.gr/en/media-center-about-us/enterprise-greece-approves-microsoft-investment-in-data-centers-for-fast-track/",
+          "source_title": "Enterprise Greece — Enterprise Greece approves Microsoft investment in Data Centers for Fast Track",
+          "captured_at": "2026-10-19",
+          "verified": true
+        }
+      ],
+      "primary_languages": [
+        "el",
+        "en"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": null,
+      "fields": {
+        "title": "NSW Data Centre Policy Framework and Guidelines",
+        "jurisdiction": "New South Wales",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Released 17 August 2026 per the NSW ministerial release. The framework's operative date and guideline text were not read.",
+        "date": "2026-08-17",
+        "identifier": null,
+        "summary": "NSW government framework released 17 August 2026. The ministerial release states the expectations for proponents on energy, water and environmental standards, community consultation and infrastructure contributions; the framework's own text was not read.",
+        "key_terms": [
+          "meaningful community consultation",
+          "appropriate contributions towards the infrastructure needed to support growth"
+        ],
+        "principles": [
+          "pay_own_way",
+          "water"
+        ],
+        "benefit_themes": [
+          "energy",
+          "water",
+          "infrastructure",
+          "engagement"
+        ],
+        "value": null
+      },
+      "source_url": "https://www.nsw.gov.au/ministerial-releases/nation-leading-framework-to-harness-nsw-data-centre-investment",
+      "source_title": "NSW Government — Nation-leading framework to harness NSW data centre investment",
+      "source_lang": "en",
+      "verbatim": "The NSW Data Centre Policy Framework will make sure future data centre investment is matched with increased investment in renewable energy and water infrastructure. It establishes clear expectations for data centre proponents, with world-class energy, water and environmental standards, meaningful community consultation and appropriate contributions towards the infrastructure needed to support growth.",
+      "verified": true,
+      "notes": "Primary is the NSW Government ministerial release (official, probe HIT for 'Published: 17 August 2026'). The framework PDF on infrastructure.nsw.gov.au was not read: an earlier probe showed a binary PDF with a mismatched filename, so the framework's own text is unverified. Status 'in_effect' rests on the release's 'released' wording; confirm effective date before relying on it. Key terms are literal on the release page. Secondary descriptions of the three pillars (Clayton Utz, search only) are NOT on the verbatim and are not stated as facts in the record summary beyond 'per secondary coverage'."
+    },
+    {
+      "type": "project",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Lane Cove",
+      "fields": {
+        "name": "Project Mars, Lane Cove",
+        "company": null,
+        "operator": "Goodman Group",
+        "city": "Lane Cove",
+        "status": "withdrawn",
+        "announced_year": 2025,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": 90,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Development application formally withdrawn; the head of planning advised NSW government on Monday (event date 2026-09-28; article byline 29 Sep 2026). Planning began March 2025 per the letter quoted by ACS. Goodman is not a tracked company, so it enters as an operator string. Reported investment varies by outlet (A$1.2 bn in most reports; A$443.8m in one Bloomberg-sourced report) and is not recorded. Lat/lon not fetched. NSW Planning Portal status not read. Not a moratorium: the developer withdrew its own application."
+      },
+      "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
+      "source_title": "ACS Information Age — Controversial Sydney data centre plan scrapped",
+      "source_lang": "en",
+      "verbatim": "Goodman's head of planning, Guy Smith, advised the New South Wales government on Monday that it had formally withdrawn its development application for Project Mars. | The company had proposed a 90-megawatt data centre in the suburb of Lane Cove, which it called Project Mars.",
+      "verified": true,
+      "notes": "Trade press (ACS Information Age) reporting the developer's own letter; secondary to the NSW Planning Portal, which was not read. The 'Monday' event date is inferred from the article's publication date and the phrase 'on Monday'; other outlets say 28 September 2026. The 90 MW figure is probe-verified on the same page. The ACS article says the withdrawal followed a parliamentary inquiry and local opposition; those causal framings are not recorded as facts."
+    },
+    {
+      "type": "response",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Lane Cove Council",
+      "fields": {
+        "project": "Project Mars, Lane Cove",
+        "date": "2026-09-29",
+        "stance": "positive",
+        "constituency": "local_government",
+        "summary": "Lane Cove council welcomed Goodman's withdrawal of the Project Mars application as a community win, crediting sustained community pressure. The quote is from a council representative posted on social media, as reported by ACS."
+      },
+      "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
+      "source_title": "ACS Information Age — Controversial Sydney data centre plan scrapped",
+      "source_lang": "en",
+      "verbatim": "This is a huge win for the Lane Cove community and shows what we can achieve when we work together",
+      "verified": true,
+      "notes": "Quote verified on the ACS page. ACS identifies the speaker as deputy mayor Rochelle Flood (a WebFetch read; the name phrase was not probe-checked, so the title is omitted from the record). The event date is the date of the reaction as reported (article byline 29 Sep 2026); council's own release not read. Stance 'positive' refers to the withdrawal outcome, not to a broader position on data centres."
+    },
+    {
+      "type": "policy",
+      "country": "AU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Proposed national data-centre standards (energy, water, siting) agreed in principle at National Cabinet",
+        "jurisdiction": "Australia",
+        "instrument": "government_framework",
+        "status": "proposed",
+        "status_detail": "National Cabinet on 26 August 2026 agreed that large data centres have material energy, water and land-use impacts and that the Commonwealth will work with states on mandatory standards; federal legislation is planned for early 2027. Draft legislation expected by end of 2026 per secondary coverage. Whether the standards were agreed is described differently across outlets.",
+        "date": "2026-08-26",
+        "identifier": null,
+        "summary": "Proposed mandatory national standards for large data centres. Secondary coverage (w.media, Clayton Utz, Tech Insider, search only) reports the energy-source element was softened for some jurisdictions; not verified against the communique.",
+        "key_terms": [],
+        "principles": [
+          "pay_own_way",
+          "water"
+        ],
+        "benefit_themes": [
+          "energy",
+          "water"
+        ],
+        "value": null
+      },
+      "source_url": "https://www.claytonutz.com/insights/2026/august/nine-governments-one-rulebook-national-cabinet-backs-mandatory-ai-and-data-centre-standards",
+      "source_title": "Clayton Utz — Nine governments, one rulebook: National Cabinet backs mandatory AI and data centre standards",
+      "source_lang": "en",
+      "verbatim": "",
+      "verified": false,
+      "notes": "NOT SHIPPABLE. The National Cabinet communique (pm.gov.au) was not found by two searches and no primary page was fetched; the source above was not probed (search summary only). Keep off the public payload until the communique is read and its outcome is stated in its own words."
+    },
+    {
+      "type": "policy",
+      "country": "AU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "AEMC rule change requests on large-load (data centre) network cost recovery",
+        "jurisdiction": "Australia",
+        "instrument": "regulation",
+        "status": "proposed",
+        "status_detail": "Consultation paper opened by the AEMC in late September 2026 on two rule change requests from the federal energy minister. Stage: consultation.",
+        "date": "2026-09-01",
+        "identifier": null,
+        "summary": "AEMC consultation on whether data centres and other large loads should contribute more directly to the network costs they cause or accelerate. Not verified: the AEMC consultation paper PDF timed out in probe and the AEMC news page returned HTTP 403.",
+        "key_terms": [],
+        "principles": [
+          "pay_own_way"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null
+      },
+      "source_url": "https://www.aemc.gov.au/sites/default/files/2026-09/Cost%20recovery%20for%20network%20augmentations%20-%20Consultation%20paper%201_0.pdf",
+      "source_title": "AEMC — Cost recovery for network augmentations, Consultation paper 1",
+      "source_lang": "en",
+      "verbatim": "",
+      "verified": false,
+      "notes": "NOT SHIPPABLE. The consultation paper probe ran for over two minutes and was killed without output; the AEMC news page returned 403 to WebFetch. The date and scope come from a search summary (w.media / AEMC search snippets). The 'date' value is the month of the consultation, not a verified event date. Read the paper and record its stage and deadlines before shipping."
+    },
+    {
+      "type": "policy",
+      "country": "SE",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Abolition of the energy-tax reduction for electricity used in data centres (slopad energiskattenedsättning för datorhallar)",
+        "jurisdiction": "Sweden",
+        "instrument": "legislation",
+        "status": "in_effect",
+        "status_detail": "Decided by the Riksdag 13 December 2022 on the government's 2023 budget bill; changes take effect 1 July 2023.",
+        "date": "2022-12-13",
+        "identifier": "prop. 2022/23:1; bet. 2022/23:FiU1; rskr. 2022/23:51",
+        "summary": "The Riksdag abolished the energy-tax reduction for electricity used in data centres (datorhallar) from 1 July 2023, on the government's proposal in the 2023 budget bill. The reduction had been introduced in 2017 and was removed after a 2022 National Audit Office report questioned its effect. The change applies to the energy tax on electricity; the refund for electricity used to produce heat or cooling for data centres was also removed in the 2022 Finance Ministry proposal (promemoria, Fi2022/02588, published 9 September 2022).",
+        "key_terms": [
+          "skattenedsättningen för energiskatt på elektrisk kraft som förbrukas i datorhallar slopas"
+        ],
+        "principles": [
+          "pay_own_way"
+        ],
+        "benefit_themes": [
+          "tax_revenue"
+        ],
+        "value": null
+      },
+      "source_url": "https://data.riksdagen.se/dokument/HA01NU11.html",
+      "source_title": "Riksdagen — Näringsutskottets betänkande 2022/23:NU11 (Riksrevisionens rapport om datorhallar)",
+      "source_lang": "sv",
+      "verbatim": "Riksdagen beslutade den 13 december 2022 i enlighet med regeringens förslag i budgetpropositionen för 2023 om att skattenedsättningen för energiskatt på elektrisk kraft som förbrukas i datorhallar slopas (prop. 2022/23:1, bet. 2022/23:FiU1, rskr. 2022/23:51). Förändringarna träder i kraft den 1 juli 2023.",
+      "translation": {
+        "lang": "en",
+        "by": "machine",
+        "text": "The Riksdag decided on 13 December 2022, in line with the government's proposal in the 2023 budget bill, to abolish the energy-tax reduction on electricity used in data centres (prop. 2022/23:1, bet. 2022/23:FiU1, rskr. 2022/23:51). The changes take effect on 1 July 2023."
+      },
+      "verified": true,
+      "notes": "Riksdag's own committee report page (data.riksdagen.se, probe HIT on both sentences). The 2022 Finance Ministry promemoria (regeringen.se, Fi2022/02588, 'Publicerad 09 september 2022', probe HIT) is the proposal; it is cited in the summary, not as the status source. The 'Regelrådet' review and the riksdagen skrivelse 2022/23:36 (probe HIT: 'Detta innebär att datorhallar från och med juli 2023 kommer möta samma energiskattemässiga förutsättningar') are supporting. Category 'legislation' is used because the change was made through the budget bill; the statute amendment itself was not read. Principle 'pay_own_way' is an assignment that the change raises data-centre energy-tax costs, not a pledge."
+    },
+    {
+      "type": "policy",
+      "country": "SE",
+      "subdivision": null,
+      "locality": "Stockholm",
+      "fields": {
+        "title": "Stockholm Data Parks (city-led data-centre heat-recovery initiative)",
+        "jurisdiction": "Stockholm (City of Stockholm)",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Ongoing city initiative launched 2017 per secondary coverage; the current Stockholm Data Parks site describes it as an initiative.",
+        "date": "2017",
+        "identifier": null,
+        "summary": "A City of Stockholm initiative, with Stockholm Exergi, Ellevio and Stokab, that invites data centres to use heat recovery so that waste heat is not wasted and contributes to the city's fossil-free objective. It is a programme, not a binding mandate; the 2017 start date and the Stockholm Exergi heat-purchase arrangement were not verified on a primary page.",
+        "key_terms": [
+          "a data center industry where no heat is wasted"
+        ],
+        "principles": [],
+        "benefit_themes": [
+          "energy",
+          "engagement"
+        ],
+        "value": null
+      },
+      "source_url": "https://stockholmdataparks.com/",
+      "source_title": "Stockholm Data Parks — Green computing redefined",
+      "source_lang": "en",
+      "verbatim": "Stockholm Data Parks is an initiative by the City of Stockholm, district heating and cooling provider Stockholm Exergi, power grid operator Ellevio and dark fiber provider Stokab. The vision is clear, a data center industry where no heat is wasted. We see data center excess heat as a valuable resource that can be part of fighting climate change.",
+      "verified": true,
+      "notes": "Programme page, not a legal instrument; 'government_framework' follows the spec's use for published non-statutory schemes. Principles left empty: no curator assignment made for this voluntary scheme. Stockholm Exergi's purchase of waste heat in the coldest months, the 2035 10% target and heat-to-apartment figures came from search summaries only and are NOT recorded because the page does not state them. Stockholm Exergi's own page was not read."
+    },
+    {
+      "type": "project",
+      "country": "SE",
+      "subdivision": null,
+      "locality": "Sandviken",
+      "fields": {
+        "name": "Microsoft Sandviken datacentre (three planned facilities)",
+        "company": "microsoft",
+        "operator": "Microsoft",
+        "city": "Sandviken",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": 300,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Microsoft's Sweden region was announced in November 2021 (search summary of news.microsoft.com; not probed). The Microsoft blog says the three planned facilities 'will create an estimated 300 permanent skilled technician jobs in Sandviken' upon completion. Construction status and the Gävle, Staffanstorp and Gävle expansion sites were not verified. Microsoft's October 2025 Sweden fact sheet (PDF, search only) reports about 230 operational staff; not recorded. The 2019 Gävle/Sandviken land-sale appeal (search summary) is not recorded."
+      },
+      "source_url": "https://local.microsoft.com/blog/how-microsofts-datacenters-are-empowering-communities-in-sandviken-and-gavle/",
+      "source_title": "Microsoft Local — Growing together: How Microsoft's datacenters are empowering communities in Sandviken and Gävle",
+      "source_lang": "en",
+      "verbatim": "Upon completion, the three planned datacenter facilities will create an estimated 300 permanent skilled technician jobs in Sandviken.",
+      "verified": true,
+      "notes": "First-party Microsoft local-community blog (probe HIT on the jobs sentence and the 'forging powerful partnerships' sentence). The blog page carries no publication date; the 2021 start year is not from this page. announced_year is therefore unverified and should be set from the Microsoft 2021 release after it is probed. Status 'announced' follows the blog's future tense ('planned'); the blog says construction 'has already boosted the local economy' which suggests construction is under way, so curator should resolve the status."
+    },
+    {
+      "type": "claim",
+      "country": "SE",
+      "subdivision": null,
+      "locality": "Sandviken",
+      "fields": {
+        "company": "microsoft",
+        "theme": "jobs",
+        "statement": "Upon completion, the three planned datacenter facilities will create an estimated 300 permanent skilled technician jobs in Sandviken.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://local.microsoft.com/blog/how-microsofts-datacenters-are-empowering-communities-in-sandviken-and-gavle/",
+      "source_title": "Microsoft Local — Growing together: How Microsoft's datacenters are empowering communities in Sandviken and Gävle",
+      "source_lang": "en",
+      "verbatim": "Upon completion, the three planned datacenter facilities will create an estimated 300 permanent skilled technician jobs in Sandviken.",
+      "verified": true,
+      "notes": "Company's own words, about a community jobs impact (gate 2 met). Undated page: captured_at 2026-10-19; publication date unknown."
+    },
+    {
+      "type": "policy",
+      "country": "FI",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Data centres moved from electricity tax class II to the general class I from 1 July 2026",
+        "jurisdiction": "Finland",
+        "instrument": "legislation",
+        "status": "in_effect",
+        "status_detail": "The Finnish Tax Administration page says electricity used in data centres is moved to class I on 1 July 2026.",
+        "date": "2026-07-01",
+        "identifier": null,
+        "summary": "Electricity used in data centres (konesalit) moves from the reduced electricity-tax class II to the general class I from 1 July 2026, according to the Finnish Tax Administration. Class II had applied from 2022 to data centres of at least 0.5 MW server power that met energy-use or energy-efficiency criteria. Rates, the revenue estimate and the replacement state-aid scheme were not verified: the government release returned HTTP 403.",
+        "key_terms": [
+          "Datakeskuksissa käytetty sähkö siirretään I-veroluokkaan 1.7.2026."
+        ],
+        "principles": [
+          "pay_own_way"
+        ],
+        "benefit_themes": [
+          "tax_revenue"
+        ],
+        "value": null
+      },
+      "source_url": "https://www.vero.fi/yritykset-ja-yhteisot/verot-ja-maksut/valmisteverotus/sahkovero/",
+      "source_title": "Verohallinto (Finnish Tax Administration) — Sähkövero",
+      "source_lang": "fi",
+      "verbatim": "Datakeskuksissa käytetty sähkö siirretään I-veroluokkaan 1.7.2026.",
+      "translation": {
+        "lang": "en",
+        "by": "machine",
+        "text": "Electricity used in data centres is moved to tax class I on 1.7.2026."
+      },
+      "verified": true,
+      "notes": "Official tax authority page (probe HIT, final URL after redirect). The law and proposition number (HE 156/2025 vp, per secondary sources) are NOT on the fetched page and are left null. The class II rate (0.05 c/kWh) and class I rate (2.24 c/kWh), and the EUR 47 million revenue estimate, were searched but did not probe-HIT ('2,24' MISS), so they are not recorded. The government release (valtioneuvosto.fi) returned HTTP 403 to probe and WebFetch. The replacement ten-year tax-relief scheme is not recorded. Earlier DCD-sourced 1 January 2026 start date is superseded by the tax authority's 1.7.2026."
+    },
+    {
+      "type": "project",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Espoo and Kirkkonummi",
+      "fields": {
+        "name": "Microsoft Finland datacentre region (Espoo and Kirkkonummi), waste heat to Fortum district heating",
+        "company": "microsoft",
+        "operator": "Microsoft",
+        "city": "Espoo",
+        "status": "announced",
+        "announced_year": 2022,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Microsoft announced on 17 March 2022 its intent to build a datacentre region in Southern Finland. Under the agreement with Fortum, waste heat is to be converted to district heating serving Espoo, Kauniainen and Kirkkonummi. Construction and commissioning status, power and investment figures were not in the fetched text. The heat-share figures (40% in secondary coverage; 60% in the 2022 release era) conflict and are not recorded. Coordinates not fetched (lat/lon left null; add a Wikipedia Espoo coordinate probe before shipping). Google's Hamina project is a separate record."
+      },
+      "source_url": "https://news.microsoft.com/europe/2022/03/17/microsoft-announces-intent-to-build-a-new-datacenter-region-in-finland-accelerating-sustainable-digital-transformation-and-enabling-large-scale-carbon-free-district-heating/",
+      "source_title": "Microsoft News Europe — Microsoft announces intent to build a new datacenter region in Finland",
+      "source_lang": "en",
+      "verbatim": "In a unique collaboration with Fortum Corporation, the waste heat produced in the datacenters will be converted to district heating, serving Finland's second largest city Espoo and neighboring Kauniainen, and the municipality of Kirkkonummi",
+      "verified": true,
+      "notes": "Microsoft newsroom release (probe HIT on the Fortum sentence and the 'Espoo' sentences). Announcement event date 2022-03-17 (release date). Construction status not verified; lat/lon missing."
+    },
+    {
+      "type": "claim",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Espoo and Kirkkonummi",
+      "fields": {
+        "company": "microsoft",
+        "theme": "energy",
+        "statement": "The datacenters are designed to operate with 100 percent emission-free energy and will supply heat for the cities of Espoo and Kauniainen, and the municipality of Kirkkonummi, in a unique collaboration with Fortum.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://news.microsoft.com/europe/2022/03/17/microsoft-announces-intent-to-build-a-new-datacenter-region-in-finland-accelerating-sustainable-digital-transformation-and-enabling-large-scale-carbon-free-district-heating/",
+      "source_title": "Microsoft News Europe — Microsoft announces intent to build a new datacenter region in Finland",
+      "source_lang": "en",
+      "verbatim": "The datacenters are designed to operate with 100 percent emission-free energy and will supply heat for the cities of Espoo and Kauniainen, and the municipality of Kirkkonummi, in a unique collaboration with Fortum.",
+      "verified": true,
+      "notes": "Company's own statement about its design intent (energy and heat supply to the host municipalities). Design intent, not delivered performance. Statement is the full sentence as probed."
+    },
+    {
+      "type": "project",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Hamina",
+      "fields": {
+        "name": "Google Hamina data centre campus (expansion and heat-recovery project)",
+        "company": null,
+        "operator": "Google",
+        "city": "Hamina",
+        "status": "operational",
+        "announced_year": 2024,
+        "claimed_investment": {
+          "amount": 1000000000,
+          "currency": "EUR",
+          "as_stated": "€1 billion"
+        },
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Business Finland (official investment agency) reports Google's 20 May 2024 announcement of a new EUR 1 billion investment in the Hamina campus expansion, and a partnership with the municipality and Haminan Energia to recover heat for the district-heating network. Status 'operational' is the campus; the expansion's construction status was not verified. The heat recovery is described on the Business Finland page as Business Finland's own text, not as a Google claim; Google's own blog was not reached (search only). Hamina 'on hold' report (DCD, 403) is not recorded. Coordinates not fetched."
+      },
+      "source_url": "https://businessfinland.fi/en/News/news/2024/google-announced-an-expansion-of-its-hamina-data-center",
+      "source_title": "Business Finland — Google announced an expansion of its Hamina data center and a new heat recovery project",
+      "source_lang": "en",
+      "verbatim": "Google announced earlier today a new €1 billion investment into the expansion of its data center campus in Hamina, Finland, underpinning job creation, innovation and economic activity.",
+      "verified": true,
+      "notes": "Official agency news item, dated 20.05.2024 on the page. The 'operational' status and 'since 2009' start are on the same page (probe context) but the exact operational phrase was not probed; curator to confirm. Company slug: google is tracked; company field left null here, so a curator should set company=google if the Google campus is attributed to the tracked company."
+    },
+    {
+      "type": "policy",
+      "country": "GR",
+      "subdivision": null,
+      "locality": "Spata-Artemida and Kropia (Attica)",
+      "fields": {
+        "title": "Interministerial Decision 74/2022: investment incentives for Microsoft Operations 4733 Hellas data centres (Attica)",
+        "jurisdiction": "Greece",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "status_detail": "Interministerial Decision 74/2022, Government Gazette ΦΕΚ 3325 Β/28.6.2022, per the Greek investment portal. A later incentive approval is listed in ΦΕΚ 139 Β/10.1.2024.",
+        "date": "2022-06-28",
+        "identifier": "Interministerial Decision 74/2022 (αρ. 74/2022); ΦΕΚ 3325 Β/28.6.2022",
+        "summary": "Interministerial Decision 74/2022 approved investment incentives for Microsoft's three Attica data-centre facilities under Greece's strategic-investment regime. Enterprise Greece's board had proposed the project on 1 April 2022. The instrument sets incentive approval, not community-benefit, water or energy conditions; none were found on the portal page.",
+        "key_terms": [
+          "Inter-ministerial Decision: αρ. 74/2022"
+        ],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null
+      },
+      "source_url": "https://ependyseis.mindev.gov.gr/en/stratigikes/erga/investment-in-data-centres-in-greece-2",
+      "source_title": "Greek Ministry of Development — Investment in Data Centres in Greece (ependyseis portal)",
+      "source_lang": "en",
+      "verbatim": "Inter-ministerial Decision: αρ. 74/2022 Implementation Entity: MICROSOFT OPERATIONS 4733 HELLAS SINGLE MEMBER S.A. Budget: 976.168.800 € | Related files: ΦΕΚ 3325 Β/28.6.2022 Έγκριση χορήγησης κινήτρων Microsoft Operations 4733 Hellas",
+      "verified": true,
+      "notes": "Official Ministry portal (probe HIT on the decision number, budget, and the ΦΕΚ 3325 Β/28.6.2022 gazette line). The Gazette PDF itself was not fetched, so the decision's text (and 'regulation' as its instrument type) is taken from the portal's own labelling. Per the spec's Georgia-docket rule, the gazette entry should still be opened before the number ships; this record is verified against the portal only."
+    },
+    {
+      "type": "project",
+      "country": "GR",
+      "subdivision": null,
+      "locality": "Spata-Artemida and Kropia (Attica)",
+      "fields": {
+        "name": "Microsoft Attica data centres (Spata Site 6; Kropia Sites 27 and 28)",
+        "company": "microsoft",
+        "operator": "Microsoft Operations 4733 Hellas Single Member S.A.",
+        "city": "Spata-Artemida",
+        "status": "announced",
+        "announced_year": 2022,
+        "claimed_investment": {
+          "amount": 976168800,
+          "currency": "EUR",
+          "as_stated": "976.168.800 €"
+        },
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Three data centres in two installation areas in Attica, per the portal: Site 6 at 19.2 MW (Spata-Artemida), and Sites 27 and 28 at 9.6 MW each (Kropia). The portal does not state a total, so power_mw is left null (the sum is 38.4 MW). Status 'announced' is conservative: the portal does not state construction. Microsoft's October 2025 Greece fact sheet (search only, PDF not read) is the source for 'construction' and for a water claim (direct evaporative cooling; water for cooling under 15% of the year), which are NOT recorded. Enterprise Greece describes the investment as 'several hundred million', which conflicts in scale with the portal's EUR 976,168,800; both are stored as their sources state, the conflict is noted here, and the figure is not resolved."
+      },
+      "source_url": "https://ependyseis.mindev.gov.gr/en/stratigikes/erga/investment-in-data-centres-in-greece-2",
+      "source_title": "Greek Ministry of Development — Investment in Data Centres in Greece (ependyseis portal)",
+      "source_lang": "en",
+      "verbatim": "The installation field named Site 6 (Power 19.2MW) is located at the Municipality of Spata-Artemida while the fields named Site 27 (Power 9.6MW) & 28 (Power 9.6MW) in the Municipality of Kropia.",
+      "verified": true,
+      "notes": "Official ministry portal, probe HIT. lat/lon not fetched. Enterprise Greece's board decision (1 April 2022) is verified on its own page as a context and policy source, not as this project record."
+    }
+  ]
+}

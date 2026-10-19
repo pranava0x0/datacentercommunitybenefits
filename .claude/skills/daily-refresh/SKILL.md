@@ -178,6 +178,16 @@ Check each of these; skip what no source covers:
 
 ## 3. Editorial rules (each one has burned this project)
 
+- **`country:XX` units (international, v6) — English sources only.** Records
+  live in `data/seed/international.json`. Add or change a record only from an
+  English-language page (an official English version counts). A finding from a
+  French, Swedish, Finnish, Greek or Spanish page goes to BACKLOG §3 under
+  `#### country:XX` as a lead, because quotes there need the original text plus
+  a labelled translation that a curated session must review. Never set
+  `claimed_investment_usd` or `value_usd` on an international record; amounts
+  go in `Money` as stated. `federal` is the US government only; another
+  country's government is `national`.
+
 - **Cite only what you fetched, and quote it.** A WebSearch answer blends
   facts across results. It is not a source. A WebFetch "extraction" line
   ("Approval Date: …") is not the page's sentence either; quote the page.

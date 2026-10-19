@@ -115,23 +115,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -384,6 +384,35 @@
      ]
     }
    },
+   "world_country": {
+    "question": "What does Ireland require of data centers?",
+    "default": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: #tab-world",
+      "swipe x2",
+      "tap: #world-country-list [data-country=\"IE\"]",
+      "see: #world-country-body .world-record"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 0,
+     "total": 4,
+     "path": [
+      "tap: #tab-world",
+      "swipe x2",
+      "tap: #world-country-list [data-country=\"IE\"]",
+      "see: #world-country-body .world-record"
+     ]
+    }
+   },
    "ratecase_milestone": {
     "question": "When is the next step in a pending rate case?",
     "default": {
@@ -610,23 +639,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
      ]
     }
@@ -872,6 +901,33 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
+     ]
+    }
+   },
+   "world_country": {
+    "question": "What does Ireland require of data centers?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-world",
+      "tap: #world-country-list [data-country=\"IE\"]",
+      "see: #world-country-body .world-record"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-world",
+      "tap: #world-country-list [data-country=\"IE\"]",
+      "see: #world-country-body .world-record"
      ]
     }
    },
@@ -1357,6 +1413,33 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
+     ]
+    }
+   },
+   "world_country": {
+    "question": "What does Ireland require of data centers?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-world",
+      "tap: #world-country-list [data-country=\"IE\"]",
+      "see: #world-country-body .world-record"
+     ]
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-world",
+      "tap: #world-country-list [data-country=\"IE\"]",
+      "see: #world-country-body .world-record"
      ]
     }
    },

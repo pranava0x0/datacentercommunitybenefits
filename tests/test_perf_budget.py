@@ -39,7 +39,7 @@ FIRST_PAINT = [
 ]
 
 # Warmed after Home renders (idle preload), so tab switches are instant.
-DEFERRED = ["data/projects.json", "data/responses.json", "data/claims.json"]
+DEFERRED = ["data/projects.json", "data/responses.json", "data/claims.json", "data/international.json"]
 
 # Payloads only the tab that shows them fetches.
 LAZY_ONLY = [

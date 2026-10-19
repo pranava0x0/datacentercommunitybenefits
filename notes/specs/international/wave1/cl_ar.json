@@ -1,0 +1,274 @@
+{
+  "_meta": {
+    "scope": "Wave 1 pass 2: Chile (CL; CL-RM, CL-VS) and Argentina (AR; AR-B, AR-C, AR-Q, AR-U). Verification by probe.py (HTML) and PDFKit (PDF). Captured 2026-10-19.",
+    "probe_note": "probe.py decodes some Spanish pages as latin-1 (mojibake: 'ordenÃ³'). Accent-bearing phrases miss; ASCII fragments of the same sentence HIT. Verbatims below are the correct UTF-8 Spanish as published, confirmed by the ASCII-fragment probe HIT on the same sentence."
+  },
+  "countries": [
+    {
+      "code": "CL",
+      "summary": "Chile's National Data Centers Plan (PDATA, 2024-2030) positions the country as a regional data-centre hub and conditions growth on renewable energy, water management and local jobs. The Google Cerrillos project in Santiago was ordered back to environmental re-assessment by the Segundo Tribunal Ambiental in February 2024, and Google later withdrew its permit request. Google's Quilicura site is operating and publishes its water and energy figures.",
+      "regulators": [
+        {"name": "Comisión Nacional de Energía", "acronym": "CNE", "role": "energy_regulator", "url": "https://www.cne.cl"},
+        {"name": "Coordinador Eléctrico Nacional", "acronym": "CEN", "role": "grid_operator", "url": "https://www.coordinador.cl"},
+        {"name": "Servicio de Evaluación Ambiental", "acronym": "SEA", "role": "environment", "url": "https://www.sea.gob.cl"},
+        {"name": "Ministerio de Ciencia, Tecnología, Conocimiento e Innovación", "acronym": "MinCiencia", "role": "planning", "url": "https://minciencia.gob.cl"}
+      ],
+      "context": [
+        {
+          "statement": "The PDATA states that the data-centre industry is projected to triple in size over the next five years.",
+          "verbatim": "The industry is projected to triple in size over the next five years",
+          "source_lang": "en",
+          "period": "2024-2030",
+          "source_url": "https://minciencia.gob.cl/uploads/filer_public/29/c7/29c71595-69d1-4b1f-be58-b6946a1967f2/national_data_centers_plan.pdf",
+          "source_title": "Ministerio de Ciencia — National Data Centers Plan 2024-2030 (PDATA)",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": ["es", "en"]
+    },
+    {
+      "code": "AR",
+      "summary": "Argentina's large-investment incentive regime (RIGI, Ley 27.742, Título VII) is in force and regulated by Decreto 749/2024. In October 2025 the national government announced a letter of intent between OpenAI and Sur Energy for an AI data centre in Patagonia, reported at up to 500 MW; the sources reviewed confirm no site and no binding contract.",
+      "regulators": [
+        {"name": "Ministerio de Economía (Autoridad de Aplicación del RIGI)", "acronym": null, "role": "investment_agency", "url": "https://www.argentina.gob.ar/economia"}
+      ],
+      "context": [],
+      "primary_languages": ["es", "en"]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "CL",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "National Data Centers Plan 2024-2030 (PDATA)",
+        "jurisdiction": "Chile (national)",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2024",
+        "identifier": "PDATA (Plan Nacional de Data Centers) 2024-2030",
+        "summary": "A six-year national government framework from the Pro-Growth and Employment Cabinet, led by the Ministry of Science. It sets measures on siting in urban land, environmental evaluation criteria under the SEIA, clean-production agreements on water and energy, AI campuses in renewable regions, and a multi-stakeholder monitoring committee that includes communities.",
+        "key_terms": [
+          "Multi-stakeholder committee for Plan monitoring",
+          "Environmental evaluation criteria for projects",
+          "Promotion of Clean Production Agreements (APL) for climate change"
+        ],
+        "principles": ["water", "environmental_review", "local_siting_say"],
+        "benefit_themes": ["water", "jobs", "engagement"],
+        "value": null
+      },
+      "source_url": "https://minciencia.gob.cl/uploads/filer_public/29/c7/29c71595-69d1-4b1f-be58-b6946a1967f2/national_data_centers_plan.pdf",
+      "source_title": "Ministerio de Ciencia — National Data Centers Plan 2024-2030 (PDATA) (PDF, English)",
+      "source_lang": "en",
+      "verbatim": "The National Data Centers Plan (PDATA) outlines a series of actions aimed at promoting the sustainable growth of the data center industry in Chile. It also prioritizes the decentralization of growth by encouraging the establishment of new infrastructure in regions with access to renewable energy, creating local jobs, and ensuring responsible water management.",
+      "verified": true,
+      "notes": "PDF, verified by curl plus PDFKit text extraction (probe.py cannot read this PDF). The source is the English version of the plan; the page URL /archivos/sharing/1736185723/3542 redirects to this PDF. The 'government_framework' instrument is a plan, not a statute; status in_effect means the plan is adopted and running. The '2024' date is the plan's own title period, not the 2024-12-05 launch date from a secondary source (Carey, unverified). Principle keys are curator-assigned; confirm they match the frozen vocabulary. Plan Spanish-language text was not fetched, so the English is the only verified version."
+    },
+    {
+      "type": "project",
+      "country": "CL",
+      "subdivision": "CL-RM",
+      "locality": "Cerrillos",
+      "fields": {
+        "name": "Cerrillos Data Center",
+        "company": "Google",
+        "city": "Cerrillos",
+        "status": "withdrawn",
+        "announced_year": null,
+        "claimed_investment": {"amount": 200000000, "currency": "USD", "as_stated": "200 millones de dólares"},
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": -33.483333333333,
+        "lon": -70.7,
+        "notes": "Google's original project was challenged in the Segundo Tribunal Ambiental. The court partially upheld the challenge and ordered the SEA to reopen the assessment for climate-change effects; it also suspended the project until a complementary RCA. In September 2024 Google decided not to continue the permit request. Google then proposed a redesigned air-cooled plan (about 200 million dollars per press), which Cerrillos mayor Lorena Facuse rejected, saying it could not be assessed without the necessary legal studies. Coordinates are the Cerrillos commune centroid from es.wikipedia (approximate; the site address was not in the sources). The 200 million dollar figure refers to the redesigned plan per biobiochile; treat it as a stated figure for that plan, not as the original project's investment. The court's own judgment text was not retrieved (press quotes only)."
+      },
+      "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2024/09/17/alcaldesa-de-cerrillos-rechaza-nuevo-plan-de-data-center-de-google-la-prioridad-es-el-medioambiente.shtml",
+      "source_title": "BioBioChile — Alcaldesa de Cerrillos rechaza nuevo plan de data center de Google",
+      "source_lang": "es",
+      "verbatim": "Google decidió no seguir con la solicitud de permisos para construir un data center en Cerrillos. El proyecto será rediseñado desde cero con tecnología de enfriamiento con aire y requerirá una inversión de 200 millones de dólares.",
+      "verified": true,
+      "notes": "Probe HITs: 'decidió no seguir con la solicitud de permisos', 'construir un data center en Cerrillos', '200 millones de d', 'sin los estudios legales necesarios'. The 'withdrawn' status rests on the 2024-09-17 article only; a later Google statement was not found, so re-check before any change. The Cerrillos commune coordinates were probed against es.wikipedia (-33.483333333333, -70.7). Translation not required (Spanish original)."
+    },
+    {
+      "type": "response",
+      "country": "CL",
+      "subdivision": "CL-RM",
+      "locality": "Cerrillos",
+      "fields": {
+        "project": "Cerrillos Data Center",
+        "date": "2024-02-27",
+        "stance": "negative",
+        "constituency": "regulator",
+        "summary": "The Segundo Tribunal Ambiental partially upheld the challenge to the Cerrillos Data Center approval, ordered the SEA to reopen the assessment to include climate-change effects, and suspended the project until a complementary RCA is issued. The dispute centred on water used for cooling, in the Santiago Central aquifer. The date is the press report date; the court's sentence date was not confirmed."
+      },
+      "source_url": "https://www.elmostrador.cl/noticias/pais/2024/02/27/tribunal-pone-freno-a-google-data-center-debe-incorporar-cambio-climatico-en-evaluacion-ambiental/",
+      "source_title": "El Mostrador — Tribunal pone freno a Google: Data Center debe incorporar cambio climático en evaluación ambiental",
+      "source_lang": "es",
+      "verbatim": "El Segundo Tribunal Ambiental acogió parcialmente la reclamación presentada contra la aprobación del proyecto “Cerrillos Data Center”, que lidera Google, y ordenó al Servicio de Evaluación Ambiental (SEA) retrotraer el procedimiento de evaluación de la iniciativa. Por estas razones finalmente el Tribunal suspendió el proyecto hasta la dictación de la RCA complementaria.",
+      "verified": true,
+      "notes": "Verified by probe ASCII fragments: 'retrotraer el procedimiento', 'Cerrillos Data Center', 'las medidas establecidas por la', 'Por estas razones finalmente el Tribunal suspendi'. The judgment itself (linked from El Mostrador as 'la sentencia completa') was not fetched, so the wording is the press quotation. Per the owner's instruction, the ruling is described as a re-assessment order, not a revocation. The 'suspended' wording is the press's account of the court's own sentence and should be checked against the judgment before shipping. The Segundo Tribunal Ambiental is a court; constituency 'regulator' is the closest vocabulary match. Translation not required (Spanish original)."
+    },
+    {
+      "type": "response",
+      "country": "CL",
+      "subdivision": "CL-RM",
+      "locality": "Cerrillos",
+      "fields": {
+        "project": "Cerrillos Data Center",
+        "date": "2026-07-12",
+        "stance": "negative",
+        "constituency": "ngo",
+        "summary": "MOSACAT, a Cerrillos community group, opposes the Google project. Founder Tania Rodríguez says the company would take residents' water, and the group says it will not accept more data centres in the area."
+      },
+      "source_url": "https://www.elsaltodiario.com/chile/fiebre-ia-centros-datos-frente-agua-chile",
+      "source_title": "El Salto — La fiebre de la IA y los centros de datos abre un nuevo frente por el agua en Chile",
+      "source_lang": "es",
+      "verbatim": "“Eso nos puso en alerta, porque iban a llevarse nuestra agua”, explica Tania Rodríguez, una de las fundadoras de Mosacat.",
+      "verified": true,
+      "notes": "Probe HITs: 'Eso nos puso en alerta, porque iban a llevarse nuestra agua', 'no necesitamos más centros de datos aquí', and the article dateline '12 jul 2026'. The other MOSACAT quotes on the same page are: 'Aquí no queremos máquinas que se coman nuestra agua' (lawyer Jorge López Vega) and 'Nuestra posición sigue siendo clara: no necesitamos más centros de datos aquí'. The verbatim above uses the exact text from the page; the speaker's name comes from the same paragraph, which the probe confirmed in part. The article is a secondary report (El Salto), so MOSACAT's own statements are not first-party. The article also gives the 228 l/s groundwater rights figure, which is a claim by Rodríguez, not verified against a government record. Translation not required."
+    },
+    {
+      "type": "project",
+      "country": "CL",
+      "subdivision": "CL-RM",
+      "locality": "Quilicura",
+      "fields": {
+        "name": "Google Quilicura data center",
+        "company": "Google",
+        "city": "Quilicura",
+        "status": "operational",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": -33.366666666667,
+        "lon": -70.75,
+        "notes": "Google's first data centre in Latin America, hosting the Google Cloud Santiago region (per Google's own blog). Google reports 92% hourly carbon-free energy in 2024 and 121.8 million gallons of water use in 2024 (2025 Environmental Report, cited in the blog). Community concerns about water use in Quilicura appear in search snippets from Radio UChile and El Salto (not fetched); no response record is included here. Coordinates are the Quilicura commune centroid from es.wikipedia (approximate). The 'operational' status is from Google's blog, which describes the site as operating; no opening year is stated, so no announced_year is set."
+      },
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "source_lang": "es",
+      "verbatim": "Nuestro centro de datos en Quilicura, Chile-el primero en América Latina-es un gran ejemplo de este compromiso en acción.",
+      "verified": true,
+      "notes": "Probe HITs: 'el primero en América Latina', 'Nuestro centro de datos en Quilicura', 'alcanzó un 92% de energía libre de carbono', 'consumió 121,8 millones de galones de agua'. The page's '15 años de la presencia de Google en Chile' refers to Google's Chile presence, not this site's opening date, so no opening year is recorded. Lat/lon probed on es.wikipedia (Quilicura). Google's own page is first-party; the water and energy figures are in the claim records."
+    },
+    {
+      "type": "claim",
+      "country": "CL",
+      "subdivision": "CL-RM",
+      "locality": "Quilicura",
+      "fields": {
+        "company": "Google",
+        "theme": "water",
+        "statement": "Según nuestro Informe Ambiental 2025, en 2024, el centro de datos de Quilicura consumió 121,8 millones de galones de agua, menos que el consumo anual de un campo de golf.",
+        "statement_lang": "es",
+        "translation": "According to our 2025 Environmental Report, in 2024 the Quilicura data center consumed 121.8 million gallons of water, less than a golf course uses in a year. (machine translation)"
+      },
+      "source_url": "https://blog.google/intl/es-419/noticias-de-la-empresa/10-datos-sobre-el-centro-de-datos-de-google-en-quilicura-chile/",
+      "source_title": "Google (Blog, Latinoamérica) — 10 datos sobre el centro de datos de Google en Quilicura, Chile",
+      "source_lang": "es",
+      "verbatim": "Según nuestro Informe Ambiental 2025, en 2024, el centro de datos de Quilicura consumió 121,8 millones de galones de agua, menos que el consumo anual de un campo de golf.",
+      "verified": true,
+      "notes": "First-party Google statement; probe HIT on 'consumió 121,8 millones de galones de agua' and 'utilizamos agua suministrada por Aguas Andinas'. The Google sentence also says the water comes from Aguas Andinas, the local provider. The 2025 Environmental Report itself was not fetched (secondary citation of a first-party report). Per gate 2, this is a water-use disclosure, not a community-benefit commitment; keep it as a transparency claim, not a benefit claim."
+    },
+    {
+      "type": "project",
+      "country": "CL",
+      "subdivision": "CL-RM",
+      "locality": "Santiago",
+      "fields": {
+        "name": "Microsoft Chile Central cloud region",
+        "company": "Microsoft",
+        "city": "Santiago",
+        "status": "operational",
+        "announced_year": null,
+        "claimed_investment": {"amount": 3300000000, "currency": "USD", "as_stated": "alrededor de 3.300 millones de dólares"},
+        "claimed_jobs": 81041,
+        "power_mw": null,
+        "lat": -33.4375,
+        "lon": -70.65,
+        "notes": "Microsoft's first cloud region in Chile, in the Santiago Metropolitan Region, opened June 2025 as three independent physical locations (Microsoft release, 2025-06-18). The investment and jobs are Microsoft's own statement of IDC projections (35.3 billion dollars of new revenue over four years, of which about 3.3 billion dollars directly invested in Chile, and an estimated 81,041 jobs in 2025-2029). Those are projections, not verified outcomes. Coordinates are the Santiago city centroid (es.wikipedia, approximate); the three site locations are not disclosed in the release. Microsoft's own release does not state the commune; the Santiago centroid is an approximation."
+      },
+      "source_url": "https://news.microsoft.com/es-xl/microsoft-inaugura-su-primera-region-de-datacenters-en-chile-para-acelerar-la-innovacion-y-el-desarrollo-economico-local/",
+      "source_title": "Microsoft News Center Latinoamérica — Microsoft inaugura su primera Región de Datacenters en Chile",
+      "source_lang": "es",
+      "verbatim": "De ese total, alrededor de 3.300 millones de dólares se invertirán directamente en Chile, lo que contribuirá al desarrollo económico local y la creación estimada de 81.041 empleos entre 2025 y 2029.",
+      "verified": true,
+      "notes": "Probe HITs: 'se invertirán directamente en Chile', '81.041 empleos entre 2025 y 2029', 'Región Metropolitana de Santiago', and the 'ya se encuentra operativa' line via the page. The page has two wordings of the same sentence; the verbatim above is the wording with 'creación estimada'. Sustainability/water details (closed-loop cooling, 100% renewable via AES Andes) come from secondary blogs, not this release, and are NOT included."
+    },
+    {
+      "type": "claim",
+      "country": "CL",
+      "subdivision": "CL-RM",
+      "locality": "Santiago",
+      "fields": {
+        "company": "Microsoft",
+        "theme": "jobs",
+        "statement": "De ese total, alrededor de 3.300 millones de dólares se invertirán directamente en Chile, lo que contribuirá al desarrollo económico local y la creación estimada de 81.041 empleos entre 2025 y 2029.",
+        "statement_lang": "es",
+        "translation": "Of that total, about 3.3 billion dollars will be invested directly in Chile, contributing to local economic development and an estimated 81,041 jobs between 2025 and 2029. (machine translation)"
+      },
+      "source_url": "https://news.microsoft.com/es-xl/microsoft-inaugura-su-primera-region-de-datacenters-en-chile-para-acelerar-la-innovacion-y-el-desarrollo-economico-local/",
+      "source_title": "Microsoft News Center Latinoamérica — Microsoft inaugura su primera Región de Datacenters en Chile",
+      "source_lang": "es",
+      "verbatim": "De ese total, alrededor de 3.300 millones de dólares se invertirán directamente en Chile, lo que contribuirá al desarrollo económico local y la creación estimada de 81.041 empleos entre 2025 y 2029.",
+      "verified": true,
+      "notes": "First-party Microsoft statement; the jobs figure is an IDC-based estimate that Microsoft publishes, so the claim is attributed to Microsoft, not independently checked. Probe HITs as above. Gate 2: the statement is about jobs and investment for the host country, which counts as community impact."
+    },
+    {
+      "type": "policy",
+      "country": "AR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Régimen de Incentivo para Grandes Inversiones (RIGI), Título VII de la Ley 27.742, reglamentado por Decreto 749/2024",
+        "jurisdiction": "Argentina (national)",
+        "instrument": "legislation",
+        "status": "in_effect",
+        "date": "2024-08-23",
+        "identifier": "Ley 27.742, Título VII (arts. 164-228); Decreto 749/2024",
+        "summary": "Argentina's national large-investment incentive regime. Ley 27.742 creates a promotional regime for large investments in Title VII (articles 164 to 228). Decree 749/2024, published 23 August 2024, regulates it and names the Ministry of Economy as the application authority. It is a general investment regime, not a data-centre rule; the decree's text covers tax, customs and exchange incentives. Whether a given data-centre project qualifies is a decision for the application authority.",
+        "key_terms": [
+          "Régimen de Incentivo para Grandes Inversiones (RIGI)",
+          "artículos 164 a 228"
+        ],
+        "principles": ["conditioned_tax_breaks"],
+        "benefit_themes": [],
+        "value": null
+      },
+      "source_url": "https://www.argentina.gob.ar/normativa/nacional/decreto-749-2024-403230/texto",
+      "source_title": "Argentina.gob.ar — Decreto 749/2024 (reglamentación del Título VII, RIGI, Ley 27.742)",
+      "source_lang": "es",
+      "verbatim": "Apruébase Reglamentación del Título VII-Régimen de Incentivo para Grandes Inversiones (RIGI)-Ley Nº 27.742.",
+      "verified": true,
+      "notes": "Probe HITs on the decree page: 'Apruébase Reglamentación del Título VII', 'artículos 164 a 228', 'Autoridad de Aplicación del RIGI' (Capítulo IX, art. 122: Ministerio de Economía), 'Publicada en el Boletín Oficial: 23-08-2024'. The law's own text (Ley 27.742, Boletín Oficial 8 July 2024) was NOT fetched; the decree is the verified official source for the law. The 'conditioned_tax_breaks' principle is a curator assignment on a general regime, with no community condition in the text read; the principle may need to be reconsidered. Not a community-benefit instrument. Data-centre eligibility under RIGI was NOT verified: the only relevant claim is a press report that the Stargate Argentina project would be structured under RIGI (see the project record, unverified). The 'Súper RIGI' extension was in legislative debate per BAE Negocios and is not in force; do not ship it as a fact here."
+    },
+    {
+      "type": "project",
+      "country": "AR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "name": "Stargate Argentina",
+        "company": "Sur Energy",
+        "city": null,
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": {"amount": 25000000000, "currency": "USD", "as_stated": "US$25 billion"},
+        "claimed_jobs": null,
+        "power_mw": 500,
+        "lat": null,
+        "lon": null,
+        "notes": "Letter of intent between OpenAI and Sur Energy (Buenos Aires Herald dates the announcement 10 October 2025; it reports that President Milei and Argentine Nuclear Board president Demian Reidel met OpenAI representatives). Press reports, not the verified text, describe OpenAI as the expected buyer of compute. The Buenos Aires Herald says the letter of intent is not a binding investment agreement and that no location was announced; regional press names Neuquén as favoured among five sites, but that is not confirmed by any government or company text, so no subdivision or coordinates are set. The 500 MW figure is 'up to 500 MW using renewable energy' per the government release as reported by the Herald. Sur Energy is not a tracked company (a new operator under SPEC §3.9). The OpenAI statement page returned HTTP 403 and was not read; no first-party quote from OpenAI or Sur Energy is verified here. The 'RIGI' structuring is a press claim, not verified in the government text."
+      },
+      "source_url": "https://buenosairesherald.com/business/argentine-government-and-openai-announce-project-to-build-data-center-in-patagonia",
+      "source_title": "Buenos Aires Herald — Argentine government and OpenAI announce project to build data center in Patagonia",
+      "source_lang": "en",
+      "verbatim": "OpenAI will collaborate with Argentine-U.S. owned company Sur Energy on an investment worth an estimated US$25 billion",
+      "verified": false,
+      "notes": "UNVERIFIED for shipping: lat/lon cannot be set because no site is disclosed, and the brief requires coordinates from a probed page. The Herald text is verified (probe HITs: the verbatim sentence, 'reach a capacity of up to 500 MW using renewable energy', 'A presidential press release', date 'October 10, 2025'). The Herald is a secondary report of the presidential release; the release text on argentina.gob.ar was not reachable by search. Hold this record until (a) a site and coordinates are confirmed by a government or Sur Energy/OpenAI text, and (b) a contract or site announcement exists. Investment figures vary across sources (US$20-25bn in some reports; US$7-10bn for a first phase in another). The as_stated string is the figure in the Herald text."
+    }
+  ]
+}

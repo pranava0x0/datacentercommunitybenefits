@@ -143,6 +143,33 @@
       "summary": "Brookfield was selected by DOE to lease, develop, and operate a data-center campus at the former Paducah Gaseous Diffusion Plant site in McCracken County, Kentucky, announced July 29, 2026 — a $100B+ privately-funded redevelopment, ~600 acres, 1.8 GW of utility capacity (1.2+ GW compute), with DOE, Brookfield, and NextEra Energy's own releases all explicit that Brookfield develops/operates the data center while NextEra Energy separately builds and owns the paired generation (up to 2 GW gas, up to 2.6 GW battery storage) — Brookfield is not itself a power-generation company here. Brookfield CEO Bruce Flatt is quoted on the need for infrastructure capital 'that benefits local communities'; Brookfield has not published a standing data-center community-impact page, only this project announcement. NextEra Energy is an independent Ratepayer Protection Pledge signatory (joined the July 23, 2026 expansion track) — Brookfield itself is not a signatory, and that distinction is deliberately not blurred here: the consortium's combined ratepayer-protection framing (generation 'paid for and built specifically for the project, protecting customers from costs') reflects NextEra's commitment on the power side, not an independent Brookfield pledge.",
       "last_reviewed": "2026-07-30",
       "ratepayer_pledge_signatory": false
+    },
+    {
+      "slug": "nscale",
+      "name": "Nscale",
+      "hq": "London, United Kingdom",
+      "dedicated_page_url": null,
+      "last_reviewed": "2026-10-19",
+      "summary": "UK-based AI data-centre developer, tracked for its proposed Loughton, Essex site, which has drawn objections from the town council over cooling and energy demand. No community-impact page was found in the research.",
+      "international_only": true
+    },
+    {
+      "slug": "segro",
+      "name": "SEGRO",
+      "hq": "London, United Kingdom",
+      "dedicated_page_url": null,
+      "last_reviewed": "2026-10-19",
+      "summary": "Commercial property firm tracked for its 75 MW Le Bourget, France project at a former warehouse, which faces a newly elected mayor's demand for cancellation. It is a property developer rather than a hyperscale operator, and no community-impact page was found in the research.",
+      "international_only": true
+    },
+    {
+      "slug": "goodman",
+      "name": "Goodman Group",
+      "hq": "Sydney, Australia",
+      "dedicated_page_url": null,
+      "last_reviewed": "2026-10-19",
+      "summary": "Australian property group tracked for its withdrawn 90 MW Project Mars application in Lane Cove, NSW. No community-impact page was found in the research.",
+      "international_only": true
     }
   ]
 }

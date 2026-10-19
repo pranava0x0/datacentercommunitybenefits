@@ -1,0 +1,295 @@
+{
+  "countries": [
+    {
+      "code": "IE",
+      "summary": "Ireland's energy regulator, the CRU, set a connection policy for large energy users (mostly data centres) in December 2025, replacing the earlier reactive approach. Per secondary law-firm summaries, the policy applies to new connection applications, sorts projects by maximum import capacity, and ties larger connections to new on-site or nearby generation or storage and to renewable investment; the primary CRU decision paper has not been read. The Greater Dublin Area is described by the policy source as the most constrained area. The CSO reports that data centres used 23% of metered electricity in 2025.",
+      "regulators": [
+        {
+          "name": "Commission for Regulation of Utilities",
+          "acronym": "CRU",
+          "role": "energy_regulator",
+          "url": "https://www.cru.ie"
+        }
+      ],
+      "context": [
+        {
+          "statement": "Data centres accounted for 23% of metered electricity consumption in Ireland in 2025, up from 5% in 2015.",
+          "verbatim": "The percentage share of total metered electricity consumption used by data centres rose to 23% in 2025 from 5% in 2015",
+          "source_lang": "en",
+          "period": "2025",
+          "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+          "source_title": "Central Statistics Office — Data Centres Metered Electricity Consumption 2025 (key findings)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Metered electricity consumption by data centres was 7,663 GWh in 2025, up from 6,973 GWh in 2024.",
+          "verbatim": "rising from 6,973 Gigawatt hours (GWh) in 2024 to 7,663 GWh in 2025",
+          "source_lang": "en",
+          "period": "2025",
+          "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+          "source_title": "Central Statistics Office — Data Centres Metered Electricity Consumption 2025 (key findings)",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": [
+        "en",
+        "ga"
+      ]
+    },
+    {
+      "code": "GB",
+      "summary": "UK planning is decided by local planning authorities or, for large projects, through the nationally significant infrastructure regime. The government's AI Growth Zones policy paper of 13 November 2025 sets out grid capacity reservation and reallocation mechanisms and a geographic electricity price discount for data centres in designated zones. Local disputes include Nscale's Loughton scheme in Epping Forest, where council officers asked for a new application.",
+      "regulators": [],
+      "context": [],
+      "primary_languages": [
+        "en"
+      ]
+    },
+    {
+      "code": "FR",
+      "summary": "France's grid connection and siting rules are set nationally, with the transmission operator RTE, and locally through planning. In June 2026 the Île-de-France region adopted a regional siting strategy that would move grid connection priority to a 'first ready, first served' logic and renegotiate the financial deal with local authorities; it is described as a plan whose binding force is not stated on the fetched page. The region holds 44% of the 322 data centres recorded in France at end-2024.",
+      "regulators": [],
+      "context": [
+        {
+          "statement": "The Île-de-France region holds 44% of the 322 data centres recorded in France at 31 December 2024.",
+          "verbatim": "Avec 44% des 322 datacenters recensés en France au 31 décembre 2024",
+          "source_lang": "fr",
+          "period": "2024-12-31",
+          "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+          "source_title": "Banque des Territoires — Datacenters: la région Île-de-France veut maximiser les retombées locales",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": [
+        "fr"
+      ]
+    },
+    {
+      "code": "EU",
+      "summary": "EU-level rules reach all member states. The recast Energy Efficiency Directive requires reporting on data-centre energy performance, and Delegated Regulation (EU) 2024/1364 sets the information and indicators for that reporting and a common rating scheme. The Commission's Cloud and AI Development Act proposal of June 2026 would create data-centre acceleration zones with a 12-month permit cap, but that proposal is still in the legislative process and its details were not read from the Commission text.",
+      "regulators": [],
+      "context": [
+        {
+          "statement": "The Commission published a July 2025 report analysing data submitted in the 2024 reporting period under the data-centre energy reporting obligation.",
+          "verbatim": "analysis of the data submitted in the 2024 reporting period",
+          "source_lang": "en",
+          "period": "2024",
+          "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+          "source_title": "European Commission DG ENER — Energy performance of data centres",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "primary_languages": [
+        "en"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "EU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Energy Efficiency Directive data-centre reporting (Art. 12) and Delegated Regulation (EU) 2024/1364 (common rating scheme)",
+        "jurisdiction": "European Union",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "date": "2024",
+        "identifier": "Delegated Regulation (EU) 2024/1364",
+        "summary": "Data centres with significant energy consumption must report energy performance data under the Energy Efficiency Directive. The Commission publishes an EU-level database from that data, and the delegated regulation sets the information and key performance indicators for the reporting obligation.",
+        "key_terms": [
+          "introduced an obligation for the monitoring and reporting of the energy performance of data centres",
+          "sets out the information and key performance indicators for the reporting obligation"
+        ],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null,
+        "scope": "supranational"
+      },
+      "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+      "source_title": "European Commission DG ENER — Energy performance of data centres",
+      "source_lang": "en",
+      "verbatim": "introduced an obligation for the monitoring and reporting of the energy performance of data centres. The Delegated Regulation on the establishment of a common Union rating scheme for data centres (EU/2024/1364) sets out the information and key performance indicators for the reporting obligation.",
+      "verified": true,
+      "notes": "Verified against the fetched Commission page through a summarizing fetch; the quoted sentences are the page's wording as returned, so re-check the exact text before shipping. Exact regulation date and the Directive number (EU 2023/1791) are not on the fetched page and are not stored. The date '2024' is the regulation's year from its number. The page cites a 21 Sept 2026 press release that was not read. Companion record: Commission's 2025 reporting-cycle report (not yet filed)."
+    },
+    {
+      "type": "policy",
+      "country": "EU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Cloud and AI Development Act (proposal)",
+        "jurisdiction": "European Union",
+        "instrument": "legislation",
+        "status": "proposed",
+        "date": "2026-06-03",
+        "identifier": null,
+        "summary": "Commission proposal to triple EU data-centre capacity within 5-7 years (the Commission's March 2026 answer gives 2030 as the tripling target). It would require each Member State to designate at least one data-centre acceleration zone, with an aggregated baseline permit and a 12-month maximum permit timeline in those zones.",
+        "key_terms": [
+          "data centre acceleration zones",
+          "aggregated baseline permit",
+          "maximum 12-month permit-granting timeline"
+        ],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null,
+        "scope": "supranational"
+      },
+      "source_url": "https://www.wsgrdataadvisor.com/2026/06/european-commission-publishes-proposal-for-act-to-reduce-reliance-on-foreign-cloud-and-ai/",
+      "source_title": "Wilson Sonsini — European Commission publishes proposal for Cloud and AI Development Act",
+      "source_lang": "en",
+      "verbatim": "The proposal creates \"data centre acceleration zones.\"",
+      "verified": false,
+      "notes": "NOT verified against a Commission or Parliament primary page. The source is a search-result law-firm summary and the figures come from search snippets; the Parliament legislative-observatory page (oeil.europarl.europa.eu, procedure 1903654) was listed but not fetched. Do not ship until the Commission proposal text is read. The 12-month cap is listed as a lead in research notes."
+    },
+    {
+      "type": "policy",
+      "country": "IE",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "CRU Large Energy User (LEU) connection policy decision",
+        "jurisdiction": "Ireland (national)",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "date": "2025-12-12",
+        "identifier": "CRU/2025236 (from secondary sources only; not confirmed on cru.ie)",
+        "summary": "Regulator decision for large energy users, mostly data centres, seeking a new grid connection. Projects are sorted by maximum import capacity (below 1 MVA exempt; 1 to 10 MVA; above 10 MVA). Above 10 MVA the policy requires proximate or behind-the-meter generation sized to 100% of the grid connection, and renewable investment matching 80% of annual demand per the DCByte summary. Applications made before the decision date are assessed under earlier policy. The Greater Dublin Area is described as the most constrained area.",
+        "key_terms": [
+          "segmenting projects by maximum import capacity: <1 MVA, 1–10 MVA, and >10 MVA.",
+          "80% of annual electricity demand matched by renewable energy investments in Ireland"
+        ],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null,
+        "scope": "national",
+        "import_capacity_unit": "MVA"
+      },
+      "source_url": "https://www.dcbyte.com/news-blogs/ireland-reopens-the-grid-for-data-centres/",
+      "source_title": "DCByte — Ireland reopens the grid for data centres",
+      "source_lang": "en",
+      "verbatim": "segmenting projects by maximum import capacity: <1 MVA, 1–10 MVA, and >10 MVA. 80% of annual electricity demand matched by renewable energy investments in Ireland",
+      "verified": false,
+      "notes": "The CRU primary decision paper (cru.ie) was NOT reached. The cru.ie publications index returned only navigation, and the Matheson and DLA Piper pages carry no reference number. The quotes are from DCByte, a secondary trade summary. Decision reference CRU/2025236 and the 12 Dec 2025 date come from Matheson search-result text, not a fetched page. The 80% figure and the above-10 MVA generation rule need checking against the CRU paper. The CRU's 'Decision 3' PDF on media.matheson.com could not be read. Also: the DCByte page says the decision was in 'December 2025'. Next step: locate the CRU decision PDF on cru.ie and quote from it. Dublin constraint: the verbatim 'The Greater Dublin Area (GDA) remains the highest-demand ecosystem, but it is also where constraints are most acute.' is on DCByte. An EirGrid 2028 no-connection statement reported in older press was not confirmed on any EirGrid page and is not stored."
+    },
+    {
+      "type": "policy",
+      "country": "GB",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Delivering AI Growth Zones (policy paper)",
+        "jurisdiction": "United Kingdom (national)",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2025-11-13",
+        "identifier": null,
+        "summary": "Government policy paper for AI Growth Zones, designated locations for AI compute investment. It proposes a reservation mechanism that holds grid capacity at a specific connection point, a reallocation mechanism for capacity freed when a project leaves the queue, and removal of speculative demand from the connections queue. It also proposes geographic electricity price support, for a 500 MW data centre up to £24/MWh in Scotland, £16/MWh in Cumbria and £14/MWh in the North East, delivered as an electricity-cost discount tied to demonstrated savings.",
+        "key_terms": [
+          "a reservation mechanism that allows capacity to be held at a specific physical connection point",
+          "a reallocation mechanism that gives priority access to freed-up capacity when another project exits the queue",
+          "Where data centres in AI Growth Zones facilitate these savings, they will receive a commensurate discount on electricity costs."
+        ],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null,
+        "scope": "national",
+        "price_support_unit": "GBP/MWh"
+      },
+      "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
+      "source_title": "UK Government — Delivering AI Growth Zones",
+      "source_lang": "en",
+      "verbatim": "a reservation mechanism that allows capacity to be held at a specific physical connection point. Where data centres in AI Growth Zones facilitate these savings, they will receive a commensurate discount on electricity costs.",
+      "verified": true,
+      "notes": "Fetched from gov.uk; the quoted sentences and the '£24/MWh', '£16/MWh' and '£14/MWh' figures and the 13 Nov 2025 publication date were returned by the fetch. This is a non-statutory policy paper, so instrument is government_framework. Principles left empty pending curator assignment. Proposals are described as proposals in the paper; the paper says 'will receive' for the discount, so the status 'in_effect' means the published policy, not a commenced scheme. The Planning and Infrastructure Bill link and the 800 GW queue figure are not on this page and are not stored."
+    },
+    {
+      "type": "policy",
+      "country": "FR",
+      "subdivision": "FR-IDF",
+      "locality": null,
+      "fields": {
+        "title": "Île-de-France regional strategy for siting data centres",
+        "jurisdiction": "Région Île-de-France",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2026-06-25",
+        "identifier": null,
+        "summary": "Regional siting strategy for data centres, adopted 25 June 2026. It aims to maximise local spin-offs and to renegotiate the financial deal with local authorities, and proposes moving grid connection priority from 'first come, first served' to 'first ready, first served'. The fetched article calls it a strategy whose binding force is not stated; it describes planned actions such as an observatory and a methodological kit.",
+        "key_terms": [
+          "Adoptée le 25 juin 2026, la stratégie francilienne relative à l'implantation des centres de données",
+          "la région soutient le passage d'une logique \"premier arrivé, premier servi\" à celle du \"premier prêt, premier servi\"",
+          "souhait de revoir le deal financier au bénéfice des collectivités"
+        ],
+        "key_terms_translation": {
+          "items": [
+            "Adopted on 25 June 2026, the Île-de-France strategy on the siting of data centres",
+            "the region supports the shift from a 'first come, first served' logic to a 'first ready, first served' logic",
+            "a wish to renegotiate the financial deal for the benefit of local authorities"
+          ],
+          "by": "machine",
+          "reviewed_at": "2026-10-19"
+        },
+        "principles": [],
+        "benefit_themes": [],
+        "value": null,
+        "scope": "state",
+        "source_lang": "fr"
+      },
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+      "source_title": "Banque des Territoires — Datacenters: la région Île-de-France veut maximiser les retombées locales",
+      "source_lang": "fr",
+      "verbatim": "Adoptée le 25 juin 2026, la stratégie francilienne relative à l'implantation des centres de données. la région soutient le passage d'une logique \"premier arrivé, premier servi\" à celle du \"premier prêt, premier servi\".",
+      "verified": true,
+      "notes": "Fetched via a summarizing WebFetch of the Banque des Territoires article (dated 3 July 2026). The quoted French is as returned by the fetch; re-check against the page before shipping. The region holds 44% of 322 French data centres (end-2024). Official Île-de-France or regional-council text was not read; the binding status is unstated and 'in_effect' means adopted. RTE queue rules not verified. Principles left empty pending curator assignment. Drôme and Le Bourget disputes are not recorded (search only)."
+    },
+    {
+      "type": "project",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Loughton",
+      "fields": {
+        "name": "Nscale Loughton data centre",
+        "operator": "Nscale",
+        "city": "Loughton",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Planning decision rests with Epping Forest District Council. Nscale has pushed the expected completion to early 2027 (article says Nscale stated Q2 2027 operation). The article gives no MW or floorspace figure; it says the changed scheme is '50% higher than originally proposed and includes 50% more internal capacity'. The article does not name Microsoft as a customer (search-only claim, dropped). Operator Nscale is not a tracked Company. Status 'announced' is a curator choice: the planning dispute is live and no construction start is stated on the fetched page."
+      },
+      "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
+      "source_title": "Data Centre Review — Nscale latest to face public backlash over proposed data centre",
+      "source_lang": "en",
+      "verbatim": "\"50% higher than originally proposed and includes 50% more internal capacity\"",
+      "verified": true,
+      "notes": "Article dated 30 March 2026. Subdivision left null: ISO 3166-2 GB-ESX (Essex) is not in the SUBDIVISIONS registry yet, so adding it is a registry change. Locality is Loughton (Epping Forest). Earlier 'Epping Forest' note is in locality/city."
+    },
+    {
+      "type": "response",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Loughton",
+      "fields": {
+        "project": "Nscale Loughton data centre",
+        "stance": "negative",
+        "constituency": "local_government",
+        "date": "2026-03-30",
+        "summary": "Loughton Town Council officers objected that the changed scheme would need more cooling and more energy, citing grid strain, and asked Nscale to submit a new planning application. The council is not the decision-maker; Epping Forest District Council is."
+      },
+      "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
+      "source_title": "Data Centre Review — Nscale latest to face public backlash over proposed data centre",
+      "source_lang": "en",
+      "verbatim": "proposal would require more cooling and increased energy to facilitate this application.",
+      "verified": true,
+      "notes": "Stance is negative as recorded by the article's framing of the officers' objection. Constituency local_government (town council officers). The verbatim is the council's objection as quoted in the article."
+    }
+  ]
+}

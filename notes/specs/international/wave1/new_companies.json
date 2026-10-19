@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "nscale",
+    "name": "Nscale",
+    "hq": "United Kingdom",
+    "dedicated_page_url": null,
+    "summary": "UK-based AI data-centre developer, tracked for its proposed Loughton, Essex site, which has drawn objections from the town council over cooling and energy demand. No community-impact page was found in the research.",
+    "last_reviewed": "2026-10-19"
+  },
+  {
+    "slug": "segro",
+    "name": "Segro",
+    "hq": "United Kingdom",
+    "dedicated_page_url": null,
+    "summary": "Commercial property firm tracked for its 75 MW Le Bourget, France project at a former warehouse, which faces a newly elected mayor's demand for cancellation. It is a property developer rather than a hyperscale operator, and no community-impact page was found in the research.",
+    "last_reviewed": "2026-10-19"
+  },
+  {
+    "slug": "goodman",
+    "name": "Goodman Group",
+    "hq": "Sydney, Australia",
+    "dedicated_page_url": null,
+    "summary": "Australian property group tracked for its withdrawn 90 MW Project Mars application in Lane Cove, NSW. No community-impact page was found in the research.",
+    "last_reviewed": "2026-10-19"
+  },
+  {
+    "slug": "sur-energy",
+    "name": "Sur Energy",
+    "hq": "Argentina / United States (described as Argentine-U.S. owned)",
+    "dedicated_page_url": null,
+    "summary": "Energy and data-centre company tracked because its co-founder, Emiliano Kargieman, made a named first-party statement about jobs and investment for the announced OpenAI-linked AI data-centre project in Argentina. The project's site and binding contract were not confirmed in the research, so no project record is included.",
+    "last_reviewed": "2026-10-19"
+  }
+]

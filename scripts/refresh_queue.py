@@ -70,11 +70,14 @@ LEDGER = ROOT / "data" / "refresh_ledger.json"
 BACKLOG = ROOT / "BACKLOG.md"
 APP_JS = ROOT / "docs" / "app.js"
 
-TARGET_DAYS = {"site": 90, "state": 120, "company": 30}
+# country (v6): every international record for one country (or "EU"). The
+# unattended routine adds only from English-language sources there; the rest
+# become BACKLOG leads (owner decision 2026-10-19, SPEC_INTERNATIONAL.md).
+TARGET_DAYS = {"site": 90, "state": 120, "company": 30, "country": 120}
 # A unit parked with `--mark KEY --blocked` (dead source, nothing citable) drops out of
 # run_plan for this long, so one stuck unit cannot take the front of every run.
 BLOCKED_COOLDOWN_DAYS = 14
-KIND_ORDER = {"site": 0, "state": 1, "company": 2}
+KIND_ORDER = {"site": 0, "state": 1, "company": 2, "country": 3}
 START = "<!-- refresh-queue:start -->"
 END = "<!-- refresh-queue:end -->"
 FEDERAL = "US"
@@ -148,6 +151,8 @@ def derive_units() -> dict[str, Unit]:
         )
     policies = _load("policies.json", "policies")
     for c in companies:
+        if c.get("international_only"):
+            continue  # its sites are owned by their country:XX unit
         slug = c["slug"]
         n_projects = sum(p["company_slug"] == slug for p in projects)
         # A company unit owns what no site does: its company-level claims (no
@@ -185,6 +190,22 @@ def derive_units() -> dict[str, Unit]:
     for s in _load("signatories.json", "signatories"):
         if s["category"] == "governor":
             add(s.get("state"), "governor", s["id"])
+
+    intl = json.loads((SEED / "international.json").read_text())
+    for c in intl["countries"]:
+        owned: dict[str, list[str]] = {}
+        for kind in ("policies", "moratoriums", "projects", "claims", "rate_cases"):
+            ids = [r["id"] for r in intl.get(kind, []) if r["country"] == c["code"]]
+            if ids:
+                owned[kind] = ids
+        site_ids = set(owned.get("projects", []))
+        resp = [r["id"] for r in intl["responses"] if r["project_id"] in site_ids]
+        if resp:
+            owned["responses"] = resp
+        units[f"country:{c['code']}"] = Unit(
+            f"country:{c['code']}", "country", f"{c['code']} (international)",
+            date.fromisoformat(c["last_reviewed"]), owned,
+        )
     return units
 
 
@@ -301,14 +322,17 @@ def run_plan(units: dict[str, Unit], today: date, n: int) -> list[tuple[Unit, st
                     and not t[0].is_blocked(today)]
                for k in TARGET_DAYS}
     alt = ("state", "company") if today.toordinal() % 2 else ("company", "state")
-    rhythm = ["site", alt[0], "site", alt[1]]
+    # country (v6) takes one slot per cycle, after the US kinds.
+    rhythm = ["site", alt[0], "site", alt[1], "country"]
+    assert set(rhythm) == set(TARGET_DAYS), "every unit kind needs a slot in the rhythm"
     plan = due[:n]
-    i = 0
-    while len(plan) < n and any(by_kind.values()):
-        kind = rhythm[i % len(rhythm)]
-        i += 1
-        if by_kind[kind]:
-            plan.append(by_kind[kind].pop(0))
+    while len(plan) < n:
+        before = len(plan)
+        for kind in rhythm:
+            if len(plan) < n and by_kind[kind]:
+                plan.append(by_kind[kind].pop(0))
+        if len(plan) == before:  # nothing left in any kind: stop, never spin
+            break
     return plan
 
 

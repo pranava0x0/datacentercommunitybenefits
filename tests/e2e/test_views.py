@@ -1287,8 +1287,16 @@ class TestPoliciesView:
         n = page.evaluate("() => POLICY_PRINCIPLES.length")
         cards = page.locator("#policy-principles .pb-principle")
         assert cards.count() == n
+        us = json.loads((ROOT / "docs/data/policies.json").read_text())["policies"]
+        used_us = {k for p in us for k in p["principles"]}
         for i in range(n):
-            assert cards.nth(i).locator(".pb-example").count() >= 1, f"card {i} has no example"
+            card = cards.nth(i)
+            if card.get_attribute("data-principle") in used_us:
+                assert card.locator(".pb-example").count() >= 1, f"card {i} has no example"
+            else:
+                # A principle practiced only abroad (heat_reuse, v6) points there
+                # instead of rendering an empty card.
+                expect(card.locator(".pb-see-all")).to_have_text("See it abroad →")
 
     def test_see_all_filters_directory_by_principle(self, page: Page, base_url: str):
         page.goto(base_url + "/#policies")
@@ -3907,3 +3915,175 @@ class TestIssues78And79:
             assert page.locator("#rp-scorecard > .rp-card").count() == min(sc, page.evaluate("() => SCORECARD_PHONE_PAGE"))
         finally:
             ctx.close()
+
+
+class TestInternational:
+    """v6 International tab (notes/specs/SPEC_INTERNATIONAL.md)."""
+
+    @staticmethod
+    def _seed():
+        return json.loads((ROOT / "docs/data/international.json").read_text())
+
+    def test_international_payload_is_lazy(self, page: Page, base_url: str):
+        seen = []
+        page.on("request", lambda r: seen.append(r.url) if "international.json" in r.url else None)
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.wait_for_load_state("networkidle")
+        assert not seen, "international.json must not load until the tab opens"
+        page.click("#tab-world")
+        page.wait_for_selector("#world-country-list .world-card", timeout=E2E_WAIT)
+        assert len(seen) == 1
+
+    def test_country_cards_cover_every_country(self, page: Page, base_url: str):
+        page.goto(base_url + "/#world")
+        page.wait_for_selector("#world-country-list .world-card", timeout=E2E_WAIT)
+        codes = sorted(c["code"] for c in self._seed()["countries"])
+        got = sorted(page.locator("#world-country-list [data-country]").evaluate_all("els => els.map(e => e.dataset.country)"))
+        assert got == codes
+
+    def test_country_deep_link_and_back(self, page: Page, base_url: str):
+        seed = self._seed()
+        code = next(c["code"] for c in seed["countries"] if any(p["country"] == c["code"] for p in seed["policies"]))
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-world")
+        page.click(f'#world-country-list [data-country="{code}"]')
+        expect(page.locator("#world-country")).to_be_visible()
+        assert page.url.endswith(f"#country/{code}")
+        page.go_back()
+        expect(page.locator("#world-panes")).to_be_visible()
+        expect(page.locator("#world-country")).to_be_hidden()
+        page.goto(base_url + f"/?i=dl#country/{code}")
+        expect(page.locator("#world-country")).to_be_visible()
+        expect(page.locator("#world-country-body .world-country-name")).to_have_text(page.evaluate(f"() => countryName('{code}')"))
+
+    def test_non_english_quotes_show_original_then_labelled_translation(self, page: Page, base_url: str):
+        seed = self._seed()
+        pol = next((p for p in seed["policies"] if p.get("source_lang", "en") != "en"), None)
+        assert pol is not None, "wave 1 ships non-English policies; this test must not pass vacuously"
+        page.goto(base_url + "/#world/instruments")
+        card = page.locator(f'#world-instrument-list [data-id="{pol["id"]}"]')
+        expect(card).to_be_visible()
+        bq = card.locator(f'blockquote[lang="{pol["source_lang"]}"]').first
+        expect(bq).to_have_text(pol["key_terms"][0])
+        expect(card.locator(".world-translation-label").first).to_contain_text("Machine translation")
+
+    def test_money_shows_as_stated_with_an_approximation_only_where_a_rate_exists(self, page: Page, base_url: str):
+        page.goto(base_url + "/#world")
+        page.wait_for_function("() => state.intl", timeout=E2E_WAIT)
+        out = page.evaluate(
+            "() => [formatMoney({amount: 2e9, currency: 'EUR', as_stated: '€2bn'}),"
+            " formatMoney({amount: 1e9, currency: 'CLP', as_stated: 'CLP 1bn'})]"
+        )
+        assert out[0].startswith("€2bn (≈ ") and "$" in out[0]
+        assert out[1] == "CLP 1bn"
+
+    def test_us_views_unchanged_by_international(self, page: Page, base_url: str):
+        # The US payloads are partitioned, and the v6 US-default fields are
+        # stripped from them (a stray "country":"US" on every record added
+        # ~12 KB to first paint).
+        for name in ("claims", "policies", "moratoriums", "projects", "responses"):
+            recs = json.loads((ROOT / f"docs/data/{name}.json").read_text())[name]
+            for r in recs:
+                assert r.get("country", "US") == "US", (name, r["id"])
+                for k, default in (("source_lang", "en"), ("statement_lang", "en"), ("formality", "formal")):
+                    assert r.get(k) != default, f"{name}/{r['id']}: default {k} not stripped"
+            if name != "projects":
+                assert all("country" not in r for r in recs), name
+        page.goto(base_url + "/#comparison")
+        page.wait_for_function("() => state.companies && state.companies.length", timeout=E2E_WAIT)
+        assert page.evaluate("() => state.companies.every(c => !c.international_only)")
+        assert page.evaluate("() => state.allCompanies.some(c => c.international_only)")
+
+
+    def test_principle_practiced_only_abroad_links_to_international(self, page: Page, base_url: str):
+        page.goto(base_url + "/#policies")
+        page.wait_for_selector('#policy-principles [data-principle="heat_reuse"]', timeout=E2E_WAIT)
+        page.click('#policy-principles [data-principle="heat_reuse"] .pb-see-all')
+        expect(page.locator("#subpane-world-instruments")).to_be_visible()
+        expect(page.locator("#world-principle-filter")).to_have_value("heat_reuse")
+        assert page.locator("#world-instrument-list .world-record").count() >= 1
+
+    @pytest.mark.parametrize("width", [360, 375, 390])
+    def test_phone_tab_bar_stays_two_rows(self, browser, base_url: str, width: int):
+        # A ninth tab (v6) wrapped to a third row and pushed every view down
+        # ~44px; the interaction-cost budgets caught it. Derived from VIEWS.
+        ctx = browser.new_context(viewport={"width": width, "height": 800}, is_mobile=True, has_touch=True)
+        page = ctx.new_page()
+        try:
+            page.goto(base_url + "/")
+            page.wait_for_selector("#tab-world", timeout=E2E_WAIT)
+            rows = page.evaluate(
+                "() => new Set(VIEWS.map(v => Math.round(document.getElementById(v.tab).getBoundingClientRect().y))).size"
+            )
+            assert rows <= 2, f"{rows} tab rows at {width}px"
+        finally:
+            ctx.close()
+
+
+    def test_pause_card_renders_formality_and_lift(self, page: Page, base_url: str):
+        # No pause abroad passes the bar yet, so render a synthetic one: the
+        # card path must not be dead code waiting for its first record.
+        page.goto(base_url + "/#world")
+        page.wait_for_function("() => state.intl", timeout=E2E_WAIT)
+        html = page.evaluate(
+            """() => intlPauseCard({id: 'x', jurisdiction: 'Singapore', status: 'enacted', formality: 'de_facto',
+                 enacted_date: '2019-01-01', lifted_date: '2022-01-01', country: 'SG', summary: 's',
+                 source_url: 'https://example.org', source_title: 'T', duration_description: '2019-2022'}).textContent"""
+        )
+        assert "Unofficial pause" in html and "Lifted" in html
+        assert page.evaluate(
+            "() => worldStatusOf({kind: 'pause', r: {status: 'enacted', lifted_date: '2022-01-01'}})"
+        ) == "ended"
+
+    def test_country_page_closes_when_leaving_the_tab(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-world")
+        page.click('#world-country-list [data-country="IE"]')
+        expect(page.locator("#world-country")).to_be_visible()
+        page.click("#tab-overview")
+        page.click("#tab-world")
+        expect(page.locator("#world-panes")).to_be_visible()
+        expect(page.locator("#world-country")).to_be_hidden()
+        assert page.url.endswith("#world")
+
+    def test_forward_onto_a_country_entry_restores_its_url(self, page: Page, base_url: str):
+        page.goto(base_url + "/#world")
+        page.wait_for_selector("#world-country-list .world-card", timeout=E2E_WAIT)
+        page.click('#world-country-list [data-country="FR"]')
+        page.go_back()
+        expect(page.locator("#world-panes")).to_be_visible()
+        page.go_forward()
+        expect(page.locator("#world-country")).to_be_visible()
+        assert page.url.endswith("#country/FR")
+
+
+    def test_country_page_shows_every_section_and_original_context(self, page: Page, base_url: str):
+        # Codex review of #83: empty sections stay visible ("Nothing recorded
+        # yet"), and non-English context facts show the source's own words
+        # with a labelled translation.
+        seed = json.loads((ROOT / "docs/data/international.json").read_text())
+        code = next(
+            c["code"] for c in seed["countries"]
+            if any(f.get("source_lang", "en") != "en" for f in c.get("context", []))
+        )
+        page.goto(base_url + f"/?c=1#country/{code}")
+        expect(page.locator("#world-country")).to_be_visible()
+        heads = page.locator("#world-country-body h4").all_inner_texts()
+        for title in ("Rules and programmes", "Pauses", "Electricity rate cases", "Sites"):
+            assert title in heads, heads
+        assert page.locator("#world-country-body p.muted", has_text="Nothing recorded yet.").count() >= 1
+        fact = next(f for c in seed["countries"] if c["code"] == code for f in c["context"] if f.get("source_lang", "en") != "en")
+        bq = page.locator(f'#world-country-body .world-context blockquote[lang="{fact["source_lang"]}"]').first
+        expect(bq).to_have_text(fact["verbatim"])
+
+    def test_rate_case_abroad_renders_as_a_docket(self, page: Page, base_url: str):
+        seed = json.loads((ROOT / "docs/data/international.json").read_text())
+        rc = seed["rate_cases"][0]
+        page.goto(base_url + f"/?c=2#country/{rc['country']}")
+        card = page.locator(f'#world-country-body [data-id="{rc["id"]}"]')
+        expect(card).to_be_visible()
+        expect(card).to_contain_text(rc["docket_number"])
+        expect(card.locator(".rc-next")).to_contain_text("Next:")

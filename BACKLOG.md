@@ -1115,6 +1115,13 @@ navigation.
   months"). Normalize it, or split out a short `duration_label`. **low**
 - **`diesel_backup_mw`,** if backup generation should be tracked apart from
   `power_mw` (see site:amazon-richmond-county-nc). **low**
+- **v6 vocabulary migrations (2026-10-19, owner-approved, done):** policy
+  instrument `government_framework`, principle `heat_reuse` (labelled as
+  mainly international), scopes `national` / `supranational`, moratorium
+  `jurisdiction_type: national` and `formality` (formal / administrative /
+  de_facto). US records were reviewed: none needed re-tagging, and every
+  existing default is the US value. Re-check whether any US state "strategy"
+  filed as `legislation` is really a `government_framework`. **low**
 - **No `withdrawn`/`cancelled` project status.** `aws-calvert-cliffs-md`
   (withdrawn Aug 4, 2026) still reads "announced" with a note. Add a status
   plus frontend handling; decide whether withdrawn sites stay in the

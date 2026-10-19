@@ -1,0 +1,740 @@
+{
+  "countries": [
+    {
+      "code": "IE",
+      "summary": "Ireland's energy regulator, the CRU, published its Large Energy Users Connection Policy on 12 December 2025, governing grid connection for data centres. EirGrid's May 2026 overview says the greater Dublin region is fully constrained, and a South Dublin council refused a Google data centre in 2024 over electricity-network concerns.",
+      "regulators": [
+        {
+          "name": "Commission for Regulation of Utilities",
+          "acronym": "CRU",
+          "role": "energy_regulator",
+          "url": "https://www.cru.ie"
+        },
+        {
+          "name": "EirGrid",
+          "acronym": "EirGrid",
+          "role": "grid_operator",
+          "url": "https://www.eirgrid.ie"
+        }
+      ],
+      "context": [
+        {
+          "statement": "Data centres used 23% of metered electricity in Ireland in 2025, up from 5% in 2015.",
+          "verbatim": "rose to 23 % in 2025 from 5% in 2015",
+          "source_lang": "en",
+          "period": "2025",
+          "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+          "source_title": "Central Statistics Office — Data Centres Metered Electricity Consumption 2025 (key findings)",
+          "captured_at": "2026-10-19",
+          "verified": true
+        },
+        {
+          "statement": "Metered electricity consumption by data centres rose from 6,973 GWh in 2024 to 7,663 GWh in 2025.",
+          "verbatim": "rising from 6, 973 Gigawatt hours (GWh) in 2024 to 7,663 GWh in 2025",
+          "source_lang": "en",
+          "period": "2025",
+          "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+          "source_title": "Central Statistics Office — Data Centres Metered Electricity Consumption 2025 (key findings)",
+          "captured_at": "2026-10-19",
+          "verified": true
+        },
+        {
+          "statement": "Ireland has 2 GW of contracted data centres, mostly in the greater Dublin area.",
+          "verbatim": "Ireland has 2 GW of contracted data centres",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Constrained-Area-Overview-May-2026.pdf",
+          "source_title": "EirGrid — Data Centre Constrained Area Overview, May 2026",
+          "captured_at": "2026-10-19",
+          "verified": true
+        },
+        {
+          "statement": "The greater Dublin region is considered fully constrained for new large data centre connections.",
+          "verbatim": "The greater Dublin region is considered fully constrained.",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Constrained-Area-Overview-May-2026.pdf",
+          "source_title": "EirGrid — Data Centre Constrained Area Overview, May 2026",
+          "captured_at": "2026-10-19",
+          "verified": true
+        }
+      ],
+      "primary_languages": [
+        "en",
+        "ga"
+      ]
+    },
+    {
+      "code": "FR",
+      "summary": "France's Île-de-France region adopted a data-centre siting strategy on 25 June 2026 seeking more local benefit. A 75 MW Segro project at Le Bourget faces a new mayor's opposition and an environmental-authority query on waste-heat recovery. A national heat-recovery obligation exists but its decree is not yet verified.",
+      "regulators": [],
+      "context": [],
+      "primary_languages": [
+        "fr",
+        "en"
+      ]
+    },
+    {
+      "code": "CA",
+      "summary": "Québec requires government authorization before projects of 5 MW or more can connect, and Hydro-Québec has applied to the Régie de l'énergie (docket R-4333-2026) for a dedicated data-centre rate. The Google Beauharnois project was announced in 2021 with no status update found.",
+      "regulators": [
+        {
+          "name": "Régie de l'énergie du Québec",
+          "acronym": "Régie",
+          "role": "energy_regulator",
+          "url": "https://www.regie-energie.qc.ca"
+        }
+      ],
+      "context": [
+        {
+          "statement": "Hydro-Québec proposes a large data-centre rate averaging 13¢/kWh, about double what current large-power customers pay.",
+          "verbatim": "equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-proposing-regie-energie-new-rate-large-data-centres-adjustment-rate-cryptographic-use-applied-blockchains.html",
+          "source_title": "Hydro-Québec — Proposing a new rate for large data centres",
+          "captured_at": "2026-10-19",
+          "verified": true
+        }
+      ],
+      "primary_languages": [
+        "fr",
+        "en"
+      ]
+    },
+    {
+      "code": "SG",
+      "summary": "Singapore's EDB and IMDA provisionally allocated 200 MW of new data-centre capacity in DC-CFA2, 50 MW each to four operators, with green-energy conditions. The country also had a de facto approval pause from 2019 to 2022 that is not yet verified to the bar for a moratorium record.",
+      "regulators": [
+        {
+          "name": "Economic Development Board",
+          "acronym": "EDB",
+          "role": "investment_agency",
+          "url": "https://www.edb.gov.sg"
+        }
+      ],
+      "context": [
+        {
+          "statement": "EDB and IMDA provisionally allocated 200 MW of new data-centre capacity to four operators in DC-CFA2.",
+          "verbatim": "provisionally allocated 200 megawatts (MW) of new capacity to four data centre (DC) operators",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://www.edb.gov.sg/en/about-edb/media-releases-publications/four-data-centre-proposals-selected-as-part-of-second-data-centre.html",
+          "source_title": "EDB — Four data centre proposals selected as part of second data centre call for application",
+          "captured_at": "2026-10-19",
+          "verified": true
+        }
+      ],
+      "primary_languages": [
+        "en"
+      ]
+    },
+    {
+      "code": "EU",
+      "summary": "The Energy Efficiency Directive's data-centre reporting rules are in force, and the Commission proposed the Cloud and AI Development Act on 3 June 2026 (COM(2026) 502), which is not yet law.",
+      "regulators": [
+        {
+          "name": "European Commission DG CONNECT",
+          "acronym": "DG CONNECT",
+          "role": "planning",
+          "url": "https://digital-strategy.ec.europa.eu"
+        }
+      ],
+      "context": [],
+      "primary_languages": [
+        "en"
+      ]
+    },
+    {
+      "code": "GB",
+      "summary": "The UK government's AI Growth Zones policy paper proposes grid-capacity reservation and electricity-cost discounts for data centres in designated zones. The Nscale Loughton scheme drew objections from the town council over cooling and energy demand.",
+      "regulators": [],
+      "context": [],
+      "primary_languages": [
+        "en"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "type": "policy",
+      "country": "EU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Energy Efficiency Directive data-centre reporting (Art. 12) and Delegated Regulation (EU) 2024/1364",
+        "jurisdiction": "European Union",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "date": "2024",
+        "identifier": "Delegated Regulation (EU) 2024/1364",
+        "summary": "Data centres must report energy performance data under the Energy Efficiency Directive; the delegated regulation sets the common rating scheme.",
+        "key_terms": [
+          "introduced an obligation for the monitoring and reporting of the energy performance of data centres",
+          "sets out the information and key performance indicators for the reporting obligation"
+        ],
+        "principles": [
+          "study"
+        ],
+        "benefit_themes": [],
+        "value": null,
+        "scope": "supranational"
+      },
+      "source_url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+      "source_title": "European Commission — Energy performance of data centres",
+      "source_lang": "en",
+      "verbatim": "introduced an obligation for the monitoring and reporting of the energy performance of data centres ... sets out the information and key performance indicators for the reporting obligation",
+      "verified": true,
+      "notes": "Re-verified by probe (both phrases HIT). Verbatim joins two probed sentence fragments with an ellipsis. Carries over from ie_gb_fr_eu.json."
+    },
+    {
+      "type": "policy",
+      "country": "EU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Proposal for the Cloud and AI Development Act (CADA)",
+        "jurisdiction": "European Union",
+        "instrument": "legislation",
+        "status": "proposed",
+        "stage": "Commission proposal, adopted 3 June 2026; not yet law, must pass the European Parliament and the Council",
+        "date": "2026-06-03",
+        "identifier": "COM(2026) 502",
+        "summary": "Commission proposal to strengthen EU cloud and AI capacity, including faster deployment of data centres and an EU-wide assessment of foreign-control risk for cloud services.",
+        "key_terms": [
+          "Publication 03 June 2026",
+          "The Commission has adopted a proposal for the Cloud and AI Development Act (CADA)"
+        ],
+        "principles": [
+          "study"
+        ],
+        "benefit_themes": [
+          "infrastructure"
+        ],
+        "value": null,
+        "scope": "supranational"
+      },
+      "source_url": "https://digital-strategy.ec.europa.eu/en/library/proposal-cloud-and-ai-development-act-cada",
+      "source_title": "European Commission — Proposal for the Cloud and AI Development Act (CADA)",
+      "source_lang": "en",
+      "verbatim": "Publication 03 June 2026 ... The Commission has adopted a proposal for the Cloud and AI Development Act (CADA)",
+      "verified": true,
+      "notes": "Proposal stage only. Verified: date, adoption sentence, identifier COM(2026) 502. The 'triple data centre capacity' and 'data centre acceleration zones' claims from the prior file are NOT on this page and are dropped. Law-firm blog dates (2 July 2026) disagree with the Commission page; the Commission date is used."
+    },
+    {
+      "type": "policy",
+      "country": "GB",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Delivering AI Growth Zones (policy paper)",
+        "jurisdiction": "United Kingdom (national)",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2025-11-13",
+        "identifier": null,
+        "summary": "Government policy paper for AI Growth Zones: designated locations for AI compute. Proposes a reservation mechanism for grid capacity and a discount on electricity costs where data centres facilitate savings.",
+        "key_terms": [
+          "a reservation mechanism that allows capacity to be held at a specific physical connection point",
+          "commensurate discount on electricity costs"
+        ],
+        "principles": [
+          "pay_own_way"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "national",
+        "price_support_unit": "GBP/MWh"
+      },
+      "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
+      "source_title": "GOV.UK — Delivering AI Growth Zones",
+      "source_lang": "en",
+      "verbatim": "a reservation mechanism that allows capacity to be held at a specific physical connection point ... commensurate discount on electricity costs",
+      "verified": true,
+      "notes": "Re-verified. Date 2025-11-13 is the publication date on the page header as carried from the prior file; the date text itself was not probed separately."
+    },
+    {
+      "type": "project",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Loughton",
+      "fields": {
+        "name": "Nscale Loughton data centre",
+        "operator": "Nscale",
+        "city": "Loughton",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Revised scheme. Lat/lon not verified. Carried from ie_gb_fr_eu.json."
+      },
+      "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
+      "source_title": "Data Centre Review — Nscale latest to face public backlash over proposed data centre",
+      "source_lang": "en",
+      "verbatim": "50% higher than originally proposed and includes 50% more internal capacity",
+      "verified": true,
+      "notes": "Re-verified (HIT). Only the scheme-size sentence was probed; operator and town are from the same article but not separately probed."
+    },
+    {
+      "type": "response",
+      "country": "GB",
+      "subdivision": null,
+      "locality": "Loughton",
+      "fields": {
+        "project": "Nscale Loughton data centre",
+        "stance": "negative",
+        "constituency": "local_government",
+        "date": "2026-03-30",
+        "summary": "Loughton Town Council officers objected that the revised scheme would need more cooling and more energy, citing grid strain."
+      },
+      "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
+      "source_title": "Data Centre Review — Nscale latest to face public backlash over proposed data centre",
+      "source_lang": "en",
+      "verbatim": "proposal would require more cooling and increased energy to facilitate this application",
+      "verified": true,
+      "notes": "Re-verified (HIT). Date 2026-03-30 is the carried-over value; not separately probed. Summary's 'grid strain' wording is paraphrase beyond the probed sentence, so treat the summary as curator text to re-check."
+    },
+    {
+      "type": "policy",
+      "country": "FR",
+      "subdivision": "FR-IDF",
+      "locality": null,
+      "fields": {
+        "title": "Île-de-France regional strategy for siting data centres",
+        "jurisdiction": "Région Île-de-France",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2026-06-25",
+        "identifier": null,
+        "summary": "Regional siting strategy adopted 25 June 2026. It aims to maximise local spin-offs and to renegotiate siting terms, moving from first-come-first-served to first-ready-first-served.",
+        "key_terms": [
+          "Adoptée le 25 juin 2026, la stratégie francilienne relative à l'implantation des centres de données",
+          "premier prêt, premier servi"
+        ],
+        "key_terms_translation": {
+          "items": [
+            "Adopted on 25 June 2026, the Île-de-France strategy on the siting of data centres",
+            "first-ready, first-served (translation by machine)"
+          ]
+        },
+        "principles": [
+          "local_siting_say"
+        ],
+        "benefit_themes": [
+          "jobs",
+          "tax_revenue"
+        ],
+        "value": null,
+        "scope": "state"
+      },
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-la-region-ile-de-france-veut-maximiser-les-retombees-locales",
+      "source_title": "Banque des Territoires — Datacentres : la région Île-de-France veut maximiser les retombées locales",
+      "source_lang": "fr",
+      "verbatim": "Adoptée le 25 juin 2026, la stratégie francilienne relative à l'implantation des centres de données. la région soutient le passage d'une logique \"premier arrivé, premier servi\" à celle du \"premier prêt, premier servi\".",
+      "verified": true,
+      "notes": "Re-verified (both phrases HIT). Source is a trade/press article, not the Région's own page; a regional primary document would be better."
+    },
+    {
+      "type": "project",
+      "country": "FR",
+      "subdivision": "FR-IDF",
+      "locality": "Le Bourget",
+      "fields": {
+        "name": "Segro Le Bourget data centre (former H&M warehouse)",
+        "operator": "Segro (commercial property firm; developer)",
+        "city": "Le Bourget",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": 75,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Segro is a property firm and is not a tracked company; it would need a company record if kept. Building permit granted by the previous administration; the new mayor seeks cancellation. Segro page advertising Q3 2028 opening reported as removed. Lat/lon not verified. Source is a BeBeez syndication of a DCD article; DCD itself returned 403."
+      },
+      "source_url": "https://bebeez.eu/en/news/mayor-could-block-data-center-planned-at-former-hm-warehouse-in-le-bourget-france/",
+      "source_title": "BeBeez — Mayor could block data center planned at former H&M warehouse in Le Bourget, France",
+      "source_lang": "en",
+      "verbatim": "demanding the cancellation of a 75MW data center planned by commercial property firm Segro at a former H&M warehouse",
+      "verified": true,
+      "notes": "Verified by probe. Article dated 30 June 2026 per page."
+    },
+    {
+      "type": "response",
+      "country": "FR",
+      "subdivision": "FR-IDF",
+      "locality": "Le Bourget",
+      "fields": {
+        "project": "Segro Le Bourget data centre (former H&M warehouse)",
+        "stance": "negative",
+        "constituency": "local_government",
+        "date": "2026-06-30",
+        "summary": "The newly elected mayor of Le Bourget demands cancellation of the 75 MW Segro project. Article date used; the mayor's demand date is not separately recorded."
+      },
+      "source_url": "https://bebeez.eu/en/news/mayor-could-block-data-center-planned-at-former-hm-warehouse-in-le-bourget-france/",
+      "source_title": "BeBeez — Mayor could block data center planned at former H&M warehouse in Le Bourget, France",
+      "source_lang": "en",
+      "verbatim": "demanding the cancellation of a 75MW data center planned by commercial property firm Segro at a former H&M warehouse",
+      "verified": true,
+      "notes": "Verified by probe. Date is the article date (probe HIT 'by dcd June 30, 2026'), not an event date."
+    },
+    {
+      "type": "response",
+      "country": "FR",
+      "subdivision": "FR-IDF",
+      "locality": "Le Bourget",
+      "fields": {
+        "project": "Segro Le Bourget data centre (former H&M warehouse)",
+        "stance": "mixed",
+        "constituency": "regulator",
+        "date": "2026-06-30",
+        "summary": "The environmental authority MRAe queried the limited waste heat recovery planned for the site (12 MW of 75 MW), alongside refrigerant and air-quality concerns."
+      },
+      "source_url": "https://bebeez.eu/en/news/mayor-could-block-data-center-planned-at-former-hm-warehouse-in-le-bourget-france/",
+      "source_title": "BeBeez — Mayor could block data center planned at former H&M warehouse in Le Bourget, France",
+      "source_lang": "en",
+      "verbatim": "The MRAe also queried the limited waste heat recovery planned for the site",
+      "verified": true,
+      "notes": "Verified by probe. Date is the article date. The MRAe's own opinion (avis) was not fetched; the 12 MW figure is probed as Segro's own statement: 'Segro says it will recover heat from 12MW of the 75MW used at the data center'."
+    },
+    {
+      "type": "policy",
+      "country": "FR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Heat-recovery obligation for data centres over 1 MW (Code de l'énergie art. L.236-2, Décret 2025-1382)",
+        "jurisdiction": "France (national)",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "date": "2025-12-29",
+        "identifier": "Décret n° 2025-1382",
+        "summary": "Data centres of at least 1 MW must recover the waste heat they produce unless a decree-based exemption applies. Based on secondary sources (CMS, Fieldfisher, Hellio) that disagree on the dates.",
+        "key_terms": [],
+        "principles": [
+          "study"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "national"
+      },
+      "source_url": "https://cms.law/en/fra/publication/performances-energetiques-des-data-centers-de-nouvelles-obligations",
+      "source_title": "CMS — Performances énergétiques des data centers : de nouvelles obligations",
+      "source_lang": "fr",
+      "verbatim": "",
+      "verified": false,
+      "notes": "NOT VERIFIED. CMS returned 403 to the probe and the Légifrance decree text was not fetched. Legal citations and dates are from secondary search snippets only. Ship only after the decree is read on Légifrance."
+    },
+    {
+      "type": "policy",
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "locality": null,
+      "fields": {
+        "title": "Government authorization required to connect projects of 5 MW or more (Quebec)",
+        "jurisdiction": "Québec",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Authorization procedure as published by the Quebec government; page last updated 5 May 2026 per the carried-over record.",
+        "date": "2026-05-05",
+        "identifier": null,
+        "summary": "Projects of 5 MW or more, including new loads, must obtain the Quebec government's authorization before they can be connected.",
+        "key_terms": [
+          "doivent obtenir l’autorisation du gouvernement du Québec avant de pouvoir être raccordés"
+        ],
+        "principles": [
+          "new_power"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "provincial"
+      },
+      "source_url": "https://www.quebec.ca/agriculture-environnement-et-ressources-naturelles/energie/production-approvisionnement-distribution/autorisation-projet-electrique",
+      "source_title": "Gouvernement du Québec — Autorisation de projet électrique",
+      "source_lang": "fr",
+      "verbatim": "doivent obtenir l’autorisation du gouvernement du Québec avant de pouvoir être raccordés",
+      "verified": true,
+      "notes": "Re-verified (HIT). The 2026-05-05 date is carried over and was not probed; the page's own update stamp should be checked before shipping."
+    },
+    {
+      "type": "policy",
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "locality": null,
+      "fields": {
+        "title": "Hydro-Québec proposed large data-centre rate (tarif CD), Régie docket R-4333-2026",
+        "jurisdiction": "Québec",
+        "instrument": "regulation",
+        "status": "proposed",
+        "stage": "Application filed with the Régie de l'énergie; under review",
+        "date": "2026-02-19",
+        "identifier": "R-4333-2026",
+        "summary": "Hydro-Québec Distribution applied to the Régie de l'énergie for a dedicated rate for data centres drawing 5 MW or more.",
+        "key_terms": [
+          "equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay"
+        ],
+        "principles": [
+          "pay_own_way"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "provincial"
+      },
+      "source_url": "https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-proposing-regie-energie-new-rate-large-data-centres-adjustment-rate-cryptographic-use-applied-blockchains.html",
+      "source_title": "Hydro-Québec — Proposing a new rate for large data centres (Régie docket R-4333-2026)",
+      "source_lang": "fr",
+      "verbatim": "equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay",
+      "verified": true,
+      "notes": "Verified: rate sentence by probe HIT. Docket R-4333-2026 confirmed on the Régie's own page (verbatim: 'Dossier R-4333-2026 Demandeur Hydro-Québec Distribution Statut En cours', plus 'HQD-Demande du Distributeur relative à la fixation des tarifs centres de données et pour usage cryptographique appliqué aux chaînes de blocs'). The page's own wording says 'En cours' (ongoing). The earlier Décret 89-2026 record is dropped: not verified."
+    },
+    {
+      "type": "project",
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "locality": "Beauharnois",
+      "fields": {
+        "name": "Google Beauharnois data centre",
+        "operator": "Google",
+        "city": "Beauharnois",
+        "status": "announced",
+        "announced_year": 2021,
+        "claimed_investment": {
+          "amount": 600000000,
+          "currency": "USD",
+          "as_stated": "US$600 million (approximately C$735 million)"
+        },
+        "claimed_jobs": 30,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Potential investment announced May 2021 by the Québec government. 62.4 ha Hydro-Québec land removed from the agricultural zone. No status update found in this pass; lat/lon not verified. Probe of en.wikipedia.org/wiki/Beauharnois returned no coordinates in text."
+      },
+      "source_url": "https://news.hydroquebec.com/news/press-releases/all-quebec/future-data-center-in-beauharnois.html",
+      "source_title": "Hydro-Québec newsroom — Project to expand Google's activities in Québec: future data center in Beauharnois",
+      "source_lang": "en",
+      "verbatim": "potential investment of US$600 million (approximately C$735 million) ... close to 30 specialized, well-paid jobs",
+      "verified": true,
+      "notes": "Verified (all three phrases HIT, incl. 62.4 hectares). Press release is in English on a Hydro-Québec page, but the government statement is from May 2021: status is unknown."
+    },
+    {
+      "type": "policy",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Data Centre Call for Application 2 (DC-CFA2): provisional allocation of 50 MW each to four operators",
+        "jurisdiction": "Singapore",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Provisional allocation announced 21 Aug 2026 under the second Call for Application, which launched 1 Dec 2025.",
+        "date": "2026-08-21",
+        "identifier": "DC-CFA2",
+        "summary": "EDB and IMDA provisionally allocated 200 MW of new data-centre capacity: 50 MW each to Digital Realty, Equinix, Keppel Data Centres and ST Telemedia Global Data Centres.",
+        "key_terms": [
+          "EDB and IMDA provisionally allocated 50MW of DC capacity to each of the following companies (listed alphabetically): a) Digital Realty b) Equinix c) Keppel Data Centres d) ST Telemedia Global Data Centres"
+        ],
+        "principles": [
+          "new_power"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "national"
+      },
+      "source_url": "https://www.edb.gov.sg/content/dam/edb-en/about-edb/media-releases/news/four-data-centre-proposals-selected-as-part-of-second-data-centre/Fact%20Sheet%20-Four%20data%20centre%20proposals%20selected%20as%20part%20of%20second%20data%20centre.pdf",
+      "source_title": "EDB / IMDA — Fact sheet: four data centre proposals selected as part of second data centre call for application (DC-CFA2)",
+      "source_lang": "en",
+      "verbatim": "EDB and IMDA provisionally allocated 50MW of DC capacity to each of the following companies (listed alphabetically): a) Digital Realty b) Equinix c) Keppel Data Centres d) ST Telemedia Global Data Centres",
+      "verified": true,
+      "notes": "Verified (fact sheet PDF, PDFKit-free probe best-effort, HIT). The 200 MW total is verified on the EDB news page (see the context item). Awardee-allocation sentence is the fact-sheet text. Keppel said its allocation supports an AI-ready facility above S$1 billion (press only, not in this record)."
+    },
+    {
+      "type": "policy",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Data Centre Call for Application (DC-CFA) pilot, 2022",
+        "jurisdiction": "Singapore",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "status_detail": "Pilot call launched July 2022; application window closed 21 Nov 2022.",
+        "date": "2022-07-20",
+        "identifier": "DC-CFA (pilot)",
+        "summary": "Pilot Call for Application for new green data-centre capacity launched by EDB and IMDA after the 2019–2022 pause.",
+        "key_terms": [
+          "The pilot DC-CFA application will close on 21 November 2022."
+        ],
+        "principles": [
+          "new_power",
+          "water"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "national"
+      },
+      "source_url": "https://w.media/edb-imda-to-launch-a-pilot-data-centre-call-for-application-dc-cfa-for-building-sustainable-dc/",
+      "source_title": "W.Media — EDB, IMDA to launch a pilot data centre call for application (DC-CFA)",
+      "source_lang": "en",
+      "verbatim": "The pilot DC-CFA application will close on 21 November 2022.",
+      "verified": true,
+      "notes": "Verified (HIT). Awards date ('2023') was not in the probed sentence and is not used. Trade press, not the EDB page."
+    },
+    {
+      "type": "policy",
+      "country": "SG",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "De facto data-centre approval moratorium, 2019–2022 (Singapore)",
+        "jurisdiction": "Singapore",
+        "instrument": "government_framework",
+        "status": "in_effect",
+        "date": "2022",
+        "identifier": null,
+        "summary": "Singapore maintained a de facto moratorium on new large-scale data-centre approvals from 2019 to 2022.",
+        "key_terms": [
+          "From 2019 to 2022, Singapore maintained a de facto moratorium on new large-scale data centre approvals"
+        ],
+        "principles": [],
+        "benefit_themes": [],
+        "value": null,
+        "scope": "national"
+      },
+      "source_url": "https://www.reedsmith.com/articles/singapores-data-centre-expansion-jurong-island-sustainable-growth/",
+      "source_title": "Reed Smith — Singapore's data centre expansion, Jurong Island, sustainable growth",
+      "source_lang": "en",
+      "verbatim": "From 2019 to 2022, Singapore maintained a de facto moratorium on new large-scale data centre approvals",
+      "verified": false,
+      "notes": "Sentence verified (HIT, twice), but FAILS the de_facto bar: needs the authority's own statement or two independent sources. Only one law-firm source found. Not shipped as a moratorium until a second source or EDB/IMDA statement is found. Kept here as a lead."
+    },
+    {
+      "type": "policy",
+      "country": "IE",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Large Energy Users Connection Policy (CRU decision, CRU/2025236)",
+        "jurisdiction": "Ireland (national)",
+        "instrument": "regulation",
+        "status": "in_effect",
+        "date": "2025-12-12",
+        "identifier": "CRU/2025236",
+        "summary": "The Commission for Regulation of Utilities published the Large Energy Users Connection Policy on 12 December 2025, a structured framework for assessing and processing new large-energy-user (mainly data centre) connection applications. Details are from EirGrid's summary; the CRU decision paper itself was not fetched.",
+        "key_terms": [
+          "published the Large Energy Users Connection Policy on 12 December 2025"
+        ],
+        "principles": [
+          "new_power",
+          "pay_own_way"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "value": null,
+        "scope": "national"
+      },
+      "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Constrained-Area-Overview-May-2026.pdf",
+      "source_title": "EirGrid — Data Centre Constrained Area Overview, May 2026",
+      "source_lang": "en",
+      "verbatim": "published the Large Energy Users Connection Policy on 12 December 2025",
+      "verified": true,
+      "notes": "Verified via the grid operator's own document quoting CRU/2025236 (the 'CRU/2025236' string is on the same page). The cru.ie decision paper was NOT fetched: MVA tiers and the 80% renewables rule from the prior file are secondary (law-firm) only and are dropped. Fetch the CRU decision PDF before adding those."
+    },
+    {
+      "type": "project",
+      "country": "IE",
+      "subdivision": null,
+      "locality": "Clondalkin",
+      "fields": {
+        "name": "Google Grange Castle data centre (Clondalkin)",
+        "operator": "Google",
+        "city": "Grange Castle Business Park, Clondalkin",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "import_capacity_mva": null,
+        "acreage": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Planning refused by South Dublin County Council, Aug 2024, citing electricity network concerns. Appeal to An Bord Pleanála reported by secondary sources only (not verified). Lat/lon not verified."
+      },
+      "source_url": "https://newstalk.com/news/google-data-centre-refused-planning-permission-1758956",
+      "source_title": "Newstalk — Google refused permission to build huge Dublin data centre",
+      "source_lang": "en",
+      "verbatim": "The tech giant wants to build a 72,000 square metre storage facility in Grange Castle Business Park near Clondalkin.",
+      "verified": true,
+      "notes": "Verified (HIT). Article describes the facility as a 'storage facility' in the 72,000 sq m figure; the Google data-centre use is per the headline."
+    },
+    {
+      "type": "response",
+      "country": "IE",
+      "subdivision": null,
+      "locality": "Clondalkin",
+      "fields": {
+        "project": "Google Grange Castle data centre (Clondalkin)",
+        "stance": "negative",
+        "constituency": "local_government",
+        "date": "2024-08-27",
+        "summary": "South Dublin County Council refused planning permission, citing concerns about the electricity network."
+      },
+      "source_url": "https://newstalk.com/news/google-data-centre-refused-planning-permission-1758956",
+      "source_title": "Newstalk — Google refused permission to build huge Dublin data centre",
+      "source_lang": "en",
+      "verbatim": "South Dublin County Council has rejected its application, citing concerns about the electricity network",
+      "verified": true,
+      "notes": "Verified (HIT). Date 2024-08-27 verified by probe (article header). Local TD Brid Smith's campaigning remarks are on the same page; not used here."
+    }
+  ],
+  "dropped_from_prior_files": [
+    {
+      "item": "ie_gb_fr_eu: IE CRU record MVA tiers / 80% renewables / Greater Dublin statement",
+      "reason": "Secondary law-firm sources only; CRU decision paper not fetched. Replaced by verified CRU/2025236 record."
+    },
+    {
+      "item": "ie_gb_fr_eu: EU CADA 'triple capacity' and 'acceleration zones' claims",
+      "reason": "Not on the Commission page; only date, adoption sentence and COM(2026) 502 verified."
+    },
+    {
+      "item": "au_sg_ca: CA-QC Décret 89-2026",
+      "reason": "Not verified; Régie/Gazette not fetched."
+    },
+    {
+      "item": "au_sg_ca: AU (NSW framework, national standards, Project Mars)",
+      "reason": "Out of scope for this pass; prior records all unverified."
+    },
+    {
+      "item": "ie_gb_fr_eu / au_sg_ca: SG de facto moratorium",
+      "reason": "Kept with verified false: sentence verified, but de_facto bar not met (one source)."
+    }
+  ],
+  "gaps_not_filled": [
+    "FR: no Microsoft/AWS/Google France site verified (Google Dunkirk search returned nothing relevant).",
+    "FR: French regulator entry not verified (CRE/ADEME not fetched). Heat-reuse decree 2025-1382 not read on Légifrance (CMS returned 403).",
+    "IE: Microsoft Grange Castle 2017 gas-plant objection seen in search only; not probed. No Amazon/Meta/Clonee record.",
+    "CA-QC: Régie decision not yet issued; no Québec community response found.",
+    "Lat/lon: none verified for any project (Wikipedia Beauharnois text probe carried no coordinates)."
+  ]
+}
