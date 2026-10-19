@@ -551,13 +551,10 @@ come first, then locations, companies and sites.
   equipment-cost figure was found).
 - A second Abilene TX campus (Microsoft-anchored, ~900 MW), first named Q2
   2026: still not tracked.
-- `crusoe-cheyenne-wy`: Google is now publicly confirmed as owner/operator
-  ("Project Tembo," Cowboy State Daily, 2026-07-08 — quoted and dated in the
-  2026-09-29 refresh). The record's company_slug is still `crusoe` for now;
-  a future pass should decide whether to migrate it (and its tied claim +
-  3 responses) to `company_slug: google`, or keep it under Crusoe as the
-  original developer of record with a note. Needs a deliberate decision, not
-  an automatic move.
+- `crusoe-cheyenne-wy`: decided 2026-10-19. The Crusoe record is `withdrawn`
+  (Crusoe left Project Jade, per its own Wyoming Tribune Eagle source), and
+  Google's campus is a separate record, `google-cheyenne-tembo-wy`. The tied
+  claim and responses stay on the Crusoe record as history.
 
 #### company:google
 - Google Fort Wayne IN ("Project Zodiac", ~$2B, ~200 jobs, I&M territory):
