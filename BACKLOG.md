@@ -279,11 +279,11 @@ come first, then locations, companies and sites.
 - EEI: Delmarva docket 25-0826.
 
 #### state:FL — Florida
-- Okaloosa County: Commissioner Paul Mixon's 12-month moratorium reportedly
-  failed 3-2 on Sept 15, but only search headlines say so. WEAR's article
-  (weartv.com) describes the board choosing to regulate through conditional
-  use instead. Confirm the vote from county minutes or a fetched article
-  before recording `failed`.
+- Okaloosa County: Commissioner Paul Mixon's 12-month moratorium proposal
+  has no confirmed vote. An earlier note said it failed 3-2 on Sept 15; no
+  fetched source supports that. WEAR's article (weartv.com) describes the
+  board choosing to regulate through conditional use instead. Confirm any
+  vote from county minutes before recording `failed`.
 - `hernando-county-fl-2026-06`: unverified after five passes. Search snippets
   point to Ordinance No. 2026-23 (through June 16, 2027), but every article
   403s. Use the county's own agenda and minutes system.
@@ -448,9 +448,13 @@ come first, then locations, companies and sites.
   deals"). The Eugene project denial is a site fight.
 
 #### state:PA — Pennsylvania
-- Springhill Township adopted permanent conditional-use zoning with setbacks
-  on Sept 19, 2026. That is a Policy candidate (`local_ordinance`), not a
-  moratorium. West Hempfield and Clinton Twp are zoning actions or denials.
+- Springhill Township: the board approved a resolution on Sept 3, 2026
+  barring data-center and power-plant applications until its next meeting
+  (recorded as `springhill-township-pa-2026-09`) and tabled two ordinances
+  to a Sept 17 vote. The Sept 17 outcome is not found; an earlier note that
+  permanent zoning was adopted Sept 19 is unsupported. Check township
+  minutes, then add a Policy (`local_ordinance`) if adopted.
+  West Hempfield and Clinton Twp are zoning actions or denials.
 - King of Prussia (Upper Merion) denied MLP Ventures' five buildings. That
   is a single project's permit fate, so watch for an actual ordinance. The
   Allentown "Bill 20" setbacks are a zoning ordinance, not a moratorium.

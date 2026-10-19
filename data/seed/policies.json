@@ -4642,6 +4642,58 @@
       "source_url": "https://www.klcc.org/politics-government/2026-09-09/eugene-says-zoning-doesnt-allow-data-centers-at-former-hyundai-hynix-campus",
       "source_title": "KLCC — Eugene says zoning doesn't allow data centers at former Hyundai/Hynix campus",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "bowling-green-ky-datacenter-zoning-2026",
+      "title": "Bowling Green, KY — zoning ordinance restricting data centers",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Bowling Green, KY",
+      "state_code": "KY",
+      "identifier": "Zoning ordinance",
+      "date": "2026-06-16",
+      "benefit_themes": [
+        "energy",
+        "water"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The city commission voted unanimously Tuesday night to adopt a zoning ordinance that places restrictions on energy and water consumption, noise, and light pollution, among other things."
+      ],
+      "summary": "The Bowling Green City Commission unanimously adopted a zoning ordinance on data centers on June 16, 2026, restricting energy and water consumption, noise and light. A six-month moratorium had failed 3-2 on June 2. This is a zoning ordinance, not a moratorium.",
+      "source_url": "https://www.wkyufm.org/news/2026-06-16/bowling-green-city-leaders-give-final-approval-to-zoning-restrictions-on-data-centers",
+      "source_title": "WKU Public Radio — Bowling Green city leaders give final approval to zoning restrictions on data centers",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "front-royal-va-datacenter-ban-proposal-2026",
+      "title": "Front Royal, VA — proposed zoning ban on data centers in industrial districts",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Front Royal, VA",
+      "state_code": "VA",
+      "identifier": "Zoning amendment (proposed)",
+      "date": "2026-06-22",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Council members at their June 22 meeting voted to deny a proposed zoning ordinance amendment that would have allowed data centers by special-use permit",
+        "The Front Royal Town Council agreed to hold a public hearing on proposed zoning restrictions banning data centers."
+      ],
+      "summary": "On June 22, 2026 the Front Royal Town Council denied a zoning amendment that would have allowed data centers by special-use permit, and the council later agreed to hold a public hearing on proposed zoning restrictions banning data centers. Final adoption has not been confirmed. This is a proposed zoning amendment, not a moratorium.",
+      "source_url": "https://www.nvdaily.com/nvdaily/council-seeks-legal-advice-on-data-center-ban/article_8447d61b-1e1a-5002-9eb8-53bfd83ab50a.html",
+      "source_title": "Northern Virginia Daily — Front Royal council seeks legal advice on data center ban",
+      "captured_at": "2026-10-19"
     }
   ]
 }
