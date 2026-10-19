@@ -4349,7 +4349,7 @@
       "announced_date": "2026-03-31",
       "claimed_investment_usd": null,
       "claimed_jobs": 250,
-      "notes": "Proposed AWS campus on ~2,050 acres (a 965-acre northern parcel and a 1,085-acre southern parcel) adjacent to Constellation Energy's Calvert Cliffs nuclear plant at 1650 Calvert Cliffs Parkway, Lusby. The concept calls for up to eight data center buildings (266,000-332,000 sq ft each) across three campuses, ~2.46M sq ft total. AWS publicly introduced the project at a Calvert County community meeting on March 31, 2026 and filed a concept site plan application on May 4, 2026; no construction permits have been issued. Air-cooled design (cited as ~96% of the year); reported at ~1.5 GW, a figure AWS has not officially disclosed. The proposal drew local opposition, and county commissioners voted against a pause on data centers. On Aug 4, 2026 a Calvert County government news release reported that AWS is abandoning its plans for the campus; Constellation said AWS has withdrawn its plans (WTOP).",
+      "notes": "Proposed AWS campus on ~2,050 acres (a 965-acre northern parcel and a 1,085-acre southern parcel) adjacent to Constellation Energy's Calvert Cliffs nuclear plant at 1650 Calvert Cliffs Parkway, Lusby. The concept calls for up to eight data center buildings (266,000-332,000 sq ft each) across three campuses, ~2.46M sq ft total. AWS publicly introduced the project at a Calvert County community meeting on March 31, 2026 and filed a concept site plan application on May 4, 2026; no construction permits have been issued. Air-cooled design (cited as ~96% of the year); reported at ~1.5 GW, a figure AWS has not officially disclosed. The proposal drew local opposition, and county commissioners voted against a pause on data centers. On Aug 4, 2026 a Calvert County government news release reported that AWS is abandoning its plans for the campus; Constellation said AWS has withdrawn its plans (WTOP). Its pledge assessment was removed when the site was withdrawn: there is no longer a site to assess.",
       "source_url": "https://southernmarylandchronicle.com/2026/05/27/aws-calvert-technology-center-site-plan-filed/",
       "source_title": "Southern Maryland Chronicle - AWS Calvert Technology Center site plan filed (May 2026)",
       "captured_at": "2026-10-19",
@@ -4361,34 +4361,6 @@
       "at_a_glance": {
         "water": "Air-cooled - no new water needed for cooling",
         "energy": "Adjacent to Constellation's Calvert Cliffs nuclear plant; ~1.5 GW reported"
-      },
-      "ratepayer": {
-        "status": "affirmed",
-        "summary": "AWS introduced the Calvert Cliffs campus with a stated full-cost commitment — 'Amazon pays its full electricity costs while making substantial investments in building new energy infrastructure' — though the co-location arrangement itself is the kind FERC's PJM proceedings are still defining rules for.",
-        "evidence_claim_id": "aws-calvert-cliffs-md-energy",
-        "assessed_at": "2026-08-03",
-        "principles": {
-          "new_generation": {
-            "status": "partial",
-            "note": "The site co-locates with Constellation's existing Calvert Cliffs nuclear plant — existing supply, not new; Amazon cites 'investments in building new energy infrastructure' without site-specific detail."
-          },
-          "delivery_infra": {
-            "status": "met",
-            "note": "Amazon's site introduction states it 'pays its full electricity costs while making substantial investments in building new energy infrastructure.'"
-          },
-          "separate_rate": {
-            "status": "partial",
-            "note": "Co-located-load rate treatment in PJM is exactly what FERC docket EL25-49 is still settling; no site rate structure is public."
-          },
-          "local_jobs": {
-            "status": "partial",
-            "note": "No Calvert-specific jobs or workforce commitment published at the community-meeting stage."
-          },
-          "grid_resilience": {
-            "status": "partial",
-            "note": "No published commitment on backup generation or community resilience; the site needs no new cooling water."
-          }
-        }
       },
       "updates": [
         {

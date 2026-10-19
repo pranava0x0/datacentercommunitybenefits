@@ -3832,12 +3832,18 @@ class TestIssues78And79:
             " ...ratepayerUnassessedPledgeEraProjects(), ...ratepayerNonSignatoryProjects()].map(p => p.id)"
         )
         assert not set(ids) & {p["id"] for p in withdrawn}
-        # Totals: a withdrawn site's investment is not counted.
-        live_capex = page.evaluate(
-            "() => state.projects.filter(isLiveProject).reduce((a, p) => a + (p.claimed_investment_usd || 0), 0)"
-        )
-        rollup_capex = page.evaluate("() => buildCompanyRollups().reduce((a, r) => a + r.capex, 0)")
-        assert rollup_capex == live_capex
+        # Totals: a withdrawn site's MW / jobs / investment are not counted.
+        # (Sonnet review of #82: the capex-only check passed without the fix,
+        # because both withdrawn sites have no investment figure.)
+        for field, key in [("power_mw", "power_mw"), ("claimed_jobs", "jobs"), ("claimed_investment_usd", "capex")]:
+            live = page.evaluate(f"() => state.projects.filter(isLiveProject).reduce((a, p) => a + (p.{field} || 0), 0)")
+            every = page.evaluate(f"() => state.projects.reduce((a, p) => a + (p.{field} || 0), 0)")
+            rollup = page.evaluate(f"() => buildCompanyRollups().reduce((a, r) => a + r.{key}, 0)")
+            assert rollup == live, field
+        assert page.evaluate("() => state.projects.some(p => !isLiveProject(p) && (p.power_mw || p.claimed_jobs))"), \
+            "fixture lost its withdrawn site with figures; this test would prove nothing"
+        # A withdrawn site is history, not a contested one.
+        assert not page.evaluate("() => state.projects.filter(p => !isLiveProject(p)).some(isContestedSite)")
 
     def test_withdrawn_status_is_filterable_and_labelled(self, page: Page, base_url: str):
         page.goto(base_url + "/#explorer")
@@ -3877,6 +3883,16 @@ class TestIssues78And79:
             assert rows.count() == min(total, 2 * per)
             page.fill("#moratorium-q", "county")
             assert rows.count() == min(page.evaluate("() => filteredMoratoriums().length"), per)
+            # A site picked past the current page still renders and is focused
+            # after "Show more" (Sonnet review of #82).
+            page.click("#tab-explorer")
+            last = page.evaluate("() => filteredProjects().slice(-1)[0].id")
+            page.evaluate("(id) => selectProject(id)", last)
+            expect(page.locator(f'#project-list .project-card[data-project-id="{last}"]')).to_have_count(1)
+            page.click("#tab-moratoriums")
+            page.fill("#moratorium-q", "")
+            page.click("#moratoriums-tbody .project-list-more button")
+            assert page.evaluate("() => document.activeElement.closest('#moratoriums-tbody tr[data-id]') !== null")
             # Pledge scorecard.
             page.click("#tab-ratepayer")
             page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=E2E_WAIT)

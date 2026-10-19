@@ -1532,6 +1532,7 @@ function renderMoratoriumsView() {
       showMoreControl("tr", filtered.length - morShown, MOR_PHONE_PAGE, () => {
         phonePageMore("moratoriums", MOR_PHONE_PAGE);
         renderMoratoriumsView();
+        focusNth(document.getElementById("moratoriums-tbody"), morShown);
       }, 5)
     );
   }
@@ -3257,6 +3258,7 @@ function renderAgreementsView() {
       btn.type = "button";
       btn.addEventListener("click", () => {
         li.replaceWith(...strongest.slice(cut).map((p) => renderAgreementCard(p)));
+        focusNth(top, cut);
       });
       li.append(btn);
       top.append(li);
@@ -4818,6 +4820,8 @@ function depthOf(entry) {
 // assessment, a contested/shortfall delivery finding, or a lawsuit.
 function contestedReasons(p) {
   const reasons = [];
+  // A withdrawn site is history, not a live dispute (mirrors refresh.py).
+  if (!isLiveProject(p)) return reasons;
   const resps = (state.responsesByProject && state.responsesByProject.get(p.id)) || [];
   const neg = resps.filter((r) => r.stance === "negative");
   if (neg.length) reasons.push(`${neg.length} critical response${neg.length === 1 ? "" : "s"}`);
@@ -6465,6 +6469,25 @@ function phonePageSize(key, total, page, filterKey = "") {
 function phonePageMore(key, page) {
   _phonePages[key].shown += page;
 }
+// After "Show more" re-renders a list, the clicked button is gone; move
+// focus to the first newly shown item so keyboard and screen-reader users
+// continue where they were instead of restarting at <body>.
+function focusNth(container, n) {
+  const item = container && container.children[n];
+  if (!item) return;
+  if (!item.hasAttribute("tabindex")) item.tabIndex = -1;
+  item.focus({ preventScroll: false });
+}
+// Crossing the phone breakpoint (rotation, resize) switches lists between
+// paged and full; re-render whichever are on the page.
+if (window.matchMedia) {
+  window.matchMedia(SITES_PAGED_QUERY).addEventListener("change", () => {
+    if (state.explorerLoaded) renderProjectList();
+    if (state.moratoriums && state.moratoriums.length) renderMoratoriumsView();
+    if (document.getElementById("rp-scorecard")?.children.length) renderRatepayerScorecard();
+    if (state.policies) renderAgreementsView();
+  });
+}
 // A "Show N more" control as an <li> (lists) or a full-width <tr> (tables).
 function showMoreControl(tag, remaining, page, onClick, colspan = 1) {
   const btn = el("button", "btn-ghost", `Show ${Math.min(page, remaining)} more of ${remaining}`);
@@ -6517,6 +6540,7 @@ function renderProjectList() {
     btn.addEventListener("click", () => {
       state.sitesShown = shown + SITES_PAGE;
       renderProjectList();
+      focusNth(list, shown);
     });
     li.append(btn);
     list.appendChild(li);
@@ -6830,7 +6854,7 @@ function principleTallies() {
   for (const key of PLEDGE_PRINCIPLES) {
     tallies[key] = { met: 0, partial: 0, not_met: 0, unknown: 0, assessed: 0 };
   }
-  for (const p of state.projects || []) {
+  for (const p of (state.projects || []).filter(isLiveProject)) {
     const principles = p.ratepayer && p.ratepayer.principles;
     if (!principles) continue;
     for (const key of PLEDGE_PRINCIPLES) {
@@ -8058,6 +8082,7 @@ function renderRatepayerScorecard() {
           showMoreControl("li", assessed.length - shown, SCORECARD_PHONE_PAGE, () => {
             phonePageMore("scorecard", SCORECARD_PHONE_PAGE);
             renderRatepayerScorecard();
+            focusNth(document.getElementById("rp-scorecard"), shown);
           })
         );
       }
@@ -8525,7 +8550,7 @@ function buildUtilityRollups() {
     r.rateCases += 1;
     if (!isFederalRateCase(rc)) r.states.add(rc.state_code);
   }
-  for (const p of state.projects || []) {
+  for (const p of (state.projects || []).filter(isLiveProject)) {
     if (!p.serving_utility) continue;
     const sig = p.serving_utility_signatory_id
       ? state.signatoriesById.get(p.serving_utility_signatory_id) || null
@@ -8960,6 +8985,11 @@ function selectProject(id) {
   // whichever Sites pane the reader used last.
   setActiveSubtab("sites", "map");
   state.selectedProjectId = id;
+  // A phone list shows one page; a site picked from the map or a link may be
+  // past it. renderProjectList always renders the selected card (#79).
+  if (state.explorerLoaded && !document.querySelector(`#project-list [data-project-id="${CSS.escape(id)}"]`)) {
+    renderProjectList();
+  }
   const co = state.companiesBySlug.get(p.company_slug);
 
   const detail = document.getElementById("project-detail");
