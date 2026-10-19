@@ -3891,7 +3891,10 @@ class TestIssues78And79:
             expect(page.locator(f'#project-list .project-card[data-project-id="{last}"]')).to_have_count(1)
             page.click("#tab-moratoriums")
             page.fill("#moratorium-q", "")
-            page.click("#moratoriums-tbody .project-list-more button")
+            more = page.locator("#moratoriums-tbody .project-list-more button")
+            # Codex review of #82: the only way to the hidden rows needs a full touch target.
+            assert more.bounding_box()["height"] >= 44 - 0.5
+            more.click()
             assert page.evaluate("() => document.activeElement.closest('#moratoriums-tbody tr[data-id]') !== null")
             # Pledge scorecard.
             page.click("#tab-ratepayer")
