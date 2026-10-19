@@ -163,3 +163,48 @@ def test_home_digest_counts_match_their_tabs() -> None:
     companies = json.loads((ROOT / "data" / "seed" / "companies.json").read_text())["companies"]
     assert home["companies"] == sum(not c.get("international_only") for c in companies)
     assert home["international_countries"] == sum(c["code"] in schema.COUNTRIES for c in SEED["countries"])
+
+
+def test_app_js_has_no_regex_lookbehind() -> None:
+    """Safari < 16.4 rejects `(?<=` / `(?<!` at parse time, so one lookbehind
+    anywhere takes down every tab (Sonnet review of #83)."""
+    assert "(?<=" not in APP_JS and "(?<!" not in APP_JS
+
+
+def _policy(**over):
+    base = dict(
+        id="p", title="T", instrument="regulation", status="in_effect", scope="national",
+        jurisdiction="Ireland", benefit_themes=["energy"], principles=["pay_own_way"],
+        key_terms=["term"], summary="s", source_url="https://example.org/p", source_title="P",
+        captured_at="2026-10-19", country="IE",
+    )
+    base.update(over)
+    return schema.Policy.model_validate(base)
+
+
+def test_policy_scope_branches() -> None:
+    _policy()
+    with pytest.raises(ValidationError):
+        _policy(scope="federal")  # federal is the US government only
+    with pytest.raises(ValidationError):
+        _policy(scope="state")  # sub-national abroad needs a subdivision
+    _policy(scope="state", country="AU", subdivision="AU-NSW", jurisdiction="NSW")
+    with pytest.raises(ValidationError):
+        _policy(country="US", scope="national", state_code=None)
+    with pytest.raises(ValidationError):
+        _policy(country="EU", scope="national")  # EU goes with supranational
+    _policy(country="EU", scope="supranational", applies_to=["IE", "FR"])
+    with pytest.raises(ValidationError):
+        _policy(country="EU", scope="supranational", applies_to=["US"])
+    with pytest.raises(ValidationError):
+        _policy(source_lang="fr")  # needs a parallel translation
+    with pytest.raises(ValidationError):
+        _policy(source_lang="fr", key_terms_translation={"items": ["a", "b"], "by": "machine", "reviewed_at": "2026-10-19"})
+    _policy(source_lang="fr", key_terms_translation={"items": ["a"], "by": "machine", "reviewed_at": "2026-10-19"})
+
+
+def test_translation_provenance() -> None:
+    with pytest.raises(ValidationError):
+        schema.Translation.model_validate({"text": "x", "by": "official", "reviewed_at": "2026-10-19"})
+    with pytest.raises(ValidationError):
+        schema.Translation.model_validate({"text": "x", "by": "human", "reviewed_at": "2026-10-19"})

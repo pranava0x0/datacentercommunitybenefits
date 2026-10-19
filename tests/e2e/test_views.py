@@ -3961,8 +3961,7 @@ class TestInternational:
     def test_non_english_quotes_show_original_then_labelled_translation(self, page: Page, base_url: str):
         seed = self._seed()
         pol = next((p for p in seed["policies"] if p.get("source_lang", "en") != "en"), None)
-        if pol is None:
-            pytest.skip("no non-English policy in the seed")
+        assert pol is not None, "wave 1 ships non-English policies; this test must not pass vacuously"
         page.goto(base_url + "/#world/instruments")
         card = page.locator(f'#world-instrument-list [data-id="{pol["id"]}"]')
         expect(card).to_be_visible()
@@ -3981,10 +3980,21 @@ class TestInternational:
         assert out[1] == "CLP 1bn"
 
     def test_us_views_unchanged_by_international(self, page: Page, base_url: str):
-        # The US payloads are partitioned; no international record leaks in.
-        page.goto(base_url + "/#explorer")
-        page.wait_for_function("() => state.explorerLoaded", timeout=E2E_WAIT)
-        assert page.evaluate("() => state.projects.every(p => (p.country || 'US') === 'US')")
+        # The US payloads are partitioned, and the v6 US-default fields are
+        # stripped from them (a stray "country":"US" on every record added
+        # ~12 KB to first paint).
+        for name in ("claims", "policies", "moratoriums", "projects", "responses"):
+            recs = json.loads((ROOT / f"docs/data/{name}.json").read_text())[name]
+            for r in recs:
+                assert r.get("country", "US") == "US", (name, r["id"])
+                for k, default in (("source_lang", "en"), ("statement_lang", "en"), ("formality", "formal")):
+                    assert r.get(k) != default, f"{name}/{r['id']}: default {k} not stripped"
+            if name != "projects":
+                assert all("country" not in r for r in recs), name
+        page.goto(base_url + "/#comparison")
+        page.wait_for_function("() => state.companies && state.companies.length", timeout=E2E_WAIT)
+        assert page.evaluate("() => state.companies.every(c => !c.international_only)")
+        assert page.evaluate("() => state.allCompanies.some(c => c.international_only)")
 
 
     def test_principle_practiced_only_abroad_links_to_international(self, page: Page, base_url: str):
@@ -4010,3 +4020,41 @@ class TestInternational:
             assert rows <= 2, f"{rows} tab rows at {width}px"
         finally:
             ctx.close()
+
+
+    def test_pause_card_renders_formality_and_lift(self, page: Page, base_url: str):
+        # No pause abroad passes the bar yet, so render a synthetic one: the
+        # card path must not be dead code waiting for its first record.
+        page.goto(base_url + "/#world")
+        page.wait_for_function("() => state.intl", timeout=E2E_WAIT)
+        html = page.evaluate(
+            """() => intlPauseCard({id: 'x', jurisdiction: 'Singapore', status: 'enacted', formality: 'de_facto',
+                 enacted_date: '2019-01-01', lifted_date: '2022-01-01', country: 'SG', summary: 's',
+                 source_url: 'https://example.org', source_title: 'T', duration_description: '2019-2022'}).textContent"""
+        )
+        assert "Unofficial pause" in html and "Lifted" in html
+        assert page.evaluate(
+            "() => worldStatusOf({kind: 'pause', r: {status: 'enacted', lifted_date: '2022-01-01'}})"
+        ) == "ended"
+
+    def test_country_page_closes_when_leaving_the_tab(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
+        page.click("#tab-world")
+        page.click('#world-country-list [data-country="IE"]')
+        expect(page.locator("#world-country")).to_be_visible()
+        page.click("#tab-overview")
+        page.click("#tab-world")
+        expect(page.locator("#world-panes")).to_be_visible()
+        expect(page.locator("#world-country")).to_be_hidden()
+        assert page.url.endswith("#world")
+
+    def test_forward_onto_a_country_entry_restores_its_url(self, page: Page, base_url: str):
+        page.goto(base_url + "/#world")
+        page.wait_for_selector("#world-country-list .world-card", timeout=E2E_WAIT)
+        page.click('#world-country-list [data-country="FR"]')
+        page.go_back()
+        expect(page.locator("#world-panes")).to_be_visible()
+        page.go_forward()
+        expect(page.locator("#world-country")).to_be_visible()
+        assert page.url.endswith("#country/FR")

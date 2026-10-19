@@ -1125,6 +1125,8 @@ class Moratorium(_StrictBase):
             raise ValueError(f"moratorium {self.id!r}: 'federal' is the US government; use 'national'")
         if self.jurisdiction_type == "national" and self.country == "US":
             raise ValueError(f"moratorium {self.id!r}: a US national pause is 'federal'")
+        if self.country != "US" and self.state_code:
+            raise ValueError(f"moratorium {self.id!r}: non-US pauses use subdivision, not state_code")
         if self.lifted_date is not None:
             if self.status != "enacted":
                 raise ValueError(f"moratorium {self.id!r}: only an enacted pause can be lifted")
@@ -1954,6 +1956,8 @@ class Policy(_StrictBase):
         if self.country == "US":
             if self.scope in ("national", "supranational"):
                 raise ValueError(f"policy {self.id!r}: a US policy is federal, not {self.scope}")
+            if self.value is not None:
+                raise ValueError(f"policy {self.id!r}: US values go in value_usd")
             if self.scope in ("state", "county", "city") and not self.state_code:
                 raise ValueError(f"policy {self.id!r}: {self.scope} scope needs a state_code")
         else:
@@ -1965,6 +1969,12 @@ class Policy(_StrictBase):
                 raise ValueError(f"policy {self.id!r}: supranational scope goes with country 'EU'")
             if self.value_usd is not None:
                 raise ValueError(f"policy {self.id!r}: non-US values go in `value` (Money)")
+            if (
+                self.scope in ("state", "county", "city")
+                and not self.subdivision
+                and self.country not in NO_SUBDIVISION_COUNTRIES
+            ):
+                raise ValueError(f"policy {self.id!r}: a sub-national policy abroad needs a subdivision")
         if self.applies_to is not None:
             if self.scope != "supranational" or not set(self.applies_to) <= set(EU_MEMBERS):
                 raise ValueError(f"policy {self.id!r}: applies_to lists EU members of an EU rule")
@@ -2327,9 +2337,12 @@ class InternationalPayload(_StrictBase):
         for r in self.responses:
             if r.project_id not in project_ids:
                 raise ValueError(f"response {r.id!r}: unknown project {r.project_id!r}")
+        project_country = {p.id: p.country for p in self.projects}
         for c in self.claims:
             if c.project_id and c.project_id not in project_ids:
                 raise ValueError(f"claim {c.id!r}: unknown project {c.project_id!r}")
+            if c.project_id and project_country[c.project_id] != c.country:
+                raise ValueError(f"claim {c.id!r}: country differs from its site's")
         for p in self.policies:
             for pid in p.related_project_ids or []:
                 if pid not in project_ids:

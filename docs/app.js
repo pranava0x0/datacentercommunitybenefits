@@ -969,6 +969,9 @@ function activateView(name) {
   if (state._booted && !state._routing && state.activeView !== target.name) {
     history.pushState(null, "", window.location.href);
   }
+  // A country page belongs to one visit to the International tab; leaving
+  // (or re-entering by its tab) shows the list again.
+  if (!state._routing && target.name !== state.activeView) closeCountry();
   state.activeView = target.name;
   state.navGen = (state.navGen || 0) + 1;
 
@@ -9625,7 +9628,9 @@ function renderWorld() {
       btn.append(
         el("span", "home-card-title", countryName(c.code)),
         el("span", "home-card-sub", countWords(intlRecordsFor(c.code))),
-        el("span", "home-card-dek", c.summary.split(/(?<=\.)\s/)[0])
+        // First sentence. No lookbehind: Safari < 16.4 rejects it at parse
+        // time and the whole script (every tab) would fail to load.
+        el("span", "home-card-dek", (c.summary.match(/^.*?\.(?=\s|$)/) || [c.summary])[0])
       );
       btn.addEventListener("click", () => openCountry(c.code, { push: true }));
       li.append(btn);
@@ -9648,17 +9653,24 @@ function renderWorld() {
   const sites = document.getElementById("world-site-list");
   sites.replaceChildren(...d.projects.map((p) => intlSiteCard(p)));
   if (!d.projects.length) sites.replaceChildren(el("li", "muted", "No sites recorded yet."));
-  wireBtn("world-country-back", () => closeCountry({ push: true }));
+  wireBtn("world-country-back", () => {
+    // Opened from the list (we pushed an entry): Back returns to it, so the
+    // history doesn't gain a duplicate #world. Deep-linked: close in place.
+    if (state._countryPushed) history.back();
+    else closeCountry({ push: false });
+  });
   if (state.pendingCountry) {
     const code = state.pendingCountry;
     state.pendingCountry = null;
-    openCountry(code);
+    // The reader may have left the tab while the payload loaded.
+    if (state.activeView === "world") openCountry(code);
   }
   document.dispatchEvent(new CustomEvent("dcb:world-ready"));
 }
 
 // Frameworks → International, filtered to one principle.
 function openWorldPrinciple(key) {
+  closeCountry();
   activateView("world");
   setActiveSubtab("world", "instruments");
   loadInternationalData().then(() => {
@@ -9679,8 +9691,11 @@ function openCountry(code, { push = false } = {}) {
   }
   const c = d.countries.find((x) => x.code === code);
   if (!c) return;
-  if (push && !state._routing) history.pushState(null, "", window.location.pathname + `#country/${code}`);
-  else if (!state._routing) history.replaceState(null, "", window.location.pathname + `#country/${code}`);
+  const url = window.location.pathname + `#country/${code}`;
+  if (push && !state._routing) history.pushState(null, "", url);
+  // While routing, activateView has just rewritten the entry to #world;
+  // put the country back (replace, never push).
+  else if (window.location.hash !== `#country/${code}`) history.replaceState(null, "", url);
   const rs = intlRecordsFor(code);
   const body = document.getElementById("world-country-body");
   const parts = [el("h3", "acc-title world-country-name", countryName(code)), el("p", "hero-dek", c.summary)];
@@ -9726,6 +9741,7 @@ function openCountry(code, { push = false } = {}) {
   document.getElementById("world-country").hidden = false;
   document.getElementById("world-panes").hidden = true;
   state.openCountry = code;
+  state._countryPushed = push && !state._routing;
   document.getElementById("world-country-back")?.focus({ preventScroll: true });
   document.getElementById("world-country").scrollIntoView({ block: "start" });
 }

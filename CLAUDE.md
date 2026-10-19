@@ -2082,7 +2082,11 @@ Tab `#world`, placed last; country pages at `#country/XX`.
   (Federal Reserve G.5A 2025 annual averages). CLP and ARS are not in G.5A, so
   they get no approximation.
 - **Operators abroad become companies** with `international_only: true`
-  (Nscale, SEGRO, Goodman). The US Companies tab and the Home count skip
+  (Nscale, SEGRO, Goodman). They do **not** clear gate 2 of the two-gate test:
+  none publishes a community-impact page. The owner decided on 2026-10-19 to
+  add international operators as companies anyway, so don't remove them on
+  gate-2 grounds the way Amentum was. That exception covers international-only
+  operators only; US company additions still need both gates. The US Companies tab and the Home count skip
   them, and `companiesBySlug` still resolves them. Their sites are owned by
   `country:XX` refresh units, not `company:` units.
 - **`heat_reuse` principle** is mainly practiced abroad. The Frameworks card

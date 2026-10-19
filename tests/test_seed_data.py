@@ -84,8 +84,6 @@ class TestSeedCoverage:
     OPTIONAL_ENTITIES = {
         "wonder-valley", "qts", "crusoe", "coreweave", "prologis",
         "sb-energy", "brookfield",
-        # v6: international-only operators (owner decision 2026-10-19).
-        "nscale", "segro", "goodman",
     }
 
     def test_all_required_hyperscalers_present(self, companies):
@@ -96,7 +94,10 @@ class TestSeedCoverage:
     def test_no_unrecognized_companies(self, companies):
         # Guard against typos sneaking through the Literal narrow.
         slugs = {c.slug for c in companies.companies}
-        recognized = self.REQUIRED_HYPERSCALERS | self.OPTIONAL_ENTITIES
+        # v6: international-only operators are recognized by their own flag,
+        # not a second hand-written list (CLAUDE.md, single source of truth).
+        intl_only = {c.slug for c in companies.companies if c.international_only}
+        recognized = self.REQUIRED_HYPERSCALERS | self.OPTIONAL_ENTITIES | intl_only
         unknown = slugs - recognized
         assert not unknown, (
             f"Unknown company slugs: {unknown}. Expand "
