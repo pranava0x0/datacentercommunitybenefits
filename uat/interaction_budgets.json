@@ -22,9 +22,9 @@
  },
  "tablet": {
   "home_latest": 0,
-  "home_coming_up": 4,
+  "home_coming_up": 3,
   "home_sections": 0,
-  "latest_item_record": 1,
+  "latest_item_record": 3,
   "pledge_signatory": 4,
   "pledge_site_score": 4,
   "state_panel": 2,

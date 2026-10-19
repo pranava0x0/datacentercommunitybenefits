@@ -199,3 +199,13 @@ detail panel. Budgets tightened to the measured totals (+1 only where vertical
 swipes make a count layout-sensitive); 45 budgets went down, none up. #72
 fixes measured in the same run: Back after a tab click, shareable policy
 records, search typed during Sites loading survives render.
+
+## 2026-10-19 session
+
+Budgets: `tablet.latest_item_record` 1 → 3. The task opens the newest
+*moratorium* in Home's date-sorted Latest feed. The site timeline refresh added
+five newer site votes above it, so it now sits two swipes down on a tablet,
+the same as on a phone. That is a data change, not a layout one.
+`tablet.home_coming_up` 4 → 3 (measured 2). Phone paging (#79) cut page
+heights at 390px: Pledge 11.4k → 4.5k px, Moratoriums 15.6k → 4.2k px. Every
+other task is unchanged.
