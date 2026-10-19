@@ -9522,6 +9522,7 @@ function countWords(rs) {
   if (rs.moratoriums.length) parts.push(`${rs.moratoriums.length} pause${rs.moratoriums.length === 1 ? "" : "s"}`);
   if (rs.rateCases.length) parts.push(`${rs.rateCases.length} rate case${rs.rateCases.length === 1 ? "" : "s"}`);
   if (rs.projects.length) parts.push(`${rs.projects.length} site${rs.projects.length === 1 ? "" : "s"}`);
+  if (rs.statements.length) parts.push(`${rs.statements.length} company statement${rs.statements.length === 1 ? "" : "s"}`);
   if (rs.eu.length) parts.push(`${rs.eu.length} EU rule${rs.eu.length === 1 ? "" : "s"}`);
   return parts.join(" · ") || "No records yet";
 }
