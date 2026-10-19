@@ -3,7 +3,7 @@
   "countries": [
     {
       "code": "IE",
-      "summary": "The Commission for Regulation of Utilities (CRU) published its Large Energy Users Connection Policy on 12 December 2025. EirGrid's May 2026 overview states that the greater Dublin region is considered fully constrained, and the Central Statistics Office reports that data centres used 23% of metered electricity in 2025. South Dublin County Council refused a Google data centre at Grange Castle in 2024, citing concerns about the electricity network.",
+      "summary": "The Commission for Regulation of Utilities (CRU) published its Large Energy Users Connection Policy decision on 12 December 2025; data centres at or above a 1 MVA de-minimis level must meet at least 80% of annual demand with additional renewable electricity generated in the Republic of Ireland. EirGrid's May 2026 overview states that the greater Dublin region is considered fully constrained, and its connection process notes that judicial review proceedings have been initiated against the CRU decision. The Central Statistics Office reports that data centres used 23% of metered electricity in 2025. South Dublin County Council refused a Google data centre at Grange Castle in 2024, citing concerns about the electricity network.",
       "regulators": [
         {
           "name": "Commission for Regulation of Utilities",
@@ -64,29 +64,61 @@
     },
     {
       "code": "GB",
-      "summary": "The UK government's policy paper on AI Growth Zones describes a mechanism to reserve grid capacity at a specific connection point and a discount on electricity costs for data centres in designated zones. Planning officers at Loughton Town Council called for a fresh application for Nscale's revised Essex scheme and objected that it would need more cooling and energy. The decision lies with Epping Forest District Council.",
+      "summary": "The UK government's policy paper on AI Growth Zones describes a mechanism to reserve grid capacity at a specific connection point and a discount on electricity costs for data centres in designated zones. Google opened a data centre at Waltham Cross, Hertfordshire, in September 2025 as part of a two-year £5 billion UK investment. Planning officers at Loughton Town Council called for a fresh application for Nscale's revised Essex scheme and objected that it would need more cooling and energy. The decision lies with Epping Forest District Council.",
       "regulators": [],
       "primary_languages": [
         "en"
       ],
-      "context": [],
+      "context": [
+        {
+          "statement": "The UK government said £14 billion and 13,250 jobs had been committed by private tech firms following the AI Opportunities Action Plan.",
+          "verbatim": "£14 billion and 13,250 jobs committed by private leading tech firms following AI Action Plan",
+          "source_lang": "en",
+          "period": "2025-01",
+          "source_url": "https://www.gov.uk/government/news/prime-minister-sets-out-blueprint-to-turbocharge-ai",
+          "source_title": "GOV.UK — Prime Minister sets out blueprint to turbocharge AI (January 2025)",
+          "captured_at": "2026-10-19"
+        }
+      ],
       "last_reviewed": "2026-10-19"
     },
     {
       "code": "FR",
-      "summary": "The Île-de-France region adopted a data-centre siting strategy on 25 June 2026, supporting a move from first-come-first-served to first-ready-first-served. At Le Bourget, a newly elected mayor is demanding cancellation of a 75 MW Segro project, and the environmental authority MRAe queried its limited waste-heat recovery. A national heat-recovery obligation is not recorded because its legal text was not read.",
+      "summary": "The Île-de-France region adopted a data-centre siting strategy on 25 June 2026, supporting a move from first-come-first-served to first-ready-first-served. RTE reports that in May 2026 it had reserved nearly 18 GW of grid capacity for about 80 data-centre projects. At Le Bourget, a newly elected mayor is demanding cancellation of a 75 MW Segro project, and the environmental authority MRAe queried its limited waste-heat recovery. A national heat-recovery obligation is not recorded because its legal text was not read.",
       "regulators": [],
       "primary_languages": [
         "fr",
         "en"
       ],
-      "context": [],
+      "context": [
+        {
+          "statement": "In May 2026 RTE had reserved nearly 18 GW of grid capacity for about 80 data-centre projects, up from about 5 GW for about forty projects at the end of 2024. These are reservations, not built load.",
+          "verbatim": "En mai 2026, RTE avait réservé près de 18 GW de capacité, pour environ 80 projets. Fin 2024, il y avait une quarantaine de projets totalisant environ 5 GW.",
+          "source_lang": "fr",
+          "translation": {
+            "text": "In May 2026, RTE had reserved nearly 18 GW of capacity for about 80 projects. At the end of 2024, there were about forty projects totalling about 5 GW.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-05",
+          "source_url": "https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france",
+          "source_title": "RTE — Les data centers en chiffres clés",
+          "captured_at": "2026-10-19"
+        }
+      ],
       "last_reviewed": "2026-10-19"
     },
     {
       "code": "SE",
-      "summary": "The Riksdag decided on 13 December 2022 to abolish the energy-tax reduction for electricity used in data centres, effective 1 July 2023. Stockholm Data Parks is a city-led initiative, with Stockholm Exergi, Ellevio and Stokab, aimed at using data-centre excess heat. Microsoft states that its three planned Sandviken facilities will create an estimated 300 permanent jobs.",
-      "regulators": [],
+      "summary": "The Riksdag decided on 13 December 2022 to abolish the energy-tax reduction for electricity used in data centres, effective 1 July 2023. Stockholm Data Parks is a city-led initiative, with Stockholm Exergi, Ellevio and Stokab, aimed at using data-centre excess heat. Microsoft states that its three planned Sandviken facilities will create an estimated 300 permanent jobs. Svenska kraftnät told SVT in June 2025 that the 750 MW load of Brookfield's planned Strängnäs campus is far too large for the local grid.",
+      "regulators": [
+        {
+          "name": "Svenska kraftnät",
+          "role": "grid_operator",
+          "url": "https://www.svk.se/",
+          "acronym": "SvK"
+        }
+      ],
       "primary_languages": [
         "sv",
         "en"
@@ -100,18 +132,38 @@
           "source_url": "https://stockholmdataparks.com/",
           "source_title": "Stockholm Data Parks — Green computing redefined",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Microsoft bought land between Gävle and Sandviken for SEK 269 million, according to a December 2018 report.",
+          "verbatim": "IT-jätten Microsoft köper mark mellan Gävle och Sandviken för 269 miljoner kronor.",
+          "source_lang": "sv",
+          "translation": {
+            "text": "The IT giant Microsoft is buying land between Gävle and Sandviken for SEK 269 million.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2018",
+          "source_url": "https://www.realtid.se/bors-finans/gavle-jublar-efter-microsoftkop/",
+          "source_title": "Realtid — Gävle jublar efter Microsoftköp",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
     },
     {
       "code": "FI",
-      "summary": "The Finnish Tax Administration states that electricity used in data centres moves to electricity tax class I on 1 July 2026. Microsoft's planned Espoo and Kirkkonummi datacenter region is designed to supply waste heat to district heating in collaboration with Fortum. Business Finland reports that Google's €1 billion Hamina expansion, announced on 20 May 2024, includes a heat-recovery project.",
+      "summary": "The Finnish Tax Administration states that electricity used in data centres moves to electricity tax class I on 1 July 2026. Fingrid reports that planned data-centre capacity with signed connection agreements exceeded 3 GW by the end of June 2026. Microsoft confirmed in April 2026 the second-phase build decision for its Espoo, Kirkkonummi and Vihti data-centre area, which is designed to supply waste heat to district heating with Fortum. Business Finland reports that Google's €1 billion Hamina expansion includes a heat-recovery project, and a CapMan Infra release reports first heat supplied in the fourth quarter of 2025.",
       "regulators": [
         {
           "name": "Business Finland",
           "role": "investment_agency",
           "url": "https://www.businessfinland.fi/"
+        },
+        {
+          "name": "Fingrid",
+          "role": "grid_operator",
+          "url": "https://www.fingrid.fi/en/news/news/2026/fingrid-groups-half-year-report-1.1.30.6.2026/",
+          "acronym": "Fingrid"
         }
       ],
       "primary_languages": [
@@ -128,13 +180,31 @@
           "source_url": "https://businessfinland.fi/en/News/news/2024/google-announced-an-expansion-of-its-hamina-data-center",
           "source_title": "Business Finland — Google announced an expansion of its Hamina data center and a new heat recovery project",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Planned data-centre capacity with signed connection agreements at Fingrid exceeded 3 GW by the end of June 2026, according to Fingrid and based on information from project parties.",
+          "verbatim": "the planned total capacity of data centre projects that have signed connection agreements by the end of June was over three gigawatts.",
+          "source_lang": "en",
+          "period": "2026-H1",
+          "source_url": "https://www.fingrid.fi/en/news/news/2026/fingrid-groups-half-year-report-1.1.30.6.2026/",
+          "source_title": "Fingrid — Fingrid group's half-year report 1.1.–30.6.2026",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "The Hamina waste-heat facility, once fully operational, is expected to cover around 70–75% of Hamina's district heating energy; Google's 2024 estimate was about 80%.",
+          "verbatim": "Once fully operational, the waste heat facility will cover around 70-75 percent of Hamina's district",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://irei.com/news/capman-infras-portfolio-company-haminan-energia-advances-local-energy-transition-through-new-waste-heat-facility/",
+          "source_title": "IREI — CapMan Infra's portfolio company Haminan Energia advances local energy transition through new waste heat facility (reprint, 18 May 2026)",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
     },
     {
       "code": "GR",
-      "summary": "The Greek Ministry of Development's investment portal lists Interministerial Decision 74/2022, in Government Gazette ΦΕΚ 3325 Β/28.6.2022, approving investment incentives for Microsoft's three Attica data centres. Enterprise Greece's board approved the project for fast track on 1 April 2022 and expected it to create 300 new jobs within a decade.",
+      "summary": "The Greek Ministry of Development's investment portal lists Interministerial Decision 74/2022, in Government Gazette ΦΕΚ 3325 Β/28.6.2022, approving investment incentives for Microsoft's three Attica data centres. Enterprise Greece's board approved the project for fast track on 1 April 2022 and expected it to create 300 new jobs within a decade. Balkan Green Energy News reported in October 2026 a draft grid-connection bill requiring power to be 60% renewable and letters of guarantee of EUR 200,000 per MW.",
       "regulators": [
         {
           "name": "Enterprise Greece",
@@ -161,8 +231,27 @@
     },
     {
       "code": "AU",
-      "summary": "The New South Wales government released a Data Centre Policy Framework on 17 August 2026, saying future data-centre investment will be matched with investment in renewable energy and water infrastructure. Goodman Group withdrew its development application for a proposed 90 MW data centre, Project Mars, in Lane Cove. No national instrument is recorded.",
-      "regulators": [],
+      "summary": "The New South Wales government released a Data Centre Policy Framework on 17 August 2026, saying future data-centre investment will be matched with investment in renewable energy and water infrastructure. Goodman Group withdrew its development application for a proposed 90 MW data centre, Project Mars, in Lane Cove. At national level, the Australian Energy Market Commission has recommended to ministers that data centres bring their own clean, firmed energy, operate flexibly and connect efficiently. Amazon announced plans to invest AU$20 billion from 2025 to 2029, and Microsoft A$25 billion by the end of 2029.",
+      "regulators": [
+        {
+          "name": "Australian Energy Market Commission",
+          "role": "energy_regulator",
+          "url": "https://www.aemc.gov.au/news-centre/media-releases/data-centres-bring-clean-firm-energy-be-flexible-and-pay-their-way-aemc-advises-ministers",
+          "acronym": "AEMC"
+        },
+        {
+          "name": "NSW Department of Planning, Housing and Infrastructure (Planning Portal)",
+          "role": "planning",
+          "url": "https://www.planningportal.nsw.gov.au/major-projects/projects/mamre-road-data-centre-campus?page=2",
+          "acronym": "DPHI"
+        },
+        {
+          "name": "Infrastructure NSW",
+          "role": "investment_agency",
+          "url": "https://www.infrastructure.nsw.gov.au/expert-advice/data-centres/",
+          "acronym": "INSW"
+        }
+      ],
       "primary_languages": [
         "en"
       ],
@@ -175,19 +264,34 @@
           "source_url": "https://www.nsw.gov.au/ministerial-releases/nation-leading-framework-to-harness-nsw-data-centre-investment",
           "source_title": "NSW Government — Nation-leading framework to harness NSW data centre investment",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "NSW Data Centre Guidelines set six principles, the second of which is to impose no net cost to consumers and communities.",
+          "verbatim": "Principle 2 Impose no net cost to consumers and communities",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://www.infrastructure.nsw.gov.au/expert-advice/data-centres/",
+          "source_title": "Infrastructure NSW — Data Centres",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
     },
     {
       "code": "SG",
-      "summary": "EDB and IMDA provisionally allocated 200 MW of new data-centre capacity to four operators, 50 MW each, under the second Data Centre Call for Application (DC-CFA2), announced on 21 August 2026. A pilot Call for Application in 2022 closed on 21 November 2022.",
+      "summary": "EDB and IMDA provisionally allocated 200 MW of new data-centre capacity to four operators, 50 MW each, under the second Data Centre Call for Application (DC-CFA2), announced on 21 August 2026. The government informed industry of a temporary pause in data-centre growth in 2019, and EDB and IMDA launched a pilot Call for Application on 20 July 2022, which closed on 21 November 2022. The Green Data Centre Roadmap, launched on 30 May 2024, aims for at least 300 MW of additional capacity, with more if green energy is used. AWS announced an additional S$12 billion for Singapore from 2024 to 2028.",
       "regulators": [
         {
           "name": "Economic Development Board",
           "role": "investment_agency",
           "url": "https://www.edb.gov.sg",
           "acronym": "EDB"
+        },
+        {
+          "name": "Infocomm Media Development Authority",
+          "role": "planning",
+          "url": "https://www.imda.gov.sg/how-we-can-help/green-dc-roadmap",
+          "acronym": "IMDA"
         }
       ],
       "primary_languages": [
@@ -202,19 +306,43 @@
           "source_url": "https://www.edb.gov.sg/en/about-edb/media-releases-publications/four-data-centre-proposals-selected-as-part-of-second-data-centre.html",
           "source_title": "EDB — Four data centre proposals selected as part of second data centre call for application",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Singapore's Green Data Centre Roadmap was launched on 30 May 2024 by the Infocomm Media Development Authority, with an aim of at least 300 MW of additional capacity and further capacity if green energy is used.",
+          "verbatim": "Singapore's Green Data Centre Roadmap (GDCR) was launched on 30 May 2024 by the Singapore Infocomm Media Development Authority (IMDA), along with the announcement that Singapore aims to provide at least 300 megawatts of additional capacity for data centres and further additional capacity if green energy is used.",
+          "source_lang": "en",
+          "period": "2024",
+          "source_url": "https://www.mayerbrown.com/ja/insights/publications/2024/08/singapores-green-data-centre-roadmap-representing-a-necessary-intersection-between-digital-infrastructure-and-sustainability",
+          "source_title": "Mayer Brown — Singapore's Green Data Centre Roadmap (Aug 2024)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "The BCA-IMDA Green Mark Data Centre Platinum certification is named as a best-in-class energy-efficiency benchmark in the roadmap summary.",
+          "verbatim": "including meeting the Green Mark DC Platinum Certification (see note 6 below on the BCA-IMDA Green Mark for Data Centres)",
+          "source_lang": "en",
+          "period": "2024",
+          "source_url": "https://www.mayerbrown.com/ja/insights/publications/2024/08/singapores-green-data-centre-roadmap-representing-a-necessary-intersection-between-digital-infrastructure-and-sustainability",
+          "source_title": "Mayer Brown — Singapore's Green Data Centre Roadmap (Aug 2024)",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
     },
     {
       "code": "CA",
-      "summary": "Québec requires government authorization before projects of 5 MW or more can be connected to the grid. Hydro-Québec Distribution has applied to the Régie de l'énergie (docket R-4333-2026, listed as ongoing) for a dedicated rate for large data centres. Google's Beauharnois project was announced in 2021, and no later status was found.",
+      "summary": "Québec requires government authorization before projects of 5 MW or more can be connected to the grid. Hydro-Québec Distribution has applied to the Régie de l'énergie (docket R-4333-2026, listed as ongoing) for a dedicated rate for large data centres. In Alberta, the AESO's one-time interim limit of 1,200 MW for large data-centre load is fully allocated, and the province's June 2026 Data Centre Regulation directs the AESO to prioritize projects tied to dedicated new generation or storage. Google's Beauharnois project was announced in 2021, and no later status was found.",
       "regulators": [
         {
           "name": "Régie de l'énergie du Québec",
           "role": "energy_regulator",
           "url": "https://www.regie-energie.qc.ca",
           "acronym": "Régie"
+        },
+        {
+          "name": "Alberta Electric System Operator",
+          "role": "grid_operator",
+          "url": "https://www.aeso.ca/",
+          "acronym": "AESO"
         }
       ],
       "primary_languages": [
@@ -230,13 +358,22 @@
           "source_url": "https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-proposing-regie-energie-new-rate-large-data-centres-adjustment-rate-cryptographic-use-applied-blockchains.html",
           "source_title": "Hydro-Québec — Proposing a new rate for large data centres",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Companies have asked to connect roughly 19,565 MW of new data-centre load in Alberta, far more than the AESO allowed onto the grid in its first stage. The figure comes from a government messaging page and moves quarterly.",
+          "verbatim": "Companies have asked to connect roughly 19,565 megawatts of new data centre load, far more than the AESO allowed onto the grid in this first stage.",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://www.alberta.ca/datacentres/grid",
+          "source_title": "Government of Alberta — Is Alberta's grid ready?",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
     },
     {
       "code": "CL",
-      "summary": "Chile's National Data Centers Plan 2024-2030 (PDATA) states that it prioritizes data-centre growth in regions with access to renewable energy, with local jobs and responsible water management. The Segundo Tribunal Ambiental ordered the environmental assessment of Google's Cerrillos project reopened in February 2024, and in September 2024 Google decided not to continue its permit request. Google's Quilicura site operates, and Microsoft opened a Santiago cloud region in 2025.",
+      "summary": "Chile's National Data Centers Plan 2024-2030 (PDATA) states that it prioritizes data-centre growth in regions with access to renewable energy, with local jobs and responsible water management. The Segundo Tribunal Ambiental ordered the environmental assessment of Google's Cerrillos project reopened in February 2024, and in September 2024 Google decided not to continue its permit request. Google's Quilicura site operates, and Microsoft opened a Santiago cloud region in 2025. The same tribunal dismissed a claim against AWS's Huechuraba storage centre on 31 March 2026.",
       "regulators": [
         {
           "name": "Servicio de Evaluación Ambiental",
@@ -270,7 +407,7 @@
     },
     {
       "code": "AR",
-      "summary": "Argentina's large-investment incentive regime (RIGI, Ley 27.742, Título VII) is regulated by Decreto 749/2024. A \"Súper RIGI\" bill covering new and experimental activities, with data centres among those named, was sent to the Chamber of Deputies as Mensaje 181/2026. AWS received authorization in 2019 for a data centre in a Bahía Blanca free-trade zone.",
+      "summary": "Argentina's large-investment incentive regime (RIGI, Ley 27.742, Título VII) is regulated by Decreto 749/2024. A \"Súper RIGI\" bill covering new and experimental activities, with data centres among those named, was sent to the Chamber of Deputies as Mensaje 181/2026. AWS received authorization in 2019 for a data centre in a Bahía Blanca free-trade zone. In October 2025 Sur Energy and OpenAI announced a letter of intent for a data centre of up to 500 MW; no official page names its site.",
       "regulators": [
         {
           "name": "Ministerio de Economía (Autoridad de Aplicación del RIGI)",
@@ -316,7 +453,7 @@
     },
     {
       "code": "EU",
-      "summary": "Monitoring and reporting of data-centre energy performance is an obligation under the Energy Efficiency Directive, with indicators set by Delegated Regulation (EU) 2024/1364. The European Commission adopted a proposal for the Cloud and AI Development Act on 3 June 2026 (COM(2026) 502); it is not yet law.",
+      "summary": "Monitoring and reporting of data-centre energy performance is an obligation under the Energy Efficiency Directive, with indicators set by Delegated Regulation (EU) 2024/1364. The European Commission adopted a proposal for the Cloud and AI Development Act on 3 June 2026 (COM(2026) 502); it is not yet law. A Commission package of 21 September 2026 aims at a common EU rating scheme and label for data centres, with a consultation on minimum performance standards open.",
       "regulators": [
         {
           "name": "European Commission DG CONNECT",
@@ -329,6 +466,138 @@
         "en"
       ],
       "context": [],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "JP",
+      "summary": "Japan's Ministry of Economy, Trade and Industry and Ministry of Internal Affairs and Communications announced a public-private council on 18 March 2025 to coordinate electricity and telecommunications infrastructure for data centres. Company commitments are stated in dollars and yen: Microsoft announced a $10 billion (approx. ¥1.6 trillion) investment for 2026 through 2029, and AWS announced plans to invest 2.26 trillion yen in Tokyo and Osaka by 2027. SoftBank states that its Tomakomai AI data center in Hokkaido, where a groundbreaking was held on 15 April 2025, will run entirely on renewable energy procured within Hokkaido.",
+      "regulators": [
+        {
+          "name": "Ministry of Economy, Trade and Industry (METI)",
+          "role": "planning",
+          "url": "https://www.meti.go.jp/english/press/2025/0318_001.html",
+          "acronym": "METI"
+        },
+        {
+          "name": "Ministry of Internal Affairs and Communications (MIC)",
+          "role": "planning",
+          "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/eng/pressrelease/2025/3/18_1.html",
+          "acronym": "MIC"
+        }
+      ],
+      "primary_languages": [
+        "ja",
+        "en"
+      ],
+      "context": [
+        {
+          "statement": "AWS had already invested 1.51 trillion yen in Japan from 2011 to 2022.",
+          "verbatim": "Having already invested 1.51 trillion yen in Japan from 2011 to 2022",
+          "source_lang": "en",
+          "period": "2011-2022",
+          "source_url": "https://press.aboutamazon.com/aws/2024/1/aws-plans-to-invest-2-26-trillion-yen-into-its-japanese-cloud-infrastructure-by-2027",
+          "source_title": "Amazon Press Center — AWS plans to invest 2.26 trillion yen into its Japanese cloud infrastructure by 2027",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "SoftBank states that its Hokkaido Tomakomai AI data center, at 700,000 square meters and a power capacity expected to exceed 300 megawatts, held a groundbreaking ceremony on 15 April 2025 and is scheduled to begin operations in fiscal 2026.",
+          "verbatim": "On April 15, 2025, a traditional groundbreaking ceremony was held at the construction site of the AI data center, which is expected to grow into one of Japan's largest.",
+          "source_lang": "en",
+          "period": "2025",
+          "source_url": "https://www.softbank.jp/en/sbnews/entry/20250501_01",
+          "source_title": "SoftBank News — Construction Begins on Hokkaido Tomakomai AI Data Center",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "SoftBank states that the Tomakomai data center will operate entirely on renewable energy procured locally within Hokkaido Prefecture.",
+          "verbatim": "operate entirely on renewable energy procured locally within Hokkaido Prefecture.",
+          "source_lang": "en",
+          "period": "2025",
+          "source_url": "https://www.softbank.jp/en/sbnews/entry/20250501_01",
+          "source_title": "SoftBank News — Construction Begins on Hokkaido Tomakomai AI Data Center",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "KR",
+      "summary": "The Korean records in this dataset are mostly corporate plans. SK Group is to lead construction of a data center in Ulsan where AWS will establish an AI Zone, scheduled to begin operations by 2027. Korea JoongAng Daily reports little progress on construction and funding for the OpenAI-linked Stargate Korea plan almost a year after its announcement. Gangwon State and KEPCO signed a memorandum of understanding in September 2026 on power infrastructure for a planned Gangwon AI Data Center.",
+      "regulators": [
+        {
+          "name": "Korea Electric Power Corporation (KEPCO)",
+          "role": "grid_operator",
+          "url": "https://home.kepco.co.kr/kepco/EN/main.do",
+          "acronym": "KEPCO"
+        }
+      ],
+      "primary_languages": [
+        "ko",
+        "en"
+      ],
+      "context": [
+        {
+          "statement": "Stargate Korea was announced as two data centres, one led by Samsung SDS and one by SK Telecom.",
+          "verbatim": "aimed at building two data centers, one led by Samsung SDS and one by SK Telecom",
+          "source_lang": "en",
+          "period": "2025-10",
+          "source_url": "https://www.koreajoongangdaily.com/business/openais-stargate-project-in-korea-stuck-at-starting-gate-as-samsung-sk-report-little-progress/12856484",
+          "source_title": "Korea JoongAng Daily — OpenAI's Stargate project in Korea stuck at starting gate",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "A joint SK Telecom release states that the SK Group and AWS partnership is in addition to AWS's long-term US $5.88 billion (approx. 7.85 trillion won) planned investment in Korea by 2027.",
+          "verbatim": "This partnership is in addition to AWS's long-term US $5.88 billion (approx. 7.85 trillion won) planned investment in Korea by 2027.",
+          "source_lang": "en",
+          "period": "2025-06",
+          "source_url": "https://news.sktelecom.com/en/1948",
+          "source_title": "SK Telecom press release — SK Group and AWS team up to build cloud computing infrastructure (22 Jun 2025)",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "IN",
+      "summary": "Google announced $15 billion of investment in India over five years, including an AI hub in Visakhapatnam, Andhra Pradesh, with a 1 GW hyperscale data centre under an MoU with the state; The South First reports that MoU as valued at nearly $10 billion, and both figures are kept as stated. The Associated Press reported Microsoft's announcement of $17.5 billion over four years. Residents of Balkum, Thane, have protested a proposed Amazon data centre, alleging inadequate public consultation and heavy water use.",
+      "regulators": [
+        {
+          "name": "Central Electricity Regulatory Commission (CERC)",
+          "role": "energy_regulator",
+          "url": "https://cercind.gov.in/",
+          "acronym": "CERC"
+        },
+        {
+          "name": "Invest India",
+          "role": "investment_agency",
+          "url": "https://www.investindia.gov.in/",
+          "acronym": "Invest India"
+        }
+      ],
+      "primary_languages": [
+        "hi",
+        "en"
+      ],
+      "context": [
+        {
+          "statement": "Google said it would invest $15 billion in India over the next five years, establishing its first AI hub in the country.",
+          "verbatim": "In October, Google said it will invest $15 billion in India over the next five years to establish its first AI hub in the country.",
+          "source_lang": "en",
+          "period": "2025-10",
+          "source_url": "https://www.news4jax.com/business/2025/12/09/microsoft-investing-175-billion-in-india-for-ai-and-cloud-infrastructure/",
+          "source_title": "Associated Press (via News4JAX) — Microsoft investing $17.5 billion in India for AI and cloud infrastructure",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "The Associated Press reported on 9 December 2025 that Microsoft announced $17.5 billion of investment in India over the next four years for cloud and AI infrastructure. The wording is the AP's, not a Microsoft quotation.",
+          "verbatim": "Microsoft on Tuesday announced its biggest-ever Asia investment, amounting to $17.5 billion, in India over the next four years to advance the country's cloud and artificial intelligence infrastructure.",
+          "source_lang": "en",
+          "period": "2025-12",
+          "source_url": "https://www.news4jax.com/business/2025/12/09/microsoft-investing-175-billion-in-india-for-ai-and-cloud-infrastructure/",
+          "source_title": "Associated Press (via News4JAX) — Microsoft investing $17.5 billion in India for AI and cloud infrastructure",
+          "captured_at": "2026-10-19"
+        }
+      ],
       "last_reviewed": "2026-10-19"
     }
   ],
@@ -376,7 +645,7 @@
         "Publication 03 June 2026",
         "The Commission has adopted a proposal for the Cloud and AI Development Act (CADA)"
       ],
-      "summary": "The European Commission adopted a proposal for the Cloud and AI Development Act on 3 June 2026. It is at proposal stage and is not yet law.",
+      "summary": "The European Commission adopted a proposal for the Cloud and AI Development Act on 3 June 2026. It is at proposal stage and is not yet law. The European Parliament's Legislative Observatory records it as procedure 2026/0138(COD), dated 3 June 2026, decided under the ordinary legislative procedure with Parliament and Council on an equal footing.",
       "source_url": "https://digital-strategy.ec.europa.eu/en/library/proposal-cloud-and-ai-development-act-cada",
       "source_title": "European Commission — Proposal for the Cloud and AI Development Act (CADA)",
       "captured_at": "2026-10-19",
@@ -384,7 +653,13 @@
       "source_lang": "en",
       "community_benefits_framework": false,
       "identifier": "COM(2026) 502",
-      "date": "2026-06-03"
+      "date": "2026-06-03",
+      "resources": [
+        {
+          "url": "https://oeil.europarl.europa.eu/oeil/en/document-summary?id=1903654",
+          "title": "European Parliament Legislative Observatory — Cloud and AI Development Act 2026/0138(COD)"
+        }
+      ]
     },
     {
       "id": "gb-ai-growth-zones-2025",
@@ -520,16 +795,23 @@
         "new_power"
       ],
       "key_terms": [
-        "The pilot DC-CFA application will close on 21 November 2022."
+        "The pilot DC-CFA application will close on 21 November 2022.",
+        "achieve at least a Power Usage Effectiveness (PUE) of 1.3 (at 100% IT load) or better"
       ],
-      "summary": "EDB and IMDA launched a pilot Call for Application for new data-centre capacity in 2022. Trade press reports the application window closed on 21 November 2022.",
+      "summary": "EDB and IMDA launched a pilot Call for Application for new data-centre capacity in 2022. Trade press reports the application window closed on 21 November 2022. The EDB and IMDA joint release of 20 July 2022 (linked under resources) sets a best-in-class efficiency criterion: a PUE of 1.3 (at 100% IT load) or better.",
       "source_url": "https://w.media/edb-imda-to-launch-a-pilot-data-centre-call-for-application-dc-cfa-for-building-sustainable-dc/",
       "source_title": "W.Media — EDB, IMDA to launch a pilot data centre call for application (DC-CFA)",
       "captured_at": "2026-10-19",
       "country": "SG",
       "source_lang": "en",
       "community_benefits_framework": false,
-      "identifier": "DC-CFA (pilot)"
+      "identifier": "DC-CFA (pilot)",
+      "resources": [
+        {
+          "url": "https://www.edb.gov.sg/content/dam/edb-en/about-edb/media-releases/news/edb-and-imda-launch-pilot-data-centre-call-for-application-to-support-sustainable-growth-of-data-centres/Press%20Release%20-%20EDB%20and%20IMDA%20launch%20pilot%20data%20centre%20-%20Call%20for%20Application%20to%20support%20sustainable%20growth%20of%20Data%20Centres.pdf",
+          "title": "EDB and IMDA joint release — Launch of pilot Data Centre Call for Application (20 July 2022)"
+        }
+      ]
     },
     {
       "id": "ie-cru-large-energy-users-2025",
@@ -542,20 +824,34 @@
         "energy"
       ],
       "principles": [
-        "new_power"
+        "new_power",
+        "pay_own_way"
       ],
       "key_terms": [
-        "published the Large Energy Users Connection Policy on 12 December 2025"
+        "Data centres with MIC equal to or above the de-minimis level are required to meet at least 80% of their annual demand with additional renewable electricity generated in the Republic of Ireland.",
+        "this de-minimis level will be set at 1 MVA",
+        "data centre connection applications seeking a Maximum Import Capacity (MIC) of 10MVA and above should be required to provide onsite or proximate generation and/or storage",
+        "This direction supersedes Direction CRU/21/124"
       ],
-      "summary": "The Commission for Regulation of Utilities published the Large Energy Users Connection Policy on 12 December 2025, as recorded in EirGrid's May 2026 overview. The CRU decision paper itself was not read, so its connection tiers and conditions are not recorded here.",
-      "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Constrained-Area-Overview-May-2026.pdf",
-      "source_title": "EirGrid — Data Centre Constrained Area Overview, May 2026",
+      "summary": "The Commission for Regulation of Utilities published the Large Energy Users Connection Policy decision paper (CRU/2025236) on 12 December 2025. Data centres with a maximum import capacity at or above a 1 MVA de-minimis level must meet at least 80% of their annual demand with additional renewable electricity generated in the Republic of Ireland. Applications seeking 10 MVA and above should be required to provide onsite or proximate generation and/or storage. The direction supersedes CRU/21/124 and applies to new connection applications; EirGrid's DCCOPP Version 3 notes that judicial review proceedings have been initiated against the CRU decision.",
+      "source_url": "https://cruie-live-96ca64acab2247eca8a850a7e54b-5b34f62.divio-media.com/documents/CRU2025236_Large_Energy_User_connection_policy_decision_paper.pdf",
+      "source_title": "CRU — Large Energy Users connection policy decision paper (CRU2025236, 12 December 2025)",
       "captured_at": "2026-10-19",
       "country": "IE",
       "source_lang": "en",
       "community_benefits_framework": false,
       "identifier": "CRU/2025236",
-      "date": "2025-12-12"
+      "date": "2025-12-12",
+      "resources": [
+        {
+          "url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Constrained-Area-Overview-May-2026.pdf",
+          "title": "EirGrid — Data Centre Constrained Area Overview, May 2026"
+        },
+        {
+          "url": "https://www.cru.ie/publications/28906/",
+          "title": "CRU publication page: Review of Large Energy Users Connection Policy (12 Dec 2025)"
+        }
+      ]
     },
     {
       "id": "au-nsw-data-centre-policy-framework-2026",
@@ -809,9 +1105,287 @@
         "by": "machine",
         "reviewed_at": "2026-10-19"
       }
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "ie-eirgrid-dccopp-v3-2026",
+      "title": "EirGrid Data Centre Connection Offer Process and Policy, Version 3 (DCCOPP v3)",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "Ireland (national)",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power",
+        "pay_own_way"
+      ],
+      "key_terms": [
+        "a data centre application cannot be progressed if it is in a constrained area",
+        "judicial review proceedings have been initiated against the CRU in relation to its decision paper on Large Energy Users Connection Policy (CRU/2025236)"
+      ],
+      "summary": "EirGrid's connection process for data centres, Version 3 dated 20 May 2026, implements the CRU's Large Energy Users Connection Policy (CRU/2025236). It states that a data centre application cannot be progressed if it is in a constrained area. EirGrid notes that judicial review proceedings have been initiated against the CRU decision. A transmission operator's process implementing a regulator's decision is filed here as a regulation by curator judgment, not as a statute.",
+      "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Connection-Offer-Process-and-Policy-V3-May-2026.pdf",
+      "source_title": "EirGrid — Data Centre Connection Offer Process and Policy, Version 3 (20 May 2026)",
+      "country": "IE",
+      "identifier": "DCCOPP Version 3",
+      "date": "2026-05-20"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "eu-dc-rating-scheme-2026",
+      "title": "Common EU rating scheme and label for data centres (data centre energy efficiency package)",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "supranational",
+      "jurisdiction": "European Union",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "study"
+      ],
+      "key_terms": [
+        "aims at further improving transparency, notably through a common EU rating scheme and label for data centres",
+        "legislative proposal planned for the second quarter of 2027",
+        "launched a 12-week open public consultation and call for evidence on minimum performance standards for data centres in the EU"
+      ],
+      "summary": "A Commission package of 21 September 2026 aims to improve transparency through a common EU rating scheme and label for data centres. On the same day the Commission opened a 12-week public consultation on minimum performance standards, with a legislative proposal planned for the second quarter of 2027. The scheme is a proposal and is not yet in force; its legal form and scrutiny stage were not confirmed on the cited page.",
+      "source_url": "https://energy.ec.europa.eu/news/minimum-performance-standards-data-centres-europe-public-consultation-launched-2026-09-21_en",
+      "source_title": "European Commission (DG Energy) — Minimum performance standards for data centres in Europe: public consultation launched (21 Sep 2026)",
+      "resources": [
+        {
+          "url": "https://energy.ec.europa.eu/topics/energy-efficiency/energy-efficiency-targets-directive-and-rules/energy-efficiency-directive/energy-performance-data-centres_en",
+          "title": "European Commission — Energy performance of data centres"
+        }
+      ],
+      "country": "EU",
+      "date": "2026-09-21"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "jp-watt-bit-council-2025",
+      "title": "Public-Private Advisory Council on Watt-Bit Collaboration",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "Japan",
+      "benefit_themes": [
+        "infrastructure",
+        "energy"
+      ],
+      "principles": [
+        "study"
+      ],
+      "key_terms": [
+        "Public-Private Advisory Council on Watt-Bit Collaboration",
+        "the further development of data centers is becoming a very important policy issue for Japan"
+      ],
+      "summary": "Japan's Ministry of Economy, Trade and Industry (METI) and Ministry of Internal Affairs and Communications (MIC) announced on 18 March 2025 a public-private council on watt-bit collaboration, joining electricity and telecommunications infrastructure planning for data centres. It is a coordination forum, not a binding rule; the cited release states no obligations on data centres.",
+      "source_url": "https://www.meti.go.jp/english/press/2025/0318_001.html",
+      "source_title": "METI — Public-Private Advisory Council on Watt-Bit Collaboration to Launch",
+      "country": "JP",
+      "date": "2025-03-18"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "kr-gangwon-kepco-mou-2026",
+      "title": "Gangwon State–KEPCO memorandum of understanding on the Gangwon AI Data Center and national backbone grid",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Gangwon State",
+      "benefit_themes": [
+        "energy",
+        "infrastructure"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "signed a memorandum of understanding on the successful development of the Gangwon AI Data Center",
+        "building a national backbone power grid"
+      ],
+      "summary": "Gangwon State and the Korea Electric Power Corporation (KEPCO) signed a memorandum of understanding on cooperation to attract the planned Gangwon AI Data Center and to build a national backbone power grid. It is an agreement between a provincial government and the national utility, not a regulatory instrument, and the cited report states no binding terms.",
+      "source_url": "https://en.fnnews.com/news/202609091517018624",
+      "source_title": "Financial News (English) — Gangwon State, KEPCO to Expand Power Infrastructure for AI Data Center",
+      "country": "KR",
+      "subdivision": "KR-42",
+      "locality": "Gangwon State",
+      "date": "2026-09-09"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "gr-draft-grid-connection-bill-2026",
+      "title": "Draft bill: rules for connecting data centres to the Greek power grid",
+      "instrument": "legislation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "Greece",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way",
+        "new_power"
+      ],
+      "key_terms": [
+        "Power must be 60% renewable",
+        "letters of guarantee for EUR 200,000 per MW, with a three-year duration"
+      ],
+      "summary": "Balkan Green Energy News (12 October 2026) reports a draft bill from the Ministry of Environment and Energy on connecting data centres to the grid. Power must be 60% renewable, and investors would submit letters of guarantee for EUR 200,000 per MW with a three-year duration. The record rests on the trade-press report only; the ministry or Parliament text was not reachable.",
+      "source_url": "https://balkangreenenergynews.com/greece-proposes-rules-for-connecting-data-centers-to-power-grid/",
+      "source_title": "Balkan Green Energy News — Greece proposes rules for connecting data centers to power grid",
+      "country": "GR"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "au-aemc-data-centre-advice-2026",
+      "title": "AEMC advice to ministers on data-centre grid obligations (bring own firmed clean energy, flexibility, efficient connection)",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "Australia (national)",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way",
+        "new_power"
+      ],
+      "key_terms": [
+        "bring their own clean, firmed energy, operate flexibly and connect efficiently"
+      ],
+      "summary": "The Australian Energy Market Commission (AEMC) recommended a package of reforms under which data centres in the grid should bring their own clean, firmed energy, operate flexibly and connect efficiently. The release title adds that data centres should pay their way. It is advice to ministers, not a rule in force.",
+      "source_url": "https://www.aemc.gov.au/news-centre/media-releases/data-centres-bring-clean-firm-energy-be-flexible-and-pay-their-way-aemc-advises-ministers",
+      "source_title": "AEMC — Data centres to bring clean, firm energy, be flexible and pay their way, AEMC advises Ministers",
+      "country": "AU"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "sg-green-data-centre-roadmap-2024",
+      "title": "Green Data Centre Roadmap (IMDA, 2024)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "Singapore",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "at least 300 megawatts of additional capacity for data centres and further additional capacity if green energy is used",
+        "Power Usage Effectiveness (PUE) of less than or equal to 1.3 at 100% IT load"
+      ],
+      "summary": "The Infocomm Media Development Authority launched Singapore's Green Data Centre Roadmap on 30 May 2024. Singapore aims to provide at least 300 megawatts of additional data-centre capacity, and further capacity if green energy is used. The IMDA has set a target for data centres to reach a PUE of 1.3 or lower at 100% IT load over the next 10 years. The text is taken from a law-firm summary because the IMDA pages were script-rendered and the factsheet was unreachable.",
+      "source_url": "https://www.mayerbrown.com/ja/insights/publications/2024/08/singapores-green-data-centre-roadmap-representing-a-necessary-intersection-between-digital-infrastructure-and-sustainability",
+      "source_title": "Mayer Brown — Singapore's Green Data Centre Roadmap (Aug 2024)",
+      "country": "SG",
+      "date": "2024-05-30"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "ca-ab-data-centre-regulation-2026",
+      "title": "Alberta Data Centre Regulation (June 2026)",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Alberta",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "The Data Centre Regulation (June 2026) directs the AESO to prioritize projects tethered to dedicated new generation or storage."
+      ],
+      "summary": "The Government of Alberta states that its Data Centre Regulation (June 2026) directs the Alberta Electric System Operator to prioritize projects tethered to dedicated new generation or storage. The regulation's own text and citation number were not consulted; this record rests on the government's explainer page.",
+      "source_url": "https://www.alberta.ca/datacentres/grid",
+      "source_title": "Government of Alberta — Is Alberta's grid ready?",
+      "country": "CA",
+      "subdivision": "CA-AB",
+      "locality": "Alberta"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false,
+      "source_lang": "en",
+      "id": "ca-ab-aeso-interim-allocation",
+      "title": "AESO stage-one interim large-load allocation (1,200 MW)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Alberta",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "set an interim limit of 1,200 megawatts",
+        "now fully allocated"
+      ],
+      "summary": "The Alberta Electric System Operator set a one-time interim limit of 1,200 megawatts for new large data-centre load as the first stage of Alberta's large-load connection rules. The Government of Alberta's page says the amount is now fully allocated and that companies have asked to connect roughly 19,565 MW of new load. This is the government's own messaging page; the AESO publication was not cross-checked.",
+      "source_url": "https://www.alberta.ca/datacentres/grid",
+      "source_title": "Government of Alberta — Is Alberta's grid ready?",
+      "country": "CA",
+      "subdivision": "CA-AB",
+      "locality": "Alberta"
     }
   ],
-  "moratoriums": [],
+  "moratoriums": [
+    {
+      "id": "sg-national-pause-2019",
+      "jurisdiction": "Singapore (national)",
+      "jurisdiction_type": "national",
+      "country": "SG",
+      "source_lang": "en",
+      "formality": "de_facto",
+      "lifted_date": "2022-07-20",
+      "status": "enacted",
+      "duration_description": "Temporary pause announced in 2019; new capacity reopened through the pilot Data Centre Call for Application launched 20 July 2022",
+      "key_reasons": [
+        "energy"
+      ],
+      "summary": "The government informed industry of a temporary pause in data-centre growth in 2019 and began a review. EDB and IMDA launched a pilot Data Centre Call for Application on 20 July 2022 for new capacity with sustainability conditions; this record treats that launch as the end of the pause, but the release does not use the word lifted and states no day for the 2019 pause.",
+      "source_url": "https://www.edb.gov.sg/content/dam/edb-en/about-edb/media-releases/news/edb-and-imda-launch-pilot-data-centre-call-for-application-to-support-sustainable-growth-of-data-centres/Press%20Release%20-%20EDB%20and%20IMDA%20launch%20pilot%20data%20centre%20-%20Call%20for%20Application%20to%20support%20sustainable%20growth%20of%20Data%20Centres.pdf",
+      "source_title": "EDB and IMDA joint release — Launch of pilot Data Centre Call for Application (20 July 2022)",
+      "resources": [
+        {
+          "url": "https://www.edb.gov.sg/content/dam/edb-en/about-edb/media-releases/news/edb-and-imda-launch-pilot-data-centre-call-for-application-to-support-sustainable-growth-of-data-centres/Press%20Release%20-%20EDB%20and%20IMDA%20launch%20pilot%20data%20centre%20-%20Call%20for%20Application%20to%20support%20sustainable%20growth%20of%20Data%20Centres.pdf",
+          "title": "EDB and IMDA joint release (20 July 2022): 'The Government informed the industry of a temporary pause in the growth of DCs in 2019'"
+        },
+        {
+          "url": "https://w.media/edb-imda-to-launch-a-pilot-data-centre-call-for-application-dc-cfa-for-building-sustainable-dc/",
+          "title": "W.Media — EDB, IMDA to launch a pilot data centre call for application: 'the Singapore government had put a moratorium in 2019 on the growth of data centres'"
+        }
+      ],
+      "policy_type": "temporary pause",
+      "enacted_by": "Government of Singapore (announced to industry)",
+      "captured_at": "2026-10-19"
+    }
+  ],
   "projects": [
     {
       "id": "ie-google-grange-castle",
@@ -1011,15 +1585,15 @@
       "name": "Microsoft Finland datacentre region (Espoo and Kirkkonummi), waste heat to Fortum district heating",
       "city": "Espoo",
       "country": "FI",
-      "status": "announced",
+      "status": "construction",
       "announced_year": 2022,
       "source_url": "https://news.microsoft.com/europe/2022/03/17/microsoft-announces-intent-to-build-a-new-datacenter-region-in-finland-accelerating-sustainable-digital-transformation-and-enabling-large-scale-carbon-free-district-heating/",
       "source_title": "Microsoft News Europe — Microsoft announces intent to build a new datacenter region in Finland",
       "captured_at": "2026-10-19",
       "source_lang": "en",
-      "notes": "Microsoft's 17 March 2022 release says that, in collaboration with Fortum, waste heat from the datacenters will be converted to district heating serving Espoo, Kauniainen and Kirkkonummi. Construction status, power and investment were not in the text read.",
+      "notes": "Microsoft's 17 March 2022 release says that, in collaboration with Fortum, waste heat from the datacenters will be converted to district heating serving Espoo, Kauniainen and Kirkkonummi. Update 2026-10-19: Microsoft's 28 April 2026 announcement (https://news.microsoft.com/source/emea/2026/04/microsoft-kaynnistaa-paakaupunkiseudun-datakeskusalueen-toisen-vaiheen-rakentamisen/?lang=fi) confirms the second-phase build decision for the Espoo, Kirkkonummi and Vihti data-centre area, states that first-phase construction began in late 2024, and states that building permits exist for the second phase at all three campuses. Power and investment are still not stated in the text read.",
       "subdivision": "FI-18",
-      "locality": "Espoo and Kirkkonummi"
+      "locality": "Espoo, Kirkkonummi and Vihti"
     },
     {
       "id": "fi-google-hamina",
@@ -1033,7 +1607,7 @@
       "source_title": "Business Finland — Google announced an expansion of its Hamina data center and a new heat recovery project",
       "captured_at": "2026-10-19",
       "source_lang": "en",
-      "notes": "Business Finland reports Google's 20 May 2024 announcement of a new €1 billion investment in expanding its Hamina campus (announced_year is the expansion year; the page also dates the campus to 2009), with heat recovery for the district-heating network. The expansion's construction status was not verified.",
+      "notes": "Business Finland reports Google's 20 May 2024 announcement of a new €1 billion investment in expanding its Hamina campus (announced_year is the expansion year; the page also dates the campus to 2009), with heat recovery for the district-heating network. The expansion's construction status was not verified. Update 2026-10-19: a CapMan Infra release reprinted by IREI (article dated 18 May 2026) reports that the Haminan Energia heat-recovery facility was delivered within a year with first heat supplied in the fourth quarter of 2025, and that once fully operational it is expected to cover around 70-75 percent of Hamina's district heating energy. The 2024 announcement had put the figure at about 80%; both are stored as their sources state.",
       "subdivision": "FI-09",
       "locality": "Hamina",
       "claimed_investment": {
@@ -1054,7 +1628,7 @@
       "source_title": "Greek Ministry of Development — Investment in Data Centres in Greece (ependyseis portal)",
       "captured_at": "2026-10-19",
       "source_lang": "en",
-      "notes": "The ministry portal lists three data-centre sites: Site 6 (19.2 MW) in Spata-Artemida and Sites 27 and 28 (9.6 MW each) in Kropia, with a budget of 976.168.800 €. The portal states no total, so power_mw is not set. Enterprise Greece describes the investment as 'several hundred million', a different scale; both are stored as their sources state.",
+      "notes": "The ministry portal lists three data-centre sites: Site 6 (19.2 MW) in Spata-Artemida and Sites 27 and 28 (9.6 MW each) in Kropia, with a budget of 976.168.800 €. The portal states no total, so power_mw is not set. Enterprise Greece describes the investment as 'several hundred million', a different scale; both are stored as their sources state. Update 2026-10-19: To Vima (2 January 2026) reports that the Spata site is part of a broader Microsoft complex of approximately 85 stremmas in Eastern Attica, with a total capacity of 25 MW and a completion target of 2028. These are press figures, not Microsoft-published, and sit alongside the ministry portal's per-site figures above.",
       "subdivision": "GR-I",
       "locality": "Spata-Artemida and Kropia (Attica)",
       "claimed_investment": {
@@ -1062,6 +1636,259 @@
         "currency": "EUR",
         "as_stated": "976.168.800 €"
       }
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "gb-google-waltham-cross",
+      "company_slug": "google",
+      "name": "Google Waltham Cross data centre (Hertfordshire)",
+      "city": "Waltham Cross",
+      "country": "GB",
+      "status": "operational",
+      "announced_year": 2024,
+      "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
+      "source_title": "Google — Our new Waltham Cross data center is part of our two-year, £5 billion investment to help power the UK's AI economy (16 Sep 2025)",
+      "notes": "Google's 16 September 2025 post announces the opening of the Waltham Cross data centre as part of a two-year £5 billion UK investment; that figure is company-wide, so no site investment is stored. announced_year is 2024, the year given in the earlier wave-1 lead; the cited post itself dates the opening. A Broxbourne Council item describes the site as Cheshunt (Theobalds Business Park). Coordinates were not probed.",
+      "subdivision": "GB-ENG",
+      "locality": "Waltham Cross, Hertfordshire"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "ar-stargate-argentina",
+      "company_slug": "openai",
+      "name": "Stargate Argentina (OpenAI and Sur Energy), letter of intent, site not named",
+      "city": "Not disclosed",
+      "country": "AR",
+      "status": "announced",
+      "announced_year": 2025,
+      "claimed_investment": {
+        "amount": 25000000000,
+        "currency": "USD",
+        "as_stated": "up to $25 billion"
+      },
+      "power_mw": 500,
+      "source_url": "https://www.sur.energy/press-release",
+      "source_title": "Sur Energy — Sur Energy and OpenAI plan Stargate Argentina (press release, 10 Oct 2025)",
+      "notes": "Sur Energy's release says the two companies signed a Letter of Intent for a data-centre project reaching up to 500MW, with up to $25 billion in investment at full scale. No official page names the province or site, so subdivision and coordinates are empty. Sur Energy is the developer; it is not a tracked company, so the record sits under OpenAI, the other signatory. A separate Neuquén project (Pampa Energía, 500 MW) is a different project and is not attached. OpenAI's own page returned 403 to the probe."
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "in-google-visakhapatnam",
+      "company_slug": "google",
+      "name": "Google AI hub, Visakhapatnam (1 GW)",
+      "city": "Visakhapatnam",
+      "country": "IN",
+      "status": "announced",
+      "announced_year": 2025,
+      "claimed_investment": {
+        "amount": 15000000000,
+        "currency": "USD",
+        "as_stated": "$15 billion"
+      },
+      "power_mw": 1000,
+      "lat": 17.69389,
+      "lon": 83.29222,
+      "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%E2%82%B915-billion-in-india/",
+      "source_title": "The South First — Google's largest AI hub outside US coming up in Visakhapatnam",
+      "notes": "Two figures are kept as stated and not reconciled. The South First reports that Google will invest $15 billion over five years in India and signed an MoU with the Andhra Pradesh government for a 1 GW hyperscale data centre in Visakhapatnam, and separately that the MoU is valued at nearly $10 billion (₹83,000 crore), signed 14 October. The $15 billion is Google's country-wide plan as reported, so it may not be a site figure. Google's own post was not located. Coordinates are the Visakhapatnam city centroid, not the site.",
+      "subdivision": "IN-AP",
+      "locality": "Visakhapatnam"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "in-amazon-thane-balkum",
+      "company_slug": "amazon",
+      "name": "Amazon data centre, Balkum, Thane",
+      "city": "Thane (Balkum)",
+      "country": "IN",
+      "status": "announced",
+      "announced_year": 2026,
+      "lat": 19.19722,
+      "lon": 72.97222,
+      "source_url": "https://www.freepressjournal.in/amp/mumbai/we-are-genuinely-working-to-raise-issues-wake-up-thanekar-representative-opposes-proposed-amazon-data-centre-project",
+      "source_title": "Free Press Journal — Wake Up Thanekar representative opposes proposed Amazon data centre project",
+      "notes": "Proposed hyperscale data centre in Balkum, Thane, attributed to Amazon by the newspaper headline; no Amazon-issued record was probed. announced_year is the year of the earliest dated source captured (18 July 2026 protest report), not a confirmed announcement year. No capacity or investment is stated in the source. Coordinates are the Thane city centroid, not the site.",
+      "subdivision": "IN-MH",
+      "locality": "Thane"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "kr-aws-ulsan-ai-zone",
+      "company_slug": "amazon",
+      "name": "AWS AI Zone, Ulsan (SK Group build-out)",
+      "city": "Ulsan",
+      "country": "KR",
+      "status": "announced",
+      "announced_year": 2025,
+      "claimed_jobs": 78000,
+      "lat": 35.55,
+      "lon": 129.317,
+      "source_url": "https://news.sktelecom.com/en/1948",
+      "source_title": "SK Telecom press release — SK Group and AWS team up to build cloud computing infrastructure (22 Jun 2025)",
+      "notes": "The release says SK Group will lead construction of the Ulsan data center while AWS establishes the AI Zone, scheduled to begin operations by 2027, and that it is expected to generate up to 78,000 direct and indirect jobs over time. claimed_jobs is that combined figure. No site-level investment is stated; AWS's US $5.88 billion Korea plan is country-wide. Coordinates are the Ulsan city centroid, not the site.",
+      "subdivision": "KR-31",
+      "locality": "Ulsan"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "kr-stargate-korea",
+      "company_slug": "openai",
+      "name": "Stargate Korea (OpenAI with Samsung SDS and SK Telecom)",
+      "city": "Not disclosed",
+      "country": "KR",
+      "status": "announced",
+      "announced_year": 2025,
+      "source_url": "https://www.koreajoongangdaily.com/business/openais-stargate-project-in-korea-stuck-at-starting-gate-as-samsung-sk-report-little-progress/12856484",
+      "source_title": "Korea JoongAng Daily — OpenAI's Stargate project in Korea stuck at starting gate",
+      "notes": "Announced in October 2025 as two data centres, one led by Samsung SDS and one by SK Telecom, under an OpenAI partnership. The cited report says little progress has been made on construction and the funding structure, and that no progress has been made following October's memorandum of understanding. Samsung SDS and SK Telecom are not tracked companies, so the record sits under OpenAI. No site was named in any probed source, so coordinates are empty and the record is not map-ready."
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "ca-microsoft-levis",
+      "company_slug": "microsoft",
+      "name": "Microsoft Québec data centres (Québec-Lévis economic zone)",
+      "city": "Lévis",
+      "country": "CA",
+      "status": "announced",
+      "announced_year": 2023,
+      "lat": 46.75806,
+      "lon": -71.24028,
+      "claimed_investment": {
+        "amount": 500000000,
+        "currency": "USD",
+        "as_stated": "$685 million CAD ($500 million USD)"
+      },
+      "source_url": "https://betakit.com/microsoft-looks-to-scale-quebec-presence-with-500-million-usd-investment/",
+      "source_title": "BetaKit — Microsoft looks to scale Québec presence with $500-million USD investment",
+      "notes": "BetaKit (22 November 2023) reports Microsoft earmarking $685 million CAD ($500 million USD) over two years to expand cloud and AI infrastructure in Québec. Other reports name four Québec City-region municipalities, but only the Lévis location was matched on the cited page. The line about locating in the Québec-Lévis economic zone is a Québec minister's, not Microsoft's. Construction status was not verified. Coordinates are the Lévis municipal centre, not a site address.",
+      "subdivision": "CA-QC",
+      "locality": "Lévis"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "se-brookfield-strangnas",
+      "company_slug": "brookfield",
+      "name": "Brookfield AI data centre, Strängnäs",
+      "city": "Strängnäs",
+      "country": "SE",
+      "status": "announced",
+      "announced_year": 2025,
+      "power_mw": 750,
+      "lat": 59.367,
+      "lon": 17.033,
+      "claimed_investment": {
+        "amount": 95000000000,
+        "currency": "SEK",
+        "as_stated": "95 miljarder kronor"
+      },
+      "source_url": "https://www.svt.se/nyheter/lokalt/sormland/lokala-kraftnatet-klarar-inte-enorma-ai-satsningen-i-strangnas",
+      "source_title": "SVT Nyheter Sörmland — Lokala kraftnätet klarar inte enorma AI-satsningen i Strängnäs (8 Jun 2025)",
+      "notes": "SVT (8 June 2025) reports a planned investment of 95 billion kronor by Brookfield Asset Management and a 750 MW load. No 2026 zoning decision or grid agreement was found. Coordinates are the Strängnäs town centre, not the site.",
+      "subdivision": "SE-D",
+      "locality": "Strängnäs"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "id": "fi-google-muhos",
+      "company_slug": "google",
+      "name": "Google Muhos data centre",
+      "city": "Muhos",
+      "country": "FI",
+      "status": "construction",
+      "announced_year": 2026,
+      "lat": 64.8,
+      "lon": 26.0,
+      "source_url": "https://datacenters.google/locations/muhos/",
+      "source_title": "Google Data Centers — Muhos, Finland",
+      "notes": "Google's own site page (dated September 2026) says work is proceeding in full compliance with obtained permits; the page describes site activity as preliminary infrastructure development. announced_year is the year of the earliest dated source captured (the September 2026 page); the original announcement year was not verified. No capacity or investment figure was found. Coordinates are the Muhos town centre, not the site.",
+      "subdivision": "FI-14",
+      "locality": "Muhos"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "source_lang": "es",
+      "id": "cl-aws-huechuraba",
+      "company_slug": "amazon",
+      "name": "AWS Huechuraba storage data centre (Centro de Almacenamiento Huechuraba)",
+      "city": "Huechuraba",
+      "country": "CL",
+      "status": "announced",
+      "announced_year": 2024,
+      "claimed_investment": {
+        "amount": 205000000,
+        "currency": "USD",
+        "as_stated": "205 millones de dólares"
+      },
+      "source_url": "https://forbes.cl/ia/2026-04-06/justicia-ambiental-da-luz-verde-al-proyecto-de-data-center-de-amazon-en-huechuraba/",
+      "source_title": "Forbes Chile — Justicia ambiental da luz verde al proyecto de data center de Amazon en Huechuraba (6 Apr 2026)",
+      "notes": "Forbes Chile (6 April 2026) reports a US$205 million investment; the figure is press-reported, not from an AWS release. The environmental approval was reported by press as 12 July 2024 (announced_year); the SEA record was not fetched. Phase 1 construction was reported to begin in December 2025 but no 2026 confirmation was found, so the status stays announced. Coordinates were not probed.",
+      "subdivision": "CL-RM",
+      "locality": "Huechuraba, Santiago"
+    },
+    {
+      "id": "jp-softbank-tomakomai",
+      "company_slug": "softbank-corp",
+      "name": "Hokkaido Tomakomai AI Data Center",
+      "city": "Tomakomai",
+      "country": "JP",
+      "subdivision": "JP-01",
+      "status": "construction",
+      "announced_year": 2025,
+      "announced_date": "2025-04-15",
+      "lat": 42.633,
+      "lon": 141.6,
+      "notes": "SoftBank held the groundbreaking ceremony on 15 April 2025; operations are scheduled to begin in fiscal 2026. SoftBank says the 700,000 m² campus is expected to have a power capacity exceeding 300 MW (a lower bound, so power_mw is left empty). Coordinates are Tomakomai's town centre, not the site.",
+      "source_url": "https://www.softbank.jp/en/sbnews/entry/20250501_01",
+      "source_title": "SoftBank News — Construction Begins on Hokkaido Tomakomai AI Data Center",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "au-nextdc-s7-eastern-creek",
+      "company_slug": "nextdc",
+      "name": "NEXTDC S7 (OpenAI AI campus)",
+      "city": "Eastern Creek",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Eastern Creek, Western Sydney",
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-12-05",
+      "offtaker": "OpenAI",
+      "notes": "NEXTDC's ASX announcement says OpenAI and NEXTDC will collaborate on the planning, development and operation of a hyperscale AI campus and large-scale GPU supercluster at the S7 site in Eastern Creek, Sydney, under a memorandum of understanding. Capacity in planning documents was not confirmed, so power_mw is empty.",
+      "source_url": "https://www.nextdc.com/news/nextdc-and-openai-partner-to-expand-ai-infrastructure-in-australia",
+      "source_title": "NEXTDC — NEXTDC to Join OpenAI in Australia as an Infrastructure Partner (ASX announcement, 5 Dec 2025)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fi-xtx-kajaani",
+      "company_slug": "xtx-markets",
+      "name": "XTX Markets Kajaani data centre complex",
+      "city": "Kajaani",
+      "country": "FI",
+      "subdivision": "FI-05",
+      "status": "construction",
+      "announced_year": 2025,
+      "announced_date": "2025-01-22",
+      "lat": 64.225,
+      "lon": 27.733,
+      "claimed_investment": {
+        "amount": 1000000000,
+        "currency": "EUR",
+        "as_stated": "over €1bn"
+      },
+      "notes": "XTX Markets announced plans on 22 January 2025 to invest over €1bn in a data-centre complex in Kajaani; the first data centre has three data halls totalling 22.5 MW of IT power (IT load, not grid capacity, so power_mw is empty). Coordinates are Kajaani's town centre.",
+      "source_url": "https://files.xtxmarkets.com/publications/kajaani/index.html",
+      "source_title": "XTX Markets — XTX Markets plans to invest over €1bn in large-scale data centre project in Finland (22 Jan 2025)",
+      "captured_at": "2026-10-19"
     }
   ],
   "responses": [
@@ -1142,6 +1969,42 @@
       "source_url": "https://ia.acs.org.au/article/2026/controversial-sydney-data-centre-plan-scrapped.html",
       "source_title": "ACS Information Age — Controversial Sydney data centre plan scrapped",
       "source_lang": "en"
+    },
+    {
+      "source_lang": "en",
+      "id": "in-resp-thane-balkum-residents",
+      "project_id": "in-amazon-thane-balkum",
+      "date": "2026-07-18",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Residents of Balkum, Thane, protested the proposed Amazon data centre, alleging inadequate public consultation and large water use; the Wake Up Thanekar group demanded transparency and wider consultation.",
+      "source_url": "https://www.freepressjournal.in/amp/mumbai/we-are-genuinely-working-to-raise-issues-wake-up-thanekar-representative-opposes-proposed-amazon-data-centre-project",
+      "source_title": "Free Press Journal — Wake Up Thanekar representative opposes proposed Amazon data centre project",
+      "single_source": true
+    },
+    {
+      "source_lang": "sv",
+      "id": "se-resp-strangnas-svk-grid",
+      "project_id": "se-brookfield-strangnas",
+      "date": "2025-06-08",
+      "stance": "mixed",
+      "constituency": "regulator",
+      "summary": "Svenska kraftnät's grid-development section manager says 750 megawatts is far too large a load for the local grid and that reinforcements are needed. Svenska kraftnät is the state transmission system operator, not the energy regulator, so 'regulator' is the closest available constituency; this is a technical statement on capacity, not an objection to the project.",
+      "source_url": "https://www.svt.se/nyheter/lokalt/sormland/lokala-kraftnatet-klarar-inte-enorma-ai-satsningen-i-strangnas",
+      "source_title": "SVT Nyheter Sörmland — Lokala kraftnätet klarar inte enorma AI-satsningen i Strängnäs (8 Jun 2025)",
+      "single_source": true
+    },
+    {
+      "source_lang": "es",
+      "id": "cl-resp-huechuraba-tribunal",
+      "project_id": "cl-aws-huechuraba",
+      "date": "2026-03-31",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "The Segundo Tribunal Ambiental dismissed, in a ruling of 31 March 2026, a claim that the storage centre was linked to construction of the Huechuraba high-voltage line. The claim was an objection to the approval; the court's dismissal is the outcome.",
+      "source_url": "https://forbes.cl/ia/2026-04-06/justicia-ambiental-da-luz-verde-al-proyecto-de-data-center-de-amazon-en-huechuraba/",
+      "source_title": "Forbes Chile — Justicia ambiental da luz verde al proyecto de data center de Amazon en Huechuraba (6 Apr 2026)",
+      "single_source": true
     }
   ],
   "claims": [
@@ -1203,6 +2066,135 @@
       "statement_lang": "en",
       "project_id": "fi-microsoft-espoo",
       "published_at": "2022-03-17"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "gb-claim-google-uk-jobs",
+      "company_slug": "google",
+      "theme": "jobs",
+      "country": "GB",
+      "project_id": "gb-google-waltham-cross",
+      "statement": "supporting a projected 8,250 jobs annually in the UK",
+      "published_at": "2025-09-16",
+      "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/waltham-cross-data-centre/",
+      "source_title": "Google — Our new Waltham Cross data center (16 Sep 2025)"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "jp-claim-microsoft-japan-investment",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "country": "JP",
+      "published_at": "2026-04-03",
+      "statement": "Microsoft today announced a $10 billion (approx. ¥1.6 trillion) investment in Japan from 2026 through 2029",
+      "source_url": "https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/",
+      "source_title": "Microsoft Source Asia (Brad Smith) — Microsoft deepens its commitment to Japan with $10 billion investment"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "jp-claim-aws-japan-investment",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "country": "JP",
+      "published_at": "2024-01-19",
+      "statement": "announced its plans to invest 2.26 trillion yen into its existing cloud infrastructure in Tokyo and Osaka by 2027 to meet growing customer demand for cloud services in Japan.",
+      "source_url": "https://press.aboutamazon.com/aws/2024/1/aws-plans-to-invest-2-26-trillion-yen-into-its-japanese-cloud-infrastructure-by-2027",
+      "source_title": "Amazon Press Center — AWS plans to invest 2.26 trillion yen into its Japanese cloud infrastructure by 2027"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "jp-claim-aws-japan-jobs",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "country": "JP",
+      "published_at": "2024-01-19",
+      "statement": "this planned investment is estimated to contribute 5.57 trillion yen to Japan's Gross Domestic Product (GDP), and support an estimated average of 30,500 full-time equivalent (FTE) jobs in local Japanese businesses each year.",
+      "source_url": "https://press.aboutamazon.com/aws/2024/1/aws-plans-to-invest-2-26-trillion-yen-into-its-japanese-cloud-infrastructure-by-2027",
+      "source_title": "Amazon Press Center — AWS plans to invest 2.26 trillion yen into its Japanese cloud infrastructure by 2027"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "au-claim-amazon-investment-2025-2029",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "country": "AU",
+      "statement": "Amazon today announced plans to invest a new total of AU$20 billion from 2025 to 2029 to expand, operate, and maintain its data center infrastructure in Australia.",
+      "source_url": "https://aboutamazon.com/news/aws/amazon-data-center-investment-in-australia",
+      "source_title": "Amazon newsroom — Amazon investing AU$20 billion to expand data center infrastructure in Australia"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "au-claim-microsoft-investment-2029",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "country": "AU",
+      "published_at": "2026-04-23",
+      "statement": "By the end of 2029, the company will invest A$25 billion (USD 18 billion) in new digital infrastructure, alongside new commitments to national cyber defence capability and workforce skilling programs.",
+      "source_url": "https://news.microsoft.com/source/asia/features/investing-in-australias-ai-future/",
+      "source_title": "Microsoft Source Asia — Microsoft deepens commitment to Australia with A$25 billion investment in AI infrastructure, security, and skills"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "au-claim-microsoft-skilling-2028",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "country": "AU",
+      "published_at": "2026-04-23",
+      "statement": "Microsoft will train three million Australians with workforce-ready AI skills by 2028",
+      "source_url": "https://news.microsoft.com/source/asia/features/investing-in-australias-ai-future/",
+      "source_title": "Microsoft Source Asia — Microsoft deepens commitment to Australia with A$25 billion investment in AI infrastructure, security, and skills"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "sg-claim-aws-investment-2028",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "country": "SG",
+      "statement": "At the 10th AWS ASEAN Summit in Singapore today, Amazon Web Services (AWS) announced plans to invest an additional S$12 billion into its existing cloud infrastructure in Singapore from 2024 to 2028 to meet growing customer demand for cloud technology and services in the country.",
+      "source_url": "https://www.edb.gov.sg/en/news-and-insights/aws-to-invest-an-additional-12billion-in-singapore-by-2028",
+      "source_title": "Singapore EDB — AWS to invest an additional SG$12 billion in Singapore by 2028, and announces flagship AI programme"
+    },
+    {
+      "captured_at": "2026-10-19",
+      "statement_lang": "en",
+      "id": "fi-claim-google-muhos-heat",
+      "company_slug": "google",
+      "theme": "energy",
+      "country": "FI",
+      "project_id": "fi-google-muhos",
+      "statement": "we power local industries by capturing and recycling waste heat",
+      "source_url": "https://datacenters.google/locations/muhos/",
+      "source_title": "Google Data Centers — Muhos, Finland"
+    },
+    {
+      "id": "jp-softbank-tomakomai-renewables",
+      "company_slug": "softbank-corp",
+      "theme": "energy",
+      "statement": "operate entirely on renewable energy procured locally within Hokkaido Prefecture.",
+      "country": "JP",
+      "project_id": "jp-softbank-tomakomai",
+      "source_url": "https://www.softbank.jp/en/sbnews/entry/20250501_01",
+      "source_title": "SoftBank News — Construction Begins on Hokkaido Tomakomai AI Data Center",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fi-xtx-kajaani-heat",
+      "company_slug": "xtx-markets",
+      "theme": "energy",
+      "statement": "XTX Markets is exploring ways that the heat generated by the data centre can be provided free of charge to the local community of Kajaani and reduce the facility's environmental footprint.",
+      "country": "FI",
+      "project_id": "fi-xtx-kajaani",
+      "source_url": "https://files.xtxmarkets.com/publications/kajaani/index.html",
+      "source_title": "XTX Markets — XTX Markets plans to invest over €1bn in large-scale data centre project in Finland (22 Jan 2025)",
+      "captured_at": "2026-10-19"
     }
   ],
   "rate_cases": [
@@ -1222,7 +2214,7 @@
       "filed_date": "2026-02-19",
       "next_milestone": "Hearings scheduled 7–11 December and 15–18 December 2026 (after sessions held 1–9 October), per the docket.",
       "next_milestone_date": "2026-12-07",
-      "summary": "Hydro-Québec Distribution asked the Régie de l'énergie to set a new rate for data centres (tarif CD), together with an adjustment to the rate for cryptographic blockchain use. Hydro-Québec says the rate is equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay, and is subject to the Régie's approval. The Régie lists the docket as ongoing (\"En cours\").",
+      "summary": "Hydro-Québec Distribution asked the Régie de l'énergie to set a new rate for data centres (tarif CD), together with an adjustment to the rate for cryptographic blockchain use. Hydro-Québec says the rate is equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay, and is subject to the Régie's approval. The Régie lists the docket as ongoing (\"En cours\"). Hydro-Québec's release states the rate applies to data centres requiring a capacity greater than 5 MW and is expected to take effect in the second half of 2026, subject to approval by the Régie.",
       "source_url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026",
       "source_title": "Régie de l'énergie — Dossier R-4333-2026 (HQD, tarifs centres de données)",
       "resources": [

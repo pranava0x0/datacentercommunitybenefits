@@ -59,6 +59,9 @@ const COMPANY_SLUGS = [
   "nscale",
   "segro",
   "goodman",
+  "softbank-corp",
+  "nextdc",
+  "xtx-markets",
 ];
 
 const STANCE_LABELS = {
@@ -9382,6 +9385,10 @@ const SUBDIVISION_NAMES = {
   "IN-UP": "Uttar Pradesh",
   "IN-TG": "Telangana",
   "IN-KA": "Karnataka",
+  "SE-D": "Södermanland County",
+  "FI-14": "North Ostrobothnia",
+  "FI-05": "Kainuu",
+  "KR-42": "Gangwon",
 };
 const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR"];
 const LANGUAGE_NAMES = {
@@ -9490,6 +9497,8 @@ function intlRecordsFor(code) {
     moratoriums: d.moratoriums.filter(inCountry),
     projects: d.projects.filter(inCountry),
     rateCases: (d.rate_cases || []).filter(inCountry),
+    // Company-wide statements for this country (not tied to one site).
+    statements: d.claims.filter((c) => inCountry(c) && !c.project_id),
     eu,
   };
 }
@@ -9589,6 +9598,19 @@ function intlSiteCard(p, hTag = "h3") {
     li.append(ul);
   }
   li.append(sourceLine(p));
+  return li;
+}
+
+function intlStatementCard(c, hTag = "h3") {
+  const li = el("li", "cba-card world-record");
+  li.dataset.id = c.id;
+  const co = state.companiesBySlug && state.companiesBySlug.get(c.company_slug);
+  const head = el("header", "cba-head");
+  head.append(
+    el("span", "cba-kind", THEME_LABELS[c.theme] || c.theme),
+    el(hTag, "cba-title", co ? co.name : c.company_slug)
+  );
+  li.append(head, quoteBlock(c.statement, c.statement_lang || "en", c.statement_translation), sourceLine(c));
   return li;
 }
 
@@ -9766,6 +9788,7 @@ function openCountry(code, { push = false } = {}) {
   section("Pauses", rs.moratoriums, intlPauseCard);
   section("Electricity rate cases", rs.rateCases, intlRateCaseCard);
   section("Sites", rs.projects, intlSiteCard);
+  section("Company statements", rs.statements, intlStatementCard);
   if (EU_MEMBERS.includes(code)) section("EU rules that apply here", rs.eu, intlPolicyCard);
   // Background after the records: readers come for the rules and sites.
   if (c.context && c.context.length) {

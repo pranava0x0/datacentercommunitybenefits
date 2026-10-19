@@ -5844,6 +5844,38 @@
           "authority": "Barber County Commission"
         }
       ]
+    },
+    {
+      "id": "nscale-monarch-mason-wv",
+      "company_slug": "nscale",
+      "name": "Monarch Compute Campus (acquired via American Intelligence & Power Corporation)",
+      "city": "Mason County",
+      "state": "WV",
+      "country": "US",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-03-17",
+      "power_mw": 8000,
+      "acreage": 2250,
+      "notes": "Nscale's release (PR Newswire, dateline 17 March 2026, reached through an AAP reprint) says it agreed to acquire American Intelligence & Power Corporation (AIPCorp), which holds the Monarch Compute Campus: 'a site with up to 2,250 acres in Mason County, West Virginia', described as the first state-certified AI microgrid in the United States with a power runway scalable to over 8 gigawatts. Initial power of 2 gigawatts is expected online by the first half of 2028, with expansion to approximately 8 gigawatts planned for 2031, so power_mw is the planned maximum, not built capacity. acreage is the 'up to' figure. The deal also creates Nscale Energy & Power, headquartered in Houston, Texas. The acquisition was signed but not yet reported closed. Nscale's own newsroom was not reachable, so this rests on the company release as reprinted.",
+      "source_url": "https://www.aap.com.au/aapreleases/cision20260316ae11323/",
+      "source_title": "Nscale — Nscale Acquires American Intelligence & Power Corporation (PR Newswire release, 17 Mar 2026; reprinted by AAP)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "goodman-lax01-vernon-ca",
+      "company_slug": "goodman",
+      "name": "Goodman LAX01 Vernon (Los Angeles)",
+      "city": "Vernon",
+      "state": "CA",
+      "country": "US",
+      "status": "construction",
+      "announced_year": 2025,
+      "power_mw": 49.5,
+      "notes": "The Motley Fool Australia (24 March 2025), reporting Goodman's release, describes a 49.5 MW data centre in Vernon, California that is Goodman's first US data centre, with construction begun and the three-level facility 'set to provide an estimated 32MW of critical IT capacity'. power_mw is the 49.5 MW facility figure; 32 MW is IT capacity. The article's date is the reporting date, so the event date is approximate. Goodman's own ASX announcement was not reached. A November 2025 update (about 150 MW among FY26 projects) is secondary and not used. No Chicago or Atlanta site was found.",
+      "source_url": "https://www.fool.com.au/2025/03/24/goodman-begins-building-its-first-u-s-data-centre/",
+      "source_title": "The Motley Fool Australia — Goodman begins building its first U.S data centre (24 Mar 2025, reporting Goodman's release)",
+      "captured_at": "2026-10-19"
     }
   ]
 }

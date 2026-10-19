@@ -1,0 +1,461 @@
+{
+  "countries": [
+    {
+      "code": "SE",
+      "summary": "Sweden's Microsoft footprint is in Sandviken and Gävle, where the company has described three planned facilities and bought land between the two towns in 2018. Municipal leaders in Sandviken have publicly backed the investment. This pass verified only one new SE fact; the grid-connection, heat-reuse and Ei items were not verified and are not included.",
+      "regulators": [
+        {
+          "name": "Energimarknadsinspektionen (Ei)",
+          "acronym": "Ei",
+          "role": "energy_regulator",
+          "url": null,
+          "notes": "Existing record; not re-probed this pass. Ei's 2026 consultation response on the EU cloud and AI proposal was seen in search only, not probed."
+        }
+      ],
+      "context": [
+        {
+          "statement": "Microsoft bought land between Gävle and Sandviken for SEK 269 million, according to a December 2018 report.",
+          "verbatim": "IT-jätten Microsoft köper mark mellan Gävle och Sandviken för 269 miljoner kronor.",
+          "source_lang": "sv",
+          "translation": "The IT giant Microsoft is buying land between Gävle and Sandviken for SEK 269 million.",
+          "period": "2018",
+          "source_url": "https://www.realtid.se/bors-finans/gavle-jublar-efter-microsoftkop/",
+          "source_title": "Realtid — Gävle jublar efter Microsoftköp",
+          "captured_at": "2026-10-19",
+          "verified": true,
+          "notes": "Publication date 11 Dec 2018 is on the page. A search summary described this as a July 2026 purchase; the page contradicts that, so the 2018 date is used. The 130 ha figure was read on the page but not probe-matched, so it is omitted."
+        }
+      ],
+      "primary_languages": [
+        "sv",
+        "en"
+      ]
+    },
+    {
+      "code": "FI",
+      "summary": "Microsoft's Espoo, Kirkkonummi and Vihti campuses are in progress: Microsoft confirmed in April 2026 that the second-phase build decision is made and that building permits exist for all three campuses. Google's Hamina heat-recovery plant now delivers district heat, with first heat in Q4 2025 and a stated coverage of 70–75% of Hamina's district heating energy. Ongoing data-centre matters are the electricity tax change and the Fingrid connection queue, which were not verified this pass.",
+      "regulators": [
+        {
+          "name": "Energiavirasto (Energy Authority)",
+          "acronym": "EV",
+          "role": "energy_regulator",
+          "url": null,
+          "notes": "Existing record. Not probed this pass; no Energiavirasto URL verified."
+        },
+        {
+          "name": "Fingrid",
+          "acronym": "Fingrid",
+          "role": "grid_operator",
+          "url": null,
+          "notes": "Transmission operator. Half-year 2026 queue figures were seen in search only; not probed, so not used."
+        }
+      ],
+      "context": [
+        {
+          "statement": "The Hamina waste-heat facility, once fully operational, is expected to cover around 70–75% of Hamina's district heating energy.",
+          "verbatim": "Once fully operational, the waste heat facility will cover around 70-75 percent of Hamina's district",
+          "source_lang": "en",
+          "translation": null,
+          "period": "2026",
+          "source_url": "https://irei.com/news/capman-infras-portfolio-company-haminan-energia-advances-local-energy-transition-through-new-waste-heat-facility/",
+          "source_title": "IREI — CapMan Infra's portfolio company Haminan Energia advances local energy transition through new waste heat facility",
+          "captured_at": "2026-10-19",
+          "verified": true,
+          "notes": "Trade-press reprint of the CapMan Infra release (article dated 18 May 2026 on the page). Figure is lower than Google's 2024 estimate of 80%."
+        }
+      ],
+      "primary_languages": [
+        "fi",
+        "en"
+      ]
+    },
+    {
+      "code": "GR",
+      "summary": "Greece is drafting a data-centre grid-connection bill that would require at least 60% renewable supply and a €200,000 per-MW guarantee. Microsoft's Attica sites sit in the Spata-Artemida cluster alongside other operators, including the Olive Data Center, which received a positive Regional Council opinion on its environmental assessment. Greece's 2022 Microsoft incentive decision (existing record) remains the main instrument already in effect. Water-stress and RAAEY statements were not verified this pass.",
+      "regulators": [
+        {
+          "name": "Ministry of Environment and Energy (YPEN)",
+          "acronym": "YPEN",
+          "role": "energy_regulator",
+          "url": null,
+          "notes": "Presented the draft data-centre grid bill. No ministry URL was probed, so the URL is left null."
+        },
+        {
+          "name": "Regulatory Authority for Energy",
+          "acronym": "RAAEY",
+          "role": "energy_regulator",
+          "url": null,
+          "notes": "Existing record. Not probed this pass."
+        }
+      ],
+      "context": [],
+      "primary_languages": [
+        "el",
+        "en"
+      ]
+    },
+    {
+      "code": "AU",
+      "summary": "Hyperscalers have made large Australian commitments in 2025 and 2026: AWS plans AU$20 billion through 2029 and Microsoft plans A$25 billion by the end of 2029. NEXTDC's S7 Eastern Creek site is the proposed OpenAI campus, still under state assessment. The Mamre Road campus in Penrith sits at the response-to-submissions stage, with resident objections on the public portal. The AEMC has recommended that data centres bring their own firmed clean energy and pay their way.",
+      "regulators": [
+        {
+          "name": "Australian Energy Market Commission",
+          "acronym": "AEMC",
+          "role": "energy_regulator",
+          "url": "https://www.aemc.gov.au/news-centre/media-releases/data-centres-bring-clean-firm-energy-be-flexible-and-pay-their-way-aemc-advises-ministers",
+          "notes": "Probed. Advice to ministers on data centres, 5 Aug 2026."
+        },
+        {
+          "name": "NSW Department of Planning (Planning Portal)",
+          "acronym": "DPHI",
+          "role": "planning",
+          "url": "https://www.planningportal.nsw.gov.au/major-projects/projects/mamre-road-data-centre-campus?page=2",
+          "notes": "Probed. Hosts State Significant Development records and public submissions."
+        },
+        {
+          "name": "Infrastructure NSW",
+          "acronym": "INSW",
+          "role": "investment_agency",
+          "url": "https://www.infrastructure.nsw.gov.au/expert-advice/data-centres/",
+          "notes": "Probed. Publishes the NSW Data Centre Guidelines."
+        }
+      ],
+      "context": [
+        {
+          "statement": "NSW Data Centre Guidelines set six principles, the second of which is to impose no net cost to consumers and communities.",
+          "verbatim": "Principle 2 Impose no net cost to consumers and communities",
+          "source_lang": "en",
+          "translation": null,
+          "period": "2026",
+          "source_url": "https://www.infrastructure.nsw.gov.au/expert-advice/data-centres/",
+          "source_title": "Infrastructure NSW — Data Centres",
+          "captured_at": "2026-10-19",
+          "verified": true,
+          "notes": "Published guidelines. Existing record au-nsw-data-centre-policy-framework-2026 already covers the framework and guidelines, so this is context only."
+        }
+      ],
+      "primary_languages": [
+        "en"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "type": "update",
+      "action": "update",
+      "existing_id": "fi-microsoft-espoo",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Espoo, Kirkkonummi and Vihti",
+      "fields": {
+        "notes": "28 Apr 2026 Microsoft announcement: second-phase build decision confirmed for the Espoo, Kirkkonummi and Vihti campuses, with building permits granted for all three. First-phase construction began late 2024 and is expected to finish around the turn of 2026–2027. Operational start to be announced separately."
+      },
+      "source_url": "https://news.microsoft.com/source/emea/2026/04/microsoft-kaynnistaa-paakaupunkiseudun-datakeskusalueen-toisen-vaiheen-rakentamisen/?lang=fi",
+      "source_title": "Microsoft Source EMEA — Microsoft käynnistää pääkaupunkiseudun datakeskusalueen toisen vaiheen rakentamisen",
+      "source_lang": "fi",
+      "verbatim": "Microsoft on vahvistanut Espooseen, Kirkkonummelle ja Vihtiin sijoittuvan datakeskusalueen toisen vaiheen rakentamispäätöksen. Ensimmäisen vaiheen rakennustyöt aloitettiin loppuvuonna 2024. Microsoft on saanut toiselle vaiheelle rakennusluvat kaikille kolmelle datakeskuskampukselle.",
+      "verified": true,
+      "notes": "Each sentence in the verbatim is probe-HIT. Translation: Microsoft has confirmed the decision to build phase two of the data centre area in Espoo, Kirkkonummi and Vihti. Phase-one construction began in late 2024. Microsoft has received building permits for phase two at all three campuses."
+    },
+    {
+      "type": "update",
+      "action": "update",
+      "existing_id": "fi-google-hamina",
+      "country": "FI",
+      "subdivision": null,
+      "locality": "Hamina",
+      "fields": {
+        "notes": "Heat-recovery plant (Haminan Energia, owned by CapMan Infra) delivers waste heat from the Google data centre into the district heating network, with first heat supplied in Q4 2025. Expected to cover around 70–75% of Hamina's district heating energy once fully operational. The 2024 announcement had said 80%."
+      },
+      "source_url": "https://irei.com/news/capman-infras-portfolio-company-haminan-energia-advances-local-energy-transition-through-new-waste-heat-facility/",
+      "source_title": "IREI — CapMan Infra's portfolio company Haminan Energia advances local energy transition through new waste heat facility",
+      "source_lang": "en",
+      "verbatim": "The project was delivered within a year, with first heat supplied in fourth quarter 2025.",
+      "verified": true,
+      "notes": "Source is a CapMan Infra release reprinted by IREI. Its article date reads 18 May 2026 on the page; the 12 May inauguration date appeared only in search, so it is omitted. The 80% figure is Google's 2024 claim and is not re-probed here."
+    },
+    {
+      "type": "policy",
+      "country": "GR",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "Draft bill: rules for connecting data centres to the Greek power grid",
+        "jurisdiction": "Greece",
+        "instrument": "legislation",
+        "status": "proposed",
+        "date": null,
+        "identifier": null,
+        "summary": "Draft bill from the Ministry of Environment and Energy setting detailed rules for data-centre connections. Requires at least 60% renewable electricity and a €200,000 per-MW letter of guarantee with a three-year duration. Data centres above 200 MW are covered by a separate regime in the article's wording.",
+        "key_terms": [
+          "60% renewable",
+          "EUR 200,000 per MW",
+          "letters of guarantee"
+        ],
+        "principles": [
+          "pay_own_grid_costs",
+          "new_supply_for_new_demand"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "community_benefits_framework": false,
+        "value": null
+      },
+      "source_url": "https://balkangreenenergynews.com/greece-proposes-rules-for-connecting-data-centers-to-power-grid/",
+      "source_title": "Balkan Green Energy News — Greece proposes rules for connecting data centers to power grid",
+      "source_lang": "en",
+      "verbatim": "Power must be 60% renewable Investors would be required to submit letters of guarantee for EUR 200,000 per MW, with a three-year duration.",
+      "verified": true,
+      "notes": "Secondary trade-press source (Balkan Green Energy News, 12 Oct 2026). Ministry or Parliament text was not reachable, so the record is verified against the article only. The 'bank guarantee' and 'consultation until 24 Oct' details seen in search were not verified and are omitted. The 'Data centers above 200 MW' sentence was cut off in the probe and is not cited."
+    },
+    {
+      "type": "project",
+      "country": "GR",
+      "subdivision": "GR-I (Attica)",
+      "locality": "Spata-Artemida",
+      "fields": {
+        "name": "Olive Data Center (Spata-Artemida)",
+        "company": "GRECO MI",
+        "operator": "GRECO MI",
+        "city": "Spata-Artemida",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": {
+          "amount": 300000000,
+          "currency": "EUR",
+          "as_stated": "approximately €300 million"
+        },
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": null,
+        "lon": null,
+        "notes": "Site is 6.23 hectares per the article. Regional Council issued a positive opinion on its Environmental Impact Assessment. Part of a wider Eastern Attica cluster. Coordinates not probed, so left null. Site area 6.23 hectares (not acres; no acreage field set)."
+      },
+      "source_url": "https://www.tovima.com/finance/data-centers-greeces-next-investment-frontier-and-the-challenges-of-energy-and-water/amp/",
+      "source_title": "To Vima — Data Centers: Greece's Next Investment Frontier and the Challenges of Energy and Water",
+      "source_lang": "en",
+      "verbatim": "The project concerns the Olive Data Center, to be developed on a 6.23 hectares site in the Municipality of Spata-Artemida by the company GRECO MI.",
+      "verified": true,
+      "notes": "Secondary press report. Article dated 2 Jan 2026 on the page. The investment figure is quoted from the article and was not separately probe-matched. Acreage field carries hectares (6.23 ha), so it is mislabelled against the acreage schema; treat as an open schema issue."
+    },
+    {
+      "type": "response",
+      "country": "GR",
+      "subdivision": "GR-I (Attica)",
+      "locality": "Region of Attica",
+      "fields": {
+        "project": "Olive Data Center (Spata-Artemida)",
+        "date": "2026-01-02",
+        "stance": "positive",
+        "constituency": "local_government",
+        "summary": "The Regional Council of Attica issued a positive opinion on the Environmental Impact Assessment for the Olive Data Center. It was presented as part of an Eastern Attica data-centre cluster."
+      },
+      "source_url": "https://www.tovima.com/finance/data-centers-greeces-next-investment-frontier-and-the-challenges-of-energy-and-water/amp/",
+      "source_title": "To Vima — Data Centers: Greece's Next Investment Frontier and the Challenges of Energy and Water",
+      "source_lang": "en",
+      "verbatim": "the Regional Council issued a positive opinion on the Environmental Impact Assessment of a project with an initial budget of approximately €300 million.",
+      "verified": true,
+      "notes": "A regional council opinion is an official step, not a community objection. The To Vima article is the only source; the Attica council decision itself was not probed."
+    },
+    {
+      "type": "update",
+      "action": "update",
+      "existing_id": "gr-microsoft-attica",
+      "country": "GR",
+      "subdivision": "GR-I (Attica)",
+      "locality": "Spata-Artemida",
+      "fields": {
+        "notes": "A broader Microsoft complex of about 85 stremmas in Eastern Attica is planned, with total capacity of 25 MW and a completion target of 2028, per To Vima (2 Jan 2026). The Spata site is part of the ESCHASE strategic investment plan."
+      },
+      "source_url": "https://www.tovima.com/finance/data-centers-greeces-next-investment-frontier-and-the-challenges-of-energy-and-water/amp/",
+      "source_title": "To Vima — Data Centers: Greece's Next Investment Frontier and the Challenges of Energy and Water",
+      "source_lang": "en",
+      "verbatim": "This data center will be part of a broader complex of approximately 85 stremmas planned by Microsoft in Eastern Attica, with a total capacity of 25 MW and a completion target of 2028.",
+      "verified": true,
+      "notes": "Secondary press figure, not a Microsoft-published figure. Microsoft's own Greek brief could not be probed (PDF timed out), so the 25 MW and 2028 figures are press-sourced. Water claims are Microsoft's own pledge and were not verified this pass."
+    },
+    {
+      "type": "claim",
+      "country": "AU",
+      "subdivision": null,
+      "locality": "Australia",
+      "fields": {
+        "company": "amazon",
+        "theme": "infrastructure",
+        "statement": "Amazon today announced plans to invest a new total of AU$20 billion from 2025 to 2029 to expand, operate, and maintain its data center infrastructure in Australia.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://aboutamazon.com/news/aws/amazon-data-center-investment-in-australia",
+      "source_title": "Amazon newsroom — Amazon investing AU$20 billion to expand data center infrastructure in Australia",
+      "source_lang": "en",
+      "verbatim": "Amazon today announced plans to invest a new total of AU$20 billion from 2025 to 2029 to expand, operate, and maintain its data center infrastructure in Australia.",
+      "verified": true,
+      "notes": "Company newsroom (first-party). Amounts: AU$20 billion, 2025–2029. The aboutamazon.com.au domain was not reachable; the global newsroom is used. Probe matched the full sentence in the page text."
+    },
+    {
+      "type": "claim",
+      "country": "AU",
+      "subdivision": null,
+      "locality": "Australia",
+      "fields": {
+        "company": "microsoft",
+        "theme": "infrastructure",
+        "statement": "By the end of 2029, the company will invest A$25 billion (USD 18 billion) in new digital infrastructure, alongside new commitments to national cyber defence capability and workforce skilling programs.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://news.microsoft.com/source/asia/features/investing-in-australias-ai-future/",
+      "source_title": "Microsoft Source Asia — Microsoft deepens commitment to Australia with A$25 billion investment in AI infrastructure, security, and skills",
+      "source_lang": "en",
+      "verbatim": "By the end of 2029, the company will invest A$25 billion (USD 18 billion) in new digital infrastructure, alongside new commitments to national cyber defence capability and workforce skilling programs.",
+      "verified": true,
+      "notes": "First-party Microsoft release dated 23 Apr 2026. The probed page carries the same text, under an URL that redirected from /source/asia/2026/04/23/. Currency conversion USD 18 billion is the company's own figure."
+    },
+    {
+      "type": "claim",
+      "country": "AU",
+      "subdivision": null,
+      "locality": "Australia",
+      "fields": {
+        "company": "microsoft",
+        "theme": "education",
+        "statement": "Microsoft will train three million Australians with workforce-ready AI skills by 2028",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://news.microsoft.com/source/asia/features/investing-in-australias-ai-future/",
+      "source_title": "Microsoft Source Asia — Microsoft deepens commitment to Australia with A$25 billion investment in AI infrastructure, security, and skills",
+      "source_lang": "en",
+      "verbatim": "Microsoft will train three million Australians with workforce-ready AI skills by 2028",
+      "verified": true,
+      "notes": "Probed in the release text. Same release as the A$25 billion claim."
+    },
+    {
+      "type": "project",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Eastern Creek, Western Sydney",
+      "fields": {
+        "name": "NEXTDC S7 (OpenAI sovereign AI campus)",
+        "company": "NEXTDC",
+        "operator": "NEXTDC",
+        "city": "Eastern Creek",
+        "status": "announced",
+        "announced_year": 2025,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": null,
+        "lat": null,
+        "lon": null,
+        "notes": "A non-binding Memorandum of Understanding (Dec 2025) with OpenAI to plan, develop and operate a hyperscale AI campus and GPU supercluster at the S7 site. Per search, up to 612 MW is in planning documents and the project is in state environmental assessment; those were not probe-matched, so power_mw is null. Coordinates not probed."
+      },
+      "source_url": "https://www.nextdc.com/news/nextdc-and-openai-partner-to-expand-ai-infrastructure-in-australia",
+      "source_title": "NEXTDC — NEXTDC to Join OpenAI in Australia as an Infrastructure Partner (ASX announcement, 5 Dec 2025)",
+      "source_lang": "en",
+      "verbatim": "OpenAI and NEXTDC will collaborate on the planning, development and operation of a next-generation hyperscale AI campus and large-scale GPU supercluster at NEXTDC's S7 site in Eastern Creek, Sydney.",
+      "verified": true,
+      "notes": "ASX release (first-party). The URL redirected to a different NEXTDC path, and the probe confirmed the release text. The non-binding wording did not match exactly on the page, so it is cited to notes from the search, not as a verified quote."
+    },
+    {
+      "type": "project",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Kemps Creek / Penrith",
+      "fields": {
+        "name": "Mamre Road Data Centre Campus",
+        "company": null,
+        "operator": null,
+        "city": "Kemps Creek",
+        "status": "announced",
+        "announced_year": null,
+        "claimed_investment": null,
+        "claimed_jobs": null,
+        "power_mw": 1000,
+        "lat": null,
+        "lon": null,
+        "notes": "NSW State Significant Development at response-to-submissions stage (Penrith LGA). Planning portal states 1 GW power capacity: six four-storey buildings, 936 cooling units, 852 diesel back-up generators. The operator is not named on the portal page. Secondary reporting names AirTrunk, but that is not verified on the portal, so operator stays null. 79 public submissions."
+      },
+      "source_url": "https://www.planningportal.nsw.gov.au/major-projects/projects/mamre-road-data-centre-campus?page=2",
+      "source_title": "NSW Planning Portal — Mamre Road Data Centre Campus",
+      "source_lang": "en",
+      "verbatim": "Construction and operation of a data centre campus with a power capacity of 1 GW including six four-storey data centre buildings, 936 cooling units, 852 diesel back-up generators and 14,430 kl of diesel storage",
+      "verified": true,
+      "notes": "Official NSW source. The verbatim was probe-matched on the portal page (page=2 of submissions) and the status 'Current Status: Response to Submissions' was also matched. Coordinates not probed; a Kemps Creek or Penrith coordinate from Wikipedia would be needed."
+    },
+    {
+      "type": "response",
+      "country": "AU",
+      "subdivision": "AU-NSW",
+      "locality": "Revesby (submitter)",
+      "fields": {
+        "project": "Mamre Road Data Centre Campus",
+        "date": null,
+        "stance": "negative",
+        "constituency": "residents",
+        "summary": "A Revesby resident (name withheld) objects to the Mamre Road campus over environmental impacts and the cumulative effect of data-centre clustering in Western Sydney, citing electricity and water use, biodiversity, urban heat, noise and visual amenity."
+      },
+      "source_url": "https://www.planningportal.nsw.gov.au/major-projects/projects/mamre-road-data-centre-campus?page=2",
+      "source_title": "NSW Planning Portal — Mamre Road Data Centre Campus (public submissions)",
+      "source_lang": "en",
+      "verbatim": "I object to the proposed Mamre Road Data Centre Campus at Kemps Creek due to its environmental impacts and the broader cumulative effect of the increasing concentration of data centres in Western Sydney.",
+      "verified": true,
+      "notes": "Public submission (object), name withheld. Submission date not shown on the page, so date is null. Single resident submission, not a council position."
+    },
+    {
+      "type": "policy",
+      "country": "AU",
+      "subdivision": null,
+      "locality": null,
+      "fields": {
+        "title": "AEMC advice to ministers on data-centre grid obligations (bring own firmed clean energy, flexibility, efficient connection)",
+        "jurisdiction": "Australia (national)",
+        "instrument": "government_framework",
+        "status": "proposed",
+        "date": null,
+        "identifier": null,
+        "summary": "AEMC recommends a reform package requiring data centres in the grid to bring their own clean firmed energy, operate flexibly and connect efficiently; advice goes to energy ministers and is not yet binding. A rule change on network cost recovery for large loads is under way.",
+        "key_terms": [
+          "bring their own clean, firmed energy",
+          "operate flexibly",
+          "connect efficiently"
+        ],
+        "principles": [
+          "pay_own_grid_costs",
+          "new_supply_for_new_demand"
+        ],
+        "benefit_themes": [
+          "energy"
+        ],
+        "community_benefits_framework": false,
+        "value": null
+      },
+      "source_url": "https://www.aemc.gov.au/news-centre/media-releases/data-centres-bring-clean-firm-energy-be-flexible-and-pay-their-way-aemc-advises-ministers",
+      "source_title": "AEMC — Data centres to bring clean, firm energy, be flexible and pay their way, AEMC advises Ministers",
+      "source_lang": "en",
+      "verbatim": "Data centres operating in Australia's electricity grid should bring their own clean, firmed energy, operate flexibly and connect efficiently, under a package of reforms the Australian Energy Market Commission (AEMC) has recommended to",
+      "verified": true,
+      "notes": "Probe matched the opening sentence. The release date 05 August 2026 is on the page but was read, not probe-matched, so treat the date as unverified until a probe hit is recorded. The verbatim ends mid-sentence and the key_terms are copied from the same sentence. The ministerial council was due to consider the advice on 28 July 2026 per search; that date is not used."
+    },
+    {
+      "type": "claim",
+      "country": "GR",
+      "subdivision": "GR-I (Attica)",
+      "locality": "Attica",
+      "fields": {
+        "company": "microsoft",
+        "theme": "water",
+        "statement": "This datacenter will use water for cooling less than 15% of the year.",
+        "statement_lang": "en",
+        "translation": null
+      },
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Greece.pdf",
+      "source_title": "Microsoft — Microsoft datacenters in Greece (brief, Oct 2025)",
+      "source_lang": "en",
+      "verbatim": "This datacenter will use water for cooling less than 15% of the year.",
+      "verified": true,
+      "notes": "First-party Microsoft PDF, published Oct 2025. Probe matched the sentence; the same brief says the facility 'will be built with direct evaporative cooling'. The Attica site is not named in the sentence itself, so it is tied to the brief's 'currently building a datacenter in the Attica region'."
+    }
+  ]
+}

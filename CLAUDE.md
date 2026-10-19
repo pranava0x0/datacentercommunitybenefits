@@ -2088,7 +2088,15 @@ Tab `#world`, placed last; country pages at `#country/XX`.
   none publishes a community-impact page. The owner decided on 2026-10-19 to
   add international operators as companies anyway, so don't remove them on
   gate-2 grounds the way Amentum was. That exception covers international-only
-  operators only; US company additions still need both gates. The US Companies tab and the Home count skip
+  operators only; US company additions still need both gates.
+  **Update (wave 2, owner):** an international operator that also runs US
+  sites goes on the US tab. Nscale (Monarch, Mason County WV) and Goodman
+  (LAX01 Vernon CA) are `international_only: false`, with US projects and no
+  US claims. `TestSeedCoverage.GATE2_OWNER_EXCEPTIONS` records the
+  exception. SoftBank Corp., NEXTDC and XTX Markets were added as
+  international-only operators. atNorth and GRECO MI are held back in
+  `notes/specs/international/wave2/deferred_needs_company.json`: atNorth's HQ
+  couldn't be verified, and GRECO's figures were not probe-matched. The US Companies tab and the Home count skip
   them, and `companiesBySlug` still resolves them. Their sites are owned by
   `country:XX` refresh units, not `company:` units.
 - **`heat_reuse` principle** is mainly practiced abroad. The Frameworks card

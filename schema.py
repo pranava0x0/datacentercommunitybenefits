@@ -79,6 +79,9 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "nscale",
     "segro",
     "goodman",
+    "softbank-corp",
+    "nextdc",
+    "xtx-markets",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
@@ -124,6 +127,9 @@ CompanySlug = Literal[
     "nscale",
     "segro",
     "goodman",
+    "softbank-corp",
+    "nextdc",
+    "xtx-markets",
 ]
 # withdrawn (#78): the operator abandoned the site. The record stays, as
 # history, but leaves the pledge scorecard and the investment/jobs totals.
@@ -359,6 +365,10 @@ SUBDIVISIONS: dict[str, str] = {
     "IN-UP": "Uttar Pradesh",
     "IN-TG": "Telangana",
     "IN-KA": "Karnataka",
+    "SE-D": "Södermanland County",
+    "FI-14": "North Ostrobothnia",
+    "FI-05": "Kainuu",
+    "KR-42": "Gangwon",
 }
 # What a first-level subdivision is called, for labels.
 SUBDIVISION_TERMS: dict[str, str] = {
