@@ -6528,11 +6528,15 @@ function renderProjectList() {
   // Desktop scrolls the list inside the map sidebar, so it renders them all.
   // A selected site always renders, even past the current page.
   const paged = window.matchMedia(SITES_PAGED_QUERY).matches;
-  const sel = items.findIndex((p) => p.id === state.selectedProjectId);
-  const shown = paged ? Math.max(state.sitesShown, sel + 1) : items.length;
+  const shown = paged ? Math.min(state.sitesShown, items.length) : items.length;
   for (const p of items.slice(0, shown)) {
     list.appendChild(renderProjectCard(p));
   }
+  // A selected site past the page renders on its own, after the page, rather
+  // than expanding the page to its index (Codex review of #82: picking the
+  // last marker restored the full ~21-screen list).
+  const sel = items.findIndex((p) => p.id === state.selectedProjectId);
+  if (sel >= shown) list.appendChild(renderProjectCard(items[sel]));
   if (shown < items.length) {
     const li = el("li", "project-list-more");
     const btn = el("button", "btn-ghost", `Show ${Math.min(SITES_PAGE, items.length - shown)} more of ${items.length - shown}`);
@@ -6784,6 +6788,7 @@ function renderMapLegend() {
           <div class="legend-item"><span class="legend-item-opacity-40">●</span> Announced</div>
           <div class="legend-item"><span class="legend-item-opacity-65">●</span> Under Construction</div>
           <div class="legend-item"><span class="legend-item-opacity-90">●</span> Operational</div>
+          <div class="legend-item"><span class="legend-item-opacity-12">●</span> Withdrawn</div>
         </div>
       </div>
     `;

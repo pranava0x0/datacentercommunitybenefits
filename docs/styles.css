@@ -1158,6 +1158,12 @@ main {
   font-size: var(--fs-lg);
 }
 
+.legend-item-opacity-12 {
+  color: var(--accent);
+  opacity: 0.12;
+  font-size: var(--fs-lg);
+}
+
 .explorer-list {
   background: var(--surface);
   border: 1px solid var(--border);

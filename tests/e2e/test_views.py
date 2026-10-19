@@ -3889,6 +3889,10 @@ class TestIssues78And79:
             last = page.evaluate("() => filteredProjects().slice(-1)[0].id")
             page.evaluate("(id) => selectProject(id)", last)
             expect(page.locator(f'#project-list .project-card[data-project-id="{last}"]')).to_have_count(1)
+            # ...without expanding the page to its index (Codex review of #82).
+            assert page.locator("#project-list .project-card").count() == page.evaluate(
+                "() => Math.min(state.sitesShown, filteredProjects().length - 1) + 1"
+            )
             page.click("#tab-moratoriums")
             page.fill("#moratorium-q", "")
             more = page.locator("#moratoriums-tbody .project-list-more button")
