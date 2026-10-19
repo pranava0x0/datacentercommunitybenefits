@@ -330,6 +330,7 @@ come first, then locations, companies and sites.
 - EEI: Evergy 25-EKME-315-TAR.
 
 #### state:KY — Kentucky
+- (2026-10-19) Allen County: WBKO (2026-06-12) quotes Judge Executive Dennis Harper that a 24-month moratorium "was put in place" but names no enacting body or date. Get the fiscal court order before adding.
 - Rowan County: a two-year moratorium passed unanimously at the Fiscal
   Court's August 2026 meeting (Rowan Review on rcky.us; LEX18; WTVQ, Sept 1),
   but no source states the day. Get it from the court's minutes before adding
@@ -468,6 +469,7 @@ come first, then locations, companies and sites.
 #### state:TN — Tennessee
 - (2026-10-18) Memphis council vote on `memphis-city-2026-10` set for Oct 20;
   WREG reportedly said it wasn't taken up. Record the outcome.
+- (2026-10-19) Gallatin city: WSMV (2026-07-29) says commissioners "have approved a 60-day pause on new data center applications" but gives no vote date, and other outlets report a 12-month proposal advancing; reconcile from city minutes before adding a record.
 - Gallatin: a six-month moratorium passed first reading, shortened to six
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 

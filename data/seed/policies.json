@@ -4788,7 +4788,7 @@
       "jurisdiction": "Iron County",
       "state_code": "UT",
       "identifier": "Planning commission recommendation",
-      "date": "2026-10-09",
+      "date": null,
       "benefit_themes": [
         "water"
       ],
@@ -4800,7 +4800,7 @@
       "key_terms": [
         "Iron County's planning commission recommended new restrictions in early October"
       ],
-      "summary": "Iron County's planning commission recommended new restrictions in early October 2026 covering noise, water use and public outreach for data centers, power plants, battery storage and industrial campuses above a 50 MW cutoff. KUER's report gives a water-use limit of 50,000 gallons a day and a closed-loop, dry or other efficient cooling requirement. The county's 180-day moratorium continues while the draft is reviewed. The article date is used because the commission meeting date is given only as early October.",
+      "summary": "Iron County's planning commission recommended new restrictions in early October 2026 covering noise, water use and public outreach for data centers, power plants, battery storage and industrial campuses above a 50 MW cutoff. KUER's report gives a water-use limit of 50,000 gallons a day and a closed-loop, dry or other efficient cooling requirement. The county's 180-day moratorium continues while the draft is reviewed.",
       "source_url": "https://www.kuer.org/business-economy/2026-10-09/box-elder-iron-county-data-center-moratoriums-new-regulations",
       "source_title": "KUER — Box Elder, Iron County data center moratoriums, new regulations",
       "captured_at": "2026-10-19"
@@ -4878,6 +4878,85 @@
       "summary": "The Borough Assembly's 2027 state and federal legislative priorities include a requested moratorium on the permitting, leasing or construction of new commercial data centers. It is a request to other governments, not a borough moratorium, so it is recorded as proposed. KUAC notes the resolution text refers to state-owned and municipal lands while the presiding officer said federal lands were intended. The date is the Thursday approval reported on August 31.",
       "source_url": "https://fm.kuac.org/2026-08-31/in-legislative-priorities-fairbanks-north-star-borough-assembly-doubles-up-on-ai-data-center-moratorium-request",
       "source_title": "KUAC — Fairbanks North Star Borough Assembly doubles up on AI data center moratorium request",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "prince-william-county-va-overlay-zta-2026-09",
+      "title": "Prince William County shrinks its by-right data center overlay district",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Prince William County",
+      "state_code": "VA",
+      "identifier": "Zoning text amendment (Data Center Opportunity Zone Overlay)",
+      "date": "2026-09-22",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "unanimously approved a zoning text amendment that largely eliminates by right data center development",
+        "The ZTA proposed to reduce the size of the overlay from 9,698 acres to 3,654 acres",
+        "The supervisors voted 5-3 against a separate motion"
+      ],
+      "summary": "On September 22, 2026 the Board of County Supervisors voted 8-0 to approve a zoning text amendment that largely eliminates by-right data center development by shrinking the overlay district. Data centers remain permitted, but projects outside the smaller overlay need full review. The amendment proposed cutting the overlay from 9,698 to 3,654 acres, and a motion to shorten the 90-day grace period to zero failed 5-3. This is a change from by-right to review, not a moratorium.",
+      "source_url": "https://www.bisnow.com/news/washington-dc/data-center/prince-william-county-drastically-shrinks-by-right-data-center-map",
+      "source_title": "Bisnow — Prince William County drastically shrinks by-right data center map",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fort-wayne-in-council-datacenter-pause-2026-09",
+      "title": "Fort Wayne council ordinances to pause its own data center actions for one year",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Fort Wayne",
+      "state_code": "IN",
+      "identifier": "Two ordinances introduced by Councilwoman Rohli Booker",
+      "date": "2026-09-08",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Booker emphasized that the moratorium on data centers would restrict only the council's actions, leaving city economic development and planning officials free to work with companies interested in Fort Wayne.",
+        "It will not affect the already operational data center."
+      ],
+      "summary": "On September 8, 2026 Fort Wayne's City Council saw the introduction of two ordinances from Councilwoman Rohli Booker for a one-year pause on data centers, plus an advisory board for large developments. Booker said the pause would restrict only the council's own actions, leaving city economic development and planning officials free to work with companies, and would not affect the already operational data center. It does not bind private development, so it is filed as a policy, not a moratorium. The final vote was not found.",
+      "source_url": "https://www.journalgazette.net/local/local-government/councilwoman-proposes-pause-on-new-fort-wayne-data-centers-board-for-large-developments/article_f14cc4f9-5797-4cd1-99be-12ca5cc4e918.html",
+      "source_title": "Journal Gazette — Councilwoman proposes pause on new Fort Wayne data centers, board for large developments",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "morton-county-nd-datacenter-ordinance-2026-08",
+      "title": "Morton County revised data center zoning ordinance advances with a noise setback",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Morton County",
+      "state_code": "ND",
+      "identifier": "Revised data center zoning ordinance",
+      "date": "2026-08-26",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The ordinance now goes to the Morton County Commission for consideration on September 10.",
+        "Noise-producing equipment would generally have to be at least three-quarters of a mile from an occupied home."
+      ],
+      "summary": "On August 26, 2026 the Morton County Planning and Zoning Commission recommended approval of a revised data center ordinance, which goes to the County Commission for consideration on September 10. Noise-producing equipment would generally need to be at least three-quarters of a mile from an occupied home. The County Commission outcome was not found. This is a zoning ordinance, not a moratorium.",
+      "source_url": "https://www.kfyrtv.com/2026/08/28/morton-county-data-center-ordinance-advances-commission/",
+      "source_title": "KFYR — Morton County data center ordinance advances to commission",
       "captured_at": "2026-10-19"
     }
   ]
