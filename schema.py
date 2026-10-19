@@ -1224,8 +1224,10 @@ TARIFF_STATUS_LABELS: dict[str, str] = {
 # Regulatory level. 'state' = state PUC/PSC tariff (the dataset's focus);
 # 'federal' = a FERC co-location / interconnection case, included for context
 # but kept out of the state-tariff stat counts (see Tariff.jurisdiction_level).
-TARIFF_JURISDICTION_LEVELS: tuple[str, ...] = ("state", "federal")
-TariffJurisdictionLevel = Literal["state", "federal"]
+# v6: "national" is another country's government (a Canadian federal
+# regulator, say); "federal" stays the US government only.
+TARIFF_JURISDICTION_LEVELS: tuple[str, ...] = ("state", "federal", "national")
+TariffJurisdictionLevel = Literal["state", "federal", "national"]
 
 # --- Rate cases (v3) -------------------------------------------------------
 # A RateCase is the PROCEEDING layer under the tariffs: the docketed PUC / PSC /
@@ -1541,6 +1543,14 @@ class Tariff(_StrictBase):
     def _state_upper(cls, v: str) -> str:
         return v.upper()
 
+    @model_validator(mode="after")
+    def _us_tariff(self) -> "Tariff":
+        # Tariffs are US-only in v6; another country's rate is a RateCase in
+        # international.json until an international tariff type is needed.
+        if self.jurisdiction_level == "national":
+            raise ValueError(f"tariff {self.id!r}: 'national' is for non-US records")
+        return self
+
     @field_validator("parameters")
     @classmethod
     def _params_known(cls, v: dict) -> dict:
@@ -1577,11 +1587,15 @@ class RateCase(_StrictBase):
     """
 
     id: str = Field(min_length=1)
-    state_code: str = Field(
+    state_code: Optional[str] = Field(
+        default=None,
         min_length=2,
         max_length=2,
-        description="Two-letter state code; 'US' for a federal (FERC) case.",
+        description="Two-letter state code; 'US' for a federal (FERC) case. Null abroad (v6).",
     )
+    country: str = Field(default="US", description="ISO 3166-1 alpha-2 (v6).")
+    subdivision: Optional[str] = Field(default=None, description="ISO 3166-2, non-US (v6).")
+    source_lang: str = Field(default="en", description="Language of source_url (v6).")
     jurisdiction_level: TariffJurisdictionLevel = Field(
         default="state",
         description="'state' for PUC/PSC cases; 'federal' for FERC. Federal "
@@ -1644,11 +1658,25 @@ class RateCase(_StrictBase):
 
     @field_validator("state_code")
     @classmethod
-    def _state_code_upper(cls, v: str) -> str:
-        return v.upper()
+    def _state_code_upper(cls, v: Optional[str]) -> Optional[str]:
+        return v.upper() if v else v
 
     @model_validator(mode="after")
     def _federal_uses_us(self) -> "RateCase":
+        _check_jurisdiction(self.id, self.country, self.subdivision)
+        _check_lang(self.id, self.source_lang)
+        if self.country != "US":
+            if self.state_code is not None:
+                raise ValueError(f"rate case {self.id!r}: non-US cases use subdivision, not state_code")
+            if self.jurisdiction_level == "federal":
+                raise ValueError(f"rate case {self.id!r}: 'federal' is the US government; use 'national'")
+            if self.jurisdiction_level == "state" and not self.subdivision:
+                raise ValueError(f"rate case {self.id!r}: a sub-national case abroad needs a subdivision")
+            return self
+        if not self.state_code:
+            raise ValueError(f"rate case {self.id!r}: a US case needs a state_code")
+        if self.jurisdiction_level == "national":
+            raise ValueError(f"rate case {self.id!r}: a US national case is 'federal'")
         if self.jurisdiction_level == "federal" and self.state_code != "US":
             raise ValueError("federal rate cases must use state_code 'US'")
         if self.jurisdiction_level == "state" and self.state_code == "US":
@@ -1665,6 +1693,14 @@ class RateCase(_StrictBase):
 class RateCasesPayload(_StrictBase):
     generated_at: Date
     rate_cases: list[RateCase]
+
+    @field_validator("rate_cases")
+    @classmethod
+    def _us_only(cls, v: list[RateCase]) -> list[RateCase]:
+        bad = [r.id for r in v if r.country != "US"]
+        if bad:
+            raise ValueError(f"non-US records belong in international.json: {bad}")
+        return v
 
     @field_validator("rate_cases")
     @classmethod
@@ -2281,10 +2317,20 @@ class ContextFact(_StrictBase):
     statement: str = Field(min_length=1, description="Curator English sentence.")
     verbatim: str = Field(min_length=1, description="The source's own words.")
     source_lang: str = "en"
+    translation: Optional[Translation] = Field(
+        default=None, description="Labelled English of a non-English verbatim (v6)."
+    )
     period: Optional[str] = None
     source_url: HttpUrl
     source_title: str = Field(min_length=1)
     captured_at: Date
+
+    @model_validator(mode="after")
+    def _translated(self) -> "ContextFact":
+        _check_lang("context", self.source_lang)
+        if (self.source_lang != "en") != (self.translation is not None):
+            raise ValueError("a non-English context fact needs a translation (and only then)")
+        return self
 
 
 class Country(_StrictBase):
@@ -2317,6 +2363,7 @@ class InternationalPayload(_StrictBase):
     projects: list[Project] = Field(default_factory=list)
     responses: list[CommunityResponse] = Field(default_factory=list)
     claims: list[Claim] = Field(default_factory=list)
+    rate_cases: list[RateCase] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def _partition_and_refs(self) -> "InternationalPayload":
@@ -2324,13 +2371,17 @@ class InternationalPayload(_StrictBase):
         if len(codes) != len(set(codes)):
             raise ValueError("duplicate country codes")
         known = set(codes)
-        for kind in ("policies", "moratoriums", "projects", "claims"):
+        for kind in ("policies", "moratoriums", "projects", "claims", "rate_cases"):
             for r in getattr(self, kind):
                 if r.country == "US":
                     raise ValueError(f"{kind} {r.id!r}: US records belong in the US payloads")
                 if r.country not in known:
                     raise ValueError(f"{kind} {r.id!r}: country {r.country!r} has no Country entry")
-        ids = [r.id for k in ("policies", "moratoriums", "projects", "responses", "claims") for r in getattr(self, k)]
+        ids = [
+            r.id
+            for k in ("policies", "moratoriums", "projects", "responses", "claims", "rate_cases")
+            for r in getattr(self, k)
+        ]
         if len(ids) != len(set(ids)):
             raise ValueError("duplicate ids in international.json")
         project_ids = {p.id for p in self.projects}
@@ -2343,10 +2394,13 @@ class InternationalPayload(_StrictBase):
                 raise ValueError(f"claim {c.id!r}: unknown project {c.project_id!r}")
             if c.project_id and project_country[c.project_id] != c.country:
                 raise ValueError(f"claim {c.id!r}: country differs from its site's")
-        for p in self.policies:
+        for p in [*self.policies, *self.rate_cases]:
             for pid in p.related_project_ids or []:
                 if pid not in project_ids:
-                    raise ValueError(f"policy {p.id!r}: unknown project {pid!r}")
+                    raise ValueError(f"{p.id!r}: unknown project {pid!r}")
+        for rc in self.rate_cases:
+            if rc.related_tariff_id:
+                raise ValueError(f"rate case {rc.id!r}: no international tariffs yet to relate to")
         return self
 
 

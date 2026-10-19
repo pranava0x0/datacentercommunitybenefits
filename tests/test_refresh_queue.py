@@ -69,8 +69,8 @@ def test_every_record_owner_is_a_unit() -> None:
 def test_every_international_record_lands_in_its_country_unit() -> None:
     units = rq.derive_units()
     intl = json.loads((SEED / "international.json").read_text())
-    for kind in ("policies", "moratoriums", "projects", "claims"):
-        for r in intl[kind]:
+    for kind in ("policies", "moratoriums", "projects", "claims", "rate_cases"):
+        for r in intl.get(kind, []):
             assert r["id"] in units[f"country:{r['country']}"].records.get(kind, []), r["id"]
 
 

@@ -194,8 +194,8 @@ def derive_units() -> dict[str, Unit]:
     intl = json.loads((SEED / "international.json").read_text())
     for c in intl["countries"]:
         owned: dict[str, list[str]] = {}
-        for kind in ("policies", "moratoriums", "projects", "claims"):
-            ids = [r["id"] for r in intl[kind] if r["country"] == c["code"]]
+        for kind in ("policies", "moratoriums", "projects", "claims", "rate_cases"):
+            ids = [r["id"] for r in intl.get(kind, []) if r["country"] == c["code"]]
             if ids:
                 owned[kind] = ids
         site_ids = set(owned.get("projects", []))

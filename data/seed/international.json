@@ -284,13 +284,18 @@
       ],
       "context": [
         {
-          "statement": "The Ministry of Economy's updated list shows 17 projects authorised under the RIGI, for US$31.192 million and almost 55,000 projected jobs (per Letra P, July 2026).",
+          "statement": "The Ministry of Economy's updated list shows 17 projects authorised under the RIGI, for US$31,192 million (about US$31.2 billion) and almost 55,000 projected jobs (per Letra P, July 2026).",
           "verbatim": "El listado actualizado por el Ministerio de Economía muestra 17 proyectos autorizados por el RIGI, por u$s 31.192 millones y casi 55.000 empleos proyectados.",
           "source_lang": "es",
           "period": "2026-07",
           "source_url": "https://www.letrap.com.ar/economia/argentina-quiere-ser-un-polo-inteligencia-artificial-pero-el-rigi-es-un-desierto-tecnologico-n5425031",
           "source_title": "Letra P — Argentina quiere ser un polo de inteligencia artificial, pero el RIGI es un desierto tecnológico",
-          "captured_at": "2026-10-19"
+          "captured_at": "2026-10-19",
+          "translation": {
+            "text": "The list updated by the Ministry of Economy shows 17 projects authorised under the RIGI, for US$31,192 million and almost 55,000 projected jobs.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          }
         },
         {
           "statement": "Letra P reports that only one technology-sector file is under evaluation under the RIGI, and that it is held under reserve.",
@@ -299,7 +304,12 @@
           "period": "2026-07",
           "source_url": "https://www.letrap.com.ar/economia/argentina-quiere-ser-un-polo-inteligencia-artificial-pero-el-rigi-es-un-desierto-tecnologico-n5425031",
           "source_title": "Letra P — Argentina quiere ser un polo de inteligencia artificial, pero el RIGI es un desierto tecnológico",
-          "captured_at": "2026-10-19"
+          "captured_at": "2026-10-19",
+          "translation": {
+            "text": "There is only one file from the sector under evaluation, and it remains under reserve.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          }
         }
       ],
       "last_reviewed": "2026-10-19"
@@ -469,32 +479,6 @@
         "by": "machine",
         "reviewed_at": "2026-10-19"
       }
-    },
-    {
-      "id": "ca-qc-hq-data-centre-rate-r-4333-2026",
-      "title": "Hydro-Québec proposed large data-centre rate (Régie de l'énergie docket R-4333-2026)",
-      "instrument": "regulation",
-      "status": "proposed",
-      "scope": "state",
-      "jurisdiction": "Québec",
-      "benefit_themes": [
-        "energy"
-      ],
-      "principles": [
-        "pay_own_way"
-      ],
-      "key_terms": [
-        "equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay"
-      ],
-      "summary": "Hydro-Québec Distribution applied to the Régie de l'énergie for a dedicated rate for large data centres, docket R-4333-2026, which the Régie lists as ongoing. Hydro-Québec states the rate is equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay.",
-      "source_url": "https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-proposing-regie-energie-new-rate-large-data-centres-adjustment-rate-cryptographic-use-applied-blockchains.html",
-      "source_title": "Hydro-Québec — Proposing a new rate for large data centres (Régie docket R-4333-2026)",
-      "captured_at": "2026-10-19",
-      "country": "CA",
-      "source_lang": "en",
-      "community_benefits_framework": false,
-      "subdivision": "CA-QC",
-      "identifier": "R-4333-2026"
     },
     {
       "id": "sg-dc-cfa2-2026",
@@ -961,7 +945,6 @@
         "currency": "USD",
         "as_stated": "alrededor de 3.300 millones de dólares"
       },
-      "claimed_jobs": 81041,
       "lat": -33.4375,
       "lon": -70.65
     },
@@ -1220,6 +1203,35 @@
       "statement_lang": "en",
       "project_id": "fi-microsoft-espoo",
       "published_at": "2022-03-17"
+    }
+  ],
+  "rate_cases": [
+    {
+      "id": "ca-qc-regie-r-4333-2026",
+      "state_code": null,
+      "country": "CA",
+      "subdivision": "CA-QC",
+      "source_lang": "fr",
+      "jurisdiction_level": "state",
+      "utility": "Hydro-Québec Distribution",
+      "regulator": "Régie de l'énergie du Québec",
+      "docket_number": "R-4333-2026",
+      "title": "Hydro-Québec's proposed data-centre rate (tarif CD)",
+      "case_type": "large_load_tariff",
+      "status": "pending",
+      "filed_date": "2026-02-19",
+      "next_milestone": "Hearings scheduled 7–11 December and 15–18 December 2026 (after sessions held 1–9 October), per the docket.",
+      "next_milestone_date": "2026-12-07",
+      "summary": "Hydro-Québec Distribution asked the Régie de l'énergie to set a new rate for data centres (tarif CD), together with an adjustment to the rate for cryptographic blockchain use. Hydro-Québec says the rate is equivalent to an average of 13¢/kWh, approximately double what current large-power customers pay, and is subject to the Régie's approval. The Régie lists the docket as ongoing (\"En cours\").",
+      "source_url": "https://www.regie-energie.qc.ca/fr/participants/dossiers/R-4333-2026",
+      "source_title": "Régie de l'énergie — Dossier R-4333-2026 (HQD, tarifs centres de données)",
+      "resources": [
+        {
+          "url": "https://news.hydroquebec.com/news/press-releases/all-quebec/hydro-quebec-proposing-regie-energie-new-rate-large-data-centres-adjustment-rate-cryptographic-use-applied-blockchains.html",
+          "title": "Hydro-Québec — Proposing a new rate for large data centres (press release, in English)"
+        }
+      ],
+      "captured_at": "2026-10-19"
     }
   ]
 }

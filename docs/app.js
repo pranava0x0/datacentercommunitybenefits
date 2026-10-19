@@ -9464,6 +9464,7 @@ function intlRecordsFor(code) {
     policies: d.policies.filter(inCountry),
     moratoriums: d.moratoriums.filter(inCountry),
     projects: d.projects.filter(inCountry),
+    rateCases: (d.rate_cases || []).filter(inCountry),
     eu,
   };
 }
@@ -9472,6 +9473,7 @@ function countWords(rs) {
   const parts = [];
   if (rs.policies.length) parts.push(`${rs.policies.length} rule${rs.policies.length === 1 ? "" : "s"}`);
   if (rs.moratoriums.length) parts.push(`${rs.moratoriums.length} pause${rs.moratoriums.length === 1 ? "" : "s"}`);
+  if (rs.rateCases.length) parts.push(`${rs.rateCases.length} rate case${rs.rateCases.length === 1 ? "" : "s"}`);
   if (rs.projects.length) parts.push(`${rs.projects.length} site${rs.projects.length === 1 ? "" : "s"}`);
   if (rs.eu.length) parts.push(`${rs.eu.length} EU rule${rs.eu.length === 1 ? "" : "s"}`);
   return parts.join(" · ") || "No records yet";
@@ -9565,17 +9567,36 @@ function intlSiteCard(p, hTag = "h3") {
   return li;
 }
 
+function intlRateCaseCard(rc, hTag = "h3") {
+  const li = el("li", "cba-card world-record");
+  li.id = `world-rec-${rc.id}`;
+  li.dataset.id = rc.id;
+  const head = el("header", "cba-head");
+  head.append(
+    el("span", "badge " + (RATE_CASE_BADGE_CLASS[rc.status] || ""), RATE_CASE_STATUS_LABELS[rc.status] || rc.status),
+    el("span", "cba-kind", RATE_CASE_TYPE_LABELS[rc.case_type] || rc.case_type),
+    el(hTag, "cba-title", rc.title),
+    el("p", "cba-facts", [intlPlace(rc), rc.regulator, rc.docket_number, rc.filed_date ? `filed ${formatAsOf(rc.filed_date)}` : null].filter(Boolean).join(" · "))
+  );
+  li.append(head, el("p", "cba-summary", rc.summary));
+  if (rc.next_milestone) li.append(el("p", "rc-next", `Next: ${rc.next_milestone}`));
+  li.append(sourceLine(rc));
+  return li;
+}
+
 function worldInstruments() {
   const d = state.intl;
   return [
     ...d.policies.map((p) => ({ kind: "policy", r: p, date: p.date || "" })),
     ...d.moratoriums.map((m) => ({ kind: "pause", r: m, date: m.enacted_date || m.captured_at || "" })),
+    ...(d.rate_cases || []).map((rc) => ({ kind: "ratecase", r: rc, date: rc.filed_date || "" })),
   ].sort((a, b) => b.date.localeCompare(a.date));
 }
 
 function worldStatusOf(x) {
   const s = x.r.status;
   if (x.kind === "pause") return x.r.lifted_date || s === "failed" ? "ended" : s === "enacted" ? "in_effect" : s;
+  if (x.kind === "ratecase") return s === "pending" ? "proposed" : s === "approved" ? "in_effect" : "ended";
   return s === "failed" ? "ended" : s;
 }
 
@@ -9589,7 +9610,8 @@ function renderWorldInstruments() {
     .filter((x) => !pr || (x.kind === "policy" && (x.r.principles || []).includes(pr)))
     .filter((x) => !st || worldStatusOf(x) === st);
   const ol = document.getElementById("world-instrument-list");
-  ol.replaceChildren(...rows.map((x) => (x.kind === "policy" ? intlPolicyCard(x.r) : intlPauseCard(x.r))));
+  const card = { policy: intlPolicyCard, pause: intlPauseCard, ratecase: intlRateCaseCard };
+  ol.replaceChildren(...rows.map((x) => card[x.kind](x.r)));
   if (!rows.length) ol.replaceChildren(el("li", "muted", "No records match the current filters."));
   const meta = document.getElementById("world-instruments-meta");
   if (meta) meta.textContent = `${rows.length} of ${all.length} records`;
@@ -9608,6 +9630,7 @@ function renderWorld() {
       [countries.length, "Countries and the EU"],
       [d.policies.length, "Rules and programmes"],
       [nPause, "Pauses"],
+      [(d.rate_cases || []).length, "Rate cases"],
       [d.projects.length, "Sites"],
     ]
       .filter(([v]) => v > 0)
@@ -9615,7 +9638,7 @@ function renderWorld() {
       .join("");
   }
   setSubtabCount("world-countries-count", countries.length);
-  setSubtabCount("world-instruments-count", d.policies.length + nPause);
+  setSubtabCount("world-instruments-count", worldInstruments().length);
   setSubtabCount("world-sites-count", d.projects.length);
 
   const list = document.getElementById("world-country-list");
@@ -9699,9 +9722,14 @@ function openCountry(code, { push = false } = {}) {
   const rs = intlRecordsFor(code);
   const body = document.getElementById("world-country-body");
   const parts = [el("h3", "acc-title world-country-name", countryName(code)), el("p", "hero-dek", c.summary)];
+  // Every section renders, empty or not: "nothing recorded" is an answer,
+  // and a missing heading reads as a coverage gap (spec: honest absence).
   const section = (title, items, render) => {
-    if (!items.length) return;
     parts.push(el("h4", "rp-subhead", title));
+    if (!items.length) {
+      parts.push(el("p", "muted", "Nothing recorded yet."));
+      return;
+    }
     const ol = el("ol", "world-records");
     ol.setAttribute("role", "list");
     // Card titles sit under this h4, so they drop to h5 here.
@@ -9710,17 +9738,18 @@ function openCountry(code, { push = false } = {}) {
   };
   section("Rules and programmes", rs.policies, intlPolicyCard);
   section("Pauses", rs.moratoriums, intlPauseCard);
+  section("Electricity rate cases", rs.rateCases, intlRateCaseCard);
   section("Sites", rs.projects, intlSiteCard);
-  section("EU rules that apply here", rs.eu, intlPolicyCard);
-  if (!rs.policies.length && !rs.moratoriums.length && !rs.projects.length && !rs.eu.length) {
-    parts.push(el("p", "muted", "No records yet."));
-  }
+  if (EU_MEMBERS.includes(code)) section("EU rules that apply here", rs.eu, intlPolicyCard);
   // Background after the records: readers come for the rules and sites.
   if (c.context && c.context.length) {
     const ul = el("ul", "world-context");
     for (const f of c.context) {
       const li = el("li");
-      li.append(el("span", null, f.statement + " "), sourceLine(f));
+      // The curator's English sentence, then the source's own words (and a
+      // labelled translation when they aren't English).
+      li.append(el("p", "world-context-statement", f.statement));
+      li.append(quoteBlock(f.verbatim, f.source_lang || "en", f.translation), sourceLine(f));
       ul.append(li);
     }
     parts.push(ul);

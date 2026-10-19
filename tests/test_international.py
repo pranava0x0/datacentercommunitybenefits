@@ -75,7 +75,7 @@ def test_every_registered_country_has_a_country_record() -> None:
 def test_every_country_has_at_least_one_record() -> None:
     """Honest absence is fine on a page, but a wave-1 country with nothing
     verified shouldn't be advertised as covered."""
-    used = {r["country"] for k in ("policies", "moratoriums", "projects") for r in SEED[k]}
+    used = {r["country"] for k in ("policies", "moratoriums", "projects", "rate_cases") for r in SEED[k]}
     empty = {c["code"] for c in SEED["countries"]} - used
     assert not empty, f"countries with no records: {sorted(empty)}"
 

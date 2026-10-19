@@ -4058,3 +4058,32 @@ class TestInternational:
         page.go_forward()
         expect(page.locator("#world-country")).to_be_visible()
         assert page.url.endswith("#country/FR")
+
+
+    def test_country_page_shows_every_section_and_original_context(self, page: Page, base_url: str):
+        # Codex review of #83: empty sections stay visible ("Nothing recorded
+        # yet"), and non-English context facts show the source's own words
+        # with a labelled translation.
+        seed = json.loads((ROOT / "docs/data/international.json").read_text())
+        code = next(
+            c["code"] for c in seed["countries"]
+            if any(f.get("source_lang", "en") != "en" for f in c.get("context", []))
+        )
+        page.goto(base_url + f"/?c=1#country/{code}")
+        expect(page.locator("#world-country")).to_be_visible()
+        heads = page.locator("#world-country-body h4").all_inner_texts()
+        for title in ("Rules and programmes", "Pauses", "Electricity rate cases", "Sites"):
+            assert title in heads, heads
+        assert page.locator("#world-country-body p.muted", has_text="Nothing recorded yet.").count() >= 1
+        fact = next(f for c in seed["countries"] if c["code"] == code for f in c["context"] if f.get("source_lang", "en") != "en")
+        bq = page.locator(f'#world-country-body .world-context blockquote[lang="{fact["source_lang"]}"]').first
+        expect(bq).to_have_text(fact["verbatim"])
+
+    def test_rate_case_abroad_renders_as_a_docket(self, page: Page, base_url: str):
+        seed = json.loads((ROOT / "docs/data/international.json").read_text())
+        rc = seed["rate_cases"][0]
+        page.goto(base_url + f"/?c=2#country/{rc['country']}")
+        card = page.locator(f'#world-country-body [data-id="{rc["id"]}"]')
+        expect(card).to_be_visible()
+        expect(card).to_contain_text(rc["docket_number"])
+        expect(card.locator(".rc-next")).to_contain_text("Next:")

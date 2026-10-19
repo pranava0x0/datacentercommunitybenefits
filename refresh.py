@@ -650,7 +650,7 @@ def _build_home(payloads, today: date) -> dict:
         # v6: International tab card. Records, never money (no cross-currency sums).
         "international_countries": sum(c.code in COUNTRIES for c in intl.countries),
         "international_records": sum(
-            len(getattr(intl, k)) for k in ("policies", "moratoriums", "projects")
+            len(getattr(intl, k)) for k in ("policies", "moratoriums", "projects", "rate_cases")
         ),
         "pledge_organizations": len(orgs),
         "pledge_governors": len(sig.signatories) - len(orgs),
@@ -788,6 +788,7 @@ _V6_STRIP = {
     "moratoriums": ("country", "source_lang", "formality"),
     "projects": ("source_lang",),
     "responses": ("source_lang",),
+    "rate_cases": ("country", "source_lang"),
 }
 
 
