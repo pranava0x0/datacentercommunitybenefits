@@ -677,9 +677,10 @@
       ],
       "key_terms": [
         "a reservation mechanism that allows capacity to be held at a specific physical connection point",
-        "commensurate discount on electricity costs"
+        "commensurate discount on electricity costs",
+        "However, a small number of very large projects may need to go through the Nationally Significant Infrastructure Projects"
       ],
-      "summary": "A UK government policy paper on AI Growth Zones, designated locations for AI compute. It describes a mechanism to reserve grid capacity at a specific connection point and a discount on electricity costs.",
+      "summary": "A UK government policy paper on AI Growth Zones, designated locations for AI compute. It describes a mechanism to reserve grid capacity at a specific connection point and a discount on electricity costs. The paper also says a small number of very large projects may go through the Nationally Significant Infrastructure Projects consenting route, with thresholds to be set by a National Policy Statement for Data Centres.",
       "source_url": "https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones",
       "source_title": "GOV.UK — Delivering AI Growth Zones",
       "captured_at": "2026-10-19",
@@ -1508,6 +1509,75 @@
       "subdivision": "CA-AB",
       "locality": "Alberta",
       "source_lang": "en"
+    },
+    {
+      "id": "fr-senate-data-centre-siting-bill-2026",
+      "title": "Proposition de loi visant à encadrer l’implantation des centres de données sur le territoire français (Senate first reading)",
+      "instrument": "legislation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "France",
+      "country": "FR",
+      "subdivision": null,
+      "date": "2026-03-25",
+      "benefit_themes": [
+        "engagement",
+        "water"
+      ],
+      "principles": [
+        "local_control",
+        "water"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "la publication du décret qualifiant un projet de centre de données de projet d’intérêt national majeur est subordonnée à l’organisation préalable"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "The publication of the decree qualifying a data-centre project as a major national-interest project is conditional on a prior project committee, organised by the developer at its own cost, with the State representative, the host commune, neighbouring communes and intercommunal bodies."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "The Senate adopted at first reading a bill under which a data centre can be qualified as a major national-interest project only after the developer convenes, at its own cost, a project committee with the State, the host commune, neighbouring communes and intercommunal bodies. It also lets the administration refuse a construction permit where water resources are structurally stressed. Passed by the Senate only; not yet law.",
+      "source_url": "https://www.senat.fr/leg/tas25-073.pdf",
+      "source_title": "Sénat, texte adopté n° 73 (25 March 2026), proposition de loi visant à encadrer l’implantation des centres de données",
+      "captured_at": "2026-10-19",
+      "source_lang": "fr"
+    },
+    {
+      "id": "jp-utsunomiya-shin-tochigi-dc-solicitation-2026",
+      "title": "「新栃木変電所」南側エリア データセンター整備事業 募集要項",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Utsunomiya City (Tochigi)",
+      "country": "JP",
+      "subdivision": "JP-09",
+      "locality": "Utsunomiya",
+      "date": "2026-04-30",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "「新栃木変電所」に隣接し，比較的早期に大規模な電力の供給が可能"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Adjacent to the 'Shin-Tochigi Substation', which can supply large amounts of power relatively early."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Utsunomiya City's solicitation (dated 30 April 2026) selects a private data-centre developer for city-marketed land beside the Shin-Tochigi substation, which the city describes as able to supply large amounts of power relatively early. The solicitation's stated purpose is to guide data-centre siting, and the land is in an urbanisation-control zone with farmland zoning.",
+      "source_url": "https://www.city.utsunomiya.lg.jp/_res/projects/default_project/_page_/001/045/525/bosyuyoko2.pdf",
+      "source_title": "宇都宮市 (Utsunomiya City): 「新栃木変電所」南側エリア データセンター整備事業 募集要項, 令和8年4月30日",
+      "captured_at": "2026-10-19",
+      "source_lang": "ja"
     }
   ],
   "moratoriums": [
@@ -2084,6 +2154,74 @@
       "captured_at": "2026-10-19",
       "source_lang": "en",
       "notes": "Penrith City Council's page (last updated 19 Jan 2022) gives a capital investment value of over $300 million (currency not printed; AUD inferred from the NSW context) and says documents supplied by the applicant indicate around 300 construction jobs and 50 once operational. The NSW Planning Portal records the state significant development (SSD-10101987) as approved on 13/07/2023; no construction start was matched, so status stays announced. No coordinates were probed."
+    },
+    {
+      "id": "fr-google-ozans-chateauroux",
+      "company_slug": "google",
+      "name": "Ozans-Châteauroux data centre and grid connection (Etrechet, Indre)",
+      "city": "Etrechet",
+      "locality": "ZAC d’Ozans, Etrechet (Indre)",
+      "country": "FR",
+      "subdivision": "FR-36",
+      "source_lang": "fr",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-04-01",
+      "source_url": "https://www.debatpublic.fr/sites/default/files/2026-04/DECISION_2026_37_CENTRE%20DE%20DONNEES%20GOOGLE%20RTE_1%20Sign%C3%A9%20MP.pdf",
+      "source_title": "CNDP decision 2026/37 (1 April 2026): public pre-consultation on the Google Ozans-Châteauroux data centre and RTE connection",
+      "captured_at": "2026-10-19",
+      "notes": "Co-applicants Google France SARL, Tricolore Computing SARL and Violet Computing SARL, with RTE for the electricity connection. The CNDP ordered a pre-consultation (concertation préalable) and named three garants. The site overlaps the 400 kV Eguzon–Marmagne line, itself under CNDP pre-consultation since 4 Feb 2026. Subdivision null: FR-36/Indre is not in the SUBDIVISIONS registry (FR-IDF only)."
+    },
+    {
+      "id": "in-microsoft-hyderabad-south-central-region",
+      "company_slug": "microsoft",
+      "name": "India South Central cloud region (Hyderabad)",
+      "city": "Hyderabad",
+      "locality": "Hyderabad, Telangana",
+      "country": "IN",
+      "subdivision": "IN-TG",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-12-09",
+      "source_url": "https://news.microsoft.com/source/asia/2025/12/09/microsoft-invests-us17.5-billion-in-india-to-drive-ai-diffusion-at-population-scale/",
+      "source_title": "Microsoft News Source Asia: Microsoft invests US$17.5 billion in India to drive AI diffusion at population scale",
+      "captured_at": "2026-10-19",
+      "notes": "Microsoft says the region is 'set to go live in mid-2026'. Not independently confirmed as live, so status stays announced pending a go-live check."
+    },
+    {
+      "id": "ie-microsoft-naas-jigginstown",
+      "company_slug": "microsoft",
+      "name": "Jigginstown campus, Naas (Co. Kildare)",
+      "city": "Naas",
+      "locality": "Jigginstown/Maudlins, Naas, Co. Kildare",
+      "country": "IE",
+      "subdivision": "IE-KE",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2023,
+      "announced_date": "2023-11-01",
+      "source_url": "https://local.microsoft.com/blog/jigginstown-datacentre-project-update/",
+      "source_title": "Microsoft Ireland: Jigginstown datacentre project update",
+      "captured_at": "2026-10-19",
+      "notes": "Site zoned 'P - Data Centre' under the Naas Local Area Plan. No planning application lodged as of Aug 2026 (local press). Microsoft's page cites a November 2023 open session at the Osprey Hotel. Campaigners seek a statutory variation to remove the zoning. Subdivision null: Kildare is not in the registry. The 'extensive engagement' and pre-planning wording in secondary summaries does not appear on Microsoft's page, so it is not recorded."
+    },
+    {
+      "id": "gb-google-north-weald-outline",
+      "company_slug": "google",
+      "name": "North Weald Airfield data centre (outline permission, Essex)",
+      "city": "North Weald",
+      "locality": "North Weald Airfield, Epping Forest District (Essex)",
+      "country": "GB",
+      "subdivision": "GB-ENG",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-12-10",
+      "source_url": "https://www.northweald-pc.gov.uk/google-data-centre",
+      "source_title": "North Weald Parish Council: Google Data Centre",
+      "captured_at": "2026-10-19",
+      "notes": "Outline permission only. Parish survey on the same page: 77 responses, 'No – 55.84%' and 'Yes- 44.16%', undated, so not recorded as a CommunityResponse. Parish council considered the application on 19 May 2025 per the page. Google's public consultation ran 'throughout July and August' with no year on the page."
     }
   ],
   "responses": [
@@ -2211,6 +2349,18 @@
       "source_url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
       "source_title": "Radio Universidad de Chile — El agua que usa la IA es chilena: vecinos de Quilicura alegan \"falta de responsabilidad\" de data centers",
       "source_lang": "es"
+    },
+    {
+      "id": "ie-resp-naas-jigginstown-opposition-2026",
+      "project_id": "ie-microsoft-naas-jigginstown",
+      "date": "2026-08-11",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Residents and campaigners want the land de-zoned before any planning application and call on Naas Municipal District councillors to seek a statutory variation of the local area plan. The Naas Municipal District mayor says pressure is building from residents.",
+      "source_url": "https://www.kildare-nationalist.ie/news/kildare-microsoft-data-centre-faces-local-opposition_arid-107867.html",
+      "source_title": "Kildare Nationalist: Kildare Microsoft data centre faces local opposition",
+      "source_lang": "en",
+      "single_source": true
     }
   ],
   "claims": [
@@ -2492,6 +2642,71 @@
       "statement": "At the 10th AWS ASEAN Summit in Singapore today, Amazon Web Services (AWS) announced plans to invest an additional S$12 billion into its existing cloud infrastructure in Singapore from 2024 to 2028 to meet growing customer demand for cloud technology and services in the country.",
       "source_url": "https://www.edb.gov.sg/en/news-and-insights/aws-to-invest-an-additional-12billion-in-singapore-by-2028",
       "source_title": "Singapore EDB — AWS to invest an additional SG$12 billion in Singapore by 2028, and announces flagship AI programme"
+    },
+    {
+      "id": "in-claim-microsoft-india-investment",
+      "company_slug": "microsoft",
+      "theme": "infrastructure",
+      "statement": "US$17.5 billion over four years (CY 2026 to 2029)",
+      "statement_lang": "en",
+      "source_url": "https://news.microsoft.com/source/asia/2025/12/09/microsoft-invests-us17.5-billion-in-india-to-drive-ai-diffusion-at-population-scale/",
+      "source_title": "Microsoft News Source Asia: Microsoft invests US$17.5 billion in India to drive AI diffusion at population scale",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-12-09",
+      "country": "IN",
+      "formal_agreement": false
+    },
+    {
+      "id": "in-claim-microsoft-india-skilling",
+      "company_slug": "microsoft",
+      "theme": "education",
+      "statement": "we have already trained 5.6 million people since January 2025",
+      "statement_lang": "en",
+      "source_url": "https://news.microsoft.com/source/asia/2025/12/09/microsoft-invests-us17.5-billion-in-india-to-drive-ai-diffusion-at-population-scale/",
+      "source_title": "Microsoft News Source Asia: Microsoft invests US$17.5 billion in India to drive AI diffusion at population scale",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-12-09",
+      "country": "IN",
+      "formal_agreement": false
+    },
+    {
+      "id": "ie-claim-microsoft-dublin-community-fund-2026",
+      "company_slug": "microsoft",
+      "theme": "community_grants",
+      "statement": "will provide €100,000 in funding for community changemakers",
+      "statement_lang": "en",
+      "source_url": "https://news.microsoft.com/source/emea/?p=226958",
+      "source_title": "Microsoft News Source EMEA: Microsoft launches 2026 Community Fund in Dublin",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-01-26",
+      "country": "IE",
+      "formal_agreement": false
+    },
+    {
+      "id": "kr-claim-microsoft-busan-jobs",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "As of 2025, these facilities currently employ approximately 50 people.",
+      "statement_lang": "en",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Korea.pdf",
+      "source_title": "Microsoft: Microsoft datacenters in Korea (fact sheet, published October 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-01",
+      "country": "KR",
+      "formal_agreement": false
+    },
+    {
+      "id": "kr-claim-microsoft-busan-construction-jobs",
+      "company_slug": "microsoft",
+      "theme": "jobs",
+      "statement": "Typically, when we build new facilities, we estimate it will require 350 construction roles and approximately 2.2 million work hours to complete construction of the new datacenters.",
+      "statement_lang": "en",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Korea.pdf",
+      "source_title": "Microsoft: Microsoft datacenters in Korea (fact sheet, published October 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-01",
+      "country": "KR",
+      "formal_agreement": false
     }
   ],
   "rate_cases": [

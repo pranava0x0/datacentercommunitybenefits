@@ -1180,3 +1180,30 @@ slug need confirming):
   2026-05-22, 5 MW threshold could be split into 4.9 MW subsidiaries). Not
   shipped: a `CommunityResponse` needs a `project_id` and the case has no site.
   Candidate home if the schema ever allows a rate-case-attached response.
+
+Held from `notes/specs/international/wave2/deep_jp_kr_in_gb_fr_ie.json` (leads, not shipped):
+- **JP METI/ANRE data-centre notice** (data_center2026.html): data-centre items in
+  periodic reports from FY2026 submissions, PUE 1.3 or lower for new data centres
+  from FY2029. HTTP 403 to WebFetch, so the quote could not be probed. National
+  policy candidate once a fetchable copy exists.
+- **JP Akita City AI data centre** (up to 500 MW, Shulman Advisory, Aug 2026) and
+  **NTT Data Inzai/Shiroi, Chiba** (about 250 MW, secondary). Developers not tracked.
+- **JP Utsunomiya solicitation schedule**: application and preferred-bidder dates
+  come from secondary reports only; read section V.2 of the solicitation PDF
+  before adding a timeline entry.
+- **KR dedicated AI data-centre electricity rate** (Ministry of Climate, Energy and
+  Environment, 2026-06-29, via asiae). Ministry release not found.
+- **KR Google / LG Uplus domestic data centre** (March 2026, secondary only) and
+  **Microsoft third Busan AI data centre** (local news, status unconfirmed).
+- **GB Section 35 directions**: Dartford New Barn Road (CSE52 Ltd, up to 300 MW,
+  2026-07-02) and Wapseys Wood (Buckinghamshire). Developers not tracked.
+- **GB UK NSIP commencement date** (8 Jan 2026 per secondary sources): not verified
+  on legislation.gov.uk, so left out. The NSIP-route sentence is on
+  `gb-ai-growth-zones-2025`.
+- **GB Google Waltham Cross residents' complaints** (July 2026): needs the primary
+  Register article before a CommunityResponse on `gb-google-waltham-cross`.
+- **IE Naas appeals** to An Coimisiún Pleanála on a permitted 38.69 ha data centre
+  (Aug 2025). Developer not confirmed as tracked.
+- **FR Orange / Morrison JV** (EUR 3bn, 400 MW, exclusivity 2026-07-27). Neither tracked.
+- **FR Ozans-Châteauroux**: add a CommunityResponse once the CNDP pre-consultation
+  reports.
