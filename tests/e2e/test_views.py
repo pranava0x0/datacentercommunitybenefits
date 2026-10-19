@@ -3866,5 +3866,21 @@ class TestIssues78And79:
             if n > strongest.count():
                 page.click("#cba-strongest .project-list-more button")
                 assert strongest.count() == n
+            # Moratoriums: paged, and a search starts from the first page.
+            page.click("#tab-moratoriums")
+            page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
+            rows = page.locator("#moratoriums-tbody tr[data-id]")
+            per = page.evaluate("() => MOR_PHONE_PAGE")
+            total = page.evaluate("() => filteredMoratoriums().length")
+            assert rows.count() == min(total, per)
+            page.click("#moratoriums-tbody .project-list-more button")
+            assert rows.count() == min(total, 2 * per)
+            page.fill("#moratorium-q", "county")
+            assert rows.count() == min(page.evaluate("() => filteredMoratoriums().length"), per)
+            # Pledge scorecard.
+            page.click("#tab-ratepayer")
+            page.wait_for_selector("#rp-scorecard .rp-card", state="attached", timeout=E2E_WAIT)
+            sc = page.evaluate("() => filteredAssessedProjects().length")
+            assert page.locator("#rp-scorecard > .rp-card").count() == min(sc, page.evaluate("() => SCORECARD_PHONE_PAGE"))
         finally:
             ctx.close()

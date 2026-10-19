@@ -1445,6 +1445,8 @@ function filteredMoratoriums() {
     );
 }
 
+const MOR_PHONE_PAGE = 40;
+
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
   wireMoratoriumDetail();
@@ -1487,7 +1489,11 @@ function renderMoratoriumsView() {
     tbody.innerHTML = "<tr><td colspan='5' class='muted'>No records match the current filters.</td></tr>";
   }
 
-  filtered.forEach((m) => {
+  const morKey = ["moratorium-status-filter", "moratorium-type-filter", "moratorium-q"]
+    .map((id) => document.getElementById(id)?.value || "")
+    .join("|");
+  const morShown = phonePageSize("moratoriums", filtered.length, MOR_PHONE_PAGE, morKey);
+  filtered.slice(0, morShown).forEach((m) => {
     const tr = document.createElement("tr");
     tr.className = `moratorium-status-${m.status}`;
 
@@ -1521,6 +1527,14 @@ function renderMoratoriumsView() {
     });
     tbody.appendChild(tr);
   });
+  if (morShown < filtered.length) {
+    tbody.appendChild(
+      showMoreControl("tr", filtered.length - morShown, MOR_PHONE_PAGE, () => {
+        phonePageMore("moratoriums", MOR_PHONE_PAGE);
+        renderMoratoriumsView();
+      }, 5)
+    );
+  }
 }
 
 function _jurtypeBreakdown(moratoriums) {
@@ -6438,6 +6452,37 @@ function sortProjects(items, sortKey) {
 const SITES_PAGE = 20;
 const SITES_PAGED_QUERY = "(max-width: 700px)";
 
+// Phone paging (#79): how many of `total` rows to render for list `key`.
+// The count resets whenever `filterKey` (the list's current filters) changes,
+// so a new search starts from the top page again. Desktop renders everything.
+const _phonePages = {};
+function phonePageSize(key, total, page, filterKey = "") {
+  if (!window.matchMedia(SITES_PAGED_QUERY).matches) return total;
+  const cur = _phonePages[key];
+  if (!cur || cur.filterKey !== filterKey) _phonePages[key] = { shown: page, filterKey };
+  return Math.min(total, _phonePages[key].shown);
+}
+function phonePageMore(key, page) {
+  _phonePages[key].shown += page;
+}
+// A "Show N more" control as an <li> (lists) or a full-width <tr> (tables).
+function showMoreControl(tag, remaining, page, onClick, colspan = 1) {
+  const btn = el("button", "btn-ghost", `Show ${Math.min(page, remaining)} more of ${remaining}`);
+  btn.type = "button";
+  btn.addEventListener("click", onClick);
+  if (tag === "tr") {
+    const tr = el("tr", "project-list-more");
+    const td = el("td");
+    td.colSpan = colspan;
+    td.append(btn);
+    tr.append(td);
+    return tr;
+  }
+  const li = el("li", "project-list-more");
+  li.append(btn);
+  return li;
+}
+
 function renderProjectList() {
   const list = document.getElementById("project-list");
   const meta = document.getElementById("explorer-meta");
@@ -7974,6 +8019,8 @@ function renderRatepayerFilterBar() {
   }
 }
 
+const SCORECARD_PHONE_PAGE = 10;
+
 function renderRatepayerScorecard() {
   renderRatepayerFilterBar();
   setSubtabCount("rp-scorecard-count", ratepayerAssessedProjects().length);
@@ -8001,8 +8048,18 @@ function renderRatepayerScorecard() {
       li.textContent = "No assessed sites match these filters.";
       ul.appendChild(li);
     } else {
-      for (const p of assessed) {
+      const key = JSON.stringify(_rpFilter);
+      const shown = phonePageSize("scorecard", assessed.length, SCORECARD_PHONE_PAGE, key);
+      for (const p of assessed.slice(0, shown)) {
         ul.appendChild(renderRatepayerCard(p));
+      }
+      if (shown < assessed.length) {
+        ul.appendChild(
+          showMoreControl("li", assessed.length - shown, SCORECARD_PHONE_PAGE, () => {
+            phonePageMore("scorecard", SCORECARD_PHONE_PAGE);
+            renderRatepayerScorecard();
+          })
+        );
       }
     }
   }
