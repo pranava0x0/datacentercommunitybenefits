@@ -261,6 +261,7 @@ come first, then locations, companies and sites.
 - Imperial County project denial: a site fight, not a moratorium.
 
 #### state:CO — Colorado
+- (2026-10-19) Brighton: KUNC (Oct 8) says the council "approved a one-year ban on data centers" on a Tuesday night (Oct 6 by weekday); it never names the instrument. Headline word, not a confirmed legal action: find the ordinance or minutes before recording a moratorium. Kiowa County Resolution 2026-4 is recorded (stated end Oct 9, 2026; check for extension).
 - Global AI, Weld County (up to 1 GW, approved Sept 9) is a two-gate
   candidate; see §7.
 - Six Colorado records cite news, not `.gov`. larimer.gov 403s, and
@@ -326,6 +327,7 @@ come first, then locations, companies and sites.
 - Kokomo: zoning and regulatory actions, not a moratorium.
 
 #### state:KS — Kansas
+- (2026-10-19) Saline County KS: KSN says the commission voted 4-0 "on Tuesday" for a three-year pause on data centers, nuclear and hydrogen facilities; the article has no date (likely early 2026). Needs county minutes for an event date. Not Saline County NE (recorded).
 - Marysville KS: reportedly 12 months from Sept 14, one outlet so far.
   Distinct from Marysville WA.
 - EEI: Evergy 25-EKME-315-TAR.
@@ -353,6 +355,7 @@ come first, then locations, companies and sites.
   rate schedules Sept 1, 2026 (per EEI). No MD PSC case numbers located yet.
 
 #### state:MI — Michigan
+- (2026-10-19) Marshall: WWMT (Aug 10) reports a 365-day moratorium; the only date is the resolution PDF label "8-3-2026", not a stated vote date. Confirm Aug 3 from council minutes, then record (enacted, 12 months).
 - Zeeland Township: a new year-long moratorium passed unanimously at a
   Tuesday meeting in early September 2026 (FOX17, which has no dateline).
   It needs the meeting date from township minutes before it can be added.
@@ -364,6 +367,7 @@ come first, then locations, companies and sites.
 - EEI: Consumers U-21859, I&M U-21986, DTE U-22061.
 
 #### state:MN — Minnesota
+- (2026-10-19) Waite Park: KNSI (May 5) says the council "unanimously passed" a one-year moratorium; no meeting date in the article (May 4 is unverified). Needs the council agenda or minutes.
 - Otter Tail Power docket 26-211: see decision 13. Its South Dakota twin is
   EL26-021 (75 MW threshold); don't reuse that number or threshold for MN.
 - EEI: Minnesota Power 26-126. This docket is independently confirmed as
@@ -371,6 +375,7 @@ come first, then locations, companies and sites.
 - Moratorium Nation: Inver Grove Heights.
 
 #### state:MO — Missouri
+- (2026-10-19) Ralls County: Muddy River News (Aug 25) reports a one-year moratorium to Sept 1, 2027; the vote date is not stated. Needs commission minutes.
 - EEI: Evergy EO-2025-0154.
 - Crusoe Warrenton (see company:crusoe).
 
@@ -443,6 +448,7 @@ come first, then locations, companies and sites.
   25-0958-EL-AIR.
 
 #### state:OK — Oklahoma
+- (2026-10-19) Shawnee: News 9 (Aug 19) says the commission approved a moratorium through the end of 2027, effective immediately, without a meeting date or vote. Aug 17 is unconfirmed. Needs city minutes. Luther is recorded.
 - EEI: PSO PUD2025-000075, OG&E PUD2026-000046.
 
 #### state:OR — Oregon
@@ -474,6 +480,7 @@ come first, then locations, companies and sites.
 - EEI: Duke 2025-172-E / 2025-154-E; generic docket 2026-138-E.
 
 #### state:TN — Tennessee
+- (2026-10-19) Gallatin: WSMV (Jul 29) says commissioners approved a 60-day pause on new data center applications, "not the full moratorium" proposed earlier; no vote date. Needs minutes before recording.
 - (2026-10-18) Memphis council vote on `memphis-city-2026-10` set for Oct 20;
   WREG reportedly said it wasn't taken up. Record the outcome.
 - (2026-10-19) Gallatin city: WSMV (2026-07-29) says commissioners "have approved a 60-day pause on new data center applications" but gives no vote date, and other outlets report a 12-month proposal advancing; reconcile from city minutes before adding a record.

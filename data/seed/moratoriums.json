@@ -6698,6 +6698,43 @@
       "captured_at": "2026-10-19",
       "city_council_vote": "3-2 to adopt; unanimous to rescind",
       "lifted_date": "2026-06-04"
+    },
+    {
+      "id": "luther-ok-2026-06",
+      "jurisdiction": "Luther",
+      "jurisdiction_type": "city",
+      "state_code": "OK",
+      "status": "enacted",
+      "enacted_date": "2026-06-17",
+      "duration_months": 6,
+      "duration_description": "Through Dec. 31, 2026.",
+      "key_reasons": [],
+      "summary": "Luther's town board approved a temporary moratorium ordinance at its Wednesday, June 17, 2026 meeting. Through Dec. 31, 2026 the town will not accept new rezoning or specific-use permit applications for data centers, and it pauses approvals of existing applications of that kind. About 300 residents had gathered to oppose a proposed Beltline Energy data center; the board took no action on that application at the meeting. The article reports no vote count.",
+      "source_url": "https://www.news9.com/data-centers-in-oklahoma/luther-oklahoma-board-approves-data-center-moratorium",
+      "source_title": "News 9 — Hundreds gather outside in Luther as town board approves a data center moratorium",
+      "resources": [],
+      "enacted_by": "Town board",
+      "session": "2026",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "kiowa-county-co-2026-04",
+      "jurisdiction": "Kiowa County",
+      "jurisdiction_type": "county",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-04-09",
+      "duration_months": 6,
+      "duration_description": "Six months; the resolution states it ends Oct. 9, 2026 unless extended or terminated by the Board. No extension or lapse has been confirmed.",
+      "key_reasons": [],
+      "summary": "Kiowa County's Board of County Commissioners adopted Resolution No. 2026-4 on April 9, 2026, an emergency temporary moratorium on processing applications for data center facilities in the unincorporated county while it revises its regulations. The resolution takes effect on adoption and states a six-month term. Its section 2 names Phillips County, apparently a drafting slip.",
+      "source_url": "https://kiowacountypress.net/content/kiowa-county-resolution-2026-4-data-center-facility-moratorium",
+      "source_title": "Kiowa County Press — Kiowa County Resolution 2026-4 Data Center Facility Moratorium",
+      "resources": [],
+      "enacted_by": "Board of County Commissioners",
+      "session": "2026",
+      "effective_date": "2026-04-09",
+      "captured_at": "2026-10-19"
     }
   ]
 }
