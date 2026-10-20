@@ -233,6 +233,33 @@
       "summary": "Korean internet and cloud company, tracked for its Sejong AI data-centre campus (announced July 2026 with NVIDIA and Brookfield). No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
       "last_reviewed": "2026-10-19",
       "international_only": true
+    },
+    {
+      "slug": "mitsui-fudosan",
+      "name": "Mitsui Fudosan",
+      "hq": "Tokyo, Japan",
+      "dedicated_page_url": null,
+      "summary": "Japanese real-estate developer, tracked as the lead company of the Kobe City tunnel data-centre lease awarded on 6 October 2026. No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "colt-dcs",
+      "name": "Colt Data Centre Services",
+      "hq": "London, United Kingdom",
+      "dedicated_page_url": null,
+      "summary": "Data-centre operator, tracked for its Mumbai 3 build on the Navi Mumbai campus (joint venture with RMZ). No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "sesterce",
+      "name": "Sesterce",
+      "hq": "Marseille, France",
+      "dedicated_page_url": null,
+      "summary": "French AI-infrastructure start-up, tracked for its Rovaltain (Alixan) data-centre project, whose building permit a court suspended in July 2026. No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
     }
   ]
 }

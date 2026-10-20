@@ -1,0 +1,255 @@
+{
+ "companies": [],
+ "records": [
+  {
+   "kind": "policy",
+   "verified": true,
+   "id": "in-up-dc-policy-2026-go-536",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-UP",
+    "instrument": "UP Data Centre Policy 2026 (G.O. No. 536/78-2-2026/E-105226)",
+    "issuer": "Department of IT & Electronics, Government of Uttar Pradesh",
+    "event_date": "2026-07-09",
+    "event_date_note": "Date of the G.O. as printed in the policy PDF; cabinet approval reported 6 July 2026 by secondary press.",
+    "scope": "state"
+   },
+   "verbatim": "The Policy notified vide G.O. No. 536/78-2-2026/E-105226 dated 09.07.2026",
+   "translation": null,
+   "source_url": "https://uplc.up.gov.in/downloadmedia/siteContent/202608230935077722DC-policy-2026-English_230826.pdf",
+   "notes": "Primary PDF text extracted with macOS PDFKit (21 pages). Replaces the 2021 framework; the policy's stated target is 2 GW+ capacity and Rs 2 lakh crore+ investment (press summary, not re-verified in the PDF)."
+  },
+  {
+   "kind": "policy",
+   "verified": true,
+   "id": "in-up-bundelkhand-land-subsidy-2026",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-UP",
+    "instrument": "UP Data Centre Policy 2026, clause 7.1.3 (land subsidy)",
+    "issuer": "Government of Uttar Pradesh",
+    "event_date": "2026-07-09",
+    "event_date_note": "Policy G.O. date; the subsidy takes effect through the policy.",
+    "scope": "state",
+    "region_note": "Jhansi district is listed under the Bundelkhand region in the policy's district table (section 12)."
+   },
+   "verbatim": "50% Land subsidy on prevailing sector rates shall be provided on purchase/lease of land from State Agencies in Bundelkhand and Purvanchal regions",
+   "translation": null,
+   "source_url": "https://uplc.up.gov.in/downloadmedia/siteContent/202608230935077722DC-policy-2026-English_230826.pdf",
+   "notes": "Madhyanchal and Paschimanchal get 25% under clause 7.1.3(a). Bundelkhand and Purvanchal (where Jhansi sits) get 50%. The 2021 version offered the same Bundelkhand/Purvanchal rate, per Swarajya, and drew no data centres to those regions in four years (secondary claim; not re-verified here)."
+  },
+  {
+   "kind": "state_action",
+   "verified": true,
+   "id": "in-ap-adani-480-acres-visakhapatnam-go-2025-12",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "company": "Adani Infra (India) Pvt Ltd (for the Google-linked AI hub)",
+    "project": "Visakhapatnam and Anakapalli AI data centre cluster (1 GW)",
+    "land_allotted_acres": 480,
+    "event_date": "2025-12-02",
+    "event_date_note": "Date the order was issued, per Deccan Chronicle (4 Dec 2025). Council of ministers approval was 28/11/2025.",
+    "instrument": "State government order transferring land without auction (APIIC)"
+   },
+   "verbatim": "hereby accords permission for the transfer of 480 acres of land in Visakhapatnam and Anakapalli districts",
+   "translation": null,
+   "source_url": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/andhra-govt-allots-480-acres-for-adani-google-ai-data-centre-in-visakhapatnam-1921542",
+   "notes": "The GO number was not found in any fetched source; the order is cited through the press report. APIIC defended allotting land without auction before the High Court (ThePrint). The order itself should be fetched from the AP government portal before publication."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-ap-bhogapuram-farmers-march-2026-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "project": "Bhogapuram AI data centre (Vizianagaram district, Reliance)",
+    "constituency": "residents",
+    "stance": "negative",
+    "event_date": "2026-10-08",
+    "event_date_note": "Publication date of the Deccan Chronicle report. The march itself is undated in the article."
+   },
+   "verbatim": "The protesters marched from the local panchayat office to the tahsildar’s office",
+   "translation": null,
+   "source_url": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/vizianagaram-farmers-renew-protest-against-proposed-data-centre-1993991",
+   "notes": "Same report: farmers argue that taking fertile agricultural land would threaten their livelihood. Some affected landowners have gone to court (per the Deccan Chronicle summary). Stance is a curator judgment; the article reports the farmers' position."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-ap-tarluvada-dalit-land-2026-06",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "project": "Google-Adani Visakhapatnam AI data centre (Tarluvada village)",
+    "constituency": "residents",
+    "stance": "negative",
+    "event_date": "2026-06-01",
+    "event_date_note": "Publication date of the TBS News report."
+   },
+   "verbatim": "the project is being developed on land that belonged to members of the Dalit community in Tarluvada village",
+   "translation": null,
+   "source_url": "https://www.tbsnews.net/world/south-asia/giant-data-centre-over-land-belonging-dalits-sparking-protests-andhra-pradesh",
+   "notes": "The same report: land was originally allotted to Dalit families in the 1970s, and some villagers argue the government's compensation is below market value (quote to be used with the stance). Villagers are not named."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-ap-ngt-vizag-plea-2026-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "project": "Google-Adani Visakhapatnam AI data centre",
+    "constituency": "ngo",
+    "stance": "negative",
+    "event_date": "2026-10-16",
+    "event_date_note": "Publication date of the Bar & Bench report; the NGT notice date was not separately confirmed."
+   },
+   "verbatim": "The National Green Tribunal (NGT) has sought the Central government's response to a plea",
+   "translation": null,
+   "source_url": "https://www.barandbench.com/news/litigation/ngt-seeks-centres-response-to-plea-against-clearance-for-google-adanis-17700-crore-vizag-data-centre",
+   "notes": "Petition by a private appellant (not named here). The plea says the project 'threatens a drinking water reservoir' and was 'granted environmental clearance without adequate assessment of its impact on a nearby wildlife sanctuary' per the same article. Next hearing date listed by other reports as 26 Oct 2026, not confirmed on this page."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-ap-hc-pil-vizag-google-adani-2026-07",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "project": "Google-Adani Visakhapatnam AI data centre",
+    "constituency": "ngo",
+    "stance": "negative",
+    "event_date": "2026-07-01",
+    "event_date_note": "Date the High Court issued notice on the PIL, per LiveLaw (article 14 Sep 2026)."
+   },
+   "verbatim": "The high court had issued notice on the PIL on July 1.",
+   "translation": null,
+   "source_url": "https://www.livelaw.in/high-court/andhra-pradesh-high-court/ap-high-court-issues-notice-pil-challenging-google-adani-data-centre-project-cites-environmental-concerns-549989",
+   "notes": "The PIL challenges the environmental clearance and the allotment of 160 acres (LiveLaw). The state says a parallel NGT petition exists and wants the PIL dropped (Bar & Bench, separate report). Year is 2026 per the article date."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-mh-thane-amazon-protest-2026-07",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-MH",
+    "project": "Amazon hyperscale data centre, Balkum-Majiwada, Thane",
+    "constituency": "residents",
+    "stance": "negative",
+    "event_date": "2026-07-18",
+    "event_date_note": "Publication date of the Free Press Journal report on the Wake Up Thanekar opposition; the same day as the human-chain protest per PTI/The Wire."
+   },
+   "verbatim": "Behind us, an Amazon data centre is being proposed, and we are opposing this project.",
+   "translation": null,
+   "source_url": "https://www.freepressjournal.in/amp/mumbai/we-are-genuinely-working-to-raise-issues-wake-up-thanekar-representative-opposes-proposed-amazon-data-centre-project",
+   "notes": "Quote is from the citizen group's representative. The article reports the group's concerns about water, power and consultation; those concerns are not in this quote, so cite the Free Press Journal report for the stance only. The Wire (PTI) article could not be read in this session."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-ts-microsoft-mekaguda-petition-2023-07",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-TG",
+    "project": "Microsoft Hyderabad data centre, Mekaguda (Rangareddy district)",
+    "constituency": "residents",
+    "stance": "negative",
+    "event_date": "2023-07",
+    "event_date_note": "Month of the petition filing per the Rest of World report (published 20 Aug 2024)."
+   },
+   "verbatim": "In July 2023, a group of 56 local residents filed a petition against Microsoft",
+   "translation": null,
+   "source_url": "https://restofworld.org/2024/microsoft-data-center-india-mekaguda-industrial-waste/",
+   "notes": "Petitioners allege land was occupied beyond the boundary and that industrial waste was dumped into a nearby lake. Microsoft told Rest of World it 'has complied with all local requirements and has the necessary permits from the relevant administrative departments' (not added as a claim, because it is a compliance statement, not a community commitment). Status as of Sept 2025 per other reports: pending; no 2026 hearing found."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-ap-vizag-hindi-residents-water-power-2026-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "project": "Google-Adani Visakhapatnam AI data centre",
+    "constituency": "residents",
+    "stance": "negative",
+    "event_date": "2026-10-13",
+    "event_date_note": "Date of the English GKToday report on the same Google investment; the Hindi page's own date was not extracted, so this is an inferred match."
+   },
+   "verbatim": "स्थानीय निवासियों और पर्यावरण कार्यकर्ताओं ने मीठे पानी की उपलब्धता, पारिस्थितिकी पर असर और बिजली आपूर्ति पर बढ़ते दबाव को लेकर चिंता जताई है",
+   "translation": "Local residents and environmental activists have expressed concern about the availability of fresh water, the impact on the ecology, and growing pressure on the power supply.",
+   "source_url": "https://www.gktoday.in/hindi/%e0%a4%b5%e0%a4%bf%e0%a4%b6%e0%a4%be%e0%a4%96%e0%a4%be%e0%a4%aa%e0%a4%a4%e0%a5%8d%e0%a4%a4%e0%a4%a8%e0%a4%ae-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%97%e0%a5%82%e0%a4%97%e0%a4%b2-%e0%a4%95%e0%a4%be/",
+   "notes": "Hindi source (GKToday). Translation is machine (AI). The same article reports Google's stated 120% replenishment goal and its air-cooling reasoning as press paraphrase, not used here."
+  },
+  {
+   "kind": "claim",
+   "verified": true,
+   "id": "in-google-vizag-power-infrastructure-2025-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "company": "Google",
+    "project": "Visakhapatnam AI hub",
+    "theme": "energy",
+    "event_date": "2025-10-14",
+    "event_date_note": "Publication date of Google's India blog post."
+   },
+   "verbatim": "deliver new transmission lines, clean energy generation, and energy storage systems in Andhra Pradesh",
+   "translation": null,
+   "source_url": "https://blog.google/intl/en-in/company-news/our-first-ai-hub-in-india-powered-by-a-15-billion-investment/",
+   "notes": "First-party Google statement. The post gives no separate funding figure for this work and no cooling or water approach. Also names 'high-value jobs in India' generically; not used as a local-jobs claim."
+  }
+ ],
+ "leads": [
+  {
+   "id": "lead-in-tn-data-centre-policy-go33",
+   "note": "TN Data Centre Policy 2021, G.O.(Ms) No. 33, IT Dept, 23.11.2021 (press/ELCOT). Both primary hosts failed in this session (spc.tn.gov.in ECONNREFUSED; tngim2024.com DNS). Incentive thresholds (Rs 500 cr; 30% renewables) are from press only. Policy applicability window was to 31.03.2026; extension/replacement not checked."
+  },
+  {
+   "id": "lead-in-maharashtra-itites-2023",
+   "note": "Maharashtra IT/ITES Policy 2023, ref ITP-2021/CR-170/Ind-2 dated 27 June 2023, with data-centre stamp duty relief and MIDC data-centre parks. Only law-firm summaries read; the GR PDF was not reached. A 9 Oct 2024 GR adds green data centre park incentives."
+  },
+  {
+   "id": "lead-in-thane-hearing-demand",
+   "note": "Thane residents (Wake Up Thanekar) and Shiv Sena MP asked TMC for an independent expert review of Amazon permits and a public hearing (July 2026, PTI via Drishti IAS). Not verified on a primary page; the Wire/PTI article did not load."
+  },
+  {
+   "id": "lead-in-yotta-nm1-first-party",
+   "note": "Yotta NM1 Panvel (Hiranandani Fortune City, 600 acres) first-party page found (yotta.com/?p=11079), but it is dated 2020 and has no community or closed-loop water statement. The 80% green-power and closed-loop water claims come from 2026 press and CB Insights, not from a Yotta page. Needs a current Yotta sustainability or CSR page before it can become a claim."
+  },
+  {
+   "id": "lead-in-sify-chennai-first-party",
+   "note": "Sify Chennai 02 (Siruseri) first-party page: 130+ MW IT capacity, 3 towers, ISO 14001. No campus-level renewables figure, community commitment or jobs figure on the page. Sify press gives ~60% renewables and ~1,000 direct jobs (W.Media, Deccan Herald). Not first-party on the page."
+  },
+  {
+   "id": "lead-in-cea-connectivity-draft-2026-07",
+   "note": "CEA draft Technical Standards for Connectivity to the Grid Regulations 2026, notified 31.07.2026 (mondaq). Not data-centre-specific; the CEA text was not fetched. Check for large-load provisions."
+  },
+  {
+   "id": "lead-in-ap-go-number",
+   "note": "The AP GO for the 480-acre Adani transfer (2 Dec 2025) was not found. Fetch the APIIC or AP government GO listing."
+  },
+  {
+   "id": "lead-in-bida-jhansi",
+   "note": "No English or Hindi coverage of a Bida (Jhansi) 1,000-acre data centre cluster was found in this session. Leave until a local source surfaces."
+  },
+  {
+   "id": "lead-in-telugu-marathi-regional",
+   "note": "Telugu and Marathi searches returned no native-language primary coverage for Tarluvada, Tamil Nadu sites or Thane beyond English reports. Native-language reporting remains open."
+  },
+  {
+   "id": "lead-in-mekaguda-2026-hearing",
+   "note": "No 2026 hearing date for the Microsoft Mekaguda Telangana High Court petition was found (latest status Sept 2025 pending). DCD page returned HTTP 403."
+  },
+  {
+   "id": "lead-in-ngt-hearing-2026-10-26",
+   "note": "Bar & Bench-linked reporting gives 26 Oct 2026 as the next NGT hearing in the Vizag plea; not on the fetched page. Recheck after the hearing."
+  },
+  {
+   "id": "lead-google-water-replenish-first-party",
+   "note": "Google water stewardship post (blog.google, 3 Jun 2026) states a company-wide water goal; the quoted sentence did not match on the page under probe (WebFetch paraphrase), so no record was filed. Re-quote from the page text before filing. The 120% freshwater figure for Vizag was not found on any Google page."
+  }
+ ]
+}

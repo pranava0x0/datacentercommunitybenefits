@@ -66,6 +66,9 @@ const COMPANY_SLUGS = [
   "reliance",
   "nxtra",
   "naver",
+  "mitsui-fudosan",
+  "colt-dcs",
+  "sesterce",
 ];
 
 const STANCE_LABELS = {
@@ -9382,6 +9385,8 @@ const SUBDIVISION_NAMES = {
   "GB-WLS": "Wales",
   "FR-IDF": "Île-de-France",
   "FR-36": "Indre",
+  "FR-68": "Haut-Rhin",
+  "FR-26": "Drôme",
   "IE-D": "Dublin",
   "IE-KE": "Kildare",
   "IE-MH": "Meath",
@@ -9400,6 +9405,7 @@ const SUBDIVISION_NAMES = {
   "AR-U": "Chubut",
   "JP-13": "Tokyo",
   "JP-27": "Osaka",
+  "JP-28": "Hyōgo",
   "JP-01": "Hokkaido",
   "JP-12": "Chiba",
   "JP-11": "Saitama",
@@ -9409,6 +9415,7 @@ const SUBDIVISION_NAMES = {
   "KR-41": "Gyeonggi",
   "KR-26": "Busan",
   "KR-28": "Incheon",
+  "KR-48": "South Gyeongsang",
   "KR-46": "South Jeolla",
   "KR-31": "Ulsan",
   "IN-MH": "Maharashtra",

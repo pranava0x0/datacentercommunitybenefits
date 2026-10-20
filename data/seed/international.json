@@ -1753,6 +1753,205 @@
       "source_url": "https://www.kharn.kr/news/article.html?no=26588",
       "source_title": "Kharn — grid impact assessment re-notice (9 Dec 2024)",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "cl-sea-datacenter-criterion-2026",
+      "title": "SEA evaluation criterion: Introduction to data-centre projects (Resolución Exenta 20269910149)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "Chile",
+      "identifier": "Resolución Exenta N° 20269910149",
+      "date": "2026-01-20",
+      "country": "CL",
+      "source_lang": "es",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "key_terms": [
+        "Establecer que dicho documento se entenderá vigente desde la fecha de publicación",
+        "Introducción a proyectos de Data Center"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Establish that said document shall be understood to be in force from the date of publication",
+          "Introduction to Data Center projects"
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Chile's Environmental Assessment Service (SEA) issued the evaluation criterion 'Introducción a proyectos de Data Center' for the national environmental impact assessment system (SEIA) by Resolución Exenta 20269910149 of 20 January 2026. The resolution states the document is in force from its publication. It is guidance, not a statute.",
+      "source_url": "https://www.sea.gob.cl/sites/default/files/imce/archivos/2026/01/20/DT_Datacenter.pdf",
+      "source_title": "SEA — Resolución Exenta 20269910149 and criterion 'Introducción a proyectos de Data Center' (20 Jan 2026)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-power-supply-refusal-5mw-2023",
+      "title": "Power-supply refusal for large loads of 5 MW or more (Electricity Business Act enforcement decree amendment, announced March 2023)",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "South Korea",
+      "date": "2023-03-09",
+      "country": "KR",
+      "source_lang": "ko",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "5MW 이상의 전기를 대량으로 사용하려는 자로 인하여 전력계통 신뢰도 및 전기품질을 유지하기 어려운 경우 예외적으로 전기공급 거부 가능"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Where a user taking large amounts of electricity (5 MW or more) makes it difficult to keep grid reliability and power quality, power supply may exceptionally be refused."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "A 9 March 2023 ministry press release announced an enforcement-decree amendment allowing power supply to be refused, exceptionally, to users of 5 MW or more where grid reliability and power quality would be hard to maintain. The release is dated 2023 and planned enforcement for March; no source read confirms the final text or that it took effect, so the record stays proposed.",
+      "source_url": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/166902/view",
+      "source_title": "Korean trade and industry ministry (motir.go.kr) — press release, 9 Mar 2023",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-changwon-defense-ai-dc-investment-2026",
+      "title": "Changwon defence-dedicated AI data centre investment agreement (Gyeongnam Province, Changwon City, Dinotitia, Dinocore, Shinhwa Steel)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Changwon, South Gyeongsang",
+      "date": "2026-07-28",
+      "country": "KR",
+      "subdivision": "KR-48",
+      "locality": "Changwon",
+      "source_lang": "ko",
+      "benefit_themes": [
+        "jobs"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "counterparties": [
+        "Dinotitia",
+        "Dinocore",
+        "Shinhwa Steel"
+      ],
+      "key_terms": [
+        "경남도와 창원시는 ㈜디노티시아, ㈜디노코어, 신화철강㈜과 함께 ‘방산 전용 AI 데이터센터 건립을 위한 투자협약’을 체결했다고 28일 밝혔다",
+        "이번 협약에 따른 총투자 규모는 1조6555억원에 달하며, 데이터센터 구축과 운영 과정에서 200여명의 고부가가치 정보통신기술(ICT) 분야 신규 일자리가 창출될 것으로 기대를 모은다"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Gyeongnam Province and Changwon City said on the 28th that they had signed, with Dinotitia, Dinocore and Shinhwa Steel, an investment agreement for building a defence-dedicated AI data centre.",
+          "The total investment under this agreement amounts to KRW 1.6555 trillion, and about 200 new high-value information and communications technology (ICT) jobs are expected to be created in building and operating the data centre."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Segye Ilbo reports that Gyeongnam Province and Changwon City signed an investment agreement with three companies for a defence-dedicated AI data centre. The investment total (KRW 1.6555 trillion) and the expected 200 or so ICT jobs are the government's announced figures. The agreement text was not read, and no other community-benefit terms are stated, so this is an investment agreement rather than a community benefit agreement.",
+      "source_url": "https://www.segye.com/newsView/20260728515328",
+      "source_title": "Segye Ilbo — 경남도·창원시, 방산 전용 AI 데이터센터 투자협약 (28 Jul 2026)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-seoul-district-heads-residential-zone-2026",
+      "title": "Seoul district heads' resolution to restrict data centres in general residential zones",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Seoul district heads (association of district heads)",
+      "date": "2026-08-15",
+      "country": "KR",
+      "subdivision": "KR-11",
+      "locality": "Seoul",
+      "source_lang": "ko",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "key_terms": [
+        "이 안건은 참석 구청장들의 만장일치로 의결됐다",
+        "제2·3종 일반주거지역 데이터센터 건립 제한해야"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "This agenda item was approved unanimously by the attending district heads.",
+          "Data-centre construction should be restricted in Type 2 and Type 3 general residential zones"
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Herald Economy (15 August 2026) reports that the attending Seoul district heads unanimously approved an agenda item to restrict data-centre construction in Type 2 and Type 3 general residential zones. It is a resolution of the district heads, not a rule; taking effect would need a Seoul city ordinance and related legal changes.",
+      "source_url": "https://www.heraldk.com/article/2026081502522403795",
+      "source_title": "Herald Economy — Seoul district heads' resolution on data centres in residential zones (15 Aug 2026)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "in-niti-dc-evaluation-framework-2026",
+      "title": "NITI Aayog framework for evaluating data-centre proposals",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "India",
+      "date": "2026-10-14",
+      "country": "IN",
+      "source_lang": "en",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "infrastructure"
+      ],
+      "principles": [
+        "new_power",
+        "water"
+      ],
+      "key_terms": [
+        "The framework proposes that States link data centre approvals to verified electricity, water and infrastructure availability"
+      ],
+      "summary": "GKToday reports that the NITI Aayog Frontier Tech Hub framework, released on 14 October 2026, proposes that States link data-centre approvals to verified electricity, water and infrastructure availability. Other outlets describe it as guidance for States, not a new national approval rule. The NITI Aayog document itself was not read.",
+      "source_url": "https://www.gktoday.in/niti-aayog-links-data-centre-approvals-to-power-and-water/",
+      "source_title": "GKToday — NITI Aayog links data centre approvals to power and water",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "gb-north-wales-ai-growth-zone-2025",
+      "title": "North Wales AI Growth Zone (Prosperity Parc, Anglesey; Trawsfynydd, Gwynedd)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "North Wales",
+      "date": "2025-11-13",
+      "country": "GB",
+      "subdivision": "GB-WLS",
+      "locality": "Anglesey and Gwynedd (Menai Strait)",
+      "source_lang": "en",
+      "benefit_themes": [
+        "jobs"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "North Wales in line for more than 3,400 new jobs through newly announced AI Growth Zone"
+      ],
+      "summary": "The UK government's 13 November 2025 release confirms a North Wales AI Growth Zone straddling the Menai Strait, with bases at Prosperity Parc on Anglesey and Trawsfynydd in Gwynedd. It says the zone is in line for more than 3,400 new jobs, a government figure rather than a committed community benefit. The release says work is under way to secure an investment partner, with construction to follow once a deal is confirmed.",
+      "source_url": "https://www.gov.uk/government/news/ai-growth-zones-to-create-thousands-of-jobs-and-unlock-up-to-100-billion-in-investment-as-new-site-confirmed-for-north-wales",
+      "source_title": "GOV.UK — AI Growth Zones to create thousands of jobs: new site confirmed for North Wales (13 Nov 2025)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
     }
   ],
   "moratoriums": [
@@ -1891,7 +2090,18 @@
         "as_stated": "200 millones de dólares"
       },
       "lat": -33.483333333333,
-      "lon": -70.7
+      "lon": -70.7,
+      "updates": [
+        {
+          "date": "2024-09-17",
+          "kind": "news",
+          "title": "Google says it will not pursue the original Cerrillos design",
+          "summary": "CNN Chile, citing a statement to El Mercurio, reports Google's decision not to pursue the original design and to restart the project with air cooling.",
+          "authority": "Google",
+          "source_url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
+          "source_title": "CNN Chile — Google se rinde con proyecto original de data center en Cerrillos"
+        }
+      ]
     },
     {
       "id": "cl-google-quilicura",
@@ -2270,7 +2480,18 @@
       "source_title": "Google Data Centers — Muhos, Finland",
       "notes": "Google's own site page (dated September 2026) says work is proceeding in full compliance with obtained permits; the page describes site activity as preliminary infrastructure development. announced_year is the year of the earliest dated source captured (the September 2026 page); the original announcement year was not verified. No capacity or investment figure was found. Coordinates are the Muhos town centre, not the site.",
       "subdivision": "FI-14",
-      "locality": "Muhos"
+      "locality": "Muhos",
+      "updates": [
+        {
+          "date": "2026-10-07",
+          "kind": "news",
+          "title": "Environmental supervisory agency orders preparatory work at Muhos and Kajaani suspended",
+          "summary": "The order to Tuike Finland, acting for Google, requires suspension no later than 23 October 2026 while environmental impact assessments are completed.",
+          "authority": "Finland's environmental supervisory agency (LVV)",
+          "source_url": "https://www.aljazeera.com/news/2026/10/7/finland-orders-halt-to-work-on-google-data-sites-over-environment-concerns",
+          "source_title": "Al Jazeera (AFP/Reuters) — Finland orders halt to work on Google data centre sites"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -2700,6 +2921,192 @@
       "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
       "source_title": "Microsoft — Centros de datos de Microsoft en México (first-party fact sheet, October 2025)",
       "notes": "Microsoft's fact sheet says it operates one data center and is building two new facilities in Querétaro. claimed_jobs is its estimate of more than 2,200 construction jobs at peak activity, not permanent jobs; about 64 people worked at its facilities in 2025. announced_year is the fact sheet's publication year."
+    },
+    {
+      "id": "jp-mitsui-kobe-tunnel",
+      "company_slug": "mitsui-fudosan",
+      "name": "Kobe underground data centre in a former conveyor-belt tunnel (Nishi Ward)",
+      "city": "Kobe",
+      "country": "JP",
+      "subdivision": "JP-28",
+      "locality": "Nishi Ward, Kobe",
+      "source_lang": "ja",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-10-06",
+      "notes": "Kobe City's 6 October 2026 press release names Mitsui Fudosan (lead company) and Kumagai Gumi as successful bidder for a 10 to 20 year lease of about 3 km of a 14.5 km former conveyor-belt tunnel (about 17,000 m2) for an underground data centre; annual rent is stated as JPY 7,572,000. The city page confirms the use and the lead company only; it states no power, cooling or jobs figures. Mitsui Fudosan's own release was not read. No coordinates are given because the city page publishes only a PDF location map.",
+      "source_url": "https://www.city.kobe.lg.jp/a26136/546798440636.html",
+      "source_title": "Kobe City — ベルトコンベア跡トンネル施設貸付の落札者決定 (press release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2026-10-06",
+          "kind": "agreement",
+          "title": "Kobe City names Mitsui Fudosan the successful bidder for the tunnel lease",
+          "summary": "The lead company is Mitsui Fudosan with Kumagai Gumi as a consortium member; the stated use is an underground data centre using the tunnel.",
+          "authority": "Kobe City",
+          "source_url": "https://www.city.kobe.lg.jp/a26136/546798440636.html",
+          "source_title": "Kobe City — successful bidder announcement"
+        }
+      ]
+    },
+    {
+      "id": "jp-softbank-sakai",
+      "company_slug": "softbank-corp",
+      "name": "SoftBank Sakai AI data centre (former Sharp LCD plant), Osaka",
+      "city": "Sakai",
+      "country": "JP",
+      "subdivision": "JP-27",
+      "locality": "Sakai City, Osaka Prefecture",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2024,
+      "announced_date": "2024-06-07",
+      "lat": 34.573,
+      "lon": 135.483,
+      "notes": "SoftBank Corp.'s 7 June 2024 release says it and Sharp signed a memorandum of understanding to build a large-scale AI data centre using land and buildings of Sharp's LCD panel plant in Sakai City, with a power capacity of over 150 megawatts (a lower bound, so power_mw is left empty). Later purchase and capacity changes appear only in press coverage and are not recorded; construction status is unconfirmed. Coordinates are Sakai's city centre, not the site.",
+      "source_url": "https://www.softbank.jp/en/corp/news/press/sbkk/2024/20240607_01",
+      "source_title": "SoftBank Corp. — SoftBank Corp. to Construct Large-scale AI Data Center that Utilizes Sharp Sakai Plant (7 Jun 2024)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-reliance-vizianagaram",
+      "company_slug": "reliance",
+      "name": "Reliance AI data centre, Vizianagaram district (Andhra Pradesh land allotment)",
+      "city": "Vizianagaram",
+      "country": "IN",
+      "subdivision": "IN-AP",
+      "locality": "Vizianagaram district",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment": {
+        "amount": 1080000000000,
+        "currency": "INR",
+        "as_stated": "Rs 1.08 trillion"
+      },
+      "notes": "Indian Infrastructure (21 May 2026) reports that the Andhra Pradesh government approved the allotment of over 800 acres in Vizianagaram district to Reliance Industries at a 25 per cent discount, for an AI data centre with a stated investment of Rs 1.08 trillion. The acreage is a lower bound, so acreage is left empty. The government order number and date were not found; announced_year is the report year. No site coordinates are published.",
+      "source_url": "https://indianinfrastructure.com/2026/05/21/andhra-pradesh-government-allots-800-acres-to-reliance-for-rs-1-08-trillion-ai-data-centre-in-vizianagaram/",
+      "source_title": "Indian Infrastructure — Andhra Pradesh government allots 800 acres to Reliance for Rs 1.08 trillion AI data centre in Vizianagaram (21 May 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2026-05-21",
+          "kind": "news",
+          "title": "Andhra Pradesh reported to approve over 800 acres for Reliance at a 25 per cent discount",
+          "summary": "The report gives only its own publication date; the date of the government order was not found.",
+          "authority": "Andhra Pradesh government",
+          "source_url": "https://indianinfrastructure.com/2026/05/21/andhra-pradesh-government-allots-800-acres-to-reliance-for-rs-1-08-trillion-ai-data-centre-in-vizianagaram/",
+          "source_title": "Indian Infrastructure — allotment report"
+        }
+      ]
+    },
+    {
+      "id": "in-colt-navi-mumbai-3",
+      "company_slug": "colt-dcs",
+      "name": "Colt DCS Mumbai 3, Navi Mumbai campus",
+      "city": "Navi Mumbai",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "locality": "Navi Mumbai campus",
+      "source_lang": "en",
+      "status": "construction",
+      "announced_year": 2025,
+      "power_mw": 64,
+      "notes": "W.Media, reporting a Colt DCS press release, says construction of Mumbai 3 is underway, ground preparation began in December 2025, and the facility will deliver 64 MW of secured contracted power on completion. It is part of the Colt DCS and RMZ joint venture announced in 2024 to invest US$1.7 billion in Indian data centres; that figure covers the venture, not this site, so no site investment is recorded. The customer is unnamed. The article carries no date in its text; announced_year is the year ground preparation began. No site coordinates are published.",
+      "source_url": "https://w.media/colt-dcs-and-rmz-commence-construction-on-third-mumbai-data-center/",
+      "source_title": "W.Media — Colt DCS and RMZ commence construction on third Mumbai data center",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fr-microsoft-petit-landau",
+      "company_slug": "microsoft",
+      "name": "Microsoft data centre, Petit-Landau and Hombourg (Haut-Rhin)",
+      "city": "Petit-Landau",
+      "country": "FR",
+      "subdivision": "FR-68",
+      "locality": "Mulhouse Alsace Agglomération",
+      "source_lang": "fr",
+      "status": "announced",
+      "announced_year": 2024,
+      "notes": "Operator entity is Microsoft 1985 Sàrl. AFP describes a 36 ha site on the Rhine bank. Mulhouse Alsace Agglomération approved a declaration-of-project procedure on 9 December 2024 (council deliberation of 22 June 2026), Microsoft lodged its environmental authorisation application on 6 November 2025, and the council voted on the declaration of general interest in October 2026. The prefectoral order and the building permits were not found. No site coordinates are recorded.",
+      "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+      "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C (22 June 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2024-12-09",
+          "kind": "vote",
+          "title": "Agglomeration council approves starting a declaration-of-project procedure for the Petit-Landau data centre",
+          "summary": "The procedure includes making the Petit-Landau local urban plan compatible with the project.",
+          "authority": "Mulhouse Alsace Agglomération council",
+          "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+          "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C"
+        },
+        {
+          "date": "2025-11-06",
+          "kind": "filing",
+          "title": "Microsoft 1985 Sàrl lodges its environmental authorisation application",
+          "summary": "Filed on the state's GUN'env digital environment portal.",
+          "authority": "State (prefecture)",
+          "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+          "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C"
+        },
+        {
+          "date": "2026-06-22",
+          "kind": "vote",
+          "title": "Agglomeration council gives its opinion on the environmental authorisation request",
+          "summary": "A consultative step: the state asked the council for its opinion.",
+          "authority": "Mulhouse Alsace Agglomération council",
+          "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+          "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C"
+        },
+        {
+          "date": "2026-10-12",
+          "kind": "news",
+          "title": "Agglomeration council reported to approve the declaration of general interest",
+          "summary": "AFP reports the vote as held on 'lundi' (Monday); the council's minutes were not read.",
+          "authority": "Mulhouse Alsace Agglomération council",
+          "source_url": "https://www.connaissancedesenergies.org/afp/lagglomeration-de-mulhouse-fait-franchir-une-nouvelle-etape-au-projet-de-data-center-de-microsoft-261012",
+          "source_title": "AFP via Connaissance des énergies — L'agglomération de Mulhouse fait franchir une nouvelle étape au projet de data center de Microsoft"
+        }
+      ]
+    },
+    {
+      "id": "fr-sesterce-alixan-rovaltain",
+      "company_slug": "sesterce",
+      "name": "Sesterce AI data centre, Rovaltain site (Alixan, Drôme)",
+      "city": "Alixan",
+      "country": "FR",
+      "subdivision": "FR-26",
+      "locality": "Rovaltain, near Valence TGV station",
+      "source_lang": "fr",
+      "status": "announced",
+      "announced_year": 2025,
+      "power_mw": 40,
+      "notes": "AFP says the building permit was signed on 18 December 2025 by the mayor of Alixan for an AI data centre of 40 MW initial capacity with a possible extension to 80 MW (power_mw is the initial figure). A court suspended the permit on 10 July 2026 pending a ruling on the merits. Construction status is not recorded. No site coordinates are recorded.",
+      "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+      "source_title": "AFP via Connaissance des énergies — IA: la justice suspend un projet de centre de données près de Valence (10 Jul 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2025-12-18",
+          "kind": "permit",
+          "title": "Mayor of Alixan signs the building permit",
+          "authority": "Commune of Alixan",
+          "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+          "source_title": "AFP via Connaissance des énergies"
+        },
+        {
+          "date": "2026-07-10",
+          "kind": "lawsuit",
+          "title": "Grenoble administrative court suspends the building permit pending a ruling on the merits",
+          "summary": "The interim-relief judge cited the risk of environmental damage that should have been examined before the permit was issued. A suspension is not an annulment.",
+          "authority": "Tribunal administratif de Grenoble",
+          "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+          "source_title": "AFP via Connaissance des énergies"
+        }
+      ]
     }
   ],
   "responses": [
@@ -3030,6 +3437,61 @@
       "source_title": "Google Cloud Press Corner — Wallonia Vice-President Pierre-Yves Jeholet quoted in Google's Belgium release",
       "source_lang": "en",
       "single_source": true
+    },
+    {
+      "id": "cl-resp-cerrillos-sea-2021",
+      "project_id": "cl-google-cerrillos",
+      "date": "2021-01-20",
+      "stance": "positive",
+      "constituency": "regulator",
+      "single_source": true,
+      "source_lang": "es",
+      "summary": "In a Diario Financiero report dated 20 January 2021, reprinted by CPI Chile, the Environmental Assessment Service (SEA) is quoted as saying that no significant adverse impacts will be generated by the Cerrillos project. The Segundo Tribunal Ambiental partly annulled the approval in February 2024.",
+      "source_url": "https://cpichile.org/?p=46907",
+      "source_title": "CPI Chile — reprint of Diario Financiero on the SEA's response (20 Jan 2021)"
+    },
+    {
+      "id": "in-resp-vizag-state-misleading-reuters-2026-08",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-06",
+      "stance": "positive",
+      "constituency": "local_government",
+      "single_source": true,
+      "summary": "Reuters, as syndicated by New Straits Times on 6 August 2026, reports that the Andhra Pradesh government called activists' concerns about the project incorrect and misleading. This is the state's position on the project, not an independent finding.",
+      "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+      "source_title": "Reuters via New Straits Times — Google's US$15bil India data centre project battles water, wildlife concerns"
+    },
+    {
+      "id": "in-resp-vizag-jal-biradari-reservoir-2026-08",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-06",
+      "stance": "negative",
+      "constituency": "ngo",
+      "single_source": true,
+      "summary": "Reuters, as syndicated by New Straits Times on 6 August 2026, reports that Jal Biradari (Water Community) says the project will strain water availability by putting stress on a nearby reservoir. It is the group's allegation, not an independent measurement.",
+      "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+      "source_title": "Reuters via New Straits Times — Google's US$15bil India data centre project battles water, wildlife concerns"
+    },
+    {
+      "id": "fi-resp-google-muhos-lvv-suspension-2026-10",
+      "project_id": "fi-google-muhos",
+      "date": "2026-10-07",
+      "stance": "negative",
+      "constituency": "regulator",
+      "summary": "Per AFP and Reuters via Al Jazeera, Finland's environmental supervisory agency (LVV) ordered Tuike Finland, acting for Google, to suspend preparatory work at the planned Muhos and Kajaani sites no later than 23 October 2026, until mandatory environmental impact assessments are completed. The agency is checking whether hundreds of hectares of forest were cleared without one.",
+      "source_url": "https://www.aljazeera.com/news/2026/10/7/finland-orders-halt-to-work-on-google-data-sites-over-environment-concerns",
+      "source_title": "Al Jazeera (AFP/Reuters) — Finland orders halt to work on Google data centre sites"
+    },
+    {
+      "id": "fr-resp-sesterce-alixan-grenoble-court",
+      "project_id": "fr-sesterce-alixan-rovaltain",
+      "date": "2026-07-10",
+      "stance": "negative",
+      "constituency": "regulator",
+      "source_lang": "fr",
+      "summary": "AFP reports that the interim-relief judge of the Grenoble administrative court suspended the building permit granted to Sesterce pending a decision on the merits, citing the risk of damaging environmental effects that should have been examined before the permit was issued. A suspension is not an annulment.",
+      "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+      "source_title": "AFP via Connaissance des énergies — IA: la justice suspend un projet de centre de données près de Valence"
     }
   ],
   "claims": [
@@ -3682,6 +4144,24 @@
       "captured_at": "2026-10-19",
       "country": "IN",
       "statement_lang": "en"
+    },
+    {
+      "id": "cl-claim-google-cerrillos-air-cooling",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "para un proyecto que usará tecnología de enfriamiento con aire en este mismo lugar",
+      "country": "CL",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "for a project that will use air-cooling technology in this same place",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
+      "source_title": "CNN Chile — Google se rinde con proyecto original de data center en Cerrillos (company statement to El Mercurio, 17 Sep 2024)",
+      "captured_at": "2026-10-19",
+      "published_at": "2024-09-17",
+      "project_id": "cl-google-cerrillos"
     }
   ],
   "rate_cases": [

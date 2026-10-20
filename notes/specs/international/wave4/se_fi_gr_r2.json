@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-10-19",
+  "scope": "SE, FI, GR wave 4 round 2. Worked round-1 leads and new searches. Probe: scripts/probe.py --evidence, 10 hit / 0 miss / 0 blocked. Verbatims are original-language (Finnish, English press text) and were checked against the fetched page text. Round-2 budget stopped on time, not on fetch count.",
+  "companies": [
+    {"candidate": "Fortum", "country": "FI", "role": "Energy company and site developer for the Orimattila data-centre area (about 100 ha, Länsi-Pennala). Operator not named.", "hq": "not verified", "website": "https://www.fortum.com (not fetched)", "notes": "Site developer only. A future operator makes the investment. Needs HQ and own statement before a Claim."},
+    {"candidate": "EcoDataCenter", "country": "SE", "role": "Operator of EcoDataCenter 1 Falun and 2 Borlänge; signed a land purchase with Smedjebacken Municipality for a 150 MW third campus", "hq": "Falun (site page); Stockholm office", "website": "https://ecodatacenter.tech", "notes": "Round-1 search named Dan Andersson as CEO. The company's own release quotes Peter Michelson as CEO, so use the release. Verified first-party quotes exist, so this is a company-candidate for a curator decision."},
+    {"candidate": "atNorth", "country": "SE", "role": "Operator of SWE01/SWE02 Kista and a Stockholm permit application (100 MW HVO reserve generators) for Akalla 4:8", "hq": "not verified in this round", "website": "https://www.atnorth.com", "notes": "Already held back in wave 2 for HQ verification. The permit consultation is verified; which campus it belongs to is not yet confirmed."},
+    {"candidate": "PPC (Public Power Corporation)", "country": "GR", "role": "Developer of the Agios Dimitrios (Kozani) mega data-centre programme: 300 MW first phase, scalable to 1 GW", "hq": "Athens (not fetched)", "website": "https://www.ppcgroup.com (not fetched)", "notes": "Round-1 said a binding AWS MoU exists. Powergame and Balkan Green Energy News name only an unnamed hyperscaler in advanced talks. The AWS MoU is NOT confirmed. Needs PPC's own announcement (ATHEX filing) before any record names a partner."}
+  ],
+  "records": [
+    {
+      "country": "FI",
+      "kind": "project",
+      "verified": true,
+      "fields": {
+        "id": "fi-microsoft-vaasa-mustasaari",
+        "company_slug": "microsoft",
+        "name": "Microsoft Vaasa / Mustasaari land (GigaVaasa industrial zone)",
+        "city": "Vaasa",
+        "country": "FI",
+        "subdivision": "FI-03",
+        "locality": "Vaasa and Mustasaari (about two-thirds Vaasa, one-third Mustasaari)",
+        "status": "announced",
+        "announced_year": 2026,
+        "announced_date": "2026-06-05",
+        "source_url": "https://news.microsoft.com/source/emea/2026/06/microsoft-signed-preliminary-agreement-on-acquisition-of-approximately-190-hectares-of-land-in-vaasa-and-mustasaari-on-the-west-coast-of-finland/",
+        "source_title": "Microsoft News EMEA — Microsoft signed preliminary agreement on acquisition of approximately 190 hectares of land in Vaasa and Mustasaari (5 Jun 2026)",
+        "source_lang": "en",
+        "captured_at": "2026-10-19",
+        "acreage_ha": 190,
+        "notes": "First-party: a PRELIMINARY land agreement 'to support potential datacenter development'. Not a permit. Yle (Finnish, not verified here) reports about 900 jobs and a Regional State Administrative Agency decision that a full EIA was not needed; those figures must be verified from Yle before use. DCD reports permit applications filed mid-August; not verified here."
+      }
+    },
+    {
+      "country": "FI",
+      "kind": "claim",
+      "verified": true,
+      "fields": {
+        "id": "fi-claim-microsoft-vaasa-engagement",
+        "company_slug": "microsoft",
+        "theme": "engagement",
+        "statement": "Microsoft is working in close cooperation with local municipalities, authorities and communities as it develops its plans for the site.",
+        "statement_lang": "en",
+        "source_url": "https://news.microsoft.com/source/emea/2026/06/microsoft-signed-preliminary-agreement-on-acquisition-of-approximately-190-hectares-of-land-in-vaasa-and-mustasaari-on-the-west-coast-of-finland/",
+        "source_title": "Microsoft News EMEA — Microsoft signed preliminary agreement on acquisition of approximately 190 hectares of land in Vaasa and Mustasaari (5 Jun 2026)",
+        "captured_at": "2026-10-19",
+        "published_at": "2026-06-05",
+        "country": "FI",
+        "project_id": "fi-microsoft-vaasa-mustasaari"
+      }
+    },
+    {
+      "country": "FI",
+      "kind": "community_response",
+      "verified": true,
+      "fields": {
+        "project_id": "NEW: fi-fortum-orimattila (needs company decision: Fortum is the developer; operator not named)",
+        "date": "2025-05-12",
+        "constituency": "local_government",
+        "stance": "NEEDS CURATOR (local government reports the operator is unknown; stance is editorial)",
+        "summary": "Orimattila's city manager says the city does not know whether the developer is negotiating with one or several parties, and that the developer has described the prospective operator as Western-linked. The city expects a three-digit number of permanent jobs once built. Fortum said the project is not being prepared for Russian money.",
+        "source_lang": "fi",
+        "source_url": "https://yle.fi/a/74-20161309",
+        "source_title": "Yle Päijät-Häme — Orimattilan datakeskushanke etenee ripeästi, vaikka kaupunki ei tarkkaan tiedä toimijaa (12 May 2025)",
+        "single_source": true,
+        "verbatim_fi": "Orimattilassa ei tiedetä, onko hankekehittäjällä yksi vai useampia tahoja, joiden kanssa se neuvottelee.",
+        "translation_en_machine": "In Orimattila it is not known whether the project developer has one or several parties with whom it is negotiating."
+      }
+    },
+    {
+      "country": "SE",
+      "kind": "project",
+      "verified": true,
+      "fields": {
+        "id": "se-google-horndal",
+        "company_slug": "google",
+        "name": "Google Horndal data centre (Avesta Municipality, Dalarna)",
+        "city": "Avesta",
+        "country": "SE",
+        "subdivision": "SE-W",
+        "locality": "Horndal",
+        "status": "construction",
+        "announced_year": 2017,
+        "announced_date": "2026-06-02",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+        "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+        "source_lang": "en",
+        "captured_at": "2026-10-19",
+        "claimed_jobs": 100,
+        "project_page_url": "https://datacenters.google/locations/horndal/",
+        "notes": "Groundbreaking 2 June 2026. The release says the facility is 'designed for off-site heat recovery'; the heat off-taker is not named in the release, and no delivery agreement was verified. Google bought 109 ha in 2017 (search summary, not verified here). Target completion 2028 is from a secondary report, not the release."
+      }
+    },
+    {
+      "country": "SE",
+      "kind": "claim",
+      "verified": true,
+      "fields": {
+        "id": "se-claim-google-horndal-jobs",
+        "company_slug": "google",
+        "theme": "jobs",
+        "statement": "The data center will generate 100 direct full-time jobs, and create thousands more through construction, suppliers, and local businesses.",
+        "statement_lang": "en",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+        "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+        "captured_at": "2026-10-19",
+        "published_at": "2026-06-02",
+        "country": "SE",
+        "project_id": "se-google-horndal",
+        "metric": {"value": 100, "unit": "jobs", "kind": "operational"}
+      }
+    },
+    {
+      "country": "SE",
+      "kind": "claim",
+      "verified": true,
+      "fields": {
+        "id": "se-claim-google-horndal-fund",
+        "company_slug": "google",
+        "theme": "community_grants",
+        "statement": "Google also announced a EUR 5 million fund to support local community initiatives focused on education, sustainability, economic growth and workforce development.",
+        "statement_lang": "en",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+        "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+        "captured_at": "2026-10-19",
+        "published_at": "2026-06-02",
+        "country": "SE",
+        "project_id": "se-google-horndal",
+        "metric": {"value": 5000000, "unit": "EUR", "kind": "community_fund"}
+      }
+    },
+    {
+      "country": "SE",
+      "kind": "project",
+      "verified": true,
+      "fields": {
+        "id": "se-ecodatacenter-smedjebacken",
+        "company_slug": "NEW: ecodatacenter (company candidate, not tracked)",
+        "name": "EcoDataCenter third campus, Smedjebacken (south of Borlänge)",
+        "city": "Smedjebacken",
+        "country": "SE",
+        "subdivision": "SE-W",
+        "locality": "Smedjebacken Municipality, Dalarna",
+        "status": "announced",
+        "announced_year": 2026,
+        "announced_date": "2026-08-26",
+        "power_mw": 150,
+        "claimed_jobs": 150,
+        "acreage_ha": 52,
+        "source_url": "https://ecodatacenter.tech/press/ecodatacenter-to-establish-third-datacenter-campus-in-sweden-3462219",
+        "source_title": "EcoDataCenter press — EcoDataCenter to Establish Third Datacenter Campus in Sweden",
+        "source_lang": "en",
+        "captured_at": "2026-10-19",
+        "notes": "Land purchase agreement signed with Smedjebacken Municipality ending a letter of intent from 2019. 52 ha. Release says 'green light of an immediate 150MW'. Construction expected once building and environmental permits are final, anticipated early 2027. Date 2026-08-26 is from a trade-press URL (bebeez.eu); the release page itself shows no date, so confirm the release date before shipping. Jobs: 125-150 permanent (release)."
+      }
+    },
+    {
+      "country": "SE",
+      "kind": "claim",
+      "verified": true,
+      "fields": {
+        "id": "se-ecodatacenter-smedjebacken-ceo",
+        "company_slug": "NEW: ecodatacenter (company candidate, not tracked)",
+        "theme": "engagement",
+        "statement": "We've had many productive discussions with Smedjebacken since 2019, and we are now taking the next step in this establishment",
+        "statement_lang": "en",
+        "source_url": "https://ecodatacenter.tech/press/ecodatacenter-to-establish-third-datacenter-campus-in-sweden-3462219",
+        "source_title": "EcoDataCenter press — EcoDataCenter to Establish Third Datacenter Campus in Sweden (Peter Michelson, CEO)",
+        "captured_at": "2026-10-19",
+        "country": "SE",
+        "project_id": "se-ecodatacenter-smedjebacken",
+        "notes": "Named CEO Peter Michelson, quoted in the company's own release. Quote is first-party."
+      }
+    },
+    {
+      "country": "GR",
+      "kind": "community_response",
+      "verified": true,
+      "fields": {
+        "project_id": "NEW: gr-spata-christoupoli-cluster (candidate; operator per site not named in article; three sites, incl. 12.5 MW first building, 80 MW and 25 MW)",
+        "date": "2026-06-19",
+        "constituency": "residents",
+        "stance": "NEEDS CURATOR (resident objection; stance is editorial)",
+        "summary": "Residents of Christoupoli in Spata-Artemida say noise from three data centres running around the clock is their main concern, and they have appealed to the Council of State against a decision that lets data centres under 20 MW skip an environmental impact assessment. The municipality says it has no problem with the investments provided they do not burden the area, and is running a carrying-capacity study.",
+        "source_lang": "en",
+        "source_url": "https://www.tovima.com/stories/our-biggest-concern-is-the-noise/amp/",
+        "source_title": "To Vima — 'Our Biggest Concern is the Noise' (19 Jun 2026)",
+        "single_source": true,
+        "verbatim_en": "Our biggest concern is, first of all, the noise.",
+        "verbatim_en_2": "have already appealed to the Council of State, requesting the annulment of a decision that allows data centers with a capacity below 20 MW not to prepare an environmental impact assessment"
+      }
+    }
+  ],
+  "leads": [
+    {"id": "gr-ppc-aws-kozani-correction", "country": "GR", "note": "Round-1 lead said PPC and AWS signed a binding MoU for 300 MW at Agios Dimitrios. Round-2 search found PPC's programme (300 MW first phase, about 3.5 bn EUR total, PPC share about 1.2 bn, scalable to 1 GW) but NO AWS or named hyperscaler MoU: the sources say a US hyperscaler is in advanced talks and PPC's own announcement is not found. Do not file AWS. Check PPC's ATHEX announcements before naming any partner."},
+    {"id": "gr-serverfarm-kryoneri-withdrawal", "country": "GR", "note": "energygame.gr (powergame): ADMIE is looking for a new partner for the Kryoneri data centre (about 40 MW); the source says Serverfarm decided not to invest in Greece, citing commercial reasons, based on people with knowledge. Serverfarm did not respond. Anonymous-source report, no date visible. Not a record until Serverfarm or ADMIE confirms."},
+    {"id": "gr-raaey-kryoneri-date-check", "country": "GR", "note": "Round-1 RAAEY record is dated 2026-10-20. That is AFTER today (2026-10-19), so the date is wrong or the record is premature. Check the source's own date before merging; do not ship a future-dated response."},
+    {"id": "gr-spata-council-of-state-and-permits", "country": "GR", "note": "Spata-Artemida: residents appealed to the Council of State (To Vima, 19 Jun 2026: verified). Municipal council gave a negative opinion on an 80 MW Dromeus Capital–APTO facility, and the Attica Regional Council gave a positive EIA opinion on GRECO MI's Olive data centre (90 MW, EUR 300m, completion targeted early 2027). Both are from English summaries only (2025). Verify in Greek before filing. GRECO is deferred in wave 2."},
+    {"id": "gr-microsoft-attica-2026-status", "country": "GR", "note": "No 2026 Microsoft Hellas or news.microsoft.com/el-gr release was found. CNN Greece reports Microsoft's cloud region target delivery as early 2028, with Data4 building the first facility (secondary). Investment figures conflict (about EUR 1bn vs EUR 400-500m). Fetch Microsoft's own Greek release before updating gr-microsoft-attica."},
+    {"id": "gr-ministry-grid-rules-draft", "country": "GR", "note": "Balkan Green Energy News (Oct 2026, secondary): a draft grid-connection bill would require 60% renewable power and EUR 200,000 per MW guarantees. Round-1 policy lead. Fetch the draft from the ministry consultation portal (opengov.gr) before filing a Policy record."},
+    {"id": "gr-admie-large-load-queue", "country": "GR", "note": "Powergame (Greek, date not visible): data-centre connection requests on the transmission system exceed 4.5 GW, up from 1.2 GW at end-2025; under 500 MW active in Attica. ADMIE plans to ask the ministry for a law letting it bypass the queue. Needs ADMIE's own figures."},
+    {"id": "se-svk-queue-mandate", "country": "SE", "note": "Svenska kraftnät's own slides (25 Nov 2025, verified): the government tasked SvK with reviewing the connection process, with a report due 30 April 2026. The task covers cost allocation for new connections. This is a policy lead, not a data-centre record. The queue figure (about 7,500 MW from a SvK chief strategist, via a WSP seminar report) is secondhand; SvK's own queue data is still needed."},
+    {"id": "se-aws-mellansverige-investment", "country": "SE", "note": "Affärsvärlden: AWS invested about SEK 7.5bn last year, with new facilities in Eskilstuna, Västerås and Katrineholm. Realtid (21 Jul 2026) says the sites open next year; a different copy says 2018 openings. Dates conflict and AWS has not given new official figures since its SEK 5.8bn figure. Use AWS's own Swedish submission and dated release before any record."},
+    {"id": "se-atnorth-akalla-permit", "country": "SE", "note": "Verified: atNorth's consultation document (AFRY, updated 14 Jan 2026) for a permit application for a data-server hall on Akalla 4:8 (Stockholm city-owned land). Permit authority: Länsstyrelsen i Stockholms län. Planned installed backup power of 100 MW from HVO-fuelled reserve generators. Which campus it is needs confirming against SWE02 Kista (30 MW, Q4 2027). A second consultation (SWE04) and a Långsele (Sollefteå) environmental-permit consultation (June 2026) are also in the search results, not yet fetched."},
+    {"id": "se-ecodatacenter-ostersund-no-cancel-found", "country": "SE", "note": "Round-1 lead (SVT says the Östersund project was called off and the grid fee is in the CEO's words): NOT found. Searches show the project still described as planned (SEK 18bn, first phase about 20 MW, 2033 full build-out). Do not file a cancellation without the SVT article. Dan Andersson-as-CEO also conflicts with the company's own release naming Peter Michelson."},
+    {"id": "fi-fingrid-connection-process-2026", "country": "FI", "note": "Fingrid's new connection-agreement application process for large loads started 1 June 2026 (Kuopion Energia guide dated 3 June 2026 says applications are required from 2 MW in its network area). Fingrid's May 2026 webinar slides and its connection-principles consultation (to 2 Sep 2026) are the primary sources. The 2 MW threshold comes from a distribution company's document, not Fingrid's own. Policy record candidate once Fingrid's terms are fetched."},
+    {"id": "fi-microsoft-vaasa-yle-jobs-eia", "country": "FI", "note": "Yle (Finnish, https://yle.fi/a/74-20232883) reports the Vaasa site could employ about 900 people and that the Regional State Administrative Agency judged a full EIA unnecessary, against environmental authorities' wishes. Not fetched in full. Verify from the article before adding as a community response."},
+    {"id": "fi-google-hamina-heat-share", "country": "FI", "note": "Haminan Energia (secondary via search): Google's Hamina heat recovery would meet about 80% of the district-heating network's annual demand, supplied free. Needs Haminan Energia or Google's own page. Google's own Hamina page URL is not yet confirmed (datacenters.google/locations/hamina returned 404)."},
+    {"id": "fi-orimattila-zoning-baxtel", "country": "FI", "note": "Baxtel (single third-party database) says Orimattila's zoning became legally valid in June 2026 (638,300 m2 of rights, 27 m height limit). Not verified. Verify with the City of Orimattila's detailed-plan register before any permit claim."}
+  ],
+  "reading_notes": [
+    "Round 1's AWS-at-Kozani framing is not supported. The sources name an unnamed hyperscaler. The record should not be built on the AWS MoU.",
+    "Round 1's RAAEY response is dated 2026-10-20, which is in the future. Fix or remove before merging.",
+    "Round 1's Östersund cancellation lead was not found in searches. Leave it off unless the SVT article is found.",
+    "Two Greek names in search snippets were not carried into records: they are private individuals or sources without a clear role (for example a surveyor and resident of Christoupoli). Records use the 'residents' constituency and quote without naming.",
+    "Most Finnish and Swedish detaljplan/bygglov decisions were NOT found. The searches returned zoning for non-data-centre projects (Alingsås, Luleå Katten 6 is housing and business; Krokom, Siuntio, Göteborg). The target of 5+ records per country was not met. Verified records: SE 5 (Horndal project + 2 claims; Smedjebacken project + 1 claim), FI 3 (Vaasa project, Vaasa claim, Orimattila response), GR 1 (Spata residents response).",
+    "Greek Council of State appeal and Spata municipal opinion are from To Vima (June 2026) and English summaries; the municipal opinion (80 MW Dromeus) was not verified in Greek.",
+    "Fetch blocks: datacenterdynamics.com returned 403, hpcwire returned 403 (Cloudflare), protothema origin returned 503. Those pages were not used as verbatim sources."
+  ]
+}

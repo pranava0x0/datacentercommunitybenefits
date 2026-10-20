@@ -86,6 +86,9 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "reliance",
     "nxtra",
     "naver",
+    "mitsui-fudosan",
+    "colt-dcs",
+    "sesterce",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
@@ -138,6 +141,9 @@ CompanySlug = Literal[
     "reliance",
     "nxtra",
     "naver",
+    "mitsui-fudosan",
+    "colt-dcs",
+    "sesterce",
 ]
 # withdrawn (#78): the operator abandoned the site. The record stays, as
 # history, but leaves the pledge scorecard and the investment/jobs totals.
@@ -346,6 +352,8 @@ SUBDIVISIONS: dict[str, str] = {
     "GB-WLS": "Wales",
     "FR-IDF": "Île-de-France",
     "FR-36": "Indre",
+    "FR-68": "Haut-Rhin",
+    "FR-26": "Drôme",
     "IE-D": "Dublin",
     "IE-KE": "Kildare",
     "IE-MH": "Meath",
@@ -364,6 +372,7 @@ SUBDIVISIONS: dict[str, str] = {
     "AR-U": "Chubut",
     "JP-13": "Tokyo",
     "JP-27": "Osaka",
+    "JP-28": "Hyōgo",
     "JP-01": "Hokkaido",
     "JP-12": "Chiba",
     "JP-11": "Saitama",
@@ -373,6 +382,7 @@ SUBDIVISIONS: dict[str, str] = {
     "KR-41": "Gyeonggi",
     "KR-26": "Busan",
     "KR-28": "Incheon",
+    "KR-48": "South Gyeongsang",
     "KR-46": "South Jeolla",
     "KR-31": "Ulsan",
     "IN-MH": "Maharashtra",
