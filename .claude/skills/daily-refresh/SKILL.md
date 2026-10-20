@@ -301,8 +301,9 @@ with `--fail-on-dead`/`--fail-on-miss` coverage below `--min-coverage`
 tokens: it re-reads the on-disk cache (`.revalidate_cache/`, gitignored) and
 prints a worklist of dead links, quote misses, pages whose text changed since
 the last check, and stale statuses (pending rate cases past their milestone,
-old `proposed` records, enacted moratoriums past their term). Only spend
-tokens on records on that list. To refresh the cache, run
+old `proposed` records, enacted moratoriums past their term). Only once the run shows no NOT CHECKED banner (coverage at or above
+`--min-coverage`), spend tokens only on records on that list; until then,
+keep running live `--limit` batches. To refresh the cache, run
 `scripts/revalidate.py --limit 40` (oldest-checked URLs first, 1.5 s per
 host); `--only KIND`, `--id ID`, `--json OUT`, `--fail-on-dead` and
 `--fail-on-miss` narrow or gate it. "Changed" lists only URLs re-fetched in that run, from a URL's second
