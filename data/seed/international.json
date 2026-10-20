@@ -1126,7 +1126,7 @@
       ],
       "key_terms": [
         "a data centre application cannot be progressed if it is in a constrained area",
-        "judicial review proceedings have been initiated against the CRU in relation to its decision paper on Large Energy Users Connection Policy (CRU/2025236)"
+        "judicial review proceedings have been initiated against the CRU in relation to its decision paper ‘Large Energy Users Connection Policy’ (CRU/2025236)"
       ],
       "summary": "EirGrid's connection process for data centres, Version 3 dated 20 May 2026, implements the CRU's Large Energy Users Connection Policy (CRU/2025236). It states that a data centre application cannot be progressed if it is in a constrained area. EirGrid notes that judicial review proceedings have been initiated against the CRU decision. A transmission operator's process implementing a regulator's decision is filed here as a regulation by curator judgment, not as a statute.",
       "source_url": "https://www.eirgrid.ie/sites/default/files/publications/Data-Centre-Connection-Offer-Process-and-Policy-V3-May-2026.pdf",
@@ -1487,7 +1487,7 @@
       "id": "ca-ab-bill-12-data-centre-levy",
       "title": "Alberta data centre levy (Bill 12, Financial Statutes Amendment Act (No. 2), 2025)",
       "instrument": "legislation",
-      "status": "proposed",
+      "status": "in_effect",
       "scope": "state",
       "jurisdiction": "Alberta",
       "identifier": "Bill 12",
@@ -1499,16 +1499,24 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Introduce a levy of up to two per cent on the value of computer equipment for large data centres (with 75 megawatts of power or more)."
+        "The Financial Statutes Amendment Act received royal assent December 9, 2025",
+        "Implements the provincial data centre levy framework, which includes a levy on the value of computer equipment for large data centres (with 75 megawatts of power or more)."
       ],
-      "summary": "The government fact sheet describes a levy of up to 2% on the value of computer equipment for data centres of 75 MW or more, with a lower rate for sites that bring their own power generation. The levy is deductible from Alberta corporate income tax. Law-firm summaries state Royal Assent in December 2025 and an effective date of 31 December 2026, but those dates were not confirmed on an official page, so the status is kept at proposed.",
-      "source_url": "https://www.alberta.ca/system/files/tbf-bill-12-financial-statutes-amendment-act-fact-sheet.pdf",
-      "source_title": "Government of Alberta — Bill 12 Financial Statutes Amendment Act fact sheet (Data Centre Levy)",
+      "summary": "The Financial Statutes Amendment Act (formerly Bill 12) received royal assent on 9 December 2025, according to the Government of Alberta, and implements the provincial data centre levy framework through the Alberta Corporate Tax Amendment Act: a levy on the value of computer equipment for large data centres of 75 MW or more. The government fact sheet describes up to 2%, with a lower rate for sites that bring their own power generation, deductible from Alberta corporate income tax. The government page says the Act takes effect on various dates; the levy's own start date (law-firm summaries say 31 December 2026) is not confirmed on an official page.",
+      "source_url": "https://www.alberta.ca/updating-financial-laws",
+      "source_title": "Government of Alberta — Updating financial laws (Financial Statutes Amendment Act, formerly Bill 12)",
       "captured_at": "2026-10-19",
       "country": "CA",
       "subdivision": "CA-AB",
       "locality": "Alberta",
-      "source_lang": "en"
+      "source_lang": "en",
+      "date": "2025-12-09",
+      "resources": [
+        {
+          "url": "https://www.alberta.ca/system/files/tbf-bill-12-financial-statutes-amendment-act-fact-sheet.pdf",
+          "title": "Government of Alberta — Bill 12 fact sheet (Data Centre Levy)"
+        }
+      ]
     },
     {
       "id": "fr-senate-data-centre-siting-bill-2026",
@@ -1625,9 +1633,20 @@
       "source_title": "Newstalk — Google refused permission to build huge Dublin data centre",
       "captured_at": "2026-10-19",
       "source_lang": "en",
-      "notes": "Newstalk reports Google wants to build a 72,000 square metre facility at Grange Castle Business Park near Clondalkin, and that South Dublin County Council refused planning permission in August 2024. announced_year is the year of that refusal, the earliest dated source captured. An appeal was reported by secondary sources only and is not recorded.",
+      "notes": "Newstalk reports Google wants to build a 72,000 square metre facility at Grange Castle Business Park near Clondalkin, and that South Dublin County Council refused planning permission in August 2024. announced_year is the year of that refusal, the earliest dated source captured. An appeal was reported by secondary sources only and is not recorded. On appeal (case PL06S.320852, planning authority reference SD24A/0164W), An Coimisiún Pleanála decided on 23 September 2026 to grant a ten-year permission with conditions for the expansion of Google Ireland Limited's operations at Grange Castle Business Park South and Profile Park; the Irish Times (28 September 2026) reports the permission is conditional and may be subject to judicial review. No construction start is recorded, so the status stays announced.",
       "subdivision": "IE-D",
-      "locality": "Grange Castle Business Park, Clondalkin"
+      "locality": "Grange Castle Business Park, Clondalkin",
+      "updates": [
+        {
+          "date": "2026-09-23",
+          "kind": "permit",
+          "title": "An Coimisiún Pleanála grants permission on appeal, overturning the council's refusal",
+          "summary": "The Commission's case page records the outcome as 'Grant Permissions with Conditions' (case PL06S.320852) for a ten-year planning permission for a data storage facility and associated works at Grange Castle Business Park South and Profile Park, Baldonnell. The Irish Times reported the grant on 28 September 2026 and that it may be subject to judicial review.",
+          "authority": "An Coimisiún Pleanála",
+          "source_url": "https://www.pleanala.ie/en-ie/case/320852",
+          "source_title": "An Coimisiún Pleanála — Case reference PL06S.320852"
+        }
+      ]
     },
     {
       "id": "gb-nscale-loughton",
@@ -1907,7 +1926,7 @@
       "name": "Google AI hub, Visakhapatnam (1 GW)",
       "city": "Visakhapatnam",
       "country": "IN",
-      "status": "announced",
+      "status": "construction",
       "announced_year": 2025,
       "claimed_investment": {
         "amount": 875200000000,
@@ -1919,7 +1938,7 @@
       "lon": 83.29222,
       "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%E2%82%B915-billion-in-india/",
       "source_title": "The South First — Google's largest AI hub outside US coming up in Visakhapatnam",
-      "notes": "Investment is the site figure: The News Minute (14 October 2025) reports a data centre in Visakhapatnam “with an investment of Rs 87,520 crore (USD 10 billion)”. The $15 billion in Google's announcement is its five-year plan for the India AI hub and is not stored as the site figure; Google's blog says Google's AI hub is powered by that $15 billion investment. Coordinates are the Visakhapatnam city centroid, not the site.",
+      "notes": "Investment is the site figure: The News Minute (14 October 2025) reports a data centre in Visakhapatnam “with an investment of Rs 87,520 crore (USD 10 billion)”. The $15 billion in Google's announcement is its five-year plan for the India AI hub and is not stored as the site figure; Google's blog says Google's AI hub is powered by that $15 billion investment. Coordinates are the Visakhapatnam city centroid, not the site. Construction start: Adani Group's release dated 28 April 2026 states that Google officially broke ground on the Visakhapatnam AI hub that day, 'the start of construction', at Tarluvada.",
       "subdivision": "IN-AP",
       "locality": "Visakhapatnam",
       "updates": [
@@ -1931,6 +1950,15 @@
           "authority": "Government of Andhra Pradesh",
           "source_url": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/andhra-govt-allots-480-acres-for-adani-google-ai-data-centre-in-visakhapatnam-1921542",
           "source_title": "Deccan Chronicle (PTI) — Andhra Govt Allots 480 Acres for Adani-Google AI Data Centre in Visakhapatnam"
+        },
+        {
+          "date": "2026-04-28",
+          "kind": "construction",
+          "title": "Google breaks ground on the Visakhapatnam AI hub",
+          "summary": "A release published by Adani Group (partner AdaniConneX) states that on 28 April 2026 Google officially broke ground at Tarluvada, Andhra Pradesh, which it describes as the start of construction; the Andhra Pradesh Chief Minister and the Union IT Minister attended.",
+          "authority": "Google; AdaniConneX; Government of Andhra Pradesh",
+          "source_url": "https://www.adani.com/newsroom/media-releases/google-breaks-ground-on-india-ai-hub-launching-a-national-industrial-ecosystem",
+          "source_title": "Adani Group — Google Breaks Ground on India AI Hub, Launching a National Industrial Ecosystem"
         },
         {
           "date": "2026-07-01",
@@ -2556,6 +2584,17 @@
       "source_title": "The South First — Lokesh: no diversion of residential water for Vizag data centres",
       "source_lang": "en",
       "single_source": true
+    },
+    {
+      "id": "ie-resp-grange-castle-appeal-grant",
+      "project_id": "ie-google-grange-castle",
+      "date": "2026-09-28",
+      "stance": "positive",
+      "constituency": "regulator",
+      "summary": "An Coimisiún Pleanála granted Google permission on appeal for the Grange Castle expansion, subject to conditions including evidence of engagement with power purchase agreements and renewable fuel for backup generators; the Irish Times reports the decision may face judicial review.",
+      "source_url": "https://irishtimes.com/business/2026/09/28/google-wins-planning-permission-for-dublin-data-centre-extension/",
+      "source_title": "The Irish Times — Google wins planning permission for Dublin data centre extension",
+      "source_lang": "en"
     }
   ],
   "claims": [

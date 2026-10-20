@@ -14,6 +14,12 @@ here with their sources so a curator can decide the shape (see "Proposed schema"
 | Maryland Piedmont Reliability Project | PSEG (utility; CPCN pending, PSC Case 9773); Fourth Circuit ruling | ~67-mile 500 kV line, Frederick to Harford | PSEG project director: "part of that load growth is data centers" (FOX45, 2024); opponents call it an extension cord for Northern Virginia data centers | Fourth Circuit upheld survey access to hundreds of properties, Aug 2026; CPCN still pending | [WYPR 2026-08-20](https://www.wypr.org/wypr-news/2026-08-20/court-upholds-eminent-domain-for-mprp-in-maryland) |
 | Georgia Power Ashley Park-Wansley line | Georgia Power (investor-owned; delegated condemnation) | 35-mile transmission line, Coweta/Fayette/Heard/Fulton | "70-80%" of the power to AI data centers is a CBS estimate Georgia Power did not confirm; attribute it | Land acquisition under way 2026; ~300+ parcels | [Fortune 2026-07-26](https://fortune.com/2026/07/26/georgia-power-utility-company-eminent-domain-grid-expansion-data-center/) |
 
+## Follow-up (same day)
+
+- **Loudoun Golden-to-Mars (Dominion).** SCC final order dated 2026-06-29 approved Route 3A; Dominion's statement names data centers among the customers the line serves. No condemnation filing found yet; docket number not confirmed. (probe HIT)
+- **Metro Nashville BL2026-1489.** Passed third reading 27-5 on 2026-08-04 per a council tracker; stated purpose "office, warehouse, training and other uses". Confirm on Legistar before using; it is a taking *of* a data-center site, not *for* one.
+- Still open: Spotsylvania's April 28 outcome; AES Indiana IURC Cause 46394 order and any condemnation; Nebraska LB 1261 (reported enacted 2026-04-14, snippet only); Maryland SB 1000 (first reading only).
+
 ## Not verified
 
 - **Metro Nashville / DC Blox parcel by the zoo.** Council authorized negotiation or
