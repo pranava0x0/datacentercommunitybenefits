@@ -1208,6 +1208,12 @@ Each item has the trigger that would make it addable.
 
 ### Held international records (2026-10-19, verified but not shipped)
 
+Wave 4 round 3 (`notes/specs/international/wave4/gb_r3.json`, `se_fi_gr_r3.json`), no tracked operator, so held:
+- **GB planning appeals with no named operator:** Abbots Langley, Bedmond Road (SoS grant 12 May 2025, ref APP/P1940/W/24/3346061; developer Greystoke Land, 96 MW per the Council's case); Woodlands Park landfill, Iver (Council refusal 25 Jun 2024, SoS grant 9 Jul 2025, APP/N0410/W/24/3347353; Greystoke/Altrad); Court Lane, Iver (SoS grant 6 Dec 2024, APP/N0410/W/24/3337981; Affinius Capital, 140 MW reserved, no operator named); DC01 UK, Elstree (Hertsmere outline approval, The Register 24 Jan 2025, secondary only; Equinix sale unverified). The earlier "AWS Iver" judicial-review label is not supported by the Court Lane letter and was not shipped. Sources are in the round-3 file.
+- **FI Lahti Kujala** (ecogrid.energy / Peab, city news 25 Aug 2026, permit application filed): untracked operator.
+- **SE atNorth SWE02 Stockholm** (30 MW, go-live Q4 2027, atNorth release 29 Jan 2026): atNorth HQ unverified. **SE Vertical Data, Sollefteå** (release 11 Sep 2026): untracked operator, the 500 MW grid figure is the company's characterisation.
+- **GR ADMIE Agios Stefanos 130 MW:** stored only as a Greece context fact (the regulator freeze); ADMIE is a grid operator, not a developer.
+
 Leads from `deep_ie_gb_eu_nordics_gr_ar_sg.json` (2026-10-19), none shipped:
 - **IE Meta Community Action Grants, Meath 2027 round** (open 14 Sep to 19 Oct 2026; over EUR 4.8m to 186 projects since 2019): reported by Meath PPN quoting Meta. Needs Meta's own grants page before a Claim.
 - **IE Microsoft / Fortum Espoo-Kirkkonummi heat pumps** (waste-heat deliveries "next year", Aug 2026 press): needs a Fortum or Microsoft primary.

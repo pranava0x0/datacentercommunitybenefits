@@ -9761,6 +9761,20 @@ function renderWorld() {
   setSubtabCount("world-instruments-count", worldInstruments().length);
   setSubtabCount("world-sites-count", d.projects.length);
 
+  // One-tap index above the cards: with 18+ countries, a reader looking for
+  // one shouldn't have to scroll the grid (interaction budget: world_country).
+  const jump = document.getElementById("world-country-jump");
+  if (jump) {
+    jump.replaceChildren(
+      ...countries.map((c) => {
+        const b = el("button", "world-jump-btn", countryName(c.code));
+        b.type = "button";
+        b.dataset.country = c.code;
+        b.addEventListener("click", () => openCountry(c.code, { push: true }));
+        return b;
+      })
+    );
+  }
   const list = document.getElementById("world-country-list");
   list.replaceChildren(
     ...countries.map((c) => {

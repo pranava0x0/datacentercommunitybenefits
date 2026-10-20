@@ -1,0 +1,220 @@
+{
+  "companies": [],
+  "records": [
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-HRT",
+        "jurisdiction": "Great Britain (Secretary of State, recovered section 78 appeal)",
+        "event_date": "2025-05-12",
+        "project": "Abbots Langley data centre, land off Bedmond Road (up to 84,000 sqm GEA, 2 buildings; 96 MW of capacity per the Council's inquiry case)",
+        "outcome": "Secretary of State granted outline permission on appeal (Greystoke Land Ltd, ref 23/1068/OUT), overturning Three Rivers District Council's refusal. Inspector and SoS found the site not inappropriate development in the Green Belt; SoS accepted landscape, visual and heritage harm. Operator not named in the decision letter (inquiry refers to an unnamed 'Hyperscaler A')."
+      },
+      "verbatim": "the Secretary of State agrees with the Inspector's conclusions, except where stated, and agrees with his recommendation",
+      "verbatims": [
+        "the Secretary of State agrees with the Inspector's conclusions, except where stated, and agrees with his recommendation",
+        "it is not required to give substantial weight to any harm to the Green Belt, including harm to its openness",
+        "She agrees with the Inspector at IR247 that there is no reason to doubt the availability of an adequate power supply"
+      ],
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6821f977c66deec8488f7f42/Recovered_appeal_-_land_off_Bedmond_Road__Abbots_Langley.pdf",
+      "notes": "Primary: MHCLG decision letter, APP/P1940/W/24/3346061, dated 12 May 2025, read via probe text extraction. Developer Greystoke Land Ltd (agent Pegasus Group). The letter names no operator; the inquiry discusses an unnamed 'Hyperscaler A' with NTT and AWS as nearby operators, so no tracked company is attached. Power: decision letter does not state an MW figure as a site fact; the Council's inquiry case refers to 96 MW of capacity (see separate record). Water: Affinity Water and Thames Water raised no objection (IR, subject to conditions)."
+    },
+    {
+      "country": "GB",
+      "kind": "community_response",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-HRT",
+        "jurisdiction": "Three Rivers District Council (local planning authority, at inquiry)",
+        "event_date": "2024-10-08",
+        "project": "Abbots Langley data centre, land off Bedmond Road",
+        "outcome": "At the October 2024 inquiry the local planning authority maintained its refusal: it argued the scheme was inappropriate Green Belt development without very special circumstances and urged the Inspector to apply long-established Green Belt policy. It accepted the need for data centres and that 96 MW of capacity carried significant positive weight."
+      },
+      "verbatim": "does not consider that the very special circumstances required to justify this development have been demonstrated",
+      "verbatims": [
+        "does not consider that the very special circumstances required to justify this development have been demonstrated",
+        "the provision of 96 MW of capacity is a matter to be afforded significant positive weight"
+      ],
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6821f977c66deec8488f7f42/Recovered_appeal_-_land_off_Bedmond_Road__Abbots_Langley.pdf",
+      "notes": "Primary text is the Council's inquiry case as recorded in the SoS decision letter (IR summary), not a standalone Council statement. Event date is the inquiry opening (8 Oct 2024). Constituency local_government. Stance negative to the scheme; the Council's stance was overruled on appeal."
+    },
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-BKM",
+        "jurisdiction": "Buckinghamshire Council (local planning authority)",
+        "event_date": "2024-06-25",
+        "project": "Woodlands Park landfill site, Iver (72,000 sqm GEA data centre, 2 buildings)",
+        "outcome": "Buckinghamshire Council refused outline planning permission (ref PL/24/0754/OA, application dated 5 March 2024) for a data centre on the former Woodlands Park landfill site, citing Green Belt harm. Refusal later reversed on appeal (see Woodlands Park SoS decision)."
+      },
+      "verbatim": "was refused by a notice dated 25 June 2024",
+      "verbatims": [
+        "was refused by a notice dated 25 June 2024"
+      ],
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.slough.gov.uk/downloads/file/5111/cd-7-01-appeal-decision-relating-to-woodlands-park-landfill-site-dated-9-july-2025-reference-3347353-",
+      "notes": "Primary text: SoS decision letter APP/N0410/W/24/3347353 (9 Jul 2025) recites the refusal date. Appellant: Greystoke Land and Altrad UK Limited. Greystoke is an untracked developer. Not the same scheme as Court Lane (see that record)."
+    },
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-BKM",
+        "jurisdiction": "Great Britain (Secretary of State, recovered section 78 appeal)",
+        "event_date": "2025-07-09",
+        "project": "Woodlands Park landfill site, Iver (72,000 sqm GEA data centre, 2 buildings)",
+        "outcome": "Secretary of State allowed the appeal and granted outline planning permission for a data centre on the former Woodlands Park landfill, in the Green Belt. The Inspector and SoS treated the scheme as inappropriate development requiring very special circumstances, which they found in need and economic benefit. A previous 147 MW scheme on the same site had been dismissed in October 2023."
+      },
+      "verbatim": "decided to allow the appeal and grant planning permission",
+      "verbatims": [
+        "decided to allow the appeal and grant planning permission",
+        "147MW on the site was recovered by the previous Secretary of State and was dismissed in October 2023"
+      ],
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.slough.gov.uk/downloads/file/5111/cd-7-01-appeal-decision-relating-to-woodlands-park-landfill-site-dated-9-july-2025-reference-3347353-",
+      "notes": "Primary: SoS decision letter, APP/N0410/W/24/3347353, dated 9 July 2025, Minister of State Matthew Pennycook. Appellant's evidence states servers would be air cooled and demand on the local water supply would be limited (appellant claim, not adopted as a finding in the excerpt read). The letter cites need of 2,858 MW by Dec 2024. Greystoke/Altrad untracked; do not attribute an operator. Company candidates for curator: Greystoke Land Ltd, Altrad UK Ltd (developer and co-appellant)."
+    },
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-BKM",
+        "jurisdiction": "Great Britain (Secretary of State, recovered section 78 appeal)",
+        "event_date": "2024-12-06",
+        "project": "Court Lane Industrial Estate, Iver (up to 65,000 sqm GEA data centre; 140 MW grid connection reserved)",
+        "outcome": "Secretary of State allowed the appeal by Affinius Capital LLC and granted outline planning permission for a data centre on Court Lane Industrial Estate, Iver, in the Green Belt, overturning Buckinghamshire Council's refusal. The decision letter reserves a 140 MW grid connection from the Uxbridge Moor National Grid substation. The letter does not name an operator or occupier."
+      },
+      "verbatim": "She has decided to allow the appeal and grant planning permission",
+      "verbatims": [
+        "She has decided to allow the appeal and grant planning permission",
+        "The proposed development has a 140MW grid connection reserved",
+        "Power to the site is expected to be delivered from the proposed Uxbridge Moor National Grid substation"
+      ],
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.slough.gov.uk/downloads/file/5110/cd-7-03-appealdecisionrelatingtocourtlaneindustrialestatecourtlaneiversl0-9hl-dated-6-december-2024-reference-3337981-",
+      "notes": "Primary: SoS decision letter APP/N0410/W/24/3337981, dated 6 Dec 2024. CONFLICT FLAG: the wave4 gb_fr_r2 record for 'AWS hyperscale data centre, Iver' (JR, 20 Mar 2026) is most likely this Court Lane permission (the JR concerned a called-in, twice-refused scheme). This letter does NOT name AWS; no source read so far names AWS as the Court Lane occupier, so that label is unverified and should be checked before the JR record is kept. Woodlands Park (Greystoke) is a different site."
+    },
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-HRT",
+        "jurisdiction": "Hertsmere Borough Council (local planning authority)",
+        "event_date": "2025-01-24",
+        "project": "DC01 UK campus, South Mimms / Letchmore Heath, Elstree (85 acres next to M25; up to 2 million sq ft; 400 MVA power reservation per developers)",
+        "outcome": "Hertsmere Borough Council approved the outline planning application filed by DC01 UK Ltd (a joint venture). The developer says a detailed application must still follow. The eventual occupier is undisclosed. Event date is the Register article date; trade press reports the committee approval on 23 Jan 2025, not yet confirmed against the council's own record."
+      },
+      "verbatim": "was approved by the local authority, Hertsmere Borough Council",
+      "verbatims": [
+        "was approved by the local authority, Hertsmere Borough Council"
+      ],
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.theregister.com/2025/01/24/uk_mega_datacenter_approved/",
+      "notes": "Secondary (The Register, 24 Jan 2025), not a council record; the council minutes/decision notice are not read. The Register confirms the approval and the 'Critical National Infrastructure' planning point. Other trade press reports (unverified in this pass) say DC01 UK's site was later sold to Equinix (renamed Hertfordshire Campus, GBP 3.9bn). Equinix is an untracked operator; a company candidate for the curator (HQ Redwood City CA, to confirm). Also reports an ARK Elstree campus with conflicting status (approved vs. consultation); not recorded."
+    },
+    {
+      "country": "GB",
+      "kind": "community_response",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-THR",
+        "jurisdiction": "Thurrock Council (application 25/00573/OUT pending)",
+        "event_date": "2025-08-14",
+        "project": "Google Thurrock data centre, Arena Essex (Lakeside, Thurrock)",
+        "outcome": "Wildlife charity Buglife wrote to Google UK objecting that the campus would destroy over half of the Arena Essex Local Wildlife Site and over 80% of its Open Mosaic Habitat. The charity's campaign reported over 2,500 supporters signing a petition to Google to withdraw the plans. The council decision is pending."
+      },
+      "verbatim": "This is simply the wrong place for Google to think of building a data centre campus.",
+      "verbatims": [
+        "This is simply the wrong place for Google to think of building a data centre campus.",
+        "Global Infrastructure UK Limited",
+        "over 80% of its precious 'Open Mosaic Habitat on Previously Developed Land' habitat being lost",
+        "motivating over 2,500 supporters to already sign a petition calling on Google to withdraw its plans"
+      ],
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.buglife.org.uk/news/google-plans-for-sprawling-data-centre-campus-on-designated-wildlife-site/",
+      "notes": "Constituency ngo, stance negative. Primary page: Buglife news, 14 Aug 2025, which quotes its own letter to Google UK MD Kate Alessi (letter PDF not read). Developer named as Google-associated 'Global Infrastructure UK Limited' (a Google entity to confirm). Application ref 25/00573/OUT is from the search summary and is NOT on the Buglife page; check the Thurrock planning register before storing it. Foxglove campaign page (undated, 570,000 tonnes CO2 claim, a campaign rather than a dated response) is not recorded. Google's reply (carbon-free commitments) is reported by press but not read at source."
+    }
+  ],
+  "leads": [
+    "GB Corsham (Ark, Spring Park): Wiltshire approval after 1,100+ objections (trade press, Feb 2026) NOT recorded: the Wiltshire decision notice and council news page 403 to WebFetch/probe, and the datacentrereview/DCD pages did not fetch in this pass. Get the decision notice via the council planning portal or a PDF copy, and the objection count from the committee report.",
+    "GB Culham AI Growth Zone: no planning application or decision found. The April 2026 South Oxfordshire statement of common ground (LPA59 AS11) states 100 MW scaling to 500 MW; a Local Development Order is in preparation. Revisit when the LDO or application is public.",
+    "GB Didcot (Vale of White Horse): Amazon Data Services application for a 1,936 sqm building on RWE's Didcot Data Campus (listing ref P25/V2462/FUL, target decision 3 Mar 2026). Decision outcome NOT found. Check the Vale portal before a record. Earlier 2021 AWS 'Willow' approval exists per trade press (not verified).",
+    "GB Teesworks (Redcar and Cleveland): reserved matters for data centres granted 1 Aug 2025 per trade press, with a BP hydrogen objection (BP is a business objector, not a community response). Operator not confirmed. Source page on DCD did not fetch in this pass; find the Redcar decision notice first.",
+    "GB Eggborough (North Yorkshire, Microsoft): proposal only; Microsoft said it would apply to North Yorkshire Council (2024 announcement). No application reference or decision found. Not recorded.",
+    "GB Newport Imperial Park (Microsoft, former Quinn Radiators site): Microsoft exhibition boards (2023) only; no decision found. A separate NGD application in Imperial Park has objections on noise (trade press), not Microsoft. Not recorded.",
+    "GB Charlton Riverside (Greenwich): Greenwich Council opposition reported by secondary sources citing a BBC report (4 Oct 2026); the BBC article did not fetch. Developer naming conflicts (Tyburn RWC vs GLi / Charlton Gateway), and the August 2026 Greenwich Wire says an application was filed for 100,000 sqm, while October reporting says none yet lodged. Confirm on the Greenwich planning portal before any record.",
+    "GB Thurrock Google (Arena Essex, 25/00573/OUT): the application's status remains pending. Thurrock Hammers (speedway club), Foxglove (campaign) and Buglife objected. A council decision or committee date would be the next government_action record; check the Thurrock planning register.",
+    "GB Abbots Langley operator: the decision letter names none. Equinix, NTT, AWS and Greystoke are all candidates from press but none is confirmed. Do not attribute a company without the planning register's applicant/occupier statement.",
+    "GB Iver Court Lane (AWS?): wave4 gb_fr_r2 labels the JR scheme 'AWS hyperscale data centre'; the 6 Dec 2024 SoS letter names only Affinius Capital LLC as appellant. Check the Iver JR and any occupier statement before keeping AWS on the Court Lane record.",
+    "GB Ark Elstree campus (Hertsmere): sources conflict (approval reported vs. consultation launched on the former Mercure Hotel). The Hertsmere planning register is needed.",
+    "Company candidates (untracked, HQ to confirm): Greystoke Land Ltd (developer, Iver Woodlands Park and Abbots Langley), Altrad UK Ltd (co-appellant, Woodlands Park), Affinius Capital LLC (Court Lane applicant), DC01 UK Ltd (Elstree/South Mimms), Global Infrastructure UK Limited (Google-associated, Thurrock), Equinix (later holder of the Elstree site per trade press, unverified)."
+  ],
+  "project_candidates": [
+    {
+      "id": "gb-google-thurrock-arena-essex",
+      "company_slug": "google",
+      "name": "Google Thurrock data centre (Arena Essex)",
+      "locality": "Thurrock",
+      "subdivision": "GB-THR",
+      "country": "GB",
+      "status": "announced",
+      "note": "Pending application 25/00573/OUT per trade press; developer Google-associated Global Infrastructure UK Limited."
+    },
+    {
+      "id": "gb-abbots-langley-bedmond-road",
+      "company_slug": null,
+      "name": "Abbots Langley data centre (land off Bedmond Road)",
+      "locality": "Abbots Langley",
+      "subdivision": "GB-HRT",
+      "country": "GB",
+      "status": "announced",
+      "note": "Appeal allowed 12 May 2025; developer Greystoke Land Ltd; operator not named; 96 MW of capacity per the council's inquiry case."
+    },
+    {
+      "id": "gb-woodlands-park-iver",
+      "company_slug": null,
+      "name": "Woodlands Park data centre (Iver)",
+      "locality": "Iver",
+      "subdivision": "GB-BKM",
+      "country": "GB",
+      "status": "announced",
+      "note": "Appeal allowed 9 Jul 2025; 72,000 sqm; developer Greystoke Land and Altrad UK Ltd; operator not named."
+    },
+    {
+      "id": "gb-court-lane-iver",
+      "company_slug": null,
+      "name": "Court Lane data centre (Iver)",
+      "locality": "Iver",
+      "subdivision": "GB-BKM",
+      "country": "GB",
+      "status": "announced",
+      "note": "Appeal allowed 6 Dec 2024; up to 65,000 sqm; 140 MW grid connection reserved; appellant Affinius Capital LLC; operator not named."
+    },
+    {
+      "id": "gb-elstree-south-mimms-dc01uk",
+      "company_slug": null,
+      "name": "DC01 UK campus, South Mimms / Elstree",
+      "locality": "Elstree",
+      "subdivision": "GB-HRT",
+      "country": "GB",
+      "status": "announced",
+      "note": "Outline permission (Hertsmere) per The Register, Jan 2025; developer DC01 UK Ltd; trade press reports a later sale to Equinix (unverified)."
+    }
+  ]
+}

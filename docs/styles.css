@@ -6794,3 +6794,8 @@ button.depth-chip:focus-visible {
 /* Country cards: three lines of summary at most, so 18+ countries stay a
    scannable grid (interaction budget: world_country). */
 .world-card .home-card-dek { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+.world-jump { display: flex; flex-wrap: wrap; gap: var(--sp-1, 4px) var(--sp-2, 8px); margin: 0 0 var(--sp-4, 16px); }
+.world-jump-btn { background: none; border: 0; padding: 4px 0; font: inherit; font-size: var(--fs-sm); color: var(--accent); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; min-height: 32px; }
+.world-jump-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (pointer: coarse) { .world-jump-btn { min-height: 44px; } }

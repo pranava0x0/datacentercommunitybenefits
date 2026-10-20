@@ -146,6 +146,34 @@
           "source_url": "https://www.realtid.se/bors-finans/gavle-jublar-efter-microsoftkop/",
           "source_title": "Realtid — Gävle jublar efter Microsoftköp",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "As reported from a WSP seminar at Almedalen in 2026, Svenska kraftnät's chief strategist put the volume wanting to connect to the transmission grid at roughly 7,500 MW. The WSP page is a consultancy's account, not a Svenska kraftnät publication.",
+          "verbatim": "Vi har väl någonstans runt 7 500 megawatt som vill komma in till stamnätet.",
+          "source_lang": "sv",
+          "translation": {
+            "text": "We have roughly 7,500 megawatts that want to connect to the transmission grid.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026",
+          "source_url": "https://www.wsp.com/sv-se/nyheter/2026/wsp-i-almedalen-datacenter-vaxer-men-utan-nationell-kompass",
+          "source_title": "WSP: I Almedalen, datacenter växer men utan nationell kompass (2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "In the same WSP-reported remarks, winter peak load in Sweden was put at around 25,000-26,000 MW.",
+          "verbatim": "Topplasten vintertid under en januaridag har ju varit någonstans kring 25 000–26 000 megawatt",
+          "source_lang": "sv",
+          "translation": {
+            "text": "Winter peak load on a January day has been somewhere around 25,000–26,000 megawatts.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026",
+          "source_url": "https://www.wsp.com/sv-se/nyheter/2026/wsp-i-almedalen-datacenter-vaxer-men-utan-nationell-kompass",
+          "source_title": "WSP: I Almedalen, datacenter växer men utan nationell kompass (2026)",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
@@ -198,6 +226,48 @@
           "source_url": "https://irei.com/news/capman-infras-portfolio-company-haminan-energia-advances-local-energy-transition-through-new-waste-heat-facility/",
           "source_title": "IREI — CapMan Infra's portfolio company Haminan Energia advances local energy transition through new waste heat facility (reprint, 18 May 2026)",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "By mid-August 2026, planned data-centre capacity with signed connection agreements was almost 5 GW according to Fingrid, based on project developers' figures and including distribution-network projects; Fingrid says signing an agreement does not guarantee the connection.",
+          "verbatim": "Elokuun puoliväliin mennessä liittymissopimusten tehneiden datakeskushankkeiden suunniteltu lopullinen kokonaislaajuus on hanketoimijoiden ilmoittamien tietojen perusteella yhteensä lähes 5 gigawattia",
+          "source_lang": "fi",
+          "translation": {
+            "text": "By mid-August, the planned final total of data-centre projects that had signed connection agreements was, per the project developers' figures, almost 5 gigawatts in total.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-08-18",
+          "source_url": "https://www.sttinfo.fi/tiedote/72239761/sahkonkulutus-on-kaantymassa-voimakkaaseen-kasvuun-rinnalle-tarvitaan-lisaa-saatovoimaa?lang=fi",
+          "source_title": "Fingrid Oyj: Sähkönkulutus on kääntymässä voimakkaaseen kasvuun (18 Aug 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "A Fingrid study published on 3 September 2026 says projects with signed grid connection agreements could, if realised, raise consumption by up to 40 per cent within five years.",
+          "verbatim": "Sähköverkon liityntäsopimuksen tehneet hankkeet voivat toteutuessaan kasvattaa kulutusta viidessä vuodessa jopa 40 prosenttia.",
+          "source_lang": "fi",
+          "translation": {
+            "text": "Projects that have signed a grid connection agreement could, if realised, increase consumption by up to 40 per cent within five years.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09-03",
+          "source_url": "https://www.sttinfo.fi/tiedote/72289680/fingridin-selvitys-teollisuuskulutuksen-sijoittuminen-lahelle-sahkontuotantoa-lisaa-kantaverkon-liitettavyytta-merkittavasti?lang=fi",
+          "source_title": "Fingrid Oyj: Fingridin selvitys, teollisuuskulutuksen sijoittuminen (3 Sep 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "The same Fingrid study says efficient placement of new connections could raise total transmission-grid connectivity by up to 20 GW.",
+          "verbatim": "Fingridin tänään julkaiseman selvityksen mukaan uusien liittyjien tehokas sijoittuminen Suomen sähköjärjestelmään voi kasvattaa kantaverkon kokonaisliitettävyyttä jopa 20 gigawattia.",
+          "source_lang": "fi",
+          "translation": {
+            "text": "According to the study Fingrid published today, the efficient placement of new connections in the Finnish power system could raise total transmission-grid connectivity by up to 20 gigawatts.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09-03",
+          "source_url": "https://www.sttinfo.fi/tiedote/72289680/fingridin-selvitys-teollisuuskulutuksen-sijoittuminen-lahelle-sahkontuotantoa-lisaa-kantaverkon-liitettavyytta-merkittavasti?lang=fi",
+          "source_title": "Fingrid Oyj: Fingridin selvitys, teollisuuskulutuksen sijoittuminen (3 Sep 2026)",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
@@ -224,6 +294,20 @@
           "period": "2022-04-01",
           "source_url": "https://www.enterprisegreece.gov.gr/en/media-center-about-us/enterprise-greece-approves-microsoft-investment-in-data-centers-for-fast-track/",
           "source_title": "Enterprise Greece — Enterprise Greece approves Microsoft investment in Data Centers for Fast Track",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Greek outlet powergame.gr reported on 22 October 2025 that the energy regulator RAAEY had frozen grid operator ADMIE's plan for a 130 MW data centre at Agios Stefanos, Attica, and that ADMIE was continuing to press the plan.",
+          "verbatim": "ΑΔΜΗΕ επανέρχεται μετά το «πάγωμα» του σχεδίου για data centers από τη ΡΑΑΕΥ",
+          "source_lang": "el",
+          "translation": {
+            "text": "ADMIE is returning after RAAEY's 'freeze' of its data centre plan.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2025-10-22",
+          "source_url": "https://www.powergame.gr/energygame/1159339/admie-den-egkataleipei-to-schedio-gia-to-data-center-para-to-freno-tis-raaef/",
+          "source_title": "energygame.gr (POWERGAME): ΑΔΜΗΕ, δεν εγκαταλείπει το σχέδιο για το data center παρά το «φρένο» της ΡΑΑΕΥ (22 Oct 2025)",
           "captured_at": "2026-10-19"
         }
       ],
@@ -2837,7 +2921,18 @@
         "amount": 976168800,
         "currency": "EUR",
         "as_stated": "976.168.800 €"
-      }
+      },
+      "updates": [
+        {
+          "date": "2022-04-04",
+          "kind": "vote",
+          "title": "Enterprise Greece board reported to give a positive opinion on strategic-investment status",
+          "summary": "Greek business outlet powergame.gr reports that the Enterprise Greece board gave a positive opinion to the Strategic Investments Committee on placing Microsoft's 'Investment in Data Centres in Greece' plan under the strategic-investment scheme. Enterprise Greece's own page dates its board approval to 1 April 2022; the report is dated 4 April. The 2026 interministerial approval status was not verified.",
+          "authority": "Enterprise Greece",
+          "source_url": "https://www.powergame.gr/epichirisis/227578/enterprise-greece-thetiki-gnomodotisi-gia-to-ergo-tis-microsoft/",
+          "source_title": "powergame.gr: Enterprise Greece, positive opinion on Microsoft's project (4 Apr 2022, in Greek)"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -3972,6 +4067,22 @@
         }
       ],
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-google-thurrock-arena-essex",
+      "company_slug": "google",
+      "name": "Google data centre campus, Arena Essex (Lakeside, Thurrock)",
+      "city": "Thurrock",
+      "locality": "Arena Essex, Lakeside, Thurrock (Essex)",
+      "country": "GB",
+      "subdivision": "GB-ENG",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2025,
+      "source_url": "https://www.buglife.org.uk/news/google-plans-for-sprawling-data-centre-campus-on-designated-wildlife-site/",
+      "source_title": "Buglife: Google plans for sprawling data centre campus on designated wildlife site (14 Aug 2025)",
+      "captured_at": "2026-10-19",
+      "notes": "The only source read is Buglife's 14 August 2025 news page, a campaign group's account, so Google's own plan documents and the Thurrock planning register were not checked and no application reference is recorded. Buglife says the campus would destroy over half of the Arena Essex Local Wildlife Site and over 80% of its Open Mosaic Habitat, and that over 2,500 supporters had signed a petition calling on Google to withdraw the plans. Status is announced pending a council decision; none was found. No site coordinates are recorded."
     }
   ],
   "responses": [
@@ -4415,6 +4526,17 @@
       "source_url": "https://www.freepressjournal.in/amp/mumbai/thane-mp-naresh-mhaske-demands-immediate-halt-on-amazon-data-center-citing-illegal-tree-felling-and-civic-disaster-risks",
       "source_title": "Free Press Journal — Thane MP Naresh Mhaske demands immediate halt on Amazon data centre",
       "single_source": true,
+      "source_lang": "en"
+    },
+    {
+      "id": "gb-resp-thurrock-buglife-objection",
+      "project_id": "gb-google-thurrock-arena-essex",
+      "date": "2025-08-14",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Wildlife charity Buglife wrote to Google UK objecting that the campus would destroy over half of the Arena Essex Local Wildlife Site and over 80% of its Open Mosaic Habitat, and its campaign reported over 2,500 petition signatures asking Google to withdraw the plans.",
+      "source_url": "https://www.buglife.org.uk/news/google-plans-for-sprawling-data-centre-campus-on-designated-wildlife-site/",
+      "source_title": "Buglife: Google plans for sprawling data centre campus on designated wildlife site",
       "source_lang": "en"
     }
   ],
