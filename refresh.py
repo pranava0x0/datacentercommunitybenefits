@@ -782,6 +782,71 @@ def _write_home(payloads, *, pretty: bool) -> int:
     return len(text.encode("utf-8"))
 
 
+SITE_URL = "https://pranava0x0.github.io/datacentercommunitybenefits/"
+
+# Each tab's hash and one plain line on what it holds. llms.txt reads from
+# this, so a new view needs one entry here (test_agent_files_cover_every_view
+# derives the expected set from app.js VIEWS).
+VIEW_GUIDE = {
+    "overview": ("Home", "Section totals, the latest actions and dated upcoming decisions."),
+    "ratepayer": ("The Pledge", "The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard."),
+    "policies": ("Local Policy Frameworks", "Executive orders, statutes, regulations and local ordinances that set conditions on data centers."),
+    "agreements": ("Benefit Agreements", "Community benefit, host and PILOT agreements, tagged by what their text contains."),
+    "moratoriums": ("Moratoriums", "Enacted, proposed and failed pauses on data-center development, by city, county and state."),
+    "tariffs": ("Tariffs & Rate Cases", "Large-load electricity tariffs scored against the DOE/LBL design elements, and the docketed rate cases behind them."),
+    "comparison": ("Companies", "What each operator has published about jobs, tax, energy, water, grants, infrastructure, education and engagement, with quotes."),
+    "explorer": ("Sites", "Individual data-center sites on a map, with status, claims, community responses and a dated timeline."),
+    "world": ("International", "Policies, pauses, sites and company statements outside the US, with original-language quotes and labelled translations."),
+}
+
+
+def _write_agent_files(payloads, *, today: date) -> None:
+    """llms.txt and sitemap.xml, regenerated with the data so their counts
+    and dates can't go stale (the "hand-written list rots" rule)."""
+    home = _build_home(payloads, today)["totals"]
+    docs = OUT_DIR.parent
+    data_files = sorted(f.name for f in OUT_DIR.glob("*.json"))
+    lines = [
+        "# Data Center Community Benefits",
+        "",
+        "> A sourced public record of what data-center operators have promised host communities, "
+        "and what governments, utilities and residents have done in response, in the US and selected countries. "
+        "Every record links to its primary source and carries a capture date; company statements are quoted verbatim.",
+        "",
+        f"Last refreshed {today.isoformat()}. Record counts: {home['sites']} sites ({home['contested_sites']} contested), "
+        f"{home['companies']} companies, {home['moratoriums']} moratoriums ({home['moratoriums_enacted']} enacted), "
+        f"{home['policies']} policies, {home['agreements']} benefit agreements, {home['tariffs']} tariffs, "
+        f"{home['rate_cases']} rate cases, {home['pledge_organizations']} pledge signatories, "
+        f"{home['international_records']} international records across {home['international_countries']} countries.",
+        "",
+        "## Sections",
+        "",
+    ]
+    for key, (title, desc) in VIEW_GUIDE.items():
+        lines.append(f"- [{title}]({SITE_URL}#{key}): {desc}")
+    lines += ["", "## Data (JSON, one file per record type)", ""]
+    for name in data_files:
+        lines.append(f"- [{name}]({SITE_URL}data/{name})")
+    lines += [
+        "",
+        "## How to cite",
+        "",
+        "Cite the record's own `source_url`, not this site, for any fact. Dates are event dates "
+        "(the vote, filing or signing), not article dates. A missing assessment means not yet reviewed, not a finding.",
+        "",
+        "## Optional",
+        "",
+        "- [Source code and methodology](https://github.com/pranava0x0/datacentercommunitybenefits)",
+        "",
+    ]
+    (docs / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
+    urls = [SITE_URL, SITE_URL + "llms.txt"] + [f"{SITE_URL}data/{n}" for n in data_files]
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sm += [f"  <url><loc>{u}</loc><lastmod>{today.isoformat()}</lastmod></url>" for u in urls]
+    sm.append("</urlset>")
+    (docs / "sitemap.xml").write_text("\n".join(sm) + "\n", encoding="utf-8")
+
+
 # v6 fields whose default is the US value. Written out on every US record
 # they added ~12 KB gzipped to first paint for no information, so the US
 # payloads omit them (the frontend treats a missing value as the default).
@@ -905,6 +970,8 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
     nbytes = _write_home(payloads, pretty=pretty)
     total += nbytes
     logger.info("Wrote home.json (%d bytes)", nbytes)
+    _write_agent_files(payloads, today=payloads["projects"].generated_at)
+    logger.info("Wrote llms.txt and sitemap.xml")
     logger.info("Total payload size: %.1f KB", total / 1024)
     return 0
 

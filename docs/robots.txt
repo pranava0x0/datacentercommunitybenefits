@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pranava0x0.github.io/datacentercommunitybenefits/sitemap.xml

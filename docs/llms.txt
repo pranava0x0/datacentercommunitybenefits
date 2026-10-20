@@ -1,0 +1,40 @@
+# Data Center Community Benefits
+
+> A sourced public record of what data-center operators have promised host communities, and what governments, utilities and residents have done in response, in the US and selected countries. Every record links to its primary source and carries a capture date; company statements are quoted verbatim.
+
+Last refreshed 2026-10-19. Record counts: 142 sites (58 contested), 17 companies, 238 moratoriums (194 enacted), 133 policies, 28 benefit agreements, 29 tariffs, 18 rate cases, 323 pledge signatories, 89 international records across 14 countries.
+
+## Sections
+
+- [Home](https://pranava0x0.github.io/datacentercommunitybenefits/#overview): Section totals, the latest actions and dated upcoming decisions.
+- [The Pledge](https://pranava0x0.github.io/datacentercommunitybenefits/#ratepayer): The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard.
+- [Local Policy Frameworks](https://pranava0x0.github.io/datacentercommunitybenefits/#policies): Executive orders, statutes, regulations and local ordinances that set conditions on data centers.
+- [Benefit Agreements](https://pranava0x0.github.io/datacentercommunitybenefits/#agreements): Community benefit, host and PILOT agreements, tagged by what their text contains.
+- [Moratoriums](https://pranava0x0.github.io/datacentercommunitybenefits/#moratoriums): Enacted, proposed and failed pauses on data-center development, by city, county and state.
+- [Tariffs & Rate Cases](https://pranava0x0.github.io/datacentercommunitybenefits/#tariffs): Large-load electricity tariffs scored against the DOE/LBL design elements, and the docketed rate cases behind them.
+- [Companies](https://pranava0x0.github.io/datacentercommunitybenefits/#comparison): What each operator has published about jobs, tax, energy, water, grants, infrastructure, education and engagement, with quotes.
+- [Sites](https://pranava0x0.github.io/datacentercommunitybenefits/#explorer): Individual data-center sites on a map, with status, claims, community responses and a dated timeline.
+- [International](https://pranava0x0.github.io/datacentercommunitybenefits/#world): Policies, pauses, sites and company statements outside the US, with original-language quotes and labelled translations.
+
+## Data (JSON, one file per record type)
+
+- [claims.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/claims.json)
+- [companies.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/companies.json)
+- [coverage.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/coverage.json)
+- [home.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/home.json)
+- [international.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/international.json)
+- [moratoriums.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/moratoriums.json)
+- [policies.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/policies.json)
+- [projects.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/projects.json)
+- [rate_cases.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/rate_cases.json)
+- [responses.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/responses.json)
+- [signatories.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/signatories.json)
+- [tariffs.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/tariffs.json)
+
+## How to cite
+
+Cite the record's own `source_url`, not this site, for any fact. Dates are event dates (the vote, filing or signing), not article dates. A missing assessment means not yet reviewed, not a finding.
+
+## Optional
+
+- [Source code and methodology](https://github.com/pranava0x0/datacentercommunitybenefits)

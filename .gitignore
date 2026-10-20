@@ -53,3 +53,4 @@ moratorium_link_report.json
 moratorium_completeness_report.json
 .preview/
 .signatory_cache/
+.revalidate_cache/

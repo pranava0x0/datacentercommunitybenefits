@@ -1895,6 +1895,16 @@ payload except the roster. First paint is 246.5 of the 250 KB budget, with
 most of it being claims and projects that Home barely uses. All of it is in
 BACKLOG §4–§5.
 
+
+**`scripts/revalidate.py` is the token-free pre-pass (2026-10-19).** It walks
+every `source_url` / resource URL in the payloads named by
+`refresh.PAYLOAD_FILES` (plus `international.json`'s nested lists), classifies
+each as live / blocked / dead / redirected, runs probe.py's clause matching on
+claim statements and policy `key_terms`, stores a text fingerprint per URL in
+`.revalidate_cache/`, and flags date-stale statuses. `--cached` prints the
+worklist offline; only records on it need an LLM. Tests:
+`tests/test_revalidate.py`.
+
 ### Stuck units get parked, not retried (2026-10-08)
 
 The first unattended-style run on the new queue ended after 2 of 20 minutes
