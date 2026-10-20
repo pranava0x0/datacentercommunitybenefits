@@ -84,6 +84,35 @@ def pdf_text(data: bytes) -> str:
     return norm(text.replace("\\(", "(").replace("\\)", ")"))
 
 
+PDFKIT_SCRIPT = Path(__file__).resolve().parent / "pdftext.js"
+MAX_FALLBACK_PDF = 8_000_000  # the pure-Python extractor stalls on huge files
+
+
+def pdf_text_best(data: bytes) -> str:
+    """macOS PDFKit when available (reads the real text layer, including
+    compressed fonts the stream parser can't), else the stream parser."""
+    import shutil
+    import subprocess
+    import tempfile
+
+    if shutil.which("osascript") and PDFKIT_SCRIPT.exists():
+        with tempfile.NamedTemporaryFile(suffix=".pdf") as f:
+            f.write(data)
+            f.flush()
+            try:
+                out = subprocess.run(
+                    ["osascript", "-l", "JavaScript", str(PDFKIT_SCRIPT), f.name],
+                    capture_output=True, text=True, timeout=90,
+                )
+                if out.returncode == 0 and len(out.stdout) > MIN_TEXT:
+                    return norm(out.stdout)
+            except subprocess.TimeoutExpired:
+                pass
+    if len(data) > MAX_FALLBACK_PDF:
+        return ""
+    return pdf_text(data)
+
+
 def fetch(url: str) -> tuple[int, str, str]:
     """Return (status, final_url, text). Status 0 means the fetch itself failed."""
     try:
@@ -97,7 +126,7 @@ def fetch(url: str) -> tuple[int, str, str]:
         return 0, url, f"FETCH-ERROR: {exc}"
     is_pdf = "pdf" in r.headers.get("content-type", "") or r.content[:5] == b"%PDF-"
     if is_pdf:
-        return r.status_code, r.url, pdf_text(r.content)
+        return r.status_code, r.url, pdf_text_best(r.content)
     # requests falls back to ISO-8859-1 when the header names no charset,
     # which mangles accented text on many non-English pages (é -> Ã©) and
     # makes Spanish/French quotes MISS. Prefer UTF-8 when it decodes cleanly.

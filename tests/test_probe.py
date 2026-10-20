@@ -118,3 +118,13 @@ def test_a_bot_walled_page_is_reported_not_failed(gate, capsys) -> None:
     It must not pass as a HIT, and it must not fail the gate either."""
     assert gate(row(source_url="https://example.org/walled", verbatim="anything long enough to check here")) == 0
     assert "BLOCKED" in capsys.readouterr().out
+
+
+def test_pdf_falls_back_to_stream_parser_without_pdfkit(monkeypatch) -> None:
+    import shutil
+    import probe as pr
+    monkeypatch.setattr(shutil, "which", lambda name: None)
+    called = {}
+    monkeypatch.setattr(pr, "pdf_text", lambda data: called.setdefault("ok", "fallback text"))
+    assert pr.pdf_text_best(b"%PDF-1.4 tiny") == "fallback text"
+    assert pr.pdf_text_best(b"x" * (pr.MAX_FALLBACK_PDF + 1)) == ""  # too big to parse safely
