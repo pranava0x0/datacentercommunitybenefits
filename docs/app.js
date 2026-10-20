@@ -62,6 +62,9 @@ const COMPANY_SLUGS = [
   "softbank-corp",
   "nextdc",
   "xtx-markets",
+  "adaniconnex",
+  "reliance",
+  "nxtra",
 ];
 
 const STANCE_LABELS = {
@@ -1442,15 +1445,23 @@ async function loadAggregateView() {
 
 
 // Moratoriums view: fetch and render moratorium data with filtering
-async function loadMoratoriumsData() {
-  if (state.moratoriumsLoaded) return;
-  const payload = await fetchJson("data/moratoriums.json");
-  state.moratoriums = payload.moratoriums;
-  state.chinaContext = payload.china_anti_datacenter_messaging;
-  state.themeRecommendations = payload.theme_recommendations || {};
-  state.moratoriumsLoaded = true;
-  renderMoratoriumsView();
-  document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
+let _moratoriumsPromise = null;
+function loadMoratoriumsData() {
+  if (!_moratoriumsPromise) {
+    _moratoriumsPromise = (async () => {
+      const payload = await fetchJson("data/moratoriums.json");
+      state.moratoriums = payload.moratoriums;
+      state.chinaContext = payload.china_anti_datacenter_messaging;
+      state.themeRecommendations = payload.theme_recommendations || {};
+      state.moratoriumsLoaded = true;
+      renderMoratoriumsView();
+      document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
+    })().catch((err) => {
+      _moratoriumsPromise = null; // allow a retry after a failed fetch
+      throw err;
+    });
+  }
+  return _moratoriumsPromise;
 }
 
 // The directory shows a scannable short duration; the full `duration_description`
@@ -3465,7 +3476,7 @@ function renderPolicyPrinciples(all) {
     const states = new Set(recs.map((p) => p.state_code).filter(Boolean)).size;
     const li = el("li", "pb-principle");
     li.dataset.principle = key;
-    li.append(el("h4", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
+    li.append(el("h3", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
     li.append(el("p", "pb-principle-desc", POLICY_PRINCIPLE_DESCRIPTIONS[key]));
     if (!recs.length) {
       // heat_reuse (v6) is mainly practiced abroad: point to those records
@@ -4917,14 +4928,11 @@ function statusWords(counts) {
 function renderMatrix() {
   const headRow = document.getElementById("matrix-head-row");
   const body = document.getElementById("matrix-body");
-  headRow.innerHTML = "";
+  // The "Company" corner cell is authored once in index.html (an empty <tr>
+  // is invalid HTML); only the theme columns are rebuilt here.
+  while (headRow.children.length > 1) headRow.lastElementChild.remove();
   body.innerHTML = "";
   setSubtabCount("matrix-count", state.claims.length);
-
-  const corner = document.createElement("th");
-  corner.className = "col-company";
-  corner.textContent = "Company";
-  headRow.appendChild(corner);
 
   for (const t of THEMES) {
     const th = document.createElement("th");
@@ -6185,6 +6193,8 @@ async function exportMoratoriumsToPDF() {
     return;
   }
 
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
   const filtered = filteredMoratoriums();
 
   // Sort: enacted (date desc) → proposed → failed, matching the on-screen table.
@@ -6549,6 +6559,11 @@ function phonePageMore(key, page) {
 function focusNth(container, n) {
   const item = container && container.children[n];
   if (!item) return;
+  const inner = item.querySelector(".project-card-btn");
+  if (inner) {
+    inner.focus({ preventScroll: false });
+    return;
+  }
   if (!item.hasAttribute("tabindex")) item.tabIndex = -1;
   item.focus({ preventScroll: false });
 }
@@ -6635,9 +6650,6 @@ function renderProjectCard(p) {
   li.className = "project-card";
   li.dataset.projectId = p.id;
   li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
-  li.tabIndex = 0;
-  li.setAttribute("role", "button");
-  li.setAttribute("aria-label", `${p.name} — view details`);
 
   if (state.selectedProjectId === p.id) li.classList.add("active");
 
@@ -6660,7 +6672,7 @@ function renderProjectCard(p) {
       <span class="status-pill status-${escapeAttr(p.status)}">${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
       ${contested ? `<span class="reason-chip">Contested</span>` : ""}
     </div>
-    <p class="project-name">${escapeHtml(p.name)}</p>
+    <p class="project-name"><button type="button" class="project-card-btn" aria-label="${escapeAttr(p.name)} — view details">${escapeHtml(p.name)}</button></p>
     <div class="project-meta">
       <span>${escapeHtml(co ? co.name : p.company_slug)}</span>
       <span>${escapeHtml(p.city)}, ${escapeHtml(p.state)}</span>
@@ -6671,13 +6683,9 @@ function renderProjectCard(p) {
     ${moratoriumBadges ? `<div class="project-moratoriums-row">${moratoriumBadges}</div>` : ""}
   `;
 
+  // The whole card is clickable for pointer users; the name button (stretched
+  // over the card in CSS) carries focus and Enter/Space natively.
   li.addEventListener("click", () => selectProject(p.id));
-  li.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      selectProject(p.id);
-    }
-  });
   return li;
 }
 
@@ -6850,7 +6858,7 @@ function renderMapLegend() {
     const div = L.DomUtil.create("div", "map-legend");
     div.innerHTML = `
       <div class="legend-content">
-        <h4>Map Legend</h4>
+        <h3>Map Legend</h3>
         <div class="legend-section">
           <strong>Marker Size</strong>
           <div class="legend-item"><span class="legend-dot" style="width: 8px; height: 8px;"></span> &lt;100 MW</div>
@@ -7184,7 +7192,7 @@ async function openStatePanel(code) {
   const results = await Promise.allSettled([
     loadProjectData(),
     loadSignatoryData(),
-    state.moratoriumsLoaded ? Promise.resolve() : loadMoratoriumsData(),
+    loadMoratoriumsData(),
     state.tariffsLoaded ? Promise.resolve() : loadTariffsData(),
     state.rateCasesLoaded ? Promise.resolve() : loadRateCasesData(),
     loadPoliciesData(),
@@ -9403,6 +9411,7 @@ const SUBDIVISION_NAMES = {
   "IN-AP": "Andhra Pradesh",
   "IN-TN": "Tamil Nadu",
   "IN-UP": "Uttar Pradesh",
+  "IN-GJ": "Gujarat",
   "IN-TG": "Telangana",
   "IN-KA": "Karnataka",
   "SE-D": "Södermanland County",

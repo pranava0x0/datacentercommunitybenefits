@@ -118,7 +118,7 @@
       "filed_date": null,
       "decided_date": null,
       "effective_date": null,
-      "next_milestone": "Evidentiary hearing began May 18, 2026 and had concluded by July 10, 2026 (per APS). Next step is the ALJ's Recommended Opinion and Order, which APS says 'may take months', followed by party exceptions and a Commission open-meeting vote; APS expects a final decision later in 2026. No ROO date or open-meeting date had been announced as of September 25, 2026.",
+      "next_milestone": "Evidentiary hearing began May 18, 2026 and concluded on July 7, 2026 (per the ACC). The ALJ is expected to provide a Recommended Opinion and Order (ROO) by late November 2026; the Commission must vote by December 31, 2026. No specific ROO or open-meeting date had been announced.",
       "next_milestone_date": null,
       "related_tariff_id": "aps-arizona-large-load-rate-case-2025",
       "related_project_ids": null,
@@ -141,9 +141,13 @@
         {
           "url": "https://azcc.gov/news/home/2026/10/09/acc-statement",
           "title": "Arizona Corporation Commission — Statement (Oct. 9, 2026)"
+        },
+        {
+          "url": "https://azcc.gov/news/home/2026/07/10/what-s-next-in-the-aps-rate-case",
+          "title": "ACC — What's Next in the APS Rate Case? (July 10, 2026)"
         }
       ],
-      "captured_at": "2026-10-18"
+      "captured_at": "2026-10-19"
     },
     {
       "id": "mo-psc-ameren-large-load-2025",

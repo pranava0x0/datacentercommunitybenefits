@@ -60,9 +60,9 @@
   --hairline: rgba(41, 51, 64, 0.16);
 
   /* Per-stance colors (community responses) */
-  --stance-positive: #2f7a4d;
+  --stance-positive: #25663f;
   --stance-positive-soft: #d8eadd;
-  --stance-mixed: #b07024;
+  --stance-mixed: #8a5410;
   --stance-mixed-soft: #f0e2c9;
   --stance-negative: #a3372f;
   --stance-negative-soft: #f0d4d1;
@@ -70,11 +70,11 @@
   /* Delivered-vs-promised palette (v1.13). Mirrors stance hues so that
      "delivered ↔ positive", "shortfall ↔ negative", "partial / contested ↔
      mixed" read consistently across the dashboard. */
-  --delivered-delivered: #2f7a4d;
+  --delivered-delivered: #25663f;
   --delivered-delivered-soft: #e2f0e7;
-  --delivered-partial: #5a7a90;
+  --delivered-partial: #46657a;
   --delivered-partial-soft: #e0e8ee;
-  --delivered-contested: #b07024;
+  --delivered-contested: #8a5410;
   --delivered-contested-soft: #f0e2c9;
   --delivered-shortfall: #a3372f;
   --delivered-shortfall-soft: #f0d4d1;
@@ -82,11 +82,11 @@
   /* Ratepayer Protection Pledge palette (v1.15). affirmed ↔ delivered green,
      pledge_only ↔ neutral blue-grey, contested ↔ amber — consistent with the
      delivered/stance signal language. */
-  --ratepayer-affirmed: #2f7a4d;
+  --ratepayer-affirmed: #25663f;
   --ratepayer-affirmed-soft: #e2f0e7;
-  --ratepayer-pledge_only: #5a7a90;
+  --ratepayer-pledge_only: #46657a;
   --ratepayer-pledge_only-soft: #e0e8ee;
-  --ratepayer-contested: #b07024;
+  --ratepayer-contested: #8a5410;
   --ratepayer-contested-soft: #f0e2c9;
 
   /* Tariff status + coverage colors (v1.17). Light values here; dark overrides
@@ -94,15 +94,15 @@
      --delivered (DESIGN.md: colors live in tokens with dark-mode overrides, not
      hard-coded per rule). approved↔positive, proposed↔mixed, rejected↔negative;
      included↔positive, partial↔mixed. */
-  --tariff-approved: #2f7a4d;
+  --tariff-approved: #25663f;
   --tariff-approved-soft: #d8eadd;
-  --tariff-proposed: #b07024;
+  --tariff-proposed: #8a5410;
   --tariff-proposed-soft: #f0e2c9;
   --tariff-rejected: #a3372f;
   --tariff-rejected-soft: #f0d4d1;
-  --tariff-included: #2f7a4d;
+  --tariff-included: #25663f;
   --tariff-included-soft: #d8eadd;
-  --tariff-partial: #b07024;
+  --tariff-partial: #8a5410;
   --tariff-partial-soft: #f0e2c9;
   --tariff-federal: #2f5d8a;
   --tariff-federal-soft: #f1f0ea;
@@ -111,9 +111,9 @@
      enacted↔in-effect (green), proposed↔pending (amber), failed↔struck (red).
      Literal values in BOTH :root blocks per DESIGN.md 12.12 (a var() alias in
      :root only won't inherit the dark override to descendants). */
-  --moratorium-enacted: #2f7a4d;
+  --moratorium-enacted: #25663f;
   --moratorium-enacted-soft: #d8eadd;
-  --moratorium-proposed: #b07024;
+  --moratorium-proposed: #8a5410;
   --moratorium-proposed-soft: #f0e2c9;
   --moratorium-failed: #a3372f;
   --moratorium-failed-soft: #f0d4d1;
@@ -139,6 +139,9 @@
   --co-softbank-corp: #5a6a8a;
   --co-nextdc: #6a5a4a;
   --co-xtx-markets: #4a6a6a;
+  --co-adaniconnex: #3a6a8a;
+  --co-reliance: #7a4a5a;
+  --co-nxtra: #8a6a3a;
   --co-sb-energy: #8e4a6b;
   --co-brookfield: #5a6b3a;
 
@@ -147,7 +150,7 @@
   --theme-tax_revenue: #6b4a8a;
   --theme-energy: #8a6a2f;
   --theme-water: #2f7a8a;
-  --theme-community_grants: #2f7a4d;
+  --theme-community_grants: #25663f;
   --theme-infrastructure: #5b6471;
   --theme-education: #8a4a5b;
   --theme-engagement: #4a8a6b;
@@ -267,6 +270,9 @@
   --co-softbank-corp: #9aaac8;
   --co-nextdc: #c8b09a;
   --co-xtx-markets: #9ac8c8;
+  --co-adaniconnex: #8ab4d4;
+  --co-reliance: #cc9aaa;
+  --co-nxtra: #d4b47a;
   --co-sb-energy: #d68ab0;
   --co-brookfield: #a8c47a;
 
@@ -1114,8 +1120,9 @@ main {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.map-legend h4 {
+.map-legend h3 {
   margin: 0 0 4px;
+  font-family: var(--font-sans);
   font-size: var(--fs-xs);
   font-weight: 600;
   color: var(--text);
@@ -1200,6 +1207,7 @@ main {
 }
 
 .project-card {
+  position: relative;
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-left: 3px solid var(--co-color, var(--accent));
@@ -1216,6 +1224,23 @@ main {
 
 .project-card.active {
   background: var(--accent-soft);
+}
+
+.project-card-btn {
+  all: unset;
+  cursor: pointer;
+}
+.project-card-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.project-card-btn:focus-visible {
+  outline: none;
+}
+.project-card:has(.project-card-btn:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .project-name {
@@ -1768,7 +1793,6 @@ main {
 .rp-stat-breakdown {
   font-size: var(--fs-2xs);
   color: var(--text-muted);
-  opacity: 0.75;
   line-height: 1.3;
   margin-top: 0.1rem;
 }
@@ -2470,7 +2494,6 @@ main {
 .rp-card-dates {
   font-size: var(--fs-xs);
   color: var(--text-muted);
-  opacity: 0.8;
 }
 
 /* Claim-basis badge + conflict flag — makes "individual vs company-wide"
@@ -2625,7 +2648,6 @@ main {
 .rp-pre-dates {
   font-size: var(--fs-xs);
   color: var(--text-muted);
-  opacity: 0.8;
   grid-column: 2 / -1;
   grid-row: 2;
 }
@@ -3867,7 +3889,7 @@ body.tariff-modal-open {
 
 /* Status badge colors */
 .moratorium-status-enacted {
-  --status-color: #2f7a4d;
+  --status-color: #25663f;
 }
 
 .moratorium-status-proposed {
@@ -5139,7 +5161,6 @@ body.state-modal-open {
 
 .rp-filter-chip-n {
   font-size: var(--fs-xs);
-  opacity: 0.75;
 }
 
 .rp-filter-flag {
@@ -5655,7 +5676,7 @@ button.depth-chip:focus-visible {
   padding: 16px 18px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--co-color, var(--accent));
+  border-top: 3px solid var(--accent);
   border-radius: var(--radius);
 }
 .co-card-head { display: flex; flex-direction: column; gap: 3px; }
@@ -6583,3 +6604,12 @@ button.depth-chip:focus-visible {
   .home-card-num { font-size: var(--fs-xl); }
   .home-card-sub { font-size: var(--fs-xs); }
 }
+
+/* Plain-HTML summary written by refresh.py into the Home view so crawlers and
+   no-JS readers get the answers the app otherwise paints from JSON. */
+.static-summary { margin-top: var(--space-8, 2rem); padding-top: var(--space-4, 1rem); border-top: 1px solid var(--border); }
+.static-summary > h2 { font-family: var(--font-serif); font-size: var(--fs-lg); font-weight: 400; margin: 0 0 0.25rem; }
+.static-summary > p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 0.75rem; }
+.static-summary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+.static-summary li h3 { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; margin: 0 0 0.15rem; }
+.static-summary li p { margin: 0; font-size: var(--fs-sm); color: var(--text-muted); }

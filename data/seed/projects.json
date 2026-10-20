@@ -796,7 +796,7 @@
         },
         {
           "date": "2026-02-17",
-          "kind": "news",
+          "kind": "lawsuit",
           "title": "Reported: Lawsuit asks Cole County judge to set back Montgomery County data center approval process",
           "summary": "A lawsuit asks a Cole County judge to invalidate key advancements in Montgomery County's data center approval process.",
           "authority": null,
@@ -1209,7 +1209,18 @@
         "jobs": "6,000+ daily construction workers (Stargate)",
         "energy": "1.2 GW campus — OpenAI workload, Crusoe operates",
         "infrastructure": "Downstream housing crisis + local electrician shortage"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-04-17",
+          "kind": "news",
+          "title": "Epoch AI reports four of eight buildings operational and the 2.1 GW expansion reversed",
+          "summary": "Epoch AI's 17 April 2026 article estimates four of the eight buildings were already operational and says OpenAI had planned to expand the site to 2.1 GW but recently reversed course. Epoch's site directory page, updated 17 July 2026, gives a later count: buildings 1-2 confirmed operational, 3-4 estimated, 5-8 not confirmed.",
+          "authority": "Epoch AI",
+          "source_url": "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
+          "source_title": "Epoch AI — OpenAI Stargate: where the US sites stand"
+        }
+      ]
     },
     {
       "id": "oracle-abilene-tx",
@@ -3879,11 +3890,11 @@
       "announced_year": 2025,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "Part of Google's $40B Texas investment package. 1,300-acre site in Armstrong County, Texas Panhandle (near Claude, TX). Wind energy-powered via ERCOT. Closed-loop cooling for minimal water use. Crusoe Energy assisting with site preparation; construction underway as of early 2026.",
+      "notes": "Part of Google's $40B Texas investment package. Site in Armstrong County, Texas Panhandle (near Claude, TX). Wind energy-powered via ERCOT. Closed-loop cooling for minimal water use. Crusoe announced on September 28, 2026 that it is the developer of Google's campus, under construction since June 2025 with more than 5,500 skilled laborers on site daily.",
       "source_url": "https://crusoe.ai/resources/newsroom/crusoe-developing-data-center-campus-in-armstrong-county-texas",
       "source_title": "Crusoe newsroom — Crusoe developing data center campus in Armstrong County, Texas",
       "captured_at": "2026-10-19",
-      "acreage": 1300.0,
+      "acreage": null,
       "offtaker": "Google",
       "at_a_glance": {
         "energy": "1,300 ac Armstrong County TX campus"

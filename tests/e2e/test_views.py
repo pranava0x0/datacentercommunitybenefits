@@ -2323,6 +2323,11 @@ class TestPledgeLanding:
 
     def test_landing_numbers_come_from_data_not_markup(self, page: Page, base_url: str):
         html = (Path(__file__).resolve().parents[2] / "docs" / "index.html").read_text()
+        # The static summary block is written by refresh.py from the data
+        # (crawler/no-JS answers), so it is excluded: only hand-written markup
+        # must stay number-free.
+        start = html.index("<!-- static-summary:start")
+        html = html[:start] + html[html.index("<!-- static-summary:end -->"):]
         assert "279" not in html and "323" not in html, "roster count hardcoded in index.html"
         assert html.count('class="home-card-num"') == html.count("&mdash;</span>\n              <span class=\"home-card-sub\"")
         page.goto(base_url + "/")
@@ -3817,7 +3822,8 @@ class TestIssue72Navigation:
             for r in held:
                 r.continue_()
         # Let the late callback run before asserting it did nothing.
-        page.evaluate("() => loadMoratoriumsData().then(() => new Promise(r => setTimeout(r, 50)))")
+        page.wait_for_function("() => state.moratoriumsLoaded", timeout=E2E_WAIT)
+        page.evaluate("() => new Promise(r => setTimeout(r, 50))")
         # The modal lives inside the (now hidden) Moratoriums view, so a late
         # open is invisible but still locks page scroll; check both.
         assert page.locator("#moratorium-modal").get_attribute("hidden") is not None
@@ -4102,3 +4108,19 @@ class TestInternational:
         if card.count() == 0:
             card = page.locator("#co-cards > *").filter(has_text=page.evaluate(f"() => state.companiesBySlug.get('{slug}').name")).first
         expect(card).to_contain_text(f"plus {n} site")
+
+
+class TestMoratoriumPdfExport:
+    def test_pdf_button_throws_no_page_error(self, page: Page, base_url: str):
+        errors = []
+        page.on("pageerror", lambda e: errors.append(str(e)))
+        page.add_init_script(
+            "window.html2pdf = () => ({set(){return this}, from(){return this},"
+            " save(){return Promise.resolve()}, outputPdf(){return Promise.resolve(new Blob())}});"
+        )
+        page.goto(base_url + "/#moratoriums")
+        page.wait_for_function("() => state.moratoriumsLoaded", timeout=E2E_WAIT)
+        page.once("dialog", lambda d: d.dismiss())
+        page.locator("#moratoriums-pdf-btn").click()
+        page.wait_for_timeout(1500)
+        assert not errors, errors

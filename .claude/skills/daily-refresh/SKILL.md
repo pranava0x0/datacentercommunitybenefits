@@ -289,3 +289,30 @@ overrides any default. Don't try to delete the branch; the proxy refuses it.
 Units reviewed and what changed (counts per payload); follow-ups handled;
 anything MISS or BLOCKED; units parked with `--blocked` and why; leads added; gate result and the merged commit (or
 why it didn't merge); minutes used.
+
+## Appendix: spend tokens only on the machine's worklist
+
+In the cloud routine the cache starts empty, so run
+`.venv/bin/python scripts/revalidate.py --limit 300` (live) first, then
+`.venv/bin/python scripts/revalidate.py --cached`. A `!! NOT CHECKED: N of M
+rows have no cached page` banner means the report is incomplete, not clean;
+with `--fail-on-dead`/`--fail-on-miss` coverage below `--min-coverage`
+(default 0.9) exits non-zero. Locally the `--cached` run costs no
+tokens: it re-reads the on-disk cache (`.revalidate_cache/`, gitignored) and
+prints a worklist of dead links, quote misses, pages whose text changed since
+the last check, and stale statuses (pending rate cases past their milestone,
+old `proposed` records, enacted moratoriums past their term). Only once the run shows no NOT CHECKED banner (coverage at or above
+`--min-coverage`), spend tokens only on records on that list; until then,
+keep running live `--limit` batches. To refresh the cache, run
+`scripts/revalidate.py --limit 40` (oldest-checked URLs first, 1.5 s per
+host); `--only KIND`, `--id ID`, `--json OUT`, `--fail-on-dead` and
+`--fail-on-miss` narrow or gate it. "Changed pages" are sticky: a change detected by a live run (from a URL's
+second check on) is stored as `pending_change` in the cache and keeps
+appearing in `--cached` runs, even across blocked re-fetches, until you
+handle the list and run `--ack-changes`. "Unchecked" URLs (the fetch raised)
+get their own section and count against coverage. "Last updated/Posted/
+Reviewed: <date>" stamps and copyright years are ignored; any other date
+(hearing, vote, deadline) counts as a change. A quote miss on a JS-rendered hub page is a lead, not proof the
+quote is false: confirm with WebFetch before editing. Blocked URLs are not
+machine-verified.
+

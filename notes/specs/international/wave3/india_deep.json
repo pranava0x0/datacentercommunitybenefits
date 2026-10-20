@@ -1,0 +1,314 @@
+{
+ "companies": [
+  {
+   "slug_proposed": "adaniconnex",
+   "name": "AdaniConneX",
+   "hq": "India (HQ city not verified)",
+   "website": "https://www.adaniconnex.com/",
+   "community_page_url": null,
+   "international_only": true,
+   "notes": "50:50 JV of Adani Enterprises and EdgeConneX. Homepage names Chennai, Hyderabad, Navi Mumbai, Noida, Pune, Visakhapatnam with no MW. Co-developer of Google's Visakhapatnam hub (Google blog, Oct 2025). Owner exception for international-only operators applies."
+  },
+  {
+   "slug_proposed": "reliance",
+   "name": "Reliance Industries",
+   "hq": "Mumbai, India",
+   "website": "https://www.ril.com/",
+   "community_page_url": null,
+   "international_only": true,
+   "notes": "Two India AI campuses with first-party or government sourcing: Jamnagar, Gujarat (168 MW built-to-suit for Meta; RIL release 10 Jun 2026, verified) and Vizianagaram, Andhra Pradesh (G.O. Ms No. 30, reported 20 May 2026; secondary only). Gate-2 exception applies (international-only). Jio is a separate listed subsidiary, not added."
+  },
+  {
+   "slug_proposed": "nxtra",
+   "name": "Nxtra by Airtel",
+   "hq": "India (Bharti Airtel subsidiary)",
+   "website": "https://www.nxtra.in/",
+   "community_page_url": null,
+   "international_only": true,
+   "notes": "Airtel data centre arm. Joined RE100 (June 2024) with a 100% renewable electricity commitment and net-zero by 2031 target (verbatim below). Airtel release 30 Mar 2026: about 300 MW today, 1 GW target; US$1bn investment subject to Indian regulatory approval. Hyderabad 200 MW / 40-acre campus reported by DCD and Hindu BusinessLine, undated; not verified."
+  },
+  {
+   "slug_proposed": "ctrls",
+   "name": "CtrlS Datacenters",
+   "hq": "Hyderabad, India",
+   "website": "https://www.ctrls.in/",
+   "community_page_url": null,
+   "international_only": true,
+   "notes": "Company figures (370+ MW operational, about 4.4 GW pipeline) from a wire release, not yet probed. Not a record-level candidate until a CtrlS primary is fetched."
+  }
+ ],
+ "records": [
+  {
+   "kind": "claim",
+   "id": "in-claim-adaniconnex-renewable",
+   "company": "adaniconnex",
+   "verified": true,
+   "fields": {
+    "theme": "energy",
+    "statement_lang": "en",
+    "statement_scope": "company-wide"
+   },
+   "verbatim": "power our infrastructure purely from clean, renewable energy aiming towards a carbon-neutral footprint",
+   "source_url": "https://www.adaniconnex.com/",
+   "notes": "Carried from earlier draft; company homepage; not site-specific. Probe re-run in this pass."
+  },
+  {
+   "kind": "claim",
+   "id": "in-claim-adaniconnex-resources",
+   "company": "adaniconnex",
+   "verified": true,
+   "fields": {
+    "theme": "water",
+    "theme_note": "generic resource-conservation statement; weak for water theme"
+   },
+   "verbatim": "believe strongly in conserving resources to be in line with our business vision",
+   "source_url": "https://www.adaniconnex.com/",
+   "notes": "Too generic to chart as a water commitment; curator may drop."
+  },
+  {
+   "kind": "project",
+   "id": "in-reliance-jamnagar-meta",
+   "company": "reliance",
+   "verified": true,
+   "fields": {
+    "name": "Reliance Jamnagar AI data centre (Meta lease, first phase)",
+    "city": "Jamnagar",
+    "locality": "Jamnagar, Gujarat (city centroid, not site)",
+    "country": "IN",
+    "subdivision": "IN-GJ",
+    "status": "announced",
+    "power_mw": 168,
+    "announced_year": 2026,
+    "announced_date": "2026-06-10",
+    "lat": 22.4707,
+    "lon": 70.0577,
+    "offtaker": "Meta",
+    "claimed_investment": null,
+    "notes": "Built-to-suit for Meta; RIL to deliver within two years, option to scale. Release does not state investment."
+   },
+   "verbatim": "RIL will develop a data center with 168 MW capacity to be delivered within two years",
+   "source_url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+   "notes": "Reliance Industries press release (PDF on RIL's own CDN), dated 10 June 2026. Verified by reading the PDF text."
+  },
+  {
+   "kind": "claim",
+   "id": "in-claim-reliance-jamnagar-energy",
+   "company": "reliance",
+   "verified": true,
+   "fields": {
+    "theme": "energy",
+    "statement_lang": "en",
+    "site": "in-reliance-jamnagar-meta",
+    "statement_scope": "site-specific"
+   },
+   "verbatim": "The data center will be powered by renewable energy and cooled with desalinated seawater",
+   "source_url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+   "notes": "First-party release statement about the named Jamnagar site. The same release says the site was chosen for water availability; no volume is stated."
+  },
+  {
+   "kind": "claim",
+   "id": "in-claim-google-visakhapatnam-energy",
+   "company": "google",
+   "verified": true,
+   "fields": {
+    "theme": "energy",
+    "statement_lang": "en",
+    "site": "in-google-visakhapatnam",
+    "statement_scope": "site-specific"
+   },
+   "verbatim": "This AI hub is a multi-faceted investment combining powerful gigawatt scale data center operations, new large-scale energy sources, and an expanded fiber-optic network",
+   "source_url": "https://blog.google/intl/en-in/company-news/our-first-ai-hub-in-india-powered-by-a-15-billion-investment/",
+   "notes": "Google India blog, Oct 2025. Check against existing google claims in the seed before filing (possible duplicate)."
+  },
+  {
+   "kind": "claim",
+   "id": "in-claim-google-visakhapatnam-grid",
+   "company": "google",
+   "verified": true,
+   "fields": {
+    "theme": "energy",
+    "statement_lang": "en",
+    "site": "in-google-visakhapatnam",
+    "statement_scope": "site-specific"
+   },
+   "verbatim": "As we expand, we will be working with partners to deliver new transmission lines, clean energy generation, and energy storage systems in Andhra Pradesh",
+   "source_url": "https://blog.google/intl/en-in/company-news/our-first-ai-hub-in-india-powered-by-a-15-billion-investment/",
+   "notes": "Google India blog. Commitment is to work with partners; no MW or dates stated."
+  },
+  {
+   "kind": "claim",
+   "id": "in-claim-google-visakhapatnam-air-cooling",
+   "company": "google",
+   "verified": true,
+   "fields": {
+    "theme": "water",
+    "statement_lang": "en",
+    "site": "in-google-visakhapatnam",
+    "statement_scope": "site-specific"
+   },
+   "verbatim": "That finding shaped our choice of cooling configuration from the outset,",
+   "source_url": "https://kuwaittimes.com/article/51362/world/google-says-india-data-center-will-use-air-cooling-amid-water-fears/",
+   "notes": "Alexander Smith, Google head of infrastructure and energy, Asia-Pacific, told AFP (carried by Kuwait Times). Same interview: the water assessment 'pointed to pressure on the local watershed' and advanced air cooling was chosen over water cooling. Air-cooled is not water-free: the site still uses fresh water for non-cooling needs. Named-exec statement, not a Google page."
+  },
+  {
+   "kind": "claim",
+   "id": "in-claim-nxtra-re100",
+   "company": "nxtra",
+   "verified": true,
+   "fields": {
+    "theme": "energy",
+    "statement_lang": "en",
+    "statement_scope": "company-wide"
+   },
+   "verbatim": "We are on a healthy trajectory towards achieving our net-zero goals of 2031 and are happy to become a part of the RE100 initiative with a commitment to 100% renewable electricity.",
+   "source_url": "https://www.telecomtv.com/content/digital-platforms-services/nxtra-by-airtel-joins-re100-commits-to-becoming-a-100-renewable-energy-datacentre-company-50701/",
+   "notes": "Company quote carried by TelecomTV (June 2024). Nxtra's own release not located. Company-wide; the 422,000 MWh contracted figure is in the same release."
+  },
+  {
+   "kind": "project",
+   "id": "in-nxtra-airtel-capacity",
+   "company": "nxtra",
+   "verified": true,
+   "fields": {
+    "name": "Nxtra network (capacity statement, not a site)",
+    "country": "IN",
+    "status": "operational",
+    "power_mw": 300,
+    "notes": "Gopal Vittal (Airtel): about 300 MW today, 1 GW target. Company-level, so not filed as a site."
+   },
+   "verbatim": "With ~300 MW capacity today, we aim to scale to 1 GW in the next few years, targeting ~25% market share",
+   "source_url": "https://www.airtel.in/press-release/03-2026/airtel-announces-us1-billion-investment-in-nxtra-led-by-alpha-wave-global-and-existing-investor-carlyle-bharti-airtel-will-also-participate/",
+   "notes": "Airtel press release, 30 Mar 2026, first-party named-exec quote. Investment is US$1bn subject to Indian regulatory approval."
+  },
+  {
+   "kind": "response",
+   "id": "in-resp-vizag-state-water-assurance-2026-08-18",
+   "project_id": "in-google-visakhapatnam",
+   "verified": true,
+   "fields": {
+    "date": "2026-08-18",
+    "date_is_event": true,
+    "stance": "positive",
+    "constituency": "local_government",
+    "source_title": "The South First — Lokesh: no diversion of residential water for Vizag data centres",
+    "summary": "The Andhra Pradesh IT minister told the Assembly that data-centre water will come from incremental Polavaram supply and will not be taken from the city's existing water infrastructure. The state's position, not a community finding."
+   },
+   "verbatim": "Water for data centres will not be diverted from the city's existing water infrastructure.",
+   "source_url": "https://thesouthfirst.com/andhrapradesh/andhra-minister-nara-lokesh-claims-misinformation-campaign-against-data-centres-says-vizags-environmental-concerns-will-not-be-compromised/",
+   "notes": "Assembly reply to Nellimarla MLA Lokam Madhavi, 18 Aug 2026 (event date; article 19 Aug). Government position; record it as a response, not a community objection. Lokesh also said a 70% green energy mandate applies to data centres (lead, below)."
+  },
+  {
+   "kind": "response",
+   "id": "in-resp-vizag-ap-high-court-pil-2026-08-24",
+   "project_id": "in-google-visakhapatnam",
+   "verified": true,
+   "fields": {
+    "date": "2026-08-24",
+    "date_is_event": true,
+    "stance": "negative",
+    "constituency": "ngo",
+    "source_title": "Bar & Bench — AP government tells High Court Google-Adani data centre will not affect environment",
+    "summary": "At the 24 August 2026 hearing of a PIL by Jal Biradari convenor Bolisetty Satyanarayana, the state told the Andhra Pradesh High Court it is taking steps to ensure construction does not harm the environment. The petition challenges the environmental clearance and disputes temple-land and wildlife-distance points; the court did not grant interim status quo and listed the matter for further hearing."
+   },
+   "verbatim": "The Andhra Pradesh government on Monday told the Andhra Pradesh High Court that it is taking every step to ensure that the construction of the proposed Google-Adani data centres in Vishakapatnam does not affect the environment",
+   "source_url": "https://www.barandbench.com/news/google-adani-data-centre-will-not-affect-environment-andhra-pradesh-government-tells-high-court",
+   "notes": "Hearing date 24 Aug 2026 (Monday) per Bar & Bench and SupremeToday; the first notice date (1 Jul per LiveLaw) is unverified. The state's B2 classification (no full EIA or public consultation) is a second point at issue. Court adjourned to 2 Sep 2026."
+  },
+  {
+   "kind": "response",
+   "id": "in-resp-tarluvada-ec-2026-04-18",
+   "project_id": "in-google-visakhapatnam",
+   "verified": true,
+   "fields": {
+    "date": "2026-04-18",
+    "date_is_event": true,
+    "stance": "negative",
+    "constituency": "ngo",
+    "source_title": "Human Rights Forum — Suspend Environmental Clearances to Hyperscale Data Parks",
+    "summary": "The Human Rights Forum asked that the environmental clearances granted on 18 April 2026 to the Tarluvada and Rambilli data-centre parks be suspended and reclassified, arguing that the projects are energy- and water-intensive and need full scrutiny."
+   },
+   "verbatim": "Clearances (ECs) granted on 18 April 2026 by the State Environment Impact Assessment Authority (SEIAA)",
+   "source_url": "https://humanrightsforum.org/suspend-environmental-clearances-to-hyperscale-data-parks-hrf/",
+   "notes": "Carried from earlier draft. Single source. Note: a Bar & Bench report names a different appellant (Boddu Ganga Rao) for the NGT plea, so do not describe HRF as the NGT petitioner unless HRF's own filing is found."
+  },
+  {
+   "kind": "policy",
+   "id": "in-up-dc-policy-2026",
+   "verified": true,
+   "fields": {
+    "title": "Uttar Pradesh Data Centre Policy 2026",
+    "instrument": "regulation",
+    "status": "in_effect",
+    "scope": "state",
+    "jurisdiction": "Uttar Pradesh",
+    "country": "IN",
+    "subdivision": "IN-UP",
+    "date": "2026-07-09",
+    "principles": [
+     "water",
+     "new_power"
+    ],
+    "benefit_themes": [
+     "water",
+     "energy"
+    ],
+    "community_benefits_framework": false,
+    "summary": "State policy notified by G.O. No. 536/78-2-2026/E-105226 dated 09.07.2026, five-year term. Attaches water and renewable conditions to incentives: 24x7 water supply before a Letter of Comfort, water-efficient cooling and treated-wastewater reuse, and a 50% renewable share target for new data centres by 2030. Land subsidy is 50% in Bundelkhand and Purvanchal and 25% elsewhere."
+   },
+   "verbatim": "Data Centre players shall adopt water-efficient cooling solutions, closed-loop systems, and treated wastewater reuse to reduce freshwater dependency.",
+   "verbatim_2": "Encourage adoption of at least 50 % renewable energy share in new D ata C enters by 2030",
+   "verbatim_3": "The Policy notified vide G.O. No. 536/78-2-2026/E-105226 dated 09.07.2026",
+   "source_url": "https://uplc.up.gov.in/downloadmedia/siteContent/202608230935077722DC-policy-2026-English_230826.pdf",
+   "notes": "Official PDF (uplc.up.gov.in), read as text in this pass. Text extraction spaces some words ('D ata C enters'); quotes kept as the probe matches them. Water obligation sits in section 8.2. The 50% target is a target, not a condition. A 2021-era land split reportedly produced no projects outside Noida; that claim is secondary and not filed."
+  },
+  {
+   "kind": "lead_note",
+   "id": "in-ap-reliance-vizianagaram",
+   "verified": false,
+   "fields": {
+    "name": "Reliance AI data centre, Vizianagaram (AP)",
+    "city": "Vizianagaram",
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "status": "announced",
+    "date": "2026-05-20",
+    "claimed_investment": {
+     "amount": 1080100000000,
+     "currency": "INR",
+     "as_stated": "₹1,08,010 crore"
+    },
+    "acreage": 854.97,
+    "notes": "G.O. Ms No. 30 (IT, E&C), reported 20 May 2026: about 855 acres across Polipalli, Bhogapuram West and East; 25% land discount; approx ₹19,100 crore incentives over 10 to 20 years; water guaranteed for 20 years at proponent's cost; desalination plant under study. Secondary reporting only (Deccan Herald, Muthoot, Indian Infrastructure). Figures disagree (800+ vs 854.97 acres). Fetch the G.O. before filing."
+   },
+   "source_url": null,
+   "verbatim": null
+  },
+  {
+   "kind": "policy_lead",
+   "id": "in-ap-dc-policy-4-0",
+   "verified": false,
+   "fields": {
+    "title": "Andhra Pradesh Data Center Policy (4.0) 2024-29",
+    "date": "2024-11-14",
+    "notes": "G.O.Ms.No.6 (per TeamLease). Target 200 MW additional; no water or community conditions found in secondary coverage. Official G.O. needed."
+   }
+  }
+ ],
+ "leads": [
+  "Vizag, Tarluvada land (in-google-visakhapatnam): the Guardian (via TNW, pub 26 Sep 2026) reports 520 families lost land allotted about 20 years earlier; security guards fenced plots in April (2026); 47 Dalit farmers paid but say replacement plots and jobs have not arrived; one farmer quoted: \"I am a farmer, without my land I am nothing,\" Rao told the Guardian. Event month is April 2026 but no day; fetch the Guardian article (not found by search) before filing a dated response.",
+  "Vizag clearance scale: the Guardian (via TNW) reports state clearance papers cover 2.51 GW against 1 GW announced, cleared in nine days without a public hearing. The state disputes fast-tracking. Filing needs the Guardian text or the clearance order.",
+  "Vizag NGT plea: Bar & Bench (16 Oct 2026) reports NGT notice on a plea by Boddu Ganga Rao (Boddu Reddy v. UoI) against a clearance granted 10 June 2026 for a Rs 17,700 crore Google-Adani project at Adavivaram and Mudasarlova (512 MW), which is a different site from Tarluvada. Next hearing 26 Oct 2026. Scope mismatch to resolve before attaching to a site. TNW separately says HRF filed three NGT petitions; the two accounts conflict.",
+  "Vizag water: state says city supplies 410 MLD vs 480 MLD need (secondary). Google says air cooling protects local water (verified above). Activists want a moratorium (Malaymail, 11 Oct 2026, unread).",
+  "Thane Balkum (in-amazon-thane-balkum): Satark Nagrik Foundation president Dayanand Nene wrote to the CM asking the state cabinet to cancel layout permissions; quoted: \"We cannot compromise the air, temperature, and quietude of lakhs of citizens for a private corporation's servers,\" (FPJ, 18 Jul 2026). Letter date not stated, so no dated response yet. Aaditya Thackeray (opposition) joined a Mumbai protest in September demanding relocation (Navi Mumbai/ Thane; Arab News and a secondary aggregator; date needs primary).",
+  "Thane (Amazon): Amazon's own myth-busters (FPJ, 18 Jul 2026) claim 0.01 MLD drinking water for the site and no cooling water from potable supply; the article paraphrases, so there is no verbatim. Find AWS's own page.",
+  "Mekagunda, Hyderabad (Microsoft): residents' Telangana High Court petition filed July 2023 (56 or 57 residents; names Tungakunta lake; alleges encroachment on a cart-way). HC rejected interim relief on 2 May (year unclear). Microsoft spokesperson: committed to building and operating data centers responsibly. DCD and Business & Human Rights pages returned 403; Rest of World (2024) is the readable source. Exact petition day needed.",
+  "Navi Mumbai: no resident protest found in searches. Mahul (Mumbai) concerns link to coal plant extensions, not data centres. Treat as absence until CIDCO/Airoli/Ghansoli coverage or Marathi outlets are searched.",
+  "Chennai: no resident objections to data centres on water found (search Aug-Sep 2026). Tamil Nadu 2021 policy (secondary): incentives need investment above INR 500 crore and 30% renewable; policy window 1 Apr 2021 to 31 Mar 2026; review reported in 2026; no 2026 G.O. found. Official G.O. needed.",
+  "Telangana: no new 2026 policy found. 2016 policy promises dual-grid power, renewables and continuous water supply. CII proposes Data Centre Policy 2.0 with water benchmarks favouring treated wastewater (recommendation, not a government release). State PPP plans around 530 MLD treated water for industrial clusters (secondary). Telangana targets 5 GW hyperscale by 2029 (Telangana Today, Sep 2026; secondary).",
+  "Andhra Pradesh state claim (Lokesh, Assembly, 18 Aug 2026): data centres mandated to use at least 70% green energy; electricity tariffs will not rise; 100 MLD desalination plant being set up. Check the state G.O. before filing; this is a state claim, not a company claim.",
+  "AP Nxtra Hyderabad: 200 MW on 40 acres and a US$600m expansion (DCD; Hindu BusinessLine). Undated and not site-specific. Find Nxtra or Telangana government record.",
+  "CtrlS: Chennai DC Park jobs (INR 4,000 crore, 500 direct jobs) from search snippet only; CPP Investments commitment up to INR 7,000 crore (June 2026) from a wire headline. Needs CtrlS primary page.",
+  "Yotta, Sify, NTT India: no campus MW or investment found in this pass. OpenAI reported in talks for at least 1 GW with Yotta, CtrlS, Sify and E2E (2025 press via secondary; no confirmed deal).",
+  "Amazon Taloja / Navi Mumbai: 473 MW and US$429.8m (secondary, undated). Unreconciled with Amazon's pledge."
+ ]
+}

@@ -54,11 +54,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Applies to 'large load data centers' with 150 MW or more of peak demand",
-        "Requires Alabama Public Service Commission review of utility contracts with these customers to ensure cost recovery for the incremental service provided",
-        "Contracts must demonstrate positive benefits for other utility customers (e.g. lower costs, improved system efficiency, or community economic growth)",
-        "Passed both chambers unanimously April 9, 2026 (via voice vote on the second-to-last day of session); Commission opened a generic proceeding July 8, 2026 to set contract-review procedures",
-        "Effective October 1, 2026"
+        "A large load data center uses 150 megawatts of power or more at peak demand, according to the bill.",
+        "Positive benefits include lower costs for other customers, increasing the efficiency of a power system, or promoting economic growth in the community."
       ],
       "summary": "Alabama's SB 270 (Act 2026-610), sponsored by Sen. Lance Bell and passed unanimously by both chambers on April 9, 2026, requires the Public Service Commission to review electric-utility contracts with 150 MW+ data centers to ensure the utility recovers the incremental cost of serving them and that the arrangement benefits other ratepayers. It takes effect October 1, 2026; the PSC opened an implementing proceeding July 8, 2026.",
       "source_url": "https://www.yahoo.com/news/articles/bill-seeks-regulate-data-center-212049989.html",
@@ -94,10 +91,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "\"AWS is also committed to returning more water to communities and the environment than we use\" (water positive by 2030; 41% of the way there by end of 2023)",
-        "Committed to net-zero carbon by 2040",
-        "More than 80,000 students across the U.S. supported through 93 'Think Big Spaces' STEAM labs",
-        "$156 billion invested in U.S. data center infrastructure since 2011, supporting more than 37,000 jobs annually"
+        "Amazon is working toward becoming net-zero carbon by 2040 by investing in renewable energy projects, and the company has a water positive goal-returning more water locally than it uses."
       ],
       "summary": "AWS publishes a standing, ongoing (evergreen, no single announcement date) set of community-impact commitments for its data center regions: water-positive-by-2030 pledge, net-zero-carbon-by-2040 target, STEAM education investment via Think Big Spaces, and region-by-region economic impact reporting (investment, jobs, tax payments) for states such as Virginia, Ohio, and Oregon.",
       "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-center-investment-community-impact",
@@ -136,12 +130,11 @@
       "key_terms": [
         "\"With Built Together, Amazon will add more than $1 billion over the next five years to what we're already doing\"",
         "\"Over the next five years, we estimate that we will connect over 300,000 students to free degree access in data center communities.\"",
-        "plans to expand Modular Training Centers from 3 to 25 by the end of 2028, training up to 100,000 workers annually",
         "\"ensure that the energy prices we pay for our data centers are sufficient to cover both the energy and infrastructure improvements that may be required\"",
         "\"We are committed to being water positive across our data centers by 2030, returning more water to communities than we use.\"",
         "\"We no longer use nondisclosure agreements with the government agencies we work with on our projects.\"",
         "\"We will utilize backup generators in new sites that meet the EPA's Tier 4 emissions standards (the cleanest EPA emission standard) or the equivalent standards in other regions.\"",
-        "\"Right now there are over 100 data center moratoriums being considered across the country.\" (written by AWS CEO Matt Garman, in the same post)"
+        "Right now there are over 100 data center moratoriums being considered across the country."
       ],
       "value_usd": 1000000000,
       "summary": "Amazon announced Built Together on Oct. 2, 2026, a new community-investment framework adding over $1 billion over five years on top of existing spending at its U.S. data center sites, organized around education and workforce pathways, energy affordability and water, and flexible local funding chosen by communities. AWS CEO Matt Garman, in the same post, tied the program to the wave of local opposition and the more than 100 local data-center moratoriums under consideration nationwide. Alongside the funding, Amazon committed to ending NDAs with government agencies on its projects and to using only Tier 4 (cleanest-standard) backup generators at new sites.",
@@ -181,7 +174,7 @@
       "key_terms": [
         "\"We will pay for 100% of the grid upgrades needed to interconnect our data centers, paid through increases to our monthly electricity charges.\"",
         "\"We will work to bring net-new power generation online to match our data centers' electricity needs.\"",
-        "Investing in curtailment systems that cut data center power usage during periods of peak demand",
+        "We're investing in curtailment systems that cut our data centers' power usage during periods of peak demand, as well as grid optimization tools, both of which help keep prices lower for ratepayers.",
         "\"Our current data center projects will create hundreds of permanent jobs and thousands of construction jobs.\"",
         "Deploying water-efficient cooling technologies"
       ],
@@ -246,11 +239,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Applies to 'extra high load factor customers' (large loads like data centers) served by public power entities with 1M+ connections and by electric service corporations (excluding those serving 40,000 or fewer connections)",
-        "Requires semiannual reports to the governing body/Corporation Commission on the number of interconnection requests and completed interconnections for new extra high load factor customers",
-        "Corporation Commission may set minimum bills, contract length, early-termination provisions, collateral requirements and customer payment obligations for necessary infrastructure improvements",
-        "Utilities must provide a cost-of-service study within 180 days of request showing how serving these customers affects cost allocation",
-        "Approved by the Governor June 4, 2026, filed with the Secretary of State June 5, 2026; provisions sunset/repeal December 31, 2033"
+        "An electric public service corporation operating in this state shall file with the corporation commission semiannual reports regarding new extra high load factor customers, AS defined by the corporation commission, that include both of the following WITH RESPECT TO THE IMMEDIATELY PRECEDING six-month period:"
       ],
       "summary": "Arizona HB 2756 (Chapter 111), approved June 4, 2026, gives the Corporation Commission authority to set contract and cost-recovery terms for large 'extra high load factor' electric customers like data centers, requires utilities to semiannually report new large-load interconnection activity and produce cost-of-service studies on request, and sunsets at the end of 2033.",
       "source_url": "https://www.azleg.gov/legtext/57leg/2r/laws/0111.htm",
@@ -276,10 +265,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Bars the Arizona Commerce Authority from accepting new Computer Data Center Program applications, and bars new data centers from qualifying for the transaction privilege tax exemption, from July 1, 2026 through June 30, 2029",
-        "Established as session law (a temporary pause), not a permanent statutory repeal",
-        "Relief already awarded to previously certified facilities is unaffected",
-        "Estimated to preserve roughly $38 million/year in state revenue"
+        "Prohibits, as session law, the Arizona Commerce Authority from accepting applications for any new computer data center from July 1, 2026 through June 30, 2029 and that no new computer data center can qualify for the data center transaction privilege tax exemptions during this period."
       ],
       "summary": "Arizona's FY2027 budget bill HB 4168, signed by Gov. Hobbs June 13, 2026, pauses new applications to the state's Computer Data Center Program sales-tax exemption for three years (July 2026-June 2029) after public backlash over water and power use, while leaving already-certified facilities' tax relief untouched.",
       "source_url": "https://www.azleg.gov/legtext/57leg/2R/summary/H.HB4168_061026_CAUCUSCOW.DOCX.htm",
@@ -311,11 +297,9 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Requires data center owners/operators to submit location, size, power usage effectiveness and onsite-generator fuel consumption to the California Energy Commission",
-        "Requires disclosure to local agencies of expected annual energy consumption and expected sound levels",
-        "Commission must publish submitted data annually in anonymized, aggregated form on its website",
-        "Commission must assess data center electrical load trends starting with the 2029 integrated energy policy report and every two years after",
-        "Exempts publicly funded research, public safety, publicly funded national security, and publicly owned/utility facilities"
+        "The bill would require the commission to annually publish the information submitted in an anonymized and aggregated format on its internet website.",
+        "The bill would require the commission, beginning with the 2029 integrated energy policy report, and in subsequent biennial reports thereafter as determined by the commission, to include an assessment of electrical load trends for data centers, as provided.",
+        "The bill would exempt a publicly funded research facility, public safety facility, publicly funded national security facility, publicly owned facility, or other utility facility, as provided, from the above-described provisions."
       ],
       "summary": "Signed by Gov. Newsom Sept. 21, 2026 as part of a seven-bill data center package, AB 1577 creates a first-in-the-nation state registry requiring data centers to report location, size, power usage effectiveness, backup-generator fuel use, expected energy consumption and noise levels, with the California Energy Commission publishing aggregated results and tracking load trends starting in 2029.",
       "source_url": "https://calmatters.digitaldemocracy.org/bills/ca_202520260ab1577",
@@ -347,10 +331,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Bars a city or county from approving any discretionary or ministerial permit for a new or peak-water-use-increasing data center expansion unless specified water disclosures are made",
-        "Requires a water supply assessment as part of the permit application",
-        "Starting Jan. 1, 2028, applicants must submit a water scarcity plan describing how the facility would cut water use under drought conditions",
-        "Developer must cover the full cost of any new water pipes, treatment or storage capacity the facility requires"
+        "Starting January 1, 2028, developers would also need a water scarcity plan describing how the facility would cut water use during a drought.",
+        "The bill also makes you cover the full cost of any new water pipes, treatment, or storage your project needs, and it blocks construction entirely in groundwater basins the state has labeled critically overdrafted, unless you get a specific waiver."
       ],
       "summary": "AB 2469, signed Sept. 21, 2026, conditions local permit approval for new or water-use-expanding California data centers on disclosing a water supply assessment and (from 2028) a drought water-scarcity plan, and requires the developer to pay the full cost of any new water infrastructure the facility needs.",
       "source_url": "https://www.karmactive.com/california-ab-2469-data-center-water-rules/",
@@ -463,11 +445,9 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "At least $17 billion investment commitment — one of the largest private investments in county history — approved by the Economic Development Authority of Columbia County",
-        "Counterparty is Kinetic Infrastructure Solutions, a subsidiary of Alphabet Inc. (Google's parent company)",
-        "County goal: use data center revenue to eliminate its share of homestead property taxes (currently ~40% of the county budget, ~$25 million/year), contingent on a November 2026 referendum authorizing use under Georgia House Bill 439",
-        "Must comply with the county's Data Center zoning district: 500-foot residential buffers, 65-decibel noise limit, closed-loop cooling, ban on private wells, full-cutoff lighting, and decommissioning requirements",
-        "33 buildings across 3,500 acres in Harlem; Google separately occupies a planned 23-building, ~1,900-acre campus at White Oak Park in Appling"
+        "The Economic Development Authority of Columbia County approved the agreement for the project, representing a commitment of at least $17 billion-one of the largest private investments in county history.",
+        "The agreement is with Kinetic Infrastructure Solutions, a subsidiary of Alphabet Inc., Google's parent company.",
+        "It includes 500-foot residential buffers, a 65-decibel noise limit, closed-loop cooling, a ban on private wells, full-cutoff lighting and a decommissioning requirement, according to the authority."
       ],
       "summary": "The Economic Development Authority of Columbia County, Georgia approved an at-least-$17-billion agreement with Kinetic Infrastructure Solutions (an Alphabet/Google subsidiary), with county leaders aiming to use the resulting revenue to eliminate the county's homestead property tax share, pending a November 2026 voter referendum under Georgia HB 439. The project must meet a dedicated data-center zoning code (buffers, noise limits, closed-loop cooling, no private wells).",
       "source_url": "https://www.wrdw.com/2026/08/26/columbia-county-advances-17-billion-data-center-deal/",
@@ -505,8 +485,8 @@
       "community_benefits_framework": false,
       "key_terms": [
         "\"Communities that make our operations possible should be able to share in the benefits without shouldering our costs.\"",
-        "Signed the U.S. Ratepayer Protection Pledge to \"fully fund their own power supply and grid upgrades so electricity costs don't get passed along to everyday ratepayers\"",
-        "States community commitment begins \"before the first shovel and outlasts the construction crews\""
+        "The pledge asks signatories to fully fund their own power supply and grid upgrades so electricity costs don't get passed along to everyday ratepayers.",
+        "At CoreWeave, that commitment begins before the first shovel and outlasts the construction crews, making the community stronger for the long term."
       ],
       "summary": "CoreWeave has published a general community-benefits philosophy (conserving local resources, creating economic opportunity, staying accountable after construction) and is a Ratepayer Protection Pledge signatory. It does not publish a numbered, formal company-wide benefits framework the way Microsoft/QTS/Crusoe do; its most concrete commitments are site-specific (see the Lancaster, PA and Hammond, IN agreement records).",
       "source_url": "https://www.coreweave.com/blog/a-data-center-should-make-its-community-stronger",
@@ -539,9 +519,7 @@
       "key_terms": [
         "\"We cover our onsite power generation and any required infrastructure upgrades to avoid passing costs on to our neighbors.\"",
         "\"Our advanced closed-loop cooling systems do not consume or evaporate water to cool the equipment.\"",
-        "\"We prioritize hiring local residents\" via regional vocational programs and school-district workforce partnerships",
-        "Additional tax revenue \"helps fund local schools, emergency services, career training, water infrastructure, and roads\"",
-        "Dedicated community liaison assigned per site; \"we are transparent and accountable\""
+        "The additional tax revenue we provide helps fund local schools, emergency services, career training, water infrastructure, and roads."
       ],
       "summary": "Crusoe publishes a five-commitment, ongoing (evergreen, no single announcement date) company-wide framework — energy cost coverage, closed-loop water-free cooling, local hiring, tax-funded local investment, and a dedicated community liaison per site — covering all of its data center host communities. The page footer shows a 2026 copyright but no article publish date.",
       "source_url": "https://www.crusoe.ai/about/communities",
@@ -574,11 +552,9 @@
       "community_benefits_framework": true,
       "value_usd": 50000000,
       "key_terms": [
-        "Initial $50 million community commitment for Dane County, with direct investment in DeForest and the Town of Vienna",
-        "Funds scholarships and workforce partnerships with Madison Area Technical College",
-        "Research partnership with University of Wisconsin-Madison and contribution to the Wisconsin Frontier Technology Platform",
-        "Support for local nonprofits and first responders",
-        "Announced alongside a proposed up-to-1,600-acre, multi-building campus (first phase: 5 buildings across 650 acres)"
+        "QTS said it would make \"an initial $50 million community commitment\" within the county, with direct investments going to DeForest and Vienna.",
+        "QTS said that $50 million would \"support local initiatives that strengthen education, workforce development, housing and other critical needs across Dane County.\" QTS also promised to fund scholarships and develop workforce partnerships with Madison Area Technical College.",
+        "QTS said that if it does come to Dane County, it would want to work with Wisconsin Technology Council, specifically \"contributing toward the Wisconsin Frontier Technology Platform-an initiative designed to accelerate the state's tech ecosystem.\" QTS said it would also support local nonprofits and first responders."
       ],
       "summary": "QTS announced a $50 million community commitment for Dane County, Wisconsin as it advanced zoning plans for a multibillion-dollar data center campus in the Town of Vienna/DeForest area, funding scholarships and workforce partnerships with Madison Area Technical College, a UW-Madison research partnership, and support for local nonprofits and first responders. Co-CEOs Tag Greason and David Robey issued the announcement. The commitment was made ahead of the DeForest Village Board zoning application, so it is proposed rather than a signed development agreement.",
       "source_url": "https://spectrumnews1.com/wi/milwaukee/news/2025/10/30/qts-data-centers-dane-county",
@@ -609,10 +585,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "separate rate class for large energy facilities/data centers",
-        "full infrastructure-upgrade cost responsibility",
-        "first disconnected during grid emergencies absent own generation",
-        "ratepayer cost-shift protection"
+        "Creates a separate utility rate class specifically for large energy-use facilities, like data centers, so that massive projects pay the full cost of infrastructure upgrades rather than shifting those expenses onto residential and small business customers.",
+        "It also prioritizes cutting off these large users first during grid emergencies or blackouts unless they supply their own generation."
       ],
       "summary": "Delaware House Bill 233, part of a four-bill energy package signed by Governor Matt Meyer on August 26, 2026, establishes a separate utility rate class for large energy facilities such as data centers, requiring them to cover the full cost of infrastructure upgrades needed to serve them rather than shifting those costs to residential and small-business ratepayers. It also prioritizes disconnecting these large users first during grid emergencies unless they provide their own generation.",
       "source_url": "https://news.delaware.gov/2026/08/28/governor-matt-meyer-signs-energy-consumer-protection-legislation/",
@@ -647,9 +621,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "excludes large energy-use facilities from job-creation business tax credits",
-        "excludes license-fee reductions",
-        "targets data centers claiming incentives for jobs not created"
+        "Prohibits large energy-use facilities from qualifying for job-creation business tax credits and license fee reductions."
       ],
       "summary": "Delaware House Bill 310, signed by Governor Matt Meyer on August 26, 2026 as part of a four-bill energy package, prohibits large energy-use facilities such as data centers from accessing job-creation business tax credits and license-fee reductions, addressing concerns that data centers were claiming tax incentives tied to jobs they did not actually create.",
       "source_url": "https://news.delaware.gov/2026/08/28/governor-matt-meyer-signs-energy-consumer-protection-legislation/",
@@ -675,10 +647,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Bring Your Own Generation mandate",
-        "facility must produce/secure 100% of its own power",
-        "includes a renewable-energy share requirement",
-        "first state to legislatively enact a BYOG policy per Gov. Meyer"
+        "Enforces a \"bring your own generation\" requirement for large energy-use facilities to ensure they produce or secure 100 percent of their required power including a share of clean/renewable energy to prevent straining the public grid.",
+        "\"I am proud that today Delaware became the first state to legislatively enact a 'Bring Your Own Generation' policy for large energy use facilities and that we've taken an important step to ensure data centers aren't able to receive taxpayer funded credits tied to job creation for jobs they didn't create."
       ],
       "summary": "Delaware House Bill 445, signed by Governor Matt Meyer on August 26, 2026 as part of a four-bill energy package, requires large energy-use facilities such as data centers to produce or secure 100% of their required power — including a renewable-energy share — rather than drawing on the public grid, to prevent straining Delaware's electric system. Governor Meyer stated Delaware became the first state to legislatively enact a 'Bring Your Own Generation' policy.",
       "source_url": "https://news.delaware.gov/2026/08/28/governor-matt-meyer-signs-energy-consumer-protection-legislation/",
@@ -827,10 +797,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Raises the critical IT load required to qualify for Florida's data center sales tax exemption certificate from 15 MW to 100 MW",
-        "Extends the deadline to obtain an exemption certificate from June 30, 2027 to June 30, 2037",
-        "No grandfather clause: previously certified data centers under 100 MW lose the exemption",
-        "Passed Senate 32-2, House 93-7; provisions take effect July 1, 2025 except as otherwise provided"
+        "• Extends the deadline to receive the data center sales tax exemption certificate from June 30, 2027, to June 30, 2037, and increases the megawatts (MW) required to qualify for the certificate from 15 MW to 100 MW."
       ],
       "summary": "Florida's HB 7031, signed by Gov. DeSantis June 30, 2025, restricts the state's data center sales tax exemption to facilities with 100 MW or more of critical IT load (up from 15 MW) and extends the program's certification deadline to 2037, cutting off previously certified sub-100 MW data centers with no grandfathering.",
       "source_url": "https://www.flsenate.gov/Committees/BillSummaries/2025/html/7031",
@@ -914,16 +881,19 @@
       "key_terms": [
         "Would have ended Georgia's sales tax exemption for NEW data centers while preserving it for existing/already-certified facilities",
         "Sponsored by Sen. Matt Brass",
-        "Passed the Senate March 6, 2026",
-        "Died in the House; did not reach Gov. Kemp's desk"
+        "Passed the Senate March 6, 2026"
       ],
-      "summary": "Georgia's SB 410 would have repealed the state sales tax exemption for new (but not existing) data centers. It passed the Senate on March 6, 2026 but died in the House, leaving Georgia's data center tax exemption fully in force; Gov. Kemp has been a vocal supporter of keeping the incentive.",
+      "summary": "Georgia's SB 410 would have repealed the state sales tax exemption for new (but not existing) data centers. It passed the Senate on March 6, 2026 but, per Inside Climate News, 'failed to advance after crossing over to the House', leaving Georgia's data center tax exemption fully in force; Gov. Kemp has been a vocal supporter of keeping the incentive.",
       "source_url": "https://www.datacenterdynamics.com/en/news/georgia-senate-passes-bill-to-suspend-data-center-tax-exemptions/",
       "source_title": "Data Center Dynamics — Georgia Senate passes bill to suspend data center tax exemptions",
       "resources": [
         {
           "url": "https://www.ajc.com/business/2026/03/georgia-senate-votes-to-claw-back-data-center-tax-breaks/",
           "title": "Atlanta Journal-Constitution — Georgia Senate votes to claw back data center tax breaks"
+        },
+        {
+          "url": "https://insideclimatenews.org/news/09042026/georgia-legislature-data-center-bills-fail/",
+          "title": "Inside Climate News — Georgia legislature data center bills fail (SB 410 failed to advance in the House)"
         }
       ],
       "captured_at": "2026-09-23",
@@ -953,9 +923,8 @@
       "community_benefits_framework": true,
       "key_terms": [
         "\"we fund programs for teacher training in underinvested communities\"",
-        "Skilled Trades and Readiness (STAR) Program provides career development opportunities",
-        "$10 million investment to help community nonprofits adopt generative AI",
-        "Improvements to power grids and water treatment facilities in host communities"
+        "And our philanthropic arm is investing $10 million to help community nonprofits adopt generative AI in their operations.",
+        "Improving local infrastructure When we build our data centers, we often support improvements to vital local systems, like power grids and water treatment facilities-improving access for everyone."
       ],
       "summary": "Google publishes a recurring set of community-benefit programs tied to its data centers: teacher-training grants, the STAR workforce/skilled-trades program, a $10 million nonprofit AI-adoption fund, and local infrastructure contributions (power grid and water treatment upgrades). Site-specific commitments (e.g., Botetourt County, Lenoir NC) are layered on top of these company-wide programs.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/google-data-centers-grow-advance-communities/",
@@ -992,11 +961,7 @@
       "community_benefits_framework": true,
       "value_usd": 4000000,
       "key_terms": [
-        "City Council approved the Development Agreement 8-0 on June 9, 2025",
-        "Annual Community Impact Payments to the city, up to $4 million/year per secondary reporting (CoreWeave.com blog interview)",
-        "Funds \"new city-wide infrastructure and quality of life initiatives\" and the College Bound scholarship program (\"help thousands of students in Hammond go to college\")",
-        "180 MW, 450,000 sq ft facility at 301 Digital Crossroads Drive on a 25-acre parcel (former State Line Energy plant site)",
-        "Contingent on a finalized NIPSCO power agreement"
+        "\"The Community Impact Payments the city will be receiving from CoreWeave as part of the Development Agreement will not only help with new city-wide infrastructure and quality of life initiatives, but also will help thousands of students in Hammond go to college, through our College Bound program."
       ],
       "summary": "The City of Hammond, Indiana approved a development agreement with CoreWeave/Decennial Group for a 180 MW, 450,000-square-foot data center, under which CoreWeave makes annual Community Impact Payments funding citywide infrastructure and the College Bound scholarship program. The city's own announcement did not print the exact dollar figure; a $4 million/year figure for the payment (reported to fund up to two decades of full College Bound funding) comes from secondary reporting.",
       "source_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
@@ -1032,10 +997,7 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "$750 million expansion (second campus, 250 acres) in the North Huntsville Industrial Park",
-        "Estimated $8.1 million return on investment to the City and school system, with an extra $8-10 million for local schools once complete",
-        "$2.8 million sanitary sewer extension, with Meta funding $2.5 million of it",
-        "50 new jobs required at an annual wage of at least $80,000 (exclusive of fringe benefits)"
+        "Other infrastructure improvements include $2.8 million in sanitary sewer extension, $2.5 million of which the company will fund."
       ],
       "summary": "The City of Huntsville's project agreement for Meta's North Huntsville second data center campus (a $750 million, 250-acre expansion, buildings expected complete by end of 2022) is projected to return $8.1 million to the city and school system, growing to an extra $8-10 million annually for local schools, funded a $2.8 million sewer extension (Meta covering $2.5M of it), and required 50 new jobs paying at least $80,000/year. The exact agreement date was not stated on the source page.",
       "source_url": "https://www.huntsvilleal.gov/data-center-expansion-to-benefit-north-huntsville-local-schools/",
@@ -1222,12 +1184,12 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Requires at least $250 million in capital investment over a 60-month period",
-        "Requires at least 20 new full-time-equivalent jobs tied to data center operations or maintenance",
-        "New jobs' total compensation must equal or exceed 120% of the county's median full-time wage",
-        "Data center must achieve carbon neutrality or a green-building certification",
-        "20% tax credit on construction wages, but only in designated underserved areas",
-        "Exemption runs up to 20 years as renewable 5-year certificates contingent on continued compliance"
+        "Eligibility New and existing data centers and their tenants collectively making a capital investment of at least $250 million over a 60-month period.",
+        "The data center owner/operator and its tenants create at least twenty (20) full-time or full-time equivalent new jobs associated with the operation or maintenance of the data center.",
+        "Total compensation for these jobs must be equal or exceed 120% of the median wage paid to full-time employees in the county where the data center is located.",
+        "The data center must also be carbon neutral or attain certification under one or more green building standards.",
+        "The program also provides data center owners and operators with a tax credit of 20% of wages paid for construction workers for projects located in underserved areas.",
+        "The data center tax exemptions have a 20-year life span, which will result in 5-year increment certificates that are renewable assuming continued compliance with the relevant statutory, rule and contractual provisions by the data center."
       ],
       "summary": "Illinois's data center sales-tax exemption program, created by Public Act 101-31 effective June 28, 2019, conditions eligibility on a $250M+ investment, at least 20 jobs paid above 120% of county median wage, and a carbon-neutrality or green-building certification, administered via a certification/MOU process with DCEO. As of July 1, 2026 the department stopped accepting new applications under a governor's directive issued June 5, 2026 (tracked separately as il-tax-exemption-pause-2026).",
       "source_url": "https://dceo.illinois.gov/expandrelocate/incentives/datacenters.html",
@@ -1316,12 +1278,9 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Requires at least $250 million invested in eligible data center costs within 5 years of operations commencing",
-        "Requires creation of at least 20 new full-time jobs held by Kansas residents within 2 years of commencing operations",
-        "100% state and local sales/use tax exemption for up to 20 years under an incentive agreement",
-        "Requires a 10-year electricity purchase agreement with the serving utility",
-        "Requires a comprehensive water conservation plan",
-        "Requires Kansas Intelligence Fusion Center review/approval for cybersecurity and critical-infrastructure screening"
+        "Invest at least $250 million in eligible data center costs and complete this investment within five (5) years after the commencement of operations Creating twenty (20) new full-time jobs with Kansas residents within 2 years of commencing operations.",
+        "Must enter into a ten-year (10) electricity purchase agreement with the utility certified to provide retail electric service at the project location Must adopt a comprehensive water plan that reflects responsible stewardship and long-term operational sustainability.",
+        "The program incentivizes capital investment, high-wage job creation, and long-term utility partnerships while requiring comprehensive cybersecurity and critical-infrastructure risk review through the Kansas Intelligence Fusion Center (KIFC)."
       ],
       "summary": "Kansas SB 98, signed by Gov. Laura Kelly on April 24, 2025 and effective July 1, 2025, makes Kansas the 37th state with a data-center tax exemption: a 20-year 100% sales/use tax exemption conditioned on a $250M+ investment, 20 new Kansas-resident jobs, a 10-year utility power purchase agreement, a water conservation plan, and a state security/critical-infrastructure review.",
       "source_url": "https://www.kansascommerce.gov/program/business-incentives-and-services/sb-98-data-center-sales-tax-exemption/",
@@ -1387,11 +1346,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Expands the data center sales/use tax exemption from Louisville/Jefferson County to all 120 Kentucky counties",
-        "Exemption duration scales up to 50 years for a $450 million+ capital investment in counties with 100,000+ population",
-        "Lower tiers: $100 million minimum in counties with 50,000-100,000 population; $25 million minimum in counties under 50,000 population",
-        "All qualifying investment must occur within 5 years of preliminary approval",
-        "Became law without Gov. Beshear's signature"
+        "To receive the sales and use tax exemption, the data center project must make a minimum capital investment within five (5) years of the project's preliminary approval, as follows:"
       ],
       "summary": "Kentucky's HB 775 (2025) expanded the state's data center sales/use tax exemption statewide to all 120 counties with population-tiered investment thresholds ($25M-$450M) and exemption terms up to 50 years for the largest projects; it became law without Gov. Beshear's signature. Beshear has since (August 2026) publicly called for rolling the incentives back.",
       "source_url": "https://www.stites.com/resources/client-alerts/kentucky-vastly-expands-data-center-tax-incentives/",
@@ -1422,9 +1377,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Requires certification by Louisiana Economic Development",
-        "Requires at least $200 million in investment and creation of at least 50 permanent jobs",
-        "State and local sales/use tax rebate on qualified equipment and construction costs for up to 20 years, with a possible 10-year renewal"
+        "Eligibility requires Louisiana Economic Development certification and a sworn attestation of at least 50 new direct, permanent Louisiana jobs and at least $200 million of new Louisiana capital investment between July 1, 2024 and July 1, 2029."
       ],
       "summary": "Louisiana's Act 730, enacted in the 2024 Regular Session, creates a 20-year (renewable to 30) sales/use tax rebate for data centers that invest at least $200 million and create at least 50 permanent jobs, certified through Louisiana Economic Development. The program has since drawn scrutiny for locking in an estimated $81.6 billion in announced investment without the state publishing a revenue-loss estimate.",
       "source_url": "https://louisianai.com/incentives",
@@ -1461,11 +1414,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Ratepayer and Community Protection Framework as condition of Data Center Sales and Use Tax Exemption eligibility (R.S. 47:305.73(B))",
-        "large-load customers must fully fund incremental generation/transmission/infrastructure to prevent cost shifts onto residential/commercial ratepayers",
-        "companies must submit detailed compliance attestation to LED",
-        "coordination with Louisiana Public Service Commission, DOTD/DEQ, Workforce Commission",
-        "Secretary must present proposed Framework criteria to Governor within 90 days"
+        "by ensuring large-load customers fully fund the incremental generation, transmission, and infrastructure investments necessary to serve their projects-preventing cost shifts onto existing residential and commercial customers while strengthening overall grid reliability.",
+        "The Secretary shall present the proposed criteria and Framework to me within ninety (90) days of the effective date of this Order."
       ],
       "summary": "Gov. Jeff Landry's EO 26-058, signed June 25, 2026, directs the Secretary of Louisiana Economic Development to develop a 'Ratepayer and Community Protection Framework for Large Load Investments' as a mandatory condition for data centers and other large-load projects to receive or keep Louisiana's Data Center Sales and Use Tax Exemption. Companies must attest to fully funding their own incremental generation/transmission costs (preventing cost-shifting to other ratepayers), plus commitments across workforce development, local tax contribution, resource stewardship, and community investment (nonprofits, STEM/AI training). The Secretary must report proposed criteria back to the Governor within 90 days for approval before implementation.",
       "source_url": "https://gov.louisiana.gov/assets/2026-Executive-Orders/JML-Executive-Order-25-058.pdf",
@@ -1511,13 +1461,10 @@
       "community_benefits_framework": true,
       "value_usd": 20000000,
       "key_terms": [
-        "$20 million in payments to local causes over the agreement term, described as the first data-center-specific community benefits agreement in the US",
-        "Half of the $20 million distributed to nonprofits for economic development, allocated by a committee of city council, Lancaster County Community Foundation, Lancaster County EDC, and the developers",
-        "The remaining half goes toward the city's climate action goals",
-        "100% renewable/clean energy requirement",
-        "Developer must post a $10 million letter of credit at construction financing; the city may draw on it if requirements aren't met",
-        "No local tax breaks granted as part of the agreement",
-        "Approved by city council in November 2025 (exact day not confirmed)"
+        "Benefits like $20 million in payments toward local causes and a commitment to use 100% renewable energy are atypical for data centers in Pennsylvania and far beyond what zoning can accomplish, now-former Mayor Danene Sorace, whose administration negotiated the agreement, said when it was adopted.",
+        "Half of the $20 million in the Lancaster data center agreement will be doled out to nonprofits for economic development purposes by a committee including representatives from city council, Lancaster County Community Foundation, Lancaster County EDC and the developers.",
+        "The rest will go toward the city's climate action goals.",
+        "At the construction financing date the developers must provide a $10 million letter of credit to the city."
       ],
       "summary": "Lancaster, Pennsylvania's city council approved a community benefits agreement with CoreWeave's data center developers in November 2025 (exact day not found) — reported as the first data-center-specific CBA in the US, worth roughly $20 million. Half the funds go to nonprofit economic-development grants (allocated by a joint city/foundation/EDC committee) and half to the city's climate action goals, backed by a 100% clean-energy requirement and a $10 million letter-of-credit enforcement mechanism; the developer received no local tax abatement.",
       "source_url": "https://lancasteronline.com/news/local/lancaster-data-center-agreement-s-benefit-to-community-questioned/article_b2654db6-c6e3-4719-8a0e-1f839c1e325e.html",
@@ -1553,11 +1500,9 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Applies to data centers with peak electricity demand over 25 MW",
-        "Developers must submit a community benefits agreement reviewed by the Office of Environmental Justice and Equity before permits issue",
-        "Bans permitting agencies from using non-disclosure agreements with data center projects",
-        "Requires local approval before state permitting proceeds",
-        "Requires procurement of incremental clean electricity to match the facility's annual consumption, with an alternative compliance payment option by Dec 31 2026"
+        "Massachusetts imposed new requirements on data center projects with peak electricity demand exceeding 25 megawatts by Executive Order 658 on September 8, 2026.",
+        "It also prohibits permitting agencies from using non-disclosure agreements with a data center project.",
+        "Community Support Becomes Part of Permitting Governor Maura Healey describes the new policy as requiring \"local approval\" before any Commonwealth agency issues permits to data centers."
       ],
       "summary": "Gov. Maura Healey's Sept. 8, 2026 executive order conditions state permits for data centers over 25 MW on a community benefits agreement vetted by the state's environmental justice office, a ban on NDAs between agencies and developers, prior local approval, and a clean-energy matching requirement. It is a conditions-based framework, not a pause on permitting.",
       "source_url": "https://natlawreview.com/article/massachusetts-conditions-large-data-center-permits-community-agreements",
@@ -1784,10 +1729,10 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Data Center Community Action Grant Program: \"an annual initiative that provides direct funding to schools, registered nonprofits, and community organizations\" in data center locations",
-        "Electricity bill assistance programs in each new data center community to help low-income households with heating/cooling costs",
-        "Over $550 million invested in water and wastewater infrastructure supporting data center communities",
-        "Free digital-skills training and Community Accelerator events for small businesses"
+        "For example, the Meta Data Center Community Action Grant Program is an annual initiative that provides direct funding to schools, registered nonprofits, and community organizations in locations where Meta has data centers.",
+        "And we support electricity bill assistance programs in each new data center community, aimed at helping low-income households cover their heating and cooling costs.",
+        "We've invested over $550 million in water and wastewater infrastructure supporting communities where our data centers are based.",
+        "We support local small businesses through Community Accelerator events that build digital skills and teach small businesses how to leverage AI tools, including Meta AI, to help them grow."
       ],
       "summary": "Meta operates a standing community-benefits program for its data center host communities: annual Community Action Grants to schools/nonprofits, electricity bill assistance for low-income households, and over $550 million in water/wastewater infrastructure investment. Meta separately announced a $1 billion 'Future Is for Everyone Fund' in August 2026 for data center communities, reported by AL.com, though the fund was not directly documented on this Meta newsroom page.",
       "source_url": "https://about.fb.com/news/2026/03/meta-data-centers-support-energy-jobs-environment-local-communities/",
@@ -1827,11 +1772,9 @@
       "community_benefits_framework": false,
       "key_terms": [
         "\"We'll pay our way to ensure our datacenters don't increase your electricity prices.\"",
-        "\"We'll minimize our water use and replenish more of your water than we use\" (40% improvement in datacenter water-use intensity by 2030)",
         "\"We'll create jobs for your residents.\"",
         "\"We'll add to the tax base for your local hospitals, schools, parks, and libraries.\"",
-        "\"We'll strengthen your community by investing in local AI training and nonprofits.\"",
-        "Moratorium on non-disclosure agreements with local governments"
+        "\"We'll strengthen your community by investing in local AI training and nonprofits.\""
       ],
       "summary": "Microsoft published a five-commitment 'Community-First AI Infrastructure' framework in January 2026 covering electricity cost pass-through, water use/replenishment, local jobs, local tax contribution, and community/AI-training investment, applied to new and expanding US data center markets starting in H1 2026. The company also pledged not to use NDAs with local governments on data center projects.",
       "source_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
@@ -1892,11 +1835,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "DNR + Public Service Commission directed to investigate energy regulations 'in light of the growing demand for power from data centers supporting AI'",
-        "large power users must 'cover their full cost of electricity and infrastructure service'",
-        "DNR must assess ratepayer protection for residential/small business Missourians from data-center-driven rate increases",
-        "DNR to coordinate statewide understanding of data center development demand for natural resource management",
-        "reports due to Governor by November 30, 2026"
+        "The Director of the Department of Natural Resources in collaboration with the Public Service Commission shall initiate an investigation and review of energy regulations and infrastructure planning in light of the growing demand for power from data centers supporting Al."
       ],
       "summary": "Gov. Mike Kehoe's EO 26-02, signed Jan. 13, 2026, is primarily a state-government AI strategy order (AI integration framework, AI business-climate review, workforce/education AI training) but includes a distinct data-center directive: the Department of Natural Resources, with the Public Service Commission, must investigate energy regulations and infrastructure planning 'in light of the growing demand for power from data centers supporting AI,' ensure data centers and other large power users 'cover their full cost of electricity and infrastructure service' rather than raising rates for residential/small-business ratepayers, and assess the state's future energy needs and natural-resource impacts from data center growth. Findings are due to the Governor by Nov. 30, 2026.",
       "source_url": "https://www.sos.mo.gov/CMSImages/Library/Reference/Orders/2026/26-02.pdf",
@@ -1974,10 +1913,10 @@
       "value_usd": 7000000,
       "key_terms": [
         "$3 million to support emergency dispatch services in Montgomery County",
-        "Over $1 million for a new community gathering space at the County Fairgrounds",
+        "Amazon's community contributions include $3 million to support emergency dispatch services in Montgomery County, over $1 million for a community gathering space at the County Fairgrounds and $3 million in community programs.",
         "$3 million in community programs",
-        "New $150,000 Community Fund providing grants for Montgomery County community projects",
-        "Part of a $10 billion data center campus investment expected to create 400+ direct jobs"
+        "The company is launching a $150,000 Community Fund to provide grants for Montgomery County community projects.",
+        "(First Alert 4)-Amazon announced plans Monday to invest $10 billion to construct a data center campus in Montgomery City, promising to create 400 direct jobs and thousands of construction jobs."
       ],
       "summary": "Amazon announced over $7 million in community contributions to Montgomery County, Missouri alongside its $10 billion data center campus announcement: $3 million for emergency dispatch services, $1 million+ for a County Fairgrounds gathering space, $3 million in community programs, and a new $150,000 community grant fund, amid local opposition to the project.",
       "source_url": "https://www.firstalert4.com/2026/06/15/amazon-announces-7-million-community-investments-montgomery-county-data-center/",
@@ -2023,11 +1962,8 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Microsoft paid $100 million for the land and must build at least four data centers on the 1,346-acre site (Tax Incremental District 5, former Foxconn land)",
-        "Guaranteed minimum assessed value of $1.4 billion by January 1, 2028",
-        "No public financial incentives for Microsoft and no new village/county-funded infrastructure; Microsoft is already Racine County's largest property taxpayer",
-        "Deal helps the village retire TID 5's Foxconn-era debt 7-14 years earlier than anticipated",
-        "$4.2 million to restore 1.5 miles of Lamparek Creek, $100,000 for water restoration efforts, $200,000 to support education efforts"
+        "The project comes with no public financial incentives for the company and no new infrastructure from the village or Racine County.",
+        "Angela Major/WPR The company also plans to invest $4.2 million to restore 1.5 miles of Lamparek Creek, $100,000 for water restoration efforts throughout the county and $200,000 to support education efforts in science, technology, engineering and math."
       ],
       "summary": "Microsoft's Mount Pleasant, Wisconsin data center campus is built on former Foxconn land (TID 5) under a development agreement requiring a $1.4 billion minimum assessed value by 2028 and at least four buildings, with no public incentives or village/county-funded infrastructure — Microsoft's tax payments are expected to help retire the district's Foxconn-era TIF debt years early. The deal includes local environmental and education commitments: $4.2 million for Lamparek Creek restoration, $100,000 for water restoration, and $200,000 for education.",
       "source_url": "https://www.wpr.org/politics/mount-pleasant-approves-microsoft-deal-data-centers-foxconn-land",
@@ -2061,11 +1997,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "$250 million investment threshold",
-        "35 new full-time jobs at 125% of state average wage",
-        "excludes cryptocurrency mining",
-        "electricity purchase tax exemption",
-        "two 10-year extensions for $100M+ expansions"
+        "The measure, SB 3168, states that any newly constructed data center that invests $250 million and creates at least 35 new, full-time jobs with a minimum average annual salary of 125 percent of the average annual state wage would be eligible for sales and use tax exemptions.",
+        "In addition, a data center that met that same criteria when constructed and undergoes a $100 million expansion would be automatically eligible for up to two 10-year extensions for the exemptions."
       ],
       "summary": "Senate Bill 3168 (2025), sponsored by Senate Finance Chair Josh Harkins, would have revised Mississippi's Data Center Enterprise tax-exemption program: raising the new-construction investment threshold to $250 million, requiring at least 35 new full-time jobs paid 125% of the state average annual wage, excluding cryptocurrency mining from eligibility, adding an exemption for state tax on electricity purchases, and allowing up to two automatic 10-year extensions for qualifying data centers that complete a $100 million-plus expansion. The bill passed the Senate on February 26, 2025, but died in a House committee on March 18, 2025 without becoming law.",
       "source_url": "https://magnoliatribune.com/2025/02/25/senate-bill-aims-to-attract-more-data-centers-to-mississippi/",
@@ -2163,11 +2096,9 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Task Force required to include 'Large Load Data Center Electricity Customers' as a member category",
-        "Load Growth Subcommittee directed to identify solutions 'to address the growing energy needs of data centers and heavy industry'",
-        "annual report due Feb. 15 to Governor, General Assembly, NC Utilities Commission",
-        "effective through December 31, 2028",
-        "whereas clause cites 'emergence of artificial intelligence and the associated need to power data centers' as a driver of new electricity demand"
+        "Identifying technological and policy solutions, including load flexibility and demand response strategies, to address the growing energy needs of data centers and heavy industry.",
+        "The Task Force shall submit an annual report on or before February 15 describing Task Force activities, findings, and recommendations to the Governor, the General Assembly, the North Carolina Utilities Commission, the North Carolina Rural Electrification Authority, and the public.",
+        "and WHEREAS, the emergence of artificial intelligence and the associated need to power data centers, increased loads from manufacturing and other heavy industry, growing population, and new sources of electricity demand have prompted new questions about how the state should maintain an adequate, reliable, affordable, and clean electricity supply;"
       ],
       "summary": "Gov. Josh Stein's EO 23, signed Aug. 26, 2025, establishes a 30-member North Carolina Energy Policy Task Force to recommend policies managing rising electricity demand while maintaining affordability, reliability, and emissions reductions. The order's text explicitly cites data centers as a driver of new demand, requires 'Large Load Data Center Electricity Customers' as a represented stakeholder category, and directs a Load Growth Subcommittee to address 'the growing energy needs of data centers and heavy industry' and to avoid unfairly raising ratepayer costs or creating stranded assets. It does not impose data-center-specific permitting/siting requirements itself.",
       "source_url": "https://governor.nc.gov/executive-order-no-23-establishing-north-carolina-energy-policy-task-force/open",
@@ -2238,10 +2169,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Prohibits new data center applications from being approved for tax credits under the ImagiNE Nebraska Act going forward",
-        "Establishes a Data Center Task Force under the Department of Water, Energy and Environment (DWEE, Director Jesse Bradley) to study water, energy and infrastructure sustainability with Natural Resources Districts",
-        "Requires the Departments of Economic Development, Revenue, and DWEE to collaboratively review data center project proposals for whether they serve the state's interest",
-        "Explicitly leaves local/community decisions on data center development intact and is described by the Governor as not a moratorium"
+        "And while that presents significant economic opportunity, it also presents resource challenges.\" In addition to prohibiting data center applications from being approved under the ImagiNE Act, the order requires that DED, Revenue and DWEE work collaboratively when reviewing project proposals to determine if they are in the state's best interest."
       ],
       "summary": "Gov. Jim Pillen's Executive Order 26-17, signed July 21, 2026, cuts off new data centers' access to ImagiNE Nebraska Act tax incentives and creates a DWEE-led Data Center Task Force to study water, energy and infrastructure impacts with county Natural Resources Districts, while stating it is not a ban on development.",
       "source_url": "https://governor.nebraska.gov/gov-pillen-signs-executive-order-data-centers",
@@ -2269,9 +2197,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "as introduced: commercial/industrial-zone-only siting, setbacks and noise limits, local zoning preserved, grid-capacity proof required",
-        "as amended: 'by right' permitted use, preempts town-specific data center zoning",
-        "tabled by House 304-11"
+        "As introduced, it would have limited data centers to commercial and industrial zones, established requirements such as setbacks and noise pollution limits, and enabled towns to regulate data centers further with their own local zoning rules."
       ],
       "summary": "New Hampshire Senate Bill 439, introduced by Sen. Debra Altschiller (D-Stratham), would originally have limited data centers to commercial/industrial zones, imposed setback and noise-pollution limits, preserved towns' authority to further regulate data centers locally, and required developers to provide utility-verified proof of sufficient grid capacity. A Senate floor amendment in January 2026 stripped those requirements — Altschiller called the result 'a shell' — and the bill passed the Senate in that weakened form (engrossed to the House February 26, 2026). In the House, the Municipal and County Government Committee voted 11-9 to recommend passage with a further amendment making data centers a 'by right' permitted use in commercial/industrial zones, which would have preempted towns from enacting data-center-specific regulations. The full House rejected that path and voted 304-11 to table the bill on May 14, 2026, so it did not become law.",
       "source_url": "https://www.nhpr.org/nh-news/2026-05-07/data-centers-nh-bill-local-regulations",
@@ -2343,11 +2269,9 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "declares State of Emergency under Civilian Defense and Disaster Control Act",
-        "BPU directed to formulate policies/reports on 'large load' interconnections and reduce speculative 'ghost load' interconnection requests within 45 days",
-        "accelerates solar, Community Solar (3,000 MW), and battery storage (Garden State Energy Storage Program) procurement",
-        "establishes interagency Nuclear Power Task Force",
-        "cites PJM finding that data centers drive the 'overwhelming majority' of anticipated 20% peak load growth by 2030"
+        "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (DCA), N.J.S.A.",
+        "The interagency Nuclear Power Task Force is hereby established to coordinate the efforts of Executive Branch departments and agencies to formulate and implement a strategy for the development of new nuclear generation facilities in the State, including coordination with the federal government and other states, as needed.",
+        "and WHEREAS, PJM anticipates peak load growth of approximately 20 percent by 2030 compared to 2024 levels, with the overwhelming majority of the growth stemming from data centers, which will only further expand the gap between supply and demand in the PJM region;"
       ],
       "summary": "Gov. Mikie Sherrill's EO 2, signed Jan. 20, 2026, declares a state of emergency over New Jersey's electricity affordability crisis and directs the Board of Public Utilities (BPU) and other agencies to accelerate solar, battery storage, and nuclear generation, and to expedite permitting waivers. The order's whereas clauses explicitly attribute the crisis largely to data-center-driven load growth ('the overwhelming majority of the growth stemming from data centers'), and Directive 8 specifically orders BPU to formulate policies/reports on 'large load' interconnections to curb speculative, duplicative 'ghost load' requests that inflate utility demand forecasts. It does not itself impose data-center-specific permitting or siting conditions; those measures target the crisis's supply side.",
       "source_url": "https://www.nj.gov/infobank/eo/057sherrill/pdf/EO-2.pdf",
@@ -2417,11 +2341,7 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Developers seeking a partial tax abatement must maintain a combined sales and use tax rate of at least 4.6% — neither the standard sales tax nor the Local School Support Tax may be abated",
-        "Must execute a binding 'Nevada Community Support Commitment' before Board of Economic Development review, addressing water usage, ratepayer protections, grid reliability, workforce development and community benefits",
-        "GOED's Executive Director must publish the standard commitment form by Nov. 6, 2026 after consulting the State Engineer, PUCN, local governments and school districts",
-        "Executive Director must notify applicants of incomplete applications within 30 days and place complete applications on the Board's next agenda",
-        "Material non-compliance suspends the abatement and can trigger recapture; failure to meet grid-reliability obligations during emergencies is default with no cure period"
+        "that an uncured material failure suspends the abatement and requires recapture, proportionate to the nature and circumstances of the failure, to the extent NRS 360.754 permits, and that a material failure to comply with a grid reliability obligation during a declared grid emergency is a default without a cure period;"
       ],
       "summary": "Gov. Joe Lombardo's Executive Order 2026-005, signed September 17, 2026, conditions Nevada's partial data-center tax abatements on a binding 'Nevada Community Support Commitment' covering water, grid-cost responsibility, emergency curtailment, workforce and community benefits, plus a minimum 4.6% combined sales/school-support tax rate with no abatement of either.",
       "source_url": "https://www.gov.nv.gov/executive-actions/executive-orders/2026-executive-orders/eo-2026-005/",
@@ -2488,10 +2408,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Directs the chair of the Ohio Tax Credit Authority to pause consideration of new data center sales/use tax exemption requests",
-        "Pause runs while the Ohio General Assembly's Joint Data Center Committee studies data center growth and local benefits of the exemptions",
-        "Existing/previously granted exemptions are unaffected; one already-pending request was still considered at the next scheduled meeting",
-        "Explicitly described by the Governor's office as not a data center ban"
+        "As this work is ongoing, I believe it is appropriate for the Ohio Tax Credit Authority to pause its consideration of new data center tax exemptions while the full impact of data center growth in Ohio is being reviewed,\" said Ohio Governor Mike DeWine."
       ],
       "summary": "Gov. Mike DeWine directed Ohio's Tax Credit Authority to stop accepting new data-center sales/use tax exemption requests starting May 27, 2026, pending a legislative study by the Joint Data Center Committee of the exemptions' costs and local benefits. Existing exemptions, representing $27.2B in prior investment, are untouched.",
       "source_url": "https://www.clermontsun.com/2026/05/27/governor-dewine-announces-pause-of-data-center-tax-exemption",
@@ -2522,11 +2439,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Covers new data centers, crypto-mining and AI computing facilities adding 75 MW or more after July 1, 2026",
-        "Rate reviewers must protect residential, commercial and industrial customers from unjust rates caused by large-load service, allocating costs by cost causation",
-        "Every electric supplier must keep separate large-load terms and tariffs, with credit requirements so the customer reimburses costs left unrecovered if it leaves or cuts load",
-        "Large-load service terms of at least ten years",
-        "Buyers of land outside an industrial park or municipality must notify the Corporation Commission, county commissioners and abutting owners within 60 days, or pay $1,500 per day per violation"
+        "The term of service for a large load customer shall be at least ten (10) years."
       ],
       "summary": "Oklahoma's HB 2992 (Boles / Green), passed by both chambers on May 5, 2026 and approved by the Governor on May 11, 2026, creates the Data Center Customer Ratepayer Protection Act of 2026. It applies to every retail electric supplier in the state, requiring separate large-load tariffs with ten-year minimum terms and cost-causation allocation so other customers are not charged for data-center service, and it adds a land-purchase notice requirement enforced by county commissioners. It takes effect July 1, 2026. An earlier moratorium-tab record described this bill as a 2024 statute with different sponsors and votes; those details were not supported by the legislature's record and were discarded.",
       "source_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20ENR/hB/HB2992%20ENR.PDF",
@@ -2630,11 +2543,7 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Applies to data center projects with peak demand over 25 MW",
-        "Conditions DEP permitting, tax-incentive and fast-track eligibility on the Governor's GRID Requirements",
-        "Developers pay the full cost of the new generation, transmission and distribution their project needs",
-        "Commitments to transparent community engagement and community benefit agreements; NDAs limiting public disclosure barred",
-        "AI data center projects removed from the PA Permit Fast Track Program"
+        "Pay the full cost of new electricity generation, transmission, distribution, and other infrastructure needed to power their project without shifting costs to Pennsylvania households and businesses;"
       ],
       "summary": "Governor Josh Shapiro signed Executive Order 2026-05, 'Protecting Pennsylvania Consumers from Data Center Impacts,' on August 18, 2026. It directs DEP, the Department of Revenue and DCED to condition permitting, tax-incentive and fast-track eligibility for data center projects with peak demand over 25 MW on compliance with the Governor's Responsible Infrastructure Development (GRID) Requirements: developers must pay the full cost of new generation, transmission and distribution infrastructure their project needs (rather than shifting costs to other ratepayers), commit to transparent community engagement and community benefit agreements, meet strict water-conservation and environmental standards, and are barred from using NDAs to limit public disclosure. Unlike New York's Executive Order No. 62, it conditions permit review rather than pausing it; legal analysts note it does not impose a moratorium. Moved here from the Moratoriums tab on 2026-09-23 for that reason.",
       "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/governor-shapiro-signs-executive-order-on-data-center-developmen",
@@ -2671,11 +2580,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Would repeal the Computer Data Center Equipment Incentive Program's sales-tax exemption entirely, amending the Tax Reform Code of 1971",
-        "Passed the House 197-5 on June 25, 2026",
-        "Referred to the Senate Finance Committee June 26, 2026; had not advanced further as of late September 2026",
-        "Program is separately estimated to cost the state $188.4 million in FY2026-27, rising to $517 million by 2030",
-        "Distinct from Gov. Shapiro's Aug. 18, 2026 GRID-requirements executive order, which conditions rather than repeals the exemption"
+        "DAVIS, KAZEEM Short Title An Act amending the act of March 4, 1971 (P.L.6, No.2), known as the Tax Reform Code of 1971, repealing provisions relating to Computer Data Center Equipment Incentive Program;"
       ],
       "summary": "Pennsylvania HB 2198 would fully repeal the state's Computer Data Center Equipment Incentive Program sales-tax exemption. It passed the House 197-5 on June 25, 2026 but remains stalled in the Senate Finance Committee as of late September 2026, with Senate leadership giving no timeline and Gov. Shapiro favoring conditioning the incentive (via his separate GRID executive order) over repealing it outright.",
       "source_url": "https://www.palegis.us/legislation/bills/2025/hb2198",
@@ -2717,12 +2622,9 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "DOE selected Brookfield (following a November 2025 Request for Offers) to lease, develop, and operate a data center campus at the DOE Paducah Site",
         "\"The project is designed to strengthen grid reliability across the region while shielding current residential and small-business electricity ratepayers from additional costs\"",
-        "Framed as the seed of a $100 billion privately-funded AI infrastructure investment, full build targeted for 2032",
-        "~8,000 construction jobs and ~600 full-time operations jobs",
-        "CEO Bruce Flatt: \"By advancing this project in line with the White House's Ratepayer Protection Pledge, we are ensuring innovation and affordability go hand in hand with creating high-quality jobs.\"",
-        "NextEra Energy to provide dedicated new generation resources; Big Rivers Electric (wholesale) and Jackson Purchase Energy Cooperative (retail) to deliver power; Paducah Power System named as community supporter"
+        "By advancing this project in line with the White House's Ratepayer Protection Pledge, we are ensuring innovation and affordability go hand in hand with creating high-quality jobs, attracting new investment, and strengthening the local economy.\" A word from John Ketchum, chairman, president and CEO of NextEra Energy:",
+        "Big Rivers Electric Power Corporation will provide wholesale electric service, Jackson Purchase Energy Cooperative will deliver retail service, and Paducah Power System will serve as a community supporter."
       ],
       "summary": "DOE selected Brookfield to develop a data center campus at the Paducah, Kentucky DOE site, announced July 29, 2026, with Brookfield framing the ~$100 billion project as ratepayer-protected (no added cost to existing residential/small-business customers) and paired with dedicated new NextEra Energy generation. The project is projected to create about 8,000 construction jobs and 600 permanent operations jobs. NextEra Energy is the power-generation partner; Brookfield is the developer and operator.",
       "source_url": "https://www.prnewswire.com/news-releases/doe-site-in-western-kentucky-revitalized-with-data-center-campus-and-dedicated-energy-project-creating-jobs-and-protecting-residents-and-businesses-from-costs-302837752.html",
@@ -2763,11 +2665,8 @@
       "community_benefits_framework": true,
       "value_usd": 80000000,
       "key_terms": [
-        "SB Energy committed a $40 million Community Benefits Agreement/fund for surrounding Ohio communities",
-        "OpenAI committed an additional $40 million community grant fund for locally identified priorities (affordable energy, jobs/workforce development, community and economic development)",
-        "SB Energy pays 100% of electric grid upgrade costs, investing at least $4.2 billion in new regional transmission with AEP Ohio, so costs are not shifted to Ohio ratepayers",
-        "Up to 35,000 construction jobs over the ~6-year buildout (through 2032) and roughly 2,500 long-term operating jobs, per DOE reporting; energy.gov fact sheet cites 10,000+ construction jobs and 2,000+ operations jobs",
-        "Built on leased land at DOE's Portsmouth Site"
+        "Paying for New Power Delivery Infrastructure: SB Energy will invest $4.2 billion with AEP Ohio to upgrade and build new transmission lines in southern Ohio to benefit all ratepayers in the region.",
+        "SB Energy has also committed to a $40 million Community Benefits Agreement to support the surrounding Ohio communities."
       ],
       "summary": "SB Energy and OpenAI each committed $40 million ($80M combined) in community benefit/grant funds for Pike County, Ohio communities around the PORTS-Pike Technology Campus, a DOE Portsmouth Site data center partnership announced March 20, 2026. SB Energy is separately funding 100% of the ~$4.2 billion grid upgrade with AEP Ohio so the cost is not passed to Ohio ratepayers. Job estimates vary by source (DOE fact sheet: 10,000+ construction/2,000+ operations; PORTS campus site: 35,000 construction/2,500 operations).",
       "source_url": "https://www.energy.gov/articles/fact-sheet-department-energy-ensuring-affordable-energy-access-ohio-while-powering-future",
@@ -2815,12 +2714,9 @@
       "community_benefits_framework": true,
       "value_usd": 15000000,
       "key_terms": [
-        "Pima County Board of Supervisors approved the MOA 3-2 on December 16, 2025",
-        "$15 million in community donations over the project's life: $5 million initial investment for STEM scholarships, trade school funding, and apprenticeships; remaining $10 million for digital equity and fiber infrastructure expansion",
-        "Developer must \"use commercially reasonable efforts to match one hundred percent (100%) of its energy consumption with renewable energy,\" verified annually by an independent third party",
-        "Closed-loop air-cooling system; water use limited to domestic necessities (bathrooms/kitchens), sourced per Arizona Department of Water Resources approval",
-        "Union/developer figures cited (not independently verified in this source): billions in capital investment, thousands of construction jobs, hundreds of permanent jobs",
-        "Supervisor Andrés Cano, a dissenting vote, called the agreement 'a press release with an exit door,' questioning enforceability"
+        "Beale commits to $15 million in community donations over the project's life, including a $5 million initial investment for STEM scholarships, trade school funding and apprenticeships.",
+        "Water consumption will only be for domestic necessities, such as bathrooms and kitchens and water sources will be approved by the Arizona Department of Water Resources.",
+        "Beale will \"use commercially reasonable efforts to match one hundred percent (100%) of its energy consumption with renewable energy.\" An \"independent and qualified third-party verifier\" will annually assess whether Beale has achieved its commitment."
       ],
       "summary": "After the Tucson City Council unanimously rejected 'Project Blue' in August 2025 (refusing to allow use of city water), Pima County's Board of Supervisors approved a separate binding Memorandum of Agreement with developer Beale Infrastructure on December 16, 2025 (3-2 vote), securing $15 million in community donations, a 100%-renewable-energy commercially-reasonable-efforts commitment with independent annual verification, and a no-potable-water closed-loop cooling design. Amazon Web Services, the project's original intended end-user, had by this point walked away from the deal, though county officials confirmed AWS's earlier involvement via an NDA obtained by reporters.",
       "source_url": "https://azluminaria.org/2025/12/16/pima-county-supervisors-approve-agreement-outlining-beales-commitments-on-project-blue/",
@@ -2906,10 +2802,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "\"Communities are right to ask hard questions about energy, water, jobs, infrastructure, ratepayer protection and long-term benefits.\" — Co-CEO Tag Greason",
-        "Commitment focuses on protecting residents from project-related costs, building responsibly, creating good jobs, investing locally, and leading with transparency",
-        "\"QTS data centers generate tax revenues and help fund local programs\" — parks, hospitals, schools, roads, first responders",
-        "Community investment through corporate giving, volunteerism, and local partnerships"
+        "\"Communities are right to ask hard questions about energy, water, jobs, infrastructure, ratepayer protection and long-term benefits,\" QTS Co-CEO Tag Greason said.",
+        "QTS' development model is grounded in its Commitment to Communities, which focuses on protecting residents from project-related costs, building responsibly, creating good jobs, investing locally and leading with transparency."
       ],
       "summary": "QTS published a five-point 'Commitment to Communities' (cost protection, responsible building, jobs, local investment, transparency) alongside its July 2026 White House Ratepayer Protection Pledge reaffirmation, with Co-CEO Tag Greason naming energy, water, jobs, infrastructure and ratepayer protection as the questions communities are right to ask. QTS layers site-specific commitments (e.g., the $50M Dane County pledge) on top of this framework.",
       "source_url": "https://q.com/news/qts-statement-on-responsible-data-center-growth-and-ratepayer-protection/",
@@ -2946,11 +2840,8 @@
       "community_benefits_framework": true,
       "value_usd": 250000,
       "key_terms": [
-        "Amazon Northeastern Pennsylvania Community Fund: $250,000 in grants up to $10,000 each, launched early June 2025",
-        "Dedicated to projects in Luzerne, Columbia, and parts of Northumberland County",
-        "Supports food pantries, youth education, and low-income families; more than 28 organizations funded to date",
-        "Tied to the Salem Township Innovation Campus, part of Amazon's $20 billion Pennsylvania data center investment announced June 2025",
-        "A second phase — a $300,000 fund via Community Giving Foundation/Luzerne Foundation for Columbia and Luzerne County nonprofits — opened for applications July 1-31, 2026"
+        "Building on Amazon's nearly two decades of operating across Pennsylvania, the company established the Amazon Northeastern Pennsylvania Community Fund to dedicate investments specifically to Luzerne, Columbia, and parts of Northumberland County projects.",
+        "More than 28 organizations have already benefited from a $250,000 grant to support food pantries, youth education, and low income families in Northeastern Pennsylvania."
       ],
       "summary": "Amazon established the Northeastern Pennsylvania Community Fund (launched early June 2025, no exact day found), a $250,000 grant program (up to $10,000 per grant) covering Luzerne, Columbia, and parts of Northumberland County, tied to its Salem Township Innovation Campus data center investment. A follow-on $300,000 round ran July 2026. The task's work-list names this site as 'Salem Twp/Cumberland PA,' but the campus and fund are in Luzerne County, not Cumberland County — no separate Cumberland County agreement was found.",
       "source_url": "https://www.amazoninnovationinpa.com/salem-township-innovation-campus/",
@@ -3077,10 +2968,7 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "75% property tax abatement for 15 years (company pays 25% of what property taxes would otherwise be)",
-        "Payment in lieu of taxes (PILOT) of $500,000 annually, plus additional compensation based on total square footage",
-        "Approved by Scioto County commissioners around January 22, 2026",
-        "First phase: 500,000 sq ft data center on a 792-acre site, ~50 permanent jobs listed in the agreement"
+        "The abatement agreement would also include a payment in lieu of taxes of $500,000 annually and additional compensation based on total square footage, once completed by the developer."
       ],
       "summary": "Scioto County, Ohio commissioners approved a 75%-for-15-years property tax abatement for Google's proposed Franklin Furnace data center, structured as a PILOT paying the county $500,000 annually plus additional square-footage-based compensation. As of the source date Google had not yet committed to proceeding with construction.",
       "source_url": "https://www.wsaz.com/2026/01/22/googles-request-tax-abatement-proposed-data-center-approved/",
@@ -3114,11 +3002,9 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Applies to data centers with 10 MW or greater peak electrical demand",
-        "Requires data centers to ensure their water use does not overburden local water resources",
-        "Requires data center operators to pay for the electrical infrastructure costs attributable to their own demand",
-        "Prohibits the state from preempting local ordinances that limit, prohibit or otherwise regulate data centers, preserving municipal authority",
-        "A companion bill signed the same day (SD legislative bill number 26923) lets the Public Utilities Commission assess regulatory review costs to data center companies"
+        "The law applies to data centers with a peak electrical demand of 10 megawatts or greater.",
+        "It will require data center companies to ensure their water use does not overburden local resources and to pay for the electrical infrastructure costs attributable to them.",
+        "It also prohibits the state from overriding local ordinances limiting, prohibiting or otherwise regulating data centers."
       ],
       "summary": "South Dakota's SB 135, signed by Gov. Rhoden March 25, 2026 after a competing push for new data center tax incentives failed, requires 10 MW+ data centers to cover their own grid infrastructure costs, avoid overburdening local water supplies, and explicitly preserves local governments' authority to regulate or restrict data centers despite state law.",
       "source_url": "https://www.kotatv.com/2026/03/25/data-center-restrictions-signed-into-south-dakota-law-after-push-incentives-failed/",
@@ -3162,11 +3048,7 @@
       "community_benefits_framework": true,
       "value_usd": 143000000,
       "key_terms": [
-        "Community Enhancement Agreement worth approximately $143 million, per County Economic Development Director Bill Schalliol, \"on top of everything else that company is providing to the community\"",
-        "County Council approved the economic development agreement 7-2 on August 13, 2024",
-        "Per secondary reporting, benefits include parks, schools/students, fire departments, road improvements, and utility upgrades; AWS separately expected to invest up to $7 million in surrounding road infrastructure",
-        "Campus (Project Rainier) estimated to bring ~400 full-time jobs plus ~600 additional construction-period jobs",
-        "Separately, AWS launched a $250,000 St. Joseph County Community Fund awarding grants to 31 local organizations (Feb 2025)"
+        "\"That agreement itself is worth about $143 million on top of everything else that company is providing to the community,\" said Schalliol."
       ],
       "summary": "St. Joseph County, Indiana's council approved a Community Enhancement Agreement worth roughly $143 million with AWS as part of the incentive package for the $11 billion Project Rainier data center campus in New Carlisle, on top of other AWS investment. The agreement funds parks, schools, fire departments, roads, and utilities per county officials and secondary reporting, though the underlying agreement document's category-by-category breakdown was not found on a primary page in this pass. AWS separately runs an annual $250,000 St. Joseph County Community Fund grant program.",
       "source_url": "https://wsbt.com/news/local/amazon-data-center-final-vote-approve-buildings-jobs-construction-economy-revenue-funds-community-enhancement-agreement-redevelopment-commission-council-new-carlisle-st-joseph-county-indiana",
@@ -3203,10 +3085,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Applies to a 'data center' (a building primarily containing electronic equipment to process, store or transmit digital information) projected to have 50 MW or more of peak electric demand in its first three years",
-        "Prohibits a municipality or electric utility from paying or absorbing the cost of electrical infrastructure built to serve a covered data center",
-        "Electric utilities may reimburse data center operators only under standard policies applied equally to comparable customers, and only if it doesn't raise rates for existing customers",
-        "Grants covered data centers the right to purchase power from in-state independent power producers, including direct behind-the-meter interconnection"
+        "Computers and Electronic Processing-As enacted, generally prohibits a municipality or electric utility to pay or absorb the cost of electrical infrastructure incurred to serve a data center;",
+        "Such an independent power producer may generate, store, sell, or deliver electric energy, capacity, or other related ancillary services to a data center through (i) a direct interconnection behind the data center's meter if the data center does not take service from an electric utility;"
       ],
       "summary": "Tennessee's Public Chapter 961 (HB1847/SB2128), signed May 18, 2026, bars municipalities and electric utilities from absorbing or passing along the cost of electrical infrastructure built to serve data centers of 50 MW or more, while opening a path for those data centers to contract directly with in-state independent power producers.",
       "source_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114",
@@ -3247,11 +3127,7 @@
       "community_benefits_framework": true,
       "value_usd": 62500000,
       "key_terms": [
-        "25-year Tax Incentive District agreement: Meta pays $62.5 million in lieu of taxes over the term",
-        "Annual 85% property tax exemption (Meta pays 15% of standard property taxes)",
-        "Remaining 15% collected is expected to exceed $36 million over the life of the agreement, benefiting Tulsa, Wagoner County, and Catoosa Public Schools",
-        "Meta covers all project-site costs including $25 million in public infrastructure improvements",
-        "More than 1,000 peak construction jobs and about 100 operational jobs ('Project Anthem', 2M+ sq ft, $1B+ investment)"
+        "\"The tax abatement is up for 25 years.\" Of the 15% that will be collected, the funds are expected to exceed $36 million over the life of the Tax Incentive District agreement."
       ],
       "summary": "Meta's 'Project Anthem' Tulsa data center operates under a 25-year Tax Incentive District/PILOT agreement approved by PartnerTulsa: an 85% property tax exemption in exchange for $62.5 million in PILOT payments over the term, with the remaining taxed 15% projected to exceed $36 million for the city, Wagoner County, and Catoosa Public Schools. Meta also funds $25 million in public infrastructure. Reporting places PartnerTulsa's approval and the project's public announcement in April 2026; no exact approval day was found.",
       "source_url": "https://www.kjrh.com/news/local-news/money-for-meta-how-will-the-new-data-center-be-funded",
@@ -3321,11 +3197,8 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Directs state agencies to ensure large data center projects do not increase net water consumption and to protect water quality, with specific focus on the Great Salt Lake",
-        "Directs agencies to protect utility ratepayers from bearing infrastructure costs needed to serve large data center projects",
-        "Directs agencies to minimize air-quality impacts on surrounding communities and mitigate wildlife impacts",
-        "Requires 'transparent, meaningful and thorough' public comment opportunities during state review",
-        "Effective immediately upon signing"
+        "Protecting utility ratepayers from bearing the costs of infrastructure needed to serve large data center developments.",
+        "Providing transparent, meaningful and thorough opportunities for public comment."
       ],
       "summary": "Gov. Spencer Cox's Executive Order 2026-03 sets a statewide framework directing Utah agencies to weigh Great Salt Lake water impacts, ratepayer cost protection, air quality, wildlife and public engagement when evaluating large data center proposals. It followed public backlash over the Stratos data center project in Box Elder County, though it does not set numeric thresholds.",
       "source_url": "https://www.stgeorgeutah.com/news/governor-signs-executive-order-establishing-higher-standards-for-data-center-development-in-utah/article_e418825f-6038-45e7-8a20-75cd910703f8.html",
@@ -3545,9 +3418,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Repeals the retail sales and use tax exemption for replacement and refurbished server/data-center equipment",
-        "Sales tax exemption for data centers that qualify through equipment refurbishment expires effective July 1, 2026",
-        "Leaves the original construction/new-equipment data center tax exemption structure otherwise in place"
+        "The Washington bill removes a retail sales and use tax exemption for replacing server equipment at existing data centers starting July 1."
       ],
       "summary": "Washington's ESSB 6231, signed by Gov. Bob Ferguson in early April 2026 and effective July 1, 2026, narrows the state's data center sales-tax exemption by removing replacement and refurbished server equipment from eligibility, part of a broader 2026 rollback of recently enacted tax preferences.",
       "source_url": "https://news.bloombergtax.com/daily-tax-report-state/washington-to-end-data-center-tax-break-for-replacing-servers",
@@ -3584,11 +3455,8 @@
       "community_benefits_framework": true,
       "value_usd": 150000,
       "key_terms": [
-        "$150,000 committed to the Amazon Warren County Community Fund, with grants up to $10,000 for community projects (STEM education, sustainability, digital skills, culture, health/wellness)",
-        "At least 200 direct data-center jobs plus ~300 additional full-time-equivalent community positions",
-        "Workforce training: more than 6,500 learners/job seekers trained across Mississippi via AccelerateMS, Mississippi Development Authority, and community college partnerships (data center operations, fiber optic technician training, AWS pre-apprenticeship)",
-        "Uses previously authorized Mississippi Major Economic Impact Authority incentive legislation from Amazon's Madison County project; no new state funds required",
-        "$3 billion investment near the Port of Vicksburg"
+        "A new $150,000 community fund will support local Warren County projects focusing on STEM education and local needs.",
+        "This investment is estimated to create at least 200 new jobs at the Amazon data center campus, plus support more than 300 additional full-time equivalent positions in the Warren County community overall."
       ],
       "summary": "Amazon committed $150,000 to a new Warren County Community Fund alongside its $3 billion Vicksburg, Mississippi data center campus announcement, funding grants up to $10,000 for local STEM/sustainability/digital-skills/culture/health projects, plus broader statewide workforce training claims (6,500+ learners). The project uses previously approved state incentive legislation rather than new state funding.",
       "source_url": "https://www.aboutamazon.com/news/company-news/amazon-3-billion-mississippi-data-center-investment",
@@ -3628,10 +3496,9 @@
       "community_benefits_framework": true,
       "value_usd": 25000000,
       "key_terms": [
-        "$25 million Energy Impact Fund \"to help scale energy efficiency and affordability initiatives for residents in Crittenden County and the surrounding area\"",
-        "Partnership with Entergy to bring a new 600 MW solar project onto the grid",
-        "No-cost access to Google AI courses and Career Certificates for Arkansas residents via the Arkansas Department of Commerce, starting with University of Arkansas and Arkansas State University students",
-        "Part of a $4 billion Google investment in Arkansas through 2027, including the company's first Arkansas data center (five buildings, 1,178 acres, West Memphis)"
+        "We're launching a $25 million Energy Impact Fund to help scale energy efficiency and affordability initiatives for residents in Crittenden County and the surrounding area.",
+        "In addition, we're collaborating with Entergy to bring a new 600 MW solar project to the grid and implement programs to reduce power usage during peak hours.",
+        "We're boosting the state's talent pipeline by offering no-cost access to Google AI courses and Career Certificates for all residents, in partnership with the Arkansas Department of Commerce."
       ],
       "summary": "Google announced a $25 million Energy Impact Fund with Entergy Arkansas for energy efficiency and affordability programs in Crittenden County, alongside a 600 MW solar partnership and free AI training/Career Certificates for Arkansas residents, as part of its $4 billion Arkansas investment anchored by a new West Memphis data center campus.",
       "source_url": "https://blog.google/company-news/inside-google/company-announcements/google-american-innovation-arkansas/",
@@ -3761,11 +3628,9 @@
       "community_benefits_framework": true,
       "value_usd": 25000000,
       "key_terms": [
-        "Upfront, unrestricted one-time payment of $1.5 million to the City of Wilmington",
-        "One-time $350,000 payment to the Port Authority of Clinton County",
-        "Over $1 million in new annual tax revenue to the city via PILOTs and municipal income taxes, plus $1 million in new annual revenue to schools",
-        "At least $25 million in new public infrastructure (sewers, water main, water tower, road improvements) at no expense to the city",
-        "CRA agreement grants a property tax exemption offset by PILOT payments distributed among the city, Wilmington City Schools, and Laurel Oaks Career Campus (exact percentage/duration not disclosed in the sourced page; ~$4B AWS investment, ~471-acre site)"
+        "An additional payment of $350,000 will be paid to the Port Authority. These funds will be used to cover staff costs and legal fees associated with the project.",
+        "Over $1 million in new annual tax revenues through a combination of PILOTs (Payments in Lieu of Taxes) and municipal income taxes.",
+        "New public infrastructure with an estimated value of at least $25 million, at no expense to the City."
       ],
       "summary": "Wilmington, Ohio negotiated a Community Reinvestment Area / compensation agreement with AWS for a ~$4 billion, 471-acre data center campus: a $1.5 million upfront city payment, $350,000 to the Port Authority, over $1 million/year in new city tax revenue plus $1 million/year to schools via PILOTs, and at least $25 million in AWS-funded public infrastructure. A local group (Wilmington Residents for Responsible Development) has continued to push for a separate, stronger community benefits agreement, calling the CRA deal insufficient.",
       "source_url": "https://www.chooseclintoncountyoh.org/news/data-center-faqs",
@@ -3804,10 +3669,7 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Authorizes up to two 'microgrid' industrial business development districts (up to 2,250 acres each, on state or former coal land) where non-utility generators can sell power free of PSC rate rules, siting certificates and net-metering standards, provided 90% of the power stays in the district",
-        "Permits any power generation type (including nuclear, coal or gas-fired) within a certified microgrid/high-impact data center district",
-        "Prohibits counties and municipalities from adopting ordinances that limit creation, development or operation of a certified microgrid district or high-impact data center project (local zoning preemption)",
-        "Data center property and equipment is taxed at salvage value (about 5% of assessed value) for ad valorem property tax purposes, with the majority of that revenue directed to a state grid-stabilization/security fund rather than local governments"
+        "HB 2014 would prohibit counties and municipalities from enforcing or adopting ordinances, rules or regulations that limit creation, development or operation of any certified microgrid district or high-impact data center project."
       ],
       "summary": "West Virginia's HB 2014, a governor's priority bill signed by Gov. Morrisey April 30, 2025, creates fast-tracked 'microgrid' industrial districts where data centers can build their own power generation largely outside PSC oversight, preempts local zoning limits on certified projects, and taxes data center property at a steeply discounted salvage value, with most resulting revenue flowing to the state rather than host localities.",
       "source_url": "https://www.govtech.com/policy/west-virginia-passes-new-data-center-development-bill",
@@ -3842,10 +3704,8 @@
       "community_benefits_framework": false,
       "key_terms": [
         "Wyoming Data Center Development Framework",
-        "closed-loop cooling encouraged for water sustainability",
-        "developers bear all incremental power-infrastructure costs",
-        "60-day agency policy/legislative recommendations",
-        "local siting/nuisance authority preserved for towns and counties"
+        "Gordon's executive order encourages closed-loop cooling system technologies, which are filled once and reduce ongoing water demand.",
+        "The order also reinforces the state's stance that data center developers must bear all incremental costs for power infrastructure, ensuring that residential ratepayers are not forced to subsidize industrial growth."
       ],
       "summary": "Governor Mark Gordon signed Executive Order 2026-03, 'Data Centers the Wyoming Way,' on June 3, 2026, establishing the Wyoming Data Center Development Framework around eight principles: water sustainability (encouraging closed-loop cooling), wildlife stewardship, transparency, energy leadership (Wyoming's gas/coal resources), grid protection, revenue-driven growth (developers bear all incremental power-infrastructure costs), workforce development, and community investment/engagement. It directs state agencies to coordinate on proposed developments, streamline permitting, and improve transparency and public-participation opportunities, while preserving local town/city/county authority over siting and nuisance issues. Agencies must deliver policy and potential-legislation recommendations to the Governor within 60 days.",
       "source_url": "https://www.wyomingnews.com/news/local_news/gov-gordon-signs-executive-order-addressing-data-centers-in-wyoming/article_b5a4f53a-ed08-4cb7-8ab1-c0a9332da7e6.html",
@@ -4173,20 +4033,14 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Project Jupiter Community Benefits Agreement — made and executed on this 12th day of November, 2025",
-        "Local Workforce Development Education Fund — $4,000,000 on or before December 31, 2026",
-        "Doña Ana County Community Fund — $1,500,000 on or before December 31, 2026",
-        "Advancement of Desalination for Doña Ana County Clean Drinking Water — $250,000 on or before December 31, 2026",
-        "Doña Ana Community College Regional Connectivity Contribution — $150,000 on or before December 31, 2026",
-        "Doña Ana County Habitat Restoration Projects — $500,000 on or before December 31, 2026 and $50,000 annually thereafter, with the last payment occurring on December 31, 2036",
-        "County Projects (Building Permit Payments) — $4,500,000",
-        "The Project is committed to creating a minimum of 750 new full-time equivalent jobs and 50 part-time jobs within three years of commencing operation",
+        "$500,000 on or before December 31, 2026 and $50,000 annually thereafter, with the last payment occurring on December 31, 2036",
+        "The Project is committed to creating a minimum of 750 new full-time equivalent jobs and 50 part-time jobs within three years of commencing operation as set forth in the Leases.",
         "The daily operational potable water use for the full data center campus buildout will be an average of 20,000 gallons per day with a maximum peak use capped at 60,000 gallons per day.",
         "The Project Jupiter data center will use a closed-loop cooling system, limiting overall water usage compared to traditional data centers.",
-        "The microgrid and energy generated by the Onsite Microgrid System and used by the data center will be paid for by the Companies. The Onsite Microgrid System will not impact existing customers' power reliability or costs.",
+        "The microgrid and energy generated by the Onsite Microgrid System and used by the data center will be paid for by the Companies.",
         "This CBA will be binding on and for the benefit of each of the Parties hereto and their respective personal representatives, executives, agents, attorneys, principals, agents, and assigns.",
-        "the Companies may assign this CBA to another entity developing Project Jupiter under the Industrial Revenue Bonds — Upon assumption of the obligations in this CBA by the assignee",
-        "The sole and exclusive remedy of the County in the event of a failure by the Companies to satisfy the terms of this CBA will be to avail itself of the applicable rights and remedies corresponding to such failure under the Companies’ respective Lease Agreements with the County — which shall include termination of the respective Leases",
+        "With the written consent of the County, which shall not be unreasonably withheld, the Companies may assign this CBA to another entity developing Project Jupiter under the Industrial Revenue Bonds.",
+        "The sole and exclusive remedy of the County in the event of a failure by the Companies to satisfy the terms of this CBA will be to avail itself of the applicable rights and remedies corresponding to such failure in connection with the Industrial Revenue Bonds, which shall include termination of the respective Leases",
         "the County shall have the right to seek payment for unpaid amounts listed in Exhibit B from the Guarantor"
       ],
       "summary": "Doña Ana County and the Project Jupiter developer entities (four Red Chiles LLCs and Yucca Growth Infrastructure, with Green Chile Ventures as guarantor) executed this Community Benefits Agreement on November 12, 2025, as an inducement for the county's industrial revenue bonds of up to $165 billion. Exhibit B sets dated payments for workforce development, a county community fund, a desalination RFP, community-college connectivity, habitat restoration and county projects, and Exhibit A commits to a closed-loop cooling design with capped potable water use and developer-paid microgrid energy that does not affect existing customers' costs. The county's only remedy for a missed term is its rights under the project leases, including lease termination, plus a claim on the guarantor for unpaid Exhibit B amounts; there is no separate claim for damages or specific performance. The agreement names the developer entities, not Oracle; Oracle describes itself as the project's tenant, and this is a separate instrument from the PILOT/IRB record.",
@@ -4396,8 +4250,7 @@
         "Resolution 06-2026: Resolution approving a development and supply agreement term summary with EdgeConneX, and declaring an emergency.",
         "The resolution offered up to $102 million-divided between the Teays Valley School District ($64 million), the Village of Ashville for EPA-related infrastructure ($35 million), and the Harrison Township Fire Department ($3 million).",
         "Five council members voted to adopt the resolution, and President Pro Tempore Jeff Martin was the single nay vote.",
-        "it's going to be part of the negotiation now moving forward.",
-        "The village of Ashville must submit a referendum petition to the board of elections seeking a public vote on the village's effort to help construct two new data centers and a power plant."
+        "it's going to be part of the negotiation now moving forward."
       ],
       "summary": "On April 6, 2026 the Ashville Village Council voted 5-1 to adopt Resolution 06-2026 approving a term summary for a development and supply agreement with EdgeConneX. The resolution offered up to $102 million, divided among the Teays Valley School District ($64 million), the village for EPA-related infrastructure ($35 million) and the Harrison Township Fire Department ($3 million). The dissenting council member said some terms remained to be negotiated, so this is a term summary and not an executed agreement. Later developments, including a referendum petition, are not covered by the cited report. On August 7, 2026 the Ohio Supreme Court ruled that the village must submit the referendum petition against the resolution to the county board of elections; whether it reaches the November 3 ballot is not yet confirmed.",
       "source_url": "https://www.circlevilleherald.com/community/ashville-council-votes-5-1-to-adopt-the-edgeconnex-term-summary-resolution/article_6a335fd7-4406-411d-b8ea-178155601d5c.html",
