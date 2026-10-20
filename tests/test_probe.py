@@ -128,3 +128,10 @@ def test_pdf_falls_back_to_stream_parser_without_pdfkit(monkeypatch) -> None:
     monkeypatch.setattr(pr, "pdf_text", lambda data: called.setdefault("ok", "fallback text"))
     assert pr.pdf_text_best(b"%PDF-1.4 tiny") == "fallback text"
     assert pr.pdf_text_best(b"x" * (pr.MAX_FALLBACK_PDF + 1)) == ""  # too big to parse safely
+
+
+def test_shift_jis_page_is_decoded_from_its_meta_charset() -> None:
+    import probe as pr
+    raw = '<html><head><meta charset="Shift_JIS"></head><body>データセンター</body></html>'.encode("shift_jis")
+    assert pr._meta_charset(raw).lower() == "shift_jis"
+    assert "データセンター" in raw.decode(pr._meta_charset(raw))

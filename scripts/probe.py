@@ -113,6 +113,18 @@ def pdf_text_best(data: bytes) -> str:
     return pdf_text(data)
 
 
+def _meta_charset(raw: bytes) -> str:
+    m = re.search(rb"<meta[^>]+charset=[\"']?([A-Za-z0-9_-]+)", raw[:4000], re.I)
+    if not m:
+        return ""
+    enc = m.group(1).decode("ascii", "ignore")
+    try:
+        "".encode(enc)
+        return enc
+    except LookupError:
+        return ""
+
+
 def fetch(url: str) -> tuple[int, str, str]:
     """Return (status, final_url, text). Status 0 means the fetch itself failed."""
     try:
@@ -133,7 +145,10 @@ def fetch(url: str) -> tuple[int, str, str]:
     try:
         text = r.content.decode("utf-8")
     except UnicodeDecodeError:
-        text = r.text
+        # Shift-JIS / EUC-KR / GB pages (Japanese and Korean government sites)
+        # name their charset in a <meta> tag requests doesn't read; detect it.
+        enc = _meta_charset(r.content) or r.apparent_encoding or r.encoding or "utf-8"
+        text = r.content.decode(enc, errors="replace")
     return r.status_code, r.url, html_text(text)
 
 
