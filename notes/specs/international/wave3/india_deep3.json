@@ -1,0 +1,125 @@
+{
+  "records": [
+    {
+      "kind": "response",
+      "id": "in-resp-vizianagaram-bhogapuram-2026-10-07",
+      "verified": true,
+      "fields": {
+        "project_id": null,
+        "date": "2026-10-07",
+        "date_is_event": true,
+        "stance": "negative",
+        "constituency": "residents",
+        "summary": "Farmers in Bhogapuram mandal, Vizianagaram district, marched to the tahsildar's office on the day of a protest against land acquisition for a proposed data centre, arguing that taking fertile farmland would hurt livelihoods. Some affected landowners have reportedly gone to court over the acquisition.",
+        "source_title": "Deccan Chronicle — Vizianagaram farmers renew protest against proposed data centre"
+      },
+      "verbatim": "Farmers in Bhogapuram mandal of Vizianagaram district staged a protest on Wednesday against the proposed data centre",
+      "source_url": "https://www.deccanchronicle.com/amp/southern-states/andhra-pradesh/vizianagaram-farmers-renew-protest-against-proposed-data-centre-1993991",
+      "notes": "Not a tracked site: the Vizianagaram Reliance AI data centre is a lead from india_deep.json, not a project record. Event date is 'Wednesday' in an article stamped 2026-10-07 (a Wednesday). The court claim is in the article but not probe-verified; left out of the verified verbatim."
+    },
+    {
+      "kind": "response",
+      "id": "in-resp-thane-balkum-2026-09-08",
+      "verified": true,
+      "fields": {
+        "project_id": "in-amazon-thane-balkum",
+        "date": "2026-09-08",
+        "date_is_event": true,
+        "stance": "negative",
+        "constituency": "residents",
+        "summary": "Hundreds of residents, including elderly people, gathered beside the Amazon site in Balkum on 8 September 2026 with placards against the project. Reuters interviewed more than two dozen residents, who worry about strain on local power and water and about noise. Amazon and local authorities say the project will not burden public utilities because water and power come from dedicated sources.",
+        "source_title": "Reuters (via Arab News) — Fearing power and water strain, residents fight Amazon data center near Mumbai"
+      },
+      "verbatim": "hundreds of residents, including elderly people, gathered",
+      "source_url": "https://www.arabnews.com/world/modi-wants-india-to-power-the-ai-age-residents-are-pushing-back-3005412",
+      "notes": "Second verified clause on the same page: 'Reuters interviews with more than two dozen residents'. Reuters copy carries a zero-width character inside 'gathered beside'; the verbatim avoids it. Complements in-resp-thane-balkum-residents (2026-07-18), which is a different event. Protest-group names and the MP's demand for an expert review came from search snippets only and are not recorded here."
+    },
+    {
+      "kind": "response",
+      "id": "in-resp-telangana-kanjilal-land-assignment-2026-05-09",
+      "verified": true,
+      "fields": {
+        "project_id": null,
+        "date": "2026-05-09",
+        "date_is_event": false,
+        "stance": "negative",
+        "constituency": "ngo",
+        "summary": "A Digital Empowerment Foundation investigation, running since August 2025 across Microsoft and Amazon data centres in Telangana, found that farmers and village-level self-governance bodies were not included when land was assigned for data centres.",
+        "source_title": "Scroll.in (originally Rest of World) — India's data centre push runs into farmers' resistance"
+      },
+      "verbatim": "found that farmers and local self-governance bodies established to promote democracy and decentralised planning at the village level were kept out of the loop when assigning land for data centres",
+      "source_url": "https://scroll.in/article/1092311/indias-data-centre-push-runs-into-farmers-resistance",
+      "notes": "Spans two Telangana sites, so no single project_id. Article date is 9 May 2026 and is the publication date, not an event date. Speaker is the DEF researcher, quoted as a researcher, not as a company statement. Same article says Google and Microsoft both face farmer pushback (not probe-verified)."
+    },
+    {
+      "kind": "fact",
+      "id": "in-fact-vizag-clearance-2-51gw",
+      "verified": true,
+      "fields": {
+        "project_id": "in-google-visakhapatnam",
+        "date": "2026-09-26",
+        "date_is_event": false,
+        "statement": "State environmental clearance covers 2.51 GW of capacity, more than double the 1 GW announced, per clearance papers the Guardian saw. The state gave the green light in nine days with no public hearing, per the Guardian.",
+        "power_gw_cleared": 2.51,
+        "power_gw_announced": 1.0,
+        "public_hearing": false,
+        "approval_days": 9,
+        "source_title": "The Next Web — Google's India AI hub cleared for 2.51GW, not 1GW, the Guardian reports"
+      },
+      "verbatim": "has state environmental clearance for 2.51GW of capacity, more than double the 1GW announced, according to clearance papers seen by the Guardian. The state gave the green light in nine days, with no public hearing, the Guardian reported.",
+      "source_url": "https://thenextweb.com/news/google-india-ai-datacentre-andhra-pradesh-land",
+      "notes": "The Guardian itself could not be fetched: WebFetch returned 'unable to fetch from www.theguardian.com', and searches did not surface the article URL. This is a secondary record that cites the Guardian. Upgrade to a Guardian primary when reachable. The project power_mw field and the 1 GW figure in seed should be reconciled by a curator; this pass did not edit them. The 2.51 GW figure is not on the TNW page as a Google statement; Google's reply is only 'gigawatt-scale hub'."
+    },
+    {
+      "kind": "fact",
+      "id": "in-fact-tarluvada-520-families-land-taken-back",
+      "verified": true,
+      "fields": {
+        "project_id": "in-google-visakhapatnam",
+        "date": "2026-09-26",
+        "date_is_event": false,
+        "statement": "Per the Guardian, 520 families in Tarluvada recently had land taken back that the government had given them about 20 years earlier; the TNW summary says villagers report that promised jobs and plots have not arrived.",
+        "affected_families": 520,
+        "source_title": "The Next Web — Google's India AI hub cleared for 2.51GW, not 1GW, the Guardian reports"
+      },
+      "verbatim": "In Tarluvada, 520 families recently had land taken back that the government had given them about 20 years ago, according to the Guardian.",
+      "source_url": "https://thenextweb.com/news/google-india-ai-datacentre-andhra-pradesh-land",
+      "notes": "Same Guardian caveat as the clearance record. The 47 Dalit farmers and the 'nine days' are not repeated here. The jobs/plots claim is on the TNW page but was not probe-verified as a verbatim, so it is not in the record's verbatim."
+    },
+    {
+      "kind": "response",
+      "id": "in-resp-mahul-water-land-conflict-watch-2026-04",
+      "verified": true,
+      "fields": {
+        "project_id": null,
+        "date": "2026-04",
+        "date_is_event": false,
+        "stance": "negative",
+        "constituency": "ngo",
+        "summary": "Land Conflict Watch's Mahul (Mumbai) entry, published April 2026, records activists raising concerns about data-centre water use in the water-scarce Mumbai metropolitan region. The entry concerns the state's planned green integrated data centre parks: three 500 MW facilities in Mumbai and Navi Mumbai.",
+        "source_title": "Land Conflict Watch — Green data centres or carbon lock-in? Mahul, Mumbai"
+      },
+      "verbatim": "activists have raised concerns on water consumption of data centre in already water scarce Mumbai metropolitan region",
+      "source_url": "https://www.landconflictwatch.org/conflicts/green-data-centres-or-carbon-lock-in-energy-water-and-environmental-concerns-in-mahul-mumbai",
+      "notes": "Not a tracked site (the MH green parks are a policy, not a project record). The 'three 500 MW' figure is on the page but was not verified as a verbatim. Land Conflict Watch's own coal-plant claims (residents say the facility runs on coal) are not probe-verified and are left out."
+    }
+  ],
+  "leads": [
+    "Maharashtra GR history (secondary only, no official PDF reachable): GR 9 Oct 2024 (Industries, Energy and Labour Dept) amended the IT/ITES Policy 2023 for green integrated data centre parks, three parks of at least 500 MW, 100% green energy for core DC activities. A GR dated 9 June 2026 reportedly raises the permitted parks to 20, cuts the green share to 51%, and sets Re 1/unit tariff subsidy for 10 years (Rs 30,000 cr investment) or 20 years (Rs 60,000 cr). Source: a single trade report. Verify on the Maharashtra Industries and Energy Department sites before any record. Electricity duty notification CEI-2025/CR-158/Energy-1 is also listed.",
+    "Maharashtra IT/ITES Policy 2023 (ITP-2021/CR-170/Ind-2, dated 27 June 2023): secondary summaries say 100% stamp duty exemption on land or premises for new data centres and expansions, and dropped the 2015 thresholds of 10,000 sq ft raised floor and 750 kVA. Mondaq and Conventus Law are secondary. Official GR not reached.",
+    "Tamil Nadu Data Centre Policy 2021 (G.O. Ms. No. 33, dated 23.11.2021, ELCOT): official spc.tn.gov.in page refused connection (ECONNREFUSED); the tngim2024.com PDF host does not resolve. Secondary claims: applies to data centres set up 1 Apr 2021 to 31 Mar 2026; >Rs 500 cr investment and >=30% renewable energy; 100% electricity-duty waiver on power from TANGEDCO or green captive units; dual grid above 50 MW; land subsidy 50% of guideline value up to 10 acres, capped at Rs 2 cr. Retry from a network where the official host resolves.",
+    "Andhra Pradesh Data Center Policy 4.0 (2024-29), G.O.Ms.No.6 dated 14 Nov 2024 (TeamLease): aim of 200 MW additional capacity. Approval-level reports (Deccan Herald, cxotoday, lapaasvoice) describe Reliance Vizianagaram incentives: Re 1/unit power-tariff subsidy for 15 years, transmission and electricity-duty exemptions, 25% water-tariff subsidy for 10 years, 25% land-cost rebate, 10% capital subsidy on plant and machinery for 10 years (capped Rs 2,129 cr per one report), 100% stamp duty exemption. Incentive figures conflict between sources. Official G.O. not reached. Unofficial Scribd figures are not usable.",
+    "Telangana 2016 ICT policy (secondary only): dual power grid commitment; renewable open access capped at one-third of demand; up to 50% rebate on building-permission fees; a CII report (Oct 2026) recommends replacing the one-third cap and proposes a Data Center Policy 2.0 with water benchmarks. No water provision found in the 2016 text summaries. Official G.O. not found in search.",
+    "Uttar Pradesh Data Centre Policy 2026 and in-up-dc-policy-2026 were already shipped in india_deep.json (verified G.O. 536/78-2-2026/E-105226). Not re-run in this pass.",
+    "The Guardian (theguardian.com) could not be fetched in this session (WebFetch refused, and no article URL surfaced in search). The Tarluvada clearance and nine-day facts are recorded only through TNW's account of the Guardian. Retry the Guardian page directly, or the Guardian's India tag, in a later pass.",
+    "Thane (Amazon, Balkum): search snippets name the citizens' group 'Wake Up Thanekar', Thane MP Naresh Mhaske calling for a stay and an independent expert review of all permissions, and Aaditya Thackeray joining protesters demanding relocation. Not verified on a fetched page. Also a lead: 'Thane residents say the data centre would need about 422 MW and about 190 diesel backup generators' (snippet only). Amazon's Thane water stance is in deep1 and deep2.",
+    "Vizag (Google, Tarluvada): Frontline and The Wire, via TBS News, report the Tarluvada land was originally allotted to Dalit families in the 1970s, and that Dalit farmers have refused to give up land. TBS also reports NewsLaundry claimed a two-minute investigative video was blocked in India after going viral. Not verified on a primary, and the blocking claim is contested by no one in the record yet.",
+    "Vizag, Adavivaram: TBS (1 June 2026, citing HRF) says HRF raised rushed environmental clearances, alleged illegal construction at Adavivaram, and forest diversion. Not checked against the seed's HRF responses; the Adavivaram illegal-construction claim needs a primary source before any record.",
+    "Vizag, Hyderabad, Chennai, Pune, Noida, Navi Mumbai: searches for 2025-26 resident or farmer protests tied to a data centre returned no hits for Chennai (only Chennai demand and water-use commentary), Pune, or Noida. Navi Mumbai and Mahul are covered by Land Conflict Watch (recorded above). Treat these as absences of search evidence, not confirmed absence.",
+    "Vizag, AP High Court: LiveLaw and Outlook Business report the PIL challenges the environmental clearance and allotment of 160 acres of temple land, and that the court declined a status quo order and asked for a consolidated state response. Hearing dates conflict across outlets. Already captured in seed responses; not repeated.",
+    "Vizag, Reuters (via NST, Aug 2026): the state's top court asked the government to defend against Jal Biradari's allegations about a nearby reservoir. The AP HC hearing is listed for 24 August. Already in the seed; not repeated.",
+    "Bhogapuram (Vizianagaram): the 2026-10-07 protest is recorded. The Reliance AI DC site in Vizianagaram (AP) that the land acquisition appears to be for is still a lead in india_deep.json, not a project record. Worth a project record once the developer and land order are confirmed.",
+    "Mahul (Mumbai): Land Conflict Watch lists the Tata and Adani thermal plants and says the Maharashtra government decided to close Tata Trombay and Adani plants in Mahul. Its claim that the data-centre parks depend on coal power is an NGO allegation; not probe-verified.",
+    "Telangana (Microsoft Mekagunda and Amazon): Scroll and Rest of World note Microsoft faced encroachment and waste-dumping allegations in 2024 at its Telangana site, and Telangana Microsoft and Amazon land assignments are under DEF investigation. Hyderabad Mekagunda High Court petition (2023) remains a lead from india_deep2.json."
+  ]
+}

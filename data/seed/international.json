@@ -1938,7 +1938,7 @@
       "lon": 83.29222,
       "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%E2%82%B915-billion-in-india/",
       "source_title": "The South First — Google's largest AI hub outside US coming up in Visakhapatnam",
-      "notes": "Investment is the site figure: The News Minute (14 October 2025) reports a data centre in Visakhapatnam “with an investment of Rs 87,520 crore (USD 10 billion)”. The $15 billion in Google's announcement is its five-year plan for the India AI hub and is not stored as the site figure; Google's blog says Google's AI hub is powered by that $15 billion investment. Coordinates are the Visakhapatnam city centroid, not the site. Construction start: Adani Group's release dated 28 April 2026 states that Google officially broke ground on the Visakhapatnam AI hub that day, 'the start of construction', at Tarluvada.",
+      "notes": "Investment is the site figure: The News Minute (14 October 2025) reports a data centre in Visakhapatnam “with an investment of Rs 87,520 crore (USD 10 billion)”. The $15 billion in Google's announcement is its five-year plan for the India AI hub and is not stored as the site figure; Google's blog says Google's AI hub is powered by that $15 billion investment. Coordinates are the Visakhapatnam city centroid, not the site. Construction start: Adani Group's release dated 28 April 2026 states that Google officially broke ground on the Visakhapatnam AI hub that day, 'the start of construction', at Tarluvada. The Bar & Bench report on the NGT appeal gives Rs 17,700 crore for the hyperscale data centre park under appeal; that figure and the Rs 87,520 crore site figure may cover different scopes, and neither source reconciles them.",
       "subdivision": "IN-AP",
       "locality": "Visakhapatnam",
       "updates": [
@@ -2595,6 +2595,30 @@
       "source_url": "https://irishtimes.com/business/2026/09/28/google-wins-planning-permission-for-dublin-data-centre-extension/",
       "source_title": "The Irish Times — Google wins planning permission for Dublin data centre extension",
       "source_lang": "en"
+    },
+    {
+      "id": "in-resp-vizag-clearance-guardian-2026-09",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-09-26",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "The Next Web, reporting the Guardian's investigation, says the site's state environmental clearance covers 2.51 GW, more than double the 1 GW announced, that the state approved it in nine days with no public hearing, and that 520 families in Tarluvada recently had land taken back that the government had given them about 20 years earlier.",
+      "source_url": "https://thenextweb.com/news/google-india-ai-datacentre-andhra-pradesh-land",
+      "source_title": "The Next Web — Google's India AI hub cleared for 2.51GW, not 1GW, the Guardian reports",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-thane-balkum-2026-09-08",
+      "project_id": "in-amazon-thane-balkum",
+      "date": "2026-09-08",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Hundreds of residents, including elderly people, gathered beside the Amazon site in Balkum on 8 September 2026 with placards against the project. Reuters interviewed more than two dozen residents, who worry about strain on local power and water and about noise. Amazon and local authorities say the project will not burden public utilities because water and power come from dedicated sources.",
+      "source_url": "https://www.arabnews.com/world/modi-wants-india-to-power-the-ai-age-residents-are-pushing-back-3005412",
+      "source_title": "Reuters (via Arab News) — Fearing power and water strain, residents fight Amazon data center near Mumbai",
+      "source_lang": "en",
+      "single_source": true
     }
   ],
   "claims": [
@@ -3066,7 +3090,7 @@
       "theme": "jobs",
       "statement": "The development of this AI hub and connectivity gateway will create a powerful engine for economic growth in Visakhapatnam, the state of Andhra Pradesh, and thereafter the entire nation by driving digital inclusivity and creating tens of thousands of jobs in technology, construction and clean energy.",
       "source_url": "https://www.adanienterprises.com/-/media/Project/Enterprises/Investors/Corporate-Announcement/AELIntimationforMediaRelease14102025.pdf",
-      "source_title": "Adani Enterprises / Google joint media release (filed with BSE and NSE, 14 October 2025)",
+      "source_title": "Gautam Adani, Chairman, Adani Group (AdaniConneX's parent), in the Adani Enterprises / Google joint media release (filed with BSE and NSE, 14 October 2025)",
       "captured_at": "2026-10-19",
       "published_at": "2025-10-14",
       "country": "IN",

@@ -1219,3 +1219,5 @@ Held from `notes/specs/international/wave2/deep_jp_kr_in_gb_fr_ie.json` (leads, 
 - **FR Orange / Morrison JV** (EUR 3bn, 400 MW, exclusivity 2026-07-27). Neither tracked.
 - **FR Ozans-Châteauroux**: add a CommunityResponse once the CNDP pre-consultation
   reports.
+
+- India leads (2026-10-19, notes/specs/international/wave3/india_deep3.json): Bhogapuram/Vizianagaram farmers' protest (7 Oct 2026, Deccan Chronicle) — no tracked site; Telangana DEF investigation on land assignment for Microsoft/Amazon sites (Scroll/Rest of World) — spans two untracked sites; Mahul/Mumbai water concerns on the state green data-centre parks (Land Conflict Watch). Each needs a tracked project before it can ship as a response. State policy PDFs (TN, MH, TG, AP) unreachable.
