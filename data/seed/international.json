@@ -599,6 +599,103 @@
         }
       ],
       "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "MX",
+      "summary": "Querétaro holds most of Mexico's data-centre capacity and is also one of the states with the highest water stress, per Expansión (27 May 2026). CFE substation energisations for data-centre loads were reported in January 2026 by trade press, and the state governor publicly disputed a former regulator's claim of an energy deficit in September 2026.",
+      "regulators": [
+        {
+          "name": "Comisión Reguladora de Energía",
+          "acronym": "CRE",
+          "role": "energy_regulator",
+          "url": "https://www.gob.mx/cre"
+        },
+        {
+          "name": "Comisión Federal de Electricidad",
+          "acronym": "CFE",
+          "role": "grid_operator",
+          "url": "https://www.cfe.mx/"
+        },
+        {
+          "name": "Comisión Nacional del Agua",
+          "acronym": "CONAGUA",
+          "role": "environment",
+          "url": "https://www.gob.mx/conagua"
+        }
+      ],
+      "primary_languages": [
+        "es"
+      ],
+      "context": [
+        {
+          "statement": "Querétaro is among the states with the highest water stress and also hosts the most data centres in Mexico, at least 30, according to Expansión.",
+          "verbatim": "Querétaro es de las entidades con mayor estrés hídrico, pero en contraste, ahí también se sitúa la mayor cantidad de data centers en el país, con por lo menos 30.",
+          "source_lang": "es",
+          "translation": {
+            "text": "Querétaro is among the states with the highest water stress, but in contrast it also has the largest number of data centres in the country, at least 30.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-05",
+          "source_url": "https://expansion.mx/tecnologia/2026/05/27/data-centers-en-queretaro-chocan-con-el-estres-hidrico",
+          "source_title": "Expansión — Data centers en Querétaro chocan con el estrés hídrico (27 May 2026)",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "ES",
+      "summary": "Aragón is the centre of Spain's data-centre build-out. Press reports an environmental authorisation for an AWS campus near Zaragoza in July 2026 that includes a city water cap, and a civil-society campaign contests the water and energy impacts of data centres in the region.",
+      "regulators": [
+        {
+          "name": "Comisión Nacional de los Mercados y la Competencia",
+          "acronym": "CNMC",
+          "role": "energy_regulator",
+          "url": "https://www.cnmc.es/"
+        },
+        {
+          "name": "Red Eléctrica de España",
+          "acronym": "REE",
+          "role": "grid_operator",
+          "url": "https://www.ree.es/"
+        },
+        {
+          "name": "Instituto Aragonés de Gestión Ambiental",
+          "acronym": "INAGA",
+          "role": "environment",
+          "url": "https://www.aragon.es/"
+        }
+      ],
+      "primary_languages": [
+        "es"
+      ],
+      "context": [],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "BE",
+      "summary": "Wallonia hosts Google's St. Ghislain campus, and Google announced a two-year €5 billion expansion there in October 2025. Grid capacity is allocated by the operator Elia; this record holds no regulatory finding yet.",
+      "regulators": [
+        {
+          "name": "Commission de Régulation de l'Électricité et du Gaz",
+          "acronym": "CREG",
+          "role": "energy_regulator",
+          "url": "https://www.creg.be/"
+        },
+        {
+          "name": "Elia Group",
+          "acronym": "Elia",
+          "role": "grid_operator",
+          "url": "https://www.elia.be/"
+        }
+      ],
+      "primary_languages": [
+        "fr",
+        "nl"
+      ],
+      "context": [],
+      "last_reviewed": "2026-10-19"
     }
   ],
   "policies": [
@@ -1586,6 +1683,76 @@
       "source_title": "宇都宮市 (Utsunomiya City): 「新栃木変電所」南側エリア データセンター整備事業 募集要項, 令和8年4月30日",
       "captured_at": "2026-10-19",
       "source_lang": "ja"
+    },
+    {
+      "id": "kr-ai-datacenter-special-act-2026",
+      "title": "AI Data Center Special Act (passed National Assembly 7 May 2026; not yet in force)",
+      "instrument": "legislation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "South Korea",
+      "country": "KR",
+      "source_lang": "ko",
+      "date": "2026-05-07",
+      "benefit_themes": [
+        "energy",
+        "infrastructure"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "과학기술정보통신부는 'AI 데이터센터 특별법' 제정안이 지난 7일 국회 본회의에서 의결됐다고 발표했다.",
+        "특별법에는 비수도권에서 일정 규모 이하 AI 데이터센터를 신축·증축하거나 기존 데이터센터를 AI 전용 시설로 전환할 경우 전력계통영향평가를 면제하는 내용이 포함됐다."
+      ],
+      "key_terms_translation": {
+        "items": [
+          "The Ministry of Science and ICT announced that the enactment bill for the 'AI Data Center Special Act' was approved at the National Assembly plenary session on the 7th.",
+          "The special act includes an exemption from the grid impact assessment when an AI data center of up to a set size is newly built or extended outside the capital region, or an existing data center is converted to an AI-only facility."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "The Ministry of Science and ICT announced that the enactment bill passed the National Assembly plenary session on 7 May 2026. The ministry's stated schedule puts it in force around February 2027. The policy vocabulary has no 'enacted, not yet in force' status, so it is filed as proposed; it is not yet operative law. Clause-level terms are from a press report, not the enacted text.",
+      "source_url": "https://v.daum.net/v/20260508173552820",
+      "source_title": "Daum (news report) — 'AI 데이터센터 특별법' passes National Assembly (8 May 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "kr-grid-impact-assessment-2024",
+      "title": "Grid impact assessment for data centres of 10 MW or more (MOTIE draft rules, re-notified December 2024)",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "South Korea",
+      "country": "KR",
+      "source_lang": "ko",
+      "date": "2024-12-09",
+      "benefit_themes": [
+        "energy",
+        "jobs"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "최근 재행정예고를 통해 기술적평가항목 60점, 비기술적평가항목 20점, 정책적 평가항목 20점 등으로 개정됐다.",
+        "평가항목 합계 70점 이상인 경우 전력정책 심의위원회에 상정할 수 있으며"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Through a recent re-notice, the scoring was revised to 60 points for technical items, 20 for non-technical items and 20 for policy items.",
+          "Where the evaluation items total 70 points or more, the project can be put before the Power Policy Deliberation Committee."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Per an industry-side report, the Ministry of Trade, Industry and Energy re-notified draft rules scoring data-centre grid impact on technical, non-technical and policy items. A June 2024 report put the threshold at 10 MW and the pass mark at 70 of 100. The final notice text has not been checked, so the record stays proposed.",
+      "source_url": "https://www.kharn.kr/news/article.html?no=26588",
+      "source_title": "Kharn — grid impact assessment re-notice (9 Dec 2024)",
+      "captured_at": "2026-10-19"
     }
   ],
   "moratoriums": [
@@ -2385,6 +2552,154 @@
       "subdivision": "IN-GJ",
       "locality": "Jamnagar, Gujarat (city centroid, not the site)",
       "notes": "RIL's release says RIL will develop a 168 MW data centre to be delivered within two years, built to suit for Meta, with an option to scale. The release states no investment figure. Coordinates are the Jamnagar city centroid."
+    },
+    {
+      "id": "be-google-st-ghislain",
+      "company_slug": "google",
+      "name": "Google St. Ghislain data center campus expansion",
+      "city": "St. Ghislain",
+      "country": "BE",
+      "subdivision": "BE-WAL",
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-10-08",
+      "claimed_jobs": 300,
+      "claimed_investment": {
+        "amount": 5000000000.0,
+        "currency": "EUR",
+        "as_stated": "a new, two-year €5 billion investment in Belgium (2026-2027)"
+      },
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Google Announces New €5 Billion AI Infrastructure Investment in Belgium through 2027",
+      "notes": "Google's release says the investment expands the existing St. Ghislain campus over 2026-2027 and adds 300 full-time jobs. Status is announced for the expansion; the campus itself already operates. Press totals for jobs differ and are not recorded.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "in-amazon-hyderabad-telangana",
+      "company_slug": "amazon",
+      "name": "AWS Hyderabad (Telangana) cloud region expansion",
+      "city": "Hyderabad",
+      "country": "IN",
+      "subdivision": "IN-TG",
+      "status": "construction",
+      "announced_year": 2025,
+      "claimed_investment": {
+        "amount": 1300000000.0,
+        "currency": "USD",
+        "as_stated": "invested more than $1.3 billion in cloud infrastructure"
+      },
+      "offtaker": "AWS",
+      "source_url": "https://www.aboutamazon.in/news/aws/aws-data-centre-hyderabad",
+      "source_title": "Amazon India (AWS) — AWS data centre Hyderabad",
+      "notes": "Ground-breaking on a new data centre per AWS. Other outlets state different Telangana totals (Verdict Rs 600bn/$7.2bn, DCD $6.95bn, AIM Rs 60,000 crore); no official total reconciled, so the first-party figure is used. Workforce: AWS says it hired 110 of 250 students into its Data Centre Operations team. announced_year is a placeholder for the page's undated ground-breaking; curator to pin.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "in-amazon-maharashtra-mumbai-region",
+      "company_slug": "amazon",
+      "name": "AWS Mumbai region investment (Maharashtra)",
+      "city": "Mumbai",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "status": "announced",
+      "announced_year": 2025,
+      "claimed_investment": {
+        "amount": 8300000000.0,
+        "currency": "USD",
+        "as_stated": "$8.3 billion investment in cloud infrastructure in Maharashtra by 2030"
+      },
+      "offtaker": "AWS",
+      "source_url": "https://www.aboutamazon.in/news/aws/aws-invests-8-billion-in-maharashtra",
+      "source_title": "Amazon India (AWS) — AWS invests $8 billion in Maharashtra",
+      "notes": "Headline verified on AWS's own page; body not read. Other outlets date the MoU to 22 Jan 2025 (WEF); not verified on AWS's page. Not a single campus. announced_year 2025 is from the secondary MoU date, not AWS's page.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "in-coreweave-navi-mumbai-taloja",
+      "company_slug": "coreweave",
+      "name": "CoreWeave campus at AdaniConneX Taloja, Navi Mumbai",
+      "city": "Navi Mumbai",
+      "locality": "Taloja",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-10-06",
+      "power_mw": 240,
+      "offtaker": "CoreWeave",
+      "source_url": "https://coreweave.com/news/coreweave-enters-india-expanding-ai-cloud-platform-with-adaniconnex",
+      "source_title": "CoreWeave — CoreWeave enters India, expanding AI cloud platform with AdaniConneX",
+      "notes": "Host and developer: AdaniConneX (50:50 Adani Enterprises / EdgeConneX). CoreWeave is sole tenant of three 80 MW buildings; option to double to 480 MW. First phase mid-2028. Adani's own campus table lists Navi Mumbai at 1,000 MW planned from Dec 2026, not reconciled (see leads). Release date: 6 Oct 2026 dateline / 7 Oct on investor site. COO Sachin Jain quoted. Gate 2 note: CoreWeave is a tracked company that already signed the pledge; this is a project record only.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "kr-naver-sejong",
+      "company_slug": "naver",
+      "name": "NAVER Sejong AI data center campus",
+      "city": "Sejong",
+      "country": "KR",
+      "subdivision": "KR-50",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-07-25",
+      "power_mw": 200,
+      "offtaker": "NAVER",
+      "claimed_investment": {
+        "amount": 10000000000.0,
+        "currency": "USD",
+        "as_stated": "$10 billion project"
+      },
+      "source_url": "https://www.aap.com.au/aapreleases/cision20260725ae12156/",
+      "source_title": "PR Newswire via AAP — NAVER, NVIDIA and Brookfield Sejong AI factory release (25 Jul 2026)",
+      "notes": "The release says new investments raise the initial NVIDIA DSX AI factory deployment from 55 MW to 200 MW; Brookfield funds up to $9 billion as exclusive capital partner, NVIDIA invests $1 billion and NAVER funds the rest. power_mw is that deployment figure. The 270 MW campus plan comes from secondary reporting and is not recorded.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "es-aws-zaragoza-car",
+      "company_slug": "amazon",
+      "name": "AWS data center campus, Zaragoza (Aragón)",
+      "city": "Zaragoza",
+      "country": "ES",
+      "subdivision": "ES-AR",
+      "status": "announced",
+      "announced_year": 2026,
+      "source_lang": "es",
+      "source_url": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+      "source_title": "Merca2 — Centro de datos de Amazon en Aragón: permiso ambiental (16 Jul 2026)",
+      "notes": "Secondary reporting (Merca2, 16 Jul 2026) on an Inaga environmental resolution for AWS's campus near Zaragoza; announced_year is the article year and the resolution's own date is unverified against the BOA. The 3,280 GWh per year electricity estimate and the 204,697 m3 per year industrial-water cap are the article's figures, the cap attributed to Zaragoza City Council.",
+      "updates": [
+        {
+          "date": "2026-07-16",
+          "kind": "news",
+          "title": "Press reports environmental authorisation with a city water cap",
+          "summary": "Merca2 reports that Inaga's resolution authorises the campus and that Zaragoza City Council sets a cap of 204,697 cubic metres of industrial water per year. The article's date is shown; the resolution date is not confirmed.",
+          "authority": "Inaga (Aragón environmental institute)",
+          "source_url": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+          "source_title": "Merca2 — Centro de datos de Amazon en Aragón: permiso ambiental"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "mx-microsoft-queretaro",
+      "company_slug": "microsoft",
+      "name": "Microsoft data centers, Querétaro",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "status": "construction",
+      "announced_year": 2025,
+      "claimed_jobs": 2200,
+      "source_lang": "es",
+      "captured_at": "2026-10-19",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+      "source_title": "Microsoft — Centros de datos de Microsoft en México (first-party fact sheet, October 2025)",
+      "notes": "Microsoft's fact sheet says it operates one data center and is building two new facilities in Querétaro. claimed_jobs is its estimate of more than 2,200 construction jobs at peak activity, not permanent jobs; about 64 people worked at its facilities in 2025. announced_year is the fact sheet's publication year."
     }
   ],
   "responses": [
@@ -2701,6 +3016,18 @@
       "summary": "The Human Rights Forum condemned the restriction in India of the 'Stop Vizag Data Centers' Instagram account, which the campaign says reached 56 lakh views and 11,800 followers in two months. HRF says posts by many organisations and individuals critical of AI data centres have been restricted in India.",
       "source_url": "https://thesouthfirst.com/andhrapradesh/hrf-condemns-restriction-of-stop-vizag-data-centers-instagram-account/",
       "source_title": "The South First — HRF condemns restriction of 'Stop Vizag Data Centers' Instagram account",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "be-resp-st-ghislain-wallonia-government",
+      "project_id": "be-google-st-ghislain",
+      "date": "2025-10-08",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Wallonia's Vice-President, quoted in Google's release, said the investment confirms Wallonia's role as a European data hub and creates digital-sector jobs. The statement is hosted on the company's release.",
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Wallonia Vice-President Pierre-Yves Jeholet quoted in Google's Belgium release",
       "source_lang": "en",
       "single_source": true
     }
@@ -3241,6 +3568,118 @@
       "source_title": "TelecomTV (Nxtra release via Airtel) — Ashish Arora, CEO of Nxtra by Airtel, on joining RE100",
       "captured_at": "2026-10-19",
       "published_at": "2024-06-27",
+      "country": "IN",
+      "statement_lang": "en"
+    },
+    {
+      "id": "mx-claim-microsoft-queretaro-wells",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "En México, Microsoft adquiere el agua de pozos privados.",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+      "source_title": "Microsoft — Datacenters in Mexico (first-party fact sheet, October 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": null,
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "In Mexico, Microsoft buys its water from private wells.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-microsoft-queretaro"
+    },
+    {
+      "id": "mx-claim-microsoft-queretaro-cooling",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "se usará agua para el enfriamiento en menos del 15 % del año",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+      "source_title": "Microsoft — Datacenters in Mexico (first-party fact sheet, October 2025)",
+      "captured_at": "2026-10-19",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "water will be used for cooling less than 15% of the year",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-microsoft-queretaro"
+    },
+    {
+      "id": "be-claim-google-st-ghislain-jobs",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "The funds will expand the company's data center campus in St. Ghislain and add 300 full-time jobs.",
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Google Announces New €5 Billion AI Infrastructure Investment in Belgium through 2027",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-08",
+      "country": "BE",
+      "statement_lang": "en",
+      "metric": {
+        "value": 300,
+        "unit": "jobs",
+        "kind": "operational"
+      },
+      "project_id": "be-google-st-ghislain"
+    },
+    {
+      "id": "be-claim-google-st-ghislain-energy",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Today, the company announced new deals with Eneco, Luminus, and Renner of more than 110 megawatts (MW)",
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Google Announces New €5 Billion AI Infrastructure Investment in Belgium through 2027",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-08",
+      "country": "BE",
+      "statement_lang": "en",
+      "project_id": "be-google-st-ghislain"
+    },
+    {
+      "id": "in-claim-amazon-thane-water",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "The total water use at our Thane facility will be 125 kilolitres per day (KLD). 115 KLD is treated sewage water for landscaping and irrigation, supplied by the Thane Municipal Council (TMC). We will use closed-loop cooling technology to cool our Thane data center.",
+      "source_url": "https://www.aboutamazon.in/news/aws/thane-data-centre-amazon",
+      "source_title": "Amazon India (AWS) — thane data centre amazon",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-amazon-thane-balkum"
+    },
+    {
+      "id": "in-claim-amazon-thane-energy",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Our Thane data center will not draw electricity from the local distribution network that supplies homes, shops and businesses. Instead, we are on an industrial connection to the high-voltage transmission grid, and have established our very own dedicated high-voltage substation, planned in coordination with the utility.",
+      "source_url": "https://www.aboutamazon.in/news/aws/thane-data-centre-amazon",
+      "source_title": "Amazon India (AWS) — thane data centre amazon",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-amazon-thane-balkum"
+    },
+    {
+      "id": "in-claim-amazon-india-cooling",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "None of Amazon's operational data centres in India use any water for cooling as it uses air-cooled chillers. We take utmost care to ensure that our data centres do not draw or divert power from the local distribution grid that serves residents.",
+      "source_url": "https://www.aboutamazon.in/news/aws/amazon-data-centre-water-energy-india",
+      "source_title": "Amazon India (AWS) — amazon data centre water energy india",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en"
+    },
+    {
+      "id": "in-claim-amazon-mumbai-education",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "Amazon operates 55 Think Big Spaces reaching 12,000+ public school students annually. Amazon has helped upskill over 230 youth for jobs in the data centre and IT/ITeS sector, with over 70% being offered jobs at Amazon and other companies.",
+      "source_url": "https://www.aboutamazon.in/news/aws/amazon-data-centre-community-mumbai",
+      "source_title": "Amazon India (AWS) — amazon data centre community mumbai",
+      "captured_at": "2026-10-19",
       "country": "IN",
       "statement_lang": "en"
     }

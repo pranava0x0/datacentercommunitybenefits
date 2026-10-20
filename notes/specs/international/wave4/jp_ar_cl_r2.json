@@ -1,0 +1,433 @@
+{
+  "round": 2,
+  "generated_at": "2026-10-19",
+  "budget_note": "About 27 WebFetch/WebSearch calls and 5 PDF/probe steps, under the owner-approved ~50 fetch cap. Targets not met: JP 3, AR 3, CL 4 records (goal 5-8 each). Round-1 leads closed: SEA criterion (verified on the SEA PDF), Google Cerrillos redesign (2024), Sur Energy release and exec quotes. Still open: OpenAI page (403), Casa Rosada communique, RIGI approval, Mitsui primary, Kitakyushu council.",
+  "sources": [
+    {
+      "country": "JP",
+      "url": "https://www.city.kitakyushu.lg.jp/page/hibikino-dc/index.html",
+      "title": "Kitakyushu City, Hibikino data centre page (ひびきの北ビル新築工事)",
+      "verified": true,
+      "kind": "government page"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.city.kobe.lg.jp/a26136/546798440636.html",
+      "title": "Kobe City, conveyor-belt tunnel lease: successful bidder (2026-10-06)",
+      "verified": true,
+      "kind": "government page"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.softbank.jp/en/corp/news/press/sbkk/2024/20240607_01",
+      "title": "SoftBank Corp. press release, Sharp Sakai plant data centre MoU (2024-06-07)",
+      "verified": true,
+      "kind": "company first-party"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.softbank.jp/en/sbnews/entry/20250501_01",
+      "title": "SoftBank Newsroom, Tomakomai (Hokkaido) AI data centre (2025-05-01)",
+      "verified": true,
+      "kind": "company first-party (re-fetched; summary only, probe not run on this page)"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.sur.energy/press-release",
+      "title": "Sur Energy press release, Stargate Argentina LOI (2025-10-10)",
+      "verified": true,
+      "kind": "company first-party"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.bloomberglinea.com/latinoamerica/argentina/sur-energy-socia-de-open-ai-en-argentina-espera-activar-data-centers-patagonicos-en-2027/",
+      "title": "Bloomberg Línea, Kargieman interview (2025-11-04)",
+      "verified": true,
+      "kind": "news with named-executive quotes"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.openai.com/index/stargate-argentina/",
+      "title": "OpenAI Stargate Argentina page (HTTP 403, not read)",
+      "verified": false,
+      "kind": "company first-party, blocked"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.sea.gob.cl/sites/default/files/imce/archivos/2026/01/20/DT_Datacenter.pdf",
+      "title": "SEA, Resolución Exenta 20269910149 with criterion 'Introducción a proyectos de Data Center' (2026-01-20)",
+      "verified": true,
+      "kind": "regulator primary (PDF)"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.sea.gob.cl/criterio-de-evaluacion-en-el-seia",
+      "title": "SEA, criterion index page",
+      "verified": true,
+      "kind": "regulator primary"
+    },
+    {
+      "country": "CL",
+      "url": "https://cpichile.org/?p=46907",
+      "title": "CPI Chile repost of Diario Financiero, SEA response to Cerrillos (2021-01-20)",
+      "verified": true,
+      "kind": "secondary reprint quoting SEA"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
+      "title": "CNN Chile, Google drops original Cerrillos design (2024-09-17; quotes El Mercurio)",
+      "verified": true,
+      "kind": "news with company statement"
+    }
+  ],
+  "companies": [
+    {
+      "name": "Mitsui Fudosan",
+      "country": "JP",
+      "hq": "Tokyo, Japan (not re-verified this run)",
+      "website": "https://www.mitsuifudosan.co.jp/",
+      "basis": "Lead developer of Kobe underground tunnel data centre (city announcement 2026-10-06). Also cited as operator of a Hino data centre plan (ITmedia/Toyo Keizai search summary, not fetched).",
+      "international_only": false
+    },
+    {
+      "name": "Kumagai Gumi",
+      "country": "JP",
+      "hq": "Japan (not re-verified)",
+      "website": "https://www.kumagaigumi.co.jp/",
+      "basis": "Consortium member in Kobe tunnel project (city announcement)."
+    },
+    {
+      "name": "Sur Energy",
+      "country": "AR",
+      "hq": "Argentina (not verified in this run)",
+      "website": "https://www.sur.energy/",
+      "basis": "Developer of Stargate Argentina LOI (up to 500 MW, up to US$25bn). CEO and founder Emiliano Kargieman quoted in Bloomberg Línea."
+    },
+    {
+      "name": "SoftBank Group",
+      "country": "JP",
+      "hq": "Tokyo, Japan",
+      "website": "https://www.softbank.jp/en/",
+      "basis": "Sharp Sakai plant data centre (MoU 2024, 150 MW+). Tomakomai AI data centre (2025). Not tracked as company; SoftBank Corp. press releases are the primary."
+    }
+  ],
+  "records": [
+    {
+      "id": "r2-AR-1",
+      "country": "AR",
+      "kind": "claim",
+      "company": null,
+      "project": "Stargate Argentina (LOI, Patagonia per press)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "en",
+        "published_at": "2025-10-10",
+        "theme_hint": "jobs",
+        "value_usd_stated": "up to 25,000,000,000 (as stated; not a community benefit)",
+        "capacity_stated": "up to 500 MW",
+        "status": "letter of intent",
+        "source_title": "Sur Energy press release"
+      },
+      "verbatim": "the project will involve up to $25 billion in investment at full scale",
+      "translation": null,
+      "source_url": "https://www.sur.energy/press-release",
+      "notes": "Company first-party (Sur Energy). The release states an LOI and a capacity ceiling but no construction timeline, and does not mention Patagonia. OpenAI's own release (openai.com) returned 403, so the OpenAI side is unverified. The round-1 lead asked whether the investment is committed; the release says 'up to' at full scale, which is not a commitment. No RIGI approval is shown."
+    },
+    {
+      "id": "r2-AR-2",
+      "country": "AR",
+      "kind": "context",
+      "company": null,
+      "project": "Stargate Argentina (LOI)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "published_at": "2025-11-04",
+        "speaker": "Emiliano Kargieman, CEO y fundador de Sur Energy (named executive)",
+        "source_title": "Bloomberg Línea, Sur Energy interview"
+      },
+      "verbatim": "nos movimos rápido para posicionar a Argentina como el primero de estos y la gente de Open AI nos creyó",
+      "translation": {
+        "text": "We moved quickly to position Argentina as the first of these, and the people at OpenAI believed us.",
+        "by": "machine"
+      },
+      "source_url": "https://www.bloomberglinea.com/latinoamerica/argentina/sur-energy-socia-de-open-ai-en-argentina-espera-activar-data-centers-patagonicos-en-2027/",
+      "notes": "Named-executive first-party quote, but about the deal, not community impact. Recorded as context for the Argentina project, not as a benefit claim. Article says Sur signed power supply agreements with Genneia and Central Puerto; that is the article's wording, not a quote, so it is not recorded."
+    },
+    {
+      "id": "r2-AR-3",
+      "country": "AR",
+      "kind": "context",
+      "company": null,
+      "project": "Stargate Argentina (LOI)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "published_at": "2025-11-04",
+        "speaker": "Emiliano Kargieman (named executive)",
+        "timeline": "construction 2026, operations 2027 (per executive, as reported)",
+        "source_title": "Bloomberg Línea, Sur Energy interview"
+      },
+      "verbatim": "en 2026 empezará la construcción de los centros de datos en la Patagonia argentina",
+      "translation": {
+        "text": "In 2026 construction of the data centres in Argentine Patagonia will begin.",
+        "by": "machine"
+      },
+      "source_url": "https://www.bloomberglinea.com/latinoamerica/argentina/sur-energy-socia-de-open-ai-en-argentina-espera-activar-data-centers-patagonicos-en-2027/",
+      "notes": "Timeline claim by the executive. A year on, no construction start has been confirmed in this run's searches, so treat as stale until checked."
+    },
+    {
+      "id": "r2-CL-1",
+      "country": "CL",
+      "kind": "regulator_response",
+      "company": "google",
+      "project": "cl-google-cerrillos",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "date": "2021-01-20",
+        "constituency": "regulator",
+        "stance_hint": "positive",
+        "source_title": "SEA response to Cerrillos (via CPI Chile repost of Diario Financiero)"
+      },
+      "verbatim": "no se generarán impactos adversos significativos",
+      "translation": {
+        "text": "no significant adverse impacts will be generated",
+        "by": "machine"
+      },
+      "source_url": "https://cpichile.org/?p=46907",
+      "notes": "SEA's 2021 response to the municipality's appeal, quoted by a reprint. The 2024 Segundo Tribunal Ambiental ruling later partly annulled that approval (see round-1 record CL-3). This is the regulator's position at the time, not a current finding. Stance is editorial and set to positive as a regulator's no-impact finding; curator to confirm. Verbatim is on the reprint, which cites the Diario Financiero original of 2021-01-20; the original was not fetched."
+    },
+    {
+      "id": "r2-CL-2",
+      "country": "CL",
+      "kind": "policy",
+      "company": null,
+      "project": null,
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "published_at": "2026-01-20",
+        "effective_from": "2026-02-25",
+        "instrument": "regulator guidance (criterion)",
+        "jurisdiction": "Chile (national)",
+        "principles": [
+          "environmental_review"
+        ],
+        "source_title": "SEA Resolución Exenta 20269910149"
+      },
+      "verbatim": "Establecer que dicho documento se entenderá vigente desde la fecha de publicación",
+      "translation": {
+        "text": "Establish that said document shall be understood to be in force from the date of publication",
+        "by": "machine"
+      },
+      "source_url": "https://www.sea.gob.cl/sites/default/files/imce/archivos/2026/01/20/DT_Datacenter.pdf",
+      "notes": "Primary regulator document: SEA guidance 'Criterio de evaluación en el SEIA: Introducción a proyectos de Data Center' (first edition, 2026). It describes the parts, works and impacts of data centres and the conditions under which they must enter the SEIA; that scope is not quoted here. The SEA index page gives 25 Feb 2026 as the observance start; the PDF says in force from publication of the Diario Oficial extract. Law firm summaries disagree on thresholds (JDF: 80,000 kg flammable storage; Carey: 3 MW generators, 23 kV lines over 2 km, 1,000 t storage) and are NOT used here. Case-by-case assessment applies, with no express SEIA typology for data centres."
+    },
+    {
+      "id": "r2-CL-4",
+      "country": "CL",
+      "kind": "claim",
+      "company": "google",
+      "project": "cl-google-cerrillos",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "published_at": "2024-09-17",
+        "speaker": "Google (company statement to El Mercurio, quoted by CNN Chile)",
+        "theme_hint": "water",
+        "source_title": "CNN Chile, Google drops original Cerrillos design"
+      },
+      "verbatim": "su decisión de no perseverar con el diseño original de su proyecto de Data Center que se emplazaría en Cerrillos.",
+      "translation": {
+        "text": "its decision not to pursue the original design of its Data Center project that would be located in Cerrillos.",
+        "by": "machine"
+      },
+      "source_url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
+      "notes": "Company statement attributed through El Mercurio, so first-party by the attribution rule. It is a withdrawal of the original design, not a community benefit. The later sentence states the project will restart 'desde cero'; that clause is not recorded as a claim. Round-1 CL-3 is the court ruling that preceded it. No 2026 status found."
+    },
+    {
+      "id": "r2-CL-5",
+      "country": "CL",
+      "kind": "claim",
+      "company": "google",
+      "project": "cl-google-cerrillos",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "published_at": "2024-09-17",
+        "speaker": "Google (company statement to El Mercurio, quoted by CNN Chile)",
+        "theme_hint": "water",
+        "cooling_stated": "air cooling",
+        "source_title": "CNN Chile, Google drops original Cerrillos design"
+      },
+      "verbatim": "para un proyecto que usará tecnología de enfriamiento con aire en este mismo lugar",
+      "translation": {
+        "text": "for a project that will use air-cooling technology in this same place",
+        "by": "machine"
+      },
+      "source_url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
+      "notes": "Company statement (via El Mercurio) about the redesign: air cooling, which answers the water objection in the 2024 ruling. Recorded as a Google claim, with the 'new project' not yet filed and no approval shown. The statement's reason is 'energía libre de carbono, 24/7' and 'enfriar... de manera consciente con el contexto climático'; those are not recorded separately."
+    },
+    {
+      "id": "r2-JP-1",
+      "country": "JP",
+      "kind": "government_response",
+      "company": null,
+      "project": "Hibikino North (Kitakyushu, Wakamatsu-ku)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "date": "2026-09-16",
+        "constituency": "local_government",
+        "theme_hint": "engagement",
+        "project_size": "site 37,392 m2; floor area 31,741.59 m2; height 59.4 m from lowest site point (42.2 m from pad); steel frame, 4 storeys, no basement",
+        "source_title": "Kitakyushu City, Hibikino data centre page"
+      },
+      "verbatim": "皆さまのご意見やご質問をしっかりとお聴きし、一つひとつの疑問や不安に向き合っていきます。",
+      "translation": {
+        "text": "We will listen carefully to your opinions and questions, and face each doubt and concern one by one.",
+        "by": "machine"
+      },
+      "source_url": "https://www.city.kitakyushu.lg.jp/page/hibikino-dc/index.html",
+      "notes": "City page for a private building project (the operator is not named on the page). Page shows no last-update date; 2026-09-16 is the consultation desk opening date. Council (ひびきの地区まちづくり協議会) is mentioned only as a contact route; no guideline is published. Not the same site as the school-adjacent Kitakyushu project in the leads."
+    },
+    {
+      "id": "r2-JP-2",
+      "country": "JP",
+      "kind": "government_record",
+      "company": null,
+      "project": null,
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "date": "2026-10-06",
+        "constituency": "local_government",
+        "theme_hint": "infrastructure",
+        "lead_developer": "三井不動産 (Mitsui Fudosan)",
+        "consortium": "熊谷組 (Kumagai Gumi)",
+        "lease_term": "10-20 years",
+        "source_title": "Kobe City, tunnel lease successful bidder announcement"
+      },
+      "verbatim": "トンネルを活用した地中型データセンター",
+      "translation": {
+        "text": "An underground data centre using a tunnel.",
+        "by": "machine"
+      },
+      "source_url": "https://www.city.kobe.lg.jp/a26136/546798440636.html",
+      "notes": "Government record of the lease award. It confirms the intended use and lead company, but not the project's power, cooling or jobs claims. Those need Mitsui Fudosan's own 2026-10-06 release, which was not reached (its news index is a redirect). Coverage reports 14.5 km total tunnel length with about 3 km used; not on the city page, so not recorded here."
+    },
+    {
+      "id": "r2-JP-3",
+      "country": "JP",
+      "kind": "claim",
+      "company": null,
+      "project": "Sakai (Sharp LCD plant), Osaka",
+      "verified": true,
+      "fields": {
+        "statement_lang": "en",
+        "published_at": "2024-06-07",
+        "theme_hint": "infrastructure",
+        "power_stated": "over 150 MW",
+        "source_title": "SoftBank Corp. press release, Sharp Sakai plant data centre MoU"
+      },
+      "verbatim": "power capacity of over 150 megawatts",
+      "translation": null,
+      "source_url": "https://www.softbank.jp/en/corp/news/press/sbkk/2024/20240607_01",
+      "notes": "Company first-party (SoftBank Corp.). Stated as a 2024 MoU with Sharp; the 2025 purchase, the 250 MW target by FY2028 and the SB OpenAI Japan link come from press coverage only and are not recorded. SoftBank Group is the candidate company, not a tracked slug."
+    }
+  ],
+  "leads": [
+    {
+      "country": "JP",
+      "item": "Kitakyushu school-adjacent data centre: city council (協議会) and construction postponement, Oct 2026",
+      "status": "not verified",
+      "notes": "Two Japanese news items (Yomiuri, NHK/KBC) describe a 42 m plant beside an elementary school, noise and sunlight concerns, and postponed construction. The city PDF 001218667 is image-only (WebFetch could not read it). A city July 2026 committee document (Kitakyushu Academic Research City, 6.2 ha, two buildings, 120 MW, construction Feb FY2026) appeared only in a search summary. Read the city's own press release for the 2026-10-15 council announcement."
+    },
+    {
+      "country": "JP",
+      "item": "Inzai (Chiba): 52 m data centre near station parking; 10 residents sued the private inspection body that issued the building certification (March, year not given)",
+      "status": "secondary",
+      "notes": "Toyo Keizai and BHRRC/Japan Times summary. The earlier round-1 lead linking Colt and Mitsui Fudosan to Inzai is NOT supported: the search summary tied Mitsui to a Hino project. Developer must be identified from the Inzai filing before any record. The mayor's stance (per ITmedia) and the city's 51% tax reliance on data centres are unverified."
+    },
+    {
+      "country": "JP",
+      "item": "NTT Data / Anthropic Osaka data centre (up to 500 MW, ~US$6.3bn, Nikkei 2026-10-13)",
+      "status": "unconfirmed",
+      "notes": "Every report traces to one Nikkei story citing unnamed sources; both companies declined to comment. Do not record until NTT or Anthropic publishes. Anthropic is a tracked company, so a first-party statement would matter."
+    },
+    {
+      "country": "JP",
+      "item": "Mitsui Fudosan 2026-10-06 Kobe tunnel press release",
+      "status": "primary not reached",
+      "notes": "mitsuifudosan.co.jp/corporate/news/ redirects to /2026/. Go to the 2026 index and find the 10-06 release, then re-run probe. Reported figures (14.5 km tunnel, about 3 km used, 17,000 m2, 2027 operation, water-circulation cooling, Getworks shelter containers) are secondary."
+    },
+    {
+      "country": "JP",
+      "item": "SoftBank Sakai 2025 update: SB OpenAI Japan, 250 MW by FY2028, construction FY2025, operation 2026",
+      "status": "secondary",
+      "notes": "Only press coverage (TechCrunch, DCD). Need a SoftBank newsroom release for the 2025 change before any timeline claim."
+    },
+    {
+      "country": "JP",
+      "item": "METI / Diet records on data-centre resident complaints (MLIT answer: 7 planning-stage, 1 operating)",
+      "status": "secondary",
+      "notes": "Akahata (partisan) summary. Find the Diet record on kokkai.ndl.go.jp."
+    },
+    {
+      "country": "AR",
+      "item": "OpenAI Stargate Argentina release (openai.com/index/stargate-argentina/)",
+      "status": "blocked",
+      "notes": "HTTP 403 on WebFetch and in round 1. Needed to close the OpenAI side (press reports say OpenAI is the main compute buyer, not the investor)."
+    },
+    {
+      "country": "AR",
+      "item": "RIGI approval for the Stargate Argentina project, or any data-centre project",
+      "status": "not found",
+      "notes": "Press summaries say the project is structured under RIGI and that RIGI has approved 6 of 20 filings, but no data-centre approval record was found. Check the Ministry of Economy RIGI registry or Boletín Oficial before stating any approval."
+    },
+    {
+      "country": "AR",
+      "item": "Casa Rosada communiqué on the Stargate announcement (Oct 2025)",
+      "status": "not found",
+      "notes": "argentina.gob.ar news pages do not list it; only press reports quoting it. Search the Presidency site directly for the communiqué."
+    },
+    {
+      "country": "AR",
+      "item": "Pampa Energía 800 MW proposal (Mindlin, Argentina Week Paris)",
+      "status": "lead, not probed",
+      "notes": "Bloomberg Línea quotes Mindlin as 'almost 800 megawatts available for next year'. Data centre of up to ~500 MW; first stage 20-40 MW; no anchor client; no FID. Company candidate: Pampa Energía (Argentina). Probe the Mindlin quote on the Bloomberg Línea page before recording."
+    },
+    {
+      "country": "AR",
+      "item": "Súper RIGI bill (Mensaje 181/2026, US$1bn threshold, sent to Chamber of Deputies)",
+      "status": "secondary",
+      "notes": "Press reports only. Check the Chamber's bill record (hcdn.gob.ar) before any policy entry."
+    },
+    {
+      "country": "CL",
+      "item": "Google Cerrillos: outcome of the SEA redesign process and any 'exento' decision",
+      "status": "not found",
+      "notes": "The worklist headline 'SEA determina que Google queda exento de evaluación ambiental' was not found in any primary. Search results show only the 2024 ruling, the 2024 withdrawal and redesign, and the 2021 SEA response. Need SEIA expediente or the SEA press page to resolve."
+    },
+    {
+      "country": "CL",
+      "item": "Ascenty Quilicura: SEIA declaration (US$140m, 2026 review) and Quilicura water action (NGEN/Avina, Quili.AI)",
+      "status": "secondary",
+      "notes": "BNamericas and Structure Research for the SEIA submission; InvestChile's 2019 item (6.3 MW, US$70m) is an older project. No SEA resolution found. Ascenty's water-use figure comes from a PR agency (Diario Jornada), not independent. Action date unknown."
+    },
+    {
+      "country": "CL",
+      "item": "Data center Alto Jahuel (Región Metropolitana): SEA consulta de pertinencia (May 2026)",
+      "status": "secondary",
+      "notes": "Cuatrecasas/actualidadjuridica summaries cite an SEA pronouncement on entry to SEIA. Find the SEA resolution on sea.gob.cl."
+    },
+    {
+      "country": "CL",
+      "item": "Microsoft Chile Central (Santiago) first-party page; AWS Huechuraba; Google Quilicura water claims",
+      "status": "round-1 seeded",
+      "notes": "Already in the seed (cl-microsoft-santiago, cl-aws-huechuraba, cl-google-quilicura). Not re-verified in this run."
+    }
+  ]
+}

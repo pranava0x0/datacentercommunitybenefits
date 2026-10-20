@@ -1,0 +1,374 @@
+{
+ "countries": {
+  "MX": {
+   "code": "MX",
+   "name": "Mexico",
+   "summary": "Querétaro holds most of Mexico's data-centre capacity and is also one of the states with the highest water stress, per Expansión (27 May 2026). Grid connection is the binding constraint: CFE substation energisations for data-centre loads are reported in January 2026, and the state governor publicly disputed a former regulator's claim of an energy deficit in September 2026. The state has said it will publish water-use data for data centres from 2027, after a 2026 pilot, though that is secondary reporting.",
+   "regulators": [
+    {
+     "name": "Comisión Reguladora de Energía",
+     "acronym": "CRE",
+     "role": "energy_regulator",
+     "url": "https://www.cre.gob.mx/"
+    },
+    {
+     "name": "Comisión Federal de Electricidad",
+     "acronym": "CFE",
+     "role": "grid_operator",
+     "url": "https://www.cfe.mx/"
+    },
+    {
+     "name": "Comisión Nacional del Agua",
+     "acronym": "CONAGUA",
+     "role": "environment",
+     "url": "https://www.gob.mx/conagua"
+    }
+   ],
+   "primary_languages": [
+    "es"
+   ],
+   "context": [],
+   "last_reviewed": "2026-10-19",
+   "_context_note": "Context fact from Expansión 2026-05-27 (verbatim in records). Not yet shaped to ContextFact: needs translation object."
+  },
+  "ES": {
+   "code": "ES",
+   "name": "Spain",
+   "summary": "Aragón is the centre of Spain's data-centre build-out. AWS campuses are approved through regional PIGA plans and an environmental authorisation (Inaga, July 2026) that sets a city water cap, and local campaigns and a court challenge contest the water and energy impacts. National grid-access rules for large loads were tightened by RDL 7/2026 (unverified against BOE).",
+   "regulators": [
+    {
+     "name": "Comisión Nacional de los Mercados y la Competencia",
+     "acronym": "CNMC",
+     "role": "energy_regulator",
+     "url": "https://www.cnmc.es/"
+    },
+    {
+     "name": "Red Eléctrica de España",
+     "acronym": "REE",
+     "role": "grid_operator",
+     "url": "https://www.ree.es/"
+    },
+    {
+     "name": "Instituto Aragonés de Gestión Ambiental",
+     "acronym": "INAGA",
+     "role": "environment",
+     "url": "https://www.aragon.es/"
+    }
+   ],
+   "primary_languages": [
+    "es"
+   ],
+   "context": [],
+   "last_reviewed": "2026-10-19"
+  },
+  "BE": {
+   "code": "BE",
+   "name": "Belgium",
+   "summary": "Wallonia hosts Google's St. Ghislain campus, the largest data-centre site in the country, and Google announced a two-year EUR 5 billion expansion there in October 2025. Grid capacity is allocated by Elia, and the energy regulator CREG tightened its code of conduct in January 2026 so that unbuilt projects lose reserved capacity (secondary reporting, not yet verified against CREG text).",
+   "regulators": [
+    {
+     "name": "Commission de Régulation de l'Électricité et du Gaz",
+     "acronym": "CREG",
+     "role": "energy_regulator",
+     "url": "https://www.creg.be/"
+    },
+    {
+     "name": "Elia Group",
+     "acronym": "Elia",
+     "role": "grid_operator",
+     "url": "https://www.elia.be/"
+    }
+   ],
+   "primary_languages": [
+    "fr",
+    "nl"
+   ],
+   "context": [],
+   "last_reviewed": "2026-10-19"
+  }
+ },
+ "sources": [
+  {
+   "url": "https://expansion.mx/tecnologia/2026/05/27/data-centers-en-queretaro-chocan-con-el-estres-hidrico",
+   "status": "fetched 200",
+   "use": "MX water stress, count of 30 data centres"
+  },
+  {
+   "url": "https://dplnews.com/cfe-instala-26-8-mw-energia-aws-abbott-odata-queretaro/",
+   "status": "fetched 200",
+   "use": "CFE 26.8 MW, Jan 2026"
+  },
+  {
+   "url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+   "status": "fetched 200",
+   "use": "Governor Kuri response, 8 Sep 2026"
+  },
+  {
+   "url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+   "status": "fetched 200 (PDF, text extracted with PDFKit)",
+   "use": "Microsoft first-party Mexico fact sheet, Oct 2025"
+  },
+  {
+   "url": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+   "status": "fetched 200",
+   "use": "Inaga AWS CAR campus, water cap, 16 Jul 2026"
+  },
+  {
+   "url": "https://www.eldiario.es/aragon/economia/arranca-campana-implantacion-centros-datos-aragon-no-sequia-saqueo_1_12592997.html",
+   "status": "fetched 200",
+   "use": "Campaign 'No es sequía, es saqueo', 10 Sep 2025"
+  },
+  {
+   "url": "https://www.aragon.es/-/piga-green-it",
+   "status": "fetched 200",
+   "use": "Aragón PIGA public-information listing"
+  },
+  {
+   "url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+   "status": "fetched 200",
+   "use": "Google first-party St. Ghislain EUR 5bn and 110 MW"
+  },
+  {
+   "url": "https://www.datacenterdynamics.com/es/noticias/quer%C3%A9taro-publicar%C3%A1-el-consumo-de-agua-de-sus-centros-de-datos/",
+   "status": "403 blocked",
+   "use": "Querétaro water-data publication (only search snippet)"
+  },
+  {
+   "url": "https://www.datacenterdynamics.com/es/noticias/aragón-aprueba-el-piga-de-aws-y-desbloquea-nuevos-centros-de-datos/",
+   "status": "403 blocked",
+   "use": "not used"
+  },
+  {
+   "url": "https://www.datacenterdynamics.com/es/noticias/tsja-admite-demanda-contra-data-centers-de-aws-en-arag%C3%B3n/",
+   "status": "403 blocked",
+   "use": "TSJA admission; search snippet only"
+  },
+  {
+   "url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+   "status": "not fetched (search snippet)",
+   "use": "Elia Sept 2026 forecast, lead"
+  },
+  {
+   "url": "https://www.cnmc.es/sites/default/files/6369549.pdf",
+   "status": "not fetched (search snippet)",
+   "use": "CNMC access-dispute PDF, lead"
+  }
+ ],
+ "records": [
+  {
+   "id": "mx-ms-querétaro-water-wells",
+   "country": "MX",
+   "kind": "claim",
+   "verified": true,
+   "verbatim": "En México, Microsoft adquiere el agua de pozos privados.",
+   "translation": "In Mexico, Microsoft buys its water from private wells.",
+   "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+   "fields": {
+    "company": "microsoft",
+    "title": "Microsoft datacenters in Mexico (first-party fact sheet, Oct 2025)",
+    "event_date": "2025-10",
+    "theme": "water",
+    "stance_note": "first-party; Querétaro region"
+   },
+   "notes": "Microsoft's own PDF, Spanish. Also quotes: 'se usará agua para el enfriamiento en menos del 15 % del año' (water used for cooling <15% of the year). Plus 2 sites in Querétaro under construction; 64 staff in 2025. Event date = publication month.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-ms-querétaro-cooling-15pct",
+   "country": "MX",
+   "kind": "claim",
+   "verified": true,
+   "verbatim": "se usará agua para el enfriamiento en menos del 15 % del año",
+   "translation": "water will be used for cooling less than 15% of the year",
+   "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+   "fields": {
+    "company": "microsoft",
+    "theme": "water",
+    "event_date": "2025-10"
+   },
+   "notes": "Same first-party PDF.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-cfe-26mw-querétaro-2026-01",
+   "country": "MX",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "CFE informó que el domingo 11 de enero la Subestación FINSA Querétaro quedó energizada",
+   "translation": "CFE reported that on Sunday 11 January the FINSA Querétaro substation was energised",
+   "source_url": "https://dplnews.com/cfe-instala-26-8-mw-energia-aws-abbott-odata-queretaro/",
+   "fields": {
+    "event_date": "2026-01-11",
+    "theme": "energy",
+    "beneficiaries": "AWS (2 MW), Abbott (6 MW), ODATA (18.8 MW)",
+    "capacity_mw": 26.8
+   },
+   "notes": "Trade press (DPL News, 13 Jan 2026) on CFE substations; the 26.8 MW total is the article's figure. Beneficiary named as Amazon in the article; AWS in the headline.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-queretaro-water-stress-expansion-2026-05",
+   "country": "MX",
+   "kind": "context",
+   "verified": true,
+   "verbatim": "Querétaro es de las entidades con mayor estrés hídrico, pero en contraste, ahí también se sitúa la mayor cantidad de data centers en el país, con por lo menos 30.",
+   "translation": "Querétaro is among the states with the highest water stress, but in contrast it also has the largest number of data centres in the country, at least 30.",
+   "source_url": "https://expansion.mx/tecnologia/2026/05/27/data-centers-en-queretaro-chocan-con-el-estres-hidrico",
+   "fields": {
+    "event_date": "2026-05-27",
+    "theme": "water"
+   },
+   "notes": "Expansion, 27 May 2026. Count cites datacenters.com. Water-stress rank is the article's own claim, citing Bajo Tierra.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-querétaro-governor-rebuts-energy-deficit-2026-09",
+   "country": "MX",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "El gobernador de Querétaro respondió a las declaraciones de Guillermo García Alcocer, extitular de la Comisión Reguladora de Energía",
+   "translation": "The governor of Querétaro responded to statements by Guillermo García Alcocer, former head of the Energy Regulatory Commission",
+   "source_url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+   "fields": {
+    "event_date": "2026-09-08",
+    "theme": "energy"
+   },
+   "notes": "Governor Mauricio Kuri denies energy shortfall for data centres. Public-official statement; not a company claim.",
+   "verification": "HIT"
+  },
+  {
+   "id": "es-aws-caresponse-zaragoza-water-cap-2026-07",
+   "country": "ES",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "El Ayuntamiento de Zaragoza fija un tope de 204.697 metros cúbicos anuales de agua industrial",
+   "translation": "Zaragoza City Council sets a cap of 204,697 cubic metres per year of industrial water",
+   "source_url": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+   "fields": {
+    "event_date": "2026-07-16",
+    "theme": "water",
+    "subdivision": "ES-AR",
+    "company": "amazon/aws"
+   },
+   "notes": "Merca2 16 Jul 2026 on Inaga environmental resolution for AWS CAR campus. The water cap is the city's, per the article. Verify the Inaga resolution date and BOA text before shipping.",
+   "verification": "HIT"
+  },
+  {
+   "id": "es-aws-car-inaga-resolution-2026-07",
+   "country": "ES",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "La resolución del Inaga autoriza el campus de Zaragoza, que consumirá 3.280 GWh anuales de electricidad",
+   "translation": "The Inaga resolution authorises the Zaragoza campus, which will consume 3,280 GWh of electricity per year",
+   "source_url": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+   "fields": {
+    "event_date": "2026-07-16",
+    "theme": "energy",
+    "subdivision": "ES-AR"
+   },
+   "notes": "Environmental authorisation for AWS CAR campus; the 3,280 GWh figure is the resolution's estimate per the article.",
+   "verification": "HIT"
+  },
+  {
+   "id": "es-no-es-sequia-campaign-2025-09",
+   "country": "ES",
+   "kind": "community_response",
+   "verified": true,
+   "verbatim": "Este 10 de septiembre ha dado comienzo la campaña “No es sequía, es saqueo”",
+   "translation": "On 10 September the campaign \"It is not drought, it is plunder\" began",
+   "source_url": "https://www.eldiario.es/aragon/economia/arranca-campana-implantacion-centros-datos-aragon-no-sequia-saqueo_1_12592997.html",
+   "fields": {
+    "event_date": "2025-09-10",
+    "theme": "water",
+    "subdivision": "ES-AR",
+    "constituency": "ngo"
+   },
+   "notes": "Civil-society campaign against macro data centres in Aragón (eldiario.es Aragón, 10 Sep 2025). Collective, not individual names; no private individuals named.",
+   "verification": "HIT"
+  },
+  {
+   "id": "es-green-it-aragon-piga-info-publica",
+   "country": "ES",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "la documentación de dicho Plan para la aprobación inicial de la implantación de un Centro de Datos “Green It Aragón”",
+   "translation": "the documentation of that Plan for the initial approval of the establishment of a Data Centre 'Green It Aragón'",
+   "source_url": "https://www.aragon.es/-/piga-green-it",
+   "fields": {
+    "theme": "jobs",
+    "subdivision": "ES-AR",
+    "event_date": null
+   },
+   "notes": "Aragón government public-information listing for a PIGA; date of the information period not captured. Leave event_date null until read.",
+   "verification": "HIT"
+  },
+  {
+   "id": "be-google-5bn-st-ghislain-2025-10",
+   "country": "BE",
+   "kind": "claim",
+   "verified": true,
+   "verbatim": "and add 300 full-time jobs",
+   "translation": "et créer 300 emplois à temps plein",
+   "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+   "fields": {
+    "company": "google",
+    "event_date": "2025-10-08",
+    "theme": "jobs",
+    "subdivision": "BE-WAL"
+   },
+   "notes": "Google first-party press release (Google Cloud Press Corner), St. Ghislain expansion, 2026-2027 window. English original; the Dutch/French versions of the release are not verified. Job totals differ across press (Silicon Canals says 900 direct).",
+   "verification": "HIT"
+  },
+  {
+   "id": "be-google-110mw-clean-energy-2025-10",
+   "country": "BE",
+   "kind": "claim",
+   "verified": true,
+   "verbatim": "Today, the company announced new deals with Eneco, Luminus, and Renner of more than 110 megawatts (MW)",
+   "translation": "Aujourd'hui, l'entreprise a annoncé de nouveaux accords avec Eneco, Luminus et Renner pour plus de 110 mégawatts (MW)",
+   "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+   "fields": {
+    "company": "google",
+    "event_date": "2025-10-08",
+    "theme": "energy",
+    "subdivision": "BE-WAL"
+   },
+   "notes": "Same release; grid capacity not discussed.",
+   "verification": "HIT"
+  },
+  {
+   "id": "be-belgian-prime-minister-st-ghislain",
+   "country": "BE",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "The €5 billion investment announced by Google in Saint-Ghislain confirms Wallonia's central role as a European hub for data processing and storage.",
+   "translation": "L'investissement de 5 milliards d'euros annoncé par Google à Saint-Ghislain confirme le rôle central de la Wallonie comme hub européen de traitement et de stockage de données.",
+   "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+   "fields": {
+    "event_date": "2025-10-08",
+    "theme": "jobs",
+    "subdivision": "BE-WAL"
+   },
+   "notes": "Government statement quoted inside Google's release (PM De Wever). Hosted by the company; treat as government quote, not company claim.",
+   "verification": "HIT"
+  }
+ ],
+ "leads": [
+  "MX: Querétaro state will publish data-centre water use from 2027 after a 2026 pilot (DCD ES, 403 blocked; search snippets cite Sedesu and MEXDC). Re-fetch from sedesu.queretaro.gob.mx before using.",
+  "MX: Microsoft Querétaro 40 million litres in 2025 (secondary, BBC via Xataka). Not a first-party figure. Do not ship without Microsoft's own water fact sheet.",
+  "MX: NYT investigation on Microsoft Mexico sites and local outages/water shortages (via Xataka). Find primary NYT article; check event date.",
+  "MX: Viborillas residents' water complaint (Change.org campaign). Campaign source, not an authority. Needs a news source before a CommunityResponse.",
+  "MX: No federal CFE/CRE large-load rule found in search. Search CRE Spanish site for 'centros de datos' resolutions.",
+  "ES: TSJA admitted the first contentious-administrative suit against AWS PIGA (Ecologistas en Acción and Tu Nube Seca Mi Río). Only campaign and trade-press sources so far; find the court or press primary and the admission date.",
+  "ES: RDL 7/2026 (grid-access economic benefit for reserved capacity; no priority for data centres a priori). Verify against BOE text before any record.",
+  "ES: CNMC resolutions on data-centre access disputes in Tarragona (St Francolí 220 kV) and Vandellós (100 MW, Jan 2026). Fetch the CNMC PDFs for event dates and verbatims.",
+  "ES: national demand-access tender (BOE, 2025) named data-centre processing among bidders; Feb 2026 award of 928 MW went to non-data-centre firms. Verify the BOE/REE resolution.",
+  "ES: Aragón TSJA case, Inaga AWS campus, and Green It Aragón PIGA each need a dated primary (BOA or Inaga resolution) before going into records.",
+  "BE: Elia (Sept 2026) forecast of 24.1 TWh data-centre demand by 2034, which Elia itself says is mostly reserved capacity. Fetch VRT or Elia to verify verbatim.",
+  "BE: CREG code of conduct change (Jan 2026): unbuilt projects lose reserved capacity. Verify against CREG publication.",
+  "BE: Feluy (Google) gets only medium voltage (25 MVA temporary Ores connection), with Elia high-voltage upgrade targeted for 2029. Source date uncertain.",
+  "BE: Farciennes (Google second campus) Elia capacity 200-300 MW, from earlier reports (out of date). Find a 2025-2026 Elia statement.",
+  "BE: Google–Centrica–Elia battery demand-response at St Ghislain. Confirm in Google or Elia release.",
+  "BE: No local objections or permit disputes at St Ghislain or Farciennes were found; search French regional press (L'Avenir, Sudinfo, RTBF) next."
+ ]
+}

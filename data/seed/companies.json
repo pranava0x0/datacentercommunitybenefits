@@ -224,6 +224,15 @@
       "summary": "Data-centre subsidiary of Bharti Airtel. Airtel's 30 March 2026 stock-exchange filing says about 300 MW of capacity today with a 1 GW target, and a US$1 billion investment subject to approvals in India. Nxtra joined RE100 in June 2024. No community-impact page was found.",
       "last_reviewed": "2026-10-19",
       "international_only": true
+    },
+    {
+      "slug": "naver",
+      "name": "NAVER",
+      "hq": "Seongnam, South Korea",
+      "dedicated_page_url": null,
+      "summary": "Korean internet and cloud company, tracked for its Sejong AI data-centre campus (announced July 2026 with NVIDIA and Brookfield). No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
     }
   ]
 }

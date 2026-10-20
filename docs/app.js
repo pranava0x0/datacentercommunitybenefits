@@ -65,6 +65,7 @@ const COMPANY_SLUGS = [
   "adaniconnex",
   "reliance",
   "nxtra",
+  "naver",
 ];
 
 const STANCE_LABELS = {
@@ -9362,6 +9363,9 @@ const COUNTRY_NAMES = {
   JP: "Japan",
   KR: "South Korea",
   IN: "India",
+  MX: "Mexico",
+  ES: "Spain",
+  BE: "Belgium",
 };
 const SUPRANATIONAL_NAMES = { EU: "European Union" };
 const EU_MEMBERS = [
@@ -9418,11 +9422,15 @@ const SUBDIVISION_NAMES = {
   "FI-14": "North Ostrobothnia",
   "FI-05": "Kainuu",
   "KR-42": "Gangwon",
+  "KR-50": "Sejong",
+  "MX-QUE": "Querétaro",
+  "ES-AR": "Aragón",
+  "BE-WAL": "Wallonia",
 };
-const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR"];
+const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR", "MXN"];
 const LANGUAGE_NAMES = {
   en: "English", fr: "French", sv: "Swedish", fi: "Finnish", el: "Greek", ga: "Irish", es: "Spanish",
-  ja: "Japanese", ko: "Korean", hi: "Hindi",
+  ja: "Japanese", ko: "Korean", hi: "Hindi", nl: "Dutch",
 };
 const TRANSLATION_SOURCE_LABELS = {
   official: "Official English version",
@@ -9449,6 +9457,7 @@ const FX_USD_PER_UNIT = {
   JPY: 1 / 149.5686,
   KRW: 1 / 1421.3963,
   INR: 1 / 87.1468,
+  MXN: 1 / 19.2052,
 };
 const FX_SOURCE_NOTE = "Federal Reserve G.5A, 2025 annual average";
 

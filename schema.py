@@ -85,6 +85,7 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "adaniconnex",
     "reliance",
     "nxtra",
+    "naver",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
@@ -136,6 +137,7 @@ CompanySlug = Literal[
     "adaniconnex",
     "reliance",
     "nxtra",
+    "naver",
 ]
 # withdrawn (#78): the operator abandoned the site. The record stays, as
 # history, but leaves the pledge scorecard and the investment/jobs totals.
@@ -323,6 +325,9 @@ COUNTRIES: dict[str, str] = {
     "JP": "Japan",
     "KR": "South Korea",
     "IN": "India",
+    "MX": "Mexico",
+    "ES": "Spain",
+    "BE": "Belgium",
 }
 # ISO 3166-1 "exceptionally reserved" code; supranational policies only.
 SUPRANATIONAL: dict[str, str] = {"EU": "European Union"}
@@ -381,6 +386,10 @@ SUBDIVISIONS: dict[str, str] = {
     "FI-14": "North Ostrobothnia",
     "FI-05": "Kainuu",
     "KR-42": "Gangwon",
+    "KR-50": "Sejong",
+    "MX-QUE": "Querétaro",
+    "ES-AR": "Aragón",
+    "BE-WAL": "Wallonia",
 }
 # What a first-level subdivision is called, for labels.
 SUBDIVISION_TERMS: dict[str, str] = {
@@ -388,15 +397,16 @@ SUBDIVISION_TERMS: dict[str, str] = {
     "IE": "region", "GR": "region", "FI": "region", "SE": "county",
     "CL": "region", "AR": "province",
     "JP": "prefecture", "KR": "province", "IN": "state",
+    "MX": "state", "ES": "autonomous community", "BE": "region",
 }
 NO_SUBDIVISION_COUNTRIES: tuple[str, ...] = ("SG",)
 CURRENCIES: tuple[str, ...] = (
-    "USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR",
+    "USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR", "MXN",
 )
 # BCP-47 primary tags a record's source may be in.
 LANGUAGES: dict[str, str] = {
     "en": "English", "fr": "French", "sv": "Swedish", "fi": "Finnish", "el": "Greek",
-    "ga": "Irish", "es": "Spanish", "ja": "Japanese", "ko": "Korean", "hi": "Hindi",
+    "ga": "Irish", "es": "Spanish", "ja": "Japanese", "ko": "Korean", "hi": "Hindi", "nl": "Dutch",
 }
 TRANSLATION_SOURCES: tuple[str, ...] = ("official", "human", "machine")
 TranslationSource = Literal["official", "human", "machine"]

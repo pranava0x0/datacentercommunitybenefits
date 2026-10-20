@@ -1,0 +1,234 @@
+{
+  "sources": [
+    {
+      "country": "JP",
+      "url": "https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/",
+      "title": "Microsoft Source Asia, 3 Apr 2026 (Brad Smith)",
+      "verified": true,
+      "kind": "listing/company"
+    },
+    {
+      "country": "JP",
+      "url": "https://english.adnkronos.com/2026/07/23/data-center-construction-causing-friction-with-locals-in-japan/",
+      "title": "Adnkronos (Jiji Press), 23 Jul 2026, data-centre friction with residents",
+      "verified": false,
+      "kind": "news listing"
+    },
+    {
+      "country": "JP",
+      "url": "https://shulman-advisory.com/japan-data-center-update-10-decentralized-data-center-expansion-and-growing-local-resistance/",
+      "title": "Shulman Advisory, Japan data-centre update (17 Mar 2026)",
+      "verified": false,
+      "kind": "analyst listing"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.itmedia.co.jp/business/spv/2507/06/news003_2.html",
+      "title": "ITmedia Business (Japanese), data-centre siting and Inzai",
+      "verified": false,
+      "kind": "news listing"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.hokkaido-np.co.jp/article/1309360/",
+      "title": "Hokkaido Shimbun (Japanese), data-centre opposition in the capital region",
+      "verified": false,
+      "kind": "news listing"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.datacenterdynamics.com/en/news/openai-plans-500mw-data-center-in-argentina/",
+      "title": "DCD, OpenAI plans 500 MW data centre in Argentina",
+      "verified": false,
+      "kind": "news listing"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.industrialinfo.com/iirenergy/industry-news/article/cartera-de-proyectos-de-centros-de-datos-en-argentina-alcanza-ms-de-us40000-millones--362486",
+      "title": "IndustrialInfo, Argentina data-centre pipeline above US$40bn",
+      "verified": false,
+      "kind": "news listing"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.bloomberglinea.com/latinoamerica/argentina/sur-energy-socia-de-open-ai-en-argentina-espera-activar-data-centers-patagonicos-en-2027/",
+      "title": "Bloomberg Línea, Sur Energy (4 Nov 2025)",
+      "verified": true,
+      "kind": "news (headline probed)"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2024/02/27/anulan-parcialmente-permiso-de-data-center-de-google-piden-que-incluya-efectos-de-cambio-climatico.shtml",
+      "title": "BioBioChile, Anulan parcialmente permiso de data center de Google (27 Feb 2024)",
+      "verified": true,
+      "kind": "news"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.infraestructurapublica.cl/data-center-los-avances-de-amazon-y-las-trabas-que-tienen-paralizado-el-de-google/",
+      "title": "Infraestructura Pública, Amazon and Google data-centre progress (2024)",
+      "verified": false,
+      "kind": "news listing"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.elsaltodiario.com/chile/fiebre-ia-centros-datos-frente-agua-chile",
+      "title": "El Salto, data-centre water fever in Chile (Jul 2026)",
+      "verified": false,
+      "kind": "news listing"
+    },
+    {
+      "country": "CL",
+      "url": "https://eldesconcierto.cl/reportajes/la-red-abastecimiento-agua-detras-los-mayores-data-centers-santiago-n5460381",
+      "title": "El Desconcierto, water behind Santiago's largest data centres",
+      "verified": false,
+      "kind": "news listing"
+    }
+  ],
+  "companies": [],
+  "records": [
+    {
+      "country": "JP",
+      "kind": "claim",
+      "company": "microsoft",
+      "verified": true,
+      "fields": {
+        "statement_lang": "en",
+        "theme_hint": "jobs/infrastructure/education",
+        "published_at": "2026-04-03",
+        "value_usd": null,
+        "investment_stated": "$10 billion (approx. JPY 1.6 trillion), 2026-2029"
+      },
+      "verbatim": "Microsoft today announced a $10 billion (approx. ¥1.6 trillion) investment in Japan from 2026 through 2029, built around three pillars: Technology, Trust, and Talent. The commitments include expanding our own in-country infrastructure",
+      "translation": null,
+      "source_url": "https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/",
+      "notes": "First-party: Brad Smith, Microsoft Vice Chair & President, Microsoft Source Asia, 3 Apr 2026. Investment figure is company-stated, not a site figure. Japanese-language version of the release not fetched."
+    },
+    {
+      "country": "JP",
+      "kind": "claim",
+      "company": "microsoft",
+      "verified": true,
+      "fields": {
+        "statement_lang": "en",
+        "published_at": "2026-04-03",
+        "related_partners": [
+          "Sakura Internet",
+          "SoftBank"
+        ]
+      },
+      "verbatim": "Microsoft is announcing a new collaboration with Sakura Internet and SoftBank to meet exactly that need. Through this collaboration, domestic providers will offer GPU-based AI compute services through Azure, while data residency remains in Japan.",
+      "translation": null,
+      "source_url": "https://news.microsoft.com/source/asia/2026/04/03/microsoft-deepens-its-commitment-to-japan-with-10-billion-investment-in-ai-infrastructure-cybersecurity-workforce/",
+      "notes": "First-party, same release. Two sentences joined by a single space in the record; the second quoted sentence is the operative claim. Not a site-specific project; no Project record implied. Japan-hosted compute (data residency), not a siting commitment."
+    },
+    {
+      "country": "CL",
+      "kind": "response",
+      "verified": true,
+      "fields": {
+        "stance": "negative",
+        "constituency": "regulator",
+        "date": "2024-02-27",
+        "project": "Google Cerrillos Data Center (Cerrillos, RM)",
+        "court": "Segundo Tribunal Ambiental de Santiago"
+      },
+      "verbatim": "El Segundo Tribunal Ambiental de Santiago determinó anular parcialmente la aprobación del proyecto \"Cerrillos Data Center\" de Google, para que incluya efectos del cambio climático. Por ello, ordenó al Servicio de Evaluación Ambiental (SEA) retrotraer el procedimiento de evaluación de la iniciativa, para que se incorpore dicha condición en la evaluación del componente hídrico.",
+      "translation": "The Second Environmental Court of Santiago ruled to partially annul the approval of Google's \"Cerrillos Data Center\" project, so that it includes the effects of climate change. It therefore ordered the Environmental Assessment Service (SEA) to roll back the evaluation procedure so that this condition is incorporated into the assessment of the water component. (machine translation, AI)",
+      "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2024/02/27/anulan-parcialmente-permiso-de-data-center-de-google-piden-que-incluya-efectos-de-cambio-climatico.shtml",
+      "notes": "Court ruling as reported by BioBioChile 27 Feb 2024; this is a third-party report of a court decision, so it is a CommunityResponse-type record (constituency regulator), not a Google claim. Not yet re-checked against the tribunal's own sentencia PDF. Later status unknown: the 2026 search found no reevaluation outcome. Prior project (Google renounced the original project Sept 2024 per Meganoticias) should be checked before attaching to a project_id."
+    }
+  ],
+  "leads": [
+    {
+      "country": "JP",
+      "item": "METI/ANRE data-centre PUE notice",
+      "status": "not verified",
+      "notes": "Search found no 2026 Japanese notice setting PUE 1.3. Only the 2022 benchmark revision (target PUE 1.4). The 1.3 threshold in search results is from EU EED 2023/1791 and Germany's EnEfG, not Japan. Keep the existing held lead and do not cite 1.3 for Japan."
+    },
+    {
+      "country": "JP",
+      "item": "Inzai 5 (Colt, Mitsui & Co., CPP Investments, Fidelity) residents' lawsuit, March 2026, Chiba",
+      "status": "secondary",
+      "notes": "Jiji Press via adnkronos (23 Jul 2026): residents sued to cancel the building certification. Jiji quote verified only via WebFetch summary; needs the Jiji or Japan Times page for a probe-able verbatim. Developer not tracked; mayor's on-record statement (site 'not appropriate') is from a Japan Times report reproduced on t.me and is not verified. Candidate response once a developer is tracked."
+    },
+    {
+      "country": "JP",
+      "item": "SoftBank / SB OpenAI Japan Sakai (ex-Sharp LCD plant, Osaka) data centre, 150 MW to 250 MW by FY2028",
+      "status": "secondary, 2025 only",
+      "notes": "Official SoftBank newsroom release (Mar 2025) not fetched; search returned only press coverage. Construction and 2026 operation not confirmed. Needs SoftBank Corp. or SoftBank Group primary before a Claim; SoftBank is not a tracked company."
+    },
+    {
+      "country": "JP",
+      "item": "Japan Data Center Council coexistence guidelines (May 2026)",
+      "status": "secondary",
+      "notes": "Reported via Business & Human Rights Resource Centre. Find the Council's own publication before a policy record."
+    },
+    {
+      "country": "JP",
+      "item": "MLIT answer: 7 planning-stage and 1 operating-stage data centres drew resident complaints or concern",
+      "status": "secondary (Akahata)",
+      "notes": "Partisan press reports a national answer in the Diet. Find the Diet record (kokkai.ndl.go.jp) before using."
+    },
+    {
+      "country": "AR",
+      "item": "Stargate Argentina / OpenAI and Sur Energy (letter of intent, up to 500 MW, about US$25bn, RIGI, Oct 2025)",
+      "status": "partly verified, no primary",
+      "notes": "Official OpenAI page returned HTTP 403, so no OpenAI verbatim was probed. Press reports conflict on whether it is binding, and the RIGI approval for this project is not confirmed. Perfil-sourced coverage says OpenAI's own release committed no initial investment. Needs the Casa Rosada communique or OpenAI's release read directly."
+    },
+    {
+      "country": "AR",
+      "item": "Sur Energy interview: 'Socia de Open AI en Argentina espera activar data centers patagónicos en 2027' (Bloomberg Línea, 4 Nov 2025)",
+      "status": "headline verified only",
+      "notes": "Headline probed (HIT). Body quote from the Sur Energy executive not extracted. Use it as the source once the body quote is read."
+    },
+    {
+      "country": "AR",
+      "item": "Pampa Energía 500 MW Neuquén gas-fed proposal; FlexDomes Neuquén 120 MW first phase",
+      "status": "secondary",
+      "notes": "Search-summary only. Companies not tracked; verify on each company's own site first."
+    },
+    {
+      "country": "AR",
+      "item": "Súper RIGI bill (successor regime naming data centres, 1,000 MUSD threshold, 15% profit tax)",
+      "status": "secondary",
+      "notes": "Summary says the bill was sent to Congress and not yet approved. Check the Congress bill record before any policy entry."
+    },
+    {
+      "country": "CL",
+      "item": "Google Cerrillos: 2026 status of reevaluation after the Feb 2024 tribunal ruling",
+      "status": "open question",
+      "notes": "No post-2024 outcome found. Need SEIA expediente or the Comisión de Evaluación RM resolution. Do not state a current status."
+    },
+    {
+      "country": "CL",
+      "item": "SEA criterion for data-centre projects (Resolución Exenta N° 20269910149, 20 Jan 2026)",
+      "status": "secondary",
+      "notes": "Verified only through a Cuatrecasas summary. The SEA primary was not reached. Get the resolution from sea.gob.cl or the SEIA before a policy record."
+    },
+    {
+      "country": "CL",
+      "item": "Data Hall Quilicura (Ascenty) DIA, admissibility 16 Dec 2024; consolidated report Oct 2025",
+      "status": "open",
+      "notes": "Final decision not found. Developer and status need the SEIA expediente."
+    },
+    {
+      "country": "CL",
+      "item": "Microsoft Chile Central region (Santiago, announced 2020 at US$500m, opened June 2025, AES Andes renewable supply)",
+      "status": "secondary",
+      "notes": "Emol and Nearshore Americas summaries. Microsoft first-party page not fetched. Quilicura US$317m figure is from Baxtel (aggregator) and is not verified."
+    },
+    {
+      "country": "CL",
+      "item": "Cerrillos neighbourhood water concern (Mosacat) and El Desconcierto SEA/DGA water tracing of Santiago's five largest data centres",
+      "status": "secondary",
+      "notes": "Candidate for a water-use policy or response record. Read the El Desconcierto piece directly before use."
+    },
+    {
+      "country": "AR",
+      "item": "Sources blocked or thin",
+      "status": "note",
+      "notes": "casarosada.gob.ar communique not found by search; OpenAI page 403. No JP METI verbatim obtained."
+    }
+  ]
+}

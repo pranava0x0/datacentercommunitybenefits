@@ -1,0 +1,226 @@
+{
+ "sources": [
+  {
+   "name": "Scroll (India)",
+   "homepage": "https://scroll.in",
+   "listing_url": "https://scroll.in/topic/data-centres",
+   "rss_url": null,
+   "status": "works",
+   "coverage": "Dated, data-centre-specific topic listing (11 items on page; latest 2026-09-22). Strong for water, farmers, Vizag and Thane critical coverage. Verified 2026-10-19."
+  },
+  {
+   "name": "Down To Earth",
+   "homepage": "https://www.downtoearth.org.in",
+   "listing_url": "https://www.downtoearth.org.in/topic/data-centres",
+   "rss_url": null,
+   "status": "works (thin)",
+   "coverage": "Topic listing shows only ~5 items, 2 of them data-centre stories (latest 2026-08-31). Good for water and energy policy analysis; not a full archive."
+  },
+  {
+   "name": "Mongabay India",
+   "homepage": "https://india.mongabay.com",
+   "listing_url": "https://india.mongabay.com/tag/data-centres/",
+   "rss_url": null,
+   "status": "works (thin)",
+   "coverage": "Tag page returned one dated story (2026-05-12). Use the tag as a check, not a feed; the site's general RSS was not tested."
+  },
+  {
+   "name": "Medianama",
+   "homepage": "https://www.medianama.com",
+   "listing_url": "https://www.medianama.com/feed/",
+   "rss_url": "https://www.medianama.com/feed/",
+   "status": "works (feed, keyword filter needed)",
+   "coverage": "Sitewide RSS (last build 2026-10-20). No data-centre items in the visible portion of the feed, so filter by keyword each run. The /tag/data-centre/ HTML page returns 403."
+  },
+  {
+   "name": "Bar & Bench",
+   "homepage": "https://www.barandbench.com",
+   "listing_url": "https://www.barandbench.com/feed",
+   "rss_url": "https://www.barandbench.com/feed",
+   "status": "works (feed, keyword filter needed)",
+   "coverage": "Sitewide RSS; court coverage (NGT, High Court) for the Vizag and Tarluvada cases. No data-centre item in the visible latest entries; use keyword filter."
+  },
+  {
+   "name": "APIIC (Andhra Pradesh Industrial Infrastructure Corp.)",
+   "homepage": "https://www.apiic.in",
+   "listing_url": "https://www.apiic.in/",
+   "rss_url": null,
+   "status": "works (state government)",
+   "coverage": "State agency homepage with a News & Updates ticker and dated G.O. PDFs (e.g. G.O. 203 of 12.08.2026 on project approvals from the APIIC Final Allotment Order). No data-centre item on the homepage at the 2026-10-17 update. Use for G.O. PDFs."
+  },
+  {
+   "name": "Amazon India (AWS news)",
+   "homepage": "https://www.aboutamazon.in",
+   "listing_url": "https://www.aboutamazon.in/news/aws",
+   "rss_url": null,
+   "status": "works (first-party)",
+   "coverage": "Company first-party newsroom for AWS India. Lists Maharashtra, Hyderabad, Thane and water/energy pages. Dates often not shown in page text; date by the event named on the page."
+  },
+  {
+   "name": "AdaniConneX (company site)",
+   "homepage": "https://www.adaniconnex.com",
+   "listing_url": "https://www.adaniconnex.com/data-centers",
+   "rss_url": null,
+   "status": "works (first-party, no news list)",
+   "coverage": "Campus table (Chennai, Hyderabad, Navi Mumbai, Noida, Pune, Visakhapatnam) with MW and dates. Figures conflict with other releases; see leads. /newsroom returns 404."
+  },
+  {
+   "name": "CoreWeave newsroom",
+   "homepage": "https://coreweave.com",
+   "listing_url": "https://coreweave.com/news/coreweave-enters-india-expanding-ai-cloud-platform-with-adaniconnex",
+   "rss_url": null,
+   "status": "works (first-party release)",
+   "coverage": "Company release with dated text (6 Oct 2026 dateline, 7 Oct on the investor site). Use as the primary for the Navi Mumbai 240 MW campus."
+  },
+  {
+   "name": "Google India blog",
+   "homepage": "https://blog.google/intl/en-in/",
+   "listing_url": "https://blog.google/intl/en-in/",
+   "rss_url": null,
+   "status": "works (first-party, no Vizag post found)",
+   "coverage": "Google's India index. Earlier pass found no Visakhapatnam post on it; keep for Google first-party checks."
+  },
+  {
+   "name": "Land Conflict Watch",
+   "homepage": "https://www.landconflictwatch.org",
+   "listing_url": "https://www.landconflictwatch.org/conflicts/green-data-centres-or-carbon-lock-in-energy-wa",
+   "rss_url": null,
+   "status": "seen in wave3 (not re-tested)",
+   "coverage": "NGO conflict database; secondary. Fine for leads (Mahul, Mekagunda) not for first-party claims."
+  },
+  {
+   "name": "Blocked or unreachable (retry later, or use search snippets only)",
+   "homepage": null,
+   "listing_url": null,
+   "rss_url": null,
+   "status": "failed this pass",
+   "coverage": "Business Line (fetch error), Economic Times Telecom tag (fetch error), Mint (fetch error), Business Standard topic (403), Moneycontrol tag (fetch error), The Hindu topic (fetch error), Indian Express about page (fetch error), Deccan Herald topic (403), Deccan Chronicle topic (404), LiveLaw tags (410), The Wire tag (no listing rendered), DCD India news filter (403 for ?term=india and ?region=india; a 2026 pass found a working DCD listing, so retry), Medianama /tag/ page (403), The News Minute tag (404)."
+  }
+ ],
+ "records": [
+  {
+   "kind": "claim",
+   "verified": true,
+   "company": "amazon",
+   "project_id": "in-amazon-thane-balkum",
+   "theme": "water",
+   "fields": {
+    "statement_lang": "en",
+    "claim_type": "water use and cooling for the Thane facility",
+    "notes": "First-party AWS page dated by its 27 May 2026 tree-report reference. Supersedes secondary 0.01 MLD myth-buster figure (FPJ 18 Jul 2026); 125 KLD is about 0.125 MLD. Summary used for the title; verbatim is the page text."
+   },
+   "verbatim": "The total water use at our Thane facility will be 125 kilolitres per day (KLD). 115 KLD is treated sewage water for landscaping and irrigation, supplied by the Thane Municipal Council (TMC). We will use closed-loop cooling technology to cool our Thane data center.",
+   "source_url": "https://www.aboutamazon.in/news/aws/thane-data-centre-amazon"
+  },
+  {
+   "kind": "claim",
+   "verified": true,
+   "company": "amazon",
+   "project_id": "in-amazon-thane-balkum",
+   "theme": "energy",
+   "fields": {
+    "notes": "Dedicated 'very own' HV substation; grid isolation from residential distribution is the company's own assertion, and the Thane site is under resident protest (see leads). Record as a company claim, not a finding."
+   },
+   "verbatim": "Our Thane data center will not draw electricity from the local distribution network that supplies homes, shops and businesses. Instead, we are on an industrial connection to the high-voltage transmission grid, and have established our very own dedicated high-voltage substation, planned in coordination with the utility.",
+   "source_url": "https://www.aboutamazon.in/news/aws/thane-data-centre-amazon"
+  },
+  {
+   "kind": "claim",
+   "verified": true,
+   "company": "amazon",
+   "project_id": null,
+   "theme": "water",
+   "fields": {
+    "notes": "National, not site-specific: AWS says its operational Indian sites use no water for cooling. Pair with the Thane site's planned closed-loop cooling claim. Not a Thane fact. Page gives no publication date."
+   },
+   "verbatim": "None of Amazon's operational data centres in India use any water for cooling as it uses air-cooled chillers. We take utmost care to ensure that our data centres do not draw or divert power from the local distribution grid that serves residents.",
+   "source_url": "https://www.aboutamazon.in/news/aws/amazon-data-centre-water-energy-india"
+  },
+  {
+   "kind": "claim",
+   "verified": true,
+   "company": "amazon",
+   "project_id": null,
+   "theme": "education",
+   "fields": {
+    "notes": "Mumbai-region community programme, not tied to one site. Figures are AWS's own. Named students and officials on the page are not repeated here."
+   },
+   "verbatim": "Amazon operates 55 Think Big Spaces reaching 12,000+ public school students annually. Amazon has helped upskill over 230 youth for jobs in the data centre and IT/ITeS sector, with over 70% being offered jobs at Amazon and other companies.",
+   "source_url": "https://www.aboutamazon.in/news/aws/amazon-data-centre-community-mumbai"
+  },
+  {
+   "kind": "project",
+   "verified": true,
+   "company": "amazon",
+   "fields": {
+    "id": "in-amazon-hyderabad-telangana",
+    "name": "AWS Hyderabad (Telangana) cloud region expansion",
+    "city": "Hyderabad",
+    "country": "IN",
+    "subdivision": "IN-TG",
+    "status": "construction",
+    "claimed_investment": {
+     "amount": 1300000000.0,
+     "currency": "USD",
+     "as_stated": "invested more than $1.3 billion in cloud infrastructure (Hyderabad Region, by end-2025)"
+    },
+    "notes": "Ground-breaking on a new data centre per AWS. Other outlets state different Telangana totals (Verdict Rs 600bn/$7.2bn, DCD $6.95bn, AIM Rs 60,000 crore); no official total reconciled, so the first-party figure is used. Workforce: AWS says it hired 110 of 250 students into its Data Centre Operations team."
+   },
+   "verbatim": "invested more than $1.3 billion in cloud infrastructure. Amazon Web Services (AWS) broke ground on a new data centre in Hyderabad. Amazon has hired 110 of the 250 students into the AWS Data Centre Operations team.",
+   "source_url": "https://www.aboutamazon.in/news/aws/aws-data-centre-hyderabad"
+  },
+  {
+   "kind": "project",
+   "verified": true,
+   "company": "amazon",
+   "fields": {
+    "id": "in-amazon-maharashtra-mumbai-region",
+    "name": "AWS Mumbai region investment (Maharashtra)",
+    "city": "Mumbai",
+    "country": "IN",
+    "subdivision": "IN-MH",
+    "status": "announced",
+    "claimed_investment": {
+     "amount": 8300000000.0,
+     "currency": "USD",
+     "as_stated": "$8.3 billion investment in cloud infrastructure in Maharashtra by 2030"
+    },
+    "notes": "Headline verified on AWS's own page; body not read. Other outlets date the MoU to 22 Jan 2025 (WEF); not verified on AWS's page. Not a single campus."
+   },
+   "verbatim": "AWS plans $8.3 billion investment in cloud infrastructure in Maharashtra by 2030",
+   "source_url": "https://www.aboutamazon.in/news/aws/aws-invests-8-billion-in-maharashtra"
+  },
+  {
+   "kind": "project",
+   "verified": true,
+   "company": "coreweave",
+   "fields": {
+    "id": "in-coreweave-navi-mumbai-taloja",
+    "name": "CoreWeave campus at AdaniConneX Taloja, Navi Mumbai",
+    "city": "Navi Mumbai",
+    "locality": "Taloja",
+    "country": "IN",
+    "subdivision": "IN-MH",
+    "status": "announced",
+    "power_mw": 240,
+    "offtaker": "CoreWeave",
+    "notes": "Host and developer: AdaniConneX (50:50 Adani Enterprises / EdgeConneX). CoreWeave is sole tenant of three 80 MW buildings; option to double to 480 MW. First phase mid-2028. Adani's own campus table lists Navi Mumbai at 1,000 MW planned from Dec 2026, not reconciled (see leads). Release date: 6 Oct 2026 dateline / 7 Oct on investor site. COO Sachin Jain quoted. Gate 2 note: CoreWeave is a tracked company that already signed the pledge; this is a project record only."
+   },
+   "verbatim": "CoreWeave plans to expand its AI Cloud platform with 240 megawatts (MW) of data center capacity in Navi Mumbai. The new campus will span three 80 MW buildings at AdaniConneX's Taloja campus. CoreWeave will be the sole tenant across the three buildings, with the opportunity to double capacity by expanding by up to 240 MW at the campus. The first phase of the project is expected to be available in mid-2028",
+   "source_url": "https://coreweave.com/news/coreweave-enters-india-expanding-ai-cloud-platform-with-adaniconnex"
+  }
+ ],
+ "leads": [
+  "AdaniConneX campus table (adaniconnex.com/data-centers, first-party): Chennai 33 MW (Phase 1 Oct 2022), Hyderabad 600 MW (Phase 1 live Oct 2024), Navi Mumbai 1,000 MW planned (Dec 2026), Noida 150 MW (Phase 1 live Jan 2025), Pune 250 MW (listed 'Phase 1 Live: Oct 2025' but described as 'soon to be launched' on the same page, contradictory), Visakhapatnam 1 GW planned (Dec 2028). The 2023 financing covered 67 MW across Chennai and Noida. Table figures are not in quotable sentences, so they are not probe-verified. Reconcile before filing AdaniConneX project records. Adani project records need a dated per-site announcement first.",
+  "Nxtra (Airtel): FY2026 annual report coverage (secondary) says 14 hyperscale DCs, 120+ edge DCs, ~250 MW power capacity, a 1 GW target, and AI-ready campuses in Chennai, Mumbai and Kolkata with an existing Pune facility. Airtel's 30 Mar 2026 NSE disclosure (nsearchives.nseindia.com) and its FY2026 annual report are the primaries; neither was fetched in this pass. Kolkata New Town 25 MW (2022) and Hyderabad 200 MW / USD 600m (Nov 2024, BusinessLine via w.media) are undated or secondary. Needs the Airtel PDF before any Nxtra project record.",
+  "OpenAI and Reliance: only talks reported (Outlook Business; The Information via Reuters, 2025). No 2026 signed deal or primary found. Do not file a record. Reliance's own 3 GW Jamnagar figure remains secondary (Maginative); the Reliance AGM statement is still not located.",
+  "AWS Telangana totals conflict across outlets (Verdict Rs 600bn / $7.2bn; DCD $6.95bn; AIM Rs 60,000 crore; AWS page $1.3bn invested by end-2025). The first-party page is used. Amazon's own India plan is $21bn (2026-2030) per the same AWS page, which is national, not site-specific.",
+  "Amazon Thane community/water conflict: the Free Press Journal 18 Jul 2026 protest report (already in seed) and a Reuters piece via Arab News (8 Sep 2026, planned 54-acre facility, >1,000 residents). The AWS page says 27 May 2026 is the date of the tree-report submission to TMC, which is a record date, not an event with a verbatim outcome.",
+  "Andaman and Nicobar: the administration withdrew a call to develop a 'green' AI data centre (Scroll, 20 Aug 2026). Not fetched. A UT-level policy lead; check the UT's own notice before filing.",
+  "Thirsty data centres, thin regulation (Down To Earth, 21 Aug 2026): a water-regulation piece, not fetched. Possible state-policy and water-benchmark source for Telangana and Maharashtra.",
+  "Vizag/Tarluvada: no new records in this pass; existing wave3 items stand. Guardian primary still not retrieved.",
+  "Maharashtra GR of 9 Oct 2024 (green integrated DC parks, 500 MW minimum) and TN 2021 policy: official PDFs unreachable in earlier pass; still secondary. Retry the Maharashtra industries department page directly.",
+  "Scroll 2026-09-07 interview ('Are data centres really development for India?') and 2026-08-17 'AI bubble' essay: opinion, not community responses. Skip unless used as context.",
+  "AWS Maharashtra $8.3bn: the AWS page body was not read. Read it for a date and any Maharashtra-specific claim before filing a verbatim beyond the headline."
+ ]
+}
