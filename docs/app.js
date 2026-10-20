@@ -8338,7 +8338,7 @@ function rpCardClaimsHtml(p) {
       const date = c.published_at || c.captured_at || "";
       const isEvidence = !isCompanyFallback && evidenceId && c.id === evidenceId;
       const flag = isEvidence
-        ? `<span class="rp-claim-flag" title="Cited as this site's ratepayer evidence">★ evidence</span>`
+        ? `<span class="rp-claim-flag" title="Cited as this site's ratepayer evidence">Site evidence</span>`
         : "";
       return `<li class="rp-claim-src">
         <span class="rp-claim-theme" style="--theme-color: var(--theme-${escapeAttr(c.theme)});">${escapeHtml(label)}</span>
@@ -9720,6 +9720,22 @@ function renderWorldInstruments() {
   if (meta) meta.textContent = `${rows.length} of ${all.length} records`;
 }
 
+// First sentence of a summary, skipping abbreviations ("St. Ghislain",
+// "No. 62", "U.S."). No regex lookbehind: Safari < 16.4 rejects it at parse
+// time and the whole script (every tab) would fail to load.
+const SENTENCE_ABBREVS = new Set(["st", "no", "nos", "inc", "ltd", "co", "corp", "mr", "ms", "dr", "vs", "u.s", "e.g", "i.e", "jan", "feb", "aug", "sept", "oct", "nov", "dec", "art", "sec"]);
+function firstSentence(text) {
+  const re = /\.(\s+|$)/g;
+  let m;
+  while ((m = re.exec(text || ""))) {
+    const before = text.slice(0, m.index);
+    const word = (before.match(/([A-Za-z.]+)$/) || ["", ""])[1].toLowerCase();
+    if (SENTENCE_ABBREVS.has(word) || /^[a-z]$/i.test(word)) continue;
+    return text.slice(0, m.index + 1);
+  }
+  return text || "";
+}
+
 function renderWorld() {
   const d = state.intl;
   if (!d) return;
@@ -9755,9 +9771,7 @@ function renderWorld() {
       btn.append(
         el("span", "home-card-title", countryName(c.code)),
         el("span", "home-card-sub", countWords(intlRecordsFor(c.code))),
-        // First sentence. No lookbehind: Safari < 16.4 rejects it at parse
-        // time and the whole script (every tab) would fail to load.
-        el("span", "home-card-dek", (c.summary.match(/^.*?\.(?=\s|$)/) || [c.summary])[0])
+        el("span", "home-card-dek", firstSentence(c.summary))
       );
       btn.addEventListener("click", () => openCountry(c.code, { push: true }));
       li.append(btn);

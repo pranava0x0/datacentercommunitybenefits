@@ -190,9 +190,20 @@
   --fs-2xl: 1.4rem; /* view headings */
   --fs-3xl: 1.55rem; /* masthead, stat numerals */
 
-  --radius-sm: 4px;
-  --radius: 8px;
-  --shadow-sm: 0 1px 2px rgba(17, 21, 28, 0.06);
+  /* Spacing scale (2026-10-19): the rhythm every card, section and pill gap
+     draws from. */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  /* Civic document: square-cornered hairline boxes, no drop shadows. */
+  --radius-sm: 2px;
+  --radius: 2px;
+  --shadow-sm: none;
   --shadow: 0 4px 16px rgba(17, 21, 28, 0.1);
 }
 
@@ -6631,3 +6642,155 @@ button.depth-chip:focus-visible {
 .static-summary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
 .static-summary li h3 { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; margin: 0 0 0.15rem; }
 .static-summary li p { margin: 0; font-size: var(--fs-sm); color: var(--text-muted); }
+
+
+/* ==========================================================================
+   UX consistency layer (2026-10-19, owner-directed)
+   Model: the White House pledge page. A restrained civic document: serif
+   headings, one sans, one navy accent, hairline rules, letterspaced kickers,
+   plain copy. Everything below normalizes components shared across tabs
+   rather than restyling one tab at a time.
+   ========================================================================== */
+
+/* --- Kicker: the one small-caps label style above a view heading --------- */
+.hero-kicker {
+  position: absolute;
+  top: -14px;
+  left: 0;
+  margin: 0;
+  line-height: 1;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.hero { position: relative; margin: 20px 0 var(--sp-4); }
+
+/* --- Theme toggle: a word, not a glyph ----------------------------------- */
+#theme-toggle {
+  width: auto;
+  padding: 0 var(--sp-3);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+/* --- ONE pill. Semantic colour (green / amber / red) or neutral hairline. -
+   Every badge, status pill, chip and tag in the app shares this shape: square,
+   11px, 600, uppercase, tracked. Colour appears only where it means a status;
+   category tags (reason, jurisdiction type, source kind) are neutral. */
+.badge,
+.status-pill,
+.reason-chip,
+.rp-basis,
+.rp-conflict-flag,
+.rp-met-pill,
+.rp-legend-chip,
+.rc-next-lbl,
+.rc-state,
+.depth-chip,
+.moratorium-bill-id,
+.badge-moratorium,
+.badge-tariff-federal,
+.badge-jurisdiction-type,
+.badge-reason-energy,
+.badge-reason-water,
+.badge-reason-air_quality,
+.badge-reason-transparency,
+.badge-reason-noise,
+.badge-reason-equity {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  white-space: nowrap;
+  margin-left: 0;
+  border-left-width: 1px;
+}
+/* neutral category tags */
+.badge-jurisdiction-type,
+.badge-reason-energy,
+.badge-reason-water,
+.badge-reason-air_quality,
+.badge-reason-transparency,
+.badge-reason-noise,
+.badge-reason-equity,
+.badge-tariff-federal,
+.badge-single-source,
+.badge-gov,
+.badge-cbf,
+.moratorium-bill-id,
+.rc-state {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.badge-reason-energy,
+.badge-reason-water,
+.badge-reason-air_quality,
+.badge-reason-transparency,
+.badge-reason-noise,
+.badge-reason-equity {
+  margin: 0 var(--sp-1) var(--sp-1) 0;
+}
+.moratorium-bill-id { padding: 2px 6px; }
+.reason-chip { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.subtab-count { border-radius: var(--radius-sm); font-size: var(--fs-2xs); }
+.acc-chevron { border-radius: var(--radius-sm); }
+.btn-ghost { border-radius: var(--radius-sm); font-size: var(--fs-sm); }
+.theme-filter-chip { border-radius: var(--radius-sm); font-size: var(--fs-xs); }
+
+/* --- Cards: one hairline box ------------------------------------------- */
+.project-card,
+.cba-card,
+.home-card,
+.world-card-btn {
+  box-shadow: none;
+  border-radius: var(--radius-sm);
+}
+/* Site cards: the stripe repeated the status pill beside it. */
+.project-card { border-left-width: 1px; background: var(--surface); }
+.project-card.active,
+.project-card:hover { border-color: var(--accent); }
+/* Equal-height rows in the country grid, one gap in both directions. */
+.world-cards { gap: var(--sp-3); }
+
+/* --- Stat tiles: hairline, navy rule, no shadow -------------------------- */
+.rp-stat { box-shadow: none; }
+
+/* --- Section rhythm ------------------------------------------------------ */
+.acc { margin-bottom: var(--sp-4); }
+
+/* --- Filter bars: one control height, white fields ----------------------- */
+.filter-bar input[type="search"],
+.table-controls input[type="search"],
+.filter-bar input[type="text"],
+.table-controls input[type="text"] {
+  font: inherit;
+  font-size: var(--fs-sm);
+  min-height: 32px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+}
+.filter-bar .btn-ghost,
+.table-controls .btn-ghost { background: var(--surface); }
+
+/* Pills whose text is quoted in sentences and read by assistive tech keep sentence case. */
+.rp-basis,
+.rp-conflict-flag { text-transform: none; letter-spacing: 0.02em; }
+
+/* Country cards: three lines of summary at most, so 18+ countries stay a
+   scannable grid (interaction budget: world_country). */
+.world-card .home-card-dek { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }

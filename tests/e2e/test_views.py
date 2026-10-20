@@ -56,6 +56,15 @@ window.html2pdf = function () {
 # ---------------------------------------------------------------------------
 
 
+
+# A project with at least one delivered-assessed claim, derived from the seed
+# so removing one claim can't silently break the delivered-panel tests.
+DELIVERED_PROJECT = next(
+    c["project_id"]
+    for c in json.loads((Path(__file__).resolve().parents[2] / "data" / "seed" / "claims.json").read_text())["claims"]
+    if c.get("delivered") and c.get("project_id")
+)
+
 class TestComparisonView:
     def test_page_loads_with_meta(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -946,9 +955,9 @@ class TestDeliveredAssessmentRendering:
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
-        # xai-memphis-tn has the xai-memphis-tn-water-recycling-80m claim
+        # A project with a delivered-assessed claim, derived from the seed.
         # which carries a "contested" Delivered assessment.
-        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.evaluate(f"window.__dcb.selectProject('{DELIVERED_PROJECT}')")
         page.locator("#dtab-claims").click()
         page.wait_for_selector("#d-claims .claim-card", state="attached", timeout=5_000)
         # At least one card has a delivered panel.
@@ -959,7 +968,7 @@ class TestDeliveredAssessmentRendering:
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
-        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.evaluate(f"window.__dcb.selectProject('{DELIVERED_PROJECT}')")
         page.locator("#dtab-claims").click()
         page.wait_for_selector("#d-claims .claim-delivered", state="attached", timeout=5_000)
         panel = page.locator("#d-claims .claim-delivered").first
@@ -972,7 +981,7 @@ class TestDeliveredAssessmentRendering:
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
-        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.evaluate(f"window.__dcb.selectProject('{DELIVERED_PROJECT}')")
         page.locator("#dtab-claims").click()
         page.wait_for_selector("#d-claims .claim-delivered", state="attached", timeout=5_000)
         panel = page.locator("#d-claims .claim-delivered").first
