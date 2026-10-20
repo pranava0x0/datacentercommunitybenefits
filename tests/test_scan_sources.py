@@ -76,3 +76,9 @@ def test_committed_sources_file_is_valid() -> None:
 def test_seed_urls_are_collected_at_any_depth() -> None:
     urls = ss.seed_urls()
     assert len(urls) > 500
+
+
+def test_google_news_outlet_is_kept_for_search() -> None:
+    feed = """<rss><channel><item><title>Data center vote delayed</title>
+<link>https://news.google.com/rss/articles/abc</link><source url="https://x.example">Example Times</source></item></channel></rss>"""
+    assert ss.parse_feed(feed) == [("Data center vote delayed [Example Times]", "https://news.google.com/rss/articles/abc")]

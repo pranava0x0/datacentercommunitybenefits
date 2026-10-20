@@ -77,7 +77,9 @@ def is_relevant(title: str) -> bool:
 
 
 def parse_feed(body: str) -> list[tuple[str, str]]:
-    """(title, link) pairs from RSS 2.0 or Atom. Malformed XML yields []."""
+    """(title, link) pairs from RSS 2.0 or Atom. Malformed XML yields [].
+    Google News links are redirects that fail when fetched, so its <source>
+    outlet is appended to the title as " [outlet]" for the agent to search."""
     try:
         root = ET.fromstring(body.encode("utf-8") if isinstance(body, str) else body)
     except ET.ParseError:
@@ -87,13 +89,17 @@ def parse_feed(body: str) -> list[tuple[str, str]]:
         tag = item.tag.rsplit("}", 1)[-1]
         if tag not in ("item", "entry"):
             continue
-        title, link = "", ""
+        title, link, outlet = "", "", ""
         for child in item:
             ctag = child.tag.rsplit("}", 1)[-1]
             if ctag == "title":
                 title = (child.text or "").strip()
             elif ctag == "link":
                 link = (child.text or "").strip() or child.attrib.get("href", "")
+            elif ctag == "source":
+                outlet = (child.text or "").strip()
+        if outlet and outlet not in title:
+            title = f"{title} [{outlet}]"
         if title and link:
             out.append((html.unescape(title), link))
     return out
