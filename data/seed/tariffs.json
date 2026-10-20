@@ -654,10 +654,10 @@
       "tariff_name": "Rules for new large-load customers (>100 MW)",
       "tariff_type": "Large-load rule / tariff",
       "status": "approved",
-      "status_detail": "Georgia PSC approved the rule Jan 21, 2025 (Docket 55378).",
+      "status_detail": "Georgia PSC approved the rule Jan 23, 2025 (Docket 55378).",
       "regulator": "Georgia Public Service Commission (GA PSC)",
       "docket_number": "55378",
-      "decision_date": "2025-01-21",
+      "decision_date": "2025-01-23",
       "min_load_mw": 100,
       "summary": "A PSC rule allowing Georgia Power to apply special terms and conditions to any new customer using more than 100 MW, requiring large-load customers to pay the transmission and distribution costs they drive as construction progresses.",
       "parameters": {
@@ -690,10 +690,6 @@
         {
           "url": "https://psc.ga.gov/facts-advanced-search/docket/?docketId=55378",
           "title": "Georgia PSC — Docket 55378"
-        },
-        {
-          "url": "https://psc.ga.gov/site/downloads/datacenterfactsheet.pdf",
-          "title": "Georgia PSC — Data Center Fact Sheet"
         }
       ],
       "captured_at": "2026-06-22"

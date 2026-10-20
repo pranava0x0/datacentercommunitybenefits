@@ -650,18 +650,41 @@ come first, then locations, companies and sites.
   `notes/specs/international/wave2/`. **medium**
 
 #### Claims and responses held after the 2026-10-19 link check
-- `qts-dane-county-wi-community-commitment`, `qts-dane-county-education-2025`:
-  QTS moved its newsroom to q.com and the release now 404s; a 2026-05-19
-  Wayback snapshot reportedly has the text but was rate-limited (429) when
-  re-checked. Read the snapshot, add `wayback_url`, and fix the dropped
-  words ("core values at heart"). **high**
-- `aws-water-positive-2030`: aws.amazon.com/sustainability/water-positive/
-  404s and the 2022 press-release URL 404s to scripts. Find Amazon's live
-  page and re-quote the exact sentence. **high**
-- `resp-google-lima-epa-hearing-negative`: the source 404s and no snapshot
-  was found; the record's Google attribution may also be wrong (the
-  applicant is reported as Bistrozzi LLC / Project BOSC). Re-source or
-  remove. **high**
+- Resolved 2026-10-19 (reval pass): QTS Dane County claims and
+  `aws-water-positive-2030` repointed and re-quoted; `resp-google-lima-epa-hearing-negative`
+  re-sourced to WDTN. Still open on Lima: WDTN calls the applicant "an unnamed
+  company" (Project BOSC; reported as Bistrozzi LLC), so the Google attribution
+  on project `google-lima-oh` is unconfirmed. PFAS/VOC and "health" wording
+  were cut because no fetched page has them. **medium**
+- Removed 2026-10-19 (reval pass), no supporting page found after a targeted
+  search: `resp-meta-prineville-positive` (Crook County press-release URL
+  redirects to the county homepage; nothing equivalent found), moratorium
+  `boise-id-2026-05` (homepage-only citation; two searches found no Boise
+  action). The AWS Pennsylvania and xAI/Tom's Hardware links were replaced,
+  not removed. Re-add Boise only with the city's ordinance.
+- Figures on `google-mesa-az`, `ms-quincy-wa`, `ms-goodyear-az` that no
+  fetched source states (Mesa 187 ac / 400 MW / 2019 year; Quincy 270 ac and
+  the "flagship" framing; Goodyear 300 ac / 480 MW) were left in place but
+  are unverified; Mesa investment was corrected to the $600M groundbreaking
+  figure and Quincy/Goodyear investment and jobs were nulled. Find Mesa's
+  2019 council agenda (DCD reports $1bn, 187 ac) and Microsoft's own Quincy/
+  Goodyear figures. **medium**
+- Meta info-sheet claims (Prineville, Newton, Richland, Huntsville) now cite
+  Wayback copies of the 2024-25 sheets; the current sheets differ ($2B+
+  Georgia, $5.6M+ Newton schools, $5.7M+ Prineville, $4.5M+ Huntsville, 220 MW
+  Oregon). Re-capture current figures as new dated claims, don't overwrite.
+  **medium**
+- `aws-infrastructure-pa-2024`: the announcement was June 9, 2025 (PA Governor
+  release), not 2024; the id keeps "2024". The quote is now David Zapolsky's.
+- Georgia PSC rule decision date corrected to 2025-01-23 (the PSC release
+  says "Thursday", dated January 23); the dead fact-sheet link was dropped.
+- `new-hampshire-state-2026-04`: the "moved" gc.nh.gov billText URL in the
+  first reval list pointed at SB520; the record now cites the HB1265 bill
+  status page (id=1685).
+- Cleveland extended through 2027-01-29, Athens-Clarke lifted 2026-04-07
+  (earlier text said April 8), Kiowa extended to 18 months per the
+  2026-09-24 minutes; find Kiowa's written extension resolution and
+  Cleveland's ordinance number. **medium**
 - Removed 2026-10-19 because no page, live or archived, contains their
   words: google-economic-impact-reports, google-grants-for-good,
   meta-stem-education, meta-engagement-dialogue, ms-pledge-2024,

@@ -1,0 +1,41 @@
+/Users/pranava/Projects/data center community benefits/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+HIT     google-franklin-furnace-energy-pay-100pct-2026 (1 clause(s))
+HIT     meta-lebanon-energy-pay-full-costs-2026 (1 clause(s))
+HIT     google-pine-island-energy-pay-grid-costs-2026 (1 clause(s))
+HIT     meta-energy-renewable-match (1 clause(s))
+HIT     meta-richland-la-community-grants-entergy (1 clause(s))
+HIT     meta-richland-la-education-robotics-delhi (2 clause(s))
+HIT     aws-new-carlisle-in-investment (1 clause(s))
+HIT     aws-new-carlisle-in-community-fund (1 clause(s))
+HIT     aws-new-carlisle-in-state-gdp (1 clause(s))
+HIT     aws-cumberland-pa-investment (1 clause(s))
+HIT     aws-cumberland-pa-education-scholarships (1 clause(s))
+HIT     aws-loudoun-va-energy-solar (1 clause(s))
+HIT     aws-loudoun-va-community-grants-150k (1 clause(s))
+HIT     qts-cedar-rapids-ia-tax-revenue-ratepayer-pledge (1 clause(s))
+HIT     aws-new-carlisle-in-infrastructure-roads (1 clause(s))
+HIT     google-franklin-furnace-engagement-2026 (1 clause(s))
+HIT     microsoft-water-intensity-40pct-2026 (1 clause(s))
+HIT     microsoft-leesburg-va-infrastructure-water-2026 (1 clause(s))
+HIT     aws-calvert-cliffs-md-energy (1 clause(s))
+HIT     google-lea-county-water-closed-loop-2026 (1 clause(s))
+HIT     xai-engagement-fabric-mayo (1 clause(s))
+HIT     qts-water-water-free-design (1 clause(s))
+HIT     meta-lebanon-energy-peterson-2026 (1 clause(s))
+HIT     crusoe-energy-abilene-behind-meter (1 clause(s))
+HIT     prologis-coweta-engagement-process-2025 (1 clause(s))
+MISS    prologis-coweta-engagement-witt-codes-2025: 1 of 1 clause(s) not on https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/ (HTTP 200); first: "A lot of communities don't have any sort of codes or regulations around how these are bein"
+MISS    prologis-coweta-engagement-witt-execute-2025: 1 of 1 clause(s) not on https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/ (HTTP 200); first: 'Nine hundred megawatts is nothing to take lightly'
+MISS    prologis-coweta-infrastructure-mason-lines-2025: 1 of 1 clause(s) not on https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/ (HTTP 200); first: "What we like, as a company with a conscience, is that there's already this massive Georgia"
+HIT     ms-water-positive-2030 (1 clause(s))
+HIT     ms-carbon-negative-2030 (1 clause(s))
+HIT     meta-water-positive-2030 (1 clause(s))
+HIT     meta-kuna-energy-2022 (1 clause(s))
+HIT     coreweave-infrastructure-hammond-investment (1 clause(s))
+MISS    qts-richmond-va-fast-41-quote: 1 of 1 clause(s) not on https://www.permitting.gov/newsroom/press-releases/first-data-center-project-gains-permitting-councils-fast-41-coverage (HTTP 200); first: 'FAST-41 provides a clear framework for advancing major infrastructure investments and ensu'
+HIT     meta-tulsa-engagement-demasi-proud-2026 (1 clause(s))
+HIT     wonder-valley-jobs-oleary-tucker-2026 (1 clause(s))
+HIT     google-berkeley-education-2026 (1 clause(s))
+
+33 hit, 4 miss, 0 blocked, 0 skipped (no change)

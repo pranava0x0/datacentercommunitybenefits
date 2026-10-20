@@ -24,17 +24,6 @@
       "single_source": false
     },
     {
-      "id": "resp-meta-prineville-positive",
-      "project_id": "meta-prineville-or",
-      "date": "2023-04-12",
-      "stance": "positive",
-      "constituency": "local_government",
-      "summary": "Crook County officials have repeatedly cited Meta's Prineville campus as a major contributor to local property tax revenue and as the largest private employer in the county.",
-      "source_url": "https://co.crook.or.us/county-admin/page/press-release-county-commissioner-highlights-community-grant-opportunity-and",
-      "source_title": "Crook County — Commissioner press release on Meta community grants and continued local support",
-      "single_source": true
-    },
-    {
       "id": "resp-google-dalles-water-suit",
       "project_id": "google-the-dalles-or",
       "date": "2022-12-15",
@@ -657,10 +646,9 @@
       "stance": "mixed",
       "constituency": "residents",
       "summary": "Residents expressed concern about exclusion from decision-making and questioned whether the $1M Groundswell investment was sufficient given that Google reportedly committed $25M to a comparable West Memphis AR site.",
-      "source_url": "https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/",
-      "source_title": "WTVM — Google data center coming to LaGrange draws mixed reactions",
-      "single_source": true,
-      "wayback_url": "http://web.archive.org/web/20260430003459/https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/"
+      "source_url": "https://web.archive.org/web/20260430003459/https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/",
+      "source_title": "WTVM — Google data center coming to LaGrange draws mixed reactions (archived copy)",
+      "single_source": true
     },
     {
       "id": "resp-google-lagrange-drought-ngo",
@@ -1570,9 +1558,9 @@
       "date": "2026-02-24",
       "stance": "positive",
       "constituency": "local_government",
-      "summary": "The Bossier Parish Police Jury unanimously approved the Benton-area Amazon/STACK Infrastructure campus; Jury President Tom Salzer publicly welcomed the project as a transformative investment for the parish.",
-      "source_url": "https://www.westcentralsbest.com/news/state/bossier-parish-police-jury-backs-amazon-data-center/article_b3bdd091-79ec-577b-b286-9372a17e402d.html",
-      "source_title": "West Central's Best — Bossier Parish Police Jury backs Amazon data center",
+      "summary": "The Bossier Parish Police Jury unanimously approved plans for a new Amazon data center on more than 1,000 acres along Highway 3 in Benton, with Stack Infrastructure representatives presenting a fact sheet; some residents voiced support while others raised transparency and environmental concerns.",
+      "source_url": "https://web.archive.org/web/20260319081142/https://www.westcentralsbest.com/news/state/bossier-parish-police-jury-backs-amazon-data-center/article_b3bdd091-79ec-577b-b286-9372a17e402d.html",
+      "source_title": "West Central's Best — Bossier Parish Police Jury backs Amazon data center (archived copy)",
       "single_source": false
     },
     {
@@ -1919,12 +1907,12 @@
     {
       "id": "resp-google-lima-epa-hearing-negative",
       "project_id": "google-lima-oh",
-      "date": "2026-03-12",
+      "date": "2026-03-11",
       "stance": "negative",
       "constituency": "residents",
-      "summary": "At an Ohio EPA public hearing on the draft air permit for 115 diesel generators and 36 cooling towers at the Google-confirmed American Township site, residents raised health and pollution concerns and challenged the heavily redacted permit application — including demands that EPA require monitoring of PFAS and VOCs.",
-      "source_url": "https://www.hometownstations.com/news/allen_county/lima-residents-voice-health-concerns-over-proposed-data-center-generators-at-ohio-epa-meeting/article_88f81135-28cc-4db2-bcb0-0255abfb5dc5.html",
-      "source_title": "WLIO Hometown Stations — Lima residents voice health concerns over data-center generators",
+      "summary": "At an Ohio EPA public hearing on the draft air permit for 115 diesel-fuel generators and 36 cooling towers at the Project BOSC data center in Lima, Ohio, residents questioned the generators and objected that the permit application was heavily redacted.",
+      "source_url": "https://www.wdtn.com/news/local-news/lima-residents-voice-concerns-on-proposed-data-center/amp/",
+      "source_title": "WDTN — Lima residents voice concerns on proposed data center",
       "single_source": false
     },
     {

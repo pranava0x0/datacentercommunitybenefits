@@ -1,0 +1,383 @@
+{
+ "dead": [
+  {
+   "id": "aws-water-positive-2030",
+   "kind": "claims",
+   "old_url": "https://aws.amazon.com/sustainability/water-positive/",
+   "replacement_url": "https://sustainability.aboutamazon.com/natural-resources/water",
+   "replacement_kind": "moved",
+   "probe": "HIT",
+   "verbatim": "water positive by 2030",
+   "notes": "Quote phrase present; the record's full sentence is paraphrase-length. Re-check the wording before next refresh."
+  },
+  {
+   "id": "aws-infrastructure-pa-2024",
+   "kind": "claims",
+   "old_url": "https://www.aboutamazon.com/news/aws/aws-pennsylvania-data-center-investment",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "aboutamazon 404; Wayback has no capture. No replacement found. Candidate for removal or a new primary source."
+  },
+  {
+   "id": "xai-memphis-tn-tax-100m",
+   "kind": "claims",
+   "old_url": "https://www.tomshardware.com/...",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Resource link only; claim source is Memphis Chamber. Wayback 404. Drop the resource."
+  },
+  {
+   "id": "meta-jobs-construction-cumulative",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "replacement_url": "https://web.archive.org/web/20260616182841/https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Since 2011, Meta data center projects have supported more than 45,000 skilled trade jobs during construction — with 15,000+ currently on a data center site",
+   "notes": "Live page removed; 2026-06-16 snapshot carries the figures."
+  },
+  {
+   "id": "meta-jobs-operational-cumulative",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "replacement_url": "https://web.archive.org/web/20260616182841/https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "created more than 6,000 permanent operational roles",
+   "notes": "Same snapshot."
+  },
+  {
+   "id": "meta-levelup-fiber-workforce-2026",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "replacement_url": "https://web.archive.org/web/20260616182841/https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "We know that the future of AI infrastructure depends on a highly skilled workforce",
+   "notes": "Same snapshot."
+  },
+  {
+   "id": "qts-dane-county-wi-community-commitment",
+   "kind": "claims",
+   "old_url": "https://q.com/news/qts-advances-plans-...-dane-county/",
+   "replacement_url": "https://web.archive.org/web/20260519044626/https://q.com/news/qts-advances-plans-for-state-of-the-art-data-center-campus-and-announces-50-million-community-commitment-for-dane-county/",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "to love each other, serve communities, and connect the world",
+   "notes": "Live article removed; 2026-05-19 snapshot carries the release."
+  },
+  {
+   "id": "qts-dane-county-education-2025",
+   "kind": "claims",
+   "old_url": "https://qtsdatacenters.com/data-centers/dane-county-wi/",
+   "replacement_url": "https://web.archive.org/web/20260519044626/https://q.com/news/qts-advances-plans-for-state-of-the-art-data-center-campus-and-announces-50-million-community-commitment-for-dane-county/",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Fund scholarships and workforce partnerships with Madison Area Technical College",
+   "notes": "Record paraphrases this; the release text is the imperative 'Fund ... Develop ...' list."
+  },
+  {
+   "id": "meta-prineville-or-water-stewardship-pdf",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20251119082825/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Meta’s goal is to be water positive in 2030, where we restore more water than we consume.",
+   "notes": "Current 2026-09 sheet has different wording ('Our goal is to be water positive...'). Record cites the 2025 sheet."
+  },
+  {
+   "id": "meta-prineville-or-community-grants-school-funding",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20251119082825/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Direct funding to Crook County- area schools and nonprofits $5.3M+",
+   "notes": "Current 2026-09 sheet says $5.7M+. Record is superseded, not wrong when dated 2025."
+  },
+  {
+   "id": "meta-prineville-or-energy-pacificorp-mw",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20251119082825/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Meta-supported projects are adding 977 megawatts of new renewable energy to PacifiCorp’s grid",
+   "notes": "Current sheet says 220 MW for Oregon. Superseded."
+  },
+  {
+   "id": "meta-newton-ga-investment-1.5b",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20260610195205/https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "$1.5B+ Data center investment in Georgia",
+   "notes": "Current sheet says $2B+."
+  },
+  {
+   "id": "meta-newton-ga-community-grants-school-funding",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20260610195205/https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "$4.5M+ Direct funding to schools and nonprofits in the Stanton Springs area",
+   "notes": "Current sheet says $5.6M+."
+  },
+  {
+   "id": "meta-newton-ga-water-onsite-efficiency",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "replacement_url": "https://datacenters.atmeta.com/asset/stanton-springs-data-center-info-sheet/",
+   "replacement_kind": "moved",
+   "probe": "HIT",
+   "verbatim": "Using cooling technology that is significantly more water efficient than the industry standard",
+   "notes": "Current 2026 sheet carries it; the 2026-06 Wayback copy also does."
+  },
+  {
+   "id": "meta-newton-ga-education-robotics-2025",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20260610195205/https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Newton College and Career Academy",
+   "notes": "Snapshot text confirms the robotics partnership sentence."
+  },
+  {
+   "id": "meta-richland-la-energy-1500-mw",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2024/12/Metas-Richland-Parish-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20251224070843/https://datacenters.atmeta.com/wp-content/uploads/2024/12/Metas-Richland-Parish-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "In Louisiana, we are working with Entergy to bring at least 1,500 megawatts of new renewable energy to the grid.",
+   "notes": "Current Richland sheet has no MW figure. Dec-2024 sheet only."
+  },
+  {
+   "id": "meta-huntsville-al-community-grants",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20260630010702/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Direct funding to Madison County- area schools and nonprofits $3.9M+",
+   "notes": "Current sheet says $4.5M+."
+  },
+  {
+   "id": "meta-huntsville-al-energy-tva",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20260630010702/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "Meta’s supported projects are adding 227 megawatts of new renewable energy in Alabama",
+   "notes": "Same snapshot."
+  },
+  {
+   "id": "meta-huntsville-al-education",
+   "kind": "claims",
+   "old_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "replacement_url": "https://web.archive.org/web/20260630010702/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "replacement_kind": "wayback",
+   "probe": "HIT",
+   "verbatim": "We proudly support all three public school systems in Madison County.",
+   "notes": "Same snapshot."
+  },
+  {
+   "id": "amazon-shreveport-jobs-klein-2026",
+   "kind": "claims",
+   "old_url": "https://www.ktbs.com/...",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "KTBS 404; Wayback capture is nav shell only. Not located; no search run for Klein quote."
+  },
+  {
+   "id": "meta-newton-ga",
+   "kind": "projects",
+   "old_url": "https://datacenters.atmeta.com/location/newton/",
+   "replacement_url": "https://datacenters.atmeta.com/2026/04/operating-responsibly-at-the-stanton-springs-data-center/",
+   "replacement_kind": "moved",
+   "probe": "HIT",
+   "verbatim": "We do not utilize groundwater in our operations",
+   "notes": "Project note says large groundwater withdrawals were reported by local news. The replacement page says the opposite about its own operations. The note needs a news source, not this page."
+  },
+  {
+   "id": "google-the-dalles-or",
+   "kind": "projects",
+   "old_url": "https://datacenters.google/locations/the-dalles/",
+   "replacement_url": "https://datacenters.google/locations/oregon/",
+   "replacement_kind": "moved",
+   "probe": "HIT",
+   "verbatim": "The Dalles, Oregon – Google Data Center Location",
+   "notes": "Project note's OPB water-use facts are not on the Google page; they need the OPB source."
+  },
+  {
+   "id": "google-mesa-az",
+   "kind": "projects",
+   "old_url": "https://datacenters.google/locations/mesa/",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Locations index has no Mesa or Arizona page."
+  },
+  {
+   "id": "ms-quincy-wa",
+   "kind": "projects",
+   "old_url": "https://news.microsoft.com/source/topics/datacenters/",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "news.microsoft.com/source/ has no Quincy page."
+  },
+  {
+   "id": "ms-goodyear-az",
+   "kind": "projects",
+   "old_url": "https://news.microsoft.com/source/topics/datacenters/",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "No Goodyear page on news.microsoft.com/source/."
+  },
+  {
+   "id": "aws-new-carlisle-in",
+   "kind": "projects",
+   "old_url": "https://www.aboutamazon.com/news/aws/aws-investing-11-billion-indiana-data-centers",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Not searched further. The 2024 release is a dead link; the 2026 IDEM facts are from other sources."
+  },
+  {
+   "id": "resp-meta-prineville-positive",
+   "kind": "responses",
+   "old_url": "https://co.crook.or.us/...",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Redirects to crookcountyor.gov homepage, which is not a fix."
+  },
+  {
+   "id": "resp-google-lagrange-residents-mixed",
+   "kind": "responses",
+   "old_url": "https://www.wtvm.com/2026/04/29/...",
+   "replacement_url": "https://web.archive.org/web/20260501112442/https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/",
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Wayback snapshot is a station shell, not the article. Not verified."
+  },
+  {
+   "id": "resp-amazon-bossier-jury-approval",
+   "kind": "responses",
+   "old_url": "https://www.westcentralsbest.com/...",
+   "replacement_url": "https://web.archive.org/web/20260319081142/https://www.westcentralsbest.com/news/state/bossier-parish-police-jury-backs-amazon-data-center/article_b3bdd091-79ec-577b-b286-9372a17e402d.html",
+   "replacement_kind": "wayback",
+   "probe": "PARTIAL",
+   "verbatim": "The Bossier Parish Police Jury has unanimously approved plans for a new Amazon data center",
+   "notes": "Core fact on the 2026-03-19 snapshot. The Salzer quote in the record is not in the archived text."
+  },
+  {
+   "id": "resp-google-lima-epa-hearing-negative",
+   "kind": "responses",
+   "old_url": "https://www.hometownstations.com/...",
+   "replacement_url": "https://web.archive.org/web/20260320063911/https://www.hometownstations.com/news/allen_county/lima-residents-voice-health-concerns-over-proposed-data-center-generators-at-ohio-epa-meeting/article_88f81135-28cc-4db2-bcb0-0255abfb5dc5.html",
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Snapshot lacks 115 generators, 36 cooling towers, PFAS, VOC. Not verified."
+  },
+  {
+   "id": "boise-id-2026-05",
+   "kind": "moratoriums",
+   "old_url": "https://www.boise.org/",
+   "replacement_url": "https://visitboise.com/",
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Redirect lands on a tourism homepage; not a source for a moratorium. Homepage-only citation, same shape as HOMEPAGE_SOURCED_MORATORIUMS."
+  },
+  {
+   "id": "new-hampshire-state-2026-04",
+   "kind": "moratoriums",
+   "old_url": "https://www.gencourt.state.nh.us/bill_status/...",
+   "replacement_url": "https://gc.nh.gov/bill_status/legacy/bs2016/billText.aspx?sy=2026&id=1265&txtFormat=html",
+   "replacement_kind": "moved",
+   "probe": "NOT_RUN",
+   "verbatim": null,
+   "notes": "Domain moved. Bill text not probed for the ITL vote."
+  },
+  {
+   "id": "georgia-power-large-load-rules",
+   "kind": "tariffs",
+   "old_url": "https://psc.ga.gov/site/downloads/datacenterfactsheet.pdf",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "404; Wayback 404. Not found."
+  },
+  {
+   "id": "al-sb270-act2026-610-2026",
+   "kind": "policies",
+   "old_url": "https://psc.alabama.gov/docket-33709-public-comment-and-reply-info/",
+   "replacement_url": null,
+   "replacement_kind": "none",
+   "probe": null,
+   "verbatim": null,
+   "notes": "Page returns 404 content. Not found."
+  },
+  {
+   "id": "in-reliance-jamnagar-meta / in-claim-reliance-jamnagar-desal",
+   "kind": "international",
+   "old_url": "https://rilstaticasset.akamaized.net/...",
+   "replacement_url": "https://www.ril.com/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+   "replacement_kind": "moved",
+   "probe": "NOT_RUN",
+   "verbatim": null,
+   "notes": "Redirect, not dead. Desal claim not probed."
+  }
+ ],
+ "stale": [
+  {
+   "id": "cleveland-city-2026-04",
+   "outcome": "extended",
+   "date": "2026-10-19",
+   "source_url": "https://www.cleveland19.com/2026/10/20/cleveland-city-council-extends-moratorium-data-centers/",
+   "verbatim": "The extended moratorium will run through January 29, 2027",
+   "probe": "HIT",
+   "notes": "Council extended three months Monday night. Clears on new regulations or 2027-01-29. Cleveland Scene described the vote as pending before passage."
+  },
+  {
+   "id": "athens-clarke-county-ga-2025-12",
+   "outcome": "replaced",
+   "date": "2026-04-07",
+   "source_url": "https://www.wuga.org/local-news/2026-04-09/athens-clarke-county-data-center-ban-lifted-replaced-with-ordinance",
+   "verbatim": "The Athens-Clarke County Commission voted to lift the temporary ban on new data centers this week and replace it with regulations.",
+   "probe": "HIT",
+   "notes": "Commission voted 'Tuesday night' per the article dated 2026-04-09, so the vote was 2026-04-07. The March 2026 extension to June 5 is in Flagpole, unverified here. Closed-loop cooling and the industrial-zone limit come from search summaries, not the WUGA page (MISS)."
+  },
+  {
+   "id": "kiowa-county-co-2026-04",
+   "outcome": "extended",
+   "date": "2026-09-24",
+   "source_url": "https://kiowacountypress.net/content/kiowa-county-commissioners-meeting-minutes-september-24-2026",
+   "verbatim": "Oswald moved to extend the moratorium to 18 months",
+   "probe": "HIT",
+   "notes": "Minutes of 2026-09-24 record 'Oswald moved to extend the moratorium to 18 months ... Motion carried' before the Oct 9 end date. The formal resolution number is not on the page."
+  }
+ ]
+}

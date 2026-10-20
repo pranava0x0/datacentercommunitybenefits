@@ -1,0 +1,623 @@
+[
+ {
+  "id": "google-franklin-furnace-energy-pay-100pct-2026",
+  "class": "paraphrase",
+  "old_url": "https://www.wsaz.com/2026/05/15/google-hosts-data-center-information-fair/",
+  "new_url": "https://www.wsaz.com/2026/05/15/google-hosts-data-center-information-fair/",
+  "verbatim_found": "Google will pay 100% of the electric required to run the campus along with paying AEP to provide infrastructure locally.",
+  "probe": "HIT",
+  "notes": "Page has the sentence without 'in Ohio'. Claim is RATEPAYER EVIDENCE (affirmed on google-franklin-furnace-oh). Source is a local TV outlet quoting Google's event; confirm the speaker is a Google representative before keeping affirmed."
+ },
+ {
+  "id": "meta-lebanon-energy-pay-full-costs-2026",
+  "class": "paraphrase",
+  "old_url": "https://datacenters.atmeta.com/2026/02/hello-lebanon/",
+  "new_url": "https://datacenters.atmeta.com/2026/02/hello-lebanon/",
+  "verbatim_found": "ensure we are paying the full costs for the energy used by our data centers so consumers are not negatively impacted.",
+  "probe": "HIT",
+  "notes": "Claim wording differs from page wording; page sentence is the verbatim one."
+ },
+ {
+  "id": "google-pine-island-energy-pay-grid-costs-2026",
+  "class": "paraphrase",
+  "old_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
+  "new_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
+  "verbatim_found": "With Xcel Energy supplying energy for the new data center, Google will pay all costs associated with our electric service.",
+  "probe": "HIT",
+  "notes": "The '100% of the costs for new grid infrastructure' wording is not on the page. Page says 'all costs associated with our electric service'. Claim is not a ratepayer evidence record but supports the pine-island assessment context."
+ },
+ {
+  "id": "meta-energy-renewable-match",
+  "class": "paraphrase",
+  "old_url": "https://sustainability.atmeta.com/",
+  "new_url": "https://sustainability.atmeta.com/",
+  "verbatim_found": "Continue to match 100% of our electricity use with renewable energy.",
+  "probe": "HIT",
+  "notes": "Page states a forward goal, not the since-2020 claim. Wayback snapshot not yet checked; do not keep the since-2020 wording without one."
+ },
+ {
+  "id": "meta-richland-la-jobs-construction",
+  "class": "not_found",
+  "old_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+  "new_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+  "verbatim_found": "7,500+ Skilled trade workers onsite at peak construction",
+  "probe": "n/a",
+  "notes": "Figure contradicted: current page says 7,500+ (claim says 5,000+). Curator must correct the figure, not just the URL."
+ },
+ {
+  "id": "meta-richland-la-jobs-operational",
+  "class": "not_found",
+  "old_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+  "new_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+  "verbatim_found": "1,000 Operational jobs supported, once completed",
+  "probe": "n/a",
+  "notes": "Figure contradicted: current page says 1,000 (claim says 500+). Curator must correct the figure."
+ },
+ {
+  "id": "meta-richland-la-community-grants-entergy",
+  "class": "paraphrase",
+  "old_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+  "new_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+  "verbatim_found": "We are also contributing $15 million to Entergy's customer assistance program.",
+  "probe": "HIT",
+  "notes": "Same page; claim omits 'also'. Use the page sentence."
+ },
+ {
+  "id": "meta-richland-la-education-robotics-delhi",
+  "class": "on_page_js",
+  "old_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+  "new_url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+  "verbatim_found": "the robotics program at the Delhi Charter School; mixed reality workforce development at the Richland Parish Schools",
+  "probe": "HIT",
+  "notes": "Confirmed by WebFetch on the cited page. Keep."
+ },
+ {
+  "id": "xai-memphis-tn-jobs-500-initial",
+  "class": "not_found",
+  "old_url": "https://memphischamber.com/economic-development/xai/",
+  "new_url": "https://memphischamber.com/economic-development/xai/",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Cited page has no 500-jobs statement. Not yet searched elsewhere; candidate for removal unless a first-party source is found."
+ },
+ {
+  "id": "xai-memphis-tn-tax-100m",
+  "class": "not_found",
+  "old_url": "https://memphischamber.com/economic-development/xai/",
+  "new_url": "https://memphischamber.com/economic-development/xai/",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Cited page has no tax-revenue statement. Candidate for removal unless found elsewhere."
+ },
+ {
+  "id": "xai-memphis-tn-water-recycling-80m",
+  "class": "not_found",
+  "old_url": "https://memphischamber.com/economic-development/xai/",
+  "new_url": "https://memphischamber.com/economic-development/xai/",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Cited page has no wastewater recycling statement. Candidate for removal unless found elsewhere."
+ },
+ {
+  "id": "xai-memphis-tn-infrastructure-substations",
+  "class": "not_found",
+  "old_url": "https://memphischamber.com/economic-development/xai/",
+  "new_url": "https://memphischamber.com/economic-development/xai/",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Cited page has no substation statement. Candidate for removal unless found elsewhere."
+ },
+ {
+  "id": "xai-energy-no-grid-power-emergencies",
+  "class": "not_found",
+  "old_url": "https://memphischamber.com/economic-development/xai/",
+  "new_url": "https://memphischamber.com/economic-development/xai/",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Cited page has no emergency-power statement. Candidate for removal unless found elsewhere."
+ },
+ {
+  "id": "aws-new-carlisle-in-investment",
+  "class": "paraphrase",
+  "old_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+  "new_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+  "verbatim_found": "Amazon plans to invest an additional $15 billion in Northern Indiana to build data center campuses",
+  "probe": "HIT",
+  "notes": "Page key takeaway omits 'new'. Claim has 'new data center campuses to support AI and cloud computing'. Use the page sentence."
+ },
+ {
+  "id": "aws-new-carlisle-in-community-fund",
+  "class": "on_page_js",
+  "old_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+  "new_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+  "verbatim_found": "we will launch the Amazon Community Fund in the communities where we will build and operate",
+  "probe": "HIT",
+  "notes": "Confirmed by WebFetch. Claim tail (STEM education etc.) not individually checked."
+ },
+ {
+  "id": "aws-new-carlisle-in-state-gdp",
+  "class": "on_page_js",
+  "old_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+  "new_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+  "verbatim_found": "Since 2010, Amazon has invested more than $31.3 billion in Indiana",
+  "probe": "HIT",
+  "notes": "First clause confirmed. The '$29.9 billion to state GDP' clause was NOT checked; verify before keeping the full statement."
+ },
+ {
+  "id": "google-the-dalles-or-infrastructure-investment",
+  "class": "not_found",
+  "old_url": "https://datacenters.google/locations/oregon/",
+  "new_url": "https://datacenters.google/locations/oregon/",
+  "verbatim_found": "Google has invested more than $7 billion in Oregon since building our data center in The Dalles in 2006.",
+  "probe": "n/a",
+  "notes": "Live page drifted: says $7B since 2006, claim says $2.4B. Wayback snapshot near captured_at NOT checked (budget). Figure must be updated or the claim removed."
+ },
+ {
+  "id": "google-the-dalles-or-community-grants-philanthropy",
+  "class": "not_found",
+  "old_url": "https://datacenters.google/locations/oregon/",
+  "new_url": "https://datacenters.google/locations/oregon/",
+  "verbatim_found": "Since 2004, Google and Googlers have given more than $35 million in philanthropic giving",
+  "probe": "n/a",
+  "notes": "Live page says $35M since 2004, claim says $31M since 2004. Figure drift; Wayback not checked."
+ },
+ {
+  "id": "google-the-dalles-or-education-digital-skills",
+  "class": "not_found",
+  "old_url": "https://datacenters.google/locations/oregon/",
+  "new_url": "https://datacenters.google/locations/oregon/",
+  "verbatim_found": "Grow with Google has partnered with over 100 organizations in Oregon to train more than 124,000 Oregonians",
+  "probe": "n/a",
+  "notes": "Live page: 100+ orgs / 124,000+; claim: 120+ / 111,000. Figure drift; Wayback not checked."
+ },
+ {
+  "id": "google-council-bluffs-ia-infrastructure-investment",
+  "class": "not_found",
+  "old_url": "https://datacenters.google/locations/iowa/",
+  "new_url": "https://datacenters.google/locations/iowa/",
+  "verbatim_found": "Google has invested more than $20 billion in Iowa since building our data center in Council Bluffs in 2007.",
+  "probe": "n/a",
+  "notes": "Live page $20B; claim $6.8B. Figure drift; Wayback not checked."
+ },
+ {
+  "id": "google-council-bluffs-ia-engagement-economic-activity",
+  "class": "not_found",
+  "old_url": "https://datacenters.google/locations/iowa/",
+  "new_url": "https://datacenters.google/locations/iowa/",
+  "verbatim_found": "In 2025, Google helped provide $2.7 billion of economic activity for thousands of Iowa businesses",
+  "probe": "n/a",
+  "notes": "Live page is 2025 / $2.7B; claim is 2024 / $2.1B. Figure drift."
+ },
+ {
+  "id": "google-council-bluffs-ia-education-digital-skills",
+  "class": "not_found",
+  "old_url": "https://datacenters.google/locations/iowa/",
+  "new_url": "https://datacenters.google/locations/iowa/",
+  "verbatim_found": "Grow with Google has partnered with over 100 organizations in Iowa to train more than 112,000 Iowans on digital skills.",
+  "probe": "n/a",
+  "notes": "Live page 100+ / 112,000; claim 130+ / 101,000. Figure drift."
+ },
+ {
+  "id": "google-engagement-virginia-philanthropy",
+  "class": "not_found",
+  "old_url": "https://datacenters.google/locations/virginia",
+  "new_url": "https://datacenters.google/locations/virginia",
+  "verbatim_found": "Since 2006, Google and Googlers have given more than $66 million in funding.",
+  "probe": "n/a",
+  "notes": "Live page $66M since 2006; claim $59M. Figure drift."
+ },
+ {
+  "id": "aws-cumberland-pa-investment",
+  "class": "paraphrase",
+  "old_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+  "new_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+  "verbatim_found": "Amazon today announced plans to invest at least $20 billion in Pennsylvania to expand our data center infrastructure",
+  "probe": "HIT",
+  "notes": "Page sentence stops before 'to support AI and cloud computing'. Use the page sentence; the AI tail is not on the page."
+ },
+ {
+  "id": "aws-cumberland-pa-education-scholarships",
+  "class": "paraphrase",
+  "old_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+  "new_url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+  "verbatim_found": "This year, we were proud to award eight Pennsylvania high school seniors with Amazon Future Engineer Scholarships.",
+  "probe": "HIT",
+  "notes": "The '$40,000' figure is not on the page. Drop the amount or find a source for it."
+ },
+ {
+  "id": "aws-loudoun-va-energy-solar",
+  "class": "paraphrase",
+  "old_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+  "new_url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+  "verbatim_found": "18 solar farms in Virginia that, once fully operational, will provide enough energy to power 276,000 U.S. homes",
+  "probe": "HIT",
+  "notes": "Page says 'once', claim says 'when'."
+ },
+ {
+  "id": "aws-loudoun-va-community-grants-150k",
+  "class": "paraphrase",
+  "old_url": "https://www.loudountimes.com/news/community/18-nonprofits-awarded-grants-in-loudoun-through-amazon-and-community-foundation-partnership/article_8a4945fa-7773-44e8-8047-f30936634284.html",
+  "new_url": "https://www.loudountimes.com/news/community/18-nonprofits-awarded-grants-in-loudoun-through-amazon-and-community-foundation-partnership/article_8a4945fa-7773-44e8-8047-f30936634284.html",
+  "verbatim_found": "18 nonprofits received grants totaling $150,000, according to a news release.",
+  "probe": "HIT",
+  "notes": "The quoted 'incredible work' sentence is not on the page. Figure matches; the statement is third-party reporting, not an Amazon quote. Consider reclassifying as a CommunityResponse or removing the quote."
+ },
+ {
+  "id": "qts-cedar-rapids-ia-tax-revenue-ratepayer-pledge",
+  "class": "on_page_js",
+  "old_url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
+  "new_url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
+  "verbatim_found": "We can pay our own way.",
+  "probe": "HIT",
+  "notes": "Confirmed; attributed to QTS Co-CEO Thomas 'Tag' Greason in the article (named-exec quote, first-party bar met). This is a ratepayer-linked claim: keep. Claim statement continues beyond the confirmed text; the second sentence was checked too."
+ },
+ {
+  "id": "aws-new-carlisle-in-infrastructure-roads",
+  "class": "paraphrase",
+  "old_url": "https://nwindianabusiness.com/community/business-news/amazon-breaks-ground-on-11b-data-center-campus/67604/",
+  "new_url": "https://nwindianabusiness.com/community/business-news/amazon-breaks-ground-on-11b-data-center-campus/67604/",
+  "verbatim_found": "AWS also will invest $7 million to improve road infrastructure surrounding the development in New Carlisle",
+  "probe": "HIT",
+  "notes": "Page says 'road infrastructure', claim says 'roads'. Third-party reporting of an AWS statement; check whether it is an AWS quote."
+ },
+ {
+  "id": "google-franklin-furnace-engagement-2026",
+  "class": "paraphrase",
+  "old_url": "https://sciotocountydailynews.com/google-speaks-out-on-scioto-county-data-center/",
+  "new_url": "https://sciotocountydailynews.com/google-speaks-out-on-scioto-county-data-center/",
+  "verbatim_found": "We are still very early in the process, working closely with the local stakeholders.",
+  "probe": "HIT",
+  "notes": "Page says 'local stakeholders', claim says 'local leadership'. Speaker is Molly Kocour Boyle, Head of Midwest Data Center Public Affairs, Google (first-party)."
+ },
+ {
+  "id": "microsoft-water-intensity-40pct-2026",
+  "class": "paraphrase",
+  "old_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+  "new_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+  "verbatim_found": "we are committed as a company to a 40 percent improvement in datacenter water-use intensity by 2030.",
+  "probe": "HIT",
+  "notes": "Page is a commitment ('committed to'), claim states it as a guaranteed achievement ('will achieve'). Use the page sentence."
+ },
+ {
+  "id": "microsoft-leesburg-va-infrastructure-water-2026",
+  "class": "on_page_js",
+  "old_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+  "new_url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+  "verbatim_found": "near our datacenter in Leesburg, Virginia, Microsoft is funding more than $25 million of water and sewer improvements.",
+  "probe": "HIT",
+  "notes": "Confirmed by WebFetch on the cited page."
+ },
+ {
+  "id": "aws-calvert-cliffs-md-energy",
+  "class": "paraphrase",
+  "old_url": "https://thebaynet.com/amazon-introduces-potential-calvert-county-data-center-emphasizes-infrastructure-workforce-and-growth/",
+  "new_url": "https://thebaynet.com/amazon-introduces-potential-calvert-county-data-center-emphasizes-infrastructure-workforce-and-growth/",
+  "verbatim_found": "Amazon pays its full electricity costs while making substantial investments",
+  "probe": "HIT",
+  "notes": "Spokesperson Nicole Morales. Full quote on page continues with 'in generation and transmission ... infrastructure'; claim text dropped 'generation and transmission'. Use full page sentence when probing."
+ },
+ {
+  "id": "openai-lordstown-oh-softbank-investment",
+  "class": "not_found",
+  "old_url": "https://businessjournaldaily.com/lordstown-data-center-to-be-operational-next-year/",
+  "new_url": "https://businessjournaldaily.com/lordstown-data-center-to-be-operational-next-year/",
+  "verbatim_found": "In early August, Foxconn announced it had sold the plant and equipment to SoftBank for $375 million.",
+  "probe": "n/a",
+  "notes": "No '$3 billion' figure on page; page reports a $375M sale. Figure contradicted; remove or correct."
+ },
+ {
+  "id": "google-oklahoma-engagement-porat-mayes-2026",
+  "class": "not_found",
+  "old_url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
+  "new_url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
+  "verbatim_found": "Google is investing an additional $9 billion in Oklahoma within the next two years in cloud and AI infrastructure.",
+  "probe": "n/a",
+  "notes": "'proudly called Oklahoma home' sentence is absent. Page names Ruth Porat but quotes no one directly. Closest real sentence given; the claim's quote is not on the page."
+ },
+ {
+  "id": "google-oklahoma-energy-porat-innovation-2026",
+  "class": "not_found",
+  "old_url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
+  "new_url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
+  "verbatim_found": "This is an extraordinary time for American innovation.",
+  "probe": "n/a",
+  "notes": "'helping to power a new era of American innovation' not on page. Closest sentence given; the claim's wording is not present."
+ },
+ {
+  "id": "google-lea-county-water-closed-loop-2026",
+  "class": "paraphrase",
+  "old_url": "https://leacountydatacenter.com/",
+  "new_url": "https://leacountydatacenter.com/",
+  "verbatim_found": "Our prospective facility in Lea County would be a closed loop, air-cooled facility to minimize impacts on local watersheds.",
+  "probe": "HIT",
+  "notes": "Owner is Google per page. Claim said 'water resources'; page says 'watersheds'. Use the page sentence."
+ },
+ {
+  "id": "xai-engagement-fabric-mayo",
+  "class": "on_page_js",
+  "old_url": "https://www.actionnews5.com/2025/04/26/emotions-run-high-schd-town-hall-xai-environmental-concerns/",
+  "new_url": "https://www.actionnews5.com/2025/04/26/emotions-run-high-schd-town-hall-xai-environmental-concerns/",
+  "verbatim_found": "As xAl and the community continue to grow together, xAl will provide not just more tax revenue but many other important opportunities to continue to strengthen the fabric of the community.",
+  "probe": "HIT",
+  "notes": "Source spells xAI as 'xAl' (lowercase L). Probe may need the source spelling. Statement was prepared by xAI and read by Brent Mayo at a town hall; attribution is to xAI's statement, not Mayo's own words."
+ },
+ {
+  "id": "qts-water-water-free-design",
+  "class": "paraphrase",
+  "old_url": "https://q.com/sustainability/",
+  "new_url": "https://q.com/sustainability/",
+  "verbatim_found": "We consume zero water for cooling",
+  "probe": "HIT",
+  "notes": "Page sentence is shorter and different; claim's 'saving billions of gallons' is not on the page."
+ },
+ {
+  "id": "meta-lebanon-energy-peterson-2026",
+  "class": "paraphrase",
+  "old_url": "https://commercialobserver.com/2026/02/meta-data-center-lebanon-indiana/",
+  "new_url": "https://commercialobserver.com/2026/02/meta-data-center-lebanon-indiana/",
+  "verbatim_found": "Meta also added that it will match 100 percent of its new data center's energy use with clean energy.",
+  "probe": "HIT",
+  "notes": "Peterson (Rachel Peterson, VP of data centers) is the only Meta executive quoted, and her statements do not address energy. The energy sentence is unattributed Meta announcement text. Attribution to Peterson is not supported."
+ },
+ {
+  "id": "oracle-port-washington-energy-altman-2025",
+  "class": "not_found",
+  "old_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
+  "new_url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
+  "verbatim_found": "building the infrastructure that will help ensure everyone can benefit from AI.",
+  "probe": "n/a",
+  "notes": "Claim wording and Altman attribution are not on the page. The page's quote is from Peter Hoeschele (OpenAI, VP industrial compute). Replace or remove."
+ },
+ {
+  "id": "crusoe-energy-abilene-behind-meter",
+  "class": "paraphrase",
+  "old_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure",
+  "new_url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure",
+  "verbatim_found": "The 900MW on-site power plant provides dedicated energy, paired with an MV BESS system,",
+  "probe": "HIT",
+  "notes": "Page sentence is truncated mid-clause in the extraction; the claim's 'designed to enhance operational reliability and grid resilience' phrasing is the page's continuation (WebFetch said the battery pairing is meant to strengthen dependability and the local grid). Re-probe with full sentence."
+ },
+ {
+  "id": "coreweave-energy-polaris-forge-renewable",
+  "class": "not_found",
+  "old_url": "https://www.coreweave.com/blog/coreweave-2025-annual-report-shareholder-letter",
+  "new_url": "https://www.coreweave.com/blog/coreweave-2025-annual-report-shareholder-letter",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Cited page does not mention Polaris Forge, North Dakota, or renewable power. Wayback not checked (budget). Remove or find the first-party source."
+ },
+ {
+  "id": "amazon-clinton-water-wehner-2026",
+  "class": "not_found",
+  "old_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+  "new_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+  "verbatim_found": "In Clinton, no water will be used at the Amazon data center",
+  "probe": "n/a",
+  "notes": "Quote not on page. Only a reporter paraphrase (no quotation marks, attributed to Wehner by the reporter), which CLAUDE.md rejects. Remove or source a direct Amazon quote."
+ },
+ {
+  "id": "amazon-clinton-jobs-wehner-2026",
+  "class": "not_found",
+  "old_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+  "new_url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+  "verbatim_found": "In Clinton, Amazon is taking over the former Delphi Corporation plant, where 100 new jobs will be created.",
+  "probe": "n/a",
+  "notes": "Quote not on page. Page narration (unattributed) is the closest. Remove or source the direct Wehner quote."
+ },
+ {
+  "id": "prologis-coweta-engagement-process-2025",
+  "class": "paraphrase",
+  "old_url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
+  "new_url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
+  "verbatim_found": "We have continued to communicate with members of the community, including staff and commissioners,",
+  "probe": "HIT",
+  "notes": "Spokesperson Mattie Sorrentino. Prologis sent a separate Dec 24, 2025 statement whose text is not on this page; the claim may be in that statement. Current wording does not match."
+ },
+ {
+  "id": "prologis-coweta-engagement-witt-codes-2025",
+  "class": "on_page_js",
+  "old_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+  "new_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+  "verbatim_found": "A lot of communities don't have any sort of codes or regulations around how these are being constructed.",
+  "probe": "MISS",
+  "notes": "Speaker JC Witt, Prologis SVP data center investments. Confirmed on page. | Probe MISS, but WebFetch confirmed the sentence on the cited page (probe text-extraction issue: AJC page truncated for probe, or non-breaking hyphen in FAST-41)."
+ },
+ {
+  "id": "prologis-coweta-engagement-witt-execute-2025",
+  "class": "on_page_js",
+  "old_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+  "new_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+  "verbatim_found": "Nine hundred megawatts is nothing to take lightly.",
+  "probe": "MISS",
+  "notes": "Speaker JC Witt. Confirmed on page. Claim's second clause ('something we really want to execute on') not separately verified. | Probe MISS, but WebFetch confirmed the sentence on the cited page (probe text-extraction issue: AJC page truncated for probe, or non-breaking hyphen in FAST-41)."
+ },
+ {
+  "id": "prologis-coweta-infrastructure-mason-lines-2025",
+  "class": "on_page_js",
+  "old_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+  "new_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+  "verbatim_found": "What we like, as a company with a conscience, is that there's already this massive Georgia Power generating station",
+  "probe": "MISS",
+  "notes": "Confirmed. Speaker is Kent Mason (Prologis market officer), not Witt. Attribution must read Mason. Full sentence continues past the fragment ('and the lines are there'). | Probe MISS, but WebFetch confirmed the sentence on the cited page (probe text-extraction issue: AJC page truncated for probe, or non-breaking hyphen in FAST-41)."
+ },
+ {
+  "id": "google-247-cfe-2030",
+  "class": "not_found",
+  "old_url": "https://sustainability.google/operating-sustainably/",
+  "new_url": "https://sustainability.google/operating-sustainably/",
+  "verbatim_found": "Mature carbon-free energy sources, such as solar, wind, and hydropower, remain our most critical operational lever",
+  "probe": "n/a",
+  "notes": "24/7 CFE 2030 goal sentence is not on the page. Closest sentence is a different claim. Wayback not checked (budget). Keep only if a snapshot or other first-party page has the goal."
+ },
+ {
+  "id": "google-water-replenish-120",
+  "class": "not_found",
+  "old_url": "https://sustainability.google/commitments/water/",
+  "new_url": "https://sustainability.google/commitments/water/",
+  "verbatim_found": "Our water stewardship projects replenished approximately 64% of our freshwater consumption, or 4.5 billion gallons",
+  "probe": "n/a",
+  "notes": "The 120% by-2030 target is not on the page; page reports a 2024 result of ~64%. Target may have been dropped or reworded. Verify before keeping."
+ },
+ {
+  "id": "ms-water-positive-2030",
+  "class": "paraphrase",
+  "old_url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
+  "new_url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
+  "verbatim_found": "Getting to water positive by 2030",
+  "probe": "HIT",
+  "notes": "Page has the goal as a heading, without the 'replenishing more water than we consume' definition. Use the heading text or find the definition on a first-party page."
+ },
+ {
+  "id": "ms-carbon-negative-2030",
+  "class": "paraphrase",
+  "old_url": "https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/",
+  "new_url": "https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/",
+  "verbatim_found": "By 2030 Microsoft will be carbon negative, and by 2050 Microsoft will remove from the environment all the carbon",
+  "probe": "HIT",
+  "notes": "Page says 'Microsoft will remove' in 2050 sentence; claim says 'we will remove'. Use the page wording."
+ },
+ {
+  "id": "aws-100-renewable-2023",
+  "class": "not_found",
+  "old_url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
+  "new_url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
+  "verbatim_found": "100% of the electricity consumed by Amazon was matched with renewable energy sources in 2025, for the third consecutive year.",
+  "probe": "n/a",
+  "notes": "Page reports 2025 (third consecutive year), not the 2023 seven-years-early statement. Year and wording differ. Fix the claim to the 2025 sentence or find the 2023 source."
+ },
+ {
+  "id": "meta-water-positive-2030",
+  "class": "paraphrase",
+  "old_url": "https://sustainability.atmeta.com/water/",
+  "new_url": "https://sustainability.atmeta.com/water/",
+  "verbatim_found": "Becoming water positive means that Meta will return more water than we consume in our operations",
+  "probe": "HIT",
+  "notes": "Page sets the 2030 goal in different words; closest first-party sentence given. The 'high and medium water stress' wording is not verbatim."
+ },
+ {
+  "id": "meta-kuna-energy-2022",
+  "class": "paraphrase",
+  "old_url": "https://datacenters.atmeta.com/2022/02/hello-kuna/",
+  "new_url": "https://datacenters.atmeta.com/2022/02/hello-kuna/",
+  "verbatim_found": "For Kuna, we worked closely with Idaho Power to develop and implement a new green tariff",
+  "probe": "HIT",
+  "notes": "Page uses 'we' and 'For Kuna,'. Claim text reads 'Meta worked closely...' and continues past the fragment. Use the page sentence."
+ },
+ {
+  "id": "coreweave-community-grants-hammond-impact-payment",
+  "class": "not_found",
+  "old_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+  "new_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+  "verbatim_found": "The Community Impact Payments the city will be receiving from CoreWeave.",
+  "probe": "n/a",
+  "notes": "Source names CoreWeave's Community Impact Payments but gives no annual figure and no 'up to $4 million' amount. The $4M figure is unsupported by this page. Fix the figure or remove."
+ },
+ {
+  "id": "coreweave-infrastructure-hammond-investment",
+  "class": "paraphrase",
+  "old_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+  "new_url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+  "verbatim_found": "This state-of-the-art, 180-megawatt facility will not only enable us to deliver next-generation cloud solutions",
+  "probe": "HIT",
+  "notes": "Attributed to Brian Venturo, Co-Founder and Chief Strategy Officer, CoreWeave. Page wording is 'state-of-the-art' and 'not only'."
+ },
+ {
+  "id": "qts-richmond-va-fast-41-quote",
+  "class": "on_page_js",
+  "old_url": "https://www.permitting.gov/newsroom/press-releases/first-data-center-project-gains-permitting-councils-fast-41-coverage",
+  "new_url": "https://www.permitting.gov/newsroom/press-releases/first-data-center-project-gains-permitting-councils-fast-41-coverage",
+  "verbatim_found": "FAST-41 provides a clear framework for advancing major infrastructure investments and ensures that projects meet all the requirements of federal permitting",
+  "probe": "MISS",
+  "notes": "Confirmed by WebFetch. Attributed to Ryan Hunter, COO, QTS Data Centers. Page uses a non-breaking hyphen in FAST-41; the probe may need that character. | Probe MISS, but WebFetch confirmed the sentence on the cited page (probe text-extraction issue: AJC page truncated for probe, or non-breaking hyphen in FAST-41)."
+ },
+ {
+  "id": "meta-tulsa-engagement-demasi-proud-2026",
+  "class": "on_page_js",
+  "old_url": "https://siteselection.com/project-bulletin-april-27-2026-lagrange-georgia-durham-north-carolina-tulsa-oklahoma/",
+  "new_url": "https://siteselection.com/project-bulletin-april-27-2026-lagrange-georgia-durham-north-carolina-tulsa-oklahoma/",
+  "verbatim_found": "We’re proud to call Tulsa home as we announce Meta’s first data center in Oklahoma.",
+  "probe": "HIT",
+  "notes": "Confirmed; attributed to Gary Demasi, VP data center strategy, Meta. Page uses curly apostrophes."
+ },
+ {
+  "id": "wonder-valley-jobs-oleary-tucker-2026",
+  "class": "paraphrase",
+  "old_url": "https://www.deseret.com/business/2026/05/14/tucker-carlson-kevin-oleary-utah-data-center-ai-artficial-intelligence-water-use-power-generation-tax-subsidies/",
+  "new_url": "https://www.deseret.com/business/2026/05/14/tucker-carlson-kevin-oleary-utah-data-center-ai-artficial-intelligence-water-use-power-generation-tax-subsidies/",
+  "verbatim_found": "the 10,000 construction jobs and 2,000 permanent jobs that would accompany the first phase of the project",
+  "probe": "HIT",
+  "notes": "Reporter's paraphrase of O'Leary's argument, not a direct quote. Page says 'permanent', claim says 'maintenance'. Treat as third-party reporting."
+ },
+ {
+  "id": "google-berkeley-education-2026",
+  "class": "paraphrase",
+  "old_url": "https://datacenters.google/locations/berkeley-county-south-carolina/",
+  "new_url": "https://datacenters.google/locations/berkeley-county-south-carolina/",
+  "verbatim_found": "The Skilled Trades and Readiness (STAR) Program works alongside organizations like Trident Tech, Palmetto Goodwill",
+  "probe": "HIT",
+  "notes": "Page says 'The Skilled Trades and Readiness (STAR) Program', claim says 'Our Skilled Trades...'. Entry-level-careers clause not confirmed."
+ },
+ {
+  "id": "xai-education-mayo-school-upgrades",
+  "class": "unchecked",
+  "old_url": "",
+  "new_url": "",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Not reached within the fetch budget (about 44 fetches). Needs a second pass."
+ },
+ {
+  "id": "oracle-education-academy-blog-2026",
+  "class": "unchecked",
+  "old_url": "",
+  "new_url": "",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Not reached within the fetch budget (about 44 fetches). Needs a second pass."
+ },
+ {
+  "id": "oracle-jobs-stargate-100k-ellison",
+  "class": "unchecked",
+  "old_url": "",
+  "new_url": "",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Not reached within the fetch budget (about 44 fetches). Needs a second pass."
+ },
+ {
+  "id": "crusoe-abilene-jobs-lochmiller-2024",
+  "class": "unchecked",
+  "old_url": "",
+  "new_url": "",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Not reached within the fetch budget (about 44 fetches). Needs a second pass."
+ },
+ {
+  "id": "oracle-abilene-water-magouyrk-2025",
+  "class": "unchecked",
+  "old_url": "",
+  "new_url": "",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Not reached within the fetch budget (about 44 fetches). Needs a second pass."
+ },
+ {
+  "id": "crusoe-energy-abilene-ge-vernova-scr-2025",
+  "class": "unchecked",
+  "old_url": "",
+  "new_url": "",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Not reached within the fetch budget (about 44 fetches). Needs a second pass."
+ },
+ {
+  "id": "meta-los-lunas-water-2021",
+  "class": "unchecked",
+  "old_url": "",
+  "new_url": "",
+  "verbatim_found": "",
+  "probe": "n/a",
+  "notes": "Not reached within the fetch budget (about 44 fetches). Needs a second pass."
+ }
+]
