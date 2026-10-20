@@ -65,6 +65,7 @@ def test_a_source_that_lists_nothing_is_reported_not_silently_skipped() -> None:
     srcs = [{"name": "Gone", "country": "US", "url": "https://gone.example/news", "kind": "listing"}]
     rep = ss.scan(srcs, fetcher=fake({}), sleep=lambda s: None)
     assert rep["dead_sources"] and rep["dead_sources"][0]["status"] == 404
+    assert not rep["failed_fetches"]
 
 
 def test_committed_sources_file_is_valid() -> None:
@@ -82,3 +83,23 @@ def test_google_news_outlet_is_kept_for_search() -> None:
     feed = """<rss><channel><item><title>Data center vote delayed</title>
 <link>https://news.google.com/rss/articles/abc</link><source url="https://x.example">Example Times</source></item></channel></rss>"""
     assert ss.parse_feed(feed) == [("Data center vote delayed [Example Times]", "https://news.google.com/rss/articles/abc")]
+
+
+def test_transient_failures_are_retried_and_not_reported_as_dead() -> None:
+    calls = []
+    def flaky(url):
+        calls.append(url)
+        return (503, url, "") if len(calls) == 1 else (200, url, RSS)
+    srcs = [{"name": "R", "country": "US", "url": "https://news.example/rss", "kind": "rss"}]
+    rep = ss.scan(srcs, fetcher=flaky, sleep=lambda s: None)
+    assert len(calls) == 2 and rep["leads"] and not rep["dead_sources"]
+    always = ss.scan(srcs, fetcher=lambda u: (429, u, ""), sleep=lambda s: None)
+    assert not always["dead_sources"] and always["failed_fetches"][0]["status"] == 429
+
+
+def test_malformed_feed_is_a_failed_fetch_not_an_empty_one() -> None:
+    srcs = [{"name": "R", "country": "US", "url": "https://news.example/rss", "kind": "rss"}]
+    bad = ss.scan(srcs, fetcher=lambda u: (200, u, "<html>captcha</html"), sleep=lambda s: None)
+    assert bad["failed_fetches"] and not bad["dead_sources"]
+    empty = ss.scan(srcs, fetcher=lambda u: (200, u, "<rss><channel></channel></rss>"), sleep=lambda s: None)
+    assert empty["dead_sources"] and empty["dead_sources"][0]["reason"] == "lists nothing"

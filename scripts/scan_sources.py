@@ -40,6 +40,9 @@ SOURCES_FILE = ROOT / "scripts" / "news_sources.json"
 SEED_DIR = ROOT / "data" / "seed"
 CACHE_DIR = ROOT / ".scan_cache"
 DELAY = 1.5
+BACKOFF = 10.0
+TRANSIENT_STATUSES = {0, 408, 425, 429, 500, 502, 503, 504}
+DEAD_STATUSES = {404, 410}
 
 log = logging.getLogger("scan_sources")
 
@@ -74,6 +77,15 @@ def _raw_fetch(url: str) -> tuple[int, str, str]:
 def is_relevant(title: str) -> bool:
     t = title.lower()
     return any(k in t for k in KEYWORDS)
+
+
+def _looks_like_feed(body: str) -> bool:
+    """A well-formed RSS/Atom document (possibly with zero items)."""
+    try:
+        root = ET.fromstring(body.encode("utf-8") if isinstance(body, str) else body)
+    except ET.ParseError:
+        return False
+    return root.tag.rsplit("}", 1)[-1] in ("rss", "feed", "RDF")
 
 
 def parse_feed(body: str) -> list[tuple[str, str]]:
@@ -161,18 +173,33 @@ def scan(sources: Iterable[dict], fetcher: Fetcher = _raw_fetch, known: Optional
          seen: Optional[set] = None, sleep: Callable[[float], None] = time.sleep) -> dict:
     known = known or set()
     seen = seen if seen is not None else set()
-    leads, dead_sources, last_host = [], [], {}
+    leads, dead_sources, failed, last_host = [], [], [], {}
     for s in sources:
         host = urlparse(s["url"]).hostname or ""
         if host in last_host:
             sleep(DELAY)
         status, final, body = fetcher(s["url"])
+        # A timeout, rate limit or server error is the source having a bad
+        # minute, not a dead URL: retry once with backoff, and report it as a
+        # failed fetch (not a URL to fix) if it still fails.
+        if status in TRANSIENT_STATUSES:
+            sleep(BACKOFF)
+            status, final, body = fetcher(s["url"])
         last_host[host] = True
-        items = parse_feed(body) if s.get("kind") == "rss" else parse_listing(body, final or s["url"])
-        relevant = [(t, u) for t, u in items if is_relevant(t)]
-        if status != 200 or not items:
-            dead_sources.append({"name": s["name"], "url": s["url"], "status": status, "items": len(items)})
+        if status in DEAD_STATUSES:
+            dead_sources.append({"name": s["name"], "url": s["url"], "status": status, "reason": "gone"})
             continue
+        if status != 200:
+            failed.append({"name": s["name"], "url": s["url"], "status": status, "reason": "fetch failed"})
+            continue
+        items = parse_feed(body) if s.get("kind") == "rss" else parse_listing(body, final or s["url"])
+        if s.get("kind") == "rss" and not items and not _looks_like_feed(body):
+            failed.append({"name": s["name"], "url": s["url"], "status": status, "reason": "not a parseable feed"})
+            continue
+        if not items:
+            dead_sources.append({"name": s["name"], "url": s["url"], "status": status, "reason": "lists nothing"})
+            continue
+        relevant = [(t, u) for t, u in items if is_relevant(t)]
         for title, url in relevant:
             n = _norm_url(url)
             if n in known:
@@ -187,7 +214,7 @@ def scan(sources: Iterable[dict], fetcher: Fetcher = _raw_fetch, known: Optional
         if n not in uniq:
             uniq.add(n)
             out.append(l)
-    return {"leads": out, "dead_sources": dead_sources}
+    return {"leads": out, "dead_sources": dead_sources, "failed_fetches": failed}
 
 
 def _load_seen() -> set:
@@ -230,9 +257,13 @@ def main(argv: Optional[list] = None) -> int:
             print(f"- [{l['title']}]({l['url']}) — {l['source']}")
         print()
     if report["dead_sources"]:
-        print("## Sources that listed nothing (fix the URL in scripts/news_sources.json)")
+        print("## Sources that are gone or list nothing (fix the URL in scripts/news_sources.json)")
         for d in report["dead_sources"]:
-            print(f"- {d['name']}: HTTP {d['status']}, {d['items']} links — {d['url']}")
+            print(f"- {d['name']}: HTTP {d['status']}, {d['reason']} — {d['url']}")
+    if report["failed_fetches"]:
+        print("\n## Fetches that failed this run (retry later; not a URL problem)")
+        for d in report["failed_fetches"]:
+            print(f"- {d['name']}: HTTP {d['status']}, {d['reason']} — {d['url']}")
     return 1 if args.check_sources and report["dead_sources"] else 0
 
 
