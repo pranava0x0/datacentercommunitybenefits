@@ -4928,14 +4928,11 @@ function statusWords(counts) {
 function renderMatrix() {
   const headRow = document.getElementById("matrix-head-row");
   const body = document.getElementById("matrix-body");
-  headRow.innerHTML = "";
+  // The "Company" corner cell is authored once in index.html (an empty <tr>
+  // is invalid HTML); only the theme columns are rebuilt here.
+  while (headRow.children.length > 1) headRow.lastElementChild.remove();
   body.innerHTML = "";
   setSubtabCount("matrix-count", state.claims.length);
-
-  const corner = document.createElement("th");
-  corner.className = "col-company";
-  corner.textContent = "Company";
-  headRow.appendChild(corner);
 
   for (const t of THEMES) {
     const th = document.createElement("th");
@@ -6562,6 +6559,11 @@ function phonePageMore(key, page) {
 function focusNth(container, n) {
   const item = container && container.children[n];
   if (!item) return;
+  const inner = item.querySelector(".project-card-btn");
+  if (inner) {
+    inner.focus({ preventScroll: false });
+    return;
+  }
   if (!item.hasAttribute("tabindex")) item.tabIndex = -1;
   item.focus({ preventScroll: false });
 }
@@ -6626,7 +6628,6 @@ function renderProjectList() {
   if (sel >= shown) list.appendChild(renderProjectCard(items[sel]));
   if (shown < items.length) {
     const li = el("li", "project-list-more");
-    li.setAttribute("role", "none"); // #project-list is role=group
     const btn = el("button", "btn-ghost", `Show ${Math.min(SITES_PAGE, items.length - shown)} more of ${items.length - shown}`);
     btn.type = "button";
     btn.addEventListener("click", () => {
@@ -6649,9 +6650,6 @@ function renderProjectCard(p) {
   li.className = "project-card";
   li.dataset.projectId = p.id;
   li.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
-  li.tabIndex = 0;
-  li.setAttribute("role", "button");
-  li.setAttribute("aria-label", `${p.name} — view details`);
 
   if (state.selectedProjectId === p.id) li.classList.add("active");
 
@@ -6674,7 +6672,7 @@ function renderProjectCard(p) {
       <span class="status-pill status-${escapeAttr(p.status)}">${escapeHtml(STATUS_LABELS[p.status] || p.status)}</span>
       ${contested ? `<span class="reason-chip">Contested</span>` : ""}
     </div>
-    <p class="project-name">${escapeHtml(p.name)}</p>
+    <p class="project-name"><button type="button" class="project-card-btn" aria-label="${escapeAttr(p.name)} — view details">${escapeHtml(p.name)}</button></p>
     <div class="project-meta">
       <span>${escapeHtml(co ? co.name : p.company_slug)}</span>
       <span>${escapeHtml(p.city)}, ${escapeHtml(p.state)}</span>
@@ -6685,13 +6683,9 @@ function renderProjectCard(p) {
     ${moratoriumBadges ? `<div class="project-moratoriums-row">${moratoriumBadges}</div>` : ""}
   `;
 
+  // The whole card is clickable for pointer users; the name button (stretched
+  // over the card in CSS) carries focus and Enter/Space natively.
   li.addEventListener("click", () => selectProject(p.id));
-  li.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      selectProject(p.id);
-    }
-  });
   return li;
 }
 

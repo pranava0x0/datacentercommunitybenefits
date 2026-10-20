@@ -26,7 +26,8 @@ def test_llms_txt_counts_match_home() -> None:
     totals = json.loads((DOCS / "data" / "home.json").read_text(encoding="utf-8"))["totals"]
     assert text.startswith("# Data Center Community Benefits\n\n> ")
     for key in ("sites", "moratoriums", "policies", "tariffs", "rate_cases"):
-        assert f"{totals[key]} " in text, key
+        label = key.replace("_", " ")
+        assert re.search(rf"\b{totals[key]} {label}\b", text), key
 
 
 def test_llms_txt_lists_every_data_file() -> None:
