@@ -1,0 +1,81 @@
+[
+ {
+  "unit": "state:MD",
+  "type": "policy",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Charles County",
+  "jurisdiction_type": "county",
+  "state": "MD",
+  "title": "Charles County withdraws data center zoning text amendment ZTA 25-187; task force to follow",
+  "event_date": "2026-07-21",
+  "status": "withdrawn",
+  "facts": {
+   "instrument": "zoning text amendment (ZTA 25-187), not a moratorium",
+   "action_taken": "withdrawn by county commissioners (unanimous)",
+   "next_step": "staff to bring back task force / consultant framework; any future legislation needs a new bill"
+  },
+  "summary": "The Charles County Commissioners unanimously voted on July 21, 2026 to remove a proposed zoning text amendment that would have allowed data centers in the county, and to wait for a state report before hiring a consultant and forming a task force.",
+  "source_url": "https://www.somdnews.com/independent/news/local/charles-pulls-data-center-zoning-amendment-awaits-state-report/article_e5aa5fc0-4efd-4ca0-9560-28f6f1aa36f9.html",
+  "source_title": "Southern Maryland News — Charles pulls data center zoning amendment, awaits state report",
+  "verbatims": [
+   "The county commissioners unanimously agreed during Tuesday's meeting to remove the zoning text amendment and to wait for a state report",
+   "a zoning text amendment that would allow the facilities to be built in Charles County was withdrawn"
+  ],
+  "verified": true,
+  "notes": "Event date from article caption (July 21 meeting); county press release (charlescountymd.gov/.../6637/) returned 403 to probe, not read. Local news is the verified source."
+ },
+ {
+  "unit": "state:MD",
+  "type": "policy",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Charles County",
+  "jurisdiction_type": "county",
+  "state": "MD",
+  "title": "Charles Planning Commission unanimously recommends denial of data center zoning text amendment",
+  "event_date": "2026-06-01",
+  "status": "recommended_denial",
+  "facts": {
+   "instrument": "zoning text amendment (ZTA 25-187), revised draft",
+   "zones_proposed": "heavy industrial only (revised from five zones)",
+   "revised_provisions": "non-potable water only; 500 ft setbacks; developer pays infrastructure upgrades"
+  },
+  "summary": "After a four-hour public hearing on June 1, 2026, the Charles County Planning Commission unanimously recommended that the county commissioners deny the revised data center zoning text amendment.",
+  "source_url": "https://www.somdnews.com/independent/news/local/charles-planning-board-recommends-disallowing-data-centers/article_bc6ed7fe-2a09-4522-b16e-3b83b08710ff.html",
+  "source_title": "Southern Maryland News — Charles planning board recommends disallowing data centers",
+  "verbatims": [
+   "the Charles planning commission unanimously recommended denial of the zoning text amendment to allow data centers in the county",
+   "only be built in heavy industrial zones, instead of the five zones originally recommended"
+  ],
+  "verified": true,
+  "notes": "A March 2 planning commission recommendation of denial is reported by other coverage but not verified here; not added. Commissioners later withdrew the ZTA on July 21 (separate record)."
+ },
+ {
+  "unit": "state:PA",
+  "type": "community_response",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Philadelphia",
+  "jurisdiction_type": "city",
+  "state": "PA",
+  "title": "Philadelphia 'No Data Centers in Philly' campaign calls for council moratorium",
+  "event_date": "2026-09-14",
+  "status": "opposed",
+  "facts": {
+   "campaign": "No Data Centers in Philly",
+   "ask": "City Council moratorium on data center construction",
+   "rally": "press conference and rally at City Hall, noon, Monday (computed from article dated Sept 13, 2026)"
+  },
+  "summary": "A campaign of residents and organizations announced a City Hall press conference and rally calling for a Philadelphia City Council data center moratorium, citing that the city has no rules on where data centers can be built. The press release says two potential sites have been identified.",
+  "source_url": "https://whyy.org/articles/data-center-protest-philadelphia/",
+  "source_title": "WHYY — 'Recipe for disaster': Philadelphia activists urge City Council to pass a data center moratorium",
+  "verbatims": [
+   "does not currently have any rules governing where data centers can be built or how communities should be protected",
+   "two potential data center sites have been identified in the southwest and northeast portions of the city",
+   "The \"No Data Centers in Philly\" campaign will hold a press conference and rally on the south apron of City Hall at noon"
+  ],
+  "verified": true,
+  "notes": "Community response, not a council action: no Philadelphia council bill or vote found in the window. The Philly Thrive quote is attributed to an organization; the individual's name is omitted. Sites are not named in this article."
+ }
+]
