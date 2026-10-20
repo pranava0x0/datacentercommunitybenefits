@@ -1,0 +1,262 @@
+[
+  {
+    "id": "ak-sb250-2026-failed",
+    "key_terms": [],
+    "notes": "Cached akleg page is a bill-status stub with hearing testimony lists. No literal bill text was fetched. Needs the SB 250 bill text."
+  },
+  {
+    "id": "ar-hb1444-2025-act548",
+    "key_terms": [],
+    "notes": "The arkleg bill page is JS-rendered; cached text held no bill content. Needs the Act 548 text."
+  },
+  {
+    "id": "barber-county-ks-google-project-helium-2026",
+    "key_terms": [
+      "the agreement includes $5.5 million in community benefit payments to Barber County to help address anticipated County costs related to the construction of Project Helium",
+      "$500,000 by the end of 2026, $3 million in 2027, $1 million in 2028, and $1 million in 2029",
+      "Google will pay 100% of ad valorem property taxes, with no property tax abatement",
+      "provide $5 million in security to help ensure road improvement and maintenance costs are covered",
+      "guarantee a minimum of 300 full time equivalent jobs by the fifth year of project operations",
+      "Google will not drill or construct new water wells on the property"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Barber County press release PDF."
+  },
+  {
+    "id": "ca-sb886-2026",
+    "key_terms": [
+      "This legislation will prevent data centers from shifting costs onto everyday ratepayers",
+      "requiring data centers to demonstrate that the project will not shift costs to ratepayers"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the governor press release. The CPUC tariff deadline and wildfire-cost wording are not on the page, so those terms were dropped."
+  },
+  {
+    "id": "cheyenne-wy-microsoft-cba-rejected-2026",
+    "key_terms": [
+      "Wolfe's proposal outlined collecting $10 million annually for five years starting July 2027",
+      "rejecting an effort to secure a $50 million community benefits agreement",
+      "The council voted to advance the annexation of a 3,500-acre tract of land into the city"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Cowboy State Daily article. The 8-3 vote count was not found literally on the page and was dropped."
+  },
+  {
+    "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
+    "key_terms": [
+      "Doña Ana County Community Industrial Revenue Bonds",
+      "Supplemental Community Investment Funds Value: $6.9 Million",
+      "Support preservation, improvement and protection of key habitats around Doña Ana County"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Dona Ana County economic development page. The 360M PILOT, 50M water, and 600M GRT totals are not on the page and were dropped. Only the IRB, supplemental-fund, and habitat terms are literal."
+  },
+  {
+    "id": "frederick-county-md-quantum-cba-rejected-2026",
+    "key_terms": [
+      "$30 million for renovations to Carroll Manor Elementary School",
+      "extending the moratorium on data center applications until July 1st, 2027",
+      "while also offering to reduce data center development by 20% and potable water consumption by 80%"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the WYPR article. The developer name, Sept 1 application date, and 8-year term were not checked as literal sentences and were dropped."
+  },
+  {
+    "id": "ia-hf976-2025",
+    "key_terms": [
+      "located entirely or in part within a city having a population of more than thirty thousand, according to the most recent decennial federal census, the first ten years of operation in connection with the new construction or addition upon the existing property",
+      "the first fifteen years of operation in connection with the new construction or addition upon the existing property"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Iowa HF 976 PDF on legis.iowa.gov (docs/publications). The BillBook page cited before has no bill text. The indefinite-exemption and registration terms were not found as literal sentences and were dropped.",
+    "new_source_url": "https://www.legis.iowa.gov/docs/publications/LGE/91/HF976.pdf"
+  },
+  {
+    "id": "id-hb895-2026",
+    "key_terms": [
+      "establish limitations on consumptive use of water for cooling certain data centers"
+    ],
+    "probe": "HIT",
+    "notes": "Literal bill summary line from the Idaho legislature H0895 page. The municipal/water-district exception and July 1, 2026 date are not on the page and were dropped."
+  },
+  {
+    "id": "id-hb897-2026-failed",
+    "key_terms": [],
+    "notes": "Not fetched in this pass (budget)."
+  },
+  {
+    "id": "id-hb911-2026",
+    "key_terms": [],
+    "notes": "Cached legislature page is a one-line summary stub; the paraphrased terms (50 MW, PUC contracts, no-harm test) are not on it. Needs H0911 bill text."
+  },
+  {
+    "id": "il-tax-exemption-pause-2026",
+    "key_terms": [
+      "directing the Illinois Department of Commerce and Economic Opportunity (DCEO) to pause processing agreements for the Data Center Investment Program starting July 1",
+      "Existing incentive agreements under the Data Center Investment Program, including those entered into with DCEO before July 1, 2026, will be honored.",
+      "to address the growing impact of data centers on energy affordability and reliability, water resources, and local communities"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the governor press release. The POWER Act (HB 5513) reference is not on the page and was dropped."
+  },
+  {
+    "id": "in-hea1210-2026",
+    "key_terms": [],
+    "notes": "Enrolled PDF fetch returned no extractable text. The Mirror Indy article describes HB 1210 as a payment of 1% of savings on the electricity bill, which does not match the paraphrase, so it was not used. Needs the enrolled text."
+  },
+  {
+    "id": "md-eo-01.01.2026.16-2026",
+    "key_terms": [
+      "with a projected or actual peak electric demand of 25 megawatts or more",
+      "guarantee or collateral requirements, minimum-bill, exit-fee, or similar protections against stranded costs",
+      "Whether the developer has negotiated, or is negotiating in good faith, a community benefits agreement with the host jurisdiction",
+      "with milestones, reporting, clawback provisions, successor assumption",
+      "The report shall include monthly electricity and fuel consumption, sources, peak demand, and backup-generator operating hours"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from COMAR 01.01.2026.16 on regs.maryland.gov. The reporting term is quoted from the report-contents sentence."
+  },
+  {
+    "id": "me-eo5-2026",
+    "key_terms": [
+      "The Council will make recommendations on large-scale data center development in Maine to protect ratepayers, maintain electric grid reliability, minimize environmental impacts",
+      "the 15-person council is charged with delivering policy recommendations and strategies to the Governor and Legislature by January 29, 2027"
+    ],
+    "probe": "HIT",
+    "notes": "The governor press release is the cited source; the EO text itself was not fetched."
+  },
+  {
+    "id": "me-ld713-2026",
+    "key_terms": [
+      "LD 713 defines data centers and excludes them from the Business Equipment Tax Exemption (BETE) and the Dirigo Business Incentive Program",
+      "to Exclude Data Centers from the Business Equipment Tax Exemption and the Dirigo Business Incentives Program"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Maine Senate press release (signed law). The Aug 1, 2026 effective date and the Nov 4, 2026 study date are not on the page and were dropped."
+  },
+  {
+    "id": "mn-hf16-ch12-2025",
+    "key_terms": [
+      "the department may request preapplication information from the data center",
+      "technologies or measures that promote water conservation, the efficient use of water, and watershed health, are reasonably considered",
+      "the commissioner shall require an applicant to conduct an aquifer test as provided under section 103G.287",
+      "The commissioner must collect an annual fee from the qualified large-scale data center",
+      "The fee is based on the qualified large-scale data center's peak demand the utility arranges to serve",
+      "Within three years after being placed in service, a qualified large-scale data center must certify to the commissioner of commerce that the facility has attained certification under one or more of the following sustainable design or green building standards"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the 2025 session law (Chapter 12) on revisor.mn.gov. The 35-year sales-tax extension and the DNR special review wording were not found as literal sentences and were dropped."
+  },
+  {
+    "id": "mo-sb4-2025",
+    "key_terms": [
+      "The schedules should be designed to reflect these customers' representative share of the costs incurred to serve them",
+      "requires electrical corporations to add schedules governing large load customers to their tariffs"
+    ],
+    "probe": "HIT",
+    "notes": "Only the natlawreview article was checked. Its 250,000-customer / 100 MW sentence did not probe as a HIT, so it was dropped. The 12-year minimum term and 80% minimum-take terms are not on the article and were dropped too. The Revisor 393.1640 page cited earlier does not contain the large-load provisions."
+  },
+  {
+    "id": "mt-hb424-2025",
+    "key_terms": [],
+    "notes": "Montana Free Press tracker page is a summary; the 2037 date and retroactivity terms are not on it. Needs the enrolled HB 424."
+  },
+  {
+    "id": "nc-budget2026-electricity-exemption-repeal-2026",
+    "key_terms": [
+      "North Carolina repealed the sales tax exemption on data center electricity while preserving equipment incentives"
+    ],
+    "probe": "HIT",
+    "notes": "Only the DCK article sentence was checked as literal. The budget text was not fetched, and the revenue-estimate and preserved-exemption terms were not checked, so they were dropped."
+  },
+  {
+    "id": "nd-sb2406-2026-failed",
+    "key_terms": [
+      "ban on data center non-disclosure agreements",
+      "Vote fails 32-15"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Valley News Live article. The penalties and public-agency scope terms were not found on the page and were dropped."
+  },
+  {
+    "id": "nj-aspire-cba-2021",
+    "key_terms": [
+      "the developer must have a letter of support for project from the chief executive of the municipality",
+      "must enter into a Community Benefits Agreement and also a Redevelopment"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the NJEDA Aspire page. The July 23, 2026 pause is not on the cached page text and was dropped."
+  },
+  {
+    "id": "nm-sb235-2026-failed",
+    "key_terms": [],
+    "notes": "Not fetched in this pass (budget). Source is a microgrid explainer."
+  },
+  {
+    "id": "oh-hb15-2025",
+    "key_terms": [],
+    "notes": "Ohio House bill page holds status and effective date only; the enrolled PDF URL returned 404. Needs the enrolled HB 15 text."
+  },
+  {
+    "id": "or-hb3546-2025",
+    "key_terms": [
+      "The classification of service must be separate and distinct from classifications of service for other commercial or industrial retail electricity consumers and have its own tariff schedule",
+      "means a facility that uses or is able to use 20 megawatts or more",
+      "Specify the duration of the contract and be for a duration for 10 years or longer",
+      "Obligate the retail electricity consumer to pay a minimum amount or percentage, as determined by the commission",
+      "Other classes of retail electricity consumers paying unwarranted costs"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the enrolled HB 3546-B on olis.oregonlegislature.gov. Replaces the KATU news summary as the cited source.",
+    "new_source_url": "https://olis.oregonlegislature.gov/liz/2025R1/Downloads/MeasureDocument/HB3546/Enrolled"
+  },
+  {
+    "id": "tx-sb6-2025",
+    "key_terms": [
+      "The commission shall establish a demand threshold of 75 megawatts unless the commission determines that a lower threshold is necessary",
+      "The standards must set a flat study fee of at least $100,000 to be paid to the interconnecting electric utility or municipally owned utility for initial transmission screening studies for large loads",
+      "The standards must include a method for a large load customer subject to Subsection (c) to demonstrate site control for the proposed load location",
+      "The standards must include uniform financial commitment requirements for the development of transmission infrastructure needed to serve a large load customer",
+      "the independent organization may direct the applicable electric utility or municipally owned utility to require the large load customer to either deploy the customer's on-site backup generating facilities or curtail load"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the enrolled SB 6 (89R) on capitol.texas.gov tlodocs. The history page cited before is JS-rendered and holds no bill text. The competing-service-request term was not included because its literal wording was not checked.",
+    "new_source_url": "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB00006F.htm"
+  },
+  {
+    "id": "va-hb153-sb94-2026",
+    "key_terms": [
+      "a locality shall require the applicant to submit a site assessment examining the facility's sound profile on residential units and schools within 500 feet of the property boundary",
+      "It sets no decibel ceiling, no water cap, no minimum setback",
+      "will require 100 megawatts or more of electrical power from a retail electric utility"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Roanoke Rambler explainer on the enacted law (not the bill). The water-impact-at-discretion term was not found as a literal sentence and was dropped."
+  },
+  {
+    "id": "va-hb496-2026",
+    "key_terms": [
+      "expects the reporting website to be live January 1, 2027"
+    ],
+    "probe": "HIT",
+    "notes": "The WVTF article says the reporting website is expected to be live on Jan 1 2027, which is not a statement of the statutory effective date. The reporting-categories terms were not found as literal text and were dropped."
+  },
+  {
+    "id": "vt-h727-2026-failed",
+    "key_terms": [
+      "An act relating to sustainable data center deployment",
+      "Veto of the Governor sustained"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the Vermont legislature status page. The large-load, 20 MW, and financing terms were not found literally and were dropped."
+  },
+  {
+    "id": "wi-act19-2023-dcste",
+    "key_terms": [
+      "A company can apply for the exemption based on a plan to invest at least $150 million over five years in a county with population greater than 100,000",
+      "$100 million in a county with population between 50,000 and 100,000"
+    ],
+    "probe": "HIT",
+    "notes": "Literal text from the WEDC program page. The certification and no-dollar-cap terms were not found literally and were dropped."
+  }
+]

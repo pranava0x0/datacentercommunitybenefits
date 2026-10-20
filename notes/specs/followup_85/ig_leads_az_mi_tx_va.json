@@ -1,0 +1,195 @@
+[
+ {
+  "unit": "state:VA",
+  "type": "community_response",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Spotsylvania County",
+  "jurisdiction_type": "county",
+  "state": "VA",
+  "title": "Spotsylvania Board of Supervisors passes 4-2 resolution backing a statewide data center moratorium",
+  "event_date": "2026-08-11",
+  "status": "passed",
+  "facts": {
+   "vote": "4-2",
+   "body": "Spotsylvania County Board of Supervisors",
+   "request": "Support State Senator Glen Sturtevant's call for Gov. Spanberger to issue a statewide moratorium",
+   "dissent": "Supervisors Drew Mullins and Deborah Frazier"
+  },
+  "summary": "The county board voted on a resolution supporting a state senator's call for a statewide data center moratorium. This is a resolution to the governor, not a local moratorium ordinance.",
+  "source_url": "https://wjla.com/news/local/spotsylvania-county-backs-call-for-statewide-moratorium-on-data-centers-abigail-spanberger-ai-energy-use-zoning-decisions",
+  "source_title": "7News / WJLA — Spotsylvania County backs call for statewide moratorium on data centers",
+  "verbatims": [
+   "voted to support State Senator Glen Sturtevant's call for Virginia Gov. Abigail Spanberger to issue a statewide moratorium on data centers. The resolution passed 4-2 with Supervisors Drew Mullins and Deborah Frazier voting against it."
+  ],
+  "verified": true,
+  "notes": "Event date computed: article says 'On Tuesday night' and the agenda label is 8-11-26; article dated 2026-08-12. Probe HIT on both sentences. Not a moratorium record (a resolution, not a pause)."
+ },
+ {
+  "unit": "state:VA",
+  "type": "site_update",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Prince William County",
+  "jurisdiction_type": "county",
+  "state": "VA",
+  "title": "Prince William supervisors decline rezoning for Dulles South Innovation Center data center complex",
+  "event_date": "2026-07-07",
+  "status": "rejected",
+  "facts": {
+   "body": "Prince William County Board of County Supervisors",
+   "decision": "Declined to change zoning rules",
+   "acreage": 1940,
+   "public_comments": ">100",
+   "meeting_length": "five hours"
+  },
+  "summary": "The county board declined to change zoning rules that would have allowed the Dulles South Innovation Center data center complex on 1,940 acres. The article does not report the vote count.",
+  "source_url": "https://www.eenews.net/articles/two-stunning-defeats-shake-virginias-data-center-capital/",
+  "source_title": "E&E News — Two stunning defeats shake Virginia's data center capital",
+  "verbatims": [
+   "Late Tuesday, the Prince William County Board of County Supervisors declined to change zoning rules to allow a sprawling Dulles South Innovation Center data center complex to proceed"
+  ],
+  "verified": true,
+  "notes": "Event date computed: 'Late Tuesday' in an article dated 2026-07-08 gives 2026-07-07 (WebFetch date; confirm on the article dateline). Project not yet in projects.json. Verbatim probe HIT."
+ },
+ {
+  "unit": "state:VA",
+  "type": "site_update",
+  "action": "update",
+  "existing_id": null,
+  "jurisdiction": "Prince William County",
+  "jurisdiction_type": "county",
+  "state": "VA",
+  "title": "Digital Gateway (37-building campus near Manassas National Battlefield) dies after QTS withdraws from state Supreme Court lawsuit",
+  "event_date": null,
+  "status": "withdrawn",
+  "facts": {
+   "project": "Digital Gateway",
+   "developer_withdrawing": "QTS",
+   "court": "state Supreme Court (case set to go there)",
+   "county_approval": "approved about three years earlier"
+  },
+  "summary": "The county had approved the 37-building Digital Gateway complex three years earlier. The project ended when its last developer, QTS, withdrew from a lawsuit challenging it.",
+  "source_url": "https://www.eenews.net/articles/two-stunning-defeats-shake-virginias-data-center-capital/",
+  "source_title": "E&E News — Two stunning defeats shake Virginia's data center capital",
+  "verbatims": [
+   "officially died last week when its last developer, QTS, withdrew from a lawsuit challenging the project that was set to go to the state Supreme Court"
+  ],
+  "verified": true,
+  "notes": "Exact event date not stated; article says 'last week' relative to 2026-07-08, so roughly 2026-06-29 to 2026-07-03 (left null, not guessed). Check whether a Digital Gateway project record exists before adding. Verbatim probe HIT."
+ },
+ {
+  "unit": "state:TX",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": "hill-county-tx-2024-04",
+  "jurisdiction": "Hill County",
+  "jurisdiction_type": "county",
+  "state": "TX",
+  "title": "Hill County Commissioners Court adopts 1-year moratorium on data centers in unincorporated areas (later rescinded)",
+  "event_date": "2026-05-12",
+  "status": "rescinded",
+  "facts": {
+   "vote": "3-2",
+   "scope": "construction of data centers in unincorporated areas of Hill County",
+   "duration": "1 year (from effective date)",
+   "also_covers": "large battery storage and power generation projects",
+   "rescinded_on": "2026-06-04",
+   "rescinded_vote": "unanimous"
+  },
+  "summary": "The county commissioners adopted a one-year pause on data center construction in unincorporated areas by a 3-2 vote. The county rescinded it in June 2026 after a developer sued in federal court.",
+  "source_url": "https://www.kwtx.com/2026/05/12/hill-county-commissioners-approve-1-year-moratorium-data-center-construction/",
+  "source_title": "KWTX — Hill County commissioners approve 1-year moratorium on data center construction",
+  "verbatims": [
+   "The Hill County Commissioners Court voted 3-2 Tuesday in favor of a 1-year moratorium against the construction of data centers in unincorporated areas of Hill County."
+  ],
+  "verified": true,
+  "notes": "Probe HIT. Event date = article dateline (May 12, 2026, a Tuesday). Seed record hill-county-tx-2024-04 says 'enacted 2024-04-12, Permanent' and cites datacenterbans.com (an aggregator, banned as a source by the brief). The 2026 action is a separate record. The 2024 seed record may conflict with this action, because a search summary (not a fetched page) called the May 2026 vote the first such Texas county moratorium; needs curator review. Not edited here."
+ },
+ {
+  "unit": "state:TX",
+  "type": "moratorium",
+  "action": "update",
+  "existing_id": null,
+  "jurisdiction": "Hill County",
+  "jurisdiction_type": "county",
+  "state": "TX",
+  "title": "Hill County commissioners unanimously rescind May 2026 data center moratorium after developer lawsuit",
+  "event_date": "2026-06-04",
+  "status": "rescinded",
+  "facts": {
+   "vote": "unanimous",
+   "meeting": "special meeting",
+   "lawsuit": "RCM Hill, LLC v. Hill County (federal court, Waco)",
+   "lawsuit_defendants": "Hill County, County Judge Shane Brassell, Commissioners Jim Holcomb and Larry Crumpton",
+   "replacement": "not stated in article"
+  },
+  "summary": "A developer sued the county in federal court in Waco, calling the moratorium illegal. The commissioners unanimously rescinded it at a June 2026 special meeting.",
+  "source_url": "https://www.kwtx.com/2026/06/04/hill-county-commissioners-court-rescinds-moratorium-data-center-wake-lawsuit/",
+  "source_title": "KWTX — Hill County Commissioners Court rescinds moratorium on data center in the wake of lawsuit",
+  "verbatims": [
+   "The Hill County Commissioners Court during a special meeting on Thursday unanimously voted to rescind a recently-approved data center moratorium.",
+   "calling their data center moratorium \"illegal.\""
+  ],
+  "verified": true,
+  "notes": "Probe HIT on the rescission sentence and the 'illegal' quotation (second verbatim probed separately). Article dated Jun 4, 2026 (Thursday), event date taken as 2026-06-04. Lawsuit filed 'a few weeks after the moratorium vote'; exact filing date and damages not stated in the article. Link to the May finding (not a seed id). Replacement measure not stated in the article."
+ },
+ {
+  "unit": "state:TX",
+  "type": "project",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Hill County",
+  "jurisdiction_type": "county",
+  "state": "TX",
+  "title": "RCM Hill's Project Aquila (1,235 MW, 800+ acres, unincorporated Hill County) becomes the lawsuit's subject",
+  "event_date": "2026-06-04",
+  "status": "announced",
+  "facts": {
+   "developer": "RCM Hill, LLC",
+   "project": "Project Aquila",
+   "power_mw": 1235,
+   "acreage": "more than 800",
+   "location": "unincorporated Hill County, TX"
+  },
+  "summary": "A developer planning a 1,235 MW data center on more than 800 acres in unincorporated Hill County sued the county in federal court over its moratorium. The article is dated June 4, 2026; the filing date is not stated.",
+  "source_url": "https://www.kwtx.com/2026/06/04/hill-county-commissioners-court-rescinds-moratorium-data-center-wake-lawsuit/",
+  "source_title": "KWTX — Hill County Commissioners Court rescinds moratorium on data center in the wake of lawsuit",
+  "verbatims": [
+   "RCM Hill is developing \"Project Aquila,\" a planned 1,235‑megawatt data center on more than 800 acres in an unincorporated area of Hill County."
+  ],
+  "verified": true,
+  "notes": "Probe HIT. The figure is as reported by KWTX; not checked against a developer or county filing. Event date is the article date. No project record found in seed for Aquila."
+ },
+ {
+  "unit": "state:TX",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Hays County",
+  "jurisdiction_type": "county",
+  "state": "TX",
+  "title": "Hays County commissioners pass water-use review resolution that temporarily suspends data center discretionary approvals (not a blanket moratorium)",
+  "event_date": "2026-06-23",
+  "status": "enacted",
+  "facts": {
+   "vote": "unanimous",
+   "measures": [
+    "review board for intensive-water-use developments",
+    "project checklist (transparency reports, water-use estimates, independent environmental surveys)",
+    "temporary suspension of discretionary approvals through end of 2026"
+   ],
+   "blanket_prohibition": false,
+   "legal_form": "resolution"
+  },
+  "summary": "Commissioners unanimously passed a resolution creating a water review board and checklist, and temporarily suspending discretionary approvals for data centers and other water-intensive projects through the end of 2026. The county judge says it is not a blanket prohibition.",
+  "source_url": "https://www.kut.org/energy-environment/2026-06-23/hays-county-tx-data-centers-water-review-board",
+  "source_title": "KUT — Hays County data center water review board (June 23, 2026)",
+  "verbatims": [
+   "Hays County commissioners voted unanimously on Tuesday to establish a review board to evaluate proposed intensive-water-use developments like data centers",
+   "The resolution does not create a blanket prohibition on data centers or other industrial projects"
+  ],
+  "verified": true,
+  "notes": "Probe HIT on both. Article dated June 23, 2026 (Tuesday). Event date = vote date. Record kind: a county resolution with a temporary suspension, so classify as a pause on discretionary approvals; curator to decide if it belongs on the Moratoriums tab or Policies. The 'through the end of the year' clause is verified. Outside the brief's Aug-Oct window; included because it is a 2026 Texas county action."
+ }
+]

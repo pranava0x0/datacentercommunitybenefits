@@ -141,7 +141,7 @@ TASKS: list[Task] = [
           ("see", "#md-status")]),
     Task("world_country", "What does Ireland require of data centers?",
          [("tap", "#tab-world"),
-          ("tap", '#world-country-list [data-country="IE"]'),
+          ("tap", '#world-country-jump [data-country="IE"]'),
           ("see", "#world-country-body .world-record")]),
     Task("ratecase_milestone", "When is the next step in a pending rate case?",
          [("tap", "#tab-tariffs"),

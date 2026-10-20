@@ -1,0 +1,366 @@
+{
+ "sources": [
+  {
+   "name": "Kakao newsroom (kakaocorp.com)",
+   "url": "https://www.kakaocorp.com/",
+   "kind": "company newsroom",
+   "verified_loads": true,
+   "notes": "Ansan DC MoU release dated 2020-09-07, page 8818."
+  },
+  {
+   "name": "NAVER newsroom (navercorp.com)",
+   "url": "https://www.navercorp.com/",
+   "kind": "company newsroom",
+   "verified_loads": true,
+   "notes": "Gak Sejong opening story dated 2023-11-07, storyDetail?seq=2359."
+  },
+  {
+   "name": "SK Telecom newsroom (news.sktelecom.com)",
+   "url": "https://news.sktelecom.com/",
+   "kind": "company newsroom",
+   "verified_loads": true,
+   "notes": "Q2 2026 earnings infographic, dated 2026-08-05 (id 229015)."
+  },
+  {
+   "name": "Korea JoongAng Daily",
+   "url": "https://www.koreajoongangdaily.com/",
+   "kind": "national English news",
+   "verified_loads": true,
+   "notes": "Stargate Korea stalled report, dated 2026-09-07."
+  },
+  {
+   "name": "Fnnews (fnnews.com)",
+   "url": "https://www.fnnews.com/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "JDC Jeju AI DC briefing report dated 2026-08-31."
+  },
+  {
+   "name": "Kyeongin Ilbo (kyeongin.com)",
+   "url": "https://www.kyeongin.com/",
+   "kind": "local news (Gyeonggi)",
+   "verified_loads": true,
+   "notes": "Gimpo AI Edge DC application dated 2025-08-27."
+  },
+  {
+   "name": "People's Solidarity / joint statement archive (peoplepower21.org)",
+   "url": "https://peoplepower21.org/",
+   "kind": "civil-society repost",
+   "verified_loads": true,
+   "notes": "Joint statement of 녹색전환연구소, 참여연대, 환경정의 posted 2026-05-08. Repost, not the groups' own site; cross-check if the groups publish a canonical copy."
+  },
+  {
+   "name": "MTN Money Today Broadcasting (news.mtn.co.kr)",
+   "url": "https://news.mtn.co.kr/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "KT Cloud Cheongna 50 MW article dated 2026-10-07."
+  },
+  {
+   "name": "Newsis (newsis.com)",
+   "url": "https://www.newsis.com/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "LG U+ Paju AIDC 200 MW article dated 2026-06-07."
+  },
+  {
+   "name": "TWIG24 (twig24.com)",
+   "url": "https://www.twig24.com/",
+   "kind": "regional news (Busan)",
+   "verified_loads": true,
+   "notes": "Busan City Egis MoU report dated 2025-06-18. Reports the city's press release; busan.go.kr release not fetched."
+  }
+ ],
+ "companies": [
+  {
+   "slug": "sk-telecom",
+   "name": "SK Telecom (SK Hyper AI DC business)",
+   "hq": "Seoul, KR (not fetched this round)",
+   "international_only": true,
+   "proposed": true,
+   "basis": "Announced 5 GW AI DC target by 2029 via SK Hyper (2026-08); Stargate Korea site (southwestern Korea, 20 MW initial, stalled); AI DC operator for Ulsan/Yeongnam plans per round 1-2. Gate 2 (first-party community-impact page on data centres) NOT found in this round; only renewable PPA mention is in secondary press.",
+   "source_url": "https://news.sktelecom.com/229015"
+  },
+  {
+   "slug": "kakao",
+   "name": "Kakao Corp (Kakao data centre, Ansan)",
+   "hq": "not verified this round",
+   "international_only": true,
+   "proposed": true,
+   "basis": "Owns and operates the Ansan data centre on the Hanyang University ERICA campus (MoU 2020-09; 2023 completion per secondary). First-party 2020 release with a local-partnership commitment to Ansan. Gate 2 partly met by that release; the 2025 economic-impact study (direct benefit 76.3bn won, 8,941 jobs) is a Kakao-commissioned claim not yet fetched (see leads).",
+   "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG"
+  },
+  {
+   "slug": "kt-cloud",
+   "name": "KT Cloud",
+   "hq": "not verified this round",
+   "international_only": true,
+   "proposed": true,
+   "basis": "DBO partner for the 50 MW Cheongna AI DC (2026-10) and operator of Gasan AI DC (opened 2025-11, 40 MW grid capacity per secondary). No first-party community page found in this round.",
+   "source_url": "https://news.mtn.co.kr/news-detail/2026100709273543444"
+  },
+  {
+   "slug": "lg-uplus",
+   "name": "LG Uplus",
+   "hq": "Seoul, KR (not fetched this round)",
+   "international_only": true,
+   "proposed": true,
+   "basis": "Owns the Paju AIDC (200 MW, Newsis 2026-06-07) and Pyeongchon 1 and 2 IDCs. Renewable PPA and solar at Pyeongchon 2 reported in 2026-07 press; not yet first-party verified. No community page found.",
+   "source_url": "https://mobile.newsis.com/view/NISX20260605_0003658312"
+  }
+ ],
+ "records": [
+  {
+   "kind": "company_statement",
+   "verified": true,
+   "id": "kr-kakao-ansan-dc-mou-2020-09",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Ansan City, Gyeonggi",
+    "event_date": "2020-09-07",
+    "project": "Kakao data centre, Hanyang University ERICA campus innovation park (Sadong, Sangnok-gu)",
+    "investment_krw_stated": "4,000억원 (400 billion won, as stated)",
+    "target_completion": "2023"
+   },
+   "verbatim": "경기도 안산시 상록구 사동 1271 한양대학교 캠퍼스혁신파크 내 일원 18,383㎡ 규모 부지에 데이터센터 및 산학협력시설을 건설한다.",
+   "translation": "The data centre and industry-academia facility will be built on an 18,383 square metre site within Hanyang University's Campus Innovation Park in Sadong, Sangnok-gu, Ansan, Gyeonggi.",
+   "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+   "notes": "Kakao newsroom release (title: 카카오, 안산시·한양대와 손잡고 데이터센터 건립 추진), dated 2020-09-07. Other verbatims on the same page: 2023년 준공 target; rainwater collection; and a local-partnership sentence. Facility was reported completed in 2023 by secondary press (see leads). Company slug proposed: kakao."
+  },
+  {
+   "kind": "company_statement",
+   "verified": true,
+   "id": "kr-naver-gak-sejong-opening-2023-11",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Sejong City",
+    "event_date": "2023-11-07",
+    "project": "NAVER Gak Sejong data centre (opening)",
+    "outcome": "opened; first-party claims on on-site solar, geothermal heating/cooling and natural-air cooling"
+   },
+   "verbatim": "건물에 적용된 태양광 발전 시설을 통해 전력을 확보하고 있으며",
+   "translation": "Power is secured through solar generation facilities applied to the building.",
+   "source_url": "https://www.navercorp.com/story/storyDetail?seq=2359",
+   "notes": "NAVER newsroom story (title: 하이퍼스케일 데이터센터 각 세종 오픈), dated 2023-11-07. Same page: geothermal for heating/cooling of the operations and Workstay buildings; NAMU in-house air-membrane cooling using natural wind. The page gives server units (600,000) not MW, and no local community or jobs statement. Companion release on capacity expansion is already in kr.json (kr-naver-sejong-expansion-2026-07)."
+  },
+  {
+   "kind": "company_statement",
+   "verified": true,
+   "id": "kr-sk-hyper-5gw-2029-2026-08",
+   "fields": {
+    "country": "KR",
+    "jurisdiction": "National (SK Telecom)",
+    "event_date": "2026-08-05",
+    "project": "SK Hyper (SKT AI data centre business subsidiary); 5 GW AI DC target by 2029",
+    "target_capacity_mw": 5000,
+    "target_year": "2029"
+   },
+   "verbatim": "SKT는 SK하이퍼를 중심으로, 2029년 5GW(기가와트) 규모의 AI DC를 단계적으로 오픈하는 것을 1차 목표로 삼고 있습니다.",
+   "translation": "Centred on SK Hyper, SKT's primary goal is to gradually open 5 GW-scale AI data centres by 2029.",
+   "source_url": "https://news.sktelecom.com/229015",
+   "notes": "SK Telecom Q2 2026 earnings infographic (dated 2026.08.05). Same page: SK Hyper established in July 2026 as a dedicated AI DC business-development company. The page has no renewable energy, jobs or community statements, so it is a project-scale claim only, not a community-benefit claim. Company slug proposed: sk-telecom (international_only candidate)."
+  },
+  {
+   "kind": "government_action",
+   "verified": true,
+   "id": "kr-jdc-jeju-ai-dc-2026-08",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-49",
+    "jurisdiction": "Jeju Island (JDC, Jeju International Free City Development Center)",
+    "event_date": "2026-08-28",
+    "project": "Public AI data centre, Jeju Advanced Science & Technology Complex 2 (Wolpyeong-dong, Jeju City)",
+    "capacity_mw_stated": 30,
+    "cost_krw_stated": "392.1 billion won (3921억원)",
+    "target_completion": "2028 H2",
+    "outcome": "under consideration; SK and KT in talks; Kakao and Naver collaboration sought"
+   },
+   "verbatim": "주민 우려가 제기되면 사업 필요성을 설명하고 협의할 방침이다.",
+   "translation": "If residents raise concerns, JDC plans to explain the project's necessity and consult with them.",
+   "source_url": "https://www.fnnews.com/news/202608310632465621",
+   "notes": "Fnnews article dated 2026-08-31 reporting a briefing held 2026-08-28 by the JDC chair. Power and water supply feasibility checked with relevant agencies (quote in record). The article gives no jobs figure for the AI centre. The 3,701 jobs figure refers to the neighbouring first complex and must not be attributed to this project."
+  },
+  {
+   "kind": "project_update",
+   "verified": true,
+   "id": "kr-gimpo-ai-edge-landscape-review-2025-08",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Gimpo City, Gyeonggi",
+    "event_date": "2025-08-27",
+    "project": "Gimpo AI Edge Data Centre, Guerae-dong (second application after the 2024 dispute)",
+    "outcome": "landscape-review application received; city cautious; public hearing advised"
+   },
+   "verbatim": "인허가 절차에서는 주민반발이 예상되는 만큼 주민공청회를 통한 의견 수렴 절차가 필요할 것으로 보인다",
+   "translation": "In the permitting process, because resident opposition is expected, a process to gather opinion through a public hearing appears necessary.",
+   "source_url": "https://www.kyeongin.com/article/1750256",
+   "notes": "Kyeongin Ilbo article dated 2025-08-27 (print 2025-08-28). It is a new application at the same Guerae-dong site after the 2024 construction-report rejection (kr-gimpo-guerae-*). The article does not mention the administrative appeal or lawsuit outcome. Kept as a project_update, not a resolution."
+  },
+  {
+   "kind": "community_response",
+   "verified": true,
+   "id": "kr-ngo-joint-statement-ai-dc-act-2026-05",
+   "fields": {
+    "country": "KR",
+    "jurisdiction": "National (civil society)",
+    "event_date": "2026-05-08",
+    "project": "AI data centre special act (passed National Assembly plenary 2026-05-07)",
+    "constituency": "ngo",
+    "stance": "negative",
+    "outcome": "joint statement by 녹색전환연구소 (Green Transition Institute), 참여연대 (People's Solidarity for Participatory Democracy) and 환경정의 (Korean Federation for Environmental Justice)"
+   },
+   "verbatim": "특히 일정기간 내 허가가 처리되지 않으면 자동 승인으로 간주하는 타임아웃제와 비수도권 전력계통영향평가 면제는 계통 안정성과 공적 통제 등을 사실상 무력화할 우려가 크다.",
+   "translation": "In particular, the time-out system, which treats permits as automatically approved if not processed within a set period, and the exemption of non-metropolitan grid impact assessments are likely to effectively undermine grid stability and public control.",
+   "source_url": "https://peoplepower21.org/solidarity/2022267",
+   "notes": "Joint statement titled 환경·지역 영향 고려 없는 AI 데이터센터 특별법 통과 규탄한다, posted 2026-05-08 on peoplepower21.org (repost of the three groups' statement). Demands in the same statement: mandatory renewable energy use; decentralisation outside the capital and local energy priority; PUE and WUE regulation. Stance negative; constituency ngo. Mirrors the 2026 NGO lead in kr_r2.json."
+  },
+  {
+   "kind": "company_statement",
+   "verified": true,
+   "id": "kr-kt-cloud-cheongna-50mw-2026-10",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-28",
+    "jurisdiction": "Incheon (Cheongna)",
+    "event_date": "2026-10-07",
+    "project": "Cheongna AI Data Centre (50 MW), KT Cloud as design-build-operate partner",
+    "capacity_mw_stated": 50,
+    "target_completion": "2030 Q1",
+    "construction_start": "2026 Q4 (planned)",
+    "outcome": "announced; DBO partner role"
+   },
+   "verbatim": "청라 AI 데이터센터는 지하 2층~지상 11층, 수전용량 50MW 규모로 조성된다.",
+   "translation": "The Cheongna AI data centre will be built with 50 MW of contracted power capacity, spanning two basement floors and eleven floors above ground.",
+   "source_url": "https://news.mtn.co.kr/news-detail/2026100709273543444",
+   "notes": "MTN (Money Today Broadcasting) article dated 2026-10-07, reporting KT Cloud's announcement (said on the 7th). KT Cloud's role: DBO partner (design consulting, MEP, commissioning, operations). The article has no renewable energy, residents or local benefit statements. Operator slug proposed: kt-cloud; the developer of the site is not named in the article."
+  },
+  {
+   "kind": "project_update",
+   "verified": true,
+   "id": "kr-lguplus-paju-aidc-200mw-2026-06",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Paju City, Gyeonggi",
+    "event_date": "2026-06-07",
+    "project": "LG U+ Paju Artificial Intelligence Data Centre (AIDC)",
+    "power_mw_stated": 200,
+    "target_completion": "Building 1 scheduled for June 2027 (article: next June)",
+    "site_history": "previous LG Display industrial-complex factory land",
+    "outcome": "under construction"
+   },
+   "verbatim": "파주 AIDC는 200MW 전력 공급이 확정돼 기존 평촌 1·2센터를 포함한 수도권 최대 수준의 전력 인프라를 확보했다.",
+   "translation": "The Paju AIDC has confirmed a 200 MW power supply, securing metro-area power infrastructure at the top level including the existing Pyeongchon 1 and 2 centres.",
+   "source_url": "https://mobile.newsis.com/view/NISX20260605_0003658312",
+   "notes": "Newsis article, dated 2026-06-07 on the page (URL id 20260605). The article attributes a resolved EMF conflict with residents and stable consultation to the company, but as paraphrase without quotation marks, so NOT recorded as a claim under the first-party rule. No renewable-energy or jobs statement. Operator slug proposed: lg-uplus (telecom operator with Pyeongchon 1 and 2 IDCs)."
+  },
+  {
+   "kind": "government_action",
+   "verified": true,
+   "id": "kr-busan-egis-ai-dc-mou-2025-06",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-26",
+    "jurisdiction": "Busan Metropolitan City",
+    "event_date": "2025-06-17",
+    "project": "Egis Asset Management AI data centre investment (two large AI DCs), Myeongji-Noksan National Industrial Complex",
+    "investment_krw_stated": "1조 8000억원 (1.8 trillion won)",
+    "target_operation": "2029 H2 (construction from 2026 H2)",
+    "community_terms": "priority local hiring for new DC operations; priority local construction firm participation",
+    "outcome": "MOU signed (investment MOU, not a binding agreement)"
+   },
+   "verbatim": "데이터센터 운영에 필요한 신규 인력을 지역인재로 우선 고용하고",
+   "translation": "Priority hiring of new personnel needed for data centre operations from local talent, and",
+   "source_url": "https://www.twig24.com/news/local_bs/2025/06/18/20250618021012",
+   "notes": "Article dated 2025-06-18 reporting the Busan City press release on the MOU signed 2025-06-17. The local-hiring and local-construction terms are the MOU's own stated terms (verbatim clause is the first part of the sentence; the sentence continues with contract opportunities for local construction firms). Gov press release on busan.go.kr not fetched (listing page only). Egis is a fund manager; no company slug proposed."
+  },
+  {
+   "kind": "project_update",
+   "verified": true,
+   "id": "kr-stargate-korea-status-2026-09",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-47",
+    "jurisdiction": "Pohang (Samsung site) and southwestern Korea (SK site)",
+    "event_date": "2026-09-07",
+    "project": "Stargate Korea (OpenAI with Samsung and SK)",
+    "capacity_mw_stated": "20 MW each (initial)",
+    "outcome": "stalled: little construction or funding progress; SK says no progress since the October 2025 MOU; Samsung SDS says nothing confirmed; OpenAI says progress to be announced within the year"
+   },
+   "verbatim": "little progress has been made on construction and the funding structure",
+   "translation": "Little progress has been made on construction and the funding structure (English source text).",
+   "source_url": "https://www.koreajoongangdaily.com/business/openais-stargate-project-in-korea-stuck-at-starting-gate-as-samsung-sk-report-little-progress/12856484",
+   "notes": "Korea JoongAng Daily article dated 2026-09-07. English-language source, so the verbatims are English. SK's 'no progress has been made following October's memorandum of understanding' and Samsung SDS's 'the decision belongs to OpenAI' are quoted in the article. Site and 20 MW each are the article's figures; the 20 MW per site was an initial allocation, not a confirmed build. A separate OpenAI Korea statement that progress will be announced within the year is in a Korea JoongAng/Korea Herald piece (not recorded here)."
+  }
+ ],
+ "leads": [
+  {
+   "lead": "Gimpo Guerae-dong operator administrative lawsuit: round 2 found only the 2024 tribunal ruling (upheld the operator's claim, Oct 2024) and the 2025 new application. No first- or second-instance judgment found on the lawsuit. Search court databases (glaw.scourt.go.kr) before the record is resolved.",
+   "url": "https://www.fnnews.com/news/202410271825186696",
+   "priority": "high"
+  },
+  {
+   "lead": "Muan Oryong 200 MW AI data centre near apartments (Pressian 2026-10-15 per round 2): search in this round returned no matching article. Fetch the Pressian article directly or search by 무안 data centre plus the local council.",
+   "url": "",
+   "priority": "high"
+  },
+  {
+   "lead": "Kakao's 2025 economic-impact study for the Ansan data centre (Hanyang ERICA; direct benefit 76.3bn won, production-inducing effect 2.059 trillion won, 8,941 employment-inducing jobs over 40 years, as reported 2025-10-23). Company-commissioned: a first-party claim only if the Kakao release itself is fetched and quoted.",
+   "url": "https://byline.network/2025/10/23-499/",
+   "priority": "medium"
+  },
+  {
+   "lead": "Jeonnam (southwestern) Stargate Korea site: SK's own release for the 20 MW site has not been found. The SK Telecom newsroom search returned only the Q2 infographic. Check the SK Telecom and OpenAI Korea newsroom pages.",
+   "url": "",
+   "priority": "medium"
+  },
+  {
+   "lead": "Samsung SDS Pohang Stargate site: Samsung SDS said 'nothing has been confirmed'; no company release found. The Samsung SDS Dongtan/Hwaseong 2023 build listed in round 2 is still unverified.",
+   "url": "",
+   "priority": "medium"
+  },
+  {
+   "lead": "Busan 2026 data centre incentive ordinance: the city interview (kharn 2026-09) says tax and fiscal incentives plus land, power and permit support, and 17 projects in pipeline (~1.44 GW, ~16.5 trillion won). Ordinance name and amounts not found; fetch busan.go.kr ordinance portal.",
+   "url": "https://www.kharn.kr/news/article.html?no=31711",
+   "priority": "medium"
+  },
+  {
+   "lead": "Gangwon AI data centre siting list: no Gangwon provincial press release found for the 2026 cluster pledge. Check gangwon.go.kr press.",
+   "url": "",
+   "priority": "low"
+  },
+  {
+   "lead": "Gangwon/Busan/Jeonnam incentive press dates on korea.kr: not fetched this round (search returned no korea.kr press release).",
+   "url": "https://www.korea.kr/news/policyNewsList.do",
+   "priority": "low"
+  },
+  {
+   "lead": "KT Cloud Gasan AI DC opening (2025-11-05, ajunews): 40 MW grid capacity, 26 MW IT capacity, liquid cooling. First-party KT Cloud release not fetched; check kt.com newsroom for community or energy statements.",
+   "url": "https://www.ajunews.com/view/20251105174739965",
+   "priority": "low"
+  },
+  {
+   "lead": "SK Saemangeum data centre (2020 plan: 2.1 trillion won, 16 data-centre buildings by 2029, powered by 200 MW Saemangeum floating solar): stalled per regional press; check whether the SK company statement on status exists.",
+   "url": "https://www.jjan.kr/article/20260722500089",
+   "priority": "low"
+  },
+  {
+   "lead": "Jeju JDC AI complex (round 3): no residents, power or water conflict found. Watch for a JDC or Jeju provincial follow-up; the 2025 Wayne Hills Bryant AI KRW 20 bn letter of intent is unchanged and not verified as an operator record.",
+   "url": "",
+   "priority": "low"
+  },
+  {
+   "lead": "Changwon Yangdeok-dong 80 MW AI DC (KRW 1,089.4 bn, reported 2026-08-20): round 2 lead still unverified. Fetch Changwon city press release.",
+   "url": "",
+   "priority": "low"
+  },
+  {
+   "lead": "Joint statement of 녹색전환연구소, 참여연대, 환경정의 (2026 fact book 'AI 데이터센터의 진실 - 팩트북'): publication date not confirmed in search (article said 7th of an unspecified month). Fetch the groups' own site (greentransition, peoplepower or the fact book PDF) for the date.",
+   "url": "https://peoplepower21.org/solidarity/2022138?cat=27",
+   "priority": "low"
+  }
+ ]
+}

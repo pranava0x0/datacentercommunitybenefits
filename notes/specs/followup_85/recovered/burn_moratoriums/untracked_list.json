@@ -1,0 +1,495 @@
+[
+  {
+    "unit": "state:OR",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Hillsboro",
+    "jurisdiction_type": "city",
+    "state": "OR",
+    "title": "Hillsboro, OR 120-day land-use moratorium on new and expanded data centers",
+    "event_date": "2026-07-27",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "land-use moratorium (temporary pause on applications)",
+      "duration_days": 120,
+      "scope": "new and expanded data centers and battery energy storage systems (BESS)",
+      "expires_approx": "2026-11-24 (per search summary, not probed)"
+    },
+    "summary": "Hillsboro City Council approved a 120-day temporary moratorium on new and expanded data centers on July 27, 2026, while the city reviews land-use rules.",
+    "source_url": "https://kval.com/news/local/hillsboro-pauses-new-data-centers-issuing-120-day-temporary-moratorium",
+    "source_title": "KVAL / KATU — Hillsboro pauses new data centers, issuing 120-day temporary moratorium",
+    "verbatims": [
+      "Hillsboro pauses new data centers, issuing 120-day temporary moratorium",
+      "by KATU Staff Mon, July 27, 2026"
+    ],
+    "verified": true,
+    "notes": "Headline and date probe-verified on KVAL. Scope and expiry come from search summaries of KATU/city coverage, not probed. Confirm the 120-day and Nov 24 expiry on hillsboro-oregon.gov."
+  },
+  {
+    "unit": "state:OK",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Edmond",
+    "jurisdiction_type": "city",
+    "state": "OK",
+    "title": "Edmond, OK moratorium on data-center rezonings and permits through Dec 31, 2026",
+    "event_date": "2026-06-08",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "moratorium on accepting and processing rezoning requests and permits for data centers",
+      "ordinance": "No. 4091 (per search summary of city council listing)",
+      "end_date": "2026-12-31 (per search summary and draft text)",
+      "vote": "council vote Monday night (per preview); enactment reported by NonDoc, not probed"
+    },
+    "summary": "Edmond's council acted on a moratorium on new data-center rezoning requests and permits through the end of 2026 while staff drafts code language.",
+    "source_url": "https://hoodline.com/2026/06/edmond-mulls-data-center-timeout-as-neighbors-slam-the-brakes/",
+    "source_title": "Hoodline — Edmond Mulls Data Center Timeout As Neighbors Slam The Brakes",
+    "verbatims": [
+      "The moratorium under discussion-if approved Monday night (June 8)-could stay in effect through the end of the year."
+    ],
+    "verified": false,
+    "notes": "Verified only the pre-vote preview (hoodline, June 8). NonDoc (nondoc.com, June 9) returned 403 and was not probed, so the enacted vote and the Dec 31 end date are unconfirmed. The 75 MW threshold from a podcast blurb was not found in the ordinance and is excluded. Ordinance PDF on destinyhosted returned no extractable text."
+  },
+  {
+    "unit": "state:OK",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Norman",
+    "jurisdiction_type": "city",
+    "state": "OK",
+    "title": "Norman, OK moratorium on data-center rezonings and permits",
+    "event_date": "2026-06-23",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "moratorium on approval of permits (and rezoning requests) for data centers",
+      "vote": "unanimous",
+      "end_date": "June 9, 2027 (search summary only, not probed)"
+    },
+    "summary": "Norman City Council unanimously enacted a moratorium on approval of data-center permits within city limits on June 23, 2026, while staff and the planning commission study zoning rules.",
+    "source_url": "https://www.kgou.org/politics-and-government/2026-06-25/norman-city-council-enacts-data-center-moratorium",
+    "source_title": "KGOU — Norman City Council enacts data center moratorium",
+    "verbatims": [
+      "On Tuesday evening, the Norman City Council voted unanimously to enact a moratorium on the approval of permits for data centers within city limits."
+    ],
+    "verified": true,
+    "notes": "Vote and action probe-verified on KGOU (published June 25, 'Tuesday evening' = June 23). The end date June 9, 2027 is not on KGOU and was not verified. Some coverage says the vote was June 9, which conflicts; treated as a scheduled consideration date."
+  },
+  {
+    "unit": "state:KY",
+    "type": "policy",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Bowling Green",
+    "jurisdiction_type": "city",
+    "state": "KY",
+    "title": "Bowling Green, KY adopts data-center zoning ordinance after rejecting moratorium",
+    "event_date": "2026-06-16",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "zoning ordinance (not a moratorium)",
+      "vote": "unanimous, June 16, 2026",
+      "moratorium_status": "six-month moratorium failed 3-2 on June 2, 2026; rejected again June 16"
+    },
+    "summary": "Bowling Green City Commission unanimously adopted zoning restrictions on data centers (energy and water use, noise, light) on June 16, 2026, after rejecting a six-month moratorium 3-2 on June 2.",
+    "source_url": "https://www.wkyufm.org/news/2026-06-16/bowling-green-city-leaders-give-final-approval-to-zoning-restrictions-on-data-centers",
+    "source_title": "WKU Public Radio — Bowling Green city leaders give final approval to zoning restrictions on data centers",
+    "verbatims": [
+      "The moratorium failed on a 3-2 vote.",
+      "The city commission voted unanimously Tuesday night to adopt a zoning ordinance that places restrictions on energy and water consumption, noise, and light pollution, among other things."
+    ],
+    "verified": true,
+    "notes": "Not a moratorium: the pause was rejected 3-2 on June 2 (WKYU June 3, probed), and the zoning ordinance passed June 16 (WKYU June 16, probed). No moratorium record should be created. The 1,500-ft setback and closed-loop cooling details are search-only and were not probed; omitted from facts."
+  },
+  {
+    "unit": "state:KY",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Daviess County",
+    "jurisdiction_type": "county",
+    "state": "KY",
+    "title": "Daviess County, KY one-year moratorium on data-center applications and permits",
+    "event_date": "2026-05-28",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "moratorium on applications and permits (zoning, conditional use, site plan, building permit)",
+      "duration_months": 12,
+      "vote": "unanimous",
+      "effective": "immediately"
+    },
+    "summary": "Daviess County Fiscal Court unanimously approved a one-year moratorium on data-center applications and permits on May 28, 2026, and ordered zoning rules to be updated.",
+    "source_url": "https://www.wkyufm.org/news/2026-05-29/daviess-co-leaders-throw-cold-water-on-data-center-projects",
+    "source_title": "WKU Public Radio — Daviess Co. leaders throw cold water on data center projects",
+    "verbatims": [
+      "Daviess County Fiscal Court gave final approval Thursday evening to a one-year moratorium on data center applications.",
+      "The Fiscal Court unanimously approved a one-year moratorium on applications and permits during a meeting Thursday night."
+    ],
+    "verified": true,
+    "notes": "Event date computed: WKYU (May 29) says 'Thursday evening' = May 28. First reading May 14 per search summary only. The Govly meeting summary says May 14 was the vote; the press reports and final-approval wording favor May 28."
+  },
+  {
+    "unit": "state:KY",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Bullitt County",
+    "jurisdiction_type": "county",
+    "state": "KY",
+    "title": "Bullitt County, KY one-year moratorium on new data-center applications",
+    "event_date": "2026-07-21",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "moratorium on new data-center applications (unincorporated areas)",
+      "duration_months": 12,
+      "vote": "Fiscal Court ordinance passed at Tuesday meeting"
+    },
+    "summary": "Bullitt County Fiscal Court passed a 12-month moratorium on new data-center applications on July 21, 2026, covering unincorporated areas.",
+    "source_url": "https://hoodline.com/2026/07/bullitt-county-slams-brakes-on-data-center-boom-for-a-year/",
+    "source_title": "Hoodline — Bullitt County slams brakes on data center boom for a year",
+    "verbatims": [
+      "On Tuesday, the Bullitt County Fiscal Court voted to impose a one-year moratorium on new data center applications",
+      "Published on July 22, 2026"
+    ],
+    "verified": true,
+    "notes": "Event date computed: Tuesday before a July 22 publication = July 21. Hoodline is local news. The WDRB article was bot-blocked. Cities may adopt the same pause; not checked."
+  },
+  {
+    "unit": "state:KY",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Nelson County",
+    "jurisdiction_type": "county",
+    "state": "KY",
+    "title": "Nelson County, KY one-year moratorium on data-center applications",
+    "event_date": null,
+    "status": "enacted",
+    "facts": {
+      "legal_action": "moratorium on acceptance, processing and approval of applications for data centers of any size",
+      "duration_months": 12,
+      "vote": "not found"
+    },
+    "summary": "Nelson County Fiscal Court passed a one-year moratorium on data-center applications in mid-2026; the exact vote date was not found.",
+    "source_url": "https://spectrumnews1.com/ky/louisville/news/2026/07/09/kentucky-counties-weigh-data-center-growth-as-moratoriums-spread",
+    "source_title": "Spectrum News — Kentucky counties weigh data center growth as moratoriums spread",
+    "verbatims": [
+      "In Nelson County, Fiscal Court officials passed a one-year moratorium \"on the acceptance, processing and approval of all appl"
+    ],
+    "verified": false,
+    "notes": "Action probe-verified (Spectrum, July 9, 2026). Date not in the article: only that it came one day after London drafted a two-year pause. Needs the Nelson County Fiscal Court minutes before event_date can be set."
+  },
+  {
+    "unit": "state:KY",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Rowan County",
+    "jurisdiction_type": "county",
+    "state": "KY",
+    "title": "Rowan County, KY two-year moratorium on large-scale data centers",
+    "event_date": null,
+    "status": "enacted",
+    "facts": {
+      "legal_action": "moratorium on large-scale data centers",
+      "duration_months": 24,
+      "vote": "unanimous (per search summary of county newsletter)"
+    },
+    "summary": "Rowan County Fiscal Court approved a two-year moratorium on large-scale data centers in August 2026, before any project was proposed.",
+    "source_url": "https://www.lex18.com/news/covering-kentucky/rowan-county-approves-two-year-data-center-moratorium-ahead-of-potential-projects",
+    "source_title": "LEX 18 — Rowan County approves two-year data center moratorium ahead of possible projects",
+    "verbatims": [
+      "The Rowan County Fiscal Court recently approved a two-year moratorium on large-scale data centers"
+    ],
+    "verified": false,
+    "notes": "Action probe-verified (LEX18). Month is August per the county newsletter (search summary, not probed). Day is not published in any source checked. Fetch the Rowan Fiscal Court minutes (rcky.us). Do not infer the day from the meeting schedule. Not the NC county of the same name."
+  },
+  {
+    "unit": "state:AL",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Cullman",
+    "jurisdiction_type": "city",
+    "state": "AL",
+    "title": "Cullman, AL 12-month temporary moratorium on data centers",
+    "event_date": "2026-06-22",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "temporary moratorium on acceptance, processing and approval of data-center applications",
+      "duration_months": 12,
+      "resolution": "No. 2026-116 (per search summary)",
+      "vote": "unanimous"
+    },
+    "summary": "Cullman City Council unanimously passed a 12-month temporary moratorium on data centers in late June 2026, while staff and the Planning Commission study zoning policy.",
+    "source_url": "https://www.wbrc.com/2026/06/26/cullman-city-council-unanimously-passes-12-month-temporary-moratorium-data-centers/",
+    "source_title": "WBRC — Cullman City Council unanimously passes 12-month temporary moratorium on data centers",
+    "verbatims": [
+      "Cullman City Council this week unanimously passed a 12-month temporary moratorium on data centers."
+    ],
+    "verified": false,
+    "notes": "Action and 12-month term probe-verified (WBRC, published June 25 with 'this week'). June 22 meeting date and resolution number are from search summaries only (Cullman Tribune) and were not probed. Event date is unconfirmed."
+  },
+  {
+    "unit": "state:AL",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Rogersville",
+    "jurisdiction_type": "city",
+    "state": "AL",
+    "title": "Rogersville, AL council considering moratorium on new data centers",
+    "event_date": null,
+    "status": "proposed",
+    "facts": {
+      "legal_action": "proposed moratorium on new data centers within town limits",
+      "driver": "water system at capacity; Water Board stopped new construction meters"
+    },
+    "summary": "Rogersville Town Council is considering a moratorium on new data centers within town limits, citing water-system capacity; no vote was found.",
+    "source_url": "https://www.waff.com/2026/07/11/rogersville-considering-pause-data-center-development-water-system-hits-capacity/",
+    "source_title": "WAFF — Rogersville considering pause on data center development as water system hits capacity",
+    "verbatims": [
+      "The Rogersville Town Council is considering a moratorium on new data centers within town limits."
+    ],
+    "verified": true,
+    "notes": "Proposal verified (WAFF, July 10 2026). A later CBS42 search summary says the vote was expected the following month; no vote or outcome found. Do not record as enacted."
+  },
+  {
+    "unit": "state:MN",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Hastings",
+    "jurisdiction_type": "city",
+    "state": "MN",
+    "title": "Hastings, MN one-year interim moratorium on data centers (first reading)",
+    "event_date": "2026-08-03",
+    "status": "proposed",
+    "facts": {
+      "legal_action": "interim moratorium ordinance (proposed)",
+      "duration_months": 12,
+      "stage": "first reading approved; second reading/adoption slated for Aug 17 per staff memo (not verified)"
+    },
+    "summary": "Hastings City Council approved first reading of a proposed one-year interim moratorium on data centers on August 3, 2026, opening a study period.",
+    "source_url": "https://hoodline.com/2026/08/hastings-minn-slaps-yearlong-freeze-on-data-centers-before-they-even-arrive/",
+    "source_title": "Hoodline — Hastings, Minn., slaps yearlong freeze on data centers before they even arrive",
+    "verbatims": [
+      "The City Council approved the first reading of a proposed one-year moratorium Monday, opening a study period on an industry that promises new tax revenue and jobs"
+    ],
+    "verified": true,
+    "notes": "Event date computed: 'Monday' in an article published Aug 4 2026 = Aug 3. Final adoption (Aug 17) not verified: status stays proposed until the city's minutes or the Pioneer Press confirm adoption."
+  },
+  {
+    "unit": "state:MI",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Ypsilanti Township",
+    "jurisdiction_type": "city",
+    "state": "MI",
+    "title": "Ypsilanti Township, MI land-use moratorium on major electric utility infrastructure affecting data-center siting",
+    "event_date": "2026-08-18",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "land-use moratorium limiting major electric utility infrastructure",
+      "vote": "unanimous",
+      "context": "affects the University of Michigan / Los Alamos research data center plan on Textile and Bridge roads"
+    },
+    "summary": "Ypsilanti Township Board of Trustees unanimously approved a land-use moratorium on major electric utility infrastructure on August 18, 2026; coverage ties it to a proposed U-M data center.",
+    "source_url": "https://www.easternecho.com/article/2026/08/ypsilanti-township-issues-land-use-moratorium-impacting-data-centers",
+    "source_title": "The Eastern Echo — Ypsilanti Township issues land-use moratorium impacting data centers",
+    "verbatims": [
+      "At their Aug. 18, 2026, meeting, members of the Ypsilanti Township Board of Trustees unanimously approved a land-use moratorium limiting major electric utilities infrastructure in the area"
+    ],
+    "verified": true,
+    "notes": "Action and date probe-verified (Eastern Echo, Aug 19). Scope is utility infrastructure, not a data-center ban by name. Township mapped to jurisdiction_type city (schema has no township level). Separate, already-known items not filed here: the YCUA 12-month water/sewer moratorium (April 2026) and a city 12-month zoning pause."
+  },
+  {
+    "unit": "state:MI",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Wixom",
+    "jurisdiction_type": "city",
+    "state": "MI",
+    "title": "Wixom, MI six-month moratorium on data centers (litigated)",
+    "event_date": null,
+    "status": "enacted",
+    "facts": {
+      "legal_action": "six-month moratorium pausing establishment, permitting, approval and construction of data centers",
+      "duration_months": 6,
+      "waiver": "early-lift waiver rejected unanimously (July 2026, per WHMI)",
+      "lawsuit": "Wixom Industrial One filed suit Aug 7, 2026 in U.S. District Court (E.D. Mich.) under state zoning act"
+    },
+    "summary": "Wixom's six-month data-center moratorium is in effect; the council rejected a developer's waiver request in July and the developer sued on Aug 7, 2026.",
+    "source_url": "https://www.whmi.com/news/article/developer-sues-city-of-wixom-over-data-center-moratorium",
+    "source_title": "WHMI 93.5 — Developer sues City of Wixom over data center moratorium",
+    "verbatims": [
+      "A Pleasant Ridge developer is suing the city of Wixom after its city council last month rejected a proposed waiver from its data center moratorium",
+      "Wixom Industrial One, operated by Dennis Griffin, filed the lawsuit Aug. 7 in U.S. District Court in Detroit"
+    ],
+    "verified": false,
+    "notes": "Waiver denial and Aug 7 lawsuit probe-verified (WHMI, Aug 12). The six-month moratorium is verified by WXYZ ('six-month moratorium pausing data center development in Wixom'). The adoption date (search snippet says March 24, 2026) was not verified, so event_date is null. Wixom city page was 403. Zoning-ordinance first reading was postponed for legal review."
+  },
+  {
+    "unit": "state:MI",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Zeeland Township",
+    "jurisdiction_type": "city",
+    "state": "MI",
+    "title": "Zeeland Township, MI year-long moratorium on data centers and energy facilities",
+    "event_date": null,
+    "status": "enacted",
+    "facts": {
+      "legal_action": "year-long moratorium on data centers and energy facilities; replaces a prior moratorium repealed at the same meeting",
+      "duration_months": 12,
+      "vote": "unanimous"
+    },
+    "summary": "Zeeland Township board unanimously enacted a new year-long moratorium on data centers and energy facilities, replacing a prior moratorium it repealed at the same meeting.",
+    "source_url": "https://www.fox17online.com/news/local-news/holland-zeeland-grand-haven/zeeland-township-approves-new-data-center-and-energy-facility-moratorium-to-protect-local-planning",
+    "source_title": "FOX 17 — Zeeland Township approves new data center and energy facility moratorium to protect local planning",
+    "verbatims": [
+      "Zeeland Township has approved a new year-long moratorium on data centers and energy facilities, replacing a previous moratorium the board repealed at the same Tue",
+      "The board voted unanimously to enact the new restrictions"
+    ],
+    "verified": false,
+    "notes": "Action and unanimous vote probe-verified (FOX17, no dateline). Meeting date is NOT in the article; the early-September date in BACKLOG is unsourced. Needs township minutes. A March 30, 2026 report (search summary) describes an earlier one-year moratorium, which is the one repealed."
+  },
+  {
+    "unit": "state:GA",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Franklin County",
+    "jurisdiction_type": "county",
+    "state": "GA",
+    "title": "Franklin County, GA year-long moratorium on data centers",
+    "event_date": "2026-07-15",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "moratorium on processing any data-center applications until zoning code and comprehensive plan rules are adopted",
+      "duration_months": 12,
+      "vote": "unanimous",
+      "effective": "July 15, 2026"
+    },
+    "summary": "Franklin County commissioners unanimously adopted a year-long moratorium on data centers at their July 15, 2026 meeting, while the planner and attorney draft definitions and rules.",
+    "source_url": "https://franklincounty.news/2026/07/21/franklin-county-puts-a-hold-on-data-centers/",
+    "source_title": "Franklin County News — Franklin County puts a hold on data centers",
+    "verbatims": [
+      "At a July 15 meeting, county commissioners voted unanimously to put a year-long moratorium on data centers",
+      "to not process any applications for data centers until specifics were cobbled into the zoning code and comprehensive plan"
+    ],
+    "verified": true,
+    "notes": "Brief said 'through Dec 2026'; the source says year-long from July 15, 2026, so the end date is about July 2027. A Franklin County Citizen headline says six months (not probed); treated as conflicting and not adopted. Franklin County, IN results are a different jurisdiction."
+  },
+  {
+    "unit": "state:GA",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Camden County",
+    "jurisdiction_type": "county",
+    "state": "GA",
+    "title": "Camden County, GA six-month moratorium on data centers (unincorporated)",
+    "event_date": "2026-05-05",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "6-month moratorium on data centers, unincorporated county only",
+      "duration_months": 6,
+      "vote": "Board of Commissioners adopted (partial exclusions of sections 4-7 per search summary)"
+    },
+    "summary": "Camden County Board of Commissioners adopted a six-month data-center moratorium in early May 2026, covering unincorporated areas only.",
+    "source_url": "https://thecurrentga.org/2026/05/02/camden-set-to-vote-on-data-center-moratorium-amid-kingsland-rezone-vote/",
+    "source_title": "The Current — Camden becomes first county on the coast to adopt data center moratorium",
+    "verbatims": [
+      "The Camden County Board of Commissioners voted Tuesday to adopt a 6-month moratorium on data centers"
+    ],
+    "verified": false,
+    "notes": "Action probe-verified (The Current). The article's own dates are inconsistent: slug and May 2 date, GPB preview May 4 says 'set to vote', and the text says 'voted Tuesday'. The event date 2026-05-05 is inferred from that, not confirmed from minutes. Expiry around Nov 2026 is inferred. Commissioners' September work session on a draft ordinance is noted as search-only."
+  },
+  {
+    "unit": "state:VA",
+    "type": "policy",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Front Royal",
+    "jurisdiction_type": "city",
+    "state": "VA",
+    "title": "Front Royal, VA council directs ban on data centers in all industrial districts; hearing set",
+    "event_date": "2026-06-22",
+    "status": "proposed",
+    "facts": {
+      "legal_action": "zoning amendment banning data centers in the three industrial districts (not a moratorium)",
+      "instrument": "local_ordinance",
+      "council_action": "denied special-use-permit amendment and directed Planning Commission to draft a ban",
+      "next": "public hearing on the draft amendment agreed Aug 2026"
+    },
+    "summary": "Front Royal council on June 22, 2026 rejected a special-use-permit path for data centers and directed a zoning ban; the council agreed in August to hold a hearing on the draft.",
+    "source_url": "https://www.nvdaily.com/nvdaily/council-seeks-legal-advice-on-data-center-ban/article_8447d61b-1e1a-5002-9eb8-53bfd83ab50a.html",
+    "source_title": "Northern Virginia Daily — Front Royal council seeks legal advice on data center ban",
+    "verbatims": [
+      "The Front Royal Town Council agreed to hold a public hearing on proposed zoning restrictions banning data centers.",
+      "Council members at their June 22 meeting voted to deny a proposed zoning ordinance amendment that would have allowed data centers by special-use permit"
+    ],
+    "verified": true,
+    "notes": "Verified on NV Daily (Aug 4, 2026). This is a zoning ban, not a moratorium, so it should be a policy record. Virginia localities are limited by state law, per Royal Examiner coverage. Final adoption not verified."
+  },
+  {
+    "unit": "state:PA",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Springhill Township",
+    "jurisdiction_type": "city",
+    "state": "PA",
+    "title": "Springhill Township, PA interim resolution bars new data-center or power-plant applications until next meeting",
+    "event_date": "2026-09-03",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "resolution prohibiting anyone from applying for a data center or power plant until the next meeting (interim pause)",
+      "pending": "two ordinances (conditional use in heavy/light industrial; 200 ft from property line; 400 ft from occupied home) tabled, final vote Sept 17, 2026",
+      "trigger": "approach by independent power producer Nadara (800 acres near Gans)"
+    },
+    "summary": "Springhill Township board on Thursday Sept 3, 2026 approved a resolution barring new data-center or power-plant applications until its next meeting, and tabled two regulating ordinances to a Sept 17 vote.",
+    "source_url": "https://www.heraldstandard.com/news/local_news/2026/sep/05/springhill-township-postpones-votes-on-data-center-power-plant-ordinances/",
+    "source_title": "Herald-Standard — Springhill Township postpones votes on data center, power plant ordinances",
+    "verbatims": [
+      "the board approved a resolution Thursday night prohibiting anyone from applying for a data center or power plant within the township until the next meeting",
+      "Two ordinances were tabled Thursday and will come up for a vote at the township's regular meeting on Sept. 17."
+    ],
+    "verified": true,
+    "notes": "Event date computed: article dated Sept 5, 2026 says 'Thursday' = Sept 3. Sept 17 outcome NOT found; BACKLOG's claim of permanent zoning adopted Sept 19 is unverified and must be checked before use. Township mapped to city (schema has no township). Ordinances are a Policy candidate, not a moratorium."
+  },
+  {
+    "unit": "state:CA",
+    "type": "moratorium",
+    "action": "update",
+    "existing_id": "monterey-park-ca-2026-05",
+    "jurisdiction": "Monterey Park",
+    "jurisdiction_type": "city",
+    "state": "CA",
+    "title": "Monterey Park, CA voters approve permanent citywide data-center ban (Measure NDC) on June 2, 2026",
+    "event_date": "2026-06-02",
+    "status": "enacted",
+    "facts": {
+      "legal_action": "voter-approved ballot measure amending municipal code to ban data centers citywide",
+      "election_date": "2026-06-02",
+      "council_placed_on_ballot": "2026-03-04 (unanimous)",
+      "approval": "about 86% (preliminary)",
+      "certification": "pending per sources"
+    },
+    "summary": "Monterey Park voters approved Measure NDC on June 2, 2026, banning data centers citywide. The existing record dates the ban to 2026-05-01, which the source does not support.",
+    "source_url": "https://www.datacenterknowledge.com/build-design/california-city-approves-first-voter-enacted-data-center-ban",
+    "source_title": "Data Center Knowledge — California City Approves First Voter-Enacted Data Center Ban",
+    "verbatims": [
+      "Monterey Park, California, voters on Tuesday approved a ballot measure prohibiting data centers within city limits",
+      "The Monterey Park City Council voted unanimously on March 4 to place a ballot measure proposing a ban on data centers before voters in the June 2 special election"
+    ],
+    "verified": true,
+    "notes": "Correction to existing record monterey-park-ca-2026-05: enacted_date should be 2026-06-02 (election), not 2026-05-01. The record's source is Truthout (not probed here); add the DCK or calonews source. Vote share 86% is preliminary; certification not confirmed. Verbatim 2 is from calonews (probe HIT)."
+  }
+]

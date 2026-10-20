@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-10-19",
+  "scope": "SE, FI, GR wave 4 deepening. Budget: ~12 WebFetch/curl pages and 8 WebSearch calls, stopped early on time. Probe: scripts/probe.py --evidence, 3 hit / 0 miss.",
+  "companies": [
+    {"candidate": "Serverfarm", "country": "US", "role": "Operator of the ADMIE-linked Kryoneri (Attica) data centre", "hq": "not verified", "website": "not verified", "notes": "Partner of ADMIE in the Kryoneri project per energygame.gr (10 Mar 2025). Needs HQ and website before adding."},
+    {"candidate": "PPC (Public Power Corporation)", "country": "GR", "role": "Site owner and power supplier for a 300 MW AWS data centre at the Agios Dimitrios site, Kozani", "hq": "Athens (not fetched)", "website": "https://www.ppcgroup.com (not fetched)", "notes": "Balkan Green Energy News and To Vima report a binding MoU with AWS, Sept 2026. Needs PPC's own statement before any Claim. The scan lead's Amazon framing is AWS, not Amazon retail."},
+    {"candidate": "Tuike Finland", "country": "FI", "role": "Google's Finnish project company, named in the LVV order", "notes": "Not a separate company record. Use the existing fi-google-muhos project and the regulator response."}
+  ],
+  "records": [
+    {
+      "country": "FI",
+      "kind": "community_response",
+      "verified": true,
+      "fields": {
+        "project_id": "fi-google-muhos",
+        "date": "2026-10-07",
+        "constituency": "regulator",
+        "stance": "NEEDS CURATOR (regulator order; stance is editorial)",
+        "summary": "Finland's environmental supervisory agency (LVV) ordered the company representing Google, Tuike Finland, to suspend preparatory work at the Muhos and Kajaani sites until mandatory environmental impact assessments are complete. The agency is checking whether hundreds of hectares of forest were cleared without one. Google said it would comply with the guidance.",
+        "source_title": "Al Jazeera (AFP/Reuters) - Finland orders halt to work on Google data centre sites",
+        "source_url": "https://www.aljazeera.com/news/2026/10/7/finland-orders-halt-to-work-on-google-data-sites-over-environment-concerns",
+        "original_language": "en",
+        "statement_lang": "en"
+      },
+      "verbatim": "immediately suspend, and no later than 23 October 2026, all preparatory measures that would significantly alter the environment in connection with the planned data centre projects in Muhos and Kajaani",
+      "translation": "Original is English. The quote is from LVV's demand to Tuike Finland, as quoted by Al Jazeera.",
+      "source_url": "https://www.aljazeera.com/news/2026/10/7/finland-orders-halt-to-work-on-google-data-sites-over-environment-concerns",
+      "notes": "Two quotes probed as HIT: the stop-until-EIA clause and this suspension clause. The Google 'will comply' line is paraphrased in the article and was not probed. Do not use a regulator quote as a company Claim. The scan lead is a Google News link to Yle or Ilta-Sanomat; this Al Jazeera article is the fetchable outlet URL."
+    },
+    {
+      "country": "GR",
+      "kind": "project_candidate_and_regulator_response",
+      "verified": true,
+      "fields": {
+        "project_id": "NEW: gr-serverfarm-admie-kryoneri (needs company decision)",
+        "date": "2026-10-20",
+        "constituency": "regulator",
+        "stance": "NEEDS CURATOR",
+        "summary": "Greece's regulator RAAEY has asked the transmission system operator ADMIE to withdraw its connection-terms offer for a data centre at Kryoneri until the activity has been assessed for compatibility with the regulatory framework. The data centre is being developed with Serverfarm. The report also says ADMIE is defending the project.",
+        "source_title": "energygame.gr (POWERGAME) - Φουντώνει η μάχη ΡΑΑΕΥ με ΑΔΜΗΕ για το data center στο Κρυονέρι",
+        "source_url": "https://www.powergame.gr/energygame/822252/fountonei-i-machi-raaef-me-admie-gia-to-data-center-sto-kryoneri/",
+        "original_language": "el",
+        "statement_lang": "el"
+      },
+      "verbatim": "Η ΡΑΑΕΥ έχει ζητήσει από τον ΑΔΜΗΕ να ανακαλέσει την προσφορά όρων σύνδεσης του data center",
+      "translation": "RAAEY has asked ADMIE to withdraw its offer of connection terms for the data centre.",
+      "source_url": "https://www.powergame.gr/energygame/822252/fountonei-i-machi-raaef-me-admie-gia-to-data-center-sto-kryoneri/",
+      "notes": "Probe HIT. The article is dated Tuesday 20 Oct 2026 on the page header, but the 'Serverfarm' citation paragraph is from 10 Mar 2025, so the event date may be the 2026 article date. ADMIE is a grid operator, not a data-centre developer, so this is not a Company. Hold the record until a project_id is decided, or file as a BACKLOG lead."
+    }
+  ],
+  "leads": [
+    {"id": "se-ecodatacenter-ostersund-cancelled", "country": "SE", "note": "The scan lead said Jamtkraft sued EcoDataCenter. Searches found no lawsuit. SVT reports the Ostersund project was called off, and the grid-fee impact is in the CEO's words. Fetch the SVT article for the date and quote before filing. It is a cancellation/grid-cost lead, not a dispute record."},
+    {"id": "se-edgeconnex-skelleftea", "country": "SE", "note": "EdgeConneX (EQT portfolio) announced a campus of up to 1 GW in Skelleftea (Feb 2026). No bygglov decision was found; SVT says capacity and jobs are unclear. Winthrop is building it. Needs Skelleftea kommun's planning register before any permit claim."},
+    {"id": "se-aws-mellansverige", "country": "SE", "note": "Realtid and Affarsvarlden report AWS data centres in Vasteras, Eskilstuna and Katrineholm. Dates conflict across copies (11 Jul, 21 Jul, 3 Aug 2026). Amazon declines to give an investment figure. A lead, not a record."},
+    {"id": "gr-kryoneri-karatzis-misattribution", "country": "GR", "note": "The scan lead tied Karatzis Group to a 39.1 MW Kryoneri data centre. Searches show Karatzis's 2026 work is a 1.2 GW solar programme (EUR 600m), not a data centre. Do not file under Karatzis. The Kryoneri data centre is ADMIE/Serverfarm."},
+    {"id": "fi-microsoft-vaasa-jurva", "country": "FI", "note": "Ilkka-Pohjalainen (scan title asks whether the Microsoft Vaasa data centre belongs to the city council) and Microsoft's Vaasa public meeting in Jurva. Not fetched. Candidate for fi-microsoft-espoo-style project record once Microsoft's own page is found."},
+    {"id": "fi-fortum-orimattila", "country": "FI", "note": "Fortum's Orimattila data centre (ESS headline, scale 'multiple times Lahti'). Not fetched. Fortum is an energy company, and the operator needs confirming."},
+    {"id": "gr-amazon-aws-agios-dimitrios-kozani", "country": "GR", "note": "PPC and AWS signed a binding MoU (Sept 2026) for 300 MW at Agios Dimitrios, Kozani; 15-year lease; roughly EUR 1bn per side per Balkan Green Energy News. Filed as a company_candidate (PPC) above. Needs PPC's own press release before any Claim."},
+    {"id": "gr-ministry-licensing-guarantees", "country": "GR", "note": "PowerGame: 'Freno stin anarchi adeiodotisi Data Centers me ypsila eggyhtiki' (licensing with high guarantees), and a ministry connection-rules item on the scan list. Not fetched. Likely a policy record, pending the ministry's decision text."},
+    {"id": "fi-ministry-google-delay-hs", "country": "FI", "note": "HS and Ilta-Sanomat report the minister said Google's data centre could be delayed. The minister's own words are not verified. Use the official source."},
+    {"id": "se-svk-grid-queue", "country": "SE", "note": "Ny Teknik 'Datacenter laggs sist i kon till elnatet'. The Svenska kraftnat connection-queue position for data centres is not verified. Needs SvK's own queue document."},
+    {"id": "gr-data-centre-water-island", "country": "GR", "note": "Batam-style local water shortage reporting (Kathimerini, Batam island) is in the scan list. The island is not in Greece's data-centre sites and was not checked, so it is not a Greece record."}
+  ],
+  "reading_notes": [
+    "Google News links in the scan lists fail to fetch. The outlet URL had to be found by search, and some titles had no matching outlet page.",
+    "Several scan titles were wrong on fetch: the Karatzis Kryoneri and Jamtkraft lawsuit items above. Triage by title before filing."
+  ]
+}

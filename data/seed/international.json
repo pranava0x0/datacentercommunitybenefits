@@ -146,6 +146,34 @@
           "source_url": "https://www.realtid.se/bors-finans/gavle-jublar-efter-microsoftkop/",
           "source_title": "Realtid — Gävle jublar efter Microsoftköp",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "As reported from a WSP seminar at Almedalen in 2026, Svenska kraftnät's chief strategist put the volume wanting to connect to the transmission grid at roughly 7,500 MW. The WSP page is a consultancy's account, not a Svenska kraftnät publication.",
+          "verbatim": "Vi har väl någonstans runt 7 500 megawatt som vill komma in till stamnätet.",
+          "source_lang": "sv",
+          "translation": {
+            "text": "We have roughly 7,500 megawatts that want to connect to the transmission grid.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026",
+          "source_url": "https://www.wsp.com/sv-se/nyheter/2026/wsp-i-almedalen-datacenter-vaxer-men-utan-nationell-kompass",
+          "source_title": "WSP: I Almedalen, datacenter växer men utan nationell kompass (2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "In the same WSP-reported remarks, winter peak load in Sweden was put at around 25,000-26,000 MW.",
+          "verbatim": "Topplasten vintertid under en januaridag har ju varit någonstans kring 25 000–26 000 megawatt",
+          "source_lang": "sv",
+          "translation": {
+            "text": "Winter peak load on a January day has been somewhere around 25,000–26,000 megawatts.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026",
+          "source_url": "https://www.wsp.com/sv-se/nyheter/2026/wsp-i-almedalen-datacenter-vaxer-men-utan-nationell-kompass",
+          "source_title": "WSP: I Almedalen, datacenter växer men utan nationell kompass (2026)",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
@@ -198,6 +226,48 @@
           "source_url": "https://irei.com/news/capman-infras-portfolio-company-haminan-energia-advances-local-energy-transition-through-new-waste-heat-facility/",
           "source_title": "IREI — CapMan Infra's portfolio company Haminan Energia advances local energy transition through new waste heat facility (reprint, 18 May 2026)",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "By mid-August 2026, planned data-centre capacity with signed connection agreements was almost 5 GW according to Fingrid, based on project developers' figures and including distribution-network projects; Fingrid says signing an agreement does not guarantee the connection.",
+          "verbatim": "Elokuun puoliväliin mennessä liittymissopimusten tehneiden datakeskushankkeiden suunniteltu lopullinen kokonaislaajuus on hanketoimijoiden ilmoittamien tietojen perusteella yhteensä lähes 5 gigawattia",
+          "source_lang": "fi",
+          "translation": {
+            "text": "By mid-August, the planned final total of data-centre projects that had signed connection agreements was, per the project developers' figures, almost 5 gigawatts in total.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-08-18",
+          "source_url": "https://www.sttinfo.fi/tiedote/72239761/sahkonkulutus-on-kaantymassa-voimakkaaseen-kasvuun-rinnalle-tarvitaan-lisaa-saatovoimaa?lang=fi",
+          "source_title": "Fingrid Oyj: Sähkönkulutus on kääntymässä voimakkaaseen kasvuun (18 Aug 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "A Fingrid study published on 3 September 2026 says projects with signed grid connection agreements could, if realised, raise consumption by up to 40 per cent within five years.",
+          "verbatim": "Sähköverkon liityntäsopimuksen tehneet hankkeet voivat toteutuessaan kasvattaa kulutusta viidessä vuodessa jopa 40 prosenttia.",
+          "source_lang": "fi",
+          "translation": {
+            "text": "Projects that have signed a grid connection agreement could, if realised, increase consumption by up to 40 per cent within five years.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09-03",
+          "source_url": "https://www.sttinfo.fi/tiedote/72289680/fingridin-selvitys-teollisuuskulutuksen-sijoittuminen-lahelle-sahkontuotantoa-lisaa-kantaverkon-liitettavyytta-merkittavasti?lang=fi",
+          "source_title": "Fingrid Oyj: Fingridin selvitys, teollisuuskulutuksen sijoittuminen (3 Sep 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "The same Fingrid study says efficient placement of new connections could raise total transmission-grid connectivity by up to 20 GW.",
+          "verbatim": "Fingridin tänään julkaiseman selvityksen mukaan uusien liittyjien tehokas sijoittuminen Suomen sähköjärjestelmään voi kasvattaa kantaverkon kokonaisliitettävyyttä jopa 20 gigawattia.",
+          "source_lang": "fi",
+          "translation": {
+            "text": "According to the study Fingrid published today, the efficient placement of new connections in the Finnish power system could raise total transmission-grid connectivity by up to 20 gigawatts.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09-03",
+          "source_url": "https://www.sttinfo.fi/tiedote/72289680/fingridin-selvitys-teollisuuskulutuksen-sijoittuminen-lahelle-sahkontuotantoa-lisaa-kantaverkon-liitettavyytta-merkittavasti?lang=fi",
+          "source_title": "Fingrid Oyj: Fingridin selvitys, teollisuuskulutuksen sijoittuminen (3 Sep 2026)",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
@@ -224,6 +294,20 @@
           "period": "2022-04-01",
           "source_url": "https://www.enterprisegreece.gov.gr/en/media-center-about-us/enterprise-greece-approves-microsoft-investment-in-data-centers-for-fast-track/",
           "source_title": "Enterprise Greece — Enterprise Greece approves Microsoft investment in Data Centers for Fast Track",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Greek outlet powergame.gr reported on 22 October 2025 that the energy regulator RAAEY had frozen grid operator ADMIE's plan for a 130 MW data centre at Agios Stefanos, Attica, and that ADMIE was continuing to press the plan.",
+          "verbatim": "ΑΔΜΗΕ επανέρχεται μετά το «πάγωμα» του σχεδίου για data centers από τη ΡΑΑΕΥ",
+          "source_lang": "el",
+          "translation": {
+            "text": "ADMIE is returning after RAAEY's 'freeze' of its data centre plan.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2025-10-22",
+          "source_url": "https://www.powergame.gr/energygame/1159339/admie-den-egkataleipei-to-schedio-gia-to-data-center-para-to-freno-tis-raaef/",
+          "source_title": "energygame.gr (POWERGAME): ΑΔΜΗΕ, δεν εγκαταλείπει το σχέδιο για το data center παρά το «φρένο» της ΡΑΑΕΥ (22 Oct 2025)",
           "captured_at": "2026-10-19"
         }
       ],
@@ -595,6 +679,206 @@
           "period": "2025-12",
           "source_url": "https://www.news4jax.com/business/2025/12/09/microsoft-investing-175-billion-in-india-for-ai-and-cloud-infrastructure/",
           "source_title": "Associated Press (via News4JAX) — Microsoft investing $17.5 billion in India for AI and cloud infrastructure",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Newslaundry reports that Devanahalli, a Bengaluru locality hosting multiple data centres, consumes 169% of its permissible groundwater extraction limits. The subject is the locality, not a single company.",
+          "verbatim": "consumes 169% of permissible extraction limits of water.",
+          "source_lang": "en",
+          "period": "2026-04",
+          "source_url": "https://www.newslaundry.com/2026/04/16/in-bengalurus-water-stressed-areas-sit-most-of-its-data-centres",
+          "source_title": "Newslaundry — In Bengaluru's water-stressed areas sit most of its data centres",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Newslaundry reports that the Bengaluru water board (BWSSB) has not tracked the water supplied to data centres as a separate category.",
+          "verbatim": "the board has not tracked the water supplied to data centres",
+          "source_lang": "en",
+          "period": "2026-04",
+          "source_url": "https://www.newslaundry.com/2026/04/16/in-bengalurus-water-stressed-areas-sit-most-of-its-data-centres",
+          "source_title": "Newslaundry — In Bengaluru's water-stressed areas sit most of its data centres",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "MX",
+      "summary": "Querétaro holds most of Mexico's data-centre capacity and is also one of the states with the highest water stress, per Expansión (27 May 2026). CFE substation energisations for data-centre loads were reported in January 2026 by trade press, and the state governor publicly disputed a former regulator's claim of an energy deficit in September 2026.",
+      "regulators": [
+        {
+          "name": "Comisión Reguladora de Energía",
+          "acronym": "CRE",
+          "role": "energy_regulator",
+          "url": "https://www.gob.mx/cre"
+        },
+        {
+          "name": "Comisión Federal de Electricidad",
+          "acronym": "CFE",
+          "role": "grid_operator",
+          "url": "https://www.cfe.mx/"
+        },
+        {
+          "name": "Comisión Nacional del Agua",
+          "acronym": "CONAGUA",
+          "role": "environment",
+          "url": "https://www.gob.mx/conagua"
+        }
+      ],
+      "primary_languages": [
+        "es"
+      ],
+      "context": [
+        {
+          "statement": "Querétaro is among the states with the highest water stress and also hosts the most data centres in Mexico, at least 30, according to Expansión.",
+          "verbatim": "Querétaro es de las entidades con mayor estrés hídrico, pero en contraste, ahí también se sitúa la mayor cantidad de data centers en el país, con por lo menos 30.",
+          "source_lang": "es",
+          "translation": {
+            "text": "Querétaro is among the states with the highest water stress, but in contrast it also has the largest number of data centres in the country, at least 30.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-05",
+          "source_url": "https://expansion.mx/tecnologia/2026/05/27/data-centers-en-queretaro-chocan-con-el-estres-hidrico",
+          "source_title": "Expansión — Data centers en Querétaro chocan con el estrés hídrico (27 May 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "President Sheinbaum said on 25 September 2025 that investments such as data centres are also required to bring benefits to the community; the release names no instrument that sets the requirement.",
+          "verbatim": "Y se requiere, también, que estas inversiones traigan beneficios a la comunidad",
+          "source_lang": "es",
+          "translation": {
+            "text": "And it is also required that these investments bring benefits to the community.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2025-09",
+          "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+          "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Querétaro's Secretary of Sustainable Development told state deputies on 11 September 2024 that the state's data centres (AWS, Microsoft and Google together) represent an investment of more than US$6 billion; this is an official aggregate, not checked against company releases.",
+          "verbatim": "centros de datos que dijo, significan una inversión superior a los 6 mil millones de dólares",
+          "source_lang": "es",
+          "translation": {
+            "text": "data centres that, he said, represent an investment of more than US$6 billion.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2024-09",
+          "source_url": "http://legislaturaqueretaro.gob.mx/comparecio-el-titular-de-la-secretaria-de-desarrollo-sustentable-marco-antonio-del-prete-tercero-ante-diputados-locales-de-la-lx-legislatura/",
+          "source_title": "LXI Legislatura Querétaro — Compareció Del Prete Tercero ante diputados locales (11 Sep 2024)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Governor Mauricio Kuri said on 8 September 2026 that data centres are the ones funding their own substations; the same article reports him acknowledging a transmission problem tied to CFE infrastructure.",
+          "verbatim": "los que están haciendo la inversión para tener las subestaciones, etcétera, son los propios data centers",
+          "source_lang": "es",
+          "translation": {
+            "text": "those making the investment to have the substations, etc., are the data centres themselves.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+          "source_title": "Publimetro — Kuri rechaza falta de energía en data centers (8 Sep 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Governor Mauricio Kuri compared the water use of data centres to what is used to make two pairs of jeans on 8 September 2026; no volume or state measurement was cited.",
+          "verbatim": "Se usa lo que usarías para para fabricar dos pantalones de mezclilla",
+          "source_lang": "es",
+          "translation": {
+            "text": "It uses what you would use to make two pairs of denim jeans.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+          "source_title": "Publimetro — Kuri rechaza falta de energía en data centers (8 Sep 2026)",
+          "captured_at": "2026-10-19"
+        }
+      ],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "ES",
+      "summary": "Aragón is the centre of Spain's data-centre build-out. Press reports an environmental authorisation for an AWS campus near Zaragoza in July 2026 that includes a city water cap, and a civil-society campaign contests the water and energy impacts of data centres in the region.",
+      "regulators": [
+        {
+          "name": "Comisión Nacional de los Mercados y la Competencia",
+          "acronym": "CNMC",
+          "role": "energy_regulator",
+          "url": "https://www.cnmc.es/"
+        },
+        {
+          "name": "Red Eléctrica de España",
+          "acronym": "REE",
+          "role": "grid_operator",
+          "url": "https://www.ree.es/"
+        },
+        {
+          "name": "Instituto Aragonés de Gestión Ambiental",
+          "acronym": "INAGA",
+          "role": "environment",
+          "url": "https://www.aragon.es/"
+        }
+      ],
+      "primary_languages": [
+        "es"
+      ],
+      "context": [],
+      "last_reviewed": "2026-10-19"
+    },
+    {
+      "code": "BE",
+      "summary": "Wallonia hosts Google's St. Ghislain campus, and Google announced a two-year €5 billion expansion there in October 2025. Grid capacity is allocated by the operator Elia; this record holds no regulatory finding yet.",
+      "regulators": [
+        {
+          "name": "Commission de Régulation de l'Électricité et du Gaz",
+          "acronym": "CREG",
+          "role": "energy_regulator",
+          "url": "https://www.creg.be/"
+        },
+        {
+          "name": "Elia Group",
+          "acronym": "Elia",
+          "role": "grid_operator",
+          "url": "https://www.elia.be/"
+        }
+      ],
+      "primary_languages": [
+        "fr",
+        "nl"
+      ],
+      "context": [
+        {
+          "statement": "Elia said, in a correction printed by VRT NWS on 18 September 2026, that its figure for new data centres refers to reserved capacity and not to expected electricity consumption.",
+          "verbatim": "Elia meldt dat dat cijfer slaat op de gereserveerde capaciteit voor nieuwe datacenters en niet op het te verwachten stroomverbruik.",
+          "source_lang": "nl",
+          "translation": {
+            "text": "Elia reports that this figure refers to the reserved capacity for new data centres and not to the expected electricity consumption.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+          "source_title": "VRT NWS — Belgium needs more electricity for data centres by 2034, says Elia (with correction, 18 Sep 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Elia expects that many of the requests for new data centres will ultimately not be realised, according to VRT NWS on 18 September 2026.",
+          "verbatim": "Elia verwacht namelijk dat veel van de aanvragen voor nieuwe datacenters uiteindelijk niet zullen worden gerealiseerd.",
+          "source_lang": "nl",
+          "translation": {
+            "text": "Elia in fact expects that many of the requests for new data centres will ultimately not be realised.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+          "source_title": "VRT NWS — Belgium needs more electricity for data centres by 2034, says Elia (with correction, 18 Sep 2026)",
           "captured_at": "2026-10-19"
         }
       ],
@@ -1088,9 +1372,10 @@
       ],
       "key_terms": [
         "Mensaje 181/2026",
-        "comprometer al menos 20% de ese monto dentro de los primeros dos años desde su adhesión"
+        "comprometer al menos 20% de ese monto dentro de los primeros dos años desde su adhesión",
+        "La primera obliga a las empresas que instalen centros de datos a construir sus propias subestaciones eléctricas"
       ],
-      "summary": "An executive bill sent to the Chamber of Deputies as Mensaje 181/2026, proposing a special regime for new or experimental economic activities, with data centres among the sectors named by the source. It would set a minimum of US$1,000 million in qualifying assets per project and require at least 20% to be committed within two years of joining. It is a bill, not law; later stages were not verified.",
+      "summary": "An executive bill sent to the Chamber of Deputies as Mensaje 181/2026, proposing a special regime for new or experimental economic activities, with data centres among the sectors named by the source. It would set a minimum of US$1,000 million in qualifying assets per project and require at least 20% to be committed within two years of joining. It is a bill, not law; later stages were not verified. On 2 September 2026 a Senate-stage report said the government accepted changes, including a requirement that companies installing data centres build their own electrical substations and a local-supplier plan; Senate passage was not confirmed.",
       "source_url": "https://dplnews.com/super-rigi-argentina-busca-atraer-inversiones-1000-mdd-en-ia-centros-de-datos-y-semiconductores/",
       "source_title": "DPL News — El “Súper RIGI” de Argentina busca atraer inversiones de 1,000 mdd en IA, Centros de Datos y semiconductores",
       "captured_at": "2026-10-19",
@@ -1101,11 +1386,18 @@
       "key_terms_translation": {
         "items": [
           "Message 181/2026",
-          "commit at least 20% of that amount within the first two years from joining"
+          "commit at least 20% of that amount within the first two years from joining",
+          "The first requires companies installing data centers to build their own electrical substations."
         ],
         "by": "machine",
         "reviewed_at": "2026-10-19"
-      }
+      },
+      "resources": [
+        {
+          "url": "https://www.eldiarioar.com/politica/gobierno-acepto-cambios-super-rigi-lograr-apoyo-bloques-aliados-senado_1_13482555.html",
+          "title": "elDiarioAR (NA) — Gobierno aceptó cambios al Súper RIGI para lograr apoyo en el Senado (2 Sep 2026)"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -1379,7 +1671,13 @@
       "subdivision": "GB-ENG",
       "locality": "Blyth; Cobalt Park (North Tyneside)",
       "source_lang": "en",
-      "community_benefits_framework": false
+      "community_benefits_framework": false,
+      "resources": [
+        {
+          "url": "https://www.gov.uk/government/news/north-east-ai-growth-zone-taskforce-launched-to-accelerate-jobs-skills-and-growth",
+          "title": "GOV.UK — North East AI Growth Zone taskforce launched (24 Sep 2025)"
+        }
+      ]
     },
     {
       "id": "kr-geumcheon-gu-200m-consent-2026",
@@ -1551,7 +1849,13 @@
       "source_url": "https://www.senat.fr/leg/tas25-073.pdf",
       "source_title": "Sénat, texte adopté n° 73 (25 March 2026), proposition de loi visant à encadrer l’implantation des centres de données",
       "captured_at": "2026-10-19",
-      "source_lang": "fr"
+      "source_lang": "fr",
+      "resources": [
+        {
+          "url": "https://www.banquedesterritoires.fr/datacenters-le-senat-adopte-une-proposition-de-loi-allegee-renvoyant-lessentiel-aux-textes-en-cours",
+          "title": "Banque des Territoires — Senate adopts a slimmed bill (27 Mar 2026); reports Article 15 on PINM eligibility"
+        }
+      ]
     },
     {
       "id": "jp-utsunomiya-shin-tochigi-dc-solicitation-2026",
@@ -1586,6 +1890,703 @@
       "source_title": "宇都宮市 (Utsunomiya City): 「新栃木変電所」南側エリア データセンター整備事業 募集要項, 令和8年4月30日",
       "captured_at": "2026-10-19",
       "source_lang": "ja"
+    },
+    {
+      "id": "kr-ai-datacenter-special-act-2026",
+      "title": "AI Data Center Special Act (passed National Assembly 7 May 2026; not yet in force)",
+      "instrument": "legislation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "South Korea",
+      "country": "KR",
+      "source_lang": "ko",
+      "date": "2026-05-07",
+      "benefit_themes": [
+        "energy",
+        "infrastructure"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "과학기술정보통신부는 'AI 데이터센터 특별법' 제정안이 지난 7일 국회 본회의에서 의결됐다고 발표했다.",
+        "특별법에는 비수도권에서 일정 규모 이하 AI 데이터센터를 신축·증축하거나 기존 데이터센터를 AI 전용 시설로 전환할 경우 전력계통영향평가를 면제하는 내용이 포함됐다."
+      ],
+      "key_terms_translation": {
+        "items": [
+          "The Ministry of Science and ICT announced that the enactment bill for the 'AI Data Center Special Act' was approved at the National Assembly plenary session on the 7th.",
+          "The special act includes an exemption from the grid impact assessment when an AI data center of up to a set size is newly built or extended outside the capital region, or an existing data center is converted to an AI-only facility."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "The Ministry of Science and ICT announced that the enactment bill passed the National Assembly plenary session on 7 May 2026. The ministry's stated schedule puts it in force around February 2027. The policy vocabulary has no 'enacted, not yet in force' status, so it is filed as proposed; it is not yet operative law. Clause-level terms are from a press report, not the enacted text.",
+      "source_url": "https://v.daum.net/v/20260508173552820",
+      "source_title": "Daum (news report) — 'AI 데이터센터 특별법' passes National Assembly (8 May 2026)",
+      "captured_at": "2026-10-19",
+      "resources": [
+        {
+          "url": "https://peoplepower21.org/solidarity/2022267",
+          "title": "Joint statement of Green Transition Institute, People's Solidarity and Korean Federation for Environmental Justice on the Act (posted 8 May 2026; repost)"
+        }
+      ]
+    },
+    {
+      "id": "kr-grid-impact-assessment-2024",
+      "title": "Grid impact assessment for data centres of 10 MW or more (MOTIE draft rules, re-notified December 2024)",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "South Korea",
+      "country": "KR",
+      "source_lang": "ko",
+      "date": "2024-12-09",
+      "benefit_themes": [
+        "energy",
+        "jobs"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "최근 재행정예고를 통해 기술적평가항목 60점, 비기술적평가항목 20점, 정책적 평가항목 20점 등으로 개정됐다.",
+        "평가항목 합계 70점 이상인 경우 전력정책 심의위원회에 상정할 수 있으며"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Through a recent re-notice, the scoring was revised to 60 points for technical items, 20 for non-technical items and 20 for policy items.",
+          "Where the evaluation items total 70 points or more, the project can be put before the Power Policy Deliberation Committee."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Per an industry-side report, the Ministry of Trade, Industry and Energy re-notified draft rules scoring data-centre grid impact on technical, non-technical and policy items. A June 2024 report put the threshold at 10 MW and the pass mark at 70 of 100. The final notice text has not been checked, so the record stays proposed.",
+      "source_url": "https://www.kharn.kr/news/article.html?no=26588",
+      "source_title": "Kharn — grid impact assessment re-notice (9 Dec 2024)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "cl-sea-datacenter-criterion-2026",
+      "title": "SEA evaluation criterion: Introduction to data-centre projects (Resolución Exenta 20269910149)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "Chile",
+      "identifier": "Resolución Exenta N° 20269910149",
+      "date": "2026-01-20",
+      "country": "CL",
+      "source_lang": "es",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "key_terms": [
+        "Establecer que dicho documento se entenderá vigente desde la fecha de publicación",
+        "Introducción a proyectos de Data Center"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Establish that said document shall be understood to be in force from the date of publication",
+          "Introduction to Data Center projects"
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Chile's Environmental Assessment Service (SEA) issued the evaluation criterion 'Introducción a proyectos de Data Center' for the national environmental impact assessment system (SEIA) by Resolución Exenta 20269910149 of 20 January 2026. The resolution states the document is in force from its publication. It is guidance, not a statute.",
+      "source_url": "https://www.sea.gob.cl/sites/default/files/imce/archivos/2026/01/20/DT_Datacenter.pdf",
+      "source_title": "SEA — Resolución Exenta 20269910149 and criterion 'Introducción a proyectos de Data Center' (20 Jan 2026)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-power-supply-refusal-5mw-2023",
+      "title": "Power-supply refusal for large loads of 5 MW or more (Electricity Business Act enforcement decree amendment, announced March 2023)",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "South Korea",
+      "date": "2023-03-09",
+      "country": "KR",
+      "source_lang": "ko",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "5MW 이상의 전기를 대량으로 사용하려는 자로 인하여 전력계통 신뢰도 및 전기품질을 유지하기 어려운 경우 예외적으로 전기공급 거부 가능"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Where a user taking large amounts of electricity (5 MW or more) makes it difficult to keep grid reliability and power quality, power supply may exceptionally be refused."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "A 9 March 2023 ministry press release announced an enforcement-decree amendment allowing power supply to be refused, exceptionally, to users of 5 MW or more where grid reliability and power quality would be hard to maintain. The release is dated 2023 and planned enforcement for March; no source read confirms the final text or that it took effect, so the record stays proposed.",
+      "source_url": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/166902/view",
+      "source_title": "Korean trade and industry ministry (motir.go.kr) — press release, 9 Mar 2023",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-changwon-defense-ai-dc-investment-2026",
+      "title": "Changwon defence-dedicated AI data centre investment agreement (Gyeongnam Province, Changwon City, Dinotitia, Dinocore, Shinhwa Steel)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Changwon, South Gyeongsang",
+      "date": "2026-07-28",
+      "country": "KR",
+      "subdivision": "KR-48",
+      "locality": "Changwon",
+      "source_lang": "ko",
+      "benefit_themes": [
+        "jobs"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "counterparties": [
+        "Dinotitia",
+        "Dinocore",
+        "Shinhwa Steel"
+      ],
+      "key_terms": [
+        "경남도와 창원시는 ㈜디노티시아, ㈜디노코어, 신화철강㈜과 함께 ‘방산 전용 AI 데이터센터 건립을 위한 투자협약’을 체결했다고 28일 밝혔다",
+        "이번 협약에 따른 총투자 규모는 1조6555억원에 달하며, 데이터센터 구축과 운영 과정에서 200여명의 고부가가치 정보통신기술(ICT) 분야 신규 일자리가 창출될 것으로 기대를 모은다"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Gyeongnam Province and Changwon City said on the 28th that they had signed, with Dinotitia, Dinocore and Shinhwa Steel, an investment agreement for building a defence-dedicated AI data centre.",
+          "The total investment under this agreement amounts to KRW 1.6555 trillion, and about 200 new high-value information and communications technology (ICT) jobs are expected to be created in building and operating the data centre."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Segye Ilbo reports that Gyeongnam Province and Changwon City signed an investment agreement with three companies for a defence-dedicated AI data centre. The investment total (KRW 1.6555 trillion) and the expected 200 or so ICT jobs are the government's announced figures. The agreement text was not read, and no other community-benefit terms are stated, so this is an investment agreement rather than a community benefit agreement.",
+      "source_url": "https://www.segye.com/newsView/20260728515328",
+      "source_title": "Segye Ilbo — 경남도·창원시, 방산 전용 AI 데이터센터 투자협약 (28 Jul 2026)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-seoul-district-heads-residential-zone-2026",
+      "title": "Seoul district heads' resolution to restrict data centres in general residential zones",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Seoul district heads (association of district heads)",
+      "date": "2026-08-15",
+      "country": "KR",
+      "subdivision": "KR-11",
+      "locality": "Seoul",
+      "source_lang": "ko",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "key_terms": [
+        "이 안건은 참석 구청장들의 만장일치로 의결됐다",
+        "제2·3종 일반주거지역 데이터센터 건립 제한해야"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "This agenda item was approved unanimously by the attending district heads.",
+          "Data-centre construction should be restricted in Type 2 and Type 3 general residential zones"
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Herald Economy (15 August 2026) reports that the attending Seoul district heads unanimously approved an agenda item to restrict data-centre construction in Type 2 and Type 3 general residential zones. It is a resolution of the district heads, not a rule; taking effect would need a Seoul city ordinance and related legal changes.",
+      "source_url": "https://www.heraldk.com/article/2026081502522403795",
+      "source_title": "Herald Economy — Seoul district heads' resolution on data centres in residential zones (15 Aug 2026)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "in-niti-dc-evaluation-framework-2026",
+      "title": "NITI Aayog framework for evaluating data-centre proposals",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "India",
+      "date": "2026-10-14",
+      "country": "IN",
+      "source_lang": "en",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "infrastructure"
+      ],
+      "principles": [
+        "new_power",
+        "water"
+      ],
+      "key_terms": [
+        "The framework proposes that States link data centre approvals to verified electricity, water and infrastructure availability"
+      ],
+      "summary": "GKToday reports that the NITI Aayog Frontier Tech Hub framework, released on 14 October 2026, proposes that States link data-centre approvals to verified electricity, water and infrastructure availability. Other outlets describe it as guidance for States, not a new national approval rule. The NITI Aayog document itself was not read.",
+      "source_url": "https://www.gktoday.in/niti-aayog-links-data-centre-approvals-to-power-and-water/",
+      "source_title": "GKToday — NITI Aayog links data centre approvals to power and water",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "gb-north-wales-ai-growth-zone-2025",
+      "title": "North Wales AI Growth Zone (Prosperity Parc, Anglesey; Trawsfynydd, Gwynedd)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "North Wales",
+      "date": "2025-11-13",
+      "country": "GB",
+      "subdivision": "GB-WLS",
+      "locality": "Anglesey and Gwynedd (Menai Strait)",
+      "source_lang": "en",
+      "benefit_themes": [
+        "jobs"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "key_terms": [
+        "North Wales in line for more than 3,400 new jobs through newly announced AI Growth Zone"
+      ],
+      "summary": "The UK government's 13 November 2025 release confirms a North Wales AI Growth Zone straddling the Menai Strait, with bases at Prosperity Parc on Anglesey and Trawsfynydd in Gwynedd. It says the zone is in line for more than 3,400 new jobs, a government figure rather than a committed community benefit. The release says work is under way to secure an investment partner, with construction to follow once a deal is confirmed.",
+      "source_url": "https://www.gov.uk/government/news/ai-growth-zones-to-create-thousands-of-jobs-and-unlock-up-to-100-billion-in-investment-as-new-site-confirmed-for-north-wales",
+      "source_title": "GOV.UK — AI Growth Zones to create thousands of jobs: new site confirmed for North Wales (13 Nov 2025)",
+      "captured_at": "2026-10-19",
+      "community_benefits_framework": false
+    },
+    {
+      "id": "kr-jdc-jeju-public-ai-dc-2026",
+      "title": "Jeju Development Center public AI data centre (Jeju Advanced Science & Technology Complex 2)",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Jeju",
+      "country": "KR",
+      "subdivision": "KR-49",
+      "locality": "Wolpyeong-dong, Jeju City",
+      "source_lang": "ko",
+      "date": "2026-08-28",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "transparency"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "주민 우려가 제기되면 사업 필요성을 설명하고 협의할 방침이다."
+      ],
+      "key_terms_translation": {
+        "items": [
+          "If residents raise concerns, JDC plans to explain the project's necessity and consult with them."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Fnnews reports that the Jeju Free International City Development Center (JDC) briefed on 28 August 2026 a public AI data centre of 30 MW and 392.1 billion won, targeted for the second half of 2028. The project is under consideration, with SK and KT in talks. The article gives no jobs figure for this centre.",
+      "source_url": "https://www.fnnews.com/news/202608310632465621",
+      "source_title": "Fnnews — JDC Jeju public AI data centre briefing (31 Aug 2026)",
+      "captured_at": "2026-10-19",
+      "counterparties": [
+        "Jeju Free International City Development Center (JDC)"
+      ]
+    },
+    {
+      "id": "kr-busan-egis-ai-dc-mou-2025",
+      "title": "Busan–Egis Asset Management AI data centre investment MOU (Myeongji-Noksan)",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Busan Metropolitan City",
+      "country": "KR",
+      "subdivision": "KR-26",
+      "source_lang": "ko",
+      "date": "2025-06-17",
+      "counterparties": [
+        "Egis Asset Management"
+      ],
+      "benefit_themes": [
+        "jobs"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "데이터센터 운영에 필요한 신규 인력을 지역인재로 우선 고용하고"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Priority hiring of new personnel needed for data centre operations from local talent, and"
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "value": null,
+      "summary": "TWIG24 reports Busan City's press release on an investment MOU signed 17 June 2025 with Egis Asset Management for two large AI data centres, stated at 1.8 trillion won. The MOU sets priority local hiring for operations and priority participation for local construction firms. It is an investment MOU, not a binding agreement.",
+      "source_url": "https://www.twig24.com/news/local_bs/2025/06/18/20250618021012",
+      "source_title": "TWIG24 — Busan City and Egis AI data centre MOU (18 Jun 2025)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-up-dc-policy-2026-go-536",
+      "title": "Uttar Pradesh Data Centre Policy 2026",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Uttar Pradesh",
+      "country": "IN",
+      "subdivision": "IN-UP",
+      "source_lang": "en",
+      "date": "2026-07-09",
+      "identifier": "G.O. No. 536/78-2-2026/E-105226",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The Policy notified vide G.O. No. 536/78-2-2026/E-105226 dated 09.07.2026",
+        "50% Land subsidy on prevailing sector rates shall be provided on purchase/lease of land from State Agencies in Bundelkhand and Purvanchal regions"
+      ],
+      "summary": "The Government of Uttar Pradesh notified its Data Centre Policy 2026 by a G.O. dated 9 July 2026, from the Department of IT & Electronics. Clause 7.1.3 offers a 50% land subsidy on purchases or leases from State agencies in the Bundelkhand and Purvanchal regions, against 25% in the other regions. The policy's own text states these incentives; community-benefit terms were not found in the text read.",
+      "source_url": "https://uplc.up.gov.in/downloadmedia/siteContent/202608230935077722DC-policy-2026-English_230826.pdf",
+      "source_title": "Government of Uttar Pradesh — Data Centre Policy 2026 (G.O. dated 9 Jul 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-ofgem-curate-dc-connection-consultation-2026",
+      "title": "Ofgem Curate consultation: data centre connection reforms",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "Great Britain (Ofgem)",
+      "country": "GB",
+      "subdivision": null,
+      "source_lang": "en",
+      "date": "2026-07-29",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Data centre projects above a 40 MW threshold will be required to secure a returnable financial commitment"
+      ],
+      "summary": "Ofgem's 29 July 2026 consultation proposes that data centre projects above 40 MW secure a returnable financial commitment to join the demand-connection queue, at about £237,500 to £712,500 per MW of requested capacity. Responses were due 16 September 2026 and a decision is expected by the end of 2026. It is a consultation, not a rule in force.",
+      "source_url": "https://www.ofgem.gov.uk/sites/default/files/2026-07/Proposed-data-centre-connection-reforms-curate-consultation-document.pdf",
+      "source_title": "Ofgem — Proposed data centre connection reforms (Curate) consultation document (29 Jul 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fr-cre-rte-fast-track-400kv-2025",
+      "title": "CRE approval of RTE 400 kV \"fast track\" connection procedure (very large consumers)",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "France (CRE)",
+      "country": "FR",
+      "subdivision": null,
+      "source_lang": "fr",
+      "date": "2025-05-07",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "permet d’accélérer le raccordement, à horizon 2028-2029, des consommateurs de très forte puissance (entre 400 MW et 1 GW) au réseau très haute tension (400 kV) de RTE"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "It allows the connection, by 2028-2029, of very high-power consumers (between 400 MW and 1 GW) to RTE's very high-voltage (400 kV) network to be accelerated."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "France's energy regulator CRE approved on 7 May 2025 an alternative 'fast track' procedure for connecting consumers of 400 MW to 1 GW to RTE's 400 kV grid, targeting 2028-2029 on sites identified by the State. The release names data centres only as an example; the procedure is not specific to them.",
+      "source_url": "https://www.cre.fr/fileadmin/Documents/Communiques_de_presse/2025/250507_CP_CRE_Procedure_fast_track.pdf",
+      "source_title": "CRE — Communiqué: procédure fast track de raccordement (7 May 2025)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "jp-ishikari-dc-consortium-2026",
+      "title": "Ishikari Data Centre Consortium (石狩DCC), established by the City of Ishikari",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Ishikari, Hokkaido",
+      "country": "JP",
+      "subdivision": "JP-01",
+      "locality": "Ishikari",
+      "source_lang": "ja",
+      "date": "2026-07-28",
+      "benefit_themes": [
+        "jobs",
+        "engagement"
+      ],
+      "principles": [
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "「地域の計算資源」かつ「社会インフラ」と位置づけ",
+        "DC間での人材交流、雇用の創出を推進するほか"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "The consortium positions data centres as 'regional computing resources' and 'social infrastructure'.",
+          "The consortium will promote engineer training, staff exchange between data centres, and job creation, in addition to building local understanding among residents and local firms."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "The City of Ishikari's 28 July 2026 release establishes a consortium of data-centre operators. It says the consortium will promote staff exchange and job creation and build local understanding, with no job number given. Participants are listed as planned, not confirmed, and the consortium sets no obligations on operators.",
+      "source_url": "https://www.city.ishikari.hokkaido.jp/_res/projects/default_project/_page_/001/007/372/dc1.pdf",
+      "source_title": "City of Ishikari — 石狩データセンターコンソーシアム設立 (news release, 28 Jul 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "es-aragon-piga-microsoft-region-2025",
+      "title": "Plan de Interés General de Aragón (PIGA) 'Implantación de la Región Microsoft en Aragón', ORDEN FOM/1520/2025",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Aragón, Spain",
+      "country": "ES",
+      "subdivision": "ES-AR",
+      "source_lang": "es",
+      "date": "2025-11-14",
+      "identifier": "ORDEN FOM/1520/2025",
+      "company_slugs": [
+        "microsoft"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "El Plan tiene como objeto la implantación e interconexión de tres campus de Centros de Datos en Aragón, en los municipios de La Muela, Villamayor de Gállego y Zaragoza"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "The Plan's purpose is the implementation and interconnection of three data-centre campuses in Aragón, in the municipalities of La Muela, Villamayor de Gállego and Zaragoza."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Aragón's regional government gave initial approval on 14 November 2025 to a plan promoted by Microsoft 7724 Spain for three data-centre campuses in La Muela, Villamayor de Gállego and Zaragoza. It is an initial approval only; the final approval had not been confirmed.",
+      "source_url": "https://www.aragon.es/-/piga-region-msft",
+      "source_title": "Gobierno de Aragón — PIGA Región Microsoft",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "es-aragon-piga-rhodes-calatorao-2025",
+      "title": "Plan de Interés General de Aragón (PIGA) 'Proyecto Rhodes', Calatorao, ORDEN FOM/1039/2025",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Aragón, Spain",
+      "country": "ES",
+      "subdivision": "ES-AR",
+      "locality": "Calatorao",
+      "source_lang": "es",
+      "date": "2025-08-19",
+      "identifier": "ORDEN FOM/1039/2025",
+      "counterparties": [
+        "Calanza Inmuebles, S.L."
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Mediante Orden de 19 de agosto de 2025 del Consejero de Fomento, Vivienda, Logística y Cohesión Territorial ha sido aprobado inicialmente el citado Plan de Interés General de Aragón",
+        "El Plan tiene como finalidad el desarrollo de un campus data center en el término municipal de Calatorao (Zaragoza)."
+      ],
+      "key_terms_translation": {
+        "items": [
+          "By Order of 19 August 2025 of the Councillor for Works, Housing, Logistics and Territorial Cohesion, the cited Aragón General Interest Plan has been initially approved.",
+          "The Plan's purpose is the development of a data-centre campus in the municipality of Calatorao (Zaragoza)."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Aragón's regional government declared the 'Proyecto Rhodes' data-centre campus in Calatorao an investment of general interest on 14 October 2024, naming Calanza Inmuebles, S.L. as promoter, and gave the plan initial approval by order of 19 August 2025. It is an initial approval only; no definitive approval appears on the page.",
+      "source_url": "https://www.aragon.es/-/proyecto-rhodes",
+      "source_title": "Gobierno de Aragón — Proyecto Rhodes (PIGA, Calatorao)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-ka-sustainable-dc-policy-2026-2031",
+      "title": "Karnataka Sustainable Data Centre Policy 2026-2031",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Karnataka, India",
+      "country": "IN",
+      "subdivision": "IN-KA",
+      "source_lang": "en",
+      "date": "2026-09-18",
+      "benefit_themes": [
+        "energy",
+        "water"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "targets 1 GW of cumulative data centre IT load by 2031",
+        "Units achieving a PUE of 1.00 to 1.20 can receive Rs 20 crore as one-time financial support."
+      ],
+      "summary": "Karnataka's Cabinet approved the policy on 18 September 2026, per Deccan Chronicle. It targets 1 GW of cumulative data-centre IT load by 2031 and offers a one-time incentive for units that hold a low power usage effectiveness (PUE) for three consecutive years. Both sources are press reports; the government order and policy text were not found, so the terms are as reported.",
+      "source_url": "https://www.thenewsminute.com/karnataka/karnatakas-new-data-centre-policy-puts-water-energy-in-focus-what-does-it-say",
+      "source_title": "The News Minute — Karnataka's new data centre policy puts water, energy in focus",
+      "resources": [
+        {
+          "url": "https://www.deccanchronicle.com/amp/southern-states/karnataka/karnataka-approves-sustainable-data-centre-policy-20262031-1988661",
+          "title": "Deccan Chronicle — Karnataka approves Sustainable Data Centre Policy 2026-31"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-mh-dc-policy-proposed-2026-09",
+      "title": "Maharashtra Data Centre Policy (proposed, with SOPs)",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Maharashtra, India",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "source_lang": "en",
+      "date": "2026-09-07",
+      "benefit_themes": [
+        "water"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The MPCB and IIT Bombay are working on guidelines covering environmental impact, zoning and resource use."
+      ],
+      "summary": "Free Press Journal reported on 7 September 2026 that Maharashtra is preparing a data-centre policy, expected to be finalised in a few months, with guidelines from the state pollution board and IIT Bombay. It is a pending instrument, not a notified policy.",
+      "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-to-soon-have-a-data-centre-policy-to-regulate-sites-water-consumption-noise-pollution-heat-generation",
+      "source_title": "Free Press Journal — Maharashtra to soon have a data centre policy",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-up-gnida-dc-plot-scheme-2023-06",
+      "title": "Greater Noida data-centre plot allotment scheme (GNIDA)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Greater Noida, Uttar Pradesh",
+      "country": "IN",
+      "subdivision": "IN-UP",
+      "locality": "Greater Noida",
+      "source_lang": "en",
+      "date": "2023-06-14",
+      "counterparties": [
+        "Greater Noida Industrial Development Authority"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "the process will be carried out through an e-auction"
+      ],
+      "summary": "IndiaInfraHub reported on 14 June 2023 that the Greater Noida Industrial Development Authority launched a scheme to allot 13 plots for data centres by e-auction. The authority's own notice was not fetched, so the terms are as reported.",
+      "source_url": "https://indiainfrahub.com/featured/greater-noida-launches-land-allotment-scheme-to-set-up-data-centres-aims-to-attract-rs-20000-crore-in-investments/",
+      "source_title": "IndiaInfraHub — Greater Noida launches land allotment scheme for data centres",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-up-yeida-sector28-allotment-2023-11",
+      "title": "YEIDA Sector 28 data-centre plot allotments, near Noida International Airport",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Yamuna Expressway Industrial Development Area, Uttar Pradesh",
+      "country": "IN",
+      "subdivision": "IN-UP",
+      "locality": "Sector 28, YEIDA",
+      "source_lang": "en",
+      "date": "2023-11-08",
+      "counterparties": [
+        "Yamuna Expressway Industrial Development Authority",
+        "Sify Infinite Spaces",
+        "Jackson Limited"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Sify Infinite Spaces has been allotted land plot D-10 measuring 20,000 sq metres in Sector 28"
+      ],
+      "summary": "Outlook Business reported on 8 November 2023 that the Yamuna Expressway Industrial Development Authority allotted data-centre plots in Sector 28 to Sify Infinite Spaces and Jackson Limited. The authority's own notice was not fetched.",
+      "source_url": "https://www.outlookbusiness.com/news/sify-jackson-get-land-for-data-centres-near-noida-airport-rs-1757-crore-investment-in-offing",
+      "source_title": "Outlook Business — Sify, Jackson get land for data centres near Noida airport",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-cea-dc-grid-committee-2026-10",
+      "title": "CEA committee on the impact of data centres on grid stability",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "India (national)",
+      "country": "IN",
+      "source_lang": "en",
+      "date": "2026-10-01",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The Central Electricity Authority (CEA) has constituted a committee to assess the impact of rapidly expanding data centres"
+      ],
+      "summary": "KNN India reported on 1 October 2026 that the Central Electricity Authority set up a committee to assess data centres' effect on grid stability and related policy and regulatory issues. It is a study body, not a rule; no CEA order was fetched.",
+      "source_url": "https://knnindia.co.in/news/newsdetails/sectors/energy/cea-sets-up-committee-to-assess-data-centres-impact-on-power-grid-stability",
+      "source_title": "KNN India — CEA sets up committee to assess data centres' impact on power grid stability",
+      "captured_at": "2026-10-19"
     }
   ],
   "moratoriums": [
@@ -1679,7 +2680,18 @@
       "notes": "A 75 MW data centre planned by property firm Segro at a former H&M warehouse. The newly elected mayor is demanding its cancellation. Segro says it will recover heat from 12 MW of the 75 MW used. announced_year is the year of the source article (30 June 2026), the earliest dated source captured.",
       "subdivision": "FR-IDF",
       "locality": "Le Bourget",
-      "power_mw": 75
+      "power_mw": 75,
+      "updates": [
+        {
+          "date": "2026-07-28",
+          "kind": "lawsuit",
+          "title": "Montreuil court judge upholds the commune's withdrawal of the building permit",
+          "summary": "An interim-relief ruling only, reported as finding the project did not meet the local plan's height rules. The merits are undecided and Segro says it will contest.",
+          "authority": "Tribunal administratif de Montreuil",
+          "source_url": "https://www.banquedesterritoires.fr/datacenters-les-projets-dimplantation-dans-la-drome-et-au-bourget-contestes",
+          "source_title": "Banque des Territoires — Datacenters: les projets contestés dans la Drôme et au Bourget"
+        }
+      ]
     },
     {
       "id": "ca-google-beauharnois",
@@ -1709,13 +2721,13 @@
       "name": "Cerrillos Data Center",
       "city": "Cerrillos",
       "country": "CL",
-      "status": "withdrawn",
+      "status": "announced",
       "announced_year": 2024,
       "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2024/09/17/alcaldesa-de-cerrillos-rechaza-nuevo-plan-de-data-center-de-google-la-prioridad-es-el-medioambiente.shtml",
       "source_title": "BioBioChile — Alcaldesa de Cerrillos rechaza nuevo plan de data center de Google",
       "captured_at": "2026-10-19",
       "source_lang": "es",
-      "notes": "BioBioChile reported on 17 September 2024 that Google decided not to continue its permit request for a data centre in Cerrillos and would redesign the project with air cooling at an investment of 200 million dollars; the figure refers to the redesigned plan. The mayor rejected the new plan, saying it lacked the necessary legal studies. Status rests on that article alone. announced_year is the year of the earliest dated source captured. Coordinates are the Cerrillos commune centroid from es.wikipedia, approximate.",
+      "notes": "BioBioChile reported on 17 September 2024 that Google decided not to continue its permit request for a data centre in Cerrillos and would redesign the project with air cooling at an investment of 200 million dollars; the figure refers to the redesigned plan. The mayor rejected the new plan, saying it lacked the necessary legal studies. Status rests on that article alone. announced_year is the year of the earliest dated source captured. Coordinates are the Cerrillos commune centroid from es.wikipedia, approximate. Status updated 19 October 2026: BioBioChile reports Google refiled a redesigned, air-cooled project and that the SEA Región Metropolitana ruled it need not enter the SEIA; the ruling is not a construction permit.",
       "subdivision": "CL-RM",
       "locality": "Cerrillos",
       "claimed_investment": {
@@ -1724,7 +2736,36 @@
         "as_stated": "200 millones de dólares"
       },
       "lat": -33.483333333333,
-      "lon": -70.7
+      "lon": -70.7,
+      "updates": [
+        {
+          "date": "2024-09-17",
+          "kind": "news",
+          "title": "Google says it will not pursue the original Cerrillos design",
+          "summary": "CNN Chile, citing a statement to El Mercurio, reports Google's decision not to pursue the original design and to restart the project with air cooling.",
+          "authority": "Google",
+          "source_url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
+          "source_title": "CNN Chile — Google se rinde con proyecto original de data center en Cerrillos"
+        },
+        {
+          "date": "2026-10-19",
+          "kind": "permit",
+          "title": "SEA resolves that Google's redesigned Cerrillos data centre does not need SEIA review",
+          "summary": "BioBioChile reports the ruling by SEA Región Metropolitana; it is not a final construction permit and other permits are still needed. The Segundo Tribunal Ambiental had partly annulled the 2020 approval in February 2024.",
+          "authority": "SEA Región Metropolitana",
+          "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+          "source_title": "BioBioChile — SEA resuelve que Google no debe pasar por evaluación ambiental para construir data center en Cerrillos (19 Oct 2026)"
+        },
+        {
+          "date": "2026-10-19",
+          "kind": "news",
+          "title": "Redesign details as reported: 44 diesel backup generators and 63 air-cooled chillers",
+          "summary": "BioBioChile reports the redesign includes 44 backup diesel generators and 63 air-cooled chillers that, as reported, do not require water consumption. This is the design as described, not measured data.",
+          "authority": "BioBioChile",
+          "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+          "source_title": "BioBioChile — SEA resuelve que Google no debe pasar por evaluación ambiental para construir data center en Cerrillos (19 Oct 2026)"
+        }
+      ]
     },
     {
       "id": "cl-google-quilicura",
@@ -1880,7 +2921,18 @@
         "amount": 976168800,
         "currency": "EUR",
         "as_stated": "976.168.800 €"
-      }
+      },
+      "updates": [
+        {
+          "date": "2022-04-04",
+          "kind": "vote",
+          "title": "Enterprise Greece board reported to give a positive opinion on strategic-investment status",
+          "summary": "Greek business outlet powergame.gr reports that the Enterprise Greece board gave a positive opinion to the Strategic Investments Committee on placing Microsoft's 'Investment in Data Centres in Greece' plan under the strategic-investment scheme. Enterprise Greece's own page dates its board approval to 1 April 2022; the report is dated 4 April. The 2026 interministerial approval status was not verified.",
+          "authority": "Enterprise Greece",
+          "source_url": "https://www.powergame.gr/epichirisis/227578/enterprise-greece-thetiki-gnomodotisi-gia-to-ergo-tis-microsoft/",
+          "source_title": "powergame.gr: Enterprise Greece, positive opinion on Microsoft's project (4 Apr 2022, in Greek)"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -1916,7 +2968,18 @@
       "power_mw": 500,
       "source_url": "https://www.sur.energy/press-release",
       "source_title": "Sur Energy — Sur Energy and OpenAI plan Stargate Argentina (press release, 10 Oct 2025)",
-      "notes": "Sur Energy's release says the two companies signed a Letter of Intent for a data-centre project reaching up to 500MW, with up to $25 billion in investment at full scale. No official page names the province or site, so subdivision and coordinates are empty. Sur Energy is the developer; it is not a tracked company, so the record sits under OpenAI, the other signatory. A separate Neuquén project (Pampa Energía, 500 MW) is a different project and is not attached. OpenAI's own page returned 403 to the probe."
+      "notes": "Sur Energy's release says the two companies signed a Letter of Intent for a data-centre project reaching up to 500MW, with up to $25 billion in investment at full scale. No official page names the province or site, so subdivision and coordinates are empty. Sur Energy is the developer; it is not a tracked company, so the record sits under OpenAI, the other signatory. A separate Neuquén project (Pampa Energía, 500 MW) is a different project and is not attached. OpenAI's own page returned 403 to the probe.",
+      "updates": [
+        {
+          "date": "2026-10-15",
+          "kind": "news",
+          "title": "Chequeado reports no progress or concrete investment a year after the announcement",
+          "summary": "As reported by Chequeado, the project has not formally applied to join the RIGI. An OpenAI spokesperson told the outlet that Sur Energy will lead the energy and infrastructure development and assemble the consortium for construction.",
+          "authority": "Chequeado",
+          "source_url": "https://chequeado.com/el-explicador/stargate-argentina-a-un-ano-del-anuncio-no-hay-avances-en-la-construccion-del-data-center-de-us-25-000-millones-para-openai/",
+          "source_title": "Chequeado — A un año del anuncio de OpenAI y el Gobierno, no hay avances (15 Oct 2026)"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -2103,7 +3166,18 @@
       "source_title": "Google Data Centers — Muhos, Finland",
       "notes": "Google's own site page (dated September 2026) says work is proceeding in full compliance with obtained permits; the page describes site activity as preliminary infrastructure development. announced_year is the year of the earliest dated source captured (the September 2026 page); the original announcement year was not verified. No capacity or investment figure was found. Coordinates are the Muhos town centre, not the site.",
       "subdivision": "FI-14",
-      "locality": "Muhos"
+      "locality": "Muhos",
+      "updates": [
+        {
+          "date": "2026-10-07",
+          "kind": "news",
+          "title": "Environmental supervisory agency orders preparatory work at Muhos and Kajaani suspended",
+          "summary": "The order to Tuike Finland, acting for Google, requires suspension no later than 23 October 2026 while environmental impact assessments are completed.",
+          "authority": "Finland's environmental supervisory agency (LVV)",
+          "source_url": "https://www.aljazeera.com/news/2026/10/7/finland-orders-halt-to-work-on-google-data-sites-over-environment-concerns",
+          "source_title": "Al Jazeera (AFP/Reuters) — Finland orders halt to work on Google data centre sites"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -2385,6 +3459,630 @@
       "subdivision": "IN-GJ",
       "locality": "Jamnagar, Gujarat (city centroid, not the site)",
       "notes": "RIL's release says RIL will develop a 168 MW data centre to be delivered within two years, built to suit for Meta, with an option to scale. The release states no investment figure. Coordinates are the Jamnagar city centroid."
+    },
+    {
+      "id": "be-google-st-ghislain",
+      "company_slug": "google",
+      "name": "Google St. Ghislain data center campus expansion",
+      "city": "St. Ghislain",
+      "country": "BE",
+      "subdivision": "BE-WAL",
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-10-08",
+      "claimed_jobs": 300,
+      "claimed_investment": {
+        "amount": 5000000000.0,
+        "currency": "EUR",
+        "as_stated": "a new, two-year €5 billion investment in Belgium (2026-2027)"
+      },
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Google Announces New €5 Billion AI Infrastructure Investment in Belgium through 2027",
+      "notes": "Google's release says the investment expands the existing St. Ghislain campus over 2026-2027 and adds 300 full-time jobs. Status is announced for the expansion; the campus itself already operates. Press totals for jobs differ and are not recorded.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "in-amazon-hyderabad-telangana",
+      "company_slug": "amazon",
+      "name": "AWS Hyderabad (Telangana) cloud region expansion",
+      "city": "Hyderabad",
+      "country": "IN",
+      "subdivision": "IN-TG",
+      "status": "construction",
+      "announced_year": 2025,
+      "claimed_investment": {
+        "amount": 1300000000.0,
+        "currency": "USD",
+        "as_stated": "invested more than $1.3 billion in cloud infrastructure"
+      },
+      "offtaker": "AWS",
+      "source_url": "https://www.aboutamazon.in/news/aws/aws-data-centre-hyderabad",
+      "source_title": "Amazon India (AWS) — AWS data centre Hyderabad",
+      "notes": "Ground-breaking on a new data centre per AWS. Other outlets state different Telangana totals (Verdict Rs 600bn/$7.2bn, DCD $6.95bn, AIM Rs 60,000 crore); no official total reconciled, so the first-party figure is used. Workforce: AWS says it hired 110 of 250 students into its Data Centre Operations team. announced_year is a placeholder for the page's undated ground-breaking; curator to pin.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "in-amazon-maharashtra-mumbai-region",
+      "company_slug": "amazon",
+      "name": "AWS Mumbai region investment (Maharashtra)",
+      "city": "Mumbai",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "status": "announced",
+      "announced_year": 2025,
+      "claimed_investment": {
+        "amount": 8300000000.0,
+        "currency": "USD",
+        "as_stated": "$8.3 billion investment in cloud infrastructure in Maharashtra by 2030"
+      },
+      "offtaker": "AWS",
+      "source_url": "https://www.aboutamazon.in/news/aws/aws-invests-8-billion-in-maharashtra",
+      "source_title": "Amazon India (AWS) — AWS invests $8 billion in Maharashtra",
+      "notes": "Headline verified on AWS's own page; body not read. Other outlets date the MoU to 22 Jan 2025 (WEF); not verified on AWS's page. Not a single campus. announced_year 2025 is from the secondary MoU date, not AWS's page.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "in-coreweave-navi-mumbai-taloja",
+      "company_slug": "coreweave",
+      "name": "CoreWeave campus at AdaniConneX Taloja, Navi Mumbai",
+      "city": "Navi Mumbai",
+      "locality": "Taloja",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-10-06",
+      "power_mw": 240,
+      "offtaker": "CoreWeave",
+      "source_url": "https://coreweave.com/news/coreweave-enters-india-expanding-ai-cloud-platform-with-adaniconnex",
+      "source_title": "CoreWeave — CoreWeave enters India, expanding AI cloud platform with AdaniConneX",
+      "notes": "Host and developer: AdaniConneX (50:50 Adani Enterprises / EdgeConneX). CoreWeave is sole tenant of three 80 MW buildings; option to double to 480 MW. First phase mid-2028. Adani's own campus table lists Navi Mumbai at 1,000 MW planned from Dec 2026, not reconciled (see leads). Release date: 6 Oct 2026 dateline / 7 Oct on investor site. COO Sachin Jain quoted. Gate 2 note: CoreWeave is a tracked company that already signed the pledge; this is a project record only.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "kr-naver-sejong",
+      "company_slug": "naver",
+      "name": "NAVER Sejong AI data center campus",
+      "city": "Sejong",
+      "country": "KR",
+      "subdivision": "KR-50",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-07-25",
+      "power_mw": 200,
+      "offtaker": "NAVER",
+      "claimed_investment": {
+        "amount": 10000000000.0,
+        "currency": "USD",
+        "as_stated": "$10 billion project"
+      },
+      "source_url": "https://www.aap.com.au/aapreleases/cision20260725ae12156/",
+      "source_title": "PR Newswire via AAP — NAVER, NVIDIA and Brookfield Sejong AI factory release (25 Jul 2026)",
+      "notes": "The release says new investments raise the initial NVIDIA DSX AI factory deployment from 55 MW to 200 MW; Brookfield funds up to $9 billion as exclusive capital partner, NVIDIA invests $1 billion and NAVER funds the rest. power_mw is that deployment figure. The 270 MW campus plan comes from secondary reporting and is not recorded.",
+      "captured_at": "2026-10-19",
+      "source_lang": "en"
+    },
+    {
+      "id": "es-aws-zaragoza-car",
+      "company_slug": "amazon",
+      "name": "AWS data center campus, Zaragoza (Aragón)",
+      "city": "Zaragoza",
+      "country": "ES",
+      "subdivision": "ES-AR",
+      "status": "announced",
+      "announced_year": 2026,
+      "source_lang": "es",
+      "source_url": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+      "source_title": "Merca2 — Centro de datos de Amazon en Aragón: permiso ambiental (16 Jul 2026)",
+      "notes": "Secondary reporting (Merca2, 16 Jul 2026) on an Inaga environmental resolution for AWS's campus near Zaragoza; announced_year is the article year and the resolution's own date is unverified against the BOA. The 3,280 GWh per year electricity estimate and the 204,697 m3 per year industrial-water cap are the article's figures, the cap attributed to Zaragoza City Council.",
+      "updates": [
+        {
+          "date": "2026-07-16",
+          "kind": "news",
+          "title": "Press reports environmental authorisation with a city water cap",
+          "summary": "Merca2 reports that Inaga's resolution authorises the campus and that Zaragoza City Council sets a cap of 204,697 cubic metres of industrial water per year. The article's date is shown; the resolution date is not confirmed.",
+          "authority": "Inaga (Aragón environmental institute)",
+          "source_url": "https://www.merca2.es/2026/07/16/centro-datos-amazon-aragon-permiso-ambiental-2418205/",
+          "source_title": "Merca2 — Centro de datos de Amazon en Aragón: permiso ambiental"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "mx-microsoft-queretaro",
+      "company_slug": "microsoft",
+      "name": "Microsoft data centers, Querétaro",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "status": "construction",
+      "announced_year": 2025,
+      "claimed_jobs": 2200,
+      "source_lang": "es",
+      "captured_at": "2026-10-19",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+      "source_title": "Microsoft — Centros de datos de Microsoft en México (first-party fact sheet, October 2025)",
+      "notes": "Microsoft's fact sheet says it operates one data center and is building two new facilities in Querétaro. claimed_jobs is its estimate of more than 2,200 construction jobs at peak activity, not permanent jobs; about 64 people worked at its facilities in 2025. announced_year is the fact sheet's publication year.",
+      "updates": [
+        {
+          "date": "2024-05-07",
+          "kind": "news",
+          "title": "Microsoft announces its Mexico Central cloud region is operating",
+          "summary": "Microsoft's release says the region, made up of several data centres, is in the Querétaro metropolitan area. Its IDC jobs estimate is national, so it is not a figure for this site.",
+          "authority": "Microsoft",
+          "source_url": "https://news.microsoft.com/es-xl/microsoft-anuncia-el-inicio-de-operaciones-de-la-primera-region-de-centros-de-datos-de-nube-a-hiper-escala-en-mexico/",
+          "source_title": "Microsoft — Anuncia el inicio de operaciones de la primera región de centros de datos de nube a hiper escala en México (7 May 2024)"
+        }
+      ]
+    },
+    {
+      "id": "jp-mitsui-kobe-tunnel",
+      "company_slug": "mitsui-fudosan",
+      "name": "Kobe underground data centre in a former conveyor-belt tunnel (Nishi Ward)",
+      "city": "Kobe",
+      "country": "JP",
+      "subdivision": "JP-28",
+      "locality": "Nishi Ward, Kobe",
+      "source_lang": "ja",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-10-06",
+      "notes": "Kobe City's 6 October 2026 press release names Mitsui Fudosan (lead company) and Kumagai Gumi as successful bidder for a 10 to 20 year lease of about 3 km of a 14.5 km former conveyor-belt tunnel (about 17,000 m2) for an underground data centre; annual rent is stated as JPY 7,572,000. The city page confirms the use and the lead company only; it states no power, cooling or jobs figures. Mitsui Fudosan's own release was not read. No coordinates are given because the city page publishes only a PDF location map. Mitsui Fudosan's own 6 October 2026 release adds a target maximum receiving capacity of about 20 MW, groundwater-circulation water cooling, and service start at the end of 2027 for the initial development.",
+      "source_url": "https://www.city.kobe.lg.jp/a26136/546798440636.html",
+      "source_title": "Kobe City — ベルトコンベア跡トンネル施設貸付の落札者決定 (press release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2026-10-06",
+          "kind": "agreement",
+          "title": "Kobe City names Mitsui Fudosan the successful bidder for the tunnel lease",
+          "summary": "The lead company is Mitsui Fudosan with Kumagai Gumi as a consortium member; the stated use is an underground data centre using the tunnel.",
+          "authority": "Kobe City",
+          "source_url": "https://www.city.kobe.lg.jp/a26136/546798440636.html",
+          "source_title": "Kobe City — successful bidder announcement"
+        }
+      ]
+    },
+    {
+      "id": "jp-softbank-sakai",
+      "company_slug": "softbank-corp",
+      "name": "SoftBank Sakai AI data centre (former Sharp LCD plant), Osaka",
+      "city": "Sakai",
+      "country": "JP",
+      "subdivision": "JP-27",
+      "locality": "Sakai City, Osaka Prefecture",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2024,
+      "announced_date": "2024-06-07",
+      "lat": 34.573,
+      "lon": 135.483,
+      "notes": "SoftBank Corp.'s 7 June 2024 release says it and Sharp signed a memorandum of understanding to build a large-scale AI data centre using land and buildings of Sharp's LCD panel plant in Sakai City, with a power capacity of over 150 megawatts (a lower bound, so power_mw is left empty). Later purchase and capacity changes appear only in press coverage and are not recorded; construction status is unconfirmed. Coordinates are Sakai's city centre, not the site.",
+      "source_url": "https://www.softbank.jp/en/corp/news/press/sbkk/2024/20240607_01",
+      "source_title": "SoftBank Corp. — SoftBank Corp. to Construct Large-scale AI Data Center that Utilizes Sharp Sakai Plant (7 Jun 2024)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-reliance-vizianagaram",
+      "company_slug": "reliance",
+      "name": "Reliance AI data centre, Vizianagaram district (Andhra Pradesh land allotment)",
+      "city": "Vizianagaram",
+      "country": "IN",
+      "subdivision": "IN-AP",
+      "locality": "Vizianagaram district",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2026,
+      "claimed_investment": {
+        "amount": 1080000000000,
+        "currency": "INR",
+        "as_stated": "Rs 1.08 trillion"
+      },
+      "notes": "Indian Infrastructure (21 May 2026) reports that the Andhra Pradesh government approved the allotment of over 800 acres in Vizianagaram district to Reliance Industries at a 25 per cent discount, for an AI data centre with a stated investment of Rs 1.08 trillion. The acreage is a lower bound, so acreage is left empty. The government order number and date were not found; announced_year is the report year. No site coordinates are published.",
+      "source_url": "https://indianinfrastructure.com/2026/05/21/andhra-pradesh-government-allots-800-acres-to-reliance-for-rs-1-08-trillion-ai-data-centre-in-vizianagaram/",
+      "source_title": "Indian Infrastructure — Andhra Pradesh government allots 800 acres to Reliance for Rs 1.08 trillion AI data centre in Vizianagaram (21 May 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2026-05-21",
+          "kind": "news",
+          "title": "Andhra Pradesh reported to approve over 800 acres for Reliance at a 25 per cent discount",
+          "summary": "The report gives only its own publication date; the date of the government order was not found.",
+          "authority": "Andhra Pradesh government",
+          "source_url": "https://indianinfrastructure.com/2026/05/21/andhra-pradesh-government-allots-800-acres-to-reliance-for-rs-1-08-trillion-ai-data-centre-in-vizianagaram/",
+          "source_title": "Indian Infrastructure — allotment report"
+        }
+      ]
+    },
+    {
+      "id": "in-colt-navi-mumbai-3",
+      "company_slug": "colt-dcs",
+      "name": "Colt DCS Mumbai 3, Navi Mumbai campus",
+      "city": "Navi Mumbai",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "locality": "Navi Mumbai campus",
+      "source_lang": "en",
+      "status": "construction",
+      "announced_year": 2025,
+      "power_mw": 64,
+      "notes": "W.Media, reporting a Colt DCS press release, says construction of Mumbai 3 is underway, ground preparation began in December 2025, and the facility will deliver 64 MW of secured contracted power on completion. It is part of the Colt DCS and RMZ joint venture announced in 2024 to invest US$1.7 billion in Indian data centres; that figure covers the venture, not this site, so no site investment is recorded. The customer is unnamed. The article carries no date in its text; announced_year is the year ground preparation began. No site coordinates are published.",
+      "source_url": "https://w.media/colt-dcs-and-rmz-commence-construction-on-third-mumbai-data-center/",
+      "source_title": "W.Media — Colt DCS and RMZ commence construction on third Mumbai data center",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fr-microsoft-petit-landau",
+      "company_slug": "microsoft",
+      "name": "Microsoft data centre, Petit-Landau and Hombourg (Haut-Rhin)",
+      "city": "Petit-Landau",
+      "country": "FR",
+      "subdivision": "FR-68",
+      "locality": "Mulhouse Alsace Agglomération",
+      "source_lang": "fr",
+      "status": "announced",
+      "announced_year": 2024,
+      "notes": "Operator entity is Microsoft 1985 Sàrl. AFP describes a 36 ha site on the Rhine bank. Mulhouse Alsace Agglomération approved a declaration-of-project procedure on 9 December 2024 (council deliberation of 22 June 2026), Microsoft lodged its environmental authorisation application on 6 November 2025, and the council voted on the declaration of general interest in October 2026. The prefectoral order and the building permits were not found. No site coordinates are recorded.",
+      "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+      "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C (22 June 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2024-12-09",
+          "kind": "vote",
+          "title": "Agglomeration council approves starting a declaration-of-project procedure for the Petit-Landau data centre",
+          "summary": "The procedure includes making the Petit-Landau local urban plan compatible with the project.",
+          "authority": "Mulhouse Alsace Agglomération council",
+          "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+          "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C"
+        },
+        {
+          "date": "2025-11-06",
+          "kind": "filing",
+          "title": "Microsoft 1985 Sàrl lodges its environmental authorisation application",
+          "summary": "Filed on the state's GUN'env digital environment portal.",
+          "authority": "State (prefecture)",
+          "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+          "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C"
+        },
+        {
+          "date": "2026-06-22",
+          "kind": "vote",
+          "title": "Agglomeration council gives its opinion on the environmental authorisation request",
+          "summary": "A consultative step: the state asked the council for its opinion.",
+          "authority": "Mulhouse Alsace Agglomération council",
+          "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+          "source_title": "Mulhouse Alsace Agglomération — Délibération DE-2026-161C"
+        },
+        {
+          "date": "2026-10-12",
+          "kind": "news",
+          "title": "Agglomeration council reported to approve the declaration of general interest",
+          "summary": "AFP reports the vote as held on 'lundi' (Monday); the council's minutes were not read.",
+          "authority": "Mulhouse Alsace Agglomération council",
+          "source_url": "https://www.connaissancedesenergies.org/afp/lagglomeration-de-mulhouse-fait-franchir-une-nouvelle-etape-au-projet-de-data-center-de-microsoft-261012",
+          "source_title": "AFP via Connaissance des énergies — L'agglomération de Mulhouse fait franchir une nouvelle étape au projet de data center de Microsoft"
+        }
+      ]
+    },
+    {
+      "id": "fr-sesterce-alixan-rovaltain",
+      "company_slug": "sesterce",
+      "name": "Sesterce AI data centre, Rovaltain site (Alixan, Drôme)",
+      "city": "Alixan",
+      "country": "FR",
+      "subdivision": "FR-26",
+      "locality": "Rovaltain, near Valence TGV station",
+      "source_lang": "fr",
+      "status": "announced",
+      "announced_year": 2025,
+      "power_mw": 40,
+      "notes": "AFP says the building permit was signed on 18 December 2025 by the mayor of Alixan for an AI data centre of 40 MW initial capacity with a possible extension to 80 MW (power_mw is the initial figure). A court suspended the permit on 10 July 2026 pending a ruling on the merits. Construction status is not recorded. No site coordinates are recorded.",
+      "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+      "source_title": "AFP via Connaissance des énergies — IA: la justice suspend un projet de centre de données près de Valence (10 Jul 2026)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2025-12-18",
+          "kind": "permit",
+          "title": "Mayor of Alixan signs the building permit",
+          "authority": "Commune of Alixan",
+          "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+          "source_title": "AFP via Connaissance des énergies"
+        },
+        {
+          "date": "2026-07-10",
+          "kind": "lawsuit",
+          "title": "Grenoble administrative court suspends the building permit pending a ruling on the merits",
+          "summary": "The interim-relief judge cited the risk of environmental damage that should have been examined before the permit was issued. A suspension is not an annulment.",
+          "authority": "Tribunal administratif de Grenoble",
+          "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+          "source_title": "AFP via Connaissance des énergies"
+        }
+      ]
+    },
+    {
+      "id": "kr-kakao-ansan",
+      "company_slug": "kakao",
+      "name": "Kakao data centre, Hanyang University ERICA Campus Innovation Park (Ansan)",
+      "city": "Ansan",
+      "country": "KR",
+      "subdivision": "KR-41",
+      "locality": "Sadong, Sangnok-gu",
+      "source_lang": "ko",
+      "status": "announced",
+      "announced_year": 2020,
+      "announced_date": "2020-09-07",
+      "claimed_investment": {
+        "amount": 400000000000,
+        "currency": "KRW",
+        "as_stated": "4,000억원 (400 billion won)"
+      },
+      "notes": "Kakao's 7 Sep 2020 release announces a data centre and industry-academia facility on an 18,383 square metre site in Hanyang University's Campus Innovation Park, with 2023 as the stated completion target. Secondary press reports it completed; that was not checked, so status stays announced. No site coordinates are recorded.",
+      "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+      "source_title": "Kakao newsroom — 카카오, 안산시·한양대와 손잡고 데이터센터 건립 추진 (7 Sep 2020)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "kr-lguplus-paju-aidc",
+      "company_slug": "lg-uplus",
+      "name": "LG Uplus Paju AI data centre (AIDC)",
+      "city": "Paju",
+      "country": "KR",
+      "subdivision": "KR-41",
+      "source_lang": "ko",
+      "status": "construction",
+      "announced_year": 2026,
+      "power_mw": 200,
+      "notes": "Newsis (dated 7 Jun 2026; URL id 5 Jun) reports a 200 MW power supply confirmed for the Paju AIDC on former LG Display factory land, with the first building scheduled for June 2027. announced_year is the year of the earliest dated source captured, not a confirmed announcement year. The article's account of a resolved electromagnetic-field dispute with residents is unquoted paraphrase and is not recorded. No site coordinates are recorded.",
+      "source_url": "https://mobile.newsis.com/view/NISX20260605_0003658312",
+      "source_title": "Newsis — LG유플러스 파주 AIDC 200MW (7 Jun 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "se-google-horndal",
+      "company_slug": "google",
+      "name": "Google Horndal data centre (Avesta, Dalarna)",
+      "city": "Avesta",
+      "country": "SE",
+      "subdivision": "SE-W",
+      "locality": "Horndal",
+      "source_lang": "en",
+      "status": "construction",
+      "announced_year": 2026,
+      "announced_date": "2026-06-02",
+      "claimed_jobs": 100,
+      "project_page_url": "https://datacenters.google/locations/horndal/",
+      "notes": "Google broke ground on 2 June 2026; announced_year is the groundbreaking year, not the year the land was acquired. The release says the facility is designed for off-site heat recovery; no heat off-taker is named and no delivery agreement was verified. claimed_jobs is the release's 100 direct full-time jobs. No site coordinates are recorded.",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+      "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fi-microsoft-vaasa-mustasaari",
+      "company_slug": "microsoft",
+      "name": "Microsoft Vaasa and Mustasaari land (GigaVaasa)",
+      "city": "Vaasa",
+      "country": "FI",
+      "subdivision": "FI-12",
+      "locality": "Vaasa and Mustasaari",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-06-05",
+      "notes": "Microsoft signed a preliminary agreement on about 190 hectares of land 'to support potential datacenter development'. It is a land agreement, not a permit or a confirmed build. No site coordinates are recorded.",
+      "source_url": "https://news.microsoft.com/source/emea/2026/06/microsoft-signed-preliminary-agreement-on-acquisition-of-approximately-190-hectares-of-land-in-vaasa-and-mustasaari-on-the-west-coast-of-finland/",
+      "source_title": "Microsoft News EMEA — Microsoft signed preliminary agreement on acquisition of approximately 190 hectares of land in Vaasa and Mustasaari (5 Jun 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "se-ecodatacenter-smedjebacken",
+      "company_slug": "ecodatacenter",
+      "name": "EcoDataCenter third campus, Smedjebacken",
+      "city": "Smedjebacken",
+      "country": "SE",
+      "subdivision": "SE-W",
+      "locality": "Smedjebacken Municipality",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-08-25",
+      "power_mw": 150,
+      "notes": "A land purchase agreement with Smedjebacken Municipality for 52 hectares, ending a 2019 letter of intent. The release says the campus 'has green light of an immediate 150MW' and expects 125-150 permanent jobs (claimed_jobs left empty because the figure is a range). Construction depends on final permits, anticipated early 2027. No site coordinates are recorded.",
+      "source_url": "https://ecodatacenter.tech/press/ecodatacenter-to-establish-third-datacenter-campus-in-sweden-3462219",
+      "source_title": "EcoDataCenter press — EcoDataCenter to Establish Third Datacenter Campus in Sweden (25 Aug 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "mx-google-queretaro",
+      "company_slug": "google",
+      "name": "Google Cloud region, Querétaro",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "source_lang": "es",
+      "status": "operational",
+      "announced_year": 2024,
+      "announced_date": "2024-12-04",
+      "notes": "Google Cloud's 4 December 2024 blog post says its 41st cloud region, in Querétaro, is already in operation. The post gives no site-level investment, power, water or jobs figures. The 100,000-jobs and US$11,000 million GDP figures are economy-wide cloud-adoption estimates to 2030, not jobs at the site.",
+      "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+      "source_title": "Google Cloud — ¡Hola México! Querétaro da la bienvenida a la nueva región de Google Cloud (blog, 4 Dec 2024)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2024-12-04",
+          "kind": "news",
+          "title": "Google Cloud announces its Querétaro region is in operation",
+          "summary": "The post, signed by Google Cloud's Latin America and Mexico leads, names the region as already operating. It also names local data-residency and banking-regulator (CNBV) contractual frameworks.",
+          "authority": "Google Cloud",
+          "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+          "source_title": "Google Cloud — ¡Hola México! (blog, 4 Dec 2024)"
+        }
+      ]
+    },
+    {
+      "id": "mx-aws-queretaro",
+      "company_slug": "amazon",
+      "name": "AWS Mexico (Central) Region, Querétaro",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "source_lang": "en",
+      "status": "operational",
+      "announced_year": 2025,
+      "announced_date": "2025-01-14",
+      "claimed_investment": {
+        "amount": 5000000000,
+        "currency": "USD",
+        "as_stated": "more than $5 billion in Mexico over 15 years"
+      },
+      "notes": "The AWS press release of 14 January 2025 announces the launch of the AWS Mexico (Central) Region. AWS's later Mexico sustainability fact sheet says the region 'launched May 2025'; the two first-party dates conflict and the release date is used here. The US$5 billion is a country-wide plan stated as 'planning', not a Querétaro-only or committed sum. The fact sheet restates it as more than US$5 billion through 2033.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2025-01-14",
+          "kind": "news",
+          "title": "AWS announces the launch of the AWS Mexico (Central) Region",
+          "summary": "The release is dated 14 January 2025. AWS's own fact sheet gives May 2025 as the launch date.",
+          "authority": "Amazon Web Services",
+          "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+          "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)"
+        }
+      ]
+    },
+    {
+      "id": "mx-cloudhq-queretaro",
+      "company_slug": "cloudhq",
+      "name": "CloudHQ data centre campus, Querétaro (six data centres)",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "source_lang": "es",
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-09-25",
+      "claimed_investment": {
+        "amount": 4800000000,
+        "currency": "USD",
+        "as_stated": "4 mil 800 mdd"
+      },
+      "claimed_jobs": 900,
+      "notes": "Mexico's presidency announced on 25 September 2025 an investment of 4,800 million dollars by CloudHQ for six data centres in Querétaro. claimed_jobs is the 900 permanent jobs in the federal release, not a CloudHQ figure; the same release gives more than 7,200 construction jobs. The release was read in a browser because gob.mx blocks the automated probe. CloudHQ's own release was not found.",
+      "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+      "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2025-09-25",
+          "kind": "news",
+          "title": "Federal release announces CloudHQ's six-data-centre project in Querétaro",
+          "summary": "The release says the project will create more than 7,200 construction jobs and 900 permanent jobs. It quotes President Sheinbaum saying that these investments are also required to bring benefits to the community; it names no local agreement, fund or amount.",
+          "authority": "Presidencia de la República / Secretaría de Economía",
+          "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+          "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)"
+        }
+      ]
+    },
+    {
+      "id": "es-meta-talavera-de-la-reina",
+      "company_slug": "meta",
+      "name": "Meta Data Center Campus, Talavera de la Reina",
+      "city": "Talavera de la Reina",
+      "country": "ES",
+      "subdivision": "ES-CM",
+      "status": "announced",
+      "announced_year": 2024,
+      "source_lang": "es",
+      "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "source_title": "DOCM nº 59, 22 Mar 2024 — declaración de impacto ambiental, Meta Data Center Campus",
+      "notes": "The environmental impact declaration names the promoter as Zarza Networks, S.L.; the project is attached to Meta by its name, 'Meta Data Center Campus'. announced_year is the year of the declaration, not of the first announcement. The copy read is a PDF of the DOCM issue hosted on cmmedia.es.",
+      "updates": [
+        {
+          "date": "2024-03-20",
+          "kind": "permit",
+          "title": "Regional environmental impact declaration issued with conditions",
+          "summary": "The Directorate-General for Environmental Quality formulated the declaration on 20 March 2024 (published in DOCM 22 March 2024). It states industrial cooling water of 600 m3 per year and potable water of 40,000 m3 per year, and credits dry-air cooling with an 84% water-demand cut 'according to the promoter's documentation'.",
+          "authority": "Dirección General de Calidad Ambiental, Castilla-La Mancha",
+          "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+          "source_title": "DOCM nº 59, 22 Mar 2024 — declaración de impacto ambiental"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "be-google-feluy-ecaussinnes",
+      "company_slug": "google",
+      "name": "Google data centre, Feluy-Écaussinnes zoning",
+      "city": "Feluy",
+      "country": "BE",
+      "subdivision": "BE-WAL",
+      "locality": "Écaussinnes",
+      "status": "announced",
+      "announced_year": 2024,
+      "source_lang": "fr",
+      "source_url": "https://www.rtbf.be/article/zoning-de-feluy-ecaussinnes-feu-vert-pour-le-data-center-google-11356788",
+      "source_title": "RTBF — Zoning de Feluy-Écaussinnes: feu vert pour le data center Google (10 Apr 2024)",
+      "notes": "A different site from the St. Ghislain campus. RTBF (Belga) reports a 36-hectare site hosting three data centres. This is secondary press for a regional decision; the Walloon decision itself was not fetched. announced_year is the permit year.",
+      "updates": [
+        {
+          "date": "2024-04-10",
+          "kind": "permit",
+          "title": "Walloon Region grants permit for the 36-hectare site",
+          "summary": "RTBF reports the permit for three data-centre buildings. It says the municipality of Écaussinnes asked for compensations that the Region took into account, and that heat from the data centres must be recovered to supply public buildings or other users in the zoning.",
+          "authority": "Walloon Region",
+          "source_url": "https://www.rtbf.be/article/zoning-de-feluy-ecaussinnes-feu-vert-pour-le-data-center-google-11356788",
+          "source_title": "RTBF — Zoning de Feluy-Écaussinnes: feu vert pour le data center Google"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "be-google-farciennes",
+      "company_slug": "google",
+      "name": "Google data centre, Farciennes",
+      "city": "Farciennes",
+      "country": "BE",
+      "subdivision": "BE-WAL",
+      "status": "announced",
+      "announced_year": 2023,
+      "source_lang": "fr",
+      "source_url": "https://www.rtbf.be/article/farciennes-google-depose-la-demande-de-permis-pour-la-construction-de-son-futur-site-11224063",
+      "source_title": "RTBF — Farciennes: Google dépose la demande de permis (6 Jul 2023)",
+      "notes": "A different site from St. Ghislain and Feluy. The record holds only the permit filing. A press report of a later ministerial refusal of Sambre water for cooling carries no article date and is held until a dated source is found.",
+      "updates": [
+        {
+          "date": "2023-07-06",
+          "kind": "filing",
+          "title": "Google files its single-permit application",
+          "summary": "RTBF (Belga) reports that Google filed the permis unique application for construction of its Farciennes site. It is a filing, not a grant.",
+          "authority": "Walloon Region",
+          "source_url": "https://www.rtbf.be/article/farciennes-google-depose-la-demande-de-permis-pour-la-construction-de-son-futur-site-11224063",
+          "source_title": "RTBF — Farciennes: Google dépose la demande de permis"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-google-thurrock-arena-essex",
+      "company_slug": "google",
+      "name": "Google data centre campus, Arena Essex (Lakeside, Thurrock)",
+      "city": "Thurrock",
+      "locality": "Arena Essex, Lakeside, Thurrock (Essex)",
+      "country": "GB",
+      "subdivision": "GB-ENG",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2025,
+      "source_url": "https://www.buglife.org.uk/news/google-plans-for-sprawling-data-centre-campus-on-designated-wildlife-site/",
+      "source_title": "Buglife: Google plans for sprawling data centre campus on designated wildlife site (14 Aug 2025)",
+      "captured_at": "2026-10-19",
+      "notes": "The only source read is Buglife's 14 August 2025 news page, a campaign group's account, so Google's own plan documents and the Thurrock planning register were not checked and no application reference is recorded. Buglife says the campus would destroy over half of the Arena Essex Local Wildlife Site and over 80% of its Open Mosaic Habitat, and that over 2,500 supporters had signed a petition calling on Google to withdraw the plans. Status is announced pending a council decision; none was found. No site coordinates are recorded."
     }
   ],
   "responses": [
@@ -2619,6 +4317,227 @@
       "source_title": "Reuters (via Arab News) — Fearing power and water strain, residents fight Amazon data center near Mumbai",
       "source_lang": "en",
       "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-reel-takedown-restored-2026-09",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-09-10",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "An Instagram reel by independent journalists with Tarluvada residents on the Google data centre was withheld in India from 22 May 2026 under a government blocking order. It was accessible again on 10 September 2026, with no reasons given for the block or its reversal.",
+      "source_url": "https://internetfreedom.in/dirty-data-reel-on-googles-vizag-data-centre-back-online-in-india-after-111-day-takedown/",
+      "source_title": "Internet Freedom Foundation — 'Dirty Data' reel on Google's Vizag data centre back online in India after 111-day takedown",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-green-visakha-press-2026-08",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-08",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Green Visakhapatnam, a non-profit, objected to the proposed 500 MW Vizag Hyperscale Data Centre, alleging environmental regulation violations and warning of risks to city water and public health. It says the 160 acres of Simhachalam Devasthanam land were allocated without an environmental impact assessment or public consultation.",
+      "source_url": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/green-visakhapatnam-flags-risks-from-data-centre-project-1977660",
+      "source_title": "Deccan Chronicle — Green Visakhapatnam flags risks from data centre project",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-tarluvada-dalit-farmers-2026-06",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-06-01",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "Dalit farmers in Tarluvada, Visakhapatnam district, have refused to give up land for the Google AI hub, citing displacement from land allotted to Dalit families in the 1970s and compensation they call below market value. Reporting says the local Dalit community is divided over the project.",
+      "source_url": "https://www.tbsnews.net/world/south-asia/giant-data-centre-over-land-belonging-dalits-sparking-protests-andhra-pradesh",
+      "source_title": "The Business Standard — Giant data centre over land belonging to Dalits sparking protests in Andhra Pradesh",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-moratorium-demand-2026-10",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-10-11",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Activists in Andhra Pradesh are demanding a moratorium on new data centres across the state until independent environmental and social impact evaluations are published. The demand is reported in an AFP-sourced feature on resident fears over water, power and jobs at the Google Visakhapatnam hub.",
+      "source_url": "https://www.malaymail.com/news/world/2026/10/11/why-here-india-activists-demand-moratorium-as-googles-ai-hub-scars-land-and-sparks-water-fears/238662",
+      "source_title": "Malay Mail (AFP) — 'Why here?' India activists demand moratorium as Google's AI hub scars land and sparks water fears",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-thane-balkum-water-2026-07",
+      "project_id": "in-amazon-thane-balkum",
+      "date": "2026-07-18",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Residents' group Wake Up Thanekar disputes the Balkum data centre's closed-loop, air-cooled water claim. Activists note Amazon disclosed a water need of 125 kilolitres a day while the municipal corporation has agreed to supply 12 million litres a day of recycled sewage water.",
+      "source_url": "https://www.freepressjournal.in/mumbai/amazon-defends-balkum-hyperscale-data-centre-as-thanekars-demand-its-relocation",
+      "source_title": "Free Press Journal — Amazon defends Balkum hyperscale data centre as Thanekars demand its relocation",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-wall-collapse-2026-09",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-09-23",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "A protective wall at the under-construction Google-Adani site in Simhachalam-Mudasarlova collapsed on 22 September 2026 after heavy rain. Residents suspect construction has blocked natural drainage, which the report links to questions about the site's environmental clearances.",
+      "source_url": "https://thesouthfirst.com/andhrapradesh/data-center-boundary-wall-collapses-in-simhachalam-doubts-raised-over-environmental-clearances/",
+      "source_title": "The South First — Data center boundary wall collapses in Simhachalam; doubts raised over environmental clearances",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-stop-account-restricted-2026-09",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-09-22",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "The Human Rights Forum condemned the restriction in India of the 'Stop Vizag Data Centers' Instagram account, which the campaign says reached 56 lakh views and 11,800 followers in two months. HRF says posts by many organisations and individuals critical of AI data centres have been restricted in India.",
+      "source_url": "https://thesouthfirst.com/andhrapradesh/hrf-condemns-restriction-of-stop-vizag-data-centers-instagram-account/",
+      "source_title": "The South First — HRF condemns restriction of 'Stop Vizag Data Centers' Instagram account",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "be-resp-st-ghislain-wallonia-government",
+      "project_id": "be-google-st-ghislain",
+      "date": "2025-10-08",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Wallonia's Vice-President, quoted in Google's release, said the investment confirms Wallonia's role as a European data hub and creates digital-sector jobs. The statement is hosted on the company's release.",
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Wallonia Vice-President Pierre-Yves Jeholet quoted in Google's Belgium release",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "cl-resp-cerrillos-sea-2021",
+      "project_id": "cl-google-cerrillos",
+      "date": "2021-01-20",
+      "stance": "positive",
+      "constituency": "regulator",
+      "single_source": true,
+      "source_lang": "es",
+      "summary": "In a Diario Financiero report dated 20 January 2021, reprinted by CPI Chile, the Environmental Assessment Service (SEA) is quoted as saying that no significant adverse impacts will be generated by the Cerrillos project. The Segundo Tribunal Ambiental partly annulled the approval in February 2024.",
+      "source_url": "https://cpichile.org/?p=46907",
+      "source_title": "CPI Chile — reprint of Diario Financiero on the SEA's response (20 Jan 2021)"
+    },
+    {
+      "id": "in-resp-vizag-state-misleading-reuters-2026-08",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-06",
+      "stance": "positive",
+      "constituency": "local_government",
+      "single_source": true,
+      "summary": "Reuters, as syndicated by New Straits Times on 6 August 2026, reports that the Andhra Pradesh government called activists' concerns about the project incorrect and misleading. This is the state's position on the project, not an independent finding.",
+      "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+      "source_title": "Reuters via New Straits Times — Google's US$15bil India data centre project battles water, wildlife concerns"
+    },
+    {
+      "id": "in-resp-vizag-jal-biradari-reservoir-2026-08",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-06",
+      "stance": "negative",
+      "constituency": "ngo",
+      "single_source": true,
+      "summary": "Reuters, as syndicated by New Straits Times on 6 August 2026, reports that Jal Biradari (Water Community) says the project will strain water availability by putting stress on a nearby reservoir. It is the group's allegation, not an independent measurement.",
+      "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+      "source_title": "Reuters via New Straits Times — Google's US$15bil India data centre project battles water, wildlife concerns"
+    },
+    {
+      "id": "fi-resp-google-muhos-lvv-suspension-2026-10",
+      "project_id": "fi-google-muhos",
+      "date": "2026-10-07",
+      "stance": "negative",
+      "constituency": "regulator",
+      "summary": "Per AFP and Reuters via Al Jazeera, Finland's environmental supervisory agency (LVV) ordered Tuike Finland, acting for Google, to suspend preparatory work at the planned Muhos and Kajaani sites no later than 23 October 2026, until mandatory environmental impact assessments are completed. The agency is checking whether hundreds of hectares of forest were cleared without one.",
+      "source_url": "https://www.aljazeera.com/news/2026/10/7/finland-orders-halt-to-work-on-google-data-sites-over-environment-concerns",
+      "source_title": "Al Jazeera (AFP/Reuters) — Finland orders halt to work on Google data centre sites"
+    },
+    {
+      "id": "fr-resp-sesterce-alixan-grenoble-court",
+      "project_id": "fr-sesterce-alixan-rovaltain",
+      "date": "2026-07-10",
+      "stance": "negative",
+      "constituency": "regulator",
+      "source_lang": "fr",
+      "summary": "AFP reports that the interim-relief judge of the Grenoble administrative court suspended the building permit granted to Sesterce pending a decision on the merits, citing the risk of damaging environmental effects that should have been examined before the permit was issued. A suspension is not an annulment.",
+      "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+      "source_title": "AFP via Connaissance des énergies — IA: la justice suspend un projet de centre de données près de Valence"
+    },
+    {
+      "id": "in-resp-microsoft-mekaguda-petition-2024-08",
+      "project_id": "in-microsoft-hyderabad-south-central-region",
+      "date": "2024-08-20",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Rest of World reports that 56 local residents petitioned against Microsoft in July 2023 over its Mekaguda data centre site near Hyderabad, alleging land occupied beyond the boundary and industrial waste dumped in a nearby lake. Microsoft told the outlet it complies with local requirements. The project record here is the Hyderabad cloud region, which this campus site may not exactly match; the date is the article's.",
+      "source_url": "https://restofworld.org/2024/microsoft-data-center-india-mekaguda-industrial-waste/",
+      "source_title": "Rest of World — Microsoft data centre India Mekaguda (20 Aug 2024)",
+      "single_source": true,
+      "source_lang": "en"
+    },
+    {
+      "id": "fr-resp-le-bourget-montreuil-court-2026-07",
+      "project_id": "fr-segro-le-bourget",
+      "date": "2026-07-28",
+      "stance": "negative",
+      "constituency": "regulator",
+      "source_lang": "fr",
+      "summary": "Banque des Territoires reports that the Montreuil administrative court's interim-relief judge upheld the commune's withdrawal of Segro's building permit, finding the project did not comply with the local plan's height rules. It is a provisional measure; the merits are undecided and Segro says it will contest.",
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-les-projets-dimplantation-dans-la-drome-et-au-bourget-contestes",
+      "source_title": "Banque des Territoires — Datacenters: les projets contestés dans la Drôme et au Bourget"
+    },
+    {
+      "id": "cl-resp-quilicura-aquifer-rights",
+      "project_id": "cl-google-quilicura",
+      "date": "2026-03-04",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A spokesperson for Resistencia Socioambiental Quilicura said the data centre has a registered right to draw 50 litres per second from the aquifers that feed the Quilicura wetland, and that the companies lack responsibility. The same article carries Google's own 2024 water-use figure.",
+      "source_url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
+      "source_title": "Radio Universidad de Chile — El agua que usa la IA es chilena: vecinos de Quilicura alegan 'falta de responsabilidad' de data centers (4 Mar 2026)",
+      "single_source": true,
+      "source_lang": "es"
+    },
+    {
+      "id": "es-resp-tsja-appeal-aws-piga",
+      "project_id": "es-aws-zaragoza-car",
+      "date": "2026-01-04",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A campaign page by the Migrano de Arena coalition says it filed an appeal with the High Court of Justice of Aragon (TSJA) against Amazon's PIGA covering five campuses. The date shown is the page's publication date, because the filing date is not stated.",
+      "source_url": "https://www.migranodearena.org/en/cause/contencioso-contra-los-centros-de-datos-de-amazon-aws-en-aragon",
+      "source_title": "Migrano de Arena — appeal to the TSJA against the AWS PIGA (campaign page)",
+      "single_source": true,
+      "source_lang": "en"
+    },
+    {
+      "id": "in-resp-thane-mhaske-tree-felling-2026-07",
+      "project_id": "in-amazon-thane-balkum",
+      "date": "2026-07-07",
+      "stance": "negative",
+      "constituency": "local_government",
+      "summary": "Thane MP Naresh Mhaske submitted a memorandum to the Thane Municipal Corporation commissioner and the District Collector demanding an immediate stay, alleging tree felling at the Amazon site exceeded the permissions granted. The allegation is his own and not a finding.",
+      "source_url": "https://www.freepressjournal.in/amp/mumbai/thane-mp-naresh-mhaske-demands-immediate-halt-on-amazon-data-center-citing-illegal-tree-felling-and-civic-disaster-risks",
+      "source_title": "Free Press Journal — Thane MP Naresh Mhaske demands immediate halt on Amazon data centre",
+      "single_source": true,
+      "source_lang": "en"
+    },
+    {
+      "id": "gb-resp-thurrock-buglife-objection",
+      "project_id": "gb-google-thurrock-arena-essex",
+      "date": "2025-08-14",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Wildlife charity Buglife wrote to Google UK objecting that the campus would destroy over half of the Arena Essex Local Wildlife Site and over 80% of its Open Mosaic Habitat, and its campaign reported over 2,500 petition signatures asking Google to withdraw the plans.",
+      "source_url": "https://www.buglife.org.uk/news/google-plans-for-sprawling-data-centre-campus-on-designated-wildlife-site/",
+      "source_title": "Buglife: Google plans for sprawling data centre campus on designated wildlife site",
+      "source_lang": "en"
     }
   ],
   "claims": [
@@ -3159,6 +5078,547 @@
       "published_at": "2024-06-27",
       "country": "IN",
       "statement_lang": "en"
+    },
+    {
+      "id": "mx-claim-microsoft-queretaro-wells",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "En México, Microsoft adquiere el agua de pozos privados.",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+      "source_title": "Microsoft — Datacenters in Mexico (first-party fact sheet, October 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": null,
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "In Mexico, Microsoft buys its water from private wells.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-microsoft-queretaro"
+    },
+    {
+      "id": "mx-claim-microsoft-queretaro-cooling",
+      "company_slug": "microsoft",
+      "theme": "water",
+      "statement": "se usará agua para el enfriamiento en menos del 15 % del año",
+      "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
+      "source_title": "Microsoft — Datacenters in Mexico (first-party fact sheet, October 2025)",
+      "captured_at": "2026-10-19",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "water will be used for cooling less than 15% of the year",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-microsoft-queretaro"
+    },
+    {
+      "id": "be-claim-google-st-ghislain-jobs",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "The funds will expand the company's data center campus in St. Ghislain and add 300 full-time jobs.",
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Google Announces New €5 Billion AI Infrastructure Investment in Belgium through 2027",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-08",
+      "country": "BE",
+      "statement_lang": "en",
+      "metric": {
+        "value": 300,
+        "unit": "jobs",
+        "kind": "operational"
+      },
+      "project_id": "be-google-st-ghislain"
+    },
+    {
+      "id": "be-claim-google-st-ghislain-energy",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "Today, the company announced new deals with Eneco, Luminus, and Renner of more than 110 megawatts (MW)",
+      "source_url": "https://www.googlecloudpresscorner.com/2025-10-07-Google-Announces-New-EUR5-Billion-AI-Infrastructure-Investment-in-Belgium-through-2027",
+      "source_title": "Google Cloud Press Corner — Google Announces New €5 Billion AI Infrastructure Investment in Belgium through 2027",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-08",
+      "country": "BE",
+      "statement_lang": "en",
+      "project_id": "be-google-st-ghislain"
+    },
+    {
+      "id": "in-claim-amazon-thane-water",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "The total water use at our Thane facility will be 125 kilolitres per day (KLD). 115 KLD is treated sewage water for landscaping and irrigation, supplied by the Thane Municipal Council (TMC). We will use closed-loop cooling technology to cool our Thane data center.",
+      "source_url": "https://www.aboutamazon.in/news/aws/thane-data-centre-amazon",
+      "source_title": "Amazon India — Amazon's data centre in Thane: Facts",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-amazon-thane-balkum"
+    },
+    {
+      "id": "in-claim-amazon-thane-energy",
+      "company_slug": "amazon",
+      "theme": "energy",
+      "statement": "Our Thane data center will not draw electricity from the local distribution network that supplies homes, shops and businesses. Instead, we are on an industrial connection to the high-voltage transmission grid, and have established our very own dedicated high-voltage substation, planned in coordination with the utility.",
+      "source_url": "https://www.aboutamazon.in/news/aws/thane-data-centre-amazon",
+      "source_title": "Amazon India — Amazon's data centre in Thane: Facts",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-amazon-thane-balkum"
+    },
+    {
+      "id": "in-claim-amazon-india-cooling",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "None of Amazon's operational data centres in India use any water for cooling as it uses air-cooled chillers. We take utmost care to ensure that our data centres do not draw or divert power from the local distribution grid that serves residents.",
+      "source_url": "https://www.aboutamazon.in/news/aws/amazon-data-centre-water-energy-india",
+      "source_title": "Amazon India — How Amazon uses water and energy responsibly in its data centres in India",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en"
+    },
+    {
+      "id": "in-claim-amazon-mumbai-education",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "Amazon operates 55 Think Big Spaces reaching 12,000+ public school students annually. Amazon has helped upskill over 230 youth for jobs in the data centre and IT/ITeS sector, with over 70% being offered jobs at Amazon and other companies.",
+      "source_url": "https://www.aboutamazon.in/news/aws/amazon-data-centre-community-mumbai",
+      "source_title": "Amazon India — How Amazon contributes to communities near its data centres in Mumbai",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en"
+    },
+    {
+      "id": "cl-claim-google-cerrillos-air-cooling",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "para un proyecto que usará tecnología de enfriamiento con aire en este mismo lugar",
+      "country": "CL",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "for a project that will use air-cooling technology in this same place",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
+      "source_title": "CNN Chile — Google se rinde con proyecto original de data center en Cerrillos (company statement to El Mercurio, 17 Sep 2024)",
+      "captured_at": "2026-10-19",
+      "published_at": "2024-09-17",
+      "project_id": "cl-google-cerrillos"
+    },
+    {
+      "id": "kr-claim-kakao-ansan-engagement",
+      "company_slug": "kakao",
+      "theme": "engagement",
+      "statement": "카카오는 이번 데이터센터 건립을 계기로 안산시, 한양대와 협력해 미래 성장 산업을 육성하고 안산의 지역상생을 위해 꾸준한 협업을 이어나간다.",
+      "country": "KR",
+      "statement_lang": "ko",
+      "statement_translation": {
+        "text": "With the data centre as the occasion, Kakao will work with Ansan City and Hanyang University to foster future growth industries and keep collaborating steadily for Ansan's local co-prosperity.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+      "source_title": "Kakao newsroom — 카카오, 안산시·한양대와 손잡고 데이터센터 건립 추진 (7 Sep 2020)",
+      "captured_at": "2026-10-19",
+      "published_at": "2020-09-07",
+      "project_id": "kr-kakao-ansan"
+    },
+    {
+      "id": "kr-claim-kakao-ansan-water",
+      "company_slug": "kakao",
+      "theme": "water",
+      "statement": "전기 사용량과 동일하게 상수 사용량을 신경써서 모니터링하고 빗물을 모아 활용하는 등 물 사용량을 최소화하는 시스템을 도입한다.",
+      "country": "KR",
+      "statement_lang": "ko",
+      "statement_translation": {
+        "text": "Water use will be monitored carefully, as electricity use is, and a system to minimise water use will be introduced, including collecting and reusing rainwater.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+      "source_title": "Kakao newsroom — 카카오, 안산시·한양대와 손잡고 데이터센터 건립 추진 (7 Sep 2020)",
+      "captured_at": "2026-10-19",
+      "published_at": "2020-09-07",
+      "project_id": "kr-kakao-ansan"
+    },
+    {
+      "id": "kr-claim-naver-gak-sejong-solar",
+      "company_slug": "naver",
+      "theme": "energy",
+      "statement": "건물에 적용된 태양광 발전 시설을 통해 전력을 확보하고 있으며",
+      "country": "KR",
+      "statement_lang": "ko",
+      "statement_translation": {
+        "text": "Power is secured through solar generation facilities applied to the building.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.navercorp.com/story/storyDetail?seq=2359",
+      "source_title": "NAVER newsroom — 하이퍼스케일 데이터센터 각 세종 오픈 (7 Nov 2023)",
+      "captured_at": "2026-10-19",
+      "published_at": "2023-11-07"
+    },
+    {
+      "id": "gb-claim-microsoft-uk-community-pledge-engagement",
+      "company_slug": "microsoft",
+      "theme": "engagement",
+      "statement": "We will partner closely with communities and operate in a way that respects the local environment.",
+      "country": "GB",
+      "source_url": "https://local.microsoft.com/communities/emea/united-kingdom/",
+      "source_title": "Microsoft — Datacentre Community Pledge, United Kingdom (undated page)",
+      "captured_at": "2026-10-19",
+      "formal_agreement": true
+    },
+    {
+      "id": "se-claim-google-horndal-jobs",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "The data center will generate 100 direct full-time jobs, and create thousands more through construction, suppliers, and local businesses.",
+      "country": "SE",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+      "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-06-02",
+      "project_id": "se-google-horndal",
+      "metric": {
+        "value": 100,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "se-claim-google-horndal-fund",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "Google also announced a EUR 5 million fund to support local community initiatives focused on education, sustainability, economic growth and workforce development.",
+      "country": "SE",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+      "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-06-02",
+      "project_id": "se-google-horndal",
+      "metric": {
+        "value": 5000000,
+        "unit": "EUR",
+        "kind": "community_fund"
+      }
+    },
+    {
+      "id": "fi-claim-microsoft-vaasa-engagement",
+      "company_slug": "microsoft",
+      "theme": "engagement",
+      "statement": "Microsoft is working in close cooperation with local municipalities, authorities and communities as it develops its plans for the site.",
+      "country": "FI",
+      "source_url": "https://news.microsoft.com/source/emea/2026/06/microsoft-signed-preliminary-agreement-on-acquisition-of-approximately-190-hectares-of-land-in-vaasa-and-mustasaari-on-the-west-coast-of-finland/",
+      "source_title": "Microsoft News EMEA — Vaasa and Mustasaari land agreement (5 Jun 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-06-05",
+      "project_id": "fi-microsoft-vaasa-mustasaari"
+    },
+    {
+      "id": "se-claim-ecodatacenter-smedjebacken-ceo",
+      "company_slug": "ecodatacenter",
+      "theme": "engagement",
+      "statement": "We've had many productive discussions with Smedjebacken since 2019, and we are now taking the next step in this establishment",
+      "country": "SE",
+      "source_url": "https://ecodatacenter.tech/press/ecodatacenter-to-establish-third-datacenter-campus-in-sweden-3462219",
+      "source_title": "EcoDataCenter press — Third Datacenter Campus in Sweden (Peter Michelson, CEO)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-08-25",
+      "project_id": "se-ecodatacenter-smedjebacken"
+    },
+    {
+      "id": "mx-claim-google-queretaro-jobs-gdp",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "Se espera que como resultado de esta nueva región, el aumento en la adopción de la nube y la productividad que brinda generen más de 100,000 empleos y contribuyan con más de $11,000 millones de dólares al PIB de México para 2030.",
+      "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+      "source_title": "Google Cloud — ¡Hola México! (blog, 4 Dec 2024)",
+      "captured_at": "2026-10-19",
+      "published_at": "2024-12-04",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "It is expected that as a result of this new region, the increase in cloud adoption and the productivity it brings will generate more than 100,000 jobs and contribute more than US$11,000 million to Mexico's GDP by 2030.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-google-queretaro",
+      "metric": {
+        "value": 100000,
+        "unit": "jobs",
+        "kind": "economy-wide estimate to 2030"
+      }
+    },
+    {
+      "id": "mx-claim-google-queretaro-subete",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Otro ejemplo es el programa \"Súbete a la nube\" que creamos en México en asociación con el Banco Interamericano de Desarrollo (BID) con un enfoque en las mujeres y la región sur del país. Hasta la fecha, 12,500 personas se han registrado para recibir capacitación en habilidades digitales esenciales en computación en la nube.",
+      "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+      "source_title": "Google Cloud — ¡Hola México! (blog, 4 Dec 2024)",
+      "captured_at": "2026-10-19",
+      "published_at": "2024-12-04",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "Another example is the \"Súbete a la nube\" programme we created in Mexico in partnership with the Inter-American Development Bank (IDB), focused on women and the south of the country. To date, 12,500 people have registered to receive training in essential digital cloud computing skills.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-google-queretaro",
+      "metric": {
+        "value": 12500,
+        "unit": "people registered",
+        "kind": "training"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-investment",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "As part of its long-term commitment, AWS is planning to invest more than $5 billion in Mexico over 15 years.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-01-14",
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 5000000000,
+        "unit": "USD",
+        "kind": "planned investment, Mexico, 15 years"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-jobs-gdp",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "AWS estimates the construction and ongoing operation of the new AWS Region will add approximately $10 billion to Mexico’s gross domestic product (GDP) and support an average of more than 7,000 full-time equivalent jobs at external businesses annually.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-01-14",
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 7000,
+        "unit": "jobs",
+        "kind": "FTE at external businesses, annual average"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-community-fund",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "AWS has also launched a $300,000 AWS InCommunities Fund in Queretaro to help local groups, schools, and organizations initiate new community projects.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-01-14",
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 300000,
+        "unit": "USD",
+        "kind": "community_fund"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-aquestia-water",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "Querétaro: In partnership with Aquestia, we installed valves, controllers, and communication equipment in 11 measured districts, benefiting 12,500 people and projecting savings of 130 million liters per year.",
+      "source_url": "https://sustainability.aboutamazon.com/aws-sustainability-fact-sheets/aws-fact-sheet-mexico.pdf",
+      "source_title": "AWS Mexico sustainability fact sheet (2026)",
+      "captured_at": "2026-10-19",
+      "published_at": null,
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 130000000,
+        "unit": "litres per year",
+        "kind": "projected network savings, not data-centre use"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-think-big",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "AWS, in collaboration with the State Government and the Municipal Government of Querétaro, launched the Amazon Think Big Space in 2026, with the purpose of providing students, educators, and community members a space to explore ideas through interactive technical education and cloud computing training.",
+      "source_url": "https://sustainability.aboutamazon.com/aws-sustainability-fact-sheets/aws-fact-sheet-mexico.pdf",
+      "source_title": "AWS Mexico sustainability fact sheet (2026)",
+      "captured_at": "2026-10-19",
+      "published_at": null,
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro"
+    },
+    {
+      "id": "mx-claim-cloudhq-queretaro-water",
+      "company_slug": "cloudhq",
+      "theme": "water",
+      "statement": "Además de que se tratará de un desarrollo sostenible al usar refrigeración sin agua y LEED de oro y plata.",
+      "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+      "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025); spoken by CloudHQ's director of operations",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-09-25",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "In addition, it will be a sustainable development that uses water-free cooling and LEED gold and silver certification.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-cloudhq-queretaro"
+    },
+    {
+      "id": "mx-claim-cloudhq-queretaro-energy",
+      "company_slug": "cloudhq",
+      "theme": "energy",
+      "statement": "ya se tiene asegurada la energía inicial para los primeros 200 MW con apoyo de CFE y de Cenace, lo que representa una inversión previa de 250 millones de dólares",
+      "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+      "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025); spoken by CloudHQ's director of operations",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-09-25",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "initial energy for the first 200 MW is already secured with support from CFE and Cenace, which represents a prior investment of US$250 million.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-cloudhq-queretaro",
+      "metric": {
+        "value": 200,
+        "unit": "MW",
+        "kind": "initial supply secured, per company"
+      }
+    },
+    {
+      "id": "ar-claim-pampa-vaca-muerta-800mw",
+      "company_slug": "pampa-energia",
+      "theme": "energy",
+      "statement": "En Pampa Energía ya contamos con 800 MW de generación eléctrica disponibles para un centro de datos en Vaca Muerta.",
+      "source_url": "https://www.adnsur.com.ar/pulso-energetico/con-la-energia-de-vaca-muerta--pampa-energia-propone-montar-un-data-center-de-ia-en-neuquen_a6ac399e40294df27f764d600",
+      "source_title": "ADNSUR — Con la energía de Vaca Muerta, Pampa Energía propone montar un data center de IA en Neuquén (remarks by chairman Marcelo Mindlin)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-05",
+      "country": "AR",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "At Pampa Energía we already have 800 MW of electricity generation available for a data center in Vaca Muerta.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "metric": {
+        "value": 800,
+        "unit": "MW",
+        "kind": "generation offered, no site named"
+      }
+    },
+    {
+      "id": "jp-claim-mitsui-kobe-capacity",
+      "company_slug": "mitsui-fudosan",
+      "theme": "energy",
+      "statement": "最大受電容量20メガワット規模のデータセンターとして運用することを目指しています",
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "source_title": "Mitsui Fudosan — Kobe underground data centre (news release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-06",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "The company aims to operate it as a data centre with a maximum receiving capacity on the order of 20 megawatts.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-mitsui-kobe-tunnel",
+      "metric": {
+        "value": 20,
+        "unit": "MW",
+        "kind": "target maximum receiving capacity"
+      }
+    },
+    {
+      "id": "jp-claim-mitsui-kobe-groundwater-cooling",
+      "company_slug": "mitsui-fudosan",
+      "theme": "water",
+      "statement": "地下水を循環利用する水冷方式を導入するなど、既存資源を最大限に活用することで、環境負荷の低減と高効率な運用を実現します。",
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "source_title": "Mitsui Fudosan — Kobe underground data centre (news release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-06",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "By introducing a water-cooling system that circulates groundwater, and by making maximum use of existing resources, the company will reduce environmental impact and achieve highly efficient operation.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-mitsui-kobe-tunnel"
+    },
+    {
+      "id": "jp-claim-mitsui-kobe-schedule",
+      "company_slug": "mitsui-fudosan",
+      "theme": "infrastructure",
+      "statement": "初期開発では、2027年末のサービス提供開始を予定しています。",
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "source_title": "Mitsui Fudosan — Kobe underground data centre (news release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-06",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "For the initial development, the company plans to start service at the end of 2027.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-mitsui-kobe-tunnel"
+    },
+    {
+      "id": "jp-claim-softbank-tomakomai-scale",
+      "company_slug": "softbank-corp",
+      "theme": "infrastructure",
+      "statement": "将来的に国内最大規模の敷地面積70万平方メートル、受電容量が300メガワット超まで拡大",
+      "source_url": "https://www.softbank.jp/sbnews/entry/20250421_01",
+      "source_title": "SoftBank News — Construction begins on Hokkaido Tomakomai AI data centre (21 Apr 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-04-21",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "Looking ahead, the site is expected to grow to the largest scale in Japan, with a site area of 700,000 square metres and receiving capacity above 300 MW.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-softbank-tomakomai"
+    },
+    {
+      "id": "jp-claim-softbank-tomakomai-jobs",
+      "company_slug": "softbank-corp",
+      "theme": "jobs",
+      "statement": "地域経済への波及や雇用の創出、先端産業が集積していくことによる地域の活性化など",
+      "source_url": "https://www.softbank.jp/sbnews/entry/20260218_01",
+      "source_title": "SoftBank News — Tomakomai project staff interview (18 Feb 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-02-18",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "the spillover into the regional economy, job creation, and revitalisation through the agglomeration of advanced industries",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-softbank-tomakomai"
     }
   ],
   "rate_cases": [

@@ -261,6 +261,7 @@ come first, then locations, companies and sites.
 - Imperial County project denial: a site fight, not a moratorium.
 
 #### state:CO — Colorado
+- (2026-10-19) Brighton: KUNC (Oct 8) says the council "approved a one-year ban on data centers" on a Tuesday night (Oct 6 by weekday); it never names the instrument. Headline word, not a confirmed legal action: find the ordinance or minutes before recording a moratorium. Kiowa County Resolution 2026-4 is recorded (stated end Oct 9, 2026; check for extension).
 - Global AI, Weld County (up to 1 GW, approved Sept 9) is a two-gate
   candidate; see §7.
 - Six Colorado records cite news, not `.gov`. larimer.gov 403s, and
@@ -326,6 +327,7 @@ come first, then locations, companies and sites.
 - Kokomo: zoning and regulatory actions, not a moratorium.
 
 #### state:KS — Kansas
+- (2026-10-19) Saline County KS: KSN says the commission voted 4-0 "on Tuesday" for a three-year pause on data centers, nuclear and hydrogen facilities; the article has no date (likely early 2026). Needs county minutes for an event date. Not Saline County NE (recorded).
 - Marysville KS: reportedly 12 months from Sept 14, one outlet so far.
   Distinct from Marysville WA.
 - EEI: Evergy 25-EKME-315-TAR.
@@ -347,10 +349,13 @@ come first, then locations, companies and sites.
   (study committee) are not moratoriums.
 
 #### state:MD — Maryland
+
+- **Prince George's County: second 3-month data-center permit pause (lead, 2026-10-19).** Instagram caption dated 2026-10-17 only; county Council newsroom (Oct items) and WTOP index showed nothing, search engines blocked. Needs a pgccouncil.us or major-outlet source before appending to `prince-georges-county-md-2026-07`. **medium**
 - PC72: Potomac Edison and the Exelon Maryland utilities filed large-load
   rate schedules Sept 1, 2026 (per EEI). No MD PSC case numbers located yet.
 
 #### state:MI — Michigan
+- (2026-10-19) Marshall: WWMT (Aug 10) reports a 365-day moratorium; the only date is the resolution PDF label "8-3-2026", not a stated vote date. Confirm Aug 3 from council minutes, then record (enacted, 12 months).
 - Zeeland Township: a new year-long moratorium passed unanimously at a
   Tuesday meeting in early September 2026 (FOX17, which has no dateline).
   It needs the meeting date from township minutes before it can be added.
@@ -362,6 +367,7 @@ come first, then locations, companies and sites.
 - EEI: Consumers U-21859, I&M U-21986, DTE U-22061.
 
 #### state:MN — Minnesota
+- (2026-10-19) Waite Park: KNSI (May 5) says the council "unanimously passed" a one-year moratorium; no meeting date in the article (May 4 is unverified). Needs the council agenda or minutes.
 - Otter Tail Power docket 26-211: see decision 13. Its South Dakota twin is
   EL26-021 (75 MW threshold); don't reuse that number or threshold for MN.
 - EEI: Minnesota Power 26-126. This docket is independently confirmed as
@@ -369,6 +375,7 @@ come first, then locations, companies and sites.
 - Moratorium Nation: Inver Grove Heights.
 
 #### state:MO — Missouri
+- (2026-10-19) Ralls County: Muddy River News (Aug 25) reports a one-year moratorium to Sept 1, 2027; the vote date is not stated. Needs commission minutes.
 - EEI: Evergy EO-2025-0154.
 - Crusoe Warrenton (see company:crusoe).
 
@@ -441,6 +448,7 @@ come first, then locations, companies and sites.
   25-0958-EL-AIR.
 
 #### state:OK — Oklahoma
+- (2026-10-19) Shawnee: News 9 (Aug 19) says the commission approved a moratorium through the end of 2027, effective immediately, without a meeting date or vote. Aug 17 is unconfirmed. Needs city minutes. Luther is recorded.
 - EEI: PSO PUD2025-000075, OG&E PUD2026-000046.
 
 #### state:OR — Oregon
@@ -448,6 +456,8 @@ come first, then locations, companies and sites.
   deals"). The Eugene project denial is a site fight.
 
 #### state:PA — Pennsylvania
+
+- **Philadelphia 'No Data Centers in Philly' campaign** calls for a council moratorium (WHYY, article ~2026-09-13; rally the Monday after). No tracked Philadelphia project to attach a response to and no council bill found; held as a lead. Source: https://whyy.org/articles/data-center-protest-philadelphia/ **low**
 - (2026-10-19) Upper Burrell Township: Resolution 6-2026 (curative amendment on data centers, 3-0, supervisors' May 6, 2026 minutes). Not a moratorium; a Valley News Dispatch report of a 180-day moratorium has no adopting vote found. Check for a later ordinance before adding a policy record.
 - Springhill Township: the board approved a resolution on Sept 3, 2026
   barring data-center and power-plant applications until its next meeting
@@ -470,6 +480,7 @@ come first, then locations, companies and sites.
 - EEI: Duke 2025-172-E / 2025-154-E; generic docket 2026-138-E.
 
 #### state:TN — Tennessee
+- (2026-10-19) Gallatin: WSMV (Jul 29) says commissioners approved a 60-day pause on new data center applications, "not the full moratorium" proposed earlier; no vote date. Needs minutes before recording.
 - (2026-10-18) Memphis council vote on `memphis-city-2026-10` set for Oct 20;
   WREG reportedly said it wasn't taken up. Record the outcome.
 - (2026-10-19) Gallatin city: WSMV (2026-07-29) says commissioners "have approved a 60-day pause on new data center applications" but gives no vote date, and other outlets report a 12-month proposal advancing; reconcile from city minutes before adding a record.
@@ -477,6 +488,8 @@ come first, then locations, companies and sites.
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 
 #### state:TX — Texas
+
+- **Hill County TX / Project Aquila:** moratorium (3-2, 2026-05-12) and rescission (2026-06-04) shipped as `hill-county-tx-2026-05`. The old `hill-county-tx-2024-04` ("permanent", datacenterbans.com homepage) was removed: neither KWTX article mentions any 2024 moratorium. Project Aquila (RCM Hill, 1,235 MW, 800+ acres) has no project record: needs a developer or county source, KWTX only so far. **medium**
 - El Paso / Meta CBA: council directed staff (2026-06-23) to draft one in 45
   days. No draft or signed agreement found as of 2026-10-08. Add when terms
   exist. **low**
@@ -485,6 +498,9 @@ come first, then locations, companies and sites.
   moratoriums.
 
 #### state:VA — Virginia
+
+- **Spotsylvania Board of Supervisors 4-2 resolution (2026-08-11)** supporting a statewide moratorium (WJLA, https://wjla.com/news/local/spotsylvania-county-backs-call-for-statewide-moratorium-on-data-centers-abigail-spanberger-ai-energy-use-zoning-decisions). Advocacy resolution to the governor, no schema fit (not a moratorium, no tracked project). **low**
+- **Prince William Dulles South Innovation Center rezoning declined (~2026-07-07; E&E News, vote count not reported).** No project record exists; event date is inferred from "Late Tuesday" in a 07-08 article, confirm on the dateline before adding. The Digital Gateway ending is already on `qts-manassas-va` (2026-07-02). **medium**
 - (2026-10-18) Loudoun: Board resolution scheduled Oct 20 to pause its own
   legislative action on data center and substation applications for up to a
   year (county news flash, Sept 17/24). A pause on the Board's own docket, not
@@ -634,18 +650,41 @@ come first, then locations, companies and sites.
   `notes/specs/international/wave2/`. **medium**
 
 #### Claims and responses held after the 2026-10-19 link check
-- `qts-dane-county-wi-community-commitment`, `qts-dane-county-education-2025`:
-  QTS moved its newsroom to q.com and the release now 404s; a 2026-05-19
-  Wayback snapshot reportedly has the text but was rate-limited (429) when
-  re-checked. Read the snapshot, add `wayback_url`, and fix the dropped
-  words ("core values at heart"). **high**
-- `aws-water-positive-2030`: aws.amazon.com/sustainability/water-positive/
-  404s and the 2022 press-release URL 404s to scripts. Find Amazon's live
-  page and re-quote the exact sentence. **high**
-- `resp-google-lima-epa-hearing-negative`: the source 404s and no snapshot
-  was found; the record's Google attribution may also be wrong (the
-  applicant is reported as Bistrozzi LLC / Project BOSC). Re-source or
-  remove. **high**
+- Resolved 2026-10-19 (reval pass): QTS Dane County claims and
+  `aws-water-positive-2030` repointed and re-quoted; `resp-google-lima-epa-hearing-negative`
+  re-sourced to WDTN. Still open on Lima: WDTN calls the applicant "an unnamed
+  company" (Project BOSC; reported as Bistrozzi LLC), so the Google attribution
+  on project `google-lima-oh` is unconfirmed. PFAS/VOC and "health" wording
+  were cut because no fetched page has them. **medium**
+- Removed 2026-10-19 (reval pass), no supporting page found after a targeted
+  search: `resp-meta-prineville-positive` (Crook County press-release URL
+  redirects to the county homepage; nothing equivalent found), moratorium
+  `boise-id-2026-05` (homepage-only citation; two searches found no Boise
+  action). The AWS Pennsylvania and xAI/Tom's Hardware links were replaced,
+  not removed. Re-add Boise only with the city's ordinance.
+- Figures on `google-mesa-az`, `ms-quincy-wa`, `ms-goodyear-az` that no
+  fetched source states (Mesa 187 ac / 400 MW / 2019 year; Quincy 270 ac and
+  the "flagship" framing; Goodyear 300 ac / 480 MW) were left in place but
+  are unverified; Mesa investment was corrected to the $600M groundbreaking
+  figure and Quincy/Goodyear investment and jobs were nulled. Find Mesa's
+  2019 council agenda (DCD reports $1bn, 187 ac) and Microsoft's own Quincy/
+  Goodyear figures. **medium**
+- Meta info-sheet claims (Prineville, Newton, Richland, Huntsville) now cite
+  Wayback copies of the 2024-25 sheets; the current sheets differ ($2B+
+  Georgia, $5.6M+ Newton schools, $5.7M+ Prineville, $4.5M+ Huntsville, 220 MW
+  Oregon). Re-capture current figures as new dated claims, don't overwrite.
+  **medium**
+- `aws-infrastructure-pa-2024`: the announcement was June 9, 2025 (PA Governor
+  release), not 2024; the id keeps "2024". The quote is now David Zapolsky's.
+- Georgia PSC rule decision date corrected to 2025-01-23 (the PSC release
+  says "Thursday", dated January 23); the dead fact-sheet link was dropped.
+- `new-hampshire-state-2026-04`: the "moved" gc.nh.gov billText URL in the
+  first reval list pointed at SB520; the record now cites the HB1265 bill
+  status page (id=1685).
+- Cleveland extended through 2027-01-29, Athens-Clarke lifted 2026-04-07
+  (earlier text said April 8), Kiowa extended to 18 months per the
+  2026-09-24 minutes; find Kiowa's written extension resolution and
+  Cleveland's ordinance number. **medium**
 - Removed 2026-10-19 because no page, live or archived, contains their
   words: google-economic-impact-reports, google-grants-for-good,
   meta-stem-education, meta-engagement-dialogue, ms-pledge-2024,
@@ -1169,6 +1208,12 @@ Each item has the trigger that would make it addable.
 
 ### Held international records (2026-10-19, verified but not shipped)
 
+Wave 4 round 3 (`notes/specs/international/wave4/gb_r3.json`, `se_fi_gr_r3.json`), no tracked operator, so held:
+- **GB planning appeals with no named operator:** Abbots Langley, Bedmond Road (SoS grant 12 May 2025, ref APP/P1940/W/24/3346061; developer Greystoke Land, 96 MW per the Council's case); Woodlands Park landfill, Iver (Council refusal 25 Jun 2024, SoS grant 9 Jul 2025, APP/N0410/W/24/3347353; Greystoke/Altrad); Court Lane, Iver (SoS grant 6 Dec 2024, APP/N0410/W/24/3337981; Affinius Capital, 140 MW reserved, no operator named); DC01 UK, Elstree (Hertsmere outline approval, The Register 24 Jan 2025, secondary only; Equinix sale unverified). The earlier "AWS Iver" judicial-review label is not supported by the Court Lane letter and was not shipped. Sources are in the round-3 file.
+- **FI Lahti Kujala** (ecogrid.energy / Peab, city news 25 Aug 2026, permit application filed): untracked operator.
+- **SE atNorth SWE02 Stockholm** (30 MW, go-live Q4 2027, atNorth release 29 Jan 2026): atNorth HQ unverified. **SE Vertical Data, Sollefteå** (release 11 Sep 2026): untracked operator, the 500 MW grid figure is the company's characterisation.
+- **GR ADMIE Agios Stefanos 130 MW:** stored only as a Greece context fact (the regulator freeze); ADMIE is a grid operator, not a developer.
+
 Leads from `deep_ie_gb_eu_nordics_gr_ar_sg.json` (2026-10-19), none shipped:
 - **IE Meta Community Action Grants, Meath 2027 round** (open 14 Sep to 19 Oct 2026; over EUR 4.8m to 186 projects since 2019): reported by Meath PPN quoting Meta. Needs Meta's own grants page before a Claim.
 - **IE Microsoft / Fortum Espoo-Kirkkonummi heat pumps** (waste-heat deliveries "next year", Aug 2026 press): needs a Fortum or Microsoft primary.
@@ -1221,3 +1266,15 @@ Held from `notes/specs/international/wave2/deep_jp_kr_in_gb_fr_ie.json` (leads, 
   reports.
 
 - India leads (2026-10-19, notes/specs/international/wave3/india_deep3.json): Bhogapuram/Vizianagaram farmers' protest (7 Oct 2026, Deccan Chronicle) — no tracked site; Telangana DEF investigation on land assignment for Microsoft/Amazon sites (Scroll/Rest of World) — spans two untracked sites; Mahul/Mumbai water concerns on the state green data-centre parks (Land Conflict Watch). Each needs a tracked project before it can ship as a response. State policy PDFs (TN, MH, TG, AP) unreachable.
+
+### Follow-up 85 claim-quote pass: removed claims, leads (2026-10-19)
+
+Removed because no first-party quote is on the cited page (re-source from a primary page if one exists):
+- xAI Memphis (Chamber URL no longer contains them; x.ai/memphis/our-commitment returns 403 to scripted fetches, so unverified): jobs 500, tax $100M, $80M wastewater facility, substations $35M + $20M, "no grid power in emergencies". Re-read x.ai's page in a browser.
+- Google Franklin Furnace (WSAZ): reporter paraphrase of Chadwick, no quotation marks. Ratepayer assessment moved to pledge_only. Lead: the May 2026 information-fair Q&A or a Google blog post with a direct quote.
+- Reporter paraphrases: Amazon Clinton water/jobs (SuperTalk), Loudoun $150k grants, New Carlisle $7M roads, Wonder Valley O'Leary jobs. Meta Lebanon energy sentence is unattributed announcement text (Peterson not credited).
+- Google: 24/7 CFE 2030 goal, 120% water replenishment target (not on current sustainability pages; check snapshots), Oklahoma Porat quotes (no direct quotes on page). Amazon "100% renewable in 2023" (page now reports 2025). CoreWeave Polaris Forge renewable, Hammond "$4M" impact payment, Lordstown "$3B". Oracle "100,000 jobs" was Trump's remark, not Ellison's. Crusoe Abilene jobs (literal quote has no jobs content).
+Re-attributed: Oracle Port Washington energy quote is Peter Hoeschele (OpenAI), not Altman.
+Wayback-pinned (live pages have drifted; add new dated claims): Google Oregon/Iowa/Virginia, Meta Richland construction/operational jobs.
+
+- Re-source from Wayback (snapshot near 2026-05-14): google-247-cfe-2030 (sustainability.google/operating-sustainably) and google-water-replenish-120 (sustainability.google/commitments/water). Both targets are absent from Google's live pages as of 2026-10-19, so the claims were removed; restore them as dated captures if a snapshot carries the sentence.

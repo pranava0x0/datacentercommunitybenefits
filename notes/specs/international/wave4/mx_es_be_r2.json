@@ -1,0 +1,136 @@
+{
+ "sources": [
+  {
+   "url": "https://www.aragon.es/-/piga-region-msft",
+   "status": "fetched 200",
+   "use": "ES Microsoft PIGA initial approval order"
+  },
+  {
+   "url": "https://www.migranodearena.org/en/cause/contencioso-contra-los-centros-de-datos-de-amazon-aws-en-aragon",
+   "status": "fetched 200",
+   "use": "ES TSJA appeal (campaign page, 4 Jan 2026)"
+  },
+  {
+   "url": "https://www.xataka.com/magnet/aragon-pregunto-donde-estaba-dinero-centros-datos-amazon-compania-acaba-mover-ficha",
+   "status": "fetched 200",
+   "use": "ES Amazon IAE statement, 2026-10-09"
+  },
+  {
+   "url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+   "status": "fetched 200",
+   "use": "BE Elia reserved capacity vs consumption, with correction"
+  },
+  {
+   "url": "https://www.datacenterdynamics.com/en/news/google-breaks-ground-on-second-belgian-data-center-campus-worth-1bn/",
+   "status": "403 blocked",
+   "use": "not used"
+  },
+  {
+   "url": "https://www.elia.be/en/news/",
+   "status": "403 blocked",
+   "use": "not used"
+  },
+  {
+   "url": "https://www.xataka.com.mx/robotica-e-ia/mexico-esta-recibiendo-centros-datos-que-nunca-hay-problema-paralelo-escasez-agua",
+   "status": "fetched 200",
+   "use": "checked for Sedesu quote: not on this page; dropped"
+  }
+ ],
+ "records": [
+  {
+   "id": "es-microsoft-region-msft-initial-approval-2025-11",
+   "country": "ES",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "El Plan tiene como objeto la implantación e interconexión de tres campus de Centros de Datos en Aragón, en los municipios de La Muela, Villamayor de Gállego y Zaragoza",
+   "translation": "The Plan's purpose is the implementation and interconnection of three data-centre campuses in Aragón, in the municipalities of La Muela, Villamayor de Gállego and Zaragoza.",
+   "source_url": "https://www.aragon.es/-/piga-region-msft",
+   "fields": {
+    "company": "microsoft",
+    "title": "Gobierno de Aragón: Plan de Interés General 'Implantación de la Región Microsoft en Aragón' (ORDEN FOM/1520/2025)",
+    "event_date": "2025-11-14",
+    "theme": "infrastructure",
+    "stance_note": "Initial approval (aprobación inicial) of the PIGA promoted by Microsoft 7724 Spain, S.L.U."
+   },
+   "notes": "Regional government's own portal (aragon.es). The order is ORDEN FOM/1520/2025, de 14 de noviembre, approving the plan initially; the portal page was last updated 28/09/2026. Event date = order date. Initial approval only; not final. Earlier search summaries cited a 5,356 M EUR figure from press and were not used.",
+   "verification": "HIT"
+  },
+  {
+   "id": "es-tsja-appeal-aws-piga-campaign-2026-01",
+   "country": "ES",
+   "kind": "community_response",
+   "verified": true,
+   "verbatim": "We have filed an appeal with the High Court of Justice of Aragon (TSJA) to overturn Amazon's illegitimate PIGA.",
+   "translation": "Same sentence (English page).",
+   "source_url": "https://www.migranodearena.org/en/cause/contencioso-contra-los-centros-de-datos-de-amazon-aws-en-aragon",
+   "fields": {
+    "company": "amazon",
+    "title": "Migrano de Arena: appeal to the TSJA against the AWS PIGA (campaign page)",
+    "event_date": "2026-01-04",
+    "theme": "engagement",
+    "stance_note": "negative; NGO/community appeal"
+   },
+   "notes": "Campaign page of the NGO coalition (Ecologistas en Acción and Tu Nube Seca Mi Río per other coverage). The page says the appeal targets Amazon's PIGA covering five campuses. The PIGA-admission claim (DCD, 403 blocked) is NOT verified here: the admission date is not on this page. The page's publication date (4 Jan 2026) is used as the event date because the filing date is not stated. Campaign source, not an authority. Keep as a community response, not a company claim.",
+   "verification": "HIT"
+  },
+  {
+   "id": "es-amazon-iae-retroactive-payments-2026-10",
+   "country": "ES",
+   "kind": "claim",
+   "verified": true,
+   "verbatim": "Hemos estado pagando el IAE a nivel nacional y vamos a comenzar a pagarlo a nivel municipal de forma inmediata.",
+   "translation": "We have been paying the IAE at national level and we will start paying it at municipal level immediately.",
+   "source_url": "https://www.xataka.com/magnet/aragon-pregunto-donde-estaba-dinero-centros-datos-amazon-compania-acaba-mover-ficha",
+   "fields": {
+    "company": "amazon",
+    "title": "Xataka: Amazon clarifies it will pay the IAE owed to Aragón for its data centres",
+    "event_date": "2026-10-09",
+    "theme": "tax_revenue",
+    "stance_note": "first-party company statement, given to Xataka"
+   },
+   "notes": "Amazon's statement quoted by Xataka ('Como dijo la propia compañía para Xataka'). Same article: 'Vamos a realizar pagos retroactivos a los municipios donde operamos centros de datos en Aragón para cubrir los últimos cuatro años de IAE.' The amounts are not stated by the company. Article date 2026-10-09 is from the page metadata. Note: the company quote is on a third-party outlet, not a company page. Check Amazon's own statement before shipping.",
+   "verification": "HIT"
+  },
+  {
+   "id": "be-elia-reserved-capacity-not-consumption-2026-09",
+   "country": "BE",
+   "kind": "context",
+   "verified": true,
+   "verbatim": "Elia meldt dat dat cijfer slaat op de gereserveerde capaciteit voor nieuwe datacenters en niet op het te verwachten stroomverbruik.",
+   "translation": "Elia reports that this figure refers to the reserved capacity for new data centres and not to the expected electricity consumption.",
+   "source_url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+   "fields": {
+    "title": "VRT NWS: Belgium needs more than twice as much electricity for data centres by 2034, says grid operator Elia (with correction)",
+    "event_date": "2026-09-18",
+    "theme": "energy"
+   },
+   "notes": "Correction printed on the article itself (18/9/2026): the first version said 8x more power by 2034 for large data centres; Elia says that figure is reserved capacity, not consumption. Elia's grid-operator statement reported by VRT. Do not use the 24.1 TWh figure from search summaries without checking the Elia text.",
+   "verification": "HIT"
+  },
+  {
+   "id": "be-elia-data-centre-requests-not-realised-2026-09",
+   "country": "BE",
+   "kind": "context",
+   "verified": true,
+   "verbatim": "Elia verwacht namelijk dat veel van de aanvragen voor nieuwe datacenters uiteindelijk niet zullen worden gerealiseerd.",
+   "translation": "Elia in fact expects that many of the requests for new data centres will ultimately not be realised.",
+   "source_url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+   "fields": {
+    "title": "VRT NWS: Belgium needs more than twice as much electricity for data centres by 2034, says grid operator Elia (with correction)",
+    "event_date": "2026-09-18",
+    "theme": "energy"
+   },
+   "notes": "Same VRT article and correction as the record above. Grid-operator statement.",
+   "verification": "HIT"
+  }
+ ],
+ "leads": [
+  "MX: Sedesu water-reporting rule (2027, pilot 2026): only secondary coverage (Xataka, DCD 403). Primary Sedesu/gob.mx page not found; search failed. Do not ship on search summaries.",
+  "MX: CloudHQ USD 4.8bn Querétaro campus (Sept 2025) and AWS Mexico region (Expansión Feb 2024; AWS announcement Jan 2025): no first-party page fetched this round. Need aboutamazon.com / CloudHQ press page and a named-exec quote.",
+  "MX: Voceras de la Madre Tierra: Context News (Thomson Reuters Foundation) fetch failed; Mexico Business News fetch failed. Need a fetchable NGO or press source for a CommunityResponse.",
+  "ES: Blackstone Rodes/Calatorao DIGA (Aragón Consejo de Gobierno, ~7,500 M EUR, 300 MW): Xataka and DCD only; needs the aragon.es or BOA primary.",
+  "ES: Meta Talavera: iAgua (fetch returned no text in grep); water figures conflict (0.2 hm3/yr Junta vs 40,600 m3 DIA). Needs the DIA/BOE primary before a record.",
+  "ES: TSJA admission date is only in DCD (403 blocked). The campaign page confirms the appeal was filed, not that it was admitted.",
+  "BE: Google Farciennes permit and Elia 2025-2026 statements: DCD and Elia pages 403. Brussels Times snippet only."
+ ]
+}

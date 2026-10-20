@@ -1,0 +1,250 @@
+[
+ {
+  "unit": "state:AL",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Prichard",
+  "jurisdiction_type": "city",
+  "state": "AL",
+  "title": "Prichard, AL six-month data center moratorium",
+  "event_date": "2026-08-04",
+  "status": "enacted",
+  "facts": {
+   "duration_months": 6,
+   "adopted_by": "city council"
+  },
+  "summary": "Prichard's council approved a six-month moratorium on data centers on Aug. 4, 2026. The moratorium came days after a building permit for a proposed $93 million Edged data center was issued on July 30.",
+  "source_url": "https://mynbc15.com/news/local/prichard-questions-validity-of-permit-issued-before-data-center-moratorium",
+  "source_title": "NBC 15 — Prichard questions validity of permit issued before data center moratorium",
+  "verbatims": [
+   "The building permit was issued July 30, just days before the council approved a six-month moratorium on data centers on Aug. 4."
+  ],
+  "verified": true,
+  "notes": "Date and term from NBC 15 (Aug. 31, 2026). A search-snippet report gave 180 days; not confirmed, so NBC 15's six-month figure is used. Ordinance text not reviewed. The 480-day proposal and derailed Aug. vote come from search snippets only and are not in the record."
+ },
+ {
+  "unit": "state:AL",
+  "type": "site_update",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Prichard",
+  "jurisdiction_type": "city",
+  "state": "AL",
+  "title": "Prichard council disputes validity of Edged data center building permit",
+  "event_date": "2026-08-20",
+  "status": "disputed",
+  "facts": {
+   "permit_issued": "2026-07-30",
+   "project": "proposed $93M Edged data center",
+   "council_meeting": "2026-08-20"
+  },
+  "summary": "At the Aug. 20 council meeting, a council member said the permit was issued without the required planning commission review and that the city is considering a resolution declaring it illegal. Council members told NBC 15 they believe the project would fall under the Aug. 4 moratorium.",
+  "source_url": "https://mynbc15.com/news/local/prichard-questions-validity-of-permit-issued-before-data-center-moratorium",
+  "source_title": "NBC 15 — Prichard questions validity of permit issued before data center moratorium",
+  "verbatims": [
+   "which is to say that this building permit is illegal to have been issued",
+   "Walker and Councilwoman Stephani Norwood told NBC 15 News they believe the project would now fall under the moratorium."
+  ],
+  "verified": true,
+  "notes": "Whether the project is grandfathered is an open legal question; not resolved in the source. Edged is untracked, so there is no project record yet. Mayor was absent from that discussion per the article."
+ },
+ {
+  "unit": "state:OK",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Shawnee",
+  "jurisdiction_type": "city",
+  "state": "OK",
+  "title": "Shawnee, OK temporary moratorium on new data centers through 2027",
+  "event_date": "2026-08-17",
+  "status": "enacted",
+  "facts": {
+   "end_date": "2027-12-31",
+   "scope": "new data center applications and permits"
+  },
+  "summary": "Shawnee's city commission approved a temporary moratorium on new data center proposals, holding them through the end of 2027 while the city studies impacts and updates regulations.",
+  "source_url": "https://www.news9.com/data-centers-in-oklahoma/shawnee-approves-temporary-moratorium-on-new-data-centers",
+  "source_title": "News 9 — Shawnee approves temporary moratorium on new data centers",
+  "verbatims": [
+   "The city of Shawnee has approved a temporary moratorium on new data centers, putting new proposals on hold through the end of 2027."
+  ],
+  "verified": true,
+  "notes": "Event date is the Aug. 17, 2026 Monday meeting per the Hoodline summary and a city meeting listing; the News 9 article (Aug. 19) does not give the meeting date, so this is a computed date. The 7-0 vote and sponsor come only from Hoodline (AI-assisted), not verified. Official minutes not checked."
+ },
+ {
+  "unit": "state:OK",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Luther",
+  "jurisdiction_type": "city",
+  "state": "OK",
+  "title": "Luther, OK town board data center moratorium (PRE-WINDOW)",
+  "event_date": "2026-06-17",
+  "status": "enacted",
+  "facts": {
+   "context": "opposed Beltline Energy 400-acre data center proposal near OG&E plant"
+  },
+  "summary": "Luther's town board approved a data center moratorium on June 17, 2026, after about 300 residents turned out to oppose a proposed Beltline Energy data center.",
+  "source_url": "https://www.news9.com/data-centers-in-oklahoma/luther-oklahoma-board-approves-data-center-moratorium",
+  "source_title": "News 9 — Hundreds gather outside in Luther as town board approves a data center moratorium",
+  "verbatims": [
+   "An estimated 300 residents gathered on Luther's Main Street Wednesday night to oppose a proposed data center project by Beltline Energy and urge town leaders to consider a moratorium on future data center applications."
+  ],
+  "verified": true,
+  "notes": "PRE-WINDOW: event 2026-06-17, before the Aug 1 window. Flagged because it is untracked and material. The verbatim shows the residents' request; the approval itself is in the headline ('town board approves a data center moratorium'). Scope is inconsistent across outlets (rezoning only vs. rezoning and permits), so this is not confirmed. Vote count not confirmed."
+ },
+ {
+  "unit": "state:OR",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Oregon (Department of Environmental Quality)",
+  "jurisdiction_type": "state",
+  "state": "OR",
+  "title": "Oregon governor directs DEQ to pause air and water permits for new or expanded data centers",
+  "event_date": "2026-10-09",
+  "status": "enacted",
+  "facts": {
+   "instrument": "governor's letter directive to DEQ Director Leah Feldon",
+   "end_date": "2027-07-01",
+   "pauses": "processing and issuing air and water permits for new or expanded data centers"
+  },
+  "summary": "Gov. Tina Kotek directed DEQ to pause processing and issuing air and water pollution permits for new or expanded data centers until July 1, 2027, in an Oct. 9 letter reported Oct. 13.",
+  "source_url": "https://www.kptv.com/2026/10/13/oregon-pauses-data-center-permits-until-2027/",
+  "source_title": "FOX 12 (KPTV) — Oregon pauses data center permits until 2027",
+  "verbatims": [
+   "Gov. Tina Kotek ordered the Oregon Department of Environmental Quality to pause processing and issuing air and water permits for new or expanded data centers until July 1, 2027.",
+   "Kotek directed Oregon Department of Environmental Quality Director Leah Feldon to pause all air and water pollution permits for new or expanding data centers until July."
+  ],
+  "verified": true,
+  "notes": "A governor's directive, not a statute. Separate from oregon-state-directive-2026-09 (Sept. 8 state-land pause). Source for the second verbatim is OPB (2026-10-13). Amazon said it was disappointed (per search, not verified on the page)."
+ },
+ {
+  "unit": "state:OR",
+  "type": "site_update",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Eugene",
+  "jurisdiction_type": "city",
+  "state": "OR",
+  "title": "Eugene zoning determination: data centers not allowed at former Hynix site",
+  "event_date": "2026-09-08",
+  "status": "determination (appealable)",
+  "facts": {
+   "site": "former Hyundai/Hynix campus, West Eugene (about 200 acres, per search)",
+   "zone": "E-1",
+   "determination_date": "2026-09-08"
+  },
+  "summary": "The City of Eugene determined that data centers are not an allowed use at the former Hyundai/Hynix site under its zoning. The determination responded to an attorney representing an unidentified client. It is a use determination, not a moratorium.",
+  "source_url": "https://www.klcc.org/politics-government/2026-09-09/eugene-says-zoning-doesnt-allow-data-centers-at-former-hyundai-hynix-campus",
+  "source_title": "KLCC — Eugene says zoning doesn't allow data centers at former Hyundai/Hynix campus",
+  "verbatims": [
+   "The city has determined that data centers are not an allowed use at the location of the former Hyundai/Hynix site in West Eugene because of zoning issues."
+  ],
+  "verified": true,
+  "notes": "The city's letter (Sept. 8) and the LUBA appeal path come from search snippets (Lookout Eugene, Sept. 8), not from the KLCC page. The buyer's appeal and the council's Dec. 14 zoning discussion are unconfirmed and not recorded. No project record exists for this site."
+ },
+ {
+  "unit": "state:MI",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Marshall",
+  "jurisdiction_type": "city",
+  "state": "MI",
+  "title": "Marshall, MI one-year data center moratorium",
+  "event_date": "2026-08-03",
+  "status": "enacted",
+  "facts": {
+   "duration_days": 365,
+   "scope": "approvals of data centers within city limits"
+  },
+  "summary": "Marshall's city council approved a one-year moratorium on data center approvals within city limits, citing uncertainty about electricity, water use and heat discharge. The council described it as time to review and strengthen its ordinances.",
+  "source_url": "https://wwmt.com/news/arc/marshall-data-center-moratorium-delays-development-one-year-alterra-brooks-industrial-park-acres-wetland-lake-energy-environment-calhoun-county-west-michigan",
+  "source_title": "WWMT — Marshall data center moratorium delays development by at least one year",
+  "verbatims": [
+   "the moratorium delays any approval of data centers within Marshall's city limits for 365 days."
+  ],
+  "verified": true,
+  "notes": "Aug. 3 meeting date and unanimous vote come from Michigan Advance roundups and several outlets via search, not from the fetched WWMT page. The draft resolution has blanks, so the adopted text was not reviewed. Do not confuse with the Marshall, Indiana moratorium in WTHI coverage. Alterra's Brooks Industrial Park purchase is the context."
+ },
+ {
+  "unit": "state:MI",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Zeeland Township",
+  "jurisdiction_type": "city",
+  "state": "MI",
+  "title": "Zeeland Township year-long data center and energy facility moratorium",
+  "event_date": null,
+  "status": "enacted",
+  "facts": {
+   "duration": "year-long",
+   "scope": "data centers and energy facilities",
+   "replaces": "previous moratorium repealed at the same meeting"
+  },
+  "summary": "Zeeland Township's board unanimously approved a year-long moratorium on data centers and energy facilities, replacing a previous moratorium it repealed at the same meeting. The township has no pending applicant, per its supervisor.",
+  "source_url": "https://www.fox17online.com/news/local-news/holland-zeeland-grand-haven/zeeland-township-approves-new-data-center-and-energy-facility-moratorium-to-protect-local-planning",
+  "source_title": "FOX 17 — Zeeland Township approves new data center and energy facility moratorium to protect local planning",
+  "verbatims": [
+   "Zeeland Township has approved a new year-long moratorium on data centers and energy facilities, replacing a previous moratorium the board repealed at the same Tuesday meeting."
+  ],
+  "verified": false,
+  "notes": "NOT ADDED UNTIL DATED: the article has no dateline, so event_date is null. Early September 2026 comes from the BACKLOG lead only. Need the township minutes for the meeting date. Township is a municipal unit, coded city for schema purposes. Scope covers energy facilities too, not only data centers. The earlier March 2026 moratorium (repealed) is untracked."
+ },
+ {
+  "unit": "state:MI",
+  "type": "site_update",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Wixom",
+  "jurisdiction_type": "city",
+  "state": "MI",
+  "title": "Developer sues Wixom over data center moratorium after waiver denial",
+  "event_date": "2026-08-07",
+  "status": "litigation filed",
+  "facts": {
+   "plaintiff": "Wixom Industrial One",
+   "court": "U.S. District Court, Detroit",
+   "claim": "violation of the state's zoning act",
+   "site": "about 54 acres on South Wixom Road north of I-96",
+   "council_action": "July 2026 vote rejecting waiver request from moratorium (unanimous)"
+  },
+  "summary": "Wixom Industrial One filed suit Aug. 7, 2026 in federal court, alleging the city violated the state zoning act after its council refused to lift the data center moratorium for the developer's site.",
+  "source_url": "https://www.whmi.com/news/article/developer-sues-city-of-wixom-over-data-center-moratorium",
+  "source_title": "WHMI — Developer sues City of Wixom over data center moratorium",
+  "verbatims": [
+   "Wixom Industrial One, operated by Dennis Griffin, filed the lawsuit Aug. 7 in U.S. District Court in Detroit, accusing the city of violating the state's zoning act."
+  ],
+  "verified": true,
+  "notes": "Source is WHMI citing Crain's Detroit. The July council vote date is 'last month' per WHMI, not a day. Moratorium end date (end of August 2026 per search) and any ruling are not confirmed. Original project is a three-building complex; the square footage is from search only and not recorded."
+ },
+ {
+  "unit": "state:MN",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Waite Park",
+  "jurisdiction_type": "city",
+  "state": "MN",
+  "title": "Waite Park, MN one-year data center moratorium (PRE-WINDOW)",
+  "event_date": "2026-05-04",
+  "status": "enacted",
+  "facts": {
+   "duration": "one year",
+   "scope": "applications and building or conditional use permits for data centers in industrial districts"
+  },
+  "summary": "Waite Park's city council unanimously passed a one-year moratorium on data centers in May 2026 while the city studies water and noise impacts.",
+  "source_url": "https://knsiradio.com/2026/05/05/waite-park-city-council-passes-one-year-data-center-moratorium/",
+  "source_title": "KNSI — Waite Park City Council Passes One-Year Data Center Moratorium",
+  "verbatims": [
+   "The Waite Park City Council has unanimously passed a one-year moratorium on data centers, putting a halt to development while the city studies the potential impacts on city resources."
+  ],
+  "verified": true,
+  "notes": "PRE-WINDOW: event 2026-05-04 (public hearing that day, per search; article May 5). Flagged because it is untracked. Scope (industrial districts) and the telecom-shelter exemption come from search snippets, not the probed text."
+ }
+]

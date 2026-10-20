@@ -1,0 +1,272 @@
+{
+ "companies": [
+  {
+   "slug_candidate": "ctrls",
+   "name": "CtrlS Datacenters",
+   "hq": "Hyderabad, India (from memory; verify)",
+   "website": "https://www.ctrlsdatacenters.com (from memory; verify)",
+   "basis": "Opened 12 MW Patna DC (Rs 400 cr), signed Rs 10,000 cr LoI for 150 MW Bodh Gaya AI factory (crnasia, 2026-10). Plans 20+ edge DCs in Tier 2/3 cities."
+  },
+  {
+   "slug_candidate": "colt-dcs",
+   "name": "Colt Data Centre Services",
+   "hq": "London, UK (from memory; verify)",
+   "website": "https://www.colt.net (from memory; verify)",
+   "basis": "64 MW Mumbai 3 at Navi Mumbai campus under US$1.7bn JV with RMZ; construction started 2026-10-15 (w.media)."
+  },
+  {
+   "slug_candidate": "trentar",
+   "name": "Trentar (technology arm of Dorf Ketal Group)",
+   "hq": "Mumbai, India (from memory; verify)",
+   "website": "unverified",
+   "basis": "Rs 30,000 cr MoU with Maharashtra for 500 MW park, 2026-10-06. DCD notes no prior data-centre development experience. Site not disclosed."
+  },
+  {
+   "slug_candidate": "energy-capital-global",
+   "name": "Energy Capital Global Pte Ltd",
+   "hq": "Singapore (per Outlook/Deccan reports)",
+   "website": "unverified",
+   "basis": "Rs 41,750 cr AI-ready 100 MW campus in Chhattisgarh, invitation to invest handed over 2026-10-05 at SING Forum. Commitment stage only."
+  },
+  {
+   "slug_candidate": "yotta",
+   "name": "Yotta Data Services",
+   "hq": "Mumbai (from memory; verify)",
+   "website": "https://www.yotta.com (from memory; verify)",
+   "basis": "Not yet researched this pass; candidate per owner list."
+  },
+  {
+   "slug_candidate": "sify",
+   "name": "Sify Technologies",
+   "hq": "Chennai (from memory; verify)",
+   "website": "https://www.sify.com (from memory; verify)",
+   "basis": "Not yet researched this pass; candidate per owner list."
+  },
+  {
+   "slug_candidate": "ntt",
+   "name": "NTT Global Data Centers (India)",
+   "hq": "Tokyo, Japan (from memory; verify)",
+   "website": "https://www.global.ntt/ (from memory; verify)",
+   "basis": "Not yet researched this pass; candidate per owner list. Confirm the India-operating entity first."
+  },
+  {
+   "slug_candidate": "stt-gdc",
+   "name": "STT GDC India",
+   "hq": "Singapore (from memory; verify)",
+   "website": "https://www.sttelemediagdc.com (from memory; verify)",
+   "basis": "Not yet researched this pass; candidate per owner list."
+  }
+ ],
+ "records": [
+  {
+   "kind": "policy",
+   "verified": true,
+   "id": "in-niti-dc-evaluation-framework-2026-10",
+   "fields": {
+    "country": "IN",
+    "jurisdiction": "national",
+    "instrument": "framework guidance (not a binding rule)",
+    "event_date": "2026-10-14",
+    "issuer": "NITI Aayog Frontier Tech Hub (launched with Deloitte India)",
+    "principles": [
+     "grid_or_power",
+     "water",
+     "study"
+    ],
+    "scope": "states, guidance"
+   },
+   "verbatim": "The framework proposes that States link data centre approvals to verified electricity, water and infrastructure availability",
+   "translation": null,
+   "source_url": "https://www.gktoday.in/niti-aayog-links-data-centre-approvals-to-power-and-water/",
+   "notes": "Event date from the GKToday page (framework released 14 Oct 2026). Outlook (2026-10-15) and Indian Express independently describe it as guidance states apply, not a new national approval rule. Principles tags are curator-assigned; the primary-source NITI PDF was not fetched. Stronger primary source is still needed."
+  },
+  {
+   "kind": "state_action",
+   "verified": true,
+   "id": "in-ap-reliance-bhogapuram-800-acres-2026-05",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "company": "Reliance Industries",
+    "project": "Bhogapuram / Vizianagaram AI data centre + cable landing station",
+    "land_allotted_acres": 800,
+    "discount_pct": 25,
+    "investment_stated": "Rs 1.08 trillion",
+    "event_date": "2026-05-21",
+    "event_date_note": "Date of the Indian Infrastructure report; the GO date was not found."
+   },
+   "verbatim": "has approved the allotment of over 800 acres of land in Vizianagaram district to Reliance Industries Limited (RIL) at a 25 per cent discount",
+   "translation": null,
+   "source_url": "https://indianinfrastructure.com/2026/05/21/andhra-pradesh-government-allots-800-acres-to-reliance-for-rs-1-08-trillion-ai-data-centre-in-vizianagaram/",
+   "notes": "Land allotment is a state action. The farmer protests (Bhogapuram, Deccan Chronicle, already in seed) and the Collector's jobs statement sit on the same site. Those sources are not used here, because the jobs quote was not found verbatim on a fetched primary page. The GO number was not found. Verify it on the APIIC or AP government site before publishing."
+  },
+  {
+   "kind": "state_action",
+   "verified": true,
+   "id": "in-cg-energy-capital-global-2026-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-CT",
+    "company": "Energy Capital Global Pte Ltd",
+    "project": "100 MW AI-ready data centre campus, Chhattisgarh",
+    "investment_stated": "Rs 41,750 crore",
+    "event_date": "2026-10-05",
+    "event_date_note": "Outlook publication date; the commitment was made at SING Forum 2026, Singapore."
+   },
+   "verbatim": "Chhattisgarh CM Vishnu Deo Sai said that these commitments are a vote of confidence in Chhattisgarh's policies, potential and people",
+   "translation": null,
+   "source_url": "https://www.outlookindia.com/national/singapores-energy-capital-global-to-invest-41750-crore-in-al-ready-data-centre-campus-in-chhattisgarh",
+   "notes": "Investment-invitation stage only, with no land, approval or financing confirmed. Outlook gives the total as Rs 41,750 crore; other outlets say Rs 43,250 crore (includes a Rs 1,500 cr solar/storage pledge from a second firm). Use the Rs 41,750 cr figure for the data-centre line only. Company is a candidate, not yet a companies.json slug."
+  },
+  {
+   "kind": "claim",
+   "verified": true,
+   "id": "in-colt-mumbai-3-navi-mumbai-2026-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-MH",
+    "company": "Colt Data Centre Services",
+    "project": "Mumbai 3, Navi Mumbai campus (64 MW)",
+    "theme": "energy_or_infrastructure",
+    "statement_lang": "en",
+    "event_date": "2026-10-15",
+    "claim_type": "first-party press release quote (Colt DCS Country Head, India)"
+   },
+   "verbatim": "Mumbai 3 is designed to address these needs, further strengthening our Navi Mumbai Campus as a scalable and future-ready digital infrastructure platform",
+   "translation": null,
+   "source_url": "https://w.media/colt-dcs-and-rmz-commence-construction-on-third-mumbai-data-center/",
+   "notes": "First-party: a Colt DCS spokesperson quoted in the company press release, carried by W.Media. Commercial/capacity claim, not a community-impact claim, so it is a weak fit for the gate-2 test. Included as a company-capacity record only. Other verified facts from the same page: 64 MW, ground prep from December 2025, a fully pre-let hyperscale customer, part of a US$1.7bn JV with RMZ. The customer is unnamed. Colt DCS is a company candidate. Colt's own site did not load (403), so the release was read via W.Media."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-resp-vizag-state-misleading-reuters-2026-08",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "project_id_candidate": "in-google-visakhapatnam",
+    "constituency": "local_government",
+    "stance": "positive",
+    "event_date": "2026-08-06",
+    "event_date_note": "Date of the Reuters report as syndicated by NST; the state statement itself was given to Reuters."
+   },
+   "verbatim": "called activists' concerns about the project incorrect and misleading",
+   "translation": null,
+   "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+   "notes": "A government statement, not a community finding. The same report quotes the state: 'Such protests are their democratic right.' Pair it with the Jal Biradari response below. Read the stance field as the state's position on the project, not a neutral finding."
+  },
+  {
+   "kind": "response",
+   "verified": true,
+   "id": "in-resp-vizag-jal-biradari-reservoir-2026-08",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-AP",
+    "project_id_candidate": "in-google-visakhapatnam",
+    "constituency": "ngo",
+    "stance": "negative",
+    "event_date": "2026-08-06",
+    "event_date_note": "Date of the Reuters report as syndicated by NST."
+   },
+   "verbatim": "Jal Biradari (Water Community), which says the project will strain water availability by putting stress on a nearby reservoir",
+   "translation": null,
+   "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+   "notes": "Activist-group allegation, reported by Reuters. It is not an independent measurement. The AP High Court PIL hearing was set for 24 Aug 2026 and its outcome was not verified. The existing seed already has the 2026-08-24 PIL response, so check for overlap before filing."
+  },
+  {
+   "kind": "state_action",
+   "verified": true,
+   "id": "in-trentar-dorf-ketal-maharashtra-mou-2026-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-MH",
+    "company": "Trentar (Dorf Ketal Group)",
+    "project": "500 MW green integrated hyperscale data centre park (site not disclosed)",
+    "investment_stated": "INR 30,000 crore (USD 3.3bn)",
+    "event_date": "2026-10-06",
+    "event_date_note": "MoU date per Energetica India; signed at Invest Maharashtra.",
+    "committed_jobs": null
+   },
+   "verbatim": "Trentar, the technology and infrastructure arm of the Dorf Ketal Group, has signed a Memorandum of Understanding (MoU) with the Government of Maharashtra for a proposed investment of INR 30,000 crore",
+   "translation": null,
+   "source_url": "https://www.energetica-india.net/news/trentar-plans-inr-30000-cr-investment-in-500-mw-data-centre",
+   "notes": "MoU stage only. The site, timeline and land are not disclosed. Trentar says it hopes for at least 51% renewable power. DCD (secondary) notes no prior data-centre development experience. Do not treat the MoU as a financed project. Trentar is a company candidate under the Dorf Ketal parent."
+  },
+  {
+   "kind": "state_action",
+   "verified": true,
+   "id": "in-ctrls-bihar-loi-patna-2026-10",
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-BR",
+    "company": "CtrlS Datacenters",
+    "project": "Patna DC (12 MW IT load, Rs 400 cr, open) and Bodh Gaya 150 MW AI factory (LoI)",
+    "investment_stated": "Rs 10,000 crore (Bodh Gaya LoI); Rs 400 crore (Patna)",
+    "event_date": "2026-10-13",
+    "event_date_note": "Patna inauguration date per trade reports; the LoI date was not separately verified."
+   },
+   "verbatim": "CtrlS Datacenters has signed a letter of intent (LoI) with the Bihar government to invest",
+   "translation": null,
+   "source_url": "https://www.crnasia.com/india/news/2026/ctrls-plans-10-000-crore-ai-factory-in-bihar-opens-12-mw-patna-data-centre",
+   "notes": "Patna is operating (12 MW IT load). Bodh Gaya 150 MW is a proposal under an LoI, with no timeline, power arrangement or customer disclosed. Keep the two as separate statuses. CtrlS is a company candidate. The 2026-10-14 indianinfrastructure report also covers the LoI."
+  }
+ ],
+ "leads": [
+  {
+   "lead": "Bhogapuram (Vizianagaram): Collector S. Ramsundar Reddy says the Reliance data centre will create direct and indirect employment and that most farmers cooperate.",
+   "status": "not verified",
+   "why_not_filed": "Only found on Vajirao Institute, a current-affairs summary (no primary news page). Needs The Hindu, Deccan Chronicle or Hans India article. Also protests in Bhogapuram and Polipalli, with some owners in court, already in seed as in-resp-vizianagaram-bhogapuram-2026-10-07.",
+   "worklist_index": 12
+  },
+  {
+   "lead": "Bihar/UP/other states: 1,000-acre Jhansi and Bida cluster (worklist 154, Amar Ujala)",
+   "status": "not verified",
+   "why_not_filed": "No English or second-outlet confirmation found in search. Hindi source not fetched."
+  },
+  {
+   "lead": "Google Vizag: alleged 160 acres of forest land cleared (worklist 50, 99, 149; Dainik Bhaskar, Bhaskar English)",
+   "status": "not verified",
+   "why_not_filed": "Only Hindi and Bhaskar pages found. The allegation is the claim of a complainant, so it needs an English primary (court filing, Forest Department order) before filing."
+  },
+  {
+   "lead": "NITI framework, Telangana application: Deccan Chronicle reports NITI asks Telangana to verify and approve data centres (1996197)",
+   "status": "not fetched",
+   "why_not_filed": "Covered by the NITI record; the Telangana-specific version is a candidate CommunityResponse or policy note."
+  },
+  {
+   "lead": "AWS CEO Matt Garman says AI data centres 'use very little water' (worklist 43, 70; Moneycontrol, Techzine)",
+   "status": "not fetched",
+   "why_not_filed": "First-party executive quote, but not India-specific. Check whether it fits a company claim (water theme) on amazon's India page, or belongs on the US tab. Not fetched within budget."
+  },
+  {
+   "lead": "Amazon US$1bn community pledge over five years (worklist 44, 61, 85, 160)",
+   "status": "not fetched",
+   "why_not_filed": "US-scope commitment, not India. Route to the US Companies tab."
+  },
+  {
+   "lead": "Adani Connex / Kolkata: data centre land to host 2,000-bed hospital, Adani to invest Rs 4,000 cr (worklist 110, 144)",
+   "status": "not fetched",
+   "why_not_filed": "Hindi-only sources so far, and a proposal reported through the CM's office. Needs English primary before filing as a benefit claim."
+  },
+  {
+   "lead": "Tata Power: 2.8 GW of green supply to 18 hyperscale DCs, Rs 15,000 cr Mumbai grid investment (worklist 115, 122, 136)",
+   "status": "not fetched",
+   "why_not_filed": "Tata Power is a utility supplier, not a data-centre operator. Could go in a supply-side tracking note, not the company list."
+  },
+  {
+   "lead": "CEA committee on data centre grid security and power grid (worklist 97)",
+   "status": "not fetched",
+   "why_not_filed": "Hindi source only (Navbharat Times). Check for an English CEA or PIB release."
+  },
+  {
+   "lead": "Maharashtra: Congress MP Pawan Khera criticizes state data centre scheme during drought (worklist 148)",
+   "status": "not verified",
+   "why_not_filed": "Political criticism; a CommunityResponse only if the source is primary. Hindustan source not fetched."
+  },
+  {
+   "lead": "Non-India items in this worklist, for other tabs: Scottish Parliament probe (49, GB), Greece grid rules (30, GR), Pennsylvania bribe-offer opposition (175, US), Google Lincoln NE hidden report (167, US), Sestors Finland EUR 10bn (171, FI), Selangor water constraints (11, 88, MY), Singapore binding DC rules (81, SG), Indonesia water protest (0, 68, ID), BC Greens veto push (87, CA).",
+   "status": "not fetched",
+   "why_not_filed": "Out of scope for an India round."
+  }
+ ]
+}

@@ -1,0 +1,3676 @@
+{
+ "dead_links": [
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-water-positive-2030",
+   "url": "https://aws.amazon.com/sustainability/water-positive/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://aws.amazon.com/sustainability/water-positive/"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-infrastructure-pa-2024",
+   "url": "https://www.aboutamazon.com/news/aws/aws-pennsylvania-data-center-investment",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://www.aboutamazon.com/news/aws/aws-pennsylvania-data-center-investment"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-tax-100m",
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musks-spacex-has-rented-out-access-to-its-supercomputers-220-000-nvidia-gpus-and-300-megawatts-of-ai-compute-power-to-rival-anthropic",
+   "role": "resource",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/musks-spacex-has-rented-out-access-to-its-supercomputers-220-000-nvidia-gpus-and-300-megawatts-of-ai-compute-power-to-rival-anthropic"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-jobs-construction-cumulative",
+   "url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-jobs-operational-cumulative",
+   "url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-dane-county-wi-community-commitment",
+   "url": "https://q.com/news/qts-advances-plans-for-state-of-the-art-data-center-campus-and-announces-50-million-community-commitment-for-dane-county/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://q.com/news/qts-advances-plans-for-state-of-the-art-data-center-campus-and-announces-50-million-community-commitment-for-dane-county/"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-prineville-or-water-stewardship-pdf",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-prineville-or-community-grants-school-funding",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-prineville-or-energy-pacificorp-mw",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-newton-ga-investment-1.5b",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-newton-ga-community-grants-school-funding",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-newton-ga-water-onsite-efficiency",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-newton-ga-education-robotics-2025",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/12/Meta-Stanton-Springs-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-energy-1500-mw",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2024/12/Metas-Richland-Parish-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2024/12/Metas-Richland-Parish-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-levelup-fiber-workforce-2026",
+   "url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/2026/04/investing-in-people-introducing-levelup-fiber-technician-pathway/"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-dane-county-education-2025",
+   "url": "https://qtsdatacenters.com/data-centers/dane-county-wi/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "http://q.com/data-centers/dane-county-wi/"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-manassas-community-grants-murray-2024",
+   "url": "https://qtsdatacenters.com/news/qts-data-centers-announces-support-of-the-greater-manassas-baseball-league-for-the-second-year-in-a-row/",
+   "role": "source",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "http://q.com/news/qts-data-centers-announces-support-of-the-greater-manassas-baseball-league-for-the-second-year-in-a-row/"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-huntsville-al-community-grants",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-huntsville-al-energy-tva",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-huntsville-al-education",
+   "url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "amazon-shreveport-jobs-klein-2026",
+   "url": "https://www.ktbs.com/news/louisiana/amazon-announces-6b-data-center-investment-in-shreveport/article_b675ab68-f5cf-5376-b3e1-87a79fd38202.html",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://www.ktbs.com/news/louisiana/amazon-announces-6b-data-center-investment-in-shreveport/article_b675ab68-f5cf-5376-b3e1-87a79fd38202.html"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "meta-newton-ga",
+   "url": "https://datacenters.atmeta.com/location/newton/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.atmeta.com/location/newton/"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "google-the-dalles-or",
+   "url": "https://datacenters.google/locations/the-dalles/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.google/locations/the-dalles/"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "google-mesa-az",
+   "url": "https://datacenters.google/locations/mesa/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://datacenters.google/locations/mesa/"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "ms-quincy-wa",
+   "url": "https://news.microsoft.com/source/topics/datacenters/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://news.microsoft.com/source/topics/datacenters/"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "ms-goodyear-az",
+   "url": "https://news.microsoft.com/source/topics/datacenters/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://news.microsoft.com/source/topics/datacenters/"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "aws-new-carlisle-in",
+   "url": "https://www.aboutamazon.com/news/aws/aws-investing-11-billion-indiana-data-centers",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://www.aboutamazon.com/news/aws/aws-investing-11-billion-indiana-data-centers"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "qts-manassas-va",
+   "url": "https://qtsdatacenters.com/data-centers/pwdg",
+   "role": "source",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "https://q.com/"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-meta-prineville-positive",
+   "url": "https://co.crook.or.us/county-admin/page/press-release-county-commissioner-highlights-community-grant-opportunity-and",
+   "role": "source",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "https://crookcountyor.gov/"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-google-lagrange-residents-mixed",
+   "url": "https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://www.wtvm.com/2026/04/29/google-data-center-coming-lagrange-draws-mixed-reactions/"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-amazon-bossier-jury-approval",
+   "url": "https://www.westcentralsbest.com/news/state/bossier-parish-police-jury-backs-amazon-data-center/article_b3bdd091-79ec-577b-b286-9372a17e402d.html",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://www.westcentralsbest.com/news/state/bossier-parish-police-jury-backs-amazon-data-center/article_b3bdd091-79ec-577b-b286-9372a17e402d.html"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-google-lima-epa-hearing-negative",
+   "url": "https://www.hometownstations.com/news/allen_county/lima-residents-voice-health-concerns-over-proposed-data-center-generators-at-ohio-epa-meeting/article_88f81135-28cc-4db2-bcb0-0255abfb5dc5.html",
+   "role": "source",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://www.hometownstations.com/news/allen_county/lima-residents-voice-health-concerns-over-proposed-data-center-generators-at-ohio-epa-meeting/article_88f81135-28cc-4db2-bcb0-0255abfb5dc5.html"
+  },
+  {
+   "kind": "moratoriums",
+   "list": "moratoriums",
+   "id": "boise-id-2026-05",
+   "url": "https://www.boise.org/",
+   "role": "resource",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "https://visitboise.com/"
+  },
+  {
+   "kind": "moratoriums",
+   "list": "moratoriums",
+   "id": "new-hampshire-state-2026-04",
+   "url": "https://www.gencourt.state.nh.us/bill_status/legacy/bs2016/billText.aspx?sy=2026&id=1265&txtFormat=html",
+   "role": "source",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "https://gc.nh.gov/bill_status/legacy/bs2016/billText.aspx?sy=2026&id=1265&txtFormat=html"
+  },
+  {
+   "kind": "moratoriums",
+   "list": "moratoriums",
+   "id": "new-hampshire-state-2026-04",
+   "url": "https://www.gencourt.state.nh.us/",
+   "role": "resource",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "https://gc.nh.gov/"
+  },
+  {
+   "kind": "tariffs",
+   "list": "tariffs",
+   "id": "georgia-power-large-load-rules",
+   "url": "https://psc.ga.gov/site/downloads/datacenterfactsheet.pdf",
+   "role": "resource",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://psc.ga.gov/site/downloads/datacenterfactsheet.pdf"
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "al-sb270-act2026-610-2026",
+   "url": "https://psc.alabama.gov/docket-33709-public-comment-and-reply-info/",
+   "role": "resource",
+   "class": "dead",
+   "status": 404,
+   "final_url": "https://psc.alabama.gov/docket-33709-public-comment-and-reply-info/"
+  },
+  {
+   "kind": "international",
+   "list": "projects",
+   "id": "in-reliance-jamnagar-meta",
+   "url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+   "role": "source",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "https://www.ril.com/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf"
+  },
+  {
+   "kind": "international",
+   "list": "claims",
+   "id": "in-claim-reliance-jamnagar-desal",
+   "url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+   "role": "source",
+   "class": "redirected",
+   "status": 200,
+   "final_url": "https://www.ril.com/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf"
+  }
+ ],
+ "quote_misses": [
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-energy-renewable-match",
+   "url": "https://sustainability.atmeta.com/",
+   "role": "source",
+   "quote": "Meta's global operations have been supported by 100% renewable energy since 2020, including all of our data centers.",
+   "missing_clauses": [
+    "Meta's global operations have been supported by 100% renewable energy since 2020, including all of our data centers"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-water-positive-2030",
+   "url": "https://sustainability.atmeta.com/water/",
+   "role": "source",
+   "quote": "We are committed to restoring more water than we consume by 2030, focusing our efforts in regions of high and medium water stress.",
+   "missing_clauses": [
+    "We are committed to restoring more water than we consume by 2030, focusing our efforts in regions of high and medium water stress"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-247-cfe-2030",
+   "url": "https://sustainability.google/operating-sustainably/",
+   "role": "source",
+   "quote": "Our goal is to operate on 24/7 carbon-free energy on every grid where we operate by 2030.",
+   "missing_clauses": [
+    "Our goal is to operate on 24/7 carbon-free energy on every grid where we operate by 2030"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-water-replenish-120",
+   "url": "https://sustainability.google/commitments/water/",
+   "role": "source",
+   "quote": "By 2030, we aim to replenish 120% of the freshwater we consume across our offices and data centers.",
+   "missing_clauses": [
+    "By 2030, we aim to replenish 120% of the freshwater we consume across our offices and data centers"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "ms-water-positive-2030",
+   "url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
+   "role": "source",
+   "quote": "By 2030, Microsoft will be water positive \u2014 replenishing more water than we consume across our global operations.",
+   "missing_clauses": [
+    "By 2030, Microsoft will be water positive-replenishing more water than we consume across our global operations"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "ms-carbon-negative-2030",
+   "url": "https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/",
+   "role": "source",
+   "quote": "By 2030 Microsoft will be carbon negative, and by 2050 we will remove from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975.",
+   "missing_clauses": [
+    "By 2030 Microsoft will be carbon negative, and by 2050 we will remove from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-100-renewable-2023",
+   "url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
+   "role": "source",
+   "quote": "Amazon matched 100% of the electricity consumed by our global operations with renewable energy in 2023, seven years ahead of our original 2030 target.",
+   "missing_clauses": [
+    "Amazon matched 100% of the electricity consumed by our global operations with renewable energy in 2023, seven years ahead of our original 2030 target"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-jobs-construction",
+   "url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+   "role": "source",
+   "quote": "5,000+ Skilled trade workers onsite at peak construction",
+   "missing_clauses": [
+    "5,000+ Skilled trade workers onsite at peak construction"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-jobs-operational",
+   "url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+   "role": "source",
+   "quote": "500+ Operational jobs supported, once completed",
+   "missing_clauses": [
+    "500+ Operational jobs supported, once completed"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-community-grants-entergy",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "quote": "we are contributing $15 million to Entergy's customer assistance program, which provides bill payment assistance to low-income customers.",
+   "missing_clauses": [
+    "we are contributing $15 million to Entergy's customer assistance program, which provides bill payment assistance to low-income customers"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-the-dalles-or-infrastructure-investment",
+   "url": "https://datacenters.google/locations/oregon/",
+   "role": "source",
+   "quote": "Since building our data center, we've continued to invest in The Dalles. Our total investment in the state is more than $2.4 billion",
+   "missing_clauses": [
+    "Since building our data center, we've continued to invest in The Dalles",
+    "Our total investment in the state is more than $2.4 billion"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-the-dalles-or-community-grants-philanthropy",
+   "url": "https://datacenters.google/locations/oregon/",
+   "role": "source",
+   "quote": "Since 2004, Google and Googlers have given more than $31 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Oregon",
+   "missing_clauses": [
+    "Since 2004, Google and Googlers have given more than $31 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Oregon"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-the-dalles-or-education-digital-skills",
+   "url": "https://datacenters.google/locations/oregon/",
+   "role": "source",
+   "quote": "Grow with Google has collaborated with over 120 organizations in Oregon to train more than 111,000 Oregonians on digital skills",
+   "missing_clauses": [
+    "Grow with Google has collaborated with over 120 organizations in Oregon to train more than 111,000 Oregonians on digital skills"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-council-bluffs-ia-infrastructure-investment",
+   "url": "https://datacenters.google/locations/iowa/",
+   "role": "source",
+   "quote": "Google has invested more than $6.8 billion in Iowa since building our data center in Council Bluffs in 2007.",
+   "missing_clauses": [
+    "Google has invested more than $6.8 billion in Iowa since building our data center in Council Bluffs in 2007"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-council-bluffs-ia-engagement-economic-activity",
+   "url": "https://datacenters.google/locations/iowa/",
+   "role": "source",
+   "quote": "In 2024, Google helped provide $2.1 billion of economic activity for thousands of Iowa businesses, nonprofits, publishers, creators, and developers.",
+   "missing_clauses": [
+    "In 2024, Google helped provide $2.1 billion of economic activity for thousands of Iowa businesses, nonprofits, publishers, creators, and developers"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-council-bluffs-ia-education-digital-skills",
+   "url": "https://datacenters.google/locations/iowa/",
+   "role": "source",
+   "quote": "We've collaborated with over 130 organizations in Iowa to train more than 101,000 Iowans on digital skills.",
+   "missing_clauses": [
+    "We've collaborated with over 130 organizations in Iowa to train more than 101,000 Iowans on digital skills"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-investment",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "quote": "Amazon plans to invest an additional $15 billion in Northern Indiana to build new data center campuses to support AI and cloud computing technologies.",
+   "missing_clauses": [
+    "Amazon plans to invest an additional $15 billion in Northern Indiana to build new data center campuses to support AI and cloud computing technologies"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-community-fund",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "quote": "launch the Amazon Community Fund in the communities where we will build and operate, supporting STEM education, sustainability, digital skills, culture, and community well-being.",
+   "missing_clauses": [
+    "launch the Amazon Community Fund in the communities where we will build and operate, supporting STEM education, sustainability, digital skills, culture, and community well-being"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-state-gdp",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "quote": "Since 2010, Amazon has invested more than $31.3 billion in Indiana ... contributed more than $29.9 billion to the state's GDP.",
+   "missing_clauses": [
+    "contributed more than $29.9 billion to the state's GDP"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-cumberland-pa-investment",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "quote": "Amazon plans to invest at least $20 billion in Pennsylvania to expand our data center infrastructure to support artificial intelligence (AI) and cloud computing technologies.",
+   "missing_clauses": [
+    "Amazon plans to invest at least $20 billion in Pennsylvania to expand our data center infrastructure to support artificial intelligence (AI) and cloud computing technologies"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-jobs-500-initial",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "quote": "xAI will bring up to 500 quality, high-paying jobs to Memphis in its initial phase, with plans to grow more.",
+   "missing_clauses": [
+    "xAI will bring up to 500 quality, high-paying jobs to Memphis in its initial phase, with plans to grow more"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-tax-100m",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "quote": "xAI has already paid tens of millions of dollars in local tax revenue, and based on current expansion plans, that number is likely to exceed $100 million.",
+   "missing_clauses": [
+    "xAI has already paid tens of millions of dollars in local tax revenue, and based on current expansion plans, that number is likely to exceed $100 million"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-water-recycling-80m",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "quote": "xAI will commit to build a $80 million wastewater recycling facility ... ensure that up to 4.7 billion gallons of water remain in the aquifer yearly.",
+   "missing_clauses": [
+    "xAI will commit to build a $80 million wastewater recycling facility",
+    "ensure that up to 4.7 billion gallons of water remain in the aquifer yearly"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-infrastructure-substations",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "quote": "xAI has spent $35 million to construct a substation to support MLGW and is committing an additional $20 million to build another substation.",
+   "missing_clauses": [
+    "xAI has spent $35 million to construct a substation to support MLGW and is committing an additional $20 million to build another substation"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-engagement-virginia-philanthropy",
+   "url": "https://datacenters.google/locations/virginia",
+   "role": "source",
+   "quote": "$59 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Virginia",
+   "missing_clauses": [
+    "$59 million in philanthropic giving (cash grants, employee donations, and gift match) to organizations and nonprofits in Virginia"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-cedar-rapids-ia-tax-revenue-ratepayer-pledge",
+   "url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
+   "role": "source",
+   "quote": "When we started this project, we had one goal in mind \u2026 'How do you build big, meaningful infrastructure without burdening the taxpayers, the ratepayers and our communities?' We can pay our own way. We can invest in generation.",
+   "missing_clauses": [
+    "How do you build big, meaningful infrastructure without burdening the taxpayers, the ratepayers and our communities?' We can pay our own way"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-water-water-free-design",
+   "url": "https://q.com/sustainability/",
+   "role": "source",
+   "quote": "Our innovative standard data center design uses no water for cooling, saving billions of gallons of water per year.",
+   "missing_clauses": [
+    "Our innovative standard data center design uses no water for cooling, saving billions of gallons of water per year"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-richmond-va-fast-41-quote",
+   "url": "https://www.permitting.gov/newsroom/press-releases/first-data-center-project-gains-permitting-councils-fast-41-coverage",
+   "role": "source",
+   "quote": "FAST-41 provides a clear framework for advancing major infrastructure investments and ensures that projects meet all the requirements of federal permitting.",
+   "missing_clauses": [
+    "FAST-41 provides a clear framework for advancing major infrastructure investments and ensures that projects meet all the requirements of federal permitting"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "openai-lordstown-oh-softbank-investment",
+   "url": "https://businessjournaldaily.com/lordstown-data-center-to-be-operational-next-year/",
+   "role": "source",
+   "quote": "SoftBank Group plans to invest up to $3 billion in Lordstown to manufacture equipment for OpenAI's data centers.",
+   "missing_clauses": [
+    "SoftBank Group plans to invest up to $3 billion in Lordstown to manufacture equipment for OpenAI's data centers"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-education-robotics-delhi",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "quote": "supporting the robotics program at the Delhi Charter School, and mixed reality workforce development at the Richland Parish Schools.",
+   "missing_clauses": [
+    "supporting the robotics program at the Delhi Charter School, and mixed reality workforce development at the Richland Parish Schools"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-energy-solar",
+   "url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+   "role": "source",
+   "quote": "18 solar farms in Virginia that, when fully operational, will provide enough energy to power 276,000 U.S. homes.",
+   "missing_clauses": [
+    "18 solar farms in Virginia that, when fully operational, will provide enough energy to power 276,000 U.S"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-community-grants-150k",
+   "url": "https://www.loudountimes.com/news/community/18-nonprofits-awarded-grants-in-loudoun-through-amazon-and-community-foundation-partnership/article_8a4945fa-7773-44e8-8047-f30936634284.html",
+   "role": "source",
+   "quote": "These organizations are doing incredible work to address critical needs in Loudoun County, and this fund is about empowering them to achieve their missions.",
+   "missing_clauses": [
+    "These organizations are doing incredible work to address critical needs in Loudoun County, and this fund is about empowering them to achieve their missions"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-infrastructure-roads",
+   "url": "https://nwindianabusiness.com/community/business-news/amazon-breaks-ground-on-11b-data-center-campus/67604/",
+   "role": "source",
+   "quote": "$7 million investment to improve roads surrounding the New Carlisle development.",
+   "missing_clauses": [
+    "$7 million investment to improve roads surrounding the New Carlisle development"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-cumberland-pa-education-scholarships",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "quote": "Eight $40,000 scholarships through Amazon Future Engineer program.",
+   "missing_clauses": [
+    "Eight $40,000 scholarships through Amazon Future Engineer program"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-energy-no-grid-power-emergencies",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "quote": "xAI will take no power from the grid during emergencies or when the grid is strained so that all available power is going to the community.",
+   "missing_clauses": [
+    "xAI will take no power from the grid during emergencies or when the grid is strained so that all available power is going to the community"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "crusoe-energy-abilene-behind-meter",
+   "url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-new-900-mw-ai-factory-campus-in-abilene-texas-to-support-microsoft-ai-infrastructure",
+   "role": "source",
+   "quote": "900MW on-site power plant with MV BESS system designed to enhance operational reliability and grid resilience.",
+   "missing_clauses": [
+    "900MW on-site power plant with MV BESS system designed to enhance operational reliability and grid resilience"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "coreweave-community-grants-hammond-impact-payment",
+   "url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+   "role": "source",
+   "quote": "Hammond will receive an annual community impact payment of up to $4 million. The community impact payment could mean two decades of full funding for Hammond's College Bound program, which provides scholarships to eligible students living in owner-occupied homes.",
+   "missing_clauses": [
+    "Hammond will receive an annual community impact payment of up to $4 million",
+    "The community impact payment could mean two decades of full funding for Hammond's College Bound program, which provides scholarships to eligible students living in owner-occupied homes"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "coreweave-infrastructure-hammond-investment",
+   "url": "https://www.gohammond.com/hammond-approves-development-agreement-for-new-data-center/",
+   "role": "source",
+   "quote": "This 180-megawatt facility will enable us to deliver next-generation cloud solutions but also support economic and educational opportunities for the region.",
+   "missing_clauses": [
+    "This 180-megawatt facility will enable us to deliver next-generation cloud solutions but also support economic and educational opportunities for the region"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "coreweave-energy-polaris-forge-renewable",
+   "url": "https://www.coreweave.com/blog/coreweave-2025-annual-report-shareholder-letter",
+   "role": "source",
+   "quote": "The Polaris Forge 1 Campus in North Dakota is designed to harness renewable power and leverage North Dakota's cool climate, intended to prioritize sustainability and optimize total cost of ownership, estimated to result in $2.7B in savings over a lifespan of 30 years.",
+   "missing_clauses": [
+    "The Polaris Forge 1 Campus in North Dakota is designed to harness renewable power and leverage North Dakota's cool climate, intended to prioritize sustainability and optimize total cost of ownership, estimated to result in $2.7B in savings over a lifespan of 30 years"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-engagement-fabric-mayo",
+   "url": "https://www.actionnews5.com/2025/04/26/emotions-run-high-schd-town-hall-xai-environmental-concerns/",
+   "role": "source",
+   "quote": "as xAI and the community continue to grow together, xAI will provide not just more tax revenue but many other important opportunities to continue to strengthen the fabric of the community.",
+   "missing_clauses": [
+    "as xAI and the community continue to grow together, xAI will provide not just more tax revenue but many other important opportunities to continue to strengthen the fabric of the community"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-education-mayo-school-upgrades",
+   "url": "https://dailymemphian.com/subscriber/section/business/article/53239/xai-could-tackle-some-mscs-building-upgrades",
+   "role": "source",
+   "quote": "The reality is, when we went and toured those schools, we saw a lot of deferred maintenance. And so the baseline things like HVAC systems or PASAs that weren't functional or seeing black mold in these schools and sitting and meeting with these teachers, administrators, it became extremely obvious that while their tax dollars that are coming in, those things take time.",
+   "missing_clauses": [
+    "The reality is, when we went and toured those schools, we saw a lot of deferred maintenance",
+    "And so the baseline things like HVAC systems or PASAs that weren't functional or seeing black mold in these schools and sitting and meeting with these teachers, administrators, it became extremely obvious that while their tax dollars that are coming in, those things take time"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "oracle-education-academy-blog-2026",
+   "url": "https://www.oracle.com/news/announcement/blog/ai-data-centers-need-skilled-people-oracle-academy-helps-build-ai-careers-2026-02-02/",
+   "role": "source",
+   "quote": "Oracle is building AI data centers in communities across the United States, and Oracle Academy\u2014Oracle's global philanthropic education program\u2014plays a role in states like Texas, New Mexico, Michigan, and Wisconsin.",
+   "missing_clauses": [
+    "Oracle is building AI data centers in communities across the United States, and Oracle Academy-Oracle's global philanthropic education program-plays a role in states like Texas, New Mexico, Michigan, and Wisconsin"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "oracle-jobs-stargate-100k-ellison",
+   "url": "https://en.wikipedia.org/wiki/Stargate_LLC",
+   "role": "source",
+   "quote": "over 100,000 American jobs almost immediately",
+   "missing_clauses": [
+    "over 100,000 American jobs almost immediately"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "wonder-valley-jobs-oleary-tucker-2026",
+   "url": "https://www.deseret.com/business/2026/05/14/tucker-carlson-kevin-oleary-utah-data-center-ai-artficial-intelligence-water-use-power-generation-tax-subsidies/",
+   "role": "source",
+   "quote": "10,000 construction jobs and 2,000 maintenance jobs",
+   "missing_clauses": [
+    "10,000 construction jobs and 2,000 maintenance jobs"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-tulsa-engagement-demasi-proud-2026",
+   "url": "https://siteselection.com/project-bulletin-april-27-2026-lagrange-georgia-durham-north-carolina-tulsa-oklahoma/",
+   "role": "source",
+   "quote": "We're proud to call Tulsa home as we announce Meta's first data center in Oklahoma. The region offers great access to infrastructure and energy, a talented workforce, and outstanding local partners.",
+   "missing_clauses": [
+    "The region offers great access to infrastructure and energy, a talented workforce, and outstanding local partners"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-oklahoma-engagement-porat-mayes-2026",
+   "url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
+   "role": "source",
+   "quote": "For nearly two decades, Google has proudly called Oklahoma home, starting with our data center in Mayes County, our second largest in the world.",
+   "missing_clauses": [
+    "For nearly two decades, Google has proudly called Oklahoma home, starting with our data center in Mayes County, our second largest in the world"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-oklahoma-energy-porat-innovation-2026",
+   "url": "https://blog.google/inside-google/company-announcements/google-american-innovation-oklahoma/",
+   "role": "source",
+   "quote": "Google is helping to power a new era of American innovation with our investments in Oklahoma.",
+   "missing_clauses": [
+    "Google is helping to power a new era of American innovation with our investments in Oklahoma"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "crusoe-abilene-jobs-lochmiller-2024",
+   "url": "https://www.crusoe.ai/resources/newsroom/crusoe-200mw-ai-data-center",
+   "role": "source",
+   "quote": "Abilene will host one of the largest clusters of GPUs in the world, bringing thousands of jobs to the local community while delivering tens of billions of dollars in value to the economy.",
+   "missing_clauses": [
+    "Abilene will host one of the largest clusters of GPUs in the world, bringing thousands of jobs to the local community while delivering tens of billions of dollars in value to the economy"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "oracle-abilene-water-magouyrk-2025",
+   "url": "https://www.cnbc.com/2025/09/23/openai-first-data-center-in-500-billion-stargate-project-up-in-texas.html",
+   "role": "source",
+   "quote": "These data centers are designed to not use water. All of the data centers that we're building (in) this part of Stargate are designed to not use water. The reason we do that is because it turns out that's harmful for the environment and this is a better solution.",
+   "missing_clauses": [
+    "These data centers are designed to not use water",
+    "All of the data centers that we're building (in) this part of Stargate are designed to not use water",
+    "The reason we do that is because it turns out that's harmful for the environment and this is a better solution"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "amazon-clinton-water-wehner-2026",
+   "url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+   "role": "source",
+   "quote": "We have a water-positive goal. In Clinton, we will actually use no water.",
+   "missing_clauses": [
+    "We have a water-positive goal",
+    "In Clinton, we will actually use no water"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "amazon-clinton-jobs-wehner-2026",
+   "url": "https://www.supertalk.fm/this-is-what-economic-development-looks-like-amazon-to-invest-12b-more-in-mississippi-data-centers/",
+   "role": "source",
+   "quote": "A super unique opportunity to take a pre-existing building that needed a little love \u2014 we're retrofitting that building and reinventing it as part of this broader story that we're creating here in Mississippi.",
+   "missing_clauses": [
+    "A super unique opportunity to take a pre-existing building that needed a little love-we're retrofitting that building and reinventing it as part of this broader story that we're creating here in Mississippi"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-franklin-furnace-engagement-2026",
+   "url": "https://sciotocountydailynews.com/google-speaks-out-on-scioto-county-data-center/",
+   "role": "source",
+   "quote": "Google is considering a potential data center project in Scioto County, Ohio. We are still very early in the process, working closely with the local leadership.",
+   "missing_clauses": [
+    "We are still very early in the process, working closely with the local leadership"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-lebanon-energy-peterson-2026",
+   "url": "https://commercialobserver.com/2026/02/meta-data-center-lebanon-indiana/",
+   "role": "source",
+   "quote": "At Meta, we're building the infrastructure that will power the next generation of AI technology, and Lebanon is now at the heart of that effort. This is one of our largest investments to date, and it marks an important milestone in our AI ambitions.",
+   "missing_clauses": [
+    "This is one of our largest investments to date, and it marks an important milestone in our AI ambitions"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "oracle-port-washington-energy-altman-2025",
+   "url": "https://vantage-dc.com/news/openai-oracle-and-vantage-data-centers-announce-stargate-data-center-site-in-wisconsin/",
+   "role": "source",
+   "quote": "AI can only fulfill its promise if we build the compute to power it. That compute is the key to ensuring everyone can benefit from AI and to unlocking future breakthroughs. We're already making historic progress toward that goal through Stargate and moving quickly not just to meet its initial commitment, but to lay the foundation for what comes next.",
+   "missing_clauses": [
+    "AI can only fulfill its promise if we build the compute to power it",
+    "That compute is the key to ensuring everyone can benefit from AI and to unlocking future breakthroughs",
+    "We're already making historic progress toward that goal through Stargate and moving quickly not just to meet its initial commitment, but to lay the foundation for what comes next"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-engagement-process-2025",
+   "url": "https://www.desmog.com/2025/12/15/behind-closed-doors-georgia-county-rewrote-data-center-rules/",
+   "role": "source",
+   "quote": "Our conversations with Coweta County followed standard, transparent processes that are open to all stakeholders. Prologis's involvement was consistent with customary public engagement in land-use and policy discussions.",
+   "missing_clauses": [
+    "Our conversations with Coweta County followed standard, transparent processes that are open to all stakeholders",
+    "Prologis's involvement was consistent with customary public engagement in land-use and policy discussions"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-engagement-witt-codes-2025",
+   "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+   "role": "source",
+   "quote": "A lot of communities don't have any sort of codes or regulations around how these are being constructed. They're doing the right thing by spending the time and research to make sure that (data centers) are brought into their code in a prudent manner.",
+   "missing_clauses": [
+    "A lot of communities don't have any sort of codes or regulations around how these are being constructed",
+    "They're doing the right thing by spending the time and research to make sure that (data centers) are brought into their code in a prudent manner"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-engagement-witt-execute-2025",
+   "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+   "role": "source",
+   "quote": "Nine hundred megawatts is nothing to take lightly. It's something that we really want to execute on for the community and for the company.",
+   "missing_clauses": [
+    "Nine hundred megawatts is nothing to take lightly",
+    "It's something that we really want to execute on for the community and for the company"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-infrastructure-mason-lines-2025",
+   "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+   "role": "source",
+   "quote": "What we like, as a company with a conscience, is that there's already this massive Georgia Power generating station and the lines are there.",
+   "missing_clauses": [
+    "What we like, as a company with a conscience, is that there's already this massive Georgia Power generating station and the lines are there"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-franklin-furnace-energy-pay-100pct-2026",
+   "url": "https://www.wsaz.com/2026/05/15/google-hosts-data-center-information-fair/",
+   "role": "source",
+   "quote": "Google in Ohio will pay 100% of the electric required to run the campus along with paying AEP to provide infrastructure locally.",
+   "missing_clauses": [
+    "Google in Ohio will pay 100% of the electric required to run the campus along with paying AEP to provide infrastructure locally"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-lebanon-energy-pay-full-costs-2026",
+   "url": "https://datacenters.atmeta.com/2026/02/hello-lebanon/",
+   "role": "source",
+   "quote": "We pay the full costs for energy used by our data centers and work closely with utilities to plan for our energy needs years in advance to ensure residents aren't negatively impacted.",
+   "missing_clauses": [
+    "We pay the full costs for energy used by our data centers and work closely with utilities to plan for our energy needs years in advance to ensure residents aren't negatively impacted"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-pine-island-energy-pay-grid-costs-2026",
+   "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
+   "role": "source",
+   "quote": "Google will cover 100% of the costs for new grid infrastructure required to serve the facility. That protects Minnesota ratepayers.",
+   "missing_clauses": [
+    "Google will cover 100% of the costs for new grid infrastructure required to serve the facility",
+    "That protects Minnesota ratepayers"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "microsoft-water-intensity-40pct-2026",
+   "url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+   "role": "source",
+   "quote": "Microsoft will achieve a 40 percent improvement in datacenter water-use intensity by 2030.",
+   "missing_clauses": [
+    "Microsoft will achieve a 40 percent improvement in datacenter water-use intensity by 2030"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "microsoft-leesburg-va-infrastructure-water-2026",
+   "url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+   "role": "source",
+   "quote": "Microsoft is funding more than $25 million of water and sewer improvements near its Leesburg, Virginia datacenter.",
+   "missing_clauses": [
+    "Microsoft is funding more than $25 million of water and sewer improvements near its Leesburg, Virginia datacenter"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "crusoe-energy-abilene-ge-vernova-scr-2025",
+   "url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+   "role": "source",
+   "quote": "Crusoe uses GE Vernova natural gas turbines with SCR technology for the Abilene campus power plant, with approximately 90% lower emissions than traditional gas turbine alternatives.",
+   "missing_clauses": [
+    "Crusoe uses GE Vernova natural gas turbines with SCR technology for the Abilene campus power plant, with approximately 90% lower emissions than traditional gas turbine alternatives"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-calvert-cliffs-md-energy",
+   "url": "https://thebaynet.com/amazon-introduces-potential-calvert-county-data-center-emphasizes-infrastructure-workforce-and-growth/",
+   "role": "source",
+   "quote": "Amazon pays its full electricity costs while making substantial investments in building new energy infrastructure",
+   "missing_clauses": [
+    "Amazon pays its full electricity costs while making substantial investments in building new energy infrastructure"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-kuna-energy-2022",
+   "url": "https://datacenters.atmeta.com/2022/02/hello-kuna/",
+   "role": "source",
+   "quote": "Meta worked closely with Idaho Power to develop and implement a new green tariff that will allow companies like us to support their operations with 100% renewable energy.",
+   "missing_clauses": [
+    "Meta worked closely with Idaho Power to develop and implement a new green tariff that will allow companies like us to support their operations with 100% renewable energy"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-los-lunas-water-2021",
+   "url": "https://datacenters.atmeta.com/2021/10/hello-again-los-lunas/",
+   "role": "source",
+   "quote": "We will restore 200% of the water our data center consumes into the New Mexico watersheds.",
+   "missing_clauses": [
+    "We will restore 200% of the water our data center consumes into the New Mexico watersheds"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-berkeley-education-2026",
+   "url": "https://datacenters.google/locations/berkeley-county-south-carolina/",
+   "role": "source",
+   "quote": "Our Skilled Trades and Readiness (STAR) Program works alongside organizations like Trident Tech, Palmetto Goodwill, and others to prepare new-to-industry talent for entry-level careers in construction and skilled trades.",
+   "missing_clauses": [
+    "Our Skilled Trades and Readiness (STAR) Program works alongside organizations like Trident Tech, Palmetto Goodwill, and others to prepare new-to-industry talent for entry-level careers in construction and skilled trades"
+   ]
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-lea-county-water-closed-loop-2026",
+   "url": "https://leacountydatacenter.com/",
+   "role": "source",
+   "quote": "Our prospective facility in Lea County would be a closed loop, air-cooled facility to minimize impact on local water resources. This means it will not use evaporative cooling and water consumption will be limited to domestic uses like bathrooms and kitchens, with water consumption similar to an office building.",
+   "missing_clauses": [
+    "Our prospective facility in Lea County would be a closed loop, air-cooled facility to minimize impact on local water resources"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ak-sb250-2026-failed",
+   "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+   "role": "source",
+   "quote": "Utilities must submit data-center service contracts to the Regulatory Commission of Alaska for approval",
+   "missing_clauses": [
+    "Utilities must submit data-center service contracts to the Regulatory Commission of Alaska for approval"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ak-sb250-2026-failed",
+   "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+   "role": "source",
+   "quote": "A municipality must enter into a community benefit agreement with the data center before the commission approves its utility contract",
+   "missing_clauses": [
+    "A municipality must enter into a community benefit agreement with the data center before the commission approves its utility contract"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ak-sb250-2026-failed",
+   "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+   "role": "source",
+   "quote": "The community benefit agreement must require a waste-heat recovery assessment",
+   "missing_clauses": [
+    "The community benefit agreement must require a waste-heat recovery assessment"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ak-sb250-2026-failed",
+   "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+   "role": "source",
+   "quote": "An end-of-life decommissioning and recycling plan must be filed before contract approval",
+   "missing_clauses": [
+    "An end-of-life decommissioning and recycling plan must be filed before contract approval"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ak-sb250-2026-failed",
+   "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+   "role": "source",
+   "quote": "Utility capital investment over $1,000,000 requires the data center to provide financial security",
+   "missing_clauses": [
+    "Utility capital investment over $1,000,000 requires the data center to provide financial security"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ak-sb250-2026-failed",
+   "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+   "role": "source",
+   "quote": "Transmission built specifically to serve a data center is not initially treated as backbone transmission for cost allocation",
+   "missing_clauses": [
+    "Transmission built specifically to serve a data center is not initially treated as backbone transmission for cost allocation"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ar-hb1444-2025-act548",
+   "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+   "role": "source",
+   "quote": "investment threshold for standard qualified data center lowered to $100 million",
+   "missing_clauses": [
+    "investment threshold for standard qualified data center lowered to $100 million"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ar-hb1444-2025-act548",
+   "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+   "role": "source",
+   "quote": "new 'Qualified Large Data Center' tier requires $2 billion investment within 10 years",
+   "missing_clauses": [
+    "new 'Qualified Large Data Center' tier requires $2 billion investment within 10 years"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ar-hb1444-2025-act548",
+   "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+   "role": "source",
+   "quote": "$3 million minimum annualized in-state compensation in first two years",
+   "missing_clauses": [
+    "$3 million minimum annualized in-state compensation in first two years"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ar-hb1444-2025-act548",
+   "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+   "role": "source",
+   "quote": "cryptocurrency mining explicitly excluded",
+   "missing_clauses": [
+    "cryptocurrency mining explicitly excluded"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ar-hb1444-2025-act548",
+   "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+   "role": "source",
+   "quote": "oversight shifted to Dept. of Finance and Administration",
+   "missing_clauses": [
+    "oversight shifted to Dept",
+    "of Finance and Administration"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ca-sb886-2026",
+   "url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+   "role": "source",
+   "quote": "Requires the CPUC to adopt new tariffs and update electric rules for data center interconnection and service by Jan. 1, 2028",
+   "missing_clauses": [
+    "Requires the CPUC to adopt new tariffs and update electric rules for data center interconnection and service by Jan"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ca-sb886-2026",
+   "url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+   "role": "source",
+   "quote": "Tariffs must prevent stranded costs for, or cost shifts to, non-participating ratepayers",
+   "missing_clauses": [
+    "Tariffs must prevent stranded costs for, or cost shifts to, non-participating ratepayers"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ca-sb886-2026",
+   "url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+   "role": "source",
+   "quote": "Newly filed transmission/distribution tariffs must ensure data centers pay a reasonable share of wildfire mitigation/liability, electrification and other societal program costs normally collected from distribution-level ratepayers",
+   "missing_clauses": [
+    "Newly filed transmission/distribution tariffs must ensure data centers pay a reasonable share of wildfire mitigation/liability, electrification and other societal program costs normally collected from distribution-level ratepayers"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "cheyenne-wy-microsoft-cba-rejected-2026",
+   "url": "https://cowboystatedaily.com/2026/06/23/cheyenne-oks-huge-microsoft-annexation-rejects-50m-community-benefits-deal/",
+   "role": "source",
+   "quote": "Councilman Larry Wolfe proposed $10 million annually for five years (starting July 2027, ~$50M total) plus contractual terms on ~40 items (traffic, noise, wildlife, affordable housing) as a condition attached to a 3,500-acre annexation",
+   "missing_clauses": [
+    "Councilman Larry Wolfe proposed $10 million annually for five years (starting July 2027, ~$50M total) plus contractual terms on ~40 items (traffic, noise, wildlife, affordable housing) as a condition attached to a 3,500-acre annexation"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "cheyenne-wy-microsoft-cba-rejected-2026",
+   "url": "https://cowboystatedaily.com/2026/06/23/cheyenne-oks-huge-microsoft-annexation-rejects-50m-community-benefits-deal/",
+   "role": "source",
+   "quote": "Council rejected the amendment 8-3 on June 23, 2026 (support: Wolfe, Pete Laybourn, Mark Moody)",
+   "missing_clauses": [
+    "Council rejected the amendment 8-3 on June 23, 2026 (support",
+    "Wolfe, Pete Laybourn, Mark Moody)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "cheyenne-wy-microsoft-cba-rejected-2026",
+   "url": "https://cowboystatedaily.com/2026/06/23/cheyenne-oks-huge-microsoft-annexation-rejects-50m-community-benefits-deal/",
+   "role": "source",
+   "quote": "The 3,500-acre annexation for Microsoft's data center expansion advanced without any community benefits agreement attached (second of three required readings)",
+   "missing_clauses": [
+    "The 3,500-acre annexation for Microsoft's data center expansion advanced without any community benefits agreement attached (second of three required readings)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "cheyenne-wy-microsoft-cba-rejected-2026",
+   "url": "https://cowboystatedaily.com/2026/06/23/cheyenne-oks-huge-microsoft-annexation-rejects-50m-community-benefits-deal/",
+   "role": "source",
+   "quote": "Mayor Patrick Collins, absent from the vote, had previously called the benefits proposal 'extortion'",
+   "missing_clauses": [
+    "Mayor Patrick Collins, absent from the vote, had previously called the benefits proposal 'extortion"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
+   "url": "https://www.donaana.gov/about_us/economic_development_projects.php",
+   "role": "source",
+   "quote": "$360 million in PILOT (payments in lieu of taxes) direct payments over 30 years for schools, infrastructure, and local services",
+   "missing_clauses": [
+    "$360 million in PILOT (payments in lieu of taxes) direct payments over 30 years for schools, infrastructure, and local services"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
+   "url": "https://www.donaana.gov/about_us/economic_development_projects.php",
+   "role": "source",
+   "quote": "$50 million dedicated to Do\u00f1a Ana County/Sunland Park water and wastewater system upgrades, including $10 million to Sunland Park via a grant program",
+   "missing_clauses": [
+    "$50 million dedicated to Do\u00f1a Ana County/Sunland Park water and wastewater system upgrades, including $10 million to Sunland Park via a grant program"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
+   "url": "https://www.donaana.gov/about_us/economic_development_projects.php",
+   "role": "source",
+   "quote": "More than $600 million in Gross Receipts Tax payments to the State and County over the project life",
+   "missing_clauses": [
+    "More than $600 million in Gross Receipts Tax payments to the State and County over the project life"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
+   "url": "https://www.donaana.gov/about_us/economic_development_projects.php",
+   "role": "source",
+   "quote": "$6.9 million in supplemental community investments: $1.5M Boys and Girls Club of Las Cruces construction (paid Jan 6, 2026), $4M workforce development (due Dec 31, 2026), $250K desalination plant evaluation, $150K community college connectivity, $1M habitat restoration with annual payments through 2036",
+   "missing_clauses": [
+    "$6.9 million in supplemental community investments",
+    "$1.5M Boys and Girls Club of Las Cruces construction (paid Jan 6, 2026), $4M workforce development (due Dec 31, 2026), $250K desalination plant evaluation, $150K community college connectivity, $1M habitat restoration with annual payments through 2036"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
+   "url": "https://www.donaana.gov/about_us/economic_development_projects.php",
+   "role": "source",
+   "quote": "Issued via three Industrial Revenue Bond series (2025A, 2025B, 2025C); approved September 2025",
+   "missing_clauses": [
+    "Issued via three Industrial Revenue Bond series (2025A, 2025B, 2025C)",
+    "approved September 2025"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "frederick-county-md-quantum-cba-rejected-2026",
+   "url": "https://www.wypr.org/wypr-news/2026-09-15/frederick-county-rejects-agreement-with-data-center-developer-amidst-public-outcry",
+   "role": "source",
+   "quote": "Quantum Maryland LLC (a Quantum Loophole/Catellus/TPG-affiliated entity) submitted a development rights and responsibilities agreement application September 1, 2026, offering >$110 million in community investments for the 2,100-acre, 17.4M-sq-ft, 2.4 GW Frederick Digital Campus",
+   "missing_clauses": [
+    "Quantum Maryland LLC (a Quantum Loophole/Catellus/TPG-affiliated entity) submitted a development rights and responsibilities agreement application September 1, 2026, offering >$110 million in community investments for the 2,100-acre, 17.4M-sq-ft, 2.4 GW Frederick Digital Campus"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "frederick-county-md-quantum-cba-rejected-2026",
+   "url": "https://www.wypr.org/wypr-news/2026-09-15/frederick-county-rejects-agreement-with-data-center-developer-amidst-public-outcry",
+   "role": "source",
+   "quote": "Proposed breakdown: $30M Carroll Manor Elementary School renovations; $40M community center/recreational space; $14.5M workforce development/career-technical education; $10.5M agricultural land preservation; $10M perimeter improvements/trails; $5M community solar project; $1M fire engine",
+   "missing_clauses": [
+    "Proposed breakdown",
+    "$30M Carroll Manor Elementary School renovations",
+    "$40M community center/recreational space",
+    "$14.5M workforce development/career-technical education",
+    "$10.5M agricultural land preservation",
+    "$10M perimeter improvements/trails",
+    "$5M community solar project",
+    "$1M fire engine"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "frederick-county-md-quantum-cba-rejected-2026",
+   "url": "https://www.wypr.org/wypr-news/2026-09-15/frederick-county-rejects-agreement-with-data-center-developer-amidst-public-outcry",
+   "role": "source",
+   "quote": "Also offered to cut planned data center development ~20% and potable water use 80% once a reclaimed-water system comes online",
+   "missing_clauses": [
+    "Also offered to cut planned data center development ~20% and potable water use 80% once a reclaimed-water system comes online"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "frederick-county-md-quantum-cba-rejected-2026",
+   "url": "https://www.wypr.org/wypr-news/2026-09-15/frederick-county-rejects-agreement-with-data-center-developer-amidst-public-outcry",
+   "role": "source",
+   "quote": "In exchange, the county would not change zoning rules that might hurt the campus for the agreement's duration; the developer sought 8 years",
+   "missing_clauses": [
+    "In exchange, the county would not change zoning rules that might hurt the campus for the agreement's duration",
+    "the developer sought 8 years"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "frederick-county-md-quantum-cba-rejected-2026",
+   "url": "https://www.wypr.org/wypr-news/2026-09-15/frederick-county-rejects-agreement-with-data-center-developer-amidst-public-outcry",
+   "role": "source",
+   "quote": "County Executive Jessica Fitzwater rejected the agreement on Monday, September 14, 2026, and extended the moratorium on data center applications to July 1, 2027",
+   "missing_clauses": [
+    "County Executive Jessica Fitzwater rejected the agreement on Monday, September 14, 2026, and extended the moratorium on data center applications to July 1, 2027"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ia-hf976-2025",
+   "url": "https://www.legis.iowa.gov/legislation/BillBook?ga=91&ba=HF976",
+   "role": "source",
+   "quote": "ends indefinite electricity/backup-power exemption for new and expanded data centers",
+   "missing_clauses": [
+    "ends indefinite electricity/backup-power exemption for new and expanded data centers"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ia-hf976-2025",
+   "url": "https://www.legis.iowa.gov/legislation/BillBook?ga=91&ba=HF976",
+   "role": "source",
+   "quote": "10-year exemption limit in cities over 30,000 population, 15-year limit in smaller cities",
+   "missing_clauses": [
+    "10-year exemption limit in cities over 30,000 population, 15-year limit in smaller cities"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ia-hf976-2025",
+   "url": "https://www.legis.iowa.gov/legislation/BillBook?ga=91&ba=HF976",
+   "role": "source",
+   "quote": "existing non-expanding data centers unaffected",
+   "missing_clauses": [
+    "existing non-expanding data centers unaffected"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ia-hf976-2025",
+   "url": "https://www.legis.iowa.gov/legislation/BillBook?ga=91&ba=HF976",
+   "role": "source",
+   "quote": "mandatory Dept. of Revenue registration and annual purchase reporting",
+   "missing_clauses": [
+    "mandatory Dept",
+    "of Revenue registration and annual purchase reporting"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "ia-hf976-2025",
+   "url": "https://www.legis.iowa.gov/legislation/BillBook?ga=91&ba=HF976",
+   "role": "source",
+   "quote": "new exemption certificate required starting February 1, 2026",
+   "missing_clauses": [
+    "new exemption certificate required starting February 1, 2026"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb895-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0895/",
+   "role": "source",
+   "quote": "no consumptive-use cooling water unless from a municipal/water district system",
+   "missing_clauses": [
+    "no consumptive-use cooling water unless from a municipal/water district system"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb895-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0895/",
+   "role": "source",
+   "quote": "applies to data centers beginning construction on/after July 1, 2026",
+   "missing_clauses": [
+    "applies to data centers beginning construction on/after July 1, 2026"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb895-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0895/",
+   "role": "source",
+   "quote": "legislative findings on conflict with public interest and water conservation",
+   "missing_clauses": [
+    "legislative findings on conflict with public interest and water conservation"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb897-2026-failed",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+   "role": "source",
+   "quote": "sales tax exemption limited to server equipment",
+   "missing_clauses": [
+    "sales tax exemption limited to server equipment"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb897-2026-failed",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+   "role": "source",
+   "quote": "phase-out of large capital investment property tax exemption",
+   "missing_clauses": [
+    "phase-out of large capital investment property tax exemption"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb897-2026-failed",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+   "role": "source",
+   "quote": "advance notice of water use required",
+   "missing_clauses": [
+    "advance notice of water use required"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb897-2026-failed",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+   "role": "source",
+   "quote": "cost-recovery electric rate structures required",
+   "missing_clauses": [
+    "cost-recovery electric rate structures required"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb911-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+   "role": "source",
+   "quote": "50 MW+ new-large-load threshold",
+   "missing_clauses": [
+    "50 MW+ new-large-load threshold"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb911-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+   "role": "source",
+   "quote": "PUC-approved service contracts required",
+   "missing_clauses": [
+    "PUC-approved service contracts required"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb911-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+   "role": "source",
+   "quote": "'no harm test' for existing customers",
+   "missing_clauses": [
+    "no harm test' for existing customers"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb911-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+   "role": "source",
+   "quote": "cost allocation and financial security requirements",
+   "missing_clauses": [
+    "cost allocation and financial security requirements"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "id-hb911-2026",
+   "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+   "role": "source",
+   "quote": "dispute resolution process",
+   "missing_clauses": [
+    "dispute resolution process"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "il-tax-exemption-pause-2026",
+   "url": "https://gov-pritzker-newsroom.prezly.com/gov-pritzker-pauses-new-data-center-tax-incentives",
+   "role": "source",
+   "quote": "Directs DCEO to pause processing new Data Center Investment Program agreements starting July 1, 2026",
+   "missing_clauses": [
+    "Directs DCEO to pause processing new Data Center Investment Program agreements starting July 1, 2026"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "il-tax-exemption-pause-2026",
+   "url": "https://gov-pritzker-newsroom.prezly.com/gov-pritzker-pauses-new-data-center-tax-incentives",
+   "role": "source",
+   "quote": "Issued after the General Assembly failed to pass the POWER Act (HB 5513) reforms by the May 31, 2026 spring-session deadline",
+   "missing_clauses": [
+    "Issued after the General Assembly failed to pass the POWER Act (HB 5513) reforms by the May 31, 2026 spring-session deadline"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "il-tax-exemption-pause-2026",
+   "url": "https://gov-pritzker-newsroom.prezly.com/gov-pritzker-pauses-new-data-center-tax-incentives",
+   "role": "source",
+   "quote": "Agreements entered into before July 1, 2026 remain honored and unaffected",
+   "missing_clauses": [
+    "Agreements entered into before July 1, 2026 remain honored and unaffected"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "il-tax-exemption-pause-2026",
+   "url": "https://gov-pritzker-newsroom.prezly.com/gov-pritzker-pauses-new-data-center-tax-incentives",
+   "role": "source",
+   "quote": "Governor cited energy affordability, grid reliability, water depletion and community impacts as the reasons a long-term framework is needed",
+   "missing_clauses": [
+    "Governor cited energy affordability, grid reliability, water depletion and community impacts as the reasons a long-term framework is needed"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "in-hea1210-2026",
+   "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+   "role": "source",
+   "quote": "Authorizes a host county or municipality to require a payment of up to 1% of the state sales/use tax that would otherwise be exempted on a qualified data center's electricity purchases, to qualify for certain sales tax breaks",
+   "missing_clauses": [
+    "Authorizes a host county or municipality to require a payment of up to 1% of the state sales/use tax that would otherwise be exempted on a qualified data center's electricity purchases, to qualify for certain sales tax breaks"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "in-hea1210-2026",
+   "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+   "role": "source",
+   "quote": "Applies to data centers whose permits/certificates are issued after the bill's effective date",
+   "missing_clauses": [
+    "Applies to data centers whose permits/certificates are issued after the bill's effective date"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "in-hea1210-2026",
+   "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+   "role": "source",
+   "quote": "A broader companion bill (HB 1333) that would have added an equipment PILOT and eased farmland siting rules stalled in the Senate; only the narrower electricity revenue-share mechanism became law via HB 1210",
+   "missing_clauses": [
+    "A broader companion bill (HB 1333) that would have added an equipment PILOT and eased farmland siting rules stalled in the Senate",
+    "only the narrower electricity revenue-share mechanism became law via HB 1210"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "in-hea1210-2026",
+   "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+   "role": "source",
+   "quote": "Gov. Mike Braun signed the bill March 12, 2026",
+   "missing_clauses": [
+    "Mike Braun signed the bill March 12, 2026"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "md-eo-01.01.2026.16-2026",
+   "url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+   "role": "source",
+   "quote": "25 MW threshold, with stated institutional exceptions",
+   "missing_clauses": [
+    "25 MW threshold, with stated institutional exceptions"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "md-eo-01.01.2026.16-2026",
+   "url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+   "role": "source",
+   "quote": "Host CBA negotiation is an evaluation criterion, not a universal agreement mandate",
+   "missing_clauses": [
+    "Host CBA negotiation is an evaluation criterion, not a universal agreement mandate"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "md-eo-01.01.2026.16-2026",
+   "url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+   "role": "source",
+   "quote": "Cost protection criteria include collateral, minimum bills and exit fees",
+   "missing_clauses": [
+    "Cost protection criteria include collateral, minimum bills and exit fees"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "md-eo-01.01.2026.16-2026",
+   "url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+   "role": "source",
+   "quote": "Annual reports include monthly water withdrawal and consumption, generator hours and CBA payments",
+   "missing_clauses": [
+    "Annual reports include monthly water withdrawal and consumption, generator hours and CBA payments"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "md-eo-01.01.2026.16-2026",
+   "url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+   "role": "source",
+   "quote": "Incentive terms include milestones, clawbacks and successor assumption where legally authorized",
+   "missing_clauses": [
+    "Incentive terms include milestones, clawbacks and successor assumption where legally authorized"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "md-eo-01.01.2026.16-2026",
+   "url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+   "role": "source",
+   "quote": "Public determinations and performance status; local land-use powers preserved",
+   "missing_clauses": [
+    "Public determinations and performance status",
+    "local land-use powers preserved"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "md-eo-01.01.2026.16-2026",
+   "url": "https://regs.maryland.gov/us/md/exec/comar/01.01.2026.16",
+   "role": "source",
+   "quote": "Authority and public-information exemptions constrain implementation",
+   "missing_clauses": [
+    "Authority and public-information exemptions constrain implementation"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-eo5-2026",
+   "url": "https://www.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+   "role": "source",
+   "quote": "15-member Data Center Advisory Council",
+   "missing_clauses": [
+    "15-member Data Center Advisory Council"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-eo5-2026",
+   "url": "https://www.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+   "role": "source",
+   "quote": "ratepayer protection focus",
+   "missing_clauses": [
+    "ratepayer protection focus"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-eo5-2026",
+   "url": "https://www.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+   "role": "source",
+   "quote": "grid stability and environmental impact review",
+   "missing_clauses": [
+    "grid stability and environmental impact review"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-eo5-2026",
+   "url": "https://www.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+   "role": "source",
+   "quote": "PUC/Department of Energy Resources coordination on ratepayer cost protection",
+   "missing_clauses": [
+    "PUC/Department of Energy Resources coordination on ratepayer cost protection"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-eo5-2026",
+   "url": "https://www.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+   "role": "source",
+   "quote": "recommendations due to Governor and Legislature by January 29, 2027",
+   "missing_clauses": [
+    "recommendations due to Governor and Legislature by January 29, 2027"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-ld713-2026",
+   "url": "https://www.mainesenate.org/sen-grohoski-champions-new-maine-law-excluding-data-centers-from-tax-exemption-programs/",
+   "role": "source",
+   "quote": "excludes data centers from the Business Equipment Tax Exemption (BETE)",
+   "missing_clauses": [
+    "excludes data centers from the Business Equipment Tax Exemption (BETE)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-ld713-2026",
+   "url": "https://www.mainesenate.org/sen-grohoski-champions-new-maine-law-excluding-data-centers-from-tax-exemption-programs/",
+   "role": "source",
+   "quote": "excludes data centers from the Dirigo Business Incentives Program",
+   "missing_clauses": [
+    "excludes data centers from the Dirigo Business Incentives Program"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-ld713-2026",
+   "url": "https://www.mainesenate.org/sen-grohoski-champions-new-maine-law-excluding-data-centers-from-tax-exemption-programs/",
+   "role": "source",
+   "quote": "applies to data centers beginning operations on/after August 1, 2026",
+   "missing_clauses": [
+    "applies to data centers beginning operations on/after August 1, 2026"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "me-ld713-2026",
+   "url": "https://www.mainesenate.org/sen-grohoski-champions-new-maine-law-excluding-data-centers-from-tax-exemption-programs/",
+   "role": "source",
+   "quote": "DECD study of alternative incentives due November 4, 2026",
+   "missing_clauses": [
+    "DECD study of alternative incentives due November 4, 2026"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mn-hf16-ch12-2025",
+   "url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
+   "role": "source",
+   "quote": "Data centers proposing consumptive water use over 100,000,000 gallons/year trigger a special DNR permit review, including a preapplication process and possible aquifer testing",
+   "missing_clauses": [
+    "Data centers proposing consumptive water use over 100,000,000 gallons/year trigger a special DNR permit review, including a preapplication process and possible aquifer testing"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mn-hf16-ch12-2025",
+   "url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
+   "role": "source",
+   "quote": "DNR must consider water-conservation technologies/measures and watershed health before issuing a permit",
+   "missing_clauses": [
+    "DNR must consider water-conservation technologies/measures and watershed health before issuing a permit"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mn-hf16-ch12-2025",
+   "url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
+   "role": "source",
+   "quote": "Qualified large-scale data centers (100+ MW) pay a new annual fee scaled by peak demand: $2M (100-250MW), $3M (250-500MW), $4M (500-750MW), $5M (750MW+)",
+   "missing_clauses": [
+    "Qualified large-scale data centers (100+ MW) pay a new annual fee scaled by peak demand",
+    "$2M (100-250MW), $3M (250-500MW), $4M (500-750MW), $5M (750MW+)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mn-hf16-ch12-2025",
+   "url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
+   "role": "source",
+   "quote": "Sales tax exemption for qualified large-scale data centers ($250M+ investment over 60 months) extended from 20 to 35 years",
+   "missing_clauses": [
+    "Sales tax exemption for qualified large-scale data centers ($250M+ investment over 60 months) extended from 20 to 35 years"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mn-hf16-ch12-2025",
+   "url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
+   "role": "source",
+   "quote": "Facilities must achieve a green building certification (e.g. LEED, Energy Star) within 3 years to keep the exemption",
+   "missing_clauses": [
+    "Facilities must achieve a green building certification (e.g",
+    "LEED, Energy Star) within 3 years to keep the exemption"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mo-sb4-2025",
+   "url": "https://natlawreview.com/article/missouri-enacts-significant-utilityregulatory-omnibus-bill",
+   "role": "source",
+   "quote": "100 MW peak-demand threshold (50 MW for smaller utilities)",
+   "missing_clauses": [
+    "100 MW peak-demand threshold (50 MW for smaller utilities)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mo-sb4-2025",
+   "url": "https://natlawreview.com/article/missouri-enacts-significant-utilityregulatory-omnibus-bill",
+   "role": "source",
+   "quote": "PSC-approved large-load tariff schedule required",
+   "missing_clauses": [
+    "PSC-approved large-load tariff schedule required"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mo-sb4-2025",
+   "url": "https://natlawreview.com/article/missouri-enacts-significant-utilityregulatory-omnibus-bill",
+   "role": "source",
+   "quote": "cost-causation ratemaking (large loads pay their own share)",
+   "missing_clauses": [
+    "cost-causation ratemaking (large loads pay their own share)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mo-sb4-2025",
+   "url": "https://natlawreview.com/article/missouri-enacts-significant-utilityregulatory-omnibus-bill",
+   "role": "source",
+   "quote": "12-year minimum contract term",
+   "missing_clauses": [
+    "12-year minimum contract term"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mo-sb4-2025",
+   "url": "https://natlawreview.com/article/missouri-enacts-significant-utilityregulatory-omnibus-bill",
+   "role": "source",
+   "quote": "80% minimum-take/collateral obligation",
+   "missing_clauses": [
+    "80% minimum-take/collateral obligation"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mt-hb424-2025",
+   "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+   "role": "source",
+   "quote": "Extends the qualified data center construction window to 2037",
+   "missing_clauses": [
+    "Extends the qualified data center construction window to 2037"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mt-hb424-2025",
+   "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+   "role": "source",
+   "quote": "Revises ownership requirements for qualifying data center property",
+   "missing_clauses": [
+    "Revises ownership requirements for qualifying data center property"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mt-hb424-2025",
+   "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+   "role": "source",
+   "quote": "Adds qualifying on-site generation and storage equipment to the Class 17 property category",
+   "missing_clauses": [
+    "Adds qualifying on-site generation and storage equipment to the Class 17 property category"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mt-hb424-2025",
+   "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+   "role": "source",
+   "quote": "Preserves 10-year Class 17 tax treatment (0.9% taxable valuation rate) for qualified dedicated communications infrastructure",
+   "missing_clauses": [
+    "Preserves 10-year Class 17 tax treatment (0.9% taxable valuation rate) for qualified dedicated communications infrastructure"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "mt-hb424-2025",
+   "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+   "role": "source",
+   "quote": "Applies retroactively to tax years beginning after December 31, 2024",
+   "missing_clauses": [
+    "Applies retroactively to tax years beginning after December 31, 2024"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nc-budget2026-electricity-exemption-repeal-2026",
+   "url": "https://www.datacenterknowledge.com/regulations/nc-ends-data-center-power-tax-break-keeps-capital-incentives",
+   "role": "source",
+   "quote": "Repeals the state sales and use tax exemption on electricity purchased by qualifying data centers",
+   "missing_clauses": [
+    "Repeals the state sales and use tax exemption on electricity purchased by qualifying data centers"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nc-budget2026-electricity-exemption-repeal-2026",
+   "url": "https://www.datacenterknowledge.com/regulations/nc-ends-data-center-power-tax-break-keeps-capital-incentives",
+   "role": "source",
+   "quote": "Preserves the separate exemption covering qualifying equipment and other eligible capital investments",
+   "missing_clauses": [
+    "Preserves the separate exemption covering qualifying equipment and other eligible capital investments"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nc-budget2026-electricity-exemption-repeal-2026",
+   "url": "https://www.datacenterknowledge.com/regulations/nc-ends-data-center-power-tax-break-keeps-capital-incentives",
+   "role": "source",
+   "quote": "Estimated to raise $21.4 million in additional General Fund revenue in FY2026-27, rising to $28.6 million by FY2030-31",
+   "missing_clauses": [
+    "Estimated to raise $21.4 million in additional General Fund revenue in FY2026-27, rising to $28.6 million by FY2030-31"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nc-budget2026-electricity-exemption-repeal-2026",
+   "url": "https://www.datacenterknowledge.com/regulations/nc-ends-data-center-power-tax-break-keeps-capital-incentives",
+   "role": "source",
+   "quote": "Followed Gov. Stein's request to the state Energy Policy Task Force to review or eliminate data center tax breaks",
+   "missing_clauses": [
+    "Followed Gov",
+    "Stein's request to the state Energy Policy Task Force to review or eliminate data center tax breaks"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nc-eo-23-2025",
+   "url": "https://governor.nc.gov/executive-order-no-23-establishing-north-carolina-energy-policy-task-force/open",
+   "role": "source",
+   "quote": "The Task Force shall submit an annual report on or before February 15 describing Task Force activities, findings, and recommendations to the Governor, the General Assembly, the North Carolina Utilities Commission, the North Carolina Rural Electrification Authority, and the public.",
+   "missing_clauses": [
+    "The Task Force shall submit an annual report on or before February 15 describing Task Force activities, findings, and recommendations to the Governor, the General Assembly, the North Carolina Utilities Commission, the North Carolina Rural Electrification Authority, and the public"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nd-sb2406-2026-failed",
+   "url": "https://www.valleynewslive.com/2026/09/04/nd-lawmakers-reject-ban-data-center-non-disclosure-agreements/",
+   "role": "source",
+   "quote": "ban on public-agency NDAs for data center and industrial siting",
+   "missing_clauses": [
+    "ban on public-agency NDAs for data center and industrial siting"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nd-sb2406-2026-failed",
+   "url": "https://www.valleynewslive.com/2026/09/04/nd-lawmakers-reject-ban-data-center-non-disclosure-agreements/",
+   "role": "source",
+   "quote": "extends to industrial, infrastructure, and utility projects broadly",
+   "missing_clauses": [
+    "extends to industrial, infrastructure, and utility projects broadly"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nd-sb2406-2026-failed",
+   "url": "https://www.valleynewslive.com/2026/09/04/nd-lawmakers-reject-ban-data-center-non-disclosure-agreements/",
+   "role": "source",
+   "quote": "penalties for companies entering prohibited NDAs",
+   "missing_clauses": [
+    "penalties for companies entering prohibited NDAs"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nj-aspire-cba-2021",
+   "url": "https://www.njeda.gov/aspire/",
+   "role": "source",
+   "quote": "A developer seeking Aspire tax-credit support must obtain a letter of support from the chief executive of the host municipality",
+   "missing_clauses": [
+    "A developer seeking Aspire tax-credit support must obtain a letter of support from the chief executive of the host municipality"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nj-aspire-cba-2021",
+   "url": "https://www.njeda.gov/aspire/",
+   "role": "source",
+   "quote": "Must enter into both a Community Benefits Agreement and a separate Redevelopment Agreement with the project's municipal governing body",
+   "missing_clauses": [
+    "Must enter into both a Community Benefits Agreement and a separate Redevelopment Agreement with the project's municipal governing body"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nj-aspire-cba-2021",
+   "url": "https://www.njeda.gov/aspire/",
+   "role": "source",
+   "quote": "NJEDA operates a Data Center Municipal Resource Hub to help host municipalities evaluate and negotiate these agreements",
+   "missing_clauses": [
+    "NJEDA operates a Data Center Municipal Resource Hub to help host municipalities evaluate and negotiate these agreements"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nj-aspire-cba-2021",
+   "url": "https://www.njeda.gov/aspire/",
+   "role": "source",
+   "quote": "Aspire Program paused new applications effective 5:00pm EDT July 23, 2026 because demand exceeded available resources; applications expected to reopen fall 2026 with revised criteria",
+   "missing_clauses": [
+    "Aspire Program paused new applications effective 5:00pm EDT July 23, 2026 because demand exceeded available resources",
+    "applications expected to reopen fall 2026 with revised criteria"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nj-eo-2-2026",
+   "url": "https://www.nj.gov/infobank/eo/057sherrill/pdf/EO-2.pdf",
+   "role": "source",
+   "quote": "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (\u0093DCA\u0094), N.J.S.A.",
+   "missing_clauses": [
+    "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (\u0093DCA\u0094), N.J.S.A"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nm-sb235-2026-failed",
+   "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+   "role": "source",
+   "quote": "20 MW+ microgrid threshold",
+   "missing_clauses": [
+    "20 MW+ microgrid threshold"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nm-sb235-2026-failed",
+   "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+   "role": "source",
+   "quote": "renewable portfolio standard for large microgrids (40% by enactment, 50% by 2030, 80% by 2040, 100% zero-carbon by 2045)",
+   "missing_clauses": [
+    "renewable portfolio standard for large microgrids (40% by enactment, 50% by 2030, 80% by 2040, 100% zero-carbon by 2045)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nm-sb235-2026-failed",
+   "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+   "role": "source",
+   "quote": "Public Regulation Commission enforcement authority, including shutdown power",
+   "missing_clauses": [
+    "Public Regulation Commission enforcement authority, including shutdown power"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "nm-sb235-2026-failed",
+   "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+   "role": "source",
+   "quote": "motivated by Project Jupiter data center microgrid",
+   "missing_clauses": [
+    "motivated by Project Jupiter data center microgrid"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "oh-hb15-2025",
+   "url": "https://ohiohouse.gov/legislation/136/hb15",
+   "role": "source",
+   "quote": "Creates 'mercantile customer self-power systems': large commercial/industrial users (700,000+ kWh/yr, or multi-facility national accounts) may build and operate their own generation, sited on owned/controlled or adjacent property, connected directly to their meter and bypassing utility distribution",
+   "missing_clauses": [
+    "Creates 'mercantile customer self-power systems'",
+    "large commercial/industrial users (700,000+ kWh/yr, or multi-facility national accounts) may build and operate their own generation, sited on owned/controlled or adjacent property, connected directly to their meter and bypassing utility distribution"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "oh-hb15-2025",
+   "url": "https://ohiohouse.gov/legislation/136/hb15",
+   "role": "source",
+   "quote": "Allows third parties (not just generator agents) to install and operate behind-the-meter facilities, and multiple mercantile customers to jointly own a self-power system",
+   "missing_clauses": [
+    "Allows third parties (not just generator agents) to install and operate behind-the-meter facilities, and multiple mercantile customers to jointly own a self-power system"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "oh-hb15-2025",
+   "url": "https://ohiohouse.gov/legislation/136/hb15",
+   "role": "source",
+   "quote": "Exempts these systems from the Certified Territory Act so they can be sited within existing utility service territories",
+   "missing_clauses": [
+    "Exempts these systems from the Certified Territory Act so they can be sited within existing utility service territories"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "oh-hb15-2025",
+   "url": "https://ohiohouse.gov/legislation/136/hb15",
+   "role": "source",
+   "quote": "Regulated utilities are explicitly barred from owning new behind-the-meter generation facilities",
+   "missing_clauses": [
+    "Regulated utilities are explicitly barred from owning new behind-the-meter generation facilities"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "oh-hb15-2025",
+   "url": "https://ohiohouse.gov/legislation/136/hb15",
+   "role": "source",
+   "quote": "Effective date: August 14, 2025 (per the official Ohio House bill page)",
+   "missing_clauses": [
+    "August 14, 2025 (per the official Ohio House bill page)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "or-hb3546-2025",
+   "url": "https://katu.com/news/politics/oregon-house-passes-bill-making-large-data-centers-pay-for-power-grid-costs-electricity-money-consumers-cost-bill-politics",
+   "role": "source",
+   "quote": "Directs the Public Utility Commission to create a separate rate/service classification for 'large energy use facilities' (20 MW+, primarily data processing services under NAICS code 518210)",
+   "missing_clauses": [
+    "Directs the Public Utility Commission to create a separate rate/service classification for 'large energy use facilities' (20 MW+, primarily data processing services under NAICS code 518210)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "or-hb3546-2025",
+   "url": "https://katu.com/news/politics/oregon-house-passes-bill-making-large-data-centers-pay-for-power-grid-costs-electricity-money-consumers-cost-bill-politics",
+   "role": "source",
+   "quote": "New rate class must be separate and distinct from other commercial/industrial classes, with its own tariff schedule",
+   "missing_clauses": [
+    "New rate class must be separate and distinct from other commercial/industrial classes, with its own tariff schedule"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "or-hb3546-2025",
+   "url": "https://katu.com/news/politics/oregon-house-passes-bill-making-large-data-centers-pay-for-power-grid-costs-electricity-money-consumers-cost-bill-politics",
+   "role": "source",
+   "quote": "Tariff must allocate the cost of serving large energy use facilities to those facilities and mitigate cost-shifting risk to other ratepayer classes",
+   "missing_clauses": [
+    "Tariff must allocate the cost of serving large energy use facilities to those facilities and mitigate cost-shifting risk to other ratepayer classes"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "or-hb3546-2025",
+   "url": "https://katu.com/news/politics/oregon-house-passes-bill-making-large-data-centers-pay-for-power-grid-costs-electricity-money-consumers-cost-bill-politics",
+   "role": "source",
+   "quote": "Requires electric companies to use a contract (10+ year duration) when serving a large energy use facility",
+   "missing_clauses": [
+    "Requires electric companies to use a contract (10+ year duration) when serving a large energy use facility"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "or-hb3546-2025",
+   "url": "https://katu.com/news/politics/oregon-house-passes-bill-making-large-data-centers-pay-for-power-grid-costs-electricity-money-consumers-cost-bill-politics",
+   "role": "source",
+   "quote": "Oregon is described as the first state to create a specific data-center customer electricity rate classification",
+   "missing_clauses": [
+    "Oregon is described as the first state to create a specific data-center customer electricity rate classification"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "tn-pc961-2026",
+   "url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114",
+   "role": "source",
+   "quote": "Such an independent power producer may generate, store, sell, or deliver electric energy, capacity, or other related ancillary services to a data center through (i) a direct interconnection behind the data center's meter if the data center does not take service from an electric utility;",
+   "missing_clauses": [
+    "Such an independent power producer may generate, store, sell, or deliver electric energy, capacity, or other related ancillary services to a data center through (i) a direct interconnection behind the data center's meter if the data center does not take service from an electric utility"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "tx-sb6-2025",
+   "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6",
+   "role": "source",
+   "quote": "Defines 'large loads' as 75 MW or more (PUCT may lower the threshold)",
+   "missing_clauses": [
+    "Defines 'large loads' as 75 MW or more (PUCT may lower the threshold)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "tx-sb6-2025",
+   "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6",
+   "role": "source",
+   "quote": "Large-load customers must disclose competing service requests elsewhere in Texas and report on-site backup generation capacity of 50%+ of proposed load",
+   "missing_clauses": [
+    "Large-load customers must disclose competing service requests elsewhere in Texas and report on-site backup generation capacity of 50%+ of proposed load"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "tx-sb6-2025",
+   "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6",
+   "role": "source",
+   "quote": "Requires an initial $100,000 transmission screening study fee and demonstrated site control",
+   "missing_clauses": [
+    "Requires an initial $100,000 transmission screening study fee and demonstrated site control"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "tx-sb6-2025",
+   "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6",
+   "role": "source",
+   "quote": "Large loads must contribute to the interconnecting utility's interconnection costs via PUCT-set financial commitment requirements (security deposits per MW, construction contributions, or advance payments)",
+   "missing_clauses": [
+    "Large loads must contribute to the interconnecting utility's interconnection costs via PUCT-set financial commitment requirements (security deposits per MW, construction contributions, or advance payments)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "tx-sb6-2025",
+   "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=89R&Bill=SB6",
+   "role": "source",
+   "quote": "New large loads connecting after Dec. 31, 2025 must install equipment letting ERCOT directly curtail load during firm load-shed events and emergencies",
+   "missing_clauses": [
+    "New large loads connecting after Dec",
+    "31, 2025 must install equipment letting ERCOT directly curtail load during firm load-shed events and emergencies"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-eo-22-2026",
+   "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+   "role": "source",
+   "quote": "NDA ban for state agencies on data center projects",
+   "missing_clauses": [
+    "NDA ban for state agencies on data center projects"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-eo-22-2026",
+   "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+   "role": "source",
+   "quote": "VEDP exclusion for new data centers \u226525MW peak demand from Business Ready Sites/expedited permitting programs",
+   "missing_clauses": [
+    "VEDP exclusion for new data centers \u226525MW peak demand from Business Ready Sites/expedited permitting programs"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-eo-22-2026",
+   "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+   "role": "source",
+   "quote": "VA-LEAD responsible-development designation criteria modeled on LEED/EnergyStar",
+   "missing_clauses": [
+    "VA-LEAD responsible-development designation criteria modeled on LEED/EnergyStar"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-eo-22-2026",
+   "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+   "role": "source",
+   "quote": "Cooling water scarcity area designation for Eastern Virginia Groundwater Management Area",
+   "missing_clauses": [
+    "Cooling water scarcity area designation for Eastern Virginia Groundwater Management Area"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-eo-22-2026",
+   "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+   "role": "source",
+   "quote": "PJM Reliability Backstop Procurement costs to be assigned to data center large loads",
+   "missing_clauses": [
+    "PJM Reliability Backstop Procurement costs to be assigned to data center large loads"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-hb153-sb94-2026",
+   "url": "https://www.roanokerambler.com/a-roanoke-delegate-helped-write-virginias-new-data-center-law-heres-what-it-does-and-what-it-doesnt/",
+   "role": "source",
+   "quote": "Before approving a rezoning, special exception or special use permit for a new 'high energy use facility' (100 MW+), a locality must require the applicant to submit a site assessment examining the facility's sound profile on residential units and schools within 500 feet of the property boundary",
+   "missing_clauses": [
+    "Before approving a rezoning, special exception or special use permit for a new 'high energy use facility' (100 MW+), a locality must require the applicant to submit a site assessment examining the facility's sound profile on residential units and schools within 500 feet of the property boundary"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-hb153-sb94-2026",
+   "url": "https://www.roanokerambler.com/a-roanoke-delegate-helped-write-virginias-new-data-center-law-heres-what-it-does-and-what-it-doesnt/",
+   "role": "source",
+   "quote": "Sets no decibel ceiling, no water cap and no minimum setback \u2014 the requirement is disclosure/assessment, not a hard standard",
+   "missing_clauses": [
+    "Sets no decibel ceiling, no water cap and no minimum setback-the requirement is disclosure/assessment, not a hard standard"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-hb153-sb94-2026",
+   "url": "https://www.roanokerambler.com/a-roanoke-delegate-helped-write-virginias-new-data-center-law-heres-what-it-does-and-what-it-doesnt/",
+   "role": "source",
+   "quote": "Water-impact assessment remains at local discretion rather than mandatory",
+   "missing_clauses": [
+    "Water-impact assessment remains at local discretion rather than mandatory"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-hb496-2026",
+   "url": "https://www.wvtf.org/news/2026-06-11/new-virginia-law-requires-data-center-water-usage-be-made-public",
+   "role": "source",
+   "quote": "Requires any water user that must register withdrawal/use data with the State Water Control Board, and that supplies water offsite to another person, to separately report total monthly potable and reclaimed water volumes provided to data centers holding a DEQ air permit",
+   "missing_clauses": [
+    "Requires any water user that must register withdrawal/use data with the State Water Control Board, and that supplies water offsite to another person, to separately report total monthly potable and reclaimed water volumes provided to data centers holding a DEQ air permit"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-hb496-2026",
+   "url": "https://www.wvtf.org/news/2026-06-11/new-virginia-law-requires-data-center-water-usage-be-made-public",
+   "role": "source",
+   "quote": "Reporting categories also separately break out domestic, commercial/industrial and other non-categorized water use",
+   "missing_clauses": [
+    "Reporting categories also separately break out domestic, commercial/industrial and other non-categorized water use"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-hb496-2026",
+   "url": "https://www.wvtf.org/news/2026-06-11/new-virginia-law-requires-data-center-water-usage-be-made-public",
+   "role": "source",
+   "quote": "Delayed effective date of January 1, 2027",
+   "missing_clauses": [
+    "Delayed effective date of January 1, 2027"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "va-hb496-2026",
+   "url": "https://www.wvtf.org/news/2026-06-11/new-virginia-law-requires-data-center-water-usage-be-made-public",
+   "role": "source",
+   "quote": "Chaptered April 13, 2026",
+   "missing_clauses": [
+    "Chaptered April 13, 2026"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "vt-h727-2026-failed",
+   "url": "https://legislature.vermont.gov/bill/status/2026/H.727",
+   "role": "source",
+   "quote": "large load service equity contract required for 20MW+ data centers",
+   "missing_clauses": [
+    "large load service equity contract required for 20MW+ data centers"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "vt-h727-2026-failed",
+   "url": "https://legislature.vermont.gov/bill/status/2026/H.727",
+   "role": "source",
+   "quote": "Public Utility Commission approval of contracts",
+   "missing_clauses": [
+    "Public Utility Commission approval of contracts"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "vt-h727-2026-failed",
+   "url": "https://legislature.vermont.gov/bill/status/2026/H.727",
+   "role": "source",
+   "quote": "ratepayer cost-shift protection",
+   "missing_clauses": [
+    "ratepayer cost-shift protection"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "vt-h727-2026-failed",
+   "url": "https://legislature.vermont.gov/bill/status/2026/H.727",
+   "role": "source",
+   "quote": "proposed data-center-funded financing mechanism (sales/property/income tax or gross receipts tax)",
+   "missing_clauses": [
+    "proposed data-center-funded financing mechanism (sales/property/income tax or gross receipts tax)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "vt-h727-2026-failed",
+   "url": "https://legislature.vermont.gov/bill/status/2026/H.727",
+   "role": "source",
+   "quote": "vetoed by Governor Scott, veto sustained",
+   "missing_clauses": [
+    "vetoed by Governor Scott, veto sustained"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wa-eo-25-05-2025",
+   "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+   "role": "source",
+   "quote": "Department of Revenue directed to establish and lead a Data Center Workgroup",
+   "missing_clauses": [
+    "Department of Revenue directed to establish and lead a Data Center Workgroup"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wa-eo-25-05-2025",
+   "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+   "role": "source",
+   "quote": "Workgroup includes Commerce, Utilities and Transportation Commission, Department of Ecology, electric utilities, environmental advocacy groups, labor organizations, industry stakeholders",
+   "missing_clauses": [
+    "Workgroup includes Commerce, Utilities and Transportation Commission, Department of Ecology, electric utilities, environmental advocacy groups, labor organizations, industry stakeholders"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wa-eo-25-05-2025",
+   "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+   "role": "source",
+   "quote": "Workgroup to discuss impacts on economy, tax revenue, energy use, and environment",
+   "missing_clauses": [
+    "Workgroup to discuss impacts on economy, tax revenue, energy use, and environment"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wa-eo-25-05-2025",
+   "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+   "role": "source",
+   "quote": "findings/policy recommendations due to Governor by December 1, 2025",
+   "missing_clauses": [
+    "findings/policy recommendations due to Governor by December 1, 2025"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wa-eo-25-05-2025",
+   "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+   "role": "source",
+   "quote": "cites JLARC estimate that data center sales/use tax exemptions saved beneficiaries over $100 million in 2017-2019 biennium",
+   "missing_clauses": [
+    "cites JLARC estimate that data center sales/use tax exemptions saved beneficiaries over $100 million in 2017-2019 biennium"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wi-act19-2023-dcste",
+   "url": "https://wedc.org/programs/data-center-sales-and-use-tax-exemption/",
+   "role": "source",
+   "quote": "WEDC certification required",
+   "missing_clauses": [
+    "WEDC certification required"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wi-act19-2023-dcste",
+   "url": "https://wedc.org/programs/data-center-sales-and-use-tax-exemption/",
+   "role": "source",
+   "quote": "county-population-tiered investment thresholds ($50M/$100M/$150M over 5 years)",
+   "missing_clauses": [
+    "county-population-tiered investment thresholds ($50M/$100M/$150M over 5 years)"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wi-act19-2023-dcste",
+   "url": "https://wedc.org/programs/data-center-sales-and-use-tax-exemption/",
+   "role": "source",
+   "quote": "no dollar cap on exempt purchases",
+   "missing_clauses": [
+    "no dollar cap on exempt purchases"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "wi-act19-2023-dcste",
+   "url": "https://wedc.org/programs/data-center-sales-and-use-tax-exemption/",
+   "role": "source",
+   "quote": "sales and use tax exemption on qualifying equipment/construction",
+   "missing_clauses": [
+    "sales and use tax exemption on qualifying equipment/construction"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "dona-ana-county-nm-project-jupiter-cba-2025",
+   "url": "https://cms2.revize.com/revize/donaanacounty/Documents/About%20Us/Economic%20Development%20Projects/Community%20Benefits%20Agreement%20(CBA)%20Executed.pdf",
+   "role": "source",
+   "quote": "The sole and exclusive remedy of the County in the event of a failure by the Companies to satisfy the terms of this CBA will be to avail itself of the applicable rights and remedies corresponding to such failure in connection with the Industrial Revenue Bonds, which shall include termination of the respective Leases",
+   "missing_clauses": [
+    "The sole and exclusive remedy of the County in the event of a failure by the Companies to satisfy the terms of this CBA will be to avail itself of the applicable rights and remedies corresponding to such failure in connection with the Industrial Revenue Bonds, which shall include termination of the respective Leases"
+   ]
+  },
+  {
+   "kind": "policies",
+   "list": "policies",
+   "id": "west-vincent-twp-pa-ordinance-227-2026",
+   "url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
+   "role": "source",
+   "quote": "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES",
+   "missing_clauses": [
+    "227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
+   ]
+  }
+ ],
+ "changed_pages": [
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-energy-renewable-match",
+   "url": "https://sustainability.atmeta.com/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-water-positive-2030",
+   "url": "https://sustainability.atmeta.com/water/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-water-positive-2030",
+   "url": "https://datacenters.atmeta.com/2026/04/restoring-water-in-our-data-center-communities/",
+   "role": "resource",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-community-action-grants",
+   "url": "https://about.fb.com/news/2025/11/expanding-meta-data-center-community-action-grants-program/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "ms-water-positive-2030",
+   "url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability/water",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-100-renewable-2023",
+   "url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-economic-impact-us",
+   "url": "https://www.aboutamazon.com/news/aws/aws-data-center-economic-impact-study",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "anthropic-rainier-aws",
+   "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-prineville-or-jobs-construction",
+   "url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-prineville-or-infrastructure-investment",
+   "url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-prineville-or-education-robotics",
+   "url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-prineville-or-energy-renewable",
+   "url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-newton-ga-jobs-construction",
+   "url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-newton-ga-energy-renewable",
+   "url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-newton-ga-engagement-economic-multiplier",
+   "url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-jobs-construction",
+   "url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-jobs-operational",
+   "url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-infrastructure-investment",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-community-grants-municipalities",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-energy-customer-savings",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-community-grants-entergy",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-mesa-az-infrastructure-investment",
+   "url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-mesa-az-water-srp-donation",
+   "url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-mesa-az-water-stewardship",
+   "url": "https://www.aztechcouncil.org/google-announces-new-commitment-to-arizona-breaks-ground-on-600m-data-center/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-investment",
+   "url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-tax-revenue",
+   "url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-jobs-supported",
+   "url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-water-recycled",
+   "url": "https://www.aboutamazon.com/news/aws/aws-data-center-economic-impact-study",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-investment",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-jobs",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-community-fund",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-state-gdp",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-cumberland-pa-investment",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-cumberland-pa-jobs",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-cumberland-pa-community-fund",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-cumberland-pa-location",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-jobs-500-initial",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-tax-100m",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-water-recycling-80m",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-water-recycling-80m",
+   "url": "https://www.actionnews5.com/2026/04/09/xai-pauses-plans-build-water-recycling-plant-memphis/",
+   "role": "resource",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-tn-infrastructure-substations",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "wonder-valley-box-elder-ut-infrastructure-acreage",
+   "url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "wonder-valley-box-elder-ut-infrastructure-natural-gas",
+   "url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "wonder-valley-box-elder-ut-infrastructure-oleary-race-2026-05",
+   "url": "https://kutv.com/news/local/kevin-oleary-rushing-data-center-because-of-competition",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-water-water-free-design",
+   "url": "https://thecitizen.com/2026/05/11/behind-fayettes-qts-water-controversy-a-missed-meter-8000-workers-and-a-massive-construction-project/",
+   "role": "resource",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-water-restoration-watersheds",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-education-robotics-delhi",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "meta-richland-la-engagement-revitalization-board",
+   "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-education-think-big",
+   "url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-loudoun-va-energy-solar",
+   "url": "https://www.aboutamazon.com/news/aws/aws-commitment-to-virginia",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-energy-cost-coverage",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-new-carlisle-in-education-ivy-tech",
+   "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "aws-cumberland-pa-education-scholarships",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-energy-no-grid-power-emergencies",
+   "url": "https://memphischamber.com/economic-development/xai/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "wonder-valley-water-oleary-salt-lake-2026",
+   "url": "https://kutv.com/news/local/kevin-o-leary-addresses-water-concerns-claims-data-center-wont-drain-great-salt-lake",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "microsoft-cheyenne-tax-alaily-no-abatements-2026",
+   "url": "https://oilcity.news/community/wyoming-community-2/2026/04/14/microsoft-plans-massive-3200-acre-expansion-of-cheyenne-data-centers/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-water-recommit-2026",
+   "url": "https://www.actionnews5.com/2026/04/09/xai-pauses-plans-build-water-recycling-plant-memphis/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "xai-memphis-water-musk-sequencing-2026",
+   "url": "https://www.actionnews5.com/2026/04/09/xai-pauses-plans-build-water-recycling-plant-memphis/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-fayetteville-engagement-greason-2025",
+   "url": "https://thecitizen.com/2025/11/15/qts-unveils-new-multi-use-path-as-part-of-expanding-community-partnership-in-fayetteville/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-fayetteville-grants-robey-2025",
+   "url": "https://thecitizen.com/2025/11/15/qts-unveils-new-multi-use-path-as-part-of-expanding-community-partnership-in-fayetteville/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "google-michigan-city-engagement-2026",
+   "url": "https://wsbt.com/news/local/breaking-google-confirms-data-center-in-michigan-city-project-oyal-road-project-maize-underway-challenges-site-statement-michigan-city-laporte-county-indiana",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "amazon-caddo-energy-wehner-2026",
+   "url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "amazon-caddo-education-wehner-2026",
+   "url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "amazon-bossier-infrastructure-wehner-2026",
+   "url": "https://www.ksla.com/2026/02/24/ksla-gets-one-on-one-interview-aws-director-economic-development-massive-data-center-project-announced/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-engagement-witt-codes-2025",
+   "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-engagement-witt-execute-2025",
+   "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-infrastructure-mason-lines-2025",
+   "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "prologis-coweta-infrastructure-mason-lines-2025",
+   "url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
+   "role": "resource",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-blakely-ga-ratepayer-pledge",
+   "url": "https://q.com/data-centers/blakely/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "claims",
+   "list": "claims",
+   "id": "qts-van-wert-oh-ratepayer-pledge",
+   "url": "https://q.com/data-centers/van-wert/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "qts-fayetteville-ga",
+   "url": "https://thecitizen.com/?p=246504",
+   "role": "resource",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "amazon-montgomery-city-mo",
+   "url": "https://www.stlpr.org/economy-business/2025-12-19/montgomery-county-commission-approves-amazon-data-center-tax-incentive-framework",
+   "role": "resource",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "meta-prineville-or",
+   "url": "https://datacenters.atmeta.com/2021/03/facebooks-prineville-data-center-is-growing-again/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "meta-newton-ga",
+   "url": "https://www.wsbtv.com/news/local/north-georgia-neighbors-say-data-center-responsible-dirty-well-water/YERXGUYXHVAGPIAPQJ6ILVC4BQ/",
+   "role": "resource",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "aws-cumberland-pa",
+   "url": "https://www.aboutamazon.com/news/aws/amazon-pennsylvania-investment-cloud-infrastructure-ai-innovation",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "wonder-valley-box-elder-ut",
+   "url": "https://www.prnewswire.com/news-releases/oleary-digital-forms-joint-venture-to-advance-7-5-gw-wonder-valley-utah-campus-alberta-permitting-underway-302689592.html",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "projects",
+   "list": "projects",
+   "id": "prologis-coweta-ga",
+   "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-qts-fayetteville-path-positive",
+   "url": "https://thecitizen.com/2025/11/15/qts-unveils-new-multi-use-path-as-part-of-expanding-community-partnership-in-fayetteville/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-qts-fayetteville-water-controversy",
+   "url": "https://thecitizen.com/2026/05/11/behind-fayettes-qts-water-controversy-a-missed-meter-8000-workers-and-a-massive-construction-project/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-prologis-coweta-eminent-domain-2026",
+   "url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  },
+  {
+   "kind": "responses",
+   "list": "responses",
+   "id": "resp-qts-fayetteville-eminent-domain-2026",
+   "url": "https://www.ajc.com/business/2026/05/the-data-center-boom-is-transforming-georgia-some-residents-could-lose-their-land/",
+   "role": "source",
+   "changed_at": "2026-10-20"
+  }
+ ],
+ "unchecked_urls": [],
+ "stale_statuses": [
+  {
+   "kind": "moratoriums",
+   "list": "moratoriums",
+   "id": "cleveland-city-2026-04",
+   "status": "enacted",
+   "url": "https://www.clevelandohio.gov/news/cleveland-city-council-approves-temporary-pause-new-standalone-data-centers",
+   "reason": "enacted; 3-month term ended 2026-10-15"
+  },
+  {
+   "kind": "moratoriums",
+   "list": "moratoriums",
+   "id": "athens-clarke-county-ga-2025-12",
+   "status": "enacted",
+   "url": "https://www.wuga.org/local-news/2025-12-03/acc-commission-pauses-new-data-centers-manager-says-athena-studios-data-center-would-need-rezone",
+   "reason": "enacted; 4-month term ended 2026-04-02"
+  },
+  {
+   "kind": "moratoriums",
+   "list": "moratoriums",
+   "id": "kiowa-county-co-2026-04",
+   "status": "enacted",
+   "url": "https://kiowacountypress.net/content/kiowa-county-resolution-2026-4-data-center-facility-moratorium",
+   "reason": "enacted; 6-month term ended 2026-10-09"
+  }
+ ],
+ "blocked_urls": [
+  "https://alamancenews.com/commissioners-decide-yearlong-pause-will-allow-review-potential-revision-of-ordinances-that-might-apply-to-data-centers/",
+  "https://boisedev.com/news/2026/02/09/bipartisan-bill-would-limit-tax-exemptions-for-data-centers-add-new-requirements-for-water-power-usage/",
+  "https://cercind.gov.in/",
+  "https://corridorbusiness.com/cedar-rapids-council-approves-development-agreement-for-qts-data-center-project/",
+  "https://corridorbusiness.com/qts-data-center-project-will-put-cedar-rapids-on-cutting-edge-leaders-say-after-site-tour/",
+  "https://dailydodge.com/meta-pledges-water-stewardship-surrounding-ai-data-center/",
+  "https://dailyreporter.com/2025/11/07/qts-12b-deforest-data-center-development/",
+  "https://dailyreporter.com/2025/11/18/qts-12b-union-data-center-dane-county/",
+  "https://data.riksdagen.se/dokument/HA01NU11.html",
+  "https://datacenters.atmeta.com/asset/sarpy-data-center-info-sheet/",
+  "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
+  "https://docs.legis.wisconsin.gov/2025/proposals/sb1061",
+  "https://docs.legis.wisconsin.gov/document/acts/2023/19",
+  "https://floridapolitics.com/archives/803697-three-counties-moving-forward-with-one-year-data-center-moratoriums/",
+  "https://governor.ky.gov/attachments/20260806_Executive-Order_2026-494_Related-to-Data-Centers.pdf",
+  "https://idahocapitalsun.com/2026/02/23/data-centers-and-other-new-large-loads-are-driving-sharp-increases-in-idaho-farmers-electric-bills/",
+  "https://idahocapitalsun.com/2026/03/26/bill-intended-to-protect-water-from-data-center-developers-heads-to-idaho-senate/",
+  "https://indianacapitalchronicle.com/2026/02/11/details-on-long-expected-meta-data-center-campus-unveiled/",
+  "https://insideclimatenews.org/news/04032026/google-attempts-to-annex-iowa-county-land-for-data-center/",
+  "https://insideclimatenews.org/news/09042026/georgia-legislature-data-center-bills-fail/",
+  "https://insideclimatenews.org/news/15102025/pennsylvania-communities-restrict-data-center-development/",
+  "https://insideclimatenews.org/news/24092026/el-paso-electric-only-considered-gas-to-power-meta-data-center/",
+  "https://investors.coreweave.com/news/news-details/2025/CoreWeave-Announces-Multi-Billion-Dollar-Commitment-to-AI-Infrastructure-in-Pennsylvania/default.aspx",
+  "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon",
+  "https://kentuckylantern.com/2026/08/06/beshear-to-issue-executive-order-to-protect-against-harmful-impacts-of-data-centers/",
+  "https://lailluminator.com/2025/08/20/entergy-meta/",
+  "https://lailluminator.com/2026/05/07/data-center-2/",
+  "https://lailluminator.com/2026/06/26/landry-order-data-power/",
+  "https://legiscan.com/SD/bill/SB135/2026",
+  "https://lis.virginia.gov/bill-details/20261/HB1515",
+  "https://lis.virginia.gov/bill-details/20261/HB496",
+  "https://mediajustice.org/wp-content/uploads/2025/12/Stargate-Project-SW-Fact-Sheet-FINAL.pdf",
+  "https://michiganadvance.com/2026/03/17/google-and-dte-announce-van-buren-township-data-center-agreement-commit-to-contested-case-hearing/",
+  "https://michiganadvance.com/2026/08/27/garfield-township-puts-a-1-year-ban-on-data-centers-cryptocurrency-mining/",
+  "https://michigancityin.gov/google-gift/",
+  "https://mississippitoday.org/2026/03/10/xai-permit-approved-southaven/",
+  "https://mississippitoday.org/2026/03/17/data-center-clinton-limited-details/",
+  "https://mississippitoday.org/2026/04/15/data-center-turbines-southaven/",
+  "https://missouriindependent.com/2026/05/22/google-data-center-plan-raises-tax-transparency-questions-in-rural-missouri/",
+  "https://nevadacurrent.com/briefs/henderson-city-council-reject-data-center-moratorium/",
+  "https://newhampshirebulletin.com/2026/05/15/house-sets-by-right-data-center-zoning-bill-aside-in-decisive-vote/",
+  "https://oksenate.gov/press-releases/senator-sacchieri-files-legislation-address-unknown-impacts-data-centers-oklahoma",
+  "https://openai.com/index/announcing-the-stargate-project/",
+  "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/",
+  "https://openai.com/index/five-new-stargate-sites/",
+  "https://openai.com/index/stargate-community/",
+  "https://openai.com/index/stargate-michigan-data-center/",
+  "https://openai.com/index/stargate-sb-energy-partnership/",
+  "https://oregoncapitalchronicle.com/2026/03/31/amazon-to-pay-20-5-million-settlement-over-northeast-oregon-nitrate-pollution/",
+  "https://pascogov.com/",
+  "https://penncapital-star.com/economy/pa-house-passes-data-center-pause-along-with-shapiros-plan-for-responsible-development/",
+  "https://planetdetroit.org/2025/12/saline-data-center-settlement-challenge/",
+  "https://planetdetroit.org/2026/02/judge-denies-data-center-intervention/",
+  "https://planetdetroit.org/2026/03/google-dte-data-center-van-buren/",
+  "https://planetdetroit.org/2026/10/dte-google-data-center-contract-approval/",
+  "https://puc-onbase.nv.gov/api/Document/ARrx3UYA2T5D2XB4nMl3Lhwxkd8ZTJQKmy7pasDHn5sozihQfZc%C3%815gWng0Cp3RGdUHRgpYSpUldr8AQGTASmfoU%3D/",
+  "https://puc-onbase.nv.gov/api/Document/AZiVT6xWJfVUYu4f8QdFE%C3%89tjb1l5fEH6PYmtSFTpD%C3%816hmWZcKd1nvXGL2uyVctCuOtDiQpaLaVJ88TWvxWWREK4%3D/",
+  "https://puc-onbase.nv.gov/api/Document/AckzzzMp%C3%8123fDLAE0kmsnAEO%C3%89fAhCMjq0AtJbUUW3HNUBxPFerGSDgKdb01cE%C3%81h%C3%89Cco248s%C3%897sEJyOEG5R8uJyA%3D/",
+  "https://raleighnc.gov/government/news/city-council-hold-public-hearing-temporary-moratorium-data-center-approvals",
+  "https://re-nj.com/coreweave-begins-1-8-billion-data-center-project-in-kenilworth-landing-first-award-under-new-eda-tax-credit-program/",
+  "https://sdlegislature.gov/Session/Bill/27269/301228",
+  "https://sourcenm.com/2026/04/27/nm-project-jupiter-data-center-developers-announce-new-plans-for-generating-power/",
+  "https://southdakotasearchlight.com/briefs/data-center-restrictions-signed-into-south-dakota-law-after-push-for-incentives-failed/",
+  "https://thecoastnews.com/escondido-temporarily-bans-new-ai-data-centers/",
+  "https://thedailyrecord.com/2026/06/15/maryland-energy-law-data-centers-grid-upgrades/",
+  "https://thedailyrecord.com/2026/07/01/washington-county-approves-yearlong-data-center-moratorium/",
+  "https://utahnewsdispatch.com/2026/04/17/eagle-mountain-193-acre-data-center-campus-is-set-to-be-done-this-year-with-big-water-promises/",
+  "https://utahnewsdispatch.com/2026/05/04/box-elder-commissioners-approve-data-center/",
+  "https://virginiabusiness.com/google-announces-chesterfield-data-center-as-part-of-9b-investment/",
+  "https://wisconsinexaminer.com/2026/01/21/assembly-passes-gop-bill-to-regulate-data-centers-in-wisconsin/",
+  "https://wisconsinexaminer.com/2026/02/12/democratic-lawmakers-propose-data-center-moratorium/",
+  "https://wisconsinexaminer.com/2026/05/07/public-service-commission-criticizes-meta-lack-of-transparency-while-approving-contract-with-utility/",
+  "https://wtmj.com/news/2026/04/09/hyperscale-ai-data-centers-are-uncharted-waters-for-wisconsin/",
+  "https://www.10tv.com/article/news/local/microsoft-data-center-construction-update-hebron-licking-county-ohio/530-b589156b-b647-48c9-9b56-781737ea66b6",
+  "https://www.akingump.com/en/insights/alerts/texas-pauses-data-center-interconnections-pending-statewide-audit",
+  "https://www.assemblydems.com/m/newsflash/Home/Detail/13131",
+  "https://www.axios.com/2026/03/11/openai-building-trades-union-data-centers",
+  "https://www.axios.com/local/indianapolis/2026/08/19/indy-data-center-moratorium-gets-unanimous-approval",
+  "https://www.axios.com/local/kansas-city/2026/02/12/google-project-mica-data-center-northland",
+  "https://www.axios.com/local/raleigh/2026/07/20/duke-energy-and-state-reach-agreement-on-lower-rate-increase-request",
+  "https://www.azwater.gov/phoenix-ama-groundwater-supply-updates",
+  "https://www.bdlaw.com/publications/ferc-orders-pjm-to-create-clear-rules-for-co-located-data-centers-and-large-loads/",
+  "https://www.bigcountryhomepage.com/news/ai-boom-hits-abilene-as-new-website-raises-housing-growth-concerns/",
+  "https://www.blackstone.com/news/press/related-digital-announces-financing-for-16-billion-oracle-data-center-project-in-saline-township-michigan/",
+  "https://www.bloomberg.com/news/articles/2026-05-06/microsoft-clean-power-target-on-chopping-block-over-data-center-boom",
+  "https://www.bocc.citrus.fl.us/",
+  "https://www.capitol.hawaii.gov/",
+  "https://www.cavecityky.gov/",
+  "https://www.claycountygov.com/",
+  "https://www.dailyherald.com/20260902/news/data-center-moratorium-set-to-advance-in-lake-county/",
+  "https://www.datacenterdynamics.com/en/news/amazon-breaks-ground-on-10bn-data-center-complex-in-richmond-county-north-carolina/",
+  "https://www.datacenterdynamics.com/en/news/amazon-plans-nine-building-data-center-campus-in-wheatfield-indiana/",
+  "https://www.datacenterdynamics.com/en/news/amazon-requests-permit-for-11-building-data-center-campus-in-caroline-county-virginia/",
+  "https://www.datacenterdynamics.com/en/news/anthropic-to-use-all-of-spacex-xais-colossus-1-data-center-compute/",
+  "https://www.datacenterdynamics.com/en/news/aws-data-center-project-tabled-in-wilmington-ohio/",
+  "https://www.datacenterdynamics.com/en/news/aws-files-for-12bn-data-center-campus-outside-houston-texas/",
+  "https://www.datacenterdynamics.com/en/news/aws-looks-to-build-800000-sq-ft-data-center-campus-at-gwu-site-in-ashburn-virginia/",
+  "https://www.datacenterdynamics.com/en/news/crusoe-files-for-two-more-data-centers-at-goodnight-campus-in-armstrong-county-texas/",
+  "https://www.datacenterdynamics.com/en/news/crusoe-partners-with-aalo-on-nuclear-powered-ai-data-center-deployment-at-idaho-national-lab/",
+  "https://www.datacenterdynamics.com/en/news/decision-on-qts-planned-expansion-of-data-center-in-east-windsor-new-jersey-postponed/",
+  "https://www.datacenterdynamics.com/en/news/ferc-upholds-rejection-of-proposed-interconnection-agreement-between-aws-data-center-and-pennsylvania-nuclear-plant/",
+  "https://www.datacenterdynamics.com/en/news/georgia-senate-passes-bill-to-suspend-data-center-tax-exemptions/",
+  "https://www.datacenterdynamics.com/en/news/google-behind-1bn-data-center-in-little-rock-arkansas-report/",
+  "https://www.datacenterdynamics.com/en/news/google-confirmed-as-company-behind-500000-sq-ft-data-center-in-scioto-county-ohio/",
+  "https://www.datacenterdynamics.com/en/news/google-confirmed-as-company-behind-500m-data-center-in-lima-ohio/",
+  "https://www.datacenterdynamics.com/en/news/google-confirms-it-is-behind-403-acre-data-center-campus-in-hermantown-minnesota/",
+  "https://www.datacenterdynamics.com/en/news/google-gets-greenlight-for-data-center-in-tulsa-oklahoma/",
+  "https://www.datacenterdynamics.com/en/news/google-looks-to-build-up-to-six-data-centers-near-nuclear-power-site-in-linn-county-iowa/",
+  "https://www.datacenterdynamics.com/en/news/google-spacex-gpu-lease",
+  "https://www.datacenterdynamics.com/en/news/google-takes-over-project-maize-data-center-campus-in-michigan-city-indiana/",
+  "https://www.datacenterdynamics.com/en/news/meta-partners-with-cbre-to-train-data-center-technicians-in-the-us-for-free/",
+  "https://www.datacenterdynamics.com/en/news/microsoft-backs-away-from-1bn-data-center-plans-in-licking-county-ohio/",
+  "https://www.datacenterdynamics.com/en/news/microsoft-ceo-says-fairwater-data-center-site-is-going-live-ahead-of-schedule/",
+  "https://www.datacenterdynamics.com/en/news/microsoft-expands-plans-for-la-porte-indiana-data-center-campus/",
+  "https://www.datacenterdynamics.com/en/news/microsoft-plans-400m-data-center-in-castroville-texas/",
+  "https://www.datacenterdynamics.com/en/news/microsoft-proposes-ratepayer-protection-tariff-in-nevada/",
+  "https://www.datacenterdynamics.com/en/news/more-than-60-data-center-related-bills-to-be-considered-by-virginias-legislature-this-year/",
+  "https://www.datacenterdynamics.com/en/news/musk-confirms-fourth-spacexai-data-center-in-memphis-company-starts-removing-illegal-gas-turbines/",
+  "https://www.datacenterdynamics.com/en/news/musks-xai-gets-go-ahead-for-41-natural-gas-turbines-in-mississippi-to-power-colossus-data-centers/",
+  "https://www.datacenterdynamics.com/en/news/openai-and-oracle-to-deploy-450000-gb200-gpus-at-stargate-abilene-data-center/",
+  "https://www.datacenterdynamics.com/en/news/openai-stargates-milam-texas-freebird-data-center-to-span-548950-sq-ft-in-first-phase/",
+  "https://www.datacenterdynamics.com/en/news/qts-acquires-1700-acres-of-land-in-pennsylvania-for-data-center-development/",
+  "https://www.datacenterdynamics.com/en/news/qts-behind-van-wert-ohio-mega-site-acquisition-announces-10-billion-data-center-campus/",
+  "https://www.datacenterdynamics.com/en/news/qts-files-to-expand-fayetteville-data-center-campus-in-georgia/",
+  "https://www.datacenterdynamics.com/en/news/qts-files-to-expand-upcoming-data-center-campus-in-dallas-texas/",
+  "https://www.datacenterdynamics.com/en/news/qts-targets-two-data-center-campuses-in-georgia/",
+  "https://www.datacenterdynamics.com/en/news/related-digital-closes-in-on-16bn-financing-for-oracle-data-center-in-michigan-report/",
+  "https://www.datacenterdynamics.com/en/news/xai-confirms-new-data-center-in-mississippi-elon-musk-pledges-20bn-investment-in-state/",
+  "https://www.datacenterdynamics.com/en/news/xai-facing-lawsuit-over-use-of-gas-turbines-at-memphis-supercomputer/",
+  "https://www.dec.ny.gov/energy/data-center-impact-study",
+  "https://www.dougherty.ga.us/Government/News/Dougherty-County-Approves-45-Day-Moratorium-on-Data-Center-Apps",
+  "https://www.entergy.com/news/entergy-louisiana-receives-lpsc-approval-for-major-infrastructure-investments-to-support-metas-data-center-and-improve-reliability",
+  "https://www.fayetteville-ga.gov/746/Data-Center-Discussion",
+  "https://www.ferc.gov/news-events/news/ferc-act-large-load-interconnection-docket-june-2026",
+  "https://www.ferc.gov/news-events/news/ferc-directs-nations-largest-grid-operator-create-new-rules-embrace-innovation-and",
+  "https://www.ferc.gov/rm26-4",
+  "https://www.fortworthtexas.gov/departments/city-manager/datacenters",
+  "https://www.geekwire.com/2026/report-amazon-buys-1300-acres-near-columbia-river-that-could-become-a-giant-data-center/",
+  "https://www.geekwire.com/2026/washington-states-data-center-regulation-bill-stalls-following-pushback-from-tech-industry/",
+  "https://www.gongwer-oh.com/public/Crusoe_Energy_Systems_LLC_Scope.pdf",
+  "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
+  "https://www.governor.ny.gov/executiveorders",
+  "https://www.hendersonnv.gov/",
+  "https://www.kcentv.com/article/news/local/stargate-ai-data-center-coming-milam-county/500-282d4a0a-1e79-4adc-ae6b-0dd858d4ab50",
+  "https://www.keranews.org/news/2026-08-12/data-center-moratorium-takes-first-steps-after-fort-worth-city-councils-unanimous-vote",
+  "https://www.krmg.com/2026/03/30/company-behind-project-anthem-data-center-withdraws-phase-2-rezoning-request/",
+  "https://www.lakecountyfl.gov/",
+  "https://www.larimer.gov/planning/temp-moratorium-data-centers",
+  "https://www.laurenscountyadvertiser.net/2026/07/15/county-imposes-year-long-moratorium-on-data-center-projects/",
+  "https://www.leesburgva.gov/",
+  "https://www.legis.ga.gov/",
+  "https://www.limaohio.com/top-stories/2026/03/07/opponents-organize-to-fight-data-centers-permit/",
+  "https://www.limaohio.com/top-stories/2026/04/06/google-introduces-itself-to-allen-county/",
+  "https://www.linncountyiowa.gov/ArchiveCenter/ViewFile/Item/455",
+  "https://www.linncountyiowa.gov/m/newsflash/Home/Detail/4345",
+  "https://www.macombcountymi.gov/",
+  "https://www.mcguirewoods.com/client-resources/alerts/2025/4/loudoun-county-eliminates-by-right-use-for-data-centers-increasing-development-hurdles/",
+  "https://www.msn.com/en-us/news/other/kenilworth-data-center-land-split-approved-despite-public-concerns/gm-GM10CB25DC",
+  "https://www.myfoxzone.com/article/news/local/crusoes-70m-data-center-to-boost-nolan-county-economy-faces-water-use-restrictions/504-acdf75c9-c541-4188-988d-2412ed81d32a",
+  "https://www.mypanhandle.com/news/local-news/jackson-county/jackson-county-implements-a-full-ban-on-data-centers/",
+  "https://www.nbcpalmsprings.com/2026/07/16/indio-city-council-extends-data-center-moratorium-with-planning-commission-already-recommending-a-full-ban",
+  "https://www.nevadaappeal.com/news/2026/jul/14/carson-city-legal-63311/",
+  "https://www.nrdc.org/",
+  "https://www.nysenate.gov/legislation/bills/2025/A11560",
+  "https://www.nysenate.gov/legislation/bills/2025/S10642",
+  "https://www.nytimes.com/2025/07/14/technology/meta-data-center-water.html",
+  "https://www.oneidacountywi.gov/wp-content/uploads/meetings/7.8.26-NPH-Dilley-Waterhouse-Jones-OA-02-2026.pdf",
+  "https://www.orangetown.com/establishing-a-temporary-moratorium-on-data-centers/",
+  "https://www.pca.state.mn.us/",
+  "https://www.power-eng.com/nuclear/exelon-and-aep-protest-interconnection-agreement-for-amazon-data-center-at-susquehanna-nuclear-plant/",
+  "https://www.prologis.com/insights-news/blog/prologis-announces-responsible-data-center-development-commitments",
+  "https://www.psc.state.fl.us/",
+  "https://www.puc.pa.gov/press-release/2026/puc-acts-to-protect-ratepayers-guide-data-center-growth-with-new-large-load-tariff-framework-4-30-26",
+  "https://www.puc.pa.gov/press-release/2026/puc-issues-decision-in-ppl-electric-rate-proceeding-06042026",
+  "https://www.puc.pa.gov/press-release/2026/puc-moves-to-address-data-center-impacts-on-electric-reliability-and-consumer-costs-09102026",
+  "https://www.puc.pa.gov/press-release/2026/puc-releases-final-order-establishing-first-of-its-kind-large-load-model-tariff-framework-05132026",
+  "https://www.reviewjournal.com/local/henderson/henderson-city-council-introduces-moratorium-on-new-data-centers-3839299/",
+  "https://www.reviewjournal.com/news/environment/google-runs-southern-nevadas-thirstiest-data-center-unlv-students-have-a-solution-3591015/",
+  "https://www.salestaxinstitute.com/resources/arkansas-data-center-tax-exemption-expansion-2025",
+  "https://www.scdhec.gov/",
+  "https://www.scstatehouse.gov/",
+  "https://www.scstatehouse.gov/sess126_2025-2026/bills/3309.htm",
+  "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
+  "https://www.scstatehouse.gov/sess126_2025-2026/bills/5526.htm",
+  "https://www.sierraclub.org/new-york/news/2026/06-data-center-moratorium",
+  "https://www.sierraclub.org/press-releases/2025/12/sierra-club-reacts-georgia-s-utility-regulator-rushes-deal-georgia-power",
+  "https://www.sierraclub.org/press-releases/2026/05/stratos-data-center-approval-threatens-great-salt-lake-basin",
+  "https://www.sierraclub.org/press-releases/2026/08/delaware-governor-signs-first-its-kind-bill-power-data-centers-clean-energy",
+  "https://www.sierraclub.org/sierra/rural-louisiana-meta-s-new-data-center-promises-growth-what-cost",
+  "https://www.spartanburgcounty.org/",
+  "https://www.tapinto.net/towns/east-windsor-hightstown/sections/government/articles/a-packed-planning-board-hearing-debated-the-future-of-an-east-windsor-data-center-expansion",
+  "https://www.tapinto.net/towns/east-windsor-hightstown/sections/government/articles/new-qts-data-center-receives-green-light-from-east-windsor-planning-board",
+  "https://www.vpm.org/news/2025-06-16/sierra-club-virginia-chapter-data-center-report-ann-bennett-tyler-ray",
+  "https://www.wabe.org/dekalb-county-commission-extends-data-center-moratorium/",
+  "https://www.wcia.com/coles-county/1-year-data-center-moratorium-unanimously-approved-by-mattoon-city-council/",
+  "https://www.wcnc.com/article/tech/science/environment/data-center-concerns-york-county-sc-2-11-2026/275-1d5a7101-2b38-43fe-b5ef-9032464e5f8b",
+  "https://www.wdrb.com/news/new-albany-plan-commission-advances-data-center-moratorium-to-city-council/article_b4b07b07-2dbb-40fe-b4aa-549640952ac8.html",
+  "https://www.wfla.com/news/local-news/citrus-county/citrus-county-puts-moratorium-on-ai-data-centers/",
+  "https://www.wfla.com/news/local-news/hernando-county/hernando-county-moves-forward-with-proposed-data-center-moratorium-after-resident-concerns/",
+  "https://www.whas11.com/article/news/local/mayor-jeff-gahan-moratorium-ordinance-new-data-center-development-new-albany-indiana/417-a66ead0d-832f-4188-aab0-4d16d93baedb",
+  "https://www.wispolitics.com/2026/wisconsin-conservation-voters-ab-840-would-shift-data-center-energy-costs-to-wisconsin-residents/",
+  "https://www.wnep.com/article/news/local/luzerne-county/massive-data-center-buyouts-leave-some-homeowners-worried-about-the-future/523-be21b6d1-dc98-4068-acc6-ba9b3418f97f",
+  "https://www.wnewsj.com/2025/11/19/wilmington-school-board-approves-compensation-agreement-for-potential-amazon-data-center/",
+  "https://www.wric.com/news/local-news/chesterfield-county/google-advancing-project-peanut/",
+  "https://www.wric.com/news/local-news/chesterfield-county/resident-concerns-google-data-center-plan/",
+  "https://www.wsav.com/news/local-news/colleton-county-delegation-resolved-to-stop-data-center-construction/",
+  "https://www.wthr.com/article/news/local/constructions-begins-10-billion-dollar-meta-data-center-campus-leap-district-lebanon-boone-county/531-c85df967-1125-4606-b7cd-2323e7efc019",
+  "https://www.wthr.com/article/news/local/indianapolis-data-center-moratorium-takes-effect-passage-metropolitan-development-commission/531-1517b382-2202-40bb-8fa5-6b1947a6bf4d",
+  "https://x.ai/blog/colossus",
+  "https://x.ai/colossus",
+  "https://x.ai/memphis/our-commitment"
+ ],
+ "urls_checked": 2265,
+ "rows_total": 2291
+}

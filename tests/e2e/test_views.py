@@ -56,6 +56,15 @@ window.html2pdf = function () {
 # ---------------------------------------------------------------------------
 
 
+
+# A project with at least one delivered-assessed claim, derived from the seed
+# so removing one claim can't silently break the delivered-panel tests.
+DELIVERED_PROJECT = next(
+    c["project_id"]
+    for c in json.loads((Path(__file__).resolve().parents[2] / "data" / "seed" / "claims.json").read_text())["claims"]
+    if c.get("delivered") and c.get("project_id")
+)
+
 class TestComparisonView:
     def test_page_loads_with_meta(self, page: Page, base_url: str):
         page.goto(base_url + "/")
@@ -946,9 +955,9 @@ class TestDeliveredAssessmentRendering:
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
-        # xai-memphis-tn has the xai-memphis-tn-water-recycling-80m claim
+        # A project with a delivered-assessed claim, derived from the seed.
         # which carries a "contested" Delivered assessment.
-        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.evaluate(f"window.__dcb.selectProject('{DELIVERED_PROJECT}')")
         page.locator("#dtab-claims").click()
         page.wait_for_selector("#d-claims .claim-card", state="attached", timeout=5_000)
         # At least one card has a delivered panel.
@@ -959,7 +968,7 @@ class TestDeliveredAssessmentRendering:
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
-        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.evaluate(f"window.__dcb.selectProject('{DELIVERED_PROJECT}')")
         page.locator("#dtab-claims").click()
         page.wait_for_selector("#d-claims .claim-delivered", state="attached", timeout=5_000)
         panel = page.locator("#d-claims .claim-delivered").first
@@ -972,7 +981,7 @@ class TestDeliveredAssessmentRendering:
         page.goto(base_url + "/")
         page.locator("#tab-explorer").click()
         page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
-        page.evaluate("window.__dcb.selectProject('xai-memphis-tn')")
+        page.evaluate(f"window.__dcb.selectProject('{DELIVERED_PROJECT}')")
         page.locator("#dtab-claims").click()
         page.wait_for_selector("#d-claims .claim-delivered", state="attached", timeout=5_000)
         panel = page.locator("#d-claims .claim-delivered").first
@@ -4124,3 +4133,85 @@ class TestMoratoriumPdfExport:
         page.locator("#moratoriums-pdf-btn").click()
         page.wait_for_timeout(1500)
         assert not errors, errors
+
+
+class TestPr86ReviewFixes:
+    """Review of PR #86: lifted moratoriums, firstSentence, a11y, world index."""
+
+    @staticmethod
+    def _morats() -> list[dict]:
+        return json.loads((ROOT / "docs/data/moratoriums.json").read_text())["moratoriums"]
+
+    def test_lifted_moratorium_is_not_counted_as_enacted(self, page: Page, base_url: str):
+        morats = self._morats()
+        lifted = [m for m in morats if m.get("lifted_date")]
+        assert lifted, "seed has no lifted moratorium; the test would prove nothing"
+        want = sum(1 for m in morats if m["status"] == "enacted" and not m.get("lifted_date"))
+        assert want < sum(1 for m in morats if m["status"] == "enacted")
+        page.goto(base_url + "/#moratoriums")
+        page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
+        tile = page.locator("#moratorium-stats .rp-stat", has_text="Enacted").locator(".rp-stat-value")
+        assert int(tile.inner_text()) == want
+        # Status filter: Enacted excludes them, Lifted shows exactly them.
+        page.select_option("#moratorium-status-filter", "enacted")
+        ids = set(page.locator("#moratoriums-tbody tr[data-id]").evaluate_all("e => e.map(r => r.dataset.id)"))
+        assert not ids & {m["id"] for m in lifted}
+        page.select_option("#moratorium-status-filter", "lifted")
+        ids = set(page.locator("#moratoriums-tbody tr[data-id]").evaluate_all("e => e.map(r => r.dataset.id)"))
+        assert ids == {m["id"] for m in lifted}
+        row = page.locator("#moratoriums-tbody tr[data-id]").first
+        assert "moratorium-status-lifted" in row.get_attribute("class")
+        assert row.locator(".badge-moratorium-status-lifted").count() == 1
+        assert row.locator(".badge-moratorium-status-enacted").count() == 0
+        row.click()
+        expect(page.locator("#md-status-detail")).to_have_text("lifted")
+
+    def test_lifted_csv_status(self, page: Page, base_url: str):
+        page.goto(base_url + "/#moratoriums")
+        page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
+        mid = next(m["id"] for m in self._morats() if m.get("lifted_date"))
+        out = page.evaluate(
+            "id => { const m = state.moratoriums.find(x => x.id === id); return effectiveStatus(m); }", mid
+        )
+        assert out == "lifted"
+
+    def test_first_sentence_handles_accented_names(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        got = page.evaluate("firstSentence('Operator is Pampa Energía. Second sentence here.')")
+        assert got == "Operator is Pampa Energía."
+        # Abbreviations and initials still don't split.
+        assert page.evaluate("firstSentence('Run by St. Mary Co. in Texas. More.')").endswith("Texas.")
+
+    def test_theme_button_label_contains_visible_text(self, page: Page, base_url: str):
+        page.goto(base_url + "/")
+        btn = page.locator("#theme-toggle")
+        assert btn.inner_text().strip().lower() in btn.get_attribute("aria-label").lower()
+
+    def test_world_jump_entries_are_links_and_counts_agree(self, page: Page, base_url: str):
+        page.goto(base_url + "/#world")
+        page.wait_for_selector("#world-country-jump a", timeout=E2E_WAIT)
+        links = page.locator("#world-country-jump a")
+        assert links.count() == page.locator("#world-country-list .world-card").count()
+        assert links.first.get_attribute("href").startswith("#country/")
+        assert page.locator("#world-country-jump button").count() == 0
+        tile = page.locator("#world-stats .rp-stat", has_text="Countries").locator(".rp-stat-value").inner_text()
+        pill = page.locator("#world-countries-count").inner_text().strip()
+        assert tile == pill
+        code = links.first.get_attribute("href").split("/")[1]
+        links.first.click()
+        expect(page).to_have_url(re.compile(rf"#country/{code}$"))
+
+    def test_federal_and_site_card_identity_colours_survive(self, page: Page, base_url: str):
+        page.goto(base_url + "/#explorer")
+        page.wait_for_selector(".project-card", timeout=E2E_WAIT)
+        w = page.evaluate(
+            "getComputedStyle(document.querySelector('.project-card')).borderLeftWidth"
+        )
+        assert w == "3px"
+        fed = page.evaluate(
+            """() => { const e = document.createElement('span'); e.className = 'rc-state rc-state--fed';
+            document.body.append(e); const c = getComputedStyle(e).color;
+            const f = getComputedStyle(document.documentElement).getPropertyValue('--tariff-federal').trim();
+            e.remove(); return [c, f]; }"""
+        )
+        assert fed[0] != "rgb(41, 51, 64)", fed

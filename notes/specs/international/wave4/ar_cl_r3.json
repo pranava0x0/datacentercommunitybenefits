@@ -1,0 +1,540 @@
+{
+  "round": 3,
+  "generated_at": "2026-10-19",
+  "budget_note": "About 13 searches and about 25 page reads (probe.py fetch via a scratch helper), within the owner's ~45-fetch budget; WebFetch not used because it returns summaries and probe needs page text. Argentina: 7 records. Chile: 8 records. Each verbatim is gated by probe --evidence (see the evidence JSONL in scratchpad).",
+  "sources": [
+    {
+      "country": "AR",
+      "url": "https://chequeado.com/el-explicador/stargate-argentina-a-un-ano-del-anuncio-no-hay-avances-en-la-construccion-del-data-center-de-us-25-000-millones-para-openai/",
+      "title": "Chequeado, A un año del anuncio de OpenAI y el Gobierno (15 Oct 2026)",
+      "verified": true,
+      "kind": "journalist (status)"
+    },
+    {
+      "country": "AR",
+      "url": "https://chequeado.com/nota/mega-data-center-en-chubut-anuncio-millonario-y-falta-de-informacion-sobre-el-consumo-de-agua-y-el-impacto-ambiental/",
+      "title": "Chequeado, Mega data center en Chubut (17 Oct 2026)",
+      "verified": true,
+      "kind": "journalist (project)"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.adnsur.com.ar/pulso-energetico/con-la-energia-de-vaca-muerta--pampa-energia-propone-montar-un-data-center-de-ia-en-neuquen_a6ac399e40294df27f764d600",
+      "title": "ADNSUR, Pampa Energía propone data center en Neuquén (5 Oct 2026)",
+      "verified": true,
+      "kind": "news with named-executive quote"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.letrap.com.ar/letrae/economia-digital/stargate-cumple-un-ano-el-megaanuncio-javier-milei-y-sam-altman-todavia-no-camina-n5427211",
+      "title": "Letra P, Stargate cumple un año (quotes Infobae interview)",
+      "verified": true,
+      "kind": "news with named-executive quote (undated)"
+    },
+    {
+      "country": "AR",
+      "url": "https://www.eldiarioar.com/politica/gobierno-acepto-cambios-super-rigi-lograr-apoyo-bloques-aliados-senado_1_13482555.html",
+      "title": "elDiarioAR (NA), Súper RIGI Senate changes (2 Sep 2026)",
+      "verified": true,
+      "kind": "news (wire)"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.latercera.com/pulso/noticia/lader-energy-presenta-su-primer-proyecto-de-data-center-en-pudahuel-por-us-25-millones-y-pretende-operar-el-2028/",
+      "title": "La Tercera, Lader Energy Pudahuel (28 Sep 2026)",
+      "verified": true,
+      "kind": "news with named-executive quote and filing quote"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.elclarin.cl/2026/09/30/data-centers-chile-impacto-ambiental-inteligencia-artificial/",
+      "title": "El Clarín, Data centers en Chile (30 Sep 2026)",
+      "verified": true,
+      "kind": "news"
+    },
+    {
+      "country": "CL",
+      "url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+      "title": "BioBioChile, SEA resuelve Cerrillos (19 Oct 2026)",
+      "verified": true,
+      "kind": "news (regulator decision)"
+    },
+    {
+      "country": "CL",
+      "url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
+      "title": "Radio Universidad de Chile, Quilicura water (4 Mar 2026)",
+      "verified": true,
+      "kind": "news"
+    },
+    {
+      "country": "CL",
+      "url": "https://olca.cl/articulo/nota.php?id=109297",
+      "title": "OLCA, Vecinos de Quilicura alertan (18 Mar 2022, citing El Desconcierto)",
+      "verified": true,
+      "kind": "NGO observatory (secondary)"
+    }
+  ],
+  "companies": [
+    {
+      "name": "Pampa Energía",
+      "country": "AR",
+      "hq": "Argentina (Buenos Aires per its public profile; not stated in the fetched text)",
+      "website": "https://www.pampaenergia.com/",
+      "basis": "Chairman's public offer of 800 MW for a Vaca Muerta data centre (r3-AR-1). Power generator, not a data-centre developer; no site has been named.",
+      "international_only": false
+    },
+    {
+      "name": "Green Capital",
+      "country": "AR",
+      "hq": "Not verified (Chequeado describes Polish capital)",
+      "website": null,
+      "basis": "Announced Atlas GigaHub, Trelew, US$3.3 billion, up to 3,000 MW IT (r3-AR-6). No first-party release fetched.",
+      "international_only": true
+    },
+    {
+      "name": "Lader Energy",
+      "country": "CL",
+      "hq": "Chile (Santiago per the Pudahuel site; HQ address not verified)",
+      "website": null,
+      "basis": "Co-founder quoted on the Lo Aguirre, Pudahuel data-centre campus (r3-CL-1, r3-CL-2). The filing is an SEIA consulta de pertinencia.",
+      "international_only": true
+    }
+  ],
+  "records": [
+    {
+      "id": "r3-AR-1",
+      "country": "AR",
+      "kind": "claim",
+      "company": "Pampa Energía (untracked; company candidate)",
+      "project": "Pampa Energía Vaca Muerta power offer (no site named)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "speaker": "Marcelo Mindlin, chairman of Pampa Energía (named executive, Argentina Week Paris)",
+        "event_date": "2026-10-02",
+        "published_at": "2026-10-05",
+        "theme_hint": "energy",
+        "capacity_stated": "800 MW of generation available (company wording); 780 MW matches Loma La Lata thermal plant per the article",
+        "status": "offer, no construction commitment",
+        "source_title": "ADNSUR (econojournal and others carried the same remarks)"
+      },
+      "verbatim": "En Pampa Energía ya contamos con 800 MW de generación eléctrica disponibles para un centro de datos en Vaca Muerta.",
+      "translation": {
+        "text": "At Pampa Energía we already have 800 MW of electricity generation available for a data center in Vaca Muerta.",
+        "by": "machine"
+      },
+      "source_url": "https://www.adnsur.com.ar/pulso-energetico/con-la-energia-de-vaca-muerta--pampa-energia-propone-montar-un-data-center-de-ia-en-neuquen_a6ac399e40294df27f764d600",
+      "notes": "First-party: named chairman, direct quote. The article says the 780 MW Loma La Lata thermal plant matches the figure, but Pampa did not say which plant would supply it. Pampa's own page (pampaenergia.com) was fetched but carries no release on this. A GlobalPorts summary (not fetched) says no new generation would be built and that the first modules would be 20-40 MW; treat as unverified. Company candidate: Pampa Energía (Argentine power generator and gas producer; HQ city not stated in the fetched text)."
+    },
+    {
+      "id": "r3-AR-2",
+      "country": "AR",
+      "kind": "context",
+      "company": "Sur Energy / OpenAI (Stargate Argentina)",
+      "project": "Stargate Argentina (LOI, site not named)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-10-15",
+        "published_at": "2026-10-15",
+        "theme_hint": null,
+        "status": "letter of intent; no RIGI filing",
+        "source_title": "Chequeado, A un año del anuncio de OpenAI y el Gobierno, no hay avances (15 Oct 2026)"
+      },
+      "verbatim": "A un año del anuncio, no se registraron avances ni inversiones concretas y tampoco se presentó formalmente la adhesión del proyecto al RIGI.",
+      "translation": {
+        "text": "A year after the announcement, no progress or concrete investment has been recorded, and the project has not formally applied to join the RIGI.",
+        "by": "machine"
+      },
+      "source_url": "https://chequeado.com/el-explicador/stargate-argentina-a-un-ano-del-anuncio-no-hay-avances-en-la-construccion-del-data-center-de-us-25-000-millones-para-openai/",
+      "notes": "Journalist status check, not a company statement. Also on the page (quoted): the Ministry of Economy said there had been 'ningún movimiento' on a possible RIGI filing, and Sur Energy's newsroom's last item is dated 10 Oct 2025 (Chequeado text; Sur Energy did not reply). Chequeado describes the project as eligible for the Super RIGI, which is still in the Senate. Use as the status line for ar-stargate-argentina; do not treat as a community response."
+    },
+    {
+      "id": "r3-AR-3",
+      "country": "AR",
+      "kind": "claim",
+      "company": "Sur Energy (company candidate, tracked as project developer)",
+      "project": "Stargate Argentina (LOI, site not named)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "speaker": "Emiliano Kargieman, founder of Sur Energy (named executive, interview with Infobae as reported by Letra P)",
+        "event_date": null,
+        "published_at": "2026-10 (undated page; header shows 19 Oct 2026)",
+        "theme_hint": null,
+        "status": "letter of intent still not a firm contract",
+        "source_title": "Letra P, Stargate cumple un año (interview quoted from Infobae)"
+      },
+      "verbatim": "La realidad concreta es que no avanzamos todavía de la carta de intención a un contrato firme",
+      "translation": {
+        "text": "The concrete reality is that we have not yet moved from the letter of intent to a firm contract.",
+        "by": "machine"
+      },
+      "source_url": "https://www.letrap.com.ar/letrae/economia-digital/stargate-cumple-un-ano-el-megaanuncio-javier-milei-y-sam-altman-todavia-no-camina-n5427211",
+      "notes": "Named-executive quote, so first-party under the project rule. The same article records Kargieman saying the project still stands, a deal is expected before end-2026, and Fluidstack has joined as technology partner. The article's date is not in the fetched text, so the event date is unconfirmed. Infobae's original interview was not fetched; Letra P is the cited copy. Confirm the date before merge."
+    },
+    {
+      "id": "r3-AR-4",
+      "country": "AR",
+      "kind": "context",
+      "company": "OpenAI",
+      "project": "Stargate Argentina (LOI, site not named)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "speaker": "OpenAI spokesperson (as reported by Chequeado)",
+        "event_date": "2026-10-15",
+        "published_at": "2026-10-15",
+        "theme_hint": null,
+        "status": "OpenAI role described as possible compute buyer",
+        "source_title": "Chequeado, A un año del anuncio (15 Oct 2026)"
+      },
+      "verbatim": "Sur Energy liderará el desarrollo energético y de infraestructura y reunirá al consorcio responsable del desarrollo y la construcción del proyecto.",
+      "translation": {
+        "text": "Sur Energy will lead the energy and infrastructure development and will assemble the consortium responsible for the project's development and construction.",
+        "by": "machine"
+      },
+      "source_url": "https://chequeado.com/el-explicador/stargate-argentina-a-un-ano-del-anuncio-no-hay-avances-en-la-construccion-del-data-center-de-us-25-000-millones-para-openai/",
+      "notes": "OpenAI's position as stated through a spokesperson to a news outlet (first-party). Confirms OpenAI would be a possible buyer of compute capacity, not the investor, and that any purchase depends on Sur Energy's development. Not a community-benefit claim, so not a Claim record. Note: the OpenAI release on openai.com returned 403 in round 2 and was not re-tried."
+    },
+    {
+      "id": "r3-AR-5",
+      "country": "AR",
+      "kind": "policy",
+      "company": null,
+      "project": null,
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-09-02",
+        "published_at": "2026-09-02",
+        "theme_hint": "energy",
+        "status": "proposed (Senate committee changes; not law)",
+        "policy_id_hint": "ar-super-rigi-2026",
+        "source_title": "Noticias Argentinas (NA) via elDiarioAR, Súper RIGI Senate changes (2 Sep 2026)"
+      },
+      "verbatim": "La primera obliga a las empresas que instalen centros de datos a construir sus propias subestaciones eléctricas",
+      "translation": {
+        "text": "The first requires companies installing data centers to build their own electrical substations.",
+        "by": "machine"
+      },
+      "source_url": "https://www.eldiarioar.com/politica/gobierno-acepto-cambios-super-rigi-lograr-apoyo-bloques-aliados-senado_1_13482555.html",
+      "notes": "Update to ar-super-rigi-2026, not a new instrument. The second change adds a local-supplier plan with a national procurement commitment of at least 20% of the investment (same article). Chequeado (verified) confirms the bill is still in the Senate after Diputados' half-approval. The Diputados vote figure (130-106-7, 24 Jun 2026) comes from a search summary and is not verified on the page. Senate passage was not confirmed in any source found; re-check before treating status as current."
+    },
+    {
+      "id": "r3-AR-6",
+      "country": "AR",
+      "kind": "project",
+      "company": "Green Capital (untracked; company candidate)",
+      "project": "Atlas GigaHub, Trelew (Chubut)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-10-17",
+        "published_at": "2026-10-17",
+        "status": "announced",
+        "claimed_investment": {
+          "amount": 3300000000,
+          "currency": "USD",
+          "as_stated": "US$ 3.300 millones"
+        },
+        "power_mw_stated": "up to 3,000 MW IT",
+        "location": "Trelew, Chubut, Argentina",
+        "partners_named": "Wärtsilä (Finland), Schneider Electric (France), Envision Energy (China), Ore Energy (Netherlands)",
+        "source_title": "Chequeado, Mega data center en Chubut (17 Oct 2026)"
+      },
+      "verbatim": "anunció una inversión de US$ 3.300 millones para instalar un data center con una capacidad IT proyectada de hasta 3.000 MW",
+      "translation": {
+        "text": "announced an investment of US$3.3 billion to install a data center with a projected IT capacity of up to 3,000 MW",
+        "by": "machine"
+      },
+      "source_url": "https://chequeado.com/nota/mega-data-center-en-chubut-anuncio-millonario-y-falta-de-informacion-sobre-el-consumo-de-agua-y-el-impacto-ambiental/",
+      "notes": "Company candidate: Green Capital, described as Polish-capital; HQ, website and any first-party release were not fetched. Chequeado reports the province and company gave no water, electricity or environmental-impact details. The 3,000 MW figure is the IT load described by the project; Partners are from the same article. Chequeado also says it is the first Argentine project that could be called a hyperscale, after Stargate."
+    },
+    {
+      "id": "r3-AR-7",
+      "country": "AR",
+      "kind": "response",
+      "company": null,
+      "project": "Atlas GigaHub, Trelew (Chubut)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-10-17",
+        "published_at": "2026-10-17",
+        "constituency": "residents",
+        "stance_note": "stance not assigned (editorial judgment pending)",
+        "source_title": "Chequeado, Mega data center en Chubut (17 Oct 2026)"
+      },
+      "verbatim": "Vecinos de la zona expresan su preocupación por el consumo de agua en una provincia con emergencia hídrica.",
+      "translation": {
+        "text": "Residents of the area express concern about water use in a province under a water emergency.",
+        "by": "machine"
+      },
+      "source_url": "https://chequeado.com/nota/mega-data-center-en-chubut-anuncio-millonario-y-falta-de-informacion-sobre-el-consumo-de-agua-y-el-impacto-ambiental/",
+      "notes": "Community concern as reported by a journalist; no individual resident is named. Pair with r3-AR-6. Stance is not assigned here (editorial rule)."
+    },
+    {
+      "id": "r3-CL-1",
+      "country": "CL",
+      "kind": "project",
+      "company": "Lader Energy (untracked; company candidate)",
+      "project": "Lader Energy Lo Aguirre data center campus (Pudahuel)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "speaker": "Andrés Vásquez, co-founder and business-development director of Lader Energy (named executive)",
+        "event_date": "2026-09-25",
+        "published_at": "2026-09-28",
+        "status": "consulta de pertinencia filed with SEA; ready to build 2027; first phase 2028",
+        "claimed_investment": {
+          "amount": 1000000000,
+          "currency": "USD",
+          "as_stated": "about US$1.000 millones (campus, excluding IT equipment)"
+        },
+        "filed_investment": {
+          "amount": 25000000,
+          "currency": "USD",
+          "as_stated": "US$25 millones (SEIA filing)"
+        },
+        "power_mw_stated": "up to 100 MW IT in first stage, with growth",
+        "site_ha": 28,
+        "location": "Lo Aguirre, Pudahuel, Región Metropolitana",
+        "source_title": "La Tercera, Lader Energy presenta su primer proyecto de data center en Pudahuel (28 Sep 2026)"
+      },
+      "verbatim": "En Lo Aguirre estamos desarrollando un campus de data centers de hasta 100 MW IT en su primera etapa, con potencial para seguir creciendo.",
+      "translation": {
+        "text": "At Lo Aguirre we are developing a data center campus of up to 100 MW IT in its first stage, with potential to keep growing.",
+        "by": "machine"
+      },
+      "source_url": "https://www.latercera.com/pulso/noticia/lader-energy-presenta-su-primer-proyecto-de-data-center-en-pudahuel-por-us-25-millones-y-pretende-operar-el-2028/",
+      "notes": "Company candidate: Lader Energy (Chile; co-founder quoted; HQ and website not verified in this run). The SEIA filing is a consulta de pertinencia for US$25 millones, while the executive says the campus could reach about US$1.000 millones; keep both figures as stated. Also in the article: a 1,788 m high-voltage line to the Lo Aguirre switching station, 8 IT halls, a 38,000 m2 building. Lader's separate BESS project (US$443 millones) is a different project; do not conflate."
+    },
+    {
+      "id": "r3-CL-2",
+      "country": "CL",
+      "kind": "claim",
+      "company": "Lader Energy (untracked; company candidate)",
+      "project": "Lader Energy Lo Aguirre data center campus (Pudahuel)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "speaker": "Lader Energy, in its SEIA filing as quoted by La Tercera",
+        "event_date": "2026-09-25",
+        "published_at": "2026-09-28",
+        "theme_hint": "water",
+        "source_title": "La Tercera, Lader Energy presenta su primer proyecto de data center en Pudahuel (28 Sep 2026)"
+      },
+      "verbatim": "adopta un sistema de climatización en circuito cerrado que no requiere consumo continuo de agua",
+      "translation": {
+        "text": "adopts a closed-loop climate control system that does not require continuous water consumption",
+        "by": "machine"
+      },
+      "source_url": "https://www.latercera.com/pulso/noticia/lader-energy-presenta-su-primer-proyecto-de-data-center-en-pudahuel-por-us-25-millones-y-pretende-operar-el-2028/",
+      "notes": "Company's own description, quoted from its filing. It is a design claim, not a delivered outcome; the project has not been built. Recorded as a water claim for the Claims tab on this project. Also quoted: the company says the project 'limita el uso de combustible al respaldo de emergencia'. The article does not give a water-use figure."
+    },
+    {
+      "id": "r3-CL-3",
+      "country": "CL",
+      "kind": "project",
+      "company": null,
+      "project": "Campo de Datos Lampa (Lampa, Región Metropolitana)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-07",
+        "published_at": "2026-09-30",
+        "status": "consulta de pertinencia filed with SEA (July 2026); project seeks a ruling it need not enter SEIA",
+        "claimed_investment": {
+          "amount": 850000000,
+          "currency": "USD",
+          "as_stated": "US$850 millones"
+        },
+        "power_mw_stated": "100 MW",
+        "site_ha": 22,
+        "operator": "not identified in the article",
+        "source_title": "El Clarín, Data centers en Chile: el costo ambiental del boom de la inteligencia artificial (30 Sep 2026)"
+      },
+      "verbatim": "El sistema de refrigeración, según el proyecto, funcionará mediante un circuito cerrado de agua sin evaporación",
+      "translation": {
+        "text": "According to the project, the cooling system will operate through a closed water loop without evaporation.",
+        "by": "machine"
+      },
+      "source_url": "https://www.elclarin.cl/2026/09/30/data-centers-chile-impacto-ambiental-inteligencia-artificial/",
+      "notes": "Operator not named in the article or in the SEA search result fetched, so no company candidate yet. Also in the article (verified): 90 chillers, 45 emergency generators of 2,500 kW each (over 112 MW of backup), and a 1.7 km buried connection to Subestación Nueva Lampa. Resolve the titular from the SEA pertinencia file before creating any company record; PERTI-2026-5962 is Alto Jahuel, a different project. Status 'en análisis-suspendida' is from a search summary, not the page."
+    },
+    {
+      "id": "r3-CL-4",
+      "country": "CL",
+      "kind": "response",
+      "company": "Google",
+      "project": "Google Cerrillos data center (2026 redesign)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-10-19",
+        "published_at": "2026-10-19",
+        "constituency": "regulator",
+        "stance_note": "stance not assigned; ruling is procedural, not a construction permit",
+        "source_title": "BioBioChile, SEA resuelve que Google no debe pasar por evaluación ambiental para construir data center en Cerrillos (19 Oct 2026)"
+      },
+      "verbatim": "resolvió que el futuro data center de Google en Cerrillos no requerirá pasar por el Sistema de Evaluación de Impacto Ambiental (SEIA)",
+      "translation": {
+        "text": "resolved that Google's future data center in Cerrillos will not need to go through the Environmental Impact Assessment System (SEIA)",
+        "by": "machine"
+      },
+      "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+      "notes": "SEA Región Metropolitana ruling after a redesign. BioBio reports that the Segundo Tribunal Ambiental partly annulled the Feb 2020 approval in Feb 2024, after neighbours' and organizations' challenges, and Google withdrew that authorization in July 2024 and refiled with air cooling. The article says the ruling is not a final construction permit and other permits are still needed. Sources disagree on what precedent the SEA followed (a Substack says 24 July 2026); unverified. Record as a regulator decision, not a permit."
+    },
+    {
+      "id": "r3-CL-5",
+      "country": "CL",
+      "kind": "project",
+      "company": "Google",
+      "project": "Google Cerrillos data center (2026 redesign)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-10-19",
+        "published_at": "2026-10-19",
+        "status": "redesign under SEA review; permits pending",
+        "claimed_investment": {
+          "amount": 200000000,
+          "currency": "USD",
+          "as_stated": "200 millones de dólares"
+        },
+        "site_ha": 23,
+        "backup_generators": 44,
+        "chillers": 63,
+        "cooling": "air-cooled chillers (no water use as stated)",
+        "source_title": "BioBioChile (19 Oct 2026), with 4 Sep 2026 BioBio item on the SEA request"
+      },
+      "verbatim": "considera 44 grupos electrógenos de diésel de respaldo y 63 chillers enfriados por aire, que no requieren consumo de agua",
+      "translation": {
+        "text": "it includes 44 backup diesel generators and 63 air-cooled chillers, which do not require water consumption",
+        "by": "machine"
+      },
+      "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+      "notes": "New record for the 2026 redesign; leave cl-google-cerrillos (2024, withdrawn) as it is so the history stays visible. Also in the article: about 23 ha site, four phases, a 110 kV line of about 400 m to Subestación Chena,. The 'no water consumption' claim is the company design as reported, not measured data."
+    },
+    {
+      "id": "r3-CL-6",
+      "country": "CL",
+      "kind": "response",
+      "company": "Google",
+      "project": "Google Cerrillos data center (2026 redesign)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-09-04",
+        "published_at": "2026-09-04",
+        "constituency": "ngo",
+        "stance_note": "stance not assigned",
+        "source_title": "BioBioChile, Google busca revivir Data Center en Cerrillos (4 Sep 2026, headline in 'Lee también' link)"
+      },
+      "verbatim": "organizaciones recurren al SEA para exigir evaluación",
+      "translation": {
+        "text": "organizations turn to the SEA to demand an assessment",
+        "by": "machine"
+      },
+      "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+      "notes": "Evidence is the headline text on the 19 Oct BioBio page. The search summary says OLCA and MOSACAT filed formal submissions asking the SEA for a full review, but that page was not fetched; treat the names as unverified. No individual is named."
+    },
+    {
+      "id": "r3-CL-7",
+      "country": "CL",
+      "kind": "response",
+      "company": "Google",
+      "project": "Google Quilicura data center",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2026-03-04",
+        "published_at": "2026-03-04",
+        "constituency": "ngo",
+        "stance_note": "stance not assigned",
+        "source_title": "Radio Universidad de Chile, El agua que usa la IA es chilena: vecinos de Quilicura alegan 'falta de responsabilidad' de data centers (4 Mar 2026)"
+      },
+      "verbatim": "tiene registrado un derecho a aprovechamiento de agua desde las napas subterráneas, que alimentan el humedal de Quilicura, de 50 litros por segundo",
+      "translation": {
+        "text": "has a registered right to use water from the underground aquifers, which feed the Quilicura wetland, of 50 litres per second",
+        "by": "machine"
+      },
+      "source_url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
+      "notes": "Quoted from a spokesperson of Resistencia Socioambiental Quilicura (RSQ); the individual is not named here. The same article carries Google's own 2024 figure (verified): 'el 2024 su centro de datos utilizó un total de 458 millones de litros de agua'. The water-right figure is the community's reading of Google's filing (the Declaración de Impacto Ambiental was not fetched). Both sides belong on the record. The existing cl-claim-google-quilicura-water (121.8 million gallons) matches the same 2024 figure."
+    },
+    {
+      "id": "r3-CL-8",
+      "country": "CL",
+      "kind": "response",
+      "company": "Microsoft",
+      "project": "Microsoft Chile Central region (Quilicura site, per 2022 reporting; link to confirm)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "es",
+        "event_date": "2022-03-18",
+        "published_at": "2022-03-18",
+        "constituency": "ngo",
+        "stance_note": "stance not assigned; 2022 objection to the planned Azure site, before the 2025 region opened",
+        "source_title": "OLCA (Observatorio Latinoamericano de Conflictos Ambientales), citing El Desconcierto (18 Mar 2022)"
+      },
+      "verbatim": "no es el poco contaminante de inmersión en líquido dieléctrico, sino que de evaporación directa",
+      "translation": {
+        "text": "is not the low-pollution liquid-immersion cooling with dielectric fluid, but direct evaporation",
+        "by": "machine"
+      },
+      "source_url": "https://olca.cl/articulo/nota.php?id=109297",
+      "notes": "Community objection (Quilicura residents' coordinating group, with RSQ) to the planned Microsoft Azure data centre, which says Microsoft had promised immersion cooling. Per the article, Microsoft's Brad Smith announced the project on 9 Dec (the article's year is 2021). Confirm that the planned Quilicura site is the same campus as the 2025 cl-microsoft-santiago record before linking."
+    }
+  ],
+  "leads": [
+    {
+      "country": "CL",
+      "item": "Acciona data-centre division, first project 80 MW in Chile (13 Oct 2026 press reports)",
+      "status": "not verified",
+      "notes": "Only Spanish press (Expansión via ecosistemastartup.com, df.cl) and market sites; no Acciona newsroom release found. Expansión reports the project is 'very early' with a grid request to Enel. Do not record until Acciona publishes or the SEA file is found. Acciona Energía's 2015 Google contract (El Romero) is a different 80 MW matter."
+    },
+    {
+      "country": "CL",
+      "item": "Plan Nacional de Data Centers: comité multiactor and '9 medidas con avances significativos'",
+      "status": "not verified",
+      "notes": "The DCD Spanish page returned 403; the figure is from a search summary. The plan PDF (minciencia.gob.cl) and the committee actas are the primary sources. A formal progress report was not found. Re-try the DCD page or the MinCiencia news page."
+    },
+    {
+      "country": "CL",
+      "item": "Campo de Datos Lampa: operator/titular",
+      "status": "lead",
+      "notes": "Search could not link the project to a company. Pull the titular from the SEA pertinencia file (pertinencia.sea.gob.cl, July 2026 filing). Do not guess from other Lampa filings (DC Terranova SPA / GR Huiña SPA relate to Alto Jahuel per the search)."
+    },
+    {
+      "country": "CL",
+      "item": "Seven or more projects filing pertinencia to avoid SEIA (SEA as venue)",
+      "status": "lead",
+      "notes": "Several 2026 reports (El Clarín, electromineria.cl, Terram) list the pattern: Cerrillos, Lampa, Puente Alto, Buin, Valparaíso. Each needs its own SEA file before a record; treat the list as a worklist."
+    },
+    {
+      "country": "AR",
+      "item": "Neuquén provincial action on data centres",
+      "status": "not found",
+      "notes": "Searches found Governor Figueroa's general investment promotion and the Pampa offer, but no provincial law or regulation for data centres. Check the Legislatura de Neuquén and the provincial Boletín Oficial directly."
+    },
+    {
+      "country": "AR",
+      "item": "Casa Rosada / argentina.gob.ar communiqué on Stargate Argentina (10 Oct 2025)",
+      "status": "secondary only",
+      "notes": "Chequeado (verified) describes the government announcement (up to US$25.000 millones, 500 MW, RIGI inclusion) but no official communiqué was located. Retry argentina.gob.ar news for 10 Oct 2025."
+    },
+    {
+      "country": "AR",
+      "item": "Mongabay, Súper RIGI environmental alerts (27 Aug 2026)",
+      "status": "lead",
+      "notes": "Fetched; the article quotes unnamed specialists on the regime's lack of verifiable environmental conditions. Not a named-individual or first-party source, so not recorded; useful as the NGO context for ar-super-rigi-2026."
+    },
+    {
+      "country": "AR",
+      "item": "Río Negro / Buenos Aires / Córdoba data-centre operators",
+      "status": "not searched",
+      "notes": "Out of this run's budget. The scan list has more Diario Río Negro and DCD items; check them in the next round."
+    }
+  ]
+}

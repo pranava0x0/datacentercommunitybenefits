@@ -1,0 +1,173 @@
+{
+  "companies": [],
+  "records": [
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": null,
+        "jurisdiction": "Great Britain (national regulator, Ofgem)",
+        "event_date": "2026-07-29",
+        "project": "Data centre demand connections queue (Curate package)",
+        "outcome": "Ofgem consultation on a data centre commitment fee (GBP 237,500 to 712,500 per MW, projects above 40 MW) and queue-management milestones. Responses due 16 Sep 2026; decision expected by end 2026. Consultation stage only, not a rule."
+      },
+      "verbatim": "Data centre projects above a 40 MW threshold will be required to secure a returnable financial commitment",
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.ofgem.gov.uk/sites/default/files/2026-07/Proposed-data-centre-connection-reforms-curate-consultation-document.pdf",
+      "notes": "Ofgem regulator consultation, 29 Jul 2026, primary PDF read via PDFKit. The fee is a proposal: the page says the fee would be 'approximately £237,500 to £712,500 per MW of requested capacity' (2.5% to 7.5% of average data centre capex). Pre-decision: do not state as in force. Sources the same consultation's 'Connect' and 'Plan' pillars (DESNZ, NESO) as separate workstreams, not covered here."
+    },
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-BKM",
+        "jurisdiction": "Iver, Buckinghamshire (High Court, judicial review of Secretary of State's planning permission)",
+        "event_date": "2026-03-20",
+        "event_date_note": "Date of the Gowling WLG article reporting the concession. The date of the government's concession is not stated in the article; treat as article date.",
+        "project": "AWS hyperscale data centre, Iver",
+        "outcome": "Government conceded a judicial review of its decision to grant planning permission (after the Secretary of State called in and approved the scheme that Buckinghamshire Council had refused twice). Concession admits a serious logical error in EIA screening. Article says the permission is expected to be quashed by consent; the quashing order is not confirmed in the source."
+      },
+      "verbatim": "The Government has conceded a judicial review challenge to its previous decision to grant planning permission",
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://gowlingwlg.com/insights-resources/articles/2026/government-concedes-buckinghamshire-data-centre-judicial-review",
+      "notes": "Secondary (law-firm) source describing a government concession; the government's own consent letter and the court order were not read. Developer dispute reported in trade press (Greystoke reportedly refused to sign a consent order): not stated in this record, not verified on a primary. Re-check the High Court order before any 'quashed' wording. Operator named as AWS in the round-1 lead; the Gowling article itself names the developer as Greystoke Land per trade coverage."
+    },
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB",
+        "subdivision": "GB-NET",
+        "jurisdiction": "North East England (Blyth / Cambois and Cobalt Park, North Tyneside)",
+        "event_date": "2025-09-24",
+        "project": "North East AI Growth Zone (Cambois near Blyth; Cobalt Park)",
+        "outcome": "Government launched a North East AI Growth Zone taskforce to get the Cambois and Cobalt Park sites running. Government says the designation could unlock up to GBP 30 billion investment; Blackstone-owned QTS committed GBP 10 billion to the Cambois site per the release. The release gives no planning decision."
+      },
+      "verbatim": "The Taskforce will initially prioritise getting the AI Growth Zone up and running",
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.gov.uk/government/news/north-east-ai-growth-zone-taskforce-launched-to-accelerate-jobs-skills-and-growth",
+      "notes": "gov.uk press release, 24 Sep 2025 (taskforce launch). Investment figures are government's own statements ('up to GBP 30 billion'; 'Blackstone has committed GBP 10 billion to the Cambois near Blyth site'), not verified against QTS's own page. Trade press reports OpenAI paused Stargate UK plans for Cobalt Park in 2026; not stated here, not verified on a primary. The 2,500 jobs figure is for the X-Energy/Centrica project, not the data centre. Do not set claimed_investment_usd or value_usd from these figures."
+    },
+    {
+      "country": "GB",
+      "kind": "company_claim",
+      "verified": true,
+      "fields": {
+        "company_slug": "microsoft",
+        "theme": "engagement",
+        "captured_at": "2026-10-19",
+        "published_at": null,
+        "statement_context": "Microsoft UK Datacentre Community Pledge (page on local.microsoft.com, no publication date on page)"
+      },
+      "verbatim": "We will partner closely with communities and operate in a way that respects the local environment.",
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://local.microsoft.com/communities/emea/united-kingdom/",
+      "notes": "First-party Microsoft statement (Datacentre Community Pledge, 'Operate responsibly as a good neighbor' pillar). Page states no date: published_at left null. The same page also says 'We will deliver significant local, economic, social, and environmental benefits.' (prosperity pillar), not filed as a second claim here because it is generic. Named UK sites on the page: Newport Imperial Park, Langley, Park Royal; Eggborough and Skelton Grange are not on this page. Contact address UKDC@microsoft.com is on the page; not copied into the record."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR",
+        "subdivision": "FR-77",
+        "jurisdiction": "Fouju (Seine-et-Marne); Commission nationale du débat public",
+        "event_date": "2025-07-23",
+        "project": "Campus IA data centre, Fouju, and its RTE high-voltage connection",
+        "outcome": "CNDP decision 2025/119 designated garants and ordered a concertation préalable on the Campus IA data centre and its electrical connection. Sponsors: Campus IA and RTE SA (maîtres d'ouvrage)."
+      },
+      "verbatim": "La concertation préalable est organisée selon les modalités prévues aux articles L. 121-16 et L. 121-16-1 du code de l’environnement.",
+      "translation": "Machine translation (AI): The preliminary public consultation is organised in accordance with articles L. 121-16 and L. 121-16-1 of the Environment Code.",
+      "source_url": "https://www.debatpublic.fr/sites/default/files/2025-07/DECISION_2025_119_CAMPUS%20IA_1%20Sign%C3%A9%20MP.pdf",
+      "notes": "Regulator decision, primary PDF read via PDFKit; decision dated 23 Jul 2025 (the decision text says 'Fait le 23 juillet 2025'). The consultation ran 13 Oct to 23 Nov 2025 per secondary reporting, and a single public inquiry 30 Apr to 30 May 2026 per local press (favourable opinion); not verified on primary here. Ministry answer (2026-07-30, see the Senate record) gives 700 MW contracted with RTE; the 50 bn EUR and 89 ha figures are from the project's own calendar and local press only and are not recorded. Garants' names omitted (CNDP appointees, not needed for the record)."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR",
+        "subdivision": "FR-75",
+        "jurisdiction": "France (national regulator, Commission de régulation de l'énergie)",
+        "event_date": "2025-05-07",
+        "project": "RTE 'fast track' high-voltage connection procedure (400 kV), for very large consumers at State-identified sites",
+        "outcome": "CRE approved RTE's alternative 'fast track' connection procedure for consumers of 400 MW to 1 GW, with connection targeted for 2028-2029 on sites identified by the State. The press release names data centres only as an example of the industrial and digital users the policy targets."
+      },
+      "verbatim": "permet d’accélérer le raccordement, à horizon 2028-2029, des consommateurs de très forte puissance (entre 400 MW et 1 GW) au réseau très haute tension (400 kV) de RTE",
+      "translation": "Machine translation (AI): it allows the connection, by 2028-2029, of very high-power consumers (between 400 MW and 1 GW) to RTE's very high-voltage (400 kV) network to be accelerated.",
+      "source_url": "https://www.cre.fr/fileadmin/Documents/Communiques_de_presse/2025/250507_CP_CRE_Procedure_fast_track.pdf",
+      "notes": "CRE press release, 7 May 2025, primary PDF. Not a data-centre-specific rule: the procedure is for very large consumers generally. The press release mentions data centers only as an example in the policy-context paragraph. Sites must be 'préalablement identifiés par l'Etat' and the connection is 'sans limitation à la capacité du réseau' per the release; the release does not name any data centre site. Connection agreement model to be approved later (CRE 2026 deliberations exist, not read)."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR",
+        "subdivision": "FR-93",
+        "jurisdiction": "Le Bourget (Seine-Saint-Denis), Tribunal administratif de Montreuil",
+        "event_date": "2026-07-28",
+        "project": "Segro data centre, Le Bourget (permit withdrawn by the commune)",
+        "outcome": "Interim-relief judge (juge des référés) of the Montreuil administrative court upheld the commune's withdrawal of the building permit granted earlier in 2026. The court found the project did not comply with the local urban plan's height rules and that the mayor was bound to withdraw the permit. Provisional measure only; the merits are not decided and Segro says it will contest."
+      },
+      "verbatim": "le projet n'est pas conforme aux règles de hauteur",
+      "translation": "Machine translation (AI): the project does not comply with the height rules.",
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-les-projets-dimplantation-dans-la-drome-et-au-bourget-contestes",
+      "notes": "News report (Banque des Territoires) of the tribunal's communiqué; the ordonnance text was not read. Permit withdrawn by the new mayor on 12 Jun 2026 after the previous mayor granted it on 13 Mar 2026 (from the article; names omitted). The MRAe environmental-authority criticism (PFAS refrigerant, limited heat recovery) reported in other coverage is not in this record. Quote is the judge's reasoning as reported; verify the wording in the ordonnance if the record is promoted."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR",
+        "subdivision": null,
+        "jurisdiction": "France (national legislature, Senate)",
+        "event_date": "2026-03-25",
+        "project": "Proposition de loi (simplification) Article 15: eligibility of data centre projects for PINM status",
+        "outcome": "Senate adopted a reduced bill on 25 Mar 2026. Article 15 extends eligibility for 'projet d'intérêt national majeur' (PINM) status to data centre projects. Legislative step only; not enacted per the source. PINM status would allow state-led permit facilitation (secondary reporting)."
+      },
+      "verbatim": "d’étendre l’éligibilité au statut de projet d’intérêt national majeur (PINM) aux projets de centres de données",
+      "translation": "Machine translation (AI): to extend eligibility for the status of project of major national interest (PINM) to data centre projects.",
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-le-senat-adopte-une-proposition-de-loi-allegee-renvoyant-lessentiel-aux-textes-en-cours",
+      "notes": "Secondary news report (Banque des Territoires, 27 Mar 2026) quoting the bill. The Senate text (senat.fr tas25-073 PDF) was surfaced in search but not read here; the record should be promoted only after the bill text is confirmed. The article says the bill 'renvoie l'essentiel aux textes en cours'. Advantages of PINM status (protected-species derogation, PLU compliance by the State, ZAN exemption possibility, grid connection priority) come from a secondary summary and are NOT recorded as verified."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR",
+        "subdivision": "FR-77",
+        "jurisdiction": "Fouju (Seine-et-Marne); French government (written answer to Senate question)",
+        "event_date": "2026-07-30",
+        "project": "Campus IA data centre, Fouju",
+        "outcome": "Government written answer to a Senate question (question of 28 May 2026, answer published 30 Jul 2026): 700 MW of electrical capacity contracted with RTE to date; Campus IA has made no request for PINM status."
+      },
+      "verbatim": "Campus IA n'a formulé à ce jour aucune demande pour bénéficier du statut de \"projet d'intérêt national majeur\" (PINM).",
+      "translation": "Machine translation (AI): To date, Campus IA has made no request to benefit from the status of \"project of major national interest\" (PINM).",
+      "source_url": "https://www.senat.fr/questions/base/2026/qSEQ260508929.html",
+      "notes": "Official government written answer on senat.fr. Second sentence (same answer, not yet recorded as a quote): 'A ce jour, 700 MW de puissance électrique ont été contractualisés avec RTE et des discussions sont en cours pour augmenter cette puissance'. The answer also says a joint venture between MGX, Nvidia, Mistral and Bpifrance was created to carry the investment. Question asked by a Senate member (CRCE-K, Seine-et-Marne), who also states the site is 70-73 ha of farmland with 10-12 data centres. Consistent with the CNDP record's sponsors. The 700 MW figure is a contracted-capacity statement, so it is suitable as power_mw only with the 'contracted' wording."
+    }
+  ],
+  "leads": [
+    "GB Corsham (Ark Data Centres, Spring Park): Wiltshire council news page and decision notice return 403 to WebFetch and curl; the trade press reports conditional approval 10-11 Feb 2026 after a deferral. Needs the council's own decision notice via the planning portal before a record.",
+    "GB Loughton (Nscale, Epping Forest): conflicting trade reports (approval vs officer request for new application; go-live Q4 2026 vs early 2027). The Epping planning register (refs NOT/3025/26 and EPF/1165/22 cited by a campaign petition) was not reached; check the register directly.",
+    "GB Didcot: procurement record only (find-tender 074444-2025, heat-network feasibility study). Not a decision; do not record until the award notice is read.",
+    "GB Thames Water: no formal objection to a specific data centre application found. Thames Water's position (108 'hyper or large' data centres, possible restrictions) is from 2025 trade/Bloomberg coverage; look for a WRMP29 or planning consultation response before recording.",
+    "GB Microsoft Newport and Park Royal, Google Waltham Cross: the Google site is built (2025 opening, 77 MW at full build per The Register); residents' complaints on noise/light reported. Needs Google's own UK community page before a claim record. Microsoft Leeds Skelton Grange (Leeds council approved 24 Apr 2026 per GDELT aggregator): confirm on the council register first.",
+    "GB Culham AIGZ: no 2026 planning decision found; the April 2026 South Oxfordshire statement of common ground is a planning document (LPA59 AS11) that could support a government-action record later.",
+    "FR Heat-recovery decree: decree n° 2025-1382 of 29 Dec 2025 (Code de l'énergie art. L.236-2, data centres of 1 MW+, ERF 0.20 from 1 Jan 2026) is reported by three secondary sources; Légifrance returns 403 to curl and WebFetch. Read the JORF text via another route before recording. Sources disagree on the entry-into-force date (1 Oct 2025 vs 1 Jan 2026).",
+    "FR Le Bourget: the ordonnance text and any merits judgment are not read; the 2026 mayor's petition (18,000+ signatures) is in press but is a campaign, not a response record.",
+    "FR Campus IA garants' letter (24 Apr 2026, debatpublic PDF): PDF text extraction returned nothing usable in this pass; retry via PDFKit with the JXA script before any response record.",
+    "FR Wissous (CyrusOne leased to Amazon): council resolution to revise the PLU on 29 Sept (year not shown in the extracts); the Reuters item says a court challenge was due to be heard in March 2026. Read the Wissous council minute and the court outcome before a record.",
+    "FR Alixan, Ozans, Mulhouse and Petit-Landau are already in round 1 and not repeated here. The Petit-Landau prefectoral order remains outstanding.",
+    "FR La Courneuve: no 2026 project or permit fight found. The 2026 fight is at Le Bourget (neighbouring). Do not add La Courneuve on the 2019-2024 Interxion/Digital Park history alone.",
+    "FR Marseille, Evroc, Data4, Brookfield French sites: not searched this pass (time budget)."
+  ]
+}

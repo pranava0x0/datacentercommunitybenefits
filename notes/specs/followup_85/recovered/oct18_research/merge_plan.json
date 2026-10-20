@@ -1,0 +1,945 @@
+{
+ "changes": [
+  {
+   "file": "moratoriums.json",
+   "op": "add",
+   "id": "memphis-city-2026-10",
+   "record": {
+    "id": "memphis-city-2026-10",
+    "jurisdiction": "Memphis",
+    "jurisdiction_type": "city",
+    "state_code": "TN",
+    "status": "proposed",
+    "enacted_date": null,
+    "effective_date": null,
+    "duration_months": 12,
+    "duration_description": "Up to 12 months as drafted, or until comprehensive zoning regulations are adopted; council vote postponed to October 20, 2026",
+    "power_threshold_mw": null,
+    "key_reasons": [],
+    "summary": "The Memphis City Council postponed its vote on a proposed temporary data center moratorium to October 20, 2026, at its October 6 meeting. The draft ordinance posted by the city would stop accepting applications for docketing and completeness review of discretionary land-use approvals for new data centers and high-density computing facilities for up to 12 months, with exemptions for existing lawfully operating facilities and applications legally vested before introduction. The draft is not adopted and the Oct. 20 outcome is not yet known.",
+    "source_url": "https://www.wcax.com/2026/10/07/data-center-moratorium-vote-postponed-after-fight-protests/",
+    "source_title": "WCAX — Data center moratorium vote postponed after fight, protests",
+    "resources": [
+     {
+      "url": "https://memphistn.gov/wp-content/uploads/2026/08/Data-Center-Temporary-Moratorium-Ordinance-v3.pdf",
+      "title": "City of Memphis — Data Center Temporary Moratorium Ordinance (draft v3; ordinance number blank)"
+     }
+    ],
+    "policy_type": "Proposed temporary pause on processing of data center land-use applications (draft ordinance)",
+    "city_council_vote": "Vote postponed to Oct. 20, 2026 at the Oct. 6 meeting; no adoption vote taken",
+    "session": "2026",
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.wcax.com/2026/10/07/data-center-moratorium-vote-postponed-after-fight-protests/",
+     "verbatim": "Chaos ensued during Tuesday night’s data center moratorium vote by the city council in Memphis, Tennessee."
+    },
+    {
+     "source_url": "https://www.wcax.com/2026/10/07/data-center-moratorium-vote-postponed-after-fight-protests/",
+     "verbatim": "The decision to delay the vote until Oct. 20 led to a fight breaking out in the lobby"
+    },
+    {
+     "source_url": "https://memphistn.gov/wp-content/uploads/2026/08/Data-Center-Temporary-Moratorium-Ordinance-v3.pdf",
+     "verbatim": "This moratorium shall remain in effect until the earlier of: A. Twelve (12) months following the effective date of this Ordinance; B. Adoption of comprehensive zoning regulations governing Data Centers and High-Density Computing Facilities by the Memphis City Council; or C. Repeal or amendment by subsequent ordinance of the Memphis City Council."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Pending moratorium with a dated postponement (WCAX, fetched) and draft terms from the city's own PDF. Draft v3 may differ from what is voted on Oct 20; summary says 'draft'. Unresolved WREG report that the moratorium was not taken up at all."
+  },
+  {
+   "file": "moratoriums.json",
+   "op": "add",
+   "id": "davidson-county-nc-2026-09",
+   "record": {
+    "id": "davidson-county-nc-2026-09",
+    "jurisdiction": "Davidson County",
+    "jurisdiction_type": "county",
+    "state_code": "NC",
+    "status": "proposed",
+    "enacted_date": null,
+    "effective_date": null,
+    "duration_months": 4,
+    "duration_description": "4 months (as proposed for the October 26, 2026 agenda)",
+    "power_threshold_mw": null,
+    "key_reasons": [],
+    "summary": "On September 28, 2026 the Davidson County (North Carolina) Board of Commissioners voted 4-2 to place a four-month data center moratorium on its October 26 agenda, after an earlier 3-3 deadlock on a temporary moratorium. The outcome of the October 26 meeting is not yet known.",
+    "source_url": "https://www.wunc.org/2026-09-29/davidson-commissioners-remain-divided-on-data-centers-but-will-revisit-potential-moratorium",
+    "source_title": "WUNC — Davidson commissioners remain divided on data centers, but will revisit potential moratorium",
+    "enacted_by": null,
+    "city_council_vote": "4-2 to place a four-month moratorium on the Oct. 26 agenda (Sept. 28, 2026)",
+    "session": "2026",
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.wunc.org/2026-09-29/davidson-commissioners-remain-divided-on-data-centers-but-will-revisit-potential-moratorium",
+     "verbatim": "The Board ultimately voted 4-2 in favor of including a four-month moratorium as an agenda item scheduled for October 26."
+    }
+   ],
+   "confidence": "medium",
+   "why": "New pending county measure with a dated agenda vote; WUNC fetched. County agenda not read."
+  },
+  {
+   "file": "moratoriums.json",
+   "op": "add",
+   "id": "martin-county-fl-2026-10",
+   "record": {
+    "id": "martin-county-fl-2026-10",
+    "jurisdiction": "Martin County",
+    "jurisdiction_type": "county",
+    "state_code": "FL",
+    "status": "proposed",
+    "enacted_date": null,
+    "effective_date": null,
+    "duration_months": 12,
+    "duration_description": "1 year (approved on first reading Oct. 13, 2026; second public hearing Oct. 27 before final approval)",
+    "power_threshold_mw": null,
+    "key_reasons": [],
+    "summary": "On October 13, 2026 the Martin County (Florida) Board of County Commissioners unanimously approved on first reading a proposed one-year moratorium on new applications for large-scale data centers in unincorporated areas. A second public hearing on October 27 is required before final approval; an application submitted before the proposal would not be affected, per WPTV.",
+    "source_url": "https://cbs12.com/news/local/gallery/martin-county-advances-proposed-data-center-moratorium-commissioners-meeting-data-center-electricity-consumption-environmental-impact-florida-data-center-regulations-florida-news",
+    "source_title": "CBS12 — Martin County advances proposed data center moratorium",
+    "resources": [
+     {
+      "url": "https://www.wptv.com/news/treasure-coast/region-martin-county/martin-county-commissioners-unanimously-move-forward-with-1-year-moratorium-on-data-centers",
+      "title": "WPTV — Martin County commissioners unanimously move forward with 1-year moratorium on data centers"
+     }
+    ],
+    "city_council_vote": "Unanimous on first reading (Oct. 13, 2026)",
+    "session": "2026",
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://cbs12.com/news/local/gallery/martin-county-advances-proposed-data-center-moratorium-commissioners-meeting-data-center-electricity-consumption-environmental-impact-florida-data-center-regulations-florida-news",
+     "verbatim": "The Board of County Commissioners unanimously approved the proposal on its first reading Tuesday, Oct. 13. | A second public hearing is scheduled for Oct. 27 before the moratorium can receive final approval."
+    },
+    {
+     "source_url": "https://www.wptv.com/news/treasure-coast/region-martin-county/martin-county-commissioners-unanimously-move-forward-with-1-year-moratorium-on-data-centers",
+     "verbatim": "Commissioners are expected to revisit the issue on Oct. 27, when another vote will be required."
+    }
+   ],
+   "confidence": "medium",
+   "why": "New pending county measure; two fetched TV-station sources agree on Oct 13 first reading and Oct 27 second hearing. 'Application submitted before' caveat is from WPTV (research note), not quoted."
+  },
+  {
+   "file": "moratoriums.json",
+   "op": "update",
+   "id": "charlotte-city-2026-06",
+   "record": {
+    "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development, running through November 5, 2026. Already-approved projects are exempt. A city staff study submitted September 1, 2026 found data-center impacts vary widely by facility type, site layout and climate; the Transportation, Planning and Development Committee then recommended the full council extend the pause by up to nine months (WSOC/WFAE) to allow more time on air-pollution monitoring, noise limits and community input. GovTech (Sept. 29, 2026) reports the council set a public hearing for October 12 so residents get a final say before the council's vote, and describes the proposed extension as 11 months, through October 11, 2027, which differs from the nine months reported earlier; the sources conflict on length. As of October 18, 2026 no source checked reports the outcome of the hearing or a final council vote on the extension; the moratorium as enacted remains in effect through November 5, 2026 either way. Status: enacted (original 150-day pause).",
+    "captured_at": "2026-10-18",
+    "resources": [
+     {
+      "url": "https://www.wfae.org/2026-09-08/charlotte-could-extend-data-center-moratorium",
+      "title": "WFAE — Charlotte could extend data center moratorium by nine months (Sept. 8, 2026)"
+     },
+     {
+      "url": "https://www.wfae.org/energy-environment/2026-08-21/halfway-through-the-charlotte-data-center-moratorium-the-city-still-has-questions",
+      "title": "WFAE — Halfway through the Charlotte data center moratorium, the city still has questions (Aug. 21, 2026)"
+     },
+     {
+      "url": "https://www.govtech.com/artificial-intelligence/how-long-will-charlotte-n-c-extend-data-center-moratorium",
+      "title": "GovTech — How long will Charlotte, N.C. extend data center moratorium (Sept. 29, 2026)"
+     },
+     {
+      "url": "https://www.wsoctv.com/news/local/committee-recommends-longer-pause-charlotte-data-center-approvals/DJCREXVV4JD7FKHPOT4WEOQJNU/",
+      "title": "WSOC — Committee recommends longer pause on Charlotte data center approvals (Sept. 9, 2026)"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.govtech.com/artificial-intelligence/how-long-will-charlotte-n-c-extend-data-center-moratorium",
+     "verbatim": "The council passed a 150-day moratorium in June that is set to expire Nov. 5."
+    },
+    {
+     "source_url": "https://www.govtech.com/artificial-intelligence/how-long-will-charlotte-n-c-extend-data-center-moratorium",
+     "verbatim": "An extension would continue the pause for an additional 11 months, through Oct. 11, 2027."
+    },
+    {
+     "source_url": "https://www.govtech.com/artificial-intelligence/how-long-will-charlotte-n-c-extend-data-center-moratorium",
+     "verbatim": "The City Council on Monday set the hearing for Oct. 12 to give residents a final say before the council's vote."
+    },
+    {
+     "source_url": "https://www.wsoctv.com/news/local/committee-recommends-longer-pause-charlotte-data-center-approvals/DJCREXVV4JD7FKHPOT4WEOQJNU/",
+     "verbatim": "considering extending the city's data center development moratorium by up to nine months"
+    }
+   ],
+   "confidence": "medium",
+   "why": "Replaces the stale 'Sept 14 vote' text with the Oct 12 hearing and records the 9-vs-11 month conflict instead of picking one. Status stays enacted; Oct 26 vote date deliberately NOT stated (see needs_verification)."
+  },
+  {
+   "file": "policies.json",
+   "op": "add",
+   "id": "swatara-township-pa-corscale-cba-2026",
+   "record": {
+    "id": "swatara-township-pa-corscale-cba-2026",
+    "title": "Swatara Township–Corscale Data Centers community benefits agreements (Highlands East and West)",
+    "instrument": "benefit_agreement",
+    "status": "in_effect",
+    "scope": "city",
+    "jurisdiction": "Swatara Township (Dauphin County), PA",
+    "state_code": "PA",
+    "date": "2026-10-08",
+    "counterparties": [
+     "Corscale Data Centers",
+     "Swatara Township"
+    ],
+    "benefit_themes": [
+     "infrastructure",
+     "community_grants",
+     "education"
+    ],
+    "principles": [
+     "community_benefits"
+    ],
+    "community_benefits_framework": true,
+    "value_usd": 120300000.0,
+    "key_terms": [
+     "covering the Highlands West and Highlands East data-center projects, providing for a combined $120.3 million in developer community-benefit contributions.",
+     "Among the largest commitments are $38 million for a public safety operations facility serving the Township, $24 million for a second public safety facility, $27 million for municipal infrastructure and capital stabilization, $12 million for public-safety workforce sustainability, and $8 million for fire apparatus replacement.",
+     "The payment schedule is tied to actual development milestones."
+    ],
+    "summary": "On October 8, 2026 Swatara Township announced it had approved community benefits agreements with Corscale Data Centers for the Highlands West and Highlands East projects, totaling $120.3 million. Contributions go mainly to public safety facilities and equipment, municipal infrastructure and workforce items, and are paid on development milestones. GovTech reports the commissioners' vote as 4-1 and that residents had asked for a delay because they had not seen the agreement; the township release says the agreements are subject to final, unappealable approval of the land-development plans.",
+    "source_url": "https://swataratwp.com/wp-content/uploads/2026/10/Swatara_Press_Statement_120_3_Million_CBA.pdf",
+    "source_title": "Swatara Township — Press release: Community Benefits Agreements (October 8, 2026)",
+    "resources": [
+     {
+      "url": "https://www.govtech.com/artificial-intelligence/data-centers-could-bring-pennsylvania-township-120m",
+      "title": "GovTech — Data centers could bring Pennsylvania township $120M (Oct. 9, 2026)"
+     }
+    ],
+    "agreement_features": [
+     "dollar_commitment"
+    ],
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://swataratwp.com/wp-content/uploads/2026/10/Swatara_Press_Statement_120_3_Million_CBA.pdf",
+     "verbatim": "covering the Highlands West and Highlands East data-center projects, providing for a combined $120.3 million in developer community-benefit contributions."
+    },
+    {
+     "source_url": "https://swataratwp.com/wp-content/uploads/2026/10/Swatara_Press_Statement_120_3_Million_CBA.pdf",
+     "verbatim": "The payment schedule is tied to actual development milestones."
+    },
+    {
+     "source_url": "https://www.govtech.com/artificial-intelligence/data-centers-could-bring-pennsylvania-township-120m",
+     "verbatim": "The motion to approve the community benefit agreement was approved by a 4 to 1 vote with Douglas voting against it."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Primary source is the township's own release (PDF text-extracted by the research agent; probe.py may need a manual read). Vote tally is GovTech-only. Status in_effect is a judgment: board-approved, but contingent on land-development approval; downgrade to proposed if curator prefers the Tuscaloosa precedent. Corscale is not a tracked slug, so counterparties not company_slugs."
+  },
+  {
+   "file": "policies.json",
+   "op": "add",
+   "id": "aurora-co-ord-2026-51-mui-data-centers",
+   "record": {
+    "id": "aurora-co-ord-2026-51-mui-data-centers",
+    "title": "Aurora, CO zoning amendment removing data centers as a permitted use in the mixed-use office institutional zone",
+    "instrument": "local_ordinance",
+    "status": "in_effect",
+    "scope": "city",
+    "jurisdiction": "Aurora, CO",
+    "state_code": "CO",
+    "identifier": "Ordinance 2026-51",
+    "date": "2026-10-12",
+    "benefit_themes": [
+     "engagement"
+    ],
+    "principles": [
+     "local_control"
+    ],
+    "community_benefits_framework": false,
+    "key_terms": [
+     "The Aurora City Council unanimously passed a new regulation on data centers Monday night",
+     "will no longer allow data centers as a permitted use in the mixed-use office institutional zone district"
+    ],
+    "summary": "On October 12, 2026 the Aurora, Colorado City Council unanimously adopted a zoning change under which data centers are no longer a permitted use in the mixed-use office institutional zone district. This is a change to one zone district, not a citywide ban or a moratorium; the article says data centers remain permitted by right in other districts. The ordinance number comes from the council's meeting summary, not the cited article.",
+    "source_url": "https://www.coloradopolitics.com/2026/10/13/aurora-city-council-bans-data-centers-in-mixed-use-office-zones/",
+    "source_title": "Colorado Politics — Aurora City Council bans data centers in mixed-use office zones",
+    "resources": [
+     {
+      "url": "https://app.govly.com/public/signals/218065",
+      "title": "City of Aurora — Regular Meeting of the Aurora City Council, October 12, 2026 (meeting summary, via Govly)"
+     }
+    ],
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.coloradopolitics.com/2026/10/13/aurora-city-council-bans-data-centers-in-mixed-use-office-zones/",
+     "verbatim": "The Aurora City Council unanimously passed a new regulation on data centers Monday night"
+    },
+    {
+     "source_url": "https://www.coloradopolitics.com/2026/10/13/aurora-city-council-bans-data-centers-in-mixed-use-office-zones/",
+     "verbatim": "will no longer allow data centers as a permitted use in the mixed-use office institutional zone district"
+    },
+    {
+     "source_url": "https://app.govly.com/public/signals/218065",
+     "verbatim": "included a unanimous vote to adopt Ordinance 2026-51, amending the city's Unified Development Ordinance."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Filed as a local_ordinance policy, NOT a moratorium (headline says 'bans'; the legal action is a single-district zoning change). Ordinance number only on an aggregator-hosted council summary; confirm on aurora council records. Unrelated to the QTS Aurora project and to Aurora IL."
+  },
+  {
+   "file": "rate_cases.json",
+   "op": "update",
+   "id": "nc-ncuc-duke-settlement-2026",
+   "record": {
+    "docket_number": "E-7, Sub 1329; E-2, Sub 1380",
+    "next_milestone": "Oct. 6, 2026: Duke Energy North Carolina, Amazon Data Services, Andale LLC, Carolina Industrial Group for Fair Utility Rates II and III, the U.S. Department of Defense and other federal executive agencies, Google LLC and Microsoft Corporation filed an Agreement and Stipulation of Settlement on Large Load Tariff in Docket Nos. E-7 Sub 1329 and E-2 Sub 1380. Per the filing, the tariff applies to total contract demand of 50 MW or more with an expected 80% or higher load factor, or 150 MW or more at any load factor, bills demand charges at no less than 75% of contract demand, and would take effect for service on and after January 1, 2027 if the Commission approves it. The settlement sets no hearing or decision date, and the Commission may 'investigate, accept, or reject the terms contained in this Stipulation, in whole, or in part.' No NCUC order had been announced as of October 18, 2026. Earlier: a Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, Microsoft; Andale later added) was filed July 17, 2026 and amended July 20; on September 14, 2026 Attorney General Jeff Jackson, who declined to sign it, filed a proposal for a new rate class for data centers and other large-load customers; and on September 18, 2026 the NCUC voted to deny Duke Energy Progress a certificate for a gas turbine at the Smith Energy Complex, finding Duke had not adequately shown how it complies with the Ratepayer Protection Pledge (WUNC).",
+    "summary": "Duke Energy's proposed 2026 rate-case settlement commits it to an expedited proceeding to establish a formal Large Load Tariff before new rates take effect. Governor Josh Stein and Attorney General Jeff Jackson are pressing Duke — a Ratepayer Protection Pledge signatory — to make the federal pledge binding: \"Now, Duke Energy must make that voluntary pledge real. The North Carolina Utilities Commission and Duke Energy must create a legally binding large-load tariff to charge data centers their full freight\" (Stein). Duke's spokesperson responds that \"data centers and other large-load customers must pay the costs required to serve them while creating long-term value for existing customers.\" On October 6, 2026 Duke and several data-center operators filed a separate settlement on the large-load tariff itself; it requires NCUC approval before it takes effect.",
+    "captured_at": "2026-10-18",
+    "resources": [
+     {
+      "url": "https://blogs.edf.org/climate411/2026/07/23/duke-energy-settlement-beginning-north-carolina-data-center-energy-policy/",
+      "title": "EDF — The Duke Energy settlement is just the beginning for NC data center energy policy"
+     },
+     {
+      "url": "https://ncdoj.gov/attorney-general-jeff-jackson-proposes-framework-to-ensure-data-centers-pay-their-fair-share-for-energy-costs/",
+      "title": "NCDOJ — Attorney General Jackson proposes framework to ensure data centers pay their fair share (Sept. 14, 2026)"
+     },
+     {
+      "url": "https://www.wunc.org/environment/2026-09-21/nc-utilities-commission-denies-duke-energy-gas-plant",
+      "title": "WUNC — In rare step, NC Utilities Commission denies Duke Energy permission to build new gas plant"
+     },
+     {
+      "url": "https://www.selc.org/wp-content/uploads/2026/10/2026-10-06-Duke-Energy-LLT-Settlement.pdf",
+      "title": "Agreement and Stipulation of Settlement on Large Load Tariff, Docket Nos. E-7 Sub 1329 and E-2 Sub 1380 (filed Oct. 6, 2026; hosted by SELC)"
+     },
+     {
+      "url": "https://www.wunc.org/2026-10-07/duke-energy-comes-to-an-agreement-on-long-sought-large-load-tariff-for-data-centers-in-north-carolina",
+      "title": "WUNC — Duke Energy comes to an agreement on long-sought large load tariff for data centers in North Carolina (Oct. 7, 2026)"
+     },
+     {
+      "url": "https://www.bpr.org/2026-10-07/duke-energy-comes-to-an-agreement-on-long-sought-large-load-tariff-for-data-centers-in-north-carolina",
+      "title": "Blue Ridge Public Radio — Duke Energy reaches agreement on large-load tariff (Oct. 7, 2026)"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.selc.org/wp-content/uploads/2026/10/2026-10-06-Duke-Energy-LLT-Settlement.pdf",
+     "verbatim": "Enclosed for filing with the North Carolina Utilities Commission is the Agreement and Stipulation of Settlement on Large Load Tariff among Duke Energy — North Carolina Utilities Commission, Amazon Data Services, Inc., Andale LLC, Carolina Industrial Group For Fair Utility Rates II and III, United States Department of Defense and all other Federal Executive Agencies, Google LLC, and Microsoft Corporation."
+    },
+    {
+     "source_url": "https://www.selc.org/wp-content/uploads/2026/10/2026-10-06-Duke-Energy-LLT-Settlement.pdf",
+     "verbatim": "investigate, accept, or reject the terms contained in this Stipulation, in whole, or in part"
+    },
+    {
+     "source_url": "https://www.wunc.org/2026-10-07/duke-energy-comes-to-an-agreement-on-long-sought-large-load-tariff-for-data-centers-in-north-carolina",
+     "verbatim": "The N.C. Utilities Commission will have to approve some version of the settlement for it to take effect."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Supersedes the first-pass claims: NOT '75% monthly minimum billing', NOT '$25M-$587M exit penalty' ($587M is an illustrative LC-table figure), NOT 'mid-November decision', Meta is NOT a signatory, Public Staff not on signature list. Thresholds/75%/Jan 1 2027 are from the tariff exhibit (PDF stream-extracted, corroborated by Axios per the agent): have probe.py/WebFetch re-confirm. Filing date Oct 6 from certificate of service."
+  },
+  {
+   "file": "tariffs.json",
+   "op": "update",
+   "id": "duke-nc-large-load-rate-case-2025",
+   "record": {
+    "status_detail": "A Second Amended Comprehensive Revenue Requirement Agreement and Stipulation of Settlement (Duke Energy Carolinas, NCUC Public Staff, industrial/customer groups, and Microsoft Corporation) was filed July 17, 2026 and amended July 20, 2026 (Andale, LLC later added as a stipulating party), committing Duke and Public Staff to submit a dedicated large-load tariff by the end of September 2026. If approved, residential customers using 1,000 kWh/month would see bills rise $17.22/month (from $144.98 to $162.20) beginning January 1, 2027. As of September 25, 2026 no NCUC order on the settlement has been located (the Commission's docket system blocks automated retrieval). On September 14, 2026 Attorney General Jeff Jackson — who declined to sign the settlement — filed a proposal in Duke's rate-case dockets for a new rate class for data centers and other large-load customers, part of the process the Commission opened after he requested a separate large-load proceeding (NCDOJ release). On October 6, 2026 Duke Energy and parties including Amazon Data Services, Google LLC and Microsoft Corporation filed an Agreement and Stipulation of Settlement on Large Load Tariff in Docket Nos. E-7 Sub 1329 and E-2 Sub 1380; it takes effect only if the NCUC approves it, and no order or hearing date had been announced as of October 18, 2026.",
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.selc.org/wp-content/uploads/2026/10/2026-10-06-Duke-Energy-LLT-Settlement.pdf",
+     "verbatim": "Enclosed for filing with the North Carolina Utilities Commission is the Agreement and Stipulation of Settlement on Large Load Tariff among Duke Energy — North Carolina Utilities Commission, Amazon Data Services, Inc., Andale LLC, Carolina Industrial Group For Fair Utility Rates II and III, United States Department of Defense and all other Federal Executive Agencies, Google LLC, and Microsoft Corporation."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Keeps the tariff record's stale 'end-of-September deadline remains next dated step' from contradicting the rate-case record. Only status_detail + captured_at touched."
+  },
+  {
+   "file": "rate_cases.json",
+   "op": "update",
+   "id": "az-acc-aps-rate-case-2025",
+   "record": {
+    "summary": "APS requested a $579.5M (13.99%) net base-rate increase effective no earlier than July 8, 2026, including changes to minimum-bill requirements and eligibility in the Extra High Load Factor (XHLF) rate classes so large high-load-factor customers such as data centers carry the cost of serving their growth. The evidentiary hearing before an ALJ began May 18, 2026 and was scheduled to run roughly eight weeks; a recommended opinion and Commission vote follow. On October 9, 2026 Arizona Attorney General Kris Mayes urged the Commission to investigate whether APS customers subsidized data centers, citing consumer advocate Abhay Padgaonkar's contention that $587 million in costs attributable to a handful of large energy users may have been allocated to other APS customers between 2023 and 2025. APS has called the study 'misleading'; the Commission said it disagrees with the results of an analysis performed for a news story and that cost causation is being addressed within the APS rate case. The allegation is unverified and disputed.",
+    "captured_at": "2026-10-18",
+    "resources": [
+     {
+      "url": "https://www.aps.com/en/Utility/Regulatory-and-Legal/Rate-case",
+      "title": "APS — 2025 rate case filing page"
+     },
+     {
+      "url": "https://www.aps.com/en/About/Our-Company/Newsroom/Articles/APS-Rate-Case-Hearing-Concludes-Process-Moves-to-Next-Phase",
+      "title": "APS — Rate Case Hearing Concludes; Process Moves to Next Phase (July 10, 2026)"
+     },
+     {
+      "url": "https://www.azag.gov/press-release/attorney-general-mayes-urges-arizona-corporation-commission-investigate-whether-aps",
+      "title": "Arizona Attorney General — Mayes urges Corporation Commission to investigate whether APS customers subsidized data centers (Oct. 9, 2026)"
+     },
+     {
+      "url": "https://azcc.gov/news/home/2026/10/09/acc-statement",
+      "title": "Arizona Corporation Commission — statement on analysis of APS cost allocation (Oct. 9, 2026)"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.azag.gov/press-release/attorney-general-mayes-urges-arizona-corporation-commission-investigate-whether-aps",
+     "verbatim": "Mr. Padgaonkar contends that between 2023 and 2025, $587 million in costs attributable to a handful of large energy users may have been allocated"
+    },
+    {
+     "source_url": "https://www.azag.gov/press-release/attorney-general-mayes-urges-arizona-corporation-commission-investigate-whether-aps",
+     "verbatim": "APS has called the study 'misleading' and said it 'oversimplifies' the PSA."
+    },
+    {
+     "source_url": "https://azcc.gov/news/home/2026/10/09/acc-statement",
+     "verbatim": "The Commission disagrees with the results of an analysis performed for the news story titled"
+    }
+   ],
+   "confidence": "high",
+   "why": "Both sides surfaced as a dispute, not a finding. Dropped first-pass claim that staff and 23 intervenors are auditing (not on ACC page). ACC statement does not name Padgaonkar, so the summary does not say the ACC rebutted him by name. Verbatim 'may have been allocated' per power2 (power.json had 'were allocated'; use the hedged wording). No status change."
+  },
+  {
+   "file": "rate_cases.json",
+   "op": "add",
+   "id": "pa-puc-oca-ppl-complaint-2026",
+   "record": {
+    "id": "pa-puc-oca-ppl-complaint-2026",
+    "state_code": "PA",
+    "jurisdiction_level": "state",
+    "utility": "PPL Electric Utilities",
+    "regulator": "Pennsylvania Public Utility Commission (PUC)",
+    "docket_number": "C-2026-3065756",
+    "title": "Office of Consumer Advocate complaint on PPL's rate structure for large data centers (Gov. Shapiro petition to intervene)",
+    "case_type": "large_load_tariff",
+    "status": "pending",
+    "filed_date": null,
+    "decided_date": null,
+    "effective_date": null,
+    "next_milestone": null,
+    "next_milestone_date": null,
+    "related_tariff_id": null,
+    "related_project_ids": null,
+    "summary": "Gov. Josh Shapiro petitioned on October 15, 2026 to intervene in a Pennsylvania PUC proceeding in which the Office of Consumer Advocate challenges PPL Electric's current rate structure. The governor will advocate for PPL to establish a separate customer class for large data centers and to allocate costs caused by their electricity demand to that class. His office says it is the first time in at least 15 years a governor has intervened in a PUC proceeding. The PUC has not ruled; this is a complaint docket, separate from PPL's approved base rate case (pa-puc-ppl-electric-grc-2025).",
+    "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/gov--shapiro-protects-customers-and-holds-data-center-developers",
+    "source_title": "Pennsylvania Governor's Office — Gov. Shapiro Protects Customers and Holds Data Center Developers Accountable",
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/gov--shapiro-protects-customers-and-holds-data-center-developers",
+     "verbatim": "The petition marks the first time in at least 15 years that a governor has intervened in a PUC proceeding."
+    },
+    {
+     "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/gov--shapiro-protects-customers-and-holds-data-center-developers",
+     "verbatim": "will advocate for PPL to establish a separate customer class for large data centers"
+    }
+   ],
+   "confidence": "medium",
+   "why": "New record, NOT an update of pa-puc-ppl-electric-grc-2025 (that is the approved R-2025-3057164 base case; power2.json wrongly proposed updating it). Docket C-2026-3065756 comes from a link on the release, not its text: confirm on puc.pa.gov. Petition date Oct 15 = 'the day before the release' (release dated Oct 16)."
+  },
+  {
+   "file": "rate_cases.json",
+   "op": "add",
+   "id": "ferc-pjm-large-load-er26-3515",
+   "record": {
+    "id": "ferc-pjm-large-load-er26-3515",
+    "state_code": "US",
+    "jurisdiction_level": "federal",
+    "utility": "PJM Interconnection",
+    "regulator": "Federal Energy Regulatory Commission (FERC)",
+    "docket_number": "ER26-3515-000",
+    "title": "PJM large-load interconnection and Interim Resource Adequacy Service filing",
+    "case_type": "large_load_tariff",
+    "status": "rejected",
+    "filed_date": "2026-08-13",
+    "decided_date": "2026-10-09",
+    "effective_date": null,
+    "next_milestone": null,
+    "next_milestone_date": null,
+    "related_tariff_id": null,
+    "related_project_ids": null,
+    "summary": "On October 9, 2026 FERC rejected the core of PJM's August 13 large-load plan, including the Interim Resource Adequacy Service package and the 'bring your own new capacity' rules, and accepted two parts: PJM's definition of a large load as 50 MW or more at one site and a large-load registry. Trade press reads the main objection as jurisdictional rather than a rejection of curtailment as an idea. The order itself was not read; coverage is from Utility Dive and MGRID. It is a separate docket from the co-location case ferc-pjm-colocated-el25-49.",
+    "source_url": "https://www.utilitydive.com/news/ferc-pjm-large-load-interconnection-iras-byonc/832716/",
+    "source_title": "Utility Dive — FERC rejects most of PJM's large load interconnection plan",
+    "resources": [
+     {
+      "url": "https://mgrid.org/2026/10/10/ferc-rejects-pjms-curtail-first-plan-for-new-large-loads-and-keeps-only-the-50-mw-definition-and-a-registry/",
+      "title": "MGRID — FERC Rejects PJM's Curtail-First Plan for New Large Loads, and Keeps Only the 50 MW Definition and a Registry (Oct. 10, 2026)"
+     }
+    ],
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.utilitydive.com/news/ferc-pjm-large-load-interconnection-iras-byonc/832716/",
+     "verbatim": "FERC, however, rejected the Interim Resource Adequacy Service package, which made up the core of the proposal."
+    },
+    {
+     "source_url": "https://mgrid.org/2026/10/10/ferc-rejects-pjms-curtail-first-plan-for-new-large-loads-and-keeps-only-the-50-mw-definition-and-a-registry/",
+     "verbatim": "PJM filed the package on August 13 in docket ER26-3515-000."
+    },
+    {
+     "source_url": "https://mgrid.org/2026/10/10/ferc-rejects-pjms-curtail-first-plan-for-new-large-loads-and-keeps-only-the-50-mw-definition-and-a-registry/",
+     "verbatim": "The Federal Energy Regulatory Commission rejected the core of the large-load plan from PJM Interconnection on October 9, 2026."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Filed as a rate case (not a tariff) to avoid the 17-element LBL taxonomy. Rejected-in-part: status 'rejected' because the core was rejected; summary states the accepted parts. Two independent trade outlets agree but ferc.gov order was unreachable (403): per the NV lesson, an order document should be added when reachable. The 50 MW figure rests on MGRID alone."
+  },
+  {
+   "file": "rate_cases.json",
+   "op": "add",
+   "id": "ferc-duke-energy-carolinas-large-load-er26-2691",
+   "record": {
+    "id": "ferc-duke-energy-carolinas-large-load-er26-2691",
+    "state_code": "US",
+    "jurisdiction_level": "federal",
+    "utility": "Duke Energy Carolinas",
+    "regulator": "Federal Energy Regulatory Commission (FERC)",
+    "docket_number": "ER26-2691",
+    "title": "Duke Energy Carolinas transmission tariff provisions for large-load-driven network upgrades",
+    "case_type": "large_load_tariff",
+    "status": "approved",
+    "filed_date": null,
+    "decided_date": "2026-10-09",
+    "effective_date": null,
+    "next_milestone": null,
+    "next_milestone_date": null,
+    "related_tariff_id": null,
+    "related_project_ids": null,
+    "summary": "On October 9, 2026 FERC voted 4-1 to approve provisions of Duke Energy Carolinas' transmission tariff covering rate treatment and financial security for network upgrades driven by large loads, including shortfall payments for loads of 100 MW or more. Commissioner Judy Chang dissented, saying the proposal lacks meaningful financial security requirements or adequate transparency around executed large load agreements. MGRID reports a floor under which a transmission customer serving a large load must pay for at least 75% of its planned load for 15 years. The docket number and the 75%/15-year floor come from MGRID; the order itself was not read.",
+    "source_url": "https://www.utilitydive.com/news/ferc-duke-energy-large-load-tariff-nitsa/832847/",
+    "source_title": "Utility Dive — FERC approves Duke large load transmission rules despite cost-shift concerns",
+    "resources": [
+     {
+      "url": "https://mgrid.org/2026/10/10/ferc-accepts-dukes-75-15-year-floor-on-large-load-transmission-costs-and-a-commissioner-calls-it-the-low-end/",
+      "title": "MGRID — FERC accepts Duke's 75% / 15-year floor on large-load transmission costs (Oct. 10, 2026)"
+     }
+    ],
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.utilitydive.com/news/ferc-duke-energy-large-load-tariff-nitsa/832847/",
+     "verbatim": "On a 4-1 vote, the Federal Energy Regulatory Commission on Friday approved"
+    },
+    {
+     "source_url": "https://mgrid.org/2026/10/10/ferc-accepts-dukes-75-15-year-floor-on-large-load-transmission-costs-and-a-commissioner-calls-it-the-low-end/",
+     "verbatim": "The Federal Energy Regulatory Commission acted in docket ER26-2691."
+    },
+    {
+     "source_url": "https://mgrid.org/2026/10/10/ferc-accepts-dukes-75-15-year-floor-on-large-load-transmission-costs-and-a-commissioner-calls-it-the-low-end/",
+     "verbatim": "A transmission customer that serves a large load must pay for at least 75% of its planned load."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Approval rests on two trade outlets, not the FERC order (403). Chang dissent wording is from a truncated Utility Dive fetch: the dissent clause is paraphrased-adjacent, keep medium and re-verify. Docket ER26-2691 is MGRID-only."
+  },
+  {
+   "file": "projects.json",
+   "op": "update",
+   "id": "google-van-buren-mi",
+   "record": {
+    "notes": "1 GW hyperscale campus on a 282-acre site in Wayne County (north of I-94, between Haggerty Road and I-275), originally advanced as 'Project Cannoli'. Power served by 2.7 GW of new DTE solar, storage and demand response. Service start targeted December 2027, full capacity December 2028. Google announced a $10M Energy Impact Fund for Michigan energy affordability. The project went through a contested case before the Michigan Public Service Commission (docket U-22058); as of early Sept 2026 the Attorney General was still pressing for a 90% minimum billing demand (vs. DTE's proposed 80%) and stronger exit-fee terms. On Oct 1, 2026 the Commission voted unanimously to grant conditional approval of DTE's special contracts for the project; per Michigan Public, the contracts must cover generation, transmission, distribution and other costs, with a minimum monthly billing demand of 80% of the contract capacity and a termination payment ensuring Google LLC pays at least 15 years of minimum monthly charges. Local opposition includes a 1,500+ signature petition. May 19, 2026: Van Buren Township's Board of Trustees unanimously approved a 50% property tax exemption for 15 years for the project, with a Real Industrial Facilities Tax Exemption for a 36-month construction period; Google is to pay the township $15.4 million for township-wide capital projects. Oct 1, 2026: the Wayne County Commission overrode County Executive Warren Evans' Sept 25 veto of the project's tax incentives by a 13-0 vote (Fox 2 Detroit); the same day the Michigan Public Service Commission voted unanimously to grant conditional approval of DTE's power contracts for the project (Planet Detroit). Oct 14, 2026: the Van Buren Township Planning Commission approved the final site plan 5-1; Panattoni entered into an operational agreement with the township on issues outside the commission's scope.",
+    "ratepayer": {
+     "status": "affirmed",
+     "summary": "Google and DTE filed contracts with the Michigan Public Service Commission confirming Google finances all 2.7 GW of new power supply needed, ensuring no costs associated with the Van Buren Township campus shift to existing ratepayers.",
+     "evidence_claim_id": "google-van-buren-mi-energy-pay-costs-2026",
+     "assessed_at": "2026-10-18",
+     "principles": {
+      "new_generation": {
+       "status": "met",
+       "note": "Google agreed to finance all 2.7 GW of new DTE power through a contract filed with the Michigan PSC."
+      },
+      "delivery_infra": {
+       "status": "met",
+       "note": "DTE/Google contract covers all transmission and distribution upgrade costs; existing customer bills are unaffected."
+      },
+      "separate_rate": {
+       "status": "met",
+       "note": "Separate rate structure filed with the Michigan Public Service Commission; on Oct 1, 2026 the Commission voted unanimously to conditionally approve DTE's special contracts for the project, including a minimum monthly billing demand of 80% of contract capacity (Michigan Public)."
+      },
+      "local_jobs": {
+       "status": "met",
+       "note": "Google committed a $10 million Energy Impact Fund for Michigan affordability, weatherization, and workforce development programs."
+      },
+      "grid_resilience": {
+       "status": "met",
+       "note": "Project integrates with DTE and MISO grid reliability plans; battery storage is included in the 2.7 GW build."
+      }
+     }
+    },
+    "captured_at": "2026-10-18"
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2026-10-02/google-data-center-michigan-van-buren-township",
+     "verbatim": "Michigan's utility regulator voted unanimously Thursday to grant conditional approval for DTE Energy contracts to power"
+    },
+    {
+     "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2026-10-02/google-data-center-michigan-van-buren-township",
+     "verbatim": "ensuring the special contracts for the Google facility cover generation, transmission, distribution, and other costs"
+    },
+    {
+     "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2026-10-02/google-data-center-michigan-van-buren-township",
+     "verbatim": "minimum monthly billing demand of 80% of the contract capacity"
+    },
+    {
+     "source_url": "https://www.michiganpublic.org/transportation-infrastructure/2026-10-02/google-data-center-michigan-van-buren-township",
+     "verbatim": "a termination payment that ensures Google LLC will pay for at least 15 years of minimum monthly charges"
+    }
+   ],
+   "confidence": "medium",
+   "why": "Fixes stale notes ('no order confirming a decision has been found', contested hearing 'scheduled for September 2026'); earlier AG 90% vs 80% position kept as dated history. ratepayer.assessed_at bumped because the Oct 1 order is cited. Michigan Public text was read via WebFetch summary (MPSC pages 403): re-verify quotes with probe.py. DTE exit-payment $2.5B/$1.7B savings and docket confirmation deliberately omitted (search summary only); U-22058 was already in the notes. status stays 'announced'; SiteUpdates for Oct 1 and Oct 14 already exist."
+  },
+  {
+   "file": "responses.json",
+   "op": "add",
+   "id": "resp-google-van-buren-mi-planning-commission-residents",
+   "record": {
+    "id": "resp-google-van-buren-mi-planning-commission-residents",
+    "project_id": "google-van-buren-mi",
+    "date": "2026-10-14",
+    "stance": "negative",
+    "constituency": "residents",
+    "summary": "At the October 14 Planning Commission vote, residents living near the site, including from an adjacent subdivision, spoke against the project, citing dump-truck traffic and what they described as officials' indifference to nearby residents.",
+    "source_url": "https://www.michiganpublic.org/politics-government/2026-10-15/google-wins-zoning-approval-for-huge-data-center-near-detroit-airport",
+    "source_title": "Michigan Public — Google wins zoning approval for huge data center near Detroit airport",
+    "single_source": true
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.michiganpublic.org/politics-government/2026-10-15/google-wins-zoning-approval-for-huge-data-center-near-detroit-airport",
+     "verbatim": "They don't give a crap about any of us here."
+    }
+   ],
+   "confidence": "medium",
+   "why": "Stance is a human call; opposition speech at a public vote is the standard negative-resident case. Quote came via a fetch summary: verify wording. Summary does not reproduce the quote."
+  },
+  {
+   "file": "projects.json",
+   "op": "update",
+   "id": "aws-calvert-cliffs-md",
+   "record": {
+    "notes": "Proposed AWS campus on ~2,050 acres (a 965-acre northern parcel and a 1,085-acre southern parcel) adjacent to Constellation Energy's Calvert Cliffs nuclear plant at 1650 Calvert Cliffs Parkway, Lusby. The concept calls for up to eight data center buildings (266,000-332,000 sq ft each) across three campuses, ~2.46M sq ft total. AWS publicly introduced the project at a Calvert County community meeting on March 31, 2026 and filed a concept site plan application on May 4, 2026; no construction permits have been issued. Air-cooled design (cited as ~96% of the year); reported at ~1.5 GW, a figure AWS has not officially disclosed. The proposal drew local opposition, and county commissioners attempted an unsuccessful temporary moratorium on data center development. On August 4, 2026 Calvert County announced that AWS had formally withdrawn its plans for the campus; Constellation, which owns the plant, said AWS has withdrawn its plans and that it continues to work with the county and state (WTOP). The ratepayer assessment above predates the withdrawal.",
+    "captured_at": "2026-10-18",
+    "_append_updates": [
+     {
+      "date": "2026-08-04",
+      "kind": "filing",
+      "title": "AWS withdraws plans for Calvert Cliffs data center campus",
+      "summary": "Calvert County announced the withdrawal; Constellation, which owns the nuclear plant, said AWS has withdrawn its plans and that it continues to work with the county and state.",
+      "authority": "Calvert County Government",
+      "upcoming": false,
+      "source_url": "https://wtop.com/calvert-county/2026/08/amazon-abandons-plans-for-data-center-campus-at-md-s-calvert-cliffs-nuclear-plant/",
+      "source_title": "WTOP — Amazon abandons plans for data center campus at Md.'s Calvert Cliffs nuclear plant"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source_url": "https://wtop.com/calvert-county/2026/08/amazon-abandons-plans-for-data-center-campus-at-md-s-calvert-cliffs-nuclear-plant/",
+     "verbatim": "although AWS has withdrawn its plans"
+    }
+   ],
+   "confidence": "medium",
+   "why": "Status enum has no withdrawn/cancelled value, so project.status stays 'announced' and the withdrawal lives in notes + timeline (curator may want a status-vocab BACKLOG item). Event is outside the window but unreflected in the record. Date is the report date Aug 4. The county release itself was not fetched; Maryland Matters corroboration was 403 (not cited)."
+  },
+  {
+   "file": "projects.json",
+   "op": "update",
+   "id": "ms-mt-pleasant-wi",
+   "record": {
+    "notes": "Microsoft's first Wisconsin data center, branded 'Fairwater.' Per Satya Nadella's April 16 2026 statement the site is 'going live ahead of schedule,' combining hundreds of thousands of NVIDIA GB200 GPUs into a single seamless cluster. Mount Pleasant Village Board approved 15 additional buildings across two new lots on May 11 2026 (~$13B+ incremental taxable value). 375 FTEs hired as of May 8 2026 per Bowen Wallace at the RCEDC Impact 2026 event. On June 23, 2026 Microsoft announced the first Fairwater facility is fully operational (equipment brought online in April 2026), with roughly 550 on-site full-time employees — expected to reach about 800 once the second facility opens — and about $4.7 billion in projected 2024–2028 Wisconsin hyperscale construction spending, including direct purchases from 29 Wisconsin businesses across 11 counties. A second, similarly-sized Fairwater facility (announced Sept 18, 2025, $4B) is under construction targeting completion by end of 2028, bringing Microsoft's total announced Wisconsin commitment to more than $7 billion (see ms-mt-pleasant-wi-investment claim; investment_usd now reflects this combined total, not just the original $3.3B). Gov. Evers: 'Microsoft's investment puts Wisconsin on the very cutting edge of AI power, not just in the U.S., but throughout the world.' Microsoft also runs an AI Co-Innovation Lab at UW-Milwaukee (WEDC $500K grant) teaching AI applications to Wisconsin small/medium businesses. Oct 14, 2026: the Mount Pleasant Plan Commission unanimously approved an amended site plan for Microsoft's Durand Avenue parcel that cuts the planned buildings from nine to seven; a Microsoft spokesperson said the changes 'in no way reflect a reduction in our ambition,' and the Village Board vote is expected later in October (WPR).",
+    "captured_at": "2026-10-18",
+    "_append_updates": [
+     {
+      "date": "2026-10-14",
+      "kind": "vote",
+      "title": "Plan Commission unanimously approves amended Microsoft site plan, nine buildings cut to seven",
+      "summary": "The amended Durand Avenue site plan reduces the planned data center buildings from nine to seven. A Microsoft spokesperson said the changes do not reflect a reduction in ambition; the Village Board is expected to vote later in October.",
+      "authority": "Mount Pleasant Plan Commission",
+      "upcoming": false,
+      "source_url": "https://www.wpr.org/news/microsoft-fewer-data-centers-sprawling-mount-pleasant-campus",
+      "source_title": "Wisconsin Public Radio — Microsoft fewer data centers sprawling Mount Pleasant campus"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.wpr.org/news/microsoft-fewer-data-centers-sprawling-mount-pleasant-campus",
+     "verbatim": "On Wednesday, the Mount Pleasant Plan Commission unanimously approved the amended site plan."
+    },
+    {
+     "source_url": "https://www.wpr.org/news/microsoft-fewer-data-centers-sprawling-mount-pleasant-campus",
+     "verbatim": "The changes in no way reflect a reduction in our ambition"
+    }
+   ],
+   "confidence": "high",
+   "why": "Plan Commission vote Wed Oct 14 per WPR (article Oct 15, photo caption 'meets on Oct. 14, 2026'). Village Board date not announced, so no upcoming:true entry. Taxable-value-per-acre figures omitted (see needs_verification)."
+  },
+  {
+   "file": "projects.json",
+   "op": "update",
+   "id": "google-pine-island-mn",
+   "record": {
+    "notes": "Announced February 24, 2026. 480-acre campus in Pine Island Township, Goodhue County, served by Xcel Energy. Google committed to finance 1,900 MW of new clean energy resources for the Minnesota grid (solar, wind, battery storage). $25M community investment fund over 20 years, benefiting Pine Island schools. Google covers 100% of new grid infrastructure costs. ~500 construction trades during build phase. As of Oct 11, 2026, MPR News reported the data center was on pause while a judge considers whether the project requires further environmental review.",
+    "captured_at": "2026-10-18",
+    "_append_updates": [
+     {
+      "date": "2026-10-11",
+      "kind": "news",
+      "title": "Reported: Pine Island data center on pause while a judge considers further environmental review",
+      "summary": "MPR News reports the pause as of this date; the cited article does not name the court or give the date of the order.",
+      "authority": "Court (not named in the cited report)",
+      "upcoming": false,
+      "source_url": "https://mprnews.org/story/2026/10/11/rochester-business-group-backs-googles-controversial-pine-island-data-center",
+      "source_title": "MPR News — Rochester business group backs Google's controversial Pine Island data center"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source_url": "https://mprnews.org/story/2026/10/11/rochester-business-group-backs-googles-controversial-pine-island-data-center",
+     "verbatim": "The data center is currently on pause as a judge considers whether the project requires further environmental review."
+    }
+   ],
+   "confidence": "high",
+   "why": "Recorded as kind 'news' dated to the report because the order/lawsuit date and plaintiff are not on the fetched page (MCEA/KSTP details were search-summary only)."
+  },
+  {
+   "file": "projects.json",
+   "op": "add",
+   "id": "microsoft-woodward-ia",
+   "record": {
+    "id": "microsoft-woodward-ia",
+    "company_slug": "microsoft",
+    "name": "Microsoft Woodward Data Center (Eco Business Park)",
+    "city": "Woodward",
+    "state": "IA",
+    "country": "US",
+    "lat": 41.8517,
+    "lon": -93.9183,
+    "status": "announced",
+    "announced_year": 2026,
+    "announced_date": null,
+    "claimed_investment_usd": null,
+    "claimed_jobs": null,
+    "notes": "Microsoft disclosed a purchase of about 600 acres of industrial-zoned land in the Woodward Eco Business Park, near Des Moines, for data center development; a Microsoft spokesperson said the project is at its earliest phase of planning and development. The purchase was disclosed to residents at an Oct 12, 2026 meeting held after the council's regular meeting was canceled (Newsweek). Construction Review Online reports the purchase closed on October 8, 2026. Capacity, investment and jobs have not been disclosed.",
+    "source_url": "https://www.newsweek.com/man-dragged-from-iowa-meeting-protesting-microsoft-data-center-12560823",
+    "source_title": "Newsweek — Man dragged from Iowa meeting protesting Microsoft data center",
+    "captured_at": "2026-10-18",
+    "project_page_url": null,
+    "acreage": 600.0,
+    "power_mw": null,
+    "gpu_count": null,
+    "offtaker": "Microsoft",
+    "updates": [
+     {
+      "date": "2026-10-12",
+      "kind": "news",
+      "title": "Microsoft discloses ~600-acre Woodward land purchase at a residents' meeting",
+      "summary": "A Microsoft spokesperson said the project is at the earliest phase of planning and development. Reporting says a resident was removed from the meeting.",
+      "authority": "City of Woodward / Microsoft",
+      "upcoming": false,
+      "source_url": "https://www.newsweek.com/man-dragged-from-iowa-meeting-protesting-microsoft-data-center-12560823",
+      "source_title": "Newsweek — Man dragged from Iowa meeting protesting Microsoft data center"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source_url": "https://www.newsweek.com/man-dragged-from-iowa-meeting-protesting-microsoft-data-center-12560823",
+     "verbatim": "Microsoft has purchased land in Woodward for the purpose of datacenter development. This project is at the earliest phase of planning and development and we look forward to working with local leaders and community members as our plans move forward."
+    },
+    {
+     "source_url": "https://www.newsweek.com/man-dragged-from-iowa-meeting-protesting-microsoft-data-center-12560823",
+     "verbatim": "Microsoft has purchased about 600 acres of land zoned for industrial use in the Woodward Eco Business Park."
+    },
+    {
+     "source_url": "https://constructionreviewonline.com/microsoft-acquires-600-acres-for-eco-business-park-data-center-in-woodward-iowa/",
+     "verbatim": "Microsoft officially closed on the 600-acre land purchase on October 8"
+    }
+   ],
+   "confidence": "medium",
+   "why": "New tracked-company site, first-party spokesperson statement quoted by Newsweek. lat/lon are approximate city-centroid values entered from memory: verify before shipping. 'Man dragged' detail in the update summary rests on the Newsweek headline: trim if the curator prefers. DCD corroboration was 403. Closing date rests on one outlet (kept in notes only, attributed). Rezoning June 2026 and mayor's 'no public vote' answer omitted (search-summary only)."
+  }
+ ],
+ "needs_verification": [
+  {
+   "id_or_title": "hernando-county-fl-2026-06 (status proposed -> enacted?)",
+   "question": "Did the Hernando County Commission adopt the 365-day data center moratorium, and on what date and vote? Tampa Bay Beacon (2026-06-23) says approved June 23 with a 4-0 roll call; the existing record says first reading June 24 and final adoption scheduled July 14, and another outlet reports 5-0 on June 2. Find the county's June 23/24 and July 14 agenda/minutes or an ordinance number and settle first reading vs final adoption.",
+   "suggested_url": "https://www.hernandocounty.us/"
+  },
+  {
+   "id_or_title": "Pierce County WA emergency ordinance, data centers over 10 MW",
+   "question": "Fetch the Pierce County page (AID=7241 or council ordinance page) and confirm: ordinance number (2026-577 vs O2026-557), Aug 25 passage and 6-1 vote, 10 MW threshold, up to one year, effective date, and the Oct 20, 2026 3:00 pm public hearing. Everything so far is from search summaries (county site returned 403).",
+   "suggested_url": "https://www.piercecountywa.gov/CivicAlerts.aspx?AID=7241"
+  },
+  {
+   "id_or_title": "Columbus County NC 120-day data center pause",
+   "question": "What happened at the Oct 5, 2026 6:30 pm commissioners' public hearing on the proposed 120-day pause (adopted, tabled, or failed; vote; effective date)? Only the pre-hearing WECT notice is verified.",
+   "suggested_url": "https://www.wect.com/2026/10/02/columbus-county-consider-120-day-data-center-moratorium/"
+  },
+  {
+   "id_or_title": "Charlotte moratorium extension",
+   "question": "(1) Did council hold the Oct 12 public hearing, and what is the date of the final extension vote (Oct 26 is only in Bisnow/WSOC search summaries)? (2) What length is on the agenda: up to 9 months or 11 months through Oct 11, 2027? (3) Is the initial pause 150 days (GovTech) or five months (WSOC)? Use the Charlotte city council agenda.",
+   "suggested_url": "https://www.charlottenc.gov/"
+  },
+  {
+   "id_or_title": "Memphis data center moratorium (memphis-city-2026-10)",
+   "question": "After Oct 20: was the moratorium adopted, amended or defeated, and is the ordinance text the same as draft v3? Also resolve a WREG report (undated) that a temporary moratorium was not taken up and two zoning ordinances passed first reading, and the 7-5 postponement vote (Commercial Appeal summary only).",
+   "suggested_url": "https://www.memphistn.gov/"
+  },
+  {
+   "id_or_title": "Loudoun County pause (loudoun-county-va-2026-09)",
+   "question": "Oct 20 outcome: did the Board adopt the resolution (vote, retroactive Sept 15 effective date)? Existing record is already current; nothing to change before Oct 20.",
+   "suggested_url": "https://www.loudoun.gov/m/newsflash/Home/Detail/10874"
+  },
+  {
+   "id_or_title": "Trenton OH charter amendment (25 MW data center cap) and ballot date",
+   "question": "Is the measure on the Nov 3, 2026 ballot as 'Issue 17' per the Butler County Board of Elections? The Ohio Supreme Court (2026-Ohio-3406, State ex rel. Blankenship v. Trenton City Council) said the city was not required to use the Nov general ballot and must hold a special election 60-120 days after certification, while FOX19 (Oct 16) says 'On their ballots is Issue 17'. Do not record the date until the BOE ballot-issue list or city certification confirms it. Also confirm the measure text/threshold (25 MW aggregate monthly demand or peak load).",
+   "suggested_url": "https://elections.bcohio.gov/"
+  },
+  {
+   "id_or_title": "AWS Trenton OH project (would be amazon-trenton-oh)",
+   "question": "When and how did AWS announce the Wayne Madison Road proposal (announced year/date, MW, acreage, investment, serving utility)? Needed for required fields (announced_year) before a project record can be created. Also confirm the Oct 15 Edgewood Middle School AWS open house (FOX19 and WCPO agree) and the St. Clair Township Zoning Commission Oct 13 agenda outcome (WCPO, undated article) and the WATER Group residents' quotes.",
+   "suggested_url": "https://www.wcpo.com/news/local-news/in-your-community/butler-county/three-developments-to-watch-this-week-in-trentons-amazon-data-center-fight"
+  },
+  {
+   "id_or_title": "oracle-port-washington-wi: Oracle lawsuit over PSC credit-rating rule",
+   "question": "Does the Wisconsin Watch article (2026-08-17) say in its body that Oracle moved to voluntarily dismiss its Ozaukee County suit, and give the sentence? The research verbatim only supports the $100M/year cost claim, not the dismissal. If confirmed, add a SiteUpdate kind 'lawsuit' dated 2026-08-17 (or put it in the We Energies tariff record).",
+   "suggested_url": "https://wisconsinwatch.org/2026/08/oracle-drops-lawsuit-challenging-wisconsin-data-center-credit-rules/"
+  },
+  {
+   "id_or_title": "ms-mt-pleasant-wi taxable-value change",
+   "question": "Confirm in the WPR article the taxable value per acre fell from about $10 million to about $7.7 million and the 791-acre parcel figure; also the village board vote date (expected later in October). Candidate addition to the Oct 14 SiteUpdate.",
+   "suggested_url": "https://www.wpr.org/news/microsoft-fewer-data-centers-sprawling-mount-pleasant-campus"
+  },
+  {
+   "id_or_title": "PA PUC docket C-2026-3065756",
+   "question": "Confirm on puc.pa.gov that C-2026-3065756 is the OCA complaint against PPL Electric's rate structure for large data centers, its filing date (Oct 2 per secondary news), and any assigned hearing/next-milestone date; then set next_milestone on pa-puc-oca-ppl-complaint-2026.",
+   "suggested_url": "https://www.puc.pa.gov/docket/C-2026-3065756"
+  },
+  {
+   "id_or_title": "FERC orders ER26-3515 and ER26-2691",
+   "question": "Fetch the FERC orders from elibrary (accession 20261009-3054 is Utility Dive's cite for the Duke order) to confirm docket numbers, the 4-1 vote, Chang's dissent wording, the 50 MW large-load definition, and the 75%/15-year floor; add the order as source_url or resource on ferc-pjm-large-load-er26-3515 and ferc-duke-energy-carolinas-large-load-er26-2691. Also decide whether ER26-3515 relates to ferc-pjm-colocated-el25-49 (no fetched page ties them).",
+   "suggested_url": "https://elibrary.ferc.gov/"
+  },
+  {
+   "id_or_title": "Swatara Township CBA vote and per-project split",
+   "question": "Confirm the 4-1 vote and the Oct 8 meeting date from the township's board minutes, and read Highlands_CBA_Contributions_and_Payment_Schedule PDF for the $84.15M (West) / $36.15M (East) split (currently Black Ridge only). Confirm whether the agreements are executed (status in_effect vs proposed).",
+   "suggested_url": "https://swataratwp.com/"
+  },
+  {
+   "id_or_title": "Aurora CO Ordinance 2026-51",
+   "question": "Confirm ordinance number 2026-51, adoption on Oct 12, 2026, and effective date on Aurora's own council record (currently a Govly-hosted meeting summary); confirm which districts still permit data centers.",
+   "suggested_url": "https://www.auroragov.org/"
+  },
+  {
+   "id_or_title": "Warren 'Power and Profits' Senate report (Oct 2026)",
+   "question": "Fetch the PDF and find the exact date and a sentence about 'fair share' commitments not covering residential costs; decide whether it belongs as a community response (no project link) or a policy/news item.",
+   "suggested_url": "https://www.warren.senate.gov/wp-content/uploads/2026/10/471703-ai-data-center-boom-cost-Digital-8.5x11.pdf"
+  },
+  {
+   "id_or_title": "FPL compliance filing under Florida SB 484",
+   "question": "Fetch the WUSF article (2026-10-04) and the PSC docket: does FPL's filing say its 2026-2029 rate structure already complies with SB 484, and what is the PSC's review schedule? If so, new rate case for FL.",
+   "suggested_url": "https://www.wusf.org/politics-issues/2026-10-04/fpl-tells-regulators-rate-structure-complies-with-data-center-law"
+  },
+  {
+   "id_or_title": "Oregon PacifiCorp UE 463 data center tariff",
+   "question": "Is a PUC order due in late 2026 with a date announced? Possible next-milestone for an Oregon rate case (no order found Oct 4-18 for any state).",
+   "suggested_url": "https://oregon.gov/puc/Pages/Upcoming-Decisions.aspx"
+  }
+ ],
+ "dropped": [
+  {
+   "title": "Swatara CBA (gov.json first pass)",
+   "reason": "Superseded by gov2.json, which found the township's own press release."
+  },
+  {
+   "title": "Aurora CO (gov.json first pass)",
+   "reason": "Superseded by gov2.json (ordinance number found); kept as one policy record."
+  },
+  {
+   "title": "Memphis moratorium (gov.json first pass)",
+   "reason": "Superseded by gov2.json with the draft ordinance text."
+  },
+  {
+   "title": "Loudoun County Oct 20 update",
+   "reason": "Existing loudoun-county-va-2026-09 already contains the Oct 20 resolution, retroactive Sept 15 date and the 'not a moratorium' framing; first pass was unfetched snippets. No change."
+  },
+  {
+   "title": "Fort Worth moratorium 'unanimously approves' (Courier Texas)",
+   "reason": "Existing fort-worth-tx-2026-08 is better sourced: the city's own page says the moratorium is not yet in effect and the Aug 11 vote only started the state-law process. Courier headline would regress the record."
+  },
+  {
+   "title": "Michigan HB 5594 / SB 1018 (no change)",
+   "reason": "Verification only; existing michigan-state-2026-06 already says no action beyond committee referral. The 'until April 1, 2027' text came from an AI analysis on the source page."
+  },
+  {
+   "title": "South Carolina H.5286 (no change)",
+   "reason": "Verification only; existing record already current (Sept 22 check)."
+  },
+  {
+   "title": "Virginia HB 1515 (unverified)",
+   "reason": "Existing record already shows carry-over to 2027 from the LIS API; research agent could not load LIS."
+  },
+  {
+   "title": "New York S10642 (no change)",
+   "reason": "Verification only; existing record already current."
+  },
+  {
+   "title": "Beloit WI town moratorium hearing",
+   "reason": "Lead only: town page 403, nothing fetched; hearing Oct 12 and ordinance terms from a search summary."
+  },
+  {
+   "title": "Google Van Buren planning-commission SiteUpdate and MPSC SiteUpdate (sites.json/power.json/power2.json)",
+   "reason": "Both SiteUpdates already exist on google-van-buren-mi (Oct 1 and Oct 14). Only the stale notes/separate_rate fix is proposed."
+  },
+  {
+   "title": "The Cool Down article on Van Buren (power.json)",
+   "reason": "Secondary, low-quality source repeating a DTE contract term; the 80% billing-demand fact is covered by the Michigan Public article instead. The 80%/'whether it uses that power or not' is a utility contract term, never a Google Claim."
+  },
+  {
+   "title": "Pine Island: Rochester Area Chamber of Commerce positive response",
+   "reason": "Constituency 'business group' is not in the Constituency vocabulary (residents/local_government/ngo/academic/journalist/regulator); forcing it into ngo would misdescribe it. Candidate for a BACKLOG item (add a 'business' constituency) rather than a mis-tagged record. The 700-construction-jobs statement would also need its own claim review."
+  },
+  {
+   "title": "AZ AG / consumer advocate community response (power.json, power2.json)",
+   "reason": "responses.json records are project-tied; this is a utility-wide rate case dispute and is captured in the az-acc-aps-rate-case-2025 summary instead."
+  },
+  {
+   "title": "Trenton charter amendment as a policy record and Trenton community responses",
+   "reason": "Ballot date unresolved and no Trenton project record exists; see needs_verification."
+  },
+  {
+   "title": "St. Clair Township zoning commission agenda item",
+   "reason": "Outcome unknown, not a tracked site, undated source article; see Trenton needs_verification."
+  },
+  {
+   "title": "Tampa-area/other first-pass duplicates: PA Shapiro rate_case 'new' (power.json) and 'update pa-puc-ppl-electric-grc-2025' (power2.json)",
+   "reason": "Merged into one NEW rate case; the existing id is an approved base case with a different docket."
+  },
+  {
+   "title": "FERC PJM / Duke duplicates across power.json and power2.json",
+   "reason": "Merged; power2 overrides (docket numbers, 75%/15-year floor, ER26-2691); tariffs.json not used because the 17-element LBL taxonomy does not fit federal transmission filings."
+  },
+  {
+   "title": "Google India (Visakhapatnam) claim",
+   "reason": "Non-US, unfetched."
+  },
+  {
+   "title": "Duke first-pass terms (50/150 MW 'near peak', $25M-$587M exit penalties, mid-November decision, Meta support)",
+   "reason": "Contradicted by the filed settlement: $587M is an illustrative security figure, no decision date, Meta not a signatory."
+  },
+  {
+   "title": "Oracle Port Washington suit (sites.json)",
+   "reason": "Moved to needs_verification: verbatim supports only the cost claim, not the dismissal."
+  },
+  {
+   "title": "Calvert Cliffs Hoodline source (sites.json)",
+   "reason": "Replaced by the WTOP source from sites2.json (Hoodline is a content aggregator with a paraphrased county quote)."
+  }
+ ]
+}

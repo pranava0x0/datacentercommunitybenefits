@@ -118,3 +118,46 @@ def test_a_bot_walled_page_is_reported_not_failed(gate, capsys) -> None:
     It must not pass as a HIT, and it must not fail the gate either."""
     assert gate(row(source_url="https://example.org/walled", verbatim="anything long enough to check here")) == 0
     assert "BLOCKED" in capsys.readouterr().out
+
+
+def test_pdf_falls_back_to_stream_parser_without_pdfkit(monkeypatch) -> None:
+    import shutil
+    import probe as pr
+    monkeypatch.setattr(shutil, "which", lambda name: None)
+    called = {}
+    monkeypatch.setattr(pr, "pdf_text", lambda data: called.setdefault("ok", "fallback text"))
+    assert pr.pdf_text_best(b"%PDF-1.4 tiny") == "fallback text"
+    assert pr.pdf_text_best(b"x" * (pr.MAX_FALLBACK_PDF + 1)) == ""  # too big to parse safely
+
+
+def test_shift_jis_page_is_decoded_from_its_meta_charset() -> None:
+    import probe as pr
+    raw = '<html><head><meta charset="Shift_JIS"></head><body>データセンター</body></html>'.encode("shift_jis")
+    assert pr._meta_charset(raw).lower() == "shift_jis"
+    assert "データセンター" in raw.decode(pr._meta_charset(raw))
+
+
+def test_unreadable_pdf_is_a_miss_not_blocked(tmp_path, monkeypatch, capsys) -> None:
+    import json as _j
+    import probe as pr
+    monkeypatch.setattr(pr, "fetch", lambda url: (200, url, pr.PDF_UNREADABLE))
+    ev = tmp_path / "e.jsonl"
+    ev.write_text(_j.dumps({"id": "x", "action": "add", "source_url": "https://x.example/a.pdf",
+                            "verbatim": "a quote long enough to be checked by the gate"}) + "\n")
+    assert pr.check_evidence(ev, 0) == 1
+    assert "MISS" in capsys.readouterr().out
+
+
+def test_short_pdf_text_from_a_suffixless_url_is_checked_not_blocked(tmp_path, monkeypatch, capsys) -> None:
+    import json as _j
+    import probe as pr
+    url = "https://psc.example/Document/Display/123"
+    def fake(u):
+        pr.PDF_URLS.add(u)
+        return (200, u, "ORDER. The tariff is approved effective December 4, 2025.")
+    monkeypatch.setattr(pr, "fetch", fake)
+    ev = tmp_path / "e.jsonl"
+    ev.write_text(_j.dumps({"id": "x", "action": "add", "source_url": url,
+                            "verbatim": "The tariff is approved effective December 4, 2025."}) + "\n")
+    assert pr.check_evidence(ev, 0) == 0
+    assert "HIT" in capsys.readouterr().out

@@ -1,0 +1,99 @@
+{
+  "companies": [
+    {"name": "Sesterce", "hq": "Marseille, France (per AFP: 'start-up marseillaise')", "website": "not verified this pass", "candidate_for": "FR Alixan/Rovaltain 40 MW data centre (permit suspended 2026-07-10). Needs company website and HQ confirmation before adding; also announced a >EUR 10bn Finland project (not in scope here)."},
+    {"name": "Ark Data Centres", "hq": "not verified this pass", "website": "not verified this pass", "candidate_for": "GB Corsham (Spring Park, Wiltshire) data centre. Wiltshire Council approved PL/2024/05527 per press coverage (Feb 2026); fetch the council decision notice before a record."}
+  ],
+  "records": [
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR", "subdivision": "FR-68", "jurisdiction": "Mulhouse Alsace Agglomération (Haut-Rhin)",
+        "event_date": "2026-10-12", "event_date_note": "AFP says the council approved 'en conseil lundi'; article updated 13 Oct 2026, so Monday 12 Oct is inferred. Confirm against the council's minutes.",
+        "project": "Microsoft data centre, Petit-Landau and Hombourg (36 ha, Rhine bank)",
+        "outcome": "Agglomeration council approved the déclaration d'intérêt général for the project. The prefectoral order has not been found.",
+        "second_verbatim": "Un site de 36 hectares au bord du Rhin"
+      },
+      "verbatim": "Les élus de Mulhouse Alsace Agglomération ont approuvé en conseil lundi la déclaration d'intérêt général du projet de centre de données de Microsoft dans le Haut-Rhin",
+      "translation": "Machine translation (AI): The elected members of Mulhouse Alsace Agglomération approved, at Monday's council meeting, the declaration of general interest for the Microsoft data centre project in the Haut-Rhin.",
+      "source_url": "https://www.connaissancedesenergies.org/afp/lagglomeration-de-mulhouse-fait-franchir-une-nouvelle-etape-au-projet-de-data-center-de-microsoft-261012",
+      "notes": "Probe HIT. The same AFP article reports the Conseil départemental de l'environnement et des risques sanitaires et technologiques opinion of 6 Oct 2026, and the public inquiry of 1 Jun to 3 Jul 2026 with a favourable opinion. Still needed: the arrêté préfectoral and the Petit-Landau and Hombourg building permits, which are not found. Operator is Microsoft; no Microsoft first-party statement was read. Opposition collective 'IA pas moyen' reported (reporterre, generation-nt): not added as a response in this pass."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR", "subdivision": "FR-68", "jurisdiction": "Mulhouse Alsace Agglomération (Haut-Rhin)",
+        "event_date": "2026-06-22",
+        "project": "Microsoft 1985 Sàrl data centre, Petit-Landau and Hombourg",
+        "outcome": "Agglomeration council gave its opinion on the state's environmental authorisation request (DAE), a consultative step; the application was lodged 6 Nov 2025"
+      },
+      "verbatim": "La société Microsoft 1985 Sàrl a, quant à elle, déposé le 6 novembre 2025 sur le guichet numérique de l'environnement GUN'env une Demande d'Autorisation Environnementale (DAE)",
+      "translation": "Machine translation (AI): Microsoft 1985 Sàrl, for its part, lodged an environmental authorisation application (DAE) on 6 November 2025 on the GUN'env digital environment portal.",
+      "source_url": "https://www.m2a.fr/wp-content/uploads/2026/06/2026_06_22_99_DE-2026-161C.pdf",
+      "notes": "Probe HIT (PDF text pull). Official council deliberation, 22 June 2026, 90 of 103 members present. The PDF also records the 2024 déclaration de projet, the 13 Oct 2025 concertation balance (mid-Jan to mid-Sep 2025, two public meetings) and a 45-ha extension zone. Microsoft 1985 Sàrl is a Microsoft entity; add it as an operator alias on the project record. Not a duplicate of the Oct 2026 vote: this is a different instrument at a different stage."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR", "subdivision": "FR-36", "jurisdiction": "Ozans, Étrechet (Indre); Commission nationale du débat public",
+        "event_date": "2026-04-01",
+        "project": "Google data centre, Ozans-Châteauroux, and its RTE electrical connection",
+        "outcome": "CNDP decided to hold a préalable concertation (decision n° 2026/37). Sponsors: Google France SARL, Tricolore Computing SARL, Violet Computing SARL; RTE is co-sponsor of the connection."
+      },
+      "verbatim": "Il y a lieu d'organiser une concertation préalable relative au projet de centre de données d'Ozans-Châteauroux et de son raccordement électrique",
+      "translation": "Machine translation (AI): A preliminary public consultation should be organised on the Ozans-Châteauroux data centre project and its electrical connection.",
+      "source_url": "https://www.debatpublic.fr/sites/default/files/2026-04/DECISION_2026_37_CENTRE%20DE%20DONNEES%20GOOGLE%20RTE_1%20Sign%C3%A9%20MP.pdf",
+      "notes": "Probe HIT. Regulator decision text, primary. Consultation dates (Nov-Dec 2026 per AFP/Préfecture) are NOT in this decision and not verified on a primary page. Power capacity is contested in coverage (500 MW per elected officials, 880 MW to 1.1 GW per Le Monde) and is NOT stated in the decision: do not set power_mw from press. Google France and RTE are the sponsors; Google company slug already tracked in the US tab for other sites."
+    },
+    {
+      "country": "FR",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "FR", "subdivision": "FR-26", "jurisdiction": "Alixan (Drôme), Tribunal administratif de Grenoble",
+        "event_date": "2026-07-10",
+        "project": "Sesterce AI data centre, Rovaltain site near Valence TGV station (40 MW initial, 80 MW possible)",
+        "outcome": "Référé court (ordonnance n° 2605946) suspended the building permit pending a judgment on the merits; the court cited the absence of a prior environmental impact study. Permit signed 18 Dec 2025 by the mayor. Sesterce has announced a cassation appeal to the Conseil d'État."
+      },
+      "verbatim": "Le juge des référés du tribunal administratif de Grenoble a suspendu l'autorisation de construire accordée à Sesterce, dans l'attente d'une décision sur le fond.",
+      "translation": "Machine translation (AI): The interim-relief judge of the Grenoble administrative court suspended the building permit granted to Sesterce, pending a decision on the merits.",
+      "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
+      "notes": "Probe HIT on the AFP text. The ordonnance number and the 10 July date come from a law-firm summary (Kohen) not read here: the AFP article itself is dated 10 July 2026 ('Vendredi'). Court reasoning (environmental effects should have been examined before issuing the permit) is from the same AFP article. Sesterce is a company candidate (see companies). Do not state 'suspended because of cost' or other reasons beyond the article."
+    },
+    {
+      "country": "GB",
+      "kind": "government_action",
+      "verified": true,
+      "fields": {
+        "country": "GB", "subdivision": "GB-WLS", "jurisdiction": "North Wales (Anglesey and Gwynedd; Menai Strait)",
+        "event_date": "2025-11-13",
+        "project": "AI Growth Zone, North Wales (Prosperity Parc, Anglesey; Trawsfynydd, Gwynedd)",
+        "outcome": "Government designated a North Wales AI Growth Zone. Government forecast more than 3,400 jobs. No investment partner secured at announcement; construction awaits a deal."
+      },
+      "verbatim": "North Wales in line for more than 3,400 new jobs through newly announced AI Growth Zone",
+      "translation": "Machine translation not needed: source is English.",
+      "source_url": "https://www.gov.uk/government/news/ai-growth-zones-to-create-thousands-of-jobs-and-unlock-up-to-100-billion-in-investment-as-new-site-confirmed-for-north-wales",
+      "notes": "Probe HIT. gov.uk press release, DSIT / Wales Office / No10, published 13 Nov 2025. The job figure is 3,400+ on the release; trade press quotes 3,450 (the figure in other outlets) and 'over 3,000': use the release. The Stena Line consortium (Prosperity Parc) is in the coverage but not verified against its own page; the project record is not added. Delivery status not checked: check Anglesey planning records before any site-level record."
+    }
+  ],
+  "leads": [
+    "GB Charlton Riverside (Greenwich, London): council opposition announced early Oct 2026 per BBC/Greenwich Wire; developer named inconsistently (Tyburn RWC, Charlton Gateway, GLi). The August 2026 item was a scoping request, not a planning application (DCD calls it an application). Needs the Greenwich planning portal record and the developer's own statement before a project record.",
+    "GB Didcot (Vale of White Horse): the district council tendered a heat-network feasibility study for the data centre cluster by Didcot Power Station (about 400,000 sqm proposed; AWS bought the RWE site). Tender budget GBP 70,000, bid deadline 10 July 2026 (find-tender 074444-2025). Procurement record only; a decision would be needed for a government-action record. Check whether the contract was awarded.",
+    "GB Corsham, Spring Park (Ark Data Centres): Wiltshire Council approved PL/2024/05527 (Neston, standalone data centre, 18.7 m tall) subject to conditions, after more than 1,100 objections and a deferral to 10 February 2026 (press coverage). Fetch the Wiltshire decision notice and conditions. Also check the 2026 Corsham Town Council minutes (PL/2025/01728 condition discharge).",
+    "GB Iver (Buckinghamshire), AWS: Buckinghamshire Council approved; Gowling WLG (2026) reports the Government conceded a judicial review of the grant, with quashing expected by consent. Fetch the Gowling article and the High Court consent order before recording the outcome.",
+    "GB Ofgem GBP 16.2m heat-reuse award: the search did not find a 2026 Ofgem or gov.uk announcement. Do not record without a primary.",
+    "FR Le Bourget (Seine-Saint-Denis): the Montreuil administrative court confirmed the withdrawal of a data-centre building permit (banquedesterritoires, 2026). Fetch the court ruling or the prefecture decision. Candidate for a government-action record.",
+    "FR Grenoble recalé (politis, 2026/07) and Drôme 40 MW recours by Assez DataCenters: the Alixan record above covers the Sesterce permit. A separate Drôme supercomputer lawsuit (connaissancedesenergies 260702) is not yet checked.",
+    "FR Petit-Landau: the prefectoral arrêté d'autorisation environnementale and the Petit-Landau and Hombourg building permits are not yet issued (AFP, Oct 2026). Re-check before the next refresh; a prefectoral order would be a new government-action record.",
+    "FR Ozans/Étrechet: coverage disagrees on capacity (500 MW vs 880 MW to 1.1 GW). Keep power_mw null until the CNDP dossier or the RTE connection file states a figure. Several Étrechet elected officials resigned in Sept 2026 over the project (search synthesis of press coverage; exact count not verified on a primary).",
+    "FR Orange: Futura (2026) reports Orange preparing giant data centres for European sovereignty. Orange is a company candidate (Paris HQ, to confirm); need Orange's own statement before a record.",
+    "FR Calais, two AI data centres (Nord Littoral): developers not named in the scan item. Need the developer and the planning record.",
+    "UK and FR not tried this pass: Thames Water objections, NESO connection reform, RTE large-consumer connection rules and the heat-recovery decree (Légifrance). These were in the brief but not reached inside the time budget.",
+    "Google UK Waltham Cross and North Weald, Microsoft Eggborough and Newport, Blackstone Blyth, Scottish sites (Chapelcross, Hunterston, Fife), and the Scottish Parliament inquiry: triaged from titles only. Scottish items are mostly opposition coverage without a primary decision."
+  ]
+}

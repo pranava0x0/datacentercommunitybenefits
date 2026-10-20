@@ -1,0 +1,343 @@
+{
+ "generated_at": "2026-10-19",
+ "scope": "SE, FI, GR wave 4 round 3. Probe: scripts/probe.py for every verbatim (see evidence file in scratchpad). Round-3 budget: about 35 WebFetch/WebSearch calls, time-limited.",
+ "companies": [
+  {
+   "candidate": "ecogrid.energy Oy",
+   "country": "FI",
+   "role": "Designer of the Kujala (Lahti) data centre with Peab",
+   "hq": "not verified",
+   "website": "not fetched",
+   "notes": "Needs HQ and own statement."
+  },
+  {
+   "candidate": "Peab",
+   "country": "SE",
+   "role": "Construction partner for the Kujala (Lahti) data centre per the city's news",
+   "hq": "not verified",
+   "website": "not fetched",
+   "notes": "Peab is a construction company, not an operator. Do not file as operator."
+  },
+  {
+   "candidate": "atNorth",
+   "country": "SE",
+   "role": "Operator of SWE01 and planned SWE02 (30 MW, Akalla/Kista, go-live Q4 2027)",
+   "hq": "not verified (wave-2 hold)",
+   "website": "https://www.atnorth.com",
+   "notes": "Verified first-party project quotes; HQ still needed."
+  },
+  {
+   "candidate": "Vertical Data",
+   "country": "SE",
+   "role": "Buyer of an existing 4.5 MW site at Hamre Industrial Park, Sollefteå; pursuing up to 100 MW",
+   "hq": "not verified",
+   "website": "not fetched",
+   "notes": "Company release (Newswire, 11 Sep 2026)."
+  },
+  {
+   "candidate": "PPC (ΔΕΗ)",
+   "country": "GR",
+   "role": "Developer of a 300 MW Mega Data Centre at Agios Dimitrios (Kozani)",
+   "hq": "Athens",
+   "website": "https://www.ppcgroup.com (not fetched)",
+   "notes": "Strategy text is first-party but undated in the fetch; see held leads."
+  },
+  {
+   "candidate": "EdgeConneX",
+   "country": "SE",
+   "role": "Skellefteå campus (up to 1 GW), per its 27 Feb 2026 release",
+   "hq": "not verified",
+   "website": "https://www.edgeconnex.com",
+   "notes": "Release blocked to probe (403)."
+  }
+ ],
+ "records": [
+  {
+   "country": "FI",
+   "kind": "context_fact",
+   "verified": true,
+   "target": "countries.FI.context",
+   "fields": {
+    "statement": "Data-centre projects that had signed grid connection agreements were planned at just over 3 GW by 30 June 2026, per Fingrid's half-year report.",
+    "verbatim": "Kesäkuun loppuun mennessä liittymissopimusten tehneiden datakeskushankkeiden suunniteltu lopullinen kokonaislaajuus oli hanketoimijoiden ilmoittamien tietojen perusteella yhteensä yli kolme gigawattia.",
+    "source_lang": "fi",
+    "translation": {
+     "text": "By the end of June, the planned final total of data-centre projects that had signed connection agreements was, according to the project developers' own figures, over three gigawatts in total.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    },
+    "period": "2026-06-30",
+    "source_url": "https://www.sttinfo.fi/tiedote/72200778/fingrid-konsernin-puolivuosikatsaus-11-3062026?lang=fi",
+    "source_title": "Fingrid Oyj — Fingrid-konsernin puolivuosikatsaus 1.1.–30.6.2026 (23 Jul 2026)",
+    "captured_at": "2026-10-19"
+   }
+  },
+  {
+   "country": "FI",
+   "kind": "context_fact",
+   "verified": true,
+   "target": "countries.FI.context",
+   "fields": {
+    "statement": "By mid-August 2026 data-centre projects holding connection agreements totalled almost 5 GW planned capacity; Fingrid says signing an agreement does not guarantee the connection.",
+    "verbatim": "Elokuun puoliväliin mennessä liittymissopimusten tehneiden datakeskushankkeiden suunniteltu lopullinen kokonaislaajuus on hanketoimijoiden ilmoittamien tietojen perusteella yhteensä lähes 5 gigawattia, sisältäen jakeluverkkoihin liittyvät hankkeet.",
+    "source_lang": "fi",
+    "translation": {
+     "text": "By mid-August, the planned final total of data-centre projects that had signed connection agreements was, per the project developers' figures, almost 5 gigawatts in total, including projects connected to distribution networks.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    },
+    "period": "2026-08-18",
+    "source_url": "https://www.sttinfo.fi/tiedote/72239761/sahkonkulutus-on-kaantymassa-voimakkaaseen-kasvuun-rinnalle-tarvitaan-lisaa-saatovoimaa?lang=fi",
+    "source_title": "Fingrid Oyj — Sähkönkulutus on kääntymässä voimakkaaseen kasvuun (18 Aug 2026)",
+    "captured_at": "2026-10-19",
+    "note": "Second probe sentence: 'Liittymissopimuksen tekeminen ei takaa' (HIT) is the caveat that a signed agreement does not guarantee connection."
+   }
+  },
+  {
+   "country": "FI",
+   "kind": "context_fact",
+   "verified": true,
+   "target": "countries.FI.context",
+   "fields": {
+    "statement": "Fingrid's 3 Sep 2026 study says better placement of new grid connections could raise total transmission connectivity by up to 20 GW, and that projects with signed connection agreements could raise consumption by up to 40% within five years.",
+    "verbatim": "Sähköverkon liityntäsopimuksen tehneet hankkeet voivat toteutuessaan kasvattaa kulutusta viidessä vuodessa jopa 40 prosenttia.",
+    "source_lang": "fi",
+    "translation": {
+     "text": "Projects that have signed a grid connection agreement could, if realised, increase consumption by up to 40 per cent within five years.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    },
+    "period": "2026-09-03",
+    "source_url": "https://www.sttinfo.fi/tiedote/72289680/fingridin-selvitys-teollisuuskulutuksen-sijoittuminen-lahelle-sahkontuotantoa-lisaa-kantaverkon-liitettavyytta-merkittavasti?lang=fi",
+    "source_title": "Fingrid Oyj — Fingridin selvitys: teollisuuskulutuksen sijoittuminen (3 Sep 2026)",
+    "captured_at": "2026-10-19",
+    "second_verbatim": "Fingridin tänään julkaiseman selvityksen mukaan uusien liittyjien tehokas sijoittuminen Suomen sähköjärjestelmään voi kasvattaa kantaverkon kokonaisliitettävyyttä jopa 20 gigawattia.",
+    "second_translation": {
+     "text": "According to the study Fingrid published today, the efficient placement of new connections in the Finnish power system could raise total transmission-grid connectivity by up to 20 gigawatts.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    }
+   }
+  },
+  {
+   "country": "FI",
+   "kind": "project_candidate",
+   "verified": true,
+   "target": "projects (company decision needed: ecogrid.energy Oy / Peab not tracked)",
+   "fields": {
+    "id": "fi-ecogrid-peab-lahti-kujala",
+    "name": "Kujala data centre, Lahti (ecogrid.energy Oy and Peab)",
+    "city": "Lahti",
+    "country": "FI",
+    "subdivision": "FI-11",
+    "status": "announced",
+    "announced_date": "2026-08-25",
+    "developer_candidates": [
+     "ecogrid.energy Oy (design)",
+     "Peab (construction)"
+    ],
+    "source_url": "https://www.lahti.fi/en/news/a-new-high-value-data-centre-coming-to-lahti/",
+    "source_title": "City of Lahti — A new high-value data centre coming to Lahti (25 Aug 2026)",
+    "source_lang": "en",
+    "captured_at": "2026-10-19",
+    "notes": "Municipal news: building-permit and waiver application submitted to the city; Peab says construction can start once permits are obtained, scheduled H1 2027, completion expected 2028. Same city page refers to a 1.2 bn EUR Kiveriö (Lahti) data centre reported last year, operator not named on this page; do not merge until verified. The 'Lahti Kiveriö DayOne' lead in search results is a different, unverified record.",
+    "verbatims": [
+     "A new data center is being planned for the Kujala industrial area in Lahti.",
+     "An application for a building permit and a waiver has been submitted to the city.",
+     "Construction is scheduled to begin in the first half of 2027."
+    ]
+   }
+  },
+  {
+   "country": "SE",
+   "kind": "context_fact",
+   "verified": true,
+   "target": "countries.SE.context",
+   "fields": {
+    "statement": "Svenska kraftnät's chief strategist put data-centre applications to join the national grid at about 7,500 MW, which he compared with a winter peak of 25,000–26,000 MW (reported from a WSP seminar at Almedalen, 2026).",
+    "verbatim": "Vi har väl någonstans runt 7 500 megawatt som vill komma in till stamnätet.",
+    "source_lang": "sv",
+    "translation": {
+     "text": "We have roughly 7,500 megawatts that want to connect to the transmission grid.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    },
+    "period": "2026 (Almedalen seminar; exact date not stated)",
+    "source_url": "https://www.wsp.com/sv-se/nyheter/2026/wsp-i-almedalen-datacenter-vaxer-men-utan-nationell-kompass",
+    "source_title": "WSP — I Almedalen: datacenter växer men utan nationell kompass (2026)",
+    "captured_at": "2026-10-19",
+    "second_verbatim": "Topplasten vintertid under en januaridag har ju varit någonstans kring 25 000–26 000 megawatt",
+    "second_translation": {
+     "text": "Winter peak load on a January day has been somewhere around 25,000–26,000 megawatts.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    }
+   }
+  },
+  {
+   "country": "SE",
+   "kind": "project_candidate",
+   "verified": true,
+   "target": "projects (company decision needed: atNorth not yet cleared; wave-2 hold)",
+   "fields": {
+    "id": "se-atnorth-swe02-akalla",
+    "name": "atNorth SWE02 Stockholm (Akalla / Kista)",
+    "city": "Stockholm",
+    "country": "SE",
+    "subdivision": "SE-AB",
+    "status": "announced",
+    "announced_date": "2026-01-29",
+    "capacity_mw": 30,
+    "go_live": "Q4 2027",
+    "source_url": "https://www.atnorth.com/news/new-30mw-metro-data-center-in-stockholm-sweden/",
+    "source_title": "atNorth — New 30MW metro data center in Stockholm, Sweden (29 Jan 2026)",
+    "source_lang": "en",
+    "captured_at": "2026-10-19",
+    "heat_reuse": "Waste heat to the local district heating network, in collaboration with Stockholm Exergi (first-party).",
+    "grid": "A new electrical substation to be built by network company Ellevio (first-party).",
+    "verbatims": [
+     "will be a 30MW metro site built in close proximity to the company",
+     "scheduled to go live in Q4 2027",
+     "in collaboration with Stockholm Exergi",
+     "a new electrical substation, that will be constructed by network company Ellevio",
+     "We are delighted that atNorth has chosen the Kista area"
+    ],
+    "notes": "No bygglov decision found. Operator HQ still unverified (wave-2 hold reason), so this is a company candidate, not a record. The atNorth press release says 'Kista area'; Akalla is the planning name used in the scan."
+   }
+  },
+  {
+   "country": "SE",
+   "kind": "project_candidate",
+   "verified": true,
+   "target": "projects (company decision needed: Vertical Data not tracked)",
+   "fields": {
+    "id": "se-vertical-data-hamre-sollefteå",
+    "name": "Hamre Industrial Park, Sollefteå (Vertical Data)",
+    "city": "Sollefteå",
+    "country": "SE",
+    "status": "announced",
+    "announced_date": "2026-09-11",
+    "existing_site_mw": 4.5,
+    "application_mw": 100,
+    "grid_claim_mw": 500,
+    "source_url": "https://www.newswire.com/news/vertical-data-signs-definitive-purchase-agreement-to-develop-a-data-center-in",
+    "source_title": "Vertical Data — Signs Definitive Purchase Agreement to Develop a Data Center in Central Sweden (11 Sep 2026, Newswire)",
+    "source_lang": "en",
+    "captured_at": "2026-10-19",
+    "notes": "Company release. The 500 MW grid figure is attributed to Sollefteå Municipality ('has publicly stated'); the municipal statement itself is not on the page, so the 500 MW line is the company's characterisation. Closing 'anticipated in the next several weeks'; no permit or investment figure given.",
+    "verbatims": [
+     "connected to up to 500 MW of available grid capacity",
+     "remains subject to applicable utility, regulatory and technical processes and approvals"
+    ]
+   }
+  },
+  {
+   "country": "GR",
+   "kind": "regulator_or_government_record",
+   "verified": true,
+   "target": "policies or countries.GR.context (needs curator decision)",
+   "fields": {
+    "statement": "Enterprise Greece's board gave a positive opinion (4 Apr 2022) on bringing Microsoft's 'Investment in Data Centres in Greece' under the strategic-investment scheme.",
+    "verbatim": "Το Διοικητικό Συμβούλιο της Enterprise Greece γνωμοδότησε θετικά προς τη Δ.Ε.Σ.Ε. για την υπαγωγή του Επενδυτικού Σχεδίου «Investment in Data Centres in Greece» της εταιρείας Microsoft.",
+    "source_lang": "el",
+    "translation": {
+     "text": "The Enterprise Greece Board gave a positive opinion to the Strategic Investments Committee on placing the 'Investment in Data Centres in Greece' investment plan of Microsoft under the scheme.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    },
+    "date": "2022-04-04",
+    "source_url": "https://www.powergame.gr/epichirisis/227578/enterprise-greece-thetiki-gnomodotisi-gia-to-ergo-tis-microsoft/",
+    "source_title": "powergame.gr — Enterprise Greece: Θετική γνωμοδότηση για το έργο της Microsoft (4 Apr 2022)",
+    "captured_at": "2026-10-19",
+    "notes": "2022 date, so not new, but the approval step is absent from the seed (gr-microsoft-attica). Sits on the Attica project; the 2026 interministerial approval status could not be verified. Do not state it was approved by the interministerial committee on this evidence."
+   }
+  },
+  {
+   "country": "GR",
+   "kind": "regulator_response",
+   "verified": true,
+   "target": "project candidate gr-admie-agios-stefanos-130mw (company decision: ADMIE is a grid operator, not a developer)",
+   "fields": {
+    "statement": "Greece's energy regulator RAAEY froze ADMIE's plan for a 130 MW data centre at Agios Stefanos (Attica), per a report of 22 Oct 2025.",
+    "verbatim": "ΑΔΜΗΕ επανέρχεται μετά το «πάγωμα» του σχεδίου για data centers από τη ΡΑΑΕΥ",
+    "source_lang": "el",
+    "translation": {
+     "text": "ADMIE is returning after RAAEY's 'freeze' of its data centre plan.",
+     "by": "machine",
+     "reviewed_at": "2026-10-19"
+    },
+    "date": "2025-10-22",
+    "source_url": "https://www.powergame.gr/energygame/1159339/admie-den-egkataleipei-to-schedio-gia-to-data-center-para-to-freno-tis-raaef/",
+    "source_title": "energygame.gr (POWERGAME) — ΑΔΜΗΕ: Δεν εγκαταλείπει το σχέδιο για το data center παρά το 'φρένο' της ΡΑΑΕΥ (22 Oct 2025)",
+    "captured_at": "2026-10-19",
+    "notes": "Article date from the body line '22.10.2025 | 07:40'. The page banner 'Τρίτη, 20 Οκτ 2026' is the capture day, not the publication date. The article says RAAEY's freeze blocks ADMIE's plan under the existing framework; ADMIE is continuing to press. Stance is editorial, not assigned here. Possibly a 2026 follow-up exists."
+   }
+  }
+ ],
+ "leads_held": [
+  {
+   "id": "gr-ppc-kozani-300mw-mega-dc",
+   "country": "GR",
+   "status": "verbatim HIT, date not recorded",
+   "note": "PPC (ΔΕΗ) strategy text: 'Σε πρώτη φάση, θα κατασκευαστεί ένα Mega Data Center ισχύος 300 MW στον ΑΗΣ Αγίου Δημητρίου' and 'μπορεί να ολοκληρωθεί σε δύο χρόνια από την οριστικοποίηση της συμφωνίας με τον hyperscaler' (both HIT). The page carries no article date (banner 20 Oct 2026 is the capture day). The 2028 end-date, 50,000 m2 and EUR 3.5bn first-phase cost come from secondary outlets only. The AWS link is NOT confirmed: sources name only an unnamed hyperscaler. Needs the ATHEX filing or PPC's press release with its date. Company candidate: PPC.",
+   "source_url": "https://www.powergame.gr/epichirisis/1386374/omilos-dei-e24-dis-ependyseis-se-ape-evelikti-paragogi-kai-data-centers/"
+  },
+  {
+   "id": "gr-admie-4-5-gw-requests",
+   "country": "GR",
+   "status": "verbatim HIT, date not recorded",
+   "note": "ADMIE data-centre connection requests 'ξεπερνάει τα 4,5 GW από 1,2 GW στα τέλη του 2025' (HIT on michanikos.gr). Article undated in the fetch. Grid-operator figure; needs ADMIE's own publication to file.",
+   "source_url": "https://www.michanikos.gr/index/articles/%CE%AD%CF%81%CE%B3%CE%B1-%CF%85%CF%80%CE%BF%CE%B4%CE%BF%CE%BC%CE%AD%CF%82/%CE%B1%CE%B4%CE%BC%CE%B7%CE%B5-%CE%BE%CE%B5%CF%80%CE%B5%CF%81%CE%BD%CE%BF%CF%8D%CE%BD-%CF%84%CE%B1-45-gw-%CF%84%CE%B1-%CE%B1%CE%B9%CF%84%CE%AE%CE%BC%CE%B1%CF%84%CE%B1-%CF%83%CF%8D%CE%BD%CE%B4%CE%B5%CF%83%CE%B7%CF%82-%CE%B3%CE%B9%CE%B1-data-center-r17735/"
+  },
+  {
+   "id": "gr-kryoneri-raaey-withdraw-offer",
+   "country": "GR",
+   "status": "r2 verbatim HIT; event date UNRESOLVED",
+   "note": "Round-2 record dated 2026-10-20 used the page's capture-date banner. The article body does not show that date, so the record's date is unverified. Hold until the publication date is found.",
+   "source_url": "https://www.powergame.gr/energygame/822252/fountonei-i-machi-raaef-me-admie-gia-to-data-center-sto-kryoneri/"
+  },
+  {
+   "id": "se-edgeconnex-skelleftea",
+   "country": "SE",
+   "status": "BLOCKED (edgeconnex.com returns 403 to probe)",
+   "note": "EdgeConneX press release, 27 Feb 2026 (quotes via WebFetch only): 'The data center site will be acquired from Lyten'; 'will look to develop a data center campus with potential capacity of up to one gigawatt'; 'Subject to the completion of applicable administrative and regulatory processes'. Cannot be probe-verified; re-read or use a mirror before filing. Company candidate: EdgeConneX.",
+   "source_url": "https://www.edgeconnex.com/news/press-releases/edgeconnex-looks-to-enter-swedish-market-as-part-of-european-data-center-expansion-strategy/"
+  },
+  {
+   "id": "se-ecodatacenter-ostersund-cancelled",
+   "country": "SE",
+   "status": "NOT CONFIRMED",
+   "note": "Round-2 lead said the Östersund project was called off. This round's search found no cancellation or grid-fee dispute; the SVT item found concerns Spikbodarna residents, undated. Do not file the cancellation.",
+   "source_url": "https://www.svt.se/nyheter/lokalt/jamtland/fragvisa-ostersundare-inte-nojda-med-svaren-om-ecodatacenter-och-spikbodarna"
+  },
+  {
+   "id": "fi-fortum-orimattila-operator",
+   "country": "FI",
+   "status": "not fetched in first-party form",
+   "note": "Yle reports Fortum's ~100 ha Länsi-Pennala area; operator still unknown per the city (r2 covers the quote). A Fortum press release for Orimattila was not found in search, so no record."
+  },
+  {
+   "id": "se-aws-mellansverige-7-5bn-sek",
+   "country": "SE",
+   "status": "secondary only",
+   "note": "Affärsvärlden: a 7.5 bn SEK AWS addition and two-storey facilities in Eskilstuna, Västerås and Katrineholm. No dated AWS primary found in this round. Lead only."
+  },
+  {
+   "id": "gr-lamda-digital-realty-athens",
+   "country": "GR",
+   "status": "no 2026 primary found",
+   "note": "Search returned only 2020–2023 coverage of Digital Realty / Lamda Hellix Athens campuses (ATH1–ATH4, Koropi). Needs Digital Realty's own page."
+  }
+ ],
+ "counts": {
+  "FI_new_verified": 4,
+  "SE_new_verified": 3,
+  "GR_new_verified": 2,
+  "note": "GR below the 4-record target: two dated items verified, plus three held for dates or confirmation. SE has one blocked release. Context facts count as records here."
+ },
+ "reading_notes": [
+  "Greek article banners show the capture day (for example 'Τρίτη, 20 Οκτ 2026'), not the publication date. Round 2's Kryoneri date (2026-10-20) appears to be that banner. Check the body date before filing any Greek news item.",
+  "Fingrid's 'liityntäsopimus' (connection agreement) is a different thing from a 'liittymissopimus' (connection contract) and the release uses the first term. Keep the Finnish wording verbatim.",
+  "Strong sources for the FI context block: Fingrid (sttinfo.fi) releases, which are first-party, probe clean, and give dated gigawatt figures. Use them as context_fact on FI, not as project records."
+ ]
+}

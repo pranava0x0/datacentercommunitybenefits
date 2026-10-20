@@ -46,6 +46,8 @@ NORMALIZE = {
     "–": "-", "—": "-", "\xa0": " ", " ": " ", "​": "",
 }
 BLOCKED_STATUSES = {401, 403, 406, 429, 451, 503}
+PDF_UNREADABLE = "PDF-UNREADABLE"
+PDF_URLS: set = set()  # URLs fetch() detected as PDFs (by header or magic bytes, not suffix)
 MIN_TEXT = 400  # a bot-wall interstitial is short; real article text is not
 
 
@@ -84,6 +86,47 @@ def pdf_text(data: bytes) -> str:
     return norm(text.replace("\\(", "(").replace("\\)", ")"))
 
 
+PDFKIT_SCRIPT = Path(__file__).resolve().parent / "pdftext.js"
+MAX_FALLBACK_PDF = 8_000_000  # the pure-Python extractor stalls on huge files
+
+
+def pdf_text_best(data: bytes) -> str:
+    """macOS PDFKit when available (reads the real text layer, including
+    compressed fonts the stream parser can't), else the stream parser."""
+    import shutil
+    import subprocess
+    import tempfile
+
+    if shutil.which("osascript") and PDFKIT_SCRIPT.exists():
+        with tempfile.NamedTemporaryFile(suffix=".pdf") as f:
+            f.write(data)
+            f.flush()
+            try:
+                out = subprocess.run(
+                    ["osascript", "-l", "JavaScript", str(PDFKIT_SCRIPT), f.name],
+                    capture_output=True, text=True, timeout=90,
+                )
+                if out.returncode == 0 and out.stdout.strip():
+                    return norm(out.stdout)
+            except subprocess.TimeoutExpired:
+                pass
+    if len(data) > MAX_FALLBACK_PDF:
+        return ""
+    return pdf_text(data)
+
+
+def _meta_charset(raw: bytes) -> str:
+    m = re.search(rb"<meta[^>]+charset=[\"']?([A-Za-z0-9_-]+)", raw[:4000], re.I)
+    if not m:
+        return ""
+    enc = m.group(1).decode("ascii", "ignore")
+    try:
+        "".encode(enc)
+        return enc
+    except LookupError:
+        return ""
+
+
 def fetch(url: str) -> tuple[int, str, str]:
     """Return (status, final_url, text). Status 0 means the fetch itself failed."""
     try:
@@ -97,14 +140,23 @@ def fetch(url: str) -> tuple[int, str, str]:
         return 0, url, f"FETCH-ERROR: {exc}"
     is_pdf = "pdf" in r.headers.get("content-type", "") or r.content[:5] == b"%PDF-"
     if is_pdf:
-        return r.status_code, r.url, pdf_text(r.content)
+        PDF_URLS.update({url, r.url})  # the evidence check must not treat short PDF text as a bot wall
+        text = pdf_text_best(r.content)
+        # An unreadable PDF must fail the gate, not slip through as BLOCKED:
+        # on Linux (no PDFKit) a large PDF would otherwise pass unverified.
+        # Only an extraction that produced nothing is unreadable; a one-page
+        # order can legitimately hold under MIN_TEXT characters.
+        return r.status_code, r.url, text if text.strip() else PDF_UNREADABLE
     # requests falls back to ISO-8859-1 when the header names no charset,
     # which mangles accented text on many non-English pages (é -> Ã©) and
     # makes Spanish/French quotes MISS. Prefer UTF-8 when it decodes cleanly.
     try:
         text = r.content.decode("utf-8")
     except UnicodeDecodeError:
-        text = r.text
+        # Shift-JIS / EUC-KR / GB pages (Japanese and Korean government sites)
+        # name their charset in a <meta> tag requests doesn't read; detect it.
+        enc = _meta_charset(r.content) or r.apparent_encoding or r.encoding or "utf-8"
+        text = r.content.decode(enc, errors="replace")
     return r.status_code, r.url, html_text(text)
 
 
@@ -154,7 +206,12 @@ def check_evidence(path: Path, delay: float) -> int:
                 time.sleep(delay)  # CLAUDE.md: be polite to any single host
             cache[url] = fetch(url)
         status, _, text = cache[url]
-        if status in BLOCKED_STATUSES or status == 0 or len(text) < MIN_TEXT:
+        if text == PDF_UNREADABLE:
+            misses += 1
+            print(f"MISS    {rid}: PDF text unreadable here (no PDFKit, or scanned/oversized); "
+                  f"read it on macOS or by hand before shipping: {url}")
+            continue
+        if status in BLOCKED_STATUSES or status == 0 or (len(text) < MIN_TEXT and url not in PDF_URLS):
             blocked += 1
             print(f"BLOCKED {rid}: HTTP {status} {url}")
             continue

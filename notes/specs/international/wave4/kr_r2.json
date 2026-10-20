@@ -1,0 +1,184 @@
+{
+ "sources": [
+  {
+   "name": "Segye Ilbo",
+   "url": "https://www.segye.com/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "Changwon defence-AI DC investment agreement, 2026-07-28."
+  },
+  {
+   "name": "fnNews",
+   "url": "https://www.fnnews.com/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "SK Telecom Yeongnam CEO statement, 2026-07-03."
+  },
+  {
+   "name": "Seoul Shinmun",
+   "url": "https://www.seoul.co.kr/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "Michuhol consultation body article, 2026-08-26."
+  },
+  {
+   "name": "Herald Economy (heraldk)",
+   "url": "https://www.heraldk.com/",
+   "kind": "local/business news",
+   "verified_loads": true,
+   "notes": "Seoul district heads' resolution, 2026-08-15."
+  },
+  {
+   "name": "MOTIR press release",
+   "url": "https://www.motir.go.kr/",
+   "kind": "ministry press",
+   "verified_loads": true,
+   "notes": "5 MW power-refusal decree amendment, dated 2023-03-09."
+  }
+ ],
+ "companies": [],
+ "records": [
+  {
+   "kind": "government_action",
+   "verified": true,
+   "id": "kr-power-refusal-5mw-draft-2023-03",
+   "fields": {
+    "country": "KR",
+    "subdivision": null,
+    "jurisdiction": "Ministry of Trade, Industry and Energy (national)",
+    "event_date": "2023-03-09",
+    "project": "Enforcement decree amendment (전기사업법 시행령): supply refusal for 5 MW+ large loads",
+    "outcome": "amendment announced with planned enforcement in March; enactment and final text NOT confirmed"
+   },
+   "verbatim": "5MW 이상의 전기를 대량으로 사용하려는 자로 인하여 전력계통 신뢰도 및 전기품질을 유지하기 어려운 경우 예외적으로 전기공급 거부 가능",
+   "translation": "Where a user taking large amounts of electricity (5 MW or more) makes it difficult to keep grid reliability and power quality, power supply may exceptionally be refused.",
+   "source_url": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/166902/view",
+   "notes": "Round 1 lead dated this to 2026 and said 'date not confirmed'. The MOTIR press page is dated 2023-03-09 (page's own dateline). The decree was then planned for March 2023 enforcement. Enactment is not confirmed by any source fetched; check law.go.kr for the 시행령 revision history before recording it as in force. Corroborating 2023 Digital Times exclusive (dt.co.kr/article/11487691, headline: data centres may be refused power supply) is not probe-verified and is not used."
+  },
+  {
+   "kind": "company_statement",
+   "verified": true,
+   "id": "kr-sk-yeongnam-2gw-2026-07",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-26",
+    "jurisdiction": "Yeongnam region (Busan, Ulsan, Gyeongnam and nearby), South Korea",
+    "event_date": "2026-07-03",
+    "project": "SK Telecom Yeongnam AI data centre plan (first site Ulsan, 100 MW, with AWS)",
+    "outcome": "announced plan; 2 GW target and about KRW 140 trillion incl. foreign investment; sites under review"
+   },
+   "verbatim": "이를 위해 외자 유치를 포함해 약 140조원이 투자될 예정이며, 추가 사업 후보지는 유관 부처와 함께 검토하고 있다.",
+   "translation": "To this end, about KRW 140 trillion will be invested, including foreign investment, and additional candidate sites are being reviewed with the relevant ministries.",
+   "source_url": "https://www.fnnews.com/news/202607031544434186",
+   "notes": "Outlet article (fnNews, 2026-07-03) reporting the SK Telecom CEO's statement at the Yeongnam advanced-industry briefing in Jinju. The quote is the company's own statement reported verbatim, so it is first-party under the CLAUDE.md rule. The SKT newsroom release (news.sktelecom.com) was not found in search, so this is not yet the company's own page. Figures differ across outlets (GPU counts 300k vs 3m reported); not recorded. Do not confuse KRW 140 trillion (Yeongnam) with ~KRW 350 trillion (national 5 GW phase 1)."
+  },
+  {
+   "kind": "local_government_action",
+   "verified": true,
+   "id": "kr-michuhol-80mw-council-2026-08",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-28",
+    "jurisdiction": "Michuhol-gu, Incheon",
+    "event_date": "2026-08-04",
+    "project": "80 MW data centre, Dohwa-dong 765-18 (c. 58,000 m2 site, 7 floors)",
+    "outcome": "public-private consultation body (19 members) held first meeting; residents protested not being told 30 minutes before the meeting"
+   },
+   "verbatim": "구는 주민 10명과 사업 관계자 5명, 공무원 4명 등 모두 19명이 참여하는 민관협의체를 구성해 지난 4일 첫 회의를 열었다",
+   "translation": "The district formed a public-private consultation body of 19 members, including 10 residents, 5 project representatives and 4 officials, and held its first meeting on the 4th.",
+   "source_url": "https://m.go.seoul.co.kr/news/2026/08/26/20260826500171",
+   "notes": "Seoul Shinmun, 2026-08-26. Event date 2026-08-04 is inferred from 'the 4th' in an article dated 26 August; verify the exact date against the district's press release. The developer is named in press as a KB Real Estate Trust (KB부동산신탁운용) affiliate per an Asia Economy report; not recorded here because that report's text was not probe-verified. Residents' concerns in the article: EMF, noise, vibration, road excavation damage, and a 4.7 km underground high-voltage line passing schools. The 2026-08-19 Asia Economy report is a second source to fetch."
+  },
+  {
+   "kind": "company_statement",
+   "verified": true,
+   "id": "kr-changwon-defense-ai-dc-100mw-2026-07",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-48",
+    "jurisdiction": "Changwon, South Gyeongsang",
+    "event_date": "2026-07-28",
+    "project": "Defence-dedicated AI data centre, Changwon (100 MW class, c. 74,606 m2 gross floor area)",
+    "outcome": "investment agreement signed (Gyeongnam province, Changwon city and three companies); total investment KRW 1.6555 trillion; about 200 ICT jobs"
+   },
+   "verbatim": "경남도와 창원시는 ㈜디노티시아, ㈜디노코어, 신화철강㈜과 함께 ‘방산 전용 AI 데이터센터 건립을 위한 투자협약’을 체결했다고 28일 밝혔다",
+   "translation": "Gyeongnam Province and Changwon City said on the 28th that they had signed, with Dinotitia, Dinocore and Shinhwa Steel, an investment agreement for building a defence-dedicated AI data centre.",
+   "source_url": "https://www.segye.com/newsView/20260728515328",
+   "notes": "Segye Ilbo, 2026-07-28, citing the provincial and city announcement. Investors are the three companies named in the article. The companies' own releases were not fetched, so the investment figure is the government-announced number, not an operator claim. Outlet search summaries mention a third Changwon project and 'three sites'; not confirmed, so not recorded. Investment is stated as 1조6555억원 (KRW 1.6555 trillion) in the article."
+  },
+  {
+   "kind": "local_government_action",
+   "verified": true,
+   "id": "kr-seoul-district-heads-residential-zone-2026-08",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-11",
+    "jurisdiction": "Seoul district heads (Seoul Metropolitan district heads' association)",
+    "event_date": "2026-08-15",
+    "project": "Proposed restriction on data centres in Type 2 and Type 3 general residential zones",
+    "outcome": "resolution passed unanimously by attending district heads; requires Seoul city ordinance and related law amendments to take effect"
+   },
+   "verbatim": "이 안건은 참석 구청장들의 만장일치로 의결됐다",
+   "translation": "This agenda item was approved unanimously by the attending district heads.",
+   "source_url": "https://www.heraldk.com/article/2026081502522403795",
+   "notes": "Herald Economy, article dated 2026-08-15. The resolution is by the association of Seoul district heads (not a statute). The Yeongdeungpo head's proposal to restrict data centres in residential zones is the same-article quote in Korean: 제2·3종 일반주거지역 데이터센터 건립 제한해야. Implementation requires a Seoul city planning ordinance amendment, which the article says is planned, not done. The earlier Geumcheon 200 m consent rule is already round 1 (kr-geumcheon-gu-200m-consent-2026); not duplicated."
+  }
+ ],
+ "leads": [
+  {
+   "lead": "Round 1 Yeongnam/Ulsan SKT items: SK Telecom Korean newsroom release for the Yeongnam plan not found in search. Round 1 lead stated the Ulsan 100 MW build and 900 MW follow-on; the fnNews CEO article here is the only confirmed source.",
+   "priority": "medium",
+   "url": "https://www.fnnews.com/news/202607031544434186"
+  },
+  {
+   "lead": "Power-supply refusal decree (5 MW+): round 1 dated it 2026 but the MOTIR release is 2023-03-09. Enactment and effective date still open. Check law.go.kr 전기사업법 시행령 revision history.",
+   "priority": "high",
+   "url": "https://www.motir.go.kr/kor/article/ATCL3f49a5a8c/166902/view"
+  },
+  {
+   "lead": "Gimpo Guerae-dong administrative lawsuit: Gyeonggi administrative tribunal upheld the operator's claim in Oct 2024 (Segye/Fnnews reports). Final court outcome (first/second instance) not found in search. Operator is a foreign-owned company.",
+   "priority": "medium",
+   "url": "https://www.fnnews.com/news/202410271825186696"
+  },
+  {
+   "lead": "Muan Oryong AI data centre near apartments (200 MW, ~350 m from apartments, ~550 m from a primary school, per a national assemblymember's concern, Pressian 2026-10-15): page not fetchable (bot wall), so not recorded.",
+   "priority": "medium",
+   "url": "https://www.pressian.com/pages/articles/2026101510200334627"
+  },
+  {
+   "lead": "Jeju JDC second-complex AI data centre zone (national industrial complex, KRW 392.1 bn, target H2 2028) and Wayne Hills Bryant AI KRW 20 bn small DC intention letter (2025-06): need the JDC press release before recording.",
+   "priority": "low",
+   "url": "https://www.fnnews.com/news/202608261809331835"
+  },
+  {
+   "lead": "Pohang AI Factory data centre: Woori Financial supplies project finance (KRW 600 bn, equity 150 bn + PF loan 450 bn), Hyundai E&C completion by end-2027. Operator's own release needed before recording a company claim.",
+   "priority": "low",
+   "url": "https://www.hankyung.com/article/2026092340361"
+  },
+  {
+   "lead": "Changwon Yangdeok-dong 80 MW AI data centre (KRW 1,089.4 bn, reported 2026-08-20): not verified; source not fetched.",
+   "priority": "low",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kX0ZGLV9UcUlKQkhrb29zcV9Kd0tEc1JXQ0NHWWkxaFJRdnAyaHZOLWM1c1lteU9OWm9xOVlVeWdnN21YX0xvOUtYQVpBME5GbFlZbkctZUE"
+  },
+  {
+   "lead": "Paju Digital Edge / Marston KRW 1 trillion data centre (round 2 search): no Paju article found; the Marston SK E&S MOU (fuel-cell linked hyperscale DC) is an MOU, not a site.",
+   "priority": "low",
+   "url": "https://www.fnnews.com/news/202610080846256719"
+  },
+  {
+   "lead": "Seoul councillor restricting data centres near homes (Newspim title): councillor's bill not found; the Seoul district-heads unanimous resolution (recorded) is the related item.",
+   "priority": "low",
+   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFB6ai11dWpmWlE2MVJpc3ZNamRnbFhQMGVObGxXd3MxQWVDaDdnV1NrUVhNT3lrRlRfYWVEWk1zZmdWQWhzQmZJdGxSclZoZl91RUZkT2J5MGh"
+  },
+  {
+   "lead": "NGO statement (May 2026, Green Transition Institute, Participatory Solidarity, Environmental Justice): calls for mandatory renewable use, non-metro siting, PUE/WUE rules. Found via the 2026-10-15 civic-solidarity post. The bill's power and water disclosure clause not confirmed. Record would be a CommunityResponse, not an International record.",
+   "priority": "medium",
+   "url": "https://peoplepower21.org/solidarity/2054664"
+  },
+  {
+   "lead": "Gangwon AI data centre push (2026-06/07): Gangwon governor-elect pledged early construction; siting list not confirmed.",
+   "priority": "low",
+   "url": "https://news.mtn.co.kr/news-detail/2026063014263445272"
+  }
+ ]
+}

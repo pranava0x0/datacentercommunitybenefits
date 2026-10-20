@@ -1,0 +1,137 @@
+[
+  {
+    "unit": "state:IL",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Champaign County",
+    "jurisdiction_type": "county",
+    "state": "IL",
+    "title": "Champaign County Board enacts 12-month moratorium on new large-scale data centers",
+    "event_date": "2026-04-23",
+    "status": "enacted",
+    "facts": {
+      "duration_months": 12,
+      "scope": "data center facilities with at least 10,000 sq ft of processing area",
+      "prior_step": "Environment and Land Use Committee cut the proposal to nine months on April 9; board reversed to 12 months on the floor",
+      "purpose": "time for the Data Centers Activities Task Force to draft zoning rules for unincorporated areas",
+      "vote": "not stated in the Illinois Public Media article; one advocacy/press source says unanimous (not probe-checked)"
+    },
+    "summary": "The Champaign County Board approved a 12-month moratorium on new large-scale data centers at its Thursday, April 23, 2026 meeting, reversing a committee recommendation of nine months. The measure covers facilities with at least 10,000 square feet of processing area.",
+    "source_url": "https://www.nprillinois.org/economy-business/2026-04-24/champaign-county-board-approves-1-year-data-center-moratorium",
+    "source_title": "Illinois Public Media (NPR Illinois) — Champaign County Board approves 1-year data center moratorium",
+    "verbatims": [
+      "The Champaign County Board has enacted a 12-month moratorium on development of new, large-scale data centers.",
+      "The measure temporarily bans construction of data center facilities with at least 10,000 square feet of processing area.",
+      "The county board reversed that decision Thursday night after hearing from dozens of community members who advocated for a full year-long moratorium.",
+      "Published April 24, 2026 at 9:36 AM CDT"
+    ],
+    "verified": true,
+    "notes": "Vote date derived: article says the board acted 'Thursday night' and photo caption says the meeting was April 23, 2026 (a Thursday, verified by weekday calculation). Vote count not in the article; county board minutes not checked, so the 'unanimous' claim in secondary coverage is not recorded."
+  },
+  {
+    "unit": "state:IN",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Madison County",
+    "jurisdiction_type": "county",
+    "state": "IN",
+    "title": "Madison County (Indiana) commissioners extend data center moratorium to a full year",
+    "event_date": "2026-08-04",
+    "status": "enacted",
+    "facts": {
+      "duration_months": 12,
+      "vote": "unanimous (per IPR)",
+      "prior_step": "original six-month moratorium reportedly passed June 2026 (not verified here)",
+      "next_step": "officials drafting zoning rules; could include a permanent ban"
+    },
+    "summary": "Madison County commissioners voted unanimously to extend the county's data center moratorium to a full year, after a favorable Planning Commission recommendation. Officials are drafting zoning rules for future projects.",
+    "source_url": "https://indianapublicradio.org/news/2026/08/madison-county-full-year-data-center-moratorium/",
+    "source_title": "Indiana Public Radio — Madison County commissioners extend data center moratorium for full year",
+    "verbatims": [
+      "Commissioners in Madison County have voted to extend a moratorium on data center projects for a full year.",
+      "He gave the commission's official recommendation before the moratorium extension was unanimously approved."
+    ],
+    "verified": false,
+    "notes": "Verbatims HIT, but the article gives no vote date. 2026-08-04 is the article's publication date, not the vote date. One secondary report says the recommendation went to the commissioners' August 4 meeting, which is not confirmed. Do not add as enacted until minutes give the vote date. Original June 2026 six-month passage not verified."
+  },
+  {
+    "unit": "state:KY",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Edmonson County",
+    "jurisdiction_type": "county",
+    "state": "KY",
+    "title": "Edmonson County Fiscal Court enacts one-year moratorium on data centers, AI and crypto-mining facilities (Ord. EC26-18)",
+    "event_date": "2026-06-08",
+    "status": "enacted",
+    "facts": {
+      "ordinance_number": "EC26-18",
+      "duration_months": 12,
+      "scope": "data centers, AI facilities, cryptocurrency mining and similar high-intensity computing facilities; excludes existing lawful facilities and standard commercial computing",
+      "vote": "unanimous after second reading (per Edmonson Voice, not probe-checked)"
+    },
+    "summary": "The Edmonson County Fiscal Court adopted Ordinance EC26-18, a one-year temporary moratorium on approvals, permits and operation of data centers, AI facilities and crypto-mining operations. The ordinance cites grid, water and road concerns and gives the court time to study and draft regulations.",
+    "source_url": "https://www.edmonsonvoice.com/uploads/3/7/6/7/37671151/ordinance_ec26-18_data_center_moritorium.pdf",
+    "source_title": "Edmonson County Fiscal Court — Ordinance EC26-18 (Edmonson Voice upload)",
+    "verbatims": [
+      "This moratorium shall remain in effect for a period of one (1) year from the date of passage of this Ordinance unless repealed, amended, or extended by subsequent action of the Edmonson County Fiscal Court.",
+      "ORDINANCE NO. EC26-18"
+    ],
+    "verified": false,
+    "notes": "Ordinance text verified (probe HITs on the PDF), but the adoption date and signature/attestation dates are blank in the copy. The 2026-06-08 date is the Edmonson Voice article date, not a vote date. Needs the fiscal court minutes or the clerk's adoption date before it is marked enacted. The 'unanimous' claim comes from the article, which was not probe-checked."
+  },
+  {
+    "unit": "state:PA",
+    "type": "policy",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Upper Burrell Township",
+    "jurisdiction_type": "city",
+    "state": "PA",
+    "title": "Upper Burrell supervisors authorize curative amendment on data centers (Resolution 6-2026)",
+    "event_date": "2026-05-06",
+    "status": "proposed",
+    "facts": {
+      "instrument": "Resolution #6-2026, authorizing preparation of a curative amendment to the Upper Burrell Township Zoning Ordinance",
+      "vote": "3-0 (minutes)",
+      "duration_requested": "180 days (per resident petition in minutes)",
+      "draft_status": "draft ordinance still in progress per solicitor at the May 6 meeting"
+    },
+    "summary": "At its May 6, 2026 meeting the Upper Burrell Township board of supervisors passed 3-0 a resolution authorizing a curative amendment to the zoning ordinance on data centers. A resident had petitioned for a 180-day curative amendment; the solicitor said the draft ordinance was still being prepared.",
+    "source_url": "https://upperburrelltwp.com/wp-content/uploads/2026/06/UBT-BOS-Minutes-May-6-2026.pdf",
+    "source_title": "Upper Burrell Township Board of Supervisors — Regular meeting minutes, May 6, 2026",
+    "verbatims": [
+      "A motion was made by Walker seconded by Brown to adopt Resolution #6-2026, authorizing the preparation of a curative amendment to the Upper Burrell Township Zoning Ordinance. Motion passed 3 – 0."
+    ],
+    "verified": false,
+    "notes": "Resolution verbatim is a probe HIT (after the PDF's dash/OCR spacing). The 'May 6, 2026' meeting date is from the minutes header and did not probe-match, so verified is false. The minutes do NOT show a 180-day moratorium being adopted. A Valley News Dispatch report of May 15 says a 180-day moratorium passed, but no adopting vote was found, so that claim is not recorded. A later Protect PT note says a draft ordinance was posted and the land-development plan was approved Aug 5; not verified."
+  },
+  {
+    "unit": "state:PA",
+    "type": "policy",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "West Vincent Township",
+    "jurisdiction_type": "city",
+    "state": "PA",
+    "title": "West Vincent Township schedules June 15 hearing on Ordinance 227-2026 to define and regulate data centers",
+    "event_date": "2026-06-15",
+    "status": "proposed",
+    "facts": {
+      "ordinance_number": "227-2026",
+      "instrument": "amends township zoning code to define and add data centers and data center accessory uses as conditional use in PC/LI district (per ecode/notice summary)",
+      "hearing_date": "2026-06-15"
+    },
+    "summary": "West Vincent Township's Board of Supervisors scheduled a June 15, 2026 public hearing on Ordinance 227-2026, which would define data centers and data center accessory uses. The township may vote to adopt the ordinance at that meeting. Adoption was not confirmed in this pass.",
+    "source_url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
+    "source_title": "West Vincent Township — Public notice: data centers ordinance hearing",
+    "verbatims": [
+      "West Vincent Township Board of Supervisors, during its scheduled meeting on June 15, 2026, will conduct a Public Hearing, commencing after 7pm, at the Township Building, 729 Saint Matthews Rd., to consider and may vote to adopt ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
+    ],
+    "verified": true,
+    "notes": "Hearing notice is a proposal, so status is proposed. The June 15 adoption outcome was not found (search results and the township site were not fetched for minutes). The township is filed at city level because the schema has no township level, as with Springhill."
+  }
+]

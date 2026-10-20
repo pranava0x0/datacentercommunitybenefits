@@ -1,0 +1,191 @@
+[
+  {
+    "id": "oracle-abilene-water-magouyrk-2025",
+    "class": "moved",
+    "old_url": "https://www.cnbc.com/2025/09/23/openai-first-data-center-in-500-billion-stargate-project-up-in-texas.html",
+    "new_url": "https://www.bangordailynews.com/2025/09/23/nation/openai-and-oracle-show-off-stargate-ai-data-center-in-texas-and-plan-five-more-elsewhere/",
+    "verbatim_found": "\"These data centers are designed to not use water,\" Magouyrk said. \"All of the data centers that we’re building (in) this part of Stargate are designed to not use water.",
+    "probe": "HIT",
+    "notes": "The cited CNBC page does not contain the quote. Bangor Daily News (Sep 23 2025) quotes Oracle co-CEO Clay Magouyrk directly with quotation marks, which meets the first-party bar. Source_url moved to BDN. Statement's 'The reason we do that...' tail is also on BDN."
+  },
+  {
+    "id": "oracle-education-academy-blog-2026",
+    "class": "on_page",
+    "old_url": "https://www.oracle.com/news/announcement/blog/ai-data-centers-need-skilled-people-oracle-academy-helps-build-ai-careers-2026-02-02/",
+    "new_url": "https://www.oracle.com/news/announcement/blog/ai-data-centers-need-skilled-people-oracle-academy-helps-build-ai-careers-2026-02-02/",
+    "verbatim_found": "Oracle is building AI data centers in communities across the United States. That’s where Oracle Academy —Oracle’s global philanthropic education program—plays a role in states like Texas, New Mexico, Michigan, and Wisconsin.",
+    "probe": "HIT",
+    "notes": "Company blog; statement is on page (fetched and grepped). Page wording: 'To meet growing demand... Oracle is building AI data centers in communities across the United States.' Keep."
+  },
+  {
+    "id": "oracle-jobs-stargate-100k-ellison",
+    "class": "moved",
+    "old_url": "https://en.wikipedia.org/wiki/Stargate_LLC",
+    "new_url": "https://www.govinfo.gov/content/pkg/DCPD-202500157/html/DCPD-202500157.htm",
+    "verbatim_found": "creating over 100,000 American jobs almost immediately",
+    "probe": "HIT",
+    "notes": "SPEAKER CORRECTION REQUIRED: the 100,000-jobs line is President Trump's remarks at the Jan 21 2025 Stargate announcement (govinfo DCPD-202500157), not Larry Ellison's. Searches found no Ellison statement with the jobs figure. Re-attribute the claim to Trump, or remove it from Ellison's record. Wikipedia is not a citable source for a Claim."
+  },
+  {
+    "id": "crusoe-abilene-jobs-lochmiller-2024",
+    "class": "paraphrase",
+    "old_url": "https://www.crusoe.ai/resources/newsroom/crusoe-200mw-ai-data-center",
+    "new_url": "https://www.crusoe.ai/resources/newsroom/crusoe-200mw-ai-data-center",
+    "verbatim_found": "We've designed this data center to enable the largest clusters of GPUs in the world",
+    "probe": "HIT",
+    "notes": "Page has Lochmiller's quote about the largest GPU clusters, but 'thousands of jobs' and 'tens of billions of dollars in value' are NOT on the page (grepped, LEN 6152). Use the page sentence; drop the jobs and value clauses unless a first-party source states them."
+  },
+  {
+    "id": "crusoe-energy-abilene-ge-vernova-scr-2025",
+    "class": "paraphrase",
+    "old_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+    "new_url": "https://www.crusoe.ai/resources/blog/an-inside-look-at-the-abilene-ai-data-center",
+    "verbatim_found": "producing 90% lower emissions than traditional gas or diesel powered reciprocating engines",
+    "probe": "HIT",
+    "notes": "GE Vernova gas turbines and SCR are on the page. The 90% figure is on the page but its comparator is 'traditional gas or diesel powered reciprocating engines', not 'traditional gas turbine alternatives' as the claim says. Fix the comparator to the page wording."
+  },
+  {
+    "id": "meta-los-lunas-water-2021",
+    "class": "on_page",
+    "old_url": "https://datacenters.atmeta.com/2021/10/hello-again-los-lunas/",
+    "new_url": "https://datacenters.atmeta.com/2021/10/hello-again-los-lunas/",
+    "verbatim_found": "we are also announcing a new goal to restore 200% of the water our data center consumes into the New Mexico watersheds.",
+    "probe": "HIT",
+    "notes": "Statement is on the page verbatim (grepped, 2021-10-27 post). Keep."
+  },
+  {
+    "id": "xai-education-mayo-school-upgrades",
+    "class": "not_found",
+    "old_url": "https://dailymemphian.com/subscriber/section/business/article/53239/xai-could-tackle-some-mscs-building-upgrades",
+    "new_url": "",
+    "verbatim_found": "",
+    "probe": "n/a",
+    "notes": "The subscriber page (LEN ~7100) has no 'deferred maintenance', 'HVAC' or 'black mold' text. The Mayo quote is not found in any search result either. Searches found Mayo as xAI's VP of operations quoted in other xAI coverage, but not this statement. Remove the claim or source the quote from a full-text copy of the article."
+  },
+  {
+    "id": "google-the-dalles-or-infrastructure-investment",
+    "class": "wayback",
+    "old_url": "https://datacenters.google/locations/oregon/",
+    "new_url": "https://web.archive.org/web/20260514182255/https://datacenters.google/locations/oregon/",
+    "verbatim_found": "Our total investment in the state is more than $2.4 billion",
+    "probe": "HIT",
+    "notes": "Snapshot 2026-05-14 18:22 (the captured_at day) matches the claim figure. Live page has since drifted to $7B+ since 2006. The claim is accurate as of captured_at; the live figure needs a new dated Claim, not an edit to this one."
+  },
+  {
+    "id": "google-the-dalles-or-community-grants-philanthropy",
+    "class": "wayback",
+    "old_url": "https://datacenters.google/locations/oregon/",
+    "new_url": "https://web.archive.org/web/20260514182255/https://datacenters.google/locations/oregon/",
+    "verbatim_found": "Since 2004, Google and Googlers have given more than $31 million in philanthropic giving",
+    "probe": "HIT",
+    "notes": "Same snapshot. Matches the claim figure ($31M). Live page now says $35M."
+  },
+  {
+    "id": "google-the-dalles-or-education-digital-skills",
+    "class": "wayback",
+    "old_url": "https://datacenters.google/locations/oregon/",
+    "new_url": "https://web.archive.org/web/20260514182255/https://datacenters.google/locations/oregon/",
+    "verbatim_found": "Grow with Google has collaborated with over 120 organizations in Oregon to train more than 111,000 Oregonians on digital skills",
+    "probe": "HIT",
+    "notes": "Same snapshot. Matches the claim (120+ / 111,000). Live page now says 100+ / 124,000. Keep the snapshot-dated wording, or re-capture."
+  },
+  {
+    "id": "google-council-bluffs-ia-infrastructure-investment",
+    "class": "wayback",
+    "old_url": "https://datacenters.google/locations/iowa/",
+    "new_url": "https://web.archive.org/web/20260527091612/https://datacenters.google/locations/iowa/",
+    "verbatim_found": "Google has invested more than $6.8 billion in Iowa since building our data center in Council Bluffs in 2007.",
+    "probe": "HIT",
+    "notes": "Nearest archived snapshot is 2026-05-27, 13 days after captured_at; no snapshot exists on 05-14 in the index. Matches the claim ($6.8B). Live page now says $20B."
+  },
+  {
+    "id": "google-council-bluffs-ia-engagement-economic-activity",
+    "class": "wayback",
+    "old_url": "https://datacenters.google/locations/iowa/",
+    "new_url": "https://web.archive.org/web/20260527091612/https://datacenters.google/locations/iowa/",
+    "verbatim_found": "In 2024, Google helped provide $2.1 billion of economic activity for thousands of Iowa businesses",
+    "probe": "HIT",
+    "notes": "Same 2026-05-27 snapshot. Matches the claim (2024, $2.1B). Live page now says 2025 / $2.7B."
+  },
+  {
+    "id": "google-council-bluffs-ia-education-digital-skills",
+    "class": "wayback",
+    "old_url": "https://datacenters.google/locations/iowa/",
+    "new_url": "https://web.archive.org/web/20260527091612/https://datacenters.google/locations/iowa/",
+    "verbatim_found": "over 130 organizations in Iowa to train more than 101,000 Iowans on digital skills",
+    "probe": "HIT",
+    "notes": "Same snapshot. Matches the claim (130+ / 101,000). Live page now says 100+ / 112,000. Page sentence uses a curly apostrophe in 'We’ve'; the quote here omits it."
+  },
+  {
+    "id": "google-engagement-virginia-philanthropy",
+    "class": "wayback",
+    "old_url": "https://datacenters.google/locations/virginia",
+    "new_url": "https://web.archive.org/web/20260421172631/https://datacenters.google/locations/virginia/",
+    "verbatim_found": "Since 2006, Google and Googlers have given more than $59 million in philanthropic giving",
+    "probe": "HIT",
+    "notes": "Snapshot 2026-04-21 (3 weeks before captured_at; nearest archived copy in the index). Matches the claim ($59M). Live page now says $66M."
+  },
+  {
+    "id": "meta-richland-la-jobs-construction",
+    "class": "wayback",
+    "old_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+    "new_url": "https://web.archive.org/web/20260515231825/https://datacenters.atmeta.com/richland-parish-data-center/",
+    "verbatim_found": "5,000+ Skilled trade workers onsite at peak construction",
+    "probe": "HIT",
+    "notes": "Snapshot 2026-05-15 matches the claim (5,000+). Live page now says 7,500+. Curator must date the change as a new Claim or update with a new captured_at; do not silently edit the figure."
+  },
+  {
+    "id": "meta-richland-la-jobs-operational",
+    "class": "wayback",
+    "old_url": "https://datacenters.atmeta.com/richland-parish-data-center/",
+    "new_url": "https://web.archive.org/web/20260515231825/https://datacenters.atmeta.com/richland-parish-data-center/",
+    "verbatim_found": "500+ Operational jobs supported, once completed",
+    "probe": "HIT",
+    "notes": "Snapshot 2026-05-15 matches the claim (500+). Live page now says 1,000. Same handling as the construction figure."
+  },
+  {
+    "id": "xai-memphis-tn-jobs-500-initial",
+    "class": "not_found",
+    "old_url": "https://memphischamber.com/economic-development/xai/",
+    "new_url": "",
+    "verbatim_found": "",
+    "probe": "n/a",
+    "notes": "The cited URL redirects to a different Chamber press release (digital-delta expansion) that contains none of the job figure. No first-party xAI statement of '500' found. Search finds the Chamber attributing 'up to 500' and later reporting ~320 (Blackburn release, Townsend). Remove, or re-attribute to the Chamber with the Chamber's own page."
+  },
+  {
+    "id": "xai-memphis-tn-tax-100m",
+    "class": "not_found",
+    "old_url": "https://memphischamber.com/economic-development/xai/",
+    "new_url": "",
+    "verbatim_found": "",
+    "probe": "n/a",
+    "notes": "Cited URL redirects to an unrelated Chamber release; no tax figure found. Search turns up a $15-20M estimate (Blackburn release) and a City plan for ~$3.3M of xAI tax revenue, but no first-party '$100 million' statement. Remove unless a source is found."
+  },
+  {
+    "id": "xai-memphis-tn-water-recycling-80m",
+    "class": "moved_unverified",
+    "old_url": "https://memphischamber.com/economic-development/xai/",
+    "new_url": "https://x.ai/memphis/our-commitment",
+    "verbatim_found": "",
+    "probe": "BLOCKED",
+    "notes": "x.ai returns 403 to all scripted and WebFetch access, so no verbatim could be probed. A search snippet attributes 'well north of $80 million' and 'roughly 4.745 billion gallons' to xAI's own Memphis page. Treat as UNVERIFIED. Also stale: the plant stalled April 2026 and construction restart is committed for no later than Q1 2027, so the present tense must change. The Chamber's cited URL does not carry the figure."
+  },
+  {
+    "id": "xai-memphis-tn-infrastructure-substations",
+    "class": "moved_unverified",
+    "old_url": "https://memphischamber.com/economic-development/xai/",
+    "new_url": "https://x.ai/memphis/our-commitment",
+    "verbatim_found": "",
+    "probe": "BLOCKED",
+    "notes": "x.ai is blocked (403); a search snippet attributes '$35 million to build a 150MW substation' to xAI's page. MLGW/council reporting says $24M for a new 150MW substation; the '$20M additional' substation is not confirmed. Conflicting figures, so do not keep the $35M + $20M wording without a first-party page read."
+  },
+  {
+    "id": "xai-energy-no-grid-power-emergencies",
+    "class": "moved_unverified",
+    "old_url": "https://memphischamber.com/economic-development/xai/",
+    "new_url": "https://x.ai/memphis/our-commitment",
+    "verbatim_found": "",
+    "probe": "BLOCKED",
+    "notes": "x.ai blocked (403). A search snippet says xAI's page describes on-site batteries and gas generators as backup 'in emergencies, or when the local grid is strained', which is not the same sentence as the claim. The 'take no power from the grid during emergencies' wording is attributed by search to a Chamber article, not xAI. Re-attribute or reword; no verbatim confirmed."
+  }
+]

@@ -1,0 +1,238 @@
+{
+  "sources": [
+    {
+      "url": "https://www.aragon.es/-/proyecto-rhodes",
+      "status": "fetched 200, probe HIT",
+      "use": "Gobierno de Aragón page for the Proyecto Rhodes PIGA (Calatorao): declaration of general interest 14 Oct 2024; initial approval ORDEN FOM/1039/2025 of 19 Aug 2025. Page's own last-update 05/10/2026."
+    },
+    {
+      "url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "status": "fetched 200, probe HIT",
+      "use": "Copy of the DOCM issue nº 59 of 22 Mar 2024 carrying the DIA for the Meta Data Center Campus (PRO-SC-22-1030, Talavera de la Reina / Calera y Chozas). Primary text is the DOCM itself; this PDF is the copy we could read."
+    },
+    {
+      "url": "https://www.rtbf.be/article/zoning-de-feluy-ecaussinnes-feu-vert-pour-le-data-center-google-11356788",
+      "status": "fetched 200, probe HIT",
+      "use": "RTBF (Belga), 10 Apr 2024: Walloon Region permit for the Google 36 ha site in the Feluy-Écaussinnes zoning. Secondary press, but reports a regional decision."
+    },
+    {
+      "url": "https://www.rtbf.be/article/farciennes-google-depose-la-demande-de-permis-pour-la-construction-de-son-futur-site-11224063",
+      "status": "fetched 200, probe HIT",
+      "use": "RTBF, 6 Jul 2023: Google files the permis unique application for its Farciennes site."
+    },
+    {
+      "url": "https://fr.businessam.be/?p=273141",
+      "status": "fetched 200, probe HIT",
+      "use": "Business AM: Walloon minister refused Google permission to draw Sambre water for cooling at Farciennes. Article date not captured from the page; event date left null."
+    }
+  ],
+  "records": [
+    {
+      "id": "es-rhodes-calatorao-general-interest-declared-2024-10",
+      "country": "ES",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "Gobierno de Aragón, en sesión celebrada el 14 de octubre de 2024, acordó declarar el \"Proyecto Rhodes\" de construcción de un campus data center en el municipio de",
+      "translation": "The Aragón government, at its session of 14 October 2024, agreed to declare the \"Proyecto Rhodes\" construction of a data-centre campus in the municipality of [Calatorao] an investment of autonomous interest and of general interest for Aragón.",
+      "source_url": "https://www.aragon.es/-/proyecto-rhodes",
+      "fields": {
+        "company": "untracked: Calanza Inmuebles, S.L. (named promoter)",
+        "title": "Gobierno de Aragón: declaration of general interest, Proyecto Rhodes (Calatorao)",
+        "subdivision": "ES-AR",
+        "event_date": "2024-10-14",
+        "theme": "infrastructure",
+        "stance_note": "Declaration of general interest (interés general) and naming of the definitive promoter. Published in BOA nº 202 on 16 Oct 2024, per the page. Not a permit or approval of the buildings."
+      },
+      "notes": "The page names Calanza Inmuebles, S.L. as promoter. Press (El Español, Jul 2026) and search summaries link the Rhodes project to Blackstone/QTS, but the primary page does not say so; do not attach to the QTS record until a primary source does. Calanza is a company candidate. Water (700 m3/day) and 650 MWe figures come from press reporting only; the primary page's fetched text did not carry them.",
+      "verification": "HIT"
+    },
+    {
+      "id": "es-rhodes-calatorao-piga-initial-approval-2025-08",
+      "country": "ES",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "Mediante Orden de 19 de agosto de 2025 del Consejero de Fomento, Vivienda, Logística y Cohesión Territorial ha sido aprobado inicialmente el citado Plan de Interés General de Aragón",
+      "translation": "By Order of 19 August 2025 of the Councillor for Works, Housing, Logistics and Territorial Cohesion, the cited Plan de Interés General de Aragón has been initially approved. The plan's stated purpose: \"El Plan tiene como finalidad el desarrollo de un campus data center en el término municipal de Calatorao (Zaragoza).\" (\"The Plan's purpose is the development of a data-centre campus in the municipality of Calatorao (Zaragoza).\")",
+      "source_url": "https://www.aragon.es/-/proyecto-rhodes",
+      "fields": {
+        "company": "untracked: Calanza Inmuebles, S.L. (named promoter)",
+        "title": "ORDEN FOM/1039/2025, de 19 de agosto: initial approval of the PIGA \"Proyecto Rhodes\" (Calatorao)",
+        "subdivision": "ES-AR",
+        "event_date": "2025-08-19",
+        "theme": "infrastructure",
+        "stance_note": "Initial approval (aprobación inicial) only. Not final. Verbatim sentences HIT on the aragon.es page; the page gives no BOA publication date for the order."
+      },
+      "notes": "Probe-verified on the aragon.es page: the order's title and the purpose sentence. Page says phase 1 construction and urbanization planned Q2 2026 to end 2035, which is the promoter's timeline as stated on the page. No definitive approval appears on the page as of its 05/10/2026 update.",
+      "verification": "HIT"
+    },
+    {
+      "id": "es-meta-talavera-dia-2024-03",
+      "country": "ES",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "Resolución de 20/03/2024, de la Dirección General de Calidad Ambiental, por la que se formula la declaración de impacto ambiental del proyecto: Proyecto de singular interés Meta Data Center Campus (expediente PRO-SC-22-1030)",
+      "translation": "Resolution of 20/03/2024 of the Directorate-General for Environmental Quality, formulating the environmental impact declaration for the project: Meta Data Center Campus singular-interest project (file PRO-SC-22-1030).",
+      "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "fields": {
+        "company": "meta",
+        "title": "DOCM nº 59, 22 Mar 2024: declaración de impacto ambiental, Meta Data Center Campus (Talavera de la Reina)",
+        "subdivision": "ES-CM",
+        "event_date": "2024-03-20",
+        "theme": "water",
+        "stance_note": "Environmental impact declaration (DIA) with conditions. Promoter is named in the DIA as Zarza Networks, S.L., not Meta. Meta attaches through the project name."
+      },
+      "notes": "Primary text is the DOCM issue (2024/2337). The copy we fetched is a PDF hosted on cmmedia.es; it is the DOCM text, but a reader should check against docm.jccm.es if a permanent link is needed. The DIA names the promoter as Zarza Networks, S.L. Meta attachment is by project name and by press. Needs a company-level link before it is presented as Meta's own filing. ES-CM (Castilla-La Mancha) is NOT in SUBDIVISIONS yet; see the subdivisions note.",
+      "verification": "HIT"
+    },
+    {
+      "id": "es-meta-talavera-industrial-cooling-water",
+      "country": "ES",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "Agua industrial necesaria para los equipos de refrigeración del centro de datos: 600 m3 anuales",
+      "translation": "Industrial water needed for the data centre's cooling equipment: 600 m3 per year.",
+      "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "fields": {
+        "company": "meta",
+        "title": "DOCM 22 Mar 2024: water demand of the Meta PSI (industrial cooling water)",
+        "subdivision": "ES-CM",
+        "event_date": "2024-03-20",
+        "theme": "water",
+        "stance_note": "Official figure from the DIA's water-demand section (\"Necesidades de abastecimiento\"). Quantities as stated in the DIA."
+      },
+      "notes": "Same DOCM copy as the DIA record. Press reports quote different water totals (iAgua flags a mismatch with the Junta's 0,2 hm3 figure in 2026). Record the DOCM figure only, and do not reconcile it with press numbers here.",
+      "verification": "HIT"
+    },
+    {
+      "id": "es-meta-talavera-potable-water",
+      "country": "ES",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "Agua potable necesaria para el centro de datos: 40.000 m3 anuales",
+      "translation": "Potable water needed for the data centre: 40,000 m3 per year.",
+      "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "fields": {
+        "company": "meta",
+        "title": "DOCM 22 Mar 2024: potable water demand of the Meta PSI",
+        "subdivision": "ES-CM",
+        "event_date": "2024-03-20",
+        "theme": "water",
+        "stance_note": "Official figure from the DIA's water-demand section. Separate from the industrial cooling water in the sibling record."
+      },
+      "notes": "Separate from the industrial cooling water in the sibling record; the two are different uses and are not summed in this record. Quantities as stated in the DIA.",
+      "verification": "HIT"
+    },
+    {
+      "id": "es-meta-talavera-dry-air-cooling-84pct",
+      "country": "ES",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "que ha logrado reducir en un 84 % la demanda de agua del Centro de Datos, según la documentación del promotor",
+      "translation": "which has achieved an 84% reduction in the data centre's water demand, according to the promoter's documentation.",
+      "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "fields": {
+        "company": "meta",
+        "title": "DOCM 22 Mar 2024: the DIA credits dry-air cooling with an 84% water-demand cut",
+        "subdivision": "ES-CM",
+        "event_date": "2024-03-20",
+        "theme": "water",
+        "stance_note": "The 84% figure is the promoter's own claim, repeated by the environmental body. Record it as attributed to the promoter. The DIA also describes the dry-air cooling alternative chosen over a hybrid system."
+      },
+      "notes": "Attribution matters: the 84% is \"según la documentación del promotor\". Press reports disagree on the baseline. The DIA's own text does not give the baseline in the sentence quoted.",
+      "verification": "HIT"
+    },
+    {
+      "id": "be-google-feluy-zoning-permit-2024-04",
+      "country": "BE",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "La Région wallonne vient d'octroyer le permis pour un tout nouveau data center de 36 hectares",
+      "translation": "The Walloon Region has just granted the permit for a brand-new 36-hectare data centre.",
+      "source_url": "https://www.rtbf.be/article/zoning-de-feluy-ecaussinnes-feu-vert-pour-le-data-center-google-11356788",
+      "fields": {
+        "company": "google",
+        "title": "RTBF, 10 Apr 2024: Walloon Region grants permit for Google's 36 ha Feluy-Écaussinnes data centre",
+        "subdivision": "BE-WAL",
+        "event_date": "2024-04-10",
+        "theme": "infrastructure",
+        "stance_note": "Walloon permit grant for a Google campus in the Feluy-Écaussinnes zoning. Reported by RTBF (Belga) and Sudinfo."
+      },
+      "notes": "The page says the Écaussinnes municipality asked for a series of compensations, which the Region took into account. It states no water or MW condition. Primary Walloon decision not yet fetched; the page cites Antenne Centre and Sudinfo. Secondary press for a government decision.",
+      "verification": "HIT"
+    },
+    {
+      "id": "be-google-feluy-three-buildings-2024-04",
+      "country": "BE",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "Le site accueillera trois centres de données",
+      "translation": "The site will host three data centres.",
+      "source_url": "https://www.rtbf.be/article/zoning-de-feluy-ecaussinnes-feu-vert-pour-le-data-center-google-11356788",
+      "fields": {
+        "company": "google",
+        "title": "RTBF, 10 Apr 2024: three data-centre buildings planned on the Feluy-Écaussinnes site",
+        "subdivision": "BE-WAL",
+        "event_date": "2024-04-10",
+        "theme": "infrastructure",
+        "stance_note": "Site scope from the same permit article. Count of buildings, not a MW figure."
+      },
+      "notes": "Sibling of the Feluy permit record. Kept separate so the scope fact can be cited on its own. The page also says heat from the data centres must be recovered to supply public buildings and other users in the zone (\"les centres de données produisent de la chaleur qui devra être récupérée\"); that is a permit condition that should be its own record once verified verbatim.",
+      "verification": "HIT"
+    },
+    {
+      "id": "be-google-farciennes-permit-application-2023-07",
+      "country": "BE",
+      "kind": "permit_application",
+      "verified": true,
+      "verbatim": "L'entreprise Google a déposé ce jeudi matin la demande de permis unique pour la construction",
+      "translation": "The company Google filed this Thursday morning the single-permit application for the construction [of its new site at Farciennes].",
+      "source_url": "https://www.rtbf.be/article/farciennes-google-depose-la-demande-de-permis-pour-la-construction-de-son-futur-site-11224063",
+      "fields": {
+        "company": "google",
+        "title": "RTBF, 6 Jul 2023: Google files the permis unique application for its Farciennes site",
+        "subdivision": "BE-WAL",
+        "event_date": "2023-07-06",
+        "theme": "infrastructure",
+        "stance_note": "Filing, not a grant. Use the later Sambre water refusal and Feluy grant to track the outcome."
+      },
+      "notes": "The quote is the page's own clause and is probe-verified; the full sentence continues about the site. The filing is Google's own act, reported by RTBF (Belga). Event date from the article timestamp, 6 Jul 2023 at 13:55.",
+      "verification": "HIT"
+    },
+    {
+      "id": "be-google-farciennes-sambre-water-refused",
+      "country": "BE",
+      "kind": "government_action",
+      "verified": true,
+      "verbatim": "le ministre est toutefois intervenu et a refusé d'accorder le permis",
+      "translation": "the minister nevertheless intervened and refused to grant the permit.",
+      "source_url": "https://fr.businessam.be/?p=273141",
+      "fields": {
+        "company": "google",
+        "title": "Business AM: Walloon minister refuses Google's Sambre water permit for the Farciennes data centre",
+        "subdivision": "BE-WAL",
+        "event_date": null,
+        "theme": "water",
+        "stance_note": "Refusal of a water-use permit, following a citizen complaint. Refers to a request to draw Sambre water for cooling. The minister is a public official and is named in the article; the name is not repeated here."
+      },
+      "notes": "Event date not captured: the page text we read did not give the article date. Do not infer one. The page says the project planned to draw 600 m3 of water per hour, most of which would have evaporated. Probe-verified: 'prévoyait le prélèvement de 600 mètres cubes d'eau par heure'. Needs the Walloon ministerial decision or a dated source before this is published.",
+      "verification": "HIT"
+    }
+  ],
+  "leads": [
+    "ES: AWS Aragón PIGA partial definitive approval, BOA Aug 2025 (press: Última Hora 25 Aug 2025; eldiario). Primary BOA not fetched; aboutamazon.es water page returned 404. Find the BOA anuncio and the aragon.es PIGA AWS page before recording.",
+    "ES: AWS Aragón water: 68 million litres in 2025 and 0.03% of the Ebro demarcation's industrial demand (first-party claim, via DCD ES). Need aboutamazon.es or aws.amazon.com page with the verbatim sentence.",
+    "ES: Meta Talavera planning approval: DOCM nº 205 of 22 Oct 2024 (Acuerdo del Consejo de Gobierno of 14 Oct 2024, PSI definitive approval). Seen only in a search summary. Fetch the DOCM issue directly.",
+    "ES: Rhodes water (700 m3/day) and 650 MWe are press-reported figures from PIGA documentation. Verify in the PIGA documents on aragon.es before recording.",
+    "ES: Confederación Hidrográfica del Ebro concessions for data centres: none found. The three BOE B announcements checked (24887 Urdaniz, 28470 Miedes de Aragón, 25976 Cortes de Aragón) are farm, private, and parliamentary concessions, not data-centre concessions. Not recorded. The Cortes de Aragón one (93,600 m3/yr industrial groundwater, Zaragoza) is a lead only if a data-centre link is found.",
+    "ES: Blackstone/QTS link to Rhodes/Calatorao: press-reported. The primary page names Calanza Inmuebles, S.L. as promoter. Confirm the group relationship from a primary source before linking to qts.",
+    "ES: Zarza Networks, S.L. is the promoter named in the Meta Talavera DIA. Company candidate; HQ and website not checked.",
+    "ES: Calanza Inmuebles, S.L. is the Rhodes promoter. Company candidate; HQ and website not checked.",
+    "ES: Castilla-La Mancha (ES-CM) is needed for the Talavera records; it is not in SUBDIVISIONS yet. Add ES-CM: 'Castilla-La Mancha' before loading these records.",
+    "ES: Flemish and Spanish civil-society objection platforms (Tu Nube Seca Mi Río, Migrano de Arena) were not fetched this round. The Migrano de Arena AWS contencioso page exists in the r2 file; do not repeat.",
+    "BE: Crystal Computing SRL Baudour permis unique de classe 1 (Lavenir, 18 Nov 2024, headline about Google Saint-Ghislain expansion). Body says the permit application was by Crystal Computing for its Baudour datacentre; the Google link is not established in the text read. Verify before attributing to Google.",
+    "BE: Elia 5th adequacy and flexibility study press release (27 Jun 2025) and newsletter PDF: both elia.be PDF URLs returned an HTML error body to curl, not a PDF. Try the elia.be publications page via WebFetch.",
+    "BE: Flemish data-centre siting policy: the one search returned only Dutch (Netherlands) results. No Flemish source found. Try the Vlaamse Regering site or VEKA directly.",
+    "BE: Brussels Times Google Farciennes approval page (article 926110): probe MISS on the claimed sentences; the page redirect returned 18 characters. Do not rely on it.",
+    "BE: Google Belgium EUR 1bn investment (belganewsagency): 404. Try Google's own blog (blog.google, BE) or the Walloon government's press page."
+  ]
+}

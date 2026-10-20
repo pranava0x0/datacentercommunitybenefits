@@ -388,27 +388,25 @@
     "question": "What does Ireland require of data centers?",
     "default": {
      "taps": 2,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 4,
+     "total": 2,
      "path": [
       "tap: #tab-world",
-      "swipe x2",
-      "tap: #world-country-list [data-country=\"IE\"]",
+      "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
      ]
     },
     "expanded": {
      "taps": 2,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 4,
+     "total": 2,
      "path": [
       "tap: #tab-world",
-      "swipe x2",
-      "tap: #world-country-list [data-country=\"IE\"]",
+      "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
      ]
     }
@@ -914,7 +912,7 @@
      "total": 2,
      "path": [
       "tap: #tab-world",
-      "tap: #world-country-list [data-country=\"IE\"]",
+      "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
      ]
     },
@@ -926,7 +924,7 @@
      "total": 2,
      "path": [
       "tap: #tab-world",
-      "tap: #world-country-list [data-country=\"IE\"]",
+      "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
      ]
     }
@@ -1426,7 +1424,7 @@
      "total": 2,
      "path": [
       "tap: #tab-world",
-      "tap: #world-country-list [data-country=\"IE\"]",
+      "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
      ]
     },
@@ -1438,7 +1436,7 @@
      "total": 2,
      "path": [
       "tap: #tab-world",
-      "tap: #world-country-list [data-country=\"IE\"]",
+      "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
      ]
     }

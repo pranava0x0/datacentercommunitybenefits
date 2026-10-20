@@ -1,0 +1,424 @@
+{
+ "sources": [
+  {
+   "name": "경인일보 (Kyeongin Ilbo)",
+   "url": "https://www.kyeongin.com/",
+   "kind": "local news (Gyeonggi)",
+   "verified_loads": true,
+   "notes": "Carried the Gimpo Guerae-dong rulings (2024)."
+  },
+  {
+   "name": "머니투데이 (Money Today)",
+   "url": "https://www.mt.co.kr/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "Carried the Dec 2022 Yongin protest and permit-return coverage."
+  },
+  {
+   "name": "파이낸셜뉴스 (Financial News)",
+   "url": "https://www.fnnews.com/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "Carried the Jul 2023 Gimpo/Anyang resident coverage; dateline in article body."
+  },
+  {
+   "name": "디지털타임스 (Digital Times)",
+   "url": "https://www.dt.co.kr/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "Yeongdeungpo permit feature (2026-06-04)."
+  },
+  {
+   "name": "전자신문 (ETNews)",
+   "url": "https://www.etnews.com/",
+   "kind": "trade news (ICT/energy)",
+   "verified_loads": true,
+   "notes": "Grid impact assessment coverage, 2024-06-04."
+  },
+  {
+   "name": "칸 KHARN",
+   "url": "https://www.kharn.kr/",
+   "kind": "trade news (data centre industry)",
+   "verified_loads": true,
+   "notes": "Industry-side view of the grid assessment, 2024-12-09; treat as industry position."
+  },
+  {
+   "name": "뉴시스 (Newsis)",
+   "url": "https://www.newsis.com/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "AIDC special act committee and PPA dispute coverage, Apr 2026."
+  },
+  {
+   "name": "서울신문 (Seoul Shinmun) data centre feature",
+   "url": "https://www.seoul.co.kr/",
+   "kind": "national news",
+   "verified_loads": true,
+   "notes": "2026 feature on Seoul-metro vs regional siting (Donghae GS plan)."
+  },
+  {
+   "name": "정책브리핑 korea.kr 정책뉴스",
+   "url": "https://www.korea.kr/news/policyNewsList.do",
+   "kind": "government press listing",
+   "verified_loads": true,
+   "notes": "Official Korean government press listing; use for ministry releases with dates."
+  },
+  {
+   "name": "과학기술정보통신부 보도자료",
+   "url": "https://www.msit.go.kr/bbs/list.do?sCode=user&mId=113&mPid=112",
+   "kind": "ministry press listing",
+   "verified_loads": true,
+   "notes": "MSIT press releases (AI data centre act, ICT rules)."
+  },
+  {
+   "name": "산업통상 부처 (motir.go.kr)",
+   "url": "https://www.motir.go.kr/",
+   "kind": "ministry site",
+   "verified_loads": true,
+   "notes": "Hosts the grid-assessment draft-rule attachment (motir.go.kr attach path). The old motie.go.kr press list returns 404. Ministry names have changed in 2026 (기후에너지환경부 appears in 2026 reporting); confirm the current name before citing."
+  },
+  {
+   "name": "국가법령정보센터 law.go.kr",
+   "url": "https://www.law.go.kr/",
+   "kind": "statute text",
+   "verified_loads": true,
+   "notes": "Primary text for 분산에너지 활성화 특별법, 전기사업법 시행령 and the AI data centre act once promulgated."
+  },
+  {
+   "name": "SK텔레콤 newsroom (English)",
+   "url": "https://news.sktelecom.com/en/",
+   "kind": "company newsroom",
+   "verified_loads": true,
+   "notes": "Ulsan AWS AI Zone release (1948) loads; company-first-party."
+  },
+  {
+   "name": "Google News RSS (Korean, 데이터센터)",
+   "url": "https://news.google.com/rss/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%84%BC%ED%84%B0&hl=ko&gl=KR&ceid=KR:ko",
+   "kind": "RSS discovery feed (aggregator)",
+   "verified_loads": true,
+   "notes": "Enumerates stories; never cite the aggregator link, cite the outlet article."
+  }
+ ],
+ "companies": [
+  {
+   "slug": "naver",
+   "name": "NAVER Corp (NAVER Cloud / Gak Sejong campus)",
+   "hq": "Seongnam, KR",
+   "international_only": true,
+   "proposed": true,
+   "basis": "Announced ~270 MW Sejong campus with 55 to 200 MW expansion (2026-07-25 release, NVIDIA/Brookfield); has no tracked US sites, so the owner's international_only rule applies. Gate 2 (first-party community-impact page) NOT checked: research before adding.",
+   "source_url": "https://www.aap.com.au/aapreleases/cision20260725ae12156/"
+  }
+ ],
+ "records": [
+  {
+   "kind": "government_action",
+   "verified": true,
+   "id": "kr-gimpo-guerae-construction-report-rejected-2024",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Gimpo City, Gyeonggi",
+    "event_date": "2024-07-29",
+    "project": "Gimpo Guerae-dong data center (foreign-owned operator)",
+    "outcome": "city rejected construction-start report"
+   },
+   "verbatim": "시는 설명회를 개최하라는 요구를 사업자 측이 이행하지 않았다는 등의 이유로 착공신고를 반려했다.",
+   "translation": "The city rejected the construction-start report, citing, among other reasons, the operator's failure to carry out the briefing session the city had required.",
+   "source_url": "https://www.kyeongin.com/article/1714151",
+   "notes": "Article headline and body are dated 2024-07-29 (reported) per the page; the rejection itself is the city's act. Fifteen conditions were attached per the same article."
+  },
+  {
+   "kind": "government_action",
+   "verified": true,
+   "id": "kr-gimpo-guerae-appeal-upheld-2024-10",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Gyeonggi Provincial Administrative Appeals Commission",
+    "event_date": "2024-10-21",
+    "project": "Gimpo Guerae-dong data center",
+    "outcome": "appeal upheld; rejection found improper"
+   },
+   "verbatim": "경기도 행정심판위원회는 21일 김포 구래동 데이터센터 사업자인 외국계 회사가 김포시를 상대로 제기한 행정심판의 청구 인용을 결정했다.",
+   "translation": "On the 21st, the Gyeonggi Provincial Administrative Appeals Commission decided to uphold the administrative appeal that the foreign-owned operator of the Gimpo Guerae-dong data center had filed against Gimpo City.",
+   "source_url": "https://www.kyeongin.com/article/1714151",
+   "notes": "Article dated 2024-10-21. The commission said it would send the written decision to both parties about two weeks later; the city said it had been notified and would decide next steps after internal review. Reports the operator filed a separate administrative lawsuit (article wording: '행정소송'), not verified verbatim here. Permit history: building permit June 2021, construction-start report withdrawn March 2023, refiled May 2024."
+  },
+  {
+   "kind": "community_response",
+   "verified": true,
+   "id": "kr-gimpo-guerae-residents-petition-2023",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "event_date": "2023-07-24",
+    "project": "Gimpo Guerae-dong data center",
+    "constituency": "residents",
+    "stance": "negative",
+    "petition_scale": "about 4,900 residents (article figure)"
+   },
+   "verbatim": "구래동 데이터센터 사업부지 인근 주민 4900여명이 시가 허가한 데이터센터 건축 허가 취소에 나선 것이다.",
+   "translation": "About 4,900 residents living near the Guerae-dong data centre site moved to have the building permit the city had granted revoked.",
+   "source_url": "https://www.fnnews.com/news/202307241826237258",
+   "notes": "Article dated 2023-07-24. Residents' objections centred on the buried transmission line (the article cites a 1-2 m burial depth over ~2.4 km), EMF exposure, noise, vibration, dust and cooling-water concerns. The civic group's compensation demand (1500억원 development fund and 5억원 per apartment complex) is quoted in the same article and is the group's demand, not the company's offer; keep it as a community position."
+  },
+  {
+   "kind": "community_response",
+   "verified": true,
+   "id": "kr-yongin-jukjeon-protests-2022",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Yongin (Jukjeon-dong)",
+    "event_date": "2022-12-03",
+    "project": "Jukjeon-dong data centre (Pacific Sunny, per other coverage)",
+    "constituency": "residents",
+    "stance": "negative"
+   },
+   "verbatim": "올들어 죽전시민연대 등 시민단체들을 중심으로 경기도 용인시 죽전동 일대에 건립되는 데이터센터 반대 시위가 연일 이어지고 있다.",
+   "translation": "So far this year, civic groups led by the Jukjeon Citizens' Alliance have held protests almost daily against a data centre planned for the Jukjeon-dong area of Yongin.",
+   "source_url": "https://www.mt.co.kr/tech/2022/12/03/2022120110272152225",
+   "notes": "Article dated 2022-12-03. Residents cite EMF exposure from the 154 kV supply line and the risk of fire and water contamination; the article also reports a school-route concern. Date of record is the article date, which is the event-date ceiling for an ongoing protest; a later curator pass should pin the first protest date."
+  },
+  {
+   "kind": "government_action",
+   "verified": true,
+   "id": "kr-yongin-dawoo-construction-report-returned-2022",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Yongin City",
+    "event_date": "2022-12-03",
+    "project": "Dawoo Technology data centre, Yongin",
+    "outcome": "construction-start report returned by city"
+   },
+   "verbatim": "올들어 다우기술이 용인에 지으려던 데이터센터는 시청으로부터 착공신고가 반려됐다.",
+   "translation": "So far this year, the city hall returned the construction-start report for the data centre that Dawoo Technology planned to build in Yongin.",
+   "source_url": "https://www.mt.co.kr/tech/2022/12/03/2022120110272152225",
+   "notes": "Same article as kr-yongin-jukjeon-protests-2022 (dated 2022-12-03). Single source; no later outcome verified."
+  },
+  {
+   "kind": "community_response",
+   "verified": true,
+   "id": "kr-anyang-hogye-protest-2023",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-41",
+    "jurisdiction": "Anyang (Hogye-dong)",
+    "event_date": "2023-07-24",
+    "project": "Hogye-dong data centre (Hyosung Group plan)",
+    "constituency": "residents",
+    "stance": "negative"
+   },
+   "verbatim": "호계통 일원의 아파트 주민들은 2021년 6월 아파트 앞 1만2627㎡ 부지에 효성그룹이 데이터센터 건립을 추진한다는 소식을 접한 뒤 비상대책위원회를 구성해 2년째 반대운동을 벌이고 있다.",
+   "translation": "Apartment residents in the Hogye area have run an opposition campaign for two years: after learning in June 2021 that Hyosung Group planned a data centre on a 12,627 m2 site in front of their apartments, they formed an emergency committee.",
+   "source_url": "https://www.fnnews.com/news/202307241826237258",
+   "notes": "Same 2023-07-24 article as kr-gimpo-guerae-residents-petition-2023. Hyosung Group is not a tracked company; operator identity for the Hogye site needs curation before a project record."
+  },
+  {
+   "kind": "national_policy",
+   "verified": true,
+   "id": "kr-grid-impact-assessment-draft-2024-06",
+   "fields": {
+    "country": "KR",
+    "instrument": "regulation (draft rules)",
+    "ministry": "Ministry of Trade, Industry and Energy (MOTIE)",
+    "event_date": "2024-05 (late month, per article)",
+    "threshold_mw": 10,
+    "pass_score": 70,
+    "scoring_total": 100,
+    "non_technical_points": 40
+   },
+   "verbatim": "제도가 시행되면 사업자 등이 10메가와트 이상 규모 데이터센터를 신규 짓고자 할때 평가를 거쳐 총점 70점 이상(100점 총점)을 받아야 전력정책심의회 심의대상으로 상정될 수 있다.",
+   "translation": "Once the system takes effect, operators building new data centres of 10 MW or more must pass an assessment scoring at least 70 out of 100 before the project can be placed before the Power Policy Deliberation Committee.",
+   "source_url": "https://www.etnews.com/20240604000162",
+   "notes": "Article dated 2024-06-04. Also: MOTIE pre-announced the draft '전력계통영향평가 제도 운영에 관한 규정(안)' in late May 2024 (verbatim: 산업부는 지난달 말 '전력계통영향평가 제도 운영에 관한 규정(안)'을 행정예고하고 이달 중순까지 업계 의견을 청취한다). Non-technical items (40 points) listed in the article: community acceptance 6, business stability 7, local fiscal contribution 6, value-added 6, direct employment 6, local underdevelopment 5, power self-sufficiency 4. Industry objection quoted in article (verbatim): 초대형 데이터센터도 300명 이상 직접 고용은 어려운 상황에서 현실을 고려하지 않은 정책. Ministry view (verbatim): 기술적 항목 점수가 60점이기 때문에 10여점 이상만 획득하면 심의대상에 포함될 수 있어 비기술적 평가항목은 사실상 가점 요인이라고 보는 것이 맞다. Superseded in part by the Dec 2024 re-notice (see kr-grid-impact-assessment-revised-2024-12)."
+  },
+  {
+   "kind": "national_policy",
+   "verified": true,
+   "id": "kr-grid-impact-assessment-revised-2024-12",
+   "fields": {
+    "country": "KR",
+    "instrument": "regulation (re-notified draft)",
+    "ministry": "MOTIE (grid assessment); MSIT (ICT rules)",
+    "event_date": "2024-12-09",
+    "scoring_technical": 60,
+    "scoring_non_technical": 20,
+    "scoring_policy": 20,
+    "pass_score": 70
+   },
+   "verbatim": "최근 재행정예고를 통해 기술적평가항목 60점, 비기술적평가항목 20점, 정책적 평가항목 20점 등으로 개정됐다.",
+   "translation": "Through a recent re-notice, the scoring was revised to 60 points for technical items, 20 for non-technical items and 20 for policy items.",
+   "source_url": "https://www.kharn.kr/news/article.html?no=26588",
+   "notes": "Kharn article dated 2024-12-09 (industry-side report; date confirmed in article body). Same article: 산업부는 전기사업법 시행령을 개정해 계통파급효과가 큰 에너지다소비시설인 5MW 이상 DC에 전기공급을 거부할 수 있게 했다 (MOTIE may refuse power supply to 5 MW+ DCs). Power Policy Deliberation Committee can overturn scores; its criteria were non-public, with disclosure under review. Second verbatim: 평가항목 합계 70점 이상인 경우 전력정책 심의위원회에 상정할 수 있으며. Source is an industry association presentation report; prefer the 고시 text in the Korean official gazette for the final rule."
+  },
+  {
+   "kind": "national_legislation",
+   "verified": true,
+   "id": "kr-ai-datacenter-special-act-passed-2026-05",
+   "fields": {
+    "country": "KR",
+    "instrument": "legislation",
+    "ministry": "MSIT (과학기술정보통신부)",
+    "event_date": "2026-05-07",
+    "stage": "passed National Assembly plenary",
+    "effective_note": "9-month grace period after promulgation; in force from February 2027 per the ministry",
+    "committee_vote": "2026-04-14 (Science, ICT, Broadcasting and Communications Committee)"
+   },
+   "verbatim": "과학기술정보통신부는 'AI 데이터센터 특별법' 제정안이 지난 7일 국회 본회의에서 의결됐다고 발표했다.",
+   "translation": "The Ministry of Science and ICT announced that the enactment bill for the 'AI Data Center Special Act' was approved at the National Assembly plenary session on the 7th.",
+   "source_url": "https://v.daum.net/v/20260508173552820",
+   "notes": "Article dated 2026-05-08 (ministry announcement reported). Second verbatim, same article: 특별법에는 비수도권에서 일정 규모 이하 AI 데이터센터를 신축·증축하거나 기존 데이터센터를 AI 전용 시설로 전환할 경우 전력계통영향평가를 면제하는 내용이 포함됐다. Also in the article: 인허가 일괄처리 및 타임아웃제 (deemed approval after a set period). Status vocabulary: enacted but not yet in force, so the policy status 'in_effect' does not yet apply; curator to choose 'proposed' or add a status. Note: newsis (2026-04-14) reports a dispute over PPA special terms with the Ministry of Climate, Energy and Environment; an LNG direct-PPA clause was dropped per industry reporting. Verify against the enacted text (law.go.kr) before publishing a clause-level claim."
+  },
+  {
+   "kind": "project_update",
+   "verified": true,
+   "id": "kr-naver-sejong-expansion-2026-07",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-44",
+    "jurisdiction": "Sejong",
+    "company": "NAVER (proposed international_only company)",
+    "event_date": "2026-07-25",
+    "mw_from": 55,
+    "mw_to": 200,
+    "investment_usd_total": 10000000000,
+    "capital_partner": "Brookfield up to USD 9 billion; NVIDIA USD 1 billion; NAVER funds the remainder"
+   },
+   "verbatim": "New investments will increase the initial NVIDIA DSX™ AI factory deployment from 55 megawatts to 200 megawatts.",
+   "translation": "New investments will increase the initial NVIDIA DSX AI factory deployment from 55 megawatts to 200 megawatts.",
+   "source_url": "https://www.aap.com.au/aapreleases/cision20260725ae12156/",
+   "notes": "PRNewswire release reproduced by AAP, dated 2026-07-25 (URL date). Second verbatim, same release: Brookfield will fund up to $9 billion as the exclusive capital partner, NVIDIA will invest $1 billion and NAVER will fund the remaining amount to finance the $10 billion project. Earlier Sejong financing (400 billion won public growth fund loan, approved by the FSC) is reported by secondary sources only. Chuncheon: no 2026 MW or investment figure found. Campus plan (270 MW, 290,000 m2) comes from secondary reporting, not from this release. Naver's own Korean-language press release is the preferred first-party source to add."
+  },
+  {
+   "kind": "project_verification",
+   "verified": true,
+   "id": "kr-aws-ulsan-ai-zone-seed-check-2026-10",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-31",
+    "jurisdiction": "Ulsan",
+    "company": "amazon (AWS) with SK Group",
+    "event_date": "2025-06-22",
+    "release_operations_start": "2027"
+   },
+   "verbatim": "The new AI Zone will give organizations in South Korea greater choice in onshore infrastructure with operations expected to begin in 2027",
+   "translation": "The new AI Zone will give organisations in South Korea more choice of onshore infrastructure, with operations expected to begin in 2027.",
+   "source_url": "https://news.sktelecom.com/en/1948",
+   "notes": "Checks the seeded kr-aws-ulsan-ai-zone record: the release supports the 2027 start and the SK-leads-construction split, but states no MW, no KRW figure and no date for the 78,000 jobs figure in the way the seed frames it (the seed's notes already say no site investment is stated). Secondary reports (not verified here) put the phase-1 capacity at 41 MW (by Nov 2027) rising to 103 MW (Feb 2029) and a total of about KRW 7 trillion including AWS USD 4 billion. Do NOT add MW or KRW to the seed record without an SK or AWS primary source that states them."
+  },
+  {
+   "kind": "project_announcement",
+   "verified": true,
+   "id": "kr-gangwon-donghae-gs-2-4gw-2026-06",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-42",
+    "jurisdiction": "Donghae City, Gangwon",
+    "event_date": "2026-06 (end of month, per article)",
+    "company": "GS (group entity not yet identified)",
+    "power_gw": 2.4,
+    "investment_krw_stated": "up to 120 trillion won (reported)",
+    "phases": 2,
+    "construction_start_plan": "as early as October 2026; phase 2 by 2029",
+    "jobs_construction_stated": 70000,
+    "jobs_operating_stated": 2000
+   },
+   "verbatim": "지난 6월 말 GS가 북평제2일반산업단지에 초대형 데이터센터(2.4GW급)를 건립한다는 계획을 발표한 직후",
+   "translation": "Right after GS announced at the end of June that it would build a very large data centre of 2.4 GW class at Bukpyeong 2nd General Industrial Complex",
+   "source_url": "https://m.go.seoul.co.kr/news/plan/datacenter/2026/08/24/20260824001006",
+   "notes": "Seoul Shinmun feature dated 2026-08-24 (URL date). Figures attributed in the article: up to 120 trillion won investment, 70,000 construction workers over four years, 2,000 operating staff (article estimates). The company entity behind GS's plan is not identified in this source; research the operating subsidiary before creating a company or project record. Local support banners are reported; no objection recorded here."
+  },
+  {
+   "kind": "government_action",
+   "verified": true,
+   "id": "kr-yeongdeungpo-yangpyeong-permit-returned-2026",
+   "fields": {
+    "country": "KR",
+    "subdivision": "KR-11",
+    "jurisdiction": "Yeongdeungpo-gu, Seoul",
+    "event_date": "2026-06 (reported; article dated 2026-06-04)",
+    "project": "Small data centre, Yangpyeong-dong 6-ga",
+    "outcome": "permit refused or returned; operator reportedly filed administrative appeal"
+   },
+   "verbatim": "업계에 따르면 영등포구 양평동6가에 들어설 예정인 소규모 데이터센터의 인허가가 최근 반려됐다.",
+   "translation": "According to industry sources, the permit application for a small data centre planned for Yangpyeong-dong 6-ga, Yeongdeungpo-gu, was recently refused.",
+   "source_url": "https://www.dt.co.kr/article/12065905",
+   "notes": "Digital Times feature dated 2026-06-04 (page's own dateline). Residents' objections cite EMF, heat, noise and fire-spread concerns; banners are visible on the site. Verbatim, same article: 사업을 진행하는 업체는 지자체를 상대로 행정심판을 제기한 것으로 알려졌다 (reported, not confirmed). Operator not named in the article. Wording 'refused' is the article's word; confirm the legal form (반려 vs 불허) before publishing."
+  }
+ ],
+ "leads": [
+  {
+   "lead": "Stargate Korea status: Samsung SDS (Pohang) and SK Telecom (Jeonnam) data centres, 20 MW each per secondary reporting; Korea Herald says investment amounts 'remain under discussion'. Undated; the seeded JoongAng 'stuck at starting gate' piece is the current status. Needs the date of the Korea Herald piece before use.",
+   "url": "https://www.koreaherald.com/article/10629728",
+   "priority": "high"
+  },
+  {
+   "lead": "SK Telecom CEO stated a Yeongnam 2 GW AI DC plan of about 140 trillion won and a 100 MW Ulsan build with a further 900 MW in preparation (July 2026 report). Find the first-party Korean release before recording. Overlaps the seeded Ulsan record, which is not yet expanded.",
+   "url": "https://news.mtn.co.kr/news-detail/2026070315410960302",
+   "priority": "high"
+  },
+  {
+   "lead": "Gimpo Guerae-dong: operator's administrative lawsuit against the city (per 2024-10-21 article). Look for the court outcome before the record is marked resolved.",
+   "url": "https://www.kyeongin.com/article/1714151",
+   "priority": "medium"
+  },
+  {
+   "lead": "Incheon Michuhol 80 MW data centre: first public-private council reported conflict (Aug 2026). Need operator name and the council minutes.",
+   "url": "https://m.go.seoul.co.kr/news/plan/datacenter/2026/08/24/20260824001006",
+   "priority": "medium"
+  },
+  {
+   "lead": "Gwacheon Juam district: operator measured EMF at 0.44 mG average against 833 mG domestic reference (2026-10, reported). Verify the operator's own measurement report before recording as a company claim.",
+   "url": "https://www.dt.co.kr/article/12065905",
+   "priority": "medium"
+  },
+  {
+   "lead": "Capital-area scale: 630 new DCs planned by 2029, 550 (86.3%) in the capital area (Gyeonggi legislature figure reported 2023). Date-sensitive; pull the Gyeonggi council source before use.",
+   "url": "https://www.fnnews.com/news/202307241826237258",
+   "priority": "medium"
+  },
+  {
+   "lead": "Microsoft Busan Miumsandan (opened 2024-09-23 per secondary). The busan.go.kr English page fetched is a 2016 announcement; fetch the Korean city press release for the 2024 opening and any MW figure.",
+   "url": "https://www.busan.go.kr/eng/bsnews01/803674",
+   "priority": "medium"
+  },
+  {
+   "lead": "KT Cloud: Guro DC operator selection (DCD) and Gasan / Bucheon sites. Operator-level community record needed; no MW figures verified.",
+   "url": "https://www.datacenterdynamics.com/en/news/kt-cloud-selected-as-operator-of-guro-data-center-in-south-korea",
+   "priority": "low"
+  },
+  {
+   "lead": "Samsung SDS Dongtan (Hwaseong) 2023 build: only Baxtel listing seen. Verify with Samsung SDS release before any record.",
+   "url": "https://baxtel.com/data-center/samsung-sds-suwon-ict",
+   "priority": "low"
+  },
+  {
+   "lead": "LG U+ Pyeongchon 2 (Anyang) large DC: Hankyung 2025-07-04 article. Telecom operator; not yet assessed for gate 2.",
+   "url": "https://www.hankyung.com/article/2025070492741",
+   "priority": "low"
+  },
+  {
+   "lead": "Hogye (Anyang) operator: Hyosung Group named as the 2021 plan in the 2023 article; the operator on the current application is unknown. Not a company yet.",
+   "url": "https://www.fnnews.com/news/202307241826237258",
+   "priority": "low"
+  },
+  {
+   "lead": "Electromagnetic field: 전파법 amendment establishing an EMF risk study basis (non-binding per Gyeonggi councillor quoted in 2023 article). Find the enacted text on law.go.kr.",
+   "url": "https://www.fnnews.com/news/202307241826237258",
+   "priority": "medium"
+  },
+  {
+   "lead": "Power-supply refusal: MOTIE amended 전기사업법 시행령 to permit refusing supply to 5 MW+ DCs (date not confirmed). Find the enacted decree and its effective date on law.go.kr.",
+   "url": "https://www.kharn.kr/news/article.html?no=26588",
+   "priority": "high"
+  },
+  {
+   "lead": "AIDC act PPA dispute: LNG direct-PPA clause reported removed; the civic statement that the non-metro grid-assessment exemption survived needs the enacted text to confirm.",
+   "url": "https://v.daum.net/v/20260508173552820",
+   "priority": "high"
+  }
+ ]
+}

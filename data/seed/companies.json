@@ -224,6 +224,87 @@
       "summary": "Data-centre subsidiary of Bharti Airtel. Airtel's 30 March 2026 stock-exchange filing says about 300 MW of capacity today with a 1 GW target, and a US$1 billion investment subject to approvals in India. Nxtra joined RE100 in June 2024. No community-impact page was found.",
       "last_reviewed": "2026-10-19",
       "international_only": true
+    },
+    {
+      "slug": "naver",
+      "name": "NAVER",
+      "hq": "Seongnam, South Korea",
+      "dedicated_page_url": null,
+      "summary": "Korean internet and cloud company, tracked for its Sejong AI data-centre campus (announced July 2026 with NVIDIA and Brookfield). No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "mitsui-fudosan",
+      "name": "Mitsui Fudosan",
+      "hq": "Tokyo, Japan",
+      "dedicated_page_url": null,
+      "summary": "Japanese real-estate developer, tracked as the lead company of the Kobe City tunnel data-centre lease awarded on 6 October 2026. No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "colt-dcs",
+      "name": "Colt Data Centre Services",
+      "hq": "London, United Kingdom",
+      "dedicated_page_url": null,
+      "summary": "Data-centre operator, tracked for its Mumbai 3 build on the Navi Mumbai campus (joint venture with RMZ). No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "sesterce",
+      "name": "Sesterce",
+      "hq": "Marseille, France",
+      "dedicated_page_url": null,
+      "summary": "French AI-infrastructure start-up, tracked for its Rovaltain (Alixan) data-centre project, whose building permit a court suspended in July 2026. No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "kakao",
+      "name": "Kakao Corp",
+      "hq": "Jeju, South Korea",
+      "dedicated_page_url": null,
+      "summary": "Korean internet and platform company; tracked for its Ansan data centre. Added under the owner's international-operator rule, not on gate 2: the only first-party material is a 2020 release on the Ansan site.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "lg-uplus",
+      "name": "LG Uplus",
+      "hq": "Seoul, South Korea",
+      "dedicated_page_url": null,
+      "summary": "Korean telecom operator, tracked for its Paju AI data centre. No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "ecodatacenter",
+      "name": "EcoDataCenter",
+      "hq": "Falun, Sweden",
+      "dedicated_page_url": null,
+      "summary": "Swedish data-centre operator (Falun, Borlänge), tracked for its third campus at Smedjebacken. Its own release carries one named-executive statement on its dealings with the municipality; no standing community-impact page was found.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "cloudhq",
+      "name": "CloudHQ",
+      "hq": "Washington, DC, United States",
+      "dedicated_page_url": null,
+      "summary": "Data-centre developer headquartered in Washington, DC, tracked for its six-data-centre campus in Querétaro, Mexico. No standing community-impact page was found; the claims come from remarks by its director of operations reported in a federal release. It also operates in the United States, but none of those sites are tracked here.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "pampa-energia",
+      "name": "Pampa Energía",
+      "hq": "Buenos Aires, Argentina",
+      "dedicated_page_url": null,
+      "summary": "Argentine power generator and gas producer, tracked for its chairman's public offer of 800 MW of generation for a data centre in Vaca Muerta. It is not a data-centre developer and no site has been named.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
     }
   ]
 }

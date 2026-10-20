@@ -1,0 +1,586 @@
+[
+ {
+  "title": "Canada puts out Advanced Procurement Notice for data center in Ontario",
+  "url": "https://www.datacenterdynamics.com/en/news/canada-puts-out-advanced-procurement-notice-for-data-center-in-ontario/"
+ },
+ {
+  "title": "Russian official proposes data centers in disused coal mines to protect from drone strikes",
+  "url": "https://www.datacenterdynamics.com/en/news/russian-official-proposes-data-centers-in-disused-coal-mines-to-protect-from-drone-strikes/"
+ },
+ {
+  "title": "400MW data center eyed at old Navy cyber site in San Diego, California",
+  "url": "https://www.datacenterdynamics.com/en/news/400mw-data-center-eyed-at-old-navy-cyber-site-in-san-diego-california/"
+ },
+ {
+  "title": "Power alone won't unlock the next generation of AI data centers",
+  "url": "https://www.datacenterdynamics.com/en/opinions/power-alone-wont-unlock-the-next-generation-of-ai-data-centers/"
+ },
+ {
+  "title": "Anthropic named as customer of EverWind's data center project in Nova Scotia",
+  "url": "https://www.datacenterdynamics.com/en/news/anthropic-named-as-customer-of-everwinds-data-center-project-in-nova-scotia/"
+ },
+ {
+  "title": "Google explores data center site in Roanoke County, Virginia",
+  "url": "https://www.datacenterdynamics.com/en/news/google-explores-data-center-site-in-roanoke-county-virginia/"
+ },
+ {
+  "title": "Sponsored: Data center siting in the AI era: A smarter approach to environmental and community impact",
+  "url": "https://www.datacenterdynamics.com/en/opinions/data-center-siting-in-the-ai-era-a-smarter-approach-to-environmental-and-community-impact/"
+ },
+ {
+  "title": "Curtis Hall proposes temporary 49.9MW gas power plant for Cardiff data center campus - report",
+  "url": "https://www.datacenterdynamics.com/en/news/curtis-hall-proposes-temporary-499mw-gas-power-plant-for-cardiff-data-center-campus-report/"
+ },
+ {
+  "title": "Carrier Connect secures customer for 4MW data center outside Atlanta, Georgia",
+  "url": "https://www.datacenterdynamics.com/en/news/carrier-connect-secures-customer-for-4mw-data-center-outside-atlanta-georgia/"
+ },
+ {
+  "title": "Alcoa sells New York aluminum smelter to data center developer for $315 million",
+  "url": "https://www.datacenterdynamics.com/en/news/alcoa-sells-new-york-aluminum-smelter-to-data-center-developer-for-315-million/"
+ },
+ {
+  "title": "Israel to cap capacity of new data centers at 200MW - report",
+  "url": "https://www.datacenterdynamics.com/en/news/israel-to-cap-capacity-of-new-data-centers-at-200mw-report/"
+ },
+ {
+  "title": "Closing the Skills Gap in Data Center Facilities Management",
+  "url": "https://www.datacenterknowledge.com/management/closing-the-skills-gap-in-data-center-facilities-management"
+ },
+ {
+  "title": "Could the Societal Value of Workloads Shape Data Center Policy?",
+  "url": "https://www.datacenterknowledge.com/regulations/could-the-societal-value-of-workloads-shape-data-center-policy-"
+ },
+ {
+  "title": "Reliability Standards for AI Data Centers, Crypto Miners Move Closer to Adoption",
+  "url": "https://www.datacenterknowledge.com/regulations/reliability-standards-for-ai-data-centers-crypto-miners-move-closer-to-adoption"
+ },
+ {
+  "title": "Data Center Developers Face Tighter Margins as Construction Costs Rise",
+  "url": "https://www.datacenterknowledge.com/data-center-construction/data-center-developers-face-tighter-margins-as-construction-costs-rise"
+ },
+ {
+  "title": "[Industry Event] Advancing Data Center Construction East 2026",
+  "url": "https://www.datacenterknowledge.com/events/advancing-data-center-construction-east-2026"
+ },
+ {
+  "title": "Brazil’s Data Center Growth Pushes Beyond São Paulo",
+  "url": "https://www.datacenterknowledge.com/data-center-site-selection/brazil-s-data-center-growth-pushes-beyond-s-o-paulo"
+ },
+ {
+  "title": "AI Data Center Land Buying Hits $6B as Power Premiums Rise",
+  "url": "https://www.datacenterknowledge.com/data-center-construction/ai-data-center-land-buying-hits-6b-as-power-premiums-rise"
+ },
+ {
+  "title": "Why AI Data Center Cooling Needs to Get Smarter",
+  "url": "https://www.datacenterknowledge.com/cooling/why-ai-data-center-cooling-needs-to-get-smarter"
+ },
+ {
+  "title": "How Chiplets Could Transform Server Design – And Data Centers",
+  "url": "https://www.datacenterknowledge.com/data-center-chips/how-chiplets-could-transform-server-design-and-data-centers"
+ },
+ {
+  "title": "How to Secure Data Centers During the Construction Phase",
+  "url": "https://www.datacenterknowledge.com/physical-security/how-to-secure-data-centers-during-the-construction-phase"
+ },
+ {
+  "title": "Virginia Tops AI Data Center Readiness Ranking as Smaller Markets Advance",
+  "url": "https://www.datacenterknowledge.com/data-center-site-selection/virginia-tops-ai-data-center-readiness-ranking-as-smaller-markets-advance"
+ },
+ {
+  "title": "Speed Bumps Slow Asia-Pacific’s Data Center Gold Rush",
+  "url": "https://www.datacenterknowledge.com/investing/speed-bumps-slow-asia-pacific-s-data-center-gold-rush"
+ },
+ {
+  "title": "Permits, Not Power, Halt Google’s Finland Data Centers",
+  "url": "https://www.datacenterknowledge.com/regulations/permits-not-power-halt-google-s-finland-data-centers"
+ },
+ {
+  "title": "How Carbon-Aware Scheduling Can Cut Data Center Emissions",
+  "url": "https://www.datacenterknowledge.com/sustainability/how-carbon-aware-scheduling-can-cut-data-center-emissions"
+ },
+ {
+  "title": "Data Center Power Demand to Grow 24% Annually by 2030: McKinsey",
+  "url": "https://www.datacenterknowledge.com/energy-power-supply/data-center-power-demand-to-grow-24-annually-by-2030-mckinsey"
+ },
+ {
+  "title": "EMEA Data Center Expansion Faces a Delivery Test",
+  "url": "https://www.datacenterknowledge.com/data-center-site-selection/emea-data-center-expansion-faces-a-delivery-test"
+ },
+ {
+  "title": "Beyond the Megawatt: Why Data Center Site Selection Is Now a Three-Front Battle",
+  "url": "https://www.datacenterknowledge.com/data-center-site-selection/beyond-the-megawatt-why-data-center-site-selection-is-now-a-three-front-battle"
+ },
+ {
+  "title": "Vertical Data Centers Face Cost-Proximity Trade-Offs",
+  "url": "https://www.datacenterknowledge.com/data-center-site-selection/vertical-data-centers-face-cost-proximity-trade-offs"
+ },
+ {
+  "title": "From Opposition to Buy-In: Tactics for Data Center Developers",
+  "url": "https://www.datacenterknowledge.com/data-center-site-selection/from-opposition-to-buy-in-tactics-for-data-center-developers"
+ },
+ {
+  "title": "The Hidden Failure Domain in N+1 Data Center Cooling",
+  "url": "https://www.datacenterknowledge.com/cooling/the-hidden-failure-domain-in-n-1-data-center-cooling"
+ },
+ {
+  "title": "Zinc Whiskers: The Hidden Contamination Risk Beneath Data Center Floors",
+  "url": "https://www.datacenterknowledge.com/management/zinc-whiskers-the-hidden-contamination-risk-beneath-data-center-floors"
+ },
+ {
+  "title": "Can Data Center Design Choices Change Public Acceptance?",
+  "url": "https://www.datacenterknowledge.com/sustainability/can-data-center-design-choices-change-public-acceptance-"
+ },
+ {
+  "title": "Data Center On-Site Power Brings Pollution Risks Closer to Home",
+  "url": "https://www.datacenterknowledge.com/compliance/data-center-on-site-power-brings-pollution-risks-closer-to-home"
+ },
+ {
+  "title": "Digital Realty Plans Cable Landing Station at Los Angeles Data Center",
+  "url": "https://www.datacenterknowledge.com/cables/digital-realty-plans-cable-landing-station-at-los-angeles-data-center"
+ },
+ {
+  "title": "Efforts to Curb Data Center Speculation Gain Ground Across the US",
+  "url": "https://www.datacenterknowledge.com/energy-power-supply/efforts-to-curb-data-center-speculation-gain-ground-across-the-us"
+ },
+ {
+  "title": "Google’s Grid-Interactive AI Data Centers: From Backup to Grid Partner",
+  "url": "https://www.datacenterknowledge.com/energy-power-supply/google-s-grid-interactive-ai-data-centers-from-backup-to-grid-partner"
+ },
+ {
+  "title": "Low-Frequency Noise and Data Centers: What to Know",
+  "url": "https://www.datacenterknowledge.com/data-center-construction/low-frequency-noise-and-data-centers-what-to-know"
+ },
+ {
+  "title": "The Role of Optical Frequency Comb Generators in AI Data Centers",
+  "url": "https://www.datacenterknowledge.com/networking/the-role-of-optical-frequency-comb-generators-in-ai-data-centers"
+ },
+ {
+  "title": "Data Center Water Use: From Efficiency Metrics to Real-World Resilience",
+  "url": "https://www.datacenterknowledge.com/cooling/data-center-water-use-from-efficiency-metrics-to-real-world-resilience"
+ },
+ {
+  "title": "Same Roof, 10 Different Gases: What a Data Center Is Quietly Holding",
+  "url": "https://www.datacenterknowledge.com/outages/same-roof-10-different-gases-what-a-data-center-is-quietly-holding"
+ },
+ {
+  "title": "Designing Layered Drone Defenses for Data Centers",
+  "url": "https://www.datacenterknowledge.com/physical-security/designing-layered-drone-defenses-for-data-centers"
+ },
+ {
+  "title": "Grid Constraints Steer Dutch Data Centers Beyond Amsterdam",
+  "url": "https://www.datacenterknowledge.com/data-center-site-selection/grid-constraints-steer-dutch-data-centers-beyond-amsterdam"
+ },
+ {
+  "title": "Space Data Centers Inch Toward Reality, With Caveats",
+  "url": "https://www.datacenterknowledge.com/next-gen-data-centers/space-data-centers-inch-toward-reality-with-caveats"
+ },
+ {
+  "title": "Rack Power Is Rising Fast. Here’s What It Means for Data Centers",
+  "url": "https://www.datacenterknowledge.com/data-center-hardware/rack-power-is-rising-fast-here-s-what-it-means-for-data-centers"
+ },
+ {
+  "title": "Delivery Certainty Will Define the Next Phase of Data Center Growth",
+  "url": "https://www.datacenterknowledge.com/data-center-construction/delivery-certainty-will-define-the-next-phase-of-data-center-growth"
+ },
+ {
+  "title": "Data center moratorium approved by Oakland amid AI backlash - The Oaklandside",
+  "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQcC1IS3VHWW5VZEpzVFRJVEVkWXM0a2NRay1YVS1xT2pHZFJiWWk4M2NfUFlDeUlJem9TQjU4VHVLT1FXUU0yN2lSME13ZW9iamRMamEyeFVLTk1jNmFIcjMtZ29YVldZcktKR25kaUExekZZemFRWVpjblpsSERwRA?oc=5"
+ },
+ {
+  "title": "Governor Hochul and Representatives Ocasio-Cortez and Ryan Highlight New York’s Nation-Leading Moratorium on Hyperscale Data Center Construction - Governor Kathy Hochul (.gov)",
+  "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNRUdXNm5lbnYyNGN0bGNJQWp3aHVoZkt6cF9oQ2x0V1ZLN1UzN29DamVKTS1kRmJudjQ4NlZEMFVuS2xzbmhkZHhxU1hqNXpwd0tTb09zVUJYV3VpM3BnWF9LZXNLdmZwa0diVmprSk1JWHR6YVlrQ3RCNEVvc1ZKbGcwTG54bTFXY3IxMWk5QXBULUVQVUpteW0yR0t2ZFVyajhWTFV1NzUwQkpYUm1CdzRkcUM0dkxWam1nNWNQV2wxNGll?oc=5"
+ },
+ {
+  "title": "Gov. Kotek expands Oregon data center moratorium - Oregon Public Broadcasting - OPB",
+  "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNN0xzWlNVNkowanZ0eTZvRTFBdDdhMjBMcHVMaFVSTDVDNEg3OXd6OGV1WEFSTEo1ZjZpWU1Wb3J0OHRlaDB1c3FhME5reFRqTkxBMV9PWWNtLTBYVkgyTlFyVHAxVW4ycW4zdmJTaXZLeGotNzNhNS1sQmtVZGtaR2lObTloWmRXNTZOVmVaelEzZw?oc=5"
+ },
+ {
+  "title": "Gov. Greg Abbott broadens moratorium on data center approvals to include environmental permits - The Texas Tribune",
+  "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPSEx1ckpTZnF2SmRVby1uWFkwSUVCd2JDZTZaZzNoZHRNWU9oTzNXUG9kdzRjOFBZcXd4S3lWeTNjNmJyc0R2aU9xRE9IZk01UUxUWXFBRzlUWEFHd3I3bXRpWVFyNXJxYWtjbDRpSElHY2sxUHVxWl9pUUxET25WdzhfMWZDV3NKd0E?oc=5"
+ },
+ {
+  "title": "SF approves data center moratorium, other Bay Area cities reviewing policies - KTVU",
+  "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNaFVlc1l5WFR6VDVBbXNaVjN2cUFxb3N1TV96eEdaYnM0MVlqdjUyaGlsbThKWk1VS1hKUU8zdGZLYmdsY3RZUVZ1cjNXUmJtTjRkVG90WE90c2VwMXRGWjRHcGR1MEcycUZhTFpjOUtEQlFpYV93YTBfV3RnSURLMTFXaXhsbllsRGpNbUNWWDhYeUlVSy1MX0ZZV0FISWEwSmFYa9IBqgFBVV95cUxQMGxLdWc5Qnp5RHI0aVdIQ3RJTmppcUZDbURaS0Y1SjU2RFQwNW8zMDd1VnZGci14N3BzdFF6Nm5KblNTc3ZhaV9TRFBPdlJveEVVMnNmai1WZkloR1U1MnZubWc0Z0tJNW9ReDVvYy1MUWhUYmFfUWZuT1l5bWdaWTktRGZ1VWNMZ2w0ZDJxTTNCaGJTSTJUb2hhWFBTOEYxQUhKbHhMVnUwQQ?oc=5"
+ },
+ {
+  "title": "BlackRock's Larry Fink warns a data center moratorium could trigger a recession - CNBC",
+  "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQRUcxYlJ4clFzek9WSjhrbnA5Y1pKNjFNOVJXdlVjek5GRGJHMFRQVnJRSWxPamhqNHpFM3VCek9rOHVnbjhQcGhXOVgzdWRTWjZXcDE1OVk0Z3I4bjNXeXRTVDlsMkxYZXZnbVlBeW1HclpRV2lPMFhnb3JVYnV0aXJYaTN0NHY3TmNidWVYLVFFd0JXX0thajhIeVJmZVI0VTdUXzVselLSAa4BQVVfeXFMT210SjJvMHRlNmNWRTdwUmxpdkx1ZWE3SmtGanRTS18tOUhXYlA2ZHowS1g5M0t3aXY0T2ZEZ3JkR0pIQWlDZVBQbDlSbDBqOHMwQkd0dnlkUVZuM3BsQjJOQTNtMlBMb2xPdmx4UzI3czJPQmhBSGFXb29Zc3RNQjJqYjV6cUlQQ0Fpc2lxR1hCaXlDaHUzRV80WjJYelRReHJESE9MMkh0MnItZWFR?oc=5"
+ },
+ {
+  "title": "Raleigh passes six-month data center pause as advocates demand more time - WRAL",
+  "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNSF9TOHJPY0JuU0RSTThod0lSd3NjaFVNV241LTBlVjEybVJrNGdnMFhwN19pbU5VWFRUSU5hQmRPOWd2Y0JTUktUaUpVVU5iRHhEeU0zUklFVWJQZ2xCUmotTEg2cllVc3FGRHdOOUhVNDVmam5pcWw4QkhSaFdtc3NQbmJhZm9UVHpNdF81QmFjUjFhd3RpN0NXUTFxbnpWbnFEcmR5dG5RaFdxaTFxd0tBZk5BQVJGNlE?oc=5"
+ },
+ {
+  "title": "Charlotte City Council hear public input on extending data center moratorium by 11 months - WCNC",
+  "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPS0xZMFpicGw1SjVRcWRPUm9lUTQzRkl6c2JhaVAxcFJTSU1jMUx1NklfdVgtWWxoSDkzQjZLZ1FMRVJaOWxHOWlsUGEwNkw1M2Z2aUR0eU44b1pVSVJFcHdfZExTSmEtcnFab1Y0Y2pIM18zcDV0MG5JUlJncVdxWi1nd21JUER4a0x2R2R3Uld1VG1xSFJfeTFkZEkxMEI2Tzg3N0VjcWNCZkJMSTNpRFlVbGFWdndpVFNmQmd2ZDRJMVFzbWpyOHNPR1RQblVnM1BUODk3ZUhaYVVDZ082SDg4a040QQ?oc=5"
+ },
+ {
+  "title": "Data center moratorium bills stack up ahead of Virginia legislative session in January - Virginia Mercury",
+  "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNc2dDQmdfUFZHSFpjZm1hQUVEV3pCbnJKTTlRa2RSd0NqWGVKWC1EOXJzUDE2QUhQYzNlVEVOUWprLVkyTldGaHMzd0drNVBqUWQwVmotVUM3WDNCRVBmRkJSd0IwbHJzQmJMVEMtZ0QyVE52dlc4VXBrYWhjV1lDVUgxMVZYdUF3dWJUREV2T3Y1WGtkLWt3U0JYQTZvd0tBUlBrUWl3dDFQVWtmUnZWX01QejNLMjlmeU1jQmtCVjgwM0hl?oc=5"
+ },
+ {
+  "title": "Data center moratorium now - Environment America",
+  "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBOSC1SSWxFN0NUYUZRNVNuY2hpZXYtVmtyc3R1TmZYZzNSSS1ENmZDU2ZHWGJ0d3FIZWYzdTNDaU9Idkw1NnNFVmY0a3RBbURaN1lNamxsVHZCN29mZU4wNGNJWUQ5YWFxeUMwMkIyM0tHTHlycTVqNlNXN01URU0?oc=5"
+ },
+ {
+  "title": "Oregon Gov. Kotek orders halt to data center air, water permitting: ‘It is effectively a temporary moratorium’ - OregonLive.com",
+  "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPTnJjSGhQelBsUGVmQURCRTA3X0p3bEtCV2V3U1lURDFCajZyVkhyOEtrbk5qekctVm5vV29RMnF3WlVtNHBuZHF3LWlvXzR1RGw0dmxOSUE4M181SFlPTXUxTzlWMU92UTlZN0JNZjYzd2pnRVFzTVE0WXo3QW50WHJxMWJZUDg3QkxZLWdvSHdzemQ5RFdBQk9uM2staDJKS21oeGxBY09nT09WUlU5eXdzaFBOc2xVZlMweE5uLXhTMFJWd3ByWmE0WkNDS094cW1HLUJmTUMweFpVVFc4Y21lVDYzZEptM1F4a25udFU1QQ?oc=5"
+ },
+ {
+  "title": "The Memphis data center moratorium is about putting people first, not corporations - scalawagmagazine.org",
+  "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSGtRV3hMSVJGWE9OSjE3N25NTVY5aDgyOUl1YmtKV24tNDJKajlnV1N1bE5XQjZVd0wtZ2hncHNOWFB1MU8wNVdQVVVLbWlMZmhBZHctOURsZEplOVRYZThoV3Uzc3l1aWFMTTV2ZkZHd0dZN3lFaHJLYnVBTVBnY1ZDbVJreEtzMjBDa3BucmtZU0lNbGVSalNZaXNkYWdkVWVsakVCUUdqaTN1VTlTVnJvWV9aX2R1cXVj?oc=5"
+ },
+ {
+  "title": "In a first for Delaware, Dover passes moratorium on data center development - Spotlight Delaware",
+  "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdE5JMFpSeHRlb3o5WnQ4dkZJOUQ0NUlyb0p6NWxjM2tNYnNoMkpJY2hnb0lHanFfcExvNGUyODNoYXJuMU9QSWpUdHNUZFFqbEZ2dEZPbGhKcmlIcTZNZDVodTV0ZEF2TnBQQjFEYUVPQVRhdXl5dU95VG85MEUtMExteTQ2eEwtRmZ6SVpqZE4ydlFDdjNmbFd1RlJqNEJndmlCWVFvam9jVk9WWmdBTGl2a1N4YTNJX0E?oc=5"
+ },
+ {
+  "title": "BlackRock Chief Larry Fink Says Pause On Data Center Construction Could Spark Recession - Forbes",
+  "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNejNQdTJ6ZTg4eVY4YUFqcHp3UkdpSE1OSjVPdkp2UGxrc2Exa0c2MkRRLWFvMkhQZ3ZjY25oZU1FSVp3X2pSakk4dThSRUZkdlVZWUhfZVpTaXpYOWJ1NE1TczBYczFuUTF6dkszYWw3eWw5WGJnbTkwekJzUlpTOVAwblVjLUl6UUh3bEExUUxxMFkxcWxpV2JYRWtadjB1dEtXQnkwbmNYa2xrZnBGSGFVWVRYTEFWQVZiSEN6NFNUYTNPTXFNUkoybzg4R1dqUjdhaUlfb01uOEpyblE?oc=5"
+ },
+ {
+  "title": "Debate continues over Michigan City data center moratorium language - WFYI",
+  "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaVZOQ0ZqeGZrcV83NDhsSjd1NjhLRDlJSWFjeWlBelE4UWl1Ry1zM1dMQXk1WWtlR013T2dtSGRXTkVfbzFtNjB4QUU3OVJaTklkcXFXN3RzZmtwTlVNVWNHU0xYM3kwTEFjQm9JcHJkV0pZTjlTYjRZcUNZZm12Q1oyamRFM3JaWE11TWVfbkFjbEZlTUVuTXg5SVZabnFPQ2xLb3BVTi1xS3Zhc0E?oc=5"
+ },
+ {
+  "title": "Some of your data may already be overseas. Would a data center moratorium accelerate that? Should that matter? - Cardinal News",
+  "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQUzdJdHVLWkJlY1l6R1NvMjRweUdZdDdaOHZWYUF2T0NsaUlBc0dHR3B6dC1NWklPU296NmIza0lzRUpFVVpCNFF3dnJ2XzF2eTF2SVB0TUd4X3hHQmswS19DRFFDSGs3MTNmeHUtd1ptUFZZZlU5SGFPbHJzMmJnbWI0X3RwOG4xUFplS0JPWDdJdm05ektRLU1kVEtSTW5YMEY2LTAtaVVmYWR4Mk1lZ3ZTaEhhY29BVElXVElhTTVKTEQzY1F2b3ZQWGVFU2k0OXk4YVcybjlWWTRB?oc=5"
+ },
+ {
+  "title": "Push for Virginia Data Center Moratorium Supported at Leesburg Rally - LoudounNow.com",
+  "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxPWFVzTEZXZHlqN3F0S3FOM3N5ZWg0MHJ5RWNUcUM4QVpXa2drRVUxaUthX0Ftb01zV0JhRDV3T3daTXdRcndCbVlxWGxESXpaWXNsQVRNbjZCTWVNcmN3eFBCM2FNR1VTZ09helZJY1o3N3laemdtUWVqTjd2d2VDdy1HRno2azRJaUJIc0hBeEdEWGNlZzBKVVdPdlcwMUZhS1BTaXRWck9kNEM0NFZfMnIxZDhlTWRnVjZVYTZQcURTeE5DS0tfejBfVkVTcU1IM3M0YTR6VEhJVWp2SHlZSlhUYnY?oc=5"
+ },
+ {
+  "title": "Speakers at Leesburg rally call for statewide data center moratorium - Loudoun Times-Mirror",
+  "url": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxNOUNwUG8zZW9NRF9UQ21CZTRLUW1FMi14MmQxVkJxekVJeFRBTkxUaDR4M2FHVF9WaFpIVWlsYVFQdjFGeXpiTHNIT09pZlJybTJJWk5yV2JRazZKR3NLQmpHcXFWV1F4VmxlbmxlSFoxaXR5Q2wwdHAtQ2lBWGNUSkd4elp3VVpnWW5ZUFExYWtTSTRHN2hBTVR1TldZaFZud0pKOTc1OFNaeFRXOEs4S1NiWm93NFVrVzZTX2U3dE1uakJDMmFScVV6cmdtcDY4T3NKaE9NRW5WdW9ZWmlrQklUWTVTV2g2WjhPbGdYRGlPSHZDSVlfOE5TamJVLWFjM1ZqckhWOHdtX0NrOTlKa0dnbEQxTS1HRTZBNDY5RnA3VVpRbWE2dg?oc=5"
+ },
+ {
+  "title": "Texas Gov. Abbott orders data center permit halt weeks after issuing moratorium - CNBC",
+  "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOSVJvaHJuMzNxRXo2WE9SVHk3RXFMZ0t5QnRzV20zQi1CeEhoYXUxQVRqcGtrdjlHX3dhcDhpRUdSOGpia1QzbUlDSzdXdmszaGVreklianEyX0JVU0xONnI3OHRXakNPd3FGVFJhQ3RHeVc5QWZTRUpxcWNEa0daekxHcTlzbHVF0gGOAUFVX3lxTE5vVTQ4Wml3TmtzMUJ2M1FoVXFFVGw1Y05UbVB5LTl4bE40RElnSHlzRlRyS21ON0FrM0NCVVZfZklhSXBVRXR6MnBiaXdkRVVOaEl3c1lua0c1RkNPMHo1ZExXYklmaUh2TjZUMGdncF9faG5uTU00U2t0M21VTXAyVzBHRHZYbUVYRjVpQVE?oc=5"
+ },
+ {
+  "title": "Elon Musk took heat at chaotic Memphis data center moratorium vote - Business Insider",
+  "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNMnVhREpQUl8tNUpQZk11OGE5SXpxc0NlTE44TVY4TWVnUGxSay0ycFBKdUEzanJnT1dTMHZEbjJTNVFQS2hHNjF3VzlpcVVUMmtxYU5TX25pUko0N1o0NWN0ckFBSElJV0RBZ3pYdzk2R3VmLVZudXhsLWFETnBsa1M1MUVtQngtUGFkSWhDdko4N0lYSm1UeE5JSQ?oc=5"
+ },
+ {
+  "title": "Cleveland readies to extend data center moratorium - Signal Cleveland",
+  "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxORXRMQVhQSVFHR1ZOMFdUd2hJb3duclhuSXRGdjZqRW1RbFEyTUplWnVoRVlpaWR6RUFFaGtKYm5IUy1qUWNiaHFnS241VmVoeENzY0VjSUprS0hTaHFuTF93cXA4WjR6OGxNTGxVb29KVWFtdzVpWVBpamdLQnJzWkc3TEI5bi05akdyR0JQdw?oc=5"
+ },
+ {
+  "title": "San Francisco supervisors pass 45-day data-center moratorium - Mission Local",
+  "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOZm1RN2dkVkpWa29vQlVILUNsN0hlN1pBMWY4REVTdVZGUnMyOGNxNWg5VUlxeFR2dy05TU5VZWExQTd1SkdGZXJZNDhjanlLUmEyeFBpUS0wMW1RX3I5blZISk9mLUtXU2tqSDd5eV9kb0xXVDNGY0RGZlFvY0YzTW5B?oc=5"
+ },
+ {
+  "title": "First the city, now the county debates a data center temporary moratorium - Action News 5",
+  "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOTF8wQUZyVzd5VjJkUnVpU3RDaGJvMWNMNG9sTFN0YWM5eG5sZk0tZFZIdzRJUDJQR05wUzBsRWh2SXFvaFpoTlNvaUpTSlFhaTI5ZDZBMmxBcnFYc3RXcl8xaGsxeEoyOWttcHFmbXRldTJ2WmRaQllOXzZyS2UyM2haUXZMWUdpZHVwdHRBajNQb2d4RDNUVHQ5OGJxd1RrMkR5WNIBuAFBVV95cUxObllUaDJZVUsxZFZzNUpBM1hyOGJlR284NC1oS2dHX0pRdkxyN3BfU1hlaXNmMjFzd3o2R19tSWcySkdxYkk5RURfVE1YdWFLS0RUa0FWTjI0ZXhENlpsSEhGMnJNZVBPX0NON1V1bFFnY0YtQjJxUWJkaVRTSGRYTGRCRWVDV2hzeWZMVE1iZ3Vxdm9nTW1fZDFEUm93a1NOREJjdW1YN0d2dktLdEJNcXR1a0k4d2x1?oc=5"
+ },
+ {
+  "title": "Mayor Brandon Johnson proposes Chicago data center moratorium: ‘We can’t wait’ - Chicago Tribune",
+  "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOUWdZS3h1Z1Bia0pnTnRPNl94TDlPQUo1S0dVdDRTbndzSDYtaGVkT25NT3dlTm9LdkdXSmMzY0NFdHdPR3k4cmh0X3o5TXNwRTB0TTRINkVLOFp3QUc4ZHpBcEpNYnZiSEtQeF9rZHdzOXBEWlllT3ZYbnh0SGhtN3Vocmpad3NoSTgzRW44TGxJOUFTXzk4VmR4RQ?oc=5"
+ },
+ {
+  "title": "Shelby County Commission passes first reading of data center moratorium ordinance - localmemphis.com",
+  "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOblFMdXpCWEpNVE5hMUFqNV9tSGRLY1hoZ1VsSlg0NmhQcGVtc3FFZF9GSER4YXNJeEFDUVRJZHpDYVp3VTB1QklweTc0NVpaLVAzV080Z3pHRHRvc1NlWUg0OTZ6RVo0dkd3UDRFdndBaldUZ080emFaQXFvejNlc2I1U3FsS2FfRl9GbmFMV0VSZENScHV1akhpVGVKemk4cW5MWXRYZEhXbU15V1BLVTVBN0Z4dG9HV3BnU0hQZEloajJEQm5LRnFXdWx1dDFOb2RPSlg0VnN1MFZvRDRCajNwdGY5elJyUkFqSEF6eUNlSElyTHM2YWFDY28xNE0?oc=5"
+ },
+ {
+  "title": "Perry’s Proposed Data Center Moratorium Draws Mixed Reaction - LoudounNow.com",
+  "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOUTNnSE5JcGZ4ZHBwakFFdmotYmZ3THhkMUIzTlpWLTBrMU9FYlJnalUxWjNNMzhDWElQcmNzOEVZd1VJclFkNzhxTkFSR3RBU2piUmd2Y1F1UlBvWVZ6ZVlYT1NKZDJXWEx5QnJWNFYyT3VjN0gybFk1SmFQOTBZUGNCaDJ4WFEwalktalVKQVdtajlaajFURnV1VHdLRUlOR296NV9DVkgwa3ltRExPT3hhbGlHcmxsaGtEcXJlV1RXbUpMR0ozejhGcFcxWnBlQjAtRzUtZ0RVZw?oc=5"
+ },
+ {
+  "title": "Shelby County Commission advances data center moratorium. Is it legal? - The Commercial Appeal",
+  "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQbnhBcDNMU1ZfMkVPdjZjdDBmOC1Ic3FBcUE2NG13QjI4VE0wRXNOV1pDeTdQaVB2blVaNmxzYi0yajFhdkUycURXQWctYkR6dk0zWmIxVU9oeGpoZUw0MU0tajNBRUhEb2xaeU9ETGI3Qi04NTZUcFpEa0RhX2ZUWDE4VGtTMTJPcDdDMW9QSkdVbE1EMGVxMXlDbjlwTnJmMDBtMDFFUXlsZThGV0pkUzhDSUpiTUFod3U1Q2NCRHpuSU12Xy1nOG1QdWxmc2c?oc=5"
+ },
+ {
+  "title": "Council Unanimously Approves Data Center Moratorium - Urban Milwaukee",
+  "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOaVJKQzZVcEJYcUdGZF9zZ2x5dHRIZjJaTUphNEQ2TlpNYnluZmNDaVpCcUJpOERlRlM5YXVGUlVJNFh5YjgwTG1rdk16WmU0RVQ1b3lKckdJQUVMMDFDemIxYUlHMlpsUzRpeXM5UHZRU0p1YXY2d0M5S1RDM1N4TENRb1FhT1RMWENORF9OZmIyaWxa?oc=5"
+ },
+ {
+  "title": "Why the Wilderness Society Backs a Data Center Moratorium - Heatmap News",
+  "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1QZ1JseDVPWWRrRWN2akpoYWtpLVJaUFV2dEEzUVRqbHVuRzl2MUdqUVBWRm03NEpSUXFndm5IU1Y4WnhNMmc0SHM1YUJtUnpBenBvVzNSVDF6bHUxSWkxcXhwMUN0VzJnaHBoOUlNVmJXc1h0SDNMSHVn?oc=5"
+ },
+ {
+  "title": "Proposed 1-year moratorium on data centers, task force fails after Fort Wayne City Council vote - WPTA | 21Alive | Fort Wayne, IN",
+  "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSWtDVVZaVnVRTVJ4S1h6VjBsLW9XZmRtaG9iTVB6bzA2cGhIc1hnSEY0djVWU1UxUXM2SHdPazZjRGR1TlUwQnZzZnBYZzlNUHF4RXJ2Ml8wNzJ3elNkdHQ1a1cySThxVERyc1dVYjFXWWItSnE0MXI2X3ozRUs2MHZIQUpWR245X04xc1hXcWluR2JXYm9RTk1nTGVSeWo4RUFDZ3gxRG85TE1zS3RPRHFwRzY4NW52eXNzNHNUSk41MTM5MHdYOGJlUQ?oc=5"
+ },
+ {
+  "title": "Lake Elsinore Extends Data Center Moratorium To 1 Year - The Riverside Record",
+  "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPaHpiZ3BKa2xtOWZGeHpaQTdLQWl4aHpBeFRvRlJpeGN1QVlaUW1SRW84R2VnWWcwSzRVNWZJb0Jya3VST1JidHQxbnVVNURfcEV2R0FtTS00NjVUem9RVG9TVkVFeW16ci04TF9YWWVzdF9jR0Y5VG54Qzl2VVlWNzQ0bUVoQWlpOUxv?oc=5"
+ },
+ {
+  "title": "Brownsville data center moratorium passes first vote - MyRGV.com",
+  "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQLW5UWm82OWtnMVRfenVLRkdzdWIwZ2xTTF9SaUJ2aElLbXZjYnpNT1ZkWmdxWlRsM2tNc3FUWTRrckVIUWdWVmFQTXdKT1hnRHJpeVc2SVhzY1VWYTB3UTRvZngyNVJPclc3YkdvUVFoWVlnOXpWQW1sVTdPcm5TMWpEZWNuZjJoa3B2cGQyNWZtaVpEU1dYRA?oc=5"
+ },
+ {
+  "title": "City council to vote on data center moratorium Tuesday - WREG.com",
+  "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNE1NQUpGYzh6Z05SMFU3eGdrcWo3cC0xM3VUM01yWXR6MGhjVWRyZVFrMGlEMTBZdmtHMW1jdzlGcVFDUTUwNVFHR2h4bkN0cFJXanpmdlhmOWxNMWFmOGJjVS16ekhVeENTc2dERlFaUzVNN3kyT0VaYm1TakhIRm9sb9IBiAFBVV95cUxPS1NZbC1vc21xQnJKTC1iRFZERGg2LTNsb0pzWktoMklXcHZaQWxHZzRQUDh3a2NQQ01zSGhwTjRya3o2WmhJelEwYU95Z3JMelE1REJWSzBVVldTaEo5QW9OVFpuTy1Sbjh6NnpNemtkbHpXUHZWa1FDekM5eUVGUy00ZzExUXJo?oc=5"
+ },
+ {
+  "title": "Cleveland data center moratorium would extend through January - Cleveland.com",
+  "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMzVFUk1uZ3hvVU10ZXN6UmdvdEN2dm9uQ0VfVFMzMmh5aWxBOWd6cndfSUlMTVB2bVAzRVJySjNZUlpxT2F3MmRBTTd0QUM0dkVuQWpNMkV4bkxtc19lWmxUbU5vSGkyMkppc19aNTR3YWlRNl9UcThXMzVtc0JtV3JoRjJxY2haMFBzeFJhWHZLM3l2RFZ0YnlfNjQ2TFpXY3dPNE5sTklwVzVtSUHSAcIBQVVfeXFMT3VxeWJhZUpnSVBVczZoVk9HbzgyS1duZDRDOTFZek9mS08tY0RwQnFkUWdDSm96b1Y5UVVYNlNnSy0wN0hPdDFUUWgxaGFPZWRFd2tXODdRY21jTTVsT01YSW1mOG9BVl9hNGxPUnhibllQSVQzaVB3WjhYVjB1SVVKblQ2cEZnQUFDX3lxYW5OUFFRVjN0S2NSMlU4T3c1RTlMcThFYjNhc0s5ZkN3S0FvcXRKUzJQWFZGR2FNSzFxcGc?oc=5"
+ },
+ {
+  "title": "Perry introduces data center moratorium bill ahead of Leesburg rally - Loudoun Times-Mirror",
+  "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQci05UkFOY3R3QlNvZktZWVAydmpEZjVDMlcyVWlzeUFCZml0dTVaMUdZQWFLc1JpQkxKQ0djNkU4U2pldnVaQ1pfYVJHY1kwM012OU5FZE1NUkxWdHFBNEVraTd6eTVlRzZHNGw0cERRVmhtTk52RXBxc3Z6WV80Y1B0NHlsWU5Uc2UyTmppSzJiYU84dDNXaHB3MXY0SEpnRFpQZU50aXdBM1paVjZPTlBubG5zdURCcnJLT0RTcnVuTFlnaWYyZzZ5SDZ5WjEydXprU0tfZ1VYZElyMmY1WXdYajRKZ3hmZVhNM2tyM0JyUFJkbS1RTjl3N3NQRmxQbEE?oc=5"
+ },
+ {
+  "title": "Stanislaus city considers a longer data center moratorium to evaluate new state laws - Modesto Bee",
+  "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5lZktsLVJ6X3poTlJpYWtIVkVCb1pHc0hJNlRxTG9GV1JETU9JLVVFaUQ2UkxvLU9jNVZ3UE83T05mZXZGejlYbkF4VUNXX2EwaWV0QVlKX1J5T2N6N1oweUYzY1kxZVFPeE9ucW9TTjRyX0VVNVhXVtIBeEFVX3lxTFBqUlhpTnBqRDRIcktXQ1otMVJualRvazNiY013ZGx6cDNuY0xpNmFmWlZhV0liVXVSUnFzUGE0VzU5dVZnSlN1WlRiSVBnUkdVbWVBVzgwY3pzU2R5TUpYZTlyNlhydmRSTjlOczRpSlhISWc3b2lEdw?oc=5"
+ },
+ {
+  "title": "Tazewell County Zoning Board moves to recommend 9-month data center moratorium - WEEK | 25 News Now",
+  "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNGYxX1RZOVZ3S1cwZEl4WVFLbmR2UzNtczdyWFdkQVdCUTV2X0lkZHctSzRSZl9kUnc5TUNrUEMyZGhYTUotS3hPZkcxdmo1REJiWDhLTDYtai1jdno0bU1Kd2VObkhHUHZZdGI4VmktYk5NSDJtQU5QUGdtR05wWm1qREFjYUhWTTh4dE5ENXhWX0JKbFRNcndFc0piVnQ3NXp4NGZPa0xKT2dsQm9HOExGc9IBxwFBVV95cUxQMnJPdF9lUGQ2ZmlTSUVrWHFYOTRWSUVwSjFvVTJwOWVVSmNHTzFoY0d4dEcwcVZQd2VyeXc5Q2o3N25zak9nRUtHVGJHbzREc2FvMUMtaWE3N2lhVmZpRHhsNUVjdDNDeFowMDAySmQ4Y2VsN21wbWJsbUpxRzJxbld0RWloY3F4dU02TG5NU2YwOFRIN0VRcjVKZkFVTkVCMWszcFBwVDlLVlVNTG9jTUx0QTZGMnlkZkl0Qk14Y2NxR1hDWkdR?oc=5"
+ },
+ {
+  "title": "Fayetteville City Council votes to draft data center moratorium ordinance - CBS 17",
+  "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxORlVJUG9naWlCYm11X1JJYWpRWGZ0QzdnWkVUeUVHZ01GZTcxU2RRM0ZWaEREZjFibTNjTUxuUXg4dU9ScFd1RGNjQUNITWR6NllKZDU1SXE5eUJpUWNGZ2x3RENPRlFuT1RJT2E2SWYtaEQ1THZ2Tm9TRWNGZUFsVUdvekp3UmFjakJRSzFUX0tBdGdOc0Fha1l2YUpfenlWLTRBaWhDWGY1d2hDVGFhcHZVSkxqdGVyT0lrM2tycGV5T09ZRmpDQlhDTHFUSUJW0gHWAUFVX3lxTE0tekRWdWVZcWlKMGtVcHlDN3VWSFZBLURqMnVaRm1yZ3pKOWxvUXlvclM2cDIxRlFqbGhJUGp5T29WUnZJcV9FNG56X2E4OGV5MXJmY1lXa04tTjJlYlI3V2VmMkY4MWxrdEVWOWozSUowVmFNaDUzbERPMlJKVklOZVpjenNrV1VlQlFscEplVWVPY05iZ0J5Y1hyQWJEUzlCbnp6bjJaaldIbHBLcm1QSF9kdG14Tlpwb3Y5dldhdV9mczJVSDdiMWVVUnduTFhWSVRiR2c?oc=5"
+ },
+ {
+  "title": "City Council expected to consider 1-year data center moratorium by end of year - The Daily Northwestern",
+  "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOeWpuTFdMR0NtQkhxRUVUdzZJeVBDSnhaVW1kZXowXzdjSkFhSElWR0VFRXMtYldzakJsdGJja1FxMi12WUpkQUROci1LWUVvaWxvcVl4ZnhGUFhVaTVLYV93OExNSUpINHk2dWZDempTUzZnbFR0bkM3V3lrVk8xSTBtVVBBTWRXbmJNaDRmQlJSRWViYzR4Q1VMOTVFX0R6d1dfZk1CVVlBRFVfWnllYWttM3UtVDBLRWp1RElXd183bWZBaXZiaUFzaUpac2M?oc=5"
+ },
+ {
+  "title": "Mayor Coffman calls for special meeting to reconsider Aurora data center moratorium - Sentinel Colorado",
+  "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZEJsbTVxSnBPbU9mOHBRQVFJYVJYX24xWWNwRTAtTW5iOThvYzc4T19WOHZIWlhNbWRKeTdqd0VwLWY0bE9lMFhTRTBDUXdWc2s0bHlhdkVUR292ZFJCVXZZR2hBeVhzZHpWSWdiWnFVMTdjNWRMZHgtMm1NT0hNTDZPdFNZSmdWeXZJUUNrTXhaY3hoZGRUd1RIaThZMUhWdjdUcEtzNmlDMXVkRkxpY096VEJ5M1RsZHZz?oc=5"
+ },
+ {
+  "title": "Data center debate expands as county weighs moratorium; town hall scheduled tonight - WREG.com",
+  "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQYnI5YVdWdDNtWEozYVE4LUNfbmtYc1AtcEd1a2ZVdUFwdlRJUTVxS2xMRkhFbUJCQTFoZzA4cV96WkJYZm1QZkxRamtfdG9FOVJDTlo2Qk9uR2E5TEFBREkzUjVWaDRrQ3JBX2xmLUNqTENoa19JR3JpQlMtWWJjQ01aa2ZSQmtsWlpBVzN6aUJMNHFIeDlYOWhBOGtmcFhRQklaM1dxM0luNTVjd2VKadIBtgFBVV95cUxQTFJRSThTRndhdkVsMzh1WmYtdko2azlJZ1JNcGx6WXlJSW5kMXRHYXFmWWNITlludm1pR1o0QWR0bm13aVhkVWFxc0I5dDRTcmJmQ0t3WUwya3ZRZkNWNC1IWnZ5amhYM2JrSThsR29KQnVjZFVyTkdEUHJxYnc4aUtCNUVBMTN4RFlwV2hMb3ZDUENMMlFEM2xhMUsybUxzUnRyR0dhc0ZkODhQSzlLdmo4TEFsUQ?oc=5"
+ },
+ {
+  "title": "Forest Grove City Council approves 120-day data center moratorium - Forest Grove News-Times",
+  "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNVEdFMUtuNU5qUUlhOXUtRi1yZy1mb1I5OHlZV0Uxa0NGZ1RUdjViem9SZ1lBVDRETF82eVI1SDg2V1hlVlFWT2JqSmRvalZwWFNZX1pGeHZ0SWtFY2xZZklyTGlpVVhVOFZTcUt5VWI4NnU0aWNIeTc2UlZBdWRzbGItdTRwUEdpVUNEeEplclNGWDZJTV9MV2RrekM3YzBQMXlKN3MxUDgzVnJ1Z2tn?oc=5"
+ },
+ {
+  "title": "Data center moratorium bills stack up ahead of Virginia legislative session in January - News From The States",
+  "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPbE02MjRDYVpzNE12MzEyVTlCWnU2QzduSzhzazc5VVVWXzFmb0lMNElBTUc1ZS1hM3p0QmNUOWFBTUgtQXJJaFNlSnVIcVpMYzVUMDdoNkdwS01LaVhPcmNmMVVwWGZ6OVMxNFZPbjMwUlBqRE1GN3lTR2RWSmE2T2N1Q1ZPOUJnMFM0Y09GUGtrbmdrYjkwamRoZlEwakFVcUJ1NkdKMk16Sk11VmNzLXUtWnp0OHlUOGxJ?oc=5"
+ },
+ {
+  "title": "Ahead of data center vote, City Council hears from residents who want ban extended and workers who want it lifted - WUNC News",
+  "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQczdFYmRLUUlMQVNaeFRmRjgtYXRaSFlkTTJBZ09BLUhLbHpNWFJQNDhzTDkxb25kSlA4N3RBM0FCejYwdkNtR01ESUVEQnQycEU0ekpUeVo0YjZTN2NRMUFycEl5ZmtqQnhLaUgydi1DcEljcGRVaE5lVlpfOXAtRndqYlhIRHFQYkJRaGVrS3dzalJhT1FIUWpnamxSRm5lVG0zOExnbjJ5NFA4SlprT3Mtd3gwSkl2X0Z0YS1POTBEWXVvQXl3TXR4UVhOX1NXYTFOaFRKT1Z4bjlX?oc=5"
+ },
+ {
+  "title": "Little Rock Board set to vote on data center moratorium - The Arkansas Democrat-Gazette",
+  "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQOTNCZXhVUWVSeUxVczBfRHREOENKMlJGU01ycXBNdEltNFo5T1hObFFiZDhCa3ViMk1WS1V5QV9EVUltMzFXM1EyZGR5VUVtcGxWUHdRZTN3bmdDalVJRWRkUEE1MjNzZXBzeFd4TS1uMUw2elZnc0RUXzN4UEp0X3lYeVJLRldiSEtjeTNHRVlVYkRYWjVsUg?oc=5"
+ },
+ {
+  "title": "Fort Wayne City Council nixes data center moratorium - Indiana Public Radio",
+  "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQS2tGVk8xVHZDMjJ2QXNhVW9ITXVGajBWZ2Y3WEJDRUVYVVZ0cHdWcmlLVmpsdkhBRm9GY2hENWVwdnl4U1d3NW9FaEYxUXNGMlFxRXA3Y1QwUmp6cDRqOUdrTUJRZ2NKaFBQb2tSYWhNLTlRc2hCOFJaczV1TUdTdGpFdTFocTdhRVV5REpCeWdiZnVSM3R6eEZHRF9JQQ?oc=5"
+ },
+ {
+  "title": "The hypocrisy of the data center moratorium - The Hill",
+  "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQSlg0dXpRX0Q4RE1HS194RHRUWlBoN0JNekZfV1VibzFDRUZHQjJORm1zb0Z3dUlNWDkzUTAyUUM0dVB0Zm1VVXlYcURBX0FTeUF6M1ZVR1ptYzNBd0c5SDRGWWlBbVp2VERRak56eElHNUp3VGQ2enJ5S0tpTUVtb1ZpUUloUlI3VlQtM0luXzJYejR1d1HSAZsBQVVfeXFMUEF4b0YtdHgxaXFSVndlQ3IzWEV5dXZoZ1AxUlFfbEJQclpwRnEwSWlNR3g2TnJsbG9fOW5SUnk0RzNvUS1VVXdqUVNheERaQWtGdFR4SW9fV0hmUXY5SnRrN3VEZkdZcDlFTFVqTXVGMFpxWUpOcG5IeWpBUWxLVFl1bVlqTTJEWmtEYWdUbXVoQWEtclVGbkNwVEk?oc=5"
+ },
+ {
+  "title": "Aurora council to vote on ‘indefinite’ data center moratorium - Westword",
+  "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQQm9GWFdOVVNINWpZNThsVGQyT3hDM0NaVGJMUnpQSmJhM0x4YlZuVXdiLUxuUEl1eHBMdXZIWThYQm1zMVczT0ZnOEN2NE1rOXZoVVNTZDVRbHpaWlJobjNrRXZualZRUHJYSkNVYXV6UERKdFpUbzFxZ2lUZVFDSE5fOFpmU3FJNGg5SGxUS2tCZjE1aVU4cg?oc=5"
+ },
+ {
+  "title": "Lexington-Fayette Urban County Council votes to extend data center moratorium - WKYT",
+  "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNUHNucm12eElVcFFRMkQ1Wm9kMkQtT2ptUTA2T2NQQlBFRVJfdFdqbzUxM0NjVFRsYmRRNnYtc09xdUhPS0lRWHVHNEtiUlhESGFjdjhCUWF5eHBHZlp6ZEJ0ekZrWWFaaEhqMW5Jd1ZuOF9EZFdVdVphWk9RSWxJMjlkNE1vaTJRN0ZmbGRkSkRiNXNEVUQxMEF1cFdyRmRDRElCazdxMzVQU3fSAb8BQVVfeXFMTzlvTVFjWDFuLXBwMEJTcGNqc1RNZ0tCWjl1c0l3alh6TGxHZDR6SnNwM1hOanEycHRCTmZ3eDBYUkN3OFlKSFEwZmk2X2dZSy1oVlJuNVFWeUplVjFjV294OElrVkhkZXJaMWJTY1kyZ25uZmZtdzdQQTdWV1ZOZm5oR2dNNEduQXRPOWpncll1Y3doZkVhY1V1ZGN5ZEdFVkUyTHZGc3BrOURuel9tcjRTdXBTZTREWkd0RDN3VzQ?oc=5"
+ },
+ {
+  "title": "Indio Extends Data Center Moratorium For Up To 1 Year - The Riverside Record",
+  "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOS3E2SmNIWjZnOWg5akJ1cFpmS0VwMDdNX0JRQy1TYnUxNUxtNE5HZkxJc2xWdzVzTmtJLTFoVktzNWRjYjkycEpRUEdHSFVKNFNGNXk1YzlHZ1I2eHNwWlhQMWhlVmdDUzRjOE5LeGtSSFFIdG5ucFd0QzZXTmJaM1JfcXRwbTlOVGc?oc=5"
+ },
+ {
+  "title": "Memphis council delays decision on year-long data center moratorium despite protests - Data Center Dynamics",
+  "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOSkwwRHpURmNnajVFRzlGZG8zMU1FOWdqZEVXaVgwVERMV1Rzamdfd3lEbzRZSXZsZlJtLXpNd2dZc3puM21SdmV6dE9ST29Lb1RaZ1FodlZsN1hqQURfa2o5X3FCSDh6RTFuOW1wOXhzOVlxSVo5NF9nQjVrZUVEYVF6SXFvSE02SFdvWmdVaGdYT3k4WU5vdGVQYzlRcWRYeDdiNXZwQ3ZtdE5CSmY5N20wQ2sxSE9qdnI3bHJzT2NGLWswTmRN?oc=5"
+ },
+ {
+  "title": "Shelby County Commission passes data center moratorium on first reading - FOX13 Memphis",
+  "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPZHRYSW56ZXlsMl9mb1RnOVU5ZGVvYk9XZGdUQjhpdmpOWWhFcDg0eW4wcmNkTzNCOWJqcnRleWJ4TzUyT2lMbGNVa3BBYXZXZXo2Y21pbGFHSUV2dkNZZUtkbTBmR25zME54RU9xU21nTXcySEpfbFhDWHhqYWJDc1ZJZkdNZTU4N0l4c1hyWGVnVlNMNEU3OHVNNkxZNFE2c0tDcXQ5SzNkeUlsMGJHMzJGcHJ0WVhNdVdCMVRxdEJmSGNtdENZQ3NwanRWUTBWdDktZjR0SDRtazdQTERaQVhSYUM0NUlHTHBv?oc=5"
+ },
+ {
+  "title": "Will Taunton get a data center? Property owner wants exception to ban | Exclusive - Taunton Daily Gazette",
+  "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPM1lqMi04NzJyX2U2VTFMSnkzeDBFQzBNMk01eU9CdG40Tl9vTW52el9Id3JncUF2QkNjTnZNVENYTE1Hbm9BWVppT2Vtazltc1NGNXlieVNOMGExOVpDNjNxOU53OEJFUmxCaWxsMHRyazlETlVZQmJzYlRjQzNnRXhUT1hFQVdaYWRMN3hwVG1QZmFGZFExSUtfTFUybHg2a3MtenJ3V1NoTzVLOXhxeG1UWmItSnA1M1pwV3J4UldUbnR4WFRxWGQzaHNQbzBJRVEzTXgzeHc?oc=5"
+ },
+ {
+  "title": "New Haven’s lone data center has operated for years before moratorium - Yale Daily News",
+  "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPdF9wRTE2SE5uZ2wtSHI5NkUzN0dRTGQ5MjNTR0RWRnVUaTk0RGFJTTJnTERsbHpxYVM2UlZIX1dnM1BXaTdDc2Ria3hqRmtpdDlXd2JodWpveTVWVXVlQnhtU2pudVZuMndFdVhqTTVVVFFPUTBoZHhtR0N4ZHljeW9GdEIzNGZOU3FRU0RRRV9hMFF6SHVQdTl5aUd1SGhGa0E?oc=5"
+ },
+ {
+  "title": "Leon County commissioners approve data center moratorium - WTXL ABC 27",
+  "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNR19Yak1wYjhrTVVFdUlDbDV2Q0Fsa0hmTVJfODhTWXZ0bkgxNS1sMi0xQjF2VDNMU2dja1FTU25CX3JpQTk0S3FMT3daSkZ6dnN6QVJiUTdMUklFbVhvY1FmRDMtOXNDdjgxRWpHOGwwNDIza2laX0JXYlJWMDZPM1FmbUpBTmtkdnFFVUZQc1RnQW5qTjM1SVBWU2xlX2EwU3JLTDBwWlhXN2xac1pxT3NPVlpibHpoNEhZQjl1NzZoSDJ0?oc=5"
+ },
+ {
+  "title": "Hayward Latest to Weigh Data Center Moratorium - East Bay Insiders Newsletter",
+  "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBjLXZ6dTlyQ3dRaThnVUVla1pBVHBoc0h1TlJCM29IVG50cTVqYWY3bEtoSXRha3FuMFlfRmpOYXNjcFZFU19Ta0ZwMmhBTjBSOVllcEt2b1Q2TW11UHFUeUI2bHhna0t2dGJHLXhDbWRva0hHb1R5ZWxNblRHREk?oc=5"
+ },
+ {
+  "title": "Next Steps on Raleigh’s Temporary Data Center Pause - RaleighNC.gov",
+  "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0zOWhSM2JFd25xRFRnN1RIellwZmpVU050SFZDTUtXQ0c2bEg5YXZHYWFQbTM0X19zWjdGb0g3VEZnTzI3bGN6UmFPRDVZWnVkNHdhb2sxcXJYSldYdDRLNTJjejlSUlNBU0JSRkRfRVhtcnJnaGlyWkNfZGVVX0E?oc=5"
+ },
+ {
+  "title": "Silver’s P&Z endorses town data center moratorium - Silver City Daily Press",
+  "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOM0NaSlF4U3F5VERZS0FMLV9DU3g5cDd6dHphRDE3MFRKMGhvWXJRa2lZbWdYOEYyLXdBUHNyenIzYUs2Wk9uQ2EtaTU0cVV0dXNBNU5zdXVXcnJ5cF9FY0J3QkxMZWZ5Nk5FZlZPZXMwZ1duUkVqbF93N3M4aXpSQlhrcm53bWZqT1AxLVZJY2hiUQ?oc=5"
+ },
+ {
+  "title": "Schoolcraft Township mulls yearlong data center moratorium - WOODTV.com",
+  "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdF92Vms0MGlLRlZsYnpHNHlmcmV2Rm1fSDZmVG15Y3FfWTF4OWdSQXhyNzVWQVFJUklZV1NiSy15YlgyZGE2ekJQVkdoZ0xwZTAzS2ZXMFdScmtCT3FMR0NXNWtaN2dQdGtoMjRhRDI1RXZHTERvQkloLW8xS2FwdTBSbmx3QW5NT0ZwYlF0NWxQRS1tYm80X3cxZzNsa3JPWTkxV1hYVdIBrAFBVV95cUxQX1RhN1JHaV93a2VDU0dETVczLUJtQ3E2c09QenpsY1ZueU5pNEl6U0hLd3c3QUJ0VnE3dWxxWHpGLVNSQzMtQTZhRTlJM3JWek1fQlNwdGtFTEFGMVpmMWstbkhCSnliX3RkNFEyTWEtNE5kTk9MWnVEVTRSRUY2UFlmcDh3cDRPbWcwNTFVakNpSnViTUZMcFNMVEZsdUdtMi1BalNiaXY0Mmhk?oc=5"
+ },
+ {
+  "title": "Pitt County to hold public hearing on data center moratorium - WITN",
+  "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPaDdNOGpHRTJHOG1fOWpuV1FESlNMa2tYUDEtMTVvQ3dheVlULWdMU2NoRFluc1YzZXFGeXdpTm0tUVBPMWNhQVdwNzVkdG5oQk9iUnl5Q041MnFUeUROTnBwNXNLay1oUHBCSl9GTk8wbUYwU2p4Nng5U0ZkalJzVFVabkxlNG5hYVJlcENUX3M?oc=5"
+ },
+ {
+  "title": "San Francisco Passes Data Center Moratorium in Hometown of AI - Bloomberg.com",
+  "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQZVk5MmVNVGZpLTF0OEV0NHU5OFdtNGFjZUFpSVRaWnBZYVc4Yno5NTBja1kxc0t1SUZqQVZCaVMtSDF2WW92elBJclkzNjVNdXZ5TEdTM0U3bE5NcDdpQ1pQSFVZbmxlUm9WM09lTmw0d09mMXhtWk9pUnUteXMtbHc1Q2VQWTMxZUNFSW1zcDRMUk1UVlMzb2NtOXB6TTlkS0ptV2ttZGNWOC1WTzFFa0l3?oc=5"
+ },
+ {
+  "title": "Shelby County Commission Data Center Ordinance Passes First Reading - Memphis Flyer",
+  "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQY2NmVU90eDEzdU45dXRTY3VrSWhsVU1PTWVZMjh3M2dlZFZVMFI2RDZiN1ZPVUM2S1N2dE14Umt0bUdkQkdYUFNOeVp1UVMwN0o2WklDVmdFOUwxZHUwanNWaF9qUS1lekkzS2x5TkJtYi1BV2dXMGp5WUw4UUt1NC1aWnozQm5jdlRuWXNJUjVBSmlsN01KQ2dTY19ZUQ?oc=5"
+ },
+ {
+  "title": "Butler. Twp. supervisors to consider data center ordinance on Oct. 13 - The Standard-Speaker",
+  "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPOUFoNEVzSXJuZlI3SXZ0RFQ5ZVFLbVB0TnQ2SjAxeGFkbmRxRGRWN1FEdzROOFJ2UDBiakxmcHJObnQxUHBoLXR2SUtfOHBiQ01qakFpRkFBSlU2ZFVPb25IcFlDTnNLOFlKanVsajRYNXhYYUhsOTJadURlM281ZENYUlpNWjRSUmU5a1Q1ak9TY1pkR1JqVGxOQ2xRSGtXTnNjdjItLUtSaDBLU2dr?oc=5"
+ },
+ {
+  "title": "Mayor Coffman cancels special meeting over Aurora data center moratorium, citing votes - Sentinel Colorado",
+  "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUnRNeVdISW8xQmhPQllpRjZZUXh5bDJseVJzY2RuMjF0YWJfb09ZazFzSk5CVTdocFRVX0duc1pvSl9ITzUySFlSSkhpY3d0dm82SGRYNWVCb2FpNDlxZi1ZU094c1FoYUJCZUQtMVpsM2p3RTMyNGlrcVhvYlB3OXdwOEM4Z3R2NDZwWThYUzhOYVRqeDd1SXpTUGJzQ3lDMlFHamNBdUc2SnpfZ2cyT054SGNvRHFWY1hyU3V3?oc=5"
+ },
+ {
+  "title": "Guilford County delays data center moratorium - WHQR",
+  "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPWnhORTBaMXZ6eldzUGZ1THZ0V3kxaWhHZ1FJN19DWktEdjUwcjJRblVHZG5qNGVPTXJENjhOcUlNWGdQZ09VMVlmeFpUclpXNEllZi1HUncxaERyc2pwdWdzd1h0SXZPaVpKeW5NMWZGYmxlOUw5VEpnV1N4djJVVHZzNlRuSWJXcWxwTk9zU0RWeWl0THJmQ3h5eTdjdjgt?oc=5"
+ },
+ {
+  "title": "Residents weigh in on future data center development, Madison’s moratorium nears expiration - The Daily Cardinal",
+  "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPdGRXTkhTLXlKXzJKUEtBSzh0czQ1S01zUWRJTW1SbG5TbURHTjBteXZlUkgwNXVEN202MUQ1RDM1T2xjUG1MUDQtQVNKMFBrMTZwVGE5QXB2SVU3Z0JTYUxvbWJXbDZTbUY5Ri1DUTNrY0N0dVZDSWExRERNUG9qb1NZRGZEdTk5QWVtSXg2dHE4R19SM1pWYzdxQzlYcUM5amItMkV3SjViamJDZER0UWJEZ2hzMm5sV3JpdkJzc1hoMmV4M1NMd2FsUVNNcEQ2?oc=5"
+ },
+ {
+  "title": "Lurie Signs 45-Day Data Center Moratorium - GrowSF",
+  "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB1Sy1qaFh3QU92TGVoNVNrMmstal9jVmt5Y25zek1KZ1YxdHRVOFNaajNhWVdVM1liWTBDaTVrU18wS25Mb0RoWUlkY1ZNajFDVmN0b2ptd0Y5c2lzemhDUHZKeXFHT01DSkllUENBZTJMWF9mTzBiRGJB?oc=5"
+ },
+ {
+  "title": "Gilroy to vote on extending data center development moratorium - NBC Bay Area",
+  "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOZVJwaXVvZlJYRGZ3ZUJJS1JZV2E1NVFzVDJBU3lqMTVuSjVhVmdRZHBIcFJfR2hJZkZLOVlfYnk5bmlaazNwZS04WHFlNmZOaFNsc09LUkxpZWwxYVlzQkIwd1hCY2d5dGdHaEU0M0NMWmRNaXNuaDZBYTNraG4tRFFnQU9MSGR5LVlWUjNJT0tseVk3SWp1WdIBoAFBVV95cUxPdFhZNkxlbzJvYy05OGROeTFqRFFvV19mV1JFcnpXd1MzaUlaVFAwVUd2TzFCX3hneV9FclNOazZIRm9MVzQ1dzItVlBpZmJxekZDM1VnSXdCSEdCejZPTjJBN2JDdmdtSFplemVHSmFhVjA1YV80Z0F4WlBnRnpVRlljcnQxMWNESlNQSURzdi1fLW5fcVFFZDVEUEVYRkdR?oc=5"
+ },
+ {
+  "title": "Mount Pleasant council to consider final approval of temporary data center moratorium - WCBD News 2",
+  "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOd2tQSnZzcnpxQkZaY3JhRkRQWk10NEhkX3Z3Ym84Q216bFgtdGtBZE1zTFNoT0lKNU1TT2Z4TnJ2Q0VoOXJXT2prTVFWSm9xNTRQNkJqT3AwRmJoRWRRcEhEMGxZMmk2OVhsRVVZR3lIRV9YSmVUM1dkcktsVWxETVFNbkwtRU5QTFR0MFdTUUFPTWMxc1AxRTRUVFJ6OUtCeldSUzFSalZKWnpvaHo2ZnVLMnlwcVR5YmFuRGs3RExuYzNaaHfSAcsBQVVfeXFMUHYtOElCZ3JuZ0liaC1EazBMam0xbUtSdFA4Nzg0WkN1TjBUV29RbXpvQjlSZFFvSGE0ejZTY1d5M2dGVUJKd2pKT0pXWWdTbEdMTy1zZjgtRzJwYndtb3V0NGt1Ri1VeC1FOXp1Zk1fVGt0RGpQMW9LTDA4V1lUdDg4S0RSU182X0Y1cm5XR0lnb1FLWGxuSXIyMV9GalAwbDZDOWxkMDlELTF4UkVYT0NFcXEwUDF0TU1VLXlaOHVCWnY3THVfNWpBUnM?oc=5"
+ },
+ {
+  "title": "Venice council advances data center moratorium - ABC7 WWSB",
+  "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQT2JTZ0lEUUtVd2NSdlpqcEhVbzEyTWNqSi16Nm1CM01ZdF94aWdocUhuaTdORXZ4Q0d0Zmo5d25VNTJBSXFzdHI2cFlQZXNIa3Q1LUFiZFRpdTBBd2EydEtWWFpOeE1MTmQ3UWxhTmlUZUMtVy1ld2ZnZmhGYWItYjFDb3FUWXFjbmR3M1hB0gGiAUFVX3lxTE4yR09qRHNUb1N2ZWhmekpnZjJKN3lKNkxQYVBwTk96clpWcEQ2WlZoUWM0UEFwZTROQUQ1VE5QOTB1bnc1QWVVT0xmRmI4bkt6NkJFYnYxOEx5Nk9iclhKREJKMy1EOUFwTEI4VFQ5Sk9LTklXZVB2V1VIcTdZdTl0NWhXb3Q1SFpBYTcydXdKYTFmblJmRFBzVUhQczEzQ3ZLUQ?oc=5"
+ },
+ {
+  "title": "Lake Elsinore data center moratorium extended - The Press-Enterprise",
+  "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOMmlldkZrT05PaHVSRGhGQ0xGZ2VMZlduUEdwOElKaVk0b3laX3kzLWZ4Ny1vcmk1QUZ3VEItMmpPbVRISkhSNHBaMzNDQUJEenFKbUlBWnVDOEIyN3FsbUliVHdWa2NNNjJwQVFzRGFNVE44RDhXZFNHVGJaUTZ3aktDblRTMlh4Yl90LTBMcmxKcGs?oc=5"
+ },
+ {
+  "title": "South Berwick adopts data center moratorium - The Portland Press Herald",
+  "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOejBmTjVHT2h2V1VncTZxTWMxVXRadUNnbGJFNndSdDE1MExGU0NJQ2RISm00Y1hpck1RNUJJQ01sbEJaMGplVEhob0hpTV85dzYyVzlQcWNpYVpqV0t2WkFGMU1UZkJGR051NURTZHA5SDVtTlpBVmhLQ1BBRTk3ZmNiamN3ZVBzZjVn?oc=5"
+ },
+ {
+  "title": "Virginia Democratic Senator Proposes Statewide 3-Year Data Center Moratorium - Broadband Breakfast",
+  "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQTGFHM1hYY2pDZmZoT0pDdmtRMHlwNVNoTEcwaEVVcmo4TUxmTUdZelJtQlRWMXpfVzJjNDA0aWp5czNSNkd6TmpKWHltaGsyUnlrX0tfWjRjNFVDcDBTSF9aWmtqallyb2cwcWhtY1FPeDlzZDlGOW9lTkFLTnd3TUU5V2EtVlVmTWctRGR5dl8yOTM3cGlKNEFXdGFCM0Y4S0RLZFFKZlFia0tB?oc=5"
+ },
+ {
+  "title": "Virginia senator proposes three-year state-wide data center moratorium - Data Center Dynamics",
+  "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMEhtVTAyWEZobi1pdXgybktSOExPcFFzMzRsOGR2MWZrU0dyQXFkUXFnYjBhdnZSV0JiS2loUXJuNEtHNk9STzk5Sm41bWdtY1FPVHBwaFRYeUh1d2pNVjVqQm9UR0QzLTA3UW5aRG1aSzZTWDFmbHVpNF90NExKTlA2YUpCemdPa2xreENpcE5rdFdvTlA5QjZaYU9pdWlnbWNwb0V0TlpqSnJBRjhFNkhLcXk?oc=5"
+ },
+ {
+  "title": "Can a data center be built near you? How local governments are regulating them - Hilton Head Island Packet",
+  "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBfamg3aEtCZDJ3em55aUs3TUhGMXJrR2ZYczdlUGJaYzdkQ2ZacWFMeFVBR1ZkM3k3NUNUMHNaUUZSZDUtOTczR2VSOVZvRVNObFRhcDExWnBvdm9lZXFQMXRZTGdER2FSMHBJcUN0RDMyQdIBckFVX3lxTFA5cXFhZTFKUi1zQXhMT1BJd1RmZVNqcGpBX29GbkFxcGpyLW5TckFUdDNvd1hSNFM0a1JoRFdzM3A0ZFJUV2p2N0ZmcVVCOUpWU3ZaT0phaXJzVm5kV3g0SzRyb1VuZ3NTY0dBcGdmdkMyQQ?oc=5"
+ },
+ {
+  "title": "Shelby County Commission considering data center moratorium of its own - Tri-State Defender",
+  "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNRVg4NVVfZGpkTDF2bFdzVy1WVU5samtYUFZ2T1dGR2hpUUFBWTc3czRMNkZtS2htd2UwbFZtUEZzV085UXJWOEZ3Y0JpWmRwY1oxQVRmRXdFZVB6N0JqOWFWazRtR3RpY3hxZmtDZno2UjN3WWM1SVkzRWo2aWN0dzB5ZjRXaEZCTzZGV3lWeVhDYjRkbWFlaEVBODg4RWZiQnowUEdlajEteDA?oc=5"
+ },
+ {
+  "title": "Manatee County approves one-year moratorium on data centers - ABC7 WWSB",
+  "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdGdWeGtpSmktcG1FWk1fVk56a3hJQWlUa1l2SmdBWlJFbS1MZm1SQzBtQkpySURpM0xYMFN2eXdHVmtUanMyWmJkMjBUODN0ZEFaR0VnR1RDRHdrT2p2c243SWQ0UzB1Ylo3LXVoRmFiOVZhQ0k2RjFBbnhobnlSSFZDMUp3VWp5Z3hYTmZfMzh4c0pwczRGdm1HONIBrwFBVV95cUxQWml0c2VPaC1CeFlVc1dIaWhvZktHZTI0cVptZlFXTXR6ODRNanByd2lnYkZsbFV3U1ZIZkt0M1hYeFVHSWxxUmtzQlFaYnVJT1pSd2RzZ1VfZUZ6VzBKUzAxLWRJMlhoZVJXNXpMeHVVeWpFeTZxYWhCcm5JT09WSjlvRXhxeXh6c1A5dmkwQXhZc3BIVnZrMHJCRVNDcnphRDRUam5aTllSa1ZSNXZV?oc=5"
+ },
+ {
+  "title": "Tazewell County Board is next stop for proposed data center moratorium - WCBU Peoria",
+  "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPLVN2WWxrMDBPTWFDMlcxTm5GeU5uNndIMUlQWVZ2Qkp0NnliZ3JGUHB5OHZ4TVFXTEp5aVcyZHdXTFp3ZUotd2F1Ti14RkpSc191Z0RjRElfNWZacVNGUHZMTWNlcE9lOUF3R09DZElrNkVtd2Z5Rl9ndVdOaDBrY1A4ZzU0a1M0QTZpenZ4dnhSR1BTSHhwNG5iMDZpM08zd3RqTm5ESVpmWXVMTWRobVBmTQ?oc=5"
+ },
+ {
+  "title": "State advocates welcome new data center moratorium in Clarendon but say gaps remain - The Sumter Item",
+  "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQWHZVVnUzX3pKV0F0UkJkV2N0enpxSzRwSWNmTVpPM3BDSV84aTBZdWdVTWFKNXlwME5uZGhuZXNNcG93YjNUZ0NlMHNhQkhqYUhjVzJtSnBxVWs5cWVfNFE5MXhDUk8xVXVsaEVlb1lFWWl4WENzZkJxbDc0YnBqcGxIVEl1ZnM5MHZ0SGE0VTJMUW5WeW5zZWw0RTBMRWdwUDdjU25XZXRqQUx6Rm9qWElDR040SF9x?oc=5"
+ },
+ {
+  "title": "Amazon, data centers and the race for Oregon governor - NPR for Oregonians",
+  "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPRTRIdnh2UEpsLVllbjJ3Nmg4WmdJU2dIX016bk0wMjF0R3dNQTdNMlVSQ1lwb3hyRGw1TXBBTlAzeEtEWlVwN09PSl9WUWdGWHF4bEF2d2Z2VXVkTHI2eER2N1JjVDl0SHJUY2VkOG13LXNoSVJQQjJGNEN6REo4R0R3ZzhYNXRaalkyVEswcnNralRXWDlKZkhqNDNyQ1JpRFZ1VVFLaTZJbDg?oc=5"
+ },
+ {
+  "title": "Martin County advances proposed data center moratorium - WPEC",
+  "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxQaE5FYTh6UmpHM2ZvY3lIbWxUR3NjQ0pKVG4tSU9zSGVONXY3cXExSXNqMC0wTGVpdHdPTllsMi1MV3lkX3RUYkxwd0piUU1TOFBIREljYWlrbDRmdjRtUDNFNUxGZ2p6QWlHb2hHYVlfLUs3X1h4Um9ScDdjMmtJNXZjRldwYjVvTXhnU1ZWRl93VVJWVFdEdWRrTUZncTg1dWYyVDdYcnktVW1LYWJQUFE3SHM5SEZFUU1Pd05fRllFaFA1emJYbmZfaGtmWDg5RkpoTHpaOE1HOUVoZklqdmpIU05VOUpkSzFtdlRrWmFaUEd6SlJQbTFKdHVIMldUZ2l5RGpsYlpqRFRtS2dGYnpaNTc0WlllZzdXTzF6MlU0OENSczZjbjhPaE9HeEtu?oc=5"
+ },
+ {
+  "title": "Environmental, political advocates call for data center moratorium in NC - WHQR",
+  "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxObDRON0E0ZFNLRWNfVW9YdnRqMHZCVzNXbjFOX0wwZUxTdjVId3dSbjUySzlfZkVTTU43NDhEUEZ6T3NRRkszdXRxWEkwNU82ck1iTDl6dlN1bWkwM2hSYnpZYWNXQXM1N21janlvZHRtZnhpQTRRLWg3VEZLT2xZQ2dNUmVfRmpiWVlMWlRFTXFacFJMamFUTG1Md2JCMXBUU1d6VFFR?oc=5"
+ },
+ {
+  "title": "Forsyth rejects data center moratorium proposal over legal concerns - WFDD",
+  "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZXdwSEw5RVlVTXlWY3dfWlFlakhPQ2huVG1wVGFiTnlRaG1CQ2NGUWtQQzY0Y2hub2hhWVdOd0VvQzBjRU5Kc1MwazlTNE5jS1BqTEVjU2ZUWjhDdWUwNFlaZkhUbFpCb3BJcW9oUU5hQ3BnTUhDS2hsTWVFUGhpaDlIUEVtR21acTkyM05mQ1hDSFpkel9ZeWJjQUpiT3RKQTNPamQ1TmVlZjhzdnhkNjNfTWgzSUJzcGlj?oc=5"
+ },
+ {
+  "title": "Town of Beloit approves data center moratorium - Beloit Daily News",
+  "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPakdlT2VMN192eC1kUC1faE5PTlA1R1ZLeHBLQzdjeXU1NW5aV2pFRlFuNzkxN05FOXBHbUFqNWlVakpnLXBzWmQ3cDJWX204Y01wZ2ZFWXlkd1JnWDhxbzdzd01UaWFab0dZY2pzbGtOX2RMMVdZY3p1WnlNUXAxTk92cXdCZnBMd25hZ1ZheU9IczljR3ZOZVJudkNET3cxMURfdWxSMDhoNTlNcWV1a1NBelRualdkNEZCRFNhY3RGamN1UmxOaWsyNGNGR083N0FGakdSd1h2ZVJt?oc=5"
+ },
+ {
+  "title": "Florida county commission votes for data center moratorium - Treasure Coast News",
+  "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQSlpLdVFTLUF2WktRQlNIekJGMUl0bEtEc0hpNm44QTlON29Gel9DR2I0bVdob3hGalRqNUxtMXVXcjhKODB1U0ZxbXlLNGpkUzlLbW41ODkwMFRkZm5wUlMxeWlJUnFabXpMLTFBRHlpQWRvbVJVeTR5V0xMQWhUdjNSSERwcnVpUnZGTUlPVHloUFhjb0tBSHZpOTU4dHVGRG9fcTBIZnFKTXBNV29fTUNOVHAydXdlY1pWT0l4RWI3U3E5T1lHak5BcmlncHRLUkE?oc=5"
+ },
+ {
+  "title": "Leon County Commission officially adopts data center moratorium - WCTV",
+  "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPUWMyNTFvMHJpaHlLWl83TFlEZWJDQlRjYjM4N09vMHRPZW5UT3BzUmt1SEFMUHRKVHhob2RuWkFYQjVIWlk5Y1VoOTNZbGsycEZ1WDFhcTJET1NhY2hmOV9xWEV5c1NLNzNnYUdqOGpBaURaYWZUUlZDbG5IVGdMNjg0bjZjYldCR3ZrRVFBTFFucWxOWEdIZjE1Z9IBrwFBVV95cUxPbl9uTDFWaWU3WWtpNUJqY1RyMDJGT2JtbWN4V242TzhaczRKLTlwM3ZSWEdRSVpVeXhobFlhV0xhWVRiX3pzR1IxMjdENWhuVGZpUnBDVXd3dnozTjkyLVdJdUdvMktTZUZHS21OSWxwNEFudkxYaDNnVnZabXJtOGNGUWdGeERjVU5qLUtnWkxNekdEX3Y5S1NvM0tWenozSVVaVkNlY1JkN3BZZGNZ?oc=5"
+ },
+ {
+  "title": "Unanimous vote enacts Blair Township data center moratorium after crowded public hearing - WPBN",
+  "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNY1FYQjkybUkxYnoxTzFYc2pfZ0docjFsY1djRGlHOUhJbDBOaXEycmZ4QUk2bEYwWC16OUw3bTZRcm9keGNyYkpSY1lZZ09oSGNYYWZTaEFpWE5IMlk3aExDY1lJWUg4WjdRMll3VXhHbDJXNFhYS2ZBdlV3ZFYxMTZhX3B0SkJQdnlkZ190MmxGYzFvanRnVExDeHdsTVZpT1dLLXIyRTB3SDFCQUlJUzNEbk9sRmQyV09QU0JMU0FwcVc0eDFxV2gwcmdLZ0VWWW9QaDg4VkdKWFhqMXc?oc=5"
+ },
+ {
+  "title": "Minneapolis Planning Commission advances data center zoning rules as moratorium nears end - kare11.com",
+  "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxPcG1CUVpHaFYyUEdBYW9SX1VSYTl4LTdhSmJ4VXFydDkyWDI1cEg5alAwbDVTVlY0eEpqM19OWl82RjNGLV9JdWZuRlpGbDZjZnVvMkZNUmlacnN4T2VGRTRNVHdqTm0yVUxoR21QLTExRXdNZjNPa2N6YWR3RDJSQVpGSk5NekJ0cldOWDI0bnFJOUxORzFybnA2WFM2VEZVOXNIdXNXZE5wbm82NXpkZUsyQ2FTam8zTXhmQTFvMVFPWk4wcTFsUGZULVU5SVlPQzRCcTZoWEUybUtnRWt1ZDRQbU1OdE5Hb0lzajZSSktpdnlt?oc=5"
+ },
+ {
+  "title": "Aurora data center ordinance moves forward - CBS News",
+  "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPRFlHeUZDYUNfdTlxSVlzbTdWWTJmUU1PQU5FNjgweXVBdkNUYUF3bHBvSXBGUVA1VHFrTjdsUEt6RUpNNkVIeGdlaHo4MHpZSkxKMWwwM1RCTjZVWFJKTWJqSGROQzNkRmhCRnVsaldQVU4ySFRZeERxcFRpbWVZNGd1MmVGelhNUFE?oc=5"
+ },
+ {
+  "title": "Charlotte considers extending data center moratorium - WCNC",
+  "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxORFdmUjQ1aUJRVGNXUW9Vc1I5ZTExSGdZakJGRGhuUVg5Q1JpRzdEOXVrUTZ5Tm9rdFVYb2VPN0kyQTVMWlJiYmtJb2NsSGJuZlhrbUp4X2o0aFRoZGpIekR3emNNV3laRkM5bTNEaWp5TzhZYzRjMTZlT2FDN05QdkJKZ0Q3VzlXUjRrQ1BLSHNhSjFxQXE5czJ4anE3TmtrTl9lTW1QRlRadGJFbVhCYzBWYkYxYjN3bWdfalNYWjJwVDB1cUdiSjUxUQ?oc=5"
+ },
+ {
+  "title": "Tazewell County data center moratorium approval nears the finish line - WCBU Peoria",
+  "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOSTB3SDFsOWNLSzBuVDF5bUpQUy15OVVGSFhsdTBrdFNYaW5UQ1RrYllEWUd6cGp5aFZqeWZyUGdNOXlxMVgzWHMxNzRpaTF6WVBNU3cxN0lJNFBreE5qSVpoWmo2QVRJSHVNZVd0MUUwMVZ5Ml9wdFFXY28tSVhsc2JvNFBid212bXd2aGVTNmJaTW5NTm1qVUR1ck10XzRaODhZdWc3OGk4YUxxcm5kSUd3?oc=5"
+ },
+ {
+  "title": "Mount Airy commissioners discuss data center ordinance updates - WXII",
+  "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOeHNydkFvaDNsak1SSXNuREgxN0V6elc3Ukp3WkVRUjhybDgxajFGWTY2RGNBQ3NSZkR3dzJCM1E3M2dpX0M4VDMwMWFVU2xBRTAyX2FBODBXRWhqY2dwQVotVm01U01ORjF2N2pXSEtsS2V5RElHMUFFVTNfdEpTMURxM2pKSnQzQnh0cEFKeUEyYW1sLThWckhxdEpxdFFFbFJoUg?oc=5"
+ },
+ {
+  "title": "Amazon, data centers and the race for Oregon governor - Oregon Public Broadcasting - OPB",
+  "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNcmc2ZnB5c25JSG8tcmlWRmRWZElURU10Yzh2VUs2RmFkWV9LdEFxX2FMTC12bmllclFWTlkzLUU2Nk1meDR3MndjR08wSl8wSVRjUndTRlRtTl9DTE5sbDlvTlkzb0p2LWplajNVNXRPTDZxQmp3UmpvdlMxd1pCSg?oc=5"
+ },
+ {
+  "title": "Nye County residents clash with commissioners over new data center ordinance - KSNV",
+  "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPcVJZQTZhM2NJQlZPS3Jqb01VWjlVNk1WTUdfMkZoSG0wTlR3ZzBZR2RvaGl0YV8wMDNyWlpZcEE0Y0RUcFNVQjVHdDJVWUZYUmo5NkZJOEVib0RNbXhMWk1BaFJud0xEV05nQ1BpYThiX2NKN1lucGg3akg0a0xpTmpVMlBrWmd6UHhEV3dmWkpYcDN6M2ZLTTRqTDhORnpfVm9xWVVUdGxHNFE?oc=5"
+ },
+ {
+  "title": "Cleveland City Council Set to Extend Data Center Moratorium to Early 2027 - Cleveland Scene",
+  "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNUkdOcS1FMVRkNzl3QjBqbXRWekVLZUg4d29RWlFGRlBlR0dlMFZNRnRmVGZCalJhWS1GbWp5RGhsMHhxWFhlTmZFVFlpdEJqYjlyQXNrQ19XcER5UkhNaFM4RjVRQTFjemxjQmNNN2RvMXl1YkpONlVXdEl5N21yYS1rZnRDLWRFdHNlb3VvampHeGI5UGRlWW9DdEY1ZkZ5YWJIaFoyQzRCWnZXNFNWWQ?oc=5"
+ },
+ {
+  "title": "Martin County commissioners unanimously move forward with 1-year moratorium on data centers - WPTV",
+  "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPc01FcW9zMmQ5QkZYalU1WDRpbGk3V1VmTjdzTWtMZ0x4TXFUUnkxSmFXNDNEdGRYLUN4U0ZORXNtSThoTTd5anJSZGQzREl2OTNzOXc5aDVlMC1TNXVPeEJUS215Wm11eU1mVFM4cDluUVhaVU9XTndNeXdLckdvd3ZEQzZOVTVlakhWcUZ4RU1lWG10UlZPVUduNDZUSEJPb005ZHdoSnhzcUFlN21ZdzlqTlBuQ2hpWGQ3UkFvUlA4UXBjdzRha0Y2RE5BdVl1VnRYSHdsTVdnN2FHWHd1bHNzRFBOY0FI?oc=5"
+ },
+ {
+  "title": "Johnson County extends data center moratorium until August 2027 - Corridor Business Journal",
+  "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPcmZ2R3ZnX0swaHN6aXF2NDR3b19hWjBCdW9Tay1CbzRuQ0FjQXg5N0Zwd0VQNXlkOTZPLWJRcDZfN09PSVJBdlpuUV9MbmNSREVzTTc3M2hTM2FlclotUWZzVUw0a0E3OHZ3ZG0zeHphRzJ0cFdrb2hGRFN3ZU9BbVA2V1dRTzNSNndYV001eTBFQkww?oc=5"
+ },
+ {
+  "title": "Howell Township extends data center moratorium until May 2027 - Livingston Daily",
+  "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOSmV2b01oS2F0dGNtamc2QzNJLXNybHBib0ZscGNRUmFxaDhnclZGV3Y2UENBTVZXc0hNckVCZklwODRWeERaY0VMYTlxa0lXWXp1MzM3SU91TTlnZjVoTzNpWE95ekh0T05QOHFpeGM1dEdZbklodEhzR3N0MGNWUTNBZHVtcUt3dlE2UTk5ejNpRzE0dExfSHZTc1JVZV9JX0hpOGZTcTdWTV9RLTdMUTdBZXJCOEdFNFJKaGNaYV83WkRRRFJqTy1ZUXFZbW5iMGJ0RXNOWHljZk9lYk8yUmFOTUJBY0ZZckhWUERyTmU?oc=5"
+ },
+ {
+  "title": "Aurora residents push for moratorium after company plans to build data center nearby - CBS News",
+  "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOMENIU2ZOdmpycmVsMFhldkNBellCN0lvTHdjVHpqdS1XZjF3M0R6elk1Q19kaW5DMzA2VWw3d3ZxcjhNNHFsRlFITzFwckVMUkRHWm1yUTJRNmN1czdXQTdjMEFvTml2d2stWHc4czdmbVJqdUszd1ZnMXRfRnZEcnNYX2E0LS1MR0NldEZyLUhrR0NkSUE?oc=5"
+ },
+ {
+  "title": "Sumter County takes step toward rescinding data center moratorium - WIS News 10",
+  "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZjkyYXRIRXlrWG96czdPQ2NXSThUYUpwTmdDQ3NzQnBSbmFwVGlqVm9LRjlZbnliWmhWaHpxQ2RXM2otMU9GWU5ueE5CYkc5MHBTeXJiVXk1ZHI5YlAyT3IxeHNnZkotV2REWllzeUxDdDI2SnIwcHdXQzlqOWw2LVc5ZkxMYXNqeVpSdmVidXhvWHI0WEZxTUVLM2JreVVnVWU0UEpOYUcybVHSAb8BQVVfeXFMT1hwMkFxQy01WFdOM010ZW9uNUxDMkdwNTR1UE9JSENPZ3didzdOMG9kektoVk9IMGl5ejNFTUoyZWkyYldWZF9CcnJxNV82WkZaSm9za2xueEFnb1pULW8xWUU4LWlxZzZVYjJPdlpJc3dWbk8yV2Q2aEhudVc2SGRMYkpBbmREQzFybGZTUmtOeG9uNElSN1oyVnVUNmVHOXRMM1JWdVg5Rlg0TlVsWnlZYjRpYjd4TWt2ZnpwM1E?oc=5"
+ }
+]

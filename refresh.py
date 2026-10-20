@@ -639,7 +639,8 @@ def _build_home(payloads, today: date) -> dict:
         # the International tab, not the Companies tab this card opens.
         "companies": sum(not c.international_only for c in payloads["companies"].companies),
         "moratoriums": len(morats),
-        "moratoriums_enacted": sum(m.status == "enacted" for m in morats),
+        # mirrors effectiveStatus() in app.js: a lifted record is not enacted
+        "moratoriums_enacted": sum(m.status == "enacted" and not m.lifted_date for m in morats),
         "policies": len(policies),
         "policies_in_effect": sum(p.status == "in_effect" for p in policies),
         "agreements": sum(_is_agreement(p) for p in policies),

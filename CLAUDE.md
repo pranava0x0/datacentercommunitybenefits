@@ -2123,3 +2123,44 @@ Tab `#world`, placed last; country pages at `#country/XX`.
 - **Daily routine:** `country:XX` units, 120-day cadence, English sources
   only. Non-English findings become BACKLOG leads (see the daily-refresh
   skill).
+
+### Follow-up to PR #85: discovery script, PDF/charset probing, merge gate (2026-10-19)
+
+- **Discovery is now a script, not a search.** `scripts/scan_sources.py` reads
+  `scripts/news_sources.json` (DCD and DCK RSS, plus a Google News feed per
+  country in its language), keeps titles that name a data center in any
+  tracked language, drops URLs the seed already cites and leads earlier runs
+  reported, and writes a per-country worklist. Research agents triage those
+  titles before fetching anything. Google News links are redirects that 400
+  when fetched, so the outlet name is kept in `[brackets]`: search the outlet
+  and cite its own URL, never news.google.com. Add an outlet only after its
+  listing URL is confirmed to enumerate dated stories.
+- **`scripts/revalidate.py` before any validation pass.** Run it live in
+  `--limit` batches until there is no `NOT CHECKED` banner, then hand its
+  worklist (dead links, quote misses, stale statuses) to agents. The first
+  full run (2,265 of 2,291 rows) found 39 dead links, 214 quote misses and 3
+  expired moratorium terms. Most claim misses were real: 24 claims were
+  removed because no page carried their words.
+- **probe.py reads PDFs with macOS PDFKit** (`scripts/pdftext.js`) and
+  decodes Shift-JIS / EUC-KR pages from their meta charset. Before this,
+  PDF letter-spacing ("three y ears") and Japanese encodings produced false
+  MISSes all session.
+- **A figure that no longer matches the live page is not a wrong figure.**
+  Google's and Meta's pages changed after capture; Wayback snapshots near
+  `captured_at` showed the stored figures were right then. Repoint to the
+  snapshot and keep the dated capture. Don't overwrite it with today's number.
+- **Merge gate (the #85 lesson).** #85 merged while a side session still had
+  three research agents running for it, and their 19 findings missed the
+  PR. Before `gh pr merge`, check `list_sessions {"linked": true}` and every
+  background agent. Nothing that was promised to the PR may still be running.
+  Every subagent brief now says "do not call any session tools". A Haiku
+  validator called `hand_off_to_session` by accident and created an
+  uncontrolled session that committed to the PR branch.
+- **Haiku researchers stop early unless told not to.** Several stopped after
+  90 seconds, citing a time limit they had misread. Briefs now say "you have
+  the full N minutes and ~M fetches; keep working until one runs out".
+- **New countries (wave 4): MX, ES, BE.** Registered with MXN at the Fed
+  G.5A 2025 rate (1/19.2052). The international tab now has 18 countries
+  plus the EU. Operators added this pass include Naver, Kakao, LG U+,
+  Mitsui Fudosan, Colt DCS, Sesterce, EcoDataCenter, CloudHQ and Pampa
+  Energía. Each was added because a first-party record needed it.

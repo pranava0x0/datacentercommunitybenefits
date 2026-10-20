@@ -85,6 +85,15 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "adaniconnex",
     "reliance",
     "nxtra",
+    "naver",
+    "mitsui-fudosan",
+    "colt-dcs",
+    "sesterce",
+    "kakao",
+    "lg-uplus",
+    "ecodatacenter",
+    "cloudhq",
+    "pampa-energia",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
@@ -136,6 +145,15 @@ CompanySlug = Literal[
     "adaniconnex",
     "reliance",
     "nxtra",
+    "naver",
+    "mitsui-fudosan",
+    "colt-dcs",
+    "sesterce",
+    "kakao",
+    "lg-uplus",
+    "ecodatacenter",
+    "cloudhq",
+    "pampa-energia",
 ]
 # withdrawn (#78): the operator abandoned the site. The record stays, as
 # history, but leaves the pledge scorecard and the investment/jobs totals.
@@ -323,6 +341,9 @@ COUNTRIES: dict[str, str] = {
     "JP": "Japan",
     "KR": "South Korea",
     "IN": "India",
+    "MX": "Mexico",
+    "ES": "Spain",
+    "BE": "Belgium",
 }
 # ISO 3166-1 "exceptionally reserved" code; supranational policies only.
 SUPRANATIONAL: dict[str, str] = {"EU": "European Union"}
@@ -341,6 +362,8 @@ SUBDIVISIONS: dict[str, str] = {
     "GB-WLS": "Wales",
     "FR-IDF": "Île-de-France",
     "FR-36": "Indre",
+    "FR-68": "Haut-Rhin",
+    "FR-26": "Drôme",
     "IE-D": "Dublin",
     "IE-KE": "Kildare",
     "IE-MH": "Meath",
@@ -359,6 +382,7 @@ SUBDIVISIONS: dict[str, str] = {
     "AR-U": "Chubut",
     "JP-13": "Tokyo",
     "JP-27": "Osaka",
+    "JP-28": "Hyōgo",
     "JP-01": "Hokkaido",
     "JP-12": "Chiba",
     "JP-11": "Saitama",
@@ -368,6 +392,7 @@ SUBDIVISIONS: dict[str, str] = {
     "KR-41": "Gyeonggi",
     "KR-26": "Busan",
     "KR-28": "Incheon",
+    "KR-48": "South Gyeongsang",
     "KR-46": "South Jeolla",
     "KR-31": "Ulsan",
     "IN-MH": "Maharashtra",
@@ -381,6 +406,14 @@ SUBDIVISIONS: dict[str, str] = {
     "FI-14": "North Ostrobothnia",
     "FI-05": "Kainuu",
     "KR-42": "Gangwon",
+    "KR-50": "Sejong",
+    "MX-QUE": "Querétaro",
+    "ES-AR": "Aragón",
+    "ES-CM": "Castilla-La Mancha",
+    "BE-WAL": "Wallonia",
+    "SE-W": "Dalarna County",
+    "FI-12": "Ostrobothnia",
+    "KR-49": "Jeju",
 }
 # What a first-level subdivision is called, for labels.
 SUBDIVISION_TERMS: dict[str, str] = {
@@ -388,15 +421,16 @@ SUBDIVISION_TERMS: dict[str, str] = {
     "IE": "region", "GR": "region", "FI": "region", "SE": "county",
     "CL": "region", "AR": "province",
     "JP": "prefecture", "KR": "province", "IN": "state",
+    "MX": "state", "ES": "autonomous community", "BE": "region",
 }
 NO_SUBDIVISION_COUNTRIES: tuple[str, ...] = ("SG",)
 CURRENCIES: tuple[str, ...] = (
-    "USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR",
+    "USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR", "MXN",
 )
 # BCP-47 primary tags a record's source may be in.
 LANGUAGES: dict[str, str] = {
     "en": "English", "fr": "French", "sv": "Swedish", "fi": "Finnish", "el": "Greek",
-    "ga": "Irish", "es": "Spanish", "ja": "Japanese", "ko": "Korean", "hi": "Hindi",
+    "ga": "Irish", "es": "Spanish", "ja": "Japanese", "ko": "Korean", "hi": "Hindi", "nl": "Dutch",
 }
 TRANSLATION_SOURCES: tuple[str, ...] = ("official", "human", "machine")
 TranslationSource = Literal["official", "human", "machine"]

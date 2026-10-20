@@ -62,7 +62,7 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": 100,
-      "notes": "Announced February 24, 2026. 480-acre campus in Pine Island Township, Goodhue County, served by Xcel Energy. Google committed to finance 1,900 MW of new clean energy resources for the Minnesota grid (solar, wind, battery storage). $25M community investment fund over 20 years, benefiting Pine Island schools. Google covers 100% of new grid infrastructure costs. ~500 construction trades during build phase. As of Oct 11, 2026, MPR News reports the data center is on pause while a judge considers whether the project requires further environmental review.",
+      "notes": "Announced February 24, 2026. 480-acre campus in Pine Island Township, Goodhue County, served by Xcel Energy. Google committed to finance 1,900 MW of new clean energy resources for the Minnesota grid (solar, wind, battery storage). $25M community investment fund over 20 years, benefiting Pine Island schools. Google says it \"will pay all costs associated with our electric service.\" ~500 construction trades during build phase. As of Oct 11, 2026, MPR News reports the data center is on pause while a judge considers whether the project requires further environmental review.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
       "source_title": "Google Blog — Pine Island, Minnesota data center announcement (Feb 2026)",
       "captured_at": "2026-10-19",
@@ -70,7 +70,7 @@
       "offtaker": "Google",
       "at_a_glance": {
         "jobs": "100 direct jobs / 480 ac",
-        "energy": "100% grid infrastructure cost coverage"
+        "energy": "Pays all costs of its electric service"
       },
       "ratepayer": {
         "status": "affirmed",
@@ -78,8 +78,8 @@
         "assessed_at": "2026-07-13",
         "principles": {
           "delivery_infra": {
-            "status": "met",
-            "note": "Google covers 100% of the costs of new grid infrastructure required to serve the facility (per the Xcel Energy agreement)."
+            "status": "partial",
+            "note": "Google's announcement says it \"will pay all costs associated with our electric service\"; the page does not separately name delivery infrastructure, so this is not marked met."
           },
           "new_generation": {
             "status": "met",
@@ -864,9 +864,9 @@
       "announced_year": 2018,
       "claimed_investment_usd": 1500000000,
       "claimed_jobs": 400,
-      "notes": "Drew local concern after large groundwater withdrawals were reported by local news outlets.",
-      "source_url": "https://datacenters.atmeta.com/location/newton/",
-      "source_title": "Meta Data Centers — Newton",
+      "notes": "Meta says it does not utilize groundwater in its operations. Neighbors' well-water complaints, the congressional call for an EPA investigation and Meta's response are recorded in the site timeline.",
+      "source_url": "https://datacenters.atmeta.com/2026/04/operating-responsibly-at-the-stanton-springs-data-center/",
+      "source_title": "Meta Data Centers — Operating responsibly at the Stanton Springs Data Center (Apr 2026)",
       "captured_at": "2026-05-14",
       "project_page_url": "https://datacenters.atmeta.com/2021/03/hello-georgia/",
       "acreage": 416,
@@ -891,7 +891,7 @@
           "date": "2026-05-27",
           "kind": "news",
           "title": "Neighbors report muddy, unusable well water near Meta Georgia campus",
-          "summary": "Neighbors say their well water is muddy and unusable.",
+          "summary": "Neighbors say their well water is muddy and unusable. WSB-TV reports the EPA is promising to look into reports of dirty well water, Rep. Ocasio-Cortez called for EPA and congressional investigations, and Meta said it had commissioned a groundwater study that found its operations and construction had no impact on the residents.",
           "upcoming": false,
           "source_url": "https://www.wsbtv.com/news/local/north-georgia-neighbors-say-data-center-responsible-dirty-well-water/YERXGUYXHVAGPIAPQJ6ILVC4BQ/",
           "source_title": "WSB-TV — North Georgia neighbors say data center responsible for dirty well water"
@@ -911,9 +911,9 @@
       "announced_year": 2005,
       "claimed_investment_usd": 1800000000,
       "claimed_jobs": 200,
-      "notes": "Google's first dedicated data center campus. Water usage volumes were disclosed only after a multi-year public-records lawsuit. Jan 2026: OPB reported Google's water use had grown to about a third of the city's supply, and the city was seeking federal legislation to enlarge its Mount Hood National Forest reservoir dam to meet the demand.",
-      "source_url": "https://datacenters.google/locations/the-dalles/",
-      "source_title": "Google Data Centers — The Dalles",
+      "notes": "Google's first dedicated data center campus. OPB's 2026-01-15 report, cited in the community responses, covers Google's share of city water, the 2021 \"trade secret\" records dispute and the city's reservoir plans.",
+      "source_url": "https://datacenters.google/locations/oregon/",
+      "source_title": "Google Data Centers — Oregon (The Dalles)",
       "captured_at": "2026-09-30",
       "project_page_url": "https://datacenters.google/locations/oregon/",
       "acreage": 190,
@@ -970,11 +970,11 @@
       "lon": -111.8315,
       "status": "operational",
       "announced_year": 2019,
-      "claimed_investment_usd": 1200000000,
-      "claimed_jobs": 100,
-      "notes": "Sited in a high-water-stress region; Google has highlighted air-cooling and reclaimed-water investments.",
-      "source_url": "https://datacenters.google/locations/mesa/",
-      "source_title": "Google Data Centers — Mesa",
+      "claimed_investment_usd": 600000000,
+      "claimed_jobs": null,
+      "notes": "Google broke ground on a $600 million Mesa data center in September 2023 and said it would use air-cooled technology; Google announced a $150,000 donation to Salt River Project watershed restoration (GPEC release).",
+      "source_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
+      "source_title": "GPEC — Google breaks ground on massive Mesa data center (Sept 6, 2023)",
       "captured_at": "2026-09-30",
       "project_page_url": "https://www.gpec.org/news/press-releases/google-mesa-data-center-groundbreaking/",
       "acreage": 187,
@@ -1008,11 +1008,11 @@
       "lon": -119.8526,
       "status": "operational",
       "announced_year": 2006,
-      "claimed_investment_usd": 4000000000,
-      "claimed_jobs": 600,
-      "notes": "Microsoft's flagship cloud campus; powered largely by Columbia River hydropower.",
-      "source_url": "https://news.microsoft.com/source/topics/datacenters/",
-      "source_title": "Microsoft Datacenters — Quincy",
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Microsoft operates datacenters in East Wenatchee and Quincy. It projects more than 670 full-time employees and over 500 service workers across its Washington datacenters by the end of 2026.",
+      "source_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/",
+      "source_title": "Microsoft Local — Understanding Microsoft datacenters in Central Washington",
       "captured_at": "2026-05-14",
       "project_page_url": "https://local.microsoft.com/blog/understanding-microsoft-datacenters-in-central-washington/",
       "acreage": 270,
@@ -1045,11 +1045,11 @@
       "lon": -112.3576,
       "status": "operational",
       "announced_year": 2019,
-      "claimed_investment_usd": 1000000000,
-      "claimed_jobs": 250,
-      "notes": "Located in metro Phoenix; community concerns have focused on aquifer use as Maricopa County faces ongoing water-supply scrutiny.",
-      "source_url": "https://news.microsoft.com/source/topics/datacenters/",
-      "source_title": "Microsoft Datacenters — West region",
+      "claimed_investment_usd": null,
+      "claimed_jobs": null,
+      "notes": "Microsoft's 2019 announcement covers new campuses in El Mirage and Goodyear: hundreds of millions of dollars in total, more than 100 permanent jobs and more than 1,000 construction jobs across the initial building phases.",
+      "source_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
+      "source_title": "Microsoft On the Issues — Building world-class sustainable datacenters and investing in solar power in Arizona (Jul 2019)",
       "captured_at": "2026-05-14",
       "project_page_url": "https://blogs.microsoft.com/on-the-issues/2019/07/30/building-world-class-sustainable-datacenters-and-investing-in-solar-power-in-arizona/",
       "acreage": 300,
@@ -1111,8 +1111,8 @@
       "claimed_investment_usd": 11000000000,
       "claimed_jobs": 1000,
       "notes": "AWS-built compute cluster anchored by hundreds of thousands of AWS Trainium2 chips; primary tenant is Anthropic for frontier model training. July 9 2026: Amazon sought a new IDEM wetlands-fill permit (4.88 acres emergent wetlands, 0.06 acres scrub-shrub, 3,986 linear feet of streams) to replace the unauthorized 2025 impact; public comment period closed July 17 2026 with a decision still pending.",
-      "source_url": "https://www.aboutamazon.com/news/aws/aws-investing-11-billion-indiana-data-centers",
-      "source_title": "AWS to invest $11B in Indiana for new data center campus (Oct 2024)",
+      "source_url": "https://www.insideindianabusiness.com/articles/amazon-web-services-plans-11b-data-center-campus-near-south-bend",
+      "source_title": "Inside INdiana Business — Amazon Web Services plans $11B data center campus near South Bend (Apr 2024)",
       "captured_at": "2026-09-27",
       "project_page_url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
       "acreage": 1200,
@@ -2630,18 +2630,17 @@
       "captured_at": "2026-05-16",
       "offtaker": "Google",
       "ratepayer": {
-        "status": "affirmed",
-        "summary": "Google Area Operations Manager Timothy Chadwick stated publicly at a May 2026 community information fair that Google will pay 100% of its electricity costs and all AEP infrastructure for the Scioto County campus.",
-        "evidence_claim_id": "google-franklin-furnace-energy-pay-100pct-2026",
+        "status": "pledge_only",
+        "summary": "Covered by Google's national pledge signature; no first-party, site-specific cost commitment is currently captured for the Scioto County campus. A May 2026 local TV report paraphrases a Google operations manager on paying electricity costs, but without a direct quotation.",
         "assessed_at": "2026-06-01",
         "principles": {
           "new_generation": {
-            "status": "met",
-            "note": "Google Area Manager Timothy Chadwick stated publicly that Google will pay 100% of electricity costs for the Scioto County campus."
+            "status": "unknown",
+            "note": "No site-specific new-generation commitment has been captured."
           },
           "delivery_infra": {
             "status": "partial",
-            "note": "Google's Chadwick commitment covers power costs; no separate AEP grid upgrade contract is documented for Franklin Furnace."
+            "note": "Covered by Google's national pledge; no separate AEP grid upgrade contract is documented for Franklin Furnace."
           },
           "separate_rate": {
             "status": "partial",
