@@ -2706,7 +2706,7 @@
       "captured_at": "2026-10-19",
       "country": "CL",
       "statement_lang": "es",
-      "project_id": "cl-google-quilicura",
+      "project_id": null,
       "statement_translation": {
         "text": "Google says its investments in Chile's digital infrastructure contributed about CLP 191.6 billion to the country's GDP and supported about 5,520 jobs a year, based on 2021-2023 averages.",
         "by": "machine",
@@ -2864,7 +2864,7 @@
       "captured_at": "2026-10-19",
       "country": "SE",
       "statement_lang": "en",
-      "project_id": "se-meta-lulea"
+      "project_id": null
     },
     {
       "id": "ie-claim-aws-tallaght-free-heat",
