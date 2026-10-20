@@ -1,0 +1,145 @@
+{
+ "_doc": "Outlets and feeds whose own listing or RSS enumerates data-center stories. scan_sources.py reads these. Google News feeds are discovery only: a lead's real source is the outlet's page, never news.google.com. kind: rss | listing.",
+ "sources": [
+  {
+   "name": "DataCenterDynamics — RSS",
+   "country": "US",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://www.datacenterdynamics.com/en/rss/"
+  },
+  {
+   "name": "Data Center Knowledge — RSS",
+   "country": "US",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://www.datacenterknowledge.com/rss.xml"
+  },
+  {
+   "name": "Google News (US, en) — discovery only, never a citation",
+   "country": "US",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=%22data+center%22+moratorium+OR+ordinance+OR+rezoning+when%3A30d&hl=en-US&gl=US&ceid=US%3Aen"
+  },
+  {
+   "name": "Google News (IN, en) — discovery only, never a citation",
+   "country": "IN",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=%22data+centre%22+OR+%22data+center%22+protest+OR+land+OR+water+when%3A30d&hl=en-IN&gl=IN&ceid=IN%3Aen"
+  },
+  {
+   "name": "Google News (IN, hi) — discovery only, never a citation",
+   "country": "IN",
+   "lang": "hi",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=%E0%A4%A1%E0%A5%87%E0%A4%9F%E0%A4%BE+%E0%A4%B8%E0%A5%87%E0%A4%82%E0%A4%9F%E0%A4%B0+when%3A30d&hl=hi&gl=IN&ceid=IN%3Ahi"
+  },
+  {
+   "name": "Google News (KR, ko) — discovery only, never a citation",
+   "country": "KR",
+   "lang": "ko",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%84%BC%ED%84%B0+%EC%A3%BC%EB%AF%BC+OR+%ED%97%88%EA%B0%80+OR+%EC%A0%84%EB%A0%A5+when%3A30d&hl=ko&gl=KR&ceid=KR%3Ako"
+  },
+  {
+   "name": "Google News (JP, ja) — discovery only, never a citation",
+   "country": "JP",
+   "lang": "ja",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC+%E4%BD%8F%E6%B0%91+OR+%E5%BB%BA%E8%A8%AD+when%3A30d&hl=ja&gl=JP&ceid=JP%3Aja"
+  },
+  {
+   "name": "Google News (MX, es-419) — discovery only, never a citation",
+   "country": "MX",
+   "lang": "es-419",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=centro+de+datos+Quer%C3%A9taro+OR+agua+when%3A30d&hl=es-419&gl=MX&ceid=MX%3Aes-419"
+  },
+  {
+   "name": "Google News (ES, es) — discovery only, never a citation",
+   "country": "ES",
+   "lang": "es",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=centro+de+datos+Arag%C3%B3n+OR+agua+OR+alegaciones+when%3A30d&hl=es&gl=ES&ceid=ES%3Aes"
+  },
+  {
+   "name": "Google News (AR, es-419) — discovery only, never a citation",
+   "country": "AR",
+   "lang": "es-419",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=centro+de+datos+OR+data+center+Argentina+when%3A30d&hl=es-419&gl=AR&ceid=AR%3Aes-419"
+  },
+  {
+   "name": "Google News (CL, es-419) — discovery only, never a citation",
+   "country": "CL",
+   "lang": "es-419",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=data+center+OR+centro+de+datos+Chile+when%3A30d&hl=es-419&gl=CL&ceid=CL%3Aes-419"
+  },
+  {
+   "name": "Google News (BE, fr) — discovery only, never a citation",
+   "country": "BE",
+   "lang": "fr",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=centre+de+donn%C3%A9es+Wallonie+OR+datacenter+when%3A30d&hl=fr&gl=BE&ceid=BE%3Afr"
+  },
+  {
+   "name": "Google News (BE, nl) — discovery only, never a citation",
+   "country": "BE",
+   "lang": "nl",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=datacenter+vergunning+when%3A30d&hl=nl&gl=BE&ceid=BE%3Anl"
+  },
+  {
+   "name": "Google News (FR, fr) — discovery only, never a citation",
+   "country": "FR",
+   "lang": "fr",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=centre+de+donn%C3%A9es+OR+data+center+projet+when%3A30d&hl=fr&gl=FR&ceid=FR%3Afr"
+  },
+  {
+   "name": "Google News (GB, en) — discovery only, never a citation",
+   "country": "GB",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=data+centre+planning+OR+council+when%3A30d&hl=en-GB&gl=GB&ceid=GB%3Aen"
+  },
+  {
+   "name": "Google News (IE, en) — discovery only, never a citation",
+   "country": "IE",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=data+centre+planning+OR+EirGrid+when%3A30d&hl=en-IE&gl=IE&ceid=IE%3Aen"
+  },
+  {
+   "name": "Google News (SE, sv) — discovery only, never a citation",
+   "country": "SE",
+   "lang": "sv",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=datacenter+when%3A30d&hl=sv&gl=SE&ceid=SE%3Asv"
+  },
+  {
+   "name": "Google News (FI, fi) — discovery only, never a citation",
+   "country": "FI",
+   "lang": "fi",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=datakeskus+when%3A30d&hl=fi&gl=FI&ceid=FI%3Afi"
+  },
+  {
+   "name": "Google News (GR, el) — discovery only, never a citation",
+   "country": "GR",
+   "lang": "el",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=%CE%BA%CE%AD%CE%BD%CF%84%CF%81%CE%BF+%CE%B4%CE%B5%CE%B4%CE%BF%CE%BC%CE%AD%CE%BD%CF%89%CE%BD+when%3A30d&hl=el&gl=GR&ceid=GR%3Ael"
+  },
+  {
+   "name": "Google News (AU, en) — discovery only, never a citation",
+   "country": "AU",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=data+centre+council+OR+planning+when%3A30d&hl=en-AU&gl=AU&ceid=AU%3Aen"
+  }
+ ]
+}
