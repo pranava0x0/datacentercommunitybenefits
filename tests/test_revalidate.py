@@ -168,3 +168,120 @@ def test_main_end_to_end_with_fake_fetcher(tmp_path, monkeypatch, capsys):
     def nofetch(u):
         raise AssertionError("fetched in --cached mode")
     assert rv.main(["--cached"], fetcher=nofetch, cache_dir=cache) == 0
+
+
+# ---- review-fix regressions ------------------------------------------------
+
+def _seed(tmp_path, monkeypatch, n=2):
+    seed = tmp_path / "seed"
+    seed.mkdir()
+    (seed / "claims.json").write_text(json.dumps({"claims": [
+        {"id": f"c{i}", "statement": "x" * 5, "source_url": f"https://a{i}.test/p"} for i in range(n)]}))
+    monkeypatch.setattr(refresh, "SEED_DIR", seed)
+    monkeypatch.setattr(refresh, "PAYLOAD_FILES", {"claims": None})
+
+
+def test_empty_cache_is_not_a_clean_pass(tmp_path, monkeypatch, capsys):
+    _seed(tmp_path, monkeypatch)
+    nofetch = lambda u: (_ for _ in ()).throw(AssertionError("fetched"))
+    code = rv.main(["--cached", "--fail-on-dead"], fetcher=nofetch, cache_dir=tmp_path / "c")
+    assert code == 1
+    assert "NOT CHECKED: 2 of 2 rows have no cached page" in capsys.readouterr().out
+    # without a fail flag it still warns loudly but does not exit non-zero
+    assert rv.main(["--cached"], fetcher=nofetch, cache_dir=tmp_path / "c") == 0
+    # a lowered threshold lets partial coverage pass
+    assert rv.main(["--cached", "--fail-on-dead", "--min-coverage", "0"],
+                   fetcher=nofetch, cache_dir=tmp_path / "c") == 0
+
+
+def test_full_coverage_has_no_banner(tmp_path, monkeypatch, capsys):
+    _seed(tmp_path, monkeypatch)
+    rv.main(["--delay", "0", "--fail-on-dead"], fetcher=lambda u: (200, u, LONG), cache_dir=tmp_path / "c")
+    assert "NOT CHECKED" not in capsys.readouterr().out
+
+
+def test_cache_saved_periodically_and_atomically(tmp_path):
+    saves = []
+    urls = [f"https://h{i}.test/x" for i in range(5)]
+    rv.fetch_all(urls, {}, lambda u: (200, u, LONG), tmp_path, workers=1, sleep=lambda s: None,
+                 save=lambda p: saves.append(len(p)), save_every=2)
+    assert len(saves) == 2
+    rv.save_cache(tmp_path, {"u": {"class": "live"}})
+    assert json.loads((tmp_path / "pages.json").read_text()) == {"u": {"class": "live"}}
+    assert not list(tmp_path.glob("pages.json.tmp*"))
+
+
+def test_corrupt_cache_starts_fresh_with_backup(tmp_path):
+    (tmp_path / "pages.json").write_text('{"truncated": ')
+    assert rv.load_cache(tmp_path) == {}
+    assert (tmp_path / "pages.json.corrupt").read_text() == '{"truncated": '
+
+
+def test_exception_keeps_previous_fingerprint(tmp_path):
+    pages = {}
+    rv.fetch_all(["https://a.test/x"], pages, lambda u: (200, u, LONG), tmp_path, sleep=lambda s: None)
+    fp = pages["https://a.test/x"]["fingerprint"]
+    def boom(u):
+        raise RuntimeError("x")
+    rv.fetch_all(["https://a.test/x"], pages, boom, tmp_path, sleep=lambda s: None)
+    assert pages["https://a.test/x"]["fingerprint"] == fp
+    rv.fetch_all(["https://a.test/x"], pages, lambda u: (200, u, LONG + " Brand new lawsuit paragraph."),
+                 tmp_path, sleep=lambda s: None)
+    assert pages["https://a.test/x"]["changed"] is True
+
+
+@pytest.mark.parametrize("url,final", [
+    ("https://a.test/x", "https://a.test:443/x/"),
+    ("http://a.test/x", "http://a.test:80/x"),
+    ("https://a.test/x/", "https://www.a.test/x"),
+])
+def test_classify_ignores_default_port_and_slash(url, final):
+    assert rv.classify(url, 200, final, LONG) == "live"
+
+
+def test_classify_nondefault_port_is_redirect():
+    assert rv.classify("https://a.test/x", 200, "https://a.test:8443/x", LONG) == "redirected"
+
+
+@pytest.mark.parametrize("status,want", [(402, "blocked"), (405, "blocked"), (408, "blocked"),
+                                         (418, "blocked"), (404, "dead"), (410, "dead")])
+def test_classify_only_404_410_are_dead(status, want):
+    assert rv.classify("https://a.test/x", status, "https://a.test/x", "") == want
+
+
+def test_429_backs_off_exponentially_then_succeeds(tmp_path):
+    seq = iter([(429, "u", ""), (429, "u", ""), (200, "https://a.test/x", LONG)])
+    sleeps = []
+    e = rv.check_url("https://a.test/x", None, lambda u: next(seq), tmp_path, sleep=sleeps.append)
+    assert sleeps == [10.0, 20.0] and e["class"] == "live"
+
+
+def test_429_retries_capped_at_three(tmp_path):
+    calls, sleeps = [], []
+    def f(u):
+        calls.append(u)
+        return 429, u, ""
+    e = rv.check_url("https://a.test/x", None, f, tmp_path, sleep=sleeps.append)
+    assert len(calls) == 4 and sleeps == [10.0, 20.0, 40.0] and e["class"] == "blocked"
+
+
+def test_fingerprint_ignores_volatile_text():
+    a = LONG + " Last updated: March 3, 2026. (c) 2025 Acme Corp. Posted 2026-03-03T10:00:00Z"
+    b = LONG + " Last updated: October 19, 2026. (c) 2026 Acme Corp. Posted 2026-10-19T08:30:00Z"
+    assert rv.fingerprint(a) == rv.fingerprint(b)
+    assert rv.fingerprint(a) != rv.fingerprint(LONG + " The council added a new hearing.")
+
+
+def test_changed_only_reported_for_urls_fetched_this_run(tmp_path, monkeypatch):
+    _seed(tmp_path, monkeypatch, n=1)
+    cache = tmp_path / "c"
+    v = {"t": LONG}
+    f = lambda u: (200, u, v["t"])
+    out = tmp_path / "r.json"
+    rv.main(["--delay", "0"], fetcher=f, cache_dir=cache)
+    v["t"] = LONG + " A new paragraph about a lawsuit filed in the county court."
+    rv.main(["--delay", "0", "--json", str(out)], fetcher=f, cache_dir=cache)
+    assert len(json.loads(out.read_text())["changed_pages"]) == 1
+    # replay from cache: the stored changed=True must not resurface
+    rv.main(["--cached", "--json", str(out)], fetcher=f, cache_dir=cache)
+    assert json.loads(out.read_text())["changed_pages"] == []

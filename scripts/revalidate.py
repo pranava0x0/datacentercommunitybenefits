@@ -32,6 +32,8 @@ import hashlib
 import importlib.util
 import json
 import logging
+import os
+import re
 import sys
 import threading
 import time
@@ -59,6 +61,13 @@ STALE_DAYS_DEFAULT = 60
 
 LIVE, BLOCKED, DEAD, REDIRECTED, UNCHECKED = "live", "blocked", "dead", "redirected", "unchecked"
 DEAD_STATUSES = {404, 410}
+# Other 4xx (payment-required, method-not-allowed, request-timeout...) are
+# almost always bot walls or flaky origins, never proof a page is gone.
+BLOCKED_EXTRA = {402, 405, 408}
+BACKOFF_START = 10.0   # CLAUDE.md network rules: 429 backs off from 10 s
+MAX_429_RETRIES = 3
+SAVE_EVERY = 50
+MIN_COVERAGE_DEFAULT = 0.9
 # A fetch that failed before any HTTP status: refused / DNS are dead, the rest
 # (timeouts, SSL handshakes, resets) look like bot walls and stay "blocked".
 _DEAD_ERROR_MARKERS = ("Name or service not known", "nodename nor servname", "getaddrinfo",
@@ -146,6 +155,15 @@ def _path_of(url: str) -> str:
     return urlparse(url).path.rstrip("/")
 
 
+def _host_of(url: str) -> str:
+    """Lowercase host without www. and without a default port (:80/:443)."""
+    p = urlparse(url)
+    host = (p.hostname or "").lower().removeprefix("www.")
+    if p.port and p.port not in (80, 443):
+        host = f"{host}:{p.port}"
+    return host
+
+
 def classify(url: str, status: int, final_url: str, text: str) -> str:
     """live / blocked / dead / redirected. A 2xx whose final URL landed on a
     different host, or fell back to the site root from a deep path, is
@@ -154,23 +172,40 @@ def classify(url: str, status: int, final_url: str, text: str) -> str:
         return DEAD if any(m in text for m in _DEAD_ERROR_MARKERS) else BLOCKED
     if status in DEAD_STATUSES:
         return DEAD
-    if status in probe.BLOCKED_STATUSES:
+    if status in probe.BLOCKED_STATUSES or status in BLOCKED_EXTRA:
         return BLOCKED
     if status >= 500:
         return BLOCKED
     if 200 <= status < 300:
-        a, b = urlparse(url), urlparse(final_url or url)
-        host_a, host_b = a.netloc.lower().removeprefix("www."), b.netloc.lower().removeprefix("www.")
+        host_a, host_b = _host_of(url), _host_of(final_url or url)
         if host_a != host_b or (_path_of(url) and not _path_of(final_url or url)):
             return REDIRECTED
         if len(text) < probe.MIN_TEXT:
             return BLOCKED  # a bot-wall interstitial is short
         return LIVE
-    return DEAD if status >= 400 else BLOCKED
+    return DEAD if status in DEAD_STATUSES else BLOCKED
+
+
+_MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?"
+_VOLATILE = [
+    re.compile(r"(?:last\s+)?(?:updated|modified|published|posted|reviewed)\s*(?:on|at)?\s*:?\s*[^\n.]{0,40}", re.I),
+    re.compile(r"(?:\u00a9|\(c\)|copyright)\s*(?:19|20)\d\d(?:\s*[-\u2013]\s*(?:19|20)\d\d)?", re.I),
+    re.compile(r"\b(?:19|20)\d\d-\d\d-\d\d(?:[t ]\d\d:\d\d(?::\d\d)?z?)?\b", re.I),
+    re.compile(rf"\b{_MONTH}\s+\d{{1,2}},?\s+(?:19|20)\d\d\b", re.I),
+    re.compile(rf"\b\d{{1,2}}\s+{_MONTH}\s+(?:19|20)\d\d\b", re.I),
+]
+
+
+def strip_volatile(text: str) -> str:
+    """Drop timestamps, 'Updated: ...' lines and copyright years, so a page
+    that only re-stamps itself does not read as changed."""
+    for rx in _VOLATILE:
+        text = rx.sub(" ", text)
+    return text
 
 
 def fingerprint(text: str) -> str:
-    return hashlib.sha1(probe.norm(text).lower().encode("utf-8")).hexdigest()
+    return hashlib.sha1(probe.norm(strip_volatile(text)).lower().encode("utf-8")).hexdigest()
 
 
 def _text_path(cache_dir: Path, url: str) -> Path:
@@ -178,13 +213,34 @@ def _text_path(cache_dir: Path, url: str) -> Path:
 
 
 def load_cache(cache_dir: Path) -> dict:
+    """Load pages.json. A corrupt file is moved to pages.json.corrupt and the
+    run starts fresh; it never crashes the routine."""
     f = cache_dir / "pages.json"
-    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+    if not f.exists():
+        return {}
+    try:
+        data = json.loads(f.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            raise ValueError("pages.json is not an object")
+        return data
+    except (ValueError, OSError) as exc:
+        backup = f.with_name("pages.json.corrupt")
+        log.warning("corrupt cache %s (%s); starting fresh, backup at %s", f, exc, backup)
+        try:
+            os.replace(f, backup)
+        except OSError as exc2:
+            log.warning("could not back up corrupt cache: %s", exc2)
+        return {}
 
 
 def save_cache(cache_dir: Path, pages: dict) -> None:
+    """Atomic: write a temp file, then os.replace, so a crash mid-write never
+    leaves a truncated pages.json."""
     cache_dir.mkdir(parents=True, exist_ok=True)
-    (cache_dir / "pages.json").write_text(json.dumps(pages, indent=1, sort_keys=True), encoding="utf-8")
+    final = cache_dir / "pages.json"
+    tmp = cache_dir / f"pages.json.tmp.{os.getpid()}"
+    tmp.write_text(json.dumps(pages, indent=1, sort_keys=True), encoding="utf-8")
+    os.replace(tmp, final)
 
 
 # --------------------------------------------------------------------------
@@ -192,10 +248,19 @@ def save_cache(cache_dir: Path, pages: dict) -> None:
 # --------------------------------------------------------------------------
 
 def check_url(url: str, prev: Optional[dict], fetcher: Fetcher, cache_dir: Path,
-              now: Optional[str] = None) -> dict:
+              now: Optional[str] = None,
+              sleep: Callable[[float], None] = time.sleep) -> dict:
     """Fetch one URL, classify it, compare its fingerprint with the previous
     run's, and persist the text. Returns the new page entry."""
     status, final, text = fetcher(url)
+    wait = BACKOFF_START
+    for _ in range(MAX_429_RETRIES):
+        if status != 429:
+            break
+        log.warning("429 from %s; backing off %.0fs", url, wait)
+        sleep(wait)
+        wait *= 2
+        status, final, text = fetcher(url)
     cls = classify(url, status, final, text)
     entry = {"status": status, "final_url": final, "class": cls,
              "checked": now or datetime.now(timezone.utc).strftime("%Y-%m-%d")}
@@ -218,25 +283,39 @@ def check_url(url: str, prev: Optional[dict], fetcher: Fetcher, cache_dir: Path,
 
 def fetch_all(urls: list, pages: dict, fetcher: Fetcher, cache_dir: Path,
               delay: float = HOST_DELAY, workers: int = 8,
-              sleep: Callable[[float], None] = time.sleep) -> dict:
+              sleep: Callable[[float], None] = time.sleep,
+              fetched: Optional[set] = None,
+              save: Optional[Callable[[dict], None]] = None,
+              save_every: int = SAVE_EVERY) -> dict:
     """Fetch urls, serial within a host (>= `delay` apart), parallel across hosts."""
     by_host: dict = {}
     for u in urls:
         by_host.setdefault(urlparse(u).netloc.lower(), []).append(u)
     lock = threading.Lock()
+    done = [0]
 
     def run_host(host_urls: list) -> None:
         for i, u in enumerate(host_urls):
             if i:
                 sleep(delay)
             try:
-                entry = check_url(u, pages.get(u), fetcher, cache_dir)
+                entry = check_url(u, pages.get(u), fetcher, cache_dir, sleep=sleep)
             except Exception as exc:  # one URL must never crash the run
                 log.error("check failed for %s: %s", u, exc)
                 entry = {"status": 0, "final_url": u, "class": UNCHECKED, "error": str(exc),
                          "changed": False, "checked": date.today().isoformat()}
+                # Carry the last good fingerprint so the next good fetch still
+                # detects a change.
+                prev = pages.get(u) or {}
+                if "fingerprint" in prev:
+                    entry["fingerprint"] = prev["fingerprint"]
             with lock:
                 pages[u] = entry
+                if fetched is not None:
+                    fetched.add(u)
+                done[0] += 1
+                if save and save_every and done[0] % save_every == 0:
+                    save(pages)
 
     with ThreadPoolExecutor(max_workers=workers) as ex:
         list(ex.map(run_host, by_host.values()))
@@ -325,7 +404,16 @@ def stale_statuses(seed_dir: Optional[Path] = None, today: Optional[date] = None
 # Report
 # --------------------------------------------------------------------------
 
-def build_report(rows: list, pages: dict, cache_dir: Path, stale: list) -> dict:
+def coverage_of(rows: list, pages: dict) -> "tuple[int, int]":
+    """(rows with a cached check, total rows)."""
+    return sum(1 for r in rows if r["url"] in pages), len(rows)
+
+
+def build_report(rows: list, pages: dict, cache_dir: Path, stale: list,
+                 fetched: Optional[set] = None) -> dict:
+    """`changed_pages` lists only URLs re-fetched in THIS run (`fetched`);
+    a cached `changed` flag from an earlier run is never replayed."""
+    fetched = fetched or set()
     dead, quote_misses, changed = [], [], []
     for r in rows:
         pg = pages.get(r["url"])
@@ -335,14 +423,14 @@ def build_report(rows: list, pages: dict, cache_dir: Path, stale: list) -> dict:
         if pg["class"] in (DEAD, REDIRECTED):
             dead.append({**ref, "class": pg["class"], "status": pg["status"],
                          "final_url": pg.get("final_url")})
-        if pg.get("changed"):
+        if pg.get("changed") and r["url"] in fetched:
             changed.append(ref)
         for miss in check_quotes(r, pg, cache_dir):
             quote_misses.append({**ref, **miss})
     blocked = sorted({r["url"] for r in rows if pages.get(r["url"], {}).get("class") == BLOCKED})
     return {"dead_links": dead, "quote_misses": quote_misses, "changed_pages": changed,
             "stale_statuses": stale, "blocked_urls": blocked,
-            "urls_checked": sum(1 for r in rows if r["url"] in pages),
+            "urls_checked": coverage_of(rows, pages)[0],
             "rows_total": len(rows)}
 
 
@@ -393,25 +481,37 @@ def main(argv: Optional[list] = None, fetcher: Fetcher = probe.fetch,
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--fail-on-dead", action="store_true")
     ap.add_argument("--fail-on-miss", action="store_true")
+    ap.add_argument("--min-coverage", type=float, default=MIN_COVERAGE_DEFAULT,
+                    help="fail (under --fail-on-*) when fewer than this share of the selected rows has a cached check")
     args = ap.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 
     rows = filter_rows(enumerate_sources(), args.only, args.rec_id)
     pages = load_cache(cache_dir)
+    fetched: set = set()
     if not args.cached:
         urls = select_urls(rows, pages, args.limit)
         log.info("checking %d of %d unique URLs", len(urls), len({r['url'] for r in rows}))
-        fetch_all(urls, pages, fetcher, cache_dir, delay=args.delay, workers=args.workers)
+        fetch_all(urls, pages, fetcher, cache_dir, delay=args.delay, workers=args.workers,
+                  fetched=fetched, save=lambda p: save_cache(cache_dir, p))
         save_cache(cache_dir, pages)
 
     stale = [s for s in stale_statuses(stale_days=args.stale_days)
              if (not args.only or args.only in (s["kind"], s["list"]))
              and (not args.rec_id or s["id"] == args.rec_id)]
-    rep = build_report(rows, pages, cache_dir, stale)
+    rep = build_report(rows, pages, cache_dir, stale, fetched)
+    have, total = coverage_of(rows, pages)
+    coverage = have / total if total else 1.0
+    if have < total:
+        print(f"!! NOT CHECKED: {total - have} of {total} rows have no cached page "
+              f"(coverage {coverage:.0%}). A clean report below does not mean clean.\n")
     print(render_markdown(rep))
     if args.json_out:
         Path(args.json_out).write_text(json.dumps(rep, indent=1), encoding="utf-8")
     code = 0
+    if (args.fail_on_dead or args.fail_on_miss) and coverage < args.min_coverage:
+        log.error("coverage %.0f%% is below --min-coverage %.0f%%", coverage * 100, args.min_coverage * 100)
+        code = 1
     if args.fail_on_dead and rep["dead_links"]:
         code = 1
     if args.fail_on_miss and rep["quote_misses"]:

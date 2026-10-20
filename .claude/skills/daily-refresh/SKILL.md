@@ -292,7 +292,12 @@ why it didn't merge); minutes used.
 
 ## Appendix: spend tokens only on the machine's worklist
 
-Run `.venv/bin/python scripts/revalidate.py --cached` first. It costs no
+In the cloud routine the cache starts empty, so run
+`.venv/bin/python scripts/revalidate.py --limit 300` (live) first, then
+`.venv/bin/python scripts/revalidate.py --cached`. A `!! NOT CHECKED: N of M
+rows have no cached page` banner means the report is incomplete, not clean;
+with `--fail-on-dead`/`--fail-on-miss` coverage below `--min-coverage`
+(default 0.9) exits non-zero. Locally the `--cached` run costs no
 tokens: it re-reads the on-disk cache (`.revalidate_cache/`, gitignored) and
 prints a worklist of dead links, quote misses, pages whose text changed since
 the last check, and stale statuses (pending rate cases past their milestone,
@@ -300,8 +305,8 @@ old `proposed` records, enacted moratoriums past their term). Only spend
 tokens on records on that list. To refresh the cache, run
 `scripts/revalidate.py --limit 40` (oldest-checked URLs first, 1.5 s per
 host); `--only KIND`, `--id ID`, `--json OUT`, `--fail-on-dead` and
-`--fail-on-miss` narrow or gate it. "Changed" appears from a URL's second
-check on. A quote miss on a JS-rendered hub page is a lead, not proof the
+`--fail-on-miss` narrow or gate it. "Changed" lists only URLs re-fetched in that run, from a URL's second
+check on (timestamps and copyright years are ignored). A quote miss on a JS-rendered hub page is a lead, not proof the
 quote is false: confirm with WebFetch before editing. Blocked URLs are not
 machine-verified.
 
