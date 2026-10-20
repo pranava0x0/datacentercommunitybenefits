@@ -146,3 +146,18 @@ def test_unreadable_pdf_is_a_miss_not_blocked(tmp_path, monkeypatch, capsys) -> 
                             "verbatim": "a quote long enough to be checked by the gate"}) + "\n")
     assert pr.check_evidence(ev, 0) == 1
     assert "MISS" in capsys.readouterr().out
+
+
+def test_short_pdf_text_from_a_suffixless_url_is_checked_not_blocked(tmp_path, monkeypatch, capsys) -> None:
+    import json as _j
+    import probe as pr
+    url = "https://psc.example/Document/Display/123"
+    def fake(u):
+        pr.PDF_URLS.add(u)
+        return (200, u, "ORDER. The tariff is approved effective December 4, 2025.")
+    monkeypatch.setattr(pr, "fetch", fake)
+    ev = tmp_path / "e.jsonl"
+    ev.write_text(_j.dumps({"id": "x", "action": "add", "source_url": url,
+                            "verbatim": "The tariff is approved effective December 4, 2025."}) + "\n")
+    assert pr.check_evidence(ev, 0) == 0
+    assert "HIT" in capsys.readouterr().out

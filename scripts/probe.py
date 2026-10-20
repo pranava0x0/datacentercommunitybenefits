@@ -47,6 +47,7 @@ NORMALIZE = {
 }
 BLOCKED_STATUSES = {401, 403, 406, 429, 451, 503}
 PDF_UNREADABLE = "PDF-UNREADABLE"
+PDF_URLS: set = set()  # URLs fetch() detected as PDFs (by header or magic bytes, not suffix)
 MIN_TEXT = 400  # a bot-wall interstitial is short; real article text is not
 
 
@@ -105,7 +106,7 @@ def pdf_text_best(data: bytes) -> str:
                     ["osascript", "-l", "JavaScript", str(PDFKIT_SCRIPT), f.name],
                     capture_output=True, text=True, timeout=90,
                 )
-                if out.returncode == 0 and len(out.stdout) > MIN_TEXT:
+                if out.returncode == 0 and out.stdout.strip():
                     return norm(out.stdout)
             except subprocess.TimeoutExpired:
                 pass
@@ -139,6 +140,7 @@ def fetch(url: str) -> tuple[int, str, str]:
         return 0, url, f"FETCH-ERROR: {exc}"
     is_pdf = "pdf" in r.headers.get("content-type", "") or r.content[:5] == b"%PDF-"
     if is_pdf:
+        PDF_URLS.update({url, r.url})  # the evidence check must not treat short PDF text as a bot wall
         text = pdf_text_best(r.content)
         # An unreadable PDF must fail the gate, not slip through as BLOCKED:
         # on Linux (no PDFKit) a large PDF would otherwise pass unverified.
@@ -209,7 +211,7 @@ def check_evidence(path: Path, delay: float) -> int:
             print(f"MISS    {rid}: PDF text unreadable here (no PDFKit, or scanned/oversized); "
                   f"read it on macOS or by hand before shipping: {url}")
             continue
-        if status in BLOCKED_STATUSES or status == 0 or (len(text) < MIN_TEXT and not url.lower().endswith(".pdf")):
+        if status in BLOCKED_STATUSES or status == 0 or (len(text) < MIN_TEXT and url not in PDF_URLS):
             blocked += 1
             print(f"BLOCKED {rid}: HTTP {status} {url}")
             continue
