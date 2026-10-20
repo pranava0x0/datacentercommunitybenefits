@@ -260,6 +260,33 @@
       "summary": "French AI-infrastructure start-up, tracked for its Rovaltain (Alixan) data-centre project, whose building permit a court suspended in July 2026. No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
       "last_reviewed": "2026-10-19",
       "international_only": true
+    },
+    {
+      "slug": "kakao",
+      "name": "Kakao Corp",
+      "hq": "Jeju, South Korea",
+      "dedicated_page_url": null,
+      "summary": "Korean internet and platform company; tracked for its Ansan data centre. Added under the owner's international-operator rule, not on gate 2: the only first-party material is a 2020 release on the Ansan site.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "lg-uplus",
+      "name": "LG Uplus",
+      "hq": "Seoul, South Korea",
+      "dedicated_page_url": null,
+      "summary": "Korean telecom operator, tracked for its Paju AI data centre. No community-impact page was found; added under the owner's international-operator rule, not on gate 2.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "ecodatacenter",
+      "name": "EcoDataCenter",
+      "hq": "Falun, Sweden",
+      "dedicated_page_url": null,
+      "summary": "Swedish data-centre operator (Falun, Borlänge), tracked for its third campus at Smedjebacken. Its own release carries one named-executive statement on its dealings with the municipality; no standing community-impact page was found.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
     }
   ]
 }

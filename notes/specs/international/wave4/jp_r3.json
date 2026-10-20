@@ -1,0 +1,291 @@
+{
+  "round": 3,
+  "generated_at": "2026-10-19",
+  "budget_note": "Round 3, Japan only. About 20 WebFetch/WebSearch calls and 3 PDF/curl pulls. Target was 8+; 10 records verified (all 10 clauses HIT in probe --evidence). Dropped: the Soumu watt-bit page (Shift-JIS, probe cannot decode, see leads).",
+  "sources": [
+    {
+      "country": "JP",
+      "url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "title": "Mitsui Fudosan news release, Kobe underground tunnel data centre (2026-10-06)",
+      "verified": true,
+      "kind": "company first-party"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.softbank.jp/sbnews/entry/20250421_01",
+      "title": "SoftBank Newsroom, Hokkaido Tomakomai AI data centre groundbreaking (2025-04-21)",
+      "verified": true,
+      "kind": "company first-party"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.softbank.jp/sbnews/entry/20260218_01",
+      "title": "SoftBank Newsroom article, Tomakomai local engagement (2026-02-18)",
+      "verified": true,
+      "kind": "company first-party article"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.softbank.jp/corp/news/info/2026/20260630_01/",
+      "title": "SoftBank news, Tomakomai Nature Symbiosis Site certification (2026-06-30)",
+      "verified": true,
+      "kind": "company first-party"
+    },
+    {
+      "country": "JP",
+      "url": "https://www.city.ishikari.hokkaido.jp/_res/projects/default_project/_page_/001/007/372/dc1.pdf",
+      "title": "City of Ishikari news release, Ishikari DC Consortium (2026-07-28)",
+      "verified": true,
+      "kind": "government first-party PDF (read via PDFKit)"
+    }
+  ],
+  "companies": [],
+  "records": [
+    {
+      "id": "r3-JP-1",
+      "country": "JP",
+      "kind": "claim",
+      "company": "mitsui-fudosan",
+      "project": "Kobe underground tunnel data centre (Mitsui Fudosan, Kumagai Gumi, Getworks)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-10-06",
+        "theme_hint": "energy"
+      },
+      "verbatim": "最大受電容量20メガワット規模のデータセンターとして運用することを目指しています",
+      "translation": {
+        "text": "The company aims to operate it as a data centre with a maximum receiving capacity on the order of 20 megawatts.",
+        "by": "machine"
+      },
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "notes": "First-party: Mitsui Fudosan news release 2026-10-06. Target capacity, not contracted. Phase 1 scope (containers, service start end-2027) is in the same release."
+    },
+    {
+      "id": "r3-JP-2",
+      "country": "JP",
+      "kind": "claim",
+      "company": "mitsui-fudosan",
+      "project": "Kobe underground tunnel data centre (Mitsui Fudosan, Kumagai Gumi, Getworks)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-10-06",
+        "theme_hint": "water"
+      },
+      "verbatim": "地下水を循環利用する水冷方式を導入するなど、既存資源を最大限に活用することで、環境負荷の低減と高効率な運用を実現します。",
+      "translation": {
+        "text": "By introducing a water-cooling system that circulates groundwater, and by making maximum use of existing resources, the company will reduce environmental impact and achieve highly efficient operation.",
+        "by": "machine"
+      },
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "notes": "First-party design claim. Groundwater circulation is the stated cooling method; the release does not give a withdrawal or discharge volume, so this is not a water-use figure."
+    },
+    {
+      "id": "r3-JP-3",
+      "country": "JP",
+      "kind": "claim",
+      "company": "mitsui-fudosan",
+      "project": "Kobe underground tunnel data centre (Mitsui Fudosan, Kumagai Gumi, Getworks)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-10-06",
+        "theme_hint": "infrastructure"
+      },
+      "verbatim": "初期開発では、2027年末のサービス提供開始を予定しています。",
+      "translation": {
+        "text": "For the initial development, the company plans to start service at the end of 2027.",
+        "by": "machine"
+      },
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "notes": "First-party schedule claim. Kobe city's lease award (2026-10-06, already in jp_ar_cl_r2) is the government-side record of the same project."
+    },
+    {
+      "id": "r3-JP-4",
+      "country": "JP",
+      "kind": "claim",
+      "company": "softbank-corp",
+      "project": "Hokkaido Tomakomai AI data centre",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2025-04-21",
+        "theme_hint": "energy"
+      },
+      "verbatim": "北海道内の再生可能エネルギーを100％利用する地産地消型のAIデータセンター",
+      "translation": {
+        "text": "an AI data centre that uses 100% renewable energy generated within Hokkaido, consumed locally",
+        "by": "machine"
+      },
+      "source_url": "https://www.softbank.jp/sbnews/entry/20250421_01",
+      "notes": "First-party: SoftBank Newsroom, construction-start release (ceremony 2025-04-15, release 2025-04-21). The 100% figure is the company's own design target; whether it is met in operation is not verified."
+    },
+    {
+      "id": "r3-JP-5",
+      "country": "JP",
+      "kind": "claim",
+      "company": "softbank-corp",
+      "project": "Hokkaido Tomakomai AI data centre",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2025-04-21",
+        "theme_hint": "infrastructure"
+      },
+      "verbatim": "将来的に国内最大規模の敷地面積70万平方メートル、受電容量が300メガワット超まで拡大",
+      "translation": {
+        "text": "Looking ahead, the site is expected to grow to the largest scale in Japan, with a site area of 700,000 square metres and receiving capacity above 300 MW.",
+        "by": "machine"
+      },
+      "source_url": "https://www.softbank.jp/sbnews/entry/20250421_01",
+      "notes": "First-party, future-tense scale claim ('expected to grow'). Phase-1 capacity is not stated in this release, so do not read 300 MW as the current figure."
+    },
+    {
+      "id": "r3-JP-6",
+      "country": "JP",
+      "kind": "claim",
+      "company": "softbank-corp",
+      "project": "Hokkaido Tomakomai AI data centre",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-02-18",
+        "theme_hint": "jobs"
+      },
+      "verbatim": "地域経済への波及や雇用の創出、先端産業が集積していくことによる地域の活性化など",
+      "translation": {
+        "text": "the spillover into the regional economy, job creation, and revitalisation through the agglomeration of advanced industries",
+        "by": "machine"
+      },
+      "source_url": "https://www.softbank.jp/sbnews/entry/20260218_01",
+      "notes": "First-party company article (interview with SoftBank project staff, published by SoftBank). Company-stated benefit intent, not a job count. Quote is from a staff member, not an executive."
+    },
+    {
+      "id": "r3-JP-7",
+      "country": "JP",
+      "kind": "claim",
+      "company": "softbank-corp",
+      "project": "Hokkaido Tomakomai AI data centre",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-06-30",
+        "theme_hint": "water"
+      },
+      "verbatim": "近年、AIの普及によりデータセンターで利用する電力や水資源の需要が増加し",
+      "translation": {
+        "text": "In recent years, growing use of AI has increased demand for electricity and water resources used by data centres.",
+        "by": "machine"
+      },
+      "source_url": "https://www.softbank.jp/corp/news/info/2026/20260630_01/",
+      "notes": "First-party sustainability statement, issued with the Nature Symbiosis Site certification release (2026-06-30). Acknowledges water demand; gives no site water figure."
+    },
+    {
+      "id": "r3-JP-8",
+      "country": "JP",
+      "kind": "claim",
+      "company": "softbank-corp",
+      "project": "Hokkaido Tomakomai AI data centre",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-06-30",
+        "theme_hint": "engagement"
+      },
+      "verbatim": "敷地内の20ha（「自然共生サイト」は13.5ha）を緑地として残し",
+      "translation": {
+        "text": "the company will keep 20 ha of the site as green space (13.5 ha of which is certified as a Nature Symbiosis Site)",
+        "by": "machine"
+      },
+      "source_url": "https://www.softbank.jp/corp/news/info/2026/20260630_01/",
+      "notes": "First-party, biodiversity commitment on site. Does not map to a THEMES value cleanly; theme_hint set to engagement as a placeholder for curator review."
+    },
+    {
+      "id": "r3-JP-9",
+      "country": "JP",
+      "kind": "government_response",
+      "company": "",
+      "project": "Ishikari bay new port area (Ishikari DC Consortium)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-07-28",
+        "theme_hint": "engagement",
+        "constituency": "local_government"
+      },
+      "verbatim": "「地域の計算資源」かつ「社会インフラ」と位置づけ",
+      "translation": {
+        "text": "The consortium positions data centres as 'regional computing resources' and 'social infrastructure'.",
+        "by": "machine"
+      },
+      "source_url": "https://www.city.ishikari.hokkaido.jp/_res/projects/default_project/_page_/001/007/372/dc1.pdf",
+      "notes": "City of Ishikari news release (2026-07-28) establishing the Ishikari Data Centre Consortium (石狩DCC). Government first-party. Participants listed as planned, not confirmed; Sakura Internet is among them."
+    },
+    {
+      "id": "r3-JP-10",
+      "country": "JP",
+      "kind": "government_response",
+      "company": "",
+      "project": "Ishikari bay new port area (Ishikari DC Consortium)",
+      "verified": true,
+      "fields": {
+        "statement_lang": "ja",
+        "published_at": "2026-07-28",
+        "theme_hint": "jobs",
+        "constituency": "local_government"
+      },
+      "verbatim": "DC間での人材交流、雇用の創出を推進するほか",
+      "translation": {
+        "text": "The consortium will promote engineer training, staff exchange between data centres, and job creation, in addition to building local understanding among residents and local firms.",
+        "by": "machine"
+      },
+      "source_url": "https://www.city.ishikari.hokkaido.jp/_res/projects/default_project/_page_/001/007/372/dc1.pdf",
+      "notes": "Same city release as r3-JP-9. Consortium plans to promote job creation; no number is given. Prose is the city's, so the quote is government-first-party."
+    }
+  ],
+  "leads": [
+    {
+      "country": "JP",
+      "item": "Hokkaido Prefecture and SoftBank comprehensive partnership agreement, signed 2025-04-15 at the Hokkaido government office, with new items on industrial revitalisation from the Tomakomai data centre",
+      "status": "verified in SoftBank release; not yet a Policy record",
+      "notes": "Source is SoftBank release sbnews/entry/20250421_01 (quotes the agreement). A benefit-agreement candidate for the Policies tab. The agreement text itself is not fetched; its key_terms need the Hokkaido government page before any record is made."
+    },
+    {
+      "country": "JP",
+      "item": "MIC/METI 'Watt-Bit Collaboration Public-Private Council' (ワット・ビット連携官民懇談会), first meeting 2025-03-21",
+      "status": "verified text, probe could not read",
+      "notes": "Soumu press release (2025-03-18), https://www.soumu.go.jp/menu_news/s-news/01kiban04_02000254.html. Shift-JIS encoded; probe.py decodes UTF-8 only, so its MISS is an encoding limit, not a wrong quote. Needs a probe fix or a curl+decode check before a record. Policy context, not a community benefit."
+    },
+    {
+      "country": "JP",
+      "item": "Kitakyushu Wakamatsu data centre consultation council (3-party, announced 2026-10-15 per news)",
+      "status": "not verified",
+      "notes": "Still open from round 2. The city PDF 001218667 is image-only and no city press release for 2026-10-15 was found in search. Read city.kitakyushu.lg.jp press listing directly."
+    },
+    {
+      "country": "JP",
+      "item": "Mitsui Fudosan: ¥600bn+ cumulative data-centre investment to FY2035 (reported July 2026)",
+      "status": "secondary only",
+      "notes": "Appears in a trade-press summary of the Kobe release, not in the primary release text pulled here. Do not record until a Mitsui primary is read."
+    },
+    {
+      "country": "JP",
+      "item": "AWS Japan cloud infrastructure investment (about JPY 2.26tn, through 2027)",
+      "status": "unresolved date",
+      "notes": "Secondary reports disagree on date (2024 vs 2026) and amount (JPY 2.26tn vs 2.3tn over five years). aboutamazon.jp page was not reachable by search. Verify the primary before any record."
+    },
+    {
+      "country": "JP",
+      "item": "Google Inzai (Chiba) data centre first-party page",
+      "status": "not found",
+      "notes": "Search did not return a blog.google/intl/ja-jp post. Opening was 2023-04 per trade press; the official Japanese post would need direct navigation."
+    },
+    {
+      "country": "JP",
+      "item": "Sakura Internet Ishikari first-party statement",
+      "status": "not found",
+      "notes": "No Sakura press release on Ishikari employment found. Sakura is a named Ishikari DCC participant (r3-JP-9/10), so a Sakura primary would be the strongest company record for that consortium."
+    }
+  ]
+}

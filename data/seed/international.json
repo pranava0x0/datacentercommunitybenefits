@@ -1476,7 +1476,13 @@
       "subdivision": "GB-ENG",
       "locality": "Blyth; Cobalt Park (North Tyneside)",
       "source_lang": "en",
-      "community_benefits_framework": false
+      "community_benefits_framework": false,
+      "resources": [
+        {
+          "url": "https://www.gov.uk/government/news/north-east-ai-growth-zone-taskforce-launched-to-accelerate-jobs-skills-and-growth",
+          "title": "GOV.UK — North East AI Growth Zone taskforce launched (24 Sep 2025)"
+        }
+      ]
     },
     {
       "id": "kr-geumcheon-gu-200m-consent-2026",
@@ -1648,7 +1654,13 @@
       "source_url": "https://www.senat.fr/leg/tas25-073.pdf",
       "source_title": "Sénat, texte adopté n° 73 (25 March 2026), proposition de loi visant à encadrer l’implantation des centres de données",
       "captured_at": "2026-10-19",
-      "source_lang": "fr"
+      "source_lang": "fr",
+      "resources": [
+        {
+          "url": "https://www.banquedesterritoires.fr/datacenters-le-senat-adopte-une-proposition-de-loi-allegee-renvoyant-lessentiel-aux-textes-en-cours",
+          "title": "Banque des Territoires — Senate adopts a slimmed bill (27 Mar 2026); reports Article 15 on PINM eligibility"
+        }
+      ]
     },
     {
       "id": "jp-utsunomiya-shin-tochigi-dc-solicitation-2026",
@@ -1717,7 +1729,13 @@
       "summary": "The Ministry of Science and ICT announced that the enactment bill passed the National Assembly plenary session on 7 May 2026. The ministry's stated schedule puts it in force around February 2027. The policy vocabulary has no 'enacted, not yet in force' status, so it is filed as proposed; it is not yet operative law. Clause-level terms are from a press report, not the enacted text.",
       "source_url": "https://v.daum.net/v/20260508173552820",
       "source_title": "Daum (news report) — 'AI 데이터센터 특별법' passes National Assembly (8 May 2026)",
-      "captured_at": "2026-10-19"
+      "captured_at": "2026-10-19",
+      "resources": [
+        {
+          "url": "https://peoplepower21.org/solidarity/2022267",
+          "title": "Joint statement of Green Transition Institute, People's Solidarity and Korean Federation for Environmental Justice on the Act (posted 8 May 2026; repost)"
+        }
+      ]
     },
     {
       "id": "kr-grid-impact-assessment-2024",
@@ -1952,6 +1970,167 @@
       "source_title": "GOV.UK — AI Growth Zones to create thousands of jobs: new site confirmed for North Wales (13 Nov 2025)",
       "captured_at": "2026-10-19",
       "community_benefits_framework": false
+    },
+    {
+      "id": "kr-jdc-jeju-public-ai-dc-2026",
+      "title": "Jeju Development Center public AI data centre (Jeju Advanced Science & Technology Complex 2)",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Jeju",
+      "country": "KR",
+      "subdivision": "KR-49",
+      "locality": "Wolpyeong-dong, Jeju City",
+      "source_lang": "ko",
+      "date": "2026-08-28",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "transparency"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "주민 우려가 제기되면 사업 필요성을 설명하고 협의할 방침이다."
+      ],
+      "key_terms_translation": {
+        "items": [
+          "If residents raise concerns, JDC plans to explain the project's necessity and consult with them."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Fnnews reports that the Jeju Free International City Development Center (JDC) briefed on 28 August 2026 a public AI data centre of 30 MW and 392.1 billion won, targeted for the second half of 2028. The project is under consideration, with SK and KT in talks. The article gives no jobs figure for this centre.",
+      "source_url": "https://www.fnnews.com/news/202608310632465621",
+      "source_title": "Fnnews — JDC Jeju public AI data centre briefing (31 Aug 2026)",
+      "captured_at": "2026-10-19",
+      "counterparties": [
+        "Jeju Free International City Development Center (JDC)"
+      ]
+    },
+    {
+      "id": "kr-busan-egis-ai-dc-mou-2025",
+      "title": "Busan–Egis Asset Management AI data centre investment MOU (Myeongji-Noksan)",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Busan Metropolitan City",
+      "country": "KR",
+      "subdivision": "KR-26",
+      "source_lang": "ko",
+      "date": "2025-06-17",
+      "counterparties": [
+        "Egis Asset Management"
+      ],
+      "benefit_themes": [
+        "jobs"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "데이터센터 운영에 필요한 신규 인력을 지역인재로 우선 고용하고"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "Priority hiring of new personnel needed for data centre operations from local talent, and"
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "value": null,
+      "summary": "TWIG24 reports Busan City's press release on an investment MOU signed 17 June 2025 with Egis Asset Management for two large AI data centres, stated at 1.8 trillion won. The MOU sets priority local hiring for operations and priority participation for local construction firms. It is an investment MOU, not a binding agreement.",
+      "source_url": "https://www.twig24.com/news/local_bs/2025/06/18/20250618021012",
+      "source_title": "TWIG24 — Busan City and Egis AI data centre MOU (18 Jun 2025)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-up-dc-policy-2026-go-536",
+      "title": "Uttar Pradesh Data Centre Policy 2026",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Uttar Pradesh",
+      "country": "IN",
+      "subdivision": "IN-UP",
+      "source_lang": "en",
+      "date": "2026-07-09",
+      "identifier": "G.O. No. 536/78-2-2026/E-105226",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The Policy notified vide G.O. No. 536/78-2-2026/E-105226 dated 09.07.2026",
+        "50% Land subsidy on prevailing sector rates shall be provided on purchase/lease of land from State Agencies in Bundelkhand and Purvanchal regions"
+      ],
+      "summary": "The Government of Uttar Pradesh notified its Data Centre Policy 2026 by a G.O. dated 9 July 2026, from the Department of IT & Electronics. Clause 7.1.3 offers a 50% land subsidy on purchases or leases from State agencies in the Bundelkhand and Purvanchal regions, against 25% in the other regions. The policy's own text states these incentives; community-benefit terms were not found in the text read.",
+      "source_url": "https://uplc.up.gov.in/downloadmedia/siteContent/202608230935077722DC-policy-2026-English_230826.pdf",
+      "source_title": "Government of Uttar Pradesh — Data Centre Policy 2026 (G.O. dated 9 Jul 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "gb-ofgem-curate-dc-connection-consultation-2026",
+      "title": "Ofgem Curate consultation: data centre connection reforms",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "Great Britain (Ofgem)",
+      "country": "GB",
+      "subdivision": null,
+      "source_lang": "en",
+      "date": "2026-07-29",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Data centre projects above a 40 MW threshold will be required to secure a returnable financial commitment"
+      ],
+      "summary": "Ofgem's 29 July 2026 consultation proposes that data centre projects above 40 MW secure a returnable financial commitment to join the demand-connection queue, at about £237,500 to £712,500 per MW of requested capacity. Responses were due 16 September 2026 and a decision is expected by the end of 2026. It is a consultation, not a rule in force.",
+      "source_url": "https://www.ofgem.gov.uk/sites/default/files/2026-07/Proposed-data-centre-connection-reforms-curate-consultation-document.pdf",
+      "source_title": "Ofgem — Proposed data centre connection reforms (Curate) consultation document (29 Jul 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fr-cre-rte-fast-track-400kv-2025",
+      "title": "CRE approval of RTE 400 kV \"fast track\" connection procedure (very large consumers)",
+      "instrument": "regulation",
+      "status": "in_effect",
+      "scope": "national",
+      "jurisdiction": "France (CRE)",
+      "country": "FR",
+      "subdivision": null,
+      "source_lang": "fr",
+      "date": "2025-05-07",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "new_power"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "permet d’accélérer le raccordement, à horizon 2028-2029, des consommateurs de très forte puissance (entre 400 MW et 1 GW) au réseau très haute tension (400 kV) de RTE"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "It allows the connection, by 2028-2029, of very high-power consumers (between 400 MW and 1 GW) to RTE's very high-voltage (400 kV) network to be accelerated."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "France's energy regulator CRE approved on 7 May 2025 an alternative 'fast track' procedure for connecting consumers of 400 MW to 1 GW to RTE's 400 kV grid, targeting 2028-2029 on sites identified by the State. The release names data centres only as an example; the procedure is not specific to them.",
+      "source_url": "https://www.cre.fr/fileadmin/Documents/Communiques_de_presse/2025/250507_CP_CRE_Procedure_fast_track.pdf",
+      "source_title": "CRE — Communiqué: procédure fast track de raccordement (7 May 2025)",
+      "captured_at": "2026-10-19"
     }
   ],
   "moratoriums": [
@@ -2045,7 +2224,18 @@
       "notes": "A 75 MW data centre planned by property firm Segro at a former H&M warehouse. The newly elected mayor is demanding its cancellation. Segro says it will recover heat from 12 MW of the 75 MW used. announced_year is the year of the source article (30 June 2026), the earliest dated source captured.",
       "subdivision": "FR-IDF",
       "locality": "Le Bourget",
-      "power_mw": 75
+      "power_mw": 75,
+      "updates": [
+        {
+          "date": "2026-07-28",
+          "kind": "lawsuit",
+          "title": "Montreuil court judge upholds the commune's withdrawal of the building permit",
+          "summary": "An interim-relief ruling only, reported as finding the project did not meet the local plan's height rules. The merits are undecided and Segro says it will contest.",
+          "authority": "Tribunal administratif de Montreuil",
+          "source_url": "https://www.banquedesterritoires.fr/datacenters-les-projets-dimplantation-dans-la-drome-et-au-bourget-contestes",
+          "source_title": "Banque des Territoires — Datacenters: les projets contestés dans la Drôme et au Bourget"
+        }
+      ]
     },
     {
       "id": "ca-google-beauharnois",
@@ -3107,6 +3297,98 @@
           "source_title": "AFP via Connaissance des énergies"
         }
       ]
+    },
+    {
+      "id": "kr-kakao-ansan",
+      "company_slug": "kakao",
+      "name": "Kakao data centre, Hanyang University ERICA Campus Innovation Park (Ansan)",
+      "city": "Ansan",
+      "country": "KR",
+      "subdivision": "KR-41",
+      "locality": "Sadong, Sangnok-gu",
+      "source_lang": "ko",
+      "status": "announced",
+      "announced_year": 2020,
+      "announced_date": "2020-09-07",
+      "claimed_investment": {
+        "amount": 400000000000,
+        "currency": "KRW",
+        "as_stated": "4,000억원 (400 billion won)"
+      },
+      "notes": "Kakao's 7 Sep 2020 release announces a data centre and industry-academia facility on an 18,383 square metre site in Hanyang University's Campus Innovation Park, with 2023 as the stated completion target. Secondary press reports it completed; that was not checked, so status stays announced. No site coordinates are recorded.",
+      "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+      "source_title": "Kakao newsroom — 카카오, 안산시·한양대와 손잡고 데이터센터 건립 추진 (7 Sep 2020)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "kr-lguplus-paju-aidc",
+      "company_slug": "lg-uplus",
+      "name": "LG Uplus Paju AI data centre (AIDC)",
+      "city": "Paju",
+      "country": "KR",
+      "subdivision": "KR-41",
+      "source_lang": "ko",
+      "status": "construction",
+      "announced_year": 2026,
+      "power_mw": 200,
+      "notes": "Newsis (dated 7 Jun 2026; URL id 5 Jun) reports a 200 MW power supply confirmed for the Paju AIDC on former LG Display factory land, with the first building scheduled for June 2027. announced_year is the year of the earliest dated source captured, not a confirmed announcement year. The article's account of a resolved electromagnetic-field dispute with residents is unquoted paraphrase and is not recorded. No site coordinates are recorded.",
+      "source_url": "https://mobile.newsis.com/view/NISX20260605_0003658312",
+      "source_title": "Newsis — LG유플러스 파주 AIDC 200MW (7 Jun 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "se-google-horndal",
+      "company_slug": "google",
+      "name": "Google Horndal data centre (Avesta, Dalarna)",
+      "city": "Avesta",
+      "country": "SE",
+      "subdivision": "SE-W",
+      "locality": "Horndal",
+      "source_lang": "en",
+      "status": "construction",
+      "announced_year": 2026,
+      "announced_date": "2026-06-02",
+      "claimed_jobs": 100,
+      "project_page_url": "https://datacenters.google/locations/horndal/",
+      "notes": "Google broke ground on 2 June 2026; announced_year is the groundbreaking year, not the year the land was acquired. The release says the facility is designed for off-site heat recovery; no heat off-taker is named and no delivery agreement was verified. claimed_jobs is the release's 100 direct full-time jobs. No site coordinates are recorded.",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+      "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "fi-microsoft-vaasa-mustasaari",
+      "company_slug": "microsoft",
+      "name": "Microsoft Vaasa and Mustasaari land (GigaVaasa)",
+      "city": "Vaasa",
+      "country": "FI",
+      "subdivision": "FI-12",
+      "locality": "Vaasa and Mustasaari",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-06-05",
+      "notes": "Microsoft signed a preliminary agreement on about 190 hectares of land 'to support potential datacenter development'. It is a land agreement, not a permit or a confirmed build. No site coordinates are recorded.",
+      "source_url": "https://news.microsoft.com/source/emea/2026/06/microsoft-signed-preliminary-agreement-on-acquisition-of-approximately-190-hectares-of-land-in-vaasa-and-mustasaari-on-the-west-coast-of-finland/",
+      "source_title": "Microsoft News EMEA — Microsoft signed preliminary agreement on acquisition of approximately 190 hectares of land in Vaasa and Mustasaari (5 Jun 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "se-ecodatacenter-smedjebacken",
+      "company_slug": "ecodatacenter",
+      "name": "EcoDataCenter third campus, Smedjebacken",
+      "city": "Smedjebacken",
+      "country": "SE",
+      "subdivision": "SE-W",
+      "locality": "Smedjebacken Municipality",
+      "source_lang": "en",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-08-25",
+      "power_mw": 150,
+      "notes": "A land purchase agreement with Smedjebacken Municipality for 52 hectares, ending a 2019 letter of intent. The release says the campus 'has green light of an immediate 150MW' and expects 125-150 permanent jobs (claimed_jobs left empty because the figure is a range). Construction depends on final permits, anticipated early 2027. No site coordinates are recorded.",
+      "source_url": "https://ecodatacenter.tech/press/ecodatacenter-to-establish-third-datacenter-campus-in-sweden-3462219",
+      "source_title": "EcoDataCenter press — EcoDataCenter to Establish Third Datacenter Campus in Sweden (25 Aug 2026)",
+      "captured_at": "2026-10-19"
     }
   ],
   "responses": [
@@ -3492,6 +3774,29 @@
       "summary": "AFP reports that the interim-relief judge of the Grenoble administrative court suspended the building permit granted to Sesterce pending a decision on the merits, citing the risk of damaging environmental effects that should have been examined before the permit was issued. A suspension is not an annulment.",
       "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
       "source_title": "AFP via Connaissance des énergies — IA: la justice suspend un projet de centre de données près de Valence"
+    },
+    {
+      "id": "in-resp-microsoft-mekaguda-petition-2024-08",
+      "project_id": "in-microsoft-hyderabad-south-central-region",
+      "date": "2024-08-20",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Rest of World reports that 56 local residents petitioned against Microsoft in July 2023 over its Mekaguda data centre site near Hyderabad, alleging land occupied beyond the boundary and industrial waste dumped in a nearby lake. Microsoft told the outlet it complies with local requirements. The project record here is the Hyderabad cloud region, which this campus site may not exactly match; the date is the article's.",
+      "source_url": "https://restofworld.org/2024/microsoft-data-center-india-mekaguda-industrial-waste/",
+      "source_title": "Rest of World — Microsoft data centre India Mekaguda (20 Aug 2024)",
+      "single_source": true,
+      "source_lang": "en"
+    },
+    {
+      "id": "fr-resp-le-bourget-montreuil-court-2026-07",
+      "project_id": "fr-segro-le-bourget",
+      "date": "2026-07-28",
+      "stance": "negative",
+      "constituency": "regulator",
+      "source_lang": "fr",
+      "summary": "Banque des Territoires reports that the Montreuil administrative court's interim-relief judge upheld the commune's withdrawal of Segro's building permit, finding the project did not comply with the local plan's height rules. It is a provisional measure; the merits are undecided and Segro says it will contest.",
+      "source_url": "https://www.banquedesterritoires.fr/datacenters-les-projets-dimplantation-dans-la-drome-et-au-bourget-contestes",
+      "source_title": "Banque des Territoires — Datacenters: les projets contestés dans la Drôme et au Bourget"
     }
   ],
   "claims": [
@@ -4162,6 +4467,128 @@
       "captured_at": "2026-10-19",
       "published_at": "2024-09-17",
       "project_id": "cl-google-cerrillos"
+    },
+    {
+      "id": "kr-claim-kakao-ansan-engagement",
+      "company_slug": "kakao",
+      "theme": "engagement",
+      "statement": "카카오는 이번 데이터센터 건립을 계기로 안산시, 한양대와 협력해 미래 성장 산업을 육성하고 안산의 지역상생을 위해 꾸준한 협업을 이어나간다.",
+      "country": "KR",
+      "statement_lang": "ko",
+      "statement_translation": {
+        "text": "With the data centre as the occasion, Kakao will work with Ansan City and Hanyang University to foster future growth industries and keep collaborating steadily for Ansan's local co-prosperity.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+      "source_title": "Kakao newsroom — 카카오, 안산시·한양대와 손잡고 데이터센터 건립 추진 (7 Sep 2020)",
+      "captured_at": "2026-10-19",
+      "published_at": "2020-09-07",
+      "project_id": "kr-kakao-ansan"
+    },
+    {
+      "id": "kr-claim-kakao-ansan-water",
+      "company_slug": "kakao",
+      "theme": "water",
+      "statement": "전기 사용량과 동일하게 상수 사용량을 신경써서 모니터링하고 빗물을 모아 활용하는 등 물 사용량을 최소화하는 시스템을 도입한다.",
+      "country": "KR",
+      "statement_lang": "ko",
+      "statement_translation": {
+        "text": "Water use will be monitored carefully, as electricity use is, and a system to minimise water use will be introduced, including collecting and reusing rainwater.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+      "source_title": "Kakao newsroom — 카카오, 안산시·한양대와 손잡고 데이터센터 건립 추진 (7 Sep 2020)",
+      "captured_at": "2026-10-19",
+      "published_at": "2020-09-07",
+      "project_id": "kr-kakao-ansan"
+    },
+    {
+      "id": "kr-claim-naver-gak-sejong-solar",
+      "company_slug": "naver",
+      "theme": "energy",
+      "statement": "건물에 적용된 태양광 발전 시설을 통해 전력을 확보하고 있으며",
+      "country": "KR",
+      "statement_lang": "ko",
+      "statement_translation": {
+        "text": "Power is secured through solar generation facilities applied to the building.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "source_url": "https://www.navercorp.com/story/storyDetail?seq=2359",
+      "source_title": "NAVER newsroom — 하이퍼스케일 데이터센터 각 세종 오픈 (7 Nov 2023)",
+      "captured_at": "2026-10-19",
+      "published_at": "2023-11-07"
+    },
+    {
+      "id": "gb-claim-microsoft-uk-community-pledge-engagement",
+      "company_slug": "microsoft",
+      "theme": "engagement",
+      "statement": "We will partner closely with communities and operate in a way that respects the local environment.",
+      "country": "GB",
+      "source_url": "https://local.microsoft.com/communities/emea/united-kingdom/",
+      "source_title": "Microsoft — Datacentre Community Pledge, United Kingdom (undated page)",
+      "captured_at": "2026-10-19",
+      "formal_agreement": true
+    },
+    {
+      "id": "se-claim-google-horndal-jobs",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "The data center will generate 100 direct full-time jobs, and create thousands more through construction, suppliers, and local businesses.",
+      "country": "SE",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+      "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-06-02",
+      "project_id": "se-google-horndal",
+      "metric": {
+        "value": 100,
+        "unit": "jobs",
+        "kind": "operational"
+      }
+    },
+    {
+      "id": "se-claim-google-horndal-fund",
+      "company_slug": "google",
+      "theme": "community_grants",
+      "statement": "Google also announced a EUR 5 million fund to support local community initiatives focused on education, sustainability, economic growth and workforce development.",
+      "country": "SE",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-06-02-Google-Breaks-Ground-on-Data-Center-in-Horndal,-Sweden",
+      "source_title": "Google Cloud Press Corner — Google Breaks Ground on Data Center in Horndal, Sweden (2 Jun 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-06-02",
+      "project_id": "se-google-horndal",
+      "metric": {
+        "value": 5000000,
+        "unit": "EUR",
+        "kind": "community_fund"
+      }
+    },
+    {
+      "id": "fi-claim-microsoft-vaasa-engagement",
+      "company_slug": "microsoft",
+      "theme": "engagement",
+      "statement": "Microsoft is working in close cooperation with local municipalities, authorities and communities as it develops its plans for the site.",
+      "country": "FI",
+      "source_url": "https://news.microsoft.com/source/emea/2026/06/microsoft-signed-preliminary-agreement-on-acquisition-of-approximately-190-hectares-of-land-in-vaasa-and-mustasaari-on-the-west-coast-of-finland/",
+      "source_title": "Microsoft News EMEA — Vaasa and Mustasaari land agreement (5 Jun 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-06-05",
+      "project_id": "fi-microsoft-vaasa-mustasaari"
+    },
+    {
+      "id": "se-claim-ecodatacenter-smedjebacken-ceo",
+      "company_slug": "ecodatacenter",
+      "theme": "engagement",
+      "statement": "We've had many productive discussions with Smedjebacken since 2019, and we are now taking the next step in this establishment",
+      "country": "SE",
+      "source_url": "https://ecodatacenter.tech/press/ecodatacenter-to-establish-third-datacenter-campus-in-sweden-3462219",
+      "source_title": "EcoDataCenter press — Third Datacenter Campus in Sweden (Peter Michelson, CEO)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-08-25",
+      "project_id": "se-ecodatacenter-smedjebacken"
     }
   ],
   "rate_cases": [

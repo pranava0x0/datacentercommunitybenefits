@@ -69,6 +69,9 @@ const COMPANY_SLUGS = [
   "mitsui-fudosan",
   "colt-dcs",
   "sesterce",
+  "kakao",
+  "lg-uplus",
+  "ecodatacenter",
 ];
 
 const STANCE_LABELS = {
@@ -9433,6 +9436,9 @@ const SUBDIVISION_NAMES = {
   "MX-QUE": "Querétaro",
   "ES-AR": "Aragón",
   "BE-WAL": "Wallonia",
+  "SE-W": "Dalarna County",
+  "FI-12": "Ostrobothnia",
+  "KR-49": "Jeju",
 };
 const CURRENCIES = ["USD", "EUR", "GBP", "SEK", "AUD", "SGD", "CAD", "CLP", "ARS", "JPY", "KRW", "INR", "MXN"];
 const LANGUAGE_NAMES = {

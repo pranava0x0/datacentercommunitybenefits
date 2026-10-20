@@ -89,6 +89,9 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "mitsui-fudosan",
     "colt-dcs",
     "sesterce",
+    "kakao",
+    "lg-uplus",
+    "ecodatacenter",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
@@ -144,6 +147,9 @@ CompanySlug = Literal[
     "mitsui-fudosan",
     "colt-dcs",
     "sesterce",
+    "kakao",
+    "lg-uplus",
+    "ecodatacenter",
 ]
 # withdrawn (#78): the operator abandoned the site. The record stays, as
 # history, but leaves the pledge scorecard and the investment/jobs totals.
@@ -400,6 +406,9 @@ SUBDIVISIONS: dict[str, str] = {
     "MX-QUE": "Querétaro",
     "ES-AR": "Aragón",
     "BE-WAL": "Wallonia",
+    "SE-W": "Dalarna County",
+    "FI-12": "Ostrobothnia",
+    "KR-49": "Jeju",
 }
 # What a first-level subdivision is called, for labels.
 SUBDIVISION_TERMS: dict[str, str] = {
