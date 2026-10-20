@@ -1910,18 +1910,56 @@
       "status": "announced",
       "announced_year": 2025,
       "claimed_investment": {
-        "amount": 15000000000,
-        "currency": "USD",
-        "as_stated": "$15 billion"
+        "amount": 875200000000,
+        "currency": "INR",
+        "as_stated": "Rs 87,520 crore (USD 10 billion)"
       },
       "power_mw": 1000,
       "lat": 17.69389,
       "lon": 83.29222,
       "source_url": "https://thesouthfirst.com/andhrapradesh/googles-largest-ai-hub-outside-us-coming-up-in-visakhapatnam-firm-to-invest-%E2%82%B915-billion-in-india/",
       "source_title": "The South First — Google's largest AI hub outside US coming up in Visakhapatnam",
-      "notes": "Two figures are kept as stated and not reconciled. The South First reports that Google will invest $15 billion over five years in India and signed an MoU with the Andhra Pradesh government for a 1 GW hyperscale data centre in Visakhapatnam, and separately that the MoU is valued at nearly $10 billion (₹83,000 crore), signed 14 October. The $15 billion is Google's country-wide plan as reported, so it may not be a site figure. Google's own post was not located. Coordinates are the Visakhapatnam city centroid, not the site.",
+      "notes": "Investment is the site figure: The News Minute (14 October 2025) reports a data centre in Visakhapatnam “with an investment of Rs 87,520 crore (USD 10 billion)”. The $15 billion in Google's announcement is its five-year plan for the India AI hub and is not stored as the site figure; Google's blog says Google's AI hub is powered by that $15 billion investment. Coordinates are the Visakhapatnam city centroid, not the site.",
       "subdivision": "IN-AP",
-      "locality": "Visakhapatnam"
+      "locality": "Visakhapatnam",
+      "updates": [
+        {
+          "date": "2025-12-02",
+          "kind": "permit",
+          "title": "Andhra Pradesh orders transfer of 480 acres to Adani Infra for the Google AI data centre",
+          "summary": "A government order issued on 2 December 2025, following a Council of Ministers meeting on 28 November 2025, permits the transfer of 480 acres in Visakhapatnam and Anakapalli districts to Adani Infra (India) Pvt Ltd, a notified partner of Google's Raiden Infotech India.",
+          "authority": "Government of Andhra Pradesh",
+          "source_url": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/andhra-govt-allots-480-acres-for-adani-google-ai-data-centre-in-visakhapatnam-1921542",
+          "source_title": "Deccan Chronicle (PTI) — Andhra Govt Allots 480 Acres for Adani-Google AI Data Centre in Visakhapatnam"
+        },
+        {
+          "date": "2026-07-01",
+          "kind": "lawsuit",
+          "title": "Andhra Pradesh High Court issues notice on public-interest petition against the data centre",
+          "summary": "The petition, filed by environmental activist Bolisetty Satyanarayana, questions the project's Environmental Clearance and the allotment of 160 acres of temple land. The court issued notice on 1 July 2026.",
+          "authority": "Andhra Pradesh High Court",
+          "source_url": "https://www.livelaw.in/high-court/andhra-pradesh-high-court/ap-high-court-issues-notice-pil-challenging-google-adani-data-centre-project-cites-environmental-concerns-549989",
+          "source_title": "LiveLaw — AP High Court issues notice on PIL challenging Google-Adani data centre project"
+        },
+        {
+          "date": "2026-08-24",
+          "kind": "hearing",
+          "title": "State tells High Court it is taking steps to protect the environment at the data centre site",
+          "summary": "On 24 August 2026 the Andhra Pradesh government told the High Court it is taking every step to ensure construction of the Google-Adani data centres does not affect the environment. The petition seeks a halt to construction until comprehensive environmental impact studies are carried out.",
+          "authority": "Andhra Pradesh High Court",
+          "source_url": "https://www.barandbench.com/news/google-adani-data-centre-will-not-affect-environment-andhra-pradesh-government-tells-high-court",
+          "source_title": "Bar & Bench — Google-Adani data centre will not affect environment: Andhra Pradesh government tells High Court"
+        },
+        {
+          "date": "2026-10-16",
+          "kind": "news",
+          "title": "Reported: National Green Tribunal seeks Centre's response to appeal against environmental clearance",
+          "summary": "Bar & Bench reported on 16 October 2026 that the National Green Tribunal has sought the Central government's response to a plea challenging the environmental clearance for the Google-Adani Visakhapatnam data centre project. The page does not state the date of the Tribunal's order.",
+          "authority": "National Green Tribunal",
+          "source_url": "https://www.barandbench.com/news/litigation/ngt-seeks-centres-response-to-plea-against-clearance-for-google-adanis-17700-crore-vizag-data-centre",
+          "source_title": "Bar & Bench — NGT seeks Centre's response to plea against clearance for Google-Adani's Rs 17,700 crore Vizag data centre"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -2235,7 +2273,7 @@
       "source_lang": "en",
       "subdivision": "IE-MH",
       "locality": "Clonee, Co. Meath",
-      "announced_year": 2026,
+      "announced_year": 2016,
       "source_title": "Meta Data Centers — Clonee data centre fact sheet",
       "claimed_investment": {
         "amount": 1400000000.0,
@@ -2243,7 +2281,7 @@
         "as_stated": "€1.4B"
       },
       "project_page_url": "https://datacenters.atmeta.com/all-locations/",
-      "notes": "Meta's two-page English fact sheet states the investment as €1.4B, 300+ operational jobs supported and 1,500 skilled trade workers on site at peak construction (company-reported). The sheet is undated, so announced_year is the year of capture, not an announcement year. Subdivision: Clonee is in Co. Meath."
+      "notes": "Meta's two-page English fact sheet states the investment as €1.4B, 300+ operational jobs supported and 1,500 skilled trade workers on site at peak construction (company-reported). The fact sheet is undated; announced_year 2016 comes from Meta's newsroom post of 24 January 2016 (about.fb.com/news/2016/01/county-meath/), which announces Clonee as the site of its first Irish data centre. Subdivision: Clonee is in Co. Meath."
     },
     {
       "id": "se-meta-lulea",
@@ -2257,7 +2295,7 @@
       "source_lang": "en",
       "subdivision": "SE-BD",
       "locality": "Luleå, Norrbotten",
-      "announced_year": 2026,
+      "announced_year": 2011,
       "source_title": "Meta Data Centers — Luleå data centre fact sheet",
       "claimed_investment": {
         "amount": 8700000000.0,
@@ -2265,7 +2303,7 @@
         "as_stated": "8.7B+ SEK"
       },
       "project_page_url": "https://datacenters.atmeta.com/europe/",
-      "notes": "Meta's English fact sheet states 8.7B+ SEK of investment and 300+ operational jobs supported (company-reported); the Europe fleet page repeats both. The sheet's second table row is garbled in the PDF and is not used. The sheet is undated, so announced_year is the year of capture, not an announcement year."
+      "notes": "Meta's English fact sheet states 8.7B+ SEK of investment and 300+ operational jobs supported (company-reported); the Europe fleet page repeats both. The sheet's second table row is garbled in the PDF and is not used. The fact sheet is undated; announced_year 2011 comes from Meta's Europe data-centre page (datacenters.atmeta.com/europe/), which lists Luleå with a 2011 groundbreaking year, and from Data Center Knowledge (29 February 2012), which says the project was announced in October 2011. No Meta announcement post was located."
     },
     {
       "id": "ie-aws-tallaght",
@@ -2298,6 +2336,27 @@
       "announced_year": 2023,
       "source_title": "An Coimisiún Pleanála — Commission Order ABP-318180-23",
       "notes": "Permission for data centres E, F and G was granted on 19 December 2025 on appeal (case ABP-318180-23, planning ref. FW22A/0308), subject to conditions. Condition 5 requires a Corporate Purchase Power Agreement with a renewable energy provider before commencement, covering new renewable projects in Ireland with generation at least equal to the data centres' requirements in operation. The campus is permitted, not built. announced_year is the year of Fingal County Council's decision that was appealed. Build size and capacity in trade press are not used."
+    },
+    {
+      "id": "in-reliance-jamnagar-meta",
+      "company_slug": "reliance",
+      "name": "Reliance Jamnagar data centre (Meta lease)",
+      "city": "Jamnagar",
+      "country": "IN",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-06-10",
+      "power_mw": 168,
+      "offtaker": "Meta",
+      "lat": 22.4707,
+      "lon": 70.0577,
+      "source_url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+      "source_title": "Reliance Industries — Reliance and Meta to develop AI-enabled data centre in Jamnagar, Gujarat (media release, 10 June 2026)",
+      "captured_at": "2026-10-19",
+      "source_lang": "en",
+      "subdivision": "IN-GJ",
+      "locality": "Jamnagar, Gujarat (city centroid, not the site)",
+      "notes": "RIL's release says RIL will develop a 168 MW data centre to be delivered within two years, built to suit for Meta, with an option to scale. The release states no investment figure. Coordinates are the Jamnagar city centroid."
     }
   ],
   "responses": [
@@ -2459,6 +2518,42 @@
       "summary": "According to The Register (24 July 2026), residents at a meeting with Google's team about the Waltham Cross data centre raised noise (a hum in the evening), night-time lighting in bedrooms and poor consultation; a council representative said only 12 people attended the previous public meeting.",
       "source_url": "https://www.theregister.com/on-prem/2026/07/24/google-meets-the-neighbors-and-gets-both-barrels-over-its-new-uk-datacenter/5277188",
       "source_title": "The Register — Google meets the neighbors and gets both barrels over its new UK datacenter",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-visakha-march-2026-08",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-06",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Reported on 6 August 2026: activists and children have marched in Visakhapatnam city with banners reading “We cannot drink DATA”. The article says the marches took place in recent weeks and gives no dates.",
+      "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+      "source_title": "Reuters (via New Straits Times) — Google's US$15bil India data centre project battles water, wildlife concerns",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-visakha-livelihood",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-06",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Reported on 6 August 2026: Raja Rama Mohan Roy, founder of the non-profit Green Visakha, said at an event where he presented Visakhapatnam water supply and demand figures that development should not come at the cost of people's livelihoods. The event date is not stated.",
+      "source_url": "https://www.nst.com.my/amp/business/corporate/2026/08/1505601/googles-us15bil-india-data-centre-project-battles-water-wildlife",
+      "source_title": "Reuters (via New Straits Times) — Google's US$15bil India data centre project battles water, wildlife concerns",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-state-water-assurance-2026-08-18",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-18",
+      "stance": "positive",
+      "constituency": "local_government",
+      "summary": "Andhra Pradesh IT minister Nara Lokesh said in the state Assembly on 18 August 2026 that data-centre water will not be diverted from the city's existing water infrastructure and that additional water will come from Polavaram. This is the state government's position, not a community finding.",
+      "source_url": "https://thesouthfirst.com/andhrapradesh/andhra-minister-nara-lokesh-claims-misinformation-campaign-against-data-centres-says-vizags-environmental-concerns-will-not-be-compromised/",
+      "source_title": "The South First — Lokesh: no diversion of residential water for Vizag data centres",
       "source_lang": "en",
       "single_source": true
     }
@@ -2914,6 +3009,93 @@
       "country": "IE",
       "statement_lang": "en",
       "published_at": "2023-10-26"
+    },
+    {
+      "id": "in-claim-adaniconnex-renewable",
+      "company_slug": "adaniconnex",
+      "theme": "energy",
+      "statement": "AdaniConneX, as a Green Data Center provider is on course to power our infrastructure purely from clean, renewable energy aiming towards a carbon-neutral footprint.",
+      "source_url": "https://www.adaniconnex.com/",
+      "source_title": "AdaniConneX — homepage, Sustainability section",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en"
+    },
+    {
+      "id": "in-claim-adaniconnex-vizag-jobs",
+      "company_slug": "adaniconnex",
+      "theme": "jobs",
+      "statement": "The development of this AI hub and connectivity gateway will create a powerful engine for economic growth in Visakhapatnam, the state of Andhra Pradesh, and thereafter the entire nation by driving digital inclusivity and creating tens of thousands of jobs in technology, construction and clean energy.",
+      "source_url": "https://www.adanienterprises.com/-/media/Project/Enterprises/Investors/Corporate-Announcement/AELIntimationforMediaRelease14102025.pdf",
+      "source_title": "Adani Enterprises / Google joint media release (filed with BSE and NSE, 14 October 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-14",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-google-visakhapatnam"
+    },
+    {
+      "id": "in-claim-adaniconnex-vizag-grid",
+      "company_slug": "adaniconnex",
+      "theme": "energy",
+      "statement": "The project also builds on both companies' commitment to sustainability, and will see co-investment in new transmission lines, clean energy generation and innovative energy storage systems in Andhra Pradesh. This will not only support the data centre's operations but also enhance the resilience and capacity of India's electricity grid.",
+      "source_url": "https://www.adanienterprises.com/-/media/Project/Enterprises/Investors/Corporate-Announcement/AELIntimationforMediaRelease14102025.pdf",
+      "source_title": "Adani Enterprises / Google joint media release (filed with BSE and NSE, 14 October 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-14",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-google-visakhapatnam"
+    },
+    {
+      "id": "in-claim-reliance-jamnagar-desal",
+      "company_slug": "reliance",
+      "theme": "water",
+      "statement": "The data center will be powered by renewable energy and cooled with desalinated seawater, demonstrating both RIL's and Meta's commitment to sustainability.",
+      "source_url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+      "source_title": "Reliance Industries — media release, 10 June 2026",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-06-10",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-reliance-jamnagar-meta"
+    },
+    {
+      "id": "in-claim-google-visakhapatnam-grid",
+      "company_slug": "google",
+      "theme": "energy",
+      "statement": "As we expand, we will be working with partners to deliver new transmission lines, clean energy generation, and energy storage systems in Andhra Pradesh, expanding the diverse portfolio of clean energy that contributes to India’s electricity grid.",
+      "source_url": "https://blog.google/intl/en-in/company-news/our-first-ai-hub-in-india-powered-by-a-15-billion-investment/",
+      "source_title": "Google (Blog, India) — Our first AI hub in India, powered by a $15 billion investment",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-10-14",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-google-visakhapatnam"
+    },
+    {
+      "id": "in-claim-google-visakhapatnam-cooling",
+      "company_slug": "google",
+      "theme": "water",
+      "statement": "“pointed to pressure on the local watershed.” “That finding shaped our choice of cooling configuration from the outset,”",
+      "source_url": "https://kuwaittimes.com/article/51362/world/google-says-india-data-center-will-use-air-cooling-amid-water-fears/",
+      "source_title": "AFP via Kuwait Times — Alexander Smith, Google head of infrastructure and energy, Asia-Pacific, on air cooling at Visakhapatnam",
+      "captured_at": "2026-10-19",
+      "country": "IN",
+      "statement_lang": "en",
+      "project_id": "in-google-visakhapatnam"
+    },
+    {
+      "id": "in-claim-nxtra-re100",
+      "company_slug": "nxtra",
+      "theme": "energy",
+      "statement": "We are an environmentally responsible brand and have been increasingly adopting clean energy alternatives. We are on a healthy trajectory towards achieving our net-zero goals of 2031 and are happy to become a part of the RE100 initiative with a commitment to 100% renewable electricity.",
+      "source_url": "https://www.telecomtv.com/content/digital-platforms-services/nxtra-by-airtel-joins-re100-commits-to-becoming-a-100-renewable-energy-datacentre-company-50701/",
+      "source_title": "TelecomTV (Nxtra release via Airtel) — Ashish Arora, CEO of Nxtra by Airtel, on joining RE100",
+      "captured_at": "2026-10-19",
+      "published_at": "2024-06-27",
+      "country": "IN",
+      "statement_lang": "en"
     }
   ],
   "rate_cases": [

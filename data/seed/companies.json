@@ -197,6 +197,33 @@
       "summary": "Algorithmic trading firm, tracked for its data-centre complex in Kajaani, Finland (over €1bn announced in January 2025), where it says it is exploring giving the waste heat to the local community free of charge.",
       "last_reviewed": "2026-10-19",
       "international_only": true
+    },
+    {
+      "slug": "adaniconnex",
+      "name": "AdaniConneX",
+      "hq": "India",
+      "dedicated_page_url": null,
+      "summary": "50:50 joint venture of Adani Enterprises and EdgeConneX, tracked as the developer partner on Google's Visakhapatnam AI hub (joint media release, 14 October 2025). Its homepage says it is on course to run on renewable power; no community-impact page was found.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "reliance",
+      "name": "Reliance Industries",
+      "hq": "Mumbai, India",
+      "dedicated_page_url": null,
+      "summary": "Indian conglomerate, tracked for the 168 MW built-to-suit data centre it announced in Jamnagar, Gujarat on 10 June 2026 for Meta. A second AI campus in Vizianagaram, Andhra Pradesh, is reported by secondary sources only and is not recorded. No community-impact page was found.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "nxtra",
+      "name": "Nxtra by Airtel",
+      "hq": "New Delhi, India",
+      "dedicated_page_url": null,
+      "summary": "Data-centre subsidiary of Bharti Airtel. Airtel's 30 March 2026 stock-exchange filing says about 300 MW of capacity today with a 1 GW target, and a US$1 billion investment subject to approvals in India. Nxtra joined RE100 in June 2024. No community-impact page was found.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
     }
   ]
 }

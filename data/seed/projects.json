@@ -1209,7 +1209,18 @@
         "jobs": "6,000+ daily construction workers (Stargate)",
         "energy": "1.2 GW campus — OpenAI workload, Crusoe operates",
         "infrastructure": "Downstream housing crisis + local electrician shortage"
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-04-17",
+          "kind": "news",
+          "title": "Epoch AI reports four of eight buildings operational and the 2.1 GW expansion reversed",
+          "summary": "Epoch AI's 17 April 2026 article estimates four of the eight buildings were already operational and says OpenAI had planned to expand the site to 2.1 GW but recently reversed course. Epoch's site directory page, updated 17 July 2026, gives a later count: buildings 1-2 confirmed operational, 3-4 estimated, 5-8 not confirmed.",
+          "authority": "Epoch AI",
+          "source_url": "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
+          "source_title": "Epoch AI — OpenAI Stargate: where the US sites stand"
+        }
+      ]
     },
     {
       "id": "oracle-abilene-tx",

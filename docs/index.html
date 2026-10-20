@@ -239,12 +239,12 @@
 
           <div class="home-latest">
             <section class="home-feed" aria-labelledby="home-latest-h">
-              <h3 class="home-h" id="home-latest-h">Latest</h3>
+              <h2 class="home-h" id="home-latest-h">Latest</h2>
               <ol id="home-latest-list" class="feed-list"></ol>
               <button type="button" class="btn-link home-latest-more" id="home-latest-more" hidden></button>
             </section>
             <section class="whats-next" aria-labelledby="wn-h" id="whats-next">
-              <h3 class="home-h" id="wn-h">Coming up</h3>
+              <h2 class="home-h" id="wn-h">Coming up</h2>
               <ol id="whats-next-list" class="feed-list"></ol>
               <button id="whats-next-more" class="btn-link" type="button" data-path-target="ratecases">
                 All rate-case milestones &rarr;
@@ -312,7 +312,7 @@
         <div class="matrix-wrap" role="region" aria-label="Company × Theme matrix">
           <table id="comparison-matrix" class="matrix">
             <thead>
-              <tr id="matrix-head-row"></tr>
+              <tr id="matrix-head-row"><th class="col-company" scope="col">Company</th></tr>
             </thead>
             <tbody id="matrix-body"></tbody>
           </table>
@@ -504,14 +504,14 @@
             <button id="explorer-pdf-btn" type="button" class="btn-ghost">⤓ PDF</button>
           </span>
         </div>
-          <p class="filter-bar-meta"><span id="explorer-filter-count"></span></p>
+          <p class="filter-bar-meta" role="status"><span id="explorer-filter-count"></span></p>
         </div>
 
         <div class="explorer-layout">
-          <div id="map" class="map" aria-label="Project map" role="img"></div>
+          <div id="map" class="map" aria-label="Project map" role="group"></div>
           <aside class="explorer-list" aria-label="Project list">
             <p class="list-meta" id="explorer-meta">Loading projects…</p>
-            <ol id="project-list" class="project-list"></ol>
+            <ol id="project-list" class="project-list" role="group" aria-label="Sites"></ol>
           </aside>
         </div>
 
@@ -681,7 +681,7 @@
                 <option value="critical">Most critical responses</option>
               </select>
             </label>
-            <span class="filter-bar-meta" id="contested-meta"></span>
+            <span class="filter-bar-meta" role="status" id="contested-meta"></span>
           </div>
           <ol class="contested-list" id="contested-list" role="list"></ol>
         </div>
@@ -829,7 +829,7 @@
             <p class="rp-section-sub">
               Darker states have more records. ★ = governor signed the addendum.
             </p>
-            <div id="pledge-state-strip" class="pledge-state-strip" aria-labelledby="rp-states-heading"></div>
+            <div id="pledge-state-strip" class="pledge-state-strip" role="group" aria-labelledby="rp-states-heading"></div>
             <p class="pledge-strip-key" id="pledge-strip-key"></p>
           </div>
         </details>
@@ -976,7 +976,7 @@
                 Sites announced after their operator signed, plus earlier sites with later reporting that confirms the pledge applies.
               </p>
               <div class="rp-scorecard-toolbar">
-                <div id="rp-legend" class="rp-legend" aria-label="Assessment status legend"></div>
+                <div id="rp-legend" class="rp-legend" role="group" aria-label="Assessment status legend"></div>
                 <span class="export-btns">
                   <button id="rp-export-csv" class="btn-ghost" type="button">⤓ CSV</button>
                   <button id="rp-export-pdf" class="btn-ghost" type="button">⤓ PDF</button>
@@ -1067,7 +1067,7 @@
              for other views — no new records back this panel. -->
         <div id="state-modal" class="state-modal" hidden>
           <div class="state-modal__backdrop" data-state-close aria-hidden="true"></div>
-          <aside
+          <div
             id="state-detail"
             class="state-detail state-modal__dialog"
             role="dialog"
@@ -1088,7 +1088,7 @@
               <p class="detail-sub" id="sd-governor">—</p>
             </header>
             <div id="sd-body" class="state-detail-body"></div>
-          </aside>
+          </div>
         </div>
       </section>
 
@@ -1176,17 +1176,17 @@
               <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
               <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
             </span>
-            <span class="filter-bar-meta" id="moratoriums-meta"></span>
+            <span class="filter-bar-meta" role="status" id="moratoriums-meta"></span>
           </div>
           <div class="table-scroll">
             <table id="moratoriums-table" class="moratorium-table">
               <thead>
                 <tr>
-                  <th role="columnheader" aria-sort="none">Jurisdiction</th>
-                  <th role="columnheader" aria-sort="none">Type</th>
-                  <th role="columnheader" aria-sort="none">Status</th>
-                  <th role="columnheader" aria-sort="none">Duration</th>
-                  <th role="columnheader" aria-sort="none">Key Reasons</th>
+                  <th aria-sort="none">Jurisdiction</th>
+                  <th aria-sort="none">Type</th>
+                  <th aria-sort="none">Status</th>
+                  <th aria-sort="none">Duration</th>
+                  <th aria-sort="none">Key Reasons</th>
                 </tr>
               </thead>
               <tbody id="moratoriums-tbody">
@@ -1200,7 +1200,7 @@
         <!-- ================= MORATORIUM DETAIL MODAL ================= -->
         <div id="moratorium-modal" class="moratorium-modal" hidden>
           <div class="moratorium-modal__backdrop" data-moratorium-close aria-hidden="true"></div>
-          <aside id="moratorium-detail" class="moratorium-detail moratorium-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="md-jurisdiction" aria-live="polite">
+          <div id="moratorium-detail" class="moratorium-detail moratorium-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="md-jurisdiction" aria-live="polite">
           <button id="moratorium-detail-close" class="detail-close" type="button" aria-label="Close moratorium details">
             ×
           </button>
@@ -1255,7 +1255,7 @@
           </section>
 
           <p id="md-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
-          </aside>
+          </div>
         </div>
       </section>
 
@@ -1311,7 +1311,7 @@
                   <option value="rejected">Rejected</option>
                 </select>
               </label>
-              <span class="filter-bar-meta" id="rc-meta"></span>
+              <span class="filter-bar-meta" role="status" id="rc-meta"></span>
             </div>
             <ol id="rate-cases-list" class="rc-list">
               <!-- Populated by app.js -->
@@ -1348,18 +1348,18 @@
                 <button id="tariffs-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
                 <button id="tariffs-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
               </span>
-              <span class="filter-bar-meta" id="tariffs-meta"></span>
+              <span class="filter-bar-meta" role="status" id="tariffs-meta"></span>
             </div>
           <div class="table-scroll">
             <table id="tariffs-table" class="moratorium-table tariff-table">
               <thead>
                 <tr>
-                  <th role="columnheader">Utility</th>
-                  <th role="columnheader">State</th>
-                  <th role="columnheader">Tariff</th>
-                  <th role="columnheader">Status</th>
-                  <th role="columnheader" class="num">Min load</th>
-                  <th role="columnheader" class="num" title="LBL rate-design elements addressed out of 17">LBL elements</th>
+                  <th>Utility</th>
+                  <th>State</th>
+                  <th>Tariff</th>
+                  <th>Status</th>
+                  <th class="num">Min load</th>
+                  <th class="num" title="LBL rate-design elements addressed out of 17">LBL elements</th>
                 </tr>
               </thead>
               <tbody id="tariffs-tbody">
@@ -1391,7 +1391,7 @@
         <!-- ================= TARIFF DETAIL MODAL ================= -->
         <div id="tariff-modal" class="tariff-modal" hidden>
           <div class="tariff-modal__backdrop" data-tariff-close aria-hidden="true"></div>
-          <aside id="tariff-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="td-name" aria-live="polite">
+          <div id="tariff-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="td-name" aria-live="polite">
           <button id="tariff-detail-close" class="detail-close" type="button" aria-label="Close tariff details">
             ×
           </button>
@@ -1444,7 +1444,7 @@
           </section>
 
           <p id="td-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
-          </aside>
+          </div>
         </div>
       </section>
 
@@ -1549,12 +1549,12 @@
               <table id="policies-table" class="moratorium-table policy-table">
                 <thead>
                   <tr>
-                    <th role="columnheader">Title</th>
-                    <th role="columnheader">Type</th>
-                    <th role="columnheader">Where</th>
-                    <th role="columnheader">Status</th>
-                    <th role="columnheader">Date</th>
-                    <th role="columnheader">Principles</th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Where</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Principles</th>
                   </tr>
                 </thead>
                 <tbody id="policies-tbody">
@@ -1573,7 +1573,7 @@
 
         <div id="policy-modal" class="tariff-modal" hidden>
           <div class="tariff-modal__backdrop" data-policy-close aria-hidden="true"></div>
-          <aside id="policy-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pd-title">
+          <div id="policy-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pd-title">
             <button id="policy-detail-close" class="detail-close" type="button" aria-label="Close policy details">×</button>
             <header class="detail-header">
               <p class="eyebrow" id="pd-instrument">—</p>
@@ -1617,7 +1617,7 @@
               <p class="muted pd-next-note">The draft uses invented example numbers; it does not say this rule applies elsewhere.</p>
             </section>
             <p id="pd-captured" class="muted policy-captured"></p>
-          </aside>
+          </div>
         </div>
       </section>
 
@@ -1683,7 +1683,7 @@
                 <option value="company_plan">Company pledges to one community</option>
               </select>
             </label>
-            <span class="filter-bar-meta" id="cba-meta"></span>
+            <span class="filter-bar-meta" role="status" id="cba-meta"></span>
           </div>
           <ol id="cba-all" class="cba-list cba-list--compact" role="list"></ol>
         </div>
@@ -1750,7 +1750,7 @@
                   <option value="ended">Ended or failed</option>
                 </select>
               </label>
-              <span class="filter-bar-meta" id="world-instruments-meta"></span>
+              <span class="filter-bar-meta" role="status" id="world-instruments-meta"></span>
             </div>
             <ol id="world-instrument-list" class="world-records" role="list"></ol>
           </div>

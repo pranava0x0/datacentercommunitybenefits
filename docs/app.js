@@ -62,6 +62,9 @@ const COMPANY_SLUGS = [
   "softbank-corp",
   "nextdc",
   "xtx-markets",
+  "adaniconnex",
+  "reliance",
+  "nxtra",
 ];
 
 const STANCE_LABELS = {
@@ -1442,15 +1445,23 @@ async function loadAggregateView() {
 
 
 // Moratoriums view: fetch and render moratorium data with filtering
-async function loadMoratoriumsData() {
-  if (state.moratoriumsLoaded) return;
-  const payload = await fetchJson("data/moratoriums.json");
-  state.moratoriums = payload.moratoriums;
-  state.chinaContext = payload.china_anti_datacenter_messaging;
-  state.themeRecommendations = payload.theme_recommendations || {};
-  state.moratoriumsLoaded = true;
-  renderMoratoriumsView();
-  document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
+let _moratoriumsPromise = null;
+function loadMoratoriumsData() {
+  if (!_moratoriumsPromise) {
+    _moratoriumsPromise = (async () => {
+      const payload = await fetchJson("data/moratoriums.json");
+      state.moratoriums = payload.moratoriums;
+      state.chinaContext = payload.china_anti_datacenter_messaging;
+      state.themeRecommendations = payload.theme_recommendations || {};
+      state.moratoriumsLoaded = true;
+      renderMoratoriumsView();
+      document.dispatchEvent(new CustomEvent("dcb:moratoriums-ready"));
+    })().catch((err) => {
+      _moratoriumsPromise = null; // allow a retry after a failed fetch
+      throw err;
+    });
+  }
+  return _moratoriumsPromise;
 }
 
 // The directory shows a scannable short duration; the full `duration_description`
@@ -3465,7 +3476,7 @@ function renderPolicyPrinciples(all) {
     const states = new Set(recs.map((p) => p.state_code).filter(Boolean)).size;
     const li = el("li", "pb-principle");
     li.dataset.principle = key;
-    li.append(el("h4", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
+    li.append(el("h3", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
     li.append(el("p", "pb-principle-desc", POLICY_PRINCIPLE_DESCRIPTIONS[key]));
     if (!recs.length) {
       // heat_reuse (v6) is mainly practiced abroad: point to those records
@@ -6185,6 +6196,8 @@ async function exportMoratoriumsToPDF() {
     return;
   }
 
+  const statusFilter = document.getElementById("moratorium-status-filter")?.value || "";
+  const typeFilter = document.getElementById("moratorium-type-filter")?.value || "";
   const filtered = filteredMoratoriums();
 
   // Sort: enacted (date desc) → proposed → failed, matching the on-screen table.
@@ -6613,6 +6626,7 @@ function renderProjectList() {
   if (sel >= shown) list.appendChild(renderProjectCard(items[sel]));
   if (shown < items.length) {
     const li = el("li", "project-list-more");
+    li.setAttribute("role", "none"); // #project-list is role=group
     const btn = el("button", "btn-ghost", `Show ${Math.min(SITES_PAGE, items.length - shown)} more of ${items.length - shown}`);
     btn.type = "button";
     btn.addEventListener("click", () => {
@@ -6850,7 +6864,7 @@ function renderMapLegend() {
     const div = L.DomUtil.create("div", "map-legend");
     div.innerHTML = `
       <div class="legend-content">
-        <h4>Map Legend</h4>
+        <h3>Map Legend</h3>
         <div class="legend-section">
           <strong>Marker Size</strong>
           <div class="legend-item"><span class="legend-dot" style="width: 8px; height: 8px;"></span> &lt;100 MW</div>
@@ -7184,7 +7198,7 @@ async function openStatePanel(code) {
   const results = await Promise.allSettled([
     loadProjectData(),
     loadSignatoryData(),
-    state.moratoriumsLoaded ? Promise.resolve() : loadMoratoriumsData(),
+    loadMoratoriumsData(),
     state.tariffsLoaded ? Promise.resolve() : loadTariffsData(),
     state.rateCasesLoaded ? Promise.resolve() : loadRateCasesData(),
     loadPoliciesData(),
@@ -9403,6 +9417,7 @@ const SUBDIVISION_NAMES = {
   "IN-AP": "Andhra Pradesh",
   "IN-TN": "Tamil Nadu",
   "IN-UP": "Uttar Pradesh",
+  "IN-GJ": "Gujarat",
   "IN-TG": "Telangana",
   "IN-KA": "Karnataka",
   "SE-D": "Södermanland County",
