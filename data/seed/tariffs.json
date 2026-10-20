@@ -1234,7 +1234,7 @@
       "tariff_name": "Large-Load Cost-of-Service Tariff (ACC Rate Case E-01345A-25-0105)",
       "tariff_type": "Large-load cost-of-service rate case",
       "status": "proposed",
-      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 with more than 30 intervenors and had concluded by July 10, 2026 (per APS). The ALJ's Recommended Opinion and Order 'may take months'; APS says a final ACC decision is expected later in 2026, with requested rates effective no earlier than July 8, 2026 — in practice early 2027. As of September 25, 2026 the ACC's news page lists no Recommended Opinion and Order or open-meeting item on the case.",
+      "status_detail": "Evidentiary hearing before an administrative law judge began May 18, 2026 with more than 30 intervenors and concluded on July 7, 2026 (per the ACC). The ALJ's Recommended Opinion and Order 'may take months'; the ACC expects the ALJ's Recommended Opinion and Order by late November 2026 and the Commission must vote by December 31, 2026; APS says a final ACC decision is expected later in 2026, with requested rates effective no earlier than July 8, 2026 — in practice early 2027. As of September 25, 2026 the ACC's news page lists no Recommended Opinion and Order or open-meeting item on the case.",
       "regulator": "Arizona Corporation Commission (ACC)",
       "docket_number": "E-01345A-25-0105",
       "filed_date": "2025-06-01",
@@ -1268,6 +1268,10 @@
         {
           "url": "https://www.aps.com/en/About/Our-Company/Newsroom/Articles/APS-Rate-Case-Hearing-Concludes-Process-Moves-to-Next-Phase",
           "title": "APS — Rate Case Hearing Concludes; Process Moves to Next Phase (July 10, 2026)"
+        },
+        {
+          "url": "https://azcc.gov/news/home/2026/07/10/what-s-next-in-the-aps-rate-case",
+          "title": "ACC — What's Next in the APS Rate Case? (July 10, 2026)"
         }
       ],
       "captured_at": "2026-09-25"
