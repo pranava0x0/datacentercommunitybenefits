@@ -183,6 +183,285 @@
    },
    "notes": "Joint with Querétaro state and municipal governments per AWS's text. Year only in source (2026); no month. Verify against a dated state or municipal release before adding a precise date.",
    "verification": "HIT"
+  },
+  {
+   "id": "mx-cloudhq-queretaro-jobs-2025-09",
+   "country": "MX",
+   "kind": "government_action",
+   "verified": true,
+   "verbatim": "Se crearán más de 7 mil 200 empleos altamente calificados en el sector de la construcción y 900 puestos de trabajo permanentes una vez que finalice el proyecto",
+   "translation": "More than 7,200 highly skilled construction jobs and 900 permanent jobs will be created once the project is finished.",
+   "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+   "fields": {
+    "company": "cloudhq",
+    "title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)",
+    "event_date": "2025-09-25",
+    "theme": "jobs",
+    "source_lang": "es",
+    "project_candidate": "CloudHQ Querétaro campus (6 buildings, 52 ha, 900 MW)"
+   },
+   "notes": "Federal government release (Secretaría de Economía). The 7,200 figure is construction employment and 900 is permanent. Some press cited 600 or 7,000 figures; the release is the reference. Not company-verified: CloudHQ has no primary release located yet (company is untracked, so this is a company candidate).",
+   "verification": "browser-verified (probe BLOCKED on gob.mx; verbatim read on the page via browser, 2026-10-19)"
+  },
+  {
+   "id": "mx-cloudhq-queretaro-no-water-cooling-2025-09",
+   "country": "MX",
+   "kind": "company_claim",
+   "verified": true,
+   "verbatim": "Además de que se tratará de un desarrollo sostenible al usar refrigeración sin agua y LEED de oro y plata.",
+   "translation": "In addition, it will be a sustainable development that uses water-free cooling and LEED gold and silver certification.",
+   "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+   "fields": {
+    "company": "cloudhq",
+    "title": "Presidencia de la República — CloudHQ announcement (comunicado, 25 Sep 2025); speaker: CloudHQ director of operations",
+    "event_date": "2025-09-25",
+    "theme": "water",
+    "source_lang": "es",
+    "project_candidate": "CloudHQ Querétaro campus"
+   },
+   "notes": "Speaker is CloudHQ's operations director, reported in the government release, so it is first-party. 'Refrigeración sin agua' is a cooling-design claim, not a water-use figure. Keep it that way in any display; no volumes were disclosed. Water-use data for Querétaro data centres does not yet exist (see Sedesu lead).",
+   "verification": "browser-verified (probe BLOCKED on gob.mx; verbatim read on the page via browser, 2026-10-19)"
+  },
+  {
+   "id": "mx-cloudhq-queretaro-200mw-energy-2025-09",
+   "country": "MX",
+   "kind": "company_claim",
+   "verified": true,
+   "verbatim": "ya se tiene asegurada la energía inicial para los primeros 200 MW con apoyo de CFE y de Cenace, lo que representa una inversión previa de 250 millones de dólares",
+   "translation": "initial energy for the first 200 MW is already secured with support from CFE and Cenace, which represents a prior investment of US$250 million.",
+   "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+   "fields": {
+    "company": "cloudhq",
+    "title": "Presidencia de la República — CloudHQ announcement (comunicado, 25 Sep 2025); speaker: CloudHQ director of operations",
+    "event_date": "2025-09-25",
+    "theme": "energy",
+    "source_lang": "es",
+    "project_candidate": "CloudHQ Querétaro campus"
+   },
+   "notes": "Initial 200 MW of a 900 MW campus. The US$250m is the company's stated prior investment in supply infrastructure, reported by the government, and not separately audited. Power 'secured' is a company statement, not a CFE or Cenace release. Pair with the January 2026 CFE energisations (see leads) before treating it as delivered.",
+   "verification": "browser-verified (probe BLOCKED on gob.mx; verbatim read on the page via browser, 2026-10-19)"
+  },
+  {
+   "id": "mx-sheinbaum-benefits-to-community-required-2025-09",
+   "country": "MX",
+   "kind": "government_statement",
+   "verified": true,
+   "verbatim": "Y se requiere, también, que estas inversiones traigan beneficios a la comunidad",
+   "translation": "And it is also required that these investments bring benefits to the community.",
+   "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+   "fields": {
+    "company": "cloudhq",
+    "title": "Presidencia de la República — CloudHQ announcement (comunicado, 25 Sep 2025); speaker: President Claudia Sheinbaum",
+    "event_date": "2025-09-25",
+    "theme": "engagement",
+    "source_lang": "es"
+   },
+   "notes": "A federal statement that community benefit is a requirement, not a commitment in any named instrument. No local agreement, fund or amount is attached to it in this release. Use it as the government's stated expectation, not as evidence of a delivered benefit.",
+   "verification": "browser-verified (probe BLOCKED on gob.mx; verbatim read on the page via browser, 2026-10-19)"
+  },
+  {
+   "id": "mx-queretaro-governor-water-jeans-2026-09",
+   "country": "MX",
+   "kind": "government_statement",
+   "verified": true,
+   "verbatim": "Se usa lo que usarías para para fabricar dos pantalones de mezclilla",
+   "translation": "It uses what you would use to make two pairs of denim jeans.",
+   "source_url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+   "fields": {
+    "company": null,
+    "title": "Publimetro — Kuri rechaza falta de energía en data centers (8 Sep 2026); governor Mauricio Kuri quoted",
+    "event_date": "2026-09-08",
+    "theme": "water",
+    "source_lang": "es"
+   },
+   "notes": "The governor's comparison of the data centres' water use to jeans. No volume is given and no state measurement is cited, so it is an assertion. The state's own plan to publish water data from 2027 (see leads) is the test of it. The verbatim has a doubled 'para' in the source; keep it as printed.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-queretaro-governor-substations-funded-by-data-centres-2026-09",
+   "country": "MX",
+   "kind": "government_statement",
+   "verified": true,
+   "verbatim": "los que están haciendo la inversión para tener las subestaciones, etcétera, son los propios data centers",
+   "translation": "those making the investment to have the substations, etc., are the data centres themselves.",
+   "source_url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+   "fields": {
+    "company": null,
+    "title": "Publimetro — Kuri rechaza falta de energía en data centers (8 Sep 2026); governor Mauricio Kuri quoted",
+    "event_date": "2026-09-08",
+    "theme": "energy",
+    "source_lang": "es"
+   },
+   "notes": "The governor's claim that data centres fund their own substations, in reply to a former CRE official. The same article has the governor admitting a transmission problem tied to CFE infrastructure. CFE's own 2026-2030 plan is reported at about 9,000 million pesos in the same article, but not from a CFE release, so it is not recorded here.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-queretaro-legislature-intergenerational-2026-09",
+   "country": "MX",
+   "kind": "community_response",
+   "verified": true,
+   "verbatim": "La pregunta es qué costo tendrán estas inversiones para Querétaro en agua, energía y recursos naturales",
+   "translation": "The question is what cost these investments will have for Querétaro in water, energy and natural resources.",
+   "source_url": "http://legislaturaqueretaro.gob.mx/ospital-pide-pensar-en-la-justicia-intergeneracional-ante-data-centers/",
+   "fields": {
+    "company": null,
+    "title": "LXI Legislatura Querétaro — Ospital pide pensar en la justicia intergeneracional ante data centers (23 Sep 2026)",
+    "event_date": "2026-09-23",
+    "theme": "water",
+    "source_lang": "es",
+    "constituency": "local_government"
+   },
+   "notes": "Opposition-party deputy's statement issued during the Sedesu appearance before the state congress. Posted by the legislature's own portal. Stance is not assigned here; the curator decides that. He asks for guidelines on renewable energy and water reuse for new facilities.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-sedesu-data-centres-6bn-2024-09",
+   "country": "MX",
+   "kind": "government_statement",
+   "verified": true,
+   "verbatim": "centros de datos que dijo, significan una inversión superior a los 6 mil millones de dólares",
+   "translation": "data centres that, he said, represent an investment of more than US$6 billion.",
+   "source_url": "http://legislaturaqueretaro.gob.mx/comparecio-el-titular-de-la-secretaria-de-desarrollo-sustentable-marco-antonio-del-prete-tercero-ante-diputados-locales-de-la-lx-legislatura/",
+   "fields": {
+    "company": null,
+    "title": "LXI Legislatura Querétaro — Compareció Del Prete Tercero ante diputados locales (11 Sep 2024)",
+    "event_date": "2024-09-11",
+    "theme": "infrastructure",
+    "source_lang": "es"
+   },
+   "notes": "The state Secretary of Sustainable Development's aggregate for AWS, Microsoft and Google together. It is not a per-company figure and it is not verified against company releases. AWS alone states more than US$5 billion through 2033, so this aggregate cannot be read as the whole sector.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-microsoft-mexico-central-queretaro-2024-05",
+   "country": "MX",
+   "kind": "company_claim",
+   "verified": true,
+   "verbatim": "La nueva región de nube, que consta de varios centros de datos, se encuentra en el área metropolitana de Querétaro",
+   "translation": "The new cloud region, made up of several data centres, is located in the Querétaro metropolitan area.",
+   "source_url": "https://news.microsoft.com/es-xl/microsoft-anuncia-el-inicio-de-operaciones-de-la-primera-region-de-centros-de-datos-de-nube-a-hiper-escala-en-mexico/",
+   "fields": {
+    "company": "microsoft",
+    "title": "Microsoft — Anuncia el inicio de operaciones de la primera región de centros de datos de nube a hiper escala en México (7 May 2024)",
+    "event_date": "2024-05-07",
+    "theme": "infrastructure",
+    "source_lang": "es",
+    "project_candidate": "mx-microsoft-queretaro (Mexico Central region)"
+   },
+   "notes": "Microsoft's region-availability release. The text also cites an IDC estimate of 110,000 or more jobs across the economy, which is national and Microsoft-commissioned and so is not recorded as a site figure. The 2020 plan was US$1.1bn; the Microsoft AI Tour 2024 announcement of US$1.3bn is national, and the release does not say how much goes to Querétaro.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-vmt-public-info-requests-unanswered-2026-02",
+   "country": "MX",
+   "kind": "community_response",
+   "verified": true,
+   "verbatim": "Their requests have gone unanswered.",
+   "translation": "Sus solicitudes no han recibido respuesta.",
+   "source_url": "https://www.context.news/ai/long-read/resistance-blooms-in-mexicos-data-centre-valley",
+   "fields": {
+    "company": null,
+    "title": "Thomson Reuters Foundation / Context — Resistance blooms in Mexico's data centre valley (4 Feb 2026)",
+    "event_date": "2026-02-04",
+    "theme": "engagement",
+    "source_lang": "en",
+    "constituency": "ngo"
+   },
+   "notes": "Describes the volunteer group Voceras de la Madre Tierra. Its public information requests to the state on how much water is allocated to data centres have gone unanswered, per the reporter. The group is named as an organisation. Individual members are not named here. Journalist's account, not a group statement, so it is a community response, not a company claim.",
+   "verification": "HIT"
+  },
+  {
+   "id": "mx-sedesu-simplifying-water-blame-2026-02",
+   "country": "MX",
+   "kind": "government_statement",
+   "verified": true,
+   "verbatim": "blaming water shortages on data centres is \"simplifying\" the problem as water issues predate them",
+   "translation": "culpar a los centros de datos por la escasez de agua es \"simplificar\" el problema, ya que los problemas hídricos son anteriores a ellos.",
+   "source_url": "https://www.context.news/ai/long-read/resistance-blooms-in-mexicos-data-centre-valley",
+   "fields": {
+    "company": null,
+    "title": "Thomson Reuters Foundation / Context (4 Feb 2026); Querétaro Secretary of Sustainable Development quoted",
+    "event_date": "2026-02-04",
+    "theme": "water",
+    "source_lang": "en"
+   },
+   "notes": "The Secretary's reply to a reporter. The sentence is the reporter's paraphrase with a single quoted word, so use only the quoted word in a display. Secondary quotation of a public official; a primary transcript was not located.",
+   "verification": "HIT"
   }
- ]
+ ],
+ "leads": [
+  {
+   "lead": "Querétaro to publish data-centre water use from 2027 (pilot 2026; Sedesu web section; SEDESU working with MEXDC on a measurement system adapting the COA form)",
+   "status": "secondary only: DCD Spanish, 15 Oct 2026, paraphrase without quotation marks. Primary Sedesu/gob.queretaro release not located (queretaro.gob.mx Sedesu page has no news items). Fetch the state release before recording.",
+   "url": "https://www.datacenterdynamics.com/es/noticias/quer%C3%A9taro-publicar%C3%A1-el-consumo-de-agua-de-sus-centros-de-datos/"
+  },
+  {
+   "lead": "CFE energised substations for data-centre loads in January 2026 (FINSA 2 MW Amazon + 6 MW Abbott; VYMSA 18.8 MW ODATA per one outlet)",
+   "status": "secondary only (dplnews, ámbito). ámbito headline is promotional. Need a CFE press release. Querétaro RLX substation (Corregidora, Aug 2026, ~US$100m) also unverified."
+  },
+  {
+   "lead": "CFE plans about 9,000 million pesos in Querétaro 2026-2030 (transmission, substations, grid)",
+   "status": "reported as background in Publimetro, 8 Sep 2026, not a quote. Need CFE primary."
+  },
+  {
+   "lead": "KIO Data Centers QRO3, about US$1.3bn, ~100 MW, 8,100+ direct and indirect jobs, presented with Governor Kuri and Secretary Ebrard (Aug 2026)",
+   "status": "Líder Empresarial and Mexico Industry only; Remio notes KIO's press room did not match these figures. KIO is a company candidate (untracked). Need KIO release or quoted exec."
+  },
+  {
+   "lead": "Querétaro exempts data centres in industrial parks from environmental impact reports (MIA)",
+   "status": "reported by TRF (Feb 2026) with no decree cited. Searches did not find the rule. Check Periódico Oficial La Sombra de Arteaga and the state environmental code before recording. High priority for the community-benefits question."
+  },
+  {
+   "lead": "Industry association (AMDC) head: 'When it comes to water, we are, practically speaking, shielded by technology'",
+   "status": "quoted in TRF, Feb 2026. Industry association, not a company, so not a Claim. Keep as counterpoint in a CommunityResponse or notes after curator review."
+  },
+  {
+   "lead": "Microsoft Querétaro water: reported concession of up to 600 million litres a year from the Valle de San Juan del Río aquifer; 40 million litres used in 2025; Oxfam México says permits up to 25 million litres a year at one campus",
+   "status": "secondary only (ecoosfera, Oxfam via press). Microsoft's own fact sheet (Oct 2025) is already in seed. Look for the Microsoft fact sheet water figure and the concession decree (CONAGUA)."
+  },
+  {
+   "lead": "Oracle Monterrey (Nuevo León) region with TELMEX-Triara, 27 Sep 2023",
+   "status": "first-party Oracle blog (verified text this session). Not Querétaro. Company candidate for Oracle (Monterrey site, Telmex-Triara as untracked partner). No community content in that post; low priority."
+  },
+  {
+   "lead": "Oracle Querétaro cloud region, opened June 2022 (39th region)",
+   "status": "reported (Expansión 2022, DCD); no Oracle primary fetched this round."
+  },
+  {
+   "lead": "Gobierno/Sedesu 72% of national data-centre operations are in Querétaro",
+   "status": "attributed to Sedesu in Publimetro as paraphrase. Need primary."
+  },
+  {
+   "lead": "Querétaro state congress: 2024 Sedesu appearance also lists AWS, Microsoft and Google investment together",
+   "status": "recorded as mx-sedesu-data-centres-6bn-2024-09 (verified)."
+  },
+  {
+   "lead": "Academic: 2025 prospective study of Querétaro data centres (UAQ co-author; no water measurement; flags water as a research gap)",
+   "status": "revistalatam.redilat.org. Usable as academic context, not as a water figure. Check authors' affiliation on the article page."
+  },
+  {
+   "lead": "Antorchista movement (Querétaro) lobbying the state to end water shortages and disclose data-centre water use",
+   "status": "TRF, Feb 2026, organisation named. Individual members are not named here. Look for the group's own statement."
+  },
+  {
+   "lead": "AWS date conflict: release dated 14 Jan 2025 says 'launch'; AWS fact sheet (2026) says 'launched May 2025' and gives investment through 2033 (release says 15 years)",
+   "status": "flagged in notes of mx-aws-mexico-central-region-launch-2025-01. Curator to decide the event date."
+  },
+  {
+   "lead": "Aquestia, water-technology company (AWS leak-reduction partner in Querétaro)",
+   "status": "untracked; candidate for companies table only if a record needs it."
+  },
+  {
+   "lead": "Telmex-Triara (Monterrey) and KIO, CloudHQ primary releases",
+   "status": "CloudHQ: presidency release used (no company release located). KIO and Telmex-Triara: no primary fetched."
+  }
+ ],
+ "meta": {
+  "round": 3,
+  "date": "2026-10-19",
+  "records_total": 20,
+  "probe_hit": 16,
+  "browser_verified": 4,
+  "note": "Evidence file mx_r3.evidence.jsonl. Probe run: 16 HIT, 4 BLOCKED on gob.mx (verbatims read on the live page)."
+ }
 }

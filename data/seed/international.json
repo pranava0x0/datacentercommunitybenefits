@@ -640,6 +640,62 @@
           "source_url": "https://expansion.mx/tecnologia/2026/05/27/data-centers-en-queretaro-chocan-con-el-estres-hidrico",
           "source_title": "Expansión — Data centers en Querétaro chocan con el estrés hídrico (27 May 2026)",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "President Sheinbaum said on 25 September 2025 that investments such as data centres are also required to bring benefits to the community; the release names no instrument that sets the requirement.",
+          "verbatim": "Y se requiere, también, que estas inversiones traigan beneficios a la comunidad",
+          "source_lang": "es",
+          "translation": {
+            "text": "And it is also required that these investments bring benefits to the community.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2025-09",
+          "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+          "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Querétaro's Secretary of Sustainable Development told state deputies on 11 September 2024 that the state's data centres (AWS, Microsoft and Google together) represent an investment of more than US$6 billion; this is an official aggregate, not checked against company releases.",
+          "verbatim": "centros de datos que dijo, significan una inversión superior a los 6 mil millones de dólares",
+          "source_lang": "es",
+          "translation": {
+            "text": "data centres that, he said, represent an investment of more than US$6 billion.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2024-09",
+          "source_url": "http://legislaturaqueretaro.gob.mx/comparecio-el-titular-de-la-secretaria-de-desarrollo-sustentable-marco-antonio-del-prete-tercero-ante-diputados-locales-de-la-lx-legislatura/",
+          "source_title": "LXI Legislatura Querétaro — Compareció Del Prete Tercero ante diputados locales (11 Sep 2024)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Governor Mauricio Kuri said on 8 September 2026 that data centres are the ones funding their own substations; the same article reports him acknowledging a transmission problem tied to CFE infrastructure.",
+          "verbatim": "los que están haciendo la inversión para tener las subestaciones, etcétera, son los propios data centers",
+          "source_lang": "es",
+          "translation": {
+            "text": "those making the investment to have the substations, etc., are the data centres themselves.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+          "source_title": "Publimetro — Kuri rechaza falta de energía en data centers (8 Sep 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Governor Mauricio Kuri compared the water use of data centres to what is used to make two pairs of jeans on 8 September 2026; no volume or state measurement was cited.",
+          "verbatim": "Se usa lo que usarías para para fabricar dos pantalones de mezclilla",
+          "source_lang": "es",
+          "translation": {
+            "text": "It uses what you would use to make two pairs of denim jeans.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.publimetro.com.mx/queretaro/2026/09/08/rechaza-kuri-que-data-centers-no-tengan-energia/",
+          "source_title": "Publimetro — Kuri rechaza falta de energía en data centers (8 Sep 2026)",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
@@ -694,7 +750,36 @@
         "fr",
         "nl"
       ],
-      "context": [],
+      "context": [
+        {
+          "statement": "Elia said, in a correction printed by VRT NWS on 18 September 2026, that its figure for new data centres refers to reserved capacity and not to expected electricity consumption.",
+          "verbatim": "Elia meldt dat dat cijfer slaat op de gereserveerde capaciteit voor nieuwe datacenters en niet op het te verwachten stroomverbruik.",
+          "source_lang": "nl",
+          "translation": {
+            "text": "Elia reports that this figure refers to the reserved capacity for new data centres and not to the expected electricity consumption.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+          "source_title": "VRT NWS — Belgium needs more electricity for data centres by 2034, says Elia (with correction, 18 Sep 2026)",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Elia expects that many of the requests for new data centres will ultimately not be realised, according to VRT NWS on 18 September 2026.",
+          "verbatim": "Elia verwacht namelijk dat veel van de aanvragen voor nieuwe datacenters uiteindelijk niet zullen worden gerealiseerd.",
+          "source_lang": "nl",
+          "translation": {
+            "text": "Elia in fact expects that many of the requests for new data centres will ultimately not be realised.",
+            "by": "machine",
+            "reviewed_at": "2026-10-19"
+          },
+          "period": "2026-09",
+          "source_url": "https://www.vrt.be/vrtnws/nl/2026/09/18/datacenters-meer-stroom-tegen-2034-elia/",
+          "source_title": "VRT NWS — Belgium needs more electricity for data centres by 2034, says Elia (with correction, 18 Sep 2026)",
+          "captured_at": "2026-10-19"
+        }
+      ],
       "last_reviewed": "2026-10-19"
     }
   ],
@@ -1185,9 +1270,10 @@
       ],
       "key_terms": [
         "Mensaje 181/2026",
-        "comprometer al menos 20% de ese monto dentro de los primeros dos años desde su adhesión"
+        "comprometer al menos 20% de ese monto dentro de los primeros dos años desde su adhesión",
+        "La primera obliga a las empresas que instalen centros de datos a construir sus propias subestaciones eléctricas"
       ],
-      "summary": "An executive bill sent to the Chamber of Deputies as Mensaje 181/2026, proposing a special regime for new or experimental economic activities, with data centres among the sectors named by the source. It would set a minimum of US$1,000 million in qualifying assets per project and require at least 20% to be committed within two years of joining. It is a bill, not law; later stages were not verified.",
+      "summary": "An executive bill sent to the Chamber of Deputies as Mensaje 181/2026, proposing a special regime for new or experimental economic activities, with data centres among the sectors named by the source. It would set a minimum of US$1,000 million in qualifying assets per project and require at least 20% to be committed within two years of joining. It is a bill, not law; later stages were not verified. On 2 September 2026 a Senate-stage report said the government accepted changes, including a requirement that companies installing data centres build their own electrical substations and a local-supplier plan; Senate passage was not confirmed.",
       "source_url": "https://dplnews.com/super-rigi-argentina-busca-atraer-inversiones-1000-mdd-en-ia-centros-de-datos-y-semiconductores/",
       "source_title": "DPL News — El “Súper RIGI” de Argentina busca atraer inversiones de 1,000 mdd en IA, Centros de Datos y semiconductores",
       "captured_at": "2026-10-19",
@@ -1198,11 +1284,18 @@
       "key_terms_translation": {
         "items": [
           "Message 181/2026",
-          "commit at least 20% of that amount within the first two years from joining"
+          "commit at least 20% of that amount within the first two years from joining",
+          "The first requires companies installing data centers to build their own electrical substations."
         ],
         "by": "machine",
         "reviewed_at": "2026-10-19"
-      }
+      },
+      "resources": [
+        {
+          "url": "https://www.eldiarioar.com/politica/gobierno-acepto-cambios-super-rigi-lograr-apoyo-bloques-aliados-senado_1_13482555.html",
+          "title": "elDiarioAR (NA) — Gobierno aceptó cambios al Súper RIGI para lograr apoyo en el Senado (2 Sep 2026)"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -2131,6 +2224,80 @@
       "source_url": "https://www.cre.fr/fileadmin/Documents/Communiques_de_presse/2025/250507_CP_CRE_Procedure_fast_track.pdf",
       "source_title": "CRE — Communiqué: procédure fast track de raccordement (7 May 2025)",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "jp-ishikari-dc-consortium-2026",
+      "title": "Ishikari Data Centre Consortium (石狩DCC), established by the City of Ishikari",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Ishikari, Hokkaido",
+      "country": "JP",
+      "subdivision": "JP-01",
+      "locality": "Ishikari",
+      "source_lang": "ja",
+      "date": "2026-07-28",
+      "benefit_themes": [
+        "jobs",
+        "engagement"
+      ],
+      "principles": [
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "「地域の計算資源」かつ「社会インフラ」と位置づけ",
+        "DC間での人材交流、雇用の創出を推進するほか"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "The consortium positions data centres as 'regional computing resources' and 'social infrastructure'.",
+          "The consortium will promote engineer training, staff exchange between data centres, and job creation, in addition to building local understanding among residents and local firms."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "The City of Ishikari's 28 July 2026 release establishes a consortium of data-centre operators. It says the consortium will promote staff exchange and job creation and build local understanding, with no job number given. Participants are listed as planned, not confirmed, and the consortium sets no obligations on operators.",
+      "source_url": "https://www.city.ishikari.hokkaido.jp/_res/projects/default_project/_page_/001/007/372/dc1.pdf",
+      "source_title": "City of Ishikari — 石狩データセンターコンソーシアム設立 (news release, 28 Jul 2026)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "es-aragon-piga-microsoft-region-2025",
+      "title": "Plan de Interés General de Aragón (PIGA) 'Implantación de la Región Microsoft en Aragón', ORDEN FOM/1520/2025",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Aragón, Spain",
+      "country": "ES",
+      "subdivision": "ES-AR",
+      "source_lang": "es",
+      "date": "2025-11-14",
+      "identifier": "ORDEN FOM/1520/2025",
+      "company_slugs": [
+        "microsoft"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "El Plan tiene como objeto la implantación e interconexión de tres campus de Centros de Datos en Aragón, en los municipios de La Muela, Villamayor de Gállego y Zaragoza"
+      ],
+      "key_terms_translation": {
+        "items": [
+          "The Plan's purpose is the implementation and interconnection of three data-centre campuses in Aragón, in the municipalities of La Muela, Villamayor de Gállego and Zaragoza."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Aragón's regional government gave initial approval on 14 November 2025 to a plan promoted by Microsoft 7724 Spain for three data-centre campuses in La Muela, Villamayor de Gállego and Zaragoza. It is an initial approval only; the final approval had not been confirmed.",
+      "source_url": "https://www.aragon.es/-/piga-region-msft",
+      "source_title": "Gobierno de Aragón — PIGA Región Microsoft",
+      "captured_at": "2026-10-19"
     }
   ],
   "moratoriums": [
@@ -2265,13 +2432,13 @@
       "name": "Cerrillos Data Center",
       "city": "Cerrillos",
       "country": "CL",
-      "status": "withdrawn",
+      "status": "announced",
       "announced_year": 2024,
       "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2024/09/17/alcaldesa-de-cerrillos-rechaza-nuevo-plan-de-data-center-de-google-la-prioridad-es-el-medioambiente.shtml",
       "source_title": "BioBioChile — Alcaldesa de Cerrillos rechaza nuevo plan de data center de Google",
       "captured_at": "2026-10-19",
       "source_lang": "es",
-      "notes": "BioBioChile reported on 17 September 2024 that Google decided not to continue its permit request for a data centre in Cerrillos and would redesign the project with air cooling at an investment of 200 million dollars; the figure refers to the redesigned plan. The mayor rejected the new plan, saying it lacked the necessary legal studies. Status rests on that article alone. announced_year is the year of the earliest dated source captured. Coordinates are the Cerrillos commune centroid from es.wikipedia, approximate.",
+      "notes": "BioBioChile reported on 17 September 2024 that Google decided not to continue its permit request for a data centre in Cerrillos and would redesign the project with air cooling at an investment of 200 million dollars; the figure refers to the redesigned plan. The mayor rejected the new plan, saying it lacked the necessary legal studies. Status rests on that article alone. announced_year is the year of the earliest dated source captured. Coordinates are the Cerrillos commune centroid from es.wikipedia, approximate. Status updated 19 October 2026: BioBioChile reports Google refiled a redesigned, air-cooled project and that the SEA Región Metropolitana ruled it need not enter the SEIA; the ruling is not a construction permit.",
       "subdivision": "CL-RM",
       "locality": "Cerrillos",
       "claimed_investment": {
@@ -2290,6 +2457,24 @@
           "authority": "Google",
           "source_url": "https://www.cnnchile.com/negocios/google-se-rinde-con-proyecto-original-de-data-center-en-cerrillos-y-anuncia-futuro-rediseno-de-la-iniciativa_20240917/",
           "source_title": "CNN Chile — Google se rinde con proyecto original de data center en Cerrillos"
+        },
+        {
+          "date": "2026-10-19",
+          "kind": "permit",
+          "title": "SEA resolves that Google's redesigned Cerrillos data centre does not need SEIA review",
+          "summary": "BioBioChile reports the ruling by SEA Región Metropolitana; it is not a final construction permit and other permits are still needed. The Segundo Tribunal Ambiental had partly annulled the 2020 approval in February 2024.",
+          "authority": "SEA Región Metropolitana",
+          "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+          "source_title": "BioBioChile — SEA resuelve que Google no debe pasar por evaluación ambiental para construir data center en Cerrillos (19 Oct 2026)"
+        },
+        {
+          "date": "2026-10-19",
+          "kind": "news",
+          "title": "Redesign details as reported: 44 diesel backup generators and 63 air-cooled chillers",
+          "summary": "BioBioChile reports the redesign includes 44 backup diesel generators and 63 air-cooled chillers that, as reported, do not require water consumption. This is the design as described, not measured data.",
+          "authority": "BioBioChile",
+          "source_url": "https://www.biobiochile.cl/noticias/nacional/region-metropolitana/2026/10/19/sea-resuelve-que-google-no-debe-pasar-por-evaluacion-ambiental-para-construir-data-center-en-cerrillos.shtml",
+          "source_title": "BioBioChile — SEA resuelve que Google no debe pasar por evaluación ambiental para construir data center en Cerrillos (19 Oct 2026)"
         }
       ]
     },
@@ -2483,7 +2668,18 @@
       "power_mw": 500,
       "source_url": "https://www.sur.energy/press-release",
       "source_title": "Sur Energy — Sur Energy and OpenAI plan Stargate Argentina (press release, 10 Oct 2025)",
-      "notes": "Sur Energy's release says the two companies signed a Letter of Intent for a data-centre project reaching up to 500MW, with up to $25 billion in investment at full scale. No official page names the province or site, so subdivision and coordinates are empty. Sur Energy is the developer; it is not a tracked company, so the record sits under OpenAI, the other signatory. A separate Neuquén project (Pampa Energía, 500 MW) is a different project and is not attached. OpenAI's own page returned 403 to the probe."
+      "notes": "Sur Energy's release says the two companies signed a Letter of Intent for a data-centre project reaching up to 500MW, with up to $25 billion in investment at full scale. No official page names the province or site, so subdivision and coordinates are empty. Sur Energy is the developer; it is not a tracked company, so the record sits under OpenAI, the other signatory. A separate Neuquén project (Pampa Energía, 500 MW) is a different project and is not attached. OpenAI's own page returned 403 to the probe.",
+      "updates": [
+        {
+          "date": "2026-10-15",
+          "kind": "news",
+          "title": "Chequeado reports no progress or concrete investment a year after the announcement",
+          "summary": "As reported by Chequeado, the project has not formally applied to join the RIGI. An OpenAI spokesperson told the outlet that Sur Energy will lead the energy and infrastructure development and assemble the consortium for construction.",
+          "authority": "Chequeado",
+          "source_url": "https://chequeado.com/el-explicador/stargate-argentina-a-un-ano-del-anuncio-no-hay-avances-en-la-construccion-del-data-center-de-us-25-000-millones-para-openai/",
+          "source_title": "Chequeado — A un año del anuncio de OpenAI y el Gobierno, no hay avances (15 Oct 2026)"
+        }
+      ]
     },
     {
       "captured_at": "2026-10-19",
@@ -3110,7 +3306,18 @@
       "captured_at": "2026-10-19",
       "source_url": "https://local.microsoft.com/wp-content/uploads/2025/10/Microsoft-datacenters-in-Mexico-LOCALIZATION.pdf",
       "source_title": "Microsoft — Centros de datos de Microsoft en México (first-party fact sheet, October 2025)",
-      "notes": "Microsoft's fact sheet says it operates one data center and is building two new facilities in Querétaro. claimed_jobs is its estimate of more than 2,200 construction jobs at peak activity, not permanent jobs; about 64 people worked at its facilities in 2025. announced_year is the fact sheet's publication year."
+      "notes": "Microsoft's fact sheet says it operates one data center and is building two new facilities in Querétaro. claimed_jobs is its estimate of more than 2,200 construction jobs at peak activity, not permanent jobs; about 64 people worked at its facilities in 2025. announced_year is the fact sheet's publication year.",
+      "updates": [
+        {
+          "date": "2024-05-07",
+          "kind": "news",
+          "title": "Microsoft announces its Mexico Central cloud region is operating",
+          "summary": "Microsoft's release says the region, made up of several data centres, is in the Querétaro metropolitan area. Its IDC jobs estimate is national, so it is not a figure for this site.",
+          "authority": "Microsoft",
+          "source_url": "https://news.microsoft.com/es-xl/microsoft-anuncia-el-inicio-de-operaciones-de-la-primera-region-de-centros-de-datos-de-nube-a-hiper-escala-en-mexico/",
+          "source_title": "Microsoft — Anuncia el inicio de operaciones de la primera región de centros de datos de nube a hiper escala en México (7 May 2024)"
+        }
+      ]
     },
     {
       "id": "jp-mitsui-kobe-tunnel",
@@ -3124,7 +3331,7 @@
       "status": "announced",
       "announced_year": 2026,
       "announced_date": "2026-10-06",
-      "notes": "Kobe City's 6 October 2026 press release names Mitsui Fudosan (lead company) and Kumagai Gumi as successful bidder for a 10 to 20 year lease of about 3 km of a 14.5 km former conveyor-belt tunnel (about 17,000 m2) for an underground data centre; annual rent is stated as JPY 7,572,000. The city page confirms the use and the lead company only; it states no power, cooling or jobs figures. Mitsui Fudosan's own release was not read. No coordinates are given because the city page publishes only a PDF location map.",
+      "notes": "Kobe City's 6 October 2026 press release names Mitsui Fudosan (lead company) and Kumagai Gumi as successful bidder for a 10 to 20 year lease of about 3 km of a 14.5 km former conveyor-belt tunnel (about 17,000 m2) for an underground data centre; annual rent is stated as JPY 7,572,000. The city page confirms the use and the lead company only; it states no power, cooling or jobs figures. Mitsui Fudosan's own release was not read. No coordinates are given because the city page publishes only a PDF location map. Mitsui Fudosan's own 6 October 2026 release adds a target maximum receiving capacity of about 20 MW, groundwater-circulation water cooling, and service start at the end of 2027 for the initial development.",
       "source_url": "https://www.city.kobe.lg.jp/a26136/546798440636.html",
       "source_title": "Kobe City — ベルトコンベア跡トンネル施設貸付の落札者決定 (press release, 6 Oct 2026)",
       "captured_at": "2026-10-19",
@@ -3389,6 +3596,98 @@
       "source_url": "https://ecodatacenter.tech/press/ecodatacenter-to-establish-third-datacenter-campus-in-sweden-3462219",
       "source_title": "EcoDataCenter press — EcoDataCenter to Establish Third Datacenter Campus in Sweden (25 Aug 2026)",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "mx-google-queretaro",
+      "company_slug": "google",
+      "name": "Google Cloud region, Querétaro",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "source_lang": "es",
+      "status": "operational",
+      "announced_year": 2024,
+      "announced_date": "2024-12-04",
+      "notes": "Google Cloud's 4 December 2024 blog post says its 41st cloud region, in Querétaro, is already in operation. The post gives no site-level investment, power, water or jobs figures. The 100,000-jobs and US$11,000 million GDP figures are economy-wide cloud-adoption estimates to 2030, not jobs at the site.",
+      "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+      "source_title": "Google Cloud — ¡Hola México! Querétaro da la bienvenida a la nueva región de Google Cloud (blog, 4 Dec 2024)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2024-12-04",
+          "kind": "news",
+          "title": "Google Cloud announces its Querétaro region is in operation",
+          "summary": "The post, signed by Google Cloud's Latin America and Mexico leads, names the region as already operating. It also names local data-residency and banking-regulator (CNBV) contractual frameworks.",
+          "authority": "Google Cloud",
+          "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+          "source_title": "Google Cloud — ¡Hola México! (blog, 4 Dec 2024)"
+        }
+      ]
+    },
+    {
+      "id": "mx-aws-queretaro",
+      "company_slug": "amazon",
+      "name": "AWS Mexico (Central) Region, Querétaro",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "source_lang": "en",
+      "status": "operational",
+      "announced_year": 2025,
+      "announced_date": "2025-01-14",
+      "claimed_investment": {
+        "amount": 5000000000,
+        "currency": "USD",
+        "as_stated": "more than $5 billion in Mexico over 15 years"
+      },
+      "notes": "The AWS press release of 14 January 2025 announces the launch of the AWS Mexico (Central) Region. AWS's later Mexico sustainability fact sheet says the region 'launched May 2025'; the two first-party dates conflict and the release date is used here. The US$5 billion is a country-wide plan stated as 'planning', not a Querétaro-only or committed sum. The fact sheet restates it as more than US$5 billion through 2033.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2025-01-14",
+          "kind": "news",
+          "title": "AWS announces the launch of the AWS Mexico (Central) Region",
+          "summary": "The release is dated 14 January 2025. AWS's own fact sheet gives May 2025 as the launch date.",
+          "authority": "Amazon Web Services",
+          "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+          "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)"
+        }
+      ]
+    },
+    {
+      "id": "mx-cloudhq-queretaro",
+      "company_slug": "cloudhq",
+      "name": "CloudHQ data centre campus, Querétaro (six data centres)",
+      "city": "Querétaro",
+      "country": "MX",
+      "subdivision": "MX-QUE",
+      "source_lang": "es",
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-09-25",
+      "claimed_investment": {
+        "amount": 4800000000,
+        "currency": "USD",
+        "as_stated": "4 mil 800 mdd"
+      },
+      "claimed_jobs": 900,
+      "notes": "Mexico's presidency announced on 25 September 2025 an investment of 4,800 million dollars by CloudHQ for six data centres in Querétaro. claimed_jobs is the 900 permanent jobs in the federal release, not a CloudHQ figure; the same release gives more than 7,200 construction jobs. The release was read in a browser because gob.mx blocks the automated probe. CloudHQ's own release was not found.",
+      "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+      "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)",
+      "captured_at": "2026-10-19",
+      "updates": [
+        {
+          "date": "2025-09-25",
+          "kind": "news",
+          "title": "Federal release announces CloudHQ's six-data-centre project in Querétaro",
+          "summary": "The release says the project will create more than 7,200 construction jobs and 900 permanent jobs. It quotes President Sheinbaum saying that these investments are also required to bring benefits to the community; it names no local agreement, fund or amount.",
+          "authority": "Presidencia de la República / Secretaría de Economía",
+          "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+          "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)"
+        }
+      ]
     }
   ],
   "responses": [
@@ -3797,6 +4096,30 @@
       "summary": "Banque des Territoires reports that the Montreuil administrative court's interim-relief judge upheld the commune's withdrawal of Segro's building permit, finding the project did not comply with the local plan's height rules. It is a provisional measure; the merits are undecided and Segro says it will contest.",
       "source_url": "https://www.banquedesterritoires.fr/datacenters-les-projets-dimplantation-dans-la-drome-et-au-bourget-contestes",
       "source_title": "Banque des Territoires — Datacenters: les projets contestés dans la Drôme et au Bourget"
+    },
+    {
+      "id": "cl-resp-quilicura-aquifer-rights",
+      "project_id": "cl-google-quilicura",
+      "date": "2026-03-04",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A spokesperson for Resistencia Socioambiental Quilicura said the data centre has a registered right to draw 50 litres per second from the aquifers that feed the Quilicura wetland, and that the companies lack responsibility. The same article carries Google's own 2024 water-use figure.",
+      "source_url": "https://radio.uchile.cl/2026/03/04/el-agua-que-usa-la-ia-es-chilena-vecinos-de-quilicura-alegan-falta-de-responsabilidad-de-data-centers/",
+      "source_title": "Radio Universidad de Chile — El agua que usa la IA es chilena: vecinos de Quilicura alegan 'falta de responsabilidad' de data centers (4 Mar 2026)",
+      "single_source": true,
+      "source_lang": "es"
+    },
+    {
+      "id": "es-resp-tsja-appeal-aws-piga",
+      "project_id": "es-aws-zaragoza-car",
+      "date": "2026-01-04",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "A campaign page by the Migrano de Arena coalition says it filed an appeal with the High Court of Justice of Aragon (TSJA) against Amazon's PIGA covering five campuses. The date shown is the page's publication date, because the filing date is not stated.",
+      "source_url": "https://www.migranodearena.org/en/cause/contencioso-contra-los-centros-de-datos-de-amazon-aws-en-aragon",
+      "source_title": "Migrano de Arena — appeal to the TSJA against the AWS PIGA (campaign page)",
+      "single_source": true,
+      "source_lang": "en"
     }
   ],
   "claims": [
@@ -4589,6 +4912,295 @@
       "captured_at": "2026-10-19",
       "published_at": "2026-08-25",
       "project_id": "se-ecodatacenter-smedjebacken"
+    },
+    {
+      "id": "mx-claim-google-queretaro-jobs-gdp",
+      "company_slug": "google",
+      "theme": "jobs",
+      "statement": "Se espera que como resultado de esta nueva región, el aumento en la adopción de la nube y la productividad que brinda generen más de 100,000 empleos y contribuyan con más de $11,000 millones de dólares al PIB de México para 2030.",
+      "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+      "source_title": "Google Cloud — ¡Hola México! (blog, 4 Dec 2024)",
+      "captured_at": "2026-10-19",
+      "published_at": "2024-12-04",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "It is expected that as a result of this new region, the increase in cloud adoption and the productivity it brings will generate more than 100,000 jobs and contribute more than US$11,000 million to Mexico's GDP by 2030.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-google-queretaro",
+      "metric": {
+        "value": 100000,
+        "unit": "jobs",
+        "kind": "economy-wide estimate to 2030"
+      }
+    },
+    {
+      "id": "mx-claim-google-queretaro-subete",
+      "company_slug": "google",
+      "theme": "education",
+      "statement": "Otro ejemplo es el programa \"Súbete a la nube\" que creamos en México en asociación con el Banco Interamericano de Desarrollo (BID) con un enfoque en las mujeres y la región sur del país. Hasta la fecha, 12,500 personas se han registrado para recibir capacitación en habilidades digitales esenciales en computación en la nube.",
+      "source_url": "https://blog.google/intl/es-419/actualizaciones-de-producto/en-la-nube/region-cloud-mexico-nueva/",
+      "source_title": "Google Cloud — ¡Hola México! (blog, 4 Dec 2024)",
+      "captured_at": "2026-10-19",
+      "published_at": "2024-12-04",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "Another example is the \"Súbete a la nube\" programme we created in Mexico in partnership with the Inter-American Development Bank (IDB), focused on women and the south of the country. To date, 12,500 people have registered to receive training in essential digital cloud computing skills.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-google-queretaro",
+      "metric": {
+        "value": 12500,
+        "unit": "people registered",
+        "kind": "training"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-investment",
+      "company_slug": "amazon",
+      "theme": "infrastructure",
+      "statement": "As part of its long-term commitment, AWS is planning to invest more than $5 billion in Mexico over 15 years.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-01-14",
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 5000000000,
+        "unit": "USD",
+        "kind": "planned investment, Mexico, 15 years"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-jobs-gdp",
+      "company_slug": "amazon",
+      "theme": "jobs",
+      "statement": "AWS estimates the construction and ongoing operation of the new AWS Region will add approximately $10 billion to Mexico’s gross domestic product (GDP) and support an average of more than 7,000 full-time equivalent jobs at external businesses annually.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-01-14",
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 7000,
+        "unit": "jobs",
+        "kind": "FTE at external businesses, annual average"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-community-fund",
+      "company_slug": "amazon",
+      "theme": "community_grants",
+      "statement": "AWS has also launched a $300,000 AWS InCommunities Fund in Queretaro to help local groups, schools, and organizations initiate new community projects.",
+      "source_url": "https://press.aboutamazon.com/2025/1/aws-launches-infrastructure-region-in-mexico",
+      "source_title": "AWS — AWS Launches Infrastructure Region in Mexico (press release, 14 Jan 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-01-14",
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 300000,
+        "unit": "USD",
+        "kind": "community_fund"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-aquestia-water",
+      "company_slug": "amazon",
+      "theme": "water",
+      "statement": "Querétaro: In partnership with Aquestia, we installed valves, controllers, and communication equipment in 11 measured districts, benefiting 12,500 people and projecting savings of 130 million liters per year.",
+      "source_url": "https://sustainability.aboutamazon.com/aws-sustainability-fact-sheets/aws-fact-sheet-mexico.pdf",
+      "source_title": "AWS Mexico sustainability fact sheet (2026)",
+      "captured_at": "2026-10-19",
+      "published_at": null,
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro",
+      "metric": {
+        "value": 130000000,
+        "unit": "litres per year",
+        "kind": "projected network savings, not data-centre use"
+      }
+    },
+    {
+      "id": "mx-claim-aws-queretaro-think-big",
+      "company_slug": "amazon",
+      "theme": "education",
+      "statement": "AWS, in collaboration with the State Government and the Municipal Government of Querétaro, launched the Amazon Think Big Space in 2026, with the purpose of providing students, educators, and community members a space to explore ideas through interactive technical education and cloud computing training.",
+      "source_url": "https://sustainability.aboutamazon.com/aws-sustainability-fact-sheets/aws-fact-sheet-mexico.pdf",
+      "source_title": "AWS Mexico sustainability fact sheet (2026)",
+      "captured_at": "2026-10-19",
+      "published_at": null,
+      "country": "MX",
+      "statement_lang": "en",
+      "project_id": "mx-aws-queretaro"
+    },
+    {
+      "id": "mx-claim-cloudhq-queretaro-water",
+      "company_slug": "cloudhq",
+      "theme": "water",
+      "statement": "Además de que se tratará de un desarrollo sostenible al usar refrigeración sin agua y LEED de oro y plata.",
+      "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+      "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025); spoken by CloudHQ's director of operations",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-09-25",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "In addition, it will be a sustainable development that uses water-free cooling and LEED gold and silver certification.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-cloudhq-queretaro"
+    },
+    {
+      "id": "mx-claim-cloudhq-queretaro-energy",
+      "company_slug": "cloudhq",
+      "theme": "energy",
+      "statement": "ya se tiene asegurada la energía inicial para los primeros 200 MW con apoyo de CFE y de Cenace, lo que representa una inversión previa de 250 millones de dólares",
+      "source_url": "https://www.gob.mx/presidencia/prensa/plan-mexico-avanza-se-anuncia-inversion-de-4-mil-800-mdd-de-cloudhq-para-la-construccion-de-6-centros-de-datos-en-queretaro?idiom=es",
+      "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025); spoken by CloudHQ's director of operations",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-09-25",
+      "country": "MX",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "initial energy for the first 200 MW is already secured with support from CFE and Cenace, which represents a prior investment of US$250 million.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "mx-cloudhq-queretaro",
+      "metric": {
+        "value": 200,
+        "unit": "MW",
+        "kind": "initial supply secured, per company"
+      }
+    },
+    {
+      "id": "ar-claim-pampa-vaca-muerta-800mw",
+      "company_slug": "pampa-energia",
+      "theme": "energy",
+      "statement": "En Pampa Energía ya contamos con 800 MW de generación eléctrica disponibles para un centro de datos en Vaca Muerta.",
+      "source_url": "https://www.adnsur.com.ar/pulso-energetico/con-la-energia-de-vaca-muerta--pampa-energia-propone-montar-un-data-center-de-ia-en-neuquen_a6ac399e40294df27f764d600",
+      "source_title": "ADNSUR — Con la energía de Vaca Muerta, Pampa Energía propone montar un data center de IA en Neuquén (remarks by chairman Marcelo Mindlin)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-05",
+      "country": "AR",
+      "statement_lang": "es",
+      "statement_translation": {
+        "text": "At Pampa Energía we already have 800 MW of electricity generation available for a data center in Vaca Muerta.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "metric": {
+        "value": 800,
+        "unit": "MW",
+        "kind": "generation offered, no site named"
+      }
+    },
+    {
+      "id": "jp-claim-mitsui-kobe-capacity",
+      "company_slug": "mitsui-fudosan",
+      "theme": "energy",
+      "statement": "最大受電容量20メガワット規模のデータセンターとして運用することを目指しています",
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "source_title": "Mitsui Fudosan — Kobe underground data centre (news release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-06",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "The company aims to operate it as a data centre with a maximum receiving capacity on the order of 20 megawatts.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-mitsui-kobe-tunnel",
+      "metric": {
+        "value": 20,
+        "unit": "MW",
+        "kind": "target maximum receiving capacity"
+      }
+    },
+    {
+      "id": "jp-claim-mitsui-kobe-groundwater-cooling",
+      "company_slug": "mitsui-fudosan",
+      "theme": "water",
+      "statement": "地下水を循環利用する水冷方式を導入するなど、既存資源を最大限に活用することで、環境負荷の低減と高効率な運用を実現します。",
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "source_title": "Mitsui Fudosan — Kobe underground data centre (news release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-06",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "By introducing a water-cooling system that circulates groundwater, and by making maximum use of existing resources, the company will reduce environmental impact and achieve highly efficient operation.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-mitsui-kobe-tunnel"
+    },
+    {
+      "id": "jp-claim-mitsui-kobe-schedule",
+      "company_slug": "mitsui-fudosan",
+      "theme": "infrastructure",
+      "statement": "初期開発では、2027年末のサービス提供開始を予定しています。",
+      "source_url": "https://www.mitsuifudosan.co.jp/corporate/news/2026/1006/",
+      "source_title": "Mitsui Fudosan — Kobe underground data centre (news release, 6 Oct 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-10-06",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "For the initial development, the company plans to start service at the end of 2027.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-mitsui-kobe-tunnel"
+    },
+    {
+      "id": "jp-claim-softbank-tomakomai-scale",
+      "company_slug": "softbank-corp",
+      "theme": "infrastructure",
+      "statement": "将来的に国内最大規模の敷地面積70万平方メートル、受電容量が300メガワット超まで拡大",
+      "source_url": "https://www.softbank.jp/sbnews/entry/20250421_01",
+      "source_title": "SoftBank News — Construction begins on Hokkaido Tomakomai AI data centre (21 Apr 2025)",
+      "captured_at": "2026-10-19",
+      "published_at": "2025-04-21",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "Looking ahead, the site is expected to grow to the largest scale in Japan, with a site area of 700,000 square metres and receiving capacity above 300 MW.",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-softbank-tomakomai"
+    },
+    {
+      "id": "jp-claim-softbank-tomakomai-jobs",
+      "company_slug": "softbank-corp",
+      "theme": "jobs",
+      "statement": "地域経済への波及や雇用の創出、先端産業が集積していくことによる地域の活性化など",
+      "source_url": "https://www.softbank.jp/sbnews/entry/20260218_01",
+      "source_title": "SoftBank News — Tomakomai project staff interview (18 Feb 2026)",
+      "captured_at": "2026-10-19",
+      "published_at": "2026-02-18",
+      "country": "JP",
+      "statement_lang": "ja",
+      "statement_translation": {
+        "text": "the spillover into the regional economy, job creation, and revitalisation through the agglomeration of advanced industries",
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "project_id": "jp-softbank-tomakomai"
     }
   ],
   "rate_cases": [

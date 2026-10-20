@@ -1,0 +1,233 @@
+{
+ "companies": [],
+ "records": [
+  {
+   "kind": "policy",
+   "id": "in-ka-sustainable-dc-policy-2026-2031",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-KA",
+    "instrument": "Karnataka Sustainable Data Centre Policy 2026-2031",
+    "issuer": "Government of Karnataka (Cabinet; implementation by DoEIT, BT and S&T)",
+    "event_date": "2026-09-18",
+    "event_date_note": "Cabinet approval at a Mangaluru meeting on Friday 18 Sep 2026 per Deccan Chronicle. Government order number and PDF not found.",
+    "scope": "state",
+    "status": "approved"
+   },
+   "verbatim": "The policy targets a cumulative data centre IT load of 1 GW by 2031",
+   "translation": null,
+   "source_url": "https://www.deccanchronicle.com/amp/southern-states/karnataka/karnataka-approves-sustainable-data-centre-policy-20262031-1988661",
+   "notes": "Secondary source (Deccan Chronicle) only; primary order not located. The 10-12% AI-ready share and Rs 1,300.45 crore budget are from Biospectrum/ThePrint (secondary)."
+  },
+  {
+   "kind": "policy",
+   "id": "in-ka-treated-water-pue-incentive-2026-2031",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-KA",
+    "instrument": "Karnataka Sustainable Data Centre Policy 2026-2031, PUE incentive",
+    "issuer": "Government of Karnataka",
+    "event_date": "2026-09-30",
+    "event_date_note": "Date of The News Minute report on the policy text; policy approval 18 Sep 2026.",
+    "scope": "state"
+   },
+   "verbatim": "Units achieving a PUE of 1.00 to 1.20 can receive Rs 20 crore as one-time financial support.",
+   "translation": null,
+   "source_url": "https://www.thenewsminute.com/karnataka/karnatakas-new-data-centre-policy-puts-water-energy-in-focus-what-does-it-say",
+   "notes": "Reporter's reading of the policy text; the PUE must be shown consistently for three years per the same article. Verify in the official policy before relying on the amount."
+  },
+  {
+   "kind": "policy",
+   "id": "in-ka-dc-policy-2022-2027-24x7-water",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-KA",
+    "instrument": "Karnataka Data Centre Policy 2022-2027",
+    "issuer": "Government of Karnataka",
+    "event_date": null,
+    "event_date_note": "Policy period start; the 2022 policy date itself is not stated in the source. Quoted as in force in April 2026.",
+    "scope": "state"
+   },
+   "verbatim": "the state would facilitate provision of uninterrupted water supply (24*7) to data centre entities/units across the state.",
+   "translation": null,
+   "source_url": "https://www.newslaundry.com/2026/04/16/in-bengalurus-water-stressed-areas-sit-most-of-its-data-centres",
+   "notes": "Quoted by Newslaundry from the policy text; the policy PDF itself was not fetched. Same article: BWSSB confirmed it has not tracked data-centre water as a separate category."
+  },
+  {
+   "kind": "response",
+   "id": "in-ka-devanahalli-groundwater-169pct-2026-04",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-KA",
+    "project": "Data centres in Devanahalli (Bengaluru Rural)",
+    "constituency": "journalist",
+    "stance": "negative",
+    "event_date": "2026-04-16",
+    "event_date_note": "Publication date of the Newslaundry investigation."
+   },
+   "verbatim": "consumes 169% of permissible extraction limits of water.",
+   "translation": null,
+   "source_url": "https://www.newslaundry.com/2026/04/16/in-bengalurus-water-stressed-areas-sit-most-of-its-data-centres",
+   "notes": "Newslaundry investigation of groundwater use; the subject of the sentence is Devanahalli as a locality, which hosts multiple data centres. Not a company statement. Stance is curator judgment."
+  },
+  {
+   "kind": "response",
+   "id": "in-ka-bwssb-water-not-tracked-2026-04",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-KA",
+    "project": "Data centres in Bengaluru (water supply)",
+    "constituency": "regulator",
+    "stance": "negative",
+    "event_date": "2026-04-16",
+    "event_date_note": "Publication date of the Newslaundry report; the officials' remark is as reported there."
+   },
+   "verbatim": "the board has not tracked the water supplied to data centres",
+   "translation": null,
+   "source_url": "https://www.newslaundry.com/2026/04/16/in-bengalurus-water-stressed-areas-sit-most-of-its-data-centres",
+   "notes": "Water board (BWSSB) officials, as reported by Newslaundry. Documents a reporting gap rather than a site-level finding."
+  },
+  {
+   "kind": "policy",
+   "id": "in-mh-dc-policy-expected-2026-09",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-MH",
+    "instrument": "Maharashtra Data Centre Policy (proposed, with SOPs)",
+    "issuer": "Government of Maharashtra (MPCB and IIT Bombay preparing guidelines)",
+    "event_date": "2026-09-07",
+    "event_date_note": "Article 'Updated' date 7 Sep 2026; the report says the policy is expected to be finalised in a few months.",
+    "scope": "state",
+    "status": "proposed"
+   },
+   "verbatim": "The MPCB and IIT Bombay are working on guidelines covering environmental impact, zoning and resource use.",
+   "translation": null,
+   "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-to-soon-have-a-data-centre-policy-to-regulate-sites-water-consumption-noise-pollution-heat-generation",
+   "notes": "Pending instrument, not a notified policy. Distinct from the green integrated data centre park GR (9 Jun 2026), which stays a lead. Article uses 'likely' and 'expected'; record stays proposed."
+  },
+  {
+   "kind": "state_action",
+   "id": "in-up-gnida-dc-plot-scheme-2023-06",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-UP",
+    "project": "Greater Noida data centre plot scheme (13 plots)",
+    "issuer": "Greater Noida Industrial Development Authority (GNIDA)",
+    "event_date": "2023-06-14",
+    "event_date_note": "Article date 14 Jun 2023; predates the 2026 series, included for the UP/NCR baseline.",
+    "instrument": "Land allotment scheme for data centres (e-auction)",
+    "investment_note": "Rs 20,000 crore expected; about 10,000 jobs expected (authority's figures as reported)"
+   },
+   "verbatim": "the process will be carried out through an e-auction",
+   "translation": null,
+   "source_url": "https://indiainfrahub.com/featured/greater-noida-launches-land-allotment-scheme-to-set-up-data-centres-aims-to-attract-rs-20000-crore-in-investments/",
+   "notes": "Authority-level plan, reported by IndiaInfraHub. Authority's own notice not fetched. Plots: two in Knowledge Park-5 and eleven in Techzone (13 in total per the article)."
+  },
+  {
+   "kind": "state_action",
+   "id": "in-up-yeida-sector28-sify-jackson-plots-2023-11",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-UP",
+    "company": "Sify Infinite Spaces; Jackson Limited",
+    "project": "YEIDA Sector 28 data centre plots (near Noida International Airport)",
+    "issuer": "Yamuna Expressway Industrial Development Authority (YEIDA)",
+    "event_date": "2023-11-08",
+    "event_date_note": "Article 'Published At' 8 Nov 2023 per Outlook Business.",
+    "instrument": "Land allotment (plots D-9 and D-10)",
+    "investment_note": "Rs 1,757 crore expected from the two companies"
+   },
+   "verbatim": "Sify Infinite Spaces has been allotted land plot D-10 measuring 20,000 sq metres in Sector 28",
+   "translation": null,
+   "source_url": "https://www.outlookbusiness.com/news/sify-jackson-get-land-for-data-centres-near-noida-airport-rs-1757-crore-investment-in-offing",
+   "notes": "Allotment reported by Outlook Business. Sify is not a tracked company (candidate with HQ/website still to verify on Sify's own site). Predates 2026."
+  },
+  {
+   "kind": "response",
+   "id": "in-mh-thane-mhaske-tree-felling-2026-07",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": "IN-MH",
+    "project": "Amazon data centre, Balkum, Thane",
+    "constituency": "local_government",
+    "stance": "negative",
+    "event_date": "2026-07-07",
+    "event_date_note": "Free Press Journal article 'published and updated' 7 Jul 2026. The MP submitted a memorandum to the TMC Commissioner and District Collector demanding an immediate stay."
+   },
+   "verbatim": "There is clear evidence that tree felling has exceeded the permissions granted by the TMC.",
+   "translation": null,
+   "source_url": "https://www.freepressjournal.in/amp/mumbai/thane-mp-naresh-mhaske-demands-immediate-halt-on-amazon-data-center-citing-illegal-tree-felling-and-civic-disaster-risks",
+   "notes": "Elected MP (public office holder) quoted in his official capacity. He alleges tree felling beyond permissions; it is his claim, not a finding. Distinct from the Wake Up Thanekar quote in in-mh-thane-amazon-protest-2026-07."
+  },
+  {
+   "kind": "state_action",
+   "id": "in-national-cea-dc-grid-committee-2026-10",
+   "verified": true,
+   "fields": {
+    "country": "IN",
+    "subdivision": null,
+    "project": "Data centres at national grid scale (no single site)",
+    "issuer": "Central Electricity Authority (CEA)",
+    "event_date": "2026-10-01",
+    "event_date_note": "KNN dateline 1 Oct 2026. Committee to report to CEA's National Power Committee; no deadline stated.",
+    "instrument": "CEA committee on data-centre impact on grid stability and policy/regulatory issues",
+    "scope": "national"
+   },
+   "verbatim": "The Central Electricity Authority (CEA) has constituted a committee to assess the impact of rapidly expanding data centres",
+   "translation": null,
+   "source_url": "https://knnindia.co.in/news/newsdetails/sectors/energy/cea-sets-up-committee-to-assess-data-centres-impact-on-power-grid-stability",
+   "notes": "A committee, not a rule. Trigger reported as Odisha's concerns about grid-linked operational challenges from large collective power purchases. No CEA order fetched. Do not record as a grid rule."
+  }
+ ],
+ "leads": [
+  {
+   "id": "lead-in-ka-telangana-amazon-420-acres",
+   "note": "m9.news (Telugu, undated) reports the Telangana government allotted about 420 acres near Hyderabad for Amazon data centres with about Rs 60,000 crore investment. Find the TGIIC or Telangana GO before filing; the figure is secondary."
+  },
+  {
+   "id": "lead-in-ka-deccan-herald-60k-crore",
+   "note": "Deccan Herald (Karnataka eyes Rs 60k crore investment under new data centre policy) returned 403 to WebFetch. Retry the non-AMP page; it may carry the policy's investment target and the government's own figures."
+  },
+  {
+   "id": "lead-in-mh-gr-2026-06-09-green-parks",
+   "note": "A 9 June 2026 GR reportedly raises eligible green integrated DC parks from 3 to 20, cuts the green-energy requirement from 100% to 51%, and sets a Re 1/unit subsidy for 10 or 20 years. Only one trade report (Navbharat Live) was read. Verify on the Maharashtra Industries Energy and Labour Dept site before filing."
+  },
+  {
+   "id": "lead-in-meity-draft-ndc-policy-2025-09",
+   "note": "MeitY draft National Data Centre Policy (consultation begun Aug 2025, draft published reportedly 16 Sep 2025): four Data Centre Economic Zones, 20-year tax holiday, permanent establishment at 100 MW. Intelligentcio (14 Aug 2025) returned 403 to WebFetch; find meity.gov.in notice or retry."
+  },
+  {
+   "id": "lead-in-tn-data-centre-policy-go33-retry",
+   "note": "TN Data Centre Policy 2021 (G.O. Ms. No. 33) official host still unreached; a verified.realestate explainer summarises incentives but is secondary. Candidate ELCOT or tn.gov.in PDF search still open."
+  },
+  {
+   "id": "lead-in-chennai-siruseri-sify-first-party",
+   "note": "No Tamil Nadu resident or water objection to data centres surfaced in English or Tamil searches (Aug to Oct 2026). Treat as search absence. Sify Chennai 02 page carries no community commitment (see india_r6 lead)."
+  },
+  {
+   "id": "lead-in-up-bida-jhansi-cluster",
+   "note": "No English or Hindi 2026 coverage of a Bida or Jhansi data-centre cluster found (search rounds 7). Still open."
+  },
+  {
+   "id": "lead-in-ka-kharge-footprint-statement",
+   "note": "Karnataka IT minister Priyank Kharge is quoted by TNM as saying: 'we have also become more conscious of the environmental footprint of this infrastructure.' Official statement, not a community response; use only as context for the Sustainable DC Policy record."
+  },
+  {
+   "id": "lead-in-mh-thane-hindi-amazon-clarification",
+   "note": "Thecsrjournal (Hindi) headline records Amazon saying tree felling followed all clearances and that more saplings are planted per tree. Only the headline was readable (WebFetch). Get the Amazon statement itself (AWS India or TMC press) for a first-party verbatim."
+  },
+  {
+   "id": "lead-in-ap-vizag-601-acres-2026-02",
+   "note": "Angel One (Telugu, 24 Feb 2026) reports Visakhapatnam Google AI data centre land raised from 480 to about 601 acres. Outside this round's scope (AP); reconcile with the 480-acre GO record before filing."
+  }
+ ]
+}

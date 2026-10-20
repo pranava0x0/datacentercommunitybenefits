@@ -92,6 +92,8 @@ COMPANY_SLUGS: tuple[str, ...] = (
     "kakao",
     "lg-uplus",
     "ecodatacenter",
+    "cloudhq",
+    "pampa-energia",
 )
 
 PROJECT_STATUSES: tuple[str, ...] = ("announced", "construction", "operational", "withdrawn")
@@ -150,6 +152,8 @@ CompanySlug = Literal[
     "kakao",
     "lg-uplus",
     "ecodatacenter",
+    "cloudhq",
+    "pampa-energia",
 ]
 # withdrawn (#78): the operator abandoned the site. The record stays, as
 # history, but leaves the pledge scorecard and the investment/jobs totals.

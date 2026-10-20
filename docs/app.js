@@ -72,6 +72,8 @@ const COMPANY_SLUGS = [
   "kakao",
   "lg-uplus",
   "ecodatacenter",
+  "cloudhq",
+  "pampa-energia",
 ];
 
 const STANCE_LABELS = {

@@ -287,6 +287,24 @@
       "summary": "Swedish data-centre operator (Falun, Borlänge), tracked for its third campus at Smedjebacken. Its own release carries one named-executive statement on its dealings with the municipality; no standing community-impact page was found.",
       "last_reviewed": "2026-10-19",
       "international_only": true
+    },
+    {
+      "slug": "cloudhq",
+      "name": "CloudHQ",
+      "hq": "Washington, DC, United States",
+      "dedicated_page_url": null,
+      "summary": "Data-centre developer headquartered in Washington, DC, tracked for its six-data-centre campus in Querétaro, Mexico. No standing community-impact page was found; the claims come from remarks by its director of operations reported in a federal release. It also operates in the United States, but none of those sites are tracked here.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
+    },
+    {
+      "slug": "pampa-energia",
+      "name": "Pampa Energía",
+      "hq": "Buenos Aires, Argentina",
+      "dedicated_page_url": null,
+      "summary": "Argentine power generator and gas producer, tracked for its chairman's public offer of 800 MW of generation for a data centre in Vaca Muerta. It is not a data-centre developer and no site has been named.",
+      "last_reviewed": "2026-10-19",
+      "international_only": true
     }
   ]
 }
