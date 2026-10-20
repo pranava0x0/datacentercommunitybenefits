@@ -4835,6 +4835,66 @@
       "source_url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
       "source_title": "West Vincent Township — Public notice: data centers ordinance hearing",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "charles-county-md-zta-25-187-2026-07",
+      "title": "Charles County withdraws data center zoning text amendment ZTA 25-187",
+      "instrument": "local_ordinance",
+      "status": "failed",
+      "scope": "county",
+      "jurisdiction": "Charles County",
+      "state_code": "MD",
+      "identifier": "ZTA 25-187",
+      "date": "2026-07-21",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The county commissioners unanimously agreed during Tuesday's meeting to remove the zoning text amendment and to wait for a state report",
+        "a zoning text amendment that would allow the facilities to be built in Charles County was withdrawn"
+      ],
+      "summary": "On July 21, 2026 the Charles County Commissioners unanimously agreed to remove a zoning text amendment that would have allowed data centers in the county, and to wait for a state report. Earlier, on June 1, 2026, the county Planning Commission had unanimously recommended denying the revised amendment, which would have limited data centers to heavy industrial zones. This is a zoning text amendment, not a moratorium.",
+      "source_url": "https://www.somdnews.com/independent/news/local/charles-pulls-data-center-zoning-amendment-awaits-state-report/article_e5aa5fc0-4efd-4ca0-9560-28f6f1aa36f9.html",
+      "source_title": "Southern Maryland News — Charles pulls data center zoning amendment, awaits state report",
+      "resources": [
+        {
+          "url": "https://www.somdnews.com/independent/news/local/charles-planning-board-recommends-disallowing-data-centers/article_bc6ed7fe-2a09-4522-b16e-3b83b08710ff.html",
+          "title": "Southern Maryland News — Charles planning board recommends disallowing data centers"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "hays-county-tx-water-review-resolution-2026-06",
+      "title": "Hays County water review board and temporary suspension of discretionary approvals for data centers",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Hays County",
+      "state_code": "TX",
+      "identifier": "County resolution",
+      "date": "2026-06-23",
+      "benefit_themes": [
+        "water"
+      ],
+      "principles": [
+        "water",
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Hays County commissioners voted unanimously on Tuesday to establish a review board to evaluate proposed intensive-water-use developments like data centers",
+        "the resolution temporarily suspends \"discretionary approvals\" related to data centers and other water-intensive developments in the county through the end of the year",
+        "The resolution does not create a blanket prohibition on data centers or other industrial projects"
+      ],
+      "summary": "On June 23, 2026 Hays County commissioners voted unanimously on a resolution that creates a review board for intensive-water-use developments such as data centers. The resolution also temporarily suspends discretionary approvals, which can range from tax abatements to development agreements, for data centers and other water-intensive developments through the end of 2026. The county judge says it is not a blanket prohibition. It is filed here rather than as a moratorium for that reason.",
+      "source_url": "https://www.kut.org/energy-environment/2026-06-23/hays-county-tx-data-centers-water-review-board",
+      "source_title": "KUT — Hays County to establish new water board and regulatory standards for data centers",
+      "captured_at": "2026-10-19"
     }
   ]
 }

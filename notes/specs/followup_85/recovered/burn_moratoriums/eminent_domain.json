@@ -1,0 +1,151 @@
+{
+  "cases": [
+    {
+      "jurisdiction": "Spotsylvania County, Virginia",
+      "country": "US",
+      "state_or_subdivision": "VA",
+      "body": "Spotsylvania County Board of Supervisors",
+      "purpose": "Taking of 77,751 sq ft of a resident's property for the Reuse Conveyance System Project (reclaimed-water conveyance)",
+      "serves_data_center_quote": "the Reuse Conveyance System Project that will benefit data centers",
+      "event_date": "2026-04-14 (board meeting; article dated 2026-04-15)",
+      "status": "Consent-agenda item pulled by Supervisor David Goosman; board voted 7-0 to take it up separately at the April 28, 2026 meeting. Outcome of April 28 not found in sources.",
+      "linked_project_id": null,
+      "response": "County said the owners had been non-responsive to purchase offers; Supervisor Goosman said he had been in contact with them and believed they could be brought to the negotiating table. Goosman: wants data centers 'doing due diligence with our citizens' (paraphrased in article).",
+      "verbatim": "the Reuse Conveyance System Project that will benefit data centers; The county said the property owners have been non-responsive to the county's offers to buy the land.",
+      "source_url": "https://www.fredericksburgfreepress.com/?p=167402",
+      "source_title": "Fredericksburg Free Press, Apr 15 2026 (Spotsylvania eminent domain votes)",
+      "verified": true,
+      "notes": "Strongest case: a county condemnation whose stated purpose is a data-center-serving water system. Note the county also took two eminent-domain actions for the Massaponax Church Road waterline (passed unanimously; public-health framing, no data-center link stated). Fetch the April 28 minutes before shipping. Also: county says it is at capacity for reuse water because of approved data-center projects (July 2025 report, per article)."
+    },
+    {
+      "jurisdiction": "Georgia (Coweta, Fayette, Heard, Fulton counties)",
+      "country": "US",
+      "state_or_subdivision": "GA",
+      "body": "Georgia Power Company (investor-owned utility; PSC-regulated). NOT a government body; eminent domain is exercised as a delegated utility power. Include only as a utility-condemnor case.",
+      "purpose": "Ashley Park-Wansley 35-mile transmission line (Ashley Park Substation to Wansley plant) for load growth",
+      "serves_data_center_quote": "with 70-80% of the power from the project being diverted to AI data centers (CBS estimate, reported by Fortune; Georgia Power could not confirm). Georgia Power's own framing: the line will 'serve the broader needs of the communities and customers who rely on critical and reliable service infrastructure.'",
+      "event_date": "2026-07-26 (Fortune article); land acquisition reported to begin 2026, completion ~2028",
+      "status": "Land acquisition under way; sources disagree on parcel counts (300+ parcels vs ~330 properties; ~20-30 homes to be demolished). One Coweta family agreed to sell; Georgia Power says most homeowner agreements in place and negotiating with the rest. No PSC docket number in sources.",
+      "linked_project_id": null,
+      "response": "Residents: Ansley Brown, 'We don't have a choice in this.' Opposition reported in Newsweek (2026-07-18) and Fortune.",
+      "verbatim": "eminent domain is used as a last resort and occurs in less than 1% of its land transactions; We don't have a choice in this.; with 70-80% of the power from the project being diverted to AI data centers",
+      "source_url": "https://fortune.com/2026/07/26/georgia-power-utility-company-eminent-domain-grid-expansion-data-center/",
+      "source_title": "Fortune, 2026-07-26 (Georgia Power eminent domain, grid expansion, data centers)",
+      "verified": true,
+      "notes": "Verified verbatims are on the Fortune page. The 70-80% data-center share is a CBS estimate that Georgia Power did not confirm, so it must be attributed, not stated as fact. Fetch the Georgia PSC certification docket before shipping (the Fayette News fetch returned 429). Context only: tracked prologis-coweta-ga (Newnan, GA) is in Coweta County but no link to this line is established."
+    },
+    {
+      "jurisdiction": "Maryland / Federal (Fourth Circuit) - Baltimore, Carroll, Frederick counties",
+      "country": "US",
+      "state_or_subdivision": "MD",
+      "body": "PSEG (Public Service Enterprise Group) as developer seeking CPCN from Maryland PSC (Case No. 9773); Fourth Circuit Court of Appeals ruling on eminent-domain-linked survey access; federal courts (access suits).",
+      "purpose": "Maryland Piedmont Reliability Project: ~67-70 mile 500 kV overhead line, Doubs substation (Frederick) to Conastone substation (Harford); PJM-awarded reliability project",
+      "serves_data_center_quote": "'PJM identified 7,500 megawatts of load growth and part of that load growth is data centers,' said PSEG project director Jason Kalwa (FOX45, 2024-10-03). Opponents: 'little more than a state-sized extension cable for Northern Virginia data centers' (WYPR, 2026-08-20). The Office of People's Counsel 'largely—if not exclusively' quote from the lead could NOT be verified.",
+      "event_date": "2026-08 (Fourth Circuit ruling 'earlier this month' per WYPR 2026-08-20)",
+      "status": "Fourth Circuit upheld a preliminary injunction giving PSEG survey access to hundreds of properties. Court held the General Assembly 'could not have intended for a federal public utility to obtain a CPCN before it could access' land. CPCN still pending before the PSC (Case 9773); PSEG has not yet obtained construction approval. PSEG has filed further access suits (round two: 149 properties).",
+      "linked_project_id": null,
+      "response": "More than 300 landowners taken to court by PSEG (per WYPR); more than 400 properties; Stop MPRP (Joanne Frederick); Carroll County Board filed amicus brief for landowners (Sept 2025); Baltimore County intervening; Maryland Farm Bureau opposed.",
+      "verbatim": "upheld a ruling earlier this month that gave the Public Service Enterprise Group (PSEG) access to hundreds of private properties; little more than a state-sized extension cable for Northern Virginia data centers; PJM identified 7,500 megawatts of load growth and part of that load growth is data centers",
+      "source_url": "https://www.wypr.org/wypr-news/2026-08-20/court-upholds-eminent-domain-for-mprp-in-maryland",
+      "source_title": "WYPR, 2026-08-20: Court upholds eminent domain for MPRP in Maryland",
+      "verified": true,
+      "notes": "The eminent domain question is access for surveys, not a completed condemnation. Verified verbatims: the WYPR sentences. The Kalwa quote is on the FOX45 page (2024-10-03) and was verified there. Courts may be 'upholding' access, not condemnation. No PSC order, no condemnation complaint located. Do NOT mark data-center purpose from PSEG's filing; PSEG attributes need to PJM load growth, with data centers as part of it. Maryland Matters 2026-08-06 returned 403 and was not read. Consider adding a PSC docket 9773 entry in a later pass."
+    },
+    {
+      "jurisdiction": "Metro Nashville-Davidson County, Tennessee",
+      "country": "US",
+      "state_or_subdivision": "TN",
+      "body": "Metropolitan Council (BL2026-1489 per WKRN preview, not confirmed in WSMV article); Mayor Freddie O'Connell's office filed the legislation",
+      "purpose": "Metro acquisition of ~23.5-acre parcel next to Nashville Zoo that DC Blox had bought for a data-center campus (2 buildings, 50 MW per DC Blox). Stated Metro uses are offices, warehouse, Traffic School, Schools, Waste Services; council member Joy Styles questioned whether a public purpose existed.",
+      "serves_data_center_quote": "NONE. Condemnation purpose is municipal use; the data center is the land's prior purpose and the reason for the taking, not the taking's beneficiary.",
+      "event_date": "2026-08-04 (final council approval per WKRN preview; WSMV 2026-08-05 says 'passed', no tally)",
+      "status": "Authorized to negotiate or condemn. Metro must get an appraisal first (article does not mention appraisal; WSMV says at least market value ~$37.4M, DC Blox paid ~$23M). No court filing located. DC Blox says it remains committed to the project.",
+      "linked_project_id": null,
+      "response": "Neighbors (Drew Small) opposed; zoo petition; Council member Joy Styles: 'When we hear numbers like thirty-seven million, we should be extremely concerned'; Councilmember Courtney Johnston called it 'dangerous' (per aggregator; unverified).",
+      "verbatim": "would allow Metro to negotiate a sale with the current property owner; but it also allows the city to use eminent domain to take the property if negotiations fail",
+      "source_url": "https://www.wsmv.com/2026/08/05/nashville-zoo-data-center-what-comes-next-after-metro-councils-vote-eminent-domain/",
+      "source_title": "WSMV, 2026-08-05: Nashville Zoo data center: what comes next after Metro Council's vote for eminent domain",
+      "verified": false,
+      "notes": "verified: false. Probe MISS on both bill-description quotes (the fetch was a summary, not the page text). Re-fetch the page or the Metro Council legislation record (BL2026-1489) and re-quote before shipping. Also: the 23.5-acre, MarketStreet owner and June 29 filing details came from search snippets and a fetch summary of WSMV 2026-06-29, not verbatim page text; verify from a primary source. The zeli.app 27-5 vote tally is an aggregator and was not used. Trigger for the Nashville tracked-project record: DC Blox Nashville is NOT in data/seed/projects.json (grep found none), so this is a candidate new project, not a link."
+    }
+  ],
+  "leads": [
+    {
+      "jurisdiction": "Virginia (Loudoun County)",
+      "country": "US",
+      "body": "Dominion Energy; Virginia SCC approval of Golden to Mars line (route approved April 2026)",
+      "purpose": "Golden to Mars: last segment of a three-part loop serving Data Center Alley (per NBC Washington / Virginia Mercury)",
+      "lead": "Dominion may use eminent domain to take part of a Loudoun Valley Estates homeowner's yard for a 185-ft pole; route depends on Loudoun School Board decision. Source: States Newsroom 2026-04-10 (SCC approval); NBC Washington (homeowner, date not confirmed). Check SCC order docket for condemnation mention."
+    },
+    {
+      "jurisdiction": "Pennsylvania (Union and Lycoming counties)",
+      "country": "US",
+      "body": "PPL Electric Utilities (PA PUC approval pending); PNK Group data center at Great Stream Commons (Gregg Township)",
+      "purpose": "~9-mile 230 kV line; residents say it serves PNK's 'new customer facilities' (PPL has not confirmed; June 3 open house reportedly said line won't proceed if PNK's Gregg Township data center doesn't move forward)",
+      "lead": "No condemnation filing confirmed. Farm Bureau tied opposition to a PA eminent domain reform bill (reported passed Senate unanimously; not verified). Source: Newsweek syndicated; Altoona/Johnstown outlets, 2026. Verify PNK/PPL linkage via PUC filing before using."
+    },
+    {
+      "jurisdiction": "Indiana (Morgan County)",
+      "country": "US",
+      "body": "AES Indiana",
+      "purpose": "~10-mile 345 kV line near Monrovia; consumer advocates link it to a planned Google data center (AES disputes sole purpose)",
+      "lead": "Consumer advocacy group warned AES could use eminent domain; no final route selected (Newsweek 2026-07-18 summary). Needs IURC filing check."
+    },
+    {
+      "jurisdiction": "Andhra Pradesh, India (Visakhapatnam, Anakapalli)",
+      "country": "IN",
+      "body": "APIIC (state land agency) allotments to Adani entities for Google 1 GW data centre cluster",
+      "purpose": "Data centre cluster; 480 acres allotted (Dec 2025 order), later modified Aug 2026",
+      "lead": "Allotment, NOT compulsory acquisition, as far as sources show. However: Andhra HC petition challenges non-auction allotment of 160+ acres at Adavivaram and Mudasarlova villages, and claims some land belongs to a temple. Sify 500 MW extra 25 acres (July 2026) partly pending court cases. Need AP HC docket and any land acquisition/compensation (LA Act) records. Sources: Outlook Business / Deccan Chronicle / ThePrint (court report)."
+    },
+    {
+      "jurisdiction": "Maharashtra, India",
+      "country": "IN",
+      "body": "MIDC (Maharashtra Industrial Development Corporation)",
+      "purpose": "MIDC 'Data Center Parks': Taloja 500 acres, Khalapur 500 acres, Talegaon 250 acres (per MIDC site, undated); Pune-Chakan-Talegaon-Satara belt 8,000 acres for data centres",
+      "lead": "Ramtek taluka (Nagpur): farmers in Patgowari and Amdi villages protested a proposed MIDC acquisition (June 2026); purpose not stated as data centre. Gazette notification dated 2023-12-18. Verify whether any MIDC acquisition under Land Acquisition Act is tied to a data-centre park before logging a case. Maharashtra MoU with Lodha (May 2026) is not condemnation."
+    },
+    {
+      "jurisdiction": "Ohio",
+      "country": "US",
+      "body": "Ohio General Assembly",
+      "purpose": "Law proposal",
+      "lead": "House Bill 710 would prohibit eminent domain to acquire property for a new data center (as introduced; May 2026 LSC analysis at search-prod.lis.state.oh.us). Not enacted per search. Policy candidate for the Local Policy Frameworks tab, not a case."
+    },
+    {
+      "jurisdiction": "Nebraska",
+      "country": "US",
+      "body": "Nebraska Governor (signed 14 April 2026)",
+      "purpose": "Legislative Bill 1261 limits public utilities from seizing privately owned generation facilities via eminent domain, citing data-center-driven supply constraints (secondary source).",
+      "lead": "Policy candidate. Verify on nebraskalegislature.gov before logging; secondary-source only so far."
+    },
+    {
+      "jurisdiction": "Texas",
+      "country": "US",
+      "body": "Texas PUC (765 kV certificate proceedings) and Texas Legislature",
+      "purpose": "Proposed 765 kV lines; landowners say lines would cross tens of thousands of acres; legislative hearing on data centers and transmission 2026-08-19 (Texas Tribune)",
+      "lead": "No condemnation filing confirmed. Taylor (Blueprint) and Granbury (2,100 acres rezoning lawsuit) are NOT condemnation cases; the Taylor land was a donated park parcel sold to a developer, with a dismissed resident suit and an AG investigation (texasscorecard.com)."
+    },
+    {
+      "jurisdiction": "Pennsylvania",
+      "country": "US",
+      "body": "PA Senate / Sen. Katie Muth",
+      "purpose": "Legislation to declare data centers not public utilities, so they cannot access eminent domain",
+      "lead": "Co-sponsorship memo only (Food & Water Watch 2026-05-29). Policy candidate."
+    },
+    {
+      "jurisdiction": "Maryland (Stop MPRP litigation)",
+      "country": "US",
+      "body": "Maryland PSC Case No. 9773",
+      "purpose": "Maryland Piedmont Reliability Project; PSC CPCN docket",
+      "lead": "Pull the PSC docket for a PSEG condemnation or landowner-taking filing and the People's Counsel data-center filing that the Lead cited ('largely—if not exclusively'); neither was found in sources read. Fox45 article fetch did not contain it."
+    },
+    {
+      "jurisdiction": "Tennessee (White County)",
+      "country": "US",
+      "body": "White County executive",
+      "purpose": "Proposed data center bypassing a local ban",
+      "lead": "Not an eminent-domain case; noted for the Local Policy Frameworks tab only (WSMV 2026-08-10)."
+    }
+  ]
+}

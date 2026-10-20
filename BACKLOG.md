@@ -347,6 +347,8 @@ come first, then locations, companies and sites.
   (study committee) are not moratoriums.
 
 #### state:MD — Maryland
+
+- **Prince George's County: second 3-month data-center permit pause (lead, 2026-10-19).** Instagram caption dated 2026-10-17 only; county Council newsroom (Oct items) and WTOP index showed nothing, search engines blocked. Needs a pgccouncil.us or major-outlet source before appending to `prince-georges-county-md-2026-07`. **medium**
 - PC72: Potomac Edison and the Exelon Maryland utilities filed large-load
   rate schedules Sept 1, 2026 (per EEI). No MD PSC case numbers located yet.
 
@@ -448,6 +450,8 @@ come first, then locations, companies and sites.
   deals"). The Eugene project denial is a site fight.
 
 #### state:PA — Pennsylvania
+
+- **Philadelphia 'No Data Centers in Philly' campaign** calls for a council moratorium (WHYY, article ~2026-09-13; rally the Monday after). No tracked Philadelphia project to attach a response to and no council bill found; held as a lead. Source: https://whyy.org/articles/data-center-protest-philadelphia/ **low**
 - (2026-10-19) Upper Burrell Township: Resolution 6-2026 (curative amendment on data centers, 3-0, supervisors' May 6, 2026 minutes). Not a moratorium; a Valley News Dispatch report of a 180-day moratorium has no adopting vote found. Check for a later ordinance before adding a policy record.
 - Springhill Township: the board approved a resolution on Sept 3, 2026
   barring data-center and power-plant applications until its next meeting
@@ -477,6 +481,8 @@ come first, then locations, companies and sites.
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 
 #### state:TX — Texas
+
+- **Hill County TX / Project Aquila:** moratorium (3-2, 2026-05-12) and rescission (2026-06-04) shipped as `hill-county-tx-2026-05`. The old `hill-county-tx-2024-04` ("permanent", datacenterbans.com homepage) was removed: neither KWTX article mentions any 2024 moratorium. Project Aquila (RCM Hill, 1,235 MW, 800+ acres) has no project record: needs a developer or county source, KWTX only so far. **medium**
 - El Paso / Meta CBA: council directed staff (2026-06-23) to draft one in 45
   days. No draft or signed agreement found as of 2026-10-08. Add when terms
   exist. **low**
@@ -485,6 +491,9 @@ come first, then locations, companies and sites.
   moratoriums.
 
 #### state:VA — Virginia
+
+- **Spotsylvania Board of Supervisors 4-2 resolution (2026-08-11)** supporting a statewide moratorium (WJLA, https://wjla.com/news/local/spotsylvania-county-backs-call-for-statewide-moratorium-on-data-centers-abigail-spanberger-ai-energy-use-zoning-decisions). Advocacy resolution to the governor, no schema fit (not a moratorium, no tracked project). **low**
+- **Prince William Dulles South Innovation Center rezoning declined (~2026-07-07; E&E News, vote count not reported).** No project record exists; event date is inferred from "Late Tuesday" in a 07-08 article, confirm on the dateline before adding. The Digital Gateway ending is already on `qts-manassas-va` (2026-07-02). **medium**
 - (2026-10-18) Loudoun: Board resolution scheduled Oct 20 to pause its own
   legislative action on data center and substation applications for up to a
   year (county news flash, Sept 17/24). A pause on the Board's own docket, not

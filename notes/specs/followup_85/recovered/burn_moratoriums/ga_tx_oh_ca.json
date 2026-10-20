@@ -1,0 +1,191 @@
+[
+  {
+    "unit": "state:GA",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Paulding County",
+    "jurisdiction_type": "county",
+    "state": "GA",
+    "title": "Paulding County Board of Commissioners adopts temporary data center moratorium through Jan. 1, 2027",
+    "event_date": "2026-07-28",
+    "status": "enacted",
+    "facts": {
+      "vote": "unanimous",
+      "effective_until": "2027-01-01",
+      "scope": "suspends new data center applications, zoning requests and civil plan reviews; tied to technology park overlay district text amendments",
+      "purpose": "update county development codes"
+    },
+    "summary": "The Paulding County commissioners unanimously approved a temporary moratorium on data centers, in effect until January 1, 2027, while the county revises its land-use codes. Per local coverage it does not apply to applications already submitted.",
+    "source_url": "https://www.fox5atlanta.com/news/paulding-county-approves-data-center-moratorium-freezing-projects",
+    "source_title": "FOX 5 Atlanta — Paulding County approves data center moratorium, freezing projects",
+    "verbatims": [
+      "commissioners unanimously approved the moratorium, which will be in effect until January 1, 2027.",
+      "The Paulding County Board of Commissioners voted to suspend new data center applications, zoning requests, and civil plan reviews until January 1, 2027."
+    ],
+    "verified": true,
+    "notes": "Event is before the 2026-08-01 window; it was an untracked lead. The July 28 date comes from the article photo credit and the Spectrum/FOX coverage, not a county minutes page (county site not fetched). Exact pause scope text confirmed by probe."
+  },
+  {
+    "unit": "state:GA",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Newton County",
+    "jurisdiction_type": "county",
+    "state": "GA",
+    "title": "Newton County extends data center and convenience-store permit moratorium on applications",
+    "event_date": "2026-03-09",
+    "status": "enacted",
+    "facts": {
+      "original_start": "2026-02-17 (per search summary, not probed)",
+      "extensions": [
+        "to 2026-03-18 -> 2026-04-08 (verified, WSB-TV 2026-03-09)",
+        "to 2026-10-07 via Resolution R 040726b (search summary only; county PDF returned 403)"
+      ],
+      "covers": "permit applications for data centers and convenience stores"
+    },
+    "summary": "Newton County commissioners extended a pause on data center and convenience store permit applications, first enacted February 2026. Local reporting says a later resolution set an October 7, 2026 end date; that date was not verified against the county document.",
+    "source_url": "https://www.wsbtv.com/news/local/newton-county/data-center-gas-station-store-moratoriums-extended-metro-atlanta-community/L3ABWDQG5FBIFBE4HZ6HOZZWME",
+    "source_title": "WSB-TV — Data center, gas station store moratoriums extended in metro Atlanta community",
+    "verbatims": [
+      "With the new vote, commissioners have extended the pause on applications until April 8."
+    ],
+    "verified": true,
+    "notes": "Verbatim verified for the April 8 extension only. The Oct 7 end date and Resolution R 040726b (newtoncountyga.gov, 403 to scripts) are unverified. Status after Oct 7 is unknown, so do not treat as in force without a county agenda check. Event is before the window."
+  },
+  {
+    "unit": "state:TX",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Denton",
+    "jurisdiction_type": "city",
+    "state": "TX",
+    "title": "Denton council moves toward a data center moratorium and development code changes",
+    "event_date": "2026-08-05",
+    "status": "proposed",
+    "facts": {
+      "stage": "council directing staff and public hearings; no moratorium adopted yet",
+      "existing_facility": "Core Scientific site, Denton (leased city land)",
+      "vote_reported_secondhand": "4-3 direction to staff (KERA 2026-08-05; not verified from page text)",
+      "later_steps_secondhand": "Sept. 22 hearing; Oct. 27 second hearing; Dec. 2 adoption (KERA/Community Impact; unverified)"
+    },
+    "summary": "The Denton City Council is exploring a moratorium on further data center development within city limits, alongside development code updates. No moratorium had been adopted as of the August 5 coverage.",
+    "source_url": "https://communityimpact.com/denton/government/denton-officials-to-vote-on-public-hearings-for-data-center-moratorium-development-code-updates/",
+    "source_title": "Community Impact — Denton officials to vote on public hearings for data center moratorium, development code updates",
+    "verbatims": [
+      "City Council members are exploring implementing a moratorium on further development of data centers in city limits."
+    ],
+    "verified": true,
+    "notes": "Verbatim verified. The 4-3 vote and later dates come from search summaries of KERA and were not probe-confirmed; KERA page returned 403. Recheck for the Sept 22 and Oct 27 agendas."
+  },
+  {
+    "unit": "state:TX",
+    "type": "policy",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "San Marcos",
+    "jurisdiction_type": "city",
+    "state": "TX",
+    "title": "San Marcos council amends land use matrix to prohibit data centers in every zoning district",
+    "event_date": "2026-06-16",
+    "status": "enacted",
+    "facts": {
+      "instrument": "local_ordinance",
+      "ordinance": "Ordinance 2026-08 (second reading)",
+      "vote": "4-3",
+      "legal_action": "zoning use-table prohibition in all zoning districts; permanent zoning rule, not a time-limited moratorium"
+    },
+    "summary": "The San Marcos City Council voted 4-3 on second reading of Ordinance 2026-08, amending the Land Use Matrix to prohibit data centers in every zoning district. This is a zoning prohibition, not a pause.",
+    "source_url": "https://foxsanantonio.com/newsletter-daily/san-marcos-council-votes-to-prohibit-data-centers-citywide",
+    "source_title": "FOX San Antonio — San Marcos council votes to prohibit data centers citywide",
+    "verbatims": [
+      "The San Marcos City Council voted 4-3 Tuesday to amend the city's Land Use Matrix and prohibit data centers in every zoning district.",
+      "The vote came as part of the second reading of Ordinance 2026-08, a broader overhaul of the city's deve"
+    ],
+    "verified": true,
+    "notes": "Event date computed: article dated Thu June 18, 2026 says 'Tuesday' = June 16. Before the window. Verbatim 2 is truncated by probe context; use only the first sentence for display. Ordinance adoption date should be checked on the city's record."
+  },
+  {
+    "unit": "state:OH",
+    "type": "policy",
+    "action": "update",
+    "existing_id": "ashville-oh-edgeconnex-term-summary-resolution-2026",
+    "jurisdiction": "Ashville (Pickaway County)",
+    "jurisdiction_type": "city",
+    "state": "OH",
+    "title": "Ohio Supreme Court orders Ashville EdgeConneX resolution referendum petition sent to board of elections",
+    "event_date": "2026-08-07",
+    "status": "proposed",
+    "facts": {
+      "court": "Ohio Supreme Court",
+      "case_date": "2026-08-07",
+      "holding": "fiscal officer had no valid basis to refuse certifying the referendum petition; emergency label rejected",
+      "remaining_issue": "Pickaway County Board of Elections may still find the resolution administrative and not subject to referendum",
+      "ballot": "requested for Nov. 3, 2026 not confirmed"
+    },
+    "summary": "The Ohio Supreme Court ruled on August 7, 2026 that Ashville must submit a referendum petition against the village's EdgeConneX data center resolution to the county board of elections. Whether it reaches the November 3 ballot is not yet confirmed.",
+    "source_url": "https://courtnewsohio.gov/cases/2026/SCO/0807/260906.asp",
+    "source_title": "Court News Ohio — Village Must Submit Data Center Referendum to County Board of Elections",
+    "verbatims": [
+      "The village of Ashville must submit a referendum petition to the board of elections seeking a public vote on the village's effort to help construct two new data centers and a power plant."
+    ],
+    "verified": true,
+    "notes": "Verbatim verified. Status change to note in existing policy: the ballot placement is still open, so keep 'proposed'. Earlier WebSearch summaries of Nov 3 placement were not verified."
+  },
+  {
+    "unit": "state:OH",
+    "type": "site_update",
+    "action": "new",
+    "existing_id": "aws-wilmington-oh",
+    "jurisdiction": "Wilmington",
+    "jurisdiction_type": "city",
+    "state": "OH",
+    "title": "Wilmington council passes AWS site rezoning 7-0 as emergency legislation",
+    "event_date": "2026-09-03",
+    "status": "enacted",
+    "facts": {
+      "ordinance": "rezoning from Rural Residential to Light Industrial (for AWS data center site)",
+      "vote": "7-0 on a retry after a 5-2 failure (needed 75%)",
+      "emergency": true,
+      "related": "separate emergency ordinances on data center use rules and generator noise also passed as written"
+    },
+    "summary": "Wilmington City Council passed, as emergency legislation, a rezoning of the AWS data center site from Rural Residential to Light Industrial after an earlier 5-2 vote failed to reach the 75% threshold. Residents have objected and one proposed a lawsuit.",
+    "source_url": "https://www.fox19.com/2026/09/04/wilmington-residents-continue-dissent-over-data-center-ordinances-passed-by-city-council/",
+    "source_title": "FOX 19 — Wilmington residents continue dissent over data center ordinances passed by city council",
+    "verbatims": [
+      "Thursday evening, the ordinance passed 7-0.",
+      "Emergency legislation takes effect immediately and skips the normal waiting period that would otherwise give residents time to challenge it."
+    ],
+    "verified": true,
+    "notes": "Event date computed: article dated Sept 4, 2026 says 'Thursday evening' = Sept 3. Verbatims verified. Not checked: whether the Wilmington compensation agreement (policy record) was voted; that remains an open BACKLOG lead and is unverified here."
+  },
+  {
+    "unit": "state:CA",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Desert Hot Springs",
+    "jurisdiction_type": "city",
+    "state": "CA",
+    "title": "Desert Hot Springs extends urgency moratorium on data centers to two years",
+    "event_date": "2026-07-07",
+    "status": "enacted",
+    "facts": {
+      "vote": "unanimous",
+      "extension": "22 months and 15 days (total two years)",
+      "original": "45-day urgency pause approved June 2026 (per search summary, not probed)",
+      "scope": "applications, permits, licenses and approvals for data centers and similar high-intensity computing uses"
+    },
+    "summary": "The Desert Hot Springs City Council unanimously extended its urgency moratorium on data centers and similar high-intensity computing uses by 22 months and 15 days, for a total of two years, while staff studies infrastructure, energy and water impacts.",
+    "source_url": "https://riversiderecord.org/desert-hot-springs-data-center-moratorium-extended/",
+    "source_title": "The Record (Riverside) — Desert Hot Springs data center moratorium extended",
+    "verbatims": [
+      "The Desert Hot Springs City Council this month voted unanimously to extend its urgency moratorium on data centers by 22 months and 15 days, bringing the total time to two years.",
+      "City Manager Doria Wilms said at the July 7 meeting."
+    ],
+    "verified": true,
+    "notes": "Verbatims verified. Second verbatim is a fragment of a longer quote; pair only with the first sentence. Event is before the window (untracked lead). NBC Palm Springs article returned 429 and was not probed; The Record is the probe-verified source. Original June pause date not verified."
+  }
+]

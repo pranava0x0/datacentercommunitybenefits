@@ -2619,6 +2619,90 @@
       "source_title": "Reuters (via Arab News) — Fearing power and water strain, residents fight Amazon data center near Mumbai",
       "source_lang": "en",
       "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-reel-takedown-restored-2026-09",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-09-10",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "An Instagram reel by independent journalists with Tarluvada residents on the Google data centre was withheld in India from 22 May 2026 under a government blocking order. It was accessible again on 10 September 2026, with no reasons given for the block or its reversal.",
+      "source_url": "https://internetfreedom.in/dirty-data-reel-on-googles-vizag-data-centre-back-online-in-india-after-111-day-takedown/",
+      "source_title": "Internet Freedom Foundation — 'Dirty Data' reel on Google's Vizag data centre back online in India after 111-day takedown",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-green-visakha-press-2026-08",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-08-08",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Green Visakhapatnam, a non-profit, objected to the proposed 500 MW Vizag Hyperscale Data Centre, alleging environmental regulation violations and warning of risks to city water and public health. It says the 160 acres of Simhachalam Devasthanam land were allocated without an environmental impact assessment or public consultation.",
+      "source_url": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/green-visakhapatnam-flags-risks-from-data-centre-project-1977660",
+      "source_title": "Deccan Chronicle — Green Visakhapatnam flags risks from data centre project",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-tarluvada-dalit-farmers-2026-06",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-06-01",
+      "stance": "mixed",
+      "constituency": "residents",
+      "summary": "Dalit farmers in Tarluvada, Visakhapatnam district, have refused to give up land for the Google AI hub, citing displacement from land allotted to Dalit families in the 1970s and compensation they call below market value. Reporting says the local Dalit community is divided over the project.",
+      "source_url": "https://www.tbsnews.net/world/south-asia/giant-data-centre-over-land-belonging-dalits-sparking-protests-andhra-pradesh",
+      "source_title": "The Business Standard — Giant data centre over land belonging to Dalits sparking protests in Andhra Pradesh",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-moratorium-demand-2026-10",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-10-11",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "Activists in Andhra Pradesh are demanding a moratorium on new data centres across the state until independent environmental and social impact evaluations are published. The demand is reported in an AFP-sourced feature on resident fears over water, power and jobs at the Google Visakhapatnam hub.",
+      "source_url": "https://www.malaymail.com/news/world/2026/10/11/why-here-india-activists-demand-moratorium-as-googles-ai-hub-scars-land-and-sparks-water-fears/238662",
+      "source_title": "Malay Mail (AFP) — 'Why here?' India activists demand moratorium as Google's AI hub scars land and sparks water fears",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-thane-balkum-water-2026-07",
+      "project_id": "in-amazon-thane-balkum",
+      "date": "2026-07-18",
+      "stance": "negative",
+      "constituency": "residents",
+      "summary": "Residents' group Wake Up Thanekar disputes the Balkum data centre's closed-loop, air-cooled water claim. Activists note Amazon disclosed a water need of 125 kilolitres a day while the municipal corporation has agreed to supply 12 million litres a day of recycled sewage water.",
+      "source_url": "https://www.freepressjournal.in/mumbai/amazon-defends-balkum-hyperscale-data-centre-as-thanekars-demand-its-relocation",
+      "source_title": "Free Press Journal — Amazon defends Balkum hyperscale data centre as Thanekars demand its relocation",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-wall-collapse-2026-09",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-09-23",
+      "stance": "negative",
+      "constituency": "journalist",
+      "summary": "A protective wall at the under-construction Google-Adani site in Simhachalam-Mudasarlova collapsed on 22 September 2026 after heavy rain. Residents suspect construction has blocked natural drainage, which the report links to questions about the site's environmental clearances.",
+      "source_url": "https://thesouthfirst.com/andhrapradesh/data-center-boundary-wall-collapses-in-simhachalam-doubts-raised-over-environmental-clearances/",
+      "source_title": "The South First — Data center boundary wall collapses in Simhachalam; doubts raised over environmental clearances",
+      "source_lang": "en",
+      "single_source": true
+    },
+    {
+      "id": "in-resp-vizag-stop-account-restricted-2026-09",
+      "project_id": "in-google-visakhapatnam",
+      "date": "2026-09-22",
+      "stance": "negative",
+      "constituency": "ngo",
+      "summary": "The Human Rights Forum condemned the restriction in India of the 'Stop Vizag Data Centers' Instagram account, which the campaign says reached 56 lakh views and 11,800 followers in two months. HRF says posts by many organisations and individuals critical of AI data centres have been restricted in India.",
+      "source_url": "https://thesouthfirst.com/andhrapradesh/hrf-condemns-restriction-of-stop-vizag-data-centers-instagram-account/",
+      "source_title": "The South First — HRF condemns restriction of 'Stop Vizag Data Centers' Instagram account",
+      "source_lang": "en",
+      "single_source": true
     }
   ],
   "claims": [

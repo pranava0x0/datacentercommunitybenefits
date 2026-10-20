@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "jurisdiction": "Metro Nashville-Davidson County, Tennessee",
+      "country": "US",
+      "state_or_subdivision": "TN",
+      "body": "Metropolitan Council (BL2026-1489, sponsor Rollin Horton, D20); Metro Government would acquire by negotiation or condemnation",
+      "purpose": "Acquire the fee interest in a 23.49-acre parcel at 648 Grassmere Park (Parcel 13300013500) for Metro 'office, warehouse, training and other uses' (mayor's office lists Elections Office, NDOT, Schools Hands On Science program)",
+      "serves_data_center_quote": "Taking is OF a DC Blox data-center site FOR municipal use; the council vote was explicitly to stop a data center next to the zoo ('We're looking at every tool in the toolbox to try to stop this data center from being built right next to our zoo')",
+      "event_date": "2026-08-04 (third and final reading)",
+      "status": "Passed third reading 27-5 (roll call), as amended, per Council Watch tracker. First reading 2026-07-07 (voice vote); second 2026-07-21 (27-3). Mayor's office: vote 'does not commit Metro to buying the land'; appraisal before negotiation; a judge could set price if no agreement. Not yet acquired.",
+      "linked_project_id": null,
+      "response": "Mayor's office and council members opposed to the DC Blox site; zoo leadership and nearby residents objected to noise, emissions, lighting. Two challenges to the zoning administrator's land-use designation are pending at the Board of Zoning Appeals (per WSMV).",
+      "verbatim": "Authorizing The Metropolitan Government to acquire the fee interest in a parcel of property; for office, warehouse, training and other uses.",
+      "source_url": "https://councilwatch.pamphleteer.co/legislation/BL2026-1489",
+      "source_title": "Metro Council Watch tracker, BL2026-1489 (third-party transcription of council record; Legistar not reachable)",
+      "verified": true,
+      "notes": "Probe HIT on both quotes. Vote tally and reading dates come from a third-party tracker, not Legistar; Legistar and the ordinance text still need a direct read before shipping. Media (WSMV 2026-08-05, Fox17, Axios) confirm the passage and the condemnation-or-negotiation authority. Do not record as a data-center taking: the public use is municipal."
+    },
+    {
+      "jurisdiction": "Loudoun County, Virginia (Golden-to-Mars 500 kV / 230 kV reliability loop)",
+      "country": "US",
+      "state_or_subdivision": "VA",
+      "body": "Virginia SCC (route order); Dominion Energy (utility; condemnation as delegated power). The SCC said it cannot authorize condemnation of land owned by LCPS for Dominion's purposes; Loudoun County Public Schools land is the contested parcel",
+      "purpose": "Golden-to-Mars transmission line and substation upgrades (Golden, Mars, Prentice Drive, Sojourner, Shellhorn); reliability loop feeding Data Center Alley, Ashburn",
+      "serves_data_center_quote": "Dominion spokesperson: the project is 'essential to support homes, businesses, schools, hospitals, public safety facilities, data centers, and other customers' (data-center link is Dominion's own wording, not a Dominion-only load attribution)",
+      "event_date": "2026-06-29 (SCC final order, Route 3A per Dominion project page; WJLA quotes Supervisor Umstattd citing the 6/29/2026 final order)",
+      "status": "SCC final order issued 2026-06-29 approving Route 3A. School Board and LVE HOA reconsideration motions denied. No condemnation filing found. Rep. Subramanyam urged SCC to consider three new routes (2026-10-13 per Loudoun coverage).",
+      "linked_project_id": null,
+      "response": "Loudoun County Board of Supervisors joined reconsideration; School Board and Loudoun Valley Estates HOA opposed the route; Umstattd: the SCC cannot authorize condemnation for Dominion of LCPS land.",
+      "verbatim": "6/29/2026 final order; essential to support homes, businesses, schools, hospitals, public safety facilities, data centers, and other customers",
+      "source_url": "https://wjla.com/news/local/loudoun-county-homeowners-appear-to-lose-battle-with-dominion-energy-data-center-transmission-lines-state-corporation-commission-july-2026",
+      "source_title": "WJLA (7News), Loudoun homeowners appear to lose battle with Dominion's data center transmission lines, July 2026",
+      "verified": true,
+      "notes": "Probe HIT on both quotes. The 6/29 date is from a county supervisor's statement; the SCC docket number (PUR-2025-?) is not confirmed. The 'essential ... data centers' sentence is Dominion's own statement, which supports a stated link but not a load-attribution split. Separate from the Aspen-Golden line (SCV affirmed 2026-02-19). Condemnation filings for Golden-to-Mars: none found; the SCC's docket system is needed. Not yet a LandTaking record: no condemnation has been filed on what we found."
+    }
+  ],
+  "leads": [
+    {"id": "spotsylvania-reuse-apr28", "what": "Outcome of 2026-04-28 Spotsylvania board vote on the Reuse Conveyance System condemnation (77,751 sq ft). Still not found after two fetches and two searches. The board's 4-2 statewide-moratorium resolution and the 7-0 July Powerhouse 95 water agreement are not the same item. Next: the county minutes PDF for the April 28 meeting, or FXBG Advance coverage.", "source_url": "https://www.fredericksburgfreepress.com/?p=167402"},
+    {"id": "aes-indiana-monrovia-345kv", "what": "IURC Cause No. 46394 (AES Indiana, Google data center, Monrovia/Morgan County). Approval reported by DCD and New Project Media; ~10-mile 345 kV line from Antioch to Blue Bluff substations; CAC testimony filed 2026-06-22. Approval date and line-route eminent domain status not confirmed. One fetch of Inside Indiana Business was refused by the tool, so this is a lead, not a verified case. Next: the IURC order and the AES project page.", "source_url": "https://datacenterdynamics.com/en/news/iurc-approves-aes-indiana-plan-for-13bn-solar-storage-and-transmission-project-for-google-data-center-in-monrovia"},
+    {"id": "ppl-pnk-gregg-twp-230kv", "what": "PPL plans ~9 miles of 230 kV line across Lycoming and Union counties; residents link it to PNK Group's Great Stream Commons data center in Gregg Twp; PPL has not confirmed the link. Construction awaits PA PUC approval (winter 2027 start). No PUC docket number found in search. Next: PUC eFiling search for PPL filings in Union/Lycoming. Eminent-domain status unknown.", "source_url": "https://www.newsargus.com/news/national/ppl-transmission-line-proposal-adds-new-layer-to-gregg-township-data-center-fight/article_4f5e1cc8-1acd-55d9-b60d-1f15b5a675d0.html"},
+    {"id": "nebraska-lb1261-eminent-domain", "what": "Nebraska LB 1261 reported enacted (signed 2026-04-14 per a state report) limiting public utilities from taking privately owned generation by eminent domain. Search snippet only; not fetched from the bill page. Verify on nebraskalegislature.gov before using. Same report names LB 1010 (eminent domain for energy storage, enactment unconfirmed).", "source_url": "https://www.oppd.com/media/321540/2026-4-apr-legislative-and-regulatory-update.pdf"},
+    {"id": "md-sb1000-2026", "what": "Maryland SB 1000 (2026RS), transmission line and data center provisions: Senate page shows first reading only in Rules, so not enacted per these results. Do not treat as an eminent-domain limit without reading the bill text.", "source_url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/SB1000?ys=2026RS"},
+    {"id": "sd-hjr5001-2026", "what": "South Dakota HJR 5001, proposed constitutional amendment restricting eminent domain, passed House 62-5; no later action found. Not a data-center-specific bill; note only.", "source_url": "https://justfacts.votesmart.org/issues/SD/103"},
+    {"id": "pa-ohio-tx-va-bills-unverified", "what": "PA HB 710 (the lead named in the spec is Ohio HB 710, and a Pennsylvania number was not located), Ohio HB 710, Texas, and Virginia bill status: search returned nothing. Not verified.", "source_url": null},
+    {"id": "india-data-centre-park-acquisition", "what": "No compulsory acquisition under the 2013 Act (RFCTLARR) or any state equivalent found for a data-centre park. Found only private purchases (Digital Edge ~30 acres at Lodha's Green Integrated Data Centre Park, Palava, Maharashtra, 2026-07-06) and state allotments (Andhra Pradesh: Sify +25 acres, partly conditional on a Survey and Settlements case; TCS 200 acres). Negative result, not a proof of absence. Next: MIDC or APIIC gazette searches.", "source_url": "https://www.cxodigitalpulse.com/digital-edge-acquires-30-acres-at-palava-for-270mw-data-centre-development/"}
+  ]
+}

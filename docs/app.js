@@ -1566,7 +1566,7 @@ function renderMoratoriumsView() {
     tr.innerHTML = `
       <td>${escapeHtml(m.jurisdiction)}${billHtml}</td>
       <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
-      <td><span class="badge badge-moratorium-status-${m.status}">${escapeHtml(m.status)}</span></td>
+      <td><span class="badge badge-moratorium-status-${m.status}">${escapeHtml(m.lifted_date ? "lifted" : m.status)}</span></td>
       <td title="${escapeAttr(m.duration_description || "")}">${escapeHtml(shortDuration(m.duration_description))}</td>
       <td>${reasonBadges}</td>
     `;
@@ -2104,7 +2104,7 @@ function showMoratoriumDetail(m) {
 
   // Status badge
   const statusEl = document.getElementById("md-status");
-  statusEl.textContent = m.status;
+  statusEl.textContent = m.lifted_date ? `lifted ${formatAsOf(m.lifted_date)}` : m.status;
   statusEl.className = `badge badge-moratorium-status-${m.status}`;
 
   document.getElementById("md-duration").textContent = m.duration_description;

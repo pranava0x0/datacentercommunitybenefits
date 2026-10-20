@@ -1,0 +1,89 @@
+[
+  {
+    "unit": "state:NC",
+    "type": "rate_case",
+    "action": "update",
+    "existing_id": "nc-ncuc-duke-settlement-2026",
+    "jurisdiction": "North Carolina (Duke Energy Carolinas and Duke Energy Progress)",
+    "jurisdiction_type": "state",
+    "state": "NC",
+    "title": "Duke large-load tariff settlement sets 50 MW / 80% or 150 MW applicability and 75% minimum billing on Schedule HLF",
+    "event_date": "2026-10-06",
+    "status": "pending",
+    "facts": {
+      "dockets": "E-7 Sub 1329 (Duke Energy Carolinas) and E-2 Sub 1380 (Duke Energy Progress)",
+      "applicability": "(a) total contract demand of 50 MW or more with expected 12-month rolling average load factor of 80% or more, or (b) total contract demand of 150 MW or more and any load factor; incremental service meeting the criteria and added on or after June 1, 2026 is subject to the provisions",
+      "rate_schedule": "Schedule HLF",
+      "minimum_billing_demand": "75% of contract demand for all demand charges",
+      "next_milestone": "NCUC order on the settlement; no decision date announced as of 2026-10-18 per the existing record",
+      "next_milestone_date": null
+    },
+    "summary": "A Duke large-load tariff settlement filed in E-7 Sub 1329 and E-2 Sub 1380 would move covered data-center-scale customers to Schedule HLF, with billing demand floored at 75% of contract demand. Coverage applies at 50 MW and 80% load factor, or 150 MW at any load factor. The NCUC has not ruled.",
+    "source_url": "https://www.selc.org/wp-content/uploads/2026/10/2026-10-06-Duke-Energy-LLT-Settlement.pdf",
+    "source_title": "SELC — Duke Energy large load tariff settlement (filed Oct. 6, 2026)",
+    "verbatims": [
+      "a total contract demand of 50 MW or more and an expected 12-month rolling average load factor of 80% of more",
+      "will not be less than 75% of contract demand for all demand charges",
+      "The customer will be served under Schedule HLF"
+    ],
+    "verified": true,
+    "notes": "The 150 MW clause (b) was probe-HIT in an earlier pass: 'a total contract demand of 150 MW or more and any load factor'. The filing date Oct 6 comes from the SELC file path and secondary reports, not a fetched cover page. The PDF text extraction inserts spaces inside words ('S chedule HLF'), so verbatims are quoted as the probe matched them. The existing record's chronology (July 17 and July 20 amendments) is unchanged. This is a new filing in the same dockets. The AG's >=100 MW class proposal (E-2 Sub 1406) was NOT verified and is not included here."
+  },
+  {
+    "unit": "state:FL",
+    "type": "policy",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Florida",
+    "jurisdiction_type": "state",
+    "state": "FL",
+    "title": "Florida SB 484 directs the PSC to require large-load tariffs so data centers pay their own cost of service",
+    "event_date": "2026-05-07",
+    "status": "enacted",
+    "facts": {
+      "bill": "CS/CS/SB 484 (Data Centers), 2026 session",
+      "governor_action": "signed by Gov. Ron DeSantis on Thursday, May 7, 2026 (WFSU report published May 8)",
+      "required": "PSC to implement large load customer tariff and service requirements for public electric utilities",
+      "cost_rule": "tariff must reasonably ensure large load customers pay their own cost of service; nonpayment risk may not be borne by the general body of ratepayers",
+      "local_control": "preserves local government comprehensive-planning and land-development authority over large load customers",
+      "unverified_secondary_details": "50 MW large-load threshold; utility tariff filings due Oct 1 2026; effective July 1 2026; OPPAGA study due July 1 2027; chapter number 2026-65. These come from secondary coverage and are not verified against the bill text."
+    },
+    "summary": "Florida enacted SB 484 in May 2026. It requires the PSC to implement large-load tariffs for investor-owned and public electric utilities that make data centers pay their own cost of service, and it preserves local land-use authority.",
+    "source_url": "https://flsenate.gov/Committees/BillSummaries/2026/html/484",
+    "source_title": "Florida Senate — Bill Summary, CS/CS/SB 484 (Data Centers); WFSU — Gov. DeSantis has signed a bill regulating data centers in Florida",
+    "verbatims": [
+      "Requires the Public Service Commission (PSC) to implement large load customer tariff and service requirements for public electric utilities.",
+      "The tariff requirements must reasonably ensure that large load customers (such as large data centers) pay for their own cost of service, the risk of nonpayment of such costs may not be borne by the general body of ratepayers",
+      "Florida utility customers won't bear the additional costs brought by new large scale data centers that power artificial intelligence, under a bill signed by Gov. Ron DeSantis on Thursday."
+    ],
+    "verified": true,
+    "notes": "PRE-WINDOW: signed May 7, before the 2026-08-01 window. Included because it is not in the records and falls within the unit's state-bill scope; drop it if the window is strict. Verbatims 1 and 2 are from the Senate bill summary and verbatim 3 is from WFSU (the signing evidence). The source_url covers the bill summary only, so add the WFSU URL as a resource. The 50 MW threshold, Oct 1 filing date and chapter number are unverified and should not be stored until checked against the enrolled bill (laws.flrules.org/2026/65 per a council memo, not fetched). The existing fl-hb7031-2025 policy is a different instrument."
+  },
+  {
+    "unit": "state:FL",
+    "type": "moratorium",
+    "action": "update",
+    "existing_id": "hernando-county-fl-2026-06",
+    "jurisdiction": "Hernando County",
+    "jurisdiction_type": "county",
+    "state": "FL",
+    "title": "Hernando County Commission approves one-year moratorium on large-scale data centers, 4-0",
+    "event_date": "2026-06-23",
+    "status": "enacted",
+    "facts": {
+      "vote": "4-0 roll call",
+      "duration_days": 365,
+      "scope": "large-scale data centers",
+      "ordinance_number": "not verified; a search snippet named Ordinance No. 2026-15, and the existing lead named 2026-23. Neither was confirmed on a fetched page"
+    },
+    "summary": "The Hernando County Commission approved a one-year moratorium on large-scale data centers on June 23, 2026. The vote was 4-0 on roll call. This resolves the open lead that the existing record's enactment was unverified.",
+    "source_url": "https://www.tampabaybeacons.com/2026/06/23/hernando-commission-approves-365-day-data-center-moratorium/",
+    "source_title": "Tampa Bay BEACONS (Hernando Today) — Hernando commission approves 365-day data center moratorium",
+    "verbatims": [
+      "The roll-call vote was 4-0.",
+      "The Hernando County Commission approved a one-year moratorium on large-scale data centers June 23, pleasing residents who have repeatedly urged the county to rein in the facilities."
+    ],
+    "verified": true,
+    "notes": "PRE-WINDOW: June 23, outside the 2026-08-01 window. This is a verification of an existing record, not a new event. The curator should check the record's current status and ordinance id. The county clerk PDF was not fetched successfully, and the 2026-23 id from the lead was not found. The source is a Hernando Today syndication."
+  }
+]

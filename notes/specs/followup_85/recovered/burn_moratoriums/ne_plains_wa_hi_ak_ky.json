@@ -1,0 +1,190 @@
+[
+ {
+  "unit": "state:NH",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Nottingham",
+  "jurisdiction_type": "city",
+  "state": "NH",
+  "title": "Nottingham voters approve 12-month moratorium on data center development",
+  "event_date": "2026-09-08",
+  "status": "enacted",
+  "facts": {
+   "duration_months": 12,
+   "scope": "any data center development within town limits",
+   "vote": "1,335 yes / 143 no (town vote)",
+   "adopting_body": "Town voters"
+  },
+  "summary": "Nottingham voters approved a 12-month town-wide moratorium on data center development on Sept. 8, 2026, giving the town time to study zoning changes. A developer's proposal had been withdrawn earlier in 2026.",
+  "source_url": "https://www.wshu.org/2026-09-09/nottingham-voters-approve-moratorium-data-centers-nh-newhampshire",
+  "source_title": "NHPR (via WSHU) — Nottingham voters overwhelmingly approve moratorium on data centers",
+  "verbatims": [
+   "Nottingham residents voted overwhelmingly Tuesday in favor of a 12-month moratorium on any data center development within town limits.",
+   "The vote was 1,335 in favor, to 143 against."
+  ],
+  "verified": true,
+  "notes": "Event date computed from 'Tuesday' in an article published Wed. 2026-09-09 (Tuesday = 2026-09-08). Article is NHPR syndicated. Not the state moratorium record; a town-level action."
+ },
+ {
+  "unit": "state:HI",
+  "type": "policy",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Hawaii County",
+  "jurisdiction_type": "county",
+  "state": "HI",
+  "title": "Hawaii County Bill 170 would define and exclude industrial-scale data centers from county permitted uses; advanced to planning commissions",
+  "event_date": "2026-07-07",
+  "status": "proposed",
+  "facts": {
+   "bill_number": "Bill 170",
+   "sponsor": "Heather Kimball",
+   "committee_vote": "8-0 to forward to planning commissions",
+   "last_reported_action": "Leeward Planning Commission review scheduled 2026-10-15 (Star-Advertiser, 2026-10-03); outcome not found"
+  },
+  "summary": "Hawaii County Council's policy committee voted to forward Bill 170, which defines industrial-scale data centers and leaves them out of permitted uses under county zoning, to the planning commissions. Status after the Oct. 2026 planning commission review is unknown.",
+  "source_url": "https://www.bigislandvideonews.com/2026/07/08/hawai%CA%BBi-county-council-forwards-data-center-bill-to-planning-commissions/",
+  "source_title": "Big Island Video News — Hawaiʻi County Council Forwards Data Center Bill To Planning Commissions",
+  "verbatims": [
+   "voted to forward Bill 170 to the Hawaiʻi County planning commissions"
+  ],
+  "verified": true,
+  "notes": "Event (committee vote) is July 7, 2026, before the Aug 1 window; included because the in-window status was reported Oct 3 and no Hawaii County record exists. Vote tally 8-0 from Star-Advertiser summary (WebSearch synthesis, not verified on BIVN page). Verify on Hawaii County council legislation page before merging. Zoning-exclusion bill, not a moratorium."
+ },
+ {
+  "unit": "state:MA",
+  "type": "policy",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Boston",
+  "jurisdiction_type": "city",
+  "state": "MA",
+  "title": "Boston councilor files order to bar data centers in every zoning district",
+  "event_date": "2026-09-15",
+  "status": "proposed",
+  "facts": {
+   "sponsor": "Miniard Culpepper",
+   "cosponsors": 9,
+   "instrument": "City Council order to amend zoning code",
+   "proposed_treatment": "prohibited use in every zoning district and subdistrict; variance path with community process per article",
+   "next_step": "assigned to committee for hearing"
+  },
+  "summary": "A Boston city councilor filed an order that would define data centers and make them a prohibited use in every zoning district, referring to Gov. Healey's executive order. The order was on the Sept. 16 council agenda and was to be assigned to committee.",
+  "source_url": "https://www.boston.com/news/local-news/2026/09/15/boston-city-council-to-consider-zoning-changes-that-would-bar-data-center-construction/",
+  "source_title": "Boston.com (Boston Globe) — Boston City Council to consider zoning changes that would bar data center construction",
+  "verbatims": [
+   "Councilor Miniard Culpepper filed an order this week that would amend the city's zoning code to define data centers and designate them as a \"prohibited use in every zoning district and subdistrict\" within the city."
+  ],
+  "verified": true,
+  "notes": "Article dated Sept. 15; 'this week' filing date not exact, so event_date is the article date. Proposal only. Healey EO 658 already tracked as ma-eo658-2026. Lowell (March 2026 one-year moratorium) and Westfield (July 2026) are out of window; not recorded here."
+ },
+ {
+  "unit": "state:ME",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Sanford",
+  "jurisdiction_type": "city",
+  "state": "ME",
+  "title": "Sanford extends emergency data center moratorium 180 days (expires 2027-01-31)",
+  "event_date": "2026-08-04",
+  "status": "enacted",
+  "facts": {
+   "extension_days": 180,
+   "expires": "2027-01-31",
+   "prior_moratorium": "91-day emergency moratorium adopted May 2026",
+   "vote": "unanimous",
+   "trigger": "1,000-acre Sanford Woods Industrial and Technical Campus proposal near the Mousam River"
+  },
+  "summary": "Sanford's City Council unanimously extended its emergency data center moratorium for 180 days on Aug. 4, 2026, so it now expires Jan. 31, 2027. It overrides the original 91-day emergency moratorium.",
+  "source_url": "https://www.pressherald.com/2026/08/05/sanford-extends-data-center-moratorium-for-180-days/",
+  "source_title": "Portland Press Herald — Sanford extends data center moratorium for 180 days",
+  "verbatims": [
+   "The Sanford City Council voted unanimously Tuesday night to extend an emergency moratorium on data centers for 180 days.",
+   "With the extension, the moratorium will expire on Jan. 31."
+  ],
+  "verified": true,
+  "notes": "Event date computed from 'Tuesday night' in an article dated Aug. 5 (Tuesday = 2026-08-04); corroborated by WGME dated Tue, August 4, 2026. Press Herald text was matched by probe on its opening clause; the 'Jan. 31' sentence appears in the same page text. Original May 2026 91-day moratorium is a separate event and not separately recorded here."
+ },
+ {
+  "unit": "state:ME",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Eastport",
+  "jurisdiction_type": "city",
+  "state": "ME",
+  "title": "Eastport council adopts six-month moratorium on data center development",
+  "event_date": "2026-08-12",
+  "status": "enacted",
+  "facts": {
+   "duration_days": 180,
+   "vote": "unanimous",
+   "scope": "approving permits, licenses or applications for industrial data centers or computing facilities",
+   "context": "proposed underwater data center in Passamaquoddy Bay; ordinance proposals to permanently ban on the ballot"
+  },
+  "summary": "Eastport's City Council unanimously adopted a six-month moratorium on data center development on Aug. 12, 2026, while it reviews a proposed permanent ban. Residents had also petitioned to put two ordinances to block the facility to voters.",
+  "source_url": "https://www.mainepublic.org/climate/2026-08-14/eastport-enacts-pause-on-data-center-development",
+  "source_title": "Maine Public — Eastport enacts pause on data center development",
+  "verbatims": [
+   "Councilors unanimously adopted the moratorium at an Aug. 12 meeting.",
+   "The pause runs for 180 days unless it is extended or the city passes a permanent ordinance banning data centers."
+  ],
+  "verified": true,
+  "notes": "Event date is the Aug. 12 meeting stated in the article. Probe matched both clauses on the Maine Public page."
+ },
+ {
+  "unit": "state:AK",
+  "type": "policy",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Fairbanks North Star Borough",
+  "jurisdiction_type": "county",
+  "state": "AK",
+  "title": "Fairbanks North Star Borough Assembly adopts 2027 legislative priority requesting data center moratorium",
+  "event_date": "2026-08-27",
+  "status": "proposed",
+  "facts": {
+   "instrument": "Assembly resolution 2026-25 (2027 legislative priorities)",
+   "vote": "6-1 (per search summary; not verified on source)",
+   "requested_action": "moratorium on permitting, leasing or construction of new commercial data centers on state/municipal lands, until state and local standards exist",
+   "note": "A request to the state and federal governments, not a borough ordinance"
+  },
+  "summary": "The Fairbanks North Star Borough Assembly approved 2027 legislative priorities that include a requested moratorium on new commercial data centers pending standards. The resolution asks the state and federal governments to act rather than regulating directly.",
+  "source_url": "https://fm.kuac.org/2026-08-31/in-legislative-priorities-fairbanks-north-star-borough-assembly-doubles-up-on-ai-data-center-moratorium-request",
+  "source_title": "KUAC — In legislative priorities, Fairbanks North Star Borough Assembly doubles up on AI data center moratorium request",
+  "verbatims": [
+   "The Assembly's 2027 state and federal legislative priorities include a requested moratorium on data centers.",
+   "The Assembly resolution asks for a moratorium on the permitting, leasing, or construction of new commercial data centers"
+  ],
+  "verified": true,
+  "notes": "Not a moratorium on its own. Record as a policy request. Article says the Assembly approved priorities Thursday (Aug. 27, 2026). KUAC notes the resolution text reads 'state-owned and municipal lands' while the presiding officer says federal lands were intended. Vote tally not verified on source."
+ },
+ {
+  "unit": "state:WA",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Pierce County",
+  "jurisdiction_type": "county",
+  "state": "WA",
+  "title": "Pierce County Council passes emergency moratorium on data centers over 10 MW in unincorporated areas",
+  "event_date": null,
+  "status": "enacted",
+  "facts": {
+   "scope": "new and expanded data centers exceeding 10 megawatts in unincorporated Pierce County",
+   "duration": "up to one year",
+   "instrument": "Emergency ordinance (number reported as 2026-577 in county release and O2026-557 in a councilmember newsletter; conflict)",
+   "vote": "6-1 (per search summary)",
+   "public_hearing": "2026-10-20 3 p.m., Tacoma",
+   "effective": "sources differ: immediate vs. upon executive signature"
+  },
+  "summary": "The Pierce County Council passed an emergency moratorium on new and expanded data centers above 10 MW in unincorporated areas for up to one year. A public hearing is set for Oct. 20, 2026.",
+  "source_url": "https://www.piercecountywa.gov/m/newsflash/Home/Detail/7241",
+  "source_title": "Pierce County, WA — county news release on data center emergency ordinance",
+  "verbatims": [],
+  "verified": false,
+  "notes": "NOT VERIFIED. The county page returns HTTP 403 (bot wall) to probe.py, so no verbatim was seen. Facts come from a WebSearch summary of the county release and a councilmember newsletter. Adoption date unknown, so event_date is null. Ordinance number conflicts across sources. Needs a read of the county release or ordinance text before merging."
+ }
+]

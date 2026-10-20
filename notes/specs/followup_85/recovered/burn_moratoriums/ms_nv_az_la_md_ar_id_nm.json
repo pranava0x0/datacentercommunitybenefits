@@ -1,0 +1,277 @@
+[
+  {
+    "unit": "state:ID",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Bannock County",
+    "jurisdiction_type": "county",
+    "state": "ID",
+    "title": "Bannock County adopts 180-day emergency moratorium on data center permits (Ordinance 2026-02)",
+    "event_date": "2026-07-30",
+    "status": "enacted",
+    "facts": {
+      "instrument": "Emergency Moratorium Ordinance No. 2026-02",
+      "duration_days": 180,
+      "computed_end": "2027-01-26",
+      "scope": "receipt, processing and approval of applications for data centers",
+      "exemptions": "permits already issued, or applications already filed with the Board"
+    },
+    "summary": "The Bannock County Board of Commissioners adopted an emergency 180-day moratorium on applications for data centers on July 30, 2026, citing imminent peril to water, environment, view sheds, decommissioning bonds, the grid and the aquifer. The county is directed to produce a permanent plan within 180 days.",
+    "source_url": "https://www.bannockcounty.gov/wp-content/uploads/2026/07/Data-Center-Moratorium_Final.pdf",
+    "source_title": "Bannock County — Emergency Moratorium Ordinance No. 2026-02 (data centers)",
+    "verbatims": [
+      "a moratorium is hereby imposed upon the receipt, processing, and approval of applications for data centers. This moratorium shall be in place for a period of one hundred and eighty (180) days following adoption of this moratorium.",
+      "This moratorium shall not apply to any permit that has already been issued"
+    ],
+    "verified": true,
+    "notes": "Event date is OUTSIDE the 08-01 to 10-19 window; included as an untracked important action. Computed end 2027-01-26 (180 days from 07-30) matches a news report. Pocatello's 2026-07-20 denial of a $2.6B site was seen in search but is a site action for an untracked developer, not recorded."
+  },
+  {
+    "unit": "state:AZ",
+    "type": "moratorium",
+    "action": "update",
+    "existing_id": "pima-county-az-2026-09",
+    "jurisdiction": "Pima County",
+    "jurisdiction_type": "county",
+    "state": "AZ",
+    "title": "Goldwater Institute says Pima County's 120-day data center pause is illegal",
+    "event_date": "2026-09-29",
+    "status": "enacted",
+    "facts": {
+      "challenger": "Goldwater Institute (vice president for litigation Jon Riches)",
+      "legal_basis_cited": [
+        "Prop. 207",
+        "A.R.S. Title 11"
+      ],
+      "litigation_status": "no case filed; Goldwater said it would consider representing an affected property owner"
+    },
+    "summary": "On Sept. 29, 2026 the Goldwater Institute said Pima County's pause is illegal under Title 11 and Prop. 207 because the county cannot prove data centers are an imminent threat. The supervisor who sponsored it says the pause is based on Title 11. No lawsuit had been filed as of the report.",
+    "source_url": "https://www.kjzz.org/fronteras-desk/2026-09-29/goldwater-institute-says-pima-county-data-center-moratorium-is-illegal-facilities-arent-a-threat",
+    "source_title": "KJZZ — Goldwater Institute says Pima County data center moratorium is illegal",
+    "verbatims": [
+      "says Pima County's four-month pause on data center development is illegal because it cannot prove data centers are an imminent threat",
+      "Allen says the moratorium is based on Title 11"
+    ],
+    "verified": true,
+    "notes": "Challenge is a think-tank assertion, not a court ruling. Supervisor name in source is Jennifer Allen."
+  },
+  {
+    "unit": "state:AZ",
+    "type": "tariff",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Arizona Corporation Commission",
+    "jurisdiction_type": "state",
+    "state": "AZ",
+    "title": "ACC approves joint cooperative framework for large-load electric service agreements",
+    "event_date": "2026-08-12",
+    "status": "approved",
+    "facts": {
+      "applicants": [
+        "AEPCO",
+        "Duncan Valley",
+        "Sulphur Springs Valley",
+        "Mohave",
+        "Graham County",
+        "Trico"
+      ],
+      "decision": "unanimous",
+      "instrument": "joint application for ACC approval of electric service agreements between large-load customers and cooperatives"
+    },
+    "summary": "The Arizona Corporation Commission unanimously approved a joint application by six electric cooperatives for a standardized large-load process. The process approves electric service agreements with large-load customers, such as data centers, and is framed as protecting existing ratepayers from bearing the infrastructure costs of that growth. This is a service-agreement framework, not a rate case.",
+    "source_url": "https://azcc.gov/news/home/2026/08/13/acc-approves-measure-to-ensure-electric-cooperative-customers-don-t-pay-for-large-load-growth",
+    "source_title": "Arizona Corporation Commission — ACC approves measure to ensure electric cooperative customers don't pay for large-load growth",
+    "verbatims": [
+      "This procedure supports the Commission's \"Growth Pays for Growth\" approach when it comes to the addition of new large-load customers."
+    ],
+    "verified": true,
+    "notes": "Open meeting date 2026-08-12 per the ACC release URL and trade coverage; release posted 2026-08-13. Using 08-12 as the event date. Center Square describes it as rule changes; the ACC release describes a single joint-application approval, which this record follows. Not yet clear whether this is a tariff or a new service-agreement type; re-check the type on curation."
+  },
+  {
+    "unit": "state:LA",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "St. Charles Parish",
+    "jurisdiction_type": "county",
+    "state": "LA",
+    "title": "St. Charles Parish council rejects eight-month data center moratorium, 5-3",
+    "event_date": "2026-04-06",
+    "status": "failed",
+    "facts": {
+      "vote": "5-3 against",
+      "proposed_duration_months": 8,
+      "proposed_end_condition": "until the parish enacts specific data center regulations"
+    },
+    "summary": "The St. Charles Parish council voted 5-3 against an eight-month moratorium on new data centers, after a debate on Monday, April 6, 2026. Supporters said it was needed to regulate location, size, water, energy and noise. The parish reported no current proposals for large data centers.",
+    "source_url": "https://www.heraldguide.com/featured/parish-council-rejects-8-month-moratorium-on-new-data-centers/",
+    "source_title": "Herald Guide — Parish council rejects 8-month moratorium on new data centers",
+    "verbatims": [
+      "voted 5-3 against a moratorium on new data centers for eight months",
+      "After a lively, hourlong debate on Monday"
+    ],
+    "verified": true,
+    "notes": "Event date OUTSIDE the window (April 2026); flagged as untracked. Weekday verified: April 6, 2026 is a Monday."
+  },
+  {
+    "unit": "state:MD",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Baltimore County",
+    "jurisdiction_type": "county",
+    "state": "MD",
+    "title": "Baltimore County Council extends data center moratorium through end of 2027",
+    "event_date": "2026-09-22",
+    "status": "enacted",
+    "facts": {
+      "vote": "unanimous",
+      "extends_to": "2027-12-31",
+      "prior_pause_end": "about 2027-01-01",
+      "prior_instrument": "Bill 3-26 (earlier pause, not in seed)"
+    },
+    "summary": "The Baltimore County Council unanimously passed a bill on Tuesday, Sept. 22, 2026 extending its moratorium on data centers through December 31, 2027. The bill does not set permanent rules; it extends the pause while the council considers Planning Board recommendations.",
+    "source_url": "https://www.thebanner.com/baltimore-county/baltimore-county-data-center-moratorium-5OKGK2L4TRBSXEKKDIPOGZLODE/",
+    "source_title": "Baltimore Banner — Baltimore County data center moratorium",
+    "verbatims": [
+      "The County Council unanimously passed a bill Tuesday night extending the county's moratorium on data centers through the end of 2027."
+    ],
+    "verified": true,
+    "notes": "Event date computed from the 'Tuesday night' wording (Sept. 22, 2026, a Tuesday), cross-checked against a Fox Baltimore headline dated Sept. 22. Status is council passage; executive signature was not checked. Bill No. 79-26 appears in secondary coverage but did not verify on the source page, so it is omitted from facts."
+  },
+  {
+    "unit": "state:AR",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Carroll County",
+    "jurisdiction_type": "county",
+    "state": "AR",
+    "title": "Carroll County Quorum Court passes 12-month moratorium on data centers and high-intensity digital infrastructure",
+    "event_date": "2026-06-16",
+    "status": "enacted",
+    "facts": {
+      "duration_months": 12,
+      "scope": "high-impact industrial and high-intensity digital infrastructure facilities (data centers, AI computing, crypto mining)"
+    },
+    "summary": "The Carroll County Quorum Court passed a one-year moratorium on data centers and other high-intensity digital infrastructure facilities in June 2026, while it works on an ordinance and regulations.",
+    "source_url": "https://ky3.com/2026/06/17/carroll-county-unanimously-passes-1-year-moratorium-data-centers-other-high-intensity-digital-infrastructure-facilities/",
+    "source_title": "KY3 — Carroll County unanimously passes 1-year moratorium on data centers",
+    "verbatims": [
+      "Carroll County, Arkansas's Quorum Court introduced and passed a 12-month moratorium on facilities like data centers",
+      "Carroll County's one-year moratorium will temporarily block the construction and authorization"
+    ],
+    "verified": true,
+    "notes": "Event date OUTSIDE the window and approximate: the story is timestamped 10:49 PM CDT on June 16, 2026, and does not state the vote date. The headline says 'unanimously'; the body text verified here does not restate it, so that word is omitted from the summary. Madison County AR and Pulaski County AR are already recorded or failed."
+  },
+  {
+    "unit": "state:ID",
+    "type": "policy",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Coeur d'Alene",
+    "jurisdiction_type": "city",
+    "state": "ID",
+    "title": "Coeur d'Alene council announces it will not approve data center proposals pending study",
+    "event_date": "2026-08-04",
+    "status": "in_effect",
+    "facts": {
+      "vote": "unanimous",
+      "mechanism": "announcement/resolution of non-approval, not an ordinance or a moratorium",
+      "zoning_class": "extensive impact"
+    },
+    "summary": "On Aug. 4, 2026 the Coeur d'Alene City Council unanimously passed an announcement that it will not approve proposals to construct, develop or expand data centers within city limits until further analysis, study and policy review. It is not a legal moratorium; the city has no data centers.",
+    "source_url": "https://cdapress.com/news/2026/aug/05/city-takes-stance-on-data-centers/",
+    "source_title": "Coeur d'Alene Press — City Council says 'No' to data centers",
+    "verbatims": [
+      "unanimously passed an announcement that they will not approve any proposals to construct, develop or expand data centers within city limits until",
+      "The answer is no"
+    ],
+    "verified": true,
+    "notes": "The 'in_effect' status is a placeholder because a non-binding announcement has no legal effect date; a curator should decide whether this belongs under policy or a new status. Cites the newspaper, not a city document; the city agenda was not fetched."
+  },
+  {
+    "unit": "state:NM",
+    "type": "moratorium",
+    "action": "update",
+    "existing_id": "socorro-county-nm-2026-05",
+    "jurisdiction": "Socorro County",
+    "jurisdiction_type": "county",
+    "state": "NM",
+    "title": "Socorro County adopts yearlong data center moratorium (correcting adoption date)",
+    "event_date": "2026-06-09",
+    "status": "enacted",
+    "facts": {
+      "vote": "unanimous",
+      "duration_months": 12,
+      "corrects_field": "enacted_date",
+      "old_value": "2026-05-10",
+      "new_value": "2026-06-09",
+      "scope": "data centers and related infrastructure projects on unincorporated county land"
+    },
+    "summary": "The Socorro County Board of Commissioners unanimously adopted a yearlong moratorium on data centers and related infrastructure projects on Tuesday, June 9, 2026. The May 2026 record date was the vote to consider the moratorium, not its adoption.",
+    "source_url": "https://www.kanw.org/new-mexico-news/2026-06-10/new-mexico-county-adopts-yearlong-data-center-moratorium",
+    "source_title": "KANW / Source NM — New Mexico county adopts yearlong data center moratorium",
+    "verbatims": [
+      "unanimously adopted a yearlong moratorium on data centers and related infrastructure projects Tuesday evening"
+    ],
+    "verified": true,
+    "notes": "Correction to seed: enacted_date 2026-05-10 is the date the commission agreed to consider the moratorium (May 12 per Broadband Breakfast; 'May 14' article). The existing source_url (route-fifty) was not probed here; the replacement source is the KANW/Source NM article with the verbatim above. Event date falls within the window only as a correction; the adoption itself is 06-09, before the window."
+  },
+  {
+    "unit": "state:NM",
+    "type": "moratorium",
+    "action": "update",
+    "existing_id": "santa-fe-county-nm-2026-07",
+    "jurisdiction": "Santa Fe County",
+    "jurisdiction_type": "county",
+    "state": "NM",
+    "title": "Santa Fe County adopts 18-month data center moratorium (correcting adoption date)",
+    "event_date": "2026-06-30",
+    "status": "enacted",
+    "facts": {
+      "vote": "unanimous",
+      "duration_months": 18,
+      "threshold_mw": 1,
+      "corrects_field": "enacted_date",
+      "old_value": "2026-07-01",
+      "new_value": "2026-06-30"
+    },
+    "summary": "The Santa Fe County Commission voted unanimously on Tuesday, June 30, 2026 to adopt an 18-month moratorium on data center development, with the regulatory threshold lowered to 1 MW. The county's press release is dated July 2 and says 'Tuesday night', so the seed's July 1 date is a correction.",
+    "source_url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers",
+    "source_title": "Santa Fe County — Santa Fe County approves 18-month moratorium on data centers",
+    "verbatims": [
+      "voted unanimously Tuesday night to adopt an 18-month moratorium on data center development"
+    ],
+    "verified": true,
+    "notes": "Correction to seed. Computed end date 2028-01-01 in the derived follow-up will move to 2027-12-30 (18 months from 06-30) if the correction is applied. The seed's threshold and duration already match."
+  },
+  {
+    "unit": "state:WI (lead outside assigned units)",
+    "type": "moratorium",
+    "action": "new",
+    "existing_id": null,
+    "jurisdiction": "Town of New Denmark",
+    "jurisdiction_type": "city",
+    "state": "WI",
+    "title": "Town of New Denmark adopts one-year moratorium on data centers (Resolution 2026-04)",
+    "event_date": "2026-06-08",
+    "status": "enacted",
+    "facts": {
+      "resolution": "2026-04",
+      "duration_months": 12,
+      "extension_months": 6,
+      "extension_condition": "if in the interests of the Town"
+    },
+    "summary": "The Town Board of New Denmark (Brown County, WI) adopted Resolution 2026-04 on June 8, 2026, a one-year moratorium on placing data centers in the town. It may be extended by six months, and the Plan Commission and Zoning Administrator are directed to draft siting and operating rules.",
+    "source_url": "https://townofnewdenmarkwi.gov/news-and-notices/notice-of-moratorium-of-data-centers/",
+    "source_title": "Town of New Denmark — Notice of Moratorium of Data Centers (Resolution #2026-04)",
+    "verbatims": [
+      "Adopting a one (l) year moratorium on the placing of Data Centers within the Town",
+      "Dated this 8th day of June, 2026"
+    ],
+    "verified": true,
+    "notes": "Outside the window and outside this worker's assigned states; included because it resolves a listed WI lead. Source text renders '(l)' for '(1)' as in the original."
+  }
+]

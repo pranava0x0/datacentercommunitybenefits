@@ -1,0 +1,377 @@
+[
+ {
+  "unit": "state:NE",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Cass County, Nebraska",
+  "jurisdiction_type": "county",
+  "state": "NE",
+  "title": "Cass County board approves 12-month moratorium on data center permits",
+  "event_date": "2026-08-11",
+  "status": "enacted",
+  "facts": {
+   "vote": "5-0",
+   "duration_months": 12,
+   "scope": "permits for data centers",
+   "regulations_tabled_until": "2026-09-22"
+  },
+  "summary": "The Cass County Board of Commissioners approved a 12-month pause on data center permits at a public hearing. Proposed data center regulations were tabled until September 22.",
+  "source_url": "https://www.klkntv.com/cass-county-board-of-commissioners-unanimously-vote-for-data-center-moratorium/",
+  "source_title": "KLKN — Cass County Board of Commissioners unanimously vote for data center moratorium",
+  "verbatims": [
+   "The board voted 5-0 to approve a 12-month moratorium on permits for data centers."
+  ],
+  "verified": true,
+  "notes": "KLKN dateline August 11, 2026 and the article describe the hearing as this morning. Verbatim probed HIT."
+ },
+ {
+  "unit": "state:NE",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Saline County, Nebraska",
+  "jurisdiction_type": "county",
+  "state": "NE",
+  "title": "Saline County (NE) board places 12-month moratorium on data center applications",
+  "event_date": "2026-08-04",
+  "status": "enacted",
+  "facts": {
+   "vote": "4-0 (Karpisek absent)",
+   "duration_months": 12,
+   "scope": "data center applications",
+   "option_to_change": true
+  },
+  "summary": "The Saline County Board of Commissioners voted to place a 12-month moratorium on data center applications, with the option to change it. The motion carried.",
+  "source_url": "https://salinecountyne.gov/wp-content/uploads/sites/14/2026/08/BOC-8-4-2026.pdf",
+  "source_title": "Saline County (NE) Board of Commissioners minutes, August 4, 2026",
+  "verbatims": [
+   "Rohrig moved to approve placing a 12 month moratorium on data center applications with option to change, seconded by Pribyl. Motion carried."
+  ],
+  "verified": true,
+  "notes": "Primary county minutes, read via PDFKit text extraction (line-wrapped in source). Not Saline County KS. Minutes say 'Motion carried' and list ayes for four members with Karpisek absent; the 4-0 tally is inferred from the roll call."
+ },
+ {
+  "unit": "state:NE",
+  "type": "policy",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Village of Nehawka, Nebraska",
+  "jurisdiction_type": "city",
+  "state": "NE",
+  "title": "Village of Nehawka votes to prohibit data centers in its zoning jurisdiction",
+  "event_date": "2026-08-27",
+  "status": "enacted",
+  "facts": {
+   "scope": "data centers and crypto-mining/blockchain computing and the power plants that run them, within village zoning jurisdiction",
+   "duration": "not stated (described as an outright ban)",
+   "effective": "15 days after vote per article"
+  },
+  "summary": "The village board voted to prohibit data centers within its zoning jurisdiction. Reporting says the ban takes effect in 15 days and does not state whether it is permanent.",
+  "source_url": "https://www.1011now.com/2026/08/27/village-nehawka-votes-ban-data-centers/",
+  "source_title": "1011NOW / WOWT — Village of Nehawka votes to ban data centers",
+  "verbatims": [
+   "Leaders in the village of Nehawka have voted to prohibit data centers within their zoning jurisdiction"
+  ],
+  "verified": true,
+  "notes": "event_date is the article publication date (Aug 27, 2026); the meeting date and vote tally are not stated in any source found. Article says the county moratorium did not reach Nehawka's extraterritorial jurisdiction."
+ },
+ {
+  "unit": "state:KS",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Leavenworth County, Kansas",
+  "jurisdiction_type": "county",
+  "state": "KS",
+  "title": "Leavenworth County commission fails to extend 90-day data center moratorium; pause lapses",
+  "event_date": "2026-08-05",
+  "status": "failed",
+  "facts": {
+   "vote": "3-2 against extension",
+   "moratorium_original_duration_days": 90,
+   "proposed_extension_through": "2027-01-31",
+   "commissioners_for_extension": [
+    "Mike Stieben",
+    "Mike Smith"
+   ],
+   "commissioners_against_extension": [
+    "Vanessa Reid",
+    "Willie Dove",
+    "Jeff Culbertson"
+   ]
+  },
+  "summary": "The county commission voted 3-2 against extending its 90-day pause on data center applications, which then expired. Planning commissioners were reviewing data center regulation language.",
+  "source_url": "https://www.tonganoxiemirror.com/news/2026/aug/12/leavenworth-county-commission-lifts-moratorium-on-data-center-by-3-2-vote/",
+  "source_title": "Tonganoxie Mirror — Leavenworth County commission lifts moratorium on data center by 3-2 vote",
+  "verbatims": [
+   "voted against the measure and it failed, 3-2"
+  ],
+  "verified": true,
+  "notes": "Headline says the commission 'lifts' the moratorium but the body describes a failed extension motion; the record follows the body. Vote is Wednesday Aug 5 per article. Original 90-day enactment date (about May 2026 per a KCUR summary) not verified here, so no enactment date is stated. Conflicting KCUR (Aug 14) report also cited; not probed."
+ },
+ {
+  "unit": "state:KS",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Sedgwick County, Kansas",
+  "jurisdiction_type": "county",
+  "state": "KS",
+  "title": "Sedgwick County extends data center moratorium for a third time, to December",
+  "event_date": "2026-09-03",
+  "status": "enacted",
+  "facts": {
+   "vote": "unanimous (tally not stated)",
+   "extension_count": 3,
+   "prior_end_dates": [
+    "2026-04-17 (first pause, Jan 14)",
+    "2026-06-11 (Mar 4 extension)",
+    "2026-09-11 (May extension, 90 days)"
+   ],
+   "end_date_reported": [
+    "2026-12-11",
+    "2026-12-24 (with commissioner checkpoint 2026-12-02)"
+   ]
+  },
+  "summary": "The county commission unanimously extended its data center moratorium a third time, to late December, saying the Planning Commission had not delivered enough regulations in time.",
+  "source_url": "https://foxkansas.com/news/local/data-center-proposals-put-on-hold-as-sedgwick-county-delays-rules-until-late-december",
+  "source_title": "Fox Kansas — Data center proposals put on hold as Sedgwick County delays rules until late December",
+  "verbatims": [
+   "A unanimous county commission vote extends a moratorium on data centers for the third time."
+  ],
+  "verified": true,
+  "notes": "event_date is the article date (Thursday Sept 3, 2026); the vote date is not stated but the prior pause expired Sept 11. The article gives two end dates (Dec 11 and Dec 24) that conflict; the record should not pick one until the county minutes are checked. Not verified against a second outlet."
+ },
+ {
+  "unit": "state:KS",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Saline County, Kansas",
+  "jurisdiction_type": "county",
+  "state": "KS",
+  "title": "Saline County (KS) commission places three-year pause on data centers, nuclear and hydrogen facilities",
+  "event_date": null,
+  "status": "enacted",
+  "facts": {
+   "vote": "4-0",
+   "duration": "3 years, can be shortened or extended",
+   "scope": "construction of data centers, nuclear power and hydrogen-based energy facilities in unincorporated areas"
+  },
+  "summary": "The Saline County Commission voted 4-0 to pause construction of data centers, nuclear power and hydrogen energy facilities in unincorporated areas for up to three years, to give planners time to write rules.",
+  "source_url": "https://www.ksn.com/news/kansas-county-puts-moratorium-on-data-centers-and-nuclear-hydrogen-plants/amp/",
+  "source_title": "KSN — Kansas county puts moratorium on data centers and nuclear, hydrogen plants",
+  "verbatims": [
+   "On Tuesday, the Saline County Commission voted 4-0 to place a moratorium"
+  ],
+  "verified": true,
+  "notes": "OUT OF WINDOW (before Aug 1) and untracked. Event date unknown: the article gives only 'Tuesday' and was posted '7 months ago' relative to the crawl, so the vote was probably early 2026. Needs the county's minutes for a date before this is recorded. Not a Nebraska record."
+ },
+ {
+  "unit": "state:IL",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "McHenry County, Illinois",
+  "jurisdiction_type": "county",
+  "state": "IL",
+  "title": "McHenry County weighs 12-month freeze on data center applications in unincorporated areas",
+  "event_date": "2026-10-06",
+  "status": "proposed",
+  "facts": {
+   "duration_months": 12,
+   "scope": "new data center applications, zoning amendments, permits and related reviews in unincorporated areas",
+   "next_step": "Planning, Environment and Development Committee; full county board expected at its November meeting (timing uncertain)"
+  },
+  "summary": "McHenry County officials are considering a 12-month moratorium on new data center applications in unincorporated areas while rules are written. The committee was due to take the proposal up on a Tuesday after the October 3 article.",
+  "source_url": "https://hoodline.com/2026/10/mchenry-county-weighs-12-month-data-center-freeze-amid-water-fears/",
+  "source_title": "Hoodline — McHenry County Weighs 12-Month Data Center Freeze Amid Water Fears",
+  "verbatims": [
+   "a 12-month moratorium that would freeze new data center applications across unincorporated parts of the county"
+  ],
+  "verified": true,
+  "notes": "event_date is the computed committee date (article dated Oct 3, 2026 says 'Tuesday', i.e. Oct 6). The committee outcome is not reported in any source found; recheck the McHenry County committee agenda and minutes before the record moves beyond proposed. Hoodline is an aggregator-style outlet; the proposal itself is county-sourced, not confirmed against the county board page."
+ },
+ {
+  "unit": "state:UT",
+  "type": "policy",
+  "action": "new",
+  "existing_id": "iron-county-ut-2026-06",
+  "jurisdiction": "Iron County, Utah",
+  "jurisdiction_type": "county",
+  "state": "UT",
+  "title": "Iron County planning commission recommends data center, power plant and battery storage rules",
+  "event_date": "2026-10-09",
+  "status": "proposed",
+  "facts": {
+   "draft_ordinance_scope": "noise, water use and public outreach rules for data centers, power plants, battery storage and large industrial campuses",
+   "size_cutoff_mw": 50,
+   "water_cap_gallons_per_day": 50000,
+   "cooling_requirement": "closed-loop, dry or other efficient cooling",
+   "nondisclosure": "developers may not require county staff to sign NDAs",
+   "public_comment": "2026-10-12",
+   "existing_moratorium": "180-day moratorium, more than halfway through as of Oct 9"
+  },
+  "summary": "Iron County's planning commission recommended new restrictions in early October covering noise, water use and public outreach. The existing 180-day moratorium continues while the draft ordinance is reviewed.",
+  "source_url": "https://www.kuer.org/business-economy/2026-10-09/box-elder-iron-county-data-center-moratoriums-new-regulations",
+  "source_title": "KUER — Box Elder, Iron County data center moratoriums, new regulations",
+  "verbatims": [
+   "Iron County's planning commission recommended new restrictions in early October"
+  ],
+  "verified": true,
+  "notes": "event_date is the article date (Oct 9); the exact planning commission date is 'early October' and not stated. Draft-ordinance details and the Oct 12 comment date come from a WebFetch summary, not probe-verified. Box Elder is also drafting land-use rules (planning commission Nov 19, county vote likely December); not recorded as an action yet."
+ },
+ {
+  "unit": "state:UT",
+  "type": "site_update",
+  "action": "update",
+  "existing_id": "meta-eagle-mountain-ut",
+  "jurisdiction": "Eagle Mountain, Utah",
+  "jurisdiction_type": "city",
+  "state": "UT",
+  "title": "Meta expands Eagle Mountain data center; community grants announced",
+  "event_date": "2026-09-14",
+  "status": "news",
+  "facts": {
+   "total_utah_investment": "more than $3 billion",
+   "construction_jobs_peak": 1200,
+   "permanent_jobs": 300,
+   "community_commitments": [
+    {
+     "recipient": "Lake Mountain School District",
+     "amount_usd": 600000,
+     "use": "land grant for three acres for a future K-6 school"
+    },
+    {
+     "recipient": "Walden Park Observatory (Eagle Mountain)",
+     "amount_usd": 450000
+    },
+    {
+     "recipient": "Lake Mountain Education Foundation",
+     "amount_usd": 1500000,
+     "plus": "$50,000 annual"
+    }
+   ],
+   "expansion_mw": null
+  },
+  "summary": "Meta announced at an early-September event with Eagle Mountain City that it is again expanding its Eagle Mountain data center, with grants to the school district, an observatory and an education foundation. The capacity and timeline of the expansion are not stated.",
+  "source_url": "https://www.utahbusiness.com/industry/2026/09/14/meta-boosts-eagle-mountain-investment-3-billion-utah-data-center/",
+  "source_title": "Utah Business — Meta boosts Eagle Mountain investment to $3 billion",
+  "verbatims": [
+   "pushes the company's total capital investment in Utah to more than $3 billion",
+   "Meta is also committing $1.5 million to the Lake Mountain Education Foundation plus an ongoing $50,000 annual contribution for student-learning initiatives"
+  ],
+  "verified": true,
+  "notes": "event_date is the article date; the article says the event was 'last week', so the true date is early September. Job figures and the $600k and $450k grants come from the article text as summarised by WebFetch and the $600k/$450k amounts are not probe-verified. Trade-press report of a Meta and city announcement, not a Meta primary page. Not yet a Claim: the company's own statement should be found before it is added as a claim."
+ },
+ {
+  "unit": "state:UT",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Logan, Utah",
+  "jurisdiction_type": "city",
+  "state": "UT",
+  "title": "Logan city council approves 180-day data center moratorium",
+  "event_date": "2026-06-30",
+  "status": "enacted",
+  "facts": {
+   "duration_days": 180,
+   "scope": "construction and development of data centers and data center power plants inside city limits; no applications accepted, approved or permitted during the pause"
+  },
+  "summary": "Logan's city council voted on June 30, 2026 to approve a 180-day moratorium on data centers and data center power plants inside city limits.",
+  "source_url": "https://hoodline.com/2026/07/logan-slams-brakes-on-data-center-boom-with-180-day-freeze/",
+  "source_title": "Hoodline — Logan slams brakes on data center boom with 180-day freeze",
+  "verbatims": [
+   "180-day moratorium on the construction and development of data centers"
+  ],
+  "verified": true,
+  "notes": "OUT OF WINDOW (June 30, before Aug 1), untracked, flagged as an optional add. Vote tally not stated. Hoodline is an outlet, not a primary; the city ordinance was not fetched."
+ },
+ {
+  "unit": "state:TN",
+  "type": "moratorium",
+  "action": "new",
+  "existing_id": null,
+  "jurisdiction": "Knoxville-Knox County Planning Commission (Knoxville city limits)",
+  "jurisdiction_type": "city",
+  "state": "TN",
+  "title": "Knox County zoning committee recommends one-year moratorium on large data centers in Knoxville city limits",
+  "event_date": "2026-08-13",
+  "status": "proposed",
+  "facts": {
+   "duration": "one year (until 2027-06-30 or until new regulations are adopted)",
+   "recommended_by": "Knoxville-Knox County Planning Commission Zoning Committee",
+   "next_step": "Knox County Commission final vote (date not reported)",
+   "scope": "large data centers within Knoxville city limits"
+  },
+  "summary": "The Knoxville-Knox County Planning Commission's zoning committee voted to recommend a one-year moratorium on large data centers inside Knoxville city limits. The recommendation goes to the Knox County Commission for a final vote.",
+  "source_url": "https://www.wvlt.tv/2026/08/13/knox-co-zoning-commission-approves-recommendation-one-year-moratorium-data-centers/",
+  "source_title": "WVLT — Knox Co. zoning commission approves recommendation of one-year moratorium on data centers",
+  "verbatims": [
+   "voted to recommend that Knox County Commission approve the moratorium"
+  ],
+  "verified": true,
+  "notes": "Confusing source: Knoxville city already passed an emergency one-year moratorium (July 2026, WVLT July 16 and Spectrum July 8 coverage, not recorded here) and Knox County passed its own 10-0 moratorium on June 23 for unincorporated areas. Before recording the county vote, reconcile which body the Aug 13 recommendation covers."
+ },
+ {
+  "unit": "state:NY",
+  "type": "moratorium",
+  "action": "update",
+  "existing_id": "ny-state-2026-06",
+  "jurisdiction": "New York State",
+  "jurisdiction_type": "state",
+  "title": "S10642/A11560 status: Assembly companion still in committee; existing 'passed both chambers' entry conflicts",
+  "event_date": "2026-06-01",
+  "status": "proposed",
+  "facts": {
+   "bill": "S10642 / A11560",
+   "assembly_latest_action": "2026-06-01 read once and referred to Committee on Ways and Means",
+   "senate_latest_action": "2026-06-04 passed Senate 43-17 (WebFetch of NY Senate page; not probe-verifiable, the page returns 403)",
+   "governor_action": "none found"
+  },
+  "summary": "The Senate passed S10642 on June 4, 2026, and the Assembly companion A11560 was referred to the Assembly Ways and Means Committee on June 1. No gubernatorial action appears in the sources found, so the bill is still unsigned.",
+  "source_url": "https://nyassembly.gov/leg/?default_fld=&leg_video=&bn=A11560&term=2025&Summary=Y&Text=Y",
+  "source_title": "New York State Assembly — A11560 bill page",
+  "verbatims": [
+   "read once and referred to the Committee on Ways and Means"
+  ],
+  "verified": true,
+  "notes": "CONFLICT FLAG, not a status change: the seed says the bill passed both chambers on 2026-06-04. The Assembly page shows A11560 was only referred to committee, and the Senate page says S10642 passed the Senate and was returned to the Assembly. Curator should check the legislative history before editing. Aug 27 Spectrum coverage says Sen. Kristen Gonzalez urged Hochul to sign, which indicates the bill had not yet been delivered.",
+  "state": "NY"
+ },
+ {
+  "unit": "state:NY",
+  "type": "policy",
+  "action": "new",
+  "existing_id": "ny-state-eo62-2026-07",
+  "jurisdiction": "New York State",
+  "jurisdiction_type": "state",
+  "title": "ESD releases draft Community Investment Framework outline under EO 62",
+  "event_date": "2026-07-14",
+  "status": "proposed",
+  "facts": {
+   "issuing_agency": "Empire State Development",
+   "comment_deadline": "2026-08-13",
+   "comment_email": "DataCenterCIF@esd.ny.gov",
+   "contents": [
+    "good-neighbor commitments (landscaping, design, noise and light mitigation)",
+    "labor commitments (prevailing wage, local hiring, apprenticeships)",
+    "transparency standards (public reporting on benefits and environmental, energy, infrastructure impacts)",
+    "Community Investment Fund (infrastructure, housing, workforce training, childcare, broadband, public safety, schools, blight remediation)",
+    "recommended operator contribution of $1 million per 1 MW of anticipated utility demand per project"
+   ],
+   "final_framework_due": "within 60 days of EO 62 (about 2026-09-12)"
+  },
+  "summary": "Empire State Development released an outline of the Community Investment Framework for data center host communities under EO 62 and took public comment until August 13, 2026. The final framework was due within 60 days of the order and was not found published.",
+  "source_url": "https://www.hodgsonruss.com/newsroom/alerts/new-york-state-issues-data-center-community-investment-framework-policy-online",
+  "source_title": "Hodgson Russ — New York State Issues Data Center Community Investment Framework Policy Outline",
+  "verbatims": [
+   "ESD is accepting public feedback on the CIF outline until August 13, 2026"
+  ],
+  "verified": true,
+  "notes": "event_date is computed (release date = comment deadline minus 30 days). The law-firm alert is secondary; the ESD outline itself and the governor's page (404 on fetch) were not reached. The final CIF is NOT found published as of Oct 19: a lead, not a record. The $1 million per MW figure is a recommendation in the outline, not a requirement.",
+  "state": "NY"
+ }
+]
