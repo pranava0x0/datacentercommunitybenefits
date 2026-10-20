@@ -279,8 +279,6 @@ def main(argv: Optional[list] = None) -> int:
     # --check-sources audits feed health; it must not mark leads as seen, or
     # the next real scan would drop them as old.
     report = scan(sources, known=seed_urls(), seen=set(seen) if args.check_sources else seen)
-    if not args.check_sources:
-        _save_seen(seen)
     leads = [l for l in report["leads"] if args.all or l["new"]]
     if args.json_out:
         Path(args.json_out).write_text(json.dumps({**report, "leads": leads}, indent=1, ensure_ascii=False), encoding="utf-8")
@@ -294,6 +292,10 @@ def main(argv: Optional[list] = None) -> int:
     # it goes to stdout as one markdown document; status and problems above
     # go through logging.
     sys.stdout.write(render_worklist(leads, report))
+    # Mark leads seen only after the worklist was delivered: if --json or the
+    # write above fails, the next run must still show them.
+    if not args.check_sources:
+        _save_seen(seen)
     return 1 if args.check_sources and report["dead_sources"] else 0
 
 

@@ -1672,7 +1672,9 @@ const MOR_STATUS_LABELS = { enacted: "Enacted", proposed: "Proposed", failed: "F
 
 function _morRefDate(m) {
   // Best available date for placing a record on the activity timeline.
-  const s = m.enacted_date || m.effective_date || m.captured_at;
+  // A lifted pause is plotted when it was lifted, the event its 'lifted'
+  // colour describes, not in its enactment quarter.
+  const s = (m.lifted_date && effectiveStatus(m) === "lifted" ? m.lifted_date : null) || m.enacted_date || m.effective_date || m.captured_at;
   if (!s) return null;
   const d = new Date(s);
   return isNaN(d.getTime()) ? null : d;
