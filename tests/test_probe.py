@@ -135,3 +135,14 @@ def test_shift_jis_page_is_decoded_from_its_meta_charset() -> None:
     raw = '<html><head><meta charset="Shift_JIS"></head><body>データセンター</body></html>'.encode("shift_jis")
     assert pr._meta_charset(raw).lower() == "shift_jis"
     assert "データセンター" in raw.decode(pr._meta_charset(raw))
+
+
+def test_unreadable_pdf_is_a_miss_not_blocked(tmp_path, monkeypatch, capsys) -> None:
+    import json as _j
+    import probe as pr
+    monkeypatch.setattr(pr, "fetch", lambda url: (200, url, pr.PDF_UNREADABLE))
+    ev = tmp_path / "e.jsonl"
+    ev.write_text(_j.dumps({"id": "x", "action": "add", "source_url": "https://x.example/a.pdf",
+                            "verbatim": "a quote long enough to be checked by the gate"}) + "\n")
+    assert pr.check_evidence(ev, 0) == 1
+    assert "MISS" in capsys.readouterr().out

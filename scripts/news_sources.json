@@ -140,6 +140,20 @@
    "lang": "en",
    "kind": "rss",
    "url": "https://news.google.com/rss/search?q=data+centre+council+OR+planning+when%3A30d&hl=en-AU&gl=AU&ceid=AU%3Aen"
+  },
+  {
+   "name": "Google News (CA, en) — discovery only, never a citation",
+   "country": "CA",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=data+centre+Hydro-Qu%C3%A9bec+OR+Alberta+OR+council+when%3A30d&hl=en-CA&gl=CA&ceid=CA%3Aen"
+  },
+  {
+   "name": "Google News (SG, en) — discovery only, never a citation",
+   "country": "SG",
+   "lang": "en",
+   "kind": "rss",
+   "url": "https://news.google.com/rss/search?q=data+centre+Singapore+IMDA+OR+EDB+when%3A30d&hl=en-SG&gl=SG&ceid=SG%3Aen"
   }
  ]
 }

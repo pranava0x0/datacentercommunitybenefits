@@ -122,3 +122,13 @@ def test_check_sources_does_not_consume_leads(tmp_path, monkeypatch) -> None:
     assert not (tmp_path / "seen.json").exists()
     ss.main([])
     assert (tmp_path / "seen.json").exists()
+
+
+def test_amp_prefix_only_strips_the_amp_segment() -> None:
+    assert ss._norm_url("https://x.example/amp/story/a") == ss._norm_url("https://x.example/story/a")
+    assert ss._norm_url("https://x.example/ampere-data-center").endswith("/ampere-data-center")
+
+
+def test_feed_declaring_latin1_is_not_double_decoded() -> None:
+    body = '<?xml version="1.0" encoding="ISO-8859-1"?><rss><channel><item><title>Centre de données à Paris café</title><link>https://x.example/a</link></item></channel></rss>'
+    assert ss.parse_feed(body)[0][0].endswith("café")

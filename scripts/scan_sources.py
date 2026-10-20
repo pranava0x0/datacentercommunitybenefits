@@ -40,6 +40,9 @@ SOURCES_FILE = ROOT / "scripts" / "news_sources.json"
 SEED_DIR = ROOT / "data" / "seed"
 CACHE_DIR = ROOT / ".scan_cache"
 DELAY = 1.5
+# An honest, contactable UA (CLAUDE.md network rules); feeds are public and
+# don't need a browser disguise.
+SCANNER_UA = "DataCenterCommunityBenefits-scanner/1.0 (+https://github.com/pranava0x0/datacentercommunitybenefits)"
 BACKOFF = 10.0
 TRANSIENT_STATUSES = {0, 408, 425, 429, 500, 502, 503, 504}
 DEAD_STATUSES = {404, 410}
@@ -65,7 +68,7 @@ def _raw_fetch(url: str) -> tuple[int, str, str]:
     import requests
 
     try:
-        r = requests.get(url, headers={"User-Agent": probe.UA}, timeout=25)
+        r = requests.get(url, headers={"User-Agent": SCANNER_UA}, timeout=25)
     except requests.RequestException as exc:
         return 0, url, f"FETCH-ERROR: {exc}"
     r.encoding = r.encoding or "utf-8"
@@ -92,6 +95,9 @@ def parse_feed(body: str) -> list[tuple[str, str]]:
     """(title, link) pairs from RSS 2.0 or Atom. Malformed XML yields [].
     Google News links are redirects that fail when fetched, so its <source>
     outlet is appended to the title as " [outlet]" for the agent to search."""
+    # The body is already decoded text; drop the XML declaration so a feed
+    # that declares ISO-8859-1 isn't decoded twice (café -> cafÃ©).
+    body = re.sub(r"^\s*<\?xml[^>]*\?>", "", body) if isinstance(body, str) else body
     try:
         root = ET.fromstring(body.encode("utf-8") if isinstance(body, str) else body)
     except ET.ParseError:
@@ -142,7 +148,9 @@ def _norm_url(u: str) -> str:
 
     p = urlparse(u)
     host = (p.hostname or "").lower().removeprefix("www.").removeprefix("amp.")
-    path = p.path.rstrip("/").removeprefix("/amp")
+    path = p.path.rstrip("/")
+    if path.startswith("/amp/"):  # AMP mirror of the same article, not /ampere-...
+        path = path[4:]
     q = sorted((k, v) for k, v in parse_qsl(p.query, keep_blank_values=True) if not _TRACKING_PARAMS.match(k))
     return f"{host}{path}" + (f"?{urlencode(q)}" if q else "")
 

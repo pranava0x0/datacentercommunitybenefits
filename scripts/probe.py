@@ -46,6 +46,7 @@ NORMALIZE = {
     "–": "-", "—": "-", "\xa0": " ", " ": " ", "​": "",
 }
 BLOCKED_STATUSES = {401, 403, 406, 429, 451, 503}
+PDF_UNREADABLE = "PDF-UNREADABLE"
 MIN_TEXT = 400  # a bot-wall interstitial is short; real article text is not
 
 
@@ -138,7 +139,10 @@ def fetch(url: str) -> tuple[int, str, str]:
         return 0, url, f"FETCH-ERROR: {exc}"
     is_pdf = "pdf" in r.headers.get("content-type", "") or r.content[:5] == b"%PDF-"
     if is_pdf:
-        return r.status_code, r.url, pdf_text_best(r.content)
+        text = pdf_text_best(r.content)
+        # An unreadable PDF must fail the gate, not slip through as BLOCKED:
+        # on Linux (no PDFKit) a large PDF would otherwise pass unverified.
+        return r.status_code, r.url, text if len(text) >= MIN_TEXT else PDF_UNREADABLE
     # requests falls back to ISO-8859-1 when the header names no charset,
     # which mangles accented text on many non-English pages (é -> Ã©) and
     # makes Spanish/French quotes MISS. Prefer UTF-8 when it decodes cleanly.
@@ -198,6 +202,11 @@ def check_evidence(path: Path, delay: float) -> int:
                 time.sleep(delay)  # CLAUDE.md: be polite to any single host
             cache[url] = fetch(url)
         status, _, text = cache[url]
+        if text == PDF_UNREADABLE:
+            misses += 1
+            print(f"MISS    {rid}: PDF text unreadable here (no PDFKit, or scanned/oversized); "
+                  f"read it on macOS or by hand before shipping: {url}")
+            continue
         if status in BLOCKED_STATUSES or status == 0 or len(text) < MIN_TEXT:
             blocked += 1
             print(f"BLOCKED {rid}: HTTP {status} {url}")
