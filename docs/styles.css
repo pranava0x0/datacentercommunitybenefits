@@ -117,6 +117,8 @@
   --moratorium-proposed-soft: #f0e2c9;
   --moratorium-failed: #a3372f;
   --moratorium-failed-soft: #f0d4d1;
+  --moratorium-lifted: #4b5563;
+  --moratorium-lifted-soft: #e5e7eb;
 
   /* Per-company subtle accent (NOT brand colors — neutral palette so we
      don't imply endorsement). Used for left borders / chips, not fills. */
@@ -270,6 +272,8 @@
   --tariff-partial-soft: #3a2e15;
   --tariff-federal: #7eb6e8;
   --tariff-federal-soft: #1f2630;
+  --moratorium-lifted: #a3a8b3;
+  --moratorium-lifted-soft: #2a2f3a;
 
   --co-meta: #7eb6e8;
   --co-google: #d6b86a;
@@ -3947,6 +3951,19 @@ body.tariff-modal-open {
   font-weight: 500;
 }
 
+.moratorium-status-lifted {
+  --status-color: var(--moratorium-lifted);
+}
+
+.badge-moratorium-status-lifted {
+  background-color: var(--moratorium-lifted-soft);
+  color: var(--moratorium-lifted);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: var(--fs-base);
+  font-weight: 500;
+}
+
 .badge-moratorium-status-failed {
   background-color: #fee2e2;
   color: #7f1d1d;
@@ -6744,6 +6761,20 @@ button.depth-chip:focus-visible {
 }
 .moratorium-bill-id { padding: 2px 6px; }
 .reason-chip { background: transparent; color: var(--text); border: 1px solid var(--border); }
+/* Semantic colour kept where it encodes meaning (consolidation lost it):
+   federal vs state, a contested-site concern, a community-benefits framework. */
+.badge-tariff-federal,
+.rc-state--fed {
+  color: var(--tariff-federal);
+  border-color: var(--tariff-federal);
+  background: var(--tariff-federal-soft);
+}
+.rc-state--fed { background: transparent; }
+.project-card .reason-chip {
+  color: var(--stance-negative);
+  border-color: var(--stance-negative);
+}
+.badge-cbf { color: var(--accent); border-color: var(--accent); }
 .subtab-count { border-radius: var(--radius-sm); font-size: var(--fs-2xs); }
 .acc-chevron { border-radius: var(--radius-sm); }
 .btn-ghost { border-radius: var(--radius-sm); font-size: var(--fs-sm); }
@@ -6757,10 +6788,11 @@ button.depth-chip:focus-visible {
   box-shadow: none;
   border-radius: var(--radius-sm);
 }
-/* Site cards: the stripe repeated the status pill beside it. */
-.project-card { border-left-width: 1px; background: var(--surface); }
+/* Site cards: the left stripe is the operator's identity colour (--co-color),
+   not status chrome, so it stays. */
+.project-card { background: var(--surface); }
 .project-card.active,
-.project-card:hover { border-color: var(--accent); }
+.project-card:hover { border-color: var(--accent); border-left-color: var(--co-color, var(--accent)); }
 /* Equal-height rows in the country grid, one gap in both directions. */
 .world-cards { gap: var(--sp-3); }
 
@@ -6796,6 +6828,6 @@ button.depth-chip:focus-visible {
 .world-card .home-card-dek { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
 .world-jump { display: flex; flex-wrap: wrap; gap: var(--sp-1, 4px) var(--sp-2, 8px); margin: 0 0 var(--sp-4, 16px); }
-.world-jump-btn { background: none; border: 0; padding: 4px 0; font: inherit; font-size: var(--fs-sm); color: var(--accent); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; min-height: 32px; }
+.world-jump-btn { display: inline-flex; align-items: center; background: none; border: 0; padding: 4px 0; font: inherit; font-size: var(--fs-sm); color: var(--accent); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; min-height: 32px; }
 .world-jump-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @media (pointer: coarse) { .world-jump-btn { min-height: 44px; } }

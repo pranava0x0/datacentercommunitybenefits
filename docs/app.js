@@ -92,6 +92,12 @@ const CONSTITUENCY_LABELS = {
 };
 
 const MORATORIUM_STATUSES = ["enacted", "proposed", "failed"];
+// Display statuses add "lifted": an enacted record with a lifted_date has
+// ended, so it must not be counted, coloured or exported as enacted.
+const MOR_DISPLAY_STATUSES = [...MORATORIUM_STATUSES, "lifted"];
+function effectiveStatus(m) {
+  return m && m.lifted_date ? "lifted" : m.status;
+}
 const MORATORIUM_REASON_TYPES = [
   "energy",
   "water",
@@ -1499,7 +1505,7 @@ function filteredMoratoriums() {
   // Free-text search: on a phone, 185 rows is ~20 screens of scrolling.
   const q = (document.getElementById("moratorium-q")?.value || "").trim().toLowerCase();
   return (state.moratoriums || [])
-    .filter((m) => !statusFilter || m.status === statusFilter)
+    .filter((m) => !statusFilter || effectiveStatus(m) === statusFilter)
     .filter((m) => !typeFilter || m.jurisdiction_type === typeFilter)
     .filter(
       (m) =>
@@ -1560,7 +1566,7 @@ function renderMoratoriumsView() {
   const morShown = phonePageSize("moratoriums", filtered.length, MOR_PHONE_PAGE, morKey);
   filtered.slice(0, morShown).forEach((m) => {
     const tr = document.createElement("tr");
-    tr.className = `moratorium-status-${m.status}`;
+    tr.className = `moratorium-status-${effectiveStatus(m)}`;
 
     const reasonBadges = m.key_reasons
       .map((r) => `<span class="badge badge-reason-${r}" title="${escapeAttr(MORATORIUM_REASON_LABELS[r] || r)}">${escapeHtml(MORATORIUM_REASON_LABELS[r] || r)}</span>`)
@@ -1575,7 +1581,7 @@ function renderMoratoriumsView() {
     tr.innerHTML = `
       <td>${escapeHtml(m.jurisdiction)}${billHtml}</td>
       <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
-      <td><span class="badge badge-moratorium-status-${m.status}">${escapeHtml(m.lifted_date ? "lifted" : m.status)}</span></td>
+      <td><span class="badge badge-moratorium-status-${effectiveStatus(m)}">${escapeHtml(effectiveStatus(m))}</span></td>
       <td title="${escapeAttr(m.duration_description || "")}">${escapeHtml(shortDuration(m.duration_description))}</td>
       <td>${reasonBadges}</td>
     `;
@@ -1616,9 +1622,9 @@ function renderMoratoriumStats(moratoriums) {
   if (!moratoriums || !Array.isArray(moratoriums)) return;
 
   const total = moratoriums.length;
-  const enacted = moratoriums.filter((m) => m.status === "enacted");
-  const proposed = moratoriums.filter((m) => m.status === "proposed");
-  const failed = moratoriums.filter((m) => m.status === "failed");
+  const enacted = moratoriums.filter((m) => effectiveStatus(m) === "enacted");
+  const proposed = moratoriums.filter((m) => effectiveStatus(m) === "proposed");
+  const failed = moratoriums.filter((m) => effectiveStatus(m) === "failed");
 
   const statsList = document.getElementById("moratorium-stats");
   if (!statsList) return;
@@ -1654,7 +1660,7 @@ function renderMoratoriumStats(moratoriums) {
 // light/dark swap without JS and carry no chart-library weight (DESIGN.md §10).
 // Every interpolated value below is a numeric count, a hardcoded label
 // constant, or escapeHtml()'d — no untrusted content reaches innerHTML.
-const MOR_STATUS_LABELS = { enacted: "Enacted", proposed: "Proposed", failed: "Failed" };
+const MOR_STATUS_LABELS = { enacted: "Enacted", proposed: "Proposed", failed: "Failed", lifted: "Lifted" };
 
 function _morRefDate(m) {
   // Best available date for placing a record on the activity timeline.
@@ -1697,7 +1703,7 @@ function _morMatchesLevel(m, level) {
 }
 
 function _morStatusLegend() {
-  return `<div class="mor-legend" aria-hidden="true">${MORATORIUM_STATUSES.map(
+  return `<div class="mor-legend" aria-hidden="true">${MOR_DISPLAY_STATUSES.map(
     (s) =>
       `<span class="mor-legend-item"><span class="mor-legend-dot" style="background:var(--moratorium-${s})"></span>${MOR_STATUS_LABELS[s]}</span>`
   ).join("")}</div>`;
@@ -1730,25 +1736,26 @@ function _morTimelineChart(moratoriums) {
       const d = _morRefDate(m);
       if (!d) return;
       const k = _morQuarterKey(d);
-      if (!buckets.has(k)) buckets.set(k, { enacted: 0, proposed: 0, failed: 0 });
+      if (!buckets.has(k)) buckets.set(k, { enacted: 0, proposed: 0, failed: 0, lifted: 0 });
       const b = buckets.get(k);
-      if (b[m.status] !== undefined) b[m.status] += 1;
+      const es = effectiveStatus(m);
+      if (b[es] !== undefined) b[es] += 1;
     });
 
   const PLOT_H = 150; // px
   const cols = [];
   for (let k = min; k <= max; k++) {
-    const b = buckets.get(k) || { enacted: 0, proposed: 0, failed: 0 };
+    const b = buckets.get(k) || { enacted: 0, proposed: 0, failed: 0, lifted: 0 };
     cols.push({
       key: k,
       b,
-      total: MORATORIUM_STATUSES.reduce((sum, s) => sum + b[s], 0),
+      total: MOR_DISPLAY_STATUSES.reduce((sum, s) => sum + b[s], 0),
     });
   }
 
   const colsHtml = cols
     .map((c) => {
-      const segs = MORATORIUM_STATUSES.map((s) => {
+      const segs = MOR_DISPLAY_STATUSES.map((s) => {
         if (!c.b[s]) return "";
         const h = Math.max(2, Math.round((c.b[s] / scaleMax) * PLOT_H)); // keep slivers visible
         return `<div class="mtl-seg" style="height:${h}px;background:var(--moratorium-${s})" title="${c.b[s]} ${MOR_STATUS_LABELS[s]} · ${_morQuarterLabel(c.key)}"></div>`;
@@ -1833,9 +1840,9 @@ function _morJurisdictionChart(moratoriums) {
       return {
         label: labels[level],
         value: inLevel.length,
-        segments: MORATORIUM_STATUSES.map((s) => ({
+        segments: MOR_DISPLAY_STATUSES.map((s) => ({
           status: s,
-          value: inLevel.filter((m) => m.status === s).length,
+          value: inLevel.filter((m) => effectiveStatus(m) === s).length,
         })),
       };
     })
@@ -2114,12 +2121,12 @@ function showMoratoriumDetail(m) {
   // Status badge
   const statusEl = document.getElementById("md-status");
   statusEl.textContent = m.lifted_date ? `lifted ${formatAsOf(m.lifted_date)}` : m.status;
-  statusEl.className = `badge badge-moratorium-status-${m.status}`;
+  statusEl.className = `badge badge-moratorium-status-${effectiveStatus(m)}`;
 
   document.getElementById("md-duration").textContent = m.duration_description;
 
   // Core detail fields
-  document.getElementById("md-status-detail").textContent = m.status;
+  document.getElementById("md-status-detail").textContent = effectiveStatus(m);
   document.getElementById("md-enacted").textContent = m.enacted_date || "Not yet enacted";
   document.getElementById("md-duration-detail").textContent = m.duration_description;
   document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "No threshold (all sizes)";
@@ -3564,7 +3571,7 @@ function pbActionVerb(p) {
 }
 
 function isGovernorMoratorium(m) {
-  if (m.jurisdiction_type !== "state" || m.status !== "enacted") return false;
+  if (m.jurisdiction_type !== "state" || effectiveStatus(m) !== "enacted") return false;
   const kind = `${m.policy_type || ""} ${m.bill_number || ""}`.toLowerCase();
   return kind.includes("executive order") || kind.includes("directive");
 }
@@ -4744,7 +4751,7 @@ function downloadMoratoriumsCSV() {
   const rows = [headers.map(csvCell).join(",")];
   for (const m of list) {
     rows.push([
-      m.id, m.jurisdiction, m.jurisdiction_type, m.status,
+      m.id, m.jurisdiction, m.jurisdiction_type, effectiveStatus(m),
       m.enacted_date || "", m.effective_date || "",
       m.duration_description, m.power_threshold_mw ?? "",
       (m.key_reasons || []).join("; "),
@@ -6157,6 +6164,7 @@ const MPDF_STATUS = {
   enacted: { ink: "#2f7a4d", soft: "#e8f2ec", label: "Enacted" },
   proposed: { ink: "#b07024", soft: "#f6edda", label: "Proposed" },
   failed: { ink: "#a3372f", soft: "#f6e1de", label: "Failed" },
+  lifted: { ink: "#4b5563", soft: "#e5e7eb", label: "Lifted" },
 };
 
 function _mpdfPill(status) {
@@ -6208,17 +6216,17 @@ async function exportMoratoriumsToPDF() {
 
   // Sort: enacted (date desc) → proposed → failed, matching the on-screen table.
   filtered.sort((a, b) => {
-    const order = { enacted: 0, proposed: 1, failed: 2 };
-    if (order[a.status] !== order[b.status]) return order[a.status] - order[b.status];
+    const order = { enacted: 0, proposed: 1, failed: 2, lifted: 3 };
+    if (order[effectiveStatus(a)] !== order[effectiveStatus(b)]) return order[effectiveStatus(a)] - order[effectiveStatus(b)];
     if (a.enacted_date && b.enacted_date) return new Date(b.enacted_date) - new Date(a.enacted_date);
     return a.jurisdiction.localeCompare(b.jurisdiction);
   });
 
   // ---- Aggregates for the summary page ----
   const count = (fn) => filtered.filter(fn).length;
-  const statusRows = MORATORIUM_STATUSES.map((s) => ({
+  const statusRows = MOR_DISPLAY_STATUSES.map((s) => ({
     label: MOR_STATUS_LABELS[s],
-    value: count((m) => m.status === s),
+    value: count((m) => effectiveStatus(m) === s),
     color: MPDF_STATUS[s].ink,
   })).filter((r) => r.value > 0);
   const jurOrder = ["state", "county", "city", "federal"];
@@ -6251,7 +6259,7 @@ async function exportMoratoriumsToPDF() {
       return `<tr class="${i % 2 ? "alt" : ""}">
         <td class="jur">${escapeHtml(m.jurisdiction)}${m.bill_number ? `<span class="billid">${escapeHtml(m.bill_number)}</span>` : ""}</td>
         <td>${escapeHtml(m.jurisdiction_type)}</td>
-        <td>${_mpdfPill(m.status)}</td>
+        <td>${_mpdfPill(effectiveStatus(m))}</td>
         <td>${dur}</td>
         <td class="num">${escapeHtml(eff)}</td>
         <td class="reasons">${escapeHtml(reasons || "—")}</td>
@@ -6279,7 +6287,7 @@ async function exportMoratoriumsToPDF() {
       return `<div class="mpdf-card">
         <div class="mpdf-card-head">
           <h3>${escapeHtml(m.jurisdiction)}</h3>
-          ${_mpdfPill(m.status)}
+          ${_mpdfPill(effectiveStatus(m))}
         </div>
         <div class="mpdf-card-meta">${meta.join(" &nbsp;·&nbsp; ")}</div>
         ${reasonChips ? `<div class="mpdf-chips">${reasonChips}</div>` : ""}
@@ -6347,9 +6355,10 @@ async function exportMoratoriumsToPDF() {
 
     <div class="mpdf-stats">
       <div class="mpdf-stat" style="border-top-color:#333"><span class="n">${filtered.length}</span><span class="l">Total</span></div>
-      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.enacted.ink}"><span class="n">${count((m) => m.status === "enacted")}</span><span class="l">Enacted</span></div>
-      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.proposed.ink}"><span class="n">${count((m) => m.status === "proposed")}</span><span class="l">Proposed</span></div>
-      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.failed.ink}"><span class="n">${count((m) => m.status === "failed")}</span><span class="l">Failed</span></div>
+      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.enacted.ink}"><span class="n">${count((m) => effectiveStatus(m) === "enacted")}</span><span class="l">Enacted</span></div>
+      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.proposed.ink}"><span class="n">${count((m) => effectiveStatus(m) === "proposed")}</span><span class="l">Proposed</span></div>
+      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.failed.ink}"><span class="n">${count((m) => effectiveStatus(m) === "failed")}</span><span class="l">Failed</span></div>
+      <div class="mpdf-stat" style="border-top-color:${MPDF_STATUS.lifted.ink}"><span class="n">${count((m) => effectiveStatus(m) === "lifted")}</span><span class="l">Lifted</span></div>
     </div>
 
     <div class="mpdf-summary">
@@ -6668,7 +6677,7 @@ function renderProjectCard(p) {
   const next = nextUpcoming(p);
 
   const moratoriumBadges = moratoriums
-    .map((m) => `<span class="badge badge-moratorium badge-moratorium-${m.status}" title="Affected by ${m.jurisdiction} ${m.status} moratorium">${escapeHtml(m.jurisdiction)}</span>`)
+    .map((m) => `<span class="badge badge-moratorium badge-moratorium-${m.status}" title="Affected by ${m.jurisdiction} ${effectiveStatus(m)} moratorium">${escapeHtml(m.jurisdiction)}</span>`)
     .join("");
 
   const figures = [
@@ -7332,7 +7341,7 @@ function renderStatePanel(code, failedSources = new Set()) {
         label: m.jurisdiction,
         meta: [
           m.jurisdiction_type,
-          MOR_STATUS_LABELS[m.status] || m.status,
+          MOR_STATUS_LABELS[effectiveStatus(m)] || effectiveStatus(m),
           m.duration_description,
         ]
           .filter(Boolean)
@@ -9604,7 +9613,7 @@ function intlPauseCard(m, hTag = "h3") {
   const status = m.lifted_date ? `Lifted ${formatAsOf(m.lifted_date)}` : m.status;
   const head = el("header", "cba-head");
   head.append(
-    el("span", `badge badge-moratorium-status-${m.status}`, status),
+    el("span", `badge badge-moratorium-status-${effectiveStatus(m)}`, status),
     el("span", `cba-kind world-formality world-formality-${m.formality || "formal"}`, MORATORIUM_FORMALITY_LABELS[m.formality || "formal"]),
     el(hTag, "cba-title", `${m.jurisdiction}: data center pause`),
     el("p", "cba-facts", [intlPlace(m), m.enacted_date ? formatAsOf(m.enacted_date) : null, m.duration_description].filter(Boolean).join(" · "))
@@ -9729,7 +9738,7 @@ function firstSentence(text) {
   let m;
   while ((m = re.exec(text || ""))) {
     const before = text.slice(0, m.index);
-    const word = (before.match(/([A-Za-z.]+)$/) || ["", ""])[1].toLowerCase();
+    const word = (before.match(/([\p{L}.]+)$/u) || ["", ""])[1].toLowerCase();
     if (SENTENCE_ABBREVS.has(word) || /^[a-z]$/i.test(word)) continue;
     return text.slice(0, m.index + 1);
   }
@@ -9741,13 +9750,15 @@ function renderWorld() {
   if (!d) return;
   const countries = d.countries.slice().sort((a, b) => countryName(a.code).localeCompare(countryName(b.code)));
   const nPause = d.moratoriums.length;
+  // Tile and sub-tab pill agree: countries only; the EU is a layer on top.
+  const nCountries = countries.filter((c) => c.code in COUNTRY_NAMES).length;
   const stats = document.getElementById("world-stats");
   if (stats) {
     // A zero tile would assert a finding ("no pauses abroad") the curation
     // hasn't made; only populated counts get a tile.
     stats.innerHTML = [
       // Countries only; the EU is a layer on top, not a 12th country.
-      [countries.filter((c) => c.code in COUNTRY_NAMES).length, "Countries, plus EU rules"],
+      [nCountries, "Countries, plus EU rules"],
       [d.policies.length, "Rules and programmes"],
       [nPause, "Pauses"],
       [(d.rate_cases || []).length, "Rate cases"],
@@ -9757,7 +9768,7 @@ function renderWorld() {
       .map(([v, l]) => `<li class="rp-stat"><span class="rp-stat-value">${escapeHtml(String(v))}</span><span class="rp-stat-label">${escapeHtml(l)}</span></li>`)
       .join("");
   }
-  setSubtabCount("world-countries-count", countries.length);
+  setSubtabCount("world-countries-count", nCountries);
   setSubtabCount("world-instruments-count", worldInstruments().length);
   setSubtabCount("world-sites-count", d.projects.length);
 
@@ -9767,10 +9778,16 @@ function renderWorld() {
   if (jump) {
     jump.replaceChildren(
       ...countries.map((c) => {
-        const b = el("button", "world-jump-btn", countryName(c.code));
-        b.type = "button";
+        // A real link: copyable and middle-clickable. A plain click goes
+        // through openCountry so history/focus handling is the card's.
+        const b = el("a", "world-jump-btn", countryName(c.code));
+        b.href = `#country/${c.code}`;
         b.dataset.country = c.code;
-        b.addEventListener("click", () => openCountry(c.code, { push: true }));
+        b.addEventListener("click", (e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+          e.preventDefault();
+          openCountry(c.code, { push: true });
+        });
         return b;
       })
     );

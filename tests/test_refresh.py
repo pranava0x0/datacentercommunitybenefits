@@ -285,3 +285,15 @@ class TestHomeDigest:
             assert kind in {*ids, "roster"}, kind
             if kind != "roster":
                 assert x["target"]["id"] in known[kind], x
+
+
+def test_home_digest_enacted_count_excludes_lifted() -> None:
+    """A moratorium with a lifted_date has ended; Home must not call it enacted."""
+    import json as _json
+
+    morats = _json.loads((ROOT / "data" / "seed" / "moratoriums.json").read_text())["moratoriums"]
+    home = _json.loads((ROOT / "docs" / "data" / "home.json").read_text())
+    lifted = [m for m in morats if m["status"] == "enacted" and m.get("lifted_date")]
+    assert lifted, "no lifted record in the seed; the test would prove nothing"
+    expect = sum(m["status"] == "enacted" and not m.get("lifted_date") for m in morats)
+    assert home["totals"]["moratoriums_enacted"] == expect
