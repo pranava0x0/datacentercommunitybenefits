@@ -14,6 +14,36 @@ someone signed in confirms it.
 | No Desert Data Center Coalition (also written "No Desert Data Centers Coalition") | Tucson / Pima County AZ | Opposition to Beale Infrastructure's Project Blue; organized protests at the construction site; a member filed an ACC rehearing request on the energy agreement. Slogan: "not one drop for data". | No | `pima-county-az-*`, the Project Blue site, ACC dockets |
 | Environmental Reporting Collective | India (Visakhapatnam) | Published the Instagram reel on villagers' protests over Google's Vizag data centre. The reel was restricted on 22 May 2026 under IT Act s.79(3)(b) and later restored (The Wire). | No | `in-google-visakhapatnam` responses |
 
+## Accounts found by Instagram search (signed in, 2026-10-19)
+
+Organization and campaign accounts only. Personal accounts are excluded, as
+are the "followed by" names Instagram shows, which identify private people.
+Captions haven't been read yet. Each account is a lead for the place in its
+"Lead for" column.
+
+| Handle | Display name | Lead for |
+|---|---|---|
+| no_desert_data_center | No Desert Data Center Coalition | Tucson / Pima County AZ, Project Blue |
+| nonewdatacenters | No New Data Centers | national |
+| data.center.action.coalition | Data Center Action Coalition | national |
+| datacenterrebellion | Data Center Rebellion | national |
+| texasdatacenterrebellion | Texas Data Center Rebellion | TX |
+| txcoalitionagainstdatacenters | Texas Coalition Against Datacenters | TX |
+| stopdatacenters | Stop Data Centers | national |
+| stopthedata | stop the data center | unknown |
+| datacentersnearyou | (no display name) | national |
+| stopdatacolonialism | Stop Data Colonialism | international |
+| stopvirginiadatacenters | Stop Virginia Data Centers | VA |
+| nolandoverdata | No Data Center in Landover | Landover / Prince George's County MD |
+| nodatacenterscharlescounty | Charles County NoDataCenters | Charles County MD |
+| charlesconodatacentercoalition | Charles County Against Data Centers | Charles County MD |
+| dcdc.defiancecoalition | DC Data Center Defiance Coalition | Washington DC |
+| nodatacentersinphilly | No Data Centers in Philly | Philadelphia PA |
+| nodatacenterahwatukee | No Data Center Ahwatukee | Ahwatukee / Phoenix AZ |
+| nodatacenterlyontownship | No Data Center in Lyon Township | Lyon Township MI |
+| stop.vizag.datacenter | Stop Vizag Data Centers | Visakhapatnam, IN (Google site) |
+| datacentersatmeta | Meta Data Centers | company account (Meta) |
+
 ## Sources for the entries above
 
 - AZ Luminaria, "The Project Blue data center sprang up fast. So did the organizing" (2025-07-21): https://azluminaria.org/2025/07/21/the-project-blue-data-center-sprang-up-fast-so-did-the-organizing/

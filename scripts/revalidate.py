@@ -73,6 +73,8 @@ MIN_COVERAGE_DEFAULT = 0.9
 _DEAD_ERROR_MARKERS = ("Name or service not known", "nodename nor servname", "getaddrinfo",
                        "NameResolutionError", "Connection refused", "No address associated")
 
+CLASSIFIED = {LIVE, BLOCKED, DEAD, REDIRECTED}
+
 Fetcher = Callable[[str], "tuple[int, str, str]"]
 
 
@@ -187,18 +189,22 @@ def classify(url: str, status: int, final_url: str, text: str) -> str:
 
 
 _MONTH = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?"
+_DATE = (rf"(?:(?:19|20)\d\d-\d\d-\d\d(?:[t ]\d\d:\d\d(?::\d\d)?(?:\.\d+)?(?:z|[+-]\d\d:?\d\d)?)?"
+         rf"|{_MONTH}\s+\d{{1,2}},?\s+(?:19|20)\d\d(?:,?\s+\d{{1,2}}:\d\d(?::\d\d)?\s*(?:[ap]\.?m\.?)?)?"
+         rf"|\d{{1,2}}\s+{_MONTH}\s+(?:19|20)\d\d"
+         rf"|\d{{1,2}}/\d{{1,2}}/(?:19|20)?\d\d)")
+# Dates are removed ONLY in metadata contexts (a keyword introduces them) and in
+# copyright notices. Every other date (hearing, vote, decision, deadline) stays
+# in the fingerprint, because a changed hearing date is exactly what we want.
 _VOLATILE = [
-    re.compile(r"(?:last\s+)?(?:updated|modified|published|posted|reviewed)\s*(?:on|at)?\s*:?\s*[^\n.]{0,40}", re.I),
+    re.compile(rf"\b(?:last\s+)?(?:updated|modified|published|posted|reviewed|revised)(?:\s+(?:on|at))?\s*:?\s*{_DATE}", re.I),
     re.compile(r"(?:\u00a9|\(c\)|copyright)\s*(?:19|20)\d\d(?:\s*[-\u2013]\s*(?:19|20)\d\d)?", re.I),
-    re.compile(r"\b(?:19|20)\d\d-\d\d-\d\d(?:[t ]\d\d:\d\d(?::\d\d)?z?)?\b", re.I),
-    re.compile(rf"\b{_MONTH}\s+\d{{1,2}},?\s+(?:19|20)\d\d\b", re.I),
-    re.compile(rf"\b\d{{1,2}}\s+{_MONTH}\s+(?:19|20)\d\d\b", re.I),
 ]
 
 
 def strip_volatile(text: str) -> str:
-    """Drop timestamps, 'Updated: ...' lines and copyright years, so a page
-    that only re-stamps itself does not read as changed."""
+    """Drop 'Updated/Posted/Reviewed: <date>' stamps and copyright years, so a
+    page that only re-stamps itself does not read as changed. Other dates stay."""
     for rx in _VOLATILE:
         text = rx.sub(" ", text)
     return text
@@ -238,8 +244,24 @@ def save_cache(cache_dir: Path, pages: dict) -> None:
     leaves a truncated pages.json."""
     cache_dir.mkdir(parents=True, exist_ok=True)
     final = cache_dir / "pages.json"
+    # Merge with what is on disk rather than overwrite it. Two runs at once
+    # (an --only run beside a full run) each held their own dict, and the last
+    # writer erased the other's checks; a run killed before its final save
+    # lost everything. Disk entries this run doesn't hold are kept, and a disk
+    # entry checked later than ours wins.
+    merged = dict(pages)
+    if final.exists():
+        try:
+            on_disk = json.loads(final.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            log.warning("could not read existing cache for merge: %s", exc)
+            on_disk = {}
+        for url, entry in on_disk.items():
+            mine = merged.get(url)
+            if mine is None or entry.get("checked", "") > mine.get("checked", ""):
+                merged[url] = entry
     tmp = cache_dir / f"pages.json.tmp.{os.getpid()}"
-    tmp.write_text(json.dumps(pages, indent=1, sort_keys=True), encoding="utf-8")
+    tmp.write_text(json.dumps(merged, indent=1, sort_keys=True), encoding="utf-8")
     os.replace(tmp, final)
 
 
@@ -270,6 +292,14 @@ def check_url(url: str, prev: Optional[dict], fetcher: Fetcher, cache_dir: Path,
         entry["fingerprint"] = fp
         entry["fingerprint_prev"] = prev.get("fingerprint")
         entry["changed"] = bool(prev.get("fingerprint")) and prev["fingerprint"] != fp
+        # A detected change stays pending across runs (incl. --cached) until acked.
+        if entry["changed"]:
+            entry["pending_change"] = True
+            entry["changed_at"] = entry["checked"]
+        elif prev.get("pending_change"):
+            entry["pending_change"] = True
+            if prev.get("changed_at"):
+                entry["changed_at"] = prev["changed_at"]
         tp = _text_path(cache_dir, url)
         tp.parent.mkdir(parents=True, exist_ok=True)
         tp.write_text(text, encoding="utf-8")
@@ -278,6 +308,10 @@ def check_url(url: str, prev: Optional[dict], fetcher: Fetcher, cache_dir: Path,
         if "fingerprint" in prev:
             entry["fingerprint"] = prev["fingerprint"]
         entry["changed"] = False
+        if prev.get("pending_change"):
+            entry["pending_change"] = True
+            if prev.get("changed_at"):
+                entry["changed_at"] = prev["changed_at"]
     return entry
 
 
@@ -309,6 +343,10 @@ def fetch_all(urls: list, pages: dict, fetcher: Fetcher, cache_dir: Path,
                 prev = pages.get(u) or {}
                 if "fingerprint" in prev:
                     entry["fingerprint"] = prev["fingerprint"]
+                if prev.get("pending_change"):
+                    entry["pending_change"] = True
+                    if prev.get("changed_at"):
+                        entry["changed_at"] = prev["changed_at"]
             with lock:
                 pages[u] = entry
                 if fetched is not None:
@@ -405,16 +443,28 @@ def stale_statuses(seed_dir: Optional[Path] = None, today: Optional[date] = None
 # --------------------------------------------------------------------------
 
 def coverage_of(rows: list, pages: dict) -> "tuple[int, int]":
-    """(rows with a cached check, total rows)."""
-    return sum(1 for r in rows if r["url"] in pages), len(rows)
+    """(rows with a CLASSIFIED cached check, total rows). An `unchecked` entry
+    (check_url raised) is not coverage: nothing was learned about the page."""
+    return sum(1 for r in rows if pages.get(r["url"], {}).get("class") in CLASSIFIED), len(rows)
+
+
+def ack_changes(pages: dict, urls: Optional[set] = None) -> int:
+    """Clear pending_change on `urls` (all if None); returns how many cleared."""
+    n = 0
+    for u, pg in pages.items():
+        if pg.get("pending_change") and (urls is None or u in urls):
+            pg["pending_change"] = False
+            pg.pop("changed_at", None)
+            n += 1
+    return n
 
 
 def build_report(rows: list, pages: dict, cache_dir: Path, stale: list,
                  fetched: Optional[set] = None) -> dict:
-    """`changed_pages` lists only URLs re-fetched in THIS run (`fetched`);
-    a cached `changed` flag from an earlier run is never replayed."""
-    fetched = fetched or set()
-    dead, quote_misses, changed = [], [], []
+    """`changed_pages` lists every URL with a pending (unacknowledged) change,
+    whether detected this run or an earlier one; `--ack-changes` clears them.
+    `fetched` is kept for callers; it no longer gates changed pages."""
+    dead, quote_misses, changed, unchecked = [], [], [], []
     for r in rows:
         pg = pages.get(r["url"])
         if not pg:
@@ -423,19 +473,22 @@ def build_report(rows: list, pages: dict, cache_dir: Path, stale: list,
         if pg["class"] in (DEAD, REDIRECTED):
             dead.append({**ref, "class": pg["class"], "status": pg["status"],
                          "final_url": pg.get("final_url")})
-        if pg.get("changed") and r["url"] in fetched:
-            changed.append(ref)
+        if pg["class"] == UNCHECKED:
+            unchecked.append({**ref, "error": pg.get("error")})
+        if pg.get("pending_change") or (pg.get("changed") and r["url"] in (fetched or ())):
+            changed.append({**ref, "changed_at": pg.get("changed_at") or pg.get("checked")})
         for miss in check_quotes(r, pg, cache_dir):
             quote_misses.append({**ref, **miss})
     blocked = sorted({r["url"] for r in rows if pages.get(r["url"], {}).get("class") == BLOCKED})
     return {"dead_links": dead, "quote_misses": quote_misses, "changed_pages": changed,
+            "unchecked_urls": unchecked,
             "stale_statuses": stale, "blocked_urls": blocked,
             "urls_checked": coverage_of(rows, pages)[0],
             "rows_total": len(rows)}
 
 
 def render_markdown(rep: dict) -> str:
-    L = [f"# Revalidation worklist ({rep['urls_checked']} of {rep['rows_total']} source rows have a cached check)", ""]
+    L = [f"# Revalidation worklist ({rep['urls_checked']} of {rep['rows_total']} source rows have a classified check)", ""]
 
     def section(title: str, items: list, fmt: Callable[[dict], str]) -> None:
         L.append(f"## {title} ({len(items)})")
@@ -449,7 +502,9 @@ def render_markdown(rep: dict) -> str:
             lambda i: f"- `{i['kind']}.{i['list']}` **{i['id']}** {i['url']}\n  - \"{i['quote'][:140]}\"\n"
                       f"  - missing: " + "; ".join(f'"{c[:80]}"' for c in i["missing_clauses"]))
     section("Changed pages (LLM work list)", rep["changed_pages"],
-            lambda i: f"- `{i['kind']}.{i['list']}` **{i['id']}** {i['url']}")
+            lambda i: f"- `{i['kind']}.{i['list']}` **{i['id']}** {i['url']} (changed {i.get('changed_at')})")
+    section("Unchecked (fetch raised; lowers coverage)", rep["unchecked_urls"],
+            lambda i: f"- `{i['kind']}.{i['list']}` **{i['id']}** {i['url']} ({i.get('error')})")
     section("Stale statuses", rep["stale_statuses"],
             lambda i: f"- `{i['kind']}.{i['list']}` **{i['id']}** {i['reason']}")
     L.append(f"_Blocked (bot wall / timeout, not machine-verified): {len(rep['blocked_urls'])} URLs._")
@@ -479,6 +534,8 @@ def main(argv: Optional[list] = None, fetcher: Fetcher = probe.fetch,
     ap.add_argument("--stale-days", type=int, default=STALE_DAYS_DEFAULT)
     ap.add_argument("--delay", type=float, default=HOST_DELAY)
     ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--ack-changes", action="store_true",
+                    help="after reporting, clear all pending changed-page flags (do this once the worklist is handled)")
     ap.add_argument("--fail-on-dead", action="store_true")
     ap.add_argument("--fail-on-miss", action="store_true")
     ap.add_argument("--min-coverage", type=float, default=MIN_COVERAGE_DEFAULT,
@@ -503,11 +560,15 @@ def main(argv: Optional[list] = None, fetcher: Fetcher = probe.fetch,
     have, total = coverage_of(rows, pages)
     coverage = have / total if total else 1.0
     if have < total:
-        print(f"!! NOT CHECKED: {total - have} of {total} rows have no cached page "
+        print(f"!! NOT CHECKED: {total - have} of {total} rows have no usable cached check "
               f"(coverage {coverage:.0%}). A clean report below does not mean clean.\n")
     print(render_markdown(rep))
     if args.json_out:
         Path(args.json_out).write_text(json.dumps(rep, indent=1), encoding="utf-8")
+    if args.ack_changes:
+        n = ack_changes(pages, {r["url"] for r in rows})
+        save_cache(cache_dir, pages)
+        log.info("acknowledged %d pending changes", n)
     code = 0
     if (args.fail_on_dead or args.fail_on_miss) and coverage < args.min_coverage:
         log.error("coverage %.0f%% is below --min-coverage %.0f%%", coverage * 100, args.min_coverage * 100)

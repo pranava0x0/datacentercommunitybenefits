@@ -186,7 +186,7 @@ def test_empty_cache_is_not_a_clean_pass(tmp_path, monkeypatch, capsys):
     nofetch = lambda u: (_ for _ in ()).throw(AssertionError("fetched"))
     code = rv.main(["--cached", "--fail-on-dead"], fetcher=nofetch, cache_dir=tmp_path / "c")
     assert code == 1
-    assert "NOT CHECKED: 2 of 2 rows have no cached page" in capsys.readouterr().out
+    assert "NOT CHECKED: 2 of 2 rows have no usable cached check" in capsys.readouterr().out
     # without a fail flag it still warns loudly but does not exit non-zero
     assert rv.main(["--cached"], fetcher=nofetch, cache_dir=tmp_path / "c") == 0
     # a lowered threshold lets partial coverage pass
@@ -282,6 +282,63 @@ def test_changed_only_reported_for_urls_fetched_this_run(tmp_path, monkeypatch):
     v["t"] = LONG + " A new paragraph about a lawsuit filed in the county court."
     rv.main(["--delay", "0", "--json", str(out)], fetcher=f, cache_dir=cache)
     assert len(json.loads(out.read_text())["changed_pages"]) == 1
-    # replay from cache: the stored changed=True must not resurface
+    # replay from cache: the pending change must resurface until acknowledged
+    rv.main(["--cached", "--json", str(out)], fetcher=f, cache_dir=cache)
+    assert len(json.loads(out.read_text())["changed_pages"]) == 1
+    rv.main(["--cached", "--ack-changes"], fetcher=f, cache_dir=cache)
     rv.main(["--cached", "--json", str(out)], fetcher=f, cache_dir=cache)
     assert json.loads(out.read_text())["changed_pages"] == []
+
+
+def test_pending_change_survives_blocked_refetch_and_cached_run(tmp_path, monkeypatch):
+    _seed(tmp_path, monkeypatch, n=1)
+    cache, out = tmp_path / "c", tmp_path / "r.json"
+    v = {"r": (200, LONG)}
+    f = lambda u: (v["r"][0], u, v["r"][1])
+    rv.main(["--delay", "0"], fetcher=f, cache_dir=cache)
+    v["r"] = (200, LONG + " A new paragraph about a lawsuit filed in the county court.")
+    rv.main(["--delay", "0"], fetcher=f, cache_dir=cache)
+    v["r"] = (403, "")
+    rv.main(["--delay", "0"], fetcher=f, cache_dir=cache)
+    rv.main(["--cached", "--json", str(out)], fetcher=f, cache_dir=cache)
+    assert len(json.loads(out.read_text())["changed_pages"]) == 1
+
+
+def test_unchecked_entries_are_not_coverage(tmp_path, monkeypatch, capsys):
+    _seed(tmp_path, monkeypatch, n=2)
+    def f(u):
+        if "a0" in u:
+            raise RuntimeError("boom")
+        return 200, u, LONG
+    out = tmp_path / "r.json"
+    code = rv.main(["--delay", "0", "--fail-on-dead", "--json", str(out)], fetcher=f, cache_dir=tmp_path / "c")
+    text = capsys.readouterr().out
+    assert code == 1 and "NOT CHECKED: 1 of 2" in text
+    rep = json.loads(out.read_text())
+    assert [u["id"] for u in rep["unchecked_urls"]] == ["c0"]
+    assert rep["urls_checked"] == 1
+
+
+def test_hearing_date_change_is_a_change_but_last_updated_is_not():
+    base = LONG + " The public hearing is scheduled for March 3, 2026 at city hall."
+    moved = base.replace("March 3, 2026", "April 14, 2026")
+    assert rv.fingerprint(base) != rv.fingerprint(moved)
+    a = LONG + " Last updated: March 3, 2026"
+    b = LONG + " Last updated: October 19, 2026"
+    assert rv.fingerprint(a) == rv.fingerprint(b)
+    c = LONG + " Hearing 2026-03-03. Updated 2026-01-01"
+    d = LONG + " Hearing 2026-03-03. Updated 2026-09-09"
+    e = LONG + " Hearing 2026-04-04. Updated 2026-01-01"
+    assert rv.fingerprint(c) == rv.fingerprint(d) != rv.fingerprint(e)
+
+
+def test_save_cache_merges_with_a_concurrent_run(tmp_path) -> None:
+    """Two runs at once used to erase each other's checks (last writer won)."""
+    import json as _json
+    rv.save_cache(tmp_path, {"https://a.example/": {"checked": "2026-10-19", "class": "live"}})
+    rv.save_cache(tmp_path, {"https://b.example/": {"checked": "2026-10-19", "class": "dead"}})
+    on_disk = _json.loads((tmp_path / "pages.json").read_text())
+    assert set(on_disk) == {"https://a.example/", "https://b.example/"}
+    # A newer check on disk is not overwritten by an older one held in memory.
+    rv.save_cache(tmp_path, {"https://a.example/": {"checked": "2026-10-01", "class": "dead"}})
+    assert _json.loads((tmp_path / "pages.json").read_text())["https://a.example/"]["class"] == "live"

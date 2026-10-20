@@ -306,8 +306,13 @@ old `proposed` records, enacted moratoriums past their term). Only once the run 
 keep running live `--limit` batches. To refresh the cache, run
 `scripts/revalidate.py --limit 40` (oldest-checked URLs first, 1.5 s per
 host); `--only KIND`, `--id ID`, `--json OUT`, `--fail-on-dead` and
-`--fail-on-miss` narrow or gate it. "Changed" lists only URLs re-fetched in that run, from a URL's second
-check on (timestamps and copyright years are ignored). A quote miss on a JS-rendered hub page is a lead, not proof the
+`--fail-on-miss` narrow or gate it. "Changed pages" are sticky: a change detected by a live run (from a URL's
+second check on) is stored as `pending_change` in the cache and keeps
+appearing in `--cached` runs, even across blocked re-fetches, until you
+handle the list and run `--ack-changes`. "Unchecked" URLs (the fetch raised)
+get their own section and count against coverage. "Last updated/Posted/
+Reviewed: <date>" stamps and copyright years are ignored; any other date
+(hearing, vote, deadline) counts as a change. A quote miss on a JS-rendered hub page is a lead, not proof the
 quote is false: confirm with WebFetch before editing. Blocked URLs are not
 machine-verified.
 
