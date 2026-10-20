@@ -639,23 +639,23 @@
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     },
     "expanded": {
      "taps": 0,
-     "swipes": 3,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 2,
      "path": [
-      "swipe x3",
+      "swipe x2",
       "see: #whats-next-list .feed-item"
      ]
     }
