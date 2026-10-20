@@ -1260,3 +1260,15 @@ Held from `notes/specs/international/wave2/deep_jp_kr_in_gb_fr_ie.json` (leads, 
   reports.
 
 - India leads (2026-10-19, notes/specs/international/wave3/india_deep3.json): Bhogapuram/Vizianagaram farmers' protest (7 Oct 2026, Deccan Chronicle) — no tracked site; Telangana DEF investigation on land assignment for Microsoft/Amazon sites (Scroll/Rest of World) — spans two untracked sites; Mahul/Mumbai water concerns on the state green data-centre parks (Land Conflict Watch). Each needs a tracked project before it can ship as a response. State policy PDFs (TN, MH, TG, AP) unreachable.
+
+### Follow-up 85 claim-quote pass: removed claims, leads (2026-10-19)
+
+Removed because no first-party quote is on the cited page (re-source from a primary page if one exists):
+- xAI Memphis (Chamber URL no longer contains them; x.ai/memphis/our-commitment returns 403 to scripted fetches, so unverified): jobs 500, tax $100M, $80M wastewater facility, substations $35M + $20M, "no grid power in emergencies". Re-read x.ai's page in a browser.
+- Google Franklin Furnace (WSAZ): reporter paraphrase of Chadwick, no quotation marks. Ratepayer assessment moved to pledge_only. Lead: the May 2026 information-fair Q&A or a Google blog post with a direct quote.
+- Reporter paraphrases: Amazon Clinton water/jobs (SuperTalk), Loudoun $150k grants, New Carlisle $7M roads, Wonder Valley O'Leary jobs. Meta Lebanon energy sentence is unattributed announcement text (Peterson not credited).
+- Google: 24/7 CFE 2030 goal, 120% water replenishment target (not on current sustainability pages; check snapshots), Oklahoma Porat quotes (no direct quotes on page). Amazon "100% renewable in 2023" (page now reports 2025). CoreWeave Polaris Forge renewable, Hammond "$4M" impact payment, Lordstown "$3B". Oracle "100,000 jobs" was Trump's remark, not Ellison's. Crusoe Abilene jobs (literal quote has no jobs content).
+Re-attributed: Oracle Port Washington energy quote is Peter Hoeschele (OpenAI), not Altman.
+Wayback-pinned (live pages have drifted; add new dated claims): Google Oregon/Iowa/Virginia, Meta Richland construction/operational jobs.
+
+- Re-source from Wayback (snapshot near 2026-05-14): google-247-cfe-2030 (sustainability.google/operating-sustainably) and google-water-replenish-120 (sustainability.google/commitments/water). Both targets are absent from Google's live pages as of 2026-10-19, so the claims were removed; restore them as dated captures if a snapshot carries the sentence.

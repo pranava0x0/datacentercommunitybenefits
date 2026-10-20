@@ -79,7 +79,7 @@
         "principles": {
           "delivery_infra": {
             "status": "met",
-            "note": "Google covers 100% of the costs of new grid infrastructure required to serve the facility (per the Xcel Energy agreement)."
+            "note": "Google's announcement says it \"will pay all costs associated with our electric service,\" which includes the delivery infrastructure that serves the facility."
           },
           "new_generation": {
             "status": "met",
@@ -2630,18 +2630,17 @@
       "captured_at": "2026-05-16",
       "offtaker": "Google",
       "ratepayer": {
-        "status": "affirmed",
-        "summary": "Google Area Operations Manager Timothy Chadwick stated publicly at a May 2026 community information fair that Google will pay 100% of its electricity costs and all AEP infrastructure for the Scioto County campus.",
-        "evidence_claim_id": "google-franklin-furnace-energy-pay-100pct-2026",
+        "status": "pledge_only",
+        "summary": "Covered by Google's national pledge signature; no first-party, site-specific cost commitment is currently captured for the Scioto County campus. A May 2026 local TV report paraphrases a Google operations manager on paying electricity costs, but without a direct quotation.",
         "assessed_at": "2026-06-01",
         "principles": {
           "new_generation": {
-            "status": "met",
-            "note": "Google Area Manager Timothy Chadwick stated publicly that Google will pay 100% of electricity costs for the Scioto County campus."
+            "status": "unknown",
+            "note": "No site-specific new-generation commitment has been captured."
           },
           "delivery_infra": {
             "status": "partial",
-            "note": "Google's Chadwick commitment covers power costs; no separate AEP grid upgrade contract is documented for Franklin Furnace."
+            "note": "Covered by Google's national pledge; no separate AEP grid upgrade contract is documented for Franklin Furnace."
           },
           "separate_rate": {
             "status": "partial",
