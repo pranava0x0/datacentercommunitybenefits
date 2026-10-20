@@ -2097,7 +2097,7 @@
       "community_benefits_framework": false,
       "key_terms": [
         "Identifying technological and policy solutions, including load flexibility and demand response strategies, to address the growing energy needs of data centers and heavy industry.",
-        "The Task Force shall sub mit an annual report on or before February 15 describing Task Force activities, findings, and rec omme ndation s to the Governor, the General Assembl y, the orth Carolina Uti lities Commission, the Nort h Caro l in a Rural Electrification Authority, and the public.",
+        "The Task Force shall submit an annual report on or before February 15 describing Task Force activities, findings, and recommendations to the Governor, the General Assembly, the North Carolina Utilities Commission, the North Carolina Rural Electrification Authority, and the public.",
         "and WHEREAS, the emergence of artificial intelligence and the associated need to power data centers, increased loads from manufacturing and other heavy industry, growing population, and new sources of electricity demand have prompted new questions about how the state should maintain an adequate, reliable, affordable, and clean electricity supply;"
       ],
       "summary": "Gov. Josh Stein's EO 23, signed Aug. 26, 2025, establishes a 30-member North Carolina Energy Policy Task Force to recommend policies managing rising electricity demand while maintaining affordability, reliability, and emissions reductions. The order's text explicitly cites data centers as a driver of new demand, requires 'Large Load Data Center Electricity Customers' as a represented stakeholder category, and directs a Load Growth Subcommittee to address 'the growing energy needs of data centers and heavy industry' and to avoid unfairly raising ratepayer costs or creating stranded assets. It does not impose data-center-specific permitting/siting requirements itself.",
@@ -3086,7 +3086,7 @@
       "community_benefits_framework": false,
       "key_terms": [
         "Computers and Electronic Processing-As enacted, generally prohibits a municipality or electric utility to pay or absorb the cost of electrical infrastructure incurred to serve a data center;",
-        "Such an independent power producer may ge nerate, store, sell, or deliver electric energy, capacity, or other related ancillary services to a data center through (i) a direct interconnection behind the data center's meter if the data center does not take service from an electric utility;"
+        "Such an independent power producer may generate, store, sell, or deliver electric energy, capacity, or other related ancillary services to a data center through (i) a direct interconnection behind the data center's meter if the data center does not take service from an electric utility;"
       ],
       "summary": "Tennessee's Public Chapter 961 (HB1847/SB2128), signed May 18, 2026, bars municipalities and electric utilities from absorbing or passing along the cost of electrical infrastructure built to serve data centers of 50 MW or more, while opening a path for those data centers to contract directly with in-state independent power producers.",
       "source_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114",
@@ -3628,8 +3628,8 @@
       "community_benefits_framework": true,
       "value_usd": 25000000,
       "key_terms": [
-        "(An additional payment of $350,000 will be paid to the Port Authority.",
-        "These funds will be used to cover staff costs and legal fees associated with the project.) Over $1 million in new annual tax revenues through a combination of PILOTs (Payments in Lieu of Taxes) and municipal income taxes.",
+        "An additional payment of $350,000 will be paid to the Port Authority. These funds will be used to cover staff costs and legal fees associated with the project.",
+        "Over $1 million in new annual tax revenues through a combination of PILOTs (Payments in Lieu of Taxes) and municipal income taxes.",
         "New public infrastructure with an estimated value of at least $25 million, at no expense to the City."
       ],
       "summary": "Wilmington, Ohio negotiated a Community Reinvestment Area / compensation agreement with AWS for a ~$4 billion, 471-acre data center campus: a $1.5 million upfront city payment, $350,000 to the Port Authority, over $1 million/year in new city tax revenue plus $1 million/year to schools via PILOTs, and at least $25 million in AWS-funded public infrastructure. A local group (Wilmington Residents for Responsible Development) has continued to push for a separate, stronger community benefits agreement, calling the CRA deal insufficient.",
