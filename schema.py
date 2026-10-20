@@ -409,6 +409,7 @@ SUBDIVISIONS: dict[str, str] = {
     "KR-50": "Sejong",
     "MX-QUE": "Querétaro",
     "ES-AR": "Aragón",
+    "ES-CM": "Castilla-La Mancha",
     "BE-WAL": "Wallonia",
     "SE-W": "Dalarna County",
     "FI-12": "Ostrobothnia",

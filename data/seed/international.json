@@ -596,6 +596,24 @@
           "source_url": "https://www.news4jax.com/business/2025/12/09/microsoft-investing-175-billion-in-india-for-ai-and-cloud-infrastructure/",
           "source_title": "Associated Press (via News4JAX) — Microsoft investing $17.5 billion in India for AI and cloud infrastructure",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Newslaundry reports that Devanahalli, a Bengaluru locality hosting multiple data centres, consumes 169% of its permissible groundwater extraction limits. The subject is the locality, not a single company.",
+          "verbatim": "consumes 169% of permissible extraction limits of water.",
+          "source_lang": "en",
+          "period": "2026-04",
+          "source_url": "https://www.newslaundry.com/2026/04/16/in-bengalurus-water-stressed-areas-sit-most-of-its-data-centres",
+          "source_title": "Newslaundry — In Bengaluru's water-stressed areas sit most of its data centres",
+          "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "Newslaundry reports that the Bengaluru water board (BWSSB) has not tracked the water supplied to data centres as a separate category.",
+          "verbatim": "the board has not tracked the water supplied to data centres",
+          "source_lang": "en",
+          "period": "2026-04",
+          "source_url": "https://www.newslaundry.com/2026/04/16/in-bengalurus-water-stressed-areas-sit-most-of-its-data-centres",
+          "source_title": "Newslaundry — In Bengaluru's water-stressed areas sit most of its data centres",
+          "captured_at": "2026-10-19"
         }
       ],
       "last_reviewed": "2026-10-19"
@@ -2298,6 +2316,193 @@
       "source_url": "https://www.aragon.es/-/piga-region-msft",
       "source_title": "Gobierno de Aragón — PIGA Región Microsoft",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "es-aragon-piga-rhodes-calatorao-2025",
+      "title": "Plan de Interés General de Aragón (PIGA) 'Proyecto Rhodes', Calatorao, ORDEN FOM/1039/2025",
+      "instrument": "regulation",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Aragón, Spain",
+      "country": "ES",
+      "subdivision": "ES-AR",
+      "locality": "Calatorao",
+      "source_lang": "es",
+      "date": "2025-08-19",
+      "identifier": "ORDEN FOM/1039/2025",
+      "counterparties": [
+        "Calanza Inmuebles, S.L."
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Mediante Orden de 19 de agosto de 2025 del Consejero de Fomento, Vivienda, Logística y Cohesión Territorial ha sido aprobado inicialmente el citado Plan de Interés General de Aragón",
+        "El Plan tiene como finalidad el desarrollo de un campus data center en el término municipal de Calatorao (Zaragoza)."
+      ],
+      "key_terms_translation": {
+        "items": [
+          "By Order of 19 August 2025 of the Councillor for Works, Housing, Logistics and Territorial Cohesion, the cited Aragón General Interest Plan has been initially approved.",
+          "The Plan's purpose is the development of a data-centre campus in the municipality of Calatorao (Zaragoza)."
+        ],
+        "by": "machine",
+        "reviewed_at": "2026-10-19"
+      },
+      "summary": "Aragón's regional government declared the 'Proyecto Rhodes' data-centre campus in Calatorao an investment of general interest on 14 October 2024, naming Calanza Inmuebles, S.L. as promoter, and gave the plan initial approval by order of 19 August 2025. It is an initial approval only; no definitive approval appears on the page.",
+      "source_url": "https://www.aragon.es/-/proyecto-rhodes",
+      "source_title": "Gobierno de Aragón — Proyecto Rhodes (PIGA, Calatorao)",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-ka-sustainable-dc-policy-2026-2031",
+      "title": "Karnataka Sustainable Data Centre Policy 2026-2031",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Karnataka, India",
+      "country": "IN",
+      "subdivision": "IN-KA",
+      "source_lang": "en",
+      "date": "2026-09-18",
+      "benefit_themes": [
+        "energy",
+        "water"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "targets 1 GW of cumulative data centre IT load by 2031",
+        "Units achieving a PUE of 1.00 to 1.20 can receive Rs 20 crore as one-time financial support."
+      ],
+      "summary": "Karnataka's Cabinet approved the policy on 18 September 2026, per Deccan Chronicle. It targets 1 GW of cumulative data-centre IT load by 2031 and offers a one-time incentive for units that hold a low power usage effectiveness (PUE) for three consecutive years. Both sources are press reports; the government order and policy text were not found, so the terms are as reported.",
+      "source_url": "https://www.thenewsminute.com/karnataka/karnatakas-new-data-centre-policy-puts-water-energy-in-focus-what-does-it-say",
+      "source_title": "The News Minute — Karnataka's new data centre policy puts water, energy in focus",
+      "resources": [
+        {
+          "url": "https://www.deccanchronicle.com/amp/southern-states/karnataka/karnataka-approves-sustainable-data-centre-policy-20262031-1988661",
+          "title": "Deccan Chronicle — Karnataka approves Sustainable Data Centre Policy 2026-31"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-mh-dc-policy-proposed-2026-09",
+      "title": "Maharashtra Data Centre Policy (proposed, with SOPs)",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "Maharashtra, India",
+      "country": "IN",
+      "subdivision": "IN-MH",
+      "source_lang": "en",
+      "date": "2026-09-07",
+      "benefit_themes": [
+        "water"
+      ],
+      "principles": [
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The MPCB and IIT Bombay are working on guidelines covering environmental impact, zoning and resource use."
+      ],
+      "summary": "Free Press Journal reported on 7 September 2026 that Maharashtra is preparing a data-centre policy, expected to be finalised in a few months, with guidelines from the state pollution board and IIT Bombay. It is a pending instrument, not a notified policy.",
+      "source_url": "https://www.freepressjournal.in/mumbai/maharashtra-to-soon-have-a-data-centre-policy-to-regulate-sites-water-consumption-noise-pollution-heat-generation",
+      "source_title": "Free Press Journal — Maharashtra to soon have a data centre policy",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-up-gnida-dc-plot-scheme-2023-06",
+      "title": "Greater Noida data-centre plot allotment scheme (GNIDA)",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Greater Noida, Uttar Pradesh",
+      "country": "IN",
+      "subdivision": "IN-UP",
+      "locality": "Greater Noida",
+      "source_lang": "en",
+      "date": "2023-06-14",
+      "counterparties": [
+        "Greater Noida Industrial Development Authority"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "the process will be carried out through an e-auction"
+      ],
+      "summary": "IndiaInfraHub reported on 14 June 2023 that the Greater Noida Industrial Development Authority launched a scheme to allot 13 plots for data centres by e-auction. The authority's own notice was not fetched, so the terms are as reported.",
+      "source_url": "https://indiainfrahub.com/featured/greater-noida-launches-land-allotment-scheme-to-set-up-data-centres-aims-to-attract-rs-20000-crore-in-investments/",
+      "source_title": "IndiaInfraHub — Greater Noida launches land allotment scheme for data centres",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-up-yeida-sector28-allotment-2023-11",
+      "title": "YEIDA Sector 28 data-centre plot allotments, near Noida International Airport",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Yamuna Expressway Industrial Development Area, Uttar Pradesh",
+      "country": "IN",
+      "subdivision": "IN-UP",
+      "locality": "Sector 28, YEIDA",
+      "source_lang": "en",
+      "date": "2023-11-08",
+      "counterparties": [
+        "Yamuna Expressway Industrial Development Authority",
+        "Sify Infinite Spaces",
+        "Jackson Limited"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Sify Infinite Spaces has been allotted land plot D-10 measuring 20,000 sq metres in Sector 28"
+      ],
+      "summary": "Outlook Business reported on 8 November 2023 that the Yamuna Expressway Industrial Development Authority allotted data-centre plots in Sector 28 to Sify Infinite Spaces and Jackson Limited. The authority's own notice was not fetched.",
+      "source_url": "https://www.outlookbusiness.com/news/sify-jackson-get-land-for-data-centres-near-noida-airport-rs-1757-crore-investment-in-offing",
+      "source_title": "Outlook Business — Sify, Jackson get land for data centres near Noida airport",
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "in-cea-dc-grid-committee-2026-10",
+      "title": "CEA committee on the impact of data centres on grid stability",
+      "instrument": "government_framework",
+      "status": "proposed",
+      "scope": "national",
+      "jurisdiction": "India (national)",
+      "country": "IN",
+      "source_lang": "en",
+      "date": "2026-10-01",
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The Central Electricity Authority (CEA) has constituted a committee to assess the impact of rapidly expanding data centres"
+      ],
+      "summary": "KNN India reported on 1 October 2026 that the Central Electricity Authority set up a committee to assess data centres' effect on grid stability and related policy and regulatory issues. It is a study body, not a rule; no CEA order was fetched.",
+      "source_url": "https://knnindia.co.in/news/newsdetails/sectors/energy/cea-sets-up-committee-to-assess-data-centres-impact-on-power-grid-stability",
+      "source_title": "KNN India — CEA sets up committee to assess data centres' impact on power grid stability",
+      "captured_at": "2026-10-19"
     }
   ],
   "moratoriums": [
@@ -3688,6 +3893,85 @@
           "source_title": "Presidencia de la República — Plan México avanza: CloudHQ, 4,800 mdd para 6 centros de datos en Querétaro (comunicado, 25 Sep 2025)"
         }
       ]
+    },
+    {
+      "id": "es-meta-talavera-de-la-reina",
+      "company_slug": "meta",
+      "name": "Meta Data Center Campus, Talavera de la Reina",
+      "city": "Talavera de la Reina",
+      "country": "ES",
+      "subdivision": "ES-CM",
+      "status": "announced",
+      "announced_year": 2024,
+      "source_lang": "es",
+      "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "source_title": "DOCM nº 59, 22 Mar 2024 — declaración de impacto ambiental, Meta Data Center Campus",
+      "notes": "The environmental impact declaration names the promoter as Zarza Networks, S.L.; the project is attached to Meta by its name, 'Meta Data Center Campus'. announced_year is the year of the declaration, not of the first announcement. The copy read is a PDF of the DOCM issue hosted on cmmedia.es.",
+      "updates": [
+        {
+          "date": "2024-03-20",
+          "kind": "permit",
+          "title": "Regional environmental impact declaration issued with conditions",
+          "summary": "The Directorate-General for Environmental Quality formulated the declaration on 20 March 2024 (published in DOCM 22 March 2024). It states industrial cooling water of 600 m3 per year and potable water of 40,000 m3 per year, and credits dry-air cooling with an 84% water-demand cut 'according to the promoter's documentation'.",
+          "authority": "Dirección General de Calidad Ambiental, Castilla-La Mancha",
+          "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+          "source_title": "DOCM nº 59, 22 Mar 2024 — declaración de impacto ambiental"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "be-google-feluy-ecaussinnes",
+      "company_slug": "google",
+      "name": "Google data centre, Feluy-Écaussinnes zoning",
+      "city": "Feluy",
+      "country": "BE",
+      "subdivision": "BE-WAL",
+      "locality": "Écaussinnes",
+      "status": "announced",
+      "announced_year": 2024,
+      "source_lang": "fr",
+      "source_url": "https://www.rtbf.be/article/zoning-de-feluy-ecaussinnes-feu-vert-pour-le-data-center-google-11356788",
+      "source_title": "RTBF — Zoning de Feluy-Écaussinnes: feu vert pour le data center Google (10 Apr 2024)",
+      "notes": "A different site from the St. Ghislain campus. RTBF (Belga) reports a 36-hectare site hosting three data centres. This is secondary press for a regional decision; the Walloon decision itself was not fetched. announced_year is the permit year.",
+      "updates": [
+        {
+          "date": "2024-04-10",
+          "kind": "permit",
+          "title": "Walloon Region grants permit for the 36-hectare site",
+          "summary": "RTBF reports the permit for three data-centre buildings. It says the municipality of Écaussinnes asked for compensations that the Region took into account, and that heat from the data centres must be recovered to supply public buildings or other users in the zoning.",
+          "authority": "Walloon Region",
+          "source_url": "https://www.rtbf.be/article/zoning-de-feluy-ecaussinnes-feu-vert-pour-le-data-center-google-11356788",
+          "source_title": "RTBF — Zoning de Feluy-Écaussinnes: feu vert pour le data center Google"
+        }
+      ],
+      "captured_at": "2026-10-19"
+    },
+    {
+      "id": "be-google-farciennes",
+      "company_slug": "google",
+      "name": "Google data centre, Farciennes",
+      "city": "Farciennes",
+      "country": "BE",
+      "subdivision": "BE-WAL",
+      "status": "announced",
+      "announced_year": 2023,
+      "source_lang": "fr",
+      "source_url": "https://www.rtbf.be/article/farciennes-google-depose-la-demande-de-permis-pour-la-construction-de-son-futur-site-11224063",
+      "source_title": "RTBF — Farciennes: Google dépose la demande de permis (6 Jul 2023)",
+      "notes": "A different site from St. Ghislain and Feluy. The record holds only the permit filing. A press report of a later ministerial refusal of Sambre water for cooling carries no article date and is held until a dated source is found.",
+      "updates": [
+        {
+          "date": "2023-07-06",
+          "kind": "filing",
+          "title": "Google files its single-permit application",
+          "summary": "RTBF (Belga) reports that Google filed the permis unique application for construction of its Farciennes site. It is a filing, not a grant.",
+          "authority": "Walloon Region",
+          "source_url": "https://www.rtbf.be/article/farciennes-google-depose-la-demande-de-permis-pour-la-construction-de-son-futur-site-11224063",
+          "source_title": "RTBF — Farciennes: Google dépose la demande de permis"
+        }
+      ],
+      "captured_at": "2026-10-19"
     }
   ],
   "responses": [
@@ -4118,6 +4402,18 @@
       "summary": "A campaign page by the Migrano de Arena coalition says it filed an appeal with the High Court of Justice of Aragon (TSJA) against Amazon's PIGA covering five campuses. The date shown is the page's publication date, because the filing date is not stated.",
       "source_url": "https://www.migranodearena.org/en/cause/contencioso-contra-los-centros-de-datos-de-amazon-aws-en-aragon",
       "source_title": "Migrano de Arena — appeal to the TSJA against the AWS PIGA (campaign page)",
+      "single_source": true,
+      "source_lang": "en"
+    },
+    {
+      "id": "in-resp-thane-mhaske-tree-felling-2026-07",
+      "project_id": "in-amazon-thane-balkum",
+      "date": "2026-07-07",
+      "stance": "negative",
+      "constituency": "local_government",
+      "summary": "Thane MP Naresh Mhaske submitted a memorandum to the Thane Municipal Corporation commissioner and the District Collector demanding an immediate stay, alleging tree felling at the Amazon site exceeded the permissions granted. The allegation is his own and not a finding.",
+      "source_url": "https://www.freepressjournal.in/amp/mumbai/thane-mp-naresh-mhaske-demands-immediate-halt-on-amazon-data-center-citing-illegal-tree-felling-and-civic-disaster-risks",
+      "source_title": "Free Press Journal — Thane MP Naresh Mhaske demands immediate halt on Amazon data centre",
       "single_source": true,
       "source_lang": "en"
     }
