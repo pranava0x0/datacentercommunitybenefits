@@ -30,6 +30,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import importlib.util
+import fcntl
 import json
 import logging
 import os
@@ -249,6 +250,15 @@ def save_cache(cache_dir: Path, pages: dict) -> None:
     # writer erased the other's checks; a run killed before its final save
     # lost everything. Disk entries this run doesn't hold are kept, and a disk
     # entry checked later than ours wins.
+    # Serialize the read-merge-replace: without a lock, two concurrent savers
+    # each merge the same old file and the later os.replace drops the other's
+    # entries.
+    with open(cache_dir / "pages.json.lock", "w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        _merge_and_replace(cache_dir, final, pages)
+
+
+def _merge_and_replace(cache_dir: Path, final: Path, pages: dict) -> None:
     merged = dict(pages)
     if final.exists():
         try:
@@ -324,7 +334,7 @@ def fetch_all(urls: list, pages: dict, fetcher: Fetcher, cache_dir: Path,
     """Fetch urls, serial within a host (>= `delay` apart), parallel across hosts."""
     by_host: dict = {}
     for u in urls:
-        by_host.setdefault(urlparse(u).netloc.lower(), []).append(u)
+        by_host.setdefault(_host_of(u), []).append(u)
     lock = threading.Lock()
     done = [0]
 
