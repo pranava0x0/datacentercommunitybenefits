@@ -60,6 +60,9 @@ def test_no_serious_axe_violations(page: Page, base_url: str, axe_source: str, h
     page.goto(base_url + "/?a11y=1" + hash_)
     page.wait_for_function("() => state._booted", timeout=E2E_WAIT)
     page.wait_for_load_state("networkidle")
+    # Freeze transitions first: a theme swap mid-transition makes axe sample
+    # half-blended colours and report contrast failures that a reader never sees.
+    page.add_style_tag(content="*,*::before,*::after{transition:none!important;animation:none!important}")
     if theme == "dark":
         page.evaluate("document.documentElement.setAttribute('data-theme', 'dark')")
     page.evaluate(axe_source)

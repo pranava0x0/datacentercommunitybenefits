@@ -47,3 +47,18 @@ def test_index_has_canonical_and_structured_data() -> None:
     assert f'rel="canonical" href="{refresh.SITE_URL}"' in html
     m = re.search(r'<script type="application/ld\+json">(.*?)</script>', html, re.DOTALL)
     assert m and json.loads(m.group(1))["@type"] == "Dataset"
+
+
+def test_index_carries_a_generated_plain_html_summary() -> None:
+    """Crawlers and no-JS readers get each tab's answer from the raw HTML."""
+    html_text = (DOCS / "index.html").read_text(encoding="utf-8")
+    a, b = html_text.index(refresh.STATIC_START), html_text.index(refresh.STATIC_END)
+    block = html_text[a:b]
+    totals = json.loads((DOCS / "data" / "home.json").read_text(encoding="utf-8"))["totals"]
+    assert re.search(rf"\b{totals['moratoriums']} moratoriums\b", block)
+    assert re.search(rf"\b{totals['sites']} sites\b", block)
+    m = re.search(r'<time datetime="([0-9-]+)"', block)
+    assert m and f'"dateModified": "{m.group(1)}"' in html_text
+    for key in refresh.VIEW_GUIDE:
+        if key != "overview":
+            assert f'href="#{key}"' in block, key

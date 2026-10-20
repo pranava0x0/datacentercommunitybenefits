@@ -6604,3 +6604,12 @@ button.depth-chip:focus-visible {
   .home-card-num { font-size: var(--fs-xl); }
   .home-card-sub { font-size: var(--fs-xs); }
 }
+
+/* Plain-HTML summary written by refresh.py into the Home view so crawlers and
+   no-JS readers get the answers the app otherwise paints from JSON. */
+.static-summary { margin-top: var(--space-8, 2rem); padding-top: var(--space-4, 1rem); border-top: 1px solid var(--border); }
+.static-summary > h2 { font-family: var(--font-serif); font-size: var(--fs-lg); font-weight: 400; margin: 0 0 0.25rem; }
+.static-summary > p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 0.75rem; }
+.static-summary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+.static-summary li h3 { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; margin: 0 0 0.15rem; }
+.static-summary li p { margin: 0; font-size: var(--fs-sm); color: var(--text-muted); }

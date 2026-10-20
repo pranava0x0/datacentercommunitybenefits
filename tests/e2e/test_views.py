@@ -2323,6 +2323,11 @@ class TestPledgeLanding:
 
     def test_landing_numbers_come_from_data_not_markup(self, page: Page, base_url: str):
         html = (Path(__file__).resolve().parents[2] / "docs" / "index.html").read_text()
+        # The static summary block is written by refresh.py from the data
+        # (crawler/no-JS answers), so it is excluded: only hand-written markup
+        # must stay number-free.
+        start = html.index("<!-- static-summary:start")
+        html = html[:start] + html[html.index("<!-- static-summary:end -->"):]
         assert "279" not in html and "323" not in html, "roster count hardcoded in index.html"
         assert html.count('class="home-card-num"') == html.count("&mdash;</span>\n              <span class=\"home-card-sub\"")
         page.goto(base_url + "/")
