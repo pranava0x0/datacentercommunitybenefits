@@ -3955,6 +3955,7 @@ body.tariff-modal-open {
   --status-color: var(--moratorium-lifted);
 }
 
+.badge-moratorium-lifted,
 .badge-moratorium-status-lifted {
   background-color: var(--moratorium-lifted-soft);
   color: var(--moratorium-lifted);

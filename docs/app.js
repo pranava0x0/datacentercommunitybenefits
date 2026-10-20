@@ -1625,6 +1625,7 @@ function renderMoratoriumStats(moratoriums) {
   const enacted = moratoriums.filter((m) => effectiveStatus(m) === "enacted");
   const proposed = moratoriums.filter((m) => effectiveStatus(m) === "proposed");
   const failed = moratoriums.filter((m) => effectiveStatus(m) === "failed");
+  const lifted = moratoriums.filter((m) => effectiveStatus(m) === "lifted");
 
   const statsList = document.getElementById("moratorium-stats");
   if (!statsList) return;
@@ -1650,6 +1651,13 @@ function renderMoratoriumStats(moratoriums) {
       <span class="rp-stat-value">${failed.length}</span>
       <span class="rp-stat-label">Failed/Rejected</span>
       <span class="rp-stat-breakdown">${_jurtypeBreakdown(failed)}</span>
+    </li>
+    ` : ""}
+    ${lifted.length > 0 ? `
+    <li class="rp-stat">
+      <span class="rp-stat-value">${lifted.length}</span>
+      <span class="rp-stat-label">Lifted</span>
+      <span class="rp-stat-breakdown">${_jurtypeBreakdown(lifted)}</span>
     </li>
     ` : ""}
   `;
@@ -6677,7 +6685,7 @@ function renderProjectCard(p) {
   const next = nextUpcoming(p);
 
   const moratoriumBadges = moratoriums
-    .map((m) => `<span class="badge badge-moratorium badge-moratorium-${m.status}" title="Affected by ${m.jurisdiction} ${effectiveStatus(m)} moratorium">${escapeHtml(m.jurisdiction)}</span>`)
+    .map((m) => `<span class="badge badge-moratorium badge-moratorium-${effectiveStatus(m)}" title="Affected by ${m.jurisdiction} ${effectiveStatus(m)} moratorium">${escapeHtml(m.jurisdiction)}</span>`)
     .join("");
 
   const figures = [

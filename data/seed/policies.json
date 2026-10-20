@@ -2850,7 +2850,7 @@
         "community_grants"
       ],
       "community_benefits_framework": true,
-      "value_usd": 14000000,
+      "value_usd": null,
       "key_terms": [
         "Consent judgment approved October 1, 2025, after Related Digital sued over the township's September 4/10, 2025 rezoning denial (exclusionary zoning claim)",
         "$4 million farmland preservation trust fund",
@@ -3915,8 +3915,7 @@
       "source_title": "Barber County Commissioners — Announce Agreement Terms for Project Helium Data Center Development (press release, Aug 31, 2026)",
       "captured_at": "2026-10-08",
       "agreement_features": [
-        "dollar_commitment",
-        "water_limit"
+        "dollar_commitment"
       ]
     },
     {
