@@ -62,7 +62,7 @@
       "announced_year": 2026,
       "claimed_investment_usd": null,
       "claimed_jobs": 100,
-      "notes": "Announced February 24, 2026. 480-acre campus in Pine Island Township, Goodhue County, served by Xcel Energy. Google committed to finance 1,900 MW of new clean energy resources for the Minnesota grid (solar, wind, battery storage). $25M community investment fund over 20 years, benefiting Pine Island schools. Google covers 100% of new grid infrastructure costs. ~500 construction trades during build phase. As of Oct 11, 2026, MPR News reports the data center is on pause while a judge considers whether the project requires further environmental review.",
+      "notes": "Announced February 24, 2026. 480-acre campus in Pine Island Township, Goodhue County, served by Xcel Energy. Google committed to finance 1,900 MW of new clean energy resources for the Minnesota grid (solar, wind, battery storage). $25M community investment fund over 20 years, benefiting Pine Island schools. Google says it \"will pay all costs associated with our electric service.\" ~500 construction trades during build phase. As of Oct 11, 2026, MPR News reports the data center is on pause while a judge considers whether the project requires further environmental review.",
       "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-center-pine-island/",
       "source_title": "Google Blog — Pine Island, Minnesota data center announcement (Feb 2026)",
       "captured_at": "2026-10-19",
@@ -70,7 +70,7 @@
       "offtaker": "Google",
       "at_a_glance": {
         "jobs": "100 direct jobs / 480 ac",
-        "energy": "100% grid infrastructure cost coverage"
+        "energy": "Pays all costs of its electric service"
       },
       "ratepayer": {
         "status": "affirmed",
@@ -78,8 +78,8 @@
         "assessed_at": "2026-07-13",
         "principles": {
           "delivery_infra": {
-            "status": "met",
-            "note": "Google's announcement says it \"will pay all costs associated with our electric service,\" which includes the delivery infrastructure that serves the facility."
+            "status": "partial",
+            "note": "Google's announcement says it \"will pay all costs associated with our electric service\"; the page does not separately name delivery infrastructure, so this is not marked met."
           },
           "new_generation": {
             "status": "met",
@@ -864,7 +864,7 @@
       "announced_year": 2018,
       "claimed_investment_usd": 1500000000,
       "claimed_jobs": 400,
-      "notes": "Neighbors on the Newton–Morgan County line reported dirty well water in 2026 and Rep. Ocasio-Cortez raised it at a May 2026 hearing (WSB-TV, 2026-05-27); the EPA said it would look into it. Meta says it commissioned a groundwater study and that it does not use groundwater in its operations.",
+      "notes": "Meta says it does not utilize groundwater in its operations. Neighbors' well-water complaints, the congressional call for an EPA investigation and Meta's response are recorded in the site timeline.",
       "source_url": "https://datacenters.atmeta.com/2026/04/operating-responsibly-at-the-stanton-springs-data-center/",
       "source_title": "Meta Data Centers — Operating responsibly at the Stanton Springs Data Center (Apr 2026)",
       "captured_at": "2026-05-14",
@@ -891,7 +891,7 @@
           "date": "2026-05-27",
           "kind": "news",
           "title": "Neighbors report muddy, unusable well water near Meta Georgia campus",
-          "summary": "Neighbors say their well water is muddy and unusable.",
+          "summary": "Neighbors say their well water is muddy and unusable. WSB-TV reports the EPA is promising to look into reports of dirty well water, Rep. Ocasio-Cortez called for EPA and congressional investigations, and Meta said it had commissioned a groundwater study that found its operations and construction had no impact on the residents.",
           "upcoming": false,
           "source_url": "https://www.wsbtv.com/news/local/north-georgia-neighbors-say-data-center-responsible-dirty-well-water/YERXGUYXHVAGPIAPQJ6ILVC4BQ/",
           "source_title": "WSB-TV — North Georgia neighbors say data center responsible for dirty well water"
@@ -911,7 +911,7 @@
       "announced_year": 2005,
       "claimed_investment_usd": 1800000000,
       "claimed_jobs": 200,
-      "notes": "Google's first dedicated data center campus. Google had argued its water use was a \"trade secret\"; The Oregonian/OregonLive sued The Dalles for the records and the city settled and released them (OPB, 2026-01-15). Jan 2026: OPB reported Google consumes about a third of the water used in The Dalles, and the city was asking Congress for part of the Mount Hood National Forest to expand its reservoir.",
+      "notes": "Google's first dedicated data center campus. OPB's 2026-01-15 report, cited in the community responses, covers Google's share of city water, the 2021 \"trade secret\" records dispute and the city's reservoir plans.",
       "source_url": "https://datacenters.google/locations/oregon/",
       "source_title": "Google Data Centers — Oregon (The Dalles)",
       "captured_at": "2026-09-30",

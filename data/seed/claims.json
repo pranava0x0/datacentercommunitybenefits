@@ -64,7 +64,7 @@
       "id": "ms-carbon-negative-2030",
       "company_slug": "microsoft",
       "theme": "energy",
-      "statement": "By 2030 Microsoft will be carbon negative, and by 2050 Microsoft will remove from the environment all the carbon",
+      "statement": "By 2030 Microsoft will be carbon negative, and by 2050 Microsoft will remove from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975.",
       "source_url": "https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/",
       "source_title": "Microsoft will be carbon negative by 2030 (Brad Smith blog)",
       "captured_at": "2026-05-14"
@@ -116,13 +116,8 @@
       "theme": "infrastructure",
       "statement": "Amazon's multi-billion-dollar investment in Pennsylvania reinforces our dedication to advancing AI innovation while creating lasting economic opportunities in the state. By expanding our cloud computing infrastructure, we're investing in Pennsylvania's future through new jobs, workforce development programs, and community initiatives.",
       "source_url": "https://www.pa.gov/governor/newsroom/2025-press-releases/gov-announces-amazon-to-invest--20b-in-pa--largest-capital-inves.html",
-      "source_title": "PA Governor's Office release — David Zapolsky, Amazon chief global affairs and legal officer, on the $20B Pennsylvania investment (June 9, 2025)",
+      "source_title": "PA Governor's Office release — David Zapolsky, Amazon chief global affairs and legal officer (June 9, 2025)",
       "captured_at": "2026-05-14",
-      "metric": {
-        "value": 20000000000,
-        "unit": "usd",
-        "kind": "announced_investment"
-      },
       "published_at": "2025-06-09"
     },
     {

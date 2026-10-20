@@ -681,7 +681,6 @@
         "jobs"
       ],
       "community_benefits_framework": true,
-      "value_usd": 360000000,
       "key_terms": [
         "Doña Ana County Community Industrial Revenue Bonds",
         "Supplemental Community Investment Funds Value: $6.9 Million",
@@ -833,7 +832,9 @@
       "key_terms": [
         "$30 million for renovations to Carroll Manor Elementary School",
         "extending the moratorium on data center applications until July 1st, 2027",
-        "while also offering to reduce data center development by 20% and potable water consumption by 80%"
+        "while also offering to reduce data center development by 20% and potable water consumption by 80%",
+        "QM promised $110 million in community benefits",
+        "The developer sought to cement the conditions for the DRRA for a period of 8 years."
       ],
       "summary": "Frederick County, Maryland's proposed $110+ million community benefits agreement with Quantum Maryland LLC for the Frederick Digital Campus (which hosts Aligned Data Centers and Rowan Digital Infrastructure) was rejected by County Executive Jessica Fitzwater on September 14, 2026, two weeks after the September 1 application, amid public outcry. In return for the investments, the developer had asked the county not to change zoning rules affecting the campus for 8 years. The county's pause on new data center applications was extended to July 1, 2027. No company_slugs are set: the developer and site tenants (Quantum Maryland/Catellus, Aligned, Rowan) are outside this dashboard's tracked company vocabulary.",
       "source_url": "https://www.wypr.org/wypr-news/2026-09-15/frederick-county-rejects-agreement-with-data-center-developer-amidst-public-outcry",
@@ -948,7 +949,6 @@
         "infrastructure"
       ],
       "community_benefits_framework": true,
-      "value_usd": 4000000,
       "key_terms": [
         "\"The Community Impact Payments the city will be receiving from CoreWeave as part of the Development Agreement will not only help with new city-wide infrastructure and quality of life initiatives, but also will help thousands of students in Hammond go to college, through our College Bound program."
       ],
@@ -1447,7 +1447,8 @@
         "Benefits like $20 million in payments toward local causes and a commitment to use 100% renewable energy are atypical for data centers in Pennsylvania and far beyond what zoning can accomplish, now-former Mayor Danene Sorace, whose administration negotiated the agreement, said when it was adopted.",
         "Half of the $20 million in the Lancaster data center agreement will be doled out to nonprofits for economic development purposes by a committee including representatives from city council, Lancaster County Community Foundation, Lancaster County EDC and the developers.",
         "The rest will go toward the city's climate action goals.",
-        "At the construction financing date the developers must provide a $10 million letter of credit to the city."
+        "At the construction financing date the developers must provide a $10 million letter of credit to the city.",
+        "If the developers fail to meet the requirements, the city can begin taking the $10 million."
       ],
       "summary": "Lancaster, Pennsylvania's city council approved a community benefits agreement with CoreWeave's data center developers in November 2025 (exact day not found) — reported as the first data-center-specific CBA in the US, worth roughly $20 million. Half the funds go to nonprofit economic-development grants (allocated by a joint city/foundation/EDC committee) and half to the city's climate action goals, backed by a 100% clean-energy requirement and a $10 million letter-of-credit enforcement mechanism; the developer received no local tax abatement.",
       "source_url": "https://lancasteronline.com/news/local/lancaster-data-center-agreement-s-benefit-to-community-questioned/article_b2654db6-c6e3-4719-8a0e-1f839c1e325e.html",
@@ -1890,7 +1891,8 @@
         "Amazon's community contributions include $3 million to support emergency dispatch services in Montgomery County, over $1 million for a community gathering space at the County Fairgrounds and $3 million in community programs.",
         "$3 million in community programs",
         "The company is launching a $150,000 Community Fund to provide grants for Montgomery County community projects.",
-        "(First Alert 4)-Amazon announced plans Monday to invest $10 billion to construct a data center campus in Montgomery City, promising to create 400 direct jobs and thousands of construction jobs."
+        "(First Alert 4)-Amazon announced plans Monday to invest $10 billion to construct a data center campus in Montgomery City, promising to create 400 direct jobs and thousands of construction jobs.",
+        "The company announced $7 million in community contributions during a press conference with state leaders and economic development partners."
       ],
       "summary": "Amazon announced over $7 million in community contributions to Montgomery County, Missouri alongside its $10 billion data center campus announcement: $3 million for emergency dispatch services, $1 million+ for a County Fairgrounds gathering space, $3 million in community programs, and a new $150,000 community grant fund, amid local opposition to the project.",
       "source_url": "https://www.firstalert4.com/2026/06/15/amazon-announces-7-million-community-investments-montgomery-county-data-center/",
@@ -2631,7 +2633,7 @@
         "education"
       ],
       "community_benefits_framework": true,
-      "value_usd": 80000000,
+      "value_usd": 40000000,
       "key_terms": [
         "Paying for New Power Delivery Infrastructure: SB Energy will invest $4.2 billion with AEP Ohio to upgrade and build new transmission lines in southern Ohio to benefit all ratepayers in the region.",
         "SB Energy has also committed to a $40 million Community Benefits Agreement to support the surrounding Ohio communities."
@@ -3095,7 +3097,8 @@
       "community_benefits_framework": true,
       "value_usd": 62500000,
       "key_terms": [
-        "\"The tax abatement is up for 25 years.\" Of the 15% that will be collected, the funds are expected to exceed $36 million over the life of the Tax Incentive District agreement."
+        "\"The tax abatement is up for 25 years.\" Of the 15% that will be collected, the funds are expected to exceed $36 million over the life of the Tax Incentive District agreement.",
+        "In lieu of taxes, Meta will pay the City of Tulsa $62.5 million."
       ],
       "summary": "Meta's 'Project Anthem' Tulsa data center operates under a 25-year Tax Incentive District/PILOT agreement approved by PartnerTulsa: an 85% property tax exemption in exchange for $62.5 million in PILOT payments over the term, with the remaining taxed 15% projected to exceed $36 million for the city, Wagoner County, and Catoosa Public Schools. Meta also funds $25 million in public infrastructure. Reporting places PartnerTulsa's approval and the project's public announcement in April 2026; no exact approval day was found.",
       "source_url": "https://www.kjrh.com/news/local-news/money-for-meta-how-will-the-new-data-center-be-funded",
@@ -3904,7 +3907,8 @@
         "Google will pay 100% of ad valorem property taxes, with no property tax abatement",
         "provide $5 million in security to help ensure road improvement and maintenance costs are covered",
         "guarantee a minimum of 300 full time equivalent jobs by the fifth year of project operations",
-        "Google will not drill or construct new water wells on the property"
+        "Google will not drill or construct new water wells on the property",
+        "Project Helium will be a closed-loop, air-cooled facility, not a water-cooled facility."
       ],
       "summary": "The Barber County Board of Commissioners announced on August 31, 2026 that it had signed agreements with Google for Project Helium, a data center development planned in the county. Google will pay full ad valorem property taxes with no abatement, plus $5.5 million in community benefit payments scheduled from 2026 through 2029 to help address county costs during construction. The county's release also lists $5 million in road-protection security, a 300-job minimum by the fifth year of operations and a closed-loop, air-cooled design with no new water wells. The agreement text itself was not reviewed; terms are as described in the county's own release.",
       "source_url": "https://barber.ks.gov/uploads/5/6/1/9/56198487/press_release.pdf",
