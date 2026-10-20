@@ -103,3 +103,22 @@ def test_malformed_feed_is_a_failed_fetch_not_an_empty_one() -> None:
     assert bad["failed_fetches"] and not bad["dead_sources"]
     empty = ss.scan(srcs, fetcher=lambda u: (200, u, "<rss><channel></channel></rss>"), sleep=lambda s: None)
     assert empty["dead_sources"] and empty["dead_sources"][0]["reason"] == "lists nothing"
+
+
+def test_identity_query_params_are_kept_and_tracking_params_dropped() -> None:
+    a = ss._norm_url("https://www.aboutamazon.com/news/aws/x?p=111&utm_source=feed")
+    b = ss._norm_url("https://aboutamazon.com/news/aws/x?p=222")
+    assert a != b
+    assert a == ss._norm_url("https://aboutamazon.com/news/aws/x?p=111")
+
+
+def test_check_sources_does_not_consume_leads(tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(ss, "CACHE_DIR", tmp_path)
+    monkeypatch.setattr(ss, "load_sources", lambda country=None: [{"name": "R", "country": "US", "url": "https://news.example/rss", "kind": "rss"}])
+    monkeypatch.setattr(ss, "_raw_fetch", lambda url: (200, url, RSS))
+    monkeypatch.setattr(ss, "seed_urls", lambda: set())
+    monkeypatch.setattr(ss.scan, "__defaults__", (ss._raw_fetch, None, None, lambda s: None))
+    ss.main(["--check-sources"])
+    assert not (tmp_path / "seen.json").exists()
+    ss.main([])
+    assert (tmp_path / "seen.json").exists()

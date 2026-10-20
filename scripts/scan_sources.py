@@ -132,11 +132,19 @@ def parse_listing(body: str, base: str) -> list[tuple[str, str]]:
     return out
 
 
+# Query parameters that only track a click; everything else (e.g. ?p=1234,
+# ?id=..., ?article=...) can identify the page and is kept.
+_TRACKING_PARAMS = re.compile(r"^(utm_[a-z]+|fbclid|gclid|mc_[a-z]+|ref|ref_src|cmpid|ocid|taid|sr_share|smid|cid)$", re.I)
+
+
 def _norm_url(u: str) -> str:
+    from urllib.parse import parse_qsl, urlencode
+
     p = urlparse(u)
     host = (p.hostname or "").lower().removeprefix("www.").removeprefix("amp.")
     path = p.path.rstrip("/").removeprefix("/amp")
-    return f"{host}{path}"
+    q = sorted((k, v) for k, v in parse_qsl(p.query, keep_blank_values=True) if not _TRACKING_PARAMS.match(k))
+    return f"{host}{path}" + (f"?{urlencode(q)}" if q else "")
 
 
 def seed_urls(seed_dir: Path = SEED_DIR) -> set[str]:
@@ -242,8 +250,11 @@ def main(argv: Optional[list] = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     sources = load_sources(country=args.country)
     seen = _load_seen()
-    report = scan(sources, known=seed_urls(), seen=seen)
-    _save_seen(seen)
+    # --check-sources audits feed health; it must not mark leads as seen, or
+    # the next real scan would drop them as old.
+    report = scan(sources, known=seed_urls(), seen=set(seen) if args.check_sources else seen)
+    if not args.check_sources:
+        _save_seen(seen)
     leads = [l for l in report["leads"] if args.all or l["new"]]
     if args.json_out:
         Path(args.json_out).write_text(json.dumps({**report, "leads": leads}, indent=1, ensure_ascii=False), encoding="utf-8")
