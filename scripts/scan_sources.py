@@ -248,6 +248,24 @@ def _save_seen(seen: set) -> None:
     tmp.replace(CACHE_DIR / "seen.json")
 
 
+def render_worklist(leads: list, report: dict) -> str:
+    out = [f"# Scan worklist: {len(leads)} new leads\n"]
+    by_country: dict = {}
+    for l in leads:
+        by_country.setdefault(l["country"], []).append(l)
+    for c in sorted(by_country):
+        out.append(f"## {c}")
+        out += [f"- [{l['title']}]({l['url']}) — {l['source']}" for l in by_country[c]]
+        out.append("")
+    if report["dead_sources"]:
+        out.append("## Sources that are gone or list nothing (fix the URL in scripts/news_sources.json)")
+        out += [f"- {d['name']}: HTTP {d['status']}, {d['reason']} — {d['url']}" for d in report["dead_sources"]]
+    if report["failed_fetches"]:
+        out.append("\n## Fetches that failed this run (retry later; not a URL problem)")
+        out += [f"- {d['name']}: HTTP {d['status']}, {d['reason']} — {d['url']}" for d in report["failed_fetches"]]
+    return "\n".join(out) + "\n"
+
+
 def main(argv: Optional[list] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--country")
@@ -266,23 +284,16 @@ def main(argv: Optional[list] = None) -> int:
     leads = [l for l in report["leads"] if args.all or l["new"]]
     if args.json_out:
         Path(args.json_out).write_text(json.dumps({**report, "leads": leads}, indent=1, ensure_ascii=False), encoding="utf-8")
-    print(f"# Scan: {len(sources)} sources, {len(leads)} new leads, {len(report['dead_sources'])} sources listing nothing\n")
-    by_country: dict = {}
-    for l in leads:
-        by_country.setdefault(l["country"], []).append(l)
-    for c in sorted(by_country):
-        print(f"## {c}")
-        for l in by_country[c]:
-            print(f"- [{l['title']}]({l['url']}) — {l['source']}")
-        print()
-    if report["dead_sources"]:
-        print("## Sources that are gone or list nothing (fix the URL in scripts/news_sources.json)")
-        for d in report["dead_sources"]:
-            print(f"- {d['name']}: HTTP {d['status']}, {d['reason']} — {d['url']}")
-    if report["failed_fetches"]:
-        print("\n## Fetches that failed this run (retry later; not a URL problem)")
-        for d in report["failed_fetches"]:
-            print(f"- {d['name']}: HTTP {d['status']}, {d['reason']} — {d['url']}")
+    log.info("scan: %d sources, %d new leads, %d sources gone or empty, %d failed fetches",
+             len(sources), len(leads), len(report["dead_sources"]), len(report["failed_fetches"]))
+    for d in report["dead_sources"]:
+        log.warning("source gone or empty (fix its URL): %s HTTP %s %s", d["name"], d["status"], d["url"])
+    for d in report["failed_fetches"]:
+        log.warning("fetch failed this run (retry later): %s HTTP %s %s", d["name"], d["status"], d["url"])
+    # The worklist itself is the command's product (like a report file), so
+    # it goes to stdout as one markdown document; status and problems above
+    # go through logging.
+    sys.stdout.write(render_worklist(leads, report))
     return 1 if args.check_sources and report["dead_sources"] else 0
 
 
