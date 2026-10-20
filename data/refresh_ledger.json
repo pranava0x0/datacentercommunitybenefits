@@ -189,20 +189,24 @@
     "state:IN": {
       "follow_ups": [
         {
-          "due": "2026-10-20",
-          "what": "Fort Wayne: council reconsiders the 365-day pause on its own actions in mid-October (postponed 3 weeks on Sept 23)"
+          "due": "2026-10-27",
+          "what": "Fort Wayne: check council agenda/WANE/Journal Gazette for vote on Booker data center moratorium ordinance"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-10-20",
+        "summary": "Searched twice and fetched WBOI's Rohli Booker page: only the 2026-09-09 introduction of the year-long moratorium ordinance is reported; no vote outcome found as of 2026-10-20"
+      }
     },
     "state:ME": {
       "last_check": {
-        "date": "2026-10-15",
-        "summary": "Bangor Council voted 8-0 on Sept 28 to add 180 days (WABI); duration_months 12, no exact end date stated."
+        "date": "2026-10-20",
+        "summary": "Searched for a Bangor extension vote (180-day pause passed 2026-04-13, 9-0): none reported as of 2026-10-20; no change"
       },
       "follow_ups": [
         {
-          "due": "2026-10-20",
-          "what": "Bangor moratorium: check bangormaine.gov council agendas/minutes and BDN for extension or LDC amendment vote"
+          "due": "2026-10-27",
+          "what": "Bangor: check council agendas/minutes and BDN for extension or LDC amendment vote"
         },
         {
           "due": "2027-03-20",
@@ -309,12 +313,12 @@
     "state:TX": {
       "follow_ups": [
         {
-          "due": "2026-10-20",
-          "what": "TCEQ compliance report due Oct 19 on the data center permit pause (texas-state-2026-08)"
-        },
-        {
           "due": "2026-10-23",
           "what": "TWDB Oct 14 enforcement report: check for coverage"
+        },
+        {
+          "due": "2026-10-27",
+          "what": "TX: look for TCEQ compliance report to Governor's office on data center permit pause"
         },
         {
           "due": "2026-11-11",
@@ -322,8 +326,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-16",
-        "summary": "2026-10-16: no coverage yet of the TWDB Oct 14 report to Gov. Abbott; record unchanged"
+        "date": "2026-10-20",
+        "summary": "Searched for TCEQ's Oct 19 compliance report on the Abbott permit pause: none published/reported yet; ERCOT/PUCT audit expected by Dec 10"
       }
     },
     "state:VA": {
