@@ -147,7 +147,7 @@ Nothing due.
 | `company:oracle` | Oracle (3 tracked sites) | never reviewed; record curated 2026-05-16 (5.3x target) |
 | `company:qts` | QTS (14 tracked sites) | never reviewed; record curated 2026-05-16 (5.3x target) |
 
-**Coming up in the next 30 days (29)**
+**Coming up in the next 30 days (31)**
 
 | Due | Unit | Check |
 |---|---|---|
@@ -165,7 +165,9 @@ Nothing due.
 | 2026-10-30 | `state:TN` | Crossville moratorium: vote date and ordinance number from city minutes |
 | 2026-11-02 | `state:CA` | Hayward October revisit; Oakland/SF 45-day pauses expire late Nov |
 | 2026-11-02 | `state:OR` | Check UE 463 for an order on the stipulation |
+| 2026-11-04 | `company:anthropic` | Fluidstack TX/NY campuses: has Anthropic or Fluidstack named a town yet? (anthropic.com/news, fluidstack.io/blog) |
 | 2026-11-04 | `state:CO` | Moffat County: commissioners' minutes for the Oct 13 moratorium decision |
+| 2026-11-04 | `state:CO` | Moffat County: re-check Craig Daily Press for the Oct 13 moratorium decision |
 | 2026-11-04 | `state:FL` | Duke FL post-hearing recommendation; TECO and FPL docket numbers |
 | 2026-11-04 | `state:GA` | Verify OpenAI primary quote |
 | 2026-11-04 | `state:IL` | Chicago ordinance number and Rules Committee action |

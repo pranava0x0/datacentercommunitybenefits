@@ -8,13 +8,17 @@
     "company:anthropic": {
       "follow_ups": [
         {
+          "due": "2026-11-04",
+          "what": "Fluidstack TX/NY campuses: has Anthropic or Fluidstack named a town yet? (anthropic.com/news, fluidstack.io/blog)"
+        },
+        {
           "due": "2026-11-18",
           "what": "Fluidstack TX/NY campuses: has a town been named? (not found Oct 21)"
         }
       ],
       "last_check": {
         "date": "2026-10-21",
-        "summary": "Two first-party claims added from the infrastructure policy page"
+        "summary": "Re-checked fluidstack.io/blog and search 2026-10-21: still no town named for the Anthropic/Fluidstack TX and NY campuses; only DCD inference. No change."
       }
     },
     "company:coreweave": {
@@ -180,11 +184,15 @@
         {
           "due": "2026-11-04",
           "what": "Moffat County: commissioners' minutes for the Oct 13 moratorium decision"
+        },
+        {
+          "due": "2026-11-04",
+          "what": "Moffat County: re-check Craig Daily Press for the Oct 13 moratorium decision"
         }
       ],
       "last_check": {
         "date": "2026-10-21",
-        "summary": "Moffat County Oct 13 decision not found"
+        "summary": "Craig Daily Press search 2026-10-21: still no report of a Moffat County data center moratorium decision. Not tracked."
       }
     },
     "state:DE": {
