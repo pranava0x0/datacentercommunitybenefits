@@ -244,12 +244,6 @@
       }
     },
     "state:IN": {
-      "follow_ups": [
-        {
-          "due": "2026-11-04",
-          "what": "Fort Wayne: council vote outcome on the 365-day pause (not found Oct 21)"
-        }
-      ],
       "last_check": {
         "date": "2026-10-21",
         "summary": "Oct 21: Fort Wayne council rejected both Booker ordinances (3-5, 4-4); policy marked failed."
