@@ -235,6 +235,10 @@ come first, then locations, companies and sites.
 ### Locations
 
 #### state:US — Federal
+- (2026-10-21) Trump 'data center dividend' remarks, Sept 29, 2026: Context
+  only, no record type fits. Newsweek (Sept 29, updated Oct 1): Trump told
+  reporters residents of data center communities could receive a 'dividend';
+  no formal program or company response reported.
 - SPP High Impact Large Load (HILL): FERC approved it Jan 2026, per FERC's
   April release. The docket number is unverified. Add a federal rate case
   once it's pinned. **low**
@@ -246,12 +250,20 @@ come first, then locations, companies and sites.
 - Fort Payne is a zoning action, not a moratorium.
 
 #### state:AZ — Arizona
+- (2026-10-21) APS large-load rate case: AG Mayes asked the ACC on Oct 9, 2026
+  to investigate alleged cost shifting (KJZZ Oct 10; allegations, not
+  findings). ALJ opinion timing from search only; azcc.gov docket
+  E-01345A-25-0105 not read.
 - Pima County / Beale MOA: KVOA (2026-06-11) reports the Pima Community
   College board approved a $5.9M five-year gift (record says $5M). Acceptance
   is not receipt; look for a payment record before attaching `delivered`. **low**
 - Pinal County project denial: a site fight, not a moratorium.
 
 #### state:CA — California
+- (2026-10-21) Hayward Oct revisit; Lake Elsinore; San Jose Prologis: Hayward
+  council said it would revisit in October (policy record added). Lake
+  Elsinore extension: nothing found. Prologis San Jose (99 MW, July 12 blog)
+  unchanged.
 - El Monte (Moratorium Nation).
 - SB 1168 / SB 886 / SB 887 are rate-design bills. They become
   `legislation` Policy records if passed, and the tariff comes later from
@@ -261,6 +273,8 @@ come first, then locations, companies and sites.
 - Imperial County project denial: a site fight, not a moratorium.
 
 #### state:CO — Colorado
+- (2026-10-21) Moffat County Oct 13 moratorium decision: Craig Daily Press
+  front page showed nothing; commissioners' minutes not read.
 - (2026-10-19) Brighton: KUNC (Oct 8) says the council "approved a one-year ban on data centers" on a Tuesday night (Oct 6 by weekday); it never names the instrument. Headline word, not a confirmed legal action: find the ordinance or minutes before recording a moratorium. Kiowa County Resolution 2026-4 is recorded (stated end Oct 9, 2026; check for extension).
 - Global AI, Weld County (up to 1 GW, approved Sept 9) is a two-gate
   candidate; see §7.
@@ -277,6 +291,12 @@ come first, then locations, companies and sites.
 - EEI: Delmarva docket 25-0826.
 
 #### state:FL — Florida
+- (2026-10-21) SB 484 large-load tariff dockets: Duke Energy Florida docket
+  20260064-EI (filed Apr 22, 2026; tariff suspended by Order
+  PSC-2026-0218-PCO-EI June 19; motion to dismiss denied July 28) was found in
+  PSC PDFs by a researcher but not re-fetched by synthesis. TECO (Spectrum,
+  Sept 30) and FPL docket numbers not found. Policy fl-sb484-large-load-
+  tariffs-2026 may need these.
 - Okaloosa County: Commissioner Paul Mixon's 12-month moratorium proposal
   has no confirmed vote. An earlier note said it failed 3-2 on Sept 15; no
   fetched source supports that. WEAR's article (weartv.com) describes the
@@ -290,6 +310,11 @@ come first, then locations, companies and sites.
   final vote unknown); Alachua and Orange counties (votes only to draft).
 
 #### state:GA — Georgia
+- (2026-10-21) Effingham County OpenAI/Camellia community benefits: openai.com
+  page returned 403; the M figure is from Pulse2 (fetched) and search
+  summaries. Read the primary page via another route before changing the
+  record. Prologis Coweta: ~900 MW and the B figure are not in the fetched
+  Times-Herald/ANF articles.
 - **The Georgia wave (high).** 14 tracked. GPB and The Current say "about
   40" municipalities. Still open: Hall County (debating 180 days, no vote
   found), Lee County (WALB 5/27,
@@ -309,6 +334,11 @@ come first, then locations, companies and sites.
 - No state-level policy record: non-binding resolutions only.
 
 #### state:IL — Illinois
+- (2026-10-21) Chicago Executive Order 2026-5: GT alert (verified): Mayor
+  Johnson signed EO 2026-5 on Aug 11, 2026 calling on Council for a temporary
+  moratorium; neither the order nor introduced legislation specifies duration.
+  EO itself pauses nothing. Reports of a 12-month ordinance referred to Rules
+  are snippet-only. Add a record only when an ordinance number is found.
 - Prologis "Project Steel", Yorkville (see company:prologis).
 
 #### state:IN — Indiana
@@ -333,6 +363,8 @@ come first, then locations, companies and sites.
 - EEI: Evergy 25-EKME-315-TAR.
 
 #### state:KY — Kentucky
+- (2026-10-21) Anthropic/Fluidstack TX-NY towns; The Nuclear Company: No town
+  named for Fluidstack's Anthropic TX/NY sites.
 - (2026-10-19) Edmonson County: Ordinance EC26-18 (one-year moratorium on data centers, AI and crypto-mining facilities) text is verified, but the adoption date is blank in the copy. Get the fiscal court minutes or the clerk's adoption date before adding.
 - (2026-10-19) Allen County: WBKO (2026-06-12) quotes Judge Executive Dennis Harper that a 24-month moratorium "was put in place" but names no enacting body or date. Get the fiscal court order before adding.
 - Rowan County: a two-year moratorium passed unanimously at the Fiscal
@@ -340,6 +372,14 @@ come first, then locations, companies and sites.
   but no source states the day. Get it from the court's minutes before adding
   the record; don't infer it from the third-Tuesday meeting schedule.
 - EEI: KU/LG&E 2025-00113 / 2025-00114; Kentucky Power 2024-00305.
+- (2026-10-21) Lewis County: The Nuclear Company announced "Prosperity One"
+  (PR Newswire, Oct 21, 2026). It is a proposed campus of up to six AP1000
+  reactors, about 6.6 GW, on the Ohio River, with construction targeted for
+  2028. The release names no data center, offtaker or large-load customer;
+  probe.py confirms "data center" is absent. Not a site record. Watch for a
+  co-located data center or a named offtaker, and for the county's
+  nuclear-ready designation filing with the Kentucky Nuclear Energy
+  Development Authority.
 
 #### state:LA — Louisiana
 - EEI: Entergy Louisiana U-36595.
@@ -355,6 +395,11 @@ come first, then locations, companies and sites.
   rate schedules Sept 1, 2026 (per EEI). No MD PSC case numbers located yet.
 
 #### state:MI — Michigan
+- (2026-10-21) Schoolcraft Township (Kalamazoo County) Ordinance 295: WOOD TV:
+  township board set to review Ordinance 295, a one-year moratorium on data
+  center permits/licenses/approvals (or until zoning is amended), at a Tuesday
+  evening meeting; article undated, outcome unknown. Check township board
+  minutes, then add a moratorium record.
 - (2026-10-19) Marshall: WWMT (Aug 10) reports a 365-day moratorium; the only date is the resolution PDF label "8-3-2026", not a stated vote date. Confirm Aug 3 from council minutes, then record (enacted, 12 months).
 - Zeeland Township: a new year-long moratorium passed unanimously at a
   Tuesday meeting in early September 2026 (FOX17, which has no dateline).
@@ -380,6 +425,11 @@ come first, then locations, companies and sites.
 - Crusoe Warrenton (see company:crusoe).
 
 #### state:NC — North Carolina
+- (2026-10-21) Charlotte extension vote, Fayetteville, Cumberland, Pitt:
+  Charlotte pause expires Nov 5; extension vote date (Oct 26?) is snippet-
+  only. Fayetteville council approved a 120-day delay on considering a
+  moratorium Apr 27 (CityView, not a pause). Cumberland County six-month
+  moratorium (June 15) and Pitt County Nov 16 hearing: snippet-only.
 - (2026-10-18) Charlotte extension: Oct 12 public hearing held per GovTech's
   schedule; outcome and final vote not found. WSOC says up to 9 months,
   GovTech 11 months (to Oct 11, 2027). Update `charlotte-city-2026-06` when
@@ -420,6 +470,8 @@ come first, then locations, companies and sites.
 - EEI: El Paso Electric 25-00082-UT. See also site:oracle-dona-ana-nm.
 
 #### state:NV — Nevada
+- (2026-10-21) Callisto/Google ESA docket 26-06023: PUCN portal search (puc-
+  onbase.nv.gov) needed; homepage listed no 26-06023 documents.
 - `nv-microsoft-ratepayer-protection-tariff`: the October and January hearing
   dates carried over from an earlier pass couldn't be re-confirmed (DCD
   blocked the fetch; mlq.ai is AI-generated). Confirm them from the PUCN
@@ -480,6 +532,9 @@ come first, then locations, companies and sites.
 - EEI: Duke 2025-172-E / 2025-154-E; generic docket 2026-138-E.
 
 #### state:TN — Tennessee
+- (2026-10-21) Shelby County Commission: WREG: Commission 'expected to
+  continue discussions' on a possible moratorium; headline mentions a 12-month
+  pause. No reading or vote found. Millington TN: nothing found.
 - (2026-10-19) Gallatin: WSMV (Jul 29) says commissioners approved a 60-day pause on new data center applications, "not the full moratorium" proposed earlier; no vote date. Needs minutes before recording.
 - (2026-10-18) Memphis council vote on `memphis-city-2026-10` set for Oct 20;
   WREG reportedly said it wasn't taken up. Record the outcome.
@@ -488,6 +543,10 @@ come first, then locations, companies and sites.
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 
 #### state:TX — Texas
+- (2026-10-21) TCEQ permitting after the Sept 21 directive: Seed now carries
+  the Oct 19 TCEQ letter (Inside Climate News, WebFetch-read, probe-blocked).
+  Still to fetch: Public Citizen/FracTracker analysis and TCEQ's own response;
+  ERCOT audit expected mid-December 2026 (Bracewell, secondary).
 
 - **Hill County TX / Project Aquila:** moratorium (3-2, 2026-05-12) and rescission (2026-06-04) shipped as `hill-county-tx-2026-05`. The old `hill-county-tx-2024-04` ("permanent", datacenterbans.com homepage) was removed: neither KWTX article mentions any 2024 moratorium. Project Aquila (RCM Hill, 1,235 MW, 800+ acres) has no project record: needs a developer or county source, KWTX only so far. **medium**
 - El Paso / Meta CBA: council directed staff (2026-06-23) to draft one in 45
@@ -498,6 +557,18 @@ come first, then locations, companies and sites.
   moratoriums.
 
 #### state:VA — Virginia
+- (2026-10-21) Spotsylvania County: Crossroads Technology Campus (Kettler):
+  Not added as a site. WJLA (published Sept 21, updated Sept 28, 2026):
+  Planning Commission voted 4-2 to recommend a special-use permit and 4-2 that
+  it is in accordance with the comprehensive plan; the article says the permit
+  is for Amazon Web Services and the developer's attorney (Charles Payne,
+  Kettler) says the project 'includes a cloud operator, Amazon'. County
+  filings reviewed by the researcher name RCK Digital Crossroads LLC as
+  applicant and no tenant; no first-party Amazon statement found. Campus ~555
+  acres (633 in earlier filings), est. B and M+ annual county tax per the
+  developer's attorney (stated, unverified), three substations, power early
+  2030s. Next: Board of Supervisors hearing and vote, date unannounced. Add as
+  an Amazon site only once Amazon or the county names AWS.
 
 - **Spotsylvania Board of Supervisors 4-2 resolution (2026-08-11)** supporting a statewide moratorium (WJLA, https://wjla.com/news/local/spotsylvania-county-backs-call-for-statewide-moratorium-on-data-centers-abigail-spanberger-ai-energy-use-zoning-decisions). Advocacy resolution to the governor, no schema fit (not a moratorium, no tracked project). **low**
 - **Prince William Dulles South Innovation Center rezoning declined (~2026-07-07; E&E News, vote count not reported).** No project record exists; event date is inferred from "Late Tuesday" in a 07-08 article, confirm on the dateline before adding. The Digital Gateway ending is already on `qts-manassas-va` (2026-07-02). **medium**
@@ -520,11 +591,18 @@ come first, then locations, companies and sites.
   page confirms it.
 
 #### state:WI — Wisconsin
+- (2026-10-21) Port Washington TID referendum court ruling; Florence County:
+  Port Washington: oral ruling reportedly set Oct 19 on the ballot initiative,
+  outcome not found; not a moratorium. Florence County zoning agenda item
+  'Moratorium for Data Centers' (Aug 5): outcome not found.
 - (2026-10-18) Mount Pleasant Village Board vote on Microsoft's amended
   seven-building site plan expected "later this month" (WPR); no date.
 - EEI: Xcel 4220-TE-119, MGE 3270-TE-124, WPL 6680-TE-119.
 
 #### state:WV — West Virginia
+- (2026-10-21) Nscale lost Microsoft deal (DCK Oct 19): Possible impact on the
+  tracked Nscale Monarch (Mason County WV) site; article body unreadable.
+  Follow up.
 - Appalachian Power / Google large-load settlement (WVPB, Jan 2025: 100 MW
   minimum, 12-yr term, 80% take). Find the PSC case number and outcome.
   Pairs with `google-putnam-county-wv`. Also EEI docket 24-0611-E-T-PW.

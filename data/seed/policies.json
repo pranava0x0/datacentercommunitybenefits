@@ -525,7 +525,7 @@
     },
     {
       "id": "dane-county-wi-qts-community-commitment-2025",
-      "title": "QTS $50 million Dane County community commitment",
+      "title": "QTS initial $50 million Dane County community commitment",
       "instrument": "company_plan",
       "status": "proposed",
       "scope": "county",
@@ -549,13 +549,13 @@
         "QTS said that $50 million would \"support local initiatives that strengthen education, workforce development, housing and other critical needs across Dane County.\" QTS also promised to fund scholarships and develop workforce partnerships with Madison Area Technical College.",
         "QTS said that if it does come to Dane County, it would want to work with Wisconsin Technology Council, specifically \"contributing toward the Wisconsin Frontier Technology Platform-an initiative designed to accelerate the state's tech ecosystem.\" QTS said it would also support local nonprofits and first responders."
       ],
-      "summary": "QTS announced a $50 million community commitment for Dane County, Wisconsin as it advanced zoning plans for a multibillion-dollar data center campus in the Town of Vienna/DeForest area, funding scholarships and workforce partnerships with Madison Area Technical College, a UW-Madison research partnership, and support for local nonprofits and first responders. Co-CEOs Tag Greason and David Robey issued the announcement. The commitment was made ahead of the DeForest Village Board zoning application, so it is proposed rather than a signed development agreement.",
+      "summary": "QTS announced an 'initial $50 million community commitment' (QTS's wording; the article does not present it as a total) for Dane County, Wisconsin as it advanced zoning plans for a multibillion-dollar data center campus in the Town of Vienna/DeForest area, funding scholarships and workforce partnerships with Madison Area Technical College, a UW-Madison research partnership, and support for local nonprofits and first responders. Co-CEOs Tag Greason and David Robey issued the announcement. The commitment was made ahead of the DeForest Village Board zoning application, so it is proposed rather than a signed development agreement.",
       "source_url": "https://spectrumnews1.com/wi/milwaukee/news/2025/10/30/qts-data-centers-dane-county",
       "source_title": "Spectrum News 1 — QTS plans to propose multibillion-dollar data center campus in Dane County",
       "related_project_ids": [
         "qts-dane-county-wi"
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-10-21",
       "principles": [
         "community_benefits"
       ],
@@ -3848,15 +3848,15 @@
       "source_title": "KATV — Judge Barry Hyde vetoes data center ordinance"
     },
     {
-      "captured_at": "2026-10-08",
+      "captured_at": "2026-10-21",
       "id": "volusia-county-fl-ban-2026",
-      "title": "Volusia County ordinance prohibiting large-scale data centers (first reading)",
+      "title": "Volusia County ordinance prohibiting large-scale data centers in unincorporated areas",
       "instrument": "local_ordinance",
-      "status": "proposed",
+      "status": "in_effect",
       "scope": "county",
       "jurisdiction": "Volusia County",
       "state_code": "FL",
-      "date": "2026-10-06",
+      "date": "2026-10-20",
       "benefit_themes": [
         "water",
         "energy"
@@ -3866,11 +3866,20 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "large-scale data centers"
+        "large-scale data centers",
+        "adopted an ordinance prohibiting large-scale data centers throughout unincorporated Volusia County",
+        "data centers at a single location with an anticipated monthly peak electrical load of 50 megawatts or more",
+        "The prohibition applies only to unincorporated areas and does not govern land-use decisions within municipalities."
       ],
-      "summary": "Volusia County Council voted unanimously on Oct. 6, 2026 to advance, after first reading, an ordinance prohibiting large-scale data centers in unincorporated areas. The Planning and Land Development Regulation Commission takes it up Oct. 15, with a second and final hearing Oct. 20.",
-      "source_url": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading",
-      "source_title": "Spectrum News 13 — Volusia County data center ban heads to first reading"
+      "summary": "Volusia County Council voted unanimously on Oct. 6, 2026 to advance, after first reading, an ordinance prohibiting large-scale data centers in unincorporated areas. The Planning and Land Development Regulation Commission takes it up Oct. 15, with a second and final hearing Oct. 20. Update: the Volusia County Council adopted the ordinance on Tuesday, October 20, 2026, taking final action, per the county's release posted October 21. The prohibition covers large-scale data centers throughout unincorporated Volusia County, which state law defines as data centers at a single location with an anticipated monthly peak electrical load of 50 megawatts or more; it also applies to proposals to expand or intensify them, and does not govern land use within municipalities. The release does not state an effective date.",
+      "source_url": "https://www.volusia.org/news/news-releases.stml?portalProcess_dd_0_1_1=showPublicEvent&calendar_entry_id=93017",
+      "source_title": "Volusia County — Volusia County Council Takes Final Step to Prohibit Large-Scale Data Centers in Unincorporated Areas (Oct. 21, 2026)",
+      "resources": [
+        {
+          "url": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading",
+          "title": "Spectrum News 13 — Volusia County data center ban heads to first reading"
+        }
+      ]
     },
     {
       "id": "barber-county-ks-google-project-helium-2026",
@@ -4857,6 +4866,36 @@
       "source_url": "https://www.kut.org/energy-environment/2026-06-23/hays-county-tx-data-centers-water-review-board",
       "source_title": "KUT — Hays County to establish new water board and regulatory standards for data centers",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "hayward-ca-council-data-center-prohibition-direction-2026-09",
+      "title": "Hayward City Council direction to staff to start a process prohibiting future data center approvals",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "city",
+      "jurisdiction": "Hayward",
+      "state_code": "CA",
+      "date": "2026-09-15",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "the council voted 7-0 to direct staff to start the process for prohibiting future data center approvals and will revisit the issue in October"
+      ],
+      "summary": "At its Tuesday, September 15, 2026 meeting the Hayward City Council voted 7-0 to direct staff to start the process for prohibiting future data center approvals and said it would revisit the issue in October. The city had announced on August 13 that the council would discuss a potential citywide ban on development of new data centers at that meeting. No ordinance has been adopted in the sources checked; this is a direction to staff, not a moratorium or ban in effect.",
+      "source_url": "https://localnewsmatters.org/2026/09/18/hayward-data-center-moratorium/",
+      "source_title": "Local News Matters — Hayward data center moratorium",
+      "resources": [
+        {
+          "url": "https://hayward-ca.gov/discover/news/aug26/hayward-council-consider-move-ban-data-centers-its-sept-15-meeting",
+          "title": "City of Hayward — Hayward Council to consider move to ban data centers at its Sept. 15 meeting (Aug. 13, 2026)"
+        }
+      ],
+      "captured_at": "2026-10-21"
     }
   ]
 }

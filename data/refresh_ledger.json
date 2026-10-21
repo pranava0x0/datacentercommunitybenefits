@@ -8,10 +8,14 @@
     "company:anthropic": {
       "follow_ups": [
         {
-          "due": "2026-10-20",
-          "what": "Fluidstack TX/NY campuses: has Anthropic or Fluidstack named a town yet? (anthropic.com/news, fluidstack.io/blog)"
+          "due": "2026-11-18",
+          "what": "Fluidstack TX/NY campuses: has a town been named? (not found Oct 21)"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Two first-party claims added from the infrastructure policy page"
+      }
     },
     "company:coreweave": {
       "last_reviewed": "2026-09-27",
@@ -83,6 +87,12 @@
         "reason": "openai.com source returns 403 to fetchers; searches show only Aug 2025 Foxconn/SoftBank news, no 2026 local coverage. Unblock: find Trumbull County / Lordstown village or Vindicator coverage of the plant."
       }
     },
+    "site:prologis-coweta-ga": {
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Rezoning vote date corrected to 2026-04-07"
+      }
+    },
     "site:qts-cedar-rapids-ia": {
       "blocked": {
         "date": "2026-10-18",
@@ -93,6 +103,12 @@
       "blocked": {
         "date": "2026-10-18",
         "reason": "Only FAST-41 dashboard listing and Oct 2025 DEQ item found; RIC5 acreage/MW figures conflict across trackers. Unblock: fetch Henrico County / Army Corps Norfolk District notices."
+      }
+    },
+    "state:AR": {
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Little Rock 18-month pause failed Aug 4 (added)"
       }
     },
     "state:AZ": {
@@ -114,6 +130,10 @@
           "what": "Escondido extension: confirm Oct 7 vote and end date from a fetchable page (city minutes or other outlet)"
         },
         {
+          "due": "2026-11-02",
+          "what": "Hayward October revisit; Oakland/SF 45-day pauses expire late Nov"
+        },
+        {
           "due": "2026-11-21",
           "what": "Oakland 45-day moratorium ends ~Nov 20: extended, permanent rules, or lapsed?"
         },
@@ -127,37 +147,40 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-17",
-        "summary": "2026-10-17: Indio council unanimously extended moratorium (final extension) through Oct 16 2027 per KESQ Oct 7; no permanent ban adopted yet; record already current, captured_at bumped"
+        "date": "2026-10-21",
+        "summary": "Hayward council direction (policy added); SF and Oakland unchanged"
       }
     },
     "state:CO": {
       "follow_ups": [
         {
-          "due": "2026-10-21",
-          "what": "Moffat County: re-check Craig Daily Press for the Oct 13 moratorium decision"
+          "due": "2026-10-27",
+          "what": "Check Aurora council Oct 26 vote on indefinite moratorium"
         },
         {
           "due": "2026-10-29",
           "what": "Colorado PUC evidentiary hearing Oct 21–28 on Xcel's large-load tariff (xcel-colorado-large-load-tariff)"
+        },
+        {
+          "due": "2026-11-04",
+          "what": "Moffat County: commissioners' minutes for the Oct 13 moratorium decision"
         }
       ],
       "last_check": {
-        "date": "2026-10-14",
-        "summary": "Moffat County Oct 13 vote: Craig Daily Press and search show no report of the outcome yet; record not tracked, nothing citable."
+        "date": "2026-10-21",
+        "summary": "Moffat County Oct 13 decision not found"
+      }
+    },
+    "state:DE": {
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Dover 18-month review pause added"
       }
     },
     "state:FL": {
-      "follow_ups": [
-        {
-          "due": "2026-10-21",
-          "what": "Volusia County final hearing Oct 20 on data center ban (volusia-county-fl-ban-2026); Florida SB 484 large-load tariff filings (TECO Sept 30, FPL Oct 1) need PSC docket numbers",
-          "hint": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading"
-        }
-      ],
       "last_check": {
-        "date": "2026-10-14",
-        "summary": "Leon County moratorium adopted unanimously Oct 13, 2026 at second hearing (WCTV); record now enacted."
+        "date": "2026-10-21",
+        "summary": "Volusia ordinance adopted Oct 20 (policy in_effect); Leon unchanged; SB 484 dockets lead"
       }
     },
     "state:GA": {
@@ -189,26 +212,54 @@
     "state:IN": {
       "follow_ups": [
         {
-          "due": "2026-10-20",
-          "what": "Fort Wayne: council reconsiders the 365-day pause on its own actions in mid-October (postponed 3 weeks on Sept 23)"
+          "due": "2026-11-04",
+          "what": "Fort Wayne: council vote outcome on the 365-day pause (not found Oct 21)"
+        }
+      ],
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "I&M Cause 46454 re-verified; Fort Wayne policy no new action found"
+      }
+    },
+    "state:KY": {
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Prosperity One checked: nuclear campus, no data center named"
+      },
+      "follow_ups": [
+        {
+          "due": "2026-11-18",
+          "what": "Prosperity One (Lewis County nuclear, 6.6 GW): any co-located data center or named offtaker?"
         }
       ]
     },
     "state:ME": {
       "last_check": {
-        "date": "2026-10-15",
-        "summary": "Bangor Council voted 8-0 on Sept 28 to add 180 days (WABI); duration_months 12, no exact end date stated."
+        "date": "2026-10-21",
+        "summary": "Bangor extension order still not located"
       },
       "follow_ups": [
         {
-          "due": "2026-10-20",
-          "what": "Bangor moratorium: check bangormaine.gov council agendas/minutes and BDN for extension or LDC amendment vote"
+          "due": "2026-11-04",
+          "what": "Bangor: council order/minutes for the 180-day extension (bangormaine.gov)"
         },
         {
           "due": "2027-03-20",
           "what": "Bangor extended pause nears end (~180 days after April expiry); check for LDC amendment or further extension"
         }
       ]
+    },
+    "state:MI": {
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "SB 1018 unchanged; Schoolcraft Twp lead"
+      }
+    },
+    "state:MN": {
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "HF 4888 unchanged"
+      }
     },
     "state:MO": {
       "last_check": {
@@ -225,11 +276,15 @@
         {
           "due": "2026-11-06",
           "what": "Charlotte: the original 150-day pause expires Nov 5 — was staff's 9-month extension adopted? (charlotte-city-2026-06; the Sept 14 vote outcome was never found)"
+        },
+        {
+          "due": "2026-11-06",
+          "what": "Check Charlotte extension vote"
         }
       ],
       "last_check": {
-        "date": "2026-10-10",
-        "summary": "2026-10-10: Cary 18-month moratorium added (enacted Aug 27 per ABC11). Beaufort NC Oct 5 outcome not found in any outlet (only Sept 14 hearing listing)."
+        "date": "2026-10-21",
+        "summary": "Charlotte extension hearing held Oct 12; vote pending, pause expires Nov 5"
       },
       "blocked": {
         "date": "2026-10-09",
@@ -261,11 +316,15 @@
         {
           "due": "2026-11-04",
           "what": "Nov 3 ballot: ~18 local data-center charter amendments/bans (Ohio Capital Journal Sept 14, Cloudflare-walled), incl. Trenton; and the Butler County 25 MW citizen measure tied to Amazon's $5B plan — record outcomes"
+        },
+        {
+          "due": "2027-01-29",
+          "what": "Cleveland pause end"
         }
       ],
       "last_check": {
-        "date": "2026-10-15",
-        "summary": "Cleveland pause expires Oct 20; extension to Jan 29 2027 introduced Oct 12, votes pending (Cleveland Scene)."
+        "date": "2026-10-21",
+        "summary": "Cleveland extension already recorded; Ohio amendment unchanged"
       }
     },
     "state:OK": {
@@ -283,23 +342,35 @@
     "state:OR": {
       "follow_ups": [
         {
+          "due": "2026-11-02",
+          "what": "Check UE 463 for an order on the stipulation"
+        },
+        {
           "due": "2027-01-01",
           "what": "Oregon PUC deadline Dec 31 on PacifiCorp Schedule 401 (UE 463; Order 26-310 suspended it to Dec 31)"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Forest Grove 120-day moratorium added; Oregon DEQ pause and UE 463 docket re-verified"
+      }
     },
     "state:PA": {
       "last_check": {
-        "date": "2026-10-02",
-        "summary": "Oct 1 PUC meeting: Tentative Order on emergency load control approved; 30-day comments + 15-day replies; Nov 17 technical conference on large-load cost allocation; final order anticipated Jan 28 2027 (PUC press release)."
+        "date": "2026-10-21",
+        "summary": "SB 1359, HB 2496 unchanged"
       }
     },
     "state:TN": {
       "last_check": {
-        "date": "2026-10-16",
-        "summary": "2026-10-16: Crossville 24-month moratorium third reading reported approved Aug 12 2026 (1025wowcountry); no vote date or ordinance number on the page, so not added"
+        "date": "2026-10-21",
+        "summary": "Memphis Ord. 18 (135-day pause) passed 7-5 Oct 20; Shelby County unconfirmed"
       },
       "follow_ups": [
+        {
+          "due": "2026-10-28",
+          "what": "Confirm Memphis mayoral signature/effective date and Shelby County Commission action"
+        },
         {
           "due": "2026-10-30",
           "what": "Crossville moratorium: vote date and ordinance number from city minutes"
@@ -308,10 +379,6 @@
     },
     "state:TX": {
       "follow_ups": [
-        {
-          "due": "2026-10-20",
-          "what": "TCEQ compliance report due Oct 19 on the data center permit pause (texas-state-2026-08)"
-        },
         {
           "due": "2026-10-23",
           "what": "TWDB Oct 14 enforcement report: check for coverage"
@@ -322,17 +389,21 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-16",
-        "summary": "2026-10-16: no coverage yet of the TWDB Oct 14 report to Gov. Abbott; record unchanged"
+        "date": "2026-10-21",
+        "summary": "TCEQ Oct 19 letter added to texas-state-2026-08"
       }
     },
     "state:VA": {
       "follow_ups": [
         {
-          "due": "2026-10-21",
-          "what": "Loudoun County: Board resolution Oct 20 pausing its OWN legislative approvals (NOT a moratorium; see loudoun-county-va-2026-09) — adopted? Update the record's status/summary only."
+          "due": "2026-11-18",
+          "what": "Check Loudoun Nov 17 Board outcome"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Loudoun pause resolution deferred to Nov 17; Spotsylvania Crossroads campus filed as lead"
+      }
     }
   }
 }
