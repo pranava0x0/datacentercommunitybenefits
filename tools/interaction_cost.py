@@ -21,7 +21,7 @@ Devices are measured separately, mobile first, because a path that is one
 screen on a desktop can be five swipes on a phone.
 
     python3 tools/interaction_cost.py              # all devices, writes uat/
-    python3 tools/interaction_cost.py --device mobile --task moratorium_raleigh
+    python3 tools/interaction_cost.py --device mobile --task moratorium_recent
     python3 tools/interaction_cost.py --no-write   # print only
 
 Results: uat/interaction_costs.json (latest run, committed) and one summary
@@ -130,9 +130,13 @@ TASKS: list[Task] = [
     Task("agreement_terms", "What did the most complete signed agreement commit to?",
          [("tap", "#tab-agreements"),
           ("see", "#cba-strongest .cba-card .cba-terms")]),
-    Task("moratorium_raleigh", "What did Raleigh pass, and when?",
+    # The directory sorts enacted records first, newest first, so the top row
+    # is the newest ENACTED moratorium (a newer proposed or failed one sorts
+    # below). Pinning one record (Raleigh) went stale as soon as newer
+    # moratoriums landed above it.
+    Task("moratorium_recent", "What did the newest enacted moratorium do, and when?",
          [("tap", "#tab-moratoriums"),
-          ("tap", '#moratoriums-tbody tr[data-id="raleigh-nc-2026-09"]'),
+          ("tap", "#moratoriums-tbody tr:first-child"),
           ("see", "#md-status")]),
     Task("moratorium_older", "Did Hernando County, FL pass its moratorium?",
          [("tap", "#tab-moratoriums"),

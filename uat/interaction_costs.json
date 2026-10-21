@@ -1,5 +1,5 @@
 {
- "date": "2026-10-19",
+ "date": "2026-10-21",
  "swipe_fraction": 0.75,
  "devices": {
   "mobile": {
@@ -163,24 +163,22 @@
     "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 1,
      "path": [
-      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 1,
      "path": [
-      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
@@ -326,31 +324,29 @@
      ]
     }
    },
-   "moratorium_raleigh": {
-    "question": "What did Raleigh pass, and when?",
+   "moratorium_recent": {
+    "question": "What did the newest enacted moratorium do, and when?",
     "default": {
      "taps": 2,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 4,
+     "total": 2,
      "path": [
       "tap: #tab-moratoriums",
-      "swipe x2",
-      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
      ]
     },
     "expanded": {
      "taps": 2,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 4,
+     "total": 2,
      "path": [
       "tap: #tab-moratoriums",
-      "swipe x2",
-      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
      ]
     }
@@ -685,24 +681,22 @@
     "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 1,
      "path": [
-      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
     },
     "expanded": {
      "taps": 1,
-     "swipes": 2,
+     "swipes": 0,
      "hswipes": 0,
      "types": 0,
-     "total": 3,
+     "total": 1,
      "path": [
-      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
      ]
@@ -846,8 +840,8 @@
      ]
     }
    },
-   "moratorium_raleigh": {
-    "question": "What did Raleigh pass, and when?",
+   "moratorium_recent": {
+    "question": "What did the newest enacted moratorium do, and when?",
     "default": {
      "taps": 2,
      "swipes": 0,
@@ -856,7 +850,7 @@
      "total": 2,
      "path": [
       "tap: #tab-moratoriums",
-      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
      ]
     },
@@ -868,7 +862,7 @@
      "total": 2,
      "path": [
       "tap: #tab-moratoriums",
-      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
      ]
     }
@@ -1358,8 +1352,8 @@
      ]
     }
    },
-   "moratorium_raleigh": {
-    "question": "What did Raleigh pass, and when?",
+   "moratorium_recent": {
+    "question": "What did the newest enacted moratorium do, and when?",
     "default": {
      "taps": 2,
      "swipes": 0,
@@ -1368,7 +1362,7 @@
      "total": 2,
      "path": [
       "tap: #tab-moratoriums",
-      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
      ]
     },
@@ -1380,7 +1374,7 @@
      "total": 2,
      "path": [
       "tap: #tab-moratoriums",
-      "tap: #moratoriums-tbody tr[data-id=\"raleigh-nc-2026-09\"]",
+      "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
      ]
     }

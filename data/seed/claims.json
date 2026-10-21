@@ -2590,7 +2590,7 @@
       "company_slug": "qts",
       "theme": "community_grants",
       "statement": "We were proud to cheer on the Greater Manassas Baseball League team in the World Series last year and were excited to support them again this year. We value our relationships with the Northern Virginia community and were pleased to be able to help these players and their families make the trip.",
-      "source_url": "https://qtsdatacenters.com/news/qts-data-centers-announces-support-of-the-greater-manassas-baseball-league-for-the-second-year-in-a-row/",
+      "source_url": "https://q.com/news/qts-data-centers-announces-support-of-the-greater-manassas-baseball-league-for-the-second-year-in-a-row/",
       "source_title": "QTS — Dave Murray (SVP Community Impact) on Greater Manassas Baseball League sponsorship",
       "captured_at": "2026-05-16",
       "published_at": "2024-08-19",
@@ -4398,6 +4398,24 @@
       "source_url": "https://sustainability.aboutamazon.com/climate-solutions/renewable-energy",
       "source_title": "Amazon Sustainability — Renewable energy",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "anthropic-community-benefit-agreements-policy",
+      "company_slug": "anthropic",
+      "theme": "community_grants",
+      "statement": "We're committing tens of millions of dollars to Community Benefit Agreements for each of Anthropic's data centers around the world, adding up to billions of community investment globally.",
+      "source_url": "https://www.anthropic.com/policy/infrastructure",
+      "source_title": "Anthropic — Infrastructure policy (undated page)",
+      "captured_at": "2026-10-21"
+    },
+    {
+      "id": "anthropic-no-local-tax-incentives-policy",
+      "company_slug": "anthropic",
+      "theme": "tax_revenue",
+      "statement": "We will not accept local tax incentives for any future data center sites.",
+      "source_url": "https://www.anthropic.com/policy/infrastructure",
+      "source_title": "Anthropic — Infrastructure policy (undated page)",
+      "captured_at": "2026-10-21"
     }
   ]
 }

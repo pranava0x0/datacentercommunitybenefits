@@ -280,7 +280,7 @@
      ]
     }
    },
-   "moratorium_raleigh": {
+   "moratorium_recent": {
     "before": {
      "taps": 2,
      "swipes": 2,
@@ -690,7 +690,7 @@
      ]
     }
    },
-   "moratorium_raleigh": {
+   "moratorium_recent": {
     "before": {
      "taps": 2,
      "swipes": 0,
@@ -1094,7 +1094,7 @@
      ]
     }
    },
-   "moratorium_raleigh": {
+   "moratorium_recent": {
     "before": {
      "taps": 2,
      "swipes": 0,
