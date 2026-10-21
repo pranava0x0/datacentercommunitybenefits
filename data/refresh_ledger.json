@@ -8,10 +8,14 @@
     "company:anthropic": {
       "follow_ups": [
         {
-          "due": "2026-10-20",
+          "due": "2026-11-04",
           "what": "Fluidstack TX/NY campuses: has Anthropic or Fluidstack named a town yet? (anthropic.com/news, fluidstack.io/blog)"
         }
-      ]
+      ],
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Re-checked fluidstack.io/blog and search: still no town named for the Anthropic/Fluidstack TX and NY campuses; only DCD inference. No change."
+      }
     },
     "company:coreweave": {
       "last_reviewed": "2026-09-27",
@@ -134,17 +138,17 @@
     "state:CO": {
       "follow_ups": [
         {
-          "due": "2026-10-21",
-          "what": "Moffat County: re-check Craig Daily Press for the Oct 13 moratorium decision"
-        },
-        {
           "due": "2026-10-29",
           "what": "Colorado PUC evidentiary hearing Oct 21–28 on Xcel's large-load tariff (xcel-colorado-large-load-tariff)"
+        },
+        {
+          "due": "2026-11-04",
+          "what": "Moffat County: re-check Craig Daily Press for the Oct 13 moratorium decision"
         }
       ],
       "last_check": {
-        "date": "2026-10-14",
-        "summary": "Moffat County Oct 13 vote: Craig Daily Press and search show no report of the outcome yet; record not tracked, nothing citable."
+        "date": "2026-10-21",
+        "summary": "Craig Daily Press search and web search: still no report of a Moffat County data center moratorium decision. Not tracked."
       }
     },
     "state:FL": {
