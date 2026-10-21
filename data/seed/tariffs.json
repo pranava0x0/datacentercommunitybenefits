@@ -1568,7 +1568,7 @@
       "tariff_name": "Schedule 401 — Service to New Large Energy Use Facilities (Advice No. 25-015)",
       "tariff_type": "Data center / large energy use facility rate class (HB 3546 POWER Act implementation)",
       "status": "proposed",
-      "status_detail": "Docket UE 463 shows status SUSPENDED (under Commission investigation); Order No. 26-310 (Aug. 31, 2026) suspended the tariff sheets' effective date until December 31, 2026. Filed October 2, 2025 as ADV 1790, which the Commission closed December 16, 2025 with all filings moved to UE 463 after AWEC, Amazon and the Data Center Coalition intervened. On September 16, 2026 PacifiCorp filed a motion to admit an executed stipulation among PUC Staff, PacifiCorp, the Citizens' Utility Board and Environmental Intervenors, with joint supporting testimony from Robert Meredith, Bret Stevens, Ryan Tran and Jeremy Fisher. As of September 25, 2026 the docket's own filing log shows no Commission order acting on the stipulation yet; the December 31, 2026 suspension deadline is the next dated step.",
+      "status_detail": "Docket UE 463 shows status SUSPENDED (under Commission investigation); Order No. 26-310 (Aug. 31, 2026) suspended the tariff sheets' effective date until December 31, 2026. Filed October 2, 2025 as ADV 1790, which the Commission closed December 16, 2025 with all filings moved to UE 463 after AWEC, Amazon and the Data Center Coalition intervened. On September 16, 2026 PacifiCorp filed a motion to admit an executed stipulation among PUC Staff, PacifiCorp, the Citizens' Utility Board and Environmental Intervenors, with joint supporting testimony from Robert Meredith, Bret Stevens, Ryan Tran and Jeremy Fisher. As of September 25, 2026 the docket's own filing log shows no Commission order acting on the stipulation yet; the December 31, 2026 suspension deadline is the next dated step. Docket log through October 20, 2026: on October 1 the Data Center Coalition filed a notice of opposition to the stipulation; on October 16 the Stipulating Parties filed a joint brief; on October 19 an ALJ ruling set the deadline for motions to admit testimony and witness declarations; PacifiCorp (October 19) and AWEC (October 20) filed such motions. No order on the stipulation had issued.",
       "regulator": "Public Utility Commission of Oregon (OPUC)",
       "docket_number": "UE 463 (originally ADV 1790 / Advice No. 25-015)",
       "filed_date": "2025-10-02",
@@ -1625,7 +1625,7 @@
           "title": "Oregon PUC media release (UM 2377) — Oregon PUC Approves New Rate Structure to Protect Customers Amid Rapid Data Center Growth (notes UE 463 is under consideration)"
         }
       ],
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-10-21"
     }
   ]
 }

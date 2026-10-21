@@ -2659,11 +2659,23 @@
       "announced_year": 2024,
       "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
       "source_title": "Data Centre Review — Nscale latest to face public backlash over proposed data centre",
-      "captured_at": "2026-10-19",
+      "captured_at": "2026-10-21",
       "source_lang": "en",
       "notes": "Data Centre Review reports the Essex scheme received outline approval in 2024 (announced_year is that year) and that the revised scheme is 50% higher than originally proposed and includes 50% more internal capacity. The final decision lies with Epping Forest District Council. An Nscale spokesperson told The Telegraph it expects construction to begin in Q2 2026 and the site to be operational in Q2 2027.",
       "subdivision": "GB-ENG",
-      "locality": "Loughton, Essex"
+      "locality": "Loughton, Essex",
+      "updates": [
+        {
+          "date": "2026-10-19",
+          "kind": "news",
+          "title": "Microsoft reported to have terminated its contract for the Loughton site",
+          "summary": "Data Center Knowledge reported that Microsoft terminated its contract for Nscale's planned AI data center in Loughton after delays to the expected power connection. An Nscale spokesperson confirmed the termination and said Nscale remains committed to the site and is exploring alternative power sources.",
+          "authority": "Nscale / Microsoft",
+          "upcoming": false,
+          "source_url": "https://www.datacenterknowledge.com/build-design/microsoft-exits-nscale-data-center-deal-over-uk-power-delays",
+          "source_title": "Data Center Knowledge — Nscale Loses Microsoft Deal as Power Delays Threaten AI (Oct. 19, 2026)"
+        }
+      ]
     },
     {
       "id": "fr-segro-le-bourget",
@@ -3452,7 +3464,7 @@
       "offtaker": "Meta",
       "lat": 22.4707,
       "lon": 70.0577,
-      "source_url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+      "source_url": "https://www.ril.com/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
       "source_title": "Reliance Industries — Reliance and Meta to develop AI-enabled data centre in Jamnagar, Gujarat (media release, 10 June 2026)",
       "captured_at": "2026-10-19",
       "source_lang": "en",
@@ -5034,7 +5046,7 @@
       "company_slug": "reliance",
       "theme": "water",
       "statement": "The data center will be powered by renewable energy and cooled with desalinated seawater, demonstrating both RIL's and Meta's commitment to sustainability.",
-      "source_url": "https://rilstaticasset.akamaized.net/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
+      "source_url": "https://www.ril.com/sites/default/files/2026-06/10062026_MR_Reliance_and_Meta_to_Develop_AI-Enabled_Data_Centre_in_Jamnagar_Gujarat.pdf",
       "source_title": "Reliance Industries — media release, 10 June 2026",
       "captured_at": "2026-10-19",
       "published_at": "2026-06-10",

@@ -1520,10 +1520,10 @@
       "claimed_investment_usd": null,
       "claimed_jobs": null,
       "notes": "100+ acre campus at 10680 University Blvd, Prince William County, adjacent to existing QTS Manassas data centers. QTS is also the named developer behind the controversial Prince William Digital Gateway (PWDG) — a ~2,139-acre rezoning approved by Prince William supervisors November 2022 after a 27-hour debate. PWDG faces ongoing litigation; the Virginia Court of Appeals ruled in favor of plaintiffs (Oak Valley HOA, American Battlefield Trust); QTS filed an 11th-hour appeal.",
-      "source_url": "https://qtsdatacenters.com/data-centers/pwdg",
-      "source_title": "Prince William Digital Gateway - QTS Data Centers",
+      "source_url": "https://q.com/data-centers/manassas/",
+      "source_title": "Manassas - QTS Data Centers",
       "captured_at": "2026-07-15",
-      "project_page_url": "https://qtsdatacenters.com/data-centers/manassas/",
+      "project_page_url": "https://q.com/data-centers/manassas/",
       "acreage": 100,
       "power_mw": 190,
       "gpu_count": null,
@@ -2298,7 +2298,7 @@
       "source_url": "https://www.utahbusiness.com/press-releases/2026/04/20/layton-construction-qts-data-centers-campus-eagle-mountain/",
       "source_title": "Utah Business — QTS Eagle Mountain topping out (Apr 20 2026)",
       "captured_at": "2026-05-16",
-      "project_page_url": "https://qtsdatacenters.com/data-centers/eagle-mountain/",
+      "project_page_url": "https://q.com/data-centers/eagle-mountain/",
       "acreage": 193,
       "offtaker": "QTS",
       "at_a_glance": {
@@ -3727,10 +3727,10 @@
       "announced_year": 2025,
       "claimed_investment_usd": 17000000000,
       "claimed_jobs": null,
-      "notes": "832-acre, 9-building, 4.34M sq ft data-center campus ~45 miles south of Atlanta. Sited deliberately near Georgia Power's Plant Yates; load to be served via the DOE-loan-funded Plant Wansley + new Ashley Park-Wansley 500 kV transmission line (the same line at issue in the May 2026 eminent-domain disputes against Fayette and Coweta County homeowners). Coweta County rezoning approved 3-2 on 2026-04-10; 17-plaintiff residents lawsuit (Citizens for Rural Coweta) filed 2026-05-05 in Coweta County Superior Court. Tenant not yet publicly disclosed. Up to 9 million gallons/day projected water draw. Prologis estimates $100M tax revenue over 10 years.",
+      "notes": "832-acre, 9-building, 4.34M sq ft data-center campus ~45 miles south of Atlanta. Sited deliberately near Georgia Power's Plant Yates; load to be served via the DOE-loan-funded Plant Wansley + new Ashley Park-Wansley 500 kV transmission line (the same line at issue in the May 2026 eminent-domain disputes against Fayette and Coweta County homeowners). Coweta County rezoning approved 3-2 on 2026-04-07 (Times-Herald dated Apr. 7 reports the vote 'Tuesday night'; earlier record said 04-10); 17-plaintiff residents lawsuit (Citizens for Rural Coweta) filed 2026-05-05 in Coweta County Superior Court. Tenant not yet publicly disclosed. Up to 9 million gallons/day projected water draw. Prologis estimates $100M tax revenue over 10 years.",
       "source_url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
       "source_title": "AJC — A new group steps in to develop $17B Project Sail data center near Atlanta",
-      "captured_at": "2026-05-17",
+      "captured_at": "2026-10-21",
       "acreage": 832,
       "power_mw": 900,
       "offtaker": null,
@@ -5030,7 +5030,7 @@
       "notes": "OpenAI-owned and -developed (not leased from Oracle/CoreWeave/Crusoe, unlike OpenAI's other Stargate-family sites) campus within the 2,600-acre Savannah Gateway Industrial Hub, near Rincon, ~25 miles NW of Savannah. Effingham County leaders value the project at $20B; OpenAI's VP of Compute Strategy reportedly estimates $30B+ at full buildout (per Bloomberg, not independently confirmed). 25-year power supply agreement with Georgia Power for 3.2 GW delivered in phases 2028-2032. Closed-loop water cooling system. First-party announcement (openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/) consistently 403'd on direct fetch across multiple attempts -- facts here are corroborated across 5+ independently-named outlets (DCD, GPB, TechRadar, Energy Digital, MLQ News) rather than a single direct read. See BACKLOG.md for the pending verbatim-quote follow-up.",
       "source_url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/",
       "source_title": "OpenAI -- Building AI infrastructure with the Effingham County community",
-      "captured_at": "2026-07-27",
+      "captured_at": "2026-10-21",
       "power_mw": 3200,
       "offtaker": "OpenAI",
       "at_a_glance": {
@@ -5064,7 +5064,29 @@
             "note": "Closed-loop cooling is reported; nothing published on grid or community resilience contributions."
           }
         }
-      }
+      },
+      "updates": [
+        {
+          "date": "2026-08-27",
+          "kind": "news",
+          "title": "Georgia PSC reported to have approved Georgia Power-OpenAI contract",
+          "summary": "WSB-TV, dated Aug. 27, 2026, reported that the commission approved the contract and that utility officials announced it 'Wednesday'. The contract includes up to 1,000 MW of flexible demand response and says OpenAI pays the full cost of the infrastructure and electric service.",
+          "authority": "Georgia Public Service Commission",
+          "upcoming": false,
+          "source_url": "https://www.wsbtv.com/news/local/utility-officials-approve-georgia-power-openai-data-center-agreement/4NP2SSOKQNFUBJOQZJYMHRYTRU/",
+          "source_title": "WSB-TV — Utility officials approve Georgia Power, OpenAI data center agreement (Aug. 27, 2026)"
+        },
+        {
+          "date": "2026-09-21",
+          "kind": "lawsuit",
+          "title": "SELC sues Effingham County Industrial Development Authority over open-government laws",
+          "summary": "On behalf of One Hundred Miles and residents, SELC alleges the Authority violated Georgia's Open Meetings Act and Open Records Act while advancing Project Camellia.",
+          "authority": "Effingham County Industrial Development Authority",
+          "upcoming": false,
+          "source_url": "https://www.selc.org/press-release/residents-conservation-groups-sue-effingham-county-development-authority-over-secretive-approval-of-openai-data-center/",
+          "source_title": "Southern Environmental Law Center — Residents, conservation groups sue Effingham County Development Authority over secretive approval of OpenAI data center (Sept. 21, 2026)"
+        }
+      ]
     },
     {
       "id": "prologis-san-jose-ca",

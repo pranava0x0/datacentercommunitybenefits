@@ -525,7 +525,7 @@
     },
     {
       "id": "dane-county-wi-qts-community-commitment-2025",
-      "title": "QTS $50 million Dane County community commitment",
+      "title": "QTS initial $50 million Dane County community commitment",
       "instrument": "company_plan",
       "status": "proposed",
       "scope": "county",
@@ -549,13 +549,13 @@
         "QTS said that $50 million would \"support local initiatives that strengthen education, workforce development, housing and other critical needs across Dane County.\" QTS also promised to fund scholarships and develop workforce partnerships with Madison Area Technical College.",
         "QTS said that if it does come to Dane County, it would want to work with Wisconsin Technology Council, specifically \"contributing toward the Wisconsin Frontier Technology Platform-an initiative designed to accelerate the state's tech ecosystem.\" QTS said it would also support local nonprofits and first responders."
       ],
-      "summary": "QTS announced a $50 million community commitment for Dane County, Wisconsin as it advanced zoning plans for a multibillion-dollar data center campus in the Town of Vienna/DeForest area, funding scholarships and workforce partnerships with Madison Area Technical College, a UW-Madison research partnership, and support for local nonprofits and first responders. Co-CEOs Tag Greason and David Robey issued the announcement. The commitment was made ahead of the DeForest Village Board zoning application, so it is proposed rather than a signed development agreement.",
+      "summary": "QTS announced an 'initial $50 million community commitment' (QTS's wording; the article does not present it as a total) for Dane County, Wisconsin as it advanced zoning plans for a multibillion-dollar data center campus in the Town of Vienna/DeForest area, funding scholarships and workforce partnerships with Madison Area Technical College, a UW-Madison research partnership, and support for local nonprofits and first responders. Co-CEOs Tag Greason and David Robey issued the announcement. The commitment was made ahead of the DeForest Village Board zoning application, so it is proposed rather than a signed development agreement.",
       "source_url": "https://spectrumnews1.com/wi/milwaukee/news/2025/10/30/qts-data-centers-dane-county",
       "source_title": "Spectrum News 1 — QTS plans to propose multibillion-dollar data center campus in Dane County",
       "related_project_ids": [
         "qts-dane-county-wi"
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-10-21",
       "principles": [
         "community_benefits"
       ],
@@ -751,19 +751,27 @@
         "A future 'Georgia Community Compact' will translate community priorities into specific commitments with an annual independent public audit",
         "$20 billion, four-building campus at the Savannah Gateway Industrial Hub near Rincon"
       ],
-      "summary": "OpenAI announced $80 million in community benefits (schools, public safety, healthcare, workforce training, housing, veterans services, small business support) plus up to $71 million in Codex credits for Georgia students, tied to its $20 billion 'Project Camellia' data center campus near Rincon in Effingham County. OpenAI commits to paying the full cost of the 3.2 GW Georgia Power infrastructure so residential rates don't rise, and plans a forthcoming 'Georgia Community Compact' with an annual independent audit to formalize specific commitments — meaning the framework is announced but not yet a finalized, itemized agreement.",
+      "summary": "OpenAI announced $80 million in community benefits (schools, public safety, healthcare, workforce training, housing, veterans services, small business support) plus up to $71 million in Codex credits for Georgia students, tied to its $20 billion 'Project Camellia' data center campus near Rincon in Effingham County. OpenAI commits to paying the full cost of the 3.2 GW Georgia Power infrastructure so residential rates don't rise, and plans a forthcoming 'Georgia Community Compact' with an annual independent audit to formalize specific commitments, so the framework is announced but not yet a finalized, itemized agreement. Later developments: WSB-TV reported on August 27, 2026 that the Georgia Public Service Commission approved the Georgia Power-OpenAI contract, which includes up to 1,000 MW of flexible demand response; on September 21, 2026 the Southern Environmental Law Center sued the Effingham County Industrial Development Authority on behalf of One Hundred Miles and residents, alleging Open Meetings Act and Open Records Act violations.",
       "source_url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community/",
       "source_title": "OpenAI — Building AI infrastructure with the Effingham County community",
       "resources": [
         {
           "url": "https://thecurrentga.org/2026/07/22/20-billion-openai-data-center-to-open-in-effingham-county/",
           "title": "The Current GA — $20 billion OpenAI data center to open in Effingham County"
+        },
+        {
+          "url": "https://www.wsbtv.com/news/local/utility-officials-approve-georgia-power-openai-data-center-agreement/4NP2SSOKQNFUBJOQZJYMHRYTRU/",
+          "title": "WSB-TV — Utility officials approve Georgia Power, OpenAI data center agreement (Aug. 27, 2026)"
+        },
+        {
+          "url": "https://www.selc.org/press-release/residents-conservation-groups-sue-effingham-county-development-authority-over-secretive-approval-of-openai-data-center/",
+          "title": "Southern Environmental Law Center — Residents, conservation groups sue Effingham County Development Authority over secretive approval of OpenAI data center (Sept. 21, 2026)"
         }
       ],
       "related_project_ids": [
         "openai-effingham-county-ga"
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-10-21",
       "principles": [
         "community_benefits"
       ],
@@ -3848,15 +3856,15 @@
       "source_title": "KATV — Judge Barry Hyde vetoes data center ordinance"
     },
     {
-      "captured_at": "2026-10-08",
+      "captured_at": "2026-10-21",
       "id": "volusia-county-fl-ban-2026",
-      "title": "Volusia County ordinance prohibiting large-scale data centers (first reading)",
+      "title": "Volusia County ordinance prohibiting large-scale data centers in unincorporated areas",
       "instrument": "local_ordinance",
-      "status": "proposed",
+      "status": "in_effect",
       "scope": "county",
       "jurisdiction": "Volusia County",
       "state_code": "FL",
-      "date": "2026-10-06",
+      "date": "2026-10-20",
       "benefit_themes": [
         "water",
         "energy"
@@ -3866,11 +3874,20 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "large-scale data centers"
+        "large-scale data centers",
+        "adopted an ordinance prohibiting large-scale data centers throughout unincorporated Volusia County",
+        "data centers at a single location with an anticipated monthly peak electrical load of 50 megawatts or more",
+        "The prohibition applies only to unincorporated areas and does not govern land-use decisions within municipalities."
       ],
-      "summary": "Volusia County Council voted unanimously on Oct. 6, 2026 to advance, after first reading, an ordinance prohibiting large-scale data centers in unincorporated areas. The Planning and Land Development Regulation Commission takes it up Oct. 15, with a second and final hearing Oct. 20.",
-      "source_url": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading",
-      "source_title": "Spectrum News 13 — Volusia County data center ban heads to first reading"
+      "summary": "Volusia County Council voted unanimously on Oct. 6, 2026 to advance, after first reading, an ordinance prohibiting large-scale data centers in unincorporated areas. The Planning and Land Development Regulation Commission takes it up Oct. 15, with a second and final hearing Oct. 20. Update: the Volusia County Council adopted the ordinance on Tuesday, October 20, 2026, taking final action, per the county's release posted October 21. The prohibition covers large-scale data centers throughout unincorporated Volusia County, which state law defines as data centers at a single location with an anticipated monthly peak electrical load of 50 megawatts or more; it also applies to proposals to expand or intensify them, and does not govern land use within municipalities. The release does not state an effective date.",
+      "source_url": "https://www.volusia.org/news/news-releases.stml?portalProcess_dd_0_1_1=showPublicEvent&calendar_entry_id=93017",
+      "source_title": "Volusia County — Volusia County Council Takes Final Step to Prohibit Large-Scale Data Centers in Unincorporated Areas (Oct. 21, 2026)",
+      "resources": [
+        {
+          "url": "https://mynews13.com/fl/orlando/news/2026/10/06/volusia-county-data-center-ban-heads-to-first-reading",
+          "title": "Spectrum News 13 — Volusia County data center ban heads to first reading"
+        }
+      ]
     },
     {
       "id": "barber-county-ks-google-project-helium-2026",
@@ -4726,7 +4743,7 @@
       "id": "fort-wayne-in-council-datacenter-pause-2026-09",
       "title": "Fort Wayne council ordinances to pause its own data center actions for one year",
       "instrument": "local_ordinance",
-      "status": "proposed",
+      "status": "failed",
       "scope": "city",
       "jurisdiction": "Fort Wayne",
       "state_code": "IN",
@@ -4743,10 +4760,16 @@
         "Booker emphasized that the moratorium on data centers would restrict only the council's actions, leaving city economic development and planning officials free to work with companies interested in Fort Wayne.",
         "It will not affect the already operational data center."
       ],
-      "summary": "On September 8, 2026 Fort Wayne's City Council saw the introduction of two ordinances from Councilwoman Rohli Booker for a one-year pause on data centers, plus an advisory board for large developments. Booker said the pause would restrict only the council's own actions, leaving city economic development and planning officials free to work with companies, and would not affect the already operational data center. It does not bind private development, so it is filed as a policy, not a moratorium. The final vote was not found.",
+      "summary": "On September 8, 2026 Fort Wayne City Councilwoman Rohli Booker introduced two ordinances: a one-year pause on data centers and a body to evaluate the environmental and community impact of hyperscale developments. Booker said the pause would restrict only the council's own actions, leaving city economic development and planning officials free to work with companies, and would not affect the already operational data center. WBOI reported on October 14, 2026 that the commission ordinance failed three votes to five and the moratorium ordinance failed in a 4-4 tie; both had been tabled since September. The article, dated Wednesday, October 14, places the votes on 'Tuesday night', which is October 13, 2026. It does not bind private development, so it is filed as a policy, not a moratorium.",
       "source_url": "https://www.journalgazette.net/local/local-government/councilwoman-proposes-pause-on-new-fort-wayne-data-centers-board-for-large-developments/article_f14cc4f9-5797-4cd1-99be-12ca5cc4e918.html",
       "source_title": "Journal Gazette — Councilwoman proposes pause on new Fort Wayne data centers, board for large developments",
-      "captured_at": "2026-10-19"
+      "captured_at": "2026-10-21",
+      "resources": [
+        {
+          "url": "https://www.wboi.org/government/2026-10-14/fort-wayne-city-council-nixes-data-center-moratorium",
+          "title": "WBOI — Fort Wayne City Council nixes data center moratorium (Oct. 14, 2026)"
+        }
+      ]
     },
     {
       "id": "morton-county-nd-datacenter-ordinance-2026-08",
@@ -4857,6 +4880,73 @@
       "source_url": "https://www.kut.org/energy-environment/2026-06-23/hays-county-tx-data-centers-water-review-board",
       "source_title": "KUT — Hays County to establish new water board and regulatory standards for data centers",
       "captured_at": "2026-10-19"
+    },
+    {
+      "id": "chicago-il-executive-order-2026-5",
+      "title": "Chicago Executive Order No. 2026-5 — enhanced review of data centers",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Chicago",
+      "state_code": "IL",
+      "identifier": "Executive Order No. 2026-5",
+      "date": "2026-08-11",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "environmental_review",
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "calling on the Chicago City Council to enact a temporary moratorium on new data centers and the material expansion of existing facilities",
+        "The order took effect immediately upon publication",
+        "Recommendations and draft regulatory language are due to the mayor on or before March 15, 2027"
+      ],
+      "summary": "Mayor Brandon Johnson signed Executive Order No. 2026-5 on August 11, 2026, directing city departments to strengthen oversight of data center development: stricter air pollution permit conditions, a review of noise rules and enhanced planned development review. A task force is to deliver recommendations and draft regulatory language by March 15, 2027. The order calls on the City Council to enact a temporary moratorium; it is not itself a pause. This summary rests on a law-firm account of the order; the city's own text was not retrievable.",
+      "source_url": "https://www.gtlaw.com/ar/insights/2026/8/chicago-mayor-signs-city-executive-order-creating-enhanced-regulatory-review-for-data-centers-calls-for-temporary-moratorium",
+      "source_title": "Greenberg Traurig — Chicago mayor signs executive order creating enhanced regulatory review for data centers, calls for temporary moratorium",
+      "resources": [
+        {
+          "url": "https://www.govtech.com/artificial-intelligence/chicago-mayor-proposes-data-center-moratorium-for-city",
+          "title": "GovTech (Chicago Tribune/TNS) — Chicago Mayor Proposes Data Center Moratorium for City (Sept. 23, 2026)"
+        }
+      ],
+      "related_moratorium_id": "chicago-city-il-2026-09",
+      "captured_at": "2026-10-21"
+    },
+    {
+      "id": "memphis-tn-mayor-eo-data-center-review-2026-10",
+      "title": "Memphis mayor's executive order for a 90-day data center policy review",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Memphis",
+      "state_code": "TN",
+      "identifier": "Mayor's executive order (number not stated)",
+      "date": "2026-10-09",
+      "benefit_themes": [
+        "infrastructure",
+        "energy",
+        "water",
+        "engagement"
+      ],
+      "principles": [
+        "study",
+        "environmental_review"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The executive order requires at least three community education sessions, including a written public comment period",
+        "The order also directs the City's Engineering Department to incorporate an extended review period of at least five business days into its permitting process during the study.",
+        "The executive order does not suspend, delay, restrict, or interfere with Council action."
+      ],
+      "summary": "Mayor Paul Young announced on October 9, 2026 an executive order establishing a 90-day expert study on regulating large and hyperscale data centers, covering land use, infrastructure, air quality, water, energy and utility costs, and noise. The order adds a permit review period of at least five business days for the Engineering Department and requires three community sessions. It runs alongside the City Council's moratorium ordinances and does not pause permits or Council action.",
+      "source_url": "https://memphistn.gov/mayor-paul-young-strengthens-data-center-protections-90-day-policy-review/",
+      "source_title": "City of Memphis — Mayor Paul Young Takes Action to Strengthen Data Center Protections, Orders 90-Day Policy Review (Oct. 9, 2026)",
+      "related_moratorium_id": "memphis-city-2026-10",
+      "captured_at": "2026-10-21"
     }
   ]
 }
