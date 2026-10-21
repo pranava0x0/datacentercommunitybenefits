@@ -4882,36 +4882,6 @@
       "captured_at": "2026-10-19"
     },
     {
-      "id": "hayward-ca-council-data-center-prohibition-direction-2026-09",
-      "title": "Hayward City Council direction to staff to start a process prohibiting future data center approvals",
-      "instrument": "local_ordinance",
-      "status": "proposed",
-      "scope": "city",
-      "jurisdiction": "Hayward",
-      "state_code": "CA",
-      "date": "2026-09-15",
-      "benefit_themes": [
-        "engagement"
-      ],
-      "principles": [
-        "local_control"
-      ],
-      "community_benefits_framework": false,
-      "key_terms": [
-        "the council voted 7-0 to direct staff to start the process for prohibiting future data center approvals and will revisit the issue in October"
-      ],
-      "summary": "At its Tuesday, September 15, 2026 meeting the Hayward City Council voted 7-0 to direct staff to start the process for prohibiting future data center approvals and said it would revisit the issue in October. The city had announced on August 13 that the council would discuss a potential citywide ban on development of new data centers at that meeting. No ordinance has been adopted in the sources checked; this is a direction to staff, not a moratorium or ban in effect.",
-      "source_url": "https://localnewsmatters.org/2026/09/18/hayward-data-center-moratorium/",
-      "source_title": "Local News Matters — Hayward data center moratorium",
-      "resources": [
-        {
-          "url": "https://hayward-ca.gov/discover/news/aug26/hayward-council-consider-move-ban-data-centers-its-sept-15-meeting",
-          "title": "City of Hayward — Hayward Council to consider move to ban data centers at its Sept. 15 meeting (Aug. 13, 2026)"
-        }
-      ],
-      "captured_at": "2026-10-21"
-    },
-    {
       "id": "chicago-il-executive-order-2026-5",
       "title": "Chicago Executive Order No. 2026-5 — enhanced review of data centers",
       "instrument": "executive_order",
@@ -4975,12 +4945,6 @@
       "summary": "Mayor Paul Young announced on October 9, 2026 an executive order establishing a 90-day expert study on regulating large and hyperscale data centers, covering land use, infrastructure, air quality, water, energy and utility costs, and noise. The order adds a permit review period of at least five business days for the Engineering Department and requires three community sessions. It runs alongside the City Council's moratorium ordinances and does not pause permits or Council action.",
       "source_url": "https://memphistn.gov/mayor-paul-young-strengthens-data-center-protections-90-day-policy-review/",
       "source_title": "City of Memphis — Mayor Paul Young Takes Action to Strengthen Data Center Protections, Orders 90-Day Policy Review (Oct. 9, 2026)",
-      "resources": [
-        {
-          "url": "https://memphistn.gov/news/",
-          "title": "City of Memphis — news index (Oct. 9, 2026 entry)"
-        }
-      ],
       "related_moratorium_id": "memphis-city-2026-10",
       "captured_at": "2026-10-21"
     }

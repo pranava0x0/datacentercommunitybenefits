@@ -130,9 +130,11 @@ TASKS: list[Task] = [
     Task("agreement_terms", "What did the most complete signed agreement commit to?",
          [("tap", "#tab-agreements"),
           ("see", "#cba-strongest .cba-card .cba-terms")]),
-    # The newest record, whichever it is: pinning one record (Raleigh) went
-    # stale as soon as newer moratoriums landed above it.
-    Task("moratorium_recent", "What did the newest moratorium do, and when?",
+    # The directory sorts enacted records first, newest first, so the top row
+    # is the newest ENACTED moratorium (a newer proposed or failed one sorts
+    # below). Pinning one record (Raleigh) went stale as soon as newer
+    # moratoriums landed above it.
+    Task("moratorium_recent", "What did the newest enacted moratorium do, and when?",
          [("tap", "#tab-moratoriums"),
           ("tap", "#moratoriums-tbody tr:first-child"),
           ("see", "#md-status")]),

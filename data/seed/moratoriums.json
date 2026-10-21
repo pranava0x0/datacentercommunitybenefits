@@ -5630,10 +5630,14 @@
       "duration_description": "135 days (Ordinance 18 as amended on the floor Oct. 20, 2026); the year-long Ordinance 19 failed. The earlier draft v3 provided up to 12 months. Effective date not stated in the source.",
       "power_threshold_mw": null,
       "key_reasons": [],
-      "summary": "On October 20, 2026 the Memphis City Council voted down Ordinance 19, the year-long moratorium on accepting, processing and approving data center zoning, land-use and building applications, and instead passed Ordinance 18, amended on the floor, which establishes a 135-day moratorium along with regulations for the siting, initial development, construction, expansion, alteration and operation of data centers; WREG reports the vote as 7 yes, 5 no (its story was corrected to say the 135-day pause passed). Council members J.B. Smiley and Jerri Green said they had received the amended Ordinance 18 only just before the meeting. Mayor Paul Young issued a 90-day executive order the day after the October 6 meeting to study and recommend guardrails for data centers. A mayoral signature and effective date are not stated in the report, and only one outlet's account was verified. Earlier record (as of Oct. 7): The Memphis City Council postponed its vote on a proposed temporary data center moratorium to October 20, 2026, at its October 6 meeting. The draft ordinance would let the city continue to accept applications only for docketing and completeness review, while not processing, scheduling, hearing, approving or issuing rezonings, planned developments, special or conditional use permits, site plans, building, grading or land-disturbance permits, or other discretionary land-use approvals for new data centers and high-density computing facilities. It lasts up to 12 months or until comprehensive zoning regulations are adopted, and exempts existing lawfully operating facilities that do not expand, and applications legally vested before introduction.",
-      "source_url": "https://wreg.com/news/city-council-to-vote-on-data-center-moratorium-tuesday/amp/",
-      "source_title": "WREG — City Council rejects data center moratorium, chooses shorter pause",
+      "summary": "On October 20, 2026 the Memphis City Council voted down Ordinance 19, the year-long moratorium on accepting, processing and approving data center zoning, land-use and building applications, and instead passed Ordinance 18, amended on the floor, which establishes a 135-day moratorium along with regulations for the siting, initial development, construction, expansion, alteration and operation of data centers; WREG reports the vote as 7 yes, 5 no (its story was corrected to say the 135-day pause passed). Council members J.B. Smiley and Jerri Green said they had received the amended Ordinance 18 only just before the meeting. Mayor Paul Young issued a 90-day executive order (city release dated October 9) to study and recommend guardrails for data centers. A mayoral signature and effective date are not stated in the report, and only one outlet's account was verified. Earlier record (as of Oct. 7): The Memphis City Council postponed its vote on a proposed temporary data center moratorium to October 20, 2026, at its October 6 meeting. The draft ordinance would let the city continue to accept applications only for docketing and completeness review, while not processing, scheduling, hearing, approving or issuing rezonings, planned developments, special or conditional use permits, site plans, building, grading or land-disturbance permits, or other discretionary land-use approvals for new data centers and high-density computing facilities. It lasts up to 12 months or until comprehensive zoning regulations are adopted, and exempts existing lawfully operating facilities that do not expand, and applications legally vested before introduction. Action News 5 (Oct. 20) independently reports the council 'passed an ordinance that calls for a 135-day pause on the permitting process for data centers', sponsored by Councilman Jeff Warren and Councilwoman Rhonda Logan, with Easter-Thomas, Green, Smiley, Walker and Swearengen-Washington voting no and Cooper-Sutton absent.",
+      "source_url": "https://www.actionnews5.com/2026/10/21/memphians-react-failed-data-center-moratorium/",
+      "source_title": "Action News 5 — Memphians react to failed data center moratorium (Oct. 20, 2026)",
       "resources": [
+        {
+          "url": "https://wreg.com/news/city-council-to-vote-on-data-center-moratorium-tuesday/amp/",
+          "title": "WREG — City Council rejects data center moratorium, chooses shorter pause"
+        },
         {
           "url": "https://memphistn.gov/wp-content/uploads/2026/08/Data-Center-Temporary-Moratorium-Ordinance-v3.pdf",
           "title": "City of Memphis — Data Center Temporary Moratorium Ordinance (draft v3; ordinance number blank)"
@@ -5647,7 +5651,11 @@
       "city_council_vote": "Ordinance 18 (135-day moratorium, amended on the floor) passed 7-5 on Oct. 20, 2026; Ordinance 19 (year-long) failed",
       "session": "2026",
       "captured_at": "2026-10-21",
-      "enacted_by": "City Council"
+      "enacted_by": "City Council",
+      "sponsors": [
+        "Jeff Warren",
+        "Rhonda Logan"
+      ]
     },
     {
       "id": "davidson-county-nc-2026-09",
@@ -6776,7 +6784,9 @@
       "summary": "On Monday, October 12, 2026 the Dover, Delaware City Council unanimously approved an 18-month moratorium introduced by Councilwoman Donyale Hall, the first of its kind in Delaware. Spotlight Delaware describes the ordinance as pausing the city's official review of proposals for large energy-use facilities, including data centers that use more than 30 megawatts of electricity (the headline and lede call it a moratorium on construction). During the pause, city officials will research the effects of data centers on the city, whether they should be allowed and how to regulate them. Hall: 'This is not a \"no\" to data centers. This is, we need to figure it out before we can say, \"yes.\"' Effective date not stated.",
       "source_url": "https://spotlightdelaware.org/2026/10/13/in-a-first-for-delaware-dover-passes-a-moratorium-on-data-center-development/",
       "source_title": "Spotlight Delaware — In a first for Delaware, Dover passes moratorium on data center development",
-      "sponsors": null
+      "sponsors": [
+        "Donyale Hall"
+      ]
     },
     {
       "key_reasons": [
@@ -6793,7 +6803,9 @@
       "duration_description": "18 months (as proposed).",
       "failure_reason": "The Little Rock Board of Directors voted against the 18-month moratorium on Aug. 4, 2026, leaving the city's existing data center regulations, including the ordinance adopted earlier in summer 2026, in place.",
       "city_council_vote": "Voted down Aug. 4, 2026 (tally not verified)",
-      "sponsors": null,
+      "sponsors": [
+        "Kathy Webb"
+      ],
       "policy_type": "proposed pause on new hyperscale data center projects",
       "summary": "On Tuesday, August 4, 2026 the Little Rock Board of Directors voted against an 18-month moratorium on new hyperscale data centers proposed by Director Kathy Webb, who argued the city moved too quickly in approving its first data center ordinance earlier in summer 2026. The pause would have given the city time to study impacts on water resources, emergency services and surrounding neighborhoods, and would have covered Google's planned data center near Sweet Home; an earlier six-month proposal exempting that project was not the one voted on.",
       "source_url": "https://katv.com/news/board-votes-down-18-month-pause-on-hyperscale-data-centers-in-little-rock-sweet-home-google-ordinances-land-use-permitting-large-scale-developments-regulations-emergency-services-water-resources-surrounding-neighborhoods",
@@ -6828,7 +6840,9 @@
       "status": "proposed",
       "duration_description": "Indefinite; no end date proposed. Council vote rescheduled from the October 19 special meeting to the October 26, 2026 regular meeting (6 p.m.).",
       "policy_type": "proposed indefinite moratorium on accepting new data center applications",
-      "sponsors": null,
+      "sponsors": [
+        "Amy Wiles"
+      ],
       "summary": "Councilmember Amy Wiles proposed an indefinite moratorium on accepting any new data center applications in Aurora, Colorado. Mayor Mike Coffman called a special meeting for Monday, October 19, 2026, then rescheduled the vote to the next regular meeting at 6 p.m. October 26 because two councilmembers could not attend; he wrote that without their votes passage is unlikely. The Trident Data Center application (Vantage Data Centers) would not be affected because it was already submitted. Coffman: 'We must take a pause to prevent any further requests for data center applications until we have the right policies in place.' An earlier six-month proposal failed on August 10 (aurora-co-2026-08).",
       "source_url": "https://www.denvergazette.com/2026/10/19/aurora-meeting-on-data-center-moratorium-delayed/",
       "source_title": "Denver Gazette — Aurora meeting on data center moratorium delayed"
@@ -6857,7 +6871,13 @@
       "policy_type": "One-year moratorium ordinance (proposed)",
       "enacted_by": null,
       "session": "2026",
-      "captured_at": "2026-10-21"
+      "captured_at": "2026-10-21",
+      "sponsors": [
+        "Mayor Brandon Johnson",
+        "Ald. Maria Hadden",
+        "Ald. Lamont Robinson",
+        "Ald. Leni Manaa-Hoppenworth"
+      ]
     }
   ]
 }
