@@ -281,7 +281,8 @@ come first, then locations, companies and sites.
   instrument, so the record was held after review. Add it once an ordinance is
   introduced or adopted; the council said it would revisit the issue in October.
 - (2026-10-21) Hayward Oct revisit; Lake Elsinore; San Jose Prologis: Hayward
-  council said it would revisit in October (policy record added). Lake
+  council said it would revisit in October (record held; see the lead
+  above). Lake
   Elsinore extension: nothing found. Prologis San Jose (99 MW, July 12 blog)
   unchanged.
 - El Monte (Moratorium Nation).
