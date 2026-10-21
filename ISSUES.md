@@ -126,12 +126,11 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Records
-(12 records)
+(11 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
 - **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 29 days ago
 - **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 29 days ago
-- **effingham-county-ga-openai-camellia-community-benefits-2026** (policy, Effingham County, GA (Rincon)): captured 2026-09-23, 28 days ago
 - **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 28 days ago
 - **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 26 days ago
 - **xcel-colorado-large-load-tariff** (tariff, CO): captured 2026-09-25, 26 days ago

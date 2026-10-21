@@ -25,6 +25,18 @@
       "last_reviewed": "2026-09-29",
       "summary": "Checked the Abilene community page (jobs/tax/water figures unchanged) and newsroom. Confirmed crusoe-cheyenne-wy's operator handoff to Google (Project Tembo, Jupiter Star Holdings LLC, 2.7GW/716ac) and updated power_mw + notes; company_slug migration to google deferred as a lead. Added one new site, crusoe-warrenton-mo (announced, tax-abatement sourced)."
     },
+    "country:GB": {
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Oct 21: Microsoft terminated Nscale Loughton contract (DCK, Oct 19)."
+      },
+      "follow_ups": [
+        {
+          "due": "2026-11-18",
+          "what": "Epping Forest decision; Guardian UKPN timeline"
+        }
+      ]
+    },
     "site:aws-cumberland-pa": {
       "last_reviewed": "2026-09-25",
       "summary": "Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed."
@@ -113,10 +125,14 @@
     },
     "state:AZ": {
       "last_check": {
-        "date": "2026-10-08",
-        "summary": "2026-10-08 v5 refresh: added Pima County 120-day moratorium"
+        "date": "2026-10-21",
+        "summary": "Oct 21: APS rate case milestones re-confirmed (ROO late Nov, vote by Dec 31)."
       },
       "follow_ups": [
+        {
+          "due": "2026-11-30",
+          "what": "ALJ ROO issuance"
+        },
         {
           "due": "2026-12-16",
           "what": "Pima County board hearing on extending the 120-day moratorium (pima-county-az-2026-09)"
@@ -180,18 +196,32 @@
     "state:FL": {
       "last_check": {
         "date": "2026-10-21",
-        "summary": "Volusia ordinance adopted Oct 20 (policy in_effect); Leon unchanged; SB 484 dockets lead"
-      }
+        "summary": "Oct 21: Duke Energy Florida docket 20260064-EI added as rate case; no hearing outcome found."
+      },
+      "follow_ups": [
+        {
+          "due": "2026-11-04",
+          "what": "Duke FL post-hearing recommendation; TECO and FPL docket numbers"
+        }
+      ]
     },
     "state:GA": {
       "follow_ups": [
+        {
+          "due": "2026-11-04",
+          "what": "Verify OpenAI primary quote"
+        },
         {
           "due": "2027-01-01",
           "what": "Bulloch County moratorium ends Dec 31, 2026 unless extended or replaced (bulloch-county-ga-2026-02)"
         }
       ],
       "last_reviewed": "2026-10-12",
-      "summary": "Searched new GA moratoriums; Paulding/Camden/Newton found untracked, filed as BACKLOG leads (need primary source/dates). Existing records not re-verified."
+      "summary": "Searched new GA moratoriums; Paulding/Camden/Newton found untracked, filed as BACKLOG leads (need primary source/dates). Existing records not re-verified.",
+      "last_check": {
+        "date": "2026-10-21",
+        "summary": "Oct 21: Effingham PSC approval (Aug) and SELC suit (Sept 21) recorded on policy and project."
+      }
     },
     "state:IL": {
       "follow_ups": [
@@ -200,13 +230,17 @@
           "what": "Bloomington: find report of Oct 16 Planning Commission hearing outcome; Nov 16 second hearing"
         },
         {
+          "due": "2026-11-04",
+          "what": "Chicago ordinance number and Rules Committee action"
+        },
+        {
           "due": "2026-11-27",
           "what": "Bloomington's 6-month moratorium from May 26 nears its end — extended, lapsed, or replaced by the permanent ordinance?"
         }
       ],
       "last_check": {
-        "date": "2026-10-17",
-        "summary": "2026-10-17: no fetchable report of the Oct 16 Bloomington Planning Commission hearing outcome yet (25NewsNow Sep 20 still the latest source for Oct 16 / Nov 16 dates); record unchanged"
+        "date": "2026-10-21",
+        "summary": "Oct 21: Chicago EO 2026-5 and proposed one-year moratorium ordinance added."
       }
     },
     "state:IN": {
@@ -218,7 +252,7 @@
       ],
       "last_check": {
         "date": "2026-10-21",
-        "summary": "I&M Cause 46454 re-verified; Fort Wayne policy no new action found"
+        "summary": "Oct 21: Fort Wayne council rejected both Booker ordinances (3-5, 4-4); policy marked failed."
       }
     },
     "state:KY": {
@@ -364,12 +398,16 @@
     "state:TN": {
       "last_check": {
         "date": "2026-10-21",
-        "summary": "Memphis Ord. 18 (135-day pause) passed 7-5 Oct 20; Shelby County unconfirmed"
+        "summary": "Oct 21: Memphis Ord 18 passed (round 1) plus mayor's Oct 9 study EO added; Shelby County commission vote not found."
       },
       "follow_ups": [
         {
           "due": "2026-10-28",
           "what": "Confirm Memphis mayoral signature/effective date and Shelby County Commission action"
+        },
+        {
+          "due": "2026-10-28",
+          "what": "Memphis Ordinance 18 signature/effective date; Shelby County commission vote"
         },
         {
           "due": "2026-10-30",

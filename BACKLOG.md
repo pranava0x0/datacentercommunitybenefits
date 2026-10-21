@@ -235,6 +235,12 @@ come first, then locations, companies and sites.
 ### Locations
 
 #### state:US — Federal
+- (2026-10-21) Trump 'data center dividend' remarks of
+  Sept 29, 2026 (Newsweek): he floated residents being paid a dividend and
+  teachers a bonus. One secondary source only; no White House transcript found
+  and no company response. Not recorded as a policy because no instrument
+  exists. A claim that he said developers should pay for their own power is
+  search-snippet only.
 - (2026-10-21) Trump 'data center dividend' remarks, Sept 29, 2026: Context
   only, no record type fits. Newsweek (Sept 29, updated Oct 1): Trump told
   reporters residents of data center communities could receive a 'dividend';
@@ -273,6 +279,10 @@ come first, then locations, companies and sites.
 - Imperial County project denial: a site fight, not a moratorium.
 
 #### state:CO — Colorado
+- (2026-10-21) Moffat County: Craig Daily Press (Sept
+  14) says commissioners unanimously tabled the six- or twelve-month
+  moratorium to Oct 13. The Oct 13 outcome is not found (moffatcounty.net
+  refused connection). Needs BOCC minutes or a Craig Daily Press story.
 - (2026-10-21) Moffat County Oct 13 moratorium decision: Craig Daily Press
   front page showed nothing; commissioners' minutes not read.
 - (2026-10-19) Brighton: KUNC (Oct 8) says the council "approved a one-year ban on data centers" on a Tuesday night (Oct 6 by weekday); it never names the instrument. Headline word, not a confirmed legal action: find the ordinance or minutes before recording a moratorium. Kiowa County Resolution 2026-4 is recorded (stated end Oct 9, 2026; check for extension).
@@ -291,6 +301,13 @@ come first, then locations, companies and sites.
 - EEI: Delmarva docket 25-0826.
 
 #### state:FL — Florida
+- (2026-10-21) Added rate case fl-psc-duke-large-load-
+  tariff-2026 (docket 20260064-EI). The Aug 17 hearing was a standing hearing
+  for four intervenors before the Prehearing Officer; the evidentiary hearing
+  was noticed for Aug 25-26. No order or hearing outcome found; check the FPSC
+  docket for post-hearing recommendation. Still missing: TECO docket number
+  (Spectrum, Sept 30: plan filed, approval 'late this year or early next
+  year') and any FPL filing; FPSC search was unreachable.
 - (2026-10-21) SB 484 large-load tariff dockets: Duke Energy Florida docket
   20260064-EI (filed Apr 22, 2026; tariff suspended by Order
   PSC-2026-0218-PCO-EI June 19; motion to dismiss denied July 28) was found in
@@ -310,6 +327,14 @@ come first, then locations, companies and sites.
   final vote unknown); Alachua and Orange counties (votes only to draft).
 
 #### state:GA — Georgia
+- (2026-10-21) Effingham/OpenAI: the policy record's key
+  term 'Electricity rates will not go up for residents because of this
+  project' and its '$20 billion, four-building campus' phrasing were not found
+  on any fetched page (openai.com 403s, Wayback refused); a Pulse2 reprint of
+  OpenAI's post says rates will not rise, with different wording. Verify
+  against openai.com or archive, then fix the quote. The IDA development
+  agreement (July 21, IDA-Octans GA, LLC) appears only in a search summary.
+  The suit's described tax abatement is 'nearly $900 million' per SELC.
 - (2026-10-21) Effingham County OpenAI/Camellia community benefits: openai.com
   page returned 403; the M figure is from Pulse2 (fetched) and search
   summaries. Read the primary page via another route before changing the
@@ -334,6 +359,13 @@ come first, then locations, companies and sites.
 - No state-level policy record: non-binding resolutions only.
 
 #### state:IL — Illinois
+- (2026-10-21) Chicago: ordinance number, size
+  thresholds, exemptions and committee referral for the mayor's one-year
+  moratorium are not found (GovTech does not say; Ground News says Rules
+  Committee, unfetched; chicago.gov and the City Clerk ELMS were unreachable).
+  A '1,000 sq ft / 20% server floor space' scope appeared only in a search
+  summary and was not shipped. Chicago EO text itself was not read (403);
+  policy rests on the Greenberg Traurig summary.
 - (2026-10-21) Chicago Executive Order 2026-5: GT alert (verified): Mayor
   Johnson signed EO 2026-5 on Aug 11, 2026 calling on Council for a temporary
   moratorium; neither the order nor introduced legislation specifies duration.
@@ -393,6 +425,12 @@ come first, then locations, companies and sites.
 - **Prince George's County: second 3-month data-center permit pause (lead, 2026-10-19).** Instagram caption dated 2026-10-17 only; county Council newsroom (Oct items) and WTOP index showed nothing, search engines blocked. Needs a pgccouncil.us or major-outlet source before appending to `prince-georges-county-md-2026-07`. **medium**
 - PC72: Potomac Edison and the Exelon Maryland utilities filed large-load
   rate schedules Sept 1, 2026 (per EEI). No MD PSC case numbers located yet.
+
+#### state:ME — Maine
+- (2026-10-21) Bangor: BDN's Oct 7 article says the pause
+  was 'recently extended for another 180 days' with no vote date or tally.
+  bangormaine.gov AgendaCenter 403s and the Oct 14 agenda PDF has no
+  extractable text. Needs council minutes before recording an extension date.
 
 #### state:MI — Michigan
 - (2026-10-21) Schoolcraft Township (Kalamazoo County) Ordinance 295: WOOD TV:
@@ -470,6 +508,9 @@ come first, then locations, companies and sites.
 - EEI: El Paso Electric 25-00082-UT. See also site:oracle-dona-ana-nm.
 
 #### state:NV — Nevada
+- (2026-10-21) Haiku could not reach the PUCN portal for
+  docket 26-06023; the seed's Procedural Order No. 1 text was previously read
+  from the portal API, so no change was made.
 - (2026-10-21) Callisto/Google ESA docket 26-06023: PUCN portal search (puc-
   onbase.nv.gov) needed; homepage listed no 26-06023 documents.
 - `nv-microsoft-ratepayer-protection-tariff`: the October and January hearing
@@ -532,6 +573,15 @@ come first, then locations, companies and sites.
 - EEI: Duke 2025-172-E / 2025-154-E; generic docket 2026-138-E.
 
 #### state:TN — Tennessee
+- (2026-10-21) Shelby County (TN) commission: a Govly
+  meeting summary (app.govly.com/public/meetings/99828) says the committee
+  sent a proposed unincorporated-county data center moratorium forward without
+  a recommendation (title Oct 7, metadata Oct 6). No full-commission vote
+  found; needs commission minutes. Millington TN: two searches found no
+  moratorium. Memphis: the mayor's signature and effective date for Ordinance
+  18, and its ordinance number, are not in WREG's report; check City Clerk
+  records. Added memphis-tn-mayor-eo-data-center-review-2026-10 (a study, not
+  a pause).
 - (2026-10-21) Shelby County Commission: WREG: Commission 'expected to
   continue discussions' on a possible moratorium; headline mentions a 12-month
   pause. No reading or vote found. Millington TN: nothing found.
@@ -543,6 +593,13 @@ come first, then locations, companies and sites.
   months by a mayoral tie-break. The second-reading outcome is unconfirmed.
 
 #### state:TX — Texas
+- (2026-10-21) Fluidstack/TeraWulf: TeraWulf's July 6,
+  2026 release says a Fluidstack-led group bought TeraWulf's 50.1% JV stake in
+  a 168 MW campus in Abernathy, Texas, and will lead it; the release does not
+  link it to Anthropic. TeraWulf also has a 20-year Anthropic lease at
+  Hawesville, Kentucky. Anthropic/Fluidstack's Nov 12, 2025 post says only
+  'New York and Texas'. No NY site confirmed. Do not attribute Abernathy to
+  Anthropic without a source.
 - (2026-10-21) TCEQ permitting after the Sept 21 directive: Seed now carries
   the Oct 19 TCEQ letter (Inside Climate News, WebFetch-read, probe-blocked).
   Still to fetch: Public Citizen/FracTracker analysis and TCEQ's own response;
@@ -557,6 +614,15 @@ come first, then locations, companies and sites.
   moratoriums.
 
 #### state:VA — Virginia
+- (2026-10-21) Spotsylvania 'Crossroads Technology
+  Campus': WJLA (Sept 21, updated Sept 28) says the planning commission voted
+  4-2 to recommend approval and the Board of Supervisors hearing is next;
+  attorney claims $8B and $30M+/yr tax revenue; applicant RCK Digital
+  Crossroads LLC (Kettler) per county filings; AWS named as applicant by the
+  reporter only. No tracked project record exists. Not added: Amazon's role
+  has no named or first-party statement, no MW, acreage conflict (555 vs 633
+  acres), and the vote date is unstated. Re-check for the Board vote, then add
+  as a project.
 - (2026-10-21) Spotsylvania County: Crossroads Technology Campus (Kettler):
   Not added as a site. WJLA (published Sept 21, updated Sept 28, 2026):
   Planning Commission voted 4-2 to recommend a special-use permit and 4-2 that
@@ -1103,6 +1169,14 @@ come first, then locations, companies and sites.
   (May 22) added as update. No 'paused' status exists. → Confirm TRO still
   in force.
 
+
+#### country:GB — United Kingdom
+- (2026-10-21) Nscale Loughton: Microsoft
+  termination added from Data Center Knowledge (Oct 19). The UK Power Networks
+  'early to mid-2030s' timeline is DCK's citation of The Guardian; fetch the
+  Guardian piece to confirm and check whether Epping Forest District Council
+  has decided. Nscale's US Monarch (WV) record is not mentioned in the DCK
+  piece.
 
 ## 4. Product and UX
 

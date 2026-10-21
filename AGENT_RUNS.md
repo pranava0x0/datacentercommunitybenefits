@@ -433,3 +433,26 @@ boundaries (generated data skipped). It found the water task measured the
 story paragraph before the verdict. Fixed the selector and added a visible
 verdict; parent review also restored Maryland's non-mandatory CBA flag.
 Both findings were posted inline on PR #71. No second agent or review fan-out.
+
+
+## 2026-10-21 — interactive refresh (Haiku ×3, two rounds; Sonnet synthesis)
+
+Two research rounds of three Haiku agents each (government actions /
+dockets and stale records / sites), then one Sonnet synthesis per round
+into a probe-gated merge plan, applied by the orchestrator.
+- **Haiku agents quit at 3–5 minutes despite "use the full 35 minutes".**
+  What worked: a second round with "do NOT stop before 25 fetches; quitting
+  after 3 minutes is a failure", which brought them to 25–40 fetches each and
+  resolved most first-round gaps (Memphis, Volusia, Loudoun, Fort Wayne).
+- **Synthesis gate:** round 1 had 36 hits and 3 blocked (ICN, WebFetch-read);
+  round 2 had 28 hits. Neither had a MISS after Sonnet fixed the verbatims.
+- **Orchestrator catches:** a `vote` timeline entry that duplicated an
+  existing community response (the test caught it, and the response's own
+  date was wrong too). Plan updates wrote empty `resources` lists onto
+  projects, which have no such field. A `next_milestone` was company-stated
+  rather than regulator-announced. "Tuesday night" in a Wednesday article was
+  left undated.
+- **A UAT task pinned to one record went stale** (Raleigh as "newest
+  moratorium"); it now opens the first row.
+- The Nuclear Company's Prosperity One (6.6 GW, KY) was checked on request:
+  a power campus with no data center named.

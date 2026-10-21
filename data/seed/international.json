@@ -2659,11 +2659,23 @@
       "announced_year": 2024,
       "source_url": "https://datacentrereview.com/2026/03/nscale-latest-to-face-public-backlash-over-proposed-data-centre/",
       "source_title": "Data Centre Review — Nscale latest to face public backlash over proposed data centre",
-      "captured_at": "2026-10-19",
+      "captured_at": "2026-10-21",
       "source_lang": "en",
       "notes": "Data Centre Review reports the Essex scheme received outline approval in 2024 (announced_year is that year) and that the revised scheme is 50% higher than originally proposed and includes 50% more internal capacity. The final decision lies with Epping Forest District Council. An Nscale spokesperson told The Telegraph it expects construction to begin in Q2 2026 and the site to be operational in Q2 2027.",
       "subdivision": "GB-ENG",
-      "locality": "Loughton, Essex"
+      "locality": "Loughton, Essex",
+      "updates": [
+        {
+          "date": "2026-10-19",
+          "kind": "news",
+          "title": "Microsoft reported to have terminated its contract for the Loughton site",
+          "summary": "Data Center Knowledge reported that Microsoft terminated its contract for Nscale's planned AI data center in Loughton after delays to the expected power connection. An Nscale spokesperson confirmed the termination and said Nscale remains committed to the site and is exploring alternative power sources.",
+          "authority": "Nscale / Microsoft",
+          "upcoming": false,
+          "source_url": "https://www.datacenterknowledge.com/build-design/microsoft-exits-nscale-data-center-deal-over-uk-power-delays",
+          "source_title": "Data Center Knowledge — Nscale Loses Microsoft Deal as Power Delays Threaten AI (Oct. 19, 2026)"
+        }
+      ]
     },
     {
       "id": "fr-segro-le-bourget",

@@ -147,7 +147,7 @@
           "title": "ACC — What's Next in the APS Rate Case? (July 10, 2026)"
         }
       ],
-      "captured_at": "2026-10-19"
+      "captured_at": "2026-10-21"
     },
     {
       "id": "mo-psc-ameren-large-load-2025",
@@ -601,6 +601,38 @@
         }
       ],
       "captured_at": "2026-10-18"
+    },
+    {
+      "id": "fl-psc-duke-large-load-tariff-2026",
+      "state_code": "FL",
+      "jurisdiction_level": "state",
+      "utility": "Duke Energy Florida",
+      "regulator": "Florida Public Service Commission (FPSC)",
+      "docket_number": "20260064-EI",
+      "title": "Duke Energy Florida limited proceeding to approve large load tariff (SB 484)",
+      "case_type": "large_load_tariff",
+      "status": "pending",
+      "filed_date": null,
+      "decided_date": null,
+      "effective_date": null,
+      "next_milestone": null,
+      "next_milestone_date": null,
+      "related_tariff_id": null,
+      "related_project_ids": null,
+      "summary": "Duke Energy Florida petitioned the FPSC for a limited proceeding to approve a Large Load Customer Policy (LLCP), Large Load Customer Agreement (LLCA) and changes to its CIAC tariff, which Duke says comply with Section 366.043, Florida Statutes (the SB 484 large-load requirement). Duke says they apply to customers with a forecast demand of 50 MW or more of firm load, and that large load customers stay on the existing GSD-1 or GSDT-1 rate until it presents a large load rate. The Prehearing Officer set an Aug. 17, 2026 hearing on whether four intervenors (PCS Phosphate-White Springs, Florida Power Users Group, Florida Rising and Nucor Steel Florida) have standing to take part in the Aug. 25-26 evidentiary hearing. No order or hearing outcome has been found. Duke said it will present a separate large load customer rate in a future proceeding no later than the first quarter of 2027; the PSC decision on this petition after the Aug. 25-26, 2026 evidentiary hearing had not been found as of Oct. 21, 2026.",
+      "source_url": "https://www.psc.state.fl.us/library/filings/2026/04755-2026/04755-2026.pdf",
+      "source_title": "Duke Energy Florida — Prehearing Statement, Docket 20260064-EI (filed July 29, 2026)",
+      "resources": [
+        {
+          "url": "https://www.psc.state.fl.us/library/filings/2026/04568-2026/04568-2026.pdf",
+          "title": "FPSC — Notice of Commission Prehearing and Hearing, Docket 20260064-EI (issued July 22, 2026)"
+        },
+        {
+          "url": "https://www.psc.state.fl.us/library/filings/2026/05021-2026/05021-2026.pdf",
+          "title": "FPSC — Notice of Evidentiary Hearing on intervenor standing, Docket 20260064-EI (issued Aug. 7, 2026)"
+        }
+      ],
+      "captured_at": "2026-10-21"
     }
   ]
 }
