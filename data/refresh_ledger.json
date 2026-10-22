@@ -75,8 +75,8 @@
     },
     "site:meta-newton-ga": {
       "blocked": {
-        "date": "2026-10-08",
-        "reason": "source_url datacenters.atmeta.com/location/newton/ 404; Meta's live pages (2021 announcement, 2026-04 water post) carry no investment/jobs/MW figures. Needs a fetchable local-press source."
+        "date": "2026-10-22",
+        "reason": "source_url (Apr 2026 Meta post) is live and calls the site operating, but has no figures; 1120 MW/416 ac/$1.5B/400 jobs still have no fetched primary source. Unblock: Newton County IDA or Georgia DCA filing with figures"
       }
     },
     "site:meta-prineville-or": {
@@ -346,21 +346,21 @@
     "state:OH": {
       "follow_ups": [
         {
-          "due": "2026-10-22",
-          "what": "Cleveland extension: check Finance Committee/full Council vote on pause through Jan 29 2027"
-        },
-        {
           "due": "2026-11-04",
           "what": "Nov 3 ballot: ~18 local data-center charter amendments/bans (Ohio Capital Journal Sept 14, Cloudflare-walled), incl. Trenton; and the Butler County 25 MW citizen measure tied to Amazon's $5B plan — record outcomes"
         },
         {
           "due": "2027-01-29",
           "what": "Cleveland pause end"
+        },
+        {
+          "due": "2027-01-29",
+          "what": "Cleveland pause end: lapsed, extended, or replaced by rules?"
         }
       ],
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Cleveland extension already recorded; Ohio amendment unchanged"
+        "date": "2026-10-22",
+        "summary": "Cleveland extension re-verified on Cleveland 19: paused through Jan 29 2027 or until new rules; record already correct, captured_at bumped"
       }
     },
     "state:OK": {
