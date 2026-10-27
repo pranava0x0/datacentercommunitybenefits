@@ -1230,8 +1230,9 @@ Learnings:
 
 The live roster added DC BLOX and Prime Data Centers (323 to 325 orgs), but
 Home dated all 46 rolling additions to the new capture. Its dated activity
-now counts only rows whose carried first-observed provenance names that
-snapshot. Re-captures and spelling changes are not new signings. Preserve
-those notes in the builder; absent provenance produces no new activity.
+now groups additions by their carried first-observed snapshot date. Later
+re-captures preserve each original event without redating it; spelling changes
+are not new signings. Preserve those notes in the builder; absent, invalid or
+future provenance produces no new activity.
 Regression fixtures mix old/new observations and advance an unchanged
 snapshot to prove neither historical rows nor unknown join dates are relabelled.

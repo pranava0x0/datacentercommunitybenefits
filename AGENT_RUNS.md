@@ -483,3 +483,8 @@ Settled screenshot inspection caught internal phone-dialog overflow missed by
 the document-width check (431px content in a 373px dialog). Two browser
 regressions at 375/390px fail before the fix and pass after constraining the
 value grid and wrapping badges. Check both document and dialog overflow.
+
+Final Terra code review caught that filtering only to the latest snapshot
+would drop the prior event on the next unchanged pull. Grouping by original
+first-observed date now preserves history without redating it; fixtures also
+exercise missing, invalid and future provenance. No further mobile finding.

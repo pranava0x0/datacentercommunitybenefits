@@ -299,14 +299,15 @@ def test_home_digest_enacted_count_excludes_lifted() -> None:
     assert home["totals"]["moratoriums_enacted"] == expect
 
 
-@pytest.mark.parametrize("snapshot, expected", [("2026-10-26", 2), ("2026-10-27", 0)])
-def test_home_roster_activity_counts_first_observations_not_recaptures(snapshot, expected):
-    """A later capture or spelling change must not announce an old signer again."""
+@pytest.mark.parametrize("snapshot", ["2026-10-26", "2026-10-27"])
+def test_home_roster_activity_preserves_first_observation_dates(snapshot):
+    """An unchanged pull preserves the real event without redating old signers."""
     payloads = {name: refresh._load_payload(name, model)
                 for name, model in refresh.PAYLOAD_FILES.items()}
     sig = payloads["signatories"]
     template = next(s for s in sig.signatories if s.signed_track == "rolling")
-    observations = ["2026-09-21", "2026-09-21", "2026-10-26", "2026-10-26", None]
+    observations = ["2026-09-21", "2026-09-21", "2026-10-26", "2026-10-26", None,
+                    "2027-01-01", "2026-13-01"]
     sig.signatories = [template.model_copy(update={
         "id": f"test-{i}", "name": f"Recaptured name {i}",
         "captured_at": date.fromisoformat(snapshot),
@@ -315,9 +316,7 @@ def test_home_roster_activity_counts_first_observations_not_recaptures(snapshot,
     sig.roster_as_of = date.fromisoformat(snapshot)
     home = refresh._build_home(payloads, sig.roster_as_of)
     activity = [x for x in home["latest"] if x["type"] == "Pledge"]
-    if expected:
-        assert len(activity) == 1
-        assert activity[0]["title"].startswith(f"{expected} more organizations")
-        assert activity[0]["date"] == snapshot
-    else:
-        assert activity == []
+    assert activity
+    assert activity[0]["title"].startswith("2 more organizations")
+    assert activity[0]["date"] == "2026-10-26"
+    assert all(x["date"] in ("2026-09-21", "2026-10-26") for x in activity)
