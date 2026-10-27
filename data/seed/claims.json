@@ -4416,6 +4416,42 @@
       "source_url": "https://www.anthropic.com/policy/infrastructure",
       "source_title": "Anthropic — Infrastructure policy (undated page)",
       "captured_at": "2026-10-21"
+    },
+    {
+      "id": "anthropic-transparency-nda-policy",
+      "company_slug": "anthropic",
+      "theme": "engagement",
+      "statement": "We won’t ask public officials to sign non-disclosure agreements (NDAs) as part of their work with us.",
+      "source_url": "https://www.anthropic.com/policy/infrastructure",
+      "source_title": "Anthropic — Infrastructure policy (undated page)",
+      "captured_at": "2026-10-26"
+    },
+    {
+      "id": "anthropic-transparency-annual-metrics-policy",
+      "company_slug": "anthropic",
+      "theme": "engagement",
+      "statement": "After a site is up and running, we’ll publish key metrics on its impacts each year. These metrics will be verified by an independent third party.",
+      "source_url": "https://www.anthropic.com/policy/infrastructure",
+      "source_title": "Anthropic — Infrastructure policy (undated page)",
+      "captured_at": "2026-10-26"
+    },
+    {
+      "id": "anthropic-closed-loop-cooling-policy",
+      "company_slug": "anthropic",
+      "theme": "water",
+      "statement": "Our cooling standard is closed-loop and air-cooled, which means we don’t draw down local water supplies to cool servers.",
+      "source_url": "https://www.anthropic.com/policy/infrastructure",
+      "source_title": "Anthropic — Infrastructure policy (undated page)",
+      "captured_at": "2026-10-26"
+    },
+    {
+      "id": "anthropic-air-permitting-policy",
+      "company_slug": "anthropic",
+      "theme": "infrastructure",
+      "statement": "We follow the air permitting process everywhere we operate and require the same of the plants powering our data centers.",
+      "source_url": "https://www.anthropic.com/policy/infrastructure",
+      "source_title": "Anthropic — Infrastructure policy (undated page)",
+      "captured_at": "2026-10-26"
     }
   ]
 }

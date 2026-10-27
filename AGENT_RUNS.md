@@ -456,3 +456,35 @@ into a probe-gated merge plan, applied by the orchestrator.
   moratorium"); it now opens the first row.
 - The Nuclear Company's Prosperity One (6.6 GW, KY) was checked on request:
   a power campus with no data center named.
+
+
+### 2026-10-26 — targeted refresh, two Terra agents
+
+Two GPT-6.1 Terra agents handled disjoint state and company records after
+local deduplication. US pass updated three moratoriums and added Beaufort
+County; company pass added four Anthropic commitments. Both useful; token
+counts unavailable. Parent independently checked evidence: eight probe hits,
+zero misses; two Escondido checks blocked by 403, read through web instead.
+Best alternative: one inline pass for company policy alone; parallel work
+helped only because the state and company files were independent. Parent
+handled roster, Texas, Singapore, ledger and validation.
+
+Read-only Terra review found no P1/P2. Parent review caught that Bloomington's
+expiry conflict was exposed only in BACKLOG; a PR comment led to putting the
+uncertainty in the public summary and duration. Source probes validate words,
+not whether readers can see a qualification; inspect the rendered record.
+
+GitHub review caught Home redating all 46 cumulative rolling signers as new.
+Fixed counting against immutable first-observed snapshot notes; two tests
+failed before the fix and passed after it. Full unit gate: 545 passed.
+Full pre-fix browser suite: 350 passed; affected views rechecked after fix.
+
+Settled screenshot inspection caught internal phone-dialog overflow missed by
+the document-width check (431px content in a 373px dialog). Two browser
+regressions at 375/390px fail before the fix and pass after constraining the
+value grid and wrapping badges. Check both document and dialog overflow.
+
+Final Terra code review caught that filtering only to the latest snapshot
+would drop the prior event on the next unchanged pull. Grouping by original
+first-observed date now preserves history without redating it; fixtures also
+exercise missing, invalid and future provenance. No further mobile finding.

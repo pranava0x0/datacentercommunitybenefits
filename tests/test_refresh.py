@@ -297,3 +297,26 @@ def test_home_digest_enacted_count_excludes_lifted() -> None:
     assert lifted, "no lifted record in the seed; the test would prove nothing"
     expect = sum(m["status"] == "enacted" and not m.get("lifted_date") for m in morats)
     assert home["totals"]["moratoriums_enacted"] == expect
+
+
+@pytest.mark.parametrize("snapshot", ["2026-10-26", "2026-10-27"])
+def test_home_roster_activity_preserves_first_observation_dates(snapshot):
+    """An unchanged pull preserves the real event without redating old signers."""
+    payloads = {name: refresh._load_payload(name, model)
+                for name, model in refresh.PAYLOAD_FILES.items()}
+    sig = payloads["signatories"]
+    template = next(s for s in sig.signatories if s.signed_track == "rolling")
+    observations = ["2026-09-21", "2026-09-21", "2026-10-26", "2026-10-26", None,
+                    "2027-01-01", "2026-13-01"]
+    sig.signatories = [template.model_copy(update={
+        "id": f"test-{i}", "name": f"Recaptured name {i}",
+        "captured_at": date.fromisoformat(snapshot),
+        "notes": f"first observed in the {observed} snapshot." if observed else None,
+    }) for i, observed in enumerate(observations)]
+    sig.roster_as_of = date.fromisoformat(snapshot)
+    home = refresh._build_home(payloads, sig.roster_as_of)
+    activity = [x for x in home["latest"] if x["type"] == "Pledge"]
+    assert activity
+    assert activity[0]["title"].startswith("2 more organizations")
+    assert activity[0]["date"] == "2026-10-26"
+    assert all(x["date"] in ("2026-09-21", "2026-10-26") for x in activity)

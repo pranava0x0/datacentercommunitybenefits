@@ -3250,6 +3250,17 @@ body.moratorium-modal-open {
     max-height: 100vh;
     border-radius: 0;
   }
+  .moratorium-modal__dialog .kv {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+  .moratorium-modal__dialog .kv dd {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .moratorium-modal__dialog .kv .badge {
+    max-width: 100%;
+    white-space: normal;
+  }
 }
 
 /* Stakeholders section inside the moratorium modal */

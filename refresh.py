@@ -719,11 +719,27 @@ def _build_home(payloads, today: date) -> dict:
             "title": f"{len(joined) - govs} organizations and {govs} governors join the Ratepayer Protection Pledge",
             "place": "", "target": {"kind": "roster"},
         })
-    rolling = sum(x.signed_track == "rolling" for x in sig.signatories)
-    if rolling and sig.roster_as_of and sig.roster_as_of <= today:
+    # Capture dates change on every pull. Keep activity on each cohort's
+    # first-observed date, including after an unchanged pull or a rename.
+    rolling: dict[date, int] = {}
+    for signer in sig.signatories:
+        if signer.signed_track != "rolling":
+            continue
+        match = re.search(r"\bfirst observed in the (\d{4}-\d{2}-\d{2}) snapshot\.", signer.notes or "")
+        if not match:
+            continue  # unknown provenance cannot establish a dated event
+        try:
+            observed = date.fromisoformat(match.group(1))
+        except ValueError:
+            logger.warning("Invalid first-observed date for signatory %s", signer.id)
+            continue
+        if observed > today or not sig.roster_as_of or observed > sig.roster_as_of:
+            continue
+        rolling[observed] = rolling.get(observed, 0) + 1
+    for observed, count in rolling.items():
         latest.append({
-            "date": sig.roster_as_of.isoformat(), "type": "Pledge",
-            "title": f"{rolling} more organizations appear on the pledge roster (join dates unpublished)",
+            "date": observed.isoformat(), "type": "Pledge",
+            "title": f"{count} more organizations appear on the pledge roster (join dates unpublished)",
             "place": "", "target": {"kind": "roster"},
         })
     latest.sort(key=lambda x: x["date"], reverse=True)
