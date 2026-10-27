@@ -2247,6 +2247,19 @@ class TestMoratoriumTable:
         self._open(page, base_url)
         assert page.locator("#moratoriums-tbody .moratorium-bill-id").count() >= 1
 
+    @pytest.mark.parametrize("width", [375, 390])
+    def test_phone_detail_keeps_duration_and_reason_badges_inside_dialog(self, page: Page, base_url: str, width):
+        page.set_viewport_size({"width": width, "height": 900})
+        self._open(page, base_url)
+        page.locator("#moratorium-q").fill("Bloomington")
+        page.locator("#moratoriums-tbody tr").first.click()
+        expect(page.locator("#moratorium-detail")).to_be_visible()
+        page.wait_for_timeout(200)  # modal entrance animation
+        sizes = page.locator("#moratorium-detail").evaluate(
+            "el => ({client: el.clientWidth, scroll: el.scrollWidth})"
+        )
+        assert sizes["scroll"] <= sizes["client"] + 1, sizes
+
 
 class TestPledgeLanding:
     """The v2 landing band — the site's front door.
