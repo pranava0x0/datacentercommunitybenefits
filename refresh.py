@@ -719,7 +719,14 @@ def _build_home(payloads, today: date) -> dict:
             "title": f"{len(joined) - govs} organizations and {govs} governors join the Ratepayer Protection Pledge",
             "place": "", "target": {"kind": "roster"},
         })
-    rolling = sum(x.signed_track == "rolling" for x in sig.signatories)
+    # captured_at is refreshed for every signer. Only the builder's carried
+    # first-observed provenance distinguishes new names from older rolling
+    # additions (including renamed rows). Unknown provenance is not new activity.
+    observed_note = f"first observed in the {sig.roster_as_of} snapshot."
+    rolling = sum(
+        x.signed_track == "rolling" and observed_note in (x.notes or "")
+        for x in sig.signatories
+    )
     if rolling and sig.roster_as_of and sig.roster_as_of <= today:
         latest.append({
             "date": sig.roster_as_of.isoformat(), "type": "Pledge",

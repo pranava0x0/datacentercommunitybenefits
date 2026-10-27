@@ -473,3 +473,8 @@ Read-only Terra review found no P1/P2. Parent review caught that Bloomington's
 expiry conflict was exposed only in BACKLOG; a PR comment led to putting the
 uncertainty in the public summary and duration. Source probes validate words,
 not whether readers can see a qualification; inspect the rendered record.
+
+GitHub review caught Home redating all 46 cumulative rolling signers as new.
+Fixed counting against immutable first-observed snapshot notes; two tests
+failed before the fix and passed after it. Full unit gate: 545 passed.
+Full pre-fix browser suite: 350 passed; affected views rechecked after fix.
