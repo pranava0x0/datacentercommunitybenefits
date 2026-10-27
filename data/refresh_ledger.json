@@ -123,6 +123,10 @@
         "reason": "Only FAST-41 dashboard listing and Oct 2025 DEQ item found; RIC5 acreage/MW figures conflict across trackers. Unblock: fetch Henrico County / Army Corps Norfolk District notices."
       }
     },
+    "site:xai-memphis-tn": {
+      "last_reviewed": "2026-10-27",
+      "summary": "2026-10-27: checked news since capture; added 2026-10-19 ruling denying DOJ dismissal of NAACP CAA claim (IBTimes); Shelby permit status unchanged; injunction motion pending."
+    },
     "state:AR": {
       "last_check": {
         "date": "2026-10-21",
@@ -176,12 +180,12 @@
     "state:CO": {
       "follow_ups": [
         {
-          "due": "2026-10-27",
-          "what": "Check Aurora council Oct 26 vote on indefinite moratorium"
-        },
-        {
           "due": "2026-10-29",
           "what": "Colorado PUC evidentiary hearing Oct 21–28 on Xcel's large-load tariff (xcel-colorado-large-load-tariff)"
+        },
+        {
+          "due": "2026-11-03",
+          "what": "Aurora: confirm Oct 26 council outcome via Colorado Politics / Sentinel"
         },
         {
           "due": "2026-11-04",
@@ -193,8 +197,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Craig Daily Press search 2026-10-21: still no report of a Moffat County data center moratorium decision. Not tracked."
+        "date": "2026-10-27",
+        "summary": "2026-10-27: Aurora Oct 26 outcome unconfirmed; the only page found (Denver7) is undated and may be an August vote. Lead filed."
       }
     },
     "state:DE": {
@@ -328,8 +332,8 @@
     "state:NM": {
       "follow_ups": [
         {
-          "due": "2026-10-24",
-          "what": "Grant County NM: was moratorium adopted at Oct 8 meeting? Try Silver City Daily Press / county minutes"
+          "due": "2026-11-03",
+          "what": "Grant County NM: confirm meeting date from county minutes / Silver City Daily Press, then add the moratorium record"
         }
       ],
       "blocked": {
@@ -337,8 +341,8 @@
         "reason": "Grant County Oct 8 action: no coverage found 2026-10-09; Ordinance 4-2026 (2-year) already exists, relation unclear; check county minutes / Chronicle-Tribune"
       },
       "last_check": {
-        "date": "2026-10-10",
-        "summary": "2026-10-10: no coverage found of Grant County NM Oct 8 vote; only residents urging a moratorium (KRWG Sept 9)."
+        "date": "2026-10-27",
+        "summary": "2026-10-27: ABQ Journal (Oct 22) reports Grant County approved a one-year moratorium ordinance 4-1; meeting date only 'Thursday', so not recorded; lead filed."
       }
     },
     "state:OH": {
