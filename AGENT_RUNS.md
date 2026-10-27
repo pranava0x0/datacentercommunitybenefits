@@ -456,3 +456,15 @@ into a probe-gated merge plan, applied by the orchestrator.
   moratorium"); it now opens the first row.
 - The Nuclear Company's Prosperity One (6.6 GW, KY) was checked on request:
   a power campus with no data center named.
+
+
+### 2026-10-26 — targeted refresh, two Terra agents
+
+Two GPT-6.1 Terra agents handled disjoint state and company records after
+local deduplication. US pass updated three moratoriums and added Beaufort
+County; company pass added four Anthropic commitments. Both useful; token
+counts unavailable. Parent independently checked evidence: eight probe hits,
+zero misses; two Escondido checks blocked by 403, read through web instead.
+Best alternative: one inline pass for company policy alone; parallel work
+helped only because the state and company files were independent. Parent
+handled roster, Texas, Singapore, ledger and validation.

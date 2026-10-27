@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-10-22
+Generated: 2026-10-26
 Total projects needing attention: 113
 
 ## Critical Missing Commitment Details
@@ -126,17 +126,18 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Records
-(11 records)
+(12 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 30 days ago
-- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 30 days ago
-- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 29 days ago
-- **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 27 days ago
-- **xcel-colorado-large-load-tariff** (tariff, CO): captured 2026-09-25, 27 days ago
-- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 27 days ago
-- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 27 days ago
-- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 27 days ago
-- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 27 days ago
-- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 27 days ago
-- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 27 days ago
+- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 34 days ago
+- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 34 days ago
+- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 33 days ago
+- **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 31 days ago
+- **xcel-colorado-large-load-tariff** (tariff, CO): captured 2026-09-25, 31 days ago
+- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 31 days ago
+- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 31 days ago
+- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 31 days ago
+- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 31 days ago
+- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 31 days ago
+- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 31 days ago
+- **pa-puc-large-load-cost-allocation-2026** (rate_case, PA): captured 2026-10-02, 24 days ago

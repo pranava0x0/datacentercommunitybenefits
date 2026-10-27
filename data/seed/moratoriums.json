@@ -3837,7 +3837,7 @@
         "energy",
         "water"
       ],
-      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. On September 14, 2026 Abbott issued a second, related directive to the Texas Water Development Board (TWDB), ordering it to compel major water users including data centers to complete legally required water-use surveys and to penalize those that don't: noncompliant users can face a Class C misdemeanor and become ineligible for TCEQ permits, permit amendments or renewals, with the Governor's office citing roughly 28% survey response compliance over the last three years; TWDB must report back to the Governor's office on enforcement progress by October 14, 2026. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed. On September 21, 2026 Abbott issued a third directive, ordering the Texas Commission on Environmental Quality (TCEQ) to issue no permits sought by data center projects until the audits are complete, with a TCEQ compliance report due to the Governor's office by October 19, 2026. Update: Inside Climate News reported on October 19, 2026 that TCEQ answered the Governor in an October 19 letter, in which interim executive director Steven Schar wrote that TCEQ staff are screening pending permit applications to determine whether they are subject to the directive and that any subject application has been paused; FracTracker, working with Public Citizen, counted 35 permitting actions by TCEQ for data center projects in the weeks after the directive. The Governor's office has said no permits have been approved; the two accounts are unreconciled and the count is an advocacy tally, not a TCEQ figure.",
+      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. On September 14, 2026 Abbott issued a second, related directive to the Texas Water Development Board (TWDB), ordering it to compel major water users including data centers to complete legally required water-use surveys and to penalize those that don't: noncompliant users can face a Class C misdemeanor and become ineligible for TCEQ permits, permit amendments or renewals, with the Governor's office citing roughly 28% survey response compliance over the last three years; TWDB must report back to the Governor's office on enforcement progress by October 14, 2026. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed. On September 21, 2026 Abbott issued a third directive, ordering the Texas Commission on Environmental Quality (TCEQ) to issue no permits sought by data center projects until the audits are complete, with a TCEQ compliance report due to the Governor's office by October 19, 2026. Update: Inside Climate News reported on October 19, 2026 that TCEQ answered the Governor in an October 19 letter, in which interim executive director Steven Schar wrote that TCEQ staff are screening pending permit applications to determine whether they are subject to the directive and that any subject application has been paused; FracTracker, working with Public Citizen, counted 35 permitting actions by TCEQ for data center projects in the weeks after the directive. The Governor's office has said no permits have been approved; the two accounts are unreconciled and the count is an advocacy tally, not a TCEQ figure. On October 15, 2026, the Texas Attorney General reported sending letters to 156 data center developments requiring up-to-date and accurate water-use information. This is a reporting demand, not a finding that all recipients violated the law or a published TWDB enforcement outcome.",
       "source_url": "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/",
       "source_title": "The Texas Tribune — Gov. Greg Abbott orders audit of Texas data center projects amid grid capacity concerns",
       "resources": [
@@ -3856,12 +3856,16 @@
         {
           "url": "https://insideclimatenews.org/?p=115152",
           "title": "Inside Climate News — Texas Continued Permitting Data Centers After Abbott's Pause, Report Finds (Oct. 19, 2026)"
+        },
+        {
+          "url": "https://www.oag.state.tx.us/news/releases/attorney-general-ken-paxton-sends-letters-data-center-developments-across-texas-ensure-reporting",
+          "title": "Texas Attorney General — Water-use reporting letters sent to 156 data center developments (October 15, 2026)"
         }
       ],
       "policy_type": "administrative pause pending audit (governor's directive)",
       "enacted_by": "Governor Greg Abbott (directive to PUCT and ERCOT)",
       "session": "2026",
-      "captured_at": "2026-10-21"
+      "captured_at": "2026-10-26"
     },
     {
       "enacted_date": "2026-09-08",
@@ -4873,7 +4877,7 @@
       "enacted_date": "2026-05-26",
       "effective_date": "2026-05-26",
       "duration_months": 6,
-      "duration_description": "6 months (through approximately November 26, 2026); applies only to facilities designed with a capacity greater than 5 megawatts. Not an extension yet as of this capture, but the Planning Commission has scheduled two public hearings (Oct. 16 and Nov. 16, 2026) toward a longer-term data-center ordinance, per Mayor Dan Brady.",
+      "duration_description": "6 months; applies only to facilities designed with a capacity greater than 5 megawatts. The Planning Commission held a hearing on draft regulations October 16 and continued it to November 16, 2026.",
       "power_threshold_mw": 5,
       "key_reasons": [
         "energy",
@@ -4886,11 +4890,15 @@
         {
           "url": "https://www.25newsnow.com/2026/09/20/normal-consider-longer-moratorium-data-centers-bloomington-schedules-pair-public-hearings/",
           "title": "25News Now — Normal to consider longer moratorium on data centers, Bloomington schedules 2 public hearings (Sept. 20, 2026)"
+        },
+        {
+          "url": "https://www.wglt.org/local-news/2026-10-17/crowd-calls-for-stricter-limits-ban-on-data-centers-at-bloomington-planning-commission-hearing",
+          "title": "WGLT — Crowd calls for stricter limits, ban on data centers at Bloomington planning commission hearing (October 17, 2026)"
         }
       ],
       "city_council_vote": "Passed (Mollie Ward against)",
       "session": "2026",
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-10-26"
     },
     {
       "id": "normal-il-2026-05",
@@ -5041,18 +5049,25 @@
       "enacted_date": "2026-08-26",
       "effective_date": "2026-08-26",
       "duration_months": null,
-      "duration_description": "45 days (interim urgency ordinance); staff plans to return by Oct. 10, 2026 with findings, and the council could extend it by 10 months and 15 days and then up to another year if needed.",
+      "duration_description": "45 days initially; extended by 10 months and 15 days on October 7, 2026, through August 22, 2027.",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "water",
         "noise"
       ],
-      "summary": "The Escondido City Council unanimously approved a 45-day moratorium on August 26, 2026, at staff's recommendation, prohibiting new data centers and expansion or intensification of existing facilities while the city studies water and electricity demand, grid strain, large footprints and cooling-system/generator noise. The city had no pending data center applications at the time.",
-      "source_url": "https://thecoastnews.com/escondido-temporarily-bans-new-ai-data-centers/",
-      "source_title": "The Coast News — Escondido temporarily bans new AI data centers",
+      "summary": "The Escondido City Council unanimously approved a 45-day moratorium on August 26, 2026, at staff's recommendation, prohibiting new data centers and expansion or intensification of existing facilities while the city studies water and electricity demand, grid strain, large footprints and cooling-system/generator noise. The city had no pending data center applications at the time. On October 7, the council unanimously approved a 10-month, 15-day extension.",
+      "source_url": "https://thecoastnews.com/escondido-extends-data-center-moratorium/",
+      "source_title": "The Coast News — Escondido extends data center moratorium (October 13, 2026)",
       "session": "2026",
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-10-26",
+      "resources": [
+        {
+          "url": "https://thecoastnews.com/escondido-temporarily-bans-new-ai-data-centers/",
+          "title": "The Coast News — Escondido temporarily bans new AI data centers"
+        }
+      ],
+      "city_council_vote": "October 7 extension: unanimous"
     },
     {
       "id": "winchester-ky-2026-09",
@@ -6856,7 +6871,7 @@
       "enacted_date": null,
       "effective_date": null,
       "duration_months": 12,
-      "duration_description": "One year, as proposed. Ordinance number, thresholds and exemptions were not stated in the report.",
+      "duration_description": "One year, as proposed. Thresholds and exemptions were not stated in the report.",
       "power_threshold_mw": null,
       "key_reasons": [],
       "summary": "On September 23, 2026 Mayor Brandon Johnson proposed an ordinance for a one-year data center moratorium in Chicago, which the Chicago Tribune described as a temporary pause to give the city time to develop long-term policies on pollution, water use and electricity costs. Alds. Maria Hadden, Lamont Robinson and Leni Manaa-Hoppenworth are cosponsors. It follows Executive Order No. 2026-5 of August 11, 2026, which asked the City Council to enact a temporary moratorium. The ordinance has not been passed.",
@@ -6866,18 +6881,51 @@
         {
           "url": "https://www.gtlaw.com/ar/insights/2026/8/chicago-mayor-signs-city-executive-order-creating-enhanced-regulatory-review-for-data-centers-calls-for-temporary-moratorium",
           "title": "Greenberg Traurig — Chicago mayor signs executive order creating enhanced regulatory review for data centers, calls for temporary moratorium"
+        },
+        {
+          "url": "https://chicago.councilmatic.org/legislation/o2026-0028856/",
+          "title": "Chicago Councilmatic — Ordinance O2026-0028856"
         }
       ],
       "policy_type": "One-year moratorium ordinance (proposed)",
       "enacted_by": null,
       "session": "2026",
-      "captured_at": "2026-10-21",
+      "captured_at": "2026-10-26",
       "sponsors": [
         "Mayor Brandon Johnson",
         "Ald. Maria Hadden",
         "Ald. Lamont Robinson",
         "Ald. Leni Manaa-Hoppenworth"
-      ]
+      ],
+      "bill_number": "O2026-0028856"
+    },
+    {
+      "id": "beaufort-county-nc-2026-10",
+      "jurisdiction": "Beaufort County",
+      "jurisdiction_type": "county",
+      "state_code": "NC",
+      "status": "enacted",
+      "enacted_date": "2026-10-05",
+      "effective_date": null,
+      "duration_months": 12,
+      "duration_description": "One year; county will not accept, process or approve applications for the establishment, construction, expansion or operation of a data center.",
+      "power_threshold_mw": null,
+      "key_reasons": [
+        "energy",
+        "noise"
+      ],
+      "summary": "On October 5, 2026, Beaufort County commissioners voted 6–1 for a one-year data center moratorium after a public hearing. Commissioner Hood Richardson voted against it.",
+      "source_url": "https://www.witn.com/2026/10/05/beaufort-county-commissioners-voted-1-year-pause-data-center-development/",
+      "source_title": "WITN — Beaufort County commissioners approve 1-year pause on data center development (October 5, 2026)",
+      "resources": [
+        {
+          "url": "https://www.co.beaufort.nc.us/m/newsflash/Archive/Item/260?arcId=413",
+          "title": "Beaufort County — Update on Data Center Moratorium Public Hearing and Vote (September 13, 2026)"
+        }
+      ],
+      "legislative_votes": "6–1; Hood Richardson opposed",
+      "session": "2026",
+      "captured_at": "2026-10-26"
     }
   ]
 }

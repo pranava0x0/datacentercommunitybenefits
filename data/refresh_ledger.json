@@ -19,7 +19,9 @@
       "last_check": {
         "date": "2026-10-21",
         "summary": "Re-checked fluidstack.io/blog and search 2026-10-21: still no town named for the Anthropic/Fluidstack TX and NY campuses; only DCD inference. No change."
-      }
+      },
+      "last_reviewed": "2026-10-26",
+      "summary": "Infrastructure policy and newsroom checked; four company-wide verbatim commitments added. No new site or delivery evidence."
     },
     "company:coreweave": {
       "last_reviewed": "2026-09-27",
@@ -146,10 +148,6 @@
     "state:CA": {
       "follow_ups": [
         {
-          "due": "2026-10-23",
-          "what": "Escondido extension: confirm Oct 7 vote and end date from a fetchable page (city minutes or other outlet)"
-        },
-        {
           "due": "2026-11-02",
           "what": "Hayward October revisit; Oakland/SF 45-day pauses expire late Nov"
         },
@@ -162,13 +160,17 @@
           "what": "San Francisco 45-day moratorium ends ~Nov 20; Planning hearing in November: extended or lapsed?"
         },
         {
+          "due": "2027-08-23",
+          "what": "Escondido extension expires Aug 22 2027: extended, replaced or lapsed?"
+        },
+        {
           "due": "2027-10-17",
           "what": "Indio moratorium ended Oct 16 2027: permanent rule adopted or lapsed?"
         }
       ],
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Hayward council direction to staff (held as a lead until an ordinance exists); SF and Oakland unchanged"
+        "date": "2026-10-26",
+        "summary": "Escondido Oct 7 extension verified via Coast News; through Aug 22 2027. Targeted follow-up only."
       }
     },
     "state:CO": {
@@ -234,12 +236,12 @@
     "state:IL": {
       "follow_ups": [
         {
-          "due": "2026-10-24",
-          "what": "Bloomington: find report of Oct 16 Planning Commission hearing outcome; Nov 16 second hearing"
-        },
-        {
           "due": "2026-11-04",
           "what": "Chicago ordinance number and Rules Committee action"
+        },
+        {
+          "due": "2026-11-17",
+          "what": "Bloomington Nov 16 hearing outcome; verify disputed expiry Nov 16 vs computed Nov 26 from ordinance."
         },
         {
           "due": "2026-11-27",
@@ -247,8 +249,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Oct 21: Chicago EO 2026-5 and proposed one-year moratorium ordinance added."
+        "date": "2026-10-26",
+        "summary": "Bloomington Oct 16 hearing continued to Nov 16; Chicago proposed ordinance ID confirmed on Councilmatic. Expiry conflict needs ordinance."
       }
     },
     "state:IN": {
@@ -306,10 +308,6 @@
     "state:NC": {
       "follow_ups": [
         {
-          "due": "2026-10-24",
-          "what": "Beaufort County NC: Sept 14 hearing / Oct 5 outcome still unconfirmed; try Washington Daily News or county minutes"
-        },
-        {
           "due": "2026-11-06",
           "what": "Charlotte: the original 150-day pause expires Nov 5 — was staff's 9-month extension adopted? (charlotte-city-2026-06; the Sept 14 vote outcome was never found)"
         },
@@ -319,8 +317,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Charlotte extension hearing held Oct 12; vote pending, pause expires Nov 5"
+        "date": "2026-10-26",
+        "summary": "Targeted Beaufort County follow-up resolved: Oct 5 one-year pause passed 6-1 per WITN. Other NC records not re-reviewed."
       },
       "blocked": {
         "date": "2026-10-09",
@@ -420,8 +418,8 @@
     "state:TX": {
       "follow_ups": [
         {
-          "due": "2026-10-23",
-          "what": "TWDB Oct 14 enforcement report: check for coverage"
+          "due": "2026-11-09",
+          "what": "Locate TWDB enforcement update; AG reporting letters are not enforcement outcomes."
         },
         {
           "due": "2026-11-11",
@@ -429,8 +427,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "TCEQ Oct 19 letter added to texas-state-2026-08"
+        "date": "2026-10-26",
+        "summary": "AG Oct 15 reporting demands to 156 developments verified; no published TWDB Oct 14 enforcement outcome located."
       }
     },
     "state:VA": {

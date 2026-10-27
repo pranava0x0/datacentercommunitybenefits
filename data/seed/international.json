@@ -363,7 +363,7 @@
     },
     {
       "code": "SG",
-      "summary": "EDB and IMDA provisionally allocated 200 MW of new data-centre capacity to four operators, 50 MW each, under the second Data Centre Call for Application (DC-CFA2), announced on 21 August 2026. The government informed industry of a temporary pause in data-centre growth in 2019, and EDB and IMDA launched a pilot Call for Application on 20 July 2022, which closed on 21 November 2022. The Green Data Centre Roadmap, launched on 30 May 2024, aims for at least 300 MW of additional capacity, with more if green energy is used. AWS announced an additional S$12 billion for Singapore from 2024 to 2028.",
+      "summary": "EDB and IMDA provisionally allocated 200 MW of new data-centre capacity to four operators, 50 MW each, under the second Data Centre Call for Application (DC-CFA2), announced on 21 August 2026. The government informed industry of a temporary pause in data-centre growth in 2019, and EDB and IMDA launched a pilot Call for Application on 20 July 2022, which closed on 21 November 2022. The Green Data Centre Roadmap, launched on 30 May 2024, aims for at least 300 MW of additional capacity, with more if green energy is used. AWS announced an additional S$12 billion for Singapore from 2024 to 2028. In an October 7, 2026 second-reading speech, MDDI expected staged commencement of the Digital Infrastructure Act in 2027; commencement is not verified here.",
       "regulators": [
         {
           "name": "Economic Development Board",
@@ -408,6 +408,15 @@
           "source_url": "https://www.mayerbrown.com/ja/insights/publications/2024/08/singapores-green-data-centre-roadmap-representing-a-necessary-intersection-between-digital-infrastructure-and-sustainability",
           "source_title": "Mayer Brown — Singapore's Green Data Centre Roadmap (Aug 2024)",
           "captured_at": "2026-10-19"
+        },
+        {
+          "statement": "In its 7 October 2026 second-reading closing speech, MDDI expected the Digital Infrastructure Act to commence in 2027, with staged implementation. This is a stated expectation; commencement has not been verified.",
+          "verbatim": "We expect the approved Act to come into force in 2027.",
+          "source_lang": "en",
+          "period": "2026",
+          "source_url": "https://www.mddi.gov.sg/newsroom/closing-speech-by-sms-tan-kiat-how-for-the-second-reading-of-the-digital-infrastructure-bill/",
+          "source_title": "MDDI — Second reading closing speech, Digital Infrastructure Bill (7 October 2026)",
+          "captured_at": "2026-10-26"
         }
       ],
       "last_reviewed": "2026-10-19"
