@@ -1265,7 +1265,7 @@
       "notes": "Built in roughly four months in a former Electrolux plant in southwest Memphis; on-site gas turbines drew air-quality complaints from neighbouring residents and the local NAACP chapter.",
       "source_url": "https://x.ai/blog/colossus",
       "source_title": "xAI — Colossus",
-      "captured_at": "2026-05-14",
+      "captured_at": "2026-10-27",
       "project_page_url": "https://memphischamber.com/economic-development/xai/",
       "acreage": 785,
       "power_mw": 300,
@@ -1305,6 +1305,16 @@
           "upcoming": false,
           "source_url": "https://www.newser.com/story/387356/lawsuit-communities-at-risk-from-xais-illegal-toxins.html",
           "source_title": "Newser — Lawsuit: Communities at risk from xAI's illegal toxins"
+        },
+        {
+          "date": "2026-10-19",
+          "kind": "lawsuit",
+          "title": "Federal judge denies Justice Department bid to dismiss NAACP Clean Air Act claim against xAI",
+          "summary": "Reported as denying the dismissal request; the NAACP's preliminary-injunction motion was reported as still pending.",
+          "authority": "U.S. District Court (Mississippi)",
+          "upcoming": false,
+          "source_url": "https://www.ibtimes.co.uk/judge-allows-naacp-lawsuit-against-xai-turbines-1826961",
+          "source_title": "IBTimes UK — Judge allows NAACP lawsuit against xAI turbines"
         }
       ]
     },
