@@ -468,3 +468,8 @@ zero misses; two Escondido checks blocked by 403, read through web instead.
 Best alternative: one inline pass for company policy alone; parallel work
 helped only because the state and company files were independent. Parent
 handled roster, Texas, Singapore, ledger and validation.
+
+Read-only Terra review found no P1/P2. Parent review caught that Bloomington's
+expiry conflict was exposed only in BACKLOG; a PR comment led to putting the
+uncertainty in the public summary and duration. Source probes validate words,
+not whether readers can see a qualification; inspect the rendered record.

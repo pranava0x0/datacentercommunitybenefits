@@ -4877,13 +4877,13 @@
       "enacted_date": "2026-05-26",
       "effective_date": "2026-05-26",
       "duration_months": 6,
-      "duration_description": "6 months; applies only to facilities designed with a capacity greater than 5 megawatts. The Planning Commission held a hearing on draft regulations October 16 and continued it to November 16, 2026.",
+      "duration_description": "6 months; exact expiry disputed (November 16 versus calculated November 26, 2026). Applies above 5 MW. The October 16 draft-regulation hearing continues November 16.",
       "power_threshold_mw": 5,
       "key_reasons": [
         "energy",
         "transparency"
       ],
-      "summary": "The Bloomington City Council voted (Mollie Ward dissenting) on May 26, 2026 to approve a 6-month moratorium on data center development, specifically for facilities over 5 MW capacity, while the city studies regulations. This is a separate action from neighboring Normal's moratorium, which has no MW threshold.",
+      "summary": "The Bloomington City Council voted (Mollie Ward dissenting) on May 26, 2026 to approve a 6-month moratorium on data center development, specifically for facilities over 5 MW capacity, while the city studies regulations. This is a separate action from neighboring Normal's moratorium, which has no MW threshold. The Planning Commission continued its October 16 hearing to November 16. WGLT’s October 17 report says the pause expires November 16, but six months from the recorded May 26 effective date computes to November 26. The exact expiry remains unverified pending the ordinance; no extension is recorded.",
       "source_url": "https://www.wglt.org/local-news/2026-05-26/bloomington-approves-6-month-moratorium-on-data-centers",
       "source_title": "WGLT — Bloomington approves 6-month moratorium on data centers",
       "resources": [
