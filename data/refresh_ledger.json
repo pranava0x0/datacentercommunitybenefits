@@ -401,21 +401,17 @@
     },
     "state:TN": {
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Oct 21: Memphis Ord 18 passed (round 1) plus mayor's Oct 9 study EO added; Shelby County commission vote not found."
+        "date": "2026-10-28",
+        "summary": "Oct 28: Memphis Ord 18 mayoral signature/effective date still not in any report found. Shelby County Commission passed its unincorporated-area moratorium on first reading Oct 12 by 5-4 with four abstentions (Memphis Flyer, Oct 13); second reading deferred to November per search result (WREG page blocked, unverified). Not recorded: need commission minutes."
       },
       "follow_ups": [
         {
-          "due": "2026-10-28",
-          "what": "Confirm Memphis mayoral signature/effective date and Shelby County Commission action"
-        },
-        {
-          "due": "2026-10-28",
-          "what": "Memphis Ordinance 18 signature/effective date; Shelby County commission vote"
-        },
-        {
           "due": "2026-10-30",
           "what": "Crossville moratorium: vote date and ordinance number from city minutes"
+        },
+        {
+          "due": "2026-11-20",
+          "what": "Shelby County Commission second reading of data center moratorium; Memphis Ord 18 effective date"
         }
       ]
     },
