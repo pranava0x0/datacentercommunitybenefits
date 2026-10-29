@@ -1046,7 +1046,7 @@
       "tariff_name": "Large Load Tariff",
       "tariff_type": "Large-load / data center tariff",
       "status": "proposed",
-      "status_detail": "Advice letter (Proceeding 26AL-0137E, filed April 2, 2026) suspended and set for hearing by Decision C26-0280 (April 30, 2026). Decision C26-0430-I (June 26, 2026) set the procedural schedule with the evidentiary hearing on October 21, 22, 26, 27 and 28, 2026; Decision C26-0467 (July 10, 2026) scheduled remote public comment hearings for August 25 and October 20, 2026 and extended the suspension of the tariff sheets by an additional 130 days to January 8, 2027. Answer testimony was filed August 19, 2026 (Commission Staff, Western Resource Advocates, Google LLC, City of Boulder, United Power and others). As of September 25, 2026 the Colorado PUC's own key-proceedings and e-filings pages show no Commission decision on the merits — the case remains at the pre-hearing stage awaiting the late-October evidentiary hearing.",
+      "status_detail": "Advice letter (Proceeding 26AL-0137E, filed April 2, 2026) suspended and set for hearing by Decision C26-0280 (April 30, 2026). Decision C26-0430-I (June 26, 2026) set the procedural schedule with the evidentiary hearing on October 21, 22, 26, 27 and 28, 2026; Decision C26-0467 (July 10, 2026) scheduled remote public comment hearings for August 25 and October 20, 2026 and extended the suspension of the tariff sheets by an additional 130 days to January 8, 2027. Answer testimony was filed August 19, 2026 (Commission Staff, Western Resource Advocates, Google LLC, City of Boulder, United Power and others). As of September 25, 2026 the Colorado PUC's own key-proceedings and e-filings pages show no Commission decision on the merits — the case remains at the pre-hearing stage awaiting the late-October evidentiary hearing. As of October 29, 2026 the docket's most recent filings are hearing exhibits dated October 28 (revised Form ESA, CTT and Schedule TL), a United Power and PSCo settlement agreement (Hearing Exhibit 114, October 22) and a Trial Staff non-unanimous stipulation (Hearing Exhibit 1305, October 6); the docket status is still Suspended and no Commission decision on the merits is listed.",
       "regulator": "Colorado Public Utilities Commission (COPUC)",
       "filed_date": "2026-04-02",
       "min_load_mw": 50,
@@ -1114,7 +1114,7 @@
           "title": "Colorado PUC Decision C26-0467 — public comment hearings Aug. 25 and Oct. 20, 2026; suspension extended to Jan. 8, 2027"
         }
       ],
-      "captured_at": "2026-09-25",
+      "captured_at": "2026-10-29",
       "docket_number": "26AL-0137E"
     },
     {

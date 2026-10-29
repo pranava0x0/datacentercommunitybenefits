@@ -43,6 +43,12 @@
         }
       ]
     },
+    "site:amazon-boardman-or": {
+      "blocked": {
+        "date": "2026-10-29",
+        "reason": "GeekWire and DCD 403 to WebFetch; no readable source for 1 GW/20-building claims. Needs Oregonian/East Oregonian or Morrow County planning record."
+      }
+    },
     "site:aws-cumberland-pa": {
       "last_reviewed": "2026-09-25",
       "summary": "Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed."
@@ -54,6 +60,10 @@
     "site:aws-new-carlisle-in": {
       "last_reviewed": "2026-09-27",
       "summary": "Checked status/figures (unchanged), IDEM wetlands and dewatering developments since 2026-05-14. Added 2 CommunityResponses: St. Joseph Co. Drainage Board's 2026-05-04 approval of Amazon's altered dewatering proposal (mixed, local_government) and a 2026-07-09 IDEM public hearing on Amazon's new wetlands-fill permit application where NGOs urged denial (negative, ngo). Appended a dated notes sentence on the pending wetlands permit (comment period closed 2026-07-17, decision pending)."
+    },
+    "site:coreweave-hammond-in": {
+      "last_reviewed": "2026-10-29",
+      "summary": "Re-fetched city page (live, no $ figure); sourced up-to-$4M/yr and 35-90 jobs to Inside Indiana Business; no 2026 NIPSCO update found; notes appended"
     },
     "site:google-council-bluffs-ia": {
       "last_reviewed": "2026-09-29",
@@ -180,10 +190,6 @@
     "state:CO": {
       "follow_ups": [
         {
-          "due": "2026-10-29",
-          "what": "Colorado PUC evidentiary hearing Oct 21–28 on Xcel's large-load tariff (xcel-colorado-large-load-tariff)"
-        },
-        {
           "due": "2026-11-03",
           "what": "Aurora: confirm Oct 26 council outcome via Colorado Politics / Sentinel"
         },
@@ -197,8 +203,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-27",
-        "summary": "2026-10-27: Aurora Oct 26 outcome unconfirmed; the only page found (Denver7) is undated and may be an August vote. Lead filed."
+        "date": "2026-10-29",
+        "summary": "2026-10-29: PUC docket 26AL-0137E shows hearing exhibits through Oct 28, settlements filed (United Power Oct 22, Staff Oct 6), status Suspended, no merits decision. Tariff status_detail updated."
       }
     },
     "state:DE": {
