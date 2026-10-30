@@ -49,6 +49,14 @@
         "reason": "GeekWire and DCD 403 to WebFetch; no readable source for 1 GW/20-building claims. Needs Oregonian/East Oregonian or Morrow County planning record."
       }
     },
+    "site:amazon-bossier-parish-la": {
+      "last_reviewed": "2026-10-30",
+      "summary": "2026-10-30: KSLA Oct 14 workforce events added to notes; status construction unchanged; no Bossier-specific milestones, investment, or jobs figure on page; Police Jury plat page 503"
+    },
+    "site:amazon-caddo-parish-la": {
+      "last_reviewed": "2026-10-30",
+      "summary": "2026-10-30: BIZ Magazine Oct 22 expansion to $18B / third Resilient Technology Park campus added to notes; status construction unchanged"
+    },
     "site:aws-cumberland-pa": {
       "last_reviewed": "2026-09-25",
       "summary": "Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed."
@@ -373,13 +381,13 @@
     },
     "state:OK": {
       "last_check": {
-        "date": "2026-10-16",
-        "summary": "2026-10-16: OG&E large-load tariff (filed June 2026, 75 MW threshold) covered by press, none gives the OCC cause number; held"
+        "date": "2026-10-30",
+        "summary": "2026-10-30: OG&E large-load tariff OCC cause number still absent from OG&E's Jun 18 release, Frontier and OK Energy Today (no PUD number stated); held, EEI lead PUD2026-000046 unverified"
       },
       "follow_ups": [
         {
-          "due": "2026-10-30",
-          "what": "OG&E large-load tariff: OCC cause number via OCC case search"
+          "due": "2026-11-30",
+          "what": "OG&E large-load tariff: OCC cause number via OCC case search (OG&E release and press give none)"
         }
       ]
     },
@@ -407,17 +415,17 @@
     },
     "state:TN": {
       "last_check": {
-        "date": "2026-10-28",
-        "summary": "Oct 28: Memphis Ord 18 mayoral signature/effective date still not in any report found. Shelby County Commission passed its unincorporated-area moratorium on first reading Oct 12 by 5-4 with four abstentions (Memphis Flyer, Oct 13); second reading deferred to November per search result (WREG page blocked, unverified). Not recorded: need commission minutes."
+        "date": "2026-10-30",
+        "summary": "2026-10-30: Crossville 2-year moratorium: 1025wowcountry (Aug 12) says third and final reading passed; first reading was Tuesday Jul 14 (Chronicle, Jul 16). No source states the final vote date or ordinance number (a search snippet says 26-0286, unverified on a fetched page). Not recorded; needs city minutes"
       },
       "follow_ups": [
         {
-          "due": "2026-10-30",
-          "what": "Crossville moratorium: vote date and ordinance number from city minutes"
-        },
-        {
           "due": "2026-11-20",
           "what": "Shelby County Commission second reading of data center moratorium; Memphis Ord 18 effective date"
+        },
+        {
+          "due": "2026-11-30",
+          "what": "Crossville moratorium: final-reading date and ordinance number from city minutes"
         }
       ]
     },

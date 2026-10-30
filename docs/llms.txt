@@ -2,7 +2,7 @@
 
 > A sourced public record of what data-center operators have promised host communities, and what governments, utilities and residents have done in response, in the US and selected countries. Every record links to its primary source and carries a capture date; company statements are quoted verbatim.
 
-Last refreshed 2026-10-29. Record counts: 142 sites (59 contested), 17 companies, 246 moratoriums (197 enacted), 137 policies, 28 benefit agreements, 29 tariffs, 19 rate cases, 325 pledge signatories, 145 international records across 17 countries.
+Last refreshed 2026-10-30. Record counts: 142 sites (59 contested), 17 companies, 246 moratoriums (197 enacted), 137 policies, 28 benefit agreements, 29 tariffs, 19 rate cases, 325 pledge signatories, 145 international records across 17 countries.
 
 ## Sections
 
