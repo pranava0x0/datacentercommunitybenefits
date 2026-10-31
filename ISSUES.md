@@ -1,12 +1,13 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-10-30
+Generated: 2026-10-31
 Total projects needing attention: 113
 
 ## Critical Missing Commitment Details
-(39 projects)
+(40 projects)
 
 Projects missing required fields based on status:
 - **amazon-bossier-parish-la** (construction): claimed_investment_usd
+- **amazon-falls-twp-pa** (construction): claimed_investment_usd
 - **aws-caroline-va** (construction): claimed_investment_usd
 - **aws-umatilla-or** (operational): power_mw
 - **coreweave-ellendale-nd** (construction): claimed_investment_usd
@@ -47,14 +48,13 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(74 projects)
+(73 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **amazon-caddo-parish-la** (construction): power_mw
 - **amazon-canton-ms** (construction): power_mw
 - **amazon-clinton-ms** (announced): power_mw
-- **amazon-falls-twp-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **amazon-floydada-tx** (announced): claimed_jobs, power_mw
 - **amazon-fort-stockton-tx** (announced): claimed_jobs, power_mw
 - **amazon-montgomery-city-mo** (announced): power_mw
@@ -129,15 +129,15 @@ Projects with important gaps:
 (12 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 38 days ago
-- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 38 days ago
-- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 37 days ago
-- **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 35 days ago
-- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 35 days ago
-- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 35 days ago
-- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 35 days ago
-- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 35 days ago
-- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 35 days ago
-- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 35 days ago
-- **pa-puc-large-load-cost-allocation-2026** (rate_case, PA): captured 2026-10-02, 28 days ago
-- **tuscaloosa-county-al-applied-digital-delta-forge-2-2026** (policy, Brookwood / Tuscaloosa County, AL): captured 2026-10-08, 22 days ago
+- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 39 days ago
+- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 39 days ago
+- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 38 days ago
+- **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 36 days ago
+- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 36 days ago
+- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 36 days ago
+- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 36 days ago
+- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 36 days ago
+- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 36 days ago
+- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 36 days ago
+- **pa-puc-large-load-cost-allocation-2026** (rate_case, PA): captured 2026-10-02, 29 days ago
+- **tuscaloosa-county-al-applied-digital-delta-forge-2-2026** (policy, Brookwood / Tuscaloosa County, AL): captured 2026-10-08, 23 days ago
