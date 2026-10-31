@@ -57,6 +57,10 @@
       "last_reviewed": "2026-10-30",
       "summary": "2026-10-30: BIZ Magazine Oct 22 expansion to $18B / third Resilient Technology Park campus added to notes; status construction unchanged"
     },
+    "site:amazon-falls-twp-pa": {
+      "last_reviewed": "2026-10-31",
+      "summary": "Status announced->construction per Fox29 Jul 14 2026; DEP meeting and supervisors updates already present"
+    },
     "site:aws-cumberland-pa": {
       "last_reviewed": "2026-09-25",
       "summary": "Status/figures re-verified (construction, $20B/1,250 jobs/1,920MW unchanged). Dead source_url (404) fixed to the live AWS PA investment page. Notes updated: Talen/AWS restructured the Susquehanna arrangement from behind-the-meter co-location to a front-of-the-meter PPA (no FERC approval needed), targeted spring 2026 -- resolves the FERC ISA dispute chronicled in the 4 existing CommunityResponses. No new local permits or community responses found. Pre-pledge (2024), so ratepayer stays unassessed."
@@ -72,6 +76,18 @@
     "site:coreweave-hammond-in": {
       "last_reviewed": "2026-10-29",
       "summary": "Re-fetched city page (live, no $ figure); sourced up-to-$4M/yr and 35-90 jobs to Inside Indiana Business; no 2026 NIPSCO update found; notes appended"
+    },
+    "site:coreweave-kenilworth-nj": {
+      "last_reviewed": "2026-10-31",
+      "summary": "Searched for news since May 2026; only Apr-May coverage (already recorded) fetchable; no verified new permits/votes. Unchanged."
+    },
+    "site:coreweave-lancaster-pa": {
+      "last_reviewed": "2026-10-31",
+      "summary": "Searched and fetched Bisnow (Aug 25 2025); no construction start or local approval found newer than record. Unchanged."
+    },
+    "site:crusoe-sweetwater-tx": {
+      "last_reviewed": "2026-10-31",
+      "summary": "Search found only Apr 2026 abatement/reaction coverage already on record; no construction start found. Unchanged."
     },
     "site:google-council-bluffs-ia": {
       "last_reviewed": "2026-09-29",

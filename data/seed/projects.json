@@ -3066,14 +3066,14 @@
       "country": "US",
       "lat": 40.1948,
       "lon": -74.7888,
-      "status": "announced",
+      "status": "construction",
       "announced_year": 2025,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "Bucks County PA, NorthPoint Development site. Second of two PA campuses announced jointly with Salem Township (Luzerne Co) under AWS's $20B Pennsylvania commitment.",
+      "notes": "Bucks County PA, NorthPoint Development site. Second of two PA campuses announced jointly with Salem Township (Luzerne Co) under AWS's $20B Pennsylvania commitment. Oct 31 2026 review: Fox29 (July 14, 2026) reports the data center is under construction on the former U.S. Steel property.",
       "source_url": "https://www.fallstwp.com/resources/news/article/?id=10070",
       "source_title": "Falls Township — Amazon to Open Data Center at NorthPoint Development in Falls",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-10-31",
       "offtaker": "AWS",
       "at_a_glance": {
         "jobs": "Multi-billion-dollar Bucks County campus; local-hire commitment"
