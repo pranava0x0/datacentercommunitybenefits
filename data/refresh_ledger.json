@@ -134,10 +134,8 @@
       "summary": "2026-10-17: checked status/news via Epoch AI Apr 2026; added operational-buildings and reversed-expansion note; no permit or local-government sources reviewed; investment/jobs still undisclosed"
     },
     "site:openai-lordstown-oh": {
-      "blocked": {
-        "date": "2026-10-18",
-        "reason": "openai.com source returns 403 to fetchers; searches show only Aug 2025 Foxconn/SoftBank news, no 2026 local coverage. Unblock: find Trumbull County / Lordstown village or Vindicator coverage of the plant."
-      }
+      "last_reviewed": "2026-11-01",
+      "summary": "Checked news + Epoch; appended note that site is retooled for equipment manufacturing; status/figures unchanged, mayor claim (no operational DC) not confirmed on fetched pages."
     },
     "site:prologis-coweta-ga": {
       "last_check": {
@@ -146,10 +144,8 @@
       }
     },
     "site:qts-cedar-rapids-ia": {
-      "blocked": {
-        "date": "2026-10-18",
-        "reason": "Searches returned only 2025 trade/tracker items (groundbreaking, topping out Oct 2025); no dated 2026 local coverage fetched. Unblock: Cedar Rapids Gazette / city council agenda pages."
-      }
+      "last_reviewed": "2026-11-01",
+      "summary": "Checked Epoch + search; appended note on QTS late-2026 phase-1 target vs record's late-2028; status unchanged."
     },
     "site:qts-richmond-va": {
       "blocked": {
