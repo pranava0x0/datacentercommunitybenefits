@@ -182,10 +182,6 @@
     "state:CA": {
       "follow_ups": [
         {
-          "due": "2026-11-02",
-          "what": "Hayward October revisit; Oakland/SF 45-day pauses expire late Nov"
-        },
-        {
           "due": "2026-11-21",
           "what": "Oakland 45-day moratorium ends ~Nov 20: extended, permanent rules, or lapsed?"
         },
@@ -203,8 +199,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-26",
-        "summary": "Escondido Oct 7 extension verified via Coast News; through Aug 22 2027. Targeted follow-up only."
+        "date": "2026-11-02",
+        "summary": "Hayward: Bay City News (Oct 21) says council voted unanimously Oct 20 to approve a moratorium on new data center proposals, up to two years; ordinance text/effective date not fetched, record held as lead. Oakland/SF still due ~Nov 21."
       }
     },
     "state:CO": {
@@ -406,17 +402,13 @@
     "state:OR": {
       "follow_ups": [
         {
-          "due": "2026-11-02",
-          "what": "Check UE 463 for an order on the stipulation"
-        },
-        {
           "due": "2027-01-01",
           "what": "Oregon PUC deadline Dec 31 on PacifiCorp Schedule 401 (UE 463; Order 26-310 suspended it to Dec 31)"
         }
       ],
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Forest Grove 120-day moratorium added; Oregon DEQ pause and UE 463 docket re-verified"
+        "date": "2026-11-02",
+        "summary": "UE 463: PUC POWER Act report cites Order 26-239 (Jul 10) on Schedule 401 but wording unclear and order PDF unreadable via fetch; no stipulation order verified. Recheck on docket page."
       }
     },
     "state:PA": {
