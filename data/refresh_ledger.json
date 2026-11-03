@@ -206,10 +206,6 @@
     "state:CO": {
       "follow_ups": [
         {
-          "due": "2026-11-03",
-          "what": "Aurora: confirm Oct 26 council outcome via Colorado Politics / Sentinel"
-        },
-        {
           "due": "2026-11-04",
           "what": "Moffat County: commissioners' minutes for the Oct 13 moratorium decision"
         },
@@ -219,8 +215,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-29",
-        "summary": "2026-10-29: PUC docket 26AL-0137E shows hearing exhibits through Oct 28, settlements filed (United Power Oct 22, Staff Oct 6), status Suspended, no merits decision. Tariff status_detail updated."
+        "date": "2026-11-03",
+        "summary": "2026-11-03: Aurora Oct 26 vote confirmed via Colorado Politics: indefinite moratorium failed 6-5 (needed two-thirds); record set to failed."
       }
     },
     "state:DE": {

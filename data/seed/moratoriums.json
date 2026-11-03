@@ -6847,20 +6847,22 @@
     {
       "key_reasons": [],
       "session": "2026",
-      "captured_at": "2026-10-21",
+      "captured_at": "2026-11-03",
       "id": "aurora-co-2026-10",
       "jurisdiction": "Aurora",
       "jurisdiction_type": "city",
       "state_code": "CO",
-      "status": "proposed",
-      "duration_description": "Indefinite; no end date proposed. Council vote rescheduled from the October 19 special meeting to the October 26, 2026 regular meeting (6 p.m.).",
+      "status": "failed",
+      "duration_description": "Indefinite as proposed. Voted down Oct. 26, 2026.",
       "policy_type": "proposed indefinite moratorium on accepting new data center applications",
       "sponsors": [
         "Amy Wiles"
       ],
-      "summary": "Councilmember Amy Wiles proposed an indefinite moratorium on accepting any new data center applications in Aurora, Colorado. Mayor Mike Coffman called a special meeting for Monday, October 19, 2026, then rescheduled the vote to the next regular meeting at 6 p.m. October 26 because two councilmembers could not attend; he wrote that without their votes passage is unlikely. The Trident Data Center application (Vantage Data Centers) would not be affected because it was already submitted. Coffman: 'We must take a pause to prevent any further requests for data center applications until we have the right policies in place.' An earlier six-month proposal failed on August 10 (aurora-co-2026-08).",
-      "source_url": "https://www.denvergazette.com/2026/10/19/aurora-meeting-on-data-center-moratorium-delayed/",
-      "source_title": "Denver Gazette — Aurora meeting on data center moratorium delayed"
+      "summary": "Councilmember Amy Wiles proposed an indefinite moratorium on accepting any new data center applications in Aurora, Colorado. Mayor Mike Coffman called a special meeting for Monday, October 19, 2026, then rescheduled the vote to the next regular meeting at 6 p.m. October 26 because two councilmembers could not attend; he wrote that without their votes passage is unlikely. The Trident Data Center application (Vantage Data Centers) would not be affected because it was already submitted. Coffman: 'We must take a pause to prevent any further requests for data center applications until we have the right policies in place.' An earlier six-month proposal failed on August 10 (aurora-co-2026-08). Update: on October 26, 2026 the council voted 6-5 in favor, short of the two-thirds needed, so it failed; the mayor said he would bring it forward again, and the council advanced zoning changes requiring a setback from residential districts.",
+      "source_url": "https://www.coloradopolitics.com/2026/10/26/aurora-city-council-votes-down-indefinite-data-center-moratorium/",
+      "source_title": "Colorado Politics — Aurora City Council votes down indefinite data center moratorium",
+      "failure_reason": "The indefinite moratorium fell short at the Oct. 26, 2026 regular meeting: six councilmembers voted yes but it needed two-thirds of the council.",
+      "city_council_vote": "Failed Oct. 26, 2026: 6 in support (Coombs, Medina, Jackson, Wiles, Horton, Mayor Coffman), 5 opposed (Gardner, Andrews, Hancock, Bergan, Lawson)."
     },
     {
       "id": "chicago-city-il-2026-09",
