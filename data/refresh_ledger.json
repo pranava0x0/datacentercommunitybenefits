@@ -206,17 +206,13 @@
     "state:CO": {
       "follow_ups": [
         {
-          "due": "2026-11-04",
-          "what": "Moffat County: commissioners' minutes for the Oct 13 moratorium decision"
-        },
-        {
-          "due": "2026-11-04",
-          "what": "Moffat County: re-check Craig Daily Press for the Oct 13 moratorium decision"
+          "due": "2026-11-18",
+          "what": "Moffat County: county minutes / Craig Daily Press for Oct 13 moratorium decision"
         }
       ],
       "last_check": {
-        "date": "2026-11-03",
-        "summary": "2026-11-03: Aurora Oct 26 vote confirmed via Colorado Politics: indefinite moratorium failed 6-5 (needed two-thirds); record set to failed."
+        "date": "2026-11-04",
+        "summary": "2026-11-04: search found no coverage of a Moffat County moratorium decision; Craig Daily Press and county minutes not reached."
       }
     },
     "state:DE": {
@@ -350,8 +346,8 @@
     "state:NM": {
       "follow_ups": [
         {
-          "due": "2026-11-03",
-          "what": "Grant County NM: confirm meeting date from county minutes / Silver City Daily Press, then add the moratorium record"
+          "due": "2026-11-18",
+          "what": "Grant County NM: county minutes / Silver City Daily Press for the moratorium meeting date"
         }
       ],
       "blocked": {
@@ -359,8 +355,8 @@
         "reason": "Grant County Oct 8 action: no coverage found 2026-10-09; Ordinance 4-2026 (2-year) already exists, relation unclear; check county minutes / Chronicle-Tribune"
       },
       "last_check": {
-        "date": "2026-10-27",
-        "summary": "2026-10-27: ABQ Journal (Oct 22) reports Grant County approved a one-year moratorium ordinance 4-1; meeting date only 'Thursday', so not recorded; lead filed."
+        "date": "2026-11-04",
+        "summary": "2026-11-04: Grant County NM meeting date still unconfirmed; ABQ Journal pieces say only 'Thursday' (pub Oct 22 or 23 inconsistent). Ordinance 4-2026 in search results is Grant County, Indiana, not NM."
       }
     },
     "state:OH": {
