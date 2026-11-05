@@ -2186,3 +2186,17 @@ A rolling signatory can have no published signing date. Once the roster loads,
 only before roster loading. Unassessed sites with unknown timing remain visible
 with that qualification, including CSV exports. A new company membership flag
 requires checking every date/eligibility consumer, not just roster parity.
+
+### Local previews and startup requests (2026-11-05)
+
+Opening `docs/index.html` as a file blocks JSON fetches and module imports in
+the browser. Use `python tools/build_preview.py --verify`, then open
+`.preview/dashboard.html`. That bundle includes both lazy modules (planning
+guide and Elections), retains the viewport metadata and parses embedded JSON
+only when its view needs it. Its verifier now exercises Elections and the
+canonical legal-record link; a module import left unbundled fails the build.
+
+Do not idle-prefetch projects, responses and claims on unrelated tabs. The
+Elections cold load was competing with roughly 684 KB of unrelated JSON. Each
+view already has explicit loaders; request-level tests now check after the first
+render as well as before it. Measure through usable content, not just paint.

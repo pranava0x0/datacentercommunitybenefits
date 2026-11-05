@@ -266,3 +266,28 @@ follow-up review found no further issue.
 
 Follow-up release gate: 933 tests passed in 160 seconds, including all
 interaction budgets. No source data or assessment statuses changed.
+
+## 2026-11-05 local preview and load speed
+
+Reproduced the screenshot by opening `docs/index.html` as a file: JSON fetches
+were blocked and the Elections module import failed. The rebuilt standalone
+`.preview/dashboard.html` works without networking at 375×812 and 1366×812:
+Home, Elections and the Sabattus legal-record link load with zero external
+requests or page errors. The raw-file error now links to the published view.
+
+Removed boot-time prefetch of projects, responses and claims; each owning view
+still requests its data. In the same local HTTP test (uncompressed server,
+150 ms latency, 200 KB/s down, 4× CPU), Elections usable content improved from
+5.94 s to 4.44 s and resource transfer dropped from 1,390,945 to 705,502 bytes
+(excluding the HTML document). Home was unchanged at about 3.84 s. These are
+single controlled observations, not a production latency promise. The offline
+preview became usable in 54 ms on this machine. Before/after JSON and screenshots
+are in `.preview/load-speed/` (ignored).
+
+The new browser checks force idle callbacks to run, proving unrelated payloads
+are absent after startup and Companies still loads claims when opened. An
+independent bounded review found no actionable bug.
+
+Release checks: all ten tabs rendered offline at 375/1366px with no document
+overflow. 937 tests passed in 161 seconds, including all interaction budgets.
+The preview build verification passed with 56 election records and its legal link.

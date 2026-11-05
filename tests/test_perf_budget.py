@@ -38,7 +38,7 @@ FIRST_PAINT = [
     "data/home.json",
 ]
 
-# Warmed after Home renders (idle preload), so tab switches are instant.
+# Demand-loaded by the views that show them; never warmed during startup.
 DEFERRED = ["data/projects.json", "data/responses.json", "data/claims.json", "data/international.json"]
 
 # Payloads only the tab that shows them fetches.
