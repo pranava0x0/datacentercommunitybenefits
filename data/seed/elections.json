@@ -572,6 +572,39 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Town clerk signed the official results as certified November 3, 2026; scanned return visually verified."
+    },
+    {
+      "id": "sabattus-me-moratorium-2026",
+      "state_code": "ME",
+      "jurisdiction": "Sabattus",
+      "title": "Temporary data center moratorium",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "This Temporary Moratorium shall become effective immediately upon its final passage by the Town",
+        "source_url": "https://storage.googleapis.com/juniper-media-library/571/2026/10/Temporary%20Moratorium%20on%20Data%20Centers%20with%20watermark.pdf",
+        "source_title": "Sabattus — proposed temporary moratorium",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Pauses covered data centers for 180 days from passage, with retroactive application to proceedings or applications filed on or after July 28, 2026. Coverage is at least 10,000 square feet of gross floor area OR electrical demand capacity of at least 20 MW.",
+      "result": {
+        "status": "certified",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "DATA CENTER MORATORIUM *1565 YES 791 NO",
+          "source_url": "https://storage.googleapis.com/juniper-media-library/571/2026/11/Sabattus%20-%20Clerk%20Return%20of%20Votes%20-%20Municipal%20Election.pdf",
+          "source_title": "Temporary data center moratorium — results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official",
+        "certified_on": "2026-11-04"
+      },
+      "related_moratorium_ids": [
+        "sabattus-me-2026-11"
+      ],
+      "related_policy_ids": [],
+      "notes": "Municipal clerk certified the November 3 annual municipal election return on November 4, 2026; scanned return visually verified."
     }
   ],
   "coverage_notes": [
