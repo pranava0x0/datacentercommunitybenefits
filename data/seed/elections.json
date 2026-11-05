@@ -1627,6 +1627,75 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
+    },
+    {
+      "id": "or-governor-2026",
+      "state_code": "OR",
+      "jurisdiction": "Oregon",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Tina Kotek",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "I believe we need a moratorium across the state",
+              "source_url": "https://ktvz.com/news/government-politics/2026/10/08/tina-kotek-and-christine-drazan-clash-over-data-centers-in-medford-debate/",
+              "source_title": "KTVZ — Tina Kotek debate statement",
+              "captured_at": "2026-11-04",
+              "speaker": "Tina Kotek",
+              "published_at": "2026-10-08"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Christine Drazan",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "I think that Tina should issue a moratorium immediately",
+              "source_url": "https://www.opb.org/article/2026/09/14/think-out-loud-data-centers-oregon-gubernatorial-race/",
+              "source_title": "OPB Politics Now transcript — Christine Drazan interview excerpt",
+              "captured_at": "2026-11-04",
+              "speaker": "Christine Drazan",
+              "published_at": "2026-09-14"
+            }
+          ],
+          "review_note": "The transcript plays Drazan’s own interview statement supporting an immediate moratorium. The transcription labels the speaker “Drazen”; the reporting identifies Christine Drazan."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Tina Kotek",
+        "evidence": {
+          "statement": "Oregon Gov. Tina Kotek wins reelection",
+          "source_url": "https://www.opb.org/article/2026/11/03/oregon-governors-race-election-results-kotek-drazan/",
+          "source_title": "Oregon governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "oregon-state-hb4084-2026-06",
+        "oregon-state-directive-2026-09",
+        "oregon-state-deq-2026-10"
+      ],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Tina Kotek",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Democratic Gov. Tina Kotek",
+          "source_url": "https://www.opb.org/article/2026/11/03/oregon-governors-race-election-results-kotek-drazan/",
+          "source_title": "OPB — incumbent governor Tina Kotek",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
