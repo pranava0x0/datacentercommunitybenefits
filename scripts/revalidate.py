@@ -103,6 +103,20 @@ def _records(payload: dict) -> Iterator["tuple[str, dict]"]:
         if isinstance(val, list) and val and all(isinstance(x, dict) for x in val):
             for rec in val:
                 yield key, rec
+        elif isinstance(val, dict) and val.get("source_url"):
+            yield key, val
+
+
+def _election_quotes(node: Any) -> Iterator[dict]:
+    """Results and each candidate's words belong to their own cited page."""
+    if isinstance(node, dict):
+        if node.get("statement") and node.get("source_url"):
+            yield node
+        for value in node.values():
+            yield from _election_quotes(value)
+    elif isinstance(node, list):
+        for value in node:
+            yield from _election_quotes(value)
 
 
 def enumerate_sources(seed_dir: Optional[Path] = None,
@@ -122,6 +136,14 @@ def enumerate_sources(seed_dir: Optional[Path] = None,
         payload = json.loads(path.read_text(encoding="utf-8"))
         for list_key, rec in _records(payload):
             rid = rec.get("id") or rec.get("slug") or rec.get("name") or "?"
+            if name == "elections":
+                by_url: dict = {}
+                for evidence in _election_quotes(rec):
+                    by_url.setdefault(evidence["source_url"], []).append(evidence["statement"])
+                for url, statements in by_url.items():
+                    rows.append({"kind": name, "list": list_key, "id": rid,
+                                 "url": url, "role": "source", "quotes": statements})
+                continue
             quotes: list = []
             if list_key == "claims" and rec.get("statement"):
                 quotes = [rec["statement"]]

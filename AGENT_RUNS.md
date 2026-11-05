@@ -488,3 +488,21 @@ Final Terra code review caught that filtering only to the latest snapshot
 would drop the prior event on the next unchanged pull. Grouping by original
 first-observed date now preserves history without redating it; fixtures also
 exercise missing, invalid and future provenance. No further mobile finding.
+
+### 2026-11-04 — election refresh, research setup
+
+| Run | Worked? | Quality / cost | Better next time |
+| --- | --- | --- | --- |
+| Governor research on optional lower-cost provider | No | Failed before any research tool call: provider requires an unavailable Ollama login; token count not reported | Check provider availability before choosing it; use the available runtime for this multi-source task |
+| Local election/moratorium research on the same provider | No | Same startup error, no research result or tool calls; token count not reported | One provider failure is enough to stop using that provider for the batch |
+
+Two replacement research runs use the available runtime and write checkpoints
+per state/measure. Scope remains two breadth batches; no per-state fan-out.
+
+Round-one independent review covered the election module, schema, routing,
+source-audit integration and tests (no generated data). Useful: one P2, reproduced
+with a failed direct record load followed by retry. Fixed by preserving the
+requested ID across failure and clearing it on navigation; the browser test now
+asserts both the restored URL and open record. Token count not reported. One
+combined-lens reviewer was sufficient; a per-lens fan-out would have duplicated
+the same implementation reads.

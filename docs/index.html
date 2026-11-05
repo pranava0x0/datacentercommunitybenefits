@@ -116,6 +116,16 @@
           Moratoriums
         </button>
         <button
+          id="tab-elections"
+          class="tab"
+          role="tab"
+          type="button"
+          aria-selected="false"
+          aria-controls="view-elections"
+        >
+          Elections
+        </button>
+        <button
           id="tab-tariffs"
           class="tab"
           aria-label="Regulatory"
@@ -209,6 +219,12 @@
               <span class="home-card-num" data-count-for="moratoriums">&mdash;</span>
               <span class="home-card-sub" data-sub-for="moratoriums"></span>
               <span class="home-card-dek">City, county and state pauses on new data centers.</span>
+            </button>
+            <button class="home-card" type="button" data-path-target="elections">
+              <span class="home-card-title">Elections</span>
+              <span class="home-card-num" data-count-for="elections">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="elections"></span>
+              <span class="home-card-dek">Results, candidates&rsquo; data-center policies and local ballot measures.</span>
             </button>
             <button class="home-card" type="button" data-path-target="tariffs">
               <span class="home-card-title">Regulatory</span>
@@ -713,6 +729,7 @@
       <h2 id="static-summary-h">The record at a glance</h2>
       <p>Updated <time datetime="2026-11-04">November 4, 2026</time>. Every figure below links to a tab whose records each cite a primary source.</p>
       <ul>
+        <li><h3><a href="#elections">What changed in the November election?</a></h3><p>0 races and 0 ballot measures, with 0 results verified in the cited sources. Candidate statements are quoted separately from legal actions.</p></li>
         <li><h3><a href="#ratepayer">Who has signed the Ratepayer Protection Pledge?</a></h3><p>325 organizations and 23 governors, per the White House roster as of 2026-10-26.</p></li>
         <li><h3><a href="#policies">What rules do governments set for data centers?</a></h3><p>137 executive orders, laws, regulations and local ordinances are tracked; 109 are in effect.</p></li>
         <li><h3><a href="#agreements">What have communities won in benefit agreements?</a></h3><p>28 community benefit, host and PILOT agreements are tracked; 18 are signed.</p></li>
@@ -1111,6 +1128,15 @@
       </section>
 
       <!-- ====================== MORATORIUMS VIEW ====================== -->
+      <section
+        id="view-elections"
+        class="view"
+        role="tabpanel"
+        aria-labelledby="tab-elections"
+        hidden
+      >
+        <div id="elections-content"><p class="muted">Loading election records…</p></div>
+      </section>
       <section
         id="view-moratoriums"
         class="view"

@@ -38,6 +38,7 @@ from schema import (
     THEMES,
     ClaimsPayload,
     CompaniesPayload,
+    ElectionsPayload,
     MoratoriumsPayload,
     PoliciesPayload,
     InternationalPayload,
@@ -67,6 +68,7 @@ PAYLOAD_FILES: dict[str, type] = {
     "policies": PoliciesPayload,
     # v6: every non-US record, one lazy file for the International tab.
     "international": InternationalPayload,
+    "elections": ElectionsPayload,
 }
 
 
@@ -119,9 +121,23 @@ def _check_cross_refs(
     rate_cases=None,
     policies=None,
     moratoriums=None,
+    elections=None,
 ) -> list[str]:
     """Cross-payload reference checks. Returns list of error messages (empty = OK)."""
     errors: list[str] = []
+
+    if elections is not None:
+        for field, payload, collection in (
+            ("related_moratorium_ids", moratoriums, "moratoriums"),
+            ("related_policy_ids", policies, "policies"),
+        ):
+            if payload is None:
+                continue
+            known_ids = {record.id for record in getattr(payload, collection)}
+            for contest in [*elections.races, *elections.measures]:
+                for reference in getattr(contest, field):
+                    if reference not in known_ids:
+                        errors.append(f"elections.json: {contest.id!r} references unknown {field} {reference!r}")
 
     # Policies link to tracked sites and to the moratorium record that carries
     # the same instrument; a broken id would render as a dead link.
@@ -666,6 +682,12 @@ def _build_home(payloads, today: date) -> dict:
         "pledge_organizations": len(orgs),
         "pledge_governors": len(sig.signatories) - len(orgs),
         "roster_as_of": sig.roster_as_of.isoformat() if sig.roster_as_of else None,
+        "election_races": len(payloads["elections"].races),
+        "election_measures": len(payloads["elections"].measures),
+        "election_results_verified": sum(
+            contest.result.status != "unverified"
+            for contest in [*payloads["elections"].races, *payloads["elections"].measures]
+        ),
     }
 
     latest: list[dict] = []
@@ -807,6 +829,7 @@ SITE_URL = "https://pranava0x0.github.io/datacentercommunitybenefits/"
 # derives the expected set from app.js VIEWS).
 VIEW_GUIDE = {
     "overview": ("Home", "Section totals, the latest actions and dated upcoming decisions."),
+    "elections": ("Elections", "Reported and certified election results, candidates' own data-center policies, and binding versus advisory ballot measures."),
     "ratepayer": ("The Pledge", "The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard."),
     "policies": ("Local Policy Frameworks", "Executive orders, statutes, regulations and local ordinances that set conditions on data centers."),
     "agreements": ("Benefit Agreements", "Community benefit, host and PILOT agreements, tagged by what their text contains."),
@@ -876,6 +899,8 @@ def _static_summary_html(home: dict, today: date) -> str:
     no-JS reader sees placeholders (AEO checklist, notes/seo_agent_readability.md)."""
     h = html.escape
     qa = [
+        ("elections", "What changed in the November election?",
+         f"{home['election_races']} races and {home['election_measures']} ballot measures, with {home['election_results_verified']} results verified in the cited sources. Candidate statements are quoted separately from legal actions."),
         ("ratepayer", "Who has signed the Ratepayer Protection Pledge?",
          f"{home['pledge_organizations']} organizations and {home['pledge_governors']} governors, per the White House roster as of {home['roster_as_of']}."),
         ("policies", "What rules do governments set for data centers?",
@@ -986,6 +1011,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         payloads.get("rate_cases"),
         payloads.get("policies"),
         payloads.get("moratoriums"),
+        payloads.get("elections"),
     )
     cross_errors += _check_international_refs(
         payloads["companies"], payloads["international"], payloads["projects"], payloads["claims"]

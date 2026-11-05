@@ -1220,6 +1220,12 @@ come first, then locations, companies and sites.
 
 ## 4. Product and UX
 
+- **November election view (owner approved, 2026-11-04).** Build a separate
+  Elections tab with sourced outcomes, candidate statements and binding/advisory
+  measures; refresh existing legal records and cross-link them. Two review rounds,
+  mobile/desktop UAT and measured interaction/time budgets before merging.
+  Plan: [ELECTION_2026.md](notes/specs/ELECTION_2026.md). **high — in progress**
+
 - **Querétaro evidence follow-up (2026-10-14).** The planning guide attributes
   the 2023 assessment's estimated generator emissions and a registry image (concession
   855979, 25,000 m³/year, aquifer 2203). Authenticate the live registry entry,

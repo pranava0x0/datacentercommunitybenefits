@@ -7,6 +7,7 @@ Last refreshed 2026-11-04. Record counts: 142 sites (59 contested), 17 companies
 ## Sections
 
 - [Home](https://pranava0x0.github.io/datacentercommunitybenefits/#overview): Section totals, the latest actions and dated upcoming decisions.
+- [Elections](https://pranava0x0.github.io/datacentercommunitybenefits/#elections): Reported and certified election results, candidates' own data-center policies, and binding versus advisory ballot measures.
 - [The Pledge](https://pranava0x0.github.io/datacentercommunitybenefits/#ratepayer): The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard.
 - [Local Policy Frameworks](https://pranava0x0.github.io/datacentercommunitybenefits/#policies): Executive orders, statutes, regulations and local ordinances that set conditions on data centers.
 - [Benefit Agreements](https://pranava0x0.github.io/datacentercommunitybenefits/#agreements): Community benefit, host and PILOT agreements, tagged by what their text contains.
@@ -21,6 +22,7 @@ Last refreshed 2026-11-04. Record counts: 142 sites (59 contested), 17 companies
 - [claims.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/claims.json)
 - [companies.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/companies.json)
 - [coverage.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/coverage.json)
+- [elections.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/elections.json)
 - [home.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/home.json)
 - [international.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/international.json)
 - [moratoriums.json](https://pranava0x0.github.io/datacentercommunitybenefits/data/moratoriums.json)

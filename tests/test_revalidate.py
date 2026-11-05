@@ -60,6 +60,20 @@ def test_filter_by_kind_list_and_id():
     assert one and all(r["id"] == rows[0]["id"] for r in one)
 
 
+def test_election_result_and_candidate_quotes_keep_separate_sources(tmp_path):
+    (tmp_path / "elections.json").write_text(json.dumps({
+        "calendar": {"statement": "Election day", "source_url": "https://calendar.test/"},
+        "races": [{"id": "one", "result": {"evidence": {
+            "statement": "Jordan won.", "source_url": "https://results.test/"}},
+            "candidates": [{"statements": [{"statement": "We need a pause.",
+                "source_url": "https://candidate.test/"}]}]}]}))
+    rows = rv.enumerate_sources(tmp_path, ["elections"])
+    quotes = {row["url"]: row["quotes"] for row in rows}
+    assert quotes == {"https://calendar.test/": ["Election day"],
+                      "https://results.test/": ["Jordan won."],
+                      "https://candidate.test/": ["We need a pause."]}
+
+
 @pytest.mark.parametrize("status,final,text,want", [
     (200, "https://a.test/x", LONG, "live"),
     (404, "https://a.test/x", "", "dead"),

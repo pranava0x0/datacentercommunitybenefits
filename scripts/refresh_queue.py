@@ -187,6 +187,9 @@ def derive_units() -> dict[str, Unit]:
         add(rc.get("state_code"), "rate_cases", rc["id"])
     for pol in policies:
         add(pol.get("state_code"), "policies", pol["id"])
+    elections = json.loads((SEED / "elections.json").read_text())
+    for contest in [*elections["races"], *elections["measures"]]:
+        add(contest["state_code"], "elections", contest["id"])
     for s in _load("signatories.json", "signatories"):
         if s["category"] == "governor":
             add(s.get("state"), "governor", s["id"])
