@@ -83,6 +83,7 @@ COMPANY_MATCHES = {
     "CoreWeave": "coreweave",
     "Crusoe": "crusoe",
     "Prologis": "prologis",
+    "SB Energy": "sb-energy",
 }
 
 # The seven electricity BUYERS from the March 4 round. Everything else in the
