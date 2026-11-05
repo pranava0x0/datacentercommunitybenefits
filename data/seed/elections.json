@@ -1018,6 +1018,61 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
+    },
+    {
+      "id": "md-governor-2026",
+      "state_code": "MD",
+      "jurisdiction": "Maryland",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Wes Moore",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "we are establishing clear safeguards to ensure Marylanders do not foot the bill",
+              "source_url": "https://governor.maryland.gov/news/press-releases/governor-moore-signs-executive-order-codifying-responsible-data-center-development-framework",
+              "source_title": "Maryland Governor — Wes Moore on responsible data-center development",
+              "captured_at": "2026-11-04",
+              "speaker": "Wes Moore"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Dan Cox",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Wes Moore",
+        "evidence": {
+          "statement": "Democrat Wes Moore won reelection as Maryland's governor",
+          "source_url": "https://www.cbsnews.com/baltimore/news/wes-moore-defeats-dan-cox-second-term-maryland-governor/",
+          "source_title": "Maryland governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Wes Moore",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Democrat Wes Moore won reelection as Maryland's governor",
+          "source_url": "https://www.cbsnews.com/baltimore/news/wes-moore-defeats-dan-cox-second-term-maryland-governor/",
+          "source_title": "Incumbent governor — Maryland",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
