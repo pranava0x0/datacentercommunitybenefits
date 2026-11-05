@@ -633,6 +633,29 @@
         }
       ],
       "captured_at": "2026-11-04"
+    },
+    {
+      "id": "fl-psc-tampa-electric-large-load-tariff-2026",
+      "state_code": "FL",
+      "jurisdiction_level": "state",
+      "utility": "Tampa Electric Company",
+      "regulator": "Florida Public Service Commission (FPSC)",
+      "docket_number": "20260146-EI",
+      "title": "Tampa Electric petition for approval of large load customer tariffs (SB 484)",
+      "case_type": "large_load_tariff",
+      "status": "pending",
+      "filed_date": "2026-09-30",
+      "decided_date": null,
+      "effective_date": null,
+      "next_milestone": null,
+      "next_milestone_date": null,
+      "related_tariff_id": null,
+      "related_project_ids": null,
+      "summary": "Tampa Electric Company petitioned the Florida Public Service Commission on September 30, 2026 to approve large load customer tariffs under Section 366.043, Florida Statutes. The petition's tariffs apply to customers with an anticipated monthly peak load of 50 MW or more at a single location. No hearing date or order has been verified.",
+      "source_url": "https://www.floridapsc.com/pscfiles/library/filings/2026/07096-2026/07096-2026.pdf",
+      "source_title": "Florida PSC — Tampa Electric petition for approval of large load customer tariffs, Docket 20260146-EI (filed Sept 30, 2026)",
+      "resources": [],
+      "captured_at": "2026-11-05"
     }
   ]
 }

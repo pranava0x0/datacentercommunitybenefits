@@ -239,21 +239,15 @@
     },
     "state:FL": {
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Oct 21: Duke Energy Florida docket 20260064-EI added as rate case; no hearing outcome found."
-      },
-      "follow_ups": [
-        {
-          "due": "2026-11-04",
-          "what": "Duke FL post-hearing recommendation; TECO and FPL docket numbers"
-        }
-      ]
+        "date": "2026-11-05",
+        "summary": "Nov 5: Duke FL tariff already recorded as rejected Nov 3. Added TECO docket 20260146-EI (filed Sept 30, pending). FPL docket still not found."
+      }
     },
     "state:GA": {
       "follow_ups": [
         {
-          "due": "2026-11-04",
-          "what": "Verify OpenAI primary quote"
+          "due": "2026-12-05",
+          "what": "Retry OpenAI Camellia primary quote via archive or other route"
         },
         {
           "due": "2027-01-01",
@@ -263,8 +257,8 @@
       "last_reviewed": "2026-10-12",
       "summary": "Searched new GA moratoriums; Paulding/Camden/Newton found untracked, filed as BACKLOG leads (need primary source/dates). Existing records not re-verified.",
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Oct 21: Effingham PSC approval (Aug) and SELC suit (Sept 21) recorded on policy and project."
+        "date": "2026-11-05",
+        "summary": "Nov 5: openai.com still 403; OpenAI quote not verified, no change. Needs non-403 route (archive/PDF)."
       }
     },
     "state:IL": {
@@ -390,8 +384,8 @@
     "state:OH": {
       "follow_ups": [
         {
-          "due": "2026-11-04",
-          "what": "Nov 3 ballot: ~18 local data-center charter amendments/bans (Ohio Capital Journal Sept 14, Cloudflare-walled), incl. Trenton; and the Butler County 25 MW citizen measure tied to Amazon's $5B plan — record outcomes"
+          "due": "2026-11-30",
+          "what": "Record certified Nov 3 Ohio local data-center measure results"
         },
         {
           "due": "2027-01-29",
@@ -403,8 +397,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-10-22",
-        "summary": "Cleveland extension re-verified on Cleveland 19: paused through Jan 29 2027 or until new rules; record already correct, captured_at bumped"
+        "date": "2026-11-05",
+        "summary": "Nov 5: Trenton Issue 17 already in elections.json (passed, unofficial ~80%). Other Ohio local measures (reports say 14-18 passed) not individually verified; counts differ by outlet; certified results due ~3 weeks after election."
       }
     },
     "state:OK": {
