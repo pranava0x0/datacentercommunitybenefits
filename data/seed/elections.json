@@ -301,6 +301,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Election-night returns; not a certification or independent verification that the charter amendment has taken effect."
+    },
+    {
+      "id": "conneaut-oh-issue10-2026",
+      "state_code": "OH",
+      "jurisdiction": "Conneaut",
+      "title": "Issue 10 — Data center charter amendment",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "The construction of a data center is hereby prohibited.",
+        "source_url": "https://ballotpedia.org/Conneaut,_Ohio,_Issue_10,_Prohibit_Data_Centers_Exceeding_25_Megawatts_Amendment_(November_2026)",
+        "source_title": "Ballotpedia — Conneaut Issue 10 ballot text",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Adds a self-executing charter prohibition on construction of covered data centers with aggregate monthly demand or peak load greater than 25 MW. Certification and commencement date were not independently verified.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "10 Conn City Charter Amend Vote For 1 TOTAL VOTE % YES 2,301 64.18% NO 1,218 33.97%",
+          "source_url": "https://www.boe.ohio.gov/ashtabula/c/elecres/20261103results.pdf",
+          "source_title": "Ashtabula County Board of Elections — unofficial results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Election-night returns; not a certification or independent verification that the charter amendment has taken effect."
     }
   ],
   "coverage_notes": [
