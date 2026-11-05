@@ -64,7 +64,7 @@ export function mount(root, data, hooks) {
   const search = el("input");
   search.type = "search";
   search.id = "elections-q";
-  search.placeholder = "State, candidate or place";
+  search.placeholder = "State, candidate, place or policy";
   searchLabel.append(search);
   function picker(id, label, options) {
     const wrapper = el("label", "", label);
@@ -128,6 +128,8 @@ export function mount(root, data, hooks) {
       const changed = change(record);
       if (changed) transition.append(document.createTextNode(` · ${changed}`));
       card.append(transition);
+    } else if (record.kind === "race") {
+      card.append(el("p", "muted", "Officeholder at election time not verified in this pass."));
     }
     if (record.kind === "measure") card.append(el("p", "", record.legal_effect));
     if (record.notes) card.append(el("p", "muted", record.notes));
@@ -187,7 +189,9 @@ export function mount(root, data, hooks) {
       if (status.value === "changes" && !["New officeholder", "New officeholder · same party", "Party change"].includes(changed)) return false;
       if (status.value === "party" && changed !== "Party change") return false;
       const haystack = [hooks.stateNames[record.state_code], record.state_code, record.jurisdiction, record.office, record.title,
-        ...(record.candidates || []).map((candidate) => candidate.name)].join(" ").toLocaleLowerCase();
+        record.legal_effect, record.ballot_evidence?.statement,
+        ...(record.candidates || []).flatMap((candidate) => [candidate.name,
+          ...candidate.statements.map((statement) => statement.statement)])].join(" ").toLocaleLowerCase();
       return !query || query.split(/\s+/).every((word) => haystack.includes(word));
     });
     count.textContent = `${filtered.length} of ${records.length} election records`;

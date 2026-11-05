@@ -10,6 +10,12 @@ shortest realistic path a reader would take. The harness counts:
   types   typing a query into a search box (one per query; tapping into
           the box first is counted as a tap)
 
+Each result also carries `elapsed_seconds`: wall time from the initial Home
+navigation through the final information target, including page/data loading
+and the harness's settling waits. It is an automated path time, not a measure
+of human reading or decision time. Timing does not affect interaction totals
+or their budgets.
+
 Two contexts per device:
 
   default   the page as shipped (collapsed accordions stay collapsed until
@@ -43,6 +49,7 @@ import threading
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
+from time import perf_counter
 from typing import Any, Optional
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -143,6 +150,19 @@ TASKS: list[Task] = [
           ("type", "#moratorium-q", "hernando"),
           ("tap", '#moratoriums-tbody tr[data-id="hernando-county-fl-2026-06"]'),
           ("see", "#md-status")]),
+    Task("election_result", "Who won the first priority governor race?",
+         [("tap", "#tab-elections"),
+          ("see", "#elections-directory .election-card:first-child .election-result strong")]),
+    Task("election_policy", "What did the Texas governor candidates say about data centers?",
+         [("tap", "#tab-elections"),
+          ("tap", '#elections-directory [data-election-id="tx-governor-2026"] .election-details > summary'),
+          ("see", '#elections-directory [data-election-id="tx-governor-2026"] .election-candidates blockquote'),
+          ("see", '#elections-directory [data-election-id="tx-governor-2026"] .election-candidate:last-child blockquote')]),
+    Task("election_legal_record", "What legal moratorium record follows the Sabattus ballot vote?",
+         [("tap", "#tab-elections"),
+          ("type", "#elections-q", "Sabattus"),
+          ("tap", '#elections-directory [data-election-id*="sabattus"] .election-related button[data-related-record]'),
+          ("see", "#moratorium-modal:not([hidden]) #md-status")]),
     Task("world_country", "What does Ireland require of data centers?",
          [("tap", "#tab-world"),
           ("tap", '#world-country-jump [data-country="IE"]'),
@@ -241,6 +261,7 @@ class Cost:
     types: int = 0
     path: list[str] = field(default_factory=list)
     error: Optional[str] = None
+    elapsed_seconds: float = 0.0
 
     @property
     def total(self) -> int:
@@ -248,7 +269,8 @@ class Cost:
 
     def as_dict(self) -> dict[str, Any]:
         d = {"taps": self.taps, "swipes": self.swipes, "hswipes": self.hswipes,
-             "types": self.types, "total": self.total, "path": self.path}
+             "types": self.types, "total": self.total, "path": self.path,
+             "elapsed_seconds": self.elapsed_seconds}
         if self.error:
             d["error"] = self.error
         return d
@@ -302,11 +324,12 @@ def _reveal(page, sel: str, cost: Cost, expanded: bool) -> None:
 
 
 def run_task(page, base: str, task: Task, expanded: bool) -> Cost:
+    started = perf_counter()
     cost = Cost()
-    page.goto(base + "/", wait_until="load")
-    page.wait_for_selector("#home-latest-list .feed-item", state="attached", timeout=10000)
-    _settle(page)
     try:
+        page.goto(base + "/", wait_until="load")
+        page.wait_for_selector("#home-latest-list .feed-item", state="attached", timeout=10000)
+        _settle(page)
         for step in task.steps:
             kind, sel = step[0], step[1]
             page.wait_for_selector(sel, state="attached", timeout=10000)
@@ -333,6 +356,8 @@ def run_task(page, base: str, task: Task, expanded: bool) -> Cost:
     except Exception as exc:  # one broken task must not end the run
         cost.error = f"{type(exc).__name__}: {str(exc).splitlines()[0][:200]}"
         log.error("%s (%s): %s", task.key, "expanded" if expanded else "default", cost.error)
+    finally:
+        cost.elapsed_seconds = round(perf_counter() - started, 3)
     return cost
 
 
@@ -382,20 +407,25 @@ def measure(devices: list[str], tasks: list[Task], base: Optional[str] = None) -
 
 
 def summary_line(result: dict[str, Any]) -> dict[str, Any]:
-    line: dict[str, Any] = {"date": result["date"]}
+    line: dict[str, Any] = {"date": result["date"], "elapsed_seconds": {}}
     for dev, tasks in result["devices"].items():
         line[dev] = {k: v["default"]["total"] for k, v in tasks.items()}
+        line["elapsed_seconds"][dev] = {
+            key: {context: values[context]["elapsed_seconds"] for context in CONTEXTS}
+            for key, values in tasks.items()
+        }
     return line
 
 
 def print_table(result: dict[str, Any]) -> None:
     for dev, tasks in result["devices"].items():
-        print(f"\n{dev}: task / default (taps+swipes+side+type) / expanded")
+        print(f"\n{dev}: task / default (taps+swipes+side+type) / expanded / seconds (default, expanded)")
         for k, v in tasks.items():
             d, e = v["default"], v["expanded"]
             flag = "  ERROR " + d.get("error", e.get("error", "")) if ("error" in d or "error" in e) else ""
             print(f"  {k:<20} {d['total']:>3} ({d['taps']}+{d['swipes']}+{d['hswipes']}+{d['types']})"
-                  f"   {e['total']:>3} ({e['taps']}+{e['swipes']}+{e['hswipes']}+{e['types']}){flag}")
+                  f"   {e['total']:>3} ({e['taps']}+{e['swipes']}+{e['hswipes']}+{e['types']})"
+                  f"   {d['elapsed_seconds']:.3f}s, {e['elapsed_seconds']:.3f}s{flag}")
 
 
 def main() -> None:

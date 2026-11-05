@@ -2202,7 +2202,7 @@ function showMoratoriumDetail(m) {
   document.getElementById("md-status-detail").textContent = effectiveStatus(m);
   document.getElementById("md-enacted").textContent = m.enacted_date || "Not yet enacted";
   document.getElementById("md-duration-detail").textContent = m.duration_description;
-  document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "No threshold (all sizes)";
+  document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "See scope below";
 
   // Effective date — show only when present and distinct from enacted_date
   setMdKv("md-effective-dt", "md-effective", m.effective_date && m.effective_date !== m.enacted_date ? m.effective_date : null);

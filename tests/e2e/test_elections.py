@@ -85,6 +85,10 @@ def test_filters_combine_clear_and_show_unknown(elections: Page, base_url: str) 
     elections.click("#elections-reset")
     elections.fill("#elections-q", "Jordan Texas")
     expect(elections.locator(".election-card")).to_have_count(1)
+    elections.fill("#elections-q", "approvals Texas")
+    expect(elections.locator(".election-card")).to_have_count(1)
+    elections.fill("#elections-q", "does not change local law")
+    expect(elections.locator(".election-card")).to_have_count(1)
 
 
 def test_advisory_passage_stays_distinct_from_a_law(elections: Page, base_url: str) -> None:
@@ -140,6 +144,9 @@ def test_layout_and_keyboard_sources(elections: Page, base_url: str, width: int)
     elections.goto(base_url + "/#elections/tx-governor-2026")
     expect(elections.locator("#election-tx-governor-2026 details")).to_have_attribute("open", "")
     assert elections.evaluate("document.documentElement.scrollWidth <= innerWidth")
+    # A wrapping row must not inherit the generic filter bar's column layout:
+    # mobile flex-basis values would become 140px-tall empty rows.
+    assert elections.locator(".election-filters").evaluate("e => e.getBoundingClientRect().height") < 260
     assert elections.evaluate("new Set([...document.querySelectorAll('.tab')].map(t => Math.round(t.getBoundingClientRect().top))).size") <= 2
     source = elections.locator("#election-tx-governor-2026 .election-result a")
     source.focus()

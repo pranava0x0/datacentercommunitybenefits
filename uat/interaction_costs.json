@@ -1,5 +1,5 @@
 {
- "date": "2026-10-21",
+ "date": "2026-11-04",
  "swipe_fraction": 0.75,
  "devices": {
   "mobile": {
@@ -14,7 +14,8 @@
      "path": [
       "tap: [data-guide-target=\"drafts\"]",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 1.693
     },
     "expanded": {
      "taps": 1,
@@ -25,7 +26,8 @@
      "path": [
       "tap: [data-guide-target=\"drafts\"]",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 1.676
     }
    },
    "draft_state": {
@@ -40,7 +42,8 @@
       "tap: [data-guide-target=\"drafts\"]",
       "select: 'state' (2 taps)",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 2.259
     },
     "expanded": {
      "taps": 3,
@@ -52,7 +55,8 @@
       "tap: [data-guide-target=\"drafts\"]",
       "select: 'state' (2 taps)",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 2.239
     }
    },
    "impact_water": {
@@ -70,7 +74,8 @@
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
-     ]
+     ],
+     "elapsed_seconds": 2.822
     },
     "expanded": {
      "taps": 2,
@@ -85,7 +90,8 @@
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
-     ]
+     ],
+     "elapsed_seconds": 2.851
     }
    },
    "home_latest": {
@@ -98,7 +104,8 @@
      "total": 0,
      "path": [
       "see: #home-latest-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.106
     },
     "expanded": {
      "taps": 0,
@@ -108,7 +115,8 @@
      "total": 0,
      "path": [
       "see: #home-latest-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.12
     }
    },
    "home_coming_up": {
@@ -122,7 +130,8 @@
      "path": [
       "swipe x2",
       "see: #whats-next-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.093
     },
     "expanded": {
      "taps": 0,
@@ -133,7 +142,8 @@
      "path": [
       "swipe x2",
       "see: #whats-next-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.106
     }
    },
    "home_sections": {
@@ -146,7 +156,8 @@
      "total": 0,
      "path": [
       "see: #home-cards .home-card:last-child"
-     ]
+     ],
+     "elapsed_seconds": 1.105
     },
     "expanded": {
      "taps": 0,
@@ -156,32 +167,37 @@
      "total": 0,
      "path": [
       "see: #home-cards .home-card:last-child"
-     ]
+     ],
+     "elapsed_seconds": 1.109
     }
    },
    "latest_item_record": {
     "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
-     ]
+     ],
+     "elapsed_seconds": 1.656
     },
     "expanded": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
-     ]
+     ],
+     "elapsed_seconds": 1.671
     }
    },
    "pledge_signatory": {
@@ -198,7 +214,8 @@
       "type: 'entergy'",
       "swipe x1",
       "see: #rp-roster > li"
-     ]
+     ],
+     "elapsed_seconds": 2.905
     },
     "expanded": {
      "taps": 2,
@@ -211,34 +228,37 @@
       "swipe x4",
       "type: 'entergy'",
       "see: #rp-roster > li"
-     ]
+     ],
+     "elapsed_seconds": 2.192
     }
    },
    "pledge_site_score": {
     "question": "How does an assessed site score on the five commitments?",
     "default": {
      "taps": 1,
-     "swipes": 4,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 5,
+     "total": 4,
      "path": [
       "tap: #tab-ratepayer",
-      "swipe x4",
+      "swipe x3",
       "see: #subpane-rp-sites-assessed .rp-card"
-     ]
+     ],
+     "elapsed_seconds": 1.689
     },
     "expanded": {
      "taps": 1,
-     "swipes": 68,
+     "swipes": 69,
      "hswipes": 0,
      "types": 0,
-     "total": 69,
+     "total": 70,
      "path": [
       "tap: #tab-ratepayer",
-      "swipe x68",
+      "swipe x69",
       "see: #subpane-rp-sites-assessed .rp-card"
-     ]
+     ],
+     "elapsed_seconds": 1.673
     }
    },
    "state_panel": {
@@ -254,20 +274,22 @@
       "swipe x2",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
-     ]
+     ],
+     "elapsed_seconds": 2.26
     },
     "expanded": {
      "taps": 2,
-     "swipes": 64,
+     "swipes": 65,
      "hswipes": 0,
      "types": 0,
-     "total": 66,
+     "total": 67,
      "path": [
       "tap: #tab-ratepayer",
-      "swipe x64",
+      "swipe x65",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
-     ]
+     ],
+     "elapsed_seconds": 2.296
     }
    },
    "policy_cba": {
@@ -283,7 +305,8 @@
       "tap: #subtab-pol-directory",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
-     ]
+     ],
+     "elapsed_seconds": 2.864
     },
     "expanded": {
      "taps": 3,
@@ -296,7 +319,8 @@
       "tap: #subtab-pol-directory",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
-     ]
+     ],
+     "elapsed_seconds": 2.839
     }
    },
    "agreement_terms": {
@@ -310,7 +334,8 @@
      "path": [
       "tap: #tab-agreements",
       "see: #cba-strongest .cba-card .cba-terms"
-     ]
+     ],
+     "elapsed_seconds": 1.632
     },
     "expanded": {
      "taps": 1,
@@ -321,7 +346,8 @@
      "path": [
       "tap: #tab-agreements",
       "see: #cba-strongest .cba-card .cba-terms"
-     ]
+     ],
+     "elapsed_seconds": 1.667
     }
    },
    "moratorium_recent": {
@@ -336,7 +362,8 @@
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.239
     },
     "expanded": {
      "taps": 2,
@@ -348,7 +375,8 @@
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.231
     }
    },
    "moratorium_older": {
@@ -364,7 +392,8 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.822
     },
     "expanded": {
      "taps": 3,
@@ -377,7 +406,103 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.86
+    }
+   },
+   "election_result": {
+    "question": "Who won the first priority governor race?",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-elections",
+      "see: #elections-directory .election-card:first-child .election-result strong"
+     ],
+     "elapsed_seconds": 1.754
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-elections",
+      "see: #elections-directory .election-card:first-child .election-result strong"
+     ],
+     "elapsed_seconds": 1.733
+    }
+   },
+   "election_policy": {
+    "question": "What did the Texas governor candidates say about data centers?",
+    "default": {
+     "taps": 2,
+     "swipes": 4,
+     "hswipes": 0,
+     "types": 0,
+     "total": 6,
+     "path": [
+      "tap: #tab-elections",
+      "swipe x2",
+      "tap: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-details > summary",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidates blockquote",
+      "swipe x2",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidate:last-child blockquote"
+     ],
+     "elapsed_seconds": 2.517
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 4,
+     "hswipes": 0,
+     "types": 0,
+     "total": 6,
+     "path": [
+      "tap: #tab-elections",
+      "swipe x2",
+      "tap: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-details > summary",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidates blockquote",
+      "swipe x2",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidate:last-child blockquote"
+     ],
+     "elapsed_seconds": 2.486
+    }
+   },
+   "election_legal_record": {
+    "question": "What legal moratorium record follows the Sabattus ballot vote?",
+    "default": {
+     "taps": 3,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 1,
+     "total": 6,
+     "path": [
+      "tap: #tab-elections",
+      "type: 'Sabattus'",
+      "swipe x2",
+      "tap: #elections-directory [data-election-id*=\"sabattus\"] .election-related button[data-related-record]",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ],
+     "elapsed_seconds": 2.804
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 2,
+     "hswipes": 0,
+     "types": 1,
+     "total": 6,
+     "path": [
+      "tap: #tab-elections",
+      "type: 'Sabattus'",
+      "swipe x2",
+      "tap: #elections-directory [data-election-id*=\"sabattus\"] .election-related button[data-related-record]",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ],
+     "elapsed_seconds": 2.736
     }
    },
    "world_country": {
@@ -392,7 +517,8 @@
       "tap: #tab-world",
       "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
-     ]
+     ],
+     "elapsed_seconds": 2.271
     },
     "expanded": {
      "taps": 2,
@@ -404,7 +530,8 @@
       "tap: #tab-world",
       "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
-     ]
+     ],
+     "elapsed_seconds": 2.26
     }
    },
    "ratecase_milestone": {
@@ -419,7 +546,8 @@
       "tap: #tab-tariffs",
       "swipe x2",
       "see: #rate-cases-list .rc-item .rc-next"
-     ]
+     ],
+     "elapsed_seconds": 1.671
     },
     "expanded": {
      "taps": 1,
@@ -431,7 +559,8 @@
       "tap: #tab-tariffs",
       "swipe x2",
       "see: #rate-cases-list .rc-item .rc-next"
-     ]
+     ],
+     "elapsed_seconds": 1.64
     }
    },
    "company_water": {
@@ -447,7 +576,8 @@
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
       "see: #theme-quotes-list > li"
-     ]
+     ],
+     "elapsed_seconds": 3.708
     },
     "expanded": {
      "taps": 3,
@@ -460,7 +590,8 @@
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
       "see: #theme-quotes-list > li"
-     ]
+     ],
+     "elapsed_seconds": 3.198
     }
    },
    "contested_timeline": {
@@ -475,7 +606,8 @@
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
       "see: #contested-list .contested-card .timeline .tl-item"
-     ]
+     ],
+     "elapsed_seconds": 2.188
     },
     "expanded": {
      "taps": 2,
@@ -487,7 +619,8 @@
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
       "see: #contested-list .contested-card .timeline .tl-item"
-     ]
+     ],
+     "elapsed_seconds": 2.189
     }
    },
    "site_comment": {
@@ -504,7 +637,8 @@
       "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
       "tap: #dtab-responses",
       "see: #d-responses .response-card"
-     ]
+     ],
+     "elapsed_seconds": 3.685
     },
     "expanded": {
      "taps": 4,
@@ -518,7 +652,8 @@
       "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
       "tap: #dtab-responses",
       "see: #d-responses .response-card"
-     ]
+     ],
+     "elapsed_seconds": 3.658
     }
    }
   },
@@ -534,7 +669,8 @@
      "path": [
       "tap: [data-guide-target=\"drafts\"]",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 1.672
     },
     "expanded": {
      "taps": 1,
@@ -545,7 +681,8 @@
      "path": [
       "tap: [data-guide-target=\"drafts\"]",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 1.649
     }
    },
    "draft_state": {
@@ -560,7 +697,8 @@
       "tap: [data-guide-target=\"drafts\"]",
       "select: 'state' (2 taps)",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 2.228
     },
     "expanded": {
      "taps": 3,
@@ -572,7 +710,8 @@
       "tap: [data-guide-target=\"drafts\"]",
       "select: 'state' (2 taps)",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 2.224
     }
    },
    "impact_water": {
@@ -589,7 +728,8 @@
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
-     ]
+     ],
+     "elapsed_seconds": 2.88
     },
     "expanded": {
      "taps": 2,
@@ -603,7 +743,8 @@
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
-     ]
+     ],
+     "elapsed_seconds": 2.869
     }
    },
    "home_latest": {
@@ -616,7 +757,8 @@
      "total": 0,
      "path": [
       "see: #home-latest-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.104
     },
     "expanded": {
      "taps": 0,
@@ -626,32 +768,35 @@
      "total": 0,
      "path": [
       "see: #home-latest-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.111
     }
    },
    "home_coming_up": {
     "question": "What is the next scheduled hearing or deadline?",
     "default": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.108
     },
     "expanded": {
      "taps": 0,
-     "swipes": 2,
+     "swipes": 3,
      "hswipes": 0,
      "types": 0,
-     "total": 2,
+     "total": 3,
      "path": [
-      "swipe x2",
+      "swipe x3",
       "see: #whats-next-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.091
     }
    },
    "home_sections": {
@@ -664,7 +809,8 @@
      "total": 0,
      "path": [
       "see: #home-cards .home-card:last-child"
-     ]
+     ],
+     "elapsed_seconds": 1.1
     },
     "expanded": {
      "taps": 0,
@@ -674,32 +820,37 @@
      "total": 0,
      "path": [
       "see: #home-cards .home-card:last-child"
-     ]
+     ],
+     "elapsed_seconds": 1.099
     }
    },
    "latest_item_record": {
     "question": "Open the newest moratorium in the Latest feed.",
     "default": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
-     ]
+     ],
+     "elapsed_seconds": 1.684
     },
     "expanded": {
      "taps": 1,
-     "swipes": 0,
+     "swipes": 2,
      "hswipes": 0,
      "types": 0,
-     "total": 1,
+     "total": 3,
      "path": [
+      "swipe x2",
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
-     ]
+     ],
+     "elapsed_seconds": 1.641
     }
    },
    "pledge_signatory": {
@@ -715,7 +866,8 @@
       "tap: expand section",
       "type: 'entergy'",
       "see: #rp-roster > li"
-     ]
+     ],
+     "elapsed_seconds": 2.875
     },
     "expanded": {
      "taps": 2,
@@ -728,7 +880,8 @@
       "swipe x2",
       "type: 'entergy'",
       "see: #rp-roster > li"
-     ]
+     ],
+     "elapsed_seconds": 2.284
     }
    },
    "pledge_site_score": {
@@ -743,7 +896,8 @@
       "tap: #tab-ratepayer",
       "swipe x2",
       "see: #subpane-rp-sites-assessed .rp-card"
-     ]
+     ],
+     "elapsed_seconds": 1.695
     },
     "expanded": {
      "taps": 1,
@@ -755,7 +909,8 @@
       "tap: #tab-ratepayer",
       "swipe x23",
       "see: #subpane-rp-sites-assessed .rp-card"
-     ]
+     ],
+     "elapsed_seconds": 1.697
     }
    },
    "state_panel": {
@@ -770,7 +925,8 @@
       "tap: #tab-ratepayer",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
-     ]
+     ],
+     "elapsed_seconds": 2.254
     },
     "expanded": {
      "taps": 2,
@@ -783,7 +939,8 @@
       "swipe x20",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
-     ]
+     ],
+     "elapsed_seconds": 2.247
     }
    },
    "policy_cba": {
@@ -799,7 +956,8 @@
       "tap: #subtab-pol-directory",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
-     ]
+     ],
+     "elapsed_seconds": 2.866
     },
     "expanded": {
      "taps": 3,
@@ -812,7 +970,8 @@
       "tap: #subtab-pol-directory",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
-     ]
+     ],
+     "elapsed_seconds": 2.877
     }
    },
    "agreement_terms": {
@@ -826,7 +985,8 @@
      "path": [
       "tap: #tab-agreements",
       "see: #cba-strongest .cba-card .cba-terms"
-     ]
+     ],
+     "elapsed_seconds": 1.667
     },
     "expanded": {
      "taps": 1,
@@ -837,7 +997,8 @@
      "path": [
       "tap: #tab-agreements",
       "see: #cba-strongest .cba-card .cba-terms"
-     ]
+     ],
+     "elapsed_seconds": 1.66
     }
    },
    "moratorium_recent": {
@@ -852,7 +1013,8 @@
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.244
     },
     "expanded": {
      "taps": 2,
@@ -864,7 +1026,8 @@
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.242
     }
    },
    "moratorium_older": {
@@ -880,7 +1043,8 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.829
     },
     "expanded": {
      "taps": 3,
@@ -893,7 +1057,97 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.795
+    }
+   },
+   "election_result": {
+    "question": "Who won the first priority governor race?",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-elections",
+      "see: #elections-directory .election-card:first-child .election-result strong"
+     ],
+     "elapsed_seconds": 1.629
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-elections",
+      "see: #elections-directory .election-card:first-child .election-result strong"
+     ],
+     "elapsed_seconds": 1.614
+    }
+   },
+   "election_policy": {
+    "question": "What did the Texas governor candidates say about data centers?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-elections",
+      "tap: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-details > summary",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidates blockquote",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidate:last-child blockquote"
+     ],
+     "elapsed_seconds": 2.428
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-elections",
+      "tap: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-details > summary",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidates blockquote",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidate:last-child blockquote"
+     ],
+     "elapsed_seconds": 2.439
+    }
+   },
+   "election_legal_record": {
+    "question": "What legal moratorium record follows the Sabattus ballot vote?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-elections",
+      "type: 'Sabattus'",
+      "tap: #elections-directory [data-election-id*=\"sabattus\"] .election-related button[data-related-record]",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ],
+     "elapsed_seconds": 2.717
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-elections",
+      "type: 'Sabattus'",
+      "tap: #elections-directory [data-election-id*=\"sabattus\"] .election-related button[data-related-record]",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ],
+     "elapsed_seconds": 2.712
     }
    },
    "world_country": {
@@ -908,7 +1162,8 @@
       "tap: #tab-world",
       "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
-     ]
+     ],
+     "elapsed_seconds": 2.267
     },
     "expanded": {
      "taps": 2,
@@ -920,7 +1175,8 @@
       "tap: #tab-world",
       "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
-     ]
+     ],
+     "elapsed_seconds": 2.244
     }
    },
    "ratecase_milestone": {
@@ -934,7 +1190,8 @@
      "path": [
       "tap: #tab-tariffs",
       "see: #rate-cases-list .rc-item .rc-next"
-     ]
+     ],
+     "elapsed_seconds": 1.703
     },
     "expanded": {
      "taps": 1,
@@ -945,7 +1202,8 @@
      "path": [
       "tap: #tab-tariffs",
       "see: #rate-cases-list .rc-item .rc-next"
-     ]
+     ],
+     "elapsed_seconds": 1.698
     }
    },
    "company_water": {
@@ -961,7 +1219,8 @@
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
       "see: #theme-quotes-list > li"
-     ]
+     ],
+     "elapsed_seconds": 3.189
     },
     "expanded": {
      "taps": 3,
@@ -974,7 +1233,8 @@
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
       "see: #theme-quotes-list > li"
-     ]
+     ],
+     "elapsed_seconds": 3.17
     }
    },
    "contested_timeline": {
@@ -989,7 +1249,8 @@
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
       "see: #contested-list .contested-card .timeline .tl-item"
-     ]
+     ],
+     "elapsed_seconds": 2.286
     },
     "expanded": {
      "taps": 2,
@@ -1001,7 +1262,8 @@
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
       "see: #contested-list .contested-card .timeline .tl-item"
-     ]
+     ],
+     "elapsed_seconds": 2.259
     }
    },
    "site_comment": {
@@ -1018,7 +1280,8 @@
       "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
       "tap: #dtab-responses",
       "see: #d-responses .response-card"
-     ]
+     ],
+     "elapsed_seconds": 3.788
     },
     "expanded": {
      "taps": 4,
@@ -1032,7 +1295,8 @@
       "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
       "tap: #dtab-responses",
       "see: #d-responses .response-card"
-     ]
+     ],
+     "elapsed_seconds": 3.789
     }
    }
   },
@@ -1048,7 +1312,8 @@
      "path": [
       "tap: [data-guide-target=\"drafts\"]",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 1.695
     },
     "expanded": {
      "taps": 1,
@@ -1059,7 +1324,8 @@
      "path": [
       "tap: [data-guide-target=\"drafts\"]",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 1.68
     }
    },
    "draft_state": {
@@ -1074,7 +1340,8 @@
       "tap: [data-guide-target=\"drafts\"]",
       "select: 'state' (2 taps)",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 2.242
     },
     "expanded": {
      "taps": 3,
@@ -1086,7 +1353,8 @@
       "tap: [data-guide-target=\"drafts\"]",
       "select: 'state' (2 taps)",
       "see: #draft-plan-decision"
-     ]
+     ],
+     "elapsed_seconds": 2.234
     }
    },
    "impact_water": {
@@ -1103,7 +1371,8 @@
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
-     ]
+     ],
+     "elapsed_seconds": 2.867
     },
     "expanded": {
      "taps": 2,
@@ -1117,7 +1386,8 @@
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-answer]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-status]",
       "see: #subpane-pol-evidence .guide-clause:first-of-type [data-evidence-limit]"
-     ]
+     ],
+     "elapsed_seconds": 2.866
     }
    },
    "home_latest": {
@@ -1130,7 +1400,8 @@
      "total": 0,
      "path": [
       "see: #home-latest-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.086
     },
     "expanded": {
      "taps": 0,
@@ -1140,7 +1411,8 @@
      "total": 0,
      "path": [
       "see: #home-latest-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.102
     }
    },
    "home_coming_up": {
@@ -1153,7 +1425,8 @@
      "total": 0,
      "path": [
       "see: #whats-next-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.112
     },
     "expanded": {
      "taps": 0,
@@ -1163,7 +1436,8 @@
      "total": 0,
      "path": [
       "see: #whats-next-list .feed-item"
-     ]
+     ],
+     "elapsed_seconds": 1.071
     }
    },
    "home_sections": {
@@ -1176,7 +1450,8 @@
      "total": 0,
      "path": [
       "see: #home-cards .home-card:last-child"
-     ]
+     ],
+     "elapsed_seconds": 1.101
     },
     "expanded": {
      "taps": 0,
@@ -1186,7 +1461,8 @@
      "total": 0,
      "path": [
       "see: #home-cards .home-card:last-child"
-     ]
+     ],
+     "elapsed_seconds": 1.116
     }
    },
    "latest_item_record": {
@@ -1200,7 +1476,8 @@
      "path": [
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
-     ]
+     ],
+     "elapsed_seconds": 1.673
     },
     "expanded": {
      "taps": 1,
@@ -1211,7 +1488,8 @@
      "path": [
       "tap: #home-latest-list .feed-btn[data-kind=\"moratorium\"]",
       "see: #moratorium-modal:not([hidden]) #md-status"
-     ]
+     ],
+     "elapsed_seconds": 1.68
     }
    },
    "pledge_signatory": {
@@ -1227,7 +1505,8 @@
       "tap: expand section",
       "type: 'entergy'",
       "see: #rp-roster > li"
-     ]
+     ],
+     "elapsed_seconds": 2.908
     },
     "expanded": {
      "taps": 2,
@@ -1240,7 +1519,8 @@
       "swipe x2",
       "type: 'entergy'",
       "see: #rp-roster > li"
-     ]
+     ],
+     "elapsed_seconds": 2.272
     }
    },
    "pledge_site_score": {
@@ -1255,7 +1535,8 @@
       "tap: #tab-ratepayer",
       "swipe x2",
       "see: #subpane-rp-sites-assessed .rp-card"
-     ]
+     ],
+     "elapsed_seconds": 1.721
     },
     "expanded": {
      "taps": 1,
@@ -1267,7 +1548,8 @@
       "tap: #tab-ratepayer",
       "swipe x26",
       "see: #subpane-rp-sites-assessed .rp-card"
-     ]
+     ],
+     "elapsed_seconds": 1.707
     }
    },
    "state_panel": {
@@ -1282,7 +1564,8 @@
       "tap: #tab-ratepayer",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
-     ]
+     ],
+     "elapsed_seconds": 2.264
     },
     "expanded": {
      "taps": 2,
@@ -1295,7 +1578,8 @@
       "swipe x22",
       "tap: .pledge-state-cell[data-state-code=\"VA\"]",
       "see: #sd-body > *"
-     ]
+     ],
+     "elapsed_seconds": 2.281
     }
    },
    "policy_cba": {
@@ -1311,7 +1595,8 @@
       "tap: #subtab-pol-directory",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
-     ]
+     ],
+     "elapsed_seconds": 2.894
     },
     "expanded": {
      "taps": 3,
@@ -1324,7 +1609,8 @@
       "tap: #subtab-pol-directory",
       "tap: #policy-cbf-filter",
       "see: #policies-tbody tr"
-     ]
+     ],
+     "elapsed_seconds": 2.903
     }
    },
    "agreement_terms": {
@@ -1338,7 +1624,8 @@
      "path": [
       "tap: #tab-agreements",
       "see: #cba-strongest .cba-card .cba-terms"
-     ]
+     ],
+     "elapsed_seconds": 1.687
     },
     "expanded": {
      "taps": 1,
@@ -1349,7 +1636,8 @@
      "path": [
       "tap: #tab-agreements",
       "see: #cba-strongest .cba-card .cba-terms"
-     ]
+     ],
+     "elapsed_seconds": 1.671
     }
    },
    "moratorium_recent": {
@@ -1364,7 +1652,8 @@
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.246
     },
     "expanded": {
      "taps": 2,
@@ -1376,7 +1665,8 @@
       "tap: #tab-moratoriums",
       "tap: #moratoriums-tbody tr:first-child",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.253
     }
    },
    "moratorium_older": {
@@ -1392,7 +1682,8 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.837
     },
     "expanded": {
      "taps": 3,
@@ -1405,7 +1696,97 @@
       "type: 'hernando'",
       "tap: #moratoriums-tbody tr[data-id=\"hernando-county-fl-2026-06\"]",
       "see: #md-status"
-     ]
+     ],
+     "elapsed_seconds": 2.797
+    }
+   },
+   "election_result": {
+    "question": "Who won the first priority governor race?",
+    "default": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-elections",
+      "see: #elections-directory .election-card:first-child .election-result strong"
+     ],
+     "elapsed_seconds": 1.623
+    },
+    "expanded": {
+     "taps": 1,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 1,
+     "path": [
+      "tap: #tab-elections",
+      "see: #elections-directory .election-card:first-child .election-result strong"
+     ],
+     "elapsed_seconds": 1.613
+    }
+   },
+   "election_policy": {
+    "question": "What did the Texas governor candidates say about data centers?",
+    "default": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-elections",
+      "tap: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-details > summary",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidates blockquote",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidate:last-child blockquote"
+     ],
+     "elapsed_seconds": 2.435
+    },
+    "expanded": {
+     "taps": 2,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 0,
+     "total": 2,
+     "path": [
+      "tap: #tab-elections",
+      "tap: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-details > summary",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidates blockquote",
+      "see: #elections-directory [data-election-id=\"tx-governor-2026\"] .election-candidate:last-child blockquote"
+     ],
+     "elapsed_seconds": 2.447
+    }
+   },
+   "election_legal_record": {
+    "question": "What legal moratorium record follows the Sabattus ballot vote?",
+    "default": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-elections",
+      "type: 'Sabattus'",
+      "tap: #elections-directory [data-election-id*=\"sabattus\"] .election-related button[data-related-record]",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ],
+     "elapsed_seconds": 2.726
+    },
+    "expanded": {
+     "taps": 3,
+     "swipes": 0,
+     "hswipes": 0,
+     "types": 1,
+     "total": 4,
+     "path": [
+      "tap: #tab-elections",
+      "type: 'Sabattus'",
+      "tap: #elections-directory [data-election-id*=\"sabattus\"] .election-related button[data-related-record]",
+      "see: #moratorium-modal:not([hidden]) #md-status"
+     ],
+     "elapsed_seconds": 2.717
     }
    },
    "world_country": {
@@ -1420,7 +1801,8 @@
       "tap: #tab-world",
       "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
-     ]
+     ],
+     "elapsed_seconds": 2.178
     },
     "expanded": {
      "taps": 2,
@@ -1432,7 +1814,8 @@
       "tap: #tab-world",
       "tap: #world-country-jump [data-country=\"IE\"]",
       "see: #world-country-body .world-record"
-     ]
+     ],
+     "elapsed_seconds": 2.238
     }
    },
    "ratecase_milestone": {
@@ -1446,7 +1829,8 @@
      "path": [
       "tap: #tab-tariffs",
       "see: #rate-cases-list .rc-item .rc-next"
-     ]
+     ],
+     "elapsed_seconds": 1.683
     },
     "expanded": {
      "taps": 1,
@@ -1457,7 +1841,8 @@
      "path": [
       "tap: #tab-tariffs",
       "see: #rate-cases-list .rc-item .rc-next"
-     ]
+     ],
+     "elapsed_seconds": 1.677
     }
    },
    "company_water": {
@@ -1473,7 +1858,8 @@
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
       "see: #theme-quotes-list > li"
-     ]
+     ],
+     "elapsed_seconds": 3.155
     },
     "expanded": {
      "taps": 3,
@@ -1486,7 +1872,8 @@
       "tap: #subtab-co-commitments",
       "tap: #matrix-body td[data-company=\"google\"][data-theme=\"water\"]",
       "see: #theme-quotes-list > li"
-     ]
+     ],
+     "elapsed_seconds": 3.168
     }
    },
    "contested_timeline": {
@@ -1501,7 +1888,8 @@
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
       "see: #contested-list .contested-card .timeline .tl-item"
-     ]
+     ],
+     "elapsed_seconds": 2.252
     },
     "expanded": {
      "taps": 2,
@@ -1513,7 +1901,8 @@
       "tap: #tab-explorer",
       "tap: #subtab-sites-contested",
       "see: #contested-list .contested-card .timeline .tl-item"
-     ]
+     ],
+     "elapsed_seconds": 2.263
     }
    },
    "site_comment": {
@@ -1530,7 +1919,8 @@
       "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
       "tap: #dtab-responses",
       "see: #d-responses .response-card"
-     ]
+     ],
+     "elapsed_seconds": 3.781
     },
     "expanded": {
      "taps": 4,
@@ -1544,7 +1934,8 @@
       "tap: #project-list .project-card[data-project-id=\"xai-memphis-tn\"]",
       "tap: #dtab-responses",
       "see: #d-responses .response-card"
-     ]
+     ],
+     "elapsed_seconds": 3.771
     }
    }
   }
