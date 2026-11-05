@@ -1805,6 +1805,61 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
+    },
+    {
+      "id": "sc-governor-2026",
+      "state_code": "SC",
+      "jurisdiction": "South Carolina",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Jermaine Johnson",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "stand against anything you do not want in your communities",
+              "source_url": "https://www.wrdw.com/2026/10/07/wilson-johnson-debate-race-sc-governor/",
+              "source_title": "WRDW — Jermaine Johnson debate statement",
+              "captured_at": "2026-11-04",
+              "speaker": "Jermaine Johnson",
+              "published_at": "2026-10-07"
+            }
+          ],
+          "review_note": "This passage is from Johnson’s answer about honoring a community majority’s rejection of a data center."
+        },
+        {
+          "name": "Alan Wilson",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "that data center would have to generate their own energy",
+              "source_url": "https://www.wrdw.com/2026/10/07/wilson-johnson-debate-race-sc-governor/",
+              "source_title": "WRDW — Alan Wilson debate statement",
+              "captured_at": "2026-11-04",
+              "speaker": "Alan Wilson",
+              "published_at": "2026-10-07"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Alan Wilson",
+        "evidence": {
+          "statement": "Republican Alan Wilson defeated Democrat Dr. Jermaine Johnson to succeed term-limited Gov. Henry McMaster.",
+          "source_url": "https://www.wmbfnews.com/2026/11/04/live-results-wilson-johnson-compete-sc-governors-race/",
+          "source_title": "South Carolina governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
     }
   ],
   "measures": [
