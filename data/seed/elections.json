@@ -264,6 +264,47 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+    },
+    {
+      "id": "ak-governor-2026",
+      "state_code": "AK",
+      "jurisdiction": "Alaska",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "David Bronson",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Jonathan Kreiss-Tomkins",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Treg Taylor",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Bernadette Wilson",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "unverified"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Preliminary results and news reports described a lead, but no race call was verified. Ranked-choice and remaining-ballot counts must not be treated as a completed result."
     }
   ],
   "measures": [
