@@ -249,3 +249,20 @@ seed/roster/timing checks after the final copy edit. Two consecutive refresh
 builds produced byte-identical output. Source audit: all 2,530 current rows
 classified, zero dead links; 233 blocked URLs and 73 excerpt mismatches remain
 explicit worklists. No unresolved P1/P2 review findings.
+
+### Published verification and signing-date follow-up
+
+PR #102's Pages build succeeded at commit `7fc84ad`. Published-site checks at
+375×812 and 1366×900 loaded all 56 election records, selected the six documented
+party changes, and opened Sabattus's canonical legal record with no page errors
+or overflow. Screenshots: `.preview/election-research/uat/published-*.png`.
+
+A subsequent GitHub review found that SB Energy's unpublished signing date was
+being replaced by March 4 in frontend cohort wording. The follow-up keeps it
+under Not assessed with “Signing date unpublished — pledge timing unknown”;
+the CSV keeps the date blank and makes no pledge-era claim. Both new browser
+regressions passed, and actual cards were inspected at 375/1366px. Independent
+follow-up review found no further issue.
+
+Follow-up release gate: 933 tests passed in 160 seconds, including all
+interaction budgets. No source data or assessment statuses changed.

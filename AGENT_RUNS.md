@@ -520,3 +520,19 @@ Parent visual inspection found excessive filter whitespace and a preexisting
 “All sizes” assumption for missing MW thresholds. Both were corrected and
 covered by browser checks. Source bytes, not a research summary, resolved the
 Wells finding. No per-state research fan-out was needed.
+
+### 2026-11-04 — GitHub review follow-up
+
+The automatic GitHub review found that adding SB Energy to the roster exposed
+a frontend fallback: a loaded null signing date became March 4, 2026. The Python
+audit already kept that date unknown. Fixed the lookup, card and CSV wording;
+two browser regressions cover loaded-null and unloaded-roster behavior. One
+bounded independent follow-up review found no further bug (tokens not reported).
+Better review scope: trace a new membership flag through date/eligibility callers,
+not only the roster builder and changed JSON.
+
+The parent merged PR #102 after the two independent reviews but before GitHub's
+new automatic review finished. That was premature; the finding required a
+follow-up PR. Next time, inspect review state and then merge in a separate tool
+call, after all running reviews return. Do not chain an unconditional merge
+after read-only review commands. An empty review list can mean still running.

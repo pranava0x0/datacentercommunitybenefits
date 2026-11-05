@@ -2178,3 +2178,11 @@ own URL; a successful result source cannot validate another candidate's words.
 A missing MW field does not establish that all facility sizes are covered:
 area thresholds and alternative criteria belong in the sourced scope summary.
 The detail panel therefore says “See scope below” for missing MW values.
+
+### Unpublished signing dates (2026-11-04)
+
+A rolling signatory can have no published signing date. Once the roster loads,
+`projectPledgeDate()` must preserve null; the original-event fallback applies
+only before roster loading. Unassessed sites with unknown timing remain visible
+with that qualification, including CSV exports. A new company membership flag
+requires checking every date/eligibility consumer, not just roster parity.
