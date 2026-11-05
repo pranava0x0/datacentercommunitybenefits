@@ -145,6 +145,70 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Hubbard reelected; no person or party change in District 3. Challenger Fitz Johnson previously held this seat, but was not the incumbent at this election. Johnson statement reproduced by Ballotpedia; original X post not independently read. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban."
+    },
+    {
+      "id": "ga-psc-district5-2026",
+      "state_code": "GA",
+      "jurisdiction": "Georgia",
+      "office": "Public Service Commission District 5",
+      "level": "utility_regulator",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "outgoing": {
+        "name": "Tricia Pridemore",
+        "party": "Republican",
+        "evidence": {
+          "statement": "District 5 incumbent Tricia Pridemore (R)",
+          "source_url": "https://ballotpedia.org/Georgia_Public_Service_Commission_election,_2026",
+          "source_title": "Ballotpedia — Georgia PSC incumbents",
+          "captured_at": "2026-11-04"
+        }
+      },
+      "candidates": [
+        {
+          "name": "Shelia Edwards",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "My commitment: Require data centers to pay their fair share. Prevent cost-shifting to Georgia households. Increase transparency in utility planning and pricing.",
+              "source_url": "https://www.shelia4psc.com/issues/data-centers-pay?source=3cb12d3e-b3a2-4600-9f69-00a6d6041136",
+              "source_title": "Shelia Edwards campaign — Data Centers Pay Their Way",
+              "captured_at": "2026-11-04",
+              "speaker": "Shelia Edwards"
+            }
+          ],
+          "review_note": "Direct campaign page reviewed; claims are attributed to the candidate."
+        },
+        {
+          "name": "Josh Tolbert",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "existing families and businesses should not subsidize the infrastructure required to serve new large-load customers.",
+              "source_url": "https://ballotpedia.org/Josh_Tolbert",
+              "source_title": "Josh Tolbert — Candidate Connection response",
+              "captured_at": "2026-11-04",
+              "speaker": "Josh Tolbert"
+            }
+          ],
+          "review_note": "Candidate-authored response or attributed public statement reviewed."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Shelia Edwards",
+        "evidence": {
+          "statement": "She defeated Republican Josh Tolbert",
+          "source_url": "https://georgiarecorder.com/2026/11/04/democrats-gain-control-of-georgia-board-that-regulates-utilities-for-first-time-in-decades/",
+          "source_title": "Georgia Recorder — November 4 PSC results",
+          "captured_at": "2026-11-04",
+          "published_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Edwards replaces Tricia Pridemore, a Republican; Pridemore did not seek reelection. This is a person and party change. Both candidates’ statements call for protecting existing customers from data-center infrastructure costs; no policy difference is inferred from party. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban."
     }
   ],
   "measures": [],
