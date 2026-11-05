@@ -417,6 +417,61 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ca-governor-2026",
+      "state_code": "CA",
+      "jurisdiction": "California",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Xavier Becerra",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "data centers that operate in California add value to our current energy infrastructure",
+              "source_url": "https://www.xavierbecerra2026.com/priorities/ai/",
+              "source_title": "Xavier Becerra campaign — AI and data-center platform",
+              "captured_at": "2026-11-04",
+              "speaker": "Xavier Becerra"
+            }
+          ],
+          "review_note": "The published platform calls for clean energy, developers covering their energy needs, disclosure, and changes to permitting. No policy statement from Hilton was verified in the fetched debate coverage."
+        },
+        {
+          "name": "Steve Hilton",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Xavier Becerra",
+        "evidence": {
+          "statement": "Xavier Becerra to Win California Governor's Race",
+          "source_url": "https://www.yahoo.com/news/politics/articles/xavier-becerra-win-california-governor-042123781.html",
+          "source_title": "California governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Gavin Newsom",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Gov. Gavin Newsom",
+          "source_url": "https://www.nga.org/governor/gavin-newsom/",
+          "source_title": "NGA governor profile — Gavin Newsom",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
