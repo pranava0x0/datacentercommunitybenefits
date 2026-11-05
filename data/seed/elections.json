@@ -866,6 +866,70 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ia-governor-2026",
+      "state_code": "IA",
+      "jurisdiction": "Iowa",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Zach Lahn",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "The days of data center getting giveaways in the state of Iowa are over, period.",
+              "source_url": "https://www.kcrg.com/2026/08/05/rob-sand-zach-lahn-host-gubernatorial-campaign-events-parkersburg/?outputType=amp",
+              "source_title": "KCRG — Zach Lahn on data-center incentives",
+              "captured_at": "2026-11-04",
+              "speaker": "Zach Lahn",
+              "published_at": "2026-08-05"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Rob Sand",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "As governor, I will end these tax breaks and make sure we're putting the needs of Iowa taxpayers, not major corporations, first.",
+              "source_url": "https://robsand.com/issues/data-centers",
+              "source_title": "Rob Sand campaign — Data Centers",
+              "captured_at": "2026-11-04",
+              "speaker": "Rob Sand"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Rob Sand",
+        "evidence": {
+          "statement": "Election Night 2026: AP calls Iowa governor race for Rob Sand",
+          "source_url": "https://www.wowt.com/2026/11/03/election-night-2026-iowa-governor-race-updates/",
+          "source_title": "Iowa governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Kim Reynolds",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Iowa Gov. Kim Reynolds Terms May 27, 2017-January 15, 2019 January 15, 2019-January 13, 2023 January 13, 2023-Current Party Republican",
+          "source_url": "https://www.nga.org/governors/iowa/",
+          "source_title": "National Governors Association — Governor Kim Reynolds",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
