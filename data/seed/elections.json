@@ -211,7 +211,38 @@
       "notes": "Edwards replaces Tricia Pridemore, a Republican; Pridemore did not seek reelection. This is a person and party change. Both candidates’ statements call for protecting existing customers from data-center infrastructure costs; no policy difference is inferred from party. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban."
     }
   ],
-  "measures": [],
+  "measures": [
+    {
+      "id": "trenton-oh-issue17-2026",
+      "state_code": "OH",
+      "jurisdiction": "Trenton",
+      "title": "Issue 17 — Data center charter amendment",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "Article IX, Section 9.06 \"Prohibition of Construction of a Data Center\"",
+        "source_url": "https://cms2.revize.com/revize/butlercountyboe/2026/November/NovemberBallotList.pdf",
+        "source_title": "Butler County Board of Elections — November ballot list",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Amends the city charter to prohibit construction of a data center. The precise power threshold and commencement date still need the full charter text.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "ISSUE 17 CITY OF TRENTON (VOTE FOR 1) Precinct Reported: 8 of 8 (100%) Yes Yes, Winner 3,541 79.68% No No 903 20.32%",
+          "source_url": "https://liveresults.boe.ohio.gov/ENR/butlerohenr/24/en/Index_24.html",
+          "source_title": "Butler County Board of Elections — unofficial November 3 results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Election-night returns; not a certification or independent verification that the charter amendment has taken effect."
+    }
+  ],
   "coverage_notes": [
     "Election research covers all 36 governor races; local coverage is selective. Candidate statements are documented positions, not forecasts or verified delivery.",
     "Reported results are distinct from certified results. Advisory questions do not enact moratoriums."
