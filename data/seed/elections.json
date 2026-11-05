@@ -1524,6 +1524,72 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "oh-governor-2026",
+      "state_code": "OH",
+      "jurisdiction": "Ohio",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Amy Acton",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "I support a conditional moratorium on data centers to ensure they cover one hundred percent of their utility costs",
+              "source_url": "https://actonforgovernor.com/issue/data-centers/",
+              "source_title": "Amy Acton campaign — Data Centers",
+              "captured_at": "2026-11-04",
+              "speaker": "Amy Acton"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Vivek Ramaswamy",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "if any one of them is not true, it's not going to get built in the state of Ohio, period",
+              "source_url": "https://www.wvxu.org/politics/2026-10-12/how-data-centers-impact-midterm-elections-ohio",
+              "source_title": "WVXU — Vivek Ramaswamy interview on data-center conditions",
+              "captured_at": "2026-11-04",
+              "speaker": "Vivek Ramaswamy",
+              "published_at": "2026-10-12"
+            }
+          ],
+          "review_note": "In this interview, Ramaswamy discussed on-site power with free electricity for host communities, tree buffers, and industrial sites instead of farmland or residential areas. This quote refers to those conditions."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Amy Acton",
+        "evidence": {
+          "statement": "Democrat Amy Acton projected to win Ohio governor's race",
+          "source_url": "https://www.wpxi.com/news/national/democrat-amy-acton-projected-win-ohio-governors-race/RDAW3OFONNGBFHTKQJ4GHPAZ3A/",
+          "source_title": "Ohio governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "ohio-state-amendment-2024"
+      ],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Mike DeWine",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Ohio Gov. Mike DeWine Terms January 14, 2019-January 8, 2023 January 8, 2023-Current Party Republican",
+          "source_url": "https://www.nga.org/governors/ohio/",
+          "source_title": "National Governors Association — Governor Mike DeWine",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
