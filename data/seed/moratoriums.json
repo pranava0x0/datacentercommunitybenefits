@@ -6956,6 +6956,29 @@
           "title": "Hayward Council LB 26-015 — Attachment II urgency ordinance, sections 5–6 and 10"
         }
       ]
+    },
+    {
+      "id": "sabattus-me-2026-11",
+      "jurisdiction": "Sabattus",
+      "jurisdiction_type": "city",
+      "state_code": "ME",
+      "status": "enacted",
+      "enacted_date": "2026-11-03",
+      "effective_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "enacted_by": "Town Meeting voters",
+      "duration_description": "180 days from November 3, 2026; applications filed from July 28 are covered.",
+      "key_reasons": [],
+      "summary": "Voters approved an immediately effective 180-day moratorium on covered data centers on November 3, 2026. It applies to facilities with at least 10,000 square feet of gross floor area OR demand capacity of at least 20 MW, and retroactively covers applications filed on or after July 28, 2026.",
+      "source_url": "https://storage.googleapis.com/juniper-media-library/571/2026/10/Temporary%20Moratorium%20on%20Data%20Centers%20with%20watermark.pdf",
+      "source_title": "Sabattus — data center moratorium ordinance",
+      "resources": [
+        {
+          "url": "https://storage.googleapis.com/juniper-media-library/571/2026/11/Sabattus%20-%20Clerk%20Return%20of%20Votes%20-%20Municipal%20Election.pdf",
+          "title": "Sabattus — November 3 municipal election results"
+        }
+      ],
+      "session": "2026"
     }
   ]
 }
