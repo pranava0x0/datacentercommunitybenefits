@@ -2149,6 +2149,51 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "wy-governor-2026",
+      "state_code": "WY",
+      "jurisdiction": "Wyoming",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Eric Barlow",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "Data center proposals should be decided locally by the communities that will live with them.",
+              "source_url": "https://projects.wyofile.com/election-guide-2026/candidates/barlow-eric/",
+              "source_title": "WyoFile 2026 election guide — Eric Barlow’s written response",
+              "captured_at": "2026-11-04",
+              "speaker": "Eric Barlow"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Ken Casner",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Eric Barlow",
+        "evidence": {
+          "statement": "Republican Eric Barlow wins election for governor in Wyoming",
+          "source_url": "https://wtop.com/national/2026/11/republican-eric-barlow-wins-election-for-governor-in-wyoming/",
+          "source_title": "Wyoming governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
     }
   ],
   "measures": [
