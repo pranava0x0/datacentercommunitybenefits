@@ -638,6 +638,37 @@
       ],
       "related_policy_ids": [],
       "notes": "Town clerk certificate of results for the November 3 secret-ballot referendum signed November 4, 2026; scanned pages 1–2 visually verified."
+    },
+    {
+      "id": "eliot-me-question5-2026",
+      "state_code": "ME",
+      "jurisdiction": "Eliot",
+      "title": "Question 5 — Data center moratorium",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "This Moratorium shall take effect as provided in paragraph 5 and shall remain in effect for one hundred eighty (180) days from its effective date",
+        "source_url": "https://www.eliotme.gov/DocumentCenter/View/3909/Ballot-Question-5----Proposed-Ordinance---Data-Center-Moratorium-PDF",
+        "source_title": "Eliot — proposed data center moratorium, section 4",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Creates a 180-day moratorium covering data centers of any size, excluding accessory and incidental equipment. Section 5 refers to voter enactment and the charter rule of seven days after adoption; it should not be labeled an immediate November 3 pause.",
+      "result": {
+        "status": "certified",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "QUESTION 5: Ordinance – Data Center Moratorium Yes 2965 No 909 Blank 183",
+          "source_url": "https://www.eliotme.gov/DocumentCenter/View/3997/Election-Results-November-3-2026---Eliot-Maine-PDF",
+          "source_title": "Question 5 — Data center moratorium — results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official",
+        "certified_on": "2026-11-03"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "The signed November 3 moderator return explicitly certifies the true results of this municipal referendum, including Question 5. This is distinct from the pre-election certification of the proposed ordinance text."
     }
   ],
   "coverage_notes": [
