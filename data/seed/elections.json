@@ -80,6 +80,71 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Reported reelection of the incumbent; no change of person or party. Certification not verified in this pass."
+    },
+    {
+      "id": "ga-psc-district3-2026",
+      "state_code": "GA",
+      "jurisdiction": "Georgia",
+      "office": "Public Service Commission District 3",
+      "level": "utility_regulator",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "outgoing": {
+        "name": "Peter Hubbard",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Incumbent Peter Hubbard (D)",
+          "source_url": "https://ballotpedia.org/Georgia_Public_Service_Commission_election,_2026",
+          "source_title": "Ballotpedia — Georgia PSC incumbents",
+          "captured_at": "2026-11-04"
+        }
+      },
+      "candidates": [
+        {
+          "name": "Peter Hubbard",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "Lifted up a data center cost analysis estimating that data center electricity discounts shift over a billion dollars in infrastructure costs onto residential customers",
+              "source_url": "https://www.peterforgeorgia.com/",
+              "source_title": "Peter Hubbard campaign — Home",
+              "captured_at": "2026-11-04",
+              "speaker": "Peter Hubbard"
+            }
+          ],
+          "review_note": "Direct campaign page reviewed; claims are attributed to the candidate."
+        },
+        {
+          "name": "Fitz Johnson",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "Data centers should pay their fair share of the power bill",
+              "source_url": "https://ballotpedia.org/Georgia_Public_Service_Commission_election,_2026",
+              "source_title": "Ballotpedia — Fitz Johnson July 24 public statement",
+              "captured_at": "2026-11-04",
+              "speaker": "Fitz Johnson",
+              "published_at": "2026-07-24"
+            }
+          ],
+          "review_note": "Candidate-authored response or attributed public statement reviewed."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Peter Hubbard",
+        "evidence": {
+          "statement": "Hubbard defeated former Republican commissioner Fitz Johnson",
+          "source_url": "https://georgiarecorder.com/2026/11/04/democrats-gain-control-of-georgia-board-that-regulates-utilities-for-first-time-in-decades/",
+          "source_title": "Georgia Recorder — November 4 PSC results",
+          "captured_at": "2026-11-04",
+          "published_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Hubbard reelected; no person or party change in District 3. Challenger Fitz Johnson previously held this seat, but was not the incumbent at this election. Johnson statement reproduced by Ballotpedia; original X post not independently read. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban."
     }
   ],
   "measures": [],
