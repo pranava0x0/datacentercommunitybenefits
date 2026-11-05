@@ -6928,6 +6928,34 @@
       "legislative_votes": "6–1; Hood Richardson opposed",
       "session": "2026",
       "captured_at": "2026-10-26"
+    },
+    {
+      "id": "hayward-ca-2026-10",
+      "jurisdiction": "Hayward",
+      "jurisdiction_type": "city",
+      "state_code": "CA",
+      "status": "enacted",
+      "enacted_date": "2026-10-20",
+      "effective_date": "2026-10-20",
+      "captured_at": "2026-11-04",
+      "enacted_by": "City Council",
+      "duration_description": "45 days initially; extensions require further council action.",
+      "key_reasons": [
+        "energy",
+        "water",
+        "air_quality",
+        "noise"
+      ],
+      "session": "2026",
+      "summary": "Hayward City Council voted unanimously on October 20, 2026 to impose an immediate 45-day moratorium on approval of new data centers and expansions of existing data centers while staff studies their impacts and potential regulations. The ordinance allows renewals of valid business licenses and building permits for existing or approved facilities; a two-year pause would require extensions.",
+      "source_url": "https://www.hayward-ca.gov/discover/news/oct26/hayward-city-council-enacts-immediate-moratorium-new-data-centers",
+      "source_title": "City of Hayward — Council enacts immediate moratorium on new data centers",
+      "resources": [
+        {
+          "url": "https://hayward.legistar.com/View.ashx?M=F&ID=16071529&GUID=8E34E177-EBE9-481E-84FB-7FEEF9061D48",
+          "title": "Hayward Council LB 26-015 — Attachment II urgency ordinance, sections 5–6 and 10"
+        }
+      ]
     }
   ]
 }
