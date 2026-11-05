@@ -151,6 +151,7 @@ def test_staleness_rules(tmp_path):
         {"id": "m-prop-old", "status": "proposed", "captured_at": "2026-05-01"},
         {"id": "m-prop-new", "status": "proposed", "captured_at": "2026-10-10"},
         {"id": "m-ended", "status": "enacted", "effective_date": "2026-01-15", "duration_months": 6},
+        {"id": "m-lifted", "status": "enacted", "effective_date": "2026-01-15", "duration_months": 6, "lifted_date": "2026-03-01"},
         {"id": "m-running", "status": "enacted", "effective_date": "2026-09-01", "duration_months": 6},
         {"id": "m-open", "status": "enacted", "effective_date": "2020-01-01"}]}))
     out = {s["id"] for s in rv.stale_statuses(tmp_path, today, 60, ["rate_cases", "moratoriums"])}

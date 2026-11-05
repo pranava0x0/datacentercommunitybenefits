@@ -461,7 +461,8 @@ def stale_statuses(seed_dir: Optional[Path] = None, today: Optional[date] = None
                 cap = _d(rec.get("captured_at"))
                 if cap and cap < cutoff:
                     out.append({**item, "reason": f"proposed; last captured {cap} (> {stale_days} days)"})
-            if list_key == "moratoriums" and status == "enacted" and rec.get("duration_months"):
+            if (list_key == "moratoriums" and status == "enacted"
+                    and rec.get("duration_months") and not rec.get("lifted_date")):
                 start = _d(rec.get("effective_date")) or _d(rec.get("enacted_date"))
                 if start:
                     end = add_months(start, int(rec["duration_months"]))
