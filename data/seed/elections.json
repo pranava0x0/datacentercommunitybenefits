@@ -241,6 +241,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Election-night returns; not a certification or independent verification that the charter amendment has taken effect."
+    },
+    {
+      "id": "pataskala-oh-data-centers-2026",
+      "state_code": "OH",
+      "jurisdiction": "Pataskala",
+      "title": "Data center charter amendment",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "charter amendments banning data centers over 25 megawatts",
+        "source_url": "https://www.thereportingproject.org/pataskala-granville-voters-overwhelmingly-support-large-scale-data-center-bans/",
+        "source_title": "The Reporting Project — Licking County charter votes",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Prohibits construction of data centers over 25 MW within the municipality. Results remain unofficial; certification and the amended charter commencement date were not verified.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "City of Pataskala - Charter Amendment - Data Centers Vote For 1 Election Day Absentee Office TOTAL AbsenteeMail VOTE % Provisional YES 5,418 73.62%",
+          "source_url": "https://www.boe.ohio.gov/licking/c/elecres/20261103results.pdf",
+          "source_title": "Licking County Board of Elections — Licking's Unofficial Canvass",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Election-night returns; not a certification or independent verification that the charter amendment has taken effect."
     }
   ],
   "coverage_notes": [
