@@ -701,6 +701,36 @@
       ],
       "related_policy_ids": [],
       "notes": "Result reported by Ballotpedia; official final ordinance read. No certification verified."
+    },
+    {
+      "id": "emporia-ks-data-centers-2026",
+      "state_code": "KS",
+      "jurisdiction": "Emporia",
+      "title": "Question 2 — High impact data centers",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "An Ordinance of the City of Emporia, Kansas Prohibiting the Installation and Operation of High Impact Data Centers",
+        "source_url": "https://ballotpedia.org/Emporia,_Kansas,_Prohibit_High_Impact_Data_Centers_Initiative_(November_2026)",
+        "source_title": "Ballotpedia — Emporia ballot text",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Approves an ordinance prohibiting high impact data centers across city zoning districts, defined by peak load exceeding 10 MW OR daily water draw exceeding 100,000 gallons. Current enforceability and any litigation were not verified in this pass.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "Ballot Question 2-Data Center Vote For 1 TOTAL Yes 4,346 No 2,891",
+          "source_url": "https://www.lyoncountyks.gov/DocumentCenter/View/2423",
+          "source_title": "Question 2 — High impact data centers — results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Official county document is labeled Unofficial Final. Held from the enacted moratorium feed pending verification of commencement and any court orders."
     }
   ],
   "coverage_notes": [
