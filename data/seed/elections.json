@@ -1907,6 +1907,61 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "tn-governor-2026",
+      "state_code": "TN",
+      "jurisdiction": "Tennessee",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Marsha Blackburn",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "Communities are going to decide if they want them or not",
+              "source_url": "https://www.wsmv.com/2026/10/26/tn-candidates-governor-explain-how-theyd-handle-data-centers-if-elected/",
+              "source_title": "WSMV — Marsha Blackburn on local data-center decisions",
+              "captured_at": "2026-11-04",
+              "speaker": "Marsha Blackburn",
+              "published_at": "2026-10-26"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Jerri Green",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "I'm sponsoring a resolution to put a moratorium for a period of time",
+              "source_url": "https://www.wsmv.com/2026/10/26/tn-candidates-governor-explain-how-theyd-handle-data-centers-if-elected/",
+              "source_title": "WSMV — Jerri Green on a Memphis moratorium",
+              "captured_at": "2026-11-04",
+              "speaker": "Jerri Green",
+              "published_at": "2026-10-26"
+            }
+          ],
+          "review_note": "This refers to a city-council proposal in Memphis. It is not quoted as a commitment to a statewide moratorium."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Marsha Blackburn",
+        "evidence": {
+          "statement": "The Associated Press called the Tennessee governor's race for U.S. Sen. Marsha Blackburn, the Republican nominee",
+          "source_url": "https://wcyb.com/news/local/marsha-blackburn-tennessee-election-2026-projected-to-win-governor-race-jerri-green-david-hatley-lauren-pinkston-first-woman-governor",
+          "source_title": "Tennessee governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
     }
   ],
   "measures": [
