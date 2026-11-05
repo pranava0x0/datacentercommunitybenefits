@@ -541,6 +541,37 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
+    },
+    {
+      "id": "north-berwick-me-question2-2026",
+      "state_code": "ME",
+      "jurisdiction": "North Berwick",
+      "title": "Question 2 — Define and prohibit data centers",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "Shall an ordinance entitled \"Proposed Zoning Ordinance Amendment to Define and Prohibit Data Centers\" be enacted?",
+        "source_url": "https://www.townofnorthberwick.org/DocumentCenter/View/1615/November-2026-Referendum",
+        "source_title": "North Berwick — referendum ballot and zoning amendment",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Prohibits covered data centers in every zoning district. The definition requires an aggregate data center area of at least 25,000 square feet and excludes smaller accessory IT uses. The exact commencement date was not separately verified.",
+      "result": {
+        "status": "certified",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "Question #2: Shall an ordinance entitled \"Proposed Zoning Ordinance Amendment to Define and Prohibit Data Centers\" be enacted? YES: 2114 NO: 582",
+          "source_url": "https://www.townofnorthberwick.org/DocumentCenter/View/1639/2026-Election--Town-Results",
+          "source_title": "Question 2 — Define and prohibit data centers — results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official",
+        "certified_on": "2026-11-03"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Town clerk signed the official results as certified November 3, 2026; scanned return visually verified."
     }
   ],
   "coverage_notes": [
