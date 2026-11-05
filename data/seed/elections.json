@@ -810,6 +810,62 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "il-governor-2026",
+      "state_code": "IL",
+      "jurisdiction": "Illinois",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "JB Pritzker",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "We should have no more data centers, unless they bring their own clean energy",
+              "source_url": "https://www.wbez.org/government-politics/elections/2026/10/13/watch-illinois-gov-debate-jb-pritzker-darren-bailey-takeaways",
+              "source_title": "WBEZ — JB Pritzker debate statement",
+              "captured_at": "2026-11-04",
+              "speaker": "JB Pritzker",
+              "published_at": "2026-10-13"
+            }
+          ],
+          "review_note": "The full answer also calls for closed-loop water systems and local approval. The fetched debate article quotes Bailey criticizing the incumbent, but does not give Bailey’s own proposed data-center policy."
+        },
+        {
+          "name": "Darren Bailey",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "JB Pritzker",
+        "evidence": {
+          "statement": "Election 2026: Pritzker secures 3rd term in governor's office, AP calls race minutes after polls close",
+          "source_url": "https://www.shawlocal.com/news/election/2026/11/04/election-2026-pritzker-secures-3rd-term-in-governors-office-ap-calls-race-minutes-after-polls-close/",
+          "source_title": "Illinois governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "JB Pritzker",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Gov. JB Pritzker, a Democrat",
+          "source_url": "https://www.shawlocal.com/news/election/2026/11/04/election-2026-pritzker-secures-3rd-term-in-governors-office-ap-calls-race-minutes-after-polls-close/",
+          "source_title": "Incumbent governor — Illinois",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
