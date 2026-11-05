@@ -281,7 +281,8 @@ still requests its data. In the same local HTTP test (uncompressed server,
 5.94 s to 4.44 s and resource transfer dropped from 1,390,945 to 705,502 bytes
 (excluding the HTML document). Home was unchanged at about 3.84 s. These are
 single controlled observations, not a production latency promise. The offline
-preview became usable in 54 ms on this machine. Before/after JSON and screenshots
+preview populated the first record in 52–54 ms; waiting for the view fade
+to finish took 250 ms total on this machine. Before/after JSON and screenshots
 are in `.preview/load-speed/` (ignored).
 
 The new browser checks force idle callbacks to run, proving unrelated payloads
