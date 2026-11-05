@@ -157,6 +157,18 @@
       "last_reviewed": "2026-10-27",
       "summary": "2026-10-27: checked news since capture; added 2026-10-19 ruling denying DOJ dismissal of NAACP CAA claim (IBTimes); Shelby permit status unchanged; injunction motion pending."
     },
+    "state:AK": {
+      "last_check": {
+        "date": "2026-11-04",
+        "summary": "Governor election remained uncalled in checked reports."
+      },
+      "follow_ups": [
+        {
+          "due": "2026-11-06",
+          "what": "Check governor race call and direct candidate data-center policies."
+        }
+      ]
+    },
     "state:AR": {
       "last_check": {
         "date": "2026-10-21",
@@ -190,6 +202,10 @@
           "what": "San Francisco 45-day moratorium ends ~Nov 20; Planning hearing in November: extended or lapsed?"
         },
         {
+          "due": "2026-12-04",
+          "what": "Hayward: check extensions before initial 45-day term ends."
+        },
+        {
           "due": "2027-08-23",
           "what": "Escondido extension expires Aug 22 2027: extended, replaced or lapsed?"
         },
@@ -199,8 +215,8 @@
         }
       ],
       "last_check": {
-        "date": "2026-11-02",
-        "summary": "Hayward: Bay City News (Oct 21) says council voted unanimously Oct 20 to approve a moratorium on new data center proposals, up to two years; ordinance text/effective date not fetched, record held as lead. Oakland/SF still due ~Nov 21."
+        "date": "2026-11-04",
+        "summary": "Verified Hayward October 20 immediate 45-day ordinance; added canonical record and sources; not a full state review."
       }
     },
     "state:CO": {
@@ -277,6 +293,18 @@
         "summary": "Oct 21: Fort Wayne council rejected both Booker ordinances (3-5, 4-4); policy marked failed."
       }
     },
+    "state:KS": {
+      "last_check": {
+        "date": "2026-11-04",
+        "summary": "Governor uncalled; Emporia ballot passage verified, commencement and litigation not resolved."
+      },
+      "follow_ups": [
+        {
+          "due": "2026-11-06",
+          "what": "Check governor race call; verify Emporia ban commencement and enforceability."
+        }
+      ]
+    },
     "state:KY": {
       "last_check": {
         "date": "2026-10-21",
@@ -291,13 +319,13 @@
     },
     "state:ME": {
       "last_check": {
-        "date": "2026-10-21",
-        "summary": "Bangor extension order still not located"
+        "date": "2026-11-04",
+        "summary": "Election measures verified; legal commencement still open for Eliot and North Berwick."
       },
       "follow_ups": [
         {
-          "due": "2026-11-04",
-          "what": "Bangor: council order/minutes for the 180-day extension (bangormaine.gov)"
+          "due": "2026-11-10",
+          "what": "Eliot: verify charter commencement after certified November 3 adoption; North Berwick: confirm ban effective date."
         },
         {
           "due": "2027-03-20",

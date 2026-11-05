@@ -506,3 +506,17 @@ requested ID across failure and clearing it on navigation; the browser test now
 asserts both the restored URL and open record. Token count not reported. One
 combined-lens reviewer was sufficient; a per-lens fan-out would have duplicated
 the same implementation reads.
+
+### 2026-11-04 — completed election research and second review
+
+| Run | Worked? | Quality / cost | Better next time |
+| --- | --- | --- | --- |
+| Governor breadth research + cached enrichment | Yes | 36 races, 34 reported outcomes, 42 policy excerpts, 26 outgoing officeholders; 90 original URL attempts plus reader fallbacks, nine reused parent caches and one Arkansas reader; tokens not reported | One state batch was useful; local result alternatives avoid repeatedly retrying blocked AP pages |
+| Local races/measures + legal terms | Yes, with one source-cache defect | 3 races, 17 measures, 4 legal additions; 57 durable URLs, roughly 7 additional discoveries; Wells ordinance cache was empty despite reader evidence; tokens not reported | Require nonempty source cache or preserve reader evidence with each claim; record retrieval counts during the run |
+| Interaction UAT extension | Yes | Added per-flow elapsed time and three election paths, measured all devices; tokens not reported | Measure both candidate excerpts when reporting a comparison path |
+| Second combined review | Yes | Six high-risk contests plus implementation; found Wells dead-client/empty-cache issue, resolved with actual official PDF; tokens not reported | One bounded reviewer caught the evidence gap without duplicating a national sweep |
+
+Parent visual inspection found excessive filter whitespace and a preexisting
+“All sizes” assumption for missing MW thresholds. Both were corrected and
+covered by browser checks. Source bytes, not a research summary, resolved the
+Wells finding. No per-state research fan-out was needed.

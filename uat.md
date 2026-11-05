@@ -1,7 +1,41 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-10-14_
+_Last run: 2026-11-04_
+
+## 2026-11-04 election refresh — PR #102
+
+Tested all ten tabs with actual published data at 360×812, 375×812 and
+1366×900, plus interaction measurements at 390×844 and 820×1180. No document
+or legal-dialog overflow or page errors. Phone navigation stays within two
+rows. Checked light/dark themes, party-change filtering, candidate statements,
+search, canonical moratorium/policy dialogs, Escape, keyboard source focus,
+direct record links, Back and failed-load Retry. Four Maine certifications
+were read from signed returns; proposals and advisory questions stay distinct.
+
+132 device/context paths completed without errors; the 18 election paths were
+repeated after correcting inherited column filters and targeting both candidate
+quotes. Existing 19 task budgets are unchanged. New mobile comparison/legal
+budgets allow one additional swipe for layout sensitivity.
+
+| Flow from Home | Mobile interactions / seconds | Tablet | Desktop |
+| --- | --- | --- | --- |
+| Reported election result | 1 / 1.75 | 1 / 1.63 | 1 / 1.62 |
+| Both Texas candidates' statements | 6 / 2.52 | 2 / 2.43 | 2 / 2.44 |
+| Sabattus vote to canonical moratorium | 6 / 2.80 | 4 / 2.72 | 4 / 2.73 |
+
+Interactions include taps, vertical/horizontal swipes and typed queries.
+Times include cold Home navigation, loading and automated settling waits;
+they exclude human reading time and are observations, not latency budgets.
+Every measured flow/context has its own elapsed time in
+`uat/interaction_costs.json`. Local screenshots and actual-data checks are in
+`.preview/election-research/uat/` (ignored, not shipped).
+
+Visual review caught two errors the no-overflow checks missed: tall empty
+filter rows inherited from the generic column filter bar, and “all sizes”
+wording when an area threshold existed without a stored MW threshold. The
+filter geometry now has a browser regression check; the legal detail uses
+“See scope below.” Both independent review rounds have no unresolved P1/P2.
 
 ## Interaction cost (tracked from 2026-10-08)
 
@@ -209,3 +243,9 @@ the same as on a phone. That is a data change, not a layout one.
 `tablet.home_coming_up` 4 → 3 (measured 2). Phone paging (#79) cut page
 heights at 390px: Pledge 11.4k → 4.5k px, Moratoriums 15.6k → 4.2k px. Every
 other task is unchanged.
+
+Final verification: 931 tests passed (171 seconds), followed by 96 focused
+seed/roster/timing checks after the final copy edit. Two consecutive refresh
+builds produced byte-identical output. Source audit: all 2,530 current rows
+classified, zero dead links; 233 blocked URLs and 73 excerpt mismatches remain
+explicit worklists. No unresolved P1/P2 review findings.

@@ -80,7 +80,7 @@ Projects with important gaps:
 - **google-cheyenne-tembo-wy** (announced): claimed_investment_usd, claimed_jobs, at_a_glance
 - **google-clay-county-mo** (construction): claimed_jobs
 - **google-franklin-furnace-oh** (announced): claimed_jobs, power_mw
-- **google-hermantown-mn** (announced): claimed_jobs, power_mw
+- **google-hermantown-mn** (announced): claimed_jobs
 - **google-jackson-county-al** (construction): claimed_jobs
 - **google-lagrange-ga** (construction): claimed_jobs
 - **google-lea-county-nm** (announced): claimed_investment_usd, claimed_jobs, power_mw

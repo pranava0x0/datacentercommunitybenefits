@@ -1,7 +1,7 @@
 # November 2026 election and data refresh
 
 Requested November 4, 2026. The owner approved the Elections main tab, validated
-data model and full research/review scope on November 4. Implementation is underway.
+data model and full research/review scope on November 4. Implemented in PR #102.
 
 ## Options
 
@@ -136,3 +136,71 @@ results landing page does not establish a race result.
   check passes; dependency files are unchanged.
 - Home smoke check at 375×812 and 1366×900: no document overflow, no page errors;
   navigation occupies two rows on the phone and one on desktop.
+
+## Delivered coverage and limits — November 4, 2026
+
+- Elections: all 36 governor races, 34 reported winners, Alaska/Kansas uncalled;
+  26 independently sourced outgoing governors, 42 governor policy excerpts, and
+  both principal candidates represented in 17 races. Missing statements remain
+  explicit. Candidate roster coverage does not claim every write-in/minor party.
+- Local: Frederick County MD executive, Georgia PSC D3/D5, 17 ballot measures.
+  Four municipal results carry signed certification; the others remain reported.
+- Legal: added Hayward (initial 45 days), Sabattus (180 days from passage), Wells
+  (180 days from June 16) and Wiscasset (six months). Eliot commencement, North
+  Berwick commencement and Emporia enforceability remain held; their votes are
+  visible in Elections. Other Ohio questions, Peru ME, Janesville WI, Harwood ND,
+  New Jersey measures and further Maryland county races remain incomplete.
+- Existing views: updated Duke Florida large-load tariff rejection; added the
+  Louisiana tax-exemption protection framework; refreshed the pledge roster with
+  CoreSite/SB Energy (no guessed signing dates); updated Hermantown approvals and
+  pending utility review; restored Talavera's original environmental declaration
+  from the official DOCM gazette. No automatic community stance, delivery or
+  ratepayer assessments were changed. Discovery did not establish further
+  publishable company claims; existing unresolved evidence remains below.
+
+Both independent code-review rounds are complete. Round one fixed failed
+record-link Retry navigation. Round two found an empty Wells ordinance cache;
+the actual official PDF was retrieved (200, 388,330 bytes, browser User-Agent),
+its sections 3/5/8 verified, and both citations changed to the working www URL.
+Visual UAT corrected inherited column filters and an existing null-MW “all
+sizes” assumption. Search includes candidate statements and ballot/legal text.
+
+### Source audit
+
+The full live pass classified 2,398 pre-integration source rows; blocked and
+changed pages remain worklists, not accuracy certifications. A further live
+election pass classified all 121 election source rows, with zero dead links or
+quote mismatches and ten blocked URLs. Signed scanned results were read visually.
+The final combined cached view is:
+
+- dead links: 0
+- quote misses: 73
+- changed pages: 1513
+- unchecked urls: 0
+- stale statuses: 0
+- blocked urls: 233
+- urls checked: 2530
+- rows total: 2530
+
+Changed-page fingerprints require manual review. A quote mismatch is not proof of a false claim; no quote was rewritten from a search summary. Remaining company-claim mismatches:
+
+- `aws-new-carlisle-in-community-fund`
+- `aws-new-carlisle-in-state-gdp`
+- `qts-cedar-rapids-ia-tax-revenue-ratepayer-pledge`
+- `qts-richmond-va-fast-41-quote`
+- `meta-prineville-or-community-grants-school-funding`
+- `meta-richland-la-education-robotics-delhi`
+- `xai-engagement-fabric-mayo`
+- `oracle-education-academy-blog-2026`
+- `meta-tulsa-engagement-demasi-proud-2026`
+- `prologis-coweta-engagement-witt-codes-2025`
+- `prologis-coweta-engagement-witt-execute-2025`
+- `prologis-coweta-infrastructure-mason-lines-2025`
+- `microsoft-leesburg-va-infrastructure-water-2026`
+- `meta-los-lunas-water-2021`
+
+Final verification: 931 tests passed (171 seconds), followed by 96 focused
+seed/roster/timing checks after the final copy edit. Two consecutive refresh
+builds produced byte-identical output. Source audit: all 2,530 current rows
+classified, zero dead links; 233 blocked URLs and 73 excerpt mismatches remain
+explicit worklists. No unresolved P1/P2 review findings.
