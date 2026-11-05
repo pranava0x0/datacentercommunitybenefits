@@ -305,6 +305,71 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Preliminary results and news reports described a lead, but no race call was verified. Ranked-choice and remaining-ballot counts must not be treated as a completed result."
+    },
+    {
+      "id": "az-governor-2026",
+      "state_code": "AZ",
+      "jurisdiction": "Arizona",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Katie Hobbs",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "I don't think a statewide moratorium is the answer.",
+              "source_url": "https://www.kjzz.org/politics/2026-09-03/gov-hobbs-wont-pause-arizona-data-center-development-despite-calls-to-do-so",
+              "source_title": "KJZZ — Gov. Katie Hobbs on a statewide moratorium",
+              "captured_at": "2026-11-04",
+              "speaker": "Katie Hobbs",
+              "published_at": "2026-09-03"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Andy Biggs",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "no more state subsidies, and no more tax credits",
+              "source_url": "https://www.golocalarizona.com/blog/andy-biggs-addresses-small-business-priorities-in-go-local-arizona-interview",
+              "source_title": "Go Local Arizona — Andy Biggs interview",
+              "captured_at": "2026-11-04",
+              "speaker": "Andy Biggs",
+              "published_at": "2026-10-27"
+            }
+          ],
+          "review_note": "The interview addresses data-center subsidies and tax credits, and describes local siting decisions and requirements for developers to supply their own power and water."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Katie Hobbs",
+        "evidence": {
+          "statement": "Incumbent Democratic Gov. Hobbs wins reelection in Arizona, according to AP race call",
+          "source_url": "https://www.kjzz.org/elections/2026-11-03/arizona-governor-election-results-elex",
+          "source_title": "Arizona governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Katie Hobbs",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Incumbent Democratic Gov. Hobbs",
+          "source_url": "https://www.kjzz.org/elections/2026-11-03/arizona-governor-election-results-elex",
+          "source_title": "KJZZ — incumbent governor Katie Hobbs",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
