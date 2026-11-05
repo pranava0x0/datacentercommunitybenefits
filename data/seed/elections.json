@@ -528,6 +528,62 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ct-governor-2026",
+      "state_code": "CT",
+      "jurisdiction": "Connecticut",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Ned Lamont",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "One of these fifteen hundred-acre big AI data centers, they're never going to be in Connecticut.",
+              "source_url": "https://www.wshu.org/connecticut-news/2026-09-07/ct-data-centers-ned-lamont",
+              "source_title": "WSHU — Ned Lamont on large AI data centers",
+              "captured_at": "2026-11-04",
+              "speaker": "Ned Lamont",
+              "published_at": "2026-09-07"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Ryan Fazio",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Ned Lamont",
+        "evidence": {
+          "statement": "Gov. Ned Lamont defeated Republican challenger state Sen. Ryan Fazio of Greenwich.",
+          "source_url": "https://ctmirror.org/2026/11/03/ct-governor-2026-live-election-results/",
+          "source_title": "Connecticut governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Ned Lamont",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Incumbent: Gov. Ned Lamont Length of Regular Terms: 4 years Maximum Consecutive Terms: 2 General Election Candidates Gov. Ned Lamont (D)",
+          "source_url": "https://www.nga.org/governors/elections/",
+          "source_title": "NGA 2026 incumbent and general-election candidate — Connecticut",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
