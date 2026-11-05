@@ -975,6 +975,49 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "No winner verified; a preliminary vote lead is not treated as a race call."
+    },
+    {
+      "id": "me-governor-2026",
+      "state_code": "ME",
+      "jurisdiction": "Maine",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Hannah Pingree",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Bobby Charles",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Rick Bennett",
+          "party": "Independent",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Hannah Pingree",
+        "evidence": {
+          "statement": "Democrat Hannah Pingree won Maine's gubernatorial race on Tuesday night",
+          "source_url": "https://www.nepm.org/2026-11-03/hannah-pingree-defeats-bobby-charles-and-rick-bennett-in-three-way-gubernatorial-race",
+          "source_title": "Maine governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
     }
   ],
   "measures": [
