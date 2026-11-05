@@ -693,40 +693,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Companies is the only landing that needs claims for first paint.
   const bootData =
     state.activeView === "comparison" ? ensureComparisonData() : ensureCompanyData();
+  // Each view loads its own data; speculative downloads compete with the
+  // active view on slow connections and build hidden DOM readers have not opened.
   bootData
-    .then(() => {
-      // Idle-preload projects + responses JSON (NOT Leaflet) so the
-      // summary-stats bar can fill in projects / GW / investment / responses
-      // without waiting for the user to open the Explorer tab. Runs after the
-      // Comparison view has rendered and uses loadProjectData (data-only), so
-      // the two-payload first-paint strategy is preserved.
-      if (state.explorerLoaded || state.projects.length) return;
-      const preload = () =>
-        Promise.all([loadProjectData(), loadResponseData(), ensureClaimsData()])
-          .then(() => {})
-          .catch((err) =>
-            console.error("Idle preload of project data failed:", err)
-          );
-      const schedule = () => {
-        if ("requestIdleCallback" in window) {
-          window.requestIdleCallback(preload, { timeout: 2000 });
-        } else {
-          setTimeout(preload, 800);
-        }
-      };
-      // On Home, warm the other tabs' data only after Home has rendered, so
-      // Home's first paint is just the page, companies.json and home.json
-      // (the e2e test TestHomeFirstPaint records the requests to prove it).
-      if (state.activeView === "overview") {
-        loadHomeData().then(schedule, schedule);
-      } else {
-        schedule();
-      }
-    })
     .catch((err) => {
       console.error("Failed to load comparison data:", err);
-      document.getElementById("meta").textContent =
-        "Failed to load data. Check the console.";
+      const meta = document.getElementById("meta");
+      if (location.protocol === "file:") {
+        const link = el("a", "", "Open the website");
+        link.href = "https://pranava0x0.github.io/datacentercommunitybenefits/" + location.hash;
+        meta.replaceChildren("This file preview cannot read the data. ", link);
+      } else {
+        meta.textContent = "Couldn't load site data. Reload to try again.";
+      }
     });
 });
 

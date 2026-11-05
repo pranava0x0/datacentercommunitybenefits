@@ -536,3 +536,12 @@ new automatic review finished. That was premature; the finding required a
 follow-up PR. Next time, inspect review state and then merge in a separate tool
 call, after all running reviews return. Do not chain an unconditional merge
 after read-only review commands. An empty review list can mean still running.
+
+### 2026-11-05 — preview and startup loading review
+
+One bounded reviewer checked the offline bundle, boot data changes and four
+new device/request regressions. Worked: yes; no actionable findings; tokens not
+reported. A direct Playwright reproduction identified file-origin fetch/module
+failures, and request traces found the unrelated startup downloads. Best ROI:
+reproduce the exact file-opening flow and measure real requests before changing
+the data or splitting the application. This needed no research fan-out.

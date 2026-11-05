@@ -15,6 +15,8 @@ Then publish .preview/dashboard.html as an Artifact for an interactive preview.
 Run this on every new commit / PR (see CLAUDE.md → "Launch / preview ritual").
 """
 from __future__ import annotations
+import logging
+import re
 import sys
 from pathlib import Path
 
@@ -27,6 +29,7 @@ OUT = OUT_DIR / "dashboard.html"
 # and the bundle shipped without it, so the Ratepayer view — the landing view —
 # rendered zero cards while the build still reported success.
 DATA_FILES = sorted(f.stem for f in (DOCS / "data").glob("*.json"))
+log = logging.getLogger(__name__)
 
 OLD_FETCH = '''async function fetchJson(url) {
   const res = await fetch(url, { cache: "no-cache" });
@@ -34,8 +37,9 @@ OLD_FETCH = '''async function fetchJson(url) {
   return await res.json();
 }'''
 NEW_FETCH = '''async function fetchJson(url) {
-  if (window.__EMBEDDED_DATA__ && window.__EMBEDDED_DATA__[url]) {
-    return JSON.parse(JSON.stringify(window.__EMBEDDED_DATA__[url]));
+  const embedded = document.getElementById("preview-" + url);
+  if (embedded) {
+    return JSON.parse(embedded.textContent);
   }
   const res = await fetch(url, { cache: "no-cache" });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -56,43 +60,59 @@ def build() -> Path:
     if "import(path)" not in appjs:
         raise SystemExit("Planning guide import changed — update build_preview.py.")
     appjs = appjs.replace("import(path)", "Promise.resolve(window.__PLANNING_GUIDE__)")
-
-    body = html.split("<body>", 1)[1].split("</body>", 1)[0]
-    entries = [f'"data/{f}.json": {(DOCS / "data" / f"{f}.json").read_text().strip()}'
-               for f in DATA_FILES]
-    data_js = "window.__EMBEDDED_DATA__ = {\n" + ",\n".join(entries) + "\n};"
+    elections = (DOCS / "elections.js").read_text().replace("export function ", "function ")
+    election_js = "window.__ELECTION_VIEW__ = (() => {\n" + elections + "\nreturn {mount};\n})();"
+    if "import(modulePath)" not in appjs:
+        raise SystemExit("Election import changed — update build_preview.py.")
+    appjs = appjs.replace("import(modulePath)", "Promise.resolve(window.__ELECTION_VIEW__)")
+    if re.search(r"\bimport\s*\(", appjs):
+        raise SystemExit("Unbundled dynamic import — update build_preview.py.")
 
     esc = lambda s: s.replace("</script", "<\\/script")
-    out = (
-        "<title>Data Center Community Benefits — Dashboard</title>\n"
-        f"<style>\n{css}\n</style>\n{body}\n"
-        f"<script>\n{esc(data_js)}\n</script>\n"
+    # Inert JSON is parsed only when its tab opens, rather than parsing every
+    # payload at startup and serializing/cloning it again on each fetch.
+    data = "\n".join(
+        f'<script type="application/json" id="preview-data/{f}.json">'
+        + esc((DOCS / "data" / f"{f}.json").read_text().strip()) + "</script>"
+        for f in DATA_FILES
+    )
+    html, styles = re.subn(r'<link\b[^>]*rel="stylesheet"[^>]*href="styles\.css[^"\n]*"[^>]*>',
+                          lambda _: f"<style>\n{css}\n</style>", html)
+    html, scripts = re.subn(r'<script\b[^>]*src="app\.js[^"\n]*"[^>]*></script>', "", html)
+    html = re.sub(r'<link\b[^>]*rel="preload"[^>]*>', "", html)
+    if styles != 1 or scripts != 1:
+        raise SystemExit("Stylesheet/app script markup changed — update build_preview.py.")
+    inline = (
+        data + "\n"
         f"<script>\n{esc(guide_js)}\n</script>\n"
+        f"<script>\n{esc(election_js)}\n</script>\n"
         f"<script>\n{esc(appjs)}\n</script>\n"
     )
+    out = html.replace("</body>", inline + "</body>")
     OUT_DIR.mkdir(exist_ok=True)
     OUT.write_text(out)
-    print(f"Wrote {OUT.relative_to(ROOT)}  ({len(out)/1024:.0f} KB)")
+    log.info("Wrote %s (%d KB)", OUT, len(out.encode()) / 1024)
     return OUT
 
 
 def verify() -> int:
     """Headless click-through: assert every tab renders from embedded data."""
     from playwright.sync_api import sync_playwright  # optional dep
-    wrapped = ("<!doctype html><html lang=en><head><meta charset=utf-8>"
-               "<meta name=viewport content='width=device-width,initial-scale=1'></head>"
-               f"<body>{OUT.read_text()}</body></html>")
-    tmp = OUT_DIR / "_verify.html"
-    tmp.write_text(wrapped)
     errors: list[str] = []
     with sync_playwright() as p:
         b = p.chromium.launch()
         page = b.new_context(viewport={"width": 1280, "height": 1000}).new_page()
         page.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
         page.on("pageerror", lambda e: errors.append("PAGEERR: " + str(e)))
-        page.goto(f"file://{tmp}", wait_until="networkidle")
-        page.wait_for_timeout(700)
+        page.goto(OUT.as_uri() + "#elections", wait_until="load")
         checks = {}
+        page.wait_for_selector("#elections-directory .election-card", timeout=8000)
+        checks["election_records"] = page.locator(".election-card").count()
+        page.locator("#elections-q").fill("Sabattus")
+        page.locator('[data-related-record="sabattus-me-2026-11"]').click()
+        page.wait_for_selector("#moratorium-modal:not([hidden]) #md-status", timeout=8000)
+        checks["election_legal_link"] = page.locator("#md-jurisdiction").inner_text() == "Sabattus"
+        page.keyboard.press("Escape")
         page.locator("#tab-moratoriums").click()
         page.wait_for_selector("#moratoriums-tbody tr", timeout=8000)
         checks["moratorium_rows"] = page.locator("#moratoriums-tbody tr").count()
@@ -108,14 +128,14 @@ def verify() -> int:
         page.wait_for_selector("#impact-evidence-rule", timeout=8000)
         checks["evidence_checks"] = page.locator("#subpane-pol-evidence .guide-clause").count()
         b.close()
-    tmp.unlink(missing_ok=True)
     fatal = [e for e in errors if not any(k in e for k in
              ("leaflet", "html2pdf", "cdnjs", "unpkg", "Failed to load resource"))]
     ok = all(v > 0 for v in checks.values()) and not fatal
-    print("verify:", checks, "| fatal errors:", fatal or "none", "|", "PASS" if ok else "FAIL")
+    log.info("verify: %s | fatal errors: %s | %s", checks, fatal or "none", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
     build()
     raise SystemExit(verify() if "--verify" in sys.argv else 0)
