@@ -361,6 +361,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
+    },
+    {
+      "id": "edgewater-fl-amendment4-2026",
+      "state_code": "FL",
+      "jurisdiction": "Edgewater",
+      "title": "Charter Amendment 4 — New data centers",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "CHARTER AMENDMENT NO. 4 PROHIBITION ON NEW DATA CENTERS",
+        "source_url": "https://ballotpedia.org/Edgewater,_Florida,_Prohibit_New_Data_Centers_Amendment_(November_2026)",
+        "source_title": "Ballotpedia — Charter Amendment 4 — New data centers",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Amends the charter to prohibit approval, construction, expansion or operation of new data centers and requires voter approval to change or repeal that prohibition.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "It was approved.",
+          "source_url": "https://ballotpedia.org/Edgewater,_Florida,_Prohibit_New_Data_Centers_Amendment_(November_2026)",
+          "source_title": "Ballotpedia — Charter Amendment 4 — New data centers",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
     }
   ],
   "coverage_notes": [
