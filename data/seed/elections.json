@@ -472,6 +472,62 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "co-governor-2026",
+      "state_code": "CO",
+      "jurisdiction": "Colorado",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Victor Marx",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Phil Weiser",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "we must ensure that data centers sponsor new forms of clean energy to support their development.",
+              "source_url": "https://philforcolorado.com/advancing-colorados-leadership-on-climate-and-resilience/",
+              "source_title": "Phil Weiser campaign — Climate and resilience plan",
+              "captured_at": "2026-11-04",
+              "speaker": "Phil Weiser",
+              "published_at": "2026-01-07"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Phil Weiser",
+        "evidence": {
+          "statement": "Democrat Phil Weiser easily beats Republican Victor Marx to become Colorado's next governor",
+          "source_url": "https://coloradosun.com/2026/11/03/colorado-governor-election-results/",
+          "source_title": "Colorado governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Jared Polis",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Gov. Jared Polis, a fellow Democrat",
+          "source_url": "https://coloradosun.com/2026/11/03/colorado-governor-election-results/",
+          "source_title": "Incumbent governor — Colorado",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
