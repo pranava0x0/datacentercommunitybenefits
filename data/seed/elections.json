@@ -1590,6 +1590,43 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ok-governor-2026",
+      "state_code": "OK",
+      "jurisdiction": "Oklahoma",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Mike Mazzei",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity and party verified in KOCO election reporting. No directly attributable data-center policy statement was verified in this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Cyndi Munson",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity and party verified in KOCO election reporting. No directly attributable data-center policy statement was verified in this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Mike Mazzei",
+        "evidence": {
+          "statement": "Republican Mike Mazzei has been elected Oklahoma's next governor",
+          "source_url": "https://www.koco.com/article/oklahoma-election-results-mike-mazzei-state-question-845-847/74330839",
+          "source_title": "Oklahoma governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
     }
   ],
   "measures": [
