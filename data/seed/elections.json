@@ -451,6 +451,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
+    },
+    {
+      "id": "grove-city-oh-issue28-2026",
+      "state_code": "OH",
+      "jurisdiction": "Grove City",
+      "title": "Issue 28 — Voter approval for large developments",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "establish a mandatory public referendum process as a condition of approval",
+        "source_url": "https://ballotpedia.org/Grove_City,_Ohio,_Issue_28,_Voter_Approval_Requirements_for_Certain_Developments_Initiative_(November_2026)",
+        "source_title": "Ballotpedia — Issue 28 — Voter approval for large developments",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Requires a public referendum for qualifying developments, expansions or property transfers involving 50 or more contiguous acres, over 20 MW peak electricity demand, or over 500,000 gallons of water daily. It establishes approval conditions rather than a blanket data center ban.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "It was approved.",
+          "source_url": "https://ballotpedia.org/Grove_City,_Ohio,_Issue_28,_Voter_Approval_Requirements_for_Certain_Developments_Initiative_(November_2026)",
+          "source_title": "Ballotpedia — Issue 28 — Voter approval for large developments",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
     }
   ],
   "coverage_notes": [
