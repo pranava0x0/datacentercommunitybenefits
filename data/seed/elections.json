@@ -4,12 +4,87 @@
   "calendar": {
     "statement": "The general election is scheduled to be held on November 3, 2026.",
     "source_url": "https://www.nga.org/governors/elections/",
-    "source_title": "National Governors Association \u2014 Gubernatorial Elections",
+    "source_title": "National Governors Association — Gubernatorial Elections",
     "captured_at": "2026-11-04"
   },
-  "races": [],
+  "races": [
+    {
+      "id": "frederick-county-md-executive-2026",
+      "state_code": "MD",
+      "jurisdiction": "Frederick County",
+      "office": "County Executive",
+      "level": "county",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "outgoing": {
+        "name": "Jessica Fitzwater",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Incumbent Democrat Jessica Fitzwater",
+          "source_url": "https://www.wypr.org/wypr-news/2026-10-19/frederick-county-executive-race-centers-on-datacenters-immigration-and-affordability",
+          "source_title": "WYPR — Frederick County executive candidate interviews",
+          "captured_at": "2026-11-04",
+          "published_at": "2026-10-19"
+        }
+      },
+      "candidates": [
+        {
+          "name": "Jessica Fitzwater",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "Preserve five acres of farmland for each new acre turned over to data center development",
+              "source_url": "https://www.jessicafitzwater.com/data",
+              "source_title": "Jessica Fitzwater campaign — Responsible Data Center Development",
+              "captured_at": "2026-11-04",
+              "speaker": "Jessica Fitzwater"
+            },
+            {
+              "statement": "Advocate for the authority to assess higher taxes on data centers",
+              "source_url": "https://www.jessicafitzwater.com/data",
+              "source_title": "Jessica Fitzwater campaign — Responsible Data Center Development",
+              "captured_at": "2026-11-04",
+              "speaker": "Jessica Fitzwater"
+            }
+          ],
+          "review_note": "Campaign platform read; statements describe her proposals, not verified delivery."
+        },
+        {
+          "name": "Jeff Holtzinger",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "I think it’s going to be very hard for the county to be able to support much beyond the campus area",
+              "source_url": "https://www.wypr.org/wypr-news/2026-10-19/frederick-county-executive-race-centers-on-datacenters-immigration-and-affordability",
+              "source_title": "WYPR — Holtzinger on county water capacity",
+              "captured_at": "2026-11-04",
+              "speaker": "Jeff Holtzinger",
+              "published_at": "2026-10-19"
+            }
+          ],
+          "review_note": "Direct interview quotation verified. Campaign website not independently verified in this pass."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Jessica Fitzwater",
+        "evidence": {
+          "statement": "Frederick County voters reelected county executive Jessica Fitzwater to a second term in office",
+          "source_url": "https://www.wypr.org/wypr-news/2026-11-04/frederick-county-executive-jessica-fitzwater-wins-second-term",
+          "source_title": "WYPR — Fitzwater wins second term",
+          "captured_at": "2026-11-04",
+          "published_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported reelection of the incumbent; no change of person or party. Certification not verified in this pass."
+    }
+  ],
   "measures": [],
   "coverage_notes": [
-    "Governor and local election research is in progress; no result has been published in this dataset yet."
+    "Election research covers all 36 governor races; local coverage is selective. Candidate statements are documented positions, not forecasts or verified delivery.",
+    "Reported results are distinct from certified results. Advisory questions do not enact moratoriums."
   ]
 }
