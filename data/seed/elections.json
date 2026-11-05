@@ -930,6 +930,51 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ks-governor-2026",
+      "state_code": "KS",
+      "jurisdiction": "Kansas",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Cindy Holscher",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "Cindy has called for a pause on new giant corporate data centers",
+              "source_url": "https://www.cindyforkansas.com/issues/putting-a-pause-on-data-centers/",
+              "source_title": "Cindy Holscher campaign — Putting a pause on data centers",
+              "captured_at": "2026-11-04",
+              "speaker": "Cindy Holscher"
+            }
+          ],
+          "review_note": "This is the campaign’s own published policy statement; no race winner is verified here."
+        },
+        {
+          "name": "Ty Masterson",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "the final decisions on building should be left to the local communities themselves.",
+              "source_url": "https://myemail.constantcontact.com/Masterson-Launches-Kansas-Ratepayer-Protection-Pledge.html?soid=1135102872589&aid=iEpt4h2hLFU",
+              "source_title": "Ty Masterson campaign — Kansas Ratepayer Protection Pledge",
+              "captured_at": "2026-11-04",
+              "speaker": "Ty Masterson"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "unverified"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "No winner verified; a preliminary vote lead is not treated as a race call."
     }
   ],
   "measures": [
