@@ -1409,6 +1409,71 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "nm-governor-2026",
+      "state_code": "NM",
+      "jurisdiction": "New Mexico",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Deb Haaland",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "That's why I support a moratorium on data centers until the state adopts clear and transparent accountability measures for this industry.",
+              "source_url": "https://thecandlepublishing.com/haaland-backs-data-center-moratorium-outlines-accountability-plan-to-stand-up-for-new-mexicos-water-and-communities/",
+              "source_title": "Haaland campaign release republished by The CANDLE",
+              "captured_at": "2026-11-04",
+              "speaker": "Deb Haaland",
+              "published_at": "2026-09-17"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Gregg Hull",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "Hull opposes a statewide moratorium and supports local control over data center siting, paired with statewide protections for water and electric ratepayers.",
+              "source_url": "https://gregghull.com/news/haalands-former-campaign-manager-now-lobbying-for-the-company-powering-project-jupiter/",
+              "source_title": "Gregg Hull campaign — published data-center policy",
+              "captured_at": "2026-11-04",
+              "speaker": "Gregg Hull",
+              "published_at": "2026-09-29"
+            }
+          ],
+          "review_note": "This is the campaign's own published policy statement. The opponent-focused allegations elsewhere on the page are not included in this comparison."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Deb Haaland",
+        "evidence": {
+          "statement": "Deb Haaland wins landmark victory as first Native American woman governor",
+          "source_url": "https://www.kunm.org/local-news/2026-11-04/deb-haaland-first-native-american-woman-governor",
+          "source_title": "KUNM — New Mexico governor race call",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Michelle Lujan Grisham",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "New Mexico Gov. Michelle Lujan Grisham Terms January 1, 2019-January 1, 2023 January 1, 2023-Current Party Democratic",
+          "source_url": "https://www.nga.org/governors/new-mexico/",
+          "source_title": "National Governors Association — Governor Michelle Lujan Grisham",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
