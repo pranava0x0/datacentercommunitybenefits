@@ -209,6 +209,61 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Edwards replaces Tricia Pridemore, a Republican; Pridemore did not seek reelection. This is a person and party change. Both candidates’ statements call for protecting existing customers from data-center infrastructure costs; no policy difference is inferred from party. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban."
+    },
+    {
+      "id": "al-governor-2026",
+      "state_code": "AL",
+      "jurisdiction": "Alabama",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Doug Jones",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "Give Alabama the time and communities time to get some guardrails around",
+              "source_url": "https://www.waff.com/2026/07/23/where-do-gubernatorial-candidates-jones-tuberville-stand-data-centers/",
+              "source_title": "WAFF — Doug Jones on a proposed data-center pause",
+              "captured_at": "2026-11-04",
+              "speaker": "Doug Jones",
+              "published_at": "2026-07-23"
+            }
+          ],
+          "review_note": "Jones describes time for communities to adopt protections and transparency. The article reports his call for a six-month moratorium."
+        },
+        {
+          "name": "Tommy Tuberville",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "paying a single cent more for their energy",
+              "source_url": "https://www.waff.com/2026/07/23/where-do-gubernatorial-candidates-jones-tuberville-stand-data-centers/",
+              "source_title": "WAFF — Tommy Tuberville on household electricity costs",
+              "captured_at": "2026-11-04",
+              "speaker": "Tommy Tuberville",
+              "published_at": "2026-07-23"
+            }
+          ],
+          "review_note": "This excerpt is from Tuberville’s pledge that Alabamians would not pay more for energy because of a data center entering their community."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Tommy Tuberville",
+        "evidence": {
+          "statement": "Republican U.S. Senator Tommy Tuberville will be Alabama's next governor.",
+          "source_url": "https://www.wbhm.org/local-news/2026-11-04/tuberville-wins-election-for-alabama-governor",
+          "source_title": "Alabama governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
     }
   ],
   "measures": [
@@ -734,7 +789,10 @@
     }
   ],
   "coverage_notes": [
-    "Election research covers all 36 governor races; local coverage is selective. Candidate statements are documented positions, not forecasts or verified delivery.",
-    "Reported results are distinct from certified results. Advisory questions do not enact moratoriums."
+    "All 36 state governor races scheduled for November 3, 2026 are included. Alaska and Kansas remained uncalled in the sources checked November 4; no winner is inferred.",
+    "Candidate-policy evidence is incomplete: 42 governor excerpts are verified, with both principal candidates represented in 17 races. Missing statements and outgoing-officeholder evidence are coverage gaps, not findings that a person has no position.",
+    "The first ten states are prioritized by this tracker’s existing US site coverage, rather than a national capacity ranking. Virginia and New Jersey did not hold regularly scheduled governor elections in 2026.",
+    "Local coverage is selective: Frederick County, Maryland; two Georgia utility-regulator races; and 17 ballot measures. This is not a complete national local-election inventory.",
+    "Reported results await certification. A certified vote does not by itself establish legal commencement or resolve litigation. Candidate proposals require separate government action; advisory questions do not enact moratoriums."
   ]
 }
