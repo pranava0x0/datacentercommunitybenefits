@@ -1474,6 +1474,56 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ny-governor-2026",
+      "state_code": "NY",
+      "jurisdiction": "New York",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Kathy Hochul",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Bruce Blakeman",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Kathy Hochul",
+        "evidence": {
+          "statement": "New York Gov. Kathy Hochul wins reelection, AP projects",
+          "source_url": "https://www.fox5ny.com/news/ny-gov-kathy-hochul-reelection-new-york-midterms-election-politics",
+          "source_title": "New York governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "ny-state-2026-06",
+        "ny-state-eo62-2026-07"
+      ],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Kathy Hochul",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Incumbent: Gov. Kathy Hochul Length of Regular Terms: 4 years General Election Candidates Gov. Kathy Hochul (D)",
+          "source_url": "https://www.nga.org/governors/elections/",
+          "source_title": "NGA 2026 incumbent and general-election candidate — New York",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
