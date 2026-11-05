@@ -651,6 +651,71 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ga-governor-2026",
+      "state_code": "GA",
+      "jurisdiction": "Georgia",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Keisha Lance Bottoms",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "I have called for a pause on the construction of new data centers.",
+              "source_url": "https://www.atlantanewsfirst.com/2026/10/10/read-full-transcript-town-hall-debate-between-keisha-lance-bottoms-rick-jackson/?outputType=amp",
+              "source_title": "Atlanta News First — Keisha Lance Bottoms debate statement",
+              "captured_at": "2026-11-04",
+              "speaker": "Keisha Lance Bottoms",
+              "published_at": "2026-10-10"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Rick Jackson",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "Number one, the community absolutely approves it, period.",
+              "source_url": "https://www.atlantanewsfirst.com/2026/10/10/read-full-transcript-town-hall-debate-between-keisha-lance-bottoms-rick-jackson/?outputType=amp",
+              "source_title": "Atlanta News First — Rick Jackson debate statement",
+              "captured_at": "2026-11-04",
+              "speaker": "Rick Jackson",
+              "published_at": "2026-10-10"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Keisha Lance Bottoms",
+        "evidence": {
+          "statement": "Live Results: Keisha Lance Bottoms wins governor race in Georgia",
+          "source_url": "https://www.pbs.org/newshour/politics/live-results-georgia-governor-midterm-election",
+          "source_title": "Georgia governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Brian Kemp",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Georgia Gov. Brian Kemp Terms January 14, 2019-January 9, 2023 January 9, 2023-Current Party Republican",
+          "source_url": "https://www.nga.org/governors/georgia/",
+          "source_title": "National Governors Association — Governor Brian Kemp",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
