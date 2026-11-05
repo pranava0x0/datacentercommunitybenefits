@@ -391,6 +391,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
+    },
+    {
+      "id": "bloomington-il-advisory-2026",
+      "state_code": "IL",
+      "jurisdiction": "Bloomington",
+      "title": "Large-scale data center moratorium advisory question",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "advisory",
+      "ballot_evidence": {
+        "statement": "Should the City of Bloomington implement a moratorium on the creation of any large-scale data centers?",
+        "source_url": "https://ballotpedia.org/Bloomington,_Illinois,_Large-Scale_Data_Center_Moratorium_Advisory_Measure_(November_2026)",
+        "source_title": "Ballotpedia — Large-scale data center moratorium advisory question",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Advises the city to impose a moratorium. This vote itself does not enact or extend a moratorium.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "It was approved.",
+          "source_url": "https://ballotpedia.org/Bloomington,_Illinois,_Large-Scale_Data_Center_Moratorium_Advisory_Measure_(November_2026)",
+          "source_title": "Ballotpedia — Large-scale data center moratorium advisory question",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
     }
   ],
   "coverage_notes": [
