@@ -584,6 +584,73 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "fl-governor-2026",
+      "state_code": "FL",
+      "jurisdiction": "Florida",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Byron Donalds",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "County commissioners issue building permits, not governors",
+              "source_url": "https://www.news4jax.com/news/politics/2026/10/06/jolly-vs-donalds-where-floridas-governor-candidates-stand-on-ai-data-centers-and-amendment-3/",
+              "source_title": "News4JAX — Byron Donalds on local permitting",
+              "captured_at": "2026-11-04",
+              "speaker": "Byron Donalds",
+              "published_at": "2026-10-06"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "David Jolly",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "I'll issue a moratorium on my very first day in office",
+              "source_url": "https://www.news4jax.com/news/politics/2026/10/06/jolly-vs-donalds-where-floridas-governor-candidates-stand-on-ai-data-centers-and-amendment-3/",
+              "source_title": "News4JAX — David Jolly on a moratorium",
+              "captured_at": "2026-11-04",
+              "speaker": "David Jolly",
+              "published_at": "2026-10-06"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Byron Donalds",
+        "evidence": {
+          "statement": "Byron Donalds wins Florida governorship to become state's first Black governor",
+          "source_url": "https://www.wftv.com/news/local/byron-donalds-wins-florida-governors-race-will-become-states-first-black-governor/QTVH4JWV2FD27EB3LDJM6LROIU/",
+          "source_title": "Florida governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "florida-state-2026-07"
+      ],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Ron DeSantis",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Gov. Ron DeSantis",
+          "source_url": "https://www.nga.org/governor/ron-desantis/",
+          "source_title": "NGA governor profile — Ron DeSantis",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
