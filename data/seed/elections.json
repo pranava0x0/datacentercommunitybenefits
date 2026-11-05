@@ -1073,6 +1073,53 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ma-governor-2026",
+      "state_code": "MA",
+      "jurisdiction": "Massachusetts",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Maura Healey",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Michael Minogue",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Maura Healey",
+        "evidence": {
+          "statement": "Gov. Maura Healey wins reelection bid, AP projects",
+          "source_url": "https://www.boston.com/news/local-news/2026/11/03/maura-healey-mike-minogue-massachusetts-governor/",
+          "source_title": "Massachusetts governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Maura Healey",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Incumbent: Gov. Maura Healey Length of Regular Terms: 4 years General Election Candidates Gov. Maura Healey (D)",
+          "source_url": "https://www.nga.org/governors/elections/",
+          "source_title": "NGA 2026 incumbent and general-election candidate — Massachusetts",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
