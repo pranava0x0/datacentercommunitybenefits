@@ -481,6 +481,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
+    },
+    {
+      "id": "el-dorado-ks-data-centers-2026",
+      "state_code": "KS",
+      "jurisdiction": "El Dorado",
+      "title": "High-impact data centers and battery systems initiative",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "prohibiting the installation and operation of High Impact Data Centers",
+        "source_url": "https://ballotpedia.org/El_Dorado,_Kansas,_Prohibit_Data_Centers_and_Battery_Energy_Storage_Systems_Initiative_(November_2026)",
+        "source_title": "Ballotpedia — High-impact data centers and battery systems initiative",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Prohibits covered high-impact data centers and Type 2/3 battery energy storage systems in the city for ten years.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "Yes (NON) Yes, NON 2,972 71.53% No (NON) No, NON 1,183 28.47%",
+          "source_url": "https://www.livevoterturnout.com/ENR/butlerksenr/4/en/Index_4.html",
+          "source_title": "Butler County KS Elections — unofficial results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "County results read at the November 4 1:39:53 PM update: 2,972 yes and 1,183 no. Earlier secondary compilations showed 2,966 yes; this record uses the later county page. Results remain unofficial."
     }
   ],
   "coverage_notes": [
