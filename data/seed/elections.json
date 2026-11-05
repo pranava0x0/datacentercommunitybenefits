@@ -1297,6 +1297,71 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "nv-governor-2026",
+      "state_code": "NV",
+      "jurisdiction": "Nevada",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Joe Lombardo",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "They must pay their share, protect our water resources, keep costs from being passed on to ratepayers",
+              "source_url": "https://www.gov.nv.gov/press-releases/governor-joe-lombardo-signs-executive-order-placing-guardrails-on-data-center-development-restoring-education-funding/",
+              "source_title": "Nevada Governor — Joe Lombardo on Executive Order 2026-005",
+              "captured_at": "2026-11-04",
+              "speaker": "Joe Lombardo",
+              "published_at": "2026-09-18"
+            }
+          ],
+          "review_note": "Lombardo made this statement on signing his existing executive order governing data-center development and tax-abatement conditions."
+        },
+        {
+          "name": "Aaron Ford",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "When I am governor, I will put the brakes on tax giveaways to data centers.",
+              "source_url": "https://www.kolotv.com/2026/09/08/nevada-gubernatorial-candidates-weigh-data-centers/",
+              "source_title": "KOLO — Aaron Ford on data centers",
+              "captured_at": "2026-11-04",
+              "speaker": "Aaron Ford",
+              "published_at": "2026-09-07"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Aaron Ford",
+        "evidence": {
+          "statement": "Democrat Aaron Ford wins election for governor in Nevada",
+          "source_url": "https://www.yahoo.com/news/politics/articles/democrat-aaron-ford-wins-election-094702102.html",
+          "source_title": "Nevada governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Joe Lombardo",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Nevada Gov. Joe Lombardo Terms January 2, 2023-Current Party Republican",
+          "source_url": "https://www.nga.org/governors/nevada/",
+          "source_title": "National Governors Association — Governor Joe Lombardo",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
