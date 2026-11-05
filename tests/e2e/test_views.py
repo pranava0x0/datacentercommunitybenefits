@@ -3865,7 +3865,7 @@ class TestIssues78And79:
         page.wait_for_function("() => state.projects.length > 0", timeout=E2E_WAIT)
         ids = page.evaluate(
             "() => [...ratepayerAssessedProjects(), ...ratepayerPrePledgeProjects(),"
-            " ...ratepayerUnassessedPledgeEraProjects(), ...ratepayerNonSignatoryProjects()].map(p => p.id)"
+            " ...ratepayerUnassessedProjects(), ...ratepayerNonSignatoryProjects()].map(p => p.id)"
         )
         assert not set(ids) & {p["id"] for p in withdrawn}
         # Totals: a withdrawn site's MW / jobs / investment are not counted.

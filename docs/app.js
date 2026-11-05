@@ -1407,7 +1407,7 @@ function signatoryCounts() {
   return out;
 }
 
-// The date a company's operator joined the pledge, or null if it never did.
+// The operator signing date, or null when absent or unpublished.
 // This is what makes eligibility roster-driven rather than hardcoded to the
 // original eight: CoreWeave signed on 2026-07-23, so its sites announced
 // before that date are "pre-their-pledge", not "not a signatory".
@@ -7824,14 +7824,7 @@ function ratepayerAssessedProjects() {
     });
 }
 
-// True when the project predates the pledge. Dated announcements compare
-// directly against RATEPAYER_PLEDGE_DATE; year-only announcements are
-// pre-pledge only when the year is earlier than the pledge year — a bare
-// "2026" can't be placed either side of March 4, so it stays in the
-// pledge-era bucket (awaiting assessment) rather than being mislabeled
-// pre-pledge. Bucketing is company-agnostic (the White House date), even
-// though QTS signed via the DOE track on 2026-04-24 — no dated QTS site
-// currently lands in the Mar 4 – Apr 24 window; revisit if one does.
+// The pledge's original year; operator-specific dates below govern site timing.
 const RATEPAYER_PLEDGE_YEAR = Number(RATEPAYER_PLEDGE_DATE.slice(0, 4));
 
 // The date THIS project's operator joined the pledge — not the pledge's own
@@ -7844,7 +7837,7 @@ const RATEPAYER_PLEDGE_YEAR = Number(RATEPAYER_PLEDGE_DATE.slice(0, 4));
 // deep-link instead of briefly showing every site as non-signatory.
 function projectPledgeDate(p) {
   const fromRoster = signatorySignedDate(p.company_slug);
-  if (fromRoster) return fromRoster;
+  if (state.signatoriesLoaded || fromRoster) return fromRoster;
   const co = state.companiesBySlug.get(p.company_slug);
   return co && co.ratepayer_pledge_signatory ? RATEPAYER_PLEDGE_DATE : null;
 }
@@ -7882,11 +7875,9 @@ function ratepayerPrePledgeProjects() {
     .sort(rosterSort);
 }
 
-// Signatory sites announced in the pledge era (on/after the pledge, or a
-// year-only 2026 announcement) with no assessment captured yet. Shown in
-// their own section so they aren't mislabeled "pre-pledge" — absence of an
-// assessment means the curation work is pending, not implied compliance.
-function ratepayerUnassessedPledgeEraProjects() {
+// Unassessed signatory sites that are not demonstrably pre-pledge. Unknown
+// signing dates stay visible with an explicit timing note, not a dated claim.
+function ratepayerUnassessedProjects() {
   const signatorySlugs = new Set(ratepayerSignatories().map((c) => c.slug));
   return state.projects
     .filter(
@@ -8076,7 +8067,7 @@ function buildRatepayerCSV() {
   // pre-pledge (out of cohort), each labeled honestly.
   const unassessedBuckets = [
     [
-      ratepayerUnassessedPledgeEraProjects(),
+      ratepayerUnassessedProjects(),
       "not-yet-assessed",
       "Announced during the pledge era; per-site assessment pending.",
     ],
@@ -8109,7 +8100,7 @@ function buildRatepayerCSV() {
         p.claimed_jobs,
         p.at_a_glance?.water || "",
         assessment, // Pledge Assessment
-        summary,
+        projectPledgeDate(p) ? summary : "Signing date unpublished; pledge timing is not established.",
         "", "", "", // Evidence Title, URL, Assessment Date
         ...PRINCIPLE_KEYS.map(() => "N/A"),
       ];
@@ -8274,22 +8265,23 @@ function renderRatepayerScorecard() {
   if (exportBtn) exportBtn.onclick = downloadRatepayerCSV;
   wireBtn("rp-export-pdf", exportRatepayerToPDF);
 
-  // Pledge-era sites awaiting assessment (post-pledge or year-only 2026,
-  // no assessment captured yet).
+  // Unassessed signatory sites; unknown signing dates are labeled separately.
   const unassessedUl = document.getElementById("rp-unassessed");
   if (unassessedUl) {
     unassessedUl.innerHTML = "";
-    const unassessed = ratepayerUnassessedPledgeEraProjects();
+    const unassessed = ratepayerUnassessedProjects();
     setSubtabCount("rp-unassessed-count", unassessed.length);
     if (unassessed.length === 0) {
       const li = document.createElement("li");
       li.className = "muted";
-      li.textContent = "No pledge-era sites awaiting assessment.";
+      li.textContent = "No unassessed signatory sites.";
       unassessedUl.appendChild(li);
     } else {
       for (const p of unassessed) {
         unassessedUl.appendChild(
-          renderPrePledgeCard(p, "Pledge era — assessment pending")
+          renderPrePledgeCard(p, projectPledgeDate(p)
+            ? "Pledge era — assessment pending"
+            : "Signing date unpublished — pledge timing unknown")
         );
       }
     }
@@ -8336,7 +8328,7 @@ function renderRatepayerScorecard() {
   setAccCount(
     "rp-sites-count",
     ratepayerAssessedProjects().length +
-      ratepayerUnassessedPledgeEraProjects().length +
+      ratepayerUnassessedProjects().length +
       ratepayerPrePledgeProjects().length +
       ratepayerNonSignatoryProjects().length,
     "site"
