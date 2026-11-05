@@ -421,6 +421,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
+    },
+    {
+      "id": "joliet-township-il-advisory-2026",
+      "state_code": "IL",
+      "jurisdiction": "Joliet Township",
+      "title": "AI data center construction advisory question",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "advisory",
+      "ballot_evidence": {
+        "statement": "Should the Joliet City Council approve construction of AI data centers?",
+        "source_url": "https://ballotpedia.org/Joliet_Township,_Illinois,_Construction_of_AI_Data_Centers_Advisory_Question_(November_2026)",
+        "source_title": "Ballotpedia — AI data center construction advisory question",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Asked whether the city council should approve AI data center construction. A no majority provides advice; it does not itself prohibit construction.",
+      "result": {
+        "status": "reported",
+        "outcome": "failed",
+        "evidence": {
+          "statement": "It was defeated.",
+          "source_url": "https://ballotpedia.org/Joliet_Township,_Illinois,_Construction_of_AI_Data_Centers_Advisory_Question_(November_2026)",
+          "source_title": "Ballotpedia — AI data center construction advisory question",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
     }
   ],
   "coverage_notes": [
