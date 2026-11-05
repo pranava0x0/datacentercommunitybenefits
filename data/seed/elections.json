@@ -669,6 +669,38 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "The signed November 3 moderator return explicitly certifies the true results of this municipal referendum, including Question 5. This is distinct from the pre-election certification of the proposed ordinance text."
+    },
+    {
+      "id": "wiscasset-me-question2-2026",
+      "state_code": "ME",
+      "jurisdiction": "Wiscasset",
+      "title": "Question 2 — Data center moratorium",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "the Town of Wiscasset shall not accept, process, review, or approve any application for the development of a new, enlarged, or expanded Data Center",
+        "source_url": "https://www.wiscasset.gov/DocumentCenter/View/1743/Data-Center-Moratorium-Ordinance---Final",
+        "source_title": "Wiscasset — final data center moratorium ordinance",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Suspends applications for new, enlarged or expanded data centers for six months after enactment, with possible extensions of no more than 180 days each. It applies to proceedings or applications filed on or after November 3, 2026, and takes effect immediately upon Town Meeting adoption. Routine equipment maintenance without expansion and municipal, school and public-safety IT are exempt.",
+      "result": {
+        "status": "reported",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "It was approved.",
+          "source_url": "https://ballotpedia.org/Wiscasset,_Maine,_Question_2,_Data_Center_Moratorium_Measure_(November_2026)",
+          "source_title": "Question 2 — Data center moratorium — results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "wiscasset-me-2026-11"
+      ],
+      "related_policy_ids": [],
+      "notes": "Result reported by Ballotpedia; official final ordinance read. No certification verified."
     }
   ],
   "coverage_notes": [
