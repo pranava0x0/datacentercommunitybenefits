@@ -1120,6 +1120,63 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "mi-governor-2026",
+      "state_code": "MI",
+      "jurisdiction": "Michigan",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Jocelyn Benson",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "As Governor, I will put a moratorium on data centers.",
+              "source_url": "https://www.jocelynbenson.com/issues/data-centers",
+              "source_title": "Jocelyn Benson campaign — Data Centers",
+              "captured_at": "2026-11-04",
+              "speaker": "Jocelyn Benson"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "John James",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "WDIV’s debate report describes a five-part pause plan, but its direct quotes from James are attacks on his opponent. No policy quote was taken from that paraphrase. A second policy source, MLive, was blocked."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Jocelyn Benson",
+        "evidence": {
+          "statement": "Democrat Jocelyn Benson wins election for governor in Michigan",
+          "source_url": "https://www.yahoo.com/news/politics/articles/democrat-jocelyn-benson-wins-election-064546709.html",
+          "source_title": "Michigan governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "michigan-state-2026-06"
+      ],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Gretchen Whitmer",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Michigan Gov. Gretchen Whitmer Terms January 1, 2019-January 1, 2023 January 1, 2023-Current Party Democratic",
+          "source_url": "https://www.nga.org/governors/michigan/",
+          "source_title": "National Governors Association — Governor Gretchen Whitmer",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
