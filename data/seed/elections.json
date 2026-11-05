@@ -605,6 +605,39 @@
       ],
       "related_policy_ids": [],
       "notes": "Municipal clerk certified the November 3 annual municipal election return on November 4, 2026; scanned return visually verified."
+    },
+    {
+      "id": "wells-me-article5-2026",
+      "state_code": "ME",
+      "jurisdiction": "Wells",
+      "title": "Article 5 — Retroactive data center moratorium",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "This Moratorium shall remain in full force and effect for a period of 180 days from the Date of Applicability",
+        "source_url": "https://wellstown.org/DocumentCenter/View/8514/November-3-2026-Special-Town-Meeting-Warrant?bidId=",
+        "source_title": "Wells — special town meeting warrant, Appendix 1",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "Pauses covered new or expanded data centers with aggregate data center area of at least 100,000 square feet, including associated impervious surfaces. It takes effect on enactment but applies retroactively to proceedings and applications pending on or after June 16, 2026. The 180-day term runs from that June 16 applicability date, unless extended, repealed or modified.",
+      "result": {
+        "status": "certified",
+        "outcome": "passed",
+        "evidence": {
+          "statement": "ARTICLE 5. Shall an ordinance entitled, \"An Ordinance to Establish a Retroactive Moratorium on Data Centers\" be enacted? YES: 5818 NO: 1282",
+          "source_url": "https://www.wellstown.org/DocumentCenter/View/8559",
+          "source_title": "Article 5 — Retroactive data center moratorium — results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official",
+        "certified_on": "2026-11-04"
+      },
+      "related_moratorium_ids": [
+        "wells-me-2026-11"
+      ],
+      "related_policy_ids": [],
+      "notes": "Town clerk certificate of results for the November 3 secret-ballot referendum signed November 4, 2026; scanned pages 1–2 visually verified."
     }
   ],
   "coverage_notes": [
