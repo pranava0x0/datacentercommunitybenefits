@@ -370,6 +370,53 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "ar-governor-2026",
+      "state_code": "AR",
+      "jurisdiction": "Arkansas",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Sarah Huckabee Sanders",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Fredrick Love",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Sarah Huckabee Sanders",
+        "evidence": {
+          "statement": "Republican Gov. Sarah Huckabee Sanders is set to serve a second four-year term",
+          "source_url": "https://www.axios.com/local/nw-arkansas/2026/11/04/voters-reelect-gov-sanders",
+          "source_title": "Arkansas governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Sarah Huckabee Sanders",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Republican Gov. Sarah Huckabee Sanders is set to serve a second four-year term",
+          "source_url": "https://www.axios.com/local/nw-arkansas/2026/11/04/voters-reelect-gov-sanders",
+          "source_title": "Incumbent governor — Arkansas",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
