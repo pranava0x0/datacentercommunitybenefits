@@ -7002,6 +7002,30 @@
         }
       ],
       "session": "2026"
+    },
+    {
+      "id": "wiscasset-me-2026-11",
+      "jurisdiction": "Wiscasset",
+      "jurisdiction_type": "city",
+      "state_code": "ME",
+      "status": "enacted",
+      "enacted_date": "2026-11-03",
+      "effective_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "enacted_by": "Town Meeting voters",
+      "duration_description": "6 months from enactment; extensions require further action.",
+      "key_reasons": [],
+      "summary": "The November 3, 2026 vote approved a six-month moratorium on applications for new, enlarged or expanded data centers, effective immediately on Town Meeting adoption. The final ordinance covers proceedings and applications filed from November 3, 2026 and exempts routine maintenance without expansion and municipal, school and public-safety IT; election returns remain reported rather than certified.",
+      "source_url": "https://www.wiscasset.gov/DocumentCenter/View/1743/Data-Center-Moratorium-Ordinance---Final",
+      "source_title": "Wiscasset — data center moratorium ordinance",
+      "resources": [
+        {
+          "url": "https://ballotpedia.org/Wiscasset,_Maine,_Question_2,_Data_Center_Moratorium_Measure_(November_2026)",
+          "title": "Wiscasset — November 3 municipal election results"
+        }
+      ],
+      "session": "2026",
+      "duration_months": 6
     }
   ]
 }
