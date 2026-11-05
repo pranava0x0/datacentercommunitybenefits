@@ -1232,6 +1232,71 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+    },
+    {
+      "id": "ne-governor-2026",
+      "state_code": "NE",
+      "jurisdiction": "Nebraska",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Jim Pillen",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "We don't need to give tax incentives away like we have.",
+              "source_url": "https://www.1011now.com/2026/10/29/gov-pillen-says-nebraskas-infrastructure-can-handle-current-data-center-demand/",
+              "source_title": "First Alert 6 — Jim Pillen on data-center incentives",
+              "captured_at": "2026-11-04",
+              "speaker": "Jim Pillen",
+              "published_at": "2026-10-29"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        },
+        {
+          "name": "Lynne Walz",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "Lynne has never supported tax incentives for data centers.",
+              "source_url": "https://www.1011now.com/2026/10/29/gov-pillen-says-nebraskas-infrastructure-can-handle-current-data-center-demand/",
+              "source_title": "First Alert 6 — Lynne Walz campaign statement",
+              "captured_at": "2026-11-04",
+              "speaker": "Lynne Walz",
+              "published_at": "2026-10-29"
+            }
+          ],
+          "review_note": "A campaign spokesperson supplied the quoted statement; it is attributed to the campaign rather than a recorded interview with Walz."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Jim Pillen",
+        "evidence": {
+          "statement": "AP: Republican Jim Pillen wins reelection for governor in Nebraska",
+          "source_url": "https://www.klkntv.com/i/republican-jim-pillen-wins-reelection-for-governor-in-nebraska/",
+          "source_title": "Nebraska governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Jim Pillen",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Republican Jim Pillen wins reelection for governor in Nebraska",
+          "source_url": "https://www.klkntv.com/i/republican-jim-pillen-wins-reelection-for-governor-in-nebraska/",
+          "source_title": "Incumbent governor — Nebraska",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
