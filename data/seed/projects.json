@@ -14,10 +14,10 @@
       "announced_year": 2026,
       "claimed_investment_usd": 650000000,
       "claimed_jobs": null,
-      "notes": "Confirmed as Google March 3, 2026 (project initially codename 'Project Birch'). 403-acre campus adjacent to Minnesota Power's Arrowhead substation, St. Louis County. Partnership with Minnesota Power to enable 700 MW of new clean energy (300 MW wind + 400 MW battery storage) — no cost increases to existing customers. $5M energy affordability fund for low-income customers. As of May 2026, Hermantown City Council tabled a key zoning vote (May 5, 2026) amid ongoing permitting and utility agreement negotiations.",
+      "notes": "Confirmed as Google March 3, 2026 (initially 'Project Birch'). The original proposal covered 403 acres adjacent to Minnesota Power's Arrowhead substation. On October 30, the City Council approved a development agreement, special-use permit and decommissioning agreement for a reduced three-building campus; MPR reports expected electricity demand of 500 MW. Minnesota PUC approval of the electric service agreement remained pending in that October 31 report. Google withdrew its tax-abatement request before the council vote.",
       "source_url": "https://www.datacenterdynamics.com/en/news/google-confirms-it-is-behind-403-acre-data-center-campus-in-hermantown-minnesota/",
       "source_title": "Data Center Dynamics — Google confirms 403-acre Hermantown, Minnesota campus",
-      "captured_at": "2026-10-19",
+      "captured_at": "2026-11-04",
       "acreage": 403.0,
       "offtaker": "Google",
       "at_a_glance": {
@@ -46,8 +46,18 @@
           "upcoming": false,
           "source_url": "https://www.northernnewsnow.com/2026/07/07/hermantown-city-council-approves-data-center-reimbursements/",
           "source_title": "Northern News Now — Hermantown City Council approves data center reimbursements"
+        },
+        {
+          "date": "2026-10-30",
+          "kind": "vote",
+          "title": "Hermantown council approves Google campus agreements",
+          "summary": "The council unanimously approved the development agreement, special-use permit and decommissioning agreement. Minnesota PUC approval of the electric service agreement remained pending in the October 31 report.",
+          "authority": "Hermantown City Council",
+          "source_url": "https://www.mprnews.org/story/2026/10/31/hermantown-approves-controversial-google-data-center-during-late-night-meeting",
+          "source_title": "MPR News — Hermantown approves Google data center agreements"
         }
-      ]
+      ],
+      "power_mw": 500
     },
     {
       "id": "google-pine-island-mn",
