@@ -2075,6 +2075,80 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "wi-governor-2026",
+      "state_code": "WI",
+      "jurisdiction": "Wisconsin",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "David Crowley",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "If local communities don't want a data center, they shouldn't be forced to have a data center.",
+              "source_url": "https://www.crowleyforwi.com/data-centers",
+              "source_title": "David Crowley campaign — Data Centers",
+              "captured_at": "2026-11-04",
+              "speaker": "David Crowley"
+            },
+            {
+              "statement": "I think there should be a pause",
+              "source_url": "https://fox47.com/news/local/crowley-calls-for-pause-on-data-centers",
+              "source_title": "FOX47 — David Crowley on a pause during environmental review",
+              "captured_at": "2026-11-04",
+              "speaker": "David Crowley",
+              "published_at": "2026-10-20"
+            }
+          ],
+          "review_note": "Crowley said there should be a pause while the environmental review arising from a lawsuit is conducted. This is a proposed pause, not evidence of a statewide enacted moratorium."
+        },
+        {
+          "name": "Tom Tiffany",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "the DNR will ensure every project meets strict environmental standards before a permit is issued",
+              "source_url": "https://fox47.com/news/local/crowley-calls-for-pause-on-data-centers",
+              "source_title": "FOX47 — Tom Tiffany statement on environmental review",
+              "captured_at": "2026-11-04",
+              "speaker": "Tom Tiffany",
+              "published_at": "2026-10-20"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "David Crowley",
+        "evidence": {
+          "statement": "Democrat David Crowley makes history, defeats Tom Tiffany in Wisconsin governor's race",
+          "source_url": "https://www.wpr.org/news/democrat-david-crowley-defeats-republican-tom-tiffany-wisconsin-governor-2026",
+          "source_title": "Wisconsin governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "wisconsin-state-2026-01"
+      ],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Tony Evers",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Wisconsin Gov. Tony Evers Terms January 7, 2019-January 3, 2023 January 3, 2023-Current Party Democratic",
+          "source_url": "https://www.nga.org/governors/wisconsin/",
+          "source_title": "National Governors Association — Governor Tony Evers",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
