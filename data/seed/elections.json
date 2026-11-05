@@ -716,6 +716,53 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "hi-governor-2026",
+      "state_code": "HI",
+      "jurisdiction": "Hawaii",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Josh Green",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Gary Cordery",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Josh Green",
+        "evidence": {
+          "statement": "Democratic Gov. Josh Green won a second term as Hawaiʻi governor",
+          "source_url": "https://www.hawaiipublicradio.org/text/local-news/2026-11-03/green-wins-second-term-as-hawaii-governor",
+          "source_title": "Hawaii governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Josh Green",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Democratic Gov. Josh Green won a second term as Hawaiʻi governor",
+          "source_url": "https://www.hawaiipublicradio.org/text/local-news/2026-11-03/green-wins-second-term-as-hawaii-governor",
+          "source_title": "Incumbent governor — Hawaii",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
