@@ -1860,6 +1860,53 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+    },
+    {
+      "id": "sd-governor-2026",
+      "state_code": "SD",
+      "jurisdiction": "South Dakota",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Larry Rhoden",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Dan Ahlers",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Larry Rhoden",
+        "evidence": {
+          "statement": "Republican Larry Rhoden wins South Dakota governor's race",
+          "source_url": "https://www.kotatv.com/2026/11/04/republican-larry-rhoden-wins-south-dakota-governors-race-defeating-dan-ahlers/",
+          "source_title": "South Dakota governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Larry Rhoden",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Rhoden, who has served as governor since early 2025",
+          "source_url": "https://www.kotatv.com/2026/11/04/republican-larry-rhoden-wins-south-dakota-governors-race-defeating-dan-ahlers/",
+          "source_title": "KOTA — incumbent governor Larry Rhoden",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
