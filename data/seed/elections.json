@@ -1177,6 +1177,61 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "mn-governor-2026",
+      "state_code": "MN",
+      "jurisdiction": "Minnesota",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Lisa Demuth",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "local control issue",
+              "source_url": "https://www.mprnews.org/story/2026/10/19/lisa-demuth-amy-klobuchar-take-businessfriendly-stances-in-first-oneonone-governor-forum",
+              "source_title": "MPR News — Lisa Demuth at the governor forum",
+              "captured_at": "2026-11-04",
+              "speaker": "Lisa Demuth",
+              "published_at": "2026-10-19"
+            }
+          ],
+          "review_note": "Demuth used these words to describe data-center siting in the forum."
+        },
+        {
+          "name": "Amy Klobuchar",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "if a local community doesn't want to have a data center, they shouldn't have to have a data center",
+              "source_url": "https://www.mprnews.org/story/2026/10/19/lisa-demuth-amy-klobuchar-take-businessfriendly-stances-in-first-oneonone-governor-forum",
+              "source_title": "MPR News — Amy Klobuchar at the governor forum",
+              "captured_at": "2026-11-04",
+              "speaker": "Amy Klobuchar",
+              "published_at": "2026-10-19"
+            }
+          ],
+          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Amy Klobuchar",
+        "evidence": {
+          "statement": "Amy Klobuchar wins Minnesota Governor's race",
+          "source_url": "https://www.wdio.com/top-stories/amy-klobuchar-wins-minnesota-governors-race/",
+          "source_title": "Minnesota governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
     }
   ],
   "measures": [
