@@ -161,6 +161,13 @@ def test_anthropic_is_not_on_the_roster(roster: SignatoriesPayload) -> None:
     assert "anthropic" not in matched
 
 
+def test_sb_energy_rolling_signature_has_no_invented_signing_date(roster: SignatoriesPayload) -> None:
+    rec = next(s for s in roster.signatories if s.id == "sb-energy")
+    assert rec.matched_company_slug == "sb-energy"
+    assert rec.signed_track == "rolling"
+    assert rec.signed_date is None
+
+
 def test_coreweave_signed_in_the_july_expansion(roster: SignatoriesPayload) -> None:
     """The v1.21 non-signatory toggle predates this; CoreWeave is a signatory now."""
     cw = next(

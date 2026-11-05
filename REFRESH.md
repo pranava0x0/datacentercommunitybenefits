@@ -1236,3 +1236,22 @@ are not new signings. Preserve those notes in the builder; absent, invalid or
 future provenance produces no new activity.
 Regression fixtures mix old/new observations and advance an unchanged
 snapshot to prove neither historical rows nor unknown join dates are relabelled.
+
+### 2026-11-04 — election results and legal commencement
+
+A race call, certification and commencement of a restriction are separate facts.
+Read signed municipal returns and the ordinance's effective-date clause separately.
+Wells runs 180 days from June 16, despite November adoption; Eliot specifies a
+seven-day charter rule. Hayward's initial term is 45 days, not the two-year
+maximum obtainable through extensions. Advisory questions stay in Elections.
+
+The NGA Oklahoma candidate panel retained a primary placeholder; the independently
+read local result established the nominees. Use calendars for dates, not winners.
+A blocked AP article justified trying a known local result source, not declaring
+a winner from a headline. Alaska and Kansas remained uncalled in checked reports.
+
+Wells's warrant returned an empty 404 to the default HTTP client but a complete
+200 PDF with a browser User-Agent and Accept: application/pdf; the web reader
+also read all 23 pages. Preserve actual source bytes before treating a research
+agent's empty cache as evidence. Archive-host 429 retries can dominate a full
+audit; retain blocked status and separate source availability from accuracy.

@@ -19,7 +19,10 @@
     "draft_state": 3,
     "impact_water": 5,
     "moratorium_older": 4,
-    "world_country": 2
+    "world_country": 2,
+    "election_result": 1,
+    "election_policy": 7,
+    "election_legal_record": 7
   },
   "tablet": {
     "home_latest": 0,
@@ -40,7 +43,10 @@
     "draft_state": 3,
     "impact_water": 2,
     "moratorium_older": 4,
-    "world_country": 2
+    "world_country": 2,
+    "election_result": 1,
+    "election_policy": 2,
+    "election_legal_record": 4
   },
   "desktop": {
     "home_latest": 0,
@@ -61,6 +67,9 @@
     "draft_state": 3,
     "impact_water": 2,
     "moratorium_older": 4,
-    "world_country": 2
+    "world_country": 2,
+    "election_result": 1,
+    "election_policy": 2,
+    "election_legal_record": 4
   }
 }

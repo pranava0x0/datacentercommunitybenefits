@@ -4947,6 +4947,33 @@
       "source_title": "City of Memphis — Mayor Paul Young Takes Action to Strengthen Data Center Protections, Orders 90-Day Policy Review (Oct. 9, 2026)",
       "related_moratorium_id": "memphis-city-2026-10",
       "captured_at": "2026-10-21"
+    },
+    {
+      "id": "la-ratepayer-community-framework-2026-10",
+      "title": "Louisiana Ratepayer and Community Protection Framework — tax-exemption application requirements",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Louisiana",
+      "state_code": "LA",
+      "date": "2026-10-29",
+      "benefit_themes": [
+        "energy",
+        "jobs",
+        "tax_revenue"
+      ],
+      "principles": [
+        "incentive_terms",
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Before receiving the exemption, applicants must submit a detailed attestation outlining how they will meet the framework's requirements."
+      ],
+      "summary": "Louisiana Economic Development announced completion of the framework directed by the governor’s June executive order. Prospective data-center tax-exemption applicants must attest to commitments on project costs, grid reliability, workforce and community investment, local taxes, natural resources, innovation and accountability. LED says the exemption program will become invitation-only and applications will be evaluated with other state agencies, local partners and the proposed energy provider. This sets eligibility requirements for state support; it is not a development moratorium.",
+      "source_url": "https://www.opportunitylouisiana.gov/news/governor-landry-puts-louisiana-ratepayer-and-community-protection-initiative-into-action",
+      "source_title": "Louisiana Economic Development — Ratepayer and Community Protection Framework completed",
+      "captured_at": "2026-11-04"
     }
   ]
 }

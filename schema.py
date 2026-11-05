@@ -2484,7 +2484,171 @@ class InternationalPayload(_StrictBase):
         return self
 
 
+ELECTION_STATE_CODES = frozenset(
+    "AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO "
+    "MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split()
+)
+
+
+class ElectionEvidence(_StrictBase):
+    """The exact passage supporting one election fact or candidate statement."""
+
+    statement: str = Field(min_length=1)
+    source_url: HttpUrl
+    source_title: str = Field(min_length=1)
+    captured_at: Date
+    published_at: Optional[Date] = None
+    speaker: Optional[str] = None
+
+    @model_validator(mode="after")
+    def dates_in_order(self) -> "ElectionEvidence":
+        if self.published_at and self.published_at > self.captured_at:
+            raise ValueError("Election evidence cannot be published after capture")
+        return self
+
+
+class ElectionOfficeholder(_StrictBase):
+    name: str = Field(min_length=1)
+    party: str = Field(min_length=1)
+    evidence: ElectionEvidence
+
+
+class ElectionCandidate(_StrictBase):
+    name: str = Field(min_length=1)
+    party: str = Field(min_length=1)
+    statements: list[ElectionEvidence] = Field(default_factory=list)
+    review_note: str = "Candidate statements not yet reviewed."
+
+    @model_validator(mode="after")
+    def statements_name_the_candidate(self) -> "ElectionCandidate":
+        for statement in self.statements:
+            if statement.speaker != self.name:
+                raise ValueError("Candidate statements must name their speaker")
+        return self
+
+
+class ElectionResult(_StrictBase):
+    status: Literal["unverified", "reported", "certified"] = "unverified"
+    winner: Optional[str] = None
+    outcome: Optional[Literal["passed", "failed"]] = None
+    evidence: Optional[ElectionEvidence] = None
+    source_type: Optional[Literal["official", "news"]] = None
+    certified_on: Optional[Date] = None
+
+    @model_validator(mode="after")
+    def result_has_evidence(self) -> "ElectionResult":
+        if self.status == "unverified":
+            if self.winner or self.outcome or self.certified_on:
+                raise ValueError("An unverified result cannot declare a winner or outcome")
+        elif not self.evidence or not self.source_type:
+            raise ValueError("A reported result needs its own evidence and source type")
+        if self.status == "certified":
+            if self.source_type != "official" or not self.certified_on:
+                raise ValueError("Certification needs dated official evidence")
+            if self.certified_on > self.evidence.captured_at:
+                raise ValueError("Certification cannot be after evidence capture")
+        elif self.certified_on:
+            raise ValueError("Only certified results have a certification date")
+        return self
+
+
+class _ElectionContest(_StrictBase):
+    id: str = Field(min_length=1, pattern=r"^[a-z0-9-]+$")
+    state_code: str
+    jurisdiction: str = Field(min_length=1)
+    election_date: Date
+    captured_at: Date
+    result: ElectionResult
+    related_moratorium_ids: list[str] = Field(default_factory=list)
+    related_policy_ids: list[str] = Field(default_factory=list)
+    notes: Optional[str] = None
+
+    @field_validator("state_code")
+    @classmethod
+    def known_state(cls, value: str) -> str:
+        if value not in ELECTION_STATE_CODES:
+            raise ValueError("Unknown US state code")
+        return value
+
+    @model_validator(mode="after")
+    def result_dates_in_order(self) -> "_ElectionContest":
+        if self.captured_at < self.election_date:
+            raise ValueError("Election capture cannot precede election day")
+        evidence = self.result.evidence
+        if evidence:
+            if evidence.captured_at > self.captured_at:
+                raise ValueError("Result evidence cannot be captured after the record")
+            if self.result.status != "unverified" and (
+                evidence.captured_at < self.election_date
+                or (evidence.published_at and evidence.published_at < self.election_date)
+            ):
+                raise ValueError("Pre-election reporting cannot establish a result")
+        if self.result.certified_on and self.result.certified_on < self.election_date:
+            raise ValueError("Certification cannot precede the election")
+        return self
+
+
+class ElectionRace(_ElectionContest):
+    office: str = Field(min_length=1)
+    level: Literal["governor", "county", "city", "utility_regulator"]
+    outgoing: Optional[ElectionOfficeholder] = None
+    candidates: list[ElectionCandidate] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def winner_is_a_candidate(self) -> "ElectionRace":
+        names = [candidate.name for candidate in self.candidates]
+        if len(names) != len(set(names)):
+            raise ValueError("Duplicate candidate names")
+        if self.result.outcome:
+            raise ValueError("Office races use a winner, not a ballot outcome")
+        if self.result.status != "unverified" and self.result.winner not in names:
+            raise ValueError("A reported race winner must be a listed candidate")
+        return self
+
+
+class ElectionMeasure(_ElectionContest):
+    title: str = Field(min_length=1)
+    effect: Literal["binding", "advisory"]
+    ballot_evidence: ElectionEvidence
+    legal_effect: str = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def measure_has_no_candidate_winner(self) -> "ElectionMeasure":
+        if self.result.winner:
+            raise ValueError("Ballot measures use an outcome, not a candidate winner")
+        if self.result.status != "unverified" and not self.result.outcome:
+            raise ValueError("A reported ballot measure needs a passed/failed outcome")
+        if self.effect == "advisory" and self.related_moratorium_ids:
+            raise ValueError("An advisory vote cannot establish an enacted moratorium")
+        return self
+
+
+class ElectionsPayload(_StrictBase):
+    generated_at: Date
+    election_date: Date
+    calendar: ElectionEvidence
+    races: list[ElectionRace] = Field(default_factory=list)
+    measures: list[ElectionMeasure] = Field(default_factory=list)
+    coverage_notes: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def unique_contests_and_dates(self) -> "ElectionsPayload":
+        contests = [*self.races, *self.measures]
+        ids = [contest.id for contest in contests]
+        if len(ids) != len(set(ids)):
+            raise ValueError("Duplicate election contest IDs")
+        governors = [race.state_code for race in self.races if race.level == "governor"]
+        if len(governors) != len(set(governors)):
+            raise ValueError("Only one governor contest per state and election")
+        for contest in contests:
+            if contest.election_date != self.election_date:
+                raise ValueError("Contest dates must match the election payload")
+        return self
+
+
 __all__ = [
+    "ElectionEvidence", "ElectionOfficeholder", "ElectionCandidate", "ElectionResult",
+    "ElectionRace", "ElectionMeasure", "ElectionsPayload",
     "COUNTRIES",
     "SUPRANATIONAL",
     "EU_MEMBERS",

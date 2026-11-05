@@ -781,6 +781,7 @@ const VIEWS = [
   { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
   { name: "agreements", tab: "tab-agreements", section: "view-agreements", hash: "#agreements" },
   { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
+  { name: "elections", tab: "tab-elections", section: "view-elections", hash: "#elections" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
   { name: "explorer", tab: "tab-explorer", section: "view-explorer", hash: "#explorer" },
@@ -792,6 +793,7 @@ const DEFAULT_VIEW =
 
 // #state/TX deep-links straight to a state panel over the Ratepayer view.
 const STATE_DEEP_LINK = /^#state\/[A-Za-z]{2}$/;
+const ELECTION_DEEP_LINK = /^#elections\/([a-z0-9-]+)$/;
 // #country/IE opens a country page inside the International view.
 const COUNTRY_DEEP_LINK = /^#country\/[A-Za-z]{2}$/;
 
@@ -848,6 +850,7 @@ function routeFromLocation({ boot = false } = {}) {
 
 function _routeFromLocation(boot) {
   const params = new URLSearchParams(window.location.search);
+  if (!ELECTION_DEEP_LINK.test(window.location.hash)) _pendingElectionId = null;
   if (!boot) {
     // Back/Forward closes whatever overlay is open: the entry being restored
     // did not have it (a policy record entry reopens it below).
@@ -886,6 +889,11 @@ function _routeFromLocation(boot) {
     const code = window.location.hash.slice("#country/".length).toUpperCase();
     activateView("world");
     openCountry(code);
+  } else if (ELECTION_DEEP_LINK.test(window.location.hash)) {
+    const id = ELECTION_DEEP_LINK.exec(window.location.hash)[1];
+    _pendingElectionId = id;
+    activateView("elections");
+    history.replaceState(null, "", `${window.location.pathname}#elections/${id}`);
   } else if (STATE_DEEP_LINK.test(window.location.hash)) {
     // #state/TX — open the Ratepayer view, then the panel on top of it.
     // Read the code BEFORE activating: activateView rewrites the hash to
@@ -984,6 +992,7 @@ function writeFiltersToUrl() {
 
 function activateView(name) {
   const target = VIEWS.find((v) => v.name === name) || DEFAULT_VIEW;
+  if (!state._routing) _pendingElectionId = null;
   // Every user-driven view change (tab, Home card, cross-link) gets its own
   // history entry so Back returns to where the reader was (#72). Boot and
   // Back/Forward routing must not push. The URL is rewritten below.
@@ -1075,6 +1084,8 @@ function activateView(name) {
     loadMoratoriumsData().catch((err) => {
       console.error("Failed to load moratoriums data:", err);
     });
+  } else if (target.name === "elections") {
+    loadElectionsData().catch((err) => console.error("Failed to load elections:", err));
   } else if (target.name === "tariffs") {
     loadTariffsData().catch((err) => {
       console.error("Failed to load tariffs data:", err);
@@ -1477,6 +1488,58 @@ function loadMoratoriumsData() {
     });
   }
   return _moratoriumsPromise;
+}
+
+let _electionsPromise = null;
+let _electionsView = null;
+let _electionsRetries = 0;
+let _pendingElectionId = null;
+function loadElectionsData() {
+  if (!_electionsPromise) {
+    const root = document.getElementById("elections-content");
+    const modulePath = _electionsRetries ? `./elections.js?retry=${_electionsRetries}` : "./elections.js";
+    _electionsPromise = Promise.all([fetchJson("data/elections.json"), import(modulePath)])
+      .then(([payload, view]) => {
+        _electionsView = view.mount(root, payload, {
+          stateNames: STATE_NAMES,
+          openMoratorium(id) {
+            activateView("moratoriums");
+            openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
+              const record = state.moratoriums.find((item) => item.id === id);
+              if (record) showMoratoriumDetail(record);
+            });
+          },
+          openPolicy(id) {
+            activateView("policies");
+            openWhenStillOn("policies", loadPoliciesData(), () => {
+              const record = state.policies.find((item) => item.id === id);
+              if (record) showPolicyDetail(record);
+            });
+          },
+        });
+        document.dispatchEvent(new CustomEvent("dcb:elections-ready"));
+      })
+      .catch((err) => {
+        _electionsPromise = null;
+        _electionsRetries += 1;
+        const retry = el("button", "btn-ghost", "Retry election records");
+        retry.type = "button";
+        retry.addEventListener("click", () => {
+          retry.disabled = true;
+          loadElectionsData().catch((error) => console.error("Election retry failed:", error));
+        });
+        root.replaceChildren(el("p", "muted", "Couldn't load election records."), retry);
+        throw err;
+      });
+  }
+  return _electionsPromise.then(() => {
+    if (state.activeView === "elections" && _pendingElectionId) {
+      const id = _pendingElectionId;
+      _pendingElectionId = null;
+      history.replaceState(null, "", `${window.location.pathname}#elections/${id}`);
+      _electionsView.openRecord(id);
+    }
+  });
 }
 
 // The directory shows a scannable short duration; the full `duration_description`
@@ -2139,7 +2202,7 @@ function showMoratoriumDetail(m) {
   document.getElementById("md-status-detail").textContent = effectiveStatus(m);
   document.getElementById("md-enacted").textContent = m.enacted_date || "Not yet enacted";
   document.getElementById("md-duration-detail").textContent = m.duration_description;
-  document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "No threshold (all sizes)";
+  document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "See scope below";
 
   // Effective date — show only when present and distinct from enacted_date
   setMdKv("md-effective-dt", "md-effective", m.effective_date && m.effective_date !== m.enacted_date ? m.effective_date : null);
@@ -4131,6 +4194,7 @@ function renderHome() {
     companies: [t.companies, "operators"],
     pledge: [t.pledge_organizations, `organizations, plus ${t.pledge_governors} governors`],
     world: [t.international_records, `records in ${t.international_countries} countries and the EU`],
+    elections: [t.election_races + t.election_measures, `${t.election_results_verified} results verified`],
   };
   for (const [key, [num, sub]] of Object.entries(cards)) {
     const n = document.querySelector(`.home-card-num[data-count-for="${key}"]`);
@@ -4285,6 +4349,7 @@ const PLEDGE_TARGETS = {
     subtab: { group: "tar", key: "ratecases" },
   },
   moratoriums: { view: "moratoriums", anchor: null },
+  elections: { view: "elections", anchor: null },
   // Anchor-less tab landings for the Home "Explore the record" cards.
   pledge: { view: "ratepayer", anchor: null },
   companies: { view: "comparison", anchor: null },

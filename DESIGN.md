@@ -350,3 +350,13 @@ hides the number entirely.
 - A new constituency type is needed.
 - The visual identity shifts (e.g., adopting a real font, adding map
   basemap).
+
+### Election comparisons (2026-11-04)
+
+Party names use the ordinary text palette. Result status, dated candidate
+quotations and legal effects are separate fields. Missing statements and
+uncalled races have explicit text; neither is interpreted as a political
+position. The state directory links to canonical policy and moratorium records.
+Ten navigation tabs still occupy two rows at 360–390px; coarse-pointer controls
+retain 44px targets. Election filters wrap as a row: inheriting the generic
+column filter bar turns mobile flex-basis values into tall empty rows.

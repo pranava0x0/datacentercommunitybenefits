@@ -6928,6 +6928,104 @@
       "legislative_votes": "6–1; Hood Richardson opposed",
       "session": "2026",
       "captured_at": "2026-10-26"
+    },
+    {
+      "id": "hayward-ca-2026-10",
+      "jurisdiction": "Hayward",
+      "jurisdiction_type": "city",
+      "state_code": "CA",
+      "status": "enacted",
+      "enacted_date": "2026-10-20",
+      "effective_date": "2026-10-20",
+      "captured_at": "2026-11-04",
+      "enacted_by": "City Council",
+      "duration_description": "45 days initially; extensions require further council action.",
+      "key_reasons": [
+        "energy",
+        "water",
+        "air_quality",
+        "noise"
+      ],
+      "session": "2026",
+      "summary": "Hayward City Council voted unanimously on October 20, 2026 to impose an immediate 45-day moratorium on approval of new data centers and expansions of existing data centers while staff studies their impacts and potential regulations. The ordinance allows renewals of valid business licenses and building permits for existing or approved facilities; a two-year pause would require extensions.",
+      "source_url": "https://www.hayward-ca.gov/discover/news/oct26/hayward-city-council-enacts-immediate-moratorium-new-data-centers",
+      "source_title": "City of Hayward — Council enacts immediate moratorium on new data centers",
+      "resources": [
+        {
+          "url": "https://hayward.legistar.com/View.ashx?M=F&ID=16071529&GUID=8E34E177-EBE9-481E-84FB-7FEEF9061D48",
+          "title": "Hayward Council LB 26-015 — Attachment II urgency ordinance, sections 5–6 and 10"
+        }
+      ]
+    },
+    {
+      "id": "sabattus-me-2026-11",
+      "jurisdiction": "Sabattus",
+      "jurisdiction_type": "city",
+      "state_code": "ME",
+      "status": "enacted",
+      "enacted_date": "2026-11-03",
+      "effective_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "enacted_by": "Town Meeting voters",
+      "duration_description": "180 days from November 3, 2026; applications filed from July 28 are covered.",
+      "key_reasons": [],
+      "summary": "Voters approved an immediately effective 180-day moratorium on covered data centers on November 3, 2026. It applies to facilities with at least 10,000 square feet of gross floor area OR demand capacity of at least 20 MW, and retroactively covers applications filed on or after July 28, 2026.",
+      "source_url": "https://storage.googleapis.com/juniper-media-library/571/2026/10/Temporary%20Moratorium%20on%20Data%20Centers%20with%20watermark.pdf",
+      "source_title": "Sabattus — data center moratorium ordinance",
+      "resources": [
+        {
+          "url": "https://storage.googleapis.com/juniper-media-library/571/2026/11/Sabattus%20-%20Clerk%20Return%20of%20Votes%20-%20Municipal%20Election.pdf",
+          "title": "Sabattus — November 3 municipal election results"
+        }
+      ],
+      "session": "2026"
+    },
+    {
+      "id": "wells-me-2026-11",
+      "jurisdiction": "Wells",
+      "jurisdiction_type": "city",
+      "state_code": "ME",
+      "status": "enacted",
+      "enacted_date": "2026-11-03",
+      "effective_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "enacted_by": "Town Meeting voters",
+      "duration_description": "180 days from June 16, 2026; adopted November 3.",
+      "key_reasons": [],
+      "summary": "Voters approved a data center moratorium on November 3, 2026, covering an aggregate data center area of at least 100,000 square feet, including associated impervious surfaces. It takes effect on enactment but applies to proceedings or applications pending from June 16, 2026, and its 180-day term runs from that earlier date unless extended, repealed or modified.",
+      "source_url": "https://www.wellstown.org/DocumentCenter/View/8514/November-3-2026-Special-Town-Meeting-Warrant?bidId=",
+      "source_title": "Wells — data center moratorium ordinance",
+      "resources": [
+        {
+          "url": "https://www.wellstown.org/DocumentCenter/View/8559",
+          "title": "Wells — November 3 municipal election results"
+        }
+      ],
+      "session": "2026"
+    },
+    {
+      "id": "wiscasset-me-2026-11",
+      "jurisdiction": "Wiscasset",
+      "jurisdiction_type": "city",
+      "state_code": "ME",
+      "status": "enacted",
+      "enacted_date": "2026-11-03",
+      "effective_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "enacted_by": "Town Meeting voters",
+      "duration_description": "6 months from enactment; extensions require further action.",
+      "key_reasons": [],
+      "summary": "The November 3, 2026 vote approved a six-month moratorium on applications for new, enlarged or expanded data centers, effective immediately on Town Meeting adoption. The final ordinance covers proceedings and applications filed from November 3, 2026 and exempts routine maintenance without expansion and municipal, school and public-safety IT; election returns remain reported rather than certified.",
+      "source_url": "https://www.wiscasset.gov/DocumentCenter/View/1743/Data-Center-Moratorium-Ordinance---Final",
+      "source_title": "Wiscasset — data center moratorium ordinance",
+      "resources": [
+        {
+          "url": "https://ballotpedia.org/Wiscasset,_Maine,_Question_2,_Data_Center_Moratorium_Measure_(November_2026)",
+          "title": "Wiscasset — November 3 municipal election results"
+        }
+      ],
+      "session": "2026",
+      "duration_months": 6
     }
   ]
 }

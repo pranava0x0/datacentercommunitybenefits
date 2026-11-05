@@ -4020,9 +4020,9 @@
       "status": "announced",
       "announced_year": 2024,
       "source_lang": "es",
-      "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+      "source_url": "https://docm.jccm.es/portaldocm/descargarArchivo.do?ruta=2024/03/22/pdf/2024_2337.pdf&tipo=rutaDocm",
       "source_title": "DOCM nº 59, 22 Mar 2024 — declaración de impacto ambiental, Meta Data Center Campus",
-      "notes": "The environmental impact declaration names the promoter as Zarza Networks, S.L.; the project is attached to Meta by its name, 'Meta Data Center Campus'. announced_year is the year of the declaration, not of the first announcement. The copy read is a PDF of the DOCM issue hosted on cmmedia.es.",
+      "notes": "The environmental impact declaration names the promoter as Zarza Networks, S.L.; the project is attached to Meta by its name, 'Meta Data Center Campus'. announced_year is the year of the declaration, not of the first announcement. The source is the official DOCM issue; the earlier cmmedia.es mirror returned 404 on November 4, 2026.",
       "updates": [
         {
           "date": "2024-03-20",
@@ -4030,11 +4030,11 @@
           "title": "Regional environmental impact declaration issued with conditions",
           "summary": "The Directorate-General for Environmental Quality formulated the declaration on 20 March 2024 (published in DOCM 22 March 2024). It states industrial cooling water of 600 m3 per year and potable water of 40,000 m3 per year, and credits dry-air cooling with an 84% water-demand cut 'according to the promoter's documentation'.",
           "authority": "Dirección General de Calidad Ambiental, Castilla-La Mancha",
-          "source_url": "https://www.cmmedia.es/uploads/files/2024/03/22/2024_2337.pdf",
+          "source_url": "https://docm.jccm.es/portaldocm/descargarArchivo.do?ruta=2024/03/22/pdf/2024_2337.pdf&tipo=rutaDocm",
           "source_title": "DOCM nº 59, 22 Mar 2024 — declaración de impacto ambiental"
         }
       ],
-      "captured_at": "2026-10-19"
+      "captured_at": "2026-11-04"
     },
     {
       "id": "be-google-feluy-ecaussinnes",

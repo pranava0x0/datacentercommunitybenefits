@@ -2164,3 +2164,17 @@ Tab `#world`, placed last; country pages at `#country/XX`.
   plus the EU. Operators added this pass include Naver, Kakao, LG U+,
   Mitsui Fudosan, Colt DCS, Sesterce, EcoDataCenter, CloudHQ and Pampa
   Energía. Each was added because a first-party record needed it.
+
+### Elections (2026-11-04)
+
+`data/seed/elections.json` has validated race/measure records, separately sourced
+results, outgoing officeholders and candidate statements. `docs/elections.js`
+is lazy-loaded with its payload. `#elections/<id>` opens a record; preserve that
+ID on a failed load so Retry opens the requested evidence. Reported winners
+are not certified or already serving. Advisory measures never create legal
+moratorium links. Source revalidation checks each nested quotation against its
+own URL; a successful result source cannot validate another candidate's words.
+
+A missing MW field does not establish that all facility sizes are covered:
+area thresholds and alternative criteria belong in the sourced scope summary.
+The detail panel therefore says “See scope below” for missing MW values.
