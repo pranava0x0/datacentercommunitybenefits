@@ -763,6 +763,53 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "id-governor-2026",
+      "state_code": "ID",
+      "jurisdiction": "Idaho",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Brad Little",
+          "party": "Republican",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        },
+        {
+          "name": "Terri Pickens",
+          "party": "Democratic",
+          "statements": [],
+          "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Brad Little",
+        "evidence": {
+          "statement": "Unofficial results show Democratic candidate for governor Terri Pickens lost with 32% of votes to incumbent Gov. Brad Little.",
+          "source_url": "https://www.boisestatepublicradio.org/politics-government/2026-11-04/democratic-watch-party-local-races-midterms",
+          "source_title": "Idaho governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Brad Little",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Incumbent: Gov. Brad Little Length of Regular Terms: 4 years General Election Candidates Gov. Brad Little (R)",
+          "source_url": "https://www.nga.org/governors/elections/",
+          "source_title": "NGA 2026 incumbent and general-election candidate — Idaho",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
