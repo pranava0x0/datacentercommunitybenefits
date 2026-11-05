@@ -1696,6 +1696,72 @@
           "captured_at": "2026-11-04"
         }
       }
+    },
+    {
+      "id": "pa-governor-2026",
+      "state_code": "PA",
+      "jurisdiction": "Pennsylvania",
+      "office": "Governor",
+      "level": "governor",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "candidates": [
+        {
+          "name": "Josh Shapiro",
+          "party": "Democratic",
+          "statements": [
+            {
+              "statement": "We need to be selective about the projects that get built here",
+              "source_url": "https://www.spotlightpa.org/news/2026/07/garrity-shapiro-data-center-governor-race-2026-pennsylvania-elections/",
+              "source_title": "Spotlight PA — Josh Shapiro on data-center standards",
+              "captured_at": "2026-11-04",
+              "speaker": "Josh Shapiro"
+            }
+          ],
+          "review_note": "The article attributes this statement to Shapiro’s budget address. Its URL/publication date is July 7, but its current body includes later developments; the quote date is not inferred from the URL."
+        },
+        {
+          "name": "Stacy Garrity",
+          "party": "Republican",
+          "statements": [
+            {
+              "statement": "however long it takes",
+              "source_url": "https://www.spotlightpa.org/news/2026/07/garrity-shapiro-data-center-governor-race-2026-pennsylvania-elections/",
+              "source_title": "Spotlight PA — Stacy Garrity on the duration of a data-center pause",
+              "captured_at": "2026-11-04",
+              "speaker": "Stacy Garrity"
+            }
+          ],
+          "review_note": "The article attributes support for a pause on new data-center development to Garrity while municipalities update zoning and emergency-service plans; these quoted words describe its duration. The current article includes later updates without a resolved quote date."
+        }
+      ],
+      "result": {
+        "status": "reported",
+        "winner": "Josh Shapiro",
+        "evidence": {
+          "statement": "Democrat Josh Shapiro easily secures second term as Pennsylvania governor",
+          "source_url": "https://www.spotlightpa.org/news/2026/11/election-results-pennsylvania-governor-josh-shapiro-stacy-garrity-elections/",
+          "source_title": "Pennsylvania governor result",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "news"
+      },
+      "related_moratorium_ids": [
+        "pennsylvania-state-2026-01",
+        "pennsylvania-state-2026-02"
+      ],
+      "related_policy_ids": [],
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Josh Shapiro",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Democrat Josh Shapiro",
+          "source_url": "https://www.spotlightpa.org/news/2026/11/election-results-pennsylvania-governor-josh-shapiro-stacy-garrity-elections/",
+          "source_title": "Spotlight PA — incumbent governor Josh Shapiro",
+          "captured_at": "2026-11-04"
+        }
+      }
     }
   ],
   "measures": [
