@@ -511,6 +511,36 @@
       "related_moratorium_ids": [],
       "related_policy_ids": [],
       "notes": "County results read at the November 4 1:39:53 PM update: 2,972 yes and 1,183 no. Earlier secondary compilations showed 2,966 yes; this record uses the later county page. Results remain unofficial."
+    },
+    {
+      "id": "boulder-city-nv-question1-2026",
+      "state_code": "NV",
+      "jurisdiction": "Boulder City",
+      "title": "Question 1 — Data centers in Eldorado Valley",
+      "election_date": "2026-11-03",
+      "captured_at": "2026-11-04",
+      "effect": "binding",
+      "ballot_evidence": {
+        "statement": "Should data center facilities be an approved land use within the Eldorado Valley Transfer Area",
+        "source_url": "https://www.bcnv.org/DocumentCenter/View/16416/Ballot-Question-1-Explanation-and-Digest",
+        "source_title": "Boulder City — official Question 1 explanation and digest",
+        "captured_at": "2026-11-04"
+      },
+      "legal_effect": "A yes vote would permit data centers as a land use within the specified Eldorado Valley area, without obliging the council to lease land. Its rejection does not affect land outside that area.",
+      "result": {
+        "status": "reported",
+        "outcome": "failed",
+        "evidence": {
+          "statement": "CITY OF BOULDER CITY QUESTION NUM 1 VOTE FOR 1 Response Graph Votes %/Total YES 1,973 29.45% NO 4,726 70.55%",
+          "source_url": "https://elections.clarkcountynv.gov/electionresultsTV/",
+          "source_title": "Clark County Election Department — general election results",
+          "captured_at": "2026-11-04"
+        },
+        "source_type": "official"
+      },
+      "related_moratorium_ids": [],
+      "related_policy_ids": [],
+      "notes": "Results are reported, not independently verified as certified. Legal effect is described separately from certification."
     }
   ],
   "coverage_notes": [
