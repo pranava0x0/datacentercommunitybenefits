@@ -358,7 +358,9 @@
         "source_type": "news"
       },
       "related_moratorium_ids": [],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "az-hb4168-2026"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Katie Hobbs",
@@ -639,7 +641,9 @@
       "related_moratorium_ids": [
         "florida-state-2026-07"
       ],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "fl-sb484-large-load-tariffs-2026"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Ron DeSantis",
@@ -854,7 +858,9 @@
         "source_type": "news"
       },
       "related_moratorium_ids": [],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "il-tax-exemption-pause-2026"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "JB Pritzker",
@@ -918,7 +924,9 @@
         "source_type": "news"
       },
       "related_moratorium_ids": [],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "ia-hf976-2025"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Kim Reynolds",
@@ -1061,7 +1069,9 @@
         "source_type": "news"
       },
       "related_moratorium_ids": [],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "md-eo-01.01.2026.16-2026"
+      ],
       "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Wes Moore",
@@ -1578,7 +1588,9 @@
       "related_moratorium_ids": [
         "ohio-state-amendment-2024"
       ],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "oh-tax-exemption-pause-2026"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Mike DeWine",
@@ -1684,7 +1696,9 @@
         "oregon-state-directive-2026-09",
         "oregon-state-deq-2026-10"
       ],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "or-hb3546-2025"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Tina Kotek",
@@ -1750,7 +1764,9 @@
         "pennsylvania-state-2026-01",
         "pennsylvania-state-2026-02"
       ],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "pa-eo2026-05-2026"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Josh Shapiro",
@@ -2016,7 +2032,9 @@
       "related_moratorium_ids": [
         "texas-state-2026-08"
       ],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "tx-sb6-2025"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Greg Abbott",
@@ -2137,7 +2155,9 @@
       "related_moratorium_ids": [
         "wisconsin-state-2026-01"
       ],
-      "related_policy_ids": [],
+      "related_policy_ids": [
+        "wi-act19-2023-dcste"
+      ],
       "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
       "outgoing": {
         "name": "Tony Evers",
@@ -2601,7 +2621,7 @@
       "effect": "binding",
       "ballot_evidence": {
         "statement": "This Moratorium shall remain in full force and effect for a period of 180 days from the Date of Applicability",
-        "source_url": "https://wellstown.org/DocumentCenter/View/8514/November-3-2026-Special-Town-Meeting-Warrant?bidId=",
+        "source_url": "https://www.wellstown.org/DocumentCenter/View/8514/November-3-2026-Special-Town-Meeting-Warrant?bidId=",
         "source_title": "Wells — special town meeting warrant, Appendix 1",
         "captured_at": "2026-11-04"
       },
