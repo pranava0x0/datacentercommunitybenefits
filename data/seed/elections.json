@@ -1784,7 +1784,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Deb Haaland",
@@ -1839,8 +1839,35 @@
           "source_url": "https://www.nga.org/governors/new-mexico/",
           "source_title": "National Governors Association — Governor Michelle Lujan Grisham",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "The announcement includes a Memorandum of Understanding (MOU) between the State of New Mexico and BorderPlex Digital Assets.",
+            "source_url": "https://www.governor.state.nm.us/newsroom/release-governor-announces-partnership-with-borderplex-digital-100001479",
+            "source_title": "Gov. Lujan Grisham — BorderPlex partnership and state MOU",
+            "captured_at": "2026-11-05",
+            "published_at": "2025-02-25"
+          },
+          {
+            "statement": "By securing digital infrastructure today, New Mexico is investing in its economy to build a more prosperous tomorrow.",
+            "source_url": "https://www.governor.state.nm.us/newsroom/release-governor-announces-partnership-with-borderplex-digital-100001479",
+            "source_title": "Gov. Lujan Grisham — digital-infrastructure partnership statement",
+            "captured_at": "2026-11-05",
+            "speaker": "Michelle Lujan Grisham",
+            "published_at": "2025-02-25"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Moratorium and development partnership",
+          "summary": "Haaland proposes a moratorium until the state adopts clear, transparent accountability measures. Lujan Grisham announced a state partnership and memorandum of understanding with BorderPlex Digital in February 2025 for a campus combining data centers with power, water and other industrial infrastructure.",
+          "source_urls": [
+            "https://thecandlepublishing.com/haaland-backs-data-center-moratorium-outlines-accountability-plan-to-stand-up-for-new-mexicos-water-and-communities/",
+            "https://www.governor.state.nm.us/newsroom/release-governor-announces-partnership-with-borderplex-digital-100001479"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "ny-governor-2026",
