@@ -727,7 +727,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Byron Donalds",
@@ -740,6 +740,13 @@
               "captured_at": "2026-11-04",
               "speaker": "Byron Donalds",
               "published_at": "2026-10-06"
+            },
+            {
+              "statement": "We are going to maintain that",
+              "source_url": "https://www.news4jax.com/news/politics/2026/10/06/jolly-vs-donalds-where-floridas-governor-candidates-stand-on-ai-data-centers-and-amendment-3/",
+              "source_title": "News4JAX — Donalds on the existing local permitting framework",
+              "captured_at": "2026-11-05",
+              "speaker": "Byron Donalds"
             }
           ],
           "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
@@ -786,8 +793,27 @@
           "source_url": "https://www.nga.org/governor/ron-desantis/",
           "source_title": "NGA governor profile — Ron DeSantis",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "You should not pay one more red cent for electricity because of a hyper-scale data center as an individual",
+            "source_url": "https://news.wfsu.org/state-news/2026-05-08/gov-desantis-has-signed-a-bill-regulating-data-centers-in-florida",
+            "source_title": "WFSU — DeSantis data-center bill signing statement",
+            "captured_at": "2026-11-05",
+            "speaker": "Ron DeSantis"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Local permitting and utility costs",
+          "summary": "Donalds says he will maintain the existing local permitting framework and protect utility bills and fresh water. DeSantis signed SB484, requiring large-load tariff protections and reinforcing local governments’ authority to refuse data centers.",
+          "source_urls": [
+            "https://www.news4jax.com/news/politics/2026/10/06/jolly-vs-donalds-where-floridas-governor-candidates-stand-on-ai-data-centers-and-amendment-3/",
+            "https://news.wfsu.org/state-news/2026-05-08/gov-desantis-has-signed-a-bill-regulating-data-centers-in-florida"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "ga-governor-2026",
