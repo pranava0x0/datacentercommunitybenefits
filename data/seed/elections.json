@@ -171,16 +171,24 @@
       "office": "Public Service Commission District 5",
       "level": "utility_regulator",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "outgoing": {
-        "name": "Tricia Pridemore",
+        "name": "Stan Wise",
         "party": "Republican",
         "evidence": {
-          "statement": "District 5 incumbent Tricia Pridemore (R)",
-          "source_url": "https://ballotpedia.org/Georgia_Public_Service_Commission_election,_2026",
-          "source_title": "Ballotpedia — Georgia PSC incumbents",
-          "captured_at": "2026-11-04"
-        }
+          "statement": "Governor Brian P. Kemp today announced he will appoint Stan Wise to the District 5 seat of the Georgia Public Service Commission (PSC)",
+          "source_url": "https://gov.georgia.gov/press-releases/2026-08-21/gov-kemp-announces-new-public-service-commissioner",
+          "source_title": "Governor Kemp — Stan Wise District 5 appointment",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "These rules ensure NO residents or small businesses will see increases on their power bills due to data centers.",
+            "source_url": "https://psc.ga.gov/?lang=us",
+            "source_title": "Georgia PSC — institutional statement of existing data-center rules",
+            "captured_at": "2026-11-05"
+          }
+        ]
       },
       "candidates": [
         {
@@ -226,7 +234,17 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Edwards replaces Tricia Pridemore, a Republican; Pridemore did not seek reelection. This is a person and party change. Both candidates’ statements call for protecting existing customers from data-center infrastructure costs; no policy difference is inferred from party. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban."
+      "notes": "Stan Wise was appointed to the District 5 seat following Tricia Pridemore’s September resignation.",
+      "proposed_changes": [
+        {
+          "topic": "Ratepayer costs",
+          "summary": "Edwards calls for data centers to pay their fair share and prevent cost shifting. The PSC says its existing rules protect residents and small businesses from data-center costs.",
+          "source_urls": [
+            "https://www.shelia4psc.com/issues/data-centers-pay?source=3cb12d3e-b3a2-4600-9f69-00a6d6041136",
+            "https://psc.ga.gov/?lang=us"
+          ]
+        }
+      ]
     },
     {
       "id": "al-governor-2026",
