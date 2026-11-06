@@ -2031,12 +2031,29 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Mike Mazzei",
           "party": "Republican",
-          "statements": [],
+          "statements": [
+            {
+              "statement": "They need to provide their own energy",
+              "source_url": "https://www.koco.com/article/oklahoma-gubernatorial-candidates-address-data-centers/74094169",
+              "source_title": "KOCO — Mike Mazzei on data-center conditions",
+              "captured_at": "2026-11-05",
+              "speaker": "Mike Mazzei",
+              "published_at": "2026-10-09"
+            },
+            {
+              "statement": "I prefer to see these data centers only get developed on locally approved industrial space.",
+              "source_url": "https://www.koco.com/article/oklahoma-gubernatorial-candidates-address-data-centers/74094169",
+              "source_title": "KOCO — Mike Mazzei on local industrial approval",
+              "captured_at": "2026-11-05",
+              "speaker": "Mike Mazzei",
+              "published_at": "2026-10-09"
+            }
+          ],
           "review_note": "Candidate identity and party verified in KOCO election reporting. No directly attributable data-center policy statement was verified in this pass; this does not mean the candidate has no position."
         },
         {
@@ -2059,7 +2076,41 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Kevin Stitt",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Kevin Stitt",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "Any applicable governing body responsible for reviewing electric supplier rates shall ensure that residential, commercial and industrial customers are protected from paying unjust rates resulting directly from electric service to large load customers.",
+            "source_url": "https://www.oklegislature.gov/cf_pdf/2025-26%20ENR/hB/HB2992%20ENR.PDF",
+            "source_title": "Oklahoma HB2992 — protection against unjust rates",
+            "captured_at": "2026-11-05"
+          },
+          {
+            "statement": "Approved by Governor 05/11/2026",
+            "source_url": "https://www.oklegislature.gov/BillInfo.aspx?Bill=HB2992",
+            "source_title": "Oklahoma HB2992 — governor approval",
+            "captured_at": "2026-11-05"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Energy supply and local approval",
+          "summary": "Mazzei calls for data centers to provide their own energy and use locally approved industrial sites. Under Stitt, HB2992 established protections for existing utility customers and separate large-load tariffs.",
+          "source_urls": [
+            "https://www.koco.com/article/oklahoma-gubernatorial-candidates-address-data-centers/74094169",
+            "https://www.oklegislature.gov/cf_pdf/2025-26%20ENR/hB/HB2992%20ENR.PDF"
+          ]
+        }
+      ]
     },
     {
       "id": "or-governor-2026",
