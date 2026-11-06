@@ -580,3 +580,8 @@ geometry, and held the ambiguous Springhill township out of the map. Raw index
 file and a synthetic native preview reproduce the JSON/module loading problem;
 generated same-origin classic assets resolve it without adding hosted startup
 requests. Coverage notes publish factual limits, not the research transcript.
+
+GitHub's review of the feature commit completed with no findings. A final
+coarse-pointer check found map zoom/link widths below 44px; one CSS rule and a
+browser regression fix that last mobile issue. Nineteen focused map, type-scale
+and selector checks passed before the follow-up commit.

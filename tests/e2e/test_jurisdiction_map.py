@@ -113,3 +113,18 @@ def test_native_preview_uses_classic_assets_when_json_and_modules_are_blocked(pa
     page.click("#tab-moratoriums")
     page.click("#subtab-mor-map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
+
+
+def test_map_touch_controls_are_at_least_44_pixels(browser, base_url: str) -> None:
+    context = browser.new_context(viewport={"width": 375, "height": 812}, is_mobile=True, has_touch=True)
+    try:
+        page = context.new_page()
+        page.goto(base_url + "/#moratoriums/map")
+        expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
+        boxes = page.locator('.jurisdiction-zoom button, .map-location-link, .map-dot-hit').evaluate_all(
+            'els => els.map(e => { const r=e.getBoundingClientRect(); return [r.width, r.height]; })'
+        )
+        assert boxes
+        assert all(width >= 43.9 and height >= 43.9 for width, height in boxes)
+    finally:
+        context.close()

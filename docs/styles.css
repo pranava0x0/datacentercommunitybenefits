@@ -6960,4 +6960,5 @@ button.depth-chip:focus-visible {
   .jurisdiction-filters input, .jurisdiction-filters select, .jurisdiction-layers label,
   .jurisdiction-zoom button, .map-record-link, .map-location-link, .jurisdiction-detail a { min-height: 44px; }
   .jurisdiction-detail a { display: inline-flex; align-items: center; }
+  .jurisdiction-zoom button, .map-record-link, .map-location-link { min-width: 44px; }
 }
