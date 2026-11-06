@@ -1476,7 +1476,7 @@ let _pendingElectionId = null;
 function loadElectionsData() {
   if (!_electionsPromise) {
     const root = document.getElementById("elections-content");
-    const modulePath = _electionsRetries ? `./elections.js?retry=${_electionsRetries}` : "./elections.js";
+    const modulePath = `./elections.js?v=20261105b${_electionsRetries ? `&retry=${_electionsRetries}` : ""}`;
     _electionsPromise = Promise.all([fetchJson("data/elections.json"), import(modulePath)])
       .then(([payload, view]) => {
         _electionsView = view.mount(root, payload, {
@@ -4173,7 +4173,7 @@ function renderHome() {
     companies: [t.companies, "operators"],
     pledge: [t.pledge_organizations, `organizations, plus ${t.pledge_governors} governors`],
     world: [t.international_records, `records in ${t.international_countries} countries and the EU`],
-    elections: [t.election_races + t.election_measures, `${t.election_results_verified} results verified`],
+    elections: [t.election_winners, `officeholders · ${t.election_measures} ballot measures`],
   };
   for (const [key, [num, sub]] of Object.entries(cards)) {
     const n = document.querySelector(`.home-card-num[data-count-for="${key}"]`);

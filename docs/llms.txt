@@ -2,12 +2,12 @@
 
 > A sourced public record of what data-center operators have promised host communities, and what governments, utilities and residents have done in response, in the US and selected countries. Every record links to its primary source and carries a capture date; company statements are quoted verbatim.
 
-Last refreshed 2026-11-05. Record counts: 142 sites (59 contested), 17 companies, 250 moratoriums (201 enacted), 138 policies, 28 benefit agreements, 29 tariffs, 20 rate cases, 327 pledge signatories, 145 international records across 17 countries.
+Last refreshed 2026-11-05. Record counts: 142 sites (59 contested), 17 companies, 250 moratoriums (201 enacted), 137 policies, 28 benefit agreements, 29 tariffs, 20 rate cases, 327 pledge signatories, 145 international records across 17 countries.
 
 ## Sections
 
 - [Home](https://pranava0x0.github.io/datacentercommunitybenefits/#overview): Section totals, the latest actions and dated upcoming decisions.
-- [Elections](https://pranava0x0.github.io/datacentercommunitybenefits/#elections): Reported and certified election results, candidates' own data-center policies, and binding versus advisory ballot measures.
+- [Elections](https://pranava0x0.github.io/datacentercommunitybenefits/#elections): Incoming and prior officeholders' data-center policies, proposed changes, and local ballot measures.
 - [The Pledge](https://pranava0x0.github.io/datacentercommunitybenefits/#ratepayer): The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard.
 - [Local Policy Frameworks](https://pranava0x0.github.io/datacentercommunitybenefits/#policies): Executive orders, statutes, regulations and local ordinances that set conditions on data centers.
 - [Benefit Agreements](https://pranava0x0.github.io/datacentercommunitybenefits/#agreements): Community benefit, host and PILOT agreements, tagged by what their text contains.

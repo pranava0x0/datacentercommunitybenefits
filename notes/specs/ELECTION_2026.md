@@ -204,3 +204,52 @@ seed/roster/timing checks after the final copy edit. Two consecutive refresh
 builds produced byte-identical output. Source audit: all 2,530 current rows
 classified, zero dead links; 233 blocked URLs and 73 excerpt mismatches remain
 explicit worklists. No unresolved P1/P2 review findings.
+
+## Policy comparison revision — November 5, 2026
+
+The owner requested winner-versus-actual-prior policy details, removal of
+result-validation and interface-explanation copy, performance checks, two reviews
+and merge. The revised page contains 37 incoming/re-elected officeholders,
+31 sourced policy topics across 28 records, and the existing 17 ballot measures.
+Alaska/Kansas remain unresolved in the underlying data and supply no invented
+winner comparison. All 37 displayed officeholders have a sourced prior identity;
+re-elected people are shown once. Six winner-position gaps remain: Arkansas,
+Hawaii, Idaho, Massachusetts, South Dakota and Vermont. County coverage still
+consists of Frederick County and Georgia PSC D3/D5; further counties remain open.
+
+Priority comparisons cover Texas, Ohio, Georgia, Iowa, Michigan, California,
+Colorado, Wisconsin and New Mexico. Arizona and Pennsylvania add existing legal
+actions without inventing a new proposal. Oregon distinguishes Kotek's debate
+proposal from her existing state-property/permit directives. Other-state records
+include Maine's Jay-exemption distinction, Nevada abatements, Rhode Island's
+shared opposition, and Florida's proposed continuity of local permitting rules.
+Georgia PSC D5's actual prior commissioner is Stan Wise; his current official
+profile supplies the party evidence used by the change filter.
+
+Texas includes Hinojosa's legislative moratorium endpoint versus Abbott's audit
+conditions; proposed residential rate freeze; union labor, company NDAs and
+water-contract protections; and both politicians' calls to end incentives. The
+campaign's own platform and July 23 release establish those proposals. The
+October 22 X post was read, but its attached video was not independently
+transcribed. Investor predictions about grandfathering or completion in
+2027/2028 were not verified as policy and were excluded.
+
+Accuracy corrections also apply to existing views: remove unsupported
+`sc-act41-h3309-2025` pending a correct data-center-specific legal source; correct
+`tn-pc961-2026` to the May 7 signing date. California now describes signed laws
+without assuming their operative dates. No community stance, delivery or
+ratepayer-assessment tags changed.
+
+Two independent review rounds found and resolved result-citation loss,
+undated evergreen excerpts, party-label aliases, unsupported Wise party
+provenance (replaced with the current official PSC profile), and California
+commencement wording. Research used 21 priority retrieval attempts and 47
+other-state request/reader attempts; the latter exceeded its advisory 35-call
+cap. Source bodies, exact passages and failed-access logs remain in the ignored
+`.preview/policy-comparisons/` audit cache. Public candidate/government citations
+remain on every policy topic in the shipped dataset.
+
+Final local verification: 942 tests passed; all 132 device/context paths stayed
+within unchanged interaction budgets. Two refresh runs were byte-identical.
+Standalone preview verification passed. Actual-data UAT covered 360/375px phones
+and 1366px desktop, both themes, all tabs, source popups and legal dialogs.

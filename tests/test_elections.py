@@ -67,6 +67,39 @@ def test_unverified_race_preserves_unknown_result() -> None:
     assert ElectionRace.model_validate(data).result.winner is None
 
 
+def test_comparison_uses_actual_prior_not_losing_challenger() -> None:
+    data = race()
+    prior = {**evidence("The current administration requires an audit."),
+             "source_url": "https://example.org/prior-action"}
+    data["outgoing"] = {"name": "Actual prior", "party": "Republican",
+                        "evidence": evidence("Actual prior holds the office."), "statements": [prior]}
+    data["candidates"].append({"name": "Losing challenger", "party": "Republican", "statements": [
+        {**evidence("Approve everything."), "source_url": "https://example.org/opponent", "speaker": "Losing challenger"}]})
+    data["proposed_changes"] = [{"topic": "Approval process", "summary": "Prior administration required an audit.",
+                                 "source_urls": [prior["source_url"]]}]
+    assert ElectionRace.model_validate(data).outgoing.statements[0].speaker is None
+    data["proposed_changes"][0]["source_urls"] = ["https://example.org/opponent"]
+    with pytest.raises(ValidationError, match="prior officeholder evidence"):
+        ElectionRace.model_validate(data)
+
+
+def test_prior_personal_statement_cannot_be_attributed_to_someone_else() -> None:
+    data = race()
+    data["outgoing"] = {"name": "Prior", "party": "Independent", "evidence": evidence(),
+                        "statements": [{**evidence("My policy."), "speaker": "Someone else"}]}
+    with pytest.raises(ValidationError, match="Officeholder statements"):
+        ElectionRace.model_validate(data)
+
+
+def test_unresolved_winner_cannot_have_proposed_changes() -> None:
+    data = race()
+    data["result"] = {"status": "unverified"}
+    data["proposed_changes"] = [{"topic": "Permits", "summary": "Pause approvals.",
+                                 "source_urls": ["https://example.org/source"]}]
+    with pytest.raises(ValidationError, match="known winner"):
+        ElectionRace.model_validate(data)
+
+
 def measure() -> dict:
     data = race()
     for key in ("office", "level", "candidates"):
