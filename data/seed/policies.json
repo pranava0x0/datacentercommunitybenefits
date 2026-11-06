@@ -3026,7 +3026,7 @@
       "jurisdiction": "Tennessee",
       "state_code": "TN",
       "identifier": "Public Chapter 961 (HB1847/SB2128)",
-      "date": "2026-05-18",
+      "date": "2026-05-07",
       "benefit_themes": [
         "energy"
       ],
@@ -3035,7 +3035,7 @@
         "Computers and Electronic Processing-As enacted, generally prohibits a municipality or electric utility to pay or absorb the cost of electrical infrastructure incurred to serve a data center;",
         "Such an independent power producer may generate, store, sell, or deliver electric energy, capacity, or other related ancillary services to a data center through (i) a direct interconnection behind the data center's meter if the data center does not take service from an electric utility;"
       ],
-      "summary": "Tennessee's Public Chapter 961 (HB1847/SB2128), signed May 18, 2026, bars municipalities and electric utilities from absorbing or passing along the cost of electrical infrastructure built to serve data centers of 50 MW or more, while opening a path for those data centers to contract directly with in-state independent power producers.",
+      "summary": "Tennessee's Public Chapter 961 (HB1847/SB2128), signed May 7, 2026, bars municipalities and electric utilities from absorbing or passing along the cost of electrical infrastructure built to serve data centers of 50 MW or more, while opening a path for those data centers to contract directly with in-state independent power producers.",
       "source_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114",
       "source_title": "Tennessee General Assembly — Bill Information, HB1847 (114th General Assembly)",
       "resources": [
@@ -3044,7 +3044,7 @@
           "title": "Bass, Berry & Sims PLC — 2026 Legislative Recap, 114th Tennessee General Assembly"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-05",
       "principles": [
         "pay_own_way"
       ]
