@@ -1986,7 +1986,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Greg Abbott",
@@ -2013,6 +2013,29 @@
               "source_title": "Gina Hinojosa campaign — Data Centers",
               "captured_at": "2026-11-04",
               "speaker": "Gina Hinojosa"
+            },
+            {
+              "statement": "Gina will direct the Public Utility Commission to freeze the rates residential customers pay",
+              "source_url": "https://ginafortexas.com/priority/an-affordable-texas-that-works-for-everyone/",
+              "source_title": "Gina Hinojosa campaign — Money in Your Pocket",
+              "captured_at": "2026-11-05",
+              "speaker": "Gina Hinojosa"
+            },
+            {
+              "statement": "Requiring American union jobs so operators hire skilled, licensed, union labor",
+              "source_url": "https://ginafortexas.com/2026/07/new-hinojosa-calls-on-greg-abbott-to-put-moratorium-on-data-centers-until-a-legislative-session-that-puts-texans-first/",
+              "source_title": "Gina Hinojosa campaign — Texans First Data Center Priorities",
+              "captured_at": "2026-11-05",
+              "speaker": "Gina Hinojosa",
+              "published_at": "2026-07-23"
+            },
+            {
+              "statement": "Creating full transparency by stopping data center companies from using NDAs.",
+              "source_url": "https://ginafortexas.com/2026/07/new-hinojosa-calls-on-greg-abbott-to-put-moratorium-on-data-centers-until-a-legislative-session-that-puts-texans-first/",
+              "source_title": "Gina Hinojosa campaign — Texans First Data Center Priorities",
+              "captured_at": "2026-11-05",
+              "speaker": "Gina Hinojosa",
+              "published_at": "2026-07-23"
             }
           ],
           "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
@@ -2044,8 +2067,57 @@
           "source_url": "https://www.nga.org/governors/texas/",
           "source_title": "National Governors Association — Governor Greg Abbott",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "Next session, Governor Abbott will work with the Legislature to eliminate any financial incentives for data centers.",
+            "source_url": "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+            "source_title": "Texas Governor — Abbott directs TCEQ to halt data-center permits",
+            "captured_at": "2026-11-05",
+            "published_at": "2026-09-21"
+          },
+          {
+            "statement": "The PUCT and ERCOT must complete this audit before any data center project moves forward.",
+            "source_url": "https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+            "source_title": "Texas Governor — Comprehensive data-center audit",
+            "captured_at": "2026-11-05",
+            "published_at": "2026-08-03"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Moratorium conditions",
+          "summary": "Hinojosa calls for an immediate moratorium until the Legislature can establish protections and a community role in approvals. Abbott’s existing permit hold is tied to completion of the ERCOT and water-board audits.",
+          "source_urls": [
+            "https://ginafortexas.com/priority/data-centers/",
+            "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits"
+          ]
+        },
+        {
+          "topic": "Residential electricity rates",
+          "summary": "Hinojosa proposes freezing residential electricity rates until laws require data centers and other large users to pay their own costs. Abbott’s audit requires disclosure of public financial assistance and whether projects supply their own power.",
+          "source_urls": [
+            "https://ginafortexas.com/priority/an-affordable-texas-that-works-for-everyone/",
+            "https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit"
+          ]
+        },
+        {
+          "topic": "Labor, water and disclosure",
+          "summary": "Hinojosa’s July plan calls for skilled, licensed union labor, an end to company NDAs, and making data-center water contracts unenforceable if they threaten community water supplies.",
+          "source_urls": [
+            "https://ginafortexas.com/2026/07/new-hinojosa-calls-on-greg-abbott-to-put-moratorium-on-data-centers-until-a-legislative-session-that-puts-texans-first/"
+          ]
+        },
+        {
+          "topic": "Tax incentives",
+          "summary": "Hinojosa calls for ending data-center tax subsidies. Abbott also pledged to seek an end to data-center financial incentives in the next legislative session.",
+          "source_urls": [
+            "https://ginafortexas.com/priority/data-centers/",
+            "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "vt-governor-2026",

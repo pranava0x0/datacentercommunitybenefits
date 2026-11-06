@@ -2511,6 +2511,13 @@ class ElectionOfficeholder(_StrictBase):
     name: str = Field(min_length=1)
     party: str = Field(min_length=1)
     evidence: ElectionEvidence
+    statements: list[ElectionEvidence] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def statements_belong_to_officeholder(self) -> "ElectionOfficeholder":
+        if any(item.speaker and item.speaker != self.name for item in self.statements):
+            raise ValueError("Officeholder statements must name that officeholder")
+        return self
 
 
 class ElectionCandidate(_StrictBase):
@@ -2588,11 +2595,18 @@ class _ElectionContest(_StrictBase):
         return self
 
 
+class ElectionPolicyChange(_StrictBase):
+    topic: str = Field(min_length=1)
+    summary: str = Field(min_length=1)
+    source_urls: list[HttpUrl] = Field(min_length=1, max_length=2)
+
+
 class ElectionRace(_ElectionContest):
     office: str = Field(min_length=1)
     level: Literal["governor", "county", "city", "utility_regulator"]
     outgoing: Optional[ElectionOfficeholder] = None
     candidates: list[ElectionCandidate] = Field(default_factory=list)
+    proposed_changes: list[ElectionPolicyChange] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def winner_is_a_candidate(self) -> "ElectionRace":
@@ -2603,6 +2617,20 @@ class ElectionRace(_ElectionContest):
             raise ValueError("Office races use a winner, not a ballot outcome")
         if self.result.status != "unverified" and self.result.winner not in names:
             raise ValueError("A reported race winner must be a listed candidate")
+        if self.proposed_changes:
+            if not self.result.winner:
+                raise ValueError("Policy changes require a known winner")
+            people = {self.result.winner}
+            evidence = []
+            if self.outgoing:
+                people.add(self.outgoing.name)
+                evidence.extend(self.outgoing.statements)
+            for candidate in self.candidates:
+                if candidate.name in people:
+                    evidence.extend(candidate.statements)
+            urls = {item.source_url for item in evidence}
+            if any(url not in urls for change in self.proposed_changes for url in change.source_urls):
+                raise ValueError("Policy change citations must reference winner or prior officeholder evidence")
         return self
 
 
@@ -2648,7 +2676,7 @@ class ElectionsPayload(_StrictBase):
 
 __all__ = [
     "ElectionEvidence", "ElectionOfficeholder", "ElectionCandidate", "ElectionResult",
-    "ElectionRace", "ElectionMeasure", "ElectionsPayload",
+    "ElectionRace", "ElectionPolicyChange", "ElectionMeasure", "ElectionsPayload",
     "COUNTRIES",
     "SUPRANATIONAL",
     "EU_MEMBERS",

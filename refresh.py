@@ -683,6 +683,7 @@ def _build_home(payloads, today: date) -> dict:
         "pledge_governors": len(sig.signatories) - len(orgs),
         "roster_as_of": sig.roster_as_of.isoformat() if sig.roster_as_of else None,
         "election_races": len(payloads["elections"].races),
+        "election_winners": sum(bool(r.result.winner) for r in payloads["elections"].races),
         "election_measures": len(payloads["elections"].measures),
         "election_results_verified": sum(
             contest.result.status != "unverified"
@@ -829,7 +830,7 @@ SITE_URL = "https://pranava0x0.github.io/datacentercommunitybenefits/"
 # derives the expected set from app.js VIEWS).
 VIEW_GUIDE = {
     "overview": ("Home", "Section totals, the latest actions and dated upcoming decisions."),
-    "elections": ("Elections", "Reported and certified election results, candidates' own data-center policies, and binding versus advisory ballot measures."),
+    "elections": ("Elections", "Incoming and prior officeholders' data-center policies, proposed changes, and local ballot measures."),
     "ratepayer": ("The Pledge", "The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard."),
     "policies": ("Local Policy Frameworks", "Executive orders, statutes, regulations and local ordinances that set conditions on data centers."),
     "agreements": ("Benefit Agreements", "Community benefit, host and PILOT agreements, tagged by what their text contains."),
@@ -900,7 +901,7 @@ def _static_summary_html(home: dict, today: date) -> str:
     h = html.escape
     qa = [
         ("elections", "What changed in the November election?",
-         f"{home['election_races']} races and {home['election_measures']} ballot measures, with {home['election_results_verified']} results verified in the cited sources. Candidate statements are quoted separately from legal actions."),
+         f"Data-center policies of {home['election_winners']} incoming or re-elected officeholders and their predecessors, plus {home['election_measures']} local ballot measures."),
         ("ratepayer", "Who has signed the Ratepayer Protection Pledge?",
          f"{home['pledge_organizations']} organizations and {home['pledge_governors']} governors, per the White House roster as of {home['roster_as_of']}."),
         ("policies", "What rules do governments set for data centers?",
