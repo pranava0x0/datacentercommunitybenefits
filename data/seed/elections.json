@@ -507,7 +507,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Xavier Becerra",
@@ -518,6 +518,13 @@
               "source_url": "https://www.xavierbecerra2026.com/priorities/ai/",
               "source_title": "Xavier Becerra campaign — AI and data-center platform",
               "captured_at": "2026-11-04",
+              "speaker": "Xavier Becerra"
+            },
+            {
+              "statement": "my administration will improve data center permitting programs",
+              "source_url": "https://www.xavierbecerra2026.com/priorities/ai/",
+              "source_title": "Xavier Becerra campaign — AI and data-center permitting",
+              "captured_at": "2026-11-05",
               "speaker": "Xavier Becerra"
             }
           ],
@@ -552,8 +559,27 @@
           "source_url": "https://www.nga.org/governor/gavin-newsom/",
           "source_title": "NGA governor profile — Gavin Newsom",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "The new laws will also ensure data centers comply with California energy procurement requirements, bring new clean energy supply onto the grid, and pay for any upgrade costs.",
+            "source_url": "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/",
+            "source_title": "Gov. Newsom — September 21 signed data-center package",
+            "captured_at": "2026-11-05",
+            "published_at": "2026-09-21"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Permitting and energy standards",
+          "summary": "Becerra proposes improving data-center permitting programs in exchange for clean-energy, cost-coverage and disclosure standards. Newsom’s September laws already require new clean-energy supply and payment for grid-upgrade costs.",
+          "source_urls": [
+            "https://www.xavierbecerra2026.com/priorities/ai/",
+            "https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "co-governor-2026",
