@@ -97,7 +97,7 @@
       "office": "Public Service Commission District 3",
       "level": "utility_regulator",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "outgoing": {
         "name": "Peter Hubbard",
         "party": "Democratic",
@@ -114,7 +114,7 @@
           "party": "Democratic",
           "statements": [
             {
-              "statement": "Lifted up a data center cost analysis estimating that data center electricity discounts shift over a billion dollars in infrastructure costs onto residential customers",
+              "statement": "data center electricity discounts shift over a billion dollars in infrastructure costs onto residential customers",
               "source_url": "https://www.peterforgeorgia.com/",
               "source_title": "Peter Hubbard campaign — Home",
               "captured_at": "2026-11-04",
@@ -153,7 +153,16 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Hubbard reelected; no person or party change in District 3. Challenger Fitz Johnson previously held this seat, but was not the incumbent at this election. Johnson statement reproduced by Ballotpedia; original X post not independently read. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban."
+      "notes": "Hubbard reelected; no person or party change in District 3. Challenger Fitz Johnson previously held this seat, but was not the incumbent at this election. Johnson statement reproduced by Ballotpedia; original X post not independently read. Certification not verified. Commissioners regulate utility plans and rates; this result itself does not enact a siting ban.",
+      "proposed_changes": [
+        {
+          "topic": "Utility cost review",
+          "summary": "Hubbard’s campaign cites his analysis of data-center electricity discounts and infrastructure costs passed to residential customers.",
+          "source_urls": [
+            "https://www.peterforgeorgia.com/"
+          ]
+        }
+      ]
     },
     {
       "id": "ga-psc-district5-2026",
