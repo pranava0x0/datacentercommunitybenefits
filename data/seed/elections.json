@@ -898,7 +898,8 @@
             "https://www.wabe.org/kemp-touts-data-centers-calls-ai-scary-but-essential/"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Construction pause"
     },
     {
       "id": "hi-governor-2026",
@@ -1274,7 +1275,8 @@
             "https://www1.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Moratorium"
     },
     {
       "id": "md-governor-2026",
@@ -1464,7 +1466,8 @@
             "https://www.michigan.gov/whitmer/news/press-releases/2026/07/15/gov-whitmer-data"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Moratorium and guardrails"
     },
     {
       "id": "mn-governor-2026",
@@ -1775,7 +1778,8 @@
             "https://www.nhpr.org/politics/2026-10-19/kelly-ayotte-energy-housing-data-centers-ice-governor-candidate-nh-election-2026"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Moratorium"
     },
     {
       "id": "nm-governor-2026",
@@ -1867,7 +1871,8 @@
             "https://www.governor.state.nm.us/newsroom/release-governor-announces-partnership-with-borderplex-digital-100001479"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Moratorium and development partnership"
     },
     {
       "id": "ny-governor-2026",
@@ -2022,7 +2027,8 @@
             "https://governor.ohio.gov/media/news-and-media/governor-dewine-announces-pause-of-data-center-tax-exemption"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Conditional moratorium"
     },
     {
       "id": "ok-governor-2026",
@@ -2207,7 +2213,8 @@
             "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Statewide moratorium proposal and existing pauses"
     },
     {
       "id": "pa-governor-2026",
@@ -2717,7 +2724,8 @@
             "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Moratorium conditions"
     },
     {
       "id": "vt-governor-2026",
@@ -2859,7 +2867,8 @@
             "https://content.govdelivery.com/accounts/WIGOV/bulletins/3f327b5"
           ]
         }
-      ]
+      ],
+      "pause_proposal_topic": "Development pause"
     },
     {
       "id": "wy-governor-2026",

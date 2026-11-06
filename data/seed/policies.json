@@ -4943,6 +4943,121 @@
       "source_url": "https://www.opportunitylouisiana.gov/news/governor-landry-puts-louisiana-ratepayer-and-community-protection-initiative-into-action",
       "source_title": "Louisiana Economic Development — Ratepayer and Community Protection Framework completed",
       "captured_at": "2026-11-04"
+    },
+    {
+      "id": "ny-eo62-data-center-review-community-framework-2026",
+      "title": "New York EO 62 — environmental review and Community Investment Framework direction",
+      "instrument": "executive_order",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "New York",
+      "state_code": "NY",
+      "identifier": "Executive Order 62",
+      "date": "2026-07-14",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "community_grants"
+      ],
+      "principles": [
+        "environmental_review",
+        "community_benefits",
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "DEC must defer incomplete discretionary applications for covered data centers until DPS supplies its final environmental impact statement and findings; local-government permissions are outside this pause.",
+        "The definition covers facilities capable of consuming at least 50 MW, with stated manufacturing, research, education and medical-care exceptions.",
+        "ESD must develop guidance for local negotiations covering community funds, infrastructure, labor and reporting; DPS must consider grid-cost protections."
+      ],
+      "summary": "Executive Order 62 pauses covered DEC approvals pending the state environmental review. It directs ESD to develop a Community Investment Framework and DPS to consider grid-cost protections.",
+      "source_url": "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
+      "source_title": "New York Governor — Executive Order 62 (July 14, 2026)",
+      "captured_at": "2026-11-06",
+      "related_moratorium_id": "ny-state-eo62-2026-07"
+    },
+    {
+      "id": "tx-data-center-audit-permit-directives-2026",
+      "title": "Texas data-center audit and permit directives",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Texas",
+      "state_code": "TX",
+      "date": "2026-09-21",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "tax_revenue"
+      ],
+      "principles": [
+        "pay_own_way",
+        "water",
+        "transparency"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The September 21 directive instructs TCEQ to withhold data-center permits while ERCOT and TWDB complete their audits.",
+        "The governor directs projects to bear electrical infrastructure costs, avoid using water needed by communities and report electricity and water use.",
+        "The announcement calls for TCEQ to report compliance by October 19 and states an intention to seek legislative removal of data-center financial incentives."
+      ],
+      "summary": "The September 21 directive conditions TCEQ permits and state regulatory approvals on electricity and water audits. It requires cost responsibility, reporting and protection of community water supplies. Ending financial incentives was proposed for future legislation.",
+      "source_url": "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+      "source_title": "Texas Governor — Governor Abbott Directs TCEQ To Halt Data Center Permits (September 21, 2026)",
+      "captured_at": "2026-11-06",
+      "related_moratorium_id": "texas-state-2026-08"
+    },
+    {
+      "id": "fayetteville-ga-data-center-zoning-prohibition-2026",
+      "title": "Fayetteville zoning prohibition on new data centers",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Fayetteville, GA",
+      "state_code": "GA",
+      "identifier": null,
+      "date": "2026-03-05",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The city says its March 5, 2026 ordinance disallows new data-center uses throughout its zoning districts.",
+        "The city identifies the measure as Ordinance 26-0-12, amending UDO chapters 200 and 400."
+      ],
+      "summary": "Fayetteville’s official information page states that its March 5 ordinance prohibits additional data centers across the city’s zoning districts. This is a continuing zoning restriction rather than a temporary pause.",
+      "source_url": "https://www.fayetteville-ga.gov/746/Data-Center-Discussion",
+      "source_title": "City of Fayetteville — Data Center Discussion, new-facility zoning restriction",
+      "captured_at": "2026-11-06",
+      "related_moratorium_id": "fayetteville-ga-city-2026-03"
+    },
+    {
+      "id": "loudoun-county-va-data-center-special-exception",
+      "title": "Loudoun County special-exception review for data centers",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Loudoun County",
+      "state_code": "VA",
+      "date": null,
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Board approval through the special-exception process replaces by-right data-center siting.",
+        "The source does not give the original enactment date or full grandfathering provisions."
+      ],
+      "summary": "Loudoun requires Board special-exception review for data centers following its removal of by-right siting. This existing rule is separate from the proposed pause on legislative applications.",
+      "source_url": "https://www.loudoun.gov/m/newsflash/Home/Detail/10874",
+      "source_title": "Loudoun County — Board Approves Process that Could Pause Legislative Data Center & Substation Applications (September 17, updated September 24, 2026)",
+      "captured_at": "2026-11-06"
     }
   ]
 }

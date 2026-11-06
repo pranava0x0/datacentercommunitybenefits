@@ -1,0 +1,55 @@
+"""Shared summary strips and policy entries remain readable across navigation."""
+import json
+from pathlib import Path
+
+import pytest
+from playwright.sync_api import Page, expect
+
+pytestmark = pytest.mark.e2e
+ROOT = Path(__file__).resolve().parents[2]
+
+
+@pytest.mark.parametrize('width', [375, 1366])
+def test_summary_strips_stay_visible_and_headings_keep_ink(page: Page, base_url: str, width: int) -> None:
+    page.set_viewport_size({'width': width, 'height': 812})
+    page.goto(base_url + '/#policies')
+    expect(page.locator('#policy-stats .rp-stat')).to_have_count(4)
+    for group, view, stats in [('pol', 'policies', 'policy-stats'), ('mor', 'moratoriums', 'moratorium-stats')]:
+        page.click('#tab-' + view)
+        assert page.locator('#view-' + view).evaluate('e => getComputedStyle(e).opacity') == '1'
+        strip = page.locator('#' + stats)
+        count = strip.locator('.rp-stat').count()
+        keys = page.evaluate('(group) => SUBTAB_GROUPS[group]', group)
+        for key in keys:
+            page.click(f'#subtab-{group}-{key}')
+            expect(strip).to_be_visible()
+            expect(strip.locator('.rp-stat')).to_have_count(count)
+            assert strip.locator('.rp-stat').first.evaluate('e => getComputedStyle(e).borderTopWidth') == '0px'
+            assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
+    expect(page.locator('#subtab-mor-influence')).to_have_count(0)
+    page.click('#tab-elections')
+    expect(page.locator('.election-row')).to_have_count(54)
+    expect(page.locator('#elections-stats')).to_have_count(0)
+    ink = page.evaluate('getComputedStyle(document.documentElement).getPropertyValue("--text").trim()')
+    heading_color = page.locator('#view-elections h2').evaluate('e => getComputedStyle(e).color')
+    assert heading_color == page.evaluate('(ink) => {const s=document.createElement("span");s.style.color=ink;document.body.append(s);const c=getComputedStyle(s).color;s.remove();return c;}', ink)
+
+
+def test_framework_gaps_are_source_linked_and_latest_does_not_repeat_same_order(page: Page, base_url: str) -> None:
+    policies = json.loads((ROOT / 'data/seed/policies.json').read_text())
+    new_ids = {'ny-eo62-data-center-review-community-framework-2026', 'tx-data-center-audit-permit-directives-2026',
+               'fayetteville-ga-data-center-zoning-prohibition-2026', 'loudoun-county-va-data-center-special-exception'}
+    policies['policies'] = [item for item in policies['policies'] if item['id'] in new_ids]
+    moratoriums = json.loads((ROOT / 'data/seed/moratoriums.json').read_text())
+    moratoriums['moratoriums'] = [item for item in moratoriums['moratoriums'] if item['id'] in {'ny-state-eo62-2026-07', 'sabattus-me-2026-11'}]
+    page.route('**/data/policies.json', lambda route: route.fulfill(json=policies))
+    page.route('**/data/moratoriums.json', lambda route: route.fulfill(json=moratoriums))
+    page.goto(base_url + '/#policies/latest')
+    expect(page.locator('#policy-actions .pb-action')).to_have_count(4)
+    expect(page.locator('.pb-action-text').filter(has_text='New York EO 62')).to_have_count(1)
+    expect(page.locator('.pb-action-text').filter(has_text='Sabattus')).to_have_count(1)
+    page.click('#subtab-pol-directory')
+    expect(page.locator('#policies-tbody tr[role="button"]')).to_have_count(4)
+    page.locator('#policies-tbody tr').filter(has_text='Loudoun').click()
+    expect(page.locator('#pd-date')).to_have_text('Not dated')
+    expect(page.locator('#pd-terms')).to_contain_text('special-exception')

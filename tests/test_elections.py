@@ -83,6 +83,22 @@ def test_comparison_uses_actual_prior_not_losing_challenger() -> None:
         ElectionRace.model_validate(data)
 
 
+def test_featured_pause_requires_existing_topic_and_winner_source() -> None:
+    data = race()
+    data["candidates"][0]["statements"] = [{**evidence("I propose a permit pause."), "speaker": "Jordan"}]
+    data["proposed_changes"] = [{"topic": "Permit pause", "summary": "Jordan proposes a pause.",
+                                 "source_urls": [evidence()["source_url"]]}]
+    data["pause_proposal_topic"] = "Permit pause"
+    assert ElectionRace.model_validate(data).pause_proposal_topic == "Permit pause"
+    data["pause_proposal_topic"] = "Invented topic"
+    with pytest.raises(ValidationError, match="Pause proposal topic"):
+        ElectionRace.model_validate(data)
+    data["pause_proposal_topic"] = "Permit pause"
+    data["candidates"][0]["statements"] = []
+    with pytest.raises(ValidationError, match="Pause proposal topic"):
+        ElectionRace.model_validate(data)
+
+
 def test_prior_personal_statement_cannot_be_attributed_to_someone_else() -> None:
     data = race()
     data["outgoing"] = {"name": "Prior", "party": "Independent", "evidence": evidence(),

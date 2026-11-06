@@ -71,6 +71,7 @@ def test_map_project_search_and_keyboard_cluster_focus(page: Page, base_url: str
     page.keyboard.press("Enter")
     assert page.evaluate('document.activeElement.classList.contains("map-doe-point")')
     page.fill("#jurisdiction-map-q", "Amentum")
+    assert page.locator("#jurisdiction-map-results").bounding_box()["y"] < page.locator("#jurisdiction-map-svg").bounding_box()["y"]
     expect(page.locator('.map-announcements > .map-announcement')).to_have_count(1)
     expect(page.locator('[data-location-id="doe-savannah-river"]')).to_be_visible()
     page.fill("#jurisdiction-map-q", "no-such-project")

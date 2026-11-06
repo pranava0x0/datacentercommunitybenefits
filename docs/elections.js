@@ -48,11 +48,13 @@ export function mount(root, data, hooks) {
     const index = priority.indexOf(record.state_code);
     return index < 0 ? priority.length : index;
   };
-  records.sort((a, b) => (a.kind === "measure") - (b.kind === "measure")
+  records.sort((a, b) => Boolean(b.pause_proposal_topic) - Boolean(a.pause_proposal_topic)
+    || (a.kind === "measure") - (b.kind === "measure")
     || rank(a) - rank(b) || a.state_code.localeCompare(b.state_code)
     || (a.level === "governor" ? -1 : b.level === "governor" ? 1 : a.jurisdiction.localeCompare(b.jurisdiction)));
 
-  const heading = el("h2", "", "Data-center policy · November 2026");
+  const heading = el("h2", "hero-title", "Elections");
+  const hero = el("div", "hero"); hero.append(heading);
   const filters = el("div", "filter-bar election-filters");
   filters.setAttribute("role", "group");
   filters.setAttribute("aria-label", "Filter policies");
@@ -76,24 +78,26 @@ export function mount(root, data, hooks) {
     ...[...new Set(records.map((record) => record.state_code))].sort().map((code) => [code, hooks.stateNames[code] || code])]);
   const kind = picker("elections-kind", "Office or measure", [["", "All"], ["governor", "Governors"], ["local", "Local officials"], ["measure", "Ballot measures"]]);
   const status = picker("elections-status", "Officeholder", [["", "All"], ["changes", "New officeholders"], ["party", "Party changes"], ["reelected", "Re-elected"]]);
+  const moreFilters = el("details", "election-more-filters");
+  moreFilters.append(el("summary", "", "More filters"));
+  const secondary = el("div", "election-secondary");
+  secondary.append(kind.parentElement, status.parentElement);
+  moreFilters.append(secondary);
   const reset = el("button", "btn-ghost", "Reset");
   reset.type = "button";
   reset.id = "elections-reset";
-  filters.append(reset);
+  filters.append(reset, moreFilters);
   const count = el("p", "muted");
   count.id = "elections-meta";
   count.setAttribute("role", "status");
   const list = el("div", "election-directory");
   list.id = "elections-directory";
 
-  const stats = el("ul", "rp-stats election-stats");
-  stats.id = "elections-stats";
-  stats.setAttribute("aria-label", "Election statistics");
   const table = el("table", "election-table");
   const caption = el("caption", "sr-only", "November 2026 data-center policy summary");
   const head = el("thead");
   const header = el("tr");
-  for (const label of ["State / office", "Officeholders / outcome", "Data-center policy"]) {
+  for (const label of ["Officeholder", "Data-center policy"]) {
     const cell = el("th", "", label);
     cell.scope = "col";
     header.append(cell);
@@ -119,67 +123,46 @@ export function mount(root, data, hooks) {
 
   function recordCard(record) {
     const card = el("article", "election-card");
-    const title = el("h3");
-    const permalink = el("a", "", `${record.jurisdiction} · ${record.office || record.title}`);
-    permalink.href = `#elections/${record.id}`;
-    title.append(permalink);
-    card.append(title);
     if (record.kind === "race") {
       const incoming = winner(record);
       const same = incoming.name === record.outgoing?.name;
-      const result = el("p", "election-result");
-      result.append(el("strong", "", `${incoming.name} (${incoming.party})`),
-        document.createTextNode(same ? " · Re-elected" : " · Incoming"));
-      if (record.result.evidence) result.append(document.createTextNode(" · "), source(record.result.evidence, "Election"));
-      card.append(result);
-      if (!same && record.outgoing) {
-        const transition = el("p", "election-transition", `Outgoing: ${record.outgoing.name} (${record.outgoing.party}) · `);
-        transition.append(source(record.outgoing.evidence, "Officeholder"));
-        card.append(transition);
-      }
-      const comparisons = el("div", "election-changes");
-      const furtherPolicies = el("div", "election-changes");
-      const evidence = [...incoming.statements, ...priorStatements(record)];
-      for (const policy of record.proposed_changes || []) {
-        const section = el("section");
+      const lead = record.proposed_changes.find((item) => item.topic === record.pause_proposal_topic) || record.proposed_changes[0];
+      const evidence = policyEvidence(record);
+      for (const policy of record.proposed_changes.filter((item) => item !== lead)) {
+        const section = el("section", "election-changes");
         section.append(el("h4", "", policy.topic), el("p", "", policy.summary));
-        const citations = el("p", "muted");
+        const citations = el("p");
         for (const url of policy.source_urls) {
           const item = evidence.find((entry) => entry.source_url === url);
           if (!item) throw new Error("Policy comparison citation is missing");
           if (citations.childNodes.length) citations.append(document.createTextNode(" · "));
           citations.append(source(item));
         }
-        section.append(citations);
-        (comparisons.childNodes.length ? furtherPolicies : comparisons).append(section);
+        section.append(citations); card.append(section);
       }
-      card.append(comparisons);
       const candidates = el("div", "election-candidates");
       function panel(person, role, statements) {
         const section = el("section", "election-candidate");
         section.append(el("h4", "", `${role} · ${person.name}`));
-        for (const statement of statements) {
-          section.append(evidenceBlock(statement));
-        }
-        if (!statements.length) section.append(el("p", "muted", "No sourced data-center position available."));
+        for (const statement of statements) section.append(evidenceBlock(statement));
+        if (!statements.length) section.append(el("p", "", "No sourced data-center position available."));
         candidates.append(section);
       }
       if (same) {
-        const statements = [...incoming.statements, ...(record.outgoing.statements || [])];
-        panel(incoming, "Current officeholder", statements);
+        panel(incoming, "Current officeholder", [...incoming.statements, ...(record.outgoing.statements || [])]);
         candidates.classList.add("election-single");
       } else {
         panel(incoming, "Incoming", incoming.statements);
-        if (record.outgoing) panel(record.outgoing, "Outgoing", priorStatements(record));
-        else candidates.append(el("p", "muted", "Prior officeholder’s data-center position unavailable."));
+        if (record.outgoing) panel(record.outgoing, "Prior holder", priorStatements(record));
       }
-      card.append(candidates, furtherPolicies);
+      card.append(candidates);
+      const identity = el("p", "election-related");
+      if (record.result.evidence) identity.append(source(record.result.evidence, "Election source"));
+      if (record.outgoing?.evidence) identity.append(source(record.outgoing.evidence, "Officeholder source"));
+      card.append(identity);
     } else {
-      card.append(el("p", "election-result", `${record.result.outcome === "passed" ? "Passed" : record.result.outcome === "failed" ? "Failed" : "Outcome pending"} · ${record.effect === "advisory" ? "Advisory question" : "Binding measure"}`),
-        el("p", "", record.legal_effect), evidenceBlock(record.ballot_evidence, "Ballot text"));
-      if (record.result.evidence) card.querySelector(".election-result").append(document.createTextNode(" · "), source(record.result.evidence, "Vote"));
+      card.append(evidenceBlock(record.ballot_evidence, "Ballot text"));
     }
-    card.append(relatedLinks(record));
     return card;
   }
 
@@ -207,48 +190,50 @@ export function mount(root, data, hooks) {
     row.id = `election-${record.id}`;
     row.dataset.electionId = record.id;
     row.dataset.kind = record.kind;
+    row.dataset.pauseProposal = String(Boolean(record.pause_proposal_topic));
     const place = el("th", "election-place");
     place.scope = "row";
     const location = el("a", "", hooks.stateNames[record.state_code] || record.state_code);
     location.href = `#state/${record.state_code}`;
-    place.append(location, el("span", "election-office", `${record.jurisdiction} · ${record.office || record.title}`));
-    const toggle = el("button", "btn-ghost election-toggle", "Compare details");
+    const placeHead = el("div", "election-place-head");
+    placeHead.append(location, el("span", "election-office", `${record.jurisdiction === hooks.stateNames[record.state_code] ? "" : record.jurisdiction + " · "}${record.office || record.title}`));
+    place.append(placeHead);
+    const toggle = el("button", "btn-ghost election-toggle", "Statements");
     toggle.type = "button";
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-controls", `election-details-${record.id}`);
     toggle.setAttribute("aria-label", `Compare details: ${record.jurisdiction} · ${record.office || record.title}`);
-    place.append(toggle);
-    const people = el("td", "election-people");
+    const people = el("div", "election-people");
     const policies = el("td", "election-summary");
     const detail = el("tr", "election-detail-row");
     detail.id = `election-details-${record.id}`;
     detail.hidden = true;
     const detailCell = el("td");
-    detailCell.colSpan = 3;
+    detailCell.colSpan = 2;
     detail.append(detailCell);
     toggle.addEventListener("click", () => {
       const expanded = toggle.getAttribute("aria-expanded") !== "true";
       if (expanded && !detailCell.childNodes.length) detailCell.append(recordCard(record));
       detail.hidden = !expanded;
       toggle.setAttribute("aria-expanded", String(expanded));
-      toggle.textContent = expanded ? "Close details" : "Compare details";
+      toggle.textContent = expanded ? "Close statements" : "Statements";
     });
     if (record.kind === "race") {
       const incoming = winner(record);
       const same = incoming.name === record.outgoing?.name;
       const result = el("p", "election-result");
       result.append(el("strong", "", `${incoming.name} (${incoming.party})`),
-        el("span", "election-role", same ? "Re-elected" : "Incoming"));
-      if (record.result.evidence) result.append(source(record.result.evidence, "Election"));
+        el("span", "election-role", same ? " · Re-elected" : " · Incoming"));
       people.append(result);
       if (!same && record.outgoing) {
         const prior = el("p", "election-transition");
         prior.append(el("strong", "", `${record.outgoing.name} (${record.outgoing.party})`),
-          el("span", "election-role", "Prior holder"), source(record.outgoing.evidence, "Officeholder"));
+          el("span", "election-role", " · Prior holder"));
         people.append(prior);
       }
       const evidence = policyEvidence(record);
-      for (const policy of record.proposed_changes || []) {
+      const lead = record.proposed_changes.find((item) => item.topic === record.pause_proposal_topic) || record.proposed_changes[0];
+      for (const policy of lead ? [lead] : []) {
         const topic = el("p", "election-topic");
         topic.append(el("strong", "", `${policy.topic}: `), document.createTextNode(policy.summary));
         policy.source_urls.forEach((url, index) => {
@@ -278,15 +263,17 @@ export function mount(root, data, hooks) {
     } else {
       const result = el("p", "election-result");
       result.append(el("strong", "", record.result.outcome === "passed" ? "Passed" : record.result.outcome === "failed" ? "Failed" : "Outcome pending"),
-        el("span", "election-role", record.effect === "advisory" ? "Advisory question" : "Binding measure"));
-      if (record.result.evidence) result.append(source(record.result.evidence, "Vote"));
+        el("span", "election-role", record.effect === "advisory" ? " · Advisory question" : " · Binding measure"));
+      if (record.result.evidence) result.append(document.createTextNode(" · "), source(record.result.evidence, "Vote"));
       people.append(result);
       const effect = el("p", "election-topic", record.legal_effect + " ");
       effect.append(source(record.ballot_evidence, "Ballot text"));
       policies.append(effect);
     }
     if (record.related_moratorium_ids?.length || record.related_policy_ids?.length) policies.append(relatedLinks(record, false));
-    row.append(place, people, policies);
+    placeHead.append(toggle);
+    place.append(people);
+    row.append(place, policies);
     return [row, detail];
   }
 
@@ -309,17 +296,8 @@ export function mount(root, data, hooks) {
         ...(record.proposed_changes || []).flatMap((item) => [item.topic, item.summary])].join(" ").toLocaleLowerCase();
       return !query || query.split(/\s+/).every((word) => haystack.includes(word));
     });
-    count.textContent = `${filtered.length} ${kind.value === "measure" ? "ballot measures" : "records"}`;
-    const races = filtered.filter((record) => record.kind === "race");
-    const tiles = [[races.length, "Officeholders"],
-      [races.filter((record) => ["New officeholder", "Party change"].includes(change(record))).length, "New officeholders"],
-      [races.filter((record) => change(record) === "Re-elected").length, "Re-elected"],
-      [filtered.length - races.length, "Ballot measures"]];
-    stats.replaceChildren(...tiles.map(([value, label]) => {
-      const tile = el("li", "rp-stat");
-      tile.append(el("span", "rp-stat-value", value), el("span", "rp-stat-label", label));
-      return tile;
-    }));
+    const proposals = filtered.filter((record) => record.pause_proposal_topic).length;
+    count.textContent = `${proposals ? proposals + " pause proposals · " : ""}${filtered.length} ${kind.value === "measure" ? "ballot measures" : "records"}`;
     body.replaceChildren(...filtered.flatMap(summaryRow));
     list.replaceChildren(filtered.length ? table : el("p", "election-empty", records.length ? "No matching policies." : "No policy records available."));
   }
@@ -333,7 +311,7 @@ export function mount(root, data, hooks) {
   reset.addEventListener("click", clear);
   search.addEventListener("input", render);
   for (const select of [state, kind, status]) select.addEventListener("change", render);
-  root.replaceChildren(heading, stats, filters, count, list);
+  root.replaceChildren(hero, filters, count, list);
   render();
   return {
     openRecord(id) {

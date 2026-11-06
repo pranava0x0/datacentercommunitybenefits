@@ -272,6 +272,8 @@ function mount(root, data, hooks) {
     }
     meta.textContent = `${filtered.length} jurisdictions · ${visibleSites.length} DOE reference points · ${events.length} announcements`;
     currentResults = [...filtered, ...visibleSites]; shown = 20; renderResults();
+    const anchor = query.value.trim() ? layout : announcements;
+    for (const node of [resultsHeading, results, more]) root.insertBefore(node, anchor);
     announcements.replaceChildren(el("h3", "", "DOE announcements"), ...events.map(announcementCard));
     if (!events.length) announcements.append(el("p", "muted", "No matching announcements."));
     if (chosen) {

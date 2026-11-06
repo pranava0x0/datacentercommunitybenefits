@@ -1497,3 +1497,14 @@ Wayback-pinned (live pages have drifted; add new dated claims): Google Oregon/Io
   inventory. Do not geocode a guessed development parcel.
 - Add further DOE grid/project announcements only with dated primary sources
   and verified site associations; current six records are selected coverage.
+
+### 2026-11-06 — framework source gaps
+
+The 250-record moratorium / 137-record framework comparison added four verified
+frameworks. Further permanent-rule leads need ordinance text and scope checks:
+Hawaii, Jackson County FL, Marshall County IN, Meridian Township MI, Monterey
+Park CA, Smithfield, St Charles, Washington Township MI, Longmont CO, Coachella
+CA and Woodford County KY. A moratorium record alone does not establish a full
+framework or its current legal scope. These remain leads, not new policy rows.
+Confirm Fayetteville's formal ordinance identifier from the instrument itself;
+the city FAQ prints 26-0-12, while the older moratorium uses 26-O-12.

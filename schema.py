@@ -1242,7 +1242,6 @@ class MoratoriumsPayload(_StrictBase):
         if bad:
             raise ValueError(f"non-US records belong in international.json: {bad}")
         return v
-    china_anti_datacenter_messaging: dict | None = None
     theme_recommendations: dict[str, ThemeRecommendation] | None = None
 
     @field_validator("moratoriums")
@@ -2607,6 +2606,10 @@ class ElectionRace(_ElectionContest):
     outgoing: Optional[ElectionOfficeholder] = None
     candidates: list[ElectionCandidate] = Field(default_factory=list)
     proposed_changes: list[ElectionPolicyChange] = Field(default_factory=list)
+    pause_proposal_topic: Optional[str] = Field(
+        default=None,
+        description="Curator-selected topic documenting the winner's pause proposal; references proposed_changes.",
+    )
 
     @model_validator(mode="after")
     def winner_is_a_candidate(self) -> "ElectionRace":
@@ -2617,6 +2620,11 @@ class ElectionRace(_ElectionContest):
             raise ValueError("Office races use a winner, not a ballot outcome")
         if self.result.status != "unverified" and self.result.winner not in names:
             raise ValueError("A reported race winner must be a listed candidate")
+        if self.pause_proposal_topic is not None:
+            topic = next((item for item in self.proposed_changes if item.topic == self.pause_proposal_topic), None)
+            elected = next((item for item in self.candidates if item.name == self.result.winner), None)
+            if not topic or not elected or not any(item.source_url in topic.source_urls for item in elected.statements):
+                raise ValueError("Pause proposal topic must cite the winner's evidence and reference an existing policy topic")
         if self.proposed_changes:
             if not self.result.winner:
                 raise ValueError("Policy changes require a known winner")
