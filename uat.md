@@ -14,9 +14,9 @@ disclosure click. Sources retain publication or access dates.
 
 | Flow from Home | Phone interactions / seconds | Tablet | Desktop |
 | --- | --- | --- | --- |
-| Incoming Texas governor | 1 / 1.6 | 1 / 1.6 | 1 / 1.6 |
+| Incoming Texas governor | 1 / 1.6 | 1 / 1.6 | 1 / 1.7 |
 | Texas winner and actual prior policies | 3 / 1.9 | 1 / 1.9 | 1 / 1.9 |
-| Sabattus vote to legal moratorium | 6 / 2.7 | 4 / 2.7 | 4 / 2.7 |
+| Sabattus vote to legal moratorium | 6 / 2.8 | 4 / 2.7 | 4 / 2.8 |
 
 These automation times include navigation and fixed settling delays, not reading.
 All 22 tasks on three devices in default/expanded contexts are recorded in
