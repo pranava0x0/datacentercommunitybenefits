@@ -1396,7 +1396,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Jocelyn Benson",
@@ -1443,8 +1443,28 @@
           "source_url": "https://www.nga.org/governors/michigan/",
           "source_title": "National Governors Association — Governor Gretchen Whitmer",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "any data center company that wants to invest in Michigan must ensure working families do not pay a single penny for data center development or operations",
+            "source_url": "https://www.michigan.gov/whitmer/news/press-releases/2026/07/15/gov-whitmer-data",
+            "source_title": "Gov. Whitmer — Affordable and Responsible Growth Action Plan",
+            "captured_at": "2026-11-05",
+            "speaker": "Gretchen Whitmer",
+            "published_at": "2026-07-15"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Moratorium and guardrails",
+          "summary": "Benson proposes a moratorium on data centers. Whitmer’s July plan called for company commitments on energy costs, natural resources and jobs, and asked lawmakers to codify the guardrails.",
+          "source_urls": [
+            "https://www.jocelynbenson.com/issues/data-centers",
+            "https://www.michigan.gov/whitmer/news/press-releases/2026/07/15/gov-whitmer-data"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "mn-governor-2026",
