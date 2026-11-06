@@ -1876,12 +1876,21 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Kathy Hochul",
           "party": "Democratic",
-          "statements": [],
+          "statements": [
+            {
+              "statement": "New York will lead the way in creating the strongest standards in the nation for data center development",
+              "source_url": "https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul",
+              "source_title": "Governor Hochul — July 14 data-center executive order announcement",
+              "captured_at": "2026-11-05",
+              "speaker": "Kathy Hochul",
+              "published_at": "2026-07-14"
+            }
+          ],
           "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
         },
         {
@@ -1917,7 +1926,16 @@
           "source_title": "NGA 2026 incumbent and general-election candidate — New York",
           "captured_at": "2026-11-04"
         }
-      }
+      },
+      "proposed_changes": [
+        {
+          "topic": "Existing moratorium",
+          "summary": "Hochul’s July executive order pauses covered state environmental permits for up to a year while the state develops standards.",
+          "source_urls": [
+            "https://www.governor.ny.gov/news/first-statewide-moratorium-new-hyperscale-data-centers-launched-governor-kathy-hochul"
+          ]
+        }
+      ]
     },
     {
       "id": "oh-governor-2026",
