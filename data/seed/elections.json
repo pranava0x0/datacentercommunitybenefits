@@ -2497,7 +2497,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Marsha Blackburn",
@@ -2543,7 +2543,41 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Bill Lee",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Bill Lee",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "As enacted, generally prohibits a municipality or electric utility to pay or absorb the cost of electrical infrastructure incurred to serve a data center",
+            "source_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114",
+            "source_title": "Tennessee Public Chapter 961 — enacted summary",
+            "captured_at": "2026-11-05"
+          },
+          {
+            "statement": "Signed by Governor. 05/07/2026",
+            "source_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114",
+            "source_title": "Tennessee HB1847 — governor signature history",
+            "captured_at": "2026-11-05"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Local decisions and infrastructure costs",
+          "summary": "Blackburn says communities will decide whether they want data centers. Lee signed Public Chapter 961, generally barring municipalities and utilities from absorbing covered data-center infrastructure costs.",
+          "source_urls": [
+            "https://www.wsmv.com/2026/10/26/tn-candidates-governor-explain-how-theyd-handle-data-centers-if-elected/",
+            "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114"
+          ]
+        }
+      ]
     },
     {
       "id": "tx-governor-2026",
