@@ -588,7 +588,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Victor Marx",
@@ -607,6 +607,13 @@
               "captured_at": "2026-11-04",
               "speaker": "Phil Weiser",
               "published_at": "2026-01-07"
+            },
+            {
+              "statement": "public reporting of tariffs and contracts with utilities",
+              "source_url": "https://philforcolorado.com/advancing-colorados-leadership-on-climate-and-resilience/",
+              "source_title": "Phil Weiser campaign — tariff and contract disclosure",
+              "captured_at": "2026-11-05",
+              "speaker": "Phil Weiser"
             }
           ],
           "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
@@ -634,8 +641,28 @@
           "source_url": "https://coloradosun.com/2026/11/03/colorado-governor-election-results/",
           "source_title": "Incumbent governor — Colorado",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "As long as you can show me it's going to reduce our utility rates and be consistent with our water use",
+            "source_url": "https://www.axios.com/local/colorado-springs/2026/07/08/colorado-jared-polis-bullish-data-centers-backlash",
+            "source_title": "Axios — Polis interview on data-center utility and water conditions",
+            "captured_at": "2026-11-05",
+            "speaker": "Jared Polis",
+            "published_at": "2026-07-08"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Utility transparency and clean energy",
+          "summary": "Weiser proposes public reporting of utility tariffs and contracts, and data-center investment in new clean energy. Polis said he welcomed data centers if they reduced utility rates and were consistent with the state’s water use.",
+          "source_urls": [
+            "https://philforcolorado.com/advancing-colorados-leadership-on-climate-and-resilience/",
+            "https://www.axios.com/local/colorado-springs/2026/07/08/colorado-jared-polis-bullish-data-centers-backlash"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "ct-governor-2026",
