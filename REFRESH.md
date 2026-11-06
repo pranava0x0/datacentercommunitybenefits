@@ -1340,3 +1340,8 @@ text. Verify interaction effort after adding content, not only page width.
 Escape dismissal must survive pointer movement within the same tooltip
 trigger. Hidden or clipped map features must not remain invisible tab stops;
 recompute focusability when the view box changes.
+
+The tablet navigation review found a blank International button: hiding the
+long label at 1100px left the short label's older 640px breakpoint unchanged.
+An accessible aria-label let click-through tests pass despite no visible text.
+Test rendered innerText for every navigation button at both breakpoint edges.

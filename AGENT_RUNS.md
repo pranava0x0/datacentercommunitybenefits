@@ -628,3 +628,12 @@ scroll. An 8px paragraph gap restored the two-action path. Final release run
 using pytest work stealing passed all 970 tests in 190 seconds, including all
 156 interaction paths. Work stealing avoids leaving several long device runs
 queued on one worker while other workers are idle.
+
+GitHub's final review caught one more P2: International's short-label breakpoint
+did not match tablet navigation. The regression failed at 820px before the fix;
+visible-text assertions now cover 375, 641, 820, 1100 and 1366px. Clicking each
+button by id had not proved its label was visible.
+
+The final navigation follow-up passed 972 tests in 195 seconds, including all
+156 interaction paths; 13 focused layout/type checks and refreshed tablet
+screenshots also passed.

@@ -6530,8 +6530,8 @@ button.depth-chip:focus-visible {
 /* ===================== International view (v6) ===================== */
 /* Short tab label ("World") only where the long ones are hidden. */
 .tab-short { display: none; }
-/* Mirrors the 640px rule that hides .tab-long. */
-@media (max-width: 640px) {
+/* Matches the breakpoint that hides .tab-long. */
+@media (max-width: 1100px) {
   .tab-long + .tab-short { display: inline; }
 }
 .world-cards {

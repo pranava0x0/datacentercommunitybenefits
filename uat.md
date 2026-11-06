@@ -439,7 +439,7 @@ agreement filter. The next exposed one added desktop Evidence scroll from the
 new scope caption. Compact record lists, responsive filter rows and tighter
 paragraph spacing fixed the measured regressions. Existing budgets were kept.
 
-Release gate: 970 tests passed in 190 seconds. All 156 interaction paths
+Release gate: 972 tests passed in 195 seconds. All 156 interaction paths
 (26 tasks × three devices × two disclosure contexts) passed within unchanged
 budgets. The map opens in two actions, DOE announcement lookup takes five,
 and linked framework/moratorium lookup takes six on all three devices.
@@ -457,3 +457,8 @@ The offline preview passed, and two refresh/preview builds were byte-identical.
 Source HTTP blocks remain distinguished from unavailable or contradictory
 evidence. The incomplete cached moratorium audit ran with --no-issues; it is
 not counted as an accuracy pass. New facts were checked against primary text.
+
+Final GitHub review found a blank tablet World label. Its short/long label
+breakpoints now match; the visible-text regression fails before the fix and
+passes at 375, 641, 820, 1100 and 1366px. The final 972-test run includes all
+156 interaction paths with no budget increases.

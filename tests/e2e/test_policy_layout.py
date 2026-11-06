@@ -68,7 +68,7 @@ def test_unknown_dates_and_reasons_do_not_look_like_empty_cells(page: Page, base
     expect(page.locator('#md-enacted')).to_have_text('Not stated')
 
 
-@pytest.mark.parametrize('width', [375, 820, 1366])
+@pytest.mark.parametrize('width', [375, 641, 820, 1100, 1366])
 def test_labeled_filters_keep_primary_controls_visible(page: Page, base_url: str, width: int) -> None:
     page.set_viewport_size({'width': width, 'height': 812})
     page.goto(base_url + '/#policies/directory')
@@ -82,5 +82,7 @@ def test_labeled_filters_keep_primary_controls_visible(page: Page, base_url: str
     assert page.locator('#policies-tbody tr[role=button]').count() > 0
     assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
     assert page.locator('.tabbar').evaluate('e=>e.scrollWidth<=e.clientWidth')
+    assert page.locator('.tabbar .tab').evaluate_all('nodes=>nodes.every(n=>n.innerText.trim().length > 0)')
+    expect(page.locator('#tab-world')).to_have_text('World' if width <= 1100 else 'International', use_inner_text=True)
     if width <= 1100:
         assert page.locator('.tabbar').evaluate('e=>getComputedStyle(e).gridTemplateColumns.split(" ").length') == 5
