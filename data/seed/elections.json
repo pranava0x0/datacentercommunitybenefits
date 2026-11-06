@@ -15,7 +15,7 @@
       "office": "County Executive",
       "level": "county",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "outgoing": {
         "name": "Jessica Fitzwater",
         "party": "Democratic",
@@ -40,7 +40,7 @@
               "speaker": "Jessica Fitzwater"
             },
             {
-              "statement": "Advocate for the authority to assess higher taxes on data centers",
+              "statement": "assess higher taxes on data centers",
               "source_url": "https://www.jessicafitzwater.com/data",
               "source_title": "Jessica Fitzwater campaign — Responsible Data Center Development",
               "captured_at": "2026-11-04",
@@ -79,7 +79,16 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported reelection of the incumbent; no change of person or party. Certification not verified in this pass."
+      "notes": "Reported reelection of the incumbent; no change of person or party. Certification not verified in this pass.",
+      "proposed_changes": [
+        {
+          "topic": "Farmland and taxing authority",
+          "summary": "Fitzwater proposes preserving five acres of farmland for each acre developed for data centers and seeking authority for higher data-center taxes.",
+          "source_urls": [
+            "https://www.jessicafitzwater.com/data"
+          ]
+        }
+      ]
     },
     {
       "id": "ga-psc-district3-2026",
