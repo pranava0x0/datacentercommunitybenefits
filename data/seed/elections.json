@@ -1203,12 +1203,21 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Hannah Pingree",
           "party": "Democratic",
-          "statements": [],
+          "statements": [
+            {
+              "statement": "I think Maine needs a moratorium until we have some of the strongest laws in the country",
+              "source_url": "https://www.mainepublic.org/politics/2026-10-27/your-vote-2026-maine-calling-candidate-interview-hannah-pingree-democrat-for-governor",
+              "source_title": "Maine Public — Hannah Pingree candidate interview",
+              "captured_at": "2026-11-05",
+              "speaker": "Hannah Pingree",
+              "published_at": "2026-10-27"
+            }
+          ],
           "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
         },
         {
@@ -1237,7 +1246,35 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Janet Mills",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Janet T. Mills",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "the Governor said she supports a temporary moratorium on data center projects and would have signed LD 307 if it included an exemption for a project now underway at the former Androscoggin Mill in Jay.",
+            "source_url": "https://www1.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29",
+            "source_title": "Governor Mills — Jay exemption and moratorium position",
+            "captured_at": "2026-11-05"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Moratorium",
+          "summary": "Pingree calls for a moratorium until stronger protections are in place. Mills vetoed LD 307 while supporting a temporary moratorium with an exemption for the Jay mill project, and established an advisory council. Pingree has not specified a Jay-project exemption in this interview.",
+          "source_urls": [
+            "https://www.mainepublic.org/politics/2026-10-27/your-vote-2026-maine-calling-candidate-interview-hannah-pingree-democrat-for-governor",
+            "https://www1.maine.gov/governor/mills/news/governor-mills-signs-executive-order-establish-maine-data-center-advisory-council-2026-04-29"
+          ]
+        }
+      ]
     },
     {
       "id": "md-governor-2026",
