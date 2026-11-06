@@ -24,7 +24,7 @@
         "Utility capital investment over $1,000,000 requires the data center to provide financial security",
         "Transmission built specifically to serve a data center is not initially treated as backbone transmission for cost allocation"
       ],
-      "summary": "Alaska Senate Bill 250, sponsored by Sen. Löki Gale Tobin, would have required utilities serving large data centers to have their contracts approved by the Regulatory Commission of Alaska, with financial security above $1 million of utility investment and data-center-specific transmission kept out of shared backbone cost allocation. It also required the host municipality to sign a community benefit agreement with the data center, including a waste-heat recovery assessment, and a decommissioning plan before approval. The bill passed the Senate and was in the House Community and Regional Affairs Committee (status as of May 17, 2026) when the session ended, so it did not become law.",
+      "summary": "Introduced on February 18, 2026, Alaska SB250 would have required Regulatory Commission approval of utility service contracts for large data centers, financial security for utility capital investment above $1 million, and a host-municipality community benefit agreement with a waste-heat recovery assessment. It also required a decommissioning plan and excluded data-center-specific transmission from initial shared backbone cost allocation. The bill passed the Senate and reached the House Community and Regional Affairs Committee, but did not become law before the session ended.",
       "source_url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
       "source_title": "Alaska State Legislature — SB 250 (34th Legislature): status (H) CRA, 05/17/2026",
       "resources": [
@@ -33,7 +33,7 @@
           "title": "Alaska State Legislature — CSSB 250(CRA) bill text"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-06",
       "principles": [
         "pay_own_way",
         "community_benefits"
@@ -994,15 +994,18 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Other infrastructure improvements include $2.8 million in sanitary sewer extension, $2.5 million of which the company will fund."
+        "Meta would fund $2.5 million of a $2.8 million sanitary-sewer extension.",
+        "The City agreed to improve Monroe and Liberty Hill roads and install a traffic signal on Pulaski Pike.",
+        "The $750 million, 250-acre expansion required 50 new jobs with an annual wage of $80,000, excluding fringe benefits.",
+        "The city estimated an $8.1 million return to the city and school system and an additional $8–10 million for local schools when the second campus was complete."
       ],
-      "summary": "The City of Huntsville's project agreement for Meta's North Huntsville second data center campus (a $750 million, 250-acre expansion, buildings expected complete by end of 2022) is projected to return $8.1 million to the city and school system, growing to an extra $8-10 million annually for local schools, funded a $2.8 million sewer extension (Meta covering $2.5M of it), and required 50 new jobs paying at least $80,000/year. The exact agreement date was not stated on the source page.",
+      "summary": "Huntsville announced Meta’s North Huntsville expansion agreement on December 30, 2021. The city described road and sewer improvements, a 50-job requirement with $80,000 annual wages, and projected school revenue from the $750 million second-campus expansion. The announcement does not state the agreement’s exact approval date.",
       "source_url": "https://www.huntsvilleal.gov/data-center-expansion-to-benefit-north-huntsville-local-schools/",
       "source_title": "City of Huntsville, AL — Data center expansion to benefit North Huntsville, local schools",
       "related_project_ids": [
         "meta-huntsville-al"
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-06",
       "principles": [
         "community_benefits"
       ],
@@ -1346,12 +1349,17 @@
         {
           "url": "https://www.lpm.org/news/2026-08-27/kentucky-gov-andy-beshear-calls-for-ending-state-tax-incentives-for-data-centers",
           "title": "Louisville Public Media — Kentucky Gov. Andy Beshear calls for ending state tax incentives for data centers"
+        },
+        {
+          "url": "https://apps.legislature.ky.gov/record/25rs/hb775.html",
+          "title": "Kentucky General Assembly — HB775 (2025), became law March 27, 2025 (Acts Chapter 98)"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-06",
       "principles": [
         "incentive_terms"
-      ]
+      ],
+      "date": "2025-03-27"
     },
     {
       "id": "la-act730-2024",
@@ -1368,21 +1376,27 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Eligibility requires Louisiana Economic Development certification and a sworn attestation of at least 50 new direct, permanent Louisiana jobs and at least $200 million of new Louisiana capital investment between July 1, 2024 and July 1, 2029."
+        "Eligibility requires Louisiana Economic Development certification and a sworn attestation of at least 50 new direct, permanent Louisiana jobs and at least $200 million of new Louisiana capital investment between July 1, 2024 and July 1, 2029.",
+        "Signed June 19, 2024; effective July 1, 2024, according to the legislature’s bill history."
       ],
-      "summary": "Louisiana's Act 730, enacted in the 2024 Regular Session, creates a 20-year (renewable to 30) sales/use tax rebate for data centers that invest at least $200 million and create at least 50 permanent jobs, certified through Louisiana Economic Development. The program has since drawn scrutiny for locking in an estimated $81.6 billion in announced investment without the state publishing a revenue-loss estimate.",
+      "summary": "Louisiana Act 730 creates a 20-year sales/use tax rebate, renewable to 30 years, for certified data centers investing at least $200 million and creating at least 50 permanent jobs. The governor signed the act on June 19, 2024; it became effective July 1, 2024.",
       "source_url": "https://louisianai.com/incentives",
       "source_title": "LouisianAI — Louisiana Data Center Tax Incentives: Act 730, PILOTs, ITEP",
       "resources": [
         {
           "url": "https://investlouisiana.org/louisianas-data-center-incentives-big-promises-bigger-questions/",
           "title": "Invest in Louisiana — Louisiana's Data Center Incentives: Big Promises, Bigger Questions"
+        },
+        {
+          "url": "https://legis.la.gov/legis/BillInfo.aspx?b=ACT730&s=24RS",
+          "title": "Louisiana Legislature — HB827 / Act730 (2024), signing and effective-date history"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-06",
       "principles": [
         "incentive_terms"
-      ]
+      ],
+      "date": "2024-06-19"
     },
     {
       "id": "la-eo-26-058-2026",
@@ -5042,7 +5056,7 @@
       "scope": "county",
       "jurisdiction": "Loudoun County",
       "state_code": "VA",
-      "date": null,
+      "date": "2025-03-18",
       "benefit_themes": [
         "engagement"
       ],
@@ -5051,12 +5065,46 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "Board approval through the special-exception process replaces by-right data-center siting.",
-        "The source does not give the original enactment date or full grandfathering provisions."
+        "Board approval on March 18, 2025 amended the Comprehensive Plan and Zoning Ordinance to replace by-right data-center uses with conditional or special-exception review.",
+        "Special-exception approval applies to data-center uses in the Industrial Park (IP), General Industry (GI), and Mineral Resources–Heavy Industry (MR-HI) zoning districts.",
+        "A separate grandfathering resolution allows certain applications accepted before February 12, 2025 to continue without special-exception approval."
       ],
-      "summary": "Loudoun requires Board special-exception review for data centers following its removal of by-right siting. This existing rule is separate from the proposed pause on legislative applications.",
-      "source_url": "https://www.loudoun.gov/m/newsflash/Home/Detail/10874",
-      "source_title": "Loudoun County — Board Approves Process that Could Pause Legislative Data Center & Substation Applications (September 17, updated September 24, 2026)",
+      "summary": "Loudoun’s Board of Supervisors approved its Phase 1 data-center plan and zoning amendments on March 18, 2025. The amendments require special-exception approval in three industrial districts, with a separate grandfathering resolution for certain earlier applications. This zoning rule is distinct from the county’s proposed pause on legislative applications.",
+      "source_url": "https://www.loudoun.gov/6221/Phase-1-Project-Plan-for-Data-Center-Sta",
+      "source_title": "Loudoun County — Phase 1 Data Center Standards and Locations (CPAM-2024-0001 / ZOAM-2024-0001)",
+      "captured_at": "2026-11-06",
+      "identifier": "CPAM-2024-0001 / ZOAM-2024-0001",
+      "resources": [
+        {
+          "url": "https://www.loudoun.gov/m/newsflash/Home/Detail/10874",
+          "title": "Loudoun County — Board Approves Process that Could Pause Legislative Data Center & Substation Applications (September 17, updated September 24, 2026)"
+        }
+      ]
+    },
+    {
+      "id": "raleigh-nc-major-data-center-special-use-zoning",
+      "title": "Raleigh — major-data-center zoning and special-use permits",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Raleigh, NC",
+      "state_code": "NC",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Major data centers need a special-use permit in Industrial Mixed Use (IX) or Heavy Industrial (IH) districts.",
+        "The Board of Adjustment holds an evidentiary hearing and must approve applications meeting all required UDO standards.",
+        "Minor Utilities are no larger than 10,000 square feet, with low peak electrical demand and water use, and allowed in all zoning districts.",
+        "Hearing notices go to properties within 100 feet of the site; Board meetings are public."
+      ],
+      "summary": "Raleigh requires major data centers to obtain a special-use permit in two industrial districts. These existing zoning rules are separate from its October 2026 application pause; the city FAQ does not give their enactment date.",
+      "source_url": "https://raleighnc.gov/services/unified-development-ordinance-udo/data-centers-faq",
+      "source_title": "City of Raleigh — Data Centers FAQ: zoning and special-use permit requirements",
       "captured_at": "2026-11-06"
     }
   ]

@@ -1315,3 +1315,28 @@ report). That does not establish source liveness or accuracy. Use --no-issues
 when retaining an incomplete-cache audit, and keep the generated issue report
 separate from manual primary-source verification; do not publish a new wave of
 no-government-source findings solely from an empty cache.
+
+### 2026-11-06 — missing fields and map identity
+
+Expected absent identifiers and dates to be incomplete records. Many are
+company plans without bill numbers or proposals without enactment dates.
+Count absent keys as well as explicit nulls, then distinguish unknown from
+not applicable before researching. A failed bill's introduction date and an
+agreement announcement date do not establish its failure or approval date.
+
+Raleigh's city FAQ documents existing special-use zoning separately from its
+application pause. Keep the two instruments distinct. Wisconsin's definition
+has three alternative tests; its 100MW branch is not a universal threshold.
+
+Two research dispatches failed before work because the alternate runtime
+required an account. Consolidate bounded research on the working runtime
+after the first capability failure; do not repeat the same unavailable route.
+
+Expected map selection summaries to help inspection. Repeating every full
+record summary pushed a common framework link seven swipes down the detail
+panel. Keep selection lists compact and use the canonical record for full
+text. Verify interaction effort after adding content, not only page width.
+
+Escape dismissal must survive pointer movement within the same tooltip
+trigger. Hidden or clipped map features must not remain invisible tab stops;
+recompute focusability when the view box changes.

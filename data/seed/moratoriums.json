@@ -1889,10 +1889,10 @@
         "energy",
         "transparency"
       ],
-      "summary": "New York's legislative data center moratorium — the Responsible Data Center Development Act, S10642 / A11560 — passed both chambers on June 4, 2026, imposing a one-year statewide moratorium on permits for data centers above a 20 MW threshold while the state completes an energy-planning and grid modernization review. The act also requires a separate utility rate classification for large data centers, sets a 90%-renewable-by-2040 goal, and mandates community benefits and construction labor standards. Governor Hochul has not delivered/signed the Act; instead she issued Executive Order No. 62 on July 14, 2026 (see ny-state-eo62-2026-07) — a separate instrument with a 50 MW threshold covering state environmental permitting only. Legal commentary (Hodgson Russ) notes that, in light of EO 62, Hochul is likely to veto the Act by year's end, but as of September 22, 2026 the Senate's bill page still shows S10642 as 'Passed Senate' via substitution by A11560 on June 4, 2026 (43–17), with no delivery to the governor, signature or veto recorded. Correction (2026-07-26): this record's summary previously cited S7992/A7234. S7992 is an unrelated New York labor-relations bill; the data-center act is S10642/A11560, which matches this record's bill_number field. Re-checked 2026-10-19: the nysenate.gov page for A11560 lists, on June 4, 2026, 'delivered to senate' and 'passed Assembly' alongside the Senate's 43-17 passage; the nyassembly.gov summary view shows only the June 1 referral to the Committee on Ways and Means, so the two public pages differ in what they display. Neither page records delivery to the governor, and no signature or veto appears.",
+      "summary": "The proposed Responsible Data Center Development Act (S10642/A11560) would pause new DEC permits for data centers with peak demand of at least 20MW for one year, excluding renewals and facilities that already began construction. It would also establish separate utility rate classes, host-community benefits and construction labor standards. The Senate records a June 4, 2026 vote of 43–17 via A11560 and no gubernatorial signature; the bill remains distinct from the enacted EO62 permitting pause.",
       "source_url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
       "source_title": "New York State Senate — S10642, Responsible Data Center Development Act",
-      "captured_at": "2026-10-19",
+      "captured_at": "2026-11-06",
       "bill_number": "S10642/A11560",
       "sponsors": [
         "Sen. Kristen Gonzalez (D-WF, 59th District)"
@@ -1943,7 +1943,9 @@
           "title": "New York State Assembly — A11560 bill page (summary view)"
         }
       ],
-      "state_code": "NY"
+      "state_code": "NY",
+      "session": "2025-2026",
+      "legislative_votes": "Senate 43-17 on A11560 (June 4, 2026); one absent and two excused."
     },
     {
       "id": "ny-state-eo62-2026-07",
@@ -2619,17 +2621,17 @@
       "status": "proposed",
       "enacted_date": null,
       "effective_date": null,
-      "duration_months": 24,
+      "duration_months": null,
       "duration_description": "Until January 1, 2028",
-      "power_threshold_mw": null,
+      "power_threshold_mw": 1,
       "key_reasons": [
         "transparency",
         "energy"
       ],
-      "summary": "South Carolina H5286 (introduced Feb 26, 2026) would block governmental approval for new data center permits until January 1, 2028, to allow assessment of grid impacts and water availability. Referred to the House Committee on Ways and Means on Feb 26, 2026; two original co-sponsors (Reps. Hager and Gilliam) withdrew their names in March 2026. As of September 22, 2026 the legislature's bill page still lists the bill as 'Currently residing in the House' with no action after March 31, 2026 and no votes recorded. A second bill on the same subject, H.5526 (Rep. J.L. Johnson, introduced April 14, 2026), was likewise referred to Ways and Means and shows no further action.",
+      "summary": "South Carolina H5286 would prohibit final governmental approvals, permits and incentives for new data centers until January 1, 2028. Its definition includes equipment for managing at least 1MW of electrical-power and cooling capacity. Introduced February 26, 2026, it remains in the House Ways and Means Committee; the official history lists sponsor withdrawals in March and no vote or gubernatorial approval.",
       "source_url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
       "source_title": "South Carolina Legislature — H5286",
-      "captured_at": "2026-09-22",
+      "captured_at": "2026-11-06",
       "resources": [
         {
           "url": "https://www.scstatehouse.gov/",
@@ -2648,7 +2650,30 @@
           "title": "South Carolina Legislature — H5526 (Data Center Moratorium)"
         }
       ],
-      "state_code": "SC"
+      "state_code": "SC",
+      "bill_number": "H5286",
+      "session": "2025-2026",
+      "sponsors": [
+        "Rep. Long",
+        "Rep. T. Moore",
+        "Rep. Yow",
+        "Rep. C. Mitchell",
+        "Rep. Martin",
+        "Rep. Edgerton",
+        "Rep. Chumley",
+        "Rep. Magnuson",
+        "Rep. Lawson",
+        "Rep. Frank",
+        "Rep. Huff",
+        "Rep. Crawford",
+        "Rep. Chapman",
+        "Rep. Atkinson",
+        "Rep. Sanders",
+        "Rep. Burns",
+        "Rep. Bailey",
+        "Rep. Guest",
+        "Rep. Hardee"
+      ]
     },
     {
       "id": "south-dakota-state-2026-02",
@@ -3098,31 +3123,41 @@
       "enacted_date": null,
       "effective_date": null,
       "duration_months": null,
-      "duration_description": "Moratorium on data-center operation, conditioned on 100% of the facility's energy coming from newly built, directly accessible renewable generation.",
+      "duration_description": "Until fourteen statutory conditions are established, including cost protections, renewable energy, public disclosure and a municipal referendum.",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy"
       ],
-      "summary": "SB 1061, titled 'Relating to: moratorium on data centers' (Sens. Larson and Carpenter, with Assembly co-sponsors), would impose a moratorium on operating data centers that meet certain size/energy-demand thresholds (reported at 100 MW or more) and require that 100% of their energy come from newly built, directly accessible renewable generation. Introduced Feb 26, 2026, and referred to the Committee on Utilities, Technology and Tourism; it failed to pass pursuant to Senate Joint Resolution 1 when the legislature adjourned.",
+      "summary": "Wisconsin SB1061 would prohibit operating a data center until fourteen conditions were provided by law, including utility-cost protections, a community-recovery funding mechanism, elimination of subsidies, public resource-use reporting, newly built renewable energy, labor standards and municipal referendum approval. Its definition covers a facility meeting any of three tests: at least 5,000 servers, 10,000 square feet, or 100MW of electricity demand. Introduced February 26, 2026, it failed to pass under Senate Joint Resolution1 on March 23, 2026.",
       "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/sb1061",
       "source_title": "Wisconsin SB 1061 - Wisconsin State Legislature (2025-2026 Regular Session)",
       "resources": [
         {
           "url": "https://wisconsinexaminer.com/2026/02/12/democratic-lawmakers-propose-data-center-moratorium/",
           "title": "Wisconsin Examiner - Democratic lawmakers propose data center moratorium"
+        },
+        {
+          "url": "https://docs.legis.wisconsin.gov/document/proposaltext/2025/REG/SB1061.html",
+          "title": "Wisconsin Legislature — SB1061 introduced bill text, definition and conditions"
         }
       ],
       "bill_number": "SB1061",
       "sponsors": [
         "Sen. Larson",
-        "Sen. Carpenter"
+        "Sen. Carpenter",
+        "Rep. Madison",
+        "Rep. Hong",
+        "Rep. Moore Omokunde",
+        "Rep. Clancy",
+        "Rep. Cruz",
+        "Rep. Tenorio"
       ],
       "key_stakeholders": null,
       "enacted_by": null,
       "legislative_votes": null,
       "failure_reason": "Failed to pass pursuant to Senate Joint Resolution 1 when the 2025-2026 legislature adjourned (recorded March 23, 2026); died in the Senate Committee on Utilities, Technology and Tourism.",
       "session": "2025-2026",
-      "captured_at": "2026-07-14",
+      "captured_at": "2026-11-06",
       "state_code": "WI"
     },
     {
@@ -3479,16 +3514,16 @@
       "enacted_date": null,
       "effective_date": null,
       "duration_months": 3,
-      "duration_description": "90 days once formally adopted; the Aug. 11, 2026 council resolution only initiated the required process. Full procedural timeline per the city's own published schedule: Oct. 9 notice for first hearing; Nov. 3 Data Center & Infrastructure Committee presents studies to council; Nov. 10 first public hearing; Nov. 13 notice for second hearing; Jan. 5, 2027 second public hearing; Jan. 12, 2027 first reading of the proposed ordinance; Feb. 16, 2027 second reading/effective date if adopted (requires a three-fourths council majority on final vote, not a simple majority).",
+      "duration_description": "90 days if adopted",
       "power_threshold_mw": null,
       "key_reasons": [
         "water",
         "noise",
         "equity"
       ],
-      "summary": "On August 11, 2026 the Fort Worth City Council unanimously voted to begin the formal, state-law-mandated process for adopting a 90-day moratorium on new data center construction — this is a procedural first step, not yet an enacted pause. As of September 22, 2026 the city's own data-center page states the moratorium is not yet in effect: the first public hearing will be held not later than Nov. 10, 2026 and the adoption vote is tentatively set for Feb. 16, 2027. The council also created a Data Center & Infrastructure Committee (10-1) to develop long-term regulations. Once (if) finally adopted, the moratorium would let staff evaluate data centers' impact on water supply, noise, land-use compatibility and infrastructure; it would not apply to projects with already-submitted or approved zoning applications.",
-      "source_url": "https://www.keranews.org/news/2026-08-12/data-center-moratorium-takes-first-steps-after-fort-worth-city-councils-unanimous-vote",
-      "source_title": "KERA News — Data center moratorium takes first steps after Fort Worth City Council's unanimous vote",
+      "summary": "Fort Worth’s August 11, 2026 resolution began the legal process for a 90-day moratorium; it did not enact a pause. The city schedules the commission report and first public hearing for November 10, 2026, with adoption tentatively February 16, 2027. Supermajority approval is required; vested, approved and already-submitted zoning projects are excluded.",
+      "source_url": "https://www.fortworthtexas.gov/departments/city-manager/datacenters",
+      "source_title": "City of Fort Worth — Data Centers: current moratorium process and hearing schedule",
       "resources": [
         {
           "url": "https://fortworthreport.org/2026/08/12/data-center-moratorium-takes-first-steps-after-fort-worth-city-councils-unanimous-vote/",
@@ -3499,13 +3534,13 @@
           "title": "Community Impact — Fort Worth City Council approves steps to start moratorium process on data centers"
         },
         {
-          "url": "https://www.fortworthtexas.gov/departments/city-manager/datacenters",
-          "title": "City of Fort Worth — Data Centers (moratorium process timeline)"
+          "url": "https://www.keranews.org/news/2026-08-12/data-center-moratorium-takes-first-steps-after-fort-worth-city-councils-unanimous-vote",
+          "title": "KERA News — Data center moratorium takes first steps after Fort Worth City Council's unanimous vote"
         }
       ],
       "city_council_vote": "Unanimous (moratorium process); 10-1 (infrastructure committee)",
       "session": "2026",
-      "captured_at": "2026-09-25"
+      "captured_at": "2026-11-06"
     },
     {
       "id": "greensboro-nc-2026-08",
@@ -5534,15 +5569,15 @@
       "policy_type": "Extension of an August 2026 45-day moratorium (the original pause is not separately recorded)"
     },
     {
-      "captured_at": "2026-10-08",
+      "captured_at": "2026-11-06",
       "id": "raleigh-nc-2026-09",
       "jurisdiction": "Raleigh",
       "jurisdiction_type": "city",
       "state_code": "NC",
       "status": "enacted",
-      "duration_description": "Six months, on data center applications.",
+      "duration_description": "Six months; scheduled to end April 6, 2027",
       "key_reasons": [],
-      "summary": "Raleigh City Council passed a six-month temporary moratorium on data center applications at its October 6, 2026 meeting, after directing the city attorney in September to draft it.",
+      "summary": "Raleigh City Council approved a six-month pause on acceptance and review of data-center development applications on October 6, 2026. The city’s FAQ schedules the end of the pause and final action on proposed zoning text amendments for April 6, 2027. Existing major-data-center zoning and special-use permit requirements are separate from this temporary pause.",
       "source_url": "https://raleighnc.gov/government/news/city-council-hold-public-hearing-temporary-moratorium-data-center-approvals",
       "source_title": "City of Raleigh — City Council public hearing on a temporary moratorium on data center approvals",
       "session": "2026",
@@ -5553,6 +5588,10 @@
         {
           "url": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium",
           "title": "WFAE — Raleigh, Cary weigh data center moratoriums"
+        },
+        {
+          "url": "https://raleighnc.gov/services/unified-development-ordinance-udo/data-centers-faq",
+          "title": "City of Raleigh — Data Centers FAQ: pause, zoning requirements and next steps (updated October 7, 2026)"
         }
       ]
     },

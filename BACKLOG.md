@@ -1508,3 +1508,16 @@ CA and Woodford County KY. A moratorium record alone does not establish a full
 framework or its current legal scope. These remain leads, not new policy rows.
 Confirm Fayetteville's formal ordinance identifier from the instrument itself;
 the city FAQ prints 26-0-12, while the older moratorium uses 26-O-12.
+
+### 2026-11-06 — remaining field gaps
+
+- Verify original approval/enactment dates for Huntsville's Meta agreement,
+  Raleigh's existing special-use provisions and Doña Ana's Jupiter financing.
+  The checked city announcements, FAQ and current project hub do not establish
+  those instrument dates. Keep Alaska's introduction distinct from its failure.
+- Frameworks has 17 records without a stored instrument date after this pass;
+  some are evergreen company plans. Do not substitute capture dates.
+- Moratoriums has 86 records without curated reason tags. These now render
+  an explicit placeholder; the absence is not a finding of no concerns.
+  Curate only reasons supported by each record's source. Unnumbered local
+  actions and proposals without enactment dates are not automatically gaps.

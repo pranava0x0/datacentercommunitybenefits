@@ -1474,7 +1474,7 @@ function loadJurisdictionMap() {
   }
   if (!_jurisdictionMapPromise) {
     const root = document.getElementById("jurisdiction-map-content");
-    const mapModulePath = `./jurisdiction-map.js?v=20261106a${_jurisdictionMapRetries ? `&retry=${_jurisdictionMapRetries}` : ""}`;
+    const mapModulePath = `./jurisdiction-map.js?v=20261106b${_jurisdictionMapRetries ? `&retry=${_jurisdictionMapRetries}` : ""}`;
     _jurisdictionMapPromise = Promise.all([
       fetchJson("data/map_geography.json"), fetchJson("data/doe_sites.json"),
       loadMoratoriumsData(), loadPoliciesData(), loadViewModule(() => import(mapModulePath), mapModulePath, "__JURISDICTION_MAP__"),
@@ -1661,7 +1661,7 @@ function renderMoratoriumsView() {
       <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
       <td><span class="badge badge-moratorium-status-${effectiveStatus(m)}">${escapeHtml(effectiveStatus(m))}</span></td>
       <td title="${escapeAttr(m.duration_description || "")}">${escapeHtml(shortDuration(m.duration_description))}</td>
-      <td>${reasonBadges}</td>
+      <td>${reasonBadges || '<span class="field-missing">Not stated</span>'}</td>
     `;
 
     tr.dataset.id = m.id;
@@ -1711,7 +1711,7 @@ function renderMoratoriumStats(moratoriums) {
   statsList.innerHTML = `
     <li class="rp-stat">
       <span class="rp-stat-value">${total}</span>
-      <span class="rp-stat-label">Total Moratoriums</span>
+      <span class="rp-stat-label">Total</span>
       <span class="rp-stat-breakdown">${_jurtypeBreakdown(moratoriums)}</span>
     </li>
     <li class="rp-stat">
@@ -1727,7 +1727,7 @@ function renderMoratoriumStats(moratoriums) {
     ${failed.length > 0 ? `
     <li class="rp-stat">
       <span class="rp-stat-value">${failed.length}</span>
-      <span class="rp-stat-label">Failed/Rejected</span>
+      <span class="rp-stat-label">Failed</span>
       <span class="rp-stat-breakdown">${_jurtypeBreakdown(failed)}</span>
     </li>
     ` : ""}
@@ -2155,7 +2155,7 @@ function showMoratoriumDetail(m) {
 
   // Core detail fields
   document.getElementById("md-status-detail").textContent = effectiveStatus(m);
-  document.getElementById("md-enacted").textContent = m.enacted_date || "Not yet enacted";
+  document.getElementById("md-enacted").textContent = m.enacted_date || (m.status === "enacted" ? "Not stated" : "Not enacted");
   document.getElementById("md-duration-detail").textContent = m.duration_description;
   document.getElementById("md-threshold").textContent = m.power_threshold_mw ? `${m.power_threshold_mw} MW` : "See scope below";
 
@@ -3073,6 +3073,8 @@ function setPolicyControlsFrom(params) {
   }
   const cbf = document.getElementById("policy-cbf-filter");
   if (cbf) cbf.checked = params.get("p-cbf") === "1";
+  const more = document.querySelector("#policy-filters .directory-more-filters");
+  if (more) more.open = Boolean(document.getElementById("policy-scope-filter")?.value || document.getElementById("policy-principle-filter")?.value);
 }
 
 // Apply ?p-*= / ?policy= once the payload and the filter options exist.
@@ -3568,6 +3570,8 @@ function renderPolicyPrinciples(all) {
       }
       const sel = document.getElementById("policy-principle-filter");
       if (sel) sel.value = key;
+      const more = document.querySelector("#policy-filters .directory-more-filters");
+      if (more) more.open = true;
       renderPoliciesTable();
       setActiveSubtab("pol", "directory");
       const dir = document.getElementById("policies-directory");
@@ -3693,7 +3697,7 @@ function renderPoliciesTable() {
       <td>${escapeHtml(POLICY_INSTRUMENT_LABELS[p.instrument] || p.instrument)}</td>
       <td>${escapeHtml(policyWhere(p))}</td>
       <td><span class="badge ${POLICY_STATUS_BADGE_CLASS[p.status] || ""}">${escapeHtml(POLICY_STATUS_LABELS[p.status] || p.status)}</span></td>
-      <td class="policy-date">${escapeHtml(p.date || "—")}</td>
+      <td class="policy-date">${escapeHtml(p.date || "Not dated")}</td>
       <td><span class="policy-themes">${themes}</span></td>`;
     tr.tabIndex = 0;
     tr.setAttribute("role", "button");

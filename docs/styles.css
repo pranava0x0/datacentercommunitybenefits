@@ -504,7 +504,8 @@ select:focus-visible,
 
 .tabbar {
   display: flex;
-  gap: 2px;
+  gap: 0;
+  justify-content: space-between;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
@@ -1654,12 +1655,17 @@ main {
    Responsive: tablet
    ========================================================================== */
 
-@media (max-width: 960px) {
-  /* Eight tabs do not fit a tablet's width; wrap rather than hide some. */
+@media (max-width: 1100px) {
   .tabbar {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     overflow-x: visible;
   }
+  .tab-long { display: none; }
+  .tab { min-width: 0; padding-inline: 4px; }
+}
+
+@media (max-width: 960px) {
 
   .explorer-layout {
     grid-template-columns: 1fr;
@@ -6480,6 +6486,7 @@ button.depth-chip:focus-visible {
   outline: 2px solid var(--accent); outline-offset: 3px;
 }
 .planning-guide { max-width: 900px; }
+#subpane-pol-evidence > p { margin: 8px 0; }
 .guide-notice { font-size: var(--fs-sm); color: var(--text-muted); }
 .guide-decision { border-left: 3px solid var(--accent); padding-left: 12px; }
 .guide-clause { border-bottom: 1px solid var(--border); padding: 6px 0; }
@@ -6808,29 +6815,48 @@ button.depth-chip:focus-visible {
 }
 
 /* Jurisdiction geometry and public DOE references, loaded on the Map pane. */
-.jurisdiction-filters { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+#jurisdiction-map-content { --map-pause: #6f7fa1; --map-pause-edge: #4f6084; --map-framework: #689e98; --map-framework-edge: #356e68; --map-both: #79799b; --map-both-edge: #465c77; }
+[data-theme="dark"] #jurisdiction-map-content { --map-pause-edge: #b2c3e6; --map-framework-edge: #9dcac5; --map-both-edge: #c0b8db; }
+.view-scope { margin: 6px 0 0; font-size: var(--fs-sm); }
+.directory-filters { align-items: end; margin-bottom: 12px; gap: 10px 12px; }
+.directory-filters .filter { flex-direction: column; gap: 3px; }
+.filter-name { font-size: var(--fs-sm); }
+.directory-filters .export-btns { margin-left: auto; align-self: end; }
+.directory-more-filters { font-size: var(--fs-sm); }
+.directory-more-filters summary { padding: 6px 0; cursor: pointer; }
+.directory-more-filters[open] { flex-basis: 100%; }
+.directory-more-filters .filter-bar { margin: 8px 0; }
+.field-missing { color: var(--text-muted); font-size: var(--fs-sm); }
+.jurisdiction-filters { display: flex; flex-direction: row; flex-wrap: wrap; align-items: end; gap: 8px 12px; margin: 12px 0; }
 .jurisdiction-filters label { display: flex; flex-direction: column; gap: 3px; font-size: var(--fs-sm); }
-.jurisdiction-filters input, .jurisdiction-filters select { min-width: 0; max-width: 100%; }
+.jurisdiction-filters > label:first-child { flex: 1 1 220px; }
+.jurisdiction-filters input, .jurisdiction-filters select { min-width: 0; width: 100%; max-width: 100%; }
+.map-filters { font-size: var(--fs-sm); }
+.map-filters > summary { cursor: pointer; padding: 6px 0; }
+.map-filters[open] { flex-basis: 100%; }
+.map-filters .jurisdiction-filters { margin: 8px 0; }
 .jurisdiction-layers { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0; padding: 0; border: 0; font-size: var(--fs-sm); }
 .jurisdiction-layers label { display: inline-flex; align-items: center; gap: 5px; }
-.jurisdiction-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); gap: 12px; align-items: start; }
+.jurisdiction-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: start; }
+.jurisdiction-layout.has-selection { grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); }
+.jurisdiction-detail[hidden] { display: none; }
 .jurisdiction-canvas { position: relative; height: 500px; border: 1px solid var(--border); background: var(--surface-2); overflow: hidden; }
 .jurisdiction-canvas > svg { width: 100%; height: 100%; touch-action: none; cursor: grab; }
 .jurisdiction-canvas > svg:active { cursor: grabbing; }
 .jurisdiction-canvas > svg:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
 .map-state-background path { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
 .map-jurisdiction { cursor: pointer; stroke-width: 1.3; fill-opacity: .24; }
-.map-has-moratorium { fill: #6f7fa1; stroke: #4f6084; }
-.map-has-policy { fill: #689e98; stroke: #356e68; }
-.map-has-moratorium.map-has-policy { fill: #79799b; stroke: #465c77; stroke-width: 2; }
+.map-has-moratorium { fill: var(--map-pause); stroke: var(--map-pause-edge); }
+.map-has-policy { fill: var(--map-framework); stroke: var(--map-framework-edge); }
+.map-has-moratorium.map-has-policy { fill: var(--map-both); stroke: var(--map-both-edge); stroke-width: 2; }
 .map-proposed { stroke-dasharray: 4 3; fill-opacity: .1; }
 .map-inactive { stroke-dasharray: 1 3; fill-opacity: .06; stroke-opacity: .5; }
-.map-jurisdiction:hover { fill-opacity: .5; stroke-width: 2; }
+.map-jurisdiction:hover, .map-jurisdiction:focus-visible { fill-opacity: .5; stroke-width: 2; outline: none; }
 .map-doe-point { cursor: pointer; }
 .map-dot-hit { fill: transparent; }
 .map-dot { fill: var(--text-muted); stroke: var(--surface); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .map-doe-point.has-announcement .map-dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
-.map-doe-point text { fill: var(--surface); font-family: var(--font-sans); font-weight: 700; pointer-events: none; }
+.map-doe-star { pointer-events: none; }
 .map-doe-point:focus .map-dot { stroke: var(--text); stroke-width: 3; }
 .map-key-moratoriums { color: #4f6084; }
 .map-key-policies { color: #356e68; }
@@ -6844,6 +6870,21 @@ button.depth-chip:focus-visible {
 .jurisdiction-detail p, .map-announcement p { margin: 8px 0; }
 .jurisdiction-detail h3, .map-announcements h3 { font-size: var(--fs-lg); }
 .jurisdiction-detail h4, .map-announcement h4 { font-size: var(--fs-base); }
+.map-detail-heading { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+.map-detail-heading button { min-width: 32px; flex-shrink: 0; }
+.jurisdiction-tooltip { position: absolute; z-index: 2; max-width: min(310px, calc(100% - 16px)); padding: 8px 10px; border: 1px solid var(--text-muted); border-radius: var(--radius-sm); background: var(--surface); color: var(--text); box-shadow: var(--shadow); font-size: var(--fs-sm); pointer-events: none; }
+.jurisdiction-tooltip strong, .jurisdiction-tooltip span { display: block; }
+.jurisdiction-tooltip span { margin-top: 3px; }
+.jurisdiction-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 10px 0 0; font-size: var(--fs-xs); }
+.jurisdiction-legend li { display: inline-flex; align-items: center; gap: 6px; }
+.map-swatch { display: inline-block; width: 16px; height: 12px; border: 1px solid; }
+.map-swatch-moratorium { background: color-mix(in srgb, var(--map-pause) 24%, transparent); border-color: var(--map-pause-edge); }
+.map-swatch-policy { background: color-mix(in srgb, var(--map-framework) 24%, transparent); border-color: var(--map-framework-edge); }
+.map-swatch-both { background: color-mix(in srgb, var(--map-both) 24%, transparent); border-color: var(--map-both-edge); }
+.map-swatch-proposed { border-style: dashed; }
+.map-swatch-inactive { border-style: dotted; }
+.map-swatch-doe, .map-swatch-announcement { border: 0; height: auto; font-size: var(--fs-lg); line-height: 1; color: var(--text-muted); }
+.map-swatch-announcement { color: var(--accent); }
 .map-record-link, .map-location-link { text-align: left; background: none; border: none; padding: 4px 0; font: inherit; color: var(--accent); text-decoration: underline; cursor: pointer; }
 .map-record-link { font-weight: 600; }
 .jurisdiction-caption { margin: 8px 0 16px; font-size: var(--fs-xs); color: var(--text-muted); }
@@ -6853,18 +6894,31 @@ button.depth-chip:focus-visible {
 .map-announcement { padding: 12px 0; border-bottom: 1px solid var(--border); }
 .map-coverage { margin-top: 16px; }
 @media (max-width: 800px) {
-  .jurisdiction-layout { grid-template-columns: 1fr; }
+  .jurisdiction-layout, .jurisdiction-layout.has-selection { grid-template-columns: 1fr; }
   .jurisdiction-canvas { height: 340px; }
   .jurisdiction-detail { max-height: 360px; }
   .jurisdiction-results { grid-template-columns: 1fr; }
   .jurisdiction-filters label { flex: 1 1 130px; min-width: 0; }
   .jurisdiction-filters label:first-child { flex-basis: 100%; }
 }
+.jurisdiction-filters > .map-filters[open] { flex-basis: 100%; }
+#jurisdiction-map-meta { font-size: var(--fs-sm); font-style: normal; margin: 8px 0; }
+@media (max-width: 640px) {
+  #moratorium-stats { display: flex; gap: 2px 16px; }
+  #moratorium-stats .rp-stat-breakdown { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .jurisdiction-layers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 8px; }
+  .directory-filters > .filter { flex: 1 1 130px; min-width: 0; }
+  .directory-filters > .filter-search { flex-basis: 100%; }
+  .directory-filters select, .directory-filters input[type="search"] { width: 100%; max-width: 100%; }
+}
 @media (pointer: coarse) {
   .jurisdiction-filters input, .jurisdiction-filters select, .jurisdiction-layers label,
   .jurisdiction-zoom button, .map-record-link, .map-location-link, .jurisdiction-detail a { min-height: 44px; }
   .jurisdiction-detail a { display: inline-flex; align-items: center; }
   .jurisdiction-zoom button, .map-record-link, .map-location-link { min-width: 44px; }
+  .map-filters > summary { min-height: 44px; display: list-item; line-height: 44px; padding: 0; }
+  .directory-more-filters summary { min-height: 44px; display: list-item; line-height: 44px; padding: 0; }
+  .map-detail-heading button { min-width: 44px; min-height: 44px; }
 }
 
 /* Shared headings and summary strips retain contrast across view changes. */

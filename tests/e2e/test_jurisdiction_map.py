@@ -16,7 +16,7 @@ def test_map_data_only_loads_on_map_tab(page: Page, base_url: str) -> None:
     assert not any("map_geography" in url or "doe_sites" in url or "jurisdiction-map.js" in url for url in requests)
     page.click("#subtab-mor-map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
-    expect(page.locator("#jurisdiction-map-meta")).to_contain_text("33 DOE reference points")
+    expect(page.locator("#jurisdiction-map-meta")).to_contain_text("33 DOE sites")
     expect(page.locator(".map-announcements > .map-announcement")).to_have_count(6)
     assert not any("leaflet" in url or "arcgisonline" in url for url in requests)
 
@@ -59,15 +59,19 @@ def test_original_index_file_loads_data_and_modules_offline(page: Page) -> None:
     page.click("#tab-moratoriums")
     page.click("#subtab-mor-map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
-    expect(page.locator("#jurisdiction-map-meta")).to_contain_text("33 DOE reference points")
+    expect(page.locator("#jurisdiction-map-meta")).to_contain_text("33 DOE sites")
     assert not errors
 
 
-def test_map_project_search_and_keyboard_cluster_focus(page: Page, base_url: str) -> None:
+def test_map_project_search_and_keyboard_site_focus(page: Page, base_url: str) -> None:
     page.goto(base_url + "/#moratoriums/map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
-    cluster = page.locator('.map-doe-point').filter(has_text="2").first
-    cluster.focus()
+    sites = page.locator('.map-doe-point')
+    expect(sites).to_have_count(33)
+    expect(sites.locator('text')).to_have_count(0)
+    assert sites.evaluate_all('nodes=>nodes.every(n=>!n.dataset.siteIds.includes(","))')
+    expect(page.locator('.map-doe-star')).to_have_count(33)
+    sites.first.focus()
     page.keyboard.press("Enter")
     assert page.evaluate('document.activeElement.classList.contains("map-doe-point")')
     page.fill("#jurisdiction-map-q", "Amentum")
@@ -76,6 +80,51 @@ def test_map_project_search_and_keyboard_cluster_focus(page: Page, base_url: str
     expect(page.locator('[data-location-id="doe-savannah-river"]')).to_be_visible()
     page.fill("#jurisdiction-map-q", "no-such-project")
     expect(page.locator('.map-announcements > .map-announcement')).to_have_count(0)
+
+
+def test_map_hover_legend_and_keyboard_record_links(page: Page, base_url: str) -> None:
+    page.goto(base_url + '/#moratoriums/map')
+    expect(page.locator('#jurisdiction-map-svg')).to_be_visible()
+    expect(page.locator('#jurisdiction-map-detail')).to_be_hidden()
+    expect(page.locator('[data-jurisdiction-id="states-15"]')).to_have_attribute('tabindex', '-1')
+    page.get_by_role('button', name='Hawaii', exact=True).click()
+    expect(page.locator('[data-jurisdiction-id="states-15"]')).to_have_attribute('tabindex', '0')
+    page.get_by_role('button', name='Contiguous United States', exact=True).click()
+    legend = page.get_by_role('list', name='Map legend')
+    for text in ['Pause / ban', 'Framework', 'Both', 'Proposed: dashed border',
+                 'Lifted / failed: dotted border', 'DOE site with announcement']:
+        expect(legend).to_contain_text(text)
+    site = page.locator('.map-doe-point[data-site-ids="doe-rockies-golden"]')
+    site.hover()
+    tooltip = page.get_by_role('tooltip')
+    expect(tooltip).to_be_visible()
+    expect(tooltip).to_contain_text('National Laboratory of the Rockies')
+    expect(page.locator('#jurisdiction-map-detail')).to_be_hidden()
+    page.mouse.move(0, 0)
+    expect(tooltip).to_be_hidden()
+    site.hover()
+    page.keyboard.press('Escape')
+    expect(tooltip).to_be_hidden()
+    box = site.bounding_box()
+    page.mouse.move(box['x'] + box['width'] / 2 + 1, box['y'] + box['height'] / 2)
+    expect(tooltip).to_be_hidden()
+    page.mouse.move(0, 0)
+    site.focus()
+    expect(tooltip).to_be_visible()
+    page.keyboard.press('Escape')
+    expect(tooltip).to_be_hidden()
+    page.keyboard.press('Enter')
+    expect(page.locator('#jurisdiction-map-detail')).to_contain_text('National Laboratory of the Rockies')
+    expect(page.locator('#jurisdiction-map-detail a').first).to_have_attribute('target', '_blank')
+    page.get_by_role('button', name='Close location details').click()
+    expect(page.locator('#jurisdiction-map-detail')).to_be_hidden()
+    page.select_option('#jurisdiction-map-state', 'TX')
+    region = page.locator('[data-jurisdiction-id="states-48"]')
+    region.focus()
+    expect(tooltip).to_contain_text('Texas')
+    page.keyboard.press('Enter')
+    page.locator('.map-record-link[data-record-id="tx-sb6-2025"]').click()
+    expect(page.locator('#policy-detail')).to_be_visible()
 
 
 def test_map_path_click_and_pan(page: Page, base_url: str) -> None:
