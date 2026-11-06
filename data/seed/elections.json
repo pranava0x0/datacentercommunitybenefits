@@ -822,7 +822,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Keisha Lance Bottoms",
@@ -877,8 +877,28 @@
           "source_url": "https://www.nga.org/governors/georgia/",
           "source_title": "National Governors Association — Governor Brian Kemp",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "We don’t need to try to push these things where people don’t want them",
+            "source_url": "https://www.wabe.org/kemp-touts-data-centers-calls-ai-scary-but-essential/",
+            "source_title": "WABE — Kemp interview on local decisions and a blanket moratorium",
+            "captured_at": "2026-11-05",
+            "speaker": "Brian Kemp",
+            "published_at": "2026-07-28"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Construction pause",
+          "summary": "Bottoms proposes a statewide pause on new data-center construction. Kemp’s July interview opposed a blanket moratorium and said communities should decide whether to host projects.",
+          "source_urls": [
+            "https://www.atlantanewsfirst.com/2026/10/10/read-full-transcript-town-hall-debate-between-keisha-lance-bottoms-rick-jackson/?outputType=amp",
+            "https://www.wabe.org/kemp-touts-data-centers-calls-ai-scary-but-essential/"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "hi-governor-2026",
