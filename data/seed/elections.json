@@ -383,7 +383,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Katie Hobbs",
@@ -440,8 +440,18 @@
           "source_url": "https://www.kjzz.org/elections/2026-11-03/arizona-governor-election-results-elex",
           "source_title": "KJZZ — incumbent governor Katie Hobbs",
           "captured_at": "2026-11-04"
-        }
-      }
+        },
+        "statements": [
+          {
+            "statement": "beginning on July 1, 2026 through June 30, 2029, the Arizona commerce authority may not accept applications for any new computer data center pursuant to section 41-1519, Arizona Revised Statutes, and no new computer data centers qualify for tax relief under section 41-1519, Arizona Revised Statutes.",
+            "source_url": "https://www.azleg.gov/legtext/57leg/2r/laws/0140.htm",
+            "source_title": "Arizona Chapter 140, section 31 — existing new tax-relief application pause",
+            "captured_at": "2026-11-05",
+            "published_at": "2026-06-13"
+          }
+        ]
+      },
+      "proposed_changes": []
     },
     {
       "id": "ar-governor-2026",
