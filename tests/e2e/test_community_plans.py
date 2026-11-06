@@ -16,7 +16,7 @@ def test_plans_and_evidence(page, base_url, width, tmp_path):
     page.get_by_role('button', name='Draft a benefit plan', exact=True).click()
     expect(page.locator('#draft-plan-decision')).to_be_visible()
     assert page.url.endswith('#policies/drafts')
-    expect(page.locator('#policy-stats')).to_be_hidden()
+    expect(page.locator('#policy-stats')).to_be_visible()
     expect(page.locator('.guide-notice')).to_contain_text('example numbers are invented')
     for key, heading, sections in [('county', 'County plan', 8), ('state', 'State framework', 6)]:
         page.locator('#draft-plan-kind').select_option(key)

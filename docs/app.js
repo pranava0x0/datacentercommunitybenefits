@@ -656,7 +656,6 @@ const state = {
   leafletLoaded: false,
   map: null,
   markers: new Map(),
-  chinaContext: null,
   _moratoriumReturnFocus: null,
 };
 
@@ -1453,7 +1452,6 @@ function loadMoratoriumsData() {
     _moratoriumsPromise = (async () => {
       const payload = await fetchJson("data/moratoriums.json");
       state.moratoriums = payload.moratoriums;
-      state.chinaContext = payload.china_anti_datacenter_messaging;
       state.themeRecommendations = payload.theme_recommendations || {};
       state.moratoriumsLoaded = true;
       renderMoratoriumsView();
@@ -1615,7 +1613,6 @@ function renderMoratoriumsView() {
   renderMoratoriumStats(state.moratoriums);
   renderMoratoriumCharts(state.moratoriums);
   renderReasonBreakdown(state.moratoriums);
-  renderChinaContext();
 
   let filtered = filteredMoratoriums();
 
@@ -2123,66 +2120,6 @@ function renderThemePopout(themeKey) {
   html += `</div>`;
   popout.innerHTML = html;
   container.appendChild(popout);
-}
-
-function renderChinaContext() {
-  const container = document.getElementById("china-context-content");
-  if (!container || !state.chinaContext) return;
-
-  const ctx = state.chinaContext;
-  let html = `<p><strong>${escapeHtml(ctx.overview || "")}</strong></p>`;
-  html += `<p><em>${escapeHtml(ctx.key_claim || "")}</em></p>`;
-
-  // Industry claims section
-  if (ctx.industry_claims) {
-    const ic = ctx.industry_claims;
-
-    if (ic.kevin_oleary_claim) {
-      const ko = ic.kevin_oleary_claim;
-      html += `<h4>The Kevin O'Leary Claim</h4>`;
-      html += `<p><strong>Claimant:</strong> ${escapeHtml(ko.claimant)}</p>`;
-      html += `<p><strong>Claim:</strong> "${escapeHtml(ko.claim)}"</p>`;
-      html += `<p><strong>Context:</strong> ${escapeHtml(ko.context)}</p>`;
-      html += `<p><strong>Evidence:</strong> <em>${escapeHtml(ko.evidence_of_campaign)}</em></p>`;
-    }
-
-    if (ic.competing_explanations) {
-      const ce = ic.competing_explanations;
-      html += `<h4>Alternative Explanations</h4>`;
-      html += `<ul>`;
-      html += `<li><strong>Documented Drivers:</strong> ${escapeHtml(ce.documented_drivers)}</li>`;
-      html += `<li><strong>Local Opposition:</strong> ${escapeHtml(ce.local_opposition)}</li>`;
-      html += `<li><strong>Timing:</strong> ${escapeHtml(ce.timing)}</li>`;
-      html += `</ul>`;
-    }
-  }
-
-  // Assessment section
-  if (ctx.assessment) {
-    const a = ctx.assessment;
-    html += `<h4>Assessment</h4>`;
-    html += `<ul>`;
-    html += `<li><strong>Claim Plausibility:</strong> ${escapeHtml(a.claim_plausibility)}</li>`;
-    html += `<li><strong>What Is True:</strong> ${escapeHtml(a.what_is_true)}</li>`;
-    html += `<li><strong>What Is Unproven:</strong> ${escapeHtml(a.what_is_unproven)}</li>`;
-    html += `<li><strong>Intelligence Assessment:</strong> ${escapeHtml(a.intelligence_assessment)}</li>`;
-    html += `</ul>`;
-  }
-
-  // Federal enforcement (CFIUS) — included for completeness
-  if (ctx.federal_enforcement && ctx.federal_enforcement.cfius) {
-    html += `<h4>Federal Enforcement: CFIUS Reviews</h4>`;
-    html += `<p>${escapeHtml(ctx.federal_enforcement.cfius.description)}</p>`;
-    if (ctx.federal_enforcement.cfius.key_actions) {
-      html += `<ul>`;
-      ctx.federal_enforcement.cfius.key_actions.forEach(action => {
-        html += `<li><strong>${escapeHtml(action.action)}</strong> — ${escapeHtml(action.status)}</li>`;
-      });
-      html += `</ul>`;
-    }
-  }
-
-  container.innerHTML = html;
 }
 
 // Show/hide an optional dt+dd pair in the moratorium modal.
@@ -3680,13 +3617,14 @@ function renderPolicyActions(all) {
       note: null,
       open: () => showPolicyDetail(p),
     }));
-  for (const m of (state.moratoriums || []).filter(isGovernorMoratorium)) {
+  const linkedMoratoriums = new Set(all.map((p) => p.related_moratorium_id).filter(Boolean));
+  for (const m of (state.moratoriums || []).filter((item) => effectiveStatus(item) === "enacted" && !linkedMoratoriums.has(item.id))) {
     items.push({
       date: m.enacted_date || m.effective_date,
       where: m.state_code,
-      verb: "signed",
-      title: m.bill_number && /order/i.test(m.bill_number) ? m.bill_number : `${m.jurisdiction} governor's directive`,
-      note: "pause · Moratoriums tab",
+      verb: isGovernorMoratorium(m) ? "signed" : "enacted",
+      title: `${m.jurisdiction}: ${m.bill_number || "data-center moratorium"}`,
+      note: "Moratorium",
       open: () => {
         activateView("moratoriums");
         openWhenStillOn("moratoriums", new Promise(requestAnimationFrame), () => showMoratoriumDetail(m));
@@ -4489,7 +4427,7 @@ const SUBTAB_GROUPS = {
   tar: ["ratecases", "tariffs", "elements"],
   pol: ["principles", "latest", "directory", "drafts", "evidence"],
   cba: ["strongest", "all", "features"],
-  mor: ["directory", "map", "trends", "influence"],
+  mor: ["directory", "map", "trends"],
   world: ["countries", "instruments", "sites"],
 };
 
@@ -4533,12 +4471,10 @@ function setActiveSubtab(group, key) {
   }
   syncSubtabHash(group);
   if (group === "mor") {
-    document.getElementById("moratorium-stats").hidden = key === "map";
     if (key === "map") loadJurisdictionMap();
   }
   if (group === "pol") {
     const isGuide = key === "drafts" || key === "evidence";
-    document.getElementById("policy-stats").hidden = isGuide;
     if (isGuide) loadPlanningGuide(key);
   }
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));

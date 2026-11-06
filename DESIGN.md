@@ -384,3 +384,23 @@ Home uses compact title/count tiles and shorter gaps. Phone navigation uses
 five equal columns in two 44px rows. Elections starts with a sourced policy
 summary table; quotations open on demand. Moratoriums has its own lazy SVG map
 with generalized jurisdiction boundaries and public DOE reference points.
+
+### 2026-11-06 — policy-first election rows and stable summaries
+
+Elections leads with curator-selected, source-backed pause proposals. The
+optional topic pointer must match an existing policy comparison and cite the
+winner. It is a display selection, not an inference from party or election
+causation. All other officeholders and ballot measures remain in the directory.
+
+Use two columns: officeholder identity and one lead policy. Additional policies
+and full statements open in the row. Identity citations live with the expanded
+evidence. Do not add large election-count cards or estimated card heights.
+Secondary filters use a native disclosure; preserve its marker and touch target.
+
+Other tabs share a compact text/count strip that remains across their sub-tabs.
+Headings and small record labels use full ink. Swap views immediately: fading
+an entire view through zero opacity made text appear pale when clicked.
+
+Map search results precede the canvas while a query is active. This preserves
+lookup effort when the shared summary strip is present. Clearing search restores
+the map-first view. The existing interaction budgets remain the gate.

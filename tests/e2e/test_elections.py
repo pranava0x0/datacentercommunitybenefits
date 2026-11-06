@@ -67,10 +67,9 @@ def test_winner_and_actual_prior_policy_visible_without_disclosure(elections: Pa
     expect(row.locator(".election-transition")).to_contain_text("Alex (Republican)")
     expect(row.locator(".election-summary")).to_contain_text("Jordan proposes a new pause")
     expect(row.locator(".election-summary a")).to_have_attribute("href", "https://example.org/source")
-    expect(row.locator(".election-result a")).to_have_attribute("href", "https://example.org/source")
     expect(elections.locator(".election-card")).to_have_count(0)
     expect(elections.locator("blockquote")).to_have_count(0)
-    expect(elections.locator("#elections-stats .rp-stat-value")).to_have_text(["2", "1", "1", "1"])
+    expect(elections.locator("#elections-stats")).to_have_count(0)
     expect(row).not_to_contain_text("Losing challenger")
     expect(elections.locator("#elections-content")).not_to_contain_text("certified")
     expect(elections.locator("#elections-content")).not_to_contain_text("in this pass")
@@ -81,6 +80,7 @@ def test_winner_and_actual_prior_policy_visible_without_disclosure(elections: Pa
     expect(toggle).to_have_attribute("aria-expanded", "true")
     detail = elections.locator("#election-details-tx-governor-2026")
     expect(detail.locator(".election-candidate")).to_have_count(2)
+    expect(detail.get_by_role("link", name="Election source")).to_have_attribute("href", "https://example.org/source")
     expect(detail.locator("blockquote").last).to_have_text("Approvals depend on completing the audit.")
     expect(detail.locator(".election-evidence").first).to_contain_text("Accessed 2026-11-04")
     elections.keyboard.press("Space")
@@ -93,6 +93,7 @@ def test_winner_and_actual_prior_policy_visible_without_disclosure(elections: Pa
 def test_filters_and_search_include_prior_and_policy(elections: Page, base_url: str) -> None:
     elections.goto(base_url + "/#elections")
     elections.locator("#election-tx-governor-2026 .election-toggle").click()
+    elections.locator(".election-more-filters summary").click()
     elections.select_option("#elections-status", "party")
     expect(elections.locator(".election-card")).to_have_count(0)
     expect(elections.locator(".election-row")).to_have_count(1)
@@ -114,6 +115,7 @@ def test_filters_and_search_include_prior_and_policy(elections: Page, base_url: 
 
 def test_advisory_passage_stays_distinct_from_a_law(elections: Page, base_url: str) -> None:
     elections.goto(base_url + "/#elections")
+    elections.locator(".election-more-filters summary").click()
     elections.select_option("#elections-kind", "measure")
     card = elections.locator(".election-row")
     expect(card).to_have_count(1)
@@ -130,6 +132,7 @@ def test_party_filter_accepts_aliases_and_preserves_unknown_affiliation(page: Pa
     # The winner is Democratic, so an alternate spelling is not a party flip.
     page.route("**/data/elections.json", lambda route: route.fulfill(json=election_data))
     page.goto(base_url + "/#elections")
+    page.locator(".election-more-filters summary").click()
     page.select_option("#elections-status", "party")
     expect(page.locator(".election-row")).to_have_count(0)
     page.select_option("#elections-status", "changes")
@@ -210,9 +213,14 @@ def test_live_summary_keeps_all_records_and_texas_topics(page: Page, base_url: s
     expect(row).to_have_attribute("id", "election-tx-governor-2026")
     expect(row.locator(".election-summary")).to_contain_text("immediate moratorium")
     expect(row.locator(".election-summary")).to_contain_text("ERCOT and water-board audits")
-    expect(row.locator(".election-summary")).to_contain_text("Residential electricity rates")
-    expect(row.locator(".election-summary")).to_contain_text("Tax incentives")
-    expect(row.locator(".election-topic")).to_have_count(4)
+    expect(row.locator(".election-topic")).to_have_count(1)
+    expect(page.locator('.election-row[data-pause-proposal="true"]')).to_have_count(9)
+    assert page.locator('.election-row').evaluate_all('rows => rows.slice(0,9).every(r => r.dataset.pauseProposal === "true")')
+    row.locator('.election-toggle').click()
+    detail = page.locator('#election-details-tx-governor-2026')
+    expect(detail).to_contain_text("Residential electricity rates")
+    expect(detail).to_contain_text("Tax incentives")
+
 
 
 def test_live_legal_record_opens_from_summary(page: Page, base_url: str) -> None:

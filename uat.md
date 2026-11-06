@@ -372,3 +372,42 @@ The preview build verification passed with 56 election records and its legal lin
 
 November 5 final suite: 942 tests passed. The 132 interaction paths, offline
 preview and two byte-identical refresh runs passed; no budgets were increased.
+
+## 2026-11-06 policy coverage and compact layouts
+
+Frameworks now has 141 records, including four additions checked against the
+New York governor's order, Texas governor's directive, Fayetteville city FAQ
+and Loudoun county release. Related moratorium records link to the same
+instrument; Loudoun's existing special-exception requirement remains distinct
+from its proposed pause. Eleven further coverage leads remain unverified in
+BACKLOG.md. The Fayetteville FAQ's printed ordinance number needs confirmation
+against the instrument before becoming a formal identifier.
+
+Elections leads with nine winners' sourced pause proposals. All 54 records
+remain; statements and additional policies open inline. On a 375×812 phone,
+the first policy row begins at 381px instead of 655px, and its closed height
+fell from 868px to 320px. At 1366×900 it begins at 318px instead of 414px,
+with height 107px instead of 291px. The directory no longer begins with
+result-count cards. Shared summary strips stay visible across subtabs;
+headings render at full opacity immediately after navigation.
+
+Two independent review rounds covered source accuracy, winner/prior-holder
+attribution, copy, layout and touch targets. The second checked all ten tabs
+and 92 subtab/device/theme combinations at 375px touch and 1366px desktop in
+light and dark themes. No page errors or document overflow remained. Phone
+Trends toggles wrap, and active map search results precede the map.
+
+Release gate: 965 tests passed in 310 seconds. All 156 interaction paths
+(26 tasks × three devices × two disclosure contexts) passed without raising
+budgets. Elections policy takes one navigation action on each device; measured
+script time was 2.17–2.26s. DOE announcement lookup takes 6 actions on phone
+and 5 on tablet/desktop; moratorium lookup takes 7 and 6 respectively. These
+script times include the harness's deliberate waits and typing. Detailed
+per-flow times are in uat/interaction_costs.json.
+
+Three fresh local-browser samples per view/device measured Home and Elections
+ready at roughly 63ms and the map at 80–81ms. The previous version measured
+55–58ms for Home/Elections; this change does not establish a load-speed gain.
+These unthrottled loopback observations are not production latency estimates.
+Home and Elections still avoid map, DOE and preview-adapter requests.
+Before/after measurements: uat/policy_layout_performance.json.

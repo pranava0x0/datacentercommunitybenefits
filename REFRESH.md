@@ -1294,3 +1294,24 @@ Expected DOE's text roster to expose locations. The current EM homepage embeds
 organization names separately. Field-office or headquarters coordinates must
 not become development-parcel pins. Keep national announcements unpinned when
 individual project locations are not established.
+
+### 2026-11-06 — framework / moratorium cross-check
+
+A temporary pause is not automatically a second full policy record. Compare
+jurisdiction, source and instrument before adding a framework; link the same
+instrument through related_moratorium_id and suppress its duplicate Latest
+entry. Latest can reference canonical state and local pauses directly.
+
+NY EO62 directs framework development and fund consideration; it does not prove
+a final framework or a fixed contribution obligation. Its permitting pause ends
+on the DPS environmental findings, not a fixed one-year deadline. Loudoun's
+revised county release explicitly describes a conditional future resolution;
+keep that proposal distinct from the existing special-exception review rule.
+An unknown enactment date stays unknown. Candidate pause proposals require the
+winner's own evidence; a losing candidate's statement cannot supply the lead.
+
+A cached moratorium audit may have no saved page for a record (HTTP0 in its
+report). That does not establish source liveness or accuracy. Use --no-issues
+when retaining an incomplete-cache audit, and keep the generated issue report
+separate from manual primary-source verification; do not publish a new wave of
+no-government-source findings solely from an empty cache.

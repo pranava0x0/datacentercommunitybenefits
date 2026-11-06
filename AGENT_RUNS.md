@@ -585,3 +585,19 @@ GitHub's review of the feature commit completed with no findings. A final
 coarse-pointer check found map zoom/link widths below 44px; one CSS rule and a
 browser regression fix that last mobile issue. Nineteen focused map, type-scale
 and selector checks passed before the follow-up commit.
+
+### 2026-11-06 — framework coverage and cross-tab reading pass
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| Policy / moratorium gap audit | yes | 250 / 137 local records compared; four validated candidates; six retrieval attempts, four readable; tokens not reported | Check exact cached official Texas URLs before trying a guessed host variant. Parent confirmed live 200. |
+| Combined accuracy / design review | yes | Four framework records and nine winner proposals checked; touch selector and ballot separators fixed; tokens not reported | Capture immediately after navigation: a fade animation can imitate low text contrast. |
+| Follow-up review / tab UAT | yes | Ten tabs and 92 sub-tab checks at 375px touch / 1366px desktop in light/dark; no findings; tokens not reported | Review current generated adapters after source edits settle. |
+
+The parent used source text to distinguish an existing special-exception rule
+from a proposed pause, an ESD framework-development direction from a completed
+framework, and an administrative permit directive from enacted legislation.
+Trends UAT found an overflowing jurisdiction toggle; wrapping it fixed the phone
+page width without hiding controls. Early harness failures used an SVG selector
+for DOM charts and expected a dash where the existing UI says Not dated; those
+were test assumptions, corrected without changing production behavior.
