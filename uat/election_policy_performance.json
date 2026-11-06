@@ -1,0 +1,190 @@
+{
+  "benchmarks": [
+    {
+      "version": "before",
+      "device": "phone",
+      "view": "Home",
+      "median_ready_ms": 58.3,
+      "samples_ms": [
+        69.4,
+        58.3,
+        57.1
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261020a",
+        "app.js?v=20261105a",
+        "home.json"
+      ]
+    },
+    {
+      "version": "before",
+      "device": "phone",
+      "view": "#elections",
+      "median_ready_ms": 58.0,
+      "samples_ms": [
+        71.0,
+        58.0,
+        57.2
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261020a",
+        "app.js?v=20261105a",
+        "elections.json",
+        "elections.js"
+      ]
+    },
+    {
+      "version": "before",
+      "device": "desktop",
+      "view": "Home",
+      "median_ready_ms": 54.7,
+      "samples_ms": [
+        55.8,
+        54.7,
+        54.7
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261020a",
+        "app.js?v=20261105a",
+        "home.json"
+      ]
+    },
+    {
+      "version": "before",
+      "device": "desktop",
+      "view": "#elections",
+      "median_ready_ms": 57.5,
+      "samples_ms": [
+        56.6,
+        57.9,
+        57.5
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261020a",
+        "app.js?v=20261105a",
+        "elections.json",
+        "elections.js"
+      ]
+    },
+    {
+      "version": "after",
+      "device": "phone",
+      "view": "Home",
+      "median_ready_ms": 56.6,
+      "samples_ms": [
+        56.6,
+        57.3,
+        56.3
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261105b",
+        "app.js?v=20261105b",
+        "home.json"
+      ]
+    },
+    {
+      "version": "after",
+      "device": "phone",
+      "view": "#elections",
+      "median_ready_ms": 57.4,
+      "samples_ms": [
+        56.3,
+        57.7,
+        57.4
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261105b",
+        "app.js?v=20261105b",
+        "elections.json",
+        "elections.js?v=20261105b"
+      ]
+    },
+    {
+      "version": "after",
+      "device": "desktop",
+      "view": "Home",
+      "median_ready_ms": 55.7,
+      "samples_ms": [
+        54.6,
+        55.7,
+        56.7
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261105b",
+        "app.js?v=20261105b",
+        "home.json"
+      ]
+    },
+    {
+      "version": "after",
+      "device": "desktop",
+      "view": "#elections",
+      "median_ready_ms": 56.8,
+      "samples_ms": [
+        56.8,
+        53.4,
+        56.8
+      ],
+      "requests": [
+        "",
+        "companies.json",
+        "styles.css?v=20261105b",
+        "app.js?v=20261105b",
+        "elections.json",
+        "elections.js?v=20261105b"
+      ]
+    }
+  ],
+  "uat": [
+    {
+      "width": 360,
+      "height": 812,
+      "touch": true,
+      "views": 10,
+      "themes": 2,
+      "source_popup": true,
+      "legal_link": true,
+      "overflow": false,
+      "page_errors": []
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "touch": true,
+      "views": 10,
+      "themes": 2,
+      "source_popup": true,
+      "legal_link": true,
+      "overflow": false,
+      "page_errors": []
+    },
+    {
+      "width": 1366,
+      "height": 900,
+      "touch": false,
+      "views": 10,
+      "themes": 2,
+      "source_popup": true,
+      "legal_link": true,
+      "overflow": false,
+      "page_errors": []
+    }
+  ],
+  "method": "Fresh Chromium contexts; 3 samples per view/device; local uncompressed HTTP; first content visible plus two animation frames. No artificial CPU/network throttle. Timing excludes reading and is not a production latency promise.",
+  "baseline_commit": "827552f",
+  "date": "2026-11-05"
+}

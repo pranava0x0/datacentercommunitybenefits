@@ -67,8 +67,10 @@ def test_winner_and_actual_prior_policy_visible_without_disclosure(elections: Pa
     expect(card.locator(".election-candidate")).to_have_count(2)
     expect(card.locator("blockquote").first).to_be_visible()
     expect(card.locator("blockquote").last).to_have_text("Approvals depend on completing the audit.")
-    expect(card.locator(".election-changes")).to_contain_text("Jordan proposes a new pause")
+    expect(card.locator(".election-changes").first).to_contain_text("Jordan proposes a new pause")
     expect(card.locator(".election-changes a")).to_have_attribute("href", "https://example.org/source")
+    expect(card.locator(".election-result a")).to_have_attribute("href", "https://example.org/source")
+    expect(card.locator(".election-evidence").first).to_contain_text("Accessed 2026-11-04")
     expect(card).not_to_contain_text("Losing challenger")
     expect(elections.locator("#elections-content")).not_to_contain_text("certified")
     expect(elections.locator("#elections-content")).not_to_contain_text("in this pass")
@@ -103,7 +105,21 @@ def test_advisory_passage_stays_distinct_from_a_law(elections: Page, base_url: s
     expect(card).to_have_count(1)
     expect(card).to_contain_text("Advisory question")
     expect(card).to_contain_text("does not change local law")
+    expect(card.locator(".election-result a")).to_have_attribute("href", "https://example.org/source")
     expect(card.locator("[data-related-record]")).to_have_count(0)
+
+
+@pytest.mark.parametrize("prior_party", ["Democratic Party", "Unknown"])
+def test_party_filter_accepts_aliases_and_preserves_unknown_affiliation(page: Page, base_url: str, election_data: dict, prior_party: str) -> None:
+    race = election_data["races"][0]
+    race["outgoing"]["party"] = prior_party
+    # The winner is Democratic, so an alternate spelling is not a party flip.
+    page.route("**/data/elections.json", lambda route: route.fulfill(json=election_data))
+    page.goto(base_url + "/#elections")
+    page.select_option("#elections-status", "party")
+    expect(page.locator(".election-card")).to_have_count(0)
+    page.select_option("#elections-status", "changes")
+    expect(page.locator(".election-card")).to_have_count(1)
 
 
 def test_direct_record_url_and_back(elections: Page, base_url: str) -> None:

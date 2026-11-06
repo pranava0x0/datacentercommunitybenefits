@@ -25,13 +25,16 @@ function change(record) {
   const incoming = winner(record);
   if (!incoming || !record.outgoing) return "";
   if (incoming.name === record.outgoing.name) return "Re-elected";
-  return incoming.party === record.outgoing.party ? "New officeholder" : "Party change";
+  const party = (value) => value.toLowerCase().trim().replace(/\s+party$/, "");
+  const known = ["democratic", "republican", "independent", "nonpartisan", "libertarian", "green"];
+  const before = party(record.outgoing.party);
+  const after = party(incoming.party);
+  return known.includes(before) && known.includes(after) && before !== after ? "Party change" : "New officeholder";
 }
 
 function priorStatements(record) {
-  return [...(record.outgoing?.statements || []),
-    ...(record.candidates || []).filter((candidate) => candidate.name === record.outgoing?.name)
-      .flatMap((candidate) => candidate.statements)];
+  return [...(record.candidates || []).filter((candidate) => candidate.name === record.outgoing?.name)
+    .flatMap((candidate) => candidate.statements), ...(record.outgoing?.statements || [])];
 }
 
 export function mount(root, data, hooks) {
@@ -83,13 +86,13 @@ export function mount(root, data, hooks) {
   const list = el("div", "election-directory");
   list.id = "elections-directory";
 
-  function evidenceBlock(evidence) {
+  function evidenceBlock(evidence, documentLabel = "Documented action") {
     const block = el("div", "election-evidence");
-    if (!evidence.speaker) block.append(el("p", "muted", "Official record"));
+    if (!evidence.speaker) block.append(el("p", "muted", documentLabel));
     block.append(el("blockquote", "", evidence.statement));
     const citation = el("p", "muted");
     citation.append(source(evidence));
-    if (evidence.published_at) citation.append(document.createTextNode(` · ${evidence.published_at}`));
+    citation.append(document.createTextNode(` · ${evidence.published_at || `Accessed ${evidence.captured_at}`}`));
     block.append(citation);
     return block;
   }
@@ -110,6 +113,7 @@ export function mount(root, data, hooks) {
       const result = el("p", "election-result");
       result.append(el("strong", "", `${incoming.name} (${incoming.party})`),
         document.createTextNode(same ? " · Re-elected" : " · Incoming"));
+      if (record.result.evidence) result.append(document.createTextNode(" · "), source(record.result.evidence, "Election"));
       card.append(result);
       if (!same && record.outgoing) {
         const transition = el("p", "election-transition", `Outgoing: ${record.outgoing.name} (${record.outgoing.party}) · `);
@@ -117,6 +121,7 @@ export function mount(root, data, hooks) {
         card.append(transition);
       }
       const comparisons = el("div", "election-changes");
+      const furtherPolicies = el("div", "election-changes");
       const evidence = [...incoming.statements, ...priorStatements(record)];
       for (const policy of record.proposed_changes || []) {
         const section = el("section");
@@ -129,14 +134,18 @@ export function mount(root, data, hooks) {
           citations.append(source(item));
         }
         section.append(citations);
-        comparisons.append(section);
+        (comparisons.childNodes.length ? furtherPolicies : comparisons).append(section);
       }
       card.append(comparisons);
       const candidates = el("div", "election-candidates");
       function panel(person, role, statements) {
         const section = el("section", "election-candidate");
         section.append(el("h4", "", `${role} · ${person.name}`));
-        for (const statement of statements) section.append(evidenceBlock(statement));
+        // Topic summaries cite the remaining excerpts; keep the lead comparison
+        // adjacent on phones as well as desktop.
+        for (const statement of (record.proposed_changes?.length ? statements.slice(0, 1) : statements)) {
+          section.append(evidenceBlock(statement));
+        }
         if (!statements.length) section.append(el("p", "muted", "No sourced data-center position available."));
         candidates.append(section);
       }
@@ -149,10 +158,11 @@ export function mount(root, data, hooks) {
         if (record.outgoing) panel(record.outgoing, "Outgoing", priorStatements(record));
         else candidates.append(el("p", "muted", "Prior officeholder’s data-center position unavailable."));
       }
-      card.append(candidates);
+      card.append(candidates, furtherPolicies);
     } else {
       card.append(el("p", "election-result", `${record.result.outcome === "passed" ? "Passed" : record.result.outcome === "failed" ? "Failed" : "Outcome pending"} · ${record.effect === "advisory" ? "Advisory question" : "Binding measure"}`),
-        el("p", "", record.legal_effect), evidenceBlock(record.ballot_evidence));
+        el("p", "", record.legal_effect), evidenceBlock(record.ballot_evidence, "Ballot text"));
+      if (record.result.evidence) card.querySelector(".election-result").append(document.createTextNode(" · "), source(record.result.evidence, "Vote"));
     }
     const related = el("div", "election-related");
     const stateLink = el("a", "", hooks.stateNames[record.state_code] || record.state_code);

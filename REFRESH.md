@@ -1255,3 +1255,26 @@ Wells's warrant returned an empty 404 to the default HTTP client but a complete
 also read all 23 pages. Preserve actual source bytes before treating a research
 agent's empty cache as evidence. Archive-host 429 retries can dominate a full
 audit; retain blocked status and separate source availability from accuracy.
+
+### 2026-11-05 — actual predecessors and policy commencement
+
+Expected the outgoing election record to identify the immediate predecessor.
+Georgia PSC District 5 instead still named Pridemore after an interim appointment.
+The current PSC profile identifies Stan Wise, his district and Republican party;
+use the current official roster as well as appointment reporting. A losing
+challenger is not a predecessor. Re-elected governors have one continuing record.
+
+A signed-law announcement describes enactment, not necessarily commencement.
+California's release says the new laws will impose requirements; without an
+operative-date check, describe signed laws rather than rules already in force.
+Tennessee HB1847 history separates the May 7 signature from May 18 chapter
+assignment. South Carolina H3309 does not support the previously stored
+commercial-data-center definition/cost-allocation claims; that record was removed,
+not rewritten around unrelated energy-efficiency passages.
+
+Keep source excerpts and summaries distinct. Government or news narration is a
+reported action, not a personal quotation. Check combined excerpts from the same
+campaign/news page against the quotation limit. Direct platform pages supplied
+Hinojosa's moratorium, rate-freeze, union-labor, NDA and water-contract proposals;
+X commentary about permitted projects finishing in 2027/2028 did not establish a
+government policy and was not promoted.

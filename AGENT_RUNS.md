@@ -545,3 +545,21 @@ reported. A direct Playwright reproduction identified file-origin fetch/module
 failures, and request traces found the unrelated startup downloads. Best ROI:
 reproduce the exact file-opening flow and measure real requests before changing
 the data or splitting the application. This needed no research fan-out.
+
+### 2026-11-05 — winner and actual prior policy comparisons
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| Priority governor research (11 states) | yes | 11 validated patches; 21 retrieval attempts; tokens not reported | Check the current code, not an unsigned enrolled bill, for enacted tax provisions. |
+| Other governors + local research | yes | 18 patches; 47 request/reader attempts, exceeding the advisory 35 cap; tokens not reported | Count section reads and retries in the cap; a current commissioner profile should precede indirect party searches. |
+| Review round 1, implementation | yes | Three material findings fixed: outcome provenance, capture dates and party aliases; bounded browser/offline reproductions; tokens not reported | Keep implementation review separate from data still being curated. |
+| Review round 2, accuracy/citations | yes | Two findings resolved: current Wise party source and California commencement wording; tokens not reported | Verify source semantics as well as matching excerpts; “signed” does not prove “in force.” |
+
+Research caches and exact-ID prompts kept these four runs bounded. The parent
+also removed the unsupported SC policy and corrected TN's signing date from the
+official bill history. UAT caught timing assumptions in its scratch script:
+wait for the popup URL and legal-dialog text, not an initial blank load or
+immediate innerText after an asynchronous action. No production workaround was
+needed for those harness races. The long-list rendering change was measured
+again without concurrent tests. A duplicate full interaction run was stopped;
+the complete 132 paths were preserved from the suite's existing measurement.

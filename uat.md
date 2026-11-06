@@ -1,7 +1,40 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-11-04_
+_Last run: 2026-11-05_
+
+## 2026-11-05 winner and prior policy comparisons
+
+Tested 360×812, 375×812 and 1366×900 with actual data, light/dark themes,
+source popups, filters, search, empty matches, canonical legal dialogs, Escape,
+direct links and all ten tabs. No document overflow or page errors. The offline
+bundle opens without data fetches; no unrelated project/response/claim payloads
+load on Home or Elections. Lead winner/prior statements no longer need a
+disclosure click. Sources retain publication or access dates.
+
+| Flow from Home | Phone interactions / seconds | Tablet | Desktop |
+| --- | --- | --- | --- |
+| Incoming Texas governor | 1 / 1.6 | 1 / 1.6 | 1 / 1.6 |
+| Texas winner and actual prior policies | 3 / 1.9 | 1 / 1.9 | 1 / 1.9 |
+| Sabattus vote to legal moratorium | 6 / 2.7 | 4 / 2.7 | 4 / 2.7 |
+
+These automation times include navigation and fixed settling delays, not reading.
+All 22 tasks on three devices in default/expanded contexts are recorded in
+`uat/interaction_costs.json`; budgets are unchanged. The comparison previously
+cost four phone interactions and two on tablet/desktop.
+
+Cold local HTTP rendering used three fresh browser contexts per view/device,
+without CPU/network throttling. Median first-content readiness was 57ms on
+phone and desktop for Elections, and 56ms for Home. Baseline Elections was
+58ms; this small difference is within run noise. The larger policy dataset
+retains the same request count. Offscreen card layout is deferred. These local
+figures do not estimate production network latency. Samples and request names
+are in `uat/election_policy_performance.json`.
+
+Both independent reviews are clear after fixes to citations, source dates,
+party aliases, actual prior identity/party and California commencement wording.
+Full-suite verification also removed two obsolete CSS selectors. Screenshot
+and browser traces remain in `.preview/policy-comparisons/`.
 
 ## 2026-11-04 election refresh — PR #102
 
@@ -292,3 +325,6 @@ independent bounded review found no actionable bug.
 Release checks: all ten tabs rendered offline at 375/1366px with no document
 overflow. 937 tests passed in 161 seconds, including all interaction budgets.
 The preview build verification passed with 56 election records and its legal link.
+
+November 5 final suite: 942 tests passed. The 132 interaction paths, offline
+preview and two byte-identical refresh runs passed; no budgets were increased.

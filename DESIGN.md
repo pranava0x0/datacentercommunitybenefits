@@ -360,3 +360,15 @@ position. The state directory links to canonical policy and moratorium records.
 Ten navigation tabs still occupy two rows at 360–390px; coarse-pointer controls
 retain 44px targets. Election filters wrap as a row: inheriting the generic
 column filter bar turns mobile flex-basis values into tall empty rows.
+
+### Winner and prior policy comparisons (2026-11-05)
+
+Elections leads with data-center policies of incoming and re-elected officials.
+A replacement is compared with the actual prior officeholder, including interim
+appointments. Losing challengers supply no predecessor contrast. Topic summaries
+carry their own sources; lead quotations are visible alongside one another on
+desktop and stacked on phones. Re-elected officials have one panel. Result
+provenance remains a small citation; certification and research-process copy do
+not occupy the page. Missing positions stay explicit. Long cards use browser
+content visibility to defer layout of offscreen entries without removing search,
+links or records from the document.

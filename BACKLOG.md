@@ -222,6 +222,12 @@ come first, then locations, companies and sites.
 
 ### Cross-cutting
 
+- **medium (2026-11-05):** Direct winner data-center positions remain unsourced
+  for AR, HI, ID, MA, SD and VT after bounded searches. Extend county coverage
+  beyond Frederick County and Georgia PSC when a policy-relevant race is
+  documented. See the November 5 coverage ledger in
+  [ELECTION_2026.md](notes/specs/ELECTION_2026.md#policy-comparison-revision--november-5-2026).
+
 - (2026-10-26) Singapore: MDDI's October 7 second-reading closing speech
   expects staged Digital Infrastructure Act commencement in 2027. Context
   added to World; verify parliamentary passage, assent and commencement
@@ -596,6 +602,10 @@ come first, then locations, companies and sites.
 - No state-level policy record: incentive bills died in committee.
 
 #### state:SC — South Carolina
+- **medium (2026-11-05):** `sc-act41-h3309-2025` removed: the cited Act 41
+  lacks the stored data-center definition, special contracts and incremental
+  cost-recovery provisions. Restore only if a correct enacted source supports
+  those specific claims; energy-efficiency passages are insufficient.
 - Jasper County, first reading. `chesterfield-county-sc-2026-05` has a
   disputed enacted date: its primary source says early May and a later Go
   Laurens roundup says June. Check the council minutes and drop the note.
