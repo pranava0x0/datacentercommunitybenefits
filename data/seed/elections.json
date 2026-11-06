@@ -2119,7 +2119,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Tina Kotek",
@@ -2180,8 +2180,34 @@
           "source_url": "https://www.opb.org/article/2026/11/03/oregon-governors-race-election-results-kotek-drazan/",
           "source_title": "OPB — incumbent governor Tina Kotek",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "Governor Tina Kotek directed every state agency to immediately pause unapproved requests for easements, rights-of-way, leases, rentals, land-use permits, and sales or transfers of state-owned property for data center projects.",
+            "source_url": "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers",
+            "source_title": "Gov. Kotek — existing pause on state-owned-property requests",
+            "captured_at": "2026-11-05",
+            "published_at": "2026-09-08"
+          },
+          {
+            "statement": "pause processing and issuing air and water permits for new or expanded data centers until July 1, 2027.",
+            "source_url": "https://www.kptv.com/2026/10/13/oregon-pauses-data-center-permits-until-2027/",
+            "source_title": "KPTV — Kotek October 9 DEQ permit directive",
+            "captured_at": "2026-11-05",
+            "published_at": "2026-10-13"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Statewide moratorium proposal and existing pauses",
+          "summary": "Kotek called for a statewide moratorium at the October 8 debate, before her reelection. Her September 8 directive had paused requests involving state-owned property through July 1, 2027.",
+          "source_urls": [
+            "https://ktvz.com/news/government-politics/2026/10/08/tina-kotek-and-christine-drazan-clash-over-data-centers-in-medford-debate/",
+            "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "pa-governor-2026",
