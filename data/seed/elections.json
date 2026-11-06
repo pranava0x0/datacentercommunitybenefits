@@ -1719,12 +1719,21 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Kelly Ayotte",
           "party": "Republican",
-          "statements": [],
+          "statements": [
+            {
+              "statement": "we should have a moratorium on data centers because of the energy issue",
+              "source_url": "https://www.nhpr.org/politics/2026-10-19/kelly-ayotte-energy-housing-data-centers-ice-governor-candidate-nh-election-2026",
+              "source_title": "NHPR — Kelly Ayotte candidate interview",
+              "captured_at": "2026-11-05",
+              "speaker": "Kelly Ayotte",
+              "published_at": "2026-10-19"
+            }
+          ],
           "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
         },
         {
@@ -1757,7 +1766,16 @@
           "source_title": "Incumbent governor — New Hampshire",
           "captured_at": "2026-11-04"
         }
-      }
+      },
+      "proposed_changes": [
+        {
+          "topic": "Moratorium",
+          "summary": "Ayotte supports a data-center moratorium and discussed including one in the next state budget.",
+          "source_urls": [
+            "https://www.nhpr.org/politics/2026-10-19/kelly-ayotte-energy-housing-data-centers-ice-governor-candidate-nh-election-2026"
+          ]
+        }
+      ]
     },
     {
       "id": "nm-governor-2026",
