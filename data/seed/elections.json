@@ -253,7 +253,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Doug Jones",
@@ -299,7 +299,41 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Kay Ivey",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Kay Ivey",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "Three bills backed by Gov. Kay Ivey",
+            "source_url": "https://www.wvtm13.com/article/ivey-backs-bills-surrounding-utility-costs-amid-data-center-plans/70315064",
+            "source_title": "WVTM — Ivey-backed utility protection bills",
+            "captured_at": "2026-11-05"
+          },
+          {
+            "statement": "House Bill 403 would require large data centers to cover added utility costs they create",
+            "source_url": "https://www.wvtm13.com/article/ivey-backs-bills-surrounding-utility-costs-amid-data-center-plans/70315064",
+            "source_title": "WVTM — proposed data-center utility cost protection",
+            "captured_at": "2026-11-05"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Utility costs",
+          "summary": "Tuberville says residents should not pay more for energy because of data centers. Ivey backed legislation requiring large data centers to cover the utility costs they create.",
+          "source_urls": [
+            "https://www.waff.com/2026/07/23/where-do-gubernatorial-candidates-jones-tuberville-stand-data-centers/",
+            "https://www.wvtm13.com/article/ivey-backs-bills-surrounding-utility-costs-amid-data-center-plans/70315064"
+          ]
+        }
+      ]
     },
     {
       "id": "ak-governor-2026",
