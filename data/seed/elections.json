@@ -2375,7 +2375,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Jermaine Johnson",
@@ -2421,7 +2421,27 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Henry McMaster",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Henry McMaster",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": []
+      },
+      "proposed_changes": [
+        {
+          "topic": "Energy supply",
+          "summary": "Wilson says data centers would have to generate their own energy.",
+          "source_urls": [
+            "https://www.wrdw.com/2026/10/07/wilson-johnson-debate-race-sc-governor/"
+          ]
+        }
+      ]
     },
     {
       "id": "sd-governor-2026",
