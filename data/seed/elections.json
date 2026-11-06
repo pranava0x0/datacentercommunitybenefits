@@ -1473,7 +1473,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Lisa Demuth",
@@ -1519,7 +1519,41 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Tim Walz",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Tim Walz",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "all costs attributable to the utility's very large customers not exempt under subdivision 3 are assigned to the very large customer class or subclass determined by the commission under paragraph (a)",
+            "source_url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
+            "source_title": "Minnesota Chapter 12 — very large customer cost assignment",
+            "captured_at": "2026-11-05"
+          },
+          {
+            "statement": "Signed by the governor June 14, 2025, 10:30 a.m.",
+            "source_url": "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/",
+            "source_title": "Minnesota Chapter 12 — governor signature",
+            "captured_at": "2026-11-05"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Local approval and utility costs",
+          "summary": "Klobuchar says communities that do not want a data center should not have to host one. Walz signed the 2025 law assigning attributable utility costs to very large customer classes.",
+          "source_urls": [
+            "https://www.mprnews.org/story/2026/10/19/lisa-demuth-amy-klobuchar-take-businessfriendly-stances-in-first-oneonone-governor-forum",
+            "https://www.revisor.mn.gov/laws/2025/1/Session+Law/Chapter/12/"
+          ]
+        }
+      ]
     },
     {
       "id": "ne-governor-2026",
