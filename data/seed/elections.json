@@ -2294,12 +2294,21 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Helena Foulkes",
           "party": "Democratic",
-          "statements": [],
+          "statements": [
+            {
+              "statement": "Yes.",
+              "source_url": "https://www.pbs.org/video/one-on-one-with-ian-donnis-8282026-wdjd5a/",
+              "source_title": "PBS — Foulkes answer to “Would you support a statewide ban on data centers?”",
+              "captured_at": "2026-11-05",
+              "speaker": "Helena Foulkes",
+              "published_at": "2026-08-28"
+            }
+          ],
           "review_note": "Candidate identity checked against the NGA election listing. No directly attributable data-center policy statement was verified within this pass; this does not mean the candidate has no position."
         },
         {
@@ -2328,7 +2337,36 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; certification has not been verified. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Dan McKee",
+        "party": "Democratic",
+        "evidence": {
+          "statement": "Daniel McKee",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "Yeah, I'm not in favor of the data centers.",
+            "source_url": "https://www.pbs.org/video/one-on-one-with-ian-donnis-8282026-wdjd5a/",
+            "source_title": "PBS — Governor McKee on a statewide data-center ban",
+            "captured_at": "2026-11-05",
+            "speaker": "Dan McKee",
+            "published_at": "2026-08-28"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Statewide ban",
+          "summary": "Foulkes answered yes when asked whether she would support a statewide data-center ban. McKee also expressed opposition to data centers, citing energy costs and resource demands.",
+          "source_urls": [
+            "https://www.pbs.org/video/one-on-one-with-ian-donnis-8282026-wdjd5a/"
+          ]
+        }
+      ]
     },
     {
       "id": "sc-governor-2026",
