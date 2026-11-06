@@ -2868,7 +2868,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Eric Barlow",
@@ -2904,7 +2904,35 @@
       },
       "related_moratorium_ids": [],
       "related_policy_ids": [],
-      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy."
+      "notes": "Reported race call; results remain unofficial until state certification. Candidate statements are dated evidence, not enacted policy.",
+      "outgoing": {
+        "name": "Mark Gordon",
+        "party": "Republican",
+        "evidence": {
+          "statement": "Mark Gordon",
+          "source_url": "https://ballotpedia.org/Gubernatorial_elections,_2026",
+          "source_title": "Ballotpedia — 2026 current-incumbent table",
+          "captured_at": "2026-11-05"
+        },
+        "statements": [
+          {
+            "statement": "The framework emphasizes water sustainability, wildlife conservation, workforce development, transparency, grid resiliency and stewardship, community engagement, and national security.",
+            "source_url": "https://content.govdelivery.com/accounts/WYGOV/bulletins/41a4346",
+            "source_title": "Governor Gordon — Data Centers the Wyoming Way framework",
+            "captured_at": "2026-11-05"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Local decisions and development framework",
+          "summary": "Barlow says data-center proposals should be decided locally. Gordon’s June executive order established a statewide development framework covering water, grid resilience and community engagement.",
+          "source_urls": [
+            "https://projects.wyofile.com/election-guide-2026/candidates/barlow-eric/",
+            "https://content.govdelivery.com/accounts/WYGOV/bulletins/41a4346"
+          ]
+        }
+      ]
     }
   ],
   "measures": [
