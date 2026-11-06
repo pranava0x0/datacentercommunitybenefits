@@ -2216,7 +2216,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Josh Shapiro",
@@ -2274,8 +2274,18 @@
           "source_url": "https://www.spotlightpa.org/news/2026/11/election-results-pennsylvania-governor-josh-shapiro-stacy-garrity-elections/",
           "source_title": "Spotlight PA — incumbent governor Josh Shapiro",
           "captured_at": "2026-11-04"
-        }
-      }
+        },
+        "statements": [
+          {
+            "statement": "The Governor is also immediately removing all AI data center projects from the PA Permit Fast Track Program and will not consider data center projects for the program going forward.",
+            "source_url": "https://www.pa.gov/governor/newsroom/2026-press-releases/governor-shapiro-signs-executive-order-on-data-center-developmen",
+            "source_title": "Gov. Shapiro — Executive Order 2026-05 and existing permit policy",
+            "captured_at": "2026-11-05",
+            "published_at": "2026-08-18"
+          }
+        ]
+      },
+      "proposed_changes": []
     },
     {
       "id": "ri-governor-2026",
