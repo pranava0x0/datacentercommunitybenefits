@@ -1068,7 +1068,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Zach Lahn",
@@ -1124,8 +1124,32 @@
           "source_url": "https://www.nga.org/governors/iowa/",
           "source_title": "National Governors Association — Governor Kim Reynolds",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "the first ten years of operation in connection with the new construction or addition to the existing property",
+            "source_url": "https://www.legis.iowa.gov/docs/code/423.3.pdf",
+            "source_title": "Iowa Code 2026 §423.3 — ten-year data-center electricity exemption",
+            "captured_at": "2026-11-05"
+          },
+          {
+            "statement": "the first fifteen years of operation in connection with the new construction or addition to the property",
+            "source_url": "https://www.legis.iowa.gov/docs/code/423.3.pdf",
+            "source_title": "Iowa Code 2026 §423.3 — fifteen-year data-center electricity exemption",
+            "captured_at": "2026-11-05"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Tax exemptions",
+          "summary": "Sand proposes ending data-center tax breaks. Iowa law under Reynolds retains exemptions while limiting tax-free electricity and backup-power fuel for new or expanded facilities to ten or fifteen years, depending on community size.",
+          "source_urls": [
+            "https://robsand.com/issues/data-centers",
+            "https://www.legis.iowa.gov/docs/code/423.3.pdf"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "ks-governor-2026",
