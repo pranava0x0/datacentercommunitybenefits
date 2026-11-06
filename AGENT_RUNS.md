@@ -601,3 +601,39 @@ Trends UAT found an overflowing jurisdiction toggle; wrapping it fixed the phone
 page width without hiding controls. Early harness failures used an SVG selector
 for DOM charts and expected a dash where the existing UI says Not dated; those
 were test assumptions, corrected without changing production behavior.
+
+### 2026-11-06 — field refresh and individual map sites
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| Moratorium research on alternate model | no | Login required before any source call; tokens not reported | Use working inherited runtime after a capability failure. |
+| Framework research on alternate model | no | Same unavailable account; dispatched before first failure returned | Consolidate the two partitions after the shared runtime failure. |
+| Combined source field refresh | yes | Nine validated candidates from 14 primary URLs; tokens not reported | Separate introduction, announcement and enactment dates; parent retained unknown dates and shortened duration labels. |
+
+Parent research added Raleigh's existing zoning rule separately from its pause;
+city FAQ scope is useful even when the original ordinance date is unknown.
+Parent source checks confirmed Loudoun's exact Phase 1 approval and grandfathering.
+
+| Combined code / source / UX review | yes | Two reproduced accessibility findings; both fixed; tokens not reported | Check Escape after pointer movement, and tab stops against the current map view. |
+| Follow-up review | yes | Both fixes verified; phone/desktop site, filter and source-link flows passed | Keep each final check bounded to actual changes. |
+
+The first full run passed 967 tests but exposed interaction regressions:
+repeating every selected jurisdiction record's summary added seven map swipes,
+and phone filter wrapping added one agreement lookup swipe. Compact record
+links and two-column labeled filters restored the existing budgets. No budgets
+were raised. Failed attempts are retained here rather than counted as passes.
+
+The second full run passed 969 tests and caught the remaining desktop Evidence
+scroll. An 8px paragraph gap restored the two-action path. Final release run
+using pytest work stealing passed all 970 tests in 190 seconds, including all
+156 interaction paths. Work stealing avoids leaving several long device runs
+queued on one worker while other workers are idle.
+
+GitHub's final review caught one more P2: International's short-label breakpoint
+did not match tablet navigation. The regression failed at 820px before the fix;
+visible-text assertions now cover 375, 641, 820, 1100 and 1366px. Clicking each
+button by id had not proved its label was visible.
+
+The final navigation follow-up passed 972 tests in 195 seconds, including all
+156 interaction paths; 13 focused layout/type checks and refreshed tablet
+screenshots also passed.

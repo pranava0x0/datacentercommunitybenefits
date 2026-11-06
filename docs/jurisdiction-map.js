@@ -51,6 +51,7 @@ export function mount(root, data, hooks) {
   });
   const sites = data.doe.sites.map((item) => ({ ...item, projected: point(item.lon, item.lat, item.state_code) }));
   const stateRegions = new Map(regions.filter((item) => item.level === "state").map((item) => [item.state_code, item]));
+  const regionsById = new Map(regions.map((item) => [item.id, item]));
   const controls = el("div", "filter-bar jurisdiction-filters");
   controls.setAttribute("aria-label", "Map filters");
   const queryLabel = el("label", "", "Search");
@@ -62,13 +63,13 @@ export function mount(root, data, hooks) {
     wrapper.append(node); controls.append(wrapper); return node;
   }
   const state = select("jurisdiction-map-state", "State", [["", "All states"], ...Object.entries(hooks.stateNames)]);
-  const recorded = select("jurisdiction-map-status", "Recorded status", [["enacted", "Enacted / in effect"], ["proposed", "Proposed"], ["all", "All recorded"]]);
+  const recorded = select("jurisdiction-map-status", "Status", [["enacted", "Enacted / in effect"], ["proposed", "Proposed"], ["all", "All recorded"]]);
   const level = select("jurisdiction-map-level", "Jurisdiction", [["", "All levels"], ["state", "State"], ["county", "County"], ["city", "City / town"]]);
   const siteKind = select("jurisdiction-map-site-kind", "DOE locations", [["", "All types"], ...Object.entries(SITE_LABELS)]);
   const topic = select("jurisdiction-map-topic", "Announcements", [["", "All topics"], ...Object.entries(TOPIC_LABELS)]);
   const advanced = el("details", "map-filters"); advanced.append(el("summary", "", "More filters"));
   const advancedControls = el("div", "filter-bar jurisdiction-filters");
-  for (const input of [level, siteKind, topic]) advancedControls.append(input.parentElement);
+  for (const input of [recorded, level, siteKind, topic]) advancedControls.append(input.parentElement);
   advanced.append(advancedControls);
   const layers = el("fieldset", "jurisdiction-layers"); layers.append(el("legend", "sr-only", "Map layers"));
   function checkbox(key, text) {
@@ -78,8 +79,9 @@ export function mount(root, data, hooks) {
   }
   const showMoratoriums = checkbox("moratoriums", "Moratoriums");
   const showPolicies = checkbox("policies", "Policy frameworks");
-  const showDOE = checkbox("doe", "DOE reference points");
+  const showDOE = checkbox("doe", "DOE sites");
   const showAnnouncements = checkbox("announcements", "Announcements");
+  advanced.append(layers);
   const meta = el("p", "muted"); meta.id = "jurisdiction-map-meta"; meta.setAttribute("role", "status");
   const layout = el("div", "jurisdiction-layout");
   const canvas = el("div", "jurisdiction-canvas");
@@ -97,12 +99,21 @@ export function mount(root, data, hooks) {
   button("U.S.", "Contiguous United States", () => { state.value = ""; render(true); });
   button("AK", "Alaska", () => { state.value = "AK"; render(true); });
   button("HI", "Hawaii", () => { state.value = "HI"; render(true); });
-  canvas.append(map, toolbar);
+  const tooltip = el("div", "jurisdiction-tooltip");
+  tooltip.id = "jurisdiction-map-tooltip"; tooltip.setAttribute("role", "tooltip"); tooltip.hidden = true;
+  canvas.append(map, toolbar, tooltip);
+  const legend = el("ul", "jurisdiction-legend"); legend.setAttribute("aria-label", "Map legend");
+  for (const [key, label] of [["moratorium", "Pause / ban"], ["policy", "Framework"], ["both", "Both"],
+    ["proposed", "Proposed: dashed border"], ["inactive", "Lifted / failed: dotted border"],
+    ["doe", "DOE site"], ["announcement", "DOE site with announcement"]]) {
+    const item = el("li"); const symbol = el("span", `map-swatch map-swatch-${key}`, ["doe", "announcement"].includes(key) ? "★" : "");
+    symbol.setAttribute("aria-hidden", "true"); item.append(symbol, document.createTextNode(label)); legend.append(item);
+  }
   const detail = el("section", "jurisdiction-detail"); detail.id = "jurisdiction-map-detail";
   detail.setAttribute("aria-label", "Selected location"); detail.setAttribute("aria-live", "polite");
-  detail.append(el("h3", "", "DOE sites and jurisdictions"));
+  detail.append(el("h3", "", "DOE sites and jurisdictions")); detail.hidden = true;
   layout.append(canvas, detail);
-  const caption = el("p", "jurisdiction-caption", "Generalized Census jurisdiction boundaries. DOE dots are published reference points; development parcels may differ.");
+  const caption = el("p", "jurisdiction-caption", "Census boundaries; DOE stars mark published site reference points, not development parcels. Unshaded areas have no mapped record in this collection.");
   const resultsHeading = el("h3", "", "Locations");
   const results = el("ul", "jurisdiction-results"); results.id = "jurisdiction-map-results";
   const more = el("button", "btn-ghost"); more.type = "button"; more.hidden = true;
@@ -126,9 +137,11 @@ export function mount(root, data, hooks) {
     }
     coverage.append(missing);
   }
-  root.replaceChildren(controls, layers, meta, layout, caption, advanced, resultsHeading, results, more, announcements, coverage);
+  controls.append(advanced);
+  root.replaceChildren(controls, meta, layout, legend, caption, resultsHeading, results, more, announcements, coverage);
   let box = [-128, -60, 64, 37]; let visibleSites = []; let shown = 20; let currentResults = []; let chosen = null;
   function setBox(next) {
+    hideTooltip();
     box = next; map.setAttribute("viewBox", box.join(" ")); drawMarkers();
   }
   function fit(bounds) {
@@ -153,9 +166,20 @@ export function mount(root, data, hooks) {
     detail.focus({ preventScroll: true });
     detail.scrollIntoView({ block: "nearest" });
   }
+  function detailHeading(title) {
+    const header = el("div", "map-detail-heading");
+    const close = el("button", "btn-ghost", "×"); close.type = "button";
+    close.setAttribute("aria-label", "Close location details");
+    close.addEventListener("click", () => {
+      chosen = null; hideTooltip(); detail.hidden = true; layout.classList.remove("has-selection");
+      map.focus({ preventScroll: true });
+    });
+    header.append(el("h3", "", title), close); return header;
+  }
   function showRegion(item) {
     chosen = item.id;
-    detail.replaceChildren(el("h3", "", `${item.name} · ${hooks.stateNames[item.state_code] || item.state_code}`));
+    detail.hidden = false; layout.classList.add("has-selection");
+    detail.replaceChildren(detailHeading(`${item.name} · ${hooks.stateNames[item.state_code] || item.state_code}`));
     for (const [kind, records] of [["moratorium", item.moratoriums], ["policy", item.policies]]) {
       for (const record of records) {
         const section = el("section"); section.append(recordButton(record, kind),
@@ -167,7 +191,8 @@ export function mount(root, data, hooks) {
   }
   function showSites(items) {
     chosen = items.map((site) => site.id).join(",");
-    detail.replaceChildren(el("h3", "", items.length > 1 ? `${items.length} DOE locations` : items[0].name));
+    detail.hidden = false; layout.classList.add("has-selection");
+    detail.replaceChildren(detailHeading(items.length > 1 ? `${items.length} DOE locations` : items[0].name));
     for (const site of items) {
       const section = el("section"); if (items.length > 1) section.append(el("h4", "", site.name));
       section.append(el("p", "muted", `${site.site_types.map((key) => SITE_LABELS[key]).join(" · ")} · ${hooks.stateNames[site.state_code]} · ${site.location_kind.replaceAll("_", " ")}`));
@@ -197,35 +222,57 @@ export function mount(root, data, hooks) {
       && matches([event.title, event.summary, event.status_text, ...sites.filter((site) => event.site_ids.includes(site.id)).flatMap((site) => [site.name, site.state_code, hooks.stateNames[site.state_code]])]))
       .sort((a, b) => b.published_at.localeCompare(a.published_at)) : [];
   }
+  let hovered = null; let dismissed = null;
+  function hideTooltip() {
+    tooltip.hidden = true;
+  }
+  const dismissTooltip = (event) => { if (event.key === "Escape") { dismissed = hovered; hideTooltip(); } };
+  document.addEventListener("keydown", dismissTooltip);
+  function hoverDetails(node, title, lines) {
+    function show(event) {
+      if (event.pointerType === "touch" || drag || dismissed === node) return;
+      hovered = node;
+      tooltip.replaceChildren(el("strong", "", title), ...lines.map((text) => el("span", "", text)));
+      tooltip.hidden = false;
+      const bounds = canvas.getBoundingClientRect(); const target = node.getBoundingClientRect();
+      const x = event.clientX ?? target.x + target.width / 2;
+      const y = event.clientY ?? target.y + target.height / 2;
+      tooltip.style.left = `${Math.max(8, Math.min(x - bounds.left + 14, bounds.width - tooltip.offsetWidth - 8))}px`;
+      tooltip.style.top = `${Math.max(8, Math.min(y - bounds.top + 14, bounds.height - tooltip.offsetHeight - 8))}px`;
+    }
+    node.addEventListener("pointerenter", show); node.addEventListener("pointermove", show);
+    node.addEventListener("focus", show);
+    function leave() { if (dismissed === node) dismissed = null; hovered = null; hideTooltip(); }
+    node.addEventListener("pointerleave", leave); node.addEventListener("blur", leave);
+    node.setAttribute("aria-describedby", tooltip.id);
+  }
   function drawMarkers() {
     const focused = markers.contains(document.activeElement) ? document.activeElement.dataset.siteIds?.split(",") : null;
     markers.replaceChildren();
     const rect = map.getBoundingClientRect();
-    const unit = 1 / Math.min(Math.max(rect.width, 320) / box[2], Math.max(rect.height, 320) / box[3]); const groups = [];
-    for (const site of visibleSites) {
-      const group = groups.find((item) => Math.hypot(item[0].projected[0] - site.projected[0], item[0].projected[1] - site.projected[1]) < 24 * unit);
-      if (group) group.push(site); else groups.push([site]);
-    }
+    const unit = 1 / Math.min(Math.max(rect.width, 320) / box[2], Math.max(rect.height, 320) / box[3]);
     const events = visibleAnnouncements();
-    for (const group of groups) {
-      const x = group.reduce((sum, item) => sum + item.projected[0], 0) / group.length;
-      const y = group.reduce((sum, item) => sum + item.projected[1], 0) / group.length;
-      const highlighted = group.some((site) => events.some((event) => event.site_ids.includes(site.id)));
+    const inBox = ([left, top, right, bottom]) => right >= box[0] && left <= box[0] + box[2]
+      && bottom >= box[1] && top <= box[1] + box[3];
+    for (const node of fills.children) node.setAttribute("tabindex", inBox(regionsById.get(node.dataset.jurisdictionId).bounds) ? "0" : "-1");
+    for (const site of visibleSites) {
+      const [x, y] = site.projected;
+      const associated = events.filter((event) => event.site_ids.includes(site.id));
+      const highlighted = associated.length > 0;
       const node = svg("g", { class: `map-doe-point${highlighted ? " has-announcement" : ""}`, role: "button", tabindex: "0",
-        "aria-label": group.length > 1 ? `${group.length} DOE reference points` : group[0].name, transform: `translate(${x},${y})` });
-      node.dataset.siteIds = group.map((item) => item.id).join(",");
-      node.append(svg("circle", { r: 22 * unit, class: "map-dot-hit" }), svg("circle", { r: (group.length > 1 ? 10 : 6) * unit, class: "map-dot" }));
-      if (group.length > 1) {
-        const label = svg("text", { "text-anchor": "middle", dy: ".35em", "font-size": 11 * unit }); label.textContent = group.length; node.append(label);
-      }
-      const title = svg("title"); title.textContent = group.map((site) => site.name).join("; "); node.append(title);
-      function open(reveal = false) {
-        showSites(group);
-        if (group.length > 1) fit(extent(group.map((site) => site.projected)));
-        if (reveal) revealDetail();
-      }
-      node.addEventListener("click", () => open(true));
-      node.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); open(); } });
+        "aria-label": site.name, transform: `translate(${x},${y})` });
+      node.dataset.siteIds = site.id;
+      node.setAttribute("tabindex", inBox([x, y, x, y]) ? "0" : "-1");
+      const star = Array.from({ length: 10 }, (_, index) => {
+        const angle = -Math.PI / 2 + index * Math.PI / 5; const radius = (index % 2 ? 3.6 : 8) * unit;
+        return `${Math.cos(angle) * radius},${Math.sin(angle) * radius}`;
+      }).join(" ");
+      const hitRadius = window.matchMedia("(pointer: coarse)").matches ? 22 : 9;
+      node.append(svg("circle", { r: hitRadius * unit, class: "map-dot-hit" }), svg("polygon", { points: star, class: "map-dot map-doe-star" }));
+      hoverDetails(node, site.name, [site.site_types.map((key) => SITE_LABELS[key]).join(" · "),
+        hooks.stateNames[site.state_code], ...associated.slice(0, 2).map((event) => event.title)]);
+      node.addEventListener("click", () => { hideTooltip(); showSites([site]); revealDetail(); });
+      node.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); hideTooltip(); showSites([site]); } });
       markers.append(node);
     }
     if (focused) {
@@ -249,6 +296,7 @@ export function mount(root, data, hooks) {
     more.textContent = `Show ${Math.min(20, currentResults.length - shown)} more locations`;
   }
   function render(resetView = false) {
+    hideTooltip();
     const active = (record, kind) => recorded.value === "all" || (recorded.value === "enacted" ? status(record, kind) === (kind === "moratorium" ? "enacted" : "in_effect") : status(record, kind) === "proposed");
     const filtered = regions.filter((item) => (!state.value || item.state_code === state.value) && (!level.value || item.level === level.value)).map((item) => ({ ...item,
       moratoriums: showMoratoriums.checked ? item.moratorium_ids.map((id) => moratoriums.get(id)).filter((record) => record && active(record, "moratorium")) : [],
@@ -260,15 +308,19 @@ export function mount(root, data, hooks) {
       && (matches([site.name, site.state_code, hooks.stateNames[site.state_code], site.notes]) || events.some((event) => event.site_ids.includes(site.id))));
     fills.replaceChildren();
     for (const item of filtered) {
-      const path = svg("path", { d: item.path, "fill-rule": "evenodd", "vector-effect": "non-scaling-stroke",
+      const path = svg("path", { d: item.path, "fill-rule": "evenodd", "vector-effect": "non-scaling-stroke", role: "button", tabindex: "0",
+        "aria-label": `${item.name} · ${hooks.stateNames[item.state_code]}`,
         class: `map-jurisdiction ${item.moratoriums.length ? "map-has-moratorium" : ""} ${item.policies.length ? "map-has-policy" : ""}${[...item.moratoriums, ...item.policies].every((record) => record.status === "proposed") ? " map-proposed" : ""}` });
       path.classList.toggle("map-inactive", [...item.moratoriums.map((record) => status(record, "moratorium")), ...item.policies.map((record) => status(record, "policy"))]
         .every((value) => !["enacted", "in_effect", "proposed"].includes(value)));
       path.dataset.jurisdictionId = item.id;
-      const title = svg("title"); title.textContent = `${item.name}: ${item.moratoriums.length} moratoriums, ${item.policies.length} frameworks`; path.append(title);
-      path.addEventListener("click", () => { showRegion(item); revealDetail(); }); fills.append(path);
+      hoverDetails(path, `${item.name} · ${hooks.stateNames[item.state_code]}`, [
+        ...item.moratoriums.map((record) => `Pause / ban · ${status(record, "moratorium")} · ${record.duration_description}`),
+        ...item.policies.map((record) => `${record.title} · ${status(record, "policy").replaceAll("_", " ")}`)].slice(0, 4));
+      path.addEventListener("click", () => { hideTooltip(); showRegion(item); revealDetail(); });
+      path.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); hideTooltip(); showRegion(item); } }); fills.append(path);
     }
-    meta.textContent = `${filtered.length} jurisdictions · ${visibleSites.length} DOE reference points · ${events.length} announcements`;
+    meta.textContent = `${recorded.options[recorded.selectedIndex].text} · ${filtered.length} jurisdictions · ${visibleSites.length} DOE sites · ${events.length} announcements`;
     currentResults = [...filtered, ...visibleSites]; shown = 20; renderResults();
     const anchor = query.value.trim() ? layout : announcements;
     for (const node of [resultsHeading, results, more]) root.insertBefore(node, anchor);
@@ -276,7 +328,7 @@ export function mount(root, data, hooks) {
     if (!events.length) announcements.append(el("p", "muted", "No matching announcements."));
     if (chosen) {
       const selected = currentResults.filter((item) => chosen.split(",").includes(item.id));
-      if (!selected.length) { chosen = null; detail.replaceChildren(el("h3", "", "No location selected")); }
+      if (!selected.length) { chosen = null; detail.hidden = true; layout.classList.remove("has-selection"); detail.replaceChildren(); }
       else if (selected[0].geometry) showRegion(selected[0]);
       else showSites(selected);
     }
@@ -313,5 +365,5 @@ export function mount(root, data, hooks) {
   for (const name of ["pointerup", "pointercancel", "lostpointercapture"]) map.addEventListener(name, () => { drag = null; });
   const observer = new ResizeObserver(() => drawMarkers()); observer.observe(canvas);
   render(true);
-  return { resize: drawMarkers, destroy() { observer.disconnect(); } };
+  return { resize: drawMarkers, destroy() { observer.disconnect(); document.removeEventListener("keydown", dismissTooltip); } };
 }

@@ -1,0 +1,190 @@
+[
+  {
+    "version": "before",
+    "device": "phone",
+    "view": "#policies/directory",
+    "median_ready_ms": 77.1,
+    "samples_ms": [
+      77.7,
+      70.8,
+      77.1
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106a",
+      "app.js?v=20261106a",
+      "policies.json",
+      "moratoriums.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 721.9700317382812,
+    "first_content_height": 122.5
+  },
+  {
+    "version": "before",
+    "device": "phone",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 80.4,
+    "samples_ms": [
+      78.8,
+      80.5,
+      80.4
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106a",
+      "app.js?v=20261106a",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 796.5784912109375,
+    "first_content_height": 338
+  },
+  {
+    "version": "before",
+    "device": "desktop",
+    "view": "#policies/directory",
+    "median_ready_ms": 78.3,
+    "samples_ms": [
+      78.3,
+      75.8,
+      79.6
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106a",
+      "app.js?v=20261106a",
+      "policies.json",
+      "moratoriums.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 446.23455810546875,
+    "first_content_height": 59.5
+  },
+  {
+    "version": "before",
+    "device": "desktop",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 78.9,
+    "samples_ms": [
+      80.8,
+      78.4,
+      78.9
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106a",
+      "app.js?v=20261106a",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 458.434814453125,
+    "first_content_height": 498
+  },
+  {
+    "version": "after",
+    "device": "phone",
+    "view": "#policies/directory",
+    "median_ready_ms": 71.6,
+    "samples_ms": [
+      78.8,
+      71.6,
+      71.0
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "policies.json",
+      "moratoriums.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 723.8648681640625,
+    "first_content_height": 122.5
+  },
+  {
+    "version": "after",
+    "device": "phone",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 80.1,
+    "samples_ms": [
+      76.9,
+      80.7,
+      80.1
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106b"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 612.1873168945312,
+    "first_content_height": 338
+  },
+  {
+    "version": "after",
+    "device": "desktop",
+    "view": "#policies/directory",
+    "median_ready_ms": 78.7,
+    "samples_ms": [
+      98.6,
+      78.5,
+      78.7
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "policies.json",
+      "moratoriums.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 427.62139892578125,
+    "first_content_height": 59.5
+  },
+  {
+    "version": "after",
+    "device": "desktop",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 79.1,
+    "samples_ms": [
+      79.1,
+      79.1,
+      78.6
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106b"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 457.441650390625,
+    "first_content_height": 498
+  }
+]

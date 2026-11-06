@@ -45,11 +45,44 @@ def test_framework_gaps_are_source_linked_and_latest_does_not_repeat_same_order(
     page.route('**/data/policies.json', lambda route: route.fulfill(json=policies))
     page.route('**/data/moratoriums.json', lambda route: route.fulfill(json=moratoriums))
     page.goto(base_url + '/#policies/latest')
-    expect(page.locator('#policy-actions .pb-action')).to_have_count(4)
+    expect(page.locator('#policy-actions .pb-action')).to_have_count(5)
     expect(page.locator('.pb-action-text').filter(has_text='New York EO 62')).to_have_count(1)
     expect(page.locator('.pb-action-text').filter(has_text='Sabattus')).to_have_count(1)
     page.click('#subtab-pol-directory')
     expect(page.locator('#policies-tbody tr[role="button"]')).to_have_count(4)
     page.locator('#policies-tbody tr').filter(has_text='Loudoun').click()
-    expect(page.locator('#pd-date')).to_have_text('Not dated')
+    expect(page.locator('#pd-date')).to_have_text('2025-03-18')
     expect(page.locator('#pd-terms')).to_contain_text('special-exception')
+
+
+def test_unknown_dates_and_reasons_do_not_look_like_empty_cells(page: Page, base_url: str) -> None:
+    payload = json.loads((ROOT / 'data/seed/moratoriums.json').read_text())
+    record = next(r for r in payload['moratoriums'] if r['status'] == 'enacted')
+    record.update(enacted_date=None, key_reasons=[])
+    payload['moratoriums'] = [record]
+    page.route('**/data/moratoriums.json', lambda route: route.fulfill(json=payload))
+    page.goto(base_url + '/#moratoriums')
+    row = page.locator('#moratoriums-tbody tr[role=button]')
+    expect(row.locator('td').last).to_have_text('Not stated')
+    row.click()
+    expect(page.locator('#md-enacted')).to_have_text('Not stated')
+
+
+@pytest.mark.parametrize('width', [375, 641, 820, 1100, 1366])
+def test_labeled_filters_keep_primary_controls_visible(page: Page, base_url: str, width: int) -> None:
+    page.set_viewport_size({'width': width, 'height': 812})
+    page.goto(base_url + '/#policies/directory')
+    expect(page.locator('#policies-tbody tr[role=button]').first).to_be_visible()
+    for field in ['policy-instrument-filter', 'policy-status-filter', 'policy-state-filter', 'policy-cbf-filter']:
+        expect(page.locator('#' + field)).to_be_visible()
+    expect(page.locator('#policy-scope-filter')).to_be_hidden()
+    page.locator('.directory-more-filters summary').click()
+    expect(page.locator('#policy-scope-filter')).to_be_visible()
+    page.select_option('#policy-scope-filter', 'state')
+    assert page.locator('#policies-tbody tr[role=button]').count() > 0
+    assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
+    assert page.locator('.tabbar').evaluate('e=>e.scrollWidth<=e.clientWidth')
+    assert page.locator('.tabbar .tab').evaluate_all('nodes=>nodes.every(n=>n.innerText.trim().length > 0)')
+    expect(page.locator('#tab-world')).to_have_text('World' if width <= 1100 else 'International', use_inner_text=True)
+    if width <= 1100:
+        assert page.locator('.tabbar').evaluate('e=>getComputedStyle(e).gridTemplateColumns.split(" ").length') == 5

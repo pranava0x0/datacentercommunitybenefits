@@ -411,3 +411,54 @@ ready at roughly 63ms and the map at 80–81ms. The previous version measured
 These unthrottled loopback observations are not production latency estimates.
 Home and Elections still avoid map, DOE and preview-adapter requests.
 Before/after measurements: uat/policy_layout_performance.json.
+
+## 2026-11-06 framework fields and individual map sites
+
+Refreshed ten existing records (five frameworks and five moratoriums) and added
+Raleigh's existing zoning rules, separate from its application pause. Frameworks
+has 142 records; Moratoriums has 250. Missing dates stay unknown rather than
+using announcement/capture dates as approval dates. Remaining date and reason
+work is recorded in BACKLOG.md. The source audit and scope are in
+notes/specs/FRAMEWORK_MAP_REFRESH_2026_11_06.md.
+
+The map renders 33 individual DOE stars without numbered clusters. Hover/focus
+previews, canonical record/source links, closeable selection details and a
+literal color/status legend were checked on phone and desktop. Off-canvas
+regions leave the keyboard sequence; Escape-dismissed previews stay dismissed
+until the trigger is left. Two independent review rounds found these two
+accessibility issues, then verified their fixes with no remaining findings.
+
+Search and State stay visible; the remaining map filters and layers share one
+disclosure. Directory filters have visible labels; the benefits checkbox stays
+primary. Phone counts and filters use compact rows; tablet navigation uses five
+equal columns. All ten tabs passed 138 subtab/device/theme checks at 375, 820
+and 1366px in light and dark themes, without page errors or document overflow.
+
+The first full run exposed excessive scrolling in map selection and the phone
+agreement filter. The next exposed one added desktop Evidence scroll from the
+new scope caption. Compact record lists, responsive filter rows and tighter
+paragraph spacing fixed the measured regressions. Existing budgets were kept.
+
+Release gate: 972 tests passed in 195 seconds. All 156 interaction paths
+(26 tasks × three devices × two disclosure contexts) passed within unchanged
+budgets. The map opens in two actions, DOE announcement lookup takes five,
+and linked framework/moratorium lookup takes six on all three devices.
+Filtering agreements takes three actions. Script times are about 2.2s, 3.2s,
+3.8–4.0s and 2.7–2.8s respectively, including deliberate harness waits.
+Full per-flow times are in uat/interaction_costs.json.
+
+On a 375px phone the map begins at 612px rather than 797px. The first framework
+row remains at 724px versus 722px, while its filters now have visible labels.
+At 1366px that row moves from 448px to 428px. Fresh unthrottled loopback samples
+are in uat/framework_map_performance.json; they are not production latency
+estimates. Frameworks does not request map/DOE data or preview adapters.
+
+The offline preview passed, and two refresh/preview builds were byte-identical.
+Source HTTP blocks remain distinguished from unavailable or contradictory
+evidence. The incomplete cached moratorium audit ran with --no-issues; it is
+not counted as an accuracy pass. New facts were checked against primary text.
+
+Final GitHub review found a blank tablet World label. Its short/long label
+breakpoints now match; the visible-text regression fails before the fix and
+passes at 375, 641, 820, 1100 and 1366px. The final 972-test run includes all
+156 interaction paths with no budget increases.

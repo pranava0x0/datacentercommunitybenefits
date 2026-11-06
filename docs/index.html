@@ -35,10 +35,10 @@
       }
     </script>
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20261106a" />
+    <link rel="stylesheet" href="styles.css?v=20261106b" />
     <!-- html2pdf is lazy-loaded on demand by the moratorium PDF export (see
          loadHtml2Pdf in app.js) so it doesn't block first paint or tests. -->
-    <script defer src="app.js?v=20261106a"></script>
+    <script defer src="app.js?v=20261106b"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -716,7 +716,7 @@
       <ul>
         <li><h3><a href="#elections">What changed in the November election?</a></h3><p>Data-center policies of 37 incoming or re-elected officeholders and their predecessors, plus 17 local ballot measures.</p></li>
         <li><h3><a href="#ratepayer">Who has signed the Ratepayer Protection Pledge?</a></h3><p>327 organizations and 23 governors, per the White House roster as of 2026-11-04.</p></li>
-        <li><h3><a href="#policies">What rules do governments set for data centers?</a></h3><p>141 executive orders, laws, regulations and local ordinances are tracked; 113 are in effect.</p></li>
+        <li><h3><a href="#policies">What rules do governments set for data centers?</a></h3><p>142 executive orders, laws, regulations and local ordinances are tracked; 114 are in effect.</p></li>
         <li><h3><a href="#agreements">What have communities won in benefit agreements?</a></h3><p>28 community benefit, host and PILOT agreements are tracked; 18 are signed.</p></li>
         <li><h3><a href="#moratoriums">Where have data centers been paused?</a></h3><p>250 moratoriums at city, county and state level; 201 were enacted.</p></li>
         <li><h3><a href="#tariffs">Who pays for the power data centers use?</a></h3><p>29 large-load tariffs and 20 rate cases are tracked; 10 cases are pending.</p></li>
@@ -1132,6 +1132,7 @@
         <div class="hero">
 
           <h2 class="hero-title">Moratoriums</h2>
+          <p class="view-scope">Pauses and bans on data-center development, including proposals and lifted measures. <a href="#policies">Development rules and agreements</a> are in Frameworks.</p>
         </div>
 
         <!-- Status Overview Stats -->
@@ -1174,11 +1175,11 @@
         <div class="subtab-panel" id="subpane-mor-directory" role="tabpanel" aria-labelledby="subtab-mor-directory">
           <div id="moratoriums-directory">
           <h3 class="sr-only" id="moratoriums-table-heading">Moratoriums directory</h3>
-          <div id="moratorium-filters" class="filter-bar filter-bar--slim" role="group" aria-label="Filter moratoriums">
-            <label class="filter filter-search"><span class="sr-only">Search</span>
+          <div id="moratorium-filters" class="filter-bar filter-bar--slim directory-filters" role="group" aria-label="Filter moratoriums">
+            <label class="filter filter-search"><span class="filter-name">Search</span>
               <input id="moratorium-q" type="search" placeholder="Search place, state or bill" autocomplete="off" />
             </label>
-            <label class="filter"><span class="sr-only">Status</span>
+            <label class="filter"><span class="filter-name">Status</span>
               <select id="moratorium-status-filter">
                 <option value="">Any status</option>
                 <option value="enacted">Enacted</option>
@@ -1187,7 +1188,7 @@
                 <option value="lifted">Lifted</option>
               </select>
             </label>
-            <label class="filter"><span class="sr-only">Level</span>
+            <label class="filter"><span class="filter-name">Level</span>
               <select id="moratorium-type-filter">
                 <option value="">Any level</option>
                 <option value="federal">Federal</option>
@@ -1489,6 +1490,7 @@
         <div class="hero">
 
           <h2 class="hero-title">Policy frameworks</h2>
+          <p class="view-scope">Zoning, tax, utility and community-benefit rules, agreements and company plans. <a href="#moratoriums">Pauses and bans</a> are in Moratoriums.</p>
         </div>
 
         <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
@@ -1529,41 +1531,38 @@
         <div class="subtab-panel" id="subpane-pol-directory" role="tabpanel" aria-labelledby="subtab-pol-directory" hidden>
           <div id="policies-directory">
             <h3 class="sr-only" id="policies-table-heading">All frameworks</h3>
-            <p class="acc-sub">
-              <span class="badge badge-cbf">CBF</span> = requires or is a
-              community benefit agreement, fund, or host payment.
-            </p>
-            <div id="policy-filters" class="filter-bar filter-bar--slim" role="group" aria-label="Filter policies">
-              <label class="filter"><span class="sr-only">Type</span>
+            <div id="policy-filters" class="filter-bar filter-bar--slim directory-filters" role="group" aria-label="Filter policies">
+            <label class="filter"><span class="filter-name">Type</span>
                 <select id="policy-instrument-filter">
                   <option value="">All types</option>
                 </select>
               </label>
-              <label class="filter"><span class="sr-only">Status</span>
+            <label class="filter"><span class="filter-name">Status</span>
                 <select id="policy-status-filter">
                   <option value="">Any status</option>
                 </select>
               </label>
-              <label class="filter"><span class="sr-only">Level</span>
-                <select id="policy-scope-filter">
-                  <option value="">All levels</option>
-                </select>
-              </label>
-              <label class="filter"><span class="sr-only">State</span>
+            <label class="filter"><span class="filter-name">State</span>
                 <select id="policy-state-filter">
                   <option value="">All states</option>
                 </select>
               </label>
-              <label class="filter"><span class="sr-only">Principle</span>
+            <label class="rp-filter-flag">
+                <input type="checkbox" id="policy-cbf-filter" />
+                Community benefits only
+              </label>
+            <details class="directory-more-filters"><summary>More filters</summary><div class="filter-bar filter-bar--slim"><label class="filter"><span class="filter-name">Level</span>
+                <select id="policy-scope-filter">
+                  <option value="">All levels</option>
+                </select>
+              </label>
+            <label class="filter"><span class="filter-name">Principle</span>
                 <select id="policy-principle-filter">
                   <option value="">All principles</option>
                 </select>
               </label>
-              <label class="rp-filter-flag">
-                <input type="checkbox" id="policy-cbf-filter" />
-                Community benefits only
-              </label>
-              <span class="export-btns">
+            </div></details>
+            <span class="export-btns">
                 <button id="policies-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
                 <button id="policies-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
               </span>

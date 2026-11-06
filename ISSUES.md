@@ -126,13 +126,11 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Records
-(12 records)
+(10 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **south-carolina-state-2026-01** (moratorium, South Carolina): captured 2026-09-22, 45 days ago
 - **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 45 days ago
 - **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 44 days ago
-- **fort-worth-tx-2026-08** (moratorium, Fort Worth): captured 2026-09-25, 42 days ago
 - **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 42 days ago
 - **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 42 days ago
 - **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 42 days ago

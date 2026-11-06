@@ -404,3 +404,26 @@ an entire view through zero opacity made text appear pale when clicked.
 Map search results precede the canvas while a query is active. This preserves
 lookup effort when the shared summary strip is present. Clearing search restores
 the map-first view. The existing interaction budgets remain the gate.
+
+### 2026-11-06 — individual sites and map inspection
+
+DOE locations use one star per published reference point, never numbered
+clusters or shifted coordinates. Announcement-linked stars use the accent
+fill. The legend uses the same CSS variables as the jurisdiction fills and
+explains combined records, proposed dashed outlines and inactive dotted ones.
+Unshaded areas mean no mapped record, not a verified absence of policy.
+
+Hover and keyboard focus show a transient preview. Escape dismisses the preview
+until leaving its trigger. Clicking or pressing Enter selects a location and
+exposes sources and canonical records; closing details restores the full map.
+Off-canvas features leave the tab sequence until panning or fitting brings
+them back. Fine pointers get precise hits; coarse pointers retain 44px targets.
+
+Map Search and State stay visible. Other filters and layers share one native
+disclosure; the current status is always shown in the result line. Directory
+filters have visible labels, with less-used scope/principle controls in a
+disclosure. A selected URL filter opens its disclosure.
+
+Tablet and phone navigation use five equal columns. Phone moratorium counts
+wrap as two compact lines across every subtab. Jurisdiction breakdowns remain
+available to assistive technology and in Trends.
