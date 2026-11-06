@@ -2773,7 +2773,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "David Crowley",
@@ -2839,8 +2839,27 @@
           "source_url": "https://www.nga.org/governors/wisconsin/",
           "source_title": "National Governors Association — Governor Tony Evers",
           "captured_at": "2026-11-04"
+        },
+        "statements": [
+          {
+            "statement": "Gov. Evers signed a bipartisan bill that creates exceptions for Tax Increment District (TID) Number 5 in the city of Port Washington",
+            "source_url": "https://content.govdelivery.com/accounts/WIGOV/bulletins/3f327b5",
+            "source_title": "Gov. Evers — tax-increment district exceptions supporting data-center development",
+            "captured_at": "2026-11-05",
+            "published_at": "2025-09-18"
+          }
+        ]
+      },
+      "proposed_changes": [
+        {
+          "topic": "Development pause",
+          "summary": "Crowley called for a pause while Wisconsin conducts a statewide environmental review of AI data centers. Evers’s September 2025 release described legislation he signed to support attracting new data centers through tax-increment district exceptions in Port Washington and Beaver Dam.",
+          "source_urls": [
+            "https://fox47.com/news/local/crowley-calls-for-pause-on-data-centers",
+            "https://content.govdelivery.com/accounts/WIGOV/bulletins/3f327b5"
+          ]
         }
-      }
+      ]
     },
     {
       "id": "wy-governor-2026",
