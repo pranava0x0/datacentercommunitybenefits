@@ -32,7 +32,7 @@ hard-code a hex value in `app.js`.
 (`--bg #F7F8FA`, `--text #11151C`, `--accent #1F4E79`). It replaced a warm
 cream-and-gold scheme borrowed from the White House pledge page, which read as a
 consumer AI product rather than a public record. The pledge reference is carried
-by *structure* — Roman numeral commitments, letterspaced kickers, a display
+by *structure* — Roman numeral commitments and a display
 serif — not by colour.
 
 **Compute contrast before adopting a colour; don't eyeball it — a colour annotated "AA" in a doc is a claim, not a measurement, including a doc you wrote.** The pledge
@@ -41,7 +41,7 @@ and 3:1 large-text floors. It was written into the v2 spec as a token and would
 have shipped unusable. Every token in the current palette was checked first.
 
 **One accent, two weights, both text-safe.** `--accent-mark` (8.15:1) carries
-kickers, labels and small copy; `--accent-rule` is the darker weight for rules
+labels and small copy; `--accent-rule` is the darker weight for rules
 and emphasis. The earlier split had a decorative-only tint that failed contrast,
 which meant the accent could not be used for text — a distinction nobody
 remembers at the call site.
@@ -54,7 +54,7 @@ Palettes:
 | Per-stance      | `--stance-{positive,mixed,negative}` + `*-soft` variants     | Community-response cards: left-border + soft background per stance |
 | Per-company     | `--co-{meta,google,microsoft,amazon,openai,anthropic,xai,oracle}` | Subtle 3px left border on claim/project cards, matrix row dot     |
 | Per-theme       | `--theme-{jobs,tax_revenue,energy,water,community_grants,infrastructure,education,engagement}` | Matrix column header underline, theme chip dot                    |
-| Accent (v2)     | `--accent-mark`, `--accent-rule`                             | Kickers, panel labels, hairline rules, the landing band            |
+| Accent (v2)     | `--accent-mark`, `--accent-rule`                             | Panel labels, hairline rules, the landing band            |
 | Inked band (v2) | `--band-{bg,text,text-muted,accent,hairline}`                | The dark commitments section — dark in BOTH themes                 |
 
 **The inked band carries its own foreground tokens on purpose.** `.rp-band` is a
@@ -372,3 +372,15 @@ provenance remains a small citation; certification and research-process copy do
 not occupy the page. Missing positions stay explicit. Long cards use browser
 content visibility to defer layout of offscreen entries without removing search,
 links or records from the document.
+
+### 2026-11-06 — summary density and plain labels
+
+Remove numbered section eyebrows and generic paragraphs explaining what a tab
+shows. Do not add them back as a visual motif. Footer retains the repository
+link without a paragraph explaining quotations and responses. Keep dates,
+source links and material geographic limits attached to the facts.
+
+Home uses compact title/count tiles and shorter gaps. Phone navigation uses
+five equal columns in two 44px rows. Elections starts with a sourced policy
+summary table; quotations open on demand. Moratoriums has its own lazy SVG map
+with generalized jurisdiction boundaries and public DOE reference points.

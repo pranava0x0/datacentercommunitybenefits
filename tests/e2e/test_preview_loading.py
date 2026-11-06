@@ -22,7 +22,7 @@ def test_offline_preview_elections_and_legal_link(page: Page, tmp_path: Path, mo
     page.set_viewport_size({"width": width, "height": 812})
     page.context.set_offline(True)
     page.goto(preview.as_uri() + "#elections")
-    expect(page.locator(".election-card").first).to_be_visible()
+    expect(page.locator(".election-row").first).to_be_visible()
     expect(page.locator("#meta")).not_to_contain_text("Couldn't load")
     page.locator("#elections-q").fill("Sabattus")
     page.locator('[data-related-record="sabattus-me-2026-11"]').click()
@@ -36,7 +36,7 @@ def test_offline_preview_elections_and_legal_link(page: Page, tmp_path: Path, mo
     assert requests == [preview.as_uri()]
 
 
-@pytest.mark.parametrize("hashpart, ready", [("", "#home-latest-list .feed-item"), ("#elections", ".election-card")])
+@pytest.mark.parametrize("hashpart, ready", [("", "#home-latest-list .feed-item"), ("#elections", ".election-row")])
 def test_startup_does_not_fetch_other_views(page: Page, base_url: str, hashpart: str, ready: str) -> None:
     # Force idle callbacks to run promptly, so hidden startup prefetch cannot
     # evade the check just because this browser happened to be busy.

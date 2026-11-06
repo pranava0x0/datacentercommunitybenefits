@@ -504,7 +504,7 @@ select:focus-visible,
 
 .tabbar {
   display: flex;
-  gap: 0;
+  gap: 2px;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
@@ -547,9 +547,9 @@ select:focus-visible,
 .home-latest {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
-  gap: 28px;
+  gap: 16px;
   align-items: start;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 /* --- explore the record: one card per tab ------------------------------- */
@@ -558,8 +558,8 @@ select:focus-visible,
   display: grid;
   /* Seven cards, one per tab. Four columns give a 4+3 split instead of a
      lone card on a third row. */
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
 }
 
 @media (max-width: 1100px) {
@@ -579,11 +579,13 @@ select:focus-visible,
 }
 
 .home-card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title num" "sub num";
+  align-items: center;
+  gap: 3px;
   text-align: left;
-  padding: 16px 18px;
+  padding: 8px 12px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -599,6 +601,7 @@ select:focus-visible,
 }
 
 .home-card-title {
+  grid-area: title;
   font-family: var(--font-serif);
   font-size: var(--fs-lg);
   line-height: 1.2;
@@ -612,8 +615,9 @@ select:focus-visible,
 }
 
 .home-card-num {
+  grid-area: num;
   font-family: var(--font-sans);
-  font-size: var(--fs-3xl);
+  font-size: var(--fs-xl);
   font-weight: 700;
   line-height: 1.05;
   color: var(--accent);
@@ -621,6 +625,7 @@ select:focus-visible,
 }
 
 .home-card-sub {
+  grid-area: sub;
   font-size: var(--fs-xs);
   color: var(--text);
   font-weight: 600;
@@ -655,7 +660,7 @@ select:focus-visible,
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
-  padding: 10px 16px;
+  padding: 8px 12px;
   color: var(--text-muted);
   font-size: var(--fs-md);
   font-weight: 500;
@@ -1704,13 +1709,17 @@ main {
   .tabbar {
     flex-wrap: wrap;
     overflow-x: visible;
-    padding: 2px 8px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    padding: 0 8px;
   }
 
   .tab {
     min-height: 44px;
-    padding: 6px 9px;
-    font-size: var(--fs-base);
+    padding: 4px 2px;
+    font-size: var(--fs-xs);
+    min-width: 0;
   }
 
   .tab-long {
@@ -6643,10 +6652,10 @@ button.depth-chip:focus-visible {
 /* Nine tabs (v6) must still fit two rows on a 360-390px phone; a third row
    pushed every view's content down ~44px (interaction-cost regressions). */
 @media (max-width: 640px) {
-  .tab { padding-left: 6px; padding-right: 6px; }
+  .tab { padding-left: 2px; padding-right: 2px; }
 }
 @media (max-width: 380px) {
-  .tab { font-size: var(--fs-sm); padding-left: 5px; padding-right: 5px; }
+  .tab { padding-left: 2px; padding-right: 2px; font-size: var(--fs-2xs); }
 }
 /* v6: eight cards (International added). One column of eight pushed Home's
    Latest feed off the first phone screen, so phones get two columns with the
@@ -6654,8 +6663,8 @@ button.depth-chip:focus-visible {
 @media (max-width: 600px) {
   .home-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-card {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "title" "num" "sub";
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "title num" "sub sub";
     align-items: start;
     padding: 8px 12px;
   }
@@ -6681,20 +6690,7 @@ button.depth-chip:focus-visible {
    rather than restyling one tab at a time.
    ========================================================================== */
 
-/* --- Kicker: the one small-caps label style above a view heading --------- */
-.hero-kicker {
-  position: absolute;
-  top: -14px;
-  left: 0;
-  margin: 0;
-  line-height: 1;
-  font-size: var(--fs-2xs);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.hero { position: relative; margin: 20px 0 var(--sp-4); }
+.hero { position: relative; margin: 10px 0 14px; }
 
 /* --- Theme toggle: a word, not a glyph ----------------------------------- */
 #theme-toggle {
@@ -6849,7 +6845,26 @@ button.depth-chip:focus-visible {
 .election-filters { flex-direction: row; align-items: end; flex-wrap: wrap; margin-block: 20px 8px; }
 .election-filters label { display: flex; flex-direction: column; gap: 4px; font-size: var(--fs-sm); }
 .election-filters input { width: min(100%, 280px); }
-.election-directory { display: grid; gap: 16px; }
+.election-directory { min-width: 0; }
+.election-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: var(--fs-sm); }
+.election-table th, .election-table td { padding: 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
+.election-table thead th { font-weight: 600; color: var(--text-muted); }
+.election-table thead th:first-child { width: 19%; }
+.election-table thead th:nth-child(2) { width: 24%; }
+.election-place { font-weight: normal; scroll-margin-top: 190px; }
+.election-office, .election-role { display: block; margin-top: 4px; }
+.election-office { color: var(--text-muted); }
+.election-toggle { margin-top: 10px; text-align: left; }
+.election-people p { margin: 0 0 12px; }
+.election-people p:last-child { margin-bottom: 0; }
+.election-role { color: var(--text-muted); }
+.election-topic, .election-missing { margin: 0 0 8px; }
+.election-topic:last-child, .election-missing:last-child { margin-bottom: 0; }
+.election-summary .election-source { white-space: nowrap; }
+.election-detail-row[hidden] { display: none; }
+.election-detail-row > td { padding: 0; }
+.election-detail-row .election-card { margin: 12px 0; }
+.election-table .election-card { font-size: var(--fs-base); }
 .election-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; background: var(--surface); min-width: 0; scroll-margin-top: 190px; overflow-wrap: anywhere; content-visibility: auto; contain-intrinsic-size: auto 700px; }
 .election-card h3 { margin: 0 0 8px; }
 .election-card h3 a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -6867,16 +6882,83 @@ button.depth-chip:focus-visible {
 .election-related { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px; font-size: var(--fs-sm); }
 .election-empty { padding: 16px; border: 1px solid var(--border); }
 @media (max-width: 640px) {
+  .election-table, .election-table tbody { display: block; }
+  .election-table thead { display: none; }
+  .election-table .election-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid var(--border); }
+  .election-table .election-row > th, .election-table .election-row > td { width: auto; border: 0; padding: 10px 8px; }
+  .election-table .election-row > .election-summary { grid-column: 1 / -1; padding-top: 0; }
+  .election-detail-row:not([hidden]), .election-detail-row > td { display: block; }
+  .election-detail-row > td { padding: 0; }
   .election-candidates { grid-template-columns: 1fr; }
   .election-filters label { flex: 1 1 140px; min-width: 0; }
   .election-filters label:first-child { flex-basis: 100%; }
   .election-filters input, .election-filters select { width: 100%; min-width: 0; }
   .election-card { padding: 12px; }
-  .tab { padding-inline: 5px; min-width: 44px; }
+  .tab { padding-inline: 2px; min-width: 44px; }
 }
 @media (pointer: coarse) {
   .election-filters input, .election-filters select, .election-filters button,
   .election-related a, .election-related button,
-  .election-card h3 a, .election-source { min-height: 44px; }
-  .election-related a, .election-source, .election-card h3 a { display: inline-flex; align-items: center; }
+  .election-card h3 a, .election-source, .election-toggle, .election-place > a { min-height: 44px; }
+  .election-related a, .election-source, .election-card h3 a, .election-place > a { display: inline-flex; align-items: center; }
+}
+
+/* Jurisdiction geometry and public DOE references, loaded on the Map pane. */
+.jurisdiction-filters { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.jurisdiction-filters label { display: flex; flex-direction: column; gap: 3px; font-size: var(--fs-sm); }
+.jurisdiction-filters input, .jurisdiction-filters select { min-width: 0; max-width: 100%; }
+.jurisdiction-layers { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 0; padding: 0; border: 0; font-size: var(--fs-sm); }
+.jurisdiction-layers label { display: inline-flex; align-items: center; gap: 5px; }
+.jurisdiction-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); gap: 12px; align-items: start; }
+.jurisdiction-canvas { position: relative; height: 500px; border: 1px solid var(--border); background: var(--surface-2); overflow: hidden; }
+.jurisdiction-canvas > svg { width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.jurisdiction-canvas > svg:active { cursor: grabbing; }
+.jurisdiction-canvas > svg:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+.map-state-background path { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
+.map-jurisdiction { cursor: pointer; stroke-width: 1.3; fill-opacity: .24; }
+.map-has-moratorium { fill: #6f7fa1; stroke: #4f6084; }
+.map-has-policy { fill: #689e98; stroke: #356e68; }
+.map-has-moratorium.map-has-policy { fill: #79799b; stroke: #465c77; stroke-width: 2; }
+.map-proposed { stroke-dasharray: 4 3; fill-opacity: .1; }
+.map-inactive { stroke-dasharray: 1 3; fill-opacity: .06; stroke-opacity: .5; }
+.map-jurisdiction:hover { fill-opacity: .5; stroke-width: 2; }
+.map-doe-point { cursor: pointer; }
+.map-dot-hit { fill: transparent; }
+.map-dot { fill: var(--text-muted); stroke: var(--surface); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.map-doe-point.has-announcement .map-dot { fill: var(--accent); stroke: var(--surface); stroke-width: 2; }
+.map-doe-point text { fill: var(--surface); font-family: var(--font-sans); font-weight: 700; pointer-events: none; }
+.map-doe-point:focus .map-dot { stroke: var(--text); stroke-width: 3; }
+.map-key-moratoriums { color: #4f6084; }
+.map-key-policies { color: #356e68; }
+.map-key-announcements { color: var(--accent); }
+[data-theme="dark"] .map-key-moratoriums { color: #b2c3e6; }
+[data-theme="dark"] .map-key-policies { color: #9dcac5; }
+.jurisdiction-zoom { position: absolute; top: 6px; left: 6px; display: flex; gap: 3px; }
+.jurisdiction-zoom button { background: var(--surface); min-width: 36px; }
+.jurisdiction-detail { min-width: 0; border: 1px solid var(--border); padding: 12px; max-height: 500px; overflow-y: auto; overflow-wrap: anywhere; }
+.jurisdiction-detail section + section { border-top: 1px solid var(--border); margin-top: 12px; padding-top: 12px; }
+.jurisdiction-detail p, .map-announcement p { margin: 8px 0; }
+.jurisdiction-detail h3, .map-announcements h3 { font-size: var(--fs-lg); }
+.jurisdiction-detail h4, .map-announcement h4 { font-size: var(--fs-base); }
+.map-record-link, .map-location-link { text-align: left; background: none; border: none; padding: 4px 0; font: inherit; color: var(--accent); text-decoration: underline; cursor: pointer; }
+.map-record-link { font-weight: 600; }
+.jurisdiction-caption { margin: 8px 0 16px; font-size: var(--fs-xs); color: var(--text-muted); }
+.jurisdiction-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; margin: 8px 0 16px; padding: 0; }
+.jurisdiction-results li { min-width: 0; padding: 5px 10px 5px 0; border-bottom: 1px solid var(--border); font-size: var(--fs-sm); }
+.map-announcements { margin-top: 20px; }
+.map-announcement { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.map-coverage { margin-top: 16px; }
+@media (max-width: 800px) {
+  .jurisdiction-layout { grid-template-columns: 1fr; }
+  .jurisdiction-canvas { height: 340px; }
+  .jurisdiction-detail { max-height: 360px; }
+  .jurisdiction-results { grid-template-columns: 1fr; }
+  .jurisdiction-filters label { flex: 1 1 130px; min-width: 0; }
+  .jurisdiction-filters label:first-child { flex-basis: 100%; }
+}
+@media (pointer: coarse) {
+  .jurisdiction-filters input, .jurisdiction-filters select, .jurisdiction-layers label,
+  .jurisdiction-zoom button, .map-record-link, .map-location-link, .jurisdiction-detail a { min-height: 44px; }
+  .jurisdiction-detail a { display: inline-flex; align-items: center; }
+  .jurisdiction-zoom button, .map-record-link, .map-location-link { min-width: 44px; }
 }

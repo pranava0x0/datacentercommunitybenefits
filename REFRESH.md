@@ -1278,3 +1278,19 @@ campaign/news page against the quotation limit. Direct platform pages supplied
 Hinojosa's moratorium, rate-freeze, union-labor, NDA and water-contract proposals;
 X commentary about permitted projects finishing in 2027/2028 did not establish a
 government policy and was not promoted.
+
+### 2026-11-06 — jurisdiction boundaries and public DOE coordinates
+
+Expected jurisdiction names to identify government boundaries. Augusta matched
+an ArcGIS Census county division (CCD), which is statistical rather than the
+municipal government. Check incorporated-place and government-township records;
+use Augusta-Richmond consolidated government (balance), distinguish Baltimore
+County from Baltimore city, and hold same-name townships without a verified
+county. Boundary inclusion alone does not establish legal applicability.
+
+Expected DOE's text roster to expose locations. The current EM homepage embeds
+16 named coordinates in Drupal energyMaps settings; the public NETL layer has
+20 laboratory reference positions with a 2014 source vintage. Check current
+organization names separately. Field-office or headquarters coordinates must
+not become development-parcel pins. Keep national announcements unpinned when
+individual project locations are not established.

@@ -22,7 +22,11 @@
     "world_country": 2,
     "election_result": 1,
     "election_policy": 7,
-    "election_legal_record": 7
+    "election_legal_record": 7,
+    "map_overview": 2,
+    "map_doe_announcement": 8,
+    "map_framework": 6,
+    "map_moratorium": 9
   },
   "tablet": {
     "home_latest": 0,
@@ -46,7 +50,11 @@
     "world_country": 2,
     "election_result": 1,
     "election_policy": 2,
-    "election_legal_record": 4
+    "election_legal_record": 4,
+    "map_overview": 2,
+    "map_doe_announcement": 5,
+    "map_framework": 6,
+    "map_moratorium": 6
   },
   "desktop": {
     "home_latest": 0,
@@ -70,6 +78,10 @@
     "world_country": 2,
     "election_result": 1,
     "election_policy": 2,
-    "election_legal_record": 4
+    "election_legal_record": 4,
+    "map_overview": 2,
+    "map_doe_announcement": 8,
+    "map_framework": 6,
+    "map_moratorium": 9
   }
 }

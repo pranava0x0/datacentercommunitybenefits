@@ -563,3 +563,25 @@ immediate innerText after an asynchronous action. No production workaround was
 needed for those harness races. The long-list rendering change was measured
 again without concurrent tests. A duplicate full interaction run was stopped;
 the complete 132 paths were preserved from the suite's existing measurement.
+
+### 2026-11-06 — Elections summary and jurisdiction / DOE map
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| DOE source attempt on an alternate runtime | no | Runtime required account login; zero tool calls; tokens not reported | Use the working inherited runtime after a capability failure. |
+| DOE public sources and coordinate join | yes | 33 points, six announcements; 13 initial/follow-up requests; tokens not reported | Inspect current EM homepage embedded map settings before guessing obsolete roster URLs. |
+| Elections summary implementation | yes | Policy-style rows, lazy details, 20 focused tests; tokens not reported | Reuse the source model and preserve existing interaction budgets. |
+| Review round 1, implementation | yes | Project-search and keyboard-focus defects reproduced and fixed; bounded scope; tokens not reported | Include direct file-preview and keyboard marker flows. |
+| Accuracy / citation review | yes | Augusta CCD replaced, internal research copy removed, typo fixed; one canonical request; tokens not reported | Distinguish Census statistical subdivisions from municipal governments before matching names. |
+| Review round 2, fixes | yes | Search, focus, pointer behavior, selection refresh and data fixes verified; tokens not reported | Review exact fixes rather than recrawling all sources. |
+
+The parent checked local seed IDs before research, fetched only needed Census
+geometry, and held the ambiguous Springhill township out of the map. Raw index
+file and a synthetic native preview reproduce the JSON/module loading problem;
+generated same-origin classic assets resolve it without adding hosted startup
+requests. Coverage notes publish factual limits, not the research transcript.
+
+GitHub's review of the feature commit completed with no findings. A final
+coarse-pointer check found map zoom/link widths below 44px; one CSS rule and a
+browser regression fix that last mobile issue. Nineteen focused map, type-scale
+and selector checks passed before the follow-up commit.
