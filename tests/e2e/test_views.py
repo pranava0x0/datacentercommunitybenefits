@@ -418,14 +418,13 @@ class TestCrossCutting:
         # (may briefly show claim count before refresh date arrives via JSON)
         assert meta.count() == 1
 
-    def test_comparison_hero_explains_source_and_use(self, page: Page, base_url: str):
-        # One short line (owner, 2026-10-08) saying what the tab holds: what
-        # each operator has promised, in its own words. No usage manual.
+    def test_comparison_header_omits_explanatory_copy(self, page: Page, base_url: str):
+        # Owner, 2026-11-06: titles without numbered eyebrows or a paragraph
+        # describing the view. Source links remain attached to records.
         page.goto(base_url + "/#comparison/commitments")
         page.wait_for_selector("#matrix-body tr", timeout=E2E_WAIT)
-        dek = (page.locator("#view-comparison .hero-dek").text_content() or "").strip().lower()
-        assert "promised" in dek and "own words" in dek
-        assert "click" not in dek and len(dek) <= 90
+        expect(page.locator("#view-comparison .hero-title")).to_have_text("Companies")
+        expect(page.locator("#view-comparison .hero-dek, .hero-kicker")).to_have_count(0)
 
     def test_theme_toggle_swaps_data_theme(self, page: Page, base_url: str):
         page.goto(base_url + "/#comparison/commitments")

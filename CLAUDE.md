@@ -2200,3 +2200,14 @@ Do not idle-prefetch projects, responses and claims on unrelated tabs. The
 Elections cold load was competing with roughly 684 KB of unrelated JSON. Each
 view already has explicit loaders; request-level tests now check after the first
 render as well as before it. Measure through usable content, not just paint.
+
+### 2026-11-06 — original file and native preview support
+
+`docs/index.html` now supports direct file opening through generated classic
+script adapters. `refresh.py` emits `docs/data/*.preview.js` from canonical JSON;
+`tools/build_preview.py` emits module adapters beside their source modules and
+still builds the standalone bundle. Regenerate and stage these alongside source
+changes before committing. Hosted startup still uses ordinary JSON and dynamic
+imports; adapters load only for file/native previews where those requests fail.
+Tests compare adapters with their source and exclude generated copies from the
+dead-CSS scan so stale duplicates cannot certify an orphan selector.

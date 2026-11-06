@@ -2651,6 +2651,118 @@ class ElectionMeasure(_ElectionContest):
         return self
 
 
+class MapPolygon(_StrictBase):
+    type: Literal["Polygon", "MultiPolygon"]
+    coordinates: list
+
+    @model_validator(mode="after")
+    def valid_rings(self) -> "MapPolygon":
+        polygons = [self.coordinates] if self.type == "Polygon" else self.coordinates
+        if not polygons:
+            raise ValueError("Map boundaries require polygon coordinates")
+        for polygon in polygons:
+            if not isinstance(polygon, list) or not polygon:
+                raise ValueError("Map polygons require rings")
+            for ring in polygon:
+                if not isinstance(ring, list) or len(ring) < 4 or ring[0] != ring[-1]:
+                    raise ValueError("Map rings must have at least four positions and be closed")
+                for point in ring:
+                    if (not isinstance(point, list) or len(point) != 2
+                            or any(isinstance(value, bool) or not isinstance(value, (int, float)) for value in point)
+                            or not -180 <= point[0] <= 180 or not -90 <= point[1] <= 90):
+                        raise ValueError("Map positions must be WGS84 longitude/latitude pairs")
+        return self
+
+
+class MapJurisdiction(_StrictBase):
+    id: str = Field(min_length=1)
+    name: str = Field(min_length=1)
+    state_code: str = Field(pattern=r"^[A-Z]{2}$")
+    level: Literal["state", "county", "city"]
+    census_geoid: str = Field(pattern=r"^\d{2,10}$")
+    geometry: MapPolygon
+    moratorium_ids: list[str] = Field(default_factory=list)
+    policy_ids: list[str] = Field(default_factory=list)
+    source_url: HttpUrl
+    captured_at: Date
+
+
+class MapLocationGap(_StrictBase):
+    record_kind: Literal["moratorium", "policy"]
+    record_id: str = Field(min_length=1)
+    reason: str = Field(min_length=1)
+
+
+class MapGeographyPayload(_StrictBase):
+    generated_at: Date
+    jurisdictions: list[MapJurisdiction] = Field(default_factory=list)
+    unmatched: list[MapLocationGap] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def unique_locations(self) -> "MapGeographyPayload":
+        ids = [item.id for item in self.jurisdictions]
+        if len(ids) != len(set(ids)):
+            raise ValueError("Duplicate map jurisdiction IDs")
+        references = [(kind, key) for item in self.jurisdictions
+                      for kind, keys in [("moratorium", item.moratorium_ids), ("policy", item.policy_ids)]
+                      for key in keys]
+        references.extend((item.record_kind, item.record_id) for item in self.unmatched)
+        if len(references) != len(set(references)):
+            raise ValueError("A mapped record must have exactly one jurisdiction or explicit gap")
+        return self
+
+
+class DOESite(_StrictBase):
+    id: str = Field(min_length=1)
+    name: str = Field(min_length=1)
+    site_types: list[Literal["national_lab", "em_site", "other_asset"]] = Field(min_length=1)
+    state_code: str = Field(pattern=r"^[A-Z]{2}$")
+    lat: float = Field(ge=-90, le=90, allow_inf_nan=False)
+    lon: float = Field(ge=-180, le=180, allow_inf_nan=False)
+    location_kind: Literal["campus", "field_office", "reference_point", "city"]
+    source_url: HttpUrl
+    coordinate_source_url: HttpUrl
+    captured_at: Date
+    notes: str = ""
+    resources: list[SourceResource] = Field(default_factory=list)
+
+
+class DOEAnnouncement(_StrictBase):
+    id: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    published_at: Date
+    topics: list[Literal["data_center", "grid", "large_load"]] = Field(min_length=1)
+    status_text: str = Field(min_length=1)
+    site_ids: list[str] = Field(default_factory=list)
+    summary: str = Field(min_length=1)
+    source_url: HttpUrl
+    captured_at: Date
+
+    @model_validator(mode="after")
+    def publication_precedes_capture(self) -> "DOEAnnouncement":
+        if self.published_at > self.captured_at:
+            raise ValueError("DOE announcement cannot be published after capture")
+        return self
+
+
+class DOESitesPayload(_StrictBase):
+    generated_at: Date
+    sites: list[DOESite] = Field(default_factory=list)
+    announcements: list[DOEAnnouncement] = Field(default_factory=list)
+    coverage_notes: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def unique_sites_and_references(self) -> "DOESitesPayload":
+        site_ids = [item.id for item in self.sites]
+        announcement_ids = [item.id for item in self.announcements]
+        if len(site_ids) != len(set(site_ids)) or len(announcement_ids) != len(set(announcement_ids)):
+            raise ValueError("Duplicate DOE site or announcement IDs")
+        for item in self.announcements:
+            if not set(item.site_ids).issubset(set(site_ids)):
+                raise ValueError("DOE announcement references an unknown site")
+        return self
+
+
 class ElectionsPayload(_StrictBase):
     generated_at: Date
     election_date: Date
@@ -2675,6 +2787,8 @@ class ElectionsPayload(_StrictBase):
 
 
 __all__ = [
+    "MapGeographyPayload", "MapJurisdiction", "MapLocationGap", "MapPolygon",
+    "DOESitesPayload", "DOESite", "DOEAnnouncement",
     "ElectionEvidence", "ElectionOfficeholder", "ElectionCandidate", "ElectionResult",
     "ElectionRace", "ElectionPolicyChange", "ElectionMeasure", "ElectionsPayload",
     "COUNTRIES",

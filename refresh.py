@@ -39,6 +39,8 @@ from schema import (
     ClaimsPayload,
     CompaniesPayload,
     ElectionsPayload,
+    MapGeographyPayload,
+    DOESitesPayload,
     MoratoriumsPayload,
     PoliciesPayload,
     InternationalPayload,
@@ -69,6 +71,8 @@ PAYLOAD_FILES: dict[str, type] = {
     # v6: every non-US record, one lazy file for the International tab.
     "international": InternationalPayload,
     "elections": ElectionsPayload,
+    "map_geography": MapGeographyPayload,
+    "doe_sites": DOESitesPayload,
 }
 
 
@@ -256,6 +260,30 @@ def _check_cross_refs(
                 f"responses.json: response {r.id!r} references unknown project_id {r.project_id!r}"
             )
 
+    return errors
+
+
+def _check_map_refs(geography: MapGeographyPayload, moratoriums: MoratoriumsPayload,
+                    policies: PoliciesPayload) -> list[str]:
+    """Boundaries attach to jurisdictional records, not individual agreements."""
+    records = {("moratorium", item.id): item for item in moratoriums.moratoriums}
+    records.update({("policy", item.id): item for item in policies.policies})
+    errors: list[str] = []
+    for jurisdiction in geography.jurisdictions:
+        for kind, ids in [("moratorium", jurisdiction.moratorium_ids), ("policy", jurisdiction.policy_ids)]:
+            for key in ids:
+                item = records.get((kind, key))
+                if item is None:
+                    errors.append(f"map_geography.json: unknown {kind} {key!r}")
+                    continue
+                level = item.jurisdiction_type if kind == "moratorium" else item.scope
+                if item.state_code != jurisdiction.state_code or level != jurisdiction.level:
+                    errors.append(f"map_geography.json: state/level mismatch for {key!r}")
+                if kind == "policy" and item.instrument in {"benefit_agreement", "company_plan"}:
+                    errors.append(f"map_geography.json: project/company agreement {key!r} is not a jurisdiction-wide framework")
+    for gap in geography.unmatched:
+        if (gap.record_kind, gap.record_id) not in records:
+            errors.append(f"map_geography.json: unknown unmatched record {gap.record_id!r}")
     return errors
 
 
@@ -990,6 +1018,15 @@ def _write_payload(name: str, model_obj, *, pretty: bool) -> int:
     return len(text.encode("utf-8"))
 
 
+def _write_preview_adapters() -> None:
+    """Classic scripts let file/webview previews load the same curated JSON."""
+    for path in sorted(OUT_DIR.glob("*.json")):
+        key = f"data/{path.name}"
+        script = ("window.__DCB_PREVIEW_DATA__ = window.__DCB_PREVIEW_DATA__ || {};\n"
+                  f"window.__DCB_PREVIEW_DATA__[{json.dumps(key)}] = {json.dumps(path.read_text(encoding='utf-8'), ensure_ascii=False)};\n")
+        path.with_suffix(".preview.js").write_text(script, encoding="utf-8")
+
+
 def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = False) -> int:
     """Validate seed and (optionally) write payloads. Returns exit code."""
     logging.basicConfig(
@@ -1017,6 +1054,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
     cross_errors += _check_international_refs(
         payloads["companies"], payloads["international"], payloads["projects"], payloads["claims"]
     )
+    cross_errors += _check_map_refs(payloads["map_geography"], payloads["moratoriums"], payloads["policies"])
     if cross_errors:
         for err in cross_errors:
             logger.error(err)
@@ -1071,6 +1109,7 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
     nbytes = _write_home(payloads, pretty=pretty)
     total += nbytes
     logger.info("Wrote home.json (%d bytes)", nbytes)
+    _write_preview_adapters()
     _write_agent_files(payloads, today=payloads["projects"].generated_at)
     _write_static_summary(payloads, today=payloads["projects"].generated_at)
     logger.info("Wrote llms.txt and sitemap.xml")

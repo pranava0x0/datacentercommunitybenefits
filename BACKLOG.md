@@ -1486,3 +1486,14 @@ Re-attributed: Oracle Port Washington energy quote is Peter Hoeschele (OpenAI), 
 Wayback-pinned (live pages have drifted; add new dated claims): Google Oregon/Iowa/Virginia, Meta Richland construction/operational jobs.
 
 - Re-source from Wayback (snapshot near 2026-05-14): google-247-cfe-2030 (sustainability.google/operating-sustainably) and google-water-replenish-120 (sustainability.google/commitments/water). Both targets are absent from Google's live pages as of 2026-10-19, so the claims were removed; restore them as dated captures if a snapshot carries the sentence.
+
+### 2026-11-06 — map coverage follow-ups
+
+- Verify which Springhill Township, PA enacted the tracked restriction before
+  adding its boundary; Fayette and Greene counties both have a same-name township.
+- Source public coordinates for the named laboratory satellites and additional
+  DOE/NNSA assets listed in Map → Sources and location coverage. The 17 lab
+  organizations and 16 EM map entries are represented; this is not a real-property
+  inventory. Do not geocode a guessed development parcel.
+- Add further DOE grid/project announcements only with dated primary sources
+  and verified site associations; current six records are selected coverage.

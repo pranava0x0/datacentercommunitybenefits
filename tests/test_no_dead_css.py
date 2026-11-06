@@ -193,6 +193,10 @@ def _applied_classes(html: str, js: str) -> tuple[set[str], set[str]]:
     # class="..." — HTML attributes and JS template strings alike.
     for value in _class_attr_values(both):
         absorb(value)
+    # SVG helper attributes are applied with setAttribute, including template
+    # literals with conditional classes. Reuse the interpolation-aware parser.
+    for value in _class_attr_values(re.sub(r"\bclass\s*:", "class=", js)):
+        absorb(value)
     # className = "..." / className: "..."
     for m in re.finditer(r"""className\s*[=:]\s*(["'`])(.*?)\1""", js, re.DOTALL):
         absorb(m.group(2))
@@ -222,7 +226,7 @@ def scan() -> tuple[list[str], set[str], set[str]]:
     css = _strip_comments((DOCS / "styles.css").read_text())
     html, js = _strip_source_comments(
         (DOCS / "index.html").read_text(),
-        "\n".join(p.read_text() for p in sorted(DOCS.glob("*.js")))
+        "\n".join(p.read_text() for p in sorted(DOCS.glob("*.js")) if not p.name.endswith(".preview.js"))
     )
     owned = sorted(
         {
@@ -267,6 +271,12 @@ def test_an_id_is_not_evidence_of_a_class(scan) -> None:
     assert "rp-commitments" not in exact, (
         "the parser is treating an id as a class application again"
     )
+
+
+def test_svg_attribute_classes_include_conditional_values() -> None:
+    exact, stems = _applied_classes("", 'svg("path", { class: `map-area${active ? " selected" : ""}` });')
+    assert "selected" in exact
+    assert "map-area" in stems
 
 
 def test_no_orphaned_project_selectors(scan) -> None:

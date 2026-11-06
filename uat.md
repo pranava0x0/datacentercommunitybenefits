@@ -1,7 +1,51 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-11-05_
+_Last run: 2026-11-06_
+
+## 2026-11-06 summary, geography and preview checks
+
+Checked 360×812, 375×812 and 1366×900, light/dark themes, source links,
+canonical legal dialogs, map state/status/topic/layer filters, empty search,
+pointer pan/zoom, keyboard clusters, selection focus and Back/deep links. No
+horizontal document overflow. Phone navigation is two 44px rows; all Moratoriums
+sub-tabs fit. Numbered eyebrows, generic view introductions and explanatory
+footer copy are removed. Sources remain attached to the records.
+
+Original `docs/index.html` opens offline, including Elections and Map. A native
+preview test blocks JSON and ESM requests and verifies classic-script adapters.
+Hosted Home and Elections make no map-data or preview-adapter requests. Map has
+no external tiles. Repeated refresh/bundle generation is byte-identical.
+
+All 26 tasks across three devices and two disclosure contexts complete: 156
+paths in `uat/interaction_costs.json`. Existing budgets are unchanged. New map
+budgets equal measured counts, with one swipe allowance only on paths that
+already need vertical swipes.
+
+| Flow from Home | Phone interactions / seconds | Tablet | Desktop |
+| --- | --- | --- | --- |
+| Map overview | 2 / 2.2 | 2 / 2.2 | 2 / 2.2 |
+| Savannah River announcement | 7 / 3.4 | 5 / 3.4 | 7 / 3.3 |
+| Texas outline to SB6 record | 6 / 3.9 | 6 / 4.0 | 6 / 4.0 |
+| Hernando outline to moratorium | 8 / 3.9 | 6 / 3.9 | 8 / 3.9 |
+
+Times include fixed automation settling waits, not reading time. The Texas
+flow initially cost 15 phone interactions; compact record links and direct
+outline selection reduce it to six. Full summaries remain in legal dialogs.
+DOE announcements sort newest first; coordinate detail remains available.
+
+Three fresh contexts per view/device, without throttling, measured local
+first-content medians of 56–58ms for Home/Elections and 81–82ms for Map. Baseline
+Home/Elections was 56–58ms, so no material cold-local latency change is claimed.
+Home’s Latest list moves up 194px on phone and 305px on desktop. Exact samples,
+request names and positions are in `uat/map_summary_performance.json`; production
+network latency is not estimated by these figures.
+
+Two independent review rounds checked implementation and primary-source
+accuracy. Fixed Augusta’s statistical CCD match, project-search associations,
+keyboard focus, public research-process copy, type-scale drift and phone
+sub-tab overflow. Public DOE references are not private project parcels; the
+Springhill ambiguity and named asset-coordinate gaps stay explicit.
 
 ## 2026-11-05 winner and prior policy comparisons
 

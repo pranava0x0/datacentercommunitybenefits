@@ -31,20 +31,12 @@ OUT = OUT_DIR / "dashboard.html"
 DATA_FILES = sorted(f.stem for f in (DOCS / "data").glob("*.json"))
 log = logging.getLogger(__name__)
 
-OLD_FETCH = '''async function fetchJson(url) {
-  const res = await fetch(url, { cache: "no-cache" });
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  return await res.json();
-}'''
-NEW_FETCH = '''async function fetchJson(url) {
+OLD_FETCH = "async function fetchJson(url) {"
+NEW_FETCH = OLD_FETCH + """
   const embedded = document.getElementById("preview-" + url);
-  if (embedded) {
-    return JSON.parse(embedded.textContent);
-  }
-  const res = await fetch(url, { cache: "no-cache" });
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  return await res.json();
-}'''
+  if (embedded) return JSON.parse(embedded.textContent);
+"""
+
 
 
 def build() -> Path:
@@ -65,6 +57,13 @@ def build() -> Path:
     if "import(modulePath)" not in appjs:
         raise SystemExit("Election import changed — update build_preview.py.")
     appjs = appjs.replace("import(modulePath)", "Promise.resolve(window.__ELECTION_VIEW__)")
+    geography = (DOCS / "jurisdiction-map.js").read_text().replace("export function ", "function ")
+    geography_js = "window.__JURISDICTION_MAP__ = (() => {\n" + geography + "\nreturn {mount};\n})();"
+    if "import(mapModulePath)" not in appjs:
+        raise SystemExit("Jurisdiction map import changed — update build_preview.py.")
+    appjs = appjs.replace("import(mapModulePath)", "Promise.resolve(window.__JURISDICTION_MAP__)")
+    for name, code in [("community-plans", guide_js), ("elections", election_js), ("jurisdiction-map", geography_js)]:
+        (DOCS / f"{name}.preview.js").write_text(f"// Generated from {name}.js by tools/build_preview.py.\n" + code + "\n")
     if re.search(r"\bimport\s*\(", appjs):
         raise SystemExit("Unbundled dynamic import — update build_preview.py.")
 
@@ -86,6 +85,7 @@ def build() -> Path:
         data + "\n"
         f"<script>\n{esc(guide_js)}\n</script>\n"
         f"<script>\n{esc(election_js)}\n</script>\n"
+        f"<script>\n{esc(geography_js)}\n</script>\n"
         f"<script>\n{esc(appjs)}\n</script>\n"
     )
     out = html.replace("</body>", inline + "</body>")
@@ -106,8 +106,8 @@ def verify() -> int:
         page.on("pageerror", lambda e: errors.append("PAGEERR: " + str(e)))
         page.goto(OUT.as_uri() + "#elections", wait_until="load")
         checks = {}
-        page.wait_for_selector("#elections-directory .election-card", timeout=8000)
-        checks["election_records"] = page.locator(".election-card").count()
+        page.wait_for_selector("#elections-directory .election-row", timeout=8000)
+        checks["election_records"] = page.locator(".election-row").count()
         page.locator("#elections-q").fill("Sabattus")
         page.locator('[data-related-record="sabattus-me-2026-11"]').click()
         page.wait_for_selector("#moratorium-modal:not([hidden]) #md-status", timeout=8000)

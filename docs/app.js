@@ -699,13 +699,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => {
       console.error("Failed to load comparison data:", err);
       const meta = document.getElementById("meta");
-      if (location.protocol === "file:") {
-        const link = el("a", "", "Open the website");
-        link.href = "https://pranava0x0.github.io/datacentercommunitybenefits/" + location.hash;
-        meta.replaceChildren("This file preview cannot read the data. ", link);
-      } else {
-        meta.textContent = "Couldn't load site data. Reload to try again.";
-      }
+      const retry = el("button", "btn-ghost", "Retry");
+      retry.type = "button";
+      retry.addEventListener("click", () => location.reload());
+      meta.replaceChildren("Couldn't load site data. ", retry);
     });
 });
 
@@ -1469,6 +1466,48 @@ function loadMoratoriumsData() {
   return _moratoriumsPromise;
 }
 
+let _jurisdictionMapPromise = null;
+let _jurisdictionMapView = null;
+let _jurisdictionMapRetries = 0;
+function loadJurisdictionMap() {
+  if (_jurisdictionMapView) {
+    requestAnimationFrame(() => _jurisdictionMapView.resize());
+    return _jurisdictionMapPromise;
+  }
+  if (!_jurisdictionMapPromise) {
+    const root = document.getElementById("jurisdiction-map-content");
+    const mapModulePath = `./jurisdiction-map.js?v=20261106a${_jurisdictionMapRetries ? `&retry=${_jurisdictionMapRetries}` : ""}`;
+    _jurisdictionMapPromise = Promise.all([
+      fetchJson("data/map_geography.json"), fetchJson("data/doe_sites.json"),
+      loadMoratoriumsData(), loadPoliciesData(), loadViewModule(() => import(mapModulePath), mapModulePath, "__JURISDICTION_MAP__"),
+    ]).then(([geography, doe, , , view]) => {
+      _jurisdictionMapView = view.mount(root, {
+        geography, doe, moratoriums: state.moratoriums, policies: state.policies,
+      }, {
+        stateNames: STATE_NAMES,
+        openMoratorium(id) {
+          const record = state.moratoriums.find((item) => item.id === id);
+          if (record) showMoratoriumDetail(record);
+        },
+        openPolicy(id) {
+          activateView("policies");
+          const record = state.policies.find((item) => item.id === id);
+          if (record) showPolicyDetail(record);
+        },
+      });
+    }).catch((err) => {
+      _jurisdictionMapPromise = null;
+      _jurisdictionMapRetries += 1;
+      console.error("Failed to load jurisdiction map:", err);
+      const retry = el("button", "btn-ghost", "Retry map");
+      retry.type = "button";
+      retry.addEventListener("click", () => { root.replaceChildren(el("p", "muted", "Loading map…")); loadJurisdictionMap(); });
+      root.replaceChildren(el("p", "muted", "Couldn't load map data."), retry);
+    });
+  }
+  return _jurisdictionMapPromise;
+}
+
 let _electionsPromise = null;
 let _electionsView = null;
 let _electionsRetries = 0;
@@ -1476,8 +1515,8 @@ let _pendingElectionId = null;
 function loadElectionsData() {
   if (!_electionsPromise) {
     const root = document.getElementById("elections-content");
-    const modulePath = `./elections.js?v=20261105b${_electionsRetries ? `&retry=${_electionsRetries}` : ""}`;
-    _electionsPromise = Promise.all([fetchJson("data/elections.json"), import(modulePath)])
+    const modulePath = `./elections.js?v=20261106a${_electionsRetries ? `&retry=${_electionsRetries}` : ""}`;
+    _electionsPromise = Promise.all([fetchJson("data/elections.json"), loadViewModule(() => import(modulePath), modulePath, "__ELECTION_VIEW__")])
       .then(([payload, view]) => {
         _electionsView = view.mount(root, payload, {
           stateNames: STATE_NAMES,
@@ -3910,9 +3949,53 @@ async function exportPoliciesToPDF() {
   await _exportToPDF("Data Center Policies & Community Benefit Agreements", _pdfTable(headers, rows), `policies-and-agreements-${today}.pdf`);
 }
 
+const _previewScripts = new Map();
+function canUsePreviewFiles() {
+  return location.protocol === "file:" || !["localhost", "127.0.0.1", "[::1]", "pranava0x0.github.io"].includes(location.hostname);
+}
+function loadPreviewScript(src) {
+  if (!_previewScripts.has(src)) {
+    _previewScripts.set(src, new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = resolve;
+      script.onerror = () => { _previewScripts.delete(src); script.remove(); reject(new Error(`Preview asset unavailable: ${src}`)); };
+      document.head.append(script);
+    }));
+  }
+  return _previewScripts.get(src);
+}
+async function previewData(url) {
+  if (!/^data\/[a-z_]+\.json$/.test(url)) throw new Error("Invalid local data path");
+  await loadPreviewScript(url.replace(/\.json$/, ".preview.js"));
+  const text = window.__DCB_PREVIEW_DATA__?.[url];
+  if (typeof text !== "string") throw new Error(`Missing preview data: ${url}`);
+  return JSON.parse(text);
+}
+async function loadViewModule(loader, path, globalKey) {
+  if (location.protocol === "file:" && window[globalKey]) return window[globalKey];
+  if (location.protocol !== "file:") {
+    try { return await loader(); }
+    catch (err) {
+      if (!canUsePreviewFiles()) throw err;
+      console.warn("Module import unavailable in this preview:", err);
+    }
+  }
+  await loadPreviewScript(path.replace(/\.js(?=\?|$)/, ".preview.js"));
+  if (!window[globalKey]) throw new Error(`Missing preview module: ${globalKey}`);
+  return window[globalKey];
+}
 async function fetchJson(url) {
-  const res = await fetch(url, { cache: "no-cache" });
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  if (location.protocol === "file:") return previewData(url);
+  let res;
+  try {
+    res = await fetch(url, { cache: "no-cache" });
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  } catch (err) {
+    if (!canUsePreviewFiles()) throw err;
+    console.warn("JSON request unavailable in this preview:", err);
+    return previewData(url);
+  }
   return await res.json();
 }
 
@@ -4406,7 +4489,7 @@ const SUBTAB_GROUPS = {
   tar: ["ratecases", "tariffs", "elements"],
   pol: ["principles", "latest", "directory", "drafts", "evidence"],
   cba: ["strongest", "all", "features"],
-  mor: ["directory", "trends", "influence"],
+  mor: ["directory", "map", "trends", "influence"],
   world: ["countries", "instruments", "sites"],
 };
 
@@ -4449,6 +4532,10 @@ function setActiveSubtab(group, key) {
     if (pane) pane.hidden = !active;
   }
   syncSubtabHash(group);
+  if (group === "mor") {
+    document.getElementById("moratorium-stats").hidden = key === "map";
+    if (key === "map") loadJurisdictionMap();
+  }
   if (group === "pol") {
     const isGuide = key === "drafts" || key === "evidence";
     document.getElementById("policy-stats").hidden = isGuide;
@@ -4482,7 +4569,7 @@ function loadPlanningGuide(key) {
   if (!_planningGuidePromise) {
     // Browsers cache a failed module fetch by URL; a new URL permits retry.
     const path = _planningGuideRetries ? `./community-plans.js?retry=${_planningGuideRetries}` : "./community-plans.js";
-    _planningGuidePromise = import(path).catch((err) => {
+    _planningGuidePromise = loadViewModule(() => import(path), path, "__PLANNING_GUIDE__").catch((err) => {
       _planningGuidePromise = null;
       _planningGuideRetries += 1;
       throw err;
