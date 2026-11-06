@@ -1283,7 +1283,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-05",
       "candidates": [
         {
           "name": "Wes Moore",
@@ -1331,7 +1331,16 @@
           "source_title": "Incumbent governor — Maryland",
           "captured_at": "2026-11-04"
         }
-      }
+      },
+      "proposed_changes": [
+        {
+          "topic": "Ratepayer safeguards",
+          "summary": "Moore’s responsible-development executive order sets safeguards against shifting data-center costs to Marylanders.",
+          "source_urls": [
+            "https://governor.maryland.gov/news/press-releases/governor-moore-signs-executive-order-codifying-responsible-data-center-development-framework"
+          ]
+        }
+      ]
     },
     {
       "id": "ma-governor-2026",
