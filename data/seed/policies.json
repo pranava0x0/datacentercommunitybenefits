@@ -2655,10 +2655,11 @@
         "education"
       ],
       "community_benefits_framework": true,
-      "value_usd": 40000000,
+      "value_usd": 80000000,
       "key_terms": [
         "Paying for New Power Delivery Infrastructure: SB Energy will invest $4.2 billion with AEP Ohio to upgrade and build new transmission lines in southern Ohio to benefit all ratepayers in the region.",
-        "SB Energy has also committed to a $40 million Community Benefits Agreement to support the surrounding Ohio communities."
+        "SB Energy has also committed to a $40 million Community Benefits Agreement to support the surrounding Ohio communities.",
+        "OpenAI has agreed to build on SB Energy’s originally announced $40 million community benefits fund with an incremental $40 million designed to support local priorities, including affordable energy, job creation and workforce development, and community and economic development."
       ],
       "summary": "SB Energy and OpenAI each committed $40 million ($80M combined) in community benefit/grant funds for Pike County, Ohio communities around the PORTS-Pike Technology Campus, a DOE Portsmouth Site data center partnership announced March 20, 2026. SB Energy is separately funding 100% of the ~$4.2 billion grid upgrade with AEP Ohio so the cost is not passed to Ohio ratepayers. Job estimates vary by source (DOE fact sheet: 10,000+ construction/2,000+ operations; PORTS campus site: 35,000 construction/2,500 operations).",
       "source_url": "https://www.energy.gov/articles/fact-sheet-department-energy-ensuring-affordable-energy-access-ohio-while-powering-future",
@@ -2667,12 +2668,16 @@
         {
           "url": "https://portscampus.com/updates/",
           "title": "PORTS-Pike Technology Campus — Updates"
+        },
+        {
+          "url": "https://sbenergy.com/nvidia-ai-compute-ports-pike-ohio/",
+          "title": "SB Energy — NVIDIA / OpenAI PORTS-Pike announcement, August 17, 2026"
         }
       ],
       "related_project_ids": [
         "sb-energy-piketon-oh"
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "community_benefits"
       ],
@@ -5106,6 +5111,113 @@
       "source_url": "https://raleighnc.gov/services/unified-development-ordinance-udo/data-centers-faq",
       "source_title": "City of Raleigh — Data Centers FAQ: zoning and special-use permit requirements",
       "captured_at": "2026-11-06"
+    },
+    {
+      "id": "st-louis-mo-ordinance-72181-2026",
+      "title": "St. Louis data-center zoning and Public Impact Agreements",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "St. Louis",
+      "state_code": "MO",
+      "identifier": "Ordinance 72181 / Board Bill 49",
+      "date": "2026-09-17",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "engagement",
+        "infrastructure"
+      ],
+      "principles": [
+        "community_benefits",
+        "local_control",
+        "transparency"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Major data centers require a Public Impact Agreement with the city before a building permit is granted.",
+        "The agreement requires a simple majority of the Board of Public Service and at least two-thirds of the Board of Aldermen.",
+        "Public comment must be accepted during the conditional-use hearing process before both boards approve the agreement.",
+        "Site-specific benefits may include land dedication or impact fees and must be related and roughly proportional to the development's impacts.",
+        "Default under the agreement may lead to revocation of the conditional-use permit."
+      ],
+      "summary": "St. Louis added comprehensive data-center zoning rules, effective September 17. Major facilities require a Public Impact Agreement addressing site-specific impacts, with public comment and approval by both city boards before a building permit. The ordinance sets zoning and operating conditions rather than a moratorium.",
+      "source_url": "https://www.stlouis-mo.gov/government/city-laws/upload/legislative//Ordinances/BOAPdf/72181.pdf",
+      "source_title": "City of St. Louis — Ordinance 72181, Chapter 26.77",
+      "resources": [
+        {
+          "url": "https://www.stlouis-mo.gov/government/city-laws/ordinances/ordinance.cfm?ord=72181",
+          "title": "Ordinance history and September 17 effective date"
+        }
+      ],
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-company-plan-responsible-growth-2026",
+      "title": "Google data-center power costs, taxes and disclosure commitments",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "company",
+      "jurisdiction": "Google (company-wide)",
+      "company_slugs": [
+        "google"
+      ],
+      "benefit_themes": [
+        "energy",
+        "tax_revenue",
+        "engagement"
+      ],
+      "principles": [
+        "pay_own_way",
+        "transparency",
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Pay for 100% of the power our data centers use and the direct infrastructure costs required to connect them to the grid, while following all appropriate local regulations.",
+        "For all new campuses, Google will pay full real property taxes on our data center buildings and land.",
+        "Eliminate the use of NDAs with state and local governments."
+      ],
+      "summary": "Google's published approach commits to paying power and direct grid-connection costs, paying full real property taxes on new campuses, and ending NDAs with state and local governments. It also commits to publishing project-level information about water use, sound and light limits, and traffic impacts.",
+      "source_url": "https://datacenters.google/our-approach/",
+      "source_title": "Google Data Centers — Our approach to investing in data center communities",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "oracle-jupiter-epe-credit-proposal-2026",
+      "title": "Oracle Project Jupiter proposed utility payments and customer credits",
+      "instrument": "company_plan",
+      "status": "proposed",
+      "scope": "company",
+      "jurisdiction": "Oracle / El Paso Electric — New Mexico customers",
+      "state_code": "NM",
+      "date": "2026-10-13",
+      "company_slugs": [
+        "oracle"
+      ],
+      "counterparties": [
+        "El Paso Electric"
+      ],
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way",
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Proposed energy service agreement with El Paso Electric anticipates at least $100 million spend on power over 10 years to support affordable electric rates",
+        "In addition, a separate agreement includes a proposal to provide as much as $55 million annually in direct credits for up to three years for EPE’s New Mexico residential and small business customers.",
+        "This credit could begin benefiting customers in 2027."
+      ],
+      "summary": "Oracle proposed at least $100 million in electricity purchases over 10 years for Project Jupiter and a separate proposal for up to $55 million a year in customer credits for up to three years. The credits would apply to El Paso Electric's New Mexico residential and small-business customers and could begin in 2027.",
+      "related_project_ids": [
+        "oracle-dona-ana-nm"
+      ],
+      "source_url": "https://www.oracle.com/news/announcement/oracle-proposes-plan-to-offset-customers-utility-costs-2026-10-13/",
+      "source_title": "Oracle — Proposed Project Jupiter utility-cost offset plan, October 13, 2026",
+      "captured_at": "2026-11-07"
     }
   ]
 }
