@@ -55,6 +55,41 @@ export function mount(root, data, hooks) {
 
   const heading = el("h2", "hero-title", "Elections");
   const hero = el("div", "hero"); hero.append(heading);
+  const overview = el("section", "election-overview");
+  overview.setAttribute("aria-label", "Tracked election policies");
+  const totals = el("div", "election-totals");
+  totals.setAttribute("role", "group");
+  totals.setAttribute("aria-label", "Policy summaries");
+  let summaryFilter = "";
+  const pauses = records.filter((record) => record.pause_proposal_topic);
+  for (const [key, value, label] of [
+    ["pauses", pauses.length, "Winners proposing pauses"],
+    ["changes", records.filter((record) => ["New officeholder", "Party change"].includes(change(record))).length, "New officeholders"],
+    ["passed", records.filter((record) => record.kind === "measure" && record.result.outcome === "passed").length, "Measures passed"],
+  ]) {
+    const metric = el("button", "btn-ghost");
+    metric.type = "button";
+    metric.dataset.summaryFilter = key;
+    metric.setAttribute("aria-pressed", "false");
+    metric.append(el("strong", "", String(value)), el("span", "", label));
+    metric.addEventListener("click", () => {
+      summaryFilter = summaryFilter === key ? "" : key;
+      render();
+    });
+    totals.append(metric);
+  }
+  overview.append(totals);
+  if (pauses.length) {
+    const pauseLinks = el("nav", "election-pause-links");
+    pauseLinks.setAttribute("aria-label", "Winners proposing pauses");
+    for (const record of pauses) {
+      const link = el("a", "", hooks.stateNames[record.state_code] || record.state_code);
+      link.href = `#elections/${record.id}`;
+      link.setAttribute("aria-label", `${hooks.stateNames[record.state_code] || record.state_code}: ${winner(record).name} · ${record.pause_proposal_topic}`);
+      pauseLinks.append(link);
+    }
+    overview.append(pauseLinks);
+  }
   const filters = el("div", "filter-bar election-filters");
   filters.setAttribute("role", "group");
   filters.setAttribute("aria-label", "Filter policies");
@@ -280,6 +315,9 @@ export function mount(root, data, hooks) {
   function render() {
     const query = search.value.trim().toLocaleLowerCase();
     const filtered = records.filter((record) => {
+      if (summaryFilter === "pauses" && !record.pause_proposal_topic) return false;
+      if (summaryFilter === "passed" && (record.kind !== "measure" || record.result.outcome !== "passed")) return false;
+      if (summaryFilter === "changes" && !["New officeholder", "Party change"].includes(change(record))) return false;
       if (state.value && record.state_code !== state.value) return false;
       if (kind.value === "measure" && record.kind !== "measure") return false;
       if (kind.value === "governor" && record.level !== "governor") return false;
@@ -297,11 +335,14 @@ export function mount(root, data, hooks) {
       return !query || query.split(/\s+/).every((word) => haystack.includes(word));
     });
     const proposals = filtered.filter((record) => record.pause_proposal_topic).length;
+    overview.hidden = Boolean(query || state.value || kind.value || status.value) && !summaryFilter;
+    for (const button of totals.querySelectorAll("button")) button.setAttribute("aria-pressed", String(button.dataset.summaryFilter === summaryFilter));
     count.textContent = `${proposals ? proposals + " pause proposals · " : ""}${filtered.length} ${kind.value === "measure" ? "ballot measures" : "records"}`;
     body.replaceChildren(...filtered.flatMap(summaryRow));
     list.replaceChildren(filtered.length ? table : el("p", "election-empty", records.length ? "No matching policies." : "No policy records available."));
   }
   function clear() {
+    summaryFilter = "";
     search.value = "";
     state.value = "";
     kind.value = "";
@@ -311,7 +352,7 @@ export function mount(root, data, hooks) {
   reset.addEventListener("click", clear);
   search.addEventListener("input", render);
   for (const select of [state, kind, status]) select.addEventListener("change", render);
-  root.replaceChildren(hero, filters, count, list);
+  root.replaceChildren(hero, overview, filters, count, list);
   render();
   return {
     openRecord(id) {

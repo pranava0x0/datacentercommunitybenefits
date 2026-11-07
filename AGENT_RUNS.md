@@ -637,3 +637,14 @@ button by id had not proved its label was visible.
 The final navigation follow-up passed 972 tests in 195 seconds, including all
 156 interaction paths; 13 focused layout/type checks and refreshed tablet
 screenshots also passed.
+
+### 2026-11-07 — election summary reviews
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| Combined summary correctness / UX review | yes | Found a selected summary filter becoming invisible after another filter; tokens not reported | Exercise conflicting filters, not only each filter alone. Use `.venv/bin/pytest`, not global PATH. |
+| Follow-up browser review | yes | Found short state links narrower than 44px; fixed and checked all 12 controls, both themes, source popups and Back; 19 focused tests passed; tokens not reported | Measure both dimensions of every coarse-pointer target. |
+
+The first full run passed 974 tests, including all 156 interaction paths.
+The subsequent target-width fix passed all 19 election tests. Research passes
+are recorded separately when their source and coverage files are reconciled.

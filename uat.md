@@ -1,7 +1,24 @@
 # UAT Baseline — Data Center Community Benefits Dashboard
 
 _Created: 2026-06-01_
-_Last run: 2026-11-06_
+_Last run: 2026-11-07_
+
+## 2026-11-07 election summary
+
+Checked clickable summary counts, conflicting filters and recovery, direct
+state comparisons, Back, keyboard source links and real new-tab navigation.
+Both themes fit 375px and 1366px; all 12 summary controls meet 44×44px on touch.
+Two independent rounds found and fixed an invisible active filter and narrow
+state links. All 19 focused election tests pass after those fixes. The full
+run passed 974 tests, including the existing 156 interaction paths; the final
+touch-width regression was added afterward and passed in the focused run.
+
+The Texas policy flow remains one action on all three measured devices,
+about 2.1–2.2 seconds including fixed automation waits. No interaction budget
+was raised. Cold local Elections medians across three contexts were 79ms on
+phone and 71ms on desktop (baseline 71ms/75ms). Request counts are unchanged;
+these unthrottled local samples do not establish a production speed gain.
+Samples are in `uat/elections_summary_performance.json`.
 
 ## 2026-11-06 summary, geography and preview checks
 

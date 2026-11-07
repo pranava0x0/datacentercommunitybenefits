@@ -230,3 +230,53 @@ def test_live_legal_record_opens_from_summary(page: Page, base_url: str) -> None
     page.locator('.election-row [data-related-record="sabattus-me-2026-11"]').click()
     expect(page.locator("#md-jurisdiction")).to_have_text("Sabattus")
     expect(page.locator(".election-card")).to_have_count(0)
+
+
+def test_summary_counts_filter_documented_positions_and_reset(page: Page, base_url: str) -> None:
+    page.goto(base_url + "/#elections")
+    pause = page.locator('[data-summary-filter="pauses"]')
+    expect(pause).to_have_text("9Winners proposing pauses")
+    expect(page.locator('[data-summary-filter="changes"]')).to_have_text("20New officeholders")
+    expect(page.locator('[data-summary-filter="passed"]')).to_have_text("15Measures passed")
+    pause.click()
+    expect(pause).to_have_attribute("aria-pressed", "true")
+    expect(page.locator(".election-row")).to_have_count(9)
+    expect(page.locator('.election-row[data-pause-proposal="false"]')).to_have_count(0)
+    page.locator(".election-more-filters summary").click()
+    page.select_option("#elections-kind", "measure")
+    expect(page.locator(".election-empty")).to_be_visible()
+    expect(pause).to_be_visible()
+    pause.click()
+    expect(page.locator(".election-row")).to_have_count(17)
+    page.select_option("#elections-kind", "")
+    page.locator('[data-summary-filter="passed"]').click()
+    expect(page.locator(".election-row")).to_have_count(15)
+    expect(page.locator("#elections-directory")).to_contain_text("Advisory question")
+    expect(page.locator("#elections-directory")).not_to_contain_text("Failed")
+    page.locator("#elections-reset").click()
+    expect(page.locator(".election-row")).to_have_count(54)
+    expect(pause).to_have_attribute("aria-pressed", "false")
+
+
+def test_pause_state_link_opens_both_sides_and_preserves_back(page: Page, base_url: str) -> None:
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(base_url + "/#elections")
+    page.get_by_role("navigation", name="Winners proposing pauses").get_by_role("link", name="Ohio:").click()
+    expect(page).to_have_url(base_url + "/#elections/oh-governor-2026")
+    expect(page.locator("#election-details-oh-governor-2026")).to_be_visible()
+    expect(page.locator("#election-details-oh-governor-2026")).to_contain_text("Amy Acton")
+    expect(page.locator("#election-details-oh-governor-2026")).to_contain_text("Mike DeWine")
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+    page.go_back()
+    expect(page).to_have_url(base_url + "/#elections")
+
+
+def test_summary_touch_targets(browser, base_url: str) -> None:
+    context = browser.new_context(viewport={"width": 375, "height": 812}, is_mobile=True, has_touch=True)
+    page = context.new_page()
+    page.goto(base_url + "/#elections")
+    expect(page.locator(".election-pause-links a")).to_have_count(9)
+    boxes = page.locator(".election-pause-links a, .election-totals button").evaluate_all(
+        "nodes => nodes.map(n => { const r = n.getBoundingClientRect(); return [r.width, r.height]; })")
+    assert all(width >= 44 and height >= 44 for width, height in boxes)
+    context.close()
