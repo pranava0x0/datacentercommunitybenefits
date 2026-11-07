@@ -1239,16 +1239,21 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Authorizes a host county or municipality to require a payment of up to 1% of the state sales/use tax that would otherwise be exempted on a qualified data center's electricity purchases, to qualify for certain sales tax breaks",
-        "Applies to data centers whose permits/certificates are issued after the bill's effective date",
-        "A broader companion bill (HB 1333) that would have added an equipment PILOT and eased farmland siting rules stalled in the Senate; only the narrower electricity revenue-share mechanism became law via HB 1210",
-        "Gov. Mike Braun signed the bill March 12, 2026"
+        "To use an IEDC specific transaction award certificate, a qualifying data-center user must make quarterly local payments of not more than 1% of the state sales/use taxes not paid on its electricity bills for the duration of the certificate.",
+        "Applies only when both the local development/construction/operation permit and the IEDC specific transaction award certificate are issued after June 30, 2026.",
+        "The host county or city determines how the contributions are allocated and used.",
+        "The payment provision in HEA 1210 Section 100 took effect July 1, 2026."
       ],
-      "summary": "Indiana's HB 1210, signed by Gov. Braun on March 12, 2026, lets host counties and cities require qualified data centers to contribute up to 1% of the sales/use tax they'd otherwise not pay on electricity purchases, as a condition of the local permit/incentive process. A broader bill (HB 1333) with a PILOT-on-equipment provision and farmland-zoning changes stalled in the Senate.",
-      "source_url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
-      "source_title": "Mirror Indy — At a pivotal moment for data centers, Indiana lawmakers take little action",
-      "resources": [],
-      "captured_at": "2026-09-23",
+      "summary": "HEA 1210 Section 100, effective July 1, 2026, requires qualifying data-center users to make quarterly local payments of not more than 1% of the state sales/use taxes not paid on their electricity bills for the duration of their IEDC certificate. It applies when both the local development permit and the specific transaction award certificate are issued after June 30, 2026. The host county or city determines how the contributions are allocated and used.",
+      "source_url": "https://www.in.gov/dor/files/legislative-synopsis-2026.pdf",
+      "source_title": "Indiana Department of Revenue — Legislative Synopsis 2026, IC 6-2.5-15-15.5 / HEA 1210 Section 100 (printed page 14)",
+      "resources": [
+        {
+          "url": "https://www.in.gov/dlgf/files/2026-memos/260429-Cockerill-Memo-Legislation-Affecting-Assessment-Matters.pdf",
+          "title": "Indiana Department of Local Government Finance — Legislation Affecting Assessment Matters (April 29, 2026), confirms March 12 signature"
+        }
+      ],
+      "captured_at": "2026-11-07",
       "principles": [
         "community_benefits",
         "incentive_terms"
@@ -2261,11 +2266,11 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (DCA), N.J.S.A.",
+        "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (\"DCA\"), N.J.S.A.",
         "The interagency Nuclear Power Task Force is hereby established to coordinate the efforts of Executive Branch departments and agencies to formulate and implement a strategy for the development of new nuclear generation facilities in the State, including coordination with the federal government and other states, as needed.",
         "and WHEREAS, PJM anticipates peak load growth of approximately 20 percent by 2030 compared to 2024 levels, with the overwhelming majority of the growth stemming from data centers, which will only further expand the gap between supply and demand in the PJM region;"
       ],
-      "summary": "Gov. Mikie Sherrill's EO 2, signed Jan. 20, 2026, declares a state of emergency over New Jersey's electricity affordability crisis and directs the Board of Public Utilities (BPU) and other agencies to accelerate solar, battery storage, and nuclear generation, and to expedite permitting waivers. The order's whereas clauses explicitly attribute the crisis largely to data-center-driven load growth ('the overwhelming majority of the growth stemming from data centers'), and Directive 8 specifically orders BPU to formulate policies/reports on 'large load' interconnections to curb speculative, duplicative 'ghost load' requests that inflate utility demand forecasts. It does not itself impose data-center-specific permitting or siting conditions; those measures target the crisis's supply side.",
+      "summary": "Governor Mikie Sherrill's January 20 executive order declares an electricity-affordability emergency and directs agencies to accelerate solar, storage and nuclear generation and associated permitting. It cites PJM's forecast of roughly 20% peak-load growth by 2030 compared with 2024, with most growth attributed to data centers. Directive 8 orders BPU to address large-load interconnections and speculative, duplicative requests.",
       "source_url": "https://www.nj.gov/infobank/eo/057sherrill/pdf/EO-2.pdf",
       "source_title": "Executive Order No. 2 (Governor Mikie Sherrill, State of New Jersey)",
       "resources": [
@@ -2274,7 +2279,7 @@
           "title": "NJ Governor's Office — Promise Kept: Governor Sherrill Takes Bold Action with Executive Orders Declaring State of Emergency on Utility Costs"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "new_power",
         "pay_own_way"
@@ -3205,7 +3210,7 @@
         "VEDP exclusion for new data centers ≥25MW peak demand from Business Ready Sites/expedited permitting programs",
         "VA-LEAD responsible-development designation criteria modeled on LEED/EnergyStar",
         "Cooling water scarcity area designation for Eastern Virginia Groundwater Management Area",
-        "PJM Reliability Backstop Procurement costs to be assigned to data center large loads"
+        "Directs advocacy for assigning PJM Reliability Backstop Procurement costs to the data-center large loads causing those costs"
       ],
       "summary": "Gov. Abigail Spanberger's EO 22, signed Sept. 18, 2026, directs the Office of the Chief Energy Officer to implement a five-pillar 'Virginia Data Center Accountability Framework' covering community engagement, environmental protection, affordability, clean energy/grid reliability, and workforce. It bans state-agency NDAs on data center projects, excludes new data centers of 25 MW or more from VEDP's Business Ready Sites/expedited-permitting programs, directs DEQ to develop noise rules and a cooling-water-scarcity-area designation (naming the Eastern Virginia Groundwater Management Area), and directs engagement with the SCC/PJM to shield ratepayers from data-center-driven grid costs. It also creates a rapid-response AI Task Force. It rescinds Youngkin's EO 30 (2024) and Executive Directive 5 (2023).",
       "source_url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
@@ -3220,7 +3225,7 @@
           "title": "Governor of Virginia newsroom — September releases"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "transparency",
         "incentive_terms",
@@ -3500,12 +3505,12 @@
       "community_benefits_framework": false,
       "key_terms": [
         "100 MW / 20 GWh large-data-center threshold",
-        "closed-loop cooling water system required",
+        "Closed-loop cooling or another system using no more water than a closed-loop system required",
         "annual DNR water-use reporting",
         "renewable generation must be co-located with the data center it serves",
         "reclamation bonds for abandoned projects"
       ],
-      "summary": "Wisconsin AB 840 (2025-2026 session), introduced January 9, 2026 by a group of GOP legislators, would have directed the Public Service Commission to ensure new electric infrastructure costs for a data center are borne by that facility rather than other ratepayers, required data centers above 100 MW demand or 20 GWh consumption to use closed-loop cooling systems and report annual water use to the DNR, required any renewable generation facility primarily serving a data center's load to be sited at the data center itself, and required reclamation bonds for abandoned projects. The Assembly passed the bill 53-44 on January 20, 2026, but the Senate failed to concur on March 23, 2026, and it did not become law.",
+      "summary": "Wisconsin AB 840 (2025-2026 session), introduced January 9, 2026 by a group of GOP legislators, would have directed the Public Service Commission to ensure new electric infrastructure costs for a data center are borne by that facility rather than other ratepayers, required data centers above 100 MW demand or 20 GWh consumption to use closed-loop cooling or another system using no more water than a closed-loop system and report annual water use to the DNR, required any renewable generation facility primarily serving a data center's load to be sited at the data center itself, and required reclamation bonds for abandoned projects. The Assembly passed the bill 53-44 on January 20, 2026, but the Senate failed to concur on March 23, 2026, and it did not become law.",
       "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
       "source_title": "Wisconsin Legislature — 2025 Assembly Bill 840 legislative history",
       "resources": [
@@ -3518,7 +3523,7 @@
           "title": "WisPolitics — Wisconsin Conservation Voters on AB 840"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "pay_own_way"
       ]
@@ -4802,12 +4807,12 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
+        "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD SPECIFIC REQUIREMENTS FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
       ],
       "summary": "West Vincent Township's Board of Supervisors gave public notice of a hearing on June 15, 2026 to consider, and possibly vote to adopt, Ordinance 227-2026, which amends the township code to define data centers and data center accessory uses. The outcome of the hearing was not found, so the ordinance is recorded as proposed.",
       "source_url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
       "source_title": "West Vincent Township — Public notice: data centers ordinance hearing",
-      "captured_at": "2026-10-19"
+      "captured_at": "2026-11-07"
     },
     {
       "id": "charles-county-md-zta-25-187-2026-07",
