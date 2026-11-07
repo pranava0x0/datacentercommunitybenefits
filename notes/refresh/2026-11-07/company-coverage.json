@@ -1,0 +1,981 @@
+{
+  "as_of": "2026-11-07",
+  "company_count": 33,
+  "companies": [
+    {
+      "company_slug": "meta",
+      "reviewed_at": "2026-11-07",
+      "finding": "Enumerated all 33 official locations and 73 public WordPress posts. Staged 14 missing US campuses, Sturgeon County and Singapore. Odense is outside country coverage. Singapore current operation remains unverified: the cited October2022 company article describes its opening prospectively.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [
+        "meta-mesa-az",
+        "meta-dekalb-il",
+        "meta-jeffersonville-in",
+        "meta-altoona-ia",
+        "meta-rosemount-mn",
+        "meta-kansas-city-mo",
+        "meta-forest-city-nc",
+        "meta-bowling-green-oh",
+        "meta-new-albany-oh",
+        "meta-aiken-sc",
+        "meta-gallatin-tn",
+        "meta-fort-worth-tx",
+        "meta-henrico-va",
+        "meta-cheyenne-wy",
+        "ca-meta-sturgeon-county",
+        "sg-meta-tanjong-kling"
+      ],
+      "new_claim_candidate_ids": [
+        "meta-mesa-az-education-source-recapture-2026",
+        "meta-dekalb-il-education-source-recapture-2026",
+        "meta-jeffersonville-in-energy-source-recapture-2026",
+        "meta-altoona-ia-energy-source-recapture-2026",
+        "meta-rosemount-mn-energy-source-recapture-2026",
+        "meta-kansas-city-mo-energy-source-recapture-2026",
+        "meta-forest-city-nc-energy-source-recapture-2026",
+        "meta-bowling-green-oh-community_grants-source-recapture-2026",
+        "meta-new-albany-oh-community_grants-source-recapture-2026",
+        "meta-gallatin-tn-community_grants-source-recapture-2026",
+        "meta-fort-worth-tx-energy-source-recapture-2026",
+        "meta-henrico-va-community_grants-source-recapture-2026",
+        "meta-cheyenne-wy-energy-source-recapture-2026",
+        "meta-aiken-engagement-2024",
+        "meta-sturgeon-energy-pay-costs-2026",
+        "meta-sturgeon-water-dry-cooling-2026",
+        "meta-sturgeon-infrastructure-investment-2026",
+        "meta-singapore-energy-renewables-2019"
+      ],
+      "held_project_ids": [
+        "dk-meta-odense"
+      ],
+      "official_landing": {
+        "url": "https://datacenters.atmeta.com/all-locations/",
+        "http_status": 200,
+        "final_url": "https://datacenters.atmeta.com/all-locations/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "google",
+      "reviewed_at": "2026-11-07",
+      "finding": "Parsed the full 69-location registry and read 23 missing location pages. Staged 22 projects, including two distinct Dorchester campuses and the newly disclosed Goochland evaluation. Resolved Lowcountry, Midlothian and Northern Virginia aliases. Prince William original announcement year remains unknown; Loudoun and Singapore retain aggregate campus granularity.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [
+        "google-morgan-county-in",
+        "google-fort-wayne-in",
+        "google-muskogee-county-ok",
+        "google-columbia-county-ga",
+        "google-cedar-rapids-ia",
+        "google-lincoln-ne",
+        "google-omaha-ne",
+        "google-papillion-ne",
+        "google-columbus-oh",
+        "google-lancaster-oh",
+        "google-new-albany-oh",
+        "google-montgomery-county-tn",
+        "google-goochland-va",
+        "google-pine-hill-ridgeville-sc",
+        "google-winding-woods-st-george-sc",
+        "google-storey-county-nv",
+        "google-loudoun-county-va",
+        "google-douglas-county-ga",
+        "google-red-oak-tx",
+        "jp-google-inzai",
+        "sg-google-jurong-west",
+        "fi-google-vaala"
+      ],
+      "new_claim_candidate_ids": [
+        "google-us-real-property-taxes-2026",
+        "google-transparency-no-ndas-2026",
+        "google-own-power-and-grid-costs-2026",
+        "google-cheyenne-site-energy-costs-2026",
+        "google-cheyenne-community-council-2026",
+        "google-morgan-county-water-fund-2026",
+        "google-morgan-county-advisory-council-2026",
+        "google-muskogee-county-ok-infrastructure-costs-2026",
+        "google-stillwater-ok-infrastructure-costs-2026",
+        "google-goochland-engagement-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://datacenters.google/locations/",
+        "http_status": 200,
+        "final_url": "https://datacenters.google/locations/"
+      },
+      "followup_sources": [
+        {
+          "key": "google-approach",
+          "url": "https://datacenters.google/our-approach/",
+          "final_url": "https://datacenters.google/our-approach/",
+          "http_status": 200,
+          "text_length": 7033,
+          "snippet": " Google’s approach to investing in data center communities Google’s approach to investing in data center communities We have worked with communities around the world to build data ",
+          "excerpts": [
+            " Google’s approach to investing in data center communities Google’s approach to investing in data center communities We have worked with communities around the world to build data centers for more than 20 years. Our goal has always been to set the industry standard and serve as long-term partners who can be counted on to do the right thing in the places we call home. We aim to build and operate our data centers the right way, invest deeply in communities, and generate significant ",
+            "roach to investing in data center communities Google’s approach to investing in data center communities We have worked with communities around the world to build data centers for more than 20 years. Our goal has always been to set the industry standard and serve as long-term partners who can be counted on to do the right thing in the places we call home. We aim to build and operate our data centers the right way, invest deeply in communities, and generate significant local benefits — now and into the future. No two communiti",
+            "ta center communities We have worked with communities around the world to build data centers for more than 20 years. Our goal has always been to set the industry standard and serve as long-term partners who can be counted on to do the right thing in the places we call home. We aim to build and operate our data centers the right way, invest deeply in communities, and generate significant local benefits — now and into the future. No two communities are the same — and that’s why we’ve always started by listening and understandi",
+            " do the right thing in the places we call home. We aim to build and operate our data centers the right way, invest deeply in communities, and generate significant local benefits — now and into the future. No two communities are the same — and that’s why we’ve always started by listening and understanding what’s important to each place where we invest. At the same time, there are things that every community expects: being open and transparent in our work; ensuring consumers do not bear the costs of data centers; strengthening",
+            "nt to each place where we invest. At the same time, there are things that every community expects: being open and transparent in our work; ensuring consumers do not bear the costs of data centers; strengthening the grid; renewing and improving local resources, including water; paying full real property taxes for new campuses; funding local services; and creating local jobs. Link to Youtube Video (visible only when JS is disabled) Google has partnered with Pryor and Mayes County, Oklahoma since 2007. Here are five areas core ",
+            "g open and transparent in our work; ensuring consumers do not bear the costs of data centers; strengthening the grid; renewing and improving local resources, including water; paying full real property taxes for new campuses; funding local services; and creating local jobs. Link to Youtube Video (visible only when JS is disabled) Google has partnered with Pryor and Mayes County, Oklahoma since 2007. Here are five areas core to our approach in every community: 1. Engaging transparently and proactively Eliminate the use of NDAs",
+            " County, Oklahoma since 2007. Here are five areas core to our approach in every community: 1. Engaging transparently and proactively Eliminate the use of NDAs with state and local governments. Beyond that, we only seek confidentiality in limited cases, such as for trade secrets or information impacting the security of our operations. Disclose Google’s involvement in its projects early , either with our first application or first public meeting (whichever comes first). Engage deeply with the community throughout our data cent",
+            "ication or first public meeting (whichever comes first). Engage deeply with the community throughout our data center development process, including hosting town halls and establishing local advisory councils to serve as forums for us to listen, learn, and be informed by communities and their leaders. Publish additional project-level data about our use of resources in each community, such as water use, how we’re meeting sound and light limits, and any traffic impacts. 2. Protecting your electric bill Pay for 100% of the power",
+            "eeting (whichever comes first). Engage deeply with the community throughout our data center development process, including hosting town halls and establishing local advisory councils to serve as forums for us to listen, learn, and be informed by communities and their leaders. Publish additional project-level data about our use of resources in each community, such as water use, how we’re meeting sound and light limits, and any traffic impacts. 2. Protecting your electric bill Pay for 100% of the power our data centers use and",
+            "aders. Publish additional project-level data about our use of resources in each community, such as water use, how we’re meeting sound and light limits, and any traffic impacts. 2. Protecting your electric bill Pay for 100% of the power our data centers use and the direct infrastructure costs required to connect them to the grid, while following all appropriate local regulations. Google’s responsible approach to contracting with utilities is already resulting in ratepayer savings in many states and countries. Invest in energy",
+            "traffic impacts. 2. Protecting your electric bill Pay for 100% of the power our data centers use and the direct infrastructure costs required to connect them to the grid, while following all appropriate local regulations. Google’s responsible approach to contracting with utilities is already resulting in ratepayer savings in many states and countries. Invest in energy generation to add capacity and help lower costs for ratepayers. We co-locate data centers with dedicated power generation where practical. From 2010 to 2025, G",
+            "gy generation to add capacity and help lower costs for ratepayers. We co-locate data centers with dedicated power generation where practical. From 2010 to 2025, Google signed agreements to enable nearly 35 GW of new, clean energy for local grids around the world, including solar , geothermal , nuclear , natural gas with CCS , and wind . Help strengthen energy grids where we operate by reducing our power use during periods of peak demand where feasible, which can lower costs for customers. As an example, we have already integ",
+            "ills through innovative programs like our Energy Impact Funds , making homes in data center communities more efficient to save energy costs. We also have developed heat recovery projects that enable our data centers to provide local businesses and homes with sustainable heat, free of charge. 3. Minimizing our impact on local resources Engage in responsible water stewardship. Google uses a data-driven water risk framework to assess local watersheds, and only considers water cooling if local resources are healthy and resilient",
+            "ave energy costs. We also have developed heat recovery projects that enable our data centers to provide local businesses and homes with sustainable heat, free of charge. 3. Minimizing our impact on local resources Engage in responsible water stewardship. Google uses a data-driven water risk framework to assess local watersheds, and only considers water cooling if local resources are healthy and resilient. Google has decades of experience in water stewardship, including an ambition to replenish more freshwater than we consume",
+            "ume by 2030. Mitigate noise for our residential neighbors and ensure all Google data centers operate at or below local regulatory sound limits. Minimize any light pollution through practices such as downlighting, timers, and other mechanisms. 4. Investing in the community Pay full real property taxes. For all new campuses, Google will pay full real property taxes on our data center buildings and land. This ensures our tax contributions provide local communities with a long-term, predictable, recurring stream of revenue to fu",
+            "actices such as downlighting, timers, and other mechanisms. 4. Investing in the community Pay full real property taxes. For all new campuses, Google will pay full real property taxes on our data center buildings and land. This ensures our tax contributions provide local communities with a long-term, predictable, recurring stream of revenue to fund vital public services like firefighters, teachers, park maintenance, and other local services and infrastructure. Invest in local community services through our Community Partnersh",
+            "ty taxes. For all new campuses, Google will pay full real property taxes on our data center buildings and land. This ensures our tax contributions provide local communities with a long-term, predictable, recurring stream of revenue to fund vital public services like firefighters, teachers, park maintenance, and other local services and infrastructure. Invest in local community services through our Community Partnership Program, providing money to support local schools, libraries, and more — all in consultation with community",
+            " park maintenance, and other local services and infrastructure. Invest in local community services through our Community Partnership Program, providing money to support local schools, libraries, and more — all in consultation with community leaders. Support local businesses with free Google training and tools — building on the more than three million small businesses across America and 35 million globally we have helped to date, and the more than 2,300 small businesses around the world we have supported through the Google Da",
+            "cal services and infrastructure. Invest in local community services through our Community Partnership Program, providing money to support local schools, libraries, and more — all in consultation with community leaders. Support local businesses with free Google training and tools — building on the more than three million small businesses across America and 35 million globally we have helped to date, and the more than 2,300 small businesses around the world we have supported through the Google Data Center AI Fellowship with 30",
+            " money to support local schools, libraries, and more — all in consultation with community leaders. Support local businesses with free Google training and tools — building on the more than three million small businesses across America and 35 million globally we have helped to date, and the more than 2,300 small businesses around the world we have supported through the Google Data Center AI Fellowship with 30,000 hours of free technical assistance. 5. Local jobs and hiring Hire employees and suppliers from the local community "
+          ]
+        },
+        {
+          "key": "google-wyoming",
+          "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/",
+          "final_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/",
+          "http_status": 200,
+          "text_length": 7684,
+          "snippet": " Google’s data center investment in Wyoming Investing in Wyoming’s infrastructure, energy and workforce Nov 05, 2026 | x.com Facebook LinkedIn Mail Copy link We’re building our fir",
+          "excerpts": [
+            " Google’s data center investment in Wyoming Investing in Wyoming’s infrastructure, energy and workforce Nov 05, 2026 | x.com Facebook LinkedIn Mail Copy link We’re building our first data center in Wyoming, representing a $17 billion investment in the Cowboy State. Steve Walter VP, Global Infrastructure and Energy Share x.com Facebook LinkedIn Mail Copy link . Inlining them here makes them available in the DOM for the page. --> Your browser does not suppor",
+            " Nov 05, 2026 | x.com Facebook LinkedIn Mail Copy link We’re building our first data center in Wyoming, representing a $17 billion investment in the Cowboy State. Steve Walter VP, Global Infrastructure and Energy Share x.com Facebook LinkedIn Mail Copy link . Inlining them here makes them available in the DOM for the page. --> Your browser does not support the audio element. Listen to article [[duration]] minutes This content is generated by Google AI. Generative AI is experimental Voice Speed Voice Speed 0.75X 1X 1.5X 2X Re",
+            "ental Voice Speed Voice Speed 0.75X 1X 1.5X 2X Read AI-generated summary We are investing $17 billion to build our first data center in Wyoming, creating thousands of jobs and supporting local education and infrastructure. This project uses advanced carbon capture technology to minimize emissions and relies on air cooling to protect local water resources. You can learn more about our community partnerships and upcoming career opportunities by visiting our website or attending our local community meetings in Cheyenne. Summari",
+            "5X 2X Read AI-generated summary We are investing $17 billion to build our first data center in Wyoming, creating thousands of jobs and supporting local education and infrastructure. This project uses advanced carbon capture technology to minimize emissions and relies on air cooling to protect local water resources. You can learn more about our community partnerships and upcoming career opportunities by visiting our website or attending our local community meetings in Cheyenne. Summaries were generated by Google AI. Generativ",
+            "s on air cooling to protect local water resources. You can learn more about our community partnerships and upcoming career opportunities by visiting our website or attending our local community meetings in Cheyenne. Summaries were generated by Google AI. Generative AI is experimental. We are investing 17 billion dollars to build our first data center in the state of Wyoming. This project will support thousands of jobs and generate significant labor income for local families and businesses. We are using advanced fuel cells an",
+            "nd upcoming career opportunities by visiting our website or attending our local community meetings in Cheyenne. Summaries were generated by Google AI. Generative AI is experimental. We are investing 17 billion dollars to build our first data center in the state of Wyoming. This project will support thousands of jobs and generate significant labor income for local families and businesses. We are using advanced fuel cells and carbon capture technology to minimize emissions and water usage locally. Our team will fund local educ",
+            "e. Summaries were generated by Google AI. Generative AI is experimental. We are investing 17 billion dollars to build our first data center in the state of Wyoming. This project will support thousands of jobs and generate significant labor income for local families and businesses. We are using advanced fuel cells and carbon capture technology to minimize emissions and water usage locally. Our team will fund local education, workforce development, and community initiatives to support growth in the region. Summaries were gener",
+            "tive AI is experimental. We are investing 17 billion dollars to build our first data center in the state of Wyoming. This project will support thousands of jobs and generate significant labor income for local families and businesses. We are using advanced fuel cells and carbon capture technology to minimize emissions and water usage locally. Our team will fund local education, workforce development, and community initiatives to support growth in the region. Summaries were generated by Google AI. Generative AI is experimental",
+            "r usage locally. Our team will fund local education, workforce development, and community initiatives to support growth in the region. Summaries were generated by Google AI. Generative AI is experimental. We are building our first data center in Wyoming with a $17 billion investment to support local jobs and infrastructure. This facility will use advanced fuel cells and carbon capture technology to generate electricity while minimizing emissions and water use. By partnering with local schools and training programs, we aim to",
+            "enerated by Google AI. Generative AI is experimental. We are building our first data center in Wyoming with a $17 billion investment to support local jobs and infrastructure. This facility will use advanced fuel cells and carbon capture technology to generate electricity while minimizing emissions and water use. By partnering with local schools and training programs, we aim to help the community grow alongside our technology. You can expect this project to provide lasting economic benefits for families and businesses across ",
+            "use. By partnering with local schools and training programs, we aim to help the community grow alongside our technology. You can expect this project to provide lasting economic benefits for families and businesses across the state. Summaries were generated by Google AI. Generative AI is experimental. Explore other styles: General summary Bullet points Basic explainer Today, we are announcing our first data center in the state of Wyoming, in partnership with Tallgrass Energy, Black Hills Energy, American Electric Power (AEP),",
+            "eneral summary Bullet points Basic explainer Today, we are announcing our first data center in the state of Wyoming, in partnership with Tallgrass Energy, Black Hills Energy, American Electric Power (AEP), and Related Digital. Google is making a long-term, $17 billion investment in the Cowboy State, designed to deliver lasting benefits for Laramie County families and businesses. Our commitment to responsible growth We’re committed to partnering with communities to build data centers the right way . We will pay for 100% of th",
+            "t to responsible growth We’re committed to partnering with communities to build data centers the right way . We will pay for 100% of the power we use, and when we build data centers, we’ll cover the infrastructure needs directly driven by our growth. The project is contracted with AEP to feature a first-of-its-kind, commercial-scale, 702 MW fuel cell development with carbon capture and storage (CCS) — the largest planned development of its kind to date. Fuel cells efficiently convert fuel, in this case natural gas, into elec",
+            "ers the right way . We will pay for 100% of the power we use, and when we build data centers, we’ll cover the infrastructure needs directly driven by our growth. The project is contracted with AEP to feature a first-of-its-kind, commercial-scale, 702 MW fuel cell development with carbon capture and storage (CCS) — the largest planned development of its kind to date. Fuel cells efficiently convert fuel, in this case natural gas, into electricity through a safe electrochemical reaction. The fuel cells for this project will be ",
+            "ct is contracted with AEP to feature a first-of-its-kind, commercial-scale, 702 MW fuel cell development with carbon capture and storage (CCS) — the largest planned development of its kind to date. Fuel cells efficiently convert fuel, in this case natural gas, into electricity through a safe electrochemical reaction. The fuel cells for this project will be made in America by Bloom Energy and will help minimize emissions and water use in the production of energy for our data infrastructure. The CCS technology will enable the ",
+            ". announced last fall, and brings our total contracted CCS capacity to nearly 1 gigawatt. We are also sourcing power from gas generators operated by Tallgrass Energy and Black Hills Energy, and conducting a technical front-end engineering and design (FEED) study to evaluate fitting Tallgrass’s combined cycle turbines with CCS technology. Together, these efforts represent a novel approach to powering data centers efficiently, accelerating the commercialization of CCS, and creating pathways to reduce the carbon emissions assoc",
+            " CCS technology. Together, these efforts represent a novel approach to powering data centers efficiently, accelerating the commercialization of CCS, and creating pathways to reduce the carbon emissions associated with natural gas generation. Water is another essential shared resource, and we remain deeply committed to using it responsibly and investing in local water replenishment efforts. Consistent with our water stewardship commitments for local communities , our Wyoming data center will be air-cooled to minimize strain o",
+            "tent with our water stewardship commitments for local communities , our Wyoming data center will be air-cooled to minimize strain on local water resources. Investment in Cheyenne We know being a part of the community means investing in the things that matter most to the people in it. Google and our partners have held numerous meetings, and are continuously engaging key stakeholders at the local and state level. Recently, we hosted a community meeting in downtown Cheyenne; we spoke to and met with more than 200 residents in L",
+            "in on local water resources. Investment in Cheyenne We know being a part of the community means investing in the things that matter most to the people in it. Google and our partners have held numerous meetings, and are continuously engaging key stakeholders at the local and state level. Recently, we hosted a community meeting in downtown Cheyenne; we spoke to and met with more than 200 residents in Laramie County, gathering clear and constructive feedback on their priorities. Those include: A holistic picture of the economic",
+            "y engaging key stakeholders at the local and state level. Recently, we hosted a community meeting in downtown Cheyenne; we spoke to and met with more than 200 residents in Laramie County, gathering clear and constructive feedback on their priorities. Those include: A holistic picture of the economic benefits of this project. We expect this project to generate hundreds of millions of dollars in local property taxes for Laramie County and School District 1. This is in addition to our community investment plans, which will focu"
+          ]
+        }
+      ]
+    },
+    {
+      "company_slug": "microsoft",
+      "reviewed_at": "2026-11-07",
+      "finding": "The communities index returned HTTP403. Verified Pecos wording against the actual company source. Silver Springs construction is confirmed, but its original announcement year remains unknown, so it is held.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [
+        "microsoft-silver-springs-nv"
+      ],
+      "official_landing": {
+        "url": "https://local.microsoft.com/communities/",
+        "http_status": 403,
+        "final_url": "https://local.microsoft.com/communities/"
+      },
+      "followup_sources": [
+        {
+          "key": "microsoft-pecos-primary",
+          "url": "https://blogs.microsoft.com/blog/2026/06/22/powering-the-next-wave-of-ai-expanding-capacity-with-our-new-datacenter-in-pecos/",
+          "final_url": "https://blogs.microsoft.com/blog/2026/06/22/powering-the-next-wave-of-ai-expanding-capacity-with-our-new-datacenter-in-pecos/",
+          "http_status": 403,
+          "text_length": 756,
+          "snippet": " Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access wpewaf.com Why have I been blocked? This website is using a security ",
+          "excerpts": []
+        },
+        {
+          "key": "microsoft-silver-springs",
+          "url": "https://local.microsoft.com/blog/silver-springs-datacenter-construction-update/",
+          "final_url": "https://local.microsoft.com/blog/silver-springs-datacenter-construction-update/",
+          "http_status": 403,
+          "text_length": 765,
+          "snippet": " Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access wpenginepowered.com Why have I been blocked? This website is using a ",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "company_slug": "amazon",
+      "reviewed_at": "2026-11-07",
+      "finding": "Reviewed the current official scrolling newsroom through November5 and staged Somervell County. Repaired four existing malformed or truncated source quotes. Full global facility enumeration is not asserted.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [
+        "aws-somervell-tx"
+      ],
+      "new_claim_candidate_ids": [
+        "aws-somervell-energy-pay-costs-2026",
+        "aws-somervell-water-replenishment-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news",
+        "http_status": 200,
+        "final_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "openai",
+      "reviewed_at": "2026-11-07",
+      "finding": "Verified the November2 Grid Protectors primary announcement and staged a national company plan plus three claims. Effingham full-cost and flexibility commitments are site-specific; household equivalence and Georgia Power portfolio savings are kept separate. No site assessment was inferred.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [
+        "openai-grid-protectors-national-flexibility-2026",
+        "openai-effingham-full-costs-2026",
+        "openai-effingham-flexible-demand-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://openai.com/news/",
+        "http_status": 403,
+        "final_url": "https://openai.com/news/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "anthropic",
+      "reviewed_at": "2026-11-07",
+      "finding": "Reviewed the official news index and targeted infrastructure searches. No additional named site or site-specific own-cost commitment was verified. Existing company-wide electricity commitments were not propagated to projects.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.anthropic.com/news",
+        "http_status": 200,
+        "final_url": "https://www.anthropic.com/news"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "xai",
+      "reviewed_at": "2026-11-07",
+      "finding": "The company index was blocked. County application and SpaceX applicant materials verify a proposed Cochise campus; its relationship to the existing xAI identity remains for curator review. Southaven expansion leads need matching against existing Colossus2 granularity.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [
+        "xai-cochise-az"
+      ],
+      "new_claim_candidate_ids": [
+        "xai-cochise-townhall-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://x.ai/news",
+        "http_status": 403,
+        "final_url": "https://x.ai/news"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "oracle",
+      "reviewed_at": "2026-11-07",
+      "finding": "Reviewed the official news index and Jupiter primary releases. Staged proposed utility credits and private infrastructure-cost commitments, with proposals distinguished from delivered benefits.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [
+        "oracle-jupiter-private-energy-costs-2026",
+        "oracle-jupiter-proposed-utility-credits-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.oracle.com/news/",
+        "http_status": 200,
+        "final_url": "https://www.oracle.com/news/"
+      },
+      "followup_sources": [
+        {
+          "key": "oracle-jupiter-cost",
+          "url": "https://www.oracle.com/news/announcement/blog/how-project-jupiters-self-supplied-power-plan-can-benefit-new-mexico-utility-customers-2026-10-22/",
+          "final_url": "https://www.oracle.com/news/announcement/blog/how-project-jupiters-self-supplied-power-plan-can-benefit-new-mexico-utility-customers-2026-10-22/",
+          "http_status": 200,
+          "text_length": 2630,
+          "snippet": " How Project Jupiter’s Self-Supplied Power Plan Can Benefit New Mexico Utility Customers Blog How Project Jupiter’s Self-Supplied Power Plan Can Benefit New Mexico Utility Customer",
+          "excerpts": [
+            "ns compared to previous plans, use a negligible amount of water , and allow the data center to generate power through a private microgrid. The campus will not require New Mexico utility customers to fund new generation, transmission, or distribution infrastructure for the project. New Mexico’s 2025 Advanced Grid Technology Act allows qualifying microgrids to serve large loads separately from the public grid and requires the energy they generate and sell to come from net-zero-carbon resources by 2045. “The revised Project Jup",
+            " large-load customers in the Southwest and is a Project Jupiter partner. The AI data center campus is located in Doña Ana County’s Paso del Norte border airshed. The project’s updated power design is expected to reduce nitrogen oxide emissions substantially compared with the prior design. It replaces the natural-gas turbines and diesel backup generators previously planned for the site with solid oxide fuel cells manufactured by Bloom Energy. Because fuel cells generate electricity through an electrochemical reaction rather t",
+            " contributor to regional ozone. The fuel-cell microgrid will provide up to 2.45 gigawatts of installed capacity for the campus while using a negligible amount of water—an important consideration in a water-scarce region. Fuel cells also operate more efficiently than simple-cycle turbines, meaning less fuel is consumed, and less carbon dioxide emitted, for each megawatt-hour delivered. All of these benefits are achieved without requiring additional grid or generation infrastructure, with any project-related power costs privat",
+            "onsibly, protecting New Mexico’s resources, and engaging transparently with the community. "
+          ]
+        },
+        {
+          "key": "oracle-jupiter-155m",
+          "url": "https://www.oracle.com/news/announcement/oracle-proposes-plan-to-offset-customers-utility-costs-2026-10-13/",
+          "final_url": "https://www.oracle.com/news/announcement/oracle-proposes-plan-to-offset-customers-utility-costs-2026-10-13/",
+          "http_status": 200,
+          "text_length": 4133,
+          "snippet": " Oracle Proposes Plan that could deliver at least $155M to offset customers utility costs in New Mexico Press Release Oracle Proposes Plan that could deliver at least $155M to offs",
+          "excerpts": [
+            " power at the site and to meet life safety needs for New Mexican workers at the data center. As indicated earlier this year , the primary power source for Project Jupiter will continue to be provided by the Bloom Energy fuel cell microgrid. There is no change to our plan. As part of the Energy Service Agreement, Oracle expects to pay $10 million for power annually for 10 years even if its usage is below contracted levels. This agreement helps offset shared electric system costs that would otherwise be borne by EPE’s New Mexi",
+            "osts. The proposed agreements with El Paso Electric not only ensure that Oracle pays for the energy costs, but it also supports affordable rates and additional offset of energy costs for its neighbors. “We realize the impact that electric rate increases have on the community and our proposed solution takes that burden off of New Mexico ratepayers,” said Mahesh Thiagarajan, executive vice president, Oracle Cloud Infrastructure. “We’re taking this action now — well before our data center comes online — to deliver a direct, mea",
+            " its neighbors. “We realize the impact that electric rate increases have on the community and our proposed solution takes that burden off of New Mexico ratepayers,” said Mahesh Thiagarajan, executive vice president, Oracle Cloud Infrastructure. “We’re taking this action now — well before our data center comes online — to deliver a direct, meaningful benefit to New Mexico households and small businesses and help ensure the community shares in the value created by Project Jupiter.” Additional information will be provided follo",
+            "t, Oracle Cloud Infrastructure. “We’re taking this action now — well before our data center comes online — to deliver a direct, meaningful benefit to New Mexico households and small businesses and help ensure the community shares in the value created by Project Jupiter.” Additional information will be provided following the filing of the Energy Service Agreement. About Oracle Oracle offers integrated suites of applications plus secure, autonomous infrastructure in the Oracle Cloud. For more information about Oracle (NYSE: OR",
+            "ngful benefit to New Mexico households and small businesses and help ensure the community shares in the value created by Project Jupiter.” Additional information will be provided following the filing of the Energy Service Agreement. About Oracle Oracle offers integrated suites of applications plus secure, autonomous infrastructure in the Oracle Cloud. For more information about Oracle (NYSE: ORCL), please visit us at www.oracle.com . Trademarks Oracle, Java, MySQL, and NetSuite are registered trademarks of Oracle Corporation"
+          ]
+        }
+      ]
+    },
+    {
+      "company_slug": "wonder-valley",
+      "reviewed_at": "2026-11-07",
+      "finding": "The homepage returned HTTP403. Existing canonical press-release evidence remains the baseline; no new verified project was located. A blocked index is not treated as an empty portfolio.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://wondervalley.com/",
+        "http_status": 403,
+        "final_url": "https://wondervalley.com/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "qts",
+      "reviewed_at": "2026-11-07",
+      "finding": "Read and preserved 49 unique official roster entries. Staged Hall County and current primary announcements covering Maricopa training, Fayette weatherization, Station93 and the Turkey agreement, including three policy candidates. All four existing ratepayer FAQ quotations were verified through the web reader despite client HTTP403 responses.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [
+        "qts-hall-county-tx"
+      ],
+      "new_claim_candidate_ids": [
+        "qts-hall-energy-infrastructure-costs-2026",
+        "qts-hall-engagement-2026",
+        "qts-fayetteville-household-efficiency-2026",
+        "qts-fayetteville-station93-funding-2026",
+        "qts-hall-city-payments-2026",
+        "qts-hall-infrastructure-assistance-2026",
+        "qts-maricopa-certificate-funding-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://q.com/data-centers/",
+        "http_status": 403,
+        "final_url": "https://q.com/data-centers/"
+      },
+      "followup_sources": [
+        {
+          "key": "qts-hall",
+          "url": "https://q.com/news/qts-and-lancium-announce-data-center-campus-in-hall-county-texas/",
+          "final_url": "https://q.com/news/qts-and-lancium-announce-data-center-campus-in-hall-county-texas/",
+          "http_status": 403,
+          "text_length": 756,
+          "snippet": " Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access wpewaf.com Why have I been blocked? This website is using a security ",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "company_slug": "crusoe",
+      "reviewed_at": "2026-11-07",
+      "finding": "The October9 Armstrong/Google community update matches the existing Goodnight campus. Engagement and tax-study statements were reviewed; no duplicate new project was created.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.crusoe.ai/resources",
+        "http_status": 404,
+        "final_url": "https://www.crusoe.ai/resources"
+      },
+      "followup_sources": [
+        {
+          "key": "crusoe-community",
+          "url": "https://www.crusoe.ai/resources/blog/building-community-in-texas",
+          "final_url": "https://www.crusoe.ai/resources/blog/building-community-in-texas",
+          "http_status": 200,
+          "text_length": 6016,
+          "snippet": " Armstrong County data center: a community week in Texas Data center General Cloud Pricing AI Infrastructure Cloud About Resources Login Login Login Get started Contact sales Conta",
+          "excerpts": [
+            " Armstrong County data center: a community week in Texas Data center General Cloud Pricing AI Infrastructure Cloud About Resources Login Login Login Get started Contact sales Contact sales Talk to us Talk to us October 9, 2026 Building community in the Lone Star State Crusoe spent a week in Armstrong County, Texas, volunteering at the High Plains Food Bank, hosting an open house for more than 150 neighbors and welcoming 120 county officials to Project Llano, which",
+            " Armstrong County data center: a community week in Texas Data center General Cloud Pricing AI Infrastructure Cloud About Resources Login Login Login Get started Contact sales Contact sales Talk to us Talk to us October 9, 2026 Building community in the Lone Star State Crusoe spent a week in Armstrong County, Texas, volunteering at the High Plains Food Bank, hosting an open house for more than 150 neighbors and welcoming 120 county officials to Project Llano, which an SER study e",
+            " Armstrong County data center: a community week in Texas Data center General Cloud Pricing AI Infrastructure Cloud About Resources Login Login Login Get started Contact sales Contact sales Talk to us Talk to us October 9, 2026 Building community in the Lone Star State Crusoe spent a week in Armstrong County, Texas, volunteering at the High Plains Food Bank, hosting an open house for more than 150 neighbors and welcoming 120 county officials to Project Llano, which an SER study estimates will bring $28 ",
+            "rted Contact sales Contact sales Talk to us Talk to us October 9, 2026 Building community in the Lone Star State Crusoe spent a week in Armstrong County, Texas, volunteering at the High Plains Food Bank, hosting an open house for more than 150 neighbors and welcoming 120 county officials to Project Llano, which an SER study estimates will bring $28 million a year in local taxes. Erica Currie Local Community Engagement Liaison for Texas Panhandle November 1, 2026 Table of contents This is some text inside of a div block. Shar",
+            "tudy estimates will bring $28 million a year in local taxes. Erica Currie Local Community Engagement Liaison for Texas Panhandle November 1, 2026 Table of contents This is some text inside of a div block. Share: When Crusoe selects a site for a data center, we plan to be part of that community for a long time. Our goal is to be the kind of neighbor, employer and partner that communities welcome. We earn that by acting responsibly and being transparent. A few weeks ago, we got a chance to turn that commitment into action in A",
+            "his is some text inside of a div block. Share: When Crusoe selects a site for a data center, we plan to be part of that community for a long time. Our goal is to be the kind of neighbor, employer and partner that communities welcome. We earn that by acting responsibly and being transparent. A few weeks ago, we got a chance to turn that commitment into action in Armstrong County, Texas, where we are developing a project for Google. We kicked off the week by volunteering alongside our friends at Google and Serena with the High",
+            "Share: When Crusoe selects a site for a data center, we plan to be part of that community for a long time. Our goal is to be the kind of neighbor, employer and partner that communities welcome. We earn that by acting responsibly and being transparent. A few weeks ago, we got a chance to turn that commitment into action in Armstrong County, Texas, where we are developing a project for Google. We kicked off the week by volunteering alongside our friends at Google and Serena with the High Plains Food Bank in Claude, helping sor",
+            " High Plains Food Bank in Claude, helping sort food for distribution, assisting community members with grocery selections, and carrying items to their vehicles. On Tuesday evening, Crusoe and Google hosted a community open house in the Claude ISD high school gym. More than 150 neighbors and community leaders came out to learn more about Project Llano , where more than 5,500 skilled laborers are on-site daily building an AI data center that will have a direct connection to the existing Serena Goodnight wind farm. In addition ",
+            "arrying items to their vehicles. On Tuesday evening, Crusoe and Google hosted a community open house in the Claude ISD high school gym. More than 150 neighbors and community leaders came out to learn more about Project Llano , where more than 5,500 skilled laborers are on-site daily building an AI data center that will have a direct connection to the existing Serena Goodnight wind farm. In addition to digging into details of the site design, the Crusoe team got a chance to share how we are working with Armstrong County, TxDO",
+            "unity open house in the Claude ISD high school gym. More than 150 neighbors and community leaders came out to learn more about Project Llano , where more than 5,500 skilled laborers are on-site daily building an AI data center that will have a direct connection to the existing Serena Goodnight wind farm. In addition to digging into details of the site design, the Crusoe team got a chance to share how we are working with Armstrong County, TxDOT, and local law enforcement to improve traffic flow and safety throughout construct",
+            "Llano , where more than 5,500 skilled laborers are on-site daily building an AI data center that will have a direct connection to the existing Serena Goodnight wind farm. In addition to digging into details of the site design, the Crusoe team got a chance to share how we are working with Armstrong County, TxDOT, and local law enforcement to improve traffic flow and safety throughout construction, paying for new road signs, traffic signals, a full-time traffic deputy and school crossing guards. According to a recent study by ",
+            "and told Amarillo’s NewsChannel 10 : “The real positive is the heartbeat of our community, and that’s the school. This is really going to benefit our school and our kids, which benefits the community.” “The real positive is the heartbeat of our community, and that’s the school. This is really going to benefit our school and our kids, which benefits the community.” - Brent Kirkland, Claude ISD Superintendent On Thursday, Crusoe welcomed more than 120 county officials from across the U.S. to our Armstrong County site as part o",
+            "ol. This is really going to benefit our school and our kids, which benefits the community.” “The real positive is the heartbeat of our community, and that’s the school. This is really going to benefit our school and our kids, which benefits the community.” - Brent Kirkland, Claude ISD Superintendent On Thursday, Crusoe welcomed more than 120 county officials from across the U.S. to our Armstrong County site as part of the National Association of Counties (NACo) Energy Symposium . Crusoe Co-founder, President and Chief Strate",
+            "kids, which benefits the community.” “The real positive is the heartbeat of our community, and that’s the school. This is really going to benefit our school and our kids, which benefits the community.” - Brent Kirkland, Claude ISD Superintendent On Thursday, Crusoe welcomed more than 120 county officials from across the U.S. to our Armstrong County site as part of the National Association of Counties (NACo) Energy Symposium . Crusoe Co-founder, President and Chief Strategy Officer Cully Cavness joined a panel discussion with",
+            "ol. This is really going to benefit our school and our kids, which benefits the community.” - Brent Kirkland, Claude ISD Superintendent On Thursday, Crusoe welcomed more than 120 county officials from across the U.S. to our Armstrong County site as part of the National Association of Counties (NACo) Energy Symposium . Crusoe Co-founder, President and Chief Strategy Officer Cully Cavness joined a panel discussion with Armstrong County Judge Adam Ensey and Childress County Judge Kim Jones to speak about their experience workin",
+            "s expressed appreciation for how the company has taken time to engage the local community and understand their unique needs from the earliest stages of development. After a bus tour of the project site, a few lucky Crusoe team members even got to enjoy a night at the local rodeo, adding one more item to the list of many things we love about Texas and the communities we call home. It was a busy week with a lot of boots on the ground. For Crusoe, community engagement is core to how we operate , in Armstrong County and every co",
+            "we call home. It was a busy week with a lot of boots on the ground. For Crusoe, community engagement is core to how we operate , in Armstrong County and every community we call home. Get Crusoe stories in your Google results Add as a preferred source on Google Frequently asked questions What company is building the data center in Claude, Texas? Crusoe is the developer of Google's AI data center campus in Armstrong County, Texas, near Claude and outside Amarillo. Construction broke ground in June 2025, and more than 5,500 ski",
+            " community engagement is core to how we operate , in Armstrong County and every community we call home. Get Crusoe stories in your Google results Add as a preferred source on Google Frequently asked questions What company is building the data center in Claude, Texas? Crusoe is the developer of Google's AI data center campus in Armstrong County, Texas, near Claude and outside Amarillo. Construction broke ground in June 2025, and more than 5,500 skilled laborers are on-site daily. Crusoe and Google hosted a community open hous",
+            "ferred source on Google Frequently asked questions What company is building the data center in Claude, Texas? Crusoe is the developer of Google's AI data center campus in Armstrong County, Texas, near Claude and outside Amarillo. Construction broke ground in June 2025, and more than 5,500 skilled laborers are on-site daily. Crusoe and Google hosted a community open house in the Claude ISD high school gym, where more than 150 neighbors and community leaders learned about the site design. What do data centers pay in taxes? ‍ L",
+            "ilding the data center in Claude, Texas? Crusoe is the developer of Google's AI data center campus in Armstrong County, Texas, near Claude and outside Amarillo. Construction broke ground in June 2025, and more than 5,500 skilled laborers are on-site daily. Crusoe and Google hosted a community open house in the Claude ISD high school gym, where more than 150 neighbors and community leaders learned about the site design. What do data centers pay in taxes? ‍ Large data centers can pay millions of dollars a year in local taxes. "
+          ]
+        },
+        {
+          "key": "crusoe-blog",
+          "url": "https://www.crusoe.ai/resources/blog",
+          "final_url": "https://www.crusoe.ai/resources/blog",
+          "http_status": 200,
+          "text_length": 2804,
+          "snippet": " AI infrastructure, cloud & energy insights | Crusoe Introducing Crusoe Spark Liquid, plus Managed RL and Managed MLflow on Crusoe Cloud Read the announcement Introducing Crusoe Sp",
+          "excerpts": [
+            "tober 30, 2026 Getting started with Crusoe Managed MLflow October 21, 2026 From data center to cloud: Crusoe announces new capabilities across its vertically integrated infrastructure Our Blog Latest stories All General Cloud Energy Climate Engineering Thank you! Your submission has been received! Oops! Something went wrong while submitting the form. Engineering Cloud November 6, 2026 Your container image pull isn't slow because of the network Rashi Varshney Chessa Hoekstra General Data center Energy November 2, 2026 Good ne",
+            "e pull isn't slow because of the network Rashi Varshney Chessa Hoekstra General Data center Energy November 2, 2026 Good neighbors first: How Crusoe builds with communities Sara Axelrod Cloud Engineering October 30, 2026 Getting started with Crusoe Managed MLflow Sonya Liang Piyush Kadam Suman Debnath Abhishek Srikanth Lei Ma Engineering Cloud October 22, 2026 Making room for bigger fine-tuning datasets Abhishek Srikanth Piyush Kadam Suman Debnath Cloud Engineering General October 21, 2026 Open models, end to end: Introducin",
+            "dels, end to end: Introducing Crusoe Managed RL and Managed MLflow Erwan Menard Data center General Cloud October 21, 2026 From data center to cloud: Crusoe announces new capabilities across its vertically integrated infrastructure Cully Cavness Cloud Engineering October 19, 2026 AI infrastructure spend: a framework for evaluating cost, risk, and vendor choice Omar Lari Rohan Mathews Michael YenChi Ho Engineering Cloud October 16, 2026 Quantized weights, full precision: The math behind 75% cheaper fine-tuning Daniel Shen Sum",
+            "and Managed MLflow Erwan Menard Data center General Cloud October 21, 2026 From data center to cloud: Crusoe announces new capabilities across its vertically integrated infrastructure Cully Cavness Cloud Engineering October 19, 2026 AI infrastructure spend: a framework for evaluating cost, risk, and vendor choice Omar Lari Rohan Mathews Michael YenChi Ho Engineering Cloud October 16, 2026 Quantized weights, full precision: The math behind 75% cheaper fine-tuning Daniel Shen Suman Debnath Lei Ma Engineering Cloud October 14, ",
+            "n is Crusoe's inference engine? Daria Jammal Tavor Lavi Megha Jain Hui Wen Chan Data center General October 9, 2026 Building community in the Lone Star State Erica Currie Read more No results found Scaling inference doesn’t need faster GPUs Learn how to skip the inference bottleneck. Download Are you ready to build something amazing? Contact us ",
+            "Tavor Lavi Megha Jain Hui Wen Chan Data center General October 9, 2026 Building community in the Lone Star State Erica Currie Read more No results found Scaling inference doesn’t need faster GPUs Learn how to skip the inference bottleneck. Download Are you ready to build something amazing? Contact us "
+          ]
+        }
+      ]
+    },
+    {
+      "company_slug": "coreweave",
+      "reviewed_at": "2026-11-07",
+      "finding": "Read the newsroom and October27 Denmark deployment announcement. Most of the planned 22.5MW IT deployment is online, but Denmark is outside country coverage. Navi Mumbai is already tracked; network points of presence were not treated as data-center projects.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [
+        "dk-coreweave-copenhagen-den01"
+      ],
+      "official_landing": {
+        "url": "https://www.coreweave.com/newsroom",
+        "http_status": 200,
+        "final_url": "https://www.coreweave.com/newsroom"
+      },
+      "followup_sources": [
+        {
+          "key": "coreweave-denmark",
+          "url": "https://www.coreweave.com/news/coreweave-expands-global-ai-cloud-platform-with-new-capacity-in-denmark-and-first-ai-network-backbone",
+          "final_url": "https://www.coreweave.com/news/coreweave-expands-global-ai-cloud-platform-with-new-capacity-in-denmark-and-first-ai-network-backbone",
+          "http_status": 200,
+          "text_length": 9172,
+          "snippet": " CoreWeave Expands Global AI Cloud and Network Backbone Announcement Webinar Podcast GTC 2026 CoreWeave Forge is here: connect your AI loop and compound every improvement. Read mor",
+          "excerpts": [
+            "derneath it.” CoreWeave has brought the majority of its planned 22.5 megawatts (MW) of IT capacity online at atNorth’s DEN01 data center in Copenhagen, marking its first deployment in Denmark. DEN01 has a heat reuse agreement in place to supply surplus heat to the district heating network, reducing reliance on alternative heating sources and contributing to Denmark’s green transition. Accelerated by NVIDIA Blackwell systems connected with NVIDIA Quantum-X800 InfiniBand , the facility expands CoreWeave’s European infrastructu",
+            "ity of its planned 22.5 megawatts (MW) of IT capacity online at atNorth’s DEN01 data center in Copenhagen, marking its first deployment in Denmark. DEN01 has a heat reuse agreement in place to supply surplus heat to the district heating network, reducing reliance on alternative heating sources and contributing to Denmark’s green transition. Accelerated by NVIDIA Blackwell systems connected with NVIDIA Quantum-X800 InfiniBand , the facility expands CoreWeave’s European infrastructure footprint to nine data centers across five",
+            "nd , the facility expands CoreWeave’s European infrastructure footprint to nine data centers across five geographies, including the United Kingdom, Spain, Sweden, and Norway. “Modern workloads demand digital infrastructure that is not only high performance, but also energy efficient and responsibly operated, “said Eyjólfur Magnús Kristinsson, CEO at atNorth. “By partnering with atNorth, CoreWeave gains access to DEN01’s infrastructure, designed for GPU-intensive processing, while supporting renewable energy development throu",
+            "needed to support AI development and deployment globally. CoreWeave operated 51 data centers worldwide with more than 1.5 gigawatts of active power as of June 30, 2026 and had approximately 4.2 gigawatts of contracted power as of its August 11, 2026 earnings call. CoreWeave consistently delivers industry-leading performance, demonstrated by record-breaking MLPerf benchmark results in inference and training and its position as the only AI cloud to earn the top Platinum ranking in SemiAnalysis ClusterMAX™ three times in a row.",
+            "yment globally. CoreWeave operated 51 data centers worldwide with more than 1.5 gigawatts of active power as of June 30, 2026 and had approximately 4.2 gigawatts of contracted power as of its August 11, 2026 earnings call. CoreWeave consistently delivers industry-leading performance, demonstrated by record-breaking MLPerf benchmark results in inference and training and its position as the only AI cloud to earn the top Platinum ranking in SemiAnalysis ClusterMAX™ three times in a row. About CoreWeave CoreWeave is The Essentia",
+            "han 1.5 gigawatts of active power as of June 30, 2026 and had approximately 4.2 gigawatts of contracted power as of its August 11, 2026 earnings call. CoreWeave consistently delivers industry-leading performance, demonstrated by record-breaking MLPerf benchmark results in inference and training and its position as the only AI cloud to earn the top Platinum ranking in SemiAnalysis ClusterMAX™ three times in a row. About CoreWeave CoreWeave is The Essential Cloud for AI™️. Built for pioneers by pioneers, CoreWeave delivers a f",
+            "sting on Nasdaq (CRWV) in March 2025. About atNorth atNorth is a leading Nordic data center company that offers cost-effective, scalable high-density colocation and built-to-suit services trusted by industry-leading organizations. With sustainability at its core, atNorth’s data centers run on renewable energy resources and support circular economy principles. All atNorth sites leverage innovative design, power efficiency, and intelligent operations to provide long-term infrastructure and flexible colocation deployments. atNo",
+            "d by industry-leading organizations. With sustainability at its core, atNorth’s data centers run on renewable energy resources and support circular economy principles. All atNorth sites leverage innovative design, power efficiency, and intelligent operations to provide long-term infrastructure and flexible colocation deployments. atNorth is headquartered in Reykjavik, Iceland and operates seven data centers in strategic locations across the Nordics, as well four mega sites under development across Kouvola Finland, Ølgod, Den",
+            " deployments. atNorth is headquartered in Reykjavik, Iceland and operates seven data centers in strategic locations across the Nordics, as well four mega sites under development across Kouvola Finland, Ølgod, Denmark, Sollefteå, Sweden and Haugaland, Norway. The business also has an additional metro site under construction in Stockholm, Sweden. For more information, visit atNorth.com or follow atNorth on LinkedIn. Share this article: Copied Media Contacts CoreWeave Media [email protected] More press releases CoreWeave Launch",
+            "atform With AdaniConneX CoreWeave enters India with AdaniConneX, planning a 240 MW deployment in Navi Mumbai to bring its purpose-built AI Cloud closer to customers. 3 min read Ennoble Care selects CoreWeave to power AI inference across its home-based care network The home-based care provider and accountable care organization will run its inference workloads on NVIDIA RTX PRO 6000 GPUs deployed through CoreWeave Kubernetes Service 3 min read CoreWeave Partner Network Accelerates the Path to AI Innovation Brings validated par"
+          ]
+        }
+      ]
+    },
+    {
+      "company_slug": "prologis",
+      "reviewed_at": "2026-11-07",
+      "finding": "The official landing page was blocked or inaccessible. The Trenton ProjectMila news lead could not be verified from an official source and remains held.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.prologis.com/data-centers",
+        "http_status": 403,
+        "final_url": "https://www.prologis.com/data-centers"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "sb-energy",
+      "reviewed_at": "2026-11-07",
+      "finding": "The August17 PORTS-Pike source already appears in seed notes. Staged correction of the stale community-fund card from $40million to $80million. IT capacity and power-generation figures have distinct scopes.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://sbenergy.com/news/",
+        "http_status": 200,
+        "final_url": "https://sbenergy.com/news/"
+      },
+      "followup_sources": [
+        {
+          "key": "sb-energy-ports",
+          "url": "https://sbenergy.com/nvidia-ai-compute-ports-pike-ohio/",
+          "final_url": "https://sbenergy.com/nvidia-ai-compute-ports-pike-ohio/",
+          "http_status": 200,
+          "text_length": 6132,
+          "snippet": " NVIDIA Secures AI Compute at PORTS-Pike Technology Campus Press Release NVIDIA Guarantees SB Energy’s PORTS-Pike Technology Campus in Ohio to Exclusively Host NVIDIA AI Compute Au",
+          "excerpts": [
+            " jobs, pay for its power infrastructure, and invest hundreds of millions in the community anchored by an initial $80 million community benefits fund. NVIDIA to invest $1.5B in SB Energy now to support SB Energy’s growth and commitments to the Ohio community. SANTA CLARA, Calif. and REDWOOD CITY, Calif., Aug. 17, 2026 NVIDIA announced that it has secured land, power and shell (LPS) capacity through a partnership with SB Energy at the PORTS-Pike Technology Campus in Pike County, Ohio, to host NVIDIA compute. OpenAI will be the",
+            "invest hundreds of millions in the community anchored by an initial $80 million community benefits fund. NVIDIA to invest $1.5B in SB Energy now to support SB Energy’s growth and commitments to the Ohio community. SANTA CLARA, Calif. and REDWOOD CITY, Calif., Aug. 17, 2026 NVIDIA announced that it has secured land, power and shell (LPS) capacity through a partnership with SB Energy at the PORTS-Pike Technology Campus in Pike County, Ohio, to host NVIDIA compute. OpenAI will be the customer. SB Energy will build, own and oper",
+            "1.5B in SB Energy now to support SB Energy’s growth and commitments to the Ohio community. SANTA CLARA, Calif. and REDWOOD CITY, Calif., Aug. 17, 2026 NVIDIA announced that it has secured land, power and shell (LPS) capacity through a partnership with SB Energy at the PORTS-Pike Technology Campus in Pike County, Ohio, to host NVIDIA compute. OpenAI will be the customer. SB Energy will build, own and operate the data center under a 20-year lease to OpenAI. Demand for AI is growing at an extraordinary pace. AI is becoming infr",
+            "compute. OpenAI will be the customer. SB Energy will build, own and operate the data center under a 20-year lease to OpenAI. Demand for AI is growing at an extraordinary pace. AI is becoming infrastructure, requiring a full stack of critical resources, including LPS. To meet this moment, NVIDIA is securing the LPS capacity at PORTS-Pike to exclusively host NVIDIA AI factories. This unique campus development will lay the foundation for tomorrow’s breakthroughs, enabling communities to drive scientific discovery, health care a",
+            "through good jobs, more opportunity for local businesses, and investment in the community for years to come.” “The next era of intelligence will transform every industry — and require infrastructure built at unprecedented speed and scale. Together with our partners, SoftBank will help unlock the power of AGI and move humanity forward,” said Masayoshi Son, Chairman and CEO of SoftBank Group Corp . Campus to Bring New Jobs and Benefits to Ohio SB Energy’s PORTS-Pike Technology Campus is reindustrializing the decommissioned Por",
+            " to come online in phases beginning in 2028. In support of the surrounding Ohio community, SB Energy and SoftBank will build at least 10 GW of new energy generation, which results in 8 IT-GW of AI factory capacity, and invest at least $4.2 billion in new regional grid infrastructure through an innovative partnership with AEP Ohio designed to protect ratepayers. OpenAI has agreed to build on SB Energy’s originally announced $40 million community benefits fund with an incremental $40 million designed to support local prioritie",
+            " of new energy generation, which results in 8 IT-GW of AI factory capacity, and invest at least $4.2 billion in new regional grid infrastructure through an innovative partnership with AEP Ohio designed to protect ratepayers. OpenAI has agreed to build on SB Energy’s originally announced $40 million community benefits fund with an incremental $40 million designed to support local priorities, including affordable energy, job creation and workforce development, and community and economic development. NVIDIA Invests in SB Energy",
+            "ers. OpenAI has agreed to build on SB Energy’s originally announced $40 million community benefits fund with an incremental $40 million designed to support local priorities, including affordable energy, job creation and workforce development, and community and economic development. NVIDIA Invests in SB Energy NVIDIA will invest $1.5 billion in SB Energy, joining existing investors SoftBank Group and OpenAI. The investment supports SB Energy’s continued evolution into a leading AI infrastructure developer, while supporting Pi",
+            "ities, including affordable energy, job creation and workforce development, and community and economic development. NVIDIA Invests in SB Energy NVIDIA will invest $1.5 billion in SB Energy, joining existing investors SoftBank Group and OpenAI. The investment supports SB Energy’s continued evolution into a leading AI infrastructure developer, while supporting Pike County and other local communities, with the vast opportunity ahead to deliver compute infrastructure at speed and scale. This press release shall not constitute an",
+            "ation and workforce development, and community and economic development. NVIDIA Invests in SB Energy NVIDIA will invest $1.5 billion in SB Energy, joining existing investors SoftBank Group and OpenAI. The investment supports SB Energy’s continued evolution into a leading AI infrastructure developer, while supporting Pike County and other local communities, with the vast opportunity ahead to deliver compute infrastructure at speed and scale. This press release shall not constitute an offer to sell or a solicitation of an offe"
+          ]
+        }
+      ]
+    },
+    {
+      "company_slug": "brookfield",
+      "reviewed_at": "2026-11-07",
+      "finding": "The official news landing page was accessible but sparse. Re-found the existing Paducah release; no additional named site was verified in the reviewed headlines. Business-wide investment was not allocated to a campus.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.brookfield.com/news-insights",
+        "http_status": 200,
+        "final_url": "https://www.brookfield.com/views-news/news"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "nscale",
+      "reviewed_at": "2026-11-07",
+      "finding": "Enumerated the official 12-location network. Staged Ward County with the actual October1 live update and Madison with its December2025 tenant announcement. Target billing dates are not opening confirmations. The existing Loughton withdrawal update is already tracked; several foreign locations are outside country coverage.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [
+        "nscale-ward-county-tx",
+        "nscale-madison-nc"
+      ],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.nscale.com/newsroom",
+        "http_status": 200,
+        "final_url": "https://www.nscale.com/newsroom"
+      },
+      "followup_sources": [
+        {
+          "key": "nscale-execution",
+          "url": "https://www.nscale.com/press-releases/execution-at-scale",
+          "final_url": "https://www.nscale.com/press-releases/execution-at-scale",
+          "http_status": 200,
+          "text_length": 2711,
+          "snippet": " Execution At Scale: Doubling Our Deployments | Nscale Execution At Scale: Doubling Our Deployments October 1, 2026 • read Share Nine months ago, our site in Ward County was an emp",
+          "excerpts": [
+            "ite in Ward County was an empty steel shell in West Texas. Today it’s a live AI data center delivering thousands of GPUs. That’s the pace the AI build-out demands. And it’s the pace we’re delivering. In the last month alone, Nscale has deployed 24,000 GPUs. That nearly doubles our deployments this year to over 50,000 GPUs powering production workloads across six active data centers in five countries. To put that GPU count in context, here’s why it matters: GPUs are the engines behind modern AI. They handle thousands of calcu",
+            "s this year to over 50,000 GPUs powering production workloads across six active data centers in five countries. To put that GPU count in context, here’s why it matters: GPUs are the engines behind modern AI. They handle thousands of calculations at the same time, which is what it takes to train a model and serve it to millions of people. Every AI tool and service you use today runs on them. More GPUs online means more AI people can actually use. Scaling to more than 50,000 GPUs in less than nine months demonstrates our abili",
+            " few thousand GPUs to the world’s largest fleet. Sam Huckaby , our President of Data Centers, led global data center development at Oracle after delivering hyperscale campuses at Vantage. They have both done this at scale before, and it shows. This is the fourth industrial revolution. We have doubled our fleet in a short amount of time and we are just getting started. About Nscale Nscale Limited (Nscale) is a full-stack AI cloud platform. We bring together software, compute, and power in a vertically integrated offering – fr",
+            " world’s largest fleet. Sam Huckaby , our President of Data Centers, led global data center development at Oracle after delivering hyperscale campuses at Vantage. They have both done this at scale before, and it shows. This is the fourth industrial revolution. We have doubled our fleet in a short amount of time and we are just getting started. About Nscale Nscale Limited (Nscale) is a full-stack AI cloud platform. We bring together software, compute, and power in a vertically integrated offering – from a unified cloud platfo",
+            "g – from a unified cloud platform for running AI training and inference, to the data centers and low-cost power that make it possible. Our mission is to build the engine of superintelligence and enhance access to the benefits of advanced AI for enterprises, governments, and the communities that depend on them. ‍ Press contact: press@nscale.com IR contact: ir@nscale.com Stay up to date with Nscale By submitting you agree to receive Nscale emails & accept our Terms & Privacy Policy . Stay up to date with Nscale By submitting y"
+          ]
+        },
+        {
+          "key": "nscale-roster",
+          "url": "https://www.nscale.com/ai-infrastructure",
+          "final_url": "https://www.nscale.com/ai-infrastructure",
+          "http_status": 200,
+          "text_length": 5104,
+          "snippet": " AI Infrastructure Data Centers Infrastructure for advanced intelligence Nscale designs, builds, and operates AI data centers across the world, optimized for advanced model trainin",
+          "excerpts": [
+            " AI Infrastructure Data Centers Infrastructure for advanced intelligence Nscale designs, builds, and operates AI data centers across the world, optimized for advanced model training and inference. Reserve capacity Scale AI with sustainable, high-efficiency data centers Nscale’s AI data centers combine multi-megawatt power, engineered cooling, and dense GPU server systems to meet the demands of advanced AI for enterprises, governments, and mission-critical workloads",
+            "nfrastructure for advanced intelligence Nscale designs, builds, and operates AI data centers across the world, optimized for advanced model training and inference. Reserve capacity Scale AI with sustainable, high-efficiency data centers Nscale’s AI data centers combine multi-megawatt power, engineered cooling, and dense GPU server systems to meet the demands of advanced AI for enterprises, governments, and mission-critical workloads. Low-cost, renewable power Scale AI sustainably with campuses that prioritize renewable energ",
+            "ning and inference. Reserve capacity Scale AI with sustainable, high-efficiency data centers Nscale’s AI data centers combine multi-megawatt power, engineered cooling, and dense GPU server systems to meet the demands of advanced AI for enterprises, governments, and mission-critical workloads. Low-cost, renewable power Scale AI sustainably with campuses that prioritize renewable energy, from Arctic hydro to coastal seawater cooling and circular heat reuse. Modular pre-fabricated design Add AI capacity faster without the lock-",
+            "ve capacity Scale AI with sustainable, high-efficiency data centers Nscale’s AI data centers combine multi-megawatt power, engineered cooling, and dense GPU server systems to meet the demands of advanced AI for enterprises, governments, and mission-critical workloads. Low-cost, renewable power Scale AI sustainably with campuses that prioritize renewable energy, from Arctic hydro to coastal seawater cooling and circular heat reuse. Modular pre-fabricated design Add AI capacity faster without the lock-in, using pre-fabricated,",
+            "vity, and advanced cooling. Built for the AI era Discover our global network of data centers engineered for performance, scale, and sustainable growth. Nscale data centers Partner-run data centers Available data centers Oslo, Norway Stavanger, Norway Narvik, Norway Glomfjord, Norway Hayes, U.K. Loughton, U.K. Keflavik, Iceland Blönduós, Iceland Sines, Portugal West Virginia, U.S. North Carolina, U.S. Texas, U.S. NORWAY Glomfjord Our Glomfjord AI data center, located in Norway’s Arctic Circle, is powered by 100% renewable ene",
+            " data centers engineered for performance, scale, and sustainable growth. Nscale data centers Partner-run data centers Available data centers Oslo, Norway Stavanger, Norway Narvik, Norway Glomfjord, Norway Hayes, U.K. Loughton, U.K. Keflavik, Iceland Blönduós, Iceland Sines, Portugal West Virginia, U.S. North Carolina, U.S. Texas, U.S. NORWAY Glomfjord Our Glomfjord AI data center, located in Norway’s Arctic Circle, is powered by 100% renewable energy and uses the latest advancements in AI infrastructure to achieve best-in-cl",
+            "for performance, scale, and sustainable growth. Nscale data centers Partner-run data centers Available data centers Oslo, Norway Stavanger, Norway Narvik, Norway Glomfjord, Norway Hayes, U.K. Loughton, U.K. Keflavik, Iceland Blönduós, Iceland Sines, Portugal West Virginia, U.S. North Carolina, U.S. Texas, U.S. NORWAY Glomfjord Our Glomfjord AI data center, located in Norway’s Arctic Circle, is powered by 100% renewable energy and uses the latest advancements in AI infrastructure to achieve best-in-class efficiency without sa",
+            " and sustainable growth. Nscale data centers Partner-run data centers Available data centers Oslo, Norway Stavanger, Norway Narvik, Norway Glomfjord, Norway Hayes, U.K. Loughton, U.K. Keflavik, Iceland Blönduós, Iceland Sines, Portugal West Virginia, U.S. North Carolina, U.S. Texas, U.S. NORWAY Glomfjord Our Glomfjord AI data center, located in Norway’s Arctic Circle, is powered by 100% renewable energy and uses the latest advancements in AI infrastructure to achieve best-in-class efficiency without sacrificing performance. ",
+            "rginia, U.S. North Carolina, U.S. Texas, U.S. NORWAY Glomfjord Our Glomfjord AI data center, located in Norway’s Arctic Circle, is powered by 100% renewable energy and uses the latest advancements in AI infrastructure to achieve best-in-class efficiency without sacrificing performance. The site currently delivers 30MW of operational compute capacity, expandable to 60MW, making Glomfjord an efficient, scalable hub for AI workloads. Reserve GPUs Learn more WEST VIRGINIA, UNITED STATES Monarch Compute Campus The Monarch Compute",
+            "class efficiency without sacrificing performance. The site currently delivers 30MW of operational compute capacity, expandable to 60MW, making Glomfjord an efficient, scalable hub for AI workloads. Reserve GPUs Learn more WEST VIRGINIA, UNITED STATES Monarch Compute Campus The Monarch Compute Campus in West Virginia, is the first-ever state-certified Artificial Intelligence (AI) Microgrid in the United States. Phase 1 is engineered to host 1.35GW of AI computing capacity, with delivery targeted by early 2028. Phase 1 is just",
+            "e site currently delivers 30MW of operational compute capacity, expandable to 60MW, making Glomfjord an efficient, scalable hub for AI workloads. Reserve GPUs Learn more WEST VIRGINIA, UNITED STATES Monarch Compute Campus The Monarch Compute Campus in West Virginia, is the first-ever state-certified Artificial Intelligence (AI) Microgrid in the United States. Phase 1 is engineered to host 1.35GW of AI computing capacity, with delivery targeted by early 2028. Phase 1 is just the start: Monarch is designed as a multi-phase cam",
+            "renewable hydropower and optimized for low-cost, high-efficiency operation. The data center is designed to deliver 230MW of capacity with plans to expand by an additional 290MW. Reserve GPUs PORTUGAL Sines Located at the Start Campus data center in Sines on Portugal’s Atlantic coast, our hyperscale site is designed for GW-scale AI deployments. Its coastal location makes it a low-latency, high-bandwidth hub for European and trans-Atlantic AI traffic, and is powered entirely by renewable energy with seawater cooling. Reserve G",
+            " low-cost, high-efficiency operation. The data center is designed to deliver 230MW of capacity with plans to expand by an additional 290MW. Reserve GPUs PORTUGAL Sines Located at the Start Campus data center in Sines on Portugal’s Atlantic coast, our hyperscale site is designed for GW-scale AI deployments. Its coastal location makes it a low-latency, high-bandwidth hub for European and trans-Atlantic AI traffic, and is powered entirely by renewable energy with seawater cooling. Reserve GPUs TEXAS, UNITED STATES Ward County W",
+            " designed to deliver 230MW of capacity with plans to expand by an additional 290MW. Reserve GPUs PORTUGAL Sines Located at the Start Campus data center in Sines on Portugal’s Atlantic coast, our hyperscale site is designed for GW-scale AI deployments. Its coastal location makes it a low-latency, high-bandwidth hub for European and trans-Atlantic AI traffic, and is powered entirely by renewable energy with seawater cooling. Reserve GPUs TEXAS, UNITED STATES Ward County Ward County is a roughly 240MW AI data center in West Tex",
+            "by an additional 290MW. Reserve GPUs PORTUGAL Sines Located at the Start Campus data center in Sines on Portugal’s Atlantic coast, our hyperscale site is designed for GW-scale AI deployments. Its coastal location makes it a low-latency, high-bandwidth hub for European and trans-Atlantic AI traffic, and is powered entirely by renewable energy with seawater cooling. Reserve GPUs TEXAS, UNITED STATES Ward County Ward County is a roughly 240MW AI data center in West Texas, developed in partnership with Ionic Digital for rapid de",
+            "ling. Reserve GPUs TEXAS, UNITED STATES Ward County Ward County is a roughly 240MW AI data center in West Texas, developed in partnership with Ionic Digital for rapid deployment and long-term hyperscale growth, with plans to expand its footprint to 1.2GW. Engineered specifically for AI workloads, Ward County is designed with closed-loop direct-liquid cooling and rear-door heat-exchangers to deliver industry-leading efficiency. Reserve GPUs UNITED KINGDOM Loughton The location of our London-proximate AI campus, Loughton is de",
+            "Reserve GPUs TEXAS, UNITED STATES Ward County Ward County is a roughly 240MW AI data center in West Texas, developed in partnership with Ionic Digital for rapid deployment and long-term hyperscale growth, with plans to expand its footprint to 1.2GW. Engineered specifically for AI workloads, Ward County is designed with closed-loop direct-liquid cooling and rear-door heat-exchangers to deliver industry-leading efficiency. Reserve GPUs UNITED KINGDOM Loughton The location of our London-proximate AI campus, Loughton is designed",
+            "ivity to the City of London, with the ability to scale power allocation up to 90MW. The site’s architecture includes direct-liquid cooling and sustainability features such as reuse of waste heat and water. Reserve GPUs ICELAND Keflavik One of Iceland’s largest liquid-cooled GPU installations, our Keflavik data center is set to host more than 4,600 NVIDIA Blackwell Ultra GPUs for deployment across Verne’s Icelandic campus in 2026. Designed for maximum efficiency and density, the configuration runs on 100% renewable energy fro",
+            "Keflavik One of Iceland’s largest liquid-cooled GPU installations, our Keflavik data center is set to host more than 4,600 NVIDIA Blackwell Ultra GPUs for deployment across Verne’s Icelandic campus in 2026. Designed for maximum efficiency and density, the configuration runs on 100% renewable energy from geothermal and hydropower. Reserve GPUs Partner-run data centers North Carolina, USA This 96-acre site in Madison, North Carolina, has 40MW of capacity expected online by 2026, supported by 99MW of secured power from Duke Ene",
+            " 100% renewable energy from geothermal and hydropower. Reserve GPUs Partner-run data centers North Carolina, USA This 96-acre site in Madison, North Carolina, has 40MW of capacity expected online by 2026, supported by 99MW of secured power from Duke Energy. Stavanger, Norway Powered entirely by renewable energy, Stavanger expands Nscale's Nordic footprint as a high-performance hub for enterprise AI training and inference. Oslo, Norway Powered by Norway’s renewable hydropower, our Oslo site provides low-latency connectivity t"
+          ]
+        }
+      ]
+    },
+    {
+      "company_slug": "segro",
+      "reviewed_at": "2026-11-07",
+      "finding": "Reviewed the official press index, July8 Paris joint venture and Premier Park consultation page. Exact Paris site identity and Premier Park original dates/phase remain unresolved. Source links are retained without guessed project statuses.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.segro.com/media/news",
+        "http_status": 200,
+        "final_url": "https://www.segro.com/media/news"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "goodman",
+      "reviewed_at": "2026-11-07",
+      "finding": "Found the official Vernon/DataBank source, but it returned HTTP403. The 32MW IT and 49.5MW electrical figures have different scopes. Hong Kong development leads are outside country coverage.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.goodman.com/our-business/data-centres",
+        "http_status": 403,
+        "final_url": "https://www.goodman.com/our-business/data-centres"
+      },
+      "followup_sources": [
+        {
+          "key": "goodman-vernon",
+          "url": "https://ce.goodman.com/about-goodman/media-centre/news/2026/databank-and-goodman-group-partner-to-open-new-landmark-data-center-in-los-angeles",
+          "final_url": "https://ce.goodman.com/about-goodman/media-centre/news/2026/databank-and-goodman-group-partner-to-open-new-landmark-data-center-in-los-angeles",
+          "http_status": 403,
+          "text_length": 60,
+          "snippet": " Just a moment... Enable JavaScript and cookies to continue ",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "company_slug": "softbank-corp",
+      "reviewed_at": "2026-11-07",
+      "finding": "The English2026 index returned HTTP200 with dynamic or empty content. Targeted search found a workload-shifting demonstration rather than a named fixed-site announcement. SoftBank Group activity is not attributed to SoftBank Corp.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.softbank.jp/en/corp/news/press/sbkk/2026/",
+        "http_status": 200,
+        "final_url": "https://www.softbank.jp/en/corp/news/press/sbkk/2026/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "nextdc",
+      "reviewed_at": "2026-11-07",
+      "finding": "Reviewed the full news index and facility navigation. Preserved 28 facility entries, including 25 Australian facilities. KL1 announcement, opening and designed IT capacity are verified but Malaysia is outside country coverage. Original years and phases of other legacy campuses remain for curation.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [
+        "my-nextdc-kl1-kuala-lumpur"
+      ],
+      "official_landing": {
+        "url": "https://www.nextdc.com/news",
+        "http_status": 200,
+        "final_url": "https://www.nextdc.com/resources?type=news"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "xtx-markets",
+      "reviewed_at": "2026-11-07",
+      "finding": "The homepage was accessible; the attempted press path returned HTTP404. Existing Kajaani evidence was not duplicated. No additional named project was verified in the reviewed results.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.xtxmarkets.com/press/",
+        "http_status": 404,
+        "final_url": "https://www.xtxmarkets.com/press/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "adaniconnex",
+      "reviewed_at": "2026-11-07",
+      "finding": "The official Visakhapatnam release matches the existing Google hub. CoreWeave Navi Mumbai tenancy is already tracked. No additional dated site announcement was promoted.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.adaniconnex.com/",
+        "http_status": 200,
+        "final_url": "https://www.adaniconnex.com/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "reliance",
+      "reviewed_at": "2026-11-07",
+      "finding": "Enumerated the official news index. The June10 Jamnagar release is already tracked; the October30 results PDF was not fully reviewed. Vizianagaram remains a secondary-source baseline.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.ril.com/news-media/press-releases",
+        "http_status": 200,
+        "final_url": "https://www.ril.com/news-media/press-releases"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "nxtra",
+      "reviewed_at": "2026-11-07",
+      "finding": "Reviewed the homepage and facility links. No additional dated specific announcement was verified; legacy city-roster date and phase curation remains open.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.nxtra.in/",
+        "http_status": 200,
+        "final_url": "https://www.nxtra.in/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "naver",
+      "reviewed_at": "2026-11-07",
+      "finding": "Read the October27 Brookfield agreement and staged a Sejong notes update. The $9billion business-wide agreement is not assigned as Sejong campus investment, and future capacity targets are not current operation.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.navercorp.com/en/media/pressReleases",
+        "http_status": 200,
+        "final_url": "https://www.navercorp.com/en/media/pressReleases"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "mitsui-fudosan",
+      "reviewed_at": "2026-11-07",
+      "finding": "Reviewed the full English2026 press index and May12 India investment release. Preserved three sites as investment leads because Mitsui is a fund investor rather than the facility operator. Portfolio capacity is not campus capacity.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.mitsuifudosan.co.jp/english/corporate/news/2026/",
+        "http_status": 200,
+        "final_url": "https://www.mitsuifudosan.co.jp/english/corporate/news/2026/"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "colt-dcs",
+      "reviewed_at": "2026-11-07",
+      "finding": "Enumerated 26 location and development navigation entries. Replaced the Mumbai3 secondary source with the October15 primary construction release and staged its sustainability claim. Other sites need original dates; Germany and the Netherlands are outside country coverage.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [
+        "in-colt-mumbai3-energy-water-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.coltdatacentres.net/news",
+        "http_status": 404,
+        "final_url": "https://www.coltdatacentres.net/en-GB/news"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "sesterce",
+      "reviewed_at": "2026-11-07",
+      "finding": "Read the Rovaltain revision, Jamsa/Kaipola and Bosquel primary announcements. Staged two new projects and related commitments. The revised 40MW Rovaltain limit does not erase the earlier judicial suspension history.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [
+        "fi-sesterce-jamsa-kaipola",
+        "fr-sesterce-bosquel"
+      ],
+      "new_claim_candidate_ids": [
+        "fi-sesterce-jamsa-community-fund-2026",
+        "fi-sesterce-jamsa-water-2026",
+        "fi-sesterce-jamsa-new-renewables-2026",
+        "fr-sesterce-bosquel-fund-2026",
+        "fr-sesterce-rovaltain-water-2026",
+        "fr-sesterce-rovaltain-fund-2026",
+        "fr-sesterce-rovaltain-jobs-2026",
+        "fr-sesterce-rovaltain-dialogue-2026"
+      ],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.sesterce.com/",
+        "http_status": 200,
+        "final_url": "https://www.sesterce.com/"
+      },
+      "followup_sources": [
+        {
+          "key": "sesterce-jamsa",
+          "url": "https://www.sesterce.com/newsroom/sesterce-plans-ai-campus-kaipola-jamsa-finland",
+          "final_url": "https://www.sesterce.com/newsroom/sesterce-plans-ai-campus-kaipola-jamsa-finland",
+          "http_status": 200,
+          "text_length": 4887,
+          "snippet": " Jämsä, Finland — October 8, 2026. Sesterce is planning a large-scale Sesterce Campus on the site of the former Kaipola paper mill . The investment of over €10 billion aims to crea",
+          "excerpts": [
+            " large-scale Sesterce Campus on the site of the former Kaipola paper mill . The investment of over €10 billion aims to create a renewable-powered European AI campus and strengthen Europe’s digital infrastructure and competitiveness. A new chapter for the Kaipola industrial site The project will develop supercomputing and computing infrastructure for artificial intelligence on an existing industrial site. It is expected to significantly strengthen the economic vitality of the area. During construction, the project is expected",
+            "s.” Youssef El Manssouri, CEO of Sesterce A phased development, starting at 200 MW The first phase, with works planned to start in 2026 , will have a capacity of 200 MW . Capacity is expected to increase to 600 MW in the second phase . Over the longer term, Sesterce aims to build more than one gigawatt of AI capacity in Finland , on existing industrial sites and in line with real market demand. The project is based on real demand and committed workload capacity: Sesterce already has an anchor customer and a strong outlook fo",
+            " first phase, with works planned to start in 2026 , will have a capacity of 200 MW . Capacity is expected to increase to 600 MW in the second phase . Over the longer term, Sesterce aims to build more than one gigawatt of AI capacity in Finland , on existing industrial sites and in line with real market demand. The project is based on real demand and committed workload capacity: Sesterce already has an anchor customer and a strong outlook for the gradual growth of computing demand. Four commitments for the Jämsä campus Each S",
+            "2026 , will have a capacity of 200 MW . Capacity is expected to increase to 600 MW in the second phase . Over the longer term, Sesterce aims to build more than one gigawatt of AI capacity in Finland , on existing industrial sites and in line with real market demand. The project is based on real demand and committed workload capacity: Sesterce already has an anchor customer and a strong outlook for the gradual growth of computing demand. Four commitments for the Jämsä campus Each Sesterce Campus commitment will be measured, a",
+            "n the second phase . Over the longer term, Sesterce aims to build more than one gigawatt of AI capacity in Finland , on existing industrial sites and in line with real market demand. The project is based on real demand and committed workload capacity: Sesterce already has an anchor customer and a strong outlook for the gradual growth of computing demand. Four commitments for the Jämsä campus Each Sesterce Campus commitment will be measured, audited by an independent third party and reported publicly every year . New renewabl",
+            "d publicly every year . New renewable capacity for the Finnish grid For every 1 MW consumed by the campus , Sesterce commits to enabling 1 MW of new renewable generation capacity within the Finnish power grid , within ten years of the campus becoming operational. Only newly built generation capacity will qualify. No drinking water for cooling Cooling will rely on a closed-loop liquid system , supplemented with harvested rainwater and recycled water. Drinking water will not be used for cooling. A €10 million community fund Up",
+            "ish grid For every 1 MW consumed by the campus , Sesterce commits to enabling 1 MW of new renewable generation capacity within the Finnish power grid , within ten years of the campus becoming operational. Only newly built generation capacity will qualify. No drinking water for cooling Cooling will rely on a closed-loop liquid system , supplemented with harvested rainwater and recycled water. Drinking water will not be used for cooling. A €10 million community fund Upon commissioning of the Jämsä campus, Sesterce will establi",
+            " and recycled water. Drinking water will not be used for cooling. A €10 million community fund Upon commissioning of the Jämsä campus, Sesterce will establish a €10 million community fund to finance local projects selected by the City of Jämsä together with local residents . A campus open to its community The site will include facilities open to the public, such as restaurants and education and learning spaces . The facilities serving the AI infrastructure will remain separate, secure and protected. Energy-efficient and flex",
+            "d Upon commissioning of the Jämsä campus, Sesterce will establish a €10 million community fund to finance local projects selected by the City of Jämsä together with local residents . A campus open to its community The site will include facilities open to the public, such as restaurants and education and learning spaces . The facilities serving the AI infrastructure will remain separate, secure and protected. Energy-efficient and flexible operations “Our planning is based on energy-efficient and flexible operations. The Seste",
+            "ected by the City of Jämsä together with local residents . A campus open to its community The site will include facilities open to the public, such as restaurants and education and learning spaces . The facilities serving the AI infrastructure will remain separate, secure and protected. Energy-efficient and flexible operations “Our planning is based on energy-efficient and flexible operations. The Sesterce Campus projects will use liquid cooling, deliver high energy efficiency and feature controllable and flexible power cons"
+          ]
+        },
+        {
+          "key": "sesterce-rovaltain",
+          "url": "https://www.sesterce.com/newsroom/rovaltain-becomes-a-sesterce-campus",
+          "final_url": "https://www.sesterce.com/newsroom/rovaltain-becomes-a-sesterce-campus",
+          "http_status": 200,
+          "text_length": 3769,
+          "snippet": " Rovaltain Becomes a Sesterce Campus | Sesterce Valence, France — October 6, 2026. Sesterce’s Rovaltain project in Alixan is becoming a Sesterce Campus , built around six commitmen",
+          "excerpts": [
+            "mpus , built around six commitments covering architecture, energy, water, jobs, community spaces and local investment. Sesterce is reaffirming a strict 40 MW limit for the supercomputer and proposing a dialogue committee with local authorities and associations. A revised project, with a confirmed 40 MW limit The campus, designed by Patriarche , will be revised to incorporate the six Sesterce Campus principles. This work will address energy, water, noise, architectural and landscape integration, biodiversity, mobility and bac",
+            "obs, community spaces and local investment. Sesterce is reaffirming a strict 40 MW limit for the supercomputer and proposing a dialogue committee with local authorities and associations. A revised project, with a confirmed 40 MW limit The campus, designed by Patriarche , will be revised to incorporate the six Sesterce Campus principles. This work will address energy, water, noise, architectural and landscape integration, biodiversity, mobility and backup generators. The original 40 MW power limit remains a firm commitment. S",
+            "with local authorities and associations. A revised project, with a confirmed 40 MW limit The campus, designed by Patriarche , will be revised to incorporate the six Sesterce Campus principles. This work will address energy, water, noise, architectural and landscape integration, biodiversity, mobility and backup generators. The original 40 MW power limit remains a firm commitment. Sesterce’s stated aim is to maintain compliance with the applicable environmental thresholds, including those relating to backup generators. Implem",
+            "cape integration, biodiversity, mobility and backup generators. The original 40 MW power limit remains a firm commitment. Sesterce’s stated aim is to maintain compliance with the applicable environmental thresholds, including those relating to backup generators. Implementation of the building permit already obtained is suspended while these commitments are integrated into the project. Six commitments for every Sesterce Campus The same six principles apply across all Sesterce Campuses. Each commitment will be measured, indepe",
+            "y audited and reported publicly every year. 1. Architecture that belongs in its community Campuses will be designed by award-winning architects, with the ambition of creating buildings that local communities can be proud of. 2. New renewable energy capacity For every 1 MW consumed , Sesterce commits to adding 1 MW of new renewable capacity to the French grid within ten years of opening . Only additional generation capacity counts toward this commitment; renewable energy certificates alone do not. 3. Cooling without drinking ",
+            "local communities can be proud of. 2. New renewable energy capacity For every 1 MW consumed , Sesterce commits to adding 1 MW of new renewable capacity to the French grid within ten years of opening . Only additional generation capacity counts toward this commitment; renewable energy certificates alone do not. 3. Cooling without drinking water during operations No drinking water will be introduced into the cooling circuit during operations. Liquid cooling will run in a closed loop, with top-ups supplied from on-site rainwate",
+            "enewable energy capacity For every 1 MW consumed , Sesterce commits to adding 1 MW of new renewable capacity to the French grid within ten years of opening . Only additional generation capacity counts toward this commitment; renewable energy certificates alone do not. 3. Cooling without drinking water during operations No drinking water will be introduced into the cooling circuit during operations. Liquid cooling will run in a closed loop, with top-ups supplied from on-site rainwater and recycled-water tanks. 4. Lasting jobs",
+            "its to creating at least one permanent job, directly or indirectly, for every 2 MW consumed , alongside three local construction jobs per MW during the construction phase. 5. Spaces open to residents Campuses will include spaces for training, education and dining that are accessible to local residents . The building housing the supercomputers will remain secure. 6. A €10 million fund for the local area A €10 million fund will be paid at commissioning to support projects chosen by residents. It will be available to the wider ",
+            "directly, for every 2 MW consumed , alongside three local construction jobs per MW during the construction phase. 5. Spaces open to residents Campuses will include spaces for training, education and dining that are accessible to local residents . The building housing the supercomputers will remain secure. 6. A €10 million fund for the local area A €10 million fund will be paid at commissioning to support projects chosen by residents. It will be available to the wider territory, with particular attention to the central city, "
+          ]
+        },
+        {
+          "key": "sesterce-bosquel",
+          "url": "https://www.sesterce.com/newsroom/softbank-group-sesterce-1gw-ai-data-center-bosquel-france",
+          "final_url": "https://www.sesterce.com/newsroom/softbank-group-sesterce-1gw-ai-data-center-bosquel-france",
+          "http_status": 200,
+          "text_length": 3378,
+          "snippet": " Bosquel, France — June 1, 2026 — A joint venture between SoftBank Group Corp. (TSE: 9984, “SoftBank Group”) and Sesterce today announced that it has been selected to develop and o",
+          "excerpts": [
+            "erce today announced that it has been selected to develop and operate a 1 GW AI data center campus in Bosquel, France. Located in the Hauts-de-France region, Bosquel is strategically positioned near several of Europe’s most important economic and technology centers, including Paris, Brussels, Amsterdam, London and Frankfurt. The location will help serve customers across major European markets with advanced AI workloads at low latencies. The joint venture combines SoftBank Group’s global AI infrastructure platform with Sester",
+            "ure combines SoftBank Group’s global AI infrastructure platform with Sesterce’s data center capabilities. Together, the companies will develop a campus designed for the scale, sustainability, and performance required by Europe’s growing AI ecosystem. The campus will utilize advanced technologies to minimize environmental impact and water usage. “Bosquel is an important step in SoftBank’s commitment to helping build that foundation in France, bringing together large-scale compute capacity and strong local partnerships to supp",
+            "nce, the Bosquel campus is designed to deliver long-term benefits for the local community. As part of its commitment to regional development, the joint venture plans to establish a €10 million endowment fund that will be jointly managed with the Hauts-de-France region to promote the use of AI in local businesses, schools, universities and community organizations. The Bosquel campus plan includes a community center serving as a meeting space for residents, local businesses, students, entrepreneurs and public stakeholders. The",
+            " region to promote the use of AI in local businesses, schools, universities and community organizations. The Bosquel campus plan includes a community center serving as a meeting space for residents, local businesses, students, entrepreneurs and public stakeholders. The center will provide a venue for community engagement, events and ongoing dialogue around the project and the opportunities created by AI. “From the beginning, our priority has been to ensure that this project creates long-term value both for our territory and ",
+            "s, universities and community organizations. The Bosquel campus plan includes a community center serving as a meeting space for residents, local businesses, students, entrepreneurs and public stakeholders. The center will provide a venue for community engagement, events and ongoing dialogue around the project and the opportunities created by AI. “From the beginning, our priority has been to ensure that this project creates long-term value both for our territory and for future generations. Bosquel represents a major opportuni",
+            "nts, entrepreneurs and public stakeholders. The center will provide a venue for community engagement, events and ongoing dialogue around the project and the opportunities created by AI. “From the beginning, our priority has been to ensure that this project creates long-term value both for our territory and for future generations. Bosquel represents a major opportunity for Hauts-de-France and for France’s digital future, but it must also be a project that benefits local residents, businesses, and public structures,” said Alai",
+            "technological sovereignty in France and across Europe. By combining large-scale data center capacity with local job creation, regional investment, skills development and community infrastructure, the project is designed to deliver both immediate economic impact and long-term value for Bosquel, Hauts-de-France and France’s broader AI ecosystem. SoftBank Group and Sesterce to Develop 1 GW AI Data Center in Bosquel, France ",
+            "r capacity with local job creation, regional investment, skills development and community infrastructure, the project is designed to deliver both immediate economic impact and long-term value for Bosquel, Hauts-de-France and France’s broader AI ecosystem. SoftBank Group and Sesterce to Develop 1 GW AI Data Center in Bosquel, France ",
+            "d France’s broader AI ecosystem. SoftBank Group and Sesterce to Develop 1 GW AI Data Center in Bosquel, France "
+          ]
+        }
+      ]
+    },
+    {
+      "company_slug": "kakao",
+      "reviewed_at": "2026-11-07",
+      "finding": "The official Ansan release remains Korean despite the English query parameter; the news index was dynamically empty. No current update was verified. Translation and quote selection remain for a curator.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.kakaocorp.com/page/news",
+        "http_status": 200,
+        "final_url": "https://www.kakaocorp.com/page/presskit"
+      },
+      "followup_sources": [
+        {
+          "key": "kakao-ansan",
+          "url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+          "final_url": "https://www.kakaocorp.com/page/detail/8818?lang=ENG",
+          "http_status": 200,
+          "text_length": 2044,
+          "snippet": " 카카오, 안산시*한양대와 손잡고 데이터센터 건립 추진 | 카카오 이 페이지를 실행하려면 자바스크립트를 사용해야 합니다. 본문 바로가기 메뉴 바로가기 Detail page main text 보도자료 September 07, 2020 카카오, 안산시*한양대와 손잡고 데이터센터 건립 추진 Share - 4천억원 투자해 한양대",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "company_slug": "lg-uplus",
+      "reviewed_at": "2026-11-07",
+      "finding": "Found and read the official June8 Paju strategy release in Korean. Preserved the primary link for curator translation and replacement of the existing secondary source; no automated translated claim was added.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.lguplus.com/about/en",
+        "http_status": 403,
+        "final_url": "https://www.lguplus.com/about/en"
+      },
+      "followup_sources": []
+    },
+    {
+      "company_slug": "ecodatacenter",
+      "reviewed_at": "2026-11-07",
+      "finding": "Enumerated the correct press index and matched the latest financing and existing Smedjebacken announcements. Falun and Borlange legacy sites need original dates and phases; financing is not allocated as new campus capex.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://ecodatacenter.tech/news/",
+        "http_status": 404,
+        "final_url": "https://ecodatacenter.tech/news/"
+      },
+      "followup_sources": [
+        {
+          "key": "ecodatacenter-press",
+          "url": "https://ecodatacenter.tech/press",
+          "final_url": "https://ecodatacenter.tech/press",
+          "http_status": 200,
+          "text_length": 2121,
+          "snippet": " Press Press For inquiries, reach out to press@ecodatacenter.se Show all English Economy Data, Telecom, IT Sustainability/CSR Finance Corporate Information Infrastructure, Communic",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "company_slug": "cloudhq",
+      "reviewed_at": "2026-11-07",
+      "finding": "Read the nine-campus official roster and US campus details through the web reader. Preserved Santa Clara, San Antonio, Chaska, Osaka and Didcot leads; other countries are outside coverage. Original announcement years and current construction phases remain unverified; future ready-for-service dates are not actual operation.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://www.cloudhq.com/",
+        "http_status": 403,
+        "final_url": "https://www.cloudhq.com/"
+      },
+      "followup_sources": [
+        {
+          "key": "cloudhq-roster",
+          "url": "https://cloudhq.com/campuses/",
+          "final_url": "https://cloudhq.com/campuses/",
+          "http_status": 403,
+          "text_length": 756,
+          "snippet": " Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access wpewaf.com Why have I been blocked? This website is using a security ",
+          "excerpts": []
+        }
+      ]
+    },
+    {
+      "company_slug": "pampa-energia",
+      "reviewed_at": "2026-11-07",
+      "finding": "The investor homepage was sparse or dynamic. No named data-center site was verified. The company offer remains unmapped; energy-asset locations were not converted into data-center projects.",
+      "completeness": "Bounded official-source pass completed; unresolved roster dates, phase, ownership, granularity and country gaps remain explicit.",
+      "new_project_candidate_ids": [],
+      "new_claim_candidate_ids": [],
+      "held_project_ids": [],
+      "official_landing": {
+        "url": "https://ri.pampa.com/en/news/",
+        "http_status": 404,
+        "final_url": "https://ri.pampa.com/en/news/"
+      },
+      "followup_sources": []
+    }
+  ],
+  "limitations": [
+    "A roster establishes listed locations; original announcement dates and development phases require separate evidence.",
+    "Country-registry exclusions, unresolved original dates and grouped multi-campus entries remain in the roster ledger.",
+    "No new ratepayer, delivery or community-response stance classifications were assigned."
+  ]
+}

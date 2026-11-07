@@ -1,0 +1,321 @@
+{
+  "as_of": "2026-11-07",
+  "count": 15,
+  "records": [
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "ravenna-township-oh-2026-04",
+        "jurisdiction": "Ravenna Township",
+        "jurisdiction_type": "city",
+        "state_code": "OH",
+        "status": "enacted",
+        "enacted_date": "2026-04-14",
+        "effective_date": null,
+        "duration_months": 6,
+        "bill_number": "Resolution 26-056",
+        "source_url": "https://www.ravennatownship.com/wp-content/uploads/RES-26-056-Moratoriam-on-Data-Centers.pdf",
+        "source_title": "Ravenna Township data center moratorium — official instrument",
+        "captured_at": "2026-11-07",
+        "summary": "Ravenna Township adopted a data-center moratorium on April 14, 2026. The resolution covers the operation or location of new data centers while the township studies health, safety, utilities and infrastructure.",
+        "duration_description": "Initial six-month term from April 14, 2026; no later extension verified.",
+        "key_reasons": []
+      },
+      "reason": "Historical six-month pause; its original term has elapsed. No extension verified. Township is represented as county-level in schema; parent should confirm jurisdiction-type convention."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "lenox-township-mi-2026-02",
+        "jurisdiction": "Lenox Township",
+        "jurisdiction_type": "city",
+        "state_code": "MI",
+        "status": "enacted",
+        "enacted_date": "2026-02-02",
+        "effective_date": "2026-02-02",
+        "duration_months": 4,
+        "bill_number": null,
+        "source_url": "https://www.lenox-mi.gov/m/newsflash/home/detail/240",
+        "source_title": "Lenox Township data center moratorium — official instrument",
+        "captured_at": "2026-11-07",
+        "summary": "Lenox Township adopted a data-center moratorium on February 2, 2026. The township adopted the pause to review zoning, infrastructure capacity, utility demand and land-use impacts.",
+        "duration_description": "Initial four-month term, with one possible four-month extension; exercise of the extension was not verified.",
+        "key_reasons": []
+      },
+      "reason": "Historical four-month pause. Official explanation allows one further four-month extension, but this source does not verify exercise of that option. Do not imply currently active."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "newton-county-ga-2026-02",
+        "jurisdiction": "Newton County",
+        "jurisdiction_type": "county",
+        "state_code": "GA",
+        "status": "enacted",
+        "enacted_date": "2026-02-17",
+        "effective_date": null,
+        "duration_months": null,
+        "bill_number": null,
+        "source_url": "https://www.newtoncountyga.gov/DocumentCenter/View/7830",
+        "source_title": "Newton County data center moratorium — official instrument",
+        "captured_at": "2026-11-07",
+        "summary": "Newton County adopted a data-center moratorium on February 17, 2026. The extension covers acceptance of applications and submissions for data-center development, including rezoning and development permits.",
+        "duration_description": "The April 7, 2026 extension runs through October 7, 2026; no later extension verified.",
+        "key_reasons": []
+      },
+      "reason": "Official April 7 extension recites initial February 17 adoption and March 3 revision and extends pause through October 7, 2026. Historic term ended; no later extension verified."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "millcreek-township-oh-2025-10",
+        "jurisdiction": "Millcreek Township (Union County)",
+        "jurisdiction_type": "city",
+        "state_code": "OH",
+        "status": "enacted",
+        "enacted_date": "2025-10-06",
+        "effective_date": null,
+        "duration_months": 12,
+        "bill_number": "Resolution 2611",
+        "source_url": "https://www.millcreektwpohio.us/TRUSTEESMINUTES/October%206,%202025%20Regular%20Meeting.pdf",
+        "source_title": "Millcreek Township (Union County) data center moratorium — official instrument",
+        "captured_at": "2026-11-07",
+        "summary": "Millcreek Township (Union County) adopted a data-center moratorium on October 6, 2025. The trustees unanimously approved a pause on data centers while the township considers zoning provisions.",
+        "duration_description": "Initial one-year term from October 6, 2025; no later extension verified.",
+        "key_reasons": []
+      },
+      "reason": "Historic initial one-year pause. Minutes verify unanimous approval. No extension verified; do not label active as of November7."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "brooks-county-ga-2026-05",
+        "jurisdiction": "Brooks County",
+        "jurisdiction_type": "county",
+        "state_code": "GA",
+        "status": "enacted",
+        "enacted_date": "2026-05-04",
+        "effective_date": null,
+        "duration_months": 6,
+        "bill_number": "FA040-2026",
+        "source_url": "https://brookscountyga.gov/agendas-minutes-and-public-notices/2026/May/Regular%20Mtg.May%204%202026.docx.pdf",
+        "source_title": "Brooks County (GA) Board of Commissioners, minutes of May 4, 2026 regular monthly meeting (item FA040-2026) and July 6, 2026 regular monthly meeting",
+        "captured_at": "2026-11-07",
+        "summary": "Brooks County adopted a data-center moratorium on May 4, 2026. The May 4 action replaced an expired three-month data-center moratorium.",
+        "duration_description": "Six-month term approved May 4, 2026; a later extension was not verified.",
+        "key_reasons": []
+      },
+      "reason": "HISTORICAL/REVIEW: Official May4 minutes approve a new six-month moratorium replacing expired three-month pause. The supported six-month term has now elapsed; register says December31 but that endpoint is NOT supported by this exact primary source. Hold active publication absent newer extension."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "putnam-county-ga-2026-08",
+        "jurisdiction": "Putnam County",
+        "jurisdiction_type": "county",
+        "state_code": "GA",
+        "status": "enacted",
+        "enacted_date": "2026-08-07",
+        "effective_date": "2026-08-07",
+        "duration_months": null,
+        "bill_number": "Resolution 2026.8.7",
+        "source_url": "https://www.putnamcountyga.us/DocumentCenter/View/1226",
+        "source_title": "Putnam County, GA, Resolution 2026.8.7 (signed scan, county Document Center); county News Flash 'Data Center Moratorium' (posted Aug. 12, 2026, updated after Oct. 21)",
+        "captured_at": "2026-11-07",
+        "summary": "Putnam County adopted a data-center moratorium on August 7, 2026. The resolution covers land-development permits for data centers, battery energy storage systems and solar energy systems.",
+        "duration_description": "August 7, 2026 at 11 a.m. through November 6, 2026 at 11:59 p.m.; no later extension verified.",
+        "key_reasons": []
+      },
+      "reason": "HISTORICAL/REVIEW: signed source explicitly endsNovember6,2026 at11:59pm, alreadyelapsed. Register saysNovember17; exactprimarycontradicts. Covers data centers,batteryenergy storage,solarsystems,landdevelopmentpermits. Hold asactive unless extensionverified."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "new-buffalo-township-mi-2026-04",
+        "jurisdiction": "New Buffalo Township",
+        "jurisdiction_type": "city",
+        "state_code": "MI",
+        "status": "enacted",
+        "enacted_date": "2026-04-09",
+        "effective_date": null,
+        "duration_months": null,
+        "bill_number": "Resolution and Ordinance 20260409",
+        "source_url": "https://newbuffalotownship.org/assets/files/meetings/04-09-2026-special-board-meeting/minutes/2026.04.09-NBT-Minutes-Special-Meeting.pdf",
+        "source_title": "New Buffalo Township Board, Special Board Meeting Minutes, April 9, 2026 (signed scan)",
+        "captured_at": "2026-11-07",
+        "summary": "New Buffalo Township adopted a data-center moratorium on April 9, 2026. The board adopted a pause on issuance of permits, licenses and approvals for data centers by a 4–0 vote, with one member absent.",
+        "duration_description": "Term not stated in the fetched township minutes; current lifecycle remains unresolved.",
+        "key_reasons": []
+      },
+      "reason": "Official specialmeeting minutes adopt4–0 withoneabsent; issuance of permits, licenses or approvals paused. Duration absent, so current lifecycle unresolved until ordinance text obtained. Hold active claim if no term known."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "hazle-township-pa-2026-06",
+        "jurisdiction": "Hazle Township",
+        "jurisdiction_type": "city",
+        "state_code": "PA",
+        "status": "enacted",
+        "enacted_date": "2026-06-08",
+        "effective_date": null,
+        "duration_months": null,
+        "duration_description": "180-day municipal curative-amendment process.",
+        "summary": "Hazle Township began a 180-day municipal curative-amendment process after declaring portions of its zoning ordinance substantively invalid concerning data centers and accessory uses.",
+        "key_reasons": [],
+        "bill_number": "Resolution 2026-16",
+        "source_url": "https://www.hazletownship.com/images/2026_Meeting_Minutes_SupervisorsJuneJulyAugust.pdf",
+        "source_title": "Hazle Township Board of Supervisors, minutes of regular meeting June 8, 2026 (in posted June-August 2026 minutes), Resolution #2026-16",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Actual June 8 minutes show Montone, Fiume and Griguoli voting yes. Pennsylvania curative amendment is a specific statutory process; curator should preserve this distinction from a freestanding building ban. Attorney explicitly explains that during this limited moratorium nobody can challenge the ordinance as defective; no freestanding permit stop found."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "banks-county-ga-2026-08",
+        "jurisdiction": "Banks County",
+        "jurisdiction_type": "county",
+        "state_code": "GA",
+        "status": "enacted",
+        "enacted_date": "2026-08-11",
+        "effective_date": null,
+        "duration_months": null,
+        "duration_description": "Thirty days; later extension not verified.",
+        "summary": "Banks County adopted a thirty-day emergency pause on special-use applications for data centers.",
+        "key_reasons": [],
+        "bill_number": null,
+        "source_url": "https://bankscoga.api.civicclerk.com/v1/Meetings/GetMeetingFileStream(fileId=35,plainText=false)",
+        "source_title": "Banks County (GA) Board of Commissioners, minutes of Aug. 11, 2026 meeting, item 8(a) 'Moratorium Discussion' (CivicClerk fileId 35); agenda of Sept. 8, 2026 meeting, item 7(b) (fileId 33)",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Actual August 11 minutes show five affirmative votes. Source proves only original thirty-day term, not the discovery register’s later endpoint. Historical action; current continuation not verified."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "westfield-ma-2026",
+        "jurisdiction": "Westfield",
+        "jurisdiction_type": "city",
+        "state_code": "MA",
+        "status": "enacted",
+        "enacted_date": null,
+        "effective_date": null,
+        "duration_months": null,
+        "duration_description": "Until July 6, 2027, unless replaced by permanent rules; one extension up to 180 days permitted.",
+        "summary": "Westfield’s zoning ordinance prohibits permitting, construction, expansion, conversion, establishment and operation of data centers until July 6, 2027. It also stays pending applications and restricts projects dependent on battery energy-storage approval.",
+        "key_reasons": [],
+        "bill_number": "Zoning Ordinance Section 5-32",
+        "source_url": "https://www.cityofwestfield.org/DocumentCenter/View/18033/5-32-DC-moratorium",
+        "source_title": "City of Westfield, Zoning Ordinance Section 5-32, Temporary Moratorium for Data Centers (codified text, dated 7/7/26), city Document Center; City Council minutes July 6, 2026",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Official codified zoning section carries footer (7/7/26), but the precise adoption date is not explicitly certified in this document. Do not substitute the footer automatically."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "howard-county-md-2026",
+        "jurisdiction": "Howard County",
+        "jurisdiction_type": "county",
+        "state_code": "MD",
+        "status": "enacted",
+        "enacted_date": null,
+        "effective_date": null,
+        "duration_months": null,
+        "duration_description": "Interim period; operative sunset amendments require visual reconciliation.",
+        "summary": "Howard County’s S.M.A.R.T. Siting Act restricts acceptance and approval of data-center development plans while a task force develops zoning recommendations.",
+        "key_reasons": [],
+        "bill_number": "Council Bill 31-2026",
+        "source_url": "https://apps.howardcountymd.gov/olis/api/Documents/LegislationDocument/45424",
+        "source_title": "Howard County Council bill (OLIS legislation document 45424)",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Official signed 22-page act establishes passage with amendments, but handwritten adoption/effective dates are garbled in extraction and document download was blocked. Amendments include November 2, 2027 endpoint and exceptions for previously approved development plans. Hold until visual header and amendments are reconciled."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "clearfield-ut-2026-09",
+        "jurisdiction": "Clearfield",
+        "jurisdiction_type": "city",
+        "state_code": "UT",
+        "status": "enacted",
+        "enacted_date": "2026-09-08",
+        "effective_date": null,
+        "duration_months": null,
+        "duration_description": "180 days from effective date.",
+        "summary": "Clearfield adopted a temporary land-use regulation and study for data centers to develop definitions, zoning classifications and development standards.",
+        "key_reasons": [],
+        "bill_number": "Ordinance2026-13",
+        "source_url": "https://clearfield.city/wp-content/uploads/2026/09/2026O-13-Ordinance-Establishing-a-temporary-land-use-Data-Center.pdf",
+        "source_title": "Clearfield City (UT), Ordinance 2026-13 (signed copy, city website)",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Visual page4 confirms September8adoption. Full operative text reviewed: Section1 findings,Section2definition,Section3geography,Section4study,Section5duration; no express clause stopping acceptance or issuance of approvals found. Do not turn a study framework into a blanket permit moratorium."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "cincinnati-oh-2026-02",
+        "jurisdiction": "Cincinnati",
+        "jurisdiction_type": "city",
+        "state_code": "OH",
+        "status": "enacted",
+        "enacted_date": "2026-02-11",
+        "effective_date": "2026-02-11",
+        "duration_months": null,
+        "duration_description": "Extended April 1, 2026 through February 11, 2027.",
+        "summary": "Cincinnati established an interim development-control overlay for new or expanded data centers in six zoning districts while it studies zoning rules.",
+        "key_reasons": [],
+        "bill_number": "Interim Development Control Overlay89",
+        "source_url": "https://www.cincinnati-oh.gov/planning/idc-89",
+        "source_title": "City of Cincinnati Department of City Planning and Engagement, \"Interim Development Control Overlay #89 'Data Centers' for a Zoning Study to develop Text Amendments\" project page, read Oct 19, 2026",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Official city page confirms initialFebruary11three-month action, April1nine-monthextension and February11,2027endpoint. ScopeCC-A,CG-A,UM,DD,ML,MG. Page also lists permits reviewed during overlay; no complete stop on applications verified. Parent should classify framework accurately."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "st-joseph-mo-2026-07",
+        "jurisdiction": "St. Joseph",
+        "jurisdiction_type": "city",
+        "state_code": "MO",
+        "status": "enacted",
+        "enacted_date": null,
+        "effective_date": null,
+        "duration_months": 12,
+        "duration_description": "Twelve months.",
+        "summary": "St. Joseph paused new data-center applications for twelve months while staff studies impacts and develops development regulations.",
+        "key_reasons": [],
+        "bill_number": null,
+        "source_url": "https://www.stjosephmo.gov/DocumentCenter/View/22254/Data-Center-Development-FAQ-PDF",
+        "source_title": "City of St. Joseph (MO), 'Data Center Regulation in St. Joseph: Frequently Asked Questions' (city Data Center Information page)",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Official city FAQ expressly says council approved12monthpause atJuly21meeting, but document has no year/date and no exact resolution. Discovery register says2026, but that is insufficient to supply year without primary context."
+    },
+    {
+      "kind": "moratorium",
+      "record": {
+        "id": "northampton-county-nc-2026-05",
+        "jurisdiction": "Northampton County",
+        "jurisdiction_type": "county",
+        "state_code": "NC",
+        "status": "enacted",
+        "enacted_date": "2026-05-04",
+        "effective_date": "2026-05-04",
+        "duration_months": 32,
+        "duration_description": "May 4, 2026 through January 4, 2029, unless earlier terminated, extended or modified.",
+        "summary": "Northampton County adopted a temporary data-center moratorium with a stated term through January 4, 2029.",
+        "key_reasons": [],
+        "bill_number": null,
+        "source_url": "https://www.northamptonnc.com/DocumentCenter/View/1337/Ordinance-Temp-Moratorium-Data-Centers---May-2026_3",
+        "source_title": "Northampton County (NC), signed Ordinance Imposing a Temporary Moratorium on Development Approvals for Data Centers and Related High-Impact Facilities, May 4, 2026 (three page images on the county website, Document Center 1335-1337; read by OCR)",
+        "captured_at": "2026-11-07"
+      },
+      "reason": "Official DocumentCenter URL serves a JPEG of signed final page, not a PDF: visual confirms May4adoption and effectiveMay4toJan4,2029. Remaining operative scope/exemptions not present on this final-page image; seek first pages before publication."
+    }
+  ]
+}

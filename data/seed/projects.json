@@ -5739,10 +5739,10 @@
       "lon": -104.8202,
       "status": "announced",
       "announced_year": 2026,
-      "notes": "Formerly Project Jade, a 2.7-gigawatt data center campus about 8 miles south of Cheyenne. A June 30, 2026 site-plan amendment filed with Laramie County names Jupiter Star Holdings, LLC, a wholly owned Google subsidiary, as builder of the facilities; planning documents describe a 716-acre campus with a planned completion date of 2031. The earlier developer of record, Crusoe, left the project (see crusoe-cheyenne-wy).",
+      "notes": "Formerly Project Jade, a 2.7-gigawatt data center campus about 8 miles south of Cheyenne. A June 30, 2026 site-plan amendment filed with Laramie County names Jupiter Star Holdings, LLC, a wholly owned Google subsidiary, as builder of the facilities; planning documents describe a 716-acre campus with a planned completion date of 2031. The earlier developer of record, Crusoe, left the project (see crusoe-cheyenne-wy). On November 5, Google announced a long-term $17 billion Wyoming investment alongside its first data center in the state. The announcement does not separately allocate campus construction costs.",
       "source_url": "https://cowboystatedaily.com/2026/07/08/google-revealed-as-owner-of-wyomings-largest-data-center-now-project-tembo/",
       "source_title": "Cowboy State Daily — Say Hello To Google, The Mystery Owner Behind Wyoming's Largest Data Center Project (Jul 8, 2026)",
-      "captured_at": "2026-10-19",
+      "captured_at": "2026-11-07",
       "acreage": 716.0,
       "power_mw": 2700.0,
       "updates": [
@@ -5756,7 +5756,8 @@
           "source_url": "https://cowboystatedaily.com/2026/07/08/google-revealed-as-owner-of-wyomings-largest-data-center-now-project-tembo/",
           "source_title": "Cowboy State Daily — Say Hello To Google, The Mystery Owner Behind Wyoming's Largest Data Center Project"
         }
-      ]
+      ],
+      "project_page_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/"
     },
     {
       "id": "meta-mason-county-ky",
@@ -5930,12 +5931,13 @@
       "announced_year": 2026,
       "announced_date": "2026-03-17",
       "acreage": 2250,
-      "notes": "Nscale's release (PR Newswire, dateline 17 March 2026, reached through an AAP reprint) says it agreed to acquire American Intelligence & Power Corporation (AIPCorp), which holds the Monarch Compute Campus: 'a site with up to 2,250 acres in Mason County, West Virginia', described as the first state-certified AI microgrid in the United States with a power runway scalable to over 8 gigawatts. Initial power of 2 gigawatts is expected online by the first half of 2028, with expansion to approximately 8 gigawatts planned for 2031, so power_mw is the planned maximum, not built capacity. acreage is the 'up to' figure. The deal also creates Nscale Energy & Power, headquartered in Houston, Texas. The acquisition was signed but not yet reported closed. Nscale's own newsroom was not reachable, so this rests on the company release as reprinted. power_mw is left empty: 8 GW is a planned 2031 maximum for a site whose acquisition was not reported closed, so it is not counted in announced-power totals. Coordinates are Mason County's centroid.",
+      "notes": "Nscale's release (PR Newswire, dateline 17 March 2026, reached through an AAP reprint) says it agreed to acquire American Intelligence & Power Corporation (AIPCorp), which holds the Monarch Compute Campus: 'a site with up to 2,250 acres in Mason County, West Virginia', described as the first state-certified AI microgrid in the United States with a power runway scalable to over 8 gigawatts. Initial power of 2 gigawatts is expected online by the first half of 2028, with expansion to approximately 8 gigawatts planned for 2031, so power_mw is the planned maximum, not built capacity. acreage is the 'up to' figure. The deal also creates Nscale Energy & Power, headquartered in Houston, Texas. The acquisition was signed but not yet reported closed. Nscale's own newsroom was not reachable, so this rests on the company release as reprinted. power_mw is left empty: 8 GW is a planned 2031 maximum for a site whose acquisition was not reported closed, so it is not counted in announced-power totals. Coordinates are Mason County's centroid. Nscale’s current roster describes phase 1 as 1.35 GW of AI computing capacity, targeted for early 2028, and a future multi-phase expansion path exceeding 8 GW.",
       "source_url": "https://www.aap.com.au/aapreleases/cision20260316ae11323/",
       "source_title": "Nscale — Nscale Acquires American Intelligence & Power Corporation (PR Newswire release, 17 Mar 2026; reprinted by AAP)",
       "captured_at": "2026-10-19",
       "lat": 38.77,
-      "lon": -82.02
+      "lon": -82.02,
+      "project_page_url": "https://www.nscale.com/ai-infrastructure"
     },
     {
       "id": "goodman-lax01-vernon-ca",
@@ -5953,6 +5955,805 @@
       "captured_at": "2026-10-19",
       "lat": 34.00111,
       "lon": -118.21111
+    },
+    {
+      "id": "aws-somervell-tx",
+      "company_slug": "amazon",
+      "name": "Amazon Somervell County Data Center Campus",
+      "city": "Glen Rose",
+      "country": "US",
+      "status": "announced",
+      "announced_year": 2026,
+      "source_url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news",
+      "source_title": "Amazon Somervell County Data Center Campus — company announcement",
+      "captured_at": "2026-11-07",
+      "state": "TX",
+      "announced_date": "2026-11-05",
+      "notes": "Planned campus near Glen Rose on Vistra land adjacent to Comanche Peak. Amazon announces at least 550 full-time positions and thousands of construction jobs. Dedicated nuclear-plant transmission supplies electricity; cooling uses an industrial reservoir rather than local groundwater or drinking water."
+    },
+    {
+      "id": "qts-hall-county-tx",
+      "company_slug": "qts",
+      "name": "QTS / Lancium Hall County Data Center Campus",
+      "city": "Turkey",
+      "country": "US",
+      "status": "announced",
+      "announced_year": 2026,
+      "source_url": "https://q.com/news/qts-and-lancium-announce-data-center-campus-in-hall-county-texas/",
+      "source_title": "QTS / Lancium Hall County Data Center Campus — company announcement",
+      "captured_at": "2026-11-07",
+      "state": "TX",
+      "announced_date": "2026-07-13",
+      "claimed_investment_usd": 10000000000,
+      "claimed_jobs": 7350,
+      "notes": "More than $10 billion announced investment, up to 7,000 construction jobs and about 350 permanent jobs. Lancium owns the campus and supplies electrical/civil infrastructure; QTS designs, builds and operates the data center buildings. The campus is outside Turkey city limits. An October 9 agreement provides $10.5 million in city payments through 2032, up to $5 million in additional infrastructure assistance and a separate one-time water-tower/sewer contribution."
+    },
+    {
+      "captured_at": "2026-11-07",
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-morgan-county-in",
+      "name": "Google Morgan County Data Center",
+      "city": "Morgan County",
+      "state": "IN",
+      "status": "construction",
+      "announced_year": 2025,
+      "source_url": "https://datacenters.google/morgan-county-indiana/",
+      "project_page_url": "https://datacenters.google/morgan-county-indiana/",
+      "source_title": "Google — Morgan County, Indiana",
+      "notes": "Announced in 2025; construction began in 2026. Google announces a $10 million community water investment and a Data Center Advisory Council in Morgan County."
+    },
+    {
+      "captured_at": "2026-11-07",
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-fort-wayne-in",
+      "name": "Google Fort Wayne Data Center",
+      "city": "Fort Wayne",
+      "state": "IN",
+      "status": "operational",
+      "announced_year": 2024,
+      "announced_date": "2024-01-19",
+      "claimed_investment_usd": 2000000000,
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/google-data-centers-ai-skills-investments/",
+      "project_page_url": "https://datacenters.google/locations/indiana/",
+      "source_title": "Google — Our newest investments in infrastructure and AI skills",
+      "notes": "Google publicly identified its Fort Wayne project on January 19, 2024. Groundbreaking and the $2 billion investment disclosure followed on April 26. Google’s current Indiana page describes the campus as operational.",
+      "updates": [
+        {
+          "date": "2024-01-19",
+          "kind": "news",
+          "title": "Mayor responds to Google’s Fort Wayne announcement",
+          "source_url": "https://aroundfortwayne.com/news/2024/01/19/statement-from-fort-wayne-mayor-tom-henry-on-google-data-center-announcement/",
+          "source_title": "Fort Wayne Mayor Tom Henry — Google announcement statement"
+        },
+        {
+          "date": "2024-04-26",
+          "kind": "construction",
+          "title": "Google breaks ground on Fort Wayne campus",
+          "source_url": "https://engage.cityoffortwayne.org/data-center",
+          "source_title": "City of Fort Wayne — Data Center FAQ"
+        }
+      ]
+    },
+    {
+      "id": "xai-cochise-az",
+      "company_slug": "xai",
+      "name": "Proposed Cochise County Supercompute Campus (191 Data Center)",
+      "city": "Cochise County",
+      "state": "AZ",
+      "country": "US",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-11-02",
+      "acreage": 747,
+      "power_mw": 6000,
+      "source_url": "https://www.cochise.az.gov/1014/Data-Centers",
+      "source_title": "Cochise County — SU26-22 application status, November 6, 2026",
+      "captured_at": "2026-11-07",
+      "notes": "Tombstone Resources submitted application SU26-22 on October 30; Cochise County disclosed it on November 2. The applicant proposes nine computing buildings in four phases with 6 GW demand at full build-out. The county identifies these as unverified applicant estimates and has made no approval decision. DCD identifies Tombstone Resources as a SpaceXAI affiliate; the applicant’s community-meeting statement names SpaceX.",
+      "updates": [
+        {
+          "date": "2026-11-06",
+          "kind": "news",
+          "title": "SpaceXAI affiliate files Cochise County proposal",
+          "source_url": "https://www.datacenterdynamics.com/en/news/spacexai-data-center-arizona-cochise-county-elon-musk/",
+          "source_title": "DCD — SpaceXAI plans data center in Arizona"
+        }
+      ]
+    },
+    {
+      "id": "meta-mesa-az",
+      "company_slug": "meta",
+      "name": "Meta Mesa Data Center",
+      "city": "Mesa",
+      "state": "AZ",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2021/08/facebook-is-joining-the-arizona-community/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/mesa-data-center-info-sheet/",
+      "source_title": "Meta — Hello, Mesa!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1000000000,
+      "status": "operational",
+      "announced_year": 2021,
+      "announced_date": "2021-08-12",
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2021-08-12",
+          "kind": "news",
+          "title": "Hello, Mesa!",
+          "source_url": "https://datacenters.atmeta.com/2021/08/facebook-is-joining-the-arizona-community/",
+          "source_title": "Meta — Hello, Mesa!"
+        },
+        {
+          "date": "2025-01-30",
+          "kind": "news",
+          "title": "Mesa, we are online!",
+          "source_url": "https://datacenters.atmeta.com/2025/01/mesa-we-are-online/",
+          "source_title": "Meta — Mesa, we are online!"
+        }
+      ]
+    },
+    {
+      "id": "meta-dekalb-il",
+      "company_slug": "meta",
+      "name": "Meta DeKalb Data Center",
+      "city": "DeKalb",
+      "state": "IL",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2022/04/good-news-from-dekalb/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/dekalb-data-center-info-sheet/",
+      "source_title": "Meta — Good news from DeKalb!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1000000000,
+      "status": "operational",
+      "announced_year": 2020,
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2022-04-27",
+          "kind": "news",
+          "title": "Good news from DeKalb!",
+          "source_url": "https://datacenters.atmeta.com/2022/04/good-news-from-dekalb/",
+          "source_title": "Meta — Good news from DeKalb!"
+        },
+        {
+          "date": "2023-11-29",
+          "kind": "news",
+          "title": "DeKalb, we are online!",
+          "source_url": "https://datacenters.atmeta.com/2023/11/dekalb-we-are-online/",
+          "source_title": "Meta — DeKalb, we are online!"
+        }
+      ]
+    },
+    {
+      "id": "meta-jeffersonville-in",
+      "company_slug": "meta",
+      "name": "Meta Jeffersonville Data Center",
+      "city": "Jeffersonville",
+      "state": "IN",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2024/01/hello-jeffersonville/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/jeffersonville-data-center/",
+      "source_title": "Meta — Hello, Jeffersonville!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 800000000,
+      "status": "construction",
+      "announced_year": 2024,
+      "announced_date": "2024-01-25",
+      "notes": "Meta lists the investment as a minimum. Groundbreaking occurred in 2024; an opening remains unconfirmed.",
+      "updates": [
+        {
+          "date": "2024-01-25",
+          "kind": "news",
+          "title": "Hello, Jeffersonville!",
+          "source_url": "https://datacenters.atmeta.com/2024/01/hello-jeffersonville/",
+          "source_title": "Meta — Hello, Jeffersonville!"
+        }
+      ]
+    },
+    {
+      "id": "meta-altoona-ia",
+      "company_slug": "meta",
+      "name": "Meta Altoona Data Center",
+      "city": "Altoona",
+      "state": "IA",
+      "country": "US",
+      "source_url": "https://about.fb.com/news/2013/04/a-new-data-center-for-iowa/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/altoona-data-center-info-sheet/",
+      "source_title": "Meta — A New Data Center for Iowa (Apr23,2013)",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 2500000000,
+      "status": "operational",
+      "announced_year": 2013,
+      "notes": "Meta lists the investment as a minimum.",
+      "announced_date": "2013-04-23",
+      "updates": [
+        {
+          "date": "2021-12-14",
+          "kind": "news",
+          "title": "Meta Announces New Expansion to Altoona Campus + New Hardhat in Hand Graduates",
+          "source_url": "https://datacenters.atmeta.com/2021/12/meta-announces-new-expansion-to-altoona-campus-new-hardhat-in-hand-graduates/",
+          "source_title": "Meta — Meta Announces New Expansion to Altoona Campus + New Hardhat in Hand Graduates"
+        }
+      ]
+    },
+    {
+      "id": "meta-rosemount-mn",
+      "company_slug": "meta",
+      "name": "Meta Rosemount Data Center",
+      "city": "Rosemount",
+      "state": "MN",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2024/03/hello-rosemount/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/rosemount-data-center-info-sheet/",
+      "source_title": "Meta — Hello, Rosemount!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 800000000,
+      "status": "construction",
+      "announced_year": 2024,
+      "announced_date": "2024-03-14",
+      "notes": "Meta lists the investment as a minimum. Groundbreaking occurred in 2024; an opening remains unconfirmed.",
+      "updates": [
+        {
+          "date": "2024-03-14",
+          "kind": "news",
+          "title": "Hello, Rosemount!",
+          "source_url": "https://datacenters.atmeta.com/2024/03/hello-rosemount/",
+          "source_title": "Meta — Hello, Rosemount!"
+        }
+      ]
+    },
+    {
+      "id": "meta-kansas-city-mo",
+      "company_slug": "meta",
+      "name": "Meta Kansas City Data Center",
+      "city": "Kansas City",
+      "state": "MO",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2022/03/hello-kansas-city/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/kansas-city-info-sheet/",
+      "source_title": "Meta — Hello, Kansas City!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1200000000,
+      "status": "operational",
+      "announced_year": 2022,
+      "announced_date": "2022-03-24",
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2022-03-24",
+          "kind": "news",
+          "title": "Hello, Kansas City!",
+          "source_url": "https://datacenters.atmeta.com/2022/03/hello-kansas-city/",
+          "source_title": "Meta — Hello, Kansas City!"
+        },
+        {
+          "date": "2025-08-20",
+          "kind": "news",
+          "title": "Kansas City, we are online!",
+          "source_url": "https://datacenters.atmeta.com/2025/08/kansas-city-we-are-online/",
+          "source_title": "Meta — Kansas City, we are online!"
+        }
+      ]
+    },
+    {
+      "id": "meta-forest-city-nc",
+      "company_slug": "meta",
+      "name": "Meta Forest City Data Center",
+      "city": "Forest City",
+      "state": "NC",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2012/04/facebook-data-center-opens-in-forest-city-n-c/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/forest-city-data-center-info-sheet/",
+      "source_title": "Meta — Our Data Center Opens in Forest City, N.C.",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 750000000,
+      "status": "operational",
+      "announced_year": 2010,
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2012-04-19",
+          "kind": "news",
+          "title": "Our Data Center Opens in Forest City, N.C.",
+          "source_url": "https://datacenters.atmeta.com/2012/04/facebook-data-center-opens-in-forest-city-n-c/",
+          "source_title": "Meta — Our Data Center Opens in Forest City, N.C."
+        }
+      ]
+    },
+    {
+      "id": "meta-bowling-green-oh",
+      "company_slug": "meta",
+      "name": "Meta Bowling Green Data Center",
+      "city": "Middleton Township",
+      "state": "OH",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2025/04/hello-bowling-green/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/bowling-green-data-center-info-sheet/",
+      "source_title": "Meta — Hello, Bowling Green!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 800000000,
+      "status": "construction",
+      "announced_year": 2025,
+      "announced_date": "2025-04-09",
+      "notes": "Meta lists the investment as a minimum. The campus is in Middleton Township, near Bowling Green.",
+      "updates": [
+        {
+          "date": "2025-04-09",
+          "kind": "news",
+          "title": "Hello, Bowling Green!",
+          "source_url": "https://datacenters.atmeta.com/2025/04/hello-bowling-green/",
+          "source_title": "Meta — Hello, Bowling Green!"
+        }
+      ]
+    },
+    {
+      "id": "meta-new-albany-oh",
+      "company_slug": "meta",
+      "name": "Meta New Albany Data Center",
+      "city": "New Albany",
+      "state": "OH",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2026/10/new-albany-where-ohios-community-spirit-meets-the-frontier-of-ai/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/new-albany-data-center-info-sheet/",
+      "source_title": "Meta — New Albany: where Ohio’s community spirit meets the frontier of AI",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1500000000,
+      "status": "operational",
+      "announced_year": 2017,
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2026-10-19",
+          "kind": "news",
+          "title": "New Albany: where Ohio’s community spirit meets the frontier of AI",
+          "source_url": "https://datacenters.atmeta.com/2026/10/new-albany-where-ohios-community-spirit-meets-the-frontier-of-ai/",
+          "source_title": "Meta — New Albany: where Ohio’s community spirit meets the frontier of AI"
+        }
+      ]
+    },
+    {
+      "id": "meta-aiken-sc",
+      "company_slug": "meta",
+      "name": "Meta Aiken Data Center",
+      "city": "Aiken",
+      "state": "SC",
+      "country": "US",
+      "source_url": "https://governor.sc.gov/news/2024-08/meta-selects-aiken-county-first-south-carolina-data-center",
+      "project_page_url": "https://datacenters.atmeta.com/asset/aiken-data-center-info-sheet/",
+      "source_title": "SouthCarolinaGovernor — Meta selects Aiken County for first South Carolina data center",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 800000000,
+      "status": "construction",
+      "announced_year": 2024,
+      "announced_date": "2024-08-29",
+      "notes": "Meta lists the investment as a minimum. Groundbreaking occurred in 2024; an opening remains unconfirmed.",
+      "updates": []
+    },
+    {
+      "id": "meta-gallatin-tn",
+      "company_slug": "meta",
+      "name": "Meta Gallatin Data Center",
+      "city": "Gallatin",
+      "state": "TN",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2020/08/hello-gallatin/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/gallatin-data-center-info-sheet/",
+      "source_title": "Meta — Hello, Gallatin!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1500000000,
+      "status": "operational",
+      "announced_year": 2020,
+      "announced_date": "2020-08-12",
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2020-08-12",
+          "kind": "news",
+          "title": "Hello, Gallatin!",
+          "source_url": "https://datacenters.atmeta.com/2020/08/hello-gallatin/",
+          "source_title": "Meta — Hello, Gallatin!"
+        },
+        {
+          "date": "2024-11-14",
+          "kind": "news",
+          "title": "Gallatin, we are online!",
+          "source_url": "https://datacenters.atmeta.com/2024/11/gallatin-we-are-online/",
+          "source_title": "Meta — Gallatin, we are online!"
+        }
+      ]
+    },
+    {
+      "id": "meta-fort-worth-tx",
+      "company_slug": "meta",
+      "name": "Meta Fort Worth Data Center",
+      "city": "Fort Worth",
+      "state": "TX",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2020/12/expanding-facebooks-fort-worth-data-center-by-approximately-170000-square-feet/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/fort-worth-data-center-info-sheet/",
+      "source_title": "Meta — Expanding our Fort Worth Data Center by approximately 170,000 square feet",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1500000000,
+      "status": "operational",
+      "announced_year": 2015,
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2020-12-08",
+          "kind": "news",
+          "title": "Expanding our Fort Worth Data Center by approximately 170,000 square feet",
+          "source_url": "https://datacenters.atmeta.com/2020/12/expanding-facebooks-fort-worth-data-center-by-approximately-170000-square-feet/",
+          "source_title": "Meta — Expanding our Fort Worth Data Center by approximately 170,000 square feet"
+        }
+      ]
+    },
+    {
+      "id": "meta-henrico-va",
+      "company_slug": "meta",
+      "name": "Meta Henrico Data Center",
+      "city": "Henrico",
+      "state": "VA",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2020/08/henrico-county-we-are-online/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/henrico-data-center-info-sheet/",
+      "source_title": "Meta — Henrico County, We Are Online!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1000000000,
+      "status": "operational",
+      "announced_year": 2017,
+      "announced_date": "2017-10-05",
+      "notes": "Meta lists the investment as a minimum.",
+      "updates": [
+        {
+          "date": "2020-08-05",
+          "kind": "news",
+          "title": "Henrico County, We Are Online!",
+          "source_url": "https://datacenters.atmeta.com/2020/08/henrico-county-we-are-online/",
+          "source_title": "Meta — Henrico County, We Are Online!"
+        }
+      ]
+    },
+    {
+      "id": "meta-cheyenne-wy",
+      "company_slug": "meta",
+      "name": "Meta Cheyenne Data Center",
+      "city": "Cheyenne",
+      "state": "WY",
+      "country": "US",
+      "source_url": "https://datacenters.atmeta.com/2024/07/hello-cheyenne/",
+      "project_page_url": "https://datacenters.atmeta.com/asset/cheyenne-data-center-info-sheet/",
+      "source_title": "Meta — Hello, Cheyenne!",
+      "captured_at": "2026-11-07",
+      "claimed_investment_usd": 1200000000,
+      "status": "construction",
+      "announced_year": 2024,
+      "announced_date": "2024-07-02",
+      "notes": "Meta lists the investment as a minimum. Groundbreaking occurred in 2024; an opening remains unconfirmed.",
+      "updates": [
+        {
+          "date": "2024-07-02",
+          "kind": "news",
+          "title": "Hello, Cheyenne!",
+          "source_url": "https://datacenters.atmeta.com/2024/07/hello-cheyenne/",
+          "source_title": "Meta — Hello, Cheyenne!"
+        }
+      ]
+    },
+    {
+      "id": "nscale-ward-county-tx",
+      "company_slug": "nscale",
+      "name": "Nscale Ward County AI Campus",
+      "city": "Ward County",
+      "state": "TX",
+      "country": "US",
+      "status": "operational",
+      "announced_year": 2025,
+      "announced_date": "2025-10-15",
+      "power_mw": 240,
+      "source_url": "https://www.nscale.com/press-releases/nscale-microsoft-2025",
+      "source_title": "Nscale — Microsoft AI infrastructure contract (Oct 15, 2025)",
+      "project_page_url": "https://www.nscale.com/ai-infrastructure",
+      "captured_at": "2026-11-07",
+      "notes": "Leased from Ionic Digital. The October 2025 announcement described a roughly 240 MW Texas campus and approximately 104,000 NVIDIA GB300 GPUs for phased delivery to Microsoft; the current roster identifies Ward County. Nscale’s October 1, 2026 update says Ward County is a live AI data center. August 2026 financing supports about 200 MW of IT load; the 240 MW campus figure and 200 MW IT load have different scopes. Up to $1.85 billion is a loan facility, not a disclosed site capex figure. Future 1.2 GW expansion is not operating capacity.",
+      "updates": [
+        {
+          "date": "2026-10-01",
+          "kind": "news",
+          "title": "Nscale says Ward County is live",
+          "summary": "Nscale reports that the Ward County facility is delivering thousands of GPUs.",
+          "source_url": "https://www.nscale.com/press-releases/execution-at-scale",
+          "source_title": "Nscale — Execution at Scale"
+        }
+      ]
+    },
+    {
+      "id": "google-muskogee-county-ok",
+      "company_slug": "google",
+      "name": "Google Muskogee County Data Center Campuses",
+      "city": "Muskogee County",
+      "state": "OK",
+      "country": "US",
+      "announced_year": 2025,
+      "status": "construction",
+      "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/oklahoma-energy-affordability-agreement/",
+      "source_title": "Google — How we’re protecting energy affordability in Oklahoma",
+      "captured_at": "2026-11-07",
+      "project_page_url": "https://datacenters.google/locations/oklahoma/",
+      "notes": "The official Oklahoma milestones date the Muskogee campus announcement to 2025. The April 30, 2026 Google article explicitly describes its Muskogee and Stillwater campuses as under construction. OG&E says its contract covers three new data centers across both locations; no site allocation of that total is assumed. No verified coordinates, capacity or capex."
+    },
+    {
+      "id": "google-columbia-county-ga",
+      "company_slug": "google",
+      "name": "Google Columbia County Data Center",
+      "city": "Columbia County",
+      "state": "GA",
+      "country": "US",
+      "announced_year": 2026,
+      "status": "announced",
+      "source_url": "https://columbiacountyga.gov/m/newsflash/home/detail/111",
+      "source_title": "Columbia County — Google / Georgia Power partnership (July 23, 2026)",
+      "captured_at": "2026-11-07",
+      "announced_date": "2026-07-23",
+      "project_page_url": "https://datacenters.google/locations/georgia/",
+      "notes": "The county announced a Google–Georgia Power partnership on July 23, 2026, including restrictive covenants and commitments to protect other ratepayers. The announcement discusses two complexes; no parcel-specific investment or building count is disclosed."
+    },
+    {
+      "id": "google-cedar-rapids-ia",
+      "company_slug": "google",
+      "name": "Google Cedar Rapids Data Center Campus",
+      "city": "Cedar Rapids",
+      "state": "IA",
+      "country": "US",
+      "announced_year": 2024,
+      "status": "announced",
+      "source_url": "https://www.economicdevelopmentcr.com/data-centers",
+      "source_title": "City of Cedar Rapids Economic Development — Google Data Center Campus",
+      "captured_at": "2026-11-07",
+      "announced_date": "2024-03-21",
+      "project_page_url": "https://datacenters.google/locations/iowa/",
+      "notes": "The city publicly named Google on March 21, 2024, after approving development terms on February 27. The agreement states a $576 million minimum investment and estimates more than $3.5 billion overall. This campus is distinct from Google’s Palo/Linn County proposal near Duane Arnold."
+    },
+    {
+      "id": "google-lincoln-ne",
+      "company_slug": "google",
+      "name": "Google Lincoln Data Center",
+      "city": "Lincoln",
+      "state": "NE",
+      "country": "US",
+      "announced_year": 2023,
+      "status": "operational",
+      "source_url": "https://datacenters.google/locations/nebraska/",
+      "source_title": "Google — Nebraska data center milestones",
+      "captured_at": "2026-11-07",
+      "project_page_url": "https://datacenters.google/locations/nebraska/",
+      "notes": "Google’s Nebraska timeline dates the Lincoln investment announcement to 2023 and the opening to 2026. The $1.2 billion announcement covers Lincoln, Omaha and Papillion together."
+    },
+    {
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-omaha-ne",
+      "name": "Google Omaha Data Center",
+      "city": "Omaha",
+      "state": "NE",
+      "status": "operational",
+      "announced_year": 2022,
+      "source_url": "https://datacenters.google/locations/nebraska/",
+      "project_page_url": "https://economicimpact.google/state/ne/",
+      "source_title": "Google — Nebraska data centers",
+      "notes": "The Nebraska investment total covers several campuses and is not assigned to this site.",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-papillion-ne",
+      "name": "Google Papillion Data Center",
+      "city": "Papillion",
+      "state": "NE",
+      "status": "operational",
+      "announced_year": 2019,
+      "source_url": "https://datacenters.google/locations/nebraska/",
+      "project_page_url": "https://economicimpact.google/state/ne/",
+      "source_title": "Google — Nebraska data centers",
+      "notes": "The Nebraska investment total covers several campuses and is not assigned to this site.",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-columbus-oh",
+      "name": "Google Columbus Data Center",
+      "city": "Columbus",
+      "state": "OH",
+      "status": "operational",
+      "announced_year": 2023,
+      "source_url": "https://economicimpact.google/state/oh/",
+      "project_page_url": "https://datacenters.google/locations/ohio/",
+      "source_title": "Google — Ohio Economic Impact Report",
+      "notes": "The statewide investment total covers several campuses and is not assigned to this site.",
+      "announced_date": "2023-05-03",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-lancaster-oh",
+      "name": "Google Lancaster Data Center",
+      "city": "Lancaster",
+      "state": "OH",
+      "status": "operational",
+      "announced_year": 2023,
+      "source_url": "https://economicimpact.google/state/oh/",
+      "project_page_url": "https://datacenters.google/locations/ohio/",
+      "source_title": "Google — Ohio Economic Impact Report",
+      "notes": "The statewide investment total covers several campuses and is not assigned to this site.",
+      "announced_date": "2023-05-03",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-new-albany-oh",
+      "name": "Google New Albany Data Center",
+      "city": "New Albany",
+      "state": "OH",
+      "status": "operational",
+      "announced_year": 2018,
+      "source_url": "https://economicimpact.google/state/oh/",
+      "project_page_url": "https://datacenters.google/locations/ohio/",
+      "source_title": "Google — Ohio Economic Impact Report",
+      "notes": "The statewide investment total covers several campuses and is not assigned to this site. The official Ohio timeline dates the regional announcement to 2018 and New Albany groundbreaking to 2019.",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "company_slug": "google",
+      "country": "US",
+      "id": "google-montgomery-county-tn",
+      "name": "Google Montgomery County Data Center",
+      "city": "Clarksville",
+      "state": "TN",
+      "status": "operational",
+      "announced_year": 2015,
+      "announced_date": "2015-12-22",
+      "source_url": "https://datacenters.google/locations/tennessee/",
+      "project_page_url": "https://www.tn.gov/ecd/news/2015/12/22/governor-haslam-commissioner-boyd-announce-google-to-locate-new-data-center.html",
+      "source_title": "Google — Montgomery County, Tennessee",
+      "notes": "Located at the former Hemlock Semiconductor site in Clarksville. The original announcement predates the 2018 groundbreaking and 2019 opening. The statewide investment total is not assigned to this campus.",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "nscale-madison-nc",
+      "company_slug": "nscale",
+      "name": "Nscale Madison at WhiteFiber NC-1",
+      "city": "Madison",
+      "state": "NC",
+      "country": "US",
+      "status": "construction",
+      "announced_year": 2025,
+      "source_url": "https://www.nscale.com/press-releases/nscale-3-billion-delayed-draw-term-loans",
+      "source_title": "Nscale — Financing for Ward County and Madison deployments",
+      "project_page_url": "https://www.nscale.com/ai-infrastructure",
+      "notes": "Nscale leases 40 MW of critical IT load at WhiteFiber’s NC-1 campus under a ten-year agreement announced December 18, 2025. WhiteFiber owns the facility, which has 99 MW of secured utility supply. The $865 million contract value and up to $1.2 billion financing are separate from campus construction costs.",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-goochland-va",
+      "name": "Google West Creek Campus (under evaluation)",
+      "city": "Goochland County",
+      "state": "VA",
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-10-27",
+      "source_url": "https://www.goochlandva.us/1499/Google",
+      "source_title": "Goochland County — Google project statement and NDA timeline",
+      "project_page_url": "https://www.goochlandva.us/1499/Google",
+      "notes": "Google is evaluating a potential West Creek Business Park campus. The county says no property purchase or site plan has been submitted. Initial January2024 discussions ended without a project proceeding; Google later resumed due diligence and made its identity public on October27,2026. No site investment, power demand or construction has been confirmed.",
+      "company_slug": "google",
+      "country": "US",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-pine-hill-ridgeville-sc",
+      "name": "Google Pine Hill Campus",
+      "city": "Ridgeville",
+      "state": "SC",
+      "status": "construction",
+      "announced_year": 2024,
+      "announced_date": "2024-09-26",
+      "source_url": "https://www.dorchestercountysc.gov/business/data-center-fact-sheet",
+      "source_title": "Dorchester County — Data Center Fact Sheet",
+      "project_page_url": "https://datacenters.google/locations/south-carolina/",
+      "notes": "One of two Dorchester campuses announced together on September26,2024. The combined South Carolina investment includes both new campuses and Berkeley expansion, so no regional amount is assigned to this site. The county says the campuses are being built in phases; a specific completed opening has not been verified.",
+      "company_slug": "google",
+      "country": "US",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-winding-woods-st-george-sc",
+      "name": "Google Winding Woods Campus",
+      "city": "St. George",
+      "state": "SC",
+      "status": "construction",
+      "announced_year": 2024,
+      "announced_date": "2024-09-26",
+      "source_url": "https://www.dorchestercountysc.gov/business/data-center-fact-sheet",
+      "source_title": "Dorchester County — Data Center Fact Sheet",
+      "project_page_url": "https://datacenters.google/locations/south-carolina/",
+      "notes": "One of two Dorchester campuses announced together on September26,2024. The combined South Carolina investment includes both new campuses and Berkeley expansion, so no regional amount is assigned to this site. The county says the campuses are being built in phases; a specific completed opening has not been verified.",
+      "company_slug": "google",
+      "country": "US",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-storey-county-nv",
+      "name": "Google Storey County Data Center",
+      "city": "Storey County",
+      "state": "NV",
+      "status": "operational",
+      "announced_year": 2020,
+      "source_url": "https://datacenters.google/locations/storey-county-nevada/",
+      "source_title": "Google — Storey County, Nevada",
+      "notes": "Located in the Tahoe-Reno Industrial Center. Nevada’s economic development reports date the formal $600 million project investment announcement to2020 and operation to2021. Later Nevada investment totals cover both Storey and Henderson campuses.",
+      "company_slug": "google",
+      "country": "US",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-loudoun-county-va",
+      "name": "Google Loudoun County Data Centers",
+      "city": "Loudoun County",
+      "state": "VA",
+      "status": "operational",
+      "announced_year": 2017,
+      "announced_date": "2017-11-30",
+      "source_url": "https://datacenters.google/locations/virginia/",
+      "source_title": "Google — Virginia data centers",
+      "project_page_url": "https://economicimpact.google/state/va",
+      "notes": "The county-level location entry encompasses Google campuses at Arcola Center near Dulles and Stonewall Business Park near Leesburg. Google confirmed both land purchases and data centre plans in November2017. Its current company timeline reports the first Northern Virginia opening in2019 and expansion of its second Loudoun centre in2021.",
+      "company_slug": "google",
+      "country": "US",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-douglas-county-ga",
+      "name": "Google Douglas County Data Center",
+      "city": "Lithia Springs",
+      "state": "GA",
+      "status": "operational",
+      "announced_year": 2003,
+      "source_url": "https://datacenters.google/locations/georgia/",
+      "source_title": "Google — Georgia data centers",
+      "notes": "Google dates its Douglas County data centre presence to2003 and the opening of its built campus to2007. Exact original announcement date is unavailable. The current statewide investment total includes multiple sites.",
+      "company_slug": "google",
+      "country": "US",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-red-oak-tx",
+      "name": "Google Red Oak Data Center",
+      "city": "Red Oak",
+      "state": "TX",
+      "country": "US",
+      "status": "construction",
+      "announced_year": 2023,
+      "source_url": "https://datacenters.google/locations/texas/",
+      "source_title": "Google — Texas data centers",
+      "project_page_url": "https://www.redoaktx.org/DocumentCenter/View/10757/3-March-2026-Monthly-Report",
+      "notes": "Google dates the Red Oak announcement to 2023. A March 2026 city police report describes a visit to Holder Construction’s Google construction site. Google’s statewide investment total covers several locations.",
+      "updates": [
+        {
+          "date": "2026-03-20",
+          "kind": "news",
+          "title": "City police visit the Google construction site",
+          "source_url": "https://www.redoaktx.org/DocumentCenter/View/10757/3-March-2026-Monthly-Report",
+          "source_title": "Red Oak Police — March2026 monthly report"
+        }
+      ],
+      "company_slug": "google",
+      "captured_at": "2026-11-07"
     }
   ]
 }

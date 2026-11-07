@@ -1,9 +1,9 @@
 # ISSUES.md — Data Audit Report
 Generated: 2026-11-07
-Total projects needing attention: 113
+Total projects needing attention: 151
 
 ## Critical Missing Commitment Details
-(40 projects)
+(67 projects)
 
 Projects missing required fields based on status:
 - **amazon-bossier-parish-la** (construction): claimed_investment_usd
@@ -15,18 +15,43 @@ Projects missing required fields based on status:
 - **goodman-lax01-vernon-ca** (construction): claimed_investment_usd
 - **google-armstrong-tx** (construction): claimed_investment_usd
 - **google-chesterfield-va** (construction): claimed_investment_usd
+- **google-columbus-oh** (operational): claimed_investment_usd, power_mw
 - **google-council-bluffs-ia** (operational): power_mw
+- **google-douglas-county-ga** (operational): claimed_investment_usd, power_mw
 - **google-ellis-county-tx** (operational): claimed_investment_usd, power_mw
+- **google-fort-wayne-in** (operational): power_mw
 - **google-gray-county-tx** (construction): claimed_investment_usd
 - **google-haskell-tx** (construction): claimed_investment_usd
 - **google-henderson-nv** (operational): power_mw
+- **google-lancaster-oh** (operational): claimed_investment_usd, power_mw
 - **google-lenoir-nc** (operational): power_mw
+- **google-lincoln-ne** (operational): claimed_investment_usd, power_mw
+- **google-loudoun-county-va** (operational): claimed_investment_usd, power_mw
 - **google-mayes-county-ok** (operational): power_mw
+- **google-montgomery-county-tn** (operational): claimed_investment_usd, power_mw
+- **google-morgan-county-in** (construction): claimed_investment_usd
+- **google-muskogee-county-ok** (construction): claimed_investment_usd
+- **google-new-albany-oh** (operational): claimed_investment_usd, power_mw
+- **google-omaha-ne** (operational): claimed_investment_usd, power_mw
+- **google-papillion-ne** (operational): claimed_investment_usd, power_mw
+- **google-pine-hill-ridgeville-sc** (construction): claimed_investment_usd
+- **google-red-oak-tx** (construction): claimed_investment_usd
+- **google-storey-county-nv** (operational): claimed_investment_usd, power_mw
 - **google-the-dalles-or** (operational): power_mw
+- **google-winding-woods-st-george-sc** (construction): claimed_investment_usd
+- **meta-altoona-ia** (operational): power_mw
+- **meta-dekalb-il** (operational): power_mw
 - **meta-eagle-mountain-ut** (operational): power_mw
+- **meta-forest-city-nc** (operational): power_mw
+- **meta-fort-worth-tx** (operational): power_mw
+- **meta-gallatin-tn** (operational): power_mw
+- **meta-henrico-va** (operational): power_mw
 - **meta-huntsville-al** (operational): power_mw
+- **meta-kansas-city-mo** (operational): power_mw
 - **meta-kuna-id** (operational): power_mw
 - **meta-los-lunas-nm** (operational): power_mw
+- **meta-mesa-az** (operational): power_mw
+- **meta-new-albany-oh** (operational): power_mw
 - **meta-prineville-or** (operational): power_mw
 - **meta-sarpy-ne** (operational): power_mw
 - **microsoft-boydton-va** (operational): power_mw
@@ -41,6 +66,8 @@ Projects missing required fields based on status:
 - **ms-goodyear-az** (operational): claimed_investment_usd
 - **ms-mt-pleasant-wi** (operational): power_mw
 - **ms-quincy-wa** (operational): claimed_investment_usd, power_mw
+- **nscale-madison-nc** (construction): claimed_investment_usd
+- **nscale-ward-county-tx** (operational): claimed_investment_usd
 - **openai-abilene-tx** (construction): claimed_investment_usd
 - **qts-aurora-co** (construction): claimed_investment_usd
 - **qts-manassas-va** (operational): claimed_investment_usd
@@ -48,7 +75,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(73 projects)
+(84 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -70,6 +97,7 @@ Projects with important gaps:
 - **aws-king-george-va** (announced): power_mw, at_a_glance
 - **aws-kline-township-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **aws-ridgeland-ms** (construction): power_mw
+- **aws-somervell-tx** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **aws-wilmington-oh** (announced): power_mw
 - **coreweave-hammond-in** (announced): claimed_investment_usd, claimed_jobs
 - **crusoe-inl-id** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
@@ -77,9 +105,12 @@ Projects with important gaps:
 - **crusoe-warrenton-mo** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-barber-county-ks** (announced): claimed_investment_usd, power_mw, at_a_glance
 - **google-botetourt-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
+- **google-cedar-rapids-ia** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-cheyenne-tembo-wy** (announced): claimed_investment_usd, claimed_jobs, at_a_glance
 - **google-clay-county-mo** (construction): claimed_jobs
+- **google-columbia-county-ga** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-franklin-furnace-oh** (announced): claimed_jobs, power_mw
+- **google-goochland-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-hermantown-mn** (announced): claimed_jobs
 - **google-jackson-county-al** (construction): claimed_jobs
 - **google-lagrange-ga** (construction): claimed_jobs
@@ -97,8 +128,13 @@ Projects with important gaps:
 - **google-stillwater-ok** (announced): claimed_jobs, power_mw
 - **google-van-buren-mi** (announced): claimed_investment_usd, claimed_jobs
 - **google-wilbarger-tx** (announced): claimed_investment_usd, power_mw
+- **meta-aiken-sc** (construction): claimed_jobs, power_mw, at_a_glance
+- **meta-bowling-green-oh** (construction): claimed_jobs, power_mw, at_a_glance
+- **meta-cheyenne-wy** (construction): claimed_jobs, power_mw, at_a_glance
+- **meta-jeffersonville-in** (construction): claimed_jobs, power_mw, at_a_glance
 - **meta-mason-county-ky** (announced): power_mw, at_a_glance
 - **meta-montgomery-al** (construction): power_mw
+- **meta-rosemount-mn** (construction): claimed_jobs, power_mw, at_a_glance
 - **meta-tulsa-ok** (construction): power_mw
 - **microsoft-castroville-tx** (announced): claimed_jobs, power_mw
 - **microsoft-cheyenne-wy** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -120,9 +156,11 @@ Projects with important gaps:
 - **qts-dane-county-wi** (announced): claimed_jobs
 - **qts-eagle-mountain-ut** (construction): power_mw
 - **qts-fayetteville-ga** (announced): claimed_investment_usd, power_mw
+- **qts-hall-county-tx** (announced): power_mw, at_a_glance
 - **qts-salem-twp-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **qts-wilmer-tx** (construction): claimed_jobs
 - **qts-york-county-sc** (construction): power_mw
+- **xai-cochise-az** (announced): claimed_investment_usd, claimed_jobs, at_a_glance
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Records

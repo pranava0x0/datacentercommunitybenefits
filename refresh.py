@@ -982,10 +982,12 @@ def _write_static_summary(payloads, *, today: date) -> None:
 _V6_US_DEFAULTS = {
     "international_only": False,
     "country": "US", "source_lang": "en", "statement_lang": "en", "formality": "formal",
+    # The claim badge checks truthiness; absence preserves the schema default.
+    "formal_agreement": False,
 }
 _V6_STRIP = {
     "companies": ("international_only",),
-    "claims": ("country", "statement_lang"),
+    "claims": ("country", "statement_lang", "formal_agreement"),
     "policies": ("country", "source_lang"),
     "moratoriums": ("country", "source_lang", "formality"),
     "projects": ("source_lang",),

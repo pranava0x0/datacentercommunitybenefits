@@ -1,0 +1,932 @@
+{
+  "as_of": "2026-11-07",
+  "initial_source_rows": 2929,
+  "initial_unique_urls": 1724,
+  "exact_match_misses_reviewed": 87,
+  "methodology": "All 87 misses reconciled against actual cache text and existing cached resources. Policy key_terms are summaries, not assumed verbatim. New Arkansas act and Wisconsin original/substitute text saved locally. Candidate corrections are suggestions only; unverifiable records have no invented replacement. Redirect destinations omit queries/fragments.",
+  "entries": [
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "aws-new-carlisle-in-community-fund",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+      "role": "source",
+      "disposition": "quote_rewrite",
+      "assessment": "Seed combines/paraphrases sentences and changes theme labels.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "As part of our long-term community investment, we will launch the Amazon Community Fund in the communities where we will build and operate. This grant program is aimed at supporting initiatives focused on key themes, including STEM education, sustainability and environment, digital skills, culture and heritage, health, and well-being."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "aws-new-carlisle-in-state-gdp",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-15-billion-indiana-data-centers",
+      "role": "source",
+      "disposition": "quote_splice",
+      "assessment": "Seed ellipsis joins different source sentences with changed subject/verb; a single exact source sentence is available.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "Since 2010, Amazon has invested more than $31.3 billion in Indiana, contributing more than $29.9 billion to the state's GDP and supporting 24,500 full and part-time jobs, plus 27,500 indirect jobs, across various facilities."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "qts-cedar-rapids-ia-tax-revenue-ratepayer-pledge",
+      "url": "https://www.thegazette.com/news/data-center-project-pitched-as-win-for-jobs-rates-in-iowa/article_6ba03ef8-81a2-4215-ba6c-d92188174b31.html",
+      "role": "source",
+      "disposition": "quote_attribution_gap",
+      "assessment": "Both utterances are present, separated by Greason said. This is a literal-match attribution gap, not unsupported words. Use one utterance or mark the gap.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "When we started this project, we had one goal in mind … 'How do you build big, meaningful infrastructure without burdening the taxpayers, the ratepayers and our communities?'"
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "qts-richmond-va-fast-41-quote",
+      "url": "https://www.permitting.gov/newsroom/press-releases/first-data-center-project-gains-permitting-councils-fast-41-coverage",
+      "role": "source",
+      "disposition": "quote_truncated_sentence",
+      "assessment": "Source continues after federal permitting; seed substitutes a sentence-ending period. Complete source wording is available.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "FAST‑41 provides a clear framework for advancing major infrastructure investments and ensures that projects meet all the requirements of federal permitting and agencies allocate resources and prioritize timelines for covered projects."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "meta-prineville-or-community-grants-school-funding",
+      "url": "https://web.archive.org/web/20251119082825/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Metas-Prineville-Data-Center.pdf",
+      "role": "source",
+      "disposition": "pdf_reading_order",
+      "assessment": "PDF extraction reads label then $5.3M+; seed reverses card label/value order. Amount and label are supported, not a false fact.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "meta-richland-la-education-robotics-delhi",
+      "url": "https://about.fb.com/news/2025/12/metas-richland-parish-data-center-supports-louisiana-economy-875-million-in-contracts/",
+      "role": "source",
+      "disposition": "quote_rewrite",
+      "assessment": "Seed moves supporting across omitted list items without ellipsis; use exact source sentence/fragment.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "In addition, we're supporting senior services at the Richland Voluntary Council on Aging, facility upgrades at the Northeast Louisiana Veteran's Cemetery, the robotics program at the Delhi Charter School, and mixed reality workforce development at the Richland Parish Schools."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "xai-engagement-fabric-mayo",
+      "url": "https://www.actionnews5.com/2025/04/26/emotions-run-high-schd-town-hall-xai-environmental-concerns/",
+      "role": "source",
+      "disposition": "extraction_false_positive",
+      "assessment": "Saved source consistently renders brand xAl (lowercase L) rather than xAI; remaining utterance supports the claim. OCR/font ambiguity needs visual verification if letter-perfect transcription is required.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "oracle-education-academy-blog-2026",
+      "url": "https://www.oracle.com/news/announcement/blog/ai-data-centers-need-skilled-people-oracle-academy-helps-build-ai-careers-2026-02-02/",
+      "role": "source",
+      "disposition": "quote_rewrite",
+      "assessment": "Seed deletes intervening sentences and changes That's where to and, creating a new sentence.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "To meet growing demand and reinforce America's AI leadership, Oracle is building AI data centers in communities across the United States. But this advanced AI infrastructure isn't enough on its own. It needs people who have the skills and creativity to tap its full potential. That's where Oracle Academy-Oracle's global philanthropic education program-plays a role in states like Texas, New Mexico, Michigan, and Wisconsin."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "meta-tulsa-engagement-demasi-proud-2026",
+      "url": "https://siteselection.com/project-bulletin-april-27-2026-lagrange-georgia-durham-north-carolina-tulsa-oklahoma/",
+      "role": "source",
+      "disposition": "quote_punctuation_mismatch",
+      "assessment": "Only comma after workforce differs; minor transcription issue, not a substantive unsupported claim.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "We're proud to call Tulsa home as we announce Meta's first data center in Oklahoma. The region offers great access to infrastructure and energy, a talented workforce and outstanding local partners."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "prologis-coweta-engagement-witt-codes-2025",
+      "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+      "role": "source",
+      "disposition": "source_obfuscated_unverifiable",
+      "assessment": "Relevant paid-article body is reversed and word-sorted in cache. Topic/speaker words cannot establish exact quote order. Recheck authorized rendered text; this is access/extraction limitation, not proof of fabrication.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "prologis-coweta-engagement-witt-execute-2025",
+      "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+      "role": "source",
+      "disposition": "source_obfuscated_unverifiable",
+      "assessment": "Relevant paid-article body is reversed and word-sorted in cache. Topic/speaker words cannot establish exact quote order. Recheck authorized rendered text; this is access/extraction limitation, not proof of fabrication.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "prologis-coweta-infrastructure-mason-lines-2025",
+      "url": "https://www.ajc.com/news/2025/05/a-new-group-steps-in-to-develop-17b-project-sail-data-center-near-atlanta/",
+      "role": "source",
+      "disposition": "source_obfuscated_unverifiable",
+      "assessment": "Relevant paid-article body is reversed and word-sorted in cache. Topic/speaker words cannot establish exact quote order. Recheck authorized rendered text; this is access/extraction limitation, not proof of fabrication.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "microsoft-leesburg-va-infrastructure-water-2026",
+      "url": "https://blogs.microsoft.com/on-the-issues/2026/01/13/community-first-ai-infrastructure/",
+      "role": "source",
+      "disposition": "quote_rewrite",
+      "assessment": "Investment fact is supported but seed relocates wording into a sentence the source does not say.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "For example, near our datacenter in Leesburg, Virginia, Microsoft is funding more than $25 million of water and sewer improvements to ensure the cost of serving our facilities does not fall on local ratepayers."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "meta-huntsville-al-community-grants",
+      "url": "https://web.archive.org/web/20260630010702/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+      "role": "source",
+      "disposition": "pdf_reading_order",
+      "assessment": "PDF extraction reads label then $3.9M+; seed reverses layout reading order. Both components are supported.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "meta-huntsville-al-education",
+      "url": "https://web.archive.org/web/20260630010702/https://datacenters.atmeta.com/wp-content/uploads/2025/02/Meta_s-Huntsville-Data-Center.pdf",
+      "role": "source",
+      "disposition": "quote_noncontiguous_list",
+      "assessment": "First sentence exact; selected following organizations skip intervening source names without ellipses. Keep exact first sentence or explicitly excerpt list.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "We proudly support all three public school systems in Madison County."
+      }
+    },
+    {
+      "kind": "claims",
+      "list": "claims",
+      "id": "meta-los-lunas-water-2021",
+      "url": "https://datacenters.atmeta.com/2021/10/hello-again-los-lunas/",
+      "role": "source",
+      "disposition": "quote_rewrite",
+      "assessment": "Source announces a goal; seed We will restore changes wording and removes goal qualification.",
+      "candidate_correction": {
+        "field": "statement",
+        "value": "Today, we are also announcing a new goal to restore 200% of the water our data center consumes into the New Mexico watersheds."
+      }
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ak-sb250-2026-failed",
+      "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ak-sb250-2026-failed",
+      "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ak-sb250-2026-failed",
+      "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ak-sb250-2026-failed",
+      "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ak-sb250-2026-failed",
+      "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ak-sb250-2026-failed",
+      "url": "https://www.akleg.gov/basis/Bill/Detail/34?Root=SB%20250",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ar-hb1444-2025-act548",
+      "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The key term is a policy summary. The official act/substitute text supports the fact absent from its history landing page.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ar-hb1444-2025-act548",
+      "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The key term is a policy summary. The official act/substitute text supports the fact absent from its history landing page.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ar-hb1444-2025-act548",
+      "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The $3M requirement applies to the large-data-center tier; standard centers require $1M. Statutory timing is the two calendar years following the calendar year operations commence. Seed summary associates $3M with the large tier.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ar-hb1444-2025-act548",
+      "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The key term is a policy summary. The official act/substitute text supports the fact absent from its history landing page.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "ar-hb1444-2025-act548",
+      "url": "https://arkleg.state.ar.us/Bills/Detail?Search=&ddBienniumSession=2025%2F2025R&id=hb1444",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The key term is a policy summary. The official act/substitute text supports the fact absent from its history landing page.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "huntsville-al-meta-project-agreement-2022",
+      "url": "https://www.huntsvilleal.gov/data-center-expansion-to-benefit-north-huntsville-local-schools/",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "huntsville-al-meta-project-agreement-2022",
+      "url": "https://www.huntsvilleal.gov/data-center-expansion-to-benefit-north-huntsville-local-schools/",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "huntsville-al-meta-project-agreement-2022",
+      "url": "https://www.huntsvilleal.gov/data-center-expansion-to-benefit-north-huntsville-local-schools/",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb897-2026-failed",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb897-2026-failed",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb897-2026-failed",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb897-2026-failed",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0897/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb911-2026",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb911-2026",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb911-2026",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb911-2026",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "id-hb911-2026",
+      "url": "https://legislature.idaho.gov/sessioninfo/2026/legislation/H0911/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "in-hea1210-2026",
+      "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+      "role": "source",
+      "disposition": "cited_source_insufficient",
+      "assessment": "March 3 press coverage supports a one-percent electricity-savings payment but not final statutory tax base/local discretion. Needs final enacted text as citation.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "in-hea1210-2026",
+      "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+      "role": "source",
+      "disposition": "cited_source_insufficient",
+      "assessment": "The saved article does not give this permit/certificate applicability rule. No replacement is justified by its text.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "in-hea1210-2026",
+      "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+      "role": "source",
+      "disposition": "cited_source_insufficient",
+      "assessment": "Article supports stalled farmland-siting proposal, but not equipment PILOT details, Senate chamber, or enacted HB1210 outcome. Needs final bill evidence.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "in-hea1210-2026",
+      "url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
+      "role": "source",
+      "disposition": "cited_source_insufficient",
+      "assessment": "The cited article says the bill now heads to the Governor; it cannot substantiate March 12 signature. Official DLGF memo independently confirms March 12; change citation, not date.",
+      "candidate_correction": {
+        "field": "citation for signature date only",
+        "value": "https://www.in.gov/dlgf/files/2026-memos/260429-Cockerill-Memo-Legislation-Affecting-Assessment-Matters.pdf"
+      }
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "la-act730-2024",
+      "url": "https://louisianai.com/incentives",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "mt-hb424-2025",
+      "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "mt-hb424-2025",
+      "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "mt-hb424-2025",
+      "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "mt-hb424-2025",
+      "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "mt-hb424-2025",
+      "url": "https://projects.montanafreepress.org/capitol-tracker-2025/bills/hb-424/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "nc-eo-23-2025",
+      "url": "https://governor.nc.gov/executive-order-no-23-establishing-north-carolina-energy-policy-task-force/open",
+      "role": "source",
+      "disposition": "extraction_false_positive",
+      "assessment": "PDF OCR drops N in North Carolina (orth Carolina). Report date, recipients, and obligation are supported; do not copy the OCR typo.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "nj-eo-2-2026",
+      "url": "https://www.nj.gov/infobank/eo/057sherrill/pdf/EO-2.pdf",
+      "role": "source",
+      "disposition": "text_encoding_correction",
+      "assessment": "Seed C1 smart-quote bytes around DCA differ from normal PDF quotation marks; fix encoding.",
+      "candidate_correction": {
+        "field": "key_terms",
+        "replace_value": "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (DCA), N.J.S.A.",
+        "value": "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (\"DCA\"), N.J.S.A."
+      }
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "nm-sb235-2026-failed",
+      "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "nm-sb235-2026-failed",
+      "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "nm-sb235-2026-failed",
+      "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "nm-sb235-2026-failed",
+      "url": "https://microgridsnow.com/microgrid-renewable-portfolio-standard-new-mexico/",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "oh-hb15-2025",
+      "url": "https://ohiohouse.gov/legislation/136/hb15",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "oh-hb15-2025",
+      "url": "https://ohiohouse.gov/legislation/136/hb15",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "oh-hb15-2025",
+      "url": "https://ohiohouse.gov/legislation/136/hb15",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "oh-hb15-2025",
+      "url": "https://ohiohouse.gov/legislation/136/hb15",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "oh-hb15-2025",
+      "url": "https://ohiohouse.gov/legislation/136/hb15",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "Policy key_terms are summaries, not verbatim quotes. The landing page omits the provision but an already-listed cached resource supports it.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "tn-pc961-2026",
+      "url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB1847&ga=114",
+      "role": "source",
+      "disposition": "extraction_false_positive",
+      "assessment": "The saved legislative HTML splits generate into ge nerate and direct into dir ect. The provision is supported; retain correctly spelled record text.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "va-eo-22-2026",
+      "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "va-eo-22-2026",
+      "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "va-eo-22-2026",
+      "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "va-eo-22-2026",
+      "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "va-eo-22-2026",
+      "url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
+      "role": "source",
+      "disposition": "policy_scope_overstatement",
+      "assessment": "The EO orders advocacy for assigning PJM costs; it does not itself assign those costs.",
+      "candidate_correction": {
+        "field": "key_terms",
+        "replace_value": "PJM Reliability Backstop Procurement costs to be assigned to data center large loads",
+        "value": "Directs advocacy for assigning PJM Reliability Backstop Procurement costs to the data-center large loads causing those costs"
+      }
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wa-eo-25-05-2025",
+      "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wa-eo-25-05-2025",
+      "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wa-eo-25-05-2025",
+      "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wa-eo-25-05-2025",
+      "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wa-eo-25-05-2025",
+      "url": "https://governor.wa.gov/sites/default/files/exe_order/25-05%20-%20Data%20Center%20Workgroup.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wi-ab840-2026-failed",
+      "url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "Adopted substitute supports more than 20 GWh consumption or 100 MW demand of IT load. Compact label is shorthand; retain strict greater-than wording in detailed prose.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wi-ab840-2026-failed",
+      "url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
+      "role": "source",
+      "disposition": "policy_scope_overstatement",
+      "assessment": "The adopted substitute permits an alternative system using equal/less water. Closed-loop-only wording is materially too restrictive.",
+      "candidate_correction": {
+        "field": "key_terms and matching summary passage",
+        "replace_value": "closed-loop cooling water system required",
+        "value": "Closed-loop cooling or another system using no more water than a closed-loop system required"
+      }
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wi-ab840-2026-failed",
+      "url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The key term is a policy summary. The official act/substitute text supports the fact absent from its history landing page.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wi-ab840-2026-failed",
+      "url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The key term is a policy summary. The official act/substitute text supports the fact absent from its history landing page.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "wi-ab840-2026-failed",
+      "url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
+      "role": "source",
+      "disposition": "supported_supplemental_primary",
+      "assessment": "The key term is a policy summary. The official act/substitute text supports the fact absent from its history landing page.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "dona-ana-county-nm-project-jupiter-cba-2025",
+      "url": "https://cms2.revize.com/revize/donaanacounty/Documents/About%20Us/Economic%20Development%20Projects/Community%20Benefits%20Agreement%20(CBA)%20Executed.pdf",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "Policy summary shortens the intervening lease and notice/cure qualification. Exclusive-remedy conclusion is supported; preserve the full source qualification in detailed legal presentation.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "west-vincent-twp-pa-ordinance-227-2026",
+      "url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
+      "role": "source",
+      "disposition": "title_transcription_correction",
+      "assessment": "The stored all-caps title omits SPECIFIC REQUIREMENTS.",
+      "candidate_correction": {
+        "field": "key_terms",
+        "replace_value": "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES",
+        "value": "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD SPECIFIC REQUIREMENTS FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
+      }
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "tx-data-center-audit-permit-directives-2026",
+      "url": "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "tx-data-center-audit-permit-directives-2026",
+      "url": "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "tx-data-center-audit-permit-directives-2026",
+      "url": "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "loudoun-county-va-data-center-special-exception",
+      "url": "https://www.loudoun.gov/6221/Phase-1-Project-Plan-for-Data-Center-Sta",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "loudoun-county-va-data-center-special-exception",
+      "url": "https://www.loudoun.gov/6221/Phase-1-Project-Plan-for-Data-Center-Sta",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "policies",
+      "list": "policies",
+      "id": "loudoun-county-va-data-center-special-exception",
+      "url": "https://www.loudoun.gov/6221/Phase-1-Project-Plan-for-Data-Center-Sta",
+      "role": "source",
+      "disposition": "supported_policy_paraphrase",
+      "assessment": "The saved page supports this factual summary; a literal quote match is not required for policy key_terms.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "international",
+      "list": "policies",
+      "id": "ar-super-rigi-2026",
+      "url": "https://dplnews.com/super-rigi-argentina-busca-atraer-inversiones-1000-mdd-en-ia-centros-de-datos-y-semiconductores/",
+      "role": "source",
+      "disposition": "supported_linked_resource",
+      "assessment": "The quoted substation requirement is verbatim in the already-cited elDiarioAR resource. The primary DPL page does not carry it, but that absence does not undermine the existing supported record. Keep the term; expose the supporting resource citation where needed.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "elections",
+      "list": "races",
+      "id": "wi-governor-2026",
+      "url": "https://www.crowleyforwi.com/data-centers",
+      "role": "source",
+      "disposition": "redirect_lost_evidence",
+      "assessment": "Policy path redirects to generic fundraising homepage; no data-center position/quote in cached destination. Escalate unavailable canonical source; no invented substitute wording.",
+      "candidate_correction": null
+    },
+    {
+      "kind": "elections",
+      "list": "measures",
+      "id": "boulder-city-nv-question1-2026",
+      "url": "https://elections.clarkcountynv.gov/electionresultsTV/",
+      "role": "source",
+      "disposition": "election_result_snapshot_stale",
+      "assessment": "Live tally changed since stored reported snapshot. Outcome remains failed. Cached page says unofficial results updated November 6, 2026, 3:50 PM.",
+      "candidate_correction": {
+        "field": "result.evidence.statement",
+        "value": "CITY OF BOULDER CITY QUESTION NUM 1 VOTE FOR 1 Response Graph Votes %/Total YES 2,158 29.27% NO 5,215 70.73%",
+        "note": "Keep reported/unofficial status; do not infer certification."
+      }
+    }
+  ]
+}

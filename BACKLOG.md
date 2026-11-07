@@ -18,7 +18,6 @@ else is reference:
 item when it ships; git history is the done log. A lead about one place,
 company or site goes under that unit's heading in §3
 (`#### state:GA`, `#### company:meta`, `#### site:<project-id>`). The daily
-- **medium (2026-11-04 source audit):** Recheck `meta-los-lunas-water-2021`, `meta-prineville-or-community-grants-school-funding`, `meta-richland-la-education-robotics-delhi`, `meta-tulsa-engagement-demasi-proud-2026`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
 - **medium (2026-11-04):** Governor and PSC D3/D5 results/statements added. Both D5 candidates state cost-responsibility protections; no policy difference is inferred from party. Further county-race coverage remains open.
 routine greps those headings, so a lead filed anywhere else never gets worked.
 Dated re-checks ("the Oct 6 hearing") don't go in this file. Add them to the
@@ -767,28 +766,24 @@ come first, then locations, companies and sites.
   claim and responses stay on the Crusoe record as history.
 
 #### company:google
-- Google Fort Wayne IN ("Project Zodiac", ~$2B, ~200 jobs, I&M territory):
-  operational Dec 11 2025 per Inside Indiana Business. Never tracked.
+- **medium (2026-11-07):** Original announcement dates remain unresolved for
+  Prince William County; Van Buren's historical ratepayer-evidence source
+  remains blocked. See [refresh coverage](notes/refresh/2026-11-07/README.md).
 - Google as a "possible customer" of MidAmerican's Salix IA site: no deal,
   and annexation litigation is ongoing. Too early.
-- Google Cedar Rapids IA: a new data center campus named alongside the
-  Council Bluffs expansion in Google's $7B Iowa investment (blog.google,
-  2025-05-30, "development of both a new data center in Cedar Rapids and
-  expansion of our existing facility in Council Bluffs"). Never tracked as
-  its own Project (found 2026-09-29 during the site:google-council-bluffs-ia
-  review).
 
 #### company:meta
-- Meta New Albany OH ("Prometheus", slated to open in 2026): never tracked.
-  Create `meta-new-albany-oh`, then attach Chris Rinkus's Aug 18 2026 quote
-  ("…paying the full cost of the energy our data centers use — so others
-  are not negatively impacted…", datacenters.atmeta.com) as the `affirmed`
-  evidence claim. Don't ship the quote as an orphan company-wide claim.
+- **medium (2026-11-07):** Singapore's current opening status remains
+  unconfirmed. Keep its last dated company-evidenced phase explicit.
+  New Albany is now tracked; its historical operating-site record does not
+  automatically qualify for a post-pledge site assessment.
 - "Future Is for Everyone Fund" ($1B): company-wide, no site to attach.
 - Honest gap: tax_revenue. Meta executives don't quote tax figures.
 
 #### company:microsoft
-- **medium (2026-11-04 source audit):** Recheck `microsoft-leesburg-va-infrastructure-water-2026`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
+- **medium (2026-11-07):** Silver Springs has a company construction update
+  but no verified original announcement year; retain the sourced lead in
+  the roster ledger rather than substituting the construction year.
 - "ATL50", 5235 Stonewall Tell Rd, Union City GA: a GA DCA DRI application
   filed Sept 17 2026 (88 ac, two 3-story buildings, launch 2032). It sits
   next to the tracked `microsoft-union-city-ga` (4810 Stonewall Tell Rd) and
@@ -809,7 +804,6 @@ come first, then locations, companies and sites.
 - Honest gap: tax_revenue.
 
 #### company:oracle
-- **medium (2026-11-04 source audit):** Recheck `oracle-education-academy-blog-2026`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
 - `oracle.com/news/announcement/oracle-ai-infrastructure-local-communities-2026-01-26/`
   is a permanent 404 with no archive. Find where it was republished. If it
   wasn't, the claims keep their three third-party mirrors.
@@ -822,7 +816,10 @@ come first, then locations, companies and sites.
   company-wide. Not fetched yet.
 
 #### company:qts
-- **medium (2026-11-04 source audit):** Recheck `qts-cedar-rapids-ia-tax-revenue-ratepayer-pledge`, `qts-richmond-va-fast-41-quote`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
+- **medium (2026-11-07):** The full 49-location roster is inventoried in the
+  [roster ledger](notes/refresh/2026-11-07/roster-dispositions.json). Resolve
+  original announcement dates and current phases for held locations before
+  turning each listing into a project record.
 - The $250M Texas water pledge (Aug 31) and $1B Global Water Stewardship
   Pledge (Sept 9) are company- or state-wide, with no site to attach.
 - Prince William Digital Gateway cancellation: see decision 5.

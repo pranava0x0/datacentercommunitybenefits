@@ -5223,6 +5223,275 @@
       "source_url": "https://www.oracle.com/news/announcement/oracle-proposes-plan-to-offset-customers-utility-costs-2026-10-13/",
       "source_title": "Oracle — Proposed Project Jupiter utility-cost offset plan, October 13, 2026",
       "captured_at": "2026-11-07"
+    },
+    {
+      "id": "hazle-township-pa-2026-06-framework",
+      "title": "Hazle Township data-center curative-amendment process",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Hazle Township",
+      "state_code": "PA",
+      "identifier": "Resolution 2026-16",
+      "date": "2026-06-08",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "study",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "A 180-day municipal curative-amendment process addresses data-center and accessory uses in the zoning ordinance.",
+        "During the process, the township is protected from substantive-validity challenges to the affected zoning provisions."
+      ],
+      "summary": "Hazle Township adopted a curative-amendment resolution on June 8 after declaring portions of its zoning ordinance substantively invalid concerning data centers and accessory uses. The resolution begins a 180-day process to revise those provisions.",
+      "source_url": "https://www.hazletownship.com/images/2026_Meeting_Minutes_SupervisorsJuneJulyAugust.pdf",
+      "source_title": "Hazle Township data-center curative-amendment process — Resolution 2026-16",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "clearfield-ut-2026-09-framework",
+      "title": "Clearfield temporary data-center land-use study",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Clearfield",
+      "state_code": "UT",
+      "identifier": "Ordinance 2026-13",
+      "date": "2026-09-08",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "study",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Temporary land-use regulation defines data centers and directs a study of zoning classifications and development standards.",
+        "The ordinance establishes a 180-day term from effectiveness."
+      ],
+      "summary": "Clearfield adopted a temporary land-use regulation on September 8 to define data centers and study zoning classifications and development standards. The operative text establishes the study and its duration.",
+      "source_url": "https://clearfield.city/wp-content/uploads/2026/09/2026O-13-Ordinance-Establishing-a-temporary-land-use-Data-Center.pdf",
+      "source_title": "Clearfield temporary data-center land-use study — Ordinance 2026-13",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "cincinnati-oh-2026-02-framework",
+      "title": "Cincinnati data-center interim development-control overlay",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Cincinnati",
+      "state_code": "OH",
+      "identifier": "Interim Development Control Overlay 89",
+      "date": "2026-02-11",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "study",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The overlay covers new and expanded data centers in the CC-A, CG-A, UM, DD, ML and MG zoning districts.",
+        "An April 1 extension continues the overlay through February 11, 2027.",
+        "Development applications undergo interim review while the city studies zoning amendments."
+      ],
+      "summary": "Cincinnati established an interim development-control overlay on February 11 for new and expanded data centers in six zoning districts. It extended the overlay on April 1 through February 11, 2027 while it develops zoning amendments.",
+      "source_url": "https://www.cincinnati-oh.gov/planning/idc-89",
+      "source_title": "Cincinnati data-center interim development-control overlay — Interim Development Control Overlay 89",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "openai-grid-protectors-company-plan-2026",
+      "title": "OpenAI Grid Protectors Program",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "company",
+      "jurisdiction": "OpenAI (future US compute campuses)",
+      "date": "2026-11-02",
+      "company_slugs": [
+        "openai"
+      ],
+      "counterparties": [],
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "National future-campus demand-flexibility program; local arrangements remain to be finalized.",
+        "Effingham pilot: full infrastructure and electric-service costs paid by OpenAI, with up to 1,000 MW flexible demand response."
+      ],
+      "summary": "OpenAI launched a national future-campus flexibility program. Effingham is its pilot; broader site arrangements will vary and remain to be finalized.",
+      "source_url": "https://openai.com/index/grid-protectors-program/",
+      "source_title": "OpenAI — Introducing the Grid Protectors Program",
+      "related_project_ids": [
+        "openai-effingham-county-ga"
+      ],
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "turkey-tx-qts-lancium-community-agreement-2026",
+      "title": "QTS / Lancium – Turkey infrastructure and community agreement",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Turkey, TX",
+      "state_code": "TX",
+      "date": "2026-10-09",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "Lancium",
+        "City of Turkey"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "infrastructure",
+        "water"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 10500000,
+      "key_terms": [
+        "$1.5 million annually through 2032, totaling $10.5 million, for city priorities.",
+        "Up to $5 million in additional infrastructure assistance.",
+        "Separate one-time water-tower/sewer contribution; amount not disclosed."
+      ],
+      "summary": "QTS and Lancium announced an agreement with Turkey for $10.5 million in payments through 2032, up to $5 million in additional infrastructure assistance and a separate water-tower/sewer contribution. The campus is outside city limits.",
+      "source_url": "https://q.com/news/qts-and-lancium-announce-agreement-to-support-turkeys-infrastructure-and-community-priorities/",
+      "source_title": "QTS — QTS / Lancium – Turkey infrastructure and community agreement",
+      "related_project_ids": [
+        "qts-hall-county-tx"
+      ],
+      "captured_at": "2026-11-07",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "fayette-county-ga-qts-resilience-program-2026",
+      "title": "QTS Fayette County Community Resilience Program",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Fayette County, GA",
+      "state_code": "GA",
+      "date": "2026-10-26",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "Georgia Power",
+        "The Same House",
+        "Groundswell"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "energy"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 14000000,
+      "key_terms": [
+        "$14 million for pre-weatherization repairs serving more than 800 eligible homes.",
+        "Home assessments determine eligibility and improvements; program is not a universal bill credit."
+      ],
+      "summary": "QTS announced a household repair and energy-efficiency program with Georgia Power and community partners. It addresses structural, health and safety barriers that can prevent households from accessing weatherization improvements.",
+      "source_url": "https://q.com/news/qts-invests-14-million-in-energy-efficiency-program-to-help-lower-energy-costs-for-fayette-county-households/",
+      "source_title": "QTS — QTS Fayette County Community Resilience Program",
+      "related_project_ids": [
+        "qts-fayetteville-ga"
+      ],
+      "captured_at": "2026-11-07",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "fayetteville-ga-qts-station93-2026",
+      "title": "QTS contribution for Fayetteville Fire Station 93",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Fayetteville, GA",
+      "state_code": "GA",
+      "date": "2026-10-13",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "City of Fayetteville",
+        "Fayetteville Fire Department"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 11500000,
+      "key_terms": [
+        "$11.5 million QTS contribution plus donated land for permanent Station 93.",
+        "Groundbreaking October 13, 2026; completion expected spring 2028."
+      ],
+      "summary": "QTS contributes $11.5 million and nine acres for a permanent Fire Station 93 near Veterans Parkway and Highway 54. Construction began October 13, 2026, with completion expected in spring 2028.",
+      "source_url": "https://q.com/news/fire-department-breaks-ground-on-new-station-93/",
+      "source_title": "QTS — QTS contribution for Fayetteville Fire Station 93",
+      "related_project_ids": [
+        "qts-fayetteville-ga"
+      ],
+      "captured_at": "2026-11-07",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "or-data-center-advisory-committee-2026",
+      "title": "Oregon Statewide Data Center Advisory Committee",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Oregon",
+      "state_code": "OR",
+      "identifier": null,
+      "date": "2026-01-20",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Public advisory process addressing reliable energy without burdening ratepayers, water resources, land use and local economic benefits.",
+        "Meetings include opportunities for public comment; the committee recommends state policy actions."
+      ],
+      "summary": "Governor Kotek convened an advisory committee to recommend data-center siting and development policy addressing electricity costs, water, energy, land use and local economic benefits. It conducts public meetings and develops recommendations.",
+      "source_url": "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-convenes-statewide-data-center-advisory-committee",
+      "source_title": "Governor Kotek Convenes Statewide Data Center Advisory Committee",
+      "resources": [
+        {
+          "url": "https://www.oregon.gov/energy/Get-Involved/Documents/Data-Center-Advisory-Committee-Charge.pdf",
+          "title": "Oregon Statewide Data Center Advisory Committee — charge"
+        }
+      ],
+      "captured_at": "2026-11-07",
+      "principles": [
+        "study"
+      ]
     }
   ]
 }

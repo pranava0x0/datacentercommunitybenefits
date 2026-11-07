@@ -648,3 +648,20 @@ screenshots also passed.
 The first full run passed 974 tests, including all 156 interaction paths.
 The subsequent target-width fix passed all 19 election tests. Research passes
 are recorded separately when their source and coverage files are reconciled.
+
+### 2026-11-07 — comprehensive source refresh and data reviews
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| One state research batch, then bounded follow-up source walks | yes | 50 governor and 50 energy-office searches, 42 local queries, 623 inventory-row dispositions; 97 new moratoria, one extension patch and one advisory framework ready after parent curation; 15 held; tokens unavailable | Seed known IDs and normalize aliases before fetching inventory links. Alternate “hold/prohibition” wording and JPEG/DOCX records need a format-aware audit. |
+| One company research batch, all 33 companies and both country partitions | yes | 45 projects, 52 statements, four company policies and six project patches; all 61 initial roster gaps resolved to candidates, aliases or holds; tokens unavailable | Read both US and international seeds at preflight. Capture original announcements separately from construction/opening dates; roster presence alone cannot fill a required year. |
+| Existing-source discrepancy review | yes, after parent challenge | Reviewed all 87 exact-text misses and two redirects; corrected quotations and policy scope. One proposed Argentina deletion was rejected because an existing linked resource supported the fact; tokens unavailable | Check every cited resource before calling a field unsupported. Treat policy paraphrases separately from verbatim claim fields. |
+| Independent moratorium review, round 1 | yes | Three P2s: Lamar term, Ralls conjunctive thresholds, Marengo extension-only waiver; zero network reads; tokens unavailable | Supply operative sections and exact new IDs, not generated payloads. Parent verified each finding before editing. |
+| Independent company review, round 1 | yes | Two P2s: Fort Wayne announcement date and Madison IT-load scope; five targeted network operations; tokens unavailable | Timeline source labels must state whether a date means identity announcement, groundbreaking or opening. |
+| Independent company and serializer review, round 2 | yes | All 45 projects, 52 statements, four policies and six patches checked; no new findings; round-trip/badge test passed; no network reads; tokens unavailable | Reuse cached excerpts and the fixed-record checklist. Separate reviewers by authorship rather than assigning a reviewer to its own research. |
+
+Research used the functioning inherited runtime after alternate-model account
+failures documented on November 6; retrying unavailable runtimes would not
+have improved coverage. The user explicitly authorized the broad source and
+token scope. Neither research agent wrote seed files: the parent reviewed
+candidate records, preserved unknowns and ran the schema/export checks.
