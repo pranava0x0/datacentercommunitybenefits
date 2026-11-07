@@ -7069,6 +7069,41 @@
       ],
       "session": "2026",
       "duration_months": 6
+    },
+    {
+      "id": "littleton-co-2026-11",
+      "jurisdiction": "Littleton",
+      "jurisdiction_type": "city",
+      "state_code": "CO",
+      "status": "enacted",
+      "enacted_date": "2026-11-03",
+      "duration_months": null,
+      "duration_description": "Temporary pause; end date not confirmed",
+      "bill_number": "Ordinance 22-2026",
+      "key_reasons": [],
+      "summary": "Littleton passed Ordinance 22-2026 on November 3, pausing acceptance, processing and approval of applications for data centers while staff prepare land-use regulations. The ordinance covers new facilities and expansions; accessory server rooms serving another use on the same property are excluded.",
+      "source_url": "https://littletongov.legistar.com/LegislationDetail.aspx?GUID=FB988895-9E37-4643-AD7B-AB3EABB7CC8B&ID=8301070",
+      "source_title": "City of Littleton — Ordinance 22-2026, passed November 3, 2026",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "mooresville-nc-2026-11",
+      "jurisdiction": "Mooresville",
+      "jurisdiction_type": "city",
+      "state_code": "NC",
+      "status": "enacted",
+      "enacted_date": "2026-11-02",
+      "duration_months": 12,
+      "duration_description": "12 months",
+      "key_reasons": [
+        "energy",
+        "water",
+        "noise"
+      ],
+      "summary": "Mooresville commissioners approved a 12-month pause on consideration of new data-center development proposals on November 2. The town will review zoning standards; its announcement identifies electric capacity, water use and noise as concerns.",
+      "source_url": "https://www.mooresvillenc.gov/news_detail_T4_R441.php",
+      "source_title": "Town of Mooresville — Board of Commissioners approves data center moratorium",
+      "captured_at": "2026-11-07"
     }
   ]
 }
