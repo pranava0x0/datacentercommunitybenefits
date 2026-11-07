@@ -665,3 +665,14 @@ failures documented on November 6; retrying unavailable runtimes would not
 have improved coverage. The user explicitly authorized the broad source and
 token scope. Neither research agent wrote seed files: the parent reviewed
 candidate records, preserved unknowns and ran the schema/export checks.
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| Moratorium metadata triage and review, round 2 | yes | All 222 misses, 13 fetch failures and one partial sponsor check received dispositions; four material corrections, three prior fixes verified; eight bounded network operations; estimated 25–40K tokens, unmetered | Prepare a compact evidence table across all cited resources before browsing. Compound sponsor/vote fields need component and event-context checks. |
+
+Parent follow-up resolved more of that worklist: New Albany's proposer was
+not its formal sponsor; Seattle used MVA, not MW; Fayetteville's readable
+city FAQ explicitly supplied the identifier that the scripted fetch missed.
+Oneida's image-only hearing notice supplied its proposal identifier. An
+unrelated county index used the same abbreviated number; checking the actual
+cited PDF prevented another incorrect deletion.

@@ -37,7 +37,7 @@ def _redirect_paths(monkeypatch, seed_dir: Path, out_dir: Path) -> None:
 
 
 class TestRefreshHappyPath:
-    def test_claim_badge_defaults_round_trip_without_redundant_false(self):
+    def test_claim_badge_defaults_round_trip_without_redundant_false(self) -> None:
         from schema import ClaimsPayload
 
         seed = json.loads((SEED / "claims.json").read_text())

@@ -418,7 +418,7 @@
       "summary": "Colleton County Council (South Carolina) unanimously adopted Ordinance 26-O-04 on July 7, 2026, imposing a 6-month moratorium on special exceptions, conditional-use approvals, and other land-use/development approvals for data centers, giving officials time to revise the land-use code. Follows a proposed ~1 GW data center (Thomas & Hutton / Eagle Rock Partners) on 850 acres of Weyerhaeuser timberland near the environmentally sensitive ACE Basin, south of Walterboro, that drew opposition from seven state legislators and hundreds of residents. With the moratorium in place, the Southern Environmental Law Center agreed to pause its related lawsuit for the six-month period.",
       "source_url": "https://www.live5news.com/2026/07/08/6-month-pause-data-center-developments-colleton-county-lawsuit-paused/",
       "source_title": "Live 5 News — 6-month pause on data center developments in Colleton County; lawsuit paused",
-      "captured_at": "2026-08-24",
+      "captured_at": "2026-11-07",
       "resources": [
         {
           "url": "https://www.live5news.com/2026/02/05/colleton-county-lawmakers-oppose-proposed-data-center-ace-basin/",
@@ -427,6 +427,10 @@
         {
           "url": "https://www.wsav.com/news/local-news/colleton-county-delegation-resolved-to-stop-data-center-construction/",
           "title": "WSAV — Colleton County delegation resolved to stop data center construction"
+        },
+        {
+          "url": "https://www.colletoncounty.org/county-council/ordinances",
+          "title": "Colleton County — Ordinance 26-O-04 index"
         }
       ],
       "state_code": "SC",
@@ -613,8 +617,14 @@
       "city_council_vote": null,
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-14",
-      "state_code": "GA"
+      "captured_at": "2026-11-07",
+      "state_code": "GA",
+      "resources": [
+        {
+          "url": "https://www.fayetteville-ga.gov/DocumentCenter/View/4177/3-5-26---Work-Session-Action-Minutes",
+          "title": "Fayetteville City Council — March 5, 2026 action minutes, Ordinance 26-O-12"
+        }
+      ]
     },
     {
       "id": "federal-sanders-ocasio-cortez-2026-03",
@@ -1771,9 +1781,9 @@
       "summary": "New Albany, Indiana (across the Ohio River from Louisville, KY) City Council unanimously enacted a one-year moratorium on new data center development at its July 16, 2026 meeting, following Mayor Jeff Gahan's June 9 call for a pause and a Plan Commission recommendation. The ordinance blocks new data centers — single buildings or multi-building campuses — exceeding 100,000 sq ft while the city studies impacts on infrastructure, utilities, environment, and noise and updates its zoning ordinance. City leaders cited the $800M Meta data center under construction in neighboring Jeffersonville as an example of the scale the city wants to plan ahead of.",
       "source_url": "https://www.wdrb.com/news/new-albany-plan-commission-advances-data-center-moratorium-to-city-council/article_b4b07b07-2dbb-40fe-b4aa-549640952ac8.html",
       "source_title": "WDRB — New Albany Plan Commission advances data center moratorium to City Council",
-      "captured_at": "2026-07-27",
+      "captured_at": "2026-11-07",
       "sponsors": [
-        "Mayor Jeff Gahan"
+        "Councilperson Elaine Murphy"
       ],
       "resources": [
         {
@@ -1783,6 +1793,10 @@
         {
           "url": "https://www.whas11.com/article/news/local/mayor-jeff-gahan-moratorium-ordinance-new-data-center-development-new-albany-indiana/417-a66ead0d-832f-4188-aab0-4d16d93baedb",
           "title": "WHAS11 — New Albany's mayor asks for moratorium on new data center development"
+        },
+        {
+          "url": "https://cityofnewalbanyevents.squarespace.com/home/2026/6/9/pressing-pause-on-data-centers-mayor-gahan-asks-new-albany-council-for-moratorium-on-new-data-center-development",
+          "title": "New Albany City Hall — Mayor proposes pause; Elaine Murphy sponsors ordinance"
         }
       ],
       "state_code": "IN"
@@ -2398,7 +2412,7 @@
       "jurisdiction_type": "county",
       "status": "enacted",
       "enacted_date": "2026-07-07",
-      "effective_date": null,
+      "effective_date": "2026-07-07",
       "duration_months": 24,
       "duration_description": "Up to two years, or until the Council enacts legislation regulating data centers; can be lifted sooner if a zoning framework is adopted. Targets hyperscale data centers.",
       "power_threshold_mw": null,
@@ -2406,9 +2420,9 @@
         "water",
         "energy"
       ],
-      "summary": "The Prince George's County Council approved a resolution on July 7, 2026 establishing a moratorium of up to two years on new hyperscale data center development, barring the planning department from considering or approving applications until the Council enacts regulatory legislation (or adopts a zoning framework). Council members cited unanswered questions about water, health, environmental, and utility impacts. Council Member Tim Adams voted against and three members abstained. Enacted.",
-      "source_url": "https://wtop.com/prince-georges-county/2026/07/prince-georges-co-extends-pause-on-hyperscale-data-center-development/",
-      "source_title": "WTOP — Two-year moratorium on data center development passes in Prince George's Co.",
+      "summary": "The County Council adopted CR-066-2026 on July 7, pausing acceptance, processing, review and approval of preliminary subdivision plans and detailed site plans that include qualified data-center uses for up to two years. Council Member Tim Adams opposed the resolution and three members abstained, according to WTOP.",
+      "source_url": "https://princegeorgescountymd.legistar.com/LegislationDetail.aspx?GUID=4DA0E757-A8B6-4BFD-A7E5-E83AD62A0B1F&ID=8122087",
+      "source_title": "Prince George’s County Council — CR-066-2026 adopted resolution and action history",
       "resources": [
         {
           "url": "https://pgccouncil.us/m/newsflash/home/detail/2073",
@@ -2417,6 +2431,10 @@
         {
           "url": "https://content.govdelivery.com/accounts/MDPGCLEG/bulletins/410bbbc",
           "title": "Prince George's County Council Connection bulletin (official) — CB-19-2026, related data center review legislation introduced March 17, 2026"
+        },
+        {
+          "url": "https://wtop.com/prince-georges-county/2026/07/prince-georges-co-extends-pause-on-hyperscale-data-center-development/",
+          "title": "WTOP — Two-year moratorium on data center development passes in Prince George's Co."
         }
       ],
       "bill_number": "CR-066-2026",
@@ -2426,11 +2444,11 @@
           "Council Member Tim Adams"
         ]
       },
-      "enacted_by": "Prince George's County Council (sitting as the District Council)",
+      "enacted_by": "Prince George's County Council",
       "city_council_vote": "Passed; Council Member Tim Adams opposed and three members abstained (full tally not reported)",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-07-13",
+      "captured_at": "2026-11-07",
       "state_code": "MD"
     },
     {
@@ -2534,18 +2552,18 @@
       "jurisdiction_type": "city",
       "status": "enacted",
       "enacted_date": "2026-06-09",
-      "effective_date": "2026-06-09",
+      "effective_date": null,
       "duration_months": 12,
       "duration_description": "1 year (emergency ordinance, immediate effect; extendable up to 6 months)",
-      "power_threshold_mw": 20,
+      "power_threshold_mw": null,
       "key_reasons": [
         "transparency",
         "energy"
       ],
-      "summary": "Council Bill 121214 passed unanimously (9-0) on June 9, 2026, placing a temporary freeze on new data-center siting (facilities with power capacity over 20 megavolt-amperes). Took effect immediately under its emergency designation. Companion Resolution 32204 establishes a policy-study framework; a public hearing is required within 60 days.",
+      "summary": "Council Bill 121214 passed unanimously on June 9, 2026 and was signed by the mayor on June 11 as Ordinance 127447. It pauses new or expanded data centers with capacity above 20 megavolt-amperes; the ordinance declares an emergency and provides for immediate effect. Companion Resolution 32204 establishes a policy-study framework; a public hearing is required within 60 days.",
       "source_url": "https://council.seattle.gov/2026/06/09/city-council-passes-emergency-data-center-moratorium-and-policy-framework/",
       "source_title": "Seattle City Council — City Council Passes Emergency Data Center Moratorium and Policy Framework",
-      "captured_at": "2026-07-15",
+      "captured_at": "2026-11-07",
       "resources": [
         {
           "url": "https://datacenterbans.com/",
@@ -2554,6 +2572,10 @@
         {
           "url": "https://www.nrdc.org/",
           "title": "NRDC"
+        },
+        {
+          "url": "https://seattle.legistar.com/LegislationDetail.aspx?GUID=86F14A6D-9247-4BB5-839E-0A26937BFD3C&ID=8032163",
+          "title": "Seattle City Clerk — CB 121214 / Ordinance 127447 action history"
         }
       ],
       "enacted_by": "Seattle City Council (Council Bill 121214), unanimous 9-0, emergency ordinance",
@@ -2703,7 +2725,7 @@
       "summary": "South Dakota SB232 (introduced February 4, 2026) would have imposed a one-year construction moratorium on hyperscale data centers. The bill was tabled in the Senate State Affairs Committee on February 18, 2026 by a 5-3 vote — effectively killing the moratorium. Legislators instead passed SB135, which prohibits the state from limiting local governments' authority to regulate or ban data centers, leaving local control intact but imposing no statewide moratorium. Supported by the South Dakota Farm Bureau and rural communities; opposed by data center industry.",
       "source_url": "https://sdlegislature.gov/Session/Bill/27269/301228",
       "source_title": "South Dakota Legislature — SB232 (2026 Regular Session)",
-      "captured_at": "2026-06-25",
+      "captured_at": "2026-11-07",
       "bill_number": "SB232",
       "session": "2026",
       "failure_reason": "Tabled in Senate State Affairs Committee (5-3 vote), February 18, 2026; SB135 passed instead (enables local bans but imposes no state moratorium)",
@@ -2719,6 +2741,10 @@
         {
           "url": "https://www.sdpb.org/politics/2026-02-18/senate-committee-approves-bill-keeping-door-open-on-data-centers",
           "title": "SDPB — Senate committee approves bill keeping door open on data centers"
+        },
+        {
+          "url": "https://mylrc.sdlegislature.gov/api/Documents/Minutes/302313.pdf?Year=2026",
+          "title": "South Dakota Senate State Affairs — February 18, 2026 minutes, SB 232 vote"
         }
       ],
       "state_code": "SD"
@@ -3379,9 +3405,13 @@
         {
           "url": "https://hoodline.com/2026/06/longmont-pulls-plug-on-mega-data-centers-in-clash-over-power-and-water/",
           "title": "Hoodline — Longmont pulls plug on mega data centers in clash over power and water"
+        },
+        {
+          "url": "https://longmontcolorado.gov/planning-and-development-services/development-code-updates/",
+          "title": "Longmont — Ordinance 2026-34 development-code update"
         }
       ],
-      "captured_at": "2026-07-27"
+      "captured_at": "2026-11-07"
     },
     {
       "id": "surry-county-nc-2026-07",

@@ -36,6 +36,15 @@ Policy terms can be supported paraphrases; an exact-text miss is not proof
 of a factual error. Conversely, a live URL is not proof that every field
 on its record is accurate.
 
+The final [source audit](source-audit.json) records the expanded source set.
+The [moratorium metadata review](moratorium-metadata-triage.json) assigns
+dispositions to all 222 text misses and 13 fetch failures in its saved
+268-record snapshot, plus a partial sponsor check. Forty-eight fields lacked
+full support in the available cached text; these are not all contradictions.
+Parent follow-up checked the seven bill/sponsor gaps individually, using
+official records and visual PDF inspection where available. Unresolved
+historical dates, named-voter details and blocked sources remain explicit.
+
 ## Material corrections
 
 The refresh restores exact wording for company quotations, uses Microsoft's
@@ -52,6 +61,13 @@ conjunctive acreage/value definition and Marengo's extension-only waiver;
 and corrected Maine's sponsor and veto-sustain date and Cave City's adoption
 date. Wrightstown ends its pause on adoption of comprehensive zoning,
 not on the later effective date.
+
+New Albany's formal sponsor is Elaine Murphy; the mayor proposed the pause.
+Seattle's threshold is above 20 MVA, so the incorrect 20 MW numeric value is
+removed. Seattle's council passage and mayoral signature dates are retained
+separately; the exact effective date is left unconfirmed. Prince George's
+adopted resolution now links directly to its legislative record and supplies
+the July 7 effective date.
 
 The map adds 101 Census boundaries and associates all eligible new legal
 records with their jurisdictions. Town/city and county/city identities

@@ -3,6 +3,45 @@
 _Created: 2026-06-01_
 _Last run: 2026-11-07_
 
+## 2026-11-07 state and site refresh
+
+Full suite: 976 passed in 200 seconds. Final data/source and map/election
+browser checks passed 168 tests; geometry identity checks passed separately.
+The standalone file preview loads 347 moratorium rows and all 54 election
+records without fatal errors. Regeneration is byte-idempotent.
+
+Local browser walkthroughs covered all ten tabs on 375×812, 820×900 and
+1366×900, in light and dark themes: 60 main-view visits and 138 subtab checks,
+no document overflow, disappearing summary controls or page errors. The new
+Oneonta town boundary opens the correct moratorium and source record on all
+three sizes. DOE markers remain 33 individual stars; all six highlighted
+announcements and the legend remain available. Each new-boundary flow takes
+four actions from the map, 0.19–0.28 seconds of automation time, excluding
+human reading. Samples: `uat/comprehensive_refresh_flows.json`.
+
+All 156 measured interaction paths remain within unchanged budgets.
+The Texas winner/prior-policy comparison remains one action; map-to-legal
+record paths remain six actions from Home. Per-flow times are recorded in
+`uat/interaction_costs.json` and include the harness's settling waits.
+
+Cold local medians, three fresh contexts per case, milliseconds:
+
+| View | Phone before → after | Desktop before → after |
+| --- | ---: | ---: |
+| Home | 95 → 91 | 82 → 79 |
+| Elections | 85 → 89 | 95 → 103 |
+| Companies | 135 → 121 | 120 → 141 |
+| Moratorium map | 155 → 180 | 169 → 176 |
+
+These unthrottled local samples do not establish a production speed gain.
+Home still makes five requests and Elections six; neither requests geography
+or DOE data. The expanded Companies/claims payload totals 260,207 bytes,
+within the existing 262,144-byte budget. Omitting false badge defaults saves
+9,875 bytes without changing badge behavior. Home's digest shrank from 3,373
+to 3,251 bytes. The additional boundaries increase map geometry by 280,993
+bytes (75,813 bytes in a reproducible gzip estimate), loaded only on the map.
+Samples: `uat/comprehensive_refresh_performance.json`.
+
 ## 2026-11-07 election summary
 
 Checked clickable summary counts, conflicting filters and recovery, direct
