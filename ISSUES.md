@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-11-06
+Generated: 2026-11-07
 Total projects needing attention: 113
 
 ## Critical Missing Commitment Details
@@ -129,13 +129,13 @@ Projects with important gaps:
 (10 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 45 days ago
-- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 44 days ago
-- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 42 days ago
-- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 42 days ago
-- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 42 days ago
-- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 42 days ago
-- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 42 days ago
-- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 42 days ago
-- **pa-puc-large-load-cost-allocation-2026** (rate_case, PA): captured 2026-10-02, 35 days ago
-- **tuscaloosa-county-al-applied-digital-delta-forge-2-2026** (policy, Brookwood / Tuscaloosa County, AL): captured 2026-10-08, 29 days ago
+- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 46 days ago
+- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 45 days ago
+- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 43 days ago
+- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 43 days ago
+- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 43 days ago
+- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 43 days ago
+- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 43 days ago
+- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 43 days ago
+- **pa-puc-large-load-cost-allocation-2026** (rate_case, PA): captured 2026-10-02, 36 days ago
+- **tuscaloosa-county-al-applied-digital-delta-forge-2-2026** (policy, Brookwood / Tuscaloosa County, AL): captured 2026-10-08, 30 days ago
