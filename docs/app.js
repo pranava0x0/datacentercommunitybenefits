@@ -1513,7 +1513,7 @@ let _pendingElectionId = null;
 function loadElectionsData() {
   if (!_electionsPromise) {
     const root = document.getElementById("elections-content");
-    const modulePath = `./elections.js?v=20261106a${_electionsRetries ? `&retry=${_electionsRetries}` : ""}`;
+    const modulePath = `./elections.js?v=20261107a${_electionsRetries ? `&retry=${_electionsRetries}` : ""}`;
     _electionsPromise = Promise.all([fetchJson("data/elections.json"), loadViewModule(() => import(modulePath), modulePath, "__ELECTION_VIEW__")])
       .then(([payload, view]) => {
         _electionsView = view.mount(root, payload, {

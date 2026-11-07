@@ -1,0 +1,90 @@
+[
+  {
+    "version": "before",
+    "device": "phone",
+    "view": "#elections",
+    "median_ready_ms": 71.0,
+    "samples_ms": [
+      95.0,
+      71.0,
+      66.5
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "elections.json",
+      "elections.js?v=20261106a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 380.671875,
+    "first_content_height": 319.5
+  },
+  {
+    "version": "before",
+    "device": "desktop",
+    "view": "#elections",
+    "median_ready_ms": 75.4,
+    "samples_ms": [
+      90.6,
+      70.7,
+      75.4
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "elections.json",
+      "elections.js?v=20261106a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 318.125,
+    "first_content_height": 107
+  },
+  {
+    "version": "after",
+    "device": "phone",
+    "view": "#elections",
+    "median_ready_ms": 78.8,
+    "samples_ms": [
+      70.3,
+      78.8,
+      82.1
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "elections.json",
+      "elections.js?v=20261106a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 582.671875,
+    "first_content_height": 319.5
+  },
+  {
+    "version": "after",
+    "device": "desktop",
+    "view": "#elections",
+    "median_ready_ms": 71.2,
+    "samples_ms": [
+      90.3,
+      71.2,
+      68.1
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261106b",
+      "app.js?v=20261106b",
+      "elections.json",
+      "elections.js?v=20261106a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 409.125,
+    "first_content_height": 107
+  }
+]

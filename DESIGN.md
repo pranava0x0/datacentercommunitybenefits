@@ -115,6 +115,12 @@ editorial weight (good vs bad signaling). Everything else is neutral.
 
 ## 2. Editorial rubric
 
+2026-11-07: Elections uses compact, clickable counts and state links above the
+directory. Pause counts reuse the curated winner proposal field; passed ballot
+measures include advisory questions and retain their legal-effect labels.
+Counts describe tracked records, not all races or enacted moratoriums. Active
+summary filters stay visible when combined with search or another filter.
+
 The dashboard's value depends on this rubric being applied consistently.
 Curators (and any future AI assist) MUST follow it.
 

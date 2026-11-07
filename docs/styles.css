@@ -6758,6 +6758,14 @@ button.depth-chip:focus-visible {
 /* Election results and the underlying statements share the site's neutral
    palette. Party names carry information without a second colour legend. */
 .election-filters { flex-direction: row; align-items: end; flex-wrap: wrap; margin-block: 8px; }
+.election-overview { margin-bottom: 12px; }
+.election-totals { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 8px; }
+.election-totals button { display: flex; align-items: baseline; gap: 6px; border: 0; border-bottom: 2px solid transparent; background: transparent; padding: 4px 0; border-radius: 0; text-align: left; font-size: var(--fs-sm); }
+.election-totals strong { font-size: var(--fs-lg); font-variant-numeric: tabular-nums; }
+.election-totals button[aria-pressed="true"] { border-color: var(--accent); color: var(--text); }
+.election-pause-links { display: flex; flex-wrap: wrap; gap: 0 16px; border-block: 1px solid var(--border); }
+.election-pause-links a { display: inline-flex; align-items: center; min-height: 32px; font-size: var(--fs-sm); }
+@media (pointer: coarse) { .election-pause-links a, .election-totals button { min-width: 44px; min-height: 44px; } }
 #elections-meta { margin: 6px 0; color: var(--text); font-size: var(--fs-sm); font-style: normal; }
 .election-filters label { display: flex; flex-direction: column; gap: 4px; font-size: var(--fs-sm); }
 .election-filters input { width: min(100%, 280px); }
