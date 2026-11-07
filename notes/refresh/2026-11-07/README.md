@@ -69,6 +69,12 @@ separately; the exact effective date is left unconfirmed. Prince George's
 adopted resolution now links directly to its legislative record and supplies
 the July 7 effective date.
 
+GitHub review found Project Jupiter's proposed EPE customer credits hidden
+from Benefit Agreements by a company-wide scope. The record now uses a New
+Mexico service-area scope while retaining its proposed company-plan status;
+mobile and desktop checks exercise filtering, opening its terms and its
+primary source link.
+
 The map adds 101 Census boundaries and associates all eligible new legal
 records with their jurisdictions. Town/city and county/city identities
 were checked separately, including Oneonta town, Highland town in Sullivan

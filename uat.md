@@ -42,6 +42,12 @@ to 3,251 bytes. The additional boundaries increase map geometry by 280,993
 bytes (75,813 bytes in a reproducible gzip estimate), loaded only on the map.
 Samples: `uat/comprehensive_refresh_performance.json`.
 
+GitHub's second review found Project Jupiter's proposed customer credits
+missing from Benefit Agreements because the record had company-wide scope.
+After assigning the New Mexico service area, the proposal appears under the
+NM filter on phone and desktop; its terms open and link to Oracle's source.
+The two regression paths and agreement-count/payload checks passed.
+
 ## 2026-11-07 election summary
 
 Checked clickable summary counts, conflicting filters and recovery, direct

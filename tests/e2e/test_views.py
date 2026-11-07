@@ -3494,6 +3494,22 @@ class TestSitesPaneRouting:
 
 
 class TestHomeV6:
+    @pytest.mark.parametrize("width", [375, 1366])
+    def test_project_jupiter_proposal_is_in_local_benefits(self, page: Page, base_url: str, width: int) -> None:
+        page.set_viewport_size({"width": width, "height": 812})
+        page.goto(base_url + "/#agreements/all")
+        page.select_option("#cba-state-filter", "NM")
+        card = page.locator("#cba-all-oracle-jupiter-epe-credit-proposal-2026")
+        expect(card).to_be_visible()
+        expect(card).to_contain_text("Proposed")
+        expect(card).to_contain_text("El Paso Electric")
+        card.locator("summary").click()
+        expect(card.locator(".cba-more")).to_have_attribute("open", "")
+        expect(card).to_contain_text("$55 million")
+        expect(card.locator(".cba-src a")).to_have_attribute(
+            "href", "https://www.oracle.com/news/announcement/oracle-proposes-plan-to-offset-customers-utility-costs-2026-10-13/"
+        )
+
     """Home renders from data/home.json: sections first, numbers, two feeds."""
 
     def test_first_paint_requests_only_page_companies_and_digest(self, page: Page, base_url: str):

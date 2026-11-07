@@ -5193,8 +5193,8 @@
       "title": "Oracle Project Jupiter proposed utility payments and customer credits",
       "instrument": "company_plan",
       "status": "proposed",
-      "scope": "company",
-      "jurisdiction": "Oracle / El Paso Electric — New Mexico customers",
+      "scope": "state",
+      "jurisdiction": "New Mexico — El Paso Electric residential and small-business customers",
       "state_code": "NM",
       "date": "2026-10-13",
       "company_slugs": [

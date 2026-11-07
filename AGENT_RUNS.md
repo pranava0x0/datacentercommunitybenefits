@@ -676,3 +676,10 @@ city FAQ explicitly supplied the identifier that the scripted fetch missed.
 Oneida's image-only hearing notice supplied its proposal identifier. An
 unrelated county index used the same abbreviated number; checking the actual
 cited PDF prevented another incorrect deletion.
+
+GitHub's second review found one P2 missed by the local source reviews:
+Project Jupiter's site-specific proposal had a company-wide scope, excluding
+it from Benefit Agreements and policy-action eligibility. Fixed the scope,
+retained proposed/company-plan semantics, and added a mobile/desktop path
+through state filtering, terms and the primary source link. Future data
+reviews should check where a record is discoverable, not only its text.
