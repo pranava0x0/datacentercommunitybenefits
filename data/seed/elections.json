@@ -2781,19 +2781,12 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-05",
+      "captured_at": "2026-11-07",
       "candidates": [
         {
           "name": "David Crowley",
           "party": "Democratic",
           "statements": [
-            {
-              "statement": "If local communities don't want a data center, they shouldn't be forced to have a data center.",
-              "source_url": "https://www.crowleyforwi.com/data-centers",
-              "source_title": "David Crowley campaign — Data Centers",
-              "captured_at": "2026-11-04",
-              "speaker": "David Crowley"
-            },
             {
               "statement": "I think there should be a pause",
               "source_url": "https://fox47.com/news/local/crowley-calls-for-pause-on-data-centers",
@@ -3251,7 +3244,7 @@
       "jurisdiction": "Boulder City",
       "title": "Question 1 — Data centers in Eldorado Valley",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-07",
       "effect": "binding",
       "ballot_evidence": {
         "statement": "Should data center facilities be an approved land use within the Eldorado Valley Transfer Area",
@@ -3264,10 +3257,10 @@
         "status": "reported",
         "outcome": "failed",
         "evidence": {
-          "statement": "CITY OF BOULDER CITY QUESTION NUM 1 VOTE FOR 1 Response Graph Votes %/Total YES 1,973 29.45% NO 4,726 70.55%",
+          "statement": "CITY OF BOULDER CITY QUESTION NUM 1 VOTE FOR 1 Response Graph Votes %/Total YES 2,158 29.27% NO 5,215 70.73%",
           "source_url": "https://elections.clarkcountynv.gov/electionresultsTV/",
           "source_title": "Clark County Election Department — general election results",
-          "captured_at": "2026-11-04"
+          "captured_at": "2026-11-07"
         },
         "source_type": "official"
       },

@@ -37,6 +37,20 @@ def _redirect_paths(monkeypatch, seed_dir: Path, out_dir: Path) -> None:
 
 
 class TestRefreshHappyPath:
+    def test_claim_badge_defaults_round_trip_without_redundant_false(self) -> None:
+        from schema import ClaimsPayload
+
+        seed = json.loads((SEED / "claims.json").read_text())
+        model = ClaimsPayload.model_validate(seed)
+        compact = refresh._strip_v6_defaults(
+            "claims", model.model_dump(mode="json", exclude_none=True)
+        )
+        assert ClaimsPayload.model_validate(compact) == model
+        expected_badges = {c.id for c in model.claims if c.formal_agreement}
+        assert expected_badges
+        assert {c["id"] for c in compact["claims"] if c.get("formal_agreement")} == expected_badges
+        assert all(c.get("formal_agreement") is not False for c in compact["claims"])
+
     def test_check_only_returns_zero(self, tmp_path, monkeypatch):
         seed = _copy_seed(tmp_path)
         out = tmp_path / "docs" / "data"

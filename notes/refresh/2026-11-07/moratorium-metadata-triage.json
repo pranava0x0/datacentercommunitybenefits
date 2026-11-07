@@ -1,0 +1,2705 @@
+{
+  "as_of": "2026-11-07",
+  "scope": {
+    "audit_records": 268,
+    "all_not_found_fields": 222,
+    "all_fetch_failed_fields": 13,
+    "additional_partial_sponsor_field": 1,
+    "total_triaged_fields": 236,
+    "unique_records_with_triaged_fields": 184,
+    "current_moratorium_records": 347
+  },
+  "counts": {
+    "supported_contextual_date": 53,
+    "dynamic_source_detail_unavailable": 12,
+    "unsupported_in_available_text": 48,
+    "contradicted_snapshot_corrected_in_seed": 3,
+    "partial_vote_support": 24,
+    "blocked_or_uncached": 9,
+    "supported_contextual_reading": 41,
+    "supported_new_primary": 10,
+    "format_or_resource_match": 1,
+    "supported_relative_date": 21,
+    "additional_resource_not_cached": 1,
+    "supported_identifier_components": 10,
+    "partial_date_support": 1,
+    "signed_document_ocr_gap": 1,
+    "supported_signed_image": 1
+  },
+  "audit_status_counts": {
+    "not_found": 222,
+    "fetch_failed": 13,
+    "partial": 1
+  },
+  "field_counts": {
+    "enacted_date": 133,
+    "vote": 43,
+    "enacted_by": 8,
+    "failure_reason": 16,
+    "bill_number": 26,
+    "session": 6,
+    "sponsors": 4
+  },
+  "methodology": [
+    "Every222not_found and13fetch_failed field receives a disposition; the1partial sponsor field is included separately.",
+    "Started with current seed sources/resources, fresh revalidation text, moratorium cache, and signed source images; exact matching was broadened for No./punctuation, component bill identifiers, numeric tallies written as words, ordinal dates and explicit relative weekdays.",
+    "Contextual matches are identified separately from complete semantic verification. Partial vote support does not validate every named voter, chamber, date or stage in a compound field.",
+    "Unsupported means not established by available cited text, never automatically false. Blocked means unreadable fetch evidence, never a dead-link conclusion. Generic tracker pages do not expose jurisdiction-level detail in this cached text.",
+    "No official-source count is derived from the .gov domain regex; official .org/.com and government vendor hosts are valid where provenance is established."
+  ],
+  "round2_review": {
+    "round1_fixes": {
+      "lamar-county-ga-2026-09": "Verified180-day/null-months term and application scope against adopted SectionII.",
+      "ralls-county-mo-2026-08": "Verified50unincorporated acres AND$3M minimum and exceptions.",
+      "marengo-township-mi-2026-02": "Verified waiver now correctly restricted to later extension."
+    },
+    "wrightstown-wi-2026-07": "Visual approval note confirms July7,2026 and7–0. Village identity, application/annexation scope and12months match. Adoption-vs-effectiveness termination trigger correction reported.",
+    "or-data-center-advisory-committee-2026": "January20 official governor release supports convening, energy/ratepayer/water/economic-development scope and public advisory process. Advisory framework, not a construction moratorium; no final report publication asserted."
+  },
+  "material_record_findings": [
+    {
+      "priority": "P1",
+      "record_id": "maine-state-2026-04",
+      "field": "sponsors",
+      "finding": "Audit snapshot lists Victoria Foley and Rebecca Milliken, but official LD307 sponsor record lists Representative Melanie Sachs of Freeport.",
+      "suggested_value": [
+        "Rep. Melanie Sachs (Freeport)"
+      ],
+      "source_url": "https://www.mainelegislature.org/LawMakerWeb/sponsors.asp?ID=280096138",
+      "evidence_path": ".preview/comprehensive-20261107/maine-ld307-legislature-review.json",
+      "current_disposition": "corrected_by_parent",
+      "file": "data/seed/moratoriums.json"
+    },
+    {
+      "priority": "P2",
+      "record_id": "maine-state-2026-04",
+      "field": "failure_reason",
+      "finding": "April24 veto and April29 veto-sustain vote are distinct; snapshot incorrectly made both April24.",
+      "source_url": "https://www.mainelegislature.org/LawMakerWeb/summary.asp?ID=280096138",
+      "current_disposition": "corrected_by_parent",
+      "file": "data/seed/moratoriums.json"
+    },
+    {
+      "priority": "P2",
+      "record_id": "cave-city-ky-2026-05",
+      "field": "enacted_date",
+      "finding": "WBKO actual publication/event is Wednesday May20,2026; URL path isMay21. Final reading/enactment happened Wednesday night.",
+      "suggested_value": "2026-05-20",
+      "source_url": "https://www.wbko.com/2026/05/21/cave-city-council-enacts-12-month-moratorium-data-centers/",
+      "evidence_path": ".revalidate_cache/text/ced34e78c45e97a1807542637a81966655f6ec99.txt",
+      "current_disposition": "corrected_by_parent",
+      "file": "data/seed/moratoriums.json"
+    },
+    {
+      "priority": "P2",
+      "record_id": "wrightstown-wi-2026-07",
+      "field": "duration_description/summary",
+      "finding": "Section3 terminates at adoption of comprehensive zoning ordinance; take-effect wording substitutes a different legal trigger.",
+      "suggested_value": "12months from adoption, or until village adopts comprehensive zoning ordinance addressing data-center siting/permitting, whichever first.",
+      "evidence_path": ".preview/comprehensive-20261107/state-search/wrightstown-p1.png",
+      "current_disposition": "corrected_by_parent",
+      "file": "data/seed/moratoriums.json"
+    }
+  ],
+  "unresolved_bill_or_sponsor_fields": [
+    {
+      "id": "fayetteville-ga-city-2026-03",
+      "field": "bill_number",
+      "value": "Ordinance 26-O-12",
+      "disposition": "blocked_or_uncached"
+    },
+    {
+      "id": "henderson-nv-2026-06",
+      "field": "bill_number",
+      "value": "Bill No. 3927",
+      "disposition": "unsupported_in_available_text"
+    },
+    {
+      "id": "new-albany-in-2026-06",
+      "field": "sponsors",
+      "value": [
+        "Mayor Jeff Gahan"
+      ],
+      "disposition": "unsupported_in_available_text"
+    },
+    {
+      "id": "oneida-county-wi-2026-07",
+      "field": "bill_number",
+      "value": "OA-02-2026",
+      "disposition": "unsupported_in_available_text"
+    },
+    {
+      "id": "prince-georges-county-md-2026-07",
+      "field": "bill_number",
+      "value": "CR-066-2026",
+      "disposition": "unsupported_in_available_text"
+    },
+    {
+      "id": "seattle-city-2026-06",
+      "field": "bill_number",
+      "value": "CB121214",
+      "disposition": "unsupported_in_available_text"
+    },
+    {
+      "id": "south-dakota-state-2026-02",
+      "field": "bill_number",
+      "value": "SB232",
+      "disposition": "unsupported_in_available_text"
+    }
+  ],
+  "machine_found_limitations": [
+    "Found date checks can match only month+year, so they do not prove the claimed day.",
+    "Found compound vote checks may match one X-Y tally while other chamber/stage tallies remain unchecked.",
+    "Found sponsors check last names, not full identity/party/district; partial does not establish all sponsors.",
+    "Failure-reason checks may match a vote or committee phrase while leaving causal assertions or dates unsupported.",
+    "542machine-found checks were not all re-reviewed as part of this miss-focused pass."
+  ],
+  "research_effort": {
+    "reviewers": 1,
+    "new_search_queries": 6,
+    "direct_primary_page_reads": 2,
+    "bounded_network_operations_total": 8,
+    "token_estimate": "Approximately25–40K tokens for this round, estimated rather than metered; source-output overhead dominates.",
+    "best_roi_next_time": "Generate one compact per-field evidence table from all current cached resources before browsing; compound fields need component checks and event context, rather than whole-string matching."
+  },
+  "verification": {
+    "json_parses": true,
+    "all_222_not_found_fields_present": true,
+    "all_13_fetch_failed_fields_present": true,
+    "one_partial_sponsor_field_included": true,
+    "no_duplicate_record_field_keys": true,
+    "seed_edits": false
+  },
+  "shared_notes": {
+    "N1": "Month/day appears in event context; year is supplied by dated source/context. Resolves missing-year/ordinal/abbreviated-date matching.",
+    "N2": "No full support established in readable current cited cache; requires contextual review, not an assertion that the record is false.",
+    "N3": "Core tally or unanimity supported; compound stage/date/named-voter qualifications require separate contextual verification.",
+    "N4": "Named event weekday reconciles to recorded date within six days before dated article URL; explicit relative-date derivation.",
+    "N5": "Contextual source reading supports the event/date or named official; adjacent-year and exact-string requirements caused the machine miss. Date-only weekday derivations use the dated article, not the cache capture date.",
+    "N6": "Available cache is generic JavaScript-driven tracker summary, not jurisdiction detail. Field remains unverified, not contradicted.",
+    "N7": "New primary search result directly corroborates this metadata; add this specific source as a resource if publishing the field.",
+    "N8": "Identifier components occur in current cited cache after type/No./punctuation normalization.",
+    "N9": "No readable cached text for current cited sources/resources; no factual conclusion.",
+    "N10": "Official Legislature sponsor tab lists Melanie Sachs of Freeport; official summary and April29 governor release confirm April29 veto sustained. Parent has corrected both snapshot errors."
+  },
+  "snapshot_note": "The independent audit evaluated its saved 268-record snapshot. Parent follow-up below supersedes the seven unresolved bill/sponsor fields; other unsupported or blocked snapshot fields remain unverified.",
+  "entries": [
+    {
+      "id": "asbury-ia-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-14",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.kcrg.com/2026/07/15/data-center-freeze-approved-unanimously-by-asbury-city-council/"
+      }
+    },
+    {
+      "id": "baltimore-city-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-05-11",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "birmingham-city-2026-03",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-03-03",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "boone-county-in-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Unanimous (Board of Commissioners); Area Plan Commission recommended 6-0 on May 6, 2026 and again 6-0 on June 3, 2026",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "cave-city-ky-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "contradicted_snapshot_corrected_in_seed",
+      "evidence": {
+        "url": "https://www.wbko.com/2026/05/21/cave-city-council-enacts-12-month-moratorium-data-centers/",
+        "source_fact_summary": "Published: May20,2026 at11:06PMCDT. Wednesday night’s4-1vote marked the final reading and enactment of the moratorium."
+      }
+    },
+    {
+      "id": "chesterfield-county-sc-2026-05",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous, first and second readings",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.golaurens.com/news/sc-counties-enacting-data-center-moratoriums/article_e7888ad9-9d73-56a0-9cc2-ca9263c1b5dd.html"
+      }
+    },
+    {
+      "id": "chesterfield-county-sc-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-05-04",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "chesterfield-county-sc-2026-05",
+      "field": "enacted_by",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Chesterfield County Council (unanimous)",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "cheyenne-wy-2026-06",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "City council rejected the proposed nine-month moratorium by an 8-1 vote",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "citrus-county-fl-2026-05",
+      "field": "enacted_date",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "2026-05-01",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "cleveland-city-2026-04",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "14-1",
+      "evidence": {
+        "url": "https://www.cleveland19.com/2026/07/16/3-month-long-moratorium-put-data-centers-cleveland/"
+      }
+    },
+    {
+      "id": "colleton-county-sc-2026-05",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_new_primary",
+      "value": "Ordinance 26-O-04",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.colletoncounty.org/county-council/ordinances",
+        "source_fact_summary": "26-O-04 Data Center Moratorium",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "colleton-county-sc-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "format_or_resource_match",
+      "value": "2026-07-07",
+      "evidence": {}
+    },
+    {
+      "id": "connecticut-state-2026-02",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "SB245 / HB5469",
+      "evidence": {
+        "url": "https://ctmirror.org/2026/05/11/ct-2026-bills-that-didnt-pass/"
+      }
+    },
+    {
+      "id": "connecticut-state-2026-02",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Both bills died without a floor vote in the 2026 session.",
+      "evidence": {
+        "url": "https://ctmirror.org/2026/05/11/ct-2026-bills-that-didnt-pass/"
+      }
+    },
+    {
+      "id": "council-bluffs-city-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "unanimous rejection",
+      "evidence": {
+        "url": "https://www.kmaland.com/news/council-bluffs-council-denies-proposed-moratorium-on-new-data-centers/article_57610dda-a991-41c5-99a5-d4bd772cd936.html"
+      }
+    },
+    {
+      "id": "council-bluffs-city-2026-06",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Council members opposed the moratorium on economic-development grounds, preferring to address data centers through new zoning regulations, case-by-case negotiations, and a wastewater-management plan rather than a blanket pause.",
+      "evidence": {
+        "url": "https://www.kmaland.com/news/council-bluffs-council-denies-proposed-moratorium-on-new-data-centers/article_57610dda-a991-41c5-99a5-d4bd772cd936.html"
+      }
+    },
+    {
+      "id": "dubuque-county-ia-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-05-20",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "eagan-city-2026-02",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-02-17",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.cbsnews.com/minnesota/news/lawsuit-filed-eagan-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "fayetteville-ga-city-2026-03",
+      "field": "bill_number",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "Ordinance 26-O-12",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "fayetteville-ga-city-2026-03",
+      "field": "enacted_date",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "2026-03-05",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "fayetteville-ga-city-2026-03",
+      "field": "enacted_by",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "City Council",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "fayetteville-ga-city-2026-03",
+      "field": "session",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "2026",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "florida-state-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Senate 37-0, House 92-16, Senate concurrence 31-6",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.flsenate.gov/Session/Bill/2026/484"
+      }
+    },
+    {
+      "id": "florida-state-2026-07",
+      "field": "enacted_by",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Governor Ron DeSantis",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "georgia-state-2026-01",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Did not pass the House by Crossover Day (March 6, 2026); died at Sine Die adjournment of the 2025-2026 Georgia General Assembly biennium on April 2, 2026, having stalled at House Second Readers (last action January 28, 2026).",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "greenfield-ma-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (roll-call vote, Sept. 16, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://recorder.com/2026/09/17/greenfield-data-centers-moratorium-adopted/"
+      }
+    },
+    {
+      "id": "greenfield-ma-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-09-16",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://recorder.com/2026/09/17/greenfield-data-centers-moratorium-adopted/"
+      }
+    },
+    {
+      "id": "greenwood-county-sc-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-21",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.foxcarolina.com/2026/07/21/greenwood-co-council-approves-final-reading-one-year-moratorium-data-centers/"
+      }
+    },
+    {
+      "id": "harvey-county-ks-2026-01",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-01-13",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.kwch.com/2026/01/13/harvey-county-commission-places-moratorium-data-center-construction/"
+      }
+    },
+    {
+      "id": "hawaii-state-2026-01",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-01-15",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "henderson-nv-2026-06",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Bill No. 3927",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "henderson-nv-2026-06",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "City Council declined the 180-day moratorium at its July 21, 2026 meeting after nearly two hours of public comment, instead directing staff to develop stricter data center development standards; future projects will go through individually negotiated development agreements rather than a blanket pause.",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "henderson-nv-2026-07",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Henderson City Council set aside the proposed 180-day moratorium at its July 21, 2026 meeting, opting instead to direct staff to develop stricter development-agreement standards (covering water consumption, electrical demand, noise, and distance from residents) rather than a temporary construction pause.",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "hernando-county-fl-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "4-0 roll call (Tampa Bay Beacon)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.tampabaybeacons.com/2026/07/27/why-hernando-county-needs-a-total-data-center-ban/"
+      }
+    },
+    {
+      "id": "imperial-county-ca-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "5-0 (unanimous; urgency ordinance requires a four-fifths vote)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://inewsource.org/2026/06/16/imperial-county-approves-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "indianapolis-in-2024-10",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2024-10-03",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "indianapolis-in-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "additional_resource_not_cached",
+      "value": "2026-08-19",
+      "evidence": {
+        "url": "https://www.wfyi.org/wfyi-news/2026-08-10/indy-council-advances-pause-on-data-centers-sends-to-commission-for-final-approval"
+      }
+    },
+    {
+      "id": "indio-ca-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-03",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://kesq.com/news/2026/10/07/indio-city-council-extends-data-center-moratorium-through-2027/"
+      }
+    },
+    {
+      "id": "iron-county-ut-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-06-01",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "jackson-ms-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-14",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wlbt.com/2026/07/14/not-ready-data-center-jackson-city-council-approves-moratorium-data-centers/"
+      }
+    },
+    {
+      "id": "lake-county-fl-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (Sept. 8, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.cfpublic.org/politics/2026-09-09/lake-county-presses-pause-on-accepting-data-center-applications"
+      }
+    },
+    {
+      "id": "lake-county-fl-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-09-08",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.cfpublic.org/politics/2026-09-09/lake-county-presses-pause-on-accepting-data-center-applications"
+      }
+    },
+    {
+      "id": "lansing-mi-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "7-1",
+      "evidence": {
+        "url": "https://www.wcmu.org/local-regional-news/2026-07-14/lansing-passes-6-month-data-center-moratorium"
+      }
+    },
+    {
+      "id": "lexington-ky-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-09",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.lex18.com/news/covering-kentucky/lexington-city-council-passes-moratorium-on-data-center-development"
+      }
+    },
+    {
+      "id": "linn-county-ia-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "2-1 (Meisheid and Running-Marquardt for; Scheetz against)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.kcrg.com/2026/07/01/despite-putting-ordinance-place-linn-county-passes-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "linn-county-ia-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-01",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.kcrg.com/2026/07/01/despite-putting-ordinance-place-linn-county-passes-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "loudoun-county-leesburg-va-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-05-28",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "maine-state-2026-04",
+      "field": "sponsors",
+      "audit_status": "not_found",
+      "disposition": "contradicted_snapshot_corrected_in_seed",
+      "note_ref": "N10",
+      "evidence": {
+        "url": "https://www.mainelegislature.org/LawMakerWeb/sponsors.asp?ID=280096138",
+        "source_fact_summary": "Sponsored By: Representative Melanie SACHS of Freeport. Summary: Last House Action4/29/2026; veto sustained."
+      }
+    },
+    {
+      "id": "maine-state-2026-04",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "contradicted_snapshot_corrected_in_seed",
+      "note_ref": "N10",
+      "evidence": {
+        "url": "https://www.mainelegislature.org/LawMakerWeb/sponsors.asp?ID=280096138",
+        "source_fact_summary": "Sponsored By: Representative Melanie SACHS of Freeport. Summary: Last House Action4/29/2026; veto sustained."
+      }
+    },
+    {
+      "id": "manitowoc-county-wi-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-06-01",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "mankato-mn-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-13",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.keyc.com/2026/07/14/mankato-city-council-passes-one-year-moratorium-data-centers/"
+      }
+    },
+    {
+      "id": "marshall-county-in-2026-04",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-04-20",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wndu.com/2026/04/20/marshall-county-commissioners-ban-data-centers-limit-solar-projects/"
+      }
+    },
+    {
+      "id": "maryland-state-2026-01",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Had a February 3, 2026 hearing scheduled in the House Environment and Transportation Committee but received no committee vote; did not advance before the 2026 regular session adjourned sine die.",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "meridian-township-mi-2024-11",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2024-11-15",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "michigan-state-2026-06",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "SB1018-1020 / HB5594-5596",
+      "evidence": {
+        "url": "https://www.route-fifty.com/infrastructure/2026/06/michigan-lawmakers-local-officials-and-residents-renew-push-statewide-data-center-moratorium/414379/"
+      }
+    },
+    {
+      "id": "minneapolis-city-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-05-21",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "minnesota-state-hf4888-2026",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "HF4888 / SF4298",
+      "evidence": {
+        "url": "https://www.revisor.mn.gov/bills/94/2026/0/HF/4888/?body=House"
+      }
+    },
+    {
+      "id": "monterey-park-ca-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-06-02",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "new-albany-in-2026-06",
+      "field": "sponsors",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": [
+        "Mayor Jeff Gahan"
+      ],
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "new-hampshire-state-2026-04",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Voted \"Inexpedient to Legislate\" (ITL) by voice vote on the House floor, March 11, 2026.",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "newberry-county-sc-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-03",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wistv.com/2026/06/03/moratorium-data-centers-put-effect-after-newberry-county-residents-raise-concerns/"
+      }
+    },
+    {
+      "id": "newberry-county-sc-2026-06",
+      "field": "enacted_by",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Newberry County Council (unanimous)",
+      "evidence": {
+        "url": "https://www.wistv.com/2026/06/03/moratorium-data-centers-put-effect-after-newberry-county-residents-raise-concerns/"
+      }
+    },
+    {
+      "id": "ny-state-2026-06",
+      "field": "bill_number",
+      "audit_status": "fetch_failed",
+      "disposition": "supported_new_primary",
+      "value": "S10642/A11560",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
+        "source_fact_summary": "Senate Bill S10642; See Assembly Version of this Bill: A11560",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "ny-state-2026-06",
+      "field": "sponsors",
+      "audit_status": "fetch_failed",
+      "disposition": "supported_new_primary",
+      "value": [
+        "Sen. Kristen Gonzalez (D-WF, 59th District)"
+      ],
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
+        "source_fact_summary": "Sponsored By Kristen Gonzalez (D, WF) 59th Senate District",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "ny-state-2026-06",
+      "field": "vote",
+      "audit_status": "fetch_failed",
+      "disposition": "supported_new_primary",
+      "value": "Senate 43-17 on A11560 (June 4, 2026); one absent and two excused.",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
+        "source_fact_summary": "Jun4,2026 Floor Vote A11560: Aye43, Nay17, Absent1, Excused2.",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "ny-state-2026-06",
+      "field": "session",
+      "audit_status": "fetch_failed",
+      "disposition": "supported_new_primary",
+      "value": "2025-2026",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.nysenate.gov/legislation/bills/2025/S10642",
+        "source_fact_summary": "2025-2026 Legislative Session",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "ny-state-eo62-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-14",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://ny1.com/nyc/all-boroughs/politics/2026/07/14/hochul-enacts-first-statewide-data-center-moratorium"
+      }
+    },
+    {
+      "id": "okc-city-2026-04",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-04-21",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.okenergytoday.com/2026/04/data-center-moratorium-in-okc/"
+      }
+    },
+    {
+      "id": "oklahoma-county-ok-2026-04",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-04-05",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "oklahoma-state-sb1488-2026",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Never received a committee or floor vote (remained in Senate Appropriations after a Feb 3, 2026 referral); died at sine die adjournment of the 2026 legislative session on May 14, 2026.",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "oneida-county-wi-2026-07",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "OA-02-2026",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "oneida-county-wi-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "County Board unanimous (Aug 19, 2026), following unanimous Planning & Development Committee vote in July 2026",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.wxpr.org/energy-environment/2026-08-19/oneida-county-passes-one-year-data-center-moratorium"
+      }
+    },
+    {
+      "id": "oregon-state-hb4084-2026-06",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "HB4084",
+      "evidence": {
+        "url": "https://www.dwt.com/blogs/energy--environmental-law-blog/2026/06/oregon-data-center-tax-break-moratorium"
+      }
+    },
+    {
+      "id": "pasco-county-fl-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-07-14",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wusf.org/politics-issues/2026-07-15/pasco-county-one-year-moratorium-large-data-centers"
+      }
+    },
+    {
+      "id": "philadelphia-pa-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-05-23",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "prince-georges-county-md-2026-07",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "CR-066-2026",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "prince-georges-county-md-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Passed; Council Member Tim Adams opposed and three members abstained (full tally not reported)",
+      "evidence": {
+        "url": "https://wtop.com/prince-georges-county/2026/07/prince-georges-co-extends-pause-on-hyperscale-data-center-development/"
+      }
+    },
+    {
+      "id": "prince-georges-county-md-2026-07",
+      "field": "enacted_by",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Prince George's County Council (sitting as the District Council)",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "pulaski-county-ar-2024-07",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "Measure failed to gain sufficient county commission support; did not advance to a full vote",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "reno-city-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-05-14",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "santa-fe-county-nm-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-06-30",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.santafecountynm.gov/news/detail/santa-fe-county-approves-18-month-moratorium-on-data-centers"
+      }
+    },
+    {
+      "id": "seattle-city-2026-06",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "CB121214",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "smithfield-town-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2026-05-15",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "south-carolina-state-2026-01",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_new_primary",
+      "value": "H5286",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
+        "source_fact_summary": "H.5286; Joint Resolution; Summary: Data Center Moratorium",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "south-carolina-state-2026-01",
+      "field": "sponsors",
+      "audit_status": "partial",
+      "disposition": "supported_new_primary",
+      "value": [
+        "Rep. Long",
+        "Rep. T. Moore",
+        "Rep. Yow",
+        "Rep. C. Mitchell",
+        "Rep. Martin",
+        "Rep. Edgerton",
+        "Rep. Chumley",
+        "Rep. Magnuson",
+        "Rep. Lawson",
+        "Rep. Frank",
+        "Rep. Huff",
+        "Rep. Crawford",
+        "Rep. Chapman",
+        "Rep. Atkinson",
+        "Rep. Sanders",
+        "Rep. Burns",
+        "Rep. Bailey",
+        "Rep. Guest",
+        "Rep. Hardee"
+      ],
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
+        "source_fact_summary": "Sponsors: Reps.Long,T.Moore,Yow,C.Mitchell,Martin,Edgerton,Chumley,Magnuson,Lawson,Frank,Huff,Crawford,Chapman,Atkinson,Sanders,Burns,Bailey,Guest and Hardee",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "south-carolina-state-2026-01",
+      "field": "session",
+      "audit_status": "not_found",
+      "disposition": "supported_new_primary",
+      "value": "2025-2026",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://www.scstatehouse.gov/sess126_2025-2026/bills/5286.htm",
+        "source_fact_summary": "126th Session,2025-2026",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "south-dakota-state-2026-02",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "SB232",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "south-dakota-state-2026-02",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Tabled in Senate State Affairs Committee (5-3 vote), February 18, 2026; SB135 passed instead (enables local bans but imposes no state moratorium)",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "spartanburg-county-sc-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-09-21",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.foxcarolina.com/2026/09/22/spartanburg-county-council-passes-data-center-moratorium-with-several-amendments/"
+      }
+    },
+    {
+      "id": "st-charles-city-2025-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2025-08-22",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "st-charles-city-2025-08",
+      "field": "session",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2025",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "taylor-county-fl-2026-07",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Motion failed for lack of support; Commissioner Michael Newman cited insufficient information. A data center workshop was scheduled for Aug 25, 2026.",
+      "evidence": {
+        "url": "https://www.wctv.tv/2026/07/07/taylor-county-commission-votes-down-data-center-moratorium-residents-wonder-what-comes-next/"
+      }
+    },
+    {
+      "id": "tulsa-city-2026-03",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-03-25",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "washington-county-md-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "4-1 (Wagner, Leatherman, Cline, Barr for; Parrott against)",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "washington-county-md-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-06-30",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "montgomery-county-md-2026-07",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Expedited Bill 19-26 / ZTA 26-01",
+      "evidence": {
+        "url": "https://www.montgomerycountymd.gov/news/council-approves-18-month-data-center-moratorium-places-limitations-data-center-development"
+      }
+    },
+    {
+      "id": "montgomery-county-md-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "11-0 (unanimous)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://wtop.com/montgomery-county/2026/07/montgomery-county-council-approves-18-month-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "washington-state-hb2515-2026",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Died at the March 2, 2026 legislative cutoff in the Senate Ways & Means Committee; passed the House 51-41 but was never brought to a Senate floor vote after industry lobbying (Microsoft, Amazon).",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "washington-township-macomb-mi-2024-03",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "dynamic_source_detail_unavailable",
+      "value": "2024-03-20",
+      "note_ref": "N6",
+      "evidence": {}
+    },
+    {
+      "id": "boulder-county-co-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-02",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://bouldercounty.gov/news/data-centers-and-detention-centers-commissioners-declare-moratorium/"
+      }
+    },
+    {
+      "id": "broomfield-city-2026-07",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Ordinance 2313",
+      "evidence": {
+        "url": "https://www.longmontleader.com/local-news/broomfield-city-council-unanimously-approves-pause-on-new-data-centers-with-18-month-moratorium-12524652"
+      }
+    },
+    {
+      "id": "broomfield-city-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "9-0 in favor",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.longmontleader.com/local-news/broomfield-city-council-unanimously-approves-pause-on-new-data-centers-with-18-month-moratorium-12524652"
+      }
+    },
+    {
+      "id": "broomfield-city-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-07-07",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.coloradopolitics.com/2026/07/08/broomfield-passes-temporary-ban-on-new-data-center-construction/"
+      }
+    },
+    {
+      "id": "woodland-park-city-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-16",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://gazette.com/2026/07/17/woodland-park-passes-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "monument-city-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-07-20",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://gazette.com/2026/07/21/monument-places-moratorium-on-data-centers-following-decision-in-woodland-park/"
+      }
+    },
+    {
+      "id": "longmont-city-2026-06",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_new_primary",
+      "value": "Ordinance 2026-34",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://longmontcolorado.gov/planning-and-development-services/development-code-updates/",
+        "source_fact_summary": "The City Council approved Ordinance-2026-34, which included the specifics above, on June9,2026.",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "longmont-city-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_new_primary",
+      "value": "2026-06-09",
+      "note_ref": "N7",
+      "evidence": {
+        "url": "https://longmontcolorado.gov/planning-and-development-services/development-code-updates/",
+        "source_fact_summary": "The City Council approved Ordinance-2026-34, which included the specifics above, on June9,2026.",
+        "verified_via": "primary search result content,2026-11-07"
+      }
+    },
+    {
+      "id": "anderson-county-sc-2026-08",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "7-0",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "anderson-county-sc-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-20",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.foxcarolina.com/2026/08/20/anderson-county-council-approves-final-reading-six-month-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "greensboro-nc-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-08-18",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://greensborothread.com/news/politics/greensboro-nc-data-center-moratorium-denise-roth/"
+      }
+    },
+    {
+      "id": "cherokee-county-ga-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-07-21",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.atlantanewsfirst.com/2026/07/22/cherokee-county-approves-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "augusta-ga-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-06-02",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wrdw.com/2026/06/02/augustans-urge-city-leaders-put-data-centers-hold/"
+      }
+    },
+    {
+      "id": "athens-clarke-county-ga-2025-12",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2025-12-02",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wuga.org/local-news/2025-12-03/acc-commission-pauses-new-data-centers-manager-says-athena-studios-data-center-would-need-rezone"
+      }
+    },
+    {
+      "id": "garden-city-ga-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (mayor and four council members present)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://thecurrentga.org/2026/06/16/garden-city-puts-brakes-on-data-centers/"
+      }
+    },
+    {
+      "id": "mattoon-il-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "5-0 (unanimous)",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "mattoon-il-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-09-01",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "oregon-state-directive-2026-09",
+      "field": "enacted_by",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Governor Tina Kotek (directive to all state agencies)",
+      "evidence": {
+        "url": "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-pauses-work-on-requests-for-state-land-to-support-new-data-centers"
+      }
+    },
+    {
+      "id": "gilroy-ca-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (count not stated)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.cityofgilroy.org/m/newsflash/Home/Detail/1331"
+      }
+    },
+    {
+      "id": "richmond-ca-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-09-15",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://contracosta.news/2026/09/16/richmond-city-council-agrees-to-45-day-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "levy-county-fl-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-09-08",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "statesville-nc-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (second reading)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.wfae.org/politics/2026-09-15/statesville-blocks-new-data-centers-for-six-months"
+      }
+    },
+    {
+      "id": "statesville-nc-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-09-14",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wfae.org/politics/2026-09-15/statesville-blocks-new-data-centers-for-six-months"
+      }
+    },
+    {
+      "id": "clarendon-county-sc-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (third reading)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.wistv.com/2026/09/15/clarendon-county-council-advances-third-final-reading-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "clarendon-county-sc-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-09-14",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wistv.com/2026/09/15/clarendon-county-council-advances-third-final-reading-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "lima-oh-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-09-14",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.hometownstations.com/2026/09/15/lima-puts-pause-future-data-center-projects-city-evaluates-standards/"
+      }
+    },
+    {
+      "id": "pioneer-oh-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-09-14",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "mcdonald-oh-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-09-16",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "foley-al-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-09-08",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://utv44.com/news/local/foley-city-council-approves-6-month-moratorium-on-data-centers-crypto-mining-facilities"
+      }
+    },
+    {
+      "id": "woodford-county-ky-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-09-08",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wuky.org/wuky-news/2026-09-14/a-kentucky-county-becomes-first-in-state-to-permanently-ban-data-center-construction"
+      }
+    },
+    {
+      "id": "woodburn-or-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (per OPB)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.opb.org/article/2026/09/15/woodburn-moratorium-new-data-centers/"
+      }
+    },
+    {
+      "id": "lake-county-il-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-09-08",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.lakemchenryscanner.com/2026/09/08/we-choose-our-citizens-county-board-bans-data-centers-in-unincorporated-lake-county-until-mid-2027/"
+      }
+    },
+    {
+      "id": "savannah-ga-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-27",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wtoc.com/2026/08/28/savannah-city-council-approves-155-day-moratorium-large-scale-data-centers/"
+      }
+    },
+    {
+      "id": "bloomingdale-ga-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-08-20",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://savannahagenda.com/bloomingdale-considering-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "dougherty-county-ga-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-07-20",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "leon-county-fl-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous at second and final public hearing (October 13, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.wctv.tv/2026/10/13/leon-county-commission-officially-adopts-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "leon-county-fl-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-10-13",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wctv.tv/2026/10/13/leon-county-commission-officially-adopts-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "laurens-county-sc-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "6-0 on third and final reading, September 14, 2026 (first reading unanimous, July 13, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.foxcarolina.com/2026/09/14/laurens-county-council-votes-approve-one-year-data-center-pause/"
+      }
+    },
+    {
+      "id": "laurens-county-sc-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-09-14",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.foxcarolina.com/2026/09/14/laurens-county-council-votes-approve-one-year-data-center-pause/"
+      }
+    },
+    {
+      "id": "palm-springs-ca-2026-08",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (August 26, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://kesq.com/news/2026/08/26/palm-springs-city-council-approves-temporary-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "colquitt-county-ga-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (June 2, 2026); extension approved September 1, 2026",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://moultrieobserver.com/2026/06/08/commission-adopts-a-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "colquitt-county-ga-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-02",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://moultrieobserver.com/2026/06/08/commission-adopts-a-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "albany-ga-2026-07",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (Tuesday, July 28, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.walb.com/2026/07/29/data-center-developments-paused-12-months-albany-following-commission-vote/"
+      }
+    },
+    {
+      "id": "albany-ga-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-28",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.walb.com/2026/07/29/data-center-developments-paused-12-months-albany-following-commission-vote/"
+      }
+    },
+    {
+      "id": "mead-co-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-31",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://berthoudsurveyor.com/mead-approves-12-month-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "bloomington-il-2026-05",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Passed (Mollie Ward against)",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "normal-il-2026-05",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Sept 21 extension: Andy Byars the only vote against",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "manatee-county-fl-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous (final adoption, Oct. 8, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.mysuncoast.com/2026/10/08/manatee-county-approves-one-year-moratorium-data-centers/"
+      }
+    },
+    {
+      "id": "manatee-county-fl-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-10-08",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.mysuncoast.com/2026/10/08/manatee-county-approves-one-year-moratorium-data-centers/"
+      }
+    },
+    {
+      "id": "forest-park-ga-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-31",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.news-daily.com/news/forest-park-council-passes-90-day-data-center-moratorium/article_ccfd2184-acbb-445f-8fa5-fe46a172a9f0.html"
+      }
+    },
+    {
+      "id": "harpersville-al-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-03",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wbrc.com/2026/08/20/harpersville-town-council-approves-6-month-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "escondido-ca-2026-08",
+      "field": "vote",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "October 7 extension: unanimous",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "escondido-ca-2026-08",
+      "field": "enacted_date",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "2026-08-26",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "escondido-ca-2026-08",
+      "field": "session",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "2026",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "winchester-ky-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-09-01",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://winchestersun.com/2026/09/02/winchester-enacts-one-year-data-center-moratorium-amid-regional-wave-ofrestrictions/"
+      }
+    },
+    {
+      "id": "bellevue-wi-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-12",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.nbc26.com/bellevue/village-of-bellevue-bans-data-center-development-for-12-months"
+      }
+    },
+    {
+      "id": "madison-county-ar-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-17",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://katv.com/news/local/madison-county-quorum-court-approves-three-year-moratorium-on-data-centers"
+      }
+    },
+    {
+      "id": "garfield-township-mi-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-08-25",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.9and10news.com/2026/08/25/garfield-township-enacts-data-center-moratorium-to-buy-time-for-research-on-restrictions/"
+      }
+    },
+    {
+      "id": "orangetown-ny-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-08-25",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wamc.org/news/2026-08-27/hudson-valley-residents-dissatisfied-with-data-center-moratorium"
+      }
+    },
+    {
+      "id": "anniston-al-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-18",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wbrc.com/2026/08/27/city-anniston-adopts-resolution-that-establishes-temporary-moratorium-data-centers-within-regulatory-jurisdiction/"
+      }
+    },
+    {
+      "id": "archuleta-county-co-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-16",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.pagosasun.com/stories/moratorium-on-data-centers-approved-by-county-board,140916"
+      }
+    },
+    {
+      "id": "marysville-wa-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-07-13",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.heraldnet.com/2026/07/15/marysville-initiates-6-month-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "bulloch-county-ga-2026-02",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-02-17",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.griceconnect.com/local-government/bulloch-county-implements-moratoriums-on-data-centers-and-residential-rezonings-receives-six-figure-pilot-check-11884716"
+      }
+    },
+    {
+      "id": "alamance-county-nc-2026-08",
+      "field": "enacted_date",
+      "audit_status": "fetch_failed",
+      "disposition": "blocked_or_uncached",
+      "value": "2026-08-17",
+      "note_ref": "N9",
+      "evidence": {}
+    },
+    {
+      "id": "shawnee-county-ks-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-08-13",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "shawnee-county-ks-2026-08",
+      "field": "session",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "tulare-county-ca-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-09-22",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "raleigh-nc-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-10-06",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wfae.org/2026-09-16/raleigh-cary-data-center-moratorium"
+      }
+    },
+    {
+      "id": "marshall-county-ia-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-09-23",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.timesrepublican.com/news/todays-news/2026/09/supervisors-ok-six-month-data-center-moratorium-resolution/"
+      }
+    },
+    {
+      "id": "cary-nc-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-08-27",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://abc11.com/post/cary-approves-18-month-moratorium-data-centers-amid-growth-concerns/19748618/"
+      }
+    },
+    {
+      "id": "memphis-city-2026-10",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Ordinance 18 (135-day moratorium, amended on the floor) passed 7-5 on Oct. 20, 2026; Ordinance 19 (year-long) failed",
+      "evidence": {
+        "url": "https://wreg.com/news/city-council-to-vote-on-data-center-moratorium-tuesday/amp/"
+      }
+    },
+    {
+      "id": "memphis-city-2026-10",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-10-20",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.actionnews5.com/2026/10/21/memphians-react-failed-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "martin-county-fl-2026-10",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "Unanimous on first reading (Oct. 13, 2026)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://cbs12.com/news/local/gallery/martin-county-advances-proposed-data-center-moratorium-commissioners-meeting-data-center-electricity-consumption-environmental-impact-florida-data-center-regulations-florida-news"
+      }
+    },
+    {
+      "id": "desert-hot-springs-ca-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-07",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://riversiderecord.org/desert-hot-springs-data-center-moratorium-extended/"
+      }
+    },
+    {
+      "id": "prichard-al-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-08-04",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://mynbc15.com/news/local/prichard-questions-validity-of-permit-issued-before-data-center-moratorium"
+      }
+    },
+    {
+      "id": "oregon-state-deq-2026-10",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-10-09",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.kptv.com/2026/10/13/oregon-pauses-data-center-permits-until-2027/"
+      }
+    },
+    {
+      "id": "oregon-state-deq-2026-10",
+      "field": "enacted_by",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Governor Tina Kotek (directive to DEQ)",
+      "evidence": {
+        "url": "https://www.kptv.com/2026/10/13/oregon-pauses-data-center-permits-until-2027/"
+      }
+    },
+    {
+      "id": "emmet-county-ia-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-25",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.ktiv.com/2026/08/25/emmet-county-ia-approves-one-year-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "woodbury-county-ia-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-23",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wowt.com/2026/06/23/woodbury-county-passes-moratorium-data-center-projects/"
+      }
+    },
+    {
+      "id": "milwaukee-wi-2026-10",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-10-13",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://urbanmilwaukee.com/2026/10/13/council-unanimously-approves-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "benton-county-mo-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-08-10",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.ky3.com/2026/09/21/judge-extends-restraining-order-benton-county-mo-data-center-case/"
+      }
+    },
+    {
+      "id": "jackson-county-mo-2026-06",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "8 in favor, 1 excused",
+      "evidence": {
+        "url": "https://www.kctv5.com/2026/06/22/jackson-county-legislature-passes-180-day-moratorium-data-center-applications/"
+      }
+    },
+    {
+      "id": "jackson-county-mo-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-22",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.kctv5.com/2026/06/22/jackson-county-legislature-passes-180-day-moratorium-data-center-applications/"
+      }
+    },
+    {
+      "id": "jasper-county-sc-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-09-21",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://wtoc.com/2026/09/22/jasper-county-council-approves-1-year-moratorium-data-centers"
+      }
+    },
+    {
+      "id": "york-county-sc-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-07-13",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "norman-ok-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-06-23",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.kgou.org/politics-and-government/2026-06-25/norman-city-council-enacts-data-center-moratorium"
+      }
+    },
+    {
+      "id": "daviess-county-ky-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-05-28",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wkyufm.org/news/2026-05-29/daviess-co-leaders-throw-cold-water-on-data-center-projects"
+      }
+    },
+    {
+      "id": "bullitt-county-ky-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-07-21",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://hoodline.com/2026/07/bullitt-county-slams-brakes-on-data-center-boom-for-a-year/"
+      }
+    },
+    {
+      "id": "ypsilanti-township-mi-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-18",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.easternecho.com/article/2026/08/ypsilanti-township-issues-land-use-moratorium-impacting-data-centers"
+      }
+    },
+    {
+      "id": "franklin-county-ga-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-07-15",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://franklincounty.news/2026/07/21/franklin-county-puts-a-hold-on-data-centers/"
+      }
+    },
+    {
+      "id": "springhill-township-pa-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-09-03",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.heraldstandard.com/news/local_news/2026/sep/05/springhill-township-postpones-votes-on-data-center-power-plant-ordinances/"
+      }
+    },
+    {
+      "id": "bannock-county-id-2026-07",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Ordinance 2026-02",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://www.bannockcounty.gov/wp-content/uploads/2026/07/Data-Center-Moratorium_Final.pdf"
+      }
+    },
+    {
+      "id": "bannock-county-id-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-07-30",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "baltimore-county-md-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-09-22",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "carroll-county-ar-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-16",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://ky3.com/2026/06/17/carroll-county-unanimously-passes-1-year-moratorium-data-centers-other-high-intensity-digital-infrastructure-facilities/"
+      }
+    },
+    {
+      "id": "new-denmark-wi-2026-06",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Resolution 2026-04",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://townofnewdenmarkwi.gov/news-and-notices/notice-of-moratorium-of-data-centers/"
+      }
+    },
+    {
+      "id": "new-denmark-wi-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-06-08",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://townofnewdenmarkwi.gov/news-and-notices/notice-of-moratorium-of-data-centers/"
+      }
+    },
+    {
+      "id": "saline-county-ne-2026-08",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "4-0 (one member absent)",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "sedgwick-county-ks-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-09-02",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.tsnews.com/node/9740"
+      }
+    },
+    {
+      "id": "logan-ut-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-30",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://hoodline.com/2026/07/logan-slams-brakes-on-data-center-boom-with-180-day-freeze/"
+      }
+    },
+    {
+      "id": "nottingham-nh-2026-09",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "1,335 to 143",
+      "evidence": {
+        "url": "https://www.wshu.org/2026-09-09/nottingham-voters-approve-moratorium-data-centers-nh-newhampshire"
+      }
+    },
+    {
+      "id": "nottingham-nh-2026-09",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-09-08",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.wshu.org/2026-09-09/nottingham-voters-approve-moratorium-data-centers-nh-newhampshire"
+      }
+    },
+    {
+      "id": "sanford-me-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-08-04",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.pressherald.com/2026/08/05/sanford-extends-data-center-moratorium-for-180-days/"
+      }
+    },
+    {
+      "id": "eastport-me-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-12",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.mainepublic.org/climate/2026-08-14/eastport-enacts-pause-on-data-center-development"
+      }
+    },
+    {
+      "id": "pierce-county-wa-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-25",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.djc.com/news/co/12177525.html"
+      }
+    },
+    {
+      "id": "knox-county-tn-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-22",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.wvlt.tv/2026/06/23/data-center-builds-one-year-delay-knox-county-votes-adopt-one-year-moratorium/"
+      }
+    },
+    {
+      "id": "knoxville-city-tn-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "partial_date_support",
+      "value": "2026-07-07",
+      "evidence": {
+        "url": "https://www.wvlt.tv/2026/07/08/knoxville-joins-list-areas-pressing-pause-data-centers/"
+      }
+    },
+    {
+      "id": "logan-county-il-2026-05",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-05-19",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.illinoistimes.com/news/logan-county-enacts-12-month-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "yankton-county-sd-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-07-21",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.dakotanewsnow.com/2026/07/22/data-center-moratorium-passes-yankton-county-south-dakota/"
+      }
+    },
+    {
+      "id": "brunswick-city-me-2026-06",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-06-01",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.pressherald.com/2026/06/01/brunswick-passes-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "agawam-city-ma-2026-08",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "unanimous (first reading)",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://thereminder.com/local-news/agawam-moves-toward-270-day-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "kalamazoo-city-mi-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-08-17",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://watershedvoice.com/2026/08/18/kalamazoo-city-commission-passes-one-year-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "missoula-county-mt-2026-07",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-07-09",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://www.montanafreepress.org/2026/07/09/missoula-county-adopts-temporary-moratorium-on-data-centers/"
+      }
+    },
+    {
+      "id": "kiowa-county-co-2026-04",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-04-09",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://kiowacountypress.net/content/kiowa-county-resolution-2026-4-data-center-facility-moratorium"
+      }
+    },
+    {
+      "id": "forest-grove-or-2026-10",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-10-12",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.forestgrovenewstimes.com/news/forest-grove-city-council-approves-120-day-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "dover-de-2026-10",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_relative_date",
+      "value": "2026-10-12",
+      "note_ref": "N4",
+      "evidence": {
+        "url": "https://spotlightdelaware.org/2026/10/13/in-a-first-for-delaware-dover-passes-a-moratorium-on-data-center-development/"
+      }
+    },
+    {
+      "id": "little-rock-ar-2026-08",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Voted down Aug. 4, 2026 (tally not verified)",
+      "evidence": {
+        "url": "https://katv.com/news/board-votes-down-18-month-pause-on-hyperscale-data-centers-in-little-rock-sweet-home-google-ordinances-land-use-permitting-large-scale-developments-regulations-emergency-services-water-resources-surrounding-neighborhoods"
+      }
+    },
+    {
+      "id": "aurora-co-2026-08",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Voted down Aug. 10, 2026, with opposition from Mayor Coffman and Councilmembers Rob Andrews, Françoise Bergan, Curtis Gardner, Stephanie Hancock and Angela Lawson (tally not stated)",
+      "evidence": {
+        "url": "https://www.denvergazette.com/2026/10/19/aurora-meeting-on-data-center-moratorium-delayed/"
+      }
+    },
+    {
+      "id": "aurora-co-2026-08",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "The Aurora City Council voted down the moratorium at its Aug. 10, 2026 meeting; Mayor Mike Coffman, who voted against, said it was because it had a fixed time frame of six months.",
+      "evidence": {
+        "url": "https://www.denvergazette.com/2026/10/19/aurora-meeting-on-data-center-moratorium-delayed/"
+      }
+    },
+    {
+      "id": "aurora-co-2026-10",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "Failed Oct. 26, 2026: 6 in support (Coombs, Medina, Jackson, Wiles, Horton, Mayor Coffman), 5 opposed (Gardner, Andrews, Hancock, Bergan, Lawson).",
+      "evidence": {
+        "url": "https://www.coloradopolitics.com/2026/10/26/aurora-city-council-votes-down-indefinite-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "aurora-co-2026-10",
+      "field": "failure_reason",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "The indefinite moratorium fell short at the Oct. 26, 2026 regular meeting: six councilmembers voted yes but it needed two-thirds of the council.",
+      "evidence": {
+        "url": "https://www.coloradopolitics.com/2026/10/26/aurora-city-council-votes-down-indefinite-data-center-moratorium/"
+      }
+    },
+    {
+      "id": "chicago-city-il-2026-09",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "O2026-0028856",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://chicago.councilmatic.org/legislation/o2026-0028856/"
+      }
+    },
+    {
+      "id": "beaufort-county-nc-2026-10",
+      "field": "vote",
+      "audit_status": "not_found",
+      "disposition": "partial_vote_support",
+      "value": "6–1; Hood Richardson opposed",
+      "note_ref": "N3",
+      "evidence": {
+        "url": "https://www.witn.com/2026/10/05/beaufort-county-commissioners-voted-1-year-pause-data-center-development/"
+      }
+    },
+    {
+      "id": "sabattus-me-2026-11",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "2026-11-03",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "sabattus-me-2026-11",
+      "field": "enacted_by",
+      "audit_status": "not_found",
+      "disposition": "unsupported_in_available_text",
+      "value": "Town Meeting voters",
+      "note_ref": "N2",
+      "evidence": {}
+    },
+    {
+      "id": "mooresville-nc-2026-11",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_reading",
+      "value": "2026-11-02",
+      "note_ref": "N5",
+      "evidence": {
+        "url": "https://www.mooresvillenc.gov/news_detail_T4_R441.php"
+      }
+    },
+    {
+      "id": "chesaning-township-mi-2026-05",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Ordinance 26-001",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://chesaningtwp.org/wp-content/uploads/2026/05/Data.Center.Ordinance.Moratorium.pdf"
+      }
+    },
+    {
+      "id": "kent-oh-2026-04",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Ordinance 2026-31",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://www.kentohio.gov/media/yrhjyjrn/2026-31-data-center-moratorium_signed.pdf"
+      }
+    },
+    {
+      "id": "kent-oh-2026-04",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "signed_document_ocr_gap",
+      "value": "2026-04-15",
+      "evidence": {}
+    },
+    {
+      "id": "comstock-township-mi-2026-03",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Ordinance 565",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://comstockmi.gov/wp-content/uploads/2026/03/Ordinance-565-Data-Center-Moratorium-Regulatory-Ordinance.pdf"
+      }
+    },
+    {
+      "id": "erie-township-mi-2026-02",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Ordinance 132",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://erietownshipmi.gov/wp-content/uploads/2026/02/data-center-moratorium.ord-132.pdf"
+      }
+    },
+    {
+      "id": "prairieville-township-mi-2026-06",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Ordinance 187",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://prairievilletwp-mi.gov/wp-content/uploads/ORD187-Temporary-Moratorium-on-Data-Centers.pdf"
+      }
+    },
+    {
+      "id": "wabash-county-in-2026-08",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_signed_image",
+      "value": "2026-08-31",
+      "evidence": {}
+    },
+    {
+      "id": "hayes-township-mi-2026-02",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Resolution 2092026A, amended by 03092026B",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://www.hayestownshipmi.gov/download/22708/"
+      }
+    },
+    {
+      "id": "brisbane-ca-2026-10",
+      "field": "enacted_date",
+      "audit_status": "not_found",
+      "disposition": "supported_contextual_date",
+      "value": "2026-10-01",
+      "note_ref": "N1",
+      "evidence": {
+        "url": "https://www.brisbaneca.gov/m/newsflash/Home/Detail/420"
+      }
+    },
+    {
+      "id": "mount-pleasant-sc-2026-10",
+      "field": "bill_number",
+      "audit_status": "not_found",
+      "disposition": "supported_identifier_components",
+      "value": "Ordinance 26045",
+      "note_ref": "N8",
+      "evidence": {
+        "url": "https://www.tompsc.com/AgendaCenter/ViewFile/Minutes/_10132026-2283"
+      }
+    }
+  ],
+  "parent_followup": [
+    {
+      "id": "fayetteville-ga-city-2026-03",
+      "field": "bill_number",
+      "disposition": "confirmed_primary_reader",
+      "source_url": "https://www.fayetteville-ga.gov/746/Data-Center-Discussion",
+      "finding": "City FAQ explicitly identifies the March 5 prohibition and Ordinance 26-O-12; March 5 action minutes independently identify the ordinance adoption."
+    },
+    {
+      "id": "henderson-nv-2026-06",
+      "field": "bill_number",
+      "disposition": "corroborated_reporting_primary_index_blocked",
+      "source_url": "https://www.reviewjournal.com/local/henderson/henderson-city-council-introduces-moratorium-on-new-data-centers-3839299/",
+      "finding": "Current reporting explicitly identifies Bill No. 3927. The city bill index lists Bill Nos. 3926 and 3927 but its direct page remains blocked to the reader."
+    },
+    {
+      "id": "new-albany-in-2026-06",
+      "field": "sponsors",
+      "disposition": "corrected_primary_reader",
+      "source_url": "https://cityofnewalbanyevents.squarespace.com/home/2026/6/9/pressing-pause-on-data-centers-mayor-gahan-asks-new-albany-council-for-moratorium-on-new-data-center-development",
+      "finding": "Formal sponsor is Councilperson Elaine Murphy; Mayor Jeff Gahan proposed the pause."
+    },
+    {
+      "id": "oneida-county-wi-2026-07",
+      "field": "bill_number",
+      "disposition": "confirmed_proposal_identifier_signed_notice_image",
+      "source_url": "https://www.oneidacountywi.gov/wp-content/uploads/meetings/7.8.26-NPH-Dilley-Waterhouse-Jones-OA-02-2026.pdf",
+      "finding": "Page 1 explicitly identifies Ordinance Amendment 02-2026 and the proposed data-center moratorium; page 3 describes the 12-month term. This hearing notice does not itself establish final adoption. Do not substitute the unrelated April general-ordinance index entry with the same abbreviated number."
+    },
+    {
+      "id": "prince-georges-county-md-2026-07",
+      "field": "bill_number/enacted_by/effective_date",
+      "disposition": "confirmed_adopted_primary",
+      "source_url": "https://princegeorgescountymd.legistar.com/LegislationDetail.aspx?GUID=4DA0E757-A8B6-4BFD-A7E5-E83AD62A0B1F&ID=8122087",
+      "finding": "Adopted CR-066-2026; County Council; effective July 7. Primary summary specifies preliminary subdivision plans and detailed site plans containing qualified data-center uses."
+    },
+    {
+      "id": "seattle-city-2026-06",
+      "field": "bill_number/power_threshold_mw/effective_date",
+      "disposition": "confirmed_identifier_corrected_unit_and_date_scope",
+      "source_url": "https://seattle.legistar.com/LegislationDetail.aspx?GUID=86F14A6D-9247-4BB5-839E-0A26937BFD3C&ID=8032163",
+      "finding": "CB 121214 / Ordinance 127447. Council passed June 9; mayor signed June 11. Threshold is above 20 MVA, not 20 MW; numeric MW field cleared. Exact effective date left unconfirmed rather than substituting passage day."
+    },
+    {
+      "id": "south-dakota-state-2026-02",
+      "field": "bill_number/failure_reason",
+      "disposition": "confirmed_primary_minutes",
+      "source_url": "https://mylrc.sdlegislature.gov/api/Documents/Minutes/302313.pdf?Year=2026",
+      "finding": "February 18 minutes identify SB 232 and a 5–3–1–0 vote to table it; one member excused."
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+[
+  {
+    "version": "before",
+    "device": "phone",
+    "view": "Home",
+    "median_ready_ms": 95.1,
+    "samples_ms": [
+      112.5,
+      83.3,
+      95.1
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "home.json"
+    ],
+    "home_latest_y": 632.625,
+    "first_content_y": 633.625,
+    "first_content_height": 101.78125
+  },
+  {
+    "version": "before",
+    "device": "phone",
+    "view": "#elections",
+    "median_ready_ms": 84.6,
+    "samples_ms": [
+      84.6,
+      81.6,
+      109.6
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "elections.json",
+      "elections.js?v=20261107a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 582.671875,
+    "first_content_height": 319.5
+  },
+  {
+    "version": "before",
+    "device": "phone",
+    "view": "#comparison",
+    "median_ready_ms": 135.0,
+    "samples_ms": [
+      135.0,
+      155.0,
+      132.0
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "claims.json",
+      "international.json",
+      "projects.json",
+      "signatories.json",
+      "responses.json",
+      "tariffs.json",
+      "rate_cases.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 514.2825927734375,
+    "first_content_height": 709
+  },
+  {
+    "version": "before",
+    "device": "phone",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 154.7,
+    "samples_ms": [
+      152.0,
+      196.4,
+      154.7
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106b"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 613.3482666015625,
+    "first_content_height": 338
+  },
+  {
+    "version": "before",
+    "device": "desktop",
+    "view": "Home",
+    "median_ready_ms": 81.9,
+    "samples_ms": [
+      81.9,
+      77.0,
+      87.2
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "home.json"
+    ],
+    "home_latest_y": 436.078125,
+    "first_content_y": 437.078125,
+    "first_content_height": 62.59375
+  },
+  {
+    "version": "before",
+    "device": "desktop",
+    "view": "#elections",
+    "median_ready_ms": 95.1,
+    "samples_ms": [
+      95.1,
+      92.3,
+      104.0
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "elections.json",
+      "elections.js?v=20261107a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 409.125,
+    "first_content_height": 107
+  },
+  {
+    "version": "before",
+    "device": "desktop",
+    "view": "#comparison",
+    "median_ready_ms": 120.4,
+    "samples_ms": [
+      120.4,
+      133.0,
+      118.2
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "claims.json",
+      "international.json",
+      "projects.json",
+      "signatories.json",
+      "responses.json",
+      "tariffs.json",
+      "rate_cases.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 344.6474609375,
+    "first_content_height": 363
+  },
+  {
+    "version": "before",
+    "device": "desktop",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 168.9,
+    "samples_ms": [
+      163.3,
+      168.9,
+      183.0
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106b"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 458.67535400390625,
+    "first_content_height": 498
+  },
+  {
+    "version": "after",
+    "device": "phone",
+    "view": "Home",
+    "median_ready_ms": 90.7,
+    "samples_ms": [
+      101.0,
+      84.8,
+      90.7
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "home.json"
+    ],
+    "home_latest_y": 632.625,
+    "first_content_y": 633.625,
+    "first_content_height": 100.1875
+  },
+  {
+    "version": "after",
+    "device": "phone",
+    "view": "#elections",
+    "median_ready_ms": 88.5,
+    "samples_ms": [
+      105.6,
+      88.5,
+      86.6
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "elections.json",
+      "elections.js?v=20261107a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 582.671875,
+    "first_content_height": 319.5
+  },
+  {
+    "version": "after",
+    "device": "phone",
+    "view": "#comparison",
+    "median_ready_ms": 121.3,
+    "samples_ms": [
+      121.3,
+      101.2,
+      147.5
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "claims.json",
+      "international.json",
+      "projects.json",
+      "signatories.json",
+      "responses.json",
+      "tariffs.json",
+      "rate_cases.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 514.3760375976562,
+    "first_content_height": 709.0000610351562
+  },
+  {
+    "version": "after",
+    "device": "phone",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 180.4,
+    "samples_ms": [
+      180.4,
+      187.0,
+      171.0
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106b"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 613.3479614257812,
+    "first_content_height": 338
+  },
+  {
+    "version": "after",
+    "device": "desktop",
+    "view": "Home",
+    "median_ready_ms": 79.3,
+    "samples_ms": [
+      82.0,
+      79.3,
+      76.3
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "home.json"
+    ],
+    "home_latest_y": 436.078125,
+    "first_content_y": 437.078125,
+    "first_content_height": 80.59375
+  },
+  {
+    "version": "after",
+    "device": "desktop",
+    "view": "#elections",
+    "median_ready_ms": 102.7,
+    "samples_ms": [
+      102.7,
+      119.6,
+      91.4
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "elections.json",
+      "elections.js?v=20261107a"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 409.125,
+    "first_content_height": 107
+  },
+  {
+    "version": "after",
+    "device": "desktop",
+    "view": "#comparison",
+    "median_ready_ms": 141.1,
+    "samples_ms": [
+      141.1,
+      154.3,
+      129.6
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "claims.json",
+      "international.json",
+      "projects.json",
+      "signatories.json",
+      "responses.json",
+      "tariffs.json",
+      "rate_cases.json"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 344.84454345703125,
+    "first_content_height": 557
+  },
+  {
+    "version": "after",
+    "device": "desktop",
+    "view": "#moratoriums/map",
+    "median_ready_ms": 176.0,
+    "samples_ms": [
+      176.6,
+      163.2,
+      176.0
+    ],
+    "requests": [
+      "",
+      "companies.json",
+      "styles.css?v=20261107a",
+      "app.js?v=20261107a",
+      "moratoriums.json",
+      "map_geography.json",
+      "doe_sites.json",
+      "policies.json",
+      "jurisdiction-map.js?v=20261106b"
+    ],
+    "home_latest_y": null,
+    "first_content_y": 458.69195556640625,
+    "first_content_height": 498
+  }
+]

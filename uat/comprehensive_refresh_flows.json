@@ -1,0 +1,50 @@
+[
+  {
+    "width": 375,
+    "theme": "light",
+    "flow": "New Oneonta town boundary \u2192 moratorium source record",
+    "actions_from_map": 4,
+    "elapsed_seconds": 0.255,
+    "overflow": false
+  },
+  {
+    "width": 375,
+    "theme": "dark",
+    "flow": "New Oneonta town boundary \u2192 moratorium source record",
+    "actions_from_map": 4,
+    "elapsed_seconds": 0.226,
+    "overflow": false
+  },
+  {
+    "width": 820,
+    "theme": "light",
+    "flow": "New Oneonta town boundary \u2192 moratorium source record",
+    "actions_from_map": 4,
+    "elapsed_seconds": 0.284,
+    "overflow": false
+  },
+  {
+    "width": 820,
+    "theme": "dark",
+    "flow": "New Oneonta town boundary \u2192 moratorium source record",
+    "actions_from_map": 4,
+    "elapsed_seconds": 0.245,
+    "overflow": false
+  },
+  {
+    "width": 1366,
+    "theme": "light",
+    "flow": "New Oneonta town boundary \u2192 moratorium source record",
+    "actions_from_map": 4,
+    "elapsed_seconds": 0.277,
+    "overflow": false
+  },
+  {
+    "width": 1366,
+    "theme": "dark",
+    "flow": "New Oneonta town boundary \u2192 moratorium source record",
+    "actions_from_map": 4,
+    "elapsed_seconds": 0.194,
+    "overflow": false
+  }
+]

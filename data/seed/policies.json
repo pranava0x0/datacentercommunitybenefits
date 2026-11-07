@@ -1239,16 +1239,21 @@
       ],
       "community_benefits_framework": true,
       "key_terms": [
-        "Authorizes a host county or municipality to require a payment of up to 1% of the state sales/use tax that would otherwise be exempted on a qualified data center's electricity purchases, to qualify for certain sales tax breaks",
-        "Applies to data centers whose permits/certificates are issued after the bill's effective date",
-        "A broader companion bill (HB 1333) that would have added an equipment PILOT and eased farmland siting rules stalled in the Senate; only the narrower electricity revenue-share mechanism became law via HB 1210",
-        "Gov. Mike Braun signed the bill March 12, 2026"
+        "To use an IEDC specific transaction award certificate, a qualifying data-center user must make quarterly local payments of not more than 1% of the state sales/use taxes not paid on its electricity bills for the duration of the certificate.",
+        "Applies only when both the local development/construction/operation permit and the IEDC specific transaction award certificate are issued after June 30, 2026.",
+        "The host county or city determines how the contributions are allocated and used.",
+        "The payment provision in HEA 1210 Section 100 took effect July 1, 2026."
       ],
-      "summary": "Indiana's HB 1210, signed by Gov. Braun on March 12, 2026, lets host counties and cities require qualified data centers to contribute up to 1% of the sales/use tax they'd otherwise not pay on electricity purchases, as a condition of the local permit/incentive process. A broader bill (HB 1333) with a PILOT-on-equipment provision and farmland-zoning changes stalled in the Senate.",
-      "source_url": "https://mirrorindy.org/data-center-legislation-indiana-general-assembly-2026/",
-      "source_title": "Mirror Indy — At a pivotal moment for data centers, Indiana lawmakers take little action",
-      "resources": [],
-      "captured_at": "2026-09-23",
+      "summary": "HEA 1210 Section 100, effective July 1, 2026, requires qualifying data-center users to make quarterly local payments of not more than 1% of the state sales/use taxes not paid on their electricity bills for the duration of their IEDC certificate. It applies when both the local development permit and the specific transaction award certificate are issued after June 30, 2026. The host county or city determines how the contributions are allocated and used.",
+      "source_url": "https://www.in.gov/dor/files/legislative-synopsis-2026.pdf",
+      "source_title": "Indiana Department of Revenue — Legislative Synopsis 2026, IC 6-2.5-15-15.5 / HEA 1210 Section 100 (printed page 14)",
+      "resources": [
+        {
+          "url": "https://www.in.gov/dlgf/files/2026-memos/260429-Cockerill-Memo-Legislation-Affecting-Assessment-Matters.pdf",
+          "title": "Indiana Department of Local Government Finance — Legislation Affecting Assessment Matters (April 29, 2026), confirms March 12 signature"
+        }
+      ],
+      "captured_at": "2026-11-07",
       "principles": [
         "community_benefits",
         "incentive_terms"
@@ -2261,11 +2266,11 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (DCA), N.J.S.A.",
+        "and WHEREAS, the Constitution and statutes of the State of New Jersey, particularly the provisions of the Civilian Defense and Disaster Control Act (\"DCA\"), N.J.S.A.",
         "The interagency Nuclear Power Task Force is hereby established to coordinate the efforts of Executive Branch departments and agencies to formulate and implement a strategy for the development of new nuclear generation facilities in the State, including coordination with the federal government and other states, as needed.",
         "and WHEREAS, PJM anticipates peak load growth of approximately 20 percent by 2030 compared to 2024 levels, with the overwhelming majority of the growth stemming from data centers, which will only further expand the gap between supply and demand in the PJM region;"
       ],
-      "summary": "Gov. Mikie Sherrill's EO 2, signed Jan. 20, 2026, declares a state of emergency over New Jersey's electricity affordability crisis and directs the Board of Public Utilities (BPU) and other agencies to accelerate solar, battery storage, and nuclear generation, and to expedite permitting waivers. The order's whereas clauses explicitly attribute the crisis largely to data-center-driven load growth ('the overwhelming majority of the growth stemming from data centers'), and Directive 8 specifically orders BPU to formulate policies/reports on 'large load' interconnections to curb speculative, duplicative 'ghost load' requests that inflate utility demand forecasts. It does not itself impose data-center-specific permitting or siting conditions; those measures target the crisis's supply side.",
+      "summary": "Governor Mikie Sherrill's January 20 executive order declares an electricity-affordability emergency and directs agencies to accelerate solar, storage and nuclear generation and associated permitting. It cites PJM's forecast of roughly 20% peak-load growth by 2030 compared with 2024, with most growth attributed to data centers. Directive 8 orders BPU to address large-load interconnections and speculative, duplicative requests.",
       "source_url": "https://www.nj.gov/infobank/eo/057sherrill/pdf/EO-2.pdf",
       "source_title": "Executive Order No. 2 (Governor Mikie Sherrill, State of New Jersey)",
       "resources": [
@@ -2274,7 +2279,7 @@
           "title": "NJ Governor's Office — Promise Kept: Governor Sherrill Takes Bold Action with Executive Orders Declaring State of Emergency on Utility Costs"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "new_power",
         "pay_own_way"
@@ -2655,10 +2660,11 @@
         "education"
       ],
       "community_benefits_framework": true,
-      "value_usd": 40000000,
+      "value_usd": 80000000,
       "key_terms": [
         "Paying for New Power Delivery Infrastructure: SB Energy will invest $4.2 billion with AEP Ohio to upgrade and build new transmission lines in southern Ohio to benefit all ratepayers in the region.",
-        "SB Energy has also committed to a $40 million Community Benefits Agreement to support the surrounding Ohio communities."
+        "SB Energy has also committed to a $40 million Community Benefits Agreement to support the surrounding Ohio communities.",
+        "OpenAI has agreed to build on SB Energy’s originally announced $40 million community benefits fund with an incremental $40 million designed to support local priorities, including affordable energy, job creation and workforce development, and community and economic development."
       ],
       "summary": "SB Energy and OpenAI each committed $40 million ($80M combined) in community benefit/grant funds for Pike County, Ohio communities around the PORTS-Pike Technology Campus, a DOE Portsmouth Site data center partnership announced March 20, 2026. SB Energy is separately funding 100% of the ~$4.2 billion grid upgrade with AEP Ohio so the cost is not passed to Ohio ratepayers. Job estimates vary by source (DOE fact sheet: 10,000+ construction/2,000+ operations; PORTS campus site: 35,000 construction/2,500 operations).",
       "source_url": "https://www.energy.gov/articles/fact-sheet-department-energy-ensuring-affordable-energy-access-ohio-while-powering-future",
@@ -2667,12 +2673,16 @@
         {
           "url": "https://portscampus.com/updates/",
           "title": "PORTS-Pike Technology Campus — Updates"
+        },
+        {
+          "url": "https://sbenergy.com/nvidia-ai-compute-ports-pike-ohio/",
+          "title": "SB Energy — NVIDIA / OpenAI PORTS-Pike announcement, August 17, 2026"
         }
       ],
       "related_project_ids": [
         "sb-energy-piketon-oh"
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "community_benefits"
       ],
@@ -3200,7 +3210,7 @@
         "VEDP exclusion for new data centers ≥25MW peak demand from Business Ready Sites/expedited permitting programs",
         "VA-LEAD responsible-development designation criteria modeled on LEED/EnergyStar",
         "Cooling water scarcity area designation for Eastern Virginia Groundwater Management Area",
-        "PJM Reliability Backstop Procurement costs to be assigned to data center large loads"
+        "Directs advocacy for assigning PJM Reliability Backstop Procurement costs to the data-center large loads causing those costs"
       ],
       "summary": "Gov. Abigail Spanberger's EO 22, signed Sept. 18, 2026, directs the Office of the Chief Energy Officer to implement a five-pillar 'Virginia Data Center Accountability Framework' covering community engagement, environmental protection, affordability, clean energy/grid reliability, and workforce. It bans state-agency NDAs on data center projects, excludes new data centers of 25 MW or more from VEDP's Business Ready Sites/expedited-permitting programs, directs DEQ to develop noise rules and a cooling-water-scarcity-area designation (naming the Eastern Virginia Groundwater Management Area), and directs engagement with the SCC/PJM to shield ratepayers from data-center-driven grid costs. It also creates a rapid-response AI Task Force. It rescinds Youngkin's EO 30 (2024) and Executive Directive 5 (2023).",
       "source_url": "https://www.governor.virginia.gov/media/governorvirginiagov/governor-of-virginia/pdf/eo/eo-22-establishing-va-data-center-accountability-and-ai-initiatives.pdf",
@@ -3215,7 +3225,7 @@
           "title": "Governor of Virginia newsroom — September releases"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "transparency",
         "incentive_terms",
@@ -3495,12 +3505,12 @@
       "community_benefits_framework": false,
       "key_terms": [
         "100 MW / 20 GWh large-data-center threshold",
-        "closed-loop cooling water system required",
+        "Closed-loop cooling or another system using no more water than a closed-loop system required",
         "annual DNR water-use reporting",
         "renewable generation must be co-located with the data center it serves",
         "reclamation bonds for abandoned projects"
       ],
-      "summary": "Wisconsin AB 840 (2025-2026 session), introduced January 9, 2026 by a group of GOP legislators, would have directed the Public Service Commission to ensure new electric infrastructure costs for a data center are borne by that facility rather than other ratepayers, required data centers above 100 MW demand or 20 GWh consumption to use closed-loop cooling systems and report annual water use to the DNR, required any renewable generation facility primarily serving a data center's load to be sited at the data center itself, and required reclamation bonds for abandoned projects. The Assembly passed the bill 53-44 on January 20, 2026, but the Senate failed to concur on March 23, 2026, and it did not become law.",
+      "summary": "Wisconsin AB 840 (2025-2026 session), introduced January 9, 2026 by a group of GOP legislators, would have directed the Public Service Commission to ensure new electric infrastructure costs for a data center are borne by that facility rather than other ratepayers, required data centers above 100 MW demand or 20 GWh consumption to use closed-loop cooling or another system using no more water than a closed-loop system and report annual water use to the DNR, required any renewable generation facility primarily serving a data center's load to be sited at the data center itself, and required reclamation bonds for abandoned projects. The Assembly passed the bill 53-44 on January 20, 2026, but the Senate failed to concur on March 23, 2026, and it did not become law.",
       "source_url": "https://docs.legis.wisconsin.gov/2025/proposals/ab840",
       "source_title": "Wisconsin Legislature — 2025 Assembly Bill 840 legislative history",
       "resources": [
@@ -3513,7 +3523,7 @@
           "title": "WisPolitics — Wisconsin Conservation Voters on AB 840"
         }
       ],
-      "captured_at": "2026-09-23",
+      "captured_at": "2026-11-07",
       "principles": [
         "pay_own_way"
       ]
@@ -4797,12 +4807,12 @@
       ],
       "community_benefits_framework": false,
       "key_terms": [
-        "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
+        "ORDINANCE NO. 227-2026 AN ORDINANCE TO AMEND THE WEST VINCENT TOWNSHIP CODE OF ORDINANCES TO DEFINE AND ADD SPECIFIC REQUIREMENTS FOR DATA CENTERS AND DATA CENTER ACCESSORY USES"
       ],
       "summary": "West Vincent Township's Board of Supervisors gave public notice of a hearing on June 15, 2026 to consider, and possibly vote to adopt, Ordinance 227-2026, which amends the township code to define data centers and data center accessory uses. The outcome of the hearing was not found, so the ordinance is recorded as proposed.",
       "source_url": "https://westvincenttwp.org/wp-content/uploads/2026/05/data-centers-public-notice-1.pdf",
       "source_title": "West Vincent Township — Public notice: data centers ordinance hearing",
-      "captured_at": "2026-10-19"
+      "captured_at": "2026-11-07"
     },
     {
       "id": "charles-county-md-zta-25-187-2026-07",
@@ -5106,6 +5116,382 @@
       "source_url": "https://raleighnc.gov/services/unified-development-ordinance-udo/data-centers-faq",
       "source_title": "City of Raleigh — Data Centers FAQ: zoning and special-use permit requirements",
       "captured_at": "2026-11-06"
+    },
+    {
+      "id": "st-louis-mo-ordinance-72181-2026",
+      "title": "St. Louis data-center zoning and Public Impact Agreements",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "St. Louis",
+      "state_code": "MO",
+      "identifier": "Ordinance 72181 / Board Bill 49",
+      "date": "2026-09-17",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "engagement",
+        "infrastructure"
+      ],
+      "principles": [
+        "community_benefits",
+        "local_control",
+        "transparency"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Major data centers require a Public Impact Agreement with the city before a building permit is granted.",
+        "The agreement requires a simple majority of the Board of Public Service and at least two-thirds of the Board of Aldermen.",
+        "Public comment must be accepted during the conditional-use hearing process before both boards approve the agreement.",
+        "Site-specific benefits may include land dedication or impact fees and must be related and roughly proportional to the development's impacts.",
+        "Default under the agreement may lead to revocation of the conditional-use permit."
+      ],
+      "summary": "St. Louis added comprehensive data-center zoning rules, effective September 17. Major facilities require a Public Impact Agreement addressing site-specific impacts, with public comment and approval by both city boards before a building permit. The ordinance sets zoning and operating conditions rather than a moratorium.",
+      "source_url": "https://www.stlouis-mo.gov/government/city-laws/upload/legislative//Ordinances/BOAPdf/72181.pdf",
+      "source_title": "City of St. Louis — Ordinance 72181, Chapter 26.77",
+      "resources": [
+        {
+          "url": "https://www.stlouis-mo.gov/government/city-laws/ordinances/ordinance.cfm?ord=72181",
+          "title": "Ordinance history and September 17 effective date"
+        }
+      ],
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "google-company-plan-responsible-growth-2026",
+      "title": "Google data-center power costs, taxes and disclosure commitments",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "company",
+      "jurisdiction": "Google (company-wide)",
+      "company_slugs": [
+        "google"
+      ],
+      "benefit_themes": [
+        "energy",
+        "tax_revenue",
+        "engagement"
+      ],
+      "principles": [
+        "pay_own_way",
+        "transparency",
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Pay for 100% of the power our data centers use and the direct infrastructure costs required to connect them to the grid, while following all appropriate local regulations.",
+        "For all new campuses, Google will pay full real property taxes on our data center buildings and land.",
+        "Eliminate the use of NDAs with state and local governments."
+      ],
+      "summary": "Google's published approach commits to paying power and direct grid-connection costs, paying full real property taxes on new campuses, and ending NDAs with state and local governments. It also commits to publishing project-level information about water use, sound and light limits, and traffic impacts.",
+      "source_url": "https://datacenters.google/our-approach/",
+      "source_title": "Google Data Centers — Our approach to investing in data center communities",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "oracle-jupiter-epe-credit-proposal-2026",
+      "title": "Oracle Project Jupiter proposed utility payments and customer credits",
+      "instrument": "company_plan",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "New Mexico — El Paso Electric residential and small-business customers",
+      "state_code": "NM",
+      "date": "2026-10-13",
+      "company_slugs": [
+        "oracle"
+      ],
+      "counterparties": [
+        "El Paso Electric"
+      ],
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way",
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "key_terms": [
+        "Proposed energy service agreement with El Paso Electric anticipates at least $100 million spend on power over 10 years to support affordable electric rates",
+        "In addition, a separate agreement includes a proposal to provide as much as $55 million annually in direct credits for up to three years for EPE’s New Mexico residential and small business customers.",
+        "This credit could begin benefiting customers in 2027."
+      ],
+      "summary": "Oracle proposed at least $100 million in electricity purchases over 10 years for Project Jupiter and a separate proposal for up to $55 million a year in customer credits for up to three years. The credits would apply to El Paso Electric's New Mexico residential and small-business customers and could begin in 2027.",
+      "related_project_ids": [
+        "oracle-dona-ana-nm"
+      ],
+      "source_url": "https://www.oracle.com/news/announcement/oracle-proposes-plan-to-offset-customers-utility-costs-2026-10-13/",
+      "source_title": "Oracle — Proposed Project Jupiter utility-cost offset plan, October 13, 2026",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "hazle-township-pa-2026-06-framework",
+      "title": "Hazle Township data-center curative-amendment process",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Hazle Township",
+      "state_code": "PA",
+      "identifier": "Resolution 2026-16",
+      "date": "2026-06-08",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "study",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "A 180-day municipal curative-amendment process addresses data-center and accessory uses in the zoning ordinance.",
+        "During the process, the township is protected from substantive-validity challenges to the affected zoning provisions."
+      ],
+      "summary": "Hazle Township adopted a curative-amendment resolution on June 8 after declaring portions of its zoning ordinance substantively invalid concerning data centers and accessory uses. The resolution begins a 180-day process to revise those provisions.",
+      "source_url": "https://www.hazletownship.com/images/2026_Meeting_Minutes_SupervisorsJuneJulyAugust.pdf",
+      "source_title": "Hazle Township data-center curative-amendment process — Resolution 2026-16",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "clearfield-ut-2026-09-framework",
+      "title": "Clearfield temporary data-center land-use study",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Clearfield",
+      "state_code": "UT",
+      "identifier": "Ordinance 2026-13",
+      "date": "2026-09-08",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "study",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Temporary land-use regulation defines data centers and directs a study of zoning classifications and development standards.",
+        "The ordinance establishes a 180-day term from effectiveness."
+      ],
+      "summary": "Clearfield adopted a temporary land-use regulation on September 8 to define data centers and study zoning classifications and development standards. The operative text establishes the study and its duration.",
+      "source_url": "https://clearfield.city/wp-content/uploads/2026/09/2026O-13-Ordinance-Establishing-a-temporary-land-use-Data-Center.pdf",
+      "source_title": "Clearfield temporary data-center land-use study — Ordinance 2026-13",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "cincinnati-oh-2026-02-framework",
+      "title": "Cincinnati data-center interim development-control overlay",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Cincinnati",
+      "state_code": "OH",
+      "identifier": "Interim Development Control Overlay 89",
+      "date": "2026-02-11",
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "study",
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "The overlay covers new and expanded data centers in the CC-A, CG-A, UM, DD, ML and MG zoning districts.",
+        "An April 1 extension continues the overlay through February 11, 2027.",
+        "Development applications undergo interim review while the city studies zoning amendments."
+      ],
+      "summary": "Cincinnati established an interim development-control overlay on February 11 for new and expanded data centers in six zoning districts. It extended the overlay on April 1 through February 11, 2027 while it develops zoning amendments.",
+      "source_url": "https://www.cincinnati-oh.gov/planning/idc-89",
+      "source_title": "Cincinnati data-center interim development-control overlay — Interim Development Control Overlay 89",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "openai-grid-protectors-company-plan-2026",
+      "title": "OpenAI Grid Protectors Program",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "company",
+      "jurisdiction": "OpenAI (future US compute campuses)",
+      "date": "2026-11-02",
+      "company_slugs": [
+        "openai"
+      ],
+      "counterparties": [],
+      "benefit_themes": [
+        "energy"
+      ],
+      "principles": [
+        "pay_own_way"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "National future-campus demand-flexibility program; local arrangements remain to be finalized.",
+        "Effingham pilot: full infrastructure and electric-service costs paid by OpenAI, with up to 1,000 MW flexible demand response."
+      ],
+      "summary": "OpenAI launched a national future-campus flexibility program. Effingham is its pilot; broader site arrangements will vary and remain to be finalized.",
+      "source_url": "https://openai.com/index/grid-protectors-program/",
+      "source_title": "OpenAI — Introducing the Grid Protectors Program",
+      "related_project_ids": [
+        "openai-effingham-county-ga"
+      ],
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "turkey-tx-qts-lancium-community-agreement-2026",
+      "title": "QTS / Lancium – Turkey infrastructure and community agreement",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Turkey, TX",
+      "state_code": "TX",
+      "date": "2026-10-09",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "Lancium",
+        "City of Turkey"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "infrastructure",
+        "water"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 10500000,
+      "key_terms": [
+        "$1.5 million annually through 2032, totaling $10.5 million, for city priorities.",
+        "Up to $5 million in additional infrastructure assistance.",
+        "Separate one-time water-tower/sewer contribution; amount not disclosed."
+      ],
+      "summary": "QTS and Lancium announced an agreement with Turkey for $10.5 million in payments through 2032, up to $5 million in additional infrastructure assistance and a separate water-tower/sewer contribution. The campus is outside city limits.",
+      "source_url": "https://q.com/news/qts-and-lancium-announce-agreement-to-support-turkeys-infrastructure-and-community-priorities/",
+      "source_title": "QTS — QTS / Lancium – Turkey infrastructure and community agreement",
+      "related_project_ids": [
+        "qts-hall-county-tx"
+      ],
+      "captured_at": "2026-11-07",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "fayette-county-ga-qts-resilience-program-2026",
+      "title": "QTS Fayette County Community Resilience Program",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Fayette County, GA",
+      "state_code": "GA",
+      "date": "2026-10-26",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "Georgia Power",
+        "The Same House",
+        "Groundswell"
+      ],
+      "benefit_themes": [
+        "community_grants",
+        "energy"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 14000000,
+      "key_terms": [
+        "$14 million for pre-weatherization repairs serving more than 800 eligible homes.",
+        "Home assessments determine eligibility and improvements; program is not a universal bill credit."
+      ],
+      "summary": "QTS announced a household repair and energy-efficiency program with Georgia Power and community partners. It addresses structural, health and safety barriers that can prevent households from accessing weatherization improvements.",
+      "source_url": "https://q.com/news/qts-invests-14-million-in-energy-efficiency-program-to-help-lower-energy-costs-for-fayette-county-households/",
+      "source_title": "QTS — QTS Fayette County Community Resilience Program",
+      "related_project_ids": [
+        "qts-fayetteville-ga"
+      ],
+      "captured_at": "2026-11-07",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "fayetteville-ga-qts-station93-2026",
+      "title": "QTS contribution for Fayetteville Fire Station 93",
+      "instrument": "company_plan",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Fayetteville, GA",
+      "state_code": "GA",
+      "date": "2026-10-13",
+      "company_slugs": [
+        "qts"
+      ],
+      "counterparties": [
+        "City of Fayetteville",
+        "Fayetteville Fire Department"
+      ],
+      "benefit_themes": [
+        "infrastructure"
+      ],
+      "principles": [
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": 11500000,
+      "key_terms": [
+        "$11.5 million QTS contribution plus donated land for permanent Station 93.",
+        "Groundbreaking October 13, 2026; completion expected spring 2028."
+      ],
+      "summary": "QTS contributes $11.5 million and nine acres for a permanent Fire Station 93 near Veterans Parkway and Highway 54. Construction began October 13, 2026, with completion expected in spring 2028.",
+      "source_url": "https://q.com/news/fire-department-breaks-ground-on-new-station-93/",
+      "source_title": "QTS — QTS contribution for Fayetteville Fire Station 93",
+      "related_project_ids": [
+        "qts-fayetteville-ga"
+      ],
+      "captured_at": "2026-11-07",
+      "agreement_features": [
+        "dollar_commitment"
+      ]
+    },
+    {
+      "id": "or-data-center-advisory-committee-2026",
+      "title": "Oregon Statewide Data Center Advisory Committee",
+      "instrument": "government_framework",
+      "status": "in_effect",
+      "scope": "state",
+      "jurisdiction": "Oregon",
+      "state_code": "OR",
+      "identifier": null,
+      "date": "2026-01-20",
+      "benefit_themes": [
+        "energy",
+        "water",
+        "engagement"
+      ],
+      "community_benefits_framework": false,
+      "key_terms": [
+        "Public advisory process addressing reliable energy without burdening ratepayers, water resources, land use and local economic benefits.",
+        "Meetings include opportunities for public comment; the committee recommends state policy actions."
+      ],
+      "summary": "Governor Kotek convened an advisory committee to recommend data-center siting and development policy addressing electricity costs, water, energy, land use and local economic benefits. It conducts public meetings and develops recommendations.",
+      "source_url": "https://apps.oregon.gov/oregon-newsroom/OR/GOV/Posts/Post/governor-kotek-convenes-statewide-data-center-advisory-committee",
+      "source_title": "Governor Kotek Convenes Statewide Data Center Advisory Committee",
+      "resources": [
+        {
+          "url": "https://www.oregon.gov/energy/Get-Involved/Documents/Data-Center-Advisory-Committee-Charge.pdf",
+          "title": "Oregon Statewide Data Center Advisory Committee — charge"
+        }
+      ],
+      "captured_at": "2026-11-07",
+      "principles": [
+        "study"
+      ]
     }
   ]
 }

@@ -34,6 +34,10 @@ def test_seed_geography_covers_each_eligible_record_or_names_a_gap() -> None:
     assert baltimore.census_geoid == "24005"  # Baltimore County, distinct from Baltimore city.
     augusta = next(item for item in geography.jurisdictions if "augusta-ga-2026-06" in item.moratorium_ids)
     assert augusta.census_geoid == "1304204"  # Municipal government, not statistical Augusta CCD.
+    oneonta = next(item for item in geography.jurisdictions if "oneonta-ny-2026-05" in item.moratorium_ids)
+    assert oneonta.census_geoid == "3607754892"  # Town government, not the separately incorporated city.
+    highland = next(item for item in geography.jurisdictions if "highland-ny-2026" in item.moratorium_ids)
+    assert highland.census_geoid.startswith("36105")  # Sullivan County, not the Ulster County hamlet.
     assert not any(" CCD" in item.name for item in geography.jurisdictions)
 
 

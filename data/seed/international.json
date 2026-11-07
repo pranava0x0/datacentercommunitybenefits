@@ -3583,9 +3583,18 @@
       },
       "source_url": "https://www.aap.com.au/aapreleases/cision20260725ae12156/",
       "source_title": "PR Newswire via AAP — NAVER, NVIDIA and Brookfield Sejong AI factory release (25 Jul 2026)",
-      "notes": "The release says new investments raise the initial NVIDIA DSX AI factory deployment from 55 MW to 200 MW; Brookfield funds up to $9 billion as exclusive capital partner, NVIDIA invests $1 billion and NAVER funds the rest. power_mw is that deployment figure. The 270 MW campus plan comes from secondary reporting and is not recorded.",
+      "notes": "The release says new investments raise the initial NVIDIA DSX AI factory deployment from 55 MW to 200 MW; Brookfield funds up to $9 billion as exclusive capital partner, NVIDIA invests $1 billion and NAVER funds the rest. power_mw is that deployment figure. The 270 MW campus plan comes from secondary reporting and is not recorded. On October 27, 2026, NAVER signed a $9 billion computing-infrastructure agreement with Brookfield. The business plans 55 MW in the first half of 2027 and 200 MW in 2028, with GAK Sejong as its core hub and later overseas expansion. These are business-wide investment and rollout figures.",
       "captured_at": "2026-10-19",
-      "source_lang": "en"
+      "source_lang": "en",
+      "updates": [
+        {
+          "date": "2026-10-27",
+          "kind": "news",
+          "title": "NAVER and Brookfield announce infrastructure agreement",
+          "source_url": "https://www.navercorp.com/en/media/pressReleasesDetail?seq=10034796",
+          "source_title": "NAVER — Brookfield computing-infrastructure agreement"
+        }
+      ]
     },
     {
       "id": "es-aws-zaragoza-car",
@@ -3732,9 +3741,10 @@
       "announced_year": 2025,
       "power_mw": 64,
       "notes": "W.Media, reporting a Colt DCS press release, says construction of Mumbai 3 is underway, ground preparation began in December 2025, and the facility will deliver 64 MW of secured contracted power on completion. It is part of the Colt DCS and RMZ joint venture announced in 2024 to invest US$1.7 billion in Indian data centres; that figure covers the venture, not this site, so no site investment is recorded. The customer is unnamed. The article carries no date in its text; announced_year is the year ground preparation began. No site coordinates are published.",
-      "source_url": "https://w.media/colt-dcs-and-rmz-commence-construction-on-third-mumbai-data-center/",
-      "source_title": "W.Media — Colt DCS and RMZ commence construction on third Mumbai data center",
-      "captured_at": "2026-10-19"
+      "source_url": "https://www.coltdatacentres.net/en-GB/press-releases/data-centres/2026/10/coltdcs-and-rmz-begins-construction-third-dc-in-mumbai",
+      "source_title": "Colt DCS — Construction begins on Mumbai 3, October 15, 2026",
+      "captured_at": "2026-11-07",
+      "project_page_url": "https://www.coltdatacentres.net/en-GB/press-releases/data-centres/2026/10/coltdcs-and-rmz-begins-construction-third-dc-in-mumbai"
     },
     {
       "id": "fr-microsoft-petit-landau",
@@ -3802,7 +3812,7 @@
       "status": "announced",
       "announced_year": 2025,
       "power_mw": 40,
-      "notes": "AFP says the building permit was signed on 18 December 2025 by the mayor of Alixan for an AI data centre of 40 MW initial capacity with a possible extension to 80 MW (power_mw is the initial figure). A court suspended the permit on 10 July 2026 pending a ruling on the merits. Construction status is not recorded. No site coordinates are recorded.",
+      "notes": "AFP says the building permit was signed on 18 December 2025 by the mayor of Alixan for an AI data centre of 40 MW initial capacity with a possible extension to 80 MW (power_mw is the initial figure). A court suspended the permit on 10 July 2026 pending a ruling on the merits. Construction status is not recorded. No site coordinates are recorded. On October 6, Sesterce reaffirmed a strict 40 MW limit and said implementation of its building permit remains suspended while six commitments are integrated. It proposes a dialogue committee with local authorities and associations.",
       "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
       "source_title": "AFP via Connaissance des énergies — IA: la justice suspend un projet de centre de données près de Valence (10 Jul 2026)",
       "captured_at": "2026-10-19",
@@ -3823,6 +3833,13 @@
           "authority": "Tribunal administratif de Grenoble",
           "source_url": "https://www.connaissancedesenergies.org/afp/ia-la-justice-suspend-un-projet-de-centre-de-donnees-pres-de-valence-260710",
           "source_title": "AFP via Connaissance des énergies"
+        },
+        {
+          "date": "2026-10-06",
+          "kind": "news",
+          "title": "Sesterce revises Rovaltain commitments",
+          "source_url": "https://www.sesterce.com/newsroom/rovaltain-becomes-a-sesterce-campus",
+          "source_title": "Sesterce — Rovaltain becomes a Sesterce campus"
         }
       ]
     },
@@ -4104,6 +4121,150 @@
       "source_title": "Buglife: Google plans for sprawling data centre campus on designated wildlife site (14 Aug 2025)",
       "captured_at": "2026-10-19",
       "notes": "The only source read is Buglife's 14 August 2025 news page, a campaign group's account, so Google's own plan documents and the Thurrock planning register were not checked and no application reference is recorded. Buglife says the campus would destroy over half of the Arena Essex Local Wildlife Site and over 80% of its Open Mosaic Habitat, and that over 2,500 supporters had signed a petition calling on Google to withdraw the plans. Status is announced pending a council decision; none was found. No site coordinates are recorded."
+    },
+    {
+      "id": "fi-sesterce-jamsa-kaipola",
+      "company_slug": "sesterce",
+      "name": "Sesterce Jämsä / Kaipola AI Campus",
+      "city": "Jämsä",
+      "country": "FI",
+      "status": "announced",
+      "announced_year": 2026,
+      "source_url": "https://www.sesterce.com/newsroom/sesterce-plans-ai-campus-kaipola-jamsa-finland",
+      "source_title": "Sesterce Jämsä / Kaipola AI Campus — company announcement",
+      "captured_at": "2026-11-07",
+      "announced_date": "2026-10-08",
+      "power_mw": 600,
+      "claimed_investment": {
+        "amount": 10000000000,
+        "currency": "EUR",
+        "as_stated": "over €10 billion"
+      },
+      "claimed_jobs": 2300,
+      "notes": "Former Kaipola paper mill. Phase 1 is 200 MW, with works planned in 2026; phase 2 reaches 600 MW. More than 1 GW is a Finland-wide long-term ambition, not this parcel’s stated capacity. Approximately 2,000 construction jobs and 300 operational jobs. Investment is more than €10 billion."
+    },
+    {
+      "id": "fr-sesterce-bosquel",
+      "company_slug": "sesterce",
+      "name": "SoftBank Group / Sesterce Bosquel AI Campus",
+      "city": "Bosquel",
+      "country": "FR",
+      "status": "announced",
+      "announced_year": 2026,
+      "source_url": "https://www.sesterce.com/newsroom/softbank-group-sesterce-1gw-ai-data-center-bosquel-france",
+      "source_title": "SoftBank Group / Sesterce Bosquel AI Campus — company announcement",
+      "captured_at": "2026-11-07",
+      "announced_date": "2026-06-01",
+      "power_mw": 1000,
+      "notes": "A joint venture between Sesterce and SoftBank Group will develop and operate the proposed 1 GW campus. The venture plans a €10 million endowment fund jointly managed with Hauts-de-France."
+    },
+    {
+      "id": "ca-meta-sturgeon-county",
+      "company_slug": "meta",
+      "name": "Meta Sturgeon Data Centre",
+      "city": "Sturgeon County",
+      "country": "CA",
+      "subdivision": "CA-AB",
+      "locality": "Sturgeon County, Alberta",
+      "status": "construction",
+      "announced_year": 2026,
+      "announced_date": "2026-07-08",
+      "power_mw": 1000,
+      "claimed_investment": {
+        "amount": 13000000000,
+        "currency": "CAD",
+        "as_stated": "More than CA$13 billion"
+      },
+      "source_url": "https://datacenters.atmeta.com/2026/07/hello-sturgeon-county/",
+      "source_title": "Meta — Hello, Sturgeon County!",
+      "project_page_url": "https://www.sturgeoncounty.ca/building-development/data-centre-development/",
+      "captured_at": "2026-11-07",
+      "notes": "Meta announces more than CA$13 billion of investment, about 3,000 peak construction workers, more than 300 operational jobs and approximately CA$60 million for local roads and water infrastructure. A July 2026 county road-closure notice confirms construction. The separate 970 MW Project Greenlight generation facility supplies power infrastructure.",
+      "updates": [
+        {
+          "date": "2026-07-15",
+          "kind": "construction",
+          "title": "County announces road closure during Meta construction",
+          "source_url": "https://www.sturgeoncounty.ca/full-road-closure-range-road-222-from-hwy-643-south-to-township-road-560/",
+          "source_title": "Sturgeon County — Range Road222 closure"
+        }
+      ]
+    },
+    {
+      "id": "sg-meta-tanjong-kling",
+      "company_slug": "meta",
+      "name": "Meta Singapore Data Centre",
+      "city": "Singapore",
+      "country": "SG",
+      "locality": "Tanjong Kling Data Center Park, Singapore",
+      "status": "construction",
+      "announced_year": 2018,
+      "claimed_investment": {
+        "amount": 1400000000,
+        "currency": "SGD",
+        "as_stated": "S$1.4 billion+"
+      },
+      "source_url": "https://datacenters.atmeta.com/2019/01/rethinking-data-center-design-for-singapore/",
+      "source_title": "Meta — Rethinking data center design for Singapore",
+      "project_page_url": "https://datacenters.atmeta.com/asset/singapore-data-center-info-sheet/",
+      "captured_at": "2026-11-07",
+      "notes": "Announced in September 2018 with an investment now listed at S$1.4 billion or more. Meta’s October 14, 2022 careers feature describes opening as a future event; current operation remains unconfirmed.",
+      "updates": [
+        {
+          "date": "2022-10-14",
+          "kind": "news",
+          "title": "Meta describes Singapore facility under development",
+          "summary": "The updated company careers feature describes the opening in future terms. It does not confirm an opening date.",
+          "source_url": "https://www.metacareers.com/blog/singapore-data-center/",
+          "source_title": "Meta Careers — Singapore Data Center: Building and innovating from the ground up"
+        }
+      ]
+    },
+    {
+      "id": "jp-google-inzai",
+      "name": "Google Inzai Data Center",
+      "city": "Inzai",
+      "locality": "Inzai, Chiba Prefecture",
+      "country": "JP",
+      "status": "operational",
+      "announced_year": 2022,
+      "announced_date": "2022-10-06",
+      "source_url": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/japan-digital-future/",
+      "source_title": "Google — In Tokyo: New commitments to Japan’s digital future",
+      "project_page_url": "https://datacenters.google/locations/inzai-japan/",
+      "notes": "Google announced the Inzai facility in October2022. Its current official location timeline dates opening to March2023; the Japanese company release describes an opening ceremony on April13,2023. The $730 million Japan infrastructure programme also includes subsea connectivity and is not assigned as campus capex.",
+      "company_slug": "google",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "sg-google-jurong-west",
+      "name": "Google Singapore Data Centers",
+      "city": "Singapore",
+      "locality": "Jurong West, Singapore",
+      "country": "SG",
+      "status": "operational",
+      "announced_year": 2011,
+      "announced_date": "2011-09-28",
+      "source_url": "https://datacenters.google/locations/singapore/",
+      "source_title": "Google — Singapore data centers",
+      "project_page_url": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/building-new-data-center-singapore/",
+      "notes": "This country-level company roster entry covers four facilities. The original Jurong West campus was announced in2011 and opened in2013; subsequent facilities became operational in2015 and2022, and the fourth was completed in2024. The 2018 company release locates the third facility down the road from the first two; campus-level street-address separation remains unresolved. The $5 billion technical infrastructure total covers the Singapore portfolio.",
+      "company_slug": "google",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "fi-google-vaala",
+      "name": "Google Vaala Data Center Campus",
+      "city": "Vaala",
+      "country": "FI",
+      "status": "announced",
+      "announced_year": 2026,
+      "source_url": "https://datacenters.google/locations/vaala/",
+      "source_title": "Google — Vaala, Finland",
+      "project_page_url": "https://datacenters.google/locations/vaala/",
+      "notes": "Google announced the acquisition of 460 hectares in 2026 for potential future data-centre development. Its September update describes preliminary infrastructure work and preparation for the next construction phase. The €13 billion Finland investment plan covers multiple locations.",
+      "company_slug": "google",
+      "captured_at": "2026-11-07"
     }
   ],
   "responses": [
@@ -5640,6 +5801,162 @@
         "reviewed_at": "2026-10-19"
       },
       "project_id": "jp-softbank-tomakomai"
+    },
+    {
+      "id": "fi-sesterce-jamsa-community-fund-2026",
+      "company_slug": "sesterce",
+      "theme": "community_grants",
+      "statement": "Upon commissioning of the Jämsä campus, Sesterce will establish a €10 million community fund to finance local projects selected by the City of Jämsä together with local residents.",
+      "source_url": "https://www.sesterce.com/newsroom/sesterce-plans-ai-campus-kaipola-jamsa-finland",
+      "source_title": "Sesterce — €10 Billion AI Campus in Jämsä",
+      "captured_at": "2026-11-07",
+      "country": "FI",
+      "project_id": "fi-sesterce-jamsa-kaipola",
+      "published_at": "2026-10-08"
+    },
+    {
+      "id": "fi-sesterce-jamsa-water-2026",
+      "company_slug": "sesterce",
+      "theme": "water",
+      "statement": "Drinking water will not be used for cooling.",
+      "source_url": "https://www.sesterce.com/newsroom/sesterce-plans-ai-campus-kaipola-jamsa-finland",
+      "source_title": "Sesterce — Jämsä campus commitments",
+      "captured_at": "2026-11-07",
+      "country": "FI",
+      "project_id": "fi-sesterce-jamsa-kaipola",
+      "published_at": "2026-10-08"
+    },
+    {
+      "id": "fi-sesterce-jamsa-new-renewables-2026",
+      "company_slug": "sesterce",
+      "theme": "energy",
+      "statement": "For every 1 MW consumed by the campus, Sesterce commits to enabling 1 MW of new renewable generation capacity within the Finnish power grid, within ten years of the campus becoming operational.",
+      "source_url": "https://www.sesterce.com/newsroom/sesterce-plans-ai-campus-kaipola-jamsa-finland",
+      "source_title": "Sesterce — Jämsä campus commitments",
+      "captured_at": "2026-11-07",
+      "country": "FI",
+      "project_id": "fi-sesterce-jamsa-kaipola",
+      "published_at": "2026-10-08"
+    },
+    {
+      "id": "fr-sesterce-bosquel-fund-2026",
+      "company_slug": "sesterce",
+      "theme": "community_grants",
+      "statement": "As part of its commitment to regional development, the joint venture plans to establish a €10 million endowment fund that will be jointly managed with the Hauts-de-France region to promote the use of AI in local businesses, schools, universities and community organizations.",
+      "source_url": "https://www.sesterce.com/newsroom/softbank-group-sesterce-1gw-ai-data-center-bosquel-france",
+      "source_title": "Sesterce — SoftBank Group and Sesterce to Develop 1 GW AI Data Center in Bosquel",
+      "captured_at": "2026-11-07",
+      "country": "FR",
+      "project_id": "fr-sesterce-bosquel",
+      "published_at": "2026-06-01"
+    },
+    {
+      "id": "fr-sesterce-rovaltain-water-2026",
+      "company_slug": "sesterce",
+      "theme": "water",
+      "statement": "No drinking water will be introduced into the cooling circuit during operations.",
+      "source_url": "https://www.sesterce.com/newsroom/rovaltain-becomes-a-sesterce-campus",
+      "source_title": "Sesterce — Rovaltain Becomes a Sesterce Campus",
+      "captured_at": "2026-11-07",
+      "country": "FR",
+      "project_id": "fr-sesterce-alixan-rovaltain",
+      "published_at": "2026-10-06"
+    },
+    {
+      "id": "fr-sesterce-rovaltain-fund-2026",
+      "company_slug": "sesterce",
+      "theme": "community_grants",
+      "statement": "A €10 million fund will be paid at commissioning to support projects chosen by residents.",
+      "source_url": "https://www.sesterce.com/newsroom/rovaltain-becomes-a-sesterce-campus",
+      "source_title": "Sesterce — Rovaltain Becomes a Sesterce Campus",
+      "captured_at": "2026-11-07",
+      "country": "FR",
+      "project_id": "fr-sesterce-alixan-rovaltain",
+      "published_at": "2026-10-06"
+    },
+    {
+      "id": "fr-sesterce-rovaltain-jobs-2026",
+      "company_slug": "sesterce",
+      "theme": "jobs",
+      "statement": "Sesterce commits to creating at least one permanent job, directly or indirectly, for every 2 MW consumed, alongside three local construction jobs per MW during the construction phase.",
+      "source_url": "https://www.sesterce.com/newsroom/rovaltain-becomes-a-sesterce-campus",
+      "source_title": "Sesterce — Rovaltain Becomes a Sesterce Campus",
+      "captured_at": "2026-11-07",
+      "country": "FR",
+      "project_id": "fr-sesterce-alixan-rovaltain",
+      "published_at": "2026-10-06"
+    },
+    {
+      "id": "fr-sesterce-rovaltain-dialogue-2026",
+      "company_slug": "sesterce",
+      "theme": "engagement",
+      "statement": "Sesterce is proposing a local dialogue committee in the coming weeks, bringing together the company, local authorities and interested local associations.",
+      "source_url": "https://www.sesterce.com/newsroom/rovaltain-becomes-a-sesterce-campus",
+      "source_title": "Sesterce — Rovaltain Becomes a Sesterce Campus",
+      "captured_at": "2026-11-07",
+      "country": "FR",
+      "project_id": "fr-sesterce-alixan-rovaltain",
+      "published_at": "2026-10-06"
+    },
+    {
+      "id": "in-colt-mumbai3-energy-water-2026",
+      "company_slug": "colt-dcs",
+      "theme": "energy",
+      "statement": "The facility will operate using 100% renewable energy and has been designed with a closed-loop cooling system, enabling near-zero wastewater from the cooling process.",
+      "source_url": "https://www.coltdatacentres.net/en-GB/press-releases/data-centres/2026/10/coltdcs-and-rmz-begins-construction-third-dc-in-mumbai",
+      "source_title": "Colt DCS — Mumbai3sustainability",
+      "project_id": "in-colt-navi-mumbai-3",
+      "country": "IN",
+      "captured_at": "2026-11-07",
+      "published_at": "2026-10-15"
+    },
+    {
+      "id": "meta-sturgeon-energy-pay-costs-2026",
+      "company_slug": "meta",
+      "project_id": "ca-meta-sturgeon-county",
+      "country": "CA",
+      "theme": "energy",
+      "statement": "Importantly, we pay the full costs of our data centres’ energy use so other consumers aren’t negatively impacted, and fund new and upgraded infrastructure. We worked closely with Greenlight Limited Partnership, Altalink, Capital Power, and the Alberta Electric System Operator to plan for and meet our energy needs years in advance of our data centre coming online.",
+      "source_url": "https://datacenters.atmeta.com/2026/07/hello-sturgeon-county/",
+      "source_title": "Meta — Hello, Sturgeon County!",
+      "published_at": "2026-07-08",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "meta-sturgeon-water-dry-cooling-2026",
+      "company_slug": "meta",
+      "project_id": "ca-meta-sturgeon-county",
+      "country": "CA",
+      "theme": "water",
+      "statement": "Our data centre will use a water efficient closed-loop, liquid-cooled system with dry cooling, which means there is no operational water use in the cooling system.",
+      "source_url": "https://datacenters.atmeta.com/2026/07/hello-sturgeon-county/",
+      "source_title": "Meta — Hello, Sturgeon County!",
+      "published_at": "2026-07-08",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "meta-sturgeon-infrastructure-investment-2026",
+      "company_slug": "meta",
+      "project_id": "ca-meta-sturgeon-county",
+      "country": "CA",
+      "theme": "infrastructure",
+      "statement": "We are also investing approximately CA$60 million in local infrastructure improvements, including roads and water infrastructure.",
+      "source_url": "https://datacenters.atmeta.com/2026/07/hello-sturgeon-county/",
+      "source_title": "Meta — Hello, Sturgeon County!",
+      "published_at": "2026-07-08",
+      "captured_at": "2026-11-07"
+    },
+    {
+      "id": "meta-singapore-energy-renewables-2019",
+      "company_slug": "meta",
+      "project_id": "sg-meta-tanjong-kling",
+      "country": "SG",
+      "theme": "energy",
+      "statement": "The new facility will be supported by 100 percent renewable energy.",
+      "source_url": "https://datacenters.atmeta.com/2019/01/rethinking-data-center-design-for-singapore/",
+      "source_title": "Meta — Rethinking data center design for Singapore",
+      "published_at": "2019-01-14",
+      "captured_at": "2026-11-07"
     }
   ],
   "rate_cases": [

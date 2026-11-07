@@ -1,0 +1,1522 @@
+{
+  "captured_at": "2026-11-07",
+  "initial_roster_gaps": [
+    {
+      "company_slug": "meta",
+      "name": "Singapore",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 0,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "sg-meta-tanjong-kling"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Odense",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 1,
+      "disposition": "held_country_outside_registry",
+      "country": "DK",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Sturgeon County",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 2,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "ca-meta-sturgeon-county"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Mesa",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 3,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-mesa-az"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "DeKalb",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 4,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-dekalb-il"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Jeffersonville",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 5,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-jeffersonville-in"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Altoona",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 6,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-altoona-ia"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Rosemount",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 7,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-rosemount-mn"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Kansas City",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 8,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-kansas-city-mo"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Forest City",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 9,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-forest-city-nc"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Bowling Green",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 10,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-bowling-green-oh"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "New Albany",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 11,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-new-albany-oh"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Aiken",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 12,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-aiken-sc"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Gallatin",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 13,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-gallatin-tn"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Fort Worth",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 14,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-fort-worth-tx"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Henrico",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 15,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-henrico-va"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "meta",
+      "name": "Cheyenne",
+      "source_url": "https://datacenters.atmeta.com/all-locations/",
+      "reason": "Official all-locations roster entry absent from both US and international project inventory; announcement year/status/site page needs curation.",
+      "initial_gap_index": 16,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "meta-cheyenne-wy"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Canelones, Uruguay",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 17,
+      "disposition": "held_country_outside_registry",
+      "country": "UY",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Cedar Rapids, Iowa",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 18,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-cedar-rapids-ia"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Changhua County, Taiwan",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 19,
+      "disposition": "held_country_outside_registry",
+      "country": "TW",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Columbia County, Georgia",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 20,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-columbia-county-ga"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Columbus, Ohio",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 21,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-columbus-oh"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Chonburi, Thailand",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 22,
+      "disposition": "held_country_outside_registry",
+      "country": "TH",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Dietzenbach, Germany",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 23,
+      "disposition": "held_country_outside_registry",
+      "country": "DE",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Dorchester County, South Carolina",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 24,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-pine-hill-ridgeville-sc",
+        "google-winding-woods-st-george-sc"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Douglas County, Georgia",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 25,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-douglas-county-ga"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Eemshaven, Netherlands",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 26,
+      "disposition": "held_country_outside_registry",
+      "country": "NL",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Fort Wayne, Indiana",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 27,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-fort-wayne-in"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Fredericia, Denmark",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 28,
+      "disposition": "held_country_outside_registry",
+      "country": "DK",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Groningen, Netherlands",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 29,
+      "disposition": "held_country_outside_registry",
+      "country": "NL",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Hanau, Germany",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 30,
+      "disposition": "held_country_outside_registry",
+      "country": "DE",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Inzai, Japan",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 31,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "jp-google-inzai"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Kansas City, Missouri",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 32,
+      "disposition": "partial_alias_and_held_additional_site",
+      "existing_project_ids": [
+        "google-clay-county-mo"
+      ],
+      "resolution": "Official KansasCity page describes two facilities. Existing ProjectMica/ClayCounty is one; separate earlier HuntMidwest campus requires parcel/name and original phase/date matching."
+    },
+    {
+      "company_slug": "google",
+      "name": "Kronstorf, Austria",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 33,
+      "disposition": "held_country_outside_registry",
+      "country": "AT",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Lancaster, Ohio",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 34,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-lancaster-oh"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Lincoln, Nebraska",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 35,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-lincoln-ne"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Loudoun County, Virginia",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 36,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-loudoun-county-va"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "The Lowcountry, South Carolina",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 37,
+      "disposition": "existing_alias",
+      "existing_project_ids": [
+        "google-berkeley-county-sc"
+      ],
+      "resolution": "Lowcountry coordinates identify original Berkeley/MoncksCorner campus; not another site."
+    },
+    {
+      "company_slug": "google",
+      "name": "Middenmeer, Netherlands",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 38,
+      "disposition": "held_country_outside_registry",
+      "country": "NL",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Midlothian, Texas",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 39,
+      "disposition": "existing_alias",
+      "existing_project_ids": [
+        "google-ellis-county-tx"
+      ],
+      "resolution": "Midlothian is existing Ellis County campus; Red Oak is separate and newly staged."
+    },
+    {
+      "company_slug": "google",
+      "name": "Montgomery County, Tennessee",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 40,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-montgomery-county-tn"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Morgan County, Indiana",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 41,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-morgan-county-in"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Muskogee County, Oklahoma",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 42,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-muskogee-county-ok"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "New Albany, Ohio",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 43,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-new-albany-oh"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Omaha, Nebraska",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 44,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-omaha-ne"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Papillion, Nebraska",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 45,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-papillion-ne"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Prince William County, Virginia",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 46,
+      "disposition": "held_missing_original_announcement_year",
+      "resolution": "Google confirms operation in2023; do not substitute opening year for missing original announcement. Parcel aliases NovaMangoFarm/RollinsFord vs newly approved Sharpless/Wellington are distinct and need matching."
+    },
+    {
+      "company_slug": "google",
+      "name": "Red Oak, Texas",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 47,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-red-oak-tx"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Selangor, Malaysia",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 48,
+      "disposition": "held_country_outside_registry",
+      "country": "MY",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Singapore",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 49,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "sg-google-jurong-west"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Skien, Norway",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 50,
+      "disposition": "held_country_outside_registry",
+      "country": "NO",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Storey County, Nevada",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 51,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "google-storey-county-nv"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Vaala, Finland",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 52,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "fi-google-vaala"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "google",
+      "name": "Winschoten, Netherlands",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 53,
+      "disposition": "held_country_outside_registry",
+      "country": "NL",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "google",
+      "name": "Northern Virginia, USA",
+      "source_url": "https://datacenters.google/locations/",
+      "reason": "Official roster entry absent or needs alias check; do not merge without site-level date/status verification.",
+      "initial_gap_index": 54,
+      "disposition": "regional_alias",
+      "candidate_ids": [
+        "google-loudoun-county-va"
+      ],
+      "resolution": "Regional NorthernVirginia entry overlaps Loudoun campuses and PrinceWilliam; not a separate project. PrinceWilliam remains held for original announcement year."
+    },
+    {
+      "company_slug": "nscale",
+      "name": "Ward County, Texas (~240MW operational; expansion1.2GW)",
+      "source_url": "https://www.nscale.com/ai-infrastructure",
+      "reason": "Official roster verified; announcement year/investment require site-level source. Existing only Monarch/Loughton.",
+      "initial_gap_index": 55,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "nscale-ward-county-tx"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "nscale",
+      "name": "Madison, North Carolina (40MW;99MW secured power)",
+      "source_url": "https://www.nscale.com/ai-infrastructure",
+      "reason": "Official roster verified; announcement year/investment require site-level source. Existing only Monarch/Loughton.",
+      "initial_gap_index": 56,
+      "disposition": "staged_project_candidate",
+      "candidate_ids": [
+        "nscale-madison-nc"
+      ],
+      "resolution": "Verified supporting dates and phase sources are attached to the candidate. Curator review remains required."
+    },
+    {
+      "company_slug": "nscale",
+      "name": "Narvik, Norway (230MW+290MW planned)",
+      "source_url": "https://www.nscale.com/ai-infrastructure",
+      "reason": "Official roster verified; announcement year/investment require site-level source. Existing only Monarch/Loughton.",
+      "initial_gap_index": 57,
+      "disposition": "held_country_outside_registry",
+      "country": "NO",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "nscale",
+      "name": "Glomfjord, Norway (30MW operational;60MW expandable)",
+      "source_url": "https://www.nscale.com/ai-infrastructure",
+      "reason": "Official roster verified; announcement year/investment require site-level source. Existing only Monarch/Loughton.",
+      "initial_gap_index": 58,
+      "disposition": "held_country_outside_registry",
+      "country": "NO",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "nscale",
+      "name": "Sines, Portugal",
+      "source_url": "https://www.nscale.com/ai-infrastructure",
+      "reason": "Official roster verified; announcement year/investment require site-level source. Existing only Monarch/Loughton.",
+      "initial_gap_index": 59,
+      "disposition": "held_country_outside_registry",
+      "country": "PT",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    },
+    {
+      "company_slug": "nscale",
+      "name": "Keflavik, Iceland",
+      "source_url": "https://www.nscale.com/ai-infrastructure",
+      "reason": "Official roster verified; announcement year/investment require site-level source. Existing only Monarch/Loughton.",
+      "initial_gap_index": 60,
+      "disposition": "held_country_outside_registry",
+      "country": "IS",
+      "resolution": "Official location identity verified, but country is outside the fixed18-country registry. No schema extension is authorised."
+    }
+  ],
+  "additional_official_rosters": {
+    "qts": [
+      {
+        "name": "Ashburn 1",
+        "city": "Sterling",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Ashburn 2",
+        "city": "Sterling",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Ashburn 3",
+        "city": "Ashburn",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Ashburn Moran",
+        "city": "Sterling",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Atlanta 1",
+        "city": "Atlanta",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "GA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Augusta",
+        "city": "Augusta",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "GA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Bessemer",
+        "city": "Bessemer",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "AL",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Blakely",
+        "city": "Blakely",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "GA",
+        "matched_project_id": "qts-blakely-ga"
+      },
+      {
+        "name": "Calatorao",
+        "city": "Calatorao",
+        "country": "ES",
+        "source_url": "https://q.com/data-centers/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Cambois",
+        "city": "Cambois",
+        "country": "GB",
+        "source_url": "https://q.com/data-centers/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Cedar Rapids",
+        "city": "Cedar Rapids",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "IA",
+        "matched_project_id": "qts-cedar-rapids-ia"
+      },
+      {
+        "name": "Chicago",
+        "city": "Chicago",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "IL",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Clinton",
+        "city": "Clinton",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "IA",
+        "matched_project_id": "qts-clinton-ia"
+      },
+      {
+        "name": "Colorado Springs",
+        "city": "Colorado Springs",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "CO",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Denver",
+        "city": "Aurora",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "CO",
+        "matched_project_id": "qts-aurora-co"
+      },
+      {
+        "name": "Eagle Mountain",
+        "city": "Eagle Mountain",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "UT",
+        "matched_project_id": "qts-eagle-mountain-ut"
+      },
+      {
+        "name": "East Windsor",
+        "city": "East Windsor",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "NJ",
+        "matched_project_id": "qts-east-windsor-nj"
+      },
+      {
+        "name": "Fayetteville",
+        "city": "Fayetteville",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "GA",
+        "matched_project_id": "qts-fayetteville-ga"
+      },
+      {
+        "name": "Forssa",
+        "city": "Forssa",
+        "country": "FI",
+        "source_url": "https://q.com/data-centers/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Fort Worth",
+        "city": "Fort Worth",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "TX",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Hall County",
+        "city": "Hall County",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "TX",
+        "matched_project_id": "qts-hall-county-tx"
+      },
+      {
+        "name": "Hillsboro 1",
+        "city": "Hillsboro",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "OR",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Hillsboro 2",
+        "city": "Hillsboro",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "OR",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Hillsboro 3",
+        "city": "Hillsboro",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "OR",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Howard County",
+        "city": "Howard County",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "TX",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Irving",
+        "city": "Irving",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "TX",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Manassas 1",
+        "city": "Manassas",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "matched_project_id": "qts-manassas-va"
+      },
+      {
+        "name": "Miami",
+        "city": "Miami",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "FL",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Netherlands-Eemshaven",
+        "city": "Eemshaven",
+        "country": "NL",
+        "source_url": "https://q.com/data-centers/",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "Netherlands-Groningen",
+        "city": "Groningen",
+        "country": "NL",
+        "source_url": "https://q.com/data-centers/",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "New Albany 1",
+        "city": "New Albany",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "OH",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "New Albany 2",
+        "city": "New Albany",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "OH",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Phoenix 2",
+        "city": "Phoenix",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "AZ",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Phoenix 3",
+        "city": "Glendale",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "AZ",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Phoenix 4",
+        "city": "Avondale",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "AZ",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Piscataway",
+        "city": "Piscataway Township",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "NJ",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Richmond 1",
+        "city": "Sandston",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Richmond 2",
+        "city": "Sandston",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Richmond 3",
+        "city": "Sandston",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Richmond 5",
+        "city": "Sandston",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "VA",
+        "matched_project_id": "qts-richmond-va"
+      },
+      {
+        "name": "Sacramento",
+        "city": "Sacramento",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "CA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Salem Township",
+        "city": "Salem Township",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "PA",
+        "matched_project_id": "qts-salem-twp-pa"
+      },
+      {
+        "name": "San Antonio",
+        "city": "San Antonio",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "TX",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Santa Clara",
+        "city": "Santa Clara",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "CA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "South Dallas",
+        "city": "Wilmer",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "TX",
+        "matched_project_id": "qts-wilmer-tx"
+      },
+      {
+        "name": "Suwanee 1",
+        "city": "Suwanee",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "GA",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "Van Wert",
+        "city": "Van Wert",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "OH",
+        "matched_project_id": "qts-van-wert-oh"
+      },
+      {
+        "name": "Vimercate",
+        "city": "Vimercate",
+        "country": "IT",
+        "source_url": "https://q.com/data-centers/",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "York County",
+        "city": "York County",
+        "country": "US",
+        "source_url": "https://q.com/data-centers/",
+        "state": "SC",
+        "matched_project_id": "qts-york-county-sc"
+      }
+    ],
+    "nextdc": [
+      {
+        "url": "https://www.nextdc.com/data-centres/sydney-data-centres/s1-sydney",
+        "text": "S1 Macquarie Park",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sydney-data-centres/s2-sydney",
+        "text": "S2 Macquarie Park",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sydney-data-centres/s3-sydney",
+        "text": "S3 Artarmon",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sydney-data-centres/s4-sydney",
+        "text": "S4 Horsley Park (In Development)",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sydney-data-centres/s5-sydney",
+        "text": "S5 Macquarie Park (In Planning)",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sydney-data-centres/s6-sydney",
+        "text": "S6 Artarmon",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sydney-data-centres/s7-sydney",
+        "text": "S7 Sydney (In Planning)",
+        "country": "AU",
+        "matched_project_id": "au-nextdc-s7-eastern-creek"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/melbourne-data-centres/m1-melbourne",
+        "text": "M1 Port Melbourne",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/melbourne-data-centres/m2-melbourne",
+        "text": "M2 Tullamarine",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/melbourne-data-centres/m3-melbourne",
+        "text": "M3 West Footscray",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/melbourne-data-centres/m4-melbourne",
+        "text": "M4 Port Melbourne (In Development)",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/geelong-data-centres/ge1-geelong",
+        "text": "GE1 Geelong (In Development)",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/brisbane-data-centres/b1-brisbane",
+        "text": "B1 Brisbane",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/brisbane-data-centres/b2-brisbane",
+        "text": "B2 Brisbane",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/gold-coast-data-centres/gc1-gold-coast",
+        "text": "GC1 Gold Coast (In Planning)",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/perth-data-centres/p1-perth",
+        "text": "P1 Malaga",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/perth-data-centres/p2-perth",
+        "text": "P2 Perth",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/darwin-data-centres/d1-darwin",
+        "text": "D1 Darwin",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/darwin-data-centres/d2-darwin",
+        "text": "D2 Darwin",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sunshine-coast-data-centres/sc1-sunshine-coast",
+        "text": "SC1 Sunshine Coast",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "url": "https://www.nextdc.com/data-centres/sunshine-coast-data-centres/sc2-sunshine-coast",
+        "text": "SC2 Sunshine Coast (In Development)",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "text": "PH1 Port Hedland",
+        "url": "https://www.nextdc.com/data-centres/port-hedland-data-centre-colocation",
+        "source_url": "https://www.nextdc.com/data-centres",
+        "review": "Official navigation/roster identity only; original announcement year and site-specific phase require curation.",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "text": "C1 Canberra",
+        "url": "https://www.nextdc.com/data-centres/canberra-data-centres-colocation",
+        "source_url": "https://www.nextdc.com/data-centres",
+        "review": "Official navigation/roster identity only; original announcement year and site-specific phase require curation.",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "text": "A1 Adelaide",
+        "url": "https://www.nextdc.com/data-centres/adelaide-data-centres-colocation",
+        "source_url": "https://www.nextdc.com/data-centres",
+        "review": "Official navigation/roster identity only; original announcement year and site-specific phase require curation.",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "text": "NE1 Newman",
+        "url": "https://www.nextdc.com/data-centres/newman-data-centre-colocation",
+        "source_url": "https://www.nextdc.com/data-centres",
+        "review": "Official navigation/roster identity only; original announcement year and site-specific phase require curation.",
+        "country": "AU",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "text": "AK1 New Zealand (In Development)",
+        "url": "https://www.nextdc.com/data-centres/new-zealand",
+        "source_url": "https://www.nextdc.com/data-centres",
+        "review": "Official navigation/roster identity only; original announcement year and site-specific phase require curation.",
+        "country": "NZ",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "text": "TK1 Japan (In Planning)",
+        "url": "https://www.nextdc.com/data-centres/japan",
+        "source_url": "https://www.nextdc.com/data-centres",
+        "review": "Official navigation/roster identity only; original announcement year and site-specific phase require curation.",
+        "country": "JP",
+        "disposition": "held_missing_original_announcement_year_and_phase"
+      },
+      {
+        "text": "KL1 Kuala Lumpur",
+        "url": "https://www.nextdc.com/data-centres/malaysia",
+        "source_url": "https://www.nextdc.com/data-centres",
+        "review": "Official navigation/roster identity only; original announcement year and site-specific phase require curation.",
+        "country": "MY",
+        "disposition": "held_country_outside_registry"
+      }
+    ],
+    "colt-dcs": [
+      {
+        "name": "Frankfurt City",
+        "country": "DE",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "Frankfurt West",
+        "country": "DE",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "London North",
+        "country": "GB",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "London West",
+        "country": "GB",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Paris South West",
+        "country": "FR",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Rotterdam",
+        "country": "NL",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "Mumbai 1 and 2",
+        "country": "IN",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Osaka Keihanna",
+        "country": "JP",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Tokyo Shiohama",
+        "country": "JP",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Tokyo Inzai 1",
+        "country": "JP",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Tokyo Inzai 2",
+        "country": "JP",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Tokyo Inzai 3",
+        "country": "JP",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Tokyo Inzai 4",
+        "country": "JP",
+        "category": "operating",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Berlin 1 and 2",
+        "country": "DE",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "Frankfurt 3",
+        "country": "DE",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "Frankfurt 4 and 5",
+        "country": "DE",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "London 4",
+        "country": "GB",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "London 5",
+        "country": "GB",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "London 6,7,8",
+        "country": "GB",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Paris 2",
+        "country": "FR",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Paris 3",
+        "country": "FR",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Paris 4",
+        "country": "FR",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Paris 5 and 6",
+        "country": "FR",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Chennai",
+        "country": "IN",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Tokyo Inzai 5",
+        "country": "JP",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      },
+      {
+        "name": "Tokyo Yoshikawa",
+        "country": "JP",
+        "category": "development",
+        "source_url": "https://www.coltdatacentres.net/en-GB",
+        "disposition": "held_missing_original_announcement_year"
+      }
+    ],
+    "cloudhq": [
+      {
+        "name": "BKK",
+        "city": "Bangkok",
+        "country": "TH",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "KIX",
+        "city": "Osaka",
+        "country": "JP",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "SJC",
+        "city": "Santa Clara",
+        "country": "US",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "SAT",
+        "city": "San Antonio",
+        "country": "US",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "MSP",
+        "city": "Chaska",
+        "country": "US",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "LHR",
+        "city": "Didcot",
+        "country": "GB",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_missing_original_announcement_year_and_site_phase"
+      },
+      {
+        "name": "AMS",
+        "city": "Amsterdam",
+        "country": "NL",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "MXP",
+        "city": "Milan",
+        "country": "IT",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_country_outside_registry"
+      },
+      {
+        "name": "FRA",
+        "city": "Offenbach",
+        "country": "DE",
+        "source_url": "https://cloudhq.com/campuses/",
+        "disposition": "held_country_outside_registry"
+      }
+    ]
+  }
+}

@@ -1345,3 +1345,28 @@ The tablet navigation review found a blank International button: hiding the
 long label at 1100px left the short label's older 640px breakpoint unchanged.
 An accessible aria-label let click-through tests pass despite no visible text.
 Test rendered innerText for every navigation button at both breakpoint edges.
+
+### 2026-11-07 — comprehensive inventory and citation checks
+
+Expected public moratorium registers to expose most missing actions through
+their primary links. Exact-keyword navigation missed readable temporary-hold
+and prohibition records, including JPEG and DOCX attachments. Walk the official
+document links and inspect operative scope before concluding a lead lacks
+evidence; record blocked, draft and unresolved outcomes separately.
+
+Expected an exact-text miss to identify a bad field. Policy terms were often
+supported paraphrases or supported by another resource already on the record.
+One proposed Argentina deletion was wrong for that reason. Check all cited
+resources before editing; company `statement` fields still require exact words.
+
+Expected a dated project release to establish the original announcement year.
+Fort Wayne's April release was groundbreaking after a January identity
+announcement; Meta roster years often refer to groundbreaking. Preserve the
+earliest documented announcement separately from later construction/opening
+milestones. Do not fill required years from a current roster or parcel purchase.
+
+Expected the HTTP timeout to bound every added-source check. A CPU-heavy
+extraction kept a batch running without a completed checkpoint. Isolating
+each fetch in a process with a 55-second wall limit let the remaining source
+checks proceed; timed-out checks remain blocked, never verified. Keep progress
+checkpoints frequent and do not mistake parser activity for completed evidence.
