@@ -89,6 +89,10 @@
       "last_reviewed": "2026-09-29",
       "summary": "Checked status/figures, links, ratepayer eligibility (pre-pledge, none due), and news since 2026-05-14. Fixed a dead source_url (datacenters.google/locations/council-bluffs/ now 404s) to the live iowa page. Re-captured 3 claims with updated figures (investment $6.8B->$20B statewide, 2025 economic activity $2.1B->$2.7B, education orgs/Iowans updated); water grade-stabilization claim unchanged. Added a mixed CommunityResponse: the mayor's June 2026 moratorium request was unanimously declined by city council. Filed a lead for an untracked Cedar Rapids Google site."
     },
+    "site:google-franklin-furnace-oh": {
+      "last_reviewed": "2026-11-07",
+      "summary": "Re-checked WSAZ (May 14 info fair): 500,000 sq ft, $1B, 100% electric still stated; no post-May news found. 792-acre figure unverified (only search listing), left as lead."
+    },
     "site:google-mesa-az": {
       "last_reviewed": "2026-09-30",
       "summary": "Checked status/figures (Phase III design-review submittal from Oct 2025/Mar 2026 predates capture; no post-2026-05 news); no community-response or news changes found; captured_at bumped."
@@ -155,13 +159,13 @@
     },
     "state:AK": {
       "last_check": {
-        "date": "2026-11-04",
-        "summary": "Governor election remained uncalled in checked reports."
+        "date": "2026-11-07",
+        "summary": "Governor race still uncalled in checked sources (Alaska Public teaser: data incomplete, ranked-choice tabulation Nov 23+). No data change."
       },
       "follow_ups": [
         {
-          "due": "2026-11-06",
-          "what": "Check governor race call and direct candidate data-center policies."
+          "due": "2026-11-24",
+          "what": "Check Alaska governor race call after ranked-choice tabulation."
         }
       ]
     },
@@ -285,13 +289,13 @@
     },
     "state:KS": {
       "last_check": {
-        "date": "2026-11-04",
-        "summary": "Governor uncalled; Emporia ballot passage verified, commencement and litigation not resolved."
+        "date": "2026-11-07",
+        "summary": "KCTV5: Holscher declared victory, Masterson not conceded, unofficial lead ~5,500, outcome not finalized; no wire call found. Emporia commencement not re-checked."
       },
       "follow_ups": [
         {
-          "due": "2026-11-06",
-          "what": "Check governor race call; verify Emporia ban commencement and enforceability."
+          "due": "2026-11-16",
+          "what": "Check Kansas governor canvass/concession and Emporia ban commencement."
         }
       ]
     },
@@ -344,17 +348,13 @@
     "state:NC": {
       "follow_ups": [
         {
-          "due": "2026-11-06",
-          "what": "Charlotte: the original 150-day pause expires Nov 5 — was staff's 9-month extension adopted? (charlotte-city-2026-06; the Sept 14 vote outcome was never found)"
-        },
-        {
-          "due": "2026-11-06",
-          "what": "Check Charlotte extension vote"
+          "due": "2027-10-19",
+          "what": "charlotte-city-2026-06 extended moratorium ends Oct 18, 2027: lapsed, extended or made permanent?"
         }
       ],
       "last_check": {
-        "date": "2026-10-26",
-        "summary": "Targeted Beaufort County follow-up resolved: Oct 5 one-year pause passed 6-1 per WITN. Other NC records not re-reviewed."
+        "date": "2026-11-07",
+        "summary": "Charlotte council voted unanimously Oct 26 to extend moratorium until Oct 18, 2027 (WFAE); record updated."
       },
       "blocked": {
         "date": "2026-10-09",

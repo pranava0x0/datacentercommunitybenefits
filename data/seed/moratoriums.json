@@ -195,14 +195,14 @@
       "enacted_date": "2026-06-08",
       "effective_date": null,
       "duration_months": null,
-      "duration_description": "150 days, running through November 5, 2026; during that time city staff will draft new data center regulations.",
+      "duration_description": "Original 150 days, through November 5, 2026; extended by unanimous council vote on October 26, 2026 until October 18, 2027, while city staff draft new data center regulations.",
       "power_threshold_mw": null,
       "key_reasons": [
         "energy",
         "water",
         "noise"
       ],
-      "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development, running through November 5, 2026. Already-approved projects are exempt. A city staff study submitted September 1, 2026 found data-center impacts vary widely by facility type, site layout and climate; the Transportation, Planning and Development Committee then recommended the full council extend the pause by up to nine months (to roughly August 2027) to allow more time on air-pollution monitoring, noise limits and community input, and the full council later set a public hearing for October 12, 2026 before its vote (GovTech, Sept. 29). Reports differ on the length: WFAE and WSOC describe up to nine months, GovTech an additional 11 months through Oct. 11, 2027. As of October 18, 2026 no checked source reports the hearing outcome or a final extension vote; the moratorium as enacted remains in effect through November 5, 2026 either way. Status: enacted (original 150-day pause). Update: on October 12, 2026 the council heard public comment from residents who want the ban extended and union workers who want it lifted on a proposal to extend it by up to 11 months; WUNC/WFAE reports most council members maintained their decision to vote to extend. The extension vote itself has not been reported in a verified source.",
+      "summary": "The Charlotte City Council unanimously approved a 150-day moratorium on new data centers on June 8, 2026, described in coverage as the largest US city to pause data-center development, running through November 5, 2026. Already-approved projects are exempt. A city staff study submitted September 1, 2026 found data-center impacts vary widely by facility type, site layout and climate; the Transportation, Planning and Development Committee then recommended the full council extend the pause by up to nine months (to roughly August 2027) to allow more time on air-pollution monitoring, noise limits and community input, and the full council later set a public hearing for October 12, 2026 before its vote (GovTech, Sept. 29). Reports differ on the length: WFAE and WSOC describe up to nine months, GovTech an additional 11 months through Oct. 11, 2027. Status: enacted (original 150-day pause). Update (Oct 2026): on October 12, 2026 the council heard public comment from residents who want the ban extended and union workers who want it lifted on a proposal to extend it by up to 11 months; WUNC/WFAE reports most council members maintained their decision to vote to extend. On October 26, 2026 the council voted unanimously to extend the moratorium by 11 months, until October 18, 2027 (WFAE, Oct. 27, 2026). Earlier reports of Oct. 11, 2027 and nine months were previews; the adopted date is Oct. 18, 2027.",
       "source_url": "https://www.wfae.org/politics/2026-06-08/charlotte-city-council-approves-150-day-data-center-moratorium",
       "source_title": "Charlotte City Council approves 150-day data center moratorium (WFAE)",
       "bill_number": null,
@@ -212,7 +212,7 @@
       "city_council_vote": "unanimous",
       "failure_reason": null,
       "session": "2026",
-      "captured_at": "2026-10-21",
+      "captured_at": "2026-11-07",
       "state_code": "NC",
       "resources": [
         {
@@ -230,6 +230,10 @@
         {
           "url": "https://www.wunc.org/2026-10-12/ahead-of-data-center-vote-city-council-hears-from-residents-who-want-ban-extended-and-workers-who-want-it-lifted",
           "title": "WUNC/WFAE — Ahead of data center vote, City Council hears from residents who want ban extended and workers who want it lifted (Oct. 12, 2026)"
+        },
+        {
+          "url": "https://www.wfae.org/energy-environment/2026-10-27/charlotte-extends-its-data-center-moratorium-for-11-more-months",
+          "title": "WFAE — Charlotte extends its data center moratorium for 11 more months (Oct. 27, 2026)"
         }
       ]
     },
