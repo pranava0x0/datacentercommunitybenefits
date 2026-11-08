@@ -93,6 +93,18 @@
       "last_reviewed": "2026-11-07",
       "summary": "Re-checked WSAZ (May 14 info fair): 500,000 sq ft, $1B, 100% electric still stated; no post-May news found. 792-acre figure unverified (only search listing), left as lead."
     },
+    "site:google-lima-oh": {
+      "blocked": {
+        "date": "2026-11-08",
+        "reason": "2026-11-08: AEDG data-centers page and search show only Mar-May 2026 items already tracked; no dated post-May status, permit or EPA-hearing outcome found. Unblock with Lima News / WLIO fetch for the EPA permit decision."
+      }
+    },
+    "site:google-little-rock-ar": {
+      "blocked": {
+        "date": "2026-11-08",
+        "reason": "2026-11-08: search surfaced nothing newer than Apr 2026 for the Port of Little Rock site; needs KATV / Arkansas Democrat-Gazette fetch for site-plan or permit outcome."
+      }
+    },
     "site:google-mesa-az": {
       "last_reviewed": "2026-09-30",
       "summary": "Checked status/figures (Phase III design-review submittal from Oct 2025/Mar 2026 predates capture; no post-2026-05 news); no community-response or news changes found; captured_at bumped."
@@ -111,8 +123,8 @@
     },
     "site:meta-newton-ga": {
       "blocked": {
-        "date": "2026-10-22",
-        "reason": "source_url (Apr 2026 Meta post) is live and calls the site operating, but has no figures; 1120 MW/416 ac/$1.5B/400 jobs still have no fetched primary source. Unblock: Newton County IDA or Georgia DCA filing with figures"
+        "date": "2026-11-08",
+        "reason": "2026-11-08: still no fetchable primary source for the 1120 MW / $1.5B / 400-job figures (see BACKLOG); needs Meta current Newton page or local-press source."
       }
     },
     "site:meta-prineville-or": {
