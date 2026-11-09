@@ -879,8 +879,8 @@ def _write_agent_files(payloads, *, today: date) -> None:
     lines = [
         "# Data Center Policy Tracker",
         "",
-        "> A sourced public record of what data-center operators have promised host communities, "
-        "and what governments, utilities and residents have done in response, in the US and selected countries. "
+        "> A sourced public record of data-center policy — what governments, utilities and residents have done, "
+        "and what operators have promised host communities — in the US and selected countries. "
         "Every record links to its primary source and carries a capture date; company statements are quoted verbatim.",
         "",
         f"Last refreshed {today.isoformat()}. Record counts: {home['sites']} sites ({home['contested_sites']} contested), "

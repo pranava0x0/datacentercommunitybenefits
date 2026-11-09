@@ -5578,7 +5578,7 @@
         "water"
       ],
       "community_benefits_framework": true,
-      "value_usd": 28200000,
+      "value_usd": null,
       "key_terms": [
         "regulations on things such as water use, noise and air quality",
         "more than $10 million for Taylor ISD and local students",
@@ -5587,7 +5587,7 @@
       "agreement_features": [
         "dollar_commitment"
       ],
-      "summary": "Taylor City Council approved an annexation agreement for a data center and on-site power campus, bringing the site under city regulations on water use, noise and air quality. The developers state an estimated $28.2 million in community investments, including more than $10 million for Taylor ISD and local students.",
+      "summary": "Taylor City Council approved an annexation agreement for a data center and on-site power campus, bringing the site under city regulations on water use, noise and air quality. The developers state, as reported by KUT, an estimated $28.2 million in community investments, including more than $10 million for Taylor ISD and local students.",
       "source_url": "https://www.kut.org/text/energy-environment/2026-10-09/taylor-tx-annex-data-center-power-plant",
       "source_title": "KUT — Taylor City Council approves deal to clear the way for a nearby data center and power plant",
       "resources": [
@@ -5613,13 +5613,12 @@
       ],
       "benefit_themes": [
         "tax_revenue",
-        "education",
-        "community_grants"
+        "education"
       ],
       "principles": [
-        "community_benefits"
+        "incentive_terms"
       ],
-      "community_benefits_framework": true,
+      "community_benefits_framework": false,
       "value_usd": null,
       "key_terms": [
         "voted Tuesday morning to approve a deal with Cloverleaf Infrastructure for development and tax agreements for Project Red Clay",
@@ -5650,7 +5649,7 @@
         "engagement"
       ],
       "principles": [
-        "transparency"
+        "local_control"
       ],
       "community_benefits_framework": false,
       "value_usd": null,

@@ -38,7 +38,7 @@ ISSUES_PATH = ROOT / "ISSUES.md"
 
 DELAY = 2.0        # seconds between requests to the same host
 TIMEOUT = 12       # HTTP timeout per request
-USER_AGENT = "DataCenterCommunityBenefits/1.0 (link-checker; +https://github.com/pranava0x0/datacenterpolicytracker)"
+USER_AGENT = "DataCenterPolicyTracker/1.0 (link-checker; +https://github.com/pranava0x0/datacenterpolicytracker)"
 
 logger = logging.getLogger("check_links")
 
