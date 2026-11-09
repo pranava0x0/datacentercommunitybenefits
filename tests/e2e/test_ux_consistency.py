@@ -92,6 +92,13 @@ def test_phone_masthead_keeps_the_full_name(browser, base_url: str, width: int):
         h1 = page.locator(".topbar h1")
         expect(h1).to_have_text("Data Center Policy Tracker")
         assert page.evaluate("() => document.querySelector('.topbar h1').innerText.replace(/\\s+/g, ' ').trim()") == "Data Center Policy Tracker"
+        # Full tab names must fit their grid cell, not spill into a neighbour
+        # (Codex on #117: the tabbar scroll width never caught this overlap).
+        spill = page.evaluate(
+            """() => VIEWS.map(v => document.getElementById(v.tab))
+                 .filter(t => t.scrollWidth > t.clientWidth + 1).map(t => t.id)"""
+        )
+        assert not spill, spill
     finally:
         ctx.close()
 
@@ -142,3 +149,20 @@ def test_pledge_tab_shows_sites_before_reference_sections(browser, base_url: str
 def test_no_generated_summary_block():
     html = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
     assert "static-summary" not in html and "record at a glance" not in html.lower()
+
+
+def test_phone_moratorium_rows_keep_duration_and_hide_reasons(browser, base_url: str):
+    """Codex on #117: inserting Date shifted a positional :nth-child rule, so
+    phones hid Duration and showed the badge column meant to be hidden."""
+    ctx = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
+    page = ctx.new_page()
+    try:
+        page.goto(base_url + "/#moratoriums")
+        page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
+        headers = page.evaluate(
+            """() => [...document.querySelectorAll('#moratoriums-table th')]
+                 .filter(th => getComputedStyle(th).display !== 'none').map(th => th.textContent.trim())"""
+        )
+        assert "Duration" in headers and "Key Reasons" not in headers, headers
+    finally:
+        ctx.close()

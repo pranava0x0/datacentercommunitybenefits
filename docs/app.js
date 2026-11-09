@@ -1664,7 +1664,7 @@ function renderMoratoriumsView() {
       <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
       <td><span class="badge badge-moratorium-status-${effectiveStatus(m)}">${escapeHtml(effectiveStatus(m))}</span></td>
       <td title="${escapeAttr(m.duration_description || "")}">${escapeHtml(shortDuration(m.duration_description))}</td>
-      <td>${reasonBadges || '<span class="field-missing">Not stated</span>'}</td>
+      <td class="mor-col-reasons">${reasonBadges || '<span class="field-missing">Not stated</span>'}</td>
     `;
 
     tr.dataset.id = m.id;
