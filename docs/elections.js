@@ -55,6 +55,9 @@ export function mount(root, data, hooks) {
 
   const heading = el("h2", "hero-title", "Elections");
   const hero = el("div", "hero"); hero.append(heading);
+  // Same totals as the Home card (election_winners / election_measures).
+  const officeholders = records.filter((record) => record.kind === "race").length;
+  hero.append(el("p", "hero-dek", `Data-center positions of ${officeholders} officeholders elected or re-elected on ${new Date(`${data.election_date}T00:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}, compared with whoever held the seat before, and ${data.measures.length} local ballot measures.`));
   const overview = el("section", "election-overview");
   overview.setAttribute("aria-label", "Tracked election policies");
   const totals = el("div", "election-totals");

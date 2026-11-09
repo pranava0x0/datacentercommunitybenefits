@@ -83,6 +83,7 @@ def test_labeled_filters_keep_primary_controls_visible(page: Page, base_url: str
     assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
     assert page.locator('.tabbar').evaluate('e=>e.scrollWidth<=e.clientWidth')
     assert page.locator('.tabbar .tab').evaluate_all('nodes=>nodes.every(n=>n.innerText.trim().length > 0)')
-    expect(page.locator('#tab-world')).to_have_text('World' if width <= 1100 else 'International', use_inner_text=True)
+    # One name per tab at every width (UX audit 2026-11-09): no short variants.
+    expect(page.locator('#tab-world')).to_have_text('International', use_inner_text=True)
     if width <= 1100:
         assert page.locator('.tabbar').evaluate('e=>getComputedStyle(e).gridTemplateColumns.split(" ").length') == 5

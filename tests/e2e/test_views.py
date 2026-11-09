@@ -1420,6 +1420,7 @@ class TestPoliciesView:
 
     def test_state_strip_counts_policies(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=E2E_WAIT)
         page.wait_for_function("() => coverageStates().length > 0", timeout=E2E_WAIT)
         code = "MT"
@@ -2237,8 +2238,8 @@ class TestMoratoriumTable:
         # duration_description can be paragraph-length; the table truncates it.
         self._open(page, base_url)
         max_len = page.evaluate(
-            "Math.max(...[...document.querySelectorAll('#moratoriums-tbody tr')]"
-            ".map(r => r.children[3].textContent.trim().length))"
+            "Math.max(...[...document.querySelectorAll('#moratoriums-tbody tr[data-id]')]"
+            ".map(r => r.children[4].textContent.trim().length))"
         )
         assert max_len <= 60, f"a duration cell rendered {max_len} chars (should truncate)"
 
@@ -2344,11 +2345,9 @@ class TestPledgeLanding:
 
     def test_landing_numbers_come_from_data_not_markup(self, page: Page, base_url: str):
         html = (Path(__file__).resolve().parents[2] / "docs" / "index.html").read_text()
-        # The static summary block is written by refresh.py from the data
-        # (crawler/no-JS answers), so it is excluded: only hand-written markup
-        # must stay number-free.
-        start = html.index("<!-- static-summary:start")
-        html = html[:start] + html[html.index("<!-- static-summary:end -->"):]
+        # The generated "record at a glance" block was removed (owner, 2026-11-09):
+        # Home's cards are the one summary, so none may come back.
+        assert "static-summary" not in html and "record at a glance" not in html.lower()
         assert "279" not in html and "323" not in html, "roster count hardcoded in index.html"
         assert html.count('class="home-card-num"') == html.count("&mdash;</span>\n              <span class=\"home-card-sub\"")
         page.goto(base_url + "/")
@@ -2362,6 +2361,7 @@ class TestPledgeLanding:
         # The proportional bar lives in the Pledge tab's Coverage section
         # (v3) — Home carries numbers only.
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector("#pledge-coverage-bar .pledge-bar-seg", timeout=E2E_WAIT)
         # Five categories, all populated in the shipped roster.
         assert page.locator("#pledge-coverage-bar .pledge-bar-seg").count() == 5
@@ -2373,6 +2373,7 @@ class TestPledgeLanding:
     def test_state_strip_shows_all_fifty_states(self, page: Page, base_url: str):
         """Show every state and derive empty cells from the published rollup."""
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=E2E_WAIT)
         cells = page.locator("#pledge-state-strip .pledge-state-cell")
         assert cells.count() == 50
@@ -2432,6 +2433,7 @@ class TestSignatoryRoster:
         """The source page disagrees with its own list; say so rather than
         quietly picking a number."""
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector("#pledge-coverage-key .pledge-bar-key-item", timeout=E2E_WAIT)
         note = page.locator("#rp-drift-note")
         if not note.is_hidden():
@@ -2441,6 +2443,7 @@ class TestSignatoryRoster:
 class TestStatePanel:
     def test_state_chip_opens_panel_with_records(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=E2E_WAIT)
         page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=E2E_WAIT)
@@ -2460,6 +2463,7 @@ class TestStatePanel:
 
     def test_escape_closes_and_restores_hash(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=E2E_WAIT)
         page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=E2E_WAIT)
@@ -2470,6 +2474,7 @@ class TestStatePanel:
 
     def test_backdrop_click_closes(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector('.pledge-state-cell[data-state-code="TX"]', timeout=E2E_WAIT)
         page.locator('.pledge-state-cell[data-state-code="TX"]').click()
         page.wait_for_selector("#state-modal:not([hidden])", timeout=E2E_WAIT)
@@ -2699,6 +2704,7 @@ class TestReviewFixes:
         site — rendered as "No records yet" and the key under-reported the
         covered-state count."""
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector("#pledge-state-strip .pledge-state-cell", timeout=E2E_WAIT)
         page.wait_for_timeout(1500)
         for code in ("CA", "NY", "FL"):
@@ -3070,6 +3076,7 @@ class TestTouchTargets:
         )
         page = ctx.new_page()
         page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-coverage-section > summary").click()  # collapsed by default (UX audit 2026-11-09)
         page.wait_for_selector(
             "#pledge-state-strip .pledge-state-cell", state="visible", timeout=E2E_WAIT
         )
@@ -3794,7 +3801,8 @@ class TestIssue72Navigation:
         page.goto(base_url + "/#moratoriums")
         page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
         page.fill("#moratorium-q", "county")
-        shown = page.locator("#moratoriums-tbody tr[data-id]").count()
+        # The directory pages at every width; the CSV carries every match.
+        shown = page.evaluate("() => filteredMoratoriums().length")
         with page.expect_download() as dl:
             page.click("#moratoriums-csv-btn")
         import csv
