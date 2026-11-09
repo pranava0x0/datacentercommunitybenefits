@@ -109,6 +109,10 @@
       "last_reviewed": "2026-09-30",
       "summary": "Checked status/figures (Phase III design-review submittal from Oct 2025/Mar 2026 predates capture; no post-2026-05 news); no community-response or news changes found; captured_at bumped."
     },
+    "site:google-michigan-city-in": {
+      "last_reviewed": "2026-11-09",
+      "summary": "2026-11-09: searched news since capture; found only April 2026 acquisition coverage and the June 23 IUOE Local 150 IURC filing (already recorded); no new citable updates, record unchanged."
+    },
     "site:google-the-dalles-or": {
       "last_reviewed": "2026-09-30",
       "summary": "Checked status/figures/news; added resp-google-dalles-mthood-water-2026 (OPB, Jan 2026): Google's Dalles water use now ~1/3 of city supply, city seeking federal legislation to expand Mount Hood reservoir without standard Forest Service review, WaterWatch/Bark objected; captured_at bumped."
@@ -474,17 +478,17 @@
     "state:TX": {
       "follow_ups": [
         {
-          "due": "2026-11-09",
-          "what": "Locate TWDB enforcement update; AG reporting letters are not enforcement outcomes."
-        },
-        {
           "due": "2026-11-11",
           "what": "Fort Worth: committee report to council Nov 3, first public hearing Nov 10 (fort-worth-tx-2026-08)"
+        },
+        {
+          "due": "2026-12-07",
+          "what": "Re-check for a published TWDB enforcement update or referrals to county/district attorneys."
         }
       ],
       "last_check": {
-        "date": "2026-10-26",
-        "summary": "AG Oct 15 reporting demands to 156 developments verified; no published TWDB Oct 14 enforcement outcome located."
+        "date": "2026-11-09",
+        "summary": "2026-11-09: Texas Tribune Oct 14 says board must update governor by Oct 14 and 'State officials don't know whether misdemeanor penalties have been issued against data centers'; no published TWDB enforcement outcome found."
       }
     },
     "state:VA": {
