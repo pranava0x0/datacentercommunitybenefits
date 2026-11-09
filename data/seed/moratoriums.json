@@ -3913,7 +3913,7 @@
         "energy",
         "water"
       ],
-      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. On September 14, 2026 Abbott issued a second, related directive to the Texas Water Development Board (TWDB), ordering it to compel major water users including data centers to complete legally required water-use surveys and to penalize those that don't: noncompliant users can face a Class C misdemeanor and become ineligible for TCEQ permits, permit amendments or renewals, with the Governor's office citing roughly 28% survey response compliance over the last three years; TWDB must report back to the Governor's office on enforcement progress by October 14, 2026. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed. On September 21, 2026 Abbott issued a third directive, ordering the Texas Commission on Environmental Quality (TCEQ) to issue no permits sought by data center projects until the audits are complete, with a TCEQ compliance report due to the Governor's office by October 19, 2026. Update: Inside Climate News reported on October 19, 2026 that TCEQ answered the Governor in an October 19 letter, in which interim executive director Steven Schar wrote that TCEQ staff are screening pending permit applications to determine whether they are subject to the directive and that any subject application has been paused; FracTracker, working with Public Citizen, counted 35 permitting actions by TCEQ for data center projects in the weeks after the directive. The Governor's office has said no permits have been approved; the two accounts are unreconciled and the count is an advocacy tally, not a TCEQ figure. On October 15, 2026, the Texas Attorney General reported sending letters to 156 data center developments requiring up-to-date and accurate water-use information. This is a reporting demand, not a finding that all recipients violated the law or a published TWDB enforcement outcome.",
+      "summary": "This is a governor's administrative directive, not a legislative moratorium — recorded separately per this dataset's convention of not force-fitting an executive action into the 'bill' shape (same treatment as ny-state-eo62-2026-07). On August 3, 2026, Governor Greg Abbott directed the Public Utility Commission of Texas (PUCT) and ERCOT to conduct a 'comprehensive verification and audit' of data center projects in ERCOT's interconnection queue — covering power use/generation, water consumption and cooling, community-impact mitigation, facility ownership, and tax incentives — before any additional projects may proceed; Abbott said any project failing to comply 'must be denied connection to the Texas grid.' The queue holds roughly 474 GW of pending interconnection requests (over 5x ERCOT's peak demand), about 90% of it data centers; ERCOT immediately paused its 'Batch Zero' interconnection study process the same day. On September 14, 2026 Abbott issued a second, related directive to the Texas Water Development Board (TWDB), ordering it to compel major water users including data centers to complete legally required water-use surveys and to penalize those that don't: noncompliant users can face a Class C misdemeanor and become ineligible for TCEQ permits, permit amendments or renewals, with the Governor's office citing roughly 28% survey response compliance over the last three years; TWDB must report back to the Governor's office on enforcement progress by October 14, 2026. The directive took effect immediately and is already blocking new interconnections, so it is tracked as 'enacted' per schema.py's status contract (enacted = in effect as of capture date; permanence is a separate axis from whether it is currently in force) — this is a pause pending audit, not a permanent ban, and no project has been permanently barred, but the pause itself is live, not merely proposed. On September 21, 2026 Abbott issued a third directive, ordering the Texas Commission on Environmental Quality (TCEQ) to issue no permits sought by data center projects until the audits are complete, with a TCEQ compliance report due to the Governor's office by October 19, 2026. Update: Inside Climate News reported on October 19, 2026 that TCEQ answered the Governor in an October 19 letter, in which interim executive director Steven Schar wrote that TCEQ staff are screening pending permit applications to determine whether they are subject to the directive and that any subject application has been paused; FracTracker, working with Public Citizen, counted 35 permitting actions by TCEQ for data center projects in the weeks after the directive. The Governor's office has said no permits have been approved; the two accounts are unreconciled and the count is an advocacy tally, not a TCEQ figure. On October 15, 2026, the Texas Attorney General reported sending letters to 156 data center developments requiring up-to-date and accurate water-use information. This is a reporting demand, not a finding that all recipients violated the law or a published TWDB enforcement outcome. Update: Texas Public Radio reported on October 22, 2026 that TCEQ was shutting down its automatic filing system, so that data center applications must be physically provided to TCEQ for staff review. On October 26 it reported that TCEQ had suspended stormwater notices of intent related to data centers; Public Citizen said TCEQ had suspended at least 17 permits issued to data center developers, while other data-center-related reviews appeared unchanged. Governor-elect Gina Hinojosa, elected November 3, 2026, has said she will issue a moratorium on all data center approvals until the Legislature passes protections; that is a stated plan, not an action in effect.",
       "source_url": "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/",
       "source_title": "The Texas Tribune — Gov. Greg Abbott orders audit of Texas data center projects amid grid capacity concerns",
       "resources": [
@@ -3936,12 +3936,24 @@
         {
           "url": "https://www.oag.state.tx.us/news/releases/attorney-general-ken-paxton-sends-letters-data-center-developments-across-texas-ensure-reporting",
           "title": "Texas Attorney General — Water-use reporting letters sent to 156 data center developments (October 15, 2026)"
+        },
+        {
+          "url": "https://www.tpr.org/text/economy-and-labor/2026-10-22/despite-abbott-moratorium-texas-kept-on-issuing-data-center-permits-now-the-state-agency-is-shutting-down-its-automatic-filing-system",
+          "title": "Texas Public Radio — TCEQ shuts down its automatic filing system for data center applications (Oct. 22, 2026)"
+        },
+        {
+          "url": "https://www.tpr.org/environment/2026-10-26/tceq-suspends-stormwater-approvals-other-data-center-related-reviews-appear-unchanged-after-watchdog-report",
+          "title": "Texas Public Radio — TCEQ suspends stormwater approvals (Oct. 26, 2026)"
+        },
+        {
+          "url": "https://www.ksat.com/news/texas/2026/11/04/gina-hinojosa-won-the-governors-race-what-happens-to-texas-data-centers-now/",
+          "title": "Texas Tribune via KSAT — What happens to Texas data centers after the governor's race (Nov. 4, 2026)"
         }
       ],
       "policy_type": "administrative pause pending audit (governor's directive)",
       "enacted_by": "Governor Greg Abbott (directive to PUCT and ERCOT)",
       "session": "2026",
-      "captured_at": "2026-10-26"
+      "captured_at": "2026-11-09"
     },
     {
       "enacted_date": "2026-09-08",
@@ -8764,6 +8776,105 @@
       "source_url": "https://aptg.co/BNH8N5",
       "source_title": "Wrightstown — petition for direct legislation approved July 7, 2026",
       "captured_at": "2026-11-07"
+    },
+    {
+      "id": "northampton-ma-2026-11",
+      "jurisdiction": "Northampton",
+      "jurisdiction_type": "city",
+      "state_code": "MA",
+      "status": "enacted",
+      "enacted_date": "2026-11-05",
+      "duration_months": 12,
+      "duration_description": "One year",
+      "key_reasons": [
+        "energy",
+        "water"
+      ],
+      "city_council_vote": "Unanimous",
+      "summary": "Northampton's City Council voted unanimously on November 5 to enact a yearlong moratorium on facilities designed or used to house computer servers. An amendment to exempt smaller users failed.",
+      "source_url": "https://gazettenet.com/2026/11/06/northampton-city-council-unanimously-approves-yearlong-moratorium-on-ai-data-centers/",
+      "source_title": "Daily Hampshire Gazette — Northampton council approves yearlong data center moratorium",
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "newberry-city-sc-2026-11",
+      "jurisdiction": "Newberry (city)",
+      "jurisdiction_type": "city",
+      "state_code": "SC",
+      "status": "enacted",
+      "enacted_date": "2026-11-02",
+      "duration_months": null,
+      "duration_description": "150 days",
+      "key_reasons": [],
+      "summary": "Newberry City Council gave second and final reading on November 2 to an ordinance establishing a 150-day moratorium on data center development within the city. Separate from Newberry County's moratorium.",
+      "source_url": "https://www.newberryobserver.com/news/81907/city-council-establishes-moratorium-on-data-centers",
+      "source_title": "Newberry Observer — City Council establishes moratorium on data centers",
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "southbridge-ma-2026-11",
+      "jurisdiction": "Southbridge",
+      "jurisdiction_type": "city",
+      "state_code": "MA",
+      "status": "enacted",
+      "enacted_date": "2026-11-02",
+      "effective_date": "2026-11-17",
+      "duration_months": 12,
+      "duration_description": "365 days",
+      "key_reasons": [],
+      "city_council_vote": "Unanimous",
+      "summary": "Southbridge Town Council unanimously approved a 365-day moratorium on data center development on November 2, effective November 17, while the town studies regulations.",
+      "source_url": "https://thecitizenchronicle.substack.com/p/southbridge-unanimously-approves",
+      "source_title": "The Citizen Chronicle — Southbridge approves 365-day data center moratorium",
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "caledonia-mn-2026-10",
+      "jurisdiction": "Caledonia",
+      "jurisdiction_type": "city",
+      "state_code": "MN",
+      "status": "enacted",
+      "enacted_date": "2026-10-26",
+      "duration_months": 12,
+      "duration_description": "12 months, while zoning standards are developed",
+      "key_reasons": [],
+      "bill_number": "Ordinance 2026-02",
+      "summary": "Caledonia City Council approved Ordinance 2026-02 on October 26, placing a 12-month pause on data center development while the city develops zoning standards.",
+      "source_url": "https://www.hometownsource.com/caledonia/news/local/caledonia-council-approves-12-month-data-center-moratorium/article_2acd4cb3-a504-4d3e-9678-a07732b3e9a8.html",
+      "source_title": "Caledonia Argus — Council approves 12-month data center moratorium",
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "frederick-city-md-2026-11",
+      "jurisdiction": "Frederick (city)",
+      "jurisdiction_type": "city",
+      "state_code": "MD",
+      "status": "enacted",
+      "enacted_date": "2026-11-05",
+      "duration_months": 24,
+      "duration_description": "Two years",
+      "key_reasons": [],
+      "city_council_vote": "Unanimous",
+      "summary": "The Frederick City Council unanimously passed a two-year moratorium on November 5 that bars the city from accepting, processing or approving legislation to amend its land management code to allow data centers. It pauses legislation rather than construction, and is separate from Frederick County's records.",
+      "source_url": "https://www.fredericknewspost.com/news/continuing_coverage/data_centers/city-of-frederick-passes-two-year-data-center-legislation-moratorium/article_5fc17e55-f86e-519b-9acb-018ac07ae314.html",
+      "source_title": "Frederick News-Post — City of Frederick passes two-year data center legislation moratorium",
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "san-diego-ca-2026-10",
+      "jurisdiction": "San Diego",
+      "jurisdiction_type": "city",
+      "state_code": "CA",
+      "status": "enacted",
+      "enacted_date": "2026-10-27",
+      "duration_months": null,
+      "duration_description": "45 days; may be extended",
+      "key_reasons": [],
+      "city_council_vote": "Unanimous",
+      "summary": "San Diego City Council unanimously backed a 45-day moratorium on permitting, approval and development of data centers within city limits on October 27. The council can extend it.",
+      "source_url": "https://www.nbcsandiego.com/news/local/data-center-moratorium-unanimously-passes-at-san-diego-city-council/4092956/",
+      "source_title": "NBC 7 San Diego — Data center moratorium passes at San Diego City Council",
+      "captured_at": "2026-11-09"
     }
   ]
 }
