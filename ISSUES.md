@@ -1,5 +1,5 @@
 # ISSUES.md — Data Audit Report
-Generated: 2026-11-08
+Generated: 2026-11-09
 Total projects needing attention: 151
 
 ## Critical Missing Commitment Details
@@ -164,21 +164,36 @@ Projects with important gaps:
 - **xai-southaven-ms** (construction): claimed_jobs, power_mw
 
 ## Stale Pending Records
-(15 records)
+(30 records)
 
 `proposed` moratoriums/tariffs/policies or `pending` rate cases not re-verified in 21+ days — status may have changed (signed/vetoed/enacted/rejected). Re-check source and update:
-- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 47 days ago
-- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 46 days ago
-- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 44 days ago
-- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 44 days ago
-- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 44 days ago
-- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 44 days ago
-- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 44 days ago
-- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 44 days ago
-- **pa-puc-large-load-cost-allocation-2026** (rate_case, PA): captured 2026-10-02, 37 days ago
-- **tuscaloosa-county-al-applied-digital-delta-forge-2-2026** (policy, Brookwood / Tuscaloosa County, AL): captured 2026-10-08, 31 days ago
-- **davidson-county-nc-2026-09** (moratorium, Davidson County): captured 2026-10-18, 21 days ago
-- **martin-county-fl-2026-10** (moratorium, Martin County): captured 2026-10-18, 21 days ago
-- **duke-nc-large-load-rate-case-2025** (tariff, NC): captured 2026-10-18, 21 days ago
-- **pa-puc-oca-ppl-complaint-2026** (rate_case, PA): captured 2026-10-18, 21 days ago
-- **swatara-township-pa-corscale-cba-2026** (policy, Swatara Township (Dauphin County), PA): captured 2026-10-18, 21 days ago
+- **nv-pucn-google-esa-2026** (rate_case, NV): captured 2026-09-22, 48 days ago
+- **pa-hb2198-2026** (policy, Pennsylvania): captured 2026-09-23, 47 days ago
+- **nv-microsoft-ratepayer-protection-tariff** (tariff, NV): captured 2026-09-25, 45 days ago
+- **aps-arizona-large-load-rate-case-2025** (tariff, AZ): captured 2026-09-25, 45 days ago
+- **northwestern-energy-mt-2026-03** (tariff, MT): captured 2026-09-25, 45 days ago
+- **mo-psc-ameren-grc-2026** (rate_case, MO): captured 2026-09-25, 45 days ago
+- **ferc-rm26-4-large-loads** (rate_case, US): captured 2026-09-25, 45 days ago
+- **ferc-pjm-colocated-el25-49** (rate_case, US): captured 2026-09-25, 45 days ago
+- **pa-puc-large-load-cost-allocation-2026** (rate_case, PA): captured 2026-10-02, 38 days ago
+- **tuscaloosa-county-al-applied-digital-delta-forge-2-2026** (policy, Brookwood / Tuscaloosa County, AL): captured 2026-10-08, 32 days ago
+- **davidson-county-nc-2026-09** (moratorium, Davidson County): captured 2026-10-18, 22 days ago
+- **martin-county-fl-2026-10** (moratorium, Martin County): captured 2026-10-18, 22 days ago
+- **duke-nc-large-load-rate-case-2025** (tariff, NC): captured 2026-10-18, 22 days ago
+- **pa-puc-oca-ppl-complaint-2026** (rate_case, PA): captured 2026-10-18, 22 days ago
+- **swatara-township-pa-corscale-cba-2026** (policy, Swatara Township (Dauphin County), PA): captured 2026-10-18, 22 days ago
+- **denton-tx-2026-08** (moratorium, Denton): captured 2026-10-19, 21 days ago
+- **rogersville-al-2026-07** (moratorium, Rogersville): captured 2026-10-19, 21 days ago
+- **hastings-mn-2026-08** (moratorium, Hastings): captured 2026-10-19, 21 days ago
+- **mchenry-county-il-2026-10** (moratorium, McHenry County): captured 2026-10-19, 21 days ago
+- **knoxville-tn-2026-08** (moratorium, Knoxville): captured 2026-10-19, 21 days ago
+- **agawam-city-ma-2026-08** (moratorium, Agawam): captured 2026-10-19, 21 days ago
+- **nc-ncuc-duke-settlement-2026** (rate_case, NC): captured 2026-10-19, 21 days ago
+- **ashville-oh-edgeconnex-term-summary-resolution-2026** (policy, Ashville, OH (Pickaway County)): captured 2026-10-19, 21 days ago
+- **front-royal-va-datacenter-ban-proposal-2026** (policy, Front Royal, VA): captured 2026-10-19, 21 days ago
+- **coeur-dalene-id-datacenter-non-approval-2026** (policy, Coeur d'Alene, ID): captured 2026-10-19, 21 days ago
+- **iron-county-ut-draft-large-load-ordinance-2026-10** (policy, Iron County): captured 2026-10-19, 21 days ago
+- **hawaii-county-bill-170-2026-07** (policy, Hawaii County): captured 2026-10-19, 21 days ago
+- **boston-ma-datacenter-prohibited-use-order-2026-09** (policy, Boston): captured 2026-10-19, 21 days ago
+- **fairbanks-north-star-borough-2027-priorities-datacenter-moratorium-2026-08** (policy, Fairbanks North Star Borough): captured 2026-10-19, 21 days ago
+- **morton-county-nd-datacenter-ordinance-2026-08** (policy, Morton County): captured 2026-10-19, 21 days ago
