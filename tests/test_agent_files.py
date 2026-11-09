@@ -24,7 +24,7 @@ def test_agent_files_cover_every_view() -> None:
 def test_llms_txt_counts_match_home() -> None:
     text = (DOCS / "llms.txt").read_text(encoding="utf-8")
     totals = json.loads((DOCS / "data" / "home.json").read_text(encoding="utf-8"))["totals"]
-    assert text.startswith("# Data Center Community Benefits\n\n> ")
+    assert text.startswith("# Data Center Policy Tracker\n\n> ")
     for key in ("sites", "moratoriums", "policies", "tariffs", "rate_cases"):
         label = key.replace("_", " ")
         assert re.search(rf"\b{totals[key]} {label}\b", text), key

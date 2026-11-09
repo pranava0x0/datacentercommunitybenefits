@@ -1,5 +1,5 @@
 /* ==========================================================================
- * Data Center Community Benefits Dashboard — app.js
+ * Data Center Policy Tracker — app.js
  * ==========================================================================
  *
  * Two views: Comparison (default) + Explorer (lazy-loaded with Leaflet).
@@ -6428,7 +6428,7 @@ async function exportMoratoriumsToPDF() {
 
   const html = `${style}<div class="mpdf">
     <div class="mpdf-cover">
-      <div class="mpdf-kicker">Data Center Community Benefits · Policy Tracker</div>
+      <div class="mpdf-kicker">Data Center Policy Tracker</div>
       <h1>Data Center Moratoriums &amp; Restrictions</h1>
       <p class="mpdf-dek">Enacted, proposed, and failed limits on data center development across U.S. city, county, state, and federal jurisdictions.</p>
       <div class="mpdf-meta">As of ${today} · ${filtered.length} record${filtered.length === 1 ? "" : "s"}${filterNote}</div>
@@ -6456,7 +6456,7 @@ async function exportMoratoriumsToPDF() {
     <h2 class="mpdf-h2 mpdf-section">Record details &amp; sources</h2>
     <div class="mpdf-cards">${cards}</div>
 
-    <div class="mpdf-foot">Generated from the Data Center Community Benefits dashboard. Every record links to its primary government or authoritative source. Stance and status reflect the capture date; policies change — verify against the linked source before relying on any record.</div>
+    <div class="mpdf-foot">Generated from the Data Center Policy Tracker. Every record links to its primary government or authoritative source. Stance and status reflect the capture date; policies change — verify against the linked source before relying on any record.</div>
   </div>`;
 
   const element = document.createElement("div");

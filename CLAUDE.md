@@ -204,7 +204,7 @@ Maintain a `backlog.md` for ideas, features, and enhancements.
 
 ---
 
-## Project-specific notes (Data Center Community Benefits Dashboard)
+## Project-specific notes (Data Center Policy Tracker)
 
 ### Project intent (v1.5+: blueprint framing)
 

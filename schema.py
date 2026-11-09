@@ -1,4 +1,4 @@
-"""Pydantic schema for the Data Center Community Benefits Dashboard.
+"""Pydantic schema for the Data Center Policy Tracker.
 
 Single source of truth for all four record types: Company, Claim, Project,
 CommunityResponse. Used by:
