@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Data Center Community Benefits Dashboard — styles.css
+   Data Center Policy Tracker — styles.css
    ==========================================================================
    Color tokens live on :root + [data-theme="dark"]. Per CLAUDE.md, never
    hard-code colors elsewhere — read CSS vars via getComputedStyle in JS.

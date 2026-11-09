@@ -42,7 +42,7 @@ CACHE_DIR = ROOT / ".scan_cache"
 DELAY = 1.5
 # An honest, contactable UA (CLAUDE.md network rules); feeds are public and
 # don't need a browser disguise.
-SCANNER_UA = "DataCenterCommunityBenefits-scanner/1.0 (+https://github.com/pranava0x0/datacentercommunitybenefits)"
+SCANNER_UA = "DataCenterPolicyTracker-scanner/1.0 (+https://github.com/pranava0x0/datacenterpolicytracker)"
 BACKOFF = 10.0
 TRANSIENT_STATUSES = {0, 408, 425, 429, 500, 502, 503, 504}
 DEAD_STATUSES = {404, 410}

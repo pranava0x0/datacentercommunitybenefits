@@ -1,7 +1,7 @@
 ---
 name: daily-refresh
 description: >
-  The unattended daily data refresh for the Data Center Community Benefits
+  The unattended daily data refresh for the Data Center Policy Tracker
   dashboard. Works the refresh queue (scripts/refresh_queue.py) for at most 20
   minutes. Each run handles due follow-ups, then reviews sites, states and
   companies in full: status, figures, news, local permits and approvals,

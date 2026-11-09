@@ -2593,7 +2593,7 @@
       "office": "Governor",
       "level": "governor",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-05",
+      "captured_at": "2026-11-09",
       "candidates": [
         {
           "name": "Greg Abbott",
@@ -2643,9 +2643,33 @@
               "captured_at": "2026-11-05",
               "speaker": "Gina Hinojosa",
               "published_at": "2026-07-23"
+            },
+            {
+              "statement": "When I am governor I will issue a moratorium—a ban—on all data center approvals until laws can be passed by the Legislature to protect Texans",
+              "source_url": "https://www.ksat.com/news/texas/2026/11/04/gina-hinojosa-won-the-governors-race-what-happens-to-texas-data-centers-now/",
+              "source_title": "Texas Tribune via KSAT — Hinojosa won the governor's race. What happens to Texas data centers now?",
+              "captured_at": "2026-11-09",
+              "speaker": "Gina Hinojosa",
+              "published_at": "2026-11-04"
+            },
+            {
+              "statement": "We will have laws to protect Texans, and we need to stop what we are doing with data centers until we have those protections",
+              "source_url": "https://koreatimes.co.kr/world/20261106/texas-governor-elect-says-state-will-have-laws-to-shield-citizens-from-data-centers",
+              "source_title": "Reuters via The Korea Times — Texas governor-elect says state will have laws to shield citizens from data centers",
+              "captured_at": "2026-11-09",
+              "speaker": "Gina Hinojosa",
+              "published_at": "2026-11-06"
+            },
+            {
+              "statement": "the state is shutting down its permitting system because Abbott didn't even enforce his own directive.",
+              "source_url": "https://ginafortexas.com/2026/10/release-abbott-scrambles-after-data-center-pause-exposed-as-lie/",
+              "source_title": "Gina Hinojosa campaign — Release on TCEQ permitting after the data center pause",
+              "captured_at": "2026-11-09",
+              "speaker": "Gina Hinojosa",
+              "published_at": "2026-10-22"
             }
           ],
-          "review_note": "The cited page contains this attributed data-center statement. A campaign proposal does not itself change the law."
+          "review_note": "Campaign pages and post-election interviews read. Her moratorium is a stated plan as governor-elect; no executive order has been issued as of November 9, 2026, and a proposal does not itself change the law."
         }
       ],
       "result": {

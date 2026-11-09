@@ -68,7 +68,7 @@ DELIVERED_PROJECT = next(
 class TestComparisonView:
     def test_page_loads_with_meta(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        expect(page.locator("h1")).to_have_text("Data Center Community Benefits")
+        expect(page.locator("h1")).to_have_text("Data Center Policy Tracker")
         # Sub-heading shows last refresh date once data loads.
         expect(page.locator("#meta")).to_contain_text("Last refreshed:", timeout=E2E_WAIT)
 

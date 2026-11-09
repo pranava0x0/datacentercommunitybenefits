@@ -1,4 +1,4 @@
-"""Connector framework for the Data Center Community Benefits Dashboard.
+"""Connector framework for the Data Center Policy Tracker.
 
 In v1 the dashboard is fully curated — `data/seed/*.json` is the source of truth
 and `refresh.py` validates and emits it. This package exists as the scaffolding

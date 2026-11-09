@@ -1,4 +1,4 @@
-# REFRESH.md — Data Center Community Benefits data refresh playbook
+# REFRESH.md — Data Center Policy Tracker data refresh playbook
 
 > Project refresh playbook, read by the generic `data-refresh` skill (~/.claude/skills/data-refresh). Keep current: every refresh run appends learned patterns; structural pipeline changes get edited into the body.
 

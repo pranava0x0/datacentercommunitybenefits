@@ -1,17 +1,13 @@
-# Data Center Community Benefits — A Blueprint
+# Data Center Policy Tracker
 
-A public-interest dashboard cataloguing the **community-benefit
-commitments** major data-center operators have published — and how those
-commitments are playing out on the ground at real sites.
+A public-interest tracker of data-center policy in the U.S. and selected
+countries: moratoriums, state and local frameworks, community benefit
+agreements, large-load tariffs and rate cases, elections, the White House
+Ratepayer Protection Pledge, and the commitments operators have published
+for their host communities — with how those commitments are playing out at
+real sites. Every record links to its source.
 
-The framing as of v1.5 is **positive / blueprint-oriented**: this is meant
-as a starting menu of what's possible to ask for in future data-center
-projects, with on-the-ground feedback (positive, mixed, and the lessons
-learned) as case-study evidence for what's working and where the gaps
-still are. Every commitment links to its first-party source. Every
-on-the-ground response cites who said it and where.
-
-→ **Live dashboard:** <https://pranava0x0.github.io/datacentercommunitybenefits/>
+→ **Live dashboard:** <https://pranava0x0.github.io/datacenterpolicytracker/>
 
 ---
 

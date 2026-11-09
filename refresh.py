@@ -851,7 +851,7 @@ def _write_home(payloads, *, pretty: bool) -> int:
     return len(text.encode("utf-8"))
 
 
-SITE_URL = "https://pranava0x0.github.io/datacentercommunitybenefits/"
+SITE_URL = "https://pranava0x0.github.io/datacenterpolicytracker/"
 
 # Each tab's hash and one plain line on what it holds. llms.txt reads from
 # this, so a new view needs one entry here (test_agent_files_cover_every_view
@@ -877,10 +877,10 @@ def _write_agent_files(payloads, *, today: date) -> None:
     docs = OUT_DIR.parent
     data_files = sorted(f.name for f in OUT_DIR.glob("*.json"))
     lines = [
-        "# Data Center Community Benefits",
+        "# Data Center Policy Tracker",
         "",
-        "> A sourced public record of what data-center operators have promised host communities, "
-        "and what governments, utilities and residents have done in response, in the US and selected countries. "
+        "> A sourced public record of data-center policy — what governments, utilities and residents have done, "
+        "and what operators have promised host communities — in the US and selected countries. "
         "Every record links to its primary source and carries a capture date; company statements are quoted verbatim.",
         "",
         f"Last refreshed {today.isoformat()}. Record counts: {home['sites']} sites ({home['contested_sites']} contested), "
@@ -906,7 +906,7 @@ def _write_agent_files(payloads, *, today: date) -> None:
         "",
         "## Optional",
         "",
-        "- [Source code and methodology](https://github.com/pranava0x0/datacentercommunitybenefits)",
+        "- [Source code and methodology](https://github.com/pranava0x0/datacenterpolicytracker)",
         "",
     ]
     (docs / "llms.txt").write_text("\n".join(lines), encoding="utf-8")

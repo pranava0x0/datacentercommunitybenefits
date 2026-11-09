@@ -4394,18 +4394,23 @@
       "identifier": "CS/CS/SB 484",
       "date": "2026-05-07",
       "benefit_themes": [
-        "energy"
+        "energy",
+        "water"
       ],
       "principles": [
         "pay_own_way",
+        "water",
         "local_control"
       ],
       "community_benefits_framework": false,
       "key_terms": [
         "Requires the Public Service Commission (PSC) to implement large load customer tariff and service requirements for public electric utilities.",
-        "The tariff requirements must reasonably ensure that large load customers (such as large data centers) pay for their own cost of service, the risk of nonpayment of such costs may not be borne by the general body of ratepayers"
+        "The tariff requirements must reasonably ensure that large load customers (such as large data centers) pay for their own cost of service, the risk of nonpayment of such costs may not be borne by the general body of ratepayers",
+        "Establishes distinct large-scale data center consumptive use permit (CUP) requirements",
+        "require large-scale data centers to use some portion of reclaimed water as part of a CUP approval",
+        "Requires each public utility to file a tariff for the PSC's approval by October 1, 2026"
       ],
-      "summary": "Florida enacted SB 484, signed by Gov. Ron DeSantis on May 7, 2026. It requires the Public Service Commission to implement large-load tariffs for public electric utilities that make large data centers pay their own cost of service and keep nonpayment risk off the general body of ratepayers.",
+      "summary": "Florida enacted SB 484, signed by Gov. Ron DeSantis on May 7, 2026. It requires the Public Service Commission to implement large-load tariffs for public electric utilities that make large data centers pay their own cost of service and keep nonpayment risk off the general body of ratepayers. It also sets consumptive use permit requirements for large-scale data centers, including use of some reclaimed water, and required each public utility to file a tariff for PSC approval by October 1, 2026.",
       "source_url": "https://flsenate.gov/Committees/BillSummaries/2026/html/484",
       "source_title": "Florida Senate — Bill Summary, CS/CS/SB 484 (Data Centers)",
       "resources": [
@@ -4415,7 +4420,7 @@
         }
       ],
       "related_moratorium_id": "florida-state-2026-07",
-      "captured_at": "2026-10-19"
+      "captured_at": "2026-11-09"
     },
     {
       "id": "independence-mo-udo-datacenter-bess-2026",
@@ -5492,6 +5497,205 @@
       "principles": [
         "study"
       ]
+    },
+    {
+      "id": "mason-county-ky-meta-development-agreement-2026",
+      "title": "Mason County — Development and Community Revenue Agreement for the Crisham LLC (Meta) campus",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Mason County, KY",
+      "state_code": "KY",
+      "date": "2026-10-13",
+      "company_slugs": [
+        "meta"
+      ],
+      "counterparties": [
+        "Crisham LLC",
+        "Mason County Fiscal Court",
+        "Mason County Board of Education"
+      ],
+      "benefit_themes": [
+        "energy",
+        "infrastructure",
+        "community_grants",
+        "education",
+        "jobs"
+      ],
+      "principles": [
+        "pay_own_way",
+        "community_benefits"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": null,
+      "key_terms": [
+        "No part of the cost to supply power to the Project will be or become included in the rates charged to other residential and commercial customers in Mason County",
+        "Company is prepared to make a capital commitments of no less than $130,000,000 for infrastructure improvements",
+        "$15,000,000 to the County as a Public Safety Impact Fee",
+        "$2,000,000 per data center building as supplemental annual payments to support the Mason County, Kentucky Board of Education",
+        "Company and County will collaborate to develop a hiring plan to provide opportunities for residents"
+      ],
+      "agreement_features": [
+        "ratepayer_protection",
+        "dollar_commitment"
+      ],
+      "summary": "Mason County's summary of the development and community revenue agreement for the Crisham LLC campus lists a $15 million public safety impact fee, $2 million per building in annual payments to the school board, at least $130 million in infrastructure commitments, a term keeping power-supply costs out of other customers' rates, and a hiring plan. Baxtel reports the Fiscal Court approved the agreements unanimously on October 13 for Meta's campus.",
+      "source_url": "https://cms3.revize.com/revize/masoncountyky/Summary%20-%20Development%20%26%20Community%20Benefits%20Agreement%20-%20Mason%20Co.%20Fiscal%20Court%20Meeting%20%2810.05.2026%29%20%5BFINAL%5D.pdf",
+      "source_title": "Mason County Fiscal Court — Summary: Development and Community Revenue Agreement (Oct. 6, 2026)",
+      "resources": [
+        {
+          "url": "https://baxtel.com/news/mason-county-approves-40-year-tax-deal-for-meta-s-400mw-kentucky-campus",
+          "title": "Baxtel — Mason County approves 40-year tax deal for Meta's 400MW Kentucky campus (Oct. 16, 2026)"
+        }
+      ],
+      "related_project_ids": [
+        "meta-mason-county-ky"
+      ],
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "taylor-tx-big-watt-annexation-agreement-2026",
+      "title": "Taylor — annexation agreement for the Big Watt Digital / PowerHouse data center and power campus",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "city",
+      "jurisdiction": "Taylor, TX",
+      "state_code": "TX",
+      "date": "2026-10-08",
+      "counterparties": [
+        "Big Watt Digital",
+        "PowerHouse Data Centers",
+        "City of Taylor"
+      ],
+      "benefit_themes": [
+        "water",
+        "education",
+        "community_grants"
+      ],
+      "principles": [
+        "community_benefits",
+        "local_control",
+        "water"
+      ],
+      "community_benefits_framework": true,
+      "value_usd": null,
+      "key_terms": [
+        "regulations on things such as water use, noise and air quality",
+        "more than $10 million for Taylor ISD and local students",
+        "an estimated $28.2 million in community investments"
+      ],
+      "agreement_features": [
+        "dollar_commitment"
+      ],
+      "summary": "Taylor City Council approved an annexation agreement for a data center and on-site power campus, bringing the site under city regulations on water use, noise and air quality. The developers state, as reported by KUT, an estimated $28.2 million in community investments, including more than $10 million for Taylor ISD and local students.",
+      "source_url": "https://www.kut.org/text/energy-environment/2026-10-09/taylor-tx-annex-data-center-power-plant",
+      "source_title": "KUT — Taylor City Council approves deal to clear the way for a nearby data center and power plant",
+      "resources": [
+        {
+          "url": "https://cbsaustin.com/news/local/taylor-city-council-greenlights-data-center-after-months-of-debate",
+          "title": "CBS Austin — Taylor City Council greenlights data center after months of debate (Oct. 8, 2026)"
+        }
+      ],
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "lowndes-county-al-project-red-clay-2026",
+      "title": "Lowndes County — Project Red Clay development and tax agreements (Cloverleaf Infrastructure)",
+      "instrument": "benefit_agreement",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Lowndes County, AL",
+      "state_code": "AL",
+      "date": "2026-10-13",
+      "counterparties": [
+        "Cloverleaf Infrastructure",
+        "Lowndes County Commission"
+      ],
+      "benefit_themes": [
+        "tax_revenue",
+        "education"
+      ],
+      "principles": [
+        "incentive_terms"
+      ],
+      "community_benefits_framework": false,
+      "value_usd": null,
+      "key_terms": [
+        "voted Tuesday morning to approve a deal with Cloverleaf Infrastructure for development and tax agreements for Project Red Clay",
+        "investing up to $10 million in profits to address local needs",
+        "approximately $70 million each year for Lowndes County schools"
+      ],
+      "summary": "The Lowndes County Commission approved development and tax agreements with Cloverleaf Infrastructure for Project Red Clay on October 13. WSFA reports the developer's statements that it will cover its own power costs and invest up to $10 million in profits in local needs; the agreement text was not located.",
+      "source_url": "https://www.wsfa.com/2026/10/13/lowndes-county-commission-approves-data-center-deal/",
+      "source_title": "WSFA — Lowndes County Commission approves data center deal",
+      "captured_at": "2026-11-09"
+    },
+    {
+      "id": "spartanburg-county-sc-valara-development-agreement-2026",
+      "title": "Spartanburg County — Valara data center development agreement ordinance (S. Pine Street)",
+      "instrument": "local_ordinance",
+      "status": "proposed",
+      "scope": "county",
+      "jurisdiction": "Spartanburg County, SC",
+      "state_code": "SC",
+      "date": "2026-11-03",
+      "counterparties": [
+        "Numara LLC",
+        "Valara Holdings LLC",
+        "Spartanburg County Council"
+      ],
+      "benefit_themes": [
+        "jobs",
+        "engagement"
+      ],
+      "principles": [
+        "local_control"
+      ],
+      "community_benefits_framework": false,
+      "value_usd": null,
+      "key_terms": [
+        "Conduct community meetings regarding the Project, not less than annually",
+        "Water, grid connected electrical, and gas utility demand",
+        "Reports containing security, or other commercially sensitive information shall be submitted confidentially"
+      ],
+      "summary": "Spartanburg County Council is considering a development agreement ordinance for the Valara data center on S. Pine Street. The posted draft requires annual community meetings and reporting on water, electric and gas demand, with commercially sensitive reports submitted confidentially; Council advanced it on second reading on November 3 along with two other data center agreements; third reading is pending.",
+      "source_url": "https://www.wspa.com/wp-content/uploads/sites/53/2026/10/Valara-Data-Center-Development-Agreement-Spartanburg-County.pdf",
+      "source_title": "Spartanburg County — Valara data center development agreement (draft ordinance, hosted by WSPA)",
+      "related_moratorium_id": "spartanburg-county-sc-2026-06",
+      "captured_at": "2026-11-09",
+      "resources": [
+        {
+          "url": "https://www.foxcarolina.com/2026/11/04/3-spartanburg-county-data-center-projects-move-closer-approval/",
+          "title": "FOX Carolina — 3 Spartanburg County data center projects move closer to approval (Nov. 4, 2026)"
+        }
+      ]
+    },
+    {
+      "id": "nj-s4304-data-center-nda-ban-2026",
+      "title": "New Jersey S4304 — prohibits agreements that conceal data center development details",
+      "instrument": "legislation",
+      "status": "proposed",
+      "scope": "state",
+      "jurisdiction": "New Jersey",
+      "state_code": "NJ",
+      "identifier": "S4304",
+      "date": "2026-05-18",
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "transparency"
+      ],
+      "community_benefits_framework": false,
+      "value_usd": null,
+      "key_terms": [
+        "shall not enter into any agreement, including a non-disclosure agreement, that has the purpose or effect of concealing the details, or preventing public review",
+        "shall be deemed against public policy and unenforceable"
+      ],
+      "summary": "S4304 would bar agreements, including non-disclosure agreements, that conceal details of data center development or prevent public review under the Municipal Land Use Law, and would make such agreements unenforceable.",
+      "source_url": "https://pub.njleg.state.nj.us/Bills/2026/S4500/4304_I1.HTM",
+      "source_title": "New Jersey Legislature — S4304 (introduced text)",
+      "captured_at": "2026-11-09"
     }
   ]
 }
