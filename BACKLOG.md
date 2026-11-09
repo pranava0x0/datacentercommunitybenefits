@@ -722,6 +722,7 @@ come first, then locations, companies and sites.
 ### Companies
 
 #### company:amazon
+- (2026-11-09) Site leads not added: Stafford County VA (Baxtel only), Spotsylvania (Cosner campus) and Hood County TX (conflicting reports).
 - **medium (2026-11-04 source audit):** Recheck `aws-new-carlisle-in-community-fund`, `aws-new-carlisle-in-state-gdp`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
 - Butler County / Trenton OH ($5B, 18 buildings): the annexation petition
   was withdrawn, and the 25 MW citizen measure is on the Nov 3 ballot
@@ -757,6 +758,7 @@ come first, then locations, companies and sites.
   primary source (SEC filing, company statement) before adding.
 
 #### company:crusoe
+- (2026-11-09) Childress TX (Project Hyper, Lancium campus) and Jayton TX ($4.8B, Kent County) appear only on Baxtel; the TDLR record for Jayton names Spur DC Owner 1 LLC, not Crusoe. Need a Crusoe or county source.
 - `crusoe-warrenton-mo` added 2026-09-29 (announced, tax-abatement source
   only). Crusoe's own community page (crusoe.ai/about/communities/warrenton)
   404s — find its live equivalent and add a first-party Claim; also confirm
@@ -785,6 +787,7 @@ come first, then locations, companies and sites.
 - Honest gap: tax_revenue. Meta executives don't quote tax figures.
 
 #### company:microsoft
+- (2026-11-09) Site leads not added: Lowell Township MI (WOOD TV page gives no absolute date; Microsoft asked the developer to pause) and a proposed 490-acre Mecklenburg County VA campus (unverified).
 - **medium (2026-11-07):** Silver Springs has a company construction update
   but no verified original announcement year; retain the sourced lead in
   the roster ledger rather than substituting the construction year.
@@ -813,6 +816,7 @@ come first, then locations, companies and sites.
   wasn't, the claims keep their three third-party mirrors.
 
 #### company:prologis
+- (2026-11-09) Yorkville IL 'Project Steel' (550 acres, 16 buildings): WSPY's page does not name Prologis; Baxtel reports council approval 2026-03-24 and a May 2026 lawsuit. Needs a city or Prologis source. Allen Township PA: Lehigh Valley Public Media returned 403.
 - **medium (2026-11-04 source audit):** Recheck `prologis-coweta-engagement-witt-codes-2025`, `prologis-coweta-engagement-witt-execute-2025`, `prologis-coweta-infrastructure-mason-lines-2025`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
 - "Project Steel", Yorkville IL (540 ac, 24 buildings, $40M development
   agreement approved Mar 24 2026, first phase summer 2027): never tracked.
@@ -820,6 +824,7 @@ come first, then locations, companies and sites.
   company-wide. Not fetched yet.
 
 #### company:qts
+- (2026-11-09) q.com/data-centers lists 24 campuses not in the seed (Ashburn 1-3 and Moran, Atlanta 1, Chicago, Colorado Springs, Fort Worth, Hillsboro 1-3, Irving, Miami, Piscataway, Sacramento, San Antonio, Santa Clara, Suwanee 1; in development: Augusta GA, Bessemer AL, Howard County TX, New Albany 1-2 OH, Phoenix 2-4 AZ). Not added: the page gives no announcement year, which Project requires, and calls none of them operational. Source each year before adding.
 - **medium (2026-11-07):** The full 49-location roster is inventoried in the
   [roster ledger](notes/refresh/2026-11-07/roster-dispositions.json). Resolve
   original announcement dates and current phases for held locations before
@@ -1233,6 +1238,7 @@ come first, then locations, companies and sites.
 - **medium (2026-11-04 source audit):** Recheck `xai-engagement-fabric-mayo`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
 
 ## 4. Product and UX
+
 
 - **Querétaro evidence follow-up (2026-10-14).** The planning guide attributes
   the 2023 assessment's estimated generator emissions and a registry image (concession
