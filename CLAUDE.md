@@ -2209,8 +2209,8 @@ From the UX audit (`notes/ux/2026-11-09/UX_AUDIT.md`) and its follow-up.
 Power Costs · Companies · Sites · International.
 
 **The Policy tab.** Moratoriums and Frameworks merged into one tab, Policy
-(`#policies`). Its sub-tabs are `pol`: latest (the default), pauses, rules,
-principles, map and trends.
+(`#policies`). Its sub-tabs are `pol`: principles (shown as Topics, the default),
+latest, pauses, rules, map and trends.
 - The two data files and the "pure pauses go in moratoriums.json" rule are
   unchanged. Only the view merged.
 - Draft plans and Evidence moved to Benefit Agreements (`cba` drafts and

@@ -1040,10 +1040,28 @@ MORATORIUM_REASON_LABELS: dict[str, str] = {
 }
 
 
+PolicyPrinciple = Literal[
+    "pay_own_way",
+    "community_benefits",
+    "incentive_terms",
+    "water",
+    "transparency",
+    "local_control",
+    "community_input",
+    "new_power",
+    "environmental_review",
+    "study",
+    "heat_reuse",
+]
+
+
 class Moratorium(_StrictBase):
     """A data center moratorium or ban enacted or proposed by a jurisdiction."""
 
     id: str = Field(min_length=1)
+    topic_notes: Optional[dict[PolicyPrinciple, str]] = Field(
+        default=None, description="Source-backed examples of what the restriction does or would do."
+    )
     jurisdiction: str = Field(
         min_length=1,
         description="City, County, State, or 'Federal' — the level at which the moratorium is set.",
@@ -1860,36 +1878,24 @@ POLICY_PRINCIPLES: tuple[str, ...] = (
     "water",
     "transparency",
     "local_control",
+    "community_input",
     "new_power",
     "environmental_review",
     "study",
     "heat_reuse",
 )
-PolicyPrinciple = Literal[
-    "pay_own_way",
-    "community_benefits",
-    "incentive_terms",
-    "water",
-    "transparency",
-    "local_control",
-    "new_power",
-    "environmental_review",
-    "study",
-    "heat_reuse",
-]
 POLICY_PRINCIPLE_LABELS: dict[str, str] = {
-    "pay_own_way": "Data centers pay their own grid costs",
-    "community_benefits": "Host communities get binding benefits",
-    "incentive_terms": "Tax breaks come with conditions",
-    "water": "Water use is capped or reported",
-    "transparency": "No secret deals",
-    "local_control": "Localities keep a say in siting",
-    "new_power": "New demand brings new supply",
-    "environmental_review": "Projects get environmental review",
-    "study": "States study before setting rules",
-    # v6, owner decision 2026-10-19: mainly an international practice (Nordic
-    # district heating, Germany's EnEfG); few US records will carry it.
-    "heat_reuse": "Waste heat is reused (mainly outside the US)",
+    "pay_own_way": "Electricity costs",
+    "community_benefits": "Community benefits",
+    "incentive_terms": "Tax incentives",
+    "water": "Water use",
+    "transparency": "Transparency",
+    "local_control": "Zoning and siting",
+    "community_input": "Community input",
+    "new_power": "Power supply",
+    "environmental_review": "Permitting and environmental review",
+    "study": "Studies and advisory bodies",
+    "heat_reuse": "Waste heat reuse",
 }
 
 # Observable features of a benefit agreement's own text, tagged by the
@@ -1990,6 +1996,10 @@ class Policy(_StrictBase):
         max_length=3,
         description="Playbook principles the record puts into practice, primary first.",
     )
+    topic_notes: Optional[dict[PolicyPrinciple, str]] = Field(
+        default=None,
+        description="Short, source-backed examples for the US topic overview, keyed by a tagged principle.",
+    )
     community_benefits_framework: bool = Field(
         default=False,
         description="True when it requires, creates or IS a community benefit "
@@ -2066,6 +2076,9 @@ class Policy(_StrictBase):
 
     @model_validator(mode="after")
     def _scope_consistency(self) -> "Policy":
+        for topic, note in (self.topic_notes or {}).items():
+            if topic not in self.principles or not note.strip():
+                raise ValueError(f"policy {self.id!r}: a topic note needs text and a matching principle")
         _check_jurisdiction(self.id, self.country, self.subdivision, allow_eu=True)
         _check_lang(self.id, self.source_lang)
         if self.country == "US":
@@ -2124,9 +2137,23 @@ class Policy(_StrictBase):
         return self
 
 
+class TopicPauseExample(_StrictBase):
+    """Only the fields a topic needs to cite a pause without loading the directory."""
+
+    id: str
+    jurisdiction: str
+    bill_number: Optional[str] = None
+    status: MoratoriumStatus
+    lifted_date: Optional[Date] = None
+    source_url: HttpUrl
+    source_title: str
+    topic_notes: dict[PolicyPrinciple, str]
+
+
 class PoliciesPayload(_StrictBase):
     generated_at: Date
     policies: list[Policy]
+    pause_examples: Optional[list[TopicPauseExample]] = None  # derived at refresh
 
     @field_validator("policies")
     @classmethod

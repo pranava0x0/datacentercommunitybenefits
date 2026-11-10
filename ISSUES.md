@@ -1,9 +1,9 @@
 # ISSUES.md — Data Audit Report
 Generated: 2026-11-09
-Total projects needing attention: 151
+Total projects needing attention: 161
 
 ## Critical Missing Commitment Details
-(67 projects)
+(68 projects)
 
 Projects missing required fields based on status:
 - **amazon-bossier-parish-la** (construction): claimed_investment_usd
@@ -11,6 +11,7 @@ Projects missing required fields based on status:
 - **aws-caroline-va** (construction): claimed_investment_usd
 - **aws-umatilla-or** (operational): power_mw
 - **coreweave-ellendale-nd** (construction): claimed_investment_usd
+- **coreweave-muskogee-ok** (construction): claimed_investment_usd
 - **crusoe-goodnight-tx** (construction): claimed_investment_usd
 - **goodman-lax01-vernon-ca** (construction): claimed_investment_usd
 - **google-armstrong-tx** (construction): claimed_investment_usd
@@ -75,7 +76,7 @@ Projects missing required fields based on status:
 - **xai-memphis-tn** (operational): claimed_investment_usd
 
 ## Medium Priority Missing Details
-(84 projects)
+(93 projects)
 
 Projects with important gaps:
 - **amazon-boardman-or** (announced): claimed_investment_usd, claimed_jobs, power_mw
@@ -91,14 +92,18 @@ Projects with important gaps:
 - **amazon-wheatfield-in** (announced): claimed_jobs, power_mw
 - **anthropic-hawesville-ky** (announced): claimed_investment_usd, claimed_jobs
 - **anthropic-xai-infrastructure-partnership** (announced): claimed_investment_usd, claimed_jobs, power_mw
-- **aws-ashburn-gwu-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **aws-boling-tx** (announced): power_mw
+- **aws-butts-county-ga** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
+- **aws-douglas-county-ga** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **aws-homer-city-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **aws-king-george-va** (announced): power_mw, at_a_glance
 - **aws-kline-township-pa** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
+- **aws-louisa-county-va** (announced): claimed_jobs, power_mw, at_a_glance
 - **aws-ridgeland-ms** (construction): power_mw
 - **aws-somervell-tx** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
+- **aws-wallula-wa** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **aws-wilmington-oh** (announced): power_mw
+- **coreweave-cedar-creek-tx** (construction): claimed_jobs, power_mw, at_a_glance
 - **coreweave-hammond-in** (announced): claimed_investment_usd, claimed_jobs
 - **crusoe-inl-id** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **crusoe-springfield-oh** (announced): claimed_investment_usd, power_mw
@@ -123,6 +128,7 @@ Projects with important gaps:
 - **google-owasso-ok** (construction): claimed_jobs, power_mw
 - **google-pine-island-mn** (announced): claimed_investment_usd, power_mw
 - **google-putnam-county-wv** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **google-roanoke-county-va** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **google-sand-springs-ok** (announced): claimed_investment_usd, power_mw
 - **google-spacex-gpu-partnership** (announced): claimed_jobs, power_mw
 - **google-stillwater-ok** (announced): claimed_jobs, power_mw
@@ -138,10 +144,13 @@ Projects with important gaps:
 - **meta-tulsa-ok** (construction): power_mw
 - **microsoft-castroville-tx** (announced): claimed_jobs, power_mw
 - **microsoft-cheyenne-wy** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **microsoft-dorr-township-mi** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
+- **microsoft-gaines-township-mi** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **microsoft-gainesville-va** (announced): claimed_investment_usd, claimed_jobs, power_mw
 - **microsoft-new-albany-oh** (construction): claimed_jobs, power_mw
 - **microsoft-pecos-tx** (announced): claimed_investment_usd
 - **microsoft-person-county-nc** (announced): claimed_investment_usd, claimed_jobs, power_mw
+- **microsoft-tyrone-ga** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **microsoft-union-city-ga** (construction): claimed_jobs, power_mw
 - **microsoft-woodward-ia** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **nscale-monarch-mason-wv** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
@@ -151,6 +160,7 @@ Projects with important gaps:
 - **oracle-abilene-tx** (construction): claimed_jobs
 - **prologis-coweta-ga** (announced): claimed_jobs
 - **prologis-san-jose-ca** (announced): claimed_investment_usd, claimed_jobs, at_a_glance
+- **prologis-shelbyville-in** (announced): claimed_investment_usd, claimed_jobs, power_mw, at_a_glance
 - **qts-blakely-ga** (announced): claimed_jobs
 - **qts-clinton-ia** (announced): claimed_jobs, power_mw
 - **qts-dane-county-wi** (announced): claimed_jobs

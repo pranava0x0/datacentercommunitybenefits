@@ -308,7 +308,10 @@
       "captured_at": "2026-09-23",
       "principles": [
         "transparency"
-      ]
+      ],
+      "topic_notes": {
+        "transparency": "The law calls for annual publication of anonymized, aggregated facility data. State assessments of electricity demand begin in 2029."
+      }
     },
     {
       "id": "ca-ab2469-2026",
@@ -655,7 +658,10 @@
       "captured_at": "2026-09-23",
       "principles": [
         "new_power"
-      ]
+      ],
+      "topic_notes": {
+        "new_power": "Covered facilities must produce or secure all the power they need, including a clean energy share."
+      }
     },
     {
       "id": "dona-ana-county-nm-oracle-project-jupiter-pilot-2025",
@@ -1080,7 +1086,10 @@
       "captured_at": "2026-09-23",
       "principles": [
         "water"
-      ]
+      ],
+      "topic_notes": {
+        "water": "For construction starting July 1, 2026 or later, consumptive cooling water must come from a municipal or district system."
+      }
     },
     {
       "id": "id-hb897-2026-failed",
@@ -1257,7 +1266,10 @@
       "principles": [
         "community_benefits",
         "incentive_terms"
-      ]
+      ],
+      "topic_notes": {
+        "community_benefits": "Qualifying operators make quarterly payments to the host city or county based on electricity sales taxes they did not pay."
+      }
     },
     {
       "id": "ks-sb98-2025",
@@ -1287,8 +1299,12 @@
       "resources": [],
       "captured_at": "2026-09-23",
       "principles": [
-        "incentive_terms"
-      ]
+        "incentive_terms",
+        "water"
+      ],
+      "topic_notes": {
+        "incentive_terms": "The sales tax exemption requires at least $250 million in investment and 20 new jobs for Kansas residents."
+      }
     },
     {
       "id": "ky-eo-2026-494",
@@ -1643,8 +1659,12 @@
       "resources": [],
       "captured_at": "2026-09-23",
       "principles": [
+        "pay_own_way",
         "study"
-      ]
+      ],
+      "topic_notes": {
+        "pay_own_way": "The advisory council must recommend ways to protect ratepayers and maintain grid reliability."
+      }
     },
     {
       "id": "me-ld713-2026",
@@ -2111,8 +2131,13 @@
       ],
       "captured_at": "2026-09-23",
       "principles": [
+        "new_power",
+        "pay_own_way",
         "study"
-      ]
+      ],
+      "topic_notes": {
+        "new_power": "The task force studies how flexible electricity use and demand response could meet rising demand."
+      }
     },
     {
       "id": "nd-sb2406-2026-failed",
@@ -2177,8 +2202,13 @@
       "captured_at": "2026-09-23",
       "principles": [
         "incentive_terms",
+        "water",
         "study"
-      ]
+      ],
+      "topic_notes": {
+        "incentive_terms": "New data centers can no longer qualify for ImagiNE Nebraska incentives. The order does not ban construction.",
+        "water": "A state task force must study water and infrastructure impacts with local natural resources districts."
+      }
     },
     {
       "id": "nh-sb439-2026-failed",
@@ -2249,7 +2279,10 @@
       "principles": [
         "community_benefits",
         "incentive_terms"
-      ]
+      ],
+      "topic_notes": {
+        "community_benefits": "Aspire requires a signed community benefits agreement and municipal support. New applications were paused in July 2026."
+      }
     },
     {
       "id": "nj-eo-2-2026",
@@ -2389,7 +2422,10 @@
       "captured_at": "2026-09-23",
       "principles": [
         "new_power"
-      ]
+      ],
+      "topic_notes": {
+        "new_power": "Large customers may build generation behind the meter to serve their own facilities."
+      }
     },
     {
       "id": "oh-tax-exemption-pause-2026",
@@ -2520,7 +2556,10 @@
       "captured_at": "2026-09-23",
       "principles": [
         "pay_own_way"
-      ]
+      ],
+      "topic_notes": {
+        "pay_own_way": "Covered facilities with at least 20 MW of capacity have a separate rate class and contracts of at least ten years."
+      }
     },
     {
       "id": "pa-eo2026-05-2026",
@@ -3230,7 +3269,10 @@
         "transparency",
         "incentive_terms",
         "water"
-      ]
+      ],
+      "topic_notes": {
+        "transparency": "State agencies may not sign nondisclosure agreements for data center projects."
+      }
     },
     {
       "id": "va-hb153-sb94-2026",
@@ -3258,7 +3300,10 @@
       "principles": [
         "local_control",
         "environmental_review"
-      ]
+      ],
+      "topic_notes": {
+        "environmental_review": "Zoning review for covered facilities requires a sound assessment for homes and schools within 500 feet. The law sets no decibel limit."
+      }
     },
     {
       "id": "va-hb496-2026",
@@ -3525,7 +3570,9 @@
       ],
       "captured_at": "2026-11-07",
       "principles": [
-        "pay_own_way"
+        "pay_own_way",
+        "water",
+        "new_power"
       ]
     },
     {
@@ -3646,7 +3693,8 @@
       ],
       "captured_at": "2026-09-23",
       "principles": [
-        "new_power"
+        "new_power",
+        "local_control"
       ]
     },
     {
@@ -3686,9 +3734,9 @@
       ],
       "captured_at": "2026-09-23",
       "principles": [
-        "study",
         "water",
-        "pay_own_way"
+        "pay_own_way",
+        "transparency"
       ]
     },
     {
@@ -4931,8 +4979,9 @@
         "engagement"
       ],
       "principles": [
-        "study",
-        "environmental_review"
+        "community_input",
+        "environmental_review",
+        "study"
       ],
       "community_benefits_framework": false,
       "key_terms": [
@@ -4944,7 +4993,10 @@
       "source_url": "https://memphistn.gov/mayor-paul-young-strengthens-data-center-protections-90-day-policy-review/",
       "source_title": "City of Memphis — Mayor Paul Young Takes Action to Strengthen Data Center Protections, Orders 90-Day Policy Review (Oct. 9, 2026)",
       "related_moratorium_id": "memphis-city-2026-10",
-      "captured_at": "2026-10-21"
+      "captured_at": "2026-10-21",
+      "topic_notes": {
+        "community_input": "The 90-day review requires three community sessions and a written public comment period."
+      }
     },
     {
       "id": "la-ratepayer-community-framework-2026-10",
@@ -5003,7 +5055,10 @@
       "source_url": "https://www.governor.ny.gov/executive-order/no-62-establishing-temporary-moratorium-data-centers-new-york-while-state-develops",
       "source_title": "New York Governor — Executive Order 62 (July 14, 2026)",
       "captured_at": "2026-11-06",
-      "related_moratorium_id": "ny-state-eo62-2026-07"
+      "related_moratorium_id": "ny-state-eo62-2026-07",
+      "topic_notes": {
+        "environmental_review": "Covered state permits wait for environmental findings on energy demand, water, air quality and noise."
+      }
     },
     {
       "id": "tx-data-center-audit-permit-directives-2026",
@@ -5094,7 +5149,10 @@
           "url": "https://www.loudoun.gov/m/newsflash/Home/Detail/10874",
           "title": "Loudoun County — Board Approves Process that Could Pause Legislative Data Center & Substation Applications (September 17, updated September 24, 2026)"
         }
-      ]
+      ],
+      "topic_notes": {
+        "local_control": "Data centers in three industrial districts need special-exception approval, subject to grandfathering provisions."
+      }
     },
     {
       "id": "raleigh-nc-major-data-center-special-use-zoning",
@@ -5108,7 +5166,8 @@
         "engagement"
       ],
       "principles": [
-        "local_control"
+        "local_control",
+        "community_input"
       ],
       "community_benefits_framework": false,
       "key_terms": [
@@ -5120,7 +5179,10 @@
       "summary": "Raleigh requires major data centers to obtain a special-use permit in two industrial districts. These existing zoning rules are separate from its October 2026 application pause; the city FAQ does not give their enactment date.",
       "source_url": "https://raleighnc.gov/services/unified-development-ordinance-udo/data-centers-faq",
       "source_title": "City of Raleigh — Data Centers FAQ: zoning and special-use permit requirements",
-      "captured_at": "2026-11-06"
+      "captured_at": "2026-11-06",
+      "topic_notes": {
+        "community_input": "Properties within 100 feet receive mailed notice. Residents can give factual testimony at the hearing; there is no general public comment period."
+      }
     },
     {
       "id": "st-louis-mo-ordinance-72181-2026",
@@ -5140,8 +5202,8 @@
       ],
       "principles": [
         "community_benefits",
-        "local_control",
-        "transparency"
+        "community_input",
+        "local_control"
       ],
       "community_benefits_framework": true,
       "key_terms": [
@@ -5281,7 +5343,10 @@
       "summary": "Clearfield adopted a temporary land-use regulation on September 8 to define data centers and study zoning classifications and development standards. The operative text establishes the study and its duration.",
       "source_url": "https://clearfield.city/wp-content/uploads/2026/09/2026O-13-Ordinance-Establishing-a-temporary-land-use-Data-Center.pdf",
       "source_title": "Clearfield temporary data-center land-use study — Ordinance 2026-13",
-      "captured_at": "2026-11-07"
+      "captured_at": "2026-11-07",
+      "topic_notes": {
+        "local_control": "A 180-day land-use regulation gives the city time to study zoning districts and development standards."
+      }
     },
     {
       "id": "cincinnati-oh-2026-02-framework",
@@ -5495,8 +5560,13 @@
       ],
       "captured_at": "2026-11-07",
       "principles": [
-        "study"
-      ]
+        "community_input",
+        "pay_own_way",
+        "water"
+      ],
+      "topic_notes": {
+        "community_input": "The advisory committee takes public comment on electricity costs, water and siting before recommending state policy."
+      }
     },
     {
       "id": "mason-county-ky-meta-development-agreement-2026",
@@ -5649,7 +5719,8 @@
         "engagement"
       ],
       "principles": [
-        "local_control"
+        "local_control",
+        "community_input"
       ],
       "community_benefits_framework": false,
       "value_usd": null,
@@ -5684,7 +5755,8 @@
         "engagement"
       ],
       "principles": [
-        "transparency"
+        "transparency",
+        "community_input"
       ],
       "community_benefits_framework": false,
       "value_usd": null,
@@ -5695,7 +5767,10 @@
       "summary": "S4304 would bar agreements, including non-disclosure agreements, that conceal details of data center development or prevent public review under the Municipal Land Use Law, and would make such agreements unenforceable.",
       "source_url": "https://pub.njleg.state.nj.us/Bills/2026/S4500/4304_I1.HTM",
       "source_title": "New Jersey Legislature — S4304 (introduced text)",
-      "captured_at": "2026-11-09"
+      "captured_at": "2026-11-09",
+      "topic_notes": {
+        "transparency": "The bill would void agreements that conceal project details or prevent public review."
+      }
     }
   ]
 }

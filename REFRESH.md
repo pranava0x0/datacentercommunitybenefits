@@ -1370,3 +1370,21 @@ extraction kept a batch running without a completed checkpoint. Isolating
 each fetch in a process with a 55-second wall limit let the remaining source
 checks proceed; timed-out checks remain blocked, never verified. Keep progress
 checkpoints frequent and do not mistake parser activity for completed evidence.
+
+### 2026-11-09 — choosing examples for Policy topics
+
+Reviewed the curated terms and summaries in the combined tab, including 77
+state policy records and 24 state restriction records. The 14 US records tagged
+as studies covered electricity demand, rates, taxes, water, permits or land use.
+Keep advisory work under its subject; never count a recommendation as a permit
+condition. A public hearing that happened once is not a continuing right to
+comment. Raleigh's process, for example, allows factual testimony but not
+general public comment.
+
+For a landing-page example, add a short `topic_notes` entry to its existing
+policy or moratorium record. Use the cited record's scope, status and verbs;
+leave contact details out. A policy note must match a principle on the record.
+For instruments in both directories, feature only one side. The refresh emits
+a small projection of featured pauses so readers can expand every topic
+without downloading the pause directory. This was a topic audit of the existing
+inventory, not a new state-by-state search or a recertification of every status.

@@ -233,54 +233,24 @@ const POLICY_PRINCIPLES = [
   "water",
   "transparency",
   "local_control",
+  "community_input",
   "new_power",
   "environmental_review",
   "study",
   "heat_reuse",
 ];
 const POLICY_PRINCIPLE_LABELS = {
-  pay_own_way: "Data centers pay their own grid costs",
-  community_benefits: "Host communities get binding benefits",
-  incentive_terms: "Tax breaks come with conditions",
-  water: "Water use is capped or reported",
-  transparency: "No secret deals",
-  local_control: "Localities keep a say in siting",
-  new_power: "New demand brings new supply",
-  environmental_review: "Projects get environmental review",
-  study: "States study before setting rules",
-  heat_reuse: "Waste heat is reused (mainly outside the US)",
-};
-const POLICY_PRINCIPLE_SHORT = {
-  pay_own_way: "Grid costs",
+  pay_own_way: "Electricity costs",
   community_benefits: "Community benefits",
-  incentive_terms: "Tax breaks",
-  water: "Water",
-  transparency: "Disclosure",
-  local_control: "Local siting",
-  new_power: "New supply",
-  environmental_review: "Environmental review",
-  study: "Study",
-  heat_reuse: "Heat reuse",
-};
-const POLICY_PRINCIPLE_DESCRIPTIONS = {
-  pay_own_way:
-    "Separate rate classes, long contracts, and collateral, so grid upgrades for a data center are not billed to households.",
-  community_benefits:
-    "Benefit agreements, community funds, and payments in lieu of taxes, written into the approval.",
-  incentive_terms:
-    "Job, wage, and investment floors on tax exemptions, and pauses or repeals where states pulled back.",
-  water: "Limits on cooling water, closed-loop requirements, and usage reporting.",
-  transparency:
-    "Bans on nondisclosure agreements with officials, public registries, and early notice to neighbors.",
-  local_control: "Local approval before state permits, plus zoning, noise, and setback rules.",
-  new_power:
-    "Requirements, or permission, to build new generation instead of drawing on existing supply.",
-  environmental_review:
-    "Impact review before permits issue: water, air, noise, and wildlife studies, usually with public comment. New York's statewide pause (EO 62) waits on one.",
-  study:
-    "Task forces, advisory councils, and workgroups that recommend rules before a state writes them.",
-  heat_reuse:
-    "Requirements or agreements to pipe a data center's waste heat into district heating. Common in the Nordics and Germany; rare in the US so far.",
+  incentive_terms: "Tax incentives",
+  water: "Water use",
+  transparency: "Transparency",
+  local_control: "Zoning and siting",
+  community_input: "Community input",
+  new_power: "Power supply",
+  environmental_review: "Permitting and environmental review",
+  study: "Studies and advisory bodies",
+  heat_reuse: "Waste heat reuse",
 };
 const POLICY_SCOPES = ["federal", "state", "county", "city", "company", "national", "supranational"];
 const POLICY_SCOPE_LABELS = {
@@ -1095,24 +1065,17 @@ function activateView(name) {
         if (ol) ol.innerHTML = "<li class='muted'>Failed to load agreements.</li>";
       });
   } else if (target.name === "policies") {
-    // Moratoriums are secondary here: they only add the governor orders
-    // filed on that tab to "Latest actions", so their failure is caught
-    // rather than blanking the playbook.
-    Promise.all([
-      loadPoliciesData(),
-      loadMoratoriumsData().catch((err) =>
-        console.error("Failed to load moratoriums for latest actions:", err)
-      ),
-    ])
-      .then(renderPoliciesView)
-      .catch((err) => {
-        console.error("Failed to load policies data:", err);
-        const tbody = document.getElementById("policies-tbody");
-        if (tbody) {
-          tbody.innerHTML =
-            "<tr><td colspan='6' class='muted'>Failed to load policies.</td></tr>";
-        }
-      });
+    loadPoliciesData().then(renderPoliciesView).catch((err) => {
+      console.error("Failed to load policies:", err);
+      document.getElementById("policy-principles").replaceChildren(el("li", "muted", "Could not load policy topics. Reopen Policy to retry."));
+      document.getElementById("policies-tbody").innerHTML = "<tr><td colspan='6'>Could not load rules.</td></tr>";
+    });
+    // The small Home digest carries pause totals; Topics never needs the full directory.
+    loadHomeData().then(() => {
+      if (state.policies.length) renderPolicyStats(state.policies);
+    }).catch((err) => console.error("Policy totals unavailable:", err));
+    loadPolicyPane(_activeSubtab.pol);
+
   }
 }
 
@@ -3002,6 +2965,7 @@ function loadPoliciesData() {
     _policyDataPromise = (async () => {
       const payload = await fetchJson("data/policies.json");
       state.policies = payload.policies || [];
+      state.policyPauseExamples = payload.pause_examples || [];
       _policySnapshotYear = /^\d{4}-\d{2}-\d{2}$/.test(payload.generated_at || "")
         ? payload.generated_at.slice(0, 4)
         : null;
@@ -3159,7 +3123,7 @@ function populatePolicyFilters() {
   const states = [...new Set(all.map((p) => p.state_code).filter(Boolean))].sort();
   fill("policy-state-filter", states, (k) => STATE_NAMES[k] || k,
     (k) => all.filter((p) => p.state_code === k).length);
-  fill("policy-principle-filter", POLICY_PRINCIPLES, (k) => POLICY_PRINCIPLE_SHORT[k],
+  fill("policy-principle-filter", POLICY_PRINCIPLES, (k) => POLICY_PRINCIPLE_LABELS[k],
     (k) => all.filter((p) => (p.principles || []).includes(k)).length);
 }
 
@@ -3203,11 +3167,12 @@ function wirePolicyControls() {
 
 function renderPoliciesView() {
   wirePolicyControls();
+  wireBtn("policy-heat-abroad", () => openWorldPrinciple("heat_reuse"));
   populatePolicyFilters();
   const all = state.policies || [];
   renderPolicyStats(all);
   renderPolicyPrinciples(all);
-  renderPolicyActions(all);
+  if (state.moratoriumsLoaded) renderPolicyActions(all);
   applyPolicyUrl();
   renderPoliciesTable();
   writePolicyUrl();
@@ -3218,9 +3183,13 @@ function renderPolicyStats(all) {
   if (!ul) return;
   const n = (pred) => all.filter(pred).length;
   const year = _policySnapshotYear || String(new Date().getFullYear());
+  const totals = state.home?.totals;
+  const pauses = state.moratoriumsLoaded ? state.moratoriums.length : totals?.moratoriums;
+  const enacted = state.moratoriumsLoaded ? state.moratoriums.filter((m) => effectiveStatus(m) === "enacted").length : totals?.moratoriums_enacted;
+  if (pauses != null) setSubtabCount("moratoriums-count", pauses);
   const tiles = [
-    [all.length + (state.moratoriums || []).length, "Records"],
-    [(state.moratoriums || []).filter((m) => effectiveStatus(m) === "enacted").length, "Pauses enacted"],
+    [pauses == null ? "—" : all.length + pauses, "Records"],
+    [enacted ?? "—", "Pauses enacted"],
     [n((p) => p.status === "in_effect"), "Rules in effect"],
     [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
     [n((p) => p.instrument === "executive_order" && (p.date || "").startsWith(year)), `Governor orders in ${year}`],
@@ -3479,56 +3448,8 @@ function openAgreement(id) {
   });
 }
 
-// Principle cards: what each rule looks like in practice, how far it has
-// spread, and the latest examples. "All N" filters the directory.
-const PB_EXAMPLES_PER_PRINCIPLE = 3;
-// Public instruments first, then site agreements, then company plans: the
-// playbook is about what can be required, and a company's own plan is the
-// weakest evidence of that.
-const PB_INSTRUMENT_RANK = {
-  executive_order: 0,
-  legislation: 0,
-  regulation: 0,
-  local_ordinance: 1,
-  benefit_agreement: 1,
-  company_plan: 2,
-};
-
-// Records whose PRIMARY principle is this one come first, so a broad order
-// tagged with five principles doesn't headline every card.
-function pbExamples(records, key) {
-  const primary = (p) => ((p.principles || [])[0] === key ? 0 : 1);
-  return records
-    .filter((p) => p.status === "in_effect")
-    .sort(
-      (a, b) =>
-        primary(a) - primary(b) ||
-        (PB_INSTRUMENT_RANK[a.instrument] ?? 3) - (PB_INSTRUMENT_RANK[b.instrument] ?? 3) ||
-        (b.date || "").localeCompare(a.date || "")
-    )
-    .slice(0, PB_EXAMPLES_PER_PRINCIPLE);
-}
-
-// Which of a record's key terms to show under a principle: the first one
-// that speaks to it, else the first term. Display only; the principle tags
-// themselves are curator-assigned.
-const PB_TERM_HINTS = {
-  pay_own_way: /cost|rate|ratepayer|tariff|pay|collateral|contract/i,
-  community_benefits: /benefit|fund|payment|grant|\$|school/i,
-  incentive_terms: /tax|exempt|incentive|abatement|credit|rebate/i,
-  water: /water|cool|aquifer/i,
-  transparency: /disclos|nondisclosure|\bNDA|report|registr|notice|public/i,
-  local_control: /local|zoning|sound|noise|setback|siting|approv/i,
-  new_power: /generation|clean|renewable|solar|nuclear|storage|behind|microgrid/i,
-  environmental_review: /permit|review|impact|environment|air|wildlife|sound|comment/i,
-  study: /task force|council|workgroup|recommend|study|report/i,
-  heat_reuse: /heat|district heating|warmth|thermal/i,
-};
-
-function pbTermFor(p, key) {
-  const hint = PB_TERM_HINTS[key];
-  return (hint && p.key_terms.find((t) => hint.test(t))) || p.key_terms[0];
-}
+// Study is a method, not a US topic. Waste heat reuse remains in International.
+const US_POLICY_TOPICS = POLICY_PRINCIPLES.filter((k) => k !== "study" && k !== "heat_reuse");
 
 function pbWhereTag(p) {
   if (p.scope === "company") {
@@ -3539,53 +3460,63 @@ function pbWhereTag(p) {
   return p.state_code || POLICY_SCOPE_LABELS[p.scope] || "";
 }
 
+function topicExample(record, key, isPause) {
+  const item = el("li");
+  const title = isPause ? record.bill_number || "Pause record" : record.identifier || record.title;
+  const btn = el("button", "linkish pb-example-title", title);
+  btn.type = "button";
+  btn.addEventListener("click", async () => {
+    if (!isPause) { showPolicyDetail(record); return; }
+    const visit = state.navGen;
+    try {
+      await loadMoratoriumsData();
+      if (state.navGen !== visit || !btn.closest("details[open]") || !btn.getClientRects().length || state.openPolicyId) return;
+      const full = state.moratoriums.find((m) => m.id === record.id);
+      if (!full) throw new Error("Pause record missing: " + record.id);
+      showMoratoriumDetail(full);
+    } catch (err) {
+      console.error("Pause record unavailable:", err);
+      meta.textContent = `${where} · ${status} · Could not load record. Try again or open the source.`;
+    }
+  });
+  const where = isPause ? record.jurisdiction : policyWhere(record);
+  const status = isPause ? effectiveStatus(record) : POLICY_STATUS_LABELS[record.status];
+  const meta = el("div", "pb-principle-counts", `${where} · ${status}`);
+  const link = el("a", "pb-source", "Source ↗");
+  link.href = record.source_url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.setAttribute("aria-label", `Source: ${record.source_title}`);
+  item.append(meta, btn, el("p", "pb-example-term", record.topic_notes[key]), link);
+  return item;
+}
+
 function renderPolicyPrinciples(all) {
   const ol = document.getElementById("policy-principles");
   if (!ol) return;
-  setSubtabCount("policy-principles-count", POLICY_PRINCIPLES.length);
+  const open = new Set([...ol.querySelectorAll("details[open]")].map((d) => d.parentElement.dataset.principle));
+  setSubtabCount("policy-principles-count", US_POLICY_TOPICS.length);
   ol.replaceChildren();
-  for (const key of POLICY_PRINCIPLES) {
-    const recs = all.filter((p) => (p.principles || []).includes(key));
-    const by = (s) => recs.filter((p) => p.status === s).length;
-    const states = new Set(recs.map((p) => p.state_code).filter(Boolean)).size;
+  for (const key of US_POLICY_TOPICS) {
+    const recs = all.filter((p) => p.principles.includes(key));
     const li = el("li", "pb-principle");
     li.dataset.principle = key;
-    li.append(el("h3", "pb-principle-title", POLICY_PRINCIPLE_LABELS[key]));
-    li.append(el("p", "pb-principle-desc", POLICY_PRINCIPLE_DESCRIPTIONS[key]));
-    if (!recs.length) {
-      // heat_reuse (v6) is mainly practiced abroad: point to those records
-      // rather than render an empty card that reads as "nobody does this".
-      li.append(el("p", "pb-principle-counts", "No US records yet."));
-      const abroad = el("button", "linkish pb-see-all", "See it abroad →");
-      abroad.type = "button";
-      abroad.addEventListener("click", () => openWorldPrinciple(key));
-      li.append(abroad);
-      ol.append(li);
-      continue;
+    const details = el("details");
+    const summary = el("summary", "pb-topic-toggle", POLICY_PRINCIPLE_LABELS[key]);
+    const body = el("div", "pb-topic-body");
+    details.open = open.has(key);
+    details.append(summary, body);
+    li.append(details);
+    ol.append(li);
+    const examples = el("ul", "pb-examples");
+    for (const p of recs.filter((r) => r.topic_notes?.[key]).sort(policySort)) {
+      examples.append(topicExample(p, key, false));
     }
-    const counts = [
-      `${by("in_effect")} in effect`,
-      by("proposed") ? `${by("proposed")} proposed` : null,
-      by("failed") ? `${by("failed")} failed` : null,
-      `${states} ${states === 1 ? "state" : "states"}`,
-    ].filter(Boolean);
-    li.append(el("p", "pb-principle-counts", counts.join(" · ")));
-    const ex = el("ul", "pb-examples");
-    for (const p of pbExamples(recs, key)) {
-      const item = el("li");
-      const btn = el("button", "pb-example");
-      btn.type = "button";
-      btn.append(
-        el("span", "pb-example-where", pbWhereTag(p)),
-        el("span", "pb-example-title", p.title),
-        el("span", "pb-example-term", pbTermFor(p, key))
-      );
-      btn.addEventListener("click", () => showPolicyDetail(p));
-      item.append(btn);
-      ex.append(item);
+    for (const m of (state.policyPauseExamples || []).filter((r) => r.topic_notes[key])) {
+      examples.append(topicExample(m, key, true));
     }
-    li.append(ex);
-    const all_ = el("button", "linkish pb-see-all", `All ${recs.length} →`);
+    body.append(examples);
+    const all_ = el("button", "linkish pb-see-all", `View ${recs.length} in Rules →`);
     all_.type = "button";
     all_.addEventListener("click", () => {
       for (const id of POLICY_FILTER_IDS) {
@@ -3605,8 +3536,7 @@ function renderPolicyPrinciples(all) {
       const dir = document.getElementById("policies-directory");
       if (dir) dir.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-    li.append(all_);
-    ol.append(li);
+    body.append(all_);
   }
 }
 
@@ -3714,7 +3644,7 @@ function renderPoliciesTable() {
       ? ` <span class="badge badge-cbf" title="Requires, creates or is a community benefit agreement, fund or host payment">CBF</span>`
       : "";
     const themes = (p.principles || [])
-      .map((k) => `<span class="policy-theme">${escapeHtml(POLICY_PRINCIPLE_SHORT[k] || k)}</span>`)
+      .map((k) => `<span class="policy-theme">${escapeHtml(POLICY_PRINCIPLE_LABELS[k] || k)}</span>`)
       .join("");
     const deliveredTag = p.delivered
       ? ` <span class="badge policy-delivered delivered-${p.delivered.status}" title="Delivered vs promised">${escapeHtml(DELIVERED_LABELS[p.delivered.status] || p.delivered.status)}</span>`
@@ -3821,7 +3751,7 @@ function showPolicyDetail(p) {
   }
   if (p.related_moratorium_id) {
     const li = el("li");
-    const btn = el("button", "linkish", "Also tracked on the Moratoriums tab");
+    const btn = el("button", "linkish", "Related pause record");
     btn.type = "button";
     btn.addEventListener("click", async () => {
       closePolicyDetail();
@@ -3884,7 +3814,7 @@ function _policyExportRows(list) {
     p.date || "",
     p.identifier || "",
     policyParties(p).join("; "),
-    (p.principles || []).map((k) => POLICY_PRINCIPLE_SHORT[k] || k).join("; "),
+    (p.principles || []).map((k) => POLICY_PRINCIPLE_LABELS[k] || k).join("; "),
     (p.benefit_themes || []).map((t) => THEME_LABELS[t] || t).join("; "),
     p.community_benefits_framework ? "yes" : "no",
     p.value_usd ?? "",
@@ -4464,7 +4394,7 @@ const SUBTAB_GROUPS = {
   // One Policy tab (2026-11-09): pauses and rules are two directories of
   // the same question, what governments did. Planning guides moved to
   // Benefit Agreements.
-  pol: ["latest", "pauses", "rules", "principles", "map", "trends"],
+  pol: ["principles", "latest", "pauses", "rules", "map", "trends"],
   cba: ["strongest", "all", "features", "drafts", "evidence"],
   world: ["countries", "instruments", "sites"],
 };
@@ -4507,9 +4437,24 @@ function setActiveSubtab(group, key) {
     if (pane) pane.hidden = !active;
   }
   syncSubtabHash(group);
-  if (group === "pol" && key === "map") loadJurisdictionMap();
+  if (group === "pol" && state.activeView === "policies") loadPolicyPane(key);
   if (group === "cba" && (key === "drafts" || key === "evidence")) loadPlanningGuide(key);
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
+}
+
+function loadPolicyPane(key) {
+  if (key === "map") { loadJurisdictionMap(); return; }
+  if (!["latest", "pauses", "trends"].includes(key)) return;
+  loadMoratoriumsData().then(() => {
+    if (state.policies.length) {
+      renderPolicyStats(state.policies);
+      renderPolicyActions(state.policies);
+    }
+    document.getElementById("policy-pane-error").hidden = true;
+  }).catch((err) => {
+    console.error("Could not load pause records:", err);
+    document.getElementById("policy-pane-error").hidden = false;
+  });
 }
 
 // Open Benefit Agreements → Draft plans on the county or state draft.
@@ -9707,7 +9652,7 @@ function intlPolicyCard(p, hTag = "h3") {
   });
   li.append(terms);
   if (p.principles && p.principles.length) {
-    li.append(el("p", "muted world-principles", `Principles: ${p.principles.map((k) => POLICY_PRINCIPLE_SHORT[k] || k).join(" · ")}`));
+    li.append(el("p", "muted world-principles", `Principles: ${p.principles.map((k) => POLICY_PRINCIPLE_LABELS[k] || k).join(" · ")}`));
   }
   li.append(sourceLine(p));
   return li;
@@ -9922,7 +9867,7 @@ function renderWorld() {
     for (const c of countries) cSel.append(new Option(countryName(c.code), c.code));
     const pSel = document.getElementById("world-principle-filter");
     const used = new Set(d.policies.flatMap((p) => p.principles || []));
-    for (const k of POLICY_PRINCIPLES.filter((k) => used.has(k))) pSel.append(new Option(POLICY_PRINCIPLE_SHORT[k], k));
+    for (const k of POLICY_PRINCIPLES.filter((k) => used.has(k))) pSel.append(new Option(POLICY_PRINCIPLE_LABELS[k], k));
     for (const id of ["world-country-filter", "world-principle-filter", "world-status-filter"]) {
       document.getElementById(id).addEventListener("change", renderWorldInstruments);
     }

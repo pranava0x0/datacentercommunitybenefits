@@ -42,6 +42,7 @@ from schema import (
     DOESitesPayload,
     MoratoriumsPayload,
     PoliciesPayload,
+    TopicPauseExample,
     InternationalPayload,
     ProjectsPayload,
     RateCasesPayload,
@@ -1021,6 +1022,11 @@ def refresh(*, check_only: bool = False, pretty: bool = False, audit: bool = Fal
         len(payloads["projects"].projects),
         len(payloads["responses"].responses),
     )
+
+    payloads["policies"].pause_examples = [
+        TopicPauseExample.model_validate(m, from_attributes=True)
+        for m in payloads["moratoriums"].moratoriums if m.topic_notes
+    ]
 
     # Audit missing commitment details if requested
     if audit:
