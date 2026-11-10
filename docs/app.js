@@ -755,7 +755,6 @@ const VIEWS = [
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
   { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
   { name: "agreements", tab: "tab-agreements", section: "view-agreements", hash: "#agreements" },
-  { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "elections", tab: "tab-elections", section: "view-elections", hash: "#elections" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
@@ -823,7 +822,21 @@ function routeFromLocation({ boot = false } = {}) {
   }
 }
 
+// Hashes from before the Policy tab merged Moratoriums and Frameworks
+// (2026-11-09). Old links and history entries land on the same pane.
+const LEGACY_HASHES = {
+  "#moratoriums": "#policies/pauses",
+  "#moratoriums/directory": "#policies/pauses",
+  "#moratoriums/map": "#policies/map",
+  "#moratoriums/trends": "#policies/trends",
+  "#policies/directory": "#policies/rules",
+  "#policies/drafts": "#agreements/drafts",
+  "#policies/evidence": "#agreements/evidence",
+};
+
 function _routeFromLocation(boot) {
+  const legacy = LEGACY_HASHES[window.location.hash];
+  if (legacy) history.replaceState(null, "", window.location.pathname + window.location.search + legacy);
   const params = new URLSearchParams(window.location.search);
   if (!ELECTION_DEEP_LINK.test(window.location.hash)) _pendingElectionId = null;
   if (!boot) {
@@ -1054,10 +1067,6 @@ function activateView(name) {
   } else if (target.name === "ratepayer") {
     loadRatepayerView().catch((err) => {
       console.error("Failed to load ratepayer view:", err);
-    });
-  } else if (target.name === "moratoriums") {
-    loadMoratoriumsData().catch((err) => {
-      console.error("Failed to load moratoriums data:", err);
     });
   } else if (target.name === "elections") {
     loadElectionsData().catch((err) => console.error("Failed to load elections:", err));
@@ -1519,8 +1528,9 @@ function loadElectionsData() {
         _electionsView = view.mount(root, payload, {
           stateNames: STATE_NAMES,
           openMoratorium(id) {
-            activateView("moratoriums");
-            openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
+            activateView("policies");
+      setActiveSubtab("pol", "pauses");
+            openWhenStillOn("policies", loadMoratoriumsData(), () => {
               const record = state.moratoriums.find((item) => item.id === id);
               if (record) showMoratoriumDetail(record);
             });
@@ -2011,7 +2021,7 @@ function wireMorTimelinePark() {
   if (_morParkWired) return;
   _morParkWired = true;
   document.addEventListener("dcb:subtab", (e) => {
-    if (e.detail.group !== "mor" || e.detail.key !== "trends") return;
+    if (e.detail.group !== "pol" || e.detail.key !== "trends") return;
     requestAnimationFrame(() => {
       const plot = document.querySelector("#moratorium-charts .mtl-plot");
       if (plot) plot.scrollLeft = plot.scrollWidth;
@@ -3209,8 +3219,9 @@ function renderPolicyStats(all) {
   const n = (pred) => all.filter(pred).length;
   const year = _policySnapshotYear || String(new Date().getFullYear());
   const tiles = [
-    [all.length, "Records"],
-    [n((p) => p.status === "in_effect"), "In effect"],
+    [all.length + (state.moratoriums || []).length, "Records"],
+    [(state.moratoriums || []).filter((m) => effectiveStatus(m) === "enacted").length, "Pauses enacted"],
+    [n((p) => p.status === "in_effect"), "Rules in effect"],
     [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
     [n((p) => p.instrument === "executive_order" && (p.date || "").startsWith(year)), `Governor orders in ${year}`],
   ];
@@ -3590,7 +3601,7 @@ function renderPolicyPrinciples(all) {
       const more = document.querySelector("#policy-filters .directory-more-filters");
       if (more) more.open = true;
       renderPoliciesTable();
-      setActiveSubtab("pol", "directory");
+      setActiveSubtab("pol", "rules");
       const dir = document.getElementById("policies-directory");
       if (dir) dir.scrollIntoView({ behavior: "smooth", block: "start" });
     });
@@ -3647,8 +3658,9 @@ function renderPolicyActions(all) {
       title: `${m.jurisdiction}: ${m.bill_number || "data-center moratorium"}`,
       note: "Moratorium",
       open: () => {
-        activateView("moratoriums");
-        openWhenStillOn("moratoriums", new Promise(requestAnimationFrame), () => showMoratoriumDetail(m));
+        activateView("policies");
+      setActiveSubtab("pol", "pauses");
+        openWhenStillOn("policies", new Promise(requestAnimationFrame), () => showMoratoriumDetail(m));
       },
     });
   }
@@ -3813,8 +3825,9 @@ function showPolicyDetail(p) {
     btn.type = "button";
     btn.addEventListener("click", async () => {
       closePolicyDetail();
-      activateView("moratoriums");
-      openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
+      activateView("policies");
+      setActiveSubtab("pol", "pauses");
+      openWhenStillOn("policies", loadMoratoriumsData(), () => {
         const m = (state.moratoriums || []).find((x) => x.id === p.related_moratorium_id);
         if (m) showMoratoriumDetail(m);
       });
@@ -4211,8 +4224,7 @@ function renderHome() {
     // rule (test_home_card_numbers_match_their_tab), so a reader who clicks
     // through never meets a different count for the same thing.
     sites: [t.sites, `${t.contested_sites} contested`],
-    moratoriums: [t.moratoriums, `${t.moratoriums_enacted} enacted`],
-    policies: [t.policies, `${t.policies_in_effect} in effect`],
+    policies: [t.policies + t.moratoriums, `${t.moratoriums_enacted} pauses enacted · ${t.policies_in_effect} rules in effect`],
     agreements: [t.agreements, `${t.agreements_signed} signed`],
     tariffs: [t.rate_cases, `rate cases, ${t.rate_cases_pending} pending · ${t.tariffs} tariffs`],
     companies: [t.companies, "operators"],
@@ -4303,13 +4315,14 @@ function openHomeTarget(target) {
     activateView("explorer");
     if (state.explorerLoaded) selectProject(target.id);
   } else if (target.kind === "moratorium") {
-    activateView("moratoriums");
-    openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
+    activateView("policies");
+      setActiveSubtab("pol", "pauses");
+    openWhenStillOn("policies", loadMoratoriumsData(), () => {
       const m = state.moratoriums.find((x) => x.id === target.id);
       if (m) showMoratoriumDetail(m);
     });
   } else if (target.kind === "policy") {
-    setActiveSubtab("pol", "directory");
+    setActiveSubtab("pol", "rules");
     activateView("policies");
     openWhenStillOn("policies", loadPoliciesData(), () => {
       const pol = (state.policies || []).find((x) => x.id === target.id);
@@ -4372,7 +4385,6 @@ const PLEDGE_TARGETS = {
     anchor: "rate-cases-section",
     subtab: { group: "tar", key: "ratecases" },
   },
-  moratoriums: { view: "moratoriums", anchor: null },
   elections: { view: "elections", anchor: null },
   // Anchor-less tab landings for the Home "Explore the record" cards.
   pledge: { view: "ratepayer", anchor: null },
@@ -4449,9 +4461,11 @@ const SUBTAB_GROUPS = {
   co: ["profiles", "commitments", "footprint"],
   sites: ["map", "contested", "states"],
   tar: ["ratecases", "tariffs", "elements"],
-  pol: ["principles", "latest", "directory", "drafts", "evidence"],
-  cba: ["strongest", "all", "features"],
-  mor: ["directory", "map", "trends"],
+  // One Policy tab (2026-11-09): pauses and rules are two directories of
+  // the same question, what governments did. Planning guides moved to
+  // Benefit Agreements.
+  pol: ["latest", "pauses", "rules", "principles", "map", "trends"],
+  cba: ["strongest", "all", "features", "drafts", "evidence"],
   world: ["countries", "instruments", "sites"],
 };
 
@@ -4465,7 +4479,6 @@ const VIEW_SUBTAB_GROUP = {
   tariffs: "tar",
   policies: "pol",
   agreements: "cba",
-  moratoriums: "mor",
   world: "world",
 };
 
@@ -4494,21 +4507,16 @@ function setActiveSubtab(group, key) {
     if (pane) pane.hidden = !active;
   }
   syncSubtabHash(group);
-  if (group === "mor") {
-    if (key === "map") loadJurisdictionMap();
-  }
-  if (group === "pol") {
-    const isGuide = key === "drafts" || key === "evidence";
-    if (isGuide) loadPlanningGuide(key);
-  }
+  if (group === "pol" && key === "map") loadJurisdictionMap();
+  if (group === "cba" && (key === "drafts" || key === "evidence")) loadPlanningGuide(key);
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
 }
 
-// Open Frameworks → Draft plans on the county or state draft.
+// Open Benefit Agreements → Draft plans on the county or state draft.
 function openDraftPlan(kind) {
   closePolicyDetail();
-  activateView("policies");
-  setActiveSubtab("pol", "drafts");
+  activateView("agreements");
+  setActiveSubtab("cba", "drafts");
   (_planningGuidePromise || Promise.reject(new Error("guide not loading")))
     .then(() => {
       const sel = document.getElementById("draft-plan-kind");
@@ -4525,7 +4533,7 @@ let _planningGuideRetries = 0;
 const _planningGuidesRendered = new Set();
 function loadPlanningGuide(key) {
   if (_planningGuidesRendered.has(key)) return;
-  const root = document.getElementById(`subpane-pol-${key}`);
+  const root = document.getElementById(`subpane-cba-${key}`);
   if (!_planningGuidePromise) {
     // Browsers cache a failed module fetch by URL; a new URL permits retry.
     const path = _planningGuideRetries ? `./community-plans.js?retry=${_planningGuideRetries}` : "./community-plans.js";
@@ -4580,8 +4588,8 @@ function parseSubtabHash(hash) {
 function wireSubtabs() {
   for (const btn of document.querySelectorAll("[data-guide-target]")) {
     btn.addEventListener("click", () => {
-      activateView("policies");
-      setActiveSubtab("pol", btn.dataset.guideTarget);
+      activateView("agreements");
+      setActiveSubtab("cba", btn.dataset.guideTarget);
     });
   }
   for (const [group, keys] of Object.entries(SUBTAB_GROUPS)) {
@@ -7454,7 +7462,8 @@ function renderStatePanel(code, failedSources = new Set()) {
           .join(" · "),
         onClick: () => {
           closeStatePanel();
-          activateView("moratoriums");
+          activateView("policies");
+      setActiveSubtab("pol", "pauses");
           requestAnimationFrame(() => showMoratoriumDetail(m));
         },
       })),

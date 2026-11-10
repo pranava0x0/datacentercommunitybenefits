@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parents[2]
 def test_summary_strips_stay_visible_and_headings_keep_ink(page: Page, base_url: str, width: int) -> None:
     page.set_viewport_size({'width': width, 'height': 812})
     page.goto(base_url + '/#policies')
-    expect(page.locator('#policy-stats .rp-stat')).to_have_count(4)
-    for group, view, stats in [('pol', 'policies', 'policy-stats'), ('mor', 'moratoriums', 'moratorium-stats')]:
+    expect(page.locator('#policy-stats .rp-stat')).to_have_count(5)
+    for group, view, stats in [('pol', 'policies', 'policy-stats')]:
         page.click('#tab-' + view)
         assert page.locator('#view-' + view).evaluate('e => getComputedStyle(e).opacity') == '1'
         strip = page.locator('#' + stats)
@@ -26,7 +26,7 @@ def test_summary_strips_stay_visible_and_headings_keep_ink(page: Page, base_url:
             expect(strip.locator('.rp-stat')).to_have_count(count)
             assert strip.locator('.rp-stat').first.evaluate('e => getComputedStyle(e).borderTopWidth') == '0px'
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
-    expect(page.locator('#subtab-mor-influence')).to_have_count(0)
+    expect(page.locator('#subtab-pol-influence')).to_have_count(0)
     page.click('#tab-elections')
     expect(page.locator('.election-row')).to_have_count(54)
     expect(page.locator('#elections-stats')).to_have_count(0)
@@ -48,7 +48,7 @@ def test_framework_gaps_are_source_linked_and_latest_does_not_repeat_same_order(
     expect(page.locator('#policy-actions .pb-action')).to_have_count(5)
     expect(page.locator('.pb-action-text').filter(has_text='New York EO 62')).to_have_count(1)
     expect(page.locator('.pb-action-text').filter(has_text='Sabattus')).to_have_count(1)
-    page.click('#subtab-pol-directory')
+    page.click('#subtab-pol-rules')
     expect(page.locator('#policies-tbody tr[role="button"]')).to_have_count(4)
     page.locator('#policies-tbody tr').filter(has_text='Loudoun').click()
     expect(page.locator('#pd-date')).to_have_text('2025-03-18')
@@ -71,7 +71,7 @@ def test_unknown_dates_and_reasons_do_not_look_like_empty_cells(page: Page, base
 @pytest.mark.parametrize('width', [375, 641, 820, 1100, 1366])
 def test_labeled_filters_keep_primary_controls_visible(page: Page, base_url: str, width: int) -> None:
     page.set_viewport_size({'width': width, 'height': 812})
-    page.goto(base_url + '/#policies/directory')
+    page.goto(base_url + '/#policies/rules')
     expect(page.locator('#policies-tbody tr[role=button]').first).to_be_visible()
     for field in ['policy-instrument-filter', 'policy-status-filter', 'policy-state-filter', 'policy-cbf-filter']:
         expect(page.locator('#' + field)).to_be_visible()

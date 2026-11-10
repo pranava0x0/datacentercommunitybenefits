@@ -1658,12 +1658,15 @@ main {
 @media (max-width: 1100px) {
   .tabbar {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    /* Columns size to their longest label so a one-word name
+       ("International") never breaks mid-word; two-word names wrap. */
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-between;
     overflow-x: visible;
   }
   /* Full names at every width (one name per tab): two-word labels wrap
      inside their cell instead of overflowing into the next one. */
-  .tab { min-width: 0; padding-inline: 4px; white-space: normal; line-height: 1.1; text-align: center; overflow-wrap: anywhere; }
+  .tab { min-width: 0; padding-inline: 4px; white-space: normal; line-height: 1.1; text-align: center; }
 }
 
 @media (max-width: 960px) {
@@ -6494,11 +6497,11 @@ button.depth-chip:focus-visible {
 .guide-clause dd { margin: 0; }
 .planning-guide a { overflow-wrap: anywhere; }
 #policy-stats[hidden] { display: none; }
-#view-policies > .subtabs { flex-wrap: wrap; overflow-x: visible; }
+#view-policies > .subtabs, #view-agreements > .subtabs { flex-wrap: wrap; overflow-x: visible; }
 @media (max-width: 640px) {
   .home-tasks { gap: 6px; }
   .home-tasks button { flex: 1; padding: 8px 6px; font-size: var(--fs-sm); }
-  #view-policies > .subtabs .subtab { padding: 8px; font-size: var(--fs-sm); }
+  #view-policies > .subtabs .subtab, #view-agreements > .subtabs .subtab { padding: 8px; font-size: var(--fs-sm); }
   .guide-controls select { max-width: 100%; }
   .guide-clause dl { grid-template-columns: 1fr; gap: 4px; }
   .guide-clause dd { margin-bottom: 8px; }

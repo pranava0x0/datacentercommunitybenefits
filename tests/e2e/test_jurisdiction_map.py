@@ -14,7 +14,7 @@ def test_map_data_only_loads_on_map_tab(page: Page, base_url: str) -> None:
     page.goto(base_url + "/#moratoriums")
     expect(page.locator("#moratoriums-tbody tr").first).to_be_visible()
     assert not any("map_geography" in url or "doe_sites" in url or "jurisdiction-map.js" in url for url in requests)
-    page.click("#subtab-mor-map")
+    page.click("#subtab-pol-map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
     expect(page.locator("#jurisdiction-map-meta")).to_contain_text("33 DOE sites")
     expect(page.locator(".map-announcements > .map-announcement")).to_have_count(6)
@@ -24,15 +24,16 @@ def test_map_data_only_loads_on_map_tab(page: Page, base_url: str) -> None:
 @pytest.mark.parametrize("width", [360, 375, 1366])
 def test_map_filters_and_canonical_records(page: Page, base_url: str, width: int) -> None:
     page.set_viewport_size({"width": width, "height": 812})
-    page.goto(base_url + "/#moratoriums/map")
+    page.goto(base_url + "/#policies/map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
     page.select_option("#jurisdiction-map-state", "TX")
     page.locator('[data-location-id="states-48"]').click()
     page.locator('.map-record-link[data-record-id="tx-sb6-2025"]').click()
     expect(page.locator("#policy-detail")).to_be_visible()
     page.keyboard.press("Escape")
-    page.click("#tab-moratoriums")
-    page.click("#subtab-mor-map")
+    page.click("#tab-policies")
+    page.click("#subtab-pol-pauses")
+    page.click("#subtab-pol-map")
     page.select_option("#jurisdiction-map-state", "SC")
     page.fill("#jurisdiction-map-q", "Savannah River")
     page.locator('[data-location-id="doe-savannah-river"]').click()
@@ -56,15 +57,16 @@ def test_original_index_file_loads_data_and_modules_offline(page: Page) -> None:
     expect(page.locator("#meta")).not_to_contain_text("Couldn't load")
     page.click("#tab-elections")
     expect(page.locator(".election-row")).to_have_count(54)
-    page.click("#tab-moratoriums")
-    page.click("#subtab-mor-map")
+    page.click("#tab-policies")
+    page.click("#subtab-pol-pauses")
+    page.click("#subtab-pol-map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
     expect(page.locator("#jurisdiction-map-meta")).to_contain_text("33 DOE sites")
     assert not errors
 
 
 def test_map_project_search_and_keyboard_site_focus(page: Page, base_url: str) -> None:
-    page.goto(base_url + "/#moratoriums/map")
+    page.goto(base_url + "/#policies/map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
     sites = page.locator('.map-doe-point')
     expect(sites).to_have_count(33)
@@ -83,7 +85,7 @@ def test_map_project_search_and_keyboard_site_focus(page: Page, base_url: str) -
 
 
 def test_map_hover_legend_and_keyboard_record_links(page: Page, base_url: str) -> None:
-    page.goto(base_url + '/#moratoriums/map')
+    page.goto(base_url + '/#policies/map')
     expect(page.locator('#jurisdiction-map-svg')).to_be_visible()
     expect(page.locator('#jurisdiction-map-detail')).to_be_hidden()
     expect(page.locator('[data-jurisdiction-id="states-15"]')).to_have_attribute('tabindex', '-1')
@@ -128,7 +130,7 @@ def test_map_hover_legend_and_keyboard_record_links(page: Page, base_url: str) -
 
 
 def test_map_path_click_and_pan(page: Page, base_url: str) -> None:
-    page.goto(base_url + "/#moratoriums/map")
+    page.goto(base_url + "/#policies/map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
     page.select_option("#jurisdiction-map-state", "TX")
     page.locator('[data-jurisdiction-id="states-48"]').click()
@@ -160,8 +162,9 @@ def test_native_preview_uses_classic_assets_when_json_and_modules_are_blocked(pa
     page.goto("http://preview.invalid/#elections")
     expect(page.locator(".election-row")).to_have_count(54)
     expect(page.locator("#meta")).not_to_contain_text("Couldn't load")
-    page.click("#tab-moratoriums")
-    page.click("#subtab-mor-map")
+    page.click("#tab-policies")
+    page.click("#subtab-pol-pauses")
+    page.click("#subtab-pol-map")
     expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
 
 
@@ -169,7 +172,7 @@ def test_map_touch_controls_are_at_least_44_pixels(browser, base_url: str) -> No
     context = browser.new_context(viewport={"width": 375, "height": 812}, is_mobile=True, has_touch=True)
     try:
         page = context.new_page()
-        page.goto(base_url + "/#moratoriums/map")
+        page.goto(base_url + "/#policies/map")
         expect(page.locator("#jurisdiction-map-svg")).to_be_visible()
         boxes = page.locator('.jurisdiction-zoom button, .map-location-link, .map-dot-hit').evaluate_all(
             'els => els.map(e => { const r=e.getBoundingClientRect(); return [r.width, r.height]; })'
