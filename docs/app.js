@@ -3470,23 +3470,28 @@ function topicExample(record, key, isPause) {
   const title = isPause ? record.bill_number || "Pause record" : record.identifier || record.title;
   const btn = el("button", "linkish pb-example-title", title);
   btn.type = "button";
+  const where = isPause ? record.jurisdiction : policyWhere(record);
+  const status = isPause ? effectiveStatus(record) : POLICY_STATUS_LABELS[record.status];
+  const caption = `${where} · ${status}`;
+  const meta = el("div", "pb-principle-counts", caption);
   btn.addEventListener("click", async () => {
+    // Safari need not focus a clicked button. Establish the return target and
+    // abandon delayed opens if focus moves (including into an already-open dialog).
+    btn.focus({ preventScroll: true });
     if (!isPause) { showPolicyDetail(record); return; }
     const visit = state.navGen;
+    meta.textContent = caption;
     try {
       await loadMoratoriumsData();
-      if (state.navGen !== visit || !btn.closest("details[open]") || !btn.getClientRects().length || state.openPolicyId) return;
+      if (state.navGen !== visit || document.activeElement !== btn || !btn.closest("details[open]")) return;
       const full = state.moratoriums.find((m) => m.id === record.id);
       if (!full) throw new Error("Pause record missing: " + record.id);
       showMoratoriumDetail(full);
     } catch (err) {
       console.error("Pause record unavailable:", err);
-      meta.textContent = `${where} · ${status} · Could not load record. Try again or open the source.`;
+      meta.textContent = `${caption} · Could not load record. Try again or open the source.`;
     }
   });
-  const where = isPause ? record.jurisdiction : policyWhere(record);
-  const status = isPause ? effectiveStatus(record) : POLICY_STATUS_LABELS[record.status];
-  const meta = el("div", "pb-principle-counts", `${where} · ${status}`);
   const link = el("a", "pb-source", "Source ↗");
   link.href = record.source_url;
   link.target = "_blank";

@@ -105,3 +105,21 @@ def test_latest_keeps_available_actions_when_one_feed_fails(page: Page, base_url
     page.click("#policy-retry")
     expect(page.locator("#policy-pane-error")).to_be_hidden()
     expect(page.locator("#policy-actions li").first).to_be_visible()
+
+
+def test_pause_example_retries_and_restores_focus_after_repeated_activation(page: Page, base_url: str) -> None:
+    route = "**/data/moratoriums.json"
+    page.route(route, lambda req: req.abort())
+    page.goto(base_url + "/#policies")
+    card = page.locator('[data-principle="incentive_terms"]')
+    card.locator("summary").click()
+    trigger = card.get_by_role("button", name="HB4084", exact=True)
+    trigger.click()
+    expect(card).to_contain_text("Could not load record")
+    page.unroute(route)
+    # Queue two activations before the network can settle.
+    trigger.evaluate("btn => { btn.click(); btn.click(); }")
+    expect(page.locator("#moratorium-modal")).to_be_visible()
+    page.keyboard.press("Escape")
+    expect(trigger).to_be_focused()
+    expect(card).not_to_contain_text("Could not load record")

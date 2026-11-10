@@ -690,3 +690,5 @@ reviews should check where a record is discoverable, not only its text.
 | --- | --- | --- | --- |
 | Lower-cost reviewer dispatch | No | Model provider required sign-in; no review or tool use. Tokens unavailable. | Use an authenticated reviewer. |
 | Independent topic and loading review | Yes | Four verified findings: partial Latest, error scope, heat-reuse navigation and a mislabelled citation. Tokens unmetered. | Abort each feed in a browser test and follow the source link’s accessible name to its destination. |
+| Browser review of the fixes | Yes | Verified all four fixes; reproduced duplicate dialog opens and a stale error after retry. Tokens unmetered. | In throttled tests, activate twice, retry once, and check what has focus after Escape. |
+| GitHub review of the first commit | Yes | Independently reproduced the partial Latest failure; covered by the two-feed failure test. Tokens unmetered. | Check which commit the review covers before treating a duplicate as a new regression. |
