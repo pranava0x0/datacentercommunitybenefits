@@ -536,3 +536,4 @@ passes at 375, 641, 820, 1100 and 1366px. The final 972-test run includes all
   - The Pledge scorecard starts 1.5–2.5 screens down.
 - Not yet tested: dark mode, embed widget, state panel, keyboard-only navigation, axe-core.
 - 2026-11-09 budget change: `state_panel` tablet/desktop 2 → 3. The Pledge tab now leads with Tracked sites (owner, UX audit item 6); Coverage, which holds the state grid, is collapsed above it, so reaching a state costs one extra tap.
+- 2026-11-09 budget change (combined Policy tab): `moratorium_recent` desktop/tablet 2 → 3, `moratorium_older` desktop/tablet 4 → 5 and mobile 4 → 6. Moratoriums are now the Pauses sub-tab of Policy (Latest is the default pane), so reaching the directory costs one sub-tab tap, plus a swipe on a phone.

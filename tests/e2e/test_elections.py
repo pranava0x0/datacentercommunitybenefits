@@ -142,8 +142,8 @@ def test_party_filter_accepts_aliases_and_preserves_unknown_affiliation(page: Pa
 def test_direct_record_url_and_back(elections: Page, base_url: str) -> None:
     elections.goto(base_url + "/#elections/tx-governor-2026")
     expect(elections.locator("#election-details-tx-governor-2026 .election-candidates")).to_be_visible()
-    elections.click("#tab-moratoriums")
-    expect(elections.locator("#view-moratoriums")).to_be_visible()
+    elections.click("#tab-policies")
+    expect(elections.locator("#view-policies")).to_be_visible()
     elections.go_back()
     expect(elections.locator("#election-details-tx-governor-2026 .election-candidates")).to_be_visible()
     expect(elections).to_have_url(base_url + "/#elections/tx-governor-2026")

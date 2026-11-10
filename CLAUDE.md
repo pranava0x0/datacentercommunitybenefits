@@ -2201,6 +2201,43 @@ Elections cold load was competing with roughly 684 KB of unrelated JSON. Each
 view already has explicit loaders; request-level tests now check after the first
 render as well as before it. Measure through usable content, not just paint.
 
+### One Policy tab; names, counts and Pledge order (2026-11-09, owner-directed)
+
+From the UX audit (`notes/ux/2026-11-09/UX_AUDIT.md`) and its follow-up.
+
+**Tabs:** Home · The Pledge · Policy · Benefit Agreements · Elections ·
+Power Costs · Companies · Sites · International.
+
+**The Policy tab.** Moratoriums and Frameworks merged into one tab, Policy
+(`#policies`). Its sub-tabs are `pol`: latest (the default), pauses, rules,
+principles, map and trends.
+- The two data files and the "pure pauses go in moratoriums.json" rule are
+  unchanged. Only the view merged.
+- Draft plans and Evidence moved to Benefit Agreements (`cba` drafts and
+  evidence).
+- Old hashes are rewritten by `LEGACY_HASHES` in app.js: `#moratoriums*`
+  and `#policies/directory|drafts|evidence`. Don't drop an entry; shared
+  links depend on it. `test_links_from_before_the_policy_merge_still_land`
+  guards them.
+
+**One name per tab.** The tab label, the Home card title, the view's
+`.hero-title` and the llms.txt name are identical. The tabs have no
+short/long label variants. On phones, labels wrap inside an auto-sized
+5-column grid. `test_tab_name_is_the_same_everywhere` enforces this.
+
+**Matching counts.** Each Home card's number must appear in its tab's stat
+row, sub-tab pills or dek. `test_home_card_numbers_match_their_tab` checks
+it. If you change a tab's lead stat, change the card with it.
+
+**Pledge order.** Roster and Coverage sit collapsed above Tracked sites, and
+Tracked sites leads. The interaction budgets went up for this, and the
+reasons are noted in uat.md.
+
+**"Record at a glance" is gone.** The generated crawler summary and its
+`static-summary` markers were removed; refresh.py only stamps
+`dateModified`. Don't add a generated summary block back. Home is the
+summary.
+
 ### 2026-11-06 — original file and native preview support
 
 `docs/index.html` now supports direct file opening through generated classic
