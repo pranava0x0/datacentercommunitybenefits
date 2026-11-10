@@ -87,3 +87,21 @@ def test_labeled_filters_keep_primary_controls_visible(page: Page, base_url: str
     expect(page.locator('#tab-world')).to_have_text('International', use_inner_text=True)
     if width <= 1100:
         assert page.locator('.tabbar').evaluate('e=>getComputedStyle(e).gridTemplateColumns.split(" ").length') == 5
+
+@pytest.mark.parametrize(("file", "missing", "unaffected"), [
+    ("moratoriums", "pauses", "principles"), ("policies", "rules", "pauses"),
+])
+def test_latest_keeps_available_actions_when_one_feed_fails(page: Page, base_url: str, file: str, missing: str, unaffected: str) -> None:
+    route = f"**/data/{file}.json"
+    page.route(route, lambda req: req.abort())
+    page.goto(base_url + "/#policies/latest")
+    expect(page.locator("#policy-error-message")).to_have_text(f"Could not load {missing}.")
+    expect(page.locator("#policy-actions li").first).to_be_visible()
+    page.click(f"#subtab-pol-{unaffected}")
+    expect(page.locator("#policy-pane-error")).to_be_hidden()
+    page.click("#subtab-pol-latest")
+    expect(page.locator("#policy-retry")).to_be_visible()
+    page.unroute(route)
+    page.click("#policy-retry")
+    expect(page.locator("#policy-pane-error")).to_be_hidden()
+    expect(page.locator("#policy-actions li").first).to_be_visible()

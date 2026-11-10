@@ -653,6 +653,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // renders. (v5 shipped with this only reached via the Pledge renderer, so
   // the new strips switched by URL but ignored clicks.)
   wireSubtabs();
+  wireBtn("policy-heat-abroad", () => openWorldPrinciple("heat_reuse"));
+  wireBtn("policy-retry", () => activateView("policies"));
   wireTabs();
   // The Home "Explore the record" cards and the milestones link are static
   // markup, so they wire once on boot; the stat tiles are re-rendered from
@@ -1065,10 +1067,14 @@ function activateView(name) {
         if (ol) ol.innerHTML = "<li class='muted'>Failed to load agreements.</li>";
       });
   } else if (target.name === "policies") {
-    loadPoliciesData().then(renderPoliciesView).catch((err) => {
+    loadPoliciesData().then(() => {
+      policyErrors.delete("rules");
+      if (state.activeView === "policies") renderPoliciesView();
+      showPolicyLoadError();
+    }).catch((err) => {
       console.error("Failed to load policies:", err);
-      document.getElementById("policy-principles").replaceChildren(el("li", "muted", "Could not load policy topics. Reopen Policy to retry."));
-      document.getElementById("policies-tbody").innerHTML = "<tr><td colspan='6'>Could not load rules.</td></tr>";
+      policyErrors.add("rules");
+      showPolicyLoadError();
     });
     // The small Home digest carries pause totals; Topics never needs the full directory.
     loadHomeData().then(() => {
@@ -3167,12 +3173,11 @@ function wirePolicyControls() {
 
 function renderPoliciesView() {
   wirePolicyControls();
-  wireBtn("policy-heat-abroad", () => openWorldPrinciple("heat_reuse"));
   populatePolicyFilters();
   const all = state.policies || [];
   renderPolicyStats(all);
   renderPolicyPrinciples(all);
-  if (state.moratoriumsLoaded) renderPolicyActions(all);
+  renderPolicyActions(all);
   applyPolicyUrl();
   renderPoliciesTable();
   writePolicyUrl();
@@ -4442,18 +4447,29 @@ function setActiveSubtab(group, key) {
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
 }
 
+const policyErrors = new Set();
+function showPolicyLoadError() {
+  const key = _activeSubtab.pol || SUBTAB_GROUPS.pol[0];
+  const missing = [];
+  if (policyErrors.has("rules") && ["principles", "rules", "latest"].includes(key)) missing.push("rules");
+  if (policyErrors.has("pauses") && ["latest", "pauses", "trends"].includes(key)) missing.push("pauses");
+  document.getElementById("policy-pane-error").hidden = !missing.length;
+  document.getElementById("policy-error-message").textContent = missing.length ? `Could not load ${missing.join(" or ")}.` : "";
+}
+
 function loadPolicyPane(key) {
+  showPolicyLoadError();
   if (key === "map") { loadJurisdictionMap(); return; }
   if (!["latest", "pauses", "trends"].includes(key)) return;
   loadMoratoriumsData().then(() => {
-    if (state.policies.length) {
-      renderPolicyStats(state.policies);
-      renderPolicyActions(state.policies);
-    }
-    document.getElementById("policy-pane-error").hidden = true;
+    policyErrors.delete("pauses");
+    if (state.policies.length) renderPolicyStats(state.policies);
+    renderPolicyActions(state.policies);
+    showPolicyLoadError();
   }).catch((err) => {
     console.error("Could not load pause records:", err);
-    document.getElementById("policy-pane-error").hidden = false;
+    policyErrors.add("pauses");
+    showPolicyLoadError();
   });
 }
 

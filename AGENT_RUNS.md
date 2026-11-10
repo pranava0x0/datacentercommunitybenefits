@@ -683,3 +683,10 @@ it from Benefit Agreements and policy-action eligibility. Fixed the scope,
 retained proposed/company-plan semantics, and added a mobile/desktop path
 through state filtering, terms and the primary source link. Future data
 reviews should check where a record is discoverable, not only its text.
+
+### 2026-11-09 — Policy topic overview
+
+| Run | Worked | Quality / cost | Better approach next time |
+| --- | --- | --- | --- |
+| Lower-cost reviewer dispatch | No | Model provider required sign-in; no review or tool use. Tokens unavailable. | Use an authenticated reviewer. |
+| Independent topic and loading review | Yes | Four verified findings: partial Latest, error scope, heat-reuse navigation and a mislabelled citation. Tokens unmetered. | Abort each feed in a browser test and follow the source link’s accessible name to its destination. |
