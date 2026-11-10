@@ -113,6 +113,10 @@
       "last_reviewed": "2026-11-09",
       "summary": "2026-11-09: searched news since capture; found only April 2026 acquisition coverage and the June 23 IUOE Local 150 IURC filing (already recorded); no new citable updates, record unchanged."
     },
+    "site:google-putnam-county-wv": {
+      "last_reviewed": "2026-11-10",
+      "summary": "Added Sept 29 2026 county commission resolution (WV MetroNews); no new permits/filings found in search; Aug 5 Google Buffalo investments not added."
+    },
     "site:google-the-dalles-or": {
       "last_reviewed": "2026-09-30",
       "summary": "Checked status/figures/news; added resp-google-dalles-mthood-water-2026 (OPB, Jan 2026): Google's Dalles water use now ~1/3 of city supply, city seeking federal legislation to expand Mount Hood reservoir without standard Forest Service review, WaterWatch/Bark objected; captured_at bumped."
@@ -333,13 +337,13 @@
     },
     "state:ME": {
       "last_check": {
-        "date": "2026-11-04",
-        "summary": "Election measures verified; legal commencement still open for Eliot and North Berwick."
+        "date": "2026-11-10",
+        "summary": "North Berwick: Press Herald says ban effective immediately (recorded). Eliot: ordinance PDF unreadable, no outlet states commencement; still open."
       },
       "follow_ups": [
         {
-          "due": "2026-11-10",
-          "what": "Eliot: verify charter commencement after certified November 3 adoption; North Berwick: confirm ban effective date."
+          "due": "2026-11-17",
+          "what": "Eliot: confirm moratorium commencement/180-day window from town clerk or minutes"
         },
         {
           "due": "2027-03-20",

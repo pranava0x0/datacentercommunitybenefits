@@ -3298,7 +3298,7 @@
       "jurisdiction": "North Berwick",
       "title": "Question 2 — Define and prohibit data centers",
       "election_date": "2026-11-03",
-      "captured_at": "2026-11-04",
+      "captured_at": "2026-11-10",
       "effect": "binding",
       "ballot_evidence": {
         "statement": "Shall an ordinance entitled \"Proposed Zoning Ordinance Amendment to Define and Prohibit Data Centers\" be enacted?",
@@ -3306,7 +3306,7 @@
         "source_title": "North Berwick — referendum ballot and zoning amendment",
         "captured_at": "2026-11-04"
       },
-      "legal_effect": "Prohibits covered data centers in every zoning district. The definition requires an aggregate data center area of at least 25,000 square feet and excludes smaller accessory IT uses. The exact commencement date was not separately verified.",
+      "legal_effect": "Prohibits covered data centers in every zoning district. The definition requires an aggregate data center area of at least 25,000 square feet and excludes smaller accessory IT uses. Portland Press Herald reported on 2026-11-04 that the ban was effective immediately.",
       "result": {
         "status": "certified",
         "outcome": "passed",

@@ -2962,7 +2962,7 @@
       "notes": "Multi-billion-dollar campus announced March 27 2026 under West Virginia's High Impact Data Center Project framework. Google land purchase approved by state. Google covers 100% of electricity costs and all electrical/water/sewer upgrades; 120% water replenishment commitment.",
       "source_url": "https://governor.wv.gov/article/governor-morrisey-announces-google-data-center-project-putnam-county",
       "source_title": "WV Governor's Office — Google Data Center Project Putnam County announcement (Mar 27 2026)",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-11-10",
       "offtaker": "Google",
       "ratepayer": {
         "status": "pledge_only",
@@ -3014,6 +3014,16 @@
           "upcoming": false,
           "source_url": "https://wvpublic.org/story/economy/google-launches-data-center-website-for-putnam-county-campus/",
           "source_title": "West Virginia Public Broadcasting — Google launches data center website for Putnam County campus"
+        },
+        {
+          "date": "2026-09-29",
+          "kind": "vote",
+          "title": "Putnam County Commission adopts data center resolution",
+          "summary": "The commission adopted a resolution stating developers should fund 100 percent of water, sewer, and power upgrades.",
+          "authority": "Putnam County Commission",
+          "upcoming": false,
+          "source_url": "https://wvmetronews.com/2026/09/29/putnam-county-commission-approves-data-center-resolution-developers-must-comply-with-county-rules-going-forward/",
+          "source_title": "WV MetroNews — Putnam County Commission approves data center resolution"
         }
       ]
     },
