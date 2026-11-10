@@ -2,17 +2,17 @@
 
 > A sourced public record of data-center policy — what governments, utilities and residents have done, and what operators have promised host communities — in the US and selected countries. Every record links to its primary source and carries a capture date; company statements are quoted verbatim.
 
-Last refreshed 2026-11-09. Record counts: 180 sites (59 contested), 17 companies, 353 moratoriums (304 enacted), 158 policies, 34 benefit agreements, 29 tariffs, 20 rate cases, 327 pledge signatories, 152 international records across 17 countries.
+Last refreshed 2026-11-09. Record counts: 191 sites (58 contested), 17 companies, 353 moratoriums (304 enacted), 158 policies, 34 benefit agreements, 29 tariffs, 20 rate cases, 327 pledge signatories, 152 international records across 17 countries.
 
 ## Sections
 
 - [Home](https://pranava0x0.github.io/datacenterpolicytracker/#overview): Section totals, the latest actions and dated upcoming decisions.
 - [Elections](https://pranava0x0.github.io/datacenterpolicytracker/#elections): Incoming and prior officeholders' data-center policies, proposed changes, and local ballot measures.
 - [The Pledge](https://pranava0x0.github.io/datacenterpolicytracker/#ratepayer): The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard.
-- [Local Policy Frameworks](https://pranava0x0.github.io/datacenterpolicytracker/#policies): Executive orders, statutes, regulations and local ordinances that set conditions on data centers.
+- [Policy Frameworks](https://pranava0x0.github.io/datacenterpolicytracker/#policies): Executive orders, statutes, regulations and local ordinances that set conditions on data centers.
 - [Benefit Agreements](https://pranava0x0.github.io/datacenterpolicytracker/#agreements): Community benefit, host and PILOT agreements, tagged by what their text contains.
 - [Moratoriums](https://pranava0x0.github.io/datacenterpolicytracker/#moratoriums): Enacted, proposed and failed pauses on data-center development, by city, county and state.
-- [Tariffs & Rate Cases](https://pranava0x0.github.io/datacenterpolicytracker/#tariffs): Large-load electricity tariffs scored against the DOE/LBL design elements, and the docketed rate cases behind them.
+- [Power Costs](https://pranava0x0.github.io/datacenterpolicytracker/#tariffs): Large-load electricity tariffs scored against the DOE/LBL design elements, and the docketed rate cases behind them.
 - [Companies](https://pranava0x0.github.io/datacenterpolicytracker/#comparison): What each operator has published about jobs, tax, energy, water, grants, infrastructure, education and engagement, with quotes.
 - [Sites](https://pranava0x0.github.io/datacenterpolicytracker/#explorer): Individual data-center sites on a map, with status, claims, community responses and a dated timeline.
 - [International](https://pranava0x0.github.io/datacenterpolicytracker/#world): Policies, pauses, sites and company statements outside the US, with original-language quotes and labelled translations.

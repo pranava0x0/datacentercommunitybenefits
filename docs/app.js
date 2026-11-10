@@ -1596,6 +1596,7 @@ function filteredMoratoriums() {
 }
 
 const MOR_PHONE_PAGE = 40;
+const MOR_DESKTOP_PAGE = 50;
 
 function renderMoratoriumsView() {
   wireMoratoriumsFilters();
@@ -1605,7 +1606,7 @@ function renderMoratoriumsView() {
   if (!tbody) return;
 
   if (!state.moratoriums || !Array.isArray(state.moratoriums) || state.moratoriums.length === 0) {
-    tbody.innerHTML = "<tr><td colspan='5'>No moratoriums loaded</td></tr>";
+    tbody.innerHTML = "<tr><td colspan='6'>No moratoriums loaded</td></tr>";
     return;
   }
 
@@ -1635,13 +1636,14 @@ function renderMoratoriumsView() {
   // Render table rows
   tbody.innerHTML = "";
   if (!filtered.length) {
-    tbody.innerHTML = "<tr><td colspan='5' class='muted'>No records match the current filters.</td></tr>";
+    tbody.innerHTML = "<tr><td colspan='6' class='muted'>No records match the current filters.</td></tr>";
   }
 
   const morKey = ["moratorium-status-filter", "moratorium-type-filter", "moratorium-q"]
     .map((id) => document.getElementById(id)?.value || "")
     .join("|");
-  const morShown = phonePageSize("moratoriums", filtered.length, MOR_PHONE_PAGE, morKey);
+  const morPage = window.matchMedia(SITES_PAGED_QUERY).matches ? MOR_PHONE_PAGE : MOR_DESKTOP_PAGE;
+  const morShown = listPageSize("moratoriums", filtered.length, morPage, morKey);
   filtered.slice(0, morShown).forEach((m) => {
     const tr = document.createElement("tr");
     tr.className = `moratorium-status-${effectiveStatus(m)}`;
@@ -1657,11 +1659,12 @@ function renderMoratoriumsView() {
     const billHtml = m.bill_number ? `<br><span class="moratorium-bill-id">${escapeHtml(m.bill_number)}</span>` : "";
 
     tr.innerHTML = `
-      <td>${escapeHtml(m.jurisdiction)}${billHtml}</td>
+      <td>${escapeHtml(moratoriumPlace(m))}${billHtml}</td>
+      <td class="mor-date">${moratoriumDate(m) ? escapeHtml(formatAsOf(moratoriumDate(m))) : '<span class="field-missing">Not stated</span>'}</td>
       <td><span class="badge badge-jurisdiction-type">${escapeHtml(m.jurisdiction_type)}</span></td>
       <td><span class="badge badge-moratorium-status-${effectiveStatus(m)}">${escapeHtml(effectiveStatus(m))}</span></td>
       <td title="${escapeAttr(m.duration_description || "")}">${escapeHtml(shortDuration(m.duration_description))}</td>
-      <td>${reasonBadges || '<span class="field-missing">Not stated</span>'}</td>
+      <td class="mor-col-reasons">${reasonBadges || '<span class="field-missing">Not stated</span>'}</td>
     `;
 
     tr.dataset.id = m.id;
@@ -1678,13 +1681,23 @@ function renderMoratoriumsView() {
   });
   if (morShown < filtered.length) {
     tbody.appendChild(
-      showMoreControl("tr", filtered.length - morShown, MOR_PHONE_PAGE, () => {
-        phonePageMore("moratoriums", MOR_PHONE_PAGE);
+      showMoreControl("tr", filtered.length - morShown, morPage, () => {
+        phonePageMore("moratoriums", morPage);
         renderMoratoriumsView();
         focusNth(document.getElementById("moratoriums-tbody"), morShown);
-      }, 5)
+      }, 6)
     );
   }
+}
+
+// "Northampton, MA": a bare place name is ambiguous across states.
+function moratoriumPlace(m) {
+  const local = m.jurisdiction_type === "city" || m.jurisdiction_type === "county";
+  return local && m.state_code ? `${m.jurisdiction}, ${m.state_code}` : m.jurisdiction;
+}
+// The date the directory sorts by, shown so the order is legible.
+function moratoriumDate(m) {
+  return m.enacted_date || m.effective_date || null;
 }
 
 function _jurtypeBreakdown(moratoriums) {
@@ -2466,9 +2479,12 @@ function renderTariffStats(tariffs) {
   const statesCovered = new Set(stateTariffs.map((t) => t.state)).size;
   // [value, label, showWhenZero]. Status counts are STATE-only; federal cases
   // get their own tile; zero-count status tiles are hidden.
+  const rateCases = state.rateCases || [];
   const tiles = [
-    [tariffs.length, "Tariffs tracked", true],
-    [by("approved"), "Approved", false],
+    [rateCases.length, "Rate cases", true],
+    [rateCases.filter((rc) => rc.status === "pending").length, "Pending", false],
+    [tariffs.length, "Tariffs", true],
+    [by("approved"), "Tariffs approved", false],
     [by("proposed"), "Proposed", false],
     [by("rejected"), "Rejected / Withdrawn", false],
     [federal.length, "Federal cases", false],
@@ -3193,10 +3209,10 @@ function renderPolicyStats(all) {
   const n = (pred) => all.filter(pred).length;
   const year = _policySnapshotYear || String(new Date().getFullYear());
   const tiles = [
-    [n((p) => p.status === "in_effect" && p.scope !== "company"), "Laws, orders, and deals in effect"],
+    [all.length, "Records"],
+    [n((p) => p.status === "in_effect"), "In effect"],
     [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
     [n((p) => p.instrument === "executive_order" && (p.date || "").startsWith(year)), `Governor orders in ${year}`],
-    [n((p) => p.community_benefits_framework), "Benefit agreements or funds"],
   ];
   ul.innerHTML = tiles
     .map(
@@ -3317,7 +3333,8 @@ function renderAgreementsView() {
   const stats = document.getElementById("cba-stats");
   if (stats) {
     const tiles = [
-      [signed.length, "Signed agreements"],
+      [all.length, "Agreements"],
+      [signed.length, "Signed"],
       [deals.filter((p) => p.status === "proposed").length, "Proposed"],
       [deals.filter((p) => p.status === "failed").length, "Rejected or withdrawn"],
       [total ? formatUsd(total) : "N/A", `Stated value of ${stated.length} signed agreements`],
@@ -4190,14 +4207,17 @@ function renderHome() {
   if (!h) return;
   const t = h.totals;
   const cards = {
+    // Each card leads with the number its tab leads with, under the same
+    // rule (test_home_card_numbers_match_their_tab), so a reader who clicks
+    // through never meets a different count for the same thing.
     sites: [t.sites, `${t.contested_sites} contested`],
     moratoriums: [t.moratoriums, `${t.moratoriums_enacted} enacted`],
     policies: [t.policies, `${t.policies_in_effect} in effect`],
     agreements: [t.agreements, `${t.agreements_signed} signed`],
-    tariffs: [t.tariffs + t.rate_cases, `${t.tariffs} tariffs · ${t.rate_cases_pending} rate cases pending`],
+    tariffs: [t.rate_cases, `rate cases, ${t.rate_cases_pending} pending · ${t.tariffs} tariffs`],
     companies: [t.companies, "operators"],
-    pledge: [t.pledge_organizations, `organizations, plus ${t.pledge_governors} governors`],
-    world: [t.international_records, `records in ${t.international_countries} countries and the EU`],
+    pledge: [t.pledge_organizations + t.pledge_governors, `signers: ${t.pledge_organizations} organizations, ${t.pledge_governors} governors`],
+    world: [t.international_countries, `countries plus EU rules · ${t.international_records} records`],
     elections: [t.election_winners, `officeholders · ${t.election_measures} ballot measures`],
   };
   for (const [key, [num, sub]] of Object.entries(cards)) {
@@ -6645,6 +6665,11 @@ const SITES_PAGED_QUERY = "(max-width: 700px)";
 const _phonePages = {};
 function phonePageSize(key, total, page, filterKey = "") {
   if (!window.matchMedia(SITES_PAGED_QUERY).matches) return total;
+  return listPageSize(key, total, page, filterKey);
+}
+// Pages a list at every width (the moratorium directory ran 27 desktop
+// screens unpaged). Same state and "Show more" control as phonePageSize.
+function listPageSize(key, total, page, filterKey = "") {
   const cur = _phonePages[key];
   if (!cur || cur.filterKey !== filterKey) _phonePages[key] = { shown: page, filterKey };
   return Math.min(total, _phonePages[key].shown);

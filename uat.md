@@ -524,3 +524,15 @@ Final GitHub review found a blank tablet World label. Its short/long label
 breakpoints now match; the visible-text regression fails before the fix and
 passes at 375, 641, 820, 1100 and 1366px. The final 972-test run includes all
 156 interaction paths with no budget increases.
+
+## 2026-11-09 comprehensive UX run (main @ 2a92cbe)
+- All 10 tabs at 1366/820/390: 0 console errors, 0 HTTP errors, no overflow, 2 font families; interaction_cost tasks 0–6 taps.
+- Findings and repro steps: notes/ux/2026-11-09/UX_AUDIT.md (audit script: notes/ux/2026-11-09/audit.py).
+- Key issues:
+  - Home card counts disagree with tab header counts (Frameworks 127 vs 114, Benefits 34 vs 45, Elections 37/17 vs 20/15).
+  - The phone masthead drops "Policy".
+  - The static summary renders inside the Sites tab.
+  - The Moratoriums directory has no state or date column and runs 27 screens on desktop.
+  - The Pledge scorecard starts 1.5–2.5 screens down.
+- Not yet tested: dark mode, embed widget, state panel, keyboard-only navigation, axe-core.
+- 2026-11-09 budget change: `state_panel` tablet/desktop 2 → 3. The Pledge tab now leads with Tracked sites (owner, UX audit item 6); Coverage, which holds the state grid, is collapsed above it, so reaching a state costs one extra tap.

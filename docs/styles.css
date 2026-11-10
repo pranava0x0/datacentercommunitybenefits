@@ -1661,8 +1661,9 @@ main {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     overflow-x: visible;
   }
-  .tab-long { display: none; }
-  .tab { min-width: 0; padding-inline: 4px; }
+  /* Full names at every width (one name per tab): two-word labels wrap
+     inside their cell instead of overflowing into the next one. */
+  .tab { min-width: 0; padding-inline: 4px; white-space: normal; line-height: 1.1; text-align: center; overflow-wrap: anywhere; }
 }
 
 @media (max-width: 960px) {
@@ -1711,10 +1712,6 @@ main {
     padding: 4px 2px;
     font-size: var(--fs-xs);
     min-width: 0;
-  }
-
-  .tab-long {
-    display: none;
   }
 
   /* Sites: the list is what a phone reader scrolls for; the map follows it.
@@ -6500,7 +6497,6 @@ button.depth-chip:focus-visible {
 #view-policies > .subtabs { flex-wrap: wrap; overflow-x: visible; }
 @media (max-width: 640px) {
   .home-tasks { gap: 6px; }
-  .topbar .title-long { display: none; }
   .home-tasks button { flex: 1; padding: 8px 6px; font-size: var(--fs-sm); }
   #view-policies > .subtabs .subtab { padding: 8px; font-size: var(--fs-sm); }
   .guide-controls select { max-width: 100%; }
@@ -6516,8 +6512,7 @@ button.depth-chip:focus-visible {
    185 rows ~115px and the directory ~20 screens long. Reasons stay in the
    detail panel. */
 @media (max-width: 600px) {
-  .moratorium-table th:nth-child(5),
-  .moratorium-table td:nth-child(5) { display: none; }
+  .moratorium-table .mor-col-reasons { display: none; }
 }
 /* #78: an abandoned site stays on the record, visibly inactive. */
 .status-pill.status-withdrawn { color: var(--text-muted); background: var(--surface-2, var(--surface)); text-decoration: line-through; }
@@ -6528,12 +6523,6 @@ button.depth-chip:focus-visible {
 }
 
 /* ===================== International view (v6) ===================== */
-/* Short tab label ("World") only where the long ones are hidden. */
-.tab-short { display: none; }
-/* Matches the breakpoint that hides .tab-long. */
-@media (max-width: 1100px) {
-  .tab-long + .tab-short { display: inline; }
-}
 .world-cards {
   list-style: none;
   padding: 0;
@@ -6589,12 +6578,6 @@ button.depth-chip:focus-visible {
 
 /* Plain-HTML summary written by refresh.py into the Home view so crawlers and
    no-JS readers get the answers the app otherwise paints from JSON. */
-.static-summary { margin-top: var(--space-8, 2rem); padding-top: var(--space-4, 1rem); border-top: 1px solid var(--border); }
-.static-summary > h2 { font-family: var(--font-serif); font-size: var(--fs-lg); font-weight: 400; margin: 0 0 0.25rem; }
-.static-summary > p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 0.75rem; }
-.static-summary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
-.static-summary li h3 { font-family: var(--font-sans); font-size: var(--fs-base); font-weight: 600; margin: 0 0 0.15rem; }
-.static-summary li p { margin: 0; font-size: var(--fs-sm); color: var(--text-muted); }
 
 
 /* ==========================================================================
