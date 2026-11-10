@@ -1598,7 +1598,10 @@
       "failure_reason": "Had a February 3, 2026 hearing scheduled in the House Environment and Transportation Committee but received no committee vote; did not advance before the 2026 regular session adjourned sine die.",
       "session": "2026",
       "captured_at": "2026-07-14",
-      "state_code": "MD"
+      "state_code": "MD",
+      "topic_notes": {
+        "new_power": "HB 120 would have paused construction pending a law requiring co-located generation. It died in committee."
+      }
     },
     {
       "id": "meridian-township-mi-2024-11",
@@ -2216,7 +2219,10 @@
           "title": "Oregon Legislative Assembly"
         }
       ],
-      "state_code": "OR"
+      "state_code": "OR",
+      "topic_notes": {
+        "incentive_terms": "HB 4084 temporarily excludes new data centers from Enterprise Zone property tax exemptions. Construction can continue."
+      }
     },
     {
       "id": "orion-township-mi-2026-06",
@@ -2378,7 +2384,10 @@
       "failure_reason": null,
       "session": "2025-2026",
       "captured_at": "2026-10-21",
-      "state_code": "PA"
+      "state_code": "PA",
+      "topic_notes": {
+        "local_control": "HB 2496 would let municipalities pause new applications for 180 days while they write zoning rules."
+      }
     },
     {
       "id": "philadelphia-pa-2026-05",

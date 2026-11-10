@@ -433,3 +433,15 @@ disclosure. A selected URL filter opens its disclosure.
 Tablet and phone navigation use five equal columns. Phone moratorium counts
 wrap as two compact lines across every subtab. Jurisdiction breakdowns remain
 available to assistive technology and in Trends.
+
+### Policy topics (2026-11-09)
+
+The Policy landing shows nine US subjects. A topic opens in place: each example
+names the jurisdiction, status and instrument, with separate links to the
+record and its source. A council making recommendations is not a requirement
+on developers. Use verbs that preserve that distinction. Public notice and
+testimony belong under Community input; zoning districts and approval authority
+belong under Zoning and siting. A temporary restriction belongs under the
+subject it affects: Oregon HB 4084 restricts tax incentives, not construction.
+Keep the full directories one tab away and the international heat-reuse link
+outside the US grid.

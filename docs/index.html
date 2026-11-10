@@ -1300,13 +1300,16 @@
         <div class="hero">
 
           <h2 class="hero-title">Policy</h2>
-          <p class="view-scope">What governments have done about data centers: pauses and bans, laws, executive orders, regulations and local ordinances. <a href="#agreements">Benefit agreements</a> have their own tab.</p>
+          <p class="view-scope">U.S. laws, orders, bills, pauses and agreements.</p>
         </div>
 
         <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
 
         <div class="subtabs subtabs--view" role="tablist" aria-label="Policy view">
-          <button class="subtab" role="tab" type="button" id="subtab-pol-latest" aria-selected="true" tabindex="0" aria-controls="subpane-pol-latest">
+          <button class="subtab" role="tab" type="button" id="subtab-pol-principles" aria-selected="true" tabindex="0" aria-controls="subpane-pol-principles">
+            Topics <span class="subtab-count" id="policy-principles-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-pol-latest" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-latest">
             Latest <span class="subtab-count" id="policy-actions-count"></span>
           </button>
           <button class="subtab" role="tab" type="button" id="subtab-pol-pauses" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-pauses">
@@ -1315,9 +1318,6 @@
           <button class="subtab" role="tab" type="button" id="subtab-pol-rules" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-rules">
             Rules <span class="subtab-count" id="policies-count"></span>
           </button>
-          <button class="subtab" role="tab" type="button" id="subtab-pol-principles" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-principles">
-            By principle <span class="subtab-count" id="policy-principles-count"></span>
-          </button>
           <button class="subtab" role="tab" type="button" id="subtab-pol-map" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-map">Map</button>
           <button class="subtab" role="tab" type="button" id="subtab-pol-trends" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-trends">
             Trends <span class="subtab-count" id="moratorium-themes-count"></span>
@@ -1325,13 +1325,15 @@
         </div>
 
 
-        <div class="subtab-panel" id="subpane-pol-principles" role="tabpanel" aria-labelledby="subtab-pol-principles" hidden>
+        <div id="policy-pane-error" hidden><span id="policy-error-message" role="status"></span> <button type="button" class="linkish" id="policy-retry">Retry</button></div>
+        <div class="subtab-panel" id="subpane-pol-principles" role="tabpanel" aria-labelledby="subtab-pol-principles">
           <div id="policy-principles-section">
-            <ol id="policy-principles" class="pb-principles"></ol>
+            <ul id="policy-principles" class="pb-principles" aria-label="US policy topics"></ul>
+            <button id="policy-heat-abroad" class="linkish" type="button">Waste heat reuse abroad →</button>
           </div>
         </div>
 
-        <div class="subtab-panel" id="subpane-pol-latest" role="tabpanel" aria-labelledby="subtab-pol-latest">
+        <div class="subtab-panel" id="subpane-pol-latest" role="tabpanel" aria-labelledby="subtab-pol-latest" hidden>
           <div id="policy-actions-section">
             <ol id="policy-actions" class="pb-actions"></ol>
           </div>
@@ -1440,7 +1442,7 @@
                   <option value="">All levels</option>
                 </select>
               </label>
-            <label class="filter"><span class="filter-name">Principle</span>
+            <label class="filter"><span class="filter-name">Topic</span>
                 <select id="policy-principle-filter">
                   <option value="">All principles</option>
                 </select>
@@ -1460,7 +1462,7 @@
                     <th>Where</th>
                     <th>Status</th>
                     <th>Date</th>
-                    <th>Principles</th>
+                    <th>Topics</th>
                   </tr>
                 </thead>
                 <tbody id="policies-tbody">
@@ -1472,9 +1474,7 @@
         </div>
 
         <p class="rp-footnote">
-          Curated, not exhaustive. Pauses on development are on the Moratoriums
-          tab and utility tariffs on the Regulatory tab. A state with no
-          record here may not have been researched yet.
+          Coverage varies by state. For utility tariffs, see <a href="#tariffs/tariffs">Power Costs</a>.
         </p>
 
         <div id="policy-modal" class="tariff-modal" hidden>
@@ -1498,7 +1498,7 @@
               <dd id="pd-parties">—</dd>
               <dt>Stated value</dt>
               <dd id="pd-value">—</dd>
-              <dt>Principles</dt>
+              <dt>Topics</dt>
               <dd id="pd-principles">—</dd>
               <dt>Themes</dt>
               <dd id="pd-themes">—</dd>

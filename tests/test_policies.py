@@ -267,8 +267,7 @@ def test_principle_vocab_matches(js) -> None:
 
     assert tuple(_extract_array(js, "POLICY_PRINCIPLES")) == POLICY_PRINCIPLES
     assert _extract_object_values(js, "POLICY_PRINCIPLE_LABELS") == set(POLICY_PRINCIPLE_LABELS.values())
-    for name in ("POLICY_PRINCIPLE_LABELS", "POLICY_PRINCIPLE_SHORT", "POLICY_PRINCIPLE_DESCRIPTIONS"):
-        assert _extract_object_keys(js, name) == set(POLICY_PRINCIPLES), name
+    assert _extract_object_keys(js, "POLICY_PRINCIPLE_LABELS") == set(POLICY_PRINCIPLES)
 
 
 def test_every_principle_is_in_use(policies) -> None:
@@ -280,6 +279,23 @@ def test_every_principle_is_in_use(policies) -> None:
     intl = json.loads((ROOT / "data/seed/international.json").read_text())["policies"]
     used = {k for p in policies + intl for k in p["principles"]}
     assert used == set(POLICY_PRINCIPLES)
+
+
+def test_us_overview_covers_every_rule_and_has_cited_examples(policies) -> None:
+    from schema import POLICY_PRINCIPLES
+
+    topics = set(POLICY_PRINCIPLES) - {"study", "heat_reuse"}
+    for p in policies:
+        assert topics.intersection(p["principles"]), p["id"]
+    assert {k for p in policies for k in p.get("topic_notes", {})} == topics
+    pauses = json.loads((ROOT / "data/seed/moratoriums.json").read_text())["moratoriums"]
+    featured = {m["id"] for m in pauses if m.get("topic_notes")}
+    published = json.loads((ROOT / "docs/data/policies.json").read_text())["pause_examples"]
+    assert {m["id"] for m in published} == featured
+    for m in published:
+        assert set(m["topic_notes"]) <= topics
+        assert all(note.strip() for note in m["topic_notes"].values())
+    assert featured.isdisjoint(p.get("related_moratorium_id") for p in policies if p.get("topic_notes"))
 
 
 def test_principles_are_bounded(policies) -> None:

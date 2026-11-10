@@ -1290,27 +1290,35 @@ class TestPoliciesView:
         page.keyboard.press("Escape")
         assert page.locator("#policy-modal").is_hidden()
 
-    def test_every_principle_has_a_card_with_examples(self, page: Page, base_url: str):
-        self._open(page, base_url)
-        n = page.evaluate("() => POLICY_PRINCIPLES.length")
-        cards = page.locator("#policy-principles .pb-principle")
-        assert cards.count() == n
-        us = json.loads((ROOT / "docs/data/policies.json").read_text())["policies"]
-        used_us = {k for p in us for k in p["principles"]}
-        for i in range(n):
-            card = cards.nth(i)
-            if card.get_attribute("data-principle") in used_us:
-                assert card.locator(".pb-example").count() >= 1, f"card {i} has no example"
-            else:
-                # A principle practiced only abroad (heat_reuse, v6) points there
-                # instead of rendering an empty card.
-                expect(card.locator(".pb-see-all")).to_have_text("See it abroad →")
+    @pytest.mark.parametrize("width,height", [(375, 812), (820, 1180), (1366, 900)])
+    def test_topic_overview_fits_and_opens_cited_examples(self, page: Page, base_url: str, width: int, height: int) -> None:
+        page.set_viewport_size({"width": width, "height": height})
+        requests = []
+        page.on("request", lambda r: requests.append(r.url))
+        page.goto(base_url + "/#policies")
+        cards = page.locator("#policy-principles summary")
+        expect(cards).to_have_count(9)
+        assert all(box["bottom"] <= height and box["left"] >= 0 and box["right"] <= width
+                   for box in cards.evaluate_all("els => els.map(e => e.getBoundingClientRect().toJSON())"))
+        tax = page.locator('[data-principle="incentive_terms"]')
+        tax.locator("summary").press("Enter")
+        expect(tax.locator(".pb-source").first).to_be_visible()
+        pause = tax.get_by_role("button", name="HB4084", exact=True)
+        expect(pause).to_be_visible()
+        assert not any(url.endswith("/moratoriums.json") for url in requests)
+        pause.click()
+        expect(page.locator("#md-jurisdiction")).to_have_text("Oregon")
+        page.keyboard.press("Escape")
+        expect(pause).to_be_focused()
+        expect(tax.locator(".pb-example-term").first).to_be_visible()
+        assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
 
     def test_see_all_filters_directory_by_principle(self, page: Page, base_url: str):
         page.goto(base_url + "/#policies/principles")
-        page.wait_for_selector("#policy-principles .pb-see-all", timeout=E2E_WAIT)
+        page.wait_for_selector("#policy-principles summary", timeout=E2E_WAIT)
         card = page.locator("#policy-principles .pb-principle").nth(1)
         key = card.get_attribute("data-principle")
+        card.locator("summary").click()
         card.locator(".pb-see-all").click()
         expect(page.locator("#subpane-pol-rules")).to_be_visible()
         assert page.input_value("#policy-principle-filter") == key
@@ -1326,6 +1334,7 @@ class TestPoliciesView:
         page.locator("#subtab-pol-principles").click()
         card = page.locator("#policy-principles .pb-principle").first
         key = card.get_attribute("data-principle")
+        card.locator("summary").click()
         card.locator(".pb-see-all").click()
         assert page.input_value("#policy-status-filter") == ""
         assert not page.locator("#policy-cbf-filter").is_checked()
@@ -1387,7 +1396,7 @@ class TestPoliciesView:
         try:
             # Each control is measured in its own sub-tab pane; a hidden
             # pane's buttons have no box.
-            for hash_, selector in (("#policies/principles", ".pb-see-all"), ("#policies/latest", ".pb-action-btn")):
+            for hash_, selector in (("#policies/principles", ".pb-topic-toggle"), ("#policies/latest", ".pb-action-btn")):
                 page.goto(base_url + f"/?t={selector.strip('.')}" + hash_)
                 page.wait_for_selector(f"#view-policies {selector}", timeout=E2E_WAIT)
                 heights = page.locator(f"#view-policies {selector}").evaluate_all(
@@ -4059,8 +4068,7 @@ class TestInternational:
 
     def test_principle_practiced_only_abroad_links_to_international(self, page: Page, base_url: str):
         page.goto(base_url + "/#policies/principles")
-        page.wait_for_selector('#policy-principles [data-principle="heat_reuse"]', timeout=E2E_WAIT)
-        page.click('#policy-principles [data-principle="heat_reuse"] .pb-see-all')
+        page.click("#policy-heat-abroad")
         expect(page.locator("#subpane-world-instruments")).to_be_visible()
         expect(page.locator("#world-principle-filter")).to_have_value("heat_reuse")
         assert page.locator("#world-instrument-list .world-record").count() >= 1

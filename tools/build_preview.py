@@ -113,7 +113,11 @@ def verify() -> int:
         page.wait_for_selector("#moratorium-modal:not([hidden]) #md-status", timeout=8000)
         checks["election_legal_link"] = page.locator("#md-jurisdiction").inner_text() == "Sabattus"
         page.keyboard.press("Escape")
-        page.locator("#tab-moratoriums").click()
+        page.locator("#subtab-pol-principles").click()
+        page.locator("#policy-principles summary").first.click()
+        checks["policy_topics"] = page.locator("#policy-principles summary").count() == 9
+        checks["topic_source"] = page.locator("#policy-principles details[open] .pb-source").first.is_visible()
+        page.locator("#subtab-pol-pauses").click()
         page.wait_for_selector("#moratoriums-tbody tr", timeout=8000)
         checks["moratorium_rows"] = page.locator("#moratoriums-tbody tr").count()
         page.locator("#tab-ratepayer").click(); page.wait_for_timeout(600)
@@ -124,9 +128,9 @@ def verify() -> int:
         page.locator('[data-guide-target="drafts"]').click()
         page.wait_for_selector("#draft-plan-decision", timeout=8000)
         checks["draft_clauses"] = page.locator("#draft-plan-content .guide-clause").count()
-        page.locator("#subtab-pol-evidence").click()
+        page.locator("#subtab-cba-evidence").click()
         page.wait_for_selector("#impact-evidence-rule", timeout=8000)
-        checks["evidence_checks"] = page.locator("#subpane-pol-evidence .guide-clause").count()
+        checks["evidence_checks"] = page.locator("#subpane-cba-evidence .guide-clause").count()
         b.close()
     fatal = [e for e in errors if not any(k in e for k in
              ("leaflet", "html2pdf", "cdnjs", "unpkg", "Failed to load resource"))]
