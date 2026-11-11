@@ -609,11 +609,6 @@ select:focus-visible,
   color: var(--text);
 }
 
-.home-card-dek {
-  font-size: var(--fs-sm);
-  line-height: 1.45;
-  color: var(--text-muted);
-}
 
 .home-card-num {
   grid-area: num;
@@ -6120,7 +6115,6 @@ button.depth-chip:focus-visible {
   .home-card-title { grid-area: title; font-size: var(--fs-md); }
   .home-card-num { grid-area: num; font-size: var(--fs-2xl); }
   .home-card-sub { grid-area: sub; }
-  .home-card-dek { display: none; }
   .feed-btn { grid-template-columns: 5.2rem minmax(0, 1fr); }
 }
 

@@ -3869,7 +3869,7 @@ class TestIssue72Navigation:
         page.wait_for_function("() => typeof openHomeTarget === 'function' && state._booted", timeout=E2E_WAIT)
         mid = json.loads((ROOT / "docs/data/moratoriums.json").read_text())["moratoriums"][0]["id"]
         page.evaluate("(id) => openHomeTarget({kind: 'moratorium', id})", mid)
-        expect(page.locator("#view-policies")).to_be_visible()
+        expect(page.locator("#view-moratoriums")).to_be_visible()
         try:
             page.wait_for_function("() => true")
             assert held, "moratoriums.json was not held; the test would prove nothing"
@@ -3881,8 +3881,7 @@ class TestIssue72Navigation:
         # Let the late callback run before asserting it did nothing.
         page.wait_for_function("() => state.moratoriumsLoaded", timeout=E2E_WAIT)
         page.evaluate("() => new Promise(r => setTimeout(r, 50))")
-        # The modal lives inside the (now hidden) Moratoriums view, so a late
-        # open is invisible but still locks page scroll; check both.
+        # A stale modal would cover Home and lock page scroll.
         assert page.locator("#moratorium-modal").get_attribute("hidden") is not None
         assert not page.evaluate("() => document.body.classList.contains('moratorium-modal-open')")
 
@@ -4225,31 +4224,56 @@ class TestPr86ReviewFixes:
         )
         assert out == "lifted"
 
-    def test_first_sentence_handles_accented_names(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
-        got = page.evaluate("firstSentence('Operator is Pampa Energía. Second sentence here.')")
-        assert got == "Operator is Pampa Energía."
-        # Abbreviations and initials still don't split.
-        assert page.evaluate("firstSentence('Run by St. Mary Co. in Texas. More.')").endswith("Texas.")
-
     def test_theme_button_label_contains_visible_text(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         btn = page.locator("#theme-toggle")
         assert btn.inner_text().strip().lower() in btn.get_attribute("aria-label").lower()
 
-    def test_world_jump_entries_are_links_and_counts_agree(self, page: Page, base_url: str):
+    @pytest.mark.parametrize("width", [375, 820, 1366])
+    def test_world_directory_search_and_return(self, page: Page, base_url: str, width: int):
+        page.set_viewport_size({"width": width, "height": 812})
         page.goto(base_url + "/#world")
-        page.wait_for_selector("#world-country-list a", timeout=E2E_WAIT)
-        links = page.locator("#world-country-list a")
-        assert links.count() == page.locator("#world-country-list .world-card").count()
-        assert links.first.get_attribute("href").startswith("#country/")
-        assert page.locator("#world-country-list button").count() == 0
-        tile = page.locator("#world-stats .rp-stat", has_text="Countries").locator(".rp-stat-value").inner_text()
-        pill = page.locator("#world-countries-count").inner_text().strip()
-        assert tile == pill
-        code = links.first.get_attribute("href").split("/")[1]
-        links.first.click()
-        expect(page).to_have_url(re.compile(rf"#country/{code}$"))
+        directory = page.locator("#world-country-list")
+        search = page.get_by_role("searchbox", name="Find a country or the EU")
+        expect(directory.locator("a").first).to_be_visible()
+        expect(page.locator("#world-site-list li, #world-instrument-list li")).to_have_count(0)
+        search.fill("zzz")
+        expect(page.locator("#world-search-status")).to_have_text("No matches")
+        search.fill("Ireland")
+        country = directory.locator("a:visible")
+        expect(country).to_have_count(1)
+        expect(country).to_have_attribute("href", "#country/IE")
+        country.focus()
+        page.keyboard.press("Enter")
+        record = page.locator("#world-country-body .world-record").first
+        expect(record.locator(".cba-summary")).to_be_hidden()
+        record.locator("summary").click()
+        expect(record.locator(".cba-summary")).to_be_visible()
+        expect(record.locator("a[href^='https:']").first).to_be_visible()
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        page.go_back()
+        expect(country).to_be_focused()
+        expect(search).to_have_value("Ireland")
+
+    def test_site_operator_profile_and_pledge_roster(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-roster-summary").click()
+        page.locator('.rp-roster-chip[data-category="governor"]').click()
+        page.click("#tab-explorer")
+        page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
+        slug, pid = page.evaluate("""() => {
+          const p = state.projects.find(p => state.companiesBySlug.get(p.company_slug)?.ratepayer_pledge_signatory);
+          return [p.company_slug, p.id];
+        }""")
+        page.evaluate("id => selectProject(id)", pid)
+        name = page.locator("#d-company").inner_text()
+        page.click("#d-company")
+        expect(page.locator("#cd-name")).to_have_text(name)
+        page.click("#company-detail-close")
+        page.locator(f'.co-card[data-company="{slug}"] .co-roster').click()
+        expect(page.locator('#rp-roster-filters [aria-pressed=true]')).to_have_attribute("data-category", "")
+        expect(page.locator("#rp-roster .rp-sig-row")).to_have_count(1)
+        expect(page.locator("#rp-roster .rp-sig-name")).to_have_text(page.locator("#rp-roster-q").input_value())
 
     def test_federal_and_site_card_identity_colours_survive(self, page: Page, base_url: str):
         page.goto(base_url + "/#explorer")

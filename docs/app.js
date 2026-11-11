@@ -855,6 +855,7 @@ function _routeFromLocation(boot) {
   } else if (COUNTRY_DEEP_LINK.test(window.location.hash)) {
     // Read the code BEFORE activating: activateView rewrites the hash.
     const code = window.location.hash.slice("#country/".length).toUpperCase();
+    setActiveSubtab("world", "countries");
     activateView("world");
     openCountry(code);
   } else if (ELECTION_DEEP_LINK.test(window.location.hash)) {
@@ -969,7 +970,7 @@ function activateView(name) {
   }
   // A country page belongs to one visit to the International tab; leaving
   // (or re-entering by its tab) shows the list again.
-  if (!state._routing && target.name !== state.activeView) closeCountry();
+  if (!state._routing && (target.name !== state.activeView || state.openCountry)) closeCountry();
   state.activeView = target.name;
   state.navGen = (state.navGen || 0) + 1;
 
@@ -4571,13 +4572,18 @@ function wireSubtabs() {
       activateView("policies");
       setActiveSubtab("pol", "agreements");
       setActiveSubtab("cba", btn.dataset.guideTarget);
-      if (btn.dataset.guideTarget === "strongest") {
-        openWhenStillOn("policies", loadPoliciesData(), () => {
-          if (_activeSubtab.pol !== "agreements" || _activeSubtab.cba !== "strongest") return;
-          const title = document.querySelector("#cba-strongest .cba-title");
-          if (title) { title.tabIndex = -1; title.focus(); }
-        });
-      }
+      const key = btn.dataset.guideTarget;
+      const ready = key === "strongest" ? loadPoliciesData() : _planningGuidePromise;
+      openWhenStillOn("policies", ready, () => {
+        if (_activeSubtab.pol !== "agreements" || _activeSubtab.cba !== key) return;
+        const pane = document.getElementById(`subpane-cba-${key}`);
+        const target = key === "strongest" ? pane.querySelector(".cba-title") : pane;
+        if (target) {
+          target.tabIndex = -1;
+          target.focus({ preventScroll: true });
+          target.scrollIntoView({ block: "start", behavior: "instant" });
+        }
+      });
     });
   }
   for (const [group, keys] of Object.entries(SUBTAB_GROUPS)) {
@@ -7588,6 +7594,9 @@ function renderSignatoryRoster() {
   if (!ul) return;
 
   renderRosterFilters();
+  for (const chip of document.querySelectorAll("#rp-roster-filters .rp-roster-chip")) {
+    chip.setAttribute("aria-pressed", String(chip.dataset.category === _rosterFilter.category));
+  }
 
   const q = _rosterFilter.q.trim().toLowerCase();
   const rows = (state.signatories || []).filter((s) => {
@@ -7828,9 +7837,6 @@ function renderRosterFilters() {
       btn.append(el("span", null, o.label), el("span", "rp-roster-chip-n", String(o.n)));
       btn.addEventListener("click", () => {
         _rosterFilter.category = o.key;
-        for (const other of wrap.querySelectorAll(".rp-roster-chip")) {
-          other.setAttribute("aria-pressed", String(other.dataset.category === o.key));
-        }
         renderSignatoryRoster();
       });
       return btn;
@@ -9853,22 +9859,6 @@ function renderWorldInstruments() {
   if (meta) meta.textContent = `${rows.length} of ${all.length} records`;
 }
 
-// First sentence of a summary, skipping abbreviations ("St. Ghislain",
-// "No. 62", "U.S."). No regex lookbehind: Safari < 16.4 rejects it at parse
-// time and the whole script (every tab) would fail to load.
-const SENTENCE_ABBREVS = new Set(["st", "no", "nos", "inc", "ltd", "co", "corp", "mr", "ms", "dr", "vs", "u.s", "e.g", "i.e", "jan", "feb", "aug", "sept", "oct", "nov", "dec", "art", "sec"]);
-function firstSentence(text) {
-  const re = /\.(\s+|$)/g;
-  let m;
-  while ((m = re.exec(text || ""))) {
-    const before = text.slice(0, m.index);
-    const word = (before.match(/([\p{L}.]+)$/u) || ["", ""])[1].toLowerCase();
-    if (SENTENCE_ABBREVS.has(word) || /^[a-z]$/i.test(word)) continue;
-    return text.slice(0, m.index + 1);
-  }
-  return text || "";
-}
-
 function renderWorld() {
   const d = state.intl;
   if (!d) return;
@@ -9904,7 +9894,8 @@ function renderWorld() {
       const link = el("a", "world-card-btn");
       link.href = `#country/${country.code}`;
       link.dataset.country = country.code;
-      link.append(el("strong", null, countryName(country.code)), el("small", null, `${Object.values(intlRecordsFor(country.code)).reduce((n, rows) => n + rows.length, 0)} records`));
+      const total = Object.values(intlRecordsFor(country.code)).reduce((n, rows) => n + rows.length, 0);
+      link.append(el("strong", null, countryName(country.code)), el("small", null, `${total} record${total === 1 ? "" : "s"}`));
       link.addEventListener("click", (event) => {
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
         event.preventDefault();
