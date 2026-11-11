@@ -8884,6 +8884,67 @@
       "source_url": "https://www.nbcsandiego.com/news/local/data-center-moratorium-unanimously-passes-at-san-diego-city-council/4092956/",
       "source_title": "NBC 7 San Diego — Data center moratorium passes at San Diego City Council",
       "captured_at": "2026-11-09"
+    },
+    {
+      "id": "ottawa-ks-2026-11",
+      "jurisdiction": "Ottawa",
+      "jurisdiction_type": "city",
+      "state_code": "KS",
+      "status": "enacted",
+      "enacted_date": "2026-11-03",
+      "duration_months": 120,
+      "duration_description": "10 years",
+      "power_threshold_mw": 25,
+      "key_reasons": [],
+      "summary": "Ottawa voters approved a citizen-initiated ordinance banning data centers that use more than 25 megawatts within city limits for 10 years, in the November 3 general election. KSHB reported 71.85% approval in unofficial results; the canvass had not been reported.",
+      "source_url": "https://www.kshb.com/news/local-news/data-centers/citizen-led-effort-ends-in-landslide-win-for-ottawa-hyperscale-data-center-ban",
+      "source_title": "KSHB 41 — Citizen-led effort ends in landslide win for Ottawa hyperscale data center ban",
+      "captured_at": "2026-11-11"
+    },
+    {
+      "id": "west-seneca-ny-2026-10",
+      "jurisdiction": "West Seneca",
+      "jurisdiction_type": "city",
+      "state_code": "NY",
+      "status": "enacted",
+      "enacted_date": "2026-10-05",
+      "duration_months": 12,
+      "duration_description": "One year, expiring at the end of August 2027",
+      "key_reasons": [],
+      "city_council_vote": "4-0",
+      "summary": "The West Seneca Town Board voted 4-0 on October 5 to pass a one-year moratorium on data centers while it develops standards. The moratorium expires at the end of August 2027.",
+      "source_url": "https://spectrumlocalnews.com/nys/buffalo/news/2026/10/06/west-seneca-passes-one-year-moratorium-on-data-centers",
+      "source_title": "Spectrum News Buffalo — West Seneca passes one year moratorium on data centers",
+      "captured_at": "2026-11-11"
+    },
+    {
+      "id": "boise-id-2026-11",
+      "jurisdiction": "Boise",
+      "jurisdiction_type": "city",
+      "state_code": "ID",
+      "status": "proposed",
+      "key_reasons": [],
+      "summary": "Boise Mayor Lauren McLean proposed a moratorium on mega data center development within city limits that would take effect immediately if passed. The council set a public hearing for its November 10 meeting.",
+      "source_url": "https://idahonews.com/news/local/boise-mayor-proposes-immediate-moratorium-on-mega-data-centers-within-city-limits",
+      "source_title": "Idaho News (CBS2) — Boise mayor proposes immediate moratorium on mega data centers within city limits",
+      "captured_at": "2026-11-11",
+      "duration_description": "Not stated in the proposal as reported"
+    },
+    {
+      "id": "edmond-ok-2026-06",
+      "jurisdiction": "Edmond",
+      "jurisdiction_type": "city",
+      "state_code": "OK",
+      "status": "enacted",
+      "enacted_date": "2026-06-08",
+      "bill_number": "Ordinance No. 4091",
+      "duration_description": "Until December 31, 2026",
+      "key_reasons": [],
+      "city_council_vote": "5-0",
+      "summary": "The Edmond City Council adopted Ordinance No. 4091 on June 8, 2026, declaring a moratorium on data center rezoning requests and building permit applications until December 31, 2026, pending a zoning update. The minutes record a 5-0 vote.",
+      "source_url": "https://public.destinyhosted.com/edmondocs/2026/CC/20260608_31022/31021_CC%20and%20PWA%20Minutes%20-%2006-08-2026.pdf",
+      "source_title": "City of Edmond — City Council and PWA minutes, June 8, 2026",
+      "captured_at": "2026-11-11"
     }
   ]
 }

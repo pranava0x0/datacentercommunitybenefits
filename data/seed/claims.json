@@ -4905,6 +4905,28 @@
       "source_title": "Goochland County — Google project statement and NDA timeline",
       "published_at": "2026-10-27",
       "captured_at": "2026-11-07"
+    },
+    {
+      "id": "qts-bessemer-al-ratepayer",
+      "company_slug": "qts",
+      "theme": "energy",
+      "statement": "This includes a responsible energy approach designed so project-related costs are not passed on to local utility ratepayers",
+      "source_url": "https://abc3340.com/news/local/qts-data-centers-behind-bessemer-project-marvel-plans",
+      "source_title": "ABC 3340 — QTS statement on Bessemer Project Marvel",
+      "captured_at": "2026-11-11",
+      "published_at": "2026-07-01",
+      "project_id": "qts-bessemer-al"
+    },
+    {
+      "id": "qts-bessemer-al-water",
+      "company_slug": "qts",
+      "theme": "water",
+      "statement": "building our data centers with a closed-loop cooling system that does not consume water for cooling once operational",
+      "source_url": "https://abc3340.com/news/local/qts-data-centers-behind-bessemer-project-marvel-plans",
+      "source_title": "ABC 3340 — QTS statement on Bessemer Project Marvel",
+      "captured_at": "2026-11-11",
+      "published_at": "2026-07-01",
+      "project_id": "qts-bessemer-al"
     }
   ]
 }

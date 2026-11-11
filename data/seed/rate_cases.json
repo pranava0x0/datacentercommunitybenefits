@@ -14,7 +14,7 @@
       "filed_date": null,
       "decided_date": "2025-11-25",
       "effective_date": "2027-01-01",
-      "next_milestone": "GS-5 rate class takes effect for new 25 MW+ customers on January 1, 2027; SCC is separately weighing data-center transmission cost allocation",
+      "next_milestone": "GS-5 rate class takes effect for new 25 MW+ customers on January 1, 2027. Separately, Virginia Mercury reported on August 5, 2026 that the SCC ordered Dominion to develop a tariff assigning more transmission costs to data centers; the proposal's due date is not confirmed here.",
       "next_milestone_date": "2027-01-01",
       "related_tariff_id": "dominion-virginia-gs5-rate-class",
       "related_project_ids": [
@@ -27,9 +27,13 @@
         {
           "url": "https://www.scc.virginia.gov/media/sccvirginiagov-home/about-the-scc/fact-sheets/scc-data-center-initiatives-02-2026.pdf",
           "title": "SCC fact sheet — Data Center Initiatives: Ensuring Data Centers Pay Their Own Costs (Feb 2026)"
+        },
+        {
+          "url": "https://wtop.com/virginia/2026/08/scc-orders-dominion-to-develop-tariff-to-assign-more-transmission-costs-to-data-centers/",
+          "title": "WTOP (Virginia Mercury) — SCC orders Dominion to develop tariff to assign more transmission costs to data centers (Aug. 5, 2026)"
         }
       ],
-      "captured_at": "2026-08-03"
+      "captured_at": "2026-11-11"
     },
     {
       "id": "la-lpsc-entergy-meta-2025",

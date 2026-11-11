@@ -5391,6 +5391,16 @@
           "upcoming": false,
           "source_url": "https://theenergymag.com/news/2026-07-31/crusoe-texas-ai-data-center-goodnight",
           "source_title": "TheEnergyMag — Crusoe plans $1B Texas AI data center expansion, pursues nuclear power"
+        },
+        {
+          "date": "2026-09-28",
+          "kind": "news",
+          "title": "Crusoe confirms it is developing Google's Armstrong County campus",
+          "summary": null,
+          "authority": null,
+          "upcoming": false,
+          "source_url": "https://crusoe.ai/resources/newsroom/crusoe-developing-data-center-campus-in-armstrong-county-texas",
+          "source_title": "Crusoe — Crusoe developing data center campus in Armstrong County, Texas"
         }
       ]
     },
@@ -6969,6 +6979,123 @@
       "source_url": "https://www.constructionowners.com/news/prologis-targets-indiana-for-13-building-data-center-campus",
       "source_title": "Construction Owners — Prologis Targets Indiana for 13-Building Data Center Campus",
       "captured_at": "2026-11-09"
+    },
+    {
+      "id": "microsoft-lowell-township-mi",
+      "company_slug": "microsoft",
+      "name": "Microsoft Covenant Business Park (Lowell Township)",
+      "city": "Lowell Township",
+      "state": "MI",
+      "country": "US",
+      "lat": 42.933,
+      "lon": -85.341,
+      "status": "announced",
+      "announced_year": 2026,
+      "acreage": 237,
+      "offtaker": "Microsoft",
+      "notes": "Kent County. Microsoft identified itself in January 2026 as the company behind the proposed data center at the 237-acre Covenant Business Park and said it had asked the seller to pause the rezoning. The township had paused the application indefinitely in December 2025. Map pin is the township, not the parcel.",
+      "source_url": "https://www.wgvunews.org/news/2026-01-08/microsoft-identifies-itself-as-company-behind-proposed-lowell-township-data-center",
+      "source_title": "WGVU News — Microsoft identifies itself as company behind proposed Lowell Township data center",
+      "captured_at": "2026-11-11",
+      "updates": [
+        {
+          "date": "2025-12-19",
+          "kind": "news",
+          "title": "Township reports the data center application paused indefinitely",
+          "summary": "WGVU reported the Lowell Township data center application was paused indefinitely pending more information.",
+          "authority": "Lowell Charter Township",
+          "upcoming": false,
+          "source_url": "https://www.wgvunews.org/news/2025-12-19/lowell-township-data-center-application-paused-indefinitely-pending-more-information",
+          "source_title": "WGVU News — Lowell Township data center application paused indefinitely"
+        },
+        {
+          "date": "2026-05-22",
+          "kind": "news",
+          "title": "Township board rejects a six-month data center moratorium, 5-2",
+          "summary": "WGVU reported the Lowell Charter Township Board voted 5-2 against a proposed six-month moratorium on data center development.",
+          "authority": "Lowell Charter Township Board",
+          "upcoming": false,
+          "source_url": "https://www.wgvunews.org/news/2026-05-22/tensions-boil-as-west-michigan-township-rejects-pause-on-microsoft-data-center",
+          "source_title": "WGVU News — Tensions boil as West Michigan township rejects pause on Microsoft data center"
+        }
+      ]
+    },
+    {
+      "id": "crusoe-childress-tx",
+      "company_slug": "crusoe",
+      "name": "Crusoe Project Hyper (Lancium Childress campus)",
+      "city": "Childress",
+      "state": "TX",
+      "country": "US",
+      "lat": 34.426,
+      "lon": -100.204,
+      "status": "announced",
+      "announced_year": 2026,
+      "announced_date": "2026-07-15",
+      "power_mw": 1000,
+      "acreage": 270,
+      "notes": "Childress County. Crusoe and Lancium announced a 270-acre, 1 GW campus; Lancium owns the land and electrical infrastructure and Crusoe builds. The release said construction begins Q3 2026. Map pin is the town center, not the parcel.",
+      "source_url": "https://www.crusoe.ai/resources/newsroom/crusoe-and-lancium-announce-1-gigawatt-ai-data-center-campus-in-childress-texas",
+      "source_title": "Crusoe — Crusoe and Lancium Announce 1.0 Gigawatt AI Data Center Campus in Childress, Texas",
+      "captured_at": "2026-11-11"
+    },
+    {
+      "id": "prologis-yorkville-il",
+      "company_slug": "prologis",
+      "name": "Prologis Project Steel (Yorkville)",
+      "city": "Yorkville",
+      "state": "IL",
+      "country": "US",
+      "lat": 41.641,
+      "lon": -88.447,
+      "status": "announced",
+      "announced_year": 2025,
+      "announced_date": "2025-03-24",
+      "notes": "Kendall County, at Galena and Eldamain roads. Shaw Local reported 24 data center buildings in three phases; Prologis's own overview deck for the city lists 18 buildings on a 540-acre site. Map pin is the city center, not the parcel.",
+      "source_url": "https://www.shawlocal.com/kendall-county-now/2025/03/24/1000-acre-data-center-proposal-would-be-yorkvilles-largest-ever-manufacturing-development/",
+      "source_title": "Shaw Local — 1,000 acre data center proposal would be Yorkville's largest-ever manufacturing development",
+      "captured_at": "2026-11-11"
+    },
+    {
+      "id": "qts-bessemer-al",
+      "company_slug": "qts",
+      "name": "QTS Project Marvel (Bessemer)",
+      "city": "Bessemer",
+      "state": "AL",
+      "country": "US",
+      "lat": 33.402,
+      "lon": -86.954,
+      "status": "construction",
+      "announced_year": 2026,
+      "announced_date": "2026-07-01",
+      "notes": "Jefferson County. ABC 3340 identified QTS as the company behind Project Marvel on July 1, 2026, and an Oct. 27 follow-up showed site construction and a 5-7 year buildout. Map pin is the city center, not the parcel.",
+      "source_url": "https://abc3340.com/news/local/qts-data-centers-behind-bessemer-project-marvel-plans",
+      "source_title": "ABC 3340 — QTS Data Centers behind Bessemer Project Marvel plans",
+      "captured_at": "2026-11-11",
+      "ratepayer": {
+        "status": "affirmed",
+        "summary": "QTS's statement on the Bessemer project says its energy approach is designed so project-related costs are not passed on to local utility ratepayers.",
+        "assessed_at": "2026-11-11",
+        "principles": {
+          "delivery_infra": {
+            "status": "met",
+            "note": "QTS states project-related costs are designed not to pass to local utility ratepayers."
+          }
+        },
+        "evidence_claim_id": "qts-bessemer-al-ratepayer"
+      },
+      "updates": [
+        {
+          "date": "2026-10-27",
+          "kind": "construction",
+          "title": "Construction under way; QTS eyes a 5-7 year buildout",
+          "summary": null,
+          "authority": null,
+          "upcoming": false,
+          "source_url": "https://abc3340.com/news/local/next-for-bessemer-qts-eyes-5-7-year-buildout-talks-on-economic-benefits-data-center-development-jefferson-county-continuing-coverage-follow-up-tax-revenue-investment-questions-construction-employment",
+          "source_title": "ABC 3340 — Next for Bessemer: QTS eyes 5-7 year buildout"
+        }
+      ]
     }
   ]
 }
