@@ -2205,20 +2205,14 @@ render as well as before it. Measure through usable content, not just paint.
 
 From the UX audit (`notes/ux/2026-11-09/UX_AUDIT.md`) and its follow-up.
 
-**Tabs:** Home · The Pledge · Policy · Benefit Agreements · Elections ·
+**Tabs:** Home · The Pledge · Policy · Moratoriums · Elections ·
 Power Costs · Companies · Sites · International.
 
-**The Policy tab.** Moratoriums and Frameworks merged into one tab, Policy
-(`#policies`). Its sub-tabs are `pol`: principles (shown as Topics, the default),
-latest, pauses, rules, map and trends.
-- The two data files and the "pure pauses go in moratoriums.json" rule are
-  unchanged. Only the view merged.
-- Draft plans and Evidence moved to Benefit Agreements (`cba` drafts and
-  evidence).
-- Old hashes are rewritten by `LEGACY_HASHES` in app.js: `#moratoriums*`
-  and `#policies/directory|drafts|evidence`. Don't drop an entry; shared
-  links depend on it. `test_links_from_before_the_policy_merge_still_land`
-  guards them.
+**Policy and Moratoriums.** Policy opens with nine topics. Its Agreements pane
+includes signed agreements, terms, draft plans and evidence; Latest and Rules
+remain alongside it. Moratoriums has its own directory, map and trends.
+Keep old agreement and policy/pause hashes in `LEGACY_HASHES` so shared links
+land on the same records. The data files and inclusion criteria are unchanged.
 
 **One name per tab.** The tab label, the Home card title, the view's
 `.hero-title` and the llms.txt name are identical. The tabs have no

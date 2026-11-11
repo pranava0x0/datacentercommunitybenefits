@@ -97,8 +97,12 @@ def test_latest_keeps_available_actions_when_one_feed_fails(page: Page, base_url
     page.goto(base_url + "/#policies/latest")
     expect(page.locator("#policy-error-message")).to_have_text(f"Could not load {missing}.")
     expect(page.locator("#policy-actions li").first).to_be_visible()
-    page.click(f"#subtab-pol-{unaffected}")
+    if unaffected == "pauses":
+        page.click("#tab-moratoriums")
+    else:
+        page.click(f"#subtab-pol-{unaffected}")
     expect(page.locator("#policy-pane-error")).to_be_hidden()
+    page.click("#tab-policies")
     page.click("#subtab-pol-latest")
     expect(page.locator("#policy-retry")).to_be_visible()
     page.unroute(route)

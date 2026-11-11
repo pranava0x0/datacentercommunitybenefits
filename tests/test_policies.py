@@ -356,9 +356,9 @@ def test_some_signed_agreements_are_tagged(policies) -> None:
 
 def test_agreements_tab_is_wired(js) -> None:
     html = INDEX.read_text(encoding="utf-8")
-    assert 'id="tab-agreements"' in html and 'id="view-agreements"' in html
+    assert 'id="subtab-pol-agreements"' in html and 'id="subpane-pol-agreements"' in html
     assert '"#agreements"' in js
-    assert 'data-path-target="agreements"' in html
+    assert 'data-guide-target="strongest"' in html
 
 
 # --- the moratorium tab holds pauses, sourced to something specific ---------

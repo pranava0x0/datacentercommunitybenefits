@@ -1767,7 +1767,7 @@ class TestSubtabDeepLinks:
             ("#tariffs/tariffs", "#subpane-tar-tariffs"),
             ("#tariffs/elements", "#subpane-tar-elements"),
             ("#policies/rules", "#subpane-pol-rules"),
-            ("#policies/trends", "#subpane-pol-trends"),
+            ("#policies/trends", "#subpane-mor-trends"),
             ("#comparison/footprint", "#subpane-co-footprint"),
             ("#explorer/states", "#subpane-sites-states"),
         ],
@@ -2120,9 +2120,8 @@ class TestMoratoriumCharts:
 
     def _open(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.locator("#tab-policies").click()
-        page.locator("#subtab-pol-pauses").click()
-        page.locator("#subtab-pol-trends").click()
+        page.click("#tab-moratoriums")
+        page.locator("#subtab-mor-trends").click()
         page.wait_for_selector("#moratorium-charts .mor-chart", timeout=E2E_WAIT)
 
     def test_timeline_and_bars_render(self, page: Page, base_url: str):
@@ -2236,8 +2235,7 @@ class TestMoratoriumTable:
 
     def _open(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.locator("#tab-policies").click()
-        page.locator("#subtab-pol-pauses").click()
+        page.click("#tab-moratoriums")
         page.wait_for_selector("#moratoriums-tbody tr", timeout=E2E_WAIT)
 
     def test_no_sponsor_in_jurisdiction_column(self, page: Page, base_url: str):
@@ -2841,7 +2839,7 @@ class TestSubtabs:
         NOT_COUNTABLE = {"china-context", "moratorium-charts"}
         for view_hash, view_id, ready in [
             ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
-            ("#policies/pauses", "#view-policies", "#moratoriums-tbody tr"),
+            ("#policies/pauses", "#view-moratoriums", "#moratoriums-tbody tr"),
             ("#tariffs", "#view-tariffs", "#tariffs-tbody tr"),
         ]:
             # Cache-busting query per iteration: successive fragment-only
@@ -3310,9 +3308,7 @@ class TestPathwayCohort:
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=E2E_WAIT)
         page.locator("#subtab-rp-sites-pre-pledge").click()
 
-        page.locator("#tab-policies").click()
-
-        page.locator("#subtab-pol-pauses").click()
+        page.click("#tab-moratoriums")
         page.wait_for_timeout(300)
         page.locator("#tab-ratepayer").click()
         page.wait_for_timeout(400)
@@ -3462,7 +3458,7 @@ class TestMobileV5Panes:
             page.goto(base_url + "/")
             for view in page.evaluate("() => Object.keys(VIEW_SUBTAB_GROUP)"):
                 page.locator(f"#tab-{view}").click()
-                tops = page.locator(f"#view-{'explorer' if view == 'explorer' else view} .subtabs--view .subtab").evaluate_all(
+                tops = page.locator(f"#view-{'explorer' if view == 'explorer' else view} .subtabs--view:visible .subtab").evaluate_all(
                     "els => [...new Set(els.map(e => Math.round(e.getBoundingClientRect().top)))]"
                 )
                 # Policy (six panes) and Benefit Agreements (five, guides
@@ -3470,7 +3466,7 @@ class TestMobileV5Panes:
                 # two rows keep every pane visible without a side-swipe.
                 max_rows = 2 if view in ("policies", "agreements") else 1
                 assert 1 <= len(tops) <= max_rows, f"{view}: sub-tabs wrap to {len(tops)} rows"
-                strip = page.locator(f"#view-{view} .subtabs--view")
+                strip = page.locator(f"#view-{view} .subtabs--view:visible")
                 assert strip.evaluate("e => e.scrollWidth <= e.clientWidth + 1")
         finally:
             ctx.close()
@@ -3708,12 +3704,13 @@ class TestIssue72Navigation:
     def test_back_after_a_tab_click_returns_to_the_previous_view(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
-        page.click("#tab-agreements")
-        expect(page.locator("#view-agreements")).to_be_visible()
+        page.click("#tab-policies")
+        page.click("#subtab-pol-agreements")
+        expect(page.locator("#subpane-pol-agreements")).to_be_visible()
         page.go_back()
         expect(page.locator("#view-overview")).to_be_visible()
         page.go_forward()
-        expect(page.locator("#view-agreements")).to_be_visible()
+        expect(page.locator("#subpane-pol-agreements")).to_be_visible()
 
     def test_home_and_benefits_count_signed_agreements_the_same_way(self, page: Page, base_url: str):
         home = json.loads((ROOT / "docs/data/home.json").read_text())
@@ -3752,7 +3749,7 @@ class TestIssue72Navigation:
         page.click("#pd-draft-btn")
         expect(page.locator("#policy-modal")).to_be_hidden()
         expect(page.locator("#draft-plan-kind")).to_have_value("state")
-        assert page.url.endswith("#agreements/drafts")
+        assert page.url.endswith("#policies/agreements/drafts")
 
     def test_back_with_a_policy_record_open_leaves_policies(self, page: Page, base_url: str):
         # Sonnet review of #77: closing the modal during popstate rewrote the
@@ -3772,8 +3769,7 @@ class TestIssue72Navigation:
     def test_back_closes_a_moratorium_detail(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
-        page.click("#tab-policies")
-        page.click("#subtab-pol-pauses")
+        page.click("#tab-moratoriums")
         page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
         page.locator("#moratoriums-tbody tr[data-id]").first.click()
         expect(page.locator("#moratorium-modal")).to_be_visible()
@@ -3785,8 +3781,8 @@ class TestIssue72Navigation:
     def test_back_after_a_home_card_returns_home(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
-        page.click('#home-cards .home-card[data-path-target="agreements"]')
-        expect(page.locator("#view-agreements")).to_be_visible()
+        page.click('#home-cards .home-card[data-path-target="moratoriums"]')
+        expect(page.locator("#view-moratoriums")).to_be_visible()
         page.go_back()
         expect(page.locator("#view-overview")).to_be_visible()
 
@@ -3939,7 +3935,8 @@ class TestIssues78And79:
             page.click("#project-list .project-list-more button")
             assert cards.count() == min(total, 2 * page.evaluate("() => SITES_PAGE"))
             # Benefits: the first few full cards, then the rest on request.
-            page.click("#tab-agreements")
+            page.click("#tab-policies")
+            page.click("#subtab-pol-agreements")
             page.wait_for_selector("#cba-strongest .cba-card", timeout=E2E_WAIT)
             n = page.evaluate("() => strongestAgreements().length")
             strongest = page.locator("#cba-strongest .cba-card")
@@ -3948,8 +3945,7 @@ class TestIssues78And79:
                 page.click("#cba-strongest .project-list-more button")
                 assert strongest.count() == n
             # Moratoriums: paged, and a search starts from the first page.
-            page.click("#tab-policies")
-            page.click("#subtab-pol-pauses")
+            page.click("#tab-moratoriums")
             page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
             rows = page.locator("#moratoriums-tbody tr[data-id]")
             per = page.evaluate("() => MOR_PHONE_PAGE")
@@ -3969,8 +3965,7 @@ class TestIssues78And79:
             assert page.locator("#project-list .project-card").count() == page.evaluate(
                 "() => Math.min(state.sitesShown, filteredProjects().length - 1) + 1"
             )
-            page.click("#tab-policies")
-            page.click("#subtab-pol-pauses")
+            page.click("#tab-moratoriums")
             page.fill("#moratorium-q", "")
             more = page.locator("#moratoriums-tbody .project-list-more button")
             # Codex review of #82: the only way to the hidden rows needs a full touch target.
@@ -4034,6 +4029,7 @@ class TestInternational:
         page.goto(base_url + "/#world/instruments")
         card = page.locator(f'#world-instrument-list [data-id="{pol["id"]}"]')
         expect(card).to_be_visible()
+        card.locator("summary").click()
         bq = card.locator(f'blockquote[lang="{pol["source_lang"]}"]').first
         expect(bq).to_have_text(pol["key_terms"][0])
         expect(card.locator(".world-translation-label").first).to_contain_text("Machine translation")
@@ -4154,6 +4150,7 @@ class TestInternational:
         card = page.locator(f'#world-country-body [data-id="{rc["id"]}"]')
         expect(card).to_be_visible()
         expect(card).to_contain_text(rc["docket_number"])
+        card.locator("summary").click()
         expect(card.locator(".rc-next")).to_contain_text("Next:")
 
     def test_company_card_counts_sites_abroad(self, page: Page, base_url: str):
@@ -4242,11 +4239,11 @@ class TestPr86ReviewFixes:
 
     def test_world_jump_entries_are_links_and_counts_agree(self, page: Page, base_url: str):
         page.goto(base_url + "/#world")
-        page.wait_for_selector("#world-country-jump a", timeout=E2E_WAIT)
-        links = page.locator("#world-country-jump a")
+        page.wait_for_selector("#world-country-list a", timeout=E2E_WAIT)
+        links = page.locator("#world-country-list a")
         assert links.count() == page.locator("#world-country-list .world-card").count()
         assert links.first.get_attribute("href").startswith("#country/")
-        assert page.locator("#world-country-jump button").count() == 0
+        assert page.locator("#world-country-list button").count() == 0
         tile = page.locator("#world-stats .rp-stat", has_text="Countries").locator(".rp-stat-value").inner_text()
         pill = page.locator("#world-countries-count").inner_text().strip()
         assert tile == pill

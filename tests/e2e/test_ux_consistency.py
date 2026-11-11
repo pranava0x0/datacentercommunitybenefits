@@ -171,11 +171,11 @@ def test_phone_moratorium_rows_keep_duration_and_hide_reasons(browser, base_url:
 @pytest.mark.parametrize(
     "old, view, pane",
     [
-        ("#moratoriums", "policies", "subpane-pol-pauses"),
-        ("#moratoriums/map", "policies", "subpane-pol-map"),
-        ("#moratoriums/trends", "policies", "subpane-pol-trends"),
+        ("#policies/pauses", "moratoriums", "subpane-mor-directory"),
+        ("#policies/map", "moratoriums", "subpane-mor-map"),
+        ("#policies/trends", "moratoriums", "subpane-mor-trends"),
         ("#policies/directory", "policies", "subpane-pol-rules"),
-        ("#policies/drafts", "agreements", "subpane-cba-drafts"),
+        ("#policies/drafts", "policies", "subpane-cba-drafts"),
     ],
 )
 def test_links_from_before_the_policy_merge_still_land(page: Page, base_url: str, old: str, view: str, pane: str):
@@ -184,4 +184,4 @@ def test_links_from_before_the_policy_merge_still_land(page: Page, base_url: str
     page.goto(f"{base_url}/?legacy={old[1:].replace('/', '-')}{old}")
     expect(page.locator(f"#view-{view}")).to_be_visible(timeout=E2E_WAIT)
     expect(page.locator(f"#{pane}")).to_be_visible(timeout=E2E_WAIT)
-    assert page.evaluate("() => !document.getElementById('tab-moratoriums')")
+    assert page.evaluate("() => !document.getElementById('tab-agreements')")

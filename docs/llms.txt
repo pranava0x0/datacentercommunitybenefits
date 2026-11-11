@@ -9,8 +9,8 @@ Last refreshed 2026-11-10. Record counts: 191 sites (58 contested), 17 companies
 - [Home](https://pranava0x0.github.io/datacenterpolicytracker/#overview): Section totals, the latest actions and dated upcoming decisions.
 - [Elections](https://pranava0x0.github.io/datacenterpolicytracker/#elections): Incoming and prior officeholders' data-center policies, proposed changes, and local ballot measures.
 - [The Pledge](https://pranava0x0.github.io/datacenterpolicytracker/#ratepayer): The White House Ratepayer Protection Pledge: its five commitments (quoted), every signatory, and a per-site scorecard.
-- [Policy](https://pranava0x0.github.io/datacenterpolicytracker/#policies): What governments have done about data centers: enacted, proposed and failed pauses, plus executive orders, statutes, regulations and local ordinances that set conditions.
-- [Benefit Agreements](https://pranava0x0.github.io/datacenterpolicytracker/#agreements): Community benefit, host and PILOT agreements, tagged by what their text contains.
+- [Policy](https://pranava0x0.github.io/datacenterpolicytracker/#policies): Laws, bills, executive orders, local rules and community benefit agreements.
+- [Moratoriums](https://pranava0x0.github.io/datacenterpolicytracker/#moratoriums): Enacted, proposed, lifted and failed restrictions, with a searchable directory, map and trends.
 - [Power Costs](https://pranava0x0.github.io/datacenterpolicytracker/#tariffs): Large-load electricity tariffs scored against the DOE/LBL design elements, and the docketed rate cases behind them.
 - [Companies](https://pranava0x0.github.io/datacenterpolicytracker/#comparison): What each operator has published about jobs, tax, energy, water, grants, infrastructure, education and engagement, with quotes.
 - [Sites](https://pranava0x0.github.io/datacenterpolicytracker/#explorer): Individual data-center sites on a map, with status, claims, community responses and a dated timeline.
