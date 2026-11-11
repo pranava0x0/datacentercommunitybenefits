@@ -15,7 +15,7 @@ def test_plans_and_evidence(page, base_url, width, tmp_path):
     assert not any('community-plans.js' in url for url in requests)
     page.get_by_role('button', name='Draft a benefit plan', exact=True).click()
     expect(page.locator('#draft-plan-decision')).to_be_visible()
-    assert page.url.endswith('#agreements/drafts')
+    assert page.url.endswith('#policies/agreements/drafts')
     expect(page.locator('#cba-stats')).to_be_visible()
     expect(page.locator('.guide-notice')).to_contain_text('example numbers are invented')
     for key, heading, sections in [('county', 'County plan', 8), ('state', 'State framework', 6)]:
@@ -36,7 +36,7 @@ def test_plans_and_evidence(page, base_url, width, tmp_path):
         assert 'regs.maryland.gov' in text and 'nj.gov' in text
     page.get_by_role('tab', name='Evidence', exact=True).click()
     expect(page.locator('#impact-evidence-rule')).to_be_visible()
-    assert page.url.endswith('#agreements/evidence')
+    assert page.url.endswith('#policies/agreements/evidence')
     page.get_by_text('Water permission and water use', exact=True).click()
     expect(page.locator('[data-evidence-answer]').first).to_have_text('Actual water consumption is not established.')
     expect(page.locator('[data-evidence-status]').first).to_contain_text('actual use')
@@ -44,7 +44,7 @@ def test_plans_and_evidence(page, base_url, width, tmp_path):
     expect(page.locator('#subpane-cba-evidence')).to_contain_text('were not authenticated')
     expect(page.locator('#subpane-cba-evidence')).to_contain_text('does not show actual withdrawal')
     assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
-    assert page.locator('#view-agreements > .subtabs').evaluate('(e) => e.scrollWidth <= e.clientWidth + 1')
+    assert page.locator('#subpane-pol-agreements > .subtabs').evaluate('(e) => e.scrollWidth <= e.clientWidth + 1')
     page.get_by_role('tab', name='Terms', exact=False).click()
     expect(page.locator('#cba-stats')).to_be_visible()
     assert not errors
@@ -59,7 +59,7 @@ def test_guide_deep_link_and_keyboard(page, base_url):
     expect(page.locator('#impact-evidence-rule')).to_be_visible()
     page.reload()
     expect(page.locator('#impact-evidence-rule')).to_be_visible()
-    assert page.url.endswith('#agreements/evidence')
+    assert page.url.endswith('#policies/agreements/evidence')
 
 
 def test_guide_import_failure_can_retry(page, base_url):

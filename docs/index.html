@@ -35,10 +35,10 @@
       }
     </script>
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20261107a" />
+    <link rel="stylesheet" href="styles.css?v=20261110b" />
     <!-- html2pdf is lazy-loaded on demand by the moratorium PDF export (see
          loadHtml2Pdf in app.js) so it doesn't block first paint or tests. -->
-    <script defer src="app.js?v=20261107a"></script>
+    <script defer src="app.js?v=20261110b"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -95,15 +95,15 @@
           Policy
         </button>
         <button
-          id="tab-agreements"
+          id="tab-moratoriums"
           class="tab"
-          aria-label="Benefit Agreements"
+          aria-label="Moratoriums"
           role="tab"
           type="button"
           aria-selected="false"
-          aria-controls="view-agreements"
+          aria-controls="view-moratoriums"
         >
-          Benefit Agreements
+          Moratoriums
         </button>
         <button
           id="tab-elections"
@@ -180,6 +180,7 @@
         <div class="home-body">
 
           <nav class="home-tasks" aria-label="Planning tools">
+            <button type="button" data-guide-target="strongest">Read signed agreements</button>
             <button type="button" data-guide-target="drafts">Draft a benefit plan</button>
             <button type="button" data-guide-target="evidence">Check impact claims</button>
           </nav>
@@ -196,10 +197,10 @@
               <span class="home-card-num" data-count-for="policies">&mdash;</span>
               <span class="home-card-sub" data-sub-for="policies"></span>
             </button>
-            <button class="home-card" type="button" data-path-target="agreements">
-              <span class="home-card-title">Benefit Agreements</span>
-              <span class="home-card-num" data-count-for="agreements">&mdash;</span>
-              <span class="home-card-sub" data-sub-for="agreements"></span>
+            <button class="home-card" type="button" data-path-target="moratoriums">
+              <span class="home-card-title">Moratoriums</span>
+              <span class="home-card-num" data-count-for="moratoriums">&mdash;</span>
+              <span class="home-card-sub" data-sub-for="moratoriums"></span>
             </button>
             <button class="home-card" type="button" data-path-target="elections">
               <span class="home-card-title">Elections</span>
@@ -512,7 +513,7 @@
             ×
           </button>
           <header class="detail-header">
-            <p class="eyebrow" id="d-company">—</p>
+            <button type="button" class="btn-link" id="d-company" title="Open company profile">—</button>
             <h3 id="d-name">—</h3>
             <p class="detail-sub">
               <span id="d-location">—</span> ·
@@ -981,7 +982,6 @@
           </div>
         </details>
 
-
         <details class="acc" id="rp-category-section">
           <summary>
             <h3 class="acc-title">Signer categories</h3>
@@ -1039,13 +1039,11 @@
           </div>
         </details>
 
-
         <!-- ---------------------------------------------------------------
              3. SIGNATORY ROSTER — searchable, category-filterable. Rendered
              on first expand (300+ rows), not on view load — the id below is
              what that wiring and the e2e suite address.
              --------------------------------------------------------------- -->
-
 
         <p class="rp-footnote">
           Assessments are editorial judgments. A site without a site-specific commitment has not failed; the company has not published one for it.
@@ -1300,30 +1298,22 @@
         <div class="hero">
 
           <h2 class="hero-title">Policy</h2>
-          <p class="view-scope">U.S. laws, orders, bills, pauses and agreements.</p>
+          <p class="view-scope">U.S. laws, bills, executive orders and community benefit agreements.</p>
         </div>
 
-        <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
 
         <div class="subtabs subtabs--view" role="tablist" aria-label="Policy view">
           <button class="subtab" role="tab" type="button" id="subtab-pol-principles" aria-selected="true" tabindex="0" aria-controls="subpane-pol-principles">
             Topics <span class="subtab-count" id="policy-principles-count"></span>
           </button>
+          <button class="subtab" role="tab" type="button" id="subtab-pol-agreements" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-agreements">Agreements <span class="subtab-count" id="policy-agreements-count"></span></button>
           <button class="subtab" role="tab" type="button" id="subtab-pol-latest" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-latest">
             Latest <span class="subtab-count" id="policy-actions-count"></span>
-          </button>
-          <button class="subtab" role="tab" type="button" id="subtab-pol-pauses" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-pauses">
-            Pauses <span class="subtab-count" id="moratoriums-count"></span>
           </button>
           <button class="subtab" role="tab" type="button" id="subtab-pol-rules" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-rules">
             Rules <span class="subtab-count" id="policies-count"></span>
           </button>
-          <button class="subtab" role="tab" type="button" id="subtab-pol-map" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-map">Map</button>
-          <button class="subtab" role="tab" type="button" id="subtab-pol-trends" aria-selected="false" tabindex="-1" aria-controls="subpane-pol-trends">
-            Trends <span class="subtab-count" id="moratorium-themes-count"></span>
-          </button>
         </div>
-
 
         <div id="policy-pane-error" hidden><span id="policy-error-message" role="status"></span> <button type="button" class="linkish" id="policy-retry">Retry</button></div>
         <div class="subtab-panel" id="subpane-pol-principles" role="tabpanel" aria-labelledby="subtab-pol-principles">
@@ -1336,81 +1326,6 @@
         <div class="subtab-panel" id="subpane-pol-latest" role="tabpanel" aria-labelledby="subtab-pol-latest" hidden>
           <div id="policy-actions-section">
             <ol id="policy-actions" class="pb-actions"></ol>
-          </div>
-        </div>
-
-        <div class="subtab-panel" id="subpane-pol-pauses" role="tabpanel" aria-labelledby="subtab-pol-pauses" hidden>
-          <ul id="moratorium-stats" class="rp-stats" aria-label="Pause statistics"></ul>
-          <div id="moratoriums-directory">
-          <h3 class="sr-only" id="moratoriums-table-heading">Moratoriums directory</h3>
-          <div id="moratorium-filters" class="filter-bar filter-bar--slim directory-filters" role="group" aria-label="Filter moratoriums">
-            <label class="filter filter-search"><span class="filter-name">Search</span>
-              <input id="moratorium-q" type="search" placeholder="Place, state or bill" autocomplete="off" />
-            </label>
-            <label class="filter"><span class="filter-name">Status</span>
-              <select id="moratorium-status-filter">
-                <option value="">Any status</option>
-                <option value="enacted">Enacted</option>
-                <option value="proposed">Proposed</option>
-                <option value="failed">Failed</option>
-                <option value="lifted">Lifted</option>
-              </select>
-            </label>
-            <label class="filter"><span class="filter-name">Level</span>
-              <select id="moratorium-type-filter">
-                <option value="">Any level</option>
-                <option value="federal">Federal</option>
-                <option value="state">State</option>
-                <option value="county">County</option>
-                <option value="city">City</option>
-              </select>
-            </label>
-            <span class="export-btns">
-              <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
-              <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
-            </span>
-            <span class="filter-bar-meta" role="status" id="moratoriums-meta"></span>
-          </div>
-          <div class="table-scroll">
-            <table id="moratoriums-table" class="moratorium-table">
-              <thead>
-                <tr>
-                  <th aria-sort="none">Jurisdiction</th>
-                  <th aria-sort="none">Date</th>
-                  <th aria-sort="none">Type</th>
-                  <th aria-sort="none">Status</th>
-                  <th aria-sort="none">Duration</th>
-                  <th aria-sort="none" class="mor-col-reasons">Key Reasons</th>
-                </tr>
-              </thead>
-              <tbody id="moratoriums-tbody">
-                <!-- Populated by app.js -->
-              </tbody>
-            </table>
-          </div>
-          </div>
-        </div>
-
-        <div class="subtab-panel" id="subpane-pol-map" role="tabpanel" aria-labelledby="subtab-pol-map" hidden>
-          <div id="jurisdiction-map-content"><p class="muted">Loading map…</p></div>
-        </div>
-
-        <div class="subtab-panel" id="subpane-pol-trends" role="tabpanel" aria-labelledby="subtab-pol-trends" hidden>
-        <!-- Summary Charts (status split, jurisdiction level, reasons, timeline) -->
-        <section
-          id="moratorium-charts"
-          class="mor-charts"
-          aria-label="Moratorium summary charts"
-        >
-          <!-- Populated by app.js -->
-        </section>
-
-          <div id="moratorium-themes">
-            <h3 class="theme-quotes-title">Concerns cited</h3>
-            <p class="acc-sub">How many moratoriums cite each concern.</p>
-            <div id="reason-breakdown" class="reason-grid">
-              <!-- Populated by app.js -->
-            </div>
           </div>
         </div>
 
@@ -1473,137 +1388,10 @@
           </div>
         </div>
 
-        <p class="rp-footnote">
-          Coverage varies by state. For utility tariffs, see <a href="#tariffs/tariffs">Power Costs</a>.
-        </p>
 
-        <div id="policy-modal" class="tariff-modal" hidden>
-          <div class="tariff-modal__backdrop" data-policy-close aria-hidden="true"></div>
-          <div id="policy-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pd-title">
-            <button id="policy-detail-close" class="detail-close" type="button" aria-label="Close policy details">×</button>
-            <header class="detail-header">
-              <p class="eyebrow" id="pd-instrument">—</p>
-              <h3 id="pd-title">—</h3>
-              <p class="detail-sub">
-                <span id="pd-status" class="badge">—</span> ·
-                <span id="pd-where">—</span>
-              </p>
-            </header>
-            <dl class="kv">
-              <dt>Identifier</dt>
-              <dd id="pd-identifier">—</dd>
-              <dt>Date</dt>
-              <dd id="pd-date">—</dd>
-              <dt>Parties</dt>
-              <dd id="pd-parties">—</dd>
-              <dt>Stated value</dt>
-              <dd id="pd-value">—</dd>
-              <dt>Topics</dt>
-              <dd id="pd-principles">—</dd>
-              <dt>Themes</dt>
-              <dd id="pd-themes">—</dd>
-            </dl>
-            <div id="pd-summary" class="moratorium-summary"></div>
-            <div id="pd-delivered" hidden></div>
-            <section class="tariff-additional" aria-labelledby="pd-terms-heading">
-              <h4 id="pd-terms-heading">Key terms</h4>
-              <ul id="pd-terms" class="tariff-additional-list"></ul>
-            </section>
-            <section id="pd-related" class="tariff-legislation" aria-labelledby="pd-related-heading" hidden>
-              <h4 id="pd-related-heading">Related records</h4>
-              <ul id="pd-related-list" class="tariff-legislation-list"></ul>
-            </section>
-            <section class="moratorium-resources" aria-labelledby="pd-resources-heading">
-              <h4 id="pd-resources-heading">Sources &amp; Resources</h4>
-              <ul id="pd-resources-list" class="resources-list"></ul>
-            </section>
-            <section class="pd-next" aria-labelledby="pd-next-heading">
-              <h4 id="pd-next-heading">Next step</h4>
-              <p><button type="button" id="pd-draft-btn" class="btn-link"></button></p>
-              <p class="muted pd-next-note">The draft uses invented example numbers; it does not say this rule applies elsewhere.</p>
-            </section>
-            <p id="pd-captured" class="muted policy-captured"></p>
-          </div>
-        </div>
-        <!-- ================= MORATORIUM DETAIL MODAL ================= -->
-        <div id="moratorium-modal" class="moratorium-modal" hidden>
-          <div class="moratorium-modal__backdrop" data-moratorium-close aria-hidden="true"></div>
-          <div id="moratorium-detail" class="moratorium-detail moratorium-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="md-jurisdiction" aria-live="polite">
-          <button id="moratorium-detail-close" class="detail-close" type="button" aria-label="Close moratorium details">
-            ×
-          </button>
-          <header class="detail-header">
-            <p class="eyebrow" id="md-jurisdiction-type">—</p>
-            <h3 id="md-jurisdiction">—</h3>
-            <p class="detail-sub">
-              <span id="md-status" class="badge">—</span> ·
-              <span id="md-duration">—</span>
-            </p>
-          </header>
+        <div id="subpane-pol-agreements" class="subtab-panel" role="tabpanel" aria-labelledby="subtab-pol-agreements" hidden>
+        <h3>Community benefit agreements</h3>
 
-          <dl class="kv">
-            <dt>Status</dt>
-            <dd id="md-status-detail">—</dd>
-            <dt id="md-enacted-dt">Enacted date</dt>
-            <dd id="md-enacted">—</dd>
-            <dt id="md-effective-dt" hidden>Effective date</dt>
-            <dd id="md-effective" hidden>—</dd>
-            <dt>Duration</dt>
-            <dd id="md-duration-detail">—</dd>
-            <dt>Power threshold</dt>
-            <dd id="md-threshold">—</dd>
-            <dt>Key reasons</dt>
-            <dd id="md-reasons">—</dd>
-            <dt id="md-policy-type-dt" hidden>Policy type</dt>
-            <dd id="md-policy-type" hidden>—</dd>
-            <dt id="md-bill-dt" hidden>Bill / Resolution</dt>
-            <dd id="md-bill-number" hidden>—</dd>
-            <dt id="md-sponsors-dt" hidden>Introduced by</dt>
-            <dd id="md-sponsors" hidden>—</dd>
-            <dt id="md-enacted-by-dt" hidden>Signed / enacted by</dt>
-            <dd id="md-enacted-by" hidden>—</dd>
-            <dt id="md-votes-dt" hidden>Vote</dt>
-            <dd id="md-votes" hidden>—</dd>
-            <dt id="md-session-dt" hidden>Session</dt>
-            <dd id="md-session" hidden>—</dd>
-            <dt id="md-failure-reason-dt" hidden>Why it failed</dt>
-            <dd id="md-failure-reason" hidden>—</dd>
-          </dl>
-
-          <div id="md-summary" class="moratorium-summary"></div>
-
-          <section id="md-stakeholders" class="moratorium-stakeholders" aria-labelledby="md-stakeholders-heading" hidden>
-            <h4 id="md-stakeholders-heading">Key stakeholders</h4>
-            <div id="md-stakeholders-body"></div>
-          </section>
-
-          <section id="md-resources" class="moratorium-resources" aria-labelledby="md-resources-heading">
-            <h4 id="md-resources-heading">Sources &amp; Resources</h4>
-            <ul id="md-resources-list" class="resources-list"></ul>
-          </section>
-
-          <p id="md-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================== BENEFIT AGREEMENTS VIEW ================== -->
-      <!-- The benefit_agreement records (and one-community company pledges)
-           from the policy records, tagged with AGREEMENT_FEATURES. No payload
-           of its own: it shares the memoized policies fetch. -->
-      <section
-        id="view-agreements"
-        class="view"
-        role="tabpanel"
-        aria-labelledby="tab-agreements"
-        hidden
-      >
-        <div class="hero">
-
-          <h2 class="hero-title">Benefit Agreements</h2>
-        </div>
-
-        <ul id="cba-stats" class="rp-stats" aria-label="Agreement statistics"></ul>
 
         <div class="subtabs subtabs--view" role="tablist" aria-label="Benefit Agreements view">
           <button class="subtab" role="tab" type="button" id="subtab-cba-strongest" aria-selected="true" tabindex="0" aria-controls="subpane-cba-strongest">
@@ -1669,8 +1457,212 @@
         <div class="subtab-panel planning-guide" id="subpane-cba-evidence" role="tabpanel" aria-labelledby="subtab-cba-evidence" hidden>
           <p>Loading evidence guide…</p>
         </div>
+        <ul id="cba-stats" class="rp-stats" aria-label="Agreement statistics"></ul>
+        </div>
+
+        <p class="rp-footnote">
+          Coverage varies by state. <a href="#moratoriums/map">Jurisdiction map</a> · <a href="#tariffs/tariffs">Utility tariffs</a>.
+        </p>
+        <ul id="policy-stats" class="rp-stats" aria-label="Policy statistics"></ul>
+        <div id="policy-modal" class="tariff-modal" hidden>
+          <div class="tariff-modal__backdrop" data-policy-close aria-hidden="true"></div>
+          <div id="policy-detail" class="moratorium-detail tariff-detail tariff-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pd-title">
+            <button id="policy-detail-close" class="detail-close" type="button" aria-label="Close policy details">×</button>
+            <header class="detail-header">
+              <p class="eyebrow" id="pd-instrument">—</p>
+              <h3 id="pd-title">—</h3>
+              <p class="detail-sub">
+                <span id="pd-status" class="badge">—</span> ·
+                <span id="pd-where">—</span>
+              </p>
+            </header>
+            <dl class="kv">
+              <dt>Identifier</dt>
+              <dd id="pd-identifier">—</dd>
+              <dt>Date</dt>
+              <dd id="pd-date">—</dd>
+              <dt>Parties</dt>
+              <dd id="pd-parties">—</dd>
+              <dt>Stated value</dt>
+              <dd id="pd-value">—</dd>
+              <dt>Topics</dt>
+              <dd id="pd-principles">—</dd>
+              <dt>Themes</dt>
+              <dd id="pd-themes">—</dd>
+            </dl>
+            <div id="pd-summary" class="moratorium-summary"></div>
+            <div id="pd-delivered" hidden></div>
+            <section class="tariff-additional" aria-labelledby="pd-terms-heading">
+              <h4 id="pd-terms-heading">Key terms</h4>
+              <ul id="pd-terms" class="tariff-additional-list"></ul>
+            </section>
+            <section id="pd-related" class="tariff-legislation" aria-labelledby="pd-related-heading" hidden>
+              <h4 id="pd-related-heading">Related records</h4>
+              <ul id="pd-related-list" class="tariff-legislation-list"></ul>
+            </section>
+            <section class="moratorium-resources" aria-labelledby="pd-resources-heading">
+              <h4 id="pd-resources-heading">Sources &amp; Resources</h4>
+              <ul id="pd-resources-list" class="resources-list"></ul>
+            </section>
+            <section class="pd-next" aria-labelledby="pd-next-heading">
+              <h4 id="pd-next-heading">Next step</h4>
+              <p><button type="button" id="pd-draft-btn" class="btn-link"></button></p>
+              <p class="muted pd-next-note">The draft uses invented example numbers; it does not say this rule applies elsewhere.</p>
+            </section>
+            <p id="pd-captured" class="muted policy-captured"></p>
+          </div>
+        </div>
       </section>
 
+      <section id="view-moratoriums" class="view" role="tabpanel" aria-labelledby="tab-moratoriums" hidden>
+        <div class="hero"><h2 class="hero-title">Moratoriums</h2></div>
+          <ul id="moratorium-stats" class="rp-stats" aria-label="Pause statistics"></ul>
+        <div class="subtabs subtabs--view" role="tablist" aria-label="Moratoriums view">
+          <button class="subtab" role="tab" type="button" id="subtab-mor-directory" aria-selected="true" tabindex="0" aria-controls="subpane-mor-directory">
+            Directory <span class="subtab-count" id="moratoriums-count"></span>
+          </button>
+          <button class="subtab" role="tab" type="button" id="subtab-mor-map" aria-selected="false" tabindex="-1" aria-controls="subpane-mor-map">Map</button>
+          <button class="subtab" role="tab" type="button" id="subtab-mor-trends" aria-selected="false" tabindex="-1" aria-controls="subpane-mor-trends">
+            Trends <span class="subtab-count" id="moratorium-themes-count"></span>
+          </button>
+        </div>
+        <div id="mor-load-error" hidden>Could not load moratoriums. <button id="mor-retry" type="button" class="linkish">Retry</button></div>
+        <div class="subtab-panel" id="subpane-mor-directory" role="tabpanel" aria-labelledby="subtab-mor-directory">
+          <div id="moratoriums-directory">
+          <h3 class="sr-only" id="moratoriums-table-heading">Moratoriums directory</h3>
+          <div id="moratorium-filters" class="filter-bar filter-bar--slim directory-filters" role="group" aria-label="Filter moratoriums">
+            <label class="filter filter-search"><span class="filter-name">Search</span>
+              <input id="moratorium-q" type="search" placeholder="Place, state or bill" autocomplete="off" />
+            </label>
+            <label class="filter"><span class="filter-name">Status</span>
+              <select id="moratorium-status-filter">
+                <option value="">Any status</option>
+                <option value="enacted">Enacted</option>
+                <option value="proposed">Proposed</option>
+                <option value="failed">Failed</option>
+                <option value="lifted">Lifted</option>
+              </select>
+            </label>
+            <label class="filter"><span class="filter-name">Level</span>
+              <select id="moratorium-type-filter">
+                <option value="">Any level</option>
+                <option value="federal">Federal</option>
+                <option value="state">State</option>
+                <option value="county">County</option>
+                <option value="city">City</option>
+              </select>
+            </label>
+            <span class="export-btns">
+              <button id="moratoriums-csv-btn" class="btn-ghost" title="Export to CSV">⤓ CSV</button>
+              <button id="moratoriums-pdf-btn" class="btn-ghost" title="Export to PDF">⤓ PDF</button>
+            </span>
+            <span class="filter-bar-meta" role="status" id="moratoriums-meta"></span>
+          </div>
+          <div class="table-scroll">
+            <table id="moratoriums-table" class="moratorium-table">
+              <thead>
+                <tr>
+                  <th aria-sort="none">Jurisdiction</th>
+                  <th aria-sort="none">Date</th>
+                  <th aria-sort="none">Type</th>
+                  <th aria-sort="none">Status</th>
+                  <th aria-sort="none">Duration</th>
+                  <th aria-sort="none" class="mor-col-reasons">Key Reasons</th>
+                </tr>
+              </thead>
+              <tbody id="moratoriums-tbody">
+                <!-- Populated by app.js -->
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+
+        <div class="subtab-panel" id="subpane-mor-map" role="tabpanel" aria-labelledby="subtab-mor-map" hidden>
+          <div id="jurisdiction-map-content"><p class="muted">Loading map…</p></div>
+        </div>
+
+        <div class="subtab-panel" id="subpane-mor-trends" role="tabpanel" aria-labelledby="subtab-mor-trends" hidden>
+        <!-- Summary Charts (status split, jurisdiction level, reasons, timeline) -->
+        <section
+          id="moratorium-charts"
+          class="mor-charts"
+          aria-label="Moratorium summary charts"
+        >
+          <!-- Populated by app.js -->
+        </section>
+
+          <div id="moratorium-themes">
+            <h3 class="theme-quotes-title">Concerns cited</h3>
+            <p class="acc-sub">How many moratoriums cite each concern.</p>
+            <div id="reason-breakdown" class="reason-grid">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+        <!-- ================= MORATORIUM DETAIL MODAL ================= -->
+        <div id="moratorium-modal" class="moratorium-modal" hidden>
+          <div class="moratorium-modal__backdrop" data-moratorium-close aria-hidden="true"></div>
+          <div id="moratorium-detail" class="moratorium-detail moratorium-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="md-jurisdiction" aria-live="polite">
+          <button id="moratorium-detail-close" class="detail-close" type="button" aria-label="Close moratorium details">
+            ×
+          </button>
+          <header class="detail-header">
+            <p class="eyebrow" id="md-jurisdiction-type">—</p>
+            <h3 id="md-jurisdiction">—</h3>
+            <p class="detail-sub">
+              <span id="md-status" class="badge">—</span> ·
+              <span id="md-duration">—</span>
+            </p>
+          </header>
+
+          <dl class="kv">
+            <dt>Status</dt>
+            <dd id="md-status-detail">—</dd>
+            <dt id="md-enacted-dt">Enacted date</dt>
+            <dd id="md-enacted">—</dd>
+            <dt id="md-effective-dt" hidden>Effective date</dt>
+            <dd id="md-effective" hidden>—</dd>
+            <dt>Duration</dt>
+            <dd id="md-duration-detail">—</dd>
+            <dt>Power threshold</dt>
+            <dd id="md-threshold">—</dd>
+            <dt>Key reasons</dt>
+            <dd id="md-reasons">—</dd>
+            <dt id="md-policy-type-dt" hidden>Policy type</dt>
+            <dd id="md-policy-type" hidden>—</dd>
+            <dt id="md-bill-dt" hidden>Bill / Resolution</dt>
+            <dd id="md-bill-number" hidden>—</dd>
+            <dt id="md-sponsors-dt" hidden>Introduced by</dt>
+            <dd id="md-sponsors" hidden>—</dd>
+            <dt id="md-enacted-by-dt" hidden>Signed / enacted by</dt>
+            <dd id="md-enacted-by" hidden>—</dd>
+            <dt id="md-votes-dt" hidden>Vote</dt>
+            <dd id="md-votes" hidden>—</dd>
+            <dt id="md-session-dt" hidden>Session</dt>
+            <dd id="md-session" hidden>—</dd>
+            <dt id="md-failure-reason-dt" hidden>Why it failed</dt>
+            <dd id="md-failure-reason" hidden>—</dd>
+          </dl>
+
+          <div id="md-summary" class="moratorium-summary"></div>
+
+          <section id="md-stakeholders" class="moratorium-stakeholders" aria-labelledby="md-stakeholders-heading" hidden>
+            <h4 id="md-stakeholders-heading">Key stakeholders</h4>
+            <div id="md-stakeholders-body"></div>
+          </section>
+
+          <section id="md-resources" class="moratorium-resources" aria-labelledby="md-resources-heading">
+            <h4 id="md-resources-heading">Sources &amp; Resources</h4>
+            <ul id="md-resources-list" class="resources-list"></ul>
+          </section>
+
+          <p id="md-captured" class="muted" style="font-size: 0.85rem; margin-top: 1rem;"></p>
+          </div>
+        </div>
 
       <!-- ================== INTERNATIONAL VIEW (v6) ================== -->
       <!-- notes/specs/SPEC_INTERNATIONAL.md. One lazy payload
@@ -1682,7 +1674,7 @@
           <h2 class="hero-title">International</h2>
         </div>
 
-        <ul id="world-stats" class="rp-stats" aria-label="International statistics"></ul>
+        <p id="world-error" role="status" hidden>Could not load international records. <button type="button" class="btn-link" id="world-retry">Retry</button></p>
 
         <div id="world-country" class="world-country" hidden>
           <p><button type="button" id="world-country-back" class="btn-link">← All countries</button></p>
@@ -1703,7 +1695,7 @@
           </div>
 
           <div class="subtab-panel" id="subpane-world-countries" role="tabpanel" aria-labelledby="subtab-world-countries">
-            <nav id="world-country-jump" class="world-jump" aria-label="Jump to a country"></nav>
+            <div class="filter-bar"><label class="filter">Find a country or the EU <input type="search" id="world-search" autocomplete="off" /></label><span role="status" id="world-search-status"></span></div>
             <ol id="world-country-list" class="world-cards" role="list"></ol>
           </div>
 
@@ -1733,6 +1725,7 @@
           </div>
         </div>
 
+        <ul id="world-stats" class="rp-stats" aria-label="International statistics"></ul>
         <p class="muted world-note">Amounts are shown as each source states them. The "≈ US$" figure uses the Federal Reserve's 2025 annual-average rate (G.5A) and is approximate; nothing is summed across currencies. Quotes stay in their original language, followed by a labelled English translation.</p>
       </section>
     </main>

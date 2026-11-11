@@ -1767,7 +1767,7 @@ class TestSubtabDeepLinks:
             ("#tariffs/tariffs", "#subpane-tar-tariffs"),
             ("#tariffs/elements", "#subpane-tar-elements"),
             ("#policies/rules", "#subpane-pol-rules"),
-            ("#policies/trends", "#subpane-pol-trends"),
+            ("#policies/trends", "#subpane-mor-trends"),
             ("#comparison/footprint", "#subpane-co-footprint"),
             ("#explorer/states", "#subpane-sites-states"),
         ],
@@ -2120,9 +2120,8 @@ class TestMoratoriumCharts:
 
     def _open(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.locator("#tab-policies").click()
-        page.locator("#subtab-pol-pauses").click()
-        page.locator("#subtab-pol-trends").click()
+        page.click("#tab-moratoriums")
+        page.locator("#subtab-mor-trends").click()
         page.wait_for_selector("#moratorium-charts .mor-chart", timeout=E2E_WAIT)
 
     def test_timeline_and_bars_render(self, page: Page, base_url: str):
@@ -2236,8 +2235,7 @@ class TestMoratoriumTable:
 
     def _open(self, page: Page, base_url: str):
         page.goto(base_url + "/")
-        page.locator("#tab-policies").click()
-        page.locator("#subtab-pol-pauses").click()
+        page.click("#tab-moratoriums")
         page.wait_for_selector("#moratoriums-tbody tr", timeout=E2E_WAIT)
 
     def test_no_sponsor_in_jurisdiction_column(self, page: Page, base_url: str):
@@ -2841,7 +2839,7 @@ class TestSubtabs:
         NOT_COUNTABLE = {"china-context", "moratorium-charts"}
         for view_hash, view_id, ready in [
             ("#ratepayer", "#view-ratepayer", "#rp-scorecard .rp-card"),
-            ("#policies/pauses", "#view-policies", "#moratoriums-tbody tr"),
+            ("#policies/pauses", "#view-moratoriums", "#moratoriums-tbody tr"),
             ("#tariffs", "#view-tariffs", "#tariffs-tbody tr"),
         ]:
             # Cache-busting query per iteration: successive fragment-only
@@ -3310,9 +3308,7 @@ class TestPathwayCohort:
         page.wait_for_selector("#rp-scorecard .rp-card", timeout=E2E_WAIT)
         page.locator("#subtab-rp-sites-pre-pledge").click()
 
-        page.locator("#tab-policies").click()
-
-        page.locator("#subtab-pol-pauses").click()
+        page.click("#tab-moratoriums")
         page.wait_for_timeout(300)
         page.locator("#tab-ratepayer").click()
         page.wait_for_timeout(400)
@@ -3462,15 +3458,13 @@ class TestMobileV5Panes:
             page.goto(base_url + "/")
             for view in page.evaluate("() => Object.keys(VIEW_SUBTAB_GROUP)"):
                 page.locator(f"#tab-{view}").click()
-                tops = page.locator(f"#view-{'explorer' if view == 'explorer' else view} .subtabs--view .subtab").evaluate_all(
+                tops = page.locator(f"#view-{'explorer' if view == 'explorer' else view} .subtabs--view:visible .subtab").evaluate_all(
                     "els => [...new Set(els.map(e => Math.round(e.getBoundingClientRect().top)))]"
                 )
-                # Policy (six panes) and Benefit Agreements (five, guides
-                # included) may wrap to a second row once their counts land;
-                # two rows keep every pane visible without a side-swipe.
-                max_rows = 2 if view in ("policies", "agreements") else 1
+                # Policy labels and counts may wrap once without a side-swipe.
+                max_rows = 2 if view == "policies" else 1
                 assert 1 <= len(tops) <= max_rows, f"{view}: sub-tabs wrap to {len(tops)} rows"
-                strip = page.locator(f"#view-{view} .subtabs--view")
+                strip = page.locator(f"#view-{view} .subtabs--view:visible")
                 assert strip.evaluate("e => e.scrollWidth <= e.clientWidth + 1")
         finally:
             ctx.close()
@@ -3708,12 +3702,13 @@ class TestIssue72Navigation:
     def test_back_after_a_tab_click_returns_to_the_previous_view(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
-        page.click("#tab-agreements")
-        expect(page.locator("#view-agreements")).to_be_visible()
+        page.click("#tab-policies")
+        page.click("#subtab-pol-agreements")
+        expect(page.locator("#subpane-pol-agreements")).to_be_visible()
         page.go_back()
         expect(page.locator("#view-overview")).to_be_visible()
         page.go_forward()
-        expect(page.locator("#view-agreements")).to_be_visible()
+        expect(page.locator("#subpane-pol-agreements")).to_be_visible()
 
     def test_home_and_benefits_count_signed_agreements_the_same_way(self, page: Page, base_url: str):
         home = json.loads((ROOT / "docs/data/home.json").read_text())
@@ -3752,7 +3747,7 @@ class TestIssue72Navigation:
         page.click("#pd-draft-btn")
         expect(page.locator("#policy-modal")).to_be_hidden()
         expect(page.locator("#draft-plan-kind")).to_have_value("state")
-        assert page.url.endswith("#agreements/drafts")
+        assert page.url.endswith("#policies/agreements/drafts")
 
     def test_back_with_a_policy_record_open_leaves_policies(self, page: Page, base_url: str):
         # Sonnet review of #77: closing the modal during popstate rewrote the
@@ -3772,8 +3767,7 @@ class TestIssue72Navigation:
     def test_back_closes_a_moratorium_detail(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
-        page.click("#tab-policies")
-        page.click("#subtab-pol-pauses")
+        page.click("#tab-moratoriums")
         page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
         page.locator("#moratoriums-tbody tr[data-id]").first.click()
         expect(page.locator("#moratorium-modal")).to_be_visible()
@@ -3785,8 +3779,8 @@ class TestIssue72Navigation:
     def test_back_after_a_home_card_returns_home(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         page.wait_for_selector("#home-latest-list .feed-item", timeout=E2E_WAIT)
-        page.click('#home-cards .home-card[data-path-target="agreements"]')
-        expect(page.locator("#view-agreements")).to_be_visible()
+        page.click('#home-cards .home-card[data-path-target="moratoriums"]')
+        expect(page.locator("#view-moratoriums")).to_be_visible()
         page.go_back()
         expect(page.locator("#view-overview")).to_be_visible()
 
@@ -3873,7 +3867,7 @@ class TestIssue72Navigation:
         page.wait_for_function("() => typeof openHomeTarget === 'function' && state._booted", timeout=E2E_WAIT)
         mid = json.loads((ROOT / "docs/data/moratoriums.json").read_text())["moratoriums"][0]["id"]
         page.evaluate("(id) => openHomeTarget({kind: 'moratorium', id})", mid)
-        expect(page.locator("#view-policies")).to_be_visible()
+        expect(page.locator("#view-moratoriums")).to_be_visible()
         try:
             page.wait_for_function("() => true")
             assert held, "moratoriums.json was not held; the test would prove nothing"
@@ -3885,8 +3879,7 @@ class TestIssue72Navigation:
         # Let the late callback run before asserting it did nothing.
         page.wait_for_function("() => state.moratoriumsLoaded", timeout=E2E_WAIT)
         page.evaluate("() => new Promise(r => setTimeout(r, 50))")
-        # The modal lives inside the (now hidden) Moratoriums view, so a late
-        # open is invisible but still locks page scroll; check both.
+        # A stale modal would cover Home and lock page scroll.
         assert page.locator("#moratorium-modal").get_attribute("hidden") is not None
         assert not page.evaluate("() => document.body.classList.contains('moratorium-modal-open')")
 
@@ -3939,7 +3932,8 @@ class TestIssues78And79:
             page.click("#project-list .project-list-more button")
             assert cards.count() == min(total, 2 * page.evaluate("() => SITES_PAGE"))
             # Benefits: the first few full cards, then the rest on request.
-            page.click("#tab-agreements")
+            page.click("#tab-policies")
+            page.click("#subtab-pol-agreements")
             page.wait_for_selector("#cba-strongest .cba-card", timeout=E2E_WAIT)
             n = page.evaluate("() => strongestAgreements().length")
             strongest = page.locator("#cba-strongest .cba-card")
@@ -3948,8 +3942,7 @@ class TestIssues78And79:
                 page.click("#cba-strongest .project-list-more button")
                 assert strongest.count() == n
             # Moratoriums: paged, and a search starts from the first page.
-            page.click("#tab-policies")
-            page.click("#subtab-pol-pauses")
+            page.click("#tab-moratoriums")
             page.wait_for_selector("#moratoriums-tbody tr[data-id]", timeout=E2E_WAIT)
             rows = page.locator("#moratoriums-tbody tr[data-id]")
             per = page.evaluate("() => MOR_PHONE_PAGE")
@@ -3969,8 +3962,7 @@ class TestIssues78And79:
             assert page.locator("#project-list .project-card").count() == page.evaluate(
                 "() => Math.min(state.sitesShown, filteredProjects().length - 1) + 1"
             )
-            page.click("#tab-policies")
-            page.click("#subtab-pol-pauses")
+            page.click("#tab-moratoriums")
             page.fill("#moratorium-q", "")
             more = page.locator("#moratoriums-tbody .project-list-more button")
             # Codex review of #82: the only way to the hidden rows needs a full touch target.
@@ -4034,6 +4026,7 @@ class TestInternational:
         page.goto(base_url + "/#world/instruments")
         card = page.locator(f'#world-instrument-list [data-id="{pol["id"]}"]')
         expect(card).to_be_visible()
+        card.locator("summary").click()
         bq = card.locator(f'blockquote[lang="{pol["source_lang"]}"]').first
         expect(bq).to_have_text(pol["key_terms"][0])
         expect(card.locator(".world-translation-label").first).to_contain_text("Machine translation")
@@ -4154,6 +4147,7 @@ class TestInternational:
         card = page.locator(f'#world-country-body [data-id="{rc["id"]}"]')
         expect(card).to_be_visible()
         expect(card).to_contain_text(rc["docket_number"])
+        card.locator("summary").click()
         expect(card.locator(".rc-next")).to_contain_text("Next:")
 
     def test_company_card_counts_sites_abroad(self, page: Page, base_url: str):
@@ -4189,7 +4183,7 @@ class TestMoratoriumPdfExport:
 
 
 class TestPr86ReviewFixes:
-    """Review of PR #86: lifted moratoriums, firstSentence, a11y, world index."""
+    """Review of PR #86: lifted moratoriums, accessibility and the country directory."""
 
     @staticmethod
     def _morats() -> list[dict]:
@@ -4228,31 +4222,73 @@ class TestPr86ReviewFixes:
         )
         assert out == "lifted"
 
-    def test_first_sentence_handles_accented_names(self, page: Page, base_url: str):
-        page.goto(base_url + "/")
-        got = page.evaluate("firstSentence('Operator is Pampa Energía. Second sentence here.')")
-        assert got == "Operator is Pampa Energía."
-        # Abbreviations and initials still don't split.
-        assert page.evaluate("firstSentence('Run by St. Mary Co. in Texas. More.')").endswith("Texas.")
-
     def test_theme_button_label_contains_visible_text(self, page: Page, base_url: str):
         page.goto(base_url + "/")
         btn = page.locator("#theme-toggle")
         assert btn.inner_text().strip().lower() in btn.get_attribute("aria-label").lower()
 
-    def test_world_jump_entries_are_links_and_counts_agree(self, page: Page, base_url: str):
+    @pytest.mark.parametrize("width", [375, 820, 1366])
+    def test_world_directory_search_and_return(self, page: Page, base_url: str, width: int):
+        page.set_viewport_size({"width": width, "height": 812})
         page.goto(base_url + "/#world")
-        page.wait_for_selector("#world-country-jump a", timeout=E2E_WAIT)
-        links = page.locator("#world-country-jump a")
-        assert links.count() == page.locator("#world-country-list .world-card").count()
-        assert links.first.get_attribute("href").startswith("#country/")
-        assert page.locator("#world-country-jump button").count() == 0
-        tile = page.locator("#world-stats .rp-stat", has_text="Countries").locator(".rp-stat-value").inner_text()
-        pill = page.locator("#world-countries-count").inner_text().strip()
-        assert tile == pill
-        code = links.first.get_attribute("href").split("/")[1]
-        links.first.click()
-        expect(page).to_have_url(re.compile(rf"#country/{code}$"))
+        directory = page.locator("#world-country-list")
+        search = page.get_by_role("searchbox", name="Find a country or the EU")
+        expect(directory.locator("a").first).to_be_visible()
+        expect(page.locator("#world-site-list li, #world-instrument-list li")).to_have_count(0)
+        search.fill("zzz")
+        expect(page.locator("#world-search-status")).to_have_text("No matches")
+        search.fill("Ireland")
+        country = directory.locator("a:visible")
+        expect(country).to_have_count(1)
+        expect(country).to_have_attribute("href", "#country/IE")
+        country.focus()
+        page.keyboard.press("Enter")
+        record = page.locator("#world-country-body .world-record").first
+        expect(record.locator(".cba-summary")).to_be_hidden()
+        record.locator("summary").click()
+        expect(record.locator(".cba-summary")).to_be_visible()
+        expect(record.locator("a[href^='https:']").first).to_be_visible()
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        page.go_back()
+        expect(country).to_be_focused()
+        expect(search).to_have_value("Ireland")
+
+    def test_world_pane_change_supersedes_pending_country(self, page: Page, base_url: str):
+        held = []
+        page.route("**/data/companies.json*", lambda route: held.append(route))
+        page.goto(base_url + "/#country/IE")
+        page.wait_for_function("() => state.intl && state.pendingCountry === 'IE'")
+        page.click("#subtab-world-sites")
+        assert held
+        for route in held:
+            route.continue_()
+        site = page.locator("#world-site-list .world-record").first
+        expect(site).to_be_visible()
+        slug = page.evaluate("state.intl.projects[0].company_slug")
+        name = page.evaluate("slug => state.companiesBySlug.get(slug).name", slug)
+        expect(site.locator(".cba-kind")).to_have_text(name)
+        expect(page.locator("#world-country")).to_be_hidden()
+        assert page.url.endswith("#world/sites")
+
+    def test_site_operator_profile_and_pledge_roster(self, page: Page, base_url: str):
+        page.goto(base_url + "/#ratepayer")
+        page.locator("#rp-roster-summary").click()
+        page.locator('.rp-roster-chip[data-category="governor"]').click()
+        page.click("#tab-explorer")
+        page.wait_for_selector("#project-list .project-card", timeout=E2E_WAIT)
+        slug, pid = page.evaluate("""() => {
+          const p = state.projects.find(p => state.companiesBySlug.get(p.company_slug)?.ratepayer_pledge_signatory);
+          return [p.company_slug, p.id];
+        }""")
+        page.evaluate("id => selectProject(id)", pid)
+        name = page.locator("#d-company").inner_text()
+        page.click("#d-company")
+        expect(page.locator("#cd-name")).to_have_text(name)
+        page.click("#company-detail-close")
+        page.locator(f'.co-card[data-company="{slug}"] .co-roster').click()
+        expect(page.locator('#rp-roster-filters [aria-pressed=true]')).to_have_attribute("data-category", "")
+        expect(page.locator("#rp-roster .rp-sig-row")).to_have_count(1)
+        expect(page.locator("#rp-roster .rp-sig-name")).to_have_text(page.locator("#rp-roster-q").input_value())
 
     def test_federal_and_site_card_identity_colours_survive(self, page: Page, base_url: str):
         page.goto(base_url + "/#explorer")

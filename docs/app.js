@@ -654,6 +654,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // the new strips switched by URL but ignored clicks.)
   wireSubtabs();
   wireBtn("policy-heat-abroad", () => openWorldPrinciple("heat_reuse"));
+  wireBtn("mor-retry", () => loadMoratoriumPane(_activeSubtab.mor));
   wireBtn("policy-retry", () => activateView("policies"));
   wireTabs();
   // The Home "Explore the record" cards and the milestones link are static
@@ -726,7 +727,7 @@ const VIEWS = [
   { name: "overview", tab: "tab-overview", section: "view-overview", hash: "#overview" },
   { name: "ratepayer", tab: "tab-ratepayer", section: "view-ratepayer", hash: "#ratepayer" },
   { name: "policies", tab: "tab-policies", section: "view-policies", hash: "#policies" },
-  { name: "agreements", tab: "tab-agreements", section: "view-agreements", hash: "#agreements" },
+  { name: "moratoriums", tab: "tab-moratoriums", section: "view-moratoriums", hash: "#moratoriums" },
   { name: "elections", tab: "tab-elections", section: "view-elections", hash: "#elections" },
   { name: "tariffs", tab: "tab-tariffs", section: "view-tariffs", hash: "#tariffs" },
   { name: "comparison", tab: "tab-comparison", section: "view-comparison", hash: "#comparison" },
@@ -797,13 +798,17 @@ function routeFromLocation({ boot = false } = {}) {
 // Hashes from before the Policy tab merged Moratoriums and Frameworks
 // (2026-11-09). Old links and history entries land on the same pane.
 const LEGACY_HASHES = {
-  "#moratoriums": "#policies/pauses",
-  "#moratoriums/directory": "#policies/pauses",
-  "#moratoriums/map": "#policies/map",
-  "#moratoriums/trends": "#policies/trends",
+  "#policies/pauses": "#moratoriums",
+  "#moratoriums/directory": "#moratoriums",
+  "#policies/map": "#moratoriums/map",
+  "#policies/trends": "#moratoriums/trends",
   "#policies/directory": "#policies/rules",
-  "#policies/drafts": "#agreements/drafts",
-  "#policies/evidence": "#agreements/evidence",
+  "#policies/drafts": "#policies/agreements/drafts",
+  "#policies/evidence": "#policies/agreements/evidence",
+  "#agreements": "#policies/agreements",
+  ...Object.fromEntries(["strongest", "all", "features", "drafts", "evidence"].map(k =>
+    [`#agreements/${k}`, k === "strongest" ? "#policies/agreements" : `#policies/agreements/${k}`])),
+
 };
 
 function _routeFromLocation(boot) {
@@ -818,7 +823,7 @@ function _routeFromLocation(boot) {
     closeMoratoriumDetail();
     closeTariffDetail();
     closeStatePanel();
-    if (!COUNTRY_DEEP_LINK.test(window.location.hash)) closeCountry();
+    if (!COUNTRY_DEEP_LINK.test(window.location.hash)) closeCountry({ restoreFocus: window.location.hash === "#world" });
     // Restore the Sites filters this entry was saved with, not whatever was
     // typed later.
     state.explorerFilters = { ...EMPTY_EXPLORER_FILTERS };
@@ -840,13 +845,17 @@ function _routeFromLocation(boot) {
   if (sub) {
     activateView(sub.view);
     setActiveSubtab(sub.group, sub.key);
+    if (sub.key === "agreements") setActiveSubtab("cba", sub.agreement || SUBTAB_GROUPS.cba[0]);
   } else if (fromHash) {
+    const group = VIEW_SUBTAB_GROUP[fromHash.name];
+    if (group) setActiveSubtab(group, SUBTAB_GROUPS[group][0]);
     activateView(fromHash.name);
   } else if (explorerParams) {
     activateView("explorer");
   } else if (COUNTRY_DEEP_LINK.test(window.location.hash)) {
     // Read the code BEFORE activating: activateView rewrites the hash.
     const code = window.location.hash.slice("#country/".length).toUpperCase();
+    setActiveSubtab("world", "countries");
     activateView("world");
     openCountry(code);
   } else if (ELECTION_DEEP_LINK.test(window.location.hash)) {
@@ -961,7 +970,7 @@ function activateView(name) {
   }
   // A country page belongs to one visit to the International tab; leaving
   // (or re-entering by its tab) shows the list again.
-  if (!state._routing && target.name !== state.activeView) closeCountry();
+  if (!state._routing && (target.name !== state.activeView || state.openCountry)) closeCountry({ restoreFocus: target.name === "world" });
   state.activeView = target.name;
   state.navGen = (state.navGen || 0) + 1;
 
@@ -1055,17 +1064,11 @@ function activateView(name) {
       .then(renderWorld)
       .catch((err) => {
         console.error("Failed to load international data:", err);
-        const ol = document.getElementById("world-country-list");
-        if (ol) ol.replaceChildren(el("li", "muted", "Couldn't load international records."));
+        document.getElementById("world-error").hidden = false;
+        wireBtn("world-retry", () => activateView("world"));
       });
-  } else if (target.name === "agreements") {
-    loadPoliciesData()
-      .then(renderAgreementsView)
-      .catch((err) => {
-        console.error("Failed to load agreements:", err);
-        const ol = document.getElementById("cba-strongest");
-        if (ol) ol.innerHTML = "<li class='muted'>Failed to load agreements.</li>";
-      });
+  } else if (target.name === "moratoriums") {
+    loadMoratoriumPane(_activeSubtab.mor);
   } else if (target.name === "policies") {
     loadPoliciesData().then(() => {
       policyErrors.delete("rules");
@@ -1076,10 +1079,6 @@ function activateView(name) {
       policyErrors.add("rules");
       showPolicyLoadError();
     });
-    // The small Home digest carries pause totals; Topics never needs the full directory.
-    loadHomeData().then(() => {
-      if (state.policies.length) renderPolicyStats(state.policies);
-    }).catch((err) => console.error("Policy totals unavailable:", err));
     loadPolicyPane(_activeSubtab.pol);
 
   }
@@ -1497,9 +1496,9 @@ function loadElectionsData() {
         _electionsView = view.mount(root, payload, {
           stateNames: STATE_NAMES,
           openMoratorium(id) {
-            activateView("policies");
-      setActiveSubtab("pol", "pauses");
-            openWhenStillOn("policies", loadMoratoriumsData(), () => {
+            activateView("moratoriums");
+            setActiveSubtab("mor", "directory");
+            openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
               const record = state.moratoriums.find((item) => item.id === id);
               if (record) showMoratoriumDetail(record);
             });
@@ -3042,7 +3041,8 @@ const POLICY_URL_KEYS = {
 function writePolicyUrl() {
   if (state.activeView !== "policies" || state._routing) return;
   const key = _activeSubtab.pol;
-  const hash = key && key !== SUBTAB_GROUPS.pol[0] ? `#policies/${key}` : "#policies";
+  let hash = key && key !== SUBTAB_GROUPS.pol[0] ? `#policies/${key}` : "#policies";
+  if (key === "agreements" && _activeSubtab.cba && _activeSubtab.cba !== SUBTAB_GROUPS.cba[0]) hash += "/" + _activeSubtab.cba;
   // Until the boot params are applied, keep the query string: rewriting it
   // now would erase a shared link's filters before the payload lands.
   if (!state._policyUrlApplied) {
@@ -3176,6 +3176,7 @@ function renderPoliciesView() {
   populatePolicyFilters();
   const all = state.policies || [];
   renderPolicyStats(all);
+  if (_activeSubtab.pol === "agreements") renderAgreementsView();
   renderPolicyPrinciples(all);
   renderPolicyActions(all);
   applyPolicyUrl();
@@ -3188,14 +3189,12 @@ function renderPolicyStats(all) {
   if (!ul) return;
   const n = (pred) => all.filter(pred).length;
   const year = _policySnapshotYear || String(new Date().getFullYear());
-  const totals = state.home?.totals;
-  const pauses = state.moratoriumsLoaded ? state.moratoriums.length : totals?.moratoriums;
-  const enacted = state.moratoriumsLoaded ? state.moratoriums.filter((m) => effectiveStatus(m) === "enacted").length : totals?.moratoriums_enacted;
-  if (pauses != null) setSubtabCount("moratoriums-count", pauses);
+  const agreements = agreementRecords().length;
+  setSubtabCount("policy-agreements-count", agreements);
   const tiles = [
-    [pauses == null ? "—" : all.length + pauses, "Records"],
-    [enacted ?? "—", "Pauses enacted"],
-    [n((p) => p.status === "in_effect"), "Rules in effect"],
+    [all.length, "Policy records"],
+    [agreements, "Agreements and site pledges"],
+    [n((p) => p.status === "in_effect"), "In effect"],
     [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
     [n((p) => p.instrument === "executive_order" && (p.date || "").startsWith(year)), `Governor orders in ${year}`],
   ];
@@ -3318,7 +3317,7 @@ function renderAgreementsView() {
   const stats = document.getElementById("cba-stats");
   if (stats) {
     const tiles = [
-      [all.length, "Agreements"],
+      [all.length, "Agreements and site pledges"],
       [signed.length, "Signed"],
       [deals.filter((p) => p.status === "proposed").length, "Proposed"],
       [deals.filter((p) => p.status === "failed").length, "Rejected or withdrawn"],
@@ -3437,7 +3436,8 @@ function renderAgreementsView() {
 // Show one agreement in the directory, opened. Used by Home and the
 // "Terms" lists.
 function openAgreement(id) {
-  activateView("agreements");
+  activateView("policies");
+  setActiveSubtab("pol", "agreements");
   setActiveSubtab("cba", "all");
   for (const sid of ["cba-status-filter", "cba-state-filter", "cba-kind-filter"]) {
     const sel = document.getElementById(sid);
@@ -3598,9 +3598,9 @@ function renderPolicyActions(all) {
       title: `${m.jurisdiction}: ${m.bill_number || "data-center moratorium"}`,
       note: "Moratorium",
       open: () => {
-        activateView("policies");
-      setActiveSubtab("pol", "pauses");
-        openWhenStillOn("policies", new Promise(requestAnimationFrame), () => showMoratoriumDetail(m));
+        activateView("moratoriums");
+        setActiveSubtab("mor", "directory");
+        openWhenStillOn("moratoriums", new Promise(requestAnimationFrame), () => showMoratoriumDetail(m));
       },
     });
   }
@@ -3765,9 +3765,9 @@ function showPolicyDetail(p) {
     btn.type = "button";
     btn.addEventListener("click", async () => {
       closePolicyDetail();
-      activateView("policies");
-      setActiveSubtab("pol", "pauses");
-      openWhenStillOn("policies", loadMoratoriumsData(), () => {
+      activateView("moratoriums");
+      setActiveSubtab("mor", "directory");
+      openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
         const m = (state.moratoriums || []).find((x) => x.id === p.related_moratorium_id);
         if (m) showMoratoriumDetail(m);
       });
@@ -4164,8 +4164,8 @@ function renderHome() {
     // rule (test_home_card_numbers_match_their_tab), so a reader who clicks
     // through never meets a different count for the same thing.
     sites: [t.sites, `${t.contested_sites} contested`],
-    policies: [t.policies + t.moratoriums, `${t.moratoriums_enacted} pauses enacted · ${t.policies_in_effect} rules in effect`],
-    agreements: [t.agreements, `${t.agreements_signed} signed`],
+    policies: [t.policies, `${t.agreements} agreements and site pledges`],
+    moratoriums: [t.moratoriums, `${t.moratoriums_enacted} enacted`],
     tariffs: [t.rate_cases, `rate cases, ${t.rate_cases_pending} pending · ${t.tariffs} tariffs`],
     companies: [t.companies, "operators"],
     pledge: [t.pledge_organizations + t.pledge_governors, `signers: ${t.pledge_organizations} organizations, ${t.pledge_governors} governors`],
@@ -4255,9 +4255,9 @@ function openHomeTarget(target) {
     activateView("explorer");
     if (state.explorerLoaded) selectProject(target.id);
   } else if (target.kind === "moratorium") {
-    activateView("policies");
-      setActiveSubtab("pol", "pauses");
-    openWhenStillOn("policies", loadMoratoriumsData(), () => {
+    activateView("moratoriums");
+    setActiveSubtab("mor", "directory");
+    openWhenStillOn("moratoriums", loadMoratoriumsData(), () => {
       const m = state.moratoriums.find((x) => x.id === target.id);
       if (m) showMoratoriumDetail(m);
     });
@@ -4331,7 +4331,7 @@ const PLEDGE_TARGETS = {
   companies: { view: "comparison", anchor: null },
   tariffs: { view: "tariffs", anchor: null },
   policies: { view: "policies", anchor: null },
-  agreements: { view: "agreements", anchor: null },
+  moratoriums: { view: "moratoriums", anchor: null },
 };
 
 // --------------------------------------------------------------------------
@@ -4401,10 +4401,9 @@ const SUBTAB_GROUPS = {
   co: ["profiles", "commitments", "footprint"],
   sites: ["map", "contested", "states"],
   tar: ["ratecases", "tariffs", "elements"],
-  // One Policy tab (2026-11-09): pauses and rules are two directories of
-  // the same question, what governments did. Planning guides moved to
-  // Benefit Agreements.
-  pol: ["principles", "latest", "pauses", "rules", "map", "trends"],
+  // Community agreements share the Policy view; pauses have their own directory.
+  pol: ["principles", "agreements", "latest", "rules"],
+  mor: ["directory", "map", "trends"],
   cba: ["strongest", "all", "features", "drafts", "evidence"],
   world: ["countries", "instruments", "sites"],
 };
@@ -4418,7 +4417,7 @@ const VIEW_SUBTAB_GROUP = {
   explorer: "sites",
   tariffs: "tar",
   policies: "pol",
-  agreements: "cba",
+  moratoriums: "mor",
   world: "world",
 };
 
@@ -4447,6 +4446,8 @@ function setActiveSubtab(group, key) {
     if (pane) pane.hidden = !active;
   }
   syncSubtabHash(group);
+  if (group === "world" && state.activeView === "world") renderWorldPane(key);
+  if (group === "mor" && state.activeView === "moratoriums") loadMoratoriumPane(key);
   if (group === "pol" && state.activeView === "policies") loadPolicyPane(key);
   if (group === "cba" && (key === "drafts" || key === "evidence")) loadPlanningGuide(key);
   document.dispatchEvent(new CustomEvent("dcb:subtab", { detail: { group, key } }));
@@ -4456,16 +4457,26 @@ const policyErrors = new Set();
 function showPolicyLoadError() {
   const key = _activeSubtab.pol || SUBTAB_GROUPS.pol[0];
   const missing = [];
-  if (policyErrors.has("rules") && ["principles", "rules", "latest"].includes(key)) missing.push("rules");
-  if (policyErrors.has("pauses") && ["latest", "pauses", "trends"].includes(key)) missing.push("pauses");
+  if (policyErrors.has("rules") && ["principles", "agreements", "rules", "latest"].includes(key)) missing.push("rules");
+  if (policyErrors.has("pauses") && key === "latest") missing.push("pauses");
   document.getElementById("policy-pane-error").hidden = !missing.length;
   document.getElementById("policy-error-message").textContent = missing.length ? `Could not load ${missing.join(" or ")}.` : "";
 }
 
+function loadMoratoriumPane(key) {
+  loadMoratoriumsData().then(() => {
+    document.getElementById("mor-load-error").hidden = true;
+  }).catch((err) => {
+    console.error("Could not load moratoriums:", err);
+    document.getElementById("mor-load-error").hidden = false;
+  });
+  if (key === "map") loadJurisdictionMap();
+}
+
 function loadPolicyPane(key) {
   showPolicyLoadError();
-  if (key === "map") { loadJurisdictionMap(); return; }
-  if (!["latest", "pauses", "trends"].includes(key)) return;
+  if (key === "agreements" && state.policies.length) renderAgreementsView();
+  if (key !== "latest") return;
   loadMoratoriumsData().then(() => {
     policyErrors.delete("pauses");
     if (state.policies.length) renderPolicyStats(state.policies);
@@ -4481,7 +4492,8 @@ function loadPolicyPane(key) {
 // Open Benefit Agreements → Draft plans on the county or state draft.
 function openDraftPlan(kind) {
   closePolicyDetail();
-  activateView("agreements");
+  activateView("policies");
+  setActiveSubtab("pol", "agreements");
   setActiveSubtab("cba", "drafts");
   (_planningGuidePromise || Promise.reject(new Error("guide not loading")))
     .then(() => {
@@ -4524,6 +4536,7 @@ function loadPlanningGuide(key) {
 // only while that view is showing -- a sub-tab set programmatically on a
 // hidden view must not clobber the current view's hash.
 function syncSubtabHash(group) {
+  if (group === "cba" && _activeSubtab.pol === "agreements") { writePolicyUrl(); return; }
   const view = Object.keys(VIEW_SUBTAB_GROUP).find((v) => VIEW_SUBTAB_GROUP[v] === group);
   if (!view || state.activeView !== view) return;
   if (view === "explorer") {
@@ -4544,6 +4557,8 @@ function syncSubtabHash(group) {
 
 // "#tariffs/elements" -> { view, key }, or null for any other hash shape.
 function parseSubtabHash(hash) {
+  const nested = /^#policies\/agreements\/([a-z]+)$/.exec(hash);
+  if (nested && SUBTAB_GROUPS.cba.includes(nested[1])) return { view: "policies", group: "pol", key: "agreements", agreement: nested[1] };
   const m = /^#([a-z]+)\/([a-z-]+)$/.exec(hash || "");
   if (!m) return null;
   const group = VIEW_SUBTAB_GROUP[m[1]];
@@ -4551,11 +4566,29 @@ function parseSubtabHash(hash) {
   return { view: m[1], group, key: m[2] };
 }
 
+function selectUserSubtab(group, key) {
+  if (group === "world") state.pendingCountry = null;
+  setActiveSubtab(group, key);
+}
+
 function wireSubtabs() {
   for (const btn of document.querySelectorAll("[data-guide-target]")) {
     btn.addEventListener("click", () => {
-      activateView("agreements");
+      activateView("policies");
+      setActiveSubtab("pol", "agreements");
       setActiveSubtab("cba", btn.dataset.guideTarget);
+      const key = btn.dataset.guideTarget;
+      const ready = key === "strongest" ? loadPoliciesData() : _planningGuidePromise;
+      openWhenStillOn("policies", ready, () => {
+        if (_activeSubtab.pol !== "agreements" || _activeSubtab.cba !== key) return;
+        const pane = document.getElementById(`subpane-cba-${key}`);
+        const target = key === "strongest" ? pane.querySelector(".cba-title") : pane;
+        if (target) {
+          target.tabIndex = -1;
+          target.focus({ preventScroll: true });
+          target.scrollIntoView({ block: "start", behavior: "instant" });
+        }
+      });
     });
   }
   for (const [group, keys] of Object.entries(SUBTAB_GROUPS)) {
@@ -4563,14 +4596,14 @@ function wireSubtabs() {
       const btn = document.getElementById(`subtab-${group}-${key}`);
       if (!btn || btn.dataset.wired === "1") continue;
       btn.dataset.wired = "1";
-      btn.addEventListener("click", () => setActiveSubtab(group, key));
+      btn.addEventListener("click", () => selectUserSubtab(group, key));
       // Arrow keys move between tabs in a tablist, per the ARIA pattern.
       btn.addEventListener("keydown", (e) => {
         const delta = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
         if (!delta) return;
         e.preventDefault();
         const next = keys[(keys.indexOf(key) + delta + keys.length) % keys.length];
-        setActiveSubtab(group, next);
+        selectUserSubtab(group, next);
         const nextBtn = document.getElementById(`subtab-${group}-${next}`);
         if (nextBtn) nextBtn.focus();
       });
@@ -5311,6 +5344,7 @@ function renderCompanyCards() {
       <footer class="co-card-foot">
         <button type="button" class="btn-ghost co-open">Profile &amp; summary</button>
         ${sites.length ? `<button type="button" class="btn-link co-sites">Sites →</button>` : ""}
+        ${co.ratepayer_pledge_signatory ? '<button type="button" class="btn-link co-roster">Pledge record →</button>' : ""}
         ${contested ? `<button type="button" class="btn-link co-contested">${contested} contested →</button>` : ""}
       </footer>`;
     li.querySelector(".co-open").addEventListener("click", () => selectCompany(co.slug));
@@ -5319,6 +5353,20 @@ function renderCompanyCards() {
     }
     const sitesBtn = li.querySelector(".co-sites");
     if (sitesBtn) sitesBtn.addEventListener("click", () => openCompanySites(co.slug, "map"));
+    li.querySelector(".co-roster")?.addEventListener("click", () => {
+      activateView("ratepayer");
+      openWhenStillOn("ratepayer", loadSignatoryData(), () => {
+        const record = state.signatoryByCompany.get(co.slug);
+        if (!record) return;
+        _rosterFilter.category = "";
+        _rosterFilter.q = record.name;
+        const input = document.getElementById("rp-roster-q");
+        input.value = record.name;
+        renderSignatoryRoster();
+        openAccordionsFor(input);
+        input.focus();
+      });
+    });
     const conBtn = li.querySelector(".co-contested");
     if (conBtn) conBtn.addEventListener("click", () => openCompanySites(co.slug, "contested"));
     list.appendChild(li);
@@ -6672,7 +6720,7 @@ if (window.matchMedia) {
     if (state.explorerLoaded) renderProjectList();
     if (state.moratoriums && state.moratoriums.length) renderMoratoriumsView();
     if (document.getElementById("rp-scorecard")?.children.length) renderRatepayerScorecard();
-    if (state.policies) renderAgreementsView();
+    if (state.activeView === "policies" && _activeSubtab.pol === "agreements" && state.policies.length) renderAgreementsView();
   });
 }
 // A "Show N more" control as an <li> (lists) or a full-width <tr> (tables).
@@ -7428,8 +7476,8 @@ function renderStatePanel(code, failedSources = new Set()) {
           .join(" · "),
         onClick: () => {
           closeStatePanel();
-          activateView("policies");
-      setActiveSubtab("pol", "pauses");
+          activateView("moratoriums");
+          setActiveSubtab("mor", "directory");
           requestAnimationFrame(() => showMoratoriumDetail(m));
         },
       })),
@@ -7551,6 +7599,9 @@ function renderSignatoryRoster() {
   if (!ul) return;
 
   renderRosterFilters();
+  for (const chip of document.querySelectorAll("#rp-roster-filters .rp-roster-chip")) {
+    chip.setAttribute("aria-pressed", String(chip.dataset.category === _rosterFilter.category));
+  }
 
   const q = _rosterFilter.q.trim().toLowerCase();
   const rows = (state.signatories || []).filter((s) => {
@@ -7791,9 +7842,6 @@ function renderRosterFilters() {
       btn.append(el("span", null, o.label), el("span", "rp-roster-chip-n", String(o.n)));
       btn.addEventListener("click", () => {
         _rosterFilter.category = o.key;
-        for (const other of wrap.querySelectorAll(".rp-roster-chip")) {
-          other.setAttribute("aria-pressed", String(other.dataset.category === o.key));
-        }
         renderSignatoryRoster();
       });
       return btn;
@@ -9172,7 +9220,14 @@ function selectProject(id) {
 
   const detail = document.getElementById("project-detail");
   detail.style.setProperty("--co-color", `var(--co-${p.company_slug})`);
-  document.getElementById("d-company").textContent = co ? co.name : p.company_slug;
+  const operator = document.getElementById("d-company");
+  operator.textContent = co ? co.name : p.company_slug;
+  operator.disabled = !co;
+  operator.onclick = () => {
+    activateView("comparison");
+    setActiveSubtab("co", "profiles");
+    openWhenStillOn("comparison", ensureComparisonData(), () => selectCompany(p.company_slug));
+  };
   document.getElementById("d-name").textContent = p.name;
   document.getElementById("d-location").textContent = `${p.city}, ${p.state}`;
   document.getElementById("d-status").textContent =
@@ -9650,9 +9705,19 @@ function countWords(rs) {
   return parts.join(" · ") || "No records yet";
 }
 
+function foldWorldRecord(item) {
+  const header = item.firstElementChild;
+  const details = el("details");
+  const summary = el("summary", "cba-head");
+  summary.append(...header.childNodes);
+  header.remove();
+  details.append(summary, ...item.childNodes);
+  item.append(details);
+  return item;
+}
+
 function intlPolicyCard(p, hTag = "h3") {
   const li = el("li", "cba-card world-record");
-  li.id = `world-rec-${p.id}`;
   li.dataset.id = p.id;
   const head = el("header", "cba-head");
   head.append(
@@ -9676,12 +9741,11 @@ function intlPolicyCard(p, hTag = "h3") {
     li.append(el("p", "muted world-principles", `Principles: ${p.principles.map((k) => POLICY_PRINCIPLE_LABELS[k] || k).join(" · ")}`));
   }
   li.append(sourceLine(p));
-  return li;
+  return foldWorldRecord(li);
 }
 
 function intlPauseCard(m, hTag = "h3") {
   const li = el("li", "cba-card world-record");
-  li.id = `world-rec-${m.id}`;
   li.dataset.id = m.id;
   const status = m.lifted_date ? `Lifted ${formatAsOf(m.lifted_date)}` : m.status;
   const head = el("header", "cba-head");
@@ -9692,13 +9756,12 @@ function intlPauseCard(m, hTag = "h3") {
     el("p", "cba-facts", [intlPlace(m), m.enacted_date ? formatAsOf(m.enacted_date) : null, m.duration_description].filter(Boolean).join(" · "))
   );
   li.append(head, el("p", "cba-summary", m.summary), sourceLine(m));
-  return li;
+  return foldWorldRecord(li);
 }
 
 function intlSiteCard(p, hTag = "h3") {
   const d = state.intl;
   const li = el("li", "cba-card world-record");
-  li.id = `world-rec-${p.id}`;
   li.dataset.id = p.id;
   const co = state.companiesBySlug && state.companiesBySlug.get(p.company_slug);
   const head = el("header", "cba-head");
@@ -9735,7 +9798,7 @@ function intlSiteCard(p, hTag = "h3") {
     li.append(ul);
   }
   li.append(sourceLine(p));
-  return li;
+  return foldWorldRecord(li);
 }
 
 function intlStatementCard(c, hTag = "h3") {
@@ -9749,12 +9812,11 @@ function intlStatementCard(c, hTag = "h3") {
     el("p", "cba-facts", formatAsOf(c.published_at || c.captured_at))
   );
   li.append(head, quoteBlock(c.statement, c.statement_lang || "en", c.statement_translation), sourceLine(c));
-  return li;
+  return foldWorldRecord(li);
 }
 
 function intlRateCaseCard(rc, hTag = "h3") {
   const li = el("li", "cba-card world-record");
-  li.id = `world-rec-${rc.id}`;
   li.dataset.id = rc.id;
   const head = el("header", "cba-head");
   head.append(
@@ -9766,7 +9828,7 @@ function intlRateCaseCard(rc, hTag = "h3") {
   li.append(head, el("p", "cba-summary", rc.summary));
   if (rc.next_milestone) li.append(el("p", "rc-next", `Next: ${rc.next_milestone}`));
   li.append(sourceLine(rc));
-  return li;
+  return foldWorldRecord(li);
 }
 
 function worldInstruments() {
@@ -9802,25 +9864,10 @@ function renderWorldInstruments() {
   if (meta) meta.textContent = `${rows.length} of ${all.length} records`;
 }
 
-// First sentence of a summary, skipping abbreviations ("St. Ghislain",
-// "No. 62", "U.S."). No regex lookbehind: Safari < 16.4 rejects it at parse
-// time and the whole script (every tab) would fail to load.
-const SENTENCE_ABBREVS = new Set(["st", "no", "nos", "inc", "ltd", "co", "corp", "mr", "ms", "dr", "vs", "u.s", "e.g", "i.e", "jan", "feb", "aug", "sept", "oct", "nov", "dec", "art", "sec"]);
-function firstSentence(text) {
-  const re = /\.(\s+|$)/g;
-  let m;
-  while ((m = re.exec(text || ""))) {
-    const before = text.slice(0, m.index);
-    const word = (before.match(/([\p{L}.]+)$/u) || ["", ""])[1].toLowerCase();
-    if (SENTENCE_ABBREVS.has(word) || /^[a-z]$/i.test(word)) continue;
-    return text.slice(0, m.index + 1);
-  }
-  return text || "";
-}
-
 function renderWorld() {
   const d = state.intl;
   if (!d) return;
+  state.worldReady = true;
   const countries = d.countries.slice().sort((a, b) => countryName(a.code).localeCompare(countryName(b.code)));
   const nPause = d.moratoriums.length;
   // Tile and sub-tab pill agree: countries only; the EU is a layer on top.
@@ -9845,44 +9892,38 @@ function renderWorld() {
   setSubtabCount("world-instruments-count", worldInstruments().length);
   setSubtabCount("world-sites-count", d.projects.length);
 
-  // One-tap index above the cards: with 18+ countries, a reader looking for
-  // one shouldn't have to scroll the grid (interaction budget: world_country).
-  const jump = document.getElementById("world-country-jump");
-  if (jump) {
-    jump.replaceChildren(
-      ...countries.map((c) => {
-        // A real link: copyable and middle-clickable. A plain click goes
-        // through openCountry so history/focus handling is the card's.
-        const b = el("a", "world-jump-btn", countryName(c.code));
-        b.href = `#country/${c.code}`;
-        b.dataset.country = c.code;
-        b.addEventListener("click", (e) => {
-          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
-          e.preventDefault();
-          openCountry(c.code, { push: true });
-        });
-        return b;
-      })
-    );
-  }
+  document.getElementById("world-error").hidden = true;
   const list = document.getElementById("world-country-list");
-  list.replaceChildren(
-    ...countries.map((c) => {
-      const li = el("li", "world-card");
-      const btn = el("button", "home-card world-card-btn");
-      btn.type = "button";
-      btn.dataset.country = c.code;
-      btn.append(
-        el("span", "home-card-title", countryName(c.code)),
-        el("span", "home-card-sub", countWords(intlRecordsFor(c.code))),
-        el("span", "home-card-dek", firstSentence(c.summary))
-      );
-      btn.addEventListener("click", () => openCountry(c.code, { push: true }));
-      li.append(btn);
-      return li;
-    })
-  );
-
+  const search = document.getElementById("world-search");
+  if (!list.childElementCount) {
+    for (const country of countries) {
+      const link = el("a", "world-card-btn");
+      link.href = `#country/${country.code}`;
+      link.dataset.country = country.code;
+      const total = Object.values(intlRecordsFor(country.code)).reduce((n, rows) => n + rows.length, 0);
+      link.append(el("strong", null, countryName(country.code)), el("small", null, `${total} record${total === 1 ? "" : "s"}`));
+      link.addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button) return;
+        event.preventDefault();
+        openCountry(country.code, { push: true });
+      });
+      const item = el("li", "world-card");
+      item.append(link);
+      list.append(item);
+    }
+    const filter = () => {
+      const query = search.value.trim().toLowerCase();
+      let matches = 0;
+      for (const item of list.children) {
+        const code = item.firstElementChild.dataset.country;
+        item.hidden = !(`${countryName(code)} ${code}`).toLowerCase().includes(query);
+        if (!item.hidden) matches++;
+      }
+      document.getElementById("world-search-status").textContent = query ? (matches ? `${matches} found` : "No matches") : "";
+    };
+    search.addEventListener("input", filter);
+    filter();
+  }
   const cSel = document.getElementById("world-country-filter");
   if (cSel && !cSel.dataset.populated) {
     for (const c of countries) cSel.append(new Option(countryName(c.code), c.code));
@@ -9894,10 +9935,7 @@ function renderWorld() {
     }
     cSel.dataset.populated = "1";
   }
-  renderWorldInstruments();
-  const sites = document.getElementById("world-site-list");
-  sites.replaceChildren(...d.projects.map((p) => intlSiteCard(p)));
-  if (!d.projects.length) sites.replaceChildren(el("li", "muted", "No sites recorded yet."));
+  if (!state.pendingCountry && !state.openCountry) renderWorldPane(_activeSubtab.world);
   wireBtn("world-country-back", () => {
     // Opened from the list (we pushed an entry): Back returns to it, so the
     // history doesn't gain a duplicate #world. Deep-linked: close in place.
@@ -9911,6 +9949,19 @@ function renderWorld() {
     if (state.activeView === "world") openCountry(code);
   }
   document.dispatchEvent(new CustomEvent("dcb:world-ready"));
+}
+
+function renderWorldPane(key) {
+  // Company names and country data settle together before we cache site rows.
+  if (!state.worldReady) return;
+  if (key === "instruments") renderWorldInstruments();
+  if (key === "sites") {
+    const list = document.getElementById("world-site-list");
+    if (!list.childElementCount) {
+      list.replaceChildren(...state.intl.projects.map(p => intlSiteCard(p)));
+      if (!list.childElementCount) list.append(el("li", "muted", "No sites recorded yet."));
+    }
+  }
 }
 
 // Frameworks → International, filtered to one principle.
@@ -9945,7 +9996,7 @@ function openCountry(code, { push = false } = {}) {
   else if (window.location.hash !== `#country/${code}`) history.replaceState(null, "", url);
   const rs = intlRecordsFor(code);
   const body = document.getElementById("world-country-body");
-  const parts = [el("h3", "acc-title world-country-name", countryName(code)), el("p", "hero-dek", c.summary)];
+  const parts = [el("h3", "acc-title world-country-name", countryName(code)), el("p", "muted", countWords(rs))];
   // Every section renders, empty or not: "nothing recorded" is an answer,
   // and a missing heading reads as a coverage gap (spec: honest absence).
   const section = (title, items, render) => {
@@ -9967,9 +10018,9 @@ function openCountry(code, { push = false } = {}) {
   section("Company statements", rs.statements, intlStatementCard);
   if (EU_MEMBERS.includes(code)) section("EU rules that apply here", rs.eu, intlPolicyCard);
   // Background after the records: readers come for the rules and sites.
-  if (c.context && c.context.length) {
+  if (c.summary || c.context?.length) {
     const ul = el("ul", "world-context");
-    for (const f of c.context) {
+    for (const f of c.context || []) {
       const li = el("li");
       // The curator's English sentence, then the source's own words (and a
       // labelled translation when they aren't English).
@@ -9977,7 +10028,9 @@ function openCountry(code, { push = false } = {}) {
       li.append(quoteBlock(f.verbatim, f.source_lang || "en", f.translation), sourceLine(f));
       ul.append(li);
     }
-    parts.push(ul);
+    const background = el("details");
+    background.append(el("summary", null, "Background and sources"), el("p", null, c.summary), ul);
+    parts.push(background);
   }
   if (c.regulators && c.regulators.length) {
     const p = el("p", "muted world-regulators");
@@ -10000,11 +10053,13 @@ function openCountry(code, { push = false } = {}) {
   document.getElementById("world-country").scrollIntoView({ block: "start" });
 }
 
-function closeCountry({ push = false } = {}) {
+function closeCountry({ push = false, restoreFocus = true } = {}) {
   const panel = document.getElementById("world-country");
+  state.pendingCountry = null;
   if (!panel || panel.hidden) return;
   panel.hidden = true;
   document.getElementById("world-panes").hidden = false;
+  if (restoreFocus) document.querySelector(`#world-country-list [data-country="${state.openCountry}"]`)?.focus({ preventScroll: true });
   state.openCountry = null;
   if (state.activeView === "world" && !state._routing) {
     const url = window.location.pathname + "#world";

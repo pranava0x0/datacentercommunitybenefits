@@ -609,11 +609,6 @@ select:focus-visible,
   color: var(--text);
 }
 
-.home-card-dek {
-  font-size: var(--fs-sm);
-  line-height: 1.45;
-  color: var(--text-muted);
-}
 
 .home-card-num {
   grid-area: num;
@@ -6120,7 +6115,6 @@ button.depth-chip:focus-visible {
   .home-card-title { grid-area: title; font-size: var(--fs-md); }
   .home-card-num { grid-area: num; font-size: var(--fs-2xl); }
   .home-card-sub { grid-area: sub; }
-  .home-card-dek { display: none; }
   .feed-btn { grid-template-columns: 5.2rem minmax(0, 1fr); }
 }
 
@@ -6432,11 +6426,11 @@ button.depth-chip:focus-visible {
 .guide-clause dd { margin: 0; }
 .planning-guide a { overflow-wrap: anywhere; }
 #policy-stats[hidden] { display: none; }
-#view-policies > .subtabs, #view-agreements > .subtabs { flex-wrap: wrap; overflow-x: visible; }
+#view-policies > .subtabs, #subpane-pol-agreements > .subtabs { flex-wrap: wrap; overflow-x: visible; }
 @media (max-width: 640px) {
   .home-tasks { gap: 6px; }
   .home-tasks button { flex: 1; padding: 8px 6px; font-size: var(--fs-sm); }
-  #view-policies > .subtabs .subtab, #view-agreements > .subtabs .subtab { padding: 8px; font-size: var(--fs-sm); }
+  #view-policies > .subtabs .subtab, #subpane-pol-agreements > .subtabs .subtab { padding: 8px; font-size: var(--fs-sm); }
   .guide-controls select { max-width: 100%; }
   .guide-clause dl { grid-template-columns: 1fr; gap: 4px; }
   .guide-clause dd { margin-bottom: 8px; }
@@ -6466,7 +6460,7 @@ button.depth-chip:focus-visible {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
   gap: 0.75rem;
 }
 .world-card-btn { width: 100%; text-align: left; }
@@ -6488,7 +6482,6 @@ button.depth-chip:focus-visible {
 .world-country { margin-bottom: 1rem; }
 /* Phones: country cards as a compact list; the summary is on the country page. */
 @media (max-width: 640px) {
-  .world-card .home-card-dek { display: none; }
   .world-cards { gap: 0.4rem; }
 }
 /* Nine tabs (v6) must still fit two rows on a 360-390px phone; a third row
@@ -6667,14 +6660,18 @@ button.depth-chip:focus-visible {
 .rp-basis,
 .rp-conflict-flag { text-transform: none; letter-spacing: 0.02em; }
 
-/* Country cards: three lines of summary at most, so 18+ countries stay a
-   scannable grid (interaction budget: world_country). */
-.world-card .home-card-dek { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-
-.world-jump { display: flex; flex-wrap: wrap; gap: var(--sp-1, 4px) var(--sp-2, 8px); margin: 0 0 var(--sp-4, 16px); }
-.world-jump-btn { display: inline-flex; align-items: center; background: none; border: 0; padding: 4px 0; font: inherit; font-size: var(--fs-sm); color: var(--accent); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; min-height: 32px; }
-.world-jump-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-@media (pointer: coarse) { .world-jump-btn { min-height: 44px; } }
+.world-card-btn { display: grid; align-content: start; gap: .25rem; height: 100%; padding: .6rem .75rem; border: 1px solid var(--border); color: var(--text); background: var(--surface); text-decoration: none; }
+.world-card-btn:hover, .world-card-btn:focus-visible { border-color: var(--accent); }
+.world-card-btn small { color: var(--text-muted); }
+.world-record { min-width: 0; overflow-wrap: anywhere; }
+.world-record summary { cursor: pointer; padding-inline-end: 1.5rem; position: relative; list-style: none; }
+.world-record summary::-webkit-details-marker { display: none; }
+.world-record summary::after { content: "+"; position: absolute; right: .25rem; top: .25rem; }
+.world-record details[open] > summary::after { content: "−"; }
+.world-record details[open] > summary { margin-bottom: .75rem; }
+@media (pointer: coarse) {
+  .world-record summary, #world-country-back, #world-search, #d-company { min-height: 44px; }
+}
 
 /* Election results and the underlying statements share the site's neutral
    palette. Party names carry information without a second colour legend. */
