@@ -693,3 +693,12 @@ reviews should check where a record is discoverable, not only its text.
 | Browser review of the fixes | Yes | Verified all four fixes; reproduced duplicate dialog opens and a stale error after retry. Tokens unmetered. | In throttled tests, activate twice, retry once, and check what has focus after Escape. |
 | GitHub review of the first commit | Yes | Independently reproduced the partial Latest failure; covered by the two-feed failure test. Tokens unmetered. | Check which commit the review covers before treating a duplicate as a new regression. |
 | GitHub re-review after fixes | Yes | No findings on 6d94cac. Tokens unmetered. | Keep the request tied to the corrected commit. |
+
+
+### 2026-11-10 — Navigation review (PR #121)
+
+| Run | Worked | Finding / cost | Next time |
+| --- | --- | --- | --- |
+| Lower-cost reviewer | No | Provider required sign-in; no findings. Tokens unavailable. | Use the authenticated reviewer for this checkout. |
+| Independent routing and accessibility review | Yes | Found a stale selected category when opening a company’s pledge record. Tokens unmetered. | Start a cross-link test with a conflicting filter selected. |
+| Second browser review | Yes | Verified roster and focus fixes; reproduced a pending country overriding Sites and operator names cached too soon. Tokens unmetered. | Hold one data file in the browser and switch panes before releasing it. |

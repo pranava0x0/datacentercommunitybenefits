@@ -3461,10 +3461,8 @@ class TestMobileV5Panes:
                 tops = page.locator(f"#view-{'explorer' if view == 'explorer' else view} .subtabs--view:visible .subtab").evaluate_all(
                     "els => [...new Set(els.map(e => Math.round(e.getBoundingClientRect().top)))]"
                 )
-                # Policy (six panes) and Benefit Agreements (five, guides
-                # included) may wrap to a second row once their counts land;
-                # two rows keep every pane visible without a side-swipe.
-                max_rows = 2 if view in ("policies", "agreements") else 1
+                # Policy labels and counts may wrap once without a side-swipe.
+                max_rows = 2 if view == "policies" else 1
                 assert 1 <= len(tops) <= max_rows, f"{view}: sub-tabs wrap to {len(tops)} rows"
                 strip = page.locator(f"#view-{view} .subtabs--view:visible")
                 assert strip.evaluate("e => e.scrollWidth <= e.clientWidth + 1")
@@ -4185,7 +4183,7 @@ class TestMoratoriumPdfExport:
 
 
 class TestPr86ReviewFixes:
-    """Review of PR #86: lifted moratoriums, firstSentence, a11y, world index."""
+    """Review of PR #86: lifted moratoriums, accessibility and the country directory."""
 
     @staticmethod
     def _morats() -> list[dict]:
@@ -4254,6 +4252,23 @@ class TestPr86ReviewFixes:
         page.go_back()
         expect(country).to_be_focused()
         expect(search).to_have_value("Ireland")
+
+    def test_world_pane_change_supersedes_pending_country(self, page: Page, base_url: str):
+        held = []
+        page.route("**/data/companies.json*", lambda route: held.append(route))
+        page.goto(base_url + "/#country/IE")
+        page.wait_for_function("() => state.intl && state.pendingCountry === 'IE'")
+        page.click("#subtab-world-sites")
+        assert held
+        for route in held:
+            route.continue_()
+        site = page.locator("#world-site-list .world-record").first
+        expect(site).to_be_visible()
+        slug = page.evaluate("state.intl.projects[0].company_slug")
+        name = page.evaluate("slug => state.companiesBySlug.get(slug).name", slug)
+        expect(site.locator(".cba-kind")).to_have_text(name)
+        expect(page.locator("#world-country")).to_be_hidden()
+        assert page.url.endswith("#world/sites")
 
     def test_site_operator_profile_and_pledge_roster(self, page: Page, base_url: str):
         page.goto(base_url + "/#ratepayer")

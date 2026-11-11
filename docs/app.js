@@ -823,7 +823,7 @@ function _routeFromLocation(boot) {
     closeMoratoriumDetail();
     closeTariffDetail();
     closeStatePanel();
-    if (!COUNTRY_DEEP_LINK.test(window.location.hash)) closeCountry();
+    if (!COUNTRY_DEEP_LINK.test(window.location.hash)) closeCountry({ restoreFocus: window.location.hash === "#world" });
     // Restore the Sites filters this entry was saved with, not whatever was
     // typed later.
     state.explorerFilters = { ...EMPTY_EXPLORER_FILTERS };
@@ -970,7 +970,7 @@ function activateView(name) {
   }
   // A country page belongs to one visit to the International tab; leaving
   // (or re-entering by its tab) shows the list again.
-  if (!state._routing && (target.name !== state.activeView || state.openCountry)) closeCountry();
+  if (!state._routing && (target.name !== state.activeView || state.openCountry)) closeCountry({ restoreFocus: target.name === "world" });
   state.activeView = target.name;
   state.navGen = (state.navGen || 0) + 1;
 
@@ -3194,7 +3194,7 @@ function renderPolicyStats(all) {
   const tiles = [
     [all.length, "Policy records"],
     [agreements, "Agreements and site pledges"],
-    [n((p) => p.status === "in_effect"), "Rules in effect"],
+    [n((p) => p.status === "in_effect"), "In effect"],
     [new Set(all.filter((p) => p.scope === "state").map((p) => p.state_code)).size, "States acting"],
     [n((p) => p.instrument === "executive_order" && (p.date || "").startsWith(year)), `Governor orders in ${year}`],
   ];
@@ -3317,7 +3317,7 @@ function renderAgreementsView() {
   const stats = document.getElementById("cba-stats");
   if (stats) {
     const tiles = [
-      [all.length, "Agreements"],
+      [all.length, "Agreements and site pledges"],
       [signed.length, "Signed"],
       [deals.filter((p) => p.status === "proposed").length, "Proposed"],
       [deals.filter((p) => p.status === "failed").length, "Rejected or withdrawn"],
@@ -4566,6 +4566,11 @@ function parseSubtabHash(hash) {
   return { view: m[1], group, key: m[2] };
 }
 
+function selectUserSubtab(group, key) {
+  if (group === "world") state.pendingCountry = null;
+  setActiveSubtab(group, key);
+}
+
 function wireSubtabs() {
   for (const btn of document.querySelectorAll("[data-guide-target]")) {
     btn.addEventListener("click", () => {
@@ -4591,14 +4596,14 @@ function wireSubtabs() {
       const btn = document.getElementById(`subtab-${group}-${key}`);
       if (!btn || btn.dataset.wired === "1") continue;
       btn.dataset.wired = "1";
-      btn.addEventListener("click", () => setActiveSubtab(group, key));
+      btn.addEventListener("click", () => selectUserSubtab(group, key));
       // Arrow keys move between tabs in a tablist, per the ARIA pattern.
       btn.addEventListener("keydown", (e) => {
         const delta = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
         if (!delta) return;
         e.preventDefault();
         const next = keys[(keys.indexOf(key) + delta + keys.length) % keys.length];
-        setActiveSubtab(group, next);
+        selectUserSubtab(group, next);
         const nextBtn = document.getElementById(`subtab-${group}-${next}`);
         if (nextBtn) nextBtn.focus();
       });
@@ -9862,6 +9867,7 @@ function renderWorldInstruments() {
 function renderWorld() {
   const d = state.intl;
   if (!d) return;
+  state.worldReady = true;
   const countries = d.countries.slice().sort((a, b) => countryName(a.code).localeCompare(countryName(b.code)));
   const nPause = d.moratoriums.length;
   // Tile and sub-tab pill agree: countries only; the EU is a layer on top.
@@ -9946,7 +9952,8 @@ function renderWorld() {
 }
 
 function renderWorldPane(key) {
-  if (!state.intl) return;
+  // Company names and country data settle together before we cache site rows.
+  if (!state.worldReady) return;
   if (key === "instruments") renderWorldInstruments();
   if (key === "sites") {
     const list = document.getElementById("world-site-list");
@@ -10046,13 +10053,13 @@ function openCountry(code, { push = false } = {}) {
   document.getElementById("world-country").scrollIntoView({ block: "start" });
 }
 
-function closeCountry({ push = false } = {}) {
+function closeCountry({ push = false, restoreFocus = true } = {}) {
   const panel = document.getElementById("world-country");
   state.pendingCountry = null;
   if (!panel || panel.hidden) return;
   panel.hidden = true;
   document.getElementById("world-panes").hidden = false;
-  document.querySelector(`#world-country-list [data-country="${state.openCountry}"]`)?.focus({ preventScroll: true });
+  if (restoreFocus) document.querySelector(`#world-country-list [data-country="${state.openCountry}"]`)?.focus({ preventScroll: true });
   state.openCountry = null;
   if (state.activeView === "world" && !state._routing) {
     const url = window.location.pathname + "#world";
