@@ -5771,6 +5771,38 @@
       "topic_notes": {
         "transparency": "The bill would void agreements that conceal project details or prevent public review."
       }
+    },
+    {
+      "id": "henry-county-va-data-center-zoning-2026",
+      "title": "Henry County — data center zoning ordinance (Data Center District, three public hearings, six impact studies)",
+      "instrument": "local_ordinance",
+      "status": "in_effect",
+      "scope": "county",
+      "jurisdiction": "Henry County, VA",
+      "state_code": "VA",
+      "date": "2026-08-25",
+      "counterparties": [
+        "Henry County Board of Supervisors"
+      ],
+      "benefit_themes": [
+        "engagement"
+      ],
+      "principles": [
+        "local_control",
+        "community_input",
+        "study"
+      ],
+      "community_benefits_framework": false,
+      "value_usd": null,
+      "key_terms": [
+        "The board of supervisors approved the ordinance unanimously on Tuesday.",
+        "requires data center companies to go through three public hearing processes",
+        "located in a specific data center district"
+      ],
+      "summary": "Henry County supervisors unanimously approved a zoning ordinance on August 25 that confines data centers to a dedicated Data Center District and requires applicants to go through three public hearing processes and submit six impact studies. No property is currently zoned for the district.",
+      "source_url": "https://cardinalnews.org/2026/08/26/stricter-data-center-regulations-approved-in-henry-county/",
+      "source_title": "Cardinal News — Stricter data center regulations approved in Henry County",
+      "captured_at": "2026-11-11"
     }
   ]
 }

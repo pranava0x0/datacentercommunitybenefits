@@ -1245,6 +1245,46 @@ come first, then locations, companies and sites.
 #### company:xai
 - **medium (2026-11-04 source audit):** Recheck `xai-engagement-fabric-mayo`. The live source probe did not match the stored excerpt; this needs source review, not automatic rewriting. See [election refresh audit](notes/specs/ELECTION_2026.md#source-audit).
 
+#### state:VA
+- (2026-11-11, 2026 pass) AWS Potomac Church Tech Center, Stafford County: under construction; supervisors approved a proffer amendment 4-2 on Aug. 18, 2026 with a $10M road contribution (Potomac Local, https://www.potomaclocal.com/?p=252620, probe HIT). Not added: announcement year unknown (aggregators say first applied 2023). **medium**
+- (2026-11-11, 2026 pass) Crossroads Technology Campus, Spotsylvania County (555 acres, AWS): Planning Commission recommended the special-use permit 4-2 (WJLA); board vote and date not found, and it may not be the Cosner campus. **low**
+- (2026-11-11, 2026 pass) Microsoft AVC 22, Mecklenburg County (~490 acres): no primary source found. **low**
+- (2026-11-11, 2026 pass) Virginia statewide moratorium bills prefiled for the January 2027 session (e.g. SB 843): Virginia Mercury returned 403; confirm on lis.virginia.gov before adding. **medium**
+
+#### state:TX
+- (2026-11-11, 2026 pass) QTS Howard County campus near Big Spring (q.com/?p=5029, probe HIT; listed 'In Consideration'): announcement year not established, so not added. **low**
+- (2026-11-11, 2026 pass) Crusoe Jayton spur campus (Kent County): trade press only; fetch the Kent County hearing notice. **low**
+
+#### state:IN
+- (2026-11-11, 2026 pass) IURC approval of AES Indiana service to Google's 390 MW Monrovia data center (Cause No. 46394, reportedly Oct. 7, 2026; Microgrid Knowledge headline verified). Needs the IURC order before a rate-case record. **medium**
+
+#### state:ME
+- (2026-11-11, 2026 pass) Gorham town council passed a six-month data center moratorium 7-0 (Gorham Times, https://www.gorhamtimes.com/town-council-meeting-june-2/, probe HIT) but the page gives no year; a later extension is reported (newscentermaine). Confirm year and extension. **medium**
+
+#### state:MA
+- (2026-11-11, 2026 pass) Leominster: one-year data center and battery storage moratorium, 8-0, in effect to July 31, 2027 (Fire Engineering syndication of MassLive; 403 to probe). Find the MassLive or city original. **medium**
+
+#### state:KS
+- (2026-11-11, 2026 pass) Ottawa 10-year ban (ottawa-ks-2026-11) is from unofficial election-night results; confirm the Franklin County canvass. Consider adding the measure to elections.json. **medium**
+
+#### state:ID
+- (2026-11-11, 2026 pass) Boise moratorium (boise-id-2026-11) had a council hearing on Nov. 10, 2026; record the outcome. **high**
+
+#### state:OK
+- (2026-11-11, 2026 pass) Oklahoma City moratorium extension: only the mayor's request for six more months found, no council vote. Edmond's Ordinance 4091 ends Dec. 31, 2026; check for an extension. **medium**
+
+#### state:CA
+- (2026-11-11, 2026 pass) Oakland extension to October 2027 and Escondido extension: headlines only, not confirmed on a reachable page. **medium**
+
+#### state:SC
+- (2026-11-11, 2026 pass) Sumter County reported taking a step toward rescinding its moratorium (WIS); not confirmed. **low**
+
+#### state:NY
+- (2026-11-11, 2026 pass) Hamburg town board moratorium (Spectrum News headline): no page found. **low**
+
+#### state:IA
+- (2026-11-11, 2026 pass) Marshalltown extension (KCCI) and Ida County ordinance (Storm Lake Radio): not verified. **low**
+
 ## 4. Product and UX
 
 
