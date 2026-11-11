@@ -8908,8 +8908,8 @@
       "state_code": "NY",
       "status": "enacted",
       "enacted_date": "2026-10-05",
-      "duration_months": 12,
-      "duration_description": "One year, expiring at the end of August 2027",
+      "duration_months": 11,
+      "duration_description": "Described as one year; expires at the end of August 2027",
       "key_reasons": [],
       "city_council_vote": "4-0",
       "summary": "The West Seneca Town Board voted 4-0 on October 5 to pass a one-year moratorium on data centers while it develops standards. The moratorium expires at the end of August 2027.",
@@ -8944,7 +8944,8 @@
       "summary": "The Edmond City Council adopted Ordinance No. 4091 on June 8, 2026, declaring a moratorium on data center rezoning requests and building permit applications until December 31, 2026, pending a zoning update. The minutes record a 5-0 vote.",
       "source_url": "https://public.destinyhosted.com/edmondocs/2026/CC/20260608_31022/31021_CC%20and%20PWA%20Minutes%20-%2006-08-2026.pdf",
       "source_title": "City of Edmond — City Council and PWA minutes, June 8, 2026",
-      "captured_at": "2026-11-11"
+      "captured_at": "2026-11-11",
+      "duration_months": 7
     }
   ]
 }

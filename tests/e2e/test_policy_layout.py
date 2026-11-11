@@ -24,7 +24,9 @@ def test_summary_strips_stay_visible_and_headings_keep_ink(page: Page, base_url:
             page.click(f'#subtab-{group}-{key}')
             expect(strip).to_be_visible()
             expect(strip.locator('.rp-stat')).to_have_count(count)
-            assert strip.locator('.rp-stat').first.evaluate('e => getComputedStyle(e).borderTopWidth') == '0px'
+            # The strip re-renders as lazy payloads land; a one-shot evaluate can
+            # hit a detached tile and read ''. expect() retries until it settles.
+            expect(strip.locator('.rp-stat').first).to_have_css('border-top-width', '0px')
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
     expect(page.locator('#subtab-pol-influence')).to_have_count(0)
     page.click('#tab-elections')

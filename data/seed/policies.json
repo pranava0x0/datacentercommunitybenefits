@@ -5785,21 +5785,23 @@
         "Henry County Board of Supervisors"
       ],
       "benefit_themes": [
-        "engagement"
+        "engagement",
+        "water"
       ],
       "principles": [
         "local_control",
         "community_input",
-        "study"
+        "water"
       ],
       "community_benefits_framework": false,
       "value_usd": null,
       "key_terms": [
-        "The board of supervisors approved the ordinance unanimously on Tuesday.",
         "requires data center companies to go through three public hearing processes",
-        "located in a specific data center district"
+        "including six different impact studies",
+        "located in a specific data center district",
+        "Closed-loop cooling technology only. No evaporative cooling or cooling towers."
       ],
-      "summary": "Henry County supervisors unanimously approved a zoning ordinance on August 25 that confines data centers to a dedicated Data Center District and requires applicants to go through three public hearing processes and submit six impact studies. No property is currently zoned for the district.",
+      "summary": "Henry County supervisors unanimously approved a zoning ordinance on August 25 that confines data centers to a dedicated Data Center District, requires three public hearing processes and six impact studies, and allows closed-loop cooling only. No property is currently zoned for the district.",
       "source_url": "https://cardinalnews.org/2026/08/26/stricter-data-center-regulations-approved-in-henry-county/",
       "source_title": "Cardinal News — Stricter data center regulations approved in Henry County",
       "captured_at": "2026-11-11"
