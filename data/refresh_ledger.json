@@ -129,6 +129,14 @@
         "summary": "Planning Commission approved final site plan 5-1 on Oct 14 (Detroit News via Yahoo); update + response added."
       }
     },
+    "site:meta-beaver-dam-wi": {
+      "last_reviewed": "2026-11-11",
+      "summary": "Re-fetched Meta page (live); checked news since May 2026 — no new local permits/coverage found; added operational-jobs and grants-timing to notes from Meta's page."
+    },
+    "site:meta-lebanon-in": {
+      "last_reviewed": "2026-11-11",
+      "summary": "Re-fetched Meta release (live); no Oct-Nov 2026 news found; added Boone REMC $1M/yr x20 fund to notes; filed lead on unsourced $45M roads figure and 'first solo IN campus' wording."
+    },
     "site:meta-newton-ga": {
       "blocked": {
         "date": "2026-11-08",
@@ -482,17 +490,17 @@
     "state:TX": {
       "follow_ups": [
         {
-          "due": "2026-11-11",
-          "what": "Fort Worth: committee report to council Nov 3, first public hearing Nov 10 (fort-worth-tx-2026-08)"
-        },
-        {
           "due": "2026-12-07",
           "what": "Re-check for a published TWDB enforcement update or referrals to county/district attorneys."
+        },
+        {
+          "due": "2027-01-13",
+          "what": "Fort Worth: Jan 12 second public hearing/first reading of moratorium ordinance (fort-worth-tx-2026-08); also record Nov 10 hearing outcome if published"
         }
       ],
       "last_check": {
-        "date": "2026-11-09",
-        "summary": "2026-11-09: Texas Tribune Oct 14 says board must update governor by Oct 14 and 'State officials don't know whether misdemeanor penalties have been issued against data centers'; no published TWDB enforcement outcome found."
+        "date": "2026-11-11",
+        "summary": "2026-11-11: Fort Worth city page now lists 2nd hearing/1st reading Jan 12 2027 and adoption vote tentatively Feb 23 2027 (FAQ says Feb 16); no coverage of the Nov 10 hearing outcome found."
       }
     },
     "state:VA": {
