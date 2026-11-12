@@ -702,3 +702,11 @@ reviews should check where a record is discoverable, not only its text.
 | Lower-cost reviewer | No | Provider required sign-in; no findings. Tokens unavailable. | Use the authenticated reviewer for this checkout. |
 | Independent routing and accessibility review | Yes | Found a stale selected category when opening a company’s pledge record. Tokens unmetered. | Start a cross-link test with a conflicting filter selected. |
 | Second browser review | Yes | Verified roster and focus fixes; reproduced a pending country overriding Sites and operator names cached too soon. Tokens unmetered. | Hold one data file in the browser and switch panes before releasing it. |
+
+### 2026-11-11 — Community benefits blueprint
+
+| Run | Worked | Finding / cost | Next time |
+| --- | --- | --- | --- |
+| Moratorium and local voices research | Yes | Scanned 357 records; distinguished rejected, studied and partially exempted actions. Tokens unmetered. | Start with the local cache and cite dated actions directly when a record has no public route. |
+| Agreements, company plans and utility terms research | Yes | Separated capped payments, credit security and company-wide pledges. Tokens unmetered. | Check each amount against the payment trigger and the legal instrument. |
+| Resident-led terms synthesis | Yes | Translated five nonprofit guides into monitoring, representation and escalation terms. Tokens unmetered. | Seed a bounded synthesis with verified passages and reserve web requests for missing evidence. |

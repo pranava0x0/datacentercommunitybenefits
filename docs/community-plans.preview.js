@@ -66,7 +66,8 @@ function markdown(plan) {
   return `# ${plan.title}\n\n${NOTICE}\n\n${plan.scenario}\n\n${plan.decision}\n\n${sections}\n\n## Before signing\n\nReplace the example numbers. Confirm legal authority and regulator roles. Attach the site impact study, payment schedule, measurement methods, notice and cure rules, security instruments and closure plan. Identify every signatory and any third-party enforcement rights.\n\n## Sources and adaptation\n\nThese clauses are authored proposals, not quotations or a description of either source. New Jersey guidance informs the review topics. The executed Project Jupiter agreement shows dated payments, a water cap, assignment terms and remedies limited to the project leases and guarantee; this draft proposes additional controls. No source establishes that the example dollar amounts or limits are suitable for another project.\n\n${plan.sources.map(k => `- [${SOURCES[k].title}](${SOURCES[k].url})`).join("\n")}\n`;
 }
 function renderPlans(root) {
-  root.innerHTML = `<p class="guide-notice">Illustrative proposals. All example numbers are invented; check local authority before use.</p>
+  root.innerHTML = `<p><a href="community-benefits.html">Community benefits blueprint: drafts by community type</a></p>
+    <p class="guide-notice">Illustrative proposals. All example numbers are invented; check local authority before use.</p>
     <div class="guide-controls"><label for="draft-plan-kind">Choose a draft</label>
     <select id="draft-plan-kind"><option value="county">County: 100 MW campus</option><option value="state">State: incentives and large loads</option></select>
     <button type="button" id="draft-plan-download">Download draft (.md)</button></div>
