@@ -76,7 +76,11 @@ def test_guide_import_failure_can_retry(page, base_url):
 def test_blueprint_share_links_and_complete_downloads(page, base_url, width, tmp_path):
     page.set_viewport_size({"width": width, "height": 812})
     page.goto(base_url)
-    page.get_by_role("link", name="Community benefits blueprint", exact=True).click()
+    entry = page.get_by_role("link", name="Community benefits plans", exact=True)
+    expect(entry).to_be_in_viewport(ratio=1)
+    page.get_by_role("tab", name="Policy", exact=True).click()
+    expect(entry).to_be_in_viewport(ratio=1)
+    entry.click()
     assert page.url.endswith("/community-benefits.html")
     for key, label in [("rural", "rural county"), ("town", "growing town or suburb"),
                        ("urban", "dense urban neighborhood"), ("corridor", "multi-campus corridor")]:

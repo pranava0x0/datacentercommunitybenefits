@@ -35,7 +35,7 @@
       }
     </script>
     <link rel="preload" as="fetch" href="data/companies.json" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20261111" />
+    <link rel="stylesheet" href="styles.css?v=20261112" />
     <!-- html2pdf is lazy-loaded on demand by the moratorium PDF export (see
          loadHtml2Pdf in app.js) so it doesn't block first paint or tests. -->
     <script defer src="app.js?v=20261110b"></script>
@@ -162,6 +162,15 @@
     </header>
 
     <main id="main" tabindex="-1" role="main">
+      <nav class="plans-entry" aria-label="Community planning guide">
+        <a href="community-benefits.html" aria-labelledby="plans-entry-title" aria-describedby="plans-entry-description">
+          <span>
+            <strong id="plans-entry-title">Community benefits plans</strong>
+            <span id="plans-entry-description">Choose an editable draft for your community.</span>
+          </span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </nav>
       <!-- ====================== OVERVIEW VIEW ====================== -->
       <!-- The Home tab, cut to a news-style briefing (v3): a one-line dek, a
            numbers band summarizing the whole record, the soonest docket
@@ -180,7 +189,6 @@
         <div class="home-body">
 
           <nav class="home-tasks" aria-label="Planning tools">
-            <a href="community-benefits.html">Community benefits blueprint</a>
             <button type="button" data-guide-target="strongest">Read signed agreements</button>
             <button type="button" data-guide-target="drafts">County and state drafts</button>
             <button type="button" data-guide-target="evidence">Check impact claims</button>
