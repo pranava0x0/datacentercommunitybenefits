@@ -702,3 +702,17 @@ reviews should check where a record is discoverable, not only its text.
 | Lower-cost reviewer | No | Provider required sign-in; no findings. Tokens unavailable. | Use the authenticated reviewer for this checkout. |
 | Independent routing and accessibility review | Yes | Found a stale selected category when opening a company’s pledge record. Tokens unmetered. | Start a cross-link test with a conflicting filter selected. |
 | Second browser review | Yes | Verified roster and focus fixes; reproduced a pending country overriding Sites and operator names cached too soon. Tokens unmetered. | Hold one data file in the browser and switch panes before releasing it. |
+
+### 2026-11-11 — Community benefits blueprint
+
+| Run | Worked | Finding / cost | Next time |
+| --- | --- | --- | --- |
+| Moratorium and local voices research | Yes | Scanned 357 records; distinguished rejected, studied and partially exempted actions. Tokens unmetered. | Start with the local cache and cite dated actions directly when a record has no public route. |
+| Agreements, company plans and utility terms research | Yes | Separated capped payments, credit security and company-wide pledges. Tokens unmetered. | Check each amount against the payment trigger and the legal instrument. |
+| Resident-led terms synthesis | Yes | Translated five nonprofit guides into monitoring, representation and escalation terms. Tokens unmetered. | Seed a bounded synthesis with verified passages and reserve web requests for missing evidence. |
+| Phone, keyboard, downloads and print review | Yes | 375px navigation worked; found indistinguishable download names and printed URL overflow. Tokens unmetered. | Test the printed guide with the longest primary-source URL. |
+| Accuracy review | Yes | Rechecked case dates, caps and counts; distinguished the immediate New Orleans hold from the proposed yearlong district, and narrowed a legal generalization. Tokens unmetered. | Describe the date and immediate effect of the vote before the next proceeding. |
+| Water and ratepayer specialist review | Yes | Daily limits need daily readings; cancellation security must cover placed orders, not only completed works. Tokens unmetered. | Follow each clause through a one-day exceedance and an abandoned phase. |
+| Resident governance, funds and employment review | Yes | A named monitor also needs records access and a budget; paid places need a cohort target. Tokens unmetered. | Trace a missed apprenticeship from the award to payroll and remedy. |
+| Second phone and print pass | Yes | Confirmed the new named buttons, selected file and wrapped source URLs on a 375px phone and in print. Tokens unmetered. | Reproduce the original failure on the amended page. |
+| GitHub review of first revision | Yes | No findings on 3bef2f9. Tokens unavailable. | Supplement code review with jurisdiction and utility expertise. |

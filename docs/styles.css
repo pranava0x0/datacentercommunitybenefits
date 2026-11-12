@@ -6405,13 +6405,14 @@ button.depth-chip:focus-visible {
 
 /* Planning tools share Frameworks routing; the guide module loads on demand. */
 .home-tasks, .guide-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
-.home-tasks button, .guide-controls button, .guide-controls select {
+.home-tasks a, .home-tasks button, .guide-controls button, .guide-controls select {
   min-height: 44px; padding: 8px 12px; border: 1px solid var(--border);
   border-radius: var(--radius-sm); background: var(--surface); color: var(--text); font: inherit;
 }
 .home-tasks button, .guide-controls button { cursor: pointer; }
-.home-tasks button:hover, .guide-controls button:hover { border-color: var(--accent); }
-.home-tasks button:focus-visible, .guide-controls :focus-visible, .guide-clause summary:focus-visible {
+.home-tasks a { display: inline-flex; align-items: center; justify-content: center; text-align: center; }
+.home-tasks a:hover, .home-tasks button:hover, .guide-controls button:hover { border-color: var(--accent); }
+.home-tasks a:focus-visible, .home-tasks button:focus-visible, .guide-controls :focus-visible, .guide-clause summary:focus-visible {
   outline: 2px solid var(--accent); outline-offset: 3px;
 }
 .planning-guide { max-width: 900px; }
@@ -6429,7 +6430,7 @@ button.depth-chip:focus-visible {
 #view-policies > .subtabs, #subpane-pol-agreements > .subtabs { flex-wrap: wrap; overflow-x: visible; }
 @media (max-width: 640px) {
   .home-tasks { gap: 6px; }
-  .home-tasks button { flex: 1; padding: 8px 6px; font-size: var(--fs-sm); }
+  .home-tasks a, .home-tasks button { flex: 1; padding: 8px 6px; font-size: var(--fs-sm); }
   #view-policies > .subtabs .subtab, #subpane-pol-agreements > .subtabs .subtab { padding: 8px; font-size: var(--fs-sm); }
   .guide-controls select { max-width: 100%; }
   .guide-clause dl { grid-template-columns: 1fr; gap: 4px; }

@@ -90,6 +90,9 @@ def build() -> Path:
     )
     out = html.replace("</body>", inline + "</body>")
     OUT_DIR.mkdir(exist_ok=True)
+    # The portable dashboard is a single file; its companion guide lives on Pages.
+    out = out.replace('href="community-benefits.html"',
+                      'href="https://pranava0x0.github.io/datacenterpolicytracker/community-benefits.html"')
     OUT.write_text(out)
     log.info("Wrote %s (%d KB)", OUT, len(out.encode()) / 1024)
     return OUT
