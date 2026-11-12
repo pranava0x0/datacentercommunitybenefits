@@ -6418,6 +6418,10 @@ button.depth-chip:focus-visible {
 .plans-entry a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 @media (max-width: 640px) {
   .plans-entry a span span { display: block; margin: .1rem 0 0; font-size: var(--fs-sm); }
+  /* Keep the one-tap link on topic pages without displacing their directories. */
+  .plans-entry:has(+ #view-overview[hidden]) { margin-bottom: 0; }
+  .plans-entry:has(+ #view-overview[hidden]) a { padding-block: 0; }
+  .plans-entry:has(+ #view-overview[hidden]) #plans-entry-description { display: none; }
 }
 
 /* Planning tools share Frameworks routing; the guide module loads on demand. */
