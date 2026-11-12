@@ -1,4 +1,6 @@
 """Draft navigation, evidence limits and the editable artifact users receive."""
+from pathlib import Path
+
 import pytest
 from playwright.sync_api import expect
 
@@ -106,3 +108,43 @@ def test_blueprint_print_urls_fit_the_page(page, base_url):
     page.goto(base_url + "/community-benefits.html")
     page.emulate_media(media="print")
     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+
+
+@pytest.mark.parametrize("file_preview", [False, True])
+def test_blueprint_back_restores_tracker_route(page, base_url, file_preview):
+    if file_preview:
+        base_url = (Path(__file__).resolve().parents[2] / "docs").as_uri()
+    page.goto(base_url + "/index.html?q=Tulsa#explorer")
+    expect(page.locator("#f-q")).to_have_value("Tulsa")
+    origin = page.url
+    page.get_by_role("link", name="Community benefits plans", exact=True).click()
+    page.locator('#choose a[href="#urban"]').click()
+    page.reload()
+    back = page.get_by_role("link", name="← Back to Sites", exact=True)
+    expect(back).to_have_attribute("href", origin)
+    back.click()
+    expect(page.get_by_role("tab", name="Sites", exact=True)).to_have_attribute("aria-selected", "true")
+    expect(page.locator("#f-q")).to_have_value("Tulsa")
+    # An independently opened shared link must not borrow an old return route.
+    page.goto(base_url + "/community-benefits.html#corridor")
+    page.get_by_role("link", name="← Back to Home", exact=True).click()
+    expect(page.get_by_role("tab", name="Home", exact=True)).to_have_attribute("aria-selected", "true")
+
+
+@pytest.mark.parametrize("width", [375, 1366])
+def test_blueprint_main_navigation_from_shared_draft(page, base_url, width):
+    page.set_viewport_size({"width": width, "height": 812})
+    page.goto(base_url)
+    dashboard = page.evaluate("""() => VIEWS.map(v => [
+        document.getElementById(v.tab).textContent.trim(), v.hash
+    ])""")
+    page.goto(base_url + "/community-benefits.html#rural")
+    nav = page.get_by_role("navigation", name="Main navigation")
+    expect(nav).to_be_in_viewport(ratio=1)
+    links = nav.get_by_role("link").evaluate_all("(links) => links.map(a => [a.textContent, a.hash])")
+    assert links == dashboard
+    heading = page.locator("#rural h2")
+    expect(heading).to_be_in_viewport(ratio=1)
+    assert heading.bounding_box()["y"] >= nav.bounding_box()["y"] + nav.bounding_box()["height"] - 1
+    nav.get_by_role("link", name="Moratoriums", exact=True).click()
+    expect(page.get_by_role("tab", name="Moratoriums", exact=True)).to_have_attribute("aria-selected", "true")

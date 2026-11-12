@@ -657,6 +657,16 @@ document.addEventListener("DOMContentLoaded", () => {
   wireBtn("mor-retry", () => loadMoratoriumPane(_activeSubtab.mor));
   wireBtn("policy-retry", () => activateView("policies"));
   wireTabs();
+  // Referrers omit fragments. Save the exact tab, filters and open record
+  // for the blueprint's Back link without adding them to its share URL.
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.('a[href="community-benefits.html"]');
+    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const label = document.querySelector('.tabbar [aria-selected="true"]').textContent.trim();
+    try {
+      sessionStorage.setItem("dcb-plans-entry", JSON.stringify({url: location.href, label}));
+    } catch { /* Back to Home still works when storage is unavailable. */ }
+  });
   // The Home "Explore the record" cards and the milestones link are static
   // markup, so they wire once on boot; the stat tiles are re-rendered from
   // data and re-wire themselves.
