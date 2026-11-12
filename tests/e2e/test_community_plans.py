@@ -78,19 +78,27 @@ def test_blueprint_share_links_and_complete_downloads(page, base_url, width, tmp
     page.goto(base_url)
     page.get_by_role("link", name="Community benefits blueprint", exact=True).click()
     assert page.url.endswith("/community-benefits.html")
-    for key in ["rural", "town", "urban", "corridor"]:
+    for key, label in [("rural", "rural county"), ("town", "growing town or suburb"),
+                       ("urban", "dense urban neighborhood"), ("corridor", "multi-campus corridor")]:
         page.locator(f'#choose a[href="#{key}"]').click()
         page.reload()
         article = page.locator(f"article#{key}")
         expect(article.locator("h2")).to_be_in_viewport()
         with page.expect_download() as event:
-            article.get_by_role("button", name="Download this draft (.txt)").click()
+            article.get_by_role("button", name=f"Download {label} draft (.txt)", exact=True).click()
         path = tmp_path / event.value.suggested_filename
         event.value.save_as(path)
         draft = path.read_text()
         assert article.locator("h2").inner_text() in draft
         assert all(s in draft for s in ("Terms every draft", "If your community has a moratorium", "What informed"))
         assert "https://pranava0x0.github.io/datacenterpolicytracker/index.html?" in draft
-        assert "Download this draft" not in draft
+        assert "(.txt)" not in draft and "Fill in one row" in draft
         article.get_by_role("link", name="Choose another draft").click()
     assert not page.evaluate("document.documentElement.scrollWidth > innerWidth")
+
+
+def test_blueprint_print_urls_fit_the_page(page, base_url):
+    page.set_viewport_size({"width": 650, "height": 900})
+    page.goto(base_url + "/community-benefits.html")
+    page.emulate_media(media="print")
+    assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
