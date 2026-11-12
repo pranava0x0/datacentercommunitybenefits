@@ -41,8 +41,8 @@
     },
     "site:amazon-boardman-or": {
       "blocked": {
-        "date": "2026-10-29",
-        "reason": "GeekWire and DCD 403 to WebFetch; no readable source for 1 GW/20-building claims. Needs Oregonian/East Oregonian or Morrow County planning record."
+        "date": "2026-11-12",
+        "reason": "Morrow County rezoning narrative (Threemile Canyon Farms, 1,298 ac EDCC) found but never names Amazon; GeekWire/DCD 403; dailytidings is a rewrite site. Unblock with a readable source tying Amazon to the Threemile parcel, or the county adoption decision."
       }
     },
     "site:amazon-bossier-parish-la": {
@@ -148,6 +148,10 @@
         "date": "2026-10-05",
         "summary": "Checked news and source link; added Apr 2026 contractor layoff note; datacenters.atmeta.com/location/prineville/ returns 404 (needs new URL, not swapped); permits not checked (partial: permits not checked, so not counted as a full review)"
       }
+    },
+    "site:meta-tulsa-ok": {
+      "last_reviewed": "2026-11-12",
+      "summary": "Re-fetched Meta Hello Tulsa page (live, figures match); no news after April 2026 groundbreaking found; added OK Commerce PSO / Light a Life note; ratepayer affirmed unchanged."
     },
     "site:ms-goodyear-az": {
       "last_reviewed": "2026-10-12",
