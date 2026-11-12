@@ -10,9 +10,21 @@
   <meta property="og:description" content="Pick a community, download its draft, and bring specific terms to the next meeting.">
   <link rel="stylesheet" href="styles.css?v=20261111">
   <style>
-    main, .bp-bar > div { max-width: 58rem; margin: auto; }
-    .bp-bar { background: var(--band-bg); color: var(--band-text); }
-    .bp-bar > div { padding: 1rem 1.25rem; }
+    html { scroll-padding-top: var(--bp-header-height, 9rem); }
+    main, .bp-bar > div, .bp-nav { max-width: 58rem; margin: auto; }
+    .bp-bar { position: sticky; top: 0; z-index: 10; background: var(--band-bg); color: var(--band-text); }
+    .bp-bar > div { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: .15rem 1rem; }
+    .bp-bar > div span { font-family: var(--font-serif); font-weight: 600; }
+    .bp-bar a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
+    #bp-back { flex: none; font-size: .9rem; }
+    .bp-bar a:focus-visible { outline: 2px solid var(--band-accent); outline-offset: -2px; }
+    .bp-nav { display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 .6rem; border-top: 1px solid var(--band-hairline); }
+    .bp-nav a { padding: 0 .45rem; font-size: .9rem; }
+    @media (max-width: 42rem) {
+      .bp-nav { justify-content: center; }
+      .bp-nav a { padding: 0 .45rem; font-size: .8rem; white-space: nowrap; }
+    }
+    @media (max-height: 28rem) { .bp-bar { position: static; } html { scroll-padding-top: 0; } }
     .bp-bar a { color: inherit; }
     .bp-intro { padding: 1.25rem 0 .75rem; }
     .bp-kicker { font-weight: 650; color: var(--text-muted); margin: 0 0 .6rem; }
@@ -35,7 +47,20 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to blueprint</a>
-<header class="bp-bar"><div><a href="index.html">Data Center Policy Tracker</a></div></header>
+<header class="bp-bar">
+  <div><span>Data Center Policy Tracker</span><a id="bp-back" href="index.html#overview">← Back to Home</a></div>
+  <nav class="bp-nav" aria-label="Main navigation">
+    <a href="index.html#overview">Home</a>
+    <a href="index.html#ratepayer">The Pledge</a>
+    <a href="index.html#policies">Policy</a>
+    <a href="index.html#moratoriums">Moratoriums</a>
+    <a href="index.html#elections">Elections</a>
+    <a href="index.html#tariffs">Power Costs</a>
+    <a href="index.html#comparison">Companies</a>
+    <a href="index.html#explorer">Sites</a>
+    <a href="index.html#world">International</a>
+  </nav>
+</header>
 <main id="main">
   <header class="bp-intro">
     <p class="bp-kicker">Negotiating guide · U.S. communities · November 2026</p>
@@ -128,6 +153,30 @@
   let theme = preference;
   try { theme = localStorage.getItem('dcb-theme') || preference; } catch { /* Some file previews disable storage. */ }
   document.documentElement.dataset.theme = theme;
+  const bar = document.querySelector('.bp-bar');
+  function sizeHeader() {
+    document.documentElement.style.setProperty('--bp-header-height', bar.offsetHeight + 'px');
+  }
+  sizeHeader();
+  new ResizeObserver(sizeHeader).observe(bar);
+
+  // A shared URL always has a Home fallback. Only reuse a route recorded
+  // by the dashboard that referred this document; never link back off-site.
+  try {
+    const entry = JSON.parse(sessionStorage.getItem('dcb-plans-entry'));
+    if (entry && document.referrer) {
+      const from = new URL(entry.url);
+      const referral = new URL(document.referrer);
+      const dashboard = new URL('index.html', location.href);
+      if ([dashboard.pathname, new URL('./', dashboard).pathname].includes(from.pathname) &&
+          from.origin === dashboard.origin && from.origin === referral.origin &&
+          from.pathname === referral.pathname && from.search === referral.search) {
+        const back = document.getElementById('bp-back');
+        back.href = from.href;
+        back.textContent = '← Back to ' + entry.label;
+      }
+    }
+  } catch { /* Storage is optional; the static Home link remains usable. */ }
   const publicPage = document.querySelector('link[rel="canonical"]').href;
   function draftText(section) {
     return Array.from(section.querySelectorAll('h2, h3, p:not(.bp-actions), dt, dd, li'), el => {
