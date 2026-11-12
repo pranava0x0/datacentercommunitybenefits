@@ -660,8 +660,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Referrers omit fragments. Save the exact tab, filters and open record
   // for the blueprint's Back link without adding them to its share URL.
   document.addEventListener("click", (event) => {
-    const link = event.target.closest('a[href="community-benefits.html"]');
-    if (!link) return;
+    const link = event.target.closest?.('a[href="community-benefits.html"]');
+    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const label = document.querySelector('.tabbar [aria-selected="true"]').textContent.trim();
     try {
       sessionStorage.setItem("dcb-plans-entry", JSON.stringify({url: location.href, label}));

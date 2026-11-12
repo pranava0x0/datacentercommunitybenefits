@@ -1,4 +1,6 @@
 """Draft navigation, evidence limits and the editable artifact users receive."""
+from pathlib import Path
+
 import pytest
 from playwright.sync_api import expect
 
@@ -108,8 +110,11 @@ def test_blueprint_print_urls_fit_the_page(page, base_url):
     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
 
 
-def test_blueprint_back_restores_tracker_route(page, base_url):
-    page.goto(base_url + "/?q=Tulsa#explorer")
+@pytest.mark.parametrize("file_preview", [False, True])
+def test_blueprint_back_restores_tracker_route(page, base_url, file_preview):
+    if file_preview:
+        base_url = (Path(__file__).resolve().parents[2] / "docs").as_uri()
+    page.goto(base_url + "/index.html?q=Tulsa#explorer")
     expect(page.locator("#f-q")).to_have_value("Tulsa")
     origin = page.url
     page.get_by_role("link", name="Community benefits plans", exact=True).click()

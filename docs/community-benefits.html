@@ -160,20 +160,28 @@
   sizeHeader();
   new ResizeObserver(sizeHeader).observe(bar);
 
-  // A shared URL always has a Home fallback. Only reuse a route recorded
-  // by the dashboard that referred this document; never link back off-site.
+  // Consume the handoff once. Only a reload reuses the active return route;
+  // a newly opened shared draft starts at Home even in the same browser tab.
   try {
-    const entry = JSON.parse(sessionStorage.getItem('dcb-plans-entry'));
-    if (entry && document.referrer) {
+    const key = 'dcb-plans-entry';
+    const pending = sessionStorage.getItem(key);
+    const reload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+    const entry = JSON.parse(pending || (reload && sessionStorage.getItem('dcb-plans-return')) || 'null');
+    sessionStorage.removeItem(key);
+    sessionStorage.removeItem('dcb-plans-return');
+    if (entry) {
       const from = new URL(entry.url);
-      const referral = new URL(document.referrer);
       const dashboard = new URL('index.html', location.href);
-      if ([dashboard.pathname, new URL('./', dashboard).pathname].includes(from.pathname) &&
-          from.origin === dashboard.origin && from.origin === referral.origin &&
-          from.pathname === referral.pathname && from.search === referral.search) {
+      const referral = document.referrer ? new URL(document.referrer) : null;
+      const sameDashboard = from.protocol === dashboard.protocol && from.origin === dashboard.origin &&
+        [dashboard.pathname, new URL('./', dashboard).pathname].includes(from.pathname);
+      // File previews omit the referrer; the pending handoff is tab-local.
+      if (sameDashboard && ((!pending && reload) || location.protocol === 'file:' ||
+          (referral && from.origin === referral.origin && from.pathname === referral.pathname && from.search === referral.search))) {
         const back = document.getElementById('bp-back');
         back.href = from.href;
         back.textContent = '← Back to ' + entry.label;
+        sessionStorage.setItem('dcb-plans-return', JSON.stringify(entry));
       }
     }
   } catch { /* Storage is optional; the static Home link remains usable. */ }

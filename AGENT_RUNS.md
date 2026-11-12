@@ -722,3 +722,9 @@ reviews should check where a record is discoverable, not only its text.
 | Run | Worked | Finding / cost | Next time |
 | --- | --- | --- | --- |
 | Independent navigation review | Yes | No material findings. Verified the shared placement, accessible name, focus style, target size and preview routing. Tokens unmetered. | Check how the control looks among its neighbors as well as how many taps it takes. |
+
+### 2026-11-11 — Blueprint return navigation (PR #127)
+
+| Run | Worked | Finding / cost | Next time |
+| --- | --- | --- | --- |
+| Independent return-route and navigation review | Yes | Found that file previews omit the referring page even when the originating route is available. Tokens unmetered. | Test the same filtered-tab round trip over HTTP and file URLs, then open a shared draft independently. |
