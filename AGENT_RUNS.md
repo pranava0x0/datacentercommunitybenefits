@@ -716,3 +716,9 @@ reviews should check where a record is discoverable, not only its text.
 | Resident governance, funds and employment review | Yes | A named monitor also needs records access and a budget; paid places need a cohort target. Tokens unmetered. | Trace a missed apprenticeship from the award to payroll and remedy. |
 | Second phone and print pass | Yes | Confirmed the new named buttons, selected file and wrapped source URLs on a 375px phone and in print. Tokens unmetered. | Reproduce the original failure on the amended page. |
 | GitHub review of first revision | Yes | No findings on 3bef2f9. Tokens unavailable. | Supplement code review with jurisdiction and utility expertise. |
+
+### 2026-11-11 — Finding the plans from the dashboard (PR #126)
+
+| Run | Worked | Finding / cost | Next time |
+| --- | --- | --- | --- |
+| Independent navigation review | Yes | No material findings. Verified the shared placement, accessible name, focus style, target size and preview routing. Tokens unmetered. | Check how the control looks among its neighbors as well as how many taps it takes. |
