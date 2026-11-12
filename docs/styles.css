@@ -6403,16 +6403,32 @@ button.depth-chip:focus-visible {
 .cba-prov-chip { font-size: var(--fs-xs); color: var(--text); background: var(--surface-2); border-radius: 999px; padding: 2px 10px; }
 .cba-prov-num { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
 
+/* A direct route to the editable plans from every dashboard view. */
+.plans-entry { margin: 0 0 12px; }
+.plans-entry a {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  min-height: 44px; padding: .6rem 1rem;
+  border-radius: var(--radius-sm); color: var(--band-text); background: var(--band-bg);
+  text-decoration: none;
+}
+.plans-entry strong { font: 600 var(--fs-xl)/1.25 var(--font-serif); }
+.plans-entry a span span { color: var(--band-text-muted); margin-inline-start: .65rem; }
+.plans-entry a > span:last-child { font-size: var(--fs-xl); color: var(--band-accent); }
+.plans-entry a:is(:hover, :focus-visible) strong { text-decoration: underline; }
+.plans-entry a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+@media (max-width: 640px) {
+  .plans-entry a span span { display: block; margin: .1rem 0 0; font-size: var(--fs-sm); }
+}
+
 /* Planning tools share Frameworks routing; the guide module loads on demand. */
 .home-tasks, .guide-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
-.home-tasks a, .home-tasks button, .guide-controls button, .guide-controls select {
+.home-tasks button, .guide-controls button, .guide-controls select {
   min-height: 44px; padding: 8px 12px; border: 1px solid var(--border);
   border-radius: var(--radius-sm); background: var(--surface); color: var(--text); font: inherit;
 }
 .home-tasks button, .guide-controls button { cursor: pointer; }
-.home-tasks a { display: inline-flex; align-items: center; justify-content: center; text-align: center; }
-.home-tasks a:hover, .home-tasks button:hover, .guide-controls button:hover { border-color: var(--accent); }
-.home-tasks a:focus-visible, .home-tasks button:focus-visible, .guide-controls :focus-visible, .guide-clause summary:focus-visible {
+.home-tasks button:hover, .guide-controls button:hover { border-color: var(--accent); }
+.home-tasks button:focus-visible, .guide-controls :focus-visible, .guide-clause summary:focus-visible {
   outline: 2px solid var(--accent); outline-offset: 3px;
 }
 .planning-guide { max-width: 900px; }
@@ -6430,7 +6446,7 @@ button.depth-chip:focus-visible {
 #view-policies > .subtabs, #subpane-pol-agreements > .subtabs { flex-wrap: wrap; overflow-x: visible; }
 @media (max-width: 640px) {
   .home-tasks { gap: 6px; }
-  .home-tasks a, .home-tasks button { flex: 1; padding: 8px 6px; font-size: var(--fs-sm); }
+  .home-tasks button { flex: 1; padding: 8px 6px; font-size: var(--fs-sm); }
   #view-policies > .subtabs .subtab, #subpane-pol-agreements > .subtabs .subtab { padding: 8px; font-size: var(--fs-sm); }
   .guide-controls select { max-width: 100%; }
   .guide-clause dl { grid-template-columns: 1fr; gap: 4px; }
