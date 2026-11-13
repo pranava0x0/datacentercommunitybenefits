@@ -3451,10 +3451,10 @@
       "announced_year": 2024,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "Five data-center buildings planned, completion early 2028. AMES Construction general contractor; mass grading Feb–Nov 2026. Site off Thornwood Drive in Licking County.",
+      "notes": "Five data-center buildings were planned before Microsoft's April 2025 pause, with completion then expected in early 2028. Microsoft's own construction page (March 2026 update): \"A timeline for vertical construction has not yet been determined.\" AMES Construction general contractor; mass grading Feb–Nov 2026. July 2026: work on the substation expected to begin. Oct 2026: construction continuing. Site off Thornwood Drive in Licking County.",
       "source_url": "https://local.microsoft.com/blog/heath-datacenter-construction-updates/",
       "source_title": "Microsoft Local — Heath datacenter construction updates",
-      "captured_at": "2026-05-16",
+      "captured_at": "2026-11-13",
       "project_page_url": "https://local.microsoft.com/blog/heath-datacenter-construction-updates/",
       "offtaker": "Microsoft"
     },
@@ -3471,11 +3471,12 @@
       "announced_year": 2024,
       "claimed_investment_usd": null,
       "claimed_jobs": null,
-      "notes": "Six data center buildings planned. Construction began February 2026. Site off High Street, ~30 miles east of Columbus in Licking County.",
+      "notes": "Six data center buildings planned. Construction began February 2026. Site off High Street, ~30 miles east of Columbus in Licking County. AMES Construction general contractor; Microsoft's own page puts mass grading at Feb–Nov 2026, with vertical construction to follow site preparation. Oct 2026 update: work on the substation is underway.",
       "source_url": "https://www.10tv.com/article/news/local/microsoft-data-center-construction-update-hebron-licking-county-ohio/530-b589156b-b647-48c9-9b56-781737ea66b6",
       "source_title": "NBC4 — Microsoft begins construction on Hebron data center",
-      "captured_at": "2026-05-16",
-      "offtaker": "Microsoft"
+      "captured_at": "2026-11-13",
+      "offtaker": "Microsoft",
+      "project_page_url": "https://local.microsoft.com/blog/hebron-datacenter-construction-update"
     },
     {
       "id": "microsoft-union-city-ga",
